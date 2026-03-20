@@ -55,6 +55,7 @@ var UI = (function () {
       tab.addEventListener('click', function () {
         var step = parseInt(tab.dataset.step, 10);
         if (tab.classList.contains('disabled')) return;
+        if (_callbacks.onBeforeStepChange) _callbacks.onBeforeStepChange(step);
         renderStep(step);
       });
     });
@@ -239,6 +240,18 @@ var UI = (function () {
         if (_callbacks.onAddItem) _callbacks.onAddItem();
       });
     }
+
+    // Step-1 "Add Items Manually" button — go directly to the table view
+    var btnStep1 = document.getElementById('addItemBtnStep1');
+    if (btnStep1) {
+      btnStep1.addEventListener('click', function () {
+        showTableView();
+        renderStep(2);
+        setTimeout(function () {
+          if (_callbacks.onAddItem) _callbacks.onAddItem();
+        }, 100);
+      });
+    }
   }
 
   function renderStep(stepNumber) {
@@ -255,6 +268,8 @@ var UI = (function () {
     });
 
     if (stepNumber === 2) {
+      // When navigating to step 2 via tab or back button, always show the table
+      showTableView();
       renderItemsTable(_state.items, _state.warnings);
       renderWarningsPanel(_state.warnings, _state.items);
       renderSourceDocuments(_state.sourceDocuments);
@@ -264,6 +279,31 @@ var UI = (function () {
       renderQuoteMeta();
       renderPricingPreview();
     }
+  }
+
+  function showPDFVerifyView(docResults, items, onConfirm) {
+    var verifyPanel = document.getElementById('pdfVerifyPanel');
+    var tablePanel = document.getElementById('tableReviewPanel');
+    if (verifyPanel) verifyPanel.classList.remove('hidden');
+    if (tablePanel) tablePanel.classList.add('hidden');
+
+    var container = document.getElementById('pdfViewerContainer');
+    if (container) {
+      PDFViewer.init(docResults, items, container, {
+        onConfirm: function (acceptedItems) {
+          if (onConfirm) onConfirm(acceptedItems);
+          showTableView();
+        }
+      });
+    }
+  }
+
+  function showTableView() {
+    var verifyPanel = document.getElementById('pdfVerifyPanel');
+    var tablePanel = document.getElementById('tableReviewPanel');
+    if (verifyPanel) verifyPanel.classList.add('hidden');
+    if (tablePanel) tablePanel.classList.remove('hidden');
+    PDFViewer.destroy();
   }
 
   function renderItemsTable(items, warnings) {
@@ -582,7 +622,17 @@ var UI = (function () {
     var summaryEl = document.getElementById('step3PriceSummary');
     if (summaryEl) {
       var summary = Pricing.getPriceSummary(_state.items, _state.pricing);
-      renderPricingSummary(summary);
+      summaryEl.innerHTML = '<table class="price-summary-table">' +
+        '<tr><td>Subtotal</td><td>' + Pricing.formatCurrency(summary.subtotal) + '</td></tr>' +
+        (summary.discountAmount > 0 ?
+          '<tr><td>Discount (' + summary.discountPercent + '%)</td><td style="color:var(--accent-danger)">- ' + Pricing.formatCurrency(summary.discountAmount) + '</td></tr>' +
+          '<tr><td>After Discount</td><td>' + Pricing.formatCurrency(summary.afterDiscount) + '</td></tr>'
+          : '') +
+        (summary.vatEnabled ?
+          '<tr><td>VAT (' + summary.vatRate + '%)</td><td>' + Pricing.formatCurrency(summary.vatAmount) + '</td></tr>'
+          : '') +
+        '<tr class="total-row"><td>TOTAL</td><td>' + Pricing.formatCurrency(summary.total) + '</td></tr>' +
+        '</table>';
     }
   }
 
@@ -903,8 +953,8 @@ var UI = (function () {
       var label = typeLabels[doc.docType] || typeLabels.unknown;
       var pages = doc.pageCount != null ? doc.pageCount + (doc.pageCount === 1 ? ' page' : ' pages') : '? pages';
       return '<div style="padding:4px 0;border-bottom:1px solid var(--border-color)">' +
-        '<div style="font-weight:600;font-size:0.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + _escapeHTML(doc.name) + '">' +
-        _escapeHTML(doc.name) + '</div>' +
+        '<div style="font-weight:600;font-size:0.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + _escapeHtml(doc.name) + '">' +
+        _escapeHtml(doc.name) + '</div>' +
         '<div style="color:var(--text-muted);font-size:0.75rem">' + label + ' &bull; ' + pages + '</div>' +
         '</div>';
     }).join('');
@@ -934,6 +984,8 @@ var UI = (function () {
     updateFileStatus: updateFileStatus,
     updateState: updateState,
     renderSourceDocuments: renderSourceDocuments,
+    showPDFVerifyView: showPDFVerifyView,
+    showTableView: showTableView,
     _sortBy: _sortBy,
     _editItem: _editItem,
     _duplicateItem: _duplicateItem,
