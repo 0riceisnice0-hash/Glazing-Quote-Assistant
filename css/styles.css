@@ -1522,3 +1522,26 @@ body.dark-mode .alert-danger { background: #450a0a; border-color: #991b1b; color
   flex: 1;
   min-width: 0;
 }
+
+/* ===== Diagnostics Panel ===== */
+.diag-doc { margin-bottom: 12px; border: 1px solid var(--border-color); border-radius: 6px; overflow: hidden; }
+.diag-doc-summary { padding: 8px 12px; cursor: pointer; display: flex; align-items: center; gap: 6px; background: var(--bg-secondary); font-weight: 600; font-size: 0.85rem; }
+.diag-doc-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.diag-doc-body { padding: 12px; }
+.diag-row { margin-bottom: 8px; font-size: 0.82rem; }
+.diag-label { font-weight: 600; color: var(--text-secondary); }
+.diag-badge { display: inline-block; padding: 2px 6px; border-radius: 10px; font-size: 0.72rem; font-weight: 600; margin: 0 2px; }
+.diag-badge-success { background: #d1fae5; color: #059669; }
+.diag-badge-warning { background: #fef3c7; color: #d97706; }
+.diag-badge-danger  { background: #fee2e2; color: #dc2626; }
+.diag-badge-info    { background: #dbeafe; color: #2563eb; }
+.diag-badge-secondary { background: var(--bg-tertiary, #f1f5f9); color: var(--text-muted); }
+.diag-badge-high    { background: #d1fae5; color: #059669; }
+.diag-badge-medium  { background: #fef3c7; color: #d97706; }
+.diag-badge-low     { background: #fee2e2; color: #dc2626; }
+.diag-item-badge    { display: inline-block; padding: 1px 6px; border-radius: 8px; font-size: 0.72rem; margin: 2px; border: 1px solid currentColor; opacity: 0.9; }
+.diag-warning       { color: var(--accent-warning, #d97706); font-size: 0.8rem; padding: 2px 0; }
+.diag-raw summary   { cursor: pointer; color: var(--text-muted); font-size: 0.78rem; padding: 4px 0; }
+.diag-pre           { font-family: monospace; font-size: 0.72rem; white-space: pre-wrap; word-break: break-all; background: var(--bg-tertiary, #f1f5f9); padding: 8px; border-radius: 4px; max-height: 300px; overflow-y: auto; margin-top: 4px; }
+.diag-empty         { color: var(--text-muted); font-size: 0.85rem; padding: 12px; }
+.btn-active         { background: rgba(255,255,255,0.2) !important; }

@@ -135,3 +135,27 @@ function isLikelyScanned(fullText, pageCount) {
   const wordsPerPage = pageCount > 0 ? words.length / pageCount : 0;
   return wordsPerPage < 20;
 }
+
+/**
+ * Render a PDF page to a canvas element (used for OCR fallback).
+ * @param {Object} pdfDoc - PDF.js document object
+ * @param {number} pageNum - 1-based page number
+ * @param {number} scale - render scale (default 2.0 for good OCR quality)
+ * @returns {Promise<HTMLCanvasElement>}
+ */
+function renderPageToCanvas(pdfDoc, pageNum, scale) {
+  scale = scale || 2.0;
+  return pdfDoc.getPage(pageNum).then(function (page) {
+    var viewport = page.getViewport({ scale: scale });
+    var canvas = document.createElement('canvas');
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    var ctx = canvas.getContext('2d');
+    return page.render({
+      canvasContext: ctx,
+      viewport: viewport
+    }).promise.then(function () {
+      return canvas;
+    });
+  });
+}
