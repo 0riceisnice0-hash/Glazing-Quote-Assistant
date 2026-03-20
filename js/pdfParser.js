@@ -68,7 +68,8 @@ function extractTextFromPDF(file, onProgress) {
               const text = content.items.map(function (item) {
                 return item.str;
               }).join(' ');
-              pages.push({ pageNum: pageNum, text: text });
+              // Store text items with position data for overlay rendering
+              pages.push({ pageNum: pageNum, text: text, textItems: content.items });
               processed++;
               if (onProgress) onProgress(processed, pageCount, 'Reading page ' + pageNum + ' of ' + pageCount);
             });
@@ -90,7 +91,8 @@ function extractTextFromPDF(file, onProgress) {
             pageCount: pageCount,
             pages: pages,
             fullText: fullText,
-            isScanned: scanned
+            isScanned: scanned,
+            pdfDoc: pdf
           });
         }).catch(function (err) {
           reject(new Error('Failed to extract pages: ' + err.message));

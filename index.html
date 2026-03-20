@@ -142,7 +142,7 @@
                 🔍 Analyse Documents
               </button>
               <span class="text-muted" style="font-size:0.8rem">or</span>
-              <button class="btn btn-secondary" id="addItemBtnStep1" onclick="UI.renderStep(2); setTimeout(function(){ var btn=document.getElementById('addItemBtn'); if(btn) btn.click(); }, 150)">
+              <button class="btn btn-secondary" id="addItemBtnStep1">
                 ✚ Add Items Manually
               </button>
             </div>
@@ -210,7 +210,22 @@
 
     <!-- ===== STEP 2: Review & Edit ===== -->
     <div id="step2" class="step-panel">
-      <div class="step2-layout">
+
+      <!-- PDF Verify sub-view: shown after analysis before the user confirms items -->
+      <div id="pdfVerifyPanel" class="hidden">
+        <div class="card">
+          <div class="card-title">
+            <span class="card-icon">🔍</span>
+            Verify Detected Items
+            <span style="font-size:0.8rem;font-weight:400;color:var(--text-secondary);margin-left:8px">Review what was found in your documents and accept or reject each item</span>
+          </div>
+          <div id="pdfViewerContainer" style="min-height:400px"></div>
+        </div>
+      </div>
+
+      <!-- Table review sub-view: the normal items table -->
+      <div id="tableReviewPanel">
+        <div class="step2-layout">
         <div class="step2-main">
           <div class="card">
             <div class="card-tabs">
@@ -310,10 +325,9 @@
             </div>
           </div>
         </div>
-      </div>
+      </div><!-- /.step2-layout -->
+      </div><!-- /#tableReviewPanel -->
     </div>
-
-    <!-- ===== STEP 3: Generate Quote ===== -->
     <div id="step3" class="step-panel">
       <div class="step3-layout">
         <!-- Left: Form -->
@@ -455,6 +469,7 @@
   <script src="js/dataExtractor.js"></script>
   <script src="js/pricing.js"></script>
   <script src="js/ui.js"></script>
+  <script src="js/pdfViewer.js"></script>
   <script src="js/quoteGenerator.js"></script>
   <script src="js/app.js"></script>
 

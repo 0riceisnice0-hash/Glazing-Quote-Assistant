@@ -97,7 +97,7 @@ var DataExtractor = (function () {
     var docType = classifyDocument(doc.name);
 
     doc.pages.forEach(function (page) {
-      var pageItems = extractFromText(page.text, doc.name, page.pageNum, docType);
+      var pageItems = extractFromText(page.text, doc.name, page.pageNum, docType, page.textItems || []);
       pageItems.forEach(function (item) {
         var ref = item.reference.toUpperCase();
         if (ref && referenceMap[ref]) {
@@ -144,10 +144,11 @@ var DataExtractor = (function () {
     return { items: items, warnings: warnings };
   }
 
-  function extractFromText(text, sourceName, sourcePage, docType) {
+  function extractFromText(text, sourceName, sourcePage, docType, textItems) {
     var items = [];
     if (!text || text.trim().length === 0) return items;
 
+    textItems = textItems || [];
     var refMatches = [];
 
     var refPattern = /\b([WDSCwdsc]\d{2,3})\b/g;
@@ -203,11 +204,41 @@ var DataExtractor = (function () {
       item.notes = extractNotes(context);
       item.description = buildDescription(item);
       item.confidence = scoreConfidence(item);
+      item.textPosition = findItemPosition(textItems, refMatch.ref);
 
       items.push(item);
     });
 
     return items;
+  }
+
+  function findItemPosition(textItems, searchStr) {
+    if (!textItems || !textItems.length || !searchStr) return null;
+    // Exact match first
+    for (var i = 0; i < textItems.length; i++) {
+      var ti = textItems[i];
+      if (ti.str === searchStr) {
+        return {
+          x: ti.transform[4],
+          y: ti.transform[5],
+          width: ti.width || 30,
+          height: Math.abs(ti.transform[3]) || 12
+        };
+      }
+    }
+    // Contains match
+    for (var j = 0; j < textItems.length; j++) {
+      var tj = textItems[j];
+      if (tj.str && tj.str.indexOf(searchStr) !== -1) {
+        return {
+          x: tj.transform[4],
+          y: tj.transform[5],
+          width: tj.width || 30,
+          height: Math.abs(tj.transform[3]) || 12
+        };
+      }
+    }
+    return null;
   }
 
   function tryInferWithoutRef(text, sourceName, sourcePage) {

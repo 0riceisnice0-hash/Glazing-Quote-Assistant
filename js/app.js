@@ -20,7 +20,11 @@ var App = (function () {
       onStateChange: onStateChange,
       onExportJSON: onExportJSON,
       onImportJSON: onImportJSON,
-      onDarkModeToggle: onDarkModeToggle
+      onDarkModeToggle: onDarkModeToggle,
+      onBeforeStepChange: function (step) {
+        // Sync form fields to model whenever navigating to the Generate Quote step
+        if (step === 3) _syncFormStateToModel();
+      }
     });
 
     UI.setupSearchAndFilters();
@@ -162,10 +166,24 @@ var App = (function () {
             UI.showToast('No glazing items found. The documents may be scanned or use an unrecognised format. You can add items manually.', 'warning');
             _showManualEntryPrompt();
           } else {
-            UI.showToast('Extracted ' + newItems.length + ' item(s) from ' + stats.docsProcessed + ' document(s)', 'success');
+            UI.showToast('Extracted ' + newItems.length + ' item(s) from ' + stats.docsProcessed + ' document(s) — please verify below', 'success');
             _enableStep2Tab();
             _enableStep3Tab();
+            // Show PDF verify view so user can review detections before the table
             UI.renderStep(2);
+            UI.showPDFVerifyView(validDocs, _state.items, function (acceptedItems) {
+              // Replace state items with only the accepted ones
+              _state.items = Pricing.recalculateAll(acceptedItems, _state.pricing);
+              _state.warnings = _state.warnings.filter(function (w) {
+                return _state.items.some(function (it) { return it.id === w.itemId; }) || !w.itemId;
+              });
+              saveToLocalStorage(_state);
+              UI.updateState(_state);
+              UI.renderItemsTable(_state.items, _state.warnings);
+              UI.renderWarningsPanel(_state.warnings, _state.items);
+              UI.renderSourceDocuments(_state.sourceDocuments);
+              UI.showToast(_state.items.length + ' item(s) confirmed', 'success');
+            });
           }
         } catch (err) {
           UI.hideLoadingOverlay();
