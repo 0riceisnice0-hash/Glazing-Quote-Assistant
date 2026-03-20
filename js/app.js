@@ -34,6 +34,7 @@ var App = (function () {
     _setupResetButton();
     _setupModalClose();
     _startAutoSave();
+    Diagnostics.init();
 
     UI.updateFileList(_pendingFiles);
     UI.renderItemsTable(_state.items, _state.warnings);
@@ -106,6 +107,7 @@ var App = (function () {
 
   function _runAnalysis() {
     UI.showLoadingOverlay('Analysing Documents…', 'Starting PDF text extraction');
+    Diagnostics.clear();
 
     // Reset extraction results so re-running analysis doesn't accumulate duplicates
     _state.items = [];
@@ -118,16 +120,40 @@ var App = (function () {
         UI.updateLoadingMessage('Analysing Documents…', file.name + ': ' + msg);
         UI.updateFileStatus(i, done + '/' + total + ' pages');
       }).then(function (docResult) {
+        var classification = DataExtractor.classifyDocument(docResult.name, docResult.fullText || '');
         UI.updateFileStatus(i, '✅ Done (' + docResult.pageCount + ' pages)');
 
-        if (docResult.isScanned) {
-          UI.showToast('"' + file.name + '" appears to be a scanned PDF — text extraction may be limited', 'warning');
+        // For scanned documents, attempt OCR (skip admin/drawing types)
+        if (docResult.isScanned && classification.type !== 'admin' && classification.type !== 'drawing') {
+          if (OcrFallback.checkAvailability()) {
+            UI.updateLoadingMessage('Running OCR…', '"' + file.name + '" appears scanned — running OCR (this may take a moment)');
+            UI.updateFileStatus(i, '🔬 Running OCR…');
+            return OcrFallback.processScannedDocument(docResult, function (pg, total, msg) {
+              UI.updateLoadingMessage('Running OCR…', msg);
+              UI.updateFileStatus(i, 'OCR ' + pg + '/' + total);
+            }).then(function (ocrResult) {
+              UI.updateFileStatus(i, '✅ OCR done (' + ocrResult.pageCount + ' pages)');
+              _state.sourceDocuments.push({
+                name: ocrResult.name,
+                pageCount: ocrResult.pageCount,
+                docType: classification.type,
+                classification: classification,
+                extractedText: ocrResult.fullText ? ocrResult.fullText.substring(0, 500) : '',
+                ocrAttempted: true,
+                ocrSuccess: ocrResult.ocrSuccess || false
+              });
+              return ocrResult;
+            });
+          } else {
+            UI.showToast('"' + file.name + '" appears to be a scanned PDF — OCR library unavailable. Refresh the page or add items manually.', 'warning');
+          }
         }
 
         _state.sourceDocuments.push({
           name: docResult.name,
           pageCount: docResult.pageCount,
-          docType: DataExtractor.classifyDocument(docResult.name),
+          docType: classification.type,
+          classification: classification,
           extractedText: docResult.fullText ? docResult.fullText.substring(0, 500) : ''
         });
 
@@ -158,7 +184,16 @@ var App = (function () {
           var stats = extractResult.stats;
           var debugLog = extractResult.debugLog || [];
 
-          // Log diagnostic info to console for developers
+          // Record diagnostics for each document
+          validDocs.forEach(function (doc) {
+            var cls = DataExtractor.classifyDocument(doc.name, doc.fullText || '');
+            var docItems = newItems.filter(function (it) { return it.sourceDocument === doc.name; });
+            var docWarnings = newWarnings.filter(function (w) {
+              return w.itemId && docItems.some(function (it) { return it.id === w.itemId; });
+            });
+            Diagnostics.recordDocument(doc, cls, docItems, docWarnings, doc.ocrAttempted);
+          });
+
           if (debugLog.length > 0) {
             console.group('Glazing Extractor — Diagnostic Log');
             debugLog.forEach(function (line) { console.log(line); });
@@ -176,7 +211,7 @@ var App = (function () {
           UI.hideLoadingOverlay();
 
           if (newItems.length === 0) {
-            UI.showToast('No glazing items found. The documents may be scanned or use an unrecognised format. You can add items manually.', 'warning');
+            UI.showToast('No glazing items found. Documents may be scanned or use an unrecognised format. Use "🔬 Diagnostics" to investigate.', 'warning');
             _showManualEntryPrompt();
           } else {
             UI.showToast('Extracted ' + newItems.length + ' item(s) from ' + stats.docsProcessed + ' document(s) — please verify below', 'success');

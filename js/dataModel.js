@@ -78,7 +78,9 @@ function createItem(partial) {
     totalPrice: 0,
     manualOverride: false,
     sourceDocument: '',
-    sourcePage: 0
+    sourcePage: 0,
+    textPosition: null,
+    extractionMethod: ''  // 'pdf.js' | 'ocr' | 'manual'
   };
   return Object.assign({}, defaults, partial);
 }

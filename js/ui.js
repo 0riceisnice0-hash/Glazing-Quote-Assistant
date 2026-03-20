@@ -946,6 +946,7 @@ var UI = (function () {
       bq: '📑 BQ',
       drawing: '📐 Drawing',
       admin: '📁 Admin',
+      specification: '📝 Specification',
       unknown: '📄 Document'
     };
 

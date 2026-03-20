@@ -6,26 +6,38 @@ var DataExtractor = (function () {
   // Document classification
   // -----------------------------------------------------------------------
 
-  function classifyDocument(docName) {
+  function classifyDocument(docName, textContent) {
     var name = (docName || '').toLowerCase();
 
-    // Schedule/BQ keywords take priority
-    if (/window\s*schedule|door\s*schedule|glazing\s*schedule/.test(name)) return 'schedule';
-    if (/\bbq\b|bill\s*of\s*quantities|schedule\s*of\s*works/.test(name)) return 'bq';
+    // Filename-based (high confidence)
+    if (/window\s*schedule|door\s*schedule|glazing\s*schedule/.test(name))
+      return { type: 'schedule', confidence: 'high', reason: 'Filename contains schedule keyword' };
+    if (/\bbq\b|bill\s*of\s*quantities|schedule\s*of\s*works/.test(name))
+      return { type: 'bq', confidence: 'high', reason: 'Filename contains BQ keyword' };
+    if (/warrant|guarantee|collateral|enquiry\s*letter|letter\s*of\s*enquiry/.test(name))
+      return { type: 'admin', confidence: 'high', reason: 'Filename matches admin/legal document pattern' };
+    // Drawing-number filenames like "3847.C37 …", "3847.T05 …", "3847.T12 …"
+    if (/\d{4}\.[a-z]\d{2}/.test(name))
+      return { type: 'drawing', confidence: 'high', reason: 'Filename matches architectural drawing number pattern' };
+    if (/\b(?:elevation|floor\s*plan|site\s*plan|section|detail|proposed|cladding)\b/.test(name))
+      return { type: 'drawing', confidence: 'high', reason: 'Filename contains drawing type keyword' };
+    if (/\b(?:spec(?:ification)?)\b/.test(name))
+      return { type: 'specification', confidence: 'high', reason: 'Filename contains specification keyword' };
 
-    // Admin / legal documents — skip entirely
-    if (/warrant|guarantee|collateral|enquiry\s*letter|letter\s*of\s*enquiry/.test(name)) return 'admin';
+    // Content-based (medium confidence) — only when text is available
+    if (textContent && textContent.length > 0) {
+      var sample = textContent.substring(0, 3000).toLowerCase();
+      if (/window\s*schedule|door\s*schedule|glazing\s*schedule|opening\s*size|window\s*ref|glazing\s*ref/.test(sample))
+        return { type: 'schedule', confidence: 'medium', reason: 'Content contains schedule keywords' };
+      if (/bill\s*of\s*quantities|measured\s*work|trade\s*cont|schedule\s*of\s*rates/.test(sample))
+        return { type: 'bq', confidence: 'medium', reason: 'Content contains BQ keywords' };
+      if (/drawing\s*no|revision\s*[a-z]\b|scale\s*1\s*:|north\s*point|title\s*block/.test(sample))
+        return { type: 'drawing', confidence: 'medium', reason: 'Content contains drawing keywords' };
+      if (/\bspecification\b|\bclause\b|\bbritish\s*standard\b|\bbs\s*en\b/.test(sample))
+        return { type: 'specification', confidence: 'medium', reason: 'Content contains specification keywords' };
+    }
 
-    // Drawing-number filenames like "3847.C37 …", "3847.T05 …", "3847.C05.D …", "3847.T12 …"
-    if (/\d{4}\.[a-z]\d{2}/.test(name)) return 'drawing';
-
-    // Generic drawing / plan types (without the numeric sheet prefix caught above)
-    if (/\b(?:elevation|floor\s*plan|site\s*plan|section|detail|proposed|cladding)\b/.test(name)) return 'drawing';
-
-    // Specification documents
-    if (/\b(?:spec(?:ification)?)\b/.test(name)) return 'specification';
-
-    return 'unknown';
+    return { type: 'unknown', confidence: 'low', reason: 'Could not classify document from filename or content' };
   }
 
   function isScheduleOrBQ(docType) {
@@ -480,16 +492,27 @@ var DataExtractor = (function () {
     var scheduleItems = {};
     var bqItems       = {};
 
+    var allDrawingRefs = {};
+    var allSpecNotes   = [];
+
     documents.forEach(function (doc) {
       stats.docsProcessed++;
       stats.pagesProcessed += doc.pages.length;
 
-      var docType = classifyDocument(doc.name);
-      debugLog.push('[' + docType.toUpperCase() + '] ' + doc.name + ' (' + doc.pages.length + ' page(s))');
+      var classification = classifyDocument(doc.name, doc.fullText || '');
+      var docType = classification.type;
+      debugLog.push('[' + docType.toUpperCase() + ' / ' + classification.confidence + '] ' + doc.name + ' (' + doc.pages.length + ' page(s)) — ' + classification.reason);
 
       var docResult = extractFromDocument(doc);
       allItems    = allItems.concat(docResult.items);
       allWarnings = allWarnings.concat(docResult.warnings);
+
+      if (docResult.drawingRefs) {
+        docResult.drawingRefs.forEach(function (r) { allDrawingRefs[r] = true; });
+      }
+      if (docResult.specNotes) {
+        allSpecNotes = allSpecNotes.concat(docResult.specNotes);
+      }
 
       if (docResult.items.length > 0) {
         debugLog.push('  → Found ' + docResult.items.length + ' item(s): ' +
@@ -521,21 +544,81 @@ var DataExtractor = (function () {
       allWarnings = allWarnings.concat(crossWarnings);
     }
 
+    // Cross-validate drawing refs against schedule items
+    if (Object.keys(scheduleItems).length > 0 && Object.keys(allDrawingRefs).length > 0) {
+      Object.keys(allDrawingRefs).forEach(function (ref) {
+        if (!scheduleItems[ref]) {
+          allWarnings.push({
+            id: generateId(),
+            type: 'cross-ref',
+            message: ref + ': Found in drawing(s) but not in Window Schedule — check if this item is missing',
+            itemId: null,
+            severity: 'warning'
+          });
+        }
+      });
+    }
+
+    if (allSpecNotes.length > 0) {
+      debugLog.push('Specification notes: ' + allSpecNotes.join('; '));
+    }
+
     allItems = deduplicateItems(allItems);
     stats.itemsFound = allItems.length;
     stats.warnings   = allWarnings.length;
 
-    return { items: allItems, warnings: allWarnings, stats: stats, debugLog: debugLog };
+    return { items: allItems, warnings: allWarnings, stats: stats, debugLog: debugLog, specNotes: allSpecNotes };
   }
 
-  function extractFromDocument(doc) {
-    var docType = classifyDocument(doc.name);
+  function extractDrawingRefs(doc) {
+    var refs = {};
+    var refPattern = /\b([A-Z]{0,2}[WDSC]\d{2,4})\b/gi;
+    (doc.pages || []).forEach(function (page) {
+      var text = page.text || '';
+      var match;
+      refPattern.lastIndex = 0;
+      while ((match = refPattern.exec(text)) !== null) {
+        var ref = match[1].toUpperCase();
+        var preceding = text.substring(Math.max(0, match.index - DRAWING_NUM_LOOKBACK), match.index);
+        if (!/\d{4,}\.\s*[A-Z]\d*\s*$/.test(preceding)) {
+          refs[ref] = true;
+        }
+      }
+    });
+    return Object.keys(refs);
+  }
+
+  function extractSpecNotes(doc) {
+    var notes = [];
+    var text = (doc.pages || []).map(function (p) { return p.text || ''; }).join('\n');
+    if (/triple[\s\-]?glaz/i.test(text)) notes.push('Specification requires triple glazing');
+    if (/fire[\s\-]?rated?/i.test(text)) notes.push('Fire-rated glazing specified');
+    if (/acoustic/i.test(text)) notes.push('Acoustic glazing specified');
+    if (/bs\s*en\s*\d+/i.test(text)) {
+      var bsMatches = text.match(/bs\s*en\s*\d+(?:[\s:\-]\d+)*/gi) || [];
+      bsMatches.slice(0, 5).forEach(function (m) { notes.push('Standard: ' + m.trim()); });
+    }
+    return notes;
+  }
+
+    function extractFromDocument(doc) {
+    var classification = classifyDocument(doc.name, doc.fullText || '');
+    var docType = classification.type;
 
     // Admin documents contain no glazing data — skip entirely to avoid false positives
     if (docType === 'admin') return { items: [], warnings: [] };
 
-    // Architectural drawings — skip item extraction (references in title blocks cause false positives)
-    if (docType === 'drawing') return { items: [], warnings: [] };
+    // Architectural drawings — extract reference markers for cross-validation only
+    if (docType === 'drawing') {
+      var drawingRefs = extractDrawingRefs(doc);
+      return { items: [], warnings: [], drawingRefs: drawingRefs };
+    }
+
+    // Specification documents — extract material notes only, no dimensions
+    if (docType === 'specification') {
+      var specNotes = extractSpecNotes(doc);
+      return { items: [], warnings: [], specNotes: specNotes };
+    }
 
     var items       = [];
     var warnings    = [];
@@ -963,7 +1046,7 @@ var DataExtractor = (function () {
 
     // Only cross-reference schedule and BQ type documents
     var relevantDocs = documents.filter(function (doc) {
-      return isRelevantForCrossRef(classifyDocument(doc.name));
+      return isRelevantForCrossRef(classifyDocument(doc.name).type);
     });
     if (relevantDocs.length < 2) return warnings;
 
@@ -1062,7 +1145,8 @@ var DataExtractor = (function () {
       manualOverride: false,
       sourceDocument: '',
       sourcePage: 0,
-      textPosition: null
+      textPosition: null,
+      extractionMethod: 'pdf.js'
     };
     return Object.assign({}, defaults, partial);
   }
