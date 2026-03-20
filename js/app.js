@@ -156,6 +156,14 @@ var App = (function () {
           var newItems = extractResult.items;
           var newWarnings = extractResult.warnings;
           var stats = extractResult.stats;
+          var debugLog = extractResult.debugLog || [];
+
+          // Log diagnostic info to console for developers
+          if (debugLog.length > 0) {
+            console.group('Glazing Extractor — Diagnostic Log');
+            debugLog.forEach(function (line) { console.log(line); });
+            console.groupEnd();
+          }
 
           newItems = Pricing.recalculateAll(newItems, _state.pricing);
 
