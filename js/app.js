@@ -107,6 +107,11 @@ var App = (function () {
   function _runAnalysis() {
     UI.showLoadingOverlay('Analysing Documents…', 'Starting PDF text extraction');
 
+    // Reset extraction results so re-running analysis doesn't accumulate duplicates
+    _state.items = [];
+    _state.warnings = [];
+    _state.sourceDocuments = [];
+
     var filePromises = _pendingFiles.map(function (file, i) {
       UI.updateFileStatus(i, '⏳ Extracting…');
       return extractTextFromPDF(file, function (done, total, msg) {
@@ -154,8 +159,8 @@ var App = (function () {
 
           newItems = Pricing.recalculateAll(newItems, _state.pricing);
 
-          _state.items = _state.items.concat(newItems);
-          _state.warnings = _state.warnings.concat(newWarnings);
+          _state.items = newItems;
+          _state.warnings = newWarnings;
 
           saveToLocalStorage(_state);
           UI.updateState(_state);

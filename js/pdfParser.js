@@ -64,12 +64,28 @@ function extractTextFromPDF(file, onProgress) {
 
         function extractPage(pageNum) {
           return pdf.getPage(pageNum).then(function (page) {
+            var viewport = page.getViewport({ scale: 1 });
             return page.getTextContent().then(function (content) {
-              const text = content.items.map(function (item) {
-                return item.str;
-              }).join(' ');
-              // Store text items with position data for overlay rendering
-              pages.push({ pageNum: pageNum, text: text, textItems: content.items });
+              // Parse structured items with spatial coordinates from the transform matrix.
+              // transform[4] = x (left edge), transform[5] = y (baseline, PDF origin bottom-left)
+              // transform[3] = font size (signed; height = |transform[3]|)
+              var textItems = content.items.map(function (item) {
+                return {
+                  str: item.str,
+                  x: item.transform[4],
+                  y: item.transform[5],
+                  width: item.width || 0,
+                  height: Math.abs(item.transform[3]) || 10
+                };
+              });
+              var text = textItems.map(function (it) { return it.str; }).join(' ');
+              pages.push({
+                pageNum: pageNum,
+                text: text,
+                textItems: textItems,
+                width: viewport.width,
+                height: viewport.height
+              });
               processed++;
               if (onProgress) onProgress(processed, pageCount, 'Reading page ' + pageNum + ' of ' + pageCount);
             });
