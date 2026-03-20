@@ -55,7 +55,7 @@ var Diagnostics = (function () {
       isScanned: docResult.isScanned,
       classification: classification,
       textLength: docResult.fullText ? docResult.fullText.length : 0,
-      rawTextSample: docResult.fullText ? docResult.fullText.substring(0, 2000) : '(no text extracted)',
+      rawTextSample: docResult.fullText || '(no text extracted)',
       textItemCount: docResult.pages ? docResult.pages.reduce(function (s, p) { return s + (p.textItems ? p.textItems.length : 0); }, 0) : 0,
       extractedItems: (extractedItems || []).map(function (it) {
         return { ref: it.reference, confidence: it.confidence, width: it.width, height: it.height, method: it.extractionMethod };
@@ -126,7 +126,7 @@ var Diagnostics = (function () {
         '<div class="diag-row"><span class="diag-label">Extraction method:</span> ' + (rec.ocrAttempted && rec.ocrSuccess ? 'OCR (Tesseract.js)' : 'PDF.js text layer') + '</div>' +
         '<div class="diag-row"><span class="diag-label">Items extracted (' + rec.extractedItems.length + '):</span><div style="margin-top:4px">' + itemsHtml + '</div></div>' +
         '<div class="diag-row"><span class="diag-label">Warnings:</span><div>' + warningsHtml + '</div></div>' +
-        '<details class="diag-raw"><summary>Raw extracted text (first 2000 chars)</summary>' +
+        '<details class="diag-raw"><summary>Raw extracted text (full)</summary>' +
         '<pre class="diag-pre">' + _esc(rec.rawTextSample) + '</pre>' +
         '</details>' +
         '</div>' +

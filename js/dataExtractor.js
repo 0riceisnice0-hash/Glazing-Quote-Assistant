@@ -509,6 +509,12 @@ var DataExtractor = (function () {
     // e.g. "EW 19" → "EW19", "ID 04" → "ID04"
     var normText = normaliseSpaceSplitRefs(text);
 
+    // Insert space between trailing digits and reference-like prefixes.
+    // Smart text joining can produce "2100EW30" when the gap between text items
+    // is <2pt.  \b doesn't fire between two \w chars (digit→letter), so the
+    // reference regex misses "EW30".  This targeted fix restores the boundary.
+    normText = normText.replace(/(\d)([EI]?[WDSC]\d{2,3}\b)/gi, '$1 $2');
+
     var hasPositions = textItems.length > 0 && textItems[0] && textItems[0].x !== undefined;
 
     // Step 1 — Find all unique valid references in this page
@@ -533,6 +539,19 @@ var DataExtractor = (function () {
     }
 
     console.log('[RefFirst] Page ' + sourcePage + ' of "' + sourceName + '": found ' + Object.keys(foundRefs).length + ' unique refs: ' + Object.keys(foundRefs).join(', '));
+
+    // Diagnostic: check if ED/D refs appear in the raw text but were missed
+    var edCheck = normText.match(/\b[ED][D]?\d{2,3}\b/gi);
+    if (edCheck) {
+      var edFiltered = edCheck.filter(function (r) { return !foundRefs[r.toUpperCase()]; });
+      if (edFiltered.length > 0) {
+        console.log('[RefFirst] Potential door refs in text but NOT captured: ' + edFiltered.join(', '));
+      }
+    }
+    // Also log last 300 chars of normText to see if doors section exists
+    if (normText.length > 500) {
+      console.log('[RefFirst] normText tail (last 300 chars): "' + normText.substring(normText.length - 300) + '"');
+    }
 
     // Step 2 & 3 — For each reference, gather nearby text cluster and extract attributes
     Object.keys(foundRefs).sort().forEach(function (ref) {
@@ -641,8 +660,11 @@ var DataExtractor = (function () {
         console.log('[RefFirst] ' + ref + ' dims: ' + (dims ? dims.width + 'x' + dims.height : 'NONE'));
       }
 
-      // Use the richer of the two context windows for attribute extraction
-      var attrContext = (charContext && charContext.length > clusterText.length) ? charContext : clusterText;
+      // Always prefer charContext for attribute extraction — it represents the
+      // text row for this ref in document order.  clusterText may contain data
+      // from other columns/rows due to spatial proximity (e.g. in column-based
+      // CAD schedules the same-row cluster is just all other ref names).
+      var attrContext = charContext || clusterText;
       item.quantity    = extractQuantity(attrContext) || 1;
       item.frameType   = extractFrameType(attrContext);
       item.glazingSpec = buildGlazingSpec(attrContext);
