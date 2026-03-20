@@ -475,9 +475,11 @@ var DataExtractor = (function () {
   var REF_FIRST_PATTERN = /\b(E?[WDSC]\d{2,3}|I[WD]\d{2,3})\b/gi;
 
   // Spatial thresholds specific to reference-first clustering
-  var REF_FIRST_Y_TOL   = 15;  // pt — items within this of the ref Y are "same row"
-  var REF_FIRST_Y_BELOW = 40;  // pt — items this far below the ref row (multi-line cells)
-  var REF_FIRST_X_RANGE = 500; // pt — max horizontal reach from the ref item
+  var REF_FIRST_Y_TOL   = 15;   // pt — items within this of the ref Y are "same row"
+  var REF_FIRST_Y_BELOW = 40;   // pt — items this far below the ref row (multi-line cells)
+  var REF_FIRST_X_RANGE = 1500; // pt — max horizontal reach from the ref item
+  // Wide range needed because CAD-exported schedules can be A3 (842pt) or A1 (2384pt)
+  // landscape, with dimension columns far to the right of the reference column.
 
   // Find the text item that best represents a given reference string.
   // Handles exact matches, containing matches, and split refs ("EW"+"19").
@@ -575,6 +577,28 @@ var DataExtractor = (function () {
         );
       }
 
+      // Build a secondary character-context window for dimension/attribute fallback.
+      // Even when spatial clustering produces text, it may miss columns that are far
+      // away — the character-context window captures everything between this ref and
+      // the next ref in TEXT ORDER (not sorted order), spanning the full table row.
+      var charContext = '';
+      // Sort all refs by their text position to find the next neighbor in document order
+      var refsByPos = Object.keys(foundRefs).sort(function (a, b) {
+        return foundRefs[a].firstIndex - foundRefs[b].firstIndex;
+      });
+      var posIdx = refsByPos.indexOf(ref);
+      var nextRefStart = (posIdx < refsByPos.length - 1)
+        ? foundRefs[refsByPos[posIdx + 1]].firstIndex
+        : Math.min(normText.length, refData.firstIndex + CTX_FORWARD_FULL);
+      // Guard against next ref being BEFORE current ref (shouldn't happen with pos sort, but be safe)
+      if (nextRefStart <= refData.firstIndex) {
+        nextRefStart = Math.min(normText.length, refData.firstIndex + CTX_FORWARD_FULL);
+      }
+      charContext = normText.substring(
+        refData.firstIndex,
+        Math.min(normText.length, nextRefStart)
+      );
+
       var item = createItem({
         reference: ref,
         type: inferType(ref),
@@ -583,7 +607,7 @@ var DataExtractor = (function () {
         extractionMethod: 'reference-first'
       });
 
-      // Dimensions
+      // Dimensions — try spatial cluster first, then character-context fallback
       var dims = extractDimensionsFromText(clusterText);
       if (!dims) {
         // Adjacent 3–4 digit numbers may be W and H in separate table columns
@@ -595,14 +619,36 @@ var DataExtractor = (function () {
           }
         }
       }
+      // Character-context fallback for dimensions
+      if (!dims && charContext) {
+        dims = extractDimensionsFromText(charContext);
+        if (!dims) {
+          var adjNums2 = charContext.match(/\b(\d{3,4})\s+(\d{3,4})\b/);
+          if (adjNums2) {
+            var aw2 = parseInt(adjNums2[1], 10), ah2 = parseInt(adjNums2[2], 10);
+            if (aw2 >= 100 && aw2 <= 9000 && ah2 >= 100 && ah2 <= 9000) {
+              dims = { width: aw2, height: ah2 };
+            }
+          }
+        }
+      }
       if (dims) { item.width = dims.width; item.height = dims.height; }
 
-      item.quantity    = extractQuantity(clusterText) || 1;
-      item.frameType   = extractFrameType(clusterText);
-      item.glazingSpec = buildGlazingSpec(clusterText);
-      item.openingType = extractOpeningType(clusterText);
-      item.location    = extractLocation(clusterText);
-      item.notes       = extractNotes(clusterText);
+      // Debug: log first 3 items' context and dims for troubleshooting
+      if (items.length < 3) {
+        console.log('[RefFirst] ' + ref + ' clusterText(' + clusterText.length + '): "' + clusterText.substring(0, 200) + '"');
+        console.log('[RefFirst] ' + ref + ' charContext(' + charContext.length + '): "' + charContext.substring(0, 200) + '"');
+        console.log('[RefFirst] ' + ref + ' dims: ' + (dims ? dims.width + 'x' + dims.height : 'NONE'));
+      }
+
+      // Use the richer of the two context windows for attribute extraction
+      var attrContext = (charContext && charContext.length > clusterText.length) ? charContext : clusterText;
+      item.quantity    = extractQuantity(attrContext) || 1;
+      item.frameType   = extractFrameType(attrContext);
+      item.glazingSpec = buildGlazingSpec(attrContext);
+      item.openingType = extractOpeningType(attrContext);
+      item.location    = extractLocation(attrContext);
+      item.notes       = extractNotes(attrContext);
 
       if (refTextItem) {
         item.textPosition = {
