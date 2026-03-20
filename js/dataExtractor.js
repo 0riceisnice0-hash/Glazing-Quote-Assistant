@@ -77,6 +77,23 @@ var DataExtractor = (function () {
   var CTX_FORWARD_DIMS  = 250; // chars after the reference (dimension/qty only — forward avoids prior item's data)
   // Drawing-number lookback: "3847. C37" is 9 chars; use 12 to be safe for extra whitespace
   var DRAWING_NUM_LOOKBACK = 12;
+  // Drawing-number filter regex — rejects refs that appear to be part of a drawing sheet
+  // reference such as "3847.C37" or "3847.T05".  The letter+digits part is optional so
+  // that "3847." (where the ref letter begins the captured group) is also matched correctly.
+  var DRAWING_NUM_FILTER = /\d{4,}\.\s*([A-Z]\d*)?\s*$/;
+  // Space-split reference normalisation: "EW 19" → "EW19", "ID 04" → "ID04".
+  // Used in several places to pre-process text before reference scanning.
+  var SPACE_SPLIT_REF_NORM = /\b([A-Z]{1,2}[WDSC])\s+(\d{2,4})\b/gi;
+  // Minimum number of characters in a page text string for it to be considered
+  // textual (as opposed to scanned / image-only).
+  var MIN_TEXT_LENGTH = 50;
+
+  // Normalise space-split references arising from PDF text fragmentation.
+  // e.g. "EW 19" → "EW19", "ID 04" → "ID04".
+  // Creates a fresh regex instance each call to avoid lastIndex state issues.
+  function normaliseSpaceSplitRefs(text) {
+    return text.replace(/\b([A-Z]{1,2}[WDSC])\s+(\d{2,4})\b/gi, '$1$2');
+  }
 
   // Group text items into rows by Y coordinate.
   // In PDF space the origin (0,0) is bottom-left, so higher Y = higher on page.
@@ -415,6 +432,155 @@ var DataExtractor = (function () {
   }
 
   // -----------------------------------------------------------------------
+  // Strategy 0 — Reference-first extraction (primary strategy for schedule docs)
+  // -----------------------------------------------------------------------
+
+  // Reference pattern for the reference-first strategy — more specific than the
+  // generic fallback pattern.  Covers:
+  //   E?[WDSC]\d{2,3} — EW01–EW38, ED01–ED03, W01, D01, S01, C01
+  //   I[WD]\d{2,3}    — IW01, ID01 (internal window / door)
+  var REF_FIRST_PATTERN = /\b(E?[WDSC]\d{2,3}|I[WD]\d{2,3})\b/gi;
+
+  // Spatial thresholds specific to reference-first clustering
+  var REF_FIRST_Y_TOL   = 15;  // pt — items within this of the ref Y are "same row"
+  var REF_FIRST_Y_BELOW = 40;  // pt — items this far below the ref row (multi-line cells)
+  var REF_FIRST_X_RANGE = 500; // pt — max horizontal reach from the ref item
+
+  // Find the text item that best represents a given reference string.
+  // Handles exact matches, containing matches, and split refs ("EW"+"19").
+  function findRefTextItem(textItems, ref) {
+    var alphaPrefix = ref.match(/^([A-Z]+)/);
+    var prefixMatch = null;
+
+    for (var i = 0; i < textItems.length; i++) {
+      var ti = textItems[i];
+      if (!ti.str) continue;
+      var upper = ti.str.trim().toUpperCase();
+      if (upper === ref) return ti;                                    // exact match
+      if (upper.indexOf(ref) !== -1 && !prefixMatch) prefixMatch = ti; // contains ref
+      // Split ref: alphabetic prefix in its own item (e.g. "EW" for "EW19")
+      if (alphaPrefix && alphaPrefix[1].length >= 2 && upper === alphaPrefix[1] && !prefixMatch) {
+        prefixMatch = ti;
+      }
+    }
+    return prefixMatch;
+  }
+
+  function tryReferenceFirstExtraction(textItems, text, sourceName, sourcePage) {
+    var items = [];
+    if (!text || text.trim().length === 0) return items;
+
+    // Normalise space-split refs arising from PDF text fragmentation
+    // e.g. "EW 19" → "EW19", "ID 04" → "ID04"
+    var normText = normaliseSpaceSplitRefs(text);
+
+    var hasPositions = textItems.length > 0 && textItems[0] && textItems[0].x !== undefined;
+
+    // Step 1 — Find all unique valid references in this page
+    var pattern = new RegExp(REF_FIRST_PATTERN.source, 'gi');
+    var foundRefs = {};
+    var match;
+
+    while ((match = pattern.exec(normText)) !== null) {
+      var ref = match[1].toUpperCase();
+      var idx = match.index;
+
+      // Reject drawing-sheet number context (e.g. "3847.C37")
+      var preceding = normText.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
+      if (DRAWING_NUM_FILTER.test(preceding)) continue;
+
+      if (!foundRefs[ref]) {
+        foundRefs[ref] = { ref: ref, firstIndex: idx };
+      }
+    }
+
+    // Step 2 & 3 — For each reference, gather nearby text cluster and extract attributes
+    Object.keys(foundRefs).sort().forEach(function (ref) {
+      var refData  = foundRefs[ref];
+      var clusterText = '';
+      var refTextItem = null;
+
+      if (hasPositions) {
+        refTextItem = findRefTextItem(textItems, ref);
+
+        if (refTextItem) {
+          // Same-row cluster: items within Y_TOL of the ref and within X_RANGE
+          var sameRow = textItems.filter(function (it) {
+            return it.str && it.str.trim().length > 0 &&
+                   Math.abs(it.y - refTextItem.y) <= REF_FIRST_Y_TOL &&
+                   it.x >= refTextItem.x - REF_FIRST_X_RANGE &&
+                   it.x <= refTextItem.x + REF_FIRST_X_RANGE;
+          });
+          sameRow.sort(function (a, b) { return a.x - b.x; });
+
+          // Below-row cluster: next 2–3 visual rows (lower y in PDF space = lower on page)
+          var belowRow = textItems.filter(function (it) {
+            return it.str && it.str.trim().length > 0 &&
+                   it.y < (refTextItem.y - REF_FIRST_Y_TOL) &&
+                   (refTextItem.y - it.y) <= REF_FIRST_Y_BELOW &&
+                   it.x >= refTextItem.x - REF_FIRST_X_RANGE &&
+                   it.x <= refTextItem.x + REF_FIRST_X_RANGE;
+          });
+          belowRow.sort(function (a, b) { return b.y - a.y || a.x - b.x; });
+
+          clusterText = sameRow.concat(belowRow)
+            .map(function (it) { return it.str; })
+            .join(' ');
+        }
+      }
+
+      // Character-context fallback when no position data (or ref item not found)
+      if (!clusterText) {
+        clusterText = normText.substring(
+          refData.firstIndex,
+          Math.min(normText.length, refData.firstIndex + CTX_FORWARD_FULL)
+        );
+      }
+
+      var item = createItem({
+        reference: ref,
+        type: inferType(ref),
+        sourceDocument: sourceName,
+        sourcePage: sourcePage,
+        extractionMethod: 'reference-first'
+      });
+
+      // Dimensions
+      var dims = extractDimensionsFromText(clusterText);
+      if (!dims) {
+        // Adjacent 3–4 digit numbers may be W and H in separate table columns
+        var adjNums = clusterText.match(/\b(\d{3,4})\s+(\d{3,4})\b/);
+        if (adjNums) {
+          var aw = parseInt(adjNums[1], 10), ah = parseInt(adjNums[2], 10);
+          if (aw >= 100 && aw <= 9000 && ah >= 100 && ah <= 9000) {
+            dims = { width: aw, height: ah };
+          }
+        }
+      }
+      if (dims) { item.width = dims.width; item.height = dims.height; }
+
+      item.quantity    = extractQuantity(clusterText) || 1;
+      item.frameType   = extractFrameType(clusterText);
+      item.glazingSpec = buildGlazingSpec(clusterText);
+      item.openingType = extractOpeningType(clusterText);
+      item.location    = extractLocation(clusterText);
+      item.notes       = extractNotes(clusterText);
+
+      if (refTextItem) {
+        item.textPosition = {
+          x: refTextItem.x, y: refTextItem.y,
+          width: refTextItem.width || 30, height: refTextItem.height || 12
+        };
+      }
+
+      item.confidence = scoreConfidence(item, 'reference-first');
+      items.push(item);
+    });
+
+    return items;
+  }
+
+  // -----------------------------------------------------------------------
   // Strategy 3 — Enhanced regex with spatial context (fallback)
   // -----------------------------------------------------------------------
 
@@ -425,7 +591,7 @@ var DataExtractor = (function () {
     // Normalise space-split references that arise from PDF text fragmentation,
     // e.g. "EW 19" → "EW19", "ID 04" → "ID04".  Use a separate variable so the
     // original text is still available for spatial item lookups via textItems.
-    var normText = text.replace(/\b([A-Z]{1,2}[WDSC])\s+(\d{2,4})\b/gi, '$1$2');
+    var normText = normaliseSpaceSplitRefs(text);
 
     // Match single-letter refs (W01) and multi-letter prefix refs (EW01, ID01, etc.)
     // The last alpha char before the digits must be W, D, S, or C.
@@ -440,7 +606,7 @@ var DataExtractor = (function () {
       // or "3847. EW01".  Require a mandatory letter after the period so that
       // plain dimension values such as "1010." don't trigger a false rejection.
       var preceding = normText.substring(Math.max(0, matchIndex - DRAWING_NUM_LOOKBACK), matchIndex);
-      if (/\d{4,}\.\s*[A-Z]\d*\s*$/.test(preceding)) continue;
+      if (DRAWING_NUM_FILTER.test(preceding)) continue;
 
       // Find the text item that contains this reference (or its alphabetic prefix for split refs)
       var refItem = null;
@@ -529,9 +695,11 @@ var DataExtractor = (function () {
     var debugLog    = [];
     var stats       = { docsProcessed: 0, pagesProcessed: 0, itemsFound: 0, warnings: 0 };
 
-    // Track best items per ref per doc-type for smart merging
+    // Track schedule items by reference (schedule is the sole source of truth for items)
     var scheduleItems = {};
-    var bqItems       = {};
+
+    // BQ validation data: { ref: { ref, bqQuantity } } — from all BQ documents
+    var bqValidationData = {};
 
     var allDrawingRefs = {};
     var allSpecNotes   = [];
@@ -554,32 +722,47 @@ var DataExtractor = (function () {
       if (docResult.specNotes) {
         allSpecNotes = allSpecNotes.concat(docResult.specNotes);
       }
+      // Collect BQ validation data (never creates items, just ref→qty pairs)
+      if (docResult.bqValidation) {
+        docResult.bqValidation.forEach(function (v) {
+          if (!bqValidationData[v.ref]) {
+            bqValidationData[v.ref] = v;
+          } else if (v.bqQuantity > bqValidationData[v.ref].bqQuantity) {
+            bqValidationData[v.ref].bqQuantity = v.bqQuantity;
+          }
+        });
+        if (docResult.bqValidation.length > 0) {
+          debugLog.push('  → BQ validation: ' + docResult.bqValidation.length + ' ref(s) found for cross-check');
+        } else {
+          debugLog.push('  → BQ validation: no refs found (scanned or empty)');
+        }
+      }
 
       if (docResult.items.length > 0) {
         debugLog.push('  → Found ' + docResult.items.length + ' item(s): ' +
           docResult.items.slice(0, 10).map(function (i) { return i.reference; }).join(', ') +
           (docResult.items.length > 10 ? ' …' : ''));
-      } else if (docType !== 'admin' && docType !== 'drawing') {
+      } else if (docType !== 'admin' && docType !== 'drawing' && docType !== 'bq') {
         debugLog.push('  → No items extracted');
-      } else {
+      } else if (docType !== 'bq') {
         debugLog.push('  → Skipped (document type: ' + docType + ')');
       }
 
-      docResult.items.forEach(function (item) {
-        var key = item.reference.toUpperCase();
-        if (docType === 'schedule' && !scheduleItems[key]) {
-          scheduleItems[key] = item;
-        } else if (docType === 'bq' && !bqItems[key]) {
-          bqItems[key] = item;
-        }
-      });
+      // Track schedule items (schedule is the only source that creates items)
+      if (docType === 'schedule') {
+        docResult.items.forEach(function (item) {
+          var key = item.reference.toUpperCase();
+          if (!scheduleItems[key]) scheduleItems[key] = item;
+        });
+      }
     });
 
-    // Smart merge: schedule dims override BQ dims; BQ qty preferred
-    var mergeWarnings = smartMerge(scheduleItems, bqItems, allItems);
-    allWarnings = allWarnings.concat(mergeWarnings);
+    // Cross-validate BQ quantities against schedule items
+    // (replaces the old smartMerge which relied on BQ items being created)
+    var bqCrossWarnings = crossValidateBQQuantities(allItems, bqValidationData, debugLog);
+    allWarnings = allWarnings.concat(bqCrossWarnings);
 
-    // Cross-reference warnings between schedule and BQ only
+    // Cross-reference warnings between schedule and other docs
     if (documents.length > 1) {
       var crossWarnings = crossReferenceDocuments(documents, allItems);
       allWarnings = allWarnings.concat(crossWarnings);
@@ -587,6 +770,7 @@ var DataExtractor = (function () {
 
     // Cross-validate drawing refs against schedule items — group by prefix to avoid
     // generating one warning per reference (which can easily reach 140+ for a large project).
+    // Only run if the schedule actually produced items to prevent false positives.
     if (Object.keys(scheduleItems).length > 0 && Object.keys(allDrawingRefs).length > 0) {
       var missingRefs = Object.keys(allDrawingRefs).filter(function (ref) {
         return !scheduleItems[ref];
@@ -638,7 +822,7 @@ var DataExtractor = (function () {
       while ((match = refPattern.exec(text)) !== null) {
         var ref = match[1].toUpperCase();
         var preceding = text.substring(Math.max(0, match.index - DRAWING_NUM_LOOKBACK), match.index);
-        if (!/\d{4,}\.\s*[A-Z]\d*\s*$/.test(preceding)) {
+        if (!DRAWING_NUM_FILTER.test(preceding)) {
           refs[ref] = true;
         }
       }
@@ -659,7 +843,44 @@ var DataExtractor = (function () {
     return notes;
   }
 
-    function extractFromDocument(doc) {
+  // Extract reference → quantity pairs from a BQ document for cross-validation.
+  // Never creates glazing items — only returns validation data.
+  function extractBQValidation(doc) {
+    var bqData = {};
+    var pattern = new RegExp(REF_FIRST_PATTERN.source, 'gi');
+
+    (doc.pages || []).forEach(function (page) {
+      var text = page.text || '';
+      if (!text || text.trim().length === 0) return;
+
+      var normText = normaliseSpaceSplitRefs(text);
+      pattern.lastIndex = 0;
+      var match;
+
+      while ((match = pattern.exec(normText)) !== null) {
+        var ref = match[1].toUpperCase();
+        var idx = match.index;
+
+        // Reject drawing-sheet number context
+        var preceding = normText.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
+        if (DRAWING_NUM_FILTER.test(preceding)) continue;
+
+        // Grab forward context for quantity extraction
+        var context = normText.substring(idx, Math.min(normText.length, idx + CTX_FORWARD_DIMS));
+        var qty = extractQuantity(context) || 1;
+
+        if (!bqData[ref]) {
+          bqData[ref] = { ref: ref, bqQuantity: qty };
+        } else if (qty > bqData[ref].bqQuantity) {
+          bqData[ref].bqQuantity = qty;
+        }
+      }
+    });
+
+    return Object.keys(bqData).map(function (k) { return bqData[k]; });
+  }
+
+  function extractFromDocument(doc) {
     var classification = classifyDocument(doc.name, doc.fullText || '');
     var docType = classification.type;
 
@@ -676,6 +897,24 @@ var DataExtractor = (function () {
     if (docType === 'specification') {
       var specNotes = extractSpecNotes(doc);
       return { items: [], warnings: [], specNotes: specNotes };
+    }
+
+    // BQ documents — validate quantities only; never create items.
+    // Items are created exclusively from the schedule (single source of truth).
+    if (docType === 'bq') {
+      var bqValidation = extractBQValidation(doc);
+      var bqWarnings = [];
+      var hasText = doc.pages.some(function (p) { return p.text && p.text.trim().length > MIN_TEXT_LENGTH; });
+      if (!hasText) {
+        bqWarnings.push({
+          id: generateId(),
+          type: 'extraction',
+          message: 'No glazing items found in "' + doc.name + '". The document appears to be a scanned image — text extraction is not possible. Please add items manually.',
+          itemId: null,
+          severity: 'error'
+        });
+      }
+      return { items: [], warnings: bqWarnings, bqValidation: bqValidation };
     }
 
     var items       = [];
@@ -726,10 +965,10 @@ var DataExtractor = (function () {
       });
     });
 
-    // Only warn about missing items in schedule/BQ docs
-    if (items.length === 0 && isScheduleOrBQ(docType)) {
+    // Only warn about missing items in schedule docs (BQ handled above, others skipped earlier)
+    if (items.length === 0 && docType === 'schedule') {
       // Determine if the document has any text at all (to give a better message)
-      var hasText = doc.pages.some(function (p) { return p.text && p.text.trim().length > 50; });
+      var hasText = doc.pages.some(function (p) { return p.text && p.text.trim().length > MIN_TEXT_LENGTH; });
       var msg = hasText
         ? 'No glazing items found in "' + doc.name + '". The document was read but no recognisable references (e.g. EW01, W01, D01) were found. Please verify the document contains a window/door schedule and add items manually if needed.'
         : 'No glazing items found in "' + doc.name + '". The document appears to be a scanned image — text extraction is not possible. Please add items manually.';
@@ -750,6 +989,15 @@ var DataExtractor = (function () {
     var text      = page.text || '';
 
     if (!text || text.trim().length === 0) return [];
+
+    // Strategy 0 (schedule docs only): Reference-first extraction.
+    // Scans all text items for valid glazing references first, then clusters
+    // nearby items to extract attributes.  More tolerant of PDF text fragmentation
+    // than the table/row strategies because it does not rely on table structure.
+    if (docType === 'schedule') {
+      var refFirstItems = tryReferenceFirstExtraction(textItems, text, sourceName, page.pageNum);
+      if (refFirstItems.length > 0) return refFirstItems;
+    }
 
     // When we have proper positional data, try spatial strategies first
     if (textItems.length > 0 && textItems[0] && textItems[0].x !== undefined) {
@@ -785,8 +1033,8 @@ var DataExtractor = (function () {
     var lineItems = tryLineBasedExtraction(text, sourceName, page.pageNum);
     if (lineItems.length > 0) return lineItems;
 
-    // Strategy 5: Infer an item without a reference (schedule/BQ docs only)
-    if (isScheduleOrBQ(docType)) {
+    // Strategy 5: Infer an item without a reference (schedule docs only — never BQ)
+    if (docType === 'schedule') {
       var inferred = tryInferWithoutRef(text, sourceName, page.pageNum);
       if (inferred) return [inferred];
     }
@@ -811,7 +1059,7 @@ var DataExtractor = (function () {
       // Verify it doesn't look like a drawing-sheet number context
       var idx = m.index;
       var pre = line.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
-      if (/\d{4,}\.\s*[A-Z]\d*\s*$/.test(pre)) return;
+      if (DRAWING_NUM_FILTER.test(pre)) return;
       refLines.push({ ref: ref, line: line });
     });
 
@@ -883,6 +1131,38 @@ var DataExtractor = (function () {
           bItemInAll.width  = sItem.width;
           bItemInAll.height = sItem.height;
         }
+      }
+    });
+
+    return warnings;
+  }
+
+  // Cross-validate schedule item quantities against BQ validation data.
+  // When the BQ says a different quantity than the schedule default (1), prefer
+  // the BQ quantity and flag a warning so the user can verify.
+  function crossValidateBQQuantities(items, bqValidationData, debugLog) {
+    var warnings = [];
+    if (Object.keys(bqValidationData).length === 0) return warnings;
+
+    items.forEach(function (item) {
+      var bqEntry = bqValidationData[item.reference];
+      if (!bqEntry) return;
+
+      if (bqEntry.bqQuantity > 1 && item.quantity === 1) {
+        // Prefer BQ quantity — schedule often shows qty=1 (one type) while BQ shows total
+        item.quantity = bqEntry.bqQuantity;
+        if (debugLog) {
+          debugLog.push('  BQ qty update: ' + item.reference + ' → qty ' + bqEntry.bqQuantity);
+        }
+      } else if (bqEntry.bqQuantity > 1 && bqEntry.bqQuantity !== item.quantity) {
+        warnings.push({
+          id: generateId(),
+          type: 'discrepancy',
+          message: item.reference + ': Quantity discrepancy — Schedule: ' + item.quantity +
+                   ', BQ: ' + bqEntry.bqQuantity + ' — please verify',
+          itemId: item.id,
+          severity: 'warning'
+        });
       }
     });
 
@@ -1073,7 +1353,8 @@ var DataExtractor = (function () {
     if (item.location)     score += 1;
     if (item.glazingSpec)  score += 0.5;
     // Strategy bonus
-    if (strategy === 'table')  score += 1.5;
+    if (strategy === 'reference-first') score += 1.0;
+    else if (strategy === 'table')  score += 1.5;
     else if (strategy === 'row') score += 0.5;
     if (score >= 9)   return 'high';
     if (score >= 5.5) return 'medium';
