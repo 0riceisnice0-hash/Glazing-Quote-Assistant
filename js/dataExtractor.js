@@ -40,11 +40,22 @@ var DataExtractor = (function () {
   // Spatial helpers — group PDF text items into rows and columns
   // -----------------------------------------------------------------------
 
+  // Spatial thresholds (all in PDF user-space points, ~1pt ≈ 0.35mm)
+  var ROW_Y_TOLERANCE   = 4;   // max Y-delta to group two items in the same row
+  var SPATIAL_ROW_Y     = 10;  // max Y-delta to consider an item "on the same row" as a reference
+  var SPATIAL_ROW_X     = 400; // max X-distance from reference to include in spatial context
+  // Character-context window sizes for the regex-only fallback (no position data)
+  var CTX_LOOKBACK      = 50;  // chars before the reference (for location, frame-type, notes)
+  var CTX_FORWARD_FULL  = 300; // chars after the reference (full context)
+  var CTX_FORWARD_DIMS  = 250; // chars after the reference (dimension/qty only — forward avoids prior item's data)
+  // Drawing-number lookback: "3847. C37" is 9 chars; use 12 to be safe for extra whitespace
+  var DRAWING_NUM_LOOKBACK = 12;
+
   // Group text items into rows by Y coordinate.
   // In PDF space the origin (0,0) is bottom-left, so higher Y = higher on page.
   function buildRows(textItems, yTolerance) {
     if (!textItems || textItems.length === 0) return [];
-    yTolerance = yTolerance || 4;
+    yTolerance = yTolerance || ROW_Y_TOLERANCE;
 
     var rows = [];
     // Keep only items with actual text
@@ -345,13 +356,11 @@ var DataExtractor = (function () {
       var ref = match[1].toUpperCase();
       var matchIndex = match.index;
 
-      // Reject references preceded by drawing-number patterns like "3847.C37" or "3847. C37"
-      var preceding = text.substring(Math.max(0, matchIndex - 8), matchIndex);
-      if (/\d{4}\.\s*$/.test(preceding)) continue;
-
-      // Also reject if it looks like a file-name prefix inside the text body
-      var preceding12 = text.substring(Math.max(0, matchIndex - 12), matchIndex);
-      if (/\d{4,}\.\s*[A-Z]?\s*$/.test(preceding12)) continue;
+      // Reject references preceded by drawing-number patterns such as "3847.C37" or
+      // "3847. C37" (with optional whitespace between the period and the letter).
+      // A 12-char lookback captures "3847. C" (10 chars) with room to spare.
+      var preceding = text.substring(Math.max(0, matchIndex - DRAWING_NUM_LOOKBACK), matchIndex);
+      if (/\d{4,}\.\s*[A-Z]?\s*$/.test(preceding)) continue;
 
       // Find the text item that contains this reference
       var refItem = null;
@@ -369,20 +378,21 @@ var DataExtractor = (function () {
       var context;
       var dimContext; // forward-only context used for dimension extraction to avoid overlap with prior items
       if (refItem && textItems && textItems.length > 0) {
-        // Same row (±10pt vertical) within 400pt horizontal
+        // Collect items on the same row (within SPATIAL_ROW_Y pt vertically) and
+        // within SPATIAL_ROW_X pt horizontally — sorted left-to-right for a natural read order.
         var nearby = textItems.filter(function (it) {
-          return Math.abs(it.y - refItem.y) <= 10 &&
-                 Math.abs(it.x - refItem.x) <= 400 &&
+          return Math.abs(it.y - refItem.y) <= SPATIAL_ROW_Y &&
+                 Math.abs(it.x - refItem.x) <= SPATIAL_ROW_X &&
                  it.str && it.str.trim().length > 0;
         });
         nearby.sort(function (a, b) { return a.x - b.x; });
         context = nearby.map(function (it) { return it.str; }).join(' ');
         dimContext = context;
       } else {
-        // Full context for attribute extraction (frame type, location, notes)
-        context = text.substring(Math.max(0, matchIndex - 50), Math.min(text.length, matchIndex + 300));
-        // Forward-only context for dimensions to avoid grabbing the previous item's data
-        dimContext = text.substring(matchIndex, Math.min(text.length, matchIndex + 250));
+        // CTX_LOOKBACK chars before for location/frame/notes, CTX_FORWARD_FULL after for all attributes
+        context = text.substring(Math.max(0, matchIndex - CTX_LOOKBACK), Math.min(text.length, matchIndex + CTX_FORWARD_FULL));
+        // Forward-only window for dims/qty so a prior item's dimensions don't bleed into this item's context
+        dimContext = text.substring(matchIndex, Math.min(text.length, matchIndex + CTX_FORWARD_DIMS));
       }
 
       var item = createItem({
