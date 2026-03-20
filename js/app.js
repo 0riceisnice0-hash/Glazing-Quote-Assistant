@@ -118,6 +118,7 @@ var App = (function () {
         _state.sourceDocuments.push({
           name: docResult.name,
           pageCount: docResult.pageCount,
+          docType: DataExtractor.classifyDocument(docResult.name),
           extractedText: docResult.fullText ? docResult.fullText.substring(0, 500) : ''
         });
 
@@ -154,6 +155,7 @@ var App = (function () {
 
           saveToLocalStorage(_state);
           UI.updateState(_state);
+          UI.renderSourceDocuments(_state.sourceDocuments);
           UI.hideLoadingOverlay();
 
           if (newItems.length === 0) {

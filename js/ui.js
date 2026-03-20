@@ -257,6 +257,7 @@ var UI = (function () {
     if (stepNumber === 2) {
       renderItemsTable(_state.items, _state.warnings);
       renderWarningsPanel(_state.warnings, _state.items);
+      renderSourceDocuments(_state.sourceDocuments);
       _updateSummaryBar();
     }
     if (stepNumber === 3) {
@@ -881,6 +882,36 @@ var UI = (function () {
       .replace(/'/g, '&#039;');
   }
 
+  function renderSourceDocuments(sourceDocs) {
+    var container = document.getElementById('sourceDocsList');
+    if (!container) return;
+
+    if (!sourceDocs || sourceDocs.length === 0) {
+      container.innerHTML = '<span style="font-size:0.8rem;color:var(--text-muted)">No documents processed yet.</span>';
+      return;
+    }
+
+    var typeLabels = {
+      schedule: '📋 Schedule',
+      bq: '📑 BQ',
+      drawing: '📐 Drawing',
+      admin: '📁 Admin',
+      unknown: '📄 Document'
+    };
+
+    var html = sourceDocs.map(function (doc) {
+      var label = typeLabels[doc.docType] || typeLabels.unknown;
+      var pages = doc.pageCount != null ? doc.pageCount + (doc.pageCount === 1 ? ' page' : ' pages') : '? pages';
+      return '<div style="padding:4px 0;border-bottom:1px solid var(--border-color)">' +
+        '<div style="font-weight:600;font-size:0.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + _escapeHTML(doc.name) + '">' +
+        _escapeHTML(doc.name) + '</div>' +
+        '<div style="color:var(--text-muted);font-size:0.75rem">' + label + ' &bull; ' + pages + '</div>' +
+        '</div>';
+    }).join('');
+
+    container.innerHTML = html;
+  }
+
   return {
     initUI: initUI,
     renderStep: renderStep,
@@ -902,6 +933,7 @@ var UI = (function () {
     updateFileList: updateFileList,
     updateFileStatus: updateFileStatus,
     updateState: updateState,
+    renderSourceDocuments: renderSourceDocuments,
     _sortBy: _sortBy,
     _editItem: _editItem,
     _duplicateItem: _duplicateItem,
