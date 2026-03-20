@@ -55,6 +55,13 @@ var App = (function () {
     var saved = loadFromLocalStorage();
     if (saved) {
       _state = saved;
+      // Migrate pricing config from older versions
+      if (_state.pricing && _state.pricing.fixedCostPerUnit === undefined) {
+        _state.pricing.fixedCostPerUnit = 596;
+        _state.pricing.baseRatePerM2 = 99;
+        _state.pricing.doorFixedCostPerUnit = 166;
+        _state.pricing.doorRatePerM2 = 1644;
+      }
       UI.showToast('Previous session restored', 'info');
     } else {
       _state = JSON.parse(JSON.stringify(DEFAULT_STATE));

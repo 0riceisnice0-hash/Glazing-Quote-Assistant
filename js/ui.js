@@ -71,11 +71,38 @@ var UI = (function () {
   }
 
   function _setupPricingPanel() {
+    var fixedCost = document.getElementById('fixedCostPerUnit');
+    if (fixedCost) {
+      fixedCost.value = _state.pricing.fixedCostPerUnit;
+      fixedCost.addEventListener('change', function () {
+        _state.pricing.fixedCostPerUnit = parseFloat(fixedCost.value) || 596;
+        _triggerPriceUpdate();
+      });
+    }
+
     var baseRate = document.getElementById('baseRatePerM2');
     if (baseRate) {
       baseRate.value = _state.pricing.baseRatePerM2;
       baseRate.addEventListener('change', function () {
-        _state.pricing.baseRatePerM2 = parseFloat(baseRate.value) || 150;
+        _state.pricing.baseRatePerM2 = parseFloat(baseRate.value) || 99;
+        _triggerPriceUpdate();
+      });
+    }
+
+    var doorFixed = document.getElementById('doorFixedCostPerUnit');
+    if (doorFixed) {
+      doorFixed.value = _state.pricing.doorFixedCostPerUnit;
+      doorFixed.addEventListener('change', function () {
+        _state.pricing.doorFixedCostPerUnit = parseFloat(doorFixed.value) || 166;
+        _triggerPriceUpdate();
+      });
+    }
+
+    var doorRate = document.getElementById('doorRatePerM2');
+    if (doorRate) {
+      doorRate.value = _state.pricing.doorRatePerM2;
+      doorRate.addEventListener('change', function () {
+        _state.pricing.doorRatePerM2 = parseFloat(doorRate.value) || 1644;
         _triggerPriceUpdate();
       });
     }
@@ -585,8 +612,14 @@ var UI = (function () {
 
   function renderPricingSettings(pricingConfig) {
     _state.pricing = pricingConfig;
+    var fixedCost = document.getElementById('fixedCostPerUnit');
+    if (fixedCost) fixedCost.value = pricingConfig.fixedCostPerUnit;
     var baseRate = document.getElementById('baseRatePerM2');
     if (baseRate) baseRate.value = pricingConfig.baseRatePerM2;
+    var doorFixed = document.getElementById('doorFixedCostPerUnit');
+    if (doorFixed) doorFixed.value = pricingConfig.doorFixedCostPerUnit;
+    var doorRate = document.getElementById('doorRatePerM2');
+    if (doorRate) doorRate.value = pricingConfig.doorRatePerM2;
     var disc = document.getElementById('discountPercent');
     if (disc) disc.value = pricingConfig.discountPercent;
     var vat = document.getElementById('vatEnabled');

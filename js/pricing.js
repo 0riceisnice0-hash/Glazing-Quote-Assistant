@@ -3,7 +3,6 @@
 var Pricing = (function () {
 
   function calculateItemPrice(item, pricingConfig) {
-    var base = pricingConfig.baseRatePerM2 || 150;
     var mults = pricingConfig.multipliers || {};
 
     var widthM = item.width / 1000;
@@ -14,21 +13,34 @@ var Pricing = (function () {
       return { unitPrice: 0, totalPrice: 0, breakdown: 'Dimensions not set' };
     }
 
+    // Separate fixed cost and rate for windows vs doors
+    var isDoor = (item.type || '').toLowerCase() === 'door';
+    var fixedCost = isDoor
+      ? (pricingConfig.doorFixedCostPerUnit || 166)
+      : (pricingConfig.fixedCostPerUnit || 596);
+    var ratePerM2 = isDoor
+      ? (pricingConfig.doorRatePerM2 || 1644)
+      : (pricingConfig.baseRatePerM2 || 99);
+
     var frameMult = getFrameMultiplier(item.frameType, mults);
     var glazingMult = getGlazingMultiplier(item.glazingSpec, mults);
     var openingMult = getOpeningMultiplier(item.openingType, mults);
     var specialMult = getSpecialMultipliers(item, mults);
 
-    var unitPrice = base * areaM2 * frameMult * glazingMult * openingMult * specialMult;
+    var basePrice = fixedCost + (ratePerM2 * areaM2);
+    var unitPrice = basePrice * frameMult * glazingMult * openingMult * specialMult;
     unitPrice = Math.round(unitPrice * 100) / 100;
     var totalPrice = Math.round(unitPrice * item.quantity * 100) / 100;
 
     var breakdownParts = [
-      formatCurrency(base) + '/m²',
+      formatCurrency(fixedCost) + ' + ' + formatCurrency(ratePerM2) + '/m²',
       '× ' + areaM2.toFixed(2) + 'm²',
-      '× ' + frameMult.toFixed(2) + ' (' + (item.frameType || 'Unknown') + ')'
+      '= ' + formatCurrency(basePrice)
     ];
 
+    if (frameMult !== 1.0) {
+      breakdownParts.push('× ' + frameMult.toFixed(2) + ' (' + (item.frameType || 'Unknown') + ')');
+    }
     if (glazingMult !== 1.0) {
       breakdownParts.push('× ' + glazingMult.toFixed(2) + ' (Glazing)');
     }
@@ -88,7 +100,7 @@ var Pricing = (function () {
     var ot = openingType.toLowerCase();
 
     if (ot.includes('top hung') || ot === 'top hung') {
-      return mults.topHung !== undefined ? mults.topHung : 1.1;
+      return mults.topHung !== undefined ? mults.topHung : 1.0;
     }
     if (ot.includes('tilt') && ot.includes('turn')) {
       return mults.tiltAndTurn !== undefined ? mults.tiltAndTurn : 1.15;
@@ -100,7 +112,7 @@ var Pricing = (function () {
       return mults.sliding !== undefined ? mults.sliding : 1.2;
     }
     if (ot.includes('fixed')) {
-      return mults.fixed !== undefined ? mults.fixed : 0.9;
+      return mults.fixed !== undefined ? mults.fixed : 0.95;
     }
     return 1.0;
   }

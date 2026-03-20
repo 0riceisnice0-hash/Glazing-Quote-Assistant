@@ -18,10 +18,13 @@ const DEFAULT_STATE = {
     logoDataUrl: null
   },
   pricing: {
-    baseRatePerM2: 150,
+    fixedCostPerUnit: 596,
+    baseRatePerM2: 99,
+    doorFixedCostPerUnit: 166,
+    doorRatePerM2: 1644,
     multipliers: {
       aluminium: 1.0,
-      pvcu: 0.7,
+      pvcu: 1.0,
       timber: 0.9,
       fireRated: 1.8,
       acoustic: 1.4,
@@ -30,13 +33,13 @@ const DEFAULT_STATE = {
       tripleGlazed: 1.3,
       doubleGlazed: 1.0,
       obscure: 1.05,
-      topHung: 1.1,
+      topHung: 1.0,
       casement: 1.0,
       tiltAndTurn: 1.15,
       sliding: 1.2,
-      fixed: 0.9,
-      trickleVent: 1.05,
-      restrictor: 1.02
+      fixed: 0.95,
+      trickleVent: 1.0,
+      restrictor: 1.0
     },
     discountPercent: 0,
     vatEnabled: true,

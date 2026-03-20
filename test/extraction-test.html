@@ -300,7 +300,8 @@
       { name: '3847.C37 Proposed Cladding Details.pdf', expectedType: 'drawing' },
       { name: '3847.T05 Proposed Ground Floor Plan.pdf', expectedType: 'drawing' },
       { name: 'Collateral Warranties & Guarantees.pdf', expectedType: 'admin' },
-      { name: 'ENQUIRY LETTER.pdf', expectedType: 'admin' }
+      { name: 'ENQUIRY LETTER.pdf', expectedType: 'admin' },
+      { name: 'GQ-20260320-203.pdf', expectedType: 'admin' }
     ];
 
     tests.forEach(function (t) {
@@ -335,6 +336,13 @@
       var found = result.items.some(function (i) { return i.reference === ref; });
       html += assert(!found, 'False positive ' + ref + ' rejected by extraction');
     });
+
+    // EW30 must NOT be rejected when preceded by "BS 6206." (standards code, not drawing number)
+    var bsText = 'Window Schedule  EW29   Corridor   1010 x 2100   Fire rated glazing to BS 6206. EW30   Room 26   1010 x 900   Top hung window.';
+    var bsDocs = [mockDoc('test-schedule.pdf', bsText)];
+    var bsResult = DataExtractor.extractItems(bsDocs);
+    var ew30Found = bsResult.items.some(function (i) { return i.reference === 'EW30'; });
+    html += assert(ew30Found, 'EW30 after "BS 6206." NOT rejected (standards code, not drawing number)');
 
     html += '</div>';
     results.innerHTML += html;

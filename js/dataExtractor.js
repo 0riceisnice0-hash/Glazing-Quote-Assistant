@@ -16,6 +16,9 @@ var DataExtractor = (function () {
       return { type: 'bq', confidence: 'high', reason: 'Filename contains BQ keyword' };
     if (/warrant|guarantee|collateral|enquiry\s*letter|letter\s*of\s*enquiry/.test(name))
       return { type: 'admin', confidence: 'high', reason: 'Filename matches admin/legal document pattern' };
+    // Previously generated quote PDFs ("GQ-20260320-203.pdf") — skip to avoid phantom items
+    if (/^gq-\d/.test(name))
+      return { type: 'admin', confidence: 'high', reason: 'Filename matches generated quote pattern (GQ-)' };
     // Drawing-number filenames like "3847.C37 …", "3847.T05 …"
     // IMPORTANT: Only classify as 'drawing' when no schedule/BQ keywords are also present.
     // A filename like "3847.T12 Window Schedule.pdf" contains both a drawing number AND schedule
@@ -527,8 +530,9 @@ var DataExtractor = (function () {
       var idx = match.index;
 
       // Reject drawing-sheet number context (e.g. "3847.C37")
+      // But NOT standards codes like "BS 6206." or "EN 12600."
       var preceding = normText.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
-      if (DRAWING_NUM_FILTER.test(preceding)) continue;
+      if (DRAWING_NUM_FILTER.test(preceding) && !/\b(?:BS|EN)\s*\d/i.test(preceding)) continue;
 
       // Reject BS/EN codes, drawing sheet numbers, and other false positives
       if (!isValidGlazingReference(ref)) continue;
@@ -712,7 +716,7 @@ var DataExtractor = (function () {
       // or "3847. EW01".  Require a mandatory letter after the period so that
       // plain dimension values such as "1010." don't trigger a false rejection.
       var preceding = normText.substring(Math.max(0, matchIndex - DRAWING_NUM_LOOKBACK), matchIndex);
-      if (DRAWING_NUM_FILTER.test(preceding)) continue;
+      if (DRAWING_NUM_FILTER.test(preceding) && !/\b(?:BS|EN)\s*\d/i.test(preceding)) continue;
 
       // Reject BS/EN codes, drawing sheet numbers, and other false positives
       if (!isValidGlazingReference(ref)) continue;
@@ -947,7 +951,7 @@ var DataExtractor = (function () {
       while ((match = refPattern.exec(text)) !== null) {
         var ref = match[1].toUpperCase();
         var preceding = text.substring(Math.max(0, match.index - DRAWING_NUM_LOOKBACK), match.index);
-        if (DRAWING_NUM_FILTER.test(preceding)) continue;
+        if (DRAWING_NUM_FILTER.test(preceding) && !/\b(?:BS|EN)\s*\d/i.test(preceding)) continue;
         if (!isValidGlazingReference(ref)) continue;
         refs[ref] = true;
       }
@@ -988,7 +992,7 @@ var DataExtractor = (function () {
 
         // Reject drawing-sheet number context
         var preceding = normText.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
-        if (DRAWING_NUM_FILTER.test(preceding)) continue;
+        if (DRAWING_NUM_FILTER.test(preceding) && !/\b(?:BS|EN)\s*\d/i.test(preceding)) continue;
 
         // Reject BS/EN codes, drawing sheet numbers, and other false positives
         if (!isValidGlazingReference(ref)) continue;
@@ -1225,7 +1229,7 @@ var DataExtractor = (function () {
       // Verify it doesn't look like a drawing-sheet number context
       var idx = m.index;
       var pre = line.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
-      if (DRAWING_NUM_FILTER.test(pre)) return;
+      if (DRAWING_NUM_FILTER.test(pre) && !/\b(?:BS|EN)\s*\d/i.test(pre)) return;
       if (!isValidGlazingReference(ref)) return;
       refLines.push({ ref: ref, line: line });
     });
