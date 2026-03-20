@@ -1,155 +1,353 @@
-/* js/dataExtractor.js — Pattern matching engine for glazing items */
+/* js/dataExtractor.js — Spatial extraction engine for glazing items */
 
 var DataExtractor = (function () {
 
-  var PATTERNS = {
-    reference: /\b([WDSCwdsc]\d{2,3})\b/g,
-    dimensions: /(\d{3,4})\s*[xX×]\s*(\d{3,4})/g,
-    dimWithUnits: /(\d{3,4})\s*(?:mm)?\s*[xX×]\s*(\d{3,4})\s*(?:mm)?/gi,
-    quantity: /(?:(?:qty|quantity|nr|no\.?|off|x)\s*[:\-]?\s*(\d+))|(?:\b(\d+)\s*(?:nr|no\.?|off)\b)/gi,
-    frameAluminium: /\b(?:aluminium|aluminum|alum|alu)\b/gi,
-    framePVCu: /\b(?:pvcu|pvc-u|pvc\.u|upvc|pvc)\b/gi,
-    frameTimber: /\b(?:timber|wood|wooden|oak|softwood|hardwood)\b/gi,
-    frameSteel: /\b(?:steel|galvanised steel|stainless)\b/gi,
-    glazingDouble: /\b(?:double\s*glaz(?:ed|ing)|dgu|dg|double\s*glazing)\b/gi,
-    glazingTriple: /\b(?:triple\s*glaz(?:ed|ing)|tgu|tg|triple\s*glazing)\b/gi,
-    glazingObscure: /\b(?:obscure|frosted|opaque|satin)\b/gi,
-    glazingClear: /\bclear\b/gi,
-    openingFixed: /\bfixed\b/gi,
-    openingCasement: /\bcasement\b/gi,
-    openingTopHung: /\btop[\s\-]?hung\b/gi,
-    openingTiltTurn: /\btilt[\s\-]?(?:and[\s\-]?)?turn\b/gi,
-    openingSliding: /\b(?:sliding|slide)\b/gi,
-    openingPivot: /\bpivot(?:ed|ing)?\b/gi,
-    openingBifold: /\bbi[\s\-]?fold\b/gi,
-    specialFireRated: /\b(?:fire[\s\-]?rated?|fr\d+|fw\d+|fire[\s\-]?resistant?)\b/gi,
-    specialAcoustic: /\b(?:acoustic|sound[\s\-]?proof|noise[\s\-]?reduc)\b/gi,
-    specialToughened: /\b(?:toughened|tempered)\b/gi,
-    specialLaminated: /\b(?:laminated|lami)\b/gi,
-    specialTrickleVent: /\b(?:trickle[\s\-]?vent|ventilator)\b/gi,
-    specialRestrictor: /\b(?:restrictor|limiter|stay)\b/gi,
-    floorGround: /\b(?:ground[\s\-]?floor|gf)\b/gi,
-    floorFirst: /\b(?:first[\s\-]?floor|ff|1st[\s\-]?floor)\b/gi,
-    floorSecond: /\b(?:second[\s\-]?floor|sf|2nd[\s\-]?floor)\b/gi,
-    floorBasement: /\b(?:basement|lower[\s\-]?ground)\b/gi,
-    location: /(?:(?:to|at|in|for)\s+(?:the\s+)?)([\w\s\-]+(?:room|floor|office|kitchen|bedroom|bathroom|hall|living|dining|study|lounge))/gi
-  };
+  // -----------------------------------------------------------------------
+  // Document classification
+  // -----------------------------------------------------------------------
 
-  // Classify a document based on its filename so we know how to treat it
   function classifyDocument(docName) {
     var name = (docName || '').toLowerCase();
 
-    // Schedule/BQ keywords take priority — a file named "3847.T12 Window Schedule" is a schedule
+    // Schedule/BQ keywords take priority
     if (/window\s*schedule|door\s*schedule|glazing\s*schedule/.test(name)) return 'schedule';
     if (/\bbq\b|bill\s*of\s*quantities|schedule\s*of\s*works/.test(name)) return 'bq';
 
-    // Admin / legal documents
+    // Admin / legal documents — skip entirely
     if (/warrant|guarantee|collateral|enquiry\s*letter|letter\s*of\s*enquiry/.test(name)) return 'admin';
 
-    // Drawing-number filenames like "3847.C37 ...", "3847.T05 ...", "3847.C05.D ..."
+    // Drawing-number filenames like "3847.C37 …", "3847.T05 …", "3847.C05.D …", "3847.T12 …"
     if (/\d{4}\.[a-z]\d{2}/.test(name)) return 'drawing';
 
-    // Elevation / plan drawings (without the numeric sheet prefix caught above)
-    if (/elevation|floor\s*plan|site\s*plan|section|detail/.test(name)) return 'drawing';
+    // Generic drawing / plan types (without the numeric sheet prefix caught above)
+    if (/\b(?:elevation|floor\s*plan|site\s*plan|section|detail|proposed|cladding)\b/.test(name)) return 'drawing';
+
+    // Specification documents
+    if (/\b(?:spec(?:ification)?)\b/.test(name)) return 'specification';
 
     return 'unknown';
   }
 
-  // Return true if this document type should be used for item extraction
   function isScheduleOrBQ(docType) {
+    return docType === 'schedule' || docType === 'bq' || docType === 'specification';
+  }
+
+  function isRelevantForCrossRef(docType) {
     return docType === 'schedule' || docType === 'bq';
   }
 
-  // Return true if this document type should participate in cross-referencing
-  function isRelevantForCrossRef(docType) {
-    return docType === 'schedule' || docType === 'bq' || docType === 'unknown';
-  }
+  // -----------------------------------------------------------------------
+  // Spatial helpers — group PDF text items into rows and columns
+  // -----------------------------------------------------------------------
 
-  function extractItems(documents) {
-    var allItems = [];
-    var allWarnings = [];
-    var stats = { docsProcessed: 0, pagesProcessed: 0, itemsFound: 0, warnings: 0 };
+  // Spatial thresholds (all in PDF user-space points, ~1pt ≈ 0.35mm)
+  var ROW_Y_TOLERANCE   = 4;   // max Y-delta to group two items in the same row
+  var SPATIAL_ROW_Y     = 10;  // max Y-delta to consider an item "on the same row" as a reference
+  var SPATIAL_ROW_X     = 400; // max X-distance from reference to include in spatial context
+  // Character-context window sizes for the regex-only fallback (no position data)
+  var CTX_LOOKBACK      = 50;  // chars before the reference (for location, frame-type, notes)
+  var CTX_FORWARD_FULL  = 300; // chars after the reference (full context)
+  var CTX_FORWARD_DIMS  = 250; // chars after the reference (dimension/qty only — forward avoids prior item's data)
+  // Drawing-number lookback: "3847. C37" is 9 chars; use 12 to be safe for extra whitespace
+  var DRAWING_NUM_LOOKBACK = 12;
 
-    documents.forEach(function (doc) {
-      stats.docsProcessed++;
-      stats.pagesProcessed += doc.pages.length;
-      var docResult = extractFromDocument(doc);
-      allItems = allItems.concat(docResult.items);
-      allWarnings = allWarnings.concat(docResult.warnings);
+  // Group text items into rows by Y coordinate.
+  // In PDF space the origin (0,0) is bottom-left, so higher Y = higher on page.
+  function buildRows(textItems, yTolerance) {
+    if (!textItems || textItems.length === 0) return [];
+    yTolerance = yTolerance || ROW_Y_TOLERANCE;
+
+    var rows = [];
+    // Keep only items with actual text
+    var items = textItems.filter(function (it) {
+      return it.str && it.str.trim().length > 0;
     });
 
-    if (documents.length > 1) {
-      var crossWarnings = crossReferenceDocuments(documents, allItems);
-      allWarnings = allWarnings.concat(crossWarnings);
-    }
+    // Process items sorted descending by Y (top-of-page first)
+    var sorted = items.slice().sort(function (a, b) { return b.y - a.y; });
 
-    allItems = deduplicateItems(allItems);
-    stats.itemsFound = allItems.length;
-    stats.warnings = allWarnings.length;
-
-    return { items: allItems, warnings: allWarnings, stats: stats };
-  }
-
-  function extractFromDocument(doc) {
-    var items = [];
-    var warnings = [];
-    var referenceMap = {};
-    var docType = classifyDocument(doc.name);
-
-    doc.pages.forEach(function (page) {
-      var pageItems = extractFromText(page.text, doc.name, page.pageNum, docType, page.textItems || []);
-      pageItems.forEach(function (item) {
-        var ref = item.reference.toUpperCase();
-        if (ref && referenceMap[ref]) {
-          var existing = referenceMap[ref];
-          if (item.width > 0 && existing.width === 0) { existing.width = item.width; }
-          if (item.height > 0 && existing.height === 0) { existing.height = item.height; }
-          if (item.quantity > 1 && existing.quantity === 1) { existing.quantity = item.quantity; }
-          if (item.location && !existing.location) { existing.location = item.location; }
-          mergeNotes(existing, item);
-          existing.confidence = scoreConfidence(existing);
-        } else {
-          if (ref) referenceMap[ref] = item;
-          items.push(item);
+    sorted.forEach(function (item) {
+      var found = false;
+      for (var i = 0; i < rows.length; i++) {
+        if (Math.abs(rows[i].y - item.y) <= yTolerance) {
+          rows[i].items.push(item);
+          // Running average Y so tolerance stays accurate
+          rows[i].y = rows[i].items.reduce(function (s, it) { return s + it.y; }, 0) / rows[i].items.length;
+          found = true;
+          break;
         }
-      });
-    });
-
-    items.forEach(function (item) {
-      var errs = validateItem(item);
-      errs.forEach(function (msg) {
-        warnings.push({
-          id: generateId(),
-          type: 'validation',
-          message: msg,
-          itemId: item.id,
-          severity: 'warning'
-        });
-      });
-    });
-
-    if (items.length === 0) {
-      // Only warn about missing items for schedule/BQ documents — drawings and admin are expected to have none
-      if (isScheduleOrBQ(docType)) {
-        warnings.push({
-          id: generateId(),
-          type: 'extraction',
-          message: 'No glazing items found in "' + doc.name + '". The document may be scanned or use an unrecognised format.',
-          itemId: null,
-          severity: 'error'
-        });
       }
-    }
+      if (!found) {
+        rows.push({ y: item.y, items: [item] });
+      }
+    });
 
-    return { items: items, warnings: warnings };
+    // Final sort: top-to-bottom (descending Y in PDF space)
+    rows.sort(function (a, b) { return b.y - a.y; });
+
+    // Sort items within each row left-to-right (ascending X)
+    rows.forEach(function (row) {
+      row.items.sort(function (a, b) { return a.x - b.x; });
+      row.text = row.items.map(function (it) { return it.str; }).join(' ');
+    });
+
+    return rows;
   }
 
-  function extractFromText(text, sourceName, sourcePage, docType, textItems) {
+  // Column-header keyword sets mapped to field names
+  var HEADER_COLUMN_KEYWORDS = {
+    ref:         ['ref', 'reference', 'mark', 'item no', 'item', 'schedule ref', 'window ref', 'door ref', 'glazing ref', 'nr.', 'no.'],
+    width:       ['width', 'w (mm)', 'w(mm)', 'wd', 'w'],
+    height:      ['height', 'h (mm)', 'h(mm)', 'ht', 'h'],
+    size:        ['size', 'overall size', 'dimensions', 'dim', 'opening size'],
+    qty:         ['qty', 'quantity', 'no', 'nr', 'number', 'nos'],
+    frame:       ['frame', 'frame type', 'material', 'profile', 'system', 'construction'],
+    glazing:     ['glazing', 'glass', 'infill', 'glazing spec', 'glazing type'],
+    opening:     ['opening', 'function', 'operation', 'open'],
+    location:    ['location', 'position', 'floor', 'room', 'level', 'area'],
+    description: ['description', 'notes', 'specification', 'note', 'remarks', 'comments']
+  };
+
+  // Return the index of the first row that looks like a table header (≥2 field matches)
+  function findHeaderRow(rows) {
+    for (var i = 0; i < Math.min(rows.length, 20); i++) {
+      var row = rows[i];
+      if (!row.items || row.items.length < 2) continue;
+
+      var cellTexts = row.items.map(function (it) { return it.str.toLowerCase().trim(); });
+      var fieldMatchCount = 0;
+
+      var fields = Object.keys(HEADER_COLUMN_KEYWORDS);
+      for (var fi = 0; fi < fields.length; fi++) {
+        var keywords = HEADER_COLUMN_KEYWORDS[fields[fi]];
+        var matched = keywords.some(function (kw) {
+          return cellTexts.some(function (cell) {
+            return cell === kw || cell.indexOf(kw) !== -1;
+          });
+        });
+        if (matched) fieldMatchCount++;
+      }
+
+      if (fieldMatchCount >= 2) return i;
+    }
+    return -1;
+  }
+
+  // Build a map of { fieldName → { x, label } } from a header row
+  function mapHeaderColumns(headerRow) {
+    var columns = {};
+    headerRow.items.forEach(function (item) {
+      var text = item.str.toLowerCase().trim();
+      var fields = Object.keys(HEADER_COLUMN_KEYWORDS);
+      for (var fi = 0; fi < fields.length; fi++) {
+        var field = fields[fi];
+        if (columns[field]) continue; // already mapped
+        var keywords = HEADER_COLUMN_KEYWORDS[field];
+        var matched = keywords.some(function (kw) {
+          return text === kw || text.indexOf(kw) !== -1;
+        });
+        if (matched) {
+          columns[field] = { x: item.x, label: item.str };
+          break;
+        }
+      }
+    });
+    return columns;
+  }
+
+  // Find the single item in a row closest to a column X position (within tolerance)
+  function getCellText(rowItems, columnX, colTolerance) {
+    colTolerance = colTolerance || 70;
+    var closest = null;
+    var minDist = Infinity;
+    rowItems.forEach(function (item) {
+      var dist = Math.abs(item.x - columnX);
+      if (dist < minDist && dist <= colTolerance) {
+        minDist = dist;
+        closest = item;
+      }
+    });
+    return closest ? closest.str.trim() : '';
+  }
+
+  // -----------------------------------------------------------------------
+  // Strategy 1 — Structured table extraction (highest confidence)
+  // -----------------------------------------------------------------------
+
+  var REF_PATTERN = /^([WDSCwdsc]\d{2,3})$/;
+
+  function tryTableExtraction(rows, sourceName, sourcePage) {
+    var items = [];
+    var headerIdx = findHeaderRow(rows);
+    if (headerIdx === -1) return items;
+
+    var headerRow = rows[headerIdx];
+    var columns = mapHeaderColumns(headerRow);
+
+    // Must have at least a reference column to proceed
+    if (!columns.ref) return items;
+
+    for (var i = headerIdx + 1; i < rows.length; i++) {
+      var row = rows[i];
+      if (!row.items || row.items.length === 0) continue;
+
+      var refText = getCellText(row.items, columns.ref.x).toUpperCase();
+      if (!REF_PATTERN.test(refText)) continue;
+
+      var item = createItem({
+        reference: refText,
+        type: inferType(refText),
+        sourceDocument: sourceName,
+        sourcePage: sourcePage
+      });
+
+      // Dimensions: try dedicated size column first, then separate W/H columns
+      if (columns.size) {
+        var sizeText = getCellText(row.items, columns.size.x);
+        var dims = extractDimensionsFromText(sizeText);
+        if (dims) { item.width = dims.width; item.height = dims.height; }
+      }
+      if (!item.width && columns.width) {
+        var w = parseInt(getCellText(row.items, columns.width.x), 10);
+        if (w >= 100 && w <= 9000) item.width = w;
+      }
+      if (!item.height && columns.height) {
+        var h = parseInt(getCellText(row.items, columns.height.x), 10);
+        if (h >= 100 && h <= 9000) item.height = h;
+      }
+
+      // Quantity
+      if (columns.qty) {
+        var qty = parseInt(getCellText(row.items, columns.qty.x), 10);
+        if (qty > 0 && qty < 500) item.quantity = qty;
+      }
+
+      // Frame type
+      if (columns.frame) {
+        var frameText = getCellText(row.items, columns.frame.x);
+        if (frameText) item.frameType = extractFrameType(frameText);
+      }
+
+      // Opening type
+      if (columns.opening) {
+        var openText = getCellText(row.items, columns.opening.x);
+        if (openText) item.openingType = extractOpeningType(openText);
+      }
+
+      // Location
+      if (columns.location) {
+        var locText = getCellText(row.items, columns.location.x);
+        if (locText) item.location = locText;
+      }
+
+      // Glazing spec
+      var glazingSource = columns.glazing
+        ? getCellText(row.items, columns.glazing.x)
+        : row.text;
+      item.glazingSpec = buildGlazingSpec(glazingSource);
+
+      // Supplement with full-row text for notes and missing attributes
+      var fullRowText = row.text || '';
+      item.notes = extractNotes(fullRowText);
+      if (!item.frameType || item.frameType === 'Unknown') item.frameType = extractFrameType(fullRowText);
+      if (!item.openingType || item.openingType === 'Fixed') item.openingType = extractOpeningType(fullRowText);
+      if (!item.location) item.location = extractLocation(fullRowText);
+
+      // Position for PDF viewer overlay (use the ref item's position)
+      var refItem = row.items.find(function (it) { return it.str.trim().toUpperCase() === refText; });
+      if (refItem) {
+        item.textPosition = { x: refItem.x, y: refItem.y, width: refItem.width || 30, height: refItem.height || 12 };
+      }
+
+      item.confidence = scoreConfidence(item, 'table');
+      items.push(item);
+    }
+
+    return items;
+  }
+
+  // -----------------------------------------------------------------------
+  // Strategy 2 — Row-based pattern matching (medium confidence)
+  // -----------------------------------------------------------------------
+
+  function tryRowBasedExtraction(rows, sourceName, sourcePage) {
+    var items = [];
+    var refRows = [];
+
+    // Find rows whose first (leftmost) non-empty item is a glazing reference
+    rows.forEach(function (row) {
+      if (!row.items || row.items.length < 2) return;
+      var firstText = row.items[0].str.trim().toUpperCase();
+      if (REF_PATTERN.test(firstText)) {
+        refRows.push({ row: row, ref: firstText });
+      }
+    });
+
+    // Need at least 2 consistent reference rows to be confident this is a real table
+    if (refRows.length < 2) return items;
+
+    refRows.forEach(function (refRow) {
+      var row = refRow.row;
+      var ref = refRow.ref;
+
+      var item = createItem({
+        reference: ref,
+        type: inferType(ref),
+        sourceDocument: sourceName,
+        sourcePage: sourcePage
+      });
+
+      // Find dimensions: collect numbers ≥100mm from subsequent cells
+      var numbers = row.items.slice(1).map(function (it) {
+        return { str: it.str, x: it.x, val: parseInt(it.str.trim(), 10) };
+      }).filter(function (n) { return !isNaN(n.val); });
+
+      // Dimensions are the largest plausible numbers (100–9000mm)
+      var dimNums = numbers.filter(function (n) { return n.val >= 100 && n.val <= 9000; });
+      if (dimNums.length >= 2) {
+        // Assume left number is width, next is height
+        item.width = dimNums[0].val;
+        item.height = dimNums[1].val;
+      }
+
+      // If no separate W/H, try inline "WxH" pattern
+      if (!item.width || !item.height) {
+        var dims = extractDimensionsFromText(row.text);
+        if (dims) { item.width = dims.width; item.height = dims.height; }
+      }
+
+      // Quantity: small numbers (1–99) that are NOT the dimensions
+      var smallNums = numbers.filter(function (n) {
+        return n.val >= 1 && n.val <= 99 && n.val !== item.width && n.val !== item.height;
+      });
+      if (smallNums.length > 0) {
+        item.quantity = smallNums[0].val;
+      }
+
+      var fullText = row.text;
+      item.frameType  = extractFrameType(fullText);
+      item.glazingSpec = buildGlazingSpec(fullText);
+      item.openingType = extractOpeningType(fullText);
+      item.location   = extractLocation(fullText);
+      item.notes      = extractNotes(fullText);
+
+      var refItem = row.items[0];
+      item.textPosition = { x: refItem.x, y: refItem.y, width: refItem.width || 30, height: refItem.height || 12 };
+
+      item.confidence = scoreConfidence(item, 'row');
+      items.push(item);
+    });
+
+    return items;
+  }
+
+  // -----------------------------------------------------------------------
+  // Strategy 3 — Enhanced regex with spatial context (fallback)
+  // -----------------------------------------------------------------------
+
+  function tryEnhancedRegex(textItems, text, sourceName, sourcePage) {
     var items = [];
     if (!text || text.trim().length === 0) return items;
-
-    textItems = textItems || [];
-    var refMatches = [];
 
     var refPattern = /\b([WDSCwdsc]\d{2,3})\b/g;
     var match;
@@ -158,121 +356,346 @@ var DataExtractor = (function () {
       var ref = match[1].toUpperCase();
       var matchIndex = match.index;
 
-      // Reject references that are part of a drawing sheet number pattern like
-      // "3847.C37", "3847.T05", "3847.C05.D" — look back 5 characters (exactly
-      // enough to capture the "NNNN." prefix that precedes these sheet refs).
-      var preceding = text.substring(Math.max(0, matchIndex - 5), matchIndex);
-      if (/\d{4}\.$/.test(preceding)) continue;
+      // Reject references preceded by drawing-number patterns such as "3847.C37" or
+      // "3847. C37" (with optional whitespace between the period and the letter).
+      // A 12-char lookback captures "3847. C" (10 chars) with room to spare.
+      var preceding = text.substring(Math.max(0, matchIndex - DRAWING_NUM_LOOKBACK), matchIndex);
+      if (/\d{4,}\.\s*[A-Z]?\s*$/.test(preceding)) continue;
 
-      refMatches.push({ ref: ref, index: matchIndex });
-    }
-
-    if (refMatches.length === 0) {
-      // Only attempt to infer items without a reference on schedule/BQ documents.
-      // Floor plans, elevation drawings, enquiry letters and admin docs will
-      // contain dimension-like numbers that are NOT glazing items.
-      if (isScheduleOrBQ(docType)) {
-        var inferredItem = tryInferWithoutRef(text, sourceName, sourcePage);
-        if (inferredItem) items.push(inferredItem);
+      // Find the text item that contains this reference
+      var refItem = null;
+      if (textItems && textItems.length > 0) {
+        for (var k = 0; k < textItems.length; k++) {
+          var ti = textItems[k];
+          if (ti.str && (ti.str.trim().toUpperCase() === ref || ti.str.toUpperCase().indexOf(ref) !== -1)) {
+            refItem = ti;
+            break;
+          }
+        }
       }
-      return items;
-    }
 
-    refMatches.forEach(function (refMatch, i) {
-      var start = refMatch.index;
-      var end = i + 1 < refMatches.length ? refMatches[i + 1].index : text.length;
-      var context = text.substring(Math.max(0, start - 50), Math.min(text.length, end + 200));
+      // Build spatial or character context
+      var context;
+      var dimContext; // forward-only context used for dimension extraction to avoid overlap with prior items
+      if (refItem && textItems && textItems.length > 0) {
+        // Collect items on the same row (within SPATIAL_ROW_Y pt vertically) and
+        // within SPATIAL_ROW_X pt horizontally — sorted left-to-right for a natural read order.
+        var nearby = textItems.filter(function (it) {
+          return Math.abs(it.y - refItem.y) <= SPATIAL_ROW_Y &&
+                 Math.abs(it.x - refItem.x) <= SPATIAL_ROW_X &&
+                 it.str && it.str.trim().length > 0;
+        });
+        nearby.sort(function (a, b) { return a.x - b.x; });
+        context = nearby.map(function (it) { return it.str; }).join(' ');
+        dimContext = context;
+      } else {
+        // CTX_LOOKBACK chars before for location/frame/notes, CTX_FORWARD_FULL after for all attributes
+        context = text.substring(Math.max(0, matchIndex - CTX_LOOKBACK), Math.min(text.length, matchIndex + CTX_FORWARD_FULL));
+        // Forward-only window for dims/qty so a prior item's dimensions don't bleed into this item's context
+        dimContext = text.substring(matchIndex, Math.min(text.length, matchIndex + CTX_FORWARD_DIMS));
+      }
 
       var item = createItem({
-        reference: refMatch.ref,
-        type: inferType(refMatch.ref, context),
+        reference: ref,
+        type: inferType(ref),
         sourceDocument: sourceName,
         sourcePage: sourcePage
       });
 
-      var dims = extractDimensions(context);
-      if (dims) {
-        item.width = dims.width;
-        item.height = dims.height;
-      }
-
-      item.quantity = extractQuantity(context) || 1;
-      item.frameType = extractFrameType(context);
+      var dims = extractDimensionsFromText(dimContext);
+      if (dims) { item.width = dims.width; item.height = dims.height; }
+      item.quantity    = extractQuantity(dimContext) || 1;
+      item.frameType   = extractFrameType(context);
       item.glazingSpec = buildGlazingSpec(context);
       item.openingType = extractOpeningType(context);
-      item.location = extractLocation(context);
-      item.notes = extractNotes(context);
-      item.description = buildDescription(item);
-      item.confidence = scoreConfidence(item);
-      item.textPosition = findItemPosition(textItems, refMatch.ref);
+      item.location    = extractLocation(context);
+      item.notes       = extractNotes(context);
 
+      if (refItem) {
+        item.textPosition = { x: refItem.x, y: refItem.y, width: refItem.width || 30, height: refItem.height || 12 };
+      }
+
+      item.confidence = scoreConfidence(item, 'regex');
       items.push(item);
-    });
+    }
 
     return items;
   }
 
-  function findItemPosition(textItems, searchStr) {
-    if (!textItems || !textItems.length || !searchStr) return null;
-    // Exact match first
-    for (var i = 0; i < textItems.length; i++) {
-      var ti = textItems[i];
-      if (ti.str === searchStr) {
-        return {
-          x: ti.transform[4],
-          y: ti.transform[5],
-          width: ti.width || 30,
-          height: Math.abs(ti.transform[3]) || 12
-        };
-      }
-    }
-    // Contains match
-    for (var j = 0; j < textItems.length; j++) {
-      var tj = textItems[j];
-      if (tj.str && tj.str.indexOf(searchStr) !== -1) {
-        return {
-          x: tj.transform[4],
-          y: tj.transform[5],
-          width: tj.width || 30,
-          height: Math.abs(tj.transform[3]) || 12
-        };
-      }
-    }
-    return null;
-  }
+  // -----------------------------------------------------------------------
+  // Main entry point
+  // -----------------------------------------------------------------------
 
-  function tryInferWithoutRef(text, sourceName, sourcePage) {
-    var dims = extractDimensions(text);
-    if (!dims) return null;
+  function extractItems(documents) {
+    var allItems    = [];
+    var allWarnings = [];
+    var stats       = { docsProcessed: 0, pagesProcessed: 0, itemsFound: 0, warnings: 0 };
 
-    return createItem({
-      reference: 'X01',
-      type: 'other',
-      width: dims.width,
-      height: dims.height,
-      quantity: extractQuantity(text) || 1,
-      frameType: extractFrameType(text),
-      glazingSpec: buildGlazingSpec(text),
-      openingType: extractOpeningType(text),
-      location: extractLocation(text),
-      notes: extractNotes(text),
-      confidence: 'low',
-      sourceDocument: sourceName,
-      sourcePage: sourcePage
+    // Track best items per ref per doc-type for smart merging
+    var scheduleItems = {};
+    var bqItems       = {};
+
+    documents.forEach(function (doc) {
+      stats.docsProcessed++;
+      stats.pagesProcessed += doc.pages.length;
+
+      var docResult = extractFromDocument(doc);
+      allItems    = allItems.concat(docResult.items);
+      allWarnings = allWarnings.concat(docResult.warnings);
+
+      var docType = classifyDocument(doc.name);
+      docResult.items.forEach(function (item) {
+        var key = item.reference.toUpperCase();
+        if (docType === 'schedule' && !scheduleItems[key]) {
+          scheduleItems[key] = item;
+        } else if (docType === 'bq' && !bqItems[key]) {
+          bqItems[key] = item;
+        }
+      });
     });
+
+    // Smart merge: schedule dims override BQ dims; BQ qty preferred
+    var mergeWarnings = smartMerge(scheduleItems, bqItems, allItems);
+    allWarnings = allWarnings.concat(mergeWarnings);
+
+    // Cross-reference warnings between schedule and BQ only
+    if (documents.length > 1) {
+      var crossWarnings = crossReferenceDocuments(documents, allItems);
+      allWarnings = allWarnings.concat(crossWarnings);
+    }
+
+    allItems = deduplicateItems(allItems);
+    stats.itemsFound = allItems.length;
+    stats.warnings   = allWarnings.length;
+
+    return { items: allItems, warnings: allWarnings, stats: stats };
   }
 
-  function extractDimensions(text) {
+  function extractFromDocument(doc) {
+    var docType = classifyDocument(doc.name);
+
+    // Admin documents contain no glazing data — skip entirely to avoid false positives
+    if (docType === 'admin') return { items: [], warnings: [] };
+
+    // Architectural drawings — skip item extraction (references in title blocks cause false positives)
+    if (docType === 'drawing') return { items: [], warnings: [] };
+
+    var items       = [];
+    var warnings    = [];
+    var referenceMap = {};
+
+    doc.pages.forEach(function (page) {
+      var pageItems = extractFromPage(page, doc.name, docType);
+      pageItems.forEach(function (item) {
+        var ref = item.reference.toUpperCase();
+        if (ref && referenceMap[ref]) {
+          // Merge into the existing item for this doc
+          var existing = referenceMap[ref];
+          if (item.width  > 0 && existing.width  === 0) existing.width  = item.width;
+          if (item.height > 0 && existing.height === 0) existing.height = item.height;
+          if (item.quantity > 1 && existing.quantity === 1) existing.quantity = item.quantity;
+          if (item.location && !existing.location) existing.location = item.location;
+          if (item.frameType !== 'Unknown' && existing.frameType === 'Unknown') {
+            existing.frameType = item.frameType;
+          }
+          mergeNotes(existing, item);
+          existing.confidence = scoreConfidence(existing, 'merged');
+        } else {
+          if (ref) referenceMap[ref] = item;
+          items.push(item);
+        }
+      });
+    });
+
+    // Validation warnings for incomplete items
+    items.forEach(function (item) {
+      validateItemForWarnings(item).forEach(function (msg) {
+        warnings.push({ id: generateId(), type: 'validation', message: msg, itemId: item.id, severity: 'warning' });
+      });
+    });
+
+    // Only warn about missing items in schedule/BQ docs
+    if (items.length === 0 && isScheduleOrBQ(docType)) {
+      warnings.push({
+        id: generateId(),
+        type: 'extraction',
+        message: 'No glazing items found in "' + doc.name + '". The document may be scanned or use an unrecognised format.',
+        itemId: null,
+        severity: 'error'
+      });
+    }
+
+    return { items: items, warnings: warnings };
+  }
+
+  function extractFromPage(page, sourceName, docType) {
+    var textItems = page.textItems || [];
+    var text      = page.text || '';
+
+    if (!text || text.trim().length === 0) return [];
+
+    // When we have proper positional data, try spatial strategies first
+    if (textItems.length > 0 && textItems[0] && textItems[0].x !== undefined) {
+      var rows = buildRows(textItems);
+
+      // Strategy 1: Structured table with header row
+      var tableItems = tryTableExtraction(rows, sourceName, page.pageNum);
+      if (tableItems.length > 0) return tableItems;
+
+      // Strategy 2: Row-based reference pattern
+      var rowItems = tryRowBasedExtraction(rows, sourceName, page.pageNum);
+      if (rowItems.length > 0) return rowItems;
+    }
+
+    // Strategy 3: Enhanced regex with spatial context
+    var regexItems = tryEnhancedRegex(textItems, text, sourceName, page.pageNum);
+    if (regexItems.length > 0) return regexItems;
+
+    // Strategy 4: Infer an item without a reference (schedule/BQ docs only)
+    if (isScheduleOrBQ(docType)) {
+      var inferred = tryInferWithoutRef(text, sourceName, page.pageNum);
+      if (inferred) return [inferred];
+    }
+
+    return [];
+  }
+
+  // -----------------------------------------------------------------------
+  // Smart cross-document merging (schedule wins on dims, BQ wins on qty)
+  // -----------------------------------------------------------------------
+
+  function smartMerge(scheduleItems, bqItems, allItems) {
+    var warnings = [];
+    var allRefKeys = {};
+    Object.keys(scheduleItems).forEach(function (k) { allRefKeys[k] = true; });
+    Object.keys(bqItems).forEach(function (k) { allRefKeys[k] = true; });
+
+    Object.keys(allRefKeys).forEach(function (ref) {
+      var sItem = scheduleItems[ref];
+      var bItem = bqItems[ref];
+      if (!sItem || !bItem) return;
+
+      // Prefer BQ quantity when the schedule only has the default of 1
+      if (bItem.quantity > 1 && sItem.quantity === 1) {
+        sItem.quantity = bItem.quantity;
+      }
+
+      // Flag dimension conflicts (both sources have real dimensions but they differ)
+      if (sItem.width > 0 && bItem.width > 0 &&
+          (sItem.width !== bItem.width || sItem.height !== bItem.height)) {
+        warnings.push({
+          id: generateId(),
+          type: 'discrepancy',
+          message: ref + ': Dimensions differ — Window Schedule: ' + sItem.width + '×' + sItem.height +
+                   'mm, BQ: ' + bItem.width + '×' + bItem.height + 'mm — using Window Schedule values',
+          itemId: sItem.id,
+          severity: 'warning'
+        });
+        // Override BQ item in allItems with schedule dimensions
+        var bItemInAll = allItems.find(function (it) { return it.id === bItem.id; });
+        if (bItemInAll) {
+          bItemInAll.width  = sItem.width;
+          bItemInAll.height = sItem.height;
+        }
+      }
+    });
+
+    return warnings;
+  }
+
+  // -----------------------------------------------------------------------
+  // Attribute extractors (unchanged behaviour, kept for compatibility)
+  // -----------------------------------------------------------------------
+
+  function extractDimensionsFromText(text) {
+    if (!text) return null;
     var pattern = /(\d{3,4})\s*[xX×]\s*(\d{3,4})/;
     var match = pattern.exec(text);
     if (match) {
       var w = parseInt(match[1], 10);
       var h = parseInt(match[2], 10);
-      if (w >= 300 && w <= 9999 && h >= 300 && h <= 9999) {
+      if (w >= 100 && w <= 9000 && h >= 100 && h <= 9000) {
         return { width: w, height: h };
       }
     }
     return null;
+  }
+
+  function extractFrameType(text) {
+    if (!text) return 'Unknown';
+    if (/\b(?:aluminium|aluminum|alum|alu)\b/i.test(text)) return 'Aluminium';
+    if (/\b(?:pvcu|pvc-u|pvc\.u|upvc|pvc)\b/i.test(text))  return 'PVCu';
+    if (/\b(?:timber|wood|wooden|oak|softwood|hardwood)\b/i.test(text)) return 'Timber';
+    if (/\b(?:steel|galvanised|stainless)\b/i.test(text))   return 'Steel';
+    return 'Unknown';
+  }
+
+  function buildGlazingSpec(text) {
+    var parts = [];
+    if (/\b(?:triple\s*glaz(?:ed|ing)|tgu)\b/i.test(text)) {
+      parts.push('Triple Glazed');
+    } else {
+      parts.push('Double Glazed');
+    }
+    if (/\b(?:obscure|frosted|opaque|satin)\b/i.test(text)) {
+      parts.push('Obscure');
+    } else if (/\btinted\b/i.test(text)) {
+      parts.push('Tinted');
+    } else {
+      parts.push('Clear');
+    }
+    if (/\b(?:laminated|lami)\b/i.test(text))  parts.push('Laminated');
+    if (/\b(?:toughened|tempered)\b/i.test(text)) parts.push('Toughened');
+    if (/\b(?:fire[\s\-]?rated?|fw\d+|fr\d+)\b/i.test(text)) parts.push('Fire Rated');
+    if (/\b(?:acoustic|sound[\s\-]?proof)\b/i.test(text))   parts.push('Acoustic');
+    return parts.join(' - ');
+  }
+
+  function extractOpeningType(text) {
+    if (!text) return 'Fixed';
+    if (/\btilt[\s\-]?(?:and[\s\-]?)?turn\b/i.test(text)) return 'Tilt & Turn';
+    if (/\btop[\s\-]?hung\b/i.test(text))  return 'Top Hung';
+    if (/\bcasement\b/i.test(text))        return 'Casement';
+    if (/\b(?:sliding|slider)\b/i.test(text)) return 'Sliding';
+    if (/\bpivot\b/i.test(text))           return 'Pivot';
+    if (/\bbi[\s\-]?fold\b/i.test(text))   return 'Bi-fold';
+    if (/\bfixed\b/i.test(text))           return 'Fixed';
+    return 'Fixed';
+  }
+
+  function extractLocation(text) {
+    if (!text) return '';
+    var floorPatterns = [
+      { pattern: /\b(?:ground[\s\-]?floor|gf)\b/i,           label: 'Ground Floor' },
+      { pattern: /\b(?:first[\s\-]?floor|ff|1st[\s\-]?floor)\b/i, label: 'First Floor' },
+      { pattern: /\b(?:second[\s\-]?floor|sf|2nd[\s\-]?floor)\b/i, label: 'Second Floor' },
+      { pattern: /\b(?:third[\s\-]?floor|tf|3rd[\s\-]?floor)\b/i,  label: 'Third Floor' },
+      { pattern: /\bbasement\b/i,                             label: 'Basement' }
+    ];
+    for (var i = 0; i < floorPatterns.length; i++) {
+      if (floorPatterns[i].pattern.test(text)) return floorPatterns[i].label;
+    }
+    var roomMatch = /\b(?:to|at|in|for)\s+(?:the\s+)?([\w]+\s*(?:room|office|kitchen|bedroom|bathroom|hallway|hall|living|dining|study|lounge|lobby|corridor|stair))/i.exec(text);
+    if (roomMatch) return roomMatch[1].trim();
+    return '';
+  }
+
+  function extractNotes(text) {
+    var notes = [];
+    var notePatterns = [
+      { pattern: /\b(?:trickle[\s\-]?vent|ventilator)\b/i,      note: 'Trickle vent required' },
+      { pattern: /\b(?:restrictor|limiter|stay)\b/i,              note: 'Window restrictor required' },
+      { pattern: /\b(?:fire[\s\-]?rated?|fw\d+|fr\d+)\b/i,       note: 'Fire rated glazing' },
+      { pattern: /\b(?:acoustic|sound[\s\-]?proof)\b/i,           note: 'Acoustic specification' },
+      { pattern: /\b(?:obscure|frosted)\b/i,                       note: 'Obscure/frosted glass' },
+      { pattern: /\blaminated\b/i,                                 note: 'Laminated glass' },
+      { pattern: /\btoughened\b/i,                                 note: 'Toughened safety glass' },
+      { pattern: /\b(?:handicapped|accessible|disabled)\b/i,      note: 'Accessibility requirement' }
+    ];
+    notePatterns.forEach(function (np) {
+      if (np.pattern.test(text)) notes.push(np.note);
+    });
+    return notes;
   }
 
   function extractQuantity(text) {
@@ -286,158 +709,99 @@ var DataExtractor = (function () {
       var m = patterns[i].exec(text);
       if (m) {
         var qty = parseInt(m[1], 10);
-        if (qty > 0 && qty < 1000) return qty;
+        if (qty > 0 && qty < 500) return qty;
       }
     }
     return 1;
   }
 
-  function extractFrameType(text) {
-    if (/\b(?:aluminium|aluminum|alum|alu)\b/i.test(text)) return 'Aluminium';
-    if (/\b(?:pvcu|pvc-u|pvc\.u|upvc|pvc)\b/i.test(text)) return 'PVCu';
-    if (/\b(?:timber|wood|wooden|oak|softwood|hardwood)\b/i.test(text)) return 'Timber';
-    if (/\b(?:steel|galvanised)\b/i.test(text)) return 'Steel';
-    return 'Unknown';
-  }
-
-  function buildGlazingSpec(text) {
-    var parts = [];
-
-    if (/\b(?:triple\s*glaz(?:ed|ing)|tgu|tg)\b/i.test(text)) {
-      parts.push('Triple Glazed');
-    } else {
-      parts.push('Double Glazed');
-    }
-
-    if (/\b(?:obscure|frosted|opaque|satin)\b/i.test(text)) {
-      parts.push('Obscure');
-    } else if (/\btinted\b/i.test(text)) {
-      parts.push('Tinted');
-    } else {
-      parts.push('Clear');
-    }
-
-    if (/\b(?:laminated|lami)\b/i.test(text)) parts.push('Laminated');
-    if (/\b(?:toughened|tempered)\b/i.test(text)) parts.push('Toughened');
-    if (/\b(?:fire[\s\-]?rated?|fw\d+|fr\d+)\b/i.test(text)) parts.push('Fire Rated');
-    if (/\b(?:acoustic|sound[\s\-]?proof)\b/i.test(text)) parts.push('Acoustic');
-
-    return parts.join(' - ');
-  }
-
-  function extractOpeningType(text) {
-    if (/\btilt[\s\-]?(?:and[\s\-]?)?turn\b/i.test(text)) return 'Tilt & Turn';
-    if (/\btop[\s\-]?hung\b/i.test(text)) return 'Top Hung';
-    if (/\bcasement\b/i.test(text)) return 'Casement';
-    if (/\b(?:sliding|slider)\b/i.test(text)) return 'Sliding';
-    if (/\bpivot\b/i.test(text)) return 'Pivot';
-    if (/\bbi[\s\-]?fold\b/i.test(text)) return 'Bi-fold';
-    if (/\bfixed\b/i.test(text)) return 'Fixed';
-    return 'Fixed';
-  }
-
-  function extractLocation(text) {
-    var floorPatterns = [
-      { pattern: /\b(?:ground[\s\-]?floor|gf)\b/i, label: 'Ground Floor' },
-      { pattern: /\b(?:first[\s\-]?floor|ff|1st[\s\-]?floor)\b/i, label: 'First Floor' },
-      { pattern: /\b(?:second[\s\-]?floor|sf|2nd[\s\-]?floor)\b/i, label: 'Second Floor' },
-      { pattern: /\b(?:third[\s\-]?floor|tf|3rd[\s\-]?floor)\b/i, label: 'Third Floor' },
-      { pattern: /\bbasement\b/i, label: 'Basement' }
-    ];
-
-    for (var i = 0; i < floorPatterns.length; i++) {
-      if (floorPatterns[i].pattern.test(text)) {
-        return floorPatterns[i].label;
-      }
-    }
-
-    var roomMatch = /\b(?:to|at|in|for)\s+(?:the\s+)?([\w]+\s*(?:room|office|kitchen|bedroom|bathroom|hallway|hall|living|dining|study|lounge|lobby|corridor|stair))/i.exec(text);
-    if (roomMatch) {
-      return roomMatch[1].trim();
-    }
-
-    return '';
-  }
-
-  function extractNotes(text) {
-    var notes = [];
-    var notePatterns = [
-      { pattern: /\b(?:trickle[\s\-]?vent|ventilator)\b/i, note: 'Trickle vent required' },
-      { pattern: /\b(?:restrictor|limiter|stay)\b/i, note: 'Window restrictor required' },
-      { pattern: /\b(?:fire[\s\-]?rated?|fw\d+|fr\d+)\b/i, note: 'Fire rated glazing' },
-      { pattern: /\b(?:acoustic|sound[\s\-]?proof)\b/i, note: 'Acoustic specification' },
-      { pattern: /\b(?:obscure|frosted)\b/i, note: 'Obscure/frosted glass' },
-      { pattern: /\blaminated\b/i, note: 'Laminated glass' },
-      { pattern: /\btoughened\b/i, note: 'Toughened safety glass' },
-      { pattern: /\bhandicapped|accessible|disabled\b/i, note: 'Accessibility requirement' }
-    ];
-    notePatterns.forEach(function (np) {
-      if (np.pattern.test(text)) notes.push(np.note);
+  function tryInferWithoutRef(text, sourceName, sourcePage) {
+    var dims = extractDimensionsFromText(text);
+    if (!dims) return null;
+    return createItem({
+      reference:    'X01',
+      type:         'other',
+      width:        dims.width,
+      height:       dims.height,
+      quantity:     extractQuantity(text) || 1,
+      frameType:    extractFrameType(text),
+      glazingSpec:  buildGlazingSpec(text),
+      openingType:  extractOpeningType(text),
+      location:     extractLocation(text),
+      notes:        extractNotes(text),
+      confidence:   'low',
+      sourceDocument: sourceName,
+      sourcePage:   sourcePage
     });
-    return notes;
   }
 
-  function inferType(ref, context) {
-    var upper = ref.toUpperCase();
-    if (upper.startsWith('W')) return 'window';
-    if (upper.startsWith('D')) return 'door';
-    if (upper.startsWith('S')) return 'screen';
-    if (upper.startsWith('C')) return 'curtain wall';
+  function inferType(ref) {
+    var ch = (ref || '').toUpperCase().charAt(0);
+    if (ch === 'W') return 'window';
+    if (ch === 'D') return 'door';
+    if (ch === 'S') return 'screen';
+    if (ch === 'C') return 'curtain wall';
     return 'other';
   }
 
-  function buildDescription(item) {
-    var parts = [];
-    if (item.frameType && item.frameType !== 'Unknown') parts.push(item.frameType);
-    var typeLabel = item.type.charAt(0).toUpperCase() + item.type.slice(1);
-    parts.push(typeLabel);
-    if (item.openingType && item.openingType !== 'Fixed') parts.push(item.openingType);
-    if (item.glazingSpec) parts.push(item.glazingSpec);
-    return parts.join(' ');
-  }
+  // -----------------------------------------------------------------------
+  // Confidence scoring
+  // -----------------------------------------------------------------------
 
-  function scoreConfidence(item) {
+  function scoreConfidence(item, strategy) {
     var score = 0;
     if (item.reference && item.reference !== 'X01') score += 2;
-    if (item.width > 0) score += 2;
-    if (item.height > 0) score += 2;
+    if (item.width  >= 100) score += 2;
+    if (item.height >= 100) score += 2;
     if (item.quantity > 0) score += 1;
     if (item.frameType && item.frameType !== 'Unknown') score += 1;
-    if (item.location) score += 1;
-    if (item.glazingSpec) score += 1;
-
-    if (score >= 8) return 'high';
-    if (score >= 5) return 'medium';
+    if (item.location)     score += 1;
+    if (item.glazingSpec)  score += 0.5;
+    // Strategy bonus
+    if (strategy === 'table')  score += 1.5;
+    else if (strategy === 'row') score += 0.5;
+    if (score >= 9)   return 'high';
+    if (score >= 5.5) return 'medium';
     return 'low';
   }
 
-  function mergeNotes(target, source) {
-    if (source.notes && source.notes.length > 0) {
-      source.notes.forEach(function (n) {
-        if (target.notes.indexOf(n) === -1) target.notes.push(n);
-      });
-    }
-  }
+  // -----------------------------------------------------------------------
+  // Deduplication and cross-document validation
+  // -----------------------------------------------------------------------
 
   function deduplicateItems(items) {
     var byRef = {};
+    var confOrder = { high: 3, medium: 2, low: 1 };
+
     items.forEach(function (item) {
       var key = item.reference.toUpperCase();
       if (!byRef[key]) {
         byRef[key] = item;
       } else {
-        // Merge: keep the best data from both copies
         var existing = byRef[key];
-        if (item.width > 0 && existing.width === 0) existing.width = item.width;
+        var existingConf = confOrder[existing.confidence] || 0;
+        var newConf      = confOrder[item.confidence] || 0;
+
+        // Keep the best data from both copies
+        if (item.width  > 0 && existing.width  === 0) existing.width  = item.width;
         if (item.height > 0 && existing.height === 0) existing.height = item.height;
         if (item.quantity > 1 && existing.quantity === 1) existing.quantity = item.quantity;
         if (item.location && !existing.location) existing.location = item.location;
-        if (item.frameType !== 'Unknown' && existing.frameType === 'Unknown') existing.frameType = item.frameType;
+        if (item.frameType !== 'Unknown' && existing.frameType === 'Unknown') {
+          existing.frameType = item.frameType;
+        }
         mergeNotes(existing, item);
-        // Re-score confidence based on the merged (improved) data
-        existing.confidence = scoreConfidence(existing);
+
+        // If the newer copy has higher confidence, prefer its dimensional data
+        if (newConf > existingConf) {
+          if (item.width  > 0) existing.width  = item.width;
+          if (item.height > 0) existing.height = item.height;
+          if (item.frameType !== 'Unknown') existing.frameType = item.frameType;
+        }
+        existing.confidence = scoreConfidence(existing, 'merged');
       }
     });
+
     return Object.keys(byRef).map(function (k) { return byRef[k]; });
   }
 
@@ -445,18 +809,14 @@ var DataExtractor = (function () {
     var warnings = [];
     if (documents.length < 2) return warnings;
 
-    // Only cross-reference between schedule and BQ type documents.
-    // Admin, drawing, and unknown documents are excluded to avoid noise warnings.
+    // Only cross-reference schedule and BQ type documents
     var relevantDocs = documents.filter(function (doc) {
       return isRelevantForCrossRef(classifyDocument(doc.name));
     });
-
     if (relevantDocs.length < 2) return warnings;
 
     var itemsByDoc = {};
-    relevantDocs.forEach(function (doc) {
-      itemsByDoc[doc.name] = {};
-    });
+    relevantDocs.forEach(function (doc) { itemsByDoc[doc.name] = {}; });
 
     allItems.forEach(function (item) {
       if (item.sourceDocument && itemsByDoc[item.sourceDocument]) {
@@ -467,46 +827,24 @@ var DataExtractor = (function () {
     var docNames = Object.keys(itemsByDoc);
     if (docNames.length < 2) return warnings;
 
-    var allRefs = new Set();
-    allItems.forEach(function (i) { if (i.reference) allRefs.add(i.reference); });
+    var allRefs = {};
+    allItems.forEach(function (i) { if (i.reference) allRefs[i.reference] = true; });
 
-    allRefs.forEach(function (ref) {
+    Object.keys(allRefs).forEach(function (ref) {
       var foundIn = docNames.filter(function (d) { return itemsByDoc[d][ref]; });
-      if (foundIn.length > 0 && foundIn.length < docNames.length) {
-        var missingFrom = docNames.filter(function (d) { return !itemsByDoc[d][ref]; });
-        var itemId = null;
-        foundIn.forEach(function (d) { if (!itemId) itemId = itemsByDoc[d][ref].id; });
-        warnings.push({
-          id: generateId(),
-          type: 'cross-reference',
-          message: 'Item ' + ref + ' found in "' + foundIn.join('", "') + '" but not in "' + missingFrom.join('", "') + '"',
-          itemId: itemId,
-          severity: 'warning'
-        });
-      }
-
       if (foundIn.length >= 2) {
         for (var i = 0; i < foundIn.length - 1; i++) {
           for (var j = i + 1; j < foundIn.length; j++) {
             var itemA = itemsByDoc[foundIn[i]][ref];
             var itemB = itemsByDoc[foundIn[j]][ref];
-            if (itemA && itemB) {
+            if (itemA && itemB && itemA.width > 0 && itemB.width > 0) {
               if (itemA.width !== itemB.width || itemA.height !== itemB.height) {
-                if (itemA.width > 0 && itemB.width > 0) {
-                  warnings.push({
-                    id: generateId(),
-                    type: 'discrepancy',
-                    message: 'Dimension mismatch for ' + ref + ': ' + itemA.width + '×' + itemA.height + 'mm (' + foundIn[i] + ') vs ' + itemB.width + '×' + itemB.height + 'mm (' + foundIn[j] + ')',
-                    itemId: itemA.id,
-                    severity: 'error'
-                  });
-                }
-              }
-              if (itemA.quantity !== itemB.quantity && itemA.quantity > 1 && itemB.quantity > 1) {
                 warnings.push({
                   id: generateId(),
                   type: 'discrepancy',
-                  message: 'Quantity mismatch for ' + ref + ': qty ' + itemA.quantity + ' (' + foundIn[i] + ') vs qty ' + itemB.quantity + ' (' + foundIn[j] + ')',
+                  message: 'Dimension mismatch for ' + ref + ': ' + itemA.width + '×' + itemA.height +
+                           'mm (' + foundIn[i] + ') vs ' + itemB.width + '×' + itemB.height +
+                           'mm (' + foundIn[j] + ')',
                   itemId: itemA.id,
                   severity: 'warning'
                 });
@@ -518,6 +856,26 @@ var DataExtractor = (function () {
     });
 
     return warnings;
+  }
+
+  // -----------------------------------------------------------------------
+  // Shared helpers
+  // -----------------------------------------------------------------------
+
+  function mergeNotes(target, source) {
+    if (source.notes && source.notes.length > 0) {
+      source.notes.forEach(function (n) {
+        if (target.notes.indexOf(n) === -1) target.notes.push(n);
+      });
+    }
+  }
+
+  function validateItemForWarnings(item) {
+    var errors = [];
+    if (item.width  <= 0)            errors.push('Item ' + item.reference + ': width not detected');
+    if (item.height <= 0)            errors.push('Item ' + item.reference + ': height not detected');
+    if (item.frameType === 'Unknown') errors.push('Item ' + item.reference + ': frame type not detected');
+    return errors;
   }
 
   function generateId() {
@@ -551,18 +909,15 @@ var DataExtractor = (function () {
       totalPrice: 0,
       manualOverride: false,
       sourceDocument: '',
-      sourcePage: 0
+      sourcePage: 0,
+      textPosition: null
     };
     return Object.assign({}, defaults, partial);
   }
 
-  function validateItem(item) {
-    var errors = [];
-    if (item.width <= 0) errors.push('Item ' + item.reference + ': width not detected');
-    if (item.height <= 0) errors.push('Item ' + item.reference + ': height not detected');
-    if (item.frameType === 'Unknown') errors.push('Item ' + item.reference + ': frame type not detected');
-    return errors;
-  }
+  // -----------------------------------------------------------------------
+  // Public API
+  // -----------------------------------------------------------------------
 
   return {
     extractItems: extractItems,
@@ -575,4 +930,5 @@ var DataExtractor = (function () {
       return charsPerPage < 100;
     }
   };
+
 })();
