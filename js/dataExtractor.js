@@ -35,6 +35,36 @@ var DataExtractor = (function () {
     location: /(?:(?:to|at|in|for)\s+(?:the\s+)?)([\w\s\-]+(?:room|floor|office|kitchen|bedroom|bathroom|hall|living|dining|study|lounge))/gi
   };
 
+  // Classify a document based on its filename so we know how to treat it
+  function classifyDocument(docName) {
+    var name = (docName || '').toLowerCase();
+
+    // Schedule/BQ keywords take priority — a file named "3847.T12 Window Schedule" is a schedule
+    if (/window\s*schedule|door\s*schedule|glazing\s*schedule/.test(name)) return 'schedule';
+    if (/\bbq\b|bill\s*of\s*quantities|schedule\s*of\s*works/.test(name)) return 'bq';
+
+    // Admin / legal documents
+    if (/warrant|guarantee|collateral|enquiry\s*letter|letter\s*of\s*enquiry/.test(name)) return 'admin';
+
+    // Drawing-number filenames like "3847.C37 ...", "3847.T05 ...", "3847.C05.D ..."
+    if (/\d{4}\.[a-z]\d{2}/.test(name)) return 'drawing';
+
+    // Elevation / plan drawings (without the numeric sheet prefix caught above)
+    if (/elevation|floor\s*plan|site\s*plan|section|detail/.test(name)) return 'drawing';
+
+    return 'unknown';
+  }
+
+  // Return true if this document type should be used for item extraction
+  function isScheduleOrBQ(docType) {
+    return docType === 'schedule' || docType === 'bq';
+  }
+
+  // Return true if this document type should participate in cross-referencing
+  function isRelevantForCrossRef(docType) {
+    return docType === 'schedule' || docType === 'bq' || docType === 'unknown';
+  }
+
   function extractItems(documents) {
     var allItems = [];
     var allWarnings = [];
@@ -64,9 +94,10 @@ var DataExtractor = (function () {
     var items = [];
     var warnings = [];
     var referenceMap = {};
+    var docType = classifyDocument(doc.name);
 
     doc.pages.forEach(function (page) {
-      var pageItems = extractFromText(page.text, doc.name, page.pageNum);
+      var pageItems = extractFromText(page.text, doc.name, page.pageNum, docType);
       pageItems.forEach(function (item) {
         var ref = item.reference.toUpperCase();
         if (ref && referenceMap[ref]) {
@@ -98,35 +129,51 @@ var DataExtractor = (function () {
     });
 
     if (items.length === 0) {
-      warnings.push({
-        id: generateId(),
-        type: 'extraction',
-        message: 'No glazing items found in "' + doc.name + '". The document may be scanned or use an unrecognised format.',
-        itemId: null,
-        severity: 'error'
-      });
+      // Only warn about missing items for schedule/BQ documents — drawings and admin are expected to have none
+      if (isScheduleOrBQ(docType)) {
+        warnings.push({
+          id: generateId(),
+          type: 'extraction',
+          message: 'No glazing items found in "' + doc.name + '". The document may be scanned or use an unrecognised format.',
+          itemId: null,
+          severity: 'error'
+        });
+      }
     }
 
     return { items: items, warnings: warnings };
   }
 
-  function extractFromText(text, sourceName, sourcePage) {
+  function extractFromText(text, sourceName, sourcePage, docType) {
     var items = [];
     if (!text || text.trim().length === 0) return items;
 
-    var lines = text.split(/[\n\r]+/);
     var refMatches = [];
 
     var refPattern = /\b([WDSCwdsc]\d{2,3})\b/g;
     var match;
 
     while ((match = refPattern.exec(text)) !== null) {
-      refMatches.push({ ref: match[1].toUpperCase(), index: match.index });
+      var ref = match[1].toUpperCase();
+      var matchIndex = match.index;
+
+      // Reject references that are part of a drawing sheet number pattern like
+      // "3847.C37", "3847.T05", "3847.C05.D" — look back 5 characters (exactly
+      // enough to capture the "NNNN." prefix that precedes these sheet refs).
+      var preceding = text.substring(Math.max(0, matchIndex - 5), matchIndex);
+      if (/\d{4}\.$/.test(preceding)) continue;
+
+      refMatches.push({ ref: ref, index: matchIndex });
     }
 
     if (refMatches.length === 0) {
-      var inferredItem = tryInferWithoutRef(text, sourceName, sourcePage);
-      if (inferredItem) items.push(inferredItem);
+      // Only attempt to infer items without a reference on schedule/BQ documents.
+      // Floor plans, elevation drawings, enquiry letters and admin docs will
+      // contain dimension-like numbers that are NOT glazing items.
+      if (isScheduleOrBQ(docType)) {
+        var inferredItem = tryInferWithoutRef(text, sourceName, sourcePage);
+        if (inferredItem) items.push(inferredItem);
+      }
       return items;
     }
 
@@ -190,7 +237,7 @@ var DataExtractor = (function () {
     if (match) {
       var w = parseInt(match[1], 10);
       var h = parseInt(match[2], 10);
-      if (w >= 100 && w <= 9999 && h >= 100 && h <= 9999) {
+      if (w >= 300 && w <= 9999 && h >= 300 && h <= 9999) {
         return { width: w, height: h };
       }
     }
@@ -342,21 +389,41 @@ var DataExtractor = (function () {
   }
 
   function deduplicateItems(items) {
-    var seen = {};
-    return items.filter(function (item) {
-      var key = item.reference + '_' + item.sourceDocument;
-      if (seen[key]) return false;
-      seen[key] = true;
-      return true;
+    var byRef = {};
+    items.forEach(function (item) {
+      var key = item.reference.toUpperCase();
+      if (!byRef[key]) {
+        byRef[key] = item;
+      } else {
+        // Merge: keep the best data from both copies
+        var existing = byRef[key];
+        if (item.width > 0 && existing.width === 0) existing.width = item.width;
+        if (item.height > 0 && existing.height === 0) existing.height = item.height;
+        if (item.quantity > 1 && existing.quantity === 1) existing.quantity = item.quantity;
+        if (item.location && !existing.location) existing.location = item.location;
+        if (item.frameType !== 'Unknown' && existing.frameType === 'Unknown') existing.frameType = item.frameType;
+        mergeNotes(existing, item);
+        // Re-score confidence based on the merged (improved) data
+        existing.confidence = scoreConfidence(existing);
+      }
     });
+    return Object.keys(byRef).map(function (k) { return byRef[k]; });
   }
 
   function crossReferenceDocuments(documents, allItems) {
     var warnings = [];
     if (documents.length < 2) return warnings;
 
+    // Only cross-reference between schedule and BQ type documents.
+    // Admin, drawing, and unknown documents are excluded to avoid noise warnings.
+    var relevantDocs = documents.filter(function (doc) {
+      return isRelevantForCrossRef(classifyDocument(doc.name));
+    });
+
+    if (relevantDocs.length < 2) return warnings;
+
     var itemsByDoc = {};
-    documents.forEach(function (doc) {
+    relevantDocs.forEach(function (doc) {
       itemsByDoc[doc.name] = {};
     });
 
@@ -468,6 +535,7 @@ var DataExtractor = (function () {
 
   return {
     extractItems: extractItems,
+    classifyDocument: classifyDocument,
     crossReferenceDocuments: crossReferenceDocuments,
     isLikelyScanned: function (text, pageCount) {
       if (!text || text.trim().length === 0) return true;
