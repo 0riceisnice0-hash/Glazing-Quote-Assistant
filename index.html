@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glazing Quote Assistant</title>
+  <meta name="description" content="Professional glazing quotation tool — upload tender documents, extract items, and generate PDF quotes.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ========== Loading Overlay ========== -->
+  <div id="loadingOverlay" class="loading-overlay hidden">
+    <div class="spinner"></div>
+    <div id="loadingText" class="loading-text">Processing…</div>
+    <div id="loadingSub" class="loading-sub"></div>
+  </div>
+
+  <!-- ========== Toast Container ========== -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- ========== Modal ========== -->
+  <div id="modalBackdrop" class="modal-backdrop hidden">
+    <div class="modal-dialog" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Dialog</h2>
+        <button class="modal-close" id="modalCloseBtn" aria-label="Close">✕</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer" id="modalFooter"></div>
+    </div>
+  </div>
+
+  <!-- ========== Header ========== -->
+  <header class="app-header">
+    <div class="logo-area">
+      <img src="assets/logo-placeholder.svg" alt="Glazing Quote Assistant Logo" id="headerLogo">
+      <span class="app-title">Glazing Quote Assistant</span>
+    </div>
+    <div class="header-spacer"></div>
+    <div class="header-actions">
+      <button class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,0.3)" id="exportJsonBtn" title="Export session as JSON">⬇️ Export</button>
+      <label class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,0.3)" title="Import session JSON">
+        ⬆️ Import
+        <input type="file" id="importJsonInput" accept=".json" style="display:none">
+      </label>
+      <button class="btn-icon" id="darkModeToggle" title="Toggle dark/light mode" aria-label="Toggle dark mode">🌙</button>
+    </div>
+  </header>
+
+  <!-- ========== Summary Bar ========== -->
+  <div class="summary-bar" id="summaryBar">
+    <div class="summary-stat">
+      <span class="stat-label">Items</span>
+      <span class="stat-value" id="statItemCount">0</span>
+    </div>
+    <div class="summary-stat">
+      <span class="stat-label">Subtotal</span>
+      <span class="stat-value" id="statSubtotal">£0.00</span>
+    </div>
+    <div class="summary-stat">
+      <span class="stat-label">Total (inc. VAT)</span>
+      <span class="stat-value" id="statTotal">£0.00</span>
+    </div>
+    <div class="summary-stat">
+      <span class="stat-label">Errors</span>
+      <span class="stat-value" id="statWarnings">0</span>
+    </div>
+    <div class="summary-spacer"></div>
+    <button class="btn btn-secondary btn-sm" id="resetSessionBtn" style="color:#fff;border-color:rgba(255,255,255,0.4);background:rgba(255,255,255,0.1)">↺ Reset</button>
+  </div>
+
+  <!-- ========== Wizard Navigation ========== -->
+  <nav class="wizard-nav" aria-label="Steps">
+    <button class="wizard-step-tab active" data-step="1">
+      <span class="step-number">1</span>
+      Upload Documents
+    </button>
+    <button class="wizard-step-tab disabled" data-step="2">
+      <span class="step-number">2</span>
+      Review &amp; Edit
+    </button>
+    <button class="wizard-step-tab disabled" data-step="3">
+      <span class="step-number">3</span>
+      Generate Quote
+    </button>
+  </nav>
+
+  <!-- ========== Main Content ========== -->
+  <main class="main-content">
+
+    <!-- ===== STEP 1: Upload ===== -->
+    <div id="step1" class="step-panel active">
+      <div class="stats-row">
+        <div class="stat-card accent-primary">
+          <div class="sc-label">Step 1</div>
+          <div class="sc-value" style="font-size:1rem">📄 Upload</div>
+        </div>
+        <div class="stat-card accent-success">
+          <div class="sc-label">Step 2</div>
+          <div class="sc-value" style="font-size:1rem">✏️ Review</div>
+        </div>
+        <div class="stat-card accent-warning">
+          <div class="sc-label">Step 3</div>
+          <div class="sc-value" style="font-size:1rem">📑 Generate</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:20px;align-items:start">
+        <div>
+          <!-- Upload Card -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">📁</span>
+              Upload Tender Documents
+            </div>
+
+            <div class="upload-zone" id="dropZone">
+              <input type="file" id="fileInput" accept=".pdf" multiple aria-label="Upload PDF files">
+              <span class="upload-icon">📂</span>
+              <h3>Drop PDF files here</h3>
+              <p>or click to browse your files</p>
+              <span class="upload-hint">Accepts: PDF files • Window schedules, door schedules, tender drawings</span>
+            </div>
+
+            <ul class="file-list" id="fileList"></ul>
+
+            <div id="progressArea" class="hidden">
+              <div class="progress-container">
+                <div class="progress-label">
+                  <span id="progressLabel">Extracting text…</span>
+                  <span id="progressPct">0%</span>
+                </div>
+                <div class="progress-bar-track">
+                  <div class="progress-bar-fill" id="progressBar"></div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:20px;display:flex;gap:12px;align-items:center">
+              <button class="btn btn-primary btn-lg" id="analyseBtn" disabled>
+                🔍 Analyse Documents
+              </button>
+              <span class="text-muted" style="font-size:0.8rem">or</span>
+              <button class="btn btn-secondary" id="addItemBtnStep1" onclick="UI.renderStep(2); setTimeout(function(){ var btn=document.getElementById('addItemBtn'); if(btn) btn.click(); }, 150)">
+                ✚ Add Items Manually
+              </button>
+            </div>
+          </div>
+
+          <!-- Info Card -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">ℹ️</span>
+              How it works
+            </div>
+            <ol style="margin:0 0 0 20px;font-size:0.875rem;line-height:1.8;color:var(--text-secondary)">
+              <li><strong>Upload</strong> your PDF tender documents (window schedules, drawings, specs)</li>
+              <li><strong>Analyse</strong> — the app extracts glazing item references, sizes, and specifications</li>
+              <li><strong>Review &amp; Edit</strong> extracted items, adjust pricing and add missing details</li>
+              <li><strong>Generate</strong> a professional PDF quote with full itemisation</li>
+            </ol>
+            <div class="alert alert-info mt-2">
+              <span class="alert-icon">💡</span>
+              <div>Works best with text-based PDFs (not scanned images). Detected items include windows (W01…), doors (D01…), screens (S01…) and curtain walling (C01…).</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing Settings Panel -->
+        <div>
+          <div class="card pricing-settings">
+            <div class="card-title">
+              <span class="card-icon">💰</span>
+              Pricing Settings
+            </div>
+
+            <div class="form-group">
+              <label for="baseRatePerM2">Base Rate (£/m²)</label>
+              <input type="number" class="form-control" id="baseRatePerM2" value="150" min="1" step="1">
+            </div>
+
+            <div class="form-group">
+              <label for="discountPercent">Discount (%)</label>
+              <input type="number" class="form-control" id="discountPercent" value="0" min="0" max="100" step="0.5">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group" style="flex:0 0 auto">
+                <label>VAT</label>
+                <div style="display:flex;align-items:center;gap:8px;padding-top:4px">
+                  <input type="checkbox" id="vatEnabled" checked>
+                  <label for="vatEnabled" style="text-transform:none;letter-spacing:0;font-weight:400">Enabled</label>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="vatRate">VAT Rate (%)</label>
+                <input type="number" class="form-control" id="vatRate" value="20" min="0" max="100" step="1">
+              </div>
+            </div>
+
+            <hr class="section-divider">
+
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Price Multipliers</div>
+            <div class="multiplier-grid" id="multiplierGrid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== STEP 2: Review & Edit ===== -->
+    <div id="step2" class="step-panel">
+      <div class="step2-layout">
+        <div class="step2-main">
+          <div class="card">
+            <div class="card-tabs">
+              <button class="card-tab active" id="tabItems">📋 Items</button>
+              <button class="card-tab" id="tabPricing" onclick="document.getElementById('priceSummaryCard').scrollIntoView({behavior:'smooth'})">💰 Pricing</button>
+            </div>
+
+            <!-- Table Toolbar -->
+            <div class="table-toolbar">
+              <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-box" id="tableSearch" placeholder="Search items…" aria-label="Search items">
+              </div>
+              <select class="filter-select" id="filterType" aria-label="Filter by type">
+                <option value="">All Types</option>
+                <option value="window">Window</option>
+                <option value="door">Door</option>
+                <option value="screen">Screen</option>
+                <option value="curtain wall">Curtain Wall</option>
+                <option value="other">Other</option>
+              </select>
+              <select class="filter-select" id="filterFrame" aria-label="Filter by frame">
+                <option value="">All Frames</option>
+                <option value="Aluminium">Aluminium</option>
+                <option value="PVCu">PVCu</option>
+                <option value="Timber">Timber</option>
+                <option value="Steel">Steel</option>
+                <option value="Unknown">Unknown</option>
+              </select>
+              <select class="filter-select" id="filterConfidence" aria-label="Filter by confidence">
+                <option value="">All Confidence</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+              <button class="btn btn-danger btn-sm" id="clearItemsBtn" title="Clear all items">🗑️ Clear All</button>
+            </div>
+
+            <!-- Table Container -->
+            <div id="itemsTableContainer"></div>
+
+            <!-- Add Item Button -->
+            <div style="margin-top:14px">
+              <button class="btn btn-secondary" id="addItemBtn">✚ Add Item</button>
+            </div>
+          </div>
+
+          <!-- Price Summary Card -->
+          <div class="card" id="priceSummaryCard">
+            <div class="card-title">
+              <span class="card-icon">💰</span>
+              Price Summary
+            </div>
+            <div id="priceSummaryPanel"></div>
+          </div>
+        </div>
+
+        <!-- Step 2 Sidebar -->
+        <div class="step2-sidebar">
+          <!-- Warnings Panel -->
+          <div class="card warnings-panel">
+            <div class="card-title">
+              <span class="card-icon">⚠️</span>
+              Warnings
+              <span class="warning-count-badge hidden" id="warningsCount">0</span>
+            </div>
+            <div class="warnings-list" id="warningsList">
+              <div class="empty-state" style="padding:20px">
+                <span style="font-size:2rem">✅</span>
+                <p>No warnings</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">➡️</span>
+              Next Step
+            </div>
+            <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:14px">
+              When you're satisfied with the items and pricing, proceed to generate your quote PDF.
+            </p>
+            <button class="btn btn-primary" onclick="UI.renderStep(3)" style="width:100%">
+              Continue to Generate Quote →
+            </button>
+          </div>
+
+          <!-- Source Documents -->
+          <div class="card" id="sourceDocsCard">
+            <div class="card-title">
+              <span class="card-icon">📄</span>
+              Source Documents
+            </div>
+            <div id="sourceDocsList" style="font-size:0.8rem;color:var(--text-muted)">
+              No documents processed yet.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== STEP 3: Generate Quote ===== -->
+    <div id="step3" class="step-panel">
+      <div class="step3-layout">
+        <!-- Left: Form -->
+        <div>
+          <!-- Company Details -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">🏢</span>
+              Company Details
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input type="text" class="form-control" id="companyName" placeholder="e.g. Smith Glazing Ltd">
+              </div>
+              <div class="form-group">
+                <label for="companyPhone">Phone Number</label>
+                <input type="tel" class="form-control" id="companyPhone" placeholder="e.g. 01234 567890">
+              </div>
+              <div class="form-group">
+                <label for="companyEmail">Email Address</label>
+                <input type="email" class="form-control" id="companyEmail" placeholder="e.g. quotes@smith-glazing.co.uk">
+              </div>
+              <div class="form-group">
+                <label>Company Logo</label>
+                <div class="logo-upload-area">
+                  <input type="file" id="logoFileInput" accept="image/*" aria-label="Upload company logo">
+                  <img id="logoPreview" class="logo-preview hidden" alt="Logo preview">
+                  <span style="font-size:0.8rem;color:var(--text-muted)" id="logoHint">Click to upload logo</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="companyAddress">Address</label>
+              <textarea class="form-control" id="companyAddress" rows="2" placeholder="e.g. 123 High Street, London, EC1A 1AA"></textarea>
+            </div>
+          </div>
+
+          <!-- Quote Details -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">📋</span>
+              Quote Details
+            </div>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="quoteNumber">Quote Number</label>
+                <input type="text" class="form-control" id="quoteNumber" placeholder="e.g. GQ-20240101-001">
+              </div>
+              <div class="form-group">
+                <label for="quoteDate">Quote Date</label>
+                <input type="date" class="form-control" id="quoteDate">
+              </div>
+              <div class="form-group">
+                <label for="projectName">Project Name</label>
+                <input type="text" class="form-control" id="projectName" placeholder="e.g. New Build Development — Plot 7">
+              </div>
+              <div class="form-group">
+                <label for="clientName">Client Name</label>
+                <input type="text" class="form-control" id="clientName" placeholder="e.g. Acme Properties Ltd">
+              </div>
+              <div class="form-group">
+                <label for="validityDays">Quote Valid For (days)</label>
+                <input type="number" class="form-control" id="validityDays" value="30" min="1" max="365">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="quoteNotes">Additional Notes</label>
+              <textarea class="form-control" id="quoteNotes" rows="3" placeholder="Any special conditions, exclusions or additional information to include in the quote…"></textarea>
+            </div>
+          </div>
+
+          <!-- Generate Button -->
+          <div style="display:flex;gap:12px;align-items:center">
+            <button class="btn btn-success btn-lg" id="generateQuoteBtn">
+              📄 Generate Quote PDF
+            </button>
+            <button class="btn btn-secondary" onclick="UI.renderStep(2)">
+              ← Back to Review
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Preview & Summary -->
+        <div>
+          <!-- Quote Preview -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">👁️</span>
+              Quote Preview
+            </div>
+            <div class="quote-preview-box" id="quotePreview">
+              <div class="empty-state" style="padding:24px">
+                <span class="empty-icon">📑</span>
+                <h3>Preview will appear here</h3>
+                <p>Fill in the company and quote details to see a preview.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Price Summary -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">💰</span>
+              Price Summary
+            </div>
+            <div id="step3PriceSummary"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ========== Footer ========== -->
+  <footer class="app-footer">
+    <span>Glazing Quote Assistant v1.0.0 &nbsp;·&nbsp; Runs entirely in your browser — no data is sent to any server &nbsp;·&nbsp; Built for glazing professionals</span>
+  </footer>
+
+  <!-- ========== CDN Libraries ========== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"
+    integrity="sha512-q+4liFwdPC/bNdhUpZx6aXDx/h77yEQtn4I1slHydcbZK34nLaR3cAeYSJshoxIOq3mjEf7xJE8YWIUHMn+oCQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    if (typeof pdfjsLib !== 'undefined') {
+      pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"
+    integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.7.1/jspdf.plugin.autotable.min.js"
+    integrity="sha512-jLgOBQkUaRRXfpwIEGE5jlCPSxMiQSFm0/cdzP/KuiECIx5x0ucr5enJrjtQJt+Y8vpIpOroYhsfsRLoDWO26Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- ========== Application Scripts ========== -->
+  <script src="js/dataModel.js"></script>
+  <script src="js/pdfParser.js"></script>
+  <script src="js/dataExtractor.js"></script>
+  <script src="js/pricing.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/quoteGenerator.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
