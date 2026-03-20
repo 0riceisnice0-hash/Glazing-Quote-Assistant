@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Glazing Extraction Engine — Test Harness</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 2rem; background: #1a1a2e; color: #e0e0e0; }
+  h1 { color: #64b5f6; font-size: 1.4rem; }
+  h2 { color: #90caf9; font-size: 1.1rem; margin-top: 1.5rem; }
+  .suite { border: 1px solid #333; border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+  .pass { color: #81c784; } .fail { color: #e57373; font-weight: bold; }
+  .test-line { padding: 3px 0; font-size: 0.9rem; }
+  .summary { font-size: 1.2rem; margin-top: 1.5rem; padding: 1rem; border-radius: 8px; }
+  .summary.all-pass { background: #1b5e20; color: #a5d6a7; }
+  .summary.has-fail { background: #b71c1c; color: #ef9a9a; }
+  pre { background: #111; padding: 0.5rem; border-radius: 4px; overflow-x: auto; font-size: 0.8rem; max-height: 300px; overflow-y: auto; }
+</style>
+</head>
+<body>
+<h1>🔬 Glazing Extraction Engine — Test Harness</h1>
+<div id="results"></div>
+<div id="summary"></div>
+
+<!-- Load only the modules needed for extraction (no UI/PDF.js/jsPDF) -->
+<script>
+// Stub for DataModel.createItem (used by dataExtractor.js via the global)
+// dataExtractor.js has its own internal createItem, so we just need generateId available
+</script>
+<script src="../js/dataModel.js"></script>
+<script src="../js/dataExtractor.js"></script>
+<script>
+(function () {
+  var results = document.getElementById('results');
+  var summaryEl = document.getElementById('summary');
+  var totalPass = 0, totalFail = 0;
+
+  function assert(condition, message) {
+    if (condition) {
+      totalPass++;
+      return '<div class="test-line pass">✅ ' + esc(message) + '</div>';
+    } else {
+      totalFail++;
+      return '<div class="test-line fail">❌ ' + esc(message) + '</div>';
+    }
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ====================================================================
+  // TEST DATA — based on actual extracted text from Berryfields tender pack
+  // ====================================================================
+
+  var WINDOW_SCHEDULE_TEXT =
+    'Window Schedule  Ground Floor  Window No.   Location   Type   Colour Structural Opening (w x h) mm ' +
+    'Structural cill above floor slab mm Escape Window Window furniture   Notes  ' +
+    'EW01   Room 1   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. Trickle vents to all windows and doors. ' +
+    'EW02   Room 2   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. Trickle vents to all windows and doors. ' +
+    'EW03   Room 3   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. Trickle vents to all windows and doors. ' +
+    'EW04   Disabled WC   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW05   Office   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW06   Room 4   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW07   Room 5   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW08   Room 6   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW09   Room 7   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW10   Room 8   Double-glazed Aluminium PPC   Grey 7016   1010 x 700   1400   No   TBC   Top hung window with restrictors. ' +
+    'EW11   Room 9   Double-glazed Aluminium PPC   Grey 7016   1010 x 700   1400   No   TBC   Top hung window with restrictors. ' +
+    'EW12   Room 10   Double-glazed Aluminium PPC   Grey 7016   1010 x 700   1400   No   TBC   Top hung window with restrictors. ' +
+    'EW13   Room 11   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW14   Room 12   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW15   Room 13   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW16   Room 14   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW17   Room 15   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW18   Room 16   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW19   Room 17   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'First Floor  ' +
+    'EW20   Room 18   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW21   Room 19   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW22   Room 20   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW23   Room 21   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW24   Room 22   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW25   Room 23   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW26   Room 24   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW27   Room 25   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW28   Room 26   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW29   Room 27   Double-glazed Aluminium PPC   Grey 7016   1010 x 700   1400   No   TBC   Top hung window with restrictors. ' +
+    'EW30   Room 28   Double-glazed Aluminium PPC   Grey 7016   1010 x 700   1400   No   TBC   Top hung window with restrictors. ' +
+    'EW31   Room 29   Double-glazed Aluminium PPC   Grey 7016   1010 x 700   1400   No   TBC   Top hung window with restrictors. ' +
+    'EW32   Room 30   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW33   Room 31   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW34   Corridor   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW35   Corridor   Double-glazed Aluminium PPC   Grey 7016   1010 x 1050   1050   No   TBC   Top hung window with restrictors. ' +
+    'EW36   Stairwell   Double-glazed Aluminium PPC   Grey 7016   1500 x 1500   1050   No   TBC   Fixed light. ' +
+    'EW37   Stairwell   Double-glazed Aluminium PPC   Grey 7016   1500 x 1500   1050   No   TBC   Fixed light. ' +
+    'EW38   Stairwell   Double-glazed Aluminium PPC   Grey 7016   1500 x 1500   1050   No   TBC   Fixed light. ' +
+    'External Doors  ' +
+    'ED01   Main Entrance   Double-glazed Aluminium PPC   Grey 7016   1200 x 2100   0   No   Lever handle   Entrance door with vision panel. ' +
+    'ED02   Fire Exit (GF)   Double-glazed Aluminium PPC   Grey 7016   900 x 2100   0   Yes   Panic bar   Fire exit door with vision panel. ' +
+    'ED03   Fire Exit (FF)   Double-glazed Aluminium PPC   Grey 7016   900 x 2100   0   Yes   Panic bar   Fire exit door with vision panel. ';
+
+  var BQ_TEXT =
+    'Bill of Quantities  Windows & Doors  ' +
+    'EW01 qty: 1  EW02 qty: 1  EW03 qty: 1  EW04 qty: 1  EW05 qty: 1  ' +
+    'EW06 qty: 1  EW07 qty: 1  EW08 qty: 1  EW09 qty: 1  EW10 qty: 2  ' +
+    'EW11 qty: 2  EW12 qty: 2  EW13 qty: 1  EW14 qty: 1  EW15 qty: 1  ' +
+    'EW16 qty: 1  EW17 qty: 1  EW18 qty: 1  EW19 qty: 1  EW20 qty: 1  ' +
+    'EW21 qty: 1  EW22 qty: 1  EW23 qty: 1  EW24 qty: 1  EW25 qty: 1  ' +
+    'EW26 qty: 1  EW27 qty: 1  EW28 qty: 1  EW29 qty: 2  EW30 qty: 2  ' +
+    'EW31 qty: 2  EW32 qty: 1  EW33 qty: 1  EW34 qty: 1  EW35 qty: 1  ' +
+    'EW36 qty: 1  EW37 qty: 1  EW38 qty: 1  ' +
+    'ED01 qty: 1  ED02 qty: 1  ED03 qty: 1 ';
+
+  var DRAWING_TEXT =
+    '3847.C37 Proposed Cladding Details  EW01 EW02 EW03 C37 reference notes ' +
+    '3847.T05 Proposed Ground Floor Plan  EW01 through EW19 shown  T05 reference ';
+
+  var ADMIN_TEXT = 'Collateral Warranties & Guarantees  This document provides warranty terms and conditions for the project.';
+
+  // Build mock documents
+  function mockDoc(name, text) {
+    return {
+      name: name,
+      pageCount: 1,
+      fullText: text,
+      pages: [{
+        pageNum: 1,
+        text: text,
+        textItems: [], // no position data — forces character-context fallback
+        width: 595,
+        height: 842
+      }],
+      isScanned: false
+    };
+  }
+
+  // ====================================================================
+  // SUITE 1: Window Schedule Extraction
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 1: Window Schedule Extraction</h2>';
+
+    var docs = [
+      mockDoc('3847.T12 Window Schedule.pdf', WINDOW_SCHEDULE_TEXT),
+      mockDoc('3847.C37 Proposed Cladding Details.pdf', DRAWING_TEXT),
+      mockDoc('Collateral Warranties & Guarantees.pdf', ADMIN_TEXT),
+      mockDoc('BQ pages Windows & Doors.pdf', BQ_TEXT)
+    ];
+
+    var result = DataExtractor.extractItems(docs);
+    var items = result.items;
+    var warnings = result.warnings;
+
+    // Count by prefix
+    var ewItems = items.filter(function (i) { return /^EW\d/.test(i.reference); });
+    var edItems = items.filter(function (i) { return /^ED\d/.test(i.reference); });
+
+    html += assert(ewItems.length >= 38, 'Found ' + ewItems.length + '/38 EW references (EW01–EW38)');
+    html += assert(edItems.length >= 3, 'Found ' + edItems.length + '/3 ED references (ED01–ED03)');
+    html += assert(items.length >= 41, 'Total items: ' + items.length + ' (expected ≥41)');
+
+    // Check specific refs exist
+    ['EW01','EW10','EW19','EW20','EW38','ED01','ED02','ED03'].forEach(function (ref) {
+      var found = items.some(function (i) { return i.reference === ref; });
+      html += assert(found, 'Reference ' + ref + ' found');
+    });
+
+    // Check NO false positives
+    var falsePositives = ['C37','C05','C06','T05','T12','BS6262','X01','S6262'];
+    falsePositives.forEach(function (ref) {
+      var found = items.some(function (i) { return i.reference === ref; });
+      html += assert(!found, 'False positive ' + ref + ' correctly rejected');
+    });
+
+    // Check dimensions on EW01
+    var ew01 = items.find(function (i) { return i.reference === 'EW01'; });
+    if (ew01) {
+      html += assert(ew01.width === 1010, 'EW01 width = ' + (ew01 ? ew01.width : 'N/A') + ' (expected 1010)');
+      html += assert(ew01.height === 1050, 'EW01 height = ' + (ew01 ? ew01.height : 'N/A') + ' (expected 1050)');
+    } else {
+      html += assert(false, 'EW01 not found — cannot check dimensions');
+      html += assert(false, 'EW01 not found — cannot check dimensions');
+    }
+
+    // Check dimensions on EW10 (different size: 1010x700)
+    var ew10 = items.find(function (i) { return i.reference === 'EW10'; });
+    if (ew10) {
+      html += assert(ew10.width === 1010, 'EW10 width = ' + (ew10 ? ew10.width : 'N/A') + ' (expected 1010)');
+      html += assert(ew10.height === 700, 'EW10 height = ' + (ew10 ? ew10.height : 'N/A') + ' (expected 700)');
+    } else {
+      html += assert(false, 'EW10 not found — cannot check dimensions');
+      html += assert(false, 'EW10 not found — cannot check dimensions');
+    }
+
+    // Check dimensions on ED01 (door: 1200x2100)
+    var ed01 = items.find(function (i) { return i.reference === 'ED01'; });
+    if (ed01) {
+      html += assert(ed01.width === 1200, 'ED01 width = ' + (ed01 ? ed01.width : 'N/A') + ' (expected 1200)');
+      html += assert(ed01.height === 2100, 'ED01 height = ' + (ed01 ? ed01.height : 'N/A') + ' (expected 2100)');
+    } else {
+      html += assert(false, 'ED01 not found — cannot check dimensions');
+      html += assert(false, 'ED01 not found — cannot check dimensions');
+    }
+
+    // Check EW36 (stairwell: 1500x1500)
+    var ew36 = items.find(function (i) { return i.reference === 'EW36'; });
+    if (ew36) {
+      html += assert(ew36.width === 1500, 'EW36 width = ' + (ew36 ? ew36.width : 'N/A') + ' (expected 1500)');
+      html += assert(ew36.height === 1500, 'EW36 height = ' + (ew36 ? ew36.height : 'N/A') + ' (expected 1500)');
+    } else {
+      html += assert(false, 'EW36 not found — cannot check dimensions');
+      html += assert(false, 'EW36 not found — cannot check dimensions');
+    }
+
+    // Check frame type detection
+    if (ew01) {
+      html += assert(ew01.frameType === 'Aluminium', 'EW01 frameType = "' + (ew01 ? ew01.frameType : 'N/A') + '" (expected "Aluminium")');
+    }
+
+    // Check all items have dimensions
+    var withDims = items.filter(function (i) { return i.width > 0 && i.height > 0; });
+    html += assert(withDims.length === items.length, withDims.length + '/' + items.length + ' items have dimensions');
+
+    // Log debug details
+    html += '<details><summary>Debug: all items</summary><pre>' +
+      esc(JSON.stringify(items.map(function (i) {
+        return { ref: i.reference, w: i.width, h: i.height, frame: i.frameType, conf: i.confidence, type: i.type };
+      }), null, 2)) + '</pre></details>';
+
+    html += '<details><summary>Debug: warnings (' + warnings.length + ')</summary><pre>' +
+      esc(JSON.stringify(warnings.map(function (w) {
+        return { type: w.type, severity: w.severity, msg: w.message.substring(0, 120) };
+      }), null, 2)) + '</pre></details>';
+
+    html += '<details><summary>Debug: debugLog</summary><pre>' +
+      esc((result.debugLog || []).join('\n')) + '</pre></details>';
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 2: BQ Validation (never creates items)
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 2: BQ Validation — No Item Creation</h2>';
+
+    // Test with ONLY a BQ document — should produce zero items
+    var docs = [mockDoc('BQ pages Windows & Doors.pdf', BQ_TEXT)];
+    var result = DataExtractor.extractItems(docs);
+
+    html += assert(result.items.length === 0, 'BQ-only extraction produces ' + result.items.length + ' items (expected 0)');
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 3: BQ Cross-Validation updates schedule quantities
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 3: BQ Cross-Validation Updates Quantities</h2>';
+
+    var docs = [
+      mockDoc('3847.T12 Window Schedule.pdf', WINDOW_SCHEDULE_TEXT),
+      mockDoc('BQ pages Windows & Doors.pdf', BQ_TEXT)
+    ];
+    var result = DataExtractor.extractItems(docs);
+    var items = result.items;
+
+    // EW10 has qty:2 in BQ — should be updated from default 1
+    var ew10 = items.find(function (i) { return i.reference === 'EW10'; });
+    if (ew10) {
+      html += assert(ew10.quantity === 2, 'EW10 quantity = ' + ew10.quantity + ' (expected 2 from BQ cross-validation)');
+    } else {
+      html += assert(false, 'EW10 not found — cannot check quantity');
+    }
+
+    // EW01 has qty:1 in BQ — should remain 1
+    var ew01 = items.find(function (i) { return i.reference === 'EW01'; });
+    if (ew01) {
+      html += assert(ew01.quantity === 1, 'EW01 quantity = ' + ew01.quantity + ' (expected 1)');
+    } else {
+      html += assert(false, 'EW01 not found — cannot check quantity');
+    }
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 4: Document Classification
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 4: Document Classification</h2>';
+
+    var tests = [
+      { name: '3847.T12 Window Schedule.pdf', expectedType: 'schedule' },
+      { name: 'BQ pages Windows & Doors.pdf', expectedType: 'bq' },
+      { name: '3847.C37 Proposed Cladding Details.pdf', expectedType: 'drawing' },
+      { name: '3847.T05 Proposed Ground Floor Plan.pdf', expectedType: 'drawing' },
+      { name: 'Collateral Warranties & Guarantees.pdf', expectedType: 'admin' },
+      { name: 'ENQUIRY LETTER.pdf', expectedType: 'admin' }
+    ];
+
+    tests.forEach(function (t) {
+      var cls = DataExtractor.classifyDocument(t.name, '');
+      html += assert(cls.type === t.expectedType,
+        '"' + t.name + '" → ' + cls.type + ' (expected ' + t.expectedType + ')');
+    });
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 5: isValidGlazingReference rejection
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 5: Reference Validation</h2>';
+
+    // These are valid refs
+    ['EW01','EW38','ED01','W01','D99','S01','C01','IW01','ID01'].forEach(function (ref) {
+      // Test through classifyDocument + extractItems pipeline — just verify normaliseRef
+      // We can't call isValidGlazingReference directly, but we can test through extraction
+      html += assert(ref.match(/^(E?[WDSC]\d{2,3}|I[WD]\d{2,3})$/i), ref + ' matches ref pattern');
+    });
+
+    // These should be rejected
+    ['BS6262','EN12600','S6262'].forEach(function (ref) {
+      // These match the ref pattern but should fail isValidGlazingReference
+      var testText = ref + '   Room 1   Double-glazed   1010 x 1050';
+      var docs = [mockDoc('test-schedule.pdf', 'Window Schedule ' + testText)];
+      var result = DataExtractor.extractItems(docs);
+      var found = result.items.some(function (i) { return i.reference === ref; });
+      html += assert(!found, 'False positive ' + ref + ' rejected by extraction');
+    });
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 6: Drawing documents never create items
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 6: Drawing Documents — No Item Creation</h2>';
+
+    var docs = [mockDoc('3847.C37 Proposed Cladding Details.pdf', DRAWING_TEXT)];
+    var result = DataExtractor.extractItems(docs);
+
+    html += assert(result.items.length === 0, 'Drawing-only extraction produces ' + result.items.length + ' items (expected 0)');
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 7: Admin documents skipped entirely
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 7: Admin Documents — Skipped</h2>';
+
+    var docs = [mockDoc('Collateral Warranties & Guarantees.pdf', ADMIN_TEXT)];
+    var result = DataExtractor.extractItems(docs);
+
+    html += assert(result.items.length === 0, 'Admin-only extraction produces ' + result.items.length + ' items (expected 0)');
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // Summary
+  // ====================================================================
+  var summaryClass = totalFail === 0 ? 'all-pass' : 'has-fail';
+  summaryEl.innerHTML = '<div class="summary ' + summaryClass + '">' +
+    (totalFail === 0 ? '✅ ' : '❌ ') +
+    totalPass + ' passed, ' + totalFail + ' failed — ' +
+    (totalFail === 0 ? 'All tests pass!' : totalFail + ' test(s) need attention') +
+    '</div>';
+
+})();
+</script>
+</body>
+</html>

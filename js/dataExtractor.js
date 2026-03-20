@@ -89,10 +89,41 @@ var DataExtractor = (function () {
   var MIN_TEXT_LENGTH = 50;
 
   // Normalise space-split references arising from PDF text fragmentation.
-  // e.g. "EW 19" → "EW19", "ID 04" → "ID04".
+  // e.g. "EW 19" → "EW19", "ID 04" → "ID04", "E W 01" → "EW01".
   // Creates a fresh regex instance each call to avoid lastIndex state issues.
   function normaliseSpaceSplitRefs(text) {
-    return text.replace(/\b([A-Z]{1,2}[WDSC])\s+(\d{2,4})\b/gi, '$1$2');
+    // Handle extreme fragmentation: "E W 01" → "EW01" (single letters before W/D/S/C)
+    var result = text.replace(/\b([A-Z])\s+([WDSC])\s+(\d{2,4})\b/gi, '$1$2$3');
+    // Standard case: "EW 19" → "EW19"
+    result = result.replace(/\b([A-Z]{1,2}[WDSC])[\s\u200B\u00A0]+(\d{2,4})\b/gi, '$1$2');
+    return result;
+  }
+
+  // Drawing-sheet suffix set — populated dynamically from classified drawing documents.
+  // Contains refs like "C37", "T05" etc. extracted from filenames like "3847.C37 ...".
+  // Strategies check against this to reject drawing sheet numbers appearing as standalone refs.
+  var _drawingSheetRefs = {};
+
+  // Validate that a reference is a genuine glazing reference and not a false positive.
+  // Returns true if the ref is valid, false if it should be rejected.
+  function isValidGlazingReference(ref) {
+    if (!ref) return false;
+    var upper = ref.toUpperCase();
+
+    // Reject BS/EN standards codes: BS6262, BS EN 1279, EN12600
+    if (/^BS/i.test(upper) || /^EN\d/i.test(upper)) return false;
+
+    // Reject refs where a single-letter prefix has >3 digits (e.g. S6262 is not a screen)
+    var singleLetterMatch = upper.match(/^([A-Z])([WDSC])(\d+)$/);
+    if (singleLetterMatch && singleLetterMatch[3].length > 3) return false;
+    // Also reject bare single-type-letter + >3 digits (e.g. "C37" is ambiguous but "C3700" is not glazing)
+    var bareMatch = upper.match(/^([WDSC])(\d+)$/);
+    if (bareMatch && bareMatch[2].length > 3) return false;
+
+    // Reject refs that match known drawing sheet number suffixes
+    if (_drawingSheetRefs[upper]) return false;
+
+    return true;
   }
 
   // Group text items into rows by Y coordinate.
@@ -232,8 +263,10 @@ var DataExtractor = (function () {
     if (!str) return null;
     // Strip leading/trailing whitespace and common trailing punctuation
     var s = str.trim().replace(/[\s.,;:]+$/, '').replace(/^[\s.,;:]+/, '');
-    if (REF_PATTERN.test(s)) return s.toUpperCase();
-    return null;
+    if (!REF_PATTERN.test(s)) return null;
+    var upper = s.toUpperCase();
+    if (!isValidGlazingReference(upper)) return null;
+    return upper;
   }
 
   function tryTableExtraction(rows, sourceName, sourcePage) {
@@ -489,10 +522,15 @@ var DataExtractor = (function () {
       var preceding = normText.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
       if (DRAWING_NUM_FILTER.test(preceding)) continue;
 
+      // Reject BS/EN codes, drawing sheet numbers, and other false positives
+      if (!isValidGlazingReference(ref)) continue;
+
       if (!foundRefs[ref]) {
         foundRefs[ref] = { ref: ref, firstIndex: idx };
       }
     }
+
+    console.log('[RefFirst] Page ' + sourcePage + ' of "' + sourceName + '": found ' + Object.keys(foundRefs).length + ' unique refs: ' + Object.keys(foundRefs).join(', '));
 
     // Step 2 & 3 — For each reference, gather nearby text cluster and extract attributes
     Object.keys(foundRefs).sort().forEach(function (ref) {
@@ -608,6 +646,9 @@ var DataExtractor = (function () {
       var preceding = normText.substring(Math.max(0, matchIndex - DRAWING_NUM_LOOKBACK), matchIndex);
       if (DRAWING_NUM_FILTER.test(preceding)) continue;
 
+      // Reject BS/EN codes, drawing sheet numbers, and other false positives
+      if (!isValidGlazingReference(ref)) continue;
+
       // Find the text item that contains this reference (or its alphabetic prefix for split refs)
       var refItem = null;
       if (textItems && textItems.length > 0) {
@@ -694,6 +735,22 @@ var DataExtractor = (function () {
     var allWarnings = [];
     var debugLog    = [];
     var stats       = { docsProcessed: 0, pagesProcessed: 0, itemsFound: 0, warnings: 0 };
+
+    // Build drawing-sheet rejection set from classified drawing documents.
+    // e.g. "3847.C37 Proposed Cladding Details.pdf" → reject "C37" as a glazing ref.
+    _drawingSheetRefs = {};
+    documents.forEach(function (doc) {
+      var cls = classifyDocument(doc.name, doc.fullText || '');
+      if (cls.type === 'drawing') {
+        var sheetMatch = (doc.name || '').match(/\d{4}\.([A-Z]\d{1,3})\b/i);
+        if (sheetMatch) {
+          _drawingSheetRefs[sheetMatch[1].toUpperCase()] = true;
+        }
+      }
+    });
+    if (Object.keys(_drawingSheetRefs).length > 0) {
+      debugLog.push('Drawing sheet rejection set: ' + Object.keys(_drawingSheetRefs).join(', '));
+    }
 
     // Track schedule items by reference (schedule is the sole source of truth for items)
     var scheduleItems = {};
@@ -822,9 +879,9 @@ var DataExtractor = (function () {
       while ((match = refPattern.exec(text)) !== null) {
         var ref = match[1].toUpperCase();
         var preceding = text.substring(Math.max(0, match.index - DRAWING_NUM_LOOKBACK), match.index);
-        if (!DRAWING_NUM_FILTER.test(preceding)) {
-          refs[ref] = true;
-        }
+        if (DRAWING_NUM_FILTER.test(preceding)) continue;
+        if (!isValidGlazingReference(ref)) continue;
+        refs[ref] = true;
       }
     });
     return Object.keys(refs);
@@ -864,6 +921,9 @@ var DataExtractor = (function () {
         // Reject drawing-sheet number context
         var preceding = normText.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
         if (DRAWING_NUM_FILTER.test(preceding)) continue;
+
+        // Reject BS/EN codes, drawing sheet numbers, and other false positives
+        if (!isValidGlazingReference(ref)) continue;
 
         // Grab forward context for quantity extraction
         var context = normText.substring(idx, Math.min(normText.length, idx + CTX_FORWARD_DIMS));
@@ -923,6 +983,8 @@ var DataExtractor = (function () {
 
     doc.pages.forEach(function (page) {
       var pageItems = extractFromPage(page, doc.name, docType);
+      console.log('[ExtractDoc] Page ' + page.pageNum + ' of "' + doc.name + '": ' + pageItems.length + ' item(s) — ' +
+        pageItems.map(function (i) { return i.reference; }).join(', '));
       pageItems.forEach(function (item) {
         var ref = item.reference.toUpperCase();
         if (ref && referenceMap[ref]) {
@@ -944,24 +1006,41 @@ var DataExtractor = (function () {
       });
     });
 
+    // Document-level fallback: if per-page extraction found fewer than 3 items for a
+    // schedule document, re-run reference-first extraction on the full document text.
+    // This sidesteps per-page text splitting issues from PDF.js.
+    if (docType === 'schedule' && items.length < 3) {
+      console.log('[ExtractDoc] Schedule fallback triggered — only ' + items.length + ' item(s) from per-page extraction. Trying full-document extraction…');
+      // Combine all textItems from all pages
+      var allTextItems = [];
+      doc.pages.forEach(function (page) {
+        (page.textItems || []).forEach(function (ti) { allTextItems.push(ti); });
+      });
+      var fullText = doc.fullText || doc.pages.map(function (p) { return p.text || ''; }).join(' ');
+      var fallbackItems = tryReferenceFirstExtraction(allTextItems, fullText, doc.name, 0);
+      console.log('[ExtractDoc] Full-document fallback found ' + fallbackItems.length + ' item(s)');
+
+      // Merge fallback items — only add refs NOT already found
+      fallbackItems.forEach(function (item) {
+        var ref = item.reference.toUpperCase();
+        if (ref && !referenceMap[ref]) {
+          referenceMap[ref] = item;
+          items.push(item);
+        }
+      });
+    }
+
+    // Suppress X01 phantom items when real items have been found
+    if (items.length > 1) {
+      items = items.filter(function (item) {
+        return item.reference !== 'X01';
+      });
+    }
+
     // Validation warnings for incomplete items
     items.forEach(function (item) {
       validateItemForWarnings(item).forEach(function (msg) {
         warnings.push({ id: generateId(), type: 'validation', message: msg, itemId: item.id, severity: 'warning' });
-      });
-    });
-
-    // Warn about items that were inferred without a proper reference (X01 fallback).
-    // These have even lower confidence and must be verified by the user.
-    items.filter(function (item) { return item.reference === 'X01'; }).forEach(function (item) {
-      warnings.push({
-        id: generateId(),
-        type: 'inference',
-        message: 'An item was inferred from "' + doc.name + '" (page ' + item.sourcePage + ') without a ' +
-                 'recognisable reference — dimensions: ' + item.width + '\u00d7' + item.height + 'mm. ' +
-                 'Please verify this is a real glazing item and update the reference.',
-        itemId: item.id,
-        severity: 'warning'
       });
     });
 
@@ -996,7 +1075,10 @@ var DataExtractor = (function () {
     // than the table/row strategies because it does not rely on table structure.
     if (docType === 'schedule') {
       var refFirstItems = tryReferenceFirstExtraction(textItems, text, sourceName, page.pageNum);
-      if (refFirstItems.length > 0) return refFirstItems;
+      if (refFirstItems.length > 0) {
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 0 (reference-first) → ' + refFirstItems.length + ' items');
+        return refFirstItems;
+      }
     }
 
     // When we have proper positional data, try spatial strategies first
@@ -1016,29 +1098,45 @@ var DataExtractor = (function () {
 
       // Strategy 1: Structured table with header row
       var tableItems = tryTableExtraction(rows, sourceName, page.pageNum);
-      if (tableItems.length > 0) return tableItems;
+      if (tableItems.length > 0) {
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 1 (table) → ' + tableItems.length + ' items');
+        return tableItems;
+      }
 
       // Strategy 2: Row-based reference pattern
       var rowItems = tryRowBasedExtraction(rows, sourceName, page.pageNum, docType);
-      if (rowItems.length > 0) return rowItems;
+      if (rowItems.length > 0) {
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 2 (row-based) → ' + rowItems.length + ' items');
+        return rowItems;
+      }
     }
 
     // Strategy 3: Enhanced regex with spatial context
     var regexItems = tryEnhancedRegex(textItems, text, sourceName, page.pageNum);
-    if (regexItems.length > 0) return regexItems;
+    if (regexItems.length > 0) {
+      console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 3 (enhanced regex) → ' + regexItems.length + ' items');
+      return regexItems;
+    }
 
     // Strategy 4: Line-based text fallback — split on newlines and process each line.
     // This handles PDFs where position data is absent or unreliable but the text layer
     // is clean enough to produce one item per line.
     var lineItems = tryLineBasedExtraction(text, sourceName, page.pageNum);
-    if (lineItems.length > 0) return lineItems;
+    if (lineItems.length > 0) {
+      console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 4 (line-based) → ' + lineItems.length + ' items');
+      return lineItems;
+    }
 
     // Strategy 5: Infer an item without a reference (schedule docs only — never BQ)
     if (docType === 'schedule') {
       var inferred = tryInferWithoutRef(text, sourceName, page.pageNum);
-      if (inferred) return [inferred];
+      if (inferred) {
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 5 (infer-without-ref) → 1 item');
+        return [inferred];
+      }
     }
 
+    console.log('[ExtractPage] Page ' + page.pageNum + ': No strategy produced items (text length: ' + text.length + ')');
     return [];
   }
 
@@ -1060,6 +1158,7 @@ var DataExtractor = (function () {
       var idx = m.index;
       var pre = line.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
       if (DRAWING_NUM_FILTER.test(pre)) return;
+      if (!isValidGlazingReference(ref)) return;
       refLines.push({ ref: ref, line: line });
     });
 

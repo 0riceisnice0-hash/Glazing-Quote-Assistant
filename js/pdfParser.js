@@ -78,7 +78,28 @@ function extractTextFromPDF(file, onProgress) {
                   height: Math.abs(item.transform[3]) || 10
                 };
               });
-              var text = textItems.map(function (it) { return it.str; }).join(' ');
+              // Smart text joining: detect adjacent text items with no visual gap
+              // and join them without a space. This fixes PDF.js fragmentation where
+              // e.g. "EW" and "19" are separate items but visually contiguous.
+              var textParts = [];
+              for (var ti = 0; ti < textItems.length; ti++) {
+                var curr = textItems[ti];
+                if (ti > 0) {
+                  var prev = textItems[ti - 1];
+                  var prevRightEdge = prev.x + prev.width;
+                  var gap = curr.x - prevRightEdge;
+                  var sameRow = Math.abs(curr.y - prev.y) < 3;
+                  // If items are on the same row and gap is tiny (<2pt), join without space
+                  if (sameRow && gap >= -2 && gap < 2) {
+                    textParts.push(curr.str);
+                  } else {
+                    textParts.push(' ' + curr.str);
+                  }
+                } else {
+                  textParts.push(curr.str);
+                }
+              }
+              var text = textParts.join('');
               pages.push({
                 pageNum: pageNum,
                 text: text,
