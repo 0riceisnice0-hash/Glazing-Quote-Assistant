@@ -18,6 +18,7 @@ const DEFAULT_STATE = {
     logoDataUrl: null
   },
   pricing: {
+    pricingVersion: 2,
     fixedCostPerUnit: 596,
     baseRatePerM2: 99,
     doorFixedCostPerUnit: 166,
