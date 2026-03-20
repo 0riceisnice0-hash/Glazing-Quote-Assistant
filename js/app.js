@@ -145,7 +145,7 @@ var App = (function () {
               return ocrResult;
             });
           } else {
-            UI.showToast('"' + file.name + '" appears to be a scanned PDF — install Tesseract.js for OCR support, or add items manually', 'warning');
+            UI.showToast('"' + file.name + '" appears to be a scanned PDF — OCR library unavailable. Refresh the page or add items manually.', 'warning');
           }
         }
 

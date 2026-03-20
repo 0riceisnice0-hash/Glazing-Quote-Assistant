@@ -14,10 +14,19 @@ var Diagnostics = (function () {
     }
     var closeBtn = document.getElementById('diagnosticsCloseBtn');
     if (closeBtn) {
-      closeBtn.addEventListener('click', function () {
-        _enabled = true; // toggle will flip it
-        toggle();
-      });
+      closeBtn.addEventListener('click', hide);
+    }
+  }
+
+  function hide() {
+    _enabled = false;
+    if (_container) {
+      _container.classList.add('hidden');
+    }
+    var toggleBtn = document.getElementById('diagnosticsToggleBtn');
+    if (toggleBtn) {
+      toggleBtn.textContent = '\uD83D\uDD2C Diagnostics';
+      toggleBtn.classList.remove('btn-active');
     }
   }
 
@@ -93,7 +102,7 @@ var Diagnostics = (function () {
         ? '<span style="color:var(--text-muted)">None extracted</span>'
         : rec.extractedItems.map(function (it) {
             return '<span class="diag-item-badge diag-badge-' + _esc(it.confidence) + '">' +
-              _esc(it.ref) + ' (' + _esc(String(it.width)) + '\xD7' + _esc(String(it.height)) + ', ' + _esc(it.confidence) + ')' +
+              _esc(it.ref) + ' (' + _esc(String(it.width)) + '\xD7' + _esc(String(it.height)) + 'mm)' +
               '</span>';
           }).join(' ');
 

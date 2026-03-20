@@ -79,7 +79,9 @@ var OcrFallback = (function () {
   }
 
   function _ocrPage(pdfDoc, pageNum) {
-    return _renderPageToCanvas(pdfDoc, pageNum, 2.0).then(function (canvas) {
+    // Use renderPageToCanvas from pdfParser.js (loaded before this module)
+    var renderFn = typeof renderPageToCanvas === 'function' ? renderPageToCanvas : _renderPageToCanvas;
+    return renderFn(pdfDoc, pageNum, 2.0).then(function (canvas) {
       return Tesseract.recognize(canvas, 'eng', {
         logger: function () {} // suppress verbose logging
       });
@@ -88,6 +90,7 @@ var OcrFallback = (function () {
     });
   }
 
+  // Fallback canvas renderer if pdfParser.js renderPageToCanvas is unavailable
   function _renderPageToCanvas(pdfDoc, pageNum, scale) {
     scale = scale || 2.0;
     return pdfDoc.getPage(pageNum).then(function (page) {
