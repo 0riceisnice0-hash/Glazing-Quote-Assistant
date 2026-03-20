@@ -16,8 +16,14 @@ var DataExtractor = (function () {
       return { type: 'bq', confidence: 'high', reason: 'Filename contains BQ keyword' };
     if (/warrant|guarantee|collateral|enquiry\s*letter|letter\s*of\s*enquiry/.test(name))
       return { type: 'admin', confidence: 'high', reason: 'Filename matches admin/legal document pattern' };
-    // Drawing-number filenames like "3847.C37 …", "3847.T05 …", "3847.T12 …"
-    if (/\d{4}\.[a-z]\d{2}/.test(name))
+    // Drawing-number filenames like "3847.C37 …", "3847.T05 …"
+    // IMPORTANT: Only classify as 'drawing' when no schedule/BQ keywords are also present.
+    // A filename like "3847.T12 Window Schedule.pdf" contains both a drawing number AND schedule
+    // keywords — the schedule checks above already return early, but this guard makes the intent
+    // explicit and prevents any future regression.
+    if (/\d{4}\.[a-z]\d{2}/.test(name) &&
+        !/window\s*schedule|door\s*schedule|glazing\s*schedule/.test(name) &&
+        !/\bbq\b|bill\s*of\s*quantities/.test(name))
       return { type: 'drawing', confidence: 'high', reason: 'Filename matches architectural drawing number pattern' };
     if (/\b(?:elevation|floor\s*plan|site\s*plan|section|detail|proposed|cladding)\b/.test(name))
       return { type: 'drawing', confidence: 'high', reason: 'Filename contains drawing type keyword' };
@@ -29,6 +35,11 @@ var DataExtractor = (function () {
       var sample = textContent.substring(0, 3000).toLowerCase();
       if (/window\s*schedule|door\s*schedule|glazing\s*schedule|opening\s*size|window\s*ref|glazing\s*ref/.test(sample))
         return { type: 'schedule', confidence: 'medium', reason: 'Content contains schedule keywords' };
+      // Table-header pattern: ref/mark column alongside dimension/qty columns strongly suggests a schedule
+      // even when the words "window schedule" don't appear in the first 3000 chars.
+      if (/\b(?:ref|mark|item\s*no)\b/i.test(sample) &&
+          /\b(?:width|height|w\s*\(mm\)|h\s*\(mm\)|qty|quantity)\b/i.test(sample))
+        return { type: 'schedule', confidence: 'medium', reason: 'Content contains schedule table headers (ref + dimensions)' };
       if (/bill\s*of\s*quantities|measured\s*work|trade\s*cont|schedule\s*of\s*rates/.test(sample))
         return { type: 'bq', confidence: 'medium', reason: 'Content contains BQ keywords' };
       if (/drawing\s*no|revision\s*[a-z]\b|scale\s*1\s*:|north\s*point|title\s*block/.test(sample))
@@ -129,7 +140,7 @@ var DataExtractor = (function () {
 
   // Return the index of the first row that looks like a table header (≥2 field matches)
   function findHeaderRow(rows) {
-    for (var i = 0; i < Math.min(rows.length, 20); i++) {
+    for (var i = 0; i < Math.min(rows.length, 30); i++) {
       var row = rows[i];
       if (!row.items || row.items.length < 2) continue;
 
@@ -313,7 +324,7 @@ var DataExtractor = (function () {
   // Strategy 2 — Row-based pattern matching (medium confidence)
   // -----------------------------------------------------------------------
 
-  function tryRowBasedExtraction(rows, sourceName, sourcePage) {
+  function tryRowBasedExtraction(rows, sourceName, sourcePage, docType) {
     var items = [];
     var refRows = [];
 
@@ -328,13 +339,24 @@ var DataExtractor = (function () {
         var candidate = normaliseRef(row.items[ci].str);
         if (candidate) { ref = candidate; refItemIdx = ci; break; }
       }
+      // Handle split text items: try concatenating adjacent pairs (e.g. "EW" + "19" → "EW19").
+      // This occurs when CAD-exported PDFs split reference codes across text items.
+      if (!ref) {
+        for (var pi = 0; pi < Math.min(4, row.items.length - 1); pi++) {
+          var combined = row.items[pi].str.trim() + row.items[pi + 1].str.trim();
+          var cand = normaliseRef(combined);
+          if (cand) { ref = cand; refItemIdx = pi; break; }
+        }
+      }
       if (ref) {
         refRows.push({ row: row, ref: ref, refItemIdx: refItemIdx });
       }
     });
 
-    // Need at least 2 consistent reference rows to be confident this is a real table
-    if (refRows.length < 2) return items;
+    // Need at least 2 consistent reference rows to be confident this is a real table.
+    // For schedule/BQ documents, lower the threshold to 1 — a single identifiable reference
+    // row is sufficient when the document type is already known.
+    if (refRows.length < (isScheduleOrBQ(docType) ? 1 : 2)) return items;
 
     refRows.forEach(function (refRow) {
       var row = refRow.row;
@@ -400,24 +422,30 @@ var DataExtractor = (function () {
     var items = [];
     if (!text || text.trim().length === 0) return items;
 
+    // Normalise space-split references that arise from PDF text fragmentation,
+    // e.g. "EW 19" → "EW19", "ID 04" → "ID04".  Use a separate variable so the
+    // original text is still available for spatial item lookups via textItems.
+    var normText = text.replace(/\b([A-Z]{1,2}[WDSC])\s+(\d{2,4})\b/gi, '$1$2');
+
     // Match single-letter refs (W01) and multi-letter prefix refs (EW01, ID01, etc.)
     // The last alpha char before the digits must be W, D, S, or C.
     var refPattern = /\b([A-Z]{0,2}[WDSC]\d{2,4})\b/gi;
     var match;
 
-    while ((match = refPattern.exec(text)) !== null) {
+    while ((match = refPattern.exec(normText)) !== null) {
       var ref = match[1].toUpperCase();
       var matchIndex = match.index;
 
       // Reject references that are actually drawing-sheet numbers like "3847.C37"
       // or "3847. EW01".  Require a mandatory letter after the period so that
       // plain dimension values such as "1010." don't trigger a false rejection.
-      var preceding = text.substring(Math.max(0, matchIndex - DRAWING_NUM_LOOKBACK), matchIndex);
+      var preceding = normText.substring(Math.max(0, matchIndex - DRAWING_NUM_LOOKBACK), matchIndex);
       if (/\d{4,}\.\s*[A-Z]\d*\s*$/.test(preceding)) continue;
 
-      // Find the text item that contains this reference
+      // Find the text item that contains this reference (or its alphabetic prefix for split refs)
       var refItem = null;
       if (textItems && textItems.length > 0) {
+        var alphaPrefix = ref.match(/^([A-Z]+)/);
         for (var k = 0; k < textItems.length; k++) {
           var ti = textItems[k];
           if (ti.str) {
@@ -425,6 +453,10 @@ var DataExtractor = (function () {
             if (tiUpper === ref || tiUpper.indexOf(ref) !== -1) {
               refItem = ti;
               break;
+            }
+            // Match the alphabetic prefix of a split ref (e.g. "EW" for ref "EW19")
+            if (alphaPrefix && alphaPrefix[1].length >= 2 && tiUpper === alphaPrefix[1] && !refItem) {
+              refItem = ti;
             }
           }
         }
@@ -446,9 +478,9 @@ var DataExtractor = (function () {
         dimContext = context;
       } else {
         // CTX_LOOKBACK chars before for location/frame/notes, CTX_FORWARD_FULL after for all attributes
-        context = text.substring(Math.max(0, matchIndex - CTX_LOOKBACK), Math.min(text.length, matchIndex + CTX_FORWARD_FULL));
+        context = normText.substring(Math.max(0, matchIndex - CTX_LOOKBACK), Math.min(normText.length, matchIndex + CTX_FORWARD_FULL));
         // Forward-only window for dims/qty so a prior item's dimensions don't bleed into this item's context
-        dimContext = text.substring(matchIndex, Math.min(text.length, matchIndex + CTX_FORWARD_DIMS));
+        dimContext = normText.substring(matchIndex, Math.min(normText.length, matchIndex + CTX_FORWARD_DIMS));
       }
 
       var item = createItem({
@@ -459,6 +491,15 @@ var DataExtractor = (function () {
       });
 
       var dims = extractDimensionsFromText(dimContext);
+      if (!dims) {
+        // Fallback: two consecutive 3-4 digit numbers may be W and H in separate table columns
+        // (e.g. "900 1200" in a schedule where width and height are adjacent cells).
+        var adjNums = dimContext.match(/\b(\d{3,4})\s+(\d{3,4})\b/);
+        if (adjNums) {
+          var aw = parseInt(adjNums[1], 10), ah = parseInt(adjNums[2], 10);
+          if (aw >= 100 && aw <= 9000 && ah >= 100 && ah <= 9000) dims = { width: aw, height: ah };
+        }
+      }
       if (dims) { item.width = dims.width; item.height = dims.height; }
       item.quantity    = extractQuantity(dimContext) || 1;
       item.frameType   = extractFrameType(context);
@@ -544,19 +585,36 @@ var DataExtractor = (function () {
       allWarnings = allWarnings.concat(crossWarnings);
     }
 
-    // Cross-validate drawing refs against schedule items
+    // Cross-validate drawing refs against schedule items — group by prefix to avoid
+    // generating one warning per reference (which can easily reach 140+ for a large project).
     if (Object.keys(scheduleItems).length > 0 && Object.keys(allDrawingRefs).length > 0) {
-      Object.keys(allDrawingRefs).forEach(function (ref) {
-        if (!scheduleItems[ref]) {
+      var missingRefs = Object.keys(allDrawingRefs).filter(function (ref) {
+        return !scheduleItems[ref];
+      });
+      if (missingRefs.length > 0) {
+        // Group by alphabetic prefix (EW, ED, ID, C, W, D, …)
+        var crossRefGroups = {};
+        missingRefs.forEach(function (ref) {
+          var prefixMatch = ref.match(/^([A-Z]+)/);
+          var prefix = prefixMatch ? prefixMatch[1] : 'OTHER';
+          if (!crossRefGroups[prefix]) crossRefGroups[prefix] = [];
+          crossRefGroups[prefix].push(ref);
+        });
+        Object.keys(crossRefGroups).sort().forEach(function (prefix) {
+          var refs = crossRefGroups[prefix].sort();
+          var count = refs.length;
+          var range = count > 1 ? refs[0] + '\u2013' + refs[count - 1] : refs[0];
           allWarnings.push({
             id: generateId(),
             type: 'cross-ref',
-            message: ref + ': Found in drawing(s) but not in Window Schedule — check if this item is missing',
+            message: count + ' ' + prefix + ' reference' + (count > 1 ? 's' : '') +
+                     ' (' + range + ') found in drawing(s) but not in Window Schedule' +
+                     (count > 1 ? ' — check if these items are missing from the schedule' : ' — check if this item is missing from the schedule'),
             itemId: null,
-            severity: 'warning'
+            severity: 'info'
           });
-        }
-      });
+        });
+      }
     }
 
     if (allSpecNotes.length > 0) {
@@ -654,6 +712,20 @@ var DataExtractor = (function () {
       });
     });
 
+    // Warn about items that were inferred without a proper reference (X01 fallback).
+    // These have even lower confidence and must be verified by the user.
+    items.filter(function (item) { return item.reference === 'X01'; }).forEach(function (item) {
+      warnings.push({
+        id: generateId(),
+        type: 'inference',
+        message: 'An item was inferred from "' + doc.name + '" (page ' + item.sourcePage + ') without a ' +
+                 'recognisable reference — dimensions: ' + item.width + '\u00d7' + item.height + 'mm. ' +
+                 'Please verify this is a real glazing item and update the reference.',
+        itemId: item.id,
+        severity: 'warning'
+      });
+    });
+
     // Only warn about missing items in schedule/BQ docs
     if (items.length === 0 && isScheduleOrBQ(docType)) {
       // Determine if the document has any text at all (to give a better message)
@@ -699,7 +771,7 @@ var DataExtractor = (function () {
       if (tableItems.length > 0) return tableItems;
 
       // Strategy 2: Row-based reference pattern
-      var rowItems = tryRowBasedExtraction(rows, sourceName, page.pageNum);
+      var rowItems = tryRowBasedExtraction(rows, sourceName, page.pageNum, docType);
       if (rowItems.length > 0) return rowItems;
     }
 
@@ -753,6 +825,14 @@ var DataExtractor = (function () {
         sourcePage: sourcePage
       });
       var dims = extractDimensionsFromText(rl.line);
+      if (!dims) {
+        // Fallback: two consecutive 3-4 digit numbers may be W and H in separate table columns
+        var adjNums = rl.line.match(/\b(\d{3,4})\s+(\d{3,4})\b/);
+        if (adjNums) {
+          var aw = parseInt(adjNums[1], 10), ah = parseInt(adjNums[2], 10);
+          if (aw >= 100 && aw <= 9000 && ah >= 100 && ah <= 9000) dims = { width: aw, height: ah };
+        }
+      }
       if (dims) { item.width = dims.width; item.height = dims.height; }
       item.quantity    = extractQuantity(rl.line) || 1;
       item.frameType   = extractFrameType(rl.line);
