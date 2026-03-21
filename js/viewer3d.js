@@ -333,31 +333,128 @@ var Viewer3D = (function () {
       _scene.add(edgeLine);
     });
 
-    // ── Windows ── (use MeshStandardMaterial for r128 compat — glass effect)
-    var windowGlassMat = new THREE.MeshStandardMaterial({
-      color: WINDOW_COLOR,
-      roughness: 0.05,
-      metalness: 0.3,
+    // ── Windows ── (double-glazed uPVC style, oriented to nearest wall)
+    var glassMat = new THREE.MeshStandardMaterial({
+      color: 0xADD8E6,
       transparent: true,
       opacity: 0.35,
-      side: THREE.DoubleSide
+      side: THREE.DoubleSide,
+      roughness: 0,
+      metalness: 0
     });
-    var windowFrameMat = new THREE.MeshStandardMaterial({ color: WINDOW_FRAME });
+    var outerFrameMat = new THREE.MeshStandardMaterial({
+      color: 0xf0f0f0,
+      metalness: 0.2,
+      roughness: 0.7
+    });
+    var innerFrameMat = new THREE.MeshStandardMaterial({
+      color: 0xe8e8e8,
+      metalness: 0.3,
+      roughness: 0.6
+    });
+    var handleMat = new THREE.MeshStandardMaterial({
+      color: 0x808080,
+      metalness: 0.6,
+      roughness: 0.3
+    });
 
     data.windows.forEach(function (win) {
-      var glassGeo = new THREE.PlaneGeometry(20, _wallHeight * 0.6);
-      var glass = new THREE.Mesh(glassGeo, windowGlassMat);
-      glass.position.set(win.x, _wallHeight * 0.55, win.y);
-      glass.userData = { ref: win.ref, type: 'window' };
-      _scene.add(glass);
+      var winW = 20;
+      var winH = _wallHeight * 0.6;
+      var fThk = 1.2;                 // frame rail thickness
+      var fDepth = 2.5;               // frame depth (Z)
+      var outerThk = fThk * 0.5;
+      var outerDepth = fDepth + 0.5;
+      var mullionW = fThk * 0.8;
+      var inset = 0.4;
+      var glassGap = 0.3;             // double-glazing air gap
 
-      // Frame
-      var frameGeo = new THREE.BoxGeometry(22, _wallHeight * 0.62, 1.5);
-      var frame = new THREE.Mesh(frameGeo, windowFrameMat);
-      frame.position.set(win.x, _wallHeight * 0.55, win.y);
-      _scene.add(frame);
+      var group = new THREE.Group();
 
-      // Label
+      // --- Outer surround frame (4 rails) ---
+      var otGeo = new THREE.BoxGeometry(winW + outerThk * 2, outerThk, outerDepth);
+      var osGeo = new THREE.BoxGeometry(outerThk, winH + outerThk * 2, outerDepth);
+
+      var oTop = new THREE.Mesh(otGeo, outerFrameMat);
+      oTop.position.y = (winH + outerThk) / 2;
+      group.add(oTop);
+      var oBot = new THREE.Mesh(otGeo, outerFrameMat);
+      oBot.position.y = -(winH + outerThk) / 2;
+      group.add(oBot);
+      var oLeft = new THREE.Mesh(osGeo, outerFrameMat);
+      oLeft.position.x = -(winW + outerThk) / 2;
+      group.add(oLeft);
+      var oRight = new THREE.Mesh(osGeo, outerFrameMat);
+      oRight.position.x = (winW + outerThk) / 2;
+      group.add(oRight);
+
+      // --- Inner frame (top, bottom, left, right rails) ---
+      var itGeo = new THREE.BoxGeometry(winW, fThk, fDepth);
+      var isGeo = new THREE.BoxGeometry(fThk, winH, fDepth);
+
+      var iTop = new THREE.Mesh(itGeo, innerFrameMat);
+      iTop.position.y = (winH - fThk) / 2;
+      group.add(iTop);
+      var iBot = new THREE.Mesh(itGeo, innerFrameMat);
+      iBot.position.y = -(winH - fThk) / 2;
+      group.add(iBot);
+      var iLeft = new THREE.Mesh(isGeo, innerFrameMat);
+      iLeft.position.x = -(winW - fThk) / 2;
+      group.add(iLeft);
+      var iRight = new THREE.Mesh(isGeo, innerFrameMat);
+      iRight.position.x = (winW - fThk) / 2;
+      group.add(iRight);
+
+      // --- Central mullion (vertical divider) ---
+      var mulGeo = new THREE.BoxGeometry(mullionW, winH - fThk * 2, fDepth);
+      var mul = new THREE.Mesh(mulGeo, innerFrameMat);
+      group.add(mul);
+
+      // --- Glass panes (left & right of mullion, double-glazed) ---
+      var paneW = (winW - fThk * 2 - mullionW) / 2 - inset;
+      var paneH = winH - fThk * 2 - inset;
+      var paneGeo = new THREE.PlaneGeometry(paneW, paneH);
+
+      // Left pane — outer glass
+      var lOuter = new THREE.Mesh(paneGeo, glassMat);
+      lOuter.position.set(-(paneW / 2 + mullionW / 2 + inset / 2), 0, fDepth / 2 - 0.1);
+      group.add(lOuter);
+      // Left pane — inner glass
+      var lInner = new THREE.Mesh(paneGeo, glassMat);
+      lInner.position.set(-(paneW / 2 + mullionW / 2 + inset / 2), 0, fDepth / 2 - 0.1 - glassGap);
+      group.add(lInner);
+
+      // Right pane — outer glass
+      var rOuter = new THREE.Mesh(paneGeo, glassMat);
+      rOuter.position.set(paneW / 2 + mullionW / 2 + inset / 2, 0, fDepth / 2 - 0.1);
+      group.add(rOuter);
+      // Right pane — inner glass
+      var rInner = new THREE.Mesh(paneGeo, glassMat);
+      rInner.position.set(paneW / 2 + mullionW / 2 + inset / 2, 0, fDepth / 2 - 0.1 - glassGap);
+      group.add(rInner);
+
+      // --- Sill (slightly wider ledge at bottom) ---
+      var sillGeo = new THREE.BoxGeometry(winW + outerThk * 3, outerThk * 0.5, outerDepth + 1);
+      var sill = new THREE.Mesh(sillGeo, outerFrameMat);
+      sill.position.y = -(winH + outerThk) / 2 - outerThk * 0.25;
+      sill.position.z = 0.5;
+      group.add(sill);
+
+      // --- Handle (small cylinder on right pane) ---
+      var hGeo = new THREE.CylinderGeometry(0.25, 0.25, 2.5, 8);
+      var handle = new THREE.Mesh(hGeo, handleMat);
+      handle.rotation.z = Math.PI / 2;
+      handle.position.set(winW / 2 - fThk - 1, 0, fDepth / 2 + 0.4);
+      group.add(handle);
+
+      // Position and orient to nearest wall
+      group.position.set(win.x, _wallHeight * 0.55, win.y);
+      var wallAngle = _nearestWallAngle(win.x, win.y, data.walls);
+      group.rotation.y = -wallAngle;
+
+      group.userData = { ref: win.ref, type: 'window' };
+      _scene.add(group);
+
       _addLabel(win.ref, win.x, _wallHeight + 8, win.y);
     });
 
@@ -373,31 +470,53 @@ var Viewer3D = (function () {
       var doorW = Math.max(door.swingRadius || 20, 15);
       var doorH = _wallHeight * 0.85;
 
+      var dGroup = new THREE.Group();
+
       // Door panel
       var doorGeo = new THREE.BoxGeometry(doorW, doorH, 1.5);
       var doorMesh = new THREE.Mesh(doorGeo, doorMat);
-      doorMesh.position.set(door.x, doorH / 2, door.y);
+      doorMesh.position.y = doorH / 2;
       doorMesh.castShadow = true;
       doorMesh.userData = { ref: door.ref, type: 'door', swingDetected: door.hasSwingDetected };
-      _scene.add(doorMesh);
+      dGroup.add(doorMesh);
+
+      // Door frame surround
+      var dfTopGeo = new THREE.BoxGeometry(doorW + 2, 1.2, 2.5);
+      var dfSideGeo = new THREE.BoxGeometry(1.2, doorH + 1.2, 2.5);
+      var dfTop = new THREE.Mesh(dfTopGeo, doorFrameMat);
+      dfTop.position.y = doorH + 0.6;
+      dGroup.add(dfTop);
+      var dfLeft = new THREE.Mesh(dfSideGeo, doorFrameMat);
+      dfLeft.position.set(-(doorW / 2 + 0.6), doorH / 2, 0);
+      dGroup.add(dfLeft);
+      var dfRight = new THREE.Mesh(dfSideGeo, doorFrameMat);
+      dfRight.position.set(doorW / 2 + 0.6, doorH / 2, 0);
+      dGroup.add(dfRight);
 
       // Swing arc indicator on the ground
       if (door.hasSwingDetected) {
         var arcGeo = new THREE.RingGeometry(doorW * 0.1, doorW, 32, 1, 0, Math.PI / 2);
-        var arcMat = new THREE.MeshBasicMaterial({
+        var arcMat2 = new THREE.MeshBasicMaterial({
           color: 0xfbbf24,
           transparent: true,
           opacity: 0.35,
           side: THREE.DoubleSide
         });
-        var arcMesh = new THREE.Mesh(arcGeo, arcMat);
+        var arcMesh = new THREE.Mesh(arcGeo, arcMat2);
         arcMesh.rotation.x = -Math.PI / 2;
-        arcMesh.position.set(door.x, 0.2, door.y);
-        _scene.add(arcMesh);
+        arcMesh.position.y = 0.2;
+        dGroup.add(arcMesh);
       }
 
+      // Position and orient to nearest wall
+      dGroup.position.set(door.x, 0, door.y);
+      var dAngle = _nearestWallAngle(door.x, door.y, data.walls);
+      dGroup.rotation.y = -dAngle;
+
+      _scene.add(dGroup);
+
       // Label
-      var labelText = door.ref + (door.hasSwingDetected ? ' 🚪' : '');
+      var labelText = door.ref + (door.hasSwingDetected ? ' \uD83D\uDEAA' : '');
       _addLabel(labelText, door.x, _wallHeight + 8, door.y);
     });
 
@@ -566,7 +685,7 @@ var Viewer3D = (function () {
     // Hover detection
     if (_raycaster && _camera && _scene) {
       _raycaster.setFromCamera(_mouse, _camera);
-      var intersects = _raycaster.intersectObjects(_scene.children, false);
+      var intersects = _raycaster.intersectObjects(_scene.children, true);
       var found = null;
       for (var i = 0; i < intersects.length; i++) {
         if (intersects[i].object.userData && intersects[i].object.userData.ref) {
@@ -601,6 +720,27 @@ var Viewer3D = (function () {
   /* ── helpers ─────────────────────────────────────────────── */
 
   function midpoint3(a, b) { return { x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }; }
+
+  /** Find the angle of the nearest wall segment to a point (px, py). */
+  function _nearestWallAngle(px, py, walls) {
+    var bestDist = Infinity;
+    var bestAngle = 0;
+    walls.forEach(function (wall) {
+      var dx = wall.p2.x - wall.p1.x;
+      var dy = wall.p2.y - wall.p1.y;
+      var len2 = dx * dx + dy * dy;
+      if (len2 === 0) return;
+      var t = Math.max(0, Math.min(1, ((px - wall.p1.x) * dx + (py - wall.p1.y) * dy) / len2));
+      var projX = wall.p1.x + t * dx;
+      var projY = wall.p1.y + t * dy;
+      var dist = Math.sqrt((px - projX) * (px - projX) + (py - projY) * (py - projY));
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestAngle = Math.atan2(dy, dx);
+      }
+    });
+    return bestAngle;
+  }
 
   function _escapeHtml(text) {
     var div = document.createElement('div');
