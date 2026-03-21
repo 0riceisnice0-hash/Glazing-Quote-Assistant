@@ -34,7 +34,9 @@ var App = (function () {
     _setupResetButton();
     _setupModalClose();
     _startAutoSave();
+    console.log('[3D] About to call _setup3DViewButton, btn exists:', !!document.getElementById('btn3DView'));
     _setup3DViewButton();
+    console.log('[3D] _setup3DViewButton completed');
     Diagnostics.init();
 
     UI.updateFileList(_pendingFiles);
