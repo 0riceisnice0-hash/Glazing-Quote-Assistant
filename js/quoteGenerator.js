@@ -54,20 +54,12 @@ var QuoteGenerator = (function () {
     var types = Object.keys(groupedItems);
 
     if (detailMode === 'compact') {
-      renderCompactTable(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight);
+      renderCompactTable(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight, presets);
     } else {
-      renderDetailedSchedule(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight);
+      renderDetailedSchedule(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight, presets);
     }
 
     var finalY = doc.lastAutoTable ? doc.lastAutoTable.finalY + 10 : (doc._lastDetailY || 30) + 10;
-
-    if (finalY > pageHeight - 100) {
-      doc.addPage();
-      finalY = 25;
-    }
-
-    // General Specification Summary
-    finalY = renderGeneralSpec(doc, presets, margin, contentWidth, finalY, pageWidth, pageHeight, company);
 
     if (finalY > pageHeight - 80) {
       doc.addPage();
@@ -86,7 +78,7 @@ var QuoteGenerator = (function () {
   }
 
   /* ===== COMPACT MODE: traditional 6-column autoTable ===== */
-  function renderCompactTable(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight) {
+  function renderCompactTable(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight, presets) {
     var tableBody = [];
 
     types.forEach(function (type) {
@@ -96,6 +88,24 @@ var QuoteGenerator = (function () {
       tableBody.push([
         { content: typeLabel, colSpan: 6, styles: { fillColor: NAVY, textColor: WHITE, fontStyle: 'bold', fontSize: 9 } }
       ]);
+
+      // Per-type general spec row (from preset)
+      var p = presets ? presets[type] : null;
+      if (p) {
+        var specParts = [];
+        if (p.system) specParts.push(p.system);
+        if (p.colour) specParts.push(p.colour);
+        if (p.glazingMakeup) specParts.push(p.glazingMakeup);
+        if (p.hardware) specParts.push(p.hardware);
+        if (p.cillType) specParts.push(p.cillType);
+        if (p.ventilation) specParts.push(p.ventilation);
+        if (p.drainage) specParts.push(p.drainage + ' drainage');
+        if (specParts.length > 0) {
+          tableBody.push([
+            { content: 'Spec: ' + specParts.join('  |  '), colSpan: 6, styles: { fillColor: [239, 246, 255], textColor: GRAY, fontStyle: 'italic', fontSize: 7 } }
+          ]);
+        }
+      }
 
       var typeTotal = 0;
       typeItems.forEach(function (item) {
@@ -150,7 +160,7 @@ var QuoteGenerator = (function () {
   }
 
   /* ===== DETAILED MODE: per-item specification cards ===== */
-  function renderDetailedSchedule(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight) {
+  function renderDetailedSchedule(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight, presets) {
     var y = 95;
     var cardH = 32;   // base height for a spec card
     var labelCol = margin + 4;
@@ -178,6 +188,9 @@ var QuoteGenerator = (function () {
       doc.setFont(undefined, 'bold');
       doc.text(typeLabel, margin + 4, y + 5.5);
       y += 12;
+
+      // General spec block for this type (from corresponding preset)
+      y = renderTypeSpec(doc, presets, type, margin, contentWidth, y, pageWidth, pageHeight, company);
 
       var typeTotal = 0;
 
@@ -280,70 +293,73 @@ var QuoteGenerator = (function () {
     doc._lastDetailY = y;
   }
 
-  /* ===== GENERAL SPECIFICATION SUMMARY ===== */
-  function renderGeneralSpec(doc, presets, margin, contentWidth, y, pageWidth, pageHeight, company) {
-    // Collect preset lines for window and door
-    var sections = [];
-    ['window', 'door'].forEach(function (type) {
-      var p = presets[type];
-      if (!p) return;
-      var lines = [];
-      if (p.system) lines.push(['System:', p.system]);
-      if (p.colour) lines.push(['Colour:', p.colour]);
-      if (p.hardware) lines.push(['Hardware:', p.hardware]);
-      if (p.cillType) lines.push(['Cill/Threshold:', p.cillType]);
-      if (p.glazingMakeup) lines.push(['Glazing:', p.glazingMakeup]);
-      if (p.ventilation) lines.push(['Ventilation:', p.ventilation]);
-      if (p.drainage) lines.push(['Drainage:', p.drainage]);
-      if (lines.length > 0) {
-        sections.push({ label: type.charAt(0).toUpperCase() + type.slice(1) + 's', lines: lines });
-      }
-    });
+  /* ===== PER-TYPE GENERAL SPEC (printed under each type heading) ===== */
+  function renderTypeSpec(doc, presets, type, margin, contentWidth, y, pageWidth, pageHeight, company) {
+    var p = presets ? presets[type] : null;
+    if (!p) return y;
 
-    if (sections.length === 0) return y;
+    var leftLines = [];
+    var rightLines = [];
+    if (p.system)       leftLines.push(['System:', p.system]);
+    if (p.colour)       rightLines.push(['Colour:', p.colour]);
+    if (p.glazingMakeup) leftLines.push(['Glazing:', p.glazingMakeup]);
+    if (p.hardware)     rightLines.push(['Hardware:', p.hardware]);
+    if (p.cillType)     leftLines.push(['Cill/Threshold:', p.cillType]);
+    if (p.drainage)     rightLines.push(['Drainage:', p.drainage]);
+    if (p.ventilation)  leftLines.push(['Ventilation:', p.ventilation]);
 
-    var totalLines = 2; // heading + gap
-    sections.forEach(function (s) { totalLines += s.lines.length + 2; }); // sub-heading + gap + lines
-    var neededH = totalLines * 4.5 + 10;
+    var rowCount = Math.max(leftLines.length, rightLines.length);
+    if (rowCount === 0) return y;
 
-    if (y + neededH > pageHeight - 40) {
+    var neededH = 8 + rowCount * 4.5 + 4;
+
+    if (y + neededH > pageHeight - 30) {
       doc.addPage();
       addPageHeader(doc, company, pageWidth, margin);
       addPageFooter(doc, company, pageWidth, pageHeight, margin);
       y = 25;
     }
 
-    // Section heading
+    // Spec box background
+    doc.setFillColor(239, 246, 255);
+    doc.setDrawColor.apply(doc, NAVY_LIGHT);
+    doc.setLineWidth(0.3);
+    doc.roundedRect(margin, y, contentWidth, neededH, 1.5, 1.5, 'FD');
+
+    // Heading
+    doc.setFontSize(8);
     doc.setFont(undefined, 'bold');
-    doc.setFontSize(10);
     doc.setTextColor.apply(doc, NAVY);
-    doc.text('GENERAL SPECIFICATION', margin, y);
-    doc.setDrawColor.apply(doc, NAVY);
-    doc.setLineWidth(0.5);
-    doc.line(margin, y + 2, margin + 70, y + 2);
-    y += 8;
+    doc.text('GENERAL SPECIFICATION', margin + 4, y + 6);
 
-    sections.forEach(function (section) {
-      doc.setFont(undefined, 'bold');
-      doc.setFontSize(8.5);
-      doc.setTextColor.apply(doc, NAVY);
-      doc.text(section.label, margin, y);
-      y += 5;
+    var specY = y + 11;
+    var leftLabel = margin + 4;
+    var leftVal = margin + 34;
+    var rightLabel = margin + contentWidth / 2 + 4;
+    var rightVal = margin + contentWidth / 2 + 34;
 
-      doc.setFontSize(7.5);
-      section.lines.forEach(function (row) {
+    doc.setFontSize(7.5);
+    for (var r = 0; r < rowCount; r++) {
+      if (leftLines[r]) {
         doc.setFont(undefined, 'bold');
         doc.setTextColor.apply(doc, GRAY);
-        doc.text(row[0], margin + 4, y);
+        doc.text(leftLines[r][0], leftLabel, specY);
         doc.setFont(undefined, 'normal');
         doc.setTextColor.apply(doc, BLACK);
-        doc.text(row[1], margin + 34, y);
-        y += 4.5;
-      });
-      y += 3;
-    });
+        doc.text(leftLines[r][1].substring(0, 40), leftVal, specY);
+      }
+      if (rightLines[r]) {
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor.apply(doc, GRAY);
+        doc.text(rightLines[r][0], rightLabel, specY);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor.apply(doc, BLACK);
+        doc.text(rightLines[r][1].substring(0, 40), rightVal, specY);
+      }
+      specY += 4.5;
+    }
 
-    return y;
+    return y + neededH + 4;
   }
 
   function renderPage1(doc, company, meta, pageWidth, pageHeight, margin, contentWidth, summary) {
