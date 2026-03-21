@@ -34,6 +34,7 @@ var App = (function () {
     _setupResetButton();
     _setupModalClose();
     _startAutoSave();
+    _setup3DViewButton();
     Diagnostics.init();
 
     UI.updateFileList(_pendingFiles);
@@ -503,6 +504,19 @@ var App = (function () {
 
   function onStateChange() {
     _scheduleAutoSave();
+  }
+
+  /* ── 3D View (independent module) ───────────────────────── */
+  function _setup3DViewButton() {
+    var btn = document.getElementById('btn3DView');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (typeof Viewer3D === 'undefined' || typeof THREE === 'undefined') {
+        UI.showToast('3D viewer libraries not loaded yet — try again in a moment', 'warning');
+        return;
+      }
+      Viewer3D.openFromState(_state, _pendingFiles);
+    });
   }
 
   function onExportJSON() {
