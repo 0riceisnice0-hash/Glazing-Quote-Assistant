@@ -220,6 +220,39 @@
             <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Price Multipliers</div>
             <div class="multiplier-grid" id="multiplierGrid"></div>
           </div>
+
+          <!-- Product Presets Editor -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">🏷️</span>
+              Product Presets
+              <span style="font-size:0.75rem;font-weight:400;color:var(--text-secondary);margin-left:8px">Default spec values applied to blank fields</span>
+            </div>
+
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Window Preset</div>
+            <div class="form-grid" id="presetWindowGrid">
+              <div class="form-group"><label for="presetWinSystem">System</label><input type="text" class="form-control preset-field" id="presetWinSystem" data-preset="window" data-field="system"></div>
+              <div class="form-group"><label for="presetWinColour">Colour</label><input type="text" class="form-control preset-field" id="presetWinColour" data-preset="window" data-field="colour"></div>
+              <div class="form-group"><label for="presetWinHardware">Hardware</label><input type="text" class="form-control preset-field" id="presetWinHardware" data-preset="window" data-field="hardware"></div>
+              <div class="form-group"><label for="presetWinCill">Cill Type</label><input type="text" class="form-control preset-field" id="presetWinCill" data-preset="window" data-field="cillType"></div>
+              <div class="form-group"><label for="presetWinGlazing">Glazing Makeup</label><input type="text" class="form-control preset-field" id="presetWinGlazing" data-preset="window" data-field="glazingMakeup"></div>
+              <div class="form-group"><label for="presetWinVent">Ventilation</label><input type="text" class="form-control preset-field" id="presetWinVent" data-preset="window" data-field="ventilation"></div>
+              <div class="form-group"><label for="presetWinDrainage">Drainage</label><input type="text" class="form-control preset-field" id="presetWinDrainage" data-preset="window" data-field="drainage"></div>
+            </div>
+
+            <hr class="section-divider">
+
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Door Preset</div>
+            <div class="form-grid" id="presetDoorGrid">
+              <div class="form-group"><label for="presetDoorSystem">System</label><input type="text" class="form-control preset-field" id="presetDoorSystem" data-preset="door" data-field="system"></div>
+              <div class="form-group"><label for="presetDoorColour">Colour</label><input type="text" class="form-control preset-field" id="presetDoorColour" data-preset="door" data-field="colour"></div>
+              <div class="form-group"><label for="presetDoorHardware">Hardware</label><input type="text" class="form-control preset-field" id="presetDoorHardware" data-preset="door" data-field="hardware"></div>
+              <div class="form-group"><label for="presetDoorCill">Cill / Threshold</label><input type="text" class="form-control preset-field" id="presetDoorCill" data-preset="door" data-field="cillType"></div>
+              <div class="form-group"><label for="presetDoorGlazing">Glazing Makeup</label><input type="text" class="form-control preset-field" id="presetDoorGlazing" data-preset="door" data-field="glazingMakeup"></div>
+              <div class="form-group"><label for="presetDoorVent">Ventilation</label><input type="text" class="form-control preset-field" id="presetDoorVent" data-preset="door" data-field="ventilation"></div>
+              <div class="form-group"><label for="presetDoorDrainage">Drainage</label><input type="text" class="form-control preset-field" id="presetDoorDrainage" data-preset="door" data-field="drainage"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -283,9 +316,11 @@
             <!-- Table Container -->
             <div id="itemsTableContainer"></div>
 
-            <!-- Add Item Button -->
-            <div style="margin-top:14px">
+            <!-- Add Item Button & Presets -->
+            <div style="margin-top:14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
               <button class="btn btn-secondary" id="addItemBtn">✚ Add Item</button>
+              <button class="btn btn-secondary btn-sm" id="applyWindowPresetBtn" title="Fill blank specification fields on all windows from the window preset">🏷️ Apply Window Preset</button>
+              <button class="btn btn-secondary btn-sm" id="applyDoorPresetBtn" title="Fill blank specification fields on all doors from the door preset">🏷️ Apply Door Preset</button>
             </div>
           </div>
 
@@ -414,6 +449,22 @@
               <label for="quoteNotes">Additional Notes</label>
               <textarea class="form-control" id="quoteNotes" rows="3" placeholder="Any special conditions, exclusions or additional information to include in the quote…"></textarea>
             </div>
+          </div>
+
+          <!-- Quote Options -->
+          <div class="card">
+            <div class="card-title">
+              <span class="card-icon">⚙️</span>
+              Quote Options
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+              <label style="font-size:0.85rem;font-weight:500">Detail Level:</label>
+              <select class="form-control" id="quoteDetailMode" style="width:auto;min-width:160px">
+                <option value="detailed">Detailed (full spec per item)</option>
+                <option value="compact">Compact (table only)</option>
+              </select>
+            </div>
+            <p style="font-size:0.8rem;color:var(--text-muted);margin:0"><strong>Detailed</strong> prints each item as a specification card with system, colour, hardware etc. <strong>Compact</strong> prints a simple 6-column table like a traditional quote.</p>
           </div>
 
           <!-- Generate Button -->

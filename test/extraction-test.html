@@ -221,6 +221,39 @@
     var withDims = items.filter(function (i) { return i.width > 0 && i.height > 0; });
     html += assert(withDims.length === items.length, withDims.length + '/' + items.length + ' items have dimensions');
 
+    // Phase 1 detail fields: colour extraction
+    if (ew01) {
+      html += assert(ew01.colour === 'Grey 7016', 'EW01 colour = "' + ew01.colour + '" (expected "Grey 7016")');
+    }
+    if (ed01) {
+      html += assert(ed01.colour === 'Grey 7016', 'ED01 colour = "' + ed01.colour + '" (expected "Grey 7016")');
+    }
+
+    // Phase 1 detail fields: cill height extraction
+    // Note: cill height only extracted when the word "cill/sill" appears in the item's context.
+    // In the flat test text, the schedule header "Structural cill above floor slab mm" is far
+    // from individual items, so per-item cill extraction may not fire. We test the extractor
+    // in Suite 8 with explicit "cill" text.
+    if (ew01) {
+      html += assert(typeof ew01.cillType === 'string', 'EW01 has cillType field (value: "' + (ew01.cillType || '') + '")');
+    }
+
+    // Phase 1 detail fields: escape window
+    if (ed01) {
+      // ED01 is "Main Entrance" — no fire exit indicators, so escape should be empty
+      html += assert(ed01.escapeWindow === '' || ed01.escapeWindow === 'No', 'ED01 escapeWindow = "' + (ed01.escapeWindow || '') + '" (expected "" or "No")');
+    }
+    var ed02 = items.find(function (i) { return i.reference === 'ED02'; });
+    if (ed02) {
+      // ED02 is "Fire Exit (GF)" — should detect as escape route
+      html += assert(ed02.escapeWindow === 'Yes', 'ED02 escapeWindow = "' + (ed02.escapeWindow || '') + '" (expected "Yes" — Fire Exit)');
+    }
+
+    // Phase 1 detail fields: ventilation
+    if (ew01) {
+      html += assert(ew01.ventilation === 'Trickle Vent', 'EW01 ventilation = "' + (ew01.ventilation || '') + '" (expected "Trickle Vent")');
+    }
+
     // Log debug details
     html += '<details><summary>Debug: all items</summary><pre>' +
       esc(JSON.stringify(items.map(function (i) {
@@ -373,6 +406,82 @@
     var result = DataExtractor.extractItems(docs);
 
     html += assert(result.items.length === 0, 'Admin-only extraction produces ' + result.items.length + ' items (expected 0)');
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 8: Phase 1 Detail Extractors — Unit Tests
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 8: Detail Extractors (Colour, Cill, Escape, Ventilation)</h2>';
+
+    // Colour extraction tests via full pipeline
+    var colourTests = [
+      { text: 'Window Schedule  EW01  Room 1  Aluminium PPC  Grey 7016  1010 x 1050', expected: 'Grey 7016', label: 'Grey 7016' },
+      { text: 'Window Schedule  EW01  Room 1  Aluminium  RAL 9005  1010 x 1050', expected: 'RAL 9005', label: 'RAL 9005' },
+      { text: 'Window Schedule  EW01  Room 1  Black Foil PVCu  1010 x 1050', expected: 'Black Foil', label: 'Black Foil' },
+      { text: 'Window Schedule  EW01  Room 1  Anthracite Grey  1010 x 1050', expected: 'Anthracite Grey', label: 'Anthracite Grey' },
+      { text: 'Window Schedule  EW01  Room 1  Chartwell Green  1010 x 1050', expected: 'Chartwell Green', label: 'Chartwell Green' }
+    ];
+
+    colourTests.forEach(function (t) {
+      var docs = [mockDoc('test-schedule.pdf', t.text)];
+      var result = DataExtractor.extractItems(docs);
+      var item = result.items.find(function (i) { return i.reference === 'EW01'; });
+      var actual = item ? item.colour : 'NOT FOUND';
+      html += assert(actual === t.expected, 'Colour "' + t.label + '": got "' + actual + '"');
+    });
+
+    // Cill height extraction — requires "cill/sill" word near the number
+    var cillTests = [
+      { text: 'Window Schedule  EW01  Room 1  1010 x 1050  cill 1050  Top hung', cill: '1050mm cill height', label: 'cill 1050' },
+      { text: 'Window Schedule  EW01  Room 1  1010 x 700  sill ht 1400  Top hung', cill: '1400mm cill height', label: 'sill ht 1400' },
+      { text: 'Window Schedule  EW01  Room 1  1010 x 1050  No cill info', cill: '', label: 'no cill number' }
+    ];
+
+    cillTests.forEach(function (t) {
+      var docs = [mockDoc('test-schedule.pdf', t.text)];
+      var result = DataExtractor.extractItems(docs);
+      var item = result.items.find(function (i) { return i.reference === 'EW01'; });
+      var actual = item ? (item.cillType || '') : 'NOT FOUND';
+      html += assert(actual === t.cill, 'Cill "' + t.label + '": got "' + actual + '"');
+    });
+
+    // Escape window
+    var escTests = [
+      { text: 'Window Schedule  EW01  Room 1  1010 x 1050  No  Top hung', esc: 'No', label: 'No escape' },
+      { text: 'Window Schedule  ED02  Fire Exit  900 x 2100  Yes  Panic bar', esc: 'Yes', label: 'Fire exit Yes' }
+    ];
+
+    escTests.forEach(function (t) {
+      var docs = [mockDoc('test-schedule.pdf', t.text)];
+      var result = DataExtractor.extractItems(docs);
+      var ref = t.text.match(/\b([EI]?[WD]\d{2,3})\b/)[1].toUpperCase();
+      var item = result.items.find(function (i) { return i.reference === ref; });
+      var actual = item ? (item.escapeWindow || '') : 'NOT FOUND';
+      // For the "No" case, accept either "No" or empty (depends on context parsing)
+      if (t.esc === 'No') {
+        html += assert(actual === 'No' || actual === '', 'Escape "' + t.label + '": got "' + actual + '"');
+      } else {
+        html += assert(actual === t.esc, 'Escape "' + t.label + '": got "' + actual + '"');
+      }
+    });
+
+    // Ventilation
+    var ventTests = [
+      { text: 'Window Schedule  EW01  Room 1  1010 x 1050  Trickle vents to all windows', vent: 'Trickle Vent', label: 'Trickle vent text' },
+      { text: 'Window Schedule  EW01  Room 1  1010 x 1050  No ventilation noted', vent: '', label: 'No ventilation' }
+    ];
+
+    ventTests.forEach(function (t) {
+      var docs = [mockDoc('test-schedule.pdf', t.text)];
+      var result = DataExtractor.extractItems(docs);
+      var item = result.items.find(function (i) { return i.reference === 'EW01'; });
+      var actual = item ? (item.ventilation || '') : 'NOT FOUND';
+      html += assert(actual === t.vent, 'Ventilation "' + t.label + '": got "' + actual + '"');
+    });
 
     html += '</div>';
     results.innerHTML += html;

@@ -23,6 +23,7 @@ var UI = (function () {
     _setupNavTabs();
     _setupStep1();
     _setupPricingPanel();
+    _setupPresetEditor();
     _setupCompanyForm();
     _setupQuoteMetaForm();
     _setupExportImport();
@@ -179,6 +180,23 @@ var UI = (function () {
     });
   }
 
+  function _setupPresetEditor() {
+    var fields = document.querySelectorAll('.preset-field');
+    fields.forEach(function (input) {
+      var presetType = input.dataset.preset;  // 'window' or 'door'
+      var fieldName = input.dataset.field;     // 'system', 'colour' etc.
+      if (_state.presets && _state.presets[presetType]) {
+        input.value = _state.presets[presetType][fieldName] || '';
+      }
+      input.addEventListener('change', function () {
+        if (!_state.presets) _state.presets = {};
+        if (!_state.presets[presetType]) _state.presets[presetType] = {};
+        _state.presets[presetType][fieldName] = input.value.trim();
+        if (_callbacks.onStateChange) _callbacks.onStateChange();
+      });
+    });
+  }
+
   function _setupCompanyForm() {
     var fields = ['companyName', 'companyAddress', 'companyPhone', 'companyEmail'];
     var stateFields = ['name', 'address', 'phone', 'email'];
@@ -266,6 +284,16 @@ var UI = (function () {
       btn.addEventListener('click', function () {
         if (_callbacks.onAddItem) _callbacks.onAddItem();
       });
+    }
+
+    // Preset buttons
+    var winPresetBtn = document.getElementById('applyWindowPresetBtn');
+    if (winPresetBtn) {
+      winPresetBtn.addEventListener('click', function () { _applyPreset('window'); });
+    }
+    var doorPresetBtn = document.getElementById('applyDoorPresetBtn');
+    if (doorPresetBtn) {
+      doorPresetBtn.addEventListener('click', function () { _applyPreset('door'); });
     }
 
     // Step-1 "Add Items Manually" button — go directly to the table view
@@ -372,6 +400,8 @@ var UI = (function () {
       { key: 'height', label: 'H (mm)', class: 'text-right' },
       { key: 'quantity', label: 'Qty', class: 'text-right' },
       { key: 'frameType', label: 'Frame', class: '' },
+      { key: 'colour', label: 'Colour', class: '' },
+      { key: 'system', label: 'System', class: '' },
       { key: 'glazingSpec', label: 'Glazing', class: '' },
       { key: 'openingType', label: 'Opening', class: '' },
       { key: 'notes', label: 'Notes', class: '' },
@@ -400,6 +430,8 @@ var UI = (function () {
       _numericCell(item.id, 'height', item.height) +
       _numericCell(item.id, 'quantity', item.quantity) +
       _selectCell(item.id, 'frameType', item.frameType, FRAME_OPTIONS) +
+      _editableCell(item.id, 'colour', item.colour || '') +
+      _editableCell(item.id, 'system', item.system || '') +
       _editableCell(item.id, 'glazingSpec', item.glazingSpec || '') +
       _selectCell(item.id, 'openingType', item.openingType, OPENING_OPTIONS) +
       '<td class="text-muted" style="font-size:0.75rem">' + (item.notes || []).join(', ') + '</td>' +
@@ -830,6 +862,9 @@ var UI = (function () {
     var item = _state.items.find(function (i) { return i.id === itemId; });
     if (!item) return;
 
+    var DRAINAGE_OPTIONS = ['', 'Concealed', 'Exposed', 'N/A'];
+    var ESCAPE_OPTIONS = ['', 'Yes', 'No'];
+
     var formHTML = '<div class="form-grid">' +
       _formField('Reference', 'edit_reference', item.reference, 'text') +
       _formField('Type', 'edit_type', item.type, 'select', TYPE_OPTIONS) +
@@ -839,6 +874,18 @@ var UI = (function () {
       _formField('Location', 'edit_location', item.location, 'text') +
       _formField('Frame Type', 'edit_frameType', item.frameType, 'select', FRAME_OPTIONS) +
       _formField('Opening Type', 'edit_openingType', item.openingType, 'select', OPENING_OPTIONS) +
+      '</div>' +
+      '<h4 style="margin:0.8rem 0 0.3rem;color:#64b5f6;font-size:0.85rem;">Specification Details</h4>' +
+      '<div class="form-grid">' +
+      _formField('System / Profile', 'edit_system', item.system || '', 'text') +
+      _formField('Colour', 'edit_colour', item.colour || '', 'text') +
+      _formField('Hardware', 'edit_hardware', item.hardware || '', 'text') +
+      _formField('Cill Type', 'edit_cillType', item.cillType || '', 'text') +
+      _formField('Glazing Makeup', 'edit_glazingMakeup', item.glazingMakeup || '', 'text') +
+      _formField('Ventilation', 'edit_ventilation', item.ventilation || '', 'text') +
+      _formField('Drainage', 'edit_drainage', item.drainage || '', 'select', DRAINAGE_OPTIONS) +
+      _formField('Escape Window', 'edit_escapeWindow', item.escapeWindow || '', 'select', ESCAPE_OPTIONS) +
+      _formField('Actual Frame Size', 'edit_actualFrameSize', item.actualFrameSize || '', 'text') +
       '</div>' +
       _formField('Glazing Specification', 'edit_glazingSpec', item.glazingSpec, 'text', null, 'col-span-2') +
       _formField('Notes (comma separated)', 'edit_notes', (item.notes || []).join(', '), 'text', null, 'col-span-2') +
@@ -866,6 +913,15 @@ var UI = (function () {
           item.openingType = getValue('edit_openingType');
           item.glazingSpec = getValue('edit_glazingSpec');
           item.notes = getValue('edit_notes').split(',').map(function (n) { return n.trim(); }).filter(Boolean);
+          item.system = getValue('edit_system');
+          item.colour = getValue('edit_colour');
+          item.hardware = getValue('edit_hardware');
+          item.cillType = getValue('edit_cillType');
+          item.glazingMakeup = getValue('edit_glazingMakeup');
+          item.ventilation = getValue('edit_ventilation');
+          item.drainage = getValue('edit_drainage');
+          item.escapeWindow = getValue('edit_escapeWindow');
+          item.actualFrameSize = getValue('edit_actualFrameSize');
           item.manualOverride = document.getElementById('edit_manualOverride').checked;
           if (item.manualOverride) {
             item.unitPrice = parseFloat(getValue('edit_unitPrice')) || 0;
@@ -905,6 +961,35 @@ var UI = (function () {
 
   function _duplicateItem(itemId) {
     if (_callbacks.onDuplicateItem) _callbacks.onDuplicateItem(itemId);
+  }
+
+  function _applyPreset(itemType) {
+    var presets = _state.presets;
+    if (!presets || !presets[itemType]) {
+      showToast('No preset defined for ' + itemType, 'warning');
+      return;
+    }
+    var preset = presets[itemType];
+    var PRESET_FIELDS = ['system', 'colour', 'hardware', 'cillType', 'glazingMakeup', 'ventilation', 'drainage'];
+    var count = 0;
+    _state.items.forEach(function (item) {
+      if (item.type !== itemType) return;
+      var changed = false;
+      PRESET_FIELDS.forEach(function (f) {
+        if ((!item[f] || item[f] === '') && preset[f]) {
+          item[f] = preset[f];
+          changed = true;
+        }
+      });
+      if (changed) count++;
+    });
+    if (count > 0) {
+      renderItemsTable(_state.items, _state.warnings);
+      if (_callbacks.onItemUpdated) _callbacks.onItemUpdated(null);
+      showToast('Preset applied to ' + count + ' ' + itemType + '(s)', 'success');
+    } else {
+      showToast('No blank fields to fill on ' + itemType + 's', 'info');
+    }
   }
 
   function _deleteItem(itemId) {

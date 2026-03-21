@@ -359,6 +359,11 @@ var DataExtractor = (function () {
       if (!item.frameType || item.frameType === 'Unknown') item.frameType = extractFrameType(fullRowText);
       if (!item.openingType || item.openingType === 'Fixed') item.openingType = extractOpeningType(fullRowText);
       if (!item.location) item.location = extractLocation(fullRowText);
+      item.colour = extractColour(fullRowText);
+      item.ventilation = extractVentilation(fullRowText);
+      var cillVal1 = extractCillHeight(fullRowText);
+      if (cillVal1) item.cillType = cillVal1 + 'mm cill height';
+      item.escapeWindow = extractEscapeWindow(fullRowText);
 
       // Position for PDF viewer overlay (use the ref item's position)
       var refItem = row.items.find(function (it) { return it.str.trim().toUpperCase() === refText; });
@@ -456,6 +461,11 @@ var DataExtractor = (function () {
       item.openingType = extractOpeningType(fullText);
       item.location   = extractLocation(fullText);
       item.notes      = extractNotes(fullText);
+      item.colour     = extractColour(fullText);
+      item.ventilation = extractVentilation(fullText);
+      var cillVal2    = extractCillHeight(fullText);
+      if (cillVal2) item.cillType = cillVal2 + 'mm cill height';
+      item.escapeWindow = extractEscapeWindow(fullText);
 
       var refItem = row.items[refItemIdx];
       item.textPosition = { x: refItem.x, y: refItem.y, width: refItem.width || 30, height: refItem.height || 12 };
@@ -675,6 +685,11 @@ var DataExtractor = (function () {
       item.openingType = extractOpeningType(attrContext);
       item.location    = extractLocation(attrContext);
       item.notes       = extractNotes(attrContext);
+      item.colour      = extractColour(attrContext);
+      item.ventilation = extractVentilation(attrContext);
+      var cillVal      = extractCillHeight(attrContext);
+      if (cillVal) item.cillType = cillVal + 'mm cill height';
+      item.escapeWindow = extractEscapeWindow(attrContext);
 
       if (refTextItem) {
         item.textPosition = {
@@ -786,6 +801,11 @@ var DataExtractor = (function () {
       item.openingType = extractOpeningType(context);
       item.location    = extractLocation(context);
       item.notes       = extractNotes(context);
+      item.colour      = extractColour(context);
+      item.ventilation = extractVentilation(context);
+      var cillVal3     = extractCillHeight(context);
+      if (cillVal3) item.cillType = cillVal3 + 'mm cill height';
+      item.escapeWindow = extractEscapeWindow(context);
 
       if (refItem) {
         item.textPosition = { x: refItem.x, y: refItem.y, width: refItem.width || 30, height: refItem.height || 12 };
@@ -1422,6 +1442,62 @@ var DataExtractor = (function () {
     return 'Fixed';
   }
 
+  // --- Phase 1 detail extractors ---
+
+  function extractColour(text) {
+    if (!text) return '';
+    // RAL code: "RAL 9005", "RAL9005"
+    var ralMatch = /\bRAL\s*(\d{4})\b/i.exec(text);
+    if (ralMatch) return 'RAL ' + ralMatch[1];
+    // Named foil/finish colours — check BEFORE grey code to avoid
+    // "Anthracite Grey" matching "Grey 1010" via the dimension number.
+    var foilMatch = /\b(anthracite|black|white|cream|bronze|chartwell\s*green|irish\s*oak|rosewood|golden\s*oak)\s*(foil|grey|woodgrain)?\b/i.exec(text);
+    if (foilMatch) {
+      var colour = foilMatch[1].replace(/\b\w/g, function (c) { return c.toUpperCase(); });
+      if (foilMatch[2]) colour += ' ' + foilMatch[2].charAt(0).toUpperCase() + foilMatch[2].slice(1).toLowerCase();
+      return colour;
+    }
+    // Grey/Gray colour code: "Grey 7016" — only match 4-digit codes ≥ 2000
+    // to avoid dimension numbers like 1010, 1050, 1500 being mistaken for colour codes.
+    var greyMatch = /\b(grey|gray)\s+(\d{4})\b/i.exec(text);
+    if (greyMatch && parseInt(greyMatch[2], 10) >= 2000) return 'Grey ' + greyMatch[2];
+    return '';
+  }
+
+  function extractCillHeight(text) {
+    if (!text) return '';
+    // "cill 1050", "sill ht 1050", "cill height 1050", "1050 cill", "1050mm cill"
+    var m1 = /\b(?:cill|sill)\s*(?:ht|height|@|at|above[^)]{0,30}?)?\s*(\d{3,4})\b/i.exec(text);
+    if (m1) return m1[1];
+    // "Structural cill above floor slab mm ... 1050"  — number after "cill" in schedule header context
+    var m2 = /\b(\d{3,4})\s*(?:mm\s*)?(?:cill|sill)\b/i.exec(text);
+    if (m2) return m2[1];
+    return '';
+  }
+
+  function extractEscapeWindow(text) {
+    if (!text) return '';
+    // "Fire Exit" door implicitly an escape route
+    if (/\bfire\s*exit\b/i.test(text)) return 'Yes';
+    // Look for explicit Yes/No after "Escape" keyword in schedule row context
+    var escYes = /\bescape\b[^.]{0,20}\b(yes)\b/i.exec(text);
+    if (escYes) return 'Yes';
+    var escNo = /\bescape\b[^.]{0,20}\b(no)\b/i.exec(text);
+    if (escNo) return 'No';
+    return '';
+  }
+
+  function extractVentilation(text) {
+    if (!text) return '';
+    // Named ventilation products: "4000 Linkvent", "Greenwood CV20"
+    var ventProduct = /\b(\d{3,5}\s*(?:linkvent|greenwood|titon|vent\s*air))\b/i.exec(text);
+    if (ventProduct) return ventProduct[1].trim();
+    // Generic: "trickle vent", "ventilator"
+    if (/\btrickle[\s\-]?vent/i.test(text)) return 'Trickle Vent';
+    if (/\bventilator\b/i.test(text)) return 'Ventilator';
+    return '';
+  }
+
   function extractLocation(text) {
     if (!text) return '';
     var floorPatterns = [
@@ -1678,7 +1754,16 @@ var DataExtractor = (function () {
       sourceDocument: '',
       sourcePage: 0,
       textPosition: null,
-      extractionMethod: 'pdf.js'
+      extractionMethod: 'pdf.js',
+      system: '',
+      colour: '',
+      hardware: '',
+      cillType: '',
+      glazingMakeup: '',
+      ventilation: '',
+      drainage: '',
+      actualFrameSize: '',
+      escapeWindow: ''
     };
     return Object.assign({}, defaults, partial);
   }

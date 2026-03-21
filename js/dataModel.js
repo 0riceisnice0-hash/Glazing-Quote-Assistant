@@ -46,6 +46,26 @@ const DEFAULT_STATE = {
     vatEnabled: true,
     vatRate: 20
   },
+  presets: {
+    window: {
+      system: 'Liniar PVCu',
+      colour: 'White',
+      hardware: 'White Kenrick Shootbolt',
+      cillType: '150mm Drop Nose Cill',
+      glazingMakeup: '28mm DGU - Unglazed',
+      ventilation: '4000 Linkvent',
+      drainage: 'Concealed'
+    },
+    door: {
+      system: 'Senior SPW 501 Aluminium',
+      colour: 'RAL 9005',
+      hardware: 'Concealed Overhead Closer / Panic Bar',
+      cillType: 'Aluminium Threshold',
+      glazingMakeup: '28mm DGU - Toughened',
+      ventilation: '',
+      drainage: 'Concealed'
+    }
+  },
   sourceDocuments: [],
   warnings: [],
   lastSaved: null
@@ -84,7 +104,17 @@ function createItem(partial) {
     sourceDocument: '',
     sourcePage: 0,
     textPosition: null,
-    extractionMethod: ''  // 'pdf.js' | 'ocr' | 'manual'
+    extractionMethod: '',  // 'pdf.js' | 'ocr' | 'manual'
+    // Detail fields (Phase 1)
+    system: '',           // e.g. 'Liniar PVCu', 'Senior SPW 501 Aluminium'
+    colour: '',           // e.g. 'Grey 7016', 'RAL 9005', 'Black Foil'
+    hardware: '',         // e.g. 'Black Signature Kenrick Shootbolt'
+    cillType: '',         // e.g. '150mm Drop Nose Cill'
+    glazingMakeup: '',    // e.g. '28mm DGU - Unglazed'
+    ventilation: '',      // e.g. '4000 Linkvent', 'Trickle Vent'
+    drainage: '',         // e.g. 'Concealed', 'Exposed'
+    actualFrameSize: '',  // e.g. '1010 × 1020'
+    escapeWindow: ''      // 'Yes', 'No', or ''
   };
   return Object.assign({}, defaults, partial);
 }

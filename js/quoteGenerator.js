@@ -29,7 +29,7 @@ var QuoteGenerator = (function () {
     return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
   }
 
-  function generateQuotePDF(state, pricingConfig) {
+  function generateQuotePDF(state, pricingConfig, options) {
     var jsPDFLib = window.jspdf ? window.jspdf.jsPDF : (window.jsPDF || (typeof jsPDF !== 'undefined' ? jsPDF : null));
     if (!jsPDFLib) throw new Error('jsPDF library not loaded');
 
@@ -43,18 +43,51 @@ var QuoteGenerator = (function () {
     var meta = state.metadata || {};
     var items = state.items || [];
     var pricing = pricingConfig || state.pricing || {};
+    var detailMode = (options && options.detailMode) || 'detailed';
+    var presets = state.presets || {};
 
     var summary = Pricing.getPriceSummary(items, pricing);
-
-    var totalPages = { value: 1 };
 
     renderPage1(doc, company, meta, pageWidth, pageHeight, margin, contentWidth, summary);
 
     var groupedItems = groupItemsByType(items);
     var types = Object.keys(groupedItems);
 
+    if (detailMode === 'compact') {
+      renderCompactTable(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight);
+    } else {
+      renderDetailedSchedule(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight);
+    }
+
+    var finalY = doc.lastAutoTable ? doc.lastAutoTable.finalY + 10 : (doc._lastDetailY || 30) + 10;
+
+    if (finalY > pageHeight - 100) {
+      doc.addPage();
+      finalY = 25;
+    }
+
+    // General Specification Summary
+    finalY = renderGeneralSpec(doc, presets, margin, contentWidth, finalY, pageWidth, pageHeight, company);
+
+    if (finalY > pageHeight - 80) {
+      doc.addPage();
+      finalY = 25;
+    }
+
+    renderPriceSummary(doc, summary, meta, pageWidth, pageHeight, margin, contentWidth, finalY);
+
+    var pagesCount = doc.internal.getNumberOfPages();
+    for (var i = 1; i <= pagesCount; i++) {
+      doc.setPage(i);
+      addPageNumbering(doc, i, pagesCount, pageWidth, pageHeight);
+    }
+
+    return doc;
+  }
+
+  /* ===== COMPACT MODE: traditional 6-column autoTable ===== */
+  function renderCompactTable(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight) {
     var tableBody = [];
-    var groupSubtotals = {};
 
     types.forEach(function (type) {
       var typeItems = groupedItems[type];
@@ -80,7 +113,6 @@ var QuoteGenerator = (function () {
         typeTotal += item.totalPrice || 0;
       });
 
-      groupSubtotals[type] = typeTotal;
       tableBody.push([
         { content: typeLabel + ' Subtotal', colSpan: 5, styles: { fontStyle: 'bold', fontSize: 8, halign: 'right', fillColor: [229, 231, 235] } },
         { content: formatCurrency(typeTotal), styles: { fontStyle: 'bold', fontSize: 8, halign: 'right', fillColor: [229, 231, 235] } }
@@ -115,23 +147,203 @@ var QuoteGenerator = (function () {
         addPageHeader(doc, company, pageWidth, margin);
       }
     });
+  }
 
-    var finalY = doc.lastAutoTable.finalY + 10;
+  /* ===== DETAILED MODE: per-item specification cards ===== */
+  function renderDetailedSchedule(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight) {
+    var y = 95;
+    var cardH = 32;   // base height for a spec card
+    var labelCol = margin + 4;
+    var valCol = margin + 32;
+    var rightLabelCol = margin + contentWidth / 2 + 4;
+    var rightValCol = margin + contentWidth / 2 + 32;
+    var priceCol = margin + contentWidth - 4;
 
-    if (finalY > pageHeight - 80) {
+    types.forEach(function (type) {
+      var typeItems = groupedItems[type];
+      var typeLabel = type.charAt(0).toUpperCase() + type.slice(1) + 's';
+
+      // Type heading band
+      if (y > pageHeight - 50) {
+        doc.addPage();
+        addPageHeader(doc, company, pageWidth, margin);
+        addPageFooter(doc, company, pageWidth, pageHeight, margin);
+        y = 25;
+      }
+
+      doc.setFillColor.apply(doc, NAVY);
+      doc.rect(margin, y, contentWidth, 8, 'F');
+      doc.setTextColor.apply(doc, WHITE);
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'bold');
+      doc.text(typeLabel, margin + 4, y + 5.5);
+      y += 12;
+
+      var typeTotal = 0;
+
+      typeItems.forEach(function (item) {
+        var dims = item.width > 0 && item.height > 0
+          ? item.width + ' × ' + item.height + ' mm'
+          : 'TBC';
+        var qty = item.quantity || 1;
+
+        // Build spec rows to render
+        var leftSpecs = [];
+        var rightSpecs = [];
+
+        if (item.system)       leftSpecs.push(['System:', item.system]);
+        if (item.colour)       rightSpecs.push(['Colour:', item.colour]);
+        leftSpecs.push(['Size:', dims]);
+        rightSpecs.push(['Qty:', String(qty)]);
+        if (item.glazingMakeup || item.glazingSpec) leftSpecs.push(['Glazing:', item.glazingMakeup || item.glazingSpec]);
+        if (item.hardware)     rightSpecs.push(['Hardware:', item.hardware]);
+        if (item.cillType)     leftSpecs.push(['Cill:', item.cillType]);
+        if (item.drainage)     rightSpecs.push(['Drainage:', item.drainage]);
+        if (item.openingType && item.openingType !== 'Fixed') leftSpecs.push(['Opening:', item.openingType]);
+        if (item.ventilation)  rightSpecs.push(['Vent:', item.ventilation]);
+        if (item.escapeWindow === 'Yes') leftSpecs.push(['Escape:', 'Yes']);
+        if (item.frameType && item.frameType !== 'Unknown') rightSpecs.push(['Frame:', item.frameType]);
+
+        var rowCount = Math.max(leftSpecs.length, rightSpecs.length);
+        var neededH = 10 + rowCount * 4.5 + 4; // header + rows + padding
+
+        if (y + neededH > pageHeight - 20) {
+          doc.addPage();
+          addPageHeader(doc, company, pageWidth, margin);
+          addPageFooter(doc, company, pageWidth, pageHeight, margin);
+          y = 25;
+        }
+
+        // Card background
+        doc.setFillColor(249, 250, 251);
+        doc.setDrawColor(209, 213, 219);
+        doc.setLineWidth(0.3);
+        doc.roundedRect(margin, y, contentWidth, neededH, 1.5, 1.5, 'FD');
+
+        // Reference header line
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor.apply(doc, NAVY);
+        var refLabel = (item.reference || '-') + (item.location ? ' — ' + item.location : '') + (item.description && item.description !== item.reference + ' ' + item.type ? ' — ' + item.description : '');
+        doc.text(refLabel.substring(0, 70), labelCol, y + 6);
+
+        // Unit price on the right of the header
+        doc.setFontSize(9);
+        doc.setFont(undefined, 'bold');
+        doc.text(formatCurrency(item.unitPrice), priceCol, y + 6, { align: 'right' });
+
+        // Spec rows
+        var specY = y + 11;
+        doc.setFontSize(7.5);
+
+        for (var r = 0; r < rowCount; r++) {
+          if (leftSpecs[r]) {
+            doc.setFont(undefined, 'bold');
+            doc.setTextColor.apply(doc, GRAY);
+            doc.text(leftSpecs[r][0], labelCol, specY);
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor.apply(doc, BLACK);
+            doc.text(leftSpecs[r][1].substring(0, 35), valCol, specY);
+          }
+          if (rightSpecs[r]) {
+            doc.setFont(undefined, 'bold');
+            doc.setTextColor.apply(doc, GRAY);
+            doc.text(rightSpecs[r][0], rightLabelCol, specY);
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor.apply(doc, BLACK);
+            doc.text(rightSpecs[r][1].substring(0, 35), rightValCol, specY);
+          }
+          specY += 4.5;
+        }
+
+        y += neededH + 3;
+        typeTotal += item.totalPrice || 0;
+      });
+
+      // Subtotal bar for this type
+      if (y + 8 > pageHeight - 20) {
+        doc.addPage();
+        addPageHeader(doc, company, pageWidth, margin);
+        addPageFooter(doc, company, pageWidth, pageHeight, margin);
+        y = 25;
+      }
+      doc.setFillColor(229, 231, 235);
+      doc.rect(margin, y, contentWidth, 7, 'F');
+      doc.setFontSize(8);
+      doc.setFont(undefined, 'bold');
+      doc.setTextColor.apply(doc, BLACK);
+      doc.text(typeLabel + ' Subtotal', margin + contentWidth - 50, y + 5);
+      doc.text(formatCurrency(typeTotal), margin + contentWidth - 4, y + 5, { align: 'right' });
+      y += 12;
+    });
+
+    doc._lastDetailY = y;
+  }
+
+  /* ===== GENERAL SPECIFICATION SUMMARY ===== */
+  function renderGeneralSpec(doc, presets, margin, contentWidth, y, pageWidth, pageHeight, company) {
+    // Collect preset lines for window and door
+    var sections = [];
+    ['window', 'door'].forEach(function (type) {
+      var p = presets[type];
+      if (!p) return;
+      var lines = [];
+      if (p.system) lines.push(['System:', p.system]);
+      if (p.colour) lines.push(['Colour:', p.colour]);
+      if (p.hardware) lines.push(['Hardware:', p.hardware]);
+      if (p.cillType) lines.push(['Cill/Threshold:', p.cillType]);
+      if (p.glazingMakeup) lines.push(['Glazing:', p.glazingMakeup]);
+      if (p.ventilation) lines.push(['Ventilation:', p.ventilation]);
+      if (p.drainage) lines.push(['Drainage:', p.drainage]);
+      if (lines.length > 0) {
+        sections.push({ label: type.charAt(0).toUpperCase() + type.slice(1) + 's', lines: lines });
+      }
+    });
+
+    if (sections.length === 0) return y;
+
+    var totalLines = 2; // heading + gap
+    sections.forEach(function (s) { totalLines += s.lines.length + 2; }); // sub-heading + gap + lines
+    var neededH = totalLines * 4.5 + 10;
+
+    if (y + neededH > pageHeight - 40) {
       doc.addPage();
-      finalY = 30;
+      addPageHeader(doc, company, pageWidth, margin);
+      addPageFooter(doc, company, pageWidth, pageHeight, margin);
+      y = 25;
     }
 
-    renderPriceSummary(doc, summary, meta, pageWidth, pageHeight, margin, contentWidth, finalY);
+    // Section heading
+    doc.setFont(undefined, 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor.apply(doc, NAVY);
+    doc.text('GENERAL SPECIFICATION', margin, y);
+    doc.setDrawColor.apply(doc, NAVY);
+    doc.setLineWidth(0.5);
+    doc.line(margin, y + 2, margin + 70, y + 2);
+    y += 8;
 
-    var pagesCount = doc.internal.getNumberOfPages();
-    for (var i = 1; i <= pagesCount; i++) {
-      doc.setPage(i);
-      addPageNumbering(doc, i, pagesCount, pageWidth, pageHeight);
-    }
+    sections.forEach(function (section) {
+      doc.setFont(undefined, 'bold');
+      doc.setFontSize(8.5);
+      doc.setTextColor.apply(doc, NAVY);
+      doc.text(section.label, margin, y);
+      y += 5;
 
-    return doc;
+      doc.setFontSize(7.5);
+      section.lines.forEach(function (row) {
+        doc.setFont(undefined, 'bold');
+        doc.setTextColor.apply(doc, GRAY);
+        doc.text(row[0], margin + 4, y);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor.apply(doc, BLACK);
+        doc.text(row[1], margin + 34, y);
+        y += 4.5;
+      });
+      y += 3;
+    });
+
+    return y;
   }
 
   function renderPage1(doc, company, meta, pageWidth, pageHeight, margin, contentWidth, summary) {

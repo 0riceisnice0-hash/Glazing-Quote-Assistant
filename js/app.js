@@ -76,6 +76,11 @@ var App = (function () {
         };
         saveToLocalStorage(_state);
       }
+      // Ensure presets exist (added in Phase 1)
+      if (!_state.presets) {
+        _state.presets = JSON.parse(JSON.stringify(DEFAULT_STATE.presets));
+        saveToLocalStorage(_state);
+      }
       UI.showToast('Previous session restored', 'info');
     } else {
       _state = JSON.parse(JSON.stringify(DEFAULT_STATE));
@@ -308,7 +313,9 @@ var App = (function () {
 
     setTimeout(function () {
       try {
-        var doc = QuoteGenerator.generateQuotePDF(_state, _state.pricing);
+        var detailSelect = document.getElementById('quoteDetailMode');
+        var detailMode = detailSelect ? detailSelect.value : 'detailed';
+        var doc = QuoteGenerator.generateQuotePDF(_state, _state.pricing, { detailMode: detailMode });
         var filename = (_state.metadata.quoteNumber || 'GQ-DRAFT') + '.pdf';
         doc.save(filename);
         UI.hideLoadingOverlay();
