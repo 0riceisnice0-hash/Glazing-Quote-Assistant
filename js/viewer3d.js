@@ -33,6 +33,7 @@ var Viewer3D = (function () {
   var _labelSprites = [];
   var _raycaster, _mouse, _tooltip;
   var _wallMeshes = [];
+  var _baseFileName = '';
 
   /* ===== PUBLIC: open from a file ========================= */
 
@@ -182,6 +183,7 @@ var Viewer3D = (function () {
     _overlay.appendChild(_canvas);
 
     // File name
+    _baseFileName = fileName;
     var fnEl = document.getElementById('_3dFileName');
     if (fnEl) fnEl.textContent = fileName;
 
@@ -205,8 +207,11 @@ var Viewer3D = (function () {
   }
 
   function _initThree() {
-    var w = _canvas.parentElement.clientWidth;
-    var h = _canvas.parentElement.clientHeight - _canvas.parentElement.querySelector('div').offsetHeight;
+    // Defer size calculation with requestAnimationFrame so the DOM is laid out
+    var overlay = _canvas.parentElement;
+    var toolbar = overlay.querySelector('div');
+    var w = Math.max(overlay.clientWidth, 320);
+    var h = Math.max(overlay.clientHeight - (toolbar ? toolbar.offsetHeight : 0), 240);
 
     _scene = new THREE.Scene();
     _scene.background = new THREE.Color(0x0f172a);
@@ -240,7 +245,9 @@ var Viewer3D = (function () {
     if (!data) return;
 
     // Clear old meshes
-    while (_scene.children.length > 0) _scene.children.pop();
+    while (_scene.children.length > 0) {
+      _scene.remove(_scene.children[0]);
+    }
     _labelSprites = [];
     _wallMeshes = [];
 
@@ -418,16 +425,15 @@ var Viewer3D = (function () {
     _controls.target.set(cx, _wallHeight / 2, cy);
     _controls.update();
 
-    // Stats
+    // Stats — always set (not append) to prevent duplication on slider rebuild
     var statEl = document.getElementById('_3dFileName');
     if (statEl && data) {
-      statEl.textContent = (statEl.textContent || '') +
+      var swingCount = data.doors.filter(function (d) { return d.hasSwingDetected; }).length;
+      statEl.textContent = _baseFileName +
         '  —  ' + data.walls.length + ' walls, ' +
         data.windows.length + ' windows, ' +
         data.doors.length + ' doors' +
-        (data.doors.filter(function (d) { return d.hasSwingDetected; }).length > 0
-          ? ' (' + data.doors.filter(function (d) { return d.hasSwingDetected; }).length + ' swings detected)'
-          : '');
+        (swingCount > 0 ? ' (' + swingCount + ' swings detected)' : '');
     }
   }
 
@@ -568,8 +574,8 @@ var Viewer3D = (function () {
   function _onResize() {
     if (!_canvas || !_camera || !_renderer || !_overlay) return;
     var toolbar = _overlay.querySelector('div');
-    var w = _overlay.clientWidth;
-    var h = _overlay.clientHeight - (toolbar ? toolbar.offsetHeight : 0);
+    var w = Math.max(_overlay.clientWidth, 320);
+    var h = Math.max(_overlay.clientHeight - (toolbar ? toolbar.offsetHeight : 0), 240);
     _camera.aspect = w / h;
     _camera.updateProjectionMatrix();
     _renderer.setSize(w, h);

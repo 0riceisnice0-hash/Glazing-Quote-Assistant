@@ -48,8 +48,10 @@ var FloorplanParser = (function () {
     var OPS = pdfjsLib.OPS;
 
     // Debug: log OPS values for path operations
-    console.log('[FloorPlan] OPS.constructPath:', OPS.constructPath, 'OPS.moveTo:', OPS.moveTo,
-                'OPS.lineTo:', OPS.lineTo, 'OPS.stroke:', OPS.stroke, 'OPS.fill:', OPS.fill);
+    var constructPathOp = OPS.constructPath || 91;  // fallback to known value
+    console.log('[FloorPlan] OPS.constructPath:', OPS.constructPath, '(using:', constructPathOp + ')',
+                'OPS.moveTo:', OPS.moveTo, 'OPS.lineTo:', OPS.lineTo,
+                'OPS.stroke:', OPS.stroke, 'OPS.fill:', OPS.fill);
 
     var segments = [];          // { p1, p2, lineWidth }
     var arcs     = [];          // { centre, radius, startAngle, endAngle, lineWidth }
@@ -138,6 +140,31 @@ var FloorplanParser = (function () {
         console.log('[FloorPlan] Op counts:', JSON.stringify(opCounts));
       }
 
+      // Handle constructPath separately since OPS.constructPath may be undefined in some builds
+      if (fn === constructPathOp) {
+          // args = [ subOps[], coordArgs[], minMax ]
+          // In PDF.js 3.x, all path construction is batched here
+          var subOps = args[0];
+          var coords = args[1];
+          if (!subOps || !coords) {
+            console.warn('[FloorPlan] constructPath with missing subOps/coords', args);
+            continue;
+          }
+          var ci = 0;   // index into coords
+          for (var si = 0; si < subOps.length; si++) {
+            var subOp = subOps[si];
+            var nArgs = _subOpArgCount[subOp];
+            if (nArgs === undefined) {
+              console.warn('[FloorPlan] Unknown sub-op in constructPath:', subOp);
+              continue;
+            }
+            var subArgs = coords.slice(ci, ci + nArgs);
+            _pathOp(subOp, subArgs);
+            ci += nArgs;
+          }
+          continue;
+      }
+
       switch (fn) {
         /* graphics-state */
         case OPS.save:
@@ -155,21 +182,6 @@ var FloorplanParser = (function () {
           break;
         case OPS.setLineWidth:
           lineWidth = args[0];
-          break;
-
-        /* ── PDF.js 3.x batched path: constructPath ────────── */
-        case OPS.constructPath:
-          // args = [ subOps[], coordArgs[], minMax ]
-          var subOps = args[0];
-          var coords = args[1];
-          var ci = 0;   // index into coords
-          for (var si = 0; si < subOps.length; si++) {
-            var subOp = subOps[si];
-            var nArgs = _subOpArgCount[subOp] || 0;
-            var subArgs = coords.slice(ci, ci + nArgs);
-            _pathOp(subOp, subArgs);
-            ci += nArgs;
-          }
           break;
 
         /* ── individual path ops (older PDF.js / some builds) ─ */
