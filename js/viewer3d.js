@@ -34,6 +34,7 @@ var Viewer3D = (function () {
   var _raycaster, _mouse, _tooltip;
   var _wallMeshes = [];
   var _baseFileName = '';
+  var _candidates = [];         // floor plan File objects for switcher
 
   /* ===== PUBLIC: open from a file ========================= */
 
@@ -52,22 +53,17 @@ var Viewer3D = (function () {
 
   /* open by scanning the app state for drawing files */
   function openFromState(state, pendingFiles) {
-    console.log('[3D] openFromState called. pendingFiles:', (pendingFiles || []).length,
-                'sourceDocuments:', (state.sourceDocuments || []).length);
     // find a floor-plan file among pending files
     var candidates = (pendingFiles || []).filter(function (f) {
       var n = f.name.toLowerCase();
-      var match = /floor\s*plan|ground\s*floor|first\s*floor|proposed.*plan/i.test(n)
+      return /floor\s*plan|ground\s*floor|first\s*floor|proposed.*plan/i.test(n)
         || /\.t05|\.t06/i.test(n);
-      console.log('[3D]   file:', f.name, 'match:', match);
-      return match;
     });
     if (candidates.length === 0) {
       // fall back to any drawing-classified source doc
       var drawingNames = (state.sourceDocuments || [])
         .filter(function (d) { return d.docType === 'drawing'; })
         .map(function (d) { return d.name; });
-      console.log('[3D] No direct matches. Drawing names:', drawingNames);
       candidates = (pendingFiles || []).filter(function (f) {
         return drawingNames.indexOf(f.name) !== -1;
       });
@@ -76,36 +72,10 @@ var Viewer3D = (function () {
       alert('No floor plan PDF found. Please upload a floor plan drawing first.');
       return;
     }
-    console.log('[3D] Candidates:', candidates.map(function(f){return f.name;}));
-    // Let user pick if multiple
-    if (candidates.length === 1) {
-      open(candidates[0]);
-    } else {
-      // Build a quick picker
-      var html = '<p style="margin-bottom:12px">Select a floor plan to render in 3D:</p>';
-      candidates.forEach(function (f, i) {
-        html += '<button class="btn btn-secondary" style="display:block;width:100%;margin-bottom:8px;text-align:left" data-idx="' + i + '">' +
-          '📐 ' + _escapeHtml(f.name) + '</button>';
-      });
-      var modal = document.createElement('div');
-      modal.className = 'modal-overlay';
-      modal.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9998;display:flex;align-items:center;justify-content:center';
-      var box = document.createElement('div');
-      box.style.cssText = 'background:var(--bg-primary,#fff);border-radius:12px;padding:24px;max-width:460px;width:90%';
-      box.innerHTML = '<h3 style="margin:0 0 16px">Choose Floor Plan</h3>' + html +
-        '<button class="btn btn-secondary" style="margin-top:8px" id="_3dPickerCancel">Cancel</button>';
-      modal.appendChild(box);
-      document.body.appendChild(modal);
-      box.addEventListener('click', function (e) {
-        var btn = e.target.closest('[data-idx]');
-        if (btn) {
-          var idx = parseInt(btn.dataset.idx);
-          document.body.removeChild(modal);
-          open(candidates[idx]);
-        }
-        if (e.target.id === '_3dPickerCancel') document.body.removeChild(modal);
-      });
-    }
+    _candidates = candidates;
+    open(candidates[0]);
+    // Let user pick if multiple — no longer needed, use toolbar switcher
+    open(candidates[0]);
   }
 
   /* ===== OVERLAY UI ====================================== */
@@ -122,11 +92,12 @@ var Viewer3D = (function () {
     toolbar.style.cssText = 'display:flex;align-items:center;gap:16px;padding:10px 20px;background:#1e293b;color:#fff;font-size:0.9rem;flex-shrink:0;';
     toolbar.innerHTML =
       '<strong style="font-size:1.1rem;">🏗️ 3D Floor Plan</strong>' +
-      '<span id="_3dFileName" style="color:#94a3b8;flex:1"></span>' +
+      '<select id="_3dFloorSelect" style="background:#334155;color:#fff;border:1px solid #475569;border-radius:4px;padding:4px 10px;font-size:0.8rem;max-width:280px"></select>' +
+      '<span id="_3dFileName" style="color:#94a3b8;font-size:0.8rem"></span>' +
       '<label style="color:#94a3b8;font-size:0.8rem">Wall Height</label>' +
-      '<input type="range" id="_3dHeightSlider" min="20" max="200" value="' + _wallHeight + '" style="width:120px">' +
+      '<input type="range" id="_3dHeightSlider" min="20" max="200" value="' + _wallHeight + '" style="width:100px">' +
       '<span id="_3dHeightVal" style="color:#94a3b8;font-size:0.8rem;min-width:30px">' + _wallHeight + '</span>' +
-      '<label style="color:#94a3b8;font-size:0.8rem;margin-left:12px">Page</label>' +
+      '<label style="color:#94a3b8;font-size:0.8rem">Page</label>' +
       '<select id="_3dPageSelect" style="background:#334155;color:#fff;border:1px solid #475569;border-radius:4px;padding:2px 8px;font-size:0.8rem"></select>' +
       '<button id="_3dLabelsToggle" class="btn btn-secondary" style="padding:4px 12px;font-size:0.8rem">🏷️ Labels</button>' +
       '<button id="_3dResetCam" class="btn btn-secondary" style="padding:4px 12px;font-size:0.8rem">🔄 Reset View</button>' +
@@ -185,7 +156,22 @@ var Viewer3D = (function () {
     // File name
     _baseFileName = fileName;
     var fnEl = document.getElementById('_3dFileName');
-    if (fnEl) fnEl.textContent = fileName;
+    if (fnEl) fnEl.textContent = '';
+
+    // Populate floor plan switcher
+    var floorSel = document.getElementById('_3dFloorSelect');
+    if (floorSel && _candidates.length > 0) {
+      floorSel.innerHTML = '';
+      _candidates.forEach(function (f, i) {
+        var opt = document.createElement('option');
+        opt.value = i;
+        // Show a short label: extract the meaningful part of the filename
+        var label = f.name.replace(/\.pdf$/i, '').replace(/^\d+\.?/, '');
+        opt.textContent = label || f.name;
+        if (f.name === fileName) opt.selected = true;
+        floorSel.appendChild(opt);
+      });
+    }
 
     // Populate page selector
     var pageSel = document.getElementById('_3dPageSelect');
@@ -347,14 +333,13 @@ var Viewer3D = (function () {
       _scene.add(edgeLine);
     });
 
-    // ── Windows ──
-    var windowGlassMat = new THREE.MeshPhysicalMaterial({
+    // ── Windows ── (use MeshStandardMaterial for r128 compat — glass effect)
+    var windowGlassMat = new THREE.MeshStandardMaterial({
       color: WINDOW_COLOR,
-      roughness: 0.1,
-      metalness: 0.1,
+      roughness: 0.05,
+      metalness: 0.3,
       transparent: true,
-      opacity: 0.4,
-      transmission: 0.6,
+      opacity: 0.35,
       side: THREE.DoubleSide
     });
     var windowFrameMat = new THREE.MeshStandardMaterial({ color: WINDOW_FRAME });
@@ -488,6 +473,38 @@ var Viewer3D = (function () {
         _wallHeight = parseInt(slider.value);
         if (valEl) valEl.textContent = _wallHeight;
         _buildScene();
+      });
+    }
+
+    // Floor plan switcher
+    var floorSel = document.getElementById('_3dFloorSelect');
+    if (floorSel) {
+      floorSel.addEventListener('change', function () {
+        var idx = parseInt(floorSel.value);
+        if (_candidates[idx]) {
+          _wallHeight = DEFAULT_WALL_HEIGHT;
+          var statusEl = document.getElementById('_3dStatus');
+          if (statusEl) { statusEl.style.display = 'flex'; statusEl.textContent = 'Loading…'; }
+          FloorplanParser.parse(_candidates[idx], 1).then(function (data) {
+            _floorplanData = data;
+            _baseFileName = _candidates[idx].name;
+            if (_overlay) _overlay._currentFile = _candidates[idx];
+            // Refresh page selector
+            var pageSel2 = document.getElementById('_3dPageSelect');
+            if (pageSel2) {
+              pageSel2.innerHTML = '';
+              for (var p = 1; p <= data.totalPages; p++) {
+                var opt = document.createElement('option');
+                opt.value = p;
+                opt.textContent = 'Page ' + p;
+                if (p === data.currentPage) opt.selected = true;
+                pageSel2.appendChild(opt);
+              }
+            }
+            _buildScene();
+            if (statusEl) statusEl.style.display = 'none';
+          });
+        }
       });
     }
 

@@ -34,9 +34,7 @@ var App = (function () {
     _setupResetButton();
     _setupModalClose();
     _startAutoSave();
-    console.log('[3D] About to call _setup3DViewButton, btn exists:', !!document.getElementById('btn3DView'));
     _setup3DViewButton();
-    console.log('[3D] _setup3DViewButton completed');
     Diagnostics.init();
 
     UI.updateFileList(_pendingFiles);
@@ -511,21 +509,13 @@ var App = (function () {
   /* ── 3D View (independent module) ───────────────────────── */
   function _setup3DViewButton() {
     var btn = document.getElementById('btn3DView');
-    if (!btn) { console.warn('[3D] btn3DView not found in DOM'); return; }
+    if (!btn) return;
     btn.addEventListener('click', function () {
-      console.log('[3D] Button clicked. THREE defined:', typeof THREE !== 'undefined',
-                  'Viewer3D defined:', typeof Viewer3D !== 'undefined',
-                  'pendingFiles:', _pendingFiles.length);
       if (typeof Viewer3D === 'undefined' || typeof THREE === 'undefined') {
         UI.showToast('3D viewer libraries not loaded yet — try again in a moment', 'warning');
         return;
       }
-      try {
-        Viewer3D.openFromState(_state, _pendingFiles);
-      } catch (e) {
-        console.error('[3D] Error opening viewer:', e);
-        alert('3D viewer error: ' + e.message);
-      }
+      Viewer3D.openFromState(_state, _pendingFiles);
     });
   }
 

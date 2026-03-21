@@ -49,9 +49,6 @@ var FloorplanParser = (function () {
 
     // Debug: log OPS values for path operations
     var constructPathOp = OPS.constructPath || 91;  // fallback to known value
-    console.log('[FloorPlan] OPS.constructPath:', OPS.constructPath, '(using:', constructPathOp + ')',
-                'OPS.moveTo:', OPS.moveTo, 'OPS.lineTo:', OPS.lineTo,
-                'OPS.stroke:', OPS.stroke, 'OPS.fill:', OPS.fill);
 
     var segments = [];          // { p1, p2, lineWidth }
     var arcs     = [];          // { centre, radius, startAngle, endAngle, lineWidth }
@@ -136,8 +133,6 @@ var FloorplanParser = (function () {
         for (var di = 0; di < ops.length; di++) {
           opCounts[ops[di]] = (opCounts[ops[di]] || 0) + 1;
         }
-        console.log('[FloorPlan] Operator list length:', ops.length, 'unique ops:', Object.keys(opCounts).length);
-        console.log('[FloorPlan] Op counts:', JSON.stringify(opCounts));
       }
 
       // Handle constructPath separately since OPS.constructPath may be undefined in some builds
@@ -147,7 +142,6 @@ var FloorplanParser = (function () {
           var subOps = args[0];
           var coords = args[1];
           if (!subOps || !coords) {
-            console.warn('[FloorPlan] constructPath with missing subOps/coords', args);
             continue;
           }
           var ci = 0;   // index into coords
@@ -155,7 +149,6 @@ var FloorplanParser = (function () {
             var subOp = subOps[si];
             var nArgs = _subOpArgCount[subOp];
             if (nArgs === undefined) {
-              console.warn('[FloorPlan] Unknown sub-op in constructPath:', subOp);
               continue;
             }
             var subArgs = coords.slice(ci, ci + nArgs);
@@ -336,7 +329,6 @@ var FloorplanParser = (function () {
   /* ── classification: walls, doors, windows ──────────────── */
 
   function classifyGeometry(segments, arcs, textItems, viewport) {
-    console.log('[FloorPlan] Raw geometry: ' + segments.length + ' segments, ' + arcs.length + ' arcs, ' + textItems.length + ' text items');
 
     // 1. Identify wall line width: most common thick line width
     var widthCounts = {};
@@ -350,8 +342,6 @@ var FloorplanParser = (function () {
     var buckets = Object.keys(widthCounts).map(function (k) {
       return { width: parseFloat(k), count: widthCounts[k] };
     }).sort(function (a, b) { return b.count - a.count; });
-
-    console.log('[FloorPlan] Line-width buckets:', buckets.slice(0, 8));
 
     // Wall width: most frequent thick width (> 0.3)
     var wallWidth = 0.5;
@@ -373,8 +363,6 @@ var FloorplanParser = (function () {
     }).filter(function (w) {
       return w.length > 10; // skip tiny segments
     });
-
-    console.log('[FloorPlan] wallWidth:', wallWidth, 'threshold:', wallThreshold, 'walls found:', walls.length);
 
     // 3. Find glazing references in text
     var refPattern = /^(EW|ED|EG|ES|EC|W|D|S)\s*(\d{1,3})$/i;
