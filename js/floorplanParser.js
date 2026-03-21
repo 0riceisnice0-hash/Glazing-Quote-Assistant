@@ -56,6 +56,70 @@ var FloorplanParser = (function () {
     var ctm = [1, 0, 0, 1, 0, 0];
     var stack = [];
 
+    /* helper: process a single path-building sub-op */
+    function _pathOp(opCode, opArgs) {
+      switch (opCode) {
+        case OPS.moveTo:
+          path = [transformPoint(ctm, opArgs[0], opArgs[1])];
+          pathCmds = [];
+          break;
+        case OPS.lineTo:
+          path.push(transformPoint(ctm, opArgs[0], opArgs[1]));
+          pathCmds.push('L');
+          break;
+        case OPS.curveTo:
+          var cp1 = transformPoint(ctm, opArgs[0], opArgs[1]);
+          var cp2 = transformPoint(ctm, opArgs[2], opArgs[3]);
+          var ep  = transformPoint(ctm, opArgs[4], opArgs[5]);
+          path.push(cp1, cp2, ep);
+          pathCmds.push('C');
+          break;
+        case OPS.curveTo2:
+          var ccp1 = path.length ? path[path.length - 1] : { x: 0, y: 0 };
+          var ccp2 = transformPoint(ctm, opArgs[0], opArgs[1]);
+          var cep  = transformPoint(ctm, opArgs[2], opArgs[3]);
+          path.push(ccp1, ccp2, cep);
+          pathCmds.push('C');
+          break;
+        case OPS.curveTo3:
+          var dcp1 = transformPoint(ctm, opArgs[0], opArgs[1]);
+          var dep  = transformPoint(ctm, opArgs[2], opArgs[3]);
+          path.push(dcp1, dep, dep);
+          pathCmds.push('C');
+          break;
+        case OPS.closePath:
+          if (path.length) path.push(path[0]);
+          pathCmds.push('Z');
+          break;
+        case OPS.rectangle:
+          var rx = opArgs[0], ry = opArgs[1], rw = opArgs[2], rh = opArgs[3];
+          var r0 = transformPoint(ctm, rx, ry);
+          var r1 = transformPoint(ctm, rx + rw, ry);
+          var r2 = transformPoint(ctm, rx + rw, ry + rh);
+          var r3 = transformPoint(ctm, rx, ry + rh);
+          path = [r0, r1, r2, r3, r0];
+          pathCmds = ['L', 'L', 'L', 'Z'];
+          break;
+      }
+    }
+
+    /* helper: flush current path */
+    function _flushPath(isFill) {
+      _harvestPath(segments, arcs, path, pathCmds, lineWidth * Math.abs(ctm[0]), isFill);
+      path = [];
+      pathCmds = [];
+    }
+
+    /* Number of coordinate args consumed by each sub-op inside constructPath */
+    var _subOpArgCount = {};
+    _subOpArgCount[OPS.moveTo] = 2;
+    _subOpArgCount[OPS.lineTo] = 2;
+    _subOpArgCount[OPS.curveTo] = 6;
+    _subOpArgCount[OPS.curveTo2] = 4;
+    _subOpArgCount[OPS.curveTo3] = 4;
+    _subOpArgCount[OPS.closePath] = 0;
+    _subOpArgCount[OPS.rectangle] = 4;
+
     for (var i = 0; i < ops.length; i++) {
       var fn   = ops[i];
       var args = argsArray[i];
@@ -79,68 +143,43 @@ var FloorplanParser = (function () {
           lineWidth = args[0];
           break;
 
-        /* path construction */
+        /* ── PDF.js 3.x batched path: constructPath ────────── */
+        case OPS.constructPath:
+          // args = [ subOps[], coordArgs[], minMax ]
+          var subOps = args[0];
+          var coords = args[1];
+          var ci = 0;   // index into coords
+          for (var si = 0; si < subOps.length; si++) {
+            var subOp = subOps[si];
+            var nArgs = _subOpArgCount[subOp] || 0;
+            var subArgs = coords.slice(ci, ci + nArgs);
+            _pathOp(subOp, subArgs);
+            ci += nArgs;
+          }
+          break;
+
+        /* ── individual path ops (older PDF.js / some builds) ─ */
         case OPS.moveTo:
-          path = [transformPoint(ctm, args[0], args[1])];
-          pathCmds = [];
-          break;
         case OPS.lineTo:
-          path.push(transformPoint(ctm, args[0], args[1]));
-          pathCmds.push('L');
-          break;
         case OPS.curveTo:
-          // Cubic Bézier — approximate as arc candidate
-          var cp1 = transformPoint(ctm, args[0], args[1]);
-          var cp2 = transformPoint(ctm, args[2], args[3]);
-          var ep  = transformPoint(ctm, args[4], args[5]);
-          path.push(cp1, cp2, ep);
-          pathCmds.push('C');
-          break;
         case OPS.curveTo2:
-          var ccp1 = path.length ? path[path.length - 1] : { x: 0, y: 0 };
-          var ccp2 = transformPoint(ctm, args[0], args[1]);
-          var cep  = transformPoint(ctm, args[2], args[3]);
-          path.push(ccp1, ccp2, cep);
-          pathCmds.push('C');
-          break;
         case OPS.curveTo3:
-          // 'y' operator: cp2 = endpoint
-          var dcp1 = transformPoint(ctm, args[0], args[1]);
-          var dep  = transformPoint(ctm, args[2], args[3]);
-          path.push(dcp1, dep, dep);
-          pathCmds.push('C');
-          break;
         case OPS.closePath:
-          if (path.length) path.push(path[0]);
-          pathCmds.push('Z');
-          break;
         case OPS.rectangle:
-          var rx = args[0], ry = args[1], rw = args[2], rh = args[3];
-          var r0 = transformPoint(ctm, rx, ry);
-          var r1 = transformPoint(ctm, rx + rw, ry);
-          var r2 = transformPoint(ctm, rx + rw, ry + rh);
-          var r3 = transformPoint(ctm, rx, ry + rh);
-          path = [r0, r1, r2, r3, r0];
-          pathCmds = ['L', 'L', 'L', 'Z'];
+          _pathOp(fn, args);
           break;
 
         /* path painting */
         case OPS.stroke:
-          _harvestPath(segments, arcs, path, pathCmds, lineWidth*Math.abs(ctm[0]), false);
-          path = [];
-          pathCmds = [];
+          _flushPath(false);
           break;
         case OPS.fill:
         case OPS.eoFill:
-          _harvestPath(segments, arcs, path, pathCmds, lineWidth*Math.abs(ctm[0]), true);
-          path = [];
-          pathCmds = [];
+          _flushPath(true);
           break;
         case OPS.fillStroke:
         case OPS.eoFillStroke:
-          _harvestPath(segments, arcs, path, pathCmds, lineWidth*Math.abs(ctm[0]), true);
-          path = [];
-          pathCmds = [];
+          _flushPath(true);
           break;
         case OPS.endPath:
           path = [];
@@ -271,6 +310,8 @@ var FloorplanParser = (function () {
   /* ── classification: walls, doors, windows ──────────────── */
 
   function classifyGeometry(segments, arcs, textItems, viewport) {
+    console.log('[FloorPlan] Raw geometry: ' + segments.length + ' segments, ' + arcs.length + ' arcs, ' + textItems.length + ' text items');
+
     // 1. Identify wall line width: most common thick line width
     var widthCounts = {};
     segments.forEach(function (s) {
@@ -283,6 +324,8 @@ var FloorplanParser = (function () {
     var buckets = Object.keys(widthCounts).map(function (k) {
       return { width: parseFloat(k), count: widthCounts[k] };
     }).sort(function (a, b) { return b.count - a.count; });
+
+    console.log('[FloorPlan] Line-width buckets:', buckets.slice(0, 8));
 
     // Wall width: most frequent thick width (> 0.3)
     var wallWidth = 0.5;
@@ -304,6 +347,8 @@ var FloorplanParser = (function () {
     }).filter(function (w) {
       return w.length > 10; // skip tiny segments
     });
+
+    console.log('[FloorPlan] wallWidth:', wallWidth, 'threshold:', wallThreshold, 'walls found:', walls.length);
 
     // 3. Find glazing references in text
     var refPattern = /^(EW|ED|EG|ES|EC|W|D|S)\s*(\d{1,3})$/i;
