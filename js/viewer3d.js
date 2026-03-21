@@ -247,7 +247,7 @@ var Viewer3D = (function () {
     // Auto-scale: calculate wall height relative to building size
     var bw = data.bounds.maxX - data.bounds.minX;
     var bh = data.bounds.maxY - data.bounds.minY;
-    var buildingSize = Math.max(bw, bh);
+    var buildingSize = Math.max(bw, bh) || 500;   // fallback if 0
     if (_wallHeight === DEFAULT_WALL_HEIGHT) {
       _wallHeight = Math.max(20, Math.min(120, buildingSize * 0.08));
       var slider = document.getElementById('_3dHeightSlider');
@@ -258,6 +258,9 @@ var Viewer3D = (function () {
 
     var cx = (data.bounds.minX + data.bounds.maxX) / 2;
     var cy = (data.bounds.minY + data.bounds.maxY) / 2;
+    // Safety: ensure finite values
+    if (!isFinite(cx)) cx = 0;
+    if (!isFinite(cy)) cy = 0;
 
     // ── Lighting ──
     var ambient = new THREE.AmbientLight(0xffffff, 0.6);

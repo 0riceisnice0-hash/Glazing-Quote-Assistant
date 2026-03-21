@@ -47,6 +47,10 @@ var FloorplanParser = (function () {
   function walkOperatorList(ops, argsArray) {
     var OPS = pdfjsLib.OPS;
 
+    // Debug: log OPS values for path operations
+    console.log('[FloorPlan] OPS.constructPath:', OPS.constructPath, 'OPS.moveTo:', OPS.moveTo,
+                'OPS.lineTo:', OPS.lineTo, 'OPS.stroke:', OPS.stroke, 'OPS.fill:', OPS.fill);
+
     var segments = [];          // { p1, p2, lineWidth }
     var arcs     = [];          // { centre, radius, startAngle, endAngle, lineWidth }
     var fills    = [];          // closed filled paths
@@ -123,6 +127,16 @@ var FloorplanParser = (function () {
     for (var i = 0; i < ops.length; i++) {
       var fn   = ops[i];
       var args = argsArray[i];
+
+      // First pass: count op types for debugging
+      if (i === 0) {
+        var opCounts = {};
+        for (var di = 0; di < ops.length; di++) {
+          opCounts[ops[di]] = (opCounts[ops[di]] || 0) + 1;
+        }
+        console.log('[FloorPlan] Operator list length:', ops.length, 'unique ops:', Object.keys(opCounts).length);
+        console.log('[FloorPlan] Op counts:', JSON.stringify(opCounts));
+      }
 
       switch (fn) {
         /* graphics-state */
@@ -407,7 +421,7 @@ var FloorplanParser = (function () {
       });
     });
 
-    // 6. Calculate bounds
+    // 6. Calculate bounds (include walls, windows, and doors)
     var bounds = { minX: Infinity, minY: Infinity, maxX: -Infinity, maxY: -Infinity };
     walls.forEach(function (w) {
       bounds.minX = Math.min(bounds.minX, w.p1.x, w.p2.x);
@@ -415,6 +429,22 @@ var FloorplanParser = (function () {
       bounds.maxX = Math.max(bounds.maxX, w.p1.x, w.p2.x);
       bounds.maxY = Math.max(bounds.maxY, w.p1.y, w.p2.y);
     });
+    windows.forEach(function (w) {
+      bounds.minX = Math.min(bounds.minX, w.x);
+      bounds.minY = Math.min(bounds.minY, w.y);
+      bounds.maxX = Math.max(bounds.maxX, w.x);
+      bounds.maxY = Math.max(bounds.maxY, w.y);
+    });
+    doors.forEach(function (d) {
+      bounds.minX = Math.min(bounds.minX, d.x);
+      bounds.minY = Math.min(bounds.minY, d.y);
+      bounds.maxX = Math.max(bounds.maxX, d.x);
+      bounds.maxY = Math.max(bounds.maxY, d.y);
+    });
+    // Fallback to viewport if everything is still empty
+    if (!isFinite(bounds.minX)) {
+      bounds = { minX: 0, minY: 0, maxX: viewport.width, maxY: viewport.height };
+    }
 
     return {
       walls: walls,
