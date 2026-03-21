@@ -51,17 +51,22 @@ var Viewer3D = (function () {
 
   /* open by scanning the app state for drawing files */
   function openFromState(state, pendingFiles) {
+    console.log('[3D] openFromState called. pendingFiles:', (pendingFiles || []).length,
+                'sourceDocuments:', (state.sourceDocuments || []).length);
     // find a floor-plan file among pending files
     var candidates = (pendingFiles || []).filter(function (f) {
       var n = f.name.toLowerCase();
-      return /floor\s*plan|ground\s*floor|first\s*floor|proposed.*plan/i.test(n)
-        || /\.t05|\.t06/i.test(n);   // project-specific naming
+      var match = /floor\s*plan|ground\s*floor|first\s*floor|proposed.*plan/i.test(n)
+        || /\.t05|\.t06/i.test(n);
+      console.log('[3D]   file:', f.name, 'match:', match);
+      return match;
     });
     if (candidates.length === 0) {
       // fall back to any drawing-classified source doc
       var drawingNames = (state.sourceDocuments || [])
         .filter(function (d) { return d.docType === 'drawing'; })
         .map(function (d) { return d.name; });
+      console.log('[3D] No direct matches. Drawing names:', drawingNames);
       candidates = (pendingFiles || []).filter(function (f) {
         return drawingNames.indexOf(f.name) !== -1;
       });
@@ -70,6 +75,7 @@ var Viewer3D = (function () {
       alert('No floor plan PDF found. Please upload a floor plan drawing first.');
       return;
     }
+    console.log('[3D] Candidates:', candidates.map(function(f){return f.name;}));
     // Let user pick if multiple
     if (candidates.length === 1) {
       open(candidates[0]);
