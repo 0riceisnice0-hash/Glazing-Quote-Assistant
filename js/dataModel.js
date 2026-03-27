@@ -19,13 +19,14 @@ const DEFAULT_STATE = {
   },
   pricing: {
     pricingVersion: 3,
-    aluminiumFrameRate: 120,
-    pvcFrameRate: 70,
-    timberFrameRate: 180,
-    steelFrameRate: 200,
-    doubleGlazedRate: 50,
-    tripleGlazedRate: 80,
-    fireRatedGlassRate: 120,
+    aluminiumFrameRate: 500,
+    aluminiumDoorRate: 1125,
+    pvcFrameRate: 395,
+    timberFrameRate: 350,
+    steelFrameRate: 600,
+    doubleGlazedRate: 55,
+    tripleGlazedRate: 85,
+    fireRatedGlassRate: 130,
     laminatedExtra: 15,
     toughenedExtra: 10,
     installationPerUnit: 140,
@@ -42,63 +43,71 @@ const DEFAULT_STATE = {
   },
   presets: {
     window: {
+      frameType: 'PVC',
       system: 'Liniar PVCu',
-      colour: 'White',
-      hardware: 'White Kenrick Shootbolt',
-      cillType: '150mm Drop Nose Cill',
+      colour: 'Black Foil',
+      finish: 'Foiled',
+      hardware: 'Black Signature Handle / Kenrick Shootbolt / Standard Hinges',
+      cillType: '150mm Drop Nose Cill Foil',
       glazingMakeup: '28mm DGU - Unglazed',
-      ventilation: '4000 Linkvent',
+      ventilation: '4000 External Linkvent Black / 4000 Internal Linkvent Black',
       drainage: 'Concealed'
     },
     door: {
-      system: 'Senior SPW 501 Aluminium',
-      colour: 'RAL 9005',
-      hardware: 'Concealed Overhead Closer / Panic Bar',
-      cillType: 'Aluminium Threshold',
-      glazingMakeup: '28mm DGU - Toughened',
+      frameType: 'Aluminium',
+      system: 'Senior SPW 500/501',
+      colour: 'RAL 9005 (Jet black)',
+      finish: 'Powder Coated',
+      hardware: 'Pad Handles / Hook Lock / Euro Cylinder / NHO Closer',
+      cillType: '',
+      glazingMakeup: '28mm DGU',
       ventilation: '',
-      drainage: 'Concealed'
+      drainage: ''
     },
     profiles: {
       'Aluminium Commercial Window': {
-        system: 'PPC Aluminium',
-        colour: 'RAL Colour To match existing',
+        frameType: 'Aluminium',
+        system: 'Senior / Technal',
+        colour: 'RAL (per tender docs)',
+        finish: 'PPC (Powder Coated)',
         hardware: 'Standard commercial ironmongery',
         cillType: 'Aluminium Cill',
         glazingMakeup: '28mm DGU - Toughened',
         ventilation: 'Trickle Vent',
-        drainage: 'Concealed',
-        finish: 'PPC Aluminium'
+        drainage: 'Concealed'
       },
       'Aluminium Commercial Door': {
-        system: 'PPC Aluminium',
-        colour: 'RAL Colour To match existing',
-        hardware: 'Concealed Overhead Closer / Panic Bar',
+        frameType: 'Aluminium',
+        system: 'Senior SPW 500/501',
+        colour: 'RAL 9005 (Jet black)',
+        finish: 'PPC (Powder Coated)',
+        hardware: 'Pad Handles / Hook Lock / Euro Cylinder / NHO Closer',
         cillType: 'Aluminium Threshold',
-        glazingMakeup: '28mm Toughened DGU',
+        glazingMakeup: '28mm DGU - Toughened',
         ventilation: '',
-        drainage: 'Concealed',
-        finish: 'PPC Aluminium'
+        drainage: ''
       },
       'uPVC Residential Window': {
+        frameType: 'PVC',
         system: 'Liniar PVCu',
-        colour: 'White',
-        hardware: 'White Kenrick Shootbolt',
-        cillType: '150mm Drop Nose Cill',
+        colour: 'Black Foil',
+        finish: 'Foiled',
+        hardware: 'Black Signature Handle / Kenrick Shootbolt / Standard Hinges',
+        cillType: '150mm Drop Nose Cill Foil',
         glazingMakeup: '28mm DGU - Unglazed',
-        ventilation: '4000 Linkvent',
-        drainage: 'Concealed',
-        finish: 'White uPVC'
+        ventilation: '4000 External Linkvent Black / 4000 Internal Linkvent Black',
+        drainage: 'Concealed'
       },
       'uPVC Residential Door': {
+        frameType: 'PVC',
         system: 'Liniar PVCu',
-        colour: 'White',
+        colour: 'Black Foil',
+        finish: 'Foiled',
         hardware: 'Avocet Falcon Lock / Low Threshold',
         cillType: 'Low Aluminium Threshold',
         glazingMakeup: '28mm DGU - Toughened',
         ventilation: '',
-        drainage: 'Concealed',
-        finish: 'White uPVC'
+        drainage: ''
       }
     }
   },

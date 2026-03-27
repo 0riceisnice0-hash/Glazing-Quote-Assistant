@@ -53,16 +53,17 @@ var Pricing = (function () {
   var DEFAULT_CONFIG = {
     pricingVersion: 3,
 
-    // Estimated supplier frame cost per m²
-    aluminiumFrameRate: 120,
-    pvcFrameRate: 70,
-    timberFrameRate: 180,
-    steelFrameRate: 200,
+    // Estimated supplier frame cost per m² (fabricated unit inc. hardware, excl. glass)
+    aluminiumFrameRate: 500,
+    aluminiumDoorRate: 1125,
+    pvcFrameRate: 395,
+    timberFrameRate: 350,
+    steelFrameRate: 600,
 
-    // Estimated glass cost per m²
-    doubleGlazedRate: 50,
-    tripleGlazedRate: 80,
-    fireRatedGlassRate: 120,
+    // Estimated glass cost per m² (separate supplier quote)
+    doubleGlazedRate: 55,
+    tripleGlazedRate: 85,
+    fireRatedGlassRate: 130,
     laminatedExtra: 15,
     toughenedExtra: 10,
 
@@ -148,11 +149,13 @@ var Pricing = (function () {
     if (area <= 0) return 0;
 
     var frame = (item.frameType || '').toLowerCase();
-    var rate  = config.aluminiumFrameRate;
+    var isDoor = (item.type || '').toLowerCase() === 'door';
+    var rate  = isDoor ? (config.aluminiumDoorRate || config.aluminiumFrameRate) : config.aluminiumFrameRate;
 
     if (frame.indexOf('pvc') !== -1 || frame.indexOf('upvc') !== -1)       rate = config.pvcFrameRate;
     else if (frame.indexOf('timber') !== -1 || frame.indexOf('wood') !== -1) rate = config.timberFrameRate;
     else if (frame.indexOf('steel') !== -1)                                  rate = config.steelFrameRate;
+    else if (isDoor && config.aluminiumDoorRate)                              rate = config.aluminiumDoorRate;
 
     return Math.round(rate * area * 100) / 100;
   }

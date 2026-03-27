@@ -179,17 +179,18 @@
 
             <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Estimated Frame Supply (£/m²)</div>
             <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
-              <div class="form-group"><label for="aluminiumFrameRate">Aluminium</label><input type="number" class="form-control" id="aluminiumFrameRate" value="120" min="0" step="5"></div>
-              <div class="form-group"><label for="pvcFrameRate">PVC</label><input type="number" class="form-control" id="pvcFrameRate" value="70" min="0" step="5"></div>
-              <div class="form-group"><label for="timberFrameRate">Timber</label><input type="number" class="form-control" id="timberFrameRate" value="180" min="0" step="5"></div>
-              <div class="form-group"><label for="steelFrameRate">Steel</label><input type="number" class="form-control" id="steelFrameRate" value="200" min="0" step="5"></div>
+              <div class="form-group"><label for="aluminiumFrameRate">Alum Window</label><input type="number" class="form-control" id="aluminiumFrameRate" value="500" min="0" step="5"></div>
+              <div class="form-group"><label for="aluminiumDoorRate">Alum Door</label><input type="number" class="form-control" id="aluminiumDoorRate" value="1125" min="0" step="5"></div>
+              <div class="form-group"><label for="pvcFrameRate">PVC</label><input type="number" class="form-control" id="pvcFrameRate" value="395" min="0" step="5"></div>
+              <div class="form-group"><label for="timberFrameRate">Timber</label><input type="number" class="form-control" id="timberFrameRate" value="350" min="0" step="5"></div>
+              <div class="form-group"><label for="steelFrameRate">Steel</label><input type="number" class="form-control" id="steelFrameRate" value="600" min="0" step="5"></div>
             </div>
 
             <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Estimated Glass Supply (£/m²)</div>
             <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
-              <div class="form-group"><label for="doubleGlazedRate">Double Glazed</label><input type="number" class="form-control" id="doubleGlazedRate" value="50" min="0" step="5"></div>
-              <div class="form-group"><label for="tripleGlazedRate">Triple Glazed</label><input type="number" class="form-control" id="tripleGlazedRate" value="80" min="0" step="5"></div>
-              <div class="form-group"><label for="fireRatedGlassRate">Fire Rated</label><input type="number" class="form-control" id="fireRatedGlassRate" value="120" min="0" step="5"></div>
+              <div class="form-group"><label for="doubleGlazedRate">Double Glazed</label><input type="number" class="form-control" id="doubleGlazedRate" value="55" min="0" step="5"></div>
+              <div class="form-group"><label for="tripleGlazedRate">Triple Glazed</label><input type="number" class="form-control" id="tripleGlazedRate" value="85" min="0" step="5"></div>
+              <div class="form-group"><label for="fireRatedGlassRate">Fire Rated</label><input type="number" class="form-control" id="fireRatedGlassRate" value="130" min="0" step="5"></div>
               <div class="form-group"><label for="toughenedExtra">Toughened Extra</label><input type="number" class="form-control" id="toughenedExtra" value="10" min="0" step="1"></div>
             </div>
 
@@ -261,6 +262,7 @@
 
             <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Window Preset</div>
             <div class="form-grid" id="presetWindowGrid">
+              <div class="form-group"><label for="presetWinFrameType">Frame Type</label><input type="text" class="form-control preset-field" id="presetWinFrameType" data-preset="window" data-field="frameType"></div>
               <div class="form-group"><label for="presetWinSystem">System</label><input type="text" class="form-control preset-field" id="presetWinSystem" data-preset="window" data-field="system"></div>
               <div class="form-group"><label for="presetWinColour">Colour</label><input type="text" class="form-control preset-field" id="presetWinColour" data-preset="window" data-field="colour"></div>
               <div class="form-group"><label for="presetWinFinish">Finish</label><input type="text" class="form-control preset-field" id="presetWinFinish" data-preset="window" data-field="finish"></div>
@@ -275,6 +277,7 @@
 
             <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Door Preset</div>
             <div class="form-grid" id="presetDoorGrid">
+              <div class="form-group"><label for="presetDoorFrameType">Frame Type</label><input type="text" class="form-control preset-field" id="presetDoorFrameType" data-preset="door" data-field="frameType"></div>
               <div class="form-group"><label for="presetDoorSystem">System</label><input type="text" class="form-control preset-field" id="presetDoorSystem" data-preset="door" data-field="system"></div>
               <div class="form-group"><label for="presetDoorColour">Colour</label><input type="text" class="form-control preset-field" id="presetDoorColour" data-preset="door" data-field="colour"></div>
               <div class="form-group"><label for="presetDoorFinish">Finish</label><input type="text" class="form-control preset-field" id="presetDoorFinish" data-preset="door" data-field="finish"></div>
@@ -575,18 +578,18 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
   <!-- ========== Application Scripts (v=20260328 for cache bust) ========== -->
-  <script src="js/dataModel.js?v=20260328"></script>
-  <script src="js/pdfParser.js?v=20260328"></script>
-  <script src="js/dataExtractor.js?v=20260328"></script>
-  <script src="js/pricing.js?v=20260328"></script>
-  <script src="js/ui.js?v=20260328"></script>
-  <script src="js/pdfViewer.js?v=20260328"></script>
-  <script src="js/quoteGenerator.js?v=20260328"></script>
-  <script src="js/ocrFallback.js?v=20260328"></script>
-  <script src="js/diagnostics.js?v=20260328"></script>
-  <script src="js/floorplanParser.js?v=20260328"></script>
-  <script src="js/viewer3d.js?v=20260328"></script>
-  <script src="js/app.js?v=20260328"></script>
+  <script src="js/dataModel.js?v=20260327a"></script>
+  <script src="js/pdfParser.js?v=20260327a"></script>
+  <script src="js/dataExtractor.js?v=20260327a"></script>
+  <script src="js/pricing.js?v=20260327a"></script>
+  <script src="js/ui.js?v=20260327a"></script>
+  <script src="js/pdfViewer.js?v=20260327a"></script>
+  <script src="js/quoteGenerator.js?v=20260327a"></script>
+  <script src="js/ocrFallback.js?v=20260327a"></script>
+  <script src="js/diagnostics.js?v=20260327a"></script>
+  <script src="js/floorplanParser.js?v=20260327a"></script>
+  <script src="js/viewer3d.js?v=20260327a"></script>
+  <script src="js/app.js?v=20260327a"></script>
 
 </body>
 </html>

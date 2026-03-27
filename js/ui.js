@@ -74,7 +74,7 @@ var UI = (function () {
   function _setupPricingPanel() {
     // Bind all numeric rate inputs
     var rateFields = [
-      'aluminiumFrameRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
+      'aluminiumFrameRate', 'aluminiumDoorRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
       'doubleGlazedRate', 'tripleGlazedRate', 'fireRatedGlassRate', 'toughenedExtra',
       'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate'
     ];
@@ -658,7 +658,7 @@ var UI = (function () {
   function renderPricingSettings(pricingConfig) {
     _state.pricing = pricingConfig;
     var rateFields = [
-      'aluminiumFrameRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
+      'aluminiumFrameRate', 'aluminiumDoorRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
       'doubleGlazedRate', 'tripleGlazedRate', 'fireRatedGlassRate', 'toughenedExtra',
       'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate'
     ];
@@ -1019,13 +1019,14 @@ var UI = (function () {
       showToast('No preset defined for ' + itemType, 'warning');
       return;
     }
-    var PRESET_FIELDS = ['system', 'colour', 'hardware', 'cillType', 'glazingMakeup', 'ventilation', 'drainage', 'finish'];
+    var PRESET_FIELDS = ['frameType', 'system', 'colour', 'hardware', 'cillType', 'glazingMakeup', 'ventilation', 'drainage', 'finish'];
     var count = 0;
     _state.items.forEach(function (item) {
       if (item.type !== itemType) return;
       var changed = false;
       PRESET_FIELDS.forEach(function (f) {
-        if ((!item[f] || item[f] === '') && preset[f]) {
+        var isBlank = !item[f] || item[f] === '' || (f === 'frameType' && item[f] === 'Unknown');
+        if (isBlank && preset[f]) {
           item[f] = preset[f];
           changed = true;
         }
@@ -1033,8 +1034,8 @@ var UI = (function () {
       if (changed) count++;
     });
     if (count > 0) {
-      renderItemsTable(_state.items, _state.warnings);
-      if (_callbacks.onItemUpdated) _callbacks.onItemUpdated(null);
+      // Recalculate pricing since frameType may have changed product codes
+      if (_callbacks.onPricingChanged) _callbacks.onPricingChanged(_state.pricing);
       showToast('Preset applied to ' + count + ' ' + itemType + '(s)', 'success');
     } else {
       showToast('No blank fields to fill on ' + itemType + 's', 'info');
