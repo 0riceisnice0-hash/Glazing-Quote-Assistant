@@ -72,111 +72,79 @@ var UI = (function () {
   }
 
   function _setupPricingPanel() {
-    var fixedCost = document.getElementById('fixedCostPerUnit');
-    if (fixedCost) {
-      fixedCost.value = _state.pricing.fixedCostPerUnit;
-      fixedCost.addEventListener('change', function () {
-        _state.pricing.fixedCostPerUnit = parseFloat(fixedCost.value) || 596;
+    // Bind all numeric rate inputs
+    var rateFields = [
+      'aluminiumFrameRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
+      'doubleGlazedRate', 'tripleGlazedRate', 'fireRatedGlassRate', 'toughenedExtra',
+      'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate'
+    ];
+    rateFields.forEach(function (field) {
+      var el = document.getElementById(field);
+      if (!el) return;
+      el.value = _state.pricing[field] !== undefined ? _state.pricing[field] : (Pricing.DEFAULT_CONFIG[field] || 0);
+      el.addEventListener('change', function () {
+        _state.pricing[field] = parseFloat(el.value) || 0;
         _triggerPriceUpdate();
       });
-    }
+    });
 
-    var baseRate = document.getElementById('baseRatePerM2');
-    if (baseRate) {
-      baseRate.value = _state.pricing.baseRatePerM2;
-      baseRate.addEventListener('change', function () {
-        _state.pricing.baseRatePerM2 = parseFloat(baseRate.value) || 99;
+    // Checkbox toggles
+    var toggleFields = ['includeInstallation', 'includeEPDM', 'includeMastic'];
+    toggleFields.forEach(function (field) {
+      var el = document.getElementById(field);
+      if (!el) return;
+      el.checked = _state.pricing[field] !== undefined ? _state.pricing[field] : (Pricing.DEFAULT_CONFIG[field] || false);
+      el.addEventListener('change', function () {
+        _state.pricing[field] = el.checked;
         _triggerPriceUpdate();
       });
-    }
+    });
 
-    var doorFixed = document.getElementById('doorFixedCostPerUnit');
-    if (doorFixed) {
-      doorFixed.value = _state.pricing.doorFixedCostPerUnit;
-      doorFixed.addEventListener('change', function () {
-        _state.pricing.doorFixedCostPerUnit = parseFloat(doorFixed.value) || 166;
-        _triggerPriceUpdate();
-      });
-    }
-
-    var doorRate = document.getElementById('doorRatePerM2');
-    if (doorRate) {
-      doorRate.value = _state.pricing.doorRatePerM2;
-      doorRate.addEventListener('change', function () {
-        _state.pricing.doorRatePerM2 = parseFloat(doorRate.value) || 1644;
-        _triggerPriceUpdate();
-      });
-    }
-
+    // Discount
     var discountInput = document.getElementById('discountPercent');
     if (discountInput) {
-      discountInput.value = _state.pricing.discountPercent;
+      discountInput.value = _state.pricing.discountPercent || 0;
       discountInput.addEventListener('change', function () {
         _state.pricing.discountPercent = parseFloat(discountInput.value) || 0;
         _triggerPriceUpdate();
       });
     }
 
+    // VAT
     var vatToggle = document.getElementById('vatEnabled');
     if (vatToggle) {
-      vatToggle.checked = _state.pricing.vatEnabled;
+      vatToggle.checked = _state.pricing.vatEnabled !== false;
       vatToggle.addEventListener('change', function () {
         _state.pricing.vatEnabled = vatToggle.checked;
         _triggerPriceUpdate();
       });
     }
-
     var vatRate = document.getElementById('vatRate');
     if (vatRate) {
-      vatRate.value = _state.pricing.vatRate;
+      vatRate.value = _state.pricing.vatRate || 20;
       vatRate.addEventListener('change', function () {
         _state.pricing.vatRate = parseFloat(vatRate.value) || 20;
         _triggerPriceUpdate();
       });
     }
 
-    var multContainer = document.getElementById('multiplierGrid');
-    if (multContainer) {
-      _renderMultiplierGrid(multContainer);
-    }
+    // Product code markup reference grid (read-only)
+    _renderProductCodeGrid();
   }
 
-  function _renderMultiplierGrid(container) {
-    var mults = _state.pricing.multipliers;
-    var labels = {
-      aluminium: 'Aluminium Frame',
-      pvcu: 'PVCu Frame',
-      timber: 'Timber Frame',
-      fireRated: 'Fire Rated',
-      acoustic: 'Acoustic',
-      toughened: 'Toughened',
-      laminated: 'Laminated',
-      tripleGlazed: 'Triple Glazed',
-      doubleGlazed: 'Double Glazed',
-      obscure: 'Obscure Glass',
-      topHung: 'Top Hung',
-      casement: 'Casement',
-      tiltAndTurn: 'Tilt & Turn',
-      sliding: 'Sliding',
-      fixed: 'Fixed',
-      trickleVent: 'Trickle Vent',
-      restrictor: 'Restrictor'
-    };
-
+  function _renderProductCodeGrid() {
+    var container = document.getElementById('productCodeGrid');
+    if (!container) return;
     container.innerHTML = '';
-    Object.keys(labels).forEach(function (key) {
+    var codes = Pricing.PRODUCT_CODES;
+    Object.keys(codes).forEach(function (key) {
+      var info = codes[key];
       var div = document.createElement('div');
-      div.className = 'multiplier-item';
-      div.innerHTML =
-        '<label for="mult_' + key + '">' + labels[key] + '</label>' +
-        '<input type="number" id="mult_' + key + '" step="0.01" min="0.1" max="10" value="' + (mults[key] || 1.0).toFixed(2) + '">';
+      div.style.cssText = 'display:flex;justify-content:space-between;padding:2px 6px;background:var(--bg);border-radius:4px';
+      div.innerHTML = '<span style="font-weight:600">' + key + '</span><span>' +
+        (info.markup > 0 ? Pricing.formatCurrency(info.markup) : 'per m\u00b2') + '</span>';
+      div.title = info.desc;
       container.appendChild(div);
-
-      var inp = div.querySelector('input');
-      inp.addEventListener('change', function () {
-        _state.pricing.multipliers[key] = parseFloat(inp.value) || 1.0;
-        _triggerPriceUpdate();
-      });
     });
   }
 
@@ -435,6 +403,7 @@ var UI = (function () {
       { key: 'ironmongery', label: 'Ironmongery', class: '' },
       { key: 'uValue', label: 'U-Val', class: '' },
       { key: 'notes', label: 'Notes', class: '' },
+      { key: 'productCode', label: 'Code', class: 'text-center' },
       { key: 'unitPrice', label: 'Unit Price', class: 'text-right' },
       { key: 'totalPrice', label: 'Total', class: 'text-right' },
       { key: 'confidence', label: 'Conf.', class: 'text-center' },
@@ -470,6 +439,7 @@ var UI = (function () {
       _editableCell(item.id, 'ironmongery', item.ironmongery || '') +
       _editableCell(item.id, 'uValue', item.uValue || '') +
       '<td class="text-muted" style="font-size:0.75rem">' + (item.notes || []).join(', ') + '</td>' +
+      '<td class="text-center font-mono" style="font-size:0.75rem;font-weight:600">' + (item.productCode || Pricing.classifyProductCode(item)) + '</td>' +
       '<td class="text-right font-mono">' + Pricing.formatCurrency(item.unitPrice) + '</td>' +
       '<td class="text-right font-mono"><strong>' + Pricing.formatCurrency(item.totalPrice) + '</strong></td>' +
       '<td class="text-center"><span class="badge ' + item.confidence + '">' + (item.confidence || 'low') + '</span></td>' +
@@ -663,38 +633,51 @@ var UI = (function () {
   function renderPricingSummary(summary) {
     var el = document.getElementById('priceSummaryPanel');
     if (!el) return;
-
-    el.innerHTML = '<table class="price-summary-table">' +
-      '<tr><td>Subtotal</td><td>' + Pricing.formatCurrency(summary.subtotal) + '</td></tr>' +
-      (summary.discountAmount > 0 ?
-        '<tr><td>Discount (' + summary.discountPercent + '%)</td><td style="color:var(--accent-danger)">- ' + Pricing.formatCurrency(summary.discountAmount) + '</td></tr>' +
-        '<tr><td>After Discount</td><td>' + Pricing.formatCurrency(summary.afterDiscount) + '</td></tr>'
-        : '') +
-      (summary.vatEnabled ?
-        '<tr><td>VAT (' + summary.vatRate + '%)</td><td>' + Pricing.formatCurrency(summary.vatAmount) + '</td></tr>'
-        : '') +
-      '<tr class="total-row"><td>TOTAL</td><td>' + Pricing.formatCurrency(summary.total) + '</td></tr>' +
-      '</table>';
+    var fc = Pricing.formatCurrency;
+    var rows = '<tr><td>Product Subtotal (' + summary.itemCount + ' items)</td><td>' + fc(summary.subtotal) + '</td></tr>';
+    if (summary.includeInstallation) {
+      rows += '<tr><td>Installation</td><td>' + fc(summary.installTotal) + '</td></tr>';
+    }
+    if (summary.includeEPDM) {
+      rows += '<tr><td>EPDM</td><td>' + fc(summary.epdmTotal) + '</td></tr>';
+    }
+    if (summary.includeMastic) {
+      rows += '<tr><td>Mastic</td><td>' + fc(summary.masticTotal) + '</td></tr>';
+    }
+    if (summary.discountAmount > 0) {
+      rows += '<tr><td>Discount (' + summary.discountPercent + '%)</td><td style="color:var(--accent-danger)">\u2212 ' + fc(summary.discountAmount) + '</td></tr>';
+      rows += '<tr><td>After Discount</td><td>' + fc(summary.afterDiscount) + '</td></tr>';
+    }
+    if (summary.vatEnabled) {
+      rows += '<tr><td>VAT (' + summary.vatRate + '%)</td><td>' + fc(summary.vatAmount) + '</td></tr>';
+    }
+    rows += '<tr class="total-row"><td>TOTAL</td><td>' + fc(summary.total) + '</td></tr>';
+    el.innerHTML = '<table class="price-summary-table">' + rows + '</table>';
   }
 
   function renderPricingSettings(pricingConfig) {
     _state.pricing = pricingConfig;
-    var fixedCost = document.getElementById('fixedCostPerUnit');
-    if (fixedCost) fixedCost.value = pricingConfig.fixedCostPerUnit;
-    var baseRate = document.getElementById('baseRatePerM2');
-    if (baseRate) baseRate.value = pricingConfig.baseRatePerM2;
-    var doorFixed = document.getElementById('doorFixedCostPerUnit');
-    if (doorFixed) doorFixed.value = pricingConfig.doorFixedCostPerUnit;
-    var doorRate = document.getElementById('doorRatePerM2');
-    if (doorRate) doorRate.value = pricingConfig.doorRatePerM2;
+    var rateFields = [
+      'aluminiumFrameRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
+      'doubleGlazedRate', 'tripleGlazedRate', 'fireRatedGlassRate', 'toughenedExtra',
+      'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate'
+    ];
+    rateFields.forEach(function (field) {
+      var el = document.getElementById(field);
+      if (el) el.value = pricingConfig[field] !== undefined ? pricingConfig[field] : '';
+    });
+    var toggleFields = ['includeInstallation', 'includeEPDM', 'includeMastic'];
+    toggleFields.forEach(function (field) {
+      var el = document.getElementById(field);
+      if (el) el.checked = !!pricingConfig[field];
+    });
     var disc = document.getElementById('discountPercent');
-    if (disc) disc.value = pricingConfig.discountPercent;
+    if (disc) disc.value = pricingConfig.discountPercent || 0;
     var vat = document.getElementById('vatEnabled');
-    if (vat) vat.checked = pricingConfig.vatEnabled;
+    if (vat) vat.checked = pricingConfig.vatEnabled !== false;
     var vatRateEl = document.getElementById('vatRate');
-    if (vatRateEl) vatRateEl.value = pricingConfig.vatRate;
-    var multContainer = document.getElementById('multiplierGrid');
-    if (multContainer) _renderMultiplierGrid(multContainer);
+    if (vatRateEl) vatRateEl.value = pricingConfig.vatRate || 20;
+    _renderProductCodeGrid();
   }
 
   function renderCompanyForm(company) {
@@ -721,18 +704,19 @@ var UI = (function () {
 
     var summaryEl = document.getElementById('step3PriceSummary');
     if (summaryEl) {
-      var summary = Pricing.getPriceSummary(_state.items, _state.pricing);
-      summaryEl.innerHTML = '<table class="price-summary-table">' +
-        '<tr><td>Subtotal</td><td>' + Pricing.formatCurrency(summary.subtotal) + '</td></tr>' +
-        (summary.discountAmount > 0 ?
-          '<tr><td>Discount (' + summary.discountPercent + '%)</td><td style="color:var(--accent-danger)">- ' + Pricing.formatCurrency(summary.discountAmount) + '</td></tr>' +
-          '<tr><td>After Discount</td><td>' + Pricing.formatCurrency(summary.afterDiscount) + '</td></tr>'
-          : '') +
-        (summary.vatEnabled ?
-          '<tr><td>VAT (' + summary.vatRate + '%)</td><td>' + Pricing.formatCurrency(summary.vatAmount) + '</td></tr>'
-          : '') +
-        '<tr class="total-row"><td>TOTAL</td><td>' + Pricing.formatCurrency(summary.total) + '</td></tr>' +
-        '</table>';
+      var s = Pricing.getPriceSummary(_state.items, _state.pricing);
+      var fc = Pricing.formatCurrency;
+      var rows = '<tr><td>Product Subtotal (' + s.itemCount + ' items)</td><td>' + fc(s.subtotal) + '</td></tr>';
+      if (s.includeInstallation) rows += '<tr><td>Installation</td><td>' + fc(s.installTotal) + '</td></tr>';
+      if (s.includeEPDM) rows += '<tr><td>EPDM</td><td>' + fc(s.epdmTotal) + '</td></tr>';
+      if (s.includeMastic) rows += '<tr><td>Mastic</td><td>' + fc(s.masticTotal) + '</td></tr>';
+      if (s.discountAmount > 0) {
+        rows += '<tr><td>Discount (' + s.discountPercent + '%)</td><td style="color:var(--accent-danger)">\u2212 ' + fc(s.discountAmount) + '</td></tr>';
+        rows += '<tr><td>After Discount</td><td>' + fc(s.afterDiscount) + '</td></tr>';
+      }
+      if (s.vatEnabled) rows += '<tr><td>VAT (' + s.vatRate + '%)</td><td>' + fc(s.vatAmount) + '</td></tr>';
+      rows += '<tr class="total-row"><td>TOTAL</td><td>' + fc(s.total) + '</td></tr>';
+      summaryEl.innerHTML = '<table class="price-summary-table">' + rows + '</table>';
     }
   }
 

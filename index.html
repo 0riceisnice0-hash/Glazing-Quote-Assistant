@@ -168,33 +168,50 @@
           </div>
         </div>
 
-        <!-- Pricing Settings Panel -->
+        <!-- Pricing Settings Panel (Fenster model) -->
         <div>
           <div class="card pricing-settings">
             <div class="card-title">
               <span class="card-icon">💰</span>
               Pricing Settings
+              <span style="font-size:0.7rem;font-weight:400;color:var(--text-secondary);margin-left:8px">Based on Fenster master pricing document</span>
             </div>
 
-            <div class="form-group">
-              <label for="fixedCostPerUnit">Window Fixed Cost (£/unit)</label>
-              <input type="number" class="form-control" id="fixedCostPerUnit" value="596" min="0" step="1">
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Estimated Frame Supply (£/m²)</div>
+            <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+              <div class="form-group"><label for="aluminiumFrameRate">Aluminium</label><input type="number" class="form-control" id="aluminiumFrameRate" value="120" min="0" step="5"></div>
+              <div class="form-group"><label for="pvcFrameRate">PVC</label><input type="number" class="form-control" id="pvcFrameRate" value="70" min="0" step="5"></div>
+              <div class="form-group"><label for="timberFrameRate">Timber</label><input type="number" class="form-control" id="timberFrameRate" value="180" min="0" step="5"></div>
+              <div class="form-group"><label for="steelFrameRate">Steel</label><input type="number" class="form-control" id="steelFrameRate" value="200" min="0" step="5"></div>
             </div>
 
-            <div class="form-group">
-              <label for="baseRatePerM2">Window Rate (£/m²)</label>
-              <input type="number" class="form-control" id="baseRatePerM2" value="99" min="0" step="1">
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Estimated Glass Supply (£/m²)</div>
+            <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+              <div class="form-group"><label for="doubleGlazedRate">Double Glazed</label><input type="number" class="form-control" id="doubleGlazedRate" value="50" min="0" step="5"></div>
+              <div class="form-group"><label for="tripleGlazedRate">Triple Glazed</label><input type="number" class="form-control" id="tripleGlazedRate" value="80" min="0" step="5"></div>
+              <div class="form-group"><label for="fireRatedGlassRate">Fire Rated</label><input type="number" class="form-control" id="fireRatedGlassRate" value="120" min="0" step="5"></div>
+              <div class="form-group"><label for="toughenedExtra">Toughened Extra</label><input type="number" class="form-control" id="toughenedExtra" value="10" min="0" step="1"></div>
             </div>
 
-            <div class="form-group">
-              <label for="doorFixedCostPerUnit">Door Fixed Cost (£/unit)</label>
-              <input type="number" class="form-control" id="doorFixedCostPerUnit" value="166" min="0" step="1">
+            <hr class="section-divider">
+
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Fixed Rates (from Fenster Doc)</div>
+            <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+              <div class="form-group"><label for="installationPerUnit">Installation (£/unit)</label><input type="number" class="form-control" id="installationPerUnit" value="140" min="0" step="5"></div>
+              <div class="form-group"><label for="cwSupplyRate">CW Supply (£/m²)</label><input type="number" class="form-control" id="cwSupplyRate" value="850" min="0" step="10"></div>
+              <div class="form-group"><label for="cwLabourRate">CW Labour (£/m²)</label><input type="number" class="form-control" id="cwLabourRate" value="150" min="0" step="5"></div>
+              <div class="form-group"><label for="epdmRate">EPDM (£/m²)</label><input type="number" class="form-control" id="epdmRate" value="25" min="0" step="1"></div>
+              <div class="form-group"><label for="masticRate">Mastic (£/lin m)</label><input type="number" class="form-control" id="masticRate" value="5" min="0" step="0.5"></div>
             </div>
 
-            <div class="form-group">
-              <label for="doorRatePerM2">Door Rate (£/m²)</label>
-              <input type="number" class="form-control" id="doorRatePerM2" value="1644" min="0" step="1">
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Include in Quote</div>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px">
+              <label style="display:flex;align-items:center;gap:4px;font-size:0.85rem;cursor:pointer"><input type="checkbox" id="includeInstallation" checked> Installation</label>
+              <label style="display:flex;align-items:center;gap:4px;font-size:0.85rem;cursor:pointer"><input type="checkbox" id="includeEPDM"> EPDM</label>
+              <label style="display:flex;align-items:center;gap:4px;font-size:0.85rem;cursor:pointer"><input type="checkbox" id="includeMastic"> Mastic</label>
             </div>
+
+            <hr class="section-divider">
 
             <div class="form-group">
               <label for="discountPercent">Discount (%)</label>
@@ -217,8 +234,8 @@
 
             <hr class="section-divider">
 
-            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.04em">Price Multipliers</div>
-            <div class="multiplier-grid" id="multiplierGrid"></div>
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Product Code Markups</div>
+            <div class="product-code-grid" id="productCodeGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:4px;font-size:0.75rem;color:var(--text-secondary)"></div>
           </div>
 
           <!-- Product Presets Editor -->
@@ -557,19 +574,19 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
-  <!-- ========== Application Scripts (v=20260327 for cache bust) ========== -->
-  <script src="js/dataModel.js?v=20260327"></script>
-  <script src="js/pdfParser.js?v=20260327"></script>
-  <script src="js/dataExtractor.js?v=20260327"></script>
-  <script src="js/pricing.js?v=20260327"></script>
-  <script src="js/ui.js?v=20260327"></script>
-  <script src="js/pdfViewer.js?v=20260327"></script>
-  <script src="js/quoteGenerator.js?v=20260327"></script>
-  <script src="js/ocrFallback.js?v=20260327"></script>
-  <script src="js/diagnostics.js?v=20260327"></script>
-  <script src="js/floorplanParser.js?v=20260327"></script>
-  <script src="js/viewer3d.js?v=20260327"></script>
-  <script src="js/app.js?v=20260327"></script>
+  <!-- ========== Application Scripts (v=20260328 for cache bust) ========== -->
+  <script src="js/dataModel.js?v=20260328"></script>
+  <script src="js/pdfParser.js?v=20260328"></script>
+  <script src="js/dataExtractor.js?v=20260328"></script>
+  <script src="js/pricing.js?v=20260328"></script>
+  <script src="js/ui.js?v=20260328"></script>
+  <script src="js/pdfViewer.js?v=20260328"></script>
+  <script src="js/quoteGenerator.js?v=20260328"></script>
+  <script src="js/ocrFallback.js?v=20260328"></script>
+  <script src="js/diagnostics.js?v=20260328"></script>
+  <script src="js/floorplanParser.js?v=20260328"></script>
+  <script src="js/viewer3d.js?v=20260328"></script>
+  <script src="js/app.js?v=20260328"></script>
 
 </body>
 </html>

@@ -487,10 +487,19 @@ var QuoteGenerator = (function () {
     var summaryX = pageWidth - margin - 90;
     var summaryW = 90;
 
+    // Calculate dynamic box height based on line items
+    var lineCount = 2; // Subtotal + Total
+    if (summary.includeInstallation) lineCount++;
+    if (summary.includeEPDM)         lineCount++;
+    if (summary.includeMastic)       lineCount++;
+    if (summary.discountAmount > 0)  lineCount += 2;
+    if (summary.vatEnabled)          lineCount++;
+    var boxH = 16 + lineCount * 5.5 + 8;
+
     doc.setFillColor(239, 246, 255);
     doc.setDrawColor.apply(doc, NAVY_LIGHT);
     doc.setLineWidth(0.3);
-    doc.roundedRect(summaryX, y, summaryW, summary.vatEnabled ? 50 : 40, 2, 2, 'FD');
+    doc.roundedRect(summaryX, y, summaryW, boxH, 2, 2, 'FD');
 
     doc.setFontSize(8);
     doc.setFont(undefined, 'bold');
@@ -503,13 +512,31 @@ var QuoteGenerator = (function () {
     var sy = y + 13;
     var rightCol = summaryX + summaryW - 4;
 
-    doc.text('Subtotal:', summaryX + 4, sy);
+    doc.text('Product Subtotal:', summaryX + 4, sy);
     doc.text(Pricing.formatCurrency(summary.subtotal), rightCol, sy, { align: 'right' });
     sy += 5.5;
 
+    if (summary.includeInstallation) {
+      doc.text('Installation:', summaryX + 4, sy);
+      doc.text(Pricing.formatCurrency(summary.installTotal), rightCol, sy, { align: 'right' });
+      sy += 5.5;
+    }
+
+    if (summary.includeEPDM) {
+      doc.text('EPDM:', summaryX + 4, sy);
+      doc.text(Pricing.formatCurrency(summary.epdmTotal), rightCol, sy, { align: 'right' });
+      sy += 5.5;
+    }
+
+    if (summary.includeMastic) {
+      doc.text('Mastic:', summaryX + 4, sy);
+      doc.text(Pricing.formatCurrency(summary.masticTotal), rightCol, sy, { align: 'right' });
+      sy += 5.5;
+    }
+
     if (summary.discountAmount > 0) {
       doc.setTextColor(220, 38, 38);
-      doc.text('Discount (' + summary.discountPercent + '%):',  summaryX + 4, sy);
+      doc.text('Discount (' + summary.discountPercent + '%):', summaryX + 4, sy);
       doc.text('- ' + Pricing.formatCurrency(summary.discountAmount), rightCol, sy, { align: 'right' });
       doc.setTextColor.apply(doc, BLACK);
       sy += 5.5;
@@ -520,7 +547,7 @@ var QuoteGenerator = (function () {
     }
 
     if (summary.vatEnabled) {
-      doc.text('VAT (' + summary.vatRate + '%):',  summaryX + 4, sy);
+      doc.text('VAT (' + summary.vatRate + '%):', summaryX + 4, sy);
       doc.text(Pricing.formatCurrency(summary.vatAmount), rightCol, sy, { align: 'right' });
       sy += 5.5;
     }
@@ -535,7 +562,7 @@ var QuoteGenerator = (function () {
     doc.text('TOTAL:', summaryX + 4, sy + 4);
     doc.text(Pricing.formatCurrency(summary.total), rightCol, sy + 4, { align: 'right' });
 
-    var termsY = y + (summary.vatEnabled ? 55 : 45);
+    var termsY = y + boxH + 5;
 
     doc.setFontSize(7.5);
     doc.setFont(undefined, 'bold');
@@ -562,7 +589,7 @@ var QuoteGenerator = (function () {
       termsY += tLines.length * 4 + 1;
     });
 
-    var sigY = Math.max(termsY + 8, y + (summary.vatEnabled ? 80 : 70));
+    var sigY = Math.max(termsY + 8, y + boxH + 25);
     if (sigY > pageHeight - 30) {
       doc.addPage();
       sigY = 30;
