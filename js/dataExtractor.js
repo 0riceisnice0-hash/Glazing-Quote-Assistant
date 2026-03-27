@@ -12,7 +12,7 @@ var DataExtractor = (function () {
     // Filename-based (high confidence)
     if (/window\s*schedule|door\s*schedule|glazing\s*schedule/.test(name))
       return { type: 'schedule', confidence: 'high', reason: 'Filename contains schedule keyword' };
-    if (/\bbq\b|bill\s*of\s*quantities|schedule\s*of\s*works/.test(name))
+    if (/\bboq\b|\bbq\b|bill\s*of\s*quantities|schedule\s*of\s*works/.test(name))
       return { type: 'bq', confidence: 'high', reason: 'Filename contains BQ keyword' };
     if (/warrant|guarantee|collateral|enquiry\s*letter|letter\s*of\s*enquiry/.test(name))
       return { type: 'admin', confidence: 'high', reason: 'Filename matches admin/legal document pattern' };
@@ -20,13 +20,14 @@ var DataExtractor = (function () {
     if (/^gq-\d/.test(name))
       return { type: 'admin', confidence: 'high', reason: 'Filename matches generated quote pattern (GQ-)' };
     // Drawing-number filenames like "3847.C37 …", "3847.T05 …"
+    // Also matches J-number filenames like "J4715-YMD-01-XX-DR-A-3300..." (Shaftesbury-style).
     // IMPORTANT: Only classify as 'drawing' when no schedule/BQ keywords are also present.
     // A filename like "3847.T12 Window Schedule.pdf" contains both a drawing number AND schedule
     // keywords — the schedule checks above already return early, but this guard makes the intent
     // explicit and prevents any future regression.
-    if (/\d{4}\.[a-z]\d{2}/.test(name) &&
+    if ((/\d{4}\.[a-z]\d{2}/.test(name) || /j\d{4}[\-_]/.test(name)) &&
         !/window\s*schedule|door\s*schedule|glazing\s*schedule/.test(name) &&
-        !/\bbq\b|bill\s*of\s*quantities/.test(name))
+        !/\bboq\b|\bbq\b|bill\s*of\s*quantities/.test(name))
       return { type: 'drawing', confidence: 'high', reason: 'Filename matches architectural drawing number pattern' };
     if (/\b(?:elevation|floor\s*plan|site\s*plan|section|detail|proposed|cladding)\b/.test(name))
       return { type: 'drawing', confidence: 'high', reason: 'Filename contains drawing type keyword' };
@@ -185,8 +186,19 @@ var DataExtractor = (function () {
     glazing:     ['glazing', 'glass', 'infill', 'glazing spec', 'glazing type'],
     // 'opening' alone is intentionally not here — it is too ambiguous and is caught by 'size' via 'opening (w'
     opening:     ['opening type', 'function', 'operation', 'open type', 'open'],
-    location:    ['location', 'position', 'floor', 'room', 'level', 'area'],
-    description: ['description', 'notes', 'specification', 'note', 'remarks', 'comments']
+    location:    ['location', 'position', 'floor', 'room', 'level', 'area', 'to room'],
+    description: ['description', 'notes', 'specification', 'note', 'remarks', 'comments'],
+    // Phase 2 columns (Shaftesbury-style window/door schedules)
+    sillHeight:  ['sill height', 'sill ht', 'cill height', 'cill ht'],
+    headHeight:  ['head height', 'head ht', 'lintel height', 'head'],
+    uValue:      ['u value', 'u-value', 'thermal', 'w/m2k', 'w/m\u00b2k'],
+    finish:      ['finish', 'frame finish', 'door finish', 'window finish', 'window frame finish'],
+    doorSwing:   ['swing', 'door swing', 'hand', 'handing'],
+    fireRating:  ['fire rating', 'fire', 'fd rating', 'fire resistance', 'fire rate'],
+    doorFrame:   ['door frame', 'frame spec'],
+    doorGlazing: ['door glazing'],
+    ironmongery: ['ironmongery', 'hardware', 'fittings', 'door ironmongery'],
+    doorType:    ['door type', 'ymd door type']
   };
 
   // Return the index of the first row that looks like a table header (≥2 field matches)
@@ -220,17 +232,29 @@ var DataExtractor = (function () {
     headerRow.items.forEach(function (item) {
       var text = item.str.toLowerCase().trim();
       var fields = Object.keys(HEADER_COLUMN_KEYWORDS);
+
+      // Two-pass matching: first pass requires exact match or prefix match (text === kw
+      // or text starts with kw); second pass allows substring (kw appears anywhere in text).
+      // This prevents short keywords like 'type' in the frame field from stealing headers
+      // that better match a more-specific field like doorType ('door type').
+      var bestField = null;
+      var bestKwLen = 0;
+
       for (var fi = 0; fi < fields.length; fi++) {
         var field = fields[fi];
         if (columns[field]) continue; // already mapped
         var keywords = HEADER_COLUMN_KEYWORDS[field];
-        var matched = keywords.some(function (kw) {
-          return text === kw || text.indexOf(kw) !== -1;
-        });
-        if (matched) {
-          columns[field] = { x: item.x, label: item.str };
-          break;
+        for (var ki = 0; ki < keywords.length; ki++) {
+          var kw = keywords[ki];
+          if ((text === kw || text.indexOf(kw) !== -1) && kw.length > bestKwLen) {
+            bestKwLen = kw.length;
+            bestField = field;
+          }
         }
+      }
+
+      if (bestField) {
+        columns[bestField] = { x: item.x, label: item.str };
       }
     });
     return columns;
@@ -365,6 +389,76 @@ var DataExtractor = (function () {
       if (cillVal1) item.cillType = cillVal1 + 'mm cill height';
       item.escapeWindow = extractEscapeWindow(fullRowText);
 
+      // --- Phase 2 columns: extract from dedicated column first, fall back to row text ---
+
+      // Sill Height
+      if (columns.sillHeight) {
+        var shText = getCellText(row.items, columns.sillHeight.x);
+        if (shText) item.sillHeight = shText.replace(/\s*mm\s*/gi, '').trim();
+      }
+      if (!item.sillHeight) item.sillHeight = extractSillHeight(fullRowText);
+
+      // Head Height
+      if (columns.headHeight) {
+        var hhText = getCellText(row.items, columns.headHeight.x);
+        if (hhText) item.headHeight = hhText.replace(/\s*mm\s*/gi, '').trim();
+      }
+      if (!item.headHeight) item.headHeight = extractHeadHeight(fullRowText);
+
+      // U-Value
+      if (columns.uValue) {
+        var uvText = getCellText(row.items, columns.uValue.x);
+        if (uvText) item.uValue = uvText.trim();
+      }
+      if (!item.uValue) item.uValue = extractUValue(fullRowText);
+
+      // Finish
+      if (columns.finish) {
+        var finText = getCellText(row.items, columns.finish.x);
+        if (finText) item.finish = finText.trim();
+      }
+      if (!item.finish) item.finish = extractFinish(fullRowText);
+
+      // Door Swing
+      if (columns.doorSwing) {
+        var dsText = getCellText(row.items, columns.doorSwing.x);
+        if (dsText) item.doorSwing = dsText.trim();
+      }
+      if (!item.doorSwing) item.doorSwing = extractDoorSwing(fullRowText);
+
+      // Fire Rating
+      if (columns.fireRating) {
+        var frText = getCellText(row.items, columns.fireRating.x);
+        if (frText) item.fireRating = frText.trim();
+      }
+      if (!item.fireRating) item.fireRating = extractFireRating(fullRowText);
+
+      // Door Frame
+      if (columns.doorFrame) {
+        var dfText = getCellText(row.items, columns.doorFrame.x);
+        if (dfText) item.doorFrame = dfText.trim();
+      }
+
+      // Door Glazing
+      if (columns.doorGlazing) {
+        var dgText = getCellText(row.items, columns.doorGlazing.x);
+        if (dgText) item.doorGlazing = dgText.trim();
+      }
+
+      // Ironmongery
+      if (columns.ironmongery) {
+        var imText = getCellText(row.items, columns.ironmongery.x);
+        if (imText) item.ironmongery = imText.trim();
+      }
+      if (!item.ironmongery) item.ironmongery = extractIronmongery(fullRowText);
+
+      // Door Type
+      if (columns.doorType) {
+        var dtText = getCellText(row.items, columns.doorType.x);
+        if (dtText) item.doorType = dtText.trim();
+      }
+      if (!item.doorType) item.doorType = extractDoorType(fullRowText);
+
       // Position for PDF viewer overlay (use the ref item's position)
       var refItem = row.items.find(function (it) { return it.str.trim().toUpperCase() === refText; });
       if (refItem) {
@@ -466,6 +560,15 @@ var DataExtractor = (function () {
       var cillVal2    = extractCillHeight(fullText);
       if (cillVal2) item.cillType = cillVal2 + 'mm cill height';
       item.escapeWindow = extractEscapeWindow(fullText);
+      // Phase 2 fields
+      item.sillHeight   = extractSillHeight(fullText);
+      item.headHeight   = extractHeadHeight(fullText);
+      item.uValue       = extractUValue(fullText);
+      item.finish       = extractFinish(fullText);
+      item.doorSwing    = extractDoorSwing(fullText);
+      item.fireRating   = extractFireRating(fullText);
+      item.ironmongery  = extractIronmongery(fullText);
+      item.doorType     = extractDoorType(fullText);
 
       var refItem = row.items[refItemIdx];
       item.textPosition = { x: refItem.x, y: refItem.y, width: refItem.width || 30, height: refItem.height || 12 };
@@ -485,7 +588,8 @@ var DataExtractor = (function () {
   // generic fallback pattern.  Covers:
   //   E?[WDSC]\d{2,3} — EW01–EW38, ED01–ED03, W01, D01, S01, C01
   //   I[WD]\d{2,3}    — IW01, ID01 (internal window / door)
-  var REF_FIRST_PATTERN = /\b(E?[WDSC]\d{2,3}|I[WD]\d{2,3})\b/gi;
+  //   N[WD]\d{2,3}    — NW01–NW11, ND01–ND14 (Shaftesbury-style)
+  var REF_FIRST_PATTERN = /\b(E?[WDSC]\d{2,3}|[IN][WD]\d{2,3})\b/gi;
 
   // Spatial thresholds specific to reference-first clustering
   var REF_FIRST_Y_TOL   = 15;   // pt — items within this of the ref Y are "same row"
@@ -690,6 +794,15 @@ var DataExtractor = (function () {
       var cillVal      = extractCillHeight(attrContext);
       if (cillVal) item.cillType = cillVal + 'mm cill height';
       item.escapeWindow = extractEscapeWindow(attrContext);
+      // Phase 2 fields
+      item.sillHeight   = extractSillHeight(attrContext);
+      item.headHeight   = extractHeadHeight(attrContext);
+      item.uValue       = extractUValue(attrContext);
+      item.finish       = extractFinish(attrContext);
+      item.doorSwing    = extractDoorSwing(attrContext);
+      item.fireRating   = extractFireRating(attrContext);
+      item.ironmongery  = extractIronmongery(attrContext);
+      item.doorType     = extractDoorType(attrContext);
 
       if (refTextItem) {
         item.textPosition = {
@@ -806,6 +919,15 @@ var DataExtractor = (function () {
       var cillVal3     = extractCillHeight(context);
       if (cillVal3) item.cillType = cillVal3 + 'mm cill height';
       item.escapeWindow = extractEscapeWindow(context);
+      // Phase 2 fields
+      item.sillHeight   = extractSillHeight(context);
+      item.headHeight   = extractHeadHeight(context);
+      item.uValue       = extractUValue(context);
+      item.finish       = extractFinish(context);
+      item.doorSwing    = extractDoorSwing(context);
+      item.fireRating   = extractFireRating(context);
+      item.ironmongery  = extractIronmongery(context);
+      item.doorType     = extractDoorType(context);
 
       if (refItem) {
         item.textPosition = { x: refItem.x, y: refItem.y, width: refItem.width || 30, height: refItem.height || 12 };
@@ -1505,13 +1627,105 @@ var DataExtractor = (function () {
       { pattern: /\b(?:first[\s\-]?floor|ff|1st[\s\-]?floor)\b/i, label: 'First Floor' },
       { pattern: /\b(?:second[\s\-]?floor|sf|2nd[\s\-]?floor)\b/i, label: 'Second Floor' },
       { pattern: /\b(?:third[\s\-]?floor|tf|3rd[\s\-]?floor)\b/i,  label: 'Third Floor' },
-      { pattern: /\bbasement\b/i,                             label: 'Basement' }
+      { pattern: /\bbasement\b/i,                             label: 'Basement' },
+      // Shaftesbury-style: "GA Ground Floor Level", "Level 1 - GA First Floor Level"
+      { pattern: /\bGA\s+Ground\s+Floor/i,                    label: 'Ground Floor' },
+      { pattern: /\bGA\s+First\s+Floor/i,                     label: 'First Floor' },
+      { pattern: /\bLevel\s+1\b/i,                            label: 'First Floor' }
     ];
     for (var i = 0; i < floorPatterns.length; i++) {
       if (floorPatterns[i].pattern.test(text)) return floorPatterns[i].label;
     }
     var roomMatch = /\b(?:to|at|in|for)\s+(?:the\s+)?([\w]+\s*(?:room|office|kitchen|bedroom|bathroom|hallway|hall|living|dining|study|lounge|lobby|corridor|stair))/i.exec(text);
     if (roomMatch) return roomMatch[1].trim();
+    // Direct room name patterns for schedule "To Room" columns (no preposition)
+    var directRoom = /\b(Classroom\s*\d*|Sensory\s*Room|Therapy\s*(?:Multi\s*Use\s*)?Room|Meeting\s*(?:\/\s*Office)?|Stairwell|Circulation|Store|Disabled\s*WC)\b/i.exec(text);
+    if (directRoom) return directRoom[1].trim();
+    return '';
+  }
+
+  // --- Phase 2 detail extractors (Shaftesbury+) ---
+
+  function extractUValue(text) {
+    if (!text) return '';
+    // "1.4 W/m2k", "1.4W/m²K", "U=1.4", "U Value 1.4", "1.4 W/m²k"
+    var m = /\b(\d+\.?\d*)\s*W\/m[²2]\s*[kK]\b/i.exec(text);
+    if (m) return m[1] + ' W/m2k';
+    var m2 = /\bU[\s\-]*(?:value|val)?\s*[=:\s]\s*(\d+\.?\d*)\b/i.exec(text);
+    if (m2) return m2[1] + ' W/m2k';
+    return '';
+  }
+
+  function extractHeadHeight(text) {
+    if (!text) return '';
+    // "Head Height 2175", "head ht 2590", "lintel 2175"
+    var m1 = /\b(?:head|lintel)\s*(?:ht|height)?\s*[:\-]?\s*(\d{3,5})\b/i.exec(text);
+    if (m1) return m1[1];
+    var m2 = /\b(\d{3,5})\s*(?:mm\s*)?(?:head|lintel)\s*(?:ht|height)?\b/i.exec(text);
+    if (m2) return m2[1];
+    return '';
+  }
+
+  function extractSillHeight(text) {
+    if (!text) return '';
+    // Reuse cill/sill pattern but return just the number
+    var val = extractCillHeight(text);
+    if (val) return val;
+    // Also check "Sill Height 640", "sill height 0"
+    var m = /\b(?:sill|cill)\s*(?:height|ht)\s*[:\-]?\s*(\d{1,5})\b/i.exec(text);
+    if (m) return m[1];
+    return '';
+  }
+
+  function extractDoorSwing(text) {
+    if (!text) return '';
+    if (/\bdouble\s*doors?\b/i.test(text)) return 'Double';
+    var m = /\b(RHS|LHS)\b/i.exec(text);
+    if (m) return m[1].toUpperCase();
+    if (/\bright[\s\-]?hand/i.test(text)) return 'RHS';
+    if (/\bleft[\s\-]?hand/i.test(text)) return 'LHS';
+    return '';
+  }
+
+  function extractFireRating(text) {
+    if (!text) return '';
+    // "FD30S", "FD30", "FD60S", "FD60", "FD120"
+    var m = /\b(FD\d{2,3}S?)\b/i.exec(text);
+    if (m) return m[1].toUpperCase();
+    if (/\bfire[\s\-]?rated?\b/i.test(text)) return 'Fire Rated';
+    if (/\bN\/?A\b/i.test(text)) return 'N/A';
+    return '';
+  }
+
+  function extractIronmongery(text) {
+    if (!text) return '';
+    // "Set C3/C6", "Set P3", "Set A3", "Doc M pack"
+    var m = /\b(Set\s+[A-Z0-9\/]+)\b/i.exec(text);
+    if (m) return m[1];
+    if (/\bdoc\s*m\s*pack\b/i.test(text)) return 'Doc M pack';
+    var hw = /\b(lever\s*handle|pull\s*handle|push\s*plate|panic\s*bar|kick\s*plate|thumb\s*turn|knob\s*set|concealed\s*closer|overhead\s*closer)s?\b/i.exec(text);
+    if (hw) return hw[1].replace(/\s+/g, ' ');
+    return '';
+  }
+
+  function extractFinish(text) {
+    if (!text) return '';
+    // "PPC Aluminium", "Powder Coated", "Formica Laminate", "RAL Colour To match existing"
+    if (/\bPPC\s*Aluminium\b/i.test(text)) return 'PPC Aluminium';
+    if (/\bpowder[\s\-]?coat/i.test(text)) return 'Powder Coated';
+    if (/\bformica[\s\-]?laminate/i.test(text)) return 'Formica Laminate Finish';
+    // "RAL Colour To match existing" — pass through the finish description
+    var ralFinish = /\b(RAL\s+Colo(?:u)?r\s+(?:To\s+match\s+existing|TBC))\b/i.exec(text);
+    if (ralFinish) return ralFinish[1];
+    if (/\banodised\b/i.test(text)) return 'Anodised';
+    return '';
+  }
+
+  function extractDoorType(text) {
+    if (!text) return '';
+    // "YMD Door Type 1", "Door Type 5"
+    var m = /\b((?:YMD\s+)?Door\s+Type\s+\d+)\b/i.exec(text);
+    if (m) return m[1];
     return '';
   }
 
@@ -1763,7 +1977,17 @@ var DataExtractor = (function () {
       ventilation: '',
       drainage: '',
       actualFrameSize: '',
-      escapeWindow: ''
+      escapeWindow: '',
+      sillHeight: '',
+      headHeight: '',
+      uValue: '',
+      doorSwing: '',
+      fireRating: '',
+      doorFrame: '',
+      doorGlazing: '',
+      ironmongery: '',
+      finish: '',
+      doorType: ''
     };
     return Object.assign({}, defaults, partial);
   }

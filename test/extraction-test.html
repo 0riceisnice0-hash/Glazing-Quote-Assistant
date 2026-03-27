@@ -488,6 +488,434 @@
   })();
 
   // ====================================================================
+  // SHAFTESBURY TEST DATA — based on Shaftesbury High School tender docs
+  // Window Schedule: NW01–NW11, Door Schedule: ND01–ND14 + ED01
+  // ====================================================================
+
+  var SHAFTESBURY_WINDOW_SCHEDULE =
+    'SHAFTESBURY HIGH SCHOOL  J4715-YMD-01-XX-DR-A-8000  WINDOW SCHEDULE  ' +
+    'Window Ref   Location   Width   Height   Sill Height   Head Height   U Value   Window Frame Finish   YMD Window Comments  ' +
+    'NW01   GA Ground Floor Classroom 1   1200 x 1500   Sill Height 900   Head Height 2400   U value 1.4   PPC Aluminium RAL 7016   Top hung with restrictors  ' +
+    'NW02   GA Ground Floor Classroom 2   1200 x 1500   Sill Height 900   Head Height 2400   U value 1.4   PPC Aluminium RAL 7016   Top hung with restrictors  ' +
+    'NW03   GA Ground Floor Sensory Room   900 x 1200   Sill Height 900   Head Height 2100   U value 1.4   PPC Aluminium RAL 7016   Top hung with restrictors  ' +
+    'NW04   GA Ground Floor Therapy Room   900 x 1200   Sill Height 900   Head Height 2100   U value 1.4   PPC Aluminium RAL 7016   Fixed light  ' +
+    'NW05   GA Ground Floor Meeting Room   1500 x 1500   Sill Height 900   Head Height 2400   U value 1.4   PPC Aluminium RAL 7016   Top hung with restrictors  ' +
+    'NW06   GA Ground Floor Office   1200 x 1500   Sill Height 900   Head Height 2400   U value 1.4   PPC Aluminium RAL 7016   Top hung with restrictors  ' +
+    'NW07   GA First Floor Classroom 3   1200 x 1500   Sill Height 900   Head Height 2400   U value 1.4   PPC Aluminium RAL 7016   Top hung with restrictors  ' +
+    'NW08   GA First Floor Classroom 4   1200 x 1500   Sill Height 900   Head Height 2400   U value 1.4   PPC Aluminium RAL 7016   Top hung with restrictors  ' +
+    'NW09   GA First Floor Circulation   1800 x 2100   Sill Height 300   Head Height 2400   U value 1.4   PPC Aluminium RAL 7016   Fixed light  ' +
+    'NW10   GA First Floor Stairwell   1500 x 1800   Sill Height 600   Head Height 2400   U value 1.4   PPC Aluminium RAL 7016   Fixed light  ' +
+    'NW11   GA First Floor Disabled WC   600 x 900   Sill Height 1200   Head Height 2100   U value 1.4   PPC Aluminium RAL 7016   Top hung obscure glass  ';
+
+  var SHAFTESBURY_DOOR_SCHEDULE =
+    'SHAFTESBURY HIGH SCHOOL  J4715_YMD-01-XX-DR-A-8200  DOOR SCHEDULE  ' +
+    'Door Ref   Location   Door Type   Width   Height   Swing   Fire Rating   Door Frame   Door Glazing   Ironmongery  ' +
+    'ND01   GA Ground Floor Classroom 1   Single   900 x 2100   LHS   FD30S   Aluminium PPC RAL 7016   Clear toughened   Set A  ' +
+    'ND02   GA Ground Floor Classroom 2   Single   900 x 2100   RHS   FD30S   Aluminium PPC RAL 7016   Clear toughened   Set A  ' +
+    'ND03   GA Ground Floor Sensory Room   Single   900 x 2100   LHS   FD30S   Aluminium PPC RAL 7016   Clear toughened   Set A  ' +
+    'ND04   GA Ground Floor Therapy Room   Single   900 x 2100   RHS   None   Aluminium PPC RAL 7016   Obscure   Set B  ' +
+    'ND05   GA Ground Floor Store   Single   800 x 2100   LHS   FD30S   Steel   None   Set C  ' +
+    'ND06   GA Ground Floor Disabled WC   Single   900 x 2100   RHS   None   Aluminium PPC RAL 7016   None   Set D  ' +
+    'ND07   GA First Floor Classroom 3   Single   900 x 2100   LHS   FD30S   Aluminium PPC RAL 7016   Clear toughened   Set A  ' +
+    'ND08   GA First Floor Classroom 4   Single   900 x 2100   RHS   FD30S   Aluminium PPC RAL 7016   Clear toughened   Set A  ' +
+    'ND09   GA First Floor Office   Single   800 x 2100   LHS   None   Aluminium PPC RAL 7016   None   Set B  ' +
+    'ND10   GA First Floor Circulation   Double doors   1800 x 2400   Double swing   FD30S   Aluminium PPC RAL 7016   Clear toughened   Set E  ' +
+    'ND11   GA First Floor Stairwell   Single   900 x 2100   RHS   FD60S   Steel   Pyro fire glass   Set F  ' +
+    'ND12   GA Ground Floor Meeting Room   Single   900 x 2100   LHS   FD30S   Aluminium PPC RAL 7016   Clear toughened   Set A  ' +
+    'ND13   GA Ground Floor Kitchen   Single   900 x 2100   RHS   FD30S   Steel   None   Set C  ' +
+    'ND14   GA First Floor Server Room   Single   800 x 2100   LHS   FD60S   Steel   None   Set F  ' +
+    'ED01   Main Entrance   Double doors   1800 x 2400   Double swing   None   Aluminium PPC RAL 7016   Clear toughened   Set G  ';
+
+  var SHAFTESBURY_WINDOW_BOQ =
+    'Window BOQ  Shaftesbury High School  ' +
+    'NW01 qty: 1  NW02 qty: 1  NW03 qty: 2  NW04 qty: 1  NW05 qty: 1  ' +
+    'NW06 qty: 1  NW07 qty: 1  NW08 qty: 1  NW09 qty: 3  NW10 qty: 2  NW11 qty: 1  ';
+
+  var SHAFTESBURY_ELEVATION =
+    'J4715-YMD-01-XX-DR-A-3300 Proposed East Elevation  NW01 NW02 elevation detail ';
+
+
+  // ====================================================================
+  // SUITE 9: Shaftesbury Window Schedule Extraction
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 9: Shaftesbury Window Schedule (NW01–NW11)</h2>';
+
+    var docs = [
+      mockDoc('J4715-YMD-01-XX-DR-A-8000_C01 - Window Schedule.pdf', SHAFTESBURY_WINDOW_SCHEDULE),
+      mockDoc('Window BOQ.pdf', SHAFTESBURY_WINDOW_BOQ),
+      mockDoc('J4715-YMD-01-XX-DR-A-3300_C01 - Proposed East Elevation.pdf', SHAFTESBURY_ELEVATION)
+    ];
+
+    var result = DataExtractor.extractItems(docs);
+    var items = result.items;
+
+    var nwItems = items.filter(function (i) { return /^NW\d/.test(i.reference); });
+    html += assert(nwItems.length >= 11, 'Found ' + nwItems.length + '/11 NW references (NW01–NW11)');
+
+    // Check specific refs exist
+    ['NW01','NW05','NW09','NW11'].forEach(function (ref) {
+      var found = items.some(function (i) { return i.reference === ref; });
+      html += assert(found, 'Reference ' + ref + ' found');
+    });
+
+    // Check dimensions on NW01 (1200 x 1500)
+    var nw01 = items.find(function (i) { return i.reference === 'NW01'; });
+    if (nw01) {
+      html += assert(nw01.width === 1200, 'NW01 width = ' + nw01.width + ' (expected 1200)');
+      html += assert(nw01.height === 1500, 'NW01 height = ' + nw01.height + ' (expected 1500)');
+    } else {
+      html += assert(false, 'NW01 not found — cannot check dimensions');
+      html += assert(false, 'NW01 not found — cannot check dimensions');
+    }
+
+    // Check NW09 (larger: 1800 x 2100)
+    var nw09 = items.find(function (i) { return i.reference === 'NW09'; });
+    if (nw09) {
+      html += assert(nw09.width === 1800, 'NW09 width = ' + nw09.width + ' (expected 1800)');
+      html += assert(nw09.height === 2100, 'NW09 height = ' + nw09.height + ' (expected 2100)');
+    } else {
+      html += assert(false, 'NW09 not found — cannot check dimensions');
+      html += assert(false, 'NW09 not found — cannot check dimensions');
+    }
+
+    // Check NW11 (small: 600 x 900)
+    var nw11 = items.find(function (i) { return i.reference === 'NW11'; });
+    if (nw11) {
+      html += assert(nw11.width === 600, 'NW11 width = ' + nw11.width + ' (expected 600)');
+      html += assert(nw11.height === 900, 'NW11 height = ' + nw11.height + ' (expected 900)');
+    } else {
+      html += assert(false, 'NW11 not found — cannot check dimensions');
+      html += assert(false, 'NW11 not found — cannot check dimensions');
+    }
+
+    // Type detection: all NW refs should be "window"
+    nwItems.forEach(function (item) {
+      html += assert(item.type === 'window', item.reference + ' type = "' + item.type + '" (expected "window")');
+    });
+
+    // New field extraction — these require keyword context in flat text
+    // With "U value 1.4" and "Sill Height 900" keywords embedded, extractors should find them
+    if (nw01) {
+      html += assert(nw01.uValue !== '' && nw01.uValue !== undefined, 'NW01 uValue extracted: "' + (nw01.uValue || '') + '"');
+    }
+
+    if (nw01) {
+      html += assert(nw01.sillHeight !== '' && nw01.sillHeight !== undefined, 'NW01 sillHeight extracted: "' + (nw01.sillHeight || '') + '"');
+    }
+
+    if (nw01) {
+      html += assert(nw01.headHeight !== '' && nw01.headHeight !== undefined, 'NW01 headHeight extracted: "' + (nw01.headHeight || '') + '"');
+    }
+
+    // Finish may or may not be extracted from flat text — test field exists
+    if (nw01) {
+      html += assert(nw01.finish !== undefined, 'NW01 finish field exists: "' + (nw01.finish || '') + '"');
+    }
+
+    // Frame type detection
+    if (nw01) {
+      html += assert(nw01.frameType === 'Aluminium', 'NW01 frameType = "' + (nw01.frameType || '') + '" (expected "Aluminium")');
+    }
+
+    // Location extraction
+    if (nw01) {
+      html += assert(nw01.location !== '', 'NW01 location = "' + (nw01.location || '') + '" (not empty)');
+    }
+
+    // BOQ cross-validation: NW03 qty = 2, NW09 qty = 3, NW10 qty = 2
+    var nw03 = items.find(function (i) { return i.reference === 'NW03'; });
+    if (nw03) {
+      html += assert(nw03.quantity === 2, 'NW03 quantity = ' + nw03.quantity + ' (expected 2 from BOQ)');
+    }
+
+    // All items should have dimensions
+    var withDims = nwItems.filter(function (i) { return i.width > 0 && i.height > 0; });
+    html += assert(withDims.length === nwItems.length, withDims.length + '/' + nwItems.length + ' NW items have dimensions');
+
+    // No false positives from J-number doc name
+    var jItems = items.filter(function (i) { return /^J\d/.test(i.reference); });
+    html += assert(jItems.length === 0, 'No false positive J-number references (found ' + jItems.length + ')');
+
+    html += '<details><summary>Debug: all items</summary><pre>' +
+      esc(JSON.stringify(items.map(function (i) {
+        return { ref: i.reference, w: i.width, h: i.height, type: i.type, loc: i.location, uVal: i.uValue, sill: i.sillHeight, head: i.headHeight, finish: i.finish, conf: i.confidence };
+      }), null, 2)) + '</pre></details>';
+
+    html += '<details><summary>Debug: debugLog</summary><pre>' +
+      esc((result.debugLog || []).join('\n')) + '</pre></details>';
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 10: Shaftesbury Door Schedule Extraction
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 10: Shaftesbury Door Schedule (ND01–ND14, ED01)</h2>';
+
+    var docs = [
+      mockDoc('J4715_YMD-01-XX-DR-A-8200_C01 - Door Schedule.pdf', SHAFTESBURY_DOOR_SCHEDULE)
+    ];
+
+    var result = DataExtractor.extractItems(docs);
+    var items = result.items;
+
+    var ndItems = items.filter(function (i) { return /^ND\d/.test(i.reference); });
+    var edItems = items.filter(function (i) { return /^ED\d/.test(i.reference); });
+
+    html += assert(ndItems.length >= 14, 'Found ' + ndItems.length + '/14 ND references (ND01–ND14)');
+    html += assert(edItems.length >= 1, 'Found ' + edItems.length + '/1 ED references (ED01)');
+    html += assert(items.length >= 15, 'Total door items: ' + items.length + ' (expected ≥15)');
+
+    // Check specific refs
+    ['ND01','ND05','ND10','ND14','ED01'].forEach(function (ref) {
+      var found = items.some(function (i) { return i.reference === ref; });
+      html += assert(found, 'Reference ' + ref + ' found');
+    });
+
+    // ND01 dimensions (900 x 2100)
+    var nd01 = items.find(function (i) { return i.reference === 'ND01'; });
+    if (nd01) {
+      html += assert(nd01.width === 900, 'ND01 width = ' + nd01.width + ' (expected 900)');
+      html += assert(nd01.height === 2100, 'ND01 height = ' + nd01.height + ' (expected 2100)');
+    } else {
+      html += assert(false, 'ND01 not found — cannot check dimensions');
+      html += assert(false, 'ND01 not found — cannot check dimensions');
+    }
+
+    // ED01 dimensions (double door: 1800 x 2400)
+    var ed01 = items.find(function (i) { return i.reference === 'ED01'; });
+    if (ed01) {
+      html += assert(ed01.width === 1800, 'ED01 width = ' + ed01.width + ' (expected 1800)');
+      html += assert(ed01.height === 2400, 'ED01 height = ' + ed01.height + ' (expected 2400)');
+    } else {
+      html += assert(false, 'ED01 not found — cannot check dimensions');
+      html += assert(false, 'ED01 not found — cannot check dimensions');
+    }
+
+    // Type detection: ND/ED refs should be "door"
+    items.forEach(function (item) {
+      html += assert(item.type === 'door', item.reference + ' type = "' + item.type + '" (expected "door")');
+    });
+
+    // Door-specific fields: doorSwing
+    if (nd01) {
+      html += assert(nd01.doorSwing !== '' && nd01.doorSwing !== undefined, 'ND01 doorSwing extracted: "' + (nd01.doorSwing || '') + '"');
+    }
+
+    // Fire rating
+    if (nd01) {
+      html += assert(nd01.fireRating !== '' && nd01.fireRating !== undefined, 'ND01 fireRating extracted: "' + (nd01.fireRating || '') + '"');
+    }
+
+    // Ironmongery
+    if (nd01) {
+      html += assert(nd01.ironmongery !== '' && nd01.ironmongery !== undefined, 'ND01 ironmongery extracted: "' + (nd01.ironmongery || '') + '"');
+    }
+
+    // Door frame — requires column-based extraction (spatial data), may be empty in flat text
+    if (nd01) {
+      html += assert(nd01.doorFrame !== undefined, 'ND01 doorFrame field exists: "' + (nd01.doorFrame || '') + '"');
+    }
+
+    // Door glazing — requires column-based extraction (spatial data), may be empty in flat text
+    if (nd01) {
+      html += assert(nd01.doorGlazing !== undefined, 'ND01 doorGlazing field exists: "' + (nd01.doorGlazing || '') + '"');
+    }
+
+    // ND10 is a Double door with Double swing
+    var nd10 = items.find(function (i) { return i.reference === 'ND10'; });
+    if (nd10) {
+      html += assert(nd10.width === 1800, 'ND10 width = ' + nd10.width + ' (expected 1800)');
+      html += assert(nd10.height === 2400, 'ND10 height = ' + nd10.height + ' (expected 2400)');
+    }
+
+    // ND11 fire rating should be FD60S (higher rating)
+    var nd11 = items.find(function (i) { return i.reference === 'ND11'; });
+    if (nd11) {
+      var fr = (nd11.fireRating || '').toUpperCase();
+      html += assert(fr.indexOf('FD60') >= 0 || fr.indexOf('60') >= 0, 'ND11 fireRating contains FD60: "' + (nd11.fireRating || '') + '"');
+    }
+
+    // All items have dimensions
+    var withDims = items.filter(function (i) { return i.width > 0 && i.height > 0; });
+    html += assert(withDims.length === items.length, withDims.length + '/' + items.length + ' door items have dimensions');
+
+    html += '<details><summary>Debug: all items</summary><pre>' +
+      esc(JSON.stringify(items.map(function (i) {
+        return { ref: i.reference, w: i.width, h: i.height, type: i.type, swing: i.doorSwing, fire: i.fireRating, iron: i.ironmongery, frame: i.doorFrame, glaz: i.doorGlazing, conf: i.confidence };
+      }), null, 2)) + '</pre></details>';
+
+    html += '<details><summary>Debug: debugLog</summary><pre>' +
+      esc((result.debugLog || []).join('\n')) + '</pre></details>';
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 11: Shaftesbury Document Classification
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 11: Shaftesbury Document Classification</h2>';
+
+    var tests = [
+      { name: 'J4715-YMD-01-XX-DR-A-8000_C01 - Window Schedule.pdf', expectedType: 'schedule' },
+      { name: 'J4715_YMD-01-XX-DR-A-8200_C01 - Door Schedule.pdf', expectedType: 'schedule' },
+      { name: 'Window BOQ.pdf', expectedType: 'bq' },
+      { name: 'J4715-YMD-01-XX-DR-A-3300_C01 - Proposed East Elevation.pdf', expectedType: 'drawing' },
+      { name: 'J4715-YMD-01-XX-DR-A-3301_C01 - Proposed North Elevation.pdf', expectedType: 'drawing' },
+      { name: 'J4715-YMD-01-XX-DR-A-3302_C01 - Proposed West Elevation.pdf', expectedType: 'drawing' }
+    ];
+
+    tests.forEach(function (t) {
+      var cls = DataExtractor.classifyDocument(t.name, '');
+      html += assert(cls.type === t.expectedType,
+        '"' + t.name + '" → ' + cls.type + ' (expected ' + t.expectedType + ')');
+    });
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 12: Shaftesbury Full Pipeline — Windows + Doors Combined
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 12: Shaftesbury Full Pipeline (Windows + Doors + BOQ)</h2>';
+
+    var docs = [
+      mockDoc('J4715-YMD-01-XX-DR-A-8000_C01 - Window Schedule.pdf', SHAFTESBURY_WINDOW_SCHEDULE),
+      mockDoc('J4715_YMD-01-XX-DR-A-8200_C01 - Door Schedule.pdf', SHAFTESBURY_DOOR_SCHEDULE),
+      mockDoc('Window BOQ.pdf', SHAFTESBURY_WINDOW_BOQ),
+      mockDoc('J4715-YMD-01-XX-DR-A-3300_C01 - Proposed East Elevation.pdf', SHAFTESBURY_ELEVATION)
+    ];
+
+    var result = DataExtractor.extractItems(docs);
+    var items = result.items;
+
+    var nwItems = items.filter(function (i) { return /^NW\d/.test(i.reference); });
+    var ndItems = items.filter(function (i) { return /^ND\d/.test(i.reference); });
+    var edItems = items.filter(function (i) { return /^ED\d/.test(i.reference); });
+
+    html += assert(nwItems.length >= 11, 'Found ' + nwItems.length + '/11 NW window refs');
+    html += assert(ndItems.length >= 14, 'Found ' + ndItems.length + '/14 ND door refs');
+    html += assert(edItems.length >= 1, 'Found ' + edItems.length + '/1 ED door refs');
+    html += assert(items.length >= 26, 'Total items: ' + items.length + ' (expected ≥26)');
+
+    // Confirm no duplicates
+    var refCounts = {};
+    items.forEach(function (i) { refCounts[i.reference] = (refCounts[i.reference] || 0) + 1; });
+    var dups = Object.keys(refCounts).filter(function (r) { return refCounts[r] > 1; });
+    html += assert(dups.length === 0, 'No duplicate references (found: ' + (dups.length > 0 ? dups.join(', ') : 'none') + ')');
+
+    // BOQ quantities applied to windows
+    var nw09 = items.find(function (i) { return i.reference === 'NW09'; });
+    if (nw09) {
+      html += assert(nw09.quantity === 3, 'NW09 quantity = ' + nw09.quantity + ' (expected 3 from BOQ)');
+    }
+    var nw10 = items.find(function (i) { return i.reference === 'NW10'; });
+    if (nw10) {
+      html += assert(nw10.quantity === 2, 'NW10 quantity = ' + nw10.quantity + ' (expected 2 from BOQ)');
+    }
+
+    // Elevation doc should NOT create extra items
+    var totalBeforeElevation = 26;
+    html += assert(items.length <= totalBeforeElevation + 2, 'Elevation doc did not create spurious items (total: ' + items.length + ')');
+
+    html += '<details><summary>Debug: all items</summary><pre>' +
+      esc(JSON.stringify(items.map(function (i) {
+        return { ref: i.reference, type: i.type, w: i.width, h: i.height, qty: i.quantity, loc: i.location };
+      }), null, 2)) + '</pre></details>';
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 13: New Field Extraction Helpers — Unit Tests
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 13: New Field Extractors (U-Value, Sill/Head Height, Fire Rating, Swing, Ironmongery)</h2>';
+
+    // U-Value extraction
+    var uvalTests = [
+      { text: 'Window Schedule  NW01  Classroom 1  1200 x 1500  U value 1.4  PPC Aluminium', label: 'U value 1.4', hasUVal: true },
+      { text: 'Window Schedule  NW01  Classroom 1  1200 x 1500  1.4 W/m2K  PPC Aluminium', label: '1.4 W/m2K', hasUVal: true },
+      { text: 'Window Schedule  NW01  Classroom 1  1200 x 1500  No u-value info', label: 'No u-value', hasUVal: false }
+    ];
+    uvalTests.forEach(function (t) {
+      var docs = [mockDoc('test-schedule.pdf', t.text)];
+      var result = DataExtractor.extractItems(docs);
+      var item = result.items.find(function (i) { return i.reference === 'NW01'; });
+      if (item) {
+        var hasVal = item.uValue !== '' && item.uValue !== undefined;
+        html += assert(hasVal === t.hasUVal, 'U-Value "' + t.label + '": got "' + (item.uValue || '') + '"');
+      } else {
+        html += assert(false, 'NW01 not found for U-Value test: "' + t.label + '"');
+      }
+    });
+
+    // Fire rating extraction
+    var fireTests = [
+      { text: 'Door Schedule  ND01  Classroom  900 x 2100  FD30S  Steel', label: 'FD30S', hasFire: true },
+      { text: 'Door Schedule  ND01  Classroom  900 x 2100  FD60S  Steel', label: 'FD60S', hasFire: true },
+      { text: 'Door Schedule  ND01  Classroom  900 x 2100  None  Steel', label: 'None', hasFire: false }
+    ];
+    fireTests.forEach(function (t) {
+      var docs = [mockDoc('test-schedule.pdf', t.text)];
+      var result = DataExtractor.extractItems(docs);
+      var item = result.items.find(function (i) { return i.reference === 'ND01'; });
+      if (item) {
+        var hasVal = item.fireRating !== '' && item.fireRating !== undefined;
+        html += assert(hasVal === t.hasFire, 'Fire rating "' + t.label + '": got "' + (item.fireRating || '') + '"');
+      } else {
+        html += assert(false, 'ND01 not found for fire rating test: "' + t.label + '"');
+      }
+    });
+
+    // Door swing extraction
+    var swingTests = [
+      { text: 'Door Schedule  ND01  Classroom  900 x 2100  LHS swing  Steel', label: 'LHS', hasSwing: true },
+      { text: 'Door Schedule  ND01  Classroom  900 x 2100  RHS swing  Steel', label: 'RHS', hasSwing: true },
+      { text: 'Door Schedule  ND01  Classroom  900 x 2100  Double doors  Steel', label: 'Double', hasSwing: true }
+    ];
+    swingTests.forEach(function (t) {
+      var docs = [mockDoc('test-schedule.pdf', t.text)];
+      var result = DataExtractor.extractItems(docs);
+      var item = result.items.find(function (i) { return i.reference === 'ND01'; });
+      if (item) {
+        var hasVal = item.doorSwing !== '' && item.doorSwing !== undefined;
+        html += assert(hasVal === t.hasSwing, 'Door swing "' + t.label + '": got "' + (item.doorSwing || '') + '"');
+      } else {
+        html += assert(false, 'ND01 not found for swing test: "' + t.label + '"');
+      }
+    });
+
+    // Ironmongery extraction
+    var ironTests = [
+      { text: 'Door Schedule  ND01  Classroom  900 x 2100  Set A ironmongery', label: 'Set A', hasIron: true },
+      { text: 'Door Schedule  ND01  Classroom  900 x 2100  Lever handle ironmongery', label: 'Lever handle', hasIron: true }
+    ];
+    ironTests.forEach(function (t) {
+      var docs = [mockDoc('test-schedule.pdf', t.text)];
+      var result = DataExtractor.extractItems(docs);
+      var item = result.items.find(function (i) { return i.reference === 'ND01'; });
+      if (item) {
+        var hasVal = item.ironmongery !== '' && item.ironmongery !== undefined;
+        html += assert(hasVal === t.hasIron, 'Ironmongery "' + t.label + '": got "' + (item.ironmongery || '') + '"');
+      } else {
+        html += assert(false, 'ND01 not found for ironmongery test: "' + t.label + '"');
+      }
+    });
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
   // Summary
   // ====================================================================
   var summaryClass = totalFail === 0 ? 'all-pass' : 'has-fail';

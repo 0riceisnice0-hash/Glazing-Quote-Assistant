@@ -64,6 +64,48 @@ const DEFAULT_STATE = {
       glazingMakeup: '28mm DGU - Toughened',
       ventilation: '',
       drainage: 'Concealed'
+    },
+    profiles: {
+      'Aluminium Commercial Window': {
+        system: 'PPC Aluminium',
+        colour: 'RAL Colour To match existing',
+        hardware: 'Standard commercial ironmongery',
+        cillType: 'Aluminium Cill',
+        glazingMakeup: '28mm DGU - Toughened',
+        ventilation: 'Trickle Vent',
+        drainage: 'Concealed',
+        finish: 'PPC Aluminium'
+      },
+      'Aluminium Commercial Door': {
+        system: 'PPC Aluminium',
+        colour: 'RAL Colour To match existing',
+        hardware: 'Concealed Overhead Closer / Panic Bar',
+        cillType: 'Aluminium Threshold',
+        glazingMakeup: '28mm Toughened DGU',
+        ventilation: '',
+        drainage: 'Concealed',
+        finish: 'PPC Aluminium'
+      },
+      'uPVC Residential Window': {
+        system: 'Liniar PVCu',
+        colour: 'White',
+        hardware: 'White Kenrick Shootbolt',
+        cillType: '150mm Drop Nose Cill',
+        glazingMakeup: '28mm DGU - Unglazed',
+        ventilation: '4000 Linkvent',
+        drainage: 'Concealed',
+        finish: 'White uPVC'
+      },
+      'uPVC Residential Door': {
+        system: 'Liniar PVCu',
+        colour: 'White',
+        hardware: 'Avocet Falcon Lock / Low Threshold',
+        cillType: 'Low Aluminium Threshold',
+        glazingMakeup: '28mm DGU - Toughened',
+        ventilation: '',
+        drainage: 'Concealed',
+        finish: 'White uPVC'
+      }
     }
   },
   sourceDocuments: [],
@@ -114,7 +156,18 @@ function createItem(partial) {
     ventilation: '',      // e.g. '4000 Linkvent', 'Trickle Vent'
     drainage: '',         // e.g. 'Concealed', 'Exposed'
     actualFrameSize: '',  // e.g. '1010 × 1020'
-    escapeWindow: ''      // 'Yes', 'No', or ''
+    escapeWindow: '',     // 'Yes', 'No', or ''
+    // Phase 2 detail fields (Shaftesbury+)
+    sillHeight: '',       // e.g. '0', '640' (mm above floor)
+    headHeight: '',       // e.g. '2175', '2590' (mm above floor)
+    uValue: '',           // e.g. '1.4 W/m2k'
+    doorSwing: '',        // e.g. 'RHS', 'LHS', 'Double Door'
+    fireRating: '',       // e.g. 'FD30S', 'FD60', 'N/A'
+    doorFrame: '',        // e.g. '32 x 125mm sw'
+    doorGlazing: '',      // e.g. '7mm AGC Glass UK - Pyrobelte 7'
+    ironmongery: '',      // e.g. 'Set C3/C6', 'Doc M pack'
+    finish: '',           // e.g. 'PPC Aluminium', 'Formica Laminate Finish Colour TBC'
+    doorType: ''          // e.g. 'YMD Door Type 1', 'YMD Door Type 5'
   };
   return Object.assign({}, defaults, partial);
 }
