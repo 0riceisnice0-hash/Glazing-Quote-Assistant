@@ -1251,6 +1251,9 @@ var DataExtractor = (function () {
       });
     }
 
+    // Post-extraction: infer frameType from finish / doorFrame when still Unknown
+    items.forEach(function (item) { inferFrameTypeFromFields(item); });
+
     // Validation warnings for incomplete items
     items.forEach(function (item) {
       validateItemForWarnings(item).forEach(function (msg) {
@@ -1531,6 +1534,28 @@ var DataExtractor = (function () {
     return 'Unknown';
   }
 
+  // Post-extraction inference: if frameType is still 'Unknown', try to derive
+  // it from the finish or doorFrame fields that were extracted from table columns.
+  function inferFrameTypeFromFields(item) {
+    if (!item || item.frameType !== 'Unknown') return;
+    // Check finish field (e.g. "PPC Aluminium RAL 7016", "Powder Coated")
+    if (item.finish) {
+      var ft = extractFrameType(item.finish);
+      if (ft !== 'Unknown') { item.frameType = ft; return; }
+      // "Powder Coated" / "PPC" without explicit material — typically aluminium
+      if (/\b(?:ppc|powder\s*coat)/i.test(item.finish)) { item.frameType = 'Aluminium'; return; }
+    }
+    // Check doorFrame field (e.g. "Aluminium", "32 x 125mm sw")
+    if (item.doorFrame) {
+      var ft2 = extractFrameType(item.doorFrame);
+      if (ft2 !== 'Unknown') { item.frameType = ft2; return; }
+      // "sw" = softwood → Timber
+      if (/\bsw\b/i.test(item.doorFrame)) { item.frameType = 'Timber'; return; }
+      // "hw" = hardwood → Timber
+      if (/\bhw\b/i.test(item.doorFrame)) { item.frameType = 'Timber'; return; }
+    }
+  }
+
   function buildGlazingSpec(text) {
     var parts = [];
     if (/\b(?:triple\s*glaz(?:ed|ing)|tgu)\b/i.test(text)) {
@@ -1718,6 +1743,10 @@ var DataExtractor = (function () {
     var ralFinish = /\b(RAL\s+Colo(?:u)?r\s+(?:To\s+match\s+existing|TBC))\b/i.exec(text);
     if (ralFinish) return ralFinish[1];
     if (/\banodised\b/i.test(text)) return 'Anodised';
+    // Standalone "PPC" (Polyester Powder Coated) with optional RAL code
+    var ppcRal = /\bPPC\s+(RAL\s*\d+)\b/i.exec(text);
+    if (ppcRal) return 'PPC ' + ppcRal[1];
+    if (/\bPPC\b/.test(text)) return 'PPC';
     return '';
   }
 

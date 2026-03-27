@@ -916,6 +916,103 @@
   })();
 
   // ====================================================================
+  // SUITE 14: Frame Type Inference from Finish / Door Frame Fields
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 14: Frame Type Inference from Finish / Door Frame</h2>';
+
+    // Test 1: finish = "PPC RAL 7016" (no explicit "Aluminium") → frameType should infer Aluminium
+    // The mock text deliberately has NO aluminium/pvc/timber/steel keywords.
+    // extractFinish matches "PPC RAL 7016" → finish populated → inferFrameTypeFromFields
+    // sees "ppc" in finish → sets frameType = 'Aluminium'
+    var ppcWindowText =
+      'WINDOW SCHEDULE  J4715  ' +
+      'Window Ref   Width   Height   Window Frame Finish  ' +
+      'NW01   1200 x 1500   PPC RAL 7016  ';
+    var docs1 = [mockDoc('test-window-schedule.pdf', ppcWindowText)];
+    var r1 = DataExtractor.extractItems(docs1);
+    var nw01 = r1.items.find(function (i) { return i.reference === 'NW01'; });
+    if (nw01) {
+      html += assert(nw01.frameType === 'Aluminium', 'NW01 PPC finish → frameType inferred as "' + nw01.frameType + '" (expected "Aluminium")');
+    } else {
+      html += assert(false, 'NW01 not found for PPC inference test');
+    }
+
+    // Test 2: finish = "Powder Coated" → frameType should infer Aluminium
+    var powderText =
+      'WINDOW SCHEDULE  ' +
+      'Window Ref   Width   Height   Window Frame Finish  ' +
+      'NW02   900 x 1200   Powder Coated  ';
+    var docs2 = [mockDoc('test-schedule.pdf', powderText)];
+    var r2 = DataExtractor.extractItems(docs2);
+    var nw02 = r2.items.find(function (i) { return i.reference === 'NW02'; });
+    if (nw02) {
+      html += assert(nw02.frameType === 'Aluminium', 'NW02 Powder Coated → frameType = "' + nw02.frameType + '" (expected "Aluminium")');
+    } else {
+      html += assert(false, 'NW02 not found for Powder Coated inference test');
+    }
+
+    // Test 3: finish has explicit "Aluminium" → already matched directly (no inference needed)
+    var explicitText =
+      'WINDOW SCHEDULE  ' +
+      'Window Ref   Width   Height   Window Frame Finish  ' +
+      'NW03   1200 x 1500   PPC Aluminium RAL 7016  ';
+    var docs3 = [mockDoc('test-schedule.pdf', explicitText)];
+    var r3 = DataExtractor.extractItems(docs3);
+    var nw03 = r3.items.find(function (i) { return i.reference === 'NW03'; });
+    if (nw03) {
+      html += assert(nw03.frameType === 'Aluminium', 'NW03 explicit Aluminium in finish → frameType = "' + nw03.frameType + '"');
+    } else {
+      html += assert(false, 'NW03 not found for explicit Aluminium test');
+    }
+
+    // Test 4: Formica Laminate Finish with no other material clue → stays Unknown
+    var formicaText =
+      'DOOR SCHEDULE  ' +
+      'Door Ref   Width   Height   Finish  ' +
+      'ND03   900 x 2100   Formica Laminate Finish  ';
+    var docs4 = [mockDoc('test-door-schedule.pdf', formicaText)];
+    var r4 = DataExtractor.extractItems(docs4);
+    var nd03 = r4.items.find(function (i) { return i.reference === 'ND03'; });
+    if (nd03) {
+      html += assert(nd03.frameType === 'Unknown', 'ND03 Formica Laminate only → frameType stays "' + nd03.frameType + '" (expected "Unknown")');
+    } else {
+      html += assert(false, 'ND03 not found for Formica Laminate test');
+    }
+
+    // Test 5: Standalone "PPC" with no RAL → still infers Aluminium
+    var ppcOnlyText =
+      'WINDOW SCHEDULE  ' +
+      'Window Ref   Width   Height   Finish  ' +
+      'NW04   600 x 900   PPC  ';
+    var docs5 = [mockDoc('test-schedule.pdf', ppcOnlyText)];
+    var r5 = DataExtractor.extractItems(docs5);
+    var nw04 = r5.items.find(function (i) { return i.reference === 'NW04'; });
+    if (nw04) {
+      html += assert(nw04.frameType === 'Aluminium', 'NW04 standalone PPC → frameType = "' + nw04.frameType + '" (expected "Aluminium")');
+    } else {
+      html += assert(false, 'NW04 not found for standalone PPC test');
+    }
+
+    // Test 6: Direct "Timber" in context → matched by extractFrameType directly
+    var timberText =
+      'WINDOW SCHEDULE  ' +
+      'Window Ref   Width   Height   Finish  ' +
+      'NW05   600 x 900   Timber  ';
+    var docs6 = [mockDoc('test-schedule.pdf', timberText)];
+    var r6 = DataExtractor.extractItems(docs6);
+    var nw05 = r6.items.find(function (i) { return i.reference === 'NW05'; });
+    if (nw05) {
+      html += assert(nw05.frameType === 'Timber', 'NW05 explicit Timber → frameType = "' + nw05.frameType + '"');
+    } else {
+      html += assert(false, 'NW05 not found for Timber test');
+    }
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
   // Summary
   // ====================================================================
   var summaryClass = totalFail === 0 ? 'all-pass' : 'has-fail';
