@@ -1097,6 +1097,126 @@
     var c01legit = r3.items.find(function (i) { return i.reference === 'C01'; });
     html += assert(!!c01legit, 'C01 (legitimate curtain wall) accepted: ' + (c01legit ? 'OK' : 'MISSING'));
 
+    // Test 5: C01 preceded by "As indicated" (drawing title block) should be rejected
+    var titleBlockText =
+      'DOOR SCHEDULE  ' +
+      'Door Ref   Width   Height  ' +
+      'ND01   1010 x 2110   RHS  ' +
+      'CONSTRUCTION Status S3 As indicated C01 Shaftesbury High School Door Schedule SPD';
+    var docs4 = [mockDoc('test-door-schedule.pdf', titleBlockText)];
+    var r4 = DataExtractor.extractItems(docs4);
+    var c01title = r4.items.find(function (i) { return i.reference === 'C01'; });
+    html += assert(!c01title, 'C01 (title block "As indicated") rejected: ' + (c01title ? 'FOUND — false positive' : 'correctly filtered'));
+
+    // Test 6: "sw" near ref should win over distant "aluminium" (nearest match)
+    var nearestMatchText =
+      'DOOR SCHEDULE  ' +
+      'Door Ref   Width   Height   Door Frame   Finish  ' +
+      'ND14   686 x 2110   32 x 126mm sw   N/A  Set A3  ' +
+      'FOR IRONMONGERY SETS PLEASE REFER TO ASPEX DOCUMENT NOTE: New aluminium door to existing opening.';
+    var docs5 = [mockDoc('test-door-schedule.pdf', nearestMatchText)];
+    var r5 = DataExtractor.extractItems(docs5);
+    var nd14 = r5.items.find(function (i) { return i.reference === 'ND14'; });
+    if (nd14) {
+      html += assert(nd14.frameType === 'Timber', 'ND14 "sw" nearest → frameType = "' + nd14.frameType + '" (expected "Timber", not "Aluminium" from distant note)');
+    } else {
+      html += assert(false, 'ND14 not found for nearest match test');
+    }
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 16: CharContext Occurrence Selection
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 16: CharContext Occurrence Selection</h2>';
+
+    // Test 1: ED01 appears twice — table row (with PPC Aluminium) and note (without)
+    // The table occurrence should be preferred (first with sufficient data span)
+    var ed01Text =
+      'DOOR SCHEDULE  ' +
+      'Door Ref   Width   Height   Finish   Door Frame  ' +
+      'ED01   1000 x 2100   PPC Aluminium External Door   N/A   PPC Aluminium 28mm thick  ' +
+      'ND01   1010 x 2110   Formica Laminate   32 x 126mm sw  ' +
+      'ND02   1010 x 2110   Formica Laminate   32 x 126mm sw  ' +
+      'Door Ref: ED01 External single door glazed panels Smart Door or similar Smart Innovation Centre Barnsley';
+    var docs1 = [mockDoc('test-door-schedule.pdf', ed01Text)];
+    var r1 = DataExtractor.extractItems(docs1);
+    var ed01 = r1.items.find(function (i) { return i.reference === 'ED01'; });
+    if (ed01) {
+      html += assert(ed01.frameType === 'Aluminium', 'ED01 table row picked over note → frameType = "' + ed01.frameType + '" (expected "Aluminium")');
+    } else {
+      html += assert(false, 'ED01 not found for occurrence selection test');
+    }
+
+    // Test 2: NW01 appears in both annotation and table — table row (with PPC) should be picked
+    var nw01Text =
+      'NW01 2175 4285 NW02 2175 3048  ' +
+      'WINDOW SCHEDULE  ' +
+      'Ref   Width   Height   Finish  ' +
+      'NW01   2175 x 4285   PPC Aluminium RAL Colour To match existing 1.4 W/m2k  ' +
+      'NW02   2175 x 3048   PPC Aluminium RAL Colour To match existing 1.4 W/m2k  ';
+    var docs2 = [mockDoc('test-window-schedule.pdf', nw01Text)];
+    var r2 = DataExtractor.extractItems(docs2);
+    var nw01 = r2.items.find(function (i) { return i.reference === 'NW01'; });
+    if (nw01) {
+      html += assert(nw01.frameType === 'Aluminium', 'NW01 table occurrence selected → frameType = "' + nw01.frameType + '" (expected "Aluminium")');
+    } else {
+      html += assert(false, 'NW01 not found for annotation vs table test');
+    }
+
+    html += '</div>';
+    results.innerHTML += html;
+  })();
+
+  // ====================================================================
+  // SUITE 17: Document-Level Failsafe Filters
+  // ====================================================================
+  (function () {
+    var html = '<div class="suite"><h2>Suite 17: Document-Level Failsafe Filters</h2>';
+
+    // Test 1: C01 with 0x0 dimensions should be removed when other items have dimensions
+    var c01Text =
+      'DOOR SCHEDULE  ' +
+      'Mark   Width   Height  ' +
+      'ND01   1010 x 2110   Formica Laminate Finish 32 x 126mm sw  ' +
+      'ND02   1010 x 2110   Formica Laminate Finish 32 x 126mm sw  ' +
+      'CONSTRUCTION Status S3 As indicated C01 Shaftesbury High School  ' +
+      'C01 Construction Issue 19.07.24 SK KR';
+    var docs1 = [mockDoc('test-door-schedule.pdf', c01Text)];
+    var r1 = DataExtractor.extractItems(docs1);
+    var c01 = r1.items.find(function (i) { return i.reference === 'C01'; });
+    html += assert(!c01, 'C01 (dimensionless revision code) removed at doc level: ' + (c01 ? 'STILL PRESENT' : 'correctly filtered'));
+
+    // Test 2: Legitimate C01 with dimensions should survive
+    var c01LegitText =
+      'WINDOW SCHEDULE  ' +
+      'Ref   Width   Height  ' +
+      'C01   1500 x 2400   Aluminium  ' +
+      'C02   1200 x 1800   Aluminium  ';
+    var docs2 = [mockDoc('test-schedule.pdf', c01LegitText)];
+    var r2 = DataExtractor.extractItems(docs2);
+    var c01legit = r2.items.find(function (i) { return i.reference === 'C01'; });
+    html += assert(!!c01legit && c01legit.width > 0, 'C01 with dimensions survives: ' + (c01legit ? c01legit.width + 'x' + c01legit.height : 'MISSING'));
+
+    // Test 3: ED01 with split ref "ED 01" in doc text should get frame type from doc-level inference
+    var ed01Text =
+      'DOOR SCHEDULE  ' +
+      'Mark   Door Type   Room   Width   Height   Swing   Finish   Fire Rating   Door Frame  ' +
+      'ED 01   Door Type 6   Stairwell   1000   2100   RHS   PPC Aluminium External Door   N/A   PPC Aluminium 28mm thick  ' +
+      'ND 01   Door Type 5   Circulation   1250   2110   RHS   Formica Laminate   FD30S   32 x 126mm sw  ' +
+      'Door Ref: ED01 External single door glazed panels Smart Door or similar';
+    var docs3 = [mockDoc('test-door-schedule.pdf', ed01Text)];
+    var r3 = DataExtractor.extractItems(docs3);
+    var ed01 = r3.items.find(function (i) { return i.reference === 'ED01'; });
+    if (ed01) {
+      html += assert(ed01.frameType === 'Aluminium', 'ED01 doc-level frameType inference → "' + ed01.frameType + '" (expected "Aluminium")');
+    } else {
+      html += assert(false, 'ED01 not found for doc-level inference test');
+    }
+
     html += '</div>';
     results.innerHTML += html;
   })();

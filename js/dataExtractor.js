@@ -663,6 +663,12 @@ var DataExtractor = (function () {
         if (/\d\s*:\s*\d+\s*$/.test(widerPreceding)) continue;
       }
 
+      // Reject C-prefix refs in drawing title blocks: "As indicated C01 Shaftesbury"
+      if (/^C\d{2,3}$/i.test(ref)) {
+        var titlePreceding = normText.substring(Math.max(0, idx - 50), idx);
+        if (/(?:as\s+indicated|status\s+\w+|indicated)\s*$/i.test(titlePreceding)) continue;
+      }
+
       // Reject BS/EN codes, drawing sheet numbers, and other false positives
       if (!isValidGlazingReference(ref)) continue;
 
@@ -737,8 +743,13 @@ var DataExtractor = (function () {
       // the next ref in TEXT ORDER (not sorted order), spanning the full table row.
       //
       // When a ref appears multiple times in the text (e.g. once in an elevation
-      // annotation and again in a table row), evaluate ALL occurrences and pick the
-      // one with the longest span — the data-rich table row, not the short annotation.
+      // annotation and again in a table row), prefer the FIRST occurrence whose span
+      // to the next different ref is at least MIN_DATA_SPAN chars — this selects the
+      // data-rich table row over short annotations AND over footer/note occurrences.
+      // Cap each occurrence's context at MAX_CHAR_CONTEXT to prevent bleeding into
+      // unrelated text (e.g. notes about a different item).
+      var MIN_DATA_SPAN = 60;
+      var MAX_CHAR_CONTEXT = 500;
       var charContext = '';
       var allRefPositions = [];
       Object.keys(foundRefs).forEach(function (r) {
@@ -750,6 +761,7 @@ var DataExtractor = (function () {
 
       var bestContext = '';
       var bestStart = refData.firstIndex;
+      var picked = false;
       refData.allIndices.forEach(function (occurrencePos) {
         // Find the next DIFFERENT ref's position after this occurrence
         var nextPos = -1;
@@ -760,8 +772,17 @@ var DataExtractor = (function () {
           }
         }
         if (nextPos < 0) nextPos = Math.min(normText.length, occurrencePos + CTX_FORWARD_FULL);
-        var candidate = normText.substring(occurrencePos, Math.min(normText.length, nextPos));
-        if (candidate.length > bestContext.length) {
+        var spanLen = nextPos - occurrencePos;
+        // Cap context length to avoid bleeding into unrelated notes/sections
+        var effectiveEnd = Math.min(nextPos, occurrencePos + MAX_CHAR_CONTEXT);
+        var candidate = normText.substring(occurrencePos, Math.min(normText.length, effectiveEnd));
+        // Prefer the first occurrence with enough data for attribute extraction
+        if (!picked && spanLen >= MIN_DATA_SPAN) {
+          bestContext = candidate;
+          bestStart = occurrencePos;
+          picked = true;
+        } else if (!picked && candidate.length > bestContext.length) {
+          // Fallback: if no occurrence meets MIN_DATA_SPAN, keep longest
           bestContext = candidate;
           bestStart = occurrencePos;
         }
@@ -887,6 +908,12 @@ var DataExtractor = (function () {
       if (/^[CDWS]\d{2,3}$/i.test(ref)) {
         var widerPreceding3 = normText.substring(Math.max(0, matchIndex - 30), matchIndex);
         if (/\d\s*:\s*\d+\s*$/.test(widerPreceding3)) continue;
+      }
+
+      // Reject C-prefix refs in drawing title blocks
+      if (/^C\d{2,3}$/i.test(ref)) {
+        var titlePreceding3 = normText.substring(Math.max(0, matchIndex - 50), matchIndex);
+        if (/(?:as\s+indicated|status\s+\w+|indicated)\s*$/i.test(titlePreceding3)) continue;
       }
 
       // Reject BS/EN codes, drawing sheet numbers, and other false positives
@@ -1294,8 +1321,44 @@ var DataExtractor = (function () {
       });
     }
 
+    // Suppress C-prefix items (curtain wall refs) that have no dimensions.
+    // In CAD drawings, "C01" / "C02" are revision codes (e.g. "C01 Construction
+    // Issue") that get mistakenly extracted.  Real curtain walls always have
+    // dimensions; revision codes never do.
+    if (items.length > 1) {
+      items = items.filter(function (item) {
+        if (/^C\d{2,3}$/.test(item.reference) && item.width === 0 && item.height === 0) {
+          console.log('[ExtractDoc] Removing dimensionless C-ref (likely revision code): ' + item.reference);
+          return false;
+        }
+        return true;
+      });
+    }
+
     // Post-extraction: infer frameType from finish / doorFrame when still Unknown
     items.forEach(function (item) { inferFrameTypeFromFields(item); });
+
+    // Document-level frame-type inference: for items still Unknown, search the
+    // full document text for the reference (allowing split refs like "ED 01")
+    // and extract frame type from its table-row context.
+    var fullDocText = doc.fullText || doc.pages.map(function (p) { return p.text || ''; }).join(' ');
+    items.forEach(function (item) {
+      if (item.frameType !== 'Unknown') return;
+      var refDigits = item.reference.match(/^(\D+)(\d+)$/);
+      if (!refDigits) return;
+      var flexRef = refDigits[1] + '\\s*' + refDigits[2];
+      var re = new RegExp('\\b' + flexRef + '\\b', 'gi');
+      var m;
+      while ((m = re.exec(fullDocText)) !== null) {
+        var ctx = fullDocText.substring(m.index, Math.min(fullDocText.length, m.index + 300));
+        var ft = extractFrameType(ctx);
+        if (ft !== 'Unknown') {
+          console.log('[ExtractDoc] Inferred frameType for ' + item.reference + ' from doc text: ' + ft);
+          item.frameType = ft;
+          break;
+        }
+      }
+    });
 
     // Validation warnings for incomplete items
     items.forEach(function (item) {
@@ -1426,6 +1489,11 @@ var DataExtractor = (function () {
       if (/^[CDWS]\d{2,3}$/i.test(ref)) {
         var widerPre = line.substring(Math.max(0, idx - 30), idx);
         if (/\d\s*:\s*\d+\s*$/.test(widerPre)) return;
+      }
+      // Reject C-prefix refs in drawing title blocks
+      if (/^C\d{2,3}$/i.test(ref)) {
+        var titlePre = line.substring(Math.max(0, idx - 50), idx);
+        if (/(?:as\s+indicated|status\s+\w+|indicated)\s*$/i.test(titlePre)) return;
       }
       if (!isValidGlazingReference(ref)) return;
       refLines.push({ ref: ref, line: line });
@@ -1579,16 +1647,28 @@ var DataExtractor = (function () {
 
   function extractFrameType(text) {
     if (!text) return 'Unknown';
-    if (/\b(?:aluminium|aluminum|alum|alu)\b/i.test(text)) return 'Aluminium';
-    if (/\b(?:pvcu|pvc-u|pvc\.u|upvc|pvc)\b/i.test(text))  return 'PVCu';
-    if (/\b(?:timber|wood|wooden|oak|softwood|hardwood)\b/i.test(text)) return 'Timber';
-    if (/\b(?:steel|galvanised|stainless)\b/i.test(text))   return 'Steel';
-    // PPC (Polyester Powder Coated) is aluminium-specific in glazing industry
-    if (/\bppc\b/i.test(text)) return 'Aluminium';
-    // Abbreviations common in UK door schedules: sw = softwood, hw = hardwood
-    if (/\bsw\b/i.test(text)) return 'Timber';
-    if (/\bhw\b/i.test(text)) return 'Timber';
-    return 'Unknown';
+    // Find the NEAREST (earliest) match across all patterns — closest to the ref
+    // itself is most relevant (prevents a distant "aluminium" note overriding a
+    // nearby "sw" in a door frame column).
+    var patterns = [
+      { re: /\b(?:aluminium|aluminum|alum|alu)\b/i, type: 'Aluminium' },
+      { re: /\b(?:pvcu|pvc-u|pvc\.u|upvc|pvc)\b/i,  type: 'PVCu' },
+      { re: /\b(?:timber|wood|wooden|oak|softwood|hardwood)\b/i, type: 'Timber' },
+      { re: /\b(?:steel|galvanised|stainless)\b/i,   type: 'Steel' },
+      { re: /\bppc\b/i, type: 'Aluminium' },
+      { re: /\bsw\b/i,  type: 'Timber' },
+      { re: /\bhw\b/i,  type: 'Timber' }
+    ];
+    var bestType = null;
+    var bestPos = Infinity;
+    for (var i = 0; i < patterns.length; i++) {
+      var m = patterns[i].re.exec(text);
+      if (m && m.index < bestPos) {
+        bestPos = m.index;
+        bestType = patterns[i].type;
+      }
+    }
+    return bestType || 'Unknown';
   }
 
   // Post-extraction inference: if frameType is still 'Unknown', try to derive
