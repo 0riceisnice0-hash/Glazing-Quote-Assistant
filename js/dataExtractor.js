@@ -648,11 +648,28 @@ var DataExtractor = (function () {
       var preceding = normText.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
       if (DRAWING_NUM_FILTER.test(preceding) && !/\b(?:BS|EN)\s*\d/i.test(preceding)) continue;
 
+      // Reject UK postcode patterns: "S73 9LG", "W12 7RJ" etc.
+      // A ref followed by space + digit + 2 letters is almost certainly a postcode
+      var following = normText.substring(idx + match[0].length, idx + match[0].length + 30);
+      if (/^\s+\d[A-Z]{2}\b/i.test(following)) continue;
+
+      // Reject drawing revision markers: "C01 Construction Issue", "C02 Revision"
+      if (/^\s+(?:construction|revision|issue|draft|preliminary|tender|planning|for\s+(?:comment|approval|info))/i.test(following)) continue;
+
+      // Reject CAD title block status/revision codes: "1 : 20 C01 Shaftesbury"
+      // Single-letter refs (C/D/W/S + digits) preceded by a drawing scale pattern
+      if (/^[CDWS]\d{2,3}$/i.test(ref)) {
+        var widerPreceding = normText.substring(Math.max(0, idx - 30), idx);
+        if (/\d\s*:\s*\d+\s*$/.test(widerPreceding)) continue;
+      }
+
       // Reject BS/EN codes, drawing sheet numbers, and other false positives
       if (!isValidGlazingReference(ref)) continue;
 
       if (!foundRefs[ref]) {
-        foundRefs[ref] = { ref: ref, firstIndex: idx };
+        foundRefs[ref] = { ref: ref, firstIndex: idx, allIndices: [idx] };
+      } else {
+        foundRefs[ref].allIndices.push(idx);
       }
     }
 
@@ -718,23 +735,38 @@ var DataExtractor = (function () {
       // Even when spatial clustering produces text, it may miss columns that are far
       // away — the character-context window captures everything between this ref and
       // the next ref in TEXT ORDER (not sorted order), spanning the full table row.
+      //
+      // When a ref appears multiple times in the text (e.g. once in an elevation
+      // annotation and again in a table row), evaluate ALL occurrences and pick the
+      // one with the longest span — the data-rich table row, not the short annotation.
       var charContext = '';
-      // Sort all refs by their text position to find the next neighbor in document order
-      var refsByPos = Object.keys(foundRefs).sort(function (a, b) {
-        return foundRefs[a].firstIndex - foundRefs[b].firstIndex;
+      var allRefPositions = [];
+      Object.keys(foundRefs).forEach(function (r) {
+        foundRefs[r].allIndices.forEach(function (pos) {
+          allRefPositions.push({ ref: r, pos: pos });
+        });
       });
-      var posIdx = refsByPos.indexOf(ref);
-      var nextRefStart = (posIdx < refsByPos.length - 1)
-        ? foundRefs[refsByPos[posIdx + 1]].firstIndex
-        : Math.min(normText.length, refData.firstIndex + CTX_FORWARD_FULL);
-      // Guard against next ref being BEFORE current ref (shouldn't happen with pos sort, but be safe)
-      if (nextRefStart <= refData.firstIndex) {
-        nextRefStart = Math.min(normText.length, refData.firstIndex + CTX_FORWARD_FULL);
-      }
-      charContext = normText.substring(
-        refData.firstIndex,
-        Math.min(normText.length, nextRefStart)
-      );
+      allRefPositions.sort(function (a, b) { return a.pos - b.pos; });
+
+      var bestContext = '';
+      var bestStart = refData.firstIndex;
+      refData.allIndices.forEach(function (occurrencePos) {
+        // Find the next DIFFERENT ref's position after this occurrence
+        var nextPos = -1;
+        for (var pi = 0; pi < allRefPositions.length; pi++) {
+          if (allRefPositions[pi].pos > occurrencePos && allRefPositions[pi].ref !== ref) {
+            nextPos = allRefPositions[pi].pos;
+            break;
+          }
+        }
+        if (nextPos < 0) nextPos = Math.min(normText.length, occurrencePos + CTX_FORWARD_FULL);
+        var candidate = normText.substring(occurrencePos, Math.min(normText.length, nextPos));
+        if (candidate.length > bestContext.length) {
+          bestContext = candidate;
+          bestStart = occurrencePos;
+        }
+      });
+      charContext = bestContext;
 
       var item = createItem({
         reference: ref,
@@ -845,6 +877,17 @@ var DataExtractor = (function () {
       // plain dimension values such as "1010." don't trigger a false rejection.
       var preceding = normText.substring(Math.max(0, matchIndex - DRAWING_NUM_LOOKBACK), matchIndex);
       if (DRAWING_NUM_FILTER.test(preceding) && !/\b(?:BS|EN)\s*\d/i.test(preceding)) continue;
+
+      // Reject UK postcodes and revision markers
+      var following3 = normText.substring(matchIndex + match[0].length, matchIndex + match[0].length + 30);
+      if (/^\s+\d[A-Z]{2}\b/i.test(following3)) continue;
+      if (/^\s+(?:construction|revision|issue|draft|preliminary|tender|planning|for\s+(?:comment|approval|info))/i.test(following3)) continue;
+
+      // Reject CAD title block status/revision codes preceded by drawing scale
+      if (/^[CDWS]\d{2,3}$/i.test(ref)) {
+        var widerPreceding3 = normText.substring(Math.max(0, matchIndex - 30), matchIndex);
+        if (/\d\s*:\s*\d+\s*$/.test(widerPreceding3)) continue;
+      }
 
       // Reject BS/EN codes, drawing sheet numbers, and other false positives
       if (!isValidGlazingReference(ref)) continue;
@@ -1375,6 +1418,15 @@ var DataExtractor = (function () {
       var idx = m.index;
       var pre = line.substring(Math.max(0, idx - DRAWING_NUM_LOOKBACK), idx);
       if (DRAWING_NUM_FILTER.test(pre) && !/\b(?:BS|EN)\s*\d/i.test(pre)) return;
+      // Reject UK postcodes and revision markers
+      var fol = line.substring(idx + m[0].length, idx + m[0].length + 30);
+      if (/^\s+\d[A-Z]{2}\b/i.test(fol)) return;
+      if (/^\s+(?:construction|revision|issue|draft|preliminary|tender|planning|for\s+(?:comment|approval|info))/i.test(fol)) return;
+      // Reject CAD title block status/revision codes preceded by drawing scale
+      if (/^[CDWS]\d{2,3}$/i.test(ref)) {
+        var widerPre = line.substring(Math.max(0, idx - 30), idx);
+        if (/\d\s*:\s*\d+\s*$/.test(widerPre)) return;
+      }
       if (!isValidGlazingReference(ref)) return;
       refLines.push({ ref: ref, line: line });
     });
@@ -1531,6 +1583,11 @@ var DataExtractor = (function () {
     if (/\b(?:pvcu|pvc-u|pvc\.u|upvc|pvc)\b/i.test(text))  return 'PVCu';
     if (/\b(?:timber|wood|wooden|oak|softwood|hardwood)\b/i.test(text)) return 'Timber';
     if (/\b(?:steel|galvanised|stainless)\b/i.test(text))   return 'Steel';
+    // PPC (Polyester Powder Coated) is aluminium-specific in glazing industry
+    if (/\bppc\b/i.test(text)) return 'Aluminium';
+    // Abbreviations common in UK door schedules: sw = softwood, hw = hardwood
+    if (/\bsw\b/i.test(text)) return 'Timber';
+    if (/\bhw\b/i.test(text)) return 'Timber';
     return 'Unknown';
   }
 
