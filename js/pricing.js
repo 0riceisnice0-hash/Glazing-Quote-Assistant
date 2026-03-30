@@ -60,6 +60,12 @@ var Pricing = (function () {
     timberFrameRate: 350,
     steelFrameRate: 600,
 
+    // Split-pane pricing rates (more accurate than flat rate)
+    fixedPaneRate: 250,           // £/m² for fixed glass panes
+    openingPaneRate: 580,         // £/m² for opening lights/casements
+    louvreFlat: 450,              // £ flat premium per louvre panel
+    overheadPercent: 8,           // % overhead/margin baked into type code markups
+
     // Estimated glass cost per m² (separate supplier quote)
     doubleGlazedRate: 55,
     tripleGlazedRate: 85,
@@ -142,22 +148,52 @@ var Pricing = (function () {
   // =========================================================================
   // Supplier cost estimation (used when no actual supplier quote entered)
   // =========================================================================
+
+  /**
+   * Split-pane frame estimate: if item has pane counts, use per-pane-type
+   * rates instead of a flat £/m² rate. This captures the big cost difference
+   * between fixed panels and opening lights (hinges, locks, restrictors etc.)
+   *
+   * The overhead % accounts for the fact that Fenster type-code markups
+   * bundle margin/overhead on top of pure labour.
+   */
   function estimateFrameCost(item, config) {
     var w    = (item.width  || 0) / 1000;
     var h    = (item.height || 0) / 1000;
     var area = w * h;
     if (area <= 0) return 0;
 
-    var frame = (item.frameType || '').toLowerCase();
+    var frame  = (item.frameType || '').toLowerCase();
     var isDoor = (item.type || '').toLowerCase() === 'door';
-    var rate  = isDoor ? (config.aluminiumDoorRate || config.aluminiumFrameRate) : config.aluminiumFrameRate;
+
+    // If we have pane counts → use split-pane pricing
+    var fixedPanes   = item.fixedPanes   || 0;
+    var openingPanes = item.openingPanes || 0;
+    var totalPanes   = fixedPanes + openingPanes;
+
+    if (totalPanes > 0 && !isDoor) {
+      // Divide total area proportionally across panes
+      var areaPerPane  = area / totalPanes;
+      var fixedCost    = fixedPanes   * areaPerPane * (config.fixedPaneRate   || 280);
+      var openingCost  = openingPanes * areaPerPane * (config.openingPaneRate || 650);
+      var louvreExtra  = item.hasLouvre ? (config.louvreFlat || 450) : 0;
+      var baseCost     = fixedCost + openingCost + louvreExtra;
+
+      // Apply overhead % (accounts for margin baked into type code markups)
+      var overhead = config.overheadPercent || 12;
+      var withOverhead = baseCost * (1 + overhead / 100);
+      return round2(withOverhead);
+    }
+
+    // Fallback: flat rate per m² (original logic, used when pane data missing)
+    var rate = isDoor ? (config.aluminiumDoorRate || config.aluminiumFrameRate) : config.aluminiumFrameRate;
 
     if (frame.indexOf('pvc') !== -1 || frame.indexOf('upvc') !== -1)       rate = config.pvcFrameRate;
     else if (frame.indexOf('timber') !== -1 || frame.indexOf('wood') !== -1) rate = config.timberFrameRate;
     else if (frame.indexOf('steel') !== -1)                                  rate = config.steelFrameRate;
     else if (isDoor && config.aluminiumDoorRate)                              rate = config.aluminiumDoorRate;
 
-    return Math.round(rate * area * 100) / 100;
+    return round2(rate * area);
   }
 
   function estimateGlassCost(item, config) {
@@ -233,11 +269,28 @@ var Pricing = (function () {
     var total = round2(unitRate * qty);
     var inst  = config.includeInstallation ? round2(config.installationPerUnit * qty) : 0;
 
+    // Determine pricing method for breakdown display
+    var hasSupplierCosts = item.supplierFrameCost !== undefined || item.supplierGlassCost !== undefined;
+    var hasPaneCounts    = (item.fixedPanes || 0) + (item.openingPanes || 0) > 0;
+    var pricingMethod    = hasSupplierCosts ? 'supplier' : (hasPaneCounts ? 'split-pane' : 'flat-rate');
+
     // Breakdown string
     var parts = [code];
     if (code === 'CW') {
       parts.push('Supply ' + fmt(frameCost));
       parts.push('Labour ' + fmt(markup));
+    } else if (pricingMethod === 'supplier') {
+      parts.push('Frame ' + fmt(frameCost) + ' \u2713');
+      if (glassCost > 0) parts.push('Glass ' + fmt(glassCost) + ' \u2713');
+      if (additional > 0) parts.push('Add ' + fmt(additional) + ' \u2713');
+      parts.push('Markup ' + fmt(markup));
+    } else if (pricingMethod === 'split-pane') {
+      var fp = item.fixedPanes || 0;
+      var op = item.openingPanes || 0;
+      parts.push('Frame ' + fmt(frameCost) + ' (' + fp + 'F+' + op + 'O' + (item.hasLouvre ? '+L' : '') + ')');
+      if (glassCost > 0) parts.push('Glass ' + fmt(glassCost));
+      if (additional > 0) parts.push('Add ' + fmt(additional));
+      parts.push('Markup ' + fmt(markup));
     } else {
       parts.push('Frame ' + fmt(frameCost));
       if (glassCost > 0) parts.push('Glass ' + fmt(glassCost));
@@ -248,16 +301,17 @@ var Pricing = (function () {
     if (qty > 1) parts.push('\u00d7' + qty + ' = ' + fmt(total));
 
     return {
-      unitPrice:   unitRate,
-      totalPrice:  total,
-      installCost: inst,
-      breakdown:   parts.join(' | '),
-      productCode: code,
-      productDesc: codeInfo.desc,
-      frameCost:   frameCost,
-      glassCost:   glassCost,
-      additional:  additional,
-      markup:      markup
+      unitPrice:     unitRate,
+      totalPrice:    total,
+      installCost:   inst,
+      breakdown:     parts.join(' | '),
+      productCode:   code,
+      productDesc:   codeInfo.desc,
+      frameCost:     frameCost,
+      glassCost:     glassCost,
+      additional:    additional,
+      markup:        markup,
+      pricingMethod: pricingMethod
     };
   }
 

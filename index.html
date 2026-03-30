@@ -177,13 +177,21 @@
               <span style="font-size:0.7rem;font-weight:400;color:var(--text-secondary);margin-left:8px">Based on Fenster master pricing document</span>
             </div>
 
-            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Estimated Frame Supply (£/m²)</div>
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Estimated Frame Supply (£/m²) — Flat Rate Fallback</div>
             <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
               <div class="form-group"><label for="aluminiumFrameRate">Alum Window</label><input type="number" class="form-control" id="aluminiumFrameRate" value="500" min="0" step="5"></div>
               <div class="form-group"><label for="aluminiumDoorRate">Alum Door</label><input type="number" class="form-control" id="aluminiumDoorRate" value="1125" min="0" step="5"></div>
               <div class="form-group"><label for="pvcFrameRate">PVC</label><input type="number" class="form-control" id="pvcFrameRate" value="395" min="0" step="5"></div>
               <div class="form-group"><label for="timberFrameRate">Timber</label><input type="number" class="form-control" id="timberFrameRate" value="350" min="0" step="5"></div>
               <div class="form-group"><label for="steelFrameRate">Steel</label><input type="number" class="form-control" id="steelFrameRate" value="600" min="0" step="5"></div>
+            </div>
+
+            <div style="font-size:0.8rem;font-weight:600;color:#ff9800;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Split-Pane Pricing (used when pane counts set)</div>
+            <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+              <div class="form-group"><label for="fixedPaneRate">Fixed Pane (£/m²)</label><input type="number" class="form-control" id="fixedPaneRate" value="250" min="0" step="5"></div>
+              <div class="form-group"><label for="openingPaneRate">Opening Light (£/m²)</label><input type="number" class="form-control" id="openingPaneRate" value="580" min="0" step="5"></div>
+              <div class="form-group"><label for="louvreFlat">Louvre Premium (£)</label><input type="number" class="form-control" id="louvreFlat" value="450" min="0" step="10"></div>
+              <div class="form-group"><label for="overheadPercent">Overhead / Margin (%)</label><input type="number" class="form-control" id="overheadPercent" value="8" min="0" max="50" step="1"></div>
             </div>
 
             <div style="font-size:0.8rem;font-weight:600;color:var(--text-secondary);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em">Estimated Glass Supply (£/m²)</div>
@@ -581,7 +589,7 @@
   <script src="js/dataModel.js?v=20260327a"></script>
   <script src="js/pdfParser.js?v=20260327a"></script>
   <script src="js/dataExtractor.js?v=20260327a"></script>
-  <script src="js/pricing.js?v=20260327a"></script>
+  <script src="js/pricing.js?v=20260330a"></script>
   <script src="js/ui.js?v=20260327a"></script>
   <script src="js/pdfViewer.js?v=20260327a"></script>
   <script src="js/quoteGenerator.js?v=20260327a"></script>

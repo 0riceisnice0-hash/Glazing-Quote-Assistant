@@ -388,6 +388,8 @@ var DataExtractor = (function () {
       var cillVal1 = extractCillHeight(fullRowText);
       if (cillVal1) item.cillType = cillVal1 + 'mm cill height';
       item.escapeWindow = extractEscapeWindow(fullRowText);
+      var pc1 = extractPaneConfig(fullRowText);
+      if (pc1.fixedPanes || pc1.openingPanes) { item.fixedPanes = pc1.fixedPanes; item.openingPanes = pc1.openingPanes; item.hasLouvre = pc1.hasLouvre; }
 
       // --- Phase 2 columns: extract from dedicated column first, fall back to row text ---
 
@@ -560,6 +562,8 @@ var DataExtractor = (function () {
       var cillVal2    = extractCillHeight(fullText);
       if (cillVal2) item.cillType = cillVal2 + 'mm cill height';
       item.escapeWindow = extractEscapeWindow(fullText);
+      var pc2 = extractPaneConfig(fullText);
+      if (pc2.fixedPanes || pc2.openingPanes) { item.fixedPanes = pc2.fixedPanes; item.openingPanes = pc2.openingPanes; item.hasLouvre = pc2.hasLouvre; }
       // Phase 2 fields
       item.sillHeight   = extractSillHeight(fullText);
       item.headHeight   = extractHeadHeight(fullText);
@@ -847,6 +851,8 @@ var DataExtractor = (function () {
       var cillVal      = extractCillHeight(attrContext);
       if (cillVal) item.cillType = cillVal + 'mm cill height';
       item.escapeWindow = extractEscapeWindow(attrContext);
+      var pc3 = extractPaneConfig(attrContext);
+      if (pc3.fixedPanes || pc3.openingPanes) { item.fixedPanes = pc3.fixedPanes; item.openingPanes = pc3.openingPanes; item.hasLouvre = pc3.hasLouvre; }
       // Phase 2 fields
       item.sillHeight   = extractSillHeight(attrContext);
       item.headHeight   = extractHeadHeight(attrContext);
@@ -989,6 +995,8 @@ var DataExtractor = (function () {
       var cillVal3     = extractCillHeight(context);
       if (cillVal3) item.cillType = cillVal3 + 'mm cill height';
       item.escapeWindow = extractEscapeWindow(context);
+      var pc4 = extractPaneConfig(context);
+      if (pc4.fixedPanes || pc4.openingPanes) { item.fixedPanes = pc4.fixedPanes; item.openingPanes = pc4.openingPanes; item.hasLouvre = pc4.hasLouvre; }
       // Phase 2 fields
       item.sillHeight   = extractSillHeight(context);
       item.headHeight   = extractHeadHeight(context);
@@ -1524,6 +1532,8 @@ var DataExtractor = (function () {
       item.openingType = extractOpeningType(rl.line);
       item.location    = extractLocation(rl.line);
       item.notes       = extractNotes(rl.line);
+      var pc5 = extractPaneConfig(rl.line);
+      if (pc5.fixedPanes || pc5.openingPanes) { item.fixedPanes = pc5.fixedPanes; item.openingPanes = pc5.openingPanes; item.hasLouvre = pc5.hasLouvre; }
       item.confidence  = scoreConfidence(item, 'regex');
       items.push(item);
     });
@@ -1724,6 +1734,37 @@ var DataExtractor = (function () {
     if (/\bbi[\s\-]?fold\b/i.test(text))   return 'Bi-fold';
     if (/\bfixed\b/i.test(text))           return 'Fixed';
     return 'Fixed';
+  }
+
+  // --- Pane configuration extractor ---
+
+  var WORD_NUMBERS = { one:1, two:2, three:3, four:4, five:5, six:6, seven:7, eight:8, nine:9, ten:10 };
+
+  function extractPaneConfig(text) {
+    if (!text) return { fixedPanes: 0, openingPanes: 0, hasLouvre: false };
+
+    var t = text.toLowerCase();
+    var fixed = 0, opening = 0, hasLouvre = false;
+
+    // Match patterns: "two fixed panes", "3 fixed", "one fixed pane"
+    var fixedMatch = t.match(/(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+fixed\s*(?:pane|panel|light)?s?/);
+    if (fixedMatch) {
+      var f = fixedMatch[1];
+      fixed = WORD_NUMBERS[f] || parseInt(f, 10) || 0;
+    }
+
+    // Match patterns: "four opening lights", "2 openers", "one opening top light",
+    // "6 opening lights", "two opening lights"
+    var openMatch = t.match(/(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+open(?:ing|er)\s*(?:top\s+)?(?:pane|panel|light|casement)?s?/);
+    if (openMatch) {
+      var o = openMatch[1];
+      opening = WORD_NUMBERS[o] || parseInt(o, 10) || 0;
+    }
+
+    // Louvre detection
+    if (/\blouvr?e\b/i.test(text)) hasLouvre = true;
+
+    return { fixedPanes: fixed, openingPanes: opening, hasLouvre: hasLouvre };
   }
 
   // --- Phase 1 detail extractors ---
@@ -2131,6 +2172,12 @@ var DataExtractor = (function () {
       unitPrice: 0,
       totalPrice: 0,
       manualOverride: false,
+      supplierFrameCost: undefined,
+      supplierGlassCost: undefined,
+      supplierAdditional: 0,
+      fixedPanes: 0,
+      openingPanes: 0,
+      hasLouvre: false,
       sourceDocument: '',
       sourcePage: 0,
       textPosition: null,

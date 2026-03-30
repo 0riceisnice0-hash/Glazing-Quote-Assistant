@@ -75,6 +75,7 @@ var UI = (function () {
     // Bind all numeric rate inputs
     var rateFields = [
       'aluminiumFrameRate', 'aluminiumDoorRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
+      'fixedPaneRate', 'openingPaneRate', 'louvreFlat', 'overheadPercent',
       'doubleGlazedRate', 'tripleGlazedRate', 'fireRatedGlassRate', 'toughenedExtra',
       'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate'
     ];
@@ -924,6 +925,18 @@ var UI = (function () {
       '</div>' +
       _formField('Glazing Specification', 'edit_glazingSpec', item.glazingSpec, 'text', null, 'col-span-2') +
       _formField('Notes (comma separated)', 'edit_notes', (item.notes || []).join(', '), 'text', null, 'col-span-2') +
+      '<h4 style="margin:0.8rem 0 0.3rem;color:#4caf50;font-size:0.85rem;">Supplier Costs (from Fenster BOQ)</h4>' +
+      '<div class="form-grid">' +
+      _formField('Frame Cost (£)', 'edit_supplierFrameCost', item.supplierFrameCost !== undefined ? item.supplierFrameCost : '', 'number') +
+      _formField('Glass Cost (£)', 'edit_supplierGlassCost', item.supplierGlassCost !== undefined ? item.supplierGlassCost : '', 'number') +
+      _formField('Additional (£)', 'edit_supplierAdditional', item.supplierAdditional || '', 'number') +
+      '</div>' +
+      '<h4 style="margin:0.8rem 0 0.3rem;color:#ff9800;font-size:0.85rem;">Pane Configuration (auto-pricing)</h4>' +
+      '<div class="form-grid">' +
+      _formField('Fixed Panes', 'edit_fixedPanes', item.fixedPanes || '', 'number') +
+      _formField('Opening Panes', 'edit_openingPanes', item.openingPanes || '', 'number') +
+      '</div>' +
+      '<div class="form-group" style="margin-top:4px"><label style="display:flex;align-items:center;gap:4px;font-size:0.85rem;cursor:pointer"><input type="checkbox" id="edit_hasLouvre" ' + (item.hasLouvre ? 'checked' : '') + '> Has Louvre Panel</label></div>' +
       '<div class="form-group mt-2"><label><input type="checkbox" id="edit_manualOverride" ' + (item.manualOverride ? 'checked' : '') + '> Manual price override</label></div>' +
       '<div class="form-group"><label>Unit Price Override (£)</label><input type="number" class="form-control" id="edit_unitPrice" value="' + item.unitPrice + '" step="0.01" min="0" ' + (!item.manualOverride ? 'disabled' : '') + '></div>';
 
@@ -967,6 +980,16 @@ var UI = (function () {
           item.doorFrame = getValue('edit_doorFrame');
           item.doorGlazing = getValue('edit_doorGlazing');
           item.ironmongery = getValue('edit_ironmongery');
+          // Supplier cost overrides — empty = use estimate
+          var sfVal = getValue('edit_supplierFrameCost');
+          item.supplierFrameCost = sfVal !== '' ? parseFloat(sfVal) : undefined;
+          var sgVal = getValue('edit_supplierGlassCost');
+          item.supplierGlassCost = sgVal !== '' ? parseFloat(sgVal) : undefined;
+          item.supplierAdditional = parseFloat(getValue('edit_supplierAdditional')) || 0;
+          // Pane counts
+          item.fixedPanes = parseInt(getValue('edit_fixedPanes'), 10) || 0;
+          item.openingPanes = parseInt(getValue('edit_openingPanes'), 10) || 0;
+          item.hasLouvre = document.getElementById('edit_hasLouvre').checked;
           item.manualOverride = document.getElementById('edit_manualOverride').checked;
           if (item.manualOverride) {
             item.unitPrice = parseFloat(getValue('edit_unitPrice')) || 0;

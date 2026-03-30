@@ -39,7 +39,12 @@ const DEFAULT_STATE = {
     includeMastic: false,
     discountPercent: 0,
     vatEnabled: true,
-    vatRate: 20
+    vatRate: 20,
+    // Split-pane pricing rates (Option 2)
+    fixedPaneRate: 250,           // £/m² for fixed glass panes
+    openingPaneRate: 580,         // £/m² for opening lights/casements
+    louvreFlat: 450,              // £ flat premium per louvre panel
+    overheadPercent: 8            // % overhead/margin baked into type code markups
   },
   presets: {
     window: {
@@ -146,6 +151,14 @@ function createItem(partial) {
     unitPrice: 0,
     totalPrice: 0,
     manualOverride: false,
+    // Supplier cost overrides (Option 1: enter actual Fenster BOQ values)
+    supplierFrameCost: undefined,   // £ actual frame cost from supplier BOQ
+    supplierGlassCost: undefined,   // £ actual glass cost from supplier BOQ
+    supplierAdditional: 0,          // £ extras (louvres, teleflex, PAS24 etc.)
+    // Pane configuration (Option 2: split-pane auto-pricing)
+    fixedPanes: 0,                  // count of fixed panes in unit
+    openingPanes: 0,                // count of opening lights/casements
+    hasLouvre: false,                // louvre panel present
     sourceDocument: '',
     sourcePage: 0,
     textPosition: null,
