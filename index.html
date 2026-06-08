@@ -227,6 +227,12 @@
               <input type="number" class="form-control" id="discountPercent" value="0" min="0" max="100" step="0.5">
             </div>
 
+            <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px">
+              <div class="form-group"><label for="quoteExtraLabel">Extra Cost Label</label><input type="text" class="form-control" id="quoteExtraLabel" placeholder="e.g. Actuators / access control"></div>
+              <div class="form-group"><label for="quoteExtraAmount">Extra Cost (£)</label><input type="number" class="form-control" id="quoteExtraAmount" value="0" step="0.01"></div>
+              <div class="form-group"><label for="discountFixedAmount">Fixed Discount (£)</label><input type="number" class="form-control" id="discountFixedAmount" value="0" min="0" step="0.01"></div>
+            </div>
+
             <div class="form-row">
               <div class="form-group" style="flex:0 0 auto">
                 <label>VAT</label>
@@ -261,6 +267,7 @@
               <select id="presetProfileSelect" class="form-control" style="width:auto;min-width:200px;display:inline-block">
                 <option value="">— Manual —</option>
                 <option value="Aluminium Commercial Window">Aluminium Commercial Window</option>
+                <option value="Sheerline Aluminium Window">Sheerline Aluminium Window</option>
                 <option value="Aluminium Commercial Door">Aluminium Commercial Door</option>
                 <option value="uPVC Residential Window">uPVC Residential Window</option>
                 <option value="uPVC Residential Door">uPVC Residential Door</option>
@@ -359,6 +366,38 @@
 
             <!-- Table Container -->
             <div id="itemsTableContainer"></div>
+
+            <!-- Bulk Apply Controls -->
+            <div class="bulk-apply-bar" style="margin-top:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px;border:1px solid var(--border-color);border-radius:8px;background:var(--bg-secondary)">
+              <span style="font-size:0.78rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:0.04em">Apply to column</span>
+              <select class="form-control" id="bulkApplyType" style="width:auto;min-width:130px">
+                <option value="window">Windows</option>
+                <option value="door">Doors</option>
+                <option value="glazing">Glazing/Screen</option>
+                <option value="filtered">Filtered Items</option>
+                <option value="all">All Items</option>
+              </select>
+              <select class="form-control" id="bulkApplyField" style="width:auto;min-width:150px">
+                <option value="frameType">Frame Type</option>
+                <option value="colour">Colour</option>
+                <option value="system">System</option>
+                <option value="glazingSpec">Glazing Spec</option>
+                <option value="openingType">Opening Function</option>
+                <option value="securityRequirement">SBD/PAS24</option>
+                <option value="glassRequirement">Glass Requirement</option>
+                <option value="sealantRequirement">EPDM/Silicone</option>
+                <option value="windLoadRequirement">Windload</option>
+                <option value="fixingRequirement">Fixing Requirement</option>
+                <option value="automationRequirement">Automation</option>
+                <option value="accessControlRequirement">Access Control</option>
+                <option value="handleRequirement">Handle</option>
+                <option value="lockRequirement">Lock</option>
+                <option value="closerRequirement">Closer</option>
+                <option value="ironmongery">Ironmongery</option>
+              </select>
+              <input type="text" class="form-control" id="bulkApplyValue" placeholder="Value to apply" style="width:220px">
+              <button class="btn btn-secondary btn-sm" id="bulkApplyBtn">Apply</button>
+            </div>
 
             <!-- Add Item Button & Presets -->
             <div style="margin-top:14px; display:flex; gap:10px; align-items:center; flex-wrap:wrap;">

@@ -89,8 +89,8 @@ var QuoteGenerator = (function () {
         { content: typeLabel, colSpan: 6, styles: { fillColor: NAVY, textColor: WHITE, fontStyle: 'bold', fontSize: 9 } }
       ]);
 
-      // Per-type general spec row (from preset)
-      var p = presets ? presets[type] : null;
+      // Per-type general spec row. Prefer extracted item spec when it conflicts with an old preset.
+      var p = getTypeSpecPreset(presets, type, typeItems);
       if (p) {
         var specParts = [];
         if (p.system) specParts.push(p.system);
@@ -189,8 +189,8 @@ var QuoteGenerator = (function () {
       doc.text(typeLabel, margin + 4, y + 5.5);
       y += 12;
 
-      // General spec block for this type (from corresponding preset)
-      y = renderTypeSpec(doc, presets, type, margin, contentWidth, y, pageWidth, pageHeight, company);
+      // General spec block for this type
+      y = renderTypeSpec(doc, presets, type, typeItems, margin, contentWidth, y, pageWidth, pageHeight, company);
 
       var typeTotal = 0;
 
@@ -209,6 +209,7 @@ var QuoteGenerator = (function () {
         leftSpecs.push(['Size:', dims]);
         rightSpecs.push(['Qty:', String(qty)]);
         if (item.glazingMakeup || item.glazingSpec) leftSpecs.push(['Glazing:', item.glazingMakeup || item.glazingSpec]);
+        if (item.glassRequirement) leftSpecs.push(['Glass Req:', item.glassRequirement]);
         if (item.hardware)     rightSpecs.push(['Hardware:', item.hardware]);
         if (item.cillType)     leftSpecs.push(['Cill:', item.cillType]);
         if (item.drainage)     rightSpecs.push(['Drainage:', item.drainage]);
@@ -216,6 +217,16 @@ var QuoteGenerator = (function () {
         if (item.ventilation)  rightSpecs.push(['Vent:', item.ventilation]);
         if (item.escapeWindow === 'Yes') leftSpecs.push(['Escape:', 'Yes']);
         if (item.frameType && item.frameType !== 'Unknown') rightSpecs.push(['Frame:', item.frameType]);
+        if (item.securityRequirement) rightSpecs.push(['SBD/PAS24:', item.securityRequirement]);
+        if (item.sealantRequirement) leftSpecs.push(['Sealant:', item.sealantRequirement]);
+        if (item.windLoadRequirement) rightSpecs.push(['Windload:', item.windLoadRequirement]);
+        if (item.fixingRequirement) leftSpecs.push(['Fixing:', item.fixingRequirement]);
+        if (item.entranceDoor === 'Yes') rightSpecs.push(['Entrance:', 'Yes']);
+        if (item.automationRequirement) leftSpecs.push(['Automation:', item.automationRequirement]);
+        if (item.accessControlRequirement) rightSpecs.push(['Access:', item.accessControlRequirement]);
+        if (item.handleRequirement) leftSpecs.push(['Handle:', item.handleRequirement]);
+        if (item.lockRequirement) rightSpecs.push(['Lock:', item.lockRequirement]);
+        if (item.closerRequirement) leftSpecs.push(['Closer:', item.closerRequirement]);
 
         var rowCount = Math.max(leftSpecs.length, rightSpecs.length);
         var neededH = 10 + rowCount * 4.5 + 4; // header + rows + padding
@@ -294,8 +305,33 @@ var QuoteGenerator = (function () {
   }
 
   /* ===== PER-TYPE GENERAL SPEC (printed under each type heading) ===== */
-  function renderTypeSpec(doc, presets, type, margin, contentWidth, y, pageWidth, pageHeight, company) {
-    var p = presets ? presets[type] : null;
+  function getTypeSpecPreset(presets, type, items) {
+    var p = presets && presets[type] ? Object.assign({}, presets[type]) : {};
+    var sample = (items || []).find(function (item) {
+      return item && (item.system || item.frameType || item.colour || item.glazingMakeup || item.glazingSpec || item.hardware);
+    });
+    if (!sample) return p;
+
+    var presetLooksWrong = false;
+    if (sample.frameType === 'Aluminium' && /\b(?:PVC|PVCu|Liniar)\b/i.test([p.frameType, p.system].join(' '))) {
+      presetLooksWrong = true;
+    }
+    if (sample.system && p.system && p.system !== sample.system && presetLooksWrong) {
+      p.system = sample.system;
+    } else if (!p.system && sample.system) {
+      p.system = sample.system;
+    }
+    if (sample.frameType && sample.frameType !== 'Unknown' && (presetLooksWrong || !p.frameType)) p.frameType = sample.frameType;
+    if (sample.colour && (presetLooksWrong || !p.colour)) p.colour = sample.colour;
+    if ((sample.glazingMakeup || sample.glazingSpec) && (presetLooksWrong || !p.glazingMakeup)) p.glazingMakeup = sample.glazingMakeup || sample.glazingSpec;
+    if (sample.hardware && (presetLooksWrong || !p.hardware)) p.hardware = sample.hardware;
+    if (sample.drainage && !p.drainage) p.drainage = sample.drainage;
+    if (sample.ventilation && !p.ventilation) p.ventilation = sample.ventilation;
+    return p;
+  }
+
+  function renderTypeSpec(doc, presets, type, items, margin, contentWidth, y, pageWidth, pageHeight, company) {
+    var p = getTypeSpecPreset(presets, type, items);
     if (!p) return y;
 
     var leftLines = [];
@@ -492,6 +528,7 @@ var QuoteGenerator = (function () {
     if (summary.includeInstallation) lineCount++;
     if (summary.includeEPDM)         lineCount++;
     if (summary.includeMastic)       lineCount++;
+    if (summary.quoteExtraAmount !== 0) lineCount++;
     if (summary.discountAmount > 0)  lineCount += 2;
     if (summary.vatEnabled)          lineCount++;
     var boxH = 16 + lineCount * 5.5 + 8;
@@ -534,9 +571,18 @@ var QuoteGenerator = (function () {
       sy += 5.5;
     }
 
+    if (summary.quoteExtraAmount !== 0) {
+      doc.text((summary.quoteExtraLabel || 'Extra costs') + ':', summaryX + 4, sy);
+      doc.text(Pricing.formatCurrency(summary.quoteExtraAmount), rightCol, sy, { align: 'right' });
+      sy += 5.5;
+    }
+
     if (summary.discountAmount > 0) {
+      var discountLabel = summary.discountPercent > 0 && summary.discountFixedAmount > 0
+        ? 'Discount (' + summary.discountPercent + '% + fixed):'
+        : (summary.discountPercent > 0 ? 'Discount (' + summary.discountPercent + '%):' : 'Fixed Discount:');
       doc.setTextColor(220, 38, 38);
-      doc.text('Discount (' + summary.discountPercent + '%):', summaryX + 4, sy);
+      doc.text(discountLabel, summaryX + 4, sy);
       doc.text('- ' + Pricing.formatCurrency(summary.discountAmount), rightCol, sy, { align: 'right' });
       doc.setTextColor.apply(doc, BLACK);
       sy += 5.5;

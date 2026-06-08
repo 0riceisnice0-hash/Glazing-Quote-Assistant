@@ -18,7 +18,7 @@ const DEFAULT_STATE = {
     logoDataUrl: null
   },
   pricing: {
-    pricingVersion: 3,
+    pricingVersion: 4,
     aluminiumFrameRate: 500,
     aluminiumDoorRate: 1125,
     pvcFrameRate: 395,
@@ -38,6 +38,10 @@ const DEFAULT_STATE = {
     includeEPDM: false,
     includeMastic: false,
     discountPercent: 0,
+    discountFixedAmount: 0,
+    quoteExtraLabel: '',
+    quoteExtraAmount: 0,
+    autoTenderPricingId: '',
     vatEnabled: true,
     vatRate: 20,
     // Split-pane pricing rates (Option 2)
@@ -79,6 +83,17 @@ const DEFAULT_STATE = {
         cillType: 'Aluminium Cill',
         glazingMakeup: '28mm DGU - Toughened',
         ventilation: 'Trickle Vent',
+        drainage: 'Concealed'
+      },
+      'Sheerline Aluminium Window': {
+        frameType: 'Aluminium',
+        system: 'Sheerline Prestige aluminium window system',
+        colour: 'RAL (per tender docs)',
+        finish: 'PPC (Powder Coated)',
+        hardware: 'Sheerline compatible window hardware',
+        cillType: 'Aluminium Cill',
+        glazingMakeup: '28mm DGU - Toughened/Laminated as required',
+        ventilation: 'Trickle Vent where required',
         drainage: 'Concealed'
       },
       'Aluminium Commercial Door': {
@@ -155,6 +170,8 @@ function createItem(partial) {
     supplierFrameCost: undefined,   // £ actual frame cost from supplier BOQ
     supplierGlassCost: undefined,   // £ actual glass cost from supplier BOQ
     supplierAdditional: 0,          // £ extras (louvres, teleflex, PAS24 etc.)
+    supplierUnitPrice: undefined,   // £ quoted unit rate from supplier/type schedule
+    supplierRateSource: '',         // e.g. 'Borras type schedule'
     // Pane configuration (Option 2: split-pane auto-pricing)
     fixedPanes: 0,                  // count of fixed panes in unit
     openingPanes: 0,                // count of opening lights/casements
@@ -183,7 +200,19 @@ function createItem(partial) {
     doorGlazing: '',      // e.g. '7mm AGC Glass UK - Pyrobelte 7'
     ironmongery: '',      // e.g. 'Set C3/C6', 'Doc M pack'
     finish: '',           // e.g. 'PPC Aluminium', 'Formica Laminate Finish Colour TBC'
-    doorType: ''          // e.g. 'YMD Door Type 1', 'YMD Door Type 5'
+    doorType: '',         // e.g. 'YMD Door Type 1', 'YMD Door Type 5'
+    securityRequirement: '', // e.g. 'PAS 24 / SBD required'
+    glassRequirement: '',    // e.g. 'Minimum P3A at ground floor'
+    sealantRequirement: '',  // e.g. 'Silicone sealant to external joints'
+    windLoadRequirement: '', // e.g. 'BS EN 12210 Class A5'
+    fixingRequirement: '',   // e.g. '150mm from corners, max 600mm centres'
+    scheduleType: '',        // e.g. 'Type A' from window/door schedule
+    entranceDoor: '',        // 'Yes' when identified by tender questions
+    automationRequirement: '',
+    accessControlRequirement: '',
+    handleRequirement: '',
+    lockRequirement: '',
+    closerRequirement: ''
   };
   return Object.assign({}, defaults, partial);
 }

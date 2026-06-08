@@ -14,6 +14,10 @@ var UI = (function () {
   var FRAME_OPTIONS = ['Aluminium', 'PVCu', 'Timber', 'Steel', 'Unknown'];
   var OPENING_OPTIONS = ['Fixed', 'Casement', 'Top Hung', 'Tilt & Turn', 'Sliding', 'Pivot', 'Bi-fold'];
   var CONFIDENCE_OPTIONS = ['high', 'medium', 'low'];
+  var BULK_SELECT_OPTIONS = {
+    frameType: FRAME_OPTIONS,
+    openingType: OPENING_OPTIONS
+  };
 
   function initUI(state, callbacks) {
     _state = state;
@@ -101,12 +105,36 @@ var UI = (function () {
       });
     });
 
-    // Discount
+    // Quote extras and discounts
+    var quoteExtraLabel = document.getElementById('quoteExtraLabel');
+    if (quoteExtraLabel) {
+      quoteExtraLabel.value = _state.pricing.quoteExtraLabel || '';
+      quoteExtraLabel.addEventListener('input', function () {
+        _state.pricing.quoteExtraLabel = quoteExtraLabel.value.trim();
+        _triggerPriceUpdate();
+      });
+    }
+    var quoteExtraAmount = document.getElementById('quoteExtraAmount');
+    if (quoteExtraAmount) {
+      quoteExtraAmount.value = _state.pricing.quoteExtraAmount || 0;
+      quoteExtraAmount.addEventListener('change', function () {
+        _state.pricing.quoteExtraAmount = parseFloat(quoteExtraAmount.value) || 0;
+        _triggerPriceUpdate();
+      });
+    }
     var discountInput = document.getElementById('discountPercent');
     if (discountInput) {
       discountInput.value = _state.pricing.discountPercent || 0;
       discountInput.addEventListener('change', function () {
         _state.pricing.discountPercent = parseFloat(discountInput.value) || 0;
+        _triggerPriceUpdate();
+      });
+    }
+    var discountFixed = document.getElementById('discountFixedAmount');
+    if (discountFixed) {
+      discountFixed.value = _state.pricing.discountFixedAmount || 0;
+      discountFixed.addEventListener('change', function () {
+        _state.pricing.discountFixedAmount = parseFloat(discountFixed.value) || 0;
         _triggerPriceUpdate();
       });
     }
@@ -290,6 +318,28 @@ var UI = (function () {
       doorPresetBtn.addEventListener('click', function () { _applyPreset('door'); });
     }
 
+    var bulkBtn = document.getElementById('bulkApplyBtn');
+    var bulkField = document.getElementById('bulkApplyField');
+    var bulkValue = document.getElementById('bulkApplyValue');
+    if (bulkBtn && bulkField && bulkValue) {
+      var syncBulkValueInput = function () {
+        var opts = BULK_SELECT_OPTIONS[bulkField.value];
+        if (opts) {
+          var current = bulkValue.value;
+          bulkValue.outerHTML = '<select class="form-control" id="bulkApplyValue" style="width:220px">' +
+            opts.map(function (o) { return '<option value="' + o + '" ' + (o === current ? 'selected' : '') + '>' + o + '</option>'; }).join('') +
+            '</select>';
+          bulkValue = document.getElementById('bulkApplyValue');
+        } else if (bulkValue.tagName === 'SELECT') {
+          bulkValue.outerHTML = '<input type="text" class="form-control" id="bulkApplyValue" placeholder="Value to apply" style="width:220px">';
+          bulkValue = document.getElementById('bulkApplyValue');
+        }
+      };
+      bulkField.addEventListener('change', syncBulkValueInput);
+      syncBulkValueInput();
+      bulkBtn.addEventListener('click', _applyBulkColumnValue);
+    }
+
     // Step-1 "Add Items Manually" button — go directly to the table view
     var btnStep1 = document.getElementById('addItemBtnStep1');
     if (btnStep1) {
@@ -398,7 +448,9 @@ var UI = (function () {
       { key: 'finish', label: 'Finish', class: '' },
       { key: 'system', label: 'System', class: '' },
       { key: 'glazingSpec', label: 'Glazing', class: '' },
+      { key: 'glassRequirement', label: 'Glass Req.', class: '' },
       { key: 'openingType', label: 'Opening', class: '' },
+      { key: 'securityRequirement', label: 'SBD/PAS24', class: '' },
       { key: 'fireRating', label: 'Fire', class: '' },
       { key: 'doorSwing', label: 'Swing', class: '' },
       { key: 'ironmongery', label: 'Ironmongery', class: '' },
@@ -434,7 +486,9 @@ var UI = (function () {
       _editableCell(item.id, 'finish', item.finish || '') +
       _editableCell(item.id, 'system', item.system || '') +
       _editableCell(item.id, 'glazingSpec', item.glazingSpec || '') +
+      _editableCell(item.id, 'glassRequirement', item.glassRequirement || '') +
       _selectCell(item.id, 'openingType', item.openingType, OPENING_OPTIONS) +
+      _editableCell(item.id, 'securityRequirement', item.securityRequirement || '') +
       _editableCell(item.id, 'fireRating', item.fireRating || '') +
       _editableCell(item.id, 'doorSwing', item.doorSwing || '') +
       _editableCell(item.id, 'ironmongery', item.ironmongery || '') +
@@ -558,7 +612,12 @@ var UI = (function () {
     return items.filter(function (item) {
       if (_searchQuery) {
         var q = _searchQuery.toLowerCase();
-        var searchable = [item.reference, item.type, item.location, item.frameType, item.glazingSpec, item.description].join(' ').toLowerCase();
+        var searchable = [
+          item.reference, item.type, item.location, item.frameType, item.glazingSpec,
+          item.system, item.colour, item.securityRequirement, item.glassRequirement,
+          item.sealantRequirement, item.windLoadRequirement, item.fixingRequirement,
+          item.description
+        ].join(' ').toLowerCase();
         if (!searchable.includes(q)) return false;
       }
       if (_filters.type && item.type !== _filters.type) return false;
@@ -645,8 +704,14 @@ var UI = (function () {
     if (summary.includeMastic) {
       rows += '<tr><td>Mastic</td><td>' + fc(summary.masticTotal) + '</td></tr>';
     }
+    if (summary.quoteExtraAmount !== 0) {
+      rows += '<tr><td>' + _escapeHtml(summary.quoteExtraLabel || 'Extra costs') + '</td><td>' + fc(summary.quoteExtraAmount) + '</td></tr>';
+    }
     if (summary.discountAmount > 0) {
-      rows += '<tr><td>Discount (' + summary.discountPercent + '%)</td><td style="color:var(--accent-danger)">\u2212 ' + fc(summary.discountAmount) + '</td></tr>';
+      var discountLabel = summary.discountPercent > 0 && summary.discountFixedAmount > 0
+        ? 'Discount (' + summary.discountPercent + '% + fixed)'
+        : (summary.discountPercent > 0 ? 'Discount (' + summary.discountPercent + '%)' : 'Fixed Discount');
+      rows += '<tr><td>' + discountLabel + '</td><td style="color:var(--accent-danger)">\u2212 ' + fc(summary.discountAmount) + '</td></tr>';
       rows += '<tr><td>After Discount</td><td>' + fc(summary.afterDiscount) + '</td></tr>';
     }
     if (summary.vatEnabled) {
@@ -661,7 +726,8 @@ var UI = (function () {
     var rateFields = [
       'aluminiumFrameRate', 'aluminiumDoorRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
       'doubleGlazedRate', 'tripleGlazedRate', 'fireRatedGlassRate', 'toughenedExtra',
-      'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate'
+      'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate',
+      'quoteExtraAmount', 'discountFixedAmount'
     ];
     rateFields.forEach(function (field) {
       var el = document.getElementById(field);
@@ -674,6 +740,12 @@ var UI = (function () {
     });
     var disc = document.getElementById('discountPercent');
     if (disc) disc.value = pricingConfig.discountPercent || 0;
+    var extraLabel = document.getElementById('quoteExtraLabel');
+    if (extraLabel) extraLabel.value = pricingConfig.quoteExtraLabel || '';
+    var extraAmount = document.getElementById('quoteExtraAmount');
+    if (extraAmount) extraAmount.value = pricingConfig.quoteExtraAmount || 0;
+    var fixedDisc = document.getElementById('discountFixedAmount');
+    if (fixedDisc) fixedDisc.value = pricingConfig.discountFixedAmount || 0;
     var vat = document.getElementById('vatEnabled');
     if (vat) vat.checked = pricingConfig.vatEnabled !== false;
     var vatRateEl = document.getElementById('vatRate');
@@ -711,8 +783,12 @@ var UI = (function () {
       if (s.includeInstallation) rows += '<tr><td>Installation</td><td>' + fc(s.installTotal) + '</td></tr>';
       if (s.includeEPDM) rows += '<tr><td>EPDM</td><td>' + fc(s.epdmTotal) + '</td></tr>';
       if (s.includeMastic) rows += '<tr><td>Mastic</td><td>' + fc(s.masticTotal) + '</td></tr>';
+      if (s.quoteExtraAmount !== 0) rows += '<tr><td>' + _escapeHtml(s.quoteExtraLabel || 'Extra costs') + '</td><td>' + fc(s.quoteExtraAmount) + '</td></tr>';
       if (s.discountAmount > 0) {
-        rows += '<tr><td>Discount (' + s.discountPercent + '%)</td><td style="color:var(--accent-danger)">\u2212 ' + fc(s.discountAmount) + '</td></tr>';
+        var discountLabel = s.discountPercent > 0 && s.discountFixedAmount > 0
+          ? 'Discount (' + s.discountPercent + '% + fixed)'
+          : (s.discountPercent > 0 ? 'Discount (' + s.discountPercent + '%)' : 'Fixed Discount');
+        rows += '<tr><td>' + discountLabel + '</td><td style="color:var(--accent-danger)">\u2212 ' + fc(s.discountAmount) + '</td></tr>';
         rows += '<tr><td>After Discount</td><td>' + fc(s.afterDiscount) + '</td></tr>';
       }
       if (s.vatEnabled) rows += '<tr><td>VAT (' + s.vatRate + '%)</td><td>' + fc(s.vatAmount) + '</td></tr>';
@@ -906,6 +982,7 @@ var UI = (function () {
       _formField('Hardware', 'edit_hardware', item.hardware || '', 'text') +
       _formField('Cill Type', 'edit_cillType', item.cillType || '', 'text') +
       _formField('Glazing Makeup', 'edit_glazingMakeup', item.glazingMakeup || '', 'text') +
+      _formField('Glass Requirement', 'edit_glassRequirement', item.glassRequirement || '', 'text') +
       _formField('Ventilation', 'edit_ventilation', item.ventilation || '', 'text') +
       _formField('Drainage', 'edit_drainage', item.drainage || '', 'select', DRAINAGE_OPTIONS) +
       _formField('Escape Window', 'edit_escapeWindow', item.escapeWindow || '', 'select', ESCAPE_OPTIONS) +
@@ -913,20 +990,32 @@ var UI = (function () {
       _formField('U-Value', 'edit_uValue', item.uValue || '', 'text') +
       _formField('Sill Height', 'edit_sillHeight', item.sillHeight || '', 'text') +
       _formField('Head Height', 'edit_headHeight', item.headHeight || '', 'text') +
+      _formField('SBD / PAS24 Requirement', 'edit_securityRequirement', item.securityRequirement || '', 'text') +
+      _formField('EPDM / Silicone Requirement', 'edit_sealantRequirement', item.sealantRequirement || '', 'text') +
+      _formField('Windload Requirement', 'edit_windLoadRequirement', item.windLoadRequirement || '', 'text') +
+      _formField('Fixing Requirement', 'edit_fixingRequirement', item.fixingRequirement || '', 'text') +
       '</div>' +
       '<h4 style="margin:0.8rem 0 0.3rem;color:#64b5f6;font-size:0.85rem;">Door Details</h4>' +
       '<div class="form-grid">' +
       _formField('Door Type', 'edit_doorType', item.doorType || '', 'select', DOOR_TYPE_OPTIONS) +
+      _formField('Entrance Door', 'edit_entranceDoor', item.entranceDoor || '', 'select', ['', 'Yes', 'No']) +
       _formField('Door Swing', 'edit_doorSwing', item.doorSwing || '', 'select', SWING_OPTIONS) +
       _formField('Fire Rating', 'edit_fireRating', item.fireRating || '', 'text') +
       _formField('Door Frame', 'edit_doorFrame', item.doorFrame || '', 'text') +
       _formField('Door Glazing', 'edit_doorGlazing', item.doorGlazing || '', 'text') +
       _formField('Ironmongery', 'edit_ironmongery', item.ironmongery || '', 'text') +
+      _formField('Automation', 'edit_automationRequirement', item.automationRequirement || '', 'text') +
+      _formField('Access Control', 'edit_accessControlRequirement', item.accessControlRequirement || '', 'text') +
+      _formField('Handle', 'edit_handleRequirement', item.handleRequirement || '', 'text') +
+      _formField('Lock', 'edit_lockRequirement', item.lockRequirement || '', 'text') +
+      _formField('Closer', 'edit_closerRequirement', item.closerRequirement || '', 'text') +
       '</div>' +
       _formField('Glazing Specification', 'edit_glazingSpec', item.glazingSpec, 'text', null, 'col-span-2') +
       _formField('Notes (comma separated)', 'edit_notes', (item.notes || []).join(', '), 'text', null, 'col-span-2') +
       '<h4 style="margin:0.8rem 0 0.3rem;color:#4caf50;font-size:0.85rem;">Supplier Costs (from Fenster BOQ)</h4>' +
       '<div class="form-grid">' +
+      _formField('Quoted Unit Price (£)', 'edit_supplierUnitPrice', item.supplierUnitPrice !== undefined ? item.supplierUnitPrice : '', 'number') +
+      _formField('Rate Source', 'edit_supplierRateSource', item.supplierRateSource || '', 'text') +
       _formField('Frame Cost (£)', 'edit_supplierFrameCost', item.supplierFrameCost !== undefined ? item.supplierFrameCost : '', 'number') +
       _formField('Glass Cost (£)', 'edit_supplierGlassCost', item.supplierGlassCost !== undefined ? item.supplierGlassCost : '', 'number') +
       _formField('Additional (£)', 'edit_supplierAdditional', item.supplierAdditional || '', 'number') +
@@ -966,6 +1055,7 @@ var UI = (function () {
           item.hardware = getValue('edit_hardware');
           item.cillType = getValue('edit_cillType');
           item.glazingMakeup = getValue('edit_glazingMakeup');
+          item.glassRequirement = getValue('edit_glassRequirement');
           item.ventilation = getValue('edit_ventilation');
           item.drainage = getValue('edit_drainage');
           item.escapeWindow = getValue('edit_escapeWindow');
@@ -974,13 +1064,26 @@ var UI = (function () {
           item.uValue = getValue('edit_uValue');
           item.sillHeight = getValue('edit_sillHeight');
           item.headHeight = getValue('edit_headHeight');
+          item.securityRequirement = getValue('edit_securityRequirement');
+          item.sealantRequirement = getValue('edit_sealantRequirement');
+          item.windLoadRequirement = getValue('edit_windLoadRequirement');
+          item.fixingRequirement = getValue('edit_fixingRequirement');
           item.doorType = getValue('edit_doorType');
+          item.entranceDoor = getValue('edit_entranceDoor');
           item.doorSwing = getValue('edit_doorSwing');
           item.fireRating = getValue('edit_fireRating');
           item.doorFrame = getValue('edit_doorFrame');
           item.doorGlazing = getValue('edit_doorGlazing');
           item.ironmongery = getValue('edit_ironmongery');
+          item.automationRequirement = getValue('edit_automationRequirement');
+          item.accessControlRequirement = getValue('edit_accessControlRequirement');
+          item.handleRequirement = getValue('edit_handleRequirement');
+          item.lockRequirement = getValue('edit_lockRequirement');
+          item.closerRequirement = getValue('edit_closerRequirement');
           // Supplier cost overrides — empty = use estimate
+          var suVal = getValue('edit_supplierUnitPrice');
+          item.supplierUnitPrice = suVal !== '' ? parseFloat(suVal) : undefined;
+          item.supplierRateSource = getValue('edit_supplierRateSource');
           var sfVal = getValue('edit_supplierFrameCost');
           item.supplierFrameCost = sfVal !== '' ? parseFloat(sfVal) : undefined;
           var sgVal = getValue('edit_supplierGlassCost');
@@ -1063,6 +1166,225 @@ var UI = (function () {
     } else {
       showToast('No blank fields to fill on ' + itemType + 's', 'info');
     }
+  }
+
+  function _applyBulkColumnValue() {
+    var typeEl = document.getElementById('bulkApplyType');
+    var fieldEl = document.getElementById('bulkApplyField');
+    var valueEl = document.getElementById('bulkApplyValue');
+    if (!typeEl || !fieldEl || !valueEl) return;
+
+    var target = typeEl.value;
+    var field = fieldEl.value;
+    var value = valueEl.value.trim();
+    if (!field) return;
+
+    var filteredIds = {};
+    if (target === 'filtered') {
+      _applyFiltersAndSearch(_state.items).forEach(function (item) {
+        filteredIds[item.id] = true;
+      });
+    }
+
+    var count = 0;
+    _state.items.forEach(function (item) {
+      var match = false;
+      if (target === 'all') match = true;
+      else if (target === 'filtered') match = !!filteredIds[item.id];
+      else if (target === 'glazing') match = item.type === 'screen' || item.type === 'curtain wall' || item.type === 'other';
+      else match = item.type === target;
+      if (!match) return;
+      item[field] = value;
+      if (field === 'frameType' && value) item.frameType = value;
+      count++;
+    });
+
+    if (count === 0) {
+      showToast('No matching items to update', 'info');
+      return;
+    }
+
+    if (field === 'frameType' || field === 'glazingSpec') {
+      if (_callbacks.onPricingChanged) _callbacks.onPricingChanged(_state.pricing);
+    } else if (_callbacks.onStateChange) {
+      _callbacks.onStateChange();
+    }
+    renderItemsTable(_state.items, _state.warnings);
+    _updateSummaryBar();
+    showToast('Applied ' + field + ' to ' + count + ' item(s)', 'success');
+  }
+
+  function showTenderQuestions(items, onComplete) {
+    items = items || [];
+    var windows = items.filter(function (i) { return i.type === 'window'; });
+    var doors = items.filter(function (i) { return i.type === 'door'; });
+    if (windows.length === 0 && doors.length === 0) {
+      if (onComplete) onComplete(items);
+      return;
+    }
+
+    function optionList(values) {
+      return values.map(function (v) {
+        return '<option value="' + _escapeHtml(v) + '">' + _escapeHtml(v || 'None') + '</option>';
+      }).join('');
+    }
+    function refCheckboxes(name, refs) {
+      if (refs.length === 0) return '<span class="text-muted">No door refs found.</span>';
+      return '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:6px;max-height:120px;overflow:auto;border:1px solid var(--border-color);border-radius:6px;padding:8px;background:var(--bg)">' +
+        refs.map(function (ref) {
+          return '<label style="font-size:0.8rem;display:flex;gap:4px;align-items:center"><input type="checkbox" name="' + name + '" value="' + _escapeHtml(ref) + '"> ' + _escapeHtml(ref) + '</label>';
+        }).join('') +
+        '</div>';
+    }
+
+    var doorRefs = doors.map(function (d) { return d.reference; }).filter(Boolean);
+    var formHTML =
+      '<p class="text-muted" style="margin-top:0">Answer what the tender docs cannot reliably decide. These answers will pre-fill the extracted item sheet.</p>' +
+      '<h4 style="margin:0.7rem 0 0.35rem;color:#64b5f6;font-size:0.9rem;">Windows (' + windows.length + ')</h4>' +
+      '<div class="form-grid">' +
+        '<div class="form-group"><label>Frame Type</label><select class="form-control" id="tq_winFrame">' + optionList(['', 'Aluminium', 'PVCu', 'Timber', 'Steel', 'Custom']) + '</select></div>' +
+        '<div class="form-group"><label>Custom Frame</label><input class="form-control" id="tq_winFrameCustom" placeholder="e.g. Aluminium"></div>' +
+        '<div class="form-group"><label>System</label><input class="form-control" id="tq_winSystem" placeholder="e.g. Sheerline / Technal Dualframe"></div>' +
+        '<div class="form-group"><label>Colour</label><input class="form-control" id="tq_winColour" placeholder="e.g. RAL 7016"></div>' +
+        '<div class="form-group"><label>Opening Function</label><select class="form-control" id="tq_winOpening">' + optionList(['', 'Fixed', 'Top Hung', 'Casement', 'Tilt & Turn', 'Sliding', 'Pivot']) + '</select></div>' +
+        '<div class="form-group"><label>Glazing</label><input class="form-control" id="tq_winGlazing" placeholder="e.g. 28mm DGU, P3A ground floor"></div>' +
+      '</div>' +
+      '<h4 style="margin:0.9rem 0 0.35rem;color:#64b5f6;font-size:0.9rem;">Doors (' + doors.length + ')</h4>' +
+      '<div class="form-grid">' +
+        '<div class="form-group"><label>Door Frame Type</label><select class="form-control" id="tq_doorFrame">' + optionList(['', 'Aluminium', 'PVCu', 'Timber', 'Steel', 'Custom']) + '</select></div>' +
+        '<div class="form-group"><label>Custom Door Frame</label><input class="form-control" id="tq_doorFrameCustom" placeholder="e.g. Aluminium"></div>' +
+        '<div class="form-group"><label>Door Colour</label><input class="form-control" id="tq_doorColour" placeholder="e.g. RAL colour TBC"></div>' +
+        '<div class="form-group"><label>Door Glazing</label><input class="form-control" id="tq_doorGlazing" placeholder="e.g. DGU P3A / solid panel"></div>' +
+        '<div class="form-group"><label>Which is entrance?</label><select class="form-control" id="tq_entranceDoor"><option value="">Not sure / none</option>' + doorRefs.map(function (r) { return '<option value="' + _escapeHtml(r) + '">' + _escapeHtml(r) + '</option>'; }).join('') + '</select></div>' +
+        '<div class="form-group"><label>Fire Rating for selected fire doors</label><input class="form-control" id="tq_fireRating" value="FD30S"></div>' +
+      '</div>' +
+      '<div class="form-group"><label>Which doors are fire doors?</label>' + refCheckboxes('tq_fireDoors', doorRefs) + '</div>' +
+      '<div class="form-group"><label>Which doors need automation?</label>' + refCheckboxes('tq_automationDoors', doorRefs) + '</div>' +
+      '<div class="form-group"><label>Which doors need access control?</label>' + refCheckboxes('tq_accessDoors', doorRefs) + '</div>' +
+      '<div class="form-grid">' +
+        '<div class="form-group"><label>Handle</label><select class="form-control" id="tq_handle">' + optionList(['', 'Pad handle', 'D handle', '600mm offset D handle', 'Pull handle', 'Lever handle', 'Custom']) + '</select></div>' +
+        '<div class="form-group"><label>Custom Handle</label><input class="form-control" id="tq_handleCustom"></div>' +
+        '<div class="form-group"><label>Lock</label><select class="form-control" id="tq_lock">' + optionList(['', 'Euro cylinder', 'Hook lock', 'Mag lock', 'Electric strike', 'Thumb turn', 'Custom']) + '</select></div>' +
+        '<div class="form-group"><label>Custom Lock</label><input class="form-control" id="tq_lockCustom"></div>' +
+        '<div class="form-group"><label>Closer</label><select class="form-control" id="tq_closer">' + optionList(['', 'Overhead closer - non hold open', 'Overhead closer - hold open', 'Concealed closer', 'NHO closer', 'Custom']) + '</select></div>' +
+        '<div class="form-group"><label>Custom Closer</label><input class="form-control" id="tq_closerCustom"></div>' +
+        '<div class="form-group col-span-2"><label>Ironmongery Notes</label><input class="form-control" id="tq_ironmongery" placeholder="e.g. panic bar, kick plate, pull handles"></div>' +
+      '</div>' +
+      '<div class="form-group" style="margin-top:8px"><label style="display:flex;gap:6px;align-items:center;text-transform:none;letter-spacing:0;font-weight:500"><input type="checkbox" id="tq_applyDoorHardwareAll"> Apply handle / lock / closer defaults to every door</label><div class="text-muted" style="font-size:0.75rem;margin-top:3px">Leave unticked to keep per-door detected values such as plant room pad handles and entrance D handles.</div></div>';
+
+    showModal('Tender Questions', formHTML, [
+      {
+        label: 'Apply Answers',
+        class: 'btn-primary',
+        close: false,
+        onClick: function () {
+          applyTenderQuestionAnswers(items);
+          closeModal();
+          if (onComplete) onComplete(items);
+        }
+      },
+      {
+        label: 'Skip',
+        class: 'btn-secondary',
+        onClick: function () {
+          if (onComplete) onComplete(items);
+        }
+      }
+    ]);
+  }
+
+  function applyTenderQuestionAnswers(items) {
+    function val(id) {
+      var el = document.getElementById(id);
+      return el ? el.value.trim() : '';
+    }
+    function pick(selectId, customId) {
+      var selected = val(selectId);
+      var custom = val(customId);
+      return custom || (selected === 'Custom' ? '' : selected);
+    }
+    function checkedRefs(name) {
+      var refs = {};
+      document.querySelectorAll('input[name="' + name + '"]:checked').forEach(function (el) {
+        refs[el.value] = true;
+      });
+      return refs;
+    }
+    function addNote(item, note) {
+      if (!note) return;
+      if (!item.notes) item.notes = [];
+      if (item.notes.indexOf(note) === -1) item.notes.push(note);
+    }
+
+    var winFrame = pick('tq_winFrame', 'tq_winFrameCustom');
+    var winSystem = val('tq_winSystem');
+    var winColour = val('tq_winColour');
+    var winOpening = val('tq_winOpening');
+    var winGlazing = val('tq_winGlazing');
+
+    var doorFrame = pick('tq_doorFrame', 'tq_doorFrameCustom');
+    var doorColour = val('tq_doorColour');
+    var doorGlazing = val('tq_doorGlazing');
+    var entranceRef = val('tq_entranceDoor');
+    var fireRating = val('tq_fireRating');
+    var fireRefs = checkedRefs('tq_fireDoors');
+    var automationRefs = checkedRefs('tq_automationDoors');
+    var accessRefs = checkedRefs('tq_accessDoors');
+    var handle = pick('tq_handle', 'tq_handleCustom');
+    var lock = pick('tq_lock', 'tq_lockCustom');
+    var closer = pick('tq_closer', 'tq_closerCustom');
+    var ironmongery = val('tq_ironmongery');
+    var applyDoorHardwareAll = !!document.getElementById('tq_applyDoorHardwareAll') && document.getElementById('tq_applyDoorHardwareAll').checked;
+
+    items.forEach(function (item) {
+      if (item.type === 'window') {
+        if (winFrame) item.frameType = winFrame;
+        if (winSystem) item.system = winSystem;
+        if (winColour) item.colour = winColour;
+        if (winOpening) item.openingType = winOpening;
+        if (winGlazing) {
+          item.glazingSpec = winGlazing;
+          item.glassRequirement = winGlazing;
+        }
+      }
+      if (item.type === 'door') {
+        if (doorFrame) item.frameType = doorFrame;
+        if (doorColour) item.colour = doorColour;
+        if (doorGlazing) {
+          item.doorGlazing = doorGlazing;
+          item.glazingSpec = doorGlazing;
+          item.glassRequirement = doorGlazing;
+        }
+        if (item.reference === entranceRef) {
+          item.entranceDoor = 'Yes';
+          addNote(item, 'Entrance door');
+        } else if (entranceRef) {
+          item.entranceDoor = 'No';
+        }
+        if (fireRefs[item.reference] && fireRating) {
+          item.fireRating = fireRating;
+          addNote(item, 'Fire door');
+        }
+        if (automationRefs[item.reference]) {
+          item.automationRequirement = 'Automation required';
+          addNote(item, 'Automation required');
+        }
+        if (accessRefs[item.reference]) {
+          item.accessControlRequirement = 'Access control required';
+          addNote(item, 'Access control required');
+        }
+        if (applyDoorHardwareAll && handle) item.handleRequirement = handle;
+        if (applyDoorHardwareAll && lock) item.lockRequirement = lock;
+        if (applyDoorHardwareAll && closer) item.closerRequirement = closer;
+        var hwParts = [item.handleRequirement, item.lockRequirement, item.closerRequirement, ironmongery].filter(Boolean);
+        if (hwParts.length) {
+          item.ironmongery = hwParts.join(' / ');
+          item.hardware = item.ironmongery;
+        }
+      }
+    });
+
+    if (_callbacks.onPricingChanged) _callbacks.onPricingChanged(_state.pricing);
   }
 
   function _deleteItem(itemId) {
@@ -1178,9 +1500,11 @@ var UI = (function () {
     renderSourceDocuments: renderSourceDocuments,
     showPDFVerifyView: showPDFVerifyView,
     showTableView: showTableView,
+    showTenderQuestions: showTenderQuestions,
     _sortBy: _sortBy,
     _editItem: _editItem,
     _duplicateItem: _duplicateItem,
     _deleteItem: _deleteItem
+    ,_applyBulkColumnValue: _applyBulkColumnValue
   };
 })();

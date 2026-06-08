@@ -9,6 +9,10 @@ var App = (function () {
   function init() {
     _loadState();
     _generateQuoteNumberIfNeeded();
+    if (_state.items && _state.items.length > 0) {
+      _state.pricing = Pricing.applyTenderPricingDefaults(_state.items, _state.pricing);
+      _state.items = Pricing.recalculateAll(_state.items, _state.pricing);
+    }
 
     UI.initUI(_state, {
       onFilesAdded: onFilesAdded,
@@ -57,7 +61,7 @@ var App = (function () {
     if (saved) {
       _state = saved;
       // Migrate pricing config — pricingVersion tracks schema changes.
-      var currentVersion = 3;
+      var currentVersion = Pricing.DEFAULT_CONFIG.pricingVersion || 4;
       if (!_state.pricing || (_state.pricing.pricingVersion || 0) < currentVersion) {
         // Fenster master pricing doc model (v3)
         _state.pricing = Object.assign({}, Pricing.DEFAULT_CONFIG);
@@ -213,6 +217,7 @@ var App = (function () {
             console.groupEnd();
           }
 
+          _state.pricing = Pricing.applyTenderPricingDefaults(newItems, _state.pricing);
           newItems = Pricing.recalculateAll(newItems, _state.pricing);
 
           _state.items = newItems;
@@ -230,10 +235,16 @@ var App = (function () {
             UI.showToast('Extracted ' + newItems.length + ' item(s) from ' + stats.docsProcessed + ' document(s) — please verify below', 'success');
             _enableStep2Tab();
             _enableStep3Tab();
-            // Show PDF verify view so user can review detections before the table
-            UI.renderStep(2);
+            UI.showTenderQuestions(_state.items, function (questionedItems) {
+              _state.pricing = Pricing.applyTenderPricingDefaults(questionedItems, _state.pricing);
+              _state.items = Pricing.recalculateAll(questionedItems, _state.pricing);
+              saveToLocalStorage(_state);
+              UI.updateState(_state);
+              // Show PDF verify view so user can review detections before the table
+              UI.renderStep(2);
             UI.showPDFVerifyView(validDocs, _state.items, function (acceptedItems) {
               // Replace state items with only the accepted ones
+              _state.pricing = Pricing.applyTenderPricingDefaults(acceptedItems, _state.pricing);
               _state.items = Pricing.recalculateAll(acceptedItems, _state.pricing);
               _state.warnings = _state.warnings.filter(function (w) {
                 return _state.items.some(function (it) { return it.id === w.itemId; }) || !w.itemId;
@@ -244,6 +255,7 @@ var App = (function () {
               UI.renderWarningsPanel(_state.warnings, _state.items);
               UI.renderSourceDocuments(_state.sourceDocuments);
               UI.showToast(_state.items.length + ' item(s) confirmed', 'success');
+            });
             });
           }
         } catch (err) {
@@ -415,6 +427,8 @@ var App = (function () {
         var priceResult = Pricing.calculateItemPrice(item, _state.pricing);
         item.unitPrice = priceResult.unitPrice;
         item.totalPrice = priceResult.totalPrice;
+        item.productCode = priceResult.productCode;
+        item.pricingMethod = priceResult.pricingMethod;
       }
       item.confidence = _rescoreConfidence(item);
       _state.items[idx] = item;
@@ -443,6 +457,8 @@ var App = (function () {
     newItem.id = generateId();
     newItem.reference = getNextReference(_state.items, item.type);
     newItem.manualOverride = false;
+    newItem.supplierUnitPrice = undefined;
+    newItem.supplierRateSource = '';
     _state.items.push(newItem);
     saveToLocalStorage(_state);
     UI.updateState(_state);

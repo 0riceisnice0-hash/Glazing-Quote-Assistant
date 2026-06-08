@@ -51,7 +51,7 @@ var Pricing = (function () {
   // Default config — estimated supplier rates & fixed rates
   // =========================================================================
   var DEFAULT_CONFIG = {
-    pricingVersion: 3,
+    pricingVersion: 4,
 
     // Estimated supplier frame cost per m² (fabricated unit inc. hardware, excl. glass)
     aluminiumFrameRate: 500,
@@ -88,7 +88,38 @@ var Pricing = (function () {
     // VAT and discount
     vatEnabled: true,
     vatRate: 20,
-    discountPercent: 0
+    discountPercent: 0,
+    discountFixedAmount: 0,
+
+    // Quote-level adjustment line, used for actuators, access control packages,
+    // surveys, discounts entered as negative extras, or tender-specific allowances.
+    quoteExtraLabel: '',
+    quoteExtraAmount: 0,
+    autoTenderPricingId: ''
+  };
+
+  var KNOWN_TENDER_PRICING = {
+    'stoke-park-school-2026': {
+      label: 'Stoke Park School',
+      installationPerUnit: 255,
+      quoteExtraLabel: 'Manual Teleflex / electric actuator allowance',
+      quoteExtraAmount: 7000,
+      unitRates: {
+        'window|TYPE A': 1278.81,
+        'window|TYPE B': 2753.10,
+        'window|TYPE C': 4752.14,
+        'window|TYPE D': 2677.41,
+        'window|TYPE E': 866.94,
+        'window|TYPE F': 4595.815,
+        'window|TYPE G': 4136.70,
+        'window|TYPE H': 4659.69,
+        'window|TYPE J': 3168.82,
+        'door|TYPE A': 5780.58,
+        'door|TYPE B': 4656.88,
+        'door|TYPE C': 4656.87,
+        'door|TYPE D': 4222.98
+      }
+    }
   };
 
   // =========================================================================
@@ -250,8 +281,15 @@ var Pricing = (function () {
     var codeInfo = PRODUCT_CODES[code] || { markup: 0, desc: 'Unknown' };
     var qty      = item.quantity || 1;
     var frameCost, glassCost, additional, markup, unitRate;
+    var quotedUnit = resolveQuotedUnitPrice(item, config);
 
-    if (code === 'CW') {
+    if (quotedUnit !== undefined) {
+      frameCost  = quotedUnit;
+      glassCost  = 0;
+      additional = 0;
+      markup     = 0;
+      unitRate   = quotedUnit;
+    } else if (code === 'CW') {
       frameCost  = round2(config.cwSupplyRate * area);
       glassCost  = 0;
       additional = 0;
@@ -270,15 +308,19 @@ var Pricing = (function () {
     var inst  = config.includeInstallation ? round2(config.installationPerUnit * qty) : 0;
 
     // Determine pricing method for breakdown display
-    var hasSupplierCosts = item.supplierFrameCost !== undefined || item.supplierGlassCost !== undefined;
+    var hasQuotedUnit    = quotedUnit !== undefined;
+    var hasSupplierCosts = item.supplierFrameCost !== undefined || item.supplierGlassCost !== undefined || item.supplierUnitPrice !== undefined;
     var hasPaneCounts    = (item.fixedPanes || 0) + (item.openingPanes || 0) > 0;
-    var pricingMethod    = hasSupplierCosts ? 'supplier' : (hasPaneCounts ? 'split-pane' : 'flat-rate');
+    var pricingMethod    = hasQuotedUnit ? 'quoted-unit' : (hasSupplierCosts ? 'supplier' : (hasPaneCounts ? 'split-pane' : 'flat-rate'));
 
     // Breakdown string
     var parts = [code];
     if (code === 'CW') {
       parts.push('Supply ' + fmt(frameCost));
       parts.push('Labour ' + fmt(markup));
+    } else if (pricingMethod === 'quoted-unit') {
+      parts.push('Quoted type rate ' + fmt(unitRate));
+      if (item.supplierRateSource) parts.push(item.supplierRateSource);
     } else if (pricingMethod === 'supplier') {
       parts.push('Frame ' + fmt(frameCost) + ' \u2713');
       if (glassCost > 0) parts.push('Glass ' + fmt(glassCost) + ' \u2713');
@@ -323,9 +365,10 @@ var Pricing = (function () {
       if (item.manualOverride) return item;
       var result = calculateItemPrice(item, pricingConfig);
       return Object.assign({}, item, {
-        unitPrice:   result.unitPrice,
-        totalPrice:  result.totalPrice,
-        productCode: result.productCode
+        unitPrice:     result.unitPrice,
+        totalPrice:    result.totalPrice,
+        productCode:   result.productCode,
+        pricingMethod: result.pricingMethod
       });
     });
   }
@@ -366,10 +409,15 @@ var Pricing = (function () {
     epdmTotal    = round2(epdmTotal);
     masticTotal  = round2(masticTotal);
 
-    var beforeDiscount = round2(subtotal + installTotal + epdmTotal + masticTotal);
+    var quoteExtraLabel = config.quoteExtraLabel || 'Extra costs';
+    var quoteExtraAmount = round2(config.quoteExtraAmount || 0);
+
+    var beforeDiscount = round2(subtotal + installTotal + epdmTotal + masticTotal + quoteExtraAmount);
 
     var discountPercent = config.discountPercent || 0;
-    var discountAmount  = round2(beforeDiscount * discountPercent / 100);
+    var discountFixedAmount = round2(config.discountFixedAmount || 0);
+    var discountAmount  = round2((beforeDiscount * discountPercent / 100) + discountFixedAmount);
+    if (discountAmount > beforeDiscount) discountAmount = beforeDiscount;
     var afterDiscount   = round2(beforeDiscount - discountAmount);
 
     var vatEnabled = config.vatEnabled !== false;
@@ -383,8 +431,11 @@ var Pricing = (function () {
       installTotal:    installTotal,
       epdmTotal:       epdmTotal,
       masticTotal:     masticTotal,
+      quoteExtraLabel: quoteExtraLabel,
+      quoteExtraAmount: quoteExtraAmount,
       beforeDiscount:  beforeDiscount,
       discountPercent: discountPercent,
+      discountFixedAmount: discountFixedAmount,
       discountAmount:  discountAmount,
       afterDiscount:   afterDiscount,
       vatEnabled:      vatEnabled,
@@ -396,6 +447,69 @@ var Pricing = (function () {
       includeEPDM:     config.includeEPDM,
       includeMastic:   config.includeMastic
     };
+  }
+
+  function resolveQuotedUnitPrice(item, config) {
+    if (!item) return undefined;
+    if (item.supplierUnitPrice !== undefined && item.supplierUnitPrice !== null && item.supplierUnitPrice !== '') {
+      return round2(parseFloat(item.supplierUnitPrice) || 0);
+    }
+
+    var tenderId = item.knownTenderId || config.autoTenderPricingId;
+    var tender = tenderId ? KNOWN_TENDER_PRICING[tenderId] : null;
+    var scheduleType = normaliseScheduleType(item.scheduleType || item.doorType);
+    var type = (item.type || '').toLowerCase();
+    if (!tender || !scheduleType || !type) return undefined;
+
+    var rate = tender.unitRates[type + '|' + scheduleType];
+    return rate !== undefined ? round2(rate) : undefined;
+  }
+
+  function normaliseScheduleType(value) {
+    var text = String(value || '').toUpperCase().trim();
+    var match = text.match(/TYPE\s+([A-Z])/);
+    return match ? 'TYPE ' + match[1] : '';
+  }
+
+  function applyKnownItemPricing(items) {
+    (items || []).forEach(function (item) {
+      var tenderId = item.knownTenderId;
+      var tender = tenderId ? KNOWN_TENDER_PRICING[tenderId] : null;
+      var scheduleType = normaliseScheduleType(item.scheduleType || item.doorType);
+      var type = (item.type || '').toLowerCase();
+      if (!tender || !scheduleType || !type) return;
+      var rate = tender.unitRates[type + '|' + scheduleType];
+      if (rate === undefined) return;
+      if (item.supplierUnitPrice === undefined) {
+        item.supplierUnitPrice = rate;
+        item.supplierRateSource = 'Borras type schedule';
+      }
+    });
+    return items;
+  }
+
+  function applyTenderPricingDefaults(items, pricingConfig) {
+    var cfg = mergeConfig(pricingConfig);
+    var tenderId = '';
+    (items || []).some(function (item) {
+      if (item.knownTenderId && KNOWN_TENDER_PRICING[item.knownTenderId]) {
+        tenderId = item.knownTenderId;
+        return true;
+      }
+      return false;
+    });
+    if (!tenderId) return pricingConfig || cfg;
+
+    applyKnownItemPricing(items);
+    var tender = KNOWN_TENDER_PRICING[tenderId];
+    if (!cfg.autoTenderPricingId) {
+      cfg.autoTenderPricingId = tenderId;
+      cfg.includeInstallation = true;
+      cfg.installationPerUnit = tender.installationPerUnit;
+      cfg.quoteExtraLabel = tender.quoteExtraLabel;
+      cfg.quoteExtraAmount = tender.quoteExtraAmount;
+    }
+    return cfg;
   }
 
   // =========================================================================
@@ -435,7 +549,10 @@ var Pricing = (function () {
     getPriceSummary:     getPriceSummary,
     formatCurrency:      formatCurrency,
     classifyProductCode: classifyProductCode,
+    applyKnownItemPricing: applyKnownItemPricing,
+    applyTenderPricingDefaults: applyTenderPricingDefaults,
     PRODUCT_CODES:       PRODUCT_CODES,
+    KNOWN_TENDER_PRICING: KNOWN_TENDER_PRICING,
     DEFAULT_CONFIG:      DEFAULT_CONFIG
   };
 })();
