@@ -79,6 +79,8 @@ var Pricing = (function () {
     cwLabourRate: 150,
     epdmRate: 25,
     masticRate: 5,
+    fixedEPDMAmount: undefined,
+    fixedMasticAmount: undefined,
 
     // Quote-level options
     includeInstallation: true,
@@ -102,6 +104,8 @@ var Pricing = (function () {
     'stoke-park-school-2026': {
       label: 'Stoke Park School',
       installationPerUnit: 255,
+      fixedMasticAmount: 1432.50,
+      fixedEPDMAmount: 4285.62,
       quoteExtraLabel: 'Manual Teleflex / electric actuator allowance',
       quoteExtraAmount: 7000,
       unitRates: {
@@ -406,8 +410,8 @@ var Pricing = (function () {
 
     subtotal     = round2(subtotal);
     installTotal = round2(installTotal);
-    epdmTotal    = round2(epdmTotal);
-    masticTotal  = round2(masticTotal);
+    epdmTotal    = config.fixedEPDMAmount !== undefined ? round2(config.fixedEPDMAmount || 0) : round2(epdmTotal);
+    masticTotal  = config.fixedMasticAmount !== undefined ? round2(config.fixedMasticAmount || 0) : round2(masticTotal);
 
     var quoteExtraLabel = config.quoteExtraLabel || 'Extra costs';
     var quoteExtraAmount = round2(config.quoteExtraAmount || 0);
@@ -505,9 +509,22 @@ var Pricing = (function () {
     if (!cfg.autoTenderPricingId) {
       cfg.autoTenderPricingId = tenderId;
       cfg.includeInstallation = true;
+      cfg.includeMastic = true;
+      cfg.includeEPDM = true;
       cfg.installationPerUnit = tender.installationPerUnit;
+      cfg.fixedMasticAmount = tender.fixedMasticAmount;
+      cfg.fixedEPDMAmount = tender.fixedEPDMAmount;
       cfg.quoteExtraLabel = tender.quoteExtraLabel;
       cfg.quoteExtraAmount = tender.quoteExtraAmount;
+    } else if (cfg.autoTenderPricingId === tenderId) {
+      if (cfg.fixedMasticAmount === undefined) {
+        cfg.fixedMasticAmount = tender.fixedMasticAmount;
+        cfg.includeMastic = true;
+      }
+      if (cfg.fixedEPDMAmount === undefined) {
+        cfg.fixedEPDMAmount = tender.fixedEPDMAmount;
+        cfg.includeEPDM = true;
+      }
     }
     return cfg;
   }

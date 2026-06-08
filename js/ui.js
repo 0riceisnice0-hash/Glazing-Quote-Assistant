@@ -81,14 +81,19 @@ var UI = (function () {
       'aluminiumFrameRate', 'aluminiumDoorRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
       'fixedPaneRate', 'openingPaneRate', 'louvreFlat', 'overheadPercent',
       'doubleGlazedRate', 'tripleGlazedRate', 'fireRatedGlassRate', 'toughenedExtra',
-      'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate'
+      'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate',
+      'fixedEPDMAmount', 'fixedMasticAmount'
     ];
     rateFields.forEach(function (field) {
       var el = document.getElementById(field);
       if (!el) return;
-      el.value = _state.pricing[field] !== undefined ? _state.pricing[field] : (Pricing.DEFAULT_CONFIG[field] || 0);
+      el.value = _state.pricing[field] !== undefined ? _state.pricing[field] : (Pricing.DEFAULT_CONFIG[field] || '');
       el.addEventListener('change', function () {
-        _state.pricing[field] = parseFloat(el.value) || 0;
+        if ((field === 'fixedEPDMAmount' || field === 'fixedMasticAmount') && el.value === '') {
+          _state.pricing[field] = undefined;
+        } else {
+          _state.pricing[field] = parseFloat(el.value) || 0;
+        }
         _triggerPriceUpdate();
       });
     });
@@ -727,7 +732,7 @@ var UI = (function () {
       'aluminiumFrameRate', 'aluminiumDoorRate', 'pvcFrameRate', 'timberFrameRate', 'steelFrameRate',
       'doubleGlazedRate', 'tripleGlazedRate', 'fireRatedGlassRate', 'toughenedExtra',
       'installationPerUnit', 'cwSupplyRate', 'cwLabourRate', 'epdmRate', 'masticRate',
-      'quoteExtraAmount', 'discountFixedAmount'
+      'fixedEPDMAmount', 'fixedMasticAmount', 'quoteExtraAmount', 'discountFixedAmount'
     ];
     rateFields.forEach(function (field) {
       var el = document.getElementById(field);

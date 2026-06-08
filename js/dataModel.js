@@ -34,6 +34,8 @@ const DEFAULT_STATE = {
     cwLabourRate: 150,
     epdmRate: 25,
     masticRate: 5,
+    fixedEPDMAmount: undefined,
+    fixedMasticAmount: undefined,
     includeInstallation: true,
     includeEPDM: false,
     includeMastic: false,
