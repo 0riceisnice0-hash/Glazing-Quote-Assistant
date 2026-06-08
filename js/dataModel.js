@@ -44,6 +44,7 @@ const DEFAULT_STATE = {
     quoteExtraLabel: '',
     quoteExtraAmount: 0,
     autoTenderPricingId: '',
+    tenderPricingDefaultsVersion: 0,
     vatEnabled: true,
     vatRate: 20,
     // Split-pane pricing rates (Option 2)

@@ -97,12 +97,14 @@ var Pricing = (function () {
     // surveys, discounts entered as negative extras, or tender-specific allowances.
     quoteExtraLabel: '',
     quoteExtraAmount: 0,
-    autoTenderPricingId: ''
+    autoTenderPricingId: '',
+    tenderPricingDefaultsVersion: 0
   };
 
   var KNOWN_TENDER_PRICING = {
     'stoke-park-school-2026': {
       label: 'Stoke Park School',
+      defaultsVersion: 2,
       installationPerUnit: 255,
       fixedMasticAmount: 1432.50,
       fixedEPDMAmount: 4285.62,
@@ -410,8 +412,8 @@ var Pricing = (function () {
 
     subtotal     = round2(subtotal);
     installTotal = round2(installTotal);
-    epdmTotal    = config.fixedEPDMAmount !== undefined ? round2(config.fixedEPDMAmount || 0) : round2(epdmTotal);
-    masticTotal  = config.fixedMasticAmount !== undefined ? round2(config.fixedMasticAmount || 0) : round2(masticTotal);
+    epdmTotal    = config.includeEPDM && config.fixedEPDMAmount !== undefined ? round2(config.fixedEPDMAmount || 0) : round2(epdmTotal);
+    masticTotal  = config.includeMastic && config.fixedMasticAmount !== undefined ? round2(config.fixedMasticAmount || 0) : round2(masticTotal);
 
     var quoteExtraLabel = config.quoteExtraLabel || 'Extra costs';
     var quoteExtraAmount = round2(config.quoteExtraAmount || 0);
@@ -506,11 +508,14 @@ var Pricing = (function () {
 
     applyKnownItemPricing(items);
     var tender = KNOWN_TENDER_PRICING[tenderId];
-    if (!cfg.autoTenderPricingId) {
+    var defaultsVersion = tender.defaultsVersion || 1;
+    if (!cfg.autoTenderPricingId || cfg.autoTenderPricingId === tenderId && (cfg.tenderPricingDefaultsVersion || 0) < defaultsVersion) {
       cfg.autoTenderPricingId = tenderId;
+      cfg.tenderPricingDefaultsVersion = defaultsVersion;
       cfg.includeInstallation = true;
-      cfg.includeMastic = true;
-      cfg.includeEPDM = true;
+      cfg.includeMastic = false;
+      cfg.includeEPDM = false;
+      cfg.vatEnabled = false;
       cfg.installationPerUnit = tender.installationPerUnit;
       cfg.fixedMasticAmount = tender.fixedMasticAmount;
       cfg.fixedEPDMAmount = tender.fixedEPDMAmount;
