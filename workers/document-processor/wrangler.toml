@@ -1,0 +1,6 @@
+name = "gqa-document-processor"
+main = "src/index.js"
+compatibility_date = "2026-06-11"
+
+[vars]
+GQA_MAX_FILE_BYTES = "25000000"

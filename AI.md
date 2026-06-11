@@ -22,8 +22,9 @@ Do not assume tender documents live in the repo. In the current working setup, t
 1. `index.html` loads browser globals from `js/*.js`.
 2. `js/app.js` controls the workflow:
    - Loads state from `localStorage`.
-   - Accepts pending PDF/XLSX/XLSM/XLS uploads.
-   - Calls `extractTenderInput()` from `js/pdfParser.js`, which dispatches to PDF.js or SheetJS.
+   - Accepts pending PDF/XLSX/XLSM/XLS/ZIP/DOCX/EML/MSG/JPG/PNG uploads.
+   - Calls `DocumentIntake.processFiles()` from `js/documentIntake.js`.
+   - `DocumentIntake` expands ZIPs, reads DOCX/EML, OCRs images when Tesseract is available, emits intake records/risks/supplier evidence, and delegates PDF/Excel extraction to `extractTenderInput()`.
    - Classifies each document with `DataExtractor.classifyDocument()`.
    - Runs OCR through `js/ocrFallback.js` for scanned non-admin/non-drawing docs when available.
    - Calls `DataExtractor.extractItems(validDocs)`.
@@ -47,6 +48,42 @@ It extracts PDFs with `extractTextFromPDF()` and workbooks with `extractWorkbook
 - `isScanned`
 
 For workbooks, the browser and Node harness both flatten rows to text and create synthetic `textItems` coordinates so the core extractor can reuse table/row logic. For PDFs, the Node harness recreates the browser PDF.js shape, but it is not guaranteed to match browser PDF.js perfectly.
+
+### `js/documentIntake.js`
+
+Browser-side estimator co-pilot intake layer.
+
+It normalises messy tender inputs before extraction:
+
+- ZIP archives are expanded with JSZip and child files keep archive provenance.
+- DOCX files are read by extracting `word/document.xml`.
+- EML files produce body text and a warning if attachments may exist.
+- MSG files currently produce a critical risk because local MSG extraction is not implemented.
+- JPG/PNG files run Tesseract OCR when available and create human-review risks.
+- Supplier quote documents produce proposed `supplierEvidence` records only; they cannot create priced scope items.
+- Client quotes are classified as admin/excluded so they do not create scope items.
+
+`DocumentIntake` is the correct seam for future Cloudflare Worker integration. Keep `DataExtractor` focused on normalised documents and pricing-safe item extraction.
+
+### `workers/document-processor`
+
+Optional Cloudflare Worker for internal document intake. It is not used unless the upload UI has cloud processing enabled and a Worker URL configured.
+
+Current Worker capabilities:
+
+- `GET /health`
+- `POST /process-file`
+- `POST /process-pack`
+- ZIP expansion via JSZip
+- DOCX text extraction from `word/document.xml`
+- EML subject/body extraction
+- Proposed supplier evidence from text
+
+Current Worker limits:
+
+- PDF and Excel are still browser/harness-local paths.
+- JPG/PNG OCR is not implemented in the Worker; browser Tesseract remains the free OCR path.
+- MSG parsing is still a risk/placeholder.
 
 ### `js/dataExtractor.js`
 
@@ -143,6 +180,10 @@ Supported inputs:
 
 - PDF
 - XLSX/XLSM/XLS
+- ZIP
+- DOCX
+- EML
+- MSG/JPG/PNG as explicit critical-risk placeholders in the Node harness
 
 It recursively scans the folder and excludes paths containing:
 
@@ -162,6 +203,8 @@ Outputs:
 - CSV item list.
 
 Workbook parity: the website now accepts `.xlsx`, `.xlsm`, and `.xls` alongside PDFs and uses the same workbook flattening pattern as this script. A remaining difference is path context: the script recursively scans folders and preserves relative paths; the browser only sees `file.name` unless files arrive with `webkitRelativePath`.
+
+Expanded intake: the harness now expands ZIPs, reads DOCX/EML, and writes `risks` plus `intakeRecords` into the JSON report. It does not run Node-side OCR for JPG/PNG; those inputs are reported as critical risks so image-only packs do not fail silently.
 
 ### `scripts/extract-actual-quote-totals.py`
 

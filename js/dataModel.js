@@ -136,6 +136,14 @@ const DEFAULT_STATE = {
   },
   sourceDocuments: [],
   warnings: [],
+  assumptions: [],
+  exclusions: [],
+  risks: [],
+  rfis: [],
+  approvals: [],
+  supplierEvidence: [],
+  drawingCandidates: [],
+  intakeRecords: [],
   lastSaved: null
 };
 

@@ -117,11 +117,19 @@
             </div>
 
             <div class="upload-zone" id="dropZone">
-              <input type="file" id="fileInput" accept=".pdf,.xlsx,.xlsm,.xls" multiple aria-label="Upload tender documents">
+              <input type="file" id="fileInput" accept=".pdf,.xlsx,.xlsm,.xls,.zip,.docx,.eml,.msg,.jpg,.jpeg,.png" multiple aria-label="Upload tender documents">
               <span class="upload-icon">📂</span>
               <h3>Drop tender files here</h3>
               <p>or click to browse your files</p>
-              <span class="upload-hint">Accepts: PDF and Excel files • Window schedules, door schedules, tender drawings</span>
+              <span class="upload-hint">Accepts: PDF, Excel, ZIP, DOCX, EML and image files • Window schedules, door schedules, tender drawings</span>
+            </div>
+
+            <div class="cloud-processing-settings">
+              <label class="inline-check">
+                <input type="checkbox" id="cloudProcessingEnabled">
+                <span>Use Cloudflare Worker for unsupported documents</span>
+              </label>
+              <input type="url" class="form-control" id="cloudWorkerUrl" placeholder="https://gqa-document-processor.your-subdomain.workers.dev">
             </div>
 
             <ul class="file-list" id="fileList"></ul>
@@ -620,6 +628,7 @@
     integrity="sha512-jLgOBQkUaRRXfpwIEGE5jlCPSxMiQSFm0/cdzP/KuiECIx5x0ucr5enJrjtQJt+Y8vpIpOroYhsfsRLoDWO26Q=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <!-- Tesseract.js for OCR fallback on scanned PDFs (loaded async — only used if available) -->
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 
@@ -630,6 +639,7 @@
   <!-- ========== Application Scripts (v=20260328 for cache bust) ========== -->
   <script src="js/dataModel.js?v=20260327a"></script>
   <script src="js/pdfParser.js?v=20260327a"></script>
+  <script src="js/documentIntake.js?v=20260611a"></script>
   <script src="js/dataExtractor.js?v=20260327a"></script>
   <script src="js/pricing.js?v=20260330a"></script>
   <script src="js/ui.js?v=20260327a"></script>

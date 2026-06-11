@@ -40,7 +40,8 @@ var QuoteGenerator = (function () {
     var contentWidth = pageWidth - margin * 2;
 
     var company = state.company || {};
-    var meta = state.metadata || {};
+    var meta = Object.assign({}, state.metadata || {});
+    meta.notes = buildCommercialNotes(state, meta.notes);
     var items = state.items || [];
     var pricing = pricingConfig || state.pricing || {};
     var detailMode = (options && options.detailMode) || 'detailed';
@@ -75,6 +76,37 @@ var QuoteGenerator = (function () {
     }
 
     return doc;
+  }
+
+  function buildCommercialNotes(state, existingNotes) {
+    var sections = [];
+    if (existingNotes) sections.push(existingNotes);
+
+    function accepted(list) {
+      return (list || []).filter(function (entry) {
+        return entry && (entry.status === 'accepted' || entry.status === 'approved' || entry.status === 'open');
+      });
+    }
+
+    var assumptions = accepted(state.assumptions);
+    var exclusions = accepted(state.exclusions);
+    var rfis = accepted(state.rfis);
+    var acceptedRisks = (state.risks || []).filter(function (risk) { return risk.status === 'accepted'; });
+
+    if (assumptions.length) {
+      sections.push('Assumptions:\n' + assumptions.map(function (a) { return '- ' + a.message; }).join('\n'));
+    }
+    if (exclusions.length) {
+      sections.push('Exclusions:\n' + exclusions.map(function (e) { return '- ' + e.message; }).join('\n'));
+    }
+    if (rfis.length) {
+      sections.push('Clarifications/RFIs:\n' + rfis.map(function (r) { return '- ' + r.message; }).join('\n'));
+    }
+    if (acceptedRisks.length) {
+      sections.push('Estimator accepted risks:\n' + acceptedRisks.map(function (r) { return '- ' + r.message; }).join('\n'));
+    }
+
+    return sections.join('\n\n');
   }
 
   /* ===== COMPACT MODE: traditional 6-column autoTable ===== */

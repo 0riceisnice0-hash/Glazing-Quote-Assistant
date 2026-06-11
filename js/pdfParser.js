@@ -2,7 +2,7 @@
 
 function isSupportedTenderFile(file) {
   var name = (file && file.name ? file.name : '').toLowerCase();
-  return /\.(pdf|xlsx|xlsm|xls)$/.test(name) || (file && file.type === 'application/pdf');
+  return /\.(pdf|xlsx|xlsm|xls|zip|docx|eml|msg|jpe?g|png)$/.test(name) || (file && file.type === 'application/pdf');
 }
 
 function isWorkbookFile(file) {

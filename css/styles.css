@@ -322,6 +322,29 @@ body {
   display: inline-block;
 }
 
+.cloud-processing-settings {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--bg-primary);
+  display: grid;
+  gap: 8px;
+}
+
+.inline-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.inline-check input {
+  width: 16px;
+  height: 16px;
+}
+
 /* ---------- File List ---------- */
 .file-list {
   list-style: none;

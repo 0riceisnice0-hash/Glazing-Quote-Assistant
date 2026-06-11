@@ -8,7 +8,7 @@ A professional, client-side web application for glazing contractors to extract i
 
 ## Features
 
-- 📂 **PDF Upload & Text Extraction** — drag-and-drop or click to upload tender PDFs; uses PDF.js for client-side text extraction
+- 📂 **Tender Pack Intake** — drag-and-drop PDFs, Excel workbooks, ZIPs, DOCX, EML, JPG and PNG files; ZIP/DOCX/Excel/PDF are normalised before extraction
 - 🔬 **OCR Fallback** — scanned PDFs are automatically detected and processed with Tesseract.js OCR if available
 - 🔍 **Automatic Item Detection** — pattern-matches window (W01…), door (D01…), screen (S01…), and curtain walling (C01…) references with dimensions, frame types, and glazing specs
 - 🧠 **Rich Document Classification** — classifies each document as schedule, BQ, drawing, specification, admin, or unknown, with confidence level and reason
@@ -16,6 +16,8 @@ A professional, client-side web application for glazing contractors to extract i
 - ✏️ **Inline Editing** — click any table cell to edit it directly; full modal editor for complex items
 - 💰 **Flexible Pricing Engine** — base rate per m², per-material multipliers (aluminium, PVCu, timber), opening-type multipliers, special spec multipliers (fire rated, acoustic, toughened, laminated), discount, and VAT
 - ⚠️ **Smart Warnings** — flags missing dimensions, unknown frame types, cross-document discrepancies, and references found in drawings but missing from the window schedule
+- ✅ **Estimator Approval Gate** — critical risks such as no schedule, no priced items, missing dimensions, or OCR/drawing-derived items must be reviewed or accepted before quote generation
+- ☁️ **Optional Cloudflare Worker Intake** — unsupported local files can be sent to an internal Worker for ZIP/DOCX/EML normalisation
 - 📑 **Professional PDF Output** — generates a full A4 quotation PDF with itemised schedule, company branding, price summary, terms & conditions, and signature line
 - 💾 **Auto-save** — state persists to `localStorage` every 30 seconds
 - 🌙 **Dark Mode** — toggle with the moon/sun button in the header
@@ -27,14 +29,14 @@ A professional, client-side web application for glazing contractors to extract i
 
 ### Step 1 — Upload Documents
 
-1. Drag and drop one or more PDF files onto the upload area, or click to browse.
-2. You can upload multiple documents: window schedule, bill of quantities, drawings, specifications.
+1. Drag and drop one or more tender files onto the upload area, or click to browse.
+2. You can upload multiple documents: window schedule, bill of quantities, drawings, specifications, ZIP packs, DOCX/EML documents, and images.
 3. Click **Analyse Documents**.
 
 The app will:
-- Extract text from each PDF using PDF.js
+- Extract text from each supported file using the relevant local parser
 - Classify each document (schedule, BQ, drawing, admin, specification, unknown)
-- Attempt OCR on scanned pages (if Tesseract.js is loaded)
+- Attempt OCR on scanned pages and image files (if Tesseract.js is loaded)
 - Extract glazing items from schedule and BQ documents
 - Cross-reference drawing references against the window schedule
 
@@ -79,7 +81,8 @@ The app will:
 index.html
 ├── css/styles.css          — All styles including diagnostics panel
 ├── js/dataModel.js         — State management, item schema, localStorage
-├── js/pdfParser.js         — PDF.js wrapper, text extraction, canvas rendering
+├── js/pdfParser.js         — PDF.js/SheetJS wrapper, text extraction, canvas rendering
+├── js/documentIntake.js    — ZIP/DOCX/EML/image intake, provenance, supplier evidence and workflow risks
 ├── js/dataExtractor.js     — Multi-strategy extraction engine
 │   ├── classifyDocument()  — Returns {type, confidence, reason}
 │   ├── extractDrawingRefs()— Drawing ref cross-validation
@@ -132,6 +135,27 @@ OCR adds significant processing time (~5–30 seconds per page depending on hard
 
 ---
 
+## Optional Cloud Worker
+
+The upload screen can be configured with a Cloudflare Worker URL for internal testing. When enabled, unsupported local intake files can be sent to the Worker.
+
+Current Worker support:
+
+- ZIP expansion
+- DOCX text extraction
+- EML body extraction
+- Supplier evidence proposal from extracted text
+
+Current Worker limits:
+
+- PDF and Excel still process in the browser.
+- Image OCR still uses browser Tesseract. The Worker returns an OCR-needed risk for JPG/PNG until an OCR provider is added.
+- MSG parsing is not implemented yet.
+
+Worker source lives in `workers/document-processor`.
+
+---
+
 ## GitHub Pages Deployment
 
 This project is deployed directly from the `main` branch via GitHub Pages. No build step is required — it is a static HTML/CSS/JS application.
@@ -156,7 +180,7 @@ To deploy your own copy:
 
 ## Privacy
 
-All processing happens entirely in your browser. No data is sent to any server. PDF content never leaves your machine.
+By default, processing happens in your browser. If the optional Cloudflare Worker setting is enabled, selected unsupported files are sent to the configured Worker URL for internal document intake.
 
 ---
 

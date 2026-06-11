@@ -7,11 +7,16 @@ var DataExtractor = (function () {
   // -----------------------------------------------------------------------
 
   function classifyDocument(docName, textContent) {
-    var name = (docName || '').toLowerCase().split(/[\\\/]/).pop();
+    var fullName = (docName || '').toLowerCase();
+    var name = fullName.split(/[\\\/]/).pop();
     var hasScheduleKeyword = /window\s*schedule|door\s*schedule|glazing\s*schedule/.test(name);
     var hasBQKeyword = /\bboq\b|\bbq\b|bill\s*of\s*quantities|subcontractors?\s+bill|trade\s+bill|schedule\s*of\s*works/.test(name);
 
     // Filename-based (high confidence)
+    if (/\bclient\s+quote\b|\bclient\s+quotation\b|\bglazing\s+quote\b/.test(fullName))
+      return { type: 'admin', confidence: 'high', reason: 'Client quote excluded from scope extraction' };
+    if (/\bsupplier\s+quotes?\b|\bsupplier\s+quotation\b/.test(fullName))
+      return { type: 'admin', confidence: 'high', reason: 'Supplier quote excluded from scope extraction' };
     if (/\bdrawings?\s*schedule\b/.test(name))
       return { type: 'drawing', confidence: 'high', reason: 'Filename contains drawing schedule keyword' };
     if (hasBQKeyword)

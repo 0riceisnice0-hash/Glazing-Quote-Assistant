@@ -659,6 +659,17 @@ var UI = (function () {
     var container = document.getElementById('warningsList');
     var countBadge = document.getElementById('warningsCount');
     if (!container) return;
+    var workflowRisks = (_state && _state.risks) ? _state.risks.map(function (risk) {
+      return {
+        id: risk.id,
+        type: risk.type || 'risk',
+        severity: risk.severity || 'warning',
+        message: '[Risk] ' + risk.message + (risk.suggestedAction ? ' Next: ' + risk.suggestedAction : ''),
+        itemId: risk.itemId,
+        status: risk.status || 'open'
+      };
+    }) : [];
+    warnings = (warnings || []).concat(workflowRisks);
 
     if (!warnings || warnings.length === 0) {
       container.innerHTML = '<div class="empty-state" style="padding:20px"><span style="font-size:2rem">✅</span><p>No warnings</p></div>';
@@ -1465,16 +1476,19 @@ var UI = (function () {
       drawing: '📐 Drawing',
       admin: '📁 Admin',
       specification: '📝 Specification',
+      supplier_quote: '💷 Supplier quote',
+      client_quote: '🚫 Client quote',
       unknown: '📄 Document'
     };
 
     var html = sourceDocs.map(function (doc) {
-      var label = typeLabels[doc.docType] || typeLabels.unknown;
+      var label = typeLabels[doc.role] || typeLabels[doc.docType] || typeLabels.unknown;
       var pages = doc.pageCount != null ? doc.pageCount + (doc.pageCount === 1 ? ' page' : ' pages') : '? pages';
+      var kind = doc.kind ? ' &bull; ' + _escapeHtml(doc.kind) : '';
       return '<div style="padding:4px 0;border-bottom:1px solid var(--border-color)">' +
         '<div style="font-weight:600;font-size:0.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + _escapeHtml(doc.name) + '">' +
         _escapeHtml(doc.name) + '</div>' +
-        '<div style="color:var(--text-muted);font-size:0.75rem">' + label + ' &bull; ' + pages + '</div>' +
+        '<div style="color:var(--text-muted);font-size:0.75rem">' + label + kind + ' &bull; ' + pages + '</div>' +
         '</div>';
     }).join('');
 
