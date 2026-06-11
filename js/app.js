@@ -78,8 +78,15 @@ var App = (function () {
     } else {
       _state = JSON.parse(JSON.stringify(DEFAULT_STATE));
     }
+    _applyFensterCompanyDefaults();
   }
 
+  function _applyFensterCompanyDefaults() {
+    _state.company = Object.assign({}, _state.company || {}, {
+      name: 'Fenster Glazing Ltd',
+      logoAsset: 'assets/fenster-logo.png'
+    });
+  }
   function _generateQuoteNumberIfNeeded() {
     if (!_state.metadata.quoteNumber) {
       var today = new Date();
@@ -664,10 +671,7 @@ var App = (function () {
     syncField('quoteDate', _state.metadata, 'quoteDate');
     syncField('validityDays', _state.metadata, 'validityDays', true);
     syncField('quoteNotes', _state.metadata, 'notes');
-    syncField('companyName', _state.company, 'name');
-    syncField('companyAddress', _state.company, 'address');
-    syncField('companyPhone', _state.company, 'phone');
-    syncField('companyEmail', _state.company, 'email');
+    _applyFensterCompanyDefaults();
   }
 
   function _setupClearButton() {
@@ -953,5 +957,6 @@ document.addEventListener('DOMContentLoaded', function () {
     console.error('App initialization error:', err);
   }
 });
+
 
 
