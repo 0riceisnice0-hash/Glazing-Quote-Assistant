@@ -869,6 +869,40 @@ body.dark-mode .badge.low { background: #450a0a; color: #fca5a5; }
   gap: 12px;
 }
 
+.ai-enrichment-settings {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid rgba(47,172,102,0.35);
+  border-radius: var(--border-radius);
+  background: rgba(47,172,102,0.08);
+}
+
+.ai-prefill-banner {
+  border: 1px solid rgba(47,172,102,0.35);
+  background: rgba(47,172,102,0.08);
+  border-radius: var(--border-radius);
+  padding: 10px 12px;
+  margin-bottom: 14px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.ai-missing {
+  border: 1px solid rgba(220,38,38,0.75);
+  background: rgba(220,38,38,0.08);
+  border-radius: var(--border-radius);
+  padding: 8px;
+}
+
+.ai-missing label::after {
+  content: " needs review";
+  color: var(--accent-danger);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
 .form-row {
   display: flex;
   gap: 12px;

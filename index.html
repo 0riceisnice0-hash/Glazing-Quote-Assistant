@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glazing Quote Assistant</title>
   <meta name="description" content="Professional glazing quotation tool — upload tender documents, extract items, and generate PDF quotes.">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=20260611d">
 </head>
 <body>
 
@@ -130,6 +130,18 @@
                 <span>Use Cloudflare Worker for unsupported documents</span>
               </label>
               <input type="url" class="form-control" id="cloudWorkerUrl" placeholder="https://gqa-document-processor.0riceisnice0.workers.dev">
+            </div>
+
+            <div class="ai-enrichment-settings">
+              <label class="inline-check">
+                <input type="checkbox" id="aiEnrichmentEnabled">
+                <span>Use OpenAI to read notes and prefill schedule fields</span>
+              </label>
+              <div class="form-grid" style="grid-template-columns:2fr 1fr;gap:8px;margin-top:8px">
+                <input type="password" class="form-control" id="openAiApiKey" placeholder="OpenAI API key saved locally in this browser" autocomplete="off">
+                <input type="text" class="form-control" id="openAiModel" value="gpt-5.5" aria-label="OpenAI model">
+              </div>
+              <div class="text-muted" style="font-size:0.75rem;margin-top:6px">The key is stored in localStorage on this machine, not committed into the repo.</div>
             </div>
 
             <ul class="file-list" id="fileList"></ul>
@@ -622,14 +634,15 @@
   <script src="js/documentIntake.js?v=20260611b"></script>
   <script src="js/dataExtractor.js?v=20260611b"></script>
   <script src="js/pricing.js?v=20260330a"></script>
-  <script src="js/ui.js?v=20260611c"></script>
+  <script src="js/aiEnrichment.js?v=20260611a"></script>
+  <script src="js/ui.js?v=20260611d"></script>
   <script src="js/pdfViewer.js?v=20260327a"></script>
   <script src="js/quoteGenerator.js?v=20260611c"></script>
   <script src="js/ocrFallback.js?v=20260327a"></script>
   <script src="js/diagnostics.js?v=20260327a"></script>
   <script src="js/floorplanParser.js?v=20260327a"></script>
   <script src="js/viewer3d.js?v=20260327a"></script>
-  <script src="js/app.js?v=20260611c"></script>
+  <script src="js/app.js?v=20260611d"></script>
 
 </body>
 </html>

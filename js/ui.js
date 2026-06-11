@@ -1239,52 +1239,130 @@ var UI = (function () {
       return;
     }
 
-    function optionList(values) {
+    function optionList(values, selected) {
+      selected = String(selected || '').toLowerCase();
       return values.map(function (v) {
-        return '<option value="' + _escapeHtml(v) + '">' + _escapeHtml(v || 'None') + '</option>';
+        var isSelected = selected && String(v).toLowerCase() === selected;
+        return '<option value="' + _escapeHtml(v) + '"' + (isSelected ? ' selected' : '') + '>' + _escapeHtml(v || 'None') + '</option>';
       }).join('');
     }
-    function refCheckboxes(name, refs) {
+    function refCheckboxes(name, refs, checkedRefs) {
+      checkedRefs = checkedRefs || {};
       if (refs.length === 0) return '<span class="text-muted">No door refs found.</span>';
       return '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:6px;max-height:120px;overflow:auto;border:1px solid var(--border-color);border-radius:6px;padding:8px;background:var(--bg)">' +
         refs.map(function (ref) {
-          return '<label style="font-size:0.8rem;display:flex;gap:4px;align-items:center"><input type="checkbox" name="' + name + '" value="' + _escapeHtml(ref) + '"> ' + _escapeHtml(ref) + '</label>';
+          var checked = checkedRefs[ref] ? ' checked' : '';
+          return '<label style="font-size:0.8rem;display:flex;gap:4px;align-items:center"><input type="checkbox" name="' + name + '" value="' + _escapeHtml(ref) + '"' + checked + '> ' + _escapeHtml(ref) + '</label>';
         }).join('') +
         '</div>';
     }
+    function mostCommon(list, fields) {
+      var counts = {};
+      list.forEach(function (item) {
+        fields.some(function (field) {
+          var value = item[field];
+          if (Array.isArray(value)) value = value.join(', ');
+          value = String(value == null ? '' : value).trim();
+          if (!value || /^unknown|^tbc$|^n\/a$/i.test(value)) return false;
+          counts[value] = (counts[value] || 0) + 1;
+          return true;
+        });
+      });
+      var best = '';
+      var bestCount = 0;
+      Object.keys(counts).forEach(function (value) {
+        if (counts[value] > bestCount) {
+          best = value;
+          bestCount = counts[value];
+        }
+      });
+      return best;
+    }
+    function aiBox(value) {
+      return value ? 'form-group' : 'form-group ai-missing';
+    }
+    function selectValue(value, options) {
+      var lower = String(value || '').toLowerCase();
+      var match = options.find(function (opt) { return opt && lower === String(opt).toLowerCase(); });
+      if (match) return { selected: match, custom: '' };
+      if (/alum|aluminium/i.test(value)) return { selected: 'Aluminium', custom: '' };
+      if (/pvc|upvc|pvcu/i.test(value)) return { selected: 'PVCu', custom: '' };
+      if (/timber|wood/i.test(value)) return { selected: 'Timber', custom: '' };
+      if (/steel/i.test(value)) return { selected: 'Steel', custom: '' };
+      if (!value) return { selected: '', custom: '' };
+      return { selected: 'Custom', custom: value };
+    }
+    function refsWhere(field, pattern) {
+      var refs = {};
+      doors.forEach(function (door) {
+        var text = [door[field], door.notes && door.notes.join(' '), door.description].filter(Boolean).join(' ');
+        if (pattern.test(text)) refs[door.reference] = true;
+      });
+      return refs;
+    }
 
     var doorRefs = doors.map(function (d) { return d.reference; }).filter(Boolean);
+    var aiReviewed = items.filter(function (item) { return item.aiReview; }).length;
+    var windowDefaults = {
+      frameType: mostCommon(windows, ['frameType']),
+      system: mostCommon(windows, ['system']),
+      colour: mostCommon(windows, ['colour', 'finish']),
+      openingType: mostCommon(windows, ['openingType']),
+      glazingSpec: mostCommon(windows, ['glazingSpec', 'glassRequirement', 'glazingMakeup'])
+    };
+    var doorDefaults = {
+      frameType: mostCommon(doors, ['frameType']),
+      colour: mostCommon(doors, ['colour', 'finish']),
+      glazingSpec: mostCommon(doors, ['doorGlazing', 'glazingSpec', 'glassRequirement', 'glazingMakeup']),
+      handle: mostCommon(doors, ['handleRequirement']),
+      lock: mostCommon(doors, ['lockRequirement']),
+      closer: mostCommon(doors, ['closerRequirement']),
+      ironmongery: mostCommon(doors, ['ironmongery', 'hardware'])
+    };
+    var windowFrame = selectValue(windowDefaults.frameType, ['Aluminium', 'PVCu', 'Timber', 'Steel']);
+    var doorFrame = selectValue(doorDefaults.frameType, ['Aluminium', 'PVCu', 'Timber', 'Steel']);
+    var handleValue = selectValue(doorDefaults.handle, ['Pad handle', 'D handle', '600mm offset D handle', 'Pull handle', 'Lever handle']);
+    var lockValue = selectValue(doorDefaults.lock, ['Euro cylinder', 'Hook lock', 'Mag lock', 'Electric strike', 'Thumb turn']);
+    var closerValue = selectValue(doorDefaults.closer, ['Overhead closer - non hold open', 'Overhead closer - hold open', 'Concealed closer', 'NHO closer']);
+    var entranceDoor = doors.find(function (door) { return /yes|entrance|main/i.test(String(door.entranceDoor || '') + ' ' + (door.notes || []).join(' ')); });
+    var fireRefs = refsWhere('fireRating', /fd\d+|fire/i);
+    var automationRefs = refsWhere('automationRequirement', /auto|powered|operator/i);
+    var accessRefs = refsWhere('accessControlRequirement', /access|mag\s*lock|electric\s*strike/i);
+    var fireRating = mostCommon(doors, ['fireRating']) || 'FD30S';
+    var banner = aiReviewed
+      ? 'OpenAI reviewed ' + aiReviewed + ' item(s). Red boxes are still missing from the AI/parser result and need estimator input.'
+      : 'AI note review has not filled these defaults yet. Red boxes need estimator input.';
     var formHTML =
-      '<p class="text-muted" style="margin-top:0">Answer what the tender docs cannot reliably decide. These answers will pre-fill the extracted item sheet.</p>' +
+      '<div class="ai-prefill-banner">' + _escapeHtml(banner) + '</div>' +
       '<h4 style="margin:0.7rem 0 0.35rem;color:#64b5f6;font-size:0.9rem;">Windows (' + windows.length + ')</h4>' +
       '<div class="form-grid">' +
-        '<div class="form-group"><label>Frame Type</label><select class="form-control" id="tq_winFrame">' + optionList(['', 'Aluminium', 'PVCu', 'Timber', 'Steel', 'Custom']) + '</select></div>' +
-        '<div class="form-group"><label>Custom Frame</label><input class="form-control" id="tq_winFrameCustom" placeholder="e.g. Aluminium"></div>' +
-        '<div class="form-group"><label>System</label><input class="form-control" id="tq_winSystem" placeholder="e.g. Sheerline / Technal Dualframe"></div>' +
-        '<div class="form-group"><label>Colour</label><input class="form-control" id="tq_winColour" placeholder="e.g. RAL 7016"></div>' +
-        '<div class="form-group"><label>Opening Function</label><select class="form-control" id="tq_winOpening">' + optionList(['', 'Fixed', 'Top Hung', 'Casement', 'Tilt & Turn', 'Sliding', 'Pivot']) + '</select></div>' +
-        '<div class="form-group"><label>Glazing</label><input class="form-control" id="tq_winGlazing" placeholder="e.g. 28mm DGU, P3A ground floor"></div>' +
+        '<div class="' + aiBox(windowDefaults.frameType) + '"><label>Frame Type</label><select class="form-control" id="tq_winFrame">' + optionList(['', 'Aluminium', 'PVCu', 'Timber', 'Steel', 'Custom'], windowFrame.selected) + '</select></div>' +
+        '<div class="form-group"><label>Custom Frame</label><input class="form-control" id="tq_winFrameCustom" value="' + _escapeHtml(windowFrame.custom) + '" placeholder="e.g. Aluminium"></div>' +
+        '<div class="' + aiBox(windowDefaults.system) + '"><label>System</label><input class="form-control" id="tq_winSystem" value="' + _escapeHtml(windowDefaults.system) + '" placeholder="e.g. Sheerline / Technal Dualframe"></div>' +
+        '<div class="' + aiBox(windowDefaults.colour) + '"><label>Colour</label><input class="form-control" id="tq_winColour" value="' + _escapeHtml(windowDefaults.colour) + '" placeholder="e.g. RAL 7016"></div>' +
+        '<div class="' + aiBox(windowDefaults.openingType) + '"><label>Opening Function</label><select class="form-control" id="tq_winOpening">' + optionList(['', 'Fixed', 'Top Hung', 'Casement', 'Tilt & Turn', 'Sliding', 'Pivot'], windowDefaults.openingType) + '</select></div>' +
+        '<div class="' + aiBox(windowDefaults.glazingSpec) + '"><label>Glazing</label><input class="form-control" id="tq_winGlazing" value="' + _escapeHtml(windowDefaults.glazingSpec) + '" placeholder="e.g. 28mm DGU, P3A ground floor"></div>' +
       '</div>' +
       '<h4 style="margin:0.9rem 0 0.35rem;color:#64b5f6;font-size:0.9rem;">Doors (' + doors.length + ')</h4>' +
       '<div class="form-grid">' +
-        '<div class="form-group"><label>Door Frame Type</label><select class="form-control" id="tq_doorFrame">' + optionList(['', 'Aluminium', 'PVCu', 'Timber', 'Steel', 'Custom']) + '</select></div>' +
-        '<div class="form-group"><label>Custom Door Frame</label><input class="form-control" id="tq_doorFrameCustom" placeholder="e.g. Aluminium"></div>' +
-        '<div class="form-group"><label>Door Colour</label><input class="form-control" id="tq_doorColour" placeholder="e.g. RAL colour TBC"></div>' +
-        '<div class="form-group"><label>Door Glazing</label><input class="form-control" id="tq_doorGlazing" placeholder="e.g. DGU P3A / solid panel"></div>' +
-        '<div class="form-group"><label>Which is entrance?</label><select class="form-control" id="tq_entranceDoor"><option value="">Not sure / none</option>' + doorRefs.map(function (r) { return '<option value="' + _escapeHtml(r) + '">' + _escapeHtml(r) + '</option>'; }).join('') + '</select></div>' +
-        '<div class="form-group"><label>Fire Rating for selected fire doors</label><input class="form-control" id="tq_fireRating" value="FD30S"></div>' +
+        '<div class="' + aiBox(doorDefaults.frameType) + '"><label>Door Frame Type</label><select class="form-control" id="tq_doorFrame">' + optionList(['', 'Aluminium', 'PVCu', 'Timber', 'Steel', 'Custom'], doorFrame.selected) + '</select></div>' +
+        '<div class="form-group"><label>Custom Door Frame</label><input class="form-control" id="tq_doorFrameCustom" value="' + _escapeHtml(doorFrame.custom) + '" placeholder="e.g. Aluminium"></div>' +
+        '<div class="' + aiBox(doorDefaults.colour) + '"><label>Door Colour</label><input class="form-control" id="tq_doorColour" value="' + _escapeHtml(doorDefaults.colour) + '" placeholder="e.g. RAL colour TBC"></div>' +
+        '<div class="' + aiBox(doorDefaults.glazingSpec) + '"><label>Door Glazing</label><input class="form-control" id="tq_doorGlazing" value="' + _escapeHtml(doorDefaults.glazingSpec) + '" placeholder="e.g. DGU P3A / solid panel"></div>' +
+        '<div class="' + aiBox(entranceDoor && entranceDoor.reference) + '"><label>Which is entrance?</label><select class="form-control" id="tq_entranceDoor"><option value="">Not sure / none</option>' + doorRefs.map(function (r) { return '<option value="' + _escapeHtml(r) + '"' + (entranceDoor && entranceDoor.reference === r ? ' selected' : '') + '>' + _escapeHtml(r) + '</option>'; }).join('') + '</select></div>' +
+        '<div class="' + aiBox(Object.keys(fireRefs).length ? fireRating : '') + '"><label>Fire Rating for selected fire doors</label><input class="form-control" id="tq_fireRating" value="' + _escapeHtml(fireRating) + '"></div>' +
       '</div>' +
-      '<div class="form-group"><label>Which doors are fire doors?</label>' + refCheckboxes('tq_fireDoors', doorRefs) + '</div>' +
-      '<div class="form-group"><label>Which doors need automation?</label>' + refCheckboxes('tq_automationDoors', doorRefs) + '</div>' +
-      '<div class="form-group"><label>Which doors need access control?</label>' + refCheckboxes('tq_accessDoors', doorRefs) + '</div>' +
+      '<div class="' + aiBox(Object.keys(fireRefs).length) + '"><label>Which doors are fire doors?</label>' + refCheckboxes('tq_fireDoors', doorRefs, fireRefs) + '</div>' +
+      '<div class="form-group"><label>Which doors need automation?</label>' + refCheckboxes('tq_automationDoors', doorRefs, automationRefs) + '</div>' +
+      '<div class="form-group"><label>Which doors need access control?</label>' + refCheckboxes('tq_accessDoors', doorRefs, accessRefs) + '</div>' +
       '<div class="form-grid">' +
-        '<div class="form-group"><label>Handle</label><select class="form-control" id="tq_handle">' + optionList(['', 'Pad handle', 'D handle', '600mm offset D handle', 'Pull handle', 'Lever handle', 'Custom']) + '</select></div>' +
-        '<div class="form-group"><label>Custom Handle</label><input class="form-control" id="tq_handleCustom"></div>' +
-        '<div class="form-group"><label>Lock</label><select class="form-control" id="tq_lock">' + optionList(['', 'Euro cylinder', 'Hook lock', 'Mag lock', 'Electric strike', 'Thumb turn', 'Custom']) + '</select></div>' +
-        '<div class="form-group"><label>Custom Lock</label><input class="form-control" id="tq_lockCustom"></div>' +
-        '<div class="form-group"><label>Closer</label><select class="form-control" id="tq_closer">' + optionList(['', 'Overhead closer - non hold open', 'Overhead closer - hold open', 'Concealed closer', 'NHO closer', 'Custom']) + '</select></div>' +
-        '<div class="form-group"><label>Custom Closer</label><input class="form-control" id="tq_closerCustom"></div>' +
-        '<div class="form-group col-span-2"><label>Ironmongery Notes</label><input class="form-control" id="tq_ironmongery" placeholder="e.g. panic bar, kick plate, pull handles"></div>' +
+        '<div class="' + aiBox(doorDefaults.handle) + '"><label>Handle</label><select class="form-control" id="tq_handle">' + optionList(['', 'Pad handle', 'D handle', '600mm offset D handle', 'Pull handle', 'Lever handle', 'Custom'], handleValue.selected) + '</select></div>' +
+        '<div class="form-group"><label>Custom Handle</label><input class="form-control" id="tq_handleCustom" value="' + _escapeHtml(handleValue.custom) + '"></div>' +
+        '<div class="' + aiBox(doorDefaults.lock) + '"><label>Lock</label><select class="form-control" id="tq_lock">' + optionList(['', 'Euro cylinder', 'Hook lock', 'Mag lock', 'Electric strike', 'Thumb turn', 'Custom'], lockValue.selected) + '</select></div>' +
+        '<div class="form-group"><label>Custom Lock</label><input class="form-control" id="tq_lockCustom" value="' + _escapeHtml(lockValue.custom) + '"></div>' +
+        '<div class="' + aiBox(doorDefaults.closer) + '"><label>Closer</label><select class="form-control" id="tq_closer">' + optionList(['', 'Overhead closer - non hold open', 'Overhead closer - hold open', 'Concealed closer', 'NHO closer', 'Custom'], closerValue.selected) + '</select></div>' +
+        '<div class="form-group"><label>Custom Closer</label><input class="form-control" id="tq_closerCustom" value="' + _escapeHtml(closerValue.custom) + '"></div>' +
+        '<div class="' + aiBox(doorDefaults.ironmongery) + ' col-span-2"><label>Ironmongery Notes</label><input class="form-control" id="tq_ironmongery" value="' + _escapeHtml(doorDefaults.ironmongery) + '" placeholder="e.g. panic bar, kick plate, pull handles"></div>' +
       '</div>' +
       '<div class="form-group" style="margin-top:8px"><label style="display:flex;gap:6px;align-items:center;text-transform:none;letter-spacing:0;font-weight:500"><input type="checkbox" id="tq_applyDoorHardwareAll"> Apply handle / lock / closer defaults to every door</label><div class="text-muted" style="font-size:0.75rem;margin-top:3px">Leave unticked to keep per-door detected values such as plant room pad handles and entrance D handles.</div></div>';
 

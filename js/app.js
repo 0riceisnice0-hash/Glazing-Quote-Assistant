@@ -39,6 +39,7 @@ var App = (function () {
     _setupResetButton();
     _setupModalClose();
     _setupCloudProcessingSettings();
+    _setupAiEnrichmentSettings();
     _startAutoSave();
     _setup3DViewButton();
     Diagnostics.init();
@@ -349,44 +350,22 @@ var App = (function () {
           _state.pricing = Pricing.applyTenderPricingDefaults(newItems, _state.pricing);
           newItems = Pricing.recalculateAll(newItems, _state.pricing);
 
-          _state.items = newItems;
-          _state.warnings = newWarnings;
-          _addWorkflowRisks(validDocs, newItems);
-          _state.approvals = _buildApprovalChecklist();
-
-          saveToLocalStorage(_state);
-          UI.updateState(_state);
-          UI.renderSourceDocuments(_state.sourceDocuments);
-          UI.hideLoadingOverlay();
-
-          if (newItems.length === 0) {
-            UI.showToast('No glazing items found. Review risks and intake records for next steps.', 'warning');
-            _showManualEntryPrompt();
-          } else {
-            UI.showToast('Extracted ' + newItems.length + ' item(s) from ' + stats.docsProcessed + ' document(s) - please verify below', 'success');
-            _enableStep2Tab();
-            _enableStep3Tab();
-            UI.showTenderQuestions(_state.items, function (questionedItems) {
-              _state.pricing = Pricing.applyTenderPricingDefaults(questionedItems, _state.pricing);
-              _state.items = Pricing.recalculateAll(questionedItems, _state.pricing);
-              saveToLocalStorage(_state);
-              UI.updateState(_state);
-              UI.renderStep(2);
-              UI.showPDFVerifyView(validDocs, _state.items, function (acceptedItems) {
-                _state.pricing = Pricing.applyTenderPricingDefaults(acceptedItems, _state.pricing);
-                _state.items = Pricing.recalculateAll(acceptedItems, _state.pricing);
-                _state.warnings = _state.warnings.filter(function (w) {
-                  return _state.items.some(function (it) { return it.id === w.itemId; }) || !w.itemId;
-                });
-                saveToLocalStorage(_state);
-                UI.updateState(_state);
-                UI.renderItemsTable(_state.items, _state.warnings);
-                UI.renderWarningsPanel(_state.warnings, _state.items);
-                UI.renderSourceDocuments(_state.sourceDocuments);
-                UI.showToast(_state.items.length + ' item(s) confirmed', 'success');
-              });
-            });
-          }
+          _runAiEnrichment(validDocs, newItems).then(function (aiResult) {
+            if (aiResult && aiResult.items) {
+              newItems = Pricing.recalculateAll(aiResult.items, _state.pricing);
+              if (aiResult.summary) {
+                _state.assumptions = _state.assumptions || [];
+                _state.assumptions.push({ id: generateId(), message: 'AI note review: ' + aiResult.summary, status: 'open' });
+              }
+            }
+            _finishIntakeExtraction(validDocs, newItems, newWarnings, stats);
+          }).catch(function (err) {
+            _state.risks = _state.risks || [];
+            _state.risks.push(_makeWorkflowRisk('warning', 'OpenAI note enrichment did not complete: ' + err.message, {
+              suggestedAction: 'Continue with parser results and manually review red highlighted tender questions.'
+            }));
+            _finishIntakeExtraction(validDocs, newItems, newWarnings, stats);
+          });
         } catch (err) {
           UI.hideLoadingOverlay();
           UI.showToast('Extraction failed: ' + err.message, 'error');
@@ -398,6 +377,47 @@ var App = (function () {
       UI.showToast('Document intake failed: ' + err.message, 'error');
       console.error('Document intake error:', err);
     });
+  }
+
+  function _finishIntakeExtraction(validDocs, newItems, newWarnings, stats) {
+    _state.items = newItems;
+    _state.warnings = newWarnings;
+    _addWorkflowRisks(validDocs, newItems);
+    _state.approvals = _buildApprovalChecklist();
+
+    saveToLocalStorage(_state);
+    UI.updateState(_state);
+    UI.renderSourceDocuments(_state.sourceDocuments);
+    UI.hideLoadingOverlay();
+
+    if (newItems.length === 0) {
+      UI.showToast('No glazing items found. Review risks and intake records for next steps.', 'warning');
+      _showManualEntryPrompt();
+    } else {
+      UI.showToast('Extracted ' + newItems.length + ' item(s) from ' + stats.docsProcessed + ' document(s) - please verify below', 'success');
+      _enableStep2Tab();
+      _enableStep3Tab();
+      UI.showTenderQuestions(_state.items, function (questionedItems) {
+        _state.pricing = Pricing.applyTenderPricingDefaults(questionedItems, _state.pricing);
+        _state.items = Pricing.recalculateAll(questionedItems, _state.pricing);
+        saveToLocalStorage(_state);
+        UI.updateState(_state);
+        UI.renderStep(2);
+        UI.showPDFVerifyView(validDocs, _state.items, function (acceptedItems) {
+          _state.pricing = Pricing.applyTenderPricingDefaults(acceptedItems, _state.pricing);
+          _state.items = Pricing.recalculateAll(acceptedItems, _state.pricing);
+          _state.warnings = _state.warnings.filter(function (w) {
+            return _state.items.some(function (it) { return it.id === w.itemId; }) || !w.itemId;
+          });
+          saveToLocalStorage(_state);
+          UI.updateState(_state);
+          UI.renderItemsTable(_state.items, _state.warnings);
+          UI.renderWarningsPanel(_state.warnings, _state.items);
+          UI.renderSourceDocuments(_state.sourceDocuments);
+          UI.showToast(_state.items.length + ' item(s) confirmed', 'success');
+        });
+      });
+    }
   }
 
   function _runPdfOcrPass(docs) {
@@ -547,6 +567,30 @@ var App = (function () {
     }
   }
 
+  function _setupAiEnrichmentSettings() {
+    var enabled = document.getElementById('aiEnrichmentEnabled');
+    var apiKey = document.getElementById('openAiApiKey');
+    var model = document.getElementById('openAiModel');
+    if (enabled) {
+      enabled.checked = localStorage.getItem('gqaAiEnrichmentEnabled') === '1';
+      enabled.addEventListener('change', function () {
+        localStorage.setItem('gqaAiEnrichmentEnabled', enabled.checked ? '1' : '0');
+      });
+    }
+    if (apiKey) {
+      apiKey.value = localStorage.getItem('gqaOpenAiApiKey') || '';
+      apiKey.addEventListener('change', function () {
+        localStorage.setItem('gqaOpenAiApiKey', apiKey.value.trim());
+      });
+    }
+    if (model) {
+      model.value = localStorage.getItem('gqaOpenAiModel') || (window.AIEnrichment && AIEnrichment.DEFAULT_MODEL) || 'gpt-5.5';
+      model.addEventListener('change', function () {
+        localStorage.setItem('gqaOpenAiModel', model.value.trim() || 'gpt-5.5');
+      });
+    }
+  }
+
   function _getCloudProcessingOptions() {
     var enabled = document.getElementById('cloudProcessingEnabled');
     var url = document.getElementById('cloudWorkerUrl');
@@ -554,6 +598,33 @@ var App = (function () {
       cloudEnabled: !!(enabled && enabled.checked),
       cloudWorkerUrl: url ? (url.value.trim() || DEFAULT_CLOUD_WORKER_URL) : DEFAULT_CLOUD_WORKER_URL
     };
+  }
+
+  function _getAiEnrichmentOptions() {
+    var enabled = document.getElementById('aiEnrichmentEnabled');
+    var apiKey = document.getElementById('openAiApiKey');
+    var model = document.getElementById('openAiModel');
+    return {
+      enabled: !!(enabled && enabled.checked),
+      apiKey: apiKey ? apiKey.value.trim() : '',
+      model: model ? (model.value.trim() || 'gpt-5.5') : 'gpt-5.5'
+    };
+  }
+
+  function _runAiEnrichment(validDocs, items) {
+    if (!window.AIEnrichment || !AIEnrichment.enrichItems) {
+      return Promise.resolve({ items: items, skipped: true, reason: 'AI enrichment module unavailable' });
+    }
+    var options = _getAiEnrichmentOptions();
+    if (!options.enabled || !options.apiKey || !items || items.length === 0) {
+      return Promise.resolve({ items: items, skipped: true, reason: 'AI enrichment disabled or missing key' });
+    }
+    UI.updateLoadingMessage('Reviewing notes with OpenAI...', 'Checking BoQ notes against extracted item fields');
+    return AIEnrichment.enrichItems(validDocs, items, options).then(function (result) {
+      var reviewed = (result.items || []).filter(function (item) { return item.aiReview; }).length;
+      UI.showToast('OpenAI reviewed ' + reviewed + ' extracted item(s)', 'success');
+      return result;
+    });
   }
 
   function _showManualEntryPrompt() {

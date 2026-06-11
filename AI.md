@@ -30,9 +30,23 @@ Do not assume tender documents live in the repo. In the current working setup, t
    - Calls `DataExtractor.extractItems(validDocs)`.
    - Applies tender pricing defaults with `Pricing.applyTenderPricingDefaults()`.
    - Recalculates all item prices with `Pricing.recalculateAll()`.
+   - Optionally calls `AIEnrichment.enrichItems()` from `js/aiEnrichment.js` when the upload screen has OpenAI note enrichment enabled and a key/model saved locally.
    - Shows tender questions and PDF verification before final item confirmation.
 3. `js/ui.js` renders the review/pricing/quote UI.
 4. `js/quoteGenerator.js` builds the final quote PDF.
+
+### OpenAI Note Enrichment
+
+`js/aiEnrichment.js` is the browser-side OpenAI integration for reading tender notes and checking parser output before the estimator answers the tender questions popup.
+
+- The upload screen has `aiEnrichmentEnabled`, `openAiApiKey`, and `openAiModel` fields.
+- `js/app.js` saves those values in browser `localStorage` using `gqaAiEnrichmentEnabled`, `gqaOpenAiApiKey`, and `gqaOpenAiModel`.
+- The API key must not be committed into source files. If a key is pasted into a chat, treat it as exposed and rotate it.
+- The module sends compacted tender text plus extracted item fields to the OpenAI Responses API and requests strict JSON back.
+- Returned values are applied item-by-item into fields such as `frameType`, `system`, `colour`, `glazingSpec`, `fireRating`, `handleRequirement`, `lockRequirement`, `closerRequirement`, and `ironmongery`.
+- Each reviewed item gets `item.aiReview`, `item.aiEnriched`, and `item.aiMissingFields` metadata.
+- `UI.showTenderQuestions()` derives defaults from the enriched item fields and highlights fields still missing from the AI/parser result with red boxes.
+- The call is fail-open. If OpenAI is disabled, missing a key, blocked, or returns an error, extraction and pricing continue from parser results and a workflow risk is added.
 
 ## Key Modules
 
