@@ -3,6 +3,7 @@
 var AIEnrichment = (function () {
   var DEFAULT_MODEL = 'gpt-5.5';
   var MAX_CONTEXT_CHARS = 42000;
+  var OPENAI_TIMEOUT_MS = 75000;
 
   var UPDATE_FIELDS = [
     'frameType',
@@ -155,6 +156,27 @@ var AIEnrichment = (function () {
     return chunks.join('\n');
   }
 
+  function _fetchJsonWithTimeout(url, request, timeoutMs) {
+    var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, timeoutMs || OPENAI_TIMEOUT_MS) : null;
+    if (controller) request.signal = controller.signal;
+    return fetch(url, request).then(function (response) {
+      if (timer) clearTimeout(timer);
+      if (!response.ok) {
+        return response.text().then(function (body) {
+          throw new Error('OpenAI enrichment failed (' + response.status + '): ' + body.slice(0, 240));
+        });
+      }
+      return response.json();
+    }).catch(function (err) {
+      if (timer) clearTimeout(timer);
+      if (err && err.name === 'AbortError') {
+        throw new Error('OpenAI enrichment timed out after ' + Math.round((timeoutMs || OPENAI_TIMEOUT_MS) / 1000) + ' seconds');
+      }
+      throw err;
+    });
+  }
+
   function _applyAiResult(items, aiResult) {
     var byId = {};
     var byRef = {};
@@ -213,42 +235,45 @@ var AIEnrichment = (function () {
       extractedItems: _itemPayload(items)
     };
 
-    return fetch('https://api.openai.com/v1/responses', {
+    var openaiRequest = {
+      model: options.model || DEFAULT_MODEL,
+      store: false,
+      input: [
+        {
+          role: 'system',
+          content: [{ type: 'input_text', text: 'You are a commercial glazing estimator. Return only schema-valid JSON. Prefer exact notes from BoQs, Excel remarks, specifications, and drawing labels over guesses.' }]
+        },
+        {
+          role: 'user',
+          content: [{ type: 'input_text', text: JSON.stringify(payload) }]
+        }
+      ],
+      text: {
+        format: {
+          type: 'json_schema',
+          name: 'glazing_item_enrichment',
+          strict: true,
+          schema: _schema()
+        }
+      }
+    };
+
+    var proxyUrl = _clean(options.proxyUrl).replace(/\/+$/, '');
+    var requestUrl = proxyUrl ? proxyUrl + '/openai-enrich' : 'https://api.openai.com/v1/responses';
+    var request = proxyUrl ? {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ apiKey: apiKey, openaiRequest: openaiRequest })
+    } : {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + apiKey
       },
-      body: JSON.stringify({
-        model: options.model || DEFAULT_MODEL,
-        store: false,
-        input: [
-          {
-            role: 'system',
-            content: [{ type: 'input_text', text: 'You are a commercial glazing estimator. Return only schema-valid JSON. Prefer exact notes from BoQs, Excel remarks, specifications, and drawing labels over guesses.' }]
-          },
-          {
-            role: 'user',
-            content: [{ type: 'input_text', text: JSON.stringify(payload) }]
-          }
-        ],
-        text: {
-          format: {
-            type: 'json_schema',
-            name: 'glazing_item_enrichment',
-            strict: true,
-            schema: _schema()
-          }
-        }
-      })
-    }).then(function (response) {
-      if (!response.ok) {
-        return response.text().then(function (body) {
-          throw new Error('OpenAI enrichment failed (' + response.status + '): ' + body.slice(0, 240));
-        });
-      }
-      return response.json();
-    }).then(function (data) {
+      body: JSON.stringify(openaiRequest)
+    };
+
+    return _fetchJsonWithTimeout(requestUrl, request, options.timeoutMs || OPENAI_TIMEOUT_MS).then(function (data) {
       var text = _extractOutputText(data);
       if (!text) throw new Error('OpenAI returned no enrichment text');
       var aiResult = JSON.parse(text);

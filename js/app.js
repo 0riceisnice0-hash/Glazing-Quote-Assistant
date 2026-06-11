@@ -604,10 +604,13 @@ var App = (function () {
     var enabled = document.getElementById('aiEnrichmentEnabled');
     var apiKey = document.getElementById('openAiApiKey');
     var model = document.getElementById('openAiModel');
+    var worker = document.getElementById('cloudWorkerUrl');
     return {
       enabled: !!(enabled && enabled.checked),
       apiKey: apiKey ? apiKey.value.trim() : '',
-      model: model ? (model.value.trim() || 'gpt-5.5') : 'gpt-5.5'
+      model: model ? (model.value.trim() || 'gpt-5.5') : 'gpt-5.5',
+      proxyUrl: worker ? (worker.value.trim() || DEFAULT_CLOUD_WORKER_URL) : DEFAULT_CLOUD_WORKER_URL,
+      timeoutMs: 75000
     };
   }
 

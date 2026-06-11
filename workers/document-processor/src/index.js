@@ -18,12 +18,53 @@ export default {
     if (request.method !== 'POST') {
       return json({ error: 'Method not allowed' }, 405);
     }
+    if (url.pathname === '/openai-enrich') {
+      return handleOpenAiEnrich(request, env);
+    }
     if (url.pathname === '/process-file' || url.pathname === '/process-pack') {
       return handleProcess(request, env);
     }
     return json({ error: 'Not found' }, 404);
   }
 };
+
+async function handleOpenAiEnrich(request, env) {
+  let body;
+  try {
+    body = await request.json();
+  } catch {
+    return json({ error: 'Invalid JSON body' }, 400);
+  }
+
+  const apiKey = String(body.apiKey || env.OPENAI_API_KEY || '').trim();
+  if (!apiKey) return json({ error: 'Missing OpenAI API key' }, 400);
+  if (!body.openaiRequest || typeof body.openaiRequest !== 'object') {
+    return json({ error: 'Missing openaiRequest payload' }, 400);
+  }
+
+  const openaiResponse = await fetch('https://api.openai.com/v1/responses', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      'authorization': `Bearer ${apiKey}`
+    },
+    body: JSON.stringify(body.openaiRequest)
+  });
+
+  const responseText = await openaiResponse.text();
+  if (!openaiResponse.ok) {
+    return json({
+      error: 'OpenAI request failed',
+      status: openaiResponse.status,
+      detail: responseText.slice(0, 500)
+    }, openaiResponse.status);
+  }
+
+  return cors(new Response(responseText, {
+    status: 200,
+    headers: { 'content-type': 'application/json; charset=utf-8' }
+  }));
+}
 
 async function handleProcess(request, env) {
   const maxBytes = Number(env.GQA_MAX_FILE_BYTES || 25000000);
@@ -299,6 +340,6 @@ function json(payload, status = 200) {
 function cors(response) {
   response.headers.set('access-control-allow-origin', '*');
   response.headers.set('access-control-allow-methods', 'GET,POST,OPTIONS');
-  response.headers.set('access-control-allow-headers', 'content-type');
+  response.headers.set('access-control-allow-headers', 'content-type, authorization');
   return response;
 }
