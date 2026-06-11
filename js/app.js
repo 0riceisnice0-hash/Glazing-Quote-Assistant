@@ -536,6 +536,22 @@ var App = (function () {
     UI.showToast('Session exported as JSON', 'success');
   }
 
+  function exportStateSnapshot() {
+    _syncFormStateToModel();
+    var summary = Pricing.getPriceSummary(_state.items, _state.pricing);
+    return {
+      exportedAt: new Date().toISOString(),
+      itemCount: _state.items.length,
+      warningCount: _state.warnings.length,
+      summary: summary,
+      sourceDocuments: _state.sourceDocuments,
+      items: _state.items,
+      warnings: _state.warnings,
+      pricing: _state.pricing,
+      metadata: _state.metadata
+    };
+  }
+
   function onImportJSON(jsonString) {
     try {
       var imported = importJSON(jsonString);
@@ -599,7 +615,8 @@ var App = (function () {
   return {
     init: init,
     removeFile: removeFile,
-    getState: function () { return _state; }
+    getState: function () { return _state; },
+    exportStateSnapshot: exportStateSnapshot
   };
 })();
 
