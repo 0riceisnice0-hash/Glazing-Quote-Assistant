@@ -1,4 +1,4 @@
-﻿/* js/app.js â€” Main orchestration */
+﻿/* js/app.js — Main orchestration */
 
 var App = (function () {
 
@@ -62,7 +62,7 @@ var App = (function () {
     var saved = loadFromLocalStorage();
     if (saved) {
       _state = saved;
-      // Migrate pricing config â€” pricingVersion tracks schema changes.
+      // Migrate pricing config — pricingVersion tracks schema changes.
       var currentVersion = Pricing.DEFAULT_CONFIG.pricingVersion || 4;
       if (!_state.pricing || (_state.pricing.pricingVersion || 0) < currentVersion) {
         // Fenster master pricing doc model (v3)
@@ -141,7 +141,7 @@ var App = (function () {
   }
 
   function _runAnalysis() {
-    UI.showLoadingOverlay('Analysing Documentsâ€¦', 'Starting document extraction');
+    UI.showLoadingOverlay('Analysing Documents…', 'Starting document extraction');
     Diagnostics.clear();
 
     // Reset extraction results so re-running analysis doesn't accumulate duplicates
@@ -160,24 +160,24 @@ var App = (function () {
     return _runAnalysisWithDocumentIntake();
 
     var filePromises = _pendingFiles.map(function (file, i) {
-      UI.updateFileStatus(i, 'â³ Extractingâ€¦');
+      UI.updateFileStatus(i, '⏳ Extracting…');
       return extractTenderInput(file, function (done, total, msg) {
-        UI.updateLoadingMessage('Analysing Documentsâ€¦', file.name + ': ' + msg);
+        UI.updateLoadingMessage('Analysing Documents…', file.name + ': ' + msg);
         UI.updateFileStatus(i, done + '/' + total + ' pages');
       }).then(function (docResult) {
         var classification = DataExtractor.classifyDocument(docResult.name, docResult.fullText || '');
-        UI.updateFileStatus(i, 'âœ… Done (' + docResult.pageCount + ' pages)');
+        UI.updateFileStatus(i, '✅ Done (' + docResult.pageCount + ' pages)');
 
         // For scanned documents, attempt OCR (skip admin/drawing types)
         if (docResult.isScanned && classification.type !== 'admin' && classification.type !== 'drawing') {
           if (OcrFallback.checkAvailability()) {
-            UI.updateLoadingMessage('Running OCRâ€¦', '"' + file.name + '" appears scanned â€” running OCR (this may take a moment)');
-            UI.updateFileStatus(i, 'ðŸ”¬ Running OCRâ€¦');
+            UI.updateLoadingMessage('Running OCR…', '"' + file.name + '" appears scanned — running OCR (this may take a moment)');
+            UI.updateFileStatus(i, '🔬 Running OCR…');
             return OcrFallback.processScannedDocument(docResult, function (pg, total, msg) {
-              UI.updateLoadingMessage('Running OCRâ€¦', msg);
+              UI.updateLoadingMessage('Running OCR…', msg);
               UI.updateFileStatus(i, 'OCR ' + pg + '/' + total);
             }).then(function (ocrResult) {
-              UI.updateFileStatus(i, 'âœ… OCR done (' + ocrResult.pageCount + ' pages)');
+              UI.updateFileStatus(i, '✅ OCR done (' + ocrResult.pageCount + ' pages)');
               _state.sourceDocuments.push({
                 name: ocrResult.name,
                 pageCount: ocrResult.pageCount,
@@ -190,7 +190,7 @@ var App = (function () {
               return ocrResult;
             });
           } else {
-            UI.showToast('"' + file.name + '" appears to be a scanned PDF â€” OCR library unavailable. Refresh the page or add items manually.', 'warning');
+            UI.showToast('"' + file.name + '" appears to be a scanned PDF — OCR library unavailable. Refresh the page or add items manually.', 'warning');
           }
         }
 
@@ -204,7 +204,7 @@ var App = (function () {
 
         return docResult;
       }).catch(function (err) {
-        UI.updateFileStatus(i, 'âŒ Error');
+        UI.updateFileStatus(i, '❌ Error');
         UI.showToast('Error reading "' + file.name + '": ' + err.message, 'error');
         return null;
       });
@@ -219,7 +219,7 @@ var App = (function () {
         return;
       }
 
-      UI.updateLoadingMessage('Extracting Glazing Itemsâ€¦', 'Analysing patterns and references');
+      UI.updateLoadingMessage('Extracting Glazing Items…', 'Analysing patterns and references');
 
       setTimeout(function () {
         try {
@@ -240,7 +240,7 @@ var App = (function () {
           });
 
           if (debugLog.length > 0) {
-            console.group('Glazing Extractor â€” Diagnostic Log');
+            console.group('Glazing Extractor — Diagnostic Log');
             debugLog.forEach(function (line) { console.log(line); });
             console.groupEnd();
           }
@@ -257,10 +257,10 @@ var App = (function () {
           UI.hideLoadingOverlay();
 
           if (newItems.length === 0) {
-            UI.showToast('No glazing items found. Documents may be scanned or use an unrecognised format. Use "ðŸ”¬ Diagnostics" to investigate.', 'warning');
+            UI.showToast('No glazing items found. Documents may be scanned or use an unrecognised format. Use "🔬 Diagnostics" to investigate.', 'warning');
             _showManualEntryPrompt();
           } else {
-            UI.showToast('Extracted ' + newItems.length + ' item(s) from ' + stats.docsProcessed + ' document(s) â€” please verify below', 'success');
+            UI.showToast('Extracted ' + newItems.length + ' item(s) from ' + stats.docsProcessed + ' document(s) — please verify below', 'success');
             _enableStep2Tab();
             _enableStep3Tab();
             UI.showTenderQuestions(_state.items, function (questionedItems) {
@@ -559,7 +559,7 @@ var App = (function () {
   function _showManualEntryPrompt() {
     UI.showModal(
       'No Items Extracted',
-      '<div class="alert alert-warning"><span class="alert-icon">âš ï¸</span>' +
+      '<div class="alert alert-warning"><span class="alert-icon">⚠️</span>' +
       '<div>No glazing items could be automatically extracted from the uploaded documents. ' +
       'This can happen with scanned PDFs, image-based files, or documents in an unexpected format.</div></div>' +
       '<p style="margin-top:12px">You can:</p>' +
@@ -612,7 +612,7 @@ var App = (function () {
 
     UI.showModal(
       'Approval Required',
-      '<div class="alert alert-warning"><span class="alert-icon">âš </span><div>This quote has unresolved critical estimating risks.</div></div>' +
+      '<div class="alert alert-warning"><span class="alert-icon">⚠</span><div>This quote has unresolved critical estimating risks.</div></div>' +
       '<ul style="margin:12px 0 0 20px;font-size:0.875rem">' + list + '</ul>',
       [
         {
@@ -639,7 +639,7 @@ var App = (function () {
   }
 
   function _generatePDF() {
-    UI.showLoadingOverlay('Generating PDFâ€¦', 'Building quote document');
+    UI.showLoadingOverlay('Generating PDF…', 'Building quote document');
 
     _syncFormStateToModel();
 
@@ -838,13 +838,13 @@ var App = (function () {
     _scheduleAutoSave();
   }
 
-  /* â”€â”€ 3D View (independent module) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+  /* ── 3D View (independent module) ───────────────────────── */
   function _setup3DViewButton() {
     var btn = document.getElementById('btn3DView');
     if (!btn) return;
     btn.addEventListener('click', function () {
       if (typeof Viewer3D === 'undefined' || typeof THREE === 'undefined') {
-        UI.showToast('3D viewer libraries not loaded yet â€” try again in a moment', 'warning');
+        UI.showToast('3D viewer libraries not loaded yet — try again in a moment', 'warning');
         return;
       }
       Viewer3D.openFromState(_state, _pendingFiles);

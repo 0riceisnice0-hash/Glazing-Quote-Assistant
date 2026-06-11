@@ -1,4 +1,4 @@
-﻿/* js/dataExtractor.js â€” Spatial extraction engine for glazing items */
+﻿/* js/dataExtractor.js — Spatial extraction engine for glazing items */
 
 var DataExtractor = (function () {
 
@@ -26,14 +26,14 @@ var DataExtractor = (function () {
       return { type: 'schedule', confidence: 'high', reason: 'Filename contains schedule keyword' };
     if (/warrant|guarantee|collateral|enquiry\s*letter|letter\s*of\s*enquiry/.test(name))
       return { type: 'admin', confidence: 'high', reason: 'Filename matches admin/legal document pattern' };
-    // Previously generated quote PDFs ("GQ-20260320-203.pdf") â€” skip to avoid phantom items
+    // Previously generated quote PDFs ("GQ-20260320-203.pdf") — skip to avoid phantom items
     if (/^gq-\d/.test(name))
       return { type: 'admin', confidence: 'high', reason: 'Filename matches generated quote pattern (GQ-)' };
-    // Drawing-number filenames like "3847.C37 â€¦", "3847.T05 â€¦"
+    // Drawing-number filenames like "3847.C37 …", "3847.T05 …"
     // Also matches J-number filenames like "J4715-YMD-01-XX-DR-A-3300..." (Shaftesbury-style).
     // IMPORTANT: Only classify as 'drawing' when no schedule/BQ keywords are also present.
     // A filename like "3847.T12 Window Schedule.pdf" contains both a drawing number AND schedule
-    // keywords â€” the schedule checks above already return early, but this guard makes the intent
+    // keywords — the schedule checks above already return early, but this guard makes the intent
     // explicit and prevents any future regression.
     if ((/\d{4}\.[a-z]\d{2}/.test(name) || /j\d{4}[\-_]/.test(name)) &&
         !hasScheduleKeyword &&
@@ -50,7 +50,7 @@ var DataExtractor = (function () {
     if (/\b(?:spec(?:ification)?)\b/.test(name))
       return { type: 'specification', confidence: 'high', reason: 'Filename contains specification keyword' };
 
-    // Content-based (medium confidence) â€” only when text is available
+    // Content-based (medium confidence) — only when text is available
     if (textContent && textContent.length > 0) {
       var sample = textContent.substring(0, 3000).toLowerCase();
       if (/window\s*schedule|door\s*schedule|glazing\s*schedule|opening\s*size|window\s*ref|glazing\s*ref/.test(sample))
@@ -80,28 +80,28 @@ var DataExtractor = (function () {
   }
 
   // -----------------------------------------------------------------------
-  // Spatial helpers â€” group PDF text items into rows and columns
+  // Spatial helpers — group PDF text items into rows and columns
   // -----------------------------------------------------------------------
 
-  // Spatial thresholds (all in PDF user-space points, ~1pt â‰ˆ 0.35mm)
+  // Spatial thresholds (all in PDF user-space points, ~1pt ≈ 0.35mm)
   // Construction PDFs from CAD software can have text items with Y-coordinate drift of
-  // 5â€“15 points within the same visual row.  Use 8 pt so that multi-line type cells
+  // 5–15 points within the same visual row.  Use 8 pt so that multi-line type cells
   // (e.g. "Double-glazed\nAluminium PPC") still group with the reference on the same row,
-  // while keeping adjacent data rows (typically 12â€“18 pt apart) separate.
+  // while keeping adjacent data rows (typically 12–18 pt apart) separate.
   var ROW_Y_TOLERANCE   = 8;   // max Y-delta to group two items in the same row
   var SPATIAL_ROW_Y     = 18;  // max Y-delta to consider an item "on the same row" as a reference
   var SPATIAL_ROW_X     = 400; // max X-distance from reference to include in spatial context
   // Character-context window sizes for the regex-only fallback (no position data)
   var CTX_LOOKBACK      = 50;  // chars before the reference (for location, frame-type, notes)
   var CTX_FORWARD_FULL  = 300; // chars after the reference (full context)
-  var CTX_FORWARD_DIMS  = 250; // chars after the reference (dimension/qty only â€” forward avoids prior item's data)
+  var CTX_FORWARD_DIMS  = 250; // chars after the reference (dimension/qty only — forward avoids prior item's data)
   // Drawing-number lookback: "3847. C37" is 9 chars; use 12 to be safe for extra whitespace
   var DRAWING_NUM_LOOKBACK = 12;
-  // Drawing-number filter regex â€” rejects refs that appear to be part of a drawing sheet
+  // Drawing-number filter regex — rejects refs that appear to be part of a drawing sheet
   // reference such as "3847.C37" or "3847.T05".  The letter+digits part is optional so
   // that "3847." (where the ref letter begins the captured group) is also matched correctly.
   var DRAWING_NUM_FILTER = /\d{4,}\.\s*([A-Z]\d*)?\s*$/;
-  // Space-split reference normalisation: "EW 19" â†’ "EW19", "ID 04" â†’ "ID04".
+  // Space-split reference normalisation: "EW 19" → "EW19", "ID 04" → "ID04".
   // Used in several places to pre-process text before reference scanning.
   var SPACE_SPLIT_REF_NORM = /\b([A-Z]{1,2}[WDSC])\s+(\d{2,4})\b/gi;
   // Minimum number of characters in a page text string for it to be considered
@@ -109,17 +109,17 @@ var DataExtractor = (function () {
   var MIN_TEXT_LENGTH = 50;
 
   // Normalise space-split references arising from PDF text fragmentation.
-  // e.g. "EW 19" â†’ "EW19", "ID 04" â†’ "ID04", "E W 01" â†’ "EW01".
+  // e.g. "EW 19" → "EW19", "ID 04" → "ID04", "E W 01" → "EW01".
   // Creates a fresh regex instance each call to avoid lastIndex state issues.
   function normaliseSpaceSplitRefs(text) {
-    // Handle extreme fragmentation: "E W 01" â†’ "EW01" (single letters before W/D/S/C)
+    // Handle extreme fragmentation: "E W 01" → "EW01" (single letters before W/D/S/C)
     var result = text.replace(/\b([A-Z])\s+([WDSC])\s+(\d{2,4})\b/gi, '$1$2$3');
-    // Standard case: "EW 19" â†’ "EW19"
+    // Standard case: "EW 19" → "EW19"
     result = result.replace(/\b([A-Z]{1,2}[WDSC])[\s\u200B\u00A0]+(\d{2,4})\b/gi, '$1$2');
     return result;
   }
 
-  // Drawing-sheet suffix set â€” populated dynamically from classified drawing documents.
+  // Drawing-sheet suffix set — populated dynamically from classified drawing documents.
   // Contains refs like "C37", "T05" etc. extracted from filenames like "3847.C37 ...".
   // Strategies check against this to reject drawing sheet numbers appearing as standalone refs.
   var _drawingSheetRefs = {};
@@ -198,12 +198,12 @@ var DataExtractor = (function () {
     width:       ['width', 'w (mm)', 'w(mm)', 'wd', 'w'],
     height:      ['height', 'h (mm)', 'h(mm)', 'ht', 'h'],
     // 'opening (w' catches "Opening (w x h)" column headers common in UK window schedules
-    size:        ['size', 'overall size', 'dimensions', 'dim', 'opening size', 'opening (w', 'w x h', 'wÃ—h'],
+    size:        ['size', 'overall size', 'dimensions', 'dim', 'opening size', 'opening (w', 'w x h', 'w×h'],
     qty:         ['qty', 'quantity', 'no', 'nr', 'number', 'nos'],
     // 'type' added here to catch simple "Type" column headers that specify frame material/construction
     frame:       ['frame', 'frame type', 'material', 'profile', 'system', 'construction', 'type'],
     glazing:     ['glazing', 'glass', 'infill', 'glazing spec', 'glazing type'],
-    // 'opening' alone is intentionally not here â€” it is too ambiguous and is caught by 'size' via 'opening (w'
+    // 'opening' alone is intentionally not here — it is too ambiguous and is caught by 'size' via 'opening (w'
     opening:     ['opening type', 'function', 'operation', 'open type', 'open'],
     location:    ['location', 'position', 'floor', 'room', 'level', 'area', 'to room'],
     description: ['description', 'notes', 'specification', 'note', 'remarks', 'comments'],
@@ -220,7 +220,7 @@ var DataExtractor = (function () {
     doorType:    ['door type', 'ymd door type']
   };
 
-  // Return the index of the first row that looks like a table header (â‰¥2 field matches)
+  // Return the index of the first row that looks like a table header (≥2 field matches)
   function findHeaderRow(rows) {
     for (var i = 0; i < Math.min(rows.length, 30); i++) {
       var row = rows[i];
@@ -245,7 +245,7 @@ var DataExtractor = (function () {
     return -1;
   }
 
-  // Build a map of { fieldName â†’ { x, label } } from a header row
+  // Build a map of { fieldName → { x, label } } from a header row
   function mapHeaderColumns(headerRow) {
     var columns = {};
     headerRow.items.forEach(function (item) {
@@ -295,10 +295,10 @@ var DataExtractor = (function () {
   }
 
   // -----------------------------------------------------------------------
-  // Strategy 1 â€” Structured table extraction (highest confidence)
+  // Strategy 1 — Structured table extraction (highest confidence)
   // -----------------------------------------------------------------------
 
-  // Reference pattern â€” matches single-letter refs (W01, D01, S01, C01) and
+  // Reference pattern — matches single-letter refs (W01, D01, S01, C01) and
   // multi-letter prefix refs common in UK construction (EW01 = External Window,
   // ED01 = External Door, ID01 = Internal Door, FW01 = Fixed Window, etc.).
   // The last alphabetic character before the digits must be W, D, S, or C.
@@ -506,7 +506,7 @@ var DataExtractor = (function () {
   }
 
   // -----------------------------------------------------------------------
-  // Strategy 2 â€” Row-based pattern matching (medium confidence)
+  // Strategy 2 — Row-based pattern matching (medium confidence)
   // -----------------------------------------------------------------------
 
   function tryRowBasedExtraction(rows, sourceName, sourcePage, docType) {
@@ -515,7 +515,7 @@ var DataExtractor = (function () {
 
     // Find rows whose first 3 (leftmost) non-empty items contain a glazing reference.
     // Checking the first 3 handles tables where a row-number or checkbox column precedes
-    // the reference (e.g. "1  EW01  Room 1  â€¦").
+    // the reference (e.g. "1  EW01  Room 1  …").
     rows.forEach(function (row) {
       if (!row.items || row.items.length < 2) return;
       var ref = null;
@@ -524,7 +524,7 @@ var DataExtractor = (function () {
         var candidate = normaliseRef(row.items[ci].str);
         if (candidate) { ref = candidate; refItemIdx = ci; break; }
       }
-      // Handle split text items: try concatenating adjacent pairs (e.g. "EW" + "19" â†’ "EW19").
+      // Handle split text items: try concatenating adjacent pairs (e.g. "EW" + "19" → "EW19").
       // This occurs when CAD-exported PDFs split reference codes across text items.
       if (!ref) {
         for (var pi = 0; pi < Math.min(4, row.items.length - 1); pi++) {
@@ -539,7 +539,7 @@ var DataExtractor = (function () {
     });
 
     // Need at least 2 consistent reference rows to be confident this is a real table.
-    // For schedule/BQ documents, lower the threshold to 1 â€” a single identifiable reference
+    // For schedule/BQ documents, lower the threshold to 1 — a single identifiable reference
     // row is sufficient when the document type is already known.
     if (refRows.length < (isScheduleOrBQ(docType) ? 1 : 2)) return items;
 
@@ -555,12 +555,12 @@ var DataExtractor = (function () {
         sourcePage: sourcePage
       });
 
-      // Find dimensions: collect numbers â‰¥100mm from cells after the ref cell
+      // Find dimensions: collect numbers ≥100mm from cells after the ref cell
       var numbers = row.items.slice(refItemIdx + 1).map(function (it) {
         return { str: it.str, x: it.x, val: parseInt(it.str.trim(), 10) };
       }).filter(function (n) { return !isNaN(n.val); });
 
-      // Dimensions are the largest plausible numbers (100â€“9000mm)
+      // Dimensions are the largest plausible numbers (100–9000mm)
       var dimNums = numbers.filter(function (n) { return n.val >= 100 && n.val <= 9000; });
       if (dimNums.length >= 2) {
         // Assume left number is width, next is height
@@ -574,7 +574,7 @@ var DataExtractor = (function () {
         if (dims) { item.width = dims.width; item.height = dims.height; }
       }
 
-      // Quantity: small numbers (1â€“99) that are NOT the dimensions
+      // Quantity: small numbers (1–99) that are NOT the dimensions
       var smallNums = numbers.filter(function (n) {
         return n.val >= 1 && n.val <= 99 && n.val !== item.width && n.val !== item.height;
       });
@@ -616,7 +616,7 @@ var DataExtractor = (function () {
   }
 
   // -----------------------------------------------------------------------
-  // Strategy W â€” Workbook schedule rows
+  // Strategy W — Workbook schedule rows
   // -----------------------------------------------------------------------
 
   function tryWorkbookScheduleExtraction(rows, sourceName, sourcePage) {
@@ -664,7 +664,7 @@ var DataExtractor = (function () {
       }
 
       // Framework/pricing schedule rows:
-      // W&D-01 | Window style 5 - UPVC DG. Approx. size 600mm x 1200mm | Item | 1066 | | Â£643,853.31
+      // W&D-01 | Window style 5 - UPVC DG. Approx. size 600mm x 1200mm | Item | 1066 | | £643,853.31
       if (/^W&D-\d+/i.test(cells[0] || '')) {
         var code = (cells[0] || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
         var desc = cells[1] || rowText;
@@ -769,20 +769,20 @@ var DataExtractor = (function () {
   }
 
   // -----------------------------------------------------------------------
-  // Strategy 0 â€” Reference-first extraction (primary strategy for schedule docs)
+  // Strategy 0 — Reference-first extraction (primary strategy for schedule docs)
   // -----------------------------------------------------------------------
 
-  // Reference pattern for the reference-first strategy â€” more specific than the
+  // Reference pattern for the reference-first strategy — more specific than the
   // generic fallback pattern.  Covers:
-  //   E?[WDSC]\d{2,3} â€” EW01â€“EW38, ED01â€“ED03, W01, D01, S01, C01
-  //   I[WD]\d{2,3}    â€” IW01, ID01 (internal window / door)
-  //   N[WD]\d{2,3}    â€” NW01â€“NW11, ND01â€“ND14 (Shaftesbury-style)
+  //   E?[WDSC]\d{2,3} — EW01–EW38, ED01–ED03, W01, D01, S01, C01
+  //   I[WD]\d{2,3}    — IW01, ID01 (internal window / door)
+  //   N[WD]\d{2,3}    — NW01–NW11, ND01–ND14 (Shaftesbury-style)
   var REF_FIRST_PATTERN = /\b(E?[WDSC]\d{1,3}|[IN][WD]\d{1,3}|[WD][A-Z]?\d{1,3})\b/gi;
 
   // Spatial thresholds specific to reference-first clustering
-  var REF_FIRST_Y_TOL   = 15;   // pt â€” items within this of the ref Y are "same row"
-  var REF_FIRST_Y_BELOW = 40;   // pt â€” items this far below the ref row (multi-line cells)
-  var REF_FIRST_X_RANGE = 1500; // pt â€” max horizontal reach from the ref item
+  var REF_FIRST_Y_TOL   = 15;   // pt — items within this of the ref Y are "same row"
+  var REF_FIRST_Y_BELOW = 40;   // pt — items this far below the ref row (multi-line cells)
+  var REF_FIRST_X_RANGE = 1500; // pt — max horizontal reach from the ref item
   // Wide range needed because CAD-exported schedules can be A3 (842pt) or A1 (2384pt)
   // landscape, with dimension columns far to the right of the reference column.
 
@@ -811,18 +811,18 @@ var DataExtractor = (function () {
     if (!text || text.trim().length === 0) return items;
 
     // Normalise space-split refs arising from PDF text fragmentation
-    // e.g. "EW 19" â†’ "EW19", "ID 04" â†’ "ID04"
+    // e.g. "EW 19" → "EW19", "ID 04" → "ID04"
     var normText = normaliseSpaceSplitRefs(text);
 
     // Insert space between trailing digits and reference-like prefixes.
     // Smart text joining can produce "2100EW30" when the gap between text items
-    // is <2pt.  \b doesn't fire between two \w chars (digitâ†’letter), so the
+    // is <2pt.  \b doesn't fire between two \w chars (digit→letter), so the
     // reference regex misses "EW30".  This targeted fix restores the boundary.
     normText = normText.replace(/(\d)([EI]?[WDSC]\d{2,3}\b)/gi, '$1 $2');
 
     var hasPositions = textItems.length > 0 && textItems[0] && textItems[0].x !== undefined;
 
-    // Step 1 â€” Find all unique valid references in this page
+    // Step 1 — Find all unique valid references in this page
     var pattern = new RegExp(REF_FIRST_PATTERN.source, 'gi');
     var foundRefs = {};
     var match;
@@ -882,7 +882,7 @@ var DataExtractor = (function () {
       console.log('[RefFirst] normText tail (last 300 chars): "' + normText.substring(normText.length - 300) + '"');
     }
 
-    // Step 2 & 3 â€” For each reference, gather nearby text cluster and extract attributes
+    // Step 2 & 3 — For each reference, gather nearby text cluster and extract attributes
     Object.keys(foundRefs).sort().forEach(function (ref) {
       var refData  = foundRefs[ref];
       var clusterText = '';
@@ -901,7 +901,7 @@ var DataExtractor = (function () {
           });
           sameRow.sort(function (a, b) { return a.x - b.x; });
 
-          // Below-row cluster: next 2â€“3 visual rows (lower y in PDF space = lower on page)
+          // Below-row cluster: next 2–3 visual rows (lower y in PDF space = lower on page)
           var belowRow = textItems.filter(function (it) {
             return it.str && it.str.trim().length > 0 &&
                    it.y < (refTextItem.y - REF_FIRST_Y_TOL) &&
@@ -927,12 +927,12 @@ var DataExtractor = (function () {
 
       // Build a secondary character-context window for dimension/attribute fallback.
       // Even when spatial clustering produces text, it may miss columns that are far
-      // away â€” the character-context window captures everything between this ref and
+      // away — the character-context window captures everything between this ref and
       // the next ref in TEXT ORDER (not sorted order), spanning the full table row.
       //
       // When a ref appears multiple times in the text (e.g. once in an elevation
       // annotation and again in a table row), prefer the FIRST occurrence whose span
-      // to the next different ref is at least MIN_DATA_SPAN chars â€” this selects the
+      // to the next different ref is at least MIN_DATA_SPAN chars — this selects the
       // data-rich table row over short annotations AND over footer/note occurrences.
       // Cap each occurrence's context at MAX_CHAR_CONTEXT to prevent bleeding into
       // unrelated text (e.g. notes about a different item).
@@ -985,10 +985,10 @@ var DataExtractor = (function () {
         extractionMethod: 'reference-first'
       });
 
-      // Dimensions â€” try spatial cluster first, then character-context fallback
+      // Dimensions — try spatial cluster first, then character-context fallback
       var dims = extractDimensionsFromText(clusterText);
       if (!dims) {
-        // Adjacent 3â€“4 digit numbers may be W and H in separate table columns
+        // Adjacent 3–4 digit numbers may be W and H in separate table columns
         var adjNums = clusterText.match(/\b(\d{3,4})\s+(\d{3,4})\b/);
         if (adjNums) {
           var aw = parseInt(adjNums[1], 10), ah = parseInt(adjNums[2], 10);
@@ -1019,7 +1019,7 @@ var DataExtractor = (function () {
         console.log('[RefFirst] ' + ref + ' dims: ' + (dims ? dims.width + 'x' + dims.height : 'NONE'));
       }
 
-      // Always prefer charContext for attribute extraction â€” it represents the
+      // Always prefer charContext for attribute extraction — it represents the
       // text row for this ref in document order.  clusterText may contain data
       // from other columns/rows due to spatial proximity (e.g. in column-based
       // CAD schedules the same-row cluster is just all other ref names).
@@ -1062,7 +1062,7 @@ var DataExtractor = (function () {
   }
 
   // -----------------------------------------------------------------------
-  // Strategy 3 â€” Enhanced regex with spatial context (fallback)
+  // Strategy 3 — Enhanced regex with spatial context (fallback)
   // -----------------------------------------------------------------------
 
   function tryEnhancedRegex(textItems, text, sourceName, sourcePage) {
@@ -1070,7 +1070,7 @@ var DataExtractor = (function () {
     if (!text || text.trim().length === 0) return items;
 
     // Normalise space-split references that arise from PDF text fragmentation,
-    // e.g. "EW 19" â†’ "EW19", "ID 04" â†’ "ID04".  Use a separate variable so the
+    // e.g. "EW 19" → "EW19", "ID 04" → "ID04".  Use a separate variable so the
     // original text is still available for spatial item lookups via textItems.
     var normText = normaliseSpaceSplitRefs(text);
 
@@ -1134,7 +1134,7 @@ var DataExtractor = (function () {
       var dimContext; // forward-only context used for dimension extraction to avoid overlap with prior items
       if (refItem && textItems && textItems.length > 0) {
         // Collect items on the same row (within SPATIAL_ROW_Y pt vertically) and
-        // within SPATIAL_ROW_X pt horizontally â€” sorted left-to-right for a natural read order.
+        // within SPATIAL_ROW_X pt horizontally — sorted left-to-right for a natural read order.
         var nearby = textItems.filter(function (it) {
           return Math.abs(it.y - refItem.y) <= SPATIAL_ROW_Y &&
                  Math.abs(it.x - refItem.x) <= SPATIAL_ROW_X &&
@@ -1213,7 +1213,7 @@ var DataExtractor = (function () {
     var stats       = { docsProcessed: 0, pagesProcessed: 0, itemsFound: 0, warnings: 0 };
 
     // Build drawing-sheet rejection set from classified drawing documents.
-    // e.g. "3847.C37 Proposed Cladding Details.pdf" â†’ reject "C37" as a glazing ref.
+    // e.g. "3847.C37 Proposed Cladding Details.pdf" → reject "C37" as a glazing ref.
     _drawingSheetRefs = {};
     documents.forEach(function (doc) {
       var cls = classifyDocument(doc.name, doc.fullText || '');
@@ -1231,7 +1231,7 @@ var DataExtractor = (function () {
     // Track schedule items by reference (schedule is the sole source of truth for items)
     var scheduleItems = {};
 
-    // BQ validation data: { ref: { ref, bqQuantity } } â€” from all BQ documents
+    // BQ validation data: { ref: { ref, bqQuantity } } — from all BQ documents
     var bqValidationData = {};
 
     var allDrawingRefs = {};
@@ -1245,7 +1245,7 @@ var DataExtractor = (function () {
 
       var classification = classifyDocument(doc.name, doc.fullText || '');
       var docType = classification.type;
-      debugLog.push('[' + docType.toUpperCase() + ' / ' + classification.confidence + '] ' + doc.name + ' (' + doc.pages.length + ' page(s)) â€” ' + classification.reason);
+      debugLog.push('[' + docType.toUpperCase() + ' / ' + classification.confidence + '] ' + doc.name + ' (' + doc.pages.length + ' page(s)) — ' + classification.reason);
 
       var docResult = extractFromDocument(doc);
       allItems    = allItems.concat(docResult.items);
@@ -1258,7 +1258,7 @@ var DataExtractor = (function () {
         allSpecNotes = allSpecNotes.concat(docResult.specNotes);
         allSpecText += '\n' + ((doc.fullText || (doc.pages || []).map(function (p) { return p.text || ''; }).join('\n')) || '');
       }
-      // Collect BQ validation data (never creates items, just refâ†’qty pairs)
+      // Collect BQ validation data (never creates items, just ref→qty pairs)
       if (docResult.bqValidation) {
         docResult.bqValidation.forEach(function (v) {
           if (!bqValidationData[v.ref]) {
@@ -1268,20 +1268,20 @@ var DataExtractor = (function () {
           }
         });
         if (docResult.bqValidation.length > 0) {
-          debugLog.push('  â†’ BQ validation: ' + docResult.bqValidation.length + ' ref(s) found for cross-check');
+          debugLog.push('  → BQ validation: ' + docResult.bqValidation.length + ' ref(s) found for cross-check');
         } else {
-          debugLog.push('  â†’ BQ validation: no refs found (scanned or empty)');
+          debugLog.push('  → BQ validation: no refs found (scanned or empty)');
         }
       }
 
       if (docResult.items.length > 0) {
-        debugLog.push('  â†’ Found ' + docResult.items.length + ' item(s): ' +
+        debugLog.push('  → Found ' + docResult.items.length + ' item(s): ' +
           docResult.items.slice(0, 10).map(function (i) { return i.reference; }).join(', ') +
-          (docResult.items.length > 10 ? ' â€¦' : ''));
+          (docResult.items.length > 10 ? ' …' : ''));
       } else if (docType === 'schedule') {
-        debugLog.push('  â†’ No items extracted');
+        debugLog.push('  → No items extracted');
       } else if (docType !== 'bq') {
-        debugLog.push('  â†’ Skipped (document type: ' + docType + ')');
+        debugLog.push('  → Skipped (document type: ' + docType + ')');
       }
 
       // Track schedule items (schedule is the only source that creates items)
@@ -1344,7 +1344,7 @@ var DataExtractor = (function () {
       allWarnings = allWarnings.concat(crossWarnings);
     }
 
-    // Cross-validate drawing refs against schedule items â€” group by prefix to avoid
+    // Cross-validate drawing refs against schedule items — group by prefix to avoid
     // generating one warning per reference (which can easily reach 140+ for a large project).
     // Only run if the schedule actually produced items to prevent false positives.
     if (Object.keys(scheduleItems).length > 0 && Object.keys(allDrawingRefs).length > 0) {
@@ -1352,7 +1352,7 @@ var DataExtractor = (function () {
         return !scheduleItems[ref];
       });
       if (missingRefs.length > 0) {
-        // Group by alphabetic prefix (EW, ED, ID, C, W, D, â€¦)
+        // Group by alphabetic prefix (EW, ED, ID, C, W, D, …)
         var crossRefGroups = {};
         missingRefs.forEach(function (ref) {
           var prefixMatch = ref.match(/^([A-Z]+)/);
@@ -1369,7 +1369,7 @@ var DataExtractor = (function () {
             type: 'cross-ref',
             message: count + ' ' + prefix + ' reference' + (count > 1 ? 's' : '') +
                      ' (' + range + ') found in drawing(s) but not in Window Schedule' +
-                     (count > 1 ? ' â€” check if these items are missing from the schedule' : ' â€” check if this item is missing from the schedule'),
+                     (count > 1 ? ' — check if these items are missing from the schedule' : ' — check if this item is missing from the schedule'),
             itemId: null,
             severity: 'info'
           });
@@ -1427,8 +1427,8 @@ var DataExtractor = (function () {
     return notes;
   }
 
-  // Extract reference â†’ quantity pairs from a BQ document for cross-validation.
-  // Never creates glazing items â€” only returns validation data.
+  // Extract reference → quantity pairs from a BQ document for cross-validation.
+  // Never creates glazing items — only returns validation data.
   function extractBQValidation(doc) {
     var bqData = {};
     var pattern = new RegExp(REF_FIRST_PATTERN.source, 'gi');
@@ -1471,16 +1471,16 @@ var DataExtractor = (function () {
     var classification = classifyDocument(doc.name, doc.fullText || '');
     var docType = classification.type;
 
-    // Admin documents contain no glazing data â€” skip entirely to avoid false positives
+    // Admin documents contain no glazing data — skip entirely to avoid false positives
     if (docType === 'admin') return { items: [], warnings: [] };
 
-    // Architectural drawings â€” extract reference markers for cross-validation only
+    // Architectural drawings — extract reference markers for cross-validation only
     if (docType === 'drawing') {
       var drawingRefs = extractDrawingRefs(doc);
       return { items: [], warnings: [], drawingRefs: drawingRefs };
     }
 
-    // Specification documents â€” extract material notes only, no dimensions
+    // Specification documents — extract material notes only, no dimensions
     if (docType === 'specification') {
       var specNotes = extractSpecNotes(doc);
       return { items: [], warnings: [], specNotes: specNotes };
@@ -1521,7 +1521,7 @@ var DataExtractor = (function () {
 
     doc.pages.forEach(function (page) {
       var pageItems = extractFromPage(page, doc.name, docType);
-      console.log('[ExtractDoc] Page ' + page.pageNum + ' of "' + doc.name + '": ' + pageItems.length + ' item(s) â€” ' +
+      console.log('[ExtractDoc] Page ' + page.pageNum + ' of "' + doc.name + '": ' + pageItems.length + ' item(s) — ' +
         pageItems.map(function (i) { return i.reference; }).join(', '));
       pageItems.forEach(function (item) {
         var ref = item.reference.toUpperCase();
@@ -1553,7 +1553,7 @@ var DataExtractor = (function () {
     // schedule document, re-run reference-first extraction on the full document text.
     // This sidesteps per-page text splitting issues from PDF.js.
     if (docType === 'schedule' && items.length < 3) {
-      console.log('[ExtractDoc] Schedule fallback triggered â€” only ' + items.length + ' item(s) from per-page extraction. Trying full-document extractionâ€¦');
+      console.log('[ExtractDoc] Schedule fallback triggered — only ' + items.length + ' item(s) from per-page extraction. Trying full-document extraction…');
       // Combine all textItems from all pages
       var allTextItems = [];
       doc.pages.forEach(function (page) {
@@ -1563,7 +1563,7 @@ var DataExtractor = (function () {
       var fallbackItems = tryReferenceFirstExtraction(allTextItems, fullText, doc.name, 0);
       console.log('[ExtractDoc] Full-document fallback found ' + fallbackItems.length + ' item(s)');
 
-      // Merge fallback items â€” only add refs NOT already found
+      // Merge fallback items — only add refs NOT already found
       fallbackItems.forEach(function (item) {
         var ref = item.reference.toUpperCase();
         if (ref && !referenceMap[ref]) {
@@ -1638,7 +1638,7 @@ var DataExtractor = (function () {
       var hasText = doc.pages.some(function (p) { return p.text && p.text.trim().length > MIN_TEXT_LENGTH; });
       var msg = hasText
         ? 'No glazing items found in "' + doc.name + '". The document was read but no recognisable references (e.g. EW01, W01, D01) were found. Please verify the document contains a window/door schedule and add items manually if needed.'
-        : 'No glazing items found in "' + doc.name + '". The document appears to be a scanned image â€” text extraction is not possible. Please add items manually.';
+        : 'No glazing items found in "' + doc.name + '". The document appears to be a scanned image — text extraction is not possible. Please add items manually.';
       warnings.push({
         id: generateId(),
         type: 'extraction',
@@ -1661,7 +1661,7 @@ var DataExtractor = (function () {
       var workbookRows = buildRows(textItems, 15);
       var workbookItems = tryWorkbookScheduleExtraction(workbookRows, sourceName, page.pageNum);
       if (workbookItems.length > 0) {
-        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy W (workbook rows) â†’ ' + workbookItems.length + ' items');
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy W (workbook rows) → ' + workbookItems.length + ' items');
         return workbookItems;
       }
     }
@@ -1673,7 +1673,7 @@ var DataExtractor = (function () {
     if (docType === 'schedule') {
       var refFirstItems = tryReferenceFirstExtraction(textItems, text, sourceName, page.pageNum);
       if (refFirstItems.length > 0) {
-        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 0 (reference-first) â†’ ' + refFirstItems.length + ' items');
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 0 (reference-first) → ' + refFirstItems.length + ' items');
         return refFirstItems;
       }
     }
@@ -1682,8 +1682,8 @@ var DataExtractor = (function () {
     if (textItems.length > 0 && textItems[0] && textItems[0].x !== undefined) {
       var rows = buildRows(textItems);
 
-      // Adaptive tolerance: if very few rows have â‰¥2 items, the initial grouping may
-      // be too tight â€” retry with a wider tolerance (up to 15 pt).
+      // Adaptive tolerance: if very few rows have ≥2 items, the initial grouping may
+      // be too tight — retry with a wider tolerance (up to 15 pt).
       var multiItemRows = rows.filter(function (r) { return r.items.length >= 2; });
       if (multiItemRows.length < 3 && rows.length > 5) {
         var wideRows = buildRows(textItems, 15);
@@ -1696,14 +1696,14 @@ var DataExtractor = (function () {
       // Strategy 1: Structured table with header row
       var tableItems = tryTableExtraction(rows, sourceName, page.pageNum);
       if (tableItems.length > 0) {
-        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 1 (table) â†’ ' + tableItems.length + ' items');
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 1 (table) → ' + tableItems.length + ' items');
         return tableItems;
       }
 
       // Strategy 2: Row-based reference pattern
       var rowItems = tryRowBasedExtraction(rows, sourceName, page.pageNum, docType);
       if (rowItems.length > 0) {
-        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 2 (row-based) â†’ ' + rowItems.length + ' items');
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 2 (row-based) → ' + rowItems.length + ' items');
         return rowItems;
       }
     }
@@ -1711,24 +1711,24 @@ var DataExtractor = (function () {
     // Strategy 3: Enhanced regex with spatial context
     var regexItems = tryEnhancedRegex(textItems, text, sourceName, page.pageNum);
     if (regexItems.length > 0) {
-      console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 3 (enhanced regex) â†’ ' + regexItems.length + ' items');
+      console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 3 (enhanced regex) → ' + regexItems.length + ' items');
       return regexItems;
     }
 
-    // Strategy 4: Line-based text fallback â€” split on newlines and process each line.
+    // Strategy 4: Line-based text fallback — split on newlines and process each line.
     // This handles PDFs where position data is absent or unreliable but the text layer
     // is clean enough to produce one item per line.
     var lineItems = tryLineBasedExtraction(text, sourceName, page.pageNum);
     if (lineItems.length > 0) {
-      console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 4 (line-based) â†’ ' + lineItems.length + ' items');
+      console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 4 (line-based) → ' + lineItems.length + ' items');
       return lineItems;
     }
 
-    // Strategy 5: Infer an item without a reference (schedule docs only â€” never BQ)
+    // Strategy 5: Infer an item without a reference (schedule docs only — never BQ)
     if (docType === 'schedule') {
       var inferred = tryInferWithoutRef(text, sourceName, page.pageNum);
       if (inferred) {
-        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 5 (infer-without-ref) â†’ 1 item');
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 5 (infer-without-ref) → 1 item');
         return [inferred];
       }
     }
@@ -1738,7 +1738,7 @@ var DataExtractor = (function () {
   }
 
   // -----------------------------------------------------------------------
-  // Strategy 4 â€” Line-based text fallback
+  // Strategy 4 — Line-based text fallback
   // -----------------------------------------------------------------------
 
   function tryLineBasedExtraction(text, sourceName, sourcePage) {
@@ -1832,8 +1832,8 @@ var DataExtractor = (function () {
         warnings.push({
           id: generateId(),
           type: 'discrepancy',
-          message: ref + ': Dimensions differ â€” Window Schedule: ' + sItem.width + 'Ã—' + sItem.height +
-                   'mm, BQ: ' + bItem.width + 'Ã—' + bItem.height + 'mm â€” using Window Schedule values',
+          message: ref + ': Dimensions differ — Window Schedule: ' + sItem.width + '×' + sItem.height +
+                   'mm, BQ: ' + bItem.width + '×' + bItem.height + 'mm — using Window Schedule values',
           itemId: sItem.id,
           severity: 'warning'
         });
@@ -1861,17 +1861,17 @@ var DataExtractor = (function () {
       if (!bqEntry) return;
 
       if (bqEntry.bqQuantity > 1 && item.quantity === 1) {
-        // Prefer BQ quantity â€” schedule often shows qty=1 (one type) while BQ shows total
+        // Prefer BQ quantity — schedule often shows qty=1 (one type) while BQ shows total
         item.quantity = bqEntry.bqQuantity;
         if (debugLog) {
-          debugLog.push('  BQ qty update: ' + item.reference + ' â†’ qty ' + bqEntry.bqQuantity);
+          debugLog.push('  BQ qty update: ' + item.reference + ' → qty ' + bqEntry.bqQuantity);
         }
       } else if (bqEntry.bqQuantity > 1 && bqEntry.bqQuantity !== item.quantity) {
         warnings.push({
           id: generateId(),
           type: 'discrepancy',
-          message: item.reference + ': Quantity discrepancy â€” Schedule: ' + item.quantity +
-                   ', BQ: ' + bqEntry.bqQuantity + ' â€” please verify',
+          message: item.reference + ': Quantity discrepancy — Schedule: ' + item.quantity +
+                   ', BQ: ' + bqEntry.bqQuantity + ' — please verify',
           itemId: item.id,
           severity: 'warning'
         });
@@ -1890,24 +1890,24 @@ var DataExtractor = (function () {
 
     // Try patterns in order of specificity / reliability
     var patterns = [
-      /(\d{3,4}(?:\.\d+)?)\s*mm\s*[xXÃƒâ€”]\s*(\d{3,4}(?:\.\d+)?)\s*mm/i,
-      // "1010 x 1050"  or  "1010x1050"  or  "1010Ã—1050"  (3â€“4 digits, mm)
-      /(\d{3,4}(?:\.\d+)?)\s*[xXÃ—]\s*(\d{3,4}(?:\.\d+)?)/,
+      /(\d{3,4}(?:\.\d+)?)\s*mm\s*[xX×]\s*(\d{3,4}(?:\.\d+)?)\s*mm/i,
+      // "1010 x 1050"  or  "1010x1050"  or  "1010×1050"  (3–4 digits, mm)
+      /(\d{3,4}(?:\.\d+)?)\s*[xX×]\s*(\d{3,4}(?:\.\d+)?)/,
       // "w=1010 h=1050"  or  "W:1010 H:1050"
       /[wW]\s*[=:]\s*(\d{3,4}(?:\.\d+)?)\s+[hH]\s*[=:]\s*(\d{3,4}(?:\.\d+)?)/,
       // "1010w x 1050h"
-      /(\d{3,4}(?:\.\d+)?)\s*[wW]\s*[xXÃ—]\s*(\d{3,4}(?:\.\d+)?)\s*[hH]/,
+      /(\d{3,4}(?:\.\d+)?)\s*[wW]\s*[xX×]\s*(\d{3,4}(?:\.\d+)?)\s*[hH]/,
       // Metres with decimal point or European comma: "1.010 x 1.050" or "1,010 x 1,050"
-      // Pattern: 1â€“2 digits + separator + exactly 3 digits (avoids matching e.g. "14.1")
+      // Pattern: 1–2 digits + separator + exactly 3 digits (avoids matching e.g. "14.1")
       // Both forms are converted to mm by multiplying by 1000 when value < 10.
-      /(\d{1,2}[.,]\d{3})\s*[xXÃ—]\s*(\d{1,2}[.,]\d{3})/
+      /(\d{1,2}[.,]\d{3})\s*[xX×]\s*(\d{1,2}[.,]\d{3})/
     ];
 
     for (var pi = 0; pi < patterns.length; pi++) {
       var match = patterns[pi].exec(text);
       if (match) {
         // Treat comma as decimal separator (covers both European notation and thousands
-        // separator â€” for glazing dimensions "1,010" means 1010mm either way).
+        // separator — for glazing dimensions "1,010" means 1010mm either way).
         var w = parseFloat(match[1].replace(',', '.'));
         var h = parseFloat(match[2].replace(',', '.'));
         // Convert metres to mm when values look like metres (< 10)
@@ -1924,7 +1924,7 @@ var DataExtractor = (function () {
 
   function extractFrameType(text) {
     if (!text) return 'Unknown';
-    // Find the NEAREST (earliest) match across all patterns â€” closest to the ref
+    // Find the NEAREST (earliest) match across all patterns — closest to the ref
     // itself is most relevant (prevents a distant "aluminium" note overriding a
     // nearby "sw" in a door frame column).
     var patterns = [
@@ -1956,16 +1956,16 @@ var DataExtractor = (function () {
     if (item.finish) {
       var ft = extractFrameType(item.finish);
       if (ft !== 'Unknown') { item.frameType = ft; return; }
-      // "Powder Coated" / "PPC" without explicit material â€” typically aluminium
+      // "Powder Coated" / "PPC" without explicit material — typically aluminium
       if (/\b(?:ppc|powder\s*coat)/i.test(item.finish)) { item.frameType = 'Aluminium'; return; }
     }
     // Check doorFrame field (e.g. "Aluminium", "32 x 125mm sw")
     if (item.doorFrame) {
       var ft2 = extractFrameType(item.doorFrame);
       if (ft2 !== 'Unknown') { item.frameType = ft2; return; }
-      // "sw" = softwood â†’ Timber
+      // "sw" = softwood → Timber
       if (/\bsw\b/i.test(item.doorFrame)) { item.frameType = 'Timber'; return; }
-      // "hw" = hardwood â†’ Timber
+      // "hw" = hardwood → Timber
       if (/\bhw\b/i.test(item.doorFrame)) { item.frameType = 'Timber'; return; }
     }
   }
@@ -2041,7 +2041,7 @@ var DataExtractor = (function () {
     // RAL code: "RAL 9005", "RAL9005"
     var ralMatch = /\bRAL\s*(\d{4})\b/i.exec(text);
     if (ralMatch) return 'RAL ' + ralMatch[1];
-    // Named foil/finish colours â€” check BEFORE grey code to avoid
+    // Named foil/finish colours — check BEFORE grey code to avoid
     // "Anthracite Grey" matching "Grey 1010" via the dimension number.
     var foilMatch = /\b(anthracite|black|white|cream|bronze|chartwell\s*green|irish\s*oak|rosewood|golden\s*oak)\s*(foil|grey|woodgrain)?\b/i.exec(text);
     if (foilMatch) {
@@ -2049,7 +2049,7 @@ var DataExtractor = (function () {
       if (foilMatch[2]) colour += ' ' + foilMatch[2].charAt(0).toUpperCase() + foilMatch[2].slice(1).toLowerCase();
       return colour;
     }
-    // Grey/Gray colour code: "Grey 7016" â€” only match 4-digit codes â‰¥ 2000
+    // Grey/Gray colour code: "Grey 7016" — only match 4-digit codes ≥ 2000
     // to avoid dimension numbers like 1010, 1050, 1500 being mistaken for colour codes.
     var greyMatch = /\b(grey|gray)\s+(\d{4})\b/i.exec(text);
     if (greyMatch && parseInt(greyMatch[2], 10) >= 2000) return 'Grey ' + greyMatch[2];
@@ -2061,7 +2061,7 @@ var DataExtractor = (function () {
     // "cill 1050", "sill ht 1050", "cill height 1050", "1050 cill", "1050mm cill"
     var m1 = /\b(?:cill|sill)\s*(?:ht|height|@|at|above[^)]{0,30}?)?\s*(\d{3,4})\b/i.exec(text);
     if (m1) return m1[1];
-    // "Structural cill above floor slab mm ... 1050"  â€” number after "cill" in schedule header context
+    // "Structural cill above floor slab mm ... 1050"  — number after "cill" in schedule header context
     var m2 = /\b(\d{3,4})\s*(?:mm\s*)?(?:cill|sill)\b/i.exec(text);
     if (m2) return m2[1];
     return '';
@@ -2118,8 +2118,8 @@ var DataExtractor = (function () {
 
   function extractUValue(text) {
     if (!text) return '';
-    // "1.4 W/m2k", "1.4W/mÂ²K", "U=1.4", "U Value 1.4", "1.4 W/mÂ²k"
-    var m = /\b(\d+\.?\d*)\s*W\/m[Â²2]\s*[kK]\b/i.exec(text);
+    // "1.4 W/m2k", "1.4W/m²K", "U=1.4", "U Value 1.4", "1.4 W/m²k"
+    var m = /\b(\d+\.?\d*)\s*W\/m[²2]\s*[kK]\b/i.exec(text);
     if (m) return m[1] + ' W/m2k';
     var m2 = /\bU[\s\-]*(?:value|val)?\s*[=:\s]\s*(\d+\.?\d*)\b/i.exec(text);
     if (m2) return m2[1] + ' W/m2k';
@@ -2184,7 +2184,7 @@ var DataExtractor = (function () {
     if (/\bPPC\s*Aluminium\b/i.test(text)) return 'PPC Aluminium';
     if (/\bpowder[\s\-]?coat/i.test(text)) return 'Powder Coated';
     if (/\bformica[\s\-]?laminate/i.test(text)) return 'Formica Laminate Finish';
-    // "RAL Colour To match existing" â€” pass through the finish description
+    // "RAL Colour To match existing" — pass through the finish description
     var ralFinish = /\b(RAL\s+Colo(?:u)?r\s+(?:To\s+match\s+existing|TBC))\b/i.exec(text);
     if (ralFinish) return ralFinish[1];
     if (/\banodised\b/i.test(text)) return 'Anodised';
@@ -2686,7 +2686,7 @@ var DataExtractor = (function () {
 
   function parseMoneyCell(value) {
     if (value === undefined || value === null) return 0;
-    var text = String(value).replace(/Â£/g, '').replace(/,/g, '').trim();
+    var text = String(value).replace(/£/g, '').replace(/,/g, '').trim();
     if (!text || text === '-') return 0;
     var n = parseFloat(text);
     if (!isFinite(n) || n <= 0) return 0;
@@ -2699,7 +2699,7 @@ var DataExtractor = (function () {
       var raw = String(cells[i] || '');
       var amount = parseMoneyCell(raw);
       if (!amount) continue;
-      if (/[Â£$â‚¬]/.test(raw) || amount >= 100) {
+      if (/[£$€]/.test(raw) || amount >= 100) {
         best = Math.max(best, amount);
       }
     }
@@ -2814,8 +2814,8 @@ var DataExtractor = (function () {
                 warnings.push({
                   id: generateId(),
                   type: 'discrepancy',
-                  message: 'Dimension mismatch for ' + ref + ': ' + itemA.width + 'Ã—' + itemA.height +
-                           'mm (' + foundIn[i] + ') vs ' + itemB.width + 'Ã—' + itemB.height +
+                  message: 'Dimension mismatch for ' + ref + ': ' + itemA.width + '×' + itemA.height +
+                           'mm (' + foundIn[i] + ') vs ' + itemB.width + '×' + itemB.height +
                            'mm (' + foundIn[j] + ')',
                   itemId: itemA.id,
                   severity: 'warning'

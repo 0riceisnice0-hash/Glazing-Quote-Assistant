@@ -38,11 +38,11 @@ var Pricing = (function () {
     // Steel Doors
     SSD:    { markup: 1300, desc: 'Single Steel Door' },
     DSD:    { markup: 2200, desc: 'Double Steel Door' },
-    // Curtain Wall (priced per mÂ²)
+    // Curtain Wall (priced per m²)
     CW:     { markup: 0,    desc: 'Curtain Wall' }
   };
 
-  // Window area thresholds (mÂ²)
+  // Window area thresholds (m²)
   var WIN_SMALL  = 2.5;
   var WIN_MEDIUM = 6;
   var WIN_LARGE  = 12;
@@ -53,7 +53,7 @@ var Pricing = (function () {
   var DEFAULT_CONFIG = {
     pricingVersion: 4,
 
-    // Estimated supplier frame cost per mÂ² (fabricated unit inc. hardware, excl. glass)
+    // Estimated supplier frame cost per m² (fabricated unit inc. hardware, excl. glass)
     aluminiumFrameRate: 500,
     aluminiumDoorRate: 1125,
     pvcFrameRate: 395,
@@ -61,12 +61,12 @@ var Pricing = (function () {
     steelFrameRate: 600,
 
     // Split-pane pricing rates (more accurate than flat rate)
-    fixedPaneRate: 250,           // £/mÂ² for fixed glass panes
-    openingPaneRate: 580,         // £/mÂ² for opening lights/casements
+    fixedPaneRate: 250,           // £/m² for fixed glass panes
+    openingPaneRate: 580,         // £/m² for opening lights/casements
     louvreFlat: 450,              // £ flat premium per louvre panel
     overheadPercent: 8,           // % overhead/margin baked into type code markups
 
-    // Estimated glass cost per mÂ² (separate supplier quote)
+    // Estimated glass cost per m² (separate supplier quote)
     doubleGlazedRate: 55,
     tripleGlazedRate: 85,
     fireRatedGlassRate: 130,
@@ -198,7 +198,7 @@ var Pricing = (function () {
 
   /**
    * Split-pane frame estimate: if item has pane counts, use per-pane-type
-   * rates instead of a flat £/mÂ² rate. This captures the big cost difference
+   * rates instead of a flat £/m² rate. This captures the big cost difference
    * between fixed panels and opening lights (hinges, locks, restrictors etc.)
    *
    * The overhead % accounts for the fact that Fenster type-code markups
@@ -213,7 +213,7 @@ var Pricing = (function () {
     var frame  = (item.frameType || '').toLowerCase();
     var isDoor = (item.type || '').toLowerCase() === 'door';
 
-    // If we have pane counts â†’ use split-pane pricing
+    // If we have pane counts → use split-pane pricing
     var fixedPanes   = item.fixedPanes   || 0;
     var openingPanes = item.openingPanes || 0;
     var totalPanes   = fixedPanes + openingPanes;
@@ -232,7 +232,7 @@ var Pricing = (function () {
       return round2(withOverhead);
     }
 
-    // Fallback: flat rate per mÂ² (original logic, used when pane data missing)
+    // Fallback: flat rate per m² (original logic, used when pane data missing)
     var rate = isDoor ? (config.aluminiumDoorRate || config.aluminiumFrameRate) : config.aluminiumFrameRate;
 
     if (frame.indexOf('pvc') !== -1 || frame.indexOf('upvc') !== -1)       rate = config.pvcFrameRate;

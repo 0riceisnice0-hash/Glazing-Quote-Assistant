@@ -1,4 +1,4 @@
-﻿/* js/ui.js â€” Full UI rendering and interaction */
+﻿/* js/ui.js — Full UI rendering and interaction */
 
 var UI = (function () {
 
@@ -9,7 +9,7 @@ var UI = (function () {
   var _searchQuery = '';
   var _filters = { type: '', frame: '', confidence: '', location: '' };
 
-  var TOAST_ICONS = { success: 'âœ…', error: 'âŒ', warning: 'âš ï¸', info: 'â„¹ï¸' };
+  var TOAST_ICONS = { success: '✅', error: '❌', warning: '⚠️', info: 'ℹ️' };
   var TYPE_OPTIONS = ['window', 'door', 'screen', 'curtain wall', 'other'];
   var FRAME_OPTIONS = ['Aluminium', 'PVCu', 'Timber', 'Steel', 'Unknown'];
   var OPENING_OPTIONS = ['Fixed', 'Casement', 'Top Hung', 'Tilt & Turn', 'Sliding', 'Pivot', 'Bi-fold'];
@@ -43,14 +43,14 @@ var UI = (function () {
     btn.addEventListener('click', function () {
       document.body.classList.toggle('dark-mode');
       var isDark = document.body.classList.contains('dark-mode');
-      btn.textContent = isDark ? 'â˜€ï¸' : 'ðŸŒ™';
+      btn.textContent = isDark ? '☀️' : '🌙';
       localStorage.setItem('darkMode', isDark ? '1' : '0');
       if (_callbacks.onDarkModeToggle) _callbacks.onDarkModeToggle(isDark);
     });
     var stored = localStorage.getItem('darkMode');
     if (stored === '1') {
       document.body.classList.add('dark-mode');
-      btn.textContent = 'â˜€ï¸';
+      btn.textContent = '☀️';
     }
   }
 
@@ -345,7 +345,7 @@ var UI = (function () {
       bulkBtn.addEventListener('click', _applyBulkColumnValue);
     }
 
-    // Step-1 "Add Items Manually" button â€” go directly to the table view
+    // Step-1 "Add Items Manually" button — go directly to the table view
     var btnStep1 = document.getElementById('addItemBtnStep1');
     if (btnStep1) {
       btnStep1.addEventListener('click', function () {
@@ -434,7 +434,7 @@ var UI = (function () {
 
   function _emptyStateHTML() {
     return '<div class="empty-state">' +
-      '<span class="empty-icon">ðŸ“‹</span>' +
+      '<span class="empty-icon">📋</span>' +
       '<h3>No items yet</h3>' +
       '<p>Upload PDF documents and click "Analyse Documents" to extract glazing items,<br>or add items manually using the button below.</p>' +
       '</div>';
@@ -504,9 +504,9 @@ var UI = (function () {
       '<td class="text-right font-mono"><strong>' + Pricing.formatCurrency(item.totalPrice) + '</strong></td>' +
       '<td class="text-center"><span class="badge ' + item.confidence + '">' + (item.confidence || 'low') + '</span></td>' +
       '<td><div class="row-actions">' +
-      '<button class="btn-row-action" title="Edit" onclick="UI._editItem(\'' + item.id + '\')">âœï¸</button>' +
-      '<button class="btn-row-action duplicate" title="Duplicate" onclick="UI._duplicateItem(\'' + item.id + '\')">ðŸ“‹</button>' +
-      '<button class="btn-row-action delete" title="Delete" onclick="UI._deleteItem(\'' + item.id + '\')">ðŸ—‘ï¸</button>' +
+      '<button class="btn-row-action" title="Edit" onclick="UI._editItem(\'' + item.id + '\')">✏️</button>' +
+      '<button class="btn-row-action duplicate" title="Duplicate" onclick="UI._duplicateItem(\'' + item.id + '\')">📋</button>' +
+      '<button class="btn-row-action delete" title="Delete" onclick="UI._deleteItem(\'' + item.id + '\')">🗑️</button>' +
       '</div></td>' +
       '</tr>';
   }
@@ -518,7 +518,7 @@ var UI = (function () {
 
   function _numericCell(itemId, field, value) {
     return '<td class="editable-cell text-right" data-item-id="' + itemId + '" data-field="' + field + '">' +
-      (value > 0 ? value : '<span class="text-muted">â€”</span>') + '</td>';
+      (value > 0 ? value : '<span class="text-muted">—</span>') + '</td>';
   }
 
   function _selectCell(itemId, field, value, options) {
@@ -672,7 +672,7 @@ var UI = (function () {
     warnings = (warnings || []).concat(workflowRisks);
 
     if (!warnings || warnings.length === 0) {
-      container.innerHTML = '<div class="empty-state" style="padding:20px"><span style="font-size:2rem">âœ…</span><p>No warnings</p></div>';
+      container.innerHTML = '<div class="empty-state" style="padding:20px"><span style="font-size:2rem">✅</span><p>No warnings</p></div>';
       if (countBadge) countBadge.classList.add('hidden');
       return;
     }
@@ -697,7 +697,7 @@ var UI = (function () {
       group.forEach(function (w) {
         html += '<div class="warning-item ' + sev + '">' +
           '<div class="warning-msg">' + _escapeHtml(w.message) + '</div>' +
-          (w.itemId ? '<button class="warning-link" onclick="UI.highlightItem(\'' + w.itemId + '\')">â†’ Go to item</button>' : '') +
+          (w.itemId ? '<button class="warning-link" onclick="UI.highlightItem(\'' + w.itemId + '\')">→ Go to item</button>' : '') +
           '</div>';
       });
       html += '</div>';
@@ -833,13 +833,13 @@ var UI = (function () {
       '</div>' +
       '</div>' +
       '<div class="qp-meta-grid">' +
-      '<div class="qp-meta-label">Project:</div><div class="qp-meta-value">' + _escapeHtml(meta.projectName || 'â€”') + '</div>' +
-      '<div class="qp-meta-label">Client:</div><div class="qp-meta-value">' + _escapeHtml(meta.clientName || 'â€”') + '</div>' +
-      '<div class="qp-meta-label">Date:</div><div class="qp-meta-value">' + _escapeHtml(meta.quoteDate || 'â€”') + '</div>' +
+      '<div class="qp-meta-label">Project:</div><div class="qp-meta-value">' + _escapeHtml(meta.projectName || '—') + '</div>' +
+      '<div class="qp-meta-label">Client:</div><div class="qp-meta-value">' + _escapeHtml(meta.clientName || '—') + '</div>' +
+      '<div class="qp-meta-label">Date:</div><div class="qp-meta-value">' + _escapeHtml(meta.quoteDate || '—') + '</div>' +
       '<div class="qp-meta-label">Valid for:</div><div class="qp-meta-value">' + (meta.validityDays || 30) + ' days</div>' +
       '</div>' +
       '<hr class="section-divider">' +
-      '<div style="font-size:0.85rem;font-weight:600;margin-bottom:8px">' + _state.items.length + ' items â€¢ ' + Pricing.formatCurrency(summary.total) + ' total (inc. VAT)</div>' +
+      '<div style="font-size:0.85rem;font-weight:600;margin-bottom:8px">' + _state.items.length + ' items • ' + Pricing.formatCurrency(summary.total) + ' total (inc. VAT)</div>' +
       '<p style="font-size:0.8rem;color:#666;font-style:italic">Full itemised schedule will appear in the generated PDF.</p>';
   }
 
@@ -880,9 +880,9 @@ var UI = (function () {
     var toast = document.createElement('div');
     toast.className = 'toast ' + type;
     toast.innerHTML =
-      '<span class="toast-icon">' + (TOAST_ICONS[type] || 'â„¹ï¸') + '</span>' +
+      '<span class="toast-icon">' + (TOAST_ICONS[type] || 'ℹ️') + '</span>' +
       '<span class="toast-msg">' + _escapeHtml(message) + '</span>' +
-      '<button class="toast-dismiss" onclick="this.closest(\'.toast\').remove()">âœ•</button>';
+      '<button class="toast-dismiss" onclick="this.closest(\'.toast\').remove()">✕</button>';
 
     container.appendChild(toast);
 
@@ -929,7 +929,7 @@ var UI = (function () {
     var text = document.getElementById('loadingText');
     var sub = document.getElementById('loadingSub');
     if (!overlay) return;
-    if (text) text.textContent = message || 'Processingâ€¦';
+    if (text) text.textContent = message || 'Processing…';
     if (sub) sub.textContent = subMessage || '';
     overlay.classList.remove('hidden');
   }
@@ -957,7 +957,7 @@ var UI = (function () {
 
     list.innerHTML = files.map(function (f, i) {
       return '<li class="file-item">' +
-        '<span class="file-icon">ðŸ“„</span>' +
+        '<span class="file-icon">📄</span>' +
         '<span class="file-name">' + _escapeHtml(f.name) + '</span>' +
         '<span class="file-status" id="fileStatus_' + i + '">Ready</span>' +
         '<button class="file-remove" onclick="App.removeFile(' + i + ')">Remove</button>' +
@@ -1030,11 +1030,11 @@ var UI = (function () {
       _formField('Notes (comma separated)', 'edit_notes', (item.notes || []).join(', '), 'text', null, 'col-span-2') +
       '<h4 style="margin:0.8rem 0 0.3rem;color:#4caf50;font-size:0.85rem;">Supplier Costs (from Fenster BOQ)</h4>' +
       '<div class="form-grid">' +
-      _formField('Quoted Unit Price (Â£)', 'edit_supplierUnitPrice', item.supplierUnitPrice !== undefined ? item.supplierUnitPrice : '', 'number') +
+      _formField('Quoted Unit Price (£)', 'edit_supplierUnitPrice', item.supplierUnitPrice !== undefined ? item.supplierUnitPrice : '', 'number') +
       _formField('Rate Source', 'edit_supplierRateSource', item.supplierRateSource || '', 'text') +
-      _formField('Frame Cost (Â£)', 'edit_supplierFrameCost', item.supplierFrameCost !== undefined ? item.supplierFrameCost : '', 'number') +
-      _formField('Glass Cost (Â£)', 'edit_supplierGlassCost', item.supplierGlassCost !== undefined ? item.supplierGlassCost : '', 'number') +
-      _formField('Additional (Â£)', 'edit_supplierAdditional', item.supplierAdditional || '', 'number') +
+      _formField('Frame Cost (£)', 'edit_supplierFrameCost', item.supplierFrameCost !== undefined ? item.supplierFrameCost : '', 'number') +
+      _formField('Glass Cost (£)', 'edit_supplierGlassCost', item.supplierGlassCost !== undefined ? item.supplierGlassCost : '', 'number') +
+      _formField('Additional (£)', 'edit_supplierAdditional', item.supplierAdditional || '', 'number') +
       '</div>' +
       '<h4 style="margin:0.8rem 0 0.3rem;color:#ff9800;font-size:0.85rem;">Pane Configuration (auto-pricing)</h4>' +
       '<div class="form-grid">' +
@@ -1043,9 +1043,9 @@ var UI = (function () {
       '</div>' +
       '<div class="form-group" style="margin-top:4px"><label style="display:flex;align-items:center;gap:4px;font-size:0.85rem;cursor:pointer"><input type="checkbox" id="edit_hasLouvre" ' + (item.hasLouvre ? 'checked' : '') + '> Has Louvre Panel</label></div>' +
       '<div class="form-group mt-2"><label><input type="checkbox" id="edit_manualOverride" ' + (item.manualOverride ? 'checked' : '') + '> Manual price override</label></div>' +
-      '<div class="form-group"><label>Unit Price Override (Â£)</label><input type="number" class="form-control" id="edit_unitPrice" value="' + item.unitPrice + '" step="0.01" min="0" ' + (!item.manualOverride ? 'disabled' : '') + '></div>';
+      '<div class="form-group"><label>Unit Price Override (£)</label><input type="number" class="form-control" id="edit_unitPrice" value="' + item.unitPrice + '" step="0.01" min="0" ' + (!item.manualOverride ? 'disabled' : '') + '></div>';
 
-    showModal('Edit Item â€” ' + item.reference, formHTML, [
+    showModal('Edit Item — ' + item.reference, formHTML, [
       {
         label: 'Save Changes',
         class: 'btn-primary',
@@ -1096,7 +1096,7 @@ var UI = (function () {
           item.handleRequirement = getValue('edit_handleRequirement');
           item.lockRequirement = getValue('edit_lockRequirement');
           item.closerRequirement = getValue('edit_closerRequirement');
-          // Supplier cost overrides â€” empty = use estimate
+          // Supplier cost overrides — empty = use estimate
           var suVal = getValue('edit_supplierUnitPrice');
           item.supplierUnitPrice = suVal !== '' ? parseFloat(suVal) : undefined;
           item.supplierRateSource = getValue('edit_supplierRateSource');
@@ -1471,14 +1471,14 @@ var UI = (function () {
     }
 
     var typeLabels = {
-      schedule: 'ðŸ“‹ Schedule',
-      bq: 'ðŸ“‘ BQ',
-      drawing: 'ðŸ“ Drawing',
-      admin: 'ðŸ“ Admin',
-      specification: 'ðŸ“ Specification',
-      supplier_quote: 'ðŸ’· Supplier quote',
-      client_quote: 'ðŸš« Client quote',
-      unknown: 'ðŸ“„ Document'
+      schedule: '📋 Schedule',
+      bq: '📑 BQ',
+      drawing: '📐 Drawing',
+      admin: '📁 Admin',
+      specification: '📝 Specification',
+      supplier_quote: '💷 Supplier quote',
+      client_quote: '🚫 Client quote',
+      unknown: '📄 Document'
     };
 
     var html = sourceDocs.map(function (doc) {

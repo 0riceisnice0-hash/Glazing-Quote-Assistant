@@ -291,20 +291,20 @@ Key calibrated behaviours:
 Actual client quote:
 
 - `MCS Construction - Quotation (1).pdf`
-- Actual quote total: `Â£119,800.19` excluding VAT.
+- Actual quote total: `£119,800.19` excluding VAT.
 
 Clean run before the schedule gate:
 
 - 65 items
-- Ex VAT before VAT: `Â£129,830.57`
-- Inc VAT: `Â£155,796.68`
+- Ex VAT before VAT: `£129,830.57`
+- Inc VAT: `£155,796.68`
 - This run intentionally skipped `unknown` floor plans/details. It is not website parity.
 
 Website-parity run before the schedule gate:
 
 - 244 items
-- Ex VAT before VAT: `Â£349,883.48`
-- Inc VAT: `Â£419,860.18`
+- Ex VAT before VAT: `£349,883.48`
+- Inc VAT: `£419,860.18`
 - 325 warnings
 - 90 missing dimensions
 - 34 unknown frame types
@@ -322,24 +322,24 @@ This was the main bug to fix before pricing accuracy.
 Pasted website output from the user showed:
 
 - 244 items
-- Product subtotal: `Â£311,799.97`
-- Installation: `Â£34,160.00`
-- VAT: `Â£69,191.99`
-- Total inc VAT: `Â£415,151.96`
+- Product subtotal: `£311,799.97`
+- Installation: `£34,160.00`
+- VAT: `£69,191.99`
+- Total inc VAT: `£415,151.96`
 - Source docs listed were 19 PDFs, not XLSX files.
 
 The Node harness in `--mode website --pdf-only` produced:
 
 - 244 items
-- Product subtotal: `Â£315,723.48`
-- Installation: `Â£34,160.00`
-- VAT: `Â£69,976.70`
-- Total inc VAT: `Â£419,860.18`
+- Product subtotal: `£315,723.48`
+- Installation: `£34,160.00`
+- VAT: `£69,976.70`
+- Total inc VAT: `£419,860.18`
 
 The remaining difference is not caused by XLSX inputs because PDF-only mode still differs. It is caused by browser-vs-Node extraction differences and/or state/config differences. A concrete observed example:
 
-- Website pasted output: `FD20`, door, `838 x 838`, unit `Â£2,031.31`
-- Node harness CSV: `FD20`, door, `1500 x 915`, unit `Â£2,872.49`
+- Website pasted output: `FD20`, door, `838 x 838`, unit `£2,031.31`
+- Node harness CSV: `FD20`, door, `1500 x 915`, unit `£2,872.49`
 - Other examples such as `TD60` and `ID105` matched exactly, so this is not a complete pricing-engine mismatch. It is likely duplicate occurrence selection / PDF text order differences for repeated references.
 
 To reproduce the website exactly, do not rely only on the Node harness. Export the website session JSON after analysis, or build a browser automation/export path that calls `App.getState()` after the browser has run PDF.js and any verification steps. Then compare that exported state to the harness output item-by-item.
@@ -361,14 +361,14 @@ The remaining Addington variance is now a normal pricing/extraction calibration 
 
 Actual client quote:
 
-- XLSX ex VAT total: `Â£17,360.19`
-- PDF inc VAT total: `Â£20,832.23`
+- XLSX ex VAT total: `£17,360.19`
+- PDF inc VAT total: `£20,832.23`
 
 After the schedule gate:
 
 - 3 items: `ED01`, `ED02`, `ED03`
-- Ex VAT before VAT: `Â£8,380.10`
-- Inc VAT: `Â£10,056.12`
+- Ex VAT before VAT: `£8,380.10`
+- Inc VAT: `£10,056.12`
 
 Likely issue: the pricing schedule workbook includes refs such as `WG01-WG04`, `WF01-WF06`, and `ED01-ED03`, but current extraction/reference patterns do not handle `WG`/`WF` correctly as window references.
 
@@ -377,7 +377,7 @@ Likely issue: the pricing schedule workbook includes refs such as `WG01-WG04`, `
 Actual client quote:
 
 - `Logan Construction - Quotation.pdf`
-- Actual quote total: `Â£672.95` excluding VAT.
+- Actual quote total: `£672.95` excluding VAT.
 
 After the schedule gate:
 
@@ -423,8 +423,8 @@ No client quote file was found in the Desktop pack during this run.
 After the schedule gate:
 
 - 21 door items
-- Ex VAT before VAT: `Â£70,859.24`
-- Inc VAT: `Â£85,031.09`
+- Ex VAT before VAT: `£70,859.24`
+- Inc VAT: `£85,031.09`
 - 12 warnings
 - 6 missing dimensions
 
@@ -435,8 +435,8 @@ No client quote file was found in the Desktop pack during this run.
 After the schedule gate:
 
 - 2 items: `W02`, `X01`
-- Ex VAT before VAT: `Â£3,533.49`
-- Inc VAT: `Â£4,240.19`
+- Ex VAT before VAT: `£3,533.49`
+- Inc VAT: `£4,240.19`
 
 ## Why The Script Can Differ From The Website
 
