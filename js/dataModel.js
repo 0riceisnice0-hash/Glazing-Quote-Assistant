@@ -11,11 +11,12 @@ const DEFAULT_STATE = {
     notes: ''
   },
   company: {
-    name: '',
+    name: 'Fenster Glazing Ltd',
     address: '',
     phone: '',
     email: '',
-    logoDataUrl: null
+    logoDataUrl: null,
+    logoAsset: 'assets/fenster-logo.png'
   },
   pricing: {
     pricingVersion: 4,
@@ -334,4 +335,6 @@ function getNextReference(items, type) {
   const max = existing.length > 0 ? Math.max(...existing) : 0;
   return prefix + String(max + 1).padStart(2, '0');
 }
+
+
 

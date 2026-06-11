@@ -1,4 +1,4 @@
-﻿/* js/quoteGenerator.js â€” PDF generation using jsPDF */
+﻿/* js/quoteGenerator.js - PDF generation using jsPDF */
 
 var QuoteGenerator = (function () {
 
@@ -11,7 +11,7 @@ var QuoteGenerator = (function () {
   var GREEN = [47, 172, 102];
 
   function formatCurrency(value) {
-    return 'Â£' + Number(value || 0).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return '£' + Number(value || 0).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
   function formatDate(dateStr) {
@@ -54,7 +54,7 @@ var QuoteGenerator = (function () {
     var logo = getFensterLogoElement(company);
     if (logo) {
       try {
-        doc.addImage(logo, company.logoDataUrl ? 'PNG' : undefined, x, y, w, h);
+        doc.addImage(logo, 'PNG', x, y, w, h);
         return true;
       } catch (e) { /* fall back to text */ }
     }
@@ -180,7 +180,7 @@ var QuoteGenerator = (function () {
       var typeTotal = 0;
       typeItems.forEach(function (item) {
         var dims = item.width > 0 && item.height > 0
-          ? item.width + ' Ã— ' + item.height + ' mm'
+          ? item.width + ' x ' + item.height + ' mm'
           : 'TBC';
         tableBody.push([
           item.reference || '-',
@@ -266,7 +266,7 @@ var QuoteGenerator = (function () {
 
       typeItems.forEach(function (item) {
         var dims = item.width > 0 && item.height > 0
-          ? item.width + ' Ã— ' + item.height + ' mm'
+          ? item.width + ' x ' + item.height + ' mm'
           : 'TBC';
         var qty = item.quantity || 1;
 
@@ -720,7 +720,7 @@ var QuoteGenerator = (function () {
     doc.setFont(undefined, 'bold');
     doc.text((company.name || 'Glazing Quote'), margin, 8);
     doc.setFont(undefined, 'normal');
-    doc.text('QUOTATION â€” Continued', pageWidth - margin, 8, { align: 'right' });
+    doc.text('QUOTATION - Continued', pageWidth - margin, 8, { align: 'right' });
   }
 
   function addPageFooter(doc, company, pageWidth, pageHeight, margin) {
@@ -764,4 +764,5 @@ var QuoteGenerator = (function () {
     generateQuotePDF: generateQuotePDF
   };
 })();
+
 
