@@ -117,11 +117,11 @@
             </div>
 
             <div class="upload-zone" id="dropZone">
-              <input type="file" id="fileInput" accept=".pdf" multiple aria-label="Upload PDF files">
+              <input type="file" id="fileInput" accept=".pdf,.xlsx,.xlsm,.xls" multiple aria-label="Upload tender documents">
               <span class="upload-icon">📂</span>
-              <h3>Drop PDF files here</h3>
+              <h3>Drop tender files here</h3>
               <p>or click to browse your files</p>
-              <span class="upload-hint">Accepts: PDF files • Window schedules, door schedules, tender drawings</span>
+              <span class="upload-hint">Accepts: PDF and Excel files • Window schedules, door schedules, tender drawings</span>
             </div>
 
             <ul class="file-list" id="fileList"></ul>
@@ -619,6 +619,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.7.1/jspdf.plugin.autotable.min.js"
     integrity="sha512-jLgOBQkUaRRXfpwIEGE5jlCPSxMiQSFm0/cdzP/KuiECIx5x0ucr5enJrjtQJt+Y8vpIpOroYhsfsRLoDWO26Q=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   <!-- Tesseract.js for OCR fallback on scanned PDFs (loaded async — only used if available) -->
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
 

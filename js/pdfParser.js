@@ -1,5 +1,19 @@
 /* js/pdfParser.js — PDF upload and text extraction using PDF.js */
 
+function isSupportedTenderFile(file) {
+  var name = (file && file.name ? file.name : '').toLowerCase();
+  return /\.(pdf|xlsx|xlsm|xls)$/.test(name) || (file && file.type === 'application/pdf');
+}
+
+function isWorkbookFile(file) {
+  var name = (file && file.name ? file.name : '').toLowerCase();
+  return /\.(xlsx|xlsm|xls)$/.test(name);
+}
+
+function getTenderFileName(file) {
+  return file.webkitRelativePath || file.name;
+}
+
 function initDropZone(dropZoneEl, fileInputEl, onFilesAdded) {
   if (!dropZoneEl) return;
 
@@ -17,7 +31,7 @@ function initDropZone(dropZoneEl, fileInputEl, onFilesAdded) {
   dropZoneEl.addEventListener('drop', function (e) {
     e.preventDefault();
     dropZoneEl.classList.remove('drag-over');
-    const files = Array.from(e.dataTransfer.files).filter(f => f.type === 'application/pdf' || f.name.toLowerCase().endsWith('.pdf'));
+    const files = Array.from(e.dataTransfer.files).filter(isSupportedTenderFile);
     if (files.length > 0) {
       onFilesAdded(files);
     }
@@ -124,7 +138,7 @@ function extractTextFromPDF(file, onProgress) {
           const scanned = isLikelyScanned(fullText, pageCount);
 
           resolve({
-            name: file.name,
+            name: getTenderFileName(file),
             pageCount: pageCount,
             pages: pages,
             fullText: fullText,
@@ -145,6 +159,70 @@ function extractTextFromPDF(file, onProgress) {
 
     reader.readAsArrayBuffer(file);
   });
+}
+
+function extractWorkbook(file, onProgress) {
+  return new Promise(function (resolve, reject) {
+    if (typeof XLSX === 'undefined') {
+      reject(new Error('Excel parser library not loaded'));
+      return;
+    }
+
+    if (onProgress) onProgress(0, 1, 'Reading workbook');
+
+    file.arrayBuffer().then(function (buffer) {
+      var workbook = XLSX.read(buffer, { cellDates: false, cellFormula: false, raw: false });
+      var pages = workbook.SheetNames.map(function (sheetName, idx) {
+        var sheet = workbook.Sheets[sheetName];
+        var rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '', raw: false });
+        var normalisedRows = rows.map(function (row) {
+          return row.map(function (cell) { return String(cell || '').trim(); });
+        });
+        var textItems = [];
+        normalisedRows.forEach(function (row, rowIdx) {
+          row.forEach(function (cell, colIdx) {
+            if (!cell) return;
+            textItems.push({
+              str: cell,
+              x: colIdx * 120,
+              y: (rows.length - rowIdx) * 18,
+              width: Math.max(30, cell.length * 7),
+              height: 12
+            });
+          });
+        });
+        var lines = normalisedRows
+          .map(function (row) { return row.filter(Boolean).join(' | '); })
+          .filter(Boolean);
+        return {
+          pageNum: idx + 1,
+          sheetName: sheetName,
+          text: [sheetName].concat(lines).join('\n'),
+          textItems: textItems,
+          width: 0,
+          height: 0
+        };
+      });
+      var fullText = pages.map(function (page) { return page.text; }).join('\n');
+      if (onProgress) onProgress(pages.length, pages.length || 1, 'Workbook extracted');
+      resolve({
+        name: getTenderFileName(file),
+        pageCount: pages.length,
+        pages: pages,
+        fullText: fullText,
+        isScanned: false
+      });
+    }).catch(function (err) {
+      reject(new Error('Failed to read workbook: ' + err.message));
+    });
+  });
+}
+
+function extractTenderInput(file, onProgress) {
+  if (isWorkbookFile(file)) {
+    return extractWorkbook(file, onProgress);
+  }
+  return extractTextFromPDF(file, onProgress);
 }
 
 function isLikelyScanned(fullText, pageCount) {

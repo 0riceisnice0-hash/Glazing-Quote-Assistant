@@ -115,7 +115,7 @@ var App = (function () {
     btn.disabled = _pendingFiles.length === 0;
     btn.addEventListener('click', function () {
       if (_pendingFiles.length === 0) {
-        UI.showToast('Please add at least one PDF file', 'warning');
+        UI.showToast('Please add at least one tender document', 'warning');
         return;
       }
       _runAnalysis();
@@ -123,7 +123,7 @@ var App = (function () {
   }
 
   function _runAnalysis() {
-    UI.showLoadingOverlay('Analysing Documents…', 'Starting PDF text extraction');
+    UI.showLoadingOverlay('Analysing Documents…', 'Starting document extraction');
     Diagnostics.clear();
 
     // Reset extraction results so re-running analysis doesn't accumulate duplicates
@@ -133,7 +133,7 @@ var App = (function () {
 
     var filePromises = _pendingFiles.map(function (file, i) {
       UI.updateFileStatus(i, '⏳ Extracting…');
-      return extractTextFromPDF(file, function (done, total, msg) {
+      return extractTenderInput(file, function (done, total, msg) {
         UI.updateLoadingMessage('Analysing Documents…', file.name + ': ' + msg);
         UI.updateFileStatus(i, done + '/' + total + ' pages');
       }).then(function (docResult) {
@@ -277,7 +277,7 @@ var App = (function () {
       '<ul style="margin:8px 0 0 20px;font-size:0.875rem">' +
       '<li>Add items manually using the "Add Item" button</li>' +
       '<li>Import a previously saved JSON session</li>' +
-      '<li>Try a different, text-based PDF</li>' +
+      '<li>Try a different text-based PDF or Excel schedule</li>' +
       '</ul>',
       [
         {

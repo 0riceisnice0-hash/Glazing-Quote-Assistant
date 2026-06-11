@@ -297,7 +297,7 @@ async function extractPdf(filePath) {
   }
   const fullText = pages.map((page) => page.text).join('\n');
   return {
-    name: path.basename(filePath),
+    name: path.relative(tenderDir, filePath),
     path: filePath,
     pageCount: pdf.numPages,
     pages,
@@ -317,21 +317,35 @@ async function extractWorkbook(filePath) {
   const pages = workbook.SheetNames.map((sheetName, idx) => {
     const sheet = workbook.Sheets[sheetName];
     const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '', raw: false });
-    const lines = rows
-      .map((row) => row.map((cell) => String(cell || '').trim()).filter(Boolean).join('   '))
+    const normalisedRows = rows.map((row) => row.map((cell) => String(cell || '').trim()));
+    const textItems = [];
+    normalisedRows.forEach((row, rowIdx) => {
+      row.forEach((cell, colIdx) => {
+        if (!cell) return;
+        textItems.push({
+          str: cell,
+          x: colIdx * 120,
+          y: (rows.length - rowIdx) * 18,
+          width: Math.max(30, cell.length * 7),
+          height: 12
+        });
+      });
+    });
+    const lines = normalisedRows
+      .map((row) => row.filter(Boolean).join('   '))
       .filter(Boolean);
     return {
       pageNum: idx + 1,
       sheetName,
       text: [sheetName, ...lines].join('\n'),
-      textItems: [],
+      textItems,
       width: 0,
       height: 0
     };
   });
   const fullText = pages.map((page) => page.text).join('\n');
   return {
-    name: path.basename(filePath),
+    name: path.relative(tenderDir, filePath),
     path: filePath,
     pageCount: pages.length,
     pages,

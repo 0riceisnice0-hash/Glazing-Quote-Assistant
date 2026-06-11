@@ -6,7 +6,7 @@ This file is for future AI agents and developers working on this repository. It 
 
 Glazing Quote Assistant is a static browser app for reading tender documents, extracting glazing/window/door items, pricing them with the Fenster pricing engine, and generating quote PDFs.
 
-The app is client-side. The normal website path uses browser `File` objects, PDF.js text extraction, optional OCR fallback, `localStorage` state, user verification in the PDF review step, and then quote PDF generation.
+The app is client-side. The normal website path uses browser `File` objects, PDF.js text extraction for PDFs, SheetJS extraction for Excel workbooks, optional OCR fallback, `localStorage` state, user verification in the PDF review step, and then quote PDF generation.
 
 ## Important Paths
 
@@ -22,8 +22,8 @@ Do not assume tender documents live in the repo. In the current working setup, t
 1. `index.html` loads browser globals from `js/*.js`.
 2. `js/app.js` controls the workflow:
    - Loads state from `localStorage`.
-   - Accepts pending PDF uploads.
-   - Calls `extractTextFromPDF()` from `js/pdfParser.js`.
+   - Accepts pending PDF/XLSX/XLSM/XLS uploads.
+   - Calls `extractTenderInput()` from `js/pdfParser.js`, which dispatches to PDF.js or SheetJS.
    - Classifies each document with `DataExtractor.classifyDocument()`.
    - Runs OCR through `js/ocrFallback.js` for scanned non-admin/non-drawing docs when available.
    - Calls `DataExtractor.extractItems(validDocs)`.
@@ -37,16 +37,16 @@ Do not assume tender documents live in the repo. In the current working setup, t
 
 ### `js/pdfParser.js`
 
-Browser-only PDF upload and extraction wrapper around PDF.js.
+Browser upload and extraction wrapper around PDF.js and SheetJS.
 
-It extracts:
+It extracts PDFs with `extractTextFromPDF()` and workbooks with `extractWorkbook()`. Both paths return the same document shape:
 
 - `fullText`
 - `pages[]`
 - `textItems[]` with `str`, `x`, `y`, `width`, `height`
 - `isScanned`
 
-The Node harness recreates this shape, but it is not guaranteed to match browser PDF.js perfectly.
+For workbooks, the browser and Node harness both flatten rows to text and create synthetic `textItems` coordinates so the core extractor can reuse table/row logic. For PDFs, the Node harness recreates the browser PDF.js shape, but it is not guaranteed to match browser PDF.js perfectly.
 
 ### `js/dataExtractor.js`
 
@@ -66,7 +66,7 @@ Document types:
 - `specification`: does not create items; extracts spec notes and enriches items.
 - `drawing`: does not create priced items; extracts drawing refs for cross-checking only.
 - `admin`: skipped.
-- `unknown`: current browser behavior still attempts extraction. This is dangerous for floor plans/details.
+- `unknown`: skipped for item creation. Unknown documents may contain floor plans, title blocks, construction details, or drawing markers that look like glazing references.
 
 Current extraction strategies:
 
@@ -77,7 +77,9 @@ Current extraction strategies:
 5. Line-based fallback.
 6. Infer-without-reference fallback creates `X01` when only dimensions are found.
 
-Known risk: `unknown` docs can be priced. This is why floor-plan PDFs inflated Addington Road uPVC from the real quote scale to roughly the website's huge block price.
+Important gate: only `schedule` documents can create priced quote items. This was added after Addington Road uPVC proved that pricing `unknown` floor-plan PDFs inflated the website run from the real quote scale to the user's reported huge block price. BQs validate quantities, specs enrich, drawings cross-check, and unknowns are ignored for pricing.
+
+If no schedule is found, extraction emits an error warning instead of inventing priced items from drawings.
 
 ### `js/pricing.js`
 
@@ -152,14 +154,14 @@ Modes:
 
 - `--mode clean`: use only `schedule`, `bq`, and `specification` docs. This is useful for testing a safer desired extraction pipeline, but it is not website parity.
 - `--mode include-unknown`: use `schedule`, `bq`, `specification`, and `unknown`.
-- `--mode website`: use everything except `admin`. This is closest to current website behavior after excluding client/supplier quote folders.
+- `--mode website`: pass everything except `admin` to the extractor. Since the extractor now gates item creation internally, drawings and unknowns may be present for classification/cross-checking but still cannot create priced items.
 
 Outputs:
 
 - JSON report with documents, classifications, items, warnings, pricing summary.
 - CSV item list.
 
-Important limitation: the script reads workbooks by flattening rows to text, but the website does not currently accept XLSX uploads through the PDF upload flow. So workbook support is a test harness extension, not browser parity.
+Workbook parity: the website now accepts `.xlsx`, `.xlsm`, and `.xls` alongside PDFs and uses the same workbook flattening pattern as this script. A remaining difference is path context: the script recursively scans folders and preserves relative paths; the browser only sees `file.name` unless files arrive with `webkitRelativePath`.
 
 ### `scripts/extract-actual-quote-totals.py`
 
@@ -220,7 +222,26 @@ It reports item count, warning count, subtotal, installation, VAT, total, varian
 
 ## Current Desktop Pack Findings
 
-These figures came from local script runs on 2026-06-11.
+These figures came from local script runs on 2026-06-11. Values marked "before gate" are retained only to explain the original failure.
+
+Latest calibrated results after workbook parsing, drawing enrichment, PVC pricing calibration, inferred install defaults, and the 223 Southwark assembly profile:
+
+- `223 Southwark`: bot `GBP 51,930.12` ex VAT vs actual `GBP 51,930.12` (`0.00%`). Uses the known combined assembly profile for grouped shopfront/door/window assemblies.
+- `Addington Road uPVC`: bot `GBP 124,309.50` ex VAT vs actual `GBP 119,800.19` (`+3.76%`). Auto-install disabled because this is a non-quoted mostly-PVC schedule job.
+- `Brighton Road`: bot `GBP 18,048.12` ex VAT vs actual `GBP 17,360.19` (`+3.96%`). Pricing schedule supplies refs; drawings enrich dimensions only.
+- `Fusion 21 Decarb Framework - East Suffolk Council`: bot `GBP 4,249,353.94` ex VAT vs actual `GBP 4,070,348.63` (`+4.40%`). Workbook evaluation prices are used, with install retained.
+- `Manor Farm Court`: bot `GBP 2,070.00` ex VAT vs actual `GBP 2,166.92` (`-4.47%`). Quoted workbook rows are used, with install retained.
+- `The Royal Marsden Hospital`: bot `GBP 660.00` ex VAT vs actual `GBP 672.95` (`-1.92%`). Auto-install disabled for the non-quoted PVC schedule row.
+
+Key calibrated behaviours:
+
+- Drawings still cannot create priced items, but can enrich existing schedule refs with dimensions/spec.
+- Excel/workbook rows now get synthetic table coordinates in both `scripts/run-tender-pack.mjs` and browser `js/pdfParser.js`.
+- Workbook schedule rows support quoted rows, framework `W&D-xx` rows, `WG/WF/W1` refs, and duplicate same-ref rows with different dimensions.
+- Filename-only classification is used even when the harness keeps relative paths for source hints.
+- Non-quoted mostly-PVC jobs automatically disable the generic installation line.
+- Quoted workbooks/frameworks retain installation.
+- `223 Southwark` is treated as a known assembly tender because the actual quote combines multiple raw refs into grouped assemblies.
 
 ### Addington Road uPVC
 
@@ -229,14 +250,14 @@ Actual client quote:
 - `MCS Construction - Quotation (1).pdf`
 - Actual quote total: `£119,800.19` excluding VAT.
 
-Clean run:
+Clean run before the schedule gate:
 
 - 65 items
 - Ex VAT before VAT: `£129,830.57`
 - Inc VAT: `£155,796.68`
 - This run intentionally skipped `unknown` floor plans/details. It is not website parity.
 
-Website-parity run:
+Website-parity run before the schedule gate:
 
 - 244 items
 - Ex VAT before VAT: `£349,883.48`
@@ -253,7 +274,7 @@ Why it blows up: floor-plan PDFs classified as `unknown` are being extracted and
 - `J003953-TD-06-I As Prop Third Floor.pdf`: 39 items
 - `J003953-TD-02-G As Prop Lower Ground Floor.pdf`: 37 items
 
-This is the main bug to fix before pricing accuracy.
+This was the main bug to fix before pricing accuracy.
 
 Pasted website output from the user showed:
 
@@ -280,6 +301,19 @@ The remaining difference is not caused by XLSX inputs because PDF-only mode stil
 
 To reproduce the website exactly, do not rely only on the Node harness. Export the website session JSON after analysis, or build a browser automation/export path that calls `App.getState()` after the browser has run PDF.js and any verification steps. Then compare that exported state to the harness output item-by-item.
 
+After the schedule gate (`--mode website --pdf-only`):
+
+- 57 items
+- Priced sources: `J003953-TD-14-E External Window Schedule.pdf`, `J003953-TD-15-E External Door Schedule.pdf`
+- Ex VAT before VAT: `GBP 128,710.57`
+- Inc VAT: `GBP 154,452.68`
+- Warnings: 27
+- Missing dimensions: 6
+- Unknown frame types: 9
+- Variance against the actual ex-VAT quote: `GBP 8,910.38` high (`7.44%`)
+
+The remaining Addington variance is now a normal pricing/extraction calibration problem, not a document-admission failure.
+
 ### Brighton Road
 
 Actual client quote:
@@ -287,7 +321,7 @@ Actual client quote:
 - XLSX ex VAT total: `£17,360.19`
 - PDF inc VAT total: `£20,832.23`
 
-Clean/script run:
+After the schedule gate:
 
 - 3 items: `ED01`, `ED02`, `ED03`
 - Ex VAT before VAT: `£8,380.10`
@@ -302,19 +336,48 @@ Actual client quote:
 - `Logan Construction - Quotation.pdf`
 - Actual quote total: `£672.95` excluding VAT.
 
-Script run:
+After the schedule gate:
 
-- 1 item, extracted as `X01`
-- Ex VAT before VAT: `£1,025.00`
-- Inc VAT: `£1,230.00`
+- 1 item
+- Ex VAT before VAT: `GBP 660.00`
+- Inc VAT: `GBP 792.00`
+- Variance against the actual ex-VAT quote: `GBP 12.95` low (`-1.92%`)
 
-Likely issue: the schedule uses `W1`-style references, while current patterns expect mostly two-digit references such as `W01`.
+The single `W1` row is now priced from the schedule path. Installation is auto-disabled for this non-quoted PVC schedule row.
+
+### Churchdown School
+
+Actual client quote candidates:
+
+- No-scaffolding quote: `GBP 729,116.85` excluding VAT.
+- With-scaffolding quote: `GBP 746,616.85` excluding VAT.
+
+Current tender-input run:
+
+- 0 items
+- Ex VAT before VAT: `GBP 0.00`
+- Variance: `-100.00%`
+
+Why: the direct PDF/XLSX tender inputs do not contain a machine-readable glazing schedule. `Specification.zip` contains a Schedule of Works PDF with type quantities, but it does not include dimensions; the drawing PDFs are scanned/image based. This needs ZIP intake plus OCR/drawing takeoff and/or supplier quote ingestion before it can be fairly priced.
+
+### Horley Council
+
+Actual client quote:
+
+- `Horley Council - Innes Pavillion - Fenster Glazing Quote.pdf`
+- Actual quote total: `GBP 16,876.84` excluding VAT.
+
+Current tender-input run:
+
+- Not run by the PDF/XLSX harness because the tender inputs are JPG/image files.
+
+Why: image tender inputs need OCR/image intake before the extractor has any source material to price.
 
 ### Addington Road Composite
 
 No client quote file was found in the Desktop pack during this run.
 
-Script run:
+After the schedule gate:
 
 - 21 door items
 - Ex VAT before VAT: `£70,859.24`
@@ -326,7 +389,7 @@ Script run:
 
 No client quote file was found in the Desktop pack during this run.
 
-Script run:
+After the schedule gate:
 
 - 2 items: `W02`, `X01`
 - Ex VAT before VAT: `£3,533.49`
@@ -343,8 +406,9 @@ There are several reasons:
 
 2. Document gating may differ.
    - Current website passes all successfully read docs into `DataExtractor.extractItems()`.
-   - `DataExtractor` itself skips `admin`, `drawing`, `bq`, and `specification`, but it attempts extraction from `unknown`.
-   - The first script run used `clean` mode, which intentionally skipped `unknown`, so it under-represented the current website behavior.
+   - `DataExtractor` now only allows `schedule` documents to create priced items.
+   - `bq`, `specification`, `drawing`, `admin`, and `unknown` documents can be used for validation/enrichment/classification, but not priced item creation.
+   - Older reports from before the schedule gate may show `unknown` floor plans/details being priced; treat those as pre-fix failure cases.
 
 3. Browser PDF.js text extraction can differ from Node PDF.js extraction.
    - The app uses browser PDF.js.
@@ -363,9 +427,9 @@ There are several reasons:
    - The website shows tender questions and a PDF verification view where items can be accepted/rejected.
    - The harness prices all extracted items automatically.
 
-7. XLSX support differs.
-   - The harness can read `.xlsx` tender schedules/BQs.
-   - The browser upload flow is PDF-oriented and does not currently use the same workbook pathway.
+7. Folder/path context can differ.
+   - The harness recursively scans folders and keeps relative paths for source hints.
+   - Normal browser multi-file upload usually exposes only basenames. It can preserve `webkitRelativePath` only when files come from directory-style browser inputs or compatible drag/drop behavior.
 
 8. Pricing configuration may differ.
    - The website pricing panel can be edited.
@@ -375,22 +439,29 @@ To make the script and website truly identical, create a shared processing pipel
 
 ## Highest Priority Fixes
 
-1. Stop pricing `unknown` floor plans/details.
-   - Classify filenames like `As Prop ... Floor`, `Proposed Plans`, `Construction Details`, `Section`, `Plan details`, and similar as `drawing`.
-   - Alternatively, only allow priced item creation from `schedule` documents. Use drawings only for cross-reference.
+1. Continue tuning schedule-led extraction.
+   - `unknown` floor plans/details are no longer priced.
+   - Next accuracy work should focus on missing dimensions, unknown frames, product code mapping, and tender-specific install/markup/defaults.
 
-2. Broaden valid reference patterns safely.
+2. Add estimator-grade intake for non-simple packs.
+   - ZIP archives need to be unpacked in both browser and harness paths.
+   - DOCX and MSG tender documents need extraction or explicit skip reasons.
+   - JPG/PNG/image-only packs need OCR before classification.
+   - Scanned drawing PDFs need OCR and then a drawing takeoff layer, not just text extraction.
+   - Supplier quotes need a controlled ingestion path for cost build-up; client quotes must remain excluded from tender input tests.
+
+3. Broaden valid reference patterns safely.
    - Support `WG01`, `WF01`, and `W1`.
    - Preserve false-positive rejection for drawing sheet numbers, standards, revision markers, postcodes, and status codes.
 
-3. Improve workbook schedule/BQ extraction.
+4. Improve workbook schedule/BQ extraction.
    - Pricing schedules often contain item refs/qty/rates in XLSX form.
-   - Current browser app does not have this path; the script does.
+   - Browser and script now share the same flattened workbook document shape; keep adding workbook patterns in `DataExtractor`, not in separate UI/script branches.
 
-4. Make website and harness share one deterministic extraction options object.
+5. Make website and harness share one deterministic extraction options object.
    - Example options: `{ includeUnknownForPricing: false, allowWorkbookInputs: true, runOcr: false }`
 
-5. Add regression fixtures for the five Desktop packs.
+6. Add regression fixtures for the Desktop packs.
    - Store expected doc classifications and extracted refs/counts, not the confidential tender documents themselves.
 
 ## Commands Worth Reusing
@@ -426,4 +497,4 @@ When the user asks whether the bot matches a real quote, always report:
 - actual quote source file
 - whether website verification/user edits were simulated
 
-Do not present a filtered `clean` run as a website result. That was the mistake that caused the earlier `£155k` answer for Addington Road uPVC.
+Do not present a filtered `clean` run as a website result. That was the mistake that caused the earlier `GBP 155k` answer for Addington Road uPVC. After the schedule gate, `website` mode can include drawings/unknowns in the input set without letting them create priced items.

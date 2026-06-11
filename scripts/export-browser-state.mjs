@@ -13,7 +13,7 @@ const { chromium } = loadPlaywright();
 const args = parseArgs(process.argv.slice(2));
 const tenderDir = path.resolve(args.dir || process.cwd());
 const outDir = path.resolve(args.out || path.join(rootDir, 'test-results', 'browser-state'));
-const includePattern = new RegExp(args.include || '\\.pdf$', 'i');
+const includePattern = new RegExp(args.include || '\\.(pdf|xlsx|xlsm|xls)$', 'i');
 
 await fs.mkdir(outDir, { recursive: true });
 
@@ -52,11 +52,11 @@ try {
     timeout: Number(args.timeout || 180000)
   });
 
-  await page.waitForFunction(() => typeof window.App !== 'undefined' && typeof window.pdfjsLib !== 'undefined');
+  await page.waitForFunction(() => typeof window.App !== 'undefined' && typeof window.pdfjsLib !== 'undefined' && typeof window.XLSX !== 'undefined');
 
   await page.evaluate(() => localStorage.removeItem('glazingQuoteState'));
   await page.reload({ waitUntil: 'networkidle' });
-  await page.waitForFunction(() => typeof window.App !== 'undefined' && typeof window.pdfjsLib !== 'undefined');
+  await page.waitForFunction(() => typeof window.App !== 'undefined' && typeof window.pdfjsLib !== 'undefined' && typeof window.XLSX !== 'undefined');
 
   const input = page.locator('#fileInput');
   await input.setInputFiles(files);
@@ -132,7 +132,7 @@ function parseArgs(argv) {
     else if (arg === '--headed') parsed.headed = true;
     else if (arg === '--verbose') parsed.verbose = true;
     else if (arg === '--help' || arg === '-h') {
-      console.log('Usage: node scripts/export-browser-state.mjs --dir "path/to/tender pack" [--out test-results/browser] [--include "\\\\.pdf$"]');
+      console.log('Usage: node scripts/export-browser-state.mjs --dir "path/to/tender pack" [--out test-results/browser] [--include "\\\\.(pdf|xlsx|xlsm|xls)$"]');
       process.exit(0);
     }
   }

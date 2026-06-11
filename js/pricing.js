@@ -20,9 +20,9 @@ var Pricing = (function () {
     LAW:    { markup: 600,  desc: 'Large Aluminium Window' },
     ELAW:   { markup: 1000, desc: 'Extra Large Aluminium Window' },
     // PVC Windows (size-based)
-    SPVC:   { markup: 300,  desc: 'Small PVC Window' },
-    MPVC:   { markup: 350,  desc: 'Medium PVC Window' },
-    LPVC:   { markup: 400,  desc: 'Large PVC Window' },
+    SPVC:   { markup: 75,   desc: 'Small PVC Window' },
+    MPVC:   { markup: 75,   desc: 'Medium PVC Window' },
+    LPVC:   { markup: 175,  desc: 'Large PVC Window' },
     // Aluminium Doors
     SAD:    { markup: 1150, desc: 'Single Aluminium Door' },
     DAD:    { markup: 1950, desc: 'Double Aluminium Door' },
@@ -102,6 +102,16 @@ var Pricing = (function () {
   };
 
   var KNOWN_TENDER_PRICING = {
+    '223-southwark-2025': {
+      label: '223 Southwark Park Road',
+      defaultsVersion: 1,
+      installationPerUnit: 362.7272727273,
+      fixedMasticAmount: undefined,
+      fixedEPDMAmount: undefined,
+      quoteExtraLabel: '',
+      quoteExtraAmount: 0,
+      unitRates: {}
+    },
     'stoke-park-school-2026': {
       label: 'Stoke Park School',
       defaultsVersion: 2,
@@ -504,7 +514,9 @@ var Pricing = (function () {
       }
       return false;
     });
-    if (!tenderId) return pricingConfig || cfg;
+    if (!tenderId) {
+      return applyInferredPricingDefaults(items, cfg);
+    }
 
     applyKnownItemPricing(items);
     var tender = KNOWN_TENDER_PRICING[tenderId];
@@ -530,6 +542,26 @@ var Pricing = (function () {
         cfg.fixedEPDMAmount = tender.fixedEPDMAmount;
         cfg.includeEPDM = true;
       }
+    }
+    return cfg;
+  }
+
+  function applyInferredPricingDefaults(items, cfg) {
+    items = items || [];
+    if (!items.length) return cfg;
+
+    var pvcCount = 0;
+    var quotedCount = 0;
+    items.forEach(function (item) {
+      if (/pvc|upvc/i.test(item.frameType || '')) pvcCount++;
+      if (item.supplierUnitPrice !== undefined && item.supplierUnitPrice !== null && item.supplierUnitPrice !== '') quotedCount++;
+    });
+
+    // Fenster uPVC schedule-only jobs commonly price supply/install together.
+    // Keep installation for quoted workbooks/frameworks, where the workbook rates
+    // usually represent supply/evaluation rows and a separate installation allowance is needed.
+    if (quotedCount === 0 && pvcCount / items.length >= 0.65) {
+      cfg.includeInstallation = false;
     }
     return cfg;
   }
