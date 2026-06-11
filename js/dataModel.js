@@ -1,4 +1,4 @@
-/* js/dataModel.js — Central state management */
+﻿/* js/dataModel.js â€” Central state management */
 
 const DEFAULT_STATE = {
   items: [],
@@ -48,9 +48,9 @@ const DEFAULT_STATE = {
     vatEnabled: true,
     vatRate: 20,
     // Split-pane pricing rates (Option 2)
-    fixedPaneRate: 250,           // £/m² for fixed glass panes
-    openingPaneRate: 580,         // £/m² for opening lights/casements
-    louvreFlat: 450,              // £ flat premium per louvre panel
+    fixedPaneRate: 250,           // Â£/mÂ² for fixed glass panes
+    openingPaneRate: 580,         // Â£/mÂ² for opening lights/casements
+    louvreFlat: 450,              // Â£ flat premium per louvre panel
     overheadPercent: 8            // % overhead/margin baked into type code markups
   },
   presets: {
@@ -178,10 +178,10 @@ function createItem(partial) {
     totalPrice: 0,
     manualOverride: false,
     // Supplier cost overrides (Option 1: enter actual Fenster BOQ values)
-    supplierFrameCost: undefined,   // £ actual frame cost from supplier BOQ
-    supplierGlassCost: undefined,   // £ actual glass cost from supplier BOQ
-    supplierAdditional: 0,          // £ extras (louvres, teleflex, PAS24 etc.)
-    supplierUnitPrice: undefined,   // £ quoted unit rate from supplier/type schedule
+    supplierFrameCost: undefined,   // Â£ actual frame cost from supplier BOQ
+    supplierGlassCost: undefined,   // Â£ actual glass cost from supplier BOQ
+    supplierAdditional: 0,          // Â£ extras (louvres, teleflex, PAS24 etc.)
+    supplierUnitPrice: undefined,   // Â£ quoted unit rate from supplier/type schedule
     supplierRateSource: '',         // e.g. 'Borras type schedule'
     // Pane configuration (Option 2: split-pane auto-pricing)
     fixedPanes: 0,                  // count of fixed panes in unit
@@ -199,7 +199,7 @@ function createItem(partial) {
     glazingMakeup: '',    // e.g. '28mm DGU - Unglazed'
     ventilation: '',      // e.g. '4000 Linkvent', 'Trickle Vent'
     drainage: '',         // e.g. 'Concealed', 'Exposed'
-    actualFrameSize: '',  // e.g. '1010 × 1020'
+    actualFrameSize: '',  // e.g. '1010 Ã— 1020'
     escapeWindow: '',     // 'Yes', 'No', or ''
     // Phase 2 detail fields (Shaftesbury+)
     sillHeight: '',       // e.g. '0', '640' (mm above floor)
@@ -334,3 +334,4 @@ function getNextReference(items, type) {
   const max = existing.length > 0 ? Math.max(...existing) : 0;
   return prefix + String(max + 1).padStart(2, '0');
 }
+
