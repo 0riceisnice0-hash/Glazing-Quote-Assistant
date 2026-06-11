@@ -1,1 +1,4 @@
 test-results/
+workers/document-processor/.wrangler/
+workers/document-processor/dist/
+workers/document-processor/node_modules/

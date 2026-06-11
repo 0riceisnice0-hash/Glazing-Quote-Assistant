@@ -38,6 +38,12 @@ npm run deploy
 
 Then paste the deployed `https://...workers.dev` URL into the app.
 
+Current deployed internal Worker:
+
+```text
+https://gqa-document-processor.0riceisnice0.workers.dev
+```
+
 ## API
 
 - `GET /health`
