@@ -1,17 +1,17 @@
-/* js/quoteGenerator.js — PDF generation using jsPDF */
+﻿/* js/quoteGenerator.js â€” PDF generation using jsPDF */
 
 var QuoteGenerator = (function () {
 
-  var NAVY = [26, 58, 107];
-  var NAVY_LIGHT = [37, 99, 235];
+  var NAVY = [0, 46, 58];
+  var NAVY_LIGHT = [47, 172, 102];
   var GRAY = [107, 114, 128];
-  var LIGHT_GRAY = [243, 244, 246];
+  var LIGHT_GRAY = [245, 247, 246];
   var WHITE = [255, 255, 255];
   var BLACK = [17, 24, 39];
-  var GREEN = [22, 163, 74];
+  var GREEN = [47, 172, 102];
 
   function formatCurrency(value) {
-    return '£' + Number(value || 0).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return 'Â£' + Number(value || 0).toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
   function formatDate(dateStr) {
@@ -29,6 +29,44 @@ var QuoteGenerator = (function () {
     return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
   }
 
+  function getFensterCompany(company) {
+    company = company || {};
+    return {
+      name: 'Fenster Glazing Ltd',
+      address: company.address || '',
+      phone: company.phone || '',
+      email: company.email || '',
+      logoDataUrl: company.logoDataUrl || null,
+      logoAsset: company.logoAsset || 'assets/fenster-logo.png'
+    };
+  }
+
+  function getFensterLogoElement(company) {
+    if (company.logoDataUrl) return company.logoDataUrl;
+    if (typeof document !== 'undefined') {
+      var img = document.getElementById('headerLogo');
+      if (img && img.complete && img.naturalWidth > 0) return img;
+    }
+    return null;
+  }
+
+  function addFensterLogo(doc, company, x, y, w, h) {
+    var logo = getFensterLogoElement(company);
+    if (logo) {
+      try {
+        doc.addImage(logo, company.logoDataUrl ? 'PNG' : undefined, x, y, w, h);
+        return true;
+      } catch (e) { /* fall back to text */ }
+    }
+    doc.setTextColor.apply(doc, NAVY);
+    doc.setFontSize(18);
+    doc.setFont(undefined, 'bold');
+    doc.text('Fenster', x, y + 8);
+    doc.setFontSize(9);
+    doc.setFont(undefined, 'normal');
+    doc.text('GLAZING', x + 27, y + 8);
+    return false;
+  }
   function generateQuotePDF(state, pricingConfig, options) {
     var jsPDFLib = window.jspdf ? window.jspdf.jsPDF : (window.jsPDF || (typeof jsPDF !== 'undefined' ? jsPDF : null));
     if (!jsPDFLib) throw new Error('jsPDF library not loaded');
@@ -39,7 +77,7 @@ var QuoteGenerator = (function () {
     var margin = 20;
     var contentWidth = pageWidth - margin * 2;
 
-    var company = state.company || {};
+    var company = getFensterCompany(state.company || {});
     var meta = Object.assign({}, state.metadata || {});
     meta.notes = buildCommercialNotes(state, meta.notes);
     var items = state.items || [];
@@ -142,7 +180,7 @@ var QuoteGenerator = (function () {
       var typeTotal = 0;
       typeItems.forEach(function (item) {
         var dims = item.width > 0 && item.height > 0
-          ? item.width + ' × ' + item.height + ' mm'
+          ? item.width + ' Ã— ' + item.height + ' mm'
           : 'TBC';
         tableBody.push([
           item.reference || '-',
@@ -228,7 +266,7 @@ var QuoteGenerator = (function () {
 
       typeItems.forEach(function (item) {
         var dims = item.width > 0 && item.height > 0
-          ? item.width + ' × ' + item.height + ' mm'
+          ? item.width + ' Ã— ' + item.height + ' mm'
           : 'TBC';
         var qty = item.quantity || 1;
 
@@ -277,17 +315,17 @@ var QuoteGenerator = (function () {
         doc.roundedRect(margin, y, contentWidth, neededH, 1.5, 1.5, 'FD');
 
         // Reference header line
-        doc.setFontSize(9);
+        doc.setFontSize(8.8);
         doc.setFont(undefined, 'bold');
         doc.setTextColor.apply(doc, NAVY);
-        var refLabel = (item.reference || '-') + (item.location ? ' — ' + item.location : '') + (item.description && item.description !== item.reference + ' ' + item.type ? ' — ' + item.description : '');
-        doc.text(refLabel.substring(0, 70), labelCol, y + 6);
+        var itemDescription = item.description || item.location || item.glazingSpec || item.type || 'Glazing item';
+        var refLabel = (item.reference || '-') + '  ' + itemDescription;
+        doc.text(refLabel.substring(0, 86), labelCol, y + 6);
 
-        // Unit price on the right of the header
-        doc.setFontSize(9);
+        // Total price on the right of the header
+        doc.setFontSize(8.8);
         doc.setFont(undefined, 'bold');
-        doc.text(formatCurrency(item.unitPrice), priceCol, y + 6, { align: 'right' });
-
+        doc.text('Qty ' + qty + '  |  ' + formatCurrency(item.totalPrice), priceCol, y + 6, { align: 'right' });
         // Spec rows
         var specY = y + 11;
         doc.setFontSize(7.5);
@@ -433,124 +471,91 @@ var QuoteGenerator = (function () {
   function renderPage1(doc, company, meta, pageWidth, pageHeight, margin, contentWidth, summary) {
     var y = margin;
 
-    doc.setFillColor.apply(doc, NAVY);
-    doc.rect(0, 0, pageWidth, 45, 'F');
+    doc.setFillColor.apply(doc, WHITE);
+    doc.rect(0, 0, pageWidth, pageHeight, 'F');
 
-    if (company.logoDataUrl) {
-      try {
-        doc.addImage(company.logoDataUrl, 'JPEG', margin, 8, 30, 28);
-      } catch (e) { /* skip bad logo */ }
-    }
+    addFensterLogo(doc, company, margin, 12, 58, 14.5);
 
-    doc.setTextColor.apply(doc, WHITE);
-    doc.setFontSize(20);
-    doc.setFont(undefined, 'bold');
-    var companyName = company.name || 'Your Company';
-    doc.text(companyName, company.logoDataUrl ? margin + 36 : margin, 20);
-
-    doc.setFontSize(10);
-    doc.setFont(undefined, 'normal');
-    var contactParts = [];
-    if (company.phone) contactParts.push('Tel: ' + company.phone);
-    if (company.email) contactParts.push(company.email);
-    if (contactParts.length) doc.text(contactParts.join('   '), company.logoDataUrl ? margin + 36 : margin, 30);
-    if (company.address) {
-      doc.setFontSize(8);
-      var addrLines = company.address.split('\n').slice(0, 2);
-      addrLines.forEach(function (line, idx) {
-        doc.text(line, company.logoDataUrl ? margin + 36 : margin, 36 + idx * 4);
-      });
-    }
-
-    doc.setTextColor.apply(doc, WHITE);
-    doc.setFontSize(22);
-    doc.setFont(undefined, 'bold');
-    doc.text('QUOTATION', pageWidth - margin, 22, { align: 'right' });
-    doc.setFontSize(11);
-    doc.setFont(undefined, 'normal');
-    doc.text(meta.quoteNumber || 'GQ-DRAFT', pageWidth - margin, 31, { align: 'right' });
-
-    y = 55;
-    doc.setTextColor.apply(doc, BLACK);
-
-    doc.setFillColor(239, 246, 255);
-    doc.setDrawColor.apply(doc, NAVY_LIGHT);
-    doc.roundedRect(margin, y, contentWidth / 2 - 5, 35, 2, 2, 'FD');
-
-    doc.setFontSize(8);
-    doc.setFont(undefined, 'bold');
     doc.setTextColor.apply(doc, NAVY);
-    doc.text('QUOTE DETAILS', margin + 4, y + 7);
-    doc.setFont(undefined, 'normal');
-    doc.setTextColor.apply(doc, BLACK);
-    doc.setFontSize(8);
-
-    var leftX = margin + 4;
-    var valX = margin + contentWidth / 2 - 5 - 4;
-    var qy = y + 13;
-
-    var qDetails = [
-      ['Quote Number:', meta.quoteNumber || 'GQ-DRAFT'],
-      ['Date:', formatDate(meta.quoteDate)],
-      ['Valid Until:', addValidityDate(meta.quoteDate, meta.validityDays || 30)],
-      ['Items:', String(summary.itemCount || 0)]
-    ];
-
-    qDetails.forEach(function (row) {
-      doc.setFont(undefined, 'bold');
-      doc.text(row[0], leftX, qy);
-      doc.setFont(undefined, 'normal');
-      doc.text(row[1], valX, qy, { align: 'right' });
-      qy += 5.5;
-    });
-
-    var rightX = margin + contentWidth / 2 + 5;
-    var rightW = contentWidth / 2 - 5;
-    doc.setFillColor(239, 246, 255);
-    doc.setDrawColor.apply(doc, NAVY_LIGHT);
-    doc.roundedRect(rightX, y, rightW, 35, 2, 2, 'FD');
-
-    doc.setFontSize(8);
+    doc.setFontSize(23);
     doc.setFont(undefined, 'bold');
-    doc.setTextColor.apply(doc, NAVY);
-    doc.text('PROJECT DETAILS', rightX + 4, y + 7);
-    doc.setFont(undefined, 'normal');
-    doc.setTextColor.apply(doc, BLACK);
-
-    var py = y + 13;
-    var pDetails = [
-      ['Project:', meta.projectName || 'N/A'],
-      ['Client:', meta.clientName || 'N/A'],
-      ['Total Value:', formatCurrency(summary.total)]
-    ];
-
-    pDetails.forEach(function (row) {
-      doc.setFont(undefined, 'bold');
-      doc.text(row[0], rightX + 4, py);
-      doc.setFont(undefined, 'normal');
-      doc.text(row[1].substring(0, 28), rightX + rightW - 4, py, { align: 'right' });
-      py += 5.5;
-    });
-
-    y += 42;
-
+    doc.text('QUOTATION', pageWidth - margin, 18, { align: 'right' });
     doc.setFontSize(8.5);
     doc.setFont(undefined, 'normal');
+    doc.text(meta.quoteNumber || 'GQ-DRAFT', pageWidth - margin, 25, { align: 'right' });
+
+    doc.setDrawColor.apply(doc, NAVY_LIGHT);
+    doc.setLineWidth(1.1);
+    doc.line(margin, 34, pageWidth - margin, 34);
+
+    doc.setFillColor.apply(doc, NAVY);
+    doc.rect(0, 40, pageWidth, 14, 'F');
+    doc.setTextColor.apply(doc, WHITE);
+    doc.setFontSize(8.5);
+    doc.setFont(undefined, 'bold');
+    doc.text('Fenster Glazing Ltd', margin, 48.5);
+    doc.setFont(undefined, 'normal');
+    var strap = [];
+    if (company.phone) strap.push('Tel: ' + company.phone);
+    if (company.email) strap.push(company.email);
+    doc.text(strap.join('   '), pageWidth - margin, 48.5, { align: 'right' });
+
+    y = 62;
+
+    var cardGap = 8;
+    var cardW = (contentWidth - cardGap) / 2;
+    drawInfoCard(doc, margin, y, cardW, 38, 'QUOTE DETAILS', [
+      ['Quote number', meta.quoteNumber || 'GQ-DRAFT'],
+      ['Date', formatDate(meta.quoteDate)],
+      ['Valid until', addValidityDate(meta.quoteDate, meta.validityDays || 30)],
+      ['Items', String(summary.itemCount || 0)]
+    ]);
+    drawInfoCard(doc, margin + cardW + cardGap, y, cardW, 38, 'PROJECT', [
+      ['Project', meta.projectName || 'N/A'],
+      ['Client', meta.clientName || 'N/A'],
+      ['Quote value', formatCurrency(summary.total)],
+      ['VAT', summary.vatEnabled ? (summary.vatRate + '% included') : 'Not applied']
+    ]);
+
+    y += 50;
+    doc.setFontSize(8.7);
+    doc.setFont(undefined, 'normal');
     doc.setTextColor.apply(doc, BLACK);
-    var intro = 'Thank you for the opportunity to submit this quotation. Please find below our detailed itemised pricing for the glazing works as specified. All prices are based on the supplied drawings and specifications. Any variations or additional works not shown on the documents provided may be subject to additional charges.';
+    var intro = 'Thank you for the opportunity to provide this quotation. The schedule below sets out the glazing items and commercial allowances extracted from the tender documents. Any scope that is not confirmed in the supplied information should be treated as an assumption, exclusion, or RFI before order.';
     var introLines = doc.splitTextToSize(intro, contentWidth);
     doc.text(introLines, margin, y);
-    y += introLines.length * 4.5 + 6;
+    y += introLines.length * 4.3 + 8;
 
     doc.setFont(undefined, 'bold');
-    doc.setFontSize(10);
+    doc.setFontSize(10.5);
     doc.setTextColor.apply(doc, NAVY);
     doc.text('ITEMISED SCHEDULE', margin, y);
-    doc.setDrawColor.apply(doc, NAVY);
-    doc.setLineWidth(0.5);
-    doc.line(margin, y + 2, margin + 60, y + 2);
+    doc.setDrawColor.apply(doc, NAVY_LIGHT);
+    doc.setLineWidth(0.8);
+    doc.line(margin, y + 2.5, margin + 58, y + 2.5);
   }
 
+  function drawInfoCard(doc, x, y, w, h, title, rows) {
+    doc.setFillColor(246, 249, 248);
+    doc.setDrawColor(210, 222, 219);
+    doc.setLineWidth(0.35);
+    doc.roundedRect(x, y, w, h, 2, 2, 'FD');
+    doc.setFontSize(8);
+    doc.setFont(undefined, 'bold');
+    doc.setTextColor.apply(doc, NAVY);
+    doc.text(title, x + 4, y + 7);
+    var rowY = y + 13;
+    rows.forEach(function (row) {
+      doc.setFontSize(7.4);
+      doc.setFont(undefined, 'normal');
+      doc.setTextColor.apply(doc, GRAY);
+      doc.text(row[0] + ':', x + 4, rowY);
+      doc.setFont(undefined, 'bold');
+      doc.setTextColor.apply(doc, BLACK);
+      doc.text(String(row[1] || '-').substring(0, 30), x + w - 4, rowY, { align: 'right' });
+      rowY += 5.5;
+    });
+  }
   function renderPriceSummary(doc, summary, meta, pageWidth, pageHeight, margin, contentWidth, y) {
     var summaryX = pageWidth - margin - 90;
     var summaryW = 90;
@@ -715,7 +720,7 @@ var QuoteGenerator = (function () {
     doc.setFont(undefined, 'bold');
     doc.text((company.name || 'Glazing Quote'), margin, 8);
     doc.setFont(undefined, 'normal');
-    doc.text('QUOTATION — Continued', pageWidth - margin, 8, { align: 'right' });
+    doc.text('QUOTATION â€” Continued', pageWidth - margin, 8, { align: 'right' });
   }
 
   function addPageFooter(doc, company, pageWidth, pageHeight, margin) {
@@ -759,3 +764,4 @@ var QuoteGenerator = (function () {
     generateQuotePDF: generateQuotePDF
   };
 })();
+
