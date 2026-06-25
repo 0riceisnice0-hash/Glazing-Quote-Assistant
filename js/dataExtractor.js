@@ -24,7 +24,7 @@ var DataExtractor = (function () {
     if (/\bopening\s*types?\b/.test(name))
       return { type: 'specification', confidence: 'high', reason: 'Filename contains opening type reference sheet keyword' };
     if (hasScheduleKeyword ||
-        /pricing\s*(?:schedule|doc)|windows?\s*(?:&|and)\s*doors?|doors?\s*(?:&|and)\s*windows?|window\s*style/.test(name))
+        /pricing\s*(?:schedule|doc|document)?|windows?\s*(?:&|and)\s*doors?|doors?\s*(?:&|and)\s*windows?|window\s*style/.test(name))
       return { type: 'schedule', confidence: 'high', reason: 'Filename contains schedule keyword' };
     if (/warrant|guarantee|collateral|enquiry\s*letter|letter\s*of\s*enquiry/.test(name))
       return { type: 'admin', confidence: 'high', reason: 'Filename matches admin/legal document pattern' };
@@ -628,7 +628,7 @@ var DataExtractor = (function () {
 
     var items = [];
     var isOpeningScheduleWorkbook = /opening\s*schedules?/i.test(sourceName || '');
-    var isFensterPricingDocument = /pricing\s*document/i.test(sourceName || '');
+    var isFensterPricingDocument = /\bpricing\b/i.test(sourceName || '');
     var pricingDocItemNo = 0;
     var pricingDocAllowanceNo = 0;
     function parseCompactDimension(cell) {
@@ -1384,6 +1384,7 @@ var DataExtractor = (function () {
     var allSpecText    = '';
     var scheduleDocCount = 0;
     var workbookScheduleBases = {};
+    var hasFensterPricingWorkbook = false;
 
     documents.forEach(function (doc) {
       var docName = doc.name || '';
@@ -1391,6 +1392,7 @@ var DataExtractor = (function () {
       var cls = classifyDocument(docName, doc.fullText || '');
       if (cls.type !== 'schedule') return;
       workbookScheduleBases[docName.toLowerCase().replace(/\.(xlsx|xlsm|xls)$/i, '')] = true;
+      if (/\bpricing\b/i.test(docName)) hasFensterPricingWorkbook = true;
     });
 
     documents.forEach(function (doc) {
@@ -1400,6 +1402,10 @@ var DataExtractor = (function () {
       var classification = classifyDocument(doc.name, doc.fullText || '');
       var docType = classification.type;
       var docBase = (doc.name || '').toLowerCase().replace(/\.(pdf)$/i, '');
+      if (hasFensterPricingWorkbook && docType === 'schedule' && !(/\.(xlsx|xlsm|xls)$/i.test(doc.name || '') && /\bpricing\b/i.test(doc.name || ''))) {
+        debugLog.push('[SCHEDULE / skipped] ' + doc.name + ' - Fenster pricing workbook supplied, using workbook as source of truth');
+        return;
+      }
       if (docType === 'schedule' && /\.pdf$/i.test(doc.name || '') && workbookScheduleBases[docBase]) {
         debugLog.push('[SCHEDULE / skipped] ' + doc.name + ' - workbook version supplied, using Excel schedule as source of truth');
         return;
