@@ -552,10 +552,19 @@ var Pricing = (function () {
 
     var pvcCount = 0;
     var quotedCount = 0;
+    var hasExternalOpeningSchedule = false;
     items.forEach(function (item) {
       if (/pvc|upvc/i.test(item.frameType || '')) pvcCount++;
       if (item.supplierUnitPrice !== undefined && item.supplierUnitPrice !== null && item.supplierUnitPrice !== '') quotedCount++;
+      if (item.scheduleType === 'External Opening Schedule') hasExternalOpeningSchedule = true;
     });
+
+    // Live tender packs built from architect opening schedules need installation
+    // shown as a separate commercial allowance, so keep the site default on.
+    if (hasExternalOpeningSchedule) {
+      cfg.includeInstallation = true;
+      return cfg;
+    }
 
     // Fenster uPVC schedule-only jobs commonly price supply/install together.
     // Keep installation for quoted workbooks/frameworks, where the workbook rates

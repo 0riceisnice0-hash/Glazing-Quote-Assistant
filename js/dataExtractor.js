@@ -9,7 +9,7 @@ var DataExtractor = (function () {
   function classifyDocument(docName, textContent) {
     var fullName = (docName || '').toLowerCase();
     var name = fullName.split(/[\\\/]/).pop();
-    var hasScheduleKeyword = /window\s*schedule|door\s*schedule|glazing\s*schedule/.test(name);
+    var hasScheduleKeyword = /window\s*schedule|door\s*schedule|glazing\s*schedule|opening\s*schedules?/.test(name);
     var hasBQKeyword = /\bboq\b|\bbq\b|bill\s*of\s*quantities|subcontractors?\s+bill|trade\s+bill|schedule\s*of\s*works/.test(name);
 
     // Filename-based (high confidence)
@@ -21,6 +21,8 @@ var DataExtractor = (function () {
       return { type: 'drawing', confidence: 'high', reason: 'Filename contains drawing schedule keyword' };
     if (hasBQKeyword)
       return { type: 'bq', confidence: 'high', reason: 'Filename contains BQ keyword' };
+    if (/\bopening\s*types?\b/.test(name))
+      return { type: 'specification', confidence: 'high', reason: 'Filename contains opening type reference sheet keyword' };
     if (hasScheduleKeyword ||
         /pricing\s*(?:schedule|doc)|windows?\s*(?:&|and)\s*doors?|doors?\s*(?:&|and)\s*windows?|window\s*style/.test(name))
       return { type: 'schedule', confidence: 'high', reason: 'Filename contains schedule keyword' };
@@ -49,6 +51,8 @@ var DataExtractor = (function () {
       return { type: 'drawing', confidence: 'high', reason: 'Filename contains drawing type keyword' };
     if (/\b(?:spec(?:ification)?)\b/.test(name))
       return { type: 'specification', confidence: 'high', reason: 'Filename contains specification keyword' };
+    if (/\bmaterials?\s+schedule\b/.test(name))
+      return { type: 'specification', confidence: 'high', reason: 'Filename contains materials schedule keyword' };
 
     // Content-based (medium confidence) — only when text is available
     if (textContent && textContent.length > 0) {
@@ -623,6 +627,14 @@ var DataExtractor = (function () {
     if (!/\.(xlsx|xlsm|xls)$/i.test(sourceName || '')) return [];
 
     var items = [];
+    var isOpeningScheduleWorkbook = /opening\s*schedules?/i.test(sourceName || '');
+    function parseCompactDimension(cell) {
+      var text = String(cell || '').replace(/,/g, '').trim();
+      if (!text || /^(?:yes|no|opp|as|n\/a|na)$/i.test(text)) return 0;
+      var n = parseFloat(text.replace(/[^\d.]/g, ''));
+      return isFinite(n) && n > 0 ? n : 0;
+    }
+
     rows.forEach(function (row) {
       if (!row.items || row.items.length < 2) return;
       var cells = row.items
@@ -632,6 +644,51 @@ var DataExtractor = (function () {
       var rowText = cells.join(' ');
       if (/\bclean\s+and\s+service\s+only\b|basic\s+repairs\s+and\s+washing/i.test(rowText)) return;
       var sourceHint = (sourceName + ' ' + rowText);
+
+      // External opening schedule workbooks exported from Excel often arrive with
+      // sparse cells removed by the parser. The compact row shape is:
+      // Ref | Room | Type | [Handing] | Width | Height | Head | U-value | Acoustic | G-value | Part Q | ...
+      if (isOpeningScheduleWorkbook && /^(?:WG|W1)-\d{2,3}$/i.test(cells[0] || '')) {
+        var openingRef = String(cells[0]).trim().toUpperCase();
+        var roomName = cells[1] || '';
+        var openingTypeMark = cells[2] || '';
+        var dimStart = /^(?:opp|as)$/i.test(cells[3] || '') ? 4 : 3;
+        var schedWidth = parseCompactDimension(cells[dimStart]);
+        var schedHeight = parseCompactDimension(cells[dimStart + 1]);
+        if (schedWidth > 0 && schedHeight > 0) {
+          var isEntrance = /\btype\s*n\b|pas\s*24|draft\s*lobby|reception|entrance/i.test(openingTypeMark + ' ' + roomName + ' ' + rowText);
+          var scheduleItem = createItem({
+            reference: openingRef,
+            description: [openingTypeMark, roomName].filter(Boolean).join(' - '),
+            type: isEntrance ? 'door' : 'window',
+            width: schedWidth,
+            height: schedHeight,
+            quantity: 1,
+            frameType: /aluminium/i.test(sourceHint) ? 'Aluminium' : 'uPVC',
+            glazingSpec: /obscure/i.test(rowText) ? 'Double Glazed - Obscure' : 'Double Glazed - Clear',
+            openingType: /open\s+windows?|openable/i.test(rowText) ? 'Opening / restricted per schedule' : 'Fixed',
+            location: roomName,
+            sourceDocument: sourceName,
+            sourcePage: sourcePage
+          });
+          scheduleItem.scheduleType = 'External Opening Schedule';
+          scheduleItem.doorType = openingTypeMark || undefined;
+          scheduleItem.uValue = cells[dimStart + 3] || scheduleItem.uValue;
+          scheduleItem.acousticRating = cells[dimStart + 4] || undefined;
+          scheduleItem.gValue = cells[dimStart + 5] || undefined;
+          scheduleItem.partQ = cells[dimStart + 6] || undefined;
+          if (isEntrance) {
+            scheduleItem.entranceDoor = 'Yes';
+            scheduleItem.securityRequirement = /pas\s*24/i.test(rowText) ? 'PAS 24' : scheduleItem.securityRequirement;
+            scheduleItem.accessControlRequirement = /door\s*entry|access\s*control/i.test(rowText) ? 'Door entry/access control TBC' : scheduleItem.accessControlRequirement;
+            scheduleItem.automationRequirement = /sliding|automatic/i.test(rowText) ? 'Automatic/sliding entrance arrangement TBC' : scheduleItem.automationRequirement;
+          }
+          scheduleItem.confidence = scoreConfidence(scheduleItem, 'table');
+          items.push(scheduleItem);
+        }
+        return;
+      }
+      if (isOpeningScheduleWorkbook) return;
 
       // Fenster quote/pricing workbook rows:
       // SAW | W1 | 1000 x 1000 | 1.00 | nr | 450.00 | 450.00
@@ -745,6 +802,7 @@ var DataExtractor = (function () {
       }
       if (ref2) {
         var dims3 = extractDimensionsFromText(rowText);
+        if (!dims3 && /^(?:W1|WG)$/i.test(ref2)) return;
         var qty3 = parseQuantityCell(cells[refCellIdx + 2]) ||
                    parseQuantityCell(cells[refCellIdx + 1]) ||
                    extractQuantity(rowText) ||
@@ -1238,6 +1296,15 @@ var DataExtractor = (function () {
     var allSpecNotes   = [];
     var allSpecText    = '';
     var scheduleDocCount = 0;
+    var workbookScheduleBases = {};
+
+    documents.forEach(function (doc) {
+      var docName = doc.name || '';
+      if (!/\.(xlsx|xlsm|xls)$/i.test(docName)) return;
+      var cls = classifyDocument(docName, doc.fullText || '');
+      if (cls.type !== 'schedule') return;
+      workbookScheduleBases[docName.toLowerCase().replace(/\.(xlsx|xlsm|xls)$/i, '')] = true;
+    });
 
     documents.forEach(function (doc) {
       stats.docsProcessed++;
@@ -1245,6 +1312,11 @@ var DataExtractor = (function () {
 
       var classification = classifyDocument(doc.name, doc.fullText || '');
       var docType = classification.type;
+      var docBase = (doc.name || '').toLowerCase().replace(/\.(pdf)$/i, '');
+      if (docType === 'schedule' && /\.pdf$/i.test(doc.name || '') && workbookScheduleBases[docBase]) {
+        debugLog.push('[SCHEDULE / skipped] ' + doc.name + ' - workbook version supplied, using Excel schedule as source of truth');
+        return;
+      }
       debugLog.push('[' + docType.toUpperCase() + ' / ' + classification.confidence + '] ' + doc.name + ' (' + doc.pages.length + ' page(s)) — ' + classification.reason);
 
       var docResult = extractFromDocument(doc);
@@ -1307,6 +1379,21 @@ var DataExtractor = (function () {
       allWarnings = allWarnings.filter(function (warning) {
         return !warning.itemId || keptItemIds[warning.itemId];
       });
+    }
+    if (scheduleDocCount > 0) {
+      var removedDimensionless = allItems.filter(function (item) {
+        return !(item.width > 0 && item.height > 0);
+      });
+      if (removedDimensionless.length > 0) {
+        allItems = allItems.filter(function (item) {
+          return item.width > 0 && item.height > 0;
+        });
+        allWarnings = allWarnings.filter(function (warning) {
+          return !warning.itemId || allItems.some(function (item) { return item.id === warning.itemId; });
+        });
+        debugLog.push('Removed ' + removedDimensionless.length + ' dimensionless schedule marker(s): ' +
+          removedDimensionless.map(function (item) { return item.reference; }).join(', '));
+      }
     }
     if (scheduleDocCount === 0) {
       allWarnings.push({

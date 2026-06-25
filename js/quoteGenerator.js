@@ -21,6 +21,16 @@ var QuoteGenerator = (function () {
     return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
   }
 
+  function oneLineWithin(doc, text, maxWidth) {
+    var value = String(text || '');
+    if (doc.getTextWidth(value) <= maxWidth) return value;
+    var ellipsis = '...';
+    while (value.length > 0 && doc.getTextWidth(value + ellipsis) > maxWidth) {
+      value = value.slice(0, -1);
+    }
+    return value ? value + ellipsis : ellipsis;
+  }
+
   function addValidityDate(dateStr, days) {
     if (!dateStr) return '';
     var d = new Date(dateStr);
@@ -105,7 +115,7 @@ var QuoteGenerator = (function () {
       finalY = 25;
     }
 
-    renderPriceSummary(doc, summary, meta, pageWidth, pageHeight, margin, contentWidth, finalY);
+    renderPriceSummary(doc, summary, meta, pageWidth, pageHeight, margin, contentWidth, finalY, company);
 
     var pagesCount = doc.internal.getNumberOfPages();
     for (var i = 1; i <= pagesCount; i++) {
@@ -200,7 +210,7 @@ var QuoteGenerator = (function () {
     });
 
     doc.autoTable({
-      startY: 95,
+      startY: doc._scheduleStartY || 95,
       head: [[
         { content: 'Ref', styles: { fillColor: NAVY, textColor: WHITE, fontStyle: 'bold' } },
         { content: 'Description', styles: { fillColor: NAVY, textColor: WHITE, fontStyle: 'bold' } },
@@ -231,7 +241,7 @@ var QuoteGenerator = (function () {
 
   /* ===== DETAILED MODE: per-item specification cards ===== */
   function renderDetailedSchedule(doc, types, groupedItems, margin, contentWidth, company, pageWidth, pageHeight, presets) {
-    var y = 95;
+    var y = doc._scheduleStartY || 95;
     var cardH = 32;   // base height for a spec card
     var labelCol = margin + 4;
     var valCol = margin + 32;
@@ -299,7 +309,7 @@ var QuoteGenerator = (function () {
         if (item.closerRequirement) leftSpecs.push(['Closer:', item.closerRequirement]);
 
         var rowCount = Math.max(leftSpecs.length, rightSpecs.length);
-        var neededH = 10 + rowCount * 4.5 + 4; // header + rows + padding
+        var neededH = 12 + rowCount * 4.5 + 4; // header + rows + padding
 
         if (y + neededH > pageHeight - 20) {
           doc.addPage();
@@ -320,14 +330,14 @@ var QuoteGenerator = (function () {
         doc.setTextColor.apply(doc, NAVY);
         var itemDescription = item.description || item.location || item.glazingSpec || item.type || 'Glazing item';
         var refLabel = (item.reference || '-') + '  ' + itemDescription;
-        doc.text(refLabel.substring(0, 86), labelCol, y + 6);
+        doc.text(oneLineWithin(doc, refLabel, contentWidth - 68), labelCol, y + 6);
 
         // Total price on the right of the header
         doc.setFontSize(8.8);
         doc.setFont(undefined, 'bold');
-        doc.text('Qty ' + qty + '  |  ' + formatCurrency(item.totalPrice), priceCol, y + 6, { align: 'right' });
+        doc.text(oneLineWithin(doc, 'Qty ' + qty + '  |  ' + formatCurrency(item.totalPrice), 62), priceCol, y + 6, { align: 'right' });
         // Spec rows
-        var specY = y + 11;
+        var specY = y + 12;
         doc.setFontSize(7.5);
 
         for (var r = 0; r < rowCount; r++) {
@@ -533,6 +543,7 @@ var QuoteGenerator = (function () {
     doc.setDrawColor.apply(doc, NAVY_LIGHT);
     doc.setLineWidth(0.8);
     doc.line(margin, y + 2.5, margin + 58, y + 2.5);
+    doc._scheduleStartY = y + 10;
   }
 
   function drawInfoCard(doc, x, y, w, h, title, rows) {
@@ -556,9 +567,10 @@ var QuoteGenerator = (function () {
       rowY += 5.5;
     });
   }
-  function renderPriceSummary(doc, summary, meta, pageWidth, pageHeight, margin, contentWidth, y) {
+  function renderPriceSummary(doc, summary, meta, pageWidth, pageHeight, margin, contentWidth, y, company) {
     var summaryX = pageWidth - margin - 90;
     var summaryW = 90;
+    var labelMaxW = 50;
 
     // Calculate dynamic box height based on line items
     var lineCount = 2; // Subtotal + Total
@@ -586,30 +598,30 @@ var QuoteGenerator = (function () {
     var sy = y + 13;
     var rightCol = summaryX + summaryW - 4;
 
-    doc.text('Product Subtotal:', summaryX + 4, sy);
+    doc.text(oneLineWithin(doc, 'Product Subtotal:', labelMaxW), summaryX + 4, sy);
     doc.text(Pricing.formatCurrency(summary.subtotal), rightCol, sy, { align: 'right' });
     sy += 5.5;
 
     if (summary.includeInstallation) {
-      doc.text('Installation:', summaryX + 4, sy);
+      doc.text(oneLineWithin(doc, 'Installation:', labelMaxW), summaryX + 4, sy);
       doc.text(Pricing.formatCurrency(summary.installTotal), rightCol, sy, { align: 'right' });
       sy += 5.5;
     }
 
     if (summary.includeEPDM) {
-      doc.text('EPDM:', summaryX + 4, sy);
+      doc.text(oneLineWithin(doc, 'EPDM:', labelMaxW), summaryX + 4, sy);
       doc.text(Pricing.formatCurrency(summary.epdmTotal), rightCol, sy, { align: 'right' });
       sy += 5.5;
     }
 
     if (summary.includeMastic) {
-      doc.text('Mastic:', summaryX + 4, sy);
+      doc.text(oneLineWithin(doc, 'Mastic:', labelMaxW), summaryX + 4, sy);
       doc.text(Pricing.formatCurrency(summary.masticTotal), rightCol, sy, { align: 'right' });
       sy += 5.5;
     }
 
     if (summary.quoteExtraAmount !== 0) {
-      doc.text((summary.quoteExtraLabel || 'Extra costs') + ':', summaryX + 4, sy);
+      doc.text(oneLineWithin(doc, (summary.quoteExtraLabel || 'Extra costs') + ':', labelMaxW), summaryX + 4, sy);
       doc.text(Pricing.formatCurrency(summary.quoteExtraAmount), rightCol, sy, { align: 'right' });
       sy += 5.5;
     }
@@ -619,18 +631,18 @@ var QuoteGenerator = (function () {
         ? 'Discount (' + summary.discountPercent + '% + fixed):'
         : (summary.discountPercent > 0 ? 'Discount (' + summary.discountPercent + '%):' : 'Fixed Discount:');
       doc.setTextColor(220, 38, 38);
-      doc.text(discountLabel, summaryX + 4, sy);
+      doc.text(oneLineWithin(doc, discountLabel, labelMaxW), summaryX + 4, sy);
       doc.text('- ' + Pricing.formatCurrency(summary.discountAmount), rightCol, sy, { align: 'right' });
       doc.setTextColor.apply(doc, BLACK);
       sy += 5.5;
 
-      doc.text('After Discount:', summaryX + 4, sy);
+      doc.text(oneLineWithin(doc, 'After Discount:', labelMaxW), summaryX + 4, sy);
       doc.text(Pricing.formatCurrency(summary.afterDiscount), rightCol, sy, { align: 'right' });
       sy += 5.5;
     }
 
     if (summary.vatEnabled) {
-      doc.text('VAT (' + summary.vatRate + '%):', summaryX + 4, sy);
+      doc.text(oneLineWithin(doc, 'VAT (' + summary.vatRate + '%):', labelMaxW), summaryX + 4, sy);
       doc.text(Pricing.formatCurrency(summary.vatAmount), rightCol, sy, { align: 'right' });
       sy += 5.5;
     }
@@ -642,7 +654,7 @@ var QuoteGenerator = (function () {
     doc.setFontSize(10);
     doc.setFont(undefined, 'bold');
     doc.setTextColor.apply(doc, NAVY);
-    doc.text('TOTAL:', summaryX + 4, sy + 4);
+    doc.text(oneLineWithin(doc, 'TOTAL:', labelMaxW), summaryX + 4, sy + 4);
     doc.text(Pricing.formatCurrency(summary.total), rightCol, sy + 4, { align: 'right' });
 
     var termsY = y + boxH + 5;
@@ -698,13 +710,19 @@ var QuoteGenerator = (function () {
 
     if (meta.notes) {
       var notesY = slY + 15;
+      var noteLines = doc.splitTextToSize(meta.notes, contentWidth);
+      if (notesY + 7 + noteLines.length * 4 > pageHeight - 18) {
+        doc.addPage();
+        addPageHeader(doc, company, pageWidth, margin);
+        addPageFooter(doc, company, pageWidth, pageHeight, margin);
+        notesY = 25;
+      }
       doc.setFontSize(8);
       doc.setFont(undefined, 'bold');
       doc.setTextColor.apply(doc, NAVY);
       doc.text('ADDITIONAL NOTES', margin, notesY);
       doc.setFont(undefined, 'normal');
       doc.setTextColor.apply(doc, BLACK);
-      var noteLines = doc.splitTextToSize(meta.notes, contentWidth);
       doc.text(noteLines, margin, notesY + 5);
     }
   }
