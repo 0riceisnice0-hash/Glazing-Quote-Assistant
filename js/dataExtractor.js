@@ -628,11 +628,19 @@ var DataExtractor = (function () {
 
     var items = [];
     var isOpeningScheduleWorkbook = /opening\s*schedules?/i.test(sourceName || '');
+    var isFensterPricingDocument = /pricing\s*document/i.test(sourceName || '');
+    var pricingDocItemNo = 0;
+    var pricingDocAllowanceNo = 0;
     function parseCompactDimension(cell) {
       var text = String(cell || '').replace(/,/g, '').trim();
       if (!text || /^(?:yes|no|opp|as|n\/a|na)$/i.test(text)) return 0;
       var n = parseFloat(text.replace(/[^\d.]/g, ''));
       return isFinite(n) && n > 0 ? n : 0;
+    }
+    function parsePlainMoney(cell) {
+      if (cell === undefined || cell === null || cell === '') return 0;
+      var n = parseFloat(String(cell).replace(/[^\d.-]/g, ''));
+      return isFinite(n) ? n : 0;
     }
 
     rows.forEach(function (row) {
@@ -644,6 +652,85 @@ var DataExtractor = (function () {
       var rowText = cells.join(' ');
       if (/\bclean\s+and\s+service\s+only\b|basic\s+repairs\s+and\s+washing/i.test(rowText)) return;
       var sourceHint = (sourceName + ' ' + rowText);
+
+      // Fenster pricing document rows:
+      // Description | Size | Qty | Unit | Unit Rate | Total
+      // These are already sell-rate pricing rows from the commercial estimator,
+      // so preserve their exact totals rather than re-pricing them through the
+      // generic square-metre engine.
+      if (isFensterPricingDocument) {
+        var descCell = cells[0] || '';
+        var dimsCell = cells[1] || '';
+        var qtyCell = cells[2] || '';
+        var unitCell = cells[3] || '';
+        var rateCell = cells[4] || '';
+        var totalCell = cells[5] || cells[cells.length - 1] || '';
+        var pricingDims = extractDimensionsFromText(dimsCell);
+        var pricingQty = parseQuantityCell(qtyCell);
+        var unitRate = parsePlainMoney(rateCell);
+        var rowTotal = parsePlainMoney(totalCell);
+
+        if (pricingDims && pricingQty > 0 && unitRate > 0 && rowTotal > 0 && /^(?:nr|no|item|each|ea)$/i.test(unitCell || 'nr')) {
+          pricingDocItemNo++;
+          var pricingDesc = String(descCell).trim();
+          var pricingType = /\bdoor\b/i.test(pricingDesc) ? 'door' :
+            (/\b(?:screen|bay|return|alternative)\b/i.test(pricingDesc) ? 'screen' : 'window');
+          var pricingItem = createItem({
+            reference: String(pricingDocItemNo),
+            description: pricingDesc,
+            type: pricingType,
+            width: pricingDims.width,
+            height: pricingDims.height,
+            quantity: pricingQty,
+            frameType: /door/i.test(pricingDesc) ? 'Aluminium Door' : 'Aluminium',
+            system: /door/i.test(pricingDesc) ? 'Comar aluminium door system' : 'Comar aluminium windows and doors',
+            glazingSpec: 'Glazing specification per proposal/pricing document',
+            sourceDocument: sourceName,
+            sourcePage: sourcePage
+          });
+          pricingItem.unitPrice = unitRate;
+          pricingItem.totalPrice = rowTotal;
+          pricingItem.manualOverride = true;
+          pricingItem.pricingMethod = 'quoted-unit';
+          pricingItem.breakdown = 'Fenster pricing document sell rate';
+          pricingItem.scheduleType = 'Fenster Pricing Document';
+          pricingItem.confidence = scoreConfidence(pricingItem, 'table');
+          items.push(pricingItem);
+          return;
+        }
+
+        // Commercial allowance rows in the same pricing document, e.g.
+        // removal, fixings, phased installation, preliminaries.
+        var allowanceTotal = parsePlainMoney(cells[cells.length - 1]);
+        var isSubtotalRow = /\b(?:subtotal|total|optional\s+extras?)\b/i.test(rowText);
+        if (!pricingDims && allowanceTotal > 0 && !isSubtotalRow && /(?:allowance|installation|removal|fixings|ancillaries|survey|management|coordination|supervision|certification|handover|prelims?|bay\s*posts?|corner\s*covers?|cills?)/i.test(rowText)) {
+          pricingDocAllowanceNo++;
+          var allowanceLabel = String(descCell || cells[0] || 'Commercial allowance').trim();
+          var allowanceItem = createItem({
+            reference: 'COMM-' + pricingDocAllowanceNo,
+            description: allowanceLabel,
+            type: 'other',
+            width: 0,
+            height: 0,
+            quantity: 1,
+            frameType: 'Commercial allowance',
+            glazingSpec: '',
+            sourceDocument: sourceName,
+            sourcePage: sourcePage
+          });
+          allowanceItem.unitPrice = allowanceTotal;
+          allowanceItem.totalPrice = allowanceTotal;
+          allowanceItem.manualOverride = true;
+          allowanceItem.pricingMethod = 'quoted-allowance';
+          allowanceItem.breakdown = 'Fenster pricing document commercial allowance';
+          allowanceItem.scheduleType = 'Commercial Allowance';
+          allowanceItem.confidence = scoreConfidence(allowanceItem, 'table');
+          items.push(allowanceItem);
+          return;
+        }
+
+        return;
+      }
 
       // External opening schedule workbooks exported from Excel often arrive with
       // sparse cells removed by the parser. The compact row shape is:
@@ -1372,7 +1459,9 @@ var DataExtractor = (function () {
     if (hasContractorBoqScope) {
       var keptItemIds = {};
       allItems = allItems.filter(function (item) {
-        var keep = item.scheduleType === 'Contractor BoQ' || (item.width > 0 && item.height > 0);
+        var keep = item.scheduleType === 'Contractor BoQ' ||
+          item.scheduleType === 'Commercial Allowance' ||
+          (item.width > 0 && item.height > 0);
         if (keep && item.id) keptItemIds[item.id] = true;
         return keep;
       });
@@ -1382,11 +1471,11 @@ var DataExtractor = (function () {
     }
     if (scheduleDocCount > 0) {
       var removedDimensionless = allItems.filter(function (item) {
-        return !(item.width > 0 && item.height > 0);
+        return !(item.width > 0 && item.height > 0) && item.scheduleType !== 'Commercial Allowance';
       });
       if (removedDimensionless.length > 0) {
         allItems = allItems.filter(function (item) {
-          return item.width > 0 && item.height > 0;
+          return (item.width > 0 && item.height > 0) || item.scheduleType === 'Commercial Allowance';
         });
         allWarnings = allWarnings.filter(function (warning) {
           return !warning.itemId || allItems.some(function (item) { return item.id === warning.itemId; });
@@ -2955,6 +3044,7 @@ var DataExtractor = (function () {
 
   function validateItemForWarnings(item) {
     var errors = [];
+    if (item.manualOverride && item.scheduleType === 'Commercial Allowance') return errors;
     if (item.width  <= 0)            errors.push('Item ' + item.reference + ': width not detected');
     if (item.height <= 0)            errors.push('Item ' + item.reference + ': height not detected');
     if (item.frameType === 'Unknown') errors.push('Item ' + item.reference + ': frame type not detected');

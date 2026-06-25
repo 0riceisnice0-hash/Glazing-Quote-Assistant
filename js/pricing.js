@@ -553,11 +553,24 @@ var Pricing = (function () {
     var pvcCount = 0;
     var quotedCount = 0;
     var hasExternalOpeningSchedule = false;
+    var hasFensterPricingDocument = false;
     items.forEach(function (item) {
       if (/pvc|upvc/i.test(item.frameType || '')) pvcCount++;
       if (item.supplierUnitPrice !== undefined && item.supplierUnitPrice !== null && item.supplierUnitPrice !== '') quotedCount++;
       if (item.scheduleType === 'External Opening Schedule') hasExternalOpeningSchedule = true;
+      if (item.scheduleType === 'Fenster Pricing Document' || item.scheduleType === 'Commercial Allowance') hasFensterPricingDocument = true;
     });
+
+    // Fenster pricing documents are already commercial sell-rate documents.
+    // They include installation/prelims as explicit rows and are presented ex VAT,
+    // so do not add a second generic install line or VAT on top.
+    if (hasFensterPricingDocument) {
+      cfg.includeInstallation = false;
+      cfg.includeEPDM = false;
+      cfg.includeMastic = false;
+      cfg.vatEnabled = false;
+      return cfg;
+    }
 
     // Live tender packs built from architect opening schedules need installation
     // shown as a separate commercial allowance, so keep the site default on.

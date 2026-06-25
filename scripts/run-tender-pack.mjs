@@ -584,6 +584,7 @@ function buildWorkflowRisks(docs, items) {
     }));
   }
   items.forEach((item) => {
+    if (item.scheduleType === 'Commercial Allowance') return;
     if (!item.width || !item.height) {
       risks.push(makeRisk('critical', `Item ${item.reference || item.id} is missing dimensions.`, {
         itemId: item.id,
@@ -608,7 +609,7 @@ function makeRisk(severity, message, extra = {}) {
 
 function printSummary(report, jsonPath, csvPath) {
   const byType = countBy(report.items, 'type');
-  const missingDims = report.items.filter((item) => !item.width || !item.height);
+  const missingDims = report.items.filter((item) => item.scheduleType !== 'Commercial Allowance' && (!item.width || !item.height));
   const unknownFrame = report.items.filter((item) => item.frameType === 'Unknown');
   console.log('');
   console.log('Extraction summary');

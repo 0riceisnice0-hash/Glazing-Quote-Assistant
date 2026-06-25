@@ -189,9 +189,9 @@ var QuoteGenerator = (function () {
 
       var typeTotal = 0;
       typeItems.forEach(function (item) {
-        var dims = item.width > 0 && item.height > 0
-          ? item.width + ' x ' + item.height + ' mm'
-          : 'TBC';
+        var dims = item.scheduleType === 'Commercial Allowance'
+          ? 'Allowance'
+          : (item.width > 0 && item.height > 0 ? item.width + ' x ' + item.height + ' mm' : 'TBC');
         tableBody.push([
           item.reference || '-',
           (item.description || item.glazingSpec || 'Glazing item').substring(0, 50),
@@ -275,9 +275,9 @@ var QuoteGenerator = (function () {
       var typeTotal = 0;
 
       typeItems.forEach(function (item) {
-        var dims = item.width > 0 && item.height > 0
-          ? item.width + ' x ' + item.height + ' mm'
-          : 'TBC';
+        var dims = item.scheduleType === 'Commercial Allowance'
+          ? 'Allowance'
+          : (item.width > 0 && item.height > 0 ? item.width + ' x ' + item.height + ' mm' : 'TBC');
         var qty = item.quantity || 1;
 
         // Build spec rows to render
