@@ -462,26 +462,43 @@ function expandArchive(sourcePath, destinationPath) {
 
 async function extractWorkbook(filePath) {
   const XLSX = require(path.join(rootDir, 'node_modules', 'xlsx', 'xlsx.js'));
-  const workbook = XLSX.readFile(filePath, { cellDates: false, cellFormula: false, raw: false });
+  const workbook = XLSX.readFile(filePath, { cellDates: false, cellFormula: false, raw: false, cellStyles: true });
   const pages = workbook.SheetNames.map((sheetName, idx) => {
     const sheet = workbook.Sheets[sheetName];
     const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '', raw: false });
     const normalisedRows = rows.map((row) => row.map((cell) => String(cell || '').trim()));
+    function isRedCell(rowIdx, colIdx) {
+      const cell = sheet[XLSX.utils.encode_cell({ r: rowIdx, c: colIdx })];
+      const style = cell && cell.s;
+      const color = style && style.font && style.font.color;
+      let rgb = color && (color.rgb || color.fgColor || color.indexed);
+      if (!rgb || typeof rgb !== 'string') return false;
+      rgb = rgb.replace(/^FF/i, '').slice(-6);
+      if (!/^[0-9a-f]{6}$/i.test(rgb)) return false;
+      const r = parseInt(rgb.slice(0, 2), 16);
+      const g = parseInt(rgb.slice(2, 4), 16);
+      const b = parseInt(rgb.slice(4, 6), 16);
+      return r > 160 && g < 120 && b < 120;
+    }
     const textItems = [];
     normalisedRows.forEach((row, rowIdx) => {
       row.forEach((cell, colIdx) => {
         if (!cell) return;
+        const displayCell = isRedCell(rowIdx, colIdx) ? `${cell} [RED_TEXT]` : cell;
         textItems.push({
-          str: cell,
+          str: displayCell,
           x: colIdx * 120,
           y: (rows.length - rowIdx) * 18,
-          width: Math.max(30, cell.length * 7),
+          width: Math.max(30, displayCell.length * 7),
           height: 12
         });
       });
     });
     const lines = normalisedRows
-      .map((row) => row.filter(Boolean).join('   '))
+      .map((row, rowIdx) => row.map((cell, colIdx) => {
+        if (!cell) return '';
+        return isRedCell(rowIdx, colIdx) ? `${cell} [RED_TEXT]` : cell;
+      }).filter(Boolean).join('   '))
       .filter(Boolean);
     return {
       pageNum: idx + 1,

@@ -1,9 +1,9 @@
 /* js/aiEnrichment.js - OpenAI note review and item prefill */
 
 var AIEnrichment = (function () {
-  var DEFAULT_MODEL = 'gpt-5.5';
-  var MAX_CONTEXT_CHARS = 42000;
-  var OPENAI_TIMEOUT_MS = 75000;
+  var DEFAULT_MODEL = 'gpt-4o-mini';
+  var MAX_CONTEXT_CHARS = 18000;
+  var OPENAI_TIMEOUT_MS = 60000;
 
   var UPDATE_FIELDS = [
     'frameType',
@@ -41,22 +41,83 @@ var AIEnrichment = (function () {
     return head + '\n...\n' + tail;
   }
 
-  function _documentContext(documents) {
+  function _refPattern(items) {
+    var refs = (items || []).map(function (item) { return _clean(item.reference); })
+      .filter(Boolean)
+      .filter(function (ref, idx, arr) { return arr.indexOf(ref) === idx; })
+      .slice(0, 120);
+    if (!refs.length) return null;
+    refs.sort(function (a, b) { return b.length - a.length; });
+    return new RegExp('\\b(' + refs.map(function (ref) {
+      return ref.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }).join('|') + ')\\b', 'gi');
+  }
+
+  function _snippetsForRefs(text, pattern, limit) {
+    if (!pattern) return '';
+    text = _clean(text).replace(/\s+/g, ' ');
+    var snippets = [];
+    var seen = {};
+    var match;
+    pattern.lastIndex = 0;
+    while ((match = pattern.exec(text)) && snippets.join('\n').length < limit) {
+      var start = Math.max(0, match.index - 260);
+      var end = Math.min(text.length, match.index + 520);
+      var snippet = text.slice(start, end).trim();
+      var key = snippet.slice(0, 120);
+      if (!seen[key]) {
+        seen[key] = true;
+        snippets.push(snippet);
+      }
+      if (pattern.lastIndex === match.index) pattern.lastIndex += 1;
+    }
+    return snippets.join('\n---\n').slice(0, limit);
+  }
+
+  function _snippetsForTenderTerms(text, limit) {
+    text = _clean(text).replace(/\s+/g, ' ');
+    if (!text) return '';
+    var terms = /(door|doors|doorset|window|windows|opening|entrance|reception|lobby|automatic|access control|colour|color|ral|ppc|powder|paint|finish|handle|lock|closer|ironmongery|hardware|chartwell|anthracite|grey|gray|white|black)/ig;
+    var snippets = [];
+    var seen = {};
+    var match;
+    terms.lastIndex = 0;
+    while ((match = terms.exec(text)) && snippets.join('\n').length < limit) {
+      var start = Math.max(0, match.index - 220);
+      var end = Math.min(text.length, match.index + 520);
+      var snippet = text.slice(start, end).trim();
+      var key = snippet.slice(0, 140);
+      if (!seen[key]) {
+        seen[key] = true;
+        snippets.push(snippet);
+      }
+      if (terms.lastIndex === match.index) terms.lastIndex += 1;
+    }
+    return snippets.join('\n---\n').slice(0, limit);
+  }
+
+  function _documentContext(documents, items) {
     var remaining = MAX_CONTEXT_CHARS;
+    var refPattern = _refPattern(items);
     return (documents || []).map(function (doc) {
       var name = doc.name || doc.originalPath || 'Document';
       var classification = doc.classification || {};
-      var text = _compactText(doc.fullText || doc.extractedText || '', Math.max(1200, Math.min(remaining, 14000)));
+      var type = classification.type || doc.docType || doc.kind || '';
+      var rawText = doc.fullText || doc.extractedText || '';
+      var isCoreDoc = /schedule|bq|bill|workbook/i.test(type + ' ' + name);
+      var text = _snippetsForRefs(rawText, refPattern, Math.min(remaining, isCoreDoc ? 6000 : 2500));
+      var termText = _snippetsForTenderTerms(rawText, Math.min(remaining - text.length, isCoreDoc ? 3500 : 2500));
+      if (termText) text = [text, termText].filter(Boolean).join('\n---\n');
+      if (!text && isCoreDoc) text = _compactText(rawText, Math.min(remaining, 3500));
+      if (!text) return null;
       remaining -= text.length;
       return {
         name: name,
-        type: classification.type || doc.docType || doc.kind || '',
+        type: type,
         sheetNames: doc.sheetNames || [],
         text: text
       };
-    }).filter(function (doc) {
-      return doc.text;
-    });
+    }).filter(Boolean);
   }
 
   function _itemPayload(items) {
@@ -88,7 +149,7 @@ var AIEnrichment = (function () {
       updateProps[field] = { type: ['string', 'null'] };
     });
 
-    var globalProps = {
+    var windowDefaultProps = {
       frameType: { type: ['string', 'null'] },
       system: { type: ['string', 'null'] },
       colour: { type: ['string', 'null'] },
@@ -98,6 +159,14 @@ var AIEnrichment = (function () {
       hardware: { type: ['string', 'null'] },
       missingFields: { type: 'array', items: { type: 'string' } }
     };
+    var doorDefaultProps = Object.assign({}, windowDefaultProps, {
+      entranceRef: { type: ['string', 'null'] },
+      doorColour: { type: ['string', 'null'] },
+      handle: { type: ['string', 'null'] },
+      lock: { type: ['string', 'null'] },
+      closer: { type: ['string', 'null'] },
+      ironmongeryNotes: { type: ['string', 'null'] }
+    });
 
     return {
       type: 'object',
@@ -108,14 +177,14 @@ var AIEnrichment = (function () {
         windowDefaults: {
           type: 'object',
           additionalProperties: false,
-          required: Object.keys(globalProps),
-          properties: globalProps
+          required: Object.keys(windowDefaultProps),
+          properties: windowDefaultProps
         },
         doorDefaults: {
           type: 'object',
           additionalProperties: false,
-          required: Object.keys(globalProps),
-          properties: globalProps
+          required: Object.keys(doorDefaultProps),
+          properties: doorDefaultProps
         },
         items: {
           type: 'array',
@@ -156,6 +225,43 @@ var AIEnrichment = (function () {
     return chunks.join('\n');
   }
 
+  function _parseJsonObject(text) {
+    text = _clean(text).replace(/^```(?:json)?/i, '').replace(/```$/i, '').trim();
+    try {
+      return JSON.parse(text);
+    } catch (firstErr) {
+      var start = text.indexOf('{');
+      if (start === -1) throw firstErr;
+      var depth = 0;
+      var inString = false;
+      var escaped = false;
+      for (var i = start; i < text.length; i++) {
+        var ch = text.charAt(i);
+        if (escaped) {
+          escaped = false;
+          continue;
+        }
+        if (ch === '\\') {
+          escaped = true;
+          continue;
+        }
+        if (ch === '"') {
+          inString = !inString;
+          continue;
+        }
+        if (inString) continue;
+        if (ch === '{') depth += 1;
+        if (ch === '}') {
+          depth -= 1;
+          if (depth === 0) {
+            return JSON.parse(text.slice(start, i + 1));
+          }
+        }
+      }
+      throw firstErr;
+    }
+  }
+
   function _fetchJsonWithTimeout(url, request, timeoutMs) {
     var controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
     var timer = controller ? setTimeout(function () { controller.abort(); }, timeoutMs || OPENAI_TIMEOUT_MS) : null;
@@ -185,6 +291,56 @@ var AIEnrichment = (function () {
       if (item.reference) byRef[String(item.reference).toLowerCase()] = item;
     });
 
+    function setIfMissing(item, field, value, changed) {
+      value = _clean(value);
+      if (!value || item[field]) return;
+      item[field] = value;
+      if (changed && changed.indexOf(field) === -1) changed.push(field);
+    }
+    function addAiNote(item, note) {
+      note = _clean(note);
+      if (!note) return;
+      if (!item.notes) item.notes = [];
+      if (item.notes.indexOf(note) === -1) item.notes.push(note);
+    }
+    function applyDefaults(item) {
+      var defaults = item.type === 'door' ? (aiResult.doorDefaults || {}) : (item.type === 'window' ? (aiResult.windowDefaults || {}) : null);
+      if (!defaults) return [];
+      var changed = [];
+      setIfMissing(item, 'frameType', defaults.frameType, changed);
+      setIfMissing(item, 'system', defaults.system, changed);
+      setIfMissing(item, 'colour', defaults.doorColour || defaults.colour, changed);
+      setIfMissing(item, 'finish', defaults.finish, changed);
+      setIfMissing(item, 'openingType', defaults.openingType, changed);
+      setIfMissing(item, 'glazingSpec', defaults.glazingSpec, changed);
+      if (defaults.glazingSpec && !item.glassRequirement) item.glassRequirement = defaults.glazingSpec;
+      if (item.type === 'door') {
+        setIfMissing(item, 'handleRequirement', defaults.handle, changed);
+        setIfMissing(item, 'lockRequirement', defaults.lock, changed);
+        setIfMissing(item, 'closerRequirement', defaults.closer, changed);
+        setIfMissing(item, 'ironmongery', defaults.ironmongeryNotes || defaults.hardware, changed);
+        if (item.ironmongery && !item.hardware) item.hardware = item.ironmongery;
+        if (defaults.entranceRef && item.reference && String(defaults.entranceRef).toLowerCase() === String(item.reference).toLowerCase()) {
+          item.entranceDoor = 'Yes';
+          addAiNote(item, 'AI identified as entrance door');
+        }
+        if (defaults.entranceRef) {
+          item.aiEntranceRef = defaults.entranceRef;
+        }
+      } else {
+        setIfMissing(item, 'hardware', defaults.hardware, changed);
+      }
+      return changed;
+    }
+
+    (items || []).forEach(function (item) {
+      var defaultFields = applyDefaults(item);
+      if (defaultFields.length) {
+        item.aiEnriched = true;
+        item.aiDefaultedFields = defaultFields;
+      }
+    });
+
     (aiResult.items || []).forEach(function (row) {
       var item = byId[row.id] || byRef[String(row.reference || '').toLowerCase()];
       if (!item) return;
@@ -207,11 +363,11 @@ var AIEnrichment = (function () {
         confirmed: !!row.confirmed,
         confidence: typeof row.confidence === 'number' ? row.confidence : 0,
         missingFields: row.missingFields || [],
-        updatedFields: changed,
+        updatedFields: changed.concat(item.aiDefaultedFields || []),
         notes: row.notes || [],
         reviewedAt: new Date().toISOString()
       };
-      item.aiEnriched = changed.length > 0;
+      item.aiEnriched = changed.length > 0 || !!item.aiEnriched;
       item.aiMissingFields = row.missingFields || [];
     });
 
@@ -230,8 +386,8 @@ var AIEnrichment = (function () {
     }
 
     var payload = {
-      task: 'Review the tender notes and BoQ text, verify the parser output, and prefill missing glazing schedule fields. Do not invent values. If the tender docs do not state a value, return null and list that field in missingFields.',
-      documents: _documentContext(documents),
+      task: 'Review the tender notes and BoQ text, verify the parser output, and prefill missing glazing schedule fields. Prioritise fields marked [RED_TEXT] and fill doorColour, entranceDoor, handleRequirement, lockRequirement, closerRequirement, and ironmongery when stated. If an external materials schedule states a colour to match windows and doors, use that as the door/window colour. If main entrance/reception/lobby automatic doors are stated, identify the relevant entrance reference or explain if the extracted item refs do not include it. Do not invent values. If the tender docs do not state a value, return null and list that field in missingFields.',
+      documents: _documentContext(documents, items),
       extractedItems: _itemPayload(items)
     };
 
@@ -276,7 +432,7 @@ var AIEnrichment = (function () {
     return _fetchJsonWithTimeout(requestUrl, request, options.timeoutMs || OPENAI_TIMEOUT_MS).then(function (data) {
       var text = _extractOutputText(data);
       if (!text) throw new Error('OpenAI returned no enrichment text');
-      var aiResult = JSON.parse(text);
+      var aiResult = _parseJsonObject(text);
       return {
         items: _applyAiResult(items, aiResult),
         summary: aiResult.summary || '',

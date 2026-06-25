@@ -1325,6 +1325,7 @@ var UI = (function () {
     var lockValue = selectValue(doorDefaults.lock, ['Euro cylinder', 'Hook lock', 'Mag lock', 'Electric strike', 'Thumb turn']);
     var closerValue = selectValue(doorDefaults.closer, ['Overhead closer - non hold open', 'Overhead closer - hold open', 'Concealed closer', 'NHO closer']);
     var entranceDoor = doors.find(function (door) { return /yes|entrance|main/i.test(String(door.entranceDoor || '') + ' ' + (door.notes || []).join(' ')); });
+    var aiEntranceRef = mostCommon(doors, ['aiEntranceRef']);
     var fireRefs = refsWhere('fireRating', /fd\d+|fire/i);
     var automationRefs = refsWhere('automationRequirement', /auto|powered|operator/i);
     var accessRefs = refsWhere('accessControlRequirement', /access|mag\s*lock|electric\s*strike/i);
@@ -1349,7 +1350,7 @@ var UI = (function () {
         '<div class="form-group"><label>Custom Door Frame</label><input class="form-control" id="tq_doorFrameCustom" value="' + _escapeHtml(doorFrame.custom) + '" placeholder="e.g. Aluminium"></div>' +
         '<div class="' + aiBox(doorDefaults.colour) + '"><label>Door Colour</label><input class="form-control" id="tq_doorColour" value="' + _escapeHtml(doorDefaults.colour) + '" placeholder="e.g. RAL colour TBC"></div>' +
         '<div class="' + aiBox(doorDefaults.glazingSpec) + '"><label>Door Glazing</label><input class="form-control" id="tq_doorGlazing" value="' + _escapeHtml(doorDefaults.glazingSpec) + '" placeholder="e.g. DGU P3A / solid panel"></div>' +
-        '<div class="' + aiBox(entranceDoor && entranceDoor.reference) + '"><label>Which is entrance?</label><select class="form-control" id="tq_entranceDoor"><option value="">Not sure / none</option>' + doorRefs.map(function (r) { return '<option value="' + _escapeHtml(r) + '"' + (entranceDoor && entranceDoor.reference === r ? ' selected' : '') + '>' + _escapeHtml(r) + '</option>'; }).join('') + '</select></div>' +
+        '<div class="' + aiBox((entranceDoor && entranceDoor.reference) || aiEntranceRef) + '"><label>Which is entrance?</label><select class="form-control" id="tq_entranceDoor"><option value="">Not sure / none</option>' + doorRefs.map(function (r) { return '<option value="' + _escapeHtml(r) + '"' + (entranceDoor && entranceDoor.reference === r ? ' selected' : '') + '>' + _escapeHtml(r) + '</option>'; }).join('') + '</select>' + (aiEntranceRef && !(entranceDoor && entranceDoor.reference) ? '<div class="text-muted" style="font-size:0.75rem;margin-top:5px">AI found entrance evidence: ' + _escapeHtml(aiEntranceRef) + '</div>' : '') + '</div>' +
         '<div class="' + aiBox(Object.keys(fireRefs).length ? fireRating : '') + '"><label>Fire Rating for selected fire doors</label><input class="form-control" id="tq_fireRating" value="' + _escapeHtml(fireRating) + '"></div>' +
       '</div>' +
       '<div class="' + aiBox(Object.keys(fireRefs).length) + '"><label>Which doors are fire doors?</label>' + refCheckboxes('tq_fireDoors', doorRefs, fireRefs) + '</div>' +

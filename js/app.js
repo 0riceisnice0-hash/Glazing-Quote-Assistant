@@ -2,12 +2,14 @@
 
 var App = (function () {
 
+  var APP_VERSION = 'v2026.06.25.2';
   var _state = null;
   var _pendingFiles = [];
   var _autoSaveTimer = null;
   var DEFAULT_CLOUD_WORKER_URL = 'https://gqa-document-processor.0riceisnice0.workers.dev';
 
   function init() {
+    _renderAppVersion();
     _loadState();
     _generateQuoteNumberIfNeeded();
     if (_state.items && _state.items.length > 0) {
@@ -87,6 +89,11 @@ var App = (function () {
       name: 'Fenster Glazing Ltd',
       logoAsset: 'assets/fenster-logo.png'
     });
+  }
+
+  function _renderAppVersion() {
+    var el = document.getElementById('appVersion');
+    if (el) el.textContent = APP_VERSION;
   }
   function _generateQuoteNumberIfNeeded() {
     if (!_state.metadata.quoteNumber) {
@@ -362,8 +369,9 @@ var App = (function () {
           }).catch(function (err) {
             _state.risks = _state.risks || [];
             _state.risks.push(_makeWorkflowRisk('warning', 'OpenAI note enrichment did not complete: ' + err.message, {
-              suggestedAction: 'Continue with parser results and manually review red highlighted tender questions.'
+              suggestedAction: 'Check the OpenAI key, worker URL, and model, then rerun analysis.'
             }));
+            UI.showToast('OpenAI note review failed: ' + err.message, 'error');
             _finishIntakeExtraction(validDocs, newItems, newWarnings, stats);
           });
         } catch (err) {
@@ -584,9 +592,14 @@ var App = (function () {
       });
     }
     if (model) {
-      model.value = localStorage.getItem('gqaOpenAiModel') || (window.AIEnrichment && AIEnrichment.DEFAULT_MODEL) || 'gpt-5.5';
+      var savedModel = localStorage.getItem('gqaOpenAiModel') || '';
+      if (!savedModel || /^gpt-5/i.test(savedModel)) {
+        savedModel = (window.AIEnrichment && AIEnrichment.DEFAULT_MODEL) || 'gpt-4o-mini';
+        localStorage.setItem('gqaOpenAiModel', savedModel);
+      }
+      model.value = savedModel;
       model.addEventListener('change', function () {
-        localStorage.setItem('gqaOpenAiModel', model.value.trim() || 'gpt-5.5');
+        localStorage.setItem('gqaOpenAiModel', model.value.trim() || 'gpt-4o-mini');
       });
     }
   }
@@ -608,26 +621,73 @@ var App = (function () {
     return {
       enabled: !!(enabled && enabled.checked),
       apiKey: apiKey ? apiKey.value.trim() : '',
-      model: model ? (model.value.trim() || 'gpt-5.5') : 'gpt-5.5',
+      model: model ? (model.value.trim() || 'gpt-4o-mini') : 'gpt-4o-mini',
       proxyUrl: worker ? (worker.value.trim() || DEFAULT_CLOUD_WORKER_URL) : DEFAULT_CLOUD_WORKER_URL,
-      timeoutMs: 75000
+      timeoutMs: 60000
     };
   }
 
   function _runAiEnrichment(validDocs, items) {
     if (!window.AIEnrichment || !AIEnrichment.enrichItems) {
+      UI.showToast('OpenAI note review skipped: AI module not loaded', 'warning');
       return Promise.resolve({ items: items, skipped: true, reason: 'AI enrichment module unavailable' });
     }
     var options = _getAiEnrichmentOptions();
     if (!options.enabled || !options.apiKey || !items || items.length === 0) {
+      UI.showToast('OpenAI note review skipped: ' + (!options.enabled ? 'toggle is off' : !options.apiKey ? 'missing API key' : 'no items extracted'), 'warning');
       return Promise.resolve({ items: items, skipped: true, reason: 'AI enrichment disabled or missing key' });
     }
-    UI.updateLoadingMessage('Reviewing notes with OpenAI...', 'Checking BoQ notes against extracted item fields');
-    return AIEnrichment.enrichItems(validDocs, items, options).then(function (result) {
+    UI.updateLoadingMessage('Reviewing notes with OpenAI...', 'Sending schedule and BoQ snippets to OpenAI via the document worker.');
+    return Promise.race([
+      AIEnrichment.enrichItems(validDocs, items, options),
+      new Promise(function (_, reject) {
+        setTimeout(function () {
+          reject(new Error('OpenAI note review took longer than 60 seconds. Check the worker/model response and try again.'));
+        }, options.timeoutMs || 60000);
+      })
+    ]).then(function (result) {
       var reviewed = (result.items || []).filter(function (item) { return item.aiReview; }).length;
-      UI.showToast('OpenAI reviewed ' + reviewed + ' extracted item(s)', 'success');
+      var prefilled = _countAiPrefilledFields(result.items || []);
+      if (result.skipped) {
+        UI.showToast('OpenAI note review skipped: ' + (result.reason || 'unknown reason'), 'warning');
+      } else if (prefilled === 0) {
+        UI.showToast('OpenAI reviewed ' + reviewed + ' item(s), but filled 0 tender question fields', 'warning');
+      } else {
+        UI.showToast('OpenAI reviewed ' + reviewed + ' item(s) and prefilled ' + prefilled + ' field(s)', 'success');
+      }
       return result;
     });
+  }
+
+  function _countAiPrefilledFields(items) {
+    var fields = [
+      'frameType',
+      'system',
+      'colour',
+      'finish',
+      'openingType',
+      'glazingSpec',
+      'doorGlazing',
+      'entranceDoor',
+      'handleRequirement',
+      'lockRequirement',
+      'closerRequirement',
+      'ironmongery',
+      'hardware',
+      'fireRating',
+      'automationRequirement',
+      'accessControlRequirement',
+      'aiEntranceRef'
+    ];
+    var count = 0;
+    (items || []).forEach(function (item) {
+      fields.forEach(function (field) {
+        if (item[field] && (!item.aiReview || (item.aiReview.updatedFields || []).indexOf(field) !== -1 || (item.aiDefaultedFields || []).indexOf(field) !== -1 || field === 'aiEntranceRef')) {
+          count += 1;
+        }
+      });
+    });
+    return count;
   }
 
   function _showManualEntryPrompt() {

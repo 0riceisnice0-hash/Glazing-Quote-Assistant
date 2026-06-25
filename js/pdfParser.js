@@ -171,28 +171,48 @@ function extractWorkbook(file, onProgress) {
     if (onProgress) onProgress(0, 1, 'Reading workbook');
 
     file.arrayBuffer().then(function (buffer) {
-      var workbook = XLSX.read(buffer, { cellDates: false, cellFormula: false, raw: false });
+      var workbook = XLSX.read(buffer, { cellDates: false, cellFormula: false, raw: false, cellStyles: true });
       var pages = workbook.SheetNames.map(function (sheetName, idx) {
         var sheet = workbook.Sheets[sheetName];
         var rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '', raw: false });
         var normalisedRows = rows.map(function (row) {
           return row.map(function (cell) { return String(cell || '').trim(); });
         });
+        function isRedCell(rowIdx, colIdx) {
+          if (!XLSX.utils || !XLSX.utils.encode_cell) return false;
+          var cell = sheet[XLSX.utils.encode_cell({ r: rowIdx, c: colIdx })];
+          var style = cell && cell.s;
+          var color = style && style.font && style.font.color;
+          var rgb = color && (color.rgb || color.fgColor || color.indexed);
+          if (!rgb || typeof rgb !== 'string') return false;
+          rgb = rgb.replace(/^FF/i, '').slice(-6);
+          if (!/^[0-9a-f]{6}$/i.test(rgb)) return false;
+          var r = parseInt(rgb.slice(0, 2), 16);
+          var g = parseInt(rgb.slice(2, 4), 16);
+          var b = parseInt(rgb.slice(4, 6), 16);
+          return r > 160 && g < 120 && b < 120;
+        }
         var textItems = [];
         normalisedRows.forEach(function (row, rowIdx) {
           row.forEach(function (cell, colIdx) {
             if (!cell) return;
+            var displayCell = isRedCell(rowIdx, colIdx) ? cell + ' [RED_TEXT]' : cell;
             textItems.push({
-              str: cell,
+              str: displayCell,
               x: colIdx * 120,
               y: (rows.length - rowIdx) * 18,
-              width: Math.max(30, cell.length * 7),
+              width: Math.max(30, displayCell.length * 7),
               height: 12
             });
           });
         });
         var lines = normalisedRows
-          .map(function (row) { return row.filter(Boolean).join(' | '); })
+          .map(function (row, rowIdx) {
+            return row.map(function (cell, colIdx) {
+              if (!cell) return '';
+              return isRedCell(rowIdx, colIdx) ? cell + ' [RED_TEXT]' : cell;
+            }).filter(Boolean).join(' | ');
+          })
           .filter(Boolean);
         return {
           pageNum: idx + 1,
