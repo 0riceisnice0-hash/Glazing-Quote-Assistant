@@ -2,7 +2,7 @@
 
 var App = (function () {
 
-  var APP_VERSION = 'v2026.06.25.5';
+  var APP_VERSION = 'v2026.06.29.1';
   var _state = null;
   var _pendingFiles = [];
   var _autoSaveTimer = null;

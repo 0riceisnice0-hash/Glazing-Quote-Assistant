@@ -26,7 +26,9 @@ var Pricing = (function () {
     // Aluminium Doors
     SAD:    { markup: 1150, desc: 'Single Aluminium Door' },
     DAD:    { markup: 1950, desc: 'Double Aluminium Door' },
-    // PVC Door
+    // PVC Doors
+    SUPD:   { markup: 950,  desc: 'Single uPVC Door' },
+    DUPD:   { markup: 1500, desc: 'Double uPVC Door' },
     UPD:    { markup: 950,  desc: 'uPVC Door' },
     // Combo units (door + sidelight)
     SADSAW: { markup: 1650, desc: 'Single Alum Door + Small Window' },
@@ -40,6 +42,23 @@ var Pricing = (function () {
     DSD:    { markup: 2200, desc: 'Double Steel Door' },
     // Curtain Wall (priced per m²)
     CW:     { markup: 0,    desc: 'Curtain Wall' }
+  };
+
+  var LABOUR_ALLOWANCES = {
+    SUPD: 250,
+    DUPD: 500,
+    SAD: 250,
+    DAD: 500,
+    ELAW: 250,
+    LAW: 160,
+    MAW: 160,
+    SAW: 160,
+    LPVC: 160,
+    MPVC: 160,
+    SPVC: 160,
+    SADLAW: 410,
+    SADMAW: 410,
+    SADSAW: 410
   };
 
   // Window area thresholds (m²)
@@ -84,6 +103,7 @@ var Pricing = (function () {
 
     // Quote-level options
     includeInstallation: true,
+    useProductCodeLabourAllowances: false,
     includeEPDM: false,
     includeMastic: false,
 
@@ -161,7 +181,7 @@ var Pricing = (function () {
         return isDouble ? 'DAD' : 'SAD';
       }
       if (frame.indexOf('pvc') !== -1 || frame.indexOf('upvc') !== -1) {
-        return 'UPD';
+        return isDouble ? 'DUPD' : 'SUPD';
       }
       if (frame.indexOf('steel') !== -1) {
         return isDouble ? 'DSD' : 'SSD';
@@ -190,6 +210,21 @@ var Pricing = (function () {
     if (area <= WIN_MEDIUM) return 'MAW';
     if (area <= WIN_LARGE)  return 'LAW';
     return 'ELAW';
+  }
+
+  function getLabourAllowanceForCode(code) {
+    return LABOUR_ALLOWANCES[String(code || '').toUpperCase()] || 0;
+  }
+
+  function getItemInstallationAllowance(item, config, code) {
+    var qty = item.quantity || 1;
+    if (!config.includeInstallation) return 0;
+    if (config.useProductCodeLabourAllowances) {
+      var productCode = code || item.productCode || classifyProductCode(item);
+      var allowance = getLabourAllowanceForCode(productCode);
+      if (allowance > 0) return round2(allowance * qty);
+    }
+    return round2((config.installationPerUnit || 0) * qty);
   }
 
   // =========================================================================
@@ -321,7 +356,7 @@ var Pricing = (function () {
 
     unitRate  = round2(unitRate);
     var total = round2(unitRate * qty);
-    var inst  = config.includeInstallation ? round2(config.installationPerUnit * qty) : 0;
+    var inst  = getItemInstallationAllowance(item, config, code);
 
     // Determine pricing method for breakdown display
     var hasQuotedUnit    = quotedUnit !== undefined;
@@ -408,9 +443,7 @@ var Pricing = (function () {
       var h    = (item.height || 0) / 1000;
       var area = w * h;
 
-      if (config.includeInstallation) {
-        installTotal += config.installationPerUnit * qty;
-      }
+      installTotal += getItemInstallationAllowance(item, config);
       if (config.includeEPDM && area > 0) {
         epdmTotal += config.epdmRate * area * qty;
       }
@@ -625,9 +658,11 @@ var Pricing = (function () {
     getPriceSummary:     getPriceSummary,
     formatCurrency:      formatCurrency,
     classifyProductCode: classifyProductCode,
+    getLabourAllowanceForCode: getLabourAllowanceForCode,
     applyKnownItemPricing: applyKnownItemPricing,
     applyTenderPricingDefaults: applyTenderPricingDefaults,
     PRODUCT_CODES:       PRODUCT_CODES,
+    LABOUR_ALLOWANCES:   LABOUR_ALLOWANCES,
     KNOWN_TENDER_PRICING: KNOWN_TENDER_PRICING,
     DEFAULT_CONFIG:      DEFAULT_CONFIG
   };

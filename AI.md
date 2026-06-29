@@ -120,6 +120,29 @@ Do not mix these blindly. If a real estimator pricing workbook is present, it no
 
 Commercial allowance rows should be displayed as allowance lines, not as missing-dimension/TBC rows.
 
+### Fenster Pricing Codes And Labour Allowances
+
+Adam's Project Hail Mary pricing-code email defines the current labour allowances that the bot must use when preparing/checking pricing documents:
+
+- `SUPD`: single uPVC door, GBP 250 labour.
+- `DUPD`: double uPVC door, GBP 500 labour.
+- `SAD`: single aluminium door, GBP 250 labour.
+- `DAD`: double aluminium door, GBP 500 labour.
+- `ELAW`: extra-large aluminium window, GBP 250 labour.
+- `LAW`: large aluminium window, GBP 160 labour.
+- `MAW`: medium aluminium window, GBP 160 labour.
+- `SAW`: small aluminium window, GBP 160 labour.
+- `LPVC`: large uPVC window, GBP 160 labour.
+- `MPVC`: medium uPVC window, GBP 160 labour.
+- `SPVC`: small uPVC window, GBP 160 labour.
+- `SADLAW`: single aluminium door with large aluminium window/screen, GBP 410 labour.
+- `SADMAW`: single aluminium door with medium aluminium window/screen, GBP 410 labour.
+- `SADSAW`: single aluminium door with small aluminium window/screen, GBP 410 labour.
+
+The code must be selected from product type and size/category. Do not guess where the item is unclear; flag it for human review. Quantity is separate from the code. Curtain walling stays separate unless a future curtain-wall code is created. Combined items such as doors with side screens/fanlights need special review and should use the combined codes where appropriate.
+
+In `js/pricing.js`, these are available as `Pricing.LABOUR_ALLOWANCES` and `Pricing.getLabourAllowanceForCode(code)`. The summary install calculation can use them when `pricing.useProductCodeLabourAllowances` is true. This flag is off by default so older calibrated quotes do not move unexpectedly.
+
 ## OpenAI Enrichment
 
 OpenAI note review is optional and must fail open.

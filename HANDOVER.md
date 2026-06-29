@@ -39,6 +39,7 @@ There are no GitHub Actions workflows at the time of writing. Deployment is effe
 - Gresty Road actual pricing pack now recognises generic `Pricing.xlsx` workbooks and matches the proposal subtotal.
 - Quote PDFs had overlap issues; detailed/compact layouts have been tightened and checked.
 - OpenAI enrichment was wired for note review, but the user's key hit quota. Do not spend more API credits without being asked.
+- Project Hail Mary pricing-code labour allowances were added to `js/pricing.js` as an opt-in mode via `useProductCodeLabourAllowances`.
 
 ## Known Good Results
 
@@ -117,6 +118,7 @@ Prior OpenAI output:
 
 - Do not use unrelated OneDrive folders. The user only approved this repo.
 - Do not keep using the OpenAI key during debugging; quota was already hit.
+- Do not replace older quote behaviour with Project Hail Mary labour-code behaviour globally. Use `pricing.useProductCodeLabourAllowances = true` only for pricing-document/coding-check flows that need Adam's labour table.
 - Do not price every PDF that mentions windows or doors.
 - Do not double count pricing workbooks plus supplier PDFs/layout PDFs.
 - Do not treat opening type sheets as priced scope.
