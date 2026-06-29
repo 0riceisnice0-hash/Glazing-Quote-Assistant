@@ -17,19 +17,21 @@ const tenderDir = path.resolve(args.dir || defaultTenderDir);
 const outDir = path.resolve(args.out || path.join(rootDir, 'test-results'));
 const mode = args.mode || 'clean';
 const pdfOnly = Boolean(args.pdfOnly);
+const withSupplier = Boolean(args.withSupplier);
 const intakeRisks = [];
 const intakeRecords = [];
 const inputAliases = new Map();
 
 installPdfJsPolyfills();
 const pdfjs = await loadPdfJs();
-const { DataExtractor, Pricing } = await loadBotGlobals();
+const { DataExtractor, Pricing, ProjectHailMary } = await loadBotGlobals();
 
 await fs.mkdir(outDir, { recursive: true });
 
 const inputFiles = (await listFiles(tenderDir))
   .filter(isSupportedTenderInput)
-  .filter((filePath) => !isQuoteOrSupplierPath(filePath))
+  .filter((filePath) => !isGeneratedOutputPath(filePath))
+  .filter((filePath) => withSupplier || !isQuoteOrSupplierPath(filePath))
   .sort((a, b) => path.basename(a).localeCompare(path.basename(b)));
 
 if (!inputFiles.length) {
@@ -40,6 +42,7 @@ console.log(`Tender directory: ${tenderDir}`);
 console.log(`Tender inputs found: ${inputFiles.length}`);
 console.log(`Mode: ${mode}`);
 if (pdfOnly) console.log('Input filter: PDF only');
+if (withSupplier) console.log('Supplier quote files: included for estimator review');
 
 const expandedInputFiles = [];
 for (const filePath of inputFiles) {
@@ -71,6 +74,9 @@ pricingConfig = Pricing.applyTenderPricingDefaults(extraction.items, pricingConf
 Pricing.applyKnownItemPricing(extraction.items);
 const pricedItems = Pricing.recalculateAll(extraction.items, pricingConfig);
 const summary = Pricing.getPriceSummary(pricedItems, pricingConfig);
+const estimatorReview = ProjectHailMary
+  ? ProjectHailMary.buildReview({ items: pricedItems, pricing: pricingConfig, metadata: {} }, firstPassDocs)
+  : null;
 
 const runStamp = new Date().toISOString().replace(/[:.]/g, '-');
 const report = {
@@ -97,6 +103,7 @@ const report = {
   specNotes: extraction.specNotes,
   pricingConfig,
   summary,
+  estimatorReview,
   items: pricedItems.map((item) => ({
     reference: item.reference,
     type: item.type,
@@ -140,6 +147,7 @@ function parseArgs(argv) {
     else if (arg === '--out') parsed.out = argv[++i];
     else if (arg === '--mode') parsed.mode = argv[++i];
     else if (arg === '--pdf-only') parsed.pdfOnly = true;
+    else if (arg === '--with-supplier') parsed.withSupplier = true;
     else if (arg === '--help' || arg === '-h') {
       console.log('Usage: node scripts/run-tender-pack.mjs [--dir "path/to/tender docs"] [--out "path/to/results"]');
       process.exit(0);
@@ -186,7 +194,8 @@ async function expandInputFile(filePath) {
   });
   const children = (await listFiles(extractRoot))
     .filter(isSupportedTenderInput)
-    .filter((childPath) => !isQuoteOrSupplierPath(childPath));
+    .filter((childPath) => !isGeneratedOutputPath(childPath))
+    .filter((childPath) => withSupplier || !isQuoteOrSupplierPath(childPath));
   children.forEach((childPath) => {
     inputAliases.set(childPath, path.relative(tenderDir, filePath) + '/' + path.relative(extractRoot, childPath));
   });
@@ -209,6 +218,15 @@ function isQuoteOrSupplierPath(filePath) {
   return parts.some((part) => /\bclient quote\b/.test(part)) ||
     parts.some((part) => /\bsupplier quotes?\b/.test(part)) ||
     /\bquote\b/i.test(path.basename(filePath)) && !/\bboq\b|\bbq\b|bill|schedule|pricing schedule/i.test(path.basename(filePath));
+}
+
+function isGeneratedOutputPath(filePath) {
+  var relative = path.relative(tenderDir, filePath).toLowerCase();
+  var parts = relative.split(/[\\/]+/);
+  return parts.some((part) => /^(?:quote-output|bot-|extracted-text)$/.test(part)) ||
+    /\.(?:png|jpg|jpeg)$/i.test(filePath) ||
+    /\b(?:draft|generated)\s*quote\b/i.test(path.basename(filePath)) ||
+    /^gq-\d/i.test(path.basename(filePath));
 }
 
 function displayName(filePath) {
@@ -311,14 +329,14 @@ async function loadBotGlobals() {
     }
   };
   vm.createContext(context);
-  for (const relativePath of ['js/dataModel.js', 'js/dataExtractor.js', 'js/pricing.js']) {
+  for (const relativePath of ['js/dataModel.js', 'js/dataExtractor.js', 'js/pricing.js', 'js/projectHailMary.js']) {
     const code = await fs.readFile(path.join(rootDir, relativePath), 'utf8');
     vm.runInContext(code, context, { filename: relativePath });
   }
   if (!context.DataExtractor || !context.Pricing) {
     throw new Error('Could not load DataExtractor/Pricing globals');
   }
-  return { DataExtractor: context.DataExtractor, Pricing: context.Pricing };
+  return { DataExtractor: context.DataExtractor, Pricing: context.Pricing, ProjectHailMary: context.ProjectHailMary };
 }
 
 async function extractPdf(filePath) {

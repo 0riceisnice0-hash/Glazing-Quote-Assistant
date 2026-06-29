@@ -2,7 +2,7 @@
 
 var App = (function () {
 
-  var APP_VERSION = 'v2026.06.29.1';
+  var APP_VERSION = 'v2026.06.29.2';
   var _state = null;
   var _pendingFiles = [];
   var _autoSaveTimer = null;
@@ -164,6 +164,7 @@ var App = (function () {
     _state.supplierEvidence = [];
     _state.drawingCandidates = [];
     _state.intakeRecords = [];
+    _state.estimatorReview = null;
 
     return _runAnalysisWithDocumentIntake();
 
@@ -391,6 +392,7 @@ var App = (function () {
     _state.items = newItems;
     _state.warnings = newWarnings;
     _addWorkflowRisks(validDocs, newItems);
+    _refreshEstimatorReview(validDocs);
     _state.approvals = _buildApprovalChecklist();
 
     saveToLocalStorage(_state);
@@ -519,6 +521,57 @@ var App = (function () {
         }));
       }
     });
+  }
+
+  function _refreshEstimatorReview(validDocs) {
+    if (typeof ProjectHailMary === 'undefined' || !ProjectHailMary.buildReview) return;
+    try {
+      _state.estimatorReview = ProjectHailMary.buildReview(_state, validDocs || []);
+      var review = _state.estimatorReview || {};
+      (review.rfis || []).forEach(function (rfi) {
+        _addUniqueWorkflowEntry('rfis', rfi.question, rfi.status || 'open', {
+          reason: rfi.reason,
+          severity: rfi.severity || 'warning'
+        });
+      });
+      (review.assumptions || []).forEach(function (message) {
+        _addUniqueWorkflowEntry('assumptions', message, 'open');
+      });
+      (review.exclusions || []).forEach(function (message) {
+        _addUniqueWorkflowEntry('exclusions', message, 'open');
+      });
+      ((review.scopeComparison && review.scopeComparison.gaps) || []).forEach(function (gap) {
+        if (gap.severity === 'critical') {
+          var exists = (_state.risks || []).some(function (risk) { return risk.message === gap.message; });
+          if (!exists) {
+            _state.risks.push(_makeWorkflowRisk('critical', gap.message, {
+              suggestedAction: gap.suggestedAction
+            }));
+          }
+        }
+      });
+    } catch (err) {
+      console.warn('Project Hail Mary review failed', err);
+      _state.risks.push(_makeWorkflowRisk('warning', 'Estimator review could not be generated: ' + err.message, {
+        suggestedAction: 'Review extracted items and supplier quotes manually.'
+      }));
+    }
+  }
+
+  function _addUniqueWorkflowEntry(listName, message, status, extra) {
+    if (!message) return;
+    _state[listName] = _state[listName] || [];
+    var exists = _state[listName].some(function (entry) {
+      return entry.message === message || entry.question === message;
+    });
+    if (!exists) {
+      _state[listName].push(Object.assign({
+        id: generateId(),
+        message: message,
+        question: listName === 'rfis' ? message : undefined,
+        status: status || 'open'
+      }, extra || {}));
+    }
   }
 
   function _addLiveBoqCommercialNotes(validDocs, items) {
@@ -1000,6 +1053,44 @@ var App = (function () {
     UI.showToast('Session exported as JSON', 'success');
   }
 
+  function _downloadTextFile(filename, content, mime) {
+    var blob = new Blob([content || ''], { type: mime || 'text/plain' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function exportEstimatorReview() {
+    if (!_state.estimatorReview) {
+      UI.showToast('No estimator review available yet. Analyse documents first.', 'warning');
+      return;
+    }
+    _downloadTextFile((_state.metadata.quoteNumber || 'GQ-DRAFT') + '-estimator-review.md', _state.estimatorReview.markdown || '', 'text/markdown');
+    UI.showToast('Estimator review exported', 'success');
+  }
+
+  function exportPricingCsv() {
+    if (!_state.estimatorReview || !_state.estimatorReview.codingChecks) {
+      UI.showToast('No coding table available yet. Analyse documents first.', 'warning');
+      return;
+    }
+    var rows = _state.estimatorReview.codingChecks || [];
+    var headers = ['reference', 'description', 'material', 'quantity', 'selectedCode', 'labourAllowance', 'labourTotal', 'supplierTotal', 'reason', 'queryOrRisk', 'sourceDocument'];
+    var csv = headers.join(',') + '\n' + rows.map(function (row) {
+      return headers.map(function (h) {
+        var value = row[h] === undefined || row[h] === null ? '' : String(row[h]);
+        return '"' + value.replace(/"/g, '""') + '"';
+      }).join(',');
+    }).join('\n');
+    _downloadTextFile((_state.metadata.quoteNumber || 'GQ-DRAFT') + '-pricing-coding-check.csv', csv, 'text/csv');
+    UI.showToast('Pricing coding table exported', 'success');
+  }
+
   function exportStateSnapshot() {
     _syncFormStateToModel();
     var summary = Pricing.getPriceSummary(_state.items, _state.pricing);
@@ -1011,6 +1102,7 @@ var App = (function () {
       sourceDocuments: _state.sourceDocuments,
       items: _state.items,
       warnings: _state.warnings,
+      estimatorReview: _state.estimatorReview,
       pricing: _state.pricing,
       metadata: _state.metadata
     };
@@ -1079,6 +1171,8 @@ var App = (function () {
   return {
     init: init,
     removeFile: removeFile,
+    exportEstimatorReview: exportEstimatorReview,
+    exportPricingCsv: exportPricingCsv,
     getState: function () { return _state; },
     exportStateSnapshot: exportStateSnapshot
   };

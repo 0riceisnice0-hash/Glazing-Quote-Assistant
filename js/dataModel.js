@@ -38,6 +38,7 @@ const DEFAULT_STATE = {
     fixedEPDMAmount: undefined,
     fixedMasticAmount: undefined,
     includeInstallation: true,
+    useProductCodeLabourAllowances: false,
     includeEPDM: false,
     includeMastic: false,
     discountPercent: 0,
@@ -145,6 +146,7 @@ const DEFAULT_STATE = {
   supplierEvidence: [],
   drawingCandidates: [],
   intakeRecords: [],
+  estimatorReview: null,
   lastSaved: null
 };
 

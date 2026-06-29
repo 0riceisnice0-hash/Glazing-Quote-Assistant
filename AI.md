@@ -216,8 +216,8 @@ Generated Gresty quote PDFs:
 
 1. Add a real automated regression suite around the saved packs so Whitsbury, Brandon, and Gresty stay stable.
 2. Build proper OCR/takeoff for scanned/image-heavy drawings instead of relying on text extraction.
-3. Add supplier quote ingestion for RAS, glass order, bay layout, and supplier quotation PDFs as evidence/benchmark data.
+3. Expand `js/projectHailMary.js` supplier quote ingestion. Ninn Lane now detects 6 supplier quotes and 10 Sheerline coding rows, but the parser still misses Sheerline panel setup extras in PDF.js text, so supplier totals can be about GBP 435 low on that pack.
 4. Make commercial extras/prelims a structured model rather than loose allowance rows.
 5. Finish ZIP/DOCX/MSG intake through the worker path for large packs.
-6. Add an approval workflow: parsed scope, AI assumptions, estimator approval, quote generation, final issue.
+6. Add a fuller approval workflow: parsed scope, AI assumptions, supplier quote check, coding table, estimator approval, quote generation, final issue.
 7. Add cheaper OpenAI usage controls: model choice, hard token limits, cache by document hash, and visible spend warnings.

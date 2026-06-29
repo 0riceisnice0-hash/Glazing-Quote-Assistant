@@ -99,7 +99,7 @@ var UI = (function () {
     });
 
     // Checkbox toggles
-    var toggleFields = ['includeInstallation', 'includeEPDM', 'includeMastic'];
+    var toggleFields = ['includeInstallation', 'useProductCodeLabourAllowances', 'includeEPDM', 'includeMastic'];
     toggleFields.forEach(function (field) {
       var el = document.getElementById(field);
       if (!el) return;
@@ -377,6 +377,7 @@ var UI = (function () {
       renderItemsTable(_state.items, _state.warnings);
       renderWarningsPanel(_state.warnings, _state.items);
       renderSourceDocuments(_state.sourceDocuments);
+      renderEstimatorReview(_state.estimatorReview);
       _updateSummaryBar();
     }
     if (stepNumber === 3) {
@@ -749,7 +750,7 @@ var UI = (function () {
       var el = document.getElementById(field);
       if (el) el.value = pricingConfig[field] !== undefined ? pricingConfig[field] : '';
     });
-    var toggleFields = ['includeInstallation', 'includeEPDM', 'includeMastic'];
+    var toggleFields = ['includeInstallation', 'useProductCodeLabourAllowances', 'includeEPDM', 'includeMastic'];
     toggleFields.forEach(function (field) {
       var el = document.getElementById(field);
       if (el) el.checked = !!pricingConfig[field];
@@ -1184,6 +1185,53 @@ var UI = (function () {
     }
   }
 
+  function renderEstimatorReview(review) {
+    var el = document.getElementById('estimatorReviewPanel');
+    if (!el) return;
+    if (!review) {
+      el.innerHTML = 'Analyse documents to generate tender requirements, supplier checks, RFIs and pricing codes.';
+      return;
+    }
+    var fc = Pricing.formatCurrency;
+    var statusClass = review.status === 'ready' ? 'success' : (review.status === 'blocked' ? 'error' : 'warning');
+    var gaps = (review.scopeComparison && review.scopeComparison.gaps) || [];
+    var rfis = review.rfis || [];
+    var requirements = review.tenderRequirements || [];
+    var html = '<div class="warning-item ' + statusClass + '" style="margin-bottom:8px">' +
+      '<div class="warning-msg"><strong>' + _escapeHtml(review.statusLabel || 'Estimator review') + '</strong></div>' +
+      '</div>';
+    html += '<table class="price-summary-table" style="font-size:0.78rem">' +
+      '<tr><td>Supplier quotes</td><td>' + ((review.summary && review.summary.supplierQuoteCount) || 0) + '</td></tr>' +
+      '<tr><td>Supplier total</td><td>' + fc((review.summary && review.summary.supplierTotal) || 0) + '</td></tr>' +
+      '<tr><td>Labour allowance</td><td>' + fc((review.summary && review.summary.labourTotal) || 0) + '</td></tr>' +
+      '<tr><td>Coding rows</td><td>' + ((review.summary && review.summary.codingRows) || 0) + '</td></tr>' +
+      '<tr><td>RFIs</td><td>' + rfis.length + '</td></tr>' +
+      '</table>';
+    if (requirements.length) {
+      html += '<div style="margin-top:8px;font-weight:700;color:var(--text-primary)">Tender requirements</div>';
+      html += '<ul style="margin:4px 0 0 16px;padding:0">';
+      requirements.slice(0, 5).forEach(function (req) {
+        html += '<li>' + _escapeHtml(req.label + ': ' + req.value) + '</li>';
+      });
+      if (requirements.length > 5) html += '<li>' + (requirements.length - 5) + ' more...</li>';
+      html += '</ul>';
+    }
+    if (gaps.length) {
+      html += '<div style="margin-top:8px;font-weight:700;color:var(--text-primary)">Gaps / risks</div>';
+      html += '<ul style="margin:4px 0 0 16px;padding:0">';
+      gaps.slice(0, 5).forEach(function (gap) {
+        html += '<li>' + _escapeHtml(gap.message) + '</li>';
+      });
+      if (gaps.length > 5) html += '<li>' + (gaps.length - 5) + ' more...</li>';
+      html += '</ul>';
+    }
+    if (review.proposalDraft && review.proposalDraft.executiveSummary) {
+      html += '<div style="margin-top:8px;font-weight:700;color:var(--text-primary)">Proposal summary draft</div>' +
+        '<div style="font-size:0.76rem;line-height:1.35">' + _escapeHtml(review.proposalDraft.executiveSummary) + '</div>';
+    }
+    el.innerHTML = html;
+  }
+
   function _applyBulkColumnValue() {
     var typeEl = document.getElementById('bulkApplyType');
     var fieldEl = document.getElementById('bulkApplyField');
@@ -1579,6 +1627,7 @@ var UI = (function () {
     renderStep: renderStep,
     renderItemsTable: renderItemsTable,
     renderWarningsPanel: renderWarningsPanel,
+    renderEstimatorReview: renderEstimatorReview,
     renderPricingSummary: renderPricingSummary,
     renderPricingSettings: renderPricingSettings,
     renderCompanyForm: renderCompanyForm,

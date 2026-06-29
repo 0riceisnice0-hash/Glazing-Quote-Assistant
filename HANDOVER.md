@@ -40,6 +40,7 @@ There are no GitHub Actions workflows at the time of writing. Deployment is effe
 - Quote PDFs had overlap issues; detailed/compact layouts have been tightened and checked.
 - OpenAI enrichment was wired for note review, but the user's key hit quota. Do not spend more API credits without being asked.
 - Project Hail Mary pricing-code labour allowances were added to `js/pricing.js` as an opt-in mode via `useProductCodeLabourAllowances`.
+- Project Hail Mary estimator review was added in `js/projectHailMary.js`: tender requirement extraction, supplier quote detection, supplier item coding, RFIs/exclusions/assumptions, proposal/pricing draft data, and browser exports.
 
 ## Known Good Results
 
@@ -119,6 +120,7 @@ Prior OpenAI output:
 - Do not use unrelated OneDrive folders. The user only approved this repo.
 - Do not keep using the OpenAI key during debugging; quota was already hit.
 - Do not replace older quote behaviour with Project Hail Mary labour-code behaviour globally. Use `pricing.useProductCodeLabourAllowances = true` only for pricing-document/coding-check flows that need Adam's labour table.
+- The Ninn Lane Project Hail Mary review detects the supplier quotes and coding rows, but still misses Sheerline panel setup extras from PDF.js text. Treat supplier quote totals as review evidence, not final accounting, until supplier parsers are hardened.
 - Do not price every PDF that mentions windows or doors.
 - Do not double count pricing workbooks plus supplier PDFs/layout PDFs.
 - Do not treat opening type sheets as priced scope.
