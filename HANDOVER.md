@@ -37,7 +37,7 @@ Read these first:
 Current app version shown in the UI:
 
 ```text
-v2026.06.30.1
+v2026.06.30.2
 ```
 
 Last important pushed code commit before this doc refresh:
@@ -106,6 +106,7 @@ Bot implication: yes, later we can create a tender-finding bot and dashboard. Cu
   - assumptions/exclusions/RFIs,
   - proposal/pricing draft data,
   - browser exports.
+- Adam's AI-written training brief should be used as estimating intent/context, not priced as a live tender document.
 - Adam's pricing-code labour allowances were added in `js/pricing.js` as opt-in behaviour.
 - `js/tenderFinder.js` was added as a research panel for live tender sources, CPV codes, keyword strategy, scoring, and a draft reply to Adam.
 

@@ -9,7 +9,7 @@ Read `HANDOVER.md` first for the current priority. This file is the deeper opera
 - Working repo path: `C:\Users\zacpl\Desktop\Glazing-Quote-Assistant`.
 - Do not continue working in the old OneDrive repo unless the user explicitly asks.
 - Live app type: static HTML/CSS/JS, intended for GitHub Pages or Cloudflare Pages.
-- Current visible app version: `v2026.06.30.1`.
+- Current visible app version: `v2026.06.30.2`.
 - Current confirmed pushed commit before this doc refresh: `2f39bdf Add tender finder research panel`.
 - There are currently no GitHub Actions workflows in this repo.
 - The user expects meaningful changes to be committed and pushed when work is complete.
@@ -41,6 +41,7 @@ The live tender-finder dashboard is a good later feature, but estimating accurac
 - `js/ui.js`: tender questions and review UI.
 - `js/quoteGenerator.js`: branded detailed/compact PDF quote generation.
 - `js/projectHailMary.js`: Project Hail Mary/Ninn Lane estimator workflow helpers: requirement extraction, supplier quote detection, supplier item coding, assumptions/exclusions/RFIs, proposal/pricing draft data.
+  Adam's AI-written training brief is treated as guidance/training context, not as live tender scope evidence.
 - `js/tenderFinder.js`: research panel for live tender source strategy, CPV codes, keywords, and opportunity scoring.
 - `scripts/run-tender-pack.mjs`: local CLI regression harness that should use the same extraction/pricing logic as the website.
 - `workers/document-processor/`: partial worker direction for heavier document processing.

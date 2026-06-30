@@ -3,19 +3,50 @@
 var ProjectHailMary = (function () {
   var REQUIREMENT_RULES = [
     { key: 'projectName', label: 'Project name', pattern: /\b(?:project|customer\s+ref)\s*:?\s*([^\n\r]+)/i },
+    { key: 'client', label: 'Client / main contractor', pattern: /\b(?:client|main\s+contractor|contractor)\s*:?\s*([^\n\r]+)/i },
     { key: 'siteAddress', label: 'Site address', pattern: /\b(?:site\s+address|address)\s*:?\s*([^\n\r]+)/i },
     { key: 'colour', label: 'Finish / colour', pattern: /\b(?:colour|color|ext\s+colour)\s*:?\s*([^\n\r]+)/i },
     { key: 'uValue', label: 'U-value / Part L', pattern: /\bu[\s-]*value\s*:?\s*([0-9.]+\s*w\/?m2?k?)/i },
+    { key: 'gValue', label: 'G-value / solar control', pattern: /\bg[\s-]*value\s*:?\s*([0-9.]+)/i },
+    { key: 'ltValue', label: 'LT-value / light transmission', pattern: /\blt[\s-]*value\s*:?\s*([0-9.]+%?)/i },
     { key: 'aluminium', label: 'Aluminium windows/doors', pattern: /\bppc\s+aluminium|aluminium\s+framed|aluminum\s+framed/i },
+    { key: 'upvc', label: 'uPVC windows/doors', pattern: /\bupvc|u-pvc|pvc-u/i },
+    { key: 'curtainWalling', label: 'Curtain walling', pattern: /\bcurtain\s+wall|kawneer\s+aa100/i },
+    { key: 'secondaryGlazing', label: 'Secondary glazing', pattern: /\bsecondary\s+glazing/i },
+    { key: 'windowFilm', label: 'Window film', pattern: /\bwindow\s+film|manifestation/i },
     { key: 'louvres', label: 'Louvres', pattern: /\blouv?re|louvre\s+panel/i },
+    { key: 'roofLanterns', label: 'Roof lanterns / rooflights', pattern: /\broof\s*(?:lantern|light)|skylight/i },
+    { key: 'bifoldsSliding', label: 'Bifolds / sliding doors', pattern: /\bbifold|bi-fold|sliding\s+door/i },
     { key: 'rollerShutters', label: 'Roller shutters', pattern: /\broller\s+shutter/i },
     { key: 'pas24', label: 'PAS24 / security', pattern: /\bpas\s*24|secured\s+by\s+design|sbd\b/i },
     { key: 'trickleVents', label: 'Trickle vents / ventilation', pattern: /\btrickle\s+vent|linkvent|ventilation/i },
     { key: 'restrictors', label: 'Restrictors', pattern: /\brestrictor/i },
+    { key: 'ddaThresholds', label: 'DDA / accessibility thresholds', pattern: /\bdda|accessible\s+threshold|part\s+m/i },
     { key: 'fireRating', label: 'Fire rating', pattern: /\bfd\s*30|fd\s*60|fire\s+rated|fire\s+door/i },
     { key: 'acoustic', label: 'Acoustic', pattern: /\bacoustic|db\b/i },
     { key: 'safetyGlazing', label: 'Safety glazing', pattern: /\bsafety\s+glazing|bs\s*en\s*12600|toughened|laminated/i },
-    { key: 'accessControl', label: 'Access control / automation', pattern: /\baccess\s+control|automatic|actuator|teleflex|powered/i }
+    { key: 'accessControl', label: 'Access control / automation', pattern: /\baccess\s+control|automatic|actuator|teleflex|powered/i },
+    { key: 'removalDisposal', label: 'Removal and disposal', pattern: /\bremov(?:al|e)\b|\bdisposal\b|strip\s+out/i },
+    { key: 'makingGood', label: 'Making good / builders work', pattern: /\bmaking\s+good|builder'?s?\s+work|builders\s+work/i },
+    { key: 'accessScaffold', label: 'Access / scaffold', pattern: /\bscaffold|access\s+equipment|hoist|cranage|cherry\s+picker/i },
+    { key: 'programme', label: 'Programme / lead time', pattern: /\bprogramme|lead\s*time|completion\s+date|deadline|return\s+quote\s+by/i }
+  ];
+
+  var RED_FLAG_RULES = [
+    { key: 'fireRating', label: 'Fire-rated glazing mentioned but not allocated clearly', severity: 'critical', query: 'Please confirm which items require fire-rated glazing and the required rating.' },
+    { key: 'acoustic', label: 'Acoustic glazing mentioned; confirm dB rating and affected units', severity: 'warning', query: 'Please confirm acoustic performance requirements and which items they apply to.' },
+    { key: 'pas24', label: 'PAS24 / Secured by Design requirement needs supplier confirmation', severity: 'critical', query: 'Please confirm PAS24/SBD compliance in the supplier quote or specification.' },
+    { key: 'uValue', label: 'Low U-value / Part L requirement needs whole-unit confirmation', severity: 'warning', query: 'Please confirm whole-unit U-value compliance for the proposed systems.' },
+    { key: 'gValue', label: 'G-value requirement must be passed to glass supplier', severity: 'warning', query: 'Please confirm required G-value and glass specification.' },
+    { key: 'ltValue', label: 'LT-value requirement must be passed to glass supplier', severity: 'warning', query: 'Please confirm required LT-value and glass specification.' },
+    { key: 'colour', label: 'Colour / finish must be confirmed before issue', severity: 'warning', query: 'Please confirm the required RAL colour and finish.' },
+    { key: 'trickleVents', label: 'Trickle vents / ventilation requirement needs item-level confirmation', severity: 'warning', query: 'Please confirm whether trickle vents are required and to which items.' },
+    { key: 'restrictors', label: 'Restrictors requirement needs item-level confirmation', severity: 'warning', query: 'Please confirm whether restrictors are required and to which windows.' },
+    { key: 'ddaThresholds', label: 'DDA / accessibility threshold requirement needs door review', severity: 'warning', query: 'Please confirm threshold/accessibility requirements for door items.' },
+    { key: 'accessControl', label: 'Automation/access control interface responsibility unclear', severity: 'critical', query: 'Please confirm access control, automation, wiring and interface responsibilities.' },
+    { key: 'makingGood', label: 'Making good / builders work responsibility must be explicit', severity: 'warning', query: 'Please confirm whether making good/builders work is included or excluded.' },
+    { key: 'accessScaffold', label: 'Access/scaffold responsibility must be explicit', severity: 'warning', query: 'Please confirm whether access equipment/scaffold is provided by others.' },
+    { key: 'curtainWalling', label: 'Curtain walling must be treated separately from standard window/door codes', severity: 'critical', query: 'Please confirm curtain wall scope, system, loads and supplier pricing.' }
   ];
 
   var STANDARD_EXCLUSIONS = [
@@ -39,9 +70,15 @@ var ProjectHailMary = (function () {
     var comparison = compareTenderAndSupplier(requirements, supplierQuotes, supplierItems, sourceItems);
     var assumptions = buildAssumptions(requirements, supplierQuotes);
     var exclusions = buildExclusions(requirements, comparison);
-    var rfis = buildRfis(requirements, comparison);
-    var readiness = determineReadiness(comparison, rfis, sourceItems);
+    var redFlags = buildRedFlags(requirements, supplierQuotes, documents);
+    var riskRegister = buildRiskRegister(requirements, comparison, redFlags, documents, sourceItems);
+    var rfis = buildRfis(requirements, comparison, redFlags);
+    var readiness = determineReadiness(comparison, rfis, sourceItems, riskRegister);
     var summary = buildSummary(state, supplierQuotes, codingChecks);
+    var specExtraction = buildSpecificationExtraction(requirements, redFlags);
+    var itemList = buildScheduleItemList(sourceItems);
+    var pricingReview = buildPricingReview(requirements, supplierQuotes, supplierItems, codingChecks, comparison);
+    var preIssueChecklist = buildPreIssueChecklist(requirements, supplierQuotes, sourceItems, codingChecks, comparison, riskRegister);
 
     return {
       generatedAt: new Date().toISOString(),
@@ -58,13 +95,19 @@ var ProjectHailMary = (function () {
         };
       }),
       tenderRequirements: requirements,
+      specificationExtraction: specExtraction,
+      drawingScheduleItemList: itemList,
       supplierQuotes: supplierQuotes,
       supplierItems: supplierItems,
+      supplierQuoteComparison: pricingReview,
       codingChecks: codingChecks,
       scopeComparison: comparison,
       assumptions: assumptions,
       exclusions: exclusions,
       rfis: rfis,
+      redFlags: redFlags,
+      riskRegister: riskRegister,
+      preIssueChecklist: preIssueChecklist,
       proposalDraft: buildProposalDraft(state, requirements, supplierQuotes, assumptions, exclusions, rfis),
       pricingDocumentDraft: buildPricingDraft(state, codingChecks, supplierQuotes, assumptions, exclusions, rfis),
       markdown: ''
@@ -81,6 +124,7 @@ var ProjectHailMary = (function () {
     documents.forEach(function (doc) {
       var text = normaliseText(doc.fullText || '');
       if (!text) return;
+      if (isTrainingMaterialDoc(doc, text)) return;
       REQUIREMENT_RULES.forEach(function (rule) {
         var match = text.match(rule.pattern);
         if (!match) return;
@@ -104,6 +148,7 @@ var ProjectHailMary = (function () {
     documents.forEach(function (doc) {
       var text = normaliseText(doc.fullText || '');
       var name = doc.name || '';
+      if (isTrainingMaterialDoc(doc, text)) return;
       var looksSupplier = /\bquotation\b|quote\s+number|total\s+nett|grand\s+total\s+net|bellview|sheerline|bsw/i.test(text + ' ' + name);
       if (!looksSupplier) return;
       var supplierHint = text + ' ' + name;
@@ -269,7 +314,181 @@ var ProjectHailMary = (function () {
     return uniqueStrings(out);
   }
 
-  function buildRfis(requirements, comparison) {
+  function buildRedFlags(requirements, supplierQuotes, documents) {
+    var flags = [];
+    var supplierText = JSON.stringify(supplierQuotes || []).toLowerCase();
+    RED_FLAG_RULES.forEach(function (rule) {
+      if (!hasReq(requirements, rule.key)) return;
+      var covered = supplierText && supplierText.indexOf(rule.key.toLowerCase()) >= 0;
+      if (rule.key === 'colour') covered = /ral|black|white|grey|7016|9005|9010/i.test(supplierText);
+      if (rule.key === 'pas24') covered = /pas\s*24|secured\s+by\s+design|sbd/i.test(supplierText);
+      if (rule.key === 'uValue') covered = /\bu[\s-]*value|1\.0|1\.2|1\.4|part\s+l/i.test(supplierText);
+      if (rule.key === 'trickleVents') covered = /trickle|linkvent|ventilation/i.test(supplierText);
+      if (rule.key === 'restrictors') covered = /restrictor/i.test(supplierText);
+      flags.push({
+        key: rule.key,
+        issue: rule.label,
+        severity: rule.severity,
+        supplierEvidence: covered ? 'Supplier evidence appears to mention this item; estimator should verify details.' : 'Not clearly confirmed in supplier evidence.',
+        recommendedAction: rule.query
+      });
+    });
+
+    (documents || []).forEach(function (doc) {
+      var text = normaliseText(doc.fullText || '');
+      if (isTrainingMaterialDoc(doc, text)) return;
+      if (doc.isScanned || (doc.kind === 'image') || (doc.kind === 'pdf' && text.length < 80)) {
+        flags.push({
+          key: 'ocr',
+          issue: 'Document may be scanned/image-only and not reliable for extraction: ' + doc.name,
+          severity: 'critical',
+          supplierEvidence: 'No machine-readable text available.',
+          recommendedAction: 'Run OCR/drawing takeoff or review manually before pricing.'
+        });
+      }
+      if (/contractor\s+to\s+design|design\s+by\s+contractor/i.test(text)) {
+        flags.push({
+          key: 'designResponsibility',
+          issue: 'Tender wording suggests contractor design responsibility.',
+          severity: 'critical',
+          supplierEvidence: doc.name,
+          recommendedAction: 'Confirm whether Fenster has design responsibility and whether design/calculation fees are included.'
+        });
+      }
+      if (/allow\s+for/i.test(text) && /window|door|glazing|curtain|louv/i.test(text)) {
+        flags.push({
+          key: 'allowFor',
+          issue: 'BoQ/spec contains "allow for" glazing wording that may lack enough detail.',
+          severity: 'warning',
+          supplierEvidence: doc.name,
+          recommendedAction: 'Review allowance wording and confirm quantity/specification before final pricing.'
+        });
+      }
+    });
+    return uniqueObjects(flags, function (a, b) {
+      return a.key === b.key && a.issue === b.issue && a.supplierEvidence === b.supplierEvidence;
+    });
+  }
+
+  function buildSpecificationExtraction(requirements, redFlags) {
+    return (requirements || []).map(function (req) {
+      var flag = (redFlags || []).find(function (risk) { return risk.key === req.key; });
+      return {
+        item: req.label,
+        requirement: req.value,
+        sourceDocument: req.sourceDocument,
+        pageReference: req.pageReference || '',
+        appliesTo: appliesToForRequirement(req.key),
+        riskComment: flag ? flag.issue : ''
+      };
+    });
+  }
+
+  function buildScheduleItemList(items) {
+    return (items || []).map(function (item) {
+      return {
+        itemRef: item.reference || '',
+        location: item.location || '',
+        description: item.description || item.openingType || item.type || '',
+        quantity: item.quantity || 1,
+        materialSystem: item.frameType || item.system || 'Unknown',
+        notes: item.glazingSpec || item.finish || '',
+        query: codeRisk(item) || (!item.width || !item.height ? 'Missing dimensions: confirm before issue.' : '')
+      };
+    });
+  }
+
+  function buildPricingReview(requirements, supplierQuotes, supplierItems, codingChecks, comparison) {
+    var rows = [];
+    (requirements || []).forEach(function (req) {
+      var gap = ((comparison && comparison.gaps) || []).find(function (g) { return g.key === req.key; });
+      rows.push({
+        tenderRequirement: req.label + ': ' + req.value,
+        supplierQuoteReference: supplierQuotes.length ? supplierQuotes.map(function (q) { return q.sourceDocument; }).join('; ') : 'No supplier quote detected',
+        fensterPricingItem: matchingPricingRefs(req, codingChecks),
+        covered: gap ? 'No/Partial' : 'Review',
+        riskQuery: gap ? gap.message : 'Confirm against supplier quote and schedule.',
+        actionRequired: gap ? gap.suggestedAction : 'Estimator to verify before issue.'
+      });
+    });
+    if (!(supplierItems || []).length) {
+      rows.push({
+        tenderRequirement: 'Supplier itemised schedule',
+        supplierQuoteReference: supplierQuotes.length ? 'Supplier quote detected, but item rows were not extracted.' : 'No supplier quote detected',
+        fensterPricingItem: '',
+        covered: 'No/Partial',
+        riskQuery: 'Cannot confirm supplier coverage against tender item list.',
+        actionRequired: 'Review supplier PDF/workbook manually or harden parser for this supplier format.'
+      });
+    }
+    return rows;
+  }
+
+  function buildRiskRegister(requirements, comparison, redFlags, documents, items) {
+    var risks = [];
+    (redFlags || []).forEach(function (flag) {
+      risks.push({
+        risk: flag.issue,
+        severity: flag.severity,
+        reason: flag.supplierEvidence || 'Triggered by tender requirement.',
+        recommendedAction: flag.recommendedAction
+      });
+    });
+    ((comparison && comparison.gaps) || []).forEach(function (gap) {
+      risks.push({
+        risk: gap.message,
+        severity: gap.severity,
+        reason: 'Supplier/tender comparison gap.',
+        recommendedAction: gap.suggestedAction
+      });
+    });
+    if (!(documents || []).length) {
+      risks.push({
+        risk: 'No tender documents reviewed.',
+        severity: 'critical',
+        reason: 'Estimator review has no evidence base.',
+        recommendedAction: 'Upload tender documents, emails, schedules and supplier quotes.'
+      });
+    }
+    if (!(items || []).length) {
+      risks.push({
+        risk: 'No item list available for pricing/code allocation.',
+        severity: 'critical',
+        reason: 'Pricing document cannot be checked without scope rows.',
+        recommendedAction: 'Extract a schedule, parse supplier rows, or add manual takeoff items.'
+      });
+    }
+    return uniqueObjects(risks, function (a, b) {
+      return a.risk === b.risk && a.reason === b.reason;
+    });
+  }
+
+  function buildPreIssueChecklist(requirements, supplierQuotes, items, codingChecks, comparison, riskRegister) {
+    var hasFireAcousticSecurity = hasReq(requirements, 'fireRating') || hasReq(requirements, 'acoustic') || hasReq(requirements, 'pas24');
+    return [
+      checkItem('Project name confirmed', hasReq(requirements, 'projectName'), 'Confirm project name from email/tender docs.'),
+      checkItem('Client/main contractor confirmed', hasReq(requirements, 'client'), 'Confirm client or main contractor.'),
+      checkItem('Site address confirmed', hasReq(requirements, 'siteAddress'), 'Confirm site address.'),
+      checkItem('Scope item list available', (items || []).length > 0, 'Extract schedule/supplier rows or complete manual takeoff.'),
+      checkItem('Supplier quote reviewed', (supplierQuotes || []).length > 0, 'Upload/review supplier quotations.'),
+      checkItem('Pricing codes applied', (codingChecks || []).length > 0, 'Produce coding check table.'),
+      checkItem('Colour confirmed or flagged', hasReq(requirements, 'colour'), 'Flag colour/RAL as query if absent.'),
+      checkItem('Glass/U-value requirements reviewed where mentioned', !(hasReq(requirements, 'uValue') || hasReq(requirements, 'safetyGlazing')), 'Review glass and performance requirements before issue.'),
+      checkItem('Fire/acoustic/PAS24 reviewed where mentioned', !hasFireAcousticSecurity, 'Resolve any fire/acoustic/PAS24 requirements before issue.'),
+      checkItem('Supplier quote covers tender scope', !((comparison && comparison.gaps) || []).length, 'Resolve supplier/tender gaps.'),
+      checkItem('High-risk items resolved', !hasCriticalRisk(riskRegister), 'Human estimator review required before issue.')
+    ];
+  }
+
+  function checkItem(label, passed, action) {
+    return {
+      item: label,
+      status: passed ? 'checked' : 'open',
+      actionRequired: passed ? '' : action
+    };
+  }
+
+  function buildRfis(requirements, comparison, redFlags) {
     var rfis = [];
     (comparison.gaps || []).forEach(function (gap) {
       rfis.push({
@@ -287,13 +506,24 @@ var ProjectHailMary = (function () {
         status: 'open'
       });
     }
-    return rfis;
+    (redFlags || []).forEach(function (flag) {
+      rfis.push({
+        question: flag.recommendedAction,
+        reason: flag.issue,
+        severity: flag.severity,
+        status: 'open'
+      });
+    });
+    return uniqueObjects(rfis, function (a, b) {
+      return a.question === b.question;
+    });
   }
 
-  function determineReadiness(comparison, rfis, items) {
+  function determineReadiness(comparison, rfis, items, riskRegister) {
     var critical = (comparison.gaps || []).filter(function (g) { return g.severity === 'critical'; }).length;
+    var criticalRisks = (riskRegister || []).filter(function (g) { return g.severity === 'critical'; }).length;
     if (!items.length) return { status: 'blocked', label: 'Blocked - no priced scope detected' };
-    if (critical > 0) return { status: 'review', label: 'Needs estimator review' };
+    if (critical > 0 || criticalRisks > 0) return { status: 'review', label: 'Needs estimator review' };
     if ((rfis || []).length) return { status: 'review', label: 'Needs estimator review' };
     return { status: 'ready', label: 'Ready to issue subject to estimator approval' };
   }
@@ -372,6 +602,16 @@ var ProjectHailMary = (function () {
     lines.push('## RFIs');
     (review.rfis || []).forEach(function (r) {
       lines.push('- ' + r.question + (r.reason ? ' - ' + r.reason : ''));
+    });
+    lines.push('');
+    lines.push('## Risk Register');
+    (review.riskRegister || []).forEach(function (r) {
+      lines.push('- [' + r.severity + '] ' + r.risk + (r.recommendedAction ? ' - ' + r.recommendedAction : ''));
+    });
+    lines.push('');
+    lines.push('## Pre-Issue Checklist');
+    (review.preIssueChecklist || []).forEach(function (c) {
+      lines.push('- ' + c.status + ': ' + c.item + (c.actionRequired ? ' - ' + c.actionRequired : ''));
     });
     lines.push('');
     lines.push('## Exclusions');
@@ -478,10 +718,69 @@ var ProjectHailMary = (function () {
     return quote ? quote.project : '';
   }
 
+  function isTrainingMaterialDoc(doc, text) {
+    var haystack = ((doc && doc.name) || '') + '\n' + String(text || '').slice(0, 12000);
+    var score = 0;
+    if (/estimating\s+bot\s+training\s+brief/i.test(haystack)) score += 3;
+    if (/pricing\s+code\s+training\s+notes/i.test(haystack)) score += 3;
+    if (/standard\s+exclusions\s+bank/i.test(haystack)) score += 1;
+    if (/standard\s+inclusions\s+bank/i.test(haystack)) score += 1;
+    if (/required\s+output\s+format\s+for\s+each\s+project/i.test(haystack)) score += 1;
+    if (/the\s+bot\s+must\s+learn|you\s+are\s+being\s+trained/i.test(haystack)) score += 2;
+    if (/suggested\s+prompts\s+for\s+the\s+bot/i.test(haystack)) score += 1;
+    return score >= 3;
+  }
+
+  function appliesToForRequirement(key) {
+    var map = {
+      colour: 'All visible PPC/painted items',
+      uValue: 'Windows, doors and glazed screens',
+      gValue: 'Glazed units where solar control is required',
+      ltValue: 'Glazed units where light transmission is specified',
+      aluminium: 'Aluminium windows, doors and screens',
+      upvc: 'uPVC windows and doors',
+      curtainWalling: 'Curtain walling only',
+      louvres: 'Louvre panels/doors shown on tender information',
+      pas24: 'Security-rated windows and doors where required',
+      trickleVents: 'Ventilated windows/doors where required',
+      restrictors: 'Opening windows where required',
+      ddaThresholds: 'Entrance and external doors',
+      fireRating: 'Fire-rated screens/doors/glazing only where allocated',
+      acoustic: 'Acoustic glazing only where allocated',
+      safetyGlazing: 'Critical locations and specified toughened/laminated glass',
+      accessControl: 'Automated/access-controlled doors or windows',
+      removalDisposal: 'Existing frames/items affected by replacement work',
+      makingGood: 'Surrounding builder finishes/openings',
+      accessScaffold: 'Installation logistics',
+      programme: 'Tender submission and delivery programme'
+    };
+    return map[key] || 'Project scope';
+  }
+
+  function matchingPricingRefs(requirement, codingChecks) {
+    var key = requirement && requirement.key;
+    var rows = (codingChecks || []).filter(function (row) {
+      var haystack = (row.description + ' ' + row.material + ' ' + row.selectedCode + ' ' + row.reference).toLowerCase();
+      if (key === 'aluminium') return /aluminium|sad|dad|law|maw|saw|elaw/.test(haystack);
+      if (key === 'upvc') return /upvc|pvc|supd|dupd|lpvc|mpvc|spvc/.test(haystack);
+      if (key === 'louvres') return /louv/.test(haystack);
+      if (key === 'curtainWalling') return /curtain|cw/.test(haystack);
+      if (key === 'accessControl') return /access|automatic|actuator|teleflex/.test(haystack);
+      if (key === 'fireRating') return /fire|fd30|fd60/.test(haystack);
+      if (key === 'acoustic') return /acoustic|db/.test(haystack);
+      return false;
+    });
+    return rows.slice(0, 8).map(function (row) { return row.reference || row.description; }).filter(Boolean).join(', ');
+  }
+
   function hasReq(requirements, key, regex) {
     return (requirements || []).some(function (r) {
       return r.key === key && (!regex || regex.test(r.value || ''));
     });
+  }
+
+  function hasCriticalRisk(risks) {
+    return (risks || []).some(function (risk) { return risk.severity === 'critical'; });
   }
 
   function pushUnique(arr, value, sameFn) {
@@ -495,6 +794,14 @@ var ProjectHailMary = (function () {
       seen[value] = true;
       return true;
     });
+  }
+
+  function uniqueObjects(values, sameFn) {
+    var out = [];
+    (values || []).forEach(function (value) {
+      if (!out.some(function (existing) { return sameFn(existing, value); })) out.push(value);
+    });
+    return out;
   }
 
   function normaliseText(text) {
