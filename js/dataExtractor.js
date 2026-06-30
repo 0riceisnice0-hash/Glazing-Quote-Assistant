@@ -17,6 +17,8 @@ var DataExtractor = (function () {
       return { type: 'admin', confidence: 'high', reason: 'Client quote excluded from scope extraction' };
     if (/\bsupplier\s+quotes?\b|\bsupplier\s+quotation\b|\bQT\d{5,}\b|\bsheerline\b|\bbellview\b/.test(fullName))
       return { type: 'supplierQuote', confidence: 'high', reason: 'Supplier quote is evidence, not priced scope' };
+    if (/\bpricing\s+document\b/.test(name) && /site\s+works/i.test(name))
+      return { type: 'bq', confidence: 'high', reason: 'Site works pricing bill retained for validation only, not glazing scope' };
     if (/\bdrawings?\s*schedule\b/.test(name))
       return { type: 'drawing', confidence: 'high', reason: 'Filename contains drawing schedule keyword' };
     if (hasBQKeyword)
@@ -749,12 +751,81 @@ var DataExtractor = (function () {
   // Strategy W — Workbook schedule rows
   // -----------------------------------------------------------------------
 
-  function tryWorkbookScheduleExtraction(rows, sourceName, sourcePage) {
+  function extractFensterPricingScopeFromText(text, sourceName, sourcePage, sheetName) {
+    if (!/\bpricing\b/i.test(sourceName || '')) return [];
+    if (!/windows?\s*(?:&|and)\s*external\s*doors?/i.test(sheetName || '')) return [];
+
+    var items = [];
+    function parseScopeMoney(cell) {
+      if (cell === undefined || cell === null || cell === '') return 0;
+      var n = parseFloat(String(cell).replace(/[^\d.-]/g, ''));
+      return isFinite(n) ? n : 0;
+    }
+    String(text || '').split(/\r?\n/).forEach(function (line, idx) {
+      var rowText = line.replace(/\s+/g, ' ').trim();
+      if (!/\b(?:window\s+type|ventilation\s+louvre|external\s+door\s+type)\b/i.test(rowText)) return;
+      if (!/\b(?:window|door)\s+no\.?/i.test(rowText)) return;
+
+      var refMatch = rowText.match(/\b(?:Window|Door)\s+No\.?\s*([A-Z]{1,4}\d[\w-]*)/i);
+      if (!refMatch) return;
+      var scopeRef = refMatch[1].toUpperCase();
+      var scopeDims = extractDimensionsFromText(rowText) || { width: 0, height: 0 };
+      var scopeIsDoor = /\bexternal\s+door\b|\bdoor\s+no\.?/i.test(rowText);
+      var scopeIsLouvre = /\blouvre\b/i.test(rowText);
+      var qtyMatch = rowText.match(/\|\s*(\d+(?:\.\d+)?)\s*\|\s*(?:item|nr|no|each|ea)\b/i) ||
+        rowText.match(/\b(\d+(?:\.\d+)?)\s+(?:item|nr|no|each|ea)\b/i);
+      var scopeQty = qtyMatch ? parseQuantityCell(qtyMatch[1]) : 1;
+      var moneyMatches = rowText.match(/(?:£|\bGBP\s*)\s*-?\d{1,3}(?:,\d{3})*(?:\.\d{2})?/g) || [];
+      var positiveMoney = moneyMatches.map(parseScopeMoney).filter(function (n) { return n > 0; });
+      var scopeTotal = positiveMoney.length ? positiveMoney[positiveMoney.length - 1] : 0;
+      var desc = rowText
+        .replace(/^\d+\s+/, '')
+        .replace(/\s*\|\s*\d+(?:\.\d+)?\s*\|\s*(?:item|nr|no|each|ea)\b.*$/i, '')
+        .trim();
+
+      var scopeItem = createItem({
+        reference: scopeRef,
+        description: desc,
+        type: scopeIsDoor ? 'door' : 'window',
+        width: scopeDims.width || 0,
+        height: scopeDims.height || 0,
+        quantity: scopeQty || 1,
+        frameType: scopeIsDoor ? 'Aluminium Door' : 'Aluminium',
+        system: 'Per amended pricing document',
+        glazingSpec: scopeIsLouvre ? 'Ventilation louvre - no glazing' : 'Double glazed per amended pricing document/specification',
+        openingType: scopeIsLouvre ? 'Louvre' : 'TBC',
+        sourceDocument: sourceName,
+        sourcePage: sourcePage
+      });
+      scopeItem.hasLouvre = scopeIsLouvre;
+      scopeItem.unitPrice = scopeTotal > 0 ? round2Safe(scopeTotal / (scopeQty || 1)) : 0;
+      scopeItem.totalPrice = scopeTotal;
+      scopeItem.manualOverride = true;
+      scopeItem.pricingMethod = scopeTotal > 0 ? 'quoted-unit' : 'scope-unpriced';
+      scopeItem.breakdown = scopeTotal > 0 ? 'Fenster pricing document sell rate' : 'Scope extracted from pricing bill; rate/total is blank or zero';
+      scopeItem.scheduleType = scopeTotal > 0 ? 'Fenster Pricing Document' : 'Fenster Pricing Scope - Unpriced';
+      scopeItem.requiresEstimatorPricing = scopeTotal <= 0;
+      scopeItem.notes = scopeTotal > 0 ? [] : ['Amended pricing workbook lists this opening but no rate/total is entered.'];
+      scopeItem.confidence = scoreConfidence(scopeItem, 'table');
+      items.push(scopeItem);
+    });
+
+    var seen = {};
+    return items.filter(function (item) {
+      var key = (item.reference || '') + '|' + (item.sourceDocument || '') + '|' + (item.sourcePage || '');
+      if (seen[key]) return false;
+      seen[key] = true;
+      return true;
+    });
+  }
+
+  function tryWorkbookScheduleExtraction(rows, sourceName, sourcePage, sheetName) {
     if (!/\.(xlsx|xlsm|xls)$/i.test(sourceName || '')) return [];
 
     var items = [];
     var isOpeningScheduleWorkbook = /opening\s*schedules?/i.test(sourceName || '');
     var isFensterPricingDocument = /\bpricing\b/i.test(sourceName || '');
+    var isFensterOpeningScopeSheet = /windows?\s*(?:&|and)\s*external\s*doors?/i.test(sheetName || '');
     var pricingDocItemNo = 0;
     var pricingDocAllowanceNo = 0;
     function parseCompactDimension(cell) {
@@ -785,6 +856,53 @@ var DataExtractor = (function () {
       // so preserve their exact totals rather than re-pricing them through the
       // generic square-metre engine.
       if (isFensterPricingDocument) {
+        if (!isFensterOpeningScopeSheet) return;
+
+        // Main-contractor pricing bills use a workbook sheet called
+        // "Windows & External Doors" as a scope list. Rows are often unpriced
+        // placeholders, so extract them honestly as scope items instead of
+        // letting later broad regex strategies price unrelated cost-plan tabs.
+        var openingScopeRow = /\b(?:window\s+type|ventilation\s+louvre|external\s+door\s+type)\b/i.test(rowText) &&
+          /\b(?:window|door)\s+no\.?/i.test(rowText);
+        if (openingScopeRow) {
+          var scopeDescCell = cells[1] || cells[0] || rowText;
+          var scopeDesc = String(scopeDescCell).replace(/^\d+\s+/, '').trim();
+          var refMatch = rowText.match(/\b(?:Window|Door)\s+No\.?\s*([A-Z]{1,4}\d[\w-]*)/i);
+          var scopeRef = refMatch ? refMatch[1].toUpperCase() : normaliseRef(cells[0]);
+          var scopeDims = extractDimensionsFromText(rowText) || { width: 0, height: 0 };
+          var scopeQty = parseQuantityCell(cells[2]) || 1;
+          var scopeRate = parsePlainMoney(cells[4]);
+          var scopeTotal = parsePlainMoney(cells[5] || cells[4]);
+          var scopeIsDoor = /\bexternal\s+door\b|\bdoor\s+no\.?/i.test(rowText);
+          var scopeIsLouvre = /\blouvre\b/i.test(rowText);
+          var scopeItem = createItem({
+            reference: scopeRef || String(++pricingDocItemNo),
+            description: scopeDesc,
+            type: scopeIsDoor ? 'door' : 'window',
+            width: scopeDims.width || 0,
+            height: scopeDims.height || 0,
+            quantity: scopeQty,
+            frameType: scopeIsDoor ? 'Aluminium Door' : 'Aluminium',
+            system: 'Per amended pricing document',
+            glazingSpec: scopeIsLouvre ? 'Ventilation louvre - no glazing' : 'Double glazed per amended pricing document/specification',
+            openingType: scopeIsLouvre ? 'Louvre' : 'TBC',
+            sourceDocument: sourceName,
+            sourcePage: sourcePage
+          });
+          scopeItem.hasLouvre = scopeIsLouvre;
+          scopeItem.unitPrice = scopeRate > 0 ? scopeRate : 0;
+          scopeItem.totalPrice = scopeTotal > 0 ? scopeTotal : 0;
+          scopeItem.manualOverride = true;
+          scopeItem.pricingMethod = scopeTotal > 0 ? 'quoted-unit' : 'scope-unpriced';
+          scopeItem.breakdown = scopeTotal > 0 ? 'Fenster pricing document sell rate' : 'Scope extracted from pricing bill; rate/total is blank or zero';
+          scopeItem.scheduleType = scopeTotal > 0 ? 'Fenster Pricing Document' : 'Fenster Pricing Scope - Unpriced';
+          scopeItem.requiresEstimatorPricing = scopeTotal <= 0;
+          scopeItem.notes = scopeTotal > 0 ? [] : ['Amended pricing workbook lists this opening but no rate/total is entered.'];
+          scopeItem.confidence = scoreConfidence(scopeItem, 'table');
+          items.push(scopeItem);
+          return;
+        }
+
         var descCell = cells[0] || '';
         var dimsCell = cells[1] || '';
         var qtyCell = cells[2] || '';
@@ -1603,12 +1721,35 @@ var DataExtractor = (function () {
       });
     }
     if (scheduleDocCount > 0) {
+      allItems.forEach(function (item) {
+        if (/\bpricing\s+document\b/i.test(item.sourceDocument || '') &&
+            /^(?:W\d|D\d|ED\d)/i.test(item.reference || '') &&
+            !(item.width > 0 && item.height > 0)) {
+          item.requiresEstimatorPricing = true;
+          item.pricingMethod = 'scope-unpriced';
+          item.manualOverride = true;
+          item.unitPrice = 0;
+          item.totalPrice = 0;
+          item.scheduleType = item.scheduleType || 'Fenster Pricing Scope - Unpriced';
+          item.breakdown = item.breakdown || 'Scope extracted from pricing bill; dimensions/rate require estimator review';
+          item.notes = item.notes || [];
+          if (item.notes.indexOf('Amended pricing workbook lists this opening but no dimensions/rate are entered.') === -1) {
+            item.notes.push('Amended pricing workbook lists this opening but no dimensions/rate are entered.');
+          }
+        }
+      });
       var removedDimensionless = allItems.filter(function (item) {
-        return !(item.width > 0 && item.height > 0) && item.scheduleType !== 'Commercial Allowance';
+        return !(item.width > 0 && item.height > 0) &&
+          item.scheduleType !== 'Commercial Allowance' &&
+          !item.requiresEstimatorPricing &&
+          item.pricingMethod !== 'scope-unpriced';
       });
       if (removedDimensionless.length > 0) {
         allItems = allItems.filter(function (item) {
-          return (item.width > 0 && item.height > 0) || item.scheduleType === 'Commercial Allowance';
+          return (item.width > 0 && item.height > 0) ||
+            item.scheduleType === 'Commercial Allowance' ||
+            item.requiresEstimatorPricing ||
+            item.pricingMethod === 'scope-unpriced';
         });
         allWarnings = allWarnings.filter(function (warning) {
           return !warning.itemId || allItems.some(function (item) { return item.id === warning.itemId; });
@@ -2006,11 +2147,19 @@ var DataExtractor = (function () {
     if (!text || text.trim().length === 0) return [];
 
     if ((docType === 'schedule' || docType === 'bq') && /\.(xlsx|xlsm|xls)$/i.test(sourceName || '')) {
+      var pricingScopeItems = extractFensterPricingScopeFromText(text, sourceName, page.pageNum, page.sheetName);
+      if (pricingScopeItems.length > 0) {
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy W0 (pricing scope text) → ' + pricingScopeItems.length + ' items');
+        return pricingScopeItems;
+      }
       var workbookRows = buildRows(textItems, 15);
-      var workbookItems = tryWorkbookScheduleExtraction(workbookRows, sourceName, page.pageNum);
+      var workbookItems = tryWorkbookScheduleExtraction(workbookRows, sourceName, page.pageNum, page.sheetName);
       if (workbookItems.length > 0) {
         console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy W (workbook rows) → ' + workbookItems.length + ' items');
         return workbookItems;
+      }
+      if (/\bpricing\b/i.test(sourceName || '')) {
+        return [];
       }
     }
 

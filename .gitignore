@@ -1,5 +1,6 @@
 test-results/
 dist-pages/
+node_modules/.cache/
 workers/document-processor/.wrangler/
 workers/document-processor/dist/
 workers/document-processor/node_modules/

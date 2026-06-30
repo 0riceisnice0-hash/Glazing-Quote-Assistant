@@ -2,7 +2,7 @@
 
 var App = (function () {
 
-  var APP_VERSION = 'v2026.06.30.6';
+  var APP_VERSION = 'v2026.06.30.7';
   var _state = null;
   var _pendingFiles = [];
   var _autoSaveTimer = null;
@@ -547,6 +547,12 @@ var App = (function () {
         _state.risks.push(_makeWorkflowRisk('critical', 'Item ' + (item.reference || item.id) + ' is missing dimensions.', {
           itemId: item.id,
           suggestedAction: 'Enter width and height before quote generation.'
+        }));
+      }
+      if (item.requiresEstimatorPricing || item.pricingMethod === 'scope-unpriced') {
+        _state.risks.push(_makeWorkflowRisk('critical', 'Item ' + (item.reference || item.id) + ' is in scope but has no workbook rate or total.', {
+          itemId: item.id,
+          suggestedAction: 'Price this opening from supplier evidence/rates before issuing.'
         }));
       }
       if (item.extractionMethod === 'ocr' || item.extractionMethod === 'drawing-assisted') {

@@ -219,6 +219,7 @@ var Pricing = (function () {
   function getItemInstallationAllowance(item, config, code) {
     var qty = item.quantity || 1;
     if (!config.includeInstallation) return 0;
+    if (item && (item.requiresEstimatorPricing || item.pricingMethod === 'scope-unpriced')) return 0;
     if (config.useProductCodeLabourAllowances) {
       var productCode = code || item.productCode || classifyProductCode(item);
       var allowance = getLabourAllowanceForCode(productCode);
@@ -442,12 +443,13 @@ var Pricing = (function () {
       var w    = (item.width  || 0) / 1000;
       var h    = (item.height || 0) / 1000;
       var area = w * h;
+      var scopeUnpriced = item && (item.requiresEstimatorPricing || item.pricingMethod === 'scope-unpriced');
 
       installTotal += getItemInstallationAllowance(item, config);
-      if (config.includeEPDM && area > 0) {
+      if (!scopeUnpriced && config.includeEPDM && area > 0) {
         epdmTotal += config.epdmRate * area * qty;
       }
-      if (config.includeMastic && area > 0) {
+      if (!scopeUnpriced && config.includeMastic && area > 0) {
         var perimM = (w + h) * 2;
         masticTotal += config.masticRate * perimM * qty;
       }
