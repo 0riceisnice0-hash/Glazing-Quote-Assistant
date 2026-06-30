@@ -15,7 +15,7 @@ var DataExtractor = (function () {
     // Filename-based (high confidence)
     if (/\bclient\s+quote\b|\bclient\s+quotation\b|\bglazing\s+quote\b/.test(fullName))
       return { type: 'admin', confidence: 'high', reason: 'Client quote excluded from scope extraction' };
-    if (/\bsupplier\s+quotes?\b|\bsupplier\s+quotation\b/.test(fullName))
+    if (/\bsupplier\s+quotes?\b|\bsupplier\s+quotation\b|\bQT\d{5,}\b|\bsheerline\b|\bbellview\b/.test(fullName))
       return { type: 'supplierQuote', confidence: 'high', reason: 'Supplier quote is evidence, not priced scope' };
     if (/\bdrawings?\s*schedule\b/.test(name))
       return { type: 'drawing', confidence: 'high', reason: 'Filename contains drawing schedule keyword' };
@@ -57,6 +57,9 @@ var DataExtractor = (function () {
     // Content-based (medium confidence) — only when text is available
     if (textContent && textContent.length > 0) {
       var sample = textContent.substring(0, 3000).toLowerCase();
+      if (/\bquotation\b|\bquote\s+number\b|\bquotation\s+no\.?\b/.test(sample) &&
+          /\btotal\s+nett\s+ex\.?\s*vat\b|\bgrand\s+total\s+net\b|\btotal\s+price\b/.test(sample))
+        return { type: 'supplierQuote', confidence: 'medium', reason: 'Content appears to be a supplier quotation' };
       if (/window\s*schedule|door\s*schedule|glazing\s*schedule|opening\s*size|window\s*ref|glazing\s*ref/.test(sample))
         return { type: 'schedule', confidence: 'medium', reason: 'Content contains schedule keywords' };
       // Table-header pattern: ref/mark column alongside dimension/qty columns strongly suggests a schedule

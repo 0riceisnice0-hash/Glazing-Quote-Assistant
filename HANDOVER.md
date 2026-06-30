@@ -37,7 +37,7 @@ Read these first:
 Current app version shown in the UI:
 
 ```text
-v2026.06.30.4
+v2026.06.30.5
 ```
 
 Primary hosted app:

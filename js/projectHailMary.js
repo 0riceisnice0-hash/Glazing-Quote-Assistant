@@ -210,20 +210,29 @@ var ProjectHailMary = (function () {
       }));
     }
 
-    var bellviewRe = /^\s*\d{3}\s+([0-9]+)\s+Pcs\s+([0-9,]+)\s*x\s*([0-9,]+)\s*mm\s+(.+?)\s+([0-9,]+\.\d{2})\s+([0-9,]+\.\d{2})\s*$/gmi;
+    var bellviewRe = /(?:^|\s)(\d{3})\s+([0-9]+)\s+Pcs\s+([0-9,]+)\s*x\s*([0-9,]+)\s*mm\s+(.{3,120}?)\s+([0-9,]+\.\d{2})\s+([0-9,]+\.\d{2})(?=\s+(?:Exterior view|Position|Net Total|Page|\d{3}\s+\d+\s+Pcs)|$)/gmi;
     while ((match = bellviewRe.exec(text))) {
-      var bellDesc = cleanValue(match[4]);
+      var bellDesc = cleanValue(match[5]);
+      var bellContext = text.slice(match.index, Math.min(text.length, match.index + 900));
+      var doorDescription = firstMatch(bellContext, /Door\s+Description:\s*([^\\n\\r]+?)(?:Colours:|Profiles:|Door hardware:|Bottom Configuration:)/i) || bellContext;
+      var isDoubleDoor = /double\s+pivoted|double\s+door|pair/i.test(doorDescription);
+      if (/Door\s+Description:\s*Single\s+Pivoted/i.test(bellContext)) isDoubleDoor = false;
+      if (/Door\s+Description:\s*Double\s+Pivoted/i.test(bellContext)) isDoubleDoor = true;
+      var isDoorElement = /door\s+element|pivoted\s+anti\s+fingertrap\s+door|door\s+description/i.test(bellContext);
+      var isCombinedDoor = /fixed\s+fields?|side\s*screen|fanlight|louv?re\s+panel/i.test(bellContext);
+      var normalisedDesc = (isDoorElement && !/\bdoor\b/i.test(bellDesc) ? 'Door ' : '') + bellDesc + (isCombinedDoor ? ' with screen/panel/fixed fields' : '');
       items.push(makeSupplierItem({
         sourceDocument: sourceDocument,
         supplier: supplier,
-        reference: firstMatch(bellDesc, /\b(?:type|EXT)\s*[- ]?([A-Z0-9]+)/i) || 'Supplier item',
-        description: bellDesc,
-        type: /door/i.test(bellDesc) ? 'door' : 'window',
-        width: parseNum(match[2]),
-        height: parseNum(match[3]),
-        quantity: parseNum(match[1]) || 1,
-        supplierUnit: parseMoney(match[5]),
-        supplierTotal: parseMoney(match[6])
+        reference: firstMatch(bellDesc, /\b(?:type|EXT)\s*[- ]?([A-Z0-9]+)/i) || cleanValue(match[1] + ' ' + bellDesc),
+        description: normalisedDesc,
+        type: isDoorElement || /door/i.test(bellDesc) ? 'door' : 'window',
+        width: parseNum(match[3]),
+        height: parseNum(match[4]),
+        quantity: parseNum(match[2]) || 1,
+        doorSwing: isDoubleDoor ? 'Double Door' : '',
+        supplierUnit: parseMoney(match[6]),
+        supplierTotal: parseMoney(match[7])
       }));
     }
     return items;
