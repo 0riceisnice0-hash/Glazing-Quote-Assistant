@@ -2,7 +2,7 @@
 
 var App = (function () {
 
-  var APP_VERSION = 'v2026.06.30.2';
+  var APP_VERSION = 'v2026.06.30.3';
   var _state = null;
   var _pendingFiles = [];
   var _autoSaveTimer = null;
@@ -165,6 +165,7 @@ var App = (function () {
     _state.drawingCandidates = [];
     _state.intakeRecords = [];
     _state.estimatorReview = null;
+    _state.sourceTruthPlan = null;
 
     return _runAnalysisWithDocumentIntake();
 
@@ -237,6 +238,8 @@ var App = (function () {
           var newWarnings = extractResult.warnings;
           var stats = extractResult.stats;
           var debugLog = extractResult.debugLog || [];
+          _state.sourceTruthPlan = extractResult.scopePlan || (DataExtractor.buildScopePlan ? DataExtractor.buildScopePlan(validDocs) : null);
+          _applyScopePlanToSourceDocuments(_state.sourceTruthPlan);
 
           // Record diagnostics for each document
           validDocs.forEach(function (doc) {
@@ -430,6 +433,24 @@ var App = (function () {
     }
   }
 
+  function _applyScopePlanToSourceDocuments(scopePlan) {
+    if (!scopePlan || !scopePlan.decisions) return;
+    var byName = {};
+    scopePlan.decisions.forEach(function (decision) {
+      byName[decision.name] = decision;
+    });
+    (_state.sourceDocuments || []).forEach(function (doc) {
+      var decision = byName[doc.name];
+      if (!decision) return;
+      doc.scopeRole = decision.role;
+      doc.role = decision.role || doc.role;
+      doc.useForExtraction = decision.useForExtraction;
+      doc.pricedScope = decision.pricedScope;
+      doc.scopeDecisionReason = decision.reason;
+      doc.sourceOfTruth = decision.sourceOfTruth;
+    });
+  }
+
   function _runPdfOcrPass(docs) {
     var processed = [];
     var chain = Promise.resolve();
@@ -493,11 +514,9 @@ var App = (function () {
   }
 
   function _addWorkflowRisks(validDocs, items) {
-    var scheduleDocs = validDocs.filter(function (doc) {
-      var cls = doc.classification || DataExtractor.classifyDocument(doc.name, doc.fullText || '');
-      return cls.type === 'schedule' || (cls.type === 'bq' && /\.(xlsx|xlsm|xls)$/i.test(doc.name || ''));
-    });
-    if (scheduleDocs.length === 0) {
+    var plan = _state.sourceTruthPlan || (DataExtractor.buildScopePlan ? DataExtractor.buildScopePlan(validDocs) : null);
+    var hasPricedScopeDoc = plan && plan.pricedScopeDocuments && plan.pricedScopeDocuments.length > 0;
+    if (!hasPricedScopeDoc) {
       _state.risks.push(_makeWorkflowRisk('critical', 'No machine-readable window, door, or glazing schedule was found.', {
         suggestedAction: 'Use drawing-assisted/manual takeoff, upload the schedule, or accept this risk before generating a quote.'
       }));
@@ -1100,6 +1119,7 @@ var App = (function () {
       warningCount: _state.warnings.length,
       summary: summary,
       sourceDocuments: _state.sourceDocuments,
+      sourceTruthPlan: _state.sourceTruthPlan,
       items: _state.items,
       warnings: _state.warnings,
       estimatorReview: _state.estimatorReview,

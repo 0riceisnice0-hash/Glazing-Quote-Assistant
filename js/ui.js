@@ -1625,11 +1625,18 @@ var UI = (function () {
     }
 
     var typeLabels = {
+      sourceOfTruth: '✅ Source of truth',
+      validation: '🔎 Validation',
+      reference: '📎 Reference',
+      supplierEvidence: '💷 Supplier evidence',
+      duplicate: '⏭️ Duplicate skipped',
+      excluded: '🚫 Excluded',
       schedule: '📋 Schedule',
       bq: '📑 BQ',
       drawing: '📐 Drawing',
       admin: '📁 Admin',
       specification: '📝 Specification',
+      supplierQuote: '💷 Supplier quote',
       supplier_quote: '💷 Supplier quote',
       client_quote: '🚫 Client quote',
       unknown: '📄 Document'
@@ -1639,10 +1646,12 @@ var UI = (function () {
       var label = typeLabels[doc.role] || typeLabels[doc.docType] || typeLabels.unknown;
       var pages = doc.pageCount != null ? doc.pageCount + (doc.pageCount === 1 ? ' page' : ' pages') : '? pages';
       var kind = doc.kind ? ' &bull; ' + _escapeHtml(doc.kind) : '';
+      var reason = doc.scopeDecisionReason ? '<div style="color:var(--text-muted);font-size:0.72rem;margin-top:2px">' + _escapeHtml(doc.scopeDecisionReason) + '</div>' : '';
       return '<div style="padding:4px 0;border-bottom:1px solid var(--border-color)">' +
         '<div style="font-weight:600;font-size:0.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="' + _escapeHtml(doc.name) + '">' +
         _escapeHtml(doc.name) + '</div>' +
         '<div style="color:var(--text-muted);font-size:0.75rem">' + label + kind + ' &bull; ' + pages + '</div>' +
+        reason +
         '</div>';
     }).join('');
 

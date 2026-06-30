@@ -9,7 +9,7 @@ Read `HANDOVER.md` first for the current priority. This file is the deeper opera
 - Working repo path: `C:\Users\zacpl\Desktop\Glazing-Quote-Assistant`.
 - Do not continue working in the old OneDrive repo unless the user explicitly asks.
 - Live app type: static HTML/CSS/JS, intended for GitHub Pages or Cloudflare Pages.
-- Current visible app version: `v2026.06.30.2`.
+- Current visible app version: `v2026.06.30.3`.
 - Current confirmed pushed commit before this doc refresh: `2f39bdf Add tender finder research panel`.
 - There are currently no GitHub Actions workflows in this repo.
 - The user expects meaningful changes to be committed and pushed when work is complete.
@@ -313,12 +313,14 @@ Use `npm.cmd` instead of `npm` if PowerShell blocks `npm.ps1`.
 - Read `HANDOVER.md` before editing.
 - Work in `C:\Users\zacpl\Desktop\Glazing-Quote-Assistant`.
 - Keep the browser app and CLI harness using the same extraction/pricing logic.
+- Use `DataExtractor.buildScopePlan(documents)` for source-of-truth decisions before trusting a quote. It records which documents are source of truth, validation/reference evidence, supplier evidence, duplicates, or excluded/admin documents.
 - Do not add one-off script logic that disagrees with the website.
 - When a bug is found in a tender-pack run, fix shared modules first, then re-run the CLI harness.
 - Push meaningful changes; the user expects the hosted app to update from the repo.
 - Update the version badge when user-facing behaviour changes.
 - Avoid spending OpenAI quota during debugging unless requested.
 - Treat actual estimator workbooks as stronger evidence than PDFs/drawings.
+- Treat type sheets such as `Window Types` / `External Door Types` as reference/spec evidence, not priced item scope, when schedules exist.
 - Treat image-only drawings as needing OCR/takeoff before accurate quoting.
 - Preserve unrelated user changes. Do not reset the repo.
 

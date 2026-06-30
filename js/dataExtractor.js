@@ -16,13 +16,13 @@ var DataExtractor = (function () {
     if (/\bclient\s+quote\b|\bclient\s+quotation\b|\bglazing\s+quote\b/.test(fullName))
       return { type: 'admin', confidence: 'high', reason: 'Client quote excluded from scope extraction' };
     if (/\bsupplier\s+quotes?\b|\bsupplier\s+quotation\b/.test(fullName))
-      return { type: 'admin', confidence: 'high', reason: 'Supplier quote excluded from scope extraction' };
+      return { type: 'supplierQuote', confidence: 'high', reason: 'Supplier quote is evidence, not priced scope' };
     if (/\bdrawings?\s*schedule\b/.test(name))
       return { type: 'drawing', confidence: 'high', reason: 'Filename contains drawing schedule keyword' };
     if (hasBQKeyword)
       return { type: 'bq', confidence: 'high', reason: 'Filename contains BQ keyword' };
-    if (/\bopening\s*types?\b/.test(name))
-      return { type: 'specification', confidence: 'high', reason: 'Filename contains opening type reference sheet keyword' };
+    if (/\b(?:opening|window|door|external\s+door)\s*types?\b/.test(name))
+      return { type: 'specification', confidence: 'high', reason: 'Filename contains type/reference sheet keyword' };
     if (hasScheduleKeyword ||
         /pricing\s*(?:schedule|doc|document)?|windows?\s*(?:&|and)\s*doors?|doors?\s*(?:&|and)\s*windows?|window\s*style/.test(name))
       return { type: 'schedule', confidence: 'high', reason: 'Filename contains schedule keyword' };
@@ -77,6 +77,129 @@ var DataExtractor = (function () {
 
   function isScheduleOrBQ(docType) {
     return docType === 'schedule' || docType === 'bq' || docType === 'specification';
+  }
+
+  function buildScopePlan(documents) {
+    documents = documents || [];
+    var classified = documents.map(function (doc, index) {
+      var classification = doc.classification || classifyDocument(doc.name, doc.fullText || '');
+      var name = doc.name || '';
+      var lowerName = name.toLowerCase();
+      var ext = lowerName.match(/\.(xlsx|xlsm|xls|pdf)$/i);
+      var isWorkbook = /\.(xlsx|xlsm|xls)$/i.test(lowerName);
+      var isPdf = /\.pdf$/i.test(lowerName);
+      return {
+        index: index,
+        doc: doc,
+        name: name,
+        lowerName: lowerName,
+        baseName: lowerName.replace(/\.(xlsx|xlsm|xls|pdf)$/i, ''),
+        extension: ext ? ext[1].toLowerCase() : '',
+        isWorkbook: isWorkbook,
+        isPdf: isPdf,
+        classification: classification,
+        type: classification.type,
+        textChars: (doc.fullText || '').length
+      };
+    });
+
+    var hasFensterPricingWorkbook = classified.some(function (entry) {
+      return entry.type === 'schedule' && entry.isWorkbook && /\bpricing\b/i.test(entry.name);
+    });
+    var hasScheduleWorkbook = classified.some(function (entry) {
+      return entry.type === 'schedule' && entry.isWorkbook;
+    });
+    var hasBqWorkbook = classified.some(function (entry) {
+      return entry.type === 'bq' && entry.isWorkbook;
+    });
+    var workbookBases = {};
+    classified.forEach(function (entry) {
+      if ((entry.type === 'schedule' || entry.type === 'bq') && entry.isWorkbook) {
+        workbookBases[entry.baseName] = true;
+      }
+    });
+
+    var sourceOfTruth = hasFensterPricingWorkbook ? 'fensterPricingWorkbook' :
+      (hasScheduleWorkbook ? 'scheduleWorkbook' :
+      (hasBqWorkbook ? 'boqWorkbook' :
+      (classified.some(function (entry) { return entry.type === 'schedule'; }) ? 'schedulePdf' : 'none')));
+
+    var decisions = classified.map(function (entry) {
+      var role = 'reference';
+      var useForExtraction = false;
+      var pricedScope = false;
+      var reason = entry.classification.reason || '';
+
+      if (entry.type === 'admin') {
+        role = 'excluded';
+        reason = 'Admin/client output document excluded from estimating evidence.';
+      } else if (entry.type === 'supplierQuote') {
+        role = 'supplierEvidence';
+        reason = 'Supplier quote retained for comparison, not used as direct priced scope.';
+      } else if (entry.type === 'drawing') {
+        role = 'reference';
+        useForExtraction = true;
+        reason = 'Drawing retained for cross-reference only; not priced without takeoff.';
+      } else if (entry.type === 'specification') {
+        role = 'reference';
+        useForExtraction = true;
+        reason = 'Specification retained for requirements/enrichment only; not priced as item scope.';
+      } else if (entry.type === 'bq') {
+        useForExtraction = true;
+        role = entry.isWorkbook && !hasScheduleWorkbook ? 'sourceOfTruth' : 'validation';
+        pricedScope = entry.isWorkbook && !hasScheduleWorkbook;
+        reason = pricedScope ? 'Workbook BoQ is the strongest available priced scope.' : 'BoQ retained for quantity/scope validation.';
+      } else if (entry.type === 'schedule') {
+        useForExtraction = true;
+        role = 'sourceOfTruth';
+        pricedScope = true;
+        if (hasFensterPricingWorkbook && !(entry.isWorkbook && /\bpricing\b/i.test(entry.name))) {
+          role = 'duplicate';
+          useForExtraction = false;
+          pricedScope = false;
+          reason = 'Fenster pricing workbook supplied; this schedule is duplicate/lower priority.';
+        } else if (!hasFensterPricingWorkbook && hasScheduleWorkbook && entry.isPdf && workbookBases[entry.baseName]) {
+          role = 'duplicate';
+          useForExtraction = false;
+          pricedScope = false;
+          reason = 'Workbook version supplied; duplicate PDF schedule skipped.';
+        } else if (hasScheduleWorkbook && !entry.isWorkbook) {
+          role = 'duplicate';
+          useForExtraction = false;
+          pricedScope = false;
+          reason = 'Schedule workbook supplied; PDF schedule skipped to avoid duplicate item extraction.';
+        } else if (entry.isWorkbook && /\bpricing\b/i.test(entry.name)) {
+          reason = 'Fenster/estimator pricing workbook selected as source of truth.';
+        } else if (entry.isWorkbook) {
+          reason = 'Machine-readable schedule workbook selected as source of truth.';
+        } else {
+          reason = 'Schedule PDF selected as source of truth because no stronger workbook was found.';
+        }
+      } else {
+        role = 'excluded';
+        reason = 'Unknown document type excluded from priced extraction.';
+      }
+
+      return {
+        name: entry.name,
+        type: entry.type,
+        classification: entry.classification,
+        role: role,
+        useForExtraction: useForExtraction,
+        pricedScope: pricedScope,
+        sourceOfTruth: role === 'sourceOfTruth',
+        reason: reason,
+        textChars: entry.textChars
+      };
+    });
+
+    return {
+      sourceOfTruth: sourceOfTruth,
+      decisions: decisions,
+      documentsForExtraction: decisions.filter(function (d) { return d.useForExtraction; }).map(function (d) { return d.name; }),
+      pricedScopeDocuments: decisions.filter(function (d) { return d.pricedScope; }).map(function (d) { return d.name; }),
+      skippedDocuments: decisions.filter(function (d) { return !d.useForExtraction; }).map(function (d) { return d.name; })
+    };
   }
 
   function isRelevantForCrossRef(docType) {
@@ -1352,6 +1475,11 @@ var DataExtractor = (function () {
   // -----------------------------------------------------------------------
 
   function extractItems(documents) {
+    var scopePlan = buildScopePlan(documents);
+    var decisionByName = {};
+    (scopePlan.decisions || []).forEach(function (decision) {
+      decisionByName[decision.name] = decision;
+    });
     var allItems    = [];
     var allWarnings = [];
     var debugLog    = [];
@@ -1383,16 +1511,10 @@ var DataExtractor = (function () {
     var allSpecNotes   = [];
     var allSpecText    = '';
     var scheduleDocCount = 0;
-    var workbookScheduleBases = {};
-    var hasFensterPricingWorkbook = false;
 
-    documents.forEach(function (doc) {
-      var docName = doc.name || '';
-      if (!/\.(xlsx|xlsm|xls)$/i.test(docName)) return;
-      var cls = classifyDocument(docName, doc.fullText || '');
-      if (cls.type !== 'schedule') return;
-      workbookScheduleBases[docName.toLowerCase().replace(/\.(xlsx|xlsm|xls)$/i, '')] = true;
-      if (/\bpricing\b/i.test(docName)) hasFensterPricingWorkbook = true;
+    debugLog.push('Source-of-truth plan: ' + scopePlan.sourceOfTruth);
+    (scopePlan.decisions || []).forEach(function (decision) {
+      debugLog.push('[PLAN / ' + decision.role + '] ' + decision.name + ' - ' + decision.reason);
     });
 
     documents.forEach(function (doc) {
@@ -1401,13 +1523,9 @@ var DataExtractor = (function () {
 
       var classification = classifyDocument(doc.name, doc.fullText || '');
       var docType = classification.type;
-      var docBase = (doc.name || '').toLowerCase().replace(/\.(pdf)$/i, '');
-      if (hasFensterPricingWorkbook && docType === 'schedule' && !(/\.(xlsx|xlsm|xls)$/i.test(doc.name || '') && /\bpricing\b/i.test(doc.name || ''))) {
-        debugLog.push('[SCHEDULE / skipped] ' + doc.name + ' - Fenster pricing workbook supplied, using workbook as source of truth');
-        return;
-      }
-      if (docType === 'schedule' && /\.pdf$/i.test(doc.name || '') && workbookScheduleBases[docBase]) {
-        debugLog.push('[SCHEDULE / skipped] ' + doc.name + ' - workbook version supplied, using Excel schedule as source of truth');
+      var decision = decisionByName[doc.name] || null;
+      if (decision && !decision.useForExtraction) {
+        debugLog.push('[' + docType.toUpperCase() + ' / skipped] ' + doc.name + ' - ' + decision.reason);
         return;
       }
       debugLog.push('[' + docType.toUpperCase() + ' / ' + classification.confidence + '] ' + doc.name + ' (' + doc.pages.length + ' page(s)) — ' + classification.reason);
@@ -1453,8 +1571,14 @@ var DataExtractor = (function () {
       if (docType === 'schedule') {
         scheduleDocCount++;
         docResult.items.forEach(function (item) {
+          applyItemEvidence(item, doc, decision || {}, 'priced scope');
           var key = item.reference.toUpperCase();
           if (!scheduleItems[key]) scheduleItems[key] = item;
+        });
+      }
+      if (docType === 'bq') {
+        docResult.items.forEach(function (item) {
+          applyItemEvidence(item, doc, decision || {}, decision && decision.pricedScope ? 'priced scope' : 'validation');
         });
       }
     });
@@ -1575,7 +1699,45 @@ var DataExtractor = (function () {
     stats.itemsFound = allItems.length;
     stats.warnings   = allWarnings.length;
 
-    return { items: allItems, warnings: allWarnings, stats: stats, debugLog: debugLog, specNotes: allSpecNotes };
+    allItems.forEach(function (item) {
+      if (!item.evidence || !item.evidence.length) {
+        var decision = decisionByName[item.sourceDocument] || {};
+        applyItemEvidence(item, { name: item.sourceDocument || '', kind: '' }, decision, decision.pricedScope ? 'priced scope' : 'extracted scope');
+      }
+    });
+
+    return { items: allItems, warnings: allWarnings, stats: stats, debugLog: debugLog, specNotes: allSpecNotes, scopePlan: scopePlan };
+  }
+
+  function applyItemEvidence(item, doc, decision, use) {
+    if (!item) return item;
+    var evidence = {
+      sourceDocument: item.sourceDocument || (doc && doc.name) || '',
+      sourcePage: item.sourcePage || 0,
+      role: (decision && decision.role) || '',
+      use: use || '',
+      reason: (decision && decision.reason) || '',
+      confidence: item.confidence || '',
+      extractedFields: []
+    };
+    ['reference', 'quantity', 'width', 'height', 'frameType', 'glazingSpec', 'finish', 'uValue', 'fireRating', 'ironmongery'].forEach(function (field) {
+      if (item[field] !== undefined && item[field] !== null && item[field] !== '') evidence.extractedFields.push(field);
+    });
+    item.evidence = item.evidence || [];
+    var exists = item.evidence.some(function (existing) {
+      return existing.sourceDocument === evidence.sourceDocument &&
+        existing.sourcePage === evidence.sourcePage &&
+        existing.use === evidence.use;
+    });
+    if (!exists) item.evidence.push(evidence);
+    item.scopeDecision = {
+      sourceDocument: evidence.sourceDocument,
+      sourceRole: evidence.role,
+      included: decision ? !!decision.useForExtraction : true,
+      pricedScope: decision ? !!decision.pricedScope : true,
+      reason: evidence.reason
+    };
+    return item;
   }
 
   function extractDrawingRefs(doc) {
@@ -1653,8 +1815,9 @@ var DataExtractor = (function () {
     var classification = classifyDocument(doc.name, doc.fullText || '');
     var docType = classification.type;
 
-    // Admin documents contain no glazing data — skip entirely to avoid false positives
-    if (docType === 'admin') return { items: [], warnings: [] };
+    // Admin and supplier quote documents contain no direct priced scope. Supplier
+    // quotes are handled by the estimator-review comparison workflow.
+    if (docType === 'admin' || docType === 'supplierQuote') return { items: [], warnings: [] };
 
     // Architectural drawings — extract reference markers for cross-validation only
     if (docType === 'drawing') {
@@ -3156,6 +3319,7 @@ var DataExtractor = (function () {
   return {
     extractItems: extractItems,
     classifyDocument: classifyDocument,
+    buildScopePlan: buildScopePlan,
     crossReferenceDocuments: crossReferenceDocuments,
     isLikelyScanned: function (text, pageCount) {
       if (!text || text.trim().length === 0) return true;

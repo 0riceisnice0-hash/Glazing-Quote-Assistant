@@ -60,15 +60,23 @@ for (const filePath of expandedInputFiles) {
   console.log(`${doc.name}: ${classification.type} (${classification.confidence}) - ${classification.reason}`);
 }
 
-const extractionDocs = firstPassDocs.filter((doc) => shouldUseDocument(doc.classification.type));
+const initialScopePlan = DataExtractor.buildScopePlan ? DataExtractor.buildScopePlan(firstPassDocs) : null;
+if (initialScopePlan) {
+  console.log(`Source-of-truth plan: ${initialScopePlan.sourceOfTruth}`);
+  for (const decision of initialScopePlan.decisions) {
+    console.log(`${decision.name}: ${decision.role} - ${decision.reason}`);
+  }
+}
 
-const skippedDocs = firstPassDocs.filter((doc) => !extractionDocs.includes(doc));
-console.log(`Using ${extractionDocs.length}/${firstPassDocs.length} PDFs for extraction/pricing.`);
+const extraction = withQuietConsole(() => DataExtractor.extractItems(firstPassDocs));
+const scopePlan = extraction.scopePlan || initialScopePlan || null;
+const skippedDocs = scopePlan
+  ? firstPassDocs.filter((doc) => !scopePlan.documentsForExtraction.includes(doc.name))
+  : [];
+console.log(`Using ${scopePlan ? scopePlan.documentsForExtraction.length : firstPassDocs.length}/${firstPassDocs.length} documents for extraction/pricing evidence.`);
 if (skippedDocs.length) {
   console.log(`Skipped: ${skippedDocs.map((doc) => doc.name).join(', ')}`);
 }
-
-const extraction = withQuietConsole(() => DataExtractor.extractItems(extractionDocs));
 let pricingConfig = { ...Pricing.DEFAULT_CONFIG };
 pricingConfig = Pricing.applyTenderPricingDefaults(extraction.items, pricingConfig);
 Pricing.applyKnownItemPricing(extraction.items);
@@ -91,14 +99,16 @@ const report = {
     extractionMethod: doc.extractionMethod || '',
     classification: doc.classification
   })),
-  usedDocuments: extractionDocs.map((doc) => doc.name),
+  sourceTruthPlan: scopePlan,
+  usedDocuments: scopePlan ? scopePlan.documentsForExtraction : firstPassDocs.map((doc) => doc.name),
   skippedDocuments: skippedDocs.map((doc) => ({
     name: doc.name,
-    classification: doc.classification
+    classification: doc.classification,
+    decision: scopePlan ? scopePlan.decisions.find((decision) => decision.name === doc.name) : null
   })),
   stats: extraction.stats,
   warnings: extraction.warnings,
-  risks: intakeRisks.concat(buildWorkflowRisks(firstPassDocs, pricedItems)),
+  risks: intakeRisks.concat(buildWorkflowRisks(firstPassDocs, pricedItems, scopePlan)),
   intakeRecords,
   specNotes: extraction.specNotes,
   pricingConfig,
@@ -127,7 +137,9 @@ const report = {
     productCode: item.productCode,
     pricingMethod: item.pricingMethod,
     unitPrice: item.unitPrice,
-    totalPrice: item.totalPrice
+    totalPrice: item.totalPrice,
+    scopeDecision: item.scopeDecision,
+    evidence: item.evidence
   })),
   debugLog: extraction.debugLog
 };
@@ -588,10 +600,10 @@ function csvCell(value) {
   return text;
 }
 
-function buildWorkflowRisks(docs, items) {
+function buildWorkflowRisks(docs, items, scopePlan) {
   const risks = [];
-  const scheduleDocs = docs.filter((doc) => doc.classification && doc.classification.type === 'schedule');
-  if (!scheduleDocs.length) {
+  const hasPricedScopeDoc = scopePlan && scopePlan.pricedScopeDocuments && scopePlan.pricedScopeDocuments.length > 0;
+  if (!hasPricedScopeDoc) {
     risks.push(makeRisk('critical', 'No machine-readable window, door, or glazing schedule was found.', {
       suggestedAction: 'Upload a schedule, use drawing-assisted takeoff, or accept this risk before quote generation.'
     }));

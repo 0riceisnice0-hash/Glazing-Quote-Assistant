@@ -71,6 +71,7 @@ var ProjectHailMary = (function () {
     var assumptions = buildAssumptions(requirements, supplierQuotes);
     var exclusions = buildExclusions(requirements, comparison);
     var redFlags = buildRedFlags(requirements, supplierQuotes, documents);
+    var sourceTruthPlan = state.sourceTruthPlan || (typeof DataExtractor !== 'undefined' && DataExtractor.buildScopePlan ? DataExtractor.buildScopePlan(documents) : null);
     var riskRegister = buildRiskRegister(requirements, comparison, redFlags, documents, sourceItems);
     var rfis = buildRfis(requirements, comparison, redFlags);
     var readiness = determineReadiness(comparison, rfis, sourceItems, riskRegister);
@@ -85,12 +86,19 @@ var ProjectHailMary = (function () {
       status: readiness.status,
       statusLabel: readiness.label,
       summary: summary,
+      sourceTruthPlan: sourceTruthPlan,
       documentsReviewed: documents.map(function (doc) {
+        var decision = sourceTruthPlan && sourceTruthPlan.decisions
+          ? sourceTruthPlan.decisions.find(function (d) { return d.name === doc.name; })
+          : null;
         return {
           name: doc.name,
           kind: doc.kind || '',
-          role: doc.role || '',
+          role: (decision && decision.role) || doc.role || '',
           classification: doc.classification || null,
+          useForExtraction: decision ? decision.useForExtraction : undefined,
+          pricedScope: decision ? decision.pricedScope : undefined,
+          decisionReason: decision ? decision.reason : '',
           textChars: (doc.fullText || '').length
         };
       }),
@@ -593,6 +601,16 @@ var ProjectHailMary = (function () {
     (review.tenderRequirements || []).forEach(function (r) {
       lines.push('- ' + r.label + ': ' + r.value + ' [' + r.sourceDocument + ']');
     });
+    lines.push('');
+    lines.push('## Source Of Truth');
+    if (review.sourceTruthPlan) {
+      lines.push('- Plan: ' + review.sourceTruthPlan.sourceOfTruth);
+      (review.sourceTruthPlan.decisions || []).forEach(function (d) {
+        lines.push('- ' + d.role + ': ' + d.name + ' - ' + d.reason);
+      });
+    } else {
+      lines.push('- No source-of-truth plan available.');
+    }
     lines.push('');
     lines.push('## Supplier Quotes');
     (review.supplierQuotes || []).forEach(function (q) {

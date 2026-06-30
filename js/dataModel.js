@@ -147,6 +147,7 @@ const DEFAULT_STATE = {
   drawingCandidates: [],
   intakeRecords: [],
   estimatorReview: null,
+  sourceTruthPlan: null,
   lastSaved: null
 };
 
