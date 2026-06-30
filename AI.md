@@ -8,7 +8,9 @@ Read `HANDOVER.md` first for the current priority. This file is the deeper opera
 
 - Working repo path: `C:\Users\zacpl\Desktop\Glazing-Quote-Assistant`.
 - Do not continue working in the old OneDrive repo unless the user explicitly asks.
-- Live app type: static HTML/CSS/JS, intended for GitHub Pages or Cloudflare Pages.
+- Live app type: static HTML/CSS/JS on Cloudflare Pages, with an optional Cloudflare Worker for document intake.
+- Cloudflare Pages frontend: `https://glazing-quote-assistant.pages.dev`.
+- Cloudflare Worker: `https://gqa-document-processor.0riceisnice0.workers.dev`.
 - Current visible app version: `v2026.06.30.4`.
 - Current confirmed pushed commit before this doc refresh: `2f39bdf Add tender finder research panel`.
 - There are currently no GitHub Actions workflows in this repo.
@@ -318,6 +320,7 @@ Use `npm.cmd` instead of `npm` if PowerShell blocks `npm.ps1`.
 - Do not add one-off script logic that disagrees with the website.
 - When a bug is found in a tender-pack run, fix shared modules first, then re-run the CLI harness.
 - Push meaningful changes; the user expects the hosted app to update from the repo.
+- Cloudflare Pages is currently deployed by building a clean artifact with `scripts\build-pages.ps1` and running `npx.cmd wrangler pages deploy dist-pages --project-name glazing-quote-assistant --branch main`.
 - Update the version badge when user-facing behaviour changes.
 - Avoid spending OpenAI quota during debugging unless requested.
 - Treat actual estimator workbooks as stronger evidence than PDFs/drawings.

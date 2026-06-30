@@ -2,7 +2,9 @@
 
 A professional, client-side web application for glazing contractors to extract items from tender PDFs and generate detailed quotation PDFs — all in the browser, no server required.
 
-**Live Demo:** [https://0riceisnice0-hash.github.io/Glazing-Quote-Assistant/](https://0riceisnice0-hash.github.io/Glazing-Quote-Assistant/)
+**Live App:** [https://glazing-quote-assistant.pages.dev](https://glazing-quote-assistant.pages.dev)
+
+Legacy GitHub Pages URL: [https://0riceisnice0-hash.github.io/Glazing-Quote-Assistant/](https://0riceisnice0-hash.github.io/Glazing-Quote-Assistant/)
 
 ---
 
@@ -135,6 +137,36 @@ OCR adds significant processing time (~5–30 seconds per page depending on hard
 
 ---
 
+## Cloudflare Deployment
+
+The primary production frontend is Cloudflare Pages:
+
+```text
+https://glazing-quote-assistant.pages.dev
+```
+
+The document intake Worker is:
+
+```text
+https://gqa-document-processor.0riceisnice0.workers.dev
+```
+
+Deploy the static frontend from a clean artifact so tender packs, test results and `node_modules` are not uploaded:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\build-pages.ps1
+npx.cmd wrangler pages deploy dist-pages --project-name glazing-quote-assistant --branch main
+```
+
+Deploy the Worker:
+
+```powershell
+cd workers\document-processor
+npm.cmd run deploy
+```
+
+---
+
 ## Optional Cloud Worker
 
 The upload screen can be configured with a Cloudflare Worker URL for internal testing. When enabled, unsupported local intake files can be sent to the Worker.
@@ -156,15 +188,9 @@ Worker source lives in `workers/document-processor`.
 
 ---
 
-## GitHub Pages Deployment
+## Legacy GitHub Pages Deployment
 
-This project is deployed directly from the `main` branch via GitHub Pages. No build step is required — it is a static HTML/CSS/JS application.
-
-To deploy your own copy:
-1. Fork the repository
-2. Go to **Settings → Pages**
-3. Set source to **Deploy from branch → main → / (root)**
-4. Your app will be live at `https://<username>.github.io/Glazing-Quote-Assistant/`
+GitHub Pages can still serve the app as a fallback static host, but Cloudflare Pages is the preferred production deployment.
 
 ---
 

@@ -1,8 +1,8 @@
 # GQA Document Processor Worker
 
-Optional Cloudflare Worker for internal Glazing Quote Assistant document intake.
+Cloudflare Worker for Glazing Quote Assistant document intake.
 
-The main app still runs on GitHub Pages. This Worker is used only when the upload screen has **Use Cloudflare Worker for unsupported documents** enabled and a Worker URL configured.
+The main app is served from Cloudflare Pages at `https://glazing-quote-assistant.pages.dev`. This Worker is used when the upload screen has **Use Cloudflare Worker for unsupported documents** enabled and a Worker URL configured.
 
 ## What It Does
 

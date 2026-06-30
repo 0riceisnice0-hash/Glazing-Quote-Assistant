@@ -40,6 +40,18 @@ Current app version shown in the UI:
 v2026.06.30.4
 ```
 
+Primary hosted app:
+
+```text
+https://glazing-quote-assistant.pages.dev
+```
+
+Document intake Worker:
+
+```text
+https://gqa-document-processor.0riceisnice0.workers.dev
+```
+
 Last important pushed code commit before this doc refresh:
 
 ```text
@@ -223,6 +235,7 @@ Use `npm.cmd` instead of `npm` if PowerShell blocks `npm.ps1`.
 - Do not manually create script-only quote logic that differs from the website.
 - Do not forget to bump the visible version when user-facing behaviour changes.
 - Push meaningful changes. The user has already called out local-only changes not appearing online.
+- After user-facing changes, deploy Cloudflare Pages with `powershell -ExecutionPolicy Bypass -File scripts\build-pages.ps1` then `npx.cmd wrangler pages deploy dist-pages --project-name glazing-quote-assistant --branch main`.
 
 ## If The User Gives More Tender Files
 
