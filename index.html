@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glazing Quote Assistant</title>
   <meta name="description" content="Professional glazing quotation tool — upload tender documents, extract items, and generate PDF quotes.">
-  <link rel="stylesheet" href="css/styles.css?v=20260625a">
+  <link rel="stylesheet" href="css/styles.css?v=20260630c">
 </head>
 <body>
 
@@ -36,7 +36,7 @@
     <div class="logo-area">
       <img src="assets/fenster-logo.png" alt="Glazing Quote Assistant Logo" id="headerLogo">
       <span class="app-title">Glazing Quote Assistant</span>
-      <span class="app-version" id="appVersion">v2026.06.30.3</span>
+      <span class="app-version" id="appVersion">v2026.06.30.4</span>
     </div>
     <div class="header-spacer"></div>
     <div class="header-actions">
@@ -361,6 +361,19 @@
       <div id="tableReviewPanel">
         <div class="step2-layout">
         <div class="step2-main">
+          <div class="card" id="estimatorDashboardCard">
+            <div class="card-title">
+              <span class="card-icon">🧾</span>
+              Estimator Dashboard
+            </div>
+            <div id="estimatorDashboardPanel">
+              <div class="empty-state" style="padding:20px">
+                <span style="font-size:2rem">📄</span>
+                <p>Analyse documents to build the estimator review dashboard.</p>
+              </div>
+            </div>
+          </div>
+
           <div class="card">
             <div class="card-tabs">
               <button class="card-tab active" id="tabItems">📋 Items</button>
@@ -665,14 +678,14 @@
   <script src="js/projectHailMary.js?v=20260630c"></script>
   <script src="js/tenderFinder.js?v=20260630a"></script>
   <script src="js/aiEnrichment.js?v=20260625e"></script>
-  <script src="js/ui.js?v=20260630b"></script>
+  <script src="js/ui.js?v=20260630c"></script>
   <script src="js/pdfViewer.js?v=20260327a"></script>
   <script src="js/quoteGenerator.js?v=20260625b"></script>
   <script src="js/ocrFallback.js?v=20260327a"></script>
   <script src="js/diagnostics.js?v=20260327a"></script>
   <script src="js/floorplanParser.js?v=20260327a"></script>
   <script src="js/viewer3d.js?v=20260327a"></script>
-  <script src="js/app.js?v=20260630b"></script>
+  <script src="js/app.js?v=20260630c"></script>
 
 </body>
 </html>

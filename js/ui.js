@@ -1187,18 +1187,35 @@ var UI = (function () {
   }
 
   function renderEstimatorReview(review) {
-    var el = document.getElementById('estimatorReviewPanel');
-    if (!el) return;
+    var sidebar = document.getElementById('estimatorReviewPanel');
+    var dashboard = document.getElementById('estimatorDashboardPanel');
     if (!review) {
-      el.innerHTML = 'Analyse documents to generate tender requirements, supplier checks, RFIs and pricing codes.';
+      var empty = 'Analyse documents to generate tender requirements, supplier checks, RFIs and pricing codes.';
+      if (sidebar) sidebar.innerHTML = empty;
+      if (dashboard) {
+        dashboard.innerHTML = '<div class="empty-state" style="padding:20px"><span style="font-size:2rem">📄</span><p>' + empty + '</p></div>';
+      }
       return;
     }
+    if (sidebar) sidebar.innerHTML = _renderEstimatorSidebar(review);
+    if (dashboard) dashboard.innerHTML = _renderEstimatorDashboard(review);
+  }
+
+  function _reviewStatusClass(status) {
+    return status === 'ready' ? 'success' : (status === 'blocked' ? 'error' : 'warning');
+  }
+
+  function _reviewStatusLabel(status) {
+    return status === 'ready' ? 'Ready' : (status === 'blocked' ? 'Blocked' : 'Review');
+  }
+
+  function _renderEstimatorSidebar(review) {
     var fc = Pricing.formatCurrency;
-    var statusClass = review.status === 'ready' ? 'success' : (review.status === 'blocked' ? 'error' : 'warning');
     var gaps = (review.scopeComparison && review.scopeComparison.gaps) || [];
     var rfis = review.rfis || [];
-    var requirements = review.tenderRequirements || [];
-    var html = '<div class="warning-item ' + statusClass + '" style="margin-bottom:8px">' +
+    var risks = review.riskRegister || [];
+    var critical = risks.filter(function (risk) { return risk.severity === 'critical'; }).length;
+    var html = '<div class="warning-item ' + _reviewStatusClass(review.status) + '" style="margin-bottom:8px">' +
       '<div class="warning-msg"><strong>' + _escapeHtml(review.statusLabel || 'Estimator review') + '</strong></div>' +
       '</div>';
     html += '<table class="price-summary-table" style="font-size:0.78rem">' +
@@ -1206,31 +1223,168 @@ var UI = (function () {
       '<tr><td>Supplier total</td><td>' + fc((review.summary && review.summary.supplierTotal) || 0) + '</td></tr>' +
       '<tr><td>Labour allowance</td><td>' + fc((review.summary && review.summary.labourTotal) || 0) + '</td></tr>' +
       '<tr><td>Coding rows</td><td>' + ((review.summary && review.summary.codingRows) || 0) + '</td></tr>' +
+      '<tr><td>Critical risks</td><td>' + critical + '</td></tr>' +
       '<tr><td>RFIs</td><td>' + rfis.length + '</td></tr>' +
       '</table>';
-    if (requirements.length) {
-      html += '<div style="margin-top:8px;font-weight:700;color:var(--text-primary)">Tender requirements</div>';
-      html += '<ul style="margin:4px 0 0 16px;padding:0">';
-      requirements.slice(0, 5).forEach(function (req) {
-        html += '<li>' + _escapeHtml(req.label + ': ' + req.value) + '</li>';
+    if (gaps.length || risks.length) {
+      html += '<div style="margin-top:8px;font-weight:700;color:var(--text-primary)">Top actions</div><ul style="margin:4px 0 0 16px;padding:0">';
+      _topActions(review).slice(0, 4).forEach(function (action) {
+        html += '<li>' + _escapeHtml(action) + '</li>';
       });
-      if (requirements.length > 5) html += '<li>' + (requirements.length - 5) + ' more...</li>';
       html += '</ul>';
     }
-    if (gaps.length) {
-      html += '<div style="margin-top:8px;font-weight:700;color:var(--text-primary)">Gaps / risks</div>';
-      html += '<ul style="margin:4px 0 0 16px;padding:0">';
-      gaps.slice(0, 5).forEach(function (gap) {
-        html += '<li>' + _escapeHtml(gap.message) + '</li>';
-      });
-      if (gaps.length > 5) html += '<li>' + (gaps.length - 5) + ' more...</li>';
-      html += '</ul>';
-    }
+    return html;
+  }
+
+  function _renderEstimatorDashboard(review) {
+    var fc = Pricing.formatCurrency;
+    var summary = review.summary || {};
+    var risks = review.riskRegister || [];
+    var rfis = review.rfis || [];
+    var requirements = review.tenderRequirements || [];
+    var coding = review.codingChecks || [];
+    var supplierRows = review.supplierQuoteComparison || [];
+    var checklist = review.preIssueChecklist || [];
+    var sourcePlan = review.sourceTruthPlan || {};
+    var critical = risks.filter(function (risk) { return risk.severity === 'critical'; }).length;
+    var warnings = risks.filter(function (risk) { return risk.severity !== 'critical'; }).length;
+    var openChecklist = checklist.filter(function (item) { return item.status !== 'checked'; }).length;
+
+    var html = '<div class="estimator-dashboard">';
+    html += '<div class="estimator-hero ' + _reviewStatusClass(review.status) + '">' +
+      '<div><div class="estimator-status-label">' + _escapeHtml(_reviewStatusLabel(review.status)) + '</div>' +
+      '<div class="estimator-status-title">' + _escapeHtml(review.statusLabel || 'Estimator review') + '</div>' +
+      '<div class="estimator-status-sub">Source plan: ' + _escapeHtml(sourcePlan.sourceOfTruth || 'not available') + '</div></div>' +
+      '<div class="estimator-status-counts">' +
+      '<span>' + critical + ' critical</span><span>' + rfis.length + ' RFIs</span><span>' + openChecklist + ' open checks</span>' +
+      '</div></div>';
+
+    html += '<div class="estimator-metrics">' +
+      _metric('Items/codes', summary.codingRows || 0, 'Rows to check') +
+      _metric('Supplier total', fc(summary.supplierTotal || 0), (summary.supplierQuoteCount || 0) + ' quote(s)') +
+      _metric('Labour allowance', fc(summary.labourTotal || 0), 'Code-driven check') +
+      _metric('Risks', critical + '/' + warnings, 'critical / warning') +
+      '</div>';
+
+    html += '<div class="estimator-grid two">';
+    html += _panel('Immediate Actions', _actionList(_topActions(review), 'No urgent actions from the current evidence.'));
+    html += _panel('Source Of Truth', _sourcePlanTable(sourcePlan));
+    html += '</div>';
+
+    html += '<div class="estimator-grid two">';
+    html += _panel('Tender Requirements', _requirementList(requirements));
+    html += _panel('Risk Register', _riskList(risks));
+    html += '</div>';
+
+    html += _panel('Supplier Coverage', _supplierCoverageTable(supplierRows));
+    html += '<div class="estimator-grid two">';
+    html += _panel('Pricing Code Check', _codingTable(coding));
+    html += _panel('Pre-Issue Checklist', _checklistTable(checklist));
+    html += '</div>';
+
     if (review.proposalDraft && review.proposalDraft.executiveSummary) {
-      html += '<div style="margin-top:8px;font-weight:700;color:var(--text-primary)">Proposal summary draft</div>' +
-        '<div style="font-size:0.76rem;line-height:1.35">' + _escapeHtml(review.proposalDraft.executiveSummary) + '</div>';
+      html += _panel('Proposal Summary Draft', '<div class="estimator-copy">' + _escapeHtml(review.proposalDraft.executiveSummary) + '</div>');
     }
-    el.innerHTML = html;
+    html += '</div>';
+    return html;
+  }
+
+  function _metric(label, value, hint) {
+    return '<div class="estimator-metric"><div class="metric-label">' + _escapeHtml(label) + '</div>' +
+      '<div class="metric-value">' + _escapeHtml(value) + '</div><div class="metric-hint">' + _escapeHtml(hint || '') + '</div></div>';
+  }
+
+  function _panel(title, body) {
+    return '<section class="estimator-panel"><h3>' + _escapeHtml(title) + '</h3>' + body + '</section>';
+  }
+
+  function _topActions(review) {
+    var actions = [];
+    (review.riskRegister || []).forEach(function (risk) {
+      if (risk.severity === 'critical') actions.push(risk.recommendedAction || risk.risk);
+    });
+    ((review.scopeComparison && review.scopeComparison.gaps) || []).forEach(function (gap) {
+      actions.push(gap.suggestedAction || gap.message);
+    });
+    (review.rfis || []).forEach(function (rfi) {
+      if (rfi.severity === 'critical') actions.push(rfi.question);
+    });
+    (review.preIssueChecklist || []).forEach(function (check) {
+      if (check.status !== 'checked') actions.push(check.actionRequired || check.item);
+    });
+    return _uniqueText(actions).slice(0, 8);
+  }
+
+  function _actionList(actions, emptyText) {
+    if (!actions || !actions.length) return '<div class="estimator-empty">' + _escapeHtml(emptyText) + '</div>';
+    return '<ol class="estimator-actions">' + actions.map(function (action) {
+      return '<li>' + _escapeHtml(action) + '</li>';
+    }).join('') + '</ol>';
+  }
+
+  function _sourcePlanTable(plan) {
+    var decisions = (plan && plan.decisions) || [];
+    if (!decisions.length) return '<div class="estimator-empty">No source plan available.</div>';
+    return '<div class="estimator-table-wrap"><table class="estimator-table"><thead><tr><th>Role</th><th>Document</th><th>Reason</th></tr></thead><tbody>' +
+      decisions.map(function (d) {
+        return '<tr><td><span class="role-pill role-' + _escapeHtml(d.role || 'unknown') + '">' + _escapeHtml(d.role || 'unknown') + '</span></td>' +
+          '<td>' + _escapeHtml(d.name || '') + '</td><td>' + _escapeHtml(d.reason || '') + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+  }
+
+  function _requirementList(requirements) {
+    if (!requirements || !requirements.length) return '<div class="estimator-empty">No tender requirements extracted yet.</div>';
+    return '<div class="estimator-tags">' + requirements.slice(0, 18).map(function (req) {
+      return '<span title="' + _escapeHtml(req.sourceDocument || '') + '">' + _escapeHtml(req.label + ': ' + req.value) + '</span>';
+    }).join('') + '</div>';
+  }
+
+  function _riskList(risks) {
+    if (!risks || !risks.length) return '<div class="estimator-empty">No risks raised from current evidence.</div>';
+    return '<div class="estimator-risk-list">' + risks.slice(0, 8).map(function (risk) {
+      return '<div class="estimator-risk ' + _escapeHtml(risk.severity || 'warning') + '">' +
+        '<strong>' + _escapeHtml(risk.risk || '') + '</strong>' +
+        '<span>' + _escapeHtml(risk.recommendedAction || risk.reason || '') + '</span></div>';
+    }).join('') + '</div>';
+  }
+
+  function _supplierCoverageTable(rows) {
+    if (!rows || !rows.length) return '<div class="estimator-empty">No supplier comparison rows yet. Upload supplier quotes or review manually.</div>';
+    return '<div class="estimator-table-wrap"><table class="estimator-table"><thead><tr><th>Tender requirement</th><th>Supplier / pricing evidence</th><th>Covered</th><th>Action</th></tr></thead><tbody>' +
+      rows.slice(0, 10).map(function (row) {
+        return '<tr><td>' + _escapeHtml(row.tenderRequirement || '') + '</td><td>' + _escapeHtml(row.supplierQuoteReference || row.fensterPricingItem || '') +
+          '</td><td>' + _escapeHtml(row.covered || '') + '</td><td>' + _escapeHtml(row.actionRequired || row.riskQuery || '') + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+  }
+
+  function _codingTable(rows) {
+    if (!rows || !rows.length) return '<div class="estimator-empty">No pricing code rows available.</div>';
+    return '<div class="estimator-table-wrap compact"><table class="estimator-table"><thead><tr><th>Ref</th><th>Description</th><th>Qty</th><th>Code</th><th>Labour</th><th>Risk</th></tr></thead><tbody>' +
+      rows.slice(0, 12).map(function (row) {
+        return '<tr><td>' + _escapeHtml(row.reference || '') + '</td><td>' + _escapeHtml(row.description || '') +
+          '</td><td>' + _escapeHtml(row.quantity || '') + '</td><td>' + _escapeHtml(row.selectedCode || '') +
+          '</td><td>' + Pricing.formatCurrency(row.labourTotal || 0) + '</td><td>' + _escapeHtml(row.queryOrRisk || '') + '</td></tr>';
+      }).join('') + '</tbody></table></div>';
+  }
+
+  function _checklistTable(rows) {
+    if (!rows || !rows.length) return '<div class="estimator-empty">No pre-issue checklist available.</div>';
+    return '<div class="estimator-checks">' + rows.map(function (row) {
+      var checked = row.status === 'checked';
+      return '<div class="estimator-check ' + (checked ? 'checked' : 'open') + '">' +
+        '<span>' + (checked ? '✓' : '!') + '</span><div><strong>' + _escapeHtml(row.item || '') + '</strong>' +
+        (row.actionRequired ? '<small>' + _escapeHtml(row.actionRequired) + '</small>' : '') + '</div></div>';
+    }).join('') + '</div>';
+  }
+
+  function _uniqueText(values) {
+    var seen = {};
+    return (values || []).filter(function (value) {
+      value = String(value || '').trim();
+      if (!value || seen[value]) return false;
+      seen[value] = true;
+      return true;
+    });
   }
 
   function renderTenderFinder() {

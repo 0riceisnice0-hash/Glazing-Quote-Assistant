@@ -37,7 +37,7 @@ Read these first:
 Current app version shown in the UI:
 
 ```text
-v2026.06.30.3
+v2026.06.30.4
 ```
 
 Last important pushed code commit before this doc refresh:
@@ -109,6 +109,7 @@ Bot implication: yes, later we can create a tender-finding bot and dashboard. Cu
 - Adam's AI-written training brief should be used as estimating intent/context, not priced as a live tender document.
 - Phase 1 trust-layer work added `DataExtractor.buildScopePlan(documents)` so the app/CLI record which documents are source of truth, validation/reference evidence, supplier evidence, duplicates, or excluded/admin documents.
 - Type/reference sheets such as `Window Types` and `External Door Types` are reference/spec evidence, not priced scope, when real schedules exist.
+- Phase 2 added a Step 2 Estimator Dashboard for Adam: status, source-of-truth plan, immediate actions, tender requirements, risks, supplier coverage, coding table, checklist, and proposal summary draft.
 - Adam's pricing-code labour allowances were added in `js/pricing.js` as opt-in behaviour.
 - `js/tenderFinder.js` was added as a research panel for live tender sources, CPV codes, keyword strategy, scoring, and a draft reply to Adam.
 

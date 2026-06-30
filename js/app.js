@@ -2,7 +2,7 @@
 
 var App = (function () {
 
-  var APP_VERSION = 'v2026.06.30.3';
+  var APP_VERSION = 'v2026.06.30.4';
   var _state = null;
   var _pendingFiles = [];
   var _autoSaveTimer = null;
@@ -400,6 +400,7 @@ var App = (function () {
 
     saveToLocalStorage(_state);
     UI.updateState(_state);
+    UI.renderEstimatorReview(_state.estimatorReview);
     UI.renderSourceDocuments(_state.sourceDocuments);
     UI.hideLoadingOverlay();
 
@@ -426,6 +427,7 @@ var App = (function () {
           UI.updateState(_state);
           UI.renderItemsTable(_state.items, _state.warnings);
           UI.renderWarningsPanel(_state.warnings, _state.items);
+          UI.renderEstimatorReview(_state.estimatorReview);
           UI.renderSourceDocuments(_state.sourceDocuments);
           UI.showToast(_state.items.length + ' item(s) confirmed', 'success');
         });
