@@ -11,7 +11,7 @@ Read `HANDOVER.md` first for the current priority. This file is the deeper opera
 - Live app type: static HTML/CSS/JS on Cloudflare Pages, with an optional Cloudflare Worker for document intake.
 - Cloudflare Pages frontend: `https://glazing-quote-assistant.pages.dev`.
 - Cloudflare Worker: `https://gqa-document-processor.0riceisnice0.workers.dev`.
-- Current visible app version: `v2026.06.30.5`.
+- Current visible app version: `v2026.06.30.6`.
 - Current confirmed pushed commit before this doc refresh: `2f39bdf Add tender finder research panel`.
 - There are currently no GitHub Actions workflows in this repo.
 - The user expects meaningful changes to be committed and pushed when work is complete.

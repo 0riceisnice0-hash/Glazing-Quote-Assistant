@@ -2,7 +2,7 @@
 
 var App = (function () {
 
-  var APP_VERSION = 'v2026.06.30.5';
+  var APP_VERSION = 'v2026.06.30.6';
   var _state = null;
   var _pendingFiles = [];
   var _autoSaveTimer = null;
@@ -404,7 +404,12 @@ var App = (function () {
     UI.renderSourceDocuments(_state.sourceDocuments);
     UI.hideLoadingOverlay();
 
-    if (newItems.length === 0) {
+    if (newItems.length === 0 && _hasSupplierReviewEvidence()) {
+      UI.showToast('Supplier quote evidence found. Review the estimator dashboard before creating priced items.', 'info');
+      _enableStep2Tab();
+      UI.renderStep(2);
+      _showSupplierEvidencePrompt();
+    } else if (newItems.length === 0) {
       UI.showToast('No glazing items found. Review risks and intake records for next steps.', 'warning');
       _showManualEntryPrompt();
     } else {
@@ -433,6 +438,15 @@ var App = (function () {
         });
       });
     }
+  }
+
+  function _hasSupplierReviewEvidence() {
+    var review = _state.estimatorReview || {};
+    return !!(
+      (review.supplierQuotes && review.supplierQuotes.length) ||
+      (review.supplierItems && review.supplierItems.length) ||
+      (review.codingChecks && review.codingChecks.length)
+    );
   }
 
   function _applyScopePlanToSourceDocuments(scopePlan) {
@@ -783,6 +797,36 @@ var App = (function () {
           onClick: function () {
             _enableStep2Tab();
             UI.renderStep(2);
+          }
+        },
+        { label: 'Close', class: 'btn-secondary' }
+      ]
+    );
+  }
+
+  function _showSupplierEvidencePrompt() {
+    var review = _state.estimatorReview || {};
+    var summary = review.summary || {};
+    UI.showModal(
+      'Supplier Evidence Found',
+      '<div class="alert alert-info"><span class="alert-icon">ℹ️</span>' +
+      '<div>The upload contains supplier quote evidence, but no independent tender schedule was extracted. ' +
+      'The bot has built an estimator review from the supplier quotes instead of creating native priced schedule items.</div></div>' +
+      '<table class="price-summary-table" style="margin-top:12px">' +
+      '<tr><td>Supplier quotes detected</td><td>' + (summary.supplierQuoteCount || 0) + '</td></tr>' +
+      '<tr><td>Supplier item/code rows</td><td>' + ((review.codingChecks && review.codingChecks.length) || 0) + '</td></tr>' +
+      '<tr><td>Status</td><td>' + _escapeHtml(review.statusLabel || 'Needs review') + '</td></tr>' +
+      '</table>' +
+      '<p style="margin-top:12px;font-size:0.875rem">Use the Estimator Dashboard to review supplier totals, coding, RFIs and risks. Upload a schedule/drawings as well if you need the bot to confirm supplier coverage against the full tender scope.</p>',
+      [
+        {
+          label: 'Open Estimator Dashboard',
+          class: 'btn-primary',
+          onClick: function () {
+            _enableStep2Tab();
+            UI.renderStep(2);
+            var panel = document.getElementById('estimatorDashboardCard');
+            if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         },
         { label: 'Close', class: 'btn-secondary' }
