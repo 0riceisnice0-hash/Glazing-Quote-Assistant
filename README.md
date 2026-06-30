@@ -165,6 +165,15 @@ cd workers\document-processor
 npm.cmd run deploy
 ```
 
+GitHub Actions automation is configured in `.github/workflows/deploy-cloudflare.yml`. For push-to-deploy, add these repository secrets in GitHub:
+
+```text
+CLOUDFLARE_API_TOKEN
+CLOUDFLARE_ACCOUNT_ID
+```
+
+The token needs permission to deploy Cloudflare Pages and Workers for this account. Once those secrets exist, every push to `main` deploys both the Pages frontend and the document processor Worker.
+
 ---
 
 ## Optional Cloud Worker
