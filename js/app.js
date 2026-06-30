@@ -2,7 +2,7 @@
 
 var App = (function () {
 
-  var APP_VERSION = 'v2026.06.30.7';
+  var APP_VERSION = 'v2026.06.30.8';
   var _state = null;
   var _pendingFiles = [];
   var _autoSaveTimer = null;
@@ -1151,7 +1151,7 @@ var App = (function () {
       return;
     }
     var rows = _state.estimatorReview.codingChecks || [];
-    var headers = ['reference', 'description', 'material', 'quantity', 'selectedCode', 'labourAllowance', 'labourTotal', 'supplierTotal', 'reason', 'queryOrRisk', 'sourceDocument'];
+    var headers = ['reference', 'description', 'material', 'quantity', 'selectedCode', 'supplierTotal', 'codeMarkup', 'markupTotal', 'labourAllowance', 'labourTotal', 'sellTotal', 'reason', 'queryOrRisk', 'sourceDocument'];
     var csv = headers.join(',') + '\n' + rows.map(function (row) {
       return headers.map(function (h) {
         var value = row[h] === undefined || row[h] === null ? '' : String(row[h]);

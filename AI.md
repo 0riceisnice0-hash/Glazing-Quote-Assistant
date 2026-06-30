@@ -11,7 +11,8 @@ Read `HANDOVER.md` first for the current priority. This file is the deeper opera
 - Live app type: static HTML/CSS/JS on Cloudflare Pages, with an optional Cloudflare Worker for document intake.
 - Cloudflare Pages frontend: `https://glazing-quote-assistant.pages.dev`.
 - Cloudflare Worker: `https://gqa-document-processor.0riceisnice0.workers.dev`.
-- Current visible app version: `v2026.06.30.7`.
+- Current visible app version: `v2026.06.30.8`.
+- Ninn Lane supplier-pricing correction: supplier quote totals are material-cost evidence; Project Hail Mary review now adds product-code markup and product-code labour to produce the estimator sell total.
 - Latest Ninn Lane amended-docs fix: Pricing Document workbooks now extract the `Windows & External Doors` sheets as scope-only rows when the workbook has blank rates, keep those rows for estimator review, and prevent unpriced scope rows from contributing supply/install/EPDM/mastic totals.
 - Current confirmed pushed commit before this doc refresh: `2f39bdf Add tender finder research panel`.
 - There are currently no GitHub Actions workflows in this repo.

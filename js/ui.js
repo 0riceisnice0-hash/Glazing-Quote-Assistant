@@ -1220,8 +1220,10 @@ var UI = (function () {
       '</div>';
     html += '<table class="price-summary-table" style="font-size:0.78rem">' +
       '<tr><td>Supplier quotes</td><td>' + ((review.summary && review.summary.supplierQuoteCount) || 0) + '</td></tr>' +
-      '<tr><td>Supplier total</td><td>' + fc((review.summary && review.summary.supplierTotal) || 0) + '</td></tr>' +
+      '<tr><td>Material total</td><td>' + fc((review.summary && review.summary.supplierTotal) || 0) + '</td></tr>' +
+      '<tr><td>Code markup</td><td>' + fc((review.summary && review.summary.markupTotal) || 0) + '</td></tr>' +
       '<tr><td>Labour allowance</td><td>' + fc((review.summary && review.summary.labourTotal) || 0) + '</td></tr>' +
+      '<tr><td>Sell ex VAT</td><td>' + fc((review.summary && review.summary.sellTotal) || 0) + '</td></tr>' +
       '<tr><td>Coding rows</td><td>' + ((review.summary && review.summary.codingRows) || 0) + '</td></tr>' +
       '<tr><td>Critical risks</td><td>' + critical + '</td></tr>' +
       '<tr><td>RFIs</td><td>' + rfis.length + '</td></tr>' +
@@ -1261,8 +1263,9 @@ var UI = (function () {
 
     html += '<div class="estimator-metrics">' +
       _metric('Items/codes', summary.codingRows || 0, 'Rows to check') +
-      _metric('Supplier total', fc(summary.supplierTotal || 0), (summary.supplierQuoteCount || 0) + ' quote(s)') +
-      _metric('Labour allowance', fc(summary.labourTotal || 0), 'Code-driven check') +
+      _metric('Material', fc(summary.supplierTotal || 0), (summary.supplierQuoteCount || 0) + ' supplier quote(s)') +
+      _metric('Markup + labour', fc((summary.markupTotal || 0) + (summary.labourTotal || 0)), 'Code-driven') +
+      _metric('Sell ex VAT', fc(summary.sellTotal || 0), 'Material + markup + labour') +
       _metric('Risks', critical + '/' + warnings, 'critical / warning') +
       '</div>';
 
@@ -1359,11 +1362,15 @@ var UI = (function () {
 
   function _codingTable(rows) {
     if (!rows || !rows.length) return '<div class="estimator-empty">No pricing code rows available.</div>';
-    return '<div class="estimator-table-wrap compact"><table class="estimator-table"><thead><tr><th>Ref</th><th>Description</th><th>Qty</th><th>Code</th><th>Labour</th><th>Risk</th></tr></thead><tbody>' +
+    return '<div class="estimator-table-wrap compact"><table class="estimator-table"><thead><tr><th>Ref</th><th>Description</th><th>Qty</th><th>Code</th><th>Material</th><th>Markup</th><th>Labour</th><th>Sell</th><th>Risk</th></tr></thead><tbody>' +
       rows.slice(0, 12).map(function (row) {
         return '<tr><td>' + _escapeHtml(row.reference || '') + '</td><td>' + _escapeHtml(row.description || '') +
           '</td><td>' + _escapeHtml(row.quantity || '') + '</td><td>' + _escapeHtml(row.selectedCode || '') +
-          '</td><td>' + Pricing.formatCurrency(row.labourTotal || 0) + '</td><td>' + _escapeHtml(row.queryOrRisk || '') + '</td></tr>';
+          '</td><td>' + Pricing.formatCurrency(row.supplierTotal || 0) +
+          '</td><td>' + Pricing.formatCurrency(row.markupTotal || 0) +
+          '</td><td>' + Pricing.formatCurrency(row.labourTotal || 0) +
+          '</td><td>' + Pricing.formatCurrency(row.sellTotal || 0) +
+          '</td><td>' + _escapeHtml(row.queryOrRisk || '') + '</td></tr>';
       }).join('') + '</tbody></table></div>';
   }
 

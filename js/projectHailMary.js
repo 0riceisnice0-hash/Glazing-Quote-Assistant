@@ -66,7 +66,8 @@ var ProjectHailMary = (function () {
     var supplierQuotes = extractSupplierQuotes(documents);
     var supplierItems = flattenSupplierItems(supplierQuotes);
     var sourceItems = supplierItems.length >= ((state.items && state.items.length) || 0) ? supplierItems : (state.items || []);
-    var codingChecks = buildCodingChecks(sourceItems);
+    var pricingItems = supplierItems.length ? supplierItems : sourceItems;
+    var codingChecks = buildCodingChecks(pricingItems);
     var comparison = compareTenderAndSupplier(requirements, supplierQuotes, supplierItems, sourceItems);
     var assumptions = buildAssumptions(requirements, supplierQuotes);
     var exclusions = buildExclusions(requirements, comparison);
@@ -75,7 +76,7 @@ var ProjectHailMary = (function () {
     var riskRegister = buildRiskRegister(requirements, comparison, redFlags, documents, sourceItems);
     var rfis = buildRfis(requirements, comparison, redFlags);
     var readiness = determineReadiness(comparison, rfis, sourceItems, riskRegister);
-    var summary = buildSummary(state, supplierQuotes, codingChecks);
+    var summary = buildSummary(state, supplierQuotes, codingChecks, supplierItems);
     var specExtraction = buildSpecificationExtraction(requirements, redFlags);
     var itemList = buildScheduleItemList(sourceItems);
     var pricingReview = buildPricingReview(requirements, supplierQuotes, supplierItems, codingChecks, comparison);
@@ -262,18 +263,24 @@ var ProjectHailMary = (function () {
       var code = item.productCode || classifyCode(item);
       var qty = item.quantity || 1;
       var labour = getLabour(code);
+      var codeMarkup = getMarkup(code);
       var supplierTotal = item.supplierTotal || item.totalPrice || 0;
+      var markupTotal = round2(qty * codeMarkup);
+      var labourTotal = round2(qty * labour);
       return {
         reference: item.reference || '',
         description: item.description || item.openingType || item.type || '',
         material: item.frameType || 'Unknown',
         quantity: qty,
         selectedCode: code,
+        codeMarkup: codeMarkup,
+        markupTotal: markupTotal,
         labourAllowance: labour,
-        labourTotal: round2(qty * labour),
+        labourTotal: labourTotal,
         reason: reasonForCode(item),
         queryOrRisk: codeRisk(item),
         supplierTotal: round2(supplierTotal),
+        sellTotal: round2(supplierTotal + markupTotal + labourTotal),
         sourceDocument: item.sourceDocument || ''
       };
     });
@@ -545,13 +552,19 @@ var ProjectHailMary = (function () {
     return { status: 'ready', label: 'Ready to issue subject to estimator approval' };
   }
 
-  function buildSummary(state, supplierQuotes, codingChecks) {
+  function buildSummary(state, supplierQuotes, codingChecks, supplierItems) {
     var supplierTotal = round2((supplierQuotes || []).reduce(function (sum, q) { return sum + (q.exVatTotal || 0); }, 0));
     var labourTotal = round2((codingChecks || []).reduce(function (sum, row) { return sum + (row.labourTotal || 0); }, 0));
+    var markupTotal = round2((codingChecks || []).reduce(function (sum, row) { return sum + (row.markupTotal || 0); }, 0));
+    var sellTotal = round2(supplierTotal + markupTotal + labourTotal);
     var itemTotal = round2((state.items || []).reduce(function (sum, item) { return sum + (item.totalPrice || 0); }, 0));
+    var supplierItemMaterialTotal = round2((supplierItems || []).reduce(function (sum, item) { return sum + (item.supplierTotal || 0); }, 0));
     return {
       supplierTotal: supplierTotal,
+      supplierItemMaterialTotal: supplierItemMaterialTotal,
+      markupTotal: markupTotal,
       labourTotal: labourTotal,
+      sellTotal: sellTotal,
       extractedItemTotal: itemTotal,
       codingRows: (codingChecks || []).length,
       supplierQuoteCount: (supplierQuotes || []).length
@@ -579,13 +592,17 @@ var ProjectHailMary = (function () {
   function buildPricingDraft(state, codingChecks, supplierQuotes, assumptions, exclusions, rfis) {
     var supplierTotal = round2((supplierQuotes || []).reduce(function (sum, q) { return sum + (q.exVatTotal || 0); }, 0));
     var labourTotal = round2((codingChecks || []).reduce(function (sum, row) { return sum + (row.labourTotal || 0); }, 0));
+    var markupTotal = round2((codingChecks || []).reduce(function (sum, row) { return sum + (row.markupTotal || 0); }, 0));
+    var sellTotal = round2(supplierTotal + markupTotal + labourTotal);
     var appSummary = state.items && state.items.length && typeof Pricing !== 'undefined'
       ? Pricing.getPriceSummary(state.items, state.pricing || {})
       : null;
     return {
       itemRows: codingChecks || [],
       supplierTotal: supplierTotal,
+      markupTotal: markupTotal,
       labourTotal: labourTotal,
+      sellTotal: sellTotal,
       appSummary: appSummary,
       assumptions: assumptions,
       exclusions: exclusions,
@@ -601,8 +618,10 @@ var ProjectHailMary = (function () {
     lines.push('Status: ' + review.statusLabel);
     lines.push('');
     lines.push('## Summary');
-    lines.push('- Supplier quote total: ' + money(review.summary.supplierTotal));
+    lines.push('- Supplier material total: ' + money(review.summary.supplierTotal));
+    lines.push('- Code markup total: ' + money(review.summary.markupTotal));
     lines.push('- Labour allowance total: ' + money(review.summary.labourTotal));
+    lines.push('- Proposed sell total ex VAT: ' + money(review.summary.sellTotal));
     lines.push('- Coding rows: ' + review.summary.codingRows);
     lines.push('- Supplier quotes detected: ' + review.summary.supplierQuoteCount);
     lines.push('');
@@ -679,6 +698,24 @@ var ProjectHailMary = (function () {
     }
     var fallback = { SUPD: 250, DUPD: 500, SAD: 250, DAD: 500, ELAW: 250, LAW: 160, MAW: 160, SAW: 160, LPVC: 160, MPVC: 160, SPVC: 160, SADLAW: 410, SADMAW: 410, SADSAW: 410 };
     return fallback[String(code || '').toUpperCase()] || 0;
+  }
+
+  function getMarkup(code) {
+    code = String(code || '').toUpperCase();
+    if (typeof Pricing !== 'undefined' && Pricing.PRODUCT_CODES && Pricing.PRODUCT_CODES[code]) {
+      return Pricing.PRODUCT_CODES[code].markup || 0;
+    }
+    var fallback = {
+      SAW: 400, MAW: 500, LAW: 600, ELAW: 1000,
+      SPVC: 75, MPVC: 75, LPVC: 175,
+      SAD: 1150, DAD: 1950,
+      SUPD: 950, DUPD: 1500, UPD: 950,
+      SADSAW: 1650, SADMAW: 1850, SADLAW: 1950,
+      STD: 800, DTD: 1400,
+      SSD: 1300, DSD: 2200,
+      CW: 0
+    };
+    return fallback[code] || 0;
   }
 
   function reasonForCode(item) {
