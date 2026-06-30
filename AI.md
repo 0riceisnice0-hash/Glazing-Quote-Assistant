@@ -217,7 +217,25 @@ Generated Gresty quote PDFs:
 1. Add a real automated regression suite around the saved packs so Whitsbury, Brandon, and Gresty stay stable.
 2. Build proper OCR/takeoff for scanned/image-heavy drawings instead of relying on text extraction.
 3. Expand `js/projectHailMary.js` supplier quote ingestion. Ninn Lane now detects 6 supplier quotes and 10 Sheerline coding rows, but the parser still misses Sheerline panel setup extras in PDF.js text, so supplier totals can be about GBP 435 low on that pack.
-4. Make commercial extras/prelims a structured model rather than loose allowance rows.
-5. Finish ZIP/DOCX/MSG intake through the worker path for large packs.
-6. Add a fuller approval workflow: parsed scope, AI assumptions, supplier quote check, coding table, estimator approval, quote generation, final issue.
-7. Add cheaper OpenAI usage controls: model choice, hard token limits, cache by document hash, and visible spend warnings.
+4. Expand `js/tenderFinder.js` from saved source/search strategy into a backend monitor: official API/RSS where available, saved search URLs, deduplication, opportunity scoring, deadline alerts, and handoff into document intake.
+5. Make commercial extras/prelims a structured model rather than loose allowance rows.
+6. Finish ZIP/DOCX/MSG intake through the worker path for large packs.
+7. Add a fuller approval workflow: parsed scope, AI assumptions, supplier quote check, coding table, estimator approval, quote generation, final issue.
+8. Add cheaper OpenAI usage controls: model choice, hard token limits, cache by document hash, and visible spend warnings.
+
+## Tender Finder Research
+
+Adam asked whether a bot can scrape the internet for live commercial window and door tenders. The answer implemented in the app is a tender-finder strategy panel, not blind scraping from the browser.
+
+Current file: `js/tenderFinder.js`.
+
+It defines:
+
+- Official public sources: Find a Tender and Contracts Finder.
+- Paid construction lead platforms to benchmark: Barbour ABI and Glenigan.
+- Useful keyword searches for Fenster: commercial windows, aluminium windows, aluminium doors, windows and doors, curtain walling, glazing works, replacement windows, external doors, louvre panels, facade glazing.
+- CPV codes: `44221000`, `45421100`, `45441000`, `45443000`.
+- Basic opportunity scoring for commercial glazing relevance.
+- A draft email response to Adam.
+
+Important limitation: `C:\Users\zacpl\Downloads\Fenster Glazing Projects.pdf` is image-only in text extraction. It needs OCR/project-example ingestion before it can be used as training material.

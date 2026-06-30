@@ -36,7 +36,7 @@
     <div class="logo-area">
       <img src="assets/fenster-logo.png" alt="Glazing Quote Assistant Logo" id="headerLogo">
       <span class="app-title">Glazing Quote Assistant</span>
-      <span class="app-version" id="appVersion">v2026.06.29.2</span>
+      <span class="app-version" id="appVersion">v2026.06.30.1</span>
     </div>
     <div class="header-spacer"></div>
     <div class="header-actions">
@@ -185,6 +185,17 @@
             <div class="alert alert-info mt-2">
               <span class="alert-icon">💡</span>
               <div>Works best with text-based PDFs (not scanned images). Detected items include windows (W01…), doors (D01…), screens (S01…) and curtain walling (C01…).</div>
+            </div>
+          </div>
+
+          <!-- Tender Finder Card -->
+          <div class="card" id="tenderFinderCard">
+            <div class="card-title">
+              <span class="card-icon">🔎</span>
+              Tender Finder
+            </div>
+            <div id="tenderFinderPanel" style="font-size:0.85rem;color:var(--text-secondary)">
+              Loading tender research sources...
             </div>
           </div>
         </div>
@@ -652,6 +663,7 @@
   <script src="js/dataExtractor.js?v=20260625d"></script>
   <script src="js/pricing.js?v=20260629a"></script>
   <script src="js/projectHailMary.js?v=20260629b"></script>
+  <script src="js/tenderFinder.js?v=20260630a"></script>
   <script src="js/aiEnrichment.js?v=20260625e"></script>
   <script src="js/ui.js?v=20260629a"></script>
   <script src="js/pdfViewer.js?v=20260327a"></script>
@@ -660,7 +672,7 @@
   <script src="js/diagnostics.js?v=20260327a"></script>
   <script src="js/floorplanParser.js?v=20260327a"></script>
   <script src="js/viewer3d.js?v=20260327a"></script>
-  <script src="js/app.js?v=20260629b"></script>
+  <script src="js/app.js?v=20260630a"></script>
 
 </body>
 </html>

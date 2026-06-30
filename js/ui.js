@@ -34,6 +34,7 @@ var UI = (function () {
     _setupManualAddItem();
 
     renderStep(1);
+    renderTenderFinder();
     _updateSummaryBar();
   }
 
@@ -1232,6 +1233,32 @@ var UI = (function () {
     el.innerHTML = html;
   }
 
+  function renderTenderFinder() {
+    var el = document.getElementById('tenderFinderPanel');
+    if (!el || typeof TenderFinder === 'undefined') return;
+    var summary = TenderFinder.buildResearchSummary();
+    var links = TenderFinder.buildSearchLinks('windows doors glazing');
+    var html = '<div style="line-height:1.45">' + _escapeHtml(summary.answer) + '</div>';
+    html += '<div style="margin-top:10px;font-weight:700;color:var(--text-primary)">Best starting searches</div>';
+    html += '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">';
+    links.slice(0, 3).forEach(function (link) {
+      html += '<a class="btn btn-secondary btn-sm" href="' + _escapeHtml(link.url) + '" target="_blank" rel="noopener">' + _escapeHtml(link.name) + '</a>';
+    });
+    html += '</div>';
+    html += '<div style="margin-top:10px;font-weight:700;color:var(--text-primary)">Fenster keywords</div>';
+    html += '<div style="font-size:0.78rem">' + TenderFinder.getKeywords().slice(0, 8).map(_escapeHtml).join(' · ') + '</div>';
+    html += '<div style="margin-top:10px;font-weight:700;color:var(--text-primary)">CPV codes</div>';
+    html += '<ul style="margin:4px 0 0 16px;padding:0;font-size:0.78rem">';
+    TenderFinder.getCpvCodes().forEach(function (cpv) {
+      html += '<li><strong>' + _escapeHtml(cpv.code) + '</strong> - ' + _escapeHtml(cpv.label) + '</li>';
+    });
+    html += '</ul>';
+    html += '<details style="margin-top:10px"><summary style="cursor:pointer;font-weight:700;color:var(--text-primary)">Draft reply to Adam</summary>' +
+      '<pre style="white-space:pre-wrap;font-size:0.76rem;line-height:1.35;background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:6px;padding:8px;margin-top:6px">' +
+      _escapeHtml(TenderFinder.buildAdamReply()) + '</pre></details>';
+    el.innerHTML = html;
+  }
+
   function _applyBulkColumnValue() {
     var typeEl = document.getElementById('bulkApplyType');
     var fieldEl = document.getElementById('bulkApplyField');
@@ -1628,6 +1655,7 @@ var UI = (function () {
     renderItemsTable: renderItemsTable,
     renderWarningsPanel: renderWarningsPanel,
     renderEstimatorReview: renderEstimatorReview,
+    renderTenderFinder: renderTenderFinder,
     renderPricingSummary: renderPricingSummary,
     renderPricingSettings: renderPricingSettings,
     renderCompanyForm: renderCompanyForm,

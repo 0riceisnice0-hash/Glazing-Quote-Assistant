@@ -41,6 +41,7 @@ There are no GitHub Actions workflows at the time of writing. Deployment is effe
 - OpenAI enrichment was wired for note review, but the user's key hit quota. Do not spend more API credits without being asked.
 - Project Hail Mary pricing-code labour allowances were added to `js/pricing.js` as an opt-in mode via `useProductCodeLabourAllowances`.
 - Project Hail Mary estimator review was added in `js/projectHailMary.js`: tender requirement extraction, supplier quote detection, supplier item coding, RFIs/exclusions/assumptions, proposal/pricing draft data, and browser exports.
+- Tender opportunity research was added in `js/tenderFinder.js`: source list, Fenster keywords, CPV codes, basic fit scoring, and a draft reply to Adam about live tender searching.
 
 ## Known Good Results
 
@@ -121,6 +122,7 @@ Prior OpenAI output:
 - Do not keep using the OpenAI key during debugging; quota was already hit.
 - Do not replace older quote behaviour with Project Hail Mary labour-code behaviour globally. Use `pricing.useProductCodeLabourAllowances = true` only for pricing-document/coding-check flows that need Adam's labour table.
 - The Ninn Lane Project Hail Mary review detects the supplier quotes and coding rows, but still misses Sheerline panel setup extras from PDF.js text. Treat supplier quote totals as review evidence, not final accounting, until supplier parsers are hardened.
+- `Fenster Glazing Projects.pdf` from Barbour ABI is image-only when read with PDF text extraction. Use OCR before trying to learn project examples from it.
 - Do not price every PDF that mentions windows or doors.
 - Do not double count pricing workbooks plus supplier PDFs/layout PDFs.
 - Do not treat opening type sheets as priced scope.
