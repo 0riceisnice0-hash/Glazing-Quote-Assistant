@@ -1,17 +1,33 @@
 # AI Agent Guide
 
-This repo is the Fenster Glazing Quote Assistant: a static browser app that ingests tender packs, extracts glazing scope, prices it with local rules, lets the user adjust assumptions, and generates branded quote PDFs.
+This repo is the Fenster Glazing Quote Assistant. Its real job is not just parsing documents; it is trying to behave like a junior commercial glazing estimator who can read a tender pack, build a sensible scope, price it using Fenster rules, explain uncertainty, and generate a quote for human approval.
 
-Use this file as the deeper technical map. For the immediate state and next steps, read `HANDOVER.md` first.
+Read `HANDOVER.md` first for the current priority. This file is the deeper operating manual.
 
 ## Current Snapshot
 
-- Live app type: static HTML/CSS/JS, intended for GitHub Pages.
-- Deployment path: push to `main`; there are currently no GitHub Actions workflows in this repo.
-- Current visible app version: `v2026.06.25.5` in `index.html` and `js/app.js`.
-- Current confirmed pushed commit before this doc refresh: `3d4d838 Recognize generic pricing workbooks`.
-- Local repo path used by the user: `C:\Users\zacpl\OneDrive\Documents\GitHub\Glazing-Quote-Assistant`.
-- The user has explicitly allowed editing this OneDrive repo, but avoid unrelated OneDrive locations.
+- Working repo path: `C:\Users\zacpl\Desktop\Glazing-Quote-Assistant`.
+- Do not continue working in the old OneDrive repo unless the user explicitly asks.
+- Live app type: static HTML/CSS/JS, intended for GitHub Pages or Cloudflare Pages.
+- Current visible app version: `v2026.06.30.1`.
+- Current confirmed pushed commit before this doc refresh: `2f39bdf Add tender finder research panel`.
+- There are currently no GitHub Actions workflows in this repo.
+- The user expects meaningful changes to be committed and pushed when work is complete.
+
+## What The Bot Is Supposed To Become
+
+The near-term goal is to get the estimating bot to the level implied by the Fenster emails, especially Project Hail Mary / Ninn Lane:
+
+1. Read emails and identify what the client/supplier actually wants.
+2. Ingest ZIP, PDF, XLSX, DOCX, MSG/email text, supplier quotes, drawings, schedules, specifications, and BOQs.
+3. Separate priced scope from evidence/reference documents.
+4. Extract products, quantities, dimensions, material, colour, U-value, glass, ironmongery, fire/acoustic requirements, install assumptions, and exclusions.
+5. Use supplier quotes or estimator pricing workbooks as stronger evidence than generic parsed drawings.
+6. Produce a priced quote, a compact quote, a pricing/check sheet, and assumptions/exclusions/RFIs.
+7. Explain why its number differs from a real quote or supplier quote.
+8. Let a human estimator approve/edit before issue.
+
+The live tender-finder dashboard is a good later feature, but estimating accuracy is the current priority. Finding more tenders is not useful if the bot cannot price a supplied pack properly.
 
 ## Main Files
 
@@ -20,25 +36,69 @@ Use this file as the deeper technical map. For the immediate state and next step
 - `js/documentIntake.js`: file intake, ZIP/DOCX/MSG/PDF/XLSX routing support.
 - `js/pdfParser.js`: PDF text extraction and helper parsing.
 - `js/dataExtractor.js`: document classification, schedule extraction, pricing workbook extraction, validation warnings.
-- `js/pricing.js`: price engine, inferred defaults, commercial markups/allowances, install/VAT handling.
+- `js/pricing.js`: price engine, inferred defaults, commercial markups/allowances, install/VAT handling, optional labour-code allowances.
 - `js/aiEnrichment.js`: optional OpenAI note review and field prefill.
 - `js/ui.js`: tender questions and review UI.
 - `js/quoteGenerator.js`: branded detailed/compact PDF quote generation.
-- `workers/document-processor/`: planned/partial worker direction for heavier document processing.
-- `scripts/run-tender-pack.mjs`: local CLI regression harness that runs tender packs through the same extraction/pricing logic without using the website.
-- `test-results/`: saved extraction reports, regression outputs, and generated quotes.
+- `js/projectHailMary.js`: Project Hail Mary/Ninn Lane estimator workflow helpers: requirement extraction, supplier quote detection, supplier item coding, assumptions/exclusions/RFIs, proposal/pricing draft data.
+- `js/tenderFinder.js`: research panel for live tender source strategy, CPV codes, keywords, and opportunity scoring.
+- `scripts/run-tender-pack.mjs`: local CLI regression harness that should use the same extraction/pricing logic as the website.
+- `workers/document-processor/`: partial worker direction for heavier document processing.
 
-## End-To-End Workflow
+## Estimator Workflow
 
-1. User uploads tender documents in the browser.
-2. Intake code normalises files, expands supported containers where possible, and sends text/table content to extraction.
-3. `dataExtractor.js` classifies each document as schedule, pricing workbook, BOQ, specification/reference, drawing, admin, or unknown.
-4. Only scope-bearing documents create priced items.
-5. `pricing.js` prices items and applies inferred defaults such as install, EPDM, mastic, VAT, preliminaries, or commercial allowance rules.
-6. Optional OpenAI note review checks notes/spec text against extracted fields and suggests prefills.
-7. UI shows tender questions and red review boxes for missing/uncertain fields.
-8. User confirms/edits assumptions.
-9. `quoteGenerator.js` creates detailed and compact branded PDFs.
+Use this flow whenever the user gives tender documents:
+
+1. Identify the job name, client, deadline, material system, colour, U-value, and whether it is supply-only or supply-and-fit.
+2. Classify every document before pricing anything.
+3. Pick the strongest source of scope:
+   - Real Fenster/estimator pricing workbook.
+   - Contractor BOQ or opening schedule workbook.
+   - Supplier quote with itemised schedule.
+   - Text schedule PDF.
+   - Drawings/specifications only, which are weaker and require assumptions.
+4. Extract item lines and inspect the extracted table/JSON, not just the grand total.
+5. Run pricing through shared modules, not a one-off script that disagrees with the website.
+6. Compare against any actual quote/proposal/supplier quote available.
+7. Explain variance:
+   - duplicate counting,
+   - missing preliminaries,
+   - install/VAT included or excluded,
+   - supplier totals preserved versus native engine repriced,
+   - allowances/markup included,
+   - missing dimensions,
+   - drawing takeoff assumptions.
+8. Fix shared parser/pricing modules if the website and script differ.
+9. Re-run known checks after touching shared extraction or pricing logic.
+10. Generate detailed and compact PDFs only after the scope and assumptions are believable.
+
+## Self-Checking Quotes
+
+The bot must actively check itself. A future AI should not stop at "it generated a quote".
+
+For each job, check:
+
+- Does the item count match the schedule/pricing workbook?
+- Are obvious product types correct: windows, doors, curtain wall, louvres, rooflights, screens?
+- Are dimensions present and in the right units?
+- Are quantities duplicated by PDFs plus XLSX files?
+- Are reference drawings/specs being priced incorrectly?
+- Are supply-only, install, preliminaries, risk, overhead/profit, and VAT handled consistently?
+- Does the total reconcile to any real quote/proposal/supplier quote?
+- If no real quote exists, are assumptions explicit enough for a human estimator to approve or correct?
+- Did the website and CLI produce the same result from the same pack?
+
+When the total is wrong, do not only adjust a multiplier. First find the cause:
+
+- Wrong scope source selected.
+- Duplicate documents counted.
+- Pricing workbook ignored.
+- Supplier quote parsed as scope plus layout parsed again.
+- Install/VAT/prelims applied twice or not at all.
+- Missing commercial allowance rows.
+- Dimensionless rows retained as real items.
+- Drawings treated as schedules.
+- OpenAI prefill did not write back into tender questions.
 
 ## Extraction Rules That Matter
 
@@ -46,20 +106,24 @@ The quote bot should be conservative. Do not price every document that contains 
 
 - Pricing workbooks are the source of truth when present.
 - If a Fenster/R1-style pricing workbook is present, skip other schedule PDFs/layouts as priced scope to avoid duplicate bogus items.
+- Generic files named `Pricing.xlsx` must be recognised, not only files literally named `Pricing Document`.
 - External/opening schedule workbooks are preferred over duplicate schedule PDFs.
 - Opening type sheets are reference/spec documents, not priced scope.
 - Supplier quotation PDFs, glass order PDFs, bay layouts, elevations, and image-heavy drawings are evidence unless a dedicated parser proves they are a priced schedule.
 - BOQs can be scope when they are clearly contractor pricing/scope workbooks, but should not override a Fenster pricing workbook.
 - Materials schedules/specifications enrich assumptions but should not create priced line items by themselves.
 - Dimensionless markers should be dropped unless they are explicit commercial allowance rows.
+- Image-only PDFs require OCR/drawing takeoff before they can support accurate pricing.
 
-## Known Supported Job Patterns
+## Known Job Patterns
+
+### Addington Road ePVC
+
+This exposed a serious issue: a script result around GBP 155k did not match the website block price around GBP 450k. Treat this as evidence that scripts and website logic can diverge if they do not share the same pricing path. Future fixes must make the website and local harness call the same engine and compare totals.
 
 ### Whitsbury / Hartford Care Home
 
-Primary scope came from the external opening schedule workbook and related PDFs.
-
-Current stable regression result:
+Known historical result:
 
 - Items: 160
 - Subtotal: GBP 299,030.51
@@ -73,45 +137,72 @@ Important behaviours:
 - Duplicate schedule PDFs are skipped when the workbook exists.
 - Opening type sheets are treated as reference/spec, not scope.
 - Installation remains enabled for this pattern.
+- OpenAI note review previously helped with some red fields, but quota was hit; deterministic extraction must still work.
 
 ### Brandon Estate REV 2
 
-Primary scope came from `Pricing Document - Brandon Estate REV 2.xlsx`.
-
-Current stable regression result:
+Known historical result from actual pricing workbook:
 
 - Items: 51
 - Total/subtotal ex VAT: GBP 7,196,695.63
-- Risks: none in the final pricing workbook run.
 
 Important behaviours:
 
 - Pricing workbook rows preserve exact sell rates and totals.
 - Commercial allowance rows are included as allowance lines.
 - Generic install, EPDM, mastic, and VAT are disabled because the estimator workbook already includes commercial pricing/allowances and is normally quoted plus VAT.
+- This job proved big commercial quotes need structured preliminaries, overhead/profit, risk, and markup handling.
 
 ### Gresty Road
 
-There are two states:
+Two states exist:
 
-- Early drawing/spec-only budget takeoff was manual/assumption-heavy and came out around GBP 119,237.88. Treat this as a rough budget only.
-- Actual pricing pack result from `R1 Construction - Gresty Road Pricing.xlsx` is the reliable source.
+- Drawing/spec-only budget takeoff: around GBP 119,237.88. This is assumption-heavy only.
+- Actual pricing pack from `R1 Construction - Gresty Road Pricing.xlsx`: reliable source.
 
-Current stable actual pricing result:
+Known actual pricing result:
 
 - Items: 53
 - Mix: 52 windows, 1 door
 - Total/subtotal ex VAT: GBP 89,898.12
-- This matches the proposal subtotal: GBP 89,898.12 plus VAT.
+- Matches proposal subtotal: GBP 89,898.12 plus VAT.
 
 Important behaviours:
 
-- Generic files named `Pricing.xlsx` must be recognised, not only files literally named `Pricing Document`.
-- When the pricing workbook exists, bay layouts/supplier PDFs are not also priced as scope.
+- Recognise generic pricing workbooks.
+- Do not double count bay layouts, supplier PDFs, glass orders, and proposal PDFs when the pricing workbook is present.
+
+### Project Hail Mary / Ninn Lane
+
+Email requirement:
+
+- Quote aluminium windows and doors.
+- Three separate buildings.
+- PPC aluminium framed double-glazed windows and doors.
+- Colour: black.
+- U-value: 1.4 W/m2K.
+- PPC aluminium framed louvre panels where shown on drawings.
+- Commercial spec.
+- Elevations, plans, specification, and schedules are in ZIP files.
+- Supplier quotes were later attached.
+
+Current intended bot behaviour:
+
+- Read the email as tender instructions, not as pricing scope.
+- Extract the high-level assumptions above into the job settings.
+- Read ZIP contents and classify plans/elevations/spec/schedules.
+- Treat supplier quotes as strong evidence.
+- Detect and code Sheerline/supplier item rows where possible.
+- Generate RFIs/exclusions/assumptions where drawings or supplier data are incomplete.
+- Do not pretend a final quote is certain when supplier quote parsing misses setup extras or panel extras.
+
+Known issue:
+
+- Ninn Lane detects supplier quotes and Sheerline coding rows, but parser hardening is still needed for some PDF.js text around panel/setup extras.
 
 ## Pricing Logic Notes
 
-The app has two different pricing modes:
+The app has two pricing modes:
 
 1. Native estimating mode: extracted dimensions/types go through the local price engine.
 2. Estimator workbook mode: exact workbook sell rates/totals are preserved with `manualOverride`.
@@ -120,9 +211,9 @@ Do not mix these blindly. If a real estimator pricing workbook is present, it no
 
 Commercial allowance rows should be displayed as allowance lines, not as missing-dimension/TBC rows.
 
-### Fenster Pricing Codes And Labour Allowances
+## Fenster Pricing Codes And Labour Allowances
 
-Adam's Project Hail Mary pricing-code email defines the current labour allowances that the bot must use when preparing/checking pricing documents:
+Adam's Project Hail Mary pricing-code email defines labour allowances the bot must use when preparing/checking pricing documents:
 
 - `SUPD`: single uPVC door, GBP 250 labour.
 - `DUPD`: double uPVC door, GBP 500 labour.
@@ -139,7 +230,7 @@ Adam's Project Hail Mary pricing-code email defines the current labour allowance
 - `SADMAW`: single aluminium door with medium aluminium window/screen, GBP 410 labour.
 - `SADSAW`: single aluminium door with small aluminium window/screen, GBP 410 labour.
 
-The code must be selected from product type and size/category. Do not guess where the item is unclear; flag it for human review. Quantity is separate from the code. Curtain walling stays separate unless a future curtain-wall code is created. Combined items such as doors with side screens/fanlights need special review and should use the combined codes where appropriate.
+Quantity is separate from the code. Curtain walling stays separate unless a future curtain-wall code is created. Combined items such as doors with side screens/fanlights need special review and should use the combined codes where appropriate.
 
 In `js/pricing.js`, these are available as `Pricing.LABOUR_ALLOWANCES` and `Pricing.getLabourAllowanceForCode(code)`. The summary install calculation can use them when `pricing.useProductCodeLabourAllowances` is true. This flag is off by default so older calibrated quotes do not move unexpectedly.
 
@@ -147,85 +238,37 @@ In `js/pricing.js`, these are available as `Pricing.LABOUR_ALLOWANCES` and `Pric
 
 OpenAI note review is optional and must fail open.
 
-- The API key should not be hardcoded in source going forward.
-- The user previously supplied a key and hit quota/429 during testing.
+- Do not hardcode API keys in source going forward.
+- The user's previous key hit quota/429 during testing.
 - Do not spend OpenAI tokens unless the user explicitly asks.
-- Current AI output from a prior successful Whitsbury run is saved in `test-results\whitsbury-ai-output\openai-red-fields.json`.
-- AI enrichment should only suggest/confirm fields; deterministic extraction and pricing must still work without it.
+- AI output from a prior successful Whitsbury run was historically saved as `test-results\whitsbury-ai-output\openai-red-fields.json`; the Desktop repo may not contain old `test-results`.
+- AI enrichment should suggest/confirm fields and write them into tender questions where confidence is high.
+- Fields still unresolved should stay red and require review.
 
 The intended AI role:
 
 - Read notes/spec text.
 - Confirm or correct parser fields such as frame, glass, colour, hardware, handle, lock, closer, ironmongery, entrance door reference, and fire/acoustic requirements.
 - Prefill tender questions.
-- Mark unresolved fields with a red review state.
+- Produce evidence snippets/reasons so the user can trust or reject the prefill.
 
 ## Quote PDF Notes
 
 The quote generator supports detailed and compact PDFs.
 
-Important recent layout fixes:
+Important layout expectations:
 
 - Schedule starts below the cover intro instead of overlapping it.
 - Long summary labels are truncated safely.
 - Notes move to a new page when needed.
 - Commercial allowance dimensions show as `Allowance`.
-
-Regression visual checks used `pdfplumber` word-box overlap detection. Poppler was not available in the environment during prior checks, so the overlap detector was the practical verification method.
-
-## Local Test Commands
-
-From the repo root:
-
-```powershell
-node -e "const fs=require('fs'); for (const f of ['js/dataExtractor.js','js/pricing.js','js/quoteGenerator.js','js/app.js']) new Function(fs.readFileSync(f,'utf8')); console.log('syntax ok')"
-```
-
-Run a tender pack through the CLI harness:
-
-```powershell
-node scripts\run-tender-pack.mjs --dir "C:\path\to\input-pack" --out "test-results\some-output-folder"
-```
-
-Useful prior output folders:
-
-- `test-results\whitsbury-regression-output-7`
-- `test-results\brandon-estate-actual-rev2-final-check`
-- `test-results\gresty-road-actual-final-check`
-- `test-results\gresty-road-actual-output-fixed-2`
-
-Generated Gresty quote PDFs:
-
-- `test-results\gresty-road-actual-output-fixed-2\Gresty-Road-Actual-Quote-Detailed.pdf`
-- `test-results\gresty-road-actual-output-fixed-2\Gresty-Road-Actual-Quote-Compact.pdf`
-
-## Development Rules For Future Agents
-
-- Read `HANDOVER.md` before editing.
-- Keep the browser app and CLI harness using the same extraction/pricing logic.
-- Do not add one-off script logic that disagrees with the website.
-- When a bug is found in a tender-pack run, fix shared modules first, then re-run the CLI harness.
-- Push meaningful changes; the user expects GitHub Pages to receive updates from `main`.
-- Update the version badge when user-facing behaviour changes.
-- Avoid spending OpenAI quota during debugging unless requested.
-- Treat actual estimator workbooks as stronger evidence than PDFs/drawings.
-- Treat image-only drawings as needing OCR/takeoff before accurate quoting.
-- Preserve unrelated user changes. Do not reset the repo.
-
-## Best Next Technical Work
-
-1. Add a real automated regression suite around the saved packs so Whitsbury, Brandon, and Gresty stay stable.
-2. Build proper OCR/takeoff for scanned/image-heavy drawings instead of relying on text extraction.
-3. Expand `js/projectHailMary.js` supplier quote ingestion. Ninn Lane now detects 6 supplier quotes and 10 Sheerline coding rows, but the parser still misses Sheerline panel setup extras in PDF.js text, so supplier totals can be about GBP 435 low on that pack.
-4. Expand `js/tenderFinder.js` from saved source/search strategy into a backend monitor: official API/RSS where available, saved search URLs, deduplication, opportunity scoring, deadline alerts, and handoff into document intake.
-5. Make commercial extras/prelims a structured model rather than loose allowance rows.
-6. Finish ZIP/DOCX/MSG intake through the worker path for large packs.
-7. Add a fuller approval workflow: parsed scope, AI assumptions, supplier quote check, coding table, estimator approval, quote generation, final issue.
-8. Add cheaper OpenAI usage controls: model choice, hard token limits, cache by document hash, and visible spend warnings.
+- VAT, install, preliminaries, and exclusions must be clearly shown and not overlap.
 
 ## Tender Finder Research
 
-Adam asked whether a bot can scrape the internet for live commercial window and door tenders. The answer implemented in the app is a tender-finder strategy panel, not blind scraping from the browser.
+Adam asked whether a bot can scrape the internet for live commercial window and door tenders.
+
+The answer: yes, it is a good idea, but it is a later product beside the estimator, not a replacement for the estimator.
 
 Current file: `js/tenderFinder.js`.
 
@@ -238,4 +281,53 @@ It defines:
 - Basic opportunity scoring for commercial glazing relevance.
 - A draft email response to Adam.
 
-Important limitation: `C:\Users\zacpl\Downloads\Fenster Glazing Projects.pdf` is image-only in text extraction. It needs OCR/project-example ingestion before it can be used as training material.
+Do not build the full tender monitor before the estimator workflow is reliable unless the user changes priority.
+
+## Commands
+
+Syntax smoke check:
+
+```powershell
+node -e "const fs=require('fs'); for (const f of ['js/dataExtractor.js','js/pricing.js','js/quoteGenerator.js','js/app.js','js/projectHailMary.js','js/tenderFinder.js']) new Function(fs.readFileSync(f,'utf8')); console.log('syntax ok')"
+```
+
+Run a tender pack through the CLI harness:
+
+```powershell
+node scripts\run-tender-pack.mjs --dir "C:\path\to\input-pack" --out "test-results\some-output-folder"
+```
+
+Check git:
+
+```powershell
+git status --short
+git log -1 --oneline
+git remote -v
+```
+
+Use `npm.cmd` instead of `npm` if PowerShell blocks `npm.ps1`.
+
+## Development Rules For Future Agents
+
+- Read `HANDOVER.md` before editing.
+- Work in `C:\Users\zacpl\Desktop\Glazing-Quote-Assistant`.
+- Keep the browser app and CLI harness using the same extraction/pricing logic.
+- Do not add one-off script logic that disagrees with the website.
+- When a bug is found in a tender-pack run, fix shared modules first, then re-run the CLI harness.
+- Push meaningful changes; the user expects the hosted app to update from the repo.
+- Update the version badge when user-facing behaviour changes.
+- Avoid spending OpenAI quota during debugging unless requested.
+- Treat actual estimator workbooks as stronger evidence than PDFs/drawings.
+- Treat image-only drawings as needing OCR/takeoff before accurate quoting.
+- Preserve unrelated user changes. Do not reset the repo.
+
+## Best Next Technical Work
+
+1. Add a real automated regression suite around saved packs so Whitsbury, Brandon, Gresty, and Project Hail Mary stay stable.
+2. Build proper OCR/takeoff for scanned/image-heavy drawings.
+3. Harden `js/projectHailMary.js` supplier quote ingestion for Sheerline/RAS/glass order/bay layout PDFs.
+4. Make commercial extras/prelims a structured model rather than loose allowance rows.
+5. Finish ZIP/DOCX/MSG intake through the worker path for large packs.
+6. Make OpenAI enrichment cheaper and safer: document hash cache, hard token cap, smaller model, visible spend warning, and manual trigger.
+7. Add approval workflow: parsed scope, AI assumptions, supplier quote check, coding table, estimator approval, quote generation, final issue.
+8. After estimating is credible, build the backend tender monitor and dashboard that emails `commercial@fensterglazing.com`.
