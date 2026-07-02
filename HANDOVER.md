@@ -60,6 +60,14 @@ Last important pushed code commit before this doc refresh:
 
 There are no GitHub Actions workflows at the time of writing. Deployment is static hosting from the repo.
 
+Recent manual estimator outputs are in:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs
+```
+
+Do not delete or overwrite those unless the user asks.
+
 ## What The Four Email Threads Wanted
 
 ### Email 1: Ninn Lane quote request
@@ -124,6 +132,73 @@ Bot implication: yes, later we can create a tender-finding bot and dashboard. Cu
 - Phase 2 added a Step 2 Estimator Dashboard for Adam: status, source-of-truth plan, immediate actions, tender requirements, risks, supplier coverage, coding table, checklist, and proposal summary draft.
 - Adam's pricing-code labour allowances were added in `js/pricing.js` as opt-in behaviour.
 - `js/tenderFinder.js` was added as a research panel for live tender sources, CPV codes, keyword strategy, scoring, and a draft reply to Adam.
+
+## Recent Manual Quote Work
+
+These were produced manually because the current website parser is not yet estimator-grade for every pack. They are important examples of the workflow the next agent should copy.
+
+### Home Bargains Basingstoke
+
+Inputs:
+
+```text
+C:\Users\zacpl\Desktop\tender docs due tosay\Home Bargains, Basingstoke Aluminium Doors & Windows.zip
+C:\Users\zacpl\Downloads\Project Hail Mary - Stainforth.zip
+```
+
+Outputs:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Home Bargains Basingstoke - Fenster Pricing Document and Review.xlsx
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Home Bargains Basingstoke - Fenster Glazing Proposal and Pricing Review.pdf
+```
+
+Commercial position:
+
+- Supplier-backed using Bellview, Strongdor, and ACA.
+- Latest sell ex VAT: `GBP 89,429.22`.
+- Latest inc VAT if applicable: `GBP 107,315.06`.
+- Roller shutters excluded by user instruction.
+- ACA automatic/access-related supplier cost: `GBP 12,710.00`.
+- 25% markup applied to ACA: `GBP 3,177.50`.
+- Extra access-control hardware/integration beyond ACA remains TBC.
+- `SSD` = single steel door. `DSD` = double steel door.
+
+Lesson: if the supplier cost is known, do not write "25% of supplier cost" as a placeholder. Calculate the money value and update the total.
+
+### Alkerden
+
+Input:
+
+```text
+C:\Users\zacpl\Downloads\OneDrive_2026-07-01.zip
+```
+
+Working folder:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\test-results\alkerden-input\Stage 4 Curtain Walling & External Doors
+```
+
+Outputs:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Alkerden - Fenster Pricing Document and Review.xlsx
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Alkerden - Fenster Glazing Proposal and Pricing Review.pdf
+```
+
+Commercial position:
+
+- This is a budget/fallback pricing review only. No supplier quote was included.
+- Composite/Velfac windows were marked up as aluminium per the email instruction.
+- 111 window rows extracted and aggregated.
+- 19 dimensioned external door rows priced.
+- `ED13` and `ED23` missing-dimension rows flagged/TBC.
+- Budget sell ex VAT: `GBP 588,817.93`.
+- Budget inc VAT if applicable: `GBP 706,581.52`.
+- Folder title says curtain walling, but no separate curtain wall schedule/quantities were found.
+
+Lesson: if no supplier quote exists, say "budget/fallback" clearly and do not let the user think it is a fixed tender price.
 
 ## Known Good Historical Results
 
@@ -247,6 +322,57 @@ Use `npm.cmd` instead of `npm` if PowerShell blocks `npm.ps1`.
 6. Re-run Whitsbury, Brandon, Gresty, and Project Hail Mary checks when available.
 7. Generate detailed and compact PDFs if the user asks for quote output.
 8. Commit and push.
+
+## Message For Claude Code
+
+Give Claude Code this message if handing over:
+
+```text
+You are working on the Fenster Glazing Quote Assistant.
+
+Use only:
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant
+
+Do not use the old OneDrive repo. The live app is:
+https://glazing-quote-assistant.pages.dev
+
+Your job is to act like a junior commercial glazing estimator. For any tender pack Zac gives you:
+
+1. Extract the pack into:
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\test-results\<job-name>-input
+
+2. Run:
+   node scripts\run-tender-pack.mjs --dir "test-results\<job-name>-input" --out "test-results\<job-name>-run" --with-supplier
+
+3. Inspect JSON/CSV and the actual PDF/XLSX schedules. Do not trust the generated total until row count, dimensions, quantities, and source-of-truth make sense.
+
+4. Source priority:
+   supplier quote / estimator pricing workbook > BOQ/opening schedule workbook > schedule PDF > drawings/specs.
+   Type elevations/specs are usually reference, not priced scope.
+   Avoid double counting supplier quotes, layouts, drawings, and schedules.
+
+5. Use supplier costs where available. Add Fenster code markup and labour separately. Use codes like SAW, MAW, LAW, ELAW, SAD, DAD, SADSAW, SADMAW, SADLAW, SSD, DSD. Quantity stays separate from the code.
+
+6. If no supplier quote exists, label the quote as budget/fallback only.
+
+7. Put final files in:
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs
+
+8. Produce:
+   <Job> - Fenster Pricing Document and Review.xlsx
+   <Job> - Fenster Glazing Proposal and Pricing Review.pdf
+
+9. Include summary totals, pricing rows, supplier/fallback costs, code, markup, labour, sell total, notes, pricing review, exclusions, assumptions, RFIs/actions, and source notes.
+
+10. Render the PDF to PNG and visually inspect for clipped tables. If pdftoppm.cmd fails, use:
+    C:\Users\zacpl\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdftoppm.exe
+
+Recent reference outputs:
+- Home Bargains Basingstoke: sell ex VAT GBP 89,429.22. Roller shutters excluded. ACA supplier cost GBP 12,710.00 plus 25% markup GBP 3,177.50.
+- Alkerden: budget sell ex VAT GBP 588,817.93. No supplier quote. Composite windows marked up as aluminium. ED13/ED23 missing dimensions.
+
+Be honest. Mark missing packages as TBC/excluded. Do not invent quantities, rates, or totals.
+```
 
 ## Next Best Work
 

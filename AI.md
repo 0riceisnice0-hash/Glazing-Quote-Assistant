@@ -17,6 +17,10 @@ Read `HANDOVER.md` first for the current priority. This file is the deeper opera
 - Current confirmed pushed commit before this doc refresh: `2f39bdf Add tender finder research panel`.
 - There are currently no GitHub Actions workflows in this repo.
 - The user expects meaningful changes to be committed and pushed when work is complete.
+- Recent manual quote outputs were generated under `C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs`.
+- Important recent jobs:
+  - Home Bargains Basingstoke: supplier-backed quote using Bellview, Strongdor, and ACA supplier returns.
+  - Alkerden: budget pricing review from schedules only; no supplier quote was included.
 
 ## What The Bot Is Supposed To Become
 
@@ -76,6 +80,54 @@ Use this flow whenever the user gives tender documents:
 8. Fix shared parser/pricing modules if the website and script differ.
 9. Re-run known checks after touching shared extraction or pricing logic.
 10. Generate detailed and compact PDFs only after the scope and assumptions are believable.
+
+## Manual Quote Pack Workflow Used In Recent Sessions
+
+When the user needs an urgent quote and the live parser is not enough, use this repeatable workflow. This is the practical "act like the estimator" flow that produced the recent Home Bargains and Alkerden outputs.
+
+1. Work from the Desktop repo:
+
+   ```text
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant
+   ```
+
+2. Copy or extract the user's ZIP/PDF/XLSX attachments into a job folder under:
+
+   ```text
+   test-results\<job-name>-input
+   ```
+
+3. Run the shared parser first, but do not trust it blindly:
+
+   ```powershell
+   node scripts\run-tender-pack.mjs --dir "test-results\<job-name>-input" --out "test-results\<job-name>-run" --with-supplier
+   ```
+
+4. Inspect the resulting JSON/CSV and compare it with the actual schedules. If the parser misses image/CAD schedules or chooses the wrong source, manually extract with `pdfplumber`/`openpyxl` and document the limitation.
+
+5. Use source hierarchy:
+   - Supplier quotes and real estimator pricing workbooks are strongest.
+   - Schedules/BOQs are next.
+   - Type elevations/specs are reference.
+   - GA drawings/elevations/facade setting-out are evidence, not priced scope, unless manually measured.
+
+6. Generate both an Excel pricing/review workbook and a PDF proposal/pricing review.
+
+7. Put final outputs here:
+
+   ```text
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs
+   ```
+
+8. The Excel/PDF format should include summary totals, pricing lines, supplier/fallback cost, code, markup, labour, sell total, notes, pricing review table, exclusions, assumptions, RFIs/actions, and source notes.
+
+9. Render the PDF to PNG and visually check it before final reply. If Poppler shim fails, call the real executable:
+
+   ```powershell
+   C:\Users\zacpl\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdftoppm.exe
+   ```
+
+10. Never hide uncertainty. If no supplier quote exists, call the output a budget/fallback pricing review. If something is missing, show it as TBC/not priced rather than inventing it.
 
 ## Self-Checking Quotes
 
@@ -204,6 +256,166 @@ Current intended bot behaviour:
 Known issue:
 
 - Ninn Lane detects supplier quotes and Sheerline coding rows, but parser hardening is still needed for some PDF.js text around panel/setup extras.
+
+### Home Bargains Basingstoke
+
+Recent urgent manual quote.
+
+Input packs used:
+
+```text
+C:\Users\zacpl\Desktop\tender docs due tosay\Home Bargains, Basingstoke Aluminium Doors & Windows.zip
+C:\Users\zacpl\Downloads\Project Hail Mary - Stainforth.zip
+```
+
+Working extraction folders:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\test-results\home-bargains-input
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\test-results\home-bargains-quote-subset
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\test-results\stainforth-supplier-prices
+```
+
+Final outputs:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Home Bargains Basingstoke - Fenster Pricing Document and Review.xlsx
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Home Bargains Basingstoke - Fenster Glazing Proposal and Pricing Review.pdf
+```
+
+Supplier evidence:
+
+- Bellview Products quote `0000000428`: aluminium/shopfront package. Use grand total net after 15% discount, not gross line totals.
+- Strongdor `SQ215074 Rev1`: steel doors.
+- ACA Solutions `QU-4030`: automatic door header/lock/sensor package and ACA labour.
+
+Current corrected commercial position:
+
+- Bellview/Strongdor/ACA supplier costs are included.
+- ACA cost is `GBP 12,710.00`; 25% markup was applied as `GBP 3,177.50`.
+- Latest sell total ex VAT: `GBP 89,429.22`.
+- Latest inc VAT if applicable: `GBP 107,315.06`.
+- Roller shutters are excluded by user instruction.
+- Access control/automatic package: ACA supplier cost is included and marked up. Any extra readers/fobs/keypads/controllers/maglocks/cabling/integration beyond ACA remains TBC.
+
+Important lesson:
+
+- Do not leave "25% of supplier cost" as a text placeholder when the supplier cost is known. Convert it to a money value and increase the total.
+- `SSD` means single steel door; `DSD` means double steel door.
+
+### Alkerden
+
+Recent budget review from tender documents.
+
+Input zip:
+
+```text
+C:\Users\zacpl\Downloads\OneDrive_2026-07-01.zip
+```
+
+Working folder:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\test-results\alkerden-input\Stage 4 Curtain Walling & External Doors
+```
+
+Final outputs:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Alkerden - Fenster Pricing Document and Review.xlsx
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Alkerden - Fenster Glazing Proposal and Pricing Review.pdf
+```
+
+Email instruction:
+
+- "These are composite windows but can be marked up as aluminium."
+
+Extraction:
+
+- Window schedule: `Schedules\HX486-HUN-ZZ-ZZ-SH-A-002001.pdf`.
+- External door schedule: `Schedules\HX486-HUN-ZZ-ZZ-SH-A-000001.pdf`.
+- Door type elevations: `Door Type Elevations\HX486-HUN-ZZ-XX-SH-A-000101.pdf` and `000102.pdf`.
+- Window type elevation available: `Window Type Elevations\HX486-HUN-ZZ-XX-SH-A-002102.pdf`.
+
+Current budget position:
+
+- 111 window schedule rows extracted and aggregated.
+- 19 dimensioned external door rows priced.
+- 3 missing-dimension door rows flagged: `ED13` and `ED23` rows.
+- Budget fallback/material allowance ex VAT: `GBP 472,357.93`.
+- Code markup: `GBP 90,950.00`.
+- Labour allowance: `GBP 25,510.00`.
+- Budget sell total ex VAT: `GBP 588,817.93`.
+- Budget inc VAT if applicable: `GBP 706,581.52`.
+
+Important caveat:
+
+- No supplier quote was included, so this is a budget pricing review only. It should not be issued as a fixed supplier-backed quote.
+- Folder title says "Curtain Walling & External Doors", but no separate curtain wall schedule/quantities were found beyond the window/door schedules. Flag this as a query.
+
+## Claude Code Handover Message
+
+Use this message if handing the repo to Claude Code or another coding agent:
+
+```text
+You are working on the Fenster Glazing Quote Assistant.
+
+Use the Desktop repo only:
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant
+
+Do not use the old OneDrive repo. The live app is:
+https://glazing-quote-assistant.pages.dev
+
+The job is to behave like a junior commercial glazing estimator, not just a parser. When Zac gives a tender pack, do the following:
+
+1. Extract the ZIP/PDF/XLSX into:
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\test-results\<job-name>-input
+
+2. Run the shared parser:
+   node scripts\run-tender-pack.mjs --dir "test-results\<job-name>-input" --out "test-results\<job-name>-run" --with-supplier
+
+3. Inspect the JSON/CSV and actual schedules manually. Do not trust the total until row counts, dimensions, quantities, and source-of-truth decisions make sense.
+
+4. Source priority:
+   supplier quote / estimator pricing workbook > BOQ/opening schedule workbook > schedule PDF > drawings/specs.
+   Type elevations and specs are reference evidence unless no schedule exists.
+   Do not double count supplier quotes plus drawings/layouts.
+
+5. Pricing rules:
+   Use supplier costs where available.
+   Add Fenster product-code markup and labour separately for estimator review.
+   Use Adam's codes where possible: SAW, MAW, LAW, ELAW, SAD, DAD, SADSAW, SADMAW, SADLAW, SSD, DSD, etc.
+   Quantity stays separate from code.
+   If no supplier quote exists, label the result as budget/fallback only.
+
+6. Outputs go here:
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs
+
+7. Produce both:
+   <Job> - Fenster Pricing Document and Review.xlsx
+   <Job> - Fenster Glazing Proposal and Pricing Review.pdf
+
+8. The workbook/PDF must show:
+   summary totals, pricing lines, supplier/fallback cost, code, markup, labour, sell total, notes, pricing review table, exclusions, assumptions, RFIs/actions, and source notes.
+
+9. Render the PDF to PNG before final response and check for clipped tables. If pdftoppm.cmd fails, use:
+   C:\Users\zacpl\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdftoppm.exe
+
+10. Recent known outputs:
+   Home Bargains Basingstoke:
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Home Bargains Basingstoke - Fenster Pricing Document and Review.xlsx
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Home Bargains Basingstoke - Fenster Glazing Proposal and Pricing Review.pdf
+   Latest sell ex VAT: GBP 89,429.22. Roller shutters excluded. ACA supplier cost GBP 12,710 has 25% markup GBP 3,177.50.
+
+   Alkerden:
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Alkerden - Fenster Pricing Document and Review.xlsx
+   C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Alkerden - Fenster Glazing Proposal and Pricing Review.pdf
+   Budget sell ex VAT: GBP 588,817.93. No supplier quote; composite windows marked up as aluminium; ED13/ED23 missing dimensions.
+
+11. Be honest with Zac. If a number is not supplier-backed, say it. If a package is missing, mark TBC or excluded. Do not invent quantities, rates, or totals.
+
+12. If changing app behaviour, update the version badge, run a syntax check, commit, push, and deploy Cloudflare Pages if needed.
+```
 
 ## Pricing Logic Notes
 
