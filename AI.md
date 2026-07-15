@@ -271,6 +271,19 @@ Important behaviours:
 - The BoQ `Quoted Value` inclusion checklist is captured as spec notes via `extractBoqInclusionNotes`.
 - Result: 9/9 BoQ lines extracted; budget sell ex VAT `GBP 111,208.82` (fallback material + code markup + code labour + EPDM/mastic allowances). Ninn Lane amended and Alkerden regression runs were unchanged after this work (commit `b8d9a71`).
 
+### Crownhill Business Centre / Zelltec
+
+Fenster's own WindowCAD-style design concept PDF (2026-07-15). One product type per page with `TYPE X - FRONT/REAR` headings, `Quantity: N`, a `Comments` block and dimensions between the `External` and `Internal` elevation labels.
+
+Important behaviours:
+
+- `classifyDocument` recognises design concept PDFs (TYPE pages + Quantity + "design concept"/"frames are viewed from the outside") as high-confidence schedules.
+- Strategy C1 (`tryFensterConceptExtraction`) parses one item per type page; `- Frame N` detail pages are skipped, and Comments parsing must not rely on newlines because PDF.js page text can be one long line.
+- Tilt & turn pane widths under the elevation feed split-pane pricing; steel panic-bar doors become SSD/DSD with no glazing cost; entrance doorsets with flanking screens get SADSAW/SADMAW.
+- `solarControlExtra` (default GBP 35/m2) applies when the item spec mentions solar control/Coolite.
+- Email instructions (Smart Wall spec, pressing allowances, quantity totals) still need estimator application in the output workbook - the CLI does not read emails.
+- Result: 8/8 concept types, 29 frames, budget sell ex VAT `GBP 97,778.03` (commit `45267e1`). Brocks Hill/Alkerden/Ninn Lane regressions unchanged.
+
 ### Home Bargains Basingstoke
 
 Recent urgent manual quote.

@@ -233,6 +233,40 @@ Commercial position:
 
 Lesson: blank-rate BoQ workbooks ("BoQs" plural filename) are now extracted by the shared parser (Strategy B1, commit `b8d9a71`). Extra-over lines must stay TBC, not silently dropped or invented.
 
+### Crownhill Business Centre / Zelltec (2026-07-15)
+
+Inputs:
+
+```text
+C:\Users\zacpl\Downloads\Project Hail Mary - Crownhill.zip
+(Zelltec - Crownhill Concept.pdf + entrance photo)
+```
+
+Working folders:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\test-results\crownhill-input
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\test-results\crownhill-run
+```
+
+Outputs:
+
+```text
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Crownhill - Fenster Pricing Document and Review.xlsx
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Crownhill - Fenster Glazing Proposal and Pricing Review.pdf
+C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Crownhill - Reply to Adam (draft).txt
+```
+
+Commercial position:
+
+- Fenster design concept PDF only; no supplier/fabricator costs. Budget fallback rates.
+- Fallback material `GBP 73,168.03`, code markup `GBP 19,000.00`, code labour `GBP 5,410.00`, centre-post pressing allowance `GBP 200.00` (Adam's email).
+- Budget sell ex VAT: `GBP 97,778.03`. Inc VAT if applicable: `GBP 117,333.64`.
+- 29 frames: TYPE A x18 (MAW T&T 3-sash), TYPE B/C x1 (SAW), TYPE D x4 (SAW), TYPE E.1/E.2 entrance doorsets (SADMAW, Smart Wall spec), TYPE F x2 + TYPE G x1 steel panic-bar doors (SSD). Matches Adam's 24/2/3 email totals.
+- TYPE B/C/G quantities assumed 1 (not printed on concept). Fire RATING of steel escape doors not stated - RFI.
+
+Lesson: Fenster/WindowCAD concept PDFs are extracted by Strategy C1 (commit `45267e1`). PDF.js page text can have no newlines - concept parsing must not rely on line breaks.
+
 ## Known Good Historical Results
 
 These results may not exist as files in the Desktop repo if old `test-results` were not copied over, but they are important regression targets.
