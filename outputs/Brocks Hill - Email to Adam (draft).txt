@@ -1,0 +1,55 @@
+Subject: Brocks Hill - windows & doors BoQ priced (budget) - need your steer on 6 points
+
+Hi Adam,
+
+We've priced the Brocks Hill windows and external doors BoQ. Attached are the
+pricing workbook and the proposal/pricing review PDF.
+
+Headline: GBP 111,208.82 ex VAT (GBP 133,450.58 inc VAT if applicable).
+This is a budget/fallback price only - the pack contained just the blank-rate
+BoQ, with no drawings, specification or supplier quotes, so nothing in it is
+supplier-backed yet.
+
+What we priced (37 frames):
+- ED.0.02: classroom anti-fingertrap door, 1010 x 2110 - 1 nr (SAD)
+- ED.0.10/14: glazed entrance doors, 1810 x 2110 - 2 nr (SAD)
+- WIN.E.01: door-and-screen elements, 1610 x 2110 - 4 nr (SADSAW)
+- WIN.E.02: 1800 x 2100, two fixed + top hung - 23 nr (MAW)
+- WIN.E.04: 1800 x 2400 fixed - 4 nr; WIN.E.05: 1000 x 2100 fixed - 2 nr;
+  WIN.E.06: 1800 x 2100 fixed - 1 nr
+- Plus EPDM allowance (GBP 3,388.94) and mastic allowance (GBP 1,424.40)
+
+Questions before this can go anywhere near the contractor:
+
+1. Material/system/colour - the BoQ never states them. We've assumed PPC
+   aluminium commercial spec (windows U 1.1, doors U 1.2 per the BoQ). Which
+   system and colour do you want to quote on?
+
+2. ED.0.10/14 - the entrance doors are 1810 mm wide but described as a
+   "single anti fingertrap" door. Single leaf plus fixed side panel, or
+   leaf-and-a-half? It changes the code and the money.
+
+3. "E/O FOR EXD.E.02 (03/11/12/13)" x4 - what is this extra-over actually
+   for? It looks like it relates to the four WIN.E.01 door elements. We've
+   left it TBC rather than guess.
+
+4. Power-assisted door E/O - one entrance door needs power assistance. Do we
+   go back to ACA (as on Home Bargains) for the operator package, and do you
+   want a provisional sum in the meantime?
+
+5. The BoQ "Quoted Value" checklist requires access allowance, airtightness,
+   manifestations, safety barriers, Climaguard, solar control, obscure
+   glazing, glass lifting, door supports, internal flashings, panic escape
+   gear and protection. We've only allowed for EPDMs and mastic so far. Which
+   of the rest do you want priced as allowances, and which qualified/excluded
+   in the tender return?
+
+6. Prelims/access - nothing is in the price beyond our standard fitting
+   labour. What should this job carry for prelims, access equipment and
+   protection?
+
+Also: we don't have a tender return date for this one - can you confirm the
+deadline, and chase the contractor for elevations/spec so we can firm this up?
+
+Thanks,
+Zac

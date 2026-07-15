@@ -257,6 +257,20 @@ Known issue:
 
 - Ninn Lane detects supplier quotes and Sheerline coding rows, but parser hardening is still needed for some PDF.js text around panel/setup extras.
 
+### Brocks Hill
+
+Blank-rate contractor BoQ pack (2026-07-15). Only `Brocks Hill BoQs.xlsx` was supplied - no drawings, spec or supplier quotes.
+
+Important behaviours:
+
+- `classifyDocument` now matches plural `BoQs`/`BQs` filenames as BQ documents.
+- Strategy B1 (`tryContractorBoqBlankRateExtraction` in `js/dataExtractor.js`) extracts blank-rate BoQ workbooks shaped `ITEM | DESCRIPTION | QUANTITY | UNITS | Rate | Value` with wrapped multi-row descriptions and dotted/slashed refs (`ED.0.02`, `ED.0.10/14`, `WIN.E.02`).
+- Fixed/opening pane counts are parsed from wording like "two Fixed Fields and a Top Hung Window" so split-pane pricing applies.
+- Door-in-screen elements get combined codes (SADSAW/SADMAW) with a review note.
+- `E/O` extra-over lines and dimensionless lines become `scope-unpriced` estimator-review rows; they must never be auto-priced or dropped.
+- The BoQ `Quoted Value` inclusion checklist is captured as spec notes via `extractBoqInclusionNotes`.
+- Result: 9/9 BoQ lines extracted; budget sell ex VAT `GBP 111,208.82` (fallback material + code markup + code labour + EPDM/mastic allowances). Ninn Lane amended and Alkerden regression runs were unchanged after this work (commit `b8d9a71`).
+
 ### Home Bargains Basingstoke
 
 Recent urgent manual quote.
