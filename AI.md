@@ -284,6 +284,15 @@ Important behaviours:
 - Email instructions (Smart Wall spec, pressing allowances, quantity totals) still need estimator application in the output workbook - the CLI does not read emails.
 - Result: 8/8 concept types, 29 frames, budget sell ex VAT `GBP 97,778.03` (commit `45267e1`). Brocks Hill/Alkerden/Ninn Lane regressions unchanged.
 
+Rev 2 (2026-07-15, supplier-based) replaced the engine budget with rates mined from past supplier costings per Adam's instruction. Durable estimating knowledge from this pass:
+
+- Adam's rule: a WindowCAD concept page with no printed quantity is ALWAYS quantity 1.
+- Handle positions on WindowCAD drawings indicate openers (TYPE A centres fixed, outers T&T).
+- The supplier-quote archive lives under `C:\Users\zacpl\OneDrive - Fenster Glazing (1)\Commercial\1. Tender Documents\<client>\<job>\...\2. Supplier Quotes`. Vetroseal quotes are named `FENSTERG_Quote_NNNNNN(...)`; Strongdor quotes `SQ` numbers; BSW quotes `QTnnnnnn`.
+- Benchmark rates mined for Crownhill: BSW alu casement unglazed GBP 300/m2 (QT239743); BSW alu open-out door GBP 534/m2; Vetroseal SKN 176 Coolite tgh 4T-20-4T argon GBP 103/m2 (059396); Vetroseal lami/tgh softcoat GBP 52.50/m2 (059828); Vetroseal tgh softcoat 4T-20-4T GBP 57.75/m2, 6T-16-6T GBP 85.25/m2 (060079); BSW glazed casement incl SKN 176 approx GBP 615-700/m2 (QT245448); Vetroseal energy surcharge approx 6% of goods; BSW quotes are ex-works.
+- Strongdor SQ216661 Rev1 (14/07/2026) is a live quote for Crownhill TYPE F/G: GBP 817.64 / GBP 927.08 per doorset + GBP 153 delivery, valid to 13/08/2026.
+- Rev 2 sell ex VAT `GBP 73,770.86` (supplier cost GBP 49,360.86 + markup GBP 19,000 + labour GBP 5,410). T&T uplift (+20% on casement rate) and Smart Wall commercial uplift (+15% on door rate) are estimator judgement pending firm BSW/Aplus/Vetroseal quotes.
+
 ### Home Bargains Basingstoke
 
 Recent urgent manual quote.

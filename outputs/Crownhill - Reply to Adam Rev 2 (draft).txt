@@ -1,0 +1,43 @@
+Subject: RE: Crownhill - Rev 2 priced from past supplier costings - GBP 73,770.86 ex VAT
+
+Hi Adam,
+
+All five answers applied and the job re-priced from past supplier costings as
+asked. Rev 2 workbook and PDF attached - supersedes yesterday's GBP 97,778.03
+engine budget.
+
+Rev 2: GBP 73,770.86 ex VAT (GBP 88,525.03 inc VAT if applicable)
+= supplier costs/allowances GBP 49,360.86 + code markup GBP 19,000 + labour
+GBP 5,410.
+
+Where the rates came from (full evidence trail is in the workbook's Supplier
+Rate Register sheet):
+
+- Steel doors: SUPPLIER BACKED. Strongdor quoted this exact project yesterday
+  (SQ216661, 14/07/2026): TYPE F GBP 817.64 x2, TYPE G GBP 927.08, delivery
+  GBP 153. Valid to 13/08/2026. TYPE G's GBP 109 premium over F should be the
+  external access - worth confirming the digi-lock is in their scope.
+
+- Windows: BSW QT239743 (Unit F Acorn) unglazed casements at GBP 300/m2,
+  plus 20% for tilt & turn gearing = GBP 360/m2, plus Vetroseal SKN 176
+  Coolite toughened at GBP 103/m2 (your Cumberland Avenue rate - same spec
+  as always), plus GBP 25/vent. TYPE A works out at GBP 1,936.26/frame
+  supply, with the centres fixed as you confirmed.
+
+- Entrance doorsets: BSW door rate GBP 534/m2 + 15% for Smart Wall commercial
+  sections = GBP 615/m2, 28mm laminated SKN at GBP 105/m2, pull bar +
+  letterplate allowance GBP 150/doorset, plus your GBP 200 centre-post
+  pressing. GBP 6,184.97 sell each.
+
+- Cross-check: BSW's glazed casements with SKN 176 on Heaton Road ran
+  GBP 615-700/m2 all-in, so the unglazed + Vetroseal route is the cheaper
+  buying pattern, as usual.
+
+The honest caveats: the steel doors are firm; the aluminium is built on two
+judgement uplifts (+20% T&T on BSW's casement rate, +15% commercial on their
+door rate). Before contract we should get BSW/Aplus to quote the actual T&T
+schedule and Smart Wall doorsets, and Vetroseal to firm up the two glass
+specs. Also flagging: BSW may apply small-unit minimums on the 900x880
+TYPE Ds.
+
+Zac
