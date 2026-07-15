@@ -91,6 +91,7 @@ var Pricing = (function () {
     fireRatedGlassRate: 130,
     laminatedExtra: 15,
     toughenedExtra: 10,
+    solarControlExtra: 35,
 
     // Fixed rates from Fenster master doc
     installationPerUnit: 140,
@@ -305,6 +306,8 @@ var Pricing = (function () {
     if (combined.indexOf('laminated') !== -1) extras += config.laminatedExtra;
     if (combined.indexOf('toughened') !== -1 || combined.indexOf('tempered') !== -1)
       extras += config.toughenedExtra;
+    if (combined.indexOf('solar control') !== -1 || combined.indexOf('coolite') !== -1)
+      extras += (config.solarControlExtra || 35);
 
     return Math.round((baseRate + extras) * area * 100) / 100;
   }

@@ -62,6 +62,10 @@ var DataExtractor = (function () {
       if (/\bquotation\b|\bquote\s+number\b|\bquotation\s+no\.?\b/.test(sample) &&
           /\btotal\s+nett\s+ex\.?\s*vat\b|\bgrand\s+total\s+net\b|\btotal\s+price\b/.test(sample))
         return { type: 'supplierQuote', confidence: 'medium', reason: 'Content appears to be a supplier quotation' };
+      if (/TYPE\s+[A-Z][\w.]*\s*-\s*(?:FRONT|REAR|SIDE)/i.test(sample) &&
+          /\bQuantity:\s*\d+/i.test(sample) &&
+          /design\s+concept|frames\s+are\s+viewed\s+from\s+the\s+outside/i.test(sample))
+        return { type: 'schedule', confidence: 'high', reason: 'Fenster/WindowCAD design concept type schedule' };
       if (/window\s*schedule|door\s*schedule|glazing\s*schedule|opening\s*size|window\s*ref|glazing\s*ref/.test(sample))
         return { type: 'schedule', confidence: 'medium', reason: 'Content contains schedule keywords' };
       // Table-header pattern: ref/mark column alongside dimension/qty columns strongly suggests a schedule
@@ -1367,6 +1371,113 @@ var DataExtractor = (function () {
   }
 
   // -----------------------------------------------------------------------
+  // Strategy C1 — Fenster/WindowCAD design concept type pages
+  // -----------------------------------------------------------------------
+  // Shape (e.g. "Zelltec - Crownhill Concept.pdf"): one product type per page:
+  //   TYPE A - FRONT / Quantity: 18 / Comments TILT AND TURN ... /
+  //   External / <width> <height> [pane widths...] / Internal / Frame ...
+  // Detail pages ("TYPE E.1 - FRONT - Frame 1") describe frames of an already
+  // captured type and must not create duplicate items.
+
+  function tryFensterConceptExtraction(text, sourceName, sourcePage) {
+    if (!text) return [];
+    var heading = text.match(/TYPE\s+([A-Z](?:\.\d+)?)\s*-\s*(FRONT|REAR|SIDE)([^\n]*)/i);
+    if (!heading) return [];
+    // Detail pages continue the heading with "- Frame 1" etc. PDF text can lack
+    // newlines entirely, so only inspect the text immediately after the heading.
+    if (/^\s*-\s*Frame\s*\d/i.test((heading[3] || '').substring(0, 20))) return [];
+    // Require the concept page anatomy so other schedule formats are untouched
+    if (!/\bExternal\b/i.test(text) || !/\bInternal\b/i.test(text)) return [];
+
+    var ref = 'TYPE ' + heading[1].toUpperCase();
+    var elevation = heading[2].toUpperCase();
+    var qtyMatch = text.match(/Quantity:\s*(\d+)/i);
+    var qty = qtyMatch ? parseInt(qtyMatch[1], 10) : 1;
+
+    // Page text may have no newlines, so capture lazily up to the first
+    // "External" elevation label instead of relying on line breaks.
+    var commentsMatch = text.match(/Comments\s+([\s\S]*?)\s*\bExternal\b/i);
+    var comments = commentsMatch ? commentsMatch[1].replace(/\s+/g, ' ').trim() : '';
+
+    // Dimensions live between the "External" and "Internal" elevation labels
+    var extIdx = text.search(/\bExternal\b/i);
+    var intIdx = text.search(/\bInternal\b/i);
+    if (extIdx === -1 || intIdx === -1 || intIdx <= extIdx) return [];
+    var dimZone = text.substring(extIdx, intIdx);
+    var nums = [];
+    var numRe = /\b(\d{3,4})\b/g;
+    var m;
+    while ((m = numRe.exec(dimZone)) !== null) nums.push(parseInt(m[1], 10));
+    nums = nums.filter(function (n) { return n >= 250 && n <= 9000; });
+    if (nums.length < 2) return [];
+    var width = nums[0];
+    var height = nums[1];
+    var paneWidths = nums.slice(2);
+    var paneCount = paneWidths.length || 1;
+
+    var isTT = /TILT\s+AND\s+TURN/i.test(comments);
+    var isSteel = /STEEL\s+DOOR/i.test(comments);
+    var isSolar = /SOLAR\s+CONTROL/i.test(comments + ' ' + text);
+    var isLaminated = /\b28mm\s+Laminated\b|\b6\.4\/\d+\/\d+/i.test(text);
+    var isToughened = /Toughened/i.test(text);
+    var hasPanicBar = /panic\s+bar/i.test(text);
+    var isAluDoorset = !isTT && !isSteel && (/letterplate|pull\s*(?:bar|handle)/i.test(text) || /\bDOOR\b/i.test(comments) || /^E/i.test(heading[1]));
+
+    var glazingBits = [];
+    if (isLaminated) glazingBits.push('Laminated');
+    else if (isToughened) glazingBits.push('Toughened');
+    if (isSolar) glazingBits.push('Solar Control');
+    var glazingSpec = isSteel ? 'Steel door - flat panel, no glazing'
+      : ('Double Glazed' + (glazingBits.length ? ' - ' + glazingBits.join(', ') : ' - Clear'));
+
+    var item = createItem({
+      reference: ref,
+      description: (comments ? comments + '; ' : '') + ref + ' - ' + elevation + ', ' + width + ' x ' + height + ' mm',
+      type: (isSteel || isAluDoorset) ? 'door' : 'window',
+      width: width,
+      height: height,
+      quantity: qty,
+      frameType: isSteel ? 'Steel' : ((isSteel || isAluDoorset) ? 'Aluminium Door' : 'Aluminium'),
+      glazingSpec: glazingSpec,
+      openingType: isTT ? 'Tilt & Turn' : ((isSteel || isAluDoorset) ? 'Door' : 'Fixed'),
+      location: ref + ' - ' + elevation,
+      finish: /anthracite\s+grey/i.test(text) ? 'Anthracite Grey' : undefined,
+      sourceDocument: sourceName,
+      sourcePage: sourcePage
+    });
+    item.scheduleType = 'Fenster Concept Schedule';
+
+    if (isTT) {
+      // Tilt & turn sashes are opening lights; pane widths under the elevation
+      // give the sash count. Single-dimension pages are one sash.
+      item.openingPanes = paneCount;
+      pushBoqNote(item, 'Tilt & turn: all ' + paneCount + ' pane(s) assumed opening for split-pane budget pricing.');
+    }
+    if (isSteel) {
+      item.productCode = width > 1400 ? 'DSD' : 'SSD';
+      item.doorGlazing = 'N/A';
+      if (hasPanicBar) pushBoqNote(item, 'Steel fire escape door with panic bar.');
+    } else if (isAluDoorset) {
+      if (paneWidths.length >= 2) {
+        // Doorset with flanking screen: code by the screen (non-leaf) area
+        var screenWidth = Math.max.apply(null, paneWidths);
+        var screenArea = (screenWidth / 1000) * (height / 1000);
+        item.productCode = screenArea > 2.5 ? 'SADMAW' : 'SADSAW';
+        pushBoqNote(item, 'Commercial entrance doorset (door + screen); combined code needs estimator review.');
+      } else {
+        item.productCode = width > 1400 ? 'DAD' : 'SAD';
+      }
+    }
+    if (isSolar) pushBoqNote(item, 'Solar control glass (e.g. Coolite) specified.');
+    if (/letterplate/i.test(text)) pushBoqNote(item, 'Letterplate specified.');
+    if (/trickle\s+vent/i.test(text)) pushBoqNote(item, 'Trickle vents specified.');
+    if (/aluminium\s+pressing/i.test(comments)) pushBoqNote(item, 'Aluminium pressing to centre post noted on this type.');
+
+    item.confidence = scoreConfidence(item, 'table');
+    return [item];
+  }
+
+  // -----------------------------------------------------------------------
   // Strategy 0 — Reference-first extraction (primary strategy for schedule docs)
   // -----------------------------------------------------------------------
 
@@ -2385,6 +2496,11 @@ var DataExtractor = (function () {
     // nearby items to extract attributes.  More tolerant of PDF text fragmentation
     // than the table/row strategies because it does not rely on table structure.
     if (docType === 'schedule') {
+      var conceptItems = tryFensterConceptExtraction(text, sourceName, page.pageNum);
+      if (conceptItems.length > 0) {
+        console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy C1 (concept type page) → ' + conceptItems.length + ' items');
+        return conceptItems;
+      }
       var refFirstItems = tryReferenceFirstExtraction(textItems, text, sourceName, page.pageNum);
       if (refFirstItems.length > 0) {
         console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy 0 (reference-first) → ' + refFirstItems.length + ' items');
