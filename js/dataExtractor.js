@@ -10,7 +10,7 @@ var DataExtractor = (function () {
     var fullName = (docName || '').toLowerCase();
     var name = fullName.split(/[\\\/]/).pop();
     var hasScheduleKeyword = /window\s*schedule|door\s*schedule|glazing\s*schedule|opening\s*schedules?/.test(name);
-    var hasBQKeyword = /\bboq\b|\bbq\b|bill\s*of\s*quantities|subcontractors?\s+bill|trade\s+bill|schedule\s*of\s*works/.test(name);
+    var hasBQKeyword = /\bboqs?\b|\bbqs?\b|bill\s*of\s*quantities|subcontractors?\s+bill|trade\s+bill|schedule\s*of\s*works/.test(name);
 
     // Filename-based (high confidence)
     if (/\bclient\s+quote\b|\bclient\s+quotation\b|\bglazing\s+quote\b/.test(fullName))
@@ -1121,7 +1121,7 @@ var DataExtractor = (function () {
         }
         return;
       }
-      if (/\\bboq\\b|bill\\s*of\\s*quantities/i.test(sourceName || '')) return;
+      if (/\bboqs?\b|\bbqs?\b|bill\s*of\s*quantities/i.test(sourceName || '')) return;
 
       // BQ/pricing schedule rows that list refs and quantities without dimensions:
       // 2.6.1 | WG01 | | 1 | nr | ...
@@ -1155,6 +1155,215 @@ var DataExtractor = (function () {
     });
 
     return items;
+  }
+
+  // -----------------------------------------------------------------------
+  // Strategy B1 — Main-contractor blank-rate BoQ workbooks
+  // -----------------------------------------------------------------------
+  // Shape (e.g. "Brocks Hill BoQs.xlsx" sheet "Windows & Doors"):
+  //   ITEM | DESCRIPTION | QUANTITY | UNITS | Rate | Value
+  // Descriptions wrap across several spreadsheet rows around the priced row,
+  // references are dotted/slashed ("ED.0.02", "ED.0.10/14", "WIN.E.02") and
+  // the Rate/Value columns are blank/zero for the tenderer to fill in.
+
+  var BOQ_UNIT_RE = /^(?:nr|no\.?|item|each|ea|sets?)$/i;
+  var BOQ_STOP_RE = /^(?:quoted\s+value|discount\b|adjustments?\b|excluded\s+resources|adjusted\s+total|code\s+company|company\s+name)/i;
+  var BOQ_SECTION_RE = /^(?:external\s+windows?\s*\/?\s*doors?|windows?|doors?|external\s+doors?|internal\s+doors?|louvres?|screens?|curtain\s+wall(?:ing)?)$/i;
+
+  function boqWordToNumber(word) {
+    var map = { a: 1, an: 1, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6 };
+    var lower = String(word || '').toLowerCase();
+    if (map[lower]) return map[lower];
+    var n = parseInt(lower, 10);
+    return isFinite(n) && n > 0 ? n : 0;
+  }
+
+  function boqDescLooksUnfinished(desc) {
+    if (!desc) return false;
+    var opens = (desc.match(/\(/g) || []).length;
+    var closes = (desc.match(/\)/g) || []).length;
+    if (opens > closes) return true;
+    return /(?:\b(?:a|an|of|and|the|with|consisting|inc)|[,;\-]|\bx)$/i.test(desc.trim());
+  }
+
+  function refreshBoqItemFromDescription(item) {
+    var desc = item.description || '';
+    if (!(item.width > 0 && item.height > 0)) {
+      var dims = extractDimensionsFromText(desc);
+      if (dims) {
+        item.width = dims.width;
+        item.height = dims.height;
+      }
+    }
+
+    // Pane counts for split-pane pricing: "two Fixed Fields and a Top Hung Window"
+    var fixedPanes = 0;
+    var fixedRe = /\b(a|an|one|two|three|four|five|six|\d+)\s+fixed\s+field/gi;
+    var m;
+    while ((m = fixedRe.exec(desc)) !== null) fixedPanes += boqWordToNumber(m[1]);
+    var openingPanes = (desc.match(/\btop\s+hung\b|\bside\s+hung\b|\bcasement\b|\btilt\s*(?:&|and)?\s*turn\b/gi) || []).length;
+    if (fixedPanes > 0) item.fixedPanes = fixedPanes;
+    if (openingPanes > 0) item.openingPanes = openingPanes;
+
+    var mentionsDoor = /\bdoor\s+element\b|\bexternal\s+door\b|\bentrance\s+door\b|\bfingertrap\s+door\b|\banti\s+fingertrap\b/i.test(desc);
+    var mentionsWindow = /\bwindow\s+elements?\b/i.test(desc);
+    if (mentionsDoor) {
+      item.type = 'door';
+    } else if (mentionsWindow) {
+      item.type = 'window';
+    }
+
+    if (item.type === 'door' && fixedPanes > 0 && item.width > 0 && item.height > 0) {
+      // Combined door + fixed screen element: use Fenster combined codes.
+      // Estimate the screen as the element area minus a nominal single leaf.
+      var elementArea = (item.width / 1000) * (item.height / 1000);
+      var screenArea = Math.max(0, elementArea - 2.0);
+      item.productCode = screenArea > 2.5 ? 'SADMAW' : 'SADSAW';
+      item.notes = item.notes || [];
+      pushBoqNote(item, 'Combined door + fixed screen element; combined pricing code needs estimator review.');
+    }
+
+    if (item.type === 'door') {
+      item.openingType = 'Door';
+    } else if (openingPanes > 0) {
+      item.openingType = /\btop\s+hung\b/i.test(desc) ? 'Top Hung' : 'Opening';
+    } else if (fixedPanes > 0) {
+      item.openingType = 'Fixed';
+    }
+  }
+
+  function pushBoqNote(item, note) {
+    item.notes = item.notes || [];
+    if (item.notes.indexOf(note) === -1) item.notes.push(note);
+  }
+
+  function tryContractorBoqBlankRateExtraction(rows, sourceName, sourcePage, sheetName) {
+    if (!rows || !rows.length) return [];
+
+    var headerIdx = -1;
+    for (var i = 0; i < rows.length; i++) {
+      var headerText = (rows[i].text || '').toLowerCase();
+      if (/\bitem\b/.test(headerText) && /\bdescription\b/.test(headerText) && /\b(?:quantity|qty)\b/.test(headerText)) {
+        headerIdx = i;
+        break;
+      }
+    }
+    if (headerIdx === -1) return [];
+
+    var items = [];
+    var pendingDesc = '';
+    var lastItem = null;
+
+    for (var r = headerIdx + 1; r < rows.length; r++) {
+      var cells = (rows[r].items || [])
+        .slice()
+        .sort(function (a, b) { return a.x - b.x; })
+        .map(function (it) { return (it.str || '').trim(); })
+        .filter(Boolean);
+      if (!cells.length) continue;
+      var rowText = cells.join(' ').replace(/\s+/g, ' ').trim();
+      if (BOQ_STOP_RE.test(rowText)) break;
+      if (BOQ_SECTION_RE.test(rowText)) {
+        pendingDesc = '';
+        lastItem = null;
+        continue;
+      }
+
+      // Locate a "<qty> <unit>" cell pair — the signature of a priced BoQ row
+      var unitIdx = -1;
+      for (var c = 1; c < cells.length; c++) {
+        if (BOQ_UNIT_RE.test(cells[c]) && parseQuantityCell(cells[c - 1]) > 0) {
+          unitIdx = c;
+          break;
+        }
+      }
+
+      if (unitIdx === -1) {
+        // Description-only row: continuation of the previous item when its text
+        // clearly ends mid-sentence, otherwise part of the next item's block.
+        if (!pendingDesc && lastItem && boqDescLooksUnfinished(lastItem.description)) {
+          lastItem.description = (lastItem.description + ' ' + rowText).trim();
+          lastItem.location = lastItem.description;
+          refreshBoqItemFromDescription(lastItem);
+          lastItem.confidence = scoreConfidence(lastItem, 'table');
+        } else {
+          pendingDesc = (pendingDesc ? pendingDesc + ' ' : '') + rowText;
+        }
+        continue;
+      }
+
+      var qty = parseQuantityCell(cells[unitIdx - 1]) || 1;
+      var head = cells.slice(0, unitIdx - 1).join(' ').replace(/\s+/g, ' ').trim();
+      var description = ((pendingDesc ? pendingDesc + ' ' : '') + head).trim();
+      pendingDesc = '';
+
+      var isExtraOver = /^e\/o\b/i.test(head);
+      var refMatch = head.match(/^([A-Z]{1,4}(?:[.\/][A-Z0-9]{1,4})+)/i) ||
+        description.match(/\b([A-Z]{1,4}(?:\.[A-Z0-9]{1,3}){1,3}(?:\/\d{1,4})?)\b/);
+      var reference = isExtraOver
+        ? ('E/O ' + head.replace(/^e\/o\s*-?\s*/i, '').replace(/\s+/g, ' ')).trim().substring(0, 40)
+        : (refMatch ? refMatch[1].toUpperCase() : 'BOQ-' + (items.length + 1));
+
+      var item = createItem({
+        reference: reference,
+        description: description,
+        type: 'window',
+        width: 0,
+        height: 0,
+        quantity: qty,
+        frameType: extractFrameType(description),
+        glazingSpec: 'Double Glazed - Clear',
+        location: description,
+        sourceDocument: sourceName,
+        sourcePage: sourcePage
+      });
+      item.scheduleType = 'Contractor BoQ';
+      refreshBoqItemFromDescription(item);
+      if (item.frameType === 'Unknown') {
+        item.frameType = item.type === 'door' ? 'Aluminium Door' : 'Aluminium';
+        pushBoqNote(item, 'Material/system not stated in BoQ; assumed PPC aluminium commercial spec (raise RFI).');
+      }
+      pushBoqNote(item, 'Blank-rate contractor BoQ line; rate to be entered by tenderer.');
+
+      if (isExtraOver || !(item.width > 0 && item.height > 0)) {
+        // Extra-over/no-dimension lines are estimator-review scope, never
+        // auto-priced by the generic engine.
+        item.requiresEstimatorPricing = true;
+        item.manualOverride = true;
+        item.pricingMethod = 'scope-unpriced';
+        item.unitPrice = 0;
+        item.totalPrice = 0;
+        var relatedRef = lastItem && lastItem.reference ? ' (appears to relate to ' + lastItem.reference + ')' : '';
+        pushBoqNote(item, isExtraOver
+          ? 'Extra-over BoQ line without dimensions; needs estimator pricing/clarification' + relatedRef + '.'
+          : 'BoQ line without dimensions; needs estimator pricing/clarification.');
+      }
+
+      item.confidence = scoreConfidence(item, 'table');
+      items.push(item);
+      lastItem = item;
+    }
+
+    return items;
+  }
+
+  // Collect the BoQ "Quoted Value" inclusion checklist (access allowance,
+  // U-values, EPDMs, manifestations, etc.) as specification notes so the
+  // estimator review can show what the quoted value must include.
+  function extractBoqInclusionNotes(doc) {
+    var notes = [];
+    var inSection = false;
+    var lines = String(doc.fullText || '').split(/\r?\n/);
+    for (var i = 0; i < lines.length; i++) {
+      var line = lines[i].replace(/\s+/g, ' ').trim();
+      if (!line) continue;
+      if (/^quoted\s+value$/i.test(line)) { inSection = true; continue; }
+      if (inSection && /^(?:discount|adjustments?|excluded\s+resources|adjusted\s+total|code\b)/i.test(line)) break;
+      if (inSection && line.length <= 80) {
+        notes.push('Quoted value to include: ' + line);
+      }
+    }
+    return notes;
   }
 
   // -----------------------------------------------------------------------
@@ -1758,7 +1967,7 @@ var DataExtractor = (function () {
           removedDimensionless.map(function (item) { return item.reference; }).join(', '));
       }
     }
-    if (scheduleDocCount === 0) {
+    if (scheduleDocCount === 0 && !hasContractorBoqScope) {
       allWarnings.push({
         id: generateId(),
         type: 'extraction',
@@ -1998,7 +2207,8 @@ var DataExtractor = (function () {
           severity: 'error'
         });
       }
-      return { items: bqItems, warnings: bqWarnings, bqValidation: bqValidation };
+      var boqInclusionNotes = bqItems.length > 0 ? extractBoqInclusionNotes(doc) : [];
+      return { items: bqItems, warnings: bqWarnings, bqValidation: bqValidation, specNotes: boqInclusionNotes };
     }
     // Only genuine schedules create priced quote items. Unknown PDFs can include floor plans,
     // construction details, title blocks, and door markers that look like glazing refs.
@@ -2157,6 +2367,13 @@ var DataExtractor = (function () {
       if (workbookItems.length > 0) {
         console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy W (workbook rows) → ' + workbookItems.length + ' items');
         return workbookItems;
+      }
+      if (docType === 'bq') {
+        var boqBlankRateItems = tryContractorBoqBlankRateExtraction(workbookRows, sourceName, page.pageNum, page.sheetName);
+        if (boqBlankRateItems.length > 0) {
+          console.log('[ExtractPage] Page ' + page.pageNum + ': Strategy B1 (blank-rate BoQ) → ' + boqBlankRateItems.length + ' items');
+          return boqBlankRateItems;
+        }
       }
       if (/\bpricing\b/i.test(sourceName || '')) {
         return [];
