@@ -13,7 +13,26 @@ d = json.load(open(SRC, encoding="utf-8"))
 groups = {}
 
 
+def size_band(area):
+    """Frames price lower per m2 as they grow; band rates by unit area."""
+    if area is None:
+        return ""
+    if area < 1.5:
+        return " [<1.5m2]"
+    if area < 3.0:
+        return " [1.5-3m2]"
+    if area < 6.0:
+        return " [3-6m2]"
+    return " [>6m2]"
+
+
+PLAUSIBLE = {"GBP/m2": (10, 3000), "GBP/doorset": (200, 6000)}
+
+
 def add(supplier, category, rec, line, rate, unit="GBP/m2"):
+    lo, hi = PLAUSIBLE.get(unit, (0, 10**9))
+    if not (lo <= rate <= hi):
+        return
     key = (supplier, category, unit)
     g = groups.setdefault(key, {"supplier": supplier, "category": category, "unit": unit,
                                 "rates": [], "sources": {}})
@@ -29,20 +48,22 @@ for rec in d["records"]:
     sup = rec.get("supplier")
     for l in rec.get("lines", []) or []:
         rate = l.get("ratePerM2")
-        if sup == "bsw":
+        if sup in ("bsw", "bellview"):
+            rate = l.get("effectiveRatePerM2") or rate
             if rate is None:
                 continue
             prod = (l.get("product") or "").strip()
             glz = (l.get("glazing") or "")
             unglazed = "Unglazed" in glz
             solar = bool(re.search(r"skn|coolite", glz, re.I))
-            pvc = bool(re.search(r"foil|pvc", prod + " " + glz, re.I))
-            material = "uPVC" if pvc else "aluminium"
+            material = l.get("material") or \
+                ("uPVC" if re.search(r"foil|pvc", prod + " " + glz, re.I) else "aluminium")
             tt = bool(re.search(r"t&t|tilt", prod, re.I))
             kind = "door" if "door" in prod.lower() else ("tilt & turn window" if tt else "casement window")
-            cat = "%s %s, %s%s" % (material, kind,
-                                   "unglazed" if unglazed else "glazed",
-                                   " incl solar control (SKN/Coolite)" if solar and not unglazed else "")
+            cat = "%s %s, %s%s%s" % (material, kind,
+                                     "unglazed" if unglazed else "glazed",
+                                     " incl solar control (SKN/Coolite)" if solar and not unglazed else "",
+                                     size_band(l.get("areaM2")))
             add(sup, cat.strip().rstrip(","), rec, l, rate)
         elif sup == "vetroseal":
             if l.get("kind") == "charge" or rate is None:
@@ -61,6 +82,17 @@ for rec in d["records"]:
                 continue
             cat = "steel doorset %s %s" % (l.get("range", ""), l.get("doorType", ""))
             add(sup, cat.strip(), rec, l, unit_price, unit="GBP/doorset")
+        elif sup == "aplus":
+            if rate is None:
+                continue
+            prod = (l.get("product") or "").lower()
+            unglazed = "Unglazed" in (l.get("glazing") or "")
+            kind = ("door" if "door" in prod else
+                    "curtain wall/facade" if re.search(r"facade|curtain|tental", prod) else
+                    "window/screen")
+            cat = "aluminium %s, %s%s" % (kind, "unglazed" if unglazed else "glazed/unknown",
+                                          size_band(l.get("areaM2")))
+            add(sup, cat, rec, l, rate)
 
 register = []
 for (sup, cat, unit), g in sorted(groups.items()):

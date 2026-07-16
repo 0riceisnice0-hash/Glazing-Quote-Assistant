@@ -44,7 +44,12 @@ def parse_money(s):
 
 
 def extract_text(path):
-    """Extract text with pypdf, falling back to pdfplumber; return the longer."""
+    """Extract text with pypdf and pdfplumber; return candidates longest-first.
+
+    The two engines emit DIFFERENT token orders for the same PDF, and some
+    formats (Aplus Crystal Reports) only parse from one of them, so callers
+    can retry a parser against the alternate text.
+    """
     texts = []
     if PdfReader is not None:
         try:
@@ -59,9 +64,9 @@ def extract_text(path):
         except Exception as e:
             texts.append(("pdfplumber-error:" + str(e)[:60], ""))
     if not texts:
-        return "none", ""
+        return [("none", "")]
     texts.sort(key=lambda t: len(t[1]), reverse=True)
-    return texts[0]
+    return texts
 
 
 def detect_supplier(name, text):
@@ -73,6 +78,8 @@ def detect_supplier(name, text):
         return "vetroseal"
     if "strongdor" in t or re.search(r"\bsq\d{6}\b", t) or "strongdor" in n:
         return "strongdor"
+    if "bellview products ltd" in t and re.search(r"^\d{3}\s+\d+\s+pcs", t, re.M):
+        return "bellview"
     if "bellview products" in t and "quote no" in t:
         return "bsw-summary"
     if "bsw window solutions" in t or re.search(r"quote number:\s*qt\d+", t):
@@ -131,9 +138,20 @@ def parse_bsw(text):
     if em:
         extras = parse_money(em.group(1))
 
-    is_pvc = bool(re.search(r"\bPVC\b|Foil On White|Sculptured Outer", text, re.I))
-    rate_lo, rate_hi = (40, 700) if is_pvc else (100, 1500)
-    qty_re = re.compile(r"Qty:\s*(\d+)\s*([A-Za-z][\w &/\-]*?)\s+Location:\s*(.{1,40}?)\s*%s\s*(%s)" % (CURRENCY, MONEY))
+    # Material is decided PER ITEM from the product name: BSW aluminium lines
+    # are "Prestige ..." (Sheerline); uPVC lines are named by foil/colour
+    # ("Foil/Wt Casement", "White Casement", "Foiled Tilt & Turn"). The doc
+    # banner is only a fallback - "ALUMINI" appears in uPVC boilerplate too.
+    doc_material = "aluminium" if re.search(r"ALUMINIUM", text) else "uPVC"
+
+    def item_material(product):
+        p = (product or "").lower()
+        if re.search(r"prestige|alu", p):
+            return "aluminium"
+        if re.search(r"foil|/wt|white|optima|eurologik|pvc|inline patio", p):
+            return "uPVC"
+        return doc_material
+    qty_re = re.compile(r"Qty:\s*(\d+)\s*([A-Za-z][\w &/().\-]*?)\s*Location:\s*(.{1,40}?)\s*%s\s*(%s)" % (CURRENCY, MONEY))
     positions = [(m.start(), m) for m in qty_re.finditer(text)]
     for idx, (pos, m) in enumerate(positions):
         prev_end = positions[idx - 1][0] if idx > 0 else 0
@@ -145,8 +163,11 @@ def parse_bsw(text):
         colour = (re.search(r"Ext Colour:\s*([^\n]{2,40})", block) or [None, None])[1]
         qty = int(m.group(1))
         line_total = parse_money(m.group(4))
+        material = item_material(m.group(2))
+        rate_lo, rate_hi = (30, 700) if material == "uPVC" else (100, 1500)
         item = {
             "product": m.group(2).strip(),
+            "material": material,
             "location": m.group(3).strip(),
             "qty": qty,
             "lineTotal": line_total,
@@ -271,7 +292,7 @@ def parse_vetroseal(text):
                     for u_ in used:
                         if u_ in others:
                             others.remove(u_)
-                    for q in [v for v in others if float(v).is_integer() and 1 <= v <= 200]:
+                    for q in [v for v in others if float(v).is_integer() and 1 <= v <= 2000]:
                         rem = others[:]
                         rem.remove(q)
                         for u in rem:
@@ -312,6 +333,59 @@ def parse_vetroseal(text):
             "energySurcharge": surcharge, "netExVat": net, "lines": items, "flags": flags}
 
 
+# ---------------------------------------------------------------- Bellview parser
+# Old-style Bellview Products sheets: "001 1 Pcs 4,285 x 2,175 mm Window
+# Element 4,168.17 4,168.17" rows followed by a spec block, with an
+# end-of-quote discount ("Grand Total Net"). Use the DISCOUNTED total; line
+# prices are gross, so an effective rate carries the discount factor.
+def parse_bellview(text):
+    items, flags = [], []
+    quote_ref = (re.search(r"Quotation No\.?:\s*(\d{5,12})", text) or [None, None])[1]
+    date = (re.search(r"Date:\s*(\d{2}/\d{2}/\d{4})", text) or [None, None])[1]
+    net_total = parse_money((re.search(r"Net Total\s*%s?\s*(%s)" % (CURRENCY, MONEY), text) or [None, None])[1])
+    grand_net = parse_money((re.search(r"Grand Total Net\s*%s?\s*(%s)" % (CURRENCY, MONEY), text) or [None, None])[1])
+    discount_factor = round(grand_net / net_total, 6) if (net_total and grand_net) else 1.0
+
+    row_re = re.compile(r"^(\d{3})\s+(\d+)\s+Pcs\s+([\d,]+)\s*x\s*([\d,]+)\s*mm\s+(.{0,60}?)\s+(%s)\s+(%s)\s*$" % (MONEY, MONEY), re.M)
+    matches = list(row_re.finditer(text))
+    for idx, m in enumerate(matches):
+        block_end = matches[idx + 1].start() if idx + 1 < len(matches) else min(len(text), m.end() + 2500)
+        block = text[m.end():block_end]
+        qty = int(m.group(2))
+        w = int(m.group(3).replace(",", ""))
+        h = int(m.group(4).replace(",", ""))
+        unit = parse_money(m.group(6))
+        tot = parse_money(m.group(7))
+        if abs(unit * qty - tot) > 0.05:
+            flags.append("bellview-line-arith: pos %s" % m.group(1))
+        area = w * h / 1e6
+        solar = bool(re.search(r"skn|coolite", block, re.I))
+        unglazed = bool(re.search(r"\bunglazed\b", block, re.I))
+        material = "uPVC" if re.search(r"liniar|upvc", block, re.I) else "aluminium"
+        item = {
+            "product": m.group(5).strip(),
+            "material": material,
+            "position": m.group(1),
+            "widthMm": w, "heightMm": h, "areaM2": round(area, 3),
+            "qty": qty, "unitPrice": unit, "lineTotal": tot,
+            "ratePerM2": round(unit / area, 2) if area else None,
+            "effectiveRatePerM2": round(unit * discount_factor / area, 2) if area else None,
+            "glazing": ("Unglazed" if unglazed else "Glazed") + (" Coolite/SKN" if solar else ""),
+        }
+        if item["ratePerM2"] is not None and not (60 <= item["ratePerM2"] <= 2500):
+            flags.append("bellview-rate-out-of-band: pos %s @ %s/m2" % (m.group(1), item["ratePerM2"]))
+        items.append(item)
+    if items and net_total is not None:
+        s = sum(i["lineTotal"] for i in items)
+        if abs(s - net_total) > max(5.0, net_total * 0.005):
+            flags.append("bellview-total-mismatch: lines %.2f vs net %.2f" % (s, net_total))
+    if not items:
+        flags.append("bellview-no-items")
+    return {"quoteRef": quote_ref, "quoteDate": date, "netTotal": net_total,
+            "grandTotalNet": grand_net, "discountFactor": discount_factor,
+            "lines": items, "flags": flags}
+
+
 # ---------------------------------------------------------------- Strongdor parser
 def parse_strongdor(text):
     items, flags = [], []
@@ -350,36 +424,141 @@ def parse_strongdor(text):
             "delivery": delivery, "orderTotalExVat": order_total, "lines": items, "flags": flags}
 
 
-# ---------------------------------------------------------------- Aplus parser (best effort)
+# ---------------------------------------------------------------- Aplus parsers
+# Aplus quotes arrive in three shapes: a Crystal Reports itemised sheet
+# ("N Frame Price W x H qty £p" + per-item "Total £T"), a Logikal OFFER
+# export ("Item n°X ... Width: N mm ... qty £unit £total"), and a cover/spec
+# letter with no prices at all.
+
+def parse_aplus_crystal(text):
+    items, flags = [], []
+    quote_ref = (re.search(r"Quote No\s*:\s*(Q[TP]\d+(?:\s*-\s*\d+)?)", text) or [None, None])[1]
+    date = (re.search(r"Processed Date\s*:\s*(\d{1,2}-\w{3}-\d{4})", text) or [None, None])[1]
+    unglazed = bool(re.search(r"Unglazed\s*/?\s*Supply Only|\bUnglazed\b", text, re.I))
+    heads = [(m.start(), m.group(1).strip()) for m in
+             re.finditer(r"\n([A-Z][^\n]{2,60}?)\s+Pricing\s+Qty\s+Nett", text)]
+    row_re = re.compile(r"(\d{1,3})\s+Frame Price\s+(\d{3,4})\s*x\s*(\d{3,4})\s+(\d{1,3})\s+%s?([\d,]+\.\d{2})" % CURRENCY)
+    for m in row_re.finditer(text):
+        w, h = int(m.group(2)), int(m.group(3))
+        qty = int(m.group(4))
+        price = parse_money(m.group(5))
+        product = ""
+        for pos, name in heads:
+            if pos < m.start():
+                product = name
+            else:
+                break
+        tot_m = re.search(r"Total\s+%s?([\d,]+\.\d{2})" % CURRENCY, text[m.end():m.end() + 400])
+        block_total = parse_money(tot_m.group(1)) if tot_m else None
+        # "Nett" can be the unit or the line value; the item Total disambiguates
+        if block_total is not None and qty > 1 and abs(price * qty - block_total) <= 0.05:
+            unit = price
+            line_total = block_total
+        elif block_total is not None and qty > 1 and abs(price - block_total) <= 0.05:
+            unit = round(price / qty, 2)
+            line_total = block_total
+        else:
+            unit = price
+            line_total = round(price * qty, 2)
+        area = w * h / 1e6
+        item = {
+            "product": product, "itemNo": int(m.group(1)),
+            "widthMm": w, "heightMm": h, "areaM2": round(area, 3),
+            "qty": qty, "unitPrice": unit, "lineTotal": line_total,
+            "ratePerM2": round(unit / area, 2) if area else None,
+            "glazing": "Unglazed" if unglazed else "",
+        }
+        if item["ratePerM2"] is not None and not (60 <= item["ratePerM2"] <= 3000):
+            flags.append("aplus-rate-out-of-band: item %s @ %s/m2" % (item["itemNo"], item["ratePerM2"]))
+        items.append(item)
+    if not items:
+        flags.append("aplus-crystal-no-items")
+    return {"quoteRef": quote_ref, "quoteDate": date, "docKind": "aplus-crystal",
+            "unglazed": unglazed, "lines": items, "flags": flags}
+
+
+def parse_aplus_logikal(text):
+    items, flags = [], []
+    quote_ref = (re.search(r"Job n.{0,2}(K?/?Q[TP]\d+)", text) or [None, None])[1]
+    date = (re.search(r"(\d{2}/\d{2}/\d{4})", text) or [None, None])[1]
+    stated = parse_money((re.search(r"Total price \(excl\. taxes\)\s*%s?\s*(%s)" % (CURRENCY, MONEY), text) or [None, None])[1])
+    blocks = re.split(r"(?=Item n.{0,2}\d+\s*-\s*Job n)", text)
+    for blk in blocks[1:] if len(blocks) > 1 else []:
+        wm = re.search(r"Width:\s*([\d,]+)\s*mm", blk)
+        hm = re.search(r"Height:\s*([\d,]+)\s*mm", blk)
+        pm = re.search(r"(\d{1,3})\s+%s(%s)\s+%s(%s)" % (CURRENCY, MONEY, CURRENCY, MONEY), blk)
+        if not (wm and hm and pm):
+            continue
+        w = int(wm.group(1).replace(",", ""))
+        h = int(hm.group(1).replace(",", ""))
+        qty = int(pm.group(1))
+        unit = parse_money(pm.group(2))
+        tot = parse_money(pm.group(3))
+        if abs(unit * qty - tot) > 0.05:
+            flags.append("aplus-logikal-arith: %sx%s" % (w, h))
+        desc_m = re.search(r"\d+\s*-\s*([^\n]{5,70})", blk)
+        area = w * h / 1e6
+        item = {
+            "product": desc_m.group(1).strip() if desc_m else "Logikal item",
+            "widthMm": w, "heightMm": h, "areaM2": round(area, 3),
+            "qty": qty, "unitPrice": unit, "lineTotal": tot,
+            "ratePerM2": round(unit / area, 2) if area else None,
+            "glazing": "Unglazed" if re.search(r"Unglazed", blk) else "",
+        }
+        items.append(item)
+    if items and stated is not None:
+        s = sum(i["lineTotal"] for i in items)
+        if abs(s - stated) > max(5.0, stated * 0.005):
+            flags.append("aplus-logikal-total-mismatch: %.2f vs %.2f" % (s, stated))
+    if not items:
+        flags.append("aplus-logikal-no-items")
+    return {"quoteRef": quote_ref, "quoteDate": date, "docKind": "aplus-logikal",
+            "statedTotalExVat": stated, "lines": items, "flags": flags}
+
+
 def parse_aplus(text):
-    flags = []
+    if "Frame Price" in text:
+        return parse_aplus_crystal(text)
+    if re.search(r"Item n.{0,2}\d+\s*-\s*Job n", text):
+        return parse_aplus_logikal(text)
+    #
+
+    # Cover/spec letter with no priced schedule: reference only
     quote_ref = (re.search(r"Enquiry Number:\s*(Q[TP]\d+)", text) or
                  re.search(r"\b(Q[TP]\d{5})\b", text) or [None, None])[1]
     date = (re.search(r"(\d{1,2}(?:st|nd|rd|th)?\s+\w+\s+\d{4})", text) or [None, None])[1]
     systems = sorted(set(re.findall(r"NEXT FZ\d+|STII|Tental \d+|GEODE|Soleal", text)))
-    money_hits = [parse_money(m) for m in re.findall(r"£\s*(%s)" % MONEY, text)]
-    money_hits = [m for m in money_hits if m and m > 100]
-    total_guess = max(money_hits) if money_hits else None
-    flags.append("aplus-needs-review: itemised schedule not machine-parsed yet")
-    return {"quoteRef": quote_ref, "quoteDate": date, "systems": systems,
-            "largestMoneyValue": total_guess, "lines": [], "flags": flags}
+    return {"quoteRef": quote_ref, "quoteDate": date, "docKind": "aplus-letter",
+            "systems": systems, "lines": [], "flags": []}
 
 
 PARSERS = {"bsw": parse_bsw, "vetroseal": parse_vetroseal,
-           "strongdor": parse_strongdor, "aplus": parse_aplus}
+           "strongdor": parse_strongdor, "aplus": parse_aplus,
+           "bellview": parse_bellview}
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--clients", nargs="+", required=True)
+    ap.add_argument("--clients", nargs="+", default=["*"],
+                    help="Client folder names, or * for every client")
     ap.add_argument("--out", default="test-results/rate-miner-pilot")
-    ap.add_argument("--root", default=ARCHIVE_ROOT)
+    ap.add_argument("--roots", nargs="+", default=[ARCHIVE_ROOT])
     args = ap.parse_args()
     os.makedirs(args.out, exist_ok=True)
 
+    targets = []
+    for root_dir in args.roots:
+        if args.clients == ["*"]:
+            for entry in sorted(os.listdir(root_dir)):
+                full = os.path.join(root_dir, entry)
+                if os.path.isdir(full):
+                    targets.append((entry, full))
+        else:
+            for client in args.clients:
+                targets.append((client, os.path.join(root_dir, client)))
+
     records, seen_hashes = [], {}
-    for client in args.clients:
-        base = os.path.join(args.root, client)
+    for client, base in targets:
         if not os.path.isdir(base):
             print("MISSING CLIENT FOLDER:", base)
             continue
@@ -399,7 +578,8 @@ def main():
                 if digest in seen_hashes:
                     seen_hashes[digest]["duplicatePaths"].append(path)
                     continue
-                method, text = extract_text(path)
+                candidates = extract_text(path)
+                method, text = candidates[0]
                 supplier = detect_supplier(f, text)
                 rec = {
                     "path": path,
@@ -417,6 +597,13 @@ def main():
                     rec["flags"] = ["no-text-extracted (scanned/image?)"]
                 elif supplier in PARSERS:
                     parsed = PARSERS[supplier](text)
+                    # Retry against the alternate extraction engine when a
+                    # parser found nothing: token order differs per engine.
+                    if any("-no-items" in fl for fl in parsed.get("flags", [])) and len(candidates) > 1:
+                        alt = PARSERS[supplier](candidates[1][1])
+                        if len(alt.get("lines", [])) > len(parsed.get("lines", [])):
+                            parsed = alt
+                            rec["extractMethod"] = candidates[1][0] + " (retry)"
                     rec.update(parsed)
                     rec["status"] = "flagged" if parsed["flags"] else "ok"
                 elif supplier in ("glass-order", "bsw-summary"):
@@ -444,8 +631,10 @@ def main():
         n_lines = sum(len(r.get("lines", []) or []) for r in rs)
         print("  %-10s files=%d lines=%d" % (s, len(rs), n_lines))
     print("Flags:")
-    for r in flagged:
+    for r in flagged[:80]:
         print("  [%s] %s :: %s" % (r.get("supplier"), r.get("file"), "; ".join(r.get("flags", []))[:150]))
+    if len(flagged) > 80:
+        print("  ... and %d more flagged files (see JSON)" % (len(flagged) - 80))
     print("JSON:", out_path)
 
 
