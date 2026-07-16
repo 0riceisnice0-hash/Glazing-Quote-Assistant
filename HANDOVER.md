@@ -277,6 +277,29 @@ C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\outputs\Crownhill - Reply to Adam
 
 - Rev 2 sell ex VAT: `GBP 73,770.86` (inc VAT `GBP 88,525.03`). Steel doors supplier-backed; aluminium/glass derived from mined benchmark rates (see AI.md Crownhill section for the rate register).
 
+### Greenfields Respite Barnstaple (2026-07-16)
+
+Input: `C:\Users\zacpl\Downloads\Greenfields Respite Barnstaple windows and doors.zip` (Pearce Construction tender: spec + drawings only, no schedule workbook, no supplier quotes). Working folders `test-results\greenfields-input` / `greenfields-run`.
+
+Outputs:
+
+```text
+outputs\Greenfields Respite Barnstaple - Fenster Take-Off and Specification.xlsx
+outputs\Greenfields Respite Barnstaple - Fenster Pricing Document and Review.xlsx
+outputs\Greenfields Respite Barnstaple - Fenster Glazing Proposal and Pricing Review.pdf
+outputs\Greenfields Respite Barnstaple - Reply to Adam (draft).txt
+```
+
+Commercial position:
+
+- TENDER DEADLINE 12 noon 17/07/2026 to Pearce (Neil Macilwaine). JCT MW 2024, start 31/08/2026, 12 weeks, 5% retention. Operational care home.
+- Benchmark sell ex VAT `GBP 100,981.30` (inc VAT `GBP 121,177.56`): supply `GBP 85,361.30` + Fenster code labour `GBP 15,620.00`. All frame rates are register medians + GBP25/m2 safety-glass uplift + hardware allowances.
+- 77 openings taken off drawing 005 P2 (rendered in 150dpi tiles - CAD text layers are unreliable, refs must be read visually): 58 uPVC windows (23 obscured), 4 alu screens (5 NSHEV AOV vents allowed at GBP950/vent, controls by others), 15 doorsets (5 uPVC / 5 alu white / 5 alu brown RAL 8004 incl louvre double + 3-leaf slide-fold).
+- The first Adam-requested TAKE-OFF DOCUMENT format: Project Information sheet (client/contract/deadlines/security/glass/colours/EPDM/warranties/standards/site constraints), full per-ref Window & Door Schedule, RFIs & Queries sheet. Reuse this 3-sheet format when Adam asks for take-offs.
+- CRITICAL RFI: 005 has no elevations for WG-15-29, WF-10/11, DG-13 but plans reference WG-27 and DG-13 - scope gap excluded from price, query to Pearce same-day.
+
+Lesson: spec/drawings-only packs cannot be machine-extracted (0 items from the CLI); the take-off comes from tiled visual reads of the details drawing, and the rate register turns that into a priced tender in one pass.
+
 ## Known Good Historical Results
 
 These results may not exist as files in the Desktop repo if old `test-results` were not copied over, but they are important regression targets.

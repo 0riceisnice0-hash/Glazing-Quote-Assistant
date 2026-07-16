@@ -1,0 +1,50 @@
+Subject: Greenfields Barnstaple - priced + take-off attached - DEADLINE NOON TOMORROW + one scope query for Pearce today
+
+Hi Adam,
+
+Done - three documents attached:
+1. Take-Off and Specification workbook (the new document you asked for)
+2. Pricing workbook
+3. Proposal/pricing review PDF
+
+DEADLINE: Pearce want the quotation by 12 NOON TOMORROW (17th July) - to
+Neil Macilwaine, macilwaineN@pearceconstruction.co.uk.
+
+Price: GBP 100,981.30 ex VAT (GBP 121,177.56 inc VAT).
+77 openings taken off drawing 005: 58 uPVC windows (23 obscured bathroom
+units), 4 aluminium screens including two full-height stair screens with
+5 smoke vents (NSHEVs) linked to the fire alarm, and 15 doorsets (5 uPVC,
+5 alu white incl. the main entrance with the Greenfield's fascia, 5 alu
+brown RAL 8004 plant doors incl. a louvre double and a 3-leaf slide-fold).
+
+No supplier costs exist yet, so every frame rate is a median from our
+supplier-rate register (built from 15,551 of our own historical quote
+lines), with uplifts for this spec: PAS 24:2022, toughened-out/laminated-in
+safety glass, Jackloc restrictors (override type to first-floor escape
+windows), trickle vents, two-stage handles, white frames.
+
+The take-off workbook has everything you listed: security ratings, glass
+specs, colours, frame materials, quantities, deadlines, EPDM requirements
+(gasket glazing + PU foam/sealant perimeter seals), plus standards,
+warranties (10-yr IBG on units), ironmongery schedule per door, and the
+care-home site constraints.
+
+ONE THING FOR TODAY: the drawings have a scope gap. Drawing 005 (the
+schedule) shows no elevations for WG-15 to WG-29, WF-10/11 or DG-13 - but
+the floor plans DO reference WG-27 and DG-13. If those openings are real,
+they are NOT in this price. I'd get the query to Neil at Pearce this
+afternoon so the answer can come back before the deadline. Full RFI list
+is in the workbook (also: WF-22 is duplicated on the drawing, the second
+stair screen has no legible ref, and the DG-08 slide-fold needs its
+operation confirmed).
+
+Exclusions to note in our tender return: maglock/key-card/fire-alarm
+connections (the client carries GBP5,000 + GBP2,000 provisional sums for
+entry/alarm and electrical works - we've priced the door prep only), NSHEV
+control wiring, scaffolding (we've allowed towers only - the roofing
+scaffold is by others), asbestos, blinds/curtains.
+
+Also flagging: BS7412/BS7413 system approval evidence has to be SUBMITTED
+WITH THE TENDER - can you pull the certificates today?
+
+Zac
