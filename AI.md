@@ -487,6 +487,22 @@ Quantity is separate from the code. Curtain walling stays separate unless a futu
 
 In `js/pricing.js`, these are available as `Pricing.LABOUR_ALLOWANCES` and `Pricing.getLabourAllowanceForCode(code)`. The summary install calculation can use them when `pricing.useProductCodeLabourAllowances` is true. This flag is off by default so older calibrated quotes do not move unexpectedly.
 
+## Supplier Rate Miner
+
+`scripts/mine-supplier-rates.py` is a READ-ONLY scanner over the OneDrive quote archive (`Commercial\1. Tender Documents\<client>`). It parses BSW, Vetroseal and Strongdor quotations into line items, grades its own output (arithmetic checks: unit x qty = total, area = w x h with Vetroseal's ~0.30m2 minimum-area billing, lines + extras = stated totals) and flags anything it cannot prove for AI/estimator review. `scripts/build-rate-register.py` aggregates the mined lines into `data/supplier-rates.json` - historical benchmark rates with provenance (quote ref, date, client, job). Never present register rates as firm prices.
+
+Format quirks the parsers already handle (do not re-learn these):
+
+- PDF text extraction differs by engine: pypdf and pdfplumber can give different layouts of the SAME quote; the miner uses whichever yields more text, and totals labels can appear before OR after their amounts.
+- BSW: "Qty: 18Prestige T&T" can lose the space; "£" can arrive as U+FFFD; totals sometimes only derivable as TOTAL INC VAT minus VAT; extras sections ("Total Extras Value") hold trims/cills; product names can contain "/" (Foil /Wt Tilt & Turn).
+- Vetroseal: rows wrap across lines and column order is unstable - fields are assigned by arithmetic self-consistency, not position; refs can be absent or pure digits; page-header address lines ("97-98 ALSTON DRIVE") leak digits into rows unless buffers terminate at QUOTATION/Page markers; delivery/oversize charges ride as 1x1mm rows.
+- Strongdor: SQ PDFs come in quote and drawings variants; drawings have no price table and are classified as reference.
+- Aplus is NOT yet machine-parsed (letter + Crystal Reports/Logikal OFFER formats) - files are flagged `aplus-needs-review`.
+
+Pilot (2026-07-16, Zelltec + GCS + Key Property + Datron, 59 files): 42 ok / 14 flagged (all the known Aplus gap) / 0 unexplained anomalies; 972 line items across 18 rate categories. Ground-truthed against 6 visually-read quotes. Register medians are size-blind - large frames price lower per m2 (Crownhill TYPE A glazed T&T = GBP 370/m2 vs small-window T&T ~GBP 580/m2); consider size bands before trusting a median for an unusual frame.
+
+The pilot also proved the archive-first rule: ALWAYS search the client's folder before estimating - it found BSW quote `QT252840 CROWNHILL BUSINESS CTR` (15/07/2026, glazed incl Coolite SKN176ii, GBP 33,839.57 ex VAT) that supersedes the Rev 2 derived aluminium rates for Crownhill.
+
 ## OpenAI Enrichment
 
 OpenAI note review is optional and must fail open.
