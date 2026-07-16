@@ -1,0 +1,629 @@
+{
+ "builtAt": "2026-07-16T12:39:40.802270",
+ "sourceScan": "test-results\\rate-miner-pilot\\mined-quotes.json",
+ "note": "Historical benchmark rates mined from supplier quotations. Evidence only - never present as firm prices; quotes are typically valid 30 days.",
+ "register": [
+  {
+   "supplier": "bsw",
+   "category": "aluminium casement window, glazed",
+   "unit": "GBP/m2",
+   "lineCount": 96,
+   "median": 391.73,
+   "min": 156.59,
+   "max": 688.77,
+   "sources": [
+    {
+     "quoteRef": "QT227356.pdf",
+     "quoteDate": null,
+     "client": "Zelltec Construction",
+     "job": "208 Addiscombe Road",
+     "file": "QT227356.pdf",
+     "lines": 19
+    },
+    {
+     "quoteRef": "QT252451",
+     "quoteDate": "09/07/2026",
+     "client": "Zelltec Construction",
+     "job": "Wisley Golf Club",
+     "file": "qt252451.pdf",
+     "lines": 14
+    },
+    {
+     "quoteRef": "QT238752",
+     "quoteDate": "13/11/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Churchdown School Academy",
+     "file": "QT238752 - Glazed.pdf",
+     "lines": 37
+    },
+    {
+     "quoteRef": "QT237352",
+     "quoteDate": "17/10/2025",
+     "client": "Zelltec Construction",
+     "job": "Unit 3 Chessington",
+     "file": "QT237352.pdf",
+     "lines": 4
+    },
+    {
+     "quoteRef": "QT243768",
+     "quoteDate": "18/02/2026",
+     "client": "Key Property Solutions",
+     "job": "David Lloyd Wirral Waters",
+     "file": "QT243768.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT237848",
+     "quoteDate": "27/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Aylesbury High School",
+     "file": "qt237848  window quote - glazed.pdf",
+     "lines": 21
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "aluminium casement window, glazed incl solar control (SKN/Coolite)",
+   "unit": "GBP/m2",
+   "lineCount": 45,
+   "median": 624.99,
+   "min": 274.81,
+   "max": 696.58,
+   "sources": [
+    {
+     "quoteRef": "QT252840",
+     "quoteDate": "15/07/2026",
+     "client": "Zelltec Construction",
+     "job": "Units 16 & 18 Crownhill Business Centre",
+     "file": "QT252840 CROWNHILL BUSINESS CTR.pdf",
+     "lines": 2
+    },
+    {
+     "quoteRef": "QT245448",
+     "quoteDate": "17/03/2026",
+     "client": "Key Property Solutions",
+     "job": "NHSPS Heaton Road Surgery",
+     "file": "qt245448.pdf",
+     "lines": 43
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "aluminium casement window, unglazed",
+   "unit": "GBP/m2",
+   "lineCount": 88,
+   "median": 327.39,
+   "min": 136.63,
+   "max": 834.71,
+   "sources": [
+    {
+     "quoteRef": "QT239743",
+     "quoteDate": "02/12/2025",
+     "client": "Zelltec Construction",
+     "job": "Unit F Acorn",
+     "file": "qt239743.pdf",
+     "lines": 4
+    },
+    {
+     "quoteRef": "QT238867",
+     "quoteDate": "14/11/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Churchdown School Academy",
+     "file": "QT238867 - Unglazed.pdf",
+     "lines": 37
+    },
+    {
+     "quoteRef": "QT237491",
+     "quoteDate": "21/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Shepton Vets",
+     "file": "QT237491 WINDOWS.pdf",
+     "lines": 15
+    },
+    {
+     "quoteRef": "QT237750",
+     "quoteDate": "24/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Sunny Glen",
+     "file": "QT237750 BIFOLDS.pdf",
+     "lines": 2
+    },
+    {
+     "quoteRef": "QT237848",
+     "quoteDate": "27/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Aylesbury High School",
+     "file": "qt237848  window quote - glazed.pdf",
+     "lines": 23
+    },
+    {
+     "quoteRef": "QT237911",
+     "quoteDate": "28/10/2025",
+     "client": "Zelltec Construction",
+     "job": "19 Trident Slough",
+     "file": "QT237911.pdf",
+     "lines": 5
+    },
+    {
+     "quoteRef": "QT236031",
+     "quoteDate": "29/09/2025",
+     "client": "Key Property Solutions",
+     "job": "Aldi Newport",
+     "file": "QT236031.pdf",
+     "lines": 2
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "aluminium door, glazed",
+   "unit": "GBP/m2",
+   "lineCount": 3,
+   "median": 589.14,
+   "min": 432.5,
+   "max": 589.14,
+   "sources": [
+    {
+     "quoteRef": "QT238663",
+     "quoteDate": "12/11/2025",
+     "client": "Zelltec Construction",
+     "job": "Units 3 & 5 Cumberland Avenue",
+     "file": "QT238663 U3.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT238666",
+     "quoteDate": "12/11/2025",
+     "client": "Zelltec Construction",
+     "job": "Units 3 & 5 Cumberland Avenue",
+     "file": "QT238666 U5.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT237352",
+     "quoteDate": "17/10/2025",
+     "client": "Zelltec Construction",
+     "job": "Unit 3 Chessington",
+     "file": "QT237352.pdf",
+     "lines": 1
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "aluminium door, glazed incl solar control (SKN/Coolite)",
+   "unit": "GBP/m2",
+   "lineCount": 2,
+   "median": 442.39,
+   "min": 430.86,
+   "max": 453.92,
+   "sources": [
+    {
+     "quoteRef": "QT252840",
+     "quoteDate": "15/07/2026",
+     "client": "Zelltec Construction",
+     "job": "Units 16 & 18 Crownhill Business Centre",
+     "file": "QT252840 CROWNHILL BUSINESS CTR.pdf",
+     "lines": 2
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "aluminium door, unglazed",
+   "unit": "GBP/m2",
+   "lineCount": 5,
+   "median": 516.91,
+   "min": 464.27,
+   "max": 534.12,
+   "sources": [
+    {
+     "quoteRef": "QT239743",
+     "quoteDate": "02/12/2025",
+     "client": "Zelltec Construction",
+     "job": "Unit F Acorn",
+     "file": "qt239743.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT238665",
+     "quoteDate": "12/11/2025",
+     "client": "Zelltec Construction",
+     "job": "Units 3 & 5 Cumberland Avenue",
+     "file": "QT238665 U3 UN.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT238667",
+     "quoteDate": "12/11/2025",
+     "client": "Zelltec Construction",
+     "job": "Units 3 & 5 Cumberland Avenue",
+     "file": "QT238667 U5 UN.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT237834",
+     "quoteDate": "27/10/2025",
+     "client": "Zelltec Construction",
+     "job": "19 Trident Slough",
+     "file": "QT237834.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT237911",
+     "quoteDate": "28/10/2025",
+     "client": "Zelltec Construction",
+     "job": "19 Trident Slough",
+     "file": "QT237911.pdf",
+     "lines": 1
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "aluminium tilt & turn window, glazed",
+   "unit": "GBP/m2",
+   "lineCount": 31,
+   "median": 579.89,
+   "min": 577.09,
+   "max": 668.65,
+   "sources": [
+    {
+     "quoteRef": "QT238663",
+     "quoteDate": "12/11/2025",
+     "client": "Zelltec Construction",
+     "job": "Units 3 & 5 Cumberland Avenue",
+     "file": "QT238663 U3.pdf",
+     "lines": 11
+    },
+    {
+     "quoteRef": "QT238666",
+     "quoteDate": "12/11/2025",
+     "client": "Zelltec Construction",
+     "job": "Units 3 & 5 Cumberland Avenue",
+     "file": "QT238666 U5.pdf",
+     "lines": 18
+    },
+    {
+     "quoteRef": "QT237352",
+     "quoteDate": "17/10/2025",
+     "client": "Zelltec Construction",
+     "job": "Unit 3 Chessington",
+     "file": "QT237352.pdf",
+     "lines": 2
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "aluminium tilt & turn window, glazed incl solar control (SKN/Coolite)",
+   "unit": "GBP/m2",
+   "lineCount": 4,
+   "median": 475.56,
+   "min": 370.58,
+   "max": 620.13,
+   "sources": [
+    {
+     "quoteRef": "QT252840",
+     "quoteDate": "15/07/2026",
+     "client": "Zelltec Construction",
+     "job": "Units 16 & 18 Crownhill Business Centre",
+     "file": "QT252840 CROWNHILL BUSINESS CTR.pdf",
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "aluminium tilt & turn window, unglazed",
+   "unit": "GBP/m2",
+   "lineCount": 34,
+   "median": 504.33,
+   "min": 305.8,
+   "max": 967.5,
+   "sources": [
+    {
+     "quoteRef": "QT238665",
+     "quoteDate": "12/11/2025",
+     "client": "Zelltec Construction",
+     "job": "Units 3 & 5 Cumberland Avenue",
+     "file": "QT238665 U3 UN.pdf",
+     "lines": 11
+    },
+    {
+     "quoteRef": "QT238667",
+     "quoteDate": "12/11/2025",
+     "client": "Zelltec Construction",
+     "job": "Units 3 & 5 Cumberland Avenue",
+     "file": "QT238667 U5 UN.pdf",
+     "lines": 18
+    },
+    {
+     "quoteRef": "QT237834",
+     "quoteDate": "27/10/2025",
+     "client": "Zelltec Construction",
+     "job": "19 Trident Slough",
+     "file": "QT237834.pdf",
+     "lines": 5
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "uPVC casement window, unglazed",
+   "unit": "GBP/m2",
+   "lineCount": 16,
+   "median": 120.06,
+   "min": 72.34,
+   "max": 214.14,
+   "sources": [
+    {
+     "quoteRef": "QT240804",
+     "quoteDate": "05/01/2026",
+     "client": "Zelltec Construction",
+     "job": "Unit A Daventry",
+     "file": "qt240804.pdf",
+     "lines": 6
+    },
+    {
+     "quoteRef": "QT237747",
+     "quoteDate": "24/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Sunny Glen",
+     "file": "QT237747 PVC WINDOWS.pdf",
+     "lines": 10
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "uPVC door, unglazed",
+   "unit": "GBP/m2",
+   "lineCount": 1,
+   "median": 167.41,
+   "min": 167.41,
+   "max": 167.41,
+   "sources": [
+    {
+     "quoteRef": "QT237747",
+     "quoteDate": "24/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Sunny Glen",
+     "file": "QT237747 PVC WINDOWS.pdf",
+     "lines": 1
+    }
+   ]
+  },
+  {
+   "supplier": "bsw",
+   "category": "uPVC tilt & turn window, unglazed",
+   "unit": "GBP/m2",
+   "lineCount": 2,
+   "median": 191.39,
+   "min": 191.39,
+   "max": 191.39,
+   "sources": [
+    {
+     "quoteRef": "QT237747",
+     "quoteDate": "24/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Sunny Glen",
+     "file": "QT237747 PVC WINDOWS.pdf",
+     "lines": 2
+    }
+   ]
+  },
+  {
+   "supplier": "strongdor",
+   "category": "steel doorset Steeldor Double",
+   "unit": "GBP/doorset",
+   "lineCount": 1,
+   "median": 1752.54,
+   "min": 1752.54,
+   "max": 1752.54,
+   "sources": [
+    {
+     "quoteRef": "SQ190698",
+     "quoteDate": "27/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Shepton Vets",
+     "file": "Quote_Shepton Vets_SQ190698_Rev2.pdf",
+     "lines": 1
+    }
+   ]
+  },
+  {
+   "supplier": "strongdor",
+   "category": "steel doorset Steeldor Single",
+   "unit": "GBP/doorset",
+   "lineCount": 4,
+   "median": 975.76,
+   "min": 817.64,
+   "max": 1030.09,
+   "sources": [
+    {
+     "quoteRef": "SQ216661",
+     "quoteDate": "14/07/2026",
+     "client": "Zelltec Construction",
+     "job": "Units 16 & 18 Crownhill Business Centre",
+     "file": "Quote_Units 16 & 18 Crownhill Business Ce_SQ216661_Rev1.pdf",
+     "lines": 2
+    },
+    {
+     "quoteRef": "SQ189545",
+     "quoteDate": "15/10/2025",
+     "client": "Zelltec Construction",
+     "job": "Unit 3 Chessington",
+     "file": "Quote_3 Lion Park_SQ189545_Rev1.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "SQ190698",
+     "quoteDate": "27/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Shepton Vets",
+     "file": "Quote_Shepton Vets_SQ190698_Rev2.pdf",
+     "lines": 1
+    }
+   ]
+  },
+  {
+   "supplier": "vetroseal",
+   "category": "laminated/toughened unit, softcoat",
+   "unit": "GBP/m2",
+   "lineCount": 229,
+   "median": 87.18,
+   "min": 52.46,
+   "max": 147.36,
+   "sources": [
+    {
+     "quoteRef": "FENSTERG_Quote_059197(AYLESBURYHIGHSCHOOL).pdf",
+     "quoteDate": "03/11/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Aylesbury High School",
+     "file": "FENSTERG_Quote_059197(AYLESBURYHIGHSCHOOL).pdf",
+     "lines": 109
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_059828(UNIT-FACORN).pdf",
+     "quoteDate": "03/12/2025",
+     "client": "Zelltec Construction",
+     "job": "Unit F Acorn",
+     "file": "FENSTERG_Quote_059828(UNIT-FACORN).pdf",
+     "lines": 19
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_060168(UNIT-ADAVENTRY-INTERCHANGE).pdf",
+     "quoteDate": "06/01/2026",
+     "client": "Zelltec Construction",
+     "job": "Unit A Daventry",
+     "file": "FENSTERG_Quote_060168(UNIT-ADAVENTRY-INTERCHANGE).pdf",
+     "lines": 13
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_058997(SHEPTON-VETS).pdf",
+     "quoteDate": "24/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Shepton Vets",
+     "file": "FENSTERG_Quote_058997(SHEPTON-VETS).pdf",
+     "lines": 50
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_058998(SHEPTON-VETSOVERSIZED).pdf",
+     "quoteDate": "24/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Shepton Vets",
+     "file": "FENSTERG_Quote_058998(SHEPTON-VETSOVERSIZED).pdf",
+     "lines": 2
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_059059(SUNNY-GLENBIFOLDS).pdf",
+     "quoteDate": "27/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Sunny Glen",
+     "file": "FENSTERG_Quote_059059(SUNNY-GLENBIFOLDS).pdf",
+     "lines": 6
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_059060(sunny-glen2).pdf",
+     "quoteDate": "27/10/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Sunny Glen",
+     "file": "FENSTERG_Quote_059060(sunny-glen2).pdf",
+     "lines": 26
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_058422(UNITADAVENTRY).pdf",
+     "quoteDate": "29/09/2025",
+     "client": "Zelltec Construction",
+     "job": "Unit A Daventry",
+     "file": "FENSTERG_Quote_058422(UNITADAVENTRY).pdf",
+     "lines": 4
+    }
+   ]
+  },
+  {
+   "supplier": "vetroseal",
+   "category": "laminated/toughened unit, solar control (SKN/Coolite)",
+   "unit": "GBP/m2",
+   "lineCount": 320,
+   "median": 95.49,
+   "min": 83.86,
+   "max": 99.95,
+   "sources": [
+    {
+     "quoteRef": "FENSTERG_Quote_059268(AYLESBURYHIGHSCHOOLNEW).pdf",
+     "quoteDate": "05/11/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Aylesbury High School",
+     "file": "FENSTERG_Quote_059268(AYLESBURYHIGHSCHOOLNEW).pdf",
+     "lines": 45
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_059522(CHURCHDOWN-SCHOOL-ACADEMY).pdf",
+     "quoteDate": "17/11/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Churchdown School Academy",
+     "file": "FENSTERG_Quote_059522(CHURCHDOWN-SCHOOL-ACADEMY).pdf",
+     "lines": 275
+    }
+   ]
+  },
+  {
+   "supplier": "vetroseal",
+   "category": "toughened unit, softcoat",
+   "unit": "GBP/m2",
+   "lineCount": 31,
+   "median": 47.32,
+   "min": 26.67,
+   "max": 249.9,
+   "sources": [
+    {
+     "quoteRef": "FENSTERG_Quote_053083(ZELTEC).pdf",
+     "quoteDate": "05/02/2025",
+     "client": "Zelltec Construction",
+     "job": "Clarendon Rd",
+     "file": "FENSTERG_Quote_053083(ZELTEC).pdf",
+     "lines": 4
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_059268(AYLESBURYHIGHSCHOOLNEW).pdf",
+     "quoteDate": "05/11/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Aylesbury High School",
+     "file": "FENSTERG_Quote_059268(AYLESBURYHIGHSCHOOLNEW).pdf",
+     "lines": 27
+    }
+   ]
+  },
+  {
+   "supplier": "vetroseal",
+   "category": "toughened unit, solar control (SKN/Coolite)",
+   "unit": "GBP/m2",
+   "lineCount": 59,
+   "median": 103.07,
+   "min": 87.0,
+   "max": 103.07,
+   "sources": [
+    {
+     "quoteRef": "FENSTERG_Quote_059268(AYLESBURYHIGHSCHOOLNEW).pdf",
+     "quoteDate": "05/11/2025",
+     "client": "Glazing Consultancy Services",
+     "job": "Aylesbury High School",
+     "file": "FENSTERG_Quote_059268(AYLESBURYHIGHSCHOOLNEW).pdf",
+     "lines": 12
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_059396(3-5-CUMBERLAND-AVENUE).pdf",
+     "quoteDate": "12/11/2025",
+     "client": "Zelltec Construction",
+     "job": "Units 3 & 5 Cumberland Avenue",
+     "file": "FENSTERG_Quote_059396(3-5-CUMBERLAND-AVENUE).pdf",
+     "lines": 47
+    }
+   ]
+  }
+ ]
+}
