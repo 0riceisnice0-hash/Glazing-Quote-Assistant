@@ -1,0 +1,28 @@
+Subject: Proposal Document Process (2.3.2-PRC2) - reviewed, what I can do
+
+Adam,
+
+Thanks for confirming the pricing document. Noted: the template's own formulas are the ruling maths, and I'll keep filling the sheet by putting supplier prices in the correct cells and letting the formulas do the rest. I'll review the pricing document process doc as soon as it's ready.
+
+I've reviewed the Proposal Document Process (Doc ID 2.3.2-PRC2) and can follow it nearly end to end. From the next tender onwards each proposal will be built as a Word document first - a project-specific copy of MASTER COVER LETTER 31.05.2026.docx - then printed to PDF and saved as "[Client Name] - [Project Ref] Proposal".
+
+What I can do:
+- Clone the master before editing and leave pages 5 onwards (Project Approach, Previous Projects, Project Delivery Team, Terms & Conditions) untouched.
+- Front cover: project and client names in capitals, client logo from Commercial > 19. Company Logo Files, or found online where none is on file. (Small note: the process doc points to folder "20. Company Logo Files" - on the current drive it's folder 19. Might be worth a doc tweak at next review.)
+- Cover images: search online for photographs of the actual building or development, falling back to high-quality commercial glazing / curtain walling stock imagery. I'll note which images I used and where they came from in my reply each time, so you can veto anything unsuitable.
+- Project Information block on page 2 (Client / FAO / Project Reference / Site Address / Date), verified against the tender enquiry documents.
+- Description & Clarifications: scope summary, quantities, inclusions, significant exclusions, client responsibilities, design and programme assumptions, technical and commercial clarifications - matching the assumptions/RFIs in the pricing document.
+- Products section from the final quotation: manufacturer, system, colour, U-value, glass make-up with U/G/LT and acoustic/fire where relevant, plus ancillaries.
+- Review (not rewrite) the Inclusions & Exclusions page, only amending where the project genuinely needs it.
+- Final quality check: I render the finished PDF to images and visually confirm nothing has moved, broken or overflowed before it goes anywhere.
+
+One gap - Step 4: the Executive Summary must come from the Executive Summary Bot in ChatGPT, which I don't have access to. Two options:
+  a) I write the executive summary myself to the same structure and length as the master's example - I can hold the length constraint the bot was built to enforce, and if you share the bot's instructions I'll mirror them exactly; or
+  b) Zac runs the bot and passes me the output to insert.
+Happy to work whichever way you prefer.
+
+If useful, I can rebuild the Lyttleton Road proposal to this process as a first one for you to check.
+
+Kind regards,
+Mary
+Fenster Glazing - Estimating

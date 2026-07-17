@@ -325,6 +325,17 @@ Outputs: `outputs\Lyttleton Road - Fenster Pricing Document and Review.xlsx` / `
 - Queries: BSW quote titled "priory pools community center" (confirm job), BL profiles vs Anthracite Grey head extensions (confirm colours).
 - Emails to Adam are signed as MARY (he knows Mary is the estimating AI) - standing instruction from Zac 2026-07-17.
 
+### Proposal Document Process adoption + pricing ruling (2026-07-17, Adam email)
+
+Adam's email (via Zac) resolved two standing items:
+
+1. **Pricing ruling:** the house pricing document is CORRECT as produced - the template's own formulas are the maths ("This is the correct price as far as I can see"). The template x75% code adders are the client price; the engine-markup discrepancy is closed. Mary's job on the pricing doc = put supplier prices in the correct cells. A "pricing document process doc" is being written by Adam for later review.
+2. **Proposal process:** proposals must follow **Ops Manual Doc 2.3.2-PRC2 "Proposal Document Process"** (`OneDrive\Operations Manual\2. Business Operations & Project Workflow\2.3 Estimating & Commercial Process\2.3.2 Quotation preparation\Proposal Document Process.docx`) - Word document first, then PDF. Key steps: clone `Commercial\1. Tender Documents\1. Master\1. Estimating\3. Client Quote\MASTER COVER LETTER 31.05.2026.docx` per project; cover images = photos of the actual building found online (else commercial glazing stock); client logo from `Commercial\19. Company Logo Files` (doc says folder 20 - it's 19); cover names in CAPITALS; page 2 project info; Executive Summary via the ChatGPT "Executive Summary Bot" (Mary has no access - options offered to Adam: Mary writes to the same length/structure, or Zac runs the bot); Description & Clarifications; Products section from the final quotation; Inclusions & Exclusions review-only; pages 5+ never change; final formatting QC; PDF named `[Client Name] - [Project Ref] Proposal`. Word 16 is installed (`Word.Application.16` COM) so faithful docx->PDF export is available locally.
+
+Output: `outputs\Proposal Process - Reply to Adam (draft).txt` (signed Mary). Offered to rebuild the Lyttleton Road proposal to the new process as a pilot.
+
+Lesson: the Operations Manual (`OneDrive\Operations Manual\`) is a first-class instruction source - check `2.3 Estimating & Commercial Process` for process docs before inventing a format. Other quotation-prep docs there: Estimating Email Templates.docx, Estimating Log Process.docx, Tender Overview.docx.
+
 ## Known Good Historical Results
 
 These results may not exist as files in the Desktop repo if old `test-results` were not copied over, but they are important regression targets.
