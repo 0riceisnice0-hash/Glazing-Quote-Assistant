@@ -1,0 +1,43 @@
+Subject: RE: Lyttleton - both options priced: aluminium GBP 43,450.89 / uPVC windows GBP 31,902.00
+
+Hi Adam,
+
+Both options priced from the BSW quote you attached - workbook and PDF are
+ready.
+
+OPTION 1 - all aluminium, as BSW quoted: GBP 43,450.89 ex VAT
+(GBP 52,141.07 inc). Built on BSW/Bellview 0000000445, using the Grand
+Total Net of GBP 28,160.90 - I have applied their 15% end discount to
+every line, not the gross figures - plus our code markups and fitting
+labour.
+
+OPTION 2 - windows in uPVC, doors stay aluminium Smart Wall:
+GBP 31,902.00 ex VAT (GBP 38,282.40 inc). Saves the client GBP 11,548.89.
+The uPVC window rates are medians from our rate register (BSW uPVC glazed
+by size band, 15,551 quote lines) plus a laminated safety-glass uplift,
+so Option 2 is benchmark-based until BSW re-quote the windows in uPVC -
+worth requesting if the client bites.
+
+Your notes are baked in:
+- The curved toplight is inside door a's price (BSW couldn't draw it).
+  I've carried your technical note through the quote: Sheerline toplight
+  at 72mm depth, needs trimming where it couples to the Smart Wall door
+  head at 100mm - flagged for survey and installation.
+- Smart 400HD noted as the heavy-duty system chosen so the windows can be
+  made as drawn. That cuts the other way for Option 2: type a (500 x 2458
+  tall/narrow) and type e (3425 x 3100) need a uPVC manufacturability and
+  wind-load check before anyone commits to the uPVC version - likely
+  coupled/reinforced frames.
+
+Three things to confirm:
+1. The BSW quote is titled "priory pools community center" - can you
+   confirm it is definitely the Lyttleton Road schedule before order?
+2. Colours: profiles are BL (black) but the head extensions are listed
+   Anthracite Grey - is that intended?
+3. If the client wants Option 2, shall I ask BSW for a uPVC re-quote of
+   the seven window types so it becomes supplier-backed?
+
+Both quotes are valid against BSW's 30-day price hold from 06/07.
+
+Mary
+Fenster Glazing - Estimating

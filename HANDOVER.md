@@ -314,6 +314,17 @@ Commercial position:
 - Rates: Aplus glazed screen >6m2 register median GBP359.60/m2 + GBP45/m2 spec uplift + extras + 15% margin + CW labour GBP150/m2. Engine cross-check GBP75,251 supply-only.
 - Parser fix (commit `369b5b0`): Strategy B1 accepts Stepnell trade-bill headers (`Description|Qty|Unit|Rate`, no ITEM column) and picks refs from "reference ED-04" wording. Brocks Hill regression unchanged.
 
+### Lyttleton Road / Harrabin (2026-07-17)
+
+Input: OneDrive `Commercial\1. Tender Documents\Harrabin\Lyttleton Road`; supplier quote `2. Supplier Quotes\priory pools.pdf` = BSW/Bellview 0000000445 (06/07/2026, Smart Alitherm 400 HD windows + SMA Smart Wall Pocket doors, grand total net GBP28,160.90 after 15%).
+
+Outputs: `outputs\Lyttleton Road - Fenster Pricing Document and Review.xlsx` / `...Proposal and Pricing Review.pdf` / `...Reply to Adam (draft).txt`.
+
+- Option 1 (all aluminium, supplier-backed): `GBP 43,450.89` ex VAT. Option 2 (uPVC windows via register benchmarks + alu doors): `GBP 31,902.00` ex VAT - saving GBP 11,548.89, caveated: type a (500x2458) and type e (3425x3100) need uPVC manufacturability/wind-load checks (BSW chose 400HD to make them "as drawn").
+- Door a (pos 008) includes the shaped/curved toplight BSW cannot draw: Sheerline 72mm toplight, trim where coupled to Smart Wall 100mm head - carry this note to survey/installation.
+- Queries: BSW quote titled "priory pools community center" (confirm job), BL profiles vs Anthracite Grey head extensions (confirm colours).
+- Emails to Adam are signed as MARY (he knows Mary is the estimating AI) - standing instruction from Zac 2026-07-17.
+
 ## Known Good Historical Results
 
 These results may not exist as files in the Desktop repo if old `test-results` were not copied over, but they are important regression targets.
