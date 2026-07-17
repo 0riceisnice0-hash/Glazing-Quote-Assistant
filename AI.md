@@ -487,6 +487,15 @@ Quantity is separate from the code. Curtain walling stays separate unless a futu
 
 In `js/pricing.js`, these are available as `Pricing.LABOUR_ALLOWANCES` and `Pricing.getLabourAllowanceForCode(code)`. The summary install calculation can use them when `pricing.useProductCodeLabourAllowances` is true. This flag is off by default so older calibrated quotes do not move unexpectedly.
 
+## House-Format Client Documents
+
+`scripts/generate-fenster-docs.py` produces Adam's client-facing documents (requested 2026-07-17):
+
+- PRICING DOC: it CLONES `templates/MASTER PRICING DOC.xlsx` (copied from the live master in job folders) and fills the client block + item rows (code/desc/size/qty + supplier Frames/Glass/Additional per unit). All sell arithmetic stays in the template's own formulas: Unit Rate = Frames+Glass+Additional + (product code value x 75%) adder; CW = sqm x 850 supply + 150 labour; INSTALLATION = SUMPRODUCT over the code labour table (matches `Pricing.LABOUR_ALLOWANCES`). Sheet name is `'Pricing Document '` WITH a trailing space. Rows beyond the template's 12 are inserted with formula cloning. The TOTAL cell is rewritten to a live formula (the master carries a stale hardcoded value).
+- KNOWN DISCREPANCY (flagged to Adam, unresolved): the template's x75% code adders are LOWER than `Pricing.PRODUCT_CODES` markups (SAD 900 vs 1150, DAD 1500 vs 1950, SAW 337.50 vs 400 etc.). Until Adam rules, house docs use the template's own adders; internal reviews use pricing.js.
+- PROPOSAL: HTML/PDF replica of `MASTER COVER LETTER` (exec summary, 5-stage approach, inclusions/exclusions, previous projects, team cards, full verbatim T&Cs from `templates/proposal-content.json`). Project photos are placeholder slots unless paths supplied in the job JSON. Use ONLY `templates/proposal-images/fenster-logo.png` (extracted from the pricing template letterhead) - the cover-letter docx media contains CLIENT logos from past jobs (image4.png is Elkins).
+- Job JSON schema: see the Lyttleton demo in HANDOVER. Every job now ships: house pricing doc + house proposal PDF + internal pricing review.
+
 ## Supplier Rate Miner
 
 `scripts/mine-supplier-rates.py` is a READ-ONLY scanner over the OneDrive quote archive (`Commercial\1. Tender Documents\<client>`). It parses BSW, Vetroseal and Strongdor quotations into line items, grades its own output (arithmetic checks: unit x qty = total, area = w x h with Vetroseal's ~0.30m2 minimum-area billing, lines + extras = stated totals) and flags anything it cannot prove for AI/estimator review. `scripts/build-rate-register.py` aggregates the mined lines into `data/supplier-rates.json` - historical benchmark rates with provenance (quote ref, date, client, job). Never present register rates as firm prices.

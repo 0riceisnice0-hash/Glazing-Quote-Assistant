@@ -1,0 +1,46 @@
+Subject: RE: Pricing document + proposal in house format - yes, done. Lyttleton attached as the demo
+
+Hi Adam,
+
+Yes - both replicated, and I've used Lyttleton as the working demonstration
+so you can judge them against a real job.
+
+1. PRICING DOCUMENT (the key bit): I don't imitate it - I fill your actual
+   MASTER PRICING DOC template. The attached Lyttleton pricing doc IS your
+   template: same logo, same layout, and all the live formulas untouched -
+   the product-code adders on the unit rate, the CW 850/150 columns, the
+   sqm parse from the size text, and the INSTALLATION line that computes
+   from the code labour table. I fill in the client block, the codes,
+   descriptions, sizes, quantities and the supplier Frames/Glass/Additional
+   costs, and your own formulas do the selling. It recalculates when you
+   open it, exactly as if someone typed it in. Lyttleton comes out at
+   GBP 41,138.41 ex VAT on the template's arithmetic (BSW net costs +
+   your code adders + code labour), with mastic GBP 568.68 and EPDM
+   GBP 1,253.35 in the optional rows.
+
+   One thing you should know: the template's unit-rate adders (code value
+   x 75%) are LOWER than the markups I've been using in my internal review
+   workbooks (e.g. SAD 900 vs 1,150; DAD 1,500 vs 1,950). On Lyttleton
+   that's GBP 41,138 house vs GBP 43,451 my review figure. Tell me which
+   is the operative sell and I'll use it everywhere.
+
+2. PROPOSAL FORM: replicated from MASTER COVER LETTER as a PDF - your
+   header/branding, the client/FAO/reference block, Executive Summary,
+   the five-stage Project Approach, Inclusions/Exclusions side by side,
+   Previous Projects, the Project Delivery Team cards and the full Terms
+   and Conditions verbatim. You were right that the images are the tricky
+   bit: project-specific photos render as clearly-marked placeholder slots
+   - drop file paths in and they embed automatically. I write the
+   Executive Summary and inclusions/exclusions per job.
+
+   Also worth knowing: the master cover letter still carries the Elkins
+   logo and Brandon Estate text from the job it was last used on - I've
+   made sure only the Fenster letterhead is ever used in generated
+   proposals.
+
+From now on every job gets three outputs: your house pricing doc, the
+house proposal PDF, and my internal pricing review with the supplier
+evidence and RFIs behind the numbers.
+
+Mary
+Fenster Glazing - Estimating
