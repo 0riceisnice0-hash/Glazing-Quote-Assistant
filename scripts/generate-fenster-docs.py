@@ -37,7 +37,13 @@ def _clone_row_formulas(ws, src_row, dst_row):
         dst = ws["%s%d" % (col, dst_row)]
         v = src.value
         if isinstance(v, str) and v.startswith("="):
-            dst.value = v.replace(str(src_row), str(dst_row))
+            # retarget only cell references (B9, J9...) - a bare string replace
+            # corrupts numeric constants containing the row digit (SADMAW 1900)
+            dst.value = re.sub(
+                r"([A-Z]{1,3})%d(?![0-9])" % src_row,
+                lambda m: "%s%d" % (m.group(1), dst_row),
+                v,
+            )
         dst.font = copy.copy(src.font)
         dst.fill = copy.copy(src.fill)
         dst.border = copy.copy(src.border)
@@ -61,7 +67,19 @@ def make_pricing_doc(job, out_path):
     n = len(rows)
     last = FIRST_ROW + n - 1
     if last > LAST_ROW:
-        ws.insert_rows(LAST_ROW, amount=last - LAST_ROW)
+        shift = last - LAST_ROW
+        # openpyxl insert_rows does NOT move merged ranges; the template's
+        # footer merges (G21:H21, F27:H27, F28:H28) would land inside the item
+        # block and turn H cells into read-only MergedCells, silently dropping
+        # the cloned unit-rate formula. Unmerge, insert, re-merge shifted.
+        from openpyxl.utils.cell import range_boundaries
+        footer_merges = [str(m) for m in list(ws.merged_cells.ranges) if m.min_row > LAST_ROW]
+        for m in footer_merges:
+            ws.unmerge_cells(m)
+        ws.insert_rows(LAST_ROW, amount=shift)
+        for m in footer_merges:
+            c1, r1, c2, r2 = range_boundaries(m)
+            ws.merge_cells(start_row=r1 + shift, start_column=c1, end_row=r2 + shift, end_column=c2)
         for r in range(LAST_ROW, last + 1):
             _clone_row_formulas(ws, FIRST_ROW, r)
 

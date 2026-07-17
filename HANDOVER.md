@@ -300,6 +300,24 @@ Commercial position:
 
 Lesson: spec/drawings-only packs cannot be machine-extracted (0 items from the CLI); the take-off comes from tiled visual reads of the details drawing, and the rate register turns that into a priced tender in one pass.
 
+### Greenfields house-format pricing doc + tender email (2026-07-17, PM)
+
+Adam (via Zac): RFI to Pearce never sent, noon deadline passed - "put together a pricing document based on what info she has to hand and include any exclusions laid out clearly in an email", out TODAY.
+
+Built the HOUSE pricing document from the internal benchmark workbook (82 rows: 77 openings + 5 allowances):
+
+- `test-results\greenfields-run\greenfields-house-job.json` (built by script from the internal workbook; supply reconciles to GBP85,361.30 exactly).
+- Code mapping: uPVC windows SPVC <1.5m2 / MPVC 1.5-3 / LPVC >3 (6/35/16+WG-30 screen), alu screens ELAW x4 (no screen code in Adam's table), uPVC doors SUPD x5, alu singles SAD x5, DG-09 entrance door+side glazing SADSAW, alu doubles + DG-03 louvre double + DG-08 slide-fold DAD x4, ALLOW rows via unitRateOverride (no adder/labour).
+- **GBP 136,438.80 ex VAT** (items GBP121,248.80 + installation GBP15,190) = supply GBP85,361.30 + template code adders GBP35,887.50 + code labour. INTERNAL benchmark quote was GBP100,981.30 (supply + labour, NO margin) - the house template's adders ARE the Fenster margin; per Adam's ruling the template number is the price. Flag equivalents clearly whenever converting an internal quote to house format.
+- Tender email drafted to Neil Macilwaine with the scope gap (WG-15-29, WF-10/11, DG-13) converted to explicit EXCLUSION 1, plus maglocks/NSHEV wiring/scaffold/asbestos/blinds/redecoration/structural exclusions and WF-22/DG-08/survey clarifications: `outputs\Greenfields Respite Barnstaple - Tender Email to Pearce (draft).txt`. BS7412/13 certs must be attached before sending - still not pulled.
+
+TWO GENERATOR BUGS FIXED in `scripts/generate-fenster-docs.py` (first job to exercise the >12-row insertion path):
+
+1. openpyxl `insert_rows` does not shift merged ranges; the template's footer merges (G21:H21, F27:H27, F28:H28) landed inside the item block, turned H21/H27/H28 into read-only MergedCells, and the cloned unit-rate formula was SILENTLY dropped (3 rows priced at 0). Fix: unmerge footer merges below row 20, insert, re-merge shifted.
+2. `_clone_row_formulas` used a bare string replace of the row number, corrupting the SADMAW constant `1900*75%` on every cloned row (e.g. row 45 -> `14500*75%`). Fix: regex replace of cell references only.
+
+Verification: hand-computed every row's formula in python (Excel COM is blocked in this environment) - items/install/total reconcile to the penny; footer merges land at G91:H91, F97:H97, F98:H98. Lesson: after ANY generator change, hand-evaluate the emitted formulas per row - openpyxl writes silently even when formulas are dropped.
+
 ### BCC 4-16 Filwood Broadway / Stepnell (2026-07-17)
 
 Input: OneDrive `Commercial\1. Tender Documents\Stepnell\BCC Filwood Broadway\1. Estimating\1. Tender Documents` (shopfront systems zip). Working folders `test-results\filwood-input` / `filwood-run`.
