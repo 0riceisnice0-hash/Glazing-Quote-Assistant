@@ -1247,7 +1247,10 @@ var DataExtractor = (function () {
     var headerIdx = -1;
     for (var i = 0; i < rows.length; i++) {
       var headerText = (rows[i].text || '').toLowerCase();
-      if (/\bitem\b/.test(headerText) && /\bdescription\b/.test(headerText) && /\b(?:quantity|qty)\b/.test(headerText)) {
+      // Stepnell-style trade bills use "Description | Qty | Unit | Rate"
+      // without an "Item" column, so ITEM is optional when RATE/UNIT present.
+      if (/\bdescription\b/.test(headerText) && /\b(?:quantity|qty)\b/.test(headerText) &&
+          (/\bitem\b/.test(headerText) || /\brate\b/.test(headerText) || /\bunit\b/.test(headerText))) {
         headerIdx = i;
         break;
       }
@@ -1303,6 +1306,7 @@ var DataExtractor = (function () {
 
       var isExtraOver = /^e\/o\b/i.test(head);
       var refMatch = head.match(/^([A-Z]{1,4}(?:[.\/][A-Z0-9]{1,4})+)/i) ||
+        description.match(/\breference\s+([A-Z]{1,4}-?\d{1,4})/i) ||
         description.match(/\b([A-Z]{1,4}(?:\.[A-Z0-9]{1,3}){1,3}(?:\/\d{1,4})?)\b/);
       var reference = isExtraOver
         ? ('E/O ' + head.replace(/^e\/o\s*-?\s*/i, '').replace(/\s+/g, ' ')).trim().substring(0, 40)
