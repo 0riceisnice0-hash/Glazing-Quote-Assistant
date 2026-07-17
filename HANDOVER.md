@@ -300,6 +300,20 @@ Commercial position:
 
 Lesson: spec/drawings-only packs cannot be machine-extracted (0 items from the CLI); the take-off comes from tiled visual reads of the details drawing, and the rate register turns that into a priced tender in one pass.
 
+### BCC 4-16 Filwood Broadway / Stepnell (2026-07-17)
+
+Input: OneDrive `Commercial\1. Tender Documents\Stepnell\BCC Filwood Broadway\1. Estimating\1. Tender Documents` (shopfront systems zip). Working folders `test-results\filwood-input` / `filwood-run`.
+
+Outputs: `outputs\Filwood Broadway - Fenster Pricing Document and Review.xlsx` / `...Proposal and Pricing Review.pdf` / `...Reply to Adam (draft).txt`.
+
+Commercial position:
+
+- Quote to Stepnell (Adam Warner, bid S25233B) by 20/07/2026. D&B 2024, retention 3%, LAD GBP1,358/wk, PI required.
+- `GBP 84,810.59` ex VAT quoted as CONTRACTOR'S PROVISIONAL SUMS - the Trade Bill itself instructs this (drawing 31551 is illustrative; design finalised with BCC High Street team; Work Section A54; do not double-count).
+- 7 Aluprof shopfront screens (~123m2): ED-04 x4 (4930x3570), ED-05 x2 (5550x2970, double outward doors), ED-06 x1 (6315x3105, LPS 1175 SR2 + Rw32dB + key-fob access). U 1.0, G 0.5-0.6 solar, mesh ventilation zones, spandrels.
+- Rates: Aplus glazed screen >6m2 register median GBP359.60/m2 + GBP45/m2 spec uplift + extras + 15% margin + CW labour GBP150/m2. Engine cross-check GBP75,251 supply-only.
+- Parser fix (commit `369b5b0`): Strategy B1 accepts Stepnell trade-bill headers (`Description|Qty|Unit|Rate`, no ITEM column) and picks refs from "reference ED-04" wording. Brocks Hill regression unchanged.
+
 ## Known Good Historical Results
 
 These results may not exist as files in the Desktop repo if old `test-results` were not copied over, but they are important regression targets.
