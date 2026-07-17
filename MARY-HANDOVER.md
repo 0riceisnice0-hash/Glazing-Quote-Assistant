@@ -80,6 +80,7 @@ Last updated: 2026-07-17 (later session: Adam confirmed template pricing maths i
 | **Greenfields Barnstaple (Pearce)** | GBP100,981.30 benchmark quote + take-off delivered; deadline was noon 17/07. | Scope-gap RFI with Pearce (WG-15-29, WF-10/11, DG-13 on plans but not on 005); WF-22 duplicate; BS7412/13 evidence. |
 | **Crownhill (Zelltec)** | Rev 2 supplier-based GBP73,770.86 delivered. **Rev 3 pending**: BSW QT252840 (15/07, glazed incl Coolite, GBP33,839.57) found in folder - ~GBP11.8k under Rev 2 aluminium. | Adam: trickle vents missing from BSW quote; entrance quoted Prestige not Smart Wall. Strongdor SQ216661 valid to 13/08. |
 | **Brocks Hill** | GBP111,208.82 budget quote delivered. | Adam: 6 RFIs (system/colour, ED.0.10/14 config, E/O meanings, power-assist supplier, glass upgrades, prelims). |
+| **Beaumont Court (Fortis Vision)** | Old-vs-new tender doc comparison delivered 17/07: 5no NW3 windows DELETED (schedule 9->4), ED1/ED2 shrunk to 2342/2110 x 1252, new handle-height limits (NW1 1900 / NW2 1700), possible new Block A louvre package (SK-HGCE-50-ZZ-DR-M-003). Pack defects: real 0311 T02 MISSING (file contains HCD screed dwg S-28-007) + 11 "PDFs" are renamed DWGs (incl 0302, 0228, 0226, 0253). | Adam: RFI Fortis for real 0311 T02 + proper PDFs; confirm louvre scope; instruct re-price if wanted. Working folders test-results\beaumont-old-input / beaumont-new-input / beaumont-compare. |
 
 ## 8. SUGGESTED NEXT CAPABILITIES (pitched, not started)
 

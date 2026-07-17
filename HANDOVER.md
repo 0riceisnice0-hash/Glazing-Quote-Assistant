@@ -336,6 +336,20 @@ Output: `outputs\Proposal Process - Reply to Adam (draft).txt` (signed Mary). Of
 
 Lesson: the Operations Manual (`OneDrive\Operations Manual\`) is a first-class instruction source - check `2.3 Estimating & Commercial Process` for process docs before inventing a format. Other quotation-prep docs there: Estimating Email Templates.docx, Estimating Log Process.docx, Tender Overview.docx.
 
+### Beaumont Court / Fortis Vision - old vs new tender comparison (2026-07-17)
+
+Adam's email: review old vs new tender docs for window/door changes. Location: OneDrive `Commercial\1. Tender Documents\Fortis Vision\Beaumont Court\Tender Documents\Old` (spec zip 23/02/26 + 30/01/26 drawing issue) and `\New` (`fortisvision_beaumont-court-amenity-revised_2026-07-16_1135 (1).zip` + drawing register REV 1). Client UNITE Students, architect DMWR, contractor Fortis Vision. Fenster spec basis: Norrsken timber-alu composite (engineered pine, alu clad, triple glazed, RAL 7016; supplier quotes in `Supplier Quotes\Norrsken` + BSW), Fenster Glazing Schedule Rev 0, Door Concept Rev 3/4, Ikon IKL332 louvre.
+
+Findings (details in `outputs\Beaumont Court - Old vs New Tender Docs - Reply to Adam (draft).txt`):
+
+- 0310 P06->T02, 0312 P04->T03 (both 29/05/26 "updated to client's comments", now TENDER ISSUE): 5no NW3 (1245x1515 side-hung, basement gym) DELETED - window schedule 9 -> 4; ED1 2350x1264 -> 2342x1252; ED2 width 1264 -> 1252; ED3 + CW1/CW2 unchanged; NEW max handle heights NW1 1900mm / NW2 1700mm; setting-out dims added (T02 10/03/26).
+- NEW louvre sketch SK-HGCE-50-ZZ-DR-M-003 Rev A (25/06/26): existing Block A GF windows replaced with ventilation louvres - possible new Fenster scope (IKL332 was in old spec). Old 0312 louvre note (1135x300) gone with NW3.
+- New canopy drawings 0600/0601 (interface with ED1/CW1 head); GF re-screed 19.620->19.690 with ramps touches door thresholds.
+- PACK DEFECT 1: file `4284-DMWR-31-ZZ-DR-A-0311.pdf` in New actually contains HCD screed drawing S-28-007 P04; issue sheets list 0311 T02 (10/03/26) but the real drawing is nowhere in the pack -> RFI. Latest doors/CW detail held = old P04 (30/01/26).
+- PACK DEFECT 2: 11 files with .pdf extensions are AutoCAD DWGs renamed (header `AC1032`, "No /Root object" in pdfplumber/pypdf): 0103, 0121, 0226, 0228 (jamb details), 0230, 0253 (Crittal screens), 0260, 0302 (Block B elevations), 0356, 0706, 0710 -> RFI for true PDFs.
+
+Lessons: (1) drawing issue sheets + the client's drawing register xlsx are the fastest change-detection source - read them before diffing drawings; (2) verify PDF magic bytes (`%PDF` vs `AC10xx`) before blaming the parser - client packs contain renamed DWGs; (3) drawing rev tables (P/T revisions with descriptions) give the change narrative for free; always quote them in the comparison.
+
 ## Known Good Historical Results
 
 These results may not exist as files in the Desktop repo if old `test-results` were not copied over, but they are important regression targets.

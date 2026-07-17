@@ -1,0 +1,35 @@
+Subject: Beaumont Court (Fortis Vision) - Old vs New tender docs: window & door changes
+
+Adam,
+
+I've compared the Old pack (Feb 2026 specifications + the 30/01/26 drawing issue) against the New pack (revised amenity issue, 16/07/26) line by line on the glazing drawings. Headline: five windows have been deleted, two doors have shrunk slightly, there are new handle-height limits, a possible new louvre package - and two defects in the new pack itself, one of which means I cannot fully verify the doors/curtain walling.
+
+CHANGES TO WINDOWS & DOORS (Block B amenity, drawings 0310/0312)
+
+1. NW3 DELETED - 5 windows removed from scope. The old drawings (0310 P06 / 0312 P04) showed 5no NW3 side-hung composite windows (1245 x 1515) at basement level serving the gym. On the new tender issues (0310 T02, 0312 T03, both rev'd 29/05/26 "updated to client's comments") NW3 is gone from the schedules, elevations and key. Window schedule grand total drops from 9 to 4. In our old Fenster/Norrsken schedule NW3 was Item 3 (no trickle vent, unglazed top pane) - that item and its glass can come out of any re-price.
+
+2. Door sizes trimmed. ED1: 2350 x 1264 -> 2342 x 1252. ED2: width 1264 -> 1252 (height 2110 unchanged). ED3 unchanged at 2180 x 900. Curtain wall unchanged: CW1 6648 x 2400, CW2 1700 x 2160.
+
+3. New handle-height limits on the windows (0312 T03): NW1 maximum 1900mm handle height, NW2 maximum 1700mm. Worth confirming the opener gearing/espag positions on the composite windows comply - the old schedule showed Mila ProLinea handles with no height constraint.
+
+4. Setting-out added (0312 T02, 10/03/26): NW1 set 730 off grid J, NW2 695 off grid H, with cill levels dimensioned. Helpful for survey/installation, no cost impact.
+
+5. Old "S.O. to match existing" notes for NW1/NW3 removed; only the NW2 note remains. Drawings are now status TENDER ISSUE (previously FOR INFORMATION).
+
+6. Possible NEW louvre scope: MEP sketch SK-HGCE-50-ZZ-DR-M-003 Rev A (25/06/26) shows EXISTING Block A ground-floor windows being REPLACED WITH LOUVRES (ventilation intake/exhaust + toilet extract, c. 900 x 500 / 900 x 360). The old pack carried the Ikon IKL332 louvre spec, so the client may expect this in our package - is this ours to price? The old 0312 note "louvre 1135 x 300 following MEP design" has disappeared along with NW3.
+
+7. New entrance canopy drawings (0600 T04 / 0601 T02) now in the pack - not in the old issue. Presumably builder's work, but they sit over ED1/CW1 and the side entrance, so the head/flashing interface needs a look before we fix door head details. Ground floor is also being re-screeded with ramps (19.620 -> 19.690), which touches the door threshold levels.
+
+TWO DEFECTS IN THE NEW PACK (suggest we RFI Fortis Vision)
+
+A. The revised External Doors & Curtain Wall Types drawing is MISSING. The issue sheets list 0311 at T02 (10/03/26), but the file named 4284-DMWR-31-ZZ-DR-A-0311.pdf actually contains HCD's Ground Floor Screed Build-ups (S-28-007 P04) - someone has saved the wrong drawing under that number, and the real 0311 T02 isn't anywhere else in the pack. Until we get it, the latest doors/CW detail we hold is the old P04 (30/01/26), so I can't confirm whether the door leaf/spandrel arrangements changed beyond the schedule dimensions above.
+
+B. Eleven of the "PDFs" are actually AutoCAD DWG files that have been renamed with a .pdf extension (they open in nothing but CAD). They include drawings we care about: 0302 Block B Proposed Elevations, 0228 Jamb Details, 0226 Block A West External Wall Details and 0253 Crittal Screens. Worth asking for proper PDF prints.
+
+Happy to produce a revised pricing document reflecting the deleted NW3s and the door sizes once you confirm - and once the real 0311 turns up.
+
+P.S. I couldn't help noticing my open-questions list (six Brocks Hill RFIs, three Lyttleton queries, one Executive Summary Bot decision) is now longer than the Block B drawing register. If it helps, I can reissue it as a formal drawing with revision clouds - those seem to get responses. Consider this email questions T01, awaiting comment.
+
+Kind regards,
+Mary
+Fenster Glazing - Estimating
