@@ -342,6 +342,8 @@ Mary's aluminium estimate: **GBP 18,611.95 ex VAT** (`outputs\SM5 Wexham Bungalo
 
 RFIs: BSW alu requote (Alitherm white, panels in lieu of lower glass); panel grey RAL; adjoining-building product literature (not in zip); U1.6 on chosen alu system.
 
+UPDATE 22/07 (same day): Adam answered all five RFIs. (1) BSW alu requote in progress - the uPVC quotes were INCORRECT, not merely a spec preference; (2) frames AND panels are WHITE - drawing grey is shading, not colour (doc descriptions corrected, price unchanged at GBP18,611.95); (3) U-values to be confirmed with manufacturer; (4) data sheets will accompany the quotation (closes the match-adjoining-building check); (5) FENSA registered. Ack draft: `outputs\SM5 Wexham Bungalow - Ack Reply to Adam (draft).txt`. Next action: when the BSW alu requote appears in the Wexham supplier-quotes folder, rebuild the pricing doc supplier-backed. Lesson: drawing shading is NOT a colour specification - confirm colours from tender images/spec text, and Adam's coding emails can carry scope corrections (uPVC "incorrect") that supersede supplier quotes on file.
+
 ### BCC 4-16 Filwood Broadway / Stepnell (2026-07-17)
 
 Input: OneDrive `Commercial\1. Tender Documents\Stepnell\BCC Filwood Broadway\1. Estimating\1. Tender Documents` (shopfront systems zip). Working folders `test-results\filwood-input` / `filwood-run`.
