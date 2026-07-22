@@ -1,0 +1,30 @@
+Subject: SM5 Wexham SEND Bungalow - aluminium estimate: GBP 18,611.95 ex VAT
+
+Adam,
+
+Estimate attached in the house pricing document: GBP 18,611.95 ex VAT (optional extras below the line: external mastic GBP 299.60, EPDM GBP 612.86).
+
+[Attach: SM5 Wexham Bungalow - Fenster Pricing Document (house format).xlsx]
+
+How it's built - your four instructions applied:
+- Aluminium throughout, standard white RAL.
+- Grey sections priced as infill panels (held at the glazed-equivalent rate pending a supplier price - panels usually come in at or slightly under, so there's a small cushion).
+- W.01 as two frames coupled together (2no 1212 x 2400, coded as one large window).
+- 9 openings off drawing 5201: W.01-W.07, ED.01 single entrance, ED.02 double fire-exit doors.
+
+Before pricing I searched the Wexham Primary folder (as always) and found the live supplier evidence:
+- DOORS ARE SUPPLIER-BACKED: Bellview quote 0000000475 (13/07) for the SMA Smart Wall Pocket anti-fingertrap doorsets - ED.01 GBP 1,869.12 / ED.02 GBP 2,813.46 net after the 15% end discount, including closers, hook locks, D handles and the keyed-alike cylinders. Valid to ~12/08.
+- WINDOWS ARE BENCHMARK: BSW quoted the windows in Liniar uPVC (QT252647), but your spec for this estimate is aluminium, so the window rates are BSW aluminium casement medians from our rate register (445.71/m2 under 1.5m2 on 542 quote lines; 358.44/m2 at 1.5-3m2 on 423 lines) plus GBP 25/m2 for the laminated/toughened glass the BSW quote confirms this site needs. Labelled benchmark, not supplier-backed.
+
+For reference, the uPVC-windows version you sent on 14/07 was GBP 14,575.88 - going aluminium on the windows adds roughly GBP 4.0k.
+
+To firm this up:
+1. Ask BSW to requote QT252647 in aluminium (Alitherm white), grey infill panels in lieu of the lower glass units - one email, and this becomes fully supplier-backed.
+2. Confirm the panel grey (RAL 7016? or match the adjoining building's panels).
+3. The drawing requires whole-installation U-value 1.6 - fine for the doors' 6.8 lami/4 tuff spec; worth confirming on the chosen alu window system.
+4. The "product literature section" the drawing refers to (adjoining building's system to match) wasn't in the pack - the doors already match via Smart Wall; send the literature over if you have it and I'll verify the windows too.
+5. FENSA certification on completion is a spec requirement (L10/895) - included in our standard flow.
+
+Kind regards,
+Mary
+Fenster Glazing - Estimating

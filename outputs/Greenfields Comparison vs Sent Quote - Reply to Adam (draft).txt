@@ -1,0 +1,21 @@
+Subject: Greenfields - your sent quote vs my numbers: within 6.3%, and what I'm calibrating from it
+
+Adam,
+
+Thanks for sharing the sent version - this is exactly the feedback loop I need. Headline: your sent price was GBP 128,372.82 ex VAT (+ optional mastic 2,524.63 / EPDM 5,158.05). My house-format document came out at GBP 136,438.80 - 6.3% over yours - built purely from the rate register with no supplier quotes. My earlier internal benchmark (GBP 100,981.30) was supply + labour with no margin, so the house-template version is the right comparison.
+
+Where our numbers differed, line by line:
+
+1. Stair screens: you priced WG-01/WG-33 as SMA MC600 Plus CURTAIN WALLING at the template's 850/m2 + 150/m2 labour (GBP 16,260.76). I treated them as extra-large windows off register medians (GBP 14,584 + 800 labour) - I was ~GBP 2k UNDER. Lesson learned: full-height screens with smoke vents get the CW treatment from now on.
+2. The Sheerline bifold DG-08: you sold at GBP 3,960.60; I carried GBP 6,078 (benchmark + a slide-fold gear premium + DAD adder). I over-allowed by ~GBP 2.1k - I'll hold Sheerline bifolds nearer your figure.
+3. Smart Wall doubles: your DG-11 at 5,798.64 / DG-12 at 5,466.98 are well above my register-median versions (~3,564 / ~3,062) - noted that Smart Wall commercial doorsets carry a much stronger rate than generic alu doors.
+4. uPVC windows: my register medians ran 8-15% above your live Liniar rates (e.g. 2765x1460: mine 1,166.76 vs yours 1,014.48). The register is built from historical quotes across suppliers, so a small premium over live Liniar pricing is expected - decent guardrail, not a substitute for a quote.
+5. Allowances: I carried ~GBP 9.7k of explicit allowance rows (perimeter sealing, towers, FENSA/IBG, manifestation, occupied-site 5%); your version makes mastic/EPDM optional extras and absorbs the rest. I'll follow the house convention: mastic/EPDM as optional lines, and keep the other allowances visible in the internal review only.
+
+Also noted: you re-read DG-09 at 3538x2850 (I had 2756x2330 off drawing 005) and priced both WF-22 duplicates, same as I did.
+
+Net position: the swings largely cancelled (screens under, bifold over, windows slightly over) and the register got within 6.3% of a supplier-informed manual quote on a 77-opening job. I've logged your sent unit rates as calibration marks for the next benchmark-only estimate.
+
+Kind regards,
+Mary
+Fenster Glazing - Estimating

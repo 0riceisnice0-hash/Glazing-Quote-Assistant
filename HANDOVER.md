@@ -318,6 +318,30 @@ TWO GENERATOR BUGS FIXED in `scripts/generate-fenster-docs.py` (first job to exe
 
 Verification: hand-computed every row's formula in python (Excel COM is blocked in this environment) - items/install/total reconcile to the penny; footer merges land at G91:H91, F97:H97, F98:H98. Lesson: after ANY generator change, hand-evaluate the emitted formulas per row - openpyxl writes silently even when formulas are dropped.
 
+### Greenfields comparison vs Adam's sent quote (2026-07-22)
+
+Adam shared the manually priced, SENT Greenfields quote (`test-results\greenfields-manual-quote\`): **GBP 128,372.82 ex VAT** (+ optional mastic 2,524.63 / EPDM 5,158.05), dated 20/07. Mary's house doc was GBP 136,438.80 (+6.3%); internal no-margin benchmark GBP 100,981.30.
+
+CALIBRATION MARKS (their sent unit rates, supplier-informed, incl template adders):
+- Stair screens priced as SMA MC600 Plus CURTAIN WALLING at the template 850/m2 supply + 150/m2 labour (NOT coded as windows) - WG-01 2709x4200 GBP9,671.13, 1689x4590 GBP6,589.63. RULE: full-height screens get CW treatment.
+- Sheerline Prestige bifold 2740x2664 sold GBP3,960.60 (Mary's slide-fold premium was ~GBP2.1k over).
+- SMA Smart Wall doubles: 1746x2410 GBP5,798.64; 1270x2410 GBP5,466.98 (register alu-door medians badly undercook Smart Wall commercial doorsets).
+- Liniar uPVC live rates ~8-15% below register medians (2765x1460 GBP1,014.48; 2372x1140 GBP870.34; 990x1120 GBP566.42).
+- House convention: mastic/EPDM as OPTIONAL lines below the total; other allowances live in the internal review, not the client doc.
+- They re-read DG-09 at 3538x2850; both WF-22 duplicates priced.
+
+Reply draft: `outputs\Greenfields Comparison vs Sent Quote - Reply to Adam (draft).txt`.
+
+### SM5 Wexham Primary SEND Bungalow - aluminium estimate (2026-07-22)
+
+Adam: "estimate on the attached - Aluminium, Standard White RAL, Grey sections are panels, W.01 two frames coupled." Input `Project Hail Mary - SM5.zip` -> `test-results\sm5-input` (KK drawing 260259-WEX-KK-XX-L0-D-A-5201 P01 + spec 260529). Wexham Primary SEND Bungalow, client SM5 Developments / Slough BC, architect Kendall Kingscott. U-value 1.6 whole installation; match adjoining building; FENSA cert with O&Ms (L10/895).
+
+ARCHIVE-FIRST WIN: `SM5 Developments\Wexham Primary` folder holds live evidence for the SAME bungalow: BSW QT252647 (Liniar uPVC windows, 13/07, GBP3,373.30 nett - includes BOTH W01 coupled frames 531.26+489.43, butt-jointed) and Bellview 0000000475 (SMA Smart Wall Pocket doors: ED01 2,198.97 / ED02 3,309.95, Grand Total Net GBP4,682.58 after 15%, valid ~12/08), plus the SENT quote 14/07: GBP14,575.88 (uPVC windows + alu doors, house template maths verified).
+
+Mary's aluminium estimate: **GBP 18,611.95 ex VAT** (`outputs\SM5 Wexham Bungalow - Fenster Pricing Document (house format).xlsx`, 9 rows, no insertion path). Doors = Bellview net (SUPPLIER BACKED). Windows = BSW alu casement register medians (<1.5m2 445.71/542 lines; 1.5-3m2 358.44/423 lines) + GBP25/m2 lami/tuff uplift; grey panels held at glazed-equivalent rate. Codes: W.01 LAW (2424x2400 two coupled frames), W.02/03/06 SAW, W.07+W.04+W.05 MAW, ED.01 SAD, ED.02 DAD; install GBP1,870. Optional mastic GBP299.60 / EPDM GBP612.86. Alu premium over their uPVC version ~GBP4.0k. Reply draft: `outputs\SM5 Wexham Bungalow - Reply to Adam (draft).txt`.
+
+RFIs: BSW alu requote (Alitherm white, panels in lieu of lower glass); panel grey RAL; adjoining-building product literature (not in zip); U1.6 on chosen alu system.
+
 ### BCC 4-16 Filwood Broadway / Stepnell (2026-07-17)
 
 Input: OneDrive `Commercial\1. Tender Documents\Stepnell\BCC Filwood Broadway\1. Estimating\1. Tender Documents` (shopfront systems zip). Working folders `test-results\filwood-input` / `filwood-run`.
