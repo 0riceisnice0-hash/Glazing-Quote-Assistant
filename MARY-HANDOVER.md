@@ -71,10 +71,11 @@ Last updated: 2026-07-17 (later session: Adam confirmed template pricing maths i
 - Standard rates: mastic GBP5/lm, EPDM GBP25/m2, install default GBP140/unit (engine) vs code labour for pricing-doc flows, VAT 20%.
 - The Coolite spec "used on all previous pricing" = Saint-Gobain COOL-LITE SKN 176(ii).
 
-## 7. LIVE JOB STATE (as of 2026-07-17 evening)
+## 7. LIVE JOB STATE (as of 2026-07-23)
 
 | Job | Status | Waiting on |
 |---|---|---|
+| **Princess Beatrice House (Guildmore/RBKC)** | AUDIT of Fenster's own submitted tender (GBP272,771.68 ex VAT) delivered 23/07 - NOT a re-quote. Verified exact: 191/191 window units vs BPG T02 schedules, install GBP39,680 recomputes from labour codes, Technal screens match Aplus Logikal penny-for-penny; both Aplus quotes current (21-22/07/2026; the QT39795 letter in the pack is LAST YEAR's - check dates). Issues found (workbook `test-results\princess-beatrice\Princess Beatrice House - Take-Off & Tender Audit.xlsx`): (1) Technal-spec deviation - windows + door types 1-5 are Modeal, needs formal qualification + CA approval; (2) MISSING SCOPE: 3nr Louvre Type 01 + 2nr 2280x1068 Door Type 1 side screens (~GBP3.5-5.5k sell); (3) 2.5% MCD required by ITT, not visible in pricing (GBP6,819); (4) louvred doors not PAS24 tested vs Part Q/SBD Silver; (5) mastic/EPDM optional vs bill "deemed included" Tremco sealing; (6) GBP668.41 Aplus cost uncarried; (7) heights deviate from T02 (Type 3 960 vs 1135, Type 6 1375 vs 1160); (8) 76 obscure entries vs obscure splits only on Types 5/6/7; (9) bill item AA (uPVC variance + lead-ins) unanswered. Email draft signed Mary in same folder. | Adam: decisions on the 3 HIGH items (Technal qualification, missing scope price-or-exclude, MCD); confirm obscure coverage with Aplus. |
 | **Lyttleton Road (Harrabin)** | Both options delivered: alu GBP43,450.89 (BSW 0000000445 net) / uPVC windows GBP31,902.00. House-format docs also produced (GBP41,138.41 template maths - Adam confirmed 17/07 the template price is correct). | Adam: confirm BSW quote titled "priory pools community center" is this job; BL-vs-anthracite colour query; uPVC re-quote from BSW? BSW price hold expires ~05/08. Offered to rebuild proposal to new Word-first process. |
 | **Filwood Broadway (Stepnell)** | GBP84,810.59 ex VAT as Contractor's Provisional Sums delivered. | Zac/Adam to email Adam Warner (adam.warner@stepnell.co.uk) by **20 JULY**. |
 | **Greenfields Barnstaple (Pearce)** | HOUSE pricing doc built 17/07 on Adam's instruction (RFI never sent, deadline passed, "get it out today"): **GBP136,438.80 ex VAT** via template maths (benchmark supply GBP85,361.30 in Frames cells + code adders GBP35,887.50 + code labour GBP15,190). Differs from the internal GBP100,981.30 which had NO Fenster margin. Tender email to Neil Macilwaine drafted with WG-15-29/WF-10/11/DG-13 as explicit EXCLUSIONS. | Zac: send `outputs\Greenfields Respite Barnstaple - Tender Email to Pearce (draft).txt` + house xlsx TODAY; BS7412/13 certs still needed with tender (Adam never pulled them). |
@@ -98,6 +99,7 @@ Last updated: 2026-07-17 (later session: Adam confirmed template pricing maths i
 - Chrome headless writes PDFs asynchronously - Start-Sleep 2 before pdftoppm.
 - The MASTER PRICING DOC sheet name is `'Pricing Document '` with a trailing space; its TOTAL cell ships stale/hardcoded - always rewrite to a live formula.
 - Scratchpad for temp files; job folders under test-results; never commit node_modules or client PDFs beyond outputs.
+- BPG "GR" schedule drawings (Princess Beatrice) have clean text layers - pdfplumber the schedule, no tiling needed. Some client filenames contain non-breaking spaces (U+00A0) - glob patterns, never literal paths.
 
 ## 10. DOCUMENTATION DUTY
 
