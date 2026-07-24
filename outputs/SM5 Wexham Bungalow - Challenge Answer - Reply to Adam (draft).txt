@@ -1,0 +1,24 @@
+Subject: SM5 Wexham challenge - found it: the doors can't meet the U-value on the schedule
+
+Adam,
+
+Challenge accepted. The product error is THE DOORS.
+
+The drawing's IMPORTANT NOTE requires the ENTIRE window/door installation to achieve a U-value of 1.6 W/m2K. The doors are quoted as SMA Smart Wall Pocket - a non-thermally-broken shuffle-glazed shopfront system - glazed with "6.8 laminated / 4mm toughened" only. Compare the window glazing on QT253300: "6.8 Lam / 18 / 4mm ... argon, EcoPlus 1.0" - a proper insulated unit with an 18mm argon cavity and low-E glass. The door spec has NO cavity and no low-E: it is effectively an ~11mm glass sandwich in a cold aluminium frame. That doorset will come out around U 5, nowhere near 1.6 - and the proposal actually states "U-Value - 1.4 W/m2K" directly above that glazing spec, which the doors as quoted cannot support. The Sheerline Prestige windows are compliant; the doors are the odd product out.
+
+Fix: ask BSW/SMA for a thermally-broken door option (e.g. Smart Alitherm 600 door or the MC600 door variant) with 28mm argon low-E units, and get SMA's calculated door U-value in writing before we commit the 1.6 claim.
+
+While I was in there, four more catches - the first two matter for a school fire strategy:
+
+1. ED.02 is the rear FIRE EXIT double door. The drawing's ironmongery schedule requires an SAA push bar on the internal side overriding any locking. The Bellview quote (0000000475, unchanged since 13/07) lists hook locks, cylinders and closers - NO panic bar. As quoted, the escape doors don't have escape hardware.
+2. ED.01 requires a concealed overhead HOLD-OPEN closer; the quote lists ACIM424A "DOOR CLOSER NON HOLD OPEN".
+3. QT253300 (alu windows) has dropped the Res-Loc restrictors and trickle vents that the uPVC quote carried - the drawing requires friction hinges restricted to 250mm, and background ventilation will be needed on a replacement installation. Handles quoted white vs the schedule's SAA satin, and door handles 200mm radius vs the specified 300mm D pulls.
+4. One costing slip: W.01 in the pricing document is built on a supply of GBP 2,756.00, but BSW's QT253300 Item 1 is GBP 2,256.00 - exactly GBP 500 keyed in high. Corrected, the quote is GBP 20,063.57 ex VAT rather than GBP 20,563.57.
+
+And a confession: in my estimate reply I wrote the doors were "fine" on U-value - I took the 6.8/4 spec at face value instead of noticing the missing cavity. Consider me calibrated; the challenge worked.
+
+For reference my benchmark estimate was GBP 18,611.95 vs your corrected GBP 20,063.57 - the gap is almost entirely the live Sheerline Prestige rates running ~10% above my register medians, plus your larger window codes on W.02/03/06. I've logged QT253300's rates as calibration marks.
+
+Kind regards,
+Mary
+Fenster Glazing - Estimating
