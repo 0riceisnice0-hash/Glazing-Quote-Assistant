@@ -117,14 +117,14 @@ def download_attachments(token, mailbox, msg_id, dest_dir):
     return saved
 
 
-def send_mail(token, to_keys, subject, body_text, attachments=None):
+def send_mail(token, to_keys, subject, body_text, attachments=None, content_type="Text"):
     """The ONLY send path. to_keys is a subset of ALLOWED_RECIPIENTS keys."""
     bad = [k for k in to_keys if k not in ALLOWED_RECIPIENTS]
     if bad or not to_keys:
         raise ValueError("Refused: recipients must be within %s, got %s" % (sorted(ALLOWED_RECIPIENTS), to_keys))
     msg = {
         "subject": subject,
-        "body": {"contentType": "Text", "content": body_text},
+        "body": {"contentType": content_type, "content": body_text},
         "toRecipients": [{"emailAddress": {"address": ALLOWED_RECIPIENTS[k]}} for k in to_keys],
     }
     if attachments:

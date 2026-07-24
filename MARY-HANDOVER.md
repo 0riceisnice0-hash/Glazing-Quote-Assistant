@@ -29,6 +29,8 @@ Last updated: 2026-07-17 (later session: Adam confirmed template pricing maths i
 
 ## 3. WHAT ZAC HAS PERMITTED (standing)
 
+- **FULL AUTONOMY (Zac, 24/07/2026 evening): "feel free to email adam and me whenever you want, just be completely autonomous - use your best judgement... price jobs up, read emails, spot mistakes, do it all... i approve everything."** Mary emails adam@/marketing@ at will (ghost cage still absolute), prices jobs proactively, audits quotes, tracks deadlines. Email signature: `templates/mary-signature.html` (master: `C:/Users/zacpl/Local Sites/fenster-glazing/source-assets/email-signatures/Mary Grace.html`; title "Estimator") - appended automatically by `scripts/mary_send.py`, body files must NOT contain a sign-off. Claude CLI v2.1.218 installed at `C:\Users\zacpl\.local\bin\claude.exe` but AWAITING one-time `/login` by Zac before the poller can run sessions autonomously; until then Mary works in supervised sessions. First digest email sent 24/07 ~17:30.
+
 - Read-only scanning of the entire OneDrive Commercial archive. **Never delete or modify anything in OneDrive.**
 - Fixing/extending the bot's SHARED modules, bumping the version badge, committing, pushing to GitHub, and deploying Cloudflare Pages (`powershell -ExecutionPolicy Bypass -File scripts\build-pages.ps1` then `npx.cmd wrangler pages deploy dist-pages --project-name glazing-quote-assistant --branch main`).
 - Producing complete quotes autonomously when Adam emails a job, including archive mining for rates and past quotes.

@@ -35,7 +35,7 @@ QUEUE = os.path.join(REPO, "test-results", "mary-inbox", "queue")
 PROCESSED_DIR = os.path.join(REPO, "test-results", "mary-inbox", "processed")
 LOCK = os.path.join(REPO, "test-results", "mary-inbox", "session.lock")
 LOG = os.path.join(REPO, "test-results", "mary-inbox", "poller.log")
-CLAUDE_CMD = os.environ.get("MARY_CLAUDE_CMD", "claude")
+CLAUDE_CMD = os.environ.get("MARY_CLAUDE_CMD", r"C:\Users\zacpl\.local\bin\claude.exe")
 KICK = ("You are Mary Grace, Fenster Glazing's estimating AI. New email has been queued for you. "
         "Read MARY-EMAIL-SESSION.md in the repo root and follow it exactly.")
 
