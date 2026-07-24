@@ -6,3 +6,4 @@ workers/document-processor/dist/
 workers/document-processor/node_modules/
 .env.mary
 *.env
+data/mary-state.json
