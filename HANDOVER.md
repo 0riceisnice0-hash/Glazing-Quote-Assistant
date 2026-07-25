@@ -422,6 +422,8 @@ Output: `outputs\Grange Hill Methodist Church - Fenster Pricing Document (house 
 
 KEY CATCH: **spec 3.15 (chapel alu folding doors ~5.8m dark brown + glazed section above) is NOT in the supplier RFQ Gintare sent at 15:14** - flagged to Adam with ~GBP10k budget option (calibrated at the SM5 Sheerline bifold rate ~GBP542/m2 sell). Also flagged: auto-operator needs specialist quote (GBP3,000 allowance); all sizes scaled from 1:100 elevations (gable screen taken full-rectangle = slightly conservative); temporary door + threshold drain are main-contractor sections; VAT split (DDA items zero-rated) should show on the quote.
 
+RESENT 25/07 (autopilot session, first job handled end-to-end by the poller): Zac from marketing@ - "Now that your formatting is better - resend this over." The 24/07 email had gone out as one dense paragraph (sent before the Outlook HTML fix). Recomposed as a FRESH email to adam+marketing, same subject, same numbers, in Adam's airy format - headline benchmark as a heading, bulleted scope/allowances, the three flags as numbered items, spec notes last - with the house pricing doc attached again. Body: `scratchpad\grange-hill-resend-body.txt`; layout screenshot-verified before sending. Nothing re-priced; the RFQ scope gap and the operator allowance are still open with Adam and the deadline is Tuesday 28/07.
+
 ## Known Good Historical Results
 
 These results may not exist as files in the Desktop repo if old `test-results` were not copied over, but they are important regression targets.
