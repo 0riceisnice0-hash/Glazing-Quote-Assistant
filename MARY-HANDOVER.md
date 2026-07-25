@@ -106,6 +106,7 @@ Last updated: 2026-07-17 (later session: Adam confirmed template pricing maths i
 - No LibreOffice: recalc.py fails (AF_UNIX). Verify workbook formulas by hand-computing; Excel recalcs on open. Keep formulas simple (SUM/SUMIF/ROUND).
 - Chrome headless writes PDFs asynchronously - Start-Sleep 2 before pdftoppm.
 - The MASTER PRICING DOC sheet name is `'Pricing Document '` with a trailing space; its TOTAL cell ships stale/hardcoded - always rewrite to a live formula.
+- **Outlook email HTML:** Outlook renders with Word's engine and IGNORES modern CSS (`white-space:pre-wrap`, flexbox etc.). Structure must be explicit tags - `scripts/mary_send.py` converts Mary's plain text (blank lines, ALL-CAPS headings, `- ` bullets, `N.` items) into styled HTML. ALWAYS screenshot-verify email HTML via headless Chrome before first use of a new layout - a successful send proves nothing about rendering.
 - Scratchpad for temp files; job folders under test-results; never commit node_modules or client PDFs beyond outputs.
 - BPG "GR" schedule drawings (Princess Beatrice) have clean text layers - pdfplumber the schedule, no tiling needed. Some client filenames contain non-breaking spaces (U+00A0) - glob patterns, never literal paths.
 
