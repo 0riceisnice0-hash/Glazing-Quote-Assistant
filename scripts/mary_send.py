@@ -29,16 +29,52 @@ def load_signature():
     return m.group(0) if m else raw
 
 
+FONT = "font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,Helvetica,sans-serif;"
+
+
+def _inline(line):
+    esc = htmllib.escape(line)
+    return re.sub(r"(https?://[^\s<]+)", r'<a href="\1" style="color:#20824c;">\1</a>', esc)
+
+
 def text_to_html(text):
-    esc = htmllib.escape(text)
-    esc = re.sub(r"(https?://[^\s<]+)", r'<a href="\1">\1</a>', esc)
-    return ('<div style="font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',Arial,Helvetica,sans-serif;'
-            'font-size:14px;line-height:1.6;color:#06212a;white-space:pre-wrap;">%s</div>' % esc)
+    """Outlook renders HTML with Word's engine: CSS like white-space:pre-wrap
+    is IGNORED, so structure must be explicit tags. Conventions:
+      - blank line          -> new block
+      - ALL-CAPS short line -> section heading
+      - block of '- ' lines -> bullet list
+      - 'N.' first line     -> numbered item, first line bold, rest indented
+      - anything else       -> paragraph, inner newlines become <br/>
+    """
+    blocks = re.split(r"\n\s*\n", text.strip())
+    out = []
+    for block in blocks:
+        lines = [l.rstrip() for l in block.split("\n") if l.strip()]
+        if not lines:
+            continue
+        first = lines[0].strip()
+        alpha = [c for c in first if c.isalpha()]
+        caps_ratio = (sum(c.isupper() for c in alpha) / len(alpha)) if alpha else 0
+        if len(lines) == 1 and len(first) < 70 and caps_ratio >= 0.8 and re.search(r"[A-Z]{3}", first):
+            out.append('<div style="%sfont-size:15px;font-weight:700;color:#06212a;'
+                       'padding:18px 0 2px;border-bottom:2px solid #20824c;margin-bottom:8px;">%s</div>'
+                       % (FONT, _inline(first)))
+        elif all(l.strip().startswith("- ") for l in lines):
+            items = "".join('<li style="padding:2px 0;">%s</li>' % _inline(l.strip()[2:]) for l in lines)
+            out.append('<ul style="%sfont-size:14px;line-height:1.55;color:#06212a;margin:6px 0 12px 22px;padding:0;">%s</ul>' % (FONT, items))
+        elif re.match(r"^\d+\.\s", first):
+            rest = "".join('<div style="padding:2px 0 0 22px;">%s</div>' % _inline(l.strip()) for l in lines[1:])
+            out.append('<div style="%sfont-size:14px;line-height:1.55;color:#06212a;margin:0 0 12px;">'
+                       '<div style="font-weight:700;">%s</div>%s</div>' % (FONT, _inline(first), rest))
+        else:
+            body = "<br/>".join(_inline(l.strip()) for l in lines)
+            out.append('<p style="%sfont-size:14px;line-height:1.55;color:#06212a;margin:0 0 12px;">%s</p>' % (FONT, body))
+    return "\n".join(out)
 
 
 def build_body(text):
-    return ("%s\n<br/><div style=\"padding-top:6px;\">Kind regards,</div><br/>\n%s"
-            % (text_to_html(text.rstrip()), load_signature()))
+    return ('%s\n<p style="%sfont-size:14px;color:#06212a;margin:18px 0 6px;">Kind regards,</p>\n%s'
+            % (text_to_html(text), FONT, load_signature()))
 
 
 def main():
