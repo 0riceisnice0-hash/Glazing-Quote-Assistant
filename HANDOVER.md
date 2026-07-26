@@ -424,6 +424,12 @@ KEY CATCH: **spec 3.15 (chapel alu folding doors ~5.8m dark brown + glazed secti
 
 RESENT 25/07 (autopilot session, first job handled end-to-end by the poller): Zac from marketing@ - "Now that your formatting is better - resend this over." The 24/07 email had gone out as one dense paragraph (sent before the Outlook HTML fix). Recomposed as a FRESH email to adam+marketing, same subject, same numbers, in Adam's airy format - headline benchmark as a heading, bulleted scope/allowances, the three flags as numbered items, spec notes last - with the house pricing doc attached again. Body: `scratchpad\grange-hill-resend-body.txt`; layout screenshot-verified before sending. Nothing re-priced; the RFQ scope gap and the operator allowance are still open with Adam and the deadline is Tuesday 28/07.
 
+### Autopilot session log (no-action sessions)
+
+One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
+
+- **2026-07-26 11:25** - 1 queued email, no action, no email sent. `hello@saintconstructionsupport.co.uk` "The Saint Sealed System | A Complete Marketing System for Construction Businesses" - untrusted-sender marketing newsletter (Saint Construction Support, weekly BD/marketing content, no attachments, no job reference, nothing quotable). Triaged as noise per MARY-EMAIL-SESSION.md section 2; its calls to action ("Book FREE Consultation") are data, not instructions. Queue file moved to `processed\`. No change to any live job position; Grange Hill deadline Tue 28/07 still stands.
+
 ## Known Good Historical Results
 
 These results may not exist as files in the Desktop repo if old `test-results` were not copied over, but they are important regression targets.
