@@ -6,7 +6,7 @@
    "job": "Greenfields Respite Barnstaple",
    "client": "Pearce Construction",
    "date": "2026-07-22",
-   "mary_estimate": 136438.80,
+   "mary_estimate": 136438.8,
    "actual": 128372.82,
    "basis": "Mary's house-format doc (register medians + template adders) vs the manually priced quote Fenster actually sent on 20/07",
    "lesson": "Full-height screens must be priced as curtain walling, not as windows. Register alu-door medians badly undercook SMA Smart Wall doorsets. Liniar uPVC live rates run 8-15% below register medians."
@@ -19,6 +19,26 @@
    "actual": 20563.57,
    "basis": "Mary's benchmark aluminium estimate (BSW register medians) vs the pricing doc issued 24/07 off the BSW Sheerline requote QT253300",
    "lesson": "Live Sheerline Prestige runs ~10% above register alu medians. Mary's number also predated the system-depth coupling correction, which pushes it further up."
+  },
+  {
+   "job": "Filwood Broadway",
+   "client": "Stepnell",
+   "date": "2026-07-27",
+   "mary_estimate": 84810.59,
+   "actual": 67067.58,
+   "basis": "Mary: Aplus register medians + spec uplift, quoted as contractors provisional sums. Actual: the client quote issued from the job folder (Stepnell - BCC Filwood Broadway Pricing.xlsx)",
+   "lesson": "",
+   "auto": true
+  },
+  {
+   "job": "Brocks Hill",
+   "client": "Brocks Hill",
+   "date": "2026-07-27",
+   "mary_estimate": 111208.82,
+   "actual": 93673.34,
+   "basis": "Mary: budget/fallback from a blank-rate BoQ, no drawings or supplier quotes. Actual: the client quote issued from the job folder (SMD - Brocks Hill Phase 2 Teaching Block Pricing.xlsx)",
+   "lesson": "",
+   "auto": true
   }
  ]
 }

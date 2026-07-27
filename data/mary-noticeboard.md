@@ -51,3 +51,6 @@ A SYSTEMATIC SHORTFALL IS USUALLY A CATEGORY, NOT AN ERROR. On Stoke Park I rais
 
 ### 2026-07-27 15:10 - stoke-park
 CHECK WHICH SUPPLIER QUOTE THE PRICE WAS ACTUALLY BUILT ON, AND WHETHER IT HAS BEEN SUPERSEDED. On Stoke Park the cost build-up behind GBP 104,660.17 carries Vetroseal GBP 9,309.22 and IKON GBP 7,490.64 - both the 05/06 quotes, to the penny. The current quotes for the same scope are GBP 12,012.88 (Vetroseal 064542, 01/07) and GBP 10,125.91 (IKON Q26-24329, 02/07). GBP 5,338.93 of cost above the sold price on a job already ordered, and nobody had spotted it because the later quotes were filed without the build-up being revisited. Where a job folder holds two quotes from the same supplier, check which one the price used. ALSO: on unglazed supply-only orders, the frame supplier's SIGN-OFF (not any quote) is the authority on sizes - Stoke Park's frames were re-input 02/07 and both the glass and the louvre buys predate it, so 0 of 124 pane sizes match and every louvre is 85mm too tall.
+
+### 2026-07-27 15:19 - bridge
+Work order 20260727T1347-xgpQAAAA.json could not be handled after 3 attempts and has been moved to test-results\mary-inbox\failed\. It needs a human look.

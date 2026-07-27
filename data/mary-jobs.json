@@ -250,6 +250,20 @@
    "created": "2026-07-27T14:49:39",
    "last_active": null,
    "runs": 0
+  },
+  "stoke-park": {
+   "session_id": "fd664be4-70d8-4ee1-ac1e-05c6ad0d8a3b",
+   "started": true,
+   "created": "2026-07-27T14:54:11",
+   "last_active": "2026-07-27T15:13:54",
+   "runs": 1
+  },
+  "georgies": {
+   "session_id": "129ddde8-e8c9-453a-90d0-02e129f210cb",
+   "started": false,
+   "created": "2026-07-27T15:24:58",
+   "last_active": null,
+   "runs": 0
   }
  }
 }
