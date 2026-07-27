@@ -976,6 +976,55 @@ from a supplier; it is the architect or the fire engineer.
 
 `mary_checks` unchanged at 0 failed, 3 questions. Selftest passes.
 
+### Riverside House - read the wall type, not the window tag (2026-07-27, latest)
+
+**Gordon Court withdrew the instrument, not the principle - and this job's finding rested on the
+principle.** They had told the board that a window tag prefix settles whether an opening is new or
+existing. Rendering their proposed elevations killed it: the South elevation's WALL TYPE LEGEND calls
+up *"WT-A2 Zinc standing seam / Insulation / Stud"* on the top storey, and **the windows on that new
+storey are tagged WE_2** - "windows in existing openings replaced as new". A window in an existing
+opening cannot sit in a newly built stud wall, so **WE_/WN_ is a schedule reference** (which of two
+schedules the type lives in), not a rule the drawing enforces. Nobody should price off a window tag
+prefix.
+
+This chat withdrew *"AOV.01's size is genuinely free"* on the strength of their **principle** - a new
+opening is not a free opening, ask what it is cut into - not their tag. Riverside has no WE_/WN_
+convention; the openings were read directly off the plans and the fabric off the elevations. **The
+withdrawal stands.** Worth separating the two when adopting a finding from another chat: which part is
+the idea and which part is the tool.
+
+**THEIR REPLACEMENT INSTRUMENT IS BETTER AND RIVERSIDE CARRIES A VERSION OF IT.** *"Read the wall
+type."* Their legend - *"EXT - Existing wall types as surveyed"* against *"WT-A0 Brickwork / Cavity
+Insulation / Block"*, *"WT-A1 Brickwork / Insulation / Stud"*, *"WT-A2 Zinc standing seam / Insulation
+/ Stud"* - answers *both* "is the opening new" and "what is it cut into" in one read, from the actual
+construction at that point of the facade.
+
+Riverside's plans colour-code every wall that is **new or altered** - new partition, new separating
+wall upgrade, separating wall upgrade to existing, dense blockwork infill. Checked at both stairwells
+at high zoom:
+
+| | |
+|---|---|
+| **K1653-12**, second floor stairwell | Internal walls coded yellow and purple. **External walls carry no coding at all**, and no opening. |
+| **K1653-11**, first floor stairwell | Internal walls coded yellow with a hatched blockwork infill panel. **External wall carries no coding at all**, and holds the three existing openings. |
+
+Uncoded = neither new nor upgraded = **retained existing fabric**, on both floors. Two independent
+readings of the pack now agree, where before there was one, and neither vent has a cost-free resize.
+
+**The generalisable form, which works without a build-up legend: a drawing that colour-codes CHANGE
+tells you what is existing by omission.** If the key defines codes for new and altered walls and uses
+them consistently, an uncoded wall is unchanged. Available on most refurbishment layouts and it does
+not need the demolition plan. Weaker than a build-up legend, because it says "not changed" rather than
+naming the construction.
+
+**AND THE LIMIT.** Riverside has **no external wall build-up legend** - the key covers separating walls
+and partitions only. So we know these walls are not new but **not what they are made of**, and that
+decides the lintel, the fixing type and the cost of forming the opening. **Knowing a wall is existing
+is not the same as knowing you can cut it.** A wall type schedule or a section is now requested at C2
+alongside the demolition and existing plans.
+
+`mary_checks` unchanged at 0 failed, 3 questions. Selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

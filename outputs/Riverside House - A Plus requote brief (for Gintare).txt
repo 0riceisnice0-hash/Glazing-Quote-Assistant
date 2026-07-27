@@ -112,17 +112,28 @@ C2. ARE THE OPENINGS REALLY NEW - AND WHAT ARE THEY CUT INTO? Reading the two
         the existing opening.
 
     BUT "A NEW OPENING" IS NOT THE SAME AS "A FREE OPENING", AND ON THIS BUILDING IT IS
-    NEITHER. What matters is what the opening is cut INTO. Riverside House is an existing
-    building throughout: K1653-04 is a SINGLE "EXISTING / PROPOSED ELEVATIONS" set of
-    eight elevations, with no added storey shown and no new construction annotated, and
-    the tower's cornice and pediment run continuously through all three storeys. So the
-    second floor is retained fabric, and AOV.01's new opening would be cut into existing
-    masonry - lintel, cutting, making good, and a changed external appearance on an
-    approved elevation.
+    NEITHER. What matters is what the opening is cut INTO, and two independent readings
+    of your own drawings both say retained fabric:
 
-    So neither vent has a cost-free resize, and we should not price on the basis that
-    they do. This is the one point where our reading of the drawings differs from what
-    we have been told, which is exactly why it is worth settling rather than assuming.
+      - K1653-04 is a SINGLE "EXISTING / PROPOSED ELEVATIONS" set of eight elevations,
+        with no added storey shown and no new construction annotated, and the tower's
+        cornice and pediment run continuously through all three storeys.
+      - The floor plans colour-code every wall that is new or altered - new partition,
+        new separating wall upgrade, separating wall upgrade to existing, blockwork
+        infill. Around both stairwells the INTERNAL walls are coded. The EXTERNAL walls
+        carry no coding at all on either floor, which reads as retained existing fabric.
+
+    So AOV.01's new opening would be cut into existing masonry - lintel, cutting, making
+    good, and a changed external appearance on an approved elevation. Neither vent has a
+    cost-free resize and we should not price on the basis that they do. This is the one
+    point where our reading of the drawings differs from what we have been told, which is
+    why it is worth settling rather than assuming.
+
+    ONE THING WE STILL CANNOT READ: what the external wall is actually MADE OF. Your key
+    covers separating walls and partitions; there is no external wall build-up legend, so
+    we know these walls are not new but not their construction. That decides the lintel,
+    the fixing type and the cost of forming the opening. If there is a wall type schedule
+    or a section, please send it with the demolition and existing plans.
 
     Please confirm per vent. And please still send the DEMOLITION and EXISTING PLANS:
     we hold neither, and on a comparable job the demolition legend was exactly where new

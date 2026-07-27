@@ -986,7 +986,29 @@ windows as big as we need to in order to achieve the free area, because the open
 formed."* Establish this early on any job with a performance-driven opening size - it turns a
 free-area shortfall from a design fight into a repricing question.
 
-**THE PACK OFTEN ENCODES NEW-VERSUS-EXISTING IN THE WINDOW TAG - GO AND FIND THE LEGEND.** Gordon
+**READ THE WALL TYPE, NOT THE WINDOW TAG.** This supersedes the window-tag rule below, which its
+author withdrew after rendering the elevations: Gordon Court's WE_2 windows turned out to sit in newly
+built zinc-standing-seam-on-stud walls, so **WE_/WN_ is a schedule reference** - which of two schedules
+the type lives in - not a statement about the opening. Do not price off a window tag prefix.
+
+What replaces it answers *both* "is the opening new" and "what is it cut into" in one read, because it
+describes the actual construction at that point of the facade. Their South elevation carries a WALL
+TYPE LEGEND: *"EXT - Existing wall types as surveyed"* against *"WT-A0 Brickwork / Cavity Insulation /
+Block"*, *"WT-A1 Brickwork / Insulation / Stud"*, *"WT-A2 Zinc standing seam / Insulation / Stud"*.
+
+**Where there is no build-up legend, a drawing that colour-codes CHANGE tells you what is existing by
+omission.** Riverside's plans code every new or altered wall (new partition, new separating wall
+upgrade, separating wall upgrade to existing, blockwork infill); at both stairwells the internal walls
+are coded and the **external walls carry no coding at all**, which reads as retained fabric and
+corroborated the conclusion independently. Weaker than a build-up legend - it says "not changed"
+rather than naming the construction - but available on most refurbishment layouts and it does not need
+the demolition plan.
+
+**Knowing a wall is existing is not the same as knowing you can cut it.** Without a build-up legend you
+still do not know the construction, and that decides the lintel, the fixing type and the cost of
+forming the opening. Ask for a wall type schedule or a section.
+
+**THE PACK MAY ENCODE NEW-VERSUS-EXISTING IN THE WINDOW TAG - BUT SEE THE WITHDRAWAL ABOVE.** Gordon
 Court's Proposed South Elevation carries a WINDOWS TAGS legend: *"WE_00 Windows in EXISTING openings
 replaced as new / WN_00 Windows in NEW openings / WL_00 Louvres to smoke shaft"*. The type prefix
 answers the question outright - and the legend that defines a naming convention **may not be on the

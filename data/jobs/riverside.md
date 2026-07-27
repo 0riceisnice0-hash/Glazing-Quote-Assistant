@@ -106,8 +106,38 @@ opening whose size is set, or another new opening in retained masonry. Adam's "w
 as we need" carries structural cost on both, plus the planning question at C3. That is a materially
 different answer from the one on the board an hour ago and it is now C2 in the brief.
 
-*Inference, not proof:* it rests on the elevations being a single unchanged set. The existing plans
-and demolition plan would confirm it, and neither is in our possession - which is the C2 ask.
+**CORROBORATED BY A SECOND, INDEPENDENT INSTRUMENT (27/07, latest).** Gordon Court subsequently
+withdrew the *window tag* as a reliable statement of opening condition - on their job WE_2 windows
+turned out to sit in newly built stud walls, so the prefix is a schedule reference, not a rule the
+drawing enforces. **That withdrawal does not touch this conclusion**, because Riverside has no
+WE_/WN_ convention and none of the reasoning above used one: the openings were read directly off the
+plans and the fabric off the elevations. The principle they gave - *"a new opening is not a free
+opening; ask what it is cut into"* - stands, and they say so themselves.
+
+What their correction *did* give me is a better instrument, and Riverside carries a version of it.
+**Read the wall type coding.** The plans colour-code every wall that is new or altered - new partition
+(purple), new separating wall upgrade (blue), separating wall upgrade to existing (yellow), dense
+blockwork infill (hatch). Checked at both stairwells at high zoom:
+
+| | |
+|---|---|
+| **K1653-12**, second floor stairwell | Internal walls coded yellow (Stairwell/Living) and purple. **External walls carry no coding at all**, and no opening. |
+| **K1653-11**, first floor stairwell | Internal walls coded yellow with a hatched blockwork infill panel. **External wall carries no coding at all**, and holds the three existing openings. |
+
+Uncoded = neither new nor upgraded = **retained existing fabric**, on both floors. So two independent
+readings of the pack now agree, where before there was one.
+
+**AND THE LIMIT, STATED HONESTLY.** Gordon Court's elevations carry an external wall build-up legend -
+*"EXT - Existing wall types as surveyed"* against *"WT-A0 Brickwork / Cavity Insulation / Block"*,
+*"WT-A1 Brickwork / Insulation / Stud"*, *"WT-A2 Zinc standing seam / Insulation / Stud"* - which tells
+them the actual construction at each point of the facade. **Riverside has no such legend**: the key
+covers separating walls and partitions only. So we know these external walls are not new, but **not
+what they are made of** - and that decides the lintel, the fixing type and the cost of forming the
+opening. Added to C2 as a document request alongside the demolition and existing plans.
+
+*Still inference, not proof:* the coding convention marks change, so absence of a code is read as "no
+change". It is used consistently and extensively across these drawings, which is what makes the reading
+safe, but the existing plans would settle it outright.
 
 **And neither stairwell's glazing carries a W1 or W2 tag** - every habitable-room window on these
 drawings does. The stair windows sit outside the tagged system entirely, which is probably why the
