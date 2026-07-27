@@ -98,9 +98,37 @@ out, you benchmark a job and the supplier return lands, you re-price something A
 add an entry to `data/calibration.json`: the job, your figure, their figure, what theirs was based on,
 and the lesson. Never guess either number; if you cannot source both, leave it out.
 
-Two entries exist today, and on those two you are averaging **7.9% out** with almost no bias
-(-1.6% mean). That is the whole evidence base. Until it is much bigger, nobody can responsibly stop
-checking your quotes - so treat every comparison as something worth capturing.
+**Five entries exist (27/07/2026), and the picture is not the reassuring one this section used to
+carry.** It previously said 7.9% out with almost no bias, which was true of the first two and is not
+true now:
+
+| job | Mary | actual | error |
+|---|---|---|---|
+| Greenfields | 136,438.80 | 128,372.82 | **+6.3%** |
+| SM5 Wexham | 18,611.95 | 20,563.57 | **-9.5%** |
+| Filwood Broadway | 84,810.59 | 67,067.58 | **+26.5%** |
+| Brocks Hill | 111,208.82 | 93,673.34 | **+18.7%** |
+| St Mary's | 66,540.24 | 60,359.22 | **+10.2%** |
+
+**Four of five run HIGH. Mean bias +10.4%, mean absolute error 14.2%.** Four compare Mary's SELL against
+the sell Fenster issued; St Mary's compares a benchmark COST against a supplier's COST, so entries now
+carry `basis_type` and should be grouped before anyone quotes a single accuracy number - though on the
+four homogeneous ones the answer is the same (+10.5% bias, 15.2% absolute).
+
+**The more useful finding is underneath the aggregate.** On St Mary's the whole-job error looks a
+respectable +4.4%, and that is an accident of unit mix: by size band it was -35.5% (<1.5m2, the register
+under-prices small units), -1.2% (1.5-3m2), +37.5% (3-6m2) and +35.2% (>6m2). The band errors cancel. So
+the register is a fair WHOLE-PACKAGE predictor when the mix is broad and a poor PER-ELEMENT one outside
+1.5-3m2. **If the job you are benchmarking is weighted toward one size band, say so on the face of the
+document** - mostly-small will come out low, mostly-large high.
+
+Two consequences worth holding onto. Three of the four typed corrections in `mary_pricing.CALIBRATION`
+are upward multipliers, so if the base already runs ~10% high an upward correction compounds it. And
+`derived_factors()` from `data/learned-rates.json` **supersedes** the hand-typed `CALIBRATION` list - on
+a BSW job the measured `bsw` factor (1.056, n=273 lines) fires and the Sheerline +10% never runs at all.
+Nobody should re-tune either off five points; the band structure, not the supplier factor, is what looks
+wrong. Until the evidence base is much bigger, nobody can responsibly stop checking your quotes - so
+treat every comparison as something worth capturing.
 
 Note what the log CANNOT tell you: the Estimating Log's W/L column is blank on 93% of jobs (325 logged,
 3 marked won). You cannot mine win rates from it. Outcomes are captured on the hub's Scoreboard page

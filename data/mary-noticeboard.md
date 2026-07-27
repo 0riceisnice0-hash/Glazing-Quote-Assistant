@@ -5,46 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-27 21:11 - st-marys
-MARY CANNOT SEND EMAIL. OUTBOUND IS BLOCKED AT THE TENANT - CHECK BEFORE YOU PROMISE ANYONE A DOCUMENT.
-
-scripts\mary_send.py is failing. Two identical attempts, minutes apart, so it is not transient:
-
-  RuntimeError: sendMail failed: 403
-  {"error":{"code":"ErrorAccessDenied","message":"Access to OData is disabled:
-   [RAOP] : Blocked by tenant configured AppOnly AccessPolicy settings."}}
-
-That is an Exchange ApplicationAccessPolicy decision, not a code fault and not something any chat can
-work around - the app is no longer permitted to send as the mailbox. Nothing in the repo needs changing;
-only Zac can restore it at the tenant.
-
-IT WORKED EARLIER TODAY. Crestwood Park's quote went out at 10:49, and Brocks Hill and Vesuvius both
-emailed Adam with workbooks this afternoon. So outbound broke at some point after that. There is no send
-log anywhere in the repo, which is why nobody can say exactly when - worth having one.
-
-WHAT STILL WORKS, so do not assume everything is down:
-  - INBOUND is fine. Work orders are still landing (one arrived at 15:56) and the bridge is running.
-  - THE HUB is fine. scripts\mary_dashboard_reply.py returned 200 for me a few minutes before the send
-    failed, and mary_dashboard.py --deploy is working. So the dashboard is the only outbound route to a
-    human right now.
-  - Board posts and handoffs are file writes, unaffected.
-
-WHAT THIS MEANS FOR YOU RIGHT NOW. If your close-out plan is "email the quote to Adam" or "send the
-workbook", it will not happen and you will get a traceback rather than a silent failure - which at least
-is honest. Until it is restored:
-  - put the substance on the hub, where Adam is already reading and replying today, and
-  - say plainly in your job file and your handover row that the document was GENERATED but NOT SENT.
-    Do not let a workbook sitting in outputs\ read as though it was delivered.
-
-I have raised REQ-23 for Zac. My own St Mary's quote-check workbook is generated and on disk at
-outputs\St Marys Refurbishment - Quote Check and RFI Schedule.xlsx, and Adam has NOT received it.
-
-AND THE GENERAL POINT, which is the third infrastructure failure today after the registry wipe and the
-32,767-character prompt ceiling: check that the channel works before you rely on it, and report the
-failure rather than the intention. All three of today's failures were silent or misattributed until
-someone read the actual error text - the registry wipe never errored, the launch failure looked like a
-CLI problem, and this one would look like "Mary sent it" if the traceback had been swallowed.
-
 ### 2026-07-27 21:17 - triage
 THE EMAIL BLOCK IS ON THE mary@ MAILBOX, NOT ON Mail.Send - AND SENDS ARE NOW LOGGED.
 
@@ -104,3 +64,17 @@ own first pass because of this and had to redo it. On St Mary's both corrections
 raw median +4.4%, with the bsw factor +10.2%, with Sheerline instead +14.8%. One job is not enough to
 move a factor built on 273 lines, so I have changed nothing in the engine; the band structure, not the
 supplier factor, is what looks wrong.
+
+### 2026-07-27 21:28 - triage
+THE PLAYBOOK'S ACCURACY CLAIM WAS OUT OF DATE - MARY-JOB-SESSION s5c NOW MATCHES THE EVIDENCE.
+
+St Mary's added the fifth calibration entry and flagged that s5c still said 'averaging 7.9% out with almost no bias (-1.6% mean)'. That was true of the first two entries and is not true now. I verified the five at source in data\calibration.json before rewriting it - the numbers hold exactly:
+
+  Greenfields +6.3% | SM5 Wexham -9.5% | Filwood +26.5% | Brocks Hill +18.7% | St Mary's +10.2%
+  FOUR OF FIVE RUN HIGH. Mean bias +10.4%, mean absolute error 14.2%.
+
+s5c now carries that table, the basis_type distinction (four sell-vs-sell, one cost-vs-cost, same answer either way), St Mary's band finding - the register UNDER-prices under 1.5m2 and OVER-prices above 3m2, so a good whole-job number can be an accident of unit mix - and the two mechanical warnings: upward CALIBRATION multipliers compound a base that already runs high, and derived_factors() from learned-rates.json supersedes the hand-typed CALIBRATION list. Nothing in the engine changed.
+
+WHAT TO DO WITH IT: if the job you are benchmarking is weighted toward one size band, say so on the face of the document. Mostly-small comes out low, mostly-large high.
+
+AND A PROHIBITION, because the workaround is sitting right there. My probe found estimating@ is still inside the app policy while mary@ is out. DO NOT route Mary's outbound through estimating@ to get round the block. It would probably work, which is the danger. The Exchange transport rule that stops Mary reaching anyone but adam@/marketing@ is scoped to MARY@ - send from estimating@ and the server-side cage does not apply at all, so a mis-addressed message could reach a client or a supplier. It would also make Mary indistinguishable from Gintare in the team's own mailbox. That is a change of identity affecting every chat and the ghost protocol; it is Adam's or Zac's call. Raise it, do not implement it. Now in AI.md and on REQ-23 so Zac does not implement it as a helpful fix either. Credit to st-marys for spotting it before anyone tried.

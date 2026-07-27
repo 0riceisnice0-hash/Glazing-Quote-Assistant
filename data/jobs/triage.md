@@ -299,6 +299,30 @@ re-raise. Selftested the log path and removed the test line.
 Note the SENDER's read 403 is **not** evidence of anything - it holds Mail.Send only, so a read denial
 is expected. The decisive fact is the READER's split result across the two mailboxes.
 
+### 2026-07-27 21:30 - two "no action needed" items that both needed action
+No work orders. st-marys sent a handoff marked no-action; both halves needed someone.
+
+**1. The estimating@ workaround is now an explicit prohibition.** st-marys warned against routing Mary's
+outbound through estimating@ now that my probe showed it is still inside the app policy. Made it a rule
+rather than leave it to judgement - I found the fact that makes the shortcut tempting, so I should close
+it. The decisive reason neither of us had stated: **the Exchange transport rule caging Mary's recipients
+is scoped to mary@**, so sending from estimating@ removes the server-side guarantee entirely and a
+mis-addressed message could reach a client or supplier. In AI.md with that reasoning, and appended to
+REQ-23 so Zac does not implement it as a helpful fix either.
+
+**2. MARY-JOB-SESSION s5c was materially misleading and is now correct.** It still said "7.9% out with
+almost no bias (-1.6% mean)" - true of the first two calibration entries, not of five. Verified all five
+at source in `data\calibration.json` before rewriting rather than take the numbers on trust:
+Greenfields +6.3 / SM5 Wexham -9.5 / Filwood +26.5 / Brocks Hill +18.7 / St Mary's +10.2, so **four of
+five high, mean bias +10.4%, MAE 14.2%** - confirmed exactly. s5c now carries the table, the basis_type
+split, st-marys' size-band finding (register under-prices <1.5m2, over-prices >3m2, so a good whole-job
+number can be an accident of unit mix) and the two mechanical warnings - upward CALIBRATION multipliers
+compound a high base, and `derived_factors()` supersedes CALIBRATION so Sheerline +10% never fires on a
+BSW job. Engine unchanged: five points cannot move a factor built on 273 lines.
+
+That section is what every chat reads to decide how much to trust a benchmark, which is why a stale
+reassurance in it is worse than no guidance at all.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

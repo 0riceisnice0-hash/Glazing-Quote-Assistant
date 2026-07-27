@@ -376,6 +376,22 @@ blocked mailbox, so the outage concealed its own timeline and nobody could say w
 **If email is down:** say GENERATED, NOT SENT in the job file and the handover row, and put the substance
 on the hub. A workbook sitting in `outputs\` must never read as delivered.
 
+**DO NOT "FIX" A BLOCKED mary@ BY SENDING FROM estimating@.** The probe above shows estimating@ is still
+inside the app policy, so this looks like an easy workaround and it is not one - it is a change of
+identity, and no chat may make it. Three reasons, the third being the serious one:
+
+1. `estimating@` is **read-only by design and by scope** - the Reader app holds Mail.Read and nothing
+   else. The whole architecture is that Mary can never send from the team's own mailbox.
+2. Mail from estimating@ is indistinguishable from Gintare and the rest of the team. That breaks "never
+   pretend to be human" and destroys the audit boundary that makes Mary's output identifiable.
+3. **The Exchange transport rule that cages Mary's recipients is scoped to mary@.** It rejects any mail
+   from mary@ whose recipients are not exactly adam@/marketing@. Send from estimating@ and that
+   server-side guarantee simply does not apply - a mis-addressed message could reach a client or a
+   supplier, which is the one failure the ghost protocol exists to make impossible.
+
+If anyone proposes routing Mary's outbound through estimating@, that is Adam's or Zac's decision and it
+changes the ghost protocol for every chat. Raise it; do not implement it.
+
 ## Comparing A Revised Drawing Against What Was Priced (learned 27/07/2026, St Mary's)
 
 **Read the revision date, not the date the addendum arrived.** ET&S issued "revised drawings" on 24/07; inside, the
