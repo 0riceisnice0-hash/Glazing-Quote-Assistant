@@ -89,6 +89,18 @@
   {
    "ref": "Untagged stair glazing - the stair windows are the only glazing on K1653-11/12 carrying no W1 or W2 tag, while every habitable-room window has one. They sit outside the tagged system, which is probably why the vents were never scheduled, and it bears on whether the drawings' 1.6 U-value binds them (RFI-6).",
    "treatment": "excluded"
+  },
+  {
+   "ref": "Cavity closers, cavity trays and jamb DPCs at the vent openings - CHECKED AND CORRECTLY NOT OURS (Gordon Court, 27/07). These accessories sit in NBS F30 'Accessories/sundry items for brick/block/stone walling', a MASONRY section, not L10 windows - so they are the bricklayer's even where a new opening is formed. Recorded as a knowing exclusion rather than a silent gap. Riverside's external walls are of unestablished construction (no build-up legend), so if they prove to be cavity these items will exist and belong to the builder's work package.",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Intumescent perimeter seal - CHECK RUN, NOT APPLICABLE. NBS L10 cl.790 'Fire-resisting frames' requires the gap between frame and reveal to be filled with INTUMESCENT mastic or tape, and L10 is the windows section, so on fire-rated frames it is the glazing scope and ordinary mastic in a fixings line does not comply (Gordon Court, 27/07). Not applicable here: the AOVs are smoke vents in the EXTERNAL wall of a protected stairwell, so the perimeter seal is weathering, not compartmentation - fire separation on this building runs between the stair and the flats (FD30s doors, fire collars, separating wall upgrades), not through the external envelope. A Plus quote no fire rating and none is specified for these frames. Our priced external mastic at 10.64 lm x GBP 5 stands. Re-check if any vent is ever relocated into a compartment wall.",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Structural design for a new opening in retained masonry - NO STRUCTURAL ENGINEER IS NAMED anywhere on the six drawings we hold. The notes name a heating engineer and an electrician and otherwise defer to site: 'CONTRACTOR TO ESTABLISH EXACT DRAINAGE LAYOUT', 'TO BE SITE AGREED WITH HEATING ENGINEER/ELECTRICIAN & TO SUIT BUILDING INSPECTOR APPROVAL', 'ELECTRICAL LAYOUTS ARE TO BE SITE AGREED WITH CLIENT'. So the opening Adam authorised enlarging may have neither a structural design nor a price behind it. Engineer's investigation drawings (brick/mortar sampling, GPR) requested at C2 - on a refurbishment that is where the wall build-up normally lives, and it is a different request from asking the architect.",
+   "treatment": "excluded"
   }
  ],
  "supplier_quotes": [

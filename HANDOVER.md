@@ -1025,6 +1025,61 @@ alongside the demolition and existing plans.
 
 `mary_checks` unchanged at 0 failed, 3 questions. Selftest passes.
 
+### Riverside House - nobody is named to design the opening (2026-07-28)
+
+**"As surveyed" is a deferral, and the wall build-up belongs to the structural engineer.** Gordon Court
+closed the gap this chat had left open - *knowing a wall is existing is not the same as knowing you can
+cut it* - by going to a structural sub-folder nobody had opened. Their *"Brick & mortar sampling
+locations"* drawing reads *"sampling in the internal SOLID wall... in CAVITY wall... take samples from
+BOTH THE INNER AND OUTER LEAVES of the cavity wall"*. That is the build-up, and the same folder held GPR
+surveys, a resin-injection methodology and a workmanship spec covering cavity walls and lintels.
+**Asking the architect for a wall build-up and asking the structural engineer for the investigation
+drawings are two different requests, and on a refurbishment the second is usually where the answer is.**
+
+**Run on Riverside, the answer is a concern rather than a build-up. No structural engineer is named
+anywhere on the six drawings we hold.** The notes name a heating engineer and an electrician and
+otherwise defer everything to site:
+
+> *"CONTRACTOR TO ESTABLISH EXACT DRAINAGE LAYOUT AROUND BUILDING..."*
+> *"BOILER/HEATER LOCATION/S TO BE SITE AGREED WITH HEATING ENGINEER/ELECTRICIAN & TO SUIT BUILDING
+> INSPECTOR APPROVAL"*
+> *"ELECTRICAL LAYOUTS ARE TO BE SITE AGREED WITH CLIENT"*
+
+So the new opening in retained masonry that Adam authorised enlarging appears to have **neither a
+structural design nor a price behind it**. That is a different problem from it being expensive, and it
+is now raised at C2 as a concern rather than an accusation - the engineer's drawings may simply not have
+reached us. **The generalisation: if you cannot find the consultant who owns a question, check whether
+one has been appointed at all. A pack that defers everything to "site agreed" may be telling you the
+design is not finished.**
+
+**TWO ITEMS CLEARED RATHER THAN RAISED**, both from Gordon Court and both now recorded as *knowing*
+exclusions rather than silent gaps:
+
+- **Cavity closers, cavity trays and jamb DPCs at openings are not the glazing scope.** They sit in NBS
+  **F30** *"Accessories/sundry items for brick/block/stone walling"* - masonry, so the bricklayer's,
+  even where a new opening is formed. Gordon Court nearly raised their absence from four quotes as a
+  gap. **Check which NBS section an accessory sits in before deciding it is missing from your price.**
+- **But an intumescent perimeter seal is ours - checked here and not applicable.** NBS **L10 cl.790**
+  *"Fire-resisting frames"* requires the frame-to-reveal gap to be *"completely filled with INTUMESCENT
+  mastic or tape"*, and L10 is the windows section - so on fire-rated frames a supplier's fixing pack of
+  *"screws, foam, packers, mastic"* does not comply. It is a fire-rating requirement, not a finish.
+  **Grep any fire-rated frame quote for "intumescent"; it hides inside a fixings line.** Not applicable
+  on Riverside: these vents sit in the **external envelope** of a protected stairwell, so the perimeter
+  seal is weathering, not compartmentation - fire separation here runs between stair and flats via FD30s
+  doors, fire collars and separating wall upgrades. Our priced external mastic at 10.64 lm x GBP 5
+  stands; re-check if a vent is ever relocated into a compartment wall.
+
+**AND A CROSS-CHAT PRACTICE, NOW IN `AI.md`: SEPARATE THE IDEA FROM THE TOOL.** A handoff carries a
+principle and an instrument, and usually only one transfers. Gordon Court told the board twice to use
+their window-tag prefix and then withdrew it; this chat had taken the **principle** (*a new opening is
+not a free opening; ask what it is cut into*) and never the **instrument**, because Riverside has no
+such tag for it to break - so their error cost this job nothing. Label the transferable part when you
+post; and **when a chat withdraws something you built on, check which part you used before you withdraw
+too - a false withdrawal costs as much as a false finding**, because it teaches people to discount the
+board.
+
+`mary_checks` 0 failed, 3 questions, now across 21 spec items. Selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

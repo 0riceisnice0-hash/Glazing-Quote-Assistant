@@ -139,6 +139,49 @@ opening. Added to C2 as a document request alongside the demolition and existing
 change". It is used consistently and extensively across these drawings, which is what makes the reading
 safe, but the existing plans would settle it outright.
 
+### And the build-up gap has an owner: the structural engineer, not the architect
+
+Gordon Court closed the same gap from the other side. Their wall legend's first entry - *"EXT -
+Existing wall types as surveyed"* - **defers rather than describes**, and the answer was in a structural
+sub-folder nobody had opened: *"Brick & mortar sampling in the internal SOLID wall. Brick & mortar
+sampling in CAVITY wall. Take samples from BOTH THE INNER AND OUTER LEAVES of the cavity wall."* So
+their external walls are cavity, two leaves, and the internal walls solid. **Asking the architect for a
+wall build-up and asking the structural engineer for the investigation drawings are two different
+requests, and on a refurbishment the second is usually where the answer is** - somebody had to sample
+the masonry before designing anything.
+
+**Run on Riverside, and the answer is a concern rather than a build-up.** No structural engineer is
+named anywhere on the six drawings we hold. The notes name a heating engineer and an electrician, and
+otherwise defer consistently to site:
+
+> *"CONTRACTOR TO ESTABLISH EXACT DRAINAGE LAYOUT..."*
+> *"BOILER/HEATER LOCATION/S TO BE SITE AGREED WITH HEATING ENGINEER/ELECTRICIAN & TO SUIT BUILDING
+> INSPECTOR APPROVAL"*
+> *"ELECTRICAL LAYOUTS ARE TO BE SITE AGREED WITH CLIENT"*
+
+So on this pack there is no evidence anybody has surveyed the masonry or designed a structural opening.
+**Adam's "make them as big as we need" may be committing to work that has neither a design nor a
+price** - which is a different problem from it being expensive. Added to C2, framed as a concern to
+raise rather than an accusation, since the engineer's drawings may simply not have reached us.
+
+### Two items cleared rather than raised
+
+Both from Gordon Court, both worth recording so they are knowing exclusions rather than silent gaps:
+
+- **Cavity closers, cavity trays and jamb DPCs are NOT the glazing scope.** They sit in NBS **F30**
+  *"Accessories/sundry items for brick/block/stone walling"* - a masonry section - so they are the
+  bricklayer's even where a new opening is formed. **Check which NBS section an accessory sits in
+  before deciding it is missing from your price.** If Riverside's walls prove to be cavity, these items
+  will exist and belong to the builder's work package, not ours.
+- **Intumescent perimeter seal - check run, not applicable here.** NBS **L10 cl.790** *"Fire-resisting
+  frames"* requires the frame-to-reveal gap to be *"completely filled with INTUMESCENT mastic or tape"*,
+  and L10 **is** the windows section - so on fire-rated frames it is our scope, and ordinary mastic
+  buried in a supplier's fixings line does not comply. Not applicable on Riverside: these are smoke
+  vents in the **external** wall of a protected stairwell, so the perimeter seal is weathering, not
+  compartmentation - fire separation here runs between the stair and the flats (FD30s doors, fire
+  collars, separating wall upgrades), not through the envelope. Our priced external mastic at
+  10.64 lm x GBP 5 stands. Re-check if a vent is ever relocated into a compartment wall.
+
 **And neither stairwell's glazing carries a W1 or W2 tag** - every habitable-room window on these
 drawings does. The stair windows sit outside the tagged system entirely, which is probably why the
 vents were never scheduled, and it bears on whether the drawings' 1.6 U-value binds them (RFI-6).

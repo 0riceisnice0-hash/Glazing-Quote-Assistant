@@ -131,9 +131,26 @@ C2. ARE THE OPENINGS REALLY NEW - AND WHAT ARE THEY CUT INTO? Reading the two
 
     ONE THING WE STILL CANNOT READ: what the external wall is actually MADE OF. Your key
     covers separating walls and partitions; there is no external wall build-up legend, so
-    we know these walls are not new but not their construction. That decides the lintel,
-    the fixing type and the cost of forming the opening. If there is a wall type schedule
-    or a section, please send it with the demolition and existing plans.
+    we know these walls are not new but not their construction. Solid or cavity changes
+    the lintel, the fixing type and the cost of forming the opening.
+
+    THAT IS USUALLY A QUESTION FOR THE STRUCTURAL ENGINEER RATHER THAN THE ARCHITECT.
+    On a refurbishment somebody normally samples the masonry before anything is designed,
+    and the answer sits in the engineer's investigation drawings - brick and mortar
+    sampling locations, GPR surveys, that sort of thing - not in the architect's set.
+    Please send whatever exists.
+
+    AND A RELATED CONCERN WE WOULD RATHER RAISE NOW THAN LATER. No structural engineer is
+    named anywhere on the six drawings we hold. The notes name a heating engineer and an
+    electrician, and otherwise defer consistently to site: "CONTRACTOR TO ESTABLISH EXACT
+    DRAINAGE LAYOUT", "TO BE SITE AGREED WITH HEATING ENGINEER/ELECTRICIAN & TO SUIT
+    BUILDING INSPECTOR APPROVAL", "ELECTRICAL LAYOUTS ARE TO BE SITE AGREED WITH CLIENT".
+
+    If that reflects the real position, then forming a new opening in retained masonry at
+    second floor has not been designed by anyone, and "make the vent as big as we need"
+    is committing to work that currently has neither a design nor a price. We are not
+    raising this to be difficult - it is the difference between a variation we can cost
+    and one nobody can.
 
     Please confirm per vent. And please still send the DEMOLITION and EXISTING PLANS:
     we hold neither, and on a comparable job the demolition legend was exactly where new

@@ -1006,7 +1006,34 @@ the demolition plan.
 
 **Knowing a wall is existing is not the same as knowing you can cut it.** Without a build-up legend you
 still do not know the construction, and that decides the lintel, the fixing type and the cost of
-forming the opening. Ask for a wall type schedule or a section.
+forming the opening.
+
+**WHEN THE LEGEND SAYS "AS SURVEYED", GO TO THE STRUCTURAL ENGINEER'S INVESTIGATION DRAWINGS.** That
+wording defers rather than describes. On a refurbishment somebody had to sample the masonry before
+anything was designed, and the answer is in the engineer's sub-folder, not the architect's set - Gordon
+Court's *"Brick & mortar sampling locations"* drawing states *"sampling in the internal SOLID wall...
+in CAVITY wall... take samples from BOTH THE INNER AND OUTER LEAVES"*, which is the build-up. The same
+folder held GPR surveys, a resin-injection methodology and a workmanship spec with sections on cavity
+walls and lintels. **Asking the architect for a wall build-up and asking the structural engineer for
+the investigation drawings are two different requests.**
+
+**And if no structural engineer is named at all, that is itself the finding.** Riverside's six drawings
+name a heating engineer and an electrician and otherwise defer everything to site - *"CONTRACTOR TO
+ESTABLISH"*, *"TO BE SITE AGREED"*, *"TO SUIT BUILDING INSPECTOR APPROVAL"*. On that pack a new opening
+in retained masonry has neither a design nor a price behind it, which is a different problem from being
+expensive.
+
+**CHECK WHICH NBS SECTION AN ACCESSORY SITS IN BEFORE DECIDING IT IS MISSING FROM YOUR PRICE.** Cavity
+closers, cavity trays and jamb DPCs at openings sit in **F30** *"Accessories/sundry items for
+brick/block/stone walling"* - masonry, so the bricklayer's, even where a new opening is formed. Gordon
+Court nearly raised their absence from four BSW quotes as a gap; they were correctly absent.
+
+**BUT AN INTUMESCENT PERIMETER SEAL IS OURS.** NBS **L10 cl.790** *"Fire-resisting frames"*: *"Gap
+between back of frame and reveal: Completely fill with INTUMESCENT mastic or tape."* L10 is the windows
+section. A supplier's fixing pack described as *"screws, foam, packers, mastic"* does not comply - it is
+a fire-rating requirement, not a finish, and a different product at a different price. **If you have
+fire-rated frames, grep the quote for "intumescent"; it hides inside a fixings line.** Not applicable
+where the frame is in an external wall rather than a compartment wall - the seal is then weathering.
 
 **THE PACK MAY ENCODE NEW-VERSUS-EXISTING IN THE WINDOW TAG - BUT SEE THE WITHDRAWAL ABOVE.** Gordon
 Court's Proposed South Elevation carries a WINDOWS TAGS legend: *"WE_00 Windows in EXISTING openings
@@ -1138,6 +1165,34 @@ There is **no AOV / smoke vent category in the rate register** (80 categories, n
 nothing to benchmark against. First data point: A Plus DualFrame 75Si bottom-hung AOV, glazed,
 1.729 m2, 850mm stroke single chain = **GBP 1,401.24/m2 supply**, against GBP 528.83/m2 for a plain
 glazed aluminium window in the same size band. One quote, not a median.
+
+## Adopting A Finding From Another Chat: Separate The Idea From The Tool
+
+Riverside / Gordon Court, 27/07/2026. A handoff almost always carries two things - a **principle** and
+an **instrument** - and usually only one of them transfers to your job. Say which is which when you
+post, and check which one you took when you act.
+
+The case that established it: Gordon Court told the board twice that a window tag prefix settles
+whether an opening is new or existing, then withdrew it after rendering the elevations (their WE_2
+windows sat in newly built stud walls, so WE_/WN_ was a schedule reference all along). Riverside had
+already acted on that handoff - but had taken the **principle** (*a new opening is not a free opening;
+ask what it is cut into*) and not the **instrument** (the WE_/WN_ prefix), because Riverside's pack has
+no such convention for the instrument to break. **The tool failing cost the other job nothing.** Had
+Riverside adopted the tool instead, a correct finding would have been withdrawn for the wrong reason.
+
+Two practical consequences:
+
+- **When you post a finding, label the transferable part.** "Read the wall type, not the window tag" is
+  an instrument and may not exist on someone else's pack; "ask what the opening is cut into" is an idea
+  and travels everywhere.
+- **When a chat withdraws something you built on, check which part you used before you withdraw too.**
+  Reflexively retracting a conclusion that never depended on the broken tool is its own error - and a
+  false withdrawal costs as much as a false finding, because it teaches people to discount the board.
+
+Related discipline from the same evening, worth keeping together: **log a check as NOT RUN rather than
+reporting an answer you did not earn** - and then go and run it. Gordon Court's window-tag withdrawal
+only happened because they went back and did the render they had logged as outstanding. Logging a check
+as outstanding is worth something only if somebody then does it.
 
 ## Development Rules For Future Agents
 
