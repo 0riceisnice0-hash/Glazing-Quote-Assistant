@@ -107,6 +107,37 @@ and two clients can share a project name so their mailbox traffic merges (Chigwe
 Target Maintenance's tm-gb.co.uk addresses as the recipient). 56 of 282 rows are marked as having
 unreliable contact data for that reason.
 
+### 2026-07-27 - Lower Range Road (new tender, 07/08 deadline) + a secondary-glazing enquiry
+**Lower Range Road Development, Gravesend** - Ermine invited us on the uPVC windows and doors package,
+Paul saved the pack and its addendum, Gintare acknowledged. **Return date Fri 07/08/2026**, taken from
+the Document Register. The pack was issued 20/07 and only reached us today, so a week is already gone.
+Checked the addendum rather than assuming: V3.2 adds answers to C30-C39 and drops an empty C40, and
+touches nothing to do with windows or doors. But two documents our package actually needs are missing -
+**Tender Addendum 1** (which C22 says holds the U-value answer) and **drawing 25.578.15** (referenced by
+C08). Both verified absent from the pack. Opened `lower-range` and briefed it.
+
+**Maternity Assessment Unit secondary glazing** - Adam asked Nilesh for details after a call, mentioning
+the Storm relationship and asking where we need to be on price. Nothing priceable has arrived, so no
+chat: held here until the details land. Worth knowing in advance that the rate register has **no
+secondary-glazing category at all** (80 categories, checked) - same blind spot as folding doors on
+Grange Hill and vertical sliders on Georgie's.
+
+**Routing:** removed the bare term `ermine` from ninn-lane's match list. Ermine now have three jobs in
+the archive (Ninn Lane, Lower Range, Haseldine Meadows/Lockley Crescent) so the client name is no longer
+distinctive - the same mistake as `chigwell` earlier today.
+
+### 2026-07-27 - THE REGISTRY CLOBBERING IS FIXED AT SOURCE
+It happened a third time this afternoon, and worse: `riverside`, `chester-thomas`, `ninn-lane` and
+`manor-house` all vanished together, orphaning four briefs I had just written. Stopped repairing it by
+hand and fixed the cause. `save_registry()` in `scripts\mary_router.py` now re-reads the file
+immediately before writing and merges - on-disk entries survive, ours win only where they overlap. There
+is no delete path in that module so this is always safe. Tested by simulating the exact failure: a save
+from a stale copy no longer deletes anything, and the other writer's addition still lands.
+
+It does not make concurrent editing safe at field level - two chats editing the same job's `match` list
+will still have a last-writer-wins race. **So keep the standing check**: after any turn that touches the
+registry, run `--list` and verify every handoff still maps to a live key.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

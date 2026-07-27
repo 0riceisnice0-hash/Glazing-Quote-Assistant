@@ -333,6 +333,15 @@ are still there, then check `test-results/mary-inbox/handoffs/` for notes addres
 job that had never run costs nothing (new session id, no history). Re-adding one that *had* run loses that chat's memory
 - `data/jobs/<key>.md` is the only backup, which is why it must be kept current.
 
+**FIXED AT SOURCE 27/07/2026** after it happened three times in one afternoon (losing `gordon-court`, then `riverside`,
+then `riverside` + `chester-thomas` + `ninn-lane` + `manor-house` together). `save_registry()` in `scripts/mary_router.py`
+now re-reads the file immediately before writing and merges: on-disk jobs and chats survive, the in-memory copy wins only
+where the two overlap. There is no delete path in that module, so preserving keys we have never seen is always the safe
+merge. Verified by simulating the exact failure - a save from a deliberately stale copy no longer deletes anything, and
+the other writer's own addition still lands. This does NOT make concurrent editing safe at field level: if two chats edit
+the same job's `match` list, the last writer still wins. It only stops whole jobs vanishing. Keep doing the `--list`
+check after registry work.
+
 ## Clients Not To Quote
 
 - **Hightown Housing** - Adam, 27/07/2026: "We have quoted them many times and don't win any works, so please disregard

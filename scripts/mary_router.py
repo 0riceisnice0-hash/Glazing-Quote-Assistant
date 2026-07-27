@@ -49,9 +49,34 @@ def load_registry():
 
 
 def save_registry(reg):
+    """Write the registry, merging with whatever is on disk right now.
+
+    Every chat and the bridge write this file and nothing locks it, so a plain
+    overwrite silently deletes any job another chat added since we loaded. That
+    happened three times on 27/07/2026 - and it is worse than it looks, because
+    the bridge delivers handoffs by iterating registry keys, so a note addressed
+    to a deleted key is never delivered and never errors. The brief just
+    disappears.
+
+    This module has no delete path, so keeping keys we have never seen is always
+    the safe merge: on-disk entries survive, ours win where they overlap.
+    """
+    try:
+        with open(REGISTRY, encoding="utf-8") as fh:
+            disk = json.load(fh)
+    except Exception:
+        disk = {}
+
+    merged = dict(disk)
+    merged.update({k: v for k, v in reg.items() if k not in ("jobs", "chats")})
+    for section in ("jobs", "chats"):
+        section_out = dict(disk.get(section) or {})
+        section_out.update(reg.get(section) or {})
+        merged[section] = section_out
+
     tmp = REGISTRY + ".tmp"
     with open(tmp, "w", encoding="utf-8") as fh:
-        json.dump(reg, fh, indent=1, ensure_ascii=False)
+        json.dump(merged, fh, indent=1, ensure_ascii=False)
     os.replace(tmp, REGISTRY)
 
 

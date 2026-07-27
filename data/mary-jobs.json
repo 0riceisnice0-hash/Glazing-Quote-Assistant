@@ -221,6 +221,33 @@
    "senders": [],
    "opened": "2026-07-27T14:49:39"
   },
+  "lower-range": {
+   "name": "Lower Range Road Development, Gravesend (uPVC package)",
+   "client": "Ermine Construction Services / Gravesham BC",
+   "match": [
+    "lower range",
+    "ittgg5b2",
+    "gravesham",
+    "markers lodge",
+    "25.578",
+    "da12 2qs"
+   ],
+   "senders": [],
+   "opened": "2026-07-27T17:01:34"
+  },
+  "riverside": {
+   "name": "Riverside House AOV smoke vents (RRR Group)",
+   "client": "RRR Group",
+   "match": [
+    "riverside",
+    "qt51518",
+    "wedgewood",
+    "fairford leys",
+    "24/02303"
+   ],
+   "senders": [],
+   "opened": "2026-07-27T17:01:51"
+  },
   "chester-thomas": {
    "name": "Chester Thomas Developments (Earls Barton)",
    "client": "Chester Thomas Developments",
@@ -234,21 +261,18 @@
    "senders": [
     "chesterthomas"
    ],
-   "opened": "2026-07-27T16:37:36"
+   "opened": "2026-07-27T17:01:51"
   },
   "ninn-lane": {
    "name": "Ninn Lane Re-development (Ermine)",
    "client": "Ermine Construction Services",
    "match": [
     "ninn lane",
-    "ermine",
     "qt51269",
     "msg639gv"
    ],
-   "senders": [
-    "ermineconstruction"
-   ],
-   "opened": "2026-07-27T16:37:36"
+   "senders": [],
+   "opened": "2026-07-27T17:01:51"
   },
   "manor-house": {
    "name": "Manor House (AFS Q7593)",
@@ -258,20 +282,7 @@
     "q7593"
    ],
    "senders": [],
-   "opened": "2026-07-27T16:37:37"
-  },
-  "riverside": {
-   "name": "Riverside House AOV smoke vents (RRR Group)",
-   "client": "RRR Group",
-   "match": [
-    "riverside",
-    "qt51518",
-    "wedgewood",
-    "fairford leys",
-    "24/02303"
-   ],
-   "senders": [],
-   "opened": "2026-07-27T16:37:50"
+   "opened": "2026-07-27T17:01:51"
   }
  },
  "chats": {
@@ -279,8 +290,8 @@
    "session_id": "51342bb1-aee9-45a9-b58e-3845af9b9bf8",
    "started": true,
    "created": "2026-07-27T13:43:40",
-   "last_active": "2026-07-27T13:56:46",
-   "runs": 1
+   "last_active": "2026-07-27T16:58:16",
+   "runs": 2
   },
   "filwood": {
    "session_id": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
@@ -324,31 +335,38 @@
    "last_active": "2026-07-27T16:34:34",
    "runs": 1
   },
-  "chester-thomas": {
-   "session_id": "52e3eeae-7249-4ac4-86e7-78a6d4090a0e",
+  "lower-range": {
+   "session_id": "d9aff9e2-3a1c-4edb-85d1-7f0e068197f6",
    "started": false,
-   "created": "2026-07-27T16:37:36",
-   "last_active": null,
-   "runs": 0
-  },
-  "ninn-lane": {
-   "session_id": "7d419f29-bf4d-4d6b-b688-22bd9686b654",
-   "started": false,
-   "created": "2026-07-27T16:37:36",
-   "last_active": null,
-   "runs": 0
-  },
-  "manor-house": {
-   "session_id": "3184a734-ec97-45d7-8d39-e50ac77b70ee",
-   "started": false,
-   "created": "2026-07-27T16:37:37",
+   "created": "2026-07-27T17:01:34",
    "last_active": null,
    "runs": 0
   },
   "riverside": {
-   "session_id": "96c66624-c463-4a79-9e55-2cc1dc4f5ba3",
+   "session_id": "d39ecaad-e405-464b-be99-f941e9b2915c",
    "started": false,
-   "created": "2026-07-27T16:37:50",
+   "created": "2026-07-27T17:01:51",
+   "last_active": null,
+   "runs": 0
+  },
+  "chester-thomas": {
+   "session_id": "12695741-6585-4f11-b176-517c1543b35c",
+   "started": false,
+   "created": "2026-07-27T17:01:51",
+   "last_active": null,
+   "runs": 0
+  },
+  "ninn-lane": {
+   "session_id": "f5c58c23-9b29-439b-b5ce-9324f7238108",
+   "started": false,
+   "created": "2026-07-27T17:01:51",
+   "last_active": null,
+   "runs": 0
+  },
+  "manor-house": {
+   "session_id": "f918a340-7e7b-4def-8747-c99b5b83b1e6",
+   "started": false,
+   "created": "2026-07-27T17:01:51",
    "last_active": null,
    "runs": 0
   }
