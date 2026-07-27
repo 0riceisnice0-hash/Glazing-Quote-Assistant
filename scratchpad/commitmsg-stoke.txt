@@ -1,0 +1,37 @@
+REQ-3 answered: the 46 panes are louvres - and both buys are sized wrong
+
+Adam answered REQ-3 on the dashboard: the 46 "missing" panes are louvres, glazed
+in in place of glass, from IKON rather than Vetroseal. He is right and the
+shortfall finding is withdrawn.
+
+Two documents were already in the job folder and neither had been opened when
+REQ-3 was raised: Aplus panel order QT50932 Rev7 (a PANEL ORDER, 46 panels,
+27.64 m2) and IKON quote Q26-24329 of 02/07 (46 IKL332 28mm louvre modules,
+GBP 10,125.91 + carriage). They sit at ref A1 on every bay of Types A/B/C/D/F/G,
+the head over D02 and D04, and all three panels of Door Type C / D03, which is a
+louvred door. Remove them and the glass reconciles exactly - 124 required
+against 124 quoted, +1.73 m2, about GBP 197. No shortfall and no GBP 2,920.
+
+Running the same comparison on size rather than count found something worse.
+Aplus re-input job 17644 on 02/07 and signed the frames off the same day; both
+Fenster's buys predate it. Not one of the 124 quoted panes matches an ordered
+size, and every one of the 41 window louvres is 85mm too tall against the
+signed-off aperture. Frames land 03/08. Raised as REQ-11.
+
+Also found: the cost build-up carries Vetroseal GBP 9,309.22 and IKON
+GBP 7,490.64, which are the 05/06 quotes to the penny, against current quotes of
+GBP 12,012.88 and GBP 10,125.91 - GBP 5,338.93 above the sold price on a job
+already ordered. Moving the glass to CN Glass would roughly recover it.
+
+- stoke-glass-compare.py rebuilt on the corrected basis: classifies the 46
+  louvre positions and adds "Louvres not glass" and "Pane sizes quoted v final"
+  sheets.
+- AI.md's Stoke Park section corrected - it was teaching the wrong lesson. The
+  durable rules are now: a systematic shortfall is usually a category not an
+  error; the order sign-off is the authority on sizes, not any quote; check
+  which supplier quote the price was actually built on.
+- data/jobs/stoke-park.md written as the job's durable record.
+- mary_dashboard.py no longer dies on a UnicodeEncodeError printing wrangler's
+  output after a successful deploy.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

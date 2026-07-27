@@ -1,0 +1,32 @@
+You're right and I was wrong. The 46 panes are the louvres. That part of REQ-3 is withdrawn.
+
+Two documents already in the job folder prove it, and I should have found them before I raised it:
+
+- Aplus QT50932 Rev7 Louvres.pdf - a PANEL ORDER, 46 panels, 27.64 m2, at exactly the positions I called missing glass: ref A1 on every bay of Types A/B/C/D/F/G (41), the head over D02 and D04 (2), and all three panels of Door Type C / D03 (3), which is a louvred door.
+- IKON Q26-24329, 02/07, Jason Holman to Steve: 46 IKL332 28mm glazed-in louvre modules, RAL 7012 matt, 50mm insulated backing panels and insect mesh. GBP 10,125.91 + carriage TBC.
+
+46 and 46. Take them out and the glass reconciles exactly - 124 panes required against 124 quoted, 106.97 m2 against 105.24, so +1.73 m2 or about GBP 197 at Vetroseal's rate. There is no glass shortfall and no GBP 2,920.
+
+Three things the louvre answer does not cover, and the first is worse than what I originally raised.
+
+1. NOTHING IS THE RIGHT SIZE - and this one has a date on it.
+
+Aplus re-input the job on 02/07 and the frames were signed off the same day. Vetroseal 064542 (01/07) and the panel schedule IKON priced against (input 01/07) both come from before that re-input. Not one of the 124 quoted panes matches an ordered size. Vents moved 404 to 448 high on every window type, Type H came down 166mm, every door leaf went 1859 to 2059.
+
+The louvres are worse, because they are bespoke and painted. The signed-off A1 aperture is 391mm high on every window type; IKON have quoted 476mm. All 41 window louvres are 85mm too tall. The door heads are out by +245 (D02), +50 (D04) and +78 (D03).
+
+Frames land 03/08. If either order goes in as quoted, all of it arrives unusable.
+
+2. BOTH BUYS ARE ABOVE WHAT THE PRICE CARRIES.
+
+The build-up behind the GBP 104,660.17 carries Vetroseal at GBP 9,309.22 and IKON at GBP 7,490.64. Those are the 05/06 quotes to the penny - Vetroseal 063934 and IKON Q26-24160. The current quotes are GBP 12,012.88 and GBP 10,125.91, so GBP 5,338.93 of cost above the sold price, plus carriage TBC on the louvres. Most of the IKON rise is a real spec move: the blanking panels went from 1.5mm aluminium at GBP 29.70 each to 50mm insulated Fabrock with insect mesh at GBP 68.84.
+
+That is where CN Glass actually earns its place. At GBP 60/m2 the 118 panes of 28mm come to about GBP 6,150 against roughly GBP 11,700 from Vetroseal - a saving of about GBP 5,550, close to the whole overrun. Same caveat as before: that is a rate Steve wrote into his own email to Martin Gregory and Martin confirmed by return, not a priced quotation.
+
+3. SIX PANES AT 32mm ARE UNPRICED BY ANYBODY - the five in the D01 screen and the head over D05, 4.46 m2. Every Vetroseal line is 8.8L-16-4T at 28.8mm. Three of the nine 32mm I flagged turned out to be louvres; these six are not.
+
+On "why is that a prompted answer" - it should not have been, and it has gone. I put "Call me, it's complicated" on REQ-3 when the options are answered by clicking them on this board. I have no phone and nothing you could answer into, so it was a dead end. Zac pulled me up on it this morning, I took it off, and the publisher now refuses to ship a board containing an option that cannot be actioned. The four options on REQ-3 are all things I can act on myself.
+
+I have raised REQ-11 for the sizes, because it needs someone to go back to Aplus and IKON with the signed-off apertures and I cannot email suppliers.
+
+The workbook is rebuilt on the corrected basis - outputs\Stoke Park School - Glass Sizes vs Quoted Glass (check).xlsx - with a Louvres sheet and a sheet putting every quoted pane size against the ordered one.

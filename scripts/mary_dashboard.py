@@ -159,7 +159,10 @@ def main():
                            encoding="utf-8", errors="replace", timeout=600, shell=True)
         tail = (r.stdout + r.stderr)[-600:]
         print("deploy exit", r.returncode)
-        print(tail)
+        # wrangler emits box-drawing characters; stdout here is cp1252, so re-encode
+        # rather than let a successful deploy die on its own log output.
+        enc = sys.stdout.encoding or "utf-8"
+        print(tail.encode(enc, "replace").decode(enc, "replace"))
 
 
 if __name__ == "__main__":

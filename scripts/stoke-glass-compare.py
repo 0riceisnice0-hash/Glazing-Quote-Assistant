@@ -1,9 +1,22 @@
 # -*- coding: utf-8 -*-
-"""Stoke Park School (Borras, Aplus job 17644) - glass reconciliation.
+"""Stoke Park School (Borras, Aplus job 17644) - glass and louvre reconciliation.
 
 Compares the FINAL Aplus glass-sizes sheet (issued 24/07/2026, frames supplied
 UNGLAZED) against Vetroseal quote 064542 (01/07/2026), which was priced from
 Fenster's earlier glass schedule. Writes a check workbook to outputs\\.
+
+CORRECTED 27/07/2026 after Adam's answer to REQ-3. The 46 panes that looked
+"missing" from the glass quote are the LOUVRE positions - they are filled by
+IKON IKL332 louvre modules, not glass. Confirmed by two documents already in the
+job folder: Aplus panel order QT50932 Rev7 (46 panels, 27.64 m2) and IKON quote
+Q26-24329 dated 02/07/2026 (46 louvre modules, GBP 10,125.91 + carriage). Once
+those come out, the glass count reconciles exactly: 124 required = 124 quoted.
+
+What does NOT reconcile is SIZE. The job was re-input at Aplus on 02/07/2026 and
+the frames were signed off that day; both the Vetroseal glass quote and the
+panel schedule IKON priced against predate that re-input, so every pane and
+every louvre is dimensioned to a superseded schedule. That is what this script
+now reports.
 
 Aplus sheet has one row per pane: item | ref | qty | width | height | glass type
 | location. Panes marked "DO NOT ORDER - Unglazed" are aluminium infill panels
@@ -38,6 +51,31 @@ QUOTE_REF = {
     "Door Type A": "TYPE/a", "Door Type B1": "TYPE/B1/D02", "Door Type B2": "D04/TYPE/B2",
     "Door Type C": "(not on quote)", "Door Type D": "TYPE/d",
 }
+
+# The 46 louvre positions, from Aplus panel order QT50932 Rev7 and IKON Q26-24329:
+# ref A1 (and F1 on Type G) on every bay of window Types A/B/C/D/F/G = 41, the head
+# panel over doors D02 and D04 = 2, and all three panels of Door Type C / D03 = 3.
+LOUVRE_WINDOW_TYPES = {"Type A", "Type B", "Type C", "Type D", "Type F", "Type G"}
+
+# Sizes IKON quoted the louvres to (QT50932 Rev7 panel schedule, 01/07/2026),
+# against the aperture on the signed-off order of 02/07/2026.
+IKON_SIZES = {
+    "Type A": (1033, 476), "Type B": (1031, 476), "Type C": (1030, 476),
+    "Type D": (1031, 476), "Type F": (1030, 476), "Type G": (1056, 476),
+    "Door Type B1": (1933, 783), "Door Type B2": (1933, 783),
+    "Door Type C": (1933, 811),
+}
+
+
+def is_louvre(r):
+    """True if this Aplus pane row is a louvre position, not glass."""
+    if r["type"] in LOUVRE_WINDOW_TYPES and r["ref"] in ("A1", "F1"):
+        return True
+    if r["type"] == "Door Type C":
+        return True
+    if r["type"] in ("Door Type B1", "Door Type B2") and r["ref"] == "A1":
+        return True
+    return False
 
 
 def pdf_lines(path):
@@ -93,6 +131,13 @@ def main():
     aplus, vetro = read_aplus(), read_vetroseal()
     order = [r for r in aplus if r["thickness"] != "DO NOT ORDER"]
     skip = [r for r in aplus if r["thickness"] == "DO NOT ORDER"]
+    louvre = [r for r in order if is_louvre(r)]
+    glass = [r for r in order if not is_louvre(r)]
+
+    l_panes = sum(r["qty"] for r in louvre)
+    l_area = sum(r["area"] for r in louvre)
+    g_panes = sum(r["qty"] for r in glass)
+    g_area = sum(r["area"] for r in glass)
 
     a_panes = sum(r["qty"] for r in order)
     a_area = sum(r["area"] for r in order)
@@ -116,26 +161,37 @@ def main():
         ("Alternative rate on file", "CN Glass 01/07/2026 - GBP 60/m2 inc energy, same make-up"),
         ("Client price", "GBP 104,660.17 ex VAT (pricing doc rev 15/07/2026), glass inside unit rates"),
         ("", ""),
-        ("Panes required (Aplus final)", a_panes),
-        ("Panes on Vetroseal quote", v_panes),
-        ("Shortfall (panes)", a_panes - v_panes),
-        ("Area required m2", round(a_area, 2)),
-        ("Area on Vetroseal quote m2", round(v_area, 2)),
-        ("Shortfall m2", round(a_area - v_area, 2)),
-        ("Shortfall %", "%.1f%%" % (100 * (a_area - v_area) / v_area)),
+        ("QUANTITY - no shortfall", ""),
+        ("Panes on Aplus final list", a_panes),
+        ("less LOUVRE positions (IKON, not glass)", "%d / %.2f m2" % (l_panes, l_area)),
+        ("GLASS required", "%d / %.2f m2" % (g_panes, g_area)),
+        ("Panes on Vetroseal quote", "%d / %.2f m2" % (v_panes, v_area)),
+        ("Difference", "%+d panes / %+.2f m2" % (v_panes - g_panes, v_area - g_area)),
+        ("", ""),
+        ("SIZE - every quoted pane is superseded", ""),
+        ("Quoted panes matching a final-list size", "0 of %d" % v_panes),
+        ("Why", "job re-input at Aplus 02/07/2026; both buys predate it"),
         ("", ""),
         ("Vetroseal goods value quoted", round(v_goods, 2)),
         ("Vetroseal rate implied GBP/m2", round(rate, 2)),
         ("Vetroseal energy surcharge GBP/m2", round(surcharge_per_m2, 2)),
         ("Vetroseal quoted net (goods+surcharge)", 12012.88),
-        ("Same rate on final area - indicative net", round(a_area * (rate + surcharge_per_m2), 2)),
-        ("Indicative increase", round(a_area * (rate + surcharge_per_m2) - 12012.88, 2)),
-        ("CN Glass GBP 60/m2 on final area", round(a_area * 60, 2)),
+        ("Same rate on glass area - indicative net", round(g_area * (rate + surcharge_per_m2), 2)),
+        ("Indicative increase", round(g_area * (rate + surcharge_per_m2) - 12012.88, 2)),
+        ("CN Glass GBP 60/m2 on the 28mm glass only",
+         round(sum(r["area"] for r in glass if r["thickness"] == "28mm") * 60, 2)),
         ("", ""),
-        ("28mm panes / m2 required", "%d / %.2f" % (sum(r["qty"] for r in order if r["thickness"] == "28mm"),
-                                                   sum(r["area"] for r in order if r["thickness"] == "28mm"))),
-        ("32mm panes / m2 required", "%d / %.2f" % (sum(r["qty"] for r in order if r["thickness"] == "32mm"),
-                                                   sum(r["area"] for r in order if r["thickness"] == "32mm"))),
+        ("COST vs THE SOLD PRICE", ""),
+        ("Glass carried in the price (Vetroseal 063934, 05/06)", 9309.22),
+        ("Glass now quoted (Vetroseal 064542, 01/07)", 12012.88),
+        ("Louvres carried in the price (IKON Q26-24160, 05/06)", 7490.64),
+        ("Louvres now quoted (IKON Q26-24329, 02/07)", 10125.91),
+        ("Cost above the sold price", round((12012.88 - 9309.22) + (10125.91 - 7490.64), 2)),
+        ("", ""),
+        ("28mm GLASS panes / m2 required", "%d / %.2f" % (sum(r["qty"] for r in glass if r["thickness"] == "28mm"),
+                                                         sum(r["area"] for r in glass if r["thickness"] == "28mm"))),
+        ("32mm GLASS panes / m2 required", "%d / %.2f" % (sum(r["qty"] for r in glass if r["thickness"] == "32mm"),
+                                                         sum(r["area"] for r in glass if r["thickness"] == "32mm"))),
         ("32mm on Vetroseal quote", "NONE - every line quoted 8.8L-16-4T (28.8mm)"),
         ("Panes excluded", "%d marked DO NOT ORDER - Unglazed (aluminium infill panels)" % sum(r["qty"] for r in skip)),
     ]:
@@ -147,40 +203,84 @@ def main():
     ws.append(["the 32mm make-up is unpriced and glass rates move with area, weight and pane size."])
 
     ws = wb.create_sheet("Per type")
-    ws.append(["Aplus type", "Vetroseal ref", "Panes required", "Panes quoted", "Shortfall",
-               "Area required m2", "Aplus pane refs", "Note"])
+    ws.append(["Aplus type", "Vetroseal ref", "Glass required", "Panes quoted", "Difference",
+               "Glass area m2", "Aplus pane refs", "Note"])
     per_a = collections.defaultdict(lambda: [0, 0.0, set()])
-    for r in order:
+    for r in glass:
         per_a[r["type"]][0] += r["qty"]
         per_a[r["type"]][1] += r["area"]
         per_a[r["type"]][2].add(r["ref"])
     per_v = collections.defaultdict(int)
     for r in vetro:
         per_v[r["ref"]] += r["qty"]
-    # J1 and J2 share one quote reference; report them together.
-    quoted_used = collections.defaultdict(int)
     for typ in sorted(per_a):
         ref = QUOTE_REF.get(typ, "?")
         if ref.startswith("TYPE/j"):
             quoted = per_v["TYPE/j"] // 2  # 24 quoted panes cover J1 and J2 equally
         else:
             quoted = per_v.get(ref, 0)
-        quoted_used[ref] += quoted
         need = per_a[typ][0]
-        note = ""
-        if quoted == 0:
-            note = "not on the quote at all"
-        elif need - quoted:
-            note = "one pane per bay missing (ref A1 toplight)" if typ.startswith("Type") \
-                else "head/transom pane missing"
+        note = "" if need == quoted else "CHECK"
         ws.append([typ, ref, need, quoted, need - quoted, round(per_a[typ][1], 2),
                    ", ".join(sorted(per_a[typ][2])), note])
         if need - quoted:
             for cell in ws[ws.max_row]:
                 cell.fill = WARN
-    ws.append(["TOTAL", "", a_panes, v_panes, a_panes - v_panes, round(a_area, 2), "", ""])
+    ws.append(["TOTAL", "", g_panes, v_panes, g_panes - v_panes, round(g_area, 2), "",
+               "counts reconcile once louvres are removed"])
     ws[ws.max_row][0].font = Font(bold=True)
     for col, width in zip("ABCDEFGH", (16, 18, 15, 14, 11, 16, 22, 44)):
+        ws.column_dimensions[col].width = width
+    style_header(ws)
+
+    ws = wb.create_sheet("Louvres not glass")
+    ws.append(["Aplus type", "Pane ref", "Qty", "Aperture on signed-off order",
+               "Size IKON quoted", "Height difference", "Note"])
+    for r in sorted(louvre, key=lambda x: (x["type"], x["ref"])):
+        ik = IKON_SIZES.get(r["type"])
+        diff = "" if not ik else "%+d mm" % (ik[1] - r["h"])
+        ws.append([r["type"], r["ref"], r["qty"], "%d x %d" % (r["w"], r["h"]),
+                   "" if not ik else "%d x %d" % ik, diff,
+                   "louvre too tall for the aperture" if ik and ik[1] != r["h"] else ""])
+        if ik and ik[1] != r["h"]:
+            for cell in ws[ws.max_row]:
+                cell.fill = WARN
+    ws.append(["TOTAL", "", l_panes, "%.2f m2" % l_area, "", "", ""])
+    ws[ws.max_row][0].font = Font(bold=True)
+    ws.append([])
+    ws.append(["IKON Q26-24329, 02/07/2026: 46 IKL332 28mm louvre modules with 50mm insulated"])
+    ws.append(["backing panels and insect mesh, RAL 7012 matt - GBP 10,125.91 + carriage TBC."])
+    ws.append(["Priced against Aplus panel schedule QT50932 Rev7 (input 01/07). The frames were"])
+    ws.append(["re-input and signed off on 02/07 with these apertures 85mm shorter."])
+    for col, width in zip("ABCDEFG", (16, 10, 6, 28, 18, 17, 34)):
+        ws.column_dimensions[col].width = width
+    style_header(ws)
+
+    ws = wb.create_sheet("Pane sizes quoted v final")
+    ws.append(["Vetroseal line", "Type", "Size quoted", "Size on final list",
+               "Width shift", "Height shift"])
+    ref_map = {v: k for k, v in QUOTE_REF.items()}
+    by_type = collections.defaultdict(list)
+    for r in glass:
+        by_type[r["type"]].append(r)
+    for v in vetro:
+        typ = ref_map.get(v["ref"], v["ref"])
+        cands = (by_type["Type J1"] + by_type["Type J2"]) if v["ref"] == "TYPE/j" \
+            else by_type.get(typ, [])
+        if v["ref"] == "TYPE/j":
+            typ = "Type J1/J2"
+        if not cands:
+            continue
+        best = min(cands, key=lambda r: abs(r["w"] - v["w"]) + abs(r["h"] - v["h"]))
+        dw, dh = best["w"] - v["w"], best["h"] - v["h"]
+        ws.append([v["line"], typ, "%d x %d" % (v["w"], v["h"]),
+                   "%d x %d" % (best["w"], best["h"]), dw, dh])
+        if (dw, dh) != (0, 0):
+            for cell in ws[ws.max_row]:
+                cell.fill = WARN
+    ws.append([])
+    ws.append(["", "Not one of the %d quoted panes matches a size on the final list." % v_panes])
+    for col, width in zip("ABCDEF", (14, 16, 16, 18, 12, 12)):
         ws.column_dimensions[col].width = width
     style_header(ws)
 
@@ -214,10 +314,14 @@ def main():
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     wb.save(OUT)
     print("wrote %s" % OUT)
-    print("required %d panes / %.2f m2 | quoted %d panes / %.2f m2 | short %d panes / %.2f m2"
-          % (a_panes, a_area, v_panes, v_area, a_panes - v_panes, a_area - v_area))
-    print("vetroseal rate %.2f/m2 goods, surcharge %.2f/m2; indicative net on final area %.2f"
-          % (rate, surcharge_per_m2, a_area * (rate + surcharge_per_m2)))
+    print("Aplus final list %d panes / %.2f m2" % (a_panes, a_area))
+    print("  louvres (IKON, not glass) %d / %.2f m2" % (l_panes, l_area))
+    print("  glass required            %d / %.2f m2" % (g_panes, g_area))
+    print("  Vetroseal quoted          %d / %.2f m2  -> counts reconcile"
+          % (v_panes, v_area))
+    print("but 0 of %d quoted panes match a final-list size" % v_panes)
+    print("vetroseal rate %.2f/m2 goods + %.2f/m2 surcharge; on glass area %.2f"
+          % (rate, surcharge_per_m2, g_area * (rate + surcharge_per_m2)))
 
 
 if __name__ == "__main__":
