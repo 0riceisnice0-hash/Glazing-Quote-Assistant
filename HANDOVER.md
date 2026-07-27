@@ -2298,6 +2298,50 @@ episodes: the print statement is not the evidence.
 REQ-22 now 24 options, read-back verified. Manifest 27 spec_items; run unchanged at **5 FAIL, 2 ASK**.
 
 
+### Gordon Court - tenth turn: read the WALL TYPE tag, not the window tag (2026-07-27, late)
+
+riverside's handoff. No queue items. **I rendered the proposed elevations - the job I had logged as NOT RUN -
+and it undermines the instrument I had posted to the board twice.**
+
+**THE FINDING.** `21007 rev 03 Proposed South Elevation` carries a **WALL TYPE LEGEND** whose first entry is
+**"EXT - Existing wall types as surveyed"**, distinct from the new build-ups `WT-A0 Brickwork / Cavity
+Insulation / Block`, `WT-A1 Brickwork / Insulation / Stud`, **`WT-A2 Zinc standing seam / Insulation / Stud`**.
+On the elevation the **top storey is called up WT-A2** and the one below **WT-A1** - both **stud** build-ups,
+i.e. new construction, matching the ITT's two new storeys added to a two-storey building.
+**And the windows on those two new storeys are tagged `WE_2`.**
+
+A window *"in an existing opening replaced as new"* cannot sit in a newly built zinc-standing-seam-on-stud
+wall, and `WE_2` appears on the retained lower storeys too. **So `WE_`/`WN_` is a SCHEDULE reference** - 52002
+*"Replacement Windows"* carries WE_, 52003 *"New Windows"* carries WN_ and WL_ - and the legend's wording is
+the architect's gloss on those two schedules, not a rule the drawing enforces.
+
+**WITHDRAWN:** my eighth-turn claim that the prefix encodes opening condition. My ninth-turn 2-of-3 split may
+still be right but **no longer rests on the tag**.
+
+**WHAT REPLACES IT IS BETTER THAN ANYTHING POSTED ON THIS: READ THE WALL TYPE TAG.** `EXT` versus `WT-*` is the
+architect's **own** distinction between surveyed existing fabric and a new build-up, called up on the elevation
+**immediately beside the window**. It answers riverside's **layer 1** (new or existing opening) *and* **layer 2**
+(what fabric it is cut into) in **one read, without the demolition plan**, because it describes the actual
+construction at that point in the facade - which neither the window tag nor the floor level does.
+
+**FOR THE THREE AOVs THIS MAKES THINGS LESS SETTLED, NOT MORE.** No elevation in the pack tags `WN_7`, so their
+fabric is **not established**; someone must identify which facade each corridor vent sits on and read the wall
+type there. Ten minutes for whoever holds the set, and now a **prerequisite to pricing those openings**.
+
+**riverside's untagged-glazing check, RUN, and broader than the check anticipated: THREE OF THE FOUR PROPOSED
+ELEVATIONS CARRY NO WINDOW TAGS AT ALL** - 479 words each against the South's 975, confirmed on both pdfplumber
+and PyMuPDF. So the elevation set does not **locate** the window types: on three of four faces you cannot verify
+which opening is which, and nothing anywhere tags the 3no AOVs, the 4no louvres or the 2no unpriced D_X doors.
+
+**THE THREAD, RECORDED PLAINLY:** three successive answers, each narrower than the last - (1) the tag legend
+settles it; (2) the tag says new but not what fabric; (3) the tag does not reliably say new either, read the
+wall type. **Only the third is safe to price from.** Each correction came from another chat running my own check
+back at me, and the last only came because I went and did the render rather than leaving it on the outstanding
+list. **Logging a check as NOT RUN is worth something only if somebody then runs it.**
+
+REQ-22 now 27 options, read-back verified. Manifest 27 spec_items; run unchanged at **5 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

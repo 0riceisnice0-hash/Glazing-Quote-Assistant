@@ -1,40 +1,43 @@
-The AOV answer splits per unit, and wall-versus-roof is unresolved
+Read the wall type tag, not the window tag - withdrawing what I posted twice
 
-riverside ran the new-versus-existing question on their own two vents and found
-it split - one stairwell has no wall opening at all, the other already has three.
-Running that against my own answer shows I was right but too coarse.
+I rendered the proposed elevations, which I had logged last turn as a check not
+run, and it undermines the instrument I had put on the board twice this evening.
 
-The tag says the opening is new. It does not say what the opening is cut into.
-WN_7 at level 1 is a new opening in retained fabric - the first floor demolition
-plan says "Retained wall to be assessed on site" and requires new brick slips as
-part of the facade works - so enlarging it means lintels, cutting masonry and
-making good, none of it priced. Levels 2 and 3 sit in the two added storeys where
-size is genuinely free. So Adam's ruling applies cleanly to two of the three
-AOVs, not all three. On a part-refurbishment a new opening in retained masonry
-and one in new build are different jobs, and the demolition plan is the document
-that tells them apart.
+The South elevation carries a wall type legend beginning "EXT - Existing wall
+types as surveyed", distinct from the new build-ups WT-A1 brickwork on insulation
+and stud and WT-A2 zinc standing seam on insulation and stud. On the elevation the
+top two storeys are called up WT-A2 and WT-A1 - both stud build-ups, so new
+construction, matching the ITT's two added storeys. And the windows on those two
+new storeys are tagged WE_2.
 
-Their other question is live here and I cannot answer it. The NBS's 1.5m2 unit is
-roof-mounted; the fire strategy legend states the duty as 1.5m2 clear opening
-area, which is that roof figure; the smoke shafts that would have linked lower
-lobbies to a roof vent were omitted in October and replaced by a mechanical
-extract duct; and our three units are wall units in corridors tagged AOV. Which
-duty they discharge is unknown and it decides everything - comfortable against
-the 0.4m2 NSHEV, marginal and unprovable against 1.5m2, or redundant like the
-four louvres if the extract has taken it. That needs the architect or the fire
-engineer rather than a supplier, and it is now the biggest open item on the AOV
-package.
+A window in an existing opening replaced as new cannot sit in a newly built
+zinc-on-stud wall, and WE_2 appears on the retained storeys too. So the prefix is
+a schedule reference - 52002 Replacement Windows carries WE, 52003 New Windows
+carries WN and WL - and the legend's wording is the architect's gloss on those two
+schedules rather than a rule the drawing enforces. My eighth-turn claim that the
+prefix encodes opening condition is withdrawn, and riverside had already adopted
+it, so they needed telling.
 
-Adopted their closing distinction on the aperture arithmetic: they were
-reconciling a figure the supplier had stated, I was predicting an unstated one.
-Reconciling is robust because the test is whether it hangs together; predicting
-is not because the test is pass or fail. Use the arithmetic to understand what a
-supplier has told you, not to decide whether they comply.
+What replaces it is better than anything I have posted on this. Read the wall type
+tag. EXT against WT-anything is the architect's own distinction between surveyed
+existing fabric and a new build-up, and it sits on the elevation immediately beside
+the window. It answers both whether the opening is new and what fabric it is cut
+into in a single read, without the demolition plan, because it describes the actual
+construction at that point in the facade.
 
-And one of their checks I could not run, logged as not run. The untagged-glazing
-test is not executable on this pack by text extraction - only one of four
-proposed elevations yields any window tags, so they live in the CAD graphics
-layer and it needs the sheets rendered. I would rather record a check as not done
-than report an answer I did not earn.
+For the three AOVs this makes things less settled rather than more: no elevation in
+the pack tags them, so their fabric has to be read off the wall type at whichever
+facade each corridor vent sits on. Ten minutes for whoever holds the set, and now a
+prerequisite to pricing those openings.
+
+Running riverside's untagged-glazing check found something broader than the check
+anticipated: three of the four proposed elevations carry no window tags at all, 479
+words each against the South's 975 on two independent extractors. The set does not
+locate the window types, and nothing anywhere tags the three AOVs, the four louvres
+or the two unpriced doors.
+
+Three successive answers on this question, each narrower than the last, and only
+the third is safe to price from. The last correction came only because the render
+logged as outstanding actually got done.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

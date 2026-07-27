@@ -1130,6 +1130,75 @@ reconciliation I did not perform.
 
 ---
 
+---
+
+## 4H. TENTH TURN (27/07 late) — read the WALL TYPE tag, not the window tag
+
+I logged rendering the proposed elevations as outstanding last turn. Done — and it **undermines the
+instrument I had been relying on for two turns.**
+
+### 4H.1 The wall type legend is the real answer
+
+`21007 rev 03 Proposed South Elevation` carries a **WALL TYPE LEGEND** whose first entry is:
+
+> **EXT — Existing wall types as surveyed**
+
+distinct from the new build-ups: `WT-A0 Brickwork / Cavity Insulation / Block`, `WT-A1 Brickwork /
+Insulation / Stud`, **`WT-A2 Zinc standing seam / Insulation / Stud`**, `WT-A3 Brick slips / Blockwork`,
+`WT-A4 Render board / Blockwork / Render board`, `WT-A5 Brick slips / Cement board / Stud …`
+
+On the elevation the **top storey is called up as WT-A2** and the **storey below as WT-A1** — both **stud
+build-ups**, i.e. new construction, consistent with the ITT's two new storeys added to a two-storey building.
+
+### 4H.2 And the windows on those new storeys are tagged `WE_2`
+
+**A window *"in an existing opening replaced as new"* cannot sit in a newly built zinc-standing-seam-on-stud
+wall.** `WE_2` also appears on the lower, retained storeys. So the `WE_`/`WN_` prefix is **not a statement
+about opening condition** — it reads as a reference to **which schedule the type sits on**:
+
+- `52002` *"Window Schedule — Replacement Windows"* carries the **WE_** types
+- `52003` *"Window Types & Schedule — New Windows"* carries **WN_** and **WL_**
+
+The legend's wording is the architect's gloss on those two schedules, and the drawing does not police it.
+
+### 4H.3 Withdrawing the basis of my own last two answers
+
+| Turn | What I said | Status |
+|---|---|---|
+| 8 | *"The type prefix encodes whether the opening is new or existing"* | **Withdrawn — unreliable** |
+| 9 | *"The tag says new but not what fabric; 2 of 3 AOVs are free"* | Conclusion may hold, but **no longer rests on the tag** and I cannot support it from the tag alone |
+| **10** | **Read the WALL TYPE tag. `EXT` vs `WT-*` is the architect's own distinction** | **The one safe to price from** |
+
+**Three successive answers, each narrower than the last.** Recording that plainly rather than leaving any of
+them standing.
+
+### 4H.4 Why the wall type tag is the better instrument
+
+`EXT — Existing wall types as surveyed` versus `WT-*` is the architect's own distinction between surveyed
+existing fabric and a new build-up, **called up on the elevation immediately beside the window.** It answers
+riverside's **layer 1** (new or existing opening) *and* **layer 2** (what fabric it is cut into) in a single
+read, **without needing the demolition plan** — and it describes the actual construction at that point in the
+façade, which neither the window tag nor the floor level does.
+
+### 4H.5 What this leaves for the three AOVs — less settled, not more
+
+**Their opening condition is not established.** WN_7 sits in corridors 1-1/1-2/1-3 and **no elevation in the
+pack tags it**: the South elevation carries no `WN_7`, no `AOV` and no `WL_` tag at all, and the **East, West
+and North proposed elevations carry no window tags whatsoever** — 479 words each against the South's 975,
+confirmed on two independent extractors (pdfplumber and PyMuPDF).
+
+So establishing the fabric at each AOV means identifying which façade each corridor vent sits on and reading
+the wall type called up there. **A ten-minute drawing-reading job for whoever holds the full set — and now a
+prerequisite to pricing the AOV openings.** Added to REQ-22.
+
+### 4H.6 riverside's untagged-glazing check — now answerable, and the answer is worse than untagged glazing
+
+Their check was for *glazing without a tag*. What the render shows is broader: **three of the four proposed
+elevations carry no window tags at all.** So the elevations do not, as a set, locate the window types — you
+cannot verify which opening is which on three of four faces. The South elevation is the only one annotated.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
