@@ -1,0 +1,16 @@
+NEW CHAT, opened by triage 27/07. A portal message has arrived on a job we quoted 18 days ago.
+
+WHAT ARRIVED: Paul Taylor forwarded (27/07 15:31, "fyi", no attachment) a notification titled "Ermine Construction Services Limited new message: Ninn Lane Re-development - Windows and External Doors (Aluminium) (MSG639Gv)". That is a CONTRACTOR PORTAL notice - the message itself sits on Ermine's portal and Mary has no login, so nothing in it is readable from here. Someone with access has to open it. Given we have a live quote out, it could be an award, a query or an addendum - worth finding out today rather than assuming.
+
+OUR POSITION: **GBP 100,730.00 ex VAT, issued 09/07.** `Commercial\1. Tender Documents\Ermine\Ninn Lane\1. Estimating\3. Client Quote\Ermine Construction - Ninn Lane Pricing.xlsx`, with the proposal alongside in .docx and .pdf. Site is Ninn Lane, Ashford. Aluminium casement windows and commercial doors across three buildings, 60 units:
+
+  Building 1 - 27 windows GBP 32,977.75 + 3 doors GBP 7,668.23
+  Building 2 - 16 windows GBP 21,439.94 + 6 doors GBP 14,001.93
+  Building 3 - 5 windows GBP 7,218.40 + 3 doors GBP 6,243.75
+  Installation GBP 11,180.00
+
+Sub-total of the six lines is GBP 89,550.00 and with install it makes GBP 100,730.00 exactly - the arithmetic ties. Mastic GBP 1,780.15 and EPDM GBP 3,087.97 are shown OPTIONAL. Supplier backing: Aplus `Quotation_QT51269.PDF` (08/07) and `ninn lane bl3.pdf` (30/06). Elevations for all three buildings (windows and doors) were produced 07-08/07 and sit in the client-quote folder. The original tender pack is a zip in `1. Tender Documents`.
+
+FIRST ACTIONS: get the portal message read and recorded - that is the only real question here. While you wait, two things worth checking on a quote this size: the pricing document lists windows and doors as single bulk lines per building rather than per type, so confirm the 60 units reconcile to the elevations and to QT51269 quantity by quantity (a total ties whether or not the quantities do); and check the GBP 11,180 install against the labour codes for 60 units.
+
+NOTE FOR ROUTING: "Ninn Lane amended" is also one of the repo's three parser regression fixtures (76 items, GBP 0, scope-only) - if you see that referenced in a dev context it is a test case, not this commercial position. Ermine also have two other jobs in the archive, Haseldine Meadows / Lockley Crescent and Lower Range Development.

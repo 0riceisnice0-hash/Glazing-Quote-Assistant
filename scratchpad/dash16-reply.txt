@@ -1,0 +1,48 @@
+Done. Workbook is at outputs\Fenster Quote Pipeline - Issued Quotes Without an Outcome.xlsx - five sheets: Open quotes, Outcome known, Summary, What Mary cannot see, Method.
+
+THE HEADLINE
+
+282 quotes are out with no recorded outcome, worth GBP 25,566,014.44 ex VAT.
+
+That is from 381 jobs with a client quote on file since 01/09/2025. Only 99 have any outcome at all, and most of those I inferred myself from the job existing under Commercial\2. Projects rather than from anything anyone wrote down.
+
+LIVE (contact within 21 days) - 57 jobs, GBP 11,353,834.11
+COOLING (22-60 days silent) - 37 jobs, GBP 3,114,246.44
+COLD (over 60 days silent) - 166 jobs, GBP 10,740,666.02
+NO TRACE in the mailbox window - 22 jobs
+
+One caveat on that total before anyone quotes it: Elkins Construction, Brandon Estate EWI Remediation, GBP 7,196,695.63, is 28% of the open value on its own. I checked it by hand against cell H67 of the pricing document rather than trust the sweep - it is a real quoted total, not a misread. But the pipeline is one big number plus a long tail.
+
+Biggest cold ones, all with a real quote on file and nobody knowing what happened: Clegg Construction Grafton Centre Hotel GBP 777,177.66 (196 days silent), S and R Construction Lawson Street GBP 583,135.00 (262), Alexander James Tiverton Estate GBP 547,885.59 (186), Alexander James Archway Road GBP 467,661.60 (161), Nevilles Special Projects Newport Pagnell Baptist Church GBP 464,291.39 (98), Stepnell St James House GBP 458,509.81 (182). Alexander James appear three times in the top ten and have never come back on any of them - worth a look as a relationship rather than three separate chases.
+
+ON GORDON COURT - THE HONEST ANSWER IS STILL "WE DO NOT KNOW"
+
+It was issued 10/07 at GBP 368,376.70 and my first pass showed it LIVE, client replied today. That is wrong and it is worth understanding why, because it is the trap this whole exercise exists to avoid.
+
+Two different Gordon Courts sit in the archive - Chigwell's, and an unrelated Target Maintenance door job. The mailbox cannot tell them apart from the subject line, so their traffic was merged: the "issued to" addresses on Chigwell's row are actually tm-gb.co.uk, and the recent inbound was Aluminium Fire Systems chasing their own quote, not Chigwell replying.
+
+I fixed both problems rather than ship them. Supplier and portal addresses (AFS, Aplus, BSW, Bellview, Vetroseal, Strongdor, CN Glass, IKON, Mercury, In-Tend, noreply) no longer count as a client reply, and there is a "Last inbound was from" column so you can see who actually wrote. Where two jobs share a name the row is marked NO in "Contact data reliable?" - 56 of the 282 are flagged. On those, treat the value and issue date as sound and ignore the contact columns.
+
+So Jacob should treat Gordon Court as unknown and chase it. Which is where you came in.
+
+HOW IT WAS BUILT
+
+The Estimating Log could not be used - 325 rows, 24 carrying any W/L mark at all. So the list is built from the archive instead: a job counts as issued if it has a client-facing document in its "3. Client Quote" folder, with DO NOT SEND, review, take-off, master and template files excluded. Value is the TOTAL* cell of the house pricing workbook, read for 345 of 381 jobs; the other 36 show "not read" rather than a guess. Then 9,193 estimating@ messages from 01/09/2025 to today, across all folders including sent, for who last spoke and when.
+
+WHAT I CANNOT SEE - full detail on the fourth sheet
+
+commercial@ is the big one. Paul and the project managers run award and delivery traffic through it and I only see it when someone happens to copy estimating@. That is not hypothetical - the Riverside site address reached me today purely because Paul copied us. Awards and lost-bid notices sent to commercial@ are invisible, so jobs on this list can read COLD when they were actually won or lost weeks ago. Getting Jacob onto commercial@ will close more of this gap than anything else on the list.
+
+info@ is second - first point of contact for inbound enquiries, and a client replying via the website or a general address leaves no trace here at all.
+
+Then adam@, because clients often reply to him directly rather than to estimating@.
+
+What none of that fixes:
+
+- Contractor portals. Awards and rejections get posted on In-Tend, Delta, ProContract or the contractor's own system with only a bare notification emailed. Paul forwarded exactly that today for Ninn Lane - "new message" and nothing else. The outcome exists and no mailbox can read it.
+- Phone, WhatsApp and site conversations. Adam said today that Paul would WhatsApp the Riverside address. No amount of mailbox access recovers a decision taken that way.
+- Anything issued before 01/09/2025 - that is where my pull starts, so older quotes read NO TRACE rather than genuinely cold. Extending it is just a date filter if you want it.
+
+The one thing worth saying plainly: even with commercial@ and info@, this stays an inference built from filenames and subject lines. It is a far better picture than the log, but it is not a substitute for someone recording a result when it happens. If Jacob is going to chase 282 quotes, the highest-value thing he can do is write the answers back somewhere both bots can read.
+
+No email sent to Adam - nothing here is urgent enough to interrupt him, and the live-deadline work came first as you asked.

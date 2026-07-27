@@ -382,6 +382,16 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
     # 15-minute poller and the morning-update task.
     if mp.session_running():
         write_status("working", None, len(read_orders()), "a session is already running")
+        # Somebody else's session - an orphan from a restart, or the morning
+        # update. Still publish it, or the Live tab goes blank precisely when
+        # Mary is visibly working.
+        if now - state.get("_last_activity", 0) >= ACTIVITY_EVERY:
+            state["_last_activity"] = now
+            sid = activity.newest_session()
+            if sid:
+                key = next((k for k, c in reg["chats"].items() if c.get("session_id") == sid), None)
+                activity.push(ENV, key, router.job_title(reg, key) if key else "a running session",
+                              activity.feed(sid))
         return TICK
 
     orders = read_orders()

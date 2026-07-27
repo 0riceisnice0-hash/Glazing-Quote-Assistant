@@ -27,6 +27,31 @@ def transcript(session_id):
     return path if os.path.exists(path) else None
 
 
+def newest_session(max_age=900):
+    """The session id being written to right now, whoever launched it.
+
+    The bridge only knows about sessions it started itself, but the morning
+    update runs one, and a session orphaned by a bridge restart keeps going.
+    The Live tab should show those too - it going blank while Mary is visibly
+    working is worse than useless."""
+    if not os.path.isdir(PROJECT_DIR):
+        return None
+    import time
+    best, best_mtime = None, 0
+    now = time.time()
+    for name in os.listdir(PROJECT_DIR):
+        if not name.endswith(".jsonl"):
+            continue
+        path = os.path.join(PROJECT_DIR, name)
+        try:
+            mtime = os.path.getmtime(path)
+        except OSError:
+            continue
+        if now - mtime <= max_age and mtime > best_mtime:
+            best, best_mtime = name[:-6], mtime
+    return best
+
+
 def _clean(s):
     """Flatten to one line and drop markdown markers - the feed renders as
     plain text, so `**double**` would otherwise show its asterisks."""

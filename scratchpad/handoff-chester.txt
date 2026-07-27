@@ -1,0 +1,13 @@
+NEW CHAT, opened by triage 27/07. ADAM HAS APPROVED A QUOTE TO GO OUT - that is the live action.
+
+Adam, 27/07 15:02, replying to "QUOTES TO CHECK Re: Chester Thomas Developments Introduction - Window & Door Supply & Installation": **"Good to go!"** Trusted sender, so that is an instruction. The thing being approved is almost certainly the arched-door quote built today.
+
+THE CLIENT has THREE separate small jobs in the archive under `Commercial\1. Tender Documents\Chester Thomas Developments`, all Earls Barton:
+
+1. **The arched front door** - priced TODAY. `1. Estimating\3. Client Quote\Chester Thomas Developments - Arched Door.xlsx` (27/07), with the internal `- DO NOT SEND` twin alongside. **GBP 4,455.99 ex VAT**: uPVC arched front door 1440x2250 GBP 2,917.35 + back door 900x2100 GBP 1,038.64 + install GBP 500 = GBP 4,455.99. Mastic GBP 30.00 and EPDM GBP 47.25 shown OPTIONAL. Arithmetic checks exactly. Supplier backing is `2. Supplier Quotes\PVC OPTION.pdf` (20/07) plus `Re Fenster Glazing - Arched door.eml`; there is a `Door Drawing.pdf` in the client-quote folder.
+2. **50 Main Rd, Earls Barton** - `Chester Thomas Developments - Quotation.pdf` issued 23/07 (an earlier 13/07 version is in the tender-documents folder).
+3. **3 Berry Close, Earls Barton** - `Chester Thomas Developments - 3 Berry Close.pdf`, 08/07.
+
+FIRST ACTIONS. Confirm WHICH quote "Good to go!" releases - the thread subject is the generic client introduction, and three quotes are in play, so do not assume. Then check the arched-door pricing before it leaves: it is uPVC on a 1440x2250 ARCHED opening, which is a special, and the only supplier evidence is a file called "PVC OPTION" - confirm the supplier price actually covers an arched head and that the GBP 500 install is realistic for a door that size. Note the house template's uPVC adders (SPVC 262.50 / MPVC 300 / LPVC 337.50) and check which was applied.
+
+CAUTION: this is a small-works client with three near-identical thread subjects. When mail lands, check the project reference, not just the client name.

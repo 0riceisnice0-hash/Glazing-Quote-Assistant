@@ -1,41 +1,34 @@
-REQ-5 answered: St Mary's addendum does not change our quote - and a rebuilt registry
+The bridge was restoring the old world on every session - second cause found
 
-Adam asked whether ET&S's 24/07 addendum moved the scope on St Mary's. It does
-not. GBP 174,546.37 stands and no revision needs to go out.
+St Mary's ran the post-turn orphan check and found five handoffs that could not
+be delivered. It was right: riverside, chester-thomas, ninn-lane, manor-house and
+lower-range had all been deleted again, after this morning's save_registry fix.
+All five are re-added and all seven pending handoffs now map to a live key.
 
-The addendum re-issued three drawings. Window schedule 2376-09 rev A "integral
-blind omitted", floor plans 2376-04 rev F "ceiling grid + unisex toilet updated",
-site plan 2376-05 rev E "access road revised". Only the first touches glazing and
-it takes scope out.
+The earlier diagnosis was only half the problem. mary_bridge.py loads the registry
+once at startup and writes that same in-memory object back on every session start
+and end, so the bridge was not merely failing to notice new jobs - it was actively
+restoring the registry as it stood when it booted, every time any chat ran. That
+is why re-adding by hand never survived. The loop now re-reads the registry at the
+top of each pass.
 
-Compared the priced schedule against rev A attribute by attribute rather than by
-eye: 209 window refs, 38 types, 28 structural opening sizes, 38 opening patterns,
-24 restrictor notes, 6 obscure notes, 33 U-value notes and 38 Secured by Design
-notes are all identical. The only change is the magnetic integral blind note
-falling from 29 occurrences to 1 - and Fenster had already excluded magnetic
-integral blinds on proposal p3 and never priced them. No blind appears in the
-pricing workbook, BSW QT252799 or Aplus QP70172.
+What hid it: a long-running Python process keeps the module it imported at
+startup. The merge fix was on disk and correct, but the live bridge is pythonw pid
+31876, started 15:51:24, which is before the fix landed - so it carried on
+executing the old code and the fix could not bite. That needs a restart, which I
+have deliberately not done from inside a session: the bridge launches these
+sessions, so killing it mid-turn would end the session doing the killing. Raised
+as REQ-18 with the pid and start time so it can be confirmed.
 
-Two things raised for ET&S. Rev A contradicts itself: one blind note survived the
-deletion, on Type AK (W.92/W.93), the 1825x5580 pair that is our biggest line at
-GBP 17,311.95. And the revisions are dated 13.07.26 and 08.07.26 - both before our
-17/07 quote - but were held until 24/07, so we priced a superseded drawing without
-knowing.
+Until that restart, expect the five jobs to be wiped again on the next session.
+Every chat has been told to re-check at the end of its turn, and told that a chat
+which has already run loses its whole conversation if its key goes - which is the
+real argument for keeping data/jobs/<key>.md current rather than leaving it to
+close-out.
 
-Separately, the chat registry had to be rebuilt. Commit a3f20c5 overwrote
-data/mary-jobs.json from a stale copy, silently deleting the gordon-court job
-opened earlier today and reinstating the chigwell match term removed from
-grange-hill. The Gordon Court handoff was still pending, and since the bridge
-delivers handoffs by iterating registry keys, a note addressed to a deleted key is
-never delivered and never errors. Both repaired and routing re-verified; the chat
-had never run, so no history was lost.
-
-- New chat st-marys, briefed with the full position and told not to redo REQ-5.
-- REQ-5 set to answered; hub job card added; dashboard replied to and redeployed.
-- dashmsg-12 was an automated refresh ping saying to ignore it - marked seen.
-- Noticeboard: read revision dates not issue dates, compare schedules by attribute
-  counts rather than PDF text diffs, and verify a stated omission actually happened.
-- AI.md: those rules, plus the registry-is-shared-mutable-state hazard.
-- MARY-HANDOVER job table row for St Mary's.
+- AI.md: both causes, and the standing rule that editing a file changes what the
+  next process does, not what the running one is doing.
+- Noticeboard and a direct reply to st-marys, whose check is the only reason this
+  surfaced.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

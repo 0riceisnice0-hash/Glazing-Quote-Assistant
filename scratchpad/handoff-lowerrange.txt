@@ -1,0 +1,21 @@
+NEW TENDER, opened by triage 27/07. There is a deadline on it and a week of the window has already gone.
+
+**PACKAGE RETURN DATE: FRIDAY 07 AUGUST 2026.** That is Fenster's date, taken from the Document Register inside the pack, not inferred.
+
+THE JOB: 400 Lower Range Road Development - Markers Lodge, 35 Lower Range Rd, Gravesend DA12 2QS. Design and Build for **Gravesham Borough Council**, main contractor **Ermine Construction Services**, architect **Abbey Design**, project refs 2779 (clarification log) and 4108 (contract sum analysis). Residential, whole-project value stated as GBP 3m-4m. Our package is **External Windows and Doors (uPVC)**, package lead **Tom Dixon** at Ermine. Portal reference ITTGg5b2 - submission is via the tender portal (clarification C09), which Mary cannot log into.
+
+HOW IT REACHED US: Paul Taylor forwarded the invitation at 15:36 - "We have got a new one in from them. I have saved in Tender Docs > Ermine > Lower Range Road. There is already an addendum, which I also saved." Gintare acknowledged at 15:37. Both zips are in `Commercial\1. Tender Documents\Ermine\Lower Range Development\1. Estimating\1. Tender Documents`, and I have extracted them to `test-results\lower-range-input\pack` (32 files) and `test-results\lower-range-input\addendum` (2 files).
+
+**THE PACK WAS ISSUED ON 20/07 AND ONLY REACHED US TODAY.** The Document Register dates the initial issue 20/07/2026, the V3.1 clarification log 23/07 and the V3.2 addendum 27/07. So seven of the eighteen days are already spent. Worth knowing before anyone assumes there is a fortnight.
+
+WHAT THE ADDENDUM ACTUALLY CHANGED - I checked rather than assume. V3.2 differs from V3.1 in exactly two ways: answers were added to clarifications C30 to C39 (abandoned electricity cable, missing Appendix J2, STG building-control fees, EV chargers, drainage), and an empty placeholder row C40 was dropped. **Nothing in the addendum touches windows or doors.** The clarification log is Ermine's own log with Gravesham and is almost entirely substructure, drainage and civils.
+
+TWO THINGS IN IT THAT DO MATTER TO OUR PACKAGE:
+- **C22**: "We cannot find the Energy Report. Are we to price for Building Regulation minimum U values?" Answer: "Please see tender addendum 1." **We do not appear to have Tender Addendum 1** - it is not in either zip. So the U-value requirement for our windows is unresolved, and it is the single biggest cost driver in a uPVC package. Chase it before pricing.
+- **C08** asks for the thermal performance energy statement referenced on drawing 25.578.15 REV T1 - and note **25.578.15 is not in the pack either**, though .10 to .42 mostly are.
+
+SPEC SO FAR, from `A2 - Design Information\Abbey Design (Architect)\MATERIALS SCHEDULE REV T1.pdf`: External Windows "Proprietary UPVC", **Colour - Dark Grey**; External Doors "Proprietary UPVC", Dark Grey and Grey. **The schedule states one colour and says nothing about the internal face.** Given what Georgie's cost us this week, do not assume white inside or grey inside - ask, and price dual colour if that is what it turns out to be. There is also a MATERIALS SCHEDULE sample column ("Sample Supplied Yes/No") which implies samples are expected.
+
+WHERE TO START: `Section 6 - Contract Sum Analysis - 4108.xlsx` is the pricing structure Ermine want back; the 22 Abbey Design drawings (25.578.10 to .42, revisions T1 to T3) carry the elevations and window layouts; `4108 - Lower Range Road - Pre-Construction Information Pack.pdf` and the Designer Risk Assessment cover site constraints. Note a **Subcontractor Collateral Warranty** is required (Appendix M2 template is in the pack) - that is a commercial condition Adam should see before we commit.
+
+ROUTING NOTE: Ermine have THREE jobs in the archive - this one, Ninn Lane (quoted GBP 100,730 on 09/07, its own chat) and Haseldine Meadows / Lockley Crescent. I removed the bare term "ermine" from Ninn Lane's match list because it is no longer distinctive; this chat matches on lower range / ittgg5b2 / gravesham / markers lodge / 25.578 / da12 2qs.
