@@ -1,0 +1,15 @@
+{
+ "note": "Every improvement cycle, and whether it actually helped. Measured on a holdout of jobs the rates were not learned from.",
+ "cycles": [
+  {
+   "started": "2026-07-27T16:29:32",
+   "full": false,
+   "learned": 30,
+   "before": 20.7,
+   "after": 16.2,
+   "improvement_pct_points": 4.5,
+   "finished": "2026-07-27T16:32:40",
+   "minutes": 3.1
+  }
+ ]
+}

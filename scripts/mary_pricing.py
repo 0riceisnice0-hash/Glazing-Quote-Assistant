@@ -108,6 +108,30 @@ class LearnedRate:
                 % (self.rate, self.rec["n"], self.key, self.rec["low"], self.rec["high"]))
 
 
+def derived_factors(hay):
+    """Supplier corrections computed from real quotes, not typed in by hand.
+
+    These supersede CALIBRATION below. That list was my best reading of the
+    handover notes; these are measured against what Fenster actually charged,
+    with size and product held constant. Where a supplier has enough lines,
+    believe the measurement."""
+    if not hay:
+        return []
+    try:
+        with open(LEARNED_FILE, encoding="utf-8") as fh:
+            facs = json.load(fh).get("supplier_factors", {})
+    except Exception:
+        return []
+    low = hay.lower()
+    out = []
+    for supplier, rec in facs.items():
+        if supplier and supplier in re.sub(r"[^a-z0-9]", "", low):
+            if not rec.get("applied", True):
+                continue          # measured but implausible - see held_back
+            out.append({"factor": rec["factor"], "why": rec["why"], "source": rec["source"]})
+    return out
+
+
 def learned_rate(code, area_m2):
     rates = load_learned()
     rec = rates.get("%s|%s" % (code, band_of(area_m2)))
@@ -173,7 +197,9 @@ def find_rate(family, area_m2, supplier=None, system=""):
     # Most evidence wins.
     entry = max(cands, key=lambda e: e.get("lineCount", 0))
     hay = ("%s %s" % (system, supplier or "")).lower()
-    factors = [c for c in CALIBRATION if any(m in hay for m in c["match"])]
+    # Measured beats typed: fall back to the hand-written constants only where
+    # there is not enough real evidence for a derived factor.
+    factors = derived_factors(hay) or [c for c in CALIBRATION if any(m in hay for m in c["match"])]
     return Rate(entry, area_m2, factors)
 
 

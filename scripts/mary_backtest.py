@@ -198,6 +198,62 @@ def learn(docs):
     return out
 
 
+MIN_SUPPLIER_LINES = 8
+# A supplier genuinely runs maybe 20% either side of the norm. Outside this the
+# likely cause is a mis-parse or a job priced on a different basis, and a
+# self-improving system that swallows it teaches itself to underprice. Recorded
+# but not applied, so a human can look.
+PLAUSIBLE_FACTOR = (0.65, 1.55)
+
+
+def _supplier_key(name):
+    """'Tru Frame' and 'TruFrame' are one supplier - they came out as two, with
+    factors of 0.842 and 0.378, which is how you get a self-inflicted 60% error."""
+    return re.sub(r"[^a-z0-9]", "", str(name or "").lower())
+
+
+def learn_supplier_factors(docs, base):
+    """How much dearer or cheaper each supplier runs than the overall rate.
+
+    These replace the calibration constants that were previously typed in by
+    hand ("Sheerline +10%", "Smart Wall +45%"). Each line is compared against
+    the all-supplier median for its own code and size band, so the factor is
+    the supplier's effect with size and product already held constant."""
+    ratios = {}
+    for d in docs:
+        supplier = (d.get("supplier") or "").strip()
+        if not supplier:
+            continue
+        for l in d["lines"]:
+            if not l["frames"] or l["area"] <= 0:
+                continue
+            key = "%s|%s" % (l["code"], engine.band_of(l["area"]))
+            b = base.get(key)
+            if not b or not b["median_per_m2"]:
+                continue
+            ratios.setdefault(_supplier_key(supplier), []).append(
+                (l["frames"] / l["area"]) / b["median_per_m2"])
+    out = {}
+    for supplier, vals in sorted(ratios.items()):
+        if len(vals) < MIN_SUPPLIER_LINES:
+            continue
+        factor = round(statistics.median(vals), 3)
+        applied = PLAUSIBLE_FACTOR[0] <= factor <= PLAUSIBLE_FACTOR[1]
+        out[supplier] = {
+            "factor": factor,
+            "applied": applied,
+            "n": len(vals),
+            "why": "median of %d priced lines against the all-supplier rate for the same code "
+                   "and size band" % len(vals),
+            "source": "derived from sent pricing documents",
+        }
+        if not applied:
+            out[supplier]["held_back"] = (
+                "outside the plausible %.2f-%.2f band - looks like a mis-parse or a job priced on "
+                "a different basis, so it is recorded but NOT applied" % PLAUSIBLE_FACTOR)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("doc", nargs="?")
@@ -249,10 +305,19 @@ def main():
 
     if args.learn:
         rates = learn(docs)
+        factors = learn_supplier_factors(docs, rates)
         with open(LEARNED, "w", encoding="utf-8") as fh:
             json.dump({"note": "Empirical GBP/m2 from the Frames column of quotes Fenster actually "
-                               "sent - what we really charge, not a median of supplier quotes.",
-                       "source_docs": len(docs), "rates": rates}, fh, indent=1)
+                               "sent - what we really charge, not a median of supplier quotes. "
+                               "supplier_factors are derived, and supersede the hand-written "
+                               "constants in mary_pricing.CALIBRATION.",
+                       "source_docs": len(docs), "rates": rates,
+                       "supplier_factors": factors}, fh, indent=1)
+        if factors:
+            print("SUPPLIER FACTORS (derived, no longer typed in by hand)")
+            for s, f in factors.items():
+                print("  %-22s x%.3f  from %d line(s)" % (s, f["factor"], f["n"]))
+            print()
         print("%-16s %12s %6s %12s %12s" % ("CODE|BAND", "MEDIAN/m2", "n", "LOW", "HIGH"))
         for k, v in rates.items():
             print("%-16s %12s %6d %12s %12s" % (k, "{:,.2f}".format(v["median_per_m2"]), v["n"],
