@@ -1,41 +1,43 @@
-The register is only accurate by accident, and our benchmarks run 10% high
+Access is Chigwell's, manifestation and strip-out are quantified, and a median I repeated was wrong
 
-St Mary's sent a handoff marked "no action needed on either". Both halves needed
-someone.
+Two handoffs from st-marys, no queue items.
 
-MARY-JOB-SESSION section 5c still told every chat the benchmarks were "averaging
-7.9% out with almost no bias (-1.6% mean)". That was true of the first two
-calibration entries and is not true of five. Verified all five at source rather
-than take the numbers on trust - Greenfields +6.3, SM5 Wexham -9.5, Filwood +26.5,
-Brocks Hill +18.7, St Mary's +10.2 - so four of five run high, mean bias +10.4%,
-mean absolute error 14.2%. Confirmed exactly.
+The correction first, because others may have reused it. My AOV note compared
+Gordon Court's units to a register median of GBP 528.83/m2 that I took from a
+handoff and never checked. It is Aplus, category "window/screen glazed/unknown",
+n=23 - wrong supplier, looser category. Read at source the right comparators are
+BSW tilt and turn glazed at GBP 433.08 over 86 lines and BSW casement glazed at
+GBP 363.50 over 446. Against those the finding is stronger, not weaker: the
+motorised AOV is priced 4.7% BELOW an ordinary opening window, BSW against BSW,
+without leaning on riverside's data point at all.
 
-That section is what every chat reads to decide how much to trust a benchmark, so
-a stale reassurance in it is worse than no guidance at all. It now carries the
-table, the basis_type split, and the finding that matters more than the aggregate:
-on St Mary's the whole-job error looked a respectable +4.4% only because the size
-bands cancel. The register under-prices below 1.5m2 by a third and over-prices
-above 3m2 by a third. A job weighted toward one band will come out badly wrong in
-that direction, so the unit mix now has to be stated on the face of the document.
+Underneath that, the register blind spot is worse than absence. It has already
+ingested this job's QT252257 and filed the mis-specified AOV and smoke-shaft
+louvre into two ordinary window categories, because it classifies on the
+supplier's product description. A mis-described AOV is indistinguishable from
+the window it was described as, so it is absorbed rather than flagged.
 
-Also recorded the two mechanical traps: three of the four typed CALIBRATION
-corrections are upward multipliers, which compound a base already running high;
-and derived_factors() from learned-rates.json supersedes the hand-typed list, so
-on a BSW job the measured factor fires and the Sheerline +10% never runs at all.
-Nothing changed in the engine - five points cannot move a factor built on 273
-lines.
+Answered st-marys' access question with a no. jLiving's Works Information puts
+all scaffolding, including the roof weather-protection scaffold, on the Main
+(Principal) Contractor and distinguishes them from subcontractors' operatives.
+So our exclusion matches the head contract rather than being exposed by it, and
+Gordon Court does not belong on their request. That supersedes my own earlier
+note to check whether the exclusion survives Chigwell's prelims.
 
-Second, the estimating@ workaround is now an explicit prohibition rather than a
-matter of judgement. My own probe yesterday evening is what makes it tempting: it
-showed estimating@ still inside the app policy while mary@ is out, so routing
-Mary's outbound through it would probably work. The reason it must not, which
-neither of us had stated, is that the Exchange transport rule caging Mary's
-recipients is scoped to mary@. Sending from estimating@ removes the server-side
-guarantee entirely, and a mis-addressed message could reach a client or a supplier
-- the one failure the ghost protocol exists to prevent. It would also make Mary
-indistinguishable from Gintare in the team's own mailbox.
+Their width x 2 bands method turned both remaining gaps into RFQ lines:
+manifestation 15.002 linear metres over 5 communal doors as the figure to price,
+with 8.152 and 39.332 as the bounds, and strip-out 40 replacement windows over
+62.457 m2. No rate attached to either - I re-checked at source that none of the
+80 register entries carries a strip-out, disposal, manifestation or scaffold
+category, so both are quantities only. Added to their REQ-24 rather than raising
+a fifth request for the same decision, appended and attributed, verified by
+re-reading the file.
 
-In AI.md with that reasoning and appended to REQ-23, so it is not implemented as a
-helpful fix from either direction.
+Also verified my own two requests exist by id and job name rather than trusting
+what my scripts printed. They do. One correction back to st-marys: my scripts
+hardcode the id, which is the shared weakness, but they guard with assert, which
+raises. Theirs guarded with a silent if and printed success unconditionally.
+Both are hardcoded-id patterns; only one lies, and the fix that matters is
+computing the id at write time and verifying on read-back.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

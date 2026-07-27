@@ -1482,6 +1482,82 @@ shared helper in `scripts/` that raises a request properly, flagged rather than 
 shared plumbing.
 
 
+### Gordon Court - fourth turn: access cleared by the head contract, manifestation and strip-out quantified, and a median I had repeated was wrong (2026-07-27, late)
+
+Two handoffs from st-marys drove this; no queue items.
+
+**A CORRECTION TO MY OWN BOARD NOTE, and the finding got stronger for it.** My 20:30 AOV note compared
+Gordon Court's units to *"a register median of about GBP 528.83/m2 for a plain glazed aluminium window in
+the same 1.5-3 m2 band"*. **I took that from a handoff and never opened the file.** GBP 528.83 is
+**Aplus**, category *"aluminium window/screen, **glazed/unknown** [1.5-3m2]"*, n=23 - wrong supplier,
+looser category, wrong comparator for a BSW Sheerline job. The right ones, read at source: **bsw
+aluminium tilt & turn window, glazed [1.5-3m2] = GBP 433.08, n=86**, and **bsw aluminium casement window,
+glazed [1.5-3m2] = GBP 363.50, n=446**. Against those, **WN_7 (the "AOV") at GBP 412.67/m2 is 4.7% BELOW
+the plain tilt-and-turn median** and WL_1 at GBP 442.98/m2 is 21.9% above the plain casement. So a
+motorised AOV is priced *under an ordinary opening window* - now BSW against BSW, no longer leaning on
+riverside's Aplus point at all. **Lesson: if you are putting a rate in front of anyone, read it out of
+`data/supplier-rates.json` yourself and quote supplier, category AND line count - band and supplier both
+change the answer.**
+
+**THE REGISTER BLIND SPOT IS WORSE THAN ABSENCE - IT IS SILENT ABSORPTION.**
+`data/supplier-rates.json` **has already ingested QT252257** and filed its two lines into
+`aluminium tilt & turn window, glazed [1.5-3m2]` and `aluminium casement window, glazed [1.5-3m2]`.
+Those two lines are precisely the mis-specified AOV and smoke-shaft louvre behind REQ-22. **The register
+cannot detect an AOV mis-specification because it classifies on the supplier's product description**, so a
+mis-described AOV is indistinguishable from the window it was described as. Two lines in 86 and 446 is
+numerically nothing; the mechanism repeats and drags AOV evidence toward window money. Same exposure for
+any performance item quoted as its plain equivalent - fire doors, acoustic units, secondary glazing.
+So do not read *"the register has no category for X"* as merely a gap to fill - **check whether X has
+been quietly filed under something else.**
+
+**ACCESS - CLEARED, AND BETTER THAN "OUR WORDING IS FINE".** st-marys asked whether this pack has an
+equivalent of their Prelims F and B. It does not, and the difference favours us.
+`Gordon Court wi Contract Version - V3.pdf` p2, margin heading **"Temporary Access"**: *"The Main
+(Principal) Contractor shall allow for all crash decks, handrailing, scaffolding or other temporary safety
+or access requirements necessary for satisfactory completion of the works (including the main external
+scaffolding and associated high level weather protection roof scaffold)."* The same document explicitly
+distinguishes the Main (Principal) Contractor from *"Contractor's / Sub-contractor's & Suppliers
+operatives"* (p16, welfare). So scaffolding - including a roof weather-protection scaffold, substantial on
+a building gaining two storeys - is **expressly Chigwell's**, and our exclusion is *consistent with the
+head contract* rather than exposed by it. **Supersedes the earlier "check it survives Chigwell's
+subcontract prelims" note.** Gordon Court was therefore **not** added to REQ-24 on access.
+**General rule: "we never allow for access" is safe as a DRAFTING rule - which is what Adam ruled on -
+but not automatically safe COMMERCIALLY. Read the Works Information or Prelims for the ACTOR, not just
+the obligation; it differs job to job.**
+
+**MANIFESTATION QUANTIFIED using st-marys' width x 2 bands method.** NBS L20 cl.280 is the **only clause
+in 186 pages** that turns manifestation on (*"Manifestation: As drawing"*; the adjacent internal-door
+clause says *"Not required"*, so deliberate), and no drawing shows any.
+**NARROW 8.152 lin m / 2 units** (D_A pair) - **MEDIUM 15.002 lin m / 5 units** (+ D_D x2 Corridors 5-0
+and 7-0, D_U Stair 2) - **WIDE 39.332 lin m / 15 units** (every glazed external door).
+**Price MEDIUM**, and the reason is itself a finding: **cl.280 describes a "Rebated SINGLE leaf" door
+while the actual GR316 Entrance door is a DOUBLE** - so either the clause maps to the single-leaf communal
+doors and not the entrance pair, or it is another spec-versus-schedule mismatch like **D_T**. MEDIUM
+covers both. A further **15.140 lin m** (LW_1 x4, WN_7 x3) sits behind it *if* Approved Document K
+critical-location glazing catches the full-height glazed corridor units - flagged, not assumed.
+
+**STRIP-OUT QUANTIFIED: 40 replacement windows, 62.457 m2** (schedule 52002; the 84 new windows carry
+none). Unlike St Mary's there is **no client SOW cross-referring it into our item** - NEC3 activity
+schedule, no item numbers - so here it is **unallocated rather than allocated to us**.
+
+**NO RATE ATTACHED TO EITHER, deliberately.** Re-verified st-marys' finding at source rather than taking
+it on trust: **80 register entries, zero** with a strip-out, disposal, removal, manifestation or scaffold
+category. Both are **quantities for an RFQ**. Both **added to REQ-24** - st-marys' request already asks
+Adam for exactly these prices, and a fifth separate request would be worse for him - appended, attributed,
+never rewriting their text, and **verified by re-reading the file** (6,294 chars, 8 options, marker
+present).
+
+**MY REQUEST SCRIPTS - VERIFIED, AND ONE CORRECTION TO THE SHARED LESSON.** Opened
+`data/dashboard-state.json` rather than trusting any print: **REQ-20 and REQ-22 are both present by id AND
+job name; ids run 1-24, no gaps, no duplicates.** But `gc_req.py` and `gc_req22.py` did **not** share the
+dangerous half of st-marys' bug. Both hardcode the id - same weakness - yet both guard with
+`assert not any(...)`, which **raises**; st-marys used `if not any(...)` plus an *unconditional* print,
+and that is what reported success while doing nothing. Had REQ-22 been taken, my script would have died
+with an `AssertionError` immediately. **Worth stating precisely, because the fix that matters is compute
+the id at write time and verify on read-back - not replacing asserts.** Both are hardcoded-id patterns;
+only one lies.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

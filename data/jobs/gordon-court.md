@@ -143,7 +143,7 @@ here:
 
 | Ruling | Gordon Court |
 |---|---|
-| *"Our proposal document should state that we have not allowed for any access."* | ✅ **Already complies** — exclusions name *"Access/Lifting Equipment – Scaffold, MEWPS, Towers, Forklift etc."* The separate commercial risk stands: this building gains two storeys, and saying we've allowed no access is not the same as agreeing who pays. |
+| *"Our proposal document should state that we have not allowed for any access."* | ✅ **Already complies** — exclusions name *"Access/Lifting Equipment – Scaffold, MEWPS, Towers, Forklift etc."* ~~The separate commercial risk stands…~~ **SETTLED ON THE FOURTH TURN, in our favour: jLiving's Works Information puts all scaffolding, including the main external and roof weather-protection scaffold, on the Main (Principal) Contractor — i.e. Chigwell. See §4B.3.** |
 | *"Strip out… we have effectively left it unanswered however we would include it for a job of this size."* | ❌ **GAP.** Pack is silent (no strip-out/remove-existing/disposal in any schedule; NEC3 activity schedule has no SOW item numbers, so no cross-reference like St Mary's SOW 1.09). Proposal excludes *"Waste Removal – Generally"* and never names it. The £46,840 install cannot absorb it — pure per-unit fit labour at £160–500/unit. **40 replacement windows plus external doors out of an occupied building**, on a job twice St Mary's size. Not costable from anything on file. |
 | *"We can allow the manifestation for a job of this size, however we should be putting this in our inclusions or on our description."* | ❌ **GAP.** See below. |
 
@@ -559,6 +559,131 @@ Not costable from anything on file, so it is an open item, not a number. But it 
 
 ---
 
+---
+
+## 4B. FOURTH TURN (27/07 late) — access cleared, manifestation and strip-out quantified
+
+### 4B.1 A correction to my own AOV comparison
+
+My 20:30 board note compared WN_7 and WL_1 to *"a register median of about £528.83/m² for a
+plain glazed aluminium window in the same 1.5–3 m² band."* **I took that figure from a handoff
+and did not open the file.** £528.83 is **Aplus**, category *"aluminium window/screen,
+**glazed/unknown** [1.5-3m²]"*, n=23 — wrong supplier, looser category, wrong comparator for a
+BSW Sheerline job. Read at source, the right ones are:
+
+| Supplier | Category | n | Median |
+|---|---|---|---|
+| bsw | aluminium tilt & turn window, glazed [1.5-3m²] | 86 | **£433.08/m²** |
+| bsw | aluminium casement window, glazed [1.5-3m²] | 446 | **£363.50/m²** |
+
+**Against the correct comparators the AOV finding gets stronger, not weaker:**
+
+- **WN_7 (the "AOV") £412.67/m² — 4.7% *below* the plain tilt-and-turn median.** A motorised AOV
+  priced under an ordinary opening window.
+- **WL_1 (the smoke-shaft louvre) £442.98/m² — 21.9% *above* the plain casement median.** Above a
+  window, nowhere near a ventilator.
+
+That is now **BSW against BSW** and no longer leans on riverside's Aplus data point at all. The
+£1,401.24/m² Aplus AOV figure still stands as the only real AOV price in the system; it just isn't
+carrying the argument alone.
+
+### 4B.2 The register has already absorbed this job's mis-specification
+
+`data/supplier-rates.json` **has already ingested QT252257** and filed its two lines into
+`aluminium tilt & turn window, glazed [1.5-3m²]` (bsw, n=86) and
+`aluminium casement window, glazed [1.5-3m²]` (bsw, n=446). **Those two lines are the
+mis-specified AOV and smoke-shaft louvre.**
+
+So the blind spot is not that the register lacks an AOV category — it is that **the register
+cannot detect an AOV mis-specification at all**, because it classifies on the *supplier's product
+description*. A mis-described AOV is indistinguishable from the window it was described as, so it
+is silently absorbed into the window median. Two lines in 86 and 446 is numerically nothing; the
+mechanism repeats every time and drags AOV evidence toward window money.
+
+### 4B.3 ACCESS — CLEARED, and better than "our wording is fine"
+
+st-marys asked whether this pack has an equivalent of their Prelims F and B (which put all
+scaffolding on *"the Contractor"*). **It does not, and the difference is in our favour.**
+
+> `Gordon Court wi Contract Version - V3.pdf` p2, margin heading **"Temporary Access"**:
+> *"The Main (Principal) Contractor shall allow for all crash decks, handrailing, scaffolding or
+> other temporary safety or access requirements necessary for satisfactory completion of the works
+> (including the main external scaffolding and associated high level weather protection roof
+> scaffold)."*
+
+The same document explicitly distinguishes the Main (Principal) Contractor from *"Contractor's /
+Sub-contractor's & Suppliers operatives"* (p16, on welfare). So **scaffolding — including a
+high-level weather protection roof scaffold, a substantial item on a building gaining two
+storeys — is expressly Chigwell's**, and our access exclusion is *consistent with the head
+contract* rather than exposed by it. Welfare is likewise the Main Contractor's, and jLiving
+provide mains power, water and drainage to them for it.
+
+**This supersedes the earlier open risk note** in §5 and §2C ("check the exclusion survives
+Chigwell's subcontract prelims"). The residual risk is only that Chigwell's *subcontract order*
+tries to push it back down — which the head contract does not support, so we have a strong
+position rather than an exposure. **Gordon Court was therefore NOT added to REQ-24 on access.**
+
+The transferable point: *"we never allow for access"* is safe as a **drafting** rule — which is
+what Adam ruled on — but not automatically safe **commercially**. That depends on whom the
+employer names, and it differs job to job.
+
+### 4B.4 MANIFESTATION — quantified (RFI-8 now an RFQ line)
+
+Using st-marys' method — **width × 2 bands**. NBS L20 cl.280 is the **only clause in 186 pages**
+that turns manifestation on (*"Manifestation: As drawing"*; the adjacent internal-door clause says
+*"Not required"*, so it is deliberate). No drawing shows any.
+
+| Reading | Linear m | Units | Set |
+|---|---|---|---|
+| NARROW | **8.152** | 2 | D_A pair — unambiguously communal entrances |
+| **MEDIUM** | **15.002** | **5** | **+ D_D ×2 (Corridors 5-0, 7-0) and D_U (Stair 2)** |
+| WIDE | **39.332** | 15 | every glazed external door, incl. private and plant |
+
+**Price MEDIUM**, and the reason is itself a finding: **cl.280 describes a *"Rebated SINGLE leaf"*
+door, while the actual GR316 Entrance door on schedule 51001 is a DOUBLE.** So either the clause
+maps to the single-leaf communal doors (D_D, D_U) and *not* to the entrance pair, or it is another
+spec-versus-schedule mismatch of the same kind as **D_T**. MEDIUM covers both readings.
+
+A further **15.140 linear m** sits behind it — LW_1 ×4 (1210 wide) and WN_7 ×3 (910 wide), the
+full-height glazed AOV and smoke-shaft units in communal corridors — **if** Approved Document K
+critical-location glazing is read to catch them. Flagged, not assumed, not included above.
+
+### 4B.5 STRIP-OUT — quantified (RFI-9 now an RFQ line)
+
+**40 replacement windows, 62.457 m²** (schedule 5244-ARK-52002; the 84 new windows are new-build
+and carry none). Per-type areas are in `scratchpad/gc_manif.py` output.
+
+Unlike St Mary's there is **no client Schedule of Works cross-referring strip-out into our item** —
+the jLiving contract is an NEC3 activity schedule with no item numbers — so here it is **unallocated
+rather than allocated to us**. Our proposal excludes *"Waste Removal – Generally"* and never names
+removal of the existing windows, and the £46,840 install cannot absorb it (pure per-unit fit labour
+at £160–500/unit).
+
+### 4B.6 No rate attached to either — deliberately
+
+I re-verified st-marys' finding at source rather than taking it on trust: **80 register entries,
+zero** carrying a strip-out, disposal, removal, manifestation or scaffold category. So §4B.4 and
+§4B.5 are **quantities only**. Attaching a made-up rate is how a TBC becomes a number nobody can
+defend. Both were **added to REQ-24** (st-marys' request, which already asks Adam for exactly these
+prices) rather than raised as a fifth separate request — appended, attributed, and verified by
+re-reading the file.
+
+### 4B.7 My own request-raising scripts — verified, and one correction to the shared lesson
+
+st-marys' silent-guard incident named `gc_req.py` and `gc_req22.py` as sharing the pattern.
+**Opened the file rather than trusting any print statement: REQ-20 and REQ-22 are both present by
+id AND job name; ids run 1–24 with no gaps and no duplicates.**
+
+**But my scripts did not share the dangerous half.** Both hardcode the id — the same weakness — yet
+both guard with `assert not any(...)`, which **raises**. st-marys used `if not any(...)` plus an
+*unconditional* print, and that is what reported success while doing nothing. Had REQ-22 been taken,
+my script would have died with an `AssertionError` in the same second.
+
+Worth being precise about, because the fix that matters is **compute the id at write time and verify
+on read-back** — not replacing asserts. I used exactly that read-back pattern on the REQ-24 append.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
@@ -600,8 +725,8 @@ Not costable from anything on file, so it is an open item, not a number. But it 
 | RFQ-1 | Whole-window **Uw** against NBS cl.330's **1.2 W/m²K** and the Energy Statement's **1.1**; 8000mm² trickle vents; Passivent AL-dB 450 acoustic vents on the marked units; **PAS 24 + BS 6375-1/2/3 + EN 14351-1 certification with the cl.205 submittals**; **geometric free area** for WL_1 and WN_7; **delivery basis and threshold** | BSW | not yet asked |
 | RFQ-2 | **RAL 7016 matt external / RAL 9010 gloss internal** price on the 3 fire doors (NBS L20 cl.280); whole-door **Ud** against cl.280's 1.2 W/m²K; written price hold to 18/01/2027; the £506.37 extras | AFS | not yet asked |
 | RFQ-3 | If WN_7/WL_1 are ours: a **real price for a Coltite glazed lobby ventilator and an EN Seefire louvred ventilator** with stated geometric free area — there is no AOV category in the rate register, so the first number has to be a supplier's | BSW / Colt | not yet asked |
-| RFI-8 | **Manifestation** — NBS L20 cl.280 says *"As drawing"* and no drawing shows any. Confirm extent, then allow it and state it in our inclusions per Adam's ruling | Chigwell / Arkon | open |
-| RFI-9 | **Strip-out and disposal** of the 40 existing windows and external doors — whose is it? Adam's rule says we'd include at this size; our proposal excludes waste removal generally | Chigwell | open |
+| RFI-8 | **Manifestation** — NBS L20 cl.280 says *"As drawing"* and no drawing shows any. **QUANTIFIED §4B.4: price MEDIUM 15.002 lin m / 5 units** (narrow 8.152, wide 39.332; +15.140 if AD-K catches the AOV units). Added to REQ-24 | Chigwell / Arkon + BSW rate | open, quantified |
+| RFI-9 | **Strip-out and disposal** — **QUANTIFIED §4B.5: 40 replacement windows, 62.457 m².** Unallocated in the pack (NEC3 activity schedule, no item numbers), so not allocated to us as at St Mary's. Added to REQ-24 | Chigwell | open, quantified |
 | RFI-10 | Is **"Antony Berry, Supplier Administrator"** on the Delta portal ours or Chigwell's? If ours, jLiving award/standstill notices may be going unread | internal — Zac/Adam | open |
 | **REQ-20** | Adam: hold Q7585 past 08/08 and cover the 180-day gap? | dashboard | **ANSWERED 27/07 — hold the price, carry the risk. Closed.** |
 | **REQ-22** | Adam: are the 7no AOV / smoke-shaft units ours or the specialist's? | dashboard | **raised 27/07, open** |

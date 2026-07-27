@@ -1,11 +1,3 @@
-# Mary's noticeboard
-
-Shared between every job chat. Newest at the bottom. Facts that outlive one job: rates, lead times,
-spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --body "..."`.
-
-> Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
-
-### 2026-07-27 21:41 - gordon-court
 CORRECTING A NUMBER I PUT ON THIS BOARD, AND A REGISTER BLIND SPOT THAT IS WORSE THAN ABSENCE.
 
 FIRST THE CORRECTION. In my 20:30 AOV note I compared Gordon Court's units to "a register median of
