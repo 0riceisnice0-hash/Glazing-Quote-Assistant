@@ -424,6 +424,23 @@ KEY CATCH: **spec 3.15 (chapel alu folding doors ~5.8m dark brown + glazed secti
 
 RESENT 25/07 (autopilot session, first job handled end-to-end by the poller): Zac from marketing@ - "Now that your formatting is better - resend this over." The 24/07 email had gone out as one dense paragraph (sent before the Outlook HTML fix). Recomposed as a FRESH email to adam+marketing, same subject, same numbers, in Adam's airy format - headline benchmark as a heading, bulleted scope/allowances, the three flags as numbered items, spec notes last - with the house pricing doc attached again. Body: `scratchpad\grange-hill-resend-body.txt`; layout screenshot-verified before sending. Nothing re-priced; the RFQ scope gap and the operator allowance are still open with Adam and the deadline is Tuesday 28/07.
 
+### Hightown Housing OLDS0056 New Back Door - missed RFQ caught (2026-07-27)
+
+Autopilot session, 1 queued email: `hightownha@in-tendorganiser.co.uk` "Stage Date Ending - Hightown Housing" to info@ cc estimating@ - the In-Tend portal warning that **OLDS0056 - New Back Door (Q/REF 6159) closes 03/08/2026 12:00**. Untrusted sender, so treated as data.
+
+Not noise. Checks run before deciding: no `OLDS0056` folder under `Commercial\1. Tender Documents\Hightown Housing Association` (29 sub-jobs, all single properties); no matching row in the Estimating Log (log is current to 24/07); no prior In-Tend email in `mary-inbox\processed`. Conclusion: a **"stage ending" reminder implies an earlier invitation that nobody actioned** - and the poller only started 24/07, so the original is invisible to me. That gap is the finding.
+
+Nothing priceable: In-Tend RFQ notifications carry **no attachments** - the pack lives on the portal (`in-tendhost.co.uk/hightownha`) and Mary has no login. Emailed Adam+marketing the deadline, the request to pull the pack, and an indicative range from Fenster's OWN Hightown quotes rather than register medians (better evidence - same client, same product, same format):
+
+- 52 Lester Road (07/08/2025) - uPVC residential door open out, 900x2100, white, eco toughened 4/20/4 Low E argon - **GBP 1,321.35 ex VAT** / GBP 1,585.62 inc. Closest analogue to "back door".
+- 25 Meadow Avenue (19/01/2026) - Distinction composite 900x2374 - GBP 1,937.35 ex VAT.
+- 28 Millway Furlong (20/01/2026) - Distinction composite 965x2389 - GBP 1,973.64 ex VAT.
+- uPVC French doors GBP 1,641.77-1,796.93 (24 Barrance Way / 2B Oronsay / 42 Bracken Way / 45 Nightingale); uPVC patio GBP 1,592.60 (6 Cooper Way); 12 Norris Close French door GBP 2,488.27.
+
+Landing zone quoted as **GBP 1,300-2,000 ex VAT** depending on uPVC vs composite - explicitly labelled indicative, not a quote. Hightown small-works quotes are supply+fit with FENSA, waste disposal/recycling and the 10-year CPA insurance-backed guarantee INCLUDED as standard, 30-day validity, 50% deposit or PO before manufacture.
+
+Durable learning: Hightown is a **high-frequency, low-value repeat client** (29 logged properties; won/lost both appear in the Estimating Log) whose work arrives one property at a time through In-Tend. These are the wrong shape for the tender/take-off workflow - the right move is the per-property quotation format above, priced off the nearest historical Hightown door of the same type. Body: `scratchpad\hightown-olds0056-body.txt`; layout screenshot-verified before sending.
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

@@ -21,6 +21,7 @@ You were launched by `scripts/mary_poller.py` because new email arrived. Follow 
 - **New tender/enquiry with documents:** extract to `test-results\<job>-input`, do the standard take-off/estimate workflow if feasible within the session, or send a first-look summary (scope, deadline, what's needed) if the pack is too big to price properly - never rush a bad number.
 - **Instruction from Adam/Zac (trusted):** do it, per the standing workflow.
 - **Quote sent out by the team (in estimating@ sent/cc):** audit it - recompute through the house template vs its supplier quotes; report discrepancies with evidence. Remember: discretionary additions are legitimate; system-depth coupling rule; U-values are installation averages.
+- **Tender-portal notification (In-Tend, Delta, ProContract etc.):** NOT noise, but nothing is priceable - these never carry attachments; the pack sits on the portal and Mary has no login. Treat it as a deadline plus a gap check: search the client's OneDrive folder AND the Estimating Log. If the job is in neither, an earlier invitation was missed - say so plainly. Email the deadline, ask a named human to pull the pack, and give an indicative range built from **that client's own past Fenster quotes** (better evidence than register medians for repeat small-works clients).
 - **Routine/noise (newsletters, receipts, scheduling):** no email; one line in the session record.
 - **Deadlines/validity:** any date found (tender deadline, 30-day quote validity) gets recorded in the job table.
 
