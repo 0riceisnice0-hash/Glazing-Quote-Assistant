@@ -1063,6 +1063,73 @@ AOV at level 1 can be enlarged. Added to REQ-22.
 
 ---
 
+---
+
+## 4G. NINTH TURN (27/07 late) — the AOV answer splits per unit, not per type
+
+riverside ran the new-vs-existing question on their own two vents and it **split**: one stairwell had no
+wall opening at all (new opening, size free, Adam corroborated); the other already had three existing
+openings (size set, enlarging it structural). On a two-vent job. So I re-checked mine per unit instead of
+resting on the type prefix.
+
+### 4G.1 Refining my own answer — the tag says the opening is new, not what it is cut into
+
+All three WN_7 units carry the `WN_` prefix, so all three openings **are** newly formed — that stands. But:
+
+| Unit | Location | Cut into |
+|---|---|---|
+| **WN_7 @ level 1** | Corridor 1-1 | **RETAINED FABRIC** — enlarging means lintels, cutting masonry, making good |
+| **WN_7 @ levels 2–3** | Corridors 1-2, 1-3 | **new construction** (the two added storeys) — size genuinely free |
+
+First floor demolition plan **10016 rev 02** is explicit about the retained fabric: *"Retained wall to be
+assessed on site"*, *"Only the existing windows and hanging tiles within this area are to be removed
+carefully to avoid damage to adjacent retained elements"*, and *"Following demolition, new brick slips are
+to be installed as part of the façade works."*
+
+**So Adam's ruling applies cleanly to two of the three AOVs and only with structural cost to the third.**
+My §4F.3 answer — *"WN_ means new opening, so the ruling applies"* — was correct but **too coarse to price
+from**. That is the lesson I broadcast last turn, corrected: a type prefix that asserts a new opening tells
+you nothing about the fabric it is formed in, and on a part-refurbishment those are different jobs.
+
+### 4G.2 riverside's "wall or roof?" question is live here — and I cannot answer it
+
+They found their AOV.01 may need a **roof** vent while A Plus had quoted a **wall** casement on a subcill —
+the wrong product entirely. The same ambiguity exists here and it is unresolved:
+
+- The **NBS specifies two ROOF-MOUNTED units** — *"AXS140 STAIRWELL VENTILATOR… Roof mounted onto
+  horizontal kerb… **1m² geometric free area**"* and *"AXS140 LOBBY VENTILATOR… Roof mounted… **1.5m²
+  geometric free area**"* — plus one **WALL-MOUNTED** unit, the *"COLTITE GLAZED LOBBY VENTILATOR (STAIR
+  C)… mounted into prepared openings in the external wall."*
+- The **fire strategy legend** states *"AOV. **1.5m² clear opening area**"* — which matches the
+  **roof-mounted** lobby ventilator's figure.
+- The **roof plan carries two AOV plan annotations**; the first floor carries one. (A third instance sits at
+  *identical coordinates* on both sheets, so that one is the legend block, not an annotation.)
+- The **smoke shafts** that would have connected lower-level lobbies to a roof vent were **omitted in
+  October 2025** and replaced by a mechanical extract duct (§4D.2).
+- Our **3no WN_7 are WALL units**, 910 × 2100, in corridors 1-1/1-2/1-3, tagged **"AOV"** on the window
+  schedule.
+
+**Which duty WN_7 discharges — the 1.5 m² AOV, the 0.4 m² NSHEV, or none because the mechanical extract now
+does it — is not resolvable from the documents.** This is now **the most important open question on the AOV
+package**, because it decides whether the clear-opening question exists at all:
+
+- against **0.4 m²** the units are comfortable (§4E.1: glass alone is 3.3× the duty)
+- against **1.5 m²** they are marginal at best, and unprovably so (§4F.1)
+- if the **mechanical extract** has taken the duty, they may be redundant like the louvres (§4D.2)
+
+It needs the **architect or fire engineer**, not a supplier.
+
+### 4G.3 One check I could not run — stated rather than faked
+
+riverside also found their stair windows were the only glazing carrying no performance tag, which is
+probably why the vents were never scheduled, and suggested checking for **untagged glazing**. On this pack
+**that is not executable by text extraction**: only `21007 rev 03` yields any window tags at all, and the
+other three proposed elevations return **none**, so the tags live in the CAD graphics layer. It would need
+the four elevations **rendered and read visually** — cheap, and worth doing, but I am not reporting a
+reconciliation I did not perform.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

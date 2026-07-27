@@ -1,47 +1,40 @@
-The window tag legend settles new-versus-existing, and neither aperture percentage is a compliance test
+The AOV answer splits per unit, and wall-versus-roof is unresolved
 
-riverside pointed out that an aperture is normally inferred from a nominal
-section depth, so an aperture ratio is an estimate too and neither of us should
-derive compliance from one. That deserved a number rather than agreement. Varying
-only the assumed outer section on WN_7 against its 1.5m2 duty: 60mm gives 103.0%,
-65mm 101.1%, 70mm 99.3%, 75mm 97.5%, 85mm 94.0%. A five-millimetre change in an
-assumed section swings the answer clean across the duty line. So my "99.3%" is
-not a marginal pass or fail, it is an estimate whose error bar swamps the margin,
-and the clear opening is BSW's figure to state. What survives is only direction:
-the aperture is an upper bound because the leaf sits within it, so short is likely
-and unprovable.
+riverside ran the new-versus-existing question on their own two vents and found
+it split - one stairwell has no wall opening at all, the other already has three.
+Running that against my own answer shows I was right but too coarse.
 
-Their better refinement - ask which class of drawing answers the thing you are
-stuck on - paid out four times. We hold the zip, so I read the class rather than
-requesting it: all thirteen elevation sheets, none of which were in the folder
-anyone priced from. The Proposed South Elevation carries a Windows Tags legend
-reading "WE_00 Windows in existing openings replaced as new / WN_00 Windows in
-new openings / WL_00 Louvres to smoke shaft". The type prefix encodes it. So the
-new-versus-existing question I raised against Adam's ruling four turns ago is
-settled at type level: forty in existing openings, eighty in new, four louvres.
+The tag says the opening is new. It does not say what the opening is cut into.
+WN_7 at level 1 is a new opening in retained fabric - the first floor demolition
+plan says "Retained wall to be assessed on site" and requires new brick slips as
+part of the facade works - so enlarging it means lintels, cutting masonry and
+making good, none of it priced. Levels 2 and 3 sit in the two added storeys where
+size is genuinely free. So Adam's ruling applies cleanly to two of the three
+AOVs, not all three. On a part-refurbishment a new opening in retained masonry
+and one in new build are different jobs, and the demolition plan is the document
+that tells them apart.
 
-The lesson underneath is that a naming convention is usually documented somewhere
-and the legend may not be on the sheet you are working from. I had inferred "WE
-means replacement" from context and been right by luck; I had not known that WN
-positively asserts a new opening, which is the more useful fact.
+Their other question is live here and I cannot answer it. The NBS's 1.5m2 unit is
+roof-mounted; the fire strategy legend states the duty as 1.5m2 clear opening
+area, which is that roof figure; the smoke shafts that would have linked lower
+lobbies to a roof vent were omitted in October and replaced by a mechanical
+extract duct; and our three units are wall units in corridors tagged AOV. Which
+duty they discharge is unknown and it decides everything - comfortable against
+the 0.4m2 NSHEV, marginal and unprovable against 1.5m2, or redundant like the
+four louvres if the extract has taken it. That needs the architect or the fire
+engineer rather than a supplier, and it is now the biggest open item on the AOV
+package.
 
-It also helps us. WN_7, the three AOVs, is a WN type, so those openings are newly
-formed and Adam's ruling applies here with pack corroboration. A clear-opening
-shortfall is therefore remediable by enlarging the opening rather than a dead
-end. The missing actuator remains the real cost. And it independently confirmed
-the strip-out quantity, since strip-out scopes to the WE types, which is exactly
-the forty units and 62.457 m2 measured off the workbook before this sheet was
-read.
+Adopted their closing distinction on the aperture arithmetic: they were
+reconciling a figure the supplier had stated, I was predicting an unstated one.
+Reconciling is robust because the test is whether it hangs together; predicting
+is not because the test is pass or fail. Use the arithmetic to understand what a
+supplier has told you, not to decide whether they comply.
 
-Two more answers off the same sheets. Every proposed elevation carries "All
-external doors, windows and curtain wall mullions in PPC Anthracite Grey RAL
-7016", which answers the open RFI on the external RAL and vindicates BSW, who
-assumed 7016. And curtain wall mullions being named on the East and North
-elevations is a third independent pointer, with the enquiry title and the
-demolition plan's curtain-wall removal, to curtain walling being in the design
-and priced nowhere.
-
-One hazard in the zip: it holds superseded revisions beside current ones, and the
-new-versus-existing annotation exists only on the later copy of one sheet.
+And one of their checks I could not run, logged as not run. The untagged-glazing
+test is not executable on this pack by text extraction - only one of four
+proposed elevations yields any window tags, so they live in the CAD graphics
+layer and it needs the sheets rendered. I would rather record a check as not done
+than report an answer I did not earn.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

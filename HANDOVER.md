@@ -2198,6 +2198,61 @@ ruling**, and it decides whether the level-1 AOV can be enlarged. On REQ-22.
 REQ-22 now 20 options, read-back verified. Manifest 25 spec_items; run unchanged at **5 FAIL, 2 ASK**.
 
 
+### Gordon Court - ninth turn: the AOV answer splits per unit, and wall-versus-roof is unresolved (2026-07-27, late)
+
+riverside's handoff. No queue items.
+
+**CORRECTING MY OWN ANSWER FROM AN HOUR EARLIER.** I posted that the tag legend settles new-vs-existing -
+`WN_` asserts a **new** opening, so Adam's *"make them as big as we need"* ruling applies to the three AOVs.
+riverside then found the question **split per vent** on their own two-vent job, and running that here shows my
+answer was true but **too coarse to price from**.
+
+**The tag says the opening is new. It does not say what the opening is cut into.**
+
+| Unit | Cut into |
+|---|---|
+| **WN_7 @ level 1** (Corridor 1-1) | **RETAINED FABRIC** - 10016 rev 02: *"Retained wall to be assessed on site"*, *"Only the existing windows and hanging tiles within this area are to be removed carefully to avoid damage to adjacent retained elements"*, *"Following demolition, new brick slips are to be installed as part of the facade works"*. Enlarging means lintels, cutting masonry, making good - in nobody's price |
+| **WN_7 @ levels 2-3** | the **two added storeys** - new construction, size genuinely free |
+
+**So Adam's ruling applies cleanly to two of the three AOVs and only with structural cost to the third.**
+On a part-refurbishment a new opening in retained masonry and one in new build are different jobs at different
+prices, and a type prefix cannot tell them apart - **the demolition plan can**, because it marks new structural
+openings against retained walls.
+
+**RIVERSIDE'S "WALL OR ROOF?" QUESTION IS LIVE HERE AND UNRESOLVED - AND IT IS NOW THE BIGGEST OPEN ITEM ON
+THE AOV PACKAGE.** They found their AOV.01 may need a **roof** vent while the supplier quoted a **wall**
+casement on a subcill - the wrong product entirely. Here:
+- the NBS specifies **two ROOF-MOUNTED** units (*"AXS140 STAIRWELL VENTILATOR... Roof mounted onto horizontal
+  kerb... 1m2 geometric free area"*; *"AXS140 LOBBY VENTILATOR... Roof mounted... 1.5m2 geometric"*) plus one
+  **WALL-MOUNTED** *"COLTITE GLAZED LOBBY VENTILATOR (STAIR C)"*;
+- the fire strategy legend says *"AOV. **1.5m2 clear opening area**"* - the **roof** unit's figure;
+- the roof plan carries **two** AOV plan annotations, the first floor **one** (a third instance sits at
+  *identical coordinates* on both sheets, so that one is the legend block - worth knowing for positional reads);
+- the **smoke shafts** that would have linked lower lobbies to a roof vent were **omitted Oct 2025** and
+  replaced by a mechanical extract duct;
+- our **3no WN_7 are WALL units** in corridors, tagged **"AOV"** on the window schedule.
+
+**Which duty WN_7 discharges is unknown, and it decides everything:** against the **0.4 m2 NSHEV** they are
+comfortable (glass alone is 3.3x); against **1.5 m2** they are marginal and unprovably so; and if the
+**mechanical extract** has taken the duty they may be **redundant like the four louvres**. Architect or fire
+engineer, not a supplier. **General rule: ask "wall or roof" before accepting a window quote for a vent.**
+
+**RIVERSIDE'S DISTINCTION THAT CLOSES THE APERTURE ARGUMENT, adopted verbatim:** they were **reconciling** a
+figure the supplier had stated; I was **predicting** an unstated one. Their reconciliation holds across a wide
+range of assumed sections because the test is whether it hangs together; my prediction flipped across the
+compliance line on 5mm because the test was pass-or-fail. **Reconciling a stated number is robust; predicting
+an unstated one is not. Use the arithmetic to understand what a supplier has told you, not to decide whether
+they comply.**
+
+**ONE CHECK REPORTED AS NOT RUN.** riverside's untagged-glazing test is good and is **not executable on this
+pack by text extraction** - only `21007 rev 03` yields any window tags; the other three proposed elevations
+return none, so tags live in the CAD graphics layer. It needs the elevations **rendered and read visually**.
+Logged as not done rather than reported as reconciled - the same discipline as the registry and request-id
+episodes: the print statement is not the evidence.
+
+REQ-22 now 24 options, read-back verified. Manifest 27 spec_items; run unchanged at **5 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
