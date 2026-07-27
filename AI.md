@@ -193,6 +193,65 @@ Also check: a main contractor's discount taken as a straight deduction comes off
 to be grossed up by /0.975 first, not have 2.5% added and then removed (1.025 x 0.975 = 0.999375). Report it as a
 visible give-away, not as an error, if the Commercial Director has approved the method.
 
+## The Labour Code Silently Under-Prices Anything Measured In m2 (learned 27/07/2026, Filwood)
+
+The MASTER PRICING DOC `INSTALLATION` formula is a SUMPRODUCT over the product code in column B, not over
+size: SUPD/SAD 250, DUPD/**DAD 500**, ELAW 250, LAW/MAW/SAW 160, PVC 160, SADxAW 410, and only `CW` routes
+to `sqm x 150`. So a code meant for a single doorset pays the same install on a 2 m2 door and a 20 m2
+shopfront screen.
+
+Filwood: seven glazed shopfront screens, 122.98 m2, up to 4,930 x 3,570, every row coded DAD. Install came
+out at **GBP 3,500 - GBP 28.46/m2** for elements 3.5 m tall. House CW labour at GBP 150/m2 is
+**GBP 18,446.32**. GBP 14,946 of install missing from a GBP 67k tender, and the same mis-code also put a
+GBP 1,500 "double door" adder on each row against a supplier-quoted SINGLE door.
+
+The check, on any job with elements bigger than a domestic window:
+
+1. Divide the install line by the total m2. If it is not roughly GBP 150/m2 on screens/CW, ask why.
+2. Anything measured in m2 rather than units should be coded `CW`, or carry a stated judgement figure that
+   the Commercial Director has signed off. MARY-HANDOVER s6 puts screens at ~GBP 400/unit as judgement, and
+   that is still low for a 17 m2 frame.
+3. Cross-read the proposal exclusions. Filwood excluded "Access/Lifting Equipment - Scaffold, MEWPS, Towers,
+   Forklift" while including installation of 3,570 mm elements, so the access plant was missing too. A tiny
+   install figure and an access-equipment exclusion travel together.
+4. Check the product code against the SUPPLIER's description, not the drawing. DAD (double) on a row where
+   the quote says "a Single Pivoted ... Door" is either deliberate discretionary money (allowed - Adam,
+   24/07) or a mis-code. Either way it must be a decision, not an accident.
+
+A useful confirmation when one exists: an independent benchmark. Filwood's corrected total of GBP 82,013.90
+landed within GBP 2,797 of the GBP 84,810.59 built ten days earlier from register medians with no supplier
+quote at all. Two independent routes converging is the strongest evidence available that the correction, not
+the original, is right.
+
+## Audit The RFQ, Not Just The Quote (learned 27/07/2026, Filwood)
+
+A supplier quote can reconcile to the penny and still be the wrong product. Bellview/BSW 0000000507 was
+arithmetically perfect - seven positions, 15% end discount applied, field counts matching the architect's
+elevation - and was missing the certified security doorset, the solar coating, the specified finish, the
+specified system and the ventilation mesh.
+
+**The correspondence that produced the quote lives in `test-results\mary-inbox\processed\` and is part of
+the audit.** On Filwood, finding it changed the weight of four findings:
+
+- **The RFQ was right.** Gintare had asked for mill-finish spandrels, RAL 7035 to the doors only, U 1.0,
+  g 0.5-0.6, Rw 32 dB, LPS 1175 SR2, level thresholds and M4(2). The quote answered on none of the last four.
+  So the failure was not the enquiry - it was that the tender was then built on the quote instead of on the
+  instruction. Check the quote against the RFQ before blaming either.
+- **Silence to a direct written request is not compliance.** SR2 was asked for and simply not mentioned.
+  That is stronger evidence than "not priced", and it belongs in the finding.
+- **Read the covering email for caveats that never reach the tender.** BSW wrote "we have met the u- and g-
+  and acoustic value **for glazing only**, as these area commercial thermally broken shopfront products they
+  are **non rebated**". The drawing schedule's targets were ELEMENT targets, so the supplier had put a
+  non-compliance in writing - and the proposal rendered it as the softer "Ug values noted between 1.0-1.1
+  W/m2K where quoted". The one caveat the supplier documented was the one the tender left out.
+- **A performance claim with no number is not evidence.** BSW claimed g 0.5-0.6 while their own make-up
+  ("6.8 Lami / 4mm Tuff") names no coating and states no g-value; clear sits near 0.7. Never pass a supplier
+  claim to a client until the coating and the figure are in writing.
+
+Also worth checking on any filed quote: whether it has a terms page at all. 0000000507 was six pages of
+elements and totals with no validity period, no lead time and no payment terms - against a main contract
+start eight weeks out and LADs of GBP 1,358 per calendar week.
+
 ## Never Overstate A Rate's Provenance (learned 27/07/2026)
 
 Before describing a rate as "quoted", open the source and check who wrote the number. Mary told Adam "CN Glass quoted
