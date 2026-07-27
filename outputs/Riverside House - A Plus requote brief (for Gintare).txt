@@ -1,0 +1,79 @@
+RIVERSIDE HOUSE - AOV SMOKE VENTS - WHAT TO PUT TO A PLUS
+Ref: their quote QT51518, 27/07/2026. Site: Riverside House, 44 Wedgewood Street,
+Fairford Leys, Aylesbury HP19 7HL. Planning 24/02303/PAPCR.
+
+WHY THIS IS ONE EMAIL AND NOT TWO
+--------------------------------------------------------------------------------
+Adam has confirmed the openings are being newly formed, so the vents can be any size
+we need. The only thing still undecided is whether the drawings' 1m2 free area means
+GEOMETRIC or AERODYNAMIC. Rather than wait for that answer and then ask A Plus, this
+asks for both cases at once - so whichever way it falls, we already have the price.
+
+Everything below is answerable by A Plus from their own system. They stated both free
+area figures on QT51516 (Towcester Vale) three days earlier, so item 1 is not a new
+piece of work for them.
+
+--------------------------------------------------------------------------------
+1. AERODYNAMIC FREE AREA FOR THE VENT AS QUOTED  ** the important one **
+
+QT51518 states "Geometric free area = 1.30m2" and gives no aerodynamic figure.
+Please state the APPROXIMATE AERODYNAMIC FREE AREA for the vent as quoted -
+1130 x 1530, style FF, 850mm stroke single chain - in the same format used on
+QT51516, which gives both on every line.
+
+2. A SIZE THAT ACHIEVES 1.0 m2 AERODYNAMIC
+
+If the aerodynamic figure at 1130 x 1530 is below 1.0 m2, please give the O/A size
+that achieves at least 1.0 m2 AERODYNAMIC free area in the same configuration, and
+price it. State BOTH the geometric and the aerodynamic figure for that size.
+
+Please do not size it to 1.5 m2 - that figure came from our own enquiry of 24/07 and
+is not what the drawings ask for. The requirement on drawings K1653-11 and K1653-12 is
+1m2, once per stairwell.
+
+3. THE ACTUATOR IF THE VENT GROWS
+
+A Plus's own note says "the quoted prices may change if the vent sizes increase and a
+larger actuator is required". If the size in item 2 needs a larger actuator or a twin
+chain, please say so and price it separately so we can see what the change costs.
+
+4. WHOLE-WINDOW U-VALUE
+
+The drawings set a 'U' value of 1.6 against the window and door types on this building.
+QT51518 quotes the glass make-up only ("4-20-4 Clr Tough S Coat 1.2"), which is a
+centre-pane figure, and A Plus's standard notes say windows will be "no better than
+1.8" unless otherwise stated. Please state the WHOLE-WINDOW Uw for the vent as quoted,
+and confirm whether 1.6 can be met if it is required.
+
+5. THE VENT LEAF
+
+QT51518 lists apertures A1 (957 x 590) and A7 (957 x 591), so the frame is transom
+divided, but a single 850mm stroke actuator is quoted against it. Please confirm on a
+shop drawing which leaf opens, where the transom sits and where the actuator goes.
+
+6. DELIVERY - TWO PARTS
+
+(a) The quote is addressed to our Bradwell Abbey yard, MK13 9HF, and carries no site
+    address. Please confirm delivery is to MK13 9HF and not to site.
+(b) The order is GBP 4,845.22, which is GBP 154.78 below the GBP 5,000 ex VAT
+    threshold for free delivery. Please confirm whether this load will be batched at
+    no charge or whether carriage will be charged, and at what figure. If the resize
+    in item 2 takes the order over GBP 5,000, please confirm delivery is then FOC.
+    Please also quote delivery direct to site at HP19 7HL as an alternative.
+
+7. PRICE HOLD
+
+QT51518 is open for 30 days, to 26/08/2026. RRR are waiting on PHDB's building-works
+costs before this is submitted, so the submission date is not yet known. Please confirm
+how long A Plus will hold the price, or what notice we would get of a change.
+
+--------------------------------------------------------------------------------
+NOT FOR A PLUS - FOR US
+--------------------------------------------------------------------------------
+The AOV control system is not in A Plus's scope and is not in ours. The drawings
+require the vent to be "OPERATED BY THE FIRE BRIGADE AT GROUND FLOOR ACCESS LEVEL IN
+THE STAIRS", which needs a smoke control panel, mains and battery-backed supply,
+cabling, containment, the override itself and commissioning. A Plus fix the actuator,
+test it on local batteries and leave about 2m of flex coiled at the vent - that is
+where they stop. Somebody needs to be carrying this, and at the moment nobody is.
+It is worth settling with RRR / PHDB at the same time as the above.

@@ -1,7 +1,7 @@
 {
  "job": "Riverside House AOV Smoke Vents (RRR Group)",
  "created": "2026-07-27",
- "_note": "2no bottom-hung AOV smoke vents, one per stairwell, at each stairwell's top storey. Priced off A Plus QT51518 supply-only, made supply-and-fit. Requirement source: red note on drawings K1653-11 and K1653-12, 'AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2'.",
+ "_note": "2no bottom-hung AOV smoke vents, one per stairwell, at each stairwell's top storey. Priced off A Plus QT51518 supply-only, made supply-and-fit. Requirement source: red note on drawings K1653-11 and K1653-12, 'AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2'. Adam ruled on REQ-9 27/07: the openings are being newly formed, so the vents can be made as large as the free area requires - size is not a constraint.",
  "coupled_runs": [],
  "doors": [],
  "frame_supply": "glazed",
@@ -61,6 +61,14 @@
   {
    "ref": "D1 flat entrance doors FD30s and D5 external quality glazed door (drawings key, U 1.6)",
    "treatment": "excluded"
+  },
+  {
+   "ref": "VENTILATOR-NOT-WINDOW TEST (Gordon Court, 27/07) - confirmed A Plus QT51518 prices the AOV FUNCTION, not a plain window: the quote carries 'AOV Type 850mm Stroke Single', 'AOV Cable Direction', 'AOV Colour 9006 Satin', a dedicated AOV Notes page and the SE Controls actuator warranty, at GBP 1,401.24/m2 against GBP 528.83/m2 for a plain glazed aluminium window in the same size band. Gordon Court's BSW quote failed this test - 3no WN_7 at GBP 412.67/m2 and 4no WL_1 at GBP 442.98/m2 with zero occurrences of AOV, actuator, chain, stroke or 24V.",
+   "treatment": "priced"
+  },
+  {
+   "ref": "Onward haulage from Fenster's MK13 9HF yard to site at HP19 7HL - QT51518 carries NO site address and is addressed to our own Bradwell Abbey yard, so A Plus's 'Delivered' ends in Milton Keynes. A Plus also require 'suitable labour at the delivery point to unload'.",
+   "treatment": "excluded"
   }
  ],
  "supplier_quotes": [
@@ -82,7 +90,7 @@
    "performance": {
     "required": "Free area 1.0 m2 per stairwell (drawings K1653-11 and K1653-12), basis geometric or aerodynamic NOT stated on the drawing",
     "capable": null,
-    "evidence": "A Plus state GEOMETRIC 1.30 m2 per vent on QT51518 and give no aerodynamic figure. On their QT51516 (Towcester Vale, same DualFrame 75Si AOV) aerodynamic runs 60-62% of geometric (0.49/0.81 and 0.54/0.87). On that ratio 1.30 geometric is ~0.78-0.81 aerodynamic, ~20% short of 1.0. Complies on geometric, fails on aerodynamic. A Plus have not been asked for the aerodynamic figure for these sizes - RFI-1."
+    "evidence": "A Plus state GEOMETRIC 1.30 m2 per vent on QT51518 and give no aerodynamic figure. On their QT51516 (Towcester Vale, same DualFrame 75Si AOV) aerodynamic runs 60-62% of geometric (0.49/0.81 and 0.54/0.87). On that ratio 1.30 geometric is ~0.78-0.81 aerodynamic, ~20% short of 1.0. Complies on geometric, fails on aerodynamic. A Plus have not been asked for the aerodynamic figure for these sizes - RFI-1. EVIDENCE ADDED 27/07 EVENING, POINTING TO GEOMETRIC: (a) the drawings name their own compliance route - the key on K1653-10b/11/12 reads 'MAINS OPERATED INTERLINKED HEAT DETECTOR TO AD B1', i.e. the prescriptive Approved Document B route, which expresses common-stair smoke vents as a free area; aerodynamic free area is the language of the engineered BS 9991 / EN 12101-2 route, which this pack is not on. (b) Gordon Court's NBS 9001 L20 cl.630 specifies the standard product for this exact duty as 'AXS140 STAIRWELL VENTILATOR - throat 1250mm x 1000mm - 1m2 GEOMETRIC free area', and 'aerodynamic' appears nowhere in that job's 186-page NBS, 140-page mechanical or 127-page electrical spec. Recommendation is geometric, so the vents as quoted comply by 30% - but capable stays unconfirmed because only the fire engineer or building control can rule on the basis. Requote brief written and ready to settle it either way: outputs/Riverside House - A Plus requote brief (for Gintare).txt."
    }
   },
   {
@@ -145,7 +153,7 @@
    "stated_on_quote": "Glazed /Supply Only (Delivered)",
    "charge_basis": "1/mile each way from Watford or previous drop, whichever is lower, where a load under 5000 ex VAT cannot be efficiently batched",
    "delivery_priced": "provisional",
-   "note": "A Plus batch sub-GBP5,000 loads to avoid charges and only levy GBP1/mile each way where batching is not possible, so the amount is contingent, not fixed. Carried as provisional pending A Plus confirmation - RFI-7. Note the resize option removes it: at 1235 x 1583 the order clears GBP 5,000 and delivery is FOC."
+   "note": "A Plus batch sub-GBP5,000 loads to avoid charges and only levy GBP1/mile each way where batching is not possible, so the amount is contingent, not fixed. Carried as provisional pending A Plus confirmation - RFI-7. Note the resize option removes it: at 1235 x 1583 the order clears GBP 5,000 and delivery is FOC. AND THE DESTINATION IS NOT SITE. QT51518 carries no site address at all - the only address on it is Fenster Glazing & Locks Ltd, 97-98 Alston Drive, Bradwell Abbey, MK13 9HF. So 'Glazed /Supply Only (Delivered)' means delivered to our own yard in Milton Keynes, not to Aylesbury, and the onward leg is ours. Gordon Court found the same on all five of their supplier quotes."
   }
  ]
 }

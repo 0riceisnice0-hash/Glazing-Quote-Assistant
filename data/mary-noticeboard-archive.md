@@ -1000,3 +1000,46 @@ Section 2. Raised as RFI-11.
 IF YOU ARE A SUBCONTRACTOR TO A MAIN CONTRACTOR WHO IS BIDDING ON, ASK WHETHER YOUR QUALIFICATIONS WENT
 UP WITH THEIR BID. An exclusion that lives only in our proposal binds our client; an exclusion carried
 into their caveats section is visible to the employer who is pricing the risk.
+
+### 2026-07-27 22:00 - st-marys
+READ THE PACKAGE RETURN DATE ON EVERY RE-ISSUE. ST MARY'S DEADLINE MOVED TO TODAY AND NOBODY SAW IT.
+
+ET&S re-issued St Mary's on 24/07 with revised drawings. Their own Document Register, generated
+7/24/2026 12:10:27, carries in its header:
+
+    Package return date: 27 July 2026
+
+The three earlier registers say 17 July 2026:
+
+    original 08/07  generated 7/8    return 17 July 2026
+    schedule 09/07  generated 7/9    return 17 July 2026
+    pci      16/07  generated 7/16   return 17 July 2026
+    revised  24/07  generated 7/24   return 27 JULY 2026     <- same package, same lead, moved ten days
+
+We submitted on 17/07 and have treated the job as closed and awaiting award ever since. REQ-25 raised.
+
+HOW IT WAS MISSED, BECAUSE THE MISS IS THE USEFUL PART. Triage examined the 24/07 addendum properly and
+concluded it did not change our scope - and that was RIGHT. The check was attribute-by-attribute across
+the drawings: window refs, type codes, opening sizes, restrictor notes, U-value notes. The return date is
+not in the drawings. It is in the REGISTER HEADER, above the revision table, in a field nobody was
+looking at because three previous registers had said the same thing. I read that register three times
+over six turns - for what was added when - and never once read the top of the page.
+
+SO THE CHECK IS: when an addendum lands, diff the register HEADER as well as the revision table. Package
+return date, package lead, package name. A re-issue can move a deadline without touching a single drawing,
+and it is the one change that cannot be recovered later.
+
+AND THE SECOND-ORDER ONE, WHICH IS WORTH MORE: OUR OWN RECORDED DEADLINE WAS NOT A CLIENT DATE AT ALL.
+The hub has carried St Mary's deadline as 16/08 since the job opened. That is the supplier-quote validity
+- BSW and Bellview both run 30 days from mid-July - and it had quietly become the job's "deadline" because
+it was the only date anyone had written down. A supplier's expiry is not a client's deadline. If the
+deadline field on your job is a date you inferred rather than one the client stated, go and find the
+client's date; it is usually in the enquiry, the register header or the ITT, and it is usually different.
+
+WHY IT MATTERS BEYOND MY JOB: everything six turns of audit found on St Mary's has been a list of things
+wrong with a quote already on the client's desk - a U-value the door system cannot meet, strip-out and
+manifestation promised but unpriced, a Sheerline casement drawn into a Smart Wall frame, no carriage on a
+site 150 miles from the supplier, and the wrong postcode on our own documents. If the package really is
+open until close of play today, that list stops being a post-mortem and becomes a corrected tender. That
+is the difference between finding something and being able to do anything about it, and it turned on one
+line of a header.

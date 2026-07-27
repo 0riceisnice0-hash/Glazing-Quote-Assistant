@@ -708,6 +708,62 @@ transient, and nothing in the repo had recorded it. Reading still works. The dra
 the hub instead (REQ-9 rewritten, job status updated, two catches added). **Zac needs to re-grant the
 app's send scope.**
 
+### Riverside House - the free-area basis now has evidence, and it points to geometric (2026-07-27, evening)
+
+**Adam answered REQ-9:** *"We can make the windows as big as we need to in order to achieve the free
+area, because the openings are being newly formed. Drop me an email to remind me and I will ask Gintare
+to requote."* So **size is not a constraint** - a free-area shortfall here is a repricing question, not
+a design fight. Worth establishing early on any job with a performance-driven opening size. He answered
+against the 1.5 m2 that turned out to be ours rather than the client's; triage put the correction to him
+and asked him to hold off Gintare until the basis is settled. Email is still blocked, so REQ-9 on the
+hub is the reminder he asked for.
+
+**The geometric-vs-aerodynamic question now has two independent answers, both from documents we already
+held.** This is the Stoke Park lesson again - the answer was in the building.
+
+1. **The pack names its own compliance route, and the route decides the basis.** The key on K1653-10b/11/12
+   reads *"MAINS OPERATED INTERLINKED HEAT DETECTOR TO **AD B1**"*. Approved Document B is the
+   **prescriptive** route and states common-stair smoke vents as a **free area**; **aerodynamic** free
+   area is the language of the **engineered** route, BS 9991 / BS EN 12101-2, which this pack is not on.
+   The smoke-vent note itself is the AD B common-stair provision almost verbatim.
+2. **Gordon Court's NBS says it outright for the identical duty** - L20 cl.630, *"AXS140 STAIRWELL
+   VENTILATOR - throat dimensions 1250mm x 1000mm - **1m2 GEOMETRIC free area**"*, plus the lobby
+   ventilator at 1.5 m2 geometric. Different architect, different job, same product class, same numbers.
+   *Aerodynamic* appears nowhere in their 186-page NBS, 140-page mechanical or 127-page electrical spec.
+
+**So the recommendation is that 1m2 means geometric, A Plus's 1.30 m2 clears it by 30%, and there is
+nothing to requote** - a recommendation for the fire engineer or building control to confirm, not a
+ruling to make. The general rule is now in `AI.md`: do not guess the basis and do not derive one figure
+from the other, but *do* look at what standard the pack cites, because it usually tells you.
+
+**A requote brief is written and ready either way** -
+`outputs\Riverside House - A Plus requote brief (for Gintare).txt`. Built so that **one email settles
+the job whichever way the basis falls**: the aerodynamic figure at the size already quoted, *and* a size
+that achieves 1.0 m2 aerodynamic with both figures stated, plus the actuator change if the vent grows,
+the whole-window Uw, the vent leaf, delivery and a price hold. A Plus stated both free-area figures on
+QT51516 three days earlier, so none of it is new work for them. It explicitly tells them **not** to size
+to 1.5 m2. This is the St Mary's lesson - draft the deliverable before the decision comes back.
+
+**Two more, both found by running Gordon Court's checks back on our own quote:**
+
+- **The ventilator-not-window test - Riverside passes.** QT51518 carries "AOV Type 850mm Stroke Single",
+  "AOV Cable Direction", "AOV Colour 9006 Satin", a dedicated AOV Notes page and the SE Controls actuator
+  warranty, at **GBP 1,401.24/m2**. Gordon Court's BSW quote failed the same test - 3no WN_7 at
+  GBP 412.67/m2 and 4no WL_1 at GBP 442.98/m2, with zero occurrences of AOV, actuator, chain, stroke or
+  24V, against positions the spec required to be Colt motorised ventilators. **Before comparing free
+  areas, confirm the quote is for a ventilator at all; the rate is the tell.** A quote with no ventilator
+  in it states no free area of either kind and reads as merely silent.
+- **QT51518 carries NO SITE ADDRESS AT ALL.** The only address on it is Fenster's own yard, 97-98 Alston
+  Drive, Bradwell Abbey, **MK13 9HF**. So "Glazed /Supply Only (Delivered)" ends in Milton Keynes, not at
+  the Aylesbury site, and **the onward leg to HP19 7HL is ours and is in nobody's price**. A Plus also
+  require "suitable labour at the delivery point to unload". All five of Gordon Court's supplier quotes
+  deliver to the same yard. This is a **separate** miss from the free-delivery threshold and it survives
+  clearing it - a load can be delivered FOC and still not reach site.
+
+Gordon Court also extended `check_free_delivery_threshold` with `free_delivery_threshold: "never"` for
+suppliers who never carry delivery; re-run clean against the Riverside manifest and the selftest passes.
+`mary_checks.py data\job-checks\riverside-house-aov.json` = 0 failed, 3 questions, unchanged.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

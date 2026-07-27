@@ -15,6 +15,7 @@ building works. No deadline.
 | | |
 |---|---|
 | Client | RRR Group Limited (Adam's instruction 27/07 13:47, trusted, cc Commercial) |
+| Deadline | **None client-stated.** The hub's 26/08 is A Plus QT51518's expiry, not a client date - `deadline_basis` says so. Adam: no urgency, gated by PHDB's building-works costs. |
 | Site | Riverside House, 44 Wedgewood Street, Fairford Leys, Aylesbury, Bucks HP19 7HL |
 | Planning ref | 24/02303/PAPCR. Planning applicant on the location plan is **Elderfern Ltd**, not RRR - RRR's associated companies are Primrose Property, Elderfern and SRP Investments |
 | Scope | 2no bottom-hung AOV smoke vents, one per stairwell, at each stairwell's top storey |
@@ -45,6 +46,7 @@ supply_rate=1401.24)` - note `supply_rate` is **GBP/m2**, not a unit price).
 - `outputs\Riverside House - Fenster Pricing Document (house format).xlsx`
 - `outputs\Riverside House - AOV Smoke Vent Drawings.pdf` (2 sheets, Rev A)
 - `outputs\Riverside House - Reply to Adam (draft).txt` - **written but NOT SENT, see below**
+- `outputs\Riverside House - A Plus requote brief (for Gintare).txt` - ready to go on Adam's word
 - `data\job-checks\riverside-house-aov.json` + fixture `_test-riverside.json`
 - Generator: `scratchpad\riverside_drawings.py`; job json `test-results\riverside-run\`
 - Quote: `test-results\mary-inbox\processed\20260727T0842-xgnwAAAA-att\Quotation_QT51518.PDF`
@@ -71,6 +73,17 @@ frame (1235 x 1583) to reach 1.5 m2.
 So on the pack, **1.30 m2 geometric clears 1 m2 with 30% to spare** and nothing needs resizing.
 1.5 m2 appears nowhere in the pack; its source is unknown and needs confirming (RFI-3).
 
+### ADAM HAS RULED ON SIZE (REQ-9, 27/07 evening)
+
+> "We can make the windows as big as we need to in order to achieve the free area, because the
+> openings are being newly formed. Drop me an email to remind me and I will ask Gintare to requote."
+
+**Size is not a constraint** - the openings are newly formed and can grow, so if a resize is ever
+needed there is no structural argument to have. Note he answered against the 1.5 m2, which turned out
+to be ours rather than the client's; triage put the correction to him on the hub and asked him to hold
+off Gintare until the basis is settled. His answer becomes exactly right *if* the basis is aerodynamic.
+He asked for an email reminder - **email is still blocked**, so REQ-9 on the hub is the reminder.
+
 ### The variable that is still live: geometric or aerodynamic
 
 QT51518 quotes **geometric only**. A Plus's QT51516 (Towcester Vale, same DualFrame 75Si AOV) states
@@ -87,6 +100,33 @@ only: different sizes, and a 900mm stroke against our 850mm. **A Plus must state
 figure for the actual Riverside sizes** (RFI-1) and the fire strategy must confirm which basis
 applies (RFI-3). Do not treat the frame-area ratio as a shortcut - Towcester's own geometric/frame
 ratios are 75% and 54%, so it does not scale.
+
+**The evidence now points to geometric.** Two independent sources, both in our possession:
+
+1. **The drawings name their own compliance route.** The key on K1653-10b/11/12 reads *"MAINS OPERATED
+   INTERLINKED HEAT DETECTOR TO **AD B1**"*. Approved Document B is the prescriptive route and states
+   common-stair smoke vents as a **free area**; **aerodynamic** free area is the language of the
+   engineered BS 9991 / EN 12101-2 route, which this pack is not on. The note's own wording - an
+   automatically openable vent of 1m2, fire-brigade operated from ground floor access level - is the
+   AD B common-stair provision almost verbatim.
+2. **Gordon Court's pack says it outright, for the identical duty.** NBS 9001 L20 cl.630: *"AXS140
+   STAIRWELL VENTILATOR - throat dimensions 1250mm x 1000mm - **1m2 GEOMETRIC free area**"* (and the
+   lobby ventilator at 1.5m2 geometric). A different architect, a different job, the same product class
+   and the same number - stated as geometric. The word *aerodynamic* appears **nowhere** in that job's
+   186-page NBS, 140-page mechanical spec or 127-page electrical spec.
+
+So the recommendation is that **1m2 means geometric, the vents as quoted comply by 30%, and there is
+nothing to requote**. It is a recommendation, not a ruling - the fire engineer or building control
+confirms it. But it is now a well-evidenced one rather than a coin toss, and it is on REQ-9.
+
+### The requote brief - written and ready either way
+
+`outputs\Riverside House - A Plus requote brief (for Gintare).txt`. Built deliberately so that **one
+email settles the job whichever way the basis falls**: it asks A Plus for the aerodynamic figure at the
+size already quoted *and* for a size that achieves 1.0 m2 aerodynamic with both figures stated, plus
+the actuator change if the vent grows, the whole-window Uw, the vent leaf, delivery and a price hold.
+A Plus stated both free-area figures on QT51516 three days earlier, so none of it is new work for them.
+It also tells them **not** to size to 1.5 m2. Mary cannot email suppliers - this goes via Adam/Gintare.
 
 ## Open items
 
@@ -110,11 +150,25 @@ the answer is NO") is superseded.
    override, commissioning, EN 12101 documentation. A Plus fix the actuator, test on local batteries
    and leave ~2m of flex coiled at the vent; that is where they stop. It is excluded from our price
    too. **The window alone cannot satisfy the note.**
-2. **Delivery is not free.** A Plus's Job Spec line says "Glazed /Supply Only (Delivered)" but their
-   terms say "All orders are priced as Ex-Works" and only deliver FOC above **GBP 5,000 ex VAT**
-   within 50 miles of Watford. Our order is GBP 4,845.22 - **GBP 154.78 under**. Below that they batch
-   or charge GBP 1/mile each way. Carried as provisional. Note the resize option removes it: at
-   1235 x 1583 the order clears GBP 5,000.
+2. **Delivery is not free - and it does not reach site.** A Plus's Job Spec line says "Glazed /Supply
+   Only (Delivered)" but their terms say "All orders are priced as Ex-Works" and only deliver FOC above
+   **GBP 5,000 ex VAT** within 50 miles of Watford. Our order is GBP 4,845.22 - **GBP 154.78 under**.
+   Below that they batch or charge GBP 1/mile each way. Carried as provisional. A resize over
+   GBP 5,000 removes it.
+   **And the destination is our own yard.** QT51518 carries **no site address at all** - the only
+   address on it is Fenster Glazing & Locks Ltd, 97-98 Alston Drive, Bradwell Abbey, **MK13 9HF**. So
+   "Delivered" ends in Milton Keynes, not Aylesbury, and **the onward leg to HP19 7HL is ours and is
+   not in the GBP 5,990.22**. A Plus also require "suitable labour at the delivery point to unload".
+   Found by taking Gordon Court's tip that all five of their supplier quotes deliver to the same yard -
+   worth running on every supplier quote.
+
+2b. **The quote IS for a ventilator, not a window** - Gordon Court's test, run and passed. QT51518
+   carries "AOV Type 850mm Stroke Single", "AOV Cable Direction", "AOV Colour 9006 Satin", a dedicated
+   AOV Notes page and the SE Controls actuator warranty, at **GBP 1,401.24/m2** against GBP 528.83/m2
+   for a plain glazed aluminium window in the same band. Gordon Court's BSW quote failed the same test:
+   3no WN_7 at GBP 412.67/m2 and 4no WL_1 at GBP 442.98/m2 with zero occurrences of AOV, actuator,
+   chain, stroke or 24V - they had priced windows where the spec wanted Colt ventilators. **Before
+   comparing free areas, confirm the quote is for a ventilator at all. The rate is the tell.**
 3. **Zero validity headroom, and it will go negative.** Our price (30 days from a 27/07 document) and
    A Plus's both close on **26/08/2026** - the same day. Since Adam is deferring issue until PHDB
    report, our 30 days will run past the day the cost behind it lapses.

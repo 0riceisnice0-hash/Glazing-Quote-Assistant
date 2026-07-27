@@ -947,8 +947,44 @@ every line: **aerodynamic runs at 60-62% of geometric** - 0.49 against 0.81, and
 So a quote giving geometric only against a spec written in aerodynamic looks compliant and is not.
 **Make the supplier state the aerodynamic figure for the actual sizes.** Do not derive it from frame
 area: Towcester's geometric/frame-area ratios are 75% and 54% on the same product, so it does not
-scale. And do not assume the requirement's basis either - a drawing that says "free area of 1m2"
-does not say which, and that is an RFI, not a judgement call.
+scale.
+
+**But you can usually work out which basis the pack means, and it is the pack's cited standard that
+tells you.** Free area is the language of the PRESCRIPTIVE route - Approved Document B. Aerodynamic
+free area is the language of the ENGINEERED route - BS 9991 / BS EN 12101-2. So look for what the
+drawings say they comply with before treating the basis as unknowable. Two corroborating sources,
+both real:
+
+- Riverside's drawing key reads *"MAINS OPERATED INTERLINKED HEAT DETECTOR TO **AD B1**"*, and its
+  smoke-vent note is the AD B common-stair provision almost verbatim - automatically openable vent,
+  1m2 free area, fire-brigade operated from ground floor access level. Prescriptive route, so
+  geometric.
+- Gordon Court's NBS 9001 L20 cl.630 states it outright for the identical duty: *"AXS140 STAIRWELL
+  VENTILATOR - throat dimensions 1250mm x 1000mm - **1m2 GEOMETRIC free area**"*, and the lobby
+  ventilator at 1.5m2 geometric. The word *aerodynamic* appears nowhere in that job's 186-page NBS,
+  140-page mechanical or 127-page electrical spec.
+
+That makes geometric the strong reading for a stairwell vent written as "1m2 free area" - but it is
+still a recommendation for the fire engineer or building control to confirm, not a ruling to make.
+
+**BEFORE COMPARING FREE AREAS, CONFIRM THE QUOTE IS FOR A VENTILATOR AT ALL** (Gordon Court, 27/07).
+BSW quoted "Qty: 3 Prestige T&T" and "Qty: 4 Prestige Casement" against positions the spec required to
+be Colt motorised ventilators - zero occurrences of AOV, louvre, actuator, chain, stroke, motor, 24V
+or smoke anywhere in the quote. A quote with no ventilator in it states no free area of *either* kind
+and reads as merely silent. **The tell is the rate**: GBP 412-443/m2 there against GBP 1,401/m2 for a
+real AOV. Grep the quote for actuator / stroke / 24V before you trust its free area.
+
+**AND CHECK WHERE THE QUOTE DELIVERS TO.** A Plus QT51518 carries *no site address at all* - the only
+address on it is Fenster's own yard, 97-98 Alston Drive, Bradwell Abbey, MK13 9HF. "Glazed /Supply
+Only (Delivered)" therefore ends in Milton Keynes, not at the Aylesbury site, and the onward leg is
+ours and in nobody's price. All five of Gordon Court's supplier quotes do the same. This is a
+*separate* miss from the free-delivery threshold and it survives clearing it - a load can be delivered
+FOC and still not reach site. Suppliers also typically require labour at the delivery point to unload.
+
+**WHERE OPENINGS ARE NEWLY FORMED, SIZE IS NOT A CONSTRAINT** (Adam, REQ-9, 27/07): *"We can make the
+windows as big as we need to in order to achieve the free area, because the openings are being newly
+formed."* Establish this early on any job with a performance-driven opening size - it turns a
+free-area shortfall from a design fight into a repricing question.
 
 Two more from the same job:
 
