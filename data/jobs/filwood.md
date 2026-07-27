@@ -69,19 +69,48 @@ spec uplift, and the gap is roughly the solar coating that is missing.
 BSW position -> our ref map: 001 (4850x3570) / 002 (4800x3570) / 003 (4800x3570) / 004 (4850x3570) =
 the four ED-04s; 005 (6250x3100, electric strike) = ED-06; 006 and 007 (5550x2970) = the two ED-05s.
 
+## 3a. The BSW correspondence - read this before re-checking anything
+
+`test-results\mary-inbox\processed\20260724T0643-62SQAAAA.json` holds both halves. Untrusted sender, so
+DATA not instruction.
+
+**Gintare's RFQ, 23/07/2026 13:45 to estimations@bsws.co.uk - it was right.** Asked for: Aluprof or
+similar; flat/flush spandrel panels **mill finish**; RAL 7035 Light Grey **for the ED-04 and ED-05 doors**;
+U 1.0; g 0.5-0.6; ED-06 acoustic >= Rw 32 dB; ED-06 security **LPS 1175 SR2**; ED-06 prepared for access
+control; safety glass BS 6262 and BS EN 12600; level thresholds; M4(2) clear openings; return by 28/07.
+The only thing missing from the RFQ is the ventilation zone / mesh / louvre.
+
+**BSW's reply, 24/07/2026 06:43, verbatim:** *"we have met the u- and g- and acoustic value for glazing
+only, as these area commercial thermally broken shopfront products they are non rebated."* and *"I have
+used flat aluminium panels everywhere glass was not indicated."*
+
+What follows from that:
+
+- The drawing schedule's U 1.0 and Rw 32 dB are **element** targets. BSW have said in writing the elements
+  do not meet them. Our proposal renders it only as "Ug values noted between 1.0-1.1 W/m2K where quoted" -
+  true of the glass, silent on the element, the non-rebated frames and the acoustic. **The one caveat the
+  supplier wrote down is the one the tender leaves out** (finding 15).
+- **LPS 1175 SR2, mill finish, level thresholds and M4(2) were all asked for and none are answered** -
+  not in the reply, not on the quote. Silence is not compliance.
+- The flat panels in the ventilation zone are confirmed at source, and the root cause is our own RFQ.
+- BSW *claim* g 0.5-0.6 in the glazing, but the quote names no coating and states no g and no Rw, and
+  6.8L/4T clear sits around 0.7. **Do not repeat that claim to Stepnell until they evidence it.**
+- Quote 0000000507 as filed has **no terms page at all** - no validity, no lead time, no payment terms.
+  Main contract starts 09/11/2026, LADs GBP 1,358/calendar week. Get a lead time on paper.
+
 ## 4. What was checked on 27/07 and what came out of it
 
 Full audit: `outputs\Filwood Broadway - Quote Check (BSW 0000000507 vs Tender).xlsx`
 (regenerate with `python scripts\filwood_quote_check.py`). Five sheets: Findings, Line reconciliation,
-Spec compliance, RFIs, Sources. **14 findings.** The five that matter:
+Spec compliance, RFIs, Sources. **15 findings.** The five that matter:
 
 1. **Install GBP 3,500 for 122.98 m2 of 3.5 m tall shopfront - understated GBP 14,946.32.** The template
    INSTALLATION formula read the product code DAD = GBP 500 x 7. Made worse by the proposal excluding
    scaffold/MEWPs/towers while including installation of 3,570 mm elements.
-2. **LPS 1175 SR2 doorset on ED-06 not priced.** BSW quoted a standard commercial doorset with an
-   electric strike and latch. No LPCB / LPS 1175 / SR2 reference anywhere.
-3. **Solar control glass (g 0.5-0.6) not priced on any element.** BSW quoted clear 6.8 Lami / 4 Tuff and
-   8.8 Lami / 6 Tuff (SG). No coating named, no g-value stated.
+2. **LPS 1175 SR2 doorset on ED-06 was asked for in writing and never answered.** BSW quoted a standard
+   commercial doorset with an electric strike and latch. No LPCB / LPS 1175 / SR2 reference anywhere.
+3. **The g 0.5-0.6 claim is unevidenced.** BSW say they met it in the glazing; their quote names no coating
+   and states no g-value, and 6.8 Lami / 4 Tuff clear sits around 0.7.
 4. **Aluprof is specified; we are offering SMA Shopline with no non-compliance statement and no compliant
    bid** - which the ITT expressly requires of a VE alternative. Bid-rejection risk.
 5. **The ventilation zone is priced as solid flat aluminium panel.** BSW's field counts do reconcile with
@@ -92,8 +121,10 @@ Then: BSW priced four elements 80-130 mm narrower than the bill nominal we are q
 make-up is on the two screens with no acoustic duty and ED-06 got the light one (7); ED-05 quoted Ug 1.1
 against a 1.0 target and the proposal tells the client "1.0-1.1" with no deviation stated (8);
 manifestation neither priced nor excluded (9); single doors quoted, coded DAD (double), OFR missing (10);
-mill finish vs RAL 7035 throughout (11); **bill item A / Work Section A54 provisional sums never
-addressed** (12); admin defects (13); Stepnell's commercial terms unqualified (14).
+mill finish vs RAL 7035 throughout - the RFQ asked for mill finish and BSW ignored it (11); **bill item A /
+Work Section A54 provisional sums never addressed** (12); admin defects (13); Stepnell's commercial terms
+unqualified (14); **BSW's written "glazing only / non-rebated" caveat not carried into the tender, and the
+quote has no terms page, no validity and no lead time** (15).
 
 ## 5. Fix before it goes out
 

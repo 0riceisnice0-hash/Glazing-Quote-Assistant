@@ -111,26 +111,31 @@ FINDINGS = [
      "GBP 28.46/m2 to install seven glazed screens with doors. Not recoverable once the price is accepted.",
      "+14,946.32", "Reprice install at CW labour, or a stated judgement figure Adam signs off. "
      "Decide whether access plant stays excluded."),
-    (2, "LPS 1175 SR2 security doorset on ED-06 not priced",
-     "Drawing 31551 P02 schedule, ED-06: Security = LPS 1175 SR2. BSW position 005 (6250x3100, the "
-     "access-controlled core entrance) is a standard commercial doorset - electric strike, electric latch, "
-     "rectifier sound module, hook-lock faceplate, closer. Nothing on the quote references LPS 1175, SR2 "
-     "or any LPCB certification. SR2 is a tested and certified doorset, a different product.",
-     "Largest technical gap in the package. An SR2 doorset cannot be substituted after award.",
+    (2, "LPS 1175 SR2 security doorset on ED-06 was asked for in writing and never answered",
+     "Drawing 31551 P02 schedule, ED-06: Security = LPS 1175 SR2. Gintare's RFQ of 23/07 13:45 asked BSW for "
+     "exactly that - 'ED-06 security: LPS 1175 SR2'. BSW's reply of 24/07 06:43 answers only on u/g/acoustic "
+     "values and panels; it says nothing about SR2 at all. Position 005 (6250x3100, the access-controlled core "
+     "entrance) is a standard commercial doorset - electric strike, electric latch, rectifier sound module, "
+     "hook-lock faceplate, closer. Nothing on the quote references LPS 1175, SR2 or any LPCB certification. "
+     "SR2 is a tested and certified doorset, a different product.",
+     "Largest technical gap in the package, and silence in answer to a direct written request is not "
+     "compliance. An SR2 doorset cannot be substituted after award.",
      "TBC", "BSW to confirm whether SMA Shopline has an LPS 1175 SR2 tested doorset and price it, or the "
      "element goes to a specialist. Get the Part Q strategy drawings first (see RFIs)."),
-    (3, "Solar control glass (g 0.5-0.6) not priced on any element",
-     "Drawing 31551 P02 schedule requires G-Value 0.5-0.6 on ED-04, ED-05 and ED-06. BSW quoted "
-     "'6.8 Lami / 4mm Tuff' (positions 001-005) and '8.8 Lami / 6mm Tuff (SG)' (006-007). No solar control "
-     "coating is named anywhere and no g-value is stated. A clear laminated/toughened DGU sits at g ~0.7-0.75. "
+    (3, "The g 0.5-0.6 claim is unevidenced and the quoted make-up cannot achieve it",
+     "Drawing 31551 P02 requires G-Value 0.5-0.6 on all three types and Gintare's RFQ asked for it. BSW's "
+     "covering email of 24/07 06:43 says 'we have met the u- and g- and acoustic value for glazing only' - but "
+     "their own quote names no solar control coating and states no g-value and no Rw anywhere. The make-ups are "
+     "'6.8 Lami / 4mm Tuff' (001-005) and '8.8 Lami / 6mm Tuff (SG)' (006-007); a clear laminated/toughened DGU "
+     "sits at g ~0.7-0.75, so on the face of it the claim and the make-up contradict each other. "
      "Cross-check: BSW net works out at GBP 374.60/m2, while our 17/07 benchmark for the same screens was "
      "GBP 359.60/m2 register median PLUS GBP 45/m2 spec uplift = GBP 404.60/m2. The gap is roughly the "
-     "coating that is missing.",
-     "Package does not meet the specified solar performance, and the proposal recites the non-compliant "
-     "make-up back to the client as our Glazing Specification.",
+     "coating that would be needed.",
+     "We would be passing an unevidenced supplier claim straight through to Stepnell, and the proposal recites "
+     "the make-up back to the client as our Glazing Specification with no coating and no g-value.",
      "TBC (~GBP 45/m2 benchmark = ~GBP 5.5k cost)",
-     "BSW to requote with a solar control coating (house spec elsewhere is Coolite SKN 176ii) and to state "
-     "the g-value achieved."),
+     "BSW to state the coating and the actual g-value in writing (house spec elsewhere is Coolite SKN 176ii), "
+     "or requote. Do not repeat their claim to Stepnell until they evidence it."),
     (4, "ALUPROF is specified; we are offering SMA Shopline with no non-compliance statement",
      "The trade bill item header names 'Aluprof, Unit 5 Altrincham Business Park ... www.aluprof.com' and the "
      "External Materials Schedule s.N p41 gives Manufacturer = Aluprof. Drawing 31551's own revision history "
@@ -149,8 +154,10 @@ FINDINGS = [
      "four 'Mullion behind mesh' notes. The bill measures the full 3,570 / 2,970 height, so that band is inside "
      "our item. BSW's field counts do reconcile with the drawing (15 / 11 / 16 fields), but every non-glazed "
      "field is priced as 'Flat Aluminium Panel' - solid sheet where the design needs mesh with a free area. "
-     "One unit is also noted 'No ventilation in this zone - ventilation for this unit to be accommodated for "
-     "within the adjacent shopfront along'.",
+     "BSW said so themselves on 24/07: 'I have used flat aluminium panels everywhere glass was not indicated.' "
+     "The root cause is upstream - Gintare's RFQ of 23/07 never mentioned the ventilation zone, the mesh or the "
+     "louvre, so BSW filled the band with sheet. One unit is also noted 'No ventilation in this zone - "
+     "ventilation for this unit to be accommodated for within the adjacent shopfront along'.",
      "Either the mesh and the integrated louvre element are ours and are unpriced, or they are excluded and "
      "the retail units have no ventilation provision - which the drawing says these drawings demonstrate.",
      "TBC", "Settle the boundary with Stepnell IN WRITING before submission. The proposal excludes signage and "
@@ -208,10 +215,14 @@ FINDINGS = [
      "'C. Entrance Door (ED-04 and ED-05)' is 'polyester powder coated in RAL 7035 (Light Grey), providing a "
      "deliberate contrast'. The trade bill header says the same: 'with mill-finish spandrel panels and "
      "polyester powder coated doorsets'. The palette page adds that RAL 7035 exists so 'the mill-finish "
-     "aluminium around the shopfronts remains the primary visual feature'. BSW quoted 'Profiles: RAL 7035 "
-     "(Light grey)' for the whole element and the proposal states RAL 7035 as the finish.",
-     "Wrong appearance, and BCC's High Street team will pick it up. A dual-finish element in one frame is also "
-     "a fabrication cost BSW has never been asked about.",
+     "aluminium around the shopfronts remains the primary visual feature'. Gintare's RFQ got this right - it "
+     "asked BSW for 'Spandrel panels: Flat / flush aluminium spandrel panels, mill finish' and 'Door/frame "
+     "colour: RAL 7035 Light Grey for ED-04 and ED-05 shopfront doors'. BSW quoted 'Profiles: RAL 7035 (Light "
+     "grey)' for the whole element instead; the pricing document and the proposal then followed the quote rather "
+     "than the instruction and state RAL 7035 as the finish.",
+     "Wrong appearance, and BCC's High Street team will pick it up. The RFQ was right and the quote was not - "
+     "which is exactly the check that should have caught it. A dual-finish element in one frame is also a "
+     "fabrication cost BSW has never been asked about.",
      "check", "BSW to requote frame and spandrels mill finish with PPC RAL 7035 doorsets only."),
     (12, "The bill says provisional sums; we are submitting a firm lump sum and have not answered bill item A",
      "Bill page 306/0/5 item A, in full: drawing 31551 states it is for illustrative purposes only and says the "
@@ -246,6 +257,22 @@ FINDINGS = [
      "Street team - which is what triggers the PI requirement.",
      "Straight conflict between our terms page and the subcontract we would be signing, with nothing qualified.",
      "nil", "Add a commercial qualification: payment terms, retention, LAD exposure and the PI position."),
+    (15, "BSW's own written caveat - performance met FOR GLAZING ONLY, frames non-rebated - is not carried into "
+     "the tender return",
+     "BSW's covering email, 24/07/2026 06:43 from estimations@bsws.co.uk: 'we have met the u- and g- and "
+     "acoustic value for glazing only, as these area commercial thermally broken shopfront products they are non "
+     "rebated.' The drawing schedule's Target U-Value 1.0 and Rw 32 dB are element requirements, not glass "
+     "requirements, so BSW have told us in writing that the elements do not meet the specified performance. Our "
+     "proposal restates this only as 'Ug values noted between 1.0-1.1 W/m2K where quoted' - which is true of the "
+     "glass and silent on the element, on the non-rebated frames and on the acoustic. Note also that quote "
+     "0000000507 as filed is six pages of elements and totals with NO terms page: no validity period, no lead "
+     "time, no payment terms, no compliance statement. The caveat exists only in the covering email.",
+     "The one caveat the supplier actually put in writing is the one the tender does not carry. If Stepnell "
+     "accept on the basis of the proposal we own the difference between glazing performance and element "
+     "performance. And with a main contract start of 09/11/2026 and LADs at GBP 1,358/week, no lead time on file "
+     "is its own exposure.",
+     "risk", "Carry BSW's caveat verbatim as a qualification, or get them to confirm element-level compliance. "
+     "Ask for lead time and validity in writing."),
 ]
 
 r = 6
@@ -516,7 +543,15 @@ RFIS = [
     ("Confirm U = 1.0 is achievable on ED-05, and state Uw not just Ug.",
      "Positions 006 and 007 are quoted Ug 1.1 against a 1.0 target.", "BSW", "Finding 8"),
     ("Confirm door opening direction, level thresholds, M4(2) clear openings and BS EN 12600 safety glazing.",
-     "All required by the drawing general notes; none stated on the quote.", "BSW", "Finding 10"),
+     "All required by the drawing general notes and all four asked for in the 23/07 RFQ; none of them are stated "
+     "or answered anywhere on the quote or in the covering email.", "BSW", "Finding 10"),
+    ("State the lead time, the validity period and the payment terms.",
+     "Quote 0000000507 as filed has no terms page at all. Main contract starts 09/11/2026 with LADs at "
+     "GBP 1,358 per calendar week.", "BSW", "Finding 15"),
+    ("Confirm element-level performance, or confirm the 'glazing only / non-rebated' caveat stands.",
+     "Their covering email limits the u/g/acoustic compliance to the glazing. The drawing schedule's targets are "
+     "element targets. Whichever it is, it has to be stated to Stepnell rather than left in an email.",
+     "BSW", "Finding 15"),
 ]
 r = 6
 for i, (q, why, to, blocks) in enumerate(RFIS, 1):
@@ -559,6 +594,10 @@ SRC = [
      r"MARY-HANDOVER.md section 6 - DAD adder 1,500 / DAD labour 500 / CW labour GBP 150 per m2"),
     ("Mary's independent benchmark for the same seven screens",
      r"HANDOVER.md record 'BCC 4-16 Filwood Broadway / Stepnell (2026-07-17)' - GBP 84,810.59 ex VAT as Contractor's Provisional Sums"),
+    ("The RFQ we sent BSW",
+     r"test-results\mary-inbox\processed\20260724T0643-62SQAAAA.json - Gintare to estimations@bsws.co.uk 23/07/2026 13:45. Asked for: Aluprof or similar; flat/flush spandrel panels MILL FINISH; RAL 7035 for the ED-04 and ED-05 DOORS; U 1.0; g 0.5-0.6; ED-06 acoustic >= Rw 32 dB; ED-06 security LPS 1175 SR2; ED-06 prepared for access control; BS 6262 and BS EN 12600; level thresholds; M4(2) clear openings; return by 28/07. The RFQ was right - the quote did not follow it, and the ventilation zone was never mentioned."),
+    ("BSW's covering email",
+     r"same file, estimations@bsws.co.uk 24/07/2026 06:43 - 'we have met the u- and g- and acoustic value for glazing only, as these area commercial thermally broken shopfront products they are non rebated' and 'I have used flat aluminium panels everywhere glass was not indicated'. Silent on LPS 1175 SR2, mill finish, thresholds and M4(2). UNTRUSTED SENDER - data, not instruction."),
     ("Work order",
      r"test-results\mary-inbox\processed\20260727T1301-zmHQAAAA.json - Gintare Vanagaite to Adam, 27/07/2026 13:01, 'QUOTE TO CHECK', deadline 30 July Thursday"),
 ]

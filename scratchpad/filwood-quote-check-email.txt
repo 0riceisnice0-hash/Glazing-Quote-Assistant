@@ -1,0 +1,111 @@
+Adam,
+
+I have checked Gintare's Filwood Broadway tender against the trade bill, the drawings and the BSW quote.
+
+The arithmetic is clean. The scope is not.
+
+Headline: the price is GBP 67,067.58 ex VAT. Installation in it is GBP 3,500 for 122.98 m2 of shopfront
+3.5 metres tall. That is GBP 28.46 a square metre to install seven glazed screens with doors in them.
+
+Deadline is Thursday 30 July. Full workbook attached.
+
+
+WHAT IS RIGHT
+
+BSW quote 0000000507 (24/07) reconciles to the penny. All seven positions carried, nothing dropped,
+nothing double-counted, and the 15% end discount is properly applied - Grand Total Net GBP 46,067.59.
+
+
+THE FIVE THAT MATTER
+
+1. INSTALLATION IS GBP 14,946 SHORT.
+
+The template INSTALLATION formula read the product code DAD and gave us GBP 500 x 7 elements. That code
+is for a double aluminium door on its own, not a 17.6 m2 screen. At our own CW labour rate of GBP 150/m2
+the number is GBP 18,446.32.
+
+Worse, the proposal excludes scaffold, MEWPs and towers while including installation of elements
+3,570 mm tall. So there is no access plant in the price either.
+
+Correct the install line and the tender becomes GBP 82,013.90 - within GBP 2,797 of the GBP 84,810.59
+I built independently on 17 July with no supplier quote at all. Two different routes landing in the same
+place is the best evidence I can give you that GBP 3,500 is the error.
+
+2. THE LPS 1175 SR2 DOORSET ON ED-06 IS NOT PRICED.
+
+The drawing schedule requires LPS 1175 SR2 security on ED-06. BSW have quoted a standard commercial
+doorset - electric strike, electric latch, rectifier, closer. There is no reference to LPS 1175, SR2 or
+any LPCB certification anywhere on the quote. That is a different, tested product.
+
+3. THE SOLAR CONTROL GLASS IS NOT PRICED ON ANY ELEMENT.
+
+All three types require a g-value of 0.5-0.6. BSW quoted plain 6.8 laminated / 4 toughened and
+8.8 laminated / 6 toughened. No coating is named and no g-value is stated. Clear glass sits around 0.7.
+
+The cross-check: BSW works out at GBP 374.61/m2. My 17 July build was GBP 359.60/m2 median plus a
+GBP 45/m2 spec uplift. The gap is roughly the coating that is missing.
+
+4. THE BILL SPECIFIES ALUPROF. WE ARE OFFERING SMA SHOPLINE WITH NOTHING SAID ABOUT IT.
+
+The trade bill names Aluprof with their address and website. The materials schedule gives Manufacturer =
+Aluprof. Drawing 31551's own revision history reads "Issued to Aluprof 22.10.2025" - the architect has
+been working with them directly.
+
+The ITT says value engineering is welcome but "must be fully detailed indicating any areas of
+non-compliance and be accompanied by a compliant bid". We have neither. This is the third time this
+month - Technal/Modeal on Princess Beatrice, Senior on Vesuvius, Aluprof here.
+
+5. THE VENTILATION ZONE IS PRICED AS SOLID ALUMINIUM SHEET.
+
+The top 660 mm of every screen is labelled Ventilation Zone on the drawing and tagged to Cadisch
+expanded mesh, with four "mullion behind mesh" notes. BSW's field counts do reconcile with the drawing,
+but every non-glazed field is priced as a flat aluminium panel. Either the mesh and the louvre are ours
+and unpriced, or they are excluded and the retail units have no ventilation.
+
+
+NINE MORE, IN THE WORKBOOK
+
+BSW have priced four of the seven screens 80-130 mm narrower than the sizes we are quoting (4850 and
+4800 against a 4930 nominal). The acoustic make-up is on the two screens that need no acoustic rating,
+and ED-06 - the one with the Rw 32 dB duty - got the lighter glass. ED-05 is quoted at U 1.1 against a
+target of 1.0, and the proposal tells Stepnell "1.0-1.1" without calling it a deviation. Manifestation is
+named in our own executive summary as a requirement and is then neither priced nor excluded. Mill finish
+is specified for the frames and spandrels with grey only on the doors; we have priced grey throughout.
+
+
+ONE THING I WANT YOUR VIEW ON
+
+The bill item says drawing 31551 is illustrative only, that the shopfronts should be carried as
+provisional sums, and "DO NOT include the shopfronts twice within your tender submission". It points at
+Work Section A54, which was never issued to us.
+
+My 17 July submission was a provisional sum for exactly that reason. Gintare's is a firm lump sum against
+a design the architect says is not finalised. Both are defensible - but it should be a decision, and
+right now bill item A is not answered at all.
+
+
+BEFORE IT LEAVES THE OFFICE
+
+The proposal is addressed FAO Trevor Copeman. The ITT and the bill both say quotations go to Adam Warner.
+
+Send the PDF, not the spreadsheet. No columns are hidden in the workbook - it carries BSW's cost per
+screen and the words "Supplier used: BSW 46067.59". The print area is clean so a PDF is safe.
+
+Proposal is dated 27 July, the pricing document 28 July. ED-06's height is typed 3150 where the bill says
+3105. Cell O16 shows #VALUE!.
+
+
+WHAT I NEED FROM YOU
+
+1. The install line - correct it to GBP 18,446.32, or give me a figure you are happy with.
+
+2. Who chases BSW for the SR2 doorset, the solar coating and the mill-finish requote - there are three days left and I cannot email them.
+
+3. Firm price or provisional sum.
+
+4. The DAD product code sits on all seven rows against a supplier-quoted SINGLE door, at GBP 1,500 of adder and GBP 500 of install each. If that is discretionary money you are happy with, say so and I will stop flagging it. If not, it is GBP 4,200.
+
+Six documents the drawings rely on were never issued, including the fire strategy that decides whether
+those doors are single or double leaf, and the Employer's Requirements that are the only definition of the
+security duty on six of the seven screens. The queries are drafted in the workbook, ready to go to Adam
+Warner and Sam Ignatov.

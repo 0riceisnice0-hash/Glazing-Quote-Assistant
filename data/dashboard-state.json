@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27T14:20:00",
+ "updated": "2026-07-27T14:35:00",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -19,11 +19,11 @@
   },
   {
    "job": "BCC Filwood Broadway",
-   "client": "Stepnell",
+   "client": "Stepnell (bid S25233B)",
    "deadline": "2026-07-30",
-   "status": "BSW quote in hand since 24/07. Their compliance is stated for the glazing only (non-rebated shopfront) - that caveat must be carried into the tender return.",
-   "value": "TBC",
-   "stage": "tender"
+   "status": "DEADLINE THU 30/07. Gintare's outgoing tender is GBP 67,067.58 ex VAT, supplier backed on Bellview/BSW 0000000507 (24/07, Grand Total Net GBP 46,067.59 - all seven positions carried, nothing double-counted, 15% discount correctly applied). Mary checked it 27/07 and found 14 things. (1) Installation is GBP 3,500 for 122.98 m2 of shopfront 3.5m tall because the template formula read the DAD door code - GBP 14,946.32 short of CW labour at GBP 150/m2, and the proposal excludes scaffold and MEWPs while including installation. Corrected the tender is GBP 82,013.90, within GBP 2,797 of Mary's independent 17/07 benchmark. (2) The LPS 1175 SR2 security doorset required on ED-06 is not priced - BSW quoted a standard commercial doorset. (3) Solar control glass to g 0.5-0.6 is not priced on any of the seven. (4) The bill specifies ALUPROF and we are offering SMA Shopline with no non-compliance statement and no compliant bid, which the ITT expressly requires. (5) The mesh Ventilation Zone is priced as solid aluminium sheet. Also: BSW priced four screens 80-130mm narrower than the sizes we are quoting; the acoustic glass is on the two screens that need none while ED-06 which needs Rw 32 dB got the light one; ED-05 is quoted U 1.1 against a 1.0 target and the proposal admits '1.0-1.1' without calling it a deviation; manifestation is neither priced nor excluded; and bill item A, which says carry the shopfronts as provisional sums and do not price them twice, is unanswered. Fix before issue: the proposal is addressed to Trevor Copeman when the ITT says Adam Warner, and the workbook has no hidden columns so it leaks BSW's cost - send the PDF only. Emailed to Adam+Zac with the full audit. Nothing has gone to Stepnell.",
+   "value": "GBP 67,067.58 ex VAT as drafted / GBP 82,013.90 with the install corrected",
+   "stage": "Quote checked - 14 findings, with Adam"
   },
   {
    "job": "Air Separation Unit, Vesuvius Way",
@@ -122,11 +122,12 @@
    "owner": "Adam",
    "title": "Glass order is 46 panes short - and CN Glass is half Vetroseal's rate",
    "why": "Aplus's final glass sizes list 170 panes / 130.8m2, but the Vetroseal order covers only 124 panes / 105.2m2. The missing panes are the A1 toplights across six window types, two door head panes, and all of Door Type C. No 32mm units are quoted anywhere. Separately, CN Glass quoted the same make-up at GBP 60/m2 versus Vetroseal's GBP 110/m2 - about GBP 7,000 difference on the full list.",
-   "needs": "Confirm which supplier holds the glass order and that it will be placed against the FINAL 24/07 sizes list; the make-up for the nine 32mm panes; and whether the CN Glass rate should be used.",
+   "needs": "Confirm which supplier holds the glass order and that it will be placed against the FINAL 24/07 sizes list; the make-up for the nine 32mm panes; and whether the CN Glass rate should be used. If none of these fits, answer in Message Mary and say what you want doing - I will pick it up within seconds.",
    "options": [
     "Reorder against final list - Vetroseal",
     "Reorder against final list - CN Glass",
-    "Call me, it's complicated"
+    "Get CN Glass to price the final 24/07 list properly first",
+    "Hold the order until the 32mm make-up is confirmed"
    ],
    "status": "open"
   },
@@ -218,9 +219,63 @@
     "Check with the fire engineer first"
    ],
    "status": "open"
+  },
+  {
+   "id": "REQ-10",
+   "raised": "2026-07-27",
+   "job": "BCC Filwood Broadway",
+   "owner": "Adam",
+   "title": "Filwood: correct the install line, and firm price or provisional sum?",
+   "why": "The tender goes to Stepnell on Thursday 30/07 at GBP 67,067.58 ex VAT. The installation inside it is GBP 3,500 for 122.98 m2 of shopfront 3.5 metres tall - GBP 28.46 a square metre - because the template INSTALLATION formula read the DAD door code and gave GBP 500 per screen. Our own CW labour rate of GBP 150/m2 makes it GBP 18,446.32. The proposal also excludes scaffold, MEWPs and towers while including installation of 3,570mm elements, so there is no access plant in the price either. Separately, Stepnell's bill item A instructs tenderers to carry the shopfronts as Contractor's Provisional Sums under Work Section A54 and not to price them twice - Mary's 17/07 submission was a provisional sum, Gintare's is a firm lump sum, and item A is currently unanswered. Since raising this, Mary found the BSW correspondence: Gintare's RFQ of 23/07 asked for all of it correctly - mill finish, RAL 7035 to the doors only, U 1.0, g 0.5-0.6, Rw 32 dB, LPS 1175 SR2, thresholds, M4(2) - and BSW's reply answered only on u/g/acoustic values and panels, limiting even that to \"glazing only ... non rebated\". So the RFQ was right and the quote did not answer it.",
+   "needs": "Two decisions: (1) correct the install to GBP 18,446.32 or give a figure you are happy with, and say whether access plant stays excluded; (2) submit firm or as a provisional sum. Also who chases BSW in the three days left for the LPS 1175 SR2 doorset on ED-06, the solar control coating on all seven, and a mill-finish requote - Mary cannot email suppliers.",
+   "options": [
+    "Correct install to GBP 18,446.32 and submit firm at GBP 82,013.90",
+    "Correct install and submit as a Contractor's Provisional Sum per bill item A",
+    "Leave GBP 3,500 and submit at GBP 67,067.58",
+    "Ask Stepnell for an extension until BSW have requoted the SR2 doorset and the solar glass"
+   ],
+   "status": "open",
+   "answer": null,
+   "answered_by": null,
+   "answered_at": null
   }
  ],
  "catches": [
+  {
+   "date": "2026-07-27",
+   "job": "BCC Filwood Broadway",
+   "catch": "Installation priced at GBP 3,500 for 122.98 m2 of shopfront 3.5 metres tall - GBP 28.46 a square metre. The template INSTALLATION formula reads the product code, and DAD gives GBP 500 per element regardless of size. House CW labour at GBP 150/m2 is GBP 18,446.32. Corrected, the tender lands within GBP 2,797 of the independent benchmark Mary built ten days earlier with no supplier quote at all.",
+   "type": "under-pricing",
+   "value": "GBP 14,946.32"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "BCC Filwood Broadway",
+   "catch": "The LPS 1175 SR2 security doorset the drawing schedule requires on ED-06 was asked for in writing in our own RFQ of 23 July, and BSW's reply never mentions it. They quoted a standard commercial doorset - electric strike, electric latch, rectifier, closer - with no LPS 1175, SR2 or LPCB reference anywhere. Silence in answer to a direct request is not compliance, and a certified doorset cannot be substituted after award.",
+   "type": "spec compliance",
+   "value": "TBC - requote"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "BCC Filwood Broadway",
+   "catch": "Solar control glass is not priced on any of the seven screens. All three types require a g-value of 0.5-0.6; BSW quoted plain laminated/toughened units with no coating named and no g-value stated. The supplier rate of GBP 374.61/m2 sits GBP 30/m2 below our own benchmark, and the gap is roughly the missing coating.",
+   "type": "spec compliance",
+   "value": "~GBP 5.5k of cost"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "BCC Filwood Broadway",
+   "catch": "The trade bill and the architect's materials schedule both specify ALUPROF - the drawings were literally 'Issued to Aluprof' - and we are offering SMA Shopline with no non-compliance statement and no compliant bid alongside it, which the ITT expressly requires of a value-engineered alternative. Third alternative-system exposure this month after Technal/Modeal and Senior.",
+   "type": "tender compliance",
+   "value": "bid rejection risk"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "BCC Filwood Broadway",
+   "catch": "BSW put a non-compliance in writing and the tender does not carry it. Their covering email of 24 July reads: \"we have met the u- and g- and acoustic value for glazing only, as these area commercial thermally broken shopfront products they are non rebated.\" The drawing schedule's U 1.0 and Rw 32 dB are element targets, not glass targets - so the supplier has told us the elements do not comply. Our proposal renders the whole thing as \"Ug values noted between 1.0-1.1 W/m2K where quoted\": true of the glass, silent on the element, the non-rebated frames and the acoustic.",
+   "type": "qualification not carried",
+   "value": "owns the gap if accepted"
+  },
   {
    "date": "2026-07-27",
    "job": "Vesuvius Way Worksop",

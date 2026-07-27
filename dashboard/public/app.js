@@ -363,8 +363,14 @@ function render() {
       if (caret && el.setSelectionRange) el.setSelectionRange(caret[0], caret[1]);
     }
   }
+  // Land on the newest message, and keep following it unless you have
+  // deliberately scrolled up to read something older.
   const t = $(".chat-thread");
-  if (t && stickToBottom) t.scrollTop = t.scrollHeight;
+  if (t && stickToBottom) {
+    t.style.scrollBehavior = "auto";       // no visible lurch on first paint
+    t.scrollTop = t.scrollHeight;
+    requestAnimationFrame(() => { t.scrollTop = t.scrollHeight; t.style.scrollBehavior = ""; });
+  }
 
   const send = $("#chat-send");
   if (send) send.addEventListener("click", async () => {

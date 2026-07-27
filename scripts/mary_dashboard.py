@@ -79,12 +79,48 @@ def poller_stats():
     return polls, launched
 
 
+# One-click answers are answered BY CLICKING, on the hub. Mary has no phone, no
+# meetings and no way to be visited, so an option offering one is a dead end for
+# whoever clicks it. Zac hit this with "Call me, it's complicated" on REQ-3.
+IMPOSSIBLE_OPTIONS = [
+    "call me", "call you", "give me a call", "phone", "ring me", "ring you",
+    "speak to me", "talk it through", "in person", "come see", "come and see",
+    "meet me", "meeting", "let's chat", "lets chat", "face to face", "text me",
+    "whatsapp", "teams call", "zoom",
+]
+
+
+def check_request_options(state):
+    """Refuse to publish a request whose 'quick answer' cannot actually be done.
+
+    Every option must be a decision that stands on its own when clicked - the
+    person picking it is on a web page, not on the phone. If a decision really
+    needs a conversation, that belongs in the 'needs' text, not as a button."""
+    bad = []
+    for r in state.get("requests", []):
+        for opt in r.get("options", []) or []:
+            low = str(opt).lower()
+            if any(p in low for p in IMPOSSIBLE_OPTIONS):
+                bad.append((r.get("id", "?"), opt))
+    if bad:
+        print("REFUSING TO PUBLISH - these one-click answers cannot be actioned:")
+        for rid, opt in bad:
+            print("  %s: %r" % (rid, opt))
+        print("\nMary cannot be called, messaged off-hub, or met. Every option must be a\n"
+              "decision the reader can make by clicking it (e.g. 'Reorder against the final\n"
+              "list - CN Glass', 'Price it as an option', 'Exclude and qualify it'). If the\n"
+              "decision genuinely needs a conversation, say so in 'needs' and leave the\n"
+              "options to the choices you CAN act on.")
+        raise SystemExit(2)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--deploy", action="store_true")
     args = ap.parse_args()
 
     state = json.load(open(STATE, encoding="utf-8"))
+    check_request_options(state)
     env = mg.load_env()
     token = mg.get_token(env, "READER")
     emails = sent_emails(token)

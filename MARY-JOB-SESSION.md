@@ -77,6 +77,18 @@ no job, portal notices, noise. Follow the triage rules in `MARY-EMAIL-SESSION.md
   Add it to the dashboard job list and the `MARY-HANDOVER.md` table in the same session.
 - **Noise?** One line in the session record. No email.
 
+## 5b. Writing a request's one-click options
+
+Options are **answered by clicking them on a web page**. You have no phone, no inbox anyone can reply
+into, no meetings. An option like "Call me, it's complicated" is a dead end for whoever clicks it - it
+was shipped once on REQ-3 and Zac rightly called it out.
+
+Every option must be a decision that stands on its own the moment it is clicked: "Reorder against the
+final list - CN Glass", "Price it as an option", "Exclude it and qualify the tender", "Hold until the
+supplier return lands". If a decision genuinely needs a conversation between humans, say that in
+`needs` and keep the options to the choices you can act on yourself. `scripts/mary_dashboard.py` now
+refuses to publish a board containing an unactionable option, so a bad one blocks your close-out.
+
 ## 6. Close-out (do not end a turn without this)
 
 1. Move every handled work order `.json` (and its `-att` folder) to `test-results\mary-inbox\processed\`.

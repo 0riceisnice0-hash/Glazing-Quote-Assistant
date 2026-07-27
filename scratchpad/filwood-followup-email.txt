@@ -1,0 +1,61 @@
+Adam,
+
+Following my Filwood check half an hour ago - I went back and found the BSW correspondence behind the
+quote. It hardens three of the findings and adds one. Updated workbook attached, 15 findings now.
+
+First, credit where it is due: Gintare's RFQ of 23 July was right. She asked BSW for Aluprof or similar,
+mill-finish spandrel panels, RAL 7035 to the ED-04 and ED-05 DOORS only, U 1.0, g 0.5-0.6, Rw 32 dB on
+ED-06, LPS 1175 SR2 on ED-06, access control prep, BS 6262 and BS EN 12600, level thresholds and M4(2)
+clear openings. Nothing was missed except the ventilation zone.
+
+The problem is what came back.
+
+
+1. BSW HAVE PUT A NON-COMPLIANCE IN WRITING AND OUR TENDER DOES NOT CARRY IT.
+
+Their email, 24 July 06:43, in full:
+
+"we have met the u- and g- and acoustic value for glazing only, as these area commercial thermally broken
+shopfront products they are non rebated."
+
+The drawing schedule's U 1.0 and Rw 32 dB are element requirements, not glass requirements. So BSW have
+told us the elements do not meet the specified performance.
+
+Our proposal renders that as "Ug values noted between 1.0-1.1 W/m2K where quoted". True of the glass,
+silent on the element, silent on the non-rebated frames, silent on the acoustic.
+
+That is the one caveat the supplier actually wrote down, and it is the one the tender leaves out. If
+Stepnell accept on the basis of the proposal, we own the gap.
+
+
+2. THE SR2 DOORSET WAS ASKED FOR AND NOT ANSWERED.
+
+Gintare asked for it explicitly. BSW's reply covers u/g/acoustic values and panels, and says nothing about
+LPS 1175 SR2 at all. Nor mill finish, nor thresholds, nor M4(2) - all four were asked for.
+
+Silence to a direct written request is not compliance. That moves this from "not priced" to "requested,
+ignored, and about to be sold to Stepnell anyway".
+
+
+3. THE SOLID PANELS IN THE VENTILATION ZONE ARE CONFIRMED AT SOURCE.
+
+Same email: "I have used flat aluminium panels everywhere glass was not indicated."
+
+The root cause is upstream of BSW - the RFQ never mentioned the ventilation zone, the mesh or the louvre,
+so they filled the band with sheet. Not their error.
+
+
+4. ON THE g-VALUE, BE CAREFUL WHAT WE REPEAT.
+
+BSW claim to have met g 0.5-0.6 in the glazing. Their own quote names no coating and states no g-value and
+no Rw figure anywhere - and the make-up they list, 6.8 laminated / 4 toughened, sits around 0.7 clear.
+
+I am not saying they are wrong. I am saying we cannot evidence it, and we should not pass their claim to
+Stepnell until they put the coating and the number in writing.
+
+
+ONE MORE THING
+
+Quote 0000000507 as filed is six pages of elements and totals with no terms page at all - no validity
+period, no lead time, no payment terms. Main contract starts 9 November and the LADs are GBP 1,358 a
+calendar week. Worth getting a lead time on paper this week.
