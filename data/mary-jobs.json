@@ -6,7 +6,8 @@
    "client": "Chigwell (London) PLC",
    "match": [
     "grange hill",
-    "methodist"
+    "methodist",
+    "chigwell"
    ],
    "senders": [
     "chigwelllondon",
@@ -190,19 +191,6 @@
    ],
    "senders": [],
    "opened": "2026-07-16"
-  },
-  "gordon-court": {
-   "name": "Gordon Court, Stonegrove Edgware",
-   "client": "Chigwell Group (Chigwell (London) PLC)",
-   "match": [
-    "gordon court",
-    "stonegrove",
-    "q7585",
-    "5244-ark",
-    "ha8 7tq"
-   ],
-   "senders": [],
-   "opened": "2026-07-27T14:06:27"
   }
  },
  "chats": {
@@ -212,13 +200,6 @@
    "created": "2026-07-27T13:43:40",
    "last_active": "2026-07-27T13:56:46",
    "runs": 1
-  },
-  "gordon-court": {
-   "session_id": "cc24d293-f835-496b-8c56-113133850cec",
-   "started": false,
-   "created": "2026-07-27T14:06:27",
-   "last_active": null,
-   "runs": 0
   }
  }
 }

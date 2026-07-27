@@ -40,7 +40,8 @@ button, input, select, textarea { font-family: inherit; }
 .avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--green); color: #fff; display: grid;
   place-items: center; font-weight: 700; font-size: var(--t-13); letter-spacing: .03em; flex-shrink: 0; }
 .nav-mary strong { color: #fff; display: block; font-size: var(--t-14); }
-.live { font-size: var(--t-11); color: #8fb6ab; display: flex; align-items: center; gap: 6px; }
+.live { font-size: var(--t-11); color: #8fb6ab; display: flex; align-items: flex-start; gap: 6px; }
+.live .dot { margin-top: 4px; }
 .live em { font-style: normal; opacity: .8; }
 .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; animation: pulse 2.4s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(46,172,102,.55); } 70% { box-shadow: 0 0 0 8px rgba(46,172,102,0); } 100% { box-shadow: 0 0 0 0 rgba(46,172,102,0); } }
@@ -48,7 +49,9 @@ button, input, select, textarea { font-family: inherit; }
 .dot.busy { background: #e0a33c; animation: pulse-busy 1.4s infinite; }
 .dot.stalled { background: #c0563f; animation: none; }
 @keyframes pulse-busy { 0% { box-shadow: 0 0 0 0 rgba(224,163,60,.55); } 70% { box-shadow: 0 0 0 8px rgba(224,163,60,0); } 100% { box-shadow: 0 0 0 0 rgba(224,163,60,0); } }
-.live #mary-state { max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Job names run long - wrap rather than truncate; the status is worth reading. */
+.live #mary-state { line-height: 1.35; }
+.live-when { display: block; font-size: var(--t-11); color: #6f948c; margin-top: 2px; }
 
 .nav-items { display: grid; gap: 3px; }
 .nav-item { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border: 0; background: none;
@@ -138,6 +141,13 @@ button, input, select, textarea { font-family: inherit; }
 .opt:hover { border-color: var(--green); color: var(--green-600); }
 .opt.sel { background: var(--green); border-color: var(--green); color: #fff; }
 .req-compose { display: flex; gap: 10px; }
+/* Your answer, shown straight back to you - the board itself only catches up
+   when Mary redeploys it. */
+.req-answer.sent { background: var(--green-50); border: 1px solid #bfe4cd; border-radius: var(--r-md);
+  padding: 14px 16px; border-top: 1px solid #bfe4cd; }
+.req-answer.sent h5 { font-size: var(--t-11); letter-spacing: .11em; text-transform: uppercase;
+  color: var(--green-600); margin: 0 0 8px; }
+.sent-note { margin: 10px 0 0; font-size: var(--t-12); color: var(--body); font-style: italic; }
 .req-compose textarea { flex: 1; border: 1px solid var(--line-strong); border-radius: var(--r-md); padding: 11px 14px;
   font-size: var(--t-14); min-height: 46px; resize: vertical; }
 .req-compose textarea:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(46,172,102,.14); }
@@ -238,6 +248,9 @@ button, input, select, textarea { font-family: inherit; }
 .rt .money { font-weight: 700; color: var(--green-600); white-space: nowrap; }
 .bubble.mary .rt .money { color: #7fd4a5; }
 .bubble.mary .rt h6 { color: #7fd4a5; border-color: rgba(255,255,255,.15); }
+/* The global rule sets strong/h1-h4 to --ink (#102b35), which is invisible on
+   Mary's navy bubble - she writes numbered items constantly, so they vanished. */
+.bubble.mary strong, .bubble.mary h1, .bubble.mary h2, .bubble.mary h3, .bubble.mary h4 { color: #fff; }
 
 /* ---------- toast / empty ---------- */
 .toast { position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%); background: var(--navy); color: #fff;

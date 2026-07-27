@@ -17,6 +17,10 @@ let commsTab = "sent";
    wipes what you were writing. Keyed by the textarea's data-draft attribute;
    selected request options and the search term ride along for the same reason. */
 const DRAFTS = {};
+/* Answers sent from this browser. DATA.requests only flips to "answered" when
+   Mary redeploys the board, so without this your reply vanishes the instant you
+   send it and the card looks untouched. */
+const SENT_ANSWERS = {};
 let searchTerm = "";
 let msgSig = "";
 let STATUS = null;
@@ -49,7 +53,10 @@ function renderStatus() {
   const s = STATUS || {};
   let text = "Live", tone = "";
   if (s.state === "working") {
-    text = s.title ? `Working on ${s.title}` : "Working";
+    // Job names get long ("Air Separation Unit, Vesuvius Way Worksop") - trim to
+    // something that reads as a sentence, full name in the tooltip.
+    const short = String(s.title || "").split(" (")[0].split(",")[0].trim();
+    text = short ? `Working on ${short}` : "Working";
     tone = "busy";
   } else if (s.state === "backoff") {
     text = "Paused - retrying shortly";
@@ -59,7 +66,7 @@ function renderStatus() {
     tone = "busy";
   }
   el.textContent = text;
-  el.title = s.detail || "";
+  el.title = [s.title, s.detail].filter(Boolean).join(" - ");
   if (dot) dot.className = `dot ${tone}`;
 }
 
@@ -118,6 +125,8 @@ function rag(job) {
 }
 const niceDate = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
 const openReqs = () => (DATA.requests || []).filter((r) => r.status === "open");
+/* Still needing a human - one you have already answered is with Mary, not you. */
+const awaitingReqs = () => openReqs().filter((r) => !SENT_ANSWERS[r.id]);
 const unseenMsgs = () => MESSAGES.filter((m) => m.author !== "mary" && !m.seen_by_mary).length;
 
 /* ---------------- panel ---------------- */
@@ -153,9 +162,11 @@ function jobPanel(j) {
     <div class="panel-sec"><h4>Ask Mary about this job</h4>
       <div class="ask-inline"><textarea id="panel-ask" placeholder="Chase the supplier, re-price it, explain the number..."></textarea>
       <button class="btn" id="panel-ask-send">Send to Mary</button></div></div>`);
-  $("#panel-ask-send").addEventListener("click", async () => {
+  $("#panel-ask-send").addEventListener("click", async (e) => {
     const body = $("#panel-ask").value.trim();
     if (!body) return;
+    e.target.disabled = true;
+    e.target.textContent = "Sending...";
     await sendToMary(body, j.job);
     closePanel();
   });
@@ -188,7 +199,7 @@ const ICONS = {
 const PAGES = [
   { key: "overview", label: "Overview", sub: () => "Everything Mary is holding, at a glance" },
   { key: "pipeline", label: "Pipeline", sub: () => "Every live tender, most urgent first" },
-  { key: "requests", label: "Mary needs you", sub: () => `${openReqs().length} decision${openReqs().length === 1 ? "" : "s"} she cannot make without a human` },
+  { key: "requests", label: "Mary needs you", sub: () => `${awaitingReqs().length} decision${awaitingReqs().length === 1 ? "" : "s"} she cannot make without a human` },
   { key: "messages", label: "Messages", sub: () => "Two-way line - she picks up what you write within seconds" },
   { key: "comms", label: "Comms log", sub: () => "Everything sent and everything read" },
   { key: "catches", label: "Catches", sub: () => "Errors found and money saved" },
@@ -204,7 +215,7 @@ const RENDER = {
         <div class="stat" data-go="pipeline"><div class="n">${DATA.jobs.length}</div><div class="l">Live jobs tracked</div></div>
         <div class="stat ${dueSoon.length ? "amber" : "green"}" data-go="pipeline"><div class="n">${dueSoon.length}</div><div class="l">Due in the next 3 days</div></div>
         <div class="stat ${overdue.length ? "red" : "green"}" data-go="pipeline"><div class="n">${overdue.length}</div><div class="l">Overdue</div></div>
-        <div class="stat amber" data-go="requests"><div class="n">${openReqs().length}</div><div class="l">Decisions Mary needs</div></div>
+        <div class="stat amber" data-go="requests"><div class="n">${awaitingReqs().length}</div><div class="l">Decisions Mary needs</div></div>
         <div class="stat green" data-go="catches"><div class="n">${DATA.catches.length}</div><div class="l">Catches logged</div></div>
       </div>
       <div class="section"><div class="section-head"><h3>Most urgent</h3><a data-go="pipeline">Full pipeline &rarr;</a></div>
@@ -239,14 +250,21 @@ const RENDER = {
     if (!open.length && !done.length) return `<div class="empty"><strong>Nothing needed</strong>Mary has no open requests.</div>`;
     const card = (r) => r.status === "open" ? `
       <article class="req" data-req="${r.id}">
-        <div class="req-top"><div><h3>${esc(r.title)}</h3><div class="meta">${esc(r.job)} &middot; raised ${esc(r.raised)} &middot; needs <strong>${esc(r.owner)}</strong></div></div><span class="chip warn">waiting</span></div>
+        <div class="req-top"><div><h3>${esc(r.title)}</h3><div class="meta">${esc(r.job)} &middot; raised ${esc(r.raised)} &middot; needs <strong>${esc(r.owner)}</strong></div></div>
+        <span class="chip ${SENT_ANSWERS[r.id] ? "ok" : "warn"}">${SENT_ANSWERS[r.id] ? "sent to Mary" : "waiting"}</span></div>
         <div class="req-block"><h5>Why Mary is blocked</h5><p>${inline(r.why)}</p></div>
         <div class="req-block needs"><h5>What she needs from you</h5><p>${inline(r.needs)}</p></div>
+        ${SENT_ANSWERS[r.id] ? `
+        <div class="req-answer sent">
+          <h5>Your answer &middot; sent ${esc(SENT_ANSWERS[r.id].at)}</h5>
+          ${fmt(SENT_ANSWERS[r.id].body)}
+          <p class="sent-note">With Mary now - she will reply in Messages and mark this resolved.</p>
+        </div>` : `
         <div class="req-answer">
           ${r.options?.length ? `<div class="req-options">${r.options.map((o, i) => `<button class="opt" data-opt="${i}">${esc(o)}</button>`).join("")}</div>` : ""}
           <div class="req-compose"><textarea data-draft="req:${r.id}" placeholder="Your answer (or pick an option above and add detail)..."></textarea>
           <button class="btn" data-answer="${r.id}">Answer</button></div>
-        </div>
+        </div>`}
       </article>` : `
       <article class="req resolved">
         <div class="req-top"><div><h3>${esc(r.title)}</h3><div class="meta">${esc(r.job)} &middot; answered ${esc(r.answered_at || "")} by ${esc(r.answered_by || "team")}</div></div><span class="chip ok">resolved</span></div>
@@ -325,7 +343,7 @@ function render() {
   const thread = $(".chat-thread");
   const stickToBottom = !thread || thread.scrollHeight - thread.scrollTop - thread.clientHeight < 40;
 
-  const badges = { requests: openReqs().length, messages: unseenMsgs() };
+  const badges = { requests: awaitingReqs().length, messages: unseenMsgs() };
   $("#nav-items").innerHTML = PAGES.map((p) => `
     <button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.key]}${p.label}
     ${badges[p.key] ? `<span class="badge${p.key === "requests" ? " hot" : ""}">${badges[p.key]}</span>` : ""}</button>`).join("");
@@ -333,7 +351,7 @@ function render() {
   $("#page-title").textContent = meta.label;
   $("#page-sub").textContent = meta.sub();
   $("#page").innerHTML = RENDER[page] ? RENDER[page].call(RENDER) : "";
-  $("#updated-at").textContent = "- " + new Date(DATA.updated).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  $("#updated-at").textContent = "Board updated " + new Date(DATA.updated).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
   $("#search").value = searchTerm;
 
   restoreDrafts();
@@ -386,10 +404,20 @@ document.addEventListener("click", async (e) => {
     const body = [chosen && `Decision: ${chosen}`, extra].filter(Boolean).join("\n\n");
     if (!body) { toast("Pick an option or type an answer first"); return; }
     answer.disabled = true;
-    await sendToMary(body, `${req.id}: ${req.title}`);
+    answer.textContent = "Sending...";
+    try {
+      await sendToMary(body, `${req.id}: ${req.title}`);
+    } catch {
+      answer.disabled = false;
+      answer.textContent = "Answer";
+      toast("Could not send - check your connection and try again");
+      return;
+    }
+    SENT_ANSWERS[req.id] = { body, at: new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }) };
     delete DRAFTS[`req:${req.id}`];
     delete DRAFTS[`opt:${req.id}`];
     render();
+    toast(`Answer sent - ${req.id} is with Mary`);
     return;
   }
   const sub = e.target.closest("[data-comms]");

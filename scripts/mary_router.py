@@ -72,7 +72,7 @@ def chat(reg, key):
 
 def job_title(reg, key):
     if key == TRIAGE:
-        return "Triage (front desk)"
+        return "Triage"
     return reg["jobs"].get(key, {}).get("name", key)
 
 

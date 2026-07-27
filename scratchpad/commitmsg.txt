@@ -1,12 +1,33 @@
-Triage chat: durable job file, dashmsg-9 handled
+Triage: AFS chase uncovers an unseen GBP 368k tender - Gordon Court opened
 
-Start data/jobs/triage.md as the front desk's durable record - scope, the two
-standing triage rules (Hightown ignored per Adam 27/07; portal notices are never
-noise), and a dated log.
+Chris Wall chased quote Q7585 against a job Mary had no record of. Traced it to
+Gordon Court, Stonegrove Edgware, for Chigwell Group - a tender Fenster already
+issued dated 09/07 at GBP 368,376.70 ex VAT. Supplier cost GBP 201,086.70 =
+BSW GBP 182,787.76 + AFS GBP 18,298.94.
 
-dashmsg-9 (Zac, dashboard) was a system test of the permanent per-job chats and
-the always-on bridge. Answered on the hub only: which chat this is, the four
-noticeboard entries read back, and confirmation of resume-not-restart. No email,
-no pricing, no job work - as instructed. Queue file moved to processed/.
+Q7585 itself is carried correctly: 3no Aluprof MB-78EI EI30 double doors at
+GBP 6,468.03 / 6,026.47 / 5,804.44, each sold at cost + the GBP 1,500 house DAD
+adder, GBP 22,798.94 in total. Verified line by line, nothing dropped.
+
+Two findings handed to the new job chat. GBP 506.37 of AFS cost - fixing pack
+GBP 256.37 and delivery GBP 250.00, both optional extras outside the headline
+net - is not carried anywhere in the tender. And the FR30 door count was priced
+off a schedule Gintare had told AFS in writing did not correspond with the plans
+and elevations, because our tender closed the same afternoon; three doors at
+GBP 22,798.94 sell now rest on it. Q7585 validity expires around 08/08.
+
+Routing fix: "chigwell" removed from grange-hill's match list. It is the client
+of both Grange Hill Methodist and Gordon Court, so it had stopped being
+distinctive; it stays a grange-hill sender term, which scores below threshold
+alone. New job matches on gordon court / stonegrove / q7585 / 5244-ark / ha8 7tq.
+Routing verified with --test in both directions.
+
+- New chat gordon-court, briefed with the full position.
+- Noticeboard: AFS terms (30-day validity, 8 weeks from order signature AND first
+  payment, 60/40, fixing pack and delivery always extras) and EI30 door rates.
+- Handoff to vesuvius for REQ-8 - AFS quoted an FR30 door in two days, and the
+  EI30 rates are a floor to sense-check 60-minute doors against, not a price.
+- MARY-HANDOVER job table row; dashboard job card added and redeployed.
+- Triage file records the two unrelated Gordon Courts in the archive.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

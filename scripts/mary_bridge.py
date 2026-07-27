@@ -25,6 +25,7 @@ import json
 import os
 import subprocess
 import sys
+import threading
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -74,6 +75,9 @@ def save_bridge_state(st):
 
 ENV = {}
 _pushed = [None]
+# The session runs on a worker thread so intake never stops while Mary works.
+_worker = [None]
+_current = [(None, "")]
 
 
 def write_status(state, chat_key=None, depth=0, detail="", title=""):
@@ -294,7 +298,11 @@ def dispatch(key, orders, reg, bst, dry_run=False):
 
 
 def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
-    """Intake, then dispatch at most one chat. Returns seconds to wait."""
+    """Intake, then dispatch at most one chat. Returns seconds to wait.
+
+    Intake runs on EVERY pass, including while a session is working - a job can
+    take an hour, and the hub must still show a message arriving and queueing
+    behind it rather than going quiet until the session ends."""
     now = time.time()
     if now - state.get("_last_dash", 0) >= DASH_EVERY:
         mp.poll_dashboard(env, state)
@@ -313,14 +321,20 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
                 log("TOKEN REFRESH FAILED: %s" % e)
         state["_last_mail"] = now
 
+    # Our own session is running in a worker thread - keep the depth on the hub
+    # live so you can watch your message queue up behind it.
+    if _worker[0] and _worker[0].is_alive():
+        key, title = _current[0]
+        write_status("working", key, len(read_orders()), "working - new items queue behind this", title=title)
+        return TICK
+
     if time.time() < bst.get("backoff_until", 0):
         return TICK
     # Never run two sessions at once - they share one repo, one git index and
     # one dashboard state. The lockfile is also how we coexist with the old
-    # 15-minute poller if it is ever re-enabled.
+    # 15-minute poller and the morning-update task.
     if mp.session_running():
-        depth = len(read_orders())
-        write_status("working", None, depth, "a session is already running")
+        write_status("working", None, len(read_orders()), "a session is already running")
         return TICK
 
     orders = read_orders()
@@ -337,8 +351,13 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
         return TICK
 
     key, group = groups[0]
-    dispatch(key, group, reg, bst, dry_run=dry_run)
-    return 0
+    if dry_run:
+        dispatch(key, group, reg, bst, dry_run=True)
+        return 0
+    _current[0] = (key, router.job_title(reg, key))
+    _worker[0] = threading.Thread(target=dispatch, args=(key, group, reg, bst), daemon=True)
+    _worker[0].start()
+    return TICK
 
 
 def main():
@@ -384,6 +403,8 @@ def main():
                 log("BRIDGE loop error: %s" % e)
                 wait = 10
             if args.once:
+                if _worker[0]:
+                    _worker[0].join()
                 break
             time.sleep(wait or TICK)
     except KeyboardInterrupt:
