@@ -32,7 +32,10 @@ handover docs to remember a job it had priced that morning. Replaced by:
   (`REQ-n:` is followed to that request's job); email routes on weighted match terms - subject hit 3,
   sender 2, body 1, needs >= 3, ties go to triage. `--list`, `--add-job`, `--test "subject"`.
 - **`scripts/mary_bridge.py`** is the always-on process. Dashboard every **5s** (our own endpoint, free),
-  Graph mail every **120s**, dispatch immediately when free. Scheduled task `MaryGraceBridge` runs it at
+  Graph mail every **120s**, dispatch immediately when free. **The session runs on a worker thread** so
+  intake never stops while Mary works - it was single-threaded at first and a 10-minute session meant
+  10 minutes of no polling, which defeats the point. New work queues visibly behind the running job and
+  the hub's depth counter climbs. Scheduled task `MaryGraceBridge` runs it at
   logon with a 5-minute `IgnoreNew` heartbeat that restarts it if it dies. **`MaryGracePoller` is now
   disabled** and kept only as a fallback (`mary_poller.py` still runs standalone for backfills; its
   intake functions are what the bridge imports).
@@ -76,6 +79,15 @@ handover docs to remember a job it had priced that morning. Replaced by:
 - **Outlook renders email with Word's engine** - CSS like `white-space:pre-wrap` is IGNORED. `mary_send.py` converts plain text to explicit HTML tags. ALWAYS screenshot-verify email HTML (headless Chrome) before shipping a new layout; a successful send proves nothing about rendering.
 - **Cloudflare secrets take ~1 min to propagate**; bot protection 403s scripted requests without a browser user-agent; use `until curl ... ; do sleep 5; done` to wait for an edge deploy rather than assuming.
 - **Browser caching masked three deploys** - hence no-store on html/js/css.
+- **`styles.css` line 28 sets `strong, h1-h4` to `--ink` (#102b35).** Anything dark-on-dark inherits it -
+  that is how Mary's numbered items went invisible on her navy chat bubbles. Any new dark surface needs
+  its own `strong`/heading colour override. Check computed colours in a real browser, not by reading CSS.
+- **Hub QA without the Browser pane** (mary-dashboard.pages.dev is blocked by policy): drive headless
+  Chrome over CDP - `--headless=new --remote-debugging-port=N --remote-allow-origins=*` (Chrome 111+
+  rejects the devtools websocket otherwise) plus `websocket-client` with `suppress_origin=True`. Launch
+  on `about:blank` and `Page.navigate` after attaching; passing the URL as an argv means the target is
+  not there when you look. Stub `window.fetch` for POSTs to exercise submit flows without sending real
+  messages to Mary. Scripts kept in the session scratchpad.
 - `subprocess` + wrangler on Windows: pass `encoding="utf-8", errors="replace"` or emoji output crashes cp1252.
 - openpyxl `insert_rows` does NOT move merged ranges (silently killed formulas in the house generator - fixed); never bare-string-replace row numbers in formulas (corrupts constants like `1900*75%`).
 - PowerShell 5.1: no `&&`, here-strings break here - write commit messages to a temp file and `git commit -F`.
