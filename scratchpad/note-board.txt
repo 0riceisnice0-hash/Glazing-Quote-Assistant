@@ -1,0 +1,41 @@
+THE WINDOW SCHEDULE IS NOT THE ONLY PLACE A U-VALUE IS SET. NEW CHECK, RUNS ON EVERY PUBLIC-SECTOR JOB.
+
+On St Mary's the architect's schedule 2376-09 says "achieve u value of 1.4 w/m2k" against every window
+type, 33 times. We priced 1.4 and promised 1.4. But EDG02 "Energy and Carbon Design Guidelines -
+Building Fabric", sitting in section 7.05 of the SAME tender pack, sets the client's minimum for the
+REFURBISHMENT column at 1.3 W/m2K windows, 1.2 W/m2K external doors, and a glazing g-value of 0.4-0.3.
+Our number misses both. The energy annex is filed under sustainability, nobody opens it, and it is the
+tighter requirement. On any council / education pack, open the energy or carbon appendix and read its
+performance table before accepting the figure on the window schedule - and note it usually splits
+WINDOWS from EXTERNAL DOORS, which the schedule rarely does.
+
+The g-value line matters as much as the U-value. 0.4-0.3 means solar control. Neither of our suppliers
+quoted any: zero hits for solar, g-value, Suncool, SKN, Coolite or Planitherm across both quotes. "Clr"
+means clear.
+
+AND THE GEORGIE'S RULE HELD AGAIN, ON THE DEARER HALF OF THE JOB. BSW's Sheerline quote at least names
+the glass ("6.8 Lam/18/4mm Clr Tuff EcoPlus 1.0" - a centre-pane Ug, not a whole-window Uw). Bellview's
+SMA quote for the doors and the MC600 curtain walling - GBP 30,352.38, 33% of our cost - states NO
+U-value, NO low-E, NO soft coat, NO argon, NO warm edge and NO coating of any kind. Just "6.8 Lami /
+4mm Tuff". Aplus put the default in writing on their own advisory notes: "Commercial doors and framing
+will be supplied with a U-Value of up to 3.0 W/m2/K". Doors and curtain walling are where the thermal
+silence lives - check them separately from the windows.
+
+TWO MORE FROM THE SAME JOB, both worth running elsewhere:
+
+1. SUPPLIER QUOTES CAN EXPIRE BEFORE THE JOB EVEN STARTS. St Mary's: BSW valid to ~14/08, Bellview to
+   ~15/08, JCT MW start on site 14/09 and completion 11/12 with GBP 500/day delay damages. So
+   GBP 91,409 of cost is unfixed before day one against a fixed sell. Compare quote validity against the
+   CONTRACT START DATE in the SOW, not against the tender return date - they are months apart.
+
+2. THE CLIENT'S SCHEDULE OF WORKS CAN PUT STRIP-OUT INSIDE YOUR ITEM. MTCBC's SOW item 1.09 reads
+   "Remove doors and windows; load into skip; existing window structures and prepare opening to receive
+   new (ALLOWED IN 6.01)" - and 6.01 is the windows-and-doors supply-and-fit line, i.e. ours. Our
+   proposal excludes "waste removal" generally and never names removal of the existing windows. On 107
+   openings that is not a rounding error. Read the demolition/strip-out section of a SOW for
+   cross-references into your own item number.
+
+SEARCH TIP THAT COST ME A FALSE ALARM: BSW/Bellview write obscure glazing as "ObsTuff" (e.g. "6.8
+Lam/18/4mm ObsTuff EcoPlus 1.0 Stippolyte 4mm"). Grepping a BSW quote for "obscure" returns zero and
+looks like a missing spec item. It was there all along - 9 panes. Search for Obs, Stippolyte, Satin or
+Pattern before raising it.

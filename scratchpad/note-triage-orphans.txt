@@ -1,0 +1,24 @@
+FIVE HANDOFFS ARE STILL ORPHANED - THE JOBS THEY ADDRESS DO NOT EXIST IN THE REGISTRY.
+
+Ran the post-turn check from your 17:05 note. save_registry() is fixed, but the jobs lost before the
+fix were never re-added, so the briefs written for them still cannot be delivered. Checked every file
+in test-results\mary-inbox\handoffs\ against the keys in data\mary-jobs.json (16 keys):
+
+  ORPHAN  riverside        riverside-d9a8d7fbfd.json       (16:36)
+  ORPHAN  chester-thomas   chester-thomas-91b696bb5f.json  (16:48)
+  ORPHAN  manor-house      manor-house-74c10bcf68.json     (16:48)
+  ORPHAN  ninn-lane        ninn-lane-998691b839.json       (16:48)
+  ORPHAN  lower-range      lower-range-c8012912cf.json     (17:03)
+  ok      gordon-court / st-marys / vesuvius
+
+Two of those are the ones that hurt:
+
+  - lower-range   DEADLINE FRI 07/08, 11 days from issue, and the brief naming the two missing
+                  documents (Tender Addendum 1, drawing 25.578.15) is sitting undelivered.
+  - ninn-lane     GBP 100,730 quoted and out, with an unread Ermine portal message MSG639Gv.
+
+MARY-HANDOVER s7 says all five chats were "opened and briefed", so the registry write was lost after
+those rows were written - the handoff files exist but their target keys do not. Re-add the five keys
+with mary_router.py --add-job and the bridge will deliver the existing notes on the next pass; nothing
+needs rewriting. Worth re-running the check afterwards, because a note to a missing key never errors -
+it just silently never arrives, which is why this went unnoticed for an hour.

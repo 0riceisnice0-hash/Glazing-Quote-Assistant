@@ -1,0 +1,52 @@
+St Mary's: the arithmetic was flawless and the energy annex was never opened
+
+First substantive turn of the st-marys job chat. The GBP 174,546.37 quote went out on
+17/07; this turn audited what it actually covers. The price stands.
+
+The build is clean, and that is worth recording as loudly as the problems: all 31
+Sheerline types reconcile to BSW QT252799 exactly on quantity AND line total, all 7 SMA
+lines to Bellview 0000000483 at the 15% discounted figure to the penny, every unit rate
+follows the house formula, and the global install line of GBP 21,915.05 reconciles to
+the penny against the labour codes. The Filwood trap did not bite on the biggest line -
+Type AK is correctly coded CW with GBP 3,055.05 of curtain-wall labour at GBP 150/m2.
+
+What was wrong was quieter than the sums.
+
+THE PACK SETS TWO U-VALUES AND WE QUOTED THE LOOSER ONE. Window schedule 2376-09 says
+1.4 W/m2K, 33 times, and the proposal promises 1.4. EDG02 "Energy and Carbon Design
+Guidelines - Building Fabric", in the same 08/07 pack, sets the refurbishment minimum at
+1.3 windows, 1.2 external doors and a g-value of 0.4-0.3. The energy annex is filed under
+sustainability, nobody opens it, and it is the tighter document. Neither supplier states
+a U-value at all - BSW give only a centre-pane Ug, and Bellview state no U-value and no
+coating of any kind across GBP 30,352.38 of doors and MC600 curtain walling. No solar
+control appears in either quote, so the g-value is definitely not priced. REQ-15.
+
+THE SM5 WEXHAM ERROR, LIVE ON A SENT QUOTE. Type G needs a top-hung vent; Bellview quoted
+a door and two fixed fields with "1 x prepared for a thickness of 28mm", and BSW fill that
+aperture with an 854x900 Sheerline casement - a 70mm window inside a 100mm Smart Wall
+frame, in a 28mm pocket. BSW themselves ruled that coupling impossible on 24/07.
+GBP 8,499.66 of sell. REQ-16.
+
+THREE UNDEFINED BOUNDARIES (REQ-17). We exclude scaffold and MEWPs while the preliminaries
+require the Contractor to provide all scaffolding "for himself and any Sub-Contractor",
+on 55.97 m2 of glazing 3.62 m or taller. SOW item 1.09 allocates strip-out and disposal of
+the existing windows into item 6.01 - our line - and we never named it. Manifestation is
+in neither quote and neither list.
+
+AND THE RECORD WAS WRONG ABOUT THE SUPPLIER BACKING. It is BSW + Bellview, not BSW + Aplus.
+Aplus QP70172 is dated five days after we submitted, is Technal not Sheerline/SMA, and is
+quoted unglazed - reordering against it would have bought a different job with no glass.
+
+Commercial: both supplier quotes lapse mid-August but site start is 14/09 with GBP 500/day
+delay damages, so GBP 91,409.18 of cost is unfixed before day one.
+
+One false alarm caught before it was raised: BSW write obscure glazing as "ObsTuff", so a
+search for "obscure" returns zero on a quote that carries 9 obscure panes.
+
+Also found five handoffs still addressed to job keys that do not exist - riverside,
+chester-thomas, manor-house, ninn-lane, lower-range - including a 07/08 deadline and
+GBP 100,730 of quoted work. Handed back to triage.
+
+Checks manifest fires 3 FAIL + 1 ASK, all of them the findings above.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
