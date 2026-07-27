@@ -38,5 +38,6 @@ Batch findings: prefer ONE digest email per session over many small ones, unless
 
 1. Move each handled queue `.json` (and its `-att` folder) to `test-results\mary-inbox\processed\`.
 2. Update `MARY-HANDOVER.md` job table + `HANDOVER.md` records with anything material; new durable rules to `AI.md`.
-3. Commit and push (git commit -F a message file; Co-Authored-By line per repo convention).
-4. If something could not be completed (usage limit, missing file, ambiguity only Zac can resolve), leave its queue file IN PLACE and send Zac a one-line email saying what is stuck and why.
+3. **Update the dashboard:** edit `data/dashboard-state.json` (jobs/deadlines/flags/catches - close flags that were resolved, add new ones) then run `python scripts/mary_dashboard.py --deploy`. The dashboard at https://mary-dashboard.pages.dev must never show stale deadlines.
+4. Commit and push (git commit -F a message file; Co-Authored-By line per repo convention).
+5. If something could not be completed (usage limit, missing file, ambiguity only Zac can resolve), leave its queue file IN PLACE and send Zac a one-line email saying what is stuck and why.

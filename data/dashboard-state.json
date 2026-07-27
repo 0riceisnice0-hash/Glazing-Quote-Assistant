@@ -1,0 +1,30 @@
+{
+ "updated": "2026-07-27T12:30:00Z",
+ "jobs": [
+  {"job": "Grange Hill Methodist Church", "client": "Chigwell (London) PLC", "deadline": "2026-07-28", "status": "Supplier quote awaited (RFQ 24/07); Mary benchmark GBP 27,560 ready to check it against", "value": "GBP 27,560 benchmark", "stage": "tender"},
+  {"job": "Georgie's (formerly Rosebank)", "client": "Pearce Construction", "deadline": "2026-07-28", "status": "Two supplier RFQs out (alu sash + CW/doors); quotes needed back Monday morning", "value": "TBC", "stage": "tender"},
+  {"job": "BCC Filwood Broadway", "client": "Stepnell", "deadline": "2026-07-30", "status": "BSW quote in hand (24/07); glazing-only compliance caveat to carry into return", "value": "TBC", "stage": "tender"},
+  {"job": "Air Separation Unit, Vesuvius Way", "client": "Stainforth Construction", "deadline": "2026-07-30", "status": "In the log but no supplier RFQ visible in the inbox - confirm it is moving", "value": "TBC", "stage": "tender"},
+  {"job": "Brocks Hill Phase 2 Teaching Block", "client": "SMD", "deadline": "2026-07-31", "status": "BLOCKED: spec is triple glazed but BSW say Smart Wall unavailable in triple - decision needed", "value": "TBC", "stage": "tender"},
+  {"job": "Hightown OLDS0056 New Back Door", "client": "Hightown Housing", "deadline": "2026-08-03", "status": "In-Tend RFQ closes 12:00; pack needs pulling from portal; indicative GBP 1,300-2,000", "value": "GBP 1.3-2k indicative", "stage": "tender"},
+  {"job": "Princess Beatrice House", "client": "Guildmore", "deadline": "2026-07-17", "status": "OVERDUE - revisions done (EPDM/mastic in, 2.5% MCD); awaiting final send", "value": "TBC", "stage": "overdue"},
+  {"job": "Crestwood Park Primary School", "client": "Reynolds Conservation", "deadline": "2026-07-20", "status": "OVERDUE - WCI controls price arrived 24/07; quote in checking, can go out now", "value": "TBC", "stage": "overdue"},
+  {"job": "SM5 Wexham SEND Bungalow", "client": "SM5 Developments", "deadline": "2026-07-24", "status": "Quote sent 24/07 (GBP 20,563.57, all-alu) - awaiting client; Bellview door pricing valid to ~12/08", "value": "GBP 20,563.57 quoted", "stage": "submitted"}
+ ],
+ "flags": [
+  {"raised": "2026-07-24", "job": "Grange Hill Methodist Church", "flag": "Are the chapel folding doors (spec 3.15, ~5.8m dark brown + glazing over) in Fenster's package? NOT in the supplier RFQ - approx GBP 10k if ours", "owner": "Adam", "status": "open"},
+  {"raised": "2026-07-24", "job": "Brocks Hill Phase 2", "flag": "Triple-glazed spec vs 'Smart Wall not available in triple glazing' - door system or glazing spec must change before quoting", "owner": "Adam", "status": "open"},
+  {"raised": "2026-07-27", "job": "Stoke Park School (Borras)", "flag": "Glass order 46 panes / 25.6m2 SHORT vs Aplus final sizes; no 32mm units quoted; CN Glass rate GBP60/m2 vs Vetroseal GBP110/m2 (~GBP7k saving)", "owner": "Adam", "status": "open"},
+  {"raised": "2026-07-27", "job": "Hightown OLDS0056", "flag": "Pull the In-Tend pack (Mary has no portal login) before 03/08 12:00", "owner": "Adam / Gintare", "status": "open"},
+  {"raised": "2026-07-25", "job": "St Mary's Refurbishment", "flag": "Window schedule addendum arrived AFTER submission - check whether the quote needs revising", "owner": "Gintare", "status": "open"}
+ ],
+ "catches": [
+  {"date": "2026-07-27", "job": "Stoke Park School", "catch": "Glass order 46 panes short (+24%) caught before manufacture; CN Glass alternative ~GBP7,000 cheaper", "type": "procurement"},
+  {"date": "2026-07-27", "job": "Hightown OLDS0056", "catch": "Missed portal RFQ discovered via stage-ending reminder - not in log, no folder, rescued with 7 days to spare", "type": "missed-tender"},
+  {"date": "2026-07-24", "job": "Grange Hill", "catch": "Chapel folding doors (spec 3.15) missing from supplier RFQ - ~GBP10k unpriced scope", "type": "scope-gap"},
+  {"date": "2026-07-24", "job": "SM5 Wexham", "catch": "Fire-exit double doors quoted without panic bar; entrance closer non-hold-open vs spec; alu requote dropped restrictors/vents", "type": "spec-compliance"},
+  {"date": "2026-07-24", "job": "Brocks Hill Phase 2", "catch": "Supplier reply contradicts triple-glazing spec - flagged before anyone quoted on it", "type": "spec-conflict"},
+  {"date": "2026-07-22", "job": "Greenfields Barnstaple", "catch": "Register-only benchmark landed within 6.3% of the manually priced sent quote", "type": "calibration"}
+ ],
+ "register": {"lines": 15551, "categories": 79, "recent": "First CN Glass rate captured 27/07 (GBP60/m2 - half Vetroseal's GBP110); live Sheerline Prestige and Liniar rates logged as calibration marks"}
+}
