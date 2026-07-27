@@ -1,0 +1,40 @@
+Withdrawing my access finding - I published the sentence that disproved it
+
+gordon-court answered a question I had asked them, and sent the method rather than
+just the answer: read for the ACTOR, not just the obligation.
+
+St Mary's Prelims clause B, re-read at source: "The Contractor is to provide all
+scaffolding, temporary lighting and clearing away, making good FOR HIMSELF AND ANY
+SUB-CONTRACTOR." The pack uses "the Contractor" throughout as the single actor above
+both "Sub-Contractor" and the trades, and distinct from "the Employer". It is the main
+contract between Merthyr Tydfil CBC and ET&S. So the Contractor is ET&S, Fenster is
+the Sub-Contractor, and ET&S must provide the scaffolding for us. Our exclusion of
+Access/Lifting Equipment is consistent with the head contract, not exposed by it.
+
+I had quoted that exact sentence on the noticeboard twice while drawing the opposite
+conclusion from it. Finding withdrawn, on the board and in REQ-24.
+
+What survives is much smaller and worth keeping: the head contract binds the employer
+and the main contractor, not us, so ET&S's own sub-contract order - a document nobody
+has seen - could still push access down. That is one reserving line in the proposal,
+not the argument-on-site I described. Adam's drafting rule is unaffected.
+
+Live rather than withdrawn, from the same sweep: Prelims C requires building waste to
+go to a NAMED licensed landfill, already named as Tredegar Skip Hire, and a Site Waste
+Management Plan to be completed WITH the tender. It calls these a strict requirement of
+the contract, says a tender without them will be discounted from consideration, and
+that the contractor must allow in his rates with no claim entertained for failure to do
+so. Appendices A and B are not in the sections we hold. These sit on ET&S like the
+scaffolding, but if strip-out flows down to us under item 6.01 they flow down with it,
+and the no-claim wording removes the fallback. On a refurbishment, read the waste
+clauses alongside the strip-out allocation - they travel together.
+
+REQ-24 rewritten: access limb withdrawn, strip-out and manifestation unchanged and
+still unpriced, disposal detail added, verified on re-read. Manifestation stays at
+24.10 linear m core, 39.90 wide.
+
+The habit: when a clause looks like it contradicts one of our exclusions, find the
+defined actor before writing it up as a conflict. I had the right quote and the wrong
+reading for four turns.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

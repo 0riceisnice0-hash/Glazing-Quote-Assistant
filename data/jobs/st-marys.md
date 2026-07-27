@@ -353,7 +353,33 @@ all scaffolding *"for himself and any Sub-Contractor"*, we install up to **5,580
 glazing is 3.62 m or taller**. An unqualified exclusion is a negotiating position, not an agreement, and
 on a JCT MW with **GBP 500/day** delay damages it gets argued on site. Put to Adam as **REQ-24**.
 
-### RFI-3 (COMMERCIAL) - we excluded the access plant the preliminaries require
+### RFI-3 IS WITHDRAWN - I READ THE OBLIGATION AND NOT WHO IT FELL ON (corrected 27/07)
+
+**The access finding below was wrong, and I broadcast it.** Prompted by `gordon-court`, who found the
+same question on their job and answered it by reading for the **actor** rather than the obligation.
+
+Re-read at source, `2, 3, 4 - SOW St. Marys.xlsx`, sheet `2. Prelims`, clause **B**, rows 180-181:
+
+> *"The Contractor is to provide all scaffolding, temporary lighting and clearing away, making good
+> **for himself and any Sub-Contractor**."*
+
+The pack uses **"the Contractor"** throughout as the single actor above both **"Sub-Contractor"** (r181)
+and the trades (r222), and distinct from **"the Employer"** (r5, r209). **This is the main contract
+between MTCBC and ET&S** - so "the Contractor" is **ET&S**, and Fenster is the Sub-Contractor it must
+provide scaffolding **for**.
+
+**So our exclusion of Access/Lifting Equipment is CONSISTENT with the head contract, not exposed by it.**
+Same conclusion gordon-court reached from jLiving's Works Information on their job. **I quoted the very
+sentence that disproves my reading and drew the opposite conclusion from it.**
+
+**The residual, which is much smaller than what I claimed:** the head contract binds MTCBC and ET&S, not
+us. **ET&S's own sub-contract order to Fenster is a document we do not hold** and could still push access
+down. That is worth one reserving line in the proposal, not the argument-on-site I described. Adam's
+drafting rule ("state that we have not allowed for any access") stands and is unaffected.
+
+*Kept below unchanged as the original text, so the correction is visible rather than tidied away.*
+
+### RFI-3 (SUPERSEDED - see above) - we excluded the access plant the preliminaries require
 
 Straight Filwood pattern, and here the pack says so explicitly.
 
@@ -380,6 +406,23 @@ item as our supply and fit*.
 Our proposal excludes *"Waste Removal - generally excluded"* but **never names removal or disposal of the
 existing windows**. On 107 openings that is not a rounding error. *(Grange Hill rule: a silent gap reads
 as included.)* Confirm with ET&S whether strip-out sits with them or with us.
+
+**AND THE DISPOSAL DUTIES THAT COME WITH IT** (found 27/07 in the same prelims sweep that corrected
+RFI-3 - Prelims **B** and **C**, rows 253-278):
+
+- A **Site Waste Management Plan (SWAMP), Appendix A**, must be *"fully completed with the submission of
+  this tender"*. **Appendices A and B are not in the sections we hold** (we have 2, 3 and 4 only).
+- Building waste must go to a **named LICENSED LANDFILL** - the pack already names one, **"Tredegar Skip
+  Hire"** - and the contractor must name the site(s) he intends to use.
+- *"The above items are a **STRICT requirement of the Contract** and any Tender so returned, not
+  containing the requested information **will be discounted from consideration**. The contractor is to
+  allow in his rates for these requirements and **no claim will be entertained for failure to do so**."*
+
+These sit on **ET&S** in the head contract, like the scaffolding. But **if strip-out flows down to us
+under item 6.01, the disposal duties, the licensed-landfill naming and the SWMP flow down with it** -
+and the "allow in his rates, no claim entertained" wording removes the fallback. Worth putting in the
+same question to ET&S rather than a separate one. *(Compare John North Hall, where the client asks for a
+Waste Carrier Licence outright.)*
 
 ### RFI-5 (SCOPE) - manifestation is in neither quote and neither list
 
