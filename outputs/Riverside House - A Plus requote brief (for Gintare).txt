@@ -100,21 +100,29 @@ C1. IS THE 1m2 GEOMETRIC OR AERODYNAMIC? The drawings do not say. Our reading is
     many words. On that reading the vents as quoted clear the requirement by 30% and
     nothing needs to change. Please confirm - or send the fire strategy per C0.
 
-C2. ARE THE OPENINGS REALLY NEW? THE ANSWER LOOKS DIFFERENT FOR EACH VENT.
-
-    We have been told the openings are being newly formed and can therefore be made any
-    size. Reading the two stairwells off K1653-11 and K1653-12, that appears to be true
-    of one vent and not the other:
+C2. ARE THE OPENINGS REALLY NEW - AND WHAT ARE THEY CUT INTO? Reading the two
+    stairwells off K1653-11 and K1653-12:
 
       AOV.01, second floor stairwell (K1653-12) - the stairwell has NO window opening
-        in any of its walls. Every wall around it is drawn solid. So a new opening does
-        have to be formed here, and the size is genuinely free. This one corroborates
-        what we were told.
+        in any of its walls. Every wall around it is drawn solid, so a new opening does
+        have to be formed here.
 
       AOV.02, first floor stairwell (K1653-11) - the stairwell already has THREE window
         openings in its external wall. If the vent takes one of them, the size is set by
-        the existing opening and enlarging it is structural work - lintel, cutting,
-        making good - which is in nobody's price.
+        the existing opening.
+
+    BUT "A NEW OPENING" IS NOT THE SAME AS "A FREE OPENING", AND ON THIS BUILDING IT IS
+    NEITHER. What matters is what the opening is cut INTO. Riverside House is an existing
+    building throughout: K1653-04 is a SINGLE "EXISTING / PROPOSED ELEVATIONS" set of
+    eight elevations, with no added storey shown and no new construction annotated, and
+    the tower's cornice and pediment run continuously through all three storeys. So the
+    second floor is retained fabric, and AOV.01's new opening would be cut into existing
+    masonry - lintel, cutting, making good, and a changed external appearance on an
+    approved elevation.
+
+    So neither vent has a cost-free resize, and we should not price on the basis that
+    they do. This is the one point where our reading of the drawings differs from what
+    we have been told, which is exactly why it is worth settling rather than assuming.
 
     Please confirm per vent. And please still send the DEMOLITION and EXISTING PLANS:
     we hold neither, and on a comparable job the demolition legend was exactly where new
@@ -145,6 +153,19 @@ C4. IS AOV.01 A WALL WINDOW OR A ROOF VENT? This replaces an earlier query of ou
     stairwell wall, it is a different product from a different supplier and the quoted
     unit is simply the wrong thing. Please confirm which is intended, and if it is a
     wall window, which elevation it goes in.
+
+    Three things point the same way and none of them is conclusive on its own, which is
+    why we are asking rather than assuming:
+      - the note's own words, "vented at the top storey ROOF";
+      - the stairwell having no wall opening to put a window in;
+      - and the standard product for this exact duty being a roof unit. On a comparable
+        job the specification named a "STAIRWELL VENTILATOR... ROOF MOUNTED ONTO
+        HORIZONTAL KERB... 1m2 geometric free area" - the same 1m2, mounted on the roof.
+        The wall-mounted version in that same specification was a different model for a
+        different position.
+
+    If it is a roof vent, none of Part One applies to AOV.01 and we should be pricing a
+    kerb-mounted unit, not a casement.
 
 C5. ARE K1653-11 AND K1653-12 STILL CURRENT? They are the only documents that carry
     the smoke-vent requirement, and neither has ever been revised - both are dated

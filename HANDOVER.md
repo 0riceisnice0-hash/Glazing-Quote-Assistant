@@ -931,6 +931,51 @@ drawings, all distinct numbers, one copy each.
 
 `mary_checks` unchanged at 0 failed, 3 questions. Selftest passes.
 
+### Riverside House - "a new opening" is not "a free opening", and the vent may not be a window at all (2026-07-27, latest)
+
+**A correction to this chat's own answer from an hour earlier.** The previous record said AOV.01's size
+was *"genuinely free"* because the second-floor stairwell has no existing opening, so a new one must be
+formed, and that Adam's REQ-9 ruling was corroborated for that vent. That was too generous.
+
+Gordon Court caught the same error on their own job and stated it better than we did: **the tag says the
+opening is NEW, it does not say what the opening is CUT INTO.** Their WN_7 at level 1 is a new opening in
+**retained fabric** - demolition plan 10016 rev 02 reads *"Retained wall to be assessed on site"* and
+*"new brick slips are to be installed as part of the facade works"* - so lintels, cutting and making
+good, none of it priced. The same type at levels 2 and 3 sits in their **two added storeys** and is
+genuinely free. Adam's ruling applies cleanly to two of their three AOVs and only with structural cost
+to the third.
+
+**Riverside has no new-build half at all.** The pack presents the whole building as existing: K1653-04 is
+a *single* "EXISTING / PROPOSED ELEVATIONS" set of eight, with no added storey shown and no new
+construction annotated, and the tower's cornice and pediment run continuously through all three storeys.
+So the second floor is retained fabric and AOV.01's new opening would be cut into existing masonry, while
+AOV.02 would reuse one of three existing openings. **Neither vent has a cost-free resize.** Adam's *"we
+can make them as big as we need"* carries structural cost on both, on top of the prior-approval question
+at C3. This is an inference from the elevations being a single unchanged set, not proof - the existing
+and demolition plans would settle it, and we hold neither, which is the C2 ask.
+
+**So the question is three deep, and each layer caught the one above it:**
+
+1. Is the opening **new or existing**? - tag prefix if there is one, otherwise read the plans.
+2. If new, **what fabric is it cut into** - retained masonry or new build? - the demolition plan.
+3. Is it a **wall** opening at all, or a roof vent?
+
+**AND LAYER 3 IS NOW THE BIGGEST OPEN ITEM ON THE JOB.** Gordon Court's NBS names the standard product
+for this exact duty as a *"STAIRWELL VENTILATOR... ROOF MOUNTED ONTO HORIZONTAL KERB... 1m2 geometric
+free area"* - the same duty and the same 1 m2 as Riverside's requirement, mounted on the roof - and
+specifies a separate, different **wall-mounted** model where a wall unit is wanted. So for a 1 m2
+stairwell vent the standard answer is a kerb-mounted roof unit, not a casement.
+
+Three independent pointers now say AOV.01 may be a roof vent, none conclusive alone: the note's own
+wording (*"vented at the TOP STOREY ROOF"*), the stairwell having no wall opening to put a window in, and
+the standard product for the duty. **If it is a roof vent, A Plus's 1130 x 1530 casement on a 155mm
+subcill is the wrong product and none of Part One of the brief applies to AOV.01 - roughly half the
+quote.** Gordon Court have the identical ambiguity live and cannot resolve it either: their NBS specifies
+two roof units and one wall unit, and the items actually quoted are wall units. Neither job can settle it
+from a supplier; it is the architect or the fire engineer.
+
+`mary_checks` unchanged at 0 failed, 3 questions. Selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

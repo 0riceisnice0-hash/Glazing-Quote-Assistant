@@ -999,6 +999,21 @@ glazing carrying NO tag at all**: Riverside's stair windows are the only glazing
 without a W tag, which is probably why the vents were never scheduled. Untagged glazing is invisible
 to a schedule.
 
+**AND "A NEW OPENING" IS NOT "A FREE OPENING" - ASK WHAT THE OPENING IS CUT INTO.** This is the layer
+under the tag, and it caught both jobs. Gordon Court's WN_7 at level 1 is a new opening in **retained
+fabric** - their demolition plan says *"Retained wall to be assessed on site"* and *"new brick slips are
+to be installed as part of the facade works"* - so lintels, cutting and making good, none of it priced;
+the same type at levels 2 and 3 sits in two **added storeys** and is genuinely free. Riverside has no
+new-build half at all, so *both* its vents carry structural cost. **On a part-refurbishment a new
+opening in retained masonry and a new opening in new build are different jobs at different prices, and
+a type prefix cannot tell them apart.** Only the demolition plan can.
+
+So the question is three deep, and each layer caught the one above it:
+
+1. Is the opening **new or existing**? (tag prefix if there is one, otherwise read the plans)
+2. If new, **what fabric is it cut into** - retained masonry or new build? (demolition plan)
+3. Is it a **wall** opening at all, or a roof vent? (see the AOV note above)
+
 **BUT VERIFY IT AGAINST THE PACK, AND CHECK IT FLOOR BY FLOOR.** Gordon Court's schedules constrain
 ground and first floors to *"the existing structural opening sizes"* while levels 2-3 are new build
 and free - so a shortfall can be designed out upstairs and not downstairs. On Riverside the pack did
@@ -1017,6 +1032,11 @@ drawn anywhere. Three things follow when the openings turn out to be existing:
   stairwell has **no wall opening of any kind**, and the note says the stair is vented *"AT THE TOP
   STOREY ROOF"* - so that vent may need a **roof vent** while the supplier has quoted a wall casement
   on a 155mm subcill. **On any AOV, establish wall or roof before accepting a window quote for it.**
+  The standard product for a 1 m2 stairwell duty is a roof unit: Gordon Court's NBS specifies a
+  *"STAIRWELL VENTILATOR... ROOF MOUNTED ONTO HORIZONTAL KERB... 1m2 geometric free area"*, with a
+  separate **wall-mounted model** named where a wall unit is wanted - and the items actually quoted on
+  that job were wall units. Neither job can settle it from a supplier; it is the architect or fire
+  engineer. If it turns out to be a roof vent, the whole window quote for that position is void.
 
 **A PACK CAN HOLD TWO LAYOUT SETS, AND ONLY ONE MAY CARRY YOUR REQUIREMENT.** Riverside has the
 planning layout (K1653-03, all three floors on one sheet) and the construction-issue layouts

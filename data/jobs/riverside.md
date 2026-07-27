@@ -88,8 +88,26 @@ but the floor plans show the openings directly:**
 
 | | |
 |---|---|
-| **AOV.01** - second floor stairwell (K1653-12) | **NO window opening in any of its walls.** Every wall around the stairwell is drawn solid. A new opening genuinely has to be formed, so the size is free. **Adam's ruling is corroborated for this vent.** |
-| **AOV.02** - first floor stairwell (K1653-11) | **THREE existing window openings** already in its external wall. If the vent takes one, its size is set by the existing opening and enlarging it is structural work in nobody's price. **Not corroborated for this vent.** |
+| **AOV.01** - second floor stairwell (K1653-12) | **NO window opening in any of its walls.** Every wall around the stairwell is drawn solid, so a new opening has to be formed. |
+| **AOV.02** - first floor stairwell (K1653-11) | **THREE existing window openings** already in its external wall. If the vent takes one, its size is set by the existing opening. |
+
+**CORRECTION, 27/07 latest - I said AOV.01's size was "genuinely free" and that Adam was corroborated
+for that vent. That was too generous, and Gordon Court caught it by correcting the same error on their
+own job: "THE TAG SAYS THE OPENING IS NEW, IT DOES NOT SAY WHAT THE OPENING IS CUT INTO."** Their WN_7
+at level 1 is a new opening in *retained fabric* - lintels, cutting, making good - while the level 2
+and 3 units sit in genuinely new added storeys and are free. **On Riverside there is no new-build half
+at all.** The pack presents the whole building as existing: K1653-04 is a *single* "EXISTING /
+PROPOSED ELEVATIONS" set of eight, with no added storey shown and no new construction annotated, and
+the tower's cornice and pediment run continuously through all three storeys. So the second floor is
+**retained fabric**, and AOV.01's new opening would be cut into existing masonry.
+
+**Neither vent has a cost-free resize.** AOV.01 = new opening in retained masonry; AOV.02 = existing
+opening whose size is set, or another new opening in retained masonry. Adam's "we can make them as big
+as we need" carries structural cost on both, plus the planning question at C3. That is a materially
+different answer from the one on the board an hour ago and it is now C2 in the brief.
+
+*Inference, not proof:* it rests on the elevations being a single unchanged set. The existing plans
+and demolition plan would confirm it, and neither is in our possession - which is the C2 ask.
 
 **And neither stairwell's glazing carries a W1 or W2 tag** - every habitable-room window on these
 drawings does. The stair windows sit outside the tagged system entirely, which is probably why the
@@ -106,6 +124,16 @@ windows on that face or any other. So the arched-head risk is withdrawn. What re
 **the second-floor stairwell has no wall opening at all and the note says the stair is to be "VENTED AT
 THE TOP STOREY ROOF" - so AOV.01 may be intended as a ROOF vent, and A Plus have quoted a wall window
 on a 155mm subcill.** If so the quoted unit is the wrong product entirely. That is now C4.
+
+**Gordon Court's NBS corroborates it from a third direction.** Their specification names, for this exact
+duty, a *"STAIRWELL VENTILATOR... ROOF MOUNTED ONTO HORIZONTAL KERB... 1m2 geometric free area"* - the
+same 1 m2, mounted on the roof - and specifies a separate, **different wall-mounted model** for a
+different position. So the standard product for a 1 m2 stairwell vent is a roof unit on a kerb, not a
+casement. Three independent pointers now: the note's own wording, the absent wall opening, and the
+standard product for the duty. None is conclusive alone; together they make C4 the question that could
+invalidate half the quote. **If AOV.01 is a roof vent, none of Part One applies to it and we should be
+pricing a kerb-mounted unit.** Gordon Court have the same ambiguity live and cannot resolve it either -
+their NBS specifies two roof units and one wall unit while the items actually quoted are wall units.
 
 **THE WIDER POINT STANDS AND SHOULD STILL BE CONFIRMED.**
 Gordon Court's schedules turned out to constrain ground and first floors to existing structural
