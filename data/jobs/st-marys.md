@@ -333,7 +333,7 @@ All three are now actions, and two of them cost money:
 reconciles to the penny as per-unit fit labour, which is fit-only money with no slack in it. Gordon
 Court reached the identical conclusion on their own install line. **Neither has a rate anywhere in
 `data/supplier-rates.json` - 0 of 80 categories cover strip-out, disposal or manifestation** - so
-neither can be benchmarked and both need a real price. **REQ-22 raised** and replied to Adam on the hub.
+neither can be benchmarked and both need a real price. **REQ-24 raised** and replied to Adam on the hub.
 
 **MANIFESTATION EXTENT, now measurable rather than "undefined"** (clause 2.24: two bands at 850-1000mm
 and 1400-1600mm, contrasting, both faces):
@@ -351,7 +351,7 @@ count is the one judgement left. **Quote the core 24.10 m and price F/H as an op
 and it already says it. He has **not** said who pays. Prelims F and B require the Contractor to provide
 all scaffolding *"for himself and any Sub-Contractor"*, we install up to **5,580mm**, and **55.97 m2 of
 glazing is 3.62 m or taller**. An unqualified exclusion is a negotiating position, not an agreement, and
-on a JCT MW with **GBP 500/day** delay damages it gets argued on site. Put to Adam as **REQ-22**.
+on a JCT MW with **GBP 500/day** delay damages it gets argued on site. Put to Adam as **REQ-24**.
 
 ### RFI-3 (COMMERCIAL) - we excluded the access plant the preliminaries require
 
@@ -536,7 +536,7 @@ got it. Selftest passes and all six founding errors still fire.
 | **ET&S (Tom Godfrey)** | RFI-1 U-value: does EDG02 govern, or schedule 2376-09? RFI-3 access/scaffold boundary. RFI-4 window strip-out and disposal. RFI-6 the surviving blind note on Type AK. |
 | **BSW + Bellview** | RFI-2: confirm in writing how Type G is built - a Sheerline 70mm casement into a Smart Wall 100mm frame, in a 28mm pocket. **RFI-1a: an SMA U-calculation in writing for the 7 Smart Wall Pocket units**, and whether they can reach 1.2 W/m2K at all. SM5 Wexham asked SMA for the same calculation and never got it - chase it properly this time. |
 | **cfw architects (via ET&S)** | Confirm the RAL and whether the internal face matches. RFI-5 manifestation. **RFI-7: what is a "non-lockable device" on an escape door; and reconcile 2376-08 against 2376-09 rev A, which disagree on the external door opening sizes.** |
-| **Adam** | **REQ-22: a number for strip-out and manifestation, or a decision to state them as inclusions and absorb them - they should not stay promised and unpriced. And whether to put access LIABILITY to ET&S in writing before award.** What was the GBP 1,000/unit "Additional" on Types F and H for? Sight of the JCT MW terms - GBP 500/day damages, 3% retention, 11/12/2026 completion. |
+| **Adam** | **REQ-24: a number for strip-out and manifestation, or a decision to state them as inclusions and absorb them - they should not stay promised and unpriced. And whether to put access LIABILITY to ET&S in writing before award.** What was the GBP 1,000/unit "Additional" on Types F and H for? Sight of the JCT MW terms - GBP 500/day damages, 3% retention, 11/12/2026 completion. |
 | **Fenster** | Re-validate both supplier quotes if award slips past mid-August. |
 
 ## 8b. The workbook - GENERATED, NOT SENT
@@ -557,7 +557,7 @@ Blocked by tenant configured AppOnly AccessPolicy settings"** - an Exchange Appl
 change at the tenant. Tried twice, identical, not transient. **REQ-23 raised for Zac.** Email worked at
 10:49 today and again this afternoon on other jobs, so it broke during the day and there is no send log
 to say when. Inbound and the hub are both fine, so **the substance went on the hub instead** (reply to
-Adam on message 31, plus REQ-22). Do not let the file sitting in `outputs\` read as though it was
+Adam on message 31, plus REQ-24). Do not let the file sitting in `outputs\` read as though it was
 delivered - **when email is restored, send it.**
 
 ## 8c. Calibration - this job is now a data point, and it says the register runs high
@@ -596,6 +596,23 @@ against GBP 368/m2 for the mid band. If whoever priced it thought a 3,620mm-tall
 at BSW's rate, a GBP 1,000 judgement adder on each is exactly what that would look like. That would mean
 the money is already in the supply line and only the labelling is wrong - which is the difference between
 the GBP 3,520.95 of light install labour being missing or already covered. **Still needs Adam to confirm.**
+
+## 8d. A request I reported as raised was never raised - corrected 27/07
+
+**REQ-22 on this job never existed.** The REQ-17 follow-on (access liability, and a price for strip-out
+and manifestation) was written at about 21:05 as "REQ-22", but **Gordon Court had already committed their
+own REQ-22 at 20:33:51**. My script hardcoded the id from a stale read and guarded with
+`if not any(r["id"] == "REQ-22")`, so the guard was False, **the append was silently skipped, and the
+print still said "REQ-22 raised"**. It was reported as raised in the job file, both handovers and to Zac.
+
+**Now re-raised as REQ-24**, with the id computed at write time and the write verified by re-reading.
+Every REQ-22 reference in this file and both handovers has been repointed. The substance was never
+actually lost to Adam - it is in the hub reply to his message 31 - but it was untracked for about four
+hours.
+
+**The lesson, which is the same one three times today:** the guard reported success while doing nothing.
+Compute the next id at write time, and verify the write landed by reading it back. An idempotency guard
+that silently skips is indistinguishable from a success.
 
 ## 9. Housekeeping this chat must keep doing
 

@@ -690,3 +690,17 @@ AND THE GENERAL POINT, which is the third infrastructure failure today after the
 failure rather than the intention. All three of today's failures were silent or misattributed until
 someone read the actual error text - the registry wipe never errored, the launch failure looked like a
 CLI problem, and this one would look like "Mary sent it" if the traceback had been swallowed.
+
+### 2026-07-27 21:17 - triage
+THE EMAIL BLOCK IS ON THE mary@ MAILBOX, NOT ON Mail.Send - AND SENDS ARE NOW LOGGED.
+
+St Mary's found outbound dead with a 403 AppOnly AccessPolicy error and raised REQ-23. I probed what is actually blocked, because 'sending is broken' and 'the mailbox is out of policy' need different fixes from Zac.
+
+  READER token   OK   |  reads estimating@  OK (latest 18:56Z)  |  reads mary@  403
+  SENDER token   OK   |  (Mail.Send only, so its read 403 proves nothing)
+
+Both identities still get tokens, so credentials and admin consent are intact - this is NOT an expired secret or a revoked grant. The reader is denied on mary@ with the SAME error while estimating@ still works. So app-only access to the mary@ MAILBOX has been withdrawn; estimating@ is still inside the policy. Sending as mary@ fails as a consequence. Re-consenting Mail.Send will not fix it. REQ-23 now says so, with the test command.
+
+WHAT I COULD NOT ESTABLISH, AND THE FIX FOR IT: when outbound stopped. The only record of a successful send was mary@'s own Sent Items - inside the very mailbox that is blocked - so the outage hid its own timeline. scripts\mary_send.py now writes data\mary-send-log.jsonl on EVERY attempt, success or failure, with chat key, recipients, subject, attachments and the error text. A failure also prints to stderr and re-raises. Next time we will know the minute it broke and which chat hit it first.
+
+WHAT THIS MEANS FOR YOUR CLOSE-OUT, unchanged from St Mary's advice and worth repeating because it is the bit that costs money: inbound and the hub both work; email does not. If you generated a workbook or a quote, say GENERATED, NOT SENT in your job file and handover row, and put the substance on the hub where Adam is reading. Do not let a file in outputs\ read as delivered.

@@ -1199,7 +1199,7 @@ like a window is not an AOV.** On that single point the 3no WN_7 alone are **GBP
 cost short (one quote, different system, order of magnitude only - and there is still no AOV category in
 the register, so the 4 louvres cannot be benchmarked at all). Whole exposure: **GBP 7,085.76 cost /
 GBP 10,055.76 sell**, and it is binary - either ours and under-priced, or the smoke-vent specialist's and
-the sell comes out. Our proposal names *"AOV windows, smoke shaft louvres"* and does neither. **REQ-22
+the sell comes out. Our proposal names *"AOV windows, smoke shaft louvres"* and does neither. **REQ-24
 raised.**
 
 **A CORRECTION TO MY OWN RECORD FROM THIS MORNING, AND IT MATTERED.** I had written that Gordon Court's
@@ -1255,7 +1255,7 @@ carry it, and it is not to be re-raised on this job. Recorded with the lever arm
 informed: materials are **54.6%** of the fixed GBP 368,376.70, so **every 1% of supplier inflation is
 GBP 2,010.87** off the bottom line (2% = GBP 4,022; 5% = GBP 10,054; 10% = GBP 20,109; 15% =
 GBP 30,163). No forecast implied. Flagged to him that his answer covers the price hold **only** - the
-GBP 723.87 of omitted cost, the D_T and D_X door queries and REQ-22 all remain open.
+GBP 723.87 of omitted cost, the D_T and D_X door queries and REQ-24 all remain open.
 
 **THE LAST OUTSTANDING TECHNICAL JOB, DONE - AND IT WAS A DEAD END WORTH HAVING.** Turn one flagged
 `1. Q&As 02.06.26.pdf` (no text layer) as the priority, on the Lower Range Road logic that clarification
@@ -1299,7 +1299,7 @@ to `st-marys`, whose request it is, then run against this job:
 mark up to Teleflex, keep everything else you have learnt the same."* Recorded on the job because Gordon
 Court is where the over-generalisation would have bitten hardest - the AOVs are **Colt units with 24V
 motors and actuators**, bought-in specialist equipment of exactly the Teleflex kind. **Not authorised.**
-If REQ-22 puts them in our scope the uplift must come from a real supplier price, not Teleflex's markup by
+If REQ-24 puts them in our scope the uplift must come from a real supplier price, not Teleflex's markup by
 analogy. `mary_pricing.py` remains untouched.
 
 **A THIRD MAILBOX BLIND SPOT, POSSIBLY.** *"Antony Berry, Supplier Administrator"* on that portal
@@ -1324,7 +1324,7 @@ of them cost money that is not in the GBP 174,546.37:
   proposal already excludes Access/Lifting Equipment by name, so the wording is right. **But the ruling
   settles what our document SAYS, not who PAYS** - Prelims F and B require the Contractor to provide all
   scaffolding *"for himself and any Sub-Contractor"*, we install to 5,580mm, and 55.97 m2 of the glazing
-  is 3.62 m or taller. An unqualified exclusion is a negotiating position, not an agreement. **REQ-22.**
+  is 3.62 m or taller. An unqualified exclusion is a negotiating position, not an agreement. **REQ-24.**
 - **STRIP-OUT** - *"we would include it for a job of this size"*. It is not in the sold price. **107
   openings / 202.80 m2**, and the install line **cannot absorb it**: GBP 21,915.05 reconciles to the
   penny as per-unit fit labour, which is fit-only money. Gordon Court independently reached the same
@@ -1382,7 +1382,7 @@ the day - and **there is no send log anywhere in the repo**, which is why nobody
 adding one. **Inbound is unaffected** (work orders still landing, one at 15:56) and **the hub still
 works** (`mary_dashboard_reply.py` returned 200 minutes before the send failed), so the hub is currently
 the only outbound route to a human. The substance therefore went on the hub - a reply to Adam on message
-31 and REQ-22 - and the workbook is recorded everywhere as **generated but NOT sent**, so a file sitting
+31 and REQ-24 - and the workbook is recorded everywhere as **generated but NOT sent**, so a file sitting
 in `outputs/` is not mistaken for a delivery.
 
 **The transferable point, third infrastructure failure today after the registry wipe and the
@@ -1445,6 +1445,41 @@ F and H: those two are the cheapest per m2 on the job from BSW (GBP 280 and GBP 
 mid-band). A judgement adder on a 3,620mm screen that looked too cheap is exactly what that would look
 like - which would mean the money is already in the supply line and only the labelling is wrong, and
 that is the difference between the GBP 3,520.95 of light install labour being missing or already covered.
+
+
+### St Mary's - a request reported as raised that never existed (2026-07-27, late)
+
+No work order; triage's handoff confirmed both of last turn's flags had been acted on. Started the turn
+by reading the open requests and found REQ-22 on the board was Gordon Court's AOV request, not the St
+Mary's follow-on I had reported raising.
+
+**IT WAS MY BUG, NOT A RACE.** `scratchpad/req17_answer.py` read `dashboard-state.json`, hardcoded
+`"REQ-22"` as the next free id, and guarded the append with `if not any(r["id"] == "REQ-22" ...)`. Gordon
+Court had committed **their** REQ-22 at **20:33:51**; my script ran at about **21:05**, so the guard was
+False, **the append was skipped, and the unconditional print still said "REQ-22 raised"**. It was then
+reported as raised in the job file, both handover documents, the dashboard job status and to Zac. There
+was no duplicate, no error and no gap in the numbering to notice it by.
+
+**Re-raised as REQ-24** via `scratchpad/reraise_req.py`, which computes the id at write time from what is
+on disk, refuses to write if it is taken, and **verifies by re-reading after the write**. Every stale
+REQ-22 reference in `data/jobs/st-marys.md`, `MARY-HANDOVER.md` and `HANDOVER.md` repointed (16 in total).
+The substance was never actually lost to Adam - it is in the hub reply to his message 31 - but it was
+untracked for roughly four hours.
+
+**Checked the blast radius rather than assuming it was isolated:** ids currently run 1-24 with no gaps and
+no duplicates, and every other request this chat raised (15, 16, 17, 19, 23) is present. But the
+hardcoded-id-plus-duplicate-guard pattern appears in at least **five scripts across chats** -
+`dash_update4.py`, `gc_req.py`, `gc_req22.py`, `req17_answer.py` and the reraise itself - so the exposure
+is general. Posted to the board with the three-line fix, and told `gordon-court` directly since it was
+their id involved (their request is intact and correct; mine simply never existed).
+
+**THE LESSON, AND IT IS THE FOURTH TIME TODAY.** The registry wipe never errored. The chat-launch failure
+looked like a CLI problem. The email outage would have read as "Mary sent it" if the traceback had been
+swallowed. And here an idempotency guard reported success while doing nothing. Every one was silent or
+misattributed until someone read what actually happened rather than what was supposed to happen. **If a
+script tells you it did something, the print statement is not the evidence - the file is.** Suggested a
+shared helper in `scripts/` that raises a request properly, flagged rather than written because that is
+shared plumbing.
 
 
 ### Autopilot session log (no-action sessions)

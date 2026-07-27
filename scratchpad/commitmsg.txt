@@ -1,39 +1,41 @@
-The board trims itself now - the 60-entry cap had never once fired
+The register is only accurate by accident, and our benchmarks run 10% high
 
-St Mary's caught the board back at 22,315 characters half an hour after I
-archived it to under 10,000. Three long notes had put back more than twelve
-thousand, so it would have re-frozen every chat well before the bridge restart.
-Archiving by hand every half hour is not a fix.
+St Mary's sent a handoff marked "no action needed on either". Both halves needed
+someone.
 
-The bug was hiding in plain sight. trim_board() in mary_note.py already existed
-and was already being called on every post - it just capped by ENTRY COUNT, at
-60. With today's entries running three to seven thousand characters each, that
-permits a two-hundred-thousand-character board, so the cap has never fired in its
-life. It now caps by SIZE at 9,000 characters and appends the overflow to the
-archive rather than discarding it. Verified entry for entry: 35 in, 2 live plus 33
-archived, none lost.
+MARY-JOB-SESSION section 5c still told every chat the benchmarks were "averaging
+7.9% out with almost no bias (-1.6% mean)". That was true of the first two
+calibration entries and is not true of five. Verified all five at source rather
+than take the numbers on trust - Greenfields +6.3, SM5 Wexham -9.5, Filwood +26.5,
+Brocks Hill +18.7, St Mary's +10.2 - so four of five run high, mean bias +10.4%,
+mean absolute error 14.2%. Confirmed exactly.
 
-It takes effect without the restart, which is the whole point. post_board runs as
-a fresh process every time a chat posts, so unlike the bridge it is not holding a
-stale module - the same distinction that made the earlier data-level archive work
-where the code fix could not.
+That section is what every chat reads to decide how much to trust a benchmark, so
+a stale reassurance in it is worse than no guidance at all. It now carries the
+table, the basis_type split, and the finding that matters more than the aggregate:
+on St Mary's the whole-job error looked a respectable +4.4% only because the size
+bands cancel. The register under-prices below 1.5m2 by a third and over-prices
+above 3m2 by a third. A job weighted toward one band will come out badly wrong in
+that direction, so the unit mix now has to be stated on the face of the document.
 
-Also correcting myself. The 20:40 board note told every chat they could read
-archived entries with mary_note.py --read. That was false: --read only ever
-printed the live board, so for the last hour anyone looking up an earlier finding
-would have seen almost nothing and reasonably concluded it was never posted.
-read_board() now takes include_archive and --read uses it, with --limit to control
-the volume. The default stays board-only because the bridge calls it to build a
-kick prompt and must not be handed the whole archive.
+Also recorded the two mechanical traps: three of the four typed CALIBRATION
+corrections are upward multipliers, which compound a base already running high;
+and derived_factors() from learned-rates.json supersedes the hand-typed list, so
+on a BSW job the measured factor fires and the Sheerline +10% never runs at all.
+Nothing changed in the engine - five points cannot move a factor built on 273
+lines.
 
-St Mary's point that the ceiling is board plus handoffs plus brief, not the board
-alone, was the right frame, so I measured it rather than assuming. Worst case is
-john-north-hall at about 16,700 characters and the rest run 10-15k, against the
-32,767 cap. Real headroom rather than a squeak.
+Second, the estimating@ workaround is now an explicit prohibition rather than a
+matter of judgement. My own probe yesterday evening is what makes it tempting: it
+showed estimating@ still inside the app policy while mary@ is out, so routing
+Mary's outbound through it would probably work. The reason it must not, which
+neither of us had stated, is that the Exchange transport rule caging Mary's
+recipients is scoped to mary@. Sending from estimating@ removes the server-side
+guarantee entirely, and a mis-addressed message could reach a client or a supplier
+- the one failure the ghost protocol exists to prevent. It would also make Mary
+indistinguishable from Gintare in the team's own mailbox.
 
-Told St Mary's not to shorten its notes on my account. The answer to a size limit
-is not six chats each writing less - that note carried two register blind spots, a
-measurement method and the install-line test, and was worth the space. The cost of
-trimming is a shorter live board, and --read recovers the rest.
+In AI.md with that reasoning and appended to REQ-23, so it is not implemented as a
+helpful fix from either direction.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
