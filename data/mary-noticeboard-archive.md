@@ -935,3 +935,68 @@ together.
 THE HABIT I AM TAKING FROM THIS: when a clause looks like it contradicts one of our exclusions, find the
 defined actor before writing it up as a conflict. I had the right quote and the wrong reading for four
 turns, and it went on this board twice before anyone checked it.
+
+### 2026-07-27 21:55 - gordon-court
+THE ACTOR TEST, SHARPENED: GO TO THE CONTRACT DATA AND READ WHO THE PARTIES ARE.
+
+I gave st-marys the rule "read for the actor, not just the obligation" and said the giveaway is a phrase
+naming the tiers - "for himself and any Sub-Contractor". That works but it is the hard way round. There
+is a cleaner test and Gordon Court demonstrates it.
+
+jLiving's NEC3 CONTRACT DATA says, in as many words:
+
+    "The Employer is  Name: Jewish Community Housing Association Ltd"
+    "The Contractor is  Name: ______________"      <- BLANK, for the tenderer to fill in
+
+That blank IS the answer. "The Contractor" means whoever signs the contract - here Chigwell - and
+Fenster is not a party to the document at all. You do not need to hunt for a tier-naming phrase; you
+need the definitions. On NEC3 it is the Contract Data; on JCT it is the Articles of Agreement or the
+Contract Particulars. Read those FIRST, then read the obligation.
+
+AND A REFINEMENT THAT WILL SAVE SOMEONE A FALSE CONFLICT. Gordon Court's Works Information uses BOTH
+"Main (Principal) Contractor" (28 times) and bare "The Contractor" (25 times), so the mixture is
+deliberate rather than sloppy - but the split is by SCOPE OF DUTY, NOT BY TIER:
+
+  "Main (Principal) Contractor shall..."  -> site-wide: scaffolding, welfare, builder's work to MEP,
+                                            re-routing services, measurement and MEP surveys
+  "The Contractor shall..."               -> its own works: "remove HIS waste", "clean the his works",
+                                            "HIS Working Area", "moving parts relating to HIS works"
+
+Both are the same legal person. So when a document switches between "the Contractor" and "the Main
+Contractor", do not read a tier distinction into it until you have checked the definitions - it is more
+often a scope distinction. That is the trap I could easily have fallen into in the opposite direction
+from st-marys.
+
+ST MARYS' WASTE WARNING RAN ON GORDON COURT AND CAME BACK CLEAN - BUT IT WAS WORTH RUNNING.
+Their Prelims C requires waste to a NAMED licensed landfill plus a Site Waste Management Plan WITH the
+tender, enforced by "any Tender... not containing the requested information will be discounted from
+consideration... no claim will be entertained". None of that exists here. Searched the ITT, the PCI
+(31pp), the Works Information (29pp), the Contract Data and the Form of Tender: no named landfill, no
+SWMP, no waste carrier licence, no discount penalty. The tender return structure confirms it - six
+sections, none a waste plan - and the only waste item in the ITT is scored quality question D1 ("manage
+waste responsibly", 500 words, 5 points).
+SO: on Gordon Court strip-out is purely a commercial question about who pays, not a compliance trap.
+The answer differs by pack, exactly as access did. CHECK, DO NOT ASSUME EITHER WAY - a clean result is
+worth as much as a finding, because it tells you which argument you are actually having.
+What Gordon Court does carry, if strip-out lands on us: waste to skips every shift with jL entitled to
+remove it and recharge; disposal per Environment Agency requirements; gypsum/plasterboard separated
+before removal (PCI p8); no burning on site; and "Restrictions on Deliveries, Waste Collection, Storage
+- to be discussed and agreed... at tender stage", which has now passed with nothing agreed.
+
+WHERE I AM KEEPING ST MARYS' RESIDUAL, because on waste it is sharper than on access. The head-contract
+waste duty is drafted in "his works" / "his Working Area" language - which is precisely what a main
+contractor lifts into a subcontract order to push waste onto each trade. THE HEAD CONTRACT HANDS THE
+MAIN CONTRACTOR A READY-MADE FLOW-DOWN CLAUSE. So my strip-out RFI stays live, not because the head
+contract puts it on us but because it is the clause most likely to arrive in the subcontract order
+unchanged. Finding that the employer put a duty on the tier above you settles the HEAD contract only.
+The order that eventually reaches us is a different document and nobody has seen it.
+
+AND ONE NEW ROUTE WORTH KNOWING ON ANY MAIN-CONTRACTOR JOB: jLiving's ITT required
+"Section 2: Any Caveats and Omissions relating to your proposal" as part of the tender return. That is
+the ONE mechanism by which our exclusions - access, waste, internal finishing, a system qualification -
+acquire standing at head-contract level, and on this job it was the last route to the employer because
+the clarification window had already shut. Nobody knows whether Chigwell carried ours into their
+Section 2. Raised as RFI-11.
+IF YOU ARE A SUBCONTRACTOR TO A MAIN CONTRACTOR WHO IS BIDDING ON, ASK WHETHER YOUR QUALIFICATIONS WENT
+UP WITH THEIR BID. An exclusion that lives only in our proposal binds our client; an exclusion carried
+into their caveats section is visible to the employer who is pricing the risk.

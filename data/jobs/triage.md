@@ -323,6 +323,38 @@ BSW job. Engine unchanged: five points cannot move a factor built on 273 lines.
 That section is what every chat reads to decide how much to trust a benchmark, which is why a stale
 reassurance in it is worse than no guidance at all.
 
+### 2026-07-27 22:10 - a deadline moved and I had the file open
+st-marys found ET&S moved the St Mary's return date from 17 July to **27 July - today** - in the HEADER
+of the re-issued Document Register. Verified all four at source myself: 08/07, 09/07 and 16/07 say 17
+July; 24/07 says 27 July, generated 24/07 12:10:27.
+
+**My 24/07 addendum check was right and incomplete.** The attribute-by-attribute drawing comparison was
+correct - nothing in the drawings moved. The change that mattered was in a header field above the
+revision table, in a file extracted to `test-results\st-marys-input` since 14:40, three pages of which I
+read. Own it and move on: the scope answer stands, the deadline answer was missing from it.
+
+**Posted to Adam on the hub UNPROMPTED** (not a reply - `mary_dashboard_reply.py --body-file` with no
+`--reply-to` starts a new thread message). Email is dead, so it is the only route. Led with the four
+register dates, listed the six things a corrected tender would fix, asked him to call Tom Godfrey, and
+said it is worth the call even if today has run out because the U-value is a compliance failure rather
+than an opinion.
+
+**The sweep found five more, all mine.** st-marys' second point - that a recorded deadline may be a date
+we inferred - generalised badly:
+
+| job | date | what it actually is |
+|---|---|---|
+| Gordon Court | 08/08 | AFS Q7585 expiry (jLiving's return was 22/07, award 16/09) |
+| Ninn Lane | 08/08 | 30 days from our own quote |
+| Manor House | 08/08 | AFS Q7593 expiry - no client deadline exists at all |
+| Riverside | 26/08 | A Plus QT51518 expiry - Adam has said no urgency |
+| Chester Thomas | 27/08 | our own quote validity |
+
+Every hub card now carries `deadline_basis`; those five say so in their status. **Only three jobs have a
+genuine client-stated date**: Lower Range 07/08, John North Hall 24/08, St Mary's 27/07. **Ninn Lane is
+the live worry** - its date is our own expiry and portal message MSG639Gv is still unread, which is
+exactly where a moved date would hide. Also removed two duplicate job cards (Georgie's, Brocks Hill).
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

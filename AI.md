@@ -402,6 +402,21 @@ against the date of our own quote, and say plainly if we were working from stale
 **Start with the architect's own revision note in the title block.** On 2376-09 rev A it read "integral blind omitted"
 and that was the entire change. The note tells you where to look; it does not excuse you from checking.
 
+**DIFF THE DOCUMENT REGISTER HEADER, NOT JUST THE REVISION TABLE.** This is the one that cost real money on St Mary's.
+The attribute-by-attribute drawing comparison was correct and complete - and the change that mattered was not in any
+drawing. ET&S's re-issued register header read `Package return date: 27 July 2026` where the three earlier registers
+said 17 July. **A re-issue can move a deadline without touching a single drawing, and it is the only change that cannot
+be recovered later.** So on every addendum, compare the header fields too: package return date, package lead, package
+name. Four registers sat extracted on our own disk and nobody read the top of the page.
+
+**AND CHECK WHAT YOUR RECORDED DEADLINE ACTUALLY IS.** St Mary's hub deadline read 16/08 from the day it opened. That
+was never a client date - it was the BSW/Bellview 30-day quote validity, which had become "the deadline" because it was
+the only date anyone had written down, and it masked a real return date of 27/07. Swept the whole hub on 27/07 and found
+five more of exactly the same kind (Gordon Court, Ninn Lane, Manor House, Riverside, Chester Thomas - all supplier or
+own-quote expiries). Every job card now carries a `deadline_basis` saying whether the date is CLIENT-STATED or ours.
+**A supplier's expiry is not a client's deadline.** If the deadline on your job is a date you inferred, go and find the
+client's - it is in the enquiry, the register header or the ITT, and it is usually different.
+
 **Do not trust a line-by-line text diff of two PDFs.** pdfplumber tokenises the same drawing differently between
 revisions - the St Mary's floor plan came out as 937 lines in one revision and 3,285 in the other, generating pages of
 fake differences. Instead compare **counts of the attributes that drive price**: window references, type codes,
