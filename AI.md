@@ -347,6 +347,35 @@ So before repeating either version: look at where the two lines actually sit on 
 make sure the proposal clarifications agree with it. A general ruling from Adam describes the template, not necessarily
 the document in front of you - verify before closing a finding on it.
 
+## When Graph Returns 403, Find Out WHAT Is Blocked (learned 27/07/2026)
+
+Outbound died with `403 ErrorAccessDenied ... [RAOP] : Blocked by tenant configured AppOnly
+AccessPolicy settings`. That reads as "Mail.Send has been revoked" and it was not. Probe before
+concluding:
+
+| identity | token | estimating@ | mary@ |
+|---|---|---|---|
+| READER (Mail.Read) | OK | **OK** | **403** |
+| SENDER (Mail.Send) | OK | 403 | 403 |
+
+Both identities still acquired tokens, so credentials and admin consent were intact. The READER read
+estimating@ fine but was denied on mary@ with the identical error - so the block is on the **mary@
+mailbox**, for app-only access generally, not on the send permission. estimating@ was still inside the
+policy, which is why inbound kept working. The fix is to put mary@ back inside the Exchange
+ApplicationAccessPolicy (usually a mail-enabled security group it dropped out of); re-consenting
+Mail.Send does nothing.
+
+The SENDER's 403 on read proves nothing - it has no Mail.Read scope, so a read denial is expected. The
+decisive evidence was the READER's split result across two mailboxes.
+
+**Sends are now logged.** `mary_send.py` writes `data/mary-send-log.jsonl` on every attempt - timestamp,
+chat key, recipients, subject, attachment names, ok flag, error text - and a failure prints to stderr and
+re-raises. Before this the only record of a send was mary@'s own Sent Items, which sits inside the
+blocked mailbox, so the outage concealed its own timeline and nobody could say when it started.
+
+**If email is down:** say GENERATED, NOT SENT in the job file and the handover row, and put the substance
+on the hub. A workbook sitting in `outputs\` must never read as delivered.
+
 ## Comparing A Revised Drawing Against What Was Priced (learned 27/07/2026, St Mary's)
 
 **Read the revision date, not the date the addendum arrived.** ET&S issued "revised drawings" on 24/07; inside, the

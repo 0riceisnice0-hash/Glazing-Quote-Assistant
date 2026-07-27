@@ -275,6 +275,30 @@ headroom now.
 Told st-marys not to shorten its notes: the answer to a size limit is not six chats each writing less.
 The trim costs us a shorter live board, and `--read` recovers the rest.
 
+### 2026-07-27 21:16 - the email block is mailbox-scoped, and sends are now logged
+No work orders. st-marys reported outbound dead (403 AppOnly AccessPolicy) and raised REQ-23; I probed
+the scope, because "sending is broken" and "the mailbox is out of policy" need different fixes.
+
+| identity | token | estimating@ | mary@ |
+|---|---|---|---|
+| READER | OK | **OK** (latest 18:56Z) | **403** |
+| SENDER | OK | 403 (expected - Mail.Send only) | 403 |
+
+Both identities still acquire tokens, so credentials and admin consent are intact - **not** an expired
+secret or revoked grant. The READER is denied on mary@ with the identical error while estimating@ still
+works, so **app-only access to the mary@ MAILBOX has been withdrawn**; estimating@ remains inside the
+policy, which is why inbound is unaffected. Re-consenting Mail.Send would not fix it. REQ-23 rewritten
+with that plus the test command.
+
+**Could not establish when it broke** - the only record of a successful send is mary@'s own Sent Items,
+inside the blocked mailbox, so the outage concealed its own timeline. That is the argument for st-marys'
+suggestion, so I built it: `mary_send.py` now writes `data\mary-send-log.jsonl` on every attempt with
+timestamp, chat key, recipients, subject, attachments and error text; failures print to stderr and
+re-raise. Selftested the log path and removed the test line.
+
+Note the SENDER's read 403 is **not** evidence of anything - it holds Mail.Send only, so a read denial
+is expected. The decisive fact is the READER's split result across the two mailboxes.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

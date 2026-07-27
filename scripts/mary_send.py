@@ -13,7 +13,9 @@ source-assets master 24/07/2026) is appended. Do not add a sign-off in the
 body - the signature carries name/title/company.
 """
 import argparse
+import datetime as dt
 import html as htmllib
+import json
 import os
 import re
 import sys
@@ -77,6 +79,35 @@ def build_body(text):
             % (text_to_html(text), FONT, load_signature()))
 
 
+SEND_LOG = os.path.join(mg.REPO, "data", "mary-send-log.jsonl")
+
+
+def log_send(to_keys, subject, attach, ok, error=None):
+    """Record every send attempt, succeeded or failed.
+
+    Outbound broke at the tenant on 27/07/2026 and nobody could say when,
+    because there was no record of a send anywhere in the repo and the one
+    place that would have shown it - mary@'s Sent Items - is inside the very
+    mailbox the block covers. One line per attempt fixes that permanently.
+    """
+    rec = {
+        "at": dt.datetime.now().isoformat(timespec="seconds"),
+        "chat": os.environ.get("MARY_CHAT_KEY", "unknown-chat"),
+        "to": to_keys,
+        "subject": subject,
+        "attachments": [os.path.basename(a) for a in attach],
+        "ok": bool(ok),
+    }
+    if error:
+        rec["error"] = str(error)[:400]
+    try:
+        os.makedirs(os.path.dirname(SEND_LOG), exist_ok=True)
+        with open(SEND_LOG, "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except Exception:
+        pass  # never let logging be the reason a send fails
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--to", required=True, help="comma list from: adam,marketing")
@@ -91,7 +122,16 @@ def main():
 
     env = mg.load_env()
     token = mg.get_token(env, "SENDER")
-    mg.send_mail(token, to_keys, args.subject, body_html, args.attach, content_type="HTML")
+    try:
+        mg.send_mail(token, to_keys, args.subject, body_html, args.attach, content_type="HTML")
+    except Exception as e:
+        log_send(to_keys, args.subject, args.attach, False, e)
+        # Loud on purpose. A swallowed failure here reads as "Mary emailed it"
+        # in a job record while the document sits undelivered in outputs\.
+        print("SEND FAILED to %s: %s\n  %s" % (",".join(to_keys), args.subject, e),
+              file=sys.stderr)
+        raise
+    log_send(to_keys, args.subject, args.attach, True)
     print("SENT to %s: %s (%d attachment(s))" % (",".join(to_keys), args.subject, len(args.attach)))
 
 
