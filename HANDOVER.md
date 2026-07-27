@@ -2695,6 +2695,55 @@ gap (Adam *decided* it, I did not withdraw it) · the Section 2 caveats question
 REQ-22 now 29 options, read-back verified. Manifest 30 spec_items; run unchanged at **5 FAIL, 2 ASK**.
 
 
+### Gordon Court - fourteenth turn: what the 18 findings are worth, and two entries in my own routing table were mentions (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**THEIR SHARPENED TEST - *is each hit a TITLE BLOCK (appointment) or a NOTE (mention)?* - CAUGHT TWO ERRORS IN
+THE ROUTING TABLE I POSTED AN HOUR EARLIER.** I had listed **BSEC** (electrical) and **Engdesign** (heating) as
+consultants. Both appear **only in architect's schedule note text** - *"REFER TO BSEC ELECTRICAL LAYOUTS"*,
+*"REFER TO ENGDESIGN DRAWINGS"* - and **neither authored anything in the pack**. Both the 140pp mech spec and
+the 127pp electrical spec carry **Edward Pearce LLP** title blocks with **zero** BSEC/Engdesign hits.
+
+Likeliest reading: **they were superseded by Edward Pearce and the schedule notes were never updated** - and
+those schedules are the **08.09.2025 revision "-"** sheets that have never been revised. **So it is a second,
+independent symptom of the staleness that hid the smoke-shaft omission.** The two checks find the same disease
+from different ends: a note naming a superseded consultant and a schedule listing a deleted smoke shaft are both
+*"nobody re-read the notes panel when the design moved"*. **If a pack has one, look for the other.**
+
+**WHAT THE 18 FINDINGS ARE WORTH - twelve carry money and only two can be totalled:**
+
+| | |
+|---|---|
+| **HARD** | AFS extras GBP 506.37 + BSW "PANEL SET UP" GBP 217.50 = **GBP 723.87** |
+| **POSSIBLE CREDIT** | 4no louvres to the deleted smoke shaft: **-GBP 6,452.40 sell** |
+| **BENCHMARK ONLY** | D_X x2 ~GBP 5,600 sell · AOV actuators ~GBP 4,988-5,667 supply |
+| **UNPRICEABLE (8)** | manifestation 15.002 lin m · strip-out 62.457 m2 · trickle upgrade 124 windows · acoustic vents 26+ · intumescent seal 3 doors · PAS 24 124 windows · curtain walling qty unknown · carriage 227 units |
+
+**The reason is structural:** of `supplier-rates.json`'s **80 categories, ZERO** carry acoustic, trickle vent,
+Linkvent, Passivent, curtain walling, actuator, AOV, strip-out, disposal, manifestation or intumescent.
+
+**THE SYSTEMIC FINDING.** The board already carries four missing-category notes - folding doors, vertical
+sliders, secondary glazing, AOV/smoke vents. Gordon Court adds **five: strip-out and disposal, manifestation,
+acoustic trickle vents, intumescent seals, curtain walling.** The first four were unusual **products**; these
+five are the **ancillaries on nearly every refurbishment**. **The register does frames and glass properly and
+carries almost nothing for the work around the window** - so on a refurb we can price the windows and none of
+the work around them, which is exactly the shape these 18 findings have taken.
+
+**AND THE PRACTICAL HALF - eight of the twelve are SUPPLIER questions, so they do not wait for jLiving.**
+One RFQ to BSW covers six plus the missing whole-window Uw; one to AFS covers two. **Two emails convert eight
+unpriceable items into real numbers.** Raised as **REQ-26** (id computed at write time - it allocated 26, not the
+25 I would have hardcoded, because another chat had taken 25 mid-turn; st-marys' pattern earned its keep).
+**When a job stalls waiting on a client, check which open items are actually supplier questions.**
+
+**CANDIDLY, as riverside did about their own turn:** the tendered figure has not moved and will not until
+jLiving decide. What changed is the classification, the reason for the unpriceable ones, and a two-email route
+to closing eight. **The BSEC catch is a genuine new finding; the rest is making an existing position
+actionable.** Worth saying which is which.
+
+Manifest 31 spec_items; run unchanged at **5 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

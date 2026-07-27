@@ -1421,6 +1421,84 @@ AOV rule of thumb (§4E.1); (3) the claim that WN_7 *"cannot reach"* 1.5 m² —
 
 ---
 
+---
+
+## 4L. FOURTEENTH TURN (28/07) — what the 18 findings are actually worth
+
+### 4L.1 riverside's sharpened test catches two errors in my own routing table
+
+Their refinement: *is each hit a **title block** (an appointment) or a **note** (a mention)?* Ran it on the
+routing table I built last turn, and **two entries fail.**
+
+I listed **BSEC** (electrical) and **Engdesign** (heating) as consultants. Both come only from *note text* on
+the architect's schedules — *"REFER TO BSEC ELECTRICAL LAYOUTS FOR DETAILED DESIGN"*, *"REFER TO ENGDESIGN
+DRAWINGS FOR DETAILED HEATING LAYOUTS"*. **Neither firm authored anything in the pack.** The mechanical spec
+and the electrical spec both carry **Edward Pearce** title blocks (*"Edward Pearce LLP, Old School House, 35
+Ewell Road, Surbiton KT6 6AF, Tel 020 8390 6244, Fax 020 8390 1329"*), and contain **zero** hits for BSEC or
+Engdesign.
+
+So the architect's schedules point the reader at two firms whose work is nowhere in the pack, while the actual
+M&E design is by a third. The likeliest reading — and it fits everything else — is that **BSEC and Engdesign
+were superseded by Edward Pearce and the schedule notes were never updated.** Those schedules are the
+**08.09.2025, revision "-"** sheets that have never been revised (§4D.2). **So this is a second, independent
+symptom of the same staleness that hid the smoke-shaft omission.** Anyone who follows the note and chases
+"BSEC electrical layouts" is chasing my fire engineer again.
+
+### 4L.2 What the findings are worth — and why most of it cannot be totalled
+
+Twelve of the 18 standing findings carry money. **I can total two of them.**
+
+| | |
+|---|---|
+| **HARD** — invoice-verifiable | AFS extras **£506.37** + BSW "PANEL SET UP" **£217.50** = **£723.87** |
+| **POSSIBLE CREDIT** | 4no WL_1 to a deleted smoke shaft: **−£6,452.40 sell** (−£4,502.40 cost) |
+| **BENCHMARK ONLY** (one data point each) | D_X ×2 ~£5,600 sell + ~£1,000 install · AOV actuators ~£4,988–5,667 supply |
+| **QUANTIFIED BUT UNPRICEABLE** | manifestation 15.002 lin m · strip-out 62.457 m² · trickle upgrade 124 windows · acoustic vents 26+ · intumescent seal 3 doors · PAS 24 124 windows · curtain walling qty unknown · carriage 227 units |
+
+**The reason the list cannot be totalled is structural, not laziness.** Checked `supplier-rates.json` at source:
+of its **80 categories, zero** carry acoustic, trickle vent, Linkvent, Passivent, curtain walling, actuator,
+AOV, strip-out, disposal, manifestation or intumescent. **Eight of the twelve money items sit in categories the
+register does not have** — so there is nothing to benchmark them against, and inventing a rate would turn a TBC
+into a number nobody can defend.
+
+### 4L.3 But eight of them are answerable in one round — and not by Chigwell
+
+Everything except the credit and the D_X price is a **supplier** question, so it **does not wait for jLiving's
+16 September announcement**:
+
+- **One RFQ to BSW** covers six: 8000mm² trickle vents · Passivent AL-dB 450 acoustic vents on the marked units
+  · PAS 24 with the cl.205 third-party submittals · manifestation to 15.002 lin m · a curtain walling price or
+  confirmation there is none in our package · their delivery basis and threshold. Plus the **whole-window Uw**
+  figures still missing against Edward Pearce's 1.10 W/m²K.
+- **One RFQ to AFS** covers two: the **intumescent** perimeter seal (NBS L10 cl.790 — their pack says only
+  *"foam, packers, mastic"*) and the **RAL 7016 matt / RAL 9010 gloss** dual finish they have not priced.
+
+**Two emails would convert eight unpriceable items into real numbers.** Raised as **REQ-26** — the only thing on
+this job that can move before September. *(Mary cannot send them: ghost protocol limits outbound to Adam and
+marketing, and `mary_send` is 403'd regardless. A human must issue both.)*
+
+### 4L.4 The systemic observation — the register prices frames and glass, and almost nothing else
+
+The board already carries four missing-category findings: folding doors (Grange Hill), vertical sliders
+(Georgie's), secondary glazing (Lower Range Road), AOV/smoke vents (riverside). **Gordon Court adds five more —
+strip-out and disposal, manifestation, acoustic trickle vents, intumescent seals, curtain walling.**
+
+These are not exotic products. They are the **ancillaries that appear on nearly every refurbishment**. The
+register does frames and glass well, in size bands, with hundreds of lines — and carries essentially nothing
+for the work *around* the window. **On a new build that barely matters. On a refurbishment, where the
+ancillaries are a large share of the value, it means we can price the windows and none of the work around
+them** — which is exactly the shape of this job's 18 findings.
+
+### 4L.5 Candidly, what this turn is
+
+riverside said plainly that their turn moved nothing commercially and was consolidation rather than discovery.
+The same honesty applies here: **the tendered figure has not moved and will not until jLiving decide.** What
+changed is that the 18 findings now have a **priced/benchmark/unpriceable** classification, a reason for the
+unpriceable ones, and a two-email route to closing eight of them. The BSEC/Engdesign catch is a genuine new
+finding; the rest is making the existing position actionable.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
