@@ -25,6 +25,7 @@ let searchTerm = "";
 let msgSig = "";
 let STATUS = null;
 let OUTCOMES = [];
+let ACTIVITY = null;
 const signature = (msgs) => msgs.map((m) => `${m.id}:${m.seen_by_mary ? 1 : 0}`).join(",");
 
 /* ---------------- api ---------------- */
@@ -196,6 +197,7 @@ const ICONS = {
   comms: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
   catches: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>',
   scoreboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>',
+  live: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>',
 };
 
 const PAGES = [
@@ -206,6 +208,7 @@ const PAGES = [
   { key: "comms", label: "Comms log", sub: () => "Everything sent and everything read" },
   { key: "catches", label: "Catches", sub: () => "Errors found and money saved" },
   { key: "scoreboard", label: "Scoreboard", sub: () => "How close Mary is getting, and whether we won" },
+  { key: "live", label: "Live", sub: () => ACTIVITY?.title ? `Working on ${ACTIVITY.title}` : "What Mary is doing right now" },
 ];
 
 const RENDER = {
@@ -311,6 +314,29 @@ const RENDER = {
         <button class="subtab${commsTab === "seen" ? " active" : ""}" data-comms="seen">Read by Mary (${(DATA.inbox || []).length})</button>
       </div>
       <div class="mail-list">${commsTab === "sent" ? (sent || '<div class="empty">Nothing sent yet.</div>') : (seen || '<div class="empty">Nothing captured yet.</div>')}</div>`;
+  },
+  live() {
+    const a = ACTIVITY || {};
+    const events = a.events || [];
+    if (!events.length) {
+      return `<div class="empty"><strong>Nothing running</strong>${STATUS?.state === "working"
+        ? "Mary is working - her first step will appear here in a moment."
+        : "When Mary picks up a job, everything she does appears here as it happens."}</div>`;
+    }
+    const icon = { say: "&#9679;", think: "&#8230;", tool: "&#9656;", result: "&#8629;" };
+    const rows = events.map((e) => `
+      <div class="ev ev-${esc(e.kind)}">
+        <span class="ev-mark">${icon[e.kind] || "&#9679;"}</span>
+        <div class="ev-body">${esc(e.text)}</div>
+      </div>`).join("");
+    const when = a.updated ? new Date(a.updated).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "";
+    return `
+      <div class="live-head">
+        <span class="chip ${STATUS?.state === "working" ? "warn" : "ok"}">${STATUS?.state === "working" ? "working" : "idle"}</span>
+        <strong>${esc(a.title || a.chat || "")}</strong>
+        <span class="live-when">last step ${esc(when)}</span>
+      </div>
+      <div class="ev-feed" id="ev-feed">${rows}</div>`;
   },
   scoreboard() {
     const sb = DATA.scoreboard;
@@ -420,6 +446,10 @@ function render() {
   }
   // Land on the newest message, and keep following it unless you have
   // deliberately scrolled up to read something older.
+  // The live feed follows Mary the same way the chat follows a conversation.
+  const feed = $("#ev-feed");
+  if (feed) feed.scrollTop = feed.scrollHeight;
+
   const t = $(".chat-thread");
   if (t && stickToBottom) {
     t.style.scrollBehavior = "auto";       // no visible lurch on first paint
@@ -522,9 +552,22 @@ $("#search").addEventListener("input", (e) => {
 /* ---------------- boot ---------------- */
 (async () => {
   try {
-    [DATA, MESSAGES, STATUS, OUTCOMES] = await Promise.all([
-      api("data"), api("messages"), api("status").catch(() => null), api("outcomes").catch(() => []),
+    [DATA, MESSAGES, STATUS, OUTCOMES, ACTIVITY] = await Promise.all([
+      api("data"), api("messages"), api("status").catch(() => null),
+      api("outcomes").catch(() => []), api("activity").catch(() => null),
     ]);
+
+    // The live feed needs a faster beat than the rest of the hub, but only
+    // while somebody is actually watching it.
+    setInterval(async () => {
+      if (page !== "live") return;
+      try {
+        const fresh = await api("activity");
+        if (JSON.stringify(fresh) === JSON.stringify(ACTIVITY)) return;
+        ACTIVITY = fresh;
+        render();
+      } catch {}
+    }, 3000);
     msgSig = signature(MESSAGES);
     render();
     renderStatus();

@@ -33,6 +33,7 @@ import mary_graph as mg
 import mary_poller as mp
 import mary_router as router
 import mary_note as note
+import mary_activity as activity
 
 REPO = mg.REPO
 QUEUE = mp.QUEUE
@@ -43,6 +44,7 @@ STATUS = os.path.join(REPO, "data", "mary-bridge-status.json")
 PIDFILE = os.path.join(REPO, "test-results", "mary-inbox", "bridge.pid")
 
 DASH_EVERY = 5           # seconds - our own endpoint, free
+ACTIVITY_EVERY = 6       # seconds - how often the live feed refreshes on the hub
 MAIL_EVERY = 120         # seconds - Microsoft Graph
 TICK = 2
 MAX_ATTEMPTS = 3         # per work order before it is quarantined
@@ -225,6 +227,10 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
 def dispatch(key, orders, reg, bst, dry_run=False):
     """Run one chat against its work orders. Returns True if the session ran clean."""
     rec = router.chat(reg, key)
+    # Persist immediately: the registry used to be written only when a session
+    # ended, so nothing outside the bridge could find the session id of the
+    # chat currently running - including the live activity feed.
+    router.save_registry(reg)
     title = router.job_title(reg, key)
     handoffs = note.pending_handoffs(key)
     # Create only if the conversation genuinely is not there yet; otherwise
@@ -360,6 +366,13 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
     if _worker[0] and _worker[0].is_alive():
         key, title = _current[0]
         write_status("working", key, len(read_orders()), "working - new items queue behind this", title=title)
+        # Publish what she is doing, tailed from the session transcript. Cheap,
+        # and it fails silently rather than ever disturbing the session.
+        if now - state.get("_last_activity", 0) >= ACTIVITY_EVERY:
+            state["_last_activity"] = now
+            rec = reg["chats"].get(key) or {}
+            if rec.get("session_id"):
+                activity.push(ENV, key, title, activity.feed(rec["session_id"]))
         return TICK
 
     if time.time() < bst.get("backoff_until", 0):

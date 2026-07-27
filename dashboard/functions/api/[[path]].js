@@ -66,6 +66,19 @@ export async function onRequest(context) {
       return json({ ok: true });
     }
 
+    // Live feed of what Mary is doing this second, tailed from her session
+    // transcript by the bridge. Stored as one snapshot, not an append log -
+    // nobody wants yesterday's tool calls.
+    if (route === "activity" && request.method === "GET") {
+      try {
+        const row = await db.prepare("SELECT v, updated FROM state WHERE k = 'activity'").first();
+        if (!row) return json({ events: [] });
+        return json({ ...JSON.parse(row.v), updated: row.updated });
+      } catch {
+        return json({ events: [] });
+      }
+    }
+
     if (route === "messages" && request.method === "POST") {
       const b = await request.json().catch(() => ({}));
       const author = ["zac", "adam"].includes(String(b.author || "").toLowerCase()) ? b.author.toLowerCase() : "team";
@@ -95,6 +108,17 @@ export async function onRequest(context) {
         "ON CONFLICT(k) DO UPDATE SET v = excluded.v, updated = excluded.updated")
         .bind(JSON.stringify(b).slice(0, 2000), now()).run();
       return json({ ok: true });
+    }
+
+    if (route === "mary/activity" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      const events = Array.isArray(b.events) ? b.events.slice(-80) : [];
+      const payload = JSON.stringify({ chat: b.chat || null, title: b.title || "", events });
+      await db.prepare(
+        "INSERT INTO state (k, v, updated) VALUES ('activity', ?, ?) " +
+        "ON CONFLICT(k) DO UPDATE SET v = excluded.v, updated = excluded.updated")
+        .bind(payload.slice(0, 90000), now()).run();
+      return json({ ok: true, events: events.length });
     }
 
     if (route === "mary/reply" && request.method === "POST") {
