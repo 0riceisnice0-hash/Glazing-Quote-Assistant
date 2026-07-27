@@ -1262,6 +1262,78 @@ requirement on the three EI30 doors, not a finish. Added to RFQ-2 for AFS.
 
 ---
 
+---
+
+## 4J. TWELFTH TURN (27/07 late) — RFI-3 CLOSED: Edward Pearce's spec is the Energy Statement
+
+riverside's new check: *"if you cannot find the consultant who owns a question, check whether one has been
+appointed at all."* On Riverside **no structural engineer is named anywhere** — so the resize Adam authorised
+has neither a design nor a price behind it. Ran it here on my two outstanding consultant deferrals, and the
+answer is the opposite of theirs.
+
+### 4J.1 Edward Pearce wrote the Energy Statement — so I already hold the spec the schedules defer to
+
+The Energy Statement's title block: **Edward Pearce, Old School House, 35 Ewell Road, Surbiton, Surrey KT6
+6AF — Project No. 22/190, February 2025, Revision 02.**
+
+**That project number `22/190` is the same as every M&E document in the pack** — `22190-M01…M32` mechanical,
+`22190-E01…E25` electrical, `22190_Mech Spec_00` (140pp), `22190 - Electrical Specification Rev 00` (127pp),
+`22190-PH01` drainage. **So Edward Pearce are the services and energy consultant for the whole job, they are
+named, they are appointed, and their documents are in the pack.**
+
+**Therefore the architect's deferral — *"MIN. THERMAL RATING: To Edward Pearce Consulting Engineers
+specification"* — points at a document I have had since turn one.** RFI-3 (*"whose specification governs the
+U-value"*) is **closed**.
+
+### 4J.2 The numbers, verbatim from Edward Pearce's own tables
+
+| Scenario | Glazing | Notes |
+|---|---|---|
+| Part L1 **new-build notional** | **1.2** W/m²K | Opaque Door 1.0 |
+| **Baseline** (existing as-is) | 1.60 W/m²K | vision element g-value **0.63** |
+| Proposed, retained-flats spec table | 1.40 W/m²K | vision element g-value **0.40** |
+| **Existing → proposed comparison** (×2 scenarios) | **1.60 → 1.10** W/m²K | |
+| **Proposed new flats** | **1.10** W/m²K | Opaque Door 1.00, MVHR |
+
+The headline sentence agrees with the comparison tables: *"The external glazing will be replaced or improved to
+achieve a U-value of **1.1 W/m²K**."* So **1.10 W/m²K is the governing glazing figure** — tighter than the
+NBS's 1.2 (cl.330), and it governs because the schedules expressly defer thermal rating to Edward Pearce.
+
+**On g-value the architect is tighter and states it directly:** schedules say **"G-Value of 0.36 or better"**
+against Edward Pearce's **0.40**. A directly stated requirement beats a deferred one, so **0.36 governs the
+g-value and 1.10 governs the U-value.** That resolves the ambiguity carried since §4.4.
+
+**One reading to be careful about:** Edward Pearce give *"Opaque Door 1.00 W/m²K"*. In SAP an *opaque* door is
+a solid door; our three FD30 doors are **glazed** (EI30 Clear DGU), so in SAP terms they sit under **glazing**
+at 1.10, not under opaque doors at 1.00. The door-specific figure remains **NBS L20 cl.280's 1.2 W/m²K**.
+I am not claiming a 1.00 door requirement.
+
+### 4J.3 RFI-7 narrows but does not close — and the Energy Statement says why
+
+NBS cl.330 defers g-value, frame factor and glazing details to a **"SAP Consultants specification"**. Edward
+Pearce **are** the SAP consultant — they state *"By using Design SAP 10 and IES VE…"*, *"Baseline SAP and SBEM
+calculations…"* and *"the SAP 10 methodology"* throughout.
+
+But their own document says where those calculations live: ***"Full SAP calculations for each scenario and the
+GLA reporting spreadsheet will be submitted in a separate file."*** So the SAP calculations are **expressly
+held separately and are not in the pack**. RFI-7 therefore changes from *"who owns this?"* to *"please issue
+Edward Pearce's SAP calculations"* — a request to a named party for a document known to exist, which is a far
+better position than riverside's.
+
+### 4J.4 riverside's check, answered — and the contrast is the useful part
+
+| | Gordon Court | Riverside |
+|---|---|---|
+| Consultant named? | **Yes** — Edward Pearce, project 22/190 | **No structural engineer named anywhere** |
+| Their documents in the pack? | Mech 140pp, Electrical 127pp, drainage, Energy Statement | none |
+| Status of the deferral | a **request** for one known document | possible **design incompleteness** |
+
+**That is the distinction their check creates, and it is worth keeping: a deferral to a named, appointed
+consultant whose other work is in the pack is an administrative gap. A deferral to nobody is a design gap.**
+Same words on the drawing, entirely different problem — and only the second one should stop you pricing.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
@@ -1295,11 +1367,11 @@ requirement on the three EI30 doors, not a finish. Added to RFQ-2 for AFS.
 |---|---|---|---|
 | RFI-1 | D_T: is it external or internal? 2110 or 2210 high? single leaf + sidelight or a double? | Arkon via Chigwell | open |
 | RFI-2 | D_X × 2 (2100 × 1800) — in our package or not? Nothing on the schedule says. | Arkon via Chigwell | open |
-| RFI-3 | Whose spec governs U-value — the Energy Statement's 1.1 W/m²K or Edward Pearce Consulting Engineers, whose spec the schedules defer to and which is **not in the pack**? | Chigwell | open |
+| RFI-3 | ~~Whose spec governs the U-value?~~ **CLOSED §4J** — Edward Pearce **wrote** the Energy Statement (project 22/190, same as all the M&E docs), so the deferral points at a document we already hold. **Glazing 1.10 W/m²K governs; g-value 0.36 (architect's, stated directly) governs.** | — | **closed 27/07** |
 | RFI-4 | Confirm external RAL (schedules say "RAL XXX (TBC)"; BSW assumed 7016) | Arkon via Chigwell | open |
 | RFI-5 | Are rooflights and the Colt AXS 140 roof AOV/access hatch in our package? | Chigwell | open |
 | RFI-6 | **Are WN_7 (3no AOV) and WL_1 (4no smoke shaft louvres) in our package or the smoke-vent specialist's?** NBS L20 cl.630 specifies them as Colt motorised products; we priced them as plain Sheerline windows. £10,055.76 of sell turns on the answer | Chigwell | open |
-| RFI-7 | Issue the **SAP Consultant's specification** (NBS cl.330 defers g-value, frame factor and glazing details to it) and the **Edward Pearce Consulting Engineers** spec — neither is in the pack | Chigwell | open |
+| RFI-7 | **Narrowed §4J.3** — Edward Pearce are also the SAP consultant, and their own Energy Statement says *"Full SAP calculations… will be submitted in a separate file"*. So: **please issue Edward Pearce's SAP calculations** — a request to a named party for a document known to exist | Chigwell / Edward Pearce | open |
 | RFQ-1 | Whole-window **Uw** against NBS cl.330's **1.2 W/m²K** and the Energy Statement's **1.1**; 8000mm² trickle vents; Passivent AL-dB 450 acoustic vents on the marked units; **PAS 24 + BS 6375-1/2/3 + EN 14351-1 certification with the cl.205 submittals**; **geometric free area** for WL_1 and WN_7; **delivery basis and threshold** | BSW | not yet asked |
 | RFQ-2 | **RAL 7016 matt external / RAL 9010 gloss internal** price on the 3 fire doors (NBS L20 cl.280); whole-door **Ud** against cl.280's 1.2 W/m²K; written price hold to 18/01/2027; the £506.37 extras; **and whether the fixing pack's "mastic" is INTUMESCENT mastic or tape as NBS L10 cl.790 requires** (§4I.3) | AFS | not yet asked |
 | RFQ-3 | If WN_7/WL_1 are ours: a **real price for a Coltite glazed lobby ventilator and an EN Seefire louvred ventilator** with stated geometric free area — there is no AOV category in the rate register, so the first number has to be a supplier's | BSW / Colt | not yet asked |

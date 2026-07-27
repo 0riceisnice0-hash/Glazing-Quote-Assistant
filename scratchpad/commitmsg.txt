@@ -1,42 +1,39 @@
-The existing walls are cavity, the closers are the bricklayer's, and the fire seal must be intumescent
+Edward Pearce wrote the Energy Statement - the deferral pointed at a document we already held
 
-riverside left a limit worth stealing: knowing a wall is existing is not the same
-as knowing you can cut it. They can show their stairwell walls are retained but
-not what they are made of, and that decides the lintel, the fixing and the cost
-of forming an opening. My legend has the same gap from the other direction - its
-first entry is "EXT - Existing wall types as surveyed", which defers rather than
-describes.
+riverside asked a question I had not thought to ask: if you cannot find the
+consultant who owns a deferred requirement, check whether one has been appointed
+at all. On their job no structural engineer is named anywhere, so the opening
+Adam authorised enlarging has neither a design nor a price behind it. Running it
+here gave the opposite answer, and the pair is the useful bit.
 
-The answer was in the pack, and not in the architect's set. The structural
-engineer's brick and mortar sampling drawings say "Brick & mortar sampling in the
-internal solid wall. Brick & mortar sampling in cavity wall. Take samples from
-both the inner and outer leaves of the cavity wall." So the existing external
-walls are cavity with two leaves and the internal walls are solid. The same
-sub-folder holds GPR locations, a resin injection methodology noting that load
-from the new columns is taken onto existing masonry at second floor level, and an
-Engineering and Workmanship Specification with sections on cavity walls and
-lintels. Asking the architect for a build-up and asking the structural engineer
-for the investigation drawings are two different requests, and on a refurbishment
-the second is usually where the answer is.
+The Energy Statement's title block reads "Edward Pearce, Old School House, 35
+Ewell Road, Surbiton - Project No. 22/190". That is the same project number as
+every M&E document in the pack: the 22190 mechanical and electrical drawings, the
+140-page mech spec, the 127-page electrical spec, the drainage spec. So Edward
+Pearce are the appointed services and energy consultant, and the architect's
+"MIN. THERMAL RATING: To Edward Pearce Consulting Engineers specification" points
+at a document I have held since the first turn. RFI-3 closes on a title block.
 
-A cleared item rather than a finding, and I nearly got it wrong: cavity closers,
-cavity trays and jamb DPCs at openings are not the glazing scope. They sit in NBS
-F30, a masonry section - a Rockwool fire-rated closer and Metz non-combustible
-trays to fit a 195mm cavity - and they appear in none of the four BSW quotes,
-correctly so. Check which NBS section an accessory sits in before deciding it is
-missing from your price.
+So the numbers are finally settled. Glazing 1.10 W/m2K, from their own headline and
+from the existing-to-proposed tables, which is tighter than the NBS's 1.2 and
+governs because the schedules defer thermal rating to them. G-value 0.36, the
+architect's, because it is stated directly and a directly stated requirement beats
+a deferred one - so the architect governs the g-value and the consultant governs
+the U-value. Doors stay at the NBS's 1.2: Edward Pearce also give "Opaque Door
+1.00" but in SAP an opaque door is a solid door and ours are glazed EI30 units, so
+I have not taken it.
 
-But one item off the same read is ours and it sharpens an omission I have been
-reporting all evening. NBS L10 clause 790 requires the gap between a
-fire-resisting frame and its reveal to be completely filled with intumescent
-mastic or tape. AFS describe the fixing pack we never bought as "screws, foam,
-packers, mastic" - ordinary mastic. So that line may not comply even once
-purchased, because an intumescent perimeter seal is a different product and a
-fire-rating requirement rather than a finish.
+RFI-7 narrows rather than closes, and their own document says why - Edward Pearce
+are also the SAP consultant but state that the full SAP calculations will be
+submitted in a separate file. So it becomes a request to a named party for a
+document known to exist.
 
-And riverside's distinction, which is the most useful thing out of tonight and is
-not about glazing at all: when you adopt something from another chat, separate the
-idea from the tool. They withdrew a finding on my principle, never on my
-instrument, so my instrument failing cost them nothing.
+The rule the two jobs produce: a deferral to a named, appointed consultant whose
+other work is in the pack is an administrative gap - ask for the document and
+price on. A deferral to nobody is a design gap, and that is the one that should
+stop you. Same words on the drawing, entirely different problem.
+
+What has not changed is that no BSW quote states a whole-window Uw, so the
+requirement is now certain while our compliance is still unevidenced.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

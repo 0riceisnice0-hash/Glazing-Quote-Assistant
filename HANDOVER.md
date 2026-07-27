@@ -2496,6 +2496,56 @@ hides inside a fixings line.**
 Manifest now 29 spec_items; run unchanged at **5 FAIL, 2 ASK**.
 
 
+### Gordon Court - twelfth turn: RFI-3 CLOSED - Edward Pearce wrote the Energy Statement (2026-07-27, late)
+
+riverside's handoff. No queue items.
+
+**THEIR CHECK:** *if you cannot find the consultant who owns a deferred requirement, check whether one has been
+appointed at all.* On Riverside **no structural engineer is named anywhere** on any of the six drawings, so the
+opening Adam authorised enlarging has neither a structural design nor a price behind it. Ran it on my two
+outstanding deferrals and got the **opposite** answer - which is what makes the pair useful.
+
+**THE ENERGY STATEMENT'S TITLE BLOCK:** *"Edward Pearce, Old School House, 35 Ewell Road, Surbiton, Surrey KT6
+6AF - Project No. **22/190**, February 2025, Revision 02."* **That project number is the same as every M&E
+document in the pack** - `22190-M01…M32` mechanical, `22190-E01…E25` electrical, the 140pp mech spec, the 127pp
+electrical spec, the drainage spec. So Edward Pearce are the **appointed** services and energy consultant, and
+the architect's deferral *"MIN. THERMAL RATING: To Edward Pearce Consulting Engineers specification"* points at a
+document **held since turn one**. **RFI-3 is closed by reading a title block.**
+
+**THE NUMBERS, FINALLY SETTLED:**
+- **Glazing 1.10 W/m2K** - Edward Pearce's headline (*"replaced or improved to achieve a U-value of 1.1 W/m2K"*)
+  and their existing-to-proposed tables (1.60 -> 1.10 in both scenarios). **Tighter than the NBS's 1.2**, and it
+  governs because the schedules expressly defer thermal rating to them.
+- **g-value 0.36** - the architect states it **directly** against Edward Pearce's 0.40. **A directly stated
+  requirement beats a deferred one**, so the architect governs the g-value and the consultant governs the U-value.
+- **Doors 1.2 W/m2K** - NBS L20 cl.280 stays the door figure. Edward Pearce also give *"Opaque Door 1.00"* but in
+  SAP an **opaque** door is a **solid** door and ours are glazed EI30 units, so they sit under glazing at 1.10.
+  **Did not take the 1.00** - reading a term of art loosely would have invented a requirement.
+
+**RFI-7 NARROWS, and the consultant's own document says why.** NBS cl.330 defers g-value, frame factor and
+glazing details to a *"SAP Consultants specification"*; Edward Pearce **are** the SAP consultant (*"Design SAP 10
+and IES VE"*, *"Baseline SAP and SBEM calculations"*). But they write *"Full SAP calculations for each scenario
+and the GLA reporting spreadsheet **will be submitted in a separate file**."* So it is held elsewhere by design -
+the RFI becomes **"please issue Edward Pearce's SAP calculations"**, a request to a named party for a document
+known to exist.
+
+**THE RULE THE PAIR OF JOBS PRODUCES:**
+- deferral to a **named, appointed** consultant whose other work is in the pack = **administrative gap**. Ask for
+  the document, price on, qualify if it does not arrive.
+- deferral to **nobody** - no consultant named, everything *"to be site agreed"* = **design gap**. No document to
+  ask for, and this is the one that should stop you pricing.
+
+Same words on the drawing, entirely different problem. **Spend two minutes establishing which you have before
+raising a deferral as a finding.**
+
+**AND A HABIT off riverside's point that a false withdrawal costs as much as a false finding:** when I pulled the
+window-tag instrument I kept the principle explicitly and left the D_X, strip-out, manifestation and smoke-shaft
+findings alone, because none used the tag. **When you withdraw something, say what you are NOT withdrawing** -
+otherwise the next chat retracts work that never depended on the broken part.
+
+Manifest 29 spec_items, `u_value` now resolved rather than open; run unchanged at **5 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
