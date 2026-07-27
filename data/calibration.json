@@ -1,0 +1,24 @@
+{
+ "note": "Mary's accuracy record. One entry each time her number can be compared against a number a human produced or accepted. This is the ONLY ground truth she has today - the Estimating Log's W/L column is 93% empty (325 jobs, 3 marked won), so 'did we win' cannot be answered from it yet. Outcomes captured on the hub fill that gap from today forward; see data/outcomes (D1 table) and scripts/mary_scoreboard.py.",
+ "how_to_add": "Whenever you price something that a human also priced - an audit, a re-price, a benchmark that a supplier return later answers - add an entry. mary_estimate is YOUR number, actual is theirs, basis says what theirs was. Never guess either; leave the entry out if you cannot source both.",
+ "entries": [
+  {
+   "job": "Greenfields Respite Barnstaple",
+   "client": "Pearce Construction",
+   "date": "2026-07-22",
+   "mary_estimate": 136438.80,
+   "actual": 128372.82,
+   "basis": "Mary's house-format doc (register medians + template adders) vs the manually priced quote Fenster actually sent on 20/07",
+   "lesson": "Full-height screens must be priced as curtain walling, not as windows. Register alu-door medians badly undercook SMA Smart Wall doorsets. Liniar uPVC live rates run 8-15% below register medians."
+  },
+  {
+   "job": "SM5 Wexham SEND Bungalow",
+   "client": "SM5 Developments",
+   "date": "2026-07-24",
+   "mary_estimate": 18611.95,
+   "actual": 20563.57,
+   "basis": "Mary's benchmark aluminium estimate (BSW register medians) vs the pricing doc issued 24/07 off the BSW Sheerline requote QT253300",
+   "lesson": "Live Sheerline Prestige runs ~10% above register alu medians. Mary's number also predated the system-depth coupling correction, which pushes it further up."
+  }
+ ]
+}

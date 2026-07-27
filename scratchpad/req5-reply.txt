@@ -1,0 +1,31 @@
+ANSWER: No. The addendum does not change our submitted quote. St Mary's stands at GBP 174,546.37 ex VAT and no revision needs to go out.
+
+WHAT THE ADDENDUM ACTUALLY CHANGED
+
+The 24/07 issue contains three drawings. Their revision notes say it plainly:
+
+1. Window schedule 2376-09 rev A - "integral blind omitted".
+
+2. Proposed floor plans 2376-04 rev F - "ceiling grid + unisex toilet updated".
+
+3. Proposed site plan 2376-05 rev E - "access road revised".
+
+Only the first one touches glazing at all, and it takes scope OUT.
+
+WHY IT DOES NOT MOVE OUR NUMBER
+
+I compared the schedule we priced (2376-09) against rev A attribute by attribute rather than eyeballing it. Everything that drives price is identical: 209 window references, 38 window types, 28 structural opening sizes, 38 opening patterns, 24 restrictor notes, 6 obscured glazing notes, 33 U-value notes, 38 Secured by Design notes. Not one change.
+
+The single change is the note "Magnetic operated integral blinds. Colour: Silver", which drops from 29 appearances to 1.
+
+We never priced blinds. They are excluded in black and white on page 3 of our proposal - "magnetic integral blinds" sits in the exclusions list, and the clarifications say "any integral blind requirements are to be confirmed prior to manufacture". Neither BSW QT252799 nor Aplus QP70172 contains a blind. So the client has removed something we had already carved out. If anything our position improves - the exclusion can no longer be argued as a gap.
+
+TWO THINGS WORTH RAISING WITH ET&S
+
+1. THE ADDENDUM CONTRADICTS ITSELF. Rev A says the integral blind is omitted, but on sheet 3 one instance survived the deletion - note 6 "Magnetic operated integral blinds. Colour: Silver" is still sitting on TYPE AK, windows W.92 and W.93. That is the 1825 x 5580 pair on elevation 8 and it is our single biggest line, 2 nr at GBP 8,655.98 each, GBP 17,311.95. It costs us nothing today because we exclude blinds outright, but I would get it corrected in writing now rather than argue about it at manufacture on the most expensive units on the job.
+
+2. WE WERE PRICING A SUPERSEDED DRAWING AND DID NOT KNOW. Look at the revision dates, not the date the zip arrived. The window schedule rev A is dated 13.07.26 and the site plan rev E is dated 08.07.26. Our quote went out on 17/07. So both were already revised BEFORE we priced, and ET&S held them until 24/07 - up to sixteen days. This time it cost us nothing because the change happened to be an omission we had already excluded. Next time it could as easily be an addition. Worth asking Gintare to press them to issue revisions when they make them.
+
+NOTHING ELSE CHANGED. The floor plan and site plan revisions are a ceiling grid, a unisex toilet and an access road - no windows, screens or doors affected. Job is St Mary School, Merthyr Tydfil for Merthyr Tydfil CBC, architect cfw architects.
+
+I have opened a permanent chat for this job so it has a home from here, and put a row in the handover table - it was not in there before, despite the quote being out.

@@ -1,33 +1,41 @@
-Triage: AFS chase uncovers an unseen GBP 368k tender - Gordon Court opened
+REQ-5 answered: St Mary's addendum does not change our quote - and a rebuilt registry
 
-Chris Wall chased quote Q7585 against a job Mary had no record of. Traced it to
-Gordon Court, Stonegrove Edgware, for Chigwell Group - a tender Fenster already
-issued dated 09/07 at GBP 368,376.70 ex VAT. Supplier cost GBP 201,086.70 =
-BSW GBP 182,787.76 + AFS GBP 18,298.94.
+Adam asked whether ET&S's 24/07 addendum moved the scope on St Mary's. It does
+not. GBP 174,546.37 stands and no revision needs to go out.
 
-Q7585 itself is carried correctly: 3no Aluprof MB-78EI EI30 double doors at
-GBP 6,468.03 / 6,026.47 / 5,804.44, each sold at cost + the GBP 1,500 house DAD
-adder, GBP 22,798.94 in total. Verified line by line, nothing dropped.
+The addendum re-issued three drawings. Window schedule 2376-09 rev A "integral
+blind omitted", floor plans 2376-04 rev F "ceiling grid + unisex toilet updated",
+site plan 2376-05 rev E "access road revised". Only the first touches glazing and
+it takes scope out.
 
-Two findings handed to the new job chat. GBP 506.37 of AFS cost - fixing pack
-GBP 256.37 and delivery GBP 250.00, both optional extras outside the headline
-net - is not carried anywhere in the tender. And the FR30 door count was priced
-off a schedule Gintare had told AFS in writing did not correspond with the plans
-and elevations, because our tender closed the same afternoon; three doors at
-GBP 22,798.94 sell now rest on it. Q7585 validity expires around 08/08.
+Compared the priced schedule against rev A attribute by attribute rather than by
+eye: 209 window refs, 38 types, 28 structural opening sizes, 38 opening patterns,
+24 restrictor notes, 6 obscure notes, 33 U-value notes and 38 Secured by Design
+notes are all identical. The only change is the magnetic integral blind note
+falling from 29 occurrences to 1 - and Fenster had already excluded magnetic
+integral blinds on proposal p3 and never priced them. No blind appears in the
+pricing workbook, BSW QT252799 or Aplus QP70172.
 
-Routing fix: "chigwell" removed from grange-hill's match list. It is the client
-of both Grange Hill Methodist and Gordon Court, so it had stopped being
-distinctive; it stays a grange-hill sender term, which scores below threshold
-alone. New job matches on gordon court / stonegrove / q7585 / 5244-ark / ha8 7tq.
-Routing verified with --test in both directions.
+Two things raised for ET&S. Rev A contradicts itself: one blind note survived the
+deletion, on Type AK (W.92/W.93), the 1825x5580 pair that is our biggest line at
+GBP 17,311.95. And the revisions are dated 13.07.26 and 08.07.26 - both before our
+17/07 quote - but were held until 24/07, so we priced a superseded drawing without
+knowing.
 
-- New chat gordon-court, briefed with the full position.
-- Noticeboard: AFS terms (30-day validity, 8 weeks from order signature AND first
-  payment, 60/40, fixing pack and delivery always extras) and EI30 door rates.
-- Handoff to vesuvius for REQ-8 - AFS quoted an FR30 door in two days, and the
-  EI30 rates are a floor to sense-check 60-minute doors against, not a price.
-- MARY-HANDOVER job table row; dashboard job card added and redeployed.
-- Triage file records the two unrelated Gordon Courts in the archive.
+Separately, the chat registry had to be rebuilt. Commit a3f20c5 overwrote
+data/mary-jobs.json from a stale copy, silently deleting the gordon-court job
+opened earlier today and reinstating the chigwell match term removed from
+grange-hill. The Gordon Court handoff was still pending, and since the bridge
+delivers handoffs by iterating registry keys, a note addressed to a deleted key is
+never delivered and never errors. Both repaired and routing re-verified; the chat
+had never run, so no history was lost.
+
+- New chat st-marys, briefed with the full position and told not to redo REQ-5.
+- REQ-5 set to answered; hub job card added; dashboard replied to and redeployed.
+- dashmsg-12 was an automated refresh ping saying to ignore it - marked seen.
+- Noticeboard: read revision dates not issue dates, compare schedules by attribute
+  counts rather than PDF text diffs, and verify a stated omission actually happened.
+- AI.md: those rules, plus the registry-is-shared-mutable-state hazard.
+- MARY-HANDOVER job table row for St Mary's.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

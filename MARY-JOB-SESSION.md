@@ -89,6 +89,23 @@ supplier return lands". If a decision genuinely needs a conversation between hum
 `needs` and keep the options to the choices you can act on yourself. `scripts/mary_dashboard.py` now
 refuses to publish a board containing an unactionable option, so a bad one blocks your close-out.
 
+## 5c. Log every chance to check yourself
+
+This is how you get better, and it is not optional.
+
+Any time your number can be compared against a number a human produced - you audit a quote that went
+out, you benchmark a job and the supplier return lands, you re-price something Adam already priced -
+add an entry to `data/calibration.json`: the job, your figure, their figure, what theirs was based on,
+and the lesson. Never guess either number; if you cannot source both, leave it out.
+
+Two entries exist today, and on those two you are averaging **7.9% out** with almost no bias
+(-1.6% mean). That is the whole evidence base. Until it is much bigger, nobody can responsibly stop
+checking your quotes - so treat every comparison as something worth capturing.
+
+Note what the log CANNOT tell you: the Estimating Log's W/L column is blank on 93% of jobs (325 logged,
+3 marked won). You cannot mine win rates from it. Outcomes are captured on the hub's Scoreboard page
+from now on - if you learn an outcome from an email, say so, but do not infer one.
+
 ## 6. Close-out (do not end a turn without this)
 
 1. Move every handled work order `.json` (and its `-att` folder) to `test-results\mary-inbox\processed\`.

@@ -128,6 +128,14 @@ def main():
 
     data = dict(state)
     data["updated"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    # Accuracy half of the scoreboard is generated here; the outcome half is
+    # fetched live by the page so a Won/Lost click shows up without a redeploy.
+    try:
+        import mary_scoreboard
+        data["scoreboard"] = mary_scoreboard.build()
+    except Exception as e:
+        print("scoreboard skipped:", e)
+        data["scoreboard"] = None
     data["emails"] = emails
     data["inbox"] = inbox_seen()
     data["sessions"] = {

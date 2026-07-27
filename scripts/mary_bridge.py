@@ -232,20 +232,35 @@ def dispatch(key, orders, reg, bst, dry_run=False):
     env = os.environ.copy()
     env["MARY_CHAT_KEY"] = key
 
+    # Claim the lock BEFORE launching. If another bridge beat us to it, walk
+    # away - the work order stays queued and comes round again.
+    if not mp.acquire_lock():
+        log("  [%s] another session claimed the lock first - leaving it queued" % key)
+        return False
+
     write_status("working", key, len(orders), "%d work order(s)" % len(orders), title=title)
-    with open(LOCK, "w") as fh:
-        fh.write(str(os.getpid()))
     log("dispatch -> [%s] %s : %d order(s), %s"
         % (key, title, len(orders), "NEW chat" if first_run else "resuming chat"))
     started = time.time()
     ok = False
     try:
-        r = subprocess.run(cmd, cwd=REPO, capture_output=True, text=True,
-                           timeout=SESSION_TIMEOUT, env=env, encoding="utf-8", errors="replace")
+        proc = subprocess.Popen(cmd, cwd=REPO, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                                text=True, env=env, encoding="utf-8", errors="replace")
+        # The lock names the SESSION, so if this bridge is killed the next one
+        # can tell whether the work is still going rather than waiting out a
+        # two-hour timeout.
+        with open(LOCK, "w") as fh:
+            fh.write(str(proc.pid))
+        try:
+            stdout, stderr = proc.communicate(timeout=SESSION_TIMEOUT)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            stdout, stderr = proc.communicate()
+            raise
         took = time.time() - started
-        ok = r.returncode == 0
-        log("  [%s] session exit %s after %ds" % (key, r.returncode, int(took)))
-        out = (r.stdout or "") + ("\n--- stderr ---\n" + r.stderr if r.stderr else "")
+        ok = proc.returncode == 0
+        log("  [%s] session exit %s after %ds" % (key, proc.returncode, int(took)))
+        out = (stdout or "") + ("\n--- stderr ---\n" + stderr if stderr else "")
         if out.strip():
             with open(os.path.join(REPO, "test-results", "mary-inbox",
                                    "last-session-%s.txt" % key), "w", encoding="utf-8") as fh:

@@ -40,6 +40,32 @@ export async function onRequest(context) {
       }
     }
 
+    // Quote outcomes. Read by anyone, written by a click on the hub - this is
+    // the only place a win or loss gets recorded anywhere in the business.
+    if (route === "outcomes" && request.method === "GET") {
+      try {
+        const { results } = await db.prepare(
+          "SELECT id, created, job, result, value, winning_value, note, author FROM outcomes ORDER BY id DESC LIMIT 200").all();
+        return json(results);
+      } catch {
+        return json([]);
+      }
+    }
+
+    if (route === "outcomes" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      const job = String(b.job || "").slice(0, 200).trim();
+      const result = ["won", "lost", "no-decision"].includes(b.result) ? b.result : "";
+      if (!job || !result) return json({ error: "job and result are required" }, 400);
+      const num = (v) => (v === null || v === undefined || v === "" || isNaN(Number(v)) ? null : Number(v));
+      await db.prepare(
+        "INSERT INTO outcomes (created, job, result, value, winning_value, note, author) VALUES (?, ?, ?, ?, ?, ?, ?)")
+        .bind(now(), job, result, num(b.value), num(b.winning_value),
+              String(b.note || "").slice(0, 1000),
+              ["zac", "adam"].includes(String(b.author || "").toLowerCase()) ? String(b.author).toLowerCase() : "team").run();
+      return json({ ok: true });
+    }
+
     if (route === "messages" && request.method === "POST") {
       const b = await request.json().catch(() => ({}));
       const author = ["zac", "adam"].includes(String(b.author || "").toLowerCase()) ? b.author.toLowerCase() : "team";

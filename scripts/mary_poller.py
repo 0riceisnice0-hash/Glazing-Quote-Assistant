@@ -97,11 +97,66 @@ def save_state(state):
         json.dump(state, fh, indent=1)
 
 
+def pid_alive(pid):
+    """Is that process still there? Windows has no signal-0 trick."""
+    if not pid or pid <= 0:
+        return False
+    if os.name == "nt":
+        import ctypes
+        PROCESS_QUERY_LIMITED_INFORMATION = 0x1000
+        STILL_ACTIVE = 259
+        k32 = ctypes.windll.kernel32
+        handle = k32.OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
+        if not handle:
+            return False
+        code = ctypes.c_ulong()
+        ok = k32.GetExitCodeProcess(handle, ctypes.byref(code))
+        k32.CloseHandle(handle)
+        return bool(ok) and code.value == STILL_ACTIVE
+    try:
+        os.kill(pid, 0)
+        return True
+    except OSError:
+        return False
+
+
+def acquire_lock():
+    """Claim the right to run a session, atomically.
+
+    Checking session_running() and then writing the lock is two steps, and two
+    bridges racing through that gap both launched a session on the SAME job
+    chat - two processes writing one conversation and one git index. O_EXCL
+    makes the create itself the contest, so exactly one wins."""
+    try:
+        fd = os.open(LOCK, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+    except FileExistsError:
+        return False
+    try:
+        os.write(fd, str(os.getpid()).encode())
+    finally:
+        os.close(fd)
+    return True
+
+
 def session_running():
+    """The lock holds the SESSION's pid, so a crashed or killed owner is
+    detectable immediately. Before this it held the launcher's pid and only
+    aged out after two hours - one killed bridge froze Mary for the rest of the
+    afternoon."""
     if not os.path.exists(LOCK):
         return False
+    try:
+        with open(LOCK) as fh:
+            pid = int((fh.read() or "0").strip() or 0)
+    except Exception:
+        pid = 0
+    if pid and not pid_alive(pid):
+        log("clearing stale lock - session pid %d is gone" % pid)
+        os.remove(LOCK)
+        return False
     age = dt.datetime.now().timestamp() - os.path.getmtime(LOCK)
-    if age > 2 * 3600:  # stale lock: a session should never take 2h
+    if age > 2 * 3600:  # belt and braces: a session should never take 2h
+        log("clearing stale lock - older than 2h")
         os.remove(LOCK)
         return False
     return True

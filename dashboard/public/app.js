@@ -24,6 +24,7 @@ const SENT_ANSWERS = {};
 let searchTerm = "";
 let msgSig = "";
 let STATUS = null;
+let OUTCOMES = [];
 const signature = (msgs) => msgs.map((m) => `${m.id}:${m.seen_by_mary ? 1 : 0}`).join(",");
 
 /* ---------------- api ---------------- */
@@ -194,6 +195,7 @@ const ICONS = {
   messages: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>',
   comms: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
   catches: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>',
+  scoreboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>',
 };
 
 const PAGES = [
@@ -203,6 +205,7 @@ const PAGES = [
   { key: "messages", label: "Messages", sub: () => "Two-way line - she picks up what you write within seconds" },
   { key: "comms", label: "Comms log", sub: () => "Everything sent and everything read" },
   { key: "catches", label: "Catches", sub: () => "Errors found and money saved" },
+  { key: "scoreboard", label: "Scoreboard", sub: () => "How close Mary is getting, and whether we won" },
 ];
 
 const RENDER = {
@@ -309,6 +312,58 @@ const RENDER = {
       </div>
       <div class="mail-list">${commsTab === "sent" ? (sent || '<div class="empty">Nothing sent yet.</div>') : (seen || '<div class="empty">Nothing captured yet.</div>')}</div>`;
   },
+  scoreboard() {
+    const sb = DATA.scoreboard;
+    if (!sb) return `<div class="empty"><strong>No scoreboard yet</strong>Run scripts/mary_scoreboard.py and redeploy.</div>`;
+    const a = sb.accuracy || { n: 0, points: [] };
+    const log = sb.estimating_log || {};
+    const decided = OUTCOMES.filter((o) => o.result !== "no-decision");
+    const won = decided.filter((o) => o.result === "won").length;
+    const recorded = OUTCOMES.map((o) => o.job.toLowerCase());
+    const awaiting = DATA.jobs.filter((j) => !recorded.includes(j.job.toLowerCase()));
+
+    const acc = a.n ? `
+      <div class="stats">
+        <div class="stat"><div class="n">${a.mean_abs_error_pct}%</div><div class="l">Average miss, either way</div></div>
+        <div class="stat ${Math.abs(a.mean_error_pct) < 3 ? "green" : "amber"}"><div class="n">${a.mean_error_pct > 0 ? "+" : ""}${a.mean_error_pct}%</div><div class="l">Bias (high or low)</div></div>
+        <div class="stat"><div class="n">${a.within_10pct}/${a.n}</div><div class="l">Within 10%</div></div>
+        <div class="stat"><div class="n">${a.within_5pct}/${a.n}</div><div class="l">Within 5%</div></div>
+      </div>
+      <table class="tbl"><thead><tr><th>Job</th><th class="num">Mary said</th><th class="num">Actual</th><th class="num">Out by</th><th>What it taught her</th></tr></thead><tbody>
+      ${a.points.map((p) => `<tr>
+        <td class="job-cell"><strong>${esc(p.job)}</strong><small>${esc(p.client || "")} &middot; ${esc(p.date)}</small></td>
+        <td class="num">${p.mary_estimate.toLocaleString("en-GB", { minimumFractionDigits: 2 })}</td>
+        <td class="num">${p.actual.toLocaleString("en-GB", { minimumFractionDigits: 2 })}</td>
+        <td class="num"><span class="chip ${p.abs_error_pct <= 5 ? "ok" : p.abs_error_pct <= 10 ? "warn" : "danger"}">${p.error_pct > 0 ? "+" : ""}${p.error_pct}%</span></td>
+        <td style="max-width:420px;font-size:var(--t-13)">${esc(p.lesson || "")}</td></tr>`).join("")}
+      </tbody></table>`
+      : `<div class="empty"><strong>No comparisons yet</strong>Every time Mary prices something a human also priced, it lands here.</div>`;
+
+    return `
+      <div class="verdict"><h4>Can we stop double-checking?</h4><p>${esc(sb.verdict)}</p></div>
+      <div class="section"><div class="section-head"><h3>How close is she?</h3></div>${acc}</div>
+      <div class="section"><div class="section-head"><h3>Did we win it?</h3></div>
+        <p class="page-sub" style="margin-bottom:14px">The Estimating Log carries a W/L mark on ${log.with_outcome || 0} of ${log.logged || 0} jobs
+          (${log.outcome_coverage_pct || 0}%), so there is no history to learn from. One click here is what builds it.
+          ${decided.length ? `<strong>So far: ${won} won, ${decided.length - won} lost.</strong>` : "<strong>Nothing recorded yet.</strong>"}</p>
+        <div class="mail-list">
+          ${awaiting.length ? awaiting.map((j) => `
+            <div class="mail-row outcome-row" style="cursor:default">
+              <div><strong>${esc(j.job)}</strong><small>${esc(j.client)} &middot; ${esc(j.value)}</small></div>
+              <div class="outcome-btns">
+                <button class="opt win" data-outcome="won" data-job="${esc(j.job)}">Won</button>
+                <button class="opt loss" data-outcome="lost" data-job="${esc(j.job)}">Lost</button>
+                <button class="opt" data-outcome="no-decision" data-job="${esc(j.job)}">No decision</button>
+              </div>
+            </div>`).join("") : '<div class="empty">Every live job has an outcome recorded.</div>'}
+        </div>
+      </div>
+      ${OUTCOMES.length ? `<div class="section"><div class="section-head"><h3>Recorded</h3></div>
+        <div class="mail-list">${OUTCOMES.map((o) => `
+          <div class="mail-row" style="cursor:default"><div class="mail-ico ${o.result === "won" ? "out" : "in"}">${o.result === "won" ? "&#10003;" : o.result === "lost" ? "&times;" : "&ndash;"}</div>
+          <div><strong>${esc(o.job)}</strong><small>${esc(o.result)}${o.note ? " &middot; " + esc(o.note) : ""}</small></div>
+          <span class="mail-when">${esc((o.created || "").slice(0, 10))}</span></div>`).join("")}</div></div>` : ""}`;
+  },
   catches() {
     return `<div class="catch-grid">${DATA.catches.map((c) => `
       <article class="catch"><div class="req-top"><div><h3 style="font-size:15px">${esc(c.job)}</h3>
@@ -394,7 +449,9 @@ document.addEventListener("click", async (e) => {
     if (nav.dataset.goreq) { closePanel(); page = "requests"; render(); return; }
     page = nav.dataset.nav || nav.dataset.go; render(); return;
   }
-  const opt = e.target.closest(".opt");
+  // Scoped to .req-options: the scoreboard's Won/Lost buttons reuse .opt and
+  // were being swallowed here before ever reaching their own handler.
+  const opt = e.target.closest(".req-options .opt");
   if (opt) {
     const opts = [...opt.closest(".req-options").querySelectorAll(".opt")];
     opts.forEach((o) => o.classList.toggle("sel", o === opt));
@@ -426,6 +483,27 @@ document.addEventListener("click", async (e) => {
     toast(`Answer sent - ${req.id} is with Mary`);
     return;
   }
+  const outcome = e.target.closest("[data-outcome]");
+  if (outcome) {
+    const job = outcome.dataset.job;
+    const result = outcome.dataset.outcome;
+    outcome.closest(".outcome-btns").querySelectorAll("button").forEach((b) => { b.disabled = true; });
+    outcome.textContent = "Saving...";
+    try {
+      await api("outcomes", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ job, result, author: who() }),
+      });
+      OUTCOMES = await api("outcomes");
+      toast(`Recorded: ${job} - ${result}`);
+      render();
+    } catch {
+      toast("Could not record that - try again");
+      render();
+    }
+    return;
+  }
   const sub = e.target.closest("[data-comms]");
   if (sub) { commsTab = sub.dataset.comms; render(); return; }
   const row = e.target.closest("[data-job],[data-email],[data-inbox]");
@@ -444,7 +522,9 @@ $("#search").addEventListener("input", (e) => {
 /* ---------------- boot ---------------- */
 (async () => {
   try {
-    [DATA, MESSAGES, STATUS] = await Promise.all([api("data"), api("messages"), api("status").catch(() => null)]);
+    [DATA, MESSAGES, STATUS, OUTCOMES] = await Promise.all([
+      api("data"), api("messages"), api("status").catch(() => null), api("outcomes").catch(() => []),
+    ]);
     msgSig = signature(MESSAGES);
     render();
     renderStatus();
