@@ -74,6 +74,32 @@ handover docs to remember a job it had priced that morning. Replaced by:
 - **Design system:** Fenster brand - navy `#002d3a`, green `#2eac66`, Gibson fonts (in `dashboard/public/fonts/`, from `C:\Users\zacpl\Desktop\brand guidlines`). CSS custom properties at the top of `styles.css`; six pages (Overview, Pipeline, Mary needs you, Messages, Comms log, Catches) with a shared side panel, rich-text formatter (`fmt()` in app.js), per-page search, toasts.
 - Pattern was mirrored from Zac's `Documents\GitHub\Marketing-Dashboard` (catch-all Pages Function + static shell + D1).
 
+## 3b. How Mary actually improves (built 27/07)
+
+The loop, in the order it runs:
+
+| Piece | What it does |
+|---|---|
+| `mary_pricing.py` | **The** engine. Register-backed rates with provenance, earned calibration factors, MASTER PRICING DOC arithmetic. `--selftest` proves the maths and the citations. |
+| `mary_checks.py` | Ten rules, each a mistake that actually happened. ASK (not PASS) when facts are missing. `--selftest` replays SM5, Stoke Park and Vesuvius as they really were. |
+| `mary_calibrate.py` | Pairs Mary's figure against the client quote that actually went out. Days, not the months a win/loss takes. |
+| `mary_quote_reader.py` | Pulls the total out of any Fenster pricing doc. Verified to the penny on Greenfields and SM5. |
+| `mary_scoreboard.py` | Accuracy + outcomes + a plain-English verdict on whether the quotes can go unchecked. |
+| `mary_backfill_jobs.py` | 1,040 jobs back to June 2023; `2. Projects` folder = secured work. |
+| `mary_hub_guard.py` / `mary_hub_shot.py` | Let her build the hub without breaking it - see `MARY-HUB-DEV.md`. |
+
+**Traps that cost real time here, all of which produced confidently wrong numbers first:**
+
+- The tender archive is **not** uniformly `client/job`. Under ~15 clients the CLIENT folder is the job
+  and level 2 is document categories. Matching on job name alone gave 192 wins of which 178 were false.
+- Only **11 of 124** secured jobs have a tender folder. Won work is filed separately, so "did we win
+  this tender" is mostly not derivable - it has to be captured going forward.
+- Job folders are full of **unfilled MASTER template clones** (one held a stray GBP 4,000 and reported
+  Mary as 2,663% out) and **Mary's own output** (scoring her against herself proves nothing). Both are
+  excluded by filename in `mary_calibrate.py`; a client-name prefix marks a genuinely sent quote.
+- The Estimating Log's W/L column is **93% empty** and the Price comparison sheet holds 3 usable rows.
+  Do not build anything on either.
+
 ## 4. Hard-won quirks (do not re-learn these)
 
 - **Outlook renders email with Word's engine** - CSS like `white-space:pre-wrap` is IGNORED. `mary_send.py` converts plain text to explicit HTML tags. ALWAYS screenshot-verify email HTML (headless Chrome) before shipping a new layout; a successful send proves nothing about rendering.

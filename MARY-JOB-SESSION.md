@@ -106,6 +106,29 @@ Note what the log CANNOT tell you: the Estimating Log's W/L column is blank on 9
 3 marked won). You cannot mine win rates from it. Outcomes are captured on the hub's Scoreboard page
 from now on - if you learn an outcome from an email, say so, but do not infer one.
 
+## 5a2. Price through the engine, not a fresh script
+
+`scripts/mary_pricing.py` is the one engine. Stop writing a new calculator per job - that is why
+nothing you learned ever accumulated.
+
+```python
+import mary_pricing as p
+p.find_rate("aluminium casement window, glazed", 2.4, system="Sheerline Prestige")
+p.price_line("MAW", 2000, 1500, qty=2)              # register-backed
+p.price_line("SAD", 1000, 2450, supply_rate=1842.0) # supplier-backed, always preferred
+p.price_line("CW", 6900, 6000, curtain_wall=True)   # full-height screens
+```
+
+It reproduces the MASTER PRICING DOC arithmetic exactly - supply + (code value x 75%), then labour by
+code - so the engine and the client document cannot drift apart. Every benchmark rate comes back with
+its provenance (category, median, how many quote lines, which supplier, what years) and that string
+goes in the workbook. A benchmark is evidence, never a firm price.
+
+The corrections you have earned are applied automatically and cite the job that taught them: Sheerline
++10%, SMA Smart Wall doorsets +45%, Liniar uPVC -10%, Senior +15%. **When a calibration point teaches
+you a new one, add it to `CALIBRATION` with its source** - that is the engine getting better rather
+than a note in a file nobody reads back. Run `--selftest` after any change.
+
 ## 5d. Run the checks before anything leaves
 
 **No price goes to Adam, a client or a supplier until `scripts/mary_checks.py` passes on it.**
