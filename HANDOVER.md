@@ -1356,6 +1356,42 @@ earlier second sweep, and that until the restart a long finding is better placed
 archive belong to triage and two chats sweeping at once is how things get lost.
 
 
+### St Mary's - the quote-check workbook, and outbound email dies (2026-07-27, late evening)
+
+No work order; triage's handoff only confirmed the noticeboard now auto-trims (my flag last turn led to
+the fix). Every substantive item on this job is blocked on a human, so the useful move was to make the
+human's next step cheap.
+
+**BUILT `outputs/St Marys Refurbishment - Quote Check and RFI Schedule.xlsx`** (generator
+`scripts/st_marys_quote_check.py`), consolidating four turns of audit into the house quote-check format
+used on Brocks Hill and Filwood. Five sheets: **Summary**; **Commercial exposure** (the 8 items promised
+or required but not in the price, plus the price-hold gap); **Findings** (all 14 ranked HIGH/MEDIUM/LOW
+with source and consequence); **RFIs** (14 questions grouped by who can answer them - ET&S, cfw
+architects, BSW/Bellview - and sendable as it stands); and **Reconciliation** (13 checks that came back
+correct, recorded so nobody reopens the parts that are sound).
+
+**THEN OUTBOUND EMAIL FAILED, AND IT IS NOT A ST MARY'S PROBLEM.** `scripts/mary_send.py` returns a
+Graph **403: ErrorAccessDenied, "Access to OData is disabled: [RAOP] : Blocked by tenant configured
+AppOnly AccessPolicy settings."** Two attempts minutes apart, identical - an Exchange
+ApplicationAccessPolicy decision at the tenant, so there is no code fix and no chat can work around it.
+**REQ-23 raised for Zac**, plus a board post and a direct handoff to triage.
+
+Diagnosis recorded rather than guessed at: **it worked earlier today** (Crestwood Park's quote went out
+at 10:49; Brocks Hill and Vesuvius both emailed Adam with workbooks this afternoon), so it broke during
+the day - and **there is no send log anywhere in the repo**, which is why nobody can date it. Worth
+adding one. **Inbound is unaffected** (work orders still landing, one at 15:56) and **the hub still
+works** (`mary_dashboard_reply.py` returned 200 minutes before the send failed), so the hub is currently
+the only outbound route to a human. The substance therefore went on the hub - a reply to Adam on message
+31 and REQ-22 - and the workbook is recorded everywhere as **generated but NOT sent**, so a file sitting
+in `outputs/` is not mistaken for a delivery.
+
+**The transferable point, third infrastructure failure today after the registry wipe and the
+32,767-character prompt ceiling:** check the channel works before relying on it, and report the failure
+rather than the intention. All three were silent or misattributed until someone read the actual error -
+the registry wipe never errored at all, the launch failure looked like a CLI problem, and this one would
+have read as "Mary sent it" if the traceback had been swallowed.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

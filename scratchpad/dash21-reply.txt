@@ -1,0 +1,41 @@
+Noted, Adam - and apologies, those two never reached me. Neither did the 7pm one. All three are answered below.
+
+WHY YOU GOT SILENCE
+
+Your messages at 18:21, 18:35 and 18:52 were queued, tried three times each, and parked as failed. Not a routing problem - the session launch itself was erroring with "[WinError 206] The filename or extension is too long".
+
+The cause: the bridge passes the whole kick prompt on the command line, and Windows caps a command line at 32,767 characters. The shared noticeboard has grown to 30,259 characters on its own today, so every attempt to start a NEW job chat died. Two of your messages were for Princess Beatrice, which had no chat yet, so they hit it every time.
+
+Fixed - the prompt now goes down stdin, which has no length limit. I tested it at 30,328 characters, the exact size that was failing, and it runs clean. One catch: the running bridge still holds the old code, so it needs restarting before the fix bites. Same as this afternoon. Nothing else is stuck behind it.
+
+REQ-6 - MASTIC AND EPDM. I have recorded your ruling, but I have NOT closed it, because what you describe is not what this particular document does.
+
+You are exactly right about how the template normally works, and Crestwood Park is a good example - mastic and EPDM sit under an OPTIONAL heading BELOW the total, so the client's number excludes them.
+
+Princess Beatrice is not built that way. On the pricing document that went out on 27/07, external mastic GBP 5,356.22 and EPDM GBP 8,276.91 sit ABOVE the subtotal:
+
+  Subtotal (includes both)      GBP 286,404.81
+  Less 2.5% MCD                 GBP   7,160.12
+  TOTAL issued                  GBP 279,244.69
+
+That is your own instruction from the morning of 27/07 - you asked for EPDM and mastic to go into the main quote - so the document is doing what you told it to. If they had been left as options the quote would have been GBP 265,952.39. The client is being charged GBP 13,292.30 for the two items.
+
+So the contradiction is still live: page 3 of the proposal says "External mastic is charged as an optional extra" while the pricing charges for it inside the total, and EPDM is not mentioned in the clarifications at all.
+
+It is a small decision now rather than an open question: leave it, on the basis that Guildmore will read the pricing document and not the clarification line, or send a corrected page 3. I have left REQ-6 open with that narrowed question on it rather than closing it on a premise that does not match the file - tell me which and I will action it.
+
+IS THE SPEC CORRECT ON THE WHOLE? On the numbers, yes - I re-audited the issued pack and the arithmetic is exact: 46 line rows, 217 units, GBP 233,091.68 of frames, install GBP 39,680, mastic and EPDM as above. 191 of 191 window units reconcile against the BPG T02 schedules, and the Technal screens match the Aplus Logikal export penny for penny.
+
+Three things went out with it that are not right, and none are arithmetic:
+
+1. The mastic and EPDM wording above.
+
+2. The proposal says the external door package is based on Technal STII, while the pricing heads Door Types 1 to 5 "Modeal Complex Coupled Doors". There is still no formal alternative-system qualification in the tender, so we are offering one system and pricing another in the same pack.
+
+3. The drawings we attached carry "ITEMS GLAZED WITH PANELS HAVE NOT BEEN TESTED TO PAS24" on five pages, against a Part Q / Secured by Design Silver ITT, while the proposal claims PAS24.
+
+Still unpriced and unexcluded from the 23/07 audit: 3no Louvre Type 01 and the 2no 2280x1068 side screens to Door Type 1 - roughly GBP 3,500 to 5,500 of sell that is in neither the pricing nor the drawings, while the proposal hedges "louvre / panel elements where quoted".
+
+WHAT I HAVE BEEN DOING SINCE 7pm - short version. Built the pipeline picture Zac asked for (282 quotes out with no recorded outcome, GBP 25.5m, workbook in outputs\). Took in eight new jobs including two tenders with deadlines - Lower Range Road, Gravesend on 07/08 and John North Hall, High Wycombe on 24/08. Found and fixed three separate faults in Mary's own plumbing, of which this one is the third. The other chats have been auditing Gordon Court, St Mary's, Georgie's, Brocks Hill, Stoke Park and Filwood, and there are 13 requests open on the hub.
+
+One thing to flag while I have you: sending email is currently blocked at the tenant - mary_send fails with 403 "Blocked by tenant configured AppOnly AccessPolicy". So the hub is the only way I can reach you, which is why this is here and not in your inbox.

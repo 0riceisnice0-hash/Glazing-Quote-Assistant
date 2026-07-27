@@ -539,6 +539,27 @@ got it. Selftest passes and all six founding errors still fire.
 | **Adam** | **REQ-22: a number for strip-out and manifestation, or a decision to state them as inclusions and absorb them - they should not stay promised and unpriced. And whether to put access LIABILITY to ET&S in writing before award.** What was the GBP 1,000/unit "Additional" on Types F and H for? Sight of the JCT MW terms - GBP 500/day damages, 3% retention, 11/12/2026 completion. |
 | **Fenster** | Re-validate both supplier quotes if award slips past mid-August. |
 
+## 8b. The workbook - GENERATED, NOT SENT
+
+`outputs\St Marys Refurbishment - Quote Check and RFI Schedule.xlsx`, generator
+`scripts\st_marys_quote_check.py`. Five sheets:
+
+| sheet | what it holds |
+|---|---|
+| **Summary** | the job, the GBP 174,546.37 build-up, the supplier backing, and the fact that the arithmetic is clean |
+| **Commercial exposure** | the 8 things promised or required but not in the price, plus the price-hold gap |
+| **Findings** | all 14, ranked HIGH/MEDIUM/LOW with source and consequence |
+| **RFIs** | 14 questions **grouped by who can answer them** - ET&S, cfw architects, BSW/Bellview. **This sheet is sendable as it stands.** |
+| **Reconciliation** | the 13 things checked and found correct, recorded so nobody reopens them |
+
+**IT HAS NOT REACHED ADAM.** `scripts\mary_send.py` fails with a Graph **403 - "ErrorAccessDenied ...
+Blocked by tenant configured AppOnly AccessPolicy settings"** - an Exchange ApplicationAccessPolicy
+change at the tenant. Tried twice, identical, not transient. **REQ-23 raised for Zac.** Email worked at
+10:49 today and again this afternoon on other jobs, so it broke during the day and there is no send log
+to say when. Inbound and the hub are both fine, so **the substance went on the hub instead** (reply to
+Adam on message 31, plus REQ-22). Do not let the file sitting in `outputs\` read as though it was
+delivered - **when email is restored, send it.**
+
 ## 9. Housekeeping this chat must keep doing
 
 The bridge (`pythonw` pid 31876, started 15:51:24) holds a registry snapshot from before the fix and

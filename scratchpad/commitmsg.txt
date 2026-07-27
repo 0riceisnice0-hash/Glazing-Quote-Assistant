@@ -1,40 +1,39 @@
-Adam holds the price; the clarification window shut on 15 July
+The board trims itself now - the 60-entry cap had never once fired
 
-REQ-20 answered: "It's fine we will hold the price and just trust everything
-will be okay." So the 163-day validity gap is a taken decision and I won't
-raise it on this job again. Recorded with the lever arm so the choice reads as
-informed rather than blind - materials are 54.6% of the fixed price, so each 1%
-of supplier inflation is GBP 2,010.87 off the bottom line, 5% is GBP 10,054 and
-10% is GBP 20,109. Flagged that his answer covers the price hold only: the
-GBP 723.87 of omitted cost, the D_T and D_X door queries and REQ-22 are all
-still open.
+St Mary's caught the board back at 22,315 characters half an hour after I
+archived it to under 10,000. Three long notes had put back more than twelve
+thousand, so it would have re-frozen every chat well before the bridge restart.
+Archiving by hand every half hour is not a fix.
 
-Then did the last outstanding technical job from the first turn - rendering the
-scanned "Q&As" file. It is not a clarification log. It is a screenshot of the
-Delta eSourcing Message Centre showing "One item found": one message from Vixus
-announcing the ITT had gone live. So nobody ever raised a clarification, and the
-U-value question stays open.
+The bug was hiding in plain sight. trim_board() in mary_note.py already existed
+and was already being called on every post - it just capped by ENTRY COUNT, at
+60. With today's entries running three to seven thousand characters each, that
+permits a two-hundred-thousand-character board, so the cap has never fired in its
+life. It now caps by SIZE at 9,000 characters and appends the overflow to the
+archive rather than discarding it. Verified entry for entry: 35 in, 2 live plus 33
+archived, none lost.
 
-The route is also shut. The ITT allows questions only up to five working days
-before the return, via the Delta portal, and forbids contacting jLiving direct.
-That was about 15 July; our tender went in on 9 July, so the window was open
-while we were pricing and nobody used it. All ten open RFIs are now post-tender
-queries through Chigwell - variation territory, not clarification. With the
-price now committed firm for 180 days, the exposure on this job has moved from
-supplier inflation to scope.
+It takes effect without the restart, which is the whole point. post_board runs as
+a fresh process every time a chat posts, so unlike the bridge it is not holding a
+stale module - the same distinction that made the earlier data-level archive work
+where the code fix could not.
 
-Adam's REQ-17 answer landed in this chat and belongs to St Mary's, so it went
-there verbatim. Two of its three rulings bite here: manifestation is required by
-the NBS on the communal entrance doors and appears in no schedule, no elevation
-and not in our proposal; and strip-out is unanswered on a job twice St Mary's
-size that takes 40 windows out of an occupied building. Access we already state
-correctly.
+Also correcting myself. The 20:40 board note told every chat they could read
+archived entries with mary_note.py --read. That was false: --read only ever
+printed the live board, so for the last hour anyone looking up an earlier finding
+would have seen almost nothing and reasonably concluded it was never posted.
+read_board() now takes include_archive and --read uses it, with --limit to control
+the volume. The default stays board-only because the bridge calls it to build a
+kick prompt and must not be handed the whole archive.
 
-Also recorded why the 25% Teleflex markup must not travel: this job's AOVs are
-Colt units with 24V motors, which is exactly the analogy that would tempt
-someone. Only Teleflex has been ruled on and the engine stays untouched.
+St Mary's point that the ceiling is board plus handoffs plus brief, not the board
+alone, was the right frame, so I measured it rather than assuming. Worst case is
+john-north-hall at about 16,700 characters and the rest run 10-15k, against the
+32,767 cap. Real headroom rather than a squeak.
 
-Repaired the Gordon Court handover row - last turn's script appended past the
-row's closing pipe and turned it into a four-cell row with no terminator.
+Told St Mary's not to shorten its notes on my account. The answer to a size limit
+is not six chats each writing less - that note carried two register blind spots, a
+measurement method and the install-line test, and was worth the space. The cost of
+trimming is a shorter live board, and --read recovers the rest.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

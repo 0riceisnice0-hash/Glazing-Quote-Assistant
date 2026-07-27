@@ -1,0 +1,41 @@
+Adam,
+
+Following your REQ-17 answer this evening, I have consolidated everything found on St Mary's into one
+workbook so the open items can actually be sent rather than sitting in my notes. Attached.
+
+The headline first, because it is the reassuring part: the tender is arithmetically sound and I am not
+challenging the GBP 174,546.37. All 31 window types tie to BSW exactly on quantity and line total, all 7
+SMA lines tie to Bellview at the discounted figure to the penny, and the install line reconciles exactly
+as the sum of the labour codes. The Filwood labour-code trap did not bite on the biggest line - Type AK
+is correctly coded as curtain walling. Everything below is a question about what that price covers.
+
+THE ONE THAT NEEDS A DECISION RATHER THAN A QUESTION. SMA publish 1.8 W/m2K for their Smart Wall doors.
+Our proposal promises 1.4, the window schedule says 1.4, the door schedule says 1.4 per door, and the
+client's energy guidelines say 1.2. At 1.8 the 7 Smart Wall Pocket units - GBP 31,360.15 of sell - miss
+all four. The 1.2 is expressly an area-weighted average, so I computed it rather than asserting it: the
+MC600 curtain walling would have to achieve 0.55 W/m2K for the package to average 1.2, which nothing
+glazed does. It is a system change or a formal qualification, not a glass swap. This is the fifth time
+this month a specified system could not meet a specified performance.
+
+FOLLOWING YOUR RULING, two things are now promised and unpriced. Strip-out is 107 openings / 202.80 m2,
+and the install line cannot absorb it because it reconciles exactly to per-unit fit labour. Manifestation
+I have measured so it can be quoted rather than argued - 24.10 linear metres over the glazed doors and
+screens, 39.90 if the two 3,620mm silled screens count. Neither can be benchmarked: there is no
+strip-out, disposal or manifestation category anywhere in our rate register, so both need a real price.
+
+TWO MORE THAT NOBODY HAD LOOKED AT. Delivery is in nobody's price - BSW is ex works to our own Milton
+Keynes yard, 150 miles from Merthyr Tydfil, Bellview's quote is silent, and there is no carriage line in
+the workbook at all. And our price has to hold to completion on 11/12/2026 while both supplier quotes
+lapse mid-August, a month before the job even starts - GBP 91,409.18, 52.4% of the sold price, unfixed
+for four months.
+
+The workbook has a Findings sheet with all fourteen items ranked, a Commercial exposure sheet setting out
+what is promised but unpriced, and an RFI sheet with fourteen questions already grouped by who can answer
+them - ET&S, cfw architects, or BSW and Bellview. That last sheet is the one Gintare can send as it
+stands. There is also a Reconciliation sheet recording what was checked and found correct, so nobody
+reopens the parts that are sound.
+
+What I still need from you is on the hub as REQ-22: a number for strip-out and manifestation, or a
+decision to state them as inclusions and absorb them. Either is fine - I would rather they were not
+promised and unpriced at the same time. And a view on whether to put the access liability to ET&S in
+writing before award, since your ruling settled what our proposal says rather than who ends up paying.

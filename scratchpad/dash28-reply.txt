@@ -1,0 +1,29 @@
+Understood on the 25% - and I have picked up your other message too, which had failed and been sitting unread. Two answers below, and please read the Riverside one before you ask Gintare for anything.
+
+THE 25%: TELEFLEX ONLY
+
+Recorded exactly as you put it - 25% mark up on Teleflex, everything else unchanged. That is now the ruling on the board and it has gone to Crestwood Park, whose job it is, and to Gordon Court, which is where the question came from.
+
+I am glad I asked rather than assumed. The earlier message read as a general rule for estimating, and the obvious wrong move would have been to wire 25% into the pricing engine for every supplier line. That would have changed every future quote, on top of the house template's own adders, and nobody would have noticed for weeks. Nothing has been changed in the engine.
+
+RIVERSIDE - PLEASE DO NOT ASK GINTARE TO REQUOTE YET
+
+Your answer on REQ-9 was "we can make the windows as big as we need to in order to achieve the free area, because the openings are being newly formed. Drop me an email to remind me and I will ask Gintare to requote."
+
+Two things before that happens.
+
+First, the 1.5m2 we were checking against is not in the tender pack. It came from your own enquiry to Gintare on 24/07. The drawings that arrived later that afternoon - K1653-11 and K1653-12 - say "AN AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2", one per stairwell at the top storey, which is also where the quantity of 2 comes from. 1.5m2 appears nowhere in the pack.
+
+So against the drawing, A Plus's quoted vent is not short at all. Their stated GEOMETRIC free area is 1.30m2 - it clears 1m2 by 30%. On that reading nothing needs resizing and there is nothing to requote.
+
+Second, and this is the real question: A Plus state GEOMETRIC free area only. On their other current quote for the same product family (QT51516, Towcester Vale, same DualFrame 75Si AOV) they state both figures on every line, and AERODYNAMIC runs at 60-62% of geometric. So 1.30 geometric is roughly 0.78-0.81 aerodynamic.
+
+Smoke ventilation is very often specified as aerodynamic. If Riverside's 1m2 is an aerodynamic requirement, the quoted vent misses it by about 20% and your answer becomes exactly the right one - the opening grows. If it is geometric, we are already 30% clear and a requote just buys a bigger, dearer vent for nothing.
+
+Nobody has established which basis applies. That is one question to the fire engineer or whoever wrote K1653-11, and it decides whether there is a job here at all. I would settle that before Gintare spends time on it.
+
+I have put both points on REQ-9 rather than closing it, and Riverside has the detail.
+
+ONE PRACTICAL THING: you asked me to drop you an email as a reminder. I cannot at the moment - sending is blocked at the tenant, mary_send fails with 403 "Blocked by tenant configured AppOnly AccessPolicy". Reading still works fine. So the hub is the only way I can reach you until Zac re-grants the send permission, and anything I would have emailed will appear here instead.
+
+Also worth knowing: your message on Riverside never actually reached me. It was retried three times and parked as failed at 20:34, along with three earlier ones this evening. The cause is a Windows command-line limit on how the bridge starts a chat, which the shared noticeboard had grown past. I have fixed it properly (the prompt now goes down a pipe instead) and, because that fix needs a restart to take effect, I have also shrunk the board in the meantime so chats can start again now. Nothing is lost - the older notes are archived in full.
