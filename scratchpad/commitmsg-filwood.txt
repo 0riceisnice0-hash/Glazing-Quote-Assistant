@@ -1,0 +1,42 @@
+Filwood quote check: install GBP 14,946 short, SR2 doorset and solar glass missing, Aluprof specified
+
+First turn of the permanent `filwood` job chat. Work order 20260727T1301 (Gintare, "QUOTE TO CHECK",
+deadline Thu 30/07) - checked the outgoing tender against the trade bill, the RCKa drawings, the External
+Materials Schedule and Bellview/BSW 0000000507.
+
+Gintare's tender is GBP 67,067.58 ex VAT and it reconciles: all seven BSW positions carried, nothing
+double-counted, 15% end discount correctly applied, field counts agreeing with drawing 31551. 15 findings
+on scope, not arithmetic:
+
+- Installation is GBP 3,500 for 122.98 m2 of shopfront 3.5 m tall, because the template INSTALLATION
+  formula read the DAD door code and gave GBP 500 per element. House CW labour at GBP 150/m2 is
+  GBP 18,446.32 - GBP 14,946.32 short. Corrected, the tender is GBP 82,013.90, within GBP 2,797 of the
+  independent benchmark built on 17/07 with no supplier quote at all.
+- The LPS 1175 SR2 doorset required on ED-06 was asked for in our own RFQ and never answered.
+- Solar control glass to g 0.5-0.6 is claimed by BSW but evidenced nowhere; the quoted make-up is clear.
+- The bill specifies Aluprof; we are offering SMA Shopline with no non-compliance statement and no
+  compliant bid, both of which the ITT expressly requires.
+- The mesh Ventilation Zone is priced as solid aluminium sheet - BSW said so, and our RFQ never asked.
+- BSW's written caveat, performance met "for glazing only ... non rebated", is not carried into the return.
+
+Plus: four screens priced 80-130 mm narrower than the sizes we are quoting; the acoustic make-up on the
+two screens that need none; ED-05 at U 1.1 against a 1.0 target; manifestation neither priced nor excluded;
+bill item A / Work Section A54 provisional sums unanswered; the proposal addressed to the wrong person; and
+a workbook with no hidden columns that would leak BSW's cost if the .xlsx were sent.
+
+Added:
+- outputs/Filwood Broadway - Quote Check (BSW 0000000507 vs Tender).xlsx - Findings, Line reconciliation,
+  Spec compliance, RFIs (15, six of them for documents never issued), Sources
+- scripts/filwood_quote_check.py - regenerates it
+- data/jobs/filwood.md - the durable job file
+
+Emailed to Adam and Zac twice: the check, then a follow-up once the BSW correspondence was found in
+processed/ - the RFQ of 23/07 was right and the quote did not answer it.
+
+Noticeboard: the labour-code install trap on anything measured in m2, and a first shopfront rate point
+(SMA Shopline, GBP 374.61/m2 net, caveated - no coating, no certified doorset in it).
+
+Hub: Filwood row rewritten, REQ-10 raised, four catches added, deployed. Also unblocked publication by
+replacing REQ-3's "Call me, it's complicated" option with decisions that can actually be clicked.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
