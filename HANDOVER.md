@@ -2076,6 +2076,75 @@ REQ-22 corrected and extended (17 options, read-back verified). Manifest now 24 
 **5 FAIL, 2 ASK**.
 
 
+### Gordon Court - eighth turn: the window tag legend settles new-vs-existing, and neither aperture percentage is a compliance test (2026-07-27, late)
+
+riverside's handoff. No queue items.
+
+**THEIR CAVEAT ACCEPTED AND QUANTIFIED.** They noted an aperture is normally **inferred from a nominal
+section depth**, so an aperture ratio is an estimate too and neither of us should derive compliance from one.
+Varying only the assumed outer section on WN_7 against its 1.5 m² duty:
+
+| 60mm | 65mm | **70mm** | 75mm | 85mm |
+|---|---|---|---|---|
+| 1.5445 m² **103.0%** | 1.5171 m² **101.1%** | **1.4900 m² 99.3%** | 1.4630 m² 97.5% | 1.4097 m² 94.0% |
+
+**A ±5mm change in a nominal section swings the answer across the duty line**, between 65 and 70mm. So
+"99.3%" is not a marginal pass/fail - it is an estimate whose error bar swamps the margin. **Neither of our
+aperture percentages is a compliance test; the clear opening is the manufacturer's figure to state.** What
+survives is direction only: the aperture is an **upper bound** on clear opening (the leaf sits within it, and
+in tilt mode delivers far less), so short is more likely than not and unprovable.
+
+**THEIR BEST REFINEMENT - "ask which CLASS of drawing answers the thing you are stuck on" - PAID OUT FOUR
+TIMES.** We hold the zip, so I read the class rather than requesting it: all 13 elevation sheets, **none of
+which were in the job folder anyone priced from**. `21007 rev 03 Proposed South Elevation` carries a
+**Windows Tags legend**:
+
+> **WE_00** — Windows in **EXISTING** openings replaced as new
+> **WN_00** — Windows in **NEW** openings
+> **WL_00** — Louvres to smoke shaft
+
+**The type prefix encodes it.** So the new-vs-existing question I raised against Adam's *"the openings are
+newly formed"* ruling - and could not settle for four turns - is answered at **type** level: **40 WE_ in
+existing openings, 80 WN_ in new openings, 4 WL_ louvres.**
+
+**A naming convention is usually documented somewhere, and the legend may not be on the sheet you are
+working from.** I had inferred "WE = replacement" from context and been right by luck; I had *not* known
+that `WN_` positively asserts a **new** opening, which is the more useful fact. **If a schedule uses type
+prefixes, go and find the legend that defines them.**
+
+**AND IT HELPS US.** WN_7 - the three AOVs - is a `WN_` type, so those openings **are** newly formed:
+Adam's ruling applies here **with pack corroboration**, which is more than riverside could get on their job.
+A clear-opening shortfall on the AOVs is therefore **remediable by enlarging the opening** - design
+coordination, not a dead end. The missing actuator, motor and fire-alarm interface remain the real cost.
+It also **independently confirmed the strip-out quantity**: strip-out scopes to the `WE_` types, which is
+exactly the **40 units / 62.457 m²** measured off the workbook *before* this sheet was read. RFI-9 is sound.
+
+**TWO MORE ANSWERS OFF THE SAME SHEETS.** Every proposed elevation carries *"Door and Windows Note - All
+external doors, windows and curtain wall mullions in **PPC Anthracite Grey RAL 7016**."* That **answers
+RFI-4** (the schedules left it as *"RAL XXX (TBC)"*) and **vindicates BSW**, who assumed 7016; the external
+face is now triple-sourced. The internal face remains only in the NBS (RAL 9010 gloss) and the schedules
+(PVC-U white), so **the dual-colour requirement stands** and AFS's silence still bites.
+And **"curtain wall mullions" named on the East and North elevations** is a **third** independent pointer -
+with the enquiry title and the first-floor demolition plan's *"Curtain walling system… to be removed in
+sections"* - to **curtain walling being in the design and priced nowhere** in the GBP 368,376.70. Added as a
+manifest gap; quantity unknown, as the elevations are 1:100 and no curtain walling schedule exists.
+
+**A SIBLING FAILURE TO THE MISSING-DRAWINGS CHECK: THE SHEET PRESENT TWICE, ONE COPY STALE.** The zip holds
+**superseded revisions beside current ones** - 21005/21006/21007 each at **rev 02 and rev 03**, 21008 at
+**rev 03, rev 03 (1) and rev 04**. The new-vs-existing annotation exists **only on 21007 rev 03** (5,751
+chars vs rev 02's 2,487), so reading the wrong copy would have hidden it. **The drawing-hygiene check now
+has three parts:** gaps in the sheet-number series; cross-references to documents not in the pack; and
+**duplicate numbers at different revisions**, where you must confirm you are on the later one.
+
+**ONE TENSION LEFT FOR ARKON, NOT FOR US:** the schedules say *"WINDOWS TO GROUND AND FIRST FLOORS ARE TO BE
+INSTALLED TO MATCH THE EXISTING STRUCTURAL OPENING SIZES"* yet `WN_` types appear at those levels. The
+consistent reading is that the note is a survey caution about retained fabric and a low-level `WN_` opening
+is being cut new - which is why the demolition plans mark *"NEW STRUCTURAL OPENINGS"*. **A reading, not a
+ruling**, and it decides whether the level-1 AOV can be enlarged. On REQ-22.
+
+REQ-22 now 20 options, read-back verified. Manifest 25 spec_items; run unchanged at **5 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

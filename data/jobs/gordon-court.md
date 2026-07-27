@@ -968,6 +968,101 @@ free-area shortfall, get the planning reference and consent conditions first.**
 
 ---
 
+---
+
+## 4F. EIGHTH TURN (27/07 late) — the window tag legend answers new-vs-existing
+
+### 4F.1 riverside's caveat accepted, and quantified — the inferred aperture proves nothing
+
+They pointed out that an aperture is normally **inferred from a nominal section depth** unless the supplier
+states it, so an aperture ratio is an estimate too and neither of us should derive compliance from one.
+**Correct, and here is how much it matters.** Varying only the assumed outer section on WN_7:
+
+| Assumed outer section | Inferred aperture | vs 1.5 m² duty |
+|---|---|---|
+| 60 mm | 1.5445 m² | **103.0% — over** |
+| 65 mm | 1.5171 m² | **101.1% — over** |
+| **70 mm** | **1.4900 m²** | **99.3% — under** |
+| 75 mm | 1.4630 m² | 97.5% — under |
+| 85 mm | 1.4097 m² | 94.0% — under |
+
+**A ±5mm change in an assumed nominal section swings the answer across the duty line.** So my 99.3% is not
+"a marginal pass/fail" — it is an estimate whose error bar swamps the margin entirely. **WN_7's clear
+opening is simply unknown, and only BSW can state it.**
+
+One thing that does survive: the aperture is an **upper bound** on clear opening, since the leaf sits
+within it (and in tilt mode delivers far less). So *short* remains more likely than not — but unprovable
+from anything on file, which is the honest position.
+
+### 4F.2 THE ANSWER WAS IN THE TAG LEGEND — on a drawing we never held
+
+riverside's better refinement: *ask which class of drawing would answer the thing you are stuck on, and
+request that one by name.* Since we hold the zip, I read the class instead of requesting it — **all 13
+elevation sheets, none of which were in the job folder anyone priced from.**
+
+**`21007 rev 03 Proposed South Elevation` carries a Windows Tags legend:**
+
+> **WE_00 — Windows in EXISTING openings replaced as new**
+> **WN_00 — Windows in NEW openings**
+> **WL_00 — Louvres to smoke shaft**
+
+**The type prefix itself encodes whether the opening is new or existing.** So the §4D.4 question — does
+Adam's *"the openings are newly formed"* ruling transfer floor by floor — is answered at **type** level:
+
+| Prefix | Units | Opening |
+|---|---|---|
+| **WE_1 … WE_17** | **40** | **existing** — strip-out applies, size constrained |
+| **WN_1 … WN_11** | **80** | **new** — no strip-out, size not constrained |
+| **WL_1** | **4** | louvres to the smoke shaft (omitted, §4D.2) |
+
+### 4F.3 This improves our position on the AOVs
+
+**WN_7 — the three AOVs — is a `WN_` type, so its openings are newly formed.** Adam's Riverside ruling
+therefore **applies here, and the pack corroborates it** — which is more than riverside could establish on
+their own job. So a clear-opening shortfall on the AOVs is **remediable by enlarging the opening**: a
+design-coordination matter, not a dead end.
+
+**The actuator, 24V motor and fire-alarm interface remain the real cost and are untouched by this.**
+
+### 4F.4 It also independently confirms the strip-out quantity
+
+Strip-out applies to windows in **existing** openings — the `WE_` types — which is exactly the **40 units
+/ 62.457 m²** I measured off workbook rows 26–42 last turn. **Corroborated from a document I had not read
+when I produced the figure.** RFI-9's quantity is sound.
+
+### 4F.5 Two more answers off the same sheets
+
+**RFI-4 is answered** — every proposed elevation carries a *"Door and Windows Note — **All external doors,
+windows and curtain wall mullions in PPC Anthracite Grey RAL 7016**."* So the schedules' *"RAL XXX (TBC)"*
+was resolved on drawings we didn't hold, **BSW's 7016 assumption was right**, and the external face is now
+triple-sourced (elevations, NBS cl.280 *"RAL7016 MATT"*, BSW's quote). The **internal** face is still only
+in the NBS (RAL 9010 gloss) and the schedules (PVC-U white), so **the dual-colour requirement stands** and
+AFS's silence on it still bites.
+
+**"Curtain wall mullions" are named on the Proposed East and North elevations.** So curtain walling is in
+the proposed design, it is in the enquiry title (*"Windows, Rooflights & **Curtain Walling**"*), and the
+first-floor demolition plan removes an existing curtain walling system — **and we priced none at all.**
+Three independent pointers now to a scope element absent from our number.
+
+### 4F.6 A hazard in the zip itself
+
+It holds **superseded revisions beside current ones**: 21005, 21006 and 21007 each appear at **rev 02 and
+rev 03**, and 21008 at **rev 03, rev 03 (1) and rev 04**. The new-vs-existing annotation exists **only on
+21007 rev 03** (5,751 characters against rev 02's 2,487) — so reading the wrong revision out of a folder
+containing both would have hidden it. **Where a folder holds two revisions of the same sheet, check you are
+reading the later one.**
+
+### 4F.7 One tension to put to Arkon rather than resolve ourselves
+
+The schedules' general note says *"WINDOWS TO GROUND AND FIRST FLOORS ARE TO BE INSTALLED TO MATCH THE
+EXISTING STRUCTURAL OPENING SIZES"*, yet `WN_` types (new openings) do appear at ground and first. The
+consistent reading is that the note is a **survey caution** about working in retained fabric, and that
+where a `WN_` window sits low down the opening is being **cut new** — which is exactly why the demolition
+plans mark *"NEW STRUCTURAL OPENINGS"*. **That is a reading, not a ruling**, and it decides whether the
+AOV at level 1 can be enlarged. Added to REQ-22.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
