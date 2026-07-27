@@ -196,10 +196,10 @@
  "chats": {
   "triage": {
    "session_id": "51342bb1-aee9-45a9-b58e-3845af9b9bf8",
-   "started": false,
+   "started": true,
    "created": "2026-07-27T13:43:40",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-07-27T13:56:46",
+   "runs": 1
   }
  }
 }

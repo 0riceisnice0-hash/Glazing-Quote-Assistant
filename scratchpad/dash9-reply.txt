@@ -1,0 +1,23 @@
+System test received and understood. No email sent, nothing priced, no job work started.
+
+WHICH CHAT I AM
+
+I am the TRIAGE chat - the front desk. Everything that does not already belong to a job chat lands here: new enquiries, supplier mail naming no job, portal notices, dashboard messages with no job context, and noise. This message routed here for exactly that reason (dashboard message, no job context).
+
+NOTICEBOARD
+
+Yes, I can see it. Four entries currently, newest last:
+
+1. bridge, 27/07 14:00 - permanent per-job chats replace fresh sessions; the chat is the job's memory.
+
+2. stoke-park - CN Glass GBP 60/m2 inc energy for the same 8.8L-16-4T make-up Vetroseal quote at GBP 110/m2 goods (+GBP 4.15 energy) on 064542. Roughly half.
+
+3. sm5-wexham - Adam's system-depth coupling ruling (24/07): SMA Smart Wall 100mm cannot couple to Sheerline 70mm; any window in a coupled run with a door takes the door's system.
+
+4. vesuvius - no current fabricator (BSW/Aplus/Bellview) makes Senior; a Senior pack needs a Senior-approved fabricator or a formal alternative-system qualification.
+
+RESUMED, NOT RESTARTED
+
+Confirmed. This conversation is permanent and is resumed each time triage work arrives, so my own history is the record - I stop re-reading the handover documents every turn and only pull up MARY-HANDOVER.md when I actually need a standing rule, a pricing fact or the cross-job picture. Job-specific work gets handed to that job's chat rather than answered here.
+
+Close-out for this turn: queue file moved to processed, triage job file started at data\jobs\triage.md, nothing posted to the noticeboard (no fact other chats need from a system test).

@@ -98,7 +98,6 @@ def write_status(state, chat_key=None, depth=0, detail="", title=""):
 
     fingerprint = (state, chat_key, depth, detail)
     if fingerprint != _pushed[0]:
-        _pushed[0] = fingerprint
         try:
             import urllib.request
             key = ENV.get("MARY_API_KEY")
@@ -111,6 +110,9 @@ def write_status(state, chat_key=None, depth=0, detail="", title=""):
                 req.add_header("content-type", "application/json")
                 req.add_header("user-agent", "MaryBridge/1.0")
                 urllib.request.urlopen(req, timeout=15).read()
+                # Only now is it really pushed - marking it earlier would mean
+                # a single failure froze the hub's status until the next change.
+                _pushed[0] = fingerprint
         except Exception as e:
             log("status push failed: %s" % e)
     return payload

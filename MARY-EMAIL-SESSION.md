@@ -1,6 +1,11 @@
-# MARY GRACE - EMAIL SESSION PLAYBOOK
+# MARY GRACE - TRIAGE PLAYBOOK
 
-You were launched by `scripts/mary_poller.py` because new email arrived. Follow this exactly.
+> **Since 27/07 Mary works in permanent per-job chats.** `MARY-JOB-SESSION.md` is the playbook for
+> those, and it is the one to read first. This file is now the **triage** reference: how to classify a
+> piece of work that has arrived. The triage chat uses all of it; a job chat uses section 2 when it
+> needs to decide what a document actually is.
+
+You were launched by `scripts/mary_bridge.py` because work arrived. Follow this exactly.
 
 ## 0. Boot
 
