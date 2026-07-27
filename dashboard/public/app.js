@@ -1,7 +1,8 @@
 /* Mary Grace - Fenster Estimating Hub.
-   Single-page app over /api/data (deployed state) + /api/messages (D1).
-   Everything Mary-facing that a human writes here is collected by her
-   poller within ~15 minutes and answered back into this hub. */
+   Single-page app over /api/data (deployed state) + /api/messages (D1)
+   + /api/status (what her bridge is doing right now).
+   Anything written here is picked up by the bridge within seconds and routed
+   to that job's own permanent chat, then answered back into this hub. */
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
@@ -10,6 +11,16 @@ let DATA = null;
 let MESSAGES = [];
 let page = "overview";
 let commsTab = "sent";
+
+/* Anything a human has typed but not yet sent. render() throws the whole page
+   away and rebuilds it, so without this a background refresh mid-sentence
+   wipes what you were writing. Keyed by the textarea's data-draft attribute;
+   selected request options and the search term ride along for the same reason. */
+const DRAFTS = {};
+let searchTerm = "";
+let msgSig = "";
+let STATUS = null;
+const signature = (msgs) => msgs.map((m) => `${m.id}:${m.seen_by_mary ? 1 : 0}`).join(",");
 
 /* ---------------- api ---------------- */
 async function api(route, options) {
@@ -26,7 +37,30 @@ async function sendToMary(body, context = "") {
     body: JSON.stringify({ author: who(), body, context }),
   });
   MESSAGES = await api("messages");
-  toast("Sent - Mary picks this up within 15 minutes");
+  msgSig = signature(MESSAGES);
+  toast(STATUS?.state === "working" ? "Sent - queued, Mary is mid-job right now" : "Sent - Mary picks this up in seconds");
+}
+
+/* The live pill in the sidebar: what the bridge is doing this second. */
+function renderStatus() {
+  const el = $("#mary-state");
+  const dot = $("#mary-dot");
+  if (!el) return;
+  const s = STATUS || {};
+  let text = "Live", tone = "";
+  if (s.state === "working") {
+    text = s.title ? `Working on ${s.title}` : "Working";
+    tone = "busy";
+  } else if (s.state === "backoff") {
+    text = "Paused - retrying shortly";
+    tone = "stalled";
+  } else if (s.queue_depth > 0) {
+    text = `${s.queue_depth} queued`;
+    tone = "busy";
+  }
+  el.textContent = text;
+  el.title = s.detail || "";
+  if (dot) dot.className = `dot ${tone}`;
 }
 
 function toast(text) {
@@ -155,7 +189,7 @@ const PAGES = [
   { key: "overview", label: "Overview", sub: () => "Everything Mary is holding, at a glance" },
   { key: "pipeline", label: "Pipeline", sub: () => "Every live tender, most urgent first" },
   { key: "requests", label: "Mary needs you", sub: () => `${openReqs().length} decision${openReqs().length === 1 ? "" : "s"} she cannot make without a human` },
-  { key: "messages", label: "Messages", sub: () => "Two-way line - she checks every 15 minutes" },
+  { key: "messages", label: "Messages", sub: () => "Two-way line - she picks up what you write within seconds" },
   { key: "comms", label: "Comms log", sub: () => "Everything sent and everything read" },
   { key: "catches", label: "Catches", sub: () => "Errors found and money saved" },
 ];
@@ -210,7 +244,7 @@ const RENDER = {
         <div class="req-block needs"><h5>What she needs from you</h5><p>${inline(r.needs)}</p></div>
         <div class="req-answer">
           ${r.options?.length ? `<div class="req-options">${r.options.map((o, i) => `<button class="opt" data-opt="${i}">${esc(o)}</button>`).join("")}</div>` : ""}
-          <div class="req-compose"><textarea placeholder="Your answer (or pick an option above and add detail)..."></textarea>
+          <div class="req-compose"><textarea data-draft="req:${r.id}" placeholder="Your answer (or pick an option above and add detail)..."></textarea>
           <button class="btn" data-answer="${r.id}">Answer</button></div>
         </div>
       </article>` : `
@@ -236,8 +270,8 @@ const RENDER = {
     return `<div class="chat">
       <div class="chat-thread">${parts.length ? parts.join("") : `<div class="empty"><strong>No messages yet</strong>Say hello - Mary replies right here.</div>`}</div>
       <div class="chat-compose">
-        <textarea id="chat-body" placeholder="Ask Mary anything - price a job, chase something, explain a number..."></textarea>
-        <div class="chat-actions"><span class="chat-hint">Sending as <strong>${esc(who())}</strong> &middot; picked up on her next 15-minute cycle</span>
+        <textarea id="chat-body" data-draft="chat" placeholder="Ask Mary anything - price a job, chase something, explain a number..."></textarea>
+        <div class="chat-actions"><span class="chat-hint">Sending as <strong>${esc(who())}</strong> &middot; ${STATUS?.state === "working" ? "she is mid-job - this queues behind it" : "picked up within seconds"}</span>
         <button class="btn" id="chat-send">Send</button></div>
       </div></div>`;
   },
@@ -267,7 +301,30 @@ const RENDER = {
 };
 
 /* ---------------- render / routing ---------------- */
+function restoreDrafts() {
+  $$("[data-draft]").forEach((el) => { if (DRAFTS[el.dataset.draft]) el.value = DRAFTS[el.dataset.draft]; });
+  $$(".req").forEach((card) => {
+    const chosen = DRAFTS[`opt:${card.dataset.req}`];
+    if (chosen === undefined) return;
+    card.querySelectorAll(".opt").forEach((o, i) => o.classList.toggle("sel", i === chosen));
+  });
+}
+
+function applyFilter() {
+  const q = searchTerm.toLowerCase();
+  $$("#page tr[data-job], #page .req, #page .mail-row, #page .catch, #page .bubble").forEach((el) => {
+    el.style.display = !q || el.textContent.toLowerCase().includes(q) ? "" : "none";
+  });
+}
+
 function render() {
+  // Hold on to what the user is doing, so a background refresh cannot eat it.
+  const active = document.activeElement;
+  const focusKey = active?.dataset?.draft || (active?.id === "search" ? "search" : null);
+  const caret = focusKey && active.setSelectionRange ? [active.selectionStart, active.selectionEnd] : null;
+  const thread = $(".chat-thread");
+  const stickToBottom = !thread || thread.scrollHeight - thread.scrollTop - thread.clientHeight < 40;
+
   const badges = { requests: openReqs().length, messages: unseenMsgs() };
   $("#nav-items").innerHTML = PAGES.map((p) => `
     <button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.key]}${p.label}
@@ -277,16 +334,35 @@ function render() {
   $("#page-sub").textContent = meta.sub();
   $("#page").innerHTML = RENDER[page] ? RENDER[page].call(RENDER) : "";
   $("#updated-at").textContent = "- " + new Date(DATA.updated).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
-  $("#search").value = "";
+  $("#search").value = searchTerm;
+
+  restoreDrafts();
+  applyFilter();
+  if (focusKey) {
+    const el = focusKey === "search" ? $("#search") : $(`[data-draft="${focusKey}"]`);
+    if (el) {
+      el.focus();
+      if (caret && el.setSelectionRange) el.setSelectionRange(caret[0], caret[1]);
+    }
+  }
+  const t = $(".chat-thread");
+  if (t && stickToBottom) t.scrollTop = t.scrollHeight;
+
   const send = $("#chat-send");
   if (send) send.addEventListener("click", async () => {
     const body = $("#chat-body").value.trim();
     if (!body) return;
     send.disabled = true;
     await sendToMary(body);
+    delete DRAFTS.chat;
     render();
   });
 }
+
+document.addEventListener("input", (e) => {
+  const key = e.target.dataset?.draft;
+  if (key) DRAFTS[key] = e.target.value;
+});
 
 document.addEventListener("click", async (e) => {
   const nav = e.target.closest("[data-nav],[data-go],[data-goreq]");
@@ -296,7 +372,9 @@ document.addEventListener("click", async (e) => {
   }
   const opt = e.target.closest(".opt");
   if (opt) {
-    opt.closest(".req-options").querySelectorAll(".opt").forEach((o) => o.classList.toggle("sel", o === opt));
+    const opts = [...opt.closest(".req-options").querySelectorAll(".opt")];
+    opts.forEach((o) => o.classList.toggle("sel", o === opt));
+    DRAFTS[`opt:${opt.closest(".req").dataset.req}`] = opts.indexOf(opt);
     return;
   }
   const answer = e.target.closest("[data-answer]");
@@ -309,6 +387,8 @@ document.addEventListener("click", async (e) => {
     if (!body) { toast("Pick an option or type an answer first"); return; }
     answer.disabled = true;
     await sendToMary(body, `${req.id}: ${req.title}`);
+    delete DRAFTS[`req:${req.id}`];
+    delete DRAFTS[`opt:${req.id}`];
     render();
     return;
   }
@@ -323,23 +403,30 @@ document.addEventListener("click", async (e) => {
 });
 
 $("#search").addEventListener("input", (e) => {
-  const q = e.target.value.toLowerCase();
-  $$("#page tr[data-job], #page .req, #page .mail-row, #page .catch, #page .bubble").forEach((el) => {
-    el.style.display = !q || el.textContent.toLowerCase().includes(q) ? "" : "none";
-  });
+  searchTerm = e.target.value;
+  applyFilter();
 });
 
 /* ---------------- boot ---------------- */
 (async () => {
   try {
-    [DATA, MESSAGES] = await Promise.all([api("data"), api("messages")]);
+    [DATA, MESSAGES, STATUS] = await Promise.all([api("data"), api("messages"), api("status").catch(() => null)]);
+    msgSig = signature(MESSAGES);
     render();
+    renderStatus();
     setInterval(async () => {
       try {
-        MESSAGES = await api("messages");
+        const [fresh, status] = await Promise.all([api("messages"), api("status").catch(() => STATUS)]);
+        const statusChanged = JSON.stringify(status) !== JSON.stringify(STATUS);
+        STATUS = status;
+        if (statusChanged) renderStatus();
+        const sig = signature(fresh);
+        if (sig === msgSig) return;   // nothing changed - never redraw over the user
+        MESSAGES = fresh;
+        msgSig = sig;
         if (page === "messages" || page === "overview") render();
       } catch {}
-    }, 30000);
+    }, 10000);
   } catch (err) {
     $("#page").innerHTML = `<div class="empty"><strong>Could not load the hub</strong>${err.status || err.message}</div>`;
   }

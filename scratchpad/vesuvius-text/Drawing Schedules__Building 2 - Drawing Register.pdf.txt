@@ -1,0 +1,30 @@
+J Roberts Design Ltd
+Consulting Civil and
+Structural Engineers
+Job Title: ISSUE SHEET
+Vesuvius Way, Worksop - S - Building 2 SHEET 1
+Job No: Date of Issue
+4248 Day 25 27 23
+Month 9 10 12
+Year 25 25 25
+Drawing Title Dept Drg No Size Revision
+/ 4248/
+Foundation Plan S 160 A1 P3 P4 P5
+Reinforcement Plan S 161 A1 P1 P2
+Ground Floor Plan S 162 A1 P4 P5PP6
+Roof Plan S 163 A1 P4 P4 P5
+Parapet Plan S 164 A1 P4 P4 P5
+Elevations Sh.1 S 165 A1 P4 P5 P6
+Elevations Sh.2 S 166 A1 P4 P5 P6
+Details Sh. 1 S 167 A1 P3 P3 P3
+Reinforcement Details S 168 A1 P1 P1
+Reinforcement Details S 169 A1 P1 P2
+Standard Notes S 020 A1 P1
+Distribution No of Copies
+Organisation: Attention: (X for Issue Sheet only)
+JHA Ltd JOH E E E
+Buse Gases Ltd JS E E E
+File Copy 1 1 1
+Total Copies 1 1 1
+Purpose of Issue T T T
+KEY: I=Information, C=Comment, A=Approval, M=Measurement, T=Tender, W=Construction, R=Record E=E-Mail

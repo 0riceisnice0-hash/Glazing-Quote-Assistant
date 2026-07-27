@@ -1,0 +1,325 @@
+/108D
+2
+D 08
+F-F
+/111C
+W01 W02 W03 W04
+1810 515
+D.03
+FD 60
+Plant Store
+6.02 m²
+4.91 m²
+Break Out / Induction Kitchenette
+5.95 m² 5.44 m²
+910 286
+D 01 D 02
+Changing Space 02
+4.00 m²
+Security / Weigh Bridge
+Transport Office
+23.92 m²
+/108D 3 Changing Space 01
+3.98 m²
+D 10
+D 04
+FD 30
+D 09
+1
+R1
+Accessible Changing
+/109B D05 /109B
+6.07 m² WC
+2.46 m²
+Ticket Area 01
+2 old /130 12.17 m² Accessible WC Lobby 3.31 m²
+3.31 m² 02 /122B 04
+03
+E-E E-E
+/110C /110C
+G-G
+old /130
+/112C D 11
+1
+D 06 D 07 D 12
+F-F G-G
+/111C /112C
+5851
+1763
+290 800 1412 800
+1349
+7711
+019
+2
+3 /123A
+2
+3 /119B 1
+4
+6
+7 /119B 5
+8
+02
+01
+01 /120B 03
+04 /121B 02 04
+03
+1083
+2428
+6691
+raelC
+0022
+1591 2428
+32110001
+3332
+363 1000 160
+001
+018
+956
+2428
+1221
+637
+4 R2
+/109B /109B
+R2
+/109B
+7712
+6968
+006
+006
+123
+006
+7153
+600 450
+300
+600
+054
+1472
+1
+/123A
+ROOF ACCESS HATCH ROOF ACCESS HATCH
+HWS
+CYL
+MVHR MVHR
+OFFICES CHANGING
+DATA
+CABINET
+1
+/118B 2
+ROOF ACCESS HATCH
+900
+01-1
+/119B
+Locker Room
+10.03 m²
+ROOF ACCESS HATCH
+-
+---
+LORTNOC
+LENAP
+FRESH AIR LOUVRE
+ERVUOL
+RIA
+HSERF
+POWER
+FIRE
+COMMS
+TPN DISTRIBUTION BOARD
+SHOWER
+HEAD
+AC GRAVITY DRAIN
+VENTILATION SHOWER
+HEAT HEAD
+CONTROLLED
+CASSETTE
+SHOWER
+HEAD
+VENTILATION
+HEAT CONTROLLED CASSETTE
+NIARD
+YTIVARG
+CA
+NIARD
+YTIVARG
+CA
+RWP RWP
+AC GRAVITY DRAIN
+Lintel 09:
+NAYLOR P100
+100mm bearing either side
+Lintel 08 Lintel 09
+-
+---
+5 /118B 3
+4
+/118B
+Lintel 10
+AC GRAVITY DRAIN AC GRAVITY DRAIN
+150x100x6.3 RHS
+SHR
+3.6x001x051
+Lintel 01 Lintel 02 Lintel 03 Lintel 04
+CATNIC CG90/100 CATNIC CG90/100 CATNIC CG90/100 CATNIC CG90/100 CATNIC CG90/100 CATNIC CG90/100 Lintel 05
+2
+Lintel 06 Lintel 07
+CATNIC CG90/100 CATNIC CG90/100
+ETALP
+&
+XB
+553S
+SHS
+0.5x001x001
+001/09GC
+CINTAC
+BIG
+Back Inlet
+Gully
+Lintel 11
+Lintel 10
+NAYLOR P100
+100mm bearing either side low
+level at penetration
+REFER TO DRAWING
+JHA 2024-055-119
+FOR DETAILS
+REFER TO DRAWING
+JHA 2024-055-118
+FOR DETAILS
+4 /108D
+REFER TO DRAWING
+JHA 2024-055-119
+FOR DETAILS
+REFER TO DRAWING
+JHA 2024-055-109
+FOR DETAILS
+REFER TO DRAWING
+JHA 2024-055-120
+FOR DETAILS
+REFER TO DRAWING
+JHA 2024-055-121
+FOR DETAILS
+1
+/108D
+21
+letniL
+noissimrep
+tuohtiw
+decudorper
+eb
+ton
+llahs
+dna
+dtL
+erutcetihcrA
+AHJ
+fo
+thgirypoc
+eht
+si
+gniward
+sihT
+C
+PLEASE NOTE
+1. DO NOT scale from this drawing, use figured dimensions only.
+2. All dimensions to be checked on site by the contractor.
+3. Please report any discrepancies to JHA Architecture Ltd immediately.
+4. All setting out dimensions are approximate. To be marked out on site
+for approval by JHA Architecture Ltd prior to construction.
+BUILDING 01
+WELFARE & SECURITY
+NOTES:
+DRAWING TO BE READ IN CONJUNCTION WITH ALL RELEVANT
+INFO AND DRAWINGS PROVIDED IN JHA TENDER PACKAGE.
+Drawing referencing JHA Dwg. 2024-055-003 Proposed Site Plan.
+JHA Ltd to be informed of any Process Engineer/ Consultant information
+contrary to the layout, build up & specification laid out in this drawing prior to construction.
+WALLS:
+EXTERNAL:
+Wall to comprise: 100mm 7N/mm² blockwork inner and outer leaf as
+specified by structural engineer with 100mm cavity filled with 90mm thick
+Kingspan Kooltherm K106 rigid insulation (10mm residual cavity). Type 2
+Stainless steel cavity wall ties to be spaced at 750mm centers horizontally
+& 450mm vertically & staggered with ties at 225mm vertical centers to
+jambs of openings. Cladding to comprise kingspan helping hand bracket system (with thermal break pads) and angled / 'tee' vertical rails (refer to
+details) with horizontal fixing rails. Dri-Design Cassette Rainscreen Facade
+System fixed to rails as details with hidden fixings. All flashings to be
+installed as manufacturer instructions to dimensions set out on JHA
+drawings.
+INTERNAL:
+Wall to comprise: 100mm 7N/mm² blockwork as specified by structural
+engineer with lining either side - refer to wall plan.
+Wall to comprise: 75mm channel with gypframe 48'S'50'C' studs fixed at
+600mm centres with lining either side - refer to wall plan.
+ROOF :
+Roof to be constructed of 0.9mm PVF2 Coated Aluminium Kalzip 65/400 -
+Colour: RAL7000 with Kalzip Insulation Plus 40 - 280mm compressed to
+265mm. Cladding supported on Kalzip E180 halter clips c/w 10mm &
+5mm spacers supported on thermal pads fixed on 70mm deep
+Continuous Galvanised Steel Top-Hat Cleader Rails. Rails sat on Kalzip
+Clear Vapour Control Layer (VCL) fully lapped and sealed to ensure
+watertight roof. All sat on 18mm WBP plywood deck on Truss (designed
+by Tailor made design) all cantilevered as manufacturers design.
+Roof to be underdrawn with MF Ceiling - Gypframe Primary Support
+channels supported from Gypframe Strap Hangers.
+ROOF TRUSS:
+Roof truss' to be T1, T2 & T4 with suspended & cantilevered members all
+to Tailor Made Design - Refer to drawing 2024-055-107.
+FLOOR :
+Floor to be constructed of floor finish - refer to finishes schedule on 90mm
+floor screed on 500 micron polyethylene separating layer on 80mm
+Kingspan Kooltherm K103 sat on 150mm RC35 concrete with 1No. layer
+A193 mesh top on 2000 gauge damp proof membrane (fully lapped and
+sealed) (No ground contamination), on 50mm sand blinding, on minimum
+150mm clean dry hardcore Type 1 deposited and compacted in max
+150mm layers. All to achieve 0.16W/m2k.
+LINTELS:
+Openings to external walls to have lintels as specified by structural
+engineer, with tray DPCs over. Weep hole ducts at 450mm c/c and
+minimum of 2no. per opening. Openings to internal walls to have Naylor
+R6 concrete lintels or similar approved. All proprietary lintels fixed in
+accordance with manufacturers instructions, length appropriate for span
+including minimum 150mm end bearings. Steelwork to Structural
+Engineer's design and specification.
+WINDOWS AND DOORS:
+Curtain Wall double glazed panel to achieve U-value of 1.2 W/m2/k.
+Windows to be fitted with 4000mm2/ trickle vents. Apply sealant to front
+and back of frame as shown. Refer to specialist design.
+Double glazed window unit panels (Senior PURe® No Profile Groove
+Windows) to achieve U-value of 1.2 W/m2/k. Windows to be fitted with
+4000mm2/ trickle vents. Apply sealant to front and back of frame as
+shown. All aluminium window frames to be thermally broken and to
+continue the thermal line. All opening elements of windows & doors to be
+sealed with draught excluder. Window and door frames to overlap the
+closer by minimum 30mm. Apply sealant to front and back of frames/cills.
+All internal door sets to be fire rated inline with fire plan.
+C 10/11 Revised Roof Construction JOH
+B 18/09 TENDER ISSUE 18.09.25 JOH
+A 28/07 Issued to JRD for Comment JOH
+Ref Date Revision Initial
+Issue:
+TENDER ISSUE
+Project/ Client:
+PROPOSED NEW GAS PLANT
+AT PLOT 8, VESUVIUS WAY,
+WORKSOP S80 3NE
+FOR BUSE GAS SOLUTIONS
+Drawing Title:
+BUILDING GROUND FLOOR PLAN
+JHA Limited, West Suite,
+Second Floor, Unit F,
+South Quay,
+Lakeside Boulevard,
+Doncaster, DN4 5PL
+T 01302 364 565
+E enquiries@j-h-a.co.uk
+W www.j-h-a.co.uk
+Scale: Date:
+1 : 20 JUNE 2025
+Air Permeability: Drawn By: Checked By:
+All junctions, interfaces, penetrations, service entries and construction details are to be installed and finished to maintain the continuity of the airtightness line. JOH / JGR BF
+• Vapour control layers (VCLs) and airtight membranes to be lapped, bonded, and sealed in strict accordance with all manufacturer ’s recommendations.
+• All junctions between membranes and adjoining elements (e.g. blockwork, steelwork, window/door frames) to be sealed with proprietary air-tightness tapes and compatible primers. Drawing No: Sheet Size:
+• Service penetrations (mechanical, electrical, plumbing, ventilation) and truss penetrations to be individually sealed with airtight gaskets, collars, or tapes; no unsealed penetrations are permitted.
+• Damaged or punctured membranes to be repaired immediately using proprietary air-tightness patches. 2024/055/105C A1
+• The airtight layer must remain continuous around the entire thermal envelope, from foundations to roof, with special attention to wall –roof junctions around structural deck, wall–floor junctions, and openings.
+• Installation is to be coordinated with M&E to ensure compliance with the SBEM/Part L air permeability target.
+• The contractor to ensure all works are completed in such a manner that the building achieves the specified air permeability test result at completion.

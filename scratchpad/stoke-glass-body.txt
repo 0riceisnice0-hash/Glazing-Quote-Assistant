@@ -1,0 +1,67 @@
+Aplus issued the final glass sizes for job 17644 on Friday afternoon (Gintare forwarded them to Steve and Paul, cc you, 24/07 16:33).
+
+I have reconciled that list against the glass quotes on file. The final list is bigger than either quote covers, and the frames land on 03/08 unglazed - so this needs checking before the glass order goes out.
+
+HEADLINE
+
+Aplus final list: 170 panes to order, 130.81 m2.
+
+Vetroseal quote 064542 (01/07): 124 panes, 105.24 m2, GBP 12,012.88 net.
+
+Short by 46 panes / 25.57 m2 - about 24% more glass than is quoted.
+
+1. WHAT IS MISSING
+
+Aplus gives three panes per window bay on most types (refs A1 / A4 / A8, and A1 / A5 on Type G). The schedule the quotes were priced from is one pane short on each. The pane absent every time is A1 - the roughly 391mm high toplight, 1041-1049 wide.
+
+- Type A: 9 panes needed, 6 quoted
+- Type B: 12 needed, 8 quoted
+- Type C: 60 needed, 40 quoted
+- Type D: 6 needed, 4 quoted
+- Type F: 24 needed, 16 quoted
+- Type G: 8 needed, 4 quoted
+- Door Type B1 (D02) and B2 (D04): head pane missing on each
+- Door Type C (D03): 3 panes, not on the quote at all
+- Types E, H, J1, J2 and Door Types A and D: match
+
+2. A MAKE-UP THAT IS NOT PRICED
+
+Aplus needs 9 panes at 32mm (8.33 m2) - the door head and transom panes. Vetroseal quoted every single line as 8.8L-16-4T, which is 28.8mm. The 32mm units need their own make-up and their own rate.
+
+Door leaf sizes have also moved: Aplus now calls for 749 x 2059, the quote is priced on 785 x 1934.
+
+3. MONEY
+
+Vetroseal's own rate on this quote is GBP 110.00/m2 goods, plus the energy surcharge at GBP 0.13/kg (GBP 4.15/m2 here) - GBP 114.15/m2 all in.
+
+At that rate the full final list is about GBP 14,930 net against the GBP 12,012.88 quoted - roughly GBP 2,920 more, before whatever the 32mm make-up adds.
+
+CN Glass quoted the same make-up at GBP 60/m2 inc energy on 01/07 (Steve's thread with Martin Gregory), plus GBP 10/m2 if the inner leaf goes to 6mm toughened softcoat. The full final list at that rate is about GBP 7,850 - some GBP 7,000 below Vetroseal.
+
+Our price to Borras is GBP 104,660.17 ex VAT (pricing doc rev 15/07) with the glass inside the unit rates, so any increase comes straight off the margin.
+
+4. DATES
+
+The Aplus sheet shows delivery 03/08/2026 - a week today. Frames are unglazed, supply only, so the glass is ours to order and ours to programme.
+
+Vetroseal 064542 is dated 01/07, so its 30-day validity runs out this week.
+
+5. WHAT I NEED CONFIRMED
+
+1. Which glass supplier holds this order, and that it is being placed against the 24/07 Aplus list rather than the earlier schedule.
+
+2. The make-up for the nine 32mm door panes.
+
+3. Whether the CN Glass rate is being used - on these areas the gap is around GBP 7,000.
+
+Five panes on the Aplus list are marked "DO NOT ORDER - Unglazed". Those are the aluminium infill panels and I have excluded them from the 170.
+
+Full reconciliation attached - summary, per-type comparison, the complete Aplus list and the Vetroseal lines side by side:
+
+outputs\Stoke Park School - Glass Sizes vs Quoted Glass (check).xlsx
+
+One caveat on the detail: pane sizes drifted a few millimetres between the earlier schedule and the final list, so which individual pane is missing is my reading of the sizes. The totals - 170 against 124 - are firm.
+
+SYSTEM NOTE FOR ZAC
+
+The poller re-queued three already-handled emails this morning. Microsoft's message ids are scoped to the Outlook folder a message sits in, so anything filed or moved comes back looking like new mail. Fixed: it now also keys on sender, subject and received time, seeded from the queue history. Nothing else was affected.

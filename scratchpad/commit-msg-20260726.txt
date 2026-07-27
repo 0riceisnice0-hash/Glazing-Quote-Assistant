@@ -1,0 +1,13 @@
+Autopilot session 26/07: newsletter triaged as noise, no email sent
+
+Poller queued one email - Saint Construction Support marketing newsletter
+to estimating@, untrusted sender, no attachments, no job reference.
+Triaged as noise per MARY-EMAIL-SESSION.md section 2: no email to Adam,
+one line in the session record.
+
+Adds an "Autopilot session log (no-action sessions)" section to
+HANDOVER.md so future no-email sessions leave a trace that the queue was
+triaged rather than skipped. Queue file moved to processed (test-results
+is gitignored, so it is not in this commit).
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

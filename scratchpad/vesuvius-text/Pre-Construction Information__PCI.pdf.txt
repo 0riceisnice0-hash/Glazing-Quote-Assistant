@@ -1,0 +1,916 @@
+PROPOSED Air Separation Unit
+AT
+VESUVIUS WAY, WORKSOP
+FOR
+BUSE GAS
+PRE-CONSTRUCTION INFORMATION
+JULY 2025
+VERSION 01
+TABLE OF CONTENTS
+1. Pre-Construction Information
+2. Design Risk Assessment
+SECTION 1
+PRE-CONSTRUCTION INFORMATION
+PRE-CONSTRUCTION INFORMATION
+FOR
+Buse Gas
+AT
+VESUVIUS WAY, WORKSOP
+1. INTRODUCTION
+The purpose of this Pre-construction (PCI) is to provide information for the tendering for / planning
+of work and is to assist the Principal Contractor in preparing and developing the Construction
+Phase Health and Safety Plan (CPH&SP) prior to commencement onsite. This document in turn
+will assist in the preparation of Risk Assessments and Method Statements (RAMS) for
+Contractors working for / alongside the PC.
+The project referred to above is deemed Notifiable to the Health & Safety Executive (HSE) under
+the CDM Regulations of 2015. This Client / PD (on the client’s behalf) will be responsible for
+notifying the HSE.
+This document has been prepared by JHA Architecture Ltd in their capacity as Principal Designers
+for Buse Gas. The source of information to formulate this document was provided by both the
+Client and the Design Team.
+The document summarises significant risk activity defined by the Design Team and client together
+with specific hazards associated with the construction site. The hazards / risks may require
+additional control measures and the Principal Contractor should identify such control / mitigation
+procedures within the CPH&SP.
+Also within, is information / detail provided by the Client to assist in the contractor’s provision of
+welfare facilities, services, infrastructure etc.
+It is the duty of the Principal Contractor to prepare and operate his own safety management
+system and procedures, taking into account the site rules, the Client requirements, the perceived
+hazards and project information incorporated within this document and other procurement
+documentation. If the PC / Contractor feels elements of information are missing / should be
+included within the PCI - this should raise this the PD at the earliest opportunity.
+It is necessary for the PC / Contractor’s to visit site and familiarise themselves with the site and
+its surroundings prior to tendering.
+It should be noted that the site was a former recreational ground with a football pitch, this said the
+surrounding area are brown field industrial. The site as existing is made ground, ready to be re-
+developed – please refer to the site investigation report prepared by GandM Consults (appended
+to this document). The site consists of temporary security fencing to the perimeter. To the North
+Eastern boundary is a railway line with palisade fencing. Neighbouring the site to the south is a
+Fire station and a builders merchant.
+Pre-construction Information 1
+Job No.2024/055
+1.1. Development of the Construction Phase Health and Safety Plan
+The Principal Contractor has a duty to develop the Construction Phase Health and Safety Plan
+from the pre-construction information prepared by the Principal Designer and Client Information.
+This plan must set out the means by which the PC will control the hazards identified and to take
+account of the following (but not limited to):
+a) A description of the project such as key dates and details of the members of the design
+team
+b) The management of the works
+c) Health and safety aims
+d) The site rules
+e) Arrangements to ensure cooperation between project team members and coordination of
+their work including project meetings.
+f) Arrangements for involving workers
+g) Site inductions
+h) Welfare facilities
+i) Fire and emergency procedures
+j) Control of specific site risks.
+k) Any changes to the design
+l) Aspects of health and safety specific to the Principal Contractor ’s method of working
+m) All current relevant legislation
+n) Security management
+o) Hazards identified by the Principal Contractor and other contractors
+p) Hazards identified by contractors with a design responsibility
+q) The client’s specific requirements – including the management of the Technology provider.
+r) New risks which may arise during the course of the work
+Any changes to the plan resulting in design change must only be carried out by agreement with
+the Principal Designer.
+The Construction Phase Health and Safety Plan should be developed as early as possible to
+avoid delays and a satisfactory response is required prior to commencement on site.
+Thereafter, the Construction Phase Health and Safety Plan will be updated by the Principal
+Contractor to incorporate further hazards identified as work proceeds – procedures of review and
+updating of said document should be considered.
+1.2. Designer’s Duties
+Where the works involve elements of contractor’s design, the Principal Contractor is to assume
+the role and responsibility of a designer under the CDM Regulations 2015 and issue designers
+risk assessments to the Principal Designer for all elements of contractors design work. Suitable
+Professional indemnity insurance will be required for this element.
+Items include:
+PCC works
+Truss Design.
+Pre-construction Information 2
+Job No.2024/055
+1.3. Notifications
+It is the Clients responsibility to notify the HSE of the project, and of any changes to Principal
+Contractor, Designers, Contractors, time scales etc. The Principal Contractor must display a copy
+of the full F10 Notification and notify the PD should changes to arrangements / the team occur.
+2. DESCRIPTION OF PROJECT
+2.1. Project and Programme Details
+The project is for Buse Gases, they are proposing to build a new state of the art Air Separation/
+gasification plant.
+The site will consist of several buildings, including; New Process buildings / welfare building /
+weigh bridge, offices & Scada room / switch rooms.
+The externals of the site will consist of parking facilities for both HGV’s & standard vehicles.
+Large external yard area to facilitate HGV vehicle movements & Gas storage tanks. Equipment
+Bases and loading / off-loading areas.
+Key elements of the works include:
+• Complete Buildings / Pre-fab / Structures
+• Establish site set up, secure with fencing and install signage
+• Formation of temporary haul roads, including safe pedestrian crossings
+• Contractors Design works
+• Ground works
+• Piling works
+• In situ concrete works
+• Pre-cast concrete works
+• Masonry
+• Structural works – timber, metal other
+• Cladding works
+• Waterproofing
+• Linings / dry partitioning
+• Windows, door, stairs
+• Formation of a low structural walling
+• Breaking out hard standing
+• Cut and fill works
+• Site excavation
+• First fix and second joinery
+• First fix and second fix Plumbing works
+• First Fix and Second fix commercial electrical installation
+• Roofing works
+• Mechanical equipment installations
+• Fitting of Fixtures and fittings
+• Decoration works
+Pre-construction Information 3
+Job No.2024/055
+The commencement date for the project is anticipated to be December 2027.
+KEY DATES
+Task Anticipated Completion / Issue Action
+Design Team
+Planning Permission Approved Bassetlaw Council
+Structural Design Issued 24th June J Roberts Design
+M and E Design Issued 24th June Energy Unique
+Detailed Design Issued 24th June JHA Architecture
+Final Issue of Technical Design Issued 24th June JHA Architecture
+Procurement
+Stage 1 Tender Process June / July Prospective Contractors
+Tender Review 3rd August – (3 weeks) Prospective Contractors
+Stage 2 Negotiations August Prospective Contractors
+Letter of intent August / September Client
+Signing Of Contracts September / October TBC
+Construction Phase
+Site Mobilisation September 2026
+Partial Completion Section 1 16th April 2027
+Technology provider occupation 19th April 2027 (6 Month Build)
+Construction Phase Completion Contractor to advise
+Technology provider leave site 18th October 2027
+Rectification Period 12 Months Contractor to advise (12 months)
+It is expected that the Principal Contractor will programme the works so that other contractors
+appointed are provided with reasonable lead-in times.
+The Principal Contractor will be given a lead-in period from the award of the contract to the start
+date TBC
+The Principal Contractor / contractors are required to provide a detail programme of works which
+will be used by the client to programme the Phasing of the project, practical completion / handover
+and installation of any fixtures fittings and finishes. This programme of works will form part of the
+contract documents and will be kept up to date throughout the course of the project.
+The Principal Contractor will be required to prepare the Construction Phase Health and Safety
+Plan in good time prior to commencement on site in order that the client can consider the
+Construction Phase Health and Safety Plan together with the Principal Designer and approve not
+less than one week before commencement on site.
+There will not be any restriction on working hours, however, any out of normal hours working must
+be agreed with the client.
+Pre-construction Information 4
+Job No.2024/055
+Details of Project Team
+Client: Buse Gas
+Contact Name: Jagjit Samra / Nigel Adams
+Architectural Services: JHA Architecture Ltd
+Contact Name: Jack O’Hara / Brendan Foster / John A O’Neill.
+Contract Administrator: JHA Architecture Ltd.
+Contact Name: Jack O’Hara / Brendan Foster / John A O’Neill.
+Mechanical and Electrical Designer: Energy Unique Building Services Consultants
+Contact Name: William Melnyk
+Principal Designer: JHA Architecture Ltd
+Contact Name: Jack O’Hara / Brendan Foster / John A O’Neill.
+Structural & Civil Engineer: James Roberts Designs Ltd
+Contact Name: James Roberts / Andrew Manning.
+Acoustic Engineer: Nova Acoustics
+Contact Name: Adam Martin
+Fire Engineer: - Stantec
+Acoustic Consultant – NOVA Acoustics
+2.2. Statement of Client’s Health and Safety Policy
+Generally
+The client is committed to supporting the health and safety strategy in the context of managing
+safe construction.
+The client will employ a Principal Contractor who can demonstrate and implement a safety
+strategy with a target of zero accidents of all types.
+Pre-construction Information 5
+Job No.2024/055
+The client will require that the Principal Contractor be able to demonstrate the following
+requirements:
+• All management, supervisory staff, tradesmen and operatives will have Sufficient Skill
+Knowledge Experience and behaviours to undertake the necessary tasks.
+• Everyone working on the site will go through the Principal Contractor’s health and safety
+induction process.
+• Demonstrate a commitment to consultation on health and safety issues.
+• Have a system to identify, agree and adopt best practice and also to rapidly disseminate
+lessons learnt from health and safety incidents.
+• The Principal Contractor must prepare a suitable emergency plan detailing the procedures
+to be taken in the event of serious or imminent danger via explosion, collapse of
+excavations, flooding of excavations and equipment moving traffic etc. The procedures
+may require evacuation of the site or involve the rescue of an injured person. Details
+should be included in the Construction Phase Health and Safety Plan. A sufficient number
+of competent persons should be nominated to implement these procedures.
+• When planning emergency procedures, escape routes and exits etc, consider the type
+and location of work being undertaken and the number of persons likely to be present on
+site at any one time.
+• The emergency plan must be agreed with the emergency services along with agreeing
+access restrictions for them in the event that they have to enter the site unescorted.
+• Emergency escape routes on the site should be kept clear, signed and adequately lit.
+• The Principal Contractor must provide adequate first aid facilities with sufficient numbers
+of qualified first aiders based on an assessment of the risk of injury and ill health on site.
+• The Principal Contractor should ensure that any necessary contacts are arranged,
+particularly with regard to first aid, emergency medical care and rescue work.
+• The contractor must provide or arrange for adequate space on site for:
+o Storage of plant, equipment and machinery.
+o Storage of builder’s materials.
+o Welfare facilities for both contractors and client appointed technology Providers.
+o Storage area of proposed process equipment to be installed – Delivery dates and
+exact equipment tbc.
+o Adequate arrangements for vehicular movements for all personnel.
+• The Principal contractor is responsible for the induction, management and wellbeing of
+the client directly appointed sub contractors. Consideration should be given to:
+o Additional Welfare facilities
+o Lone working
+o High risk activities
+o Competence
+Pre-construction Information 6
+Job No.2024/055
+o Language barriers (The Main Technology providers are from China approximately
+40 engineers – not all will be able to speak English)
+o Daley activities.
+• The Principal Contractor will be responsible for ensuring that suitable and appropriate
+welfare facilities are provided on the site in accordance with the Construction (Health,
+Safety and Welfare) Regulations 1996.
+• The welfare facilities should be sufficient for everyone who is working on the site and can
+be arranged separately or jointly with others. The facilities should be kept clean, warm
+and properly ventilated.
+• The PC is to anticipate no facilities onsite including Gas Water and Electric in the initial
+build phases. Services maybe established throughout the construction period but must not
+be relied upon.
+2.2A Accommodation of Client-Nominated Technology Contractor (SOPC)
+The Principal Contractor will note that the Client will appoint a specialist Technology Provider
+(SOPC) directly to undertake the delivery, assembly and installation of process equipment
+associated with the project.
+The Technology Provider will comprise an international workforce travelling from China and will
+occupy the site during the construction phase under a programme of phased possession. The
+Principal Contractor to make full allowance within their tender submission for all management,
+supervision, coordination, welfare, logistical arrangements, translation services, health and safety
+administration and interface management associated with accommodating the Technology
+Provider.
+The Principal Contractor are to refer to the appended skeleton programme and provide a
+programme including the works to facilitate occupation of the Central Processing Plant Island and
+associated equipment bases in accordance with the project programme. This should include
+completion of foundations, equipment plinths, below-ground infrastructure, drainage works,
+access routes and all associated enabling works necessary to permit installation activities.
+The Principal Contractor will coordinate all activities associated with the Technology Provider
+including, but not limited to:
+• Management of site interfaces between construction activities and technology installation
+works.
+• Provision of suitable translation and interpretation services.
+• Translation of site rules, emergency procedures, inductions and relevant health and safety
+information.
+• Coordination of deliveries, lifting operations and abnormal loads.
+• Management of access arrangements and traffic movements.
+• Coordination of shared welfare facilities and site services.
+• Provision of ongoing supervision and monitoring of site activities.
+• Delivery scheduling and programme integration.
+Pre-construction Information 7
+Job No.2024/055
+The Principal Contractor is to establish suitable arrangements for communication between all
+parties and ensure that language barriers do not compromise health, safety, welfare or
+operational efficiency.
+Separate compounds may be established for the Principal Contractor and Technology Provider.
+Notwithstanding such arrangements, the Principal Contractor are to remain responsible for overall
+site coordination, cooperation and interface management in accordance with the Construction
+(Design and Management) Regulations 2015. Refer to drawings.
+The Principal Contractor are to ensure that all personnel are aware of the distinction between
+compound boundaries, access restrictions, emergency arrangements and permit procedures.
+Tendering contractors are referred to the document entitled:
+"Accommodation of Client-Nominated Technology Contractor (SOPC) by Contractor TBC –
+Translation, Site Coordination, Phasing and CDM Requirements & Stipulations"
+which forms part of the tender information and should be read in conjunction with this Pre-
+Construction Information document. The Principal Contractor are to make full allowance for all
+requirements contained in the document and any they foresee.
+2.3. Extent and Location of Existing Records and Plans
+A site survey plan has been prepared, drawing no 2024-055-01, copies of which are included in
+the tender documents.
+Details of existing services routes into the building, where known, are shown on the survey plans.
+Existing Utility companies (water, gas, electric, sewage) have been approached by the client /
+client representatives to identify the services within and around the site. Please refer to EU
+drawings.
+There are no existing structures on the site however, the tendering contractor is advised to visit
+the site and satisfy themselves as to the nature and use of the immediate environment.
+The tender information includes indicative lifting strategy drawings identifying the proposed crane
+locations for Dewsbury cranes, exclusion zones and lifting arrangements associated with the
+erection of the process tower. These drawings are provided for information and are to be reviewed
+by tendering contractors when preparing their construction methodology and programme.
+Pre-construction Information 8
+Job No.2024/055
+CLIENT’S CONSIDERATIONS AND MANAGEMENT REQUIREMENTS
+2.4. Planning for and Managing the Construction Work
+The Principal Contractor will be responsible for planning and managing the construction work
+including all contractors (contractor or client appointed) together with the general health and
+safety requirements for the project.
+The objective of the Construction Phase Health and Safety Plan will be to provide a useful working
+document which will act as a focus for persons working on the project and for the client’s staff and
+visitors.
+2.4b Utility Infrastructure and Grid Connection Works
+The Client is currently considering the appointment of either National Grid or a private
+Independent Connection Provider (ICP), currently anticipated to be “Grid tech”, to undertake the
+installation of the electrical grid connection serving the development.
+The works are anticipated to include both contestable and non-contestable elements associated
+with the electrical connection and may involve the installation of below-ground ducting, cabling
+and associated infrastructure crossing parts of the site. Refer to drawings.
+Tendering contractors are to make allowance for coordinating their works with the appointed utility
+provider and are to cooperate with the Client and utility provider in developing an appropriate
+sequence of works. Particular consideration to be given to avoiding abortive works, unnecessary
+excavation, reinstatement or damage to completed foundations, hardstanding’s, yards, roads and
+external works.
+The Principal Contractor is to maintain regular liaison with the Client and the appointed utility
+provider to ensure utility installation works are appropriately integrated into the construction
+programme and that access, excavation and reinstatement activities are coordinated with ongoing
+site operations.
+At the time of tender, the utility provider's appointment and scope remain under review.
+Contractors are therefore requested to provide separate cost allowances for any contestable
+works that may ultimately be incorporated within the Principal Contractor's scope. The extent of
+any non-contestable works will remain the responsibility of the appointed utility provider.
+Temporary Power Provision
+The project programme is dependent upon the availability of a permanent electrical supply to
+facilitate commissioning, testing and operation of the specialist process equipment installed by
+the Client's nominated Technology Provider (SOPC).
+Should the permanent grid connection not be available by the date required for commissioning,
+testing or demonstration of the installed equipment, the Principal Contractor are to provide within
+their tender submission a separate cost allowance for the provision of a temporary power solution.
+The temporary power solution should be capable of supporting the commissioning and testing
+requirements of the Technology Provider and may include generators, temporary distribution
+Pre-construction Information 9
+Job No.2024/055
+equipment, fuel management, cabling, protection systems, maintenance and all associated
+temporary works.
+Tendering contractors are to clearly identify within their submission:
+• The proposed temporary power solution.
+• Available electrical capacity.
+• Duration of operation assumed within the allowance.
+• Fuel, servicing and maintenance provisions.
+• Any exclusions or limitations associated with the temporary supply arrangement.
+The Client reserves the right to instruct the use of a temporary power solution should the
+permanent utility connection not be available within the timescales required to support
+commissioning and testing activities.
+2.5. The structure and organisation are broadly as follows:
+Client
+Architect/Designer
+(JHA)
+(Lead Consultant)
+Principal Designer
+JHA
+Other Consultants SE,
+ME,
+Principal Contractor
+Contractors Technology Provider
+2.6. Communication and Liaison
+Regular meetings will be held on site by the Contract Administrator / Lead Consultant to discuss
+the works, CDM issues, progress and health and safety issues. The meetings will also be used
+to discuss arrangements for ensuring the client employees are kept informed of events and any
+changes to access or restrictions around the works area. CDM will be part of the agenda for these
+meetings.
+Meeting minutes and actions will be produced by the Contract Administrator and distributed to all
+present and a copy forwarded to the Principal Designer. Any alterations to the design or CPHSP
+should be forwarded to the Principal Designer prior to commencement of said elements of work.
+Consideration should be given to providing adequate communication arrangements for the
+Technology providers in terms of interpreters, alternative signage, translated documentation etc.
+Onsite emergency communication should be understood to have a common known method
+across languages.
+Pre-construction Information 10
+Job No.2024/055
+Particular consideration to be given to communication with the Client's nominated Technology
+Provider (SOPC). The Principal Contractor are to establish suitable arrangements for
+interpretation services, translated documentation and effective communication between all parties
+involved in the project.
+Regular coordination meetings to be undertaken between the Principal Contractor, Client,
+Contract Administrator, Principal Designer and Technology Provider representatives to review
+programme integration, delivery schedules, site logistics, health and safety matters and interface
+risks associated with concurrent working activities.
+The Principal Contractor needs to maintain effective day-to-day communication procedures to
+ensure that emerging risks, programme constraints and operational issues are identified and
+addressed promptly.
+Continuing Liaison
+The Construction Phase Health and Safety Plan must include arrangements for ongoing
+communication and regular liaison between all parties on site, consultation with the workforce,
+and exchange of design information between client, designers, Principal Designer, and all sub-
+contractors employed.
+2.7. Site Wide Elements
+The areas surrounding the site are:
+- Directly North of the site is the eastern rail line through Worksop.
+- Directly East of the site is an empty plot of land, ready to be developed.
+- South, East of the site is the Worksop fire station & Asda.
+- South of the site is to be new adopted Highway & roundabout.
+- Beyond this is another plot of undeveloped land.
+- West of the site is existing greenspace / woodland. “Tranker Wood”.
+The site is accessed Via, Vesuvius Way. (A new industrial / commercial estate). All vehicle traffic
+will come via A57 / A60 & Sandy lane. – consideration should be given regard providing safe
+access across virgin / made ground, especially through winter periods.
+2.7A Temporary Site Access, Haul Roads and Interface with Adjacent Works
+The Principal Contractor to note that the proposed site compound is anticipated to be located
+onsite and within the adjacent Plot 8 and to form access to site from the round arbout, as identified
+on the tender drawings.
+The permanent access road and associated infrastructure serving the development is currently
+being constructed under a separate contract by others. Tendering Contractors to familiarise
+themselves with the extent of these works and make full allowance within their tender submission
+for coordinating activities with the adjacent contractor and accommodating ongoing construction
+operations.
+Pre-construction Information 11
+Job No.2024/055
+Prior to commencement of the main works, the Principal Contractor to design, construct, maintain
+and subsequently remove temporary haul roads required to facilitate access to the site, compound
+areas and working zones.
+Temporary haul roads to be formed using clean 6F2 hardcore material placed and compacted in
+layers not exceeding 150mm in thickness using suitable compaction equipment. The haul road to
+be designed and constructed to safely accommodate all anticipated site traffic including cranes,
+abnormal loads, HGV deliveries, plant and construction vehicles.
+The Principal Contractor to ensure that haul roads are of sufficient width and construction to permit
+safe access and egress throughout the duration of the works without continual edge breakdown,
+rutting or deterioration. All compacted material to be adequately consolidated, inspected and
+maintained throughout the construction period.
+The Principal Contractor to provide, install, maintain and remove all temporary protection
+measures necessary to facilitate construction traffic crossing existing or newly constructed
+infrastructure. Such measures to include, where required, road plates, load distribution systems,
+protective coverings and other suitable protection arrangements.
+The Principal Contractor to ensure that all temporary protection measures are sufficient to prevent
+damage to roads, concrete slabs, pavements, kerbs, channels, drainage infrastructure and
+associated external works. Any damage arising from the Contractor's operations to be repaired
+at the Contractor's expense to the satisfaction of the Contract Administrator.
+The Principal Contractor to note that access to the site may require vehicles to pass through
+designated passing points and across areas of highway or infrastructure works being undertaken
+by others. Deliveries, crane movements and abnormal load operations to be coordinated with all
+affected parties to ensure safe access is maintained at all times.
+The Principal Contractor to make full allowance for accommodating adjacent contractors,
+separate CDM work areas, compound arrangements and interface requirements as indicated on
+the tender drawings. Alternative proposals may be submitted for consideration by the Client and
+Contract Administrator, provided they demonstrate an equivalent or improved level of safety,
+coordination and operational efficiency.
+2.8. Security of the Site/Works
+The Principal Contractor will be fully responsible for site security arrangements and access to the
+site. Please refer to drawing no 2025-055-038 which identifies a suggested contract compound
+area.
+The Principal Contractor should take reasonable measures to ensure that at the start and end of
+each working day, and the commencement of any works, no unauthorised persons are present in
+the building / site.
+The Principal Contractor will have a daily signing in policy for his operatives and visitors to the
+site, details of persons on site are therefore recorded in case of emergency and a roll-call is
+required. The Principal Contractor should detail the arrangements for security within the CPHSP.
+Pre-construction Information 12
+Job No.2024/055
+The Principal Contractor must take reasonable measures to ensure that no unauthorised persons
+enter the work areas. Only people who are explicitly authorised by the Principal Contractor should
+be allowed access to the site. Authorised people should have the relevant site rules explained to
+them and undertake any necessary safety induction training.
+Consideration should be given to out of hours working and overnight security.
+2.9. Welfare Provisions
+The Principal Contractor is to allow for providing temporary welfare facilities for the full duration
+of the contract together for the client appointed Technology Providers. The Principal Contractor
+will make his own arrangements for supplies as required. These facilities need to be provided
+within the contractor’s compound, to be agreed within the CPH&SP and at the pre-start meeting
+prior to commencement.
+The Principal Contractor will provide welfare facilities in accordance with Schedule 2 of the
+Construction (Health, Safety and Welfare) Regulations 2007 and the CDM Regulations 2015
+requires the client to be satisfied that the above is in place prior to the works commencing.
+The Principal Contractor to ensure that welfare facilities are suitably sized and managed to
+accommodate both the construction workforce and the Client's nominated Technology Provider
+throughout the duration of their occupation of the site.
+The Principal Contractor are to consider the anticipated number of specialist personnel, welfare
+demand, language requirements and the duration of the technology installation phase when
+determining the scale and location of welfare facilities.
+2.10. Site Hoarding & Scaffolding requirements
+It is the requirement of the client that the Principal Contractor provides a secured perimeter around
+the areas of works. It has been agreed that a Heras fence with anti vandal fixings would be the
+minimum.
+If there is a need for any Heras fencing or walkway to encroach onto a highway, the Principal
+Contractor is to consult with the Highway Authority Area Engineer before this is erected, and a
+license under Section 169 of the Highways Act 1980 sought for any such encroachment.
+Any gantry extending over the public footpath must be to the approval of Highways, Area
+Manager.
+2.11. Site Transport Arrangements or Vehicle Movement Restrictions
+It will be the responsibility of the Principal Contractor to detail the proposals for managing access
+to and from the site in their Construction Phase Health and Safety Plan.
+The PC is to keep the highway clean and tidy for other users. Wheel washing procedures maybe
+required in winter months.
+Pre-construction Information 13
+Job No.2024/055
+Should Cranes be required, lifting plans and oversailing need to be considered in detail.
+The Principal Contractor are to allow for the receipt, storage and management of specialist
+process equipment, abnormal loads and multiple container deliveries associated with the
+Technology Provider's installation activities. SOPC to store 38 minimum containers as per the
+drawings.
+The Principal Contractor are to coordinate all deliveries, lifting operations and traffic management
+arrangements to ensure safe access is maintained for construction personnel, technology
+installation teams and delivery vehicles at all times.
+Provision should be made within the site layout for equipment storage, container storage,
+fabrication areas and associated operational requirements as identified within the project
+documentation.
+2.12. Client Permit to Work Procedures
+All operatives are to carry an up to date CSCS card for the element of works they are to carry out
+and undertake the necessary Principal Contractors induction. All cards are to be produced upon
+request by any person.
+All visitors must carry a CSCS card and undergo a site induction, alternatively at the discretion of
+the principal contractor, undertake a site induction and be accompanied by an inducted CSCS
+authorised person at all times.
+The PC is to put into place appropriate procedures to manage the Health and Safety of operatives
+together with induction procures and permitting.
+Consideration must be given to the Technology Providers permitting system.
+2.13. Fire Precautions
+No burning will be permitted on site.
+Extra care should be taken to ensure that no incipient fires are left when burning equipment (e.g.
+oxy-propane torches) have been used.
+The Principal Contractor is required to write and review a fire plan for the project. The fire plan
+must be submitted along with the Construction Phase Health and Safety Plan prior to the works
+commencing on site.
+The publication ‘Fire Prevention on Construction Sites’ may be helpful in producing the fire plan.
+The Principal contractor is advised to consider notification procedures / early warning procedures
+for a fire incident to the clients neighbouring uses.
+2.14. Emergency Procedures and Means of Escape
+Pre-construction Information 14
+Job No.2024/055
+Procedures must be written and included in the Construction Phase Health and Safety Plan to
+deal with all emergencies that may arise during the construction work. Where contractors provide
+method statements and risk assessments for their work, the risks must be looked at to ensure
+that the Construction Phase Health and Safety Plan fully covers all emergencies that may arise.
+The nearest Accident and Emergency Hospital from the site is located at Bassetlaw Emergency
+Hospital.
+The Principal Contractor must ensure that first aid cover is provided through the duration of the
+project. This must meet with current legislation. Details of emergency procedures should be part
+of the site induction given to persons working or visiting the site.
+Fire exits from any buildings and the site in general must be clearly signed, left clear at all times
+and maintained during the works. Consideration must be given to foreign workers.
+If the emergency services have been summoned then the Principal Contractor must inform the
+client’s reception office immediately so that they can be allowed on the premises as quickly as
+possible.
+2.15. ‘No Go’ Areas
+The Principal Contractor is responsible for informing all operatives, sub-contractor’s operatives
+and visitors that on no account are they allowed beyond the area of works, as defined on drawing
+no. 35
+Should a contractor require access to areas outside the contractor’s compound to undertake
+works, authorisation must be granted by the client and Principal Designer.
+2.16. Site Rules
+The Principal Contractor will provide a set of rules for persons working on the site. These rules
+must be made known to all operatives when they are inducted prior to them starting work on site.
+The following must be included in the site rules:
+• No radios or personal stereos are permitted on the site
+• Smoking is not permitted on the site
+• The welfare facilities must be kept clean and tidy at all times
+• Persons visiting or working on the site must not enter any areas where they are not
+authorised to do so
+• Any person that appears to be under the influence of alcohol or drugs must be excluded
+from the site
+• All accidents and near misses must be reported to the Principal Contractor ’s Health and
+Safety Officer and also the client’s Health and Safety Officer together with being recorded
+in the site diary.
+• All out of ours working must be approved by the PC and Client.
+Pre-construction Information 15
+Job No.2024/055
+2.17. Site Tidiness
+The site must be kept clear of any accumulation of rubbish which could become a fire risk, trip
+hazard or other health risk. Debris and surplus materials etc must be removed from the area of
+work as soon as it arrives. The principal contractor is to ensure that the surrounding areas, off
+loading areas, car parks, footpaths etc are clean, tidy and free of debris at all times.
+Any materials to be stored on site must be locked away.
+2.18. Site Supervision
+The client expects continual site supervision to be provided by the Principal Contractor, therefore
+whenever a sub-contractor or client directly appointed contractor is on site the Principal Contractor
+will also have supervision on the site. This will be achieved by the appointment of full time Site
+Managers and Contracts Managers. All Site Managers are to have completed the SMSTS
+Training Course or higher and produce a certificate as part of the CPH&SP
+The Client expects continual site supervision to be provided by the Principal Contractor
+throughout the construction and technology installation phases of the project. Whenever a
+contractor or client-appointed specialist contractor is present on site, the Principal Contractor are
+to ensure that suitable management and supervisory arrangements remain in place.
+The Principal Contractor are to retain responsibility for the overall coordination of site activities,
+management of interfaces, health and safety oversight and cooperation between all parties,
+including the Client's nominated Technology Provider.
+Should the Principal Contractor's own construction activities substantially reduce or conclude prior
+to completion of the technology installation works, appropriate supervision and management
+arrangements are to remain in place until all site activities have been completed and the works
+are ready for final handover.
+3. ENVIRONMENTAL RESTRICTIONS AND EXISTING ON-SITE RISKS
+3.1. Site Safety Hazards
+As the site is a clear site, no significant existing site hazards are identified. This said please take
+note of:
+- Adjacent operations
+- Site ground investigation report
+- Railways to the north.
+- Fire service operations.
+- Interface risks associated with the Client's nominated Technology Provider, including
+language barriers, heavy equipment installation, abnormal deliveries, lifting operations,
+segregated compounds and concurrent construction activities.
+Pre-construction Information 16
+Job No.2024/055
+3.2. Delivery of Materials
+The delivery of materials to site must be closely controlled. Adequate warning signs must be
+posted and due care should be taken to ensure access to other premises is maintained at all
+times.
+3.3. Adjacent Land Uses
+The contractor must maintain convenient easements, rights of way and safe access to the
+adjacent properties, and proposals where necessary should be included in the Construction
+Phase Health and Safety Plan.
+3.4. Location of Existing Services
+The Principal Contractor is advised to carry out a full CAT Scan of the site prior to commencement
+of any excavations in order to identify any possible unknown services. It is also advised that the
+principal contractor liaise with local utility companies regarding exact positions prior to
+commencement. Any works to utilities required outside the site will be carried out by the Utility
+companies unless other arrangements area in place.
+3.5. Difficulties in access and movement
+If use of a crane is required, care is to be taken to make sure that the jib does not come in close
+proximity of any overhead services and, if necessary, suitable barriers should be erected at
+ground level to prevent this or restricted areas of travel established.
+Over sailing rights must be considered along with site limitations and are included in the lift plan
+and CPH&SP.
+A lift plan should be written and suitable strategy put in place prior to crane works. neighbouring
+properties and railway lines should be considered.
+Specialist lifting operations are anticipated during the project, including the installation of the
+process tower by Dewsbury Cranes.
+Drawings appended to the tender package identify proposed crane positions, lifting zones,
+exclusion zones and operational restrictions. Tendering contractors must review this information
+and make suitable allowance for coordinating these activities within their construction programme.
+The Principal Contractor must prepare detailed lifting plans, risk assessments and method
+statements prior to commencement of lifting operations and shall ensure that exclusion zones are
+established, maintained and enforced throughout the lifting activities. Include a price for having
+the crane platforms ready to go and for making good after crane has been onsite.
+Particular consideration to be given to adjacent operations, vehicle movements, public safety, site
+access arrangements, overhead restrictions, railway infrastructure and ongoing construction
+activities.
+Pre-construction Information 17
+Job No.2024/055
+4. SITE HEALTH HAZARDS
+4.1. Storage of Hazardous Materials
+There are no known hazardous materials stored on or near the areas of the proposed works.
+4.2. Contaminated Land
+The client is not aware of any ground contamination in the area of the proposed works.
+Please refer to the Site Ground Investigation report for more details.
+4.3. Disposal of Material
+The Principal contractor is to outline proposals for the safe disposal of materials, either to licensed
+landfill sites or to their own store if to be sorted and recycled.
+5. SIGNIFICANT DESIGN AND CONSTRUCTION HAZARDS
+The following principal hazards or work sequences so far identified cannot be avoided and will be
+a risk to the health and safety of the construction workers.
+- Technology Provider Integration.
+- Erection of large pre-fabricated structures.
+- Equipment deliveries and installation.
+- Crane movements. Specialist crane operations associated with the erection of the process
+tower, including management of exclusion zones, lifting operations, oversailing risks and
+interface with adjacent site activities.
+- Vehicle movements.
+- Risk of delayed utility connection affecting commissioning, testing and operation of the
+Technology Provider's specialist process equipment.
+- Interface and sequencing risks associated with the installation of electrical grid
+infrastructure and below-ground utility connections by third-party utility providers.
+- Interface risks associated with adjacent infrastructure works being undertaken under
+separate contracts, including shared access arrangements, temporary haul roads,
+compound locations, delivery coordination and protection of newly constructed roads and
+external works.
+The specified hazards and assessed risks are outlined in the Designer’s Hazard / Risk
+assessment for each work section affected. The list does not address the commonplace hazards
+which must be controlled by site management and good practice.
+It will be the responsibility of the Principal Contractor to detail their proposals for managing these
+problems. The details/method statements will be incorporated into the Construction Phase Health
+and Safety Plan prior to the work commencing on site.
+5.1. Arrangements for Co-ordination of Ongoing Design Work and Handling Design
+Changes
+Pre-construction Information 18
+Job No.2024/055
+During site meetings any design changes will be discussed along with their implications to health
+and safety. Details of any designs carried out by designers working for contractors, or their sub-
+contractors, must be passed to the Principal Designer.
+5.2. Information on Significant Hazards Identified during the Design
+The contractor selected to carry out this project will have been assessed as competent to carry
+out and oversee all works associated with it. Information on specific hazards identified during the
+design stage can be found in the ‘Design Hazard Identification’ in Section 2.
+It is critical for the operation of the site that the works are carried out in an organised and well
+planned operation. Detailed method statements will be required for these works, which will have
+to be produced in good time so that they can be discussed with the project team at a meeting
+prior to the works being undertaken.
+5.3. Construction Materials
+The following health hazards for materials have so far been identified which cannot be avoided
+and will be a risk to the health and safety of all workers or visitors during construction.
+a) Cement and concrete.
+b) Dust from excavation work.
+c) Hot poured sealants and tarmac.
+d) Bituminous / chemical sealants.
+Gas cylinders and similar containers, whether empty, in use, or spare, should be stored in a safe
+place
+Other hazards may exist from materials to be used in the project which are not known at this point
+in time. The Principal Contractor will be responsible for bringing to the attention of all operatives
+and providing safe working methods and ensuring manufactures instructions are followed.
+It will be the responsibility of the contractor to detail their proposals for managing these problems.
+The details/method statements will be incorporated into the Construction Phase Health and Safety
+Plan prior to the works commencing on site.
+5.4. Technology Provider Accommodation and Interface Management
+The project includes the phased occupation of the site by the Client's nominated Technology
+Provider (SOPC) for the installation of specialist process equipment.
+Significant risks associated with these activities include:
+▪ Concurrent construction and technology installation works.
+▪ Movement and installation of heavy process equipment.
+▪ Abnormal load deliveries and lifting operations.
+▪ Shared access routes and logistics management.
+▪ Language and communication barriers.
+▪ Segregation of work areas and compound management.
+▪ Protection of installed equipment from ongoing construction activities.
+▪ Coordination of health and safety procedures between multiple parties.
+Pre-construction Information 19
+Job No.2024/055
+The Principal Contractor to provide detailed proposals within the Construction Phase Health and
+Safety Plan outlining how these interface risks will be managed throughout the project.
+6. THE CONSTRUCTION PHASE HEALTH AND SAFETY PLAN (CPHSP)
+The Principal Contractor will be responsible for drawing up the Construction Phase Health and
+Safety Plan. Information should be included in the plan where the topic is relevant to the work
+proposed. The plan should set out how health and safety is to be managed during the
+construction phase.
+The Construction Phase Health and Safety Plan should be prepared following the guidance and
+example headings as shown HSE guidance L153.
+7. THE HEALTH AND SAFETY FILE
+The Principal Contractor will be responsible for providing information to the Principal Designer on
+completion of the project.
+Information for the Health and Safety file is outlined below.
+The Health and Safety file is to be a comprehensive information source and guide for the employer
+and end users, providing a complete understanding of the works and its systems and enabling it
+to be operated and maintained efficiently and safely.
+The Principal Contractor to provide all necessary information to the Principal Designer to enable
+him to adequately prepare the Health and Safety File. Such information to be provided
+progressively throughout the contract period but to be submitted completely by the date for
+completion.
+The information provided by the Principal Contractor to include, but not be limited to:
+• A brief description of the work carried out.
+• Any residual hazards which remain and how they have been dealt with (e.g. contaminated
+land, buried services etc).
+• Key structural information (e.g. bracing, sources of substantial stored energy).
+• Hazardous materials used (e.g. pesticides, special coatings which should not be burnt off
+etc.).
+• The nature, location and markings of significant services, including underground cables; gas
+supply equipment; fire-fighting services etc.
+• Information and as-built drawings.
+• Two copies of record or ‘as built’ drawings and plans used and produced throughout the
+construction process, along with the design criteria where these are produced by the Principal
+Contractor , his sub-contractor (whether nominated or otherwise) or consultants.
+• General details of the construction methods and materials used.
+• Details of the structures, equipment and maintenance facilities.
+• Manuals produced by specialist contractors and suppliers which outline operating and
+maintenance procedures and schedules of plant and equipment as part of the structure.
+Pre-construction Information 20
+Job No.2024/055
+• Details on the location and nature of utilities and services including emergency and fire fighting
+systems.
+Prepared by JHA Architecture Ltd
+Date: July 2025
+Pre-construction Information 21
+Job No.2024/055
+SECTION 2
+DESIGN RISK ASSESSMENT
+1. INTRODUCTION
+1.1. This Design Risk Assessment has been prepared by JHA Architecture Ltd to highlight the
+steps taken throughout the design to eliminate and reduce hazards, both to the
+construction workers and to the end user.
+As Designers we aim to:
+• Avoid foreseeable risk to the health and safety of any person.
+• Eliminate hazards which may give rise to risks and reduce risks from any remaining
+hazards.
+• Give collective measures priority over individual measures.
+• Take account of provisions of the Workplace (Health, Safety and Welfare) Regulations
+1992 which relate to the design of, and materials used in the structure.
+• Provide sufficient information with the design to prevent / eliminate hazards.
+1.2. JHA Architecture Ltd staff adopt the E.R.I.C approach to design:
+Eliminate
+Reduce
+Inform
+Control
+1.3. When considering design hazards, JHA Architecture Ltd utilise a scoring system. This
+system is between 1 and 9:
+9 - Reduce risk immediately
+1 - No action required
+Each design hazard rated 3 or over needs to be identified in a Design Risk Assessment and
+should be passed on to the Principal Designer to be included in the Pre-Construction Information.
+2. PROJECT INFORMATION
+2.1. The Site / Proposal
+The works comprise the supply and install of reinforced concrete equipment bases and associated
+civils works, including excavations, sub-base preparation, ducting, drainage modifications to
+accommodate the proposed New Gas plant and equipment for BUSE Gases at Vesuvius Way.
+2.2. Detailed Design Stages
+2.2.1. When undertaking the detailed design of the proposals the following hazards and risks
+were identified:
+Works are being undertaken adjacent to a live construction site with a separate CDM compound
+area. The site is heavily constrained with limited space for construction activities.
+Design Risk Assessment 1
+2026-059
+The presence of underground services, and unknown service routes presents a risk of service
+strike during excavation and installation works. Ground conditions are subject to further
+confirmation via site investigation.
+All works must be carefully planned to avoid interference with live processes, maintain safe
+segregation from operational areas, and ensure protection of operatives and site users at all
+times.
+2.2.2. Services
+The position of services to be considered to prevent hazards. Positions of existing services where
+known are identified on the drawings. The Contractor to verify all service locations prior to
+commencement of works.
+2.2.3. Security
+It is the responsibility of the contractor to maintain site security at all times.
+It is recommended that all areas of the site are left secure when no contractor is present, including
+securing compounds, plant, materials and tools to prevent unauthorised access, theft or
+interference with operational site activities.
+2.2.4. Waste
+All waste / stripping out items to be cleared away on a daily basis. Waste to be appropriately
+segregated, stored and removed from site in accordance with relevant waste management
+regulations, ensuring that no materials are left in positions that could present fire, trip,
+contamination or obstruction risks within the live site environment
+2.2.5. Public Safety
+Full site security and separation must be maintained between the site and the adjacent property.
+Appropriate hoarding, signage, access controls and segregation measures to be implemented to
+ensure that members of the public, adjacent occupiers and site personnel are fully protected from
+construction activities at all times.
+Design Risk Assessment 2
+2026-059
+JHA Architecture LTD - DESIGN RISK ASSESSMENT
+PROJECT: New Build DATE: June 2026
+PART OF PROJECT: SITE & BUILDINGS
+COMPLETED BY:
+risk classification design
+DESIGN ACTION &
+ACTIVITY / POPULATION action
+REF HAZARD CONTRACTOR’S
+AT RISK
+CONSIDERATIONS FURTHER
+BY DATE
+ACTION
+1. Excavation Collapse of trenches / Slightly Harmful Very Identify services JOH June Contractor
+Excavating through Harmful (2) Harmful where known 2026 to manage
+(1) (3)
+services
+Machine operators / Unlikely (1) 1 2 (3) Contractor to ensure
+site workers sufficient temporary
+Possible (2) 2 4 6
+support is provided
+Very Likely 3 6 9
+(3)
+2. Laying kerbs, Strain / injury from Slightly Harmful Very Below manual JOH June Contractor
+paving slabs, lifting Harmful (2) Harmful handling regulations 2026 to manage
+(1) (3)
+paving elements, materials specified.
+lifting of masonry When not, contractor
+etc. to provide method
+statement for joint lift
+Groundworkers Unlikely (1) 1 2 3
+or use mechanical
+Possible (2) 2 (4) 6 lifting equipment.
+Very Likely 3 6 9
+(3)
+3. Laying hardcore & Movement of vehicles Slightly Harmful Very JOH June Contractor
+Harmful (2) Harmful
+surfacing 2026 to manage
+(1) (3)
+General site Unlikely (1) 1 (2) 3 PPE and banksmen to
+operatives be provided.
+Possible (2) 2 4 6
+Very Likely 3 6 9
+(3)
+Design Risk Assessment 3 2026-059
+risk classification design
+DESIGN ACTION &
+ACTIVITY / POPULATION action
+REF HAZARD CONTRACTOR’S
+AT RISK
+CONSIDERATIONS FURTHER
+BY DATE
+ACTION
+4 Open Excavations Operatives at risk Slightly Harmful Very PPE to be worn. JOH June Contractor
+from tripping/falling Harmful (2) Harmful Banksmen provided. 2026 to manage
+(1) (3)
+into open
+excavations, or on
+Unlikely (1) 1 (2) 3
+uneven / unmade
+Possible (2) 2 4 6
+ground. Impact by
+moving vehicle. Very Likely 3 6 9
+(3)
+Site Operatives
+5 Concrete works Burns to operatives Slightly Harmful Very PPE to be worn. JOH June Contractor
+and vibration injuries. Harmful (2) Harmful 2026 to manage
+(1) (3)
+Unlikely (1) 1 (2) 3
+Operatives, visitors,
+public. Possible (2) 2 4 6
+Very Likely 3 6 9
+(3)
+6 Installation of Strain / injury from Slightly Harmful Very Method statement JOH June Contractor
+steelwork lifting. Harmful (2) Harmful required for lifting. 2026 to manage
+(1) (3)
+Unlikely (1) 1 2 3
+Possible (2) 2 (4) 6
+Very Likely 3 6 9
+(3)
+7 Demolition Items Operatives at risk Slightly Harmful Very Method statement JOH June Contractor
+from falling Harmful (2) Harmful required / PPE to be 2026 to manage
+(1) (3)
+masonry/mixed worn.
+dusts.
+Unlikely (1) 1 2 3
+Possible (2) 2 (4) 6
+Very Likely 3 6 9
+(3)
+Design Risk Assessment 4 2026-059

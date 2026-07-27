@@ -1,0 +1,45 @@
+J Roberts Design Ltd
+Consulting Civil and
+Structural Engineers
+Job Title: ISSUE SHEET
+Vesuvius Way, Worksop - CIV - Externals & Drainage SHEET 1
+Job No: Date of Issue
+4248 Day 25 6 11 15 23 15 10
+Month 9 11 11 12 12 1 4
+Year 25 25 25 25 25 26 26
+Drawing Title Dept Drg No Size Revision
+/ 4248/
+Construction Plan Sh.1 C 001 A1 P1 P2
+Construction Plan Sh.2 C 002 A1 P1 P2
+Construction Plan Sh.3 C 003 A1 P1 P2
+Concrete slab joints 005 A1 P1
+Overview Levels Plan Sh.1 C 010 A1 P1
+Overview Levels Plan Sh.2 C 011 A1 P1
+Overview Levels Plan Sh.3 C 012 A1 P1
+Detailed Levels Plan Sh.1 C 015 A1 P1 P2
+Detailed Levels Plan Sh.2 C 016 A1 P1 P2
+Detailed Levels Plan Sh.3 C 017 A1 P1 P2
+Foundations GA C 020 A1 P1 P2 P3 P4
+Construction Details C 030 A1 P1 P2
+Drainage Catchment Plan C 800 A1 P1 P2 P3 P4
+Drainage GA C 801 A1 P3 P4 P5 P6
+Drainage Plan (Sh. 1 of 3) C 802 A1 P1 P2
+Drainage Plan (Sh. 2 of 3) C 803 A1 P1 P2
+Drainage Plan (Sh. 3 of 3) C 804 A1 P1 P2
+Drainage Details (Sh 1 of 2) C 805 A1 P2 P3 P3 P4
+Drainage Details (Sh 2 of 2) C 806 A1 P1 P2 P3
+Attenuation GA & cross section C 810 A1 P1 P2 P3 P4
+Attenuation Pond Details C 811 A1
+Manhole Schedules C 815 A1 P1 P2
+Drainage Exceedance Plan C 820 A1 P1 P2 P2 P3 P4
+Distribution No of Copies
+Organisation: Attention: (X for Issue Sheet only)
+JHA Ltd JOH E E E E E
+Buse Gases Ltd JS E E E E
+Britcon UK Ltd DL E
+SOPC S E E
+GPP MD E
+File Copy 1 1 1 1 1 1
+Total Copies 1 1 1 1 1 1
+Purpose of Issue T T C I I T
+KEY: I=Information, C=Comment, A=Approval, M=Measurement, T=Tender, W=Construction, R=Record E=E-Mail

@@ -1,0 +1,205 @@
+{
+ "note": "Mary's chat registry. Each job owns a permanent Claude Code conversation (chats.<key>.session_id) so the chat itself is the job's memory. 'match' terms are what the router looks for in an email subject/body; put distinctive things here - job name, site, client, drawing and supplier quote references. 'senders' are address fragments unique to that job's client. Shared suppliers (BSW, Aplus, Bellview, Vetroseal) must NEVER be listed as senders - their mail routes on subject content.",
+ "jobs": {
+  "grange-hill": {
+   "name": "Grange Hill Methodist Church",
+   "client": "Chigwell (London) PLC",
+   "match": [
+    "grange hill",
+    "methodist",
+    "chigwell"
+   ],
+   "senders": [
+    "chigwelllondon",
+    "chigwell"
+   ],
+   "opened": "2026-07-24"
+  },
+  "georgies": {
+   "name": "Georgie's (formerly Rosebank)",
+   "client": "Pearce Construction",
+   "match": [
+    "georgie",
+    "georgies",
+    "rosebank"
+   ],
+   "senders": [],
+   "opened": "2026-07-27"
+  },
+  "filwood": {
+   "name": "BCC 4-16 Filwood Broadway",
+   "client": "Stepnell",
+   "match": [
+    "filwood",
+    "s25233b",
+    "broadway"
+   ],
+   "senders": [
+    "stepnell.co.uk"
+   ],
+   "opened": "2026-07-17"
+  },
+  "vesuvius": {
+   "name": "Air Separation Unit, Vesuvius Way Worksop",
+   "client": "Staniforth Construction LLP",
+   "match": [
+    "vesuvius",
+    "worksop",
+    "staniforth",
+    "buse",
+    "2024-055",
+    "air separation"
+   ],
+   "senders": [
+    "staniforth"
+   ],
+   "opened": "2026-07-27"
+  },
+  "brocks-hill": {
+   "name": "Brocks Hill Phase 2 Teaching Block",
+   "client": "Brocks Hill",
+   "match": [
+    "brocks hill",
+    "brockshill",
+    "brocks"
+   ],
+   "senders": [],
+   "opened": "2026-07-15"
+  },
+  "hightown-olds0056": {
+   "name": "Hightown OLDS0056 New Back Door",
+   "client": "Hightown Housing Association",
+   "match": [
+    "olds0056",
+    "hightown",
+    "6159"
+   ],
+   "senders": [
+    "hightownha",
+    "in-tendorganiser",
+    "in-tend"
+   ],
+   "opened": "2026-07-27"
+  },
+  "princess-beatrice": {
+   "name": "Princess Beatrice House",
+   "client": "Guildmore / RBKC",
+   "match": [
+    "princess beatrice",
+    "guildmore",
+    "c0234",
+    "qp70171"
+   ],
+   "senders": [
+    "guildmore"
+   ],
+   "opened": "2026-07-23"
+  },
+  "crestwood-park": {
+   "name": "Crestwood Park Primary School",
+   "client": "Reynolds Conservation",
+   "match": [
+    "crestwood",
+    "reynolds conservation"
+   ],
+   "senders": [
+    "reynoldsconservation",
+    "reynolds"
+   ],
+   "opened": "2026-07-24"
+  },
+  "sm5-wexham": {
+   "name": "SM5 Wexham SEND Bungalow",
+   "client": "SM5 Developments / Slough BC",
+   "match": [
+    "wexham",
+    "sm5",
+    "qt253300",
+    "qt252647",
+    "0000000475",
+    "260259-wex"
+   ],
+   "senders": [
+    "sm5developments"
+   ],
+   "opened": "2026-07-22"
+  },
+  "stoke-park": {
+   "name": "Stoke Park School (LIVE PROJECT)",
+   "client": "Borras Construction",
+   "match": [
+    "stoke park",
+    "borras",
+    "17644",
+    "064542"
+   ],
+   "senders": [
+    "borrasconstruction",
+    "borras"
+   ],
+   "opened": "2026-07-27"
+  },
+  "lyttleton": {
+   "name": "Lyttleton Road",
+   "client": "Harrabin",
+   "match": [
+    "lyttleton",
+    "harrabin",
+    "0000000445",
+    "priory pools"
+   ],
+   "senders": [
+    "harrabin"
+   ],
+   "opened": "2026-07-17"
+  },
+  "crownhill": {
+   "name": "Crownhill Business Centre",
+   "client": "Zelltec",
+   "match": [
+    "crownhill",
+    "zelltec",
+    "qt252840",
+    "sq216661"
+   ],
+   "senders": [
+    "zelltec"
+   ],
+   "opened": "2026-07-15"
+  },
+  "beaumont-court": {
+   "name": "Beaumont Court",
+   "client": "Fortis Vision",
+   "match": [
+    "beaumont",
+    "fortis vision",
+    "4284-dmwr"
+   ],
+   "senders": [
+    "fortisvision",
+    "fortis"
+   ],
+   "opened": "2026-07-17"
+  },
+  "greenfields": {
+   "name": "Greenfields Respite Barnstaple",
+   "client": "Pearce Construction",
+   "match": [
+    "greenfields",
+    "barnstaple",
+    "respite"
+   ],
+   "senders": [],
+   "opened": "2026-07-16"
+  }
+ },
+ "chats": {
+  "triage": {
+   "session_id": "51342bb1-aee9-45a9-b58e-3845af9b9bf8",
+   "started": false,
+   "created": "2026-07-27T13:43:40",
+   "last_active": null,
+   "runs": 0
+  }
+ }
+}

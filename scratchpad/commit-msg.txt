@@ -1,0 +1,15 @@
+Autopilot 27/07: Stoke Park glass order 46 panes short; fix poller re-queue
+
+Aplus job 17644 (Borras, won, frames UNGLAZED, delivery 03/08) issued final
+glass sizes 24/07. Reconciled against Vetroseal 064542: 170 panes / 130.81 m2
+required vs 124 panes / 105.24 m2 quoted - short 46 panes / 25.57 m2, with
+pane ref A1 (the ~391mm toplight) missing on every bay of six window types,
+Door Type C absent entirely, and no 32mm make-up quoted for the 9 door panes.
+CN Glass quoted the same make-up at GBP 60/m2 against Vetroseal's GBP 114.15.
+Emailed Adam+Zac with the check workbook.
+
+Also: Graph message ids are folder-scoped, so mail filed in Outlook came back
+looking new and three handled emails re-queued. Dedup now keys on
+internetMessageId plus received|from|subject, seeded from queue/processed.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

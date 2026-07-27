@@ -1,0 +1,267 @@
+A B C D E F G H I
+9
+CAT
+Ladder
+W12 W11 W09 W10
+8
+7
+Double Height PLC
+6 Switch Room
+86.44 m²
+5
+W05
+2691 2420 3919 3100 730
+4
+4016 1381 4622
+Kitchenette Store
+9.75 m² 3.24 m² 977 800
+9. 10.
+8.
+11.
+7.
+12.
+6.
+13.
+5.
+14.
+Locked
+3 4. 15. Door
+3. 16.
+2. Alternative Location 17. WC Dependant on
+1. 18. 1.83 m² Process Engineer TBC
+UP UP
+Accessible WC
+3.70 m²
+Accessible
+SCADA Switch Room
+Door
+29.99 m²
+W06
+2
+Glazed Door
+Leaf & Half
+1
+W08 W07
+7942
+0151
+019
+2752
+0211
+321
+4622
+0121
+062
+668 1400 590 1400 885
+7942
+0204
+0041
+588
+82 1010 2923
+2436
+7261
+164 1010 1262
+2302
+173 910 470 1010 1262
+2071
+1426
+1100
+2989
+0841
+3687 1400 790 1400 790 1400 790 1400 1203
+1239
+7261
+1300 1373 2842 1364 384 442 3376 1843
+12924
+0141
+0001
+0002
+0041
+0021
+2250
+0003
+5201
+0042
+4943
+2276
+265
+5036
+A B C D E F G H I
+9 9
+8 8
+12860
+7 7
+Louvered
+Double Door
+Double Height PLC
+6 Switch Room 6
+87.06 m²
+5 5
+HV Feeder - Feeder - Feeder - Feeder -
+SPARE VFS VFS
+Incomer HV Motor HV Motor HV Motor New TX
+2No. Solid State Soft
+Starter VFS 150/12
+6No. HV Panels
+4 4
+3 3
+2 2
+1 1
+245
+0822
+0053
+Louvered
+Double Door
+Plant Room
+10.94 m²
+CAT
+Ladder
+8No. LV Panels
+PL 101 PL 102 PL 103 PL 104 PL 105 SPARE SPARE SPARE
+1137
+7400
+SPARE
+AC03
+AC02
+AC01
+Push to Exit
+Fire Door
+0001
+8011
+0001
+9800
+SVTH 5K3 A11
+Medium Voltage Variable 30P (VFC)
+Frequency Converter (VFC)
+LV PLC Switch Room
+UPS 64.73 m² Glazed Door
+Leaf & Half
+Anaylsis SCADA
+Entrance Lobby
+PLC ZLP PLC
+18.08 m² Cabinets Cabinets
+PLC
+039
+0002
+3760
+0001
+1963
+0002
+0351
+0041
+1700
+0841
+1100
+0733
+553
+2563
+702
+1142
+4542
+6082
+1021
+1300 1373 2842 1364 384 442 3376 1843
+4089 4078 1000 1002
+5303
+0121
+4191
+319
+5451
+4624
+5036
+6000
+2841 1000 9021
+150
+1963 1000 1000 800
+0042
+797
+2694
+Landing
+0203
+05
+0151
+0641
+12924
+55461
+10169
+003 003
+1327
+1337
+0011
+1132 6000 1350 1100 490 1100 1690
+599
+1633
+noissimrep
+tuohtiw
+decudorper
+eb
+ton
+llahs
+dna
+dtL
+erutcetihcrA
+AHJ
+fo
+thgirypoc
+eht
+si
+gniward
+sihT
+C
+PLEASE NOTE
+1. DO NOT scale from this drawing, use figured dimensions only.
+2. All dimensions to be checked on site by the contractor.
+3. Please report any discrepancies to JHA Architecture Ltd immediately.
+4. All setting out dimensions are approximate. To be marked out on site
+for approval by JHA Architecture Ltd prior to construction.
+BUILDING 02
+SWITCH ROOM
+NOTES:
+DRAWING TO BE READ IN CONJUNCTION WITH ALL RELEVANT
+INFO AND DRAWINGS PROVIDED BY KIT MANUFACTURER
+Drawing referencing JHA Dwg. 2024-055-003 Proposed Site Plan.
+JHA Ltd to be informed of any Process Engineer/ Consultant information
+contrary to the layout, build up & specification laid out in this drawing
+prior to construction.
+All Levels on this drawing are relative to Agreed Level Datum - Refer to
+Levelling station location and Heights on Dwg. 2024-055-003.
+PLEASE NOTE:-
+1. Refer to JRD design for Drainage Design and Associated Levels Plan.
+2. Definitive Plant and Equipment design and specification to be
+determined at detailed design stage.
+O 10/07/26 Tender Issue JGR
+N 06/05/26 Revised As Per JRD Comments JGR
+M 24/04/26 Revised For Final Issue JGR
+L 03/12/25 Revised Grid Line Distances & Lift Position JGR
+K 17/11/25 Amended to client's comments JGR
+J 30/10/25 Amended Plan Edits to SE Design JOH
+I 29/10/25 Raised Access Floor Amended JOH
+H 28/07/25 Issued to JRD for Comment JOH
+G 04/06/25 Amended Wall Types JGR
+Louvered Door Mirrored on Plant room -
+F 08/03/25 JOH
+Pedestrian Door to North Removed.
+E 08/03/25 Amended to client comment JOH
+Ref Date Revision Initial
+Issue:
+TENDER ISSUE
+Project/ Client:
+PROPOSED NEW GAS PLANT
+AT PLOT 8, VESUVIUS WAY,
+WORKSOP S80 3NE
+FOR BUSE GAS SOLUTIONS
+Drawing Title:
+PROPOSED DIMENSION PLAN
+JHA Limited, West Suite,
+Second Floor, Unit F,
+South Quay,
+Lakeside Boulevard,
+Doncaster, DN4 5PL
+T 01302 364 565
+E enquiries@j-h-a.co.uk
+W www.j-h-a.co.uk
+Scale: Date:
+1 : 50 JULY 2026
+Drawn By: Checked By:
+JGR BF
+Drawing No: Sheet Size:
+2024/055/228O A1

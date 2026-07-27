@@ -28,6 +28,18 @@ export async function onRequest(context) {
       return json(results);
     }
 
+    // What Mary is doing right now, written by the bridge. Public: it is only
+    // ever a chat key and a queue depth.
+    if (route === "status" && request.method === "GET") {
+      try {
+        const row = await db.prepare("SELECT v, updated FROM state WHERE k = 'mary'").first();
+        if (!row) return json({ state: "unknown" });
+        return json({ ...JSON.parse(row.v), updated: row.updated });
+      } catch {
+        return json({ state: "unknown" });
+      }
+    }
+
     if (route === "messages" && request.method === "POST") {
       const b = await request.json().catch(() => ({}));
       const author = ["zac", "adam"].includes(String(b.author || "").toLowerCase()) ? b.author.toLowerCase() : "team";
@@ -48,6 +60,15 @@ export async function onRequest(context) {
       const { results } = await db.prepare(
         "SELECT id, created, author, body, context FROM messages WHERE seen_by_mary = 0 AND author != 'mary' ORDER BY id").all();
       return json(results);
+    }
+
+    if (route === "mary/status" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      await db.prepare(
+        "INSERT INTO state (k, v, updated) VALUES ('mary', ?, ?) " +
+        "ON CONFLICT(k) DO UPDATE SET v = excluded.v, updated = excluded.updated")
+        .bind(JSON.stringify(b).slice(0, 2000), now()).run();
+      return json({ ok: true });
     }
 
     if (route === "mary/reply" && request.method === "POST") {

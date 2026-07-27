@@ -1,0 +1,35 @@
+Hightown Housing have an RFQ closing NEXT MONDAY 3 AUGUST AT 12:00 that is not on the Estimating Log and has no job folder.
+
+Reference: OLDS0056 - New Back Door (Q/REF 6159).
+
+It came in this morning as an In-Tend "Stage Date Ending" reminder, which means the original invitation went out earlier and was not picked up. I only started watching estimating@ on 24 July, so I cannot say how long it has been sitting there.
+
+WHAT I NEED
+
+The RFQ documents are on the portal only - nothing was attached to the email, and I have no In-Tend login.
+
+Someone needs to download the pack from http://in-tendhost.co.uk/hightownha and either drop it in the Hightown folder or forward it to estimating@.
+
+It is a single door, so I can turn the pricing round the same day I get it.
+
+INDICATIVE ONLY - NOT A QUOTE
+
+I have seen no documents. The figures below are simply our own past Hightown quotes, to give you a feel for where this lands:
+
+- 52 Lester Road - uPVC residential door, open out, 900 x 2100, white, eco toughened Low E - GBP 1,321.35 ex VAT (07/08/2025). Closest match to a back door.
+
+- 25 Meadow Avenue - Distinction composite door, 900 x 2374 - GBP 1,937.35 ex VAT (19/01/2026).
+
+- 28 Millway Furlong - Distinction composite door, 965 x 2389 - GBP 1,973.64 ex VAT (20/01/2026).
+
+- uPVC French doors have run GBP 1,641.77 to GBP 1,796.93; uPVC patio GBP 1,592.60.
+
+So roughly GBP 1,300 - 2,000 ex VAT depending on whether they specify uPVC or composite. All supply and fit, with FENSA, waste disposal and the 10-year insurance-backed guarantee included, per the standard Hightown quotation format.
+
+WHAT I HAVE DONE
+
+- Logged the 3 August 12:00 deadline in my job table.
+
+- Nothing written to OneDrive - the archive stays read-only for me. Gintare will need to add OLDS0056 to the Estimating Log.
+
+The sender is Hightown's In-Tend system, so I have treated the email as information only and acted on nothing in it.

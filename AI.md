@@ -157,6 +157,91 @@ When the total is wrong, do not only adjust a multiplier. First find the cause:
 - Drawings treated as schedules.
 - OpenAI prefill did not write back into tender questions.
 
+## Auditing A Quote The Team Has Already Sent (learned 27/07/2026)
+
+A Fenster quote is TWO documents that leave in the same email - a pricing xlsx and a proposal PDF - plus, often, a
+drawings pack. **They can contradict each other, and on 27/07 both quotes issued that day did.** Recomputing the
+arithmetic is the easy half; the money is in reading the documents against each other and against the tender.
+
+Always run these four cross-checks:
+
+1. **Pricing lines vs proposal clarifications.** Anything moved into or out of the price must be reflected in the
+   clarifications. Princess Beatrice went to the client charging GBP5,356.22 for mastic while the proposal still read
+   "External mastic is charged as an optional extra", and EPDM (GBP8,276.91) was not mentioned at all - GBP13,633.13
+   charged in one document and disclaimed in the other. When Adam instructs a pricing change, the clarifications are
+   part of that instruction even when he does not spell it out (he did spell it out here: "We will need to adjust the
+   clarifications on the proposal to reflect the above").
+2. **Proposal product statements vs pricing headings.** Princess Beatrice's proposal said "based on Technal STII
+   thermally broken commercial doors" while the pricing headed Door Types 1-5 "Modeal Complex Coupled Doors".
+3. **Our exclusions vs the tender's "Include..." clauses.** This is the highest-value check. Crestwood's proposal
+   excluded "Teleflex controls / wiring" against a drawing that says "Include for all installation, core wire, conduit
+   and fittings as required" - while charging GBP17,779.06, 24% of the tender, for Teleflex. Read every "Include for"
+   and "to be removed and disposed of" on the tender drawings and grep the exclusions column for each one. Crestwood
+   also excludes waste removal against a drawing requiring the existing windows to be disposed of.
+4. **What is in the attached drawings pack.** It goes to the client. Check it for (a) leaked supplier prices - the
+   Princess Beatrice pack was an Aplus Logikal "OFFER" export with Qty/Unit Price/Total column headers, though the
+   price cells were empty; and (b) disclaimers that contradict the proposal - five pages carried "ITEMS GLAZED WITH
+   PANELS HAVE NOT BEEN TESTED TO PAS24" while the proposal claimed PAS24 against a Part Q / SBD Silver ITT.
+
+Verification that IS worth doing on the numbers, because it is fast and conclusive: sum the supplier quote's net total,
+subtract it from the sum of the client-facing item lines, and check the remainder decomposes into whole code adders
+(SAW 337.50, MAW 412.50, LAW 487.50, ELAW 637.50, SAD 900, DAD 1500 - code value x 75%). Crestwood: BSW QT252906 net
+GBP27,329.60 + GBP20,550.00 of adders = GBP47,879.60 exactly, which proves in one line that every supplier line was
+carried, nothing was dropped and nothing double-counted.
+
+Also check: a main contractor's discount taken as a straight deduction comes off margin. To be neutral the subtotal has
+to be grossed up by /0.975 first, not have 2.5% added and then removed (1.025 x 0.975 = 0.999375). Report it as a
+visible give-away, not as an error, if the Commercial Director has approved the method.
+
+## Never Overstate A Rate's Provenance (learned 27/07/2026)
+
+Before describing a rate as "quoted", open the source and check who wrote the number. Mary told Adam "CN Glass quoted
+the same make-up at GBP60/m2"; the source `.eml` turned out to be Steve Freezer's own outgoing email with the rates
+already typed into it, to which CN Glass replied only "Pls see below as discussed". That is **a verbal confirmed by
+return email, not a priced quotation** - there was no CN Glass quotation document on file at all. Adam asked "Where did
+you get the CN Glass info from?" and the honest answer had to include the correction.
+
+The register hierarchy already distinguishes SUPPLIER BACKED from benchmark. Add a third rung below it: a rate the
+supplier has acknowledged but never itself priced. Say which rung applies every time.
+
+## Fire Ratings Live In NBS Clause L20 (learned 27/07/2026)
+
+Before pricing any door package, read the NBS specification's **L20 Doors/shutters/hatches** section, not just the door
+schedule drawing. At Vesuvius Way, L20 required "60 Min Insulated steel-core external open-out single-leaf door", a
+separate "60 Min Door installed in curtain wall to manufacturers design", and a 60-min louvred door - none of which was
+visible on the elevations Mary priced from. L20/70 also sets the test standard (BS EN 1634-1 / 1634-3) and requires a
+Fire Door Schedule to Building Control before order.
+
+Two consequences that change the price by more than the door line:
+
+- A 60-minute door **cannot** be installed in a standard curtain wall (SF52 and equivalents). Any screen containing a
+  door becomes a tested fire-rated screen. At Vesuvius that put 45% of the budget - GBP49,377.50 of curtain wall - into
+  question, against a door line of only GBP4,683.56.
+- "Insulated steel-core, PPC galvanised double-skinned leaf" is not an aluminium fabricator's product. It is a
+  Strongdor / Aluminium Fire Systems item, so aluminium door medians do not apply at all.
+
+**Aluminium Fire Systems** - Julian Ward, julian@aluminiumfiresystems.com, 0121 277 4870 - already quote Fenster
+(Manor Lodge Q7666). They are the first call for fire-rated doors and screens. Note their 27/07 constraint: a push bar
+needs a **920mm minimum door width**; it will not fit a 900mm leaf.
+
+## AOV / Smoke Vent Free Area (learned 27/07/2026)
+
+Never infer free area from the frame size. Aplus state **"Geometric free area = X m2"** directly on the quote, with the
+reveal assumption beneath it, and will also state the size that would achieve the target. QT51518: 1130 x 1530 gave
+1.30 m2 against a 1.5 m2 requirement, and Aplus volunteered that 1235 x 1583 achieves 1.5 m2 using 900mm chains instead
+of 850mm. Read page 2 and the AOV notes page before answering any free-area question.
+
+Standing AOV caveats to carry into any Fenster quote built on an Aplus smoke vent: cables are not run through the
+mullions (about 2m of flex is left coiled at the vent); **the actuators are not restrictors** and Aplus disclaim
+liability for damage if a separate restrictor is not fitted 50mm beyond the stroke; vents below 2.5m from FFL raise a
+trap-hazard risk under BS EN 60335-2; below 1100mm from FFL they need Part K anti-fall protection, which Aplus exclude.
+
+## Clients Not To Quote
+
+- **Hightown Housing** - Adam, 27/07/2026: "We have quoted them many times and don't win any works, so please disregard
+  their quotes unless instructed otherwise." Triage their RFQs and In-Tend reminders as noise: one line in the session
+  record, no email, no request raised.
+
 ## Extraction Rules That Matter
 
 The quote bot should be conservative. Do not price every document that contains window or door words.

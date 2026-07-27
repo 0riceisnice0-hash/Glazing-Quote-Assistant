@@ -1,0 +1,55 @@
+J Roberts Design Ltd
+Consulting Civil and
+Structural Engineers
+Job Title: ISSUE SHEET
+Vesuvius Way, Worksop - CIV - Equipment Foundations SHEET 1
+Job No: Date of Issue
+4248 Day 25 1 3 8 15
+Month 9 10 10 11 12
+Year 25 25 25 25 25
+Drawing Title Dept Drg No Size Revision
+/ 4248/
+Auto Air Cleaning Filter 01 S 201 A1 P1 P2 P3
+Reinforcement Plan S 201RC A1 P1
+Bar Bending Schedule S 201-01 A4 x
+Main Air Compressor 02 S 202 A1 P1 P2 P3
+Reinforcement Plan S 202RC A1 P1
+Bar Bending Schedule S 202-01 A4 x
+Air Pre Cooler 03 S 203 A1 P1 P2 P3
+Reinforcement Plan S 203RC A1 P1
+Bar Bending Schedule S 203-01 A4 x
+Purifier 04 S 204 A1 P1 P2
+Reinforcement Plan S 204RC A1
+Bar Bending Schedule S 204-01 A4
+57m Tall Cold Box 05 S 205 A1 P1 P2 P3
+Reinforcement Plan S 205RC A1
+Bar Bending Schedule S 205-01 A4
+Turbine Expander 06 S 206 A1 P1 P2
+Reinforcement Plan S 206RC A1
+Bar Bending Schedule S 206-01 A4
+Booster After Coolers 07 S 207 A1 P1 P2 P3
+Reinforcement Plan S 207RC A1 P1
+Bar Bending Schedule S 207-01 A4
+Liquid Vaporiser 08 S 208 A1 P1
+Reinforcement Plan S 208RC A1
+Bar Bending Schedule S 208-01 A4
+Nitrogen Compressor 09 S 209 A1 P1 P2 P3
+Reinforcement Plan S 209RC A1 P1
+Bar Bending Schedule S 209-01 A4 P1
+N2 Recycle Compressor 10 S 210 A0 P1 P2
+N2 Reinforcement Drawings S 210RC A0 P1 P1
+Bar Bending Schedule S 210-01 A4 P1
+LOx Foundation 11 S 211 A1 P1 P2 P3
+LOx Reinforcement Drawings S 211RC A1 P1
+Bar Bending Schedule S 211-01 A4
+LIN Foundation 12 S 212 A1 P1 P2 P3
+LIN Reinforcement Drawings S 212RC A1 P1
+Bar Bending Schedule S 212-01 A4
+Distribution No of Copies
+Organisation: Attention: (X for Issue Sheet only)
+JHA Ltd JOH E E E E E
+Buse Gases Ltd JS E E E E E
+File Copy 1 1 1 1 1
+Total Copies 1 1 1 1 1
+Purpose of Issue T T T T I
+KEY: I=Information, C=Comment, A=Approval, M=Measurement, T=Tender, W=Construction, R=Record E=E-Mail

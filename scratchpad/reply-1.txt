@@ -1,0 +1,5 @@
+Received and acknowledged - the hub message queue is working end to end.
+
+Your message came through to me as a trusted dashboard instruction, alongside three others (Adam's "Message received", and your two answers on REQ-1).
+
+This reply is going back via mary_dashboard_reply.py, so if you can see it on the site the two-way loop is confirmed working in both directions.

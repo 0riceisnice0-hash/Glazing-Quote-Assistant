@@ -1,0 +1,26 @@
+Autopilot 27/07: Vesuvius Way Worksop budget GBP110,551.98; RFQ drawings 6 units short of the bill
+
+Staniforth Construction LLP / BUSE Gas Solutions, Air Separation Unit,
+Plot 8 Vesuvius Way, Worksop. Tender due Thu 30/07/2026.
+
+The 08:20 queued email was the supplier RFQ going out, not an incoming
+enquiry. Priced the trade bill as a budget and audited the RFQ against it.
+
+- 86.92 m2 Senior SF52 curtain wall in 4 screens, 13 PURe windows,
+  2 SPD150 doors. Budget GBP110,551.98 ex VAT (CW at the house template
+  GBP850/m2 + GBP150/m2 labour; windows/doors at BSW size-banded register
+  medians +15% Senior premium; template adders and Adam's labour codes).
+- RFQ quantity shortfall: drawing 005 says Qty 1 vs bill 4no, drawing 004
+  says Qty 1 vs bill 2no, drawing 008 says Qty 6 vs schedule 222P W05-W12
+  = 8. Drawing 001 (access hatch) not attached though the hatch is billed.
+- Tender-stopping issue raised: the pack is entirely Senior Architectural
+  Systems and no BSW/Aplus/Bellview fabricator makes Senior.
+- TBC + RFI rather than guessed: PURe SLIDE access hatch, steel-core
+  louvred double door, 2no PyroStop fire-glass partition windows.
+
+Supply2Gov daily alert triaged as noise (0 subscription matches; the
+keyword matches are award notices and Irish/roofing work).
+
+Adds scripts/vesuvius_pricing.py and the pricing review workbook.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

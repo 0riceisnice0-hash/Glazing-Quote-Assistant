@@ -1,0 +1,49 @@
+Hello Adam,
+
+Grange Hill Methodist Church, Chigwell - deadline Tuesday 28/07.
+
+This is yesterday's note resent in a cleaner format at Zac's request. Nothing in the numbers has changed.
+
+BENCHMARK: GBP 27,560.07 EX VAT
+
+Optional extras below the line: mastic GBP 143.00, EPDM GBP 587.00.
+
+This is NOT supplier-backed. It is the house maths over a drawing take-off, so there is a number to check the supplier return against when it lands.
+
+Pricing document attached:
+outputs\Grange Hill Methodist Church - Fenster Pricing Document (house format).xlsx
+
+WHAT IS IN THE PRICE
+
+- South elevation: glazed entrance screen 4542 x 2747 (gable head following the roof pitch), including the 2no 1200mm doorsets to approx 2300mm, level threshold. Priced as curtain walling at the house 850 / 150 per m2 convention.
+- West elevation: full-storey glazed screen 4588 x 2400, including the 1200mm outward-opening DDA door (3-point locking, Briton 1438/1413).
+
+ALLOWANCES INCLUDED
+
+- GBP 3,000 - automatic door operator package the spec demands on the west door (Part M/K: operator, safety sensors, push pads both sides, key switch, emergency release).
+- GBP 822 - solar-control glass uplift (Optitherm S1 Arctic Blue outer / S1 plus inner, per spec 3.11.1).
+- GBP 250 - 'fish symbol' manifestations (spec 3.11.2 - client supplies the artwork).
+
+THREE THINGS TO FLAG BEFORE TUESDAY
+
+1. Scope gap in the supplier RFQ.
+Spec section 3.15 requires ALUMINIUM FOLDING DOORS across the chapel - approx 5.8m span, dark brown PPC, Optitherm S1 plus with bronze tint, recessed bottom track - plus a matching glazed section above them up to the pitched ceiling.
+The RFQ that went to the supplier covers the south and west elevations and the entrance screen only. The folding doors are not in it.
+If they are in our package, budget roughly GBP 10,000 more (folding wall approx 13.9 m2 at the calibrated Sheerline bifold rate, plus the glazed section over).
+Please confirm whether 3.15 is ours. If it is, the supplier needs it added to the RFQ on Monday at the latest to have any chance of a return before Tuesday.
+
+2. The automatic west door needs a specialist operator quote (ACA or similar).
+My GBP 3,000 is an allowance, not a price.
+
+3. There is NO window/door schedule in the tender pack.
+Every size is scaled from the 1:100 elevations (GH007 R8 / GH008 R3), and the gabled south screen is taken at its full rectangle per the template's area maths, which is slightly conservative.
+All subject to survey. The drawings say do not scale, so the supplier should be asked to confirm sizes from the same drawings.
+
+ALSO NOTED FROM THE SPEC FOR THE TENDER RETURN
+
+- JCT MW 2024. Works window Nov 2026 - Jul 2027.
+- Site hours Mon-Fri 8-5, shared access retained throughout.
+- Temporary door and threshold channel drain sit in the main contractor's sections - excluded from ours.
+- The west DDA door and its operator are zero-rated for VAT - worth showing that split on the quote.
+
+When the supplier return arrives I will check it against this benchmark and email you the comparison.

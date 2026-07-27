@@ -1,0 +1,50 @@
+J Roberts Design Ltd
+Consulting Civil and
+Structural Engineers
+Job Title: ISSUE SHEET
+Vesuvius Way, Worksop - CIV - Equipment Foundations SHEET 2
+Job No: Date of Issue
+4248 Day 25 8 12 15 2
+Month 9 11 11 12 4
+Year 25 25 25 25 26
+Drawing Title Dept Drg No Size Revision
+/ 4248/
+LOX Pump Base 13 S 213 A1 P1 P2
+Reinforcement Plan S 213RC A1
+Bar Bending Schedule S 213-01 A4
+LIN Pump Base 14 S 214 A1 P1 P2
+Reinforcement Plan S 214RC A1
+Bar Bending Schedule S 214-01 A4
+LIN Foundations 15 S 215 A1 P1 P1 P2
+LIN Reinforcement Drawings S 215RC A1 P1 P1
+Bar Bending Schecdule S 215-01 A4 x
+LAR Foundations 17 S 217 A1 P1 P2 P3
+LAR Reinforcement Drawings S 217RC A1 P1 P1
+Bar Bending Schedule S 217-01 A4 x
+LAR Pump Base 18 S 218 A1 P1 P2
+Reinforcement Plan S 218RC A1
+Bar Bending Schedule S 218-01 A4
+Ambient Vaporiser 19 S 219 A1 P1 P2
+Reinforcement Plan S 219RC A1
+Bar Bending Schedule S 219-01 A4
+Analyser Cabinet Slab 20 S 220 A1 P1 P2
+Cooling Tower - 21 S 221 A1 P1
+Reinforcement Plan S 221RC A1
+Bar Bending Schedule S 221-01 A4
+Transformer 22 S 222 A1 P1 P2 P3
+Reinforcement Plan S 222RC A1
+Bar Bending Schedule S 222-01 A4
+Fancy Fence 24 S 224 A1 P1
+Reinforcement Plan S 224RC A1
+Bar Bending Schedule S 224-01 A4
+Weighbridge 28 S 228 A1 P1
+Reinforcement Plan S 228RC A1
+Bar Bending Schedule S 228-01 A4
+Distribution No of Copies
+Organisation: Attention: (X for Issue Sheet only)
+JHA Ltd JOH E E E E E
+Buse Gases Ltd JS E E E E E
+File Copy 1 1 1 1 1
+Total Copies 1 1 1 1 1
+Purpose of Issue T T C I T
+KEY: I=Information, C=Comment, A=Approval, M=Measurement, T=Tender, W=Construction, R=Record E=E-Mail

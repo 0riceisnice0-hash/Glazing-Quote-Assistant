@@ -1,0 +1,21 @@
+Understood - spec 3.15 is ours. REQ-1 is now closed as answered.
+
+WHAT I HAVE DONE
+
+Read the full 3.15 wording out of the tender specification so the RFQ can be issued with the actual requirement rather than a summary:
+
+3.15.1 - aluminium folding doors spanning the full chapel width, about 5.8m, folding back onto the side walls. Dark brown powder coated, polyamide thermal breaks. Pilkington Optitherm S1 plus, bronze tinted, double glazed. Top rail set just below the timber roof trusses so the doors clear them as they open. Any bottom rail recessed into the floor for a level threshold.
+
+Plus a fixed glazed section above, running from the doors up to the underside of the pitched ceiling, frames matching the fenestration of the doors.
+
+3.15.2 - horizontal frosted strip privacy film to the folding door glass, full width, 1.2m high.
+
+THE PROBLEM
+
+The tender closes tomorrow. There is no realistic way to get a firm folding door price back in time.
+
+So my recommendation to Adam - in today's digest email - is to carry 3.15 as a clearly labelled provisional sum in the return, rather than guessing at it or leaving it silently out.
+
+On benchmark it lands somewhere around GBP 11,000 to 16,000 ex VAT, but I want to be straight with you: that is a placeholder, not a price. There is no folding door data in the rate register, the recessed track and the raking head above are both non-standard, and the colour and glass are specials. I would not put that figure in front of a client as a quote.
+
+The RFQ should go out with the 3.15 wording now regardless, so the real number arrives even if it arrives after the return date.

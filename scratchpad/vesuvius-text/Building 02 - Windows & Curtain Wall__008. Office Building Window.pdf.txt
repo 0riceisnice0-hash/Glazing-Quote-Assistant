@@ -1,0 +1,36 @@
+5.8
+57
+5.8
+57
+8.5 75
+8.5 75
+B-B PUR0 5 0 5 16002 29 6 PUR018 11118720 PUR01 6 8 29 PU6R 5 0 5 01002
+29 104 PUR07055031 11 1 32 1 59 4 02 2 PUR07055031 104 29
+1350
+20010 5 0 5 R6UP
+92
+6 810RUP
+20872211
+810RUP
+6 92
+20601 5 0 5 0RUP
+92
+401 13055070RUP
+02 2 59 4 43 2 11 1
+13055070RUP
+401
+92
+0541
+A-A
+1350
+0541
+Pos. 008, Quantity: 6
+Office Building Windows
+Job: Plot 8 Vesuvius Way, Worksop
+System: Senior PURe® No Profile Groove Windows, Single & Double FM Doors Square
+Exterior View
+A
+B B
+A
+16 66 m mmm mm
+mm mmm m 66 61

@@ -1,0 +1,81 @@
+Project Name: 26-042 Proposed Air Separation Unit, Vesuvius Way, Worksop
+Project sector: Industrial
+Project estimated value: 4m - 5m
+Project Address: Worksop, UK
+Package Name: L_SC Aluminium Doors Windows
+Package Lead: Joe Mayer
+Package return date: 30 July 2026
+Generated On: 7/22/2026 8:54:04 AM
+Reference No:
+Signed By:
+Initially issued Addendum
+DrawingTitle 7/14/2026 7/22/2026 7/20/2026 7/17/2026
+Revision Status Revision Status Revision Status Revision Status
+-
+006. Office Elevation 2 Lobby Added - - -
+007. Office Elevation 1 Lobby Added - - -
+008. Office Building Window Added - - -
+2024-055-002D - Enabling Site Plan Added - - -
+2024-055-003 - PCI Plan Added - - -
+2024-055-004 - Crane Exclusion PCI Plan Added - - -
+2024-055-01 - EXISTING SITE GA PLAN Added - - -
+2024-055-010ZE - PROPOSED SITE GA PLAN Added - - -
+2024-055-105C-BUILDING GROUND FLOOR PLAN Added - - -
+2024-055-106B-GROUND FLOOR SITE CONTEXT PLAN Added - - -
+2024-055-108D-WELFARE ELEVATIONS Added - - -
+2024-055-110C-PROPOSED SECTION E-E Added - - -
+2024-055-111C-PROPOSED SECTION F-F Added - - -
+2024-055-112C-PROPOSED SECTION G-G Added - - -
+2024-055-127-PROPOSED DOOR DETAILS Added - - -
+2024-055-128-WINDOW DETAILS PAGE 1 Added - - -
+2024-055-128-WINDOW DETAILS PAGE 2 Added - - -
+CMN52062- BUSE Gas SBC Preliminaries 2026-07-10 Added - - -
+Kingspan Dri-Design onto Helping Hands Added - - -
+BoQ's
+Aluminium Doors - Windows Bill Added - - A Revised
+Building 01 - Glazed Hatch
+JHA Architecture Ltd 25204 Added - - -
+Building 01 - Kingspan Dri-Design Panel
+Kingspan Dri-Design onto Helping Hands Added - - -
+Building 01 - Windows & Curtain Wall
+001. Welfare Building Access HAtch Added - - -
+002. Welfare Building Ele 1 Added - - -
+003. Welfare Building Ele 2 Curtain Wall Added - - -
+004. Welfare Building Ele 2 Door Added - - -
+005. Welfare Building Ele 4 Windows Added - - -
+Building 02 - JRD Drawings
+4248-S-162-P7 Added - - -
+Building 02 - Kingspan Dri-Design Panel
+Kingspan Dri-Design onto Helping Hands Added - - -
+Building 03 - JHA Drawings
+2024-055-301K - PROPOSED GROUND FLOOR PLAN Added - - -
+2024-055-302H - ELEVATION 01 Added - - -
+2024-055-308B - PROPOSED DOOR SCHEDULE Added - - -
+Buse - Building 2
+2024-055-201O - PROPOSED GROUND FLOOR PLAN Added - - -
+2024-055-202O - PROPOSED FIRST FLOOR PLAN Added - - -
+2024-055-204O - ELEVATIONS 01 & 03 Added - - -
+2024-055-205O - ELEVATIONS 02 & 04 Added - - -
+2024-055-206O - Sections H-H Added - - -
+2024-055-207O - SECTIONS I-I Added - - -
+2024-055-208P - SECTIONS J-J Added - - -
+2024-055-209O - ORTHOGRAPHIC IMAGING Added - - -
+2024-055-228O - PROPOSED DIMENSION PLAN Added - - -
+Drawing Schedules
+2025.09.25 - 4248-S-150-Building 1 - Drawing Register Added - - -
+2025.09.25 - 4248-S-170-Building 3 - Drawing Register Added - - -
+4248-C-000+800-Ext & Drainage - Drawing Register Added - - -
+4248-S-200-Foundations - Drawing Register sheet 1 Added - - -
+4248-S-200-Foundations - Drawing Register sheet 2 Added - - -
+Building 2 - Drawing Register Added - - -
+NBS Specification
+JHA-JOH-2024-055-JHA NBS Section 2 - - - Added
+Pre-Construction Information
+PCI Added - - -
+Proposed Site Information - Structural & Civil
+2025.10.03 - 4248-S-200-Foundations - Sheet 1 - Drawing Register Added - - -
+Ta Nr4
+2024-055-203P - PROPOSED ROOF PLAN - Added - -
+2024-055-221P - DOOR SCHEDULE - Added - -
+2024-055-222P - WINDOW SCHEDULE - Added - -
+2024-055-228P - PROPOSED DIMENSION PLAN - Added - -

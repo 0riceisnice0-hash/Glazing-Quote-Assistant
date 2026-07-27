@@ -489,10 +489,163 @@ Not priced, carried as TBC + RFI rather than guessed: access hatch (Senior PURe 
 
 Email sent 27/07 to adam+marketing with the workbook attached. Also flagged: Worksop still marked "to log" on the Estimating Log five days after the enquiry, and Pearce Construction "Georgie's" is due 28/07, also "to log", with no pack ever seen.
 
+### Princess Beatrice House - audit of the quote AS ISSUED to Guildmore (2026-07-27)
+
+Adam released the quote at 08:56 ("Please proceed with sending this out with the discount"); Gintare issued it to
+jason.mount@guildmore.com at 09:49 with the pricing xlsx, the proposal PDF and a 59-page "Window and Door Drawings.pdf".
+Mary audited the pack that actually went out.
+
+**GBP 279,244.69 ex VAT.** Arithmetic verified exact: 46 line rows / 217 units = GBP233,091.68, + install GBP39,680 +
+external mastic GBP5,356.22 + EPDM GBP8,276.91 = subtotal GBP286,404.81, less 2.5% MCD GBP7,160.12. Every row's
+rate x qty ties to its total. The base is GBP272,771.68 - unchanged from the 23/07 audit - so Adam's two instructions
+of 24/07 (EPDM and mastic into the main quote, not optional; add 2.5% MCD) were both carried out in the pricing.
+
+His third instruction was not. He wrote "We will need to adjust the clarifications on the proposal to reflect the
+above", and the proposal that went to the client still says, on page 3, **"External mastic is charged as an optional
+extra"**, with EPDM absent from the clarifications entirely. GBP13,633.13 is charged in one document and disclaimed in
+the other, in the same email. Raised as REQ-6.
+
+Two further contradictions inside the issued pack:
+
+- The proposal says "The external door package is based on Technal STII thermally broken commercial doors"; the pricing
+  document heads Door Types 1-5 "Modeal Complex Coupled Doors". The Modeal-for-Technal substitution - HIGH item 1 of
+  the 23/07 audit - is still not formally qualified anywhere.
+- The drawings pack we attached carries "ITEMS GLAZED WITH PANELS HAVE NOT BEEN TESTED TO PAS24" on five pages
+  (2, 3, 4, 5, 58) while the proposal claims PAS24 multipoint locking, against a Part Q / SBD Silver ITT.
+
+Checked and clean: no supplier prices leaked in the drawings pack (it is an Aplus Logikal "OFFER" export whose
+Qty/Unit Price/Total columns are empty). Confirmed still open: there is no louvre line anywhere in the pricing or the
+drawings, so the 3nr Louvre Type 01 remain neither priced nor excluded while the proposal's executive summary tells the
+client the elevations identify acoustic louvre elements.
+
+Commercial note recorded rather than flagged as an error: the MCD was taken as a straight deduction, so GBP7,160.12
+comes off margin. Neutral treatment would have required grossing the subtotal to GBP293,748.52 first. Gintare asked
+Adam whether he was happy with how it was added and he approved it.
+
+Issued 10 days after the 17/07 return date.
+
+### Crestwood Park Primary School / Reynolds Conservation - audit of the quote AS ISSUED (2026-07-27)
+
+First time Mary has seen this job. Adam released it at 10:42 ("Good to go, please amend the dates before sending") and
+Gintare issued it to adam@reynoldsconservation.co.uk at 10:49. Dates were amended - 27/07 on both documents.
+
+**GBP 74,158.66 ex VAT.** High-level window replacement inside Dudley MBC's Crestwood Park Roofing Works 2026.
+46 rows, 52 units, 67.28 m2. Composition: GBP47,879.60 windows + GBP8,500 install + GBP17,779.06 Teleflex. Mastic
+GBP1,286.10 and EPDM GBP1,579.63 shown as optional.
+
+The build verifies exactly. BSW **QT252906** (16/07/2026, Sheerline Prestige casement, Hipca White 9910HG) is
+Total Nett Ex VAT **GBP27,329.60**; the client-facing window lines total GBP47,879.60; the difference is
+**GBP20,550.00**, which decomposes into whole house-template code adders on every single row (ELAW 637.50 on the two
+large W23 leaves, LAW 487.50 on W23 3/3 and the eight 2075x1300 units, SAW 337.50 on the rest). Nothing dropped,
+nothing double-counted. Install GBP8,500 / 52 = GBP163.46 per unit, consistent with the 160 labour codes.
+
+The findings are all scope and spec, not arithmetic:
+
+1. **Teleflex.** GBP17,779.06 - 24% of the tender - sits as one lump with no qty or rate breakdown and **no supplier
+   quote anywhere in the job folder**. Meanwhile the proposal clarifications exclude "Teleflex controls / wiring", and
+   drawing A007 expressly says "Include for all installation, core wire, conduit and fittings as required", specifying
+   2No. operators per light plus 1No. Midi control (W1-W8, W20-W23) or Maxi control (W12, W16-W19, W24-W27) per opening
+   light, control locations as existing. Fenster has excluded the thing it is charging for. Raised as REQ-7.
+2. **Glass deviation.** A007 requires outer 6mm Pilkington Suncool Pro T 66/33 toughened, inner 6.4mm laminated. BSW
+   quoted every line as "6.Lam / 16 / 6mmTuff Coolite SKN175ii" - a different product, with the laminated and toughened
+   panes apparently reversed, which moves the solar control coating. The proposal recites the specified Pilkington
+   make-up back to the client on page 3, then offers "6mm laminated / 16mm cavity / 6mm toughened" in the products box
+   with no deviation stated.
+3. **W15.** A007: "Window W15: To be removed and infilled as per the section" - remove window and winders, 75x50
+   tanalised ladder frame, 12mm WBP ply, prime and felt, PIR infill, 10mm white uPVC lining. A second note on the W22
+   elevation reads "Infill window as per W15". Neither priced nor excluded. (W13, W14 and W28 are correctly absent -
+   A007 says "No works required" for those, which is why the pricing jumps W12 to W16.)
+4. Smaller: A007 requires the existing windows to be "removed and disposed of" while the exclusions say waste removal
+   is generally excluded; W12 needs a catering-standard insect mesh grill that is not priced; and the **asbestos
+   (chrysotile) in the existing high-level window mastic** appears only in a prose sentence on proposal page 3, not in
+   the hard exclusions column, even though Fenster's installers have to remove those windows.
+
+Also worth watching: mastic and EPDM are optional here, which is the opposite of what Adam ordered on Princess
+Beatrice the same week. Flagged to him in case that is now a policy change rather than a job-by-job call.
+Client-facing typos: "W23 2/2" should read 2/3; "EDPM" for EPDM.
+
+Tender pack extracted to `test-results\crestwood-input`. Issued 7 days after the 20/07 return date.
+
+### Riverside - Aplus QT51518 AOV free area (2026-07-27)
+
+Adam asked Gintare on 24/07 for 2nr bottom-hung AOV smoke vents at 1130 x 1530, standard white, 150mm cill, and
+specifically: "Please confirm the free area. We need 1.5m2 so sizes can be adjusted if required."
+
+Aplus QT51518 (27/07/2026) landed this morning. **The answer is no.** The quote states
+**"Geometric free area = 1.30m2"**, based on a 50mm reveal - 0.20 m2 short. Aplus also give the fix on page 2:
+**1235 x 1583 achieves 1.5 m2** in the same configuration, using 900mm chains instead of 850mm.
+
+Price as quoted: **GBP4,845.22 net ex VAT for the pair** (frames GBP4,662.15, glass GBP171.31, energy surcharge
+GBP11.76). DualFrame 75Si, style FF, white, 155mm Technal subcill - not the 150mm asked for - open out, AOV 850mm
+stroke single chain, actuator colour 9006 satin, glass 4-20-4 clear toughened soft coat 1.2 with 20mm black warm edge.
+**Supply only, delivered - no installation.** Valid 30 days. Specified No PAS24, No Restrictor, Handle Not Required,
+Casement locking None, which is normal for a smoke vent but worth confirming against what Riverside expects.
+
+Their AOV notes page carries constraints that need to reach whoever installs: cables are not run through the mullions
+(about 2m of flex is left coiled at the vent); the actuators are not restrictors and Aplus disclaim liability for
+damage if a separate restrictor is not fitted 50mm beyond the stroke; vents below 2.5m from FFL raise a trap hazard
+under BS EN 60335-2; below 1100mm from FFL they need Part K anti-fall protection, which Aplus exclude. Raised as REQ-9.
+
+### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
+
+Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,
+however as per specification all external doors to be 60min fire rated." Mary verified it at source rather than taking
+the email at face value - `test-results\vesuvius-input\full-pack\NBS Specification\JHA-JOH-2024-055-JHA NBS Section
+2.pdf`, clause **L20**, JHA Architecture, 15/07/2026:
+
+- **External Doors**: "60 Min Insulated steel-core external open-out single-leaf door. PPC Galvanised double skinned
+  door leaf with PPC Galvanised 90mm enclosed frame." Vision panel 572 x 572. U-value 1.2.
+- **External Doors Curtain Walling**: "60 Min Door installed in curtain wall to manufacturers design." Manufacturer
+  given as SAS Curtain Wall Design.
+- **External Doors Louvered**: 60 Min, steel-core, louvred leaf, louvres to comply with the NOVA acoustic report.
+- **L20/70**: performance tested to BS EN 1634-1 or BS EN 1634-3, third-party certified, Fire Door Schedule to
+  Building Control and the Principal Designer before order.
+
+**The GBP110,551.98 budget issued this morning is understated.** Line B1-E (2no doors 1000 x 2450, sell GBP4,683.56)
+was priced as a standard Senior SPD150 aluminium door off BSW glazed-door medians - the wrong product family, since an
+insulated steel-core PPC galvanised door is a Strongdor / Aluminium Fire Systems item. More seriously, lines B1-D
+(welfare curtain wall screen, GBP8,377.50) and B2-E (office entrance screen, GBP41,000.00) are SF52 screens with doors
+inside them: **GBP49,377.50, about 45% of the budget**, sitting on screens whose doors the spec says must be 60-minute
+rated, which a standard SF52 cannot do. Those bays need a tested fire-rated screen system.
+
+Not requantified - it needs a fire-screen specialist to price, and Aluminium Fire Systems (Julian Ward, Q7666) are
+already quoting Fenster on Manor Lodge. This compounds rather than replaces the open Senior-fabricator problem.
+Deadline is Thursday 30/07. Raised as REQ-8.
+
+One spec defect worth an RFI: clause L20/45 "Door leaves (Internal)" carries the identical external steel-core wording
+but names Howdens as manufacturer - it reads like a JHA copy-paste error, and it makes the internal/external split
+unclear.
+
+### Stoke Park School - CN Glass provenance corrected (2026-07-27)
+
+Adam replied to the morning glass reconciliation with one question: "Where did you get the CN Glass info from?"
+
+Source is `Commercial\2. Projects\Borras\Coventry - Stoke Park School\1. Estimating\2. Supplier Quotes\CN Glass\Re
+Stoke Park School - Coventry .eml`. Steve Freezer emailed Martin Gregory (martingregory@cnglass.co.uk) on 01/07 with
+the glass schedule and the spec - 8.8mm laminated outer, 16mm argon warm edge, 4mm toughened Low-E on face 3 - and
+**wrote the rates into his own outgoing email**: "GBP 60 m2 inc energy" plus "GBP 10 m2 for 6mm Tgh Softcoat on inner".
+Martin replied the same afternoon with nothing but "Pls see below as discussed".
+
+So it is a rate agreed verbally and confirmed by return email, **not a priced quotation** - there is no CN Glass
+quotation document in the folder at all. Mary's morning email said "CN Glass quoted", which overstated it; corrected
+to Adam in the afternoon digest. The make-up does match what Vetroseal priced (8.8L-16-4T), so the comparison is
+like-for-like, but CN Glass should price the final 24/07 list properly - including the nine 32mm door panes neither
+quote covers - before any order moves on the strength of it.
+
+### Hightown Housing - closed on instruction (2026-07-27)
+
+Adam, 08:53, replying to the morning OLDS0056 flag: "Let's leave anything for Hightown Housing for now. We have quoted
+them many times and don't win any works, so please disregard their quotes unless instructed otherwise."
+
+The 03/08 12:00 In-Tend deadline is deliberately not being actioned. REQ-4 closed as answered, job row marked closed,
+and the rule written into `AI.md` under "Clients Not To Quote" - future Hightown RFQs and In-Tend reminders triage as
+noise: one line in the session record, no email, no request raised.
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
 
+- **2026-07-27 (afternoon, 20 queue items)** - The substantive items became the job records above. Triaged with no email of their own: Adminbase (Gintare 11:33 to Adam+Commercial - quotes stuck in "Check Quote" not moving to "Follow Up"; Adam 12:25 "This should all be sorted now"; internal software admin, nothing estimating); Gintare's 10:15 forward of the Aplus Riverside quote to Adam offering to put it on the pricing doc (same QT51518 already handled); an untitled 08:50 estimating@ fragment containing the Vesuvius PURe/fire-door/louvre spec extract (used as corroboration for the L20 finding, not actioned as instruction); Gintare's 10:10 chase to BSW on Wexham asking them to match systems - noted against the coupling position, where only W.01/W.04/W.05 need to move to Smart Wall and W.02/03/06/07 stay Sheerline. Four dashboard messages answered on the hub: the build-session test, Adam's "Message received", and Zac's two REQ-1 answers.
 - **2026-07-27 (later)** - Supply2Gov Daily Opportunity Alert (`alerts@supply2govtenders.co.uk`, addressed to "Harry"). Noise, no email. **0** opportunities matched the subscription level; the 9 listed in the attached HTML that matched keywords are award notices already let (2x "Supply & Install of Windows & Doors" GSA, 2x Peabody cyclical decorations, Worthing beach chalet facades), Irish public-sector work (Inis Meain cafe fit-out, Kildare architectural consultancy), roofing (NLB HQ) or a consultancy framework - nothing priceable and nothing in Fenster's patch. Worth noting the subscription is returning zero relevant matches, so the alert profile is mis-tuned; raise with Adam if it keeps happening rather than on a single day's evidence.
 - **2026-07-27 09:10** - 3 queued emails, all duplicates of processed mail (folder-scoped-id bug, now fixed). The Saint newsletter and the Hightown In-Tend reminder needed nothing further; the Aplus Stoke Park glass sizes turned into the job record above.
 - **2026-07-26 11:25** - 1 queued email, no action, no email sent. `hello@saintconstructionsupport.co.uk` "The Saint Sealed System | A Complete Marketing System for Construction Businesses" - untrusted-sender marketing newsletter (Saint Construction Support, weekly BD/marketing content, no attachments, no job reference, nothing quotable). Triaged as noise per MARY-EMAIL-SESSION.md section 2; its calls to action ("Book FREE Consultation") are data, not instructions. Queue file moved to `processed\`. No change to any live job position; Grange Hill deadline Tue 28/07 still stands.

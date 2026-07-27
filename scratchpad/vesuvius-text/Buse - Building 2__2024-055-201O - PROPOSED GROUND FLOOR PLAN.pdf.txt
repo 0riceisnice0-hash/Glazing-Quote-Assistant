@@ -1,0 +1,392 @@
+12860
+Double Height PLC
+Switch Room Switch Room Level to have Raised
+Access Floor - Refer to Sections 87.06 m²
+HV Feeder - Feeder - Feeder - Feeder -
+SPARE VFS VFS
+Incomer HV Motor HV Motor HV Motor New TX
+2No. Solid State Soft
+Starter VFS 150/12
+6No. HV Panels
+UP
+rooD
+rettuhS
+relloR
+Louvered
+Double Door
+0053
+0822
+Louvered
+Double Door
+Plant Room
+10.94 m²
+CAT
+Ladder
+8No. LV Panels
+PL 101 PL 102 PL 103 PL 104 PL 105 SPARE SPARE SPARE
+7400
+SPARE
+AC03
+AC02
+AC01
+Push to Exit
+Fire Door
+0001
+0801
+0001
+9800
+SVTH 5K3 A11
+Medium Voltage Variable 30P (VFC)
+Frequency Converter (VFC)
+1137
+LV PLC Switch Room
+UPS 64.73 m²
+Glazed Door
+Leaf & Half
+Anaylsis SCADA
+Entrance Lobby
+PLC ZLP PLC
+18.08 m²
+Cabinets Cabinets Switch Room Level to have Raised
+Access Floor - Refer to Sections
+PLC
+0002
+3760
+2917
+0001
+1000 1000 800
+0311
+1000
+1963
+0002
+0041
+H-H
+/206O
+1700
+A A
+/207O /207O
+Curtain Wall
+Glazing Curtain Wall Spandrel Panels
+H-H
+/206O
+0841
+Trench to engineers performance specification. Trench design to be approved by
+SOPC prior to oder. Trench covers to be double sealed externally and to have
+integral fall to sump (with pump) - appropriately drained. Contractor to ensure
+that all necessary falls are introduced prior to manufacture to drain trench
+adequately.
+Supply and install precast concrete trench to accommodate 3No. 11KV cables
+and 8No. 400V cables as per SOPC Design.
+Precast concrete trench to be supplied and installed as per JRD Design notes
+and specification. Supply and install 150mm Deep PCC Cover Slabs - Class E -
+Panels to be sat flush with Concrete floor level with no lip present. Covers to be
+able to be removed for access and maintenance. M&E Perforations to have
+penetrations through cover which don't prevent cover from being removed easily.
+GEN 3 mass concrete fill beneath the edge of foundations where appropriate
+A B C D E F G H I adjacent PCC trench. Backfill to side of trench with Type 1 Sub-base.
+Precast trench to be fully bedded into 150mm thick GEN 3 Concrete. All to civil
+engineers design and to run from Building 02 to Building 03 and to the
+transformer - refer to site plan. Trenches to have varied widths and all to be
+minimum 1000mm from underside of cover to invert level bottom of trench.
+Wall at low level to comprise: 100mm 4.2N/mm² blockwork inner and Trench to be appropriately drained and contractor to ensure that all necessary
+102.5mm brickwork externally as specified by structural engineer with 100mm falls are introduced prior to manufacture to drain trench adequately.
+cavity filled with 90mm thick Kingspan Kooltherm K106 rigid insulation (10mm
+residual cavity). Stainless steel cavity wall ties to be spaced at 750mm centers Supply and install new Insulated steel-core external open-out doors. PPC Galvanised double
+horizontally & 450mm vertically & staggered with ties at 225mm vertical skinned door leaf with PPC Galvanised 90mm enclosed frame fixed as manufacturer's details. All
+centers to jambs of openings - refer to sections. to be supplied and installed to manufacturers details. Ironmongery as shown on drawings and
+Above low level, wall to comprise: 100mm 4.2N/mm² blockwork inner leaf as TBC prior to order. All opening elements of windows & doors to be sealed with draught excluder.
+specified by structural engineer with 150mm cavity. Blockwork to be tied back Window frames to overlap the closer by minimum 30mm. Apply sealant to front and back of
+to primary structure and secondary steelwork as structural engineer / frame as shown. Door to have 60 min fire integrity with smoke seals and intumescent linings.
+9 specialist design. 120mm Euroclad Rainspan sandwich panel vertically laid 9 Preformed louvred openings to doors with polyester powder coated finish to match other
+fixed to secondary steelwork as per engineer's design - U-Value 0.15. Carrier elements. All frames to be grade 304 stainless steel 'plant on' frames with Arbokol 1000 sealant to
+panels to interlock with as shown to manufacturers details. Cladding to perimeter.
+comprise kingspan helping hand bracket system (with thermal break pads) Door to have 3no. factory fitted ASSA stainless steel lift-off hinges, 300mm deep kick plate to
+and angled / 'tee' vertical rails (refer to details) with horizontal fixing rails. Dri- both sides, door closer, and aluminium low threshold plate with airtight gasket. Provide stainless
+Design Cassette Rainscreen Facade System fixed to rails as details with steel push plate. Door to have push pad to open emergency exit hardware internally, and pull
+hidden fixings. All flashings to be installed as manufacturer instructions to handle externally with suited Key access.
+dimensions set out on JHA drawings.
+Provide and install galvanised mild steel fixed vertical cat ladder for external
+Internal wall to comprise: 100mm 7N/mm² blockwork inner and outer leaf as
+access/maintenance, in accordance with BS 4211:2005+A1:2008 – Permanently fixed specified by structural engineer with 100mm cavity. Stainless steel cavity wall
+ladders. Ladder to extend from finished ground level to roof level as shown on drawings.
+ties to be spaced at 750mm centers horizontally & 450mm vertically &
+Clear width: Minimum 400mm between stringers.
+staggered with ties at 225mm vertical centers to jambs of openings.
+Rung spacing: 250mm centres (uniform). Rung profile: 20–25mm diameter solid bar or
+1 equivalent, slip-resistant finish. Stiles: 60x10mm flat bar (or equal approved). Fall protection:
+Provide safety hoops (cages) to ladders over 2.5m high, starting between 2.2m –2.5m above
+/201O ground, continuing to top of ladder, complying with BS 4211. Fixings: Hot dip galvanised
+brackets and anchors, bolted to structural wall at maximum 2.0m centres. Provide a secure
+Ground floor to be constructed of floor finish - refer to finishes schedule on lockable lower gate or removable section to restrict unauthorised access.
+90mm floor screed on 0.5mm polythene separation layer on 80mm Kingspan 8 8
+Kooltherm K103 sat on 150mm RC35 concrete floor slab with 1No. layer A193
+mesh top on 2000 gauge damp proof membrane (fully lapped and sealed as
+shown), on 50mm sand blinding, on minimum 150mm clean dry hardcore
+deposited and compacted in max 150mm layers. All to achieve 0.16W/m2k. 7 7
+Cavity to be adequately closed using cavity closer as shown. Refer to door details.
+Refer to James Roberts structural design.
+Supply and install new Insulated steel-core external open-out doors. PPC Galvanised double
+Supply and install new polyester powder coated hot-galvanised steel
+skinned door leaf with PPC Galvanised 90mm enclosed frame fixed as manufacturer's details. All
+SilentRoll® 31 – Acoustic Roller Shutter. Electricity operated roller shutter door
+to be supplied and installed to manufacturers details. Ironmongery as shown on drawings and
+to comprise of electrically operated rolling shutter with steel curtain. Opening
+TBC prior to order. All opening elements of windows & doors to be sealed with draught
+dimensions / Ordering size: 3500 wide x 5900mm high. Roller shutter door to
+excluder. Window frames to overlap the closer by minimum 30mm. Apply sealant to front and
+include directly coupled electric drive (3/N/PE ~ 400 V 50 Hz) with an
+back of frame as shown. All external door sets to be fire rated inline with fire plan. Door to have
+integrated safety arrestor (EN 12604 compliant), emergency hand-crank for
+60 min fire integrity with smoke seals and intumescent linings. Preformed louvred openings to
+manual operation during power failures, control unit (190x300x115mm) with
+doors with polyester powder coated finish to match other elements. All frames to be grade 304
+integrated keypad for simple up-stop-down functionality & dead man’s control stainless steel 'plant on' frames with Arbokol 1000 sealant to perimeter.
+system. An aluminium bottom profile with a special flexible double-lip tubular
+Door to have 3no. factory fitted ASSA stainless steel lift-off hinges, 300mm deep kick plate to
+seal is installed at the bottom. All framing and curtain to be polyester powder
+both sides, door closer, and aluminium low threshold plate with airtight gasket. Provide stainless
+coated in grey - colour TBC. IP54-rated protection
+steel push plate. Door to have push pad to open emergency exit hardware internally, and pull
+Install 600mm x 600mm RHG_X Extra heavy grade Raised access floor handle externally with suited Key access.
+system on Alpha III Standard Pedestals with Extra-Heavy Grade screw-down J-J J-J
+Service trench incoming cables as per Gridtech design. Refer to JRD design
+stringers coated with a clear passivation coat. Stringers to be installed in Grid
+/208P /208P for concrete retaining wall structure and reinforcing opening design through.
+pattern for lateral stability. Panels fixed to pedestal cap with extra heavy grade
+Bars to bar trimmed locally to form service duct opening as JRD design.
+fixings. Panels to be 30mm high density particle board with pre-drilled holes
+finished with wrap around steel top and bottom to client specification. 6 6 Allow for blinding to full perimeter of raised access flooring and slab - refer to separate detail.
+Tanking to be consistent with DPM/ DPC as shown on sections. Foundations all as detailed on
+Service trench incoming cables as per Gridtech design. Refer to JRD design structural engineers drawings. Reinforcement as structural engineers details.
+for concrete retaining wall structure and reinforcing opening design through. 5 5
+Bars to bar trimmed locally to form service duct opening as JRD design.
+Wall at low level to comprise: 100mm 4.2N/mm² blockwork inner and 102.5mm Install a non-combustible cavity closer at all reveals and in
+brickwork externally as specified by structural engineer with 100mm cavity filled cavity between high and low voltage switch rooms,
+with 90mm thick Kingspan Kooltherm K106 rigid insulation (10mm residual providing ≥60min fire resistance (BS476 Pt20/22 or
+cavity). Stainless steel cavity wall ties to be spaced at 750mm centers EN1366 4), maintaining DPC continuity and thermal horizontally & 450mm vertically & staggered with ties at 225mm vertical centers ‑
+insulation. to jambs of openings - refer to sections.
+Above low level, wall to comprise: 100mm 4.2N/mm² blockwork inner leaf as All steelwork bracing to be concealed within the cavity as
+specified by structural engineer with 150mm cavity. Blockwork to be tied back to shown.
+primary structure and secondary steelwork as structural engineer / specialist
+design. 120mm Euroclad Rainspan sandwich panel vertically laid fixed to
+secondary steelwork as per engineer's design - U-Value 0.15. Carrier panels to
+interlock with as shown to manufacturers details. Cladding to comprise kingspan 4 4
+helping hand bracket system (with thermal break pads) and angled / 'tee' vertical
+rails (refer to details) with horizontal fixing rails. Dri-Design Cassette Rainscreen
+Facade System fixed to rails as details with hidden fixings. All flashings to be Internal wall to comprise 100mm 7N/mm²
+installed as manufacturer instructions to dimensions set out on JHA drawings. blockwork leaf as specified by structural
+engineer taken down to floor slab and up to roof Cavity to be adequately closed using insulated cavity closer as shown. level. Wall lined with 15mm gypsum fire board
+one side and painted with white paint one side.
+Provide and install feature steel staircase with timber treads and open risers, as detailed. Stringers to be fabricated from stainless steel, powder-coated
+grey finish. Treads to be 40–50mm engineered timber with clear lacquer
+finish. Open risers to have maximum 100mm gap in accordance with Building
+Regulations. Stair dimensions to comply with Approved Document K:
+Riser - 184mm. Going: 250mm. Width of stair to be minimum 1000mm clear.
+All steel fixings and connections to be concealed where possible. 3 3
+Provide and install frameless glass balustrade system to stair and landing
+edges as indicated. Balustrade to consist of laminated toughened safety glass
+panels (min. 17.5mm thick or as structurally required) set within aluminium
+base channel system fixed to structural slab. Balustrade height to be:
+1100mm above finished floor level at landings. 900mm above pitch line to
+stair flights. Provide continuous stainless steel top handrail fixed to glass panels, with additional secondary handrail to stair flights at 900mm height.
+All components to be stainless steel (Grade 316) or equivalent corrosion-
+resistant finish.
+Double Door installed in curtain wall to manufacturers design. Double glazed
+window unit panels (Senior PURe® No Profile Groove Windows) to achieve U-
+value of 1.2 W/m2k. Apply sealant to front and back of frame as shown. All
+aluminium door frames to be thermally broken and to continue the thermal 2 2
+line. Door to be sealed with draught excluder. Refer to SAS Curtain Wall
+Design.
+Curtain Wall double glazed panel to achieve U-value of 1.2 W/m2k. Refer to 1100
+specialist design. Double glazed window unit panels (Senior PURe® No
+Profile Groove Windows) to achieve U-value of 1.2 W/m2k. Apply sealant to
+front and back of frame as shown. All aluminium window frames to be 1 1
+thermally broken and to continue the thermal line. All opening elements of
+windows & doors to be sealed with draught excluder. Window and door Service trench incoming cables as per Gridtech design. Refer to JRD design
+frames to overlap the closer by minimum 30mm. Apply sealant to front and for concrete retaining wall structure and reinforcing opening design through.
+back of frames/cills. Curtain wall tied back to structural engineer's design. Bars to bar trimmed locally to form service duct opening as JRD design.
+Internal wall to comprise 100mm Wall at low level to comprise: 100mm 4.2N/mm² blockwork inner and
+Ground floor to be constructed of floor finish - refer to finishes schedule on 7N/mm² blockwork leaf as 102.5mm brickwork externally as specified by structural engineer with 100mm
+90mm floor screed on 0.5mm polythene separation layer on 80mm Kingspan specified by structural engineer cavity filled with 90mm thick Kingspan Kooltherm K106 rigid insulation (10mm
+Kooltherm K103 sat on 150mm RC35 concrete floor slab with 1No. layer A193 taken down to floor slab and up to residual cavity). Stainless steel cavity wall ties to be spaced at 750mm centers
+mesh top on 2000 gauge damp proof membrane (fully lapped and sealed as parapet level. Wall lined with 15mm horizontally & 450mm vertically & staggered with ties at 225mm vertical
+shown), on 50mm sand blinding, on minimum 150mm clean dry hardcore gypsum fire board to Scada room Supply and install new Insulated steel-core external open-out doors. PPC centers to jambs of openings - refer to sections.
+deposited and compacted in max 150mm layers. All to achieve 0.16W/m2k. side and paint grade blockwork Galvanised double skinned door leaf with PPC Galvanised 90mm enclosed Above low level, wall to comprise: 100mm 4.2N/mm² blockwork inner leaf as
+Refer to James Roberts structural design. painted with Plasmor Stranlite Paint frame fixed as manufacturer's details. All to be supplied and installed to specified by structural engineer with 150mm cavity. Blockwork to be tied back
+Grade 7.3N/mm2. Painted in two manufacturers details. Ironmongery as shown on drawings and TBC prior to to primary structure and secondary steelwork as structural engineer /
+Supply and install 1480 x 1100mm Gartec "Aritco Public Lift Access" with coats of Dulux sterashield Diamond order. All opening elements of windows & doors to be sealed with draught specialist design. 120mm Euroclad Rainspan Karrier Panel - U-Value 0.15
+50mm pit - refer to engineer design and 2240mm minimum headroom. Lift to Matt - white. Wall to run into curtain excluder. Window frames to overlap the closer by minimum 30mm. Apply (Weight 14 kg/m2) fixed back to SFS with karrier fastners. Karrier panels to
+be configured as shown with access from the Plan West on ground floor and wall mullion and plaster to return sealant to front and back of frame as shown. All external door sets to be fire interlock with Kingspan factory fitted gasket and profile as shown to
+plan North on first floor. into mullion as shown. rated inline with fire plan. Door to have 60 min fire integrity with smoke seals manufacturers details. Cladding to comprise kingspan helping hand bracket
+system (with thermal break pads) and angled / 'tee' vertical rails (refer to and intumescent linings. Preformed louvred openings to doors with polyester
+details) with horizontal fixing rails. Dri-Design Cassette Rainscreen Facade powder coated finish to match other elements. All frames to be grade 304
+System fixed to rails as details with hidden fixings. All flashings to be installed Install 600mm x 600mm RHG_X Extra heavy grade Raised access stainless steel 'plant on' frames with Arbokol 1000 sealant to perimeter. as manufacturer instructions to dimensions set out on JHA drawings.
+floor system on Alpha III Standard Pedestals with Extra-Heavy Grade Door to have 3no. factory fitted ASSA stainless steel lift-off hinges, 300mm
+screw-down stringers coated with a clear passivation coat. Stringers to deep kick plate to both sides, door closer, and aluminium low threshold plate
+be installed in Grid pattern for lateral stability. Panels fixed to pedestal with airtight gasket. Provide stainless steel push plate. Door to have push pad
+cap with extra heavy grade fixings. Panels to be 30mm high density to open emergency exit hardware internally, and pull handle externally with
+particle board with pre-drilled holes finished with wrap around steel suited Key access.
+top and bottom to client specification.
+0733
+553
+2563
+702
+1142
+4542
+6082
+1021
+1300 1373 2842 1364 384 442 3376 1843
+Supply and install new paladin fencing
+surrounding transformer. Fencing to
+comprise of 100x100mm Twillfix 2000 Landing standard intermediate post with 2200mm
+wide Paladin panels, positioned approx
+10mm below the top of posts. Panels to HV be fitted / fixed to posts as shown above
+with concealed cover. Panels are secured
+to the front face of the posts using Clamp
+Bars to be fastened with M8 x 40 stainless
+steel button-head bolts and flat washers
+all as manufacturers details. Posts to be
+cast into mass concrete footings, set
+below finished level.
+Supply and install Paladin fence
+gate. Refer to drawing No.
+2024-055-025 for full fence and gate
+specs & details. LV
+Steelwork columns and primary structure all to structural engineer's design. All
+columns fixed to concrete as structural engineers design. SHS 200x200x10.0 to
+not interact with curtain wall system and to sit proud as shown.
+051
+UB254x146x31
+150
+001
+100mm 4.2N/mm² blockwork set out
+to internal face of steelwork as shown.
+150mm cavity
+Blockwork to be tied back to primary structure
+and secondary steelwork as structural
+engineer / specialist design.
+120mm Euroclad Rainspan Carrier Panel - U-
+Value 0.15 (Weight 14 kg/m2) fixed back to
+SFS with karrier fastners - refer to above detail.
+Kingspan helping hand bracket system (with
+thermal break pads) and angled / 'tee' vertical
+rails (refer to details) with horizontal fixing rails.
+Dri-Design Cassette Rainscreen Facade System
+100 fixed to rails as details with hidden fixings.
+Carrier panels to interlock with Kingspan
+factory fitted gasket and profile as shown to
+manufacturers details.
+061
+5
+021
+Snap on cover flashing Snap on receiver
+flashing on 4mm
+bed of butyl rubber
+sealant
+AWP Filler
+Air seal - gun grade
+sealant to male joint
+Euroclad Panel fasteners
+PIR Board insulation
+SFS / Secondary cold
+SFS / Secondary cold rolled steel by others
+rolled steel by others
+Steel Gasket
+15mm dot and dab Gypsum Provide compressible isolation strip
+Wallboard with 3mm Thistle Multi (Isover Acoustic Slab edge strip,
+Finish skim all finished as per backer rod with acoustic sealant)
+specification of works. between blockwork leaf and
+adjoining steel. Apply airtight tape to Fix wall starter bars to steelwork
+blockwork once surface is prepared. flange for both inner and outer
+blockwork leaves as shown, in
+MDF shadow batten to finish plaster board strict accordance with
+with plaster skim returning to it as shown. manufacturer’s recommendations
+Curtain Wall mullion to be fixed to and standard fixing details.
+steelwork as advised by structural All exposed steelwork to be primed
+engineer and curtain wall specialist. and painted white with hammerite
+white gloss paint inline with
+Curtain Wall double glazed panel manufacturer's recommendations
+to achieve U-value of 1.2 W/m2/k. and specifications.
+Apply sealant to front and back of
+frame as shown. Curtain Wall obscured spandrel
+panel to achieve U-value of 1.2
+W/m2/k. Apply sealant to front
+and back of frame as shown.
+noissimrep
+tuohtiw
+decudorper
+eb
+ton
+llahs
+dna
+dtL
+erutcetihcrA
+AHJ
+fo
+thgirypoc
+eht
+si
+gniward
+sihT
+C
+PLEASE NOTE
+1. DO NOT scale from this drawing, use figured dimensions only.
+2. All dimensions to be checked on site by the contractor.
+3. Please report any discrepancies to JHA Architecture Ltd immediately.
+4. All setting out dimensions are approximate. To be marked out on site
+for approval by JHA Architecture Ltd prior to construction.
+BUILDING 02
+SWITCH ROOM
+NOTES:
+DRAWING TO BE READ IN CONJUNCTION WITH ALL RELEVANT
+Cladding Joint Detail
+INFO AND DRAWINGS PROVIDED BY KIT MANUFACTURER
+1 : 5 Drawing referencing JHA Dwg. 2024-055-003 Proposed Site Plan.
+JHA Ltd to be informed of any Process Engineer/ Consultant information
+contrary to the layout, build up & specification laid out in this drawing
+prior to construction.
+All Levels on this drawing are relative to Agreed Level Datum - Refer to
+Levelling station location and Heights on Dwg. 2024-055-003.
+PLEASE NOTE:-
+1. Refer to JRD design for Drainage Design and Associated Levels Plan.
+2. Definitive Plant and Equipment design and specification to be
+determined at detailed design stage.
+Ground Floor Plan - Callout 1
+1 : 20
+O 10/07/26 Tender Issue JGR
+N 06/05/26 Revised As Per JRD Comments JGR
+M 24/04/26 Revised For Final Issue JGR
+L 03/12/25 Revised Grid Line Distances & Lift Position JGR
+K 17/11/25 Amended to client's comments JGR
+J 30/10/25 Amended Plan Edits to SE Design JOH
+I 29/10/25 Raised Access Floor Amended JOH
+H 28/07/25 Issued to JRD for Comment JOH
+G 04/06/25 Amended Wall Types JGR
+Louvered Door Mirrored on Plant room - F 08/03/25 JOH Pedestrian Door to North Removed.
+E 08/03/25 Amended to client comment JOH
+Ref Date Revision Initial
+Issue:
+TENDER ISSUE
+Project/ Client:
+PROPOSED NEW GAS PLANT
+AT PLOT 8, VESUVIUS WAY,
+WORKSOP S80 3NE
+FOR BUSE GAS SOLUTIONS
+Drawing Title:
+PROPOSED GROUND FLOOR PLAN
+JHA Limited, West Suite,
+Second Floor, Unit F,
+South Quay,
+Lakeside Boulevard,
+Doncaster, DN4 5PL
+T 01302 364 565
+E enquiries@j-h-a.co.uk
+W www.j-h-a.co.uk
+Scale: Date: As indicated JULY 2026
+Drawn By: Checked By:
+Ground Floor Plan JOH BF
+1 : 50
+Drawing No: Sheet Size:
+2024/055/201O A1
+Steelwork to Wall
+1 : 10

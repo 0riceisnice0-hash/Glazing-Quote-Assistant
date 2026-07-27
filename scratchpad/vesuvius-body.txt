@@ -1,0 +1,79 @@
+Adam, Zac
+
+Budget for the Worksop gas plant is GBP 110,551.98 ex VAT.
+
+Tender is back to Staniforth on THURSDAY 30 JULY - three days.
+
+More urgent than the number: the RFQ that went out this morning carries drawings that ask suppliers for LESS than the trade bill. If a supplier prices off those drawings we will be six units short.
+
+
+1. THE SHORTFALL IN THIS MORNING'S RFQ
+
+Three of the Logikal drawings attached to the RFQ show a lower quantity than the Staniforth bill.
+
+- Drawing 005 (Welfare Ele 4 window, 750 x 950) says "Quantity: 1". The bill item F says 4no.
+
+- Drawing 004 (Welfare Ele 2 door, SPD150 1000 x 2450) says "Quantity: 1". The bill item E says 2no.
+
+- Drawing 008 (Office window, 1350 x 1450) says "Quantity: 6". The architect's window schedule 2024-055-222P shows eight marks, W05 to W12, and the bill totals 8 across items D, H and I.
+
+That is 3 windows, 1 door and 2 windows missing - six units out of a package of roughly twenty-three.
+
+Two more gaps in the same pack:
+
+- Drawing 001, the access hatch, was NOT attached at all, but the hatch IS in the bill as Building 1 item A.
+
+- Bill item C (Welfare Elevation 1 window, 1500 x 1255-1150) has no drawing anywhere in the tender pack, not just the RFQ.
+
+Suggest we reissue the RFQ with quantities stated in the covering email rather than relying on the drawings.
+
+
+2. THE NUMBER
+
+GBP 110,551.98 ex VAT. GBP 132,662.38 inc VAT.
+
+Built as: benchmark supply GBP 84,922.05 + house template code adders GBP 9,262.50 + installation GBP 16,367.43.
+
+Curtain walling is 87 m2 and drives 79% of it - two 6m-high lobby screens on the office building (6900 x 6000 raked, and 6500 x 6000 with a double entrance door) plus two smaller welfare screens. Priced at the MASTER PRICING DOC curtain wall formula, GBP 850/m2 supply + GBP 150/m2 labour, same basis as Grange Hill.
+
+Windows and doors are on size-banded BSW medians from the register plus 15% for the specified system, then template adders and your labour codes.
+
+This is a BUDGET. No supplier quote is held and the system is one we have no live rate for - see item 3. Do not issue it as a fixed price.
+
+Workbook attached: outputs\Vesuvius Way Worksop - Fenster Pricing Document and Review.xlsx
+
+
+3. THE SYSTEM PROBLEM
+
+The whole pack is specified Senior Architectural Systems - SF52 curtain wall, PURe windows, SPD150 high usage doors, PURe SLIDE hatch.
+
+BSW fabricate Sheerline, Aplus fabricate Technal, Bellview fabricate SMA Smart Wall. None of them fabricate Senior.
+
+So either we find a Senior-approved fabricator this week, or we qualify an alternative system in the tender. Every rate in my workbook comes from non-Senior quotes and is indicative for that reason.
+
+Which way do you want to go? This is the one that decides whether Thursday is realistic.
+
+
+4. NOT IN THE PRICE
+
+Four items I have deliberately left out rather than guess:
+
+- Access hatch, Senior PURe SLIDE 1450 x 1200. Specialist sliding unit, no register category. Indicative GBP 1,500 - 2,500.
+
+- Louvred double door 1450 x 2110. The schedule specifies an insulated STEEL-CORE PPC galvanised leaf, not aluminium - that is a Strongdor item sitting in an aluminium bill. Indicative GBP 3,500 - 5,000. It is also listed under Building 1 while the only detail for it sits on the Building 02 door schedule.
+
+- Two first floor partition windows, 2400 x 1500 and 3100 x 1500, specified with Pilkington PyroStop in Senior PURe frames. PyroStop is fire-resisting glass and PURe is not a fire-rated system, so this needs a tested fire screen. Indicative GBP 6,000 - 9,000 for the pair, and we need to know whether it is EI30 or EI60.
+
+- Extra-over for the obscured and reflective spandrel panels. I have priced the screens in full at the curtain wall rate including the spandrel zones, so nothing extra is carried, but a mirrored finish may be a real glass upcharge.
+
+Also excluded: the roller shutter door 3500 x 5900 on schedule 221P (not in this bill), internal Howdens joinery doors, and the JS Office Environments reception screen quote sitting in the pack - that one is addressed to the architect, not us.
+
+
+5. TWO THINGS ON THE ESTIMATING LOG
+
+Worksop is still marked "to log" with no log number, five days after the enquiry came in on 22/07. Worth Gintare closing that off.
+
+And Pearce Construction "Georgie's" is due TOMORROW, 28/07, also still "to log". I have never seen a pack for it. If it is live, it needs someone today.
+
+
+I can turn this into the house pricing document and proposal the moment a supplier price lands. Tell me the system answer and I will push it through.

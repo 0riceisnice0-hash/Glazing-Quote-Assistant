@@ -1,0 +1,47 @@
+Autopilot 27/07 PM: audit the two quotes that went out; Vesuvius doors must be 60-min fire rated
+
+Twenty queue items. Two client quotes were issued today and both were audited
+against what was actually priced.
+
+Princess Beatrice, issued 09:49 to Guildmore, GBP 279,244.69 ex VAT. Arithmetic
+exact and Adam's pricing instructions were carried out, but the proposal that
+went with it still says mastic is an optional extra while the pricing charges
+GBP 5,356.22 for it, and EPDM (GBP 8,276.91) is not in the clarifications at all.
+Also unqualified: proposal says Technal STII, pricing says Modeal; five pages of
+the attached drawings say items are not PAS24 tested against a Part Q / SBD
+Silver ITT.
+
+Crestwood Park, issued 10:49 to Reynolds, GBP 74,158.66 ex VAT. Build verified to
+the penny (BSW QT252906 net GBP 27,329.60 + GBP 20,550.00 code adders =
+GBP 47,879.60). But the quote excludes "Teleflex controls / wiring" against a
+drawing that says to include all installation, core wire, conduit and fittings,
+while charging GBP 17,779.06 for Teleflex - 24% of the tender, with no supplier
+quote on file. Glass quoted is Coolite SKN175(ii), not the specified Pilkington
+Suncool Pro T 66/33. W15 is neither priced nor excluded.
+
+Vesuvius Way: confirmed at source in NBS clause L20 that every external door must
+be 60-minute insulated steel-core, including doors installed in curtain wall. The
+GBP 110,551.98 budget priced them as standard aluminium, and GBP 49,377.50 of
+curtain wall - 45% of the budget - carries doors that a standard SF52 screen
+cannot fire-rate. Deadline Thursday.
+
+Riverside AOV: answered Adam's question - 1.30 m2 geometric free area against the
+1.5 m2 needed. Aplus give the fix at 1235 x 1583.
+
+Stoke Park: corrected the CN Glass provenance Adam queried. It is a verbal
+confirmed by return email, not a priced quotation - the rates were written in
+Steve's own outgoing email.
+
+Hightown closed on Adam's instruction. REQ-1 answered (Grange Hill chapel folding
+doors are ours; deadline tomorrow, recommending a labelled provisional sum).
+REQ-6 to REQ-9 raised.
+
+- MARY-HANDOVER: Princess Beatrice, Crestwood, Riverside and Manor Lodge rows;
+  Vesuvius, Grange Hill, Hightown and Stoke Park rows rewritten.
+- HANDOVER: six new job records plus the afternoon session log.
+- AI.md: how to audit a quote the team has already sent; never overstate a rate's
+  provenance; fire ratings live in NBS L20; AOV free area; clients not to quote.
+
+Digest emailed to adam+marketing; four dashboard replies posted; hub redeployed.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

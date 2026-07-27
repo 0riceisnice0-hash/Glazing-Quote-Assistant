@@ -107,21 +107,15 @@ def session_running():
     return True
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--backfill-hours", type=int, default=0)
-    ap.add_argument("--no-launch", action="store_true")
-    args = ap.parse_args()
-
-    env = mg.load_env()
-    token = mg.get_token(env, "READER")
-    state = load_state()
+def poll_mail(token, state, backfill_hours=0):
+    """Pull unseen mail from estimating@ + mary@ into the queue. Returns how
+    many new work orders were written. Shared with mary_bridge.py."""
     os.makedirs(QUEUE, exist_ok=True)
     os.makedirs(PROCESSED_DIR, exist_ok=True)
 
     since = None
-    if args.backfill_hours:
-        since = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=args.backfill_hours)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    if backfill_hours:
+        since = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=backfill_hours)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     new_count = 0
     seen_keys = set(state["seen_keys"])
@@ -129,7 +123,7 @@ def main():
         seen = set(state["processed"].setdefault(mailbox, []))
         try:
             msgs = mg.list_messages(token, mailbox, since_iso=since,
-                                    top=50 if args.backfill_hours else 25,
+                                    top=50 if backfill_hours else 25,
                                     whole_mailbox=(mailbox == mg.ESTIMATING))
         except Exception as e:
             log("LIST FAILED %s: %s" % (mailbox, e))
@@ -179,8 +173,16 @@ def main():
         state["processed"][mailbox] = list(seen)[-2000:]
     state["seen_keys"] = sorted(seen_keys)[-4000:]
     save_state(state)
+    return new_count
 
-    # ---- dashboard messages from Zac/Adam (mary-dashboard.pages.dev) ----
+
+def poll_dashboard(env, state):
+    """Pull messages typed on mary-dashboard.pages.dev into the queue.
+
+    This is a plain HTTPS GET against our own Cloudflare endpoint - no Graph
+    token, no cost - so the bridge runs it every few seconds. Returns how many
+    new work orders were written."""
+    new_count = 0
     try:
         import urllib.request
         key = env.get("MARY_API_KEY")
@@ -201,6 +203,7 @@ def main():
                     "dashboard_message_id": msg["id"],
                     "from": "%s (via dashboard)" % msg.get("author", "team"),
                     "subject": ("Dashboard message" + (" re: " + msg["context"] if msg.get("context") else "")),
+                    "context": msg.get("context", ""),
                     "received": msg.get("created", ""),
                     "to": ["mary"], "cc": [],
                     "trusted_sender": True,
@@ -216,6 +219,24 @@ def main():
             save_state(state)
     except Exception as e:
         log("DASHBOARD POLL FAILED: %s" % e)
+    return new_count
+
+
+def main():
+    """Standalone 15-minute poll. mary_bridge.py supersedes this for live
+    running (it dispatches to per-job chats within seconds); this is kept as
+    the fallback and for manual/backfill runs."""
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--backfill-hours", type=int, default=0)
+    ap.add_argument("--no-launch", action="store_true")
+    args = ap.parse_args()
+
+    env = mg.load_env()
+    token = mg.get_token(env, "READER")
+    state = load_state()
+
+    new_count = poll_mail(token, state, args.backfill_hours)
+    new_count += poll_dashboard(env, state)
 
     pending = [f for f in os.listdir(QUEUE) if f.endswith(".json")]
     log("poll done: %d new, %d pending in queue" % (new_count, len(pending)))

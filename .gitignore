@@ -7,4 +7,6 @@ workers/document-processor/node_modules/
 .env.mary
 *.env
 data/mary-state.json
+data/mary-bridge-state.json
+data/mary-bridge-status.json
 dashboard/functions/_data/dashboard-data.js

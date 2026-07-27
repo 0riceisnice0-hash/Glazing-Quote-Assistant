@@ -44,6 +44,11 @@ button, input, select, textarea { font-family: inherit; }
 .live em { font-style: normal; opacity: .8; }
 .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green); display: inline-block; animation: pulse 2.4s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(46,172,102,.55); } 70% { box-shadow: 0 0 0 8px rgba(46,172,102,0); } 100% { box-shadow: 0 0 0 0 rgba(46,172,102,0); } }
+/* Mary mid-job, and Mary backed off (usage limit) - see renderStatus(). */
+.dot.busy { background: #e0a33c; animation: pulse-busy 1.4s infinite; }
+.dot.stalled { background: #c0563f; animation: none; }
+@keyframes pulse-busy { 0% { box-shadow: 0 0 0 0 rgba(224,163,60,.55); } 70% { box-shadow: 0 0 0 8px rgba(224,163,60,0); } 100% { box-shadow: 0 0 0 0 rgba(224,163,60,0); } }
+.live #mary-state { max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 .nav-items { display: grid; gap: 3px; }
 .nav-item { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border: 0; background: none;
