@@ -224,6 +224,33 @@ Lesson worth keeping: **when a work order is parked after three attempts, read t
 LAUNCH FAILED" reads like a usage limit; the actual message named the cause exactly and had been
 sitting unread since 19:21.
 
+### 2026-07-27 20:50 - the board froze Mary completely, and two rulings from Adam
+**Everything was stuck, not just new chats.** By 20:36 resumes were failing too - riverside six times
+in a row with WinError 206 - because the board had reached 31,387 chars against the 32,767 command-line
+cap. The stdin fix is committed but the bridge is still pid 16004 from 17:48:36, so it is inert.
+
+**Interim fix that worked immediately:** archived the board. `scripts\board_archive.py` moved 27
+entries / 47,907 chars to `data\mary-noticeboard-archive.md`, keeping the newest; live board down to
+9,999 chars. Verified entry-for-entry against a backup - 31 in, 4 + 27 out, none lost. This works on the
+running bridge because the board is DATA, not code. REQ-21 still needs the restart for the real fix.
+
+**Adam: the 25% is TELEFLEX ONLY** - "keep everything else you have learnt the same in terms of
+pricing". gordon-court had flagged the earlier "general rule for estimating" wording as ambiguous and
+asked instead of acting; that was right, because the broad reading would have put 25% on every supplier
+line in every future quote on top of the template's 75% adders. `mary_pricing.py` untouched. Passed to
+crestwood-park (owns REQ-7) with a warning not to apply it twice - if GBP 17,779.06 already includes it,
+the implied bought-in cost is GBP 14,223.25.
+
+**Adam on REQ-9 (Riverside), recovered from failed\:** "We can make the windows as big as we need to...
+the openings are being newly formed." Size is not constrained - useful. But he answered against the
+1.5m2 that riverside had already shown was OUR number: the pack says 1m2 and A Plus quote 1.30m2
+geometric, so on that basis we clear by 30% and there is nothing to requote. Asked him to hold before
+putting it to Gintare, because on riverside's own 60-62% ratio the same vent is ~0.79m2 aerodynamic -
+20% SHORT - so geometric-vs-aerodynamic decides whether there is any work at all. REQ-9 updated with his
+answer, the corrected premise and three options; not closed.
+
+Also told him email is still blocked (403), so he cannot have the reminder he asked for.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target
