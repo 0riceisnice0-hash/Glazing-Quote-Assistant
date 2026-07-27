@@ -1,0 +1,42 @@
+The door schedule nobody had read - and the average that had to be computed
+
+Third turn on St Mary's. No work order and both handoffs closed, so I went at the open
+items. Opened door schedule 2376-08 for the first time; the job had been priced entirely
+off the window schedule.
+
+IT CORRECTS OUR OWN ANALYSIS. The 1.2 W/m2K for external doors is expressly "an area
+weighted average u-value - not a centre pane value". Our manifest recorded the basis as
+"per element" throughout, and that was wrong for the doors. SM5 Wexham's rule says you may
+not reject an element against an average - I had nearly walked into that trap a second time.
+
+THE FINDING SURVIVES, BECAUSE THE AVERAGE WAS COMPUTED RATHER THAN ASSERTED. On 22.078 m2
+of Smart Wall Pocket at SMA's published 1.8, plus at most 20.367 m2 of MC600, the MC600
+would have to achieve 0.55 W/m2K for the package to average 1.2. A generous 1.0 gives 1.42;
+1.4 gives 1.61. The doors miss on the architect's own averaging basis, which is a far
+stronger thing to put to a client than a claim about one element.
+
+IT ALSO STRENGTHENS THE CASE. 2376-08 carries per-door notes on D.01, D.17, D.22 and D.26
+reading "Door to achieve min u-value of 1.4W/m2k". So 1.4 is stated in the window schedule,
+the door schedule and our own proposal - it no longer depends on the energy annex at all,
+and ET&S cannot dispose of it by ruling EDG02 inapplicable.
+
+NEW REQ-19: four things in that schedule are in nobody's price. Fobbed readers explicitly
+required on D.01 and D.14, against our exclusion of access control and our own clarification
+that fobbed reader compatibility "requires further review" - never done, and Bellview's seven
+units carry no strike, rectifier or transfer hinge. Anti-ligature pull handles, BS 7352 hinges
+and kicking plates specified and not quoted, which on a special needs school is safeguarding
+rather than finish. "No locking mechanism or latch" on four doors against the concealed panic
+bars we priced on all seven - and Aplus flagged that exact ambiguity in writing on their
+alternative while Bellview defaulted silently. And the two architect's schedules disagree on
+external door sizes, with only D.01 mapping cleanly - which is also the bifold our proposal
+substituted for French doors without written acceptance.
+
+TWO FALSE LEADS CLEARED SO NOBODY REPEATS THEM. Triage's John North Hall note warns that
+replacement jobs put strip-out, making good and disposal in scope. Only the strip-out lands
+on us here - making good and decoration are the client's own SOW section 8, so our Internal
+Finishing exclusion is safe and RFI-4 should not be widened. And this pack carries no tender
+validity clause at all, so the 90-day Section 20 trap does not apply. Also negative: the SMA
+commercial brochure is a 2009 corporate document with no U-values, so the "Smart Wall vs
+Smart Wall POCKET" and MC600 caveats stay open - only SMA can close them.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

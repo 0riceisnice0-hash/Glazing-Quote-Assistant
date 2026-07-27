@@ -178,6 +178,92 @@ elements - worth citing when that question is put.
 **Still needed: an SMA U-calculation in writing for the actual units**, which is precisely what SM5
 Wexham asked for and never got. But we now know roughly where it will land, and it is not 1.4.
 
+#### RFI-1b - the door schedule 2376-08, which nobody had read, both STRENGTHENS and CORRECTS the above
+
+Read 2376-08 for the first time on the third turn. It changes the picture in one important way and
+confirms it in another. **It is the original 08/07 issue with an empty revision block** - unlike the
+window schedule, which went to rev A on 13.07.
+
+**THE CORRECTION - and it is the SM5 Wexham trap I nearly walked into a second time.** The door schedule
+carries a general note against D.11:
+
+> *"External Doors U-value 1.2 w/m2k. **Note this is an area weighted average u-value - not a centre pane
+> value.**"*
+
+So the 1.2 for external doors is **an average across the door package, NOT a per-element limit**. My
+manifest previously recorded the basis as "per element" throughout. That was wrong for the doors and is
+now corrected. Under the SM5 Wexham rule you may not reject a single element against an average.
+
+**THE FINDING SURVIVES THE CORRECTION - because the average was computed, not asserted.** Our external
+door area is **22.078 m2 of Smart Wall Pocket** plus at most **20.367 m2 of MC600** = 42.445 m2. With
+SMA's published 1.8 on the Smart Wall Pocket area:
+
+| if MC600 achieves | area-weighted average | vs 1.2 required |
+|---|---|---|
+| 1.4 | **1.61** | misses |
+| 1.2 | **1.51** | misses |
+| 1.0 (generous) | **1.42** | misses |
+
+For the average to reach 1.2, MC600 would have to achieve **0.55 W/m2K** - which no glazed element
+achieves. And if MC600 is *not* in the External Doors pool, the Smart Wall Pocket average is simply 1.8.
+**The doors miss on the architect's own averaging basis, not merely on a per-element reading.** That is
+a far more robust position to put to ET&S than the one I had yesterday.
+
+**THE STRENGTHENING - a third independent source for 1.4.** 2376-08 also carries **per-door** notes on
+**D.01, D.17, D.22 and D.26**: *"Door to achieve min u-value of 1.4W/m2k"*. These are stated per element,
+so SMA's 1.8 misses them outright. The 1.4 requirement is therefore in **the window schedule, the door
+schedule and our own proposal** - it does not depend on EDG02 at all, and ET&S cannot dispose of it by
+ruling that the energy annex does not apply.
+
+#### RFI-7 (NEW) - the door schedule requires things that are in nobody's price
+
+Four items in 2376-08 that appear in neither BSW nor Bellview:
+
+1. **FOBBED READERS ARE EXPLICITLY REQUIRED, on named doors.** D.01 note 5 reads *"fobbed reader"*, and
+   D.14 the same. Our proposal excludes *"Fobbed readers, access control, fire alarm interfaces, wiring,
+   programming, commissioning"* and the clarifications say *"fobbed reader compatibility requires further
+   review"*. **That review was never done.** Even if the access control system is MTCBC's under SOW
+   15.10, the door leaf and frame need preparing for it - cabling routes, transfer hinges, an electric
+   strike or keep. **Bellview's quote contains no electric strike, no rectifier and no transfer hinge on
+   any of the 7 door units** (Bellview price those separately when asked - on Filwood they quoted an
+   electric strike + latch + rectifier as a line item). Decide whether the preparation is ours and get
+   it priced or excluded by name.
+2. **ANTI-LIGATURE IRONMONGERY IS SPECIFIED AND NOT QUOTED.** The external door ironmongery schedule
+   requires *"Anti-Ligature Infilled Door Pull Handle on Plate - Screw Fix - 300 x 75mm - Stainless
+   Steel"*, *"Hinges: satin stainless steel concealed bearing to BS 7352"* and *"Kicking plate: satin
+   stainless steel 200mm high"*. Bellview's 7 units list only concealed panic bars and closers. On a
+   **special needs school** anti-ligature is a safeguarding requirement, not a finish preference.
+3. **"NO LOCKING MECHANISM OR LATCH" CONFLICTS WITH THE PANIC BARS WE HAVE PRICED.** D.01, D.17, D.22 and
+   D.26 all say *"No locking mechanism or latch"* or *"Non-lockable device"*. Bellview quoted
+   **ACIM453 concealed panic bars on all 7 units** - a panic bar is a latching device. **Aplus spotted
+   the same ambiguity and said so in writing** on their alternative: *"It is unclear what a Non-Lockable
+   Device is, quoted all doors with Panic Bars."* Two suppliers defaulted the same way and only one
+   flagged it. The architect has to say what a non-lockable device is on an escape door.
+4. **THE TWO SCHEDULES GIVE DIFFERENT SIZES.** 2376-08's external door structural openings do not
+   reconcile to what we priced from 2376-09: D.17 is 955 x 2100 + 470 = **2570** where Type L is
+   955 x **2410**; D.22 is 1530 x 2100 + 170 = **2270** with no priced equivalent; D.26 is 930 x 2100
+   where Type U is 929 x **2370**. Only D.01 (1530 x 2100 + 310 = **1530 x 2410**) matches Types I/O
+   cleanly. 2376-09 rev A is the later document and presumably governs, but **two architect's schedules
+   disagreeing on the same openings needs settling before manufacture** - and D.01 is also the
+   *"4 panes bi-folding"* door, which is the bifold our proposal substituted for commercial French doors.
+
+#### Two things I checked and cleared - do NOT raise these
+
+- **"Making good" is NOT in our item.** Triage's John North Hall note warned that replacement jobs put
+  strip-out, making good and disposal in scope. On this job only the strip-out cross-refers to 6.01
+  (item 1.09, RFI-4). Making good and decoration are carried separately by MTCBC as **SOW section 8**
+  (8.01 rub down and prepare existing walls, mist coat and two coats) and 9.06 skirtings. Our
+  "Internal Finishing" exclusion is consistent with the SOW structure. **RFI-4 stands as-is; do not
+  widen it.**
+- **There is no tender validity requirement in this pack.** Zero hits for validity, remaining open or a
+  price-hold period across the prelims and the SOW - so the 90-day Section 20 trap that bit John North
+  Hall does not apply here. Our exposure is the one already recorded: quotes lapse mid-August against a
+  14/09 start.
+- **The SMA commercial brochure does not close the 1.8 caveats.** It is a 2009 corporate brochure with
+  **no U-values at all**; it never names Smart Wall, Pocket, MC600 or Alitherm 600. It does describe the
+  "MC Wall" curtain wall as a *"polyamide thermal break system"*, weak corroboration that the MC600
+  family is thermally broken. **Only SMA can confirm the Pocket figure and the MC600 figure.**
+
 #### What the EDG02 uplift would cost - benchmark only, and the spread is wide
 
 Priced through the rate register so REQ-15 arrives with a number rather than a question. `data/supplier-rates.json`
@@ -373,7 +459,7 @@ got it. Selftest passes and all six founding errors still fire.
 |---|---|
 | **ET&S (Tom Godfrey)** | RFI-1 U-value: does EDG02 govern, or schedule 2376-09? RFI-3 access/scaffold boundary. RFI-4 window strip-out and disposal. RFI-6 the surviving blind note on Type AK. |
 | **BSW + Bellview** | RFI-2: confirm in writing how Type G is built - a Sheerline 70mm casement into a Smart Wall 100mm frame, in a 28mm pocket. **RFI-1a: an SMA U-calculation in writing for the 7 Smart Wall Pocket units**, and whether they can reach 1.2 W/m2K at all. SM5 Wexham asked SMA for the same calculation and never got it - chase it properly this time. |
-| **cfw architects (via ET&S)** | Confirm the RAL and whether the internal face matches. RFI-5 manifestation. |
+| **cfw architects (via ET&S)** | Confirm the RAL and whether the internal face matches. RFI-5 manifestation. **RFI-7: what is a "non-lockable device" on an escape door; and reconcile 2376-08 against 2376-09 rev A, which disagree on the external door opening sizes.** |
 | **Adam** | What was the GBP 1,000/unit "Additional" on Types F and H for? Sight of the JCT MW terms - GBP 500/day damages, 3% retention, 11/12/2026 completion. |
 | **Fenster** | Re-validate both supplier quotes if award slips past mid-August. |
 
@@ -390,5 +476,5 @@ conversation is lost and THIS FILE is the only backup** - which is the whole arg
 current mid-turn rather than at close-out. Run `python scripts\mary_router.py --list` every turn.
 
 ---
-*Last updated 27/07/2026 (second turn). Quote GBP 174,546.37 ex VAT unchanged - every item above is an
+*Last updated 27/07/2026 (third turn). Quote GBP 174,546.37 ex VAT unchanged - every item above is an
 open question about what that price covers, not a change to it.*

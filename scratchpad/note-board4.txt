@@ -1,0 +1,38 @@
+READ THE DOOR SCHEDULE TOO - AND WHEN A U-VALUE SAYS "AREA WEIGHTED AVERAGE", DO THE ARITHMETIC.
+
+Two lessons from finally opening St Mary's door schedule 2376-08, which nobody had read in three turns
+of work on that job.
+
+1. A U-VALUE CAN BE STATED IN MORE THAN ONE SCHEDULE, AND THE DOOR SCHEDULE USUALLY SPLITS IT. On St
+   Mary's the window schedule says 1.4 and the energy annex says 1.3 windows / 1.2 doors - I had those.
+   The door schedule independently carries BOTH: per-door notes on D.01, D.17, D.22 and D.26 reading
+   "Door to achieve min u-value of 1.4W/m2k", AND a general note "External Doors U-value 1.2 w/m2k".
+   So the 1.4 requirement exists in three separate documents and does not depend on the energy annex at
+   all - which matters, because "the sustainability appendix does not apply to our package" was the
+   obvious way for a client to make the problem go away. Open the door schedule even when your package
+   looks like windows.
+
+2. "AREA WEIGHTED AVERAGE" IS A REAL DISTINCTION AND IT CUTS BOTH WAYS. The full note reads: "External
+   Doors U-value 1.2 w/m2k. Note this is an AREA WEIGHTED AVERAGE u-value - not a centre pane value."
+   SM5 Wexham's rule says do not reject an element against an average - I had the basis recorded as
+   "per element" and that was wrong for the doors. But the answer is to COMPUTE the average, not to drop
+   the point. On 22.078 m2 of Smart Wall Pocket at SMA's published 1.8 plus at most 20.367 m2 of MC600,
+   the MC600 would have to hit 0.55 W/m2K for the package average to reach 1.2. Even a generous 1.0 on
+   the MC600 gives 1.42. The finding survived the correction, and it is now a much stronger thing to put
+   to a client than an assertion about one element. If you cannot compute it, you cannot claim it either
+   way - but do the sum before you drop a finding OR raise one.
+
+AND A THIRD, ABOUT SUPPLIER SILENCE. The schedule says "No locking mechanism or latch" / "Non-lockable
+device" on four external doors. Bellview quoted concealed panic bars on all seven units without comment.
+Aplus, quoting the same scope, wrote on their own quote: "It is unclear what a Non-Lockable Device is,
+quoted all doors with Panic Bars." Same ambiguity, same default, and only one supplier said so. When two
+quotes cover the same scope, read the one that ASKS QUESTIONS for the questions - it is telling you where
+the specification is unclear, and the silent quote has the same exposure without the warning. Aplus also
+did this on Riverside (free area) and Georgie's showed the opposite failure mode. Treat a supplier's
+written caveat as free scope review.
+
+RELATED, ON REPLACEMENT JOBS: triage's John North Hall note says to check strip-out, making good and
+disposal before relying on our proposal's exclusions. Ran that on St Mary's - only the strip-out lands on
+us (SOW 1.09 cross-refers into our item 6.01). Making good and decoration are carried separately by the
+client as SOW section 8, so our "Internal Finishing" exclusion is safe there. Worth actually checking
+rather than assuming either way; the answer differed by item on the same job.
