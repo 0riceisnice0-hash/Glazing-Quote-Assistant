@@ -1,0 +1,34 @@
+{
+ "job": "FIXTURE - St Mary's Refurbishment as it actually stood on 27/07/2026",
+ "_fixture": "Not a live manifest. This is the real state of the St Mary's package at the moment the mistake was live: the quote was out at GBP 174,546.37 promising 1.4 W/m2K, with 7 units on a system our own SM5 Wexham record already said could not reach 1.6. Only the fields the rule under test needs are filled; the rest are deliberately absent so this fixture stays about one rule.",
+
+ "systems_specified": [
+  {
+   "system": "Sheerline Prestige",
+   "fabricator": "BSW Window Solutions (QT252799)",
+   "performance": {
+    "required": "1.3 W/m2K windows (EDG02 refurbishment column)",
+    "capable": null,
+    "evidence": "QT252799 states no whole-window Uw anywhere - only a centre-pane glass Ug of 1.0 ('EcoPlus 1.0'). Nobody has asked BSW for a Uw."
+   }
+  },
+  {
+   "system": "SMA Smart Wall Pocket",
+   "fabricator": "Bellview Products (0000000483 pos 001-006)",
+   "performance": {
+    "required": "1.2 W/m2K external doors (EDG02 refurbishment column)",
+    "capable": false,
+    "evidence": "SM5 Wexham, in Fenster's own records: 'the SMA Smart Wall Pocket doors cannot meet the drawing's whole-installation U-value 1.6 - non-thermally-broken shopfront system'. 1.2 is tighter than the 1.6 it already failed, and a non-thermally-broken frame is the dominant heat path, so better glass does not rescue it. 7 units, 22.078 m2, GBP 31,360.15 of sell."
+   }
+  },
+  {
+   "system": "SMA MC600 Plus Standard",
+   "fabricator": "Bellview Products (0000000483 pos 007)",
+   "performance": {
+    "required": "1.2 W/m2K external doors / 1.3 W/m2K glazed elements (EDG02)",
+    "capable": null,
+    "evidence": "Thermally broken, and named in the SM5 Wexham record as part of the FIX rather than the problem - so it is probably capable, but Bellview state no U-value on this position either. Not to be lumped in with the Smart Wall Pocket lines."
+   }
+  }
+ ]
+}

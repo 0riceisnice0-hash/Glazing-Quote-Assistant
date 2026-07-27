@@ -107,6 +107,102 @@ SM5 Wexham correction, that a U-value can be a package average rather than a per
 U-value calculation anywhere in the folder (Aplus, avg Uw 1.37 over 210.2 m2) is an average, and it is
 for **Technal frames we did not buy**. It is not evidence for what we sold.
 
+#### RFI-1a - and if EDG02 does apply, the doors are a SYSTEM problem, not a glass problem (28/07 finding)
+
+This is the part that cannot be fixed by changing the glass, and our own records already settle it.
+
+**HANDOVER.md, SM5 Wexham (22-24/07), found in writing:** *"the SMA Smart Wall Pocket doors cannot meet
+the drawing's whole-installation U-value 1.6 - non-thermally-broken shopfront system... Fix =
+thermally-broken door (Smart Alitherm 600 / MC600 door) with 28mm argon low-E units + SMA U-calc in
+writing."*
+
+**St Mary's has the same system against a tighter number.** Bellview 0000000483 quotes **positions
+001-006 as "System: SMA Smart Wall Pocket"** - that is **6 door types, 7 units, 22.078 m2, SELL
+GBP 31,360.15**. EDG02 asks **1.2 W/m2K on external doors**. SM5 Wexham says this system could not reach
+**1.6**. A non-thermally-broken aluminium frame is the dominant heat path, so better glass does not
+rescue it.
+
+Position **007 is different** - *"System: SMA MC600 Plus Standard"*, the Type AK curtain walling, 2 units,
+20.367 m2, sell GBP 17,311.95. MC600 is thermally broken and is the system SM5 Wexham named as part of
+the *fix*. **Do not lump the two together** - the curtain walling is probably fine and the doors are not.
+
+On the glass, both differ from the windows in the same way. The **glazing bead is 28mm** on positions
+001-005, so these *are* genuine 28mm double glazed units - the SM5 Wexham "no cavity at all" criticism
+does **not** apply here. What is absent is everything that makes a 28mm unit perform: **no low-E, no soft
+coat, no warm edge, no gas fill named**, against BSW's windows which spell out *"EcoPlus 1.0 **Black Warm
+Edge** Sp 18mm"*.
+
+**This is the fifth instance of this exact pattern in a month** - Technal/Modeal on Princess Beatrice,
+Senior on Vesuvius, Aluprof on Filwood, Smart Wall triple glazing on Brocks Hill, and now Smart Wall
+thermal performance here.
+
+#### RFI-1a CONFIRMED WITH SMA'S OWN PUBLISHED FIGURES - and the doors fail under EITHER reading
+
+**SMA's own Smart Wall datasheet states the numbers.** It reached us by accident on 27/07 at 15:56,
+attached to a completely unrelated enquiry (John North Hall, High Wycombe - a Neil Douglas ITT for
+communal entrance doors that also specifies Smart Wall). File:
+`test-results\mary-inbox\queue\20260727T1556-xgsAAAAA-att\SMA Smart Wall Profile.pdf`. It says:
+
+> *"Smart Wall is a thermal shop front screen and door system... ideal for use in schools, colleges and
+> other educational buildings."*
+> - **U Value 1.8 W/m2K for Smart Wall DOORS**
+> - **U Value 1.4 W/m2K for Smart Wall SCREENS**
+> - LPS 1175 Level 2 / BS EN 1627 Level 3 enhanced security
+
+**This settles the door question without waiting for REQ-15.** Our proposal promises **1.4 W/m2K across
+the package**. SMA's published figure for their own doors is **1.8**. So:
+
+| requirement | source | SMA published door figure | verdict |
+|---|---|---|---|
+| **1.2 W/m2K** external doors | EDG02 | 1.8 | **fails by 0.6** |
+| **1.4 W/m2K** | window schedule 2376-09, and our own proposal | 1.8 | **fails by 0.4** |
+
+**The doors miss under BOTH readings of the specification.** REQ-15 asks ET&S whether EDG02 or the
+schedule governs - on the *windows* that still matters, but on the *doors* it no longer does. Whichever
+answer comes back, **the proposal's promise of 1.4 W/m2K is not met by the door system we have priced**,
+and that is now backed by the manufacturer's own literature rather than inference.
+
+Three honest caveats before this is put to anyone:
+
+1. The datasheet says **"Smart Wall"**; St Mary's is **"Smart Wall Pocket"** (the word "Pocket" does not
+   appear on the sheet). Pocket may be better or worse - **confirm which figure applies to Pocket.**
+2. 1.8 presumably assumes a particular glazed unit. **Ours names no coating, no warm edge and no gas
+   fill**, so ours could be worse than 1.8, not better.
+3. Type AK is **MC600 Plus**, a different system the sheet does not cover. Still unquantified.
+
+**A useful secondary point in our favour:** Smart Wall carries **LPS 1175 Level 2 and BS EN 1627 Level
+3**. Schedule 2376-09 carries **38 Secured by Design notes** and neither BSW nor Bellview stated any
+security certification. This is the first evidence that the SBD requirement is satisfiable on the door
+elements - worth citing when that question is put.
+
+**Still needed: an SMA U-calculation in writing for the actual units**, which is precisely what SM5
+Wexham asked for and never got. But we now know roughly where it will land, and it is not 1.4.
+
+#### What the EDG02 uplift would cost - benchmark only, and the spread is wide
+
+Priced through the rate register so REQ-15 arrives with a number rather than a question. `data/supplier-rates.json`
+carries **matched "incl solar control (SKN/Coolite)" categories against plain ones**, same supplier, same
+product, same size band - so the coating uplift can be measured rather than guessed:
+
+| basis | figure |
+|---|---|
+| median of 10 matched pairs | **+GBP 43.37/m2** (+13.2%) -> GBP 8,795.61 over 202.80 m2 |
+| band-matched to our actual units | **GBP 16,489.26** (blended GBP 81.31/m2) |
+
+**Treat that as a range of roughly GBP 9,000 - 16,500 of SUPPLY cost, not a price.** Three honest caveats:
+
+1. The band-matched figure is driven by BSW's `<1.5m2` (+GBP 175.22, 598 plain vs 39 solar lines) and
+   `1.5-3m2` (+GBP 145.69, 446 vs 9) bands. The first is well supported; the second rests on 9 lines.
+2. Several pairs are noise - BSW `3-6m2` has **one** solar line (+GBP 8.88), and two pairs come out
+   **negative** on a single line each. Solar-control quotes may also carry other premium features, which
+   would overstate the coating on its own.
+3. **46.17 m2 - 23% of the job - has no matched pair at all** (Types F, H, G, I, O, AF).
+
+It corroborates independently: Filwood's board note put the spec uplift at **GBP 45/m2** and the median
+here is **GBP 43.37/m2**. But this only covers the **g-value**. It does **not** buy a 1.2 W/m2K door -
+see RFI-1a. The real answer is a re-quote from BSW and Bellview with a coating and a stated Uw; the
+numbers above exist only to tell Adam the order of magnitude before he decides whether to chase it.
+
 ### RFI-2 (TECHNICAL) - Type G puts a Sheerline window inside a Smart Wall frame
 
 This is the SM5 Wexham founding error, live on this job.
@@ -230,16 +326,25 @@ quantity risk sits entirely with us on schedule 2376-09.
 
 ## 6. Checks
 
-`data/job-checks/st-marys-refurbishment.json`, run 27/07. **3 FAIL + 1 ASK** - all four are the RFIs
-above, not new problems:
+`data/job-checks/st-marys-refurbishment.json`, re-run 27/07 (2nd turn). **4 FAIL + 1 ASK** - all of them
+the RFIs above, not new problems:
 
 - FAIL system-depth coupling -> RFI-2 (Type G)
 - FAIL spec covered or excluded -> RFI-4 (strip-out) and RFI-5 (manifestation)
 - FAIL full-height screens as curtain walling -> Type G on a per-unit labour code at 3.62 m
+- **FAIL system can meet the specified performance -> RFI-1a (Smart Wall Pocket vs 1.2 W/m2K)**
 - ASK finish -> neither supplier states an internal finish
 
-Nine other rules pass, including panic hardware on all 6 door types, supplier quotes in date, net of
+Eight other rules pass, including panic hardware on all 6 door types, supplier quotes in date, net of
 discount, and every unit sold covered by a supplier quote.
+
+**NEW RULE ADDED THIS TURN: `check_system_performance`** (fixture `data/job-checks/_test-st-marys.json`).
+A system can be fabricable and still be incapable of the performance the spec demands - `check_fabricator_can_make_it`
+passes St Mary's happily because Bellview *can* make Smart Wall Pocket; it simply cannot make it reach
+1.2 W/m2K. The new rule takes an optional `performance: {required, capable, evidence}` block on each
+entry in `systems_specified`: **`capable: false` FAILS, `capable: null` returns ASK** - because on both
+founding jobs (SM5 Wexham, Brocks Hill) the supplier's answer already existed and nobody had gone and
+got it. Selftest passes and all six founding errors still fire.
 
 ## 7. Standing facts for this job
 
@@ -267,11 +372,23 @@ discount, and every unit sold covered by a supplier quote.
 | Who | What |
 |---|---|
 | **ET&S (Tom Godfrey)** | RFI-1 U-value: does EDG02 govern, or schedule 2376-09? RFI-3 access/scaffold boundary. RFI-4 window strip-out and disposal. RFI-6 the surviving blind note on Type AK. |
-| **BSW + Bellview** | RFI-2: confirm in writing how Type G is built - a Sheerline 70mm casement into a Smart Wall 100mm frame, in a 28mm pocket. |
+| **BSW + Bellview** | RFI-2: confirm in writing how Type G is built - a Sheerline 70mm casement into a Smart Wall 100mm frame, in a 28mm pocket. **RFI-1a: an SMA U-calculation in writing for the 7 Smart Wall Pocket units**, and whether they can reach 1.2 W/m2K at all. SM5 Wexham asked SMA for the same calculation and never got it - chase it properly this time. |
 | **cfw architects (via ET&S)** | Confirm the RAL and whether the internal face matches. RFI-5 manifestation. |
 | **Adam** | What was the GBP 1,000/unit "Additional" on Types F and H for? Sight of the JCT MW terms - GBP 500/day damages, 3% retention, 11/12/2026 completion. |
 | **Fenster** | Re-validate both supplier quotes if award slips past mid-August. |
 
+## 9. Housekeeping this chat must keep doing
+
+The bridge (`pythonw` pid 31876, started 15:51:24) holds a registry snapshot from before the fix and
+**writes it back on every session start and end**, so re-added jobs keep getting wiped. **REQ-18 is open
+for Zac to restart it.** Confirmed live on 27/07 17:34: triage re-added five jobs at 17:32 and by the
+next session start `riverside`, `chester-thomas`, `manor-house`, `ninn-lane` and `lower-range` were gone
+again and their five briefs orphaned for the second time.
+
+`st-marys` survives because it existed when the bridge booted. **But if this key ever vanishes, this
+conversation is lost and THIS FILE is the only backup** - which is the whole argument for keeping it
+current mid-turn rather than at close-out. Run `python scripts\mary_router.py --list` every turn.
+
 ---
-*Last updated 27/07/2026. Quote GBP 174,546.37 ex VAT unchanged - every item above is an open question
-about what that price covers, not a change to it.*
+*Last updated 27/07/2026 (second turn). Quote GBP 174,546.37 ex VAT unchanged - every item above is an
+open question about what that price covers, not a change to it.*

@@ -1,0 +1,36 @@
+SMA SMART WALL POCKET HAS A THERMAL CEILING, NOT JUST A TRIPLE-GLAZING ONE. STANDING FACT, EVERY JOB.
+
+Brocks Hill established that Smart Wall cannot be supplied triple glazed. There is a second limit next
+to it that is easier to miss, and our own records already had it: SM5 Wexham found that "the SMA Smart
+Wall Pocket doors CANNOT MEET the drawing's whole-installation U-value 1.6 - non-thermally-broken
+shopfront system", and the fix identified there was a THERMALLY BROKEN door (Smart Alitherm 600 or an
+MC600 door) with 28mm argon low-E units plus an SMA U-calc in writing.
+
+St Mary's has the same system against a tighter number. Bellview 0000000483 quotes positions 001-006 as
+"System: SMA Smart Wall Pocket" - 6 door types, 7 units, 22.078 m2, GBP 31,360.15 of sell - while the
+client's EDG02 energy guidelines require 1.2 W/m2K on external doors. A non-thermally-broken aluminium
+frame is the dominant heat path, so BETTER GLASS DOES NOT RESCUE IT. That makes it a system change or a
+formal qualification, exactly like the triple-glazing finding - the fifth time this month after
+Technal/Modeal (Princess Beatrice), Senior (Vesuvius), Aluprof (Filwood) and Smart Wall triple (Brocks
+Hill).
+
+DO NOT LUMP MC600 IN WITH IT. On the same quote, position 007 is "SMA MC600 Plus Standard" - thermally
+broken, and the system SM5 Wexham named as part of the FIX. On St Mary's that is the Type AK curtain
+walling, 2 units, 20.367 m2, GBP 17,311.95. The curtain walling is probably fine and the doors are not.
+Check the System line per POSITION on a Bellview quote; one quote can carry two systems with completely
+different thermal capability.
+
+ALSO WORTH KNOWING: a 28mm glazing bead does not mean a performing unit. St Mary's Smart Wall positions
+DO have 28mm beads, so these are genuine double glazed units and the SM5 Wexham "no cavity at all"
+criticism does not apply. What is missing is everything that makes 28mm perform - no low-E, no soft
+coat, no warm edge, no gas fill named - against BSW's windows on the same job which spell out "EcoPlus
+1.0 Black Warm Edge Sp 18mm". Parse the make-up for the COATING and the SPACER, not just the thickness.
+
+AND A USEFUL THING THE RATE REGISTER CAN NOW DO: it carries "incl solar control (SKN/Coolite)"
+categories alongside plain ones, same supplier, same product, same size band - so the coating uplift can
+be MEASURED. Across 10 matched pairs the median is +GBP 43.37/m2 (+13.2%), which corroborates Filwood's
+GBP 45/m2 independently. Band-matched to St Mary's actual units it comes out at GBP 16,489 (GBP 81.31/m2
+blended) versus GBP 8,796 on the flat median - so quote it as a RANGE. Caveats before anyone reuses it:
+the big bands rest on 39 and 9 solar lines, two pairs go negative on a single line each, and on St
+Mary's 23% of the area had no matched pair at all. It is evidence of order of magnitude, nothing more,
+and it prices the g-value ONLY - it does not buy a 1.2 W/m2K door.

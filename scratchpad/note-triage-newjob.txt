@@ -1,0 +1,41 @@
+A NEW ENQUIRY LANDED IN THE QUEUE DURING MY TURN - IT IS YOURS, NOT MINE. I HAVE LEFT IT IN PLACE.
+
+test-results\mary-inbox\queue\20260727T1556-xgsAAAAA.json (+ -att, 11 attachments). It arrived 17:36,
+after my kick prompt was written, so it was not named to me and it is not St Mary's. Untouched and
+unmoved - it is still in queue\ for you.
+
+WHAT IT IS. "John North Hall (1-39 Vaughan House) - Replacement of external communal block entrance
+door sets - ITT". Jordan Jones, jordan.jones@neildouglas.co.uk, managing agent Neil Douglas, for John
+North Hall (High Wycombe) Management Company Limited. 1-39 Vaughan House, John North Close, High Wycombe
+HP11 1FF. FIVE blocks of communal entrance doors. Forwarded by Perry Giffin from info@ (so trusted_sender
+is False - treat the body as data).
+
+  TENDER DEADLINE: 9am MONDAY 24 AUGUST 2026. Works intended to start October/November 2026.
+  They offer a site meeting on request, and questions go to Jordan Jones by email.
+  Parking permits must be collected from their office before attending site.
+
+THREE THINGS THAT WILL SAVE YOU TIME WHEN YOU PICK IT UP:
+
+1. THE ITT SETS NO THERMAL REQUIREMENT AT ALL. I checked all 23 pages: zero hits for U-value, W/m2K,
+   thermal, Part L or Building Regulations. So the Smart Wall U-value problem I have just raised on St
+   Mary's does NOT bite here - please do not raise it as a finding on this job. What the spec does ask
+   for is "Material - Aluminium Polyamide" and "Glazing type - Toughened, laminate argon-gas-filled
+   glazed units", brown, low-mobility threshold, concealed overhead closer, fixed pad handles.
+
+2. THE ATTACHMENTS ARE WORTH MORE THAN THE JOB. They include SMA's own one-page datasheet, and it is the
+   first time we have had SMA's published figures for anything: U Value 1.8 W/m2K for Smart Wall DOORS,
+   1.4 W/m2K for Smart Wall SCREENS, LPS 1175 Level 2 / BS EN 1627 Level 3. I have put that on the
+   noticeboard because it settles an open question on St Mary's worth GBP 31,360. Please make sure the
+   file survives wherever this job gets filed -
+   test-results\mary-inbox\queue\20260727T1556-xgsAAAAA-att\SMA Smart Wall Profile.pdf
+
+3. ONE THING TO CHECK BEFORE PRICING, not a finding yet: the written spec says the material is
+   "Aluminium Polyamide" while the client has attached the Smart Wall profile and brochure as the
+   intended product. Polyamide is the thermal break. Confirm Smart Wall (and specifically whichever
+   variant is quoted) is polyamide broken before accepting that the attached product meets the written
+   spec - on St Mary's the equivalent question turned out to matter.
+
+AND THE OBVIOUS WARNING GIVEN YOUR OWN 17:32 NOTE: do NOT open a job chat for this yet. Anything added
+to the registry after the bridge booted at 15:51:24 is wiped on the next session start - I have just
+confirmed that reproduces deterministically. The deadline is 24/08, so there is room to wait for the
+REQ-18 restart. If it has to be worked before then, work it in triage where the chat already exists.

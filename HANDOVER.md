@@ -913,6 +913,77 @@ a **07/08 deadline** and `ninn-lane` has **GBP 100,730 out** with an unread port
 to triage to re-add the keys; the existing notes will then deliver without being rewritten.
 
 
+### St Mary's - second turn: SMA's own datasheet settles the door U-value (2026-07-27, late)
+
+No work order for this job; triage's handoff was the input. Advanced the open items rather than waiting.
+
+**THE FINDING THAT MATTERS.** Started from HANDOVER's own SM5 Wexham record - *"the SMA Smart Wall Pocket
+doors cannot meet the drawing's whole-installation U-value 1.6 - non-thermally-broken shopfront system"* -
+and established that St Mary's runs the same system against a tighter number: Bellview 0000000483
+**positions 001-006 are "System: SMA Smart Wall Pocket"**, 6 door types, 7 units, 22.078 m2,
+**GBP 31,360.15 of sell**, against EDG02's **1.2 W/m2K** for external doors. Position **007 is "SMA MC600
+Plus Standard"** - thermally broken, the Type AK curtain walling, 2 units, GBP 17,311.95 - which SM5
+Wexham named as part of the *fix*, so the two must not be lumped together.
+
+Then **SMA's own datasheet turned up and made it concrete.** `SMA Smart Wall Profile.pdf` arrived at
+15:56 attached to a completely unrelated enquiry (John North Hall, High Wycombe - Neil Douglas ITT) and
+publishes:
+
+- **U Value 1.8 W/m2K for Smart Wall DOORS**
+- **U Value 1.4 W/m2K for Smart Wall SCREENS**
+- LPS 1175 Level 2 / BS EN 1627 Level 3 enhanced security
+- *"a thermal shop front screen and door system... ideal for use in schools, colleges and other
+  educational buildings"*
+
+**So the doors fail under either reading of the specification.** Our proposal promises 1.4 across the
+package; EDG02 asks 1.2 on doors; the window schedule asks 1.4. At 1.8 the Smart Wall Pocket units miss
+all three. **The door U-value therefore no longer depends on REQ-15's EDG02-vs-schedule question** - that
+still decides the windows and the g-value, but not the doors. Caveats recorded: the sheet says "Smart
+Wall" and never "Smart Wall **Pocket**", and 1.8 presumably assumes a proper unit whereas Bellview name no
+coating, no warm edge and no gas fill. In our favour, the LPS 1175 / EN 1627 line is the first evidence
+that the schedule's **38 Secured by Design notes** are satisfiable on the door elements.
+
+**The general lesson is the Stoke Park one again:** the answer was already in the building. Not in the job
+folder, not in the supplier's quote, and nobody asked for it - it fell out of an unrelated enquiry that
+happened to attach the manufacturer's brochure. When a supplier will not state a performance figure, check
+whether their own literature is sitting somewhere else in the system.
+
+**COATING UPLIFT MEASURED RATHER THAN GUESSED.** `data/supplier-rates.json` carries matched *"incl solar
+control (SKN/Coolite)"* categories alongside plain ones - same supplier, same product, same size band - so
+the EDG02 g-value uplift can be quantified: **+GBP 43.37/m2 median across 10 matched pairs** (GBP 8,795.61
+over 202.80 m2), or **GBP 16,489.26 band-matched to our actual units** (blended GBP 81.31/m2). It
+corroborates Filwood's GBP 45/m2 independently. Stated as a benchmark range of **GBP 9,000-16,500 of supply
+cost** with three caveats on the record: the big bands rest on 39 and 9 solar lines, two pairs come out
+negative on a single line each, and 23% of the area (46.17 m2) has no matched pair at all. **It prices the
+g-value only - it does not buy a 1.2 W/m2K door.**
+
+**NEW CHECK RULE: `check_system_performance`**, fixture `data/job-checks/_test-st-marys.json`. A system can
+be fabricable and still be incapable of the performance the spec demands - `check_fabricator_can_make_it`
+passes St Mary's happily because Bellview *can* make Smart Wall Pocket; it simply cannot make it reach 1.2.
+Optional `performance: {required, capable, evidence}` block on each `systems_specified` entry:
+**`capable: false` FAILS, `capable: null` returns ASK** - because on both founding jobs (SM5 Wexham,
+Brocks Hill) the supplier's answer already existed and nobody had gone and got it. Selftest passes and all
+six founding errors still fire. The live manifest now returns **4 FAIL + 1 ASK**.
+
+**REGISTRY REGRESSION CONFIRMED FOR REQ-18.** Triage re-added five jobs at 17:32 and reported zero orphans.
+By this session's start at ~17:34 all five were gone again and the same five briefs orphaned a second time
+(`riverside`, `chester-thomas`, `manor-house`, `ninn-lane`, `lower-range` - including a 07/08 deadline and
+GBP 100,730 of quoted work). Only keys that existed when `pythonw` pid 31876 booted at 15:51:24 survive, so
+it is deterministic rather than a race and will repeat every session until Zac restarts the bridge. Told
+triage not to waste another turn re-adding them, and flagged the wider blast radius: a chat that has *run*
+loses its whole conversation, and `data/jobs/<key>.md` is the only backup.
+
+**A NEW ENQUIRY ARRIVED MID-TURN AND WAS LEFT FOR TRIAGE**, unmoved in `queue\`:
+`20260727T1556-xgsAAAAA.json` - **John North Hall (1-39 Vaughan House), High Wycombe**, Neil Douglas for
+John North Hall (High Wycombe) Management Co, 5 blocks of communal entrance doors, **tender due 9am Monday
+24 August 2026**, works Oct/Nov. Not St Mary's and not named in the kick prompt, so not mine to process.
+Checked one thing before handing it over so the note carried a fact: **the 23-page ITT sets no thermal
+requirement at all** (zero hits for U-value, W/m2K, thermal, Part L or Building Regs), so the Smart Wall
+finding does *not* bite there and should not be raised as a finding on that job. Flagged one thing to check
+before pricing it: the spec says *"Material - Aluminium Polyamide"* while the client has attached the Smart
+Wall profile as the intended product.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

@@ -59,9 +59,23 @@
  ],
 
  "systems_specified": [
-  {"system": "Sheerline Prestige", "fabricator": "BSW Window Solutions (QT252799)"},
-  {"system": "SMA Smart Wall Pocket", "fabricator": "Bellview Products (0000000483)"},
-  {"system": "SMA MC600 Plus Standard", "fabricator": "Bellview Products (0000000483 pos 007)"}
+  {"system": "Sheerline Prestige", "fabricator": "BSW Window Solutions (QT252799)",
+   "performance": {
+    "required": "1.3 W/m2K windows (EDG02 refurbishment column); 1.4 W/m2K per window schedule 2376-09 - which governs is REQ-15",
+    "capable": null,
+    "evidence": "QT252799 states no whole-window Uw anywhere - only a centre-pane glass Ug of 1.0 ('6.8 Lam/18/4mm Clr Tuff EcoPlus 1.0 Black Warm Edge Sp 18mm'). A glass Ug is not a Uw. Nobody has asked BSW for one."}},
+
+  {"system": "SMA Smart Wall Pocket", "fabricator": "Bellview Products (0000000483 pos 001-006)",
+   "performance": {
+    "required": "1.2 W/m2K external doors (EDG02); 1.4 W/m2K per window schedule 2376-09 and per our own proposal",
+    "capable": false,
+    "evidence": "CONFIRMED BY SMA'S OWN DATASHEET, not inference: 'SMA Smart Wall Profile.pdf' states U Value 1.8 W/m2K for Smart Wall DOORS and 1.4 W/m2K for Smart Wall SCREENS. 1.8 fails EDG02's 1.2 AND the schedule's 1.4 AND our own proposal's promise of 1.4 - so the doors miss under either reading of the spec and REQ-15's outcome does not rescue them. Corroborates SM5 Wexham, which found Smart Wall Pocket doors could not meet 1.6. CAVEATS: the sheet says 'Smart Wall' not 'Smart Wall Pocket' - confirm which figure applies to Pocket; and 1.8 presumably assumes a proper unit, whereas ours names no coating, no warm edge and no gas fill, so ours may be worse. The sheet reached us on 27/07 15:56 attached to an unrelated enquiry (John North Hall, High Wycombe). Exposure: 6 door types, 7 units, 22.078 m2, GBP 31,360.15 of sell. NOTE IN OUR FAVOUR: the same sheet certifies LPS 1175 Level 2 / BS EN 1627 Level 3, the first evidence that the schedule's 38 Secured by Design notes are satisfiable on the doors."}},
+
+  {"system": "SMA MC600 Plus Standard", "fabricator": "Bellview Products (0000000483 pos 007)",
+   "performance": {
+    "required": "1.3 W/m2K glazed element (EDG02) - Type AK curtain walling",
+    "capable": null,
+    "evidence": "Thermally broken, and named in the SM5 Wexham record as part of the FIX rather than the problem, so probably capable - but Bellview state no U-value on this position either. Must NOT be lumped in with the Smart Wall Pocket lines: 2 units, 20.367 m2, GBP 17,311.95."}}
  ],
 
  "finishes": [

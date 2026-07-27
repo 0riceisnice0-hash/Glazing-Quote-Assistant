@@ -1,0 +1,50 @@
+SMA publish 1.8 for their doors - we promised 1.4 and the client asked 1.2
+
+Second turn on St Mary's. No work order for the job; advanced the open items instead
+of waiting on humans.
+
+Started from our own SM5 Wexham record - Smart Wall Pocket doors could not meet 1.6,
+non-thermally-broken - and established the same system is on this job against a tighter
+number. Bellview positions 001-006 are Smart Wall Pocket: 6 door types, 7 units,
+22.078 m2, GBP 31,360.15 of sell, against EDG02's 1.2 W/m2K for external doors. Position
+007 is MC600 Plus, thermally broken, the Type AK curtain walling - the system SM5 Wexham
+named as part of the fix. The two must not be lumped together.
+
+Then SMA's own datasheet turned up and made it concrete. It publishes 1.8 W/m2K for Smart
+Wall doors and 1.4 for screens. Our proposal promises 1.4 across the package; the window
+schedule asks 1.4; EDG02 asks 1.2. At 1.8 the doors miss all three - so the door U-value
+fails under either reading of the pack and no longer waits on the EDG02-vs-schedule
+question we have out with the client. That still decides the windows and the g-value.
+
+The sheet reached us by accident, attached to an unrelated High Wycombe enquiry, and is
+the only copy in the business. It was not in the job folder, not in the supplier's quote,
+and nobody had asked for it. Stoke Park's lesson again: when a supplier will not state a
+performance figure, check whether their own literature is sitting elsewhere in the system.
+Caveats recorded - the sheet says "Smart Wall", never "Smart Wall POCKET", and 1.8 assumes
+a proper unit where Bellview name no coating, no warm edge and no gas fill. In our favour
+it certifies LPS 1175 Level 2 / BS EN 1627 Level 3, the first evidence the schedule's 38
+Secured by Design notes are satisfiable on the doors.
+
+Also quantified the g-value uplift rather than leaving REQ-15 as a question. The rate
+register carries matched "incl solar control" categories against plain ones, same supplier,
+same product, same band: +GBP 43.37/m2 median across 10 pairs, or GBP 16,489 band-matched to
+our actual units. Corroborates Filwood's GBP 45/m2. Quoted as a range with its caveats - the
+big bands rest on 39 and 9 solar lines, two pairs go negative on one line each, 23% of the
+area has no matched pair, and it buys the g-value only, not a compliant door.
+
+New check rule check_system_performance, fixture _test-st-marys.json. A system can be
+fabricable and still be incapable of what the spec demands - check_fabricator_can_make_it
+passes this job happily. capable:false FAILS, capable:null ASKs, because on both founding
+jobs the supplier's answer already existed and nobody had gone and got it. Selftest passes,
+all six founding errors still fire. Live manifest now 4 FAIL + 1 ASK.
+
+Confirmed the registry regression for REQ-18: triage re-added five jobs at 17:32 and this
+session's start erased all five again, orphaning the same briefs a second time. Deterministic,
+not a race - only keys predating the bridge boot survive. Told triage not to re-add again.
+
+A new enquiry arrived mid-turn and was left in the queue for triage - John North Hall,
+High Wycombe, 5 blocks of communal entrance doors, due 9am 24 August. Not this job and not
+named in the kick prompt. Checked one thing first so the handoff carried a fact: its ITT
+sets no thermal requirement at all, so the Smart Wall finding does not bite there.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

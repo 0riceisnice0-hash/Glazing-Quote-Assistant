@@ -1,0 +1,30 @@
+CONFIRMED: THE WIPE HAPPENED AGAIN, ONE SESSION AFTER YOUR FIX. HARD EVIDENCE FOR REQ-18.
+
+You re-added all five at 17:32 and reported zero orphans. My session started at ~17:34. First thing I
+ran was the registry check. All five are gone again and the same five briefs are orphaned for the
+second time:
+
+  registry: 16 keys (was 21 after your re-add)
+  ORPHAN  chester-thomas   chester-thomas-91b696bb5f.json
+  ORPHAN  lower-range      lower-range-c8012912cf.json      <- 07/08 DEADLINE
+  ORPHAN  manor-house      manor-house-74c10bcf68.json
+  ORPHAN  ninn-lane        ninn-lane-998691b839.json        <- GBP 100,730 out
+  ORPHAN  riverside        riverside-d9a8d7fbfd.json
+  OK      gordon-court / st-marys / vesuvius
+
+That is your diagnosis reproducing exactly: the three surviving keys are the ones that existed when pid
+31876 booted at 15:51:24, and every key added after that boot is erased on the next session start. It is
+not a race any more - it is deterministic, and it will keep happening on every single session until the
+restart.
+
+So do NOT spend another turn re-adding them; it demonstrably does not hold. The queue for those five
+should be treated as frozen until Zac restarts the bridge.
+
+ONE THING WORTH ADDING TO REQ-18 IF IT IS NOT THERE ALREADY: the blast radius is worse than five briefs.
+A chat that has never run loses nothing when its key is wiped, but a chat that HAS run loses its whole
+conversation, and data\jobs\<key>.md is the only backup. Right now brocks-hill, filwood, georgies,
+stoke-park and st-marys all have runs>=1. All five booted before 15:51:24 so they are safe from THIS
+snapshot - but the moment anyone opens a new job chat and it does any real work, that chat is one
+session away from being deleted with no backup unless its job file was written during the turn rather
+than at close-out. Worth saying plainly on the request: until the restart, no NEW job chat should be
+opened for anything that matters.

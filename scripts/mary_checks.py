@@ -291,6 +291,60 @@ def check_uvalue_basis(m):
                   "U-value treated as %s" % basis, "SM5 Wexham")
 
 
+def check_system_performance(m):
+    """St Mary's, 27/07 - and the fifth instance of this shape in a month.
+
+    A system can be fabricable and still be incapable of the performance the
+    spec demands. SM5 Wexham: SMA Smart Wall Pocket doors could not meet a
+    whole-installation U-value of 1.6 because the system is not thermally
+    broken. Brocks Hill: Smart Wall is not manufactured in triple glazing at
+    all. In both cases the quote looked fine and the shortfall was in the
+    system, not the glass - so it cannot be closed by changing the make-up.
+
+    'systems_specified' entries may carry a 'performance' block:
+        {system, fabricator,
+         performance: {required, capable: true|false|null, evidence}}
+
+    capable=false FAILS. capable=null (unknown, nobody asked the supplier)
+    returns ASK, because on both founding jobs the answer existed and nobody
+    had gone and got it."""
+    systems = m.get("systems_specified")
+    if systems is None:
+        return result("system can meet the specified performance", UNKNOWN,
+                      "see systems_specified above", "St Mary's / SM5 Wexham")
+    rated = [s for s in systems if isinstance(s.get("performance"), dict)]
+    if not rated:
+        return result("system can meet the specified performance", UNKNOWN,
+                      "No performance requirement recorded against any system. State it: "
+                      "'performance': {required, capable, evidence}. If the pack sets no thermal, "
+                      "acoustic or security performance at all, say so with an empty requirement.",
+                      "St Mary's / SM5 Wexham")
+    incapable, unknown = [], []
+    for s in rated:
+        p = s["performance"]
+        if not p.get("required"):
+            continue
+        if p.get("capable") is False:
+            incapable.append("%s cannot meet %s (%s)"
+                             % (s.get("system", "?"), p.get("required"),
+                                p.get("evidence") or "no evidence cited"))
+        elif p.get("capable") is None:
+            unknown.append("%s against %s" % (s.get("system", "?"), p.get("required")))
+    if incapable:
+        return result("system can meet the specified performance", FAIL,
+                      "System cannot meet the specification: %s. This is a system change or a formal "
+                      "qualification - it cannot be closed by changing the glass."
+                      % "; ".join(incapable), "St Mary's / SM5 Wexham")
+    if unknown:
+        return result("system can meet the specified performance", UNKNOWN,
+                      "Nobody has asked the supplier whether these can meet the requirement: %s. "
+                      "Get it in writing - on both founding jobs the answer existed and no one had "
+                      "gone and got it." % "; ".join(unknown), "St Mary's / SM5 Wexham")
+    return result("system can meet the specified performance", PASS,
+                  "%d system(s) confirmed capable of the specified performance" % len(rated),
+                  "St Mary's / SM5 Wexham")
+
+
 def _ral(s):
     m = re.search(r"ral\s*(\d{4})", str(s or "").lower())
     return m.group(1) if m else None
@@ -395,6 +449,7 @@ RULES = [
     check_scope_gaps, check_supplier_quote_currency, check_net_pricing,
     check_full_height_screens, check_fabricator_can_make_it, check_uvalue_basis,
     check_finish_substitution, check_supplier_covers_quantity,
+    check_system_performance,
 ]
 
 
@@ -459,6 +514,7 @@ def selftest():
                                 "someone can actually fabricate it"},
         "_test-georgies.json": {"finish quoted is the finish specified"},
         "_test-brocks-hill.json": {"supplier quote covers every unit sold"},
+        "_test-st-marys.json": {"system can meet the specified performance"},
     }
     ok = True
     for name, must_fail in expected.items():

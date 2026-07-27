@@ -159,3 +159,82 @@ Both causes are now fixed in code: save_registry() re-reads and merges, and the 
 WHAT THIS MEANS FOR YOU UNTIL THE RESTART: if you open a job chat or edit a match list, assume it may not survive. Run `python scripts\mary_router.py --list` at the end of your turn and check test-results\mary-inbox\handoffs\ for notes addressed to keys that no longer exist. If your own job key has vanished, re-add it - a chat that has never run loses nothing, but one that HAS run loses its whole conversation, and data\jobs\<key>.md is the only backup. That is the real argument for keeping your job file current rather than leaving it to close-out.
 
 GENERAL LESSON WORTH KEEPING AFTER THIS IS OVER: when a fix does not appear to work, check whether the process you are fixing is long-running and loaded the old code. Editing a file changes what the NEXT process does, not what the running one is doing.
+
+### 2026-07-27 17:39 - st-marys
+SMA SMART WALL POCKET HAS A THERMAL CEILING, NOT JUST A TRIPLE-GLAZING ONE. STANDING FACT, EVERY JOB.
+
+Brocks Hill established that Smart Wall cannot be supplied triple glazed. There is a second limit next
+to it that is easier to miss, and our own records already had it: SM5 Wexham found that "the SMA Smart
+Wall Pocket doors CANNOT MEET the drawing's whole-installation U-value 1.6 - non-thermally-broken
+shopfront system", and the fix identified there was a THERMALLY BROKEN door (Smart Alitherm 600 or an
+MC600 door) with 28mm argon low-E units plus an SMA U-calc in writing.
+
+St Mary's has the same system against a tighter number. Bellview 0000000483 quotes positions 001-006 as
+"System: SMA Smart Wall Pocket" - 6 door types, 7 units, 22.078 m2, GBP 31,360.15 of sell - while the
+client's EDG02 energy guidelines require 1.2 W/m2K on external doors. A non-thermally-broken aluminium
+frame is the dominant heat path, so BETTER GLASS DOES NOT RESCUE IT. That makes it a system change or a
+formal qualification, exactly like the triple-glazing finding - the fifth time this month after
+Technal/Modeal (Princess Beatrice), Senior (Vesuvius), Aluprof (Filwood) and Smart Wall triple (Brocks
+Hill).
+
+DO NOT LUMP MC600 IN WITH IT. On the same quote, position 007 is "SMA MC600 Plus Standard" - thermally
+broken, and the system SM5 Wexham named as part of the FIX. On St Mary's that is the Type AK curtain
+walling, 2 units, 20.367 m2, GBP 17,311.95. The curtain walling is probably fine and the doors are not.
+Check the System line per POSITION on a Bellview quote; one quote can carry two systems with completely
+different thermal capability.
+
+ALSO WORTH KNOWING: a 28mm glazing bead does not mean a performing unit. St Mary's Smart Wall positions
+DO have 28mm beads, so these are genuine double glazed units and the SM5 Wexham "no cavity at all"
+criticism does not apply. What is missing is everything that makes 28mm perform - no low-E, no soft
+coat, no warm edge, no gas fill named - against BSW's windows on the same job which spell out "EcoPlus
+1.0 Black Warm Edge Sp 18mm". Parse the make-up for the COATING and the SPACER, not just the thickness.
+
+AND A USEFUL THING THE RATE REGISTER CAN NOW DO: it carries "incl solar control (SKN/Coolite)"
+categories alongside plain ones, same supplier, same product, same size band - so the coating uplift can
+be MEASURED. Across 10 matched pairs the median is +GBP 43.37/m2 (+13.2%), which corroborates Filwood's
+GBP 45/m2 independently. Band-matched to St Mary's actual units it comes out at GBP 16,489 (GBP 81.31/m2
+blended) versus GBP 8,796 on the flat median - so quote it as a RANGE. Caveats before anyone reuses it:
+the big bands rest on 39 and 9 solar lines, two pairs go negative on a single line each, and on St
+Mary's 23% of the area had no matched pair at all. It is evidence of order of magnitude, nothing more,
+and it prices the g-value ONLY - it does not buy a 1.2 W/m2K door.
+
+### 2026-07-27 17:44 - st-marys
+SMA PUBLISH THEIR OWN SMART WALL U-VALUES AND WE NOW HAVE THE SHEET. NUMBERS FOR EVERY SMART WALL JOB.
+
+  U Value 1.8 W/m2K for Smart Wall DOORS
+  U Value 1.4 W/m2K for Smart Wall SCREENS
+  LPS 1175 Level 2 / BS EN 1627 Level 3 enhanced security
+  "a thermal shop front screen and door system... ideal for use in schools, colleges and other
+   educational buildings"
+
+Source: 'SMA Smart Wall Profile.pdf', SMA's own one-page datasheet. It arrived 27/07 15:56 attached to
+an unrelated enquiry (John North Hall, High Wycombe - Neil Douglas ITT, currently unrouted in the
+queue), and it is copied nowhere else. Anyone quoting Smart Wall should pull it from
+test-results\mary-inbox\queue\20260727T1556-xgsAAAAA-att\ before it gets archived.
+
+WHY IT MATTERS IMMEDIATELY. On St Mary's our proposal promises 1.4 W/m2K across the package and the
+client's EDG02 asks 1.2 on external doors. SMA's own door figure is 1.8. So the 7 Smart Wall Pocket
+units - GBP 31,360.15 of sell - miss the EDG02 requirement by 0.6 AND miss the window schedule's 1.4
+(and our own promise) by 0.4. The door U-value fails under EITHER reading of that pack, which means it
+does not depend on the specification question we have out with the client. If you have Smart Wall doors
+against anything tighter than 1.8, you have the same problem.
+
+IT ALSO REFINES WHAT WE THOUGHT WE KNEW. SM5 Wexham recorded Smart Wall Pocket as a "non-thermally-broken
+shopfront system" that could not meet 1.6. SMA describe Smart Wall as a THERMAL system with published
+figures - and 1.8 is indeed worse than 1.6, so the SM5 Wexham conclusion stands even though the
+"non-thermally-broken" wording is looser than SMA's own description. Use the published numbers now, not
+the characterisation.
+
+TWO CAVEATS BEFORE ANYONE LEANS ON IT. The sheet says "Smart Wall"; it never says "Smart Wall POCKET",
+which is what Bellview actually quote on St Mary's and Brocks Hill - confirm which figure applies to
+Pocket. And 1.8/1.4 presumably assume a proper glazed unit; where Bellview quote "6.8 Lami / 4mm Tuff"
+with no coating, no warm edge and no gas fill named, the real number may be worse, not better.
+
+THE GOOD NEWS IN IT: LPS 1175 Level 2 and BS EN 1627 Level 3. Security certification has been an open
+question on four jobs this month (nobody states any). This is hard evidence that Smart Wall door
+elements can carry it - useful against a Secured by Design requirement, which St Mary's carries 38 times.
+
+AND THE GENERAL LESSON, which is the Stoke Park one again: the answer was already in the building. It
+was not in the job folder, not in the supplier's quote, and nobody asked for it - it fell out of an
+unrelated enquiry that happened to attach the manufacturer's brochure. When a supplier will not state a
+performance figure, check whether their own published literature is sitting somewhere else in the system.
