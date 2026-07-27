@@ -1,0 +1,43 @@
+{
+ "job": "Stoke Park (as ordered, before the 27/07 catch)",
+ "coupled_runs": [],
+ "doors": [],
+ "frame_supply": "unglazed",
+ "glass_order": {
+  "placed": true,
+  "panes_ordered": 124,
+  "panes_required": 170
+ },
+ "quantities": [
+  {
+   "ref": "Type C",
+   "bill_qty": 20,
+   "drawing_qty": 20
+  }
+ ],
+ "spec_items": [
+  {
+   "ref": "glazing",
+   "treatment": "priced"
+  }
+ ],
+ "supplier_quotes": [
+  {
+   "supplier": "Vetroseal",
+   "ref": "064542",
+   "date": "2026-07-01",
+   "used_net": true
+  }
+ ],
+ "full_height_screens": [],
+ "systems_specified": [
+  {
+   "system": "Technal",
+   "fabricator": "Aplus"
+  }
+ ],
+ "u_value": {
+  "required": 1.6,
+  "basis": "whole installation"
+ }
+}

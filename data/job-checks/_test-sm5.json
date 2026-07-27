@@ -1,0 +1,88 @@
+{
+ "job": "SM5 Wexham (as quoted 24/07, before the catch)",
+ "coupled_runs": [
+  {
+   "name": "East run W.01 + ED.01",
+   "elements": [
+    {
+     "ref": "W.01",
+     "system": "Sheerline Prestige"
+    },
+    {
+     "ref": "ED.01",
+     "system": "SMA Smart Wall"
+    }
+   ]
+  },
+  {
+   "name": "West run W.04 + ED.02 + W.05",
+   "elements": [
+    {
+     "ref": "W.04",
+     "system": "Sheerline Prestige"
+    },
+    {
+     "ref": "ED.02",
+     "system": "SMA Smart Wall"
+    },
+    {
+     "ref": "W.05",
+     "system": "Sheerline Prestige"
+    }
+   ]
+  }
+ ],
+ "doors": [
+  {
+   "ref": "ED.01",
+   "fire_exit": false,
+   "panic_hardware_priced": false
+  },
+  {
+   "ref": "ED.02",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  }
+ ],
+ "frame_supply": "glazed",
+ "quantities": [
+  {
+   "ref": "W.01",
+   "bill_qty": 1,
+   "drawing_qty": 1
+  }
+ ],
+ "spec_items": [
+  {
+   "ref": "windows",
+   "treatment": "priced"
+  }
+ ],
+ "supplier_quotes": [
+  {
+   "supplier": "Bellview",
+   "ref": "0000000475",
+   "date": "2026-07-13",
+   "used_net": true
+  }
+ ],
+ "full_height_screens": [],
+ "systems_specified": [
+  {
+   "system": "Sheerline",
+   "fabricator": "BSW"
+  },
+  {
+   "system": "SMA Smart Wall",
+   "fabricator": "Bellview"
+  }
+ ],
+ "u_value": {
+  "required": 1.6,
+  "basis": "whole installation",
+  "rejected_elements": [
+   "ED.01",
+   "ED.02"
+  ]
+ }
+}

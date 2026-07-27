@@ -1,0 +1,45 @@
+{
+ "job": "Vesuvius Way (the RFQ as issued 27/07)",
+ "coupled_runs": [],
+ "doors": [],
+ "frame_supply": "glazed",
+ "quantities": [
+  {
+   "ref": "dwg 005 welfare window",
+   "bill_qty": 4,
+   "drawing_qty": 1
+  },
+  {
+   "ref": "dwg 004 SPD150 door",
+   "bill_qty": 2,
+   "drawing_qty": 1
+  },
+  {
+   "ref": "dwg 008 office window W05-W12",
+   "bill_qty": 8,
+   "drawing_qty": 6
+  }
+ ],
+ "spec_items": [
+  {
+   "ref": "access hatch (bill item A)",
+   "treatment": "unknown"
+  }
+ ],
+ "supplier_quotes": [],
+ "full_height_screens": [],
+ "systems_specified": [
+  {
+   "system": "Senior SF52",
+   "fabricator": null
+  },
+  {
+   "system": "Senior PURe",
+   "fabricator": null
+  }
+ ],
+ "u_value": {
+  "required": 1.6,
+  "basis": "whole installation"
+ }
+}

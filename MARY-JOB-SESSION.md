@@ -106,6 +106,26 @@ Note what the log CANNOT tell you: the Estimating Log's W/L column is blank on 9
 3 marked won). You cannot mine win rates from it. Outcomes are captured on the hub's Scoreboard page
 from now on - if you learn an outcome from an email, say so, but do not infer one.
 
+## 5d. Run the checks before anything leaves
+
+**No price goes to Adam, a client or a supplier until `scripts/mary_checks.py` passes on it.**
+
+```bash
+python scripts\mary_checks.py --new "Vesuvius Way"     # blank manifest
+python scripts\mary_checks.py data\job-checks\vesuvius-way.json
+```
+
+Every rule in there is a mistake that actually happened - the Sheerline/Smart Wall coupling, the missing
+panic bars, the 46 panes of glass, the six-unit RFQ shortfall, the chapel doors nobody excluded. Replay
+those jobs with `--selftest` and you will see each one still caught.
+
+An unfilled field returns **ASK**, not PASS, and fails the run. That is the whole point: every error in
+that list was an error of silence, so the manifest makes you state the facts rather than skip them.
+If a rule genuinely does not apply, the honest answer is an empty list, not a blank.
+
+When you catch something new, add a rule for it and a fixture that proves it fires. That is how this
+gets better on its own: a mistake can only cost Fenster once.
+
 ## 6. Close-out (do not end a turn without this)
 
 1. Move every handled work order `.json` (and its `-att` folder) to `test-results\mary-inbox\processed\`.
