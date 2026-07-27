@@ -5,7 +5,7 @@ Fairford Leys, Aylesbury HP19 7HL. Planning 24/02303/PAPCR.
 WHAT DOES NOT WAIT FOR PHDB  ** read this first **
 --------------------------------------------------------------------------------
 The submission is on hold until PHDB return building-works costs. **Part One is not.**
-All seven items below are questions for A Plus about their own quote - none of them
+All eight items below are questions for A Plus about their own quote - none of them
 needs RRR, Campbell Ark, PHDB or a decision from anyone. They can go today.
 
 Two of them are getting worse while we wait:
@@ -20,9 +20,17 @@ Two of them are getting worse while we wait:
   and A Plus can answer it from their own system - they stated both figures on QT51516
   three days earlier. Until we have it we do not know whether the vents comply.
 
+AND THERE IS A SECOND, HARDER DEADLINE ON TOP OF THAT ONE. QT51518 lapses 26/08/2026 -
+29 days from today. **Anything we put to A Plus before then is an addendum to a live
+quote: same job, same spec, same rates, they add lines. Anything after is a fresh
+enquiry priced at whatever the autumn market is.** That matters most for item 2, which
+asks them to price a resized unit - asked now it is a revision we can compare against
+GBP 4,845.22; asked in September it is a new number with no anchor. So the 29 days is
+the deadline for the questions, not just for the price.
+
 One caveat, stated so nobody is surprised. If C4 comes back "roof vent", items 2 and 3
-stop applying to AOV.01. Items 1, 4, 5, 6 and 7 hold either way, and item 1 holds for
-AOV.02 regardless - so sending Part One now is not wasted effort under any outcome.
+stop applying to AOV.01. Items 1, 4, 5, 6, 7 and 8 hold either way, and item 1 holds
+for AOV.02 regardless - so sending Part One now is not wasted under any outcome.
 
 --------------------------------------------------------------------------------
 WHY THIS IS ONE EMAIL AND NOT TWO
@@ -96,6 +104,21 @@ on a shop drawing.
 QT51518 is open for 30 days, to 26/08/2026. RRR are waiting on PHDB's building-works
 costs before this is submitted, so the submission date is not yet known. Please confirm
 how long A Plus will hold the price, or what notice we would get of a change.
+
+8. WINDOW RESTRICTORS - PLEASE PRICE 2no
+
+We have been carrying these as an exclusion and on reflection that deserves a number
+rather than a gap. A Plus's own AOV notes say: "The actuators alone will not act as
+window restrictors. The facade contractor / fabricator should consider the installation
+of suitable restrictors... set such that the actuator can open to its full stroke
+without being impeded ie. 50mm past the actuator stroke length. If the vent is not
+fitted with a restrictor and subsequent damage occurs due to the lack of restriction
+A Plus will not be liable for any replacement actuators or damage to the vent."
+
+On this job Fenster are the installer, so "the facade contractor" is us. Please price
+2no suitable restrictors set 50mm beyond the 850mm stroke, so the cost of carrying them
+can be compared against the cost of excluding them. There is no rate for restrictors
+anywhere in our own system, so a supplier figure is the only way to put a number on it.
 
 --------------------------------------------------------------------------------
 PART TWO - NOT FOR A PLUS. THESE GO TO RRR AND CAMPBELL ARK

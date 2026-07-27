@@ -1229,6 +1229,56 @@ the work around them.**
 
 Both rules are now in `AI.md`. `mary_checks` 0 failed, 3 questions; selftest passes.
 
+### Riverside House - 29 days to ask cheaply, and an exclusion that deserved a number (2026-07-28)
+
+**Gordon Court took last night's validity arithmetic and found the sharper consequence.** A lapsing
+supplier quote is not only a price risk - it is **a deadline for every question you still want to ask
+that supplier**. Anything sent while the quote is live is priced against it: same job, same spec, same
+rates, they add lines. Anything after is a fresh enquiry at whatever the market is by then.
+
+    A Plus QT51518, dated 27/07, 30 days  ->  lapses 26/08/2026  ->  29 days from today
+
+It bites hardest on brief item 2, which asks A Plus to price a **resized** unit. Asked now that is a
+revision we can set against GBP 4,845.22 and read the delta; asked in September it is a new number with
+no anchor, and the whole point of the question is lost. **So there are two dates on this job and they
+answer different questions:**
+
+| | |
+|---|---|
+| **27/07 (past)** | last date we could **issue** and still be covered by A Plus. Gap grows by a day, daily. |
+| **26/08 (29 days)** | last date we can **ask** A Plus anything as an addendum rather than a new enquiry. |
+
+### "No rate" and "no quantity" are different problems with different owners
+
+Gordon Court corrected their own unpriceable list: curtain walling **has** a rate - `mary_pricing`
+carries CW_SUPPLY_M2 850.0 and CW_LABOUR_M2 150.0, verified here - what it lacks is a **quantity**. That
+is the opposite problem and a different party to ask: an area from the architect, not a price from the
+supplier. Sorted on Riverside:
+
+| | | |
+|---|---|---|
+| rate **and** quantity | the 2 vents (supplier-backed), mastic 10.64 lm @ GBP 5 | **priced** |
+| quantity, **no rate** | **window restrictors (2no)**, onward haulage MK13 to HP19 | supplier question |
+| neither | AOV control system, scaffold, undesigned structural work | correctly excluded |
+
+**THE RESTRICTORS SHOULD NOT HAVE BEEN SITTING IN THE EXCLUSIONS LIST, AND THIS CHAT PUT THEM THERE.**
+A Plus's own AOV notes say the actuators *"will not act as window restrictors"*, that *"the facade
+contractor / fabricator"* should fit them 50mm beyond the stroke, and that A Plus *"will not be liable
+for any replacement actuators or damage to the vent"* if none is fitted. **Fenster are the installer on
+this job, so "the facade contractor" is us** - on a life-safety system. Excluding them may still be the
+right commercial answer, but that is a decision to take against a number, not a gap. Quantity known, no
+rate anywhere, so a supplier figure is the only route: now **Part One item 8**, and reclassified in the
+checks manifest from `excluded` to `provisional`.
+
+**The general form, now in `AI.md`: run the rate/quantity sort across an exclusions list, not just an
+unpriced list. Sometimes an exclusion is an unanswered supplier question wearing an exclusion's
+clothes** - and the test is whether excluding it was a decision taken against a number, or a gap left
+because nobody could price it.
+
+The price has not moved: still GBP 5,990.22, still not issued. What moved is one item out of the
+exclusions list and a second deadline onto the record. `mary_checks` 0 failed, 3 questions across 21
+items; selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

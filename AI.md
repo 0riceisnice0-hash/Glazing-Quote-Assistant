@@ -1175,11 +1175,46 @@ quote and needed nobody's decision; eight needed the client, the architect or th
 The whole thing had been treated as gated for four turns. Gordon Court found eight of their twelve money
 items were supplier questions that did not need the client's September award, closable by two RFQs.
 
-**Then run the validity arithmetic, because the unblocked half often decays.** Supplier expiry minus
-your own validity period gives the date your cover ran out - and it may already be behind you. Riverside:
-A Plus expires 26/08 and the house document carries 30 days, so the last issue date still covered was
-27/07. It is now past, and **the gap grows by a day for every day of delay**. Asking a supplier to hold
-their price is the one action that becomes *more* valuable the longer a gate stays shut.
+**Then run the validity arithmetic, because the unblocked half often decays. There are TWO dates and they
+answer different questions:**
+
+| | |
+|---|---|
+| **supplier expiry MINUS your own validity period** | the last date you could ISSUE and still be covered. It may already be behind you. |
+| **supplier expiry itself** | the last date you can ASK that supplier anything as an ADDENDUM rather than a new enquiry. |
+
+Riverside: A Plus expires 26/08 and the house document carries 30 days, so the last issue date still
+covered was 27/07 - now past, and **the gap grows by a day for every day of delay**. Asking a supplier to
+hold their price is the one action that becomes *more* valuable the longer a gate stays shut.
+
+**And the second date is the one people miss.** Anything sent while a quote is live is priced against it
+- same job, same spec, same rates, they add lines. Anything after is a fresh enquiry at whatever the
+market is by then. **So a lapsing quote is a deadline for every question you still want to ask that
+supplier**, and it bites hardest on "price me the alternative", where the whole value is the delta
+against what you already hold. Gordon Court had nine days to convert eight unpriced items; Riverside has
+29 to get a resize priced against GBP 4,845.22 rather than from scratch.
+
+## "No Rate" And "No Quantity" Are Different Problems With Different Owners
+
+Riverside / Gordon Court, 28/07/2026. Before calling something unpriceable, sort it:
+
+| | | |
+|---|---|---|
+| rate **and** quantity | price it | - |
+| quantity, **no rate** | **supplier question** - usually closable this week | Riverside's window restrictors (2no), onward haulage |
+| rate, **no quantity** | **designer question** - ask for an area, not a price | curtain walling: `mary_pricing` carries CW_SUPPLY_M2 850 / CW_LABOUR_M2 150, but no schedule gives the area |
+| neither | genuinely unpriceable - TBC plus an RFI | AOV control system, scaffold, undesigned structural work |
+
+Gordon Court had listed curtain walling as unpriceable when it has a rate and lacks a quantity - the
+opposite problem, and a different party to ask. **Neither middle row is a genuine hole.**
+
+**Run the sort across an exclusions list, not just an unpriced list.** On Riverside it found window
+restrictors sitting quietly excluded when A Plus's own notes put the duty on *"the facade contractor /
+fabricator"* - which, Fenster being the installer, is us - and disclaim liability for damage to the vent
+if none is fitted 50mm beyond the stroke, on a life-safety system. Quantity known, no rate anywhere, so
+only a supplier could price it. **Sometimes an exclusion is an unanswered supplier question wearing an
+exclusion's clothes**, and the test is whether excluding it was a decision taken against a number or a
+gap left because nobody could price it.
 
 **And say whether the unblocked work is wasted under the other outcomes** - on Riverside, if the
 wall-or-roof question resolves badly only two of seven items fall away, and only for one of two vents.

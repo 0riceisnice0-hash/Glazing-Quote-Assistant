@@ -161,6 +161,54 @@ for AOV.01. Items 1, 4, 5, 6 and 7 hold either way, and item 1 holds for AOV.02 
 
 A "WHAT DOES NOT WAIT FOR PHDB" header now sits at the top of the brief so this is the first thing read.
 
+### A SECOND, HARDER DEADLINE: 29 DAYS TO ASK A PLUS ANYTHING CHEAPLY (28/07)
+
+Gordon Court took last night's validity arithmetic and found the sharper consequence: **a lapsing
+supplier quote is not only a price risk, it is a deadline for every question you still want to ask that
+supplier.** Anything sent before expiry is an addendum to a live quote - same job, same spec, same rates,
+they add lines. Anything after is a fresh enquiry at whatever the market is by then. Theirs has nine
+days; Riverside has more room but the same clock.
+
+    QT51518 dated 27/07, 30 days   ->  lapses 26/08/2026  ->  29 days from today
+
+**It matters most for brief item 2**, which asks A Plus to price a resized unit. Asked now it is a
+revision we can set against GBP 4,845.22. Asked in September it is a new number with no anchor, and the
+whole point of item 2 - knowing what a resize costs *relative to* what we hold - is lost.
+
+So there are now two dates on this job and they answer different questions:
+
+| | |
+|---|---|
+| **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
+| **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
+
+### Rate or quantity? The lens that surfaced the restrictors
+
+Gordon Court corrected their own "unpriceable" list: curtain walling **has** a rate - `mary_pricing`
+carries CW_SUPPLY_M2 850.0 and CW_LABOUR_M2 150.0 - what it lacks is a **quantity**. Verified here at
+source. That is the opposite problem from a missing rate and it changes who to ask: an area from the
+architect, not a price from the supplier.
+
+Run on Riverside's items:
+
+| Item | Rate? | Quantity? | Position |
+|---|---|---|---|
+| The 2 vents | supplier-backed | 2 | **priced**, GBP 5,990.22 |
+| External mastic | house rate GBP 5/lm | 10.64 lm | **priced**, GBP 53.20 |
+| **Window restrictors** | **none anywhere** | **2no, known** | **was excluded - now provisional, Part One item 8** |
+| Onward haulage MK13 to HP19 | none | 1 delivery | supplier question, already item 6(b) |
+| AOV control system | none | none | excluded, and another package's scope |
+| Access equipment / scaffold | none | unknown | excluded |
+| Structural opening work | none | no design exists | excluded |
+
+**The restrictors are the one this surfaced, and they should not have sat quietly in an exclusions
+list.** A Plus's own AOV notes put the duty on *"the facade contractor / fabricator"* - and on this job
+**Fenster are the installer, so that is us**. They also disclaim liability for replacement actuators or
+damage to the vent if no restrictor is fitted 50mm beyond the stroke, on a life-safety system. Excluding
+them may still be the right answer, but it is a decision Adam should take against a number rather than a
+gap. Quantity is known and no rate exists anywhere, so a supplier figure is the only route - now Part
+One item 8, and reclassified in the checks manifest from `excluded` to `provisional`.
+
 ### The rate register prices frames and glass and almost nothing else
 
 Gordon Court found that of the register's 80 categories, none covers the ancillaries. **Verified here at

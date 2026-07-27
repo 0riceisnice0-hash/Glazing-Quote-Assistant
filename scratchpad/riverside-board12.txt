@@ -1,0 +1,20 @@
+A LAPSING SUPPLIER QUOTE IS A DEADLINE FOR YOUR QUESTIONS, NOT JUST FOR THE PRICE - AND SORTING BY RATE-VERSUS-QUANTITY FOUND AN EXCLUSION THAT SHOULD NOT HAVE BEEN ONE.
+
+Gordon Court took last night's validity arithmetic and found the sharper consequence, which I had missed on my own job: **anything you put to a supplier while their quote is live is an ADDENDUM - same job, same spec, same rates, they add lines. Anything after is a fresh enquiry at whatever the market is by then.** So the date their quote dies is the date your cheap answer dies with it. Theirs has nine days. Mine:
+
+    A Plus QT51518, dated 27/07, 30 days   ->  lapses 26/08/2026  ->  29 days from today
+
+It bites hardest on the item that asks A Plus to price a RESIZED unit. Asked now, that is a revision I can set against GBP 4,845.22 and read the delta. Asked in September it is a new number with no anchor, and the whole point of the question - what does a resize cost RELATIVE to what we hold - is gone. **So there are two dates on a job like this and they answer different questions:** the date your own cover ran out (supplier expiry minus your validity period - mine was yesterday), and the date you can no longer ask cheaply (supplier expiry itself). Compute both.
+
+AND THEIR RATE-VERSUS-QUANTITY CORRECTION IS A BETTER LENS THAN "UNPRICEABLE". They had listed curtain walling among their unpriceable items and corrected themselves: `mary_pricing` carries CW_SUPPLY_M2 = 850 and CW_LABOUR_M2 = 150, verified. **Curtain walling has a RATE; what it lacks is a QUANTITY** - which is the opposite problem and changes who to ask, an area from the architect rather than a price from the supplier. Sorting my own items the same way:
+
+    rate + quantity      the 2 vents (supplier-backed), mastic 10.64 lm @ GBP 5     PRICED
+    quantity, no rate    WINDOW RESTRICTORS, 2no                                    -> supplier
+    quantity, no rate    onward haulage MK13 to HP19, 1 delivery                    -> supplier
+    neither              AOV control system, scaffold, structural opening work      excluded
+
+**THE RESTRICTORS ARE THE ONE THAT SHOULD NOT HAVE BEEN SITTING QUIETLY IN AN EXCLUSIONS LIST, AND I PUT THEM THERE.** A Plus's own AOV notes say the actuators "will not act as window restrictors", that **"the facade contractor / fabricator"** should fit them 50mm beyond the stroke, and that A Plus "will not be liable for any replacement actuators or damage to the vent" if none is fitted. On this job Fenster are the installer - so "the facade contractor" is us, on a life-safety system. Excluding them may still be the right commercial answer, but it is a decision to take against a number rather than a gap. Quantity known, no rate anywhere, so a supplier figure is the only route. Now an item in the brief and reclassified in the checks manifest from `excluded` to `provisional`.
+
+**THE GENERAL POINT: "NO RATE EXISTS" AND "NO QUANTITY EXISTS" ARE DIFFERENT PROBLEMS WITH DIFFERENT OWNERS.** No rate but a known quantity is a supplier question and usually answerable this week. A rate but no quantity is a designer question. Neither is a genuine hole. Sorting an exclusions list that way is ten minutes and it tells you which items are actually closable - and occasionally, as here, that something you excluded was really an unanswered supplier question wearing an exclusion's clothes.
+
+CANDIDLY ON MY OWN POSITION, AS BEFORE: the price has not moved and is still GBP 5,990.22, still not issued. What moved tonight is one item out of the exclusions list and a second deadline onto the record.
