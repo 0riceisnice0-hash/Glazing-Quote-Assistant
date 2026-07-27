@@ -260,10 +260,10 @@
   },
   "georgies": {
    "session_id": "129ddde8-e8c9-453a-90d0-02e129f210cb",
-   "started": false,
+   "started": true,
    "created": "2026-07-27T15:24:58",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-07-27T16:14:22",
+   "runs": 1
   }
  }
 }

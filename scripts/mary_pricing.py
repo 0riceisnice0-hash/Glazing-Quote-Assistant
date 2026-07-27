@@ -69,9 +69,51 @@ CALIBRATION = [
 ]
 
 
+LEARNED_FILE = os.path.join(REPO, "data", "learned-rates.json")
+MIN_LEARNED_N = 6      # below this it is anecdote, not a rate
+
+
 def load_register():
     with open(REGISTER, encoding="utf-8") as fh:
         return json.load(fh)["register"]
+
+
+def load_learned():
+    """Rates mined from the Frames column of quotes Fenster actually sent.
+
+    Strictly better evidence than a supplier-quote median: it is what we really
+    charged, and it already contains every judgement the estimator applied.
+    Built by mary_backtest.py --learn."""
+    if not os.path.exists(LEARNED_FILE):
+        return {}
+    try:
+        with open(LEARNED_FILE, encoding="utf-8") as fh:
+            return json.load(fh).get("rates", {})
+    except Exception:
+        return {}
+
+
+class LearnedRate:
+    def __init__(self, key, rec):
+        self.rate = rec["median_per_m2"]
+        self.base = self.rate
+        self.key = key
+        self.rec = rec
+        self.factors = []
+
+    @property
+    def provenance(self):
+        return ("GBP%.2f/m2 - median of %d line(s) Fenster actually charged for %s "
+                "(range %.2f-%.2f), mined from sent pricing documents"
+                % (self.rate, self.rec["n"], self.key, self.rec["low"], self.rec["high"]))
+
+
+def learned_rate(code, area_m2):
+    rates = load_learned()
+    rec = rates.get("%s|%s" % (code, band_of(area_m2)))
+    if rec and rec.get("n", 0) >= MIN_LEARNED_N:
+        return LearnedRate("%s|%s" % (code, band_of(area_m2)), rec)
+    return None
 
 
 def band_of(area_m2):

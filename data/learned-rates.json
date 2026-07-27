@@ -1,0 +1,120 @@
+{
+ "note": "Empirical GBP/m2 from the Frames column of quotes Fenster actually sent - what we really charge, not a median of supplier quotes.",
+ "source_docs": 29,
+ "rates": {
+  "DAD|1.5-3m2": {
+   "median_per_m2": 705.09,
+   "n": 8,
+   "low": 401.79,
+   "high": 766.77
+  },
+  "DAD|3-6m2": {
+   "median_per_m2": 559.86,
+   "n": 54,
+   "low": 135.63,
+   "high": 1641.53
+  },
+  "DAD|>6m2": {
+   "median_per_m2": 366.55,
+   "n": 21,
+   "low": 245.38,
+   "high": 669.67
+  },
+  "ELAW|3-6m2": {
+   "median_per_m2": 385.19,
+   "n": 13,
+   "low": 252.56,
+   "high": 406.3
+  },
+  "ELAW|>6m2": {
+   "median_per_m2": 344.0,
+   "n": 15,
+   "low": 262.54,
+   "high": 538.67
+  },
+  "LAW|1.5-3m2": {
+   "median_per_m2": 419.74,
+   "n": 55,
+   "low": 212.09,
+   "high": 577.87
+  },
+  "LAW|3-6m2": {
+   "median_per_m2": 337.22,
+   "n": 8,
+   "low": 286.49,
+   "high": 443.16
+  },
+  "LPVC|1.5-3m2": {
+   "median_per_m2": 231.64,
+   "n": 13,
+   "low": 172.51,
+   "high": 254.09
+  },
+  "LPVC|3-6m2": {
+   "median_per_m2": 171.84,
+   "n": 21,
+   "low": 61.42,
+   "high": 406.08
+  },
+  "MAW|1.5-3m2": {
+   "median_per_m2": 347.74,
+   "n": 39,
+   "low": 218.9,
+   "high": 868.28
+  },
+  "MAW|<1.5m2": {
+   "median_per_m2": 413.83,
+   "n": 31,
+   "low": 286.03,
+   "high": 708.26
+  },
+  "MPVC|1.5-3m2": {
+   "median_per_m2": 199.65,
+   "n": 30,
+   "low": 69.83,
+   "high": 312.54
+  },
+  "MPVC|<1.5m2": {
+   "median_per_m2": 175.83,
+   "n": 12,
+   "low": 144.42,
+   "high": 332.05
+  },
+  "SAD|1.5-3m2": {
+   "median_per_m2": 490.13,
+   "n": 64,
+   "low": 218.9,
+   "high": 1474.51
+  },
+  "SAD|3-6m2": {
+   "median_per_m2": 474.14,
+   "n": 6,
+   "low": 387.97,
+   "high": 780.8
+  },
+  "SAD|>6m2": {
+   "median_per_m2": 341.97,
+   "n": 19,
+   "low": 224.62,
+   "high": 412.6
+  },
+  "SAW|<1.5m2": {
+   "median_per_m2": 498.05,
+   "n": 50,
+   "low": 226.68,
+   "high": 842.01
+  },
+  "SPVC|<1.5m2": {
+   "median_per_m2": 243.34,
+   "n": 20,
+   "low": 166.19,
+   "high": 316.75
+  },
+  "SUPD|1.5-3m2": {
+   "median_per_m2": 226.83,
+   "n": 10,
+   "low": 214.37,
+   "high": 265.65
+  }
+ }
+}
