@@ -153,6 +153,11 @@ def main():
         len(data["jobs"]), len(data.get("requests", [])), len(emails), len(data.get("inbox", []))))
 
     if args.deploy:
+        # Mary builds this hub herself now. The guard is what makes that safe:
+        # it refuses the deploy if the key gate, the headers or a secret moved.
+        import mary_hub_guard
+        if not mary_hub_guard.run():
+            raise SystemExit(3)
         r = subprocess.run(["npx.cmd", "wrangler", "pages", "deploy", "public", "--project-name", "mary-dashboard",
                             "--branch", "main", "--commit-dirty=true"],
                            cwd=os.path.join(REPO, "dashboard"), capture_output=True, text=True,

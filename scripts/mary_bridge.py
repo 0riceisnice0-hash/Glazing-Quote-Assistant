@@ -57,6 +57,17 @@ def log(msg):
     mp.log(msg)
 
 
+def session_exists(session_id):
+    """Has this conversation actually been created on disk?
+
+    The `started` flag was not enough: a session that dies to a usage limit
+    still leaves its transcript behind, so retrying with --session-id got
+    "Session ID ... is already in use" forever. The transcript is the truth."""
+    proj = os.path.join(os.path.expanduser("~"), ".claude", "projects",
+                        "C--Users-zacpl-Desktop-Glazing-Quote-Assistant")
+    return os.path.exists(os.path.join(proj, "%s.jsonl" % session_id))
+
+
 def load_bridge_state():
     if os.path.exists(BRIDGE_STATE):
         try:
@@ -216,7 +227,9 @@ def dispatch(key, orders, reg, bst, dry_run=False):
     rec = router.chat(reg, key)
     title = router.job_title(reg, key)
     handoffs = note.pending_handoffs(key)
-    first_run = not rec.get("started")
+    # Create only if the conversation genuinely is not there yet; otherwise
+    # resume, even if a previous attempt died before it could do any work.
+    first_run = not rec.get("started") and not session_exists(rec["session_id"])
     prompt = build_prompt(key, title, orders, handoffs, first_run, reg)
 
     if dry_run:
@@ -243,6 +256,7 @@ def dispatch(key, orders, reg, bst, dry_run=False):
         % (key, title, len(orders), "NEW chat" if first_run else "resuming chat"))
     started = time.time()
     ok = False
+    fast_fail = False
     try:
         proc = subprocess.Popen(cmd, cwd=REPO, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                 text=True, env=env, encoding="utf-8", errors="replace")
@@ -277,6 +291,9 @@ def dispatch(key, orders, reg, bst, dry_run=False):
             if first_run:
                 rec["started"] = False
             if took < FAST_FAIL_SECONDS:
+                # The plan ran out, not the work order's fault - do not spend
+                # one of its three attempts on it.
+                fast_fail = True
                 bst["fails"] = bst.get("fails", 0) + 1
                 wait = BACKOFF[min(bst["fails"] - 1, len(BACKOFF) - 1)]
                 bst["backoff_until"] = time.time() + wait
@@ -298,6 +315,8 @@ def dispatch(key, orders, reg, bst, dry_run=False):
         if not os.path.exists(o["_path"]):
             bst["attempts"].pop(o["_file"], None)
             continue
+        if fast_fail:
+            continue      # the session never ran; the work order is untested
         n = bst["attempts"].get(o["_file"], 0) + 1
         bst["attempts"][o["_file"]] = n
         if n >= MAX_ATTEMPTS:
