@@ -2601,6 +2601,55 @@ otherwise the next chat retracts work that never depended on the broken part.
 Manifest 29 spec_items, `u_value` now resolved rather than open; run unchanged at **5 FAIL, 2 ASK**.
 
 
+### Gordon Court - thirteenth turn: no fire engineer exists, and the title blocks give a routing table (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**THEIR CHECK CAUGHT ME MAKING THE MISTAKE THEY HAD JUST CAUGHT THEMSELVES MAKING.** REQ-22 carried the option
+*"Ask the **fire engineer** whether the corridor AOVs are wall vents or the roof-mounted AXS140 units."*
+**There is no fire engineer.** Across all five fire strategy drawings (14001-14005) there is no fire engineer,
+fire consultant, approved inspector or building control body named - only **"Arkon" x5 per sheet** (the
+architect's own title block) and **"fire officer" x1**, inside a *revision note* (*"Updated to suit fire officers
+comments"*, 09.10.2025), not an appointment.
+
+So the fire strategy is **the architect's own work**, as is the NBS specifying the Colt units - the same firm
+wrote both the *"AOV. 1.5m2 clear opening area"* legend and the *"AXS140 STAIRWELL VENTILATOR... roof mounted"*
+specification. **The question goes to Arkon, with the fire officer as arbiter**, since their comments deleted the
+smoke shafts. Option corrected on the request.
+
+**THE BIGGER YIELD - A ROUTING TABLE, FROM TEN MINUTES OF READING TITLE BLOCKS.** I had been addressing **eleven
+RFIs to "Chigwell"** when most are **design** questions the main contractor does not own:
+
+| Owner | Job no. | Contact | Questions |
+|---|---|---|---|
+| **Arkon Associates Ltd** - schedules, elevations, fire strategy AND the NBS | **5244** | +44 (1438) 359816 · enquiries@arkonassociates.co.uk | D_T · D_X · manifestation extent · AOV wall-or-roof · rooflight/Colt boundary |
+| **Edward Pearce** | **22/190** | 020 8390 6244 | the SAP calculations |
+| **Elite Designers Ltd** | **2025-059** | - | wall build-up at new openings |
+| **Chigwell** | | | strip-out allocation · Section 2 caveats · the GBP 723.87 addendum |
+| **Fire** | | | **nobody named** |
+
+We cannot approach any of them directly - the route is via Chigwell - but **naming the author, job number and
+sheet lets them forward a question in one step instead of working out who owns it.** *"Please issue the 5244
+drawing register and the 57 sheets we do not hold"* is actionable; *"the rest of the pack"* is not.
+
+**THE CONTRAST BETWEEN THE TWO JOBS IS NOW COMPLETE, and it is what makes the test worth running.** Gordon Court
+names a full design team and **every deferral chased turned out to be administrative**. Riverside names a heating
+engineer and an electrician as *roles* and defers the rest to parties not yet appointed, so **four of their five
+are design gaps**. Same test, opposite results - and it tells you whether to chase paperwork or raise an alarm.
+
+**"SAY WHAT YOU ARE NOT WITHDRAWING", RUN ON MYSELF.** After three self-corrections the record should be
+unambiguous, and writing it out put this job's position in one place for the first time since the corrections
+started. **Withdrawn:** the window tag prefix as an instrument; the "60% of gross frame" rule of thumb; the claim
+that WN_7 *"cannot reach"* 1.5 m2. **Standing (18 items, none dependent on those three):** the GBP 723.87
+omission · the intumescent seal point · D_T · D_X · the deleted smoke shafts and possibly-redundant louvres · the
+missing actuators · 4000mm2 vents against 8000 · acoustic vents on 26 of 40 windows · PAS 24 absent from four
+quotes · no whole-window Uw against 1.10 · delivery in nobody's price · manifestation 15.002 lin m · strip-out
+62.457 m2 · curtain walling on three pointers · 25 of 82 drawings · the shut clarification window · the 180-day
+gap (Adam *decided* it, I did not withdraw it) · the Section 2 caveats question. Full list at job file section 4K.3.
+
+REQ-22 now 29 options, read-back verified. Manifest 30 spec_items; run unchanged at **5 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

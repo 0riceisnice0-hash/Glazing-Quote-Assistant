@@ -1334,6 +1334,93 @@ Same words on the drawing, entirely different problem — and only the second on
 
 ---
 
+---
+
+## 4K. THIRTEENTH TURN (28/07) — there is no fire engineer, and the RFI routing table
+
+riverside spent three turns asking for a fire strategy that may not exist on their job, then checked and found
+**no fire engineer named anywhere** — the note they were querying was the architect's own. Their rule: **ask the
+author of a note, not a consultant who may not exist**, and **read the title block before writing the RFI**.
+Ran it here, and I had made the same mistake.
+
+### 4K.1 REQ-22 was addressed to somebody who doesn't exist
+
+The request carried the option *"Ask the fire engineer whether the corridor AOVs are wall vents or the
+roof-mounted AXS140 units."* **There is no fire engineer.** Across all five fire strategy drawings
+(14001–14005) there is **no fire engineer, no fire consultant, no approved inspector and no building control
+body named**. The only references are **"Arkon" ×5 per sheet** (the architect's own title block) and **"fire
+officer" ×1 per sheet** — and that single reference sits inside a *revision note* (*"Updated to suit fire
+officers comments"*, 09.10.2025), not an appointment.
+
+**So the fire strategy is the architect's own work — and so is the NBS that specifies the Colt units.** Both
+the *"AOV. 1.5m² clear opening area"* legend and the *"AXS140 STAIRWELL VENTILATOR… roof mounted"* specification
+came from the same firm. **The question goes to Arkon, and the fire officer is the arbiter** — they are the ones
+whose comments deleted the smoke shafts in October 2025, so they have already exercised judgement over this
+exact part of the design. Option corrected on REQ-22.
+
+### 4K.2 The design team, from title blocks — and the routing table
+
+| Role | Firm | Job no. | Contact |
+|---|---|---|---|
+| **Architect** — schedules, elevations, fire strategy, NBS | **Arkon Associates Ltd**, Luminous House, 300 South Row, Milton Keynes MK9 2FR | **5244** | T +44 (1438) 359816 · enquiries@arkonassociates.co.uk · drawn GM, checked IJC/AB |
+| **Services, energy & SAP** | **Edward Pearce**, Old School House, 35 Ewell Road, Surbiton KT6 6AF | **22/190** | 020 8390 6244 · edwardpearce.com |
+| **Structural** — *"providing structural engineering consultancy services"* | **Elite Designers Ltd** | **2025-059** | — |
+| Electrical | **BSEC** *("refer to BSEC electrical layouts")* | | |
+| Heating | **Engdesign** *("refer to Engdesign drawings")* | | |
+| Employer's advisor | **Vixus Property Advisory** | | darien.jay@vixus.co.uk (Delta portal) |
+| Employer | **jLiving** | | ITT: *"Please DO NOT contact jLiving directly"* |
+| Smoke vent manufacturer (specified) | **Colt International / Colt Group** | | info@coltinfo.co.uk · sales@surespancovers.com |
+| **Fire** | **NOBODY NAMED** | | only *"fire officers comments"* in a revision note |
+
+**So Gordon Court has a full design team named — architect, structural, services, electrical, heating — the
+opposite of Riverside. Except for fire.**
+
+**And the routing matters more than the list.** I have been addressing eleven RFIs to *"Chigwell"* when most are
+**design** questions owned by the **architect**; Chigwell is the contractual conduit, not the answer:
+
+| Owner | Questions |
+|---|---|
+| **Arkon (5244)** | D_T size/leaf/external · D_X ×2 · manifestation extent · AOV wall-or-roof · rooflight & Colt scope boundary |
+| **Edward Pearce (22/190)** | the SAP calculations (RFI-7) |
+| **Elite Designers (2025-059)** | wall build-up at new openings (largely answered from their own sampling drawings) |
+| **Chigwell** | strip-out allocation · whether our exclusions went into their Section 2 caveats · the £723.87 addendum |
+
+We cannot approach Arkon directly — we are a sub-subcontractor and the route is via Chigwell — but **naming the
+author, the job number and the sheet is what lets Chigwell forward each question in one step** instead of
+working out who owns it.
+
+### 4K.3 What I am NOT withdrawing
+
+riverside applied this to themselves and asked me to. After three self-corrections this session, the record
+should be unambiguous.
+
+**Withdrawn:** (1) the window tag prefix as an opening-condition instrument (§4H); (2) the "60% of gross frame"
+AOV rule of thumb (§4E.1); (3) the claim that WN_7 *"cannot reach"* 1.5 m² — it is marginal and unprovable
+(§4F.1).
+
+**Standing — and none of these ever depended on the withdrawn parts:**
+
+1. **£723.87 of supplier cost omitted** — AFS extras £506.37 + BSW "PANEL SET UP" £217.50
+2. **The intumescent seal point** — NBS L10 cl.790; the omitted fixing pack may not comply even once bought
+3. **D_T** — quoted 2210 against a 2110 opening, as a double where the schedule shows a 756 single leaf, in a Store whose external/internal cell is blank
+4. **D_X ×2** on the external door schedule, priced nowhere
+5. **The smoke shafts were omitted 09.10.2025** — the 4no WL_1 louvres may be redundant (£6,452.40 sell)
+6. **The AOVs have no actuator, no 24V motor, no fire-alarm interface** anywhere in the quote
+7. **Trickle vents 4000mm² against 8000mm² required**
+8. **Acoustic vents ticked on 26 of 40 windows**, quoted by nobody
+9. **PAS 24 absent from all four BSW quotes** against NBS L10 cl.330
+10. **No whole-window Uw stated anywhere** against Edward Pearce's 1.10 W/m²K
+11. **Delivery in nobody's price** — all five quotes deliver to our own MK yard, not site
+12. **Manifestation** required by NBS L20 cl.280, quantified at 15.002 lin m, neither priced nor excluded
+13. **Strip-out** 40 windows / 62.457 m², unallocated
+14. **Curtain walling** in the design on three independent pointers, priced nowhere
+15. **We priced from 25 of the 82 drawings**
+16. **The clarification window shut ~15/07** — every RFI is post-tender
+17. **The 180-day validity gap** — *decided* by Adam (REQ-20), accepted, not withdrawn
+18. **RFI-11** — unknown whether our exclusions reached Chigwell's Section 2 caveats
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
