@@ -1183,6 +1183,15 @@ answer different questions:**
 | **supplier expiry MINUS your own validity period** | the last date you could ISSUE and still be covered. It may already be behind you. |
 | **supplier expiry itself** | the last date you can ASK that supplier anything as an ADDENDUM rather than a new enquiry. |
 
+**CHECK YOUR OWN TERMS AND CONDITIONS PAGE BEFORE REPORTING ANY GAP - THE ANSWER MAY BE IN THE DOCUMENT
+YOU SENT.** Fenster's house T&Cs (`templates/proposal-content.json`, "Quotation Validity") read: *"All
+quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from the date of issue, unless
+agreed otherwise. All quotations are subject to final site survey and measurement verification."* Gordon
+Court had reported 163 days of unqualified exposure for a week before reading page 8 of their own issued
+proposal - it is qualified, not absolute. **And the second sentence qualifies dimensional risk too**,
+which matters wherever sizes came from an enquiry or a supplier quote rather than a survey. Source the
+clause from the house document, not from a generator footer.
+
 Riverside: A Plus expires 26/08 and the house document carries 30 days, so the last issue date still
 covered was 27/07 - now past, and **the gap grows by a day for every day of delay**. Asking a supplier to
 hold their price is the one action that becomes *more* valuable the longer a gate stays shut.
@@ -1207,6 +1216,23 @@ Riverside / Gordon Court, 28/07/2026. Before calling something unpriceable, sort
 
 Gordon Court had listed curtain walling as unpriceable when it has a rate and lacks a quantity - the
 opposite problem, and a different party to ask. **Neither middle row is a genuine hole.**
+
+**AND A SECOND, DIFFERENT TEST ON THE SAME LIST: "we exclude X" is only safe if X is genuinely SOMEBODY
+ELSE'S under the spec.** The two questions are not the same and both are worth ten minutes - *is a rate
+or a quantity missing* tells you **who to ask**; *is this genuinely somebody else's* tells you **whether
+you should be asking at all**. An item can pass the first and fail the second.
+
+Three of Gordon Court's twelve exclusions failed it: *"Fire Stopping - to be done by others"* against NBS
+L10 cl.790, which puts the intumescent frame-to-reveal seal in the **windows** section; *"Testing - on or
+off site testing"*, which does not cover cl.205's requirement for third-party **certification
+documentation** the maker already holds; and *"Site Storage - Materials will be delivered to site"*,
+which **asserts a fact no supplier quote supports** - all five deliver to our own MK13 9HF yard. On
+Riverside the same test caught **onward haulage from our own yard to site**: not another party's at all,
+since Fenster are the installer - it was excluded because nobody had priced it.
+
+**And one distinction worth keeping: excluding the WORK is not the same as not needing the NUMBER.**
+*"Design calculations excluded"* fairly covers us producing a U-value calculation; it does not excuse not
+having the figure, which the supplier should state as a matter of course.
 
 **Run the sort across an exclusions list, not just an unpriced list.** On Riverside it found window
 restrictors sitting quietly excluded when A Plus's own notes put the duty on *"the facade contractor /

@@ -1279,6 +1279,54 @@ The price has not moved: still GBP 5,990.22, still not issued. What moved is one
 exclusions list and a second deadline onto the record. `mary_checks` 0 failed, 3 questions across 21
 items; selftest passes.
 
+### Riverside House - our own proposal caps a risk, and a second exclusion falls (2026-07-28)
+
+**Gordon Court's lesson: check your own terms and conditions page before reporting a gap - the answer may
+be in the document you sent.** They had reported 163 days of unqualified exposure for a week before
+reading page 8 of their own issued proposal.
+
+Run here, because the 30-day house validity underpinning every deadline on this job had been taken for
+three turns from a **generator footer** rather than the house document - exactly the kind of unsourced
+number this chat would challenge in anyone else's work. **Verified at source**,
+`templates/proposal-content.json`, Terms and Conditions, *"Quotation Validity"*:
+
+> *"All quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from the date of issue,
+> unless agreed otherwise. **All quotations are subject to final site survey and measurement
+> verification.**"*
+
+The 30 days is right, so every deadline posted stands - it now rests on the house document. **And the
+second sentence is the find.** Riverside's 1130 x 1530 came from Adam's enquiry email, not from a survey
+and not from any dimensioned drawing, since the pack has no window schedule and no dimensioned opening.
+**Our own terms already qualify the dimensional risk.** It does not rescue C4 - a roof vent is not a
+measurement error - but an issued price would not be a fixed commitment on unsurveyed dimensions.
+
+### A second exclusion falls, and a proposal clause caught before it is written
+
+Gordon Court sharpened the exclusions test: **"we exclude X" is only safe if X is genuinely SOMEBODY
+ELSE'S under the spec.** Three of their twelve failed - fire stopping against NBS L10 cl.790's
+intumescent seal (which sits in the *windows* section), testing not covering cl.205 certification
+documentation, and site storage asserting site delivery that no supplier quote supports.
+
+Most of Riverside's hold: builder's work is PHDB's, access is Adam's standing rule, maintenance is the
+occupier's RRO duty, Part K balustrading is a builder's item A Plus expressly exclude. **One fails:
+onward haulage from our own MK13 9HF yard to site.** Not another party's at all - **Fenster are the
+installer, so Milton Keynes to Aylesbury is ours.** It was excluded because nobody had priced it, not
+because it belonged elsewhere. Second item of this class in two nights, after the restrictors.
+Reclassified `excluded` to `provisional`; already covered by brief item 6(b).
+
+**The two tests are different and both earn their ten minutes:** *is a rate or a quantity missing* tells
+you **who to ask**; *is this genuinely somebody else's* tells you **whether you should be asking at all**.
+An item can pass the first and fail the second, which is what the haulage line did.
+
+**AND A TRAP LOGGED BEFORE IT HAPPENS.** Gordon Court's issued proposal excludes Site Storage *on the
+basis that* *"Materials will be delivered to site"* - contradicting all five of their supplier quotes,
+which deliver to our own yard. **Riverside has no proposal yet, so nothing is wrong here - but that
+wording must not go in**, because A Plus deliver to Milton Keynes and QT51518 carries no site address at
+all. It is the sort of clause carried forward from the last job without anyone rereading it against the
+quotes, which is presumably how it reached theirs.
+
+Price unchanged at GBP 5,990.22, unissued. `mary_checks` 0 failed, 3 questions; selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

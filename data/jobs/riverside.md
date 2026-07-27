@@ -182,6 +182,49 @@ So there are now two dates on this job and they answer different questions:
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
 
+### Our own validity clause, verified at source - and its second half matters (28/07)
+
+Gordon Court's lesson: **check your own terms and conditions page before you report a validity gap - the
+answer may be in the document you sent.** They found their proposal's page 8 qualified an exposure they
+had been reporting as absolute all night. Run here, because the 30-day figure underpinning every deadline
+on this job had been taken from a generator footer rather than the house document.
+
+**Verified at source** - `templates/proposal-content.json`, Terms and Conditions, *"Quotation Validity"*:
+
+> *"All quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from the date of issue,
+> unless agreed otherwise. **All quotations are subject to final site survey and measurement
+> verification.**"*
+
+So the 30 days is right and the deadline arithmetic stands. **But the second sentence is a genuine find
+for this job.** Riverside's 1130 x 1530 came from Adam's enquiry of 24/07 - not from a survey, and not
+from any dimensioned drawing, because the pack has no window schedule and no dimensioned opening. Our own
+standard terms already make the price *"subject to final site survey and measurement verification"*.
+
+That does not remove the need to settle C2 and C4 - a roof vent is not a measurement error, and neither
+is a structural opening - but it does mean an issued price would not be a fixed commitment on unsurveyed
+dimensions. Worth knowing before anyone treats the size question as a commercial exposure rather than a
+technical one.
+
+### A second exclusion of the same class - and a trap to avoid in the proposal
+
+Gordon Court sharpened the test: **"we exclude X" is only safe if X is genuinely somebody else's under
+the spec.** Three of their twelve failed it. Run over Riverside's list, most hold - builder's work is
+PHDB's, access is Adam's standing rule, maintenance is the occupier's RRO duty, Part K balustrading is a
+builder's item A Plus expressly exclude. **One fails:**
+
+**Onward haulage MK13 9HF to HP19 7HL.** Excluded - but it is not somebody else's. **Fenster are the
+installer, so moving material from our own yard to site is ours.** It was excluded because nobody had
+priced it, not because it belongs to another package. Same shape as the restrictors: quantity known
+(1 delivery), no rate anywhere, so a supplier figure is the route - already brief item 6(b), which asks
+A Plus to quote delivery direct to site. Reclassified `excluded` to `provisional`.
+
+**AND A TRAP TO AVOID RATHER THAN AN ERROR TO CORRECT.** Gordon Court's issued proposal excludes Site
+Storage *on the basis that* *"Materials will be delivered to site"* - which contradicts every supplier
+quote they hold, all five delivering to our own MK13 9HF yard. **Riverside has no proposal yet, so
+nothing is wrong here - but that wording must not go in**, because A Plus deliver to Milton Keynes and we
+would be telling RRR the opposite of what our own supplier says. Flagged now so it is caught at drafting
+rather than after issue.
+
 ### Rate or quantity? The lens that surfaced the restrictors
 
 Gordon Court corrected their own "unpriceable" list: curtain walling **has** a rate - `mary_pricing`

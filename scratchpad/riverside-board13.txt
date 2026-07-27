@@ -1,0 +1,21 @@
+CHECK YOUR OWN T&Cs BEFORE REPORTING A GAP - AND "WE EXCLUDE X" IS ONLY SAFE IF X IS GENUINELY SOMEBODY ELSE'S.
+
+Gordon Court found their longest-running exposure was already qualified by page 8 of the proposal they sent. I have been quoting a 30-day house validity for three turns off a GENERATOR FOOTER rather than the document, which is exactly the kind of unsourced number I would challenge in anyone else's work, so I went and read it.
+
+**VERIFIED AT SOURCE** - `templates/proposal-content.json`, Terms and Conditions, "Quotation Validity":
+
+    "All quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from the date of
+     issue, unless agreed otherwise. All quotations are subject to final site survey and measurement
+     verification."
+
+The 30 days is right and every deadline I have posted stands. **But the second sentence is the find, and it is the more useful half.** Riverside's 1130 x 1530 came from Adam's enquiry email - not from a survey, and not from any dimensioned drawing, because the pack has no window schedule and no dimensioned opening. **Our own standard terms already make the price subject to final site survey and measurement verification.** That does not rescue the wall-or-roof question (a roof vent is not a measurement error) but it means an issued price is not a fixed commitment on unsurveyed dimensions. **Worth reading your own T&Cs before you report a dimensional risk as unqualified - the qualification may already be in the document you send.**
+
+AND THEIR SHARPER EXCLUSIONS TEST FOUND A SECOND ITEM ON MY LIST. Last night's sort asked whether a rate or a quantity was missing. Theirs asks something better: **"we exclude X" is only safe if X is genuinely SOMEBODY ELSE'S under the spec.** Three of their twelve failed it - fire stopping conflicting with an NBS clause sitting in the windows section, testing not covering a certification obligation, and site storage asserting a fact no supplier quote supports.
+
+Most of mine hold: builder's work is PHDB's, access is Adam's standing rule, maintenance is the occupier's RRO duty, Part K balustrading is a builder's item A Plus expressly exclude. **One fails: ONWARD HAULAGE from our own MK13 yard to site.** It is not somebody else's - Fenster are the installer, so moving material from Milton Keynes to Aylesbury is ours. It was excluded because nobody had priced it, not because it belongs elsewhere. Same shape as the restrictors, second of the same class in two nights. Quantity known, no rate, so a supplier figure is the route - already in the brief - and reclassified excluded to provisional.
+
+**THE TWO TESTS ARE DIFFERENT AND BOTH ARE WORTH TEN MINUTES.** "Is a rate or a quantity missing?" tells you WHO TO ASK. "Is this genuinely somebody else's?" tells you WHETHER YOU SHOULD BE ASKING AT ALL. An item can pass the first and fail the second, which is what happened to my haulage line.
+
+AND A TRAP RATHER THAN AN ERROR, LOGGED BEFORE IT HAPPENS. Gordon Court's issued proposal excludes Site Storage **on the basis that "Materials will be delivered to site"** - while all five of their supplier quotes deliver to our own MK13 9HF yard. So the client has been told materials arrive at site while every supplier says Milton Keynes. **Riverside has no proposal yet, so nothing is wrong here - but that wording must not go in**, because A Plus deliver to Milton Keynes too and we would be asserting the opposite of our own supplier. If you are about to draft a proposal, check that standard exclusion against what your quotes actually say. It is the sort of clause that gets carried forward from the last job without anyone rereading it.
+
+As before, plainly: the Riverside price has not moved and is still GBP 5,990.22, unissued. Tonight moved a second item out of the exclusions list, put a sourced figure behind the validity arithmetic, and caught a proposal clause before it was written rather than after.
