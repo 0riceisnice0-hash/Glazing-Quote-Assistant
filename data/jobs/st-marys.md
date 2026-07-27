@@ -560,6 +560,43 @@ to say when. Inbound and the hub are both fine, so **the substance went on the h
 Adam on message 31, plus REQ-22). Do not let the file sitting in `outputs\` read as though it was
 delivered - **when email is restored, send it.**
 
+## 8c. Calibration - this job is now a data point, and it says the register runs high
+
+`data/calibration.json` entry added 27/07. **Register benchmark GBP 66,540.24 vs BSW QT252799's actual
+frame cost GBP 60,359.22** for the same 31 types / 98 units / 160.36 m2 - **+10.2%**. Script:
+`scratchpad/stmarys_calibration2.py`.
+
+**The aggregate hides the real story.** Uncorrected the register is only +4.4% out on the whole package,
+but by band:
+
+| band | types | units | actual GBP/m2 | register GBP/m2 | error |
+|---|---|---|---|---|---|
+| <1.5m2 | 10 | 34 | 697.38 | 449.77 | **-35.5%** |
+| 1.5-3m2 | 15 | 50 | 368.01 | 363.50 | **-1.2%** |
+| 3-6m2 | 4 | 10 | 340.10 | 467.57 | **+37.5%** |
+| >6m2 | 2 | 4 | 270.19 | 365.18 | **+35.2%** |
+| **all** | 31 | 98 | 376.40 | 392.94 | **+4.4%** |
+
+The whole-job figure is good **only because the band errors cancel**. Per type the spread is -43.6% to
++46.9% and just 15 of 31 land within +/-20%. Small units are far dearer per m2 than the median says;
+large units far cheaper.
+
+**Both corrections make this job worse.** Raw median +4.4%; with the measured `bsw` factor 1.056 (the one
+that actually fires) +10.2%; with the CALIBRATION Sheerline 1.10 instead +14.8%. **Nothing in the engine
+was changed** - one job cannot move a factor built on 273 lines, and the band structure rather than the
+supplier factor is what looks wrong.
+
+**A mechanical fact worth remembering on this job:** `derived_factors()` from `learned-rates.json`
+supersedes the typed `CALIBRATION` list, so on a BSW job the **Sheerline +10% never fires at all**. I
+mislabelled my first pass because of that and redid it.
+
+**A HYPOTHESIS FOR ADAM ON THE GBP 1,000/UNIT MYSTERY** (Types F and H) - offered as a hypothesis, not a
+finding. Those two are the cheapest per m2 on the whole job from BSW: **GBP 280/m2 and GBP 262/m2**
+against GBP 368/m2 for the mid band. If whoever priced it thought a 3,620mm-tall screen looked too cheap
+at BSW's rate, a GBP 1,000 judgement adder on each is exactly what that would look like. That would mean
+the money is already in the supply line and only the labelling is wrong - which is the difference between
+the GBP 3,520.95 of light install labour being missing or already covered. **Still needs Adam to confirm.**
+
 ## 9. Housekeeping this chat must keep doing
 
 The bridge (`pythonw` pid 31876, started 15:51:24) holds a registry snapshot from before the fix and

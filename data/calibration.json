@@ -1,6 +1,6 @@
 {
  "note": "Mary's accuracy record. One entry each time her number can be compared against a number a human produced or accepted. This is the ONLY ground truth she has today - the Estimating Log's W/L column is 93% empty (325 jobs, 3 marked won), so 'did we win' cannot be answered from it yet. Outcomes captured on the hub fill that gap from today forward; see data/outcomes (D1 table) and scripts/mary_scoreboard.py.",
- "how_to_add": "Whenever you price something that a human also priced - an audit, a re-price, a benchmark that a supplier return later answers - add an entry. mary_estimate is YOUR number, actual is theirs, basis says what theirs was. Never guess either; leave the entry out if you cannot source both.",
+ "how_to_add": "Whenever you price something that a human also priced - an audit, a re-price, a benchmark that a supplier return later answers - add an entry. mary_estimate is YOUR number, actual is theirs, basis says what theirs was. Never guess either; leave the entry out if you cannot source both. ALSO STATE 'basis_type' - these entries are NOT all measuring the same thing and should not be averaged blind. Most compare Mary's SELL against the SELL Fenster actually issued; St Mary's compares a register benchmark against a supplier's COST. Group before you quote an accuracy figure.",
  "entries": [
   {
    "job": "Greenfields Respite Barnstaple",
@@ -39,6 +39,16 @@
    "basis": "Mary: budget/fallback from a blank-rate BoQ, no drawings or supplier quotes. Actual: the client quote issued from the job folder (SMD - Brocks Hill Phase 2 Teaching Block Pricing.xlsx)",
    "lesson": "Same 37 units both sides, so this is a clean read on the fallback rates: +18.7% over the supplier-backed number (ex mastic/EPDM, 106,395.48 v 93,673.34). Fallback material rates run high on aluminium. BUT the comparison only holds because BOTH numbers priced the same BoQ - and the BoQ itself omits 7 external doors that are on the architect's door schedule (Type E.01 5no steel sports hall escape, Type E.03 2no louvred plant room) and one Type E.05 window. Neither figure is the job. The real lesson is that agreeing with a bill is not the same as being right: check the schedules before treating a BoQ as the scope.",
    "auto": true
+  },
+  {
+   "job": "St Mary's Refurbishment, Merthyr Tydfil",
+   "client": "E T & S Construction",
+   "date": "2026-07-27",
+   "mary_estimate": 66540.24,
+   "actual": 60359.22,
+   "basis": "Register medians via mary_pricing.find_rate for the 31 Sheerline Prestige casement types (98 units, 160.36 m2), against BSW QT252799's own frame prices for exactly the same units. The engine applied the MEASURED bsw factor 1.056 from learned-rates.json, not the CALIBRATION Sheerline 1.10 - derived_factors() supersedes CALIBRATION, so on a BSW Sheerline job the Sheerline correction never fires. Uncorrected the register would have given GBP 63,011.59 (+4.4%); with the Sheerline 1.10 instead it would have been GBP 69,312.75 (+14.8%).",
+   "lesson": "THE AGGREGATE IS AN ACCIDENT OF MIX. Whole-job error is only +4.4% uncorrected because large band errors cancel: <1.5m2 is -35.5% (register UNDER-prices small units - actual GBP 697/m2 against a median of GBP 450), 1.5-3m2 is -1.2% (excellent), 3-6m2 is +37.5% and >6m2 is +35.2% (register OVER-prices large units). Per type the spread is -43.6% to +46.9% and only 15 of 31 land within +/-20%. So the register is a good whole-package predictor ONLY where the unit mix is broad, and a poor per-element one outside the 1.5-3m2 band. Both available corrections make this job worse, not better - the raw median was closest. One job is not enough to move a factor built on 273 lines, so nothing in the engine was changed; the band structure, not the supplier factor, is what looks wrong.",
+   "basis_type": "benchmark cost vs supplier cost"
   }
  ]
 }

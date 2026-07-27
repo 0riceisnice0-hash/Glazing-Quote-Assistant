@@ -1392,6 +1392,61 @@ the registry wipe never errored at all, the launch failure looked like a CLI pro
 have read as "Mary sent it" if the traceback had been swallowed.
 
 
+### St Mary's - calibration against BSW, and the register's band structure (2026-07-27, late)
+
+No work order; triage's handoff only confirmed they had narrowed my 403 to the mary@ mailbox and built
+the send log I asked for. Everything on the job is blocked on humans, so the turn went on the self-check
+the playbook asks for in s5c - and it produced the most useful engine finding of the day.
+
+**THE COMPARISON.** Register benchmark via `mary_pricing.find_rate` for the 31 Sheerline Prestige
+casement types against **BSW QT252799's own frame prices for exactly the same 98 units** - the cleanest
+like-for-like available, because the workbook's frame column had already been verified line by line
+against the quote. **GBP 66,540.24 benchmark vs GBP 60,359.22 actual = +10.2%.** Fifth entry in
+`data/calibration.json`.
+
+**I MISLABELLED THE FIRST PASS AND REDID IT.** `derived_factors()` from `data/learned-rates.json`
+supersedes the hand-typed `CALIBRATION` list, so the factor that fired was the **measured `bsw` 1.056
+(n=273 lines)**, not the Sheerline 1.10. Which means **on any BSW Sheerline job the Sheerline correction
+never runs at all** - worth knowing before anyone tunes that number.
+
+**THE AGGREGATE IS AN ACCIDENT OF UNIT MIX - this is the finding that matters.** Uncorrected the register
+is a respectable +4.4% out on the whole package. By band it is nothing of the sort:
+
+| band | types | units | actual GBP/m2 | register GBP/m2 | error |
+|---|---|---|---|---|---|
+| <1.5m2 | 10 | 34 | 697.38 | 449.77 | **-35.5%** |
+| 1.5-3m2 | 15 | 50 | 368.01 | 363.50 | **-1.2%** |
+| 3-6m2 | 4 | 10 | 340.10 | 467.57 | **+37.5%** |
+| >6m2 | 2 | 4 | 270.19 | 365.18 | **+35.2%** |
+
+Per type the spread is -43.6% to +46.9%, and only 15 of 31 land within +/-20%. Small units are far
+dearer per m2 than the median says and large units far cheaper - the bands do not capture the within-band
+size gradient. **So the register is a good whole-package predictor only where the unit mix is broad, and
+a poor per-element one outside 1.5-3m2.** A job weighted to one size will be badly out in a predictable
+direction.
+
+**BOTH CORRECTIONS MADE IT WORSE** - raw median +4.4%, measured bsw factor +10.2%, Sheerline 1.10 +14.8%,
+both compounded +21.3%. **Nothing in the engine was changed:** one job cannot move a factor built on 273
+lines, and it is the band structure rather than the supplier factor that looks wrong. Flagged, not wired
+in - the same discipline triage used on Adam's 25%.
+
+**AND THE WIDER NUMBER, WHICH IS NOW OUT OF DATE IN THE PLAYBOOK.** MARY-JOB-SESSION s5c still says the
+log holds two entries "averaging 7.9% out with almost no bias (-1.6% mean)". It holds five, and **four
+of the five run HIGH: mean bias +10.4%, mean absolute error 14.2%.** Checked whether that was an artefact
+of mixing comparison types - four compare Mary's SELL against Fenster's issued sell, mine is the only
+benchmark-cost-vs-supplier-cost - and it is not: the four homogeneous ones give **+10.5% bias, 15.2%
+absolute**. Added a **`basis_type`** field and a line to `how_to_add` so these are grouped before anyone
+quotes a single accuracy figure. Three of the four typed CALIBRATION corrections are upward multipliers,
+which is worth holding next to a base that already runs 10% high. Asked triage to correct the playbook
+text, since every new chat reads it on turn one and it currently tells them the benchmarks are unbiased.
+
+**A HYPOTHESIS RECORDED FOR ADAM, LABELLED AS ONE.** The unexplained GBP 1,000/unit "Additional" on Types
+F and H: those two are the cheapest per m2 on the job from BSW (GBP 280 and GBP 262 against GBP 368
+mid-band). A judgement adder on a 3,620mm screen that looked too cheap is exactly what that would look
+like - which would mean the money is already in the supply line and only the labelling is wrong, and
+that is the difference between the GBP 3,520.95 of light install labour being missing or already covered.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
