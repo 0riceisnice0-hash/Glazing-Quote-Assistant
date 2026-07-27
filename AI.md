@@ -308,8 +308,24 @@ usage-limit problem rather than a prompt-length one. **When a work order is park
 log message** - the cause was named precisely and sat unread for two and a half hours.
 
 Fixed: the prompt now goes down **stdin** (`claude -p` with no positional prompt), which has no length limit. Verified
-end to end at 30,328 characters - the exact size that was failing - returncode 0. Do NOT "fix" this by trimming the
-noticeboard: the board is where cross-job knowledge lives and rationing it would cost more than it saves.
+end to end at 30,328 characters - the exact size that was failing - returncode 0.
+
+**Interim, because that fix is inert until the bridge restarts, and by 20:36 resumes were failing too:** the board now
+trims itself by SIZE. `trim_board()` in `mary_note.py` already existed and was already called on every post, but capped
+by ENTRY COUNT (60) - with entries running 3-7k each that permits a 200,000-character board, so it had never fired in
+its life. It now holds the live board to `MAX_BOARD_CHARS` (9,000) and **appends** the overflow to
+`data/mary-noticeboard-archive.md`; nothing is discarded. This works on the already-running bridge because `post_board`
+executes as a fresh process every time a chat posts - unlike the bridge, it is not holding a stale module.
+
+Related correction worth remembering: `--read` used to print only the live board, so once trimming was automatic a chat
+looking up an earlier finding would see almost nothing and reasonably conclude it had never been posted. `read_board()`
+now takes `include_archive` and `--read` uses it. **Keep the default board-only** - the bridge calls `read_board(limit=12)`
+to build a kick prompt and must never be handed the whole archive.
+
+The ceiling is board + handoffs + job brief, not the board alone. After trimming, the worst-case chat prompt measured
+about 16,700 characters against the 32,767 cap. Raise `MAX_BOARD_CHARS` once the bridge is running the stdin fix - and
+do not ask the chats to write shorter notes instead. Six chats each self-censoring costs more than a short live board,
+which is recoverable with `--read`.
 
 **Third instance in one day of the same meta-rule**, after the two registry faults: a long-running process keeps the
 module it imported at startup, so a fix on disk changes what the NEXT process does, not the running one. Any plumbing

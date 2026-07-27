@@ -30,18 +30,41 @@ BOARD = os.path.join(REPO, "data", "mary-noticeboard.md")
 HANDOFFS = os.path.join(REPO, "test-results", "mary-inbox", "handoffs")
 DELIVERED = os.path.join(HANDOFFS, "delivered")
 KEEP_ENTRIES = 60
+ARCHIVE = os.path.join(REPO, "data", "mary-noticeboard-archive.md")
+# The bridge builds its kick prompt from the board plus handoffs plus the job
+# brief, and (until it is restarted with the stdin fix) passes the lot as a
+# Windows command line, which is capped at 32,767 characters. On 27/07/2026 the
+# board reached 31,387 on its own and froze every chat - new AND resumed. Trim by
+# SIZE, not just entry count: today's entries run 3-7k each, so the 60-entry cap
+# allowed a 200k board and never once fired. Nothing is discarded; overflow moves
+# to ARCHIVE. post_board() runs as a fresh process every time a chat posts, so
+# this takes effect immediately and does not wait on the restart.
+MAX_BOARD_CHARS = 9000
 
 
 def me():
     return os.environ.get("MARY_CHAT_KEY", "unknown-chat")
 
 
-def read_board(limit=40):
-    if not os.path.exists(BOARD):
+def read_board(limit=40, include_archive=False):
+    """Newest `limit` entries. Default is the LIVE board only - the bridge calls
+    this to build a kick prompt and must not be handed the whole archive.
+
+    include_archive=True gives the full history, which is what `--read` wants:
+    once trimming became automatic the live board holds only a couple of
+    entries, so without this a chat looking up an earlier finding would be told
+    the board is nearly empty.
+    """
+    texts = []
+    if include_archive and os.path.exists(ARCHIVE):
+        with open(ARCHIVE, encoding="utf-8") as fh:
+            texts.append(fh.read())
+    if os.path.exists(BOARD):
+        with open(BOARD, encoding="utf-8") as fh:
+            texts.append(fh.read())
+    if not texts:
         return ""
-    with open(BOARD, encoding="utf-8") as fh:
-        text = fh.read()
-    entries = [e for e in text.split("\n### ") if e.strip()]
+    entries = [e for e in "\n".join(texts).split("\n### ") if e.strip()]
     tail = entries[-limit:]
     return "\n### ".join(tail) if tail else ""
 
@@ -62,14 +85,45 @@ def post_board(body, author=None):
 
 
 def trim_board():
+    """Keep the live board under MAX_BOARD_CHARS, archiving what overflows.
+
+    Returns the number of entries moved. Newest entries stay; the rest are
+    appended to ARCHIVE in their original order so the archive still reads
+    oldest-first. A single entry larger than the budget is kept anyway - losing
+    a chat's finding would be worse than a long prompt, and the stdin fix
+    removes the ceiling for good once the bridge restarts.
+    """
     with open(BOARD, encoding="utf-8") as fh:
         text = fh.read()
     parts = text.split("\n### ")
-    if len(parts) - 1 <= KEEP_ENTRIES:
-        return
-    kept = [parts[0]] + parts[-KEEP_ENTRIES:]
+    header, entries = parts[0], parts[1:]
+    if not entries:
+        return 0
+
+    keep, size = [], 0
+    for entry in reversed(entries):
+        if keep and (size + len(entry) > MAX_BOARD_CHARS or len(keep) >= KEEP_ENTRIES):
+            break
+        keep.append(entry)
+        size += len(entry)
+    keep.reverse()
+
+    moved = entries[:len(entries) - len(keep)]
+    if not moved:
+        return 0
+
+    new = not os.path.exists(ARCHIVE) or os.path.getsize(ARCHIVE) == 0
+    with open(ARCHIVE, "a", encoding="utf-8") as fh:
+        if new:
+            fh.write("# Mary's noticeboard - archive\n\n"
+                     "Entries moved off the live board to keep the bridge kick prompt under the\n"
+                     "Windows command-line limit. Newest at the bottom, same as the board.\n")
+        for entry in moved:
+            fh.write("\n### " + entry.rstrip("\n") + "\n")
+
     with open(BOARD, "w", encoding="utf-8") as fh:
-        fh.write("\n### ".join(kept))
+        fh.write("\n### ".join([header] + keep))
+    return len(moved)
 
 
 def send_handoff(to_key, body, author=None):
@@ -115,12 +169,15 @@ def main():
     ap.add_argument("--body")
     ap.add_argument("--body-file")
     ap.add_argument("--from", dest="author", default=None)
-    ap.add_argument("--read", action="store_true")
+    ap.add_argument("--read", action="store_true",
+                    help="print the noticeboard INCLUDING archived entries")
+    ap.add_argument("--limit", type=int, default=40,
+                    help="how many entries --read shows (default 40)")
     ap.add_argument("--inbox", action="store_true")
     args = ap.parse_args()
 
     if args.read:
-        print(read_board() or "(noticeboard empty)")
+        print(read_board(limit=args.limit, include_archive=True) or "(noticeboard empty)")
         return 0
     if args.inbox:
         for rec in pending_handoffs(me()):

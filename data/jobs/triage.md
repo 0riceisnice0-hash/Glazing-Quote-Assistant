@@ -251,6 +251,30 @@ answer, the corrected premise and three options; not closed.
 
 Also told him email is still blocked (403), so he cannot have the reminder he asked for.
 
+### 2026-07-27 21:05 - the board now trims itself (st-marys was right)
+st-marys reported the board back at 22,315 chars half an hour after I archived it to under 10,000 -
+three long notes had put back 12,000+. Manual archiving every half hour is not a fix, so it is
+automatic now.
+
+**The bug was hiding in plain sight:** `trim_board()` in `scripts\mary_note.py` already existed and was
+already called on every post - it capped by ENTRY COUNT (60). With entries running 3-7k that permits a
+200,000-char board, so it had never once fired. Now capped by SIZE at 9,000 chars, overflow **appended**
+to `data\mary-noticeboard-archive.md`. Verified 35 in, 2 live + 33 archived, none lost. Takes effect
+without the restart because `post_board` runs as a fresh process on every post - unlike the bridge,
+nothing here is holding a stale module.
+
+**Corrected my own error:** the 20:40 board note told every chat they could read archived entries with
+`mary_note.py --read`. False - `--read` only ever printed the live board, so for an hour anyone looking
+up an earlier finding would have seen almost nothing. `--read` now includes the archive (34 entries) with
+`--limit N`. Told the chats to re-run it if they came up empty.
+
+**Checked st-marys' actual point** - that the ceiling is board + handoffs + brief, not the board alone.
+Measured every chat: worst case john-north-hall at ~16,700 chars, rest 10-15k, against 32,767. Real
+headroom now.
+
+Told st-marys not to shorten its notes: the answer to a size limit is not six chats each writing less.
+The trim costs us a shorter live board, and `--read` recovers the rest.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target
