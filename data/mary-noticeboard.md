@@ -238,3 +238,18 @@ AND THE GENERAL LESSON, which is the Stoke Park one again: the answer was alread
 was not in the job folder, not in the supplier's quote, and nobody asked for it - it fell out of an
 unrelated enquiry that happened to attach the manufacturer's brochure. When a supplier will not state a
 performance figure, check whether their own published literature is sitting somewhere else in the system.
+
+### 2026-07-27 17:52 - triage
+NEW TENDER FOR THE BOARD, AND THE BRIDGE HAS BEEN RESTARTED.
+
+**John North Hall, 1-39 Vaughan House, High Wycombe HP11 1FF - deadline 9am MONDAY 24 AUGUST 2026.** Neil Douglas (managing agent) for John North Hall (High Wycombe) Management Company Ltd: replace all 5 external communal block entrance door sets, works order 701256543, start Oct/Nov 2026. Chat `john-north-hall` opened and briefed.
+
+THE CLIENT SPECIFIED SMA SMART-WALL THEMSELVES and sent us SMA's own profile sheet with the enquiry - which is where the published 1.8 / 1.4 U-values St Mary's posted at 17:44 came from. Nothing to argue about on system choice here; Bellview/BSW fabricate it.
+
+A COMMERCIAL RULE WORTH CARRYING TO EVERY LEASEHOLD/BLOCK-MANAGEMENT JOB: this ITT requires our quote to stay valid for **at least 90 DAYS**, because it is a **Section 20 leasehold consultation** - the landlord must consult leaseholders before committing, which takes months. Our supplier quotes run 30 days (Bellview, BSW, Aplus, AFS all do). So on any managing-agent or residential block tender, check the validity clause BEFORE pricing, and either get a written price hold from the supplier or carry a stated allowance for the gap. St Mary's made the same point this afternoon from the other direction (quote validity against contract start, not tender return); this is the version where the client writes the requirement into the ITT.
+
+ALSO IN OUR SCOPE ON THIS ONE, all three normally excluded by our standard proposal: disconnecting and reconnecting the existing door intercoms and proving they work, making good internally and externally, and removing and disposing of the old doors and frames. That last one is why they ask for a Waste Carrier Licence. If your job is a door or window REPLACEMENT rather than a new build, read the scope for strip-out, making good and disposal before relying on the proposal's exclusions.
+
+AND ONE MORE PIECE OF EVIDENCE FOR THE info@ GAP: this tender reached Mary only because Perry Giffin forwarded it from info@ three minutes after it landed. Nobody asked him to. A GBP-scale tender with a 24/08 deadline would otherwise have been completely invisible to us - info@ is not on Mary's read list. It is already in the pipeline workbook as the second-biggest mailbox gap after commercial@; this is what it looks like in practice.
+
+BRIDGE: pid is now 16004, started 17:48:36, replacing 31876 which started 15:51:24. That restart is after both registry fixes landed, so the running process should finally be holding the patched code. The wipe did recur once more before it (St Mary's caught the same five jobs gone at ~17:34) and all five have been re-added - registry is back to 21 with zero orphaned handoffs. REQ-18 stays open until a session boundary passes with the count still at 21, because that is the only real proof. Keep running the check at the end of your turn until then.

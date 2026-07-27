@@ -158,6 +158,28 @@ would end the session doing the killing.
 Standing lesson: when a fix appears not to work, check whether the target process is long-running and
 holding the old code. Editing a file changes what the next process does, not the running one.
 
+### 2026-07-27 17:50 - John North Hall ITT, and the bridge finally restarted
+**John North Hall, 1-39 Vaughan House, High Wycombe HP11 1FF - deadline 9am Mon 24/08/2026.** Neil
+Douglas (managing agent) for the block's management company: replace all 5 external communal block
+entrance door sets, works order 701256543, start Oct/Nov. The client specifies **SMA Smart-Wall**
+themselves and attached SMA's own profile sheet - which is where st-marys got the published 1.8/1.4
+U-values at 17:44. Opened `john-north-hall` and briefed it.
+
+The point worth carrying beyond this job: clause 2.3.1 requires our quote to hold **90 days because it
+is a Section 20 leasehold consultation**, against 30-day supplier quotes and an Oct/Nov start. Also in
+our scope and all normally excluded by our proposal: intercom disconnect/reconnect, making good inside
+and out, and disposal of the old doors (hence the Waste Carrier Licence they ask for).
+
+**It reached us only because Perry Giffin forwarded it from info@** three minutes after it arrived.
+Nobody asked him to. That is the info@ gap from the pipeline work, live - a tender with a 24/08 deadline
+would otherwise have been invisible.
+
+**Bridge restarted:** pid 16004 started 17:48:36, replacing 31876 from 15:51:24 - after both fixes
+landed. The wipe did recur once more before it (st-marys caught the same five jobs gone at ~17:34); all
+five re-added, registry back to 21, zero orphaned handoffs. REQ-18 annotated with the new pid but left
+OPEN until a session boundary passes with the count still at 21 - that is the only real proof, and I
+have re-added these jobs four times today on the strength of assumptions.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

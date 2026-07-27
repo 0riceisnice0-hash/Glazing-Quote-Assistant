@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27T18:00:00",
+ "updated": "2026-07-27T17:52:00",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -151,6 +151,14 @@
    "value": "not yet priced",
    "stage": "tender received",
    "status": "NEW 27/07 - package return date FRIDAY 07/08/2026, taken from the Document Register. External windows and doors (uPVC) for Ermine on a Design and Build for Gravesham Borough Council; architect Abbey Design; Markers Lodge, 35 Lower Range Rd, Gravesend DA12 2QS. THE PACK WAS ISSUED 20/07 AND ONLY REACHED US ON 27/07, so the window is 11 days not 18. Addendum checked - it only adds answers to clarifications C30-C39 and touches nothing to do with windows or doors. TWO DOCUMENTS OUR PACKAGE NEEDS ARE MISSING from the pack and both were verified absent: Tender Addendum 1, which clarification C22 says carries the U-value answer, and drawing 25.578.15 referenced by C08. Materials schedule says uPVC Dark Grey with nothing stated about the internal face - ask before pricing. A Subcontractor Collateral Warranty is required."
+  },
+  {
+   "job": "John North Hall, Vaughan House - 5 communal entrance doors",
+   "client": "John North Hall (High Wycombe) Mgmt Co / Neil Douglas",
+   "deadline": "2026-08-24",
+   "value": "not yet priced",
+   "stage": "tender received",
+   "status": "NEW 27/07 - tender return 9am MON 24/08/2026, works order 701256543, works to start Oct/Nov 2026. Replace all 5 external communal block entrance door sets at 1-39 Vaughan House, John North Close, High Wycombe HP11 1FF. THE CLIENT SPECIFIES THE SYSTEM: SMA Smart-Wall, pivoted, anti-finger-trap hinge, concealed overhead closer, low mobility threshold, brown pad handles both faces, toughened/laminated/argon units, brown to match existing. Three things our standard proposal normally excludes are explicitly ours here: disconnecting and reconnecting the door intercoms and proving they work, making good inside and out, and removing and disposing of the old doors and frames - which is why they ask for a Waste Carrier Licence. BIGGEST COMMERCIAL POINT: clause 2.3.1 requires the quote to stay valid at least 90 DAYS because this is a leasehold Section 20 consultation, while Bellview and BSW quotes run 30 days and the start is three to four months out - get a written price hold or carry a stated allowance. Working hours 8-5 Mon-Fri, permit parking, keys from the agent; the scaffold clause is onerous while our proposal excludes access plant. Site visit offered by Jordan Jones. Reached us only because Perry forwarded it from info@, which Mary cannot see."
   }
  ],
  "requests": [
@@ -432,7 +440,7 @@
    "job": "Mary's own plumbing",
    "owner": "Zac",
    "title": "Restart the bridge - until you do, Mary keeps losing job chats",
-   "why": "data\\mary-jobs.json is written by every chat and by the bridge with no locking. The bridge loads the registry ONCE at startup and writes that same snapshot back on every session start and end, so any job chat opened after the bridge came up is silently deleted the next time a session runs. It has happened four times today and the worst instance took five jobs at once - riverside, chester-thomas, ninn-lane, manor-house and lower-range. It is worse than lost config: the bridge delivers handoffs by iterating registry keys, so a brief addressed to a deleted key is never delivered and never errors. Five briefs were sitting undeliverable when St Mary's spotted it. I have fixed both causes in code - save_registry() now merges with disk instead of overwriting, and the bridge re-reads the registry each pass instead of holding a snapshot - but the running bridge is pythonw pid 31876, started 15:51:24, which is BEFORE the fix landed. It is still executing the old module from memory, so the fix is inert and the next session will wipe the five jobs again.",
+   "why": "data\\mary-jobs.json is written by every chat and by the bridge with no locking. The bridge loads the registry ONCE at startup and writes that same snapshot back on every session start and end, so any job chat opened after the bridge came up is silently deleted the next time a session runs. It has happened four times today and the worst instance took five jobs at once - riverside, chester-thomas, ninn-lane, manor-house and lower-range. It is worse than lost config: the bridge delivers handoffs by iterating registry keys, so a brief addressed to a deleted key is never delivered and never errors. Five briefs were sitting undeliverable when St Mary's spotted it. I have fixed both causes in code - save_registry() now merges with disk instead of overwriting, and the bridge re-reads the registry each pass instead of holding a snapshot - but the running bridge is pythonw pid 31876, started 15:51:24, which is BEFORE the fix landed. It is still executing the old module from memory, so the fix is inert and the next session will wipe the five jobs again. UPDATE 17:50: the bridge HAS been restarted - pid is now 16004, started 17:48:36, against 31876 started 15:51:24 before. That is after both fixes landed, so the running process should now hold the patched code. But the wipe recurred once more in between (St Mary's confirmed the same five jobs gone at ~17:34), so all five have been re-added again and the registry is back to 21. Leaving this open until a session boundary passes with the count still at 21 - that is the only real proof.",
    "needs": "Restart the bridge so it picks up the patched scripts\\mary_router.py and scripts\\mary_bridge.py. I have deliberately not done it myself - it is the process that launches my own sessions and killing it mid-turn would end the session doing the killing. Afterwards, `python scripts\\mary_router.py --list` should show 21 jobs and keep showing 21.",
    "options": [
     "Restarted - bridge is back up",

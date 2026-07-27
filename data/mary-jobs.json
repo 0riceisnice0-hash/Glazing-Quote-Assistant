@@ -220,6 +220,84 @@
    ],
    "senders": [],
    "opened": "2026-07-27T14:49:39"
+  },
+  "riverside": {
+   "name": "Riverside House AOV smoke vents (RRR Group)",
+   "client": "RRR Group",
+   "match": [
+    "riverside",
+    "qt51518",
+    "wedgewood",
+    "fairford leys",
+    "24/02303"
+   ],
+   "senders": [],
+   "opened": "2026-07-27T17:49:32"
+  },
+  "chester-thomas": {
+   "name": "Chester Thomas Developments (Earls Barton)",
+   "client": "Chester Thomas Developments",
+   "match": [
+    "chester thomas",
+    "berry close",
+    "earls barton",
+    "arched front door",
+    "arched door"
+   ],
+   "senders": [
+    "chesterthomas"
+   ],
+   "opened": "2026-07-27T17:49:32"
+  },
+  "ninn-lane": {
+   "name": "Ninn Lane Re-development (Ermine)",
+   "client": "Ermine Construction Services",
+   "match": [
+    "ninn lane",
+    "qt51269",
+    "msg639gv"
+   ],
+   "senders": [],
+   "opened": "2026-07-27T17:49:32"
+  },
+  "manor-house": {
+   "name": "Manor House (AFS Q7593)",
+   "client": "TBC - AFS enquiry",
+   "match": [
+    "manor house",
+    "q7593"
+   ],
+   "senders": [],
+   "opened": "2026-07-27T17:49:32"
+  },
+  "lower-range": {
+   "name": "Lower Range Road Development, Gravesend (uPVC package)",
+   "client": "Ermine Construction Services / Gravesham BC",
+   "match": [
+    "lower range",
+    "ittgg5b2",
+    "gravesham",
+    "markers lodge",
+    "25.578",
+    "da12 2qs"
+   ],
+   "senders": [],
+   "opened": "2026-07-27T17:49:32"
+  },
+  "john-north-hall": {
+   "name": "John North Hall, Vaughan House - 5 communal entrance doors",
+   "client": "John North Hall (High Wycombe) Mgmt Co / Neil Douglas",
+   "match": [
+    "john north",
+    "vaughan house",
+    "hp11 1ff",
+    "701256543",
+    "high wycombe"
+   ],
+   "senders": [
+    "neildouglas"
+   ],
+   "opened": "2026-07-27T17:50:41"
   }
  },
  "chats": {
@@ -271,6 +349,48 @@
    "created": "2026-07-27T16:14:24",
    "last_active": "2026-07-27T16:34:34",
    "runs": 1
+  },
+  "riverside": {
+   "session_id": "b664294f-b027-4e0e-9f7b-084072d720c9",
+   "started": false,
+   "created": "2026-07-27T17:49:32",
+   "last_active": null,
+   "runs": 0
+  },
+  "chester-thomas": {
+   "session_id": "1b683822-8333-4c43-afe0-1794fff33e74",
+   "started": false,
+   "created": "2026-07-27T17:49:32",
+   "last_active": null,
+   "runs": 0
+  },
+  "ninn-lane": {
+   "session_id": "3bbe742e-d0de-4ef6-b530-3641f777c5da",
+   "started": false,
+   "created": "2026-07-27T17:49:32",
+   "last_active": null,
+   "runs": 0
+  },
+  "manor-house": {
+   "session_id": "9a8e5c69-b89c-46dc-bd18-4b3d4f095892",
+   "started": false,
+   "created": "2026-07-27T17:49:32",
+   "last_active": null,
+   "runs": 0
+  },
+  "lower-range": {
+   "session_id": "1ceef803-8506-4e09-84ee-c806734b3cd5",
+   "started": false,
+   "created": "2026-07-27T17:49:32",
+   "last_active": null,
+   "runs": 0
+  },
+  "john-north-hall": {
+   "session_id": "c89a998e-7df3-4604-ab6d-83f016da6e01",
+   "started": false,
+   "created": "2026-07-27T17:50:41",
+   "last_active": null,
+   "runs": 0
   }
  }
 }
