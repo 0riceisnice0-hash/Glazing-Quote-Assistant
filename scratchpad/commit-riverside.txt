@@ -1,0 +1,35 @@
+Riverside House priced and drawn - and the pack says 1m2, not the 1.5m2 we were testing against
+
+Adam instructed the house pricing document and drawings on 27/07. Both done:
+GBP 5,990.22 ex VAT supply and fit, off Aplus QT51518 at GBP 4,845.22 net, code
+MAW, engine and template agreeing to the penny. Two-sheet drawing set, Rev A,
+dimensioned off the quote and carrying the client's own smoke-vent note.
+
+The substantive finding is that the free-area answer given earlier today is
+withdrawn. It was measured against "we need 1.5m2", which came from Fenster's
+own enquiry to Gintare. The pack that arrived at 15:00 says something else -
+drawings K1653-11 and K1653-12 each carry "AN AUTOMATICALLY OPENABLE
+VENT/WINDOW WITH A FREE AREA OF 1m2", once per stairwell at that stairwell's
+top storey, which is also where the quantity of 2 comes from. So Aplus's
+1.30m2 geometric clears the drawing by 30% rather than falling 0.20m2 short,
+and REQ-9 has been rewritten to ask the question that actually decides it:
+geometric or aerodynamic. Aplus quote geometric only here; on their QT51516 for
+the same vent, aerodynamic runs 60-62% of geometric, which would put us ~20%
+under - and would sink their proposed 1235x1583 too.
+
+Also found: the AOV control system, fire-brigade override included, is in
+nobody's scope, so the window alone cannot meet the note.
+
+Two new checks, founded here, fixture _test-riverside.json:
+  - check_free_delivery_threshold. The quote says "Delivered"; the terms only
+    deliver free above GBP 5,000 and the order is GBP 154.78 under.
+  - a thin-margin arm on check_quote_validity_against_commitment. Gordon Court
+    failed that rule by 163 days; this one passes it by zero, which is not the
+    same as being covered.
+
+mary_checks on the job: 0 failed, 3 questions. Selftest passes, every founding
+error still caught.
+
+Note for Zac: mary_send.py is blocked - 403 ErrorAccessDenied, tenant AppOnly
+AccessPolicy. The reply to Adam is written and saved in outputs/ for a human to
+send; the substance went to the hub instead.

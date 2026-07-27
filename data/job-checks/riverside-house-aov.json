@@ -1,0 +1,151 @@
+{
+ "job": "Riverside House AOV Smoke Vents (RRR Group)",
+ "created": "2026-07-27",
+ "_note": "2no bottom-hung AOV smoke vents, one per stairwell, at each stairwell's top storey. Priced off A Plus QT51518 supply-only, made supply-and-fit. Requirement source: red note on drawings K1653-11 and K1653-12, 'AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2'.",
+ "coupled_runs": [],
+ "doors": [],
+ "frame_supply": "glazed",
+ "quantities": [
+  {
+   "ref": "AOV.01 - Stairwell 1, second floor (K1653-12)",
+   "bill_qty": 1,
+   "drawing_qty": 1
+  },
+  {
+   "ref": "AOV.02 - Stairwell 2, first floor (K1653-11)",
+   "bill_qty": 1,
+   "drawing_qty": 1
+  }
+ ],
+ "spec_items": [
+  {
+   "ref": "AOV smoke vent to Stairwell 1 top storey",
+   "treatment": "priced"
+  },
+  {
+   "ref": "AOV smoke vent to Stairwell 2 top storey",
+   "treatment": "priced"
+  },
+  {
+   "ref": "External mastic to vent perimeters (10.64 lm)",
+   "treatment": "priced"
+  },
+  {
+   "ref": "AOV control panel, mains + battery supply, cabling, containment, fire brigade override at ground floor access level, commissioning, EN 12101 O&M",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Window restrictors (A Plus disclaim liability without them, set 50mm beyond stroke)",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Builder's work - forming/adapting/making good openings, lintels, internal finishes",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Access equipment / scaffold to top-storey level",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Ongoing maintenance of the life-safety system (RRO 2005 duty of occupier/agent)",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Part K anti-fall protection / balustrading if vent cill below 1100mm FFL",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "W1 escape windows and W2 windows throughout the flat conversion (drawings K1653-10b/11/12 key, U 1.6)",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "D1 flat entrance doors FD30s and D5 external quality glazed door (drawings key, U 1.6)",
+   "treatment": "excluded"
+  }
+ ],
+ "supplier_quotes": [
+  {
+   "supplier": "A Plus Windows & Doors",
+   "ref": "QT51518",
+   "date": "2026-07-27",
+   "valid_until": "2026-08-26",
+   "used_net": true,
+   "value": 4845.22,
+   "note": "Frames 4662.15 + glass 171.31 + energy surcharge 11.76 = 4845.22, ties exactly to the stated Total - no extras block on this quote (the Gordon Court element-lines-vs-total test passes). Supply only, delivered, glazed. 'The Price stated in the quotation is open for acceptance for a period of 30 days'. Order value is 154.78 BELOW A Plus's 5000 ex VAT free-delivery threshold, so delivery is chargeable at 1/mile each way from Watford unless batched - see check_free_delivery_threshold."
+  }
+ ],
+ "full_height_screens": [],
+ "systems_specified": [
+  {
+   "system": "Sapa DualFrame 75Si",
+   "fabricator": "A Plus Windows & Doors",
+   "performance": {
+    "required": "Free area 1.0 m2 per stairwell (drawings K1653-11 and K1653-12), basis geometric or aerodynamic NOT stated on the drawing",
+    "capable": null,
+    "evidence": "A Plus state GEOMETRIC 1.30 m2 per vent on QT51518 and give no aerodynamic figure. On their QT51516 (Towcester Vale, same DualFrame 75Si AOV) aerodynamic runs 60-62% of geometric (0.49/0.81 and 0.54/0.87). On that ratio 1.30 geometric is ~0.78-0.81 aerodynamic, ~20% short of 1.0. Complies on geometric, fails on aerodynamic. A Plus have not been asked for the aerodynamic figure for these sizes - RFI-1."
+   }
+  },
+  {
+   "system": "Sapa DualFrame 75Si (thermal)",
+   "fabricator": "A Plus Windows & Doors",
+   "performance": {
+    "required": "U-value 1.6 W/m2K, per the key on drawings K1653-10b/11/12 (W1, W2 and D1 all carry 1.6)",
+    "capable": null,
+    "evidence": "QT51518 states a CENTRE-PANE glass figure only - '4-20-4 Clr Tough S Coat 1.2' - and no whole-window Uw. A Plus's own advisory notes set their default the other way: 'Unless otherwise stated, windows and doors will have a U-Value no better than 1.8.' Whether the 1.6 key value binds the stair AOV (which is called out only by the red smoke-vent note, not lettered W1/W2) is itself unconfirmed. Nobody has asked A Plus for a Uw - RFI-6."
+   }
+  }
+ ],
+ "finishes": [
+  {
+   "ref": "AOV.01",
+   "specified_internal": "white",
+   "specified_external": "white",
+   "quoted_internal": "white",
+   "quoted_external": "white"
+  },
+  {
+   "ref": "AOV.02",
+   "specified_internal": "white",
+   "specified_external": "white",
+   "quoted_internal": "white",
+   "quoted_external": "white"
+  }
+ ],
+ "u_value": {
+  "required": 1.6,
+  "basis": "per element",
+  "note": "The drawings key states 1.6 against each window/door TYPE (W1, W2, D1, D5) rather than as a package average, so it reads per element. No energy or sustainability appendix is present in the pack to test against (the St Mary's / Gordon Court check) - the pack is 6 planning and construction-issue drawings only.",
+  "rejected_elements": []
+ },
+ "supplier_coverage": [
+  {
+   "ref": "AOV.01",
+   "qty_sold": 1,
+   "qty_quoted": 2,
+   "supplier_ref": "A Plus QT51518"
+  },
+  {
+   "ref": "AOV.02",
+   "qty_sold": 1,
+   "qty_quoted": 2,
+   "supplier_ref": "A Plus QT51518"
+  }
+ ],
+ "price_commitment": {
+  "source": "Private client, no ITT and no Form of Tender. Fenster's house document carries 30-day validity and the pricing document is dated 27/07/2026, so our price is open to 26/08/2026.",
+  "our_price_open_until": "2026-08-26",
+  "note": "ZERO HEADROOM, and it will go negative. A Plus QT51518 also expires 26/08/2026 - the same day. Adam has said the submission waits on PHDB returning building-works costs, so the issue date will be LATER than 27/07 and our 30 days will run past the day the cost behind it lapses. Any issue date after today needs the A Plus price re-confirmed, or a stated allowance."
+ },
+ "delivery_terms": [
+  {
+   "supplier": "A Plus Windows & Doors",
+   "ref": "QT51518",
+   "order_value": 4845.22,
+   "free_delivery_threshold": 5000.0,
+   "stated_on_quote": "Glazed /Supply Only (Delivered)",
+   "charge_basis": "1/mile each way from Watford or previous drop, whichever is lower, where a load under 5000 ex VAT cannot be efficiently batched",
+   "delivery_priced": "provisional",
+   "note": "A Plus batch sub-GBP5,000 loads to avoid charges and only levy GBP1/mile each way where batching is not possible, so the amount is contingent, not fixed. Carried as provisional pending A Plus confirmation - RFI-7. Note the resize option removes it: at 1235 x 1583 the order clears GBP 5,000 and delivery is FOC."
+  }
+ ]
+}

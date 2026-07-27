@@ -1,0 +1,79 @@
+Adam,
+
+Riverside House is on the pricing document and I have drawn it up. Both attached.
+
+THE PRICE
+
+GBP 5,990.22 ex VAT - 2no AOV smoke vents supplied and installed. That is A Plus QT51518
+at GBP 4,845.22 net (supply only, delivered) plus the code adder and installation. External
+mastic GBP 53.20 sits in the optional block.
+
+THE THING WORTH READING BEFORE ANYTHING ELSE - WE MAY HAVE BEEN CHASING THE WRONG NUMBER
+
+When you asked Gintare for these on 24/07 you said "We need 1.5m2". A Plus came back at
+1.30m2 and the answer we gave you was no, 0.20m2 short.
+
+The pack you forwarded on Monday afternoon says something different. Drawings K1653-11 and
+K1653-12 both carry the same red note:
+
+  "SMOKE VENT TO STAIRWELL ROOF - STAIR LOBBY/STAIRWELL TO BE VENTED AT THE TOP STOREY
+   ROOF WITH AN AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2 OPERATED BY
+   THE FIRE BRIGADE AT GROUND FLOOR ACCESS LEVEL IN THE STAIRS"
+
+One square metre, not one and a half. The note appears once per stairwell, at that
+stairwell's top storey - which is also where the 2no comes from: Stairwell 1 tops out at
+second floor, Stairwell 2 at first floor. So it is 1m2 per vent, and A Plus's 1.30m2 clears
+it with 30% to spare rather than falling short.
+
+I cannot find 1.5m2 anywhere in the pack. If it came from a fire engineer or from Paul
+rather than from these drawings, that source beats the drawings and I will requote - but if
+it was a round number to be safe, we are already there and there is no need to resize.
+
+THE ONE QUESTION THAT ACTUALLY DECIDES IT
+
+The drawing says "free area of 1m2" and does not say whether that is geometric or
+aerodynamic. It matters more than the 1.0 vs 1.5 does:
+
+  - A Plus quote GEOMETRIC free area only on QT51518: 1.30m2.
+  - On their Towcester Vale quote for the same DualFrame 75Si vent they state both, and
+    aerodynamic runs at 60-62% of geometric (0.49 against 0.81, and 0.54 against 0.87).
+  - On that ratio our 1.30m2 geometric is roughly 0.78-0.81m2 aerodynamic - about 20% short
+    of 1m2. And A Plus's proposed 1235 x 1583 "fix", which reaches 1.5m2 geometric, would be
+    about 0.9m2 aerodynamic and would still miss.
+
+So on a geometric reading we comply comfortably and nothing needs to change. On an
+aerodynamic reading we do not, and neither does the bigger vent. Two things close it: A Plus
+stating the aerodynamic figure for our actual sizes, and the fire strategy confirming which
+basis applies. Both are worth having before we order rather than after.
+
+FOUR SMALLER ONES
+
+1. Nobody is carrying the AOV control system. The drawing requires the vent to be operated
+   by the fire brigade at ground floor access level, which means a smoke control panel,
+   mains and battery supply, cabling and a fireman's override. A Plus fix the actuator, test
+   it on local batteries and leave about 2m of flex coiled at the vent - that is where their
+   scope stops. It is not in our price either. The window on its own cannot meet the note.
+
+2. Delivery is probably not free. A Plus's quote says "Delivered" on the front, but their
+   terms only deliver free on loads over GBP 5,000. Ours is GBP 4,845.22 - GBP 154.78 under.
+   Below that they batch loads or charge GBP 1/mile each way from Watford. Worth one line to
+   them to confirm. Note that resizing the vents upward would push the order over GBP 5,000
+   and make it moot.
+
+3. Our price and A Plus's expire on the same day - 26/08. Since you are holding the
+   submission until PHDB come back on the building works, whenever we do issue, our 30 days
+   will run past the day the cost behind it lapses. Either we get A Plus to hold, or we
+   re-confirm at the point of issue.
+
+4. A Plus have quoted a 155mm Technal subcill against the 150mm you asked for, and the vents
+   are specified with no restrictor - A Plus are explicit that the actuator is not a
+   restrictor and disclaim liability for damage if one is not fitted 50mm beyond the stroke.
+
+AND ONE COMMERCIAL POINT
+
+The pack is a full flat conversion. Its key defines W1 escape windows, W2 windows at U 1.6
+and D1/D5 doors, and they appear right through all three floors. We are pricing two vents
+out of that. If the windows and doors are going out to anyone, we should be on the list.
+
+The drawings are marked Rev A and carry the open items as numbered RFIs. I have not put
+anything to A Plus - that needs to come from you or Gintare.

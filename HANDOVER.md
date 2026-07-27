@@ -633,6 +633,81 @@ Their AOV notes page carries constraints that need to reach whoever installs: ca
 damage if a separate restrictor is not fitted 50mm beyond the stroke; vents below 2.5m from FFL raise a trap hazard
 under BS EN 60335-2; below 1100mm from FFL they need Part K anti-fall protection, which Aplus exclude. Raised as REQ-9.
 
+### Riverside House - priced and drawn, and the free-area answer above is WITHDRAWN (2026-07-27, later)
+
+**The record above was written before the tender pack arrived. The pack changes the answer.**
+
+Adam instructed the house pricing document and drawings at 13:47 ("no urgency on this one as I am
+waiting for PHDB to get costs back for the building works"). Both are done:
+`outputs\Riverside House - Fenster Pricing Document (house format).xlsx` and
+`outputs\Riverside House - AOV Smoke Vent Drawings.pdf` (2 sheets, Rev A). Full record
+`data\jobs\riverside.md`.
+
+**GBP 5,990.22 ex VAT** supply and fit. Aplus QT51518 at GBP 4,845.22 net splits to GBP 2,422.61 per
+unit (GBP 1,401.24/m2 over 1.729 m2); code **MAW**, template adder 550 x 75% = 412.50, labour 160/unit;
+optional external mastic 10.64 lm @ GBP 5 = 53.20. `mary_pricing` and the template agree to the penny.
+The element lines tie exactly to the quote's stated Total, so there is **no extras block** on this one -
+the Gordon Court test passes.
+
+**THE REQUIREMENT IS 1 m2, NOT 1.5 m2.** Drawings K1653-11 (first floor) and K1653-12 (second floor),
+both Campbell Ark CONSTRUCTION ISSUE, each carry the identical red note: *"SMOKE VENT TO STAIRWELL ROOF
+- STAIR LOBBY/STAIRWELL TO BE VENTED AT THE TOP STOREY ROOF WITH AN AUTOMATICALLY OPENABLE VENT/WINDOW
+WITH A FREE AREA OF 1m2 OPERATED BY THE FIRE BRIGADE AT GROUND FLOOR ACCESS LEVEL IN THE STAIRS."* It
+appears **once per stairwell, at that stairwell's top storey** - which is also where the quantity of 2
+comes from (Stairwell 1 tops out at second floor, Stairwell 2 at first floor). That settles the
+per-vent-or-total question from the documents rather than by inference; Aplus independently confirm the
+same reading by sizing a *single* frame, 1235 x 1583, to reach 1.5 m2.
+
+So Aplus's **1.30 m2 geometric clears the drawing by 30%**, and "0.20 m2 short, requote bigger" is
+withdrawn. The 1.5 m2 came from Fenster's own enquiry of 24/07 and appears nowhere in the pack; its
+source needs confirming. **The lesson is general: check where the number you are testing against came
+from. An enquiry email is our assumption, not the client's requirement.**
+
+**What is still open is the basis.** QT51518 states geometric only. Aplus's QT51516 (Towcester Vale,
+same DualFrame 75Si AOV) states both on every line, verified at source: 0.81/0.49 and 0.87/0.54 -
+**aerodynamic runs 60-62% of geometric**. On that ratio 1.30 geometric is ~0.78-0.81 aerodynamic and
+would MISS 1 m2, and so would Aplus's proposed 1235 x 1583 at ~0.9. Aplus must state the aerodynamic
+figure for the actual sizes, and the fire strategy must say which basis governs. Do not derive it from
+frame area - Towcester's own geometric/frame ratios are 75% and 54%, it does not scale. Now a standing
+rule in `AI.md`.
+
+**THE AOV CONTROL SYSTEM IS IN NOBODY'S SCOPE.** The drawing requires fire-brigade operation from
+ground floor access level: a smoke control panel, mains and battery-backed supply, cabling,
+containment, override, commissioning and EN 12101 documentation. Aplus fix the actuator, test it on
+local batteries and leave ~2m of flex coiled at the vent - that is where they stop - and our price
+excludes it too. The window alone cannot satisfy the note.
+
+**Two new checks, founded here, fixture `data\job-checks\_test-riverside.json`, selftest passes:**
+
+1. `check_free_delivery_threshold`. QT51518's Job Spec line reads *"Glazed /Supply Only (Delivered)"*,
+   but the terms say *"All orders are priced as Ex-Works"* and only deliver FOC on loads **over
+   GBP 5,000 ex VAT** within 50 miles of Watford; below that Aplus batch or charge GBP 1/mile each way.
+   Our order is GBP 4,845.22 - **GBP 154.78 under**. Same shape as AFS on Gordon Court. New manifest
+   field `delivery_terms`; `delivery_priced: "provisional"` asks where carriage is genuinely
+   contingent, a silent omission still FAILS.
+2. A **thin-margin arm** on `check_quote_validity_against_commitment`. Gordon Court failed that rule by
+   163 days; Riverside *passes* it by zero - our 30-day validity and Aplus's both close 26/08/2026, the
+   same day - which is not the same as being covered. Under 14 days of headroom now asks. It matters
+   here precisely because Adam is deferring issue until PHDB report, so the headroom goes negative
+   while we wait.
+
+`mary_checks.py data\job-checks\riverside-house-aov.json` = 0 failed, **3 questions** (free-area basis,
+validity headroom, delivery). Nothing goes to RRR Group until those close.
+
+**Two other things worth carrying.** The pack is a full flat conversion - its key defines W1 escape
+windows, W2 windows at U 1.6 and D1/D5 doors right through all three floors - and we are pricing two
+vents out of it; flagged to Adam as an opportunity. And the planning applicant on the location plan is
+**Elderfern Ltd**, not RRR Group; Primrose Property, Elderfern and SRP Investments are RRR's associated
+companies, so one client can arrive under several names.
+
+**The reply to Adam could not be sent.** `scripts\mary_send.py` returned
+`403 ErrorAccessDenied - "Access to OData is disabled: [RAOP] : Blocked by tenant configured AppOnly
+AccessPolicy settings."` That is an Exchange ApplicationAccessPolicy change on the tenant, not a
+transient, and nothing in the repo had recorded it. Reading still works. The draft is saved at
+`outputs\Riverside House - Reply to Adam (draft).txt` for a human to send, and the substance went onto
+the hub instead (REQ-9 rewritten, job status updated, two catches added). **Zac needs to re-grant the
+app's send scope.**
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

@@ -31,6 +31,12 @@ MANIFEST_DIR = os.path.join(REPO, "data", "job-checks")
 
 PASS, FAIL, UNKNOWN, NA = "PASS", "FAIL", "UNKNOWN", "n/a"
 
+# Riverside House, 27/07. A supplier quote expiring the same day our own price
+# closes clears "held as long as ours" and is still useless - the client accepts
+# on the last day and there is nothing left to place the order against. Days of
+# headroom below this raise a question rather than a pass.
+THIN_MARGIN_DAYS = 14
+
 # Systems and their frame depth in mm. Frames can only be coupled within the
 # same depth - Adam's ruling, 24/07/2026.
 SYSTEM_DEPTH = {
@@ -548,9 +554,98 @@ def check_quote_validity_against_commitment(m):
         return result("supplier price held as long as ours", UNKNOWN,
                       "No expiry date stated for: %s. A quote with no validity period is not a held "
                       "price." % ", ".join(silent), "Gordon Court")
+    # Riverside House, 27/07. A quote that dies on the SAME DAY our price closes
+    # technically passes the test above and is still no use: it leaves the client
+    # no time to accept and us no time to order. Gordon Court failed by 163 days;
+    # Riverside passes by zero, which is not the same as being covered.
+    thin = []
+    for q in quotes:
+        try:
+            vu = dt.date.fromisoformat(str(q.get("valid_until")))
+        except Exception:
+            continue
+        margin = (vu - until).days
+        if margin < THIN_MARGIN_DAYS:
+            thin.append("%s %s expires %s, only %d day(s) after our price closes on %s"
+                        % (q.get("supplier", "?"), q.get("ref", "?"), vu.isoformat(),
+                           margin, until.isoformat()))
+    if thin:
+        return result("supplier price held as long as ours", UNKNOWN,
+                      "Covered, but with no headroom: %s. Acceptance on the last day of our validity "
+                      "leaves nothing to place the order against. Confirm the supplier price at the "
+                      "point of issue, or carry a stated allowance." % "; ".join(thin), "Riverside House")
     return result("supplier price held as long as ours", PASS,
                   "%d supplier quote(s) held to at least %s" % (len(quotes), until.isoformat()),
                   "Gordon Court")
+
+
+def check_free_delivery_threshold(m):
+    """Riverside House, 27/07. A Plus QT51518 says 'Glazed /Supply Only
+    (Delivered)' on its face. Their terms say something narrower: 'All orders
+    are priced as Ex-Works', 'Loads over GBP 5000 + VAT will be delivered FOC
+    within a 50-mile radius of Watford', and loads under GBP 5000 are batched
+    or charged at GBP 1/mile each way. The Riverside order is GBP 4,845.22 -
+    GBP 154.78 UNDER the threshold - so the word 'Delivered' on the quote does
+    not mean delivery is in the price.
+
+    Same shape as AFS on Gordon Court, whose Specifics page read 'Logistics:
+    Delivered' while delivery sat in a priced extras block and T&C 8.1 put
+    packaging, insurance and transport on the customer 'IN ADDITION'.
+
+    'delivery_terms': [{supplier, ref, order_value, free_delivery_threshold,
+                        charge_basis, delivery_priced}]"""
+    terms = m.get("delivery_terms")
+    if terms is None:
+        return result("delivery actually included", UNKNOWN,
+                      "State the delivery basis for every supplier: 'delivery_terms': "
+                      "[{supplier, ref, order_value, free_delivery_threshold, charge_basis, "
+                      "delivery_priced}]. A quote that says 'Delivered' on its face can still put "
+                      "carriage on us in its terms. If a supplier genuinely carries delivery "
+                      "unconditionally, say so with free_delivery_threshold 0.", "Riverside House")
+    if not terms:
+        return result("delivery actually included", NA, "no delivered supplier orders on this job",
+                      "Riverside House")
+    short, silent, prov = [], [], []
+    for t in terms:
+        ref = "%s %s" % (t.get("supplier", "?"), t.get("ref", "?"))
+        val, thr = t.get("order_value"), t.get("free_delivery_threshold")
+        if val is None or thr is None:
+            silent.append(ref)
+            continue
+        if val >= thr:
+            continue
+        priced = t.get("delivery_priced")
+        gap = "%s: order GBP %s is GBP %s below the supplier's GBP %s free-delivery threshold" % (
+            ref, format(val, ",.2f"), format(thr - val, ",.2f"), format(thr, ",.2f"))
+        if priced is True:
+            continue
+        # A carriage cost the supplier makes CONTINGENT (A Plus batch sub-GBP5k
+        # loads and only charge where batching fails) cannot be priced to the
+        # penny by us. Identified-and-pending is a question, not a silent
+        # omission - but it must never read as covered.
+        if str(priced).lower() == "provisional" and t.get("charge_basis"):
+            prov.append("%s; carried as provisional on the supplier's stated basis (%s)"
+                        % (gap, t["charge_basis"]))
+        else:
+            short.append("%s and no carriage is priced (%s)"
+                         % (gap, t.get("charge_basis") or "basis not stated"))
+    if short:
+        return result("delivery actually included", FAIL,
+                      "Delivery is not in the price: %s. Either price the carriage or get the "
+                      "supplier to confirm the load is being batched free." % "; ".join(short),
+                      "Riverside House")
+    if prov:
+        return result("delivery actually included", UNKNOWN,
+                      "Carriage identified but not yet fixed: %s. Get the supplier to confirm the "
+                      "charge or that the load is batched free before the price is issued."
+                      % "; ".join(prov), "Riverside House")
+    if silent:
+        return result("delivery actually included", UNKNOWN,
+                      "Order value or free-delivery threshold not stated for: %s." % ", ".join(silent),
+                      "Riverside House")
+    return result("delivery actually included", PASS,
+                  "%d supplier order(s) clear their delivery threshold or carry priced carriage" % len(terms),
+                  "Riverside House")
 
 
 RULES = [
@@ -559,6 +654,7 @@ RULES = [
     check_full_height_screens, check_fabricator_can_make_it, check_uvalue_basis,
     check_finish_substitution, check_supplier_covers_quantity,
     check_system_performance, check_quote_validity_against_commitment,
+    check_free_delivery_threshold,
 ]
 
 
@@ -581,6 +677,7 @@ def blank_manifest(job):
         "u_value": None,
         "supplier_coverage": None,
         "price_commitment": None,
+        "delivery_terms": None,
     }
 
 
@@ -626,6 +723,13 @@ def selftest():
         "_test-brocks-hill.json": {"supplier quote covers every unit sold"},
         "_test-st-marys.json": {"system can meet the specified performance"},
         "_test-gordon-court.json": {"supplier price held as long as ours"},
+        "_test-riverside.json": {"delivery actually included"},
+    }
+    # Rules whose founding error is a QUESTION rather than an outright error.
+    # Asserted separately so that widening "fired" to include ASK cannot quietly
+    # let a fixture that should FAIL degrade into merely asking.
+    expected_ask = {
+        "_test-riverside.json": {"supplier price held as long as ours"},
     }
     ok = True
     for name, must_fail in expected.items():
@@ -635,11 +739,18 @@ def selftest():
             ok = False
             continue
         with open(path, encoding="utf-8") as fh:
-            failed = {r["rule"] for r in run(json.load(fh)) if r["status"] == FAIL}
+            results = run(json.load(fh))
+        failed = {r["rule"] for r in results if r["status"] == FAIL}
+        asked = {r["rule"] for r in results if r["status"] == UNKNOWN}
         missed = must_fail - failed
-        print("  %-22s %d rule(s) fired%s" % (name, len(failed),
-                                              "" if not missed else "  MISSED: %s" % ", ".join(missed)))
+        missed_ask = expected_ask.get(name, set()) - asked
+        note = ""
         if missed:
+            note += "  MISSED: %s" % ", ".join(missed)
+        if missed_ask:
+            note += "  MISSED ASK: %s" % ", ".join(missed_ask)
+        print("  %-22s %d rule(s) fired, %d asked%s" % (name, len(failed), len(asked), note))
+        if missed or missed_ask:
             ok = False
     print("selftest %s" % ("passed - every founding error is still caught" if ok else "FAILED"))
     return 0 if ok else 1

@@ -820,9 +820,45 @@ git remote -v
 
 Use `npm.cmd` instead of `npm` if PowerShell blocks `npm.ps1`.
 
+## AOV Smoke Vents - Geometric vs Aerodynamic Free Area (Riverside House, 27/07/2026)
+
+**Standing rule for any job with an AOV or smoke vent.** Free area is quoted two ways and they differ
+by roughly 40%:
+
+- **Geometric** free area - the measured opening. What A Plus put on Riverside QT51518: 1.30 m2.
+- **Aerodynamic** free area - geometric x the vent's discharge coefficient (Cv), per BS EN 12101-2.
+  What smoke ventilation is commonly *specified* in.
+
+Measured on A Plus's own DualFrame 75Si AOVs, quote QT51516 (Towcester Vale), which states both on
+every line: **aerodynamic runs at 60-62% of geometric** - 0.49 against 0.81, and 0.54 against 0.87.
+
+So a quote giving geometric only against a spec written in aerodynamic looks compliant and is not.
+**Make the supplier state the aerodynamic figure for the actual sizes.** Do not derive it from frame
+area: Towcester's geometric/frame-area ratios are 75% and 54% on the same product, so it does not
+scale. And do not assume the requirement's basis either - a drawing that says "free area of 1m2"
+does not say which, and that is an RFI, not a judgement call.
+
+Two more from the same job:
+
+- **Check where the requirement came from.** Riverside was priced against "we need 1.5m2", which was
+  Fenster's own enquiry wording. The pack required **1m2**, once per stairwell. A vent reported to
+  Adam as 0.20 m2 short in fact cleared the drawing by 30%. An enquiry email is our assumption; the
+  pack is the requirement.
+- **An AOV window is not an AOV system.** The supplier fixes the actuator and leaves the flex coiled.
+  The control panel, supply, cabling, fire-brigade override and commissioning are somebody else's -
+  and on Riverside they were in nobody's scope. Where a drawing requires fire-brigade operation, the
+  window alone cannot satisfy it.
+
+There is **no AOV / smoke vent category in the rate register** (80 categories, no match), so there is
+nothing to benchmark against. First data point: A Plus DualFrame 75Si bottom-hung AOV, glazed,
+1.729 m2, 850mm stroke single chain = **GBP 1,401.24/m2 supply**, against GBP 528.83/m2 for a plain
+glazed aluminium window in the same size band. One quote, not a median.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
+- `mary_pricing.price_line(supply_rate=...)` is **GBP per m2**, not a unit price. Passing a per-unit
+  figure silently multiplies it by the area.
 - Work in `C:\Users\zacpl\Desktop\Glazing-Quote-Assistant`.
 - Keep the browser app and CLI harness using the same extraction/pricing logic.
 - Use `DataExtractor.buildScopePlan(documents)` for source-of-truth decisions before trusting a quote. It records which documents are source of truth, validation/reference evidence, supplier evidence, duplicates, or excluded/admin documents.

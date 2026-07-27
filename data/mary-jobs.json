@@ -324,10 +324,10 @@
   },
   "gordon-court": {
    "session_id": "f42eca8f-71b4-443d-8ef8-395015784891",
-   "started": false,
+   "started": true,
    "created": "2026-07-27T14:49:39",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-07-27T18:41:20",
+   "runs": 1
   },
   "stoke-park": {
    "session_id": "fd664be4-70d8-4ee1-ac1e-05c6ad0d8a3b",
@@ -389,6 +389,13 @@
    "session_id": "c89a998e-7df3-4604-ab6d-83f016da6e01",
    "started": false,
    "created": "2026-07-27T17:50:41",
+   "last_active": null,
+   "runs": 0
+  },
+  "princess-beatrice": {
+   "session_id": "8cf62341-8e57-40c1-ad22-cf3869892826",
+   "started": false,
+   "created": "2026-07-27T19:35:24",
    "last_active": null,
    "runs": 0
   }

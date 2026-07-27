@@ -1,0 +1,39 @@
+NEW TENDER, opened by triage 27/07. A proper ITT with a real deadline, and unusually for us the client has specified the exact system.
+
+**DEADLINE: 9am MONDAY 24 AUGUST 2026.** Works Order 701256543. Works intended to start October/November 2026.
+
+THE JOB: replace all 5 external communal block entrance door sets at **1-39 Vaughan House, John North Close, High Wycombe HP11 1FF** - blocks 1-6, 7-16, 17-23, 24-31 and 32-39. Client is **John North Hall (High Wycombe) Management Company Limited**, c/o managing agent **Neil Douglas Block & Estate Management**, Portland House, Westfield Road, Pitstone LU7 9GU. Contact **Jordan Jones, jordan.jones@neildouglas.co.uk, 01296 429055 opt 1** - he has offered to meet on site and asks for questions by email.
+
+Pack is in `test-results\mary-inbox\processed\20260727T1556-xgsAAAAA-att\`: the 23-page ITT, an estate plan, photographs of all five existing doors, an example of the proposed new door, the Smart Commercial brochure and the SMA Smart Wall profile sheet.
+
+THE CLIENT HAS SPECIFIED THE SYSTEM - this is not ours to choose:
+  Manufacturer: Smart Architectural Aluminium, **SMA Smart-Wall**
+  Pivoted doors with anti-finger-trap hinge
+  Commercial-grade concealed overhead closer
+  Low mobility threshold
+  Brown fixed pad handles, internal AND external
+  Aluminium polyamide
+  Toughened, laminated, argon-gas-filled units
+  Colour BROWN, to match the existing doors and surrounding window frames
+  Lock cylinders with thumb turn inside
+
+ALSO EXPLICITLY IN OUR SCOPE, and each of these is a line our standard proposal usually excludes:
+  - Disconnect the existing door intercoms and reconnect them to the new door sets, and prove they work on completion.
+  - Make good internally AND externally around every door set.
+  - Remove and dispose of the existing doors and frames.
+
+Pricing must be returned on their summary: Preliminaries / Replacement of x5 Door Sets / Contingency / Net / VAT / Gross. They also want hourly rates for tradesmen on a separate itemised sheet which BECOMES PART OF THE CONTRACT, a full daywork rate schedule (bricklayer, carpenter, plumber, painter, plasterer, floorer, asphalter, general labourer), the names and addresses of every subcontractor, plus Public Liability Insurance, accreditations and a **Waste Carrier Licence** - the last one matters because we are disposing of the old doors.
+
+FOUR THINGS TO GET RIGHT, and the first is the commercial one:
+
+1. **90-DAY VALIDITY AGAINST 30-DAY SUPPLIER QUOTES.** Clause 2.3.1: "Due to Section 20 process requirements all quotes should be valid for at least 90 Days." This is a leasehold Section 20 consultation, so the price is held while leaseholders are consulted, and works start Oct/Nov - three to four months out. Bellview and BSW quotes run 30 days. That is exactly the trap St Mary's flagged this afternoon (validity measured against tender return, not contract start), except here it is written into the ITT. Either get a longer price hold from the supplier in writing, or carry a stated allowance for it. Do not simply pass a 30-day cost into a 90-day offer.
+
+2. **SMA'S OWN PUBLISHED SMART WALL FIGURES ARE NOW ON FILE** - and they came in on this very enquiry. `SMA Smart Wall Profile.pdf` states U 1.8 W/m2K for Smart Wall DOORS, 1.4 for SCREENS, and LPS 1175 Level 2 / BS EN 1627 Level 3 security. The ITT specifies **no U-value at all**, so there is no conflict to resolve here - but Part L still applies to replacement doors in an existing building, so state the figure you are offering rather than leave it silent. The security certification is worth putting in the offer: these are communal entrance doors and LPS 1175 Level 2 is a selling point the client has not asked for. Note also St Mary's caveat - the sheet says "Smart Wall", not "Smart Wall POCKET", so confirm which variant Bellview quote.
+
+3. **SCAFFOLD AND ACCESS.** Clause 3.24 is long and demanding - all scaffolding and towers to be designed by a qualified Structural Engineer, erected and inspected by NASC members, Heras-fenced. Five ground-floor entrance doors should not need any of it, but our standard proposal excludes scaffold, MEWPs and towers outright, and Filwood showed what happens when the access plant falls between the two documents. Decide and state it.
+
+4. **WORKING HOURS ARE 8am-5pm MONDAY TO FRIDAY ONLY** (3.8.1), no radios, no smoking on site, parking by permit only from Neil Douglas's office, and keys collected from their office or the master key safe. That constrains the programme on an occupied residential block and should be reflected in the labour allowance, not discovered on site. Liquidated damages may be set at award (4.2.3).
+
+ROUTE TO PRICE: Bellview / BSW fabricate SMA Smart Wall for us, so a supplier-backed number is achievable well inside the deadline - remember the 15% end discount and use Grand Total Net. Five near-identical door sets on one site should also attract a better install rate than five separate visits; the ITT asks for the number of operatives and expected duration, so say so.
+
+HOW IT REACHED US, worth one line in the job file: it came to **info@**, which Mary cannot see, and only arrived here because Perry Giffin forwarded it on at 15:56 - three minutes after Jordan Jones sent it. That is the info@ gap from this afternoon's pipeline work, live. If Perry had not forwarded it, a GBP-scale tender with a 24/08 deadline would have been invisible to us.

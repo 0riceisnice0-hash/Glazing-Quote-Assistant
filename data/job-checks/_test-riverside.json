@@ -1,0 +1,35 @@
+{
+ "job": "FIXTURE - Riverside House as it stood on 27/07/2026",
+ "created": "2026-07-27",
+ "_note": "The founding case for check_free_delivery_threshold and for the thin-margin arm of check_quote_validity_against_commitment. Real figures. A Plus QT51518 is GBP 4,845.22 - GBP 154.78 under A Plus's own GBP 5,000 ex VAT free-delivery threshold - while the quote's Job Spec line reads 'Glazed /Supply Only (Delivered)'. And it expires 26/08/2026, the exact day Fenster's own 30-day validity closes, so it passes 'held as long as ours' with zero headroom. Only price_commitment, supplier_quotes and delivery_terms are populated - this fixture exists to prove TWO rules fire.",
+
+ "price_commitment": {
+  "source": "Private client, no ITT and no Form of Tender. Fenster house validity 30 days, pricing document dated 27/07/2026.",
+  "our_price_open_until": "2026-08-26",
+  "note": "Submission is gated by PHDB returning building-works costs, so issue will be later than 27/07 and the headroom goes negative."
+ },
+
+ "supplier_quotes": [
+  {
+   "supplier": "A Plus Windows & Doors",
+   "ref": "QT51518",
+   "date": "2026-07-27",
+   "valid_until": "2026-08-26",
+   "used_net": true,
+   "value": 4845.22,
+   "note": "'The Price stated in the quotation is open for acceptance for a period of 30 days from the date of the quotation and thereafter is subject to confirmation.'"
+  }
+ ],
+
+ "delivery_terms": [
+  {
+   "supplier": "A Plus Windows & Doors",
+   "ref": "QT51518",
+   "order_value": 4845.22,
+   "free_delivery_threshold": 5000.0,
+   "stated_on_quote": "Glazed /Supply Only (Delivered)",
+   "charge_basis": "A Plus terms: 'All orders are priced as Ex-Works'; loads over GBP 5000 + VAT delivered FOC within 50 miles of Watford; under that, batched or GBP 1/mile each way",
+   "delivery_priced": false
+  }
+ ]
+}
