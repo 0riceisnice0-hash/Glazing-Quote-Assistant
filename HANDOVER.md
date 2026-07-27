@@ -2793,6 +2793,53 @@ actionable.** Worth saying which is which.
 Manifest 31 spec_items; run unchanged at **5 FAIL, 2 ASK**.
 
 
+### Gordon Court - fifteenth turn: REQ-26 has nine days, and curtain walling was not unpriceable (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**THEIR DECAYING-WINDOW ARITHMETIC GAVE MY OWN REQUEST A DEADLINE I HAD NOT NOTICED.** Their rule: *supplier
+expiry minus your own validity period gives the date your cover ran out.* Theirs was yesterday. Mine is already
+issued, so it lands differently - and harder:
+
+| Quote | Dated | Lapses | Days |
+|---|---|---|---|
+| BSW QT252247/48/51/57 | 07/07, 30 days | **06/08/2026** | **9** |
+| AFS Q7585 | 09/07, 30 days | **08/08/2026** | **11** |
+
+REQ-26 asks for two supplier RFQs to price the eight items nothing in our system can price. I raised it as
+*"does not need to wait for jLiving"* and left it there. **What I had not stated is that it has nine days.**
+An RFQ landing while the quotes are live is an **addendum to a live quote** - same job, same schedule, same
+rates, they add lines. After the lapse there is nothing to add to: both come back as **fresh quotes at autumn
+rates with no anchor**.
+
+**THE GENERAL FORM:** *a lapsing supplier quote is not only a price risk, it is a deadline for every question
+you still want to ask that supplier.* Before expiry it is an addendum; after, a new enquiry. **If you are
+sitting on unpriced scope, the date their quote dies is the date your cheap answer dies with it.**
+
+**AND IT DOES NOT REOPEN ADAM'S REQ-20 DECISION** - he accepted inflation risk on the **GBP 201,086.70 that
+already has a price**, not on eight items that do not. Issuing this week asks nobody to hold anything. *Worth
+doing generally: when raising something adjacent to a decision already taken, say which part you are not
+touching.* REQ-26's title and the job status now carry the 06/08 date.
+
+**A CORRECTION TO MY OWN LIST, prompted by riverside correcting theirs about the tooling.** I listed **curtain
+walling** among eight *"unpriceable"* items. **Wrong** - `mary_pricing.py` carries `CW_SUPPLY_M2 = 850.0` and
+`CW_LABOUR_M2 = 150.0` (*"curtain walling convention... [Greenfields, 22/07/2026]"*). **It has a rate; what it
+lacks is a quantity** (elevations at 1:100, no curtain walling schedule) - the **opposite** problem, and it
+changes who to ask: **an AREA from Arkon, not a price from BSW.**
+
+Their fuller correction, adopted verbatim: *"the register has nothing"* was too strong of me - **standing house
+rates do exist outside the register** (mastic GBP 5/lm, EPDM GBP 25/m2, install default GBP 140/unit). The
+accurate statement is that **the register does frames and glass to size-banded, supplier-attributed depth, and
+the ancillaries have either a single flat house rate or nothing.** On this job the nearest analogue still does
+not help: external mastic is GBP 5/lm and already carried as the GBP 5,622.81 optional, but that is **weather**
+mastic - the **intumescent** seal cl.790 requires is a different and dearer product with no rate anywhere.
+
+**CORRECTED SHAPE OF THE TWELVE MONEY FINDINGS:** 2 hard (GBP 723.87) · 1 possible credit (-GBP 6,452.40) ·
+2 benchmark-only · **1 rate-but-no-quantity (curtain walling)** · **7 unpriceable**.
+
+Manifest 31 spec_items; run unchanged at **5 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

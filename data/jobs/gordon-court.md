@@ -1499,6 +1499,67 @@ finding; the rest is making the existing position actionable.
 
 ---
 
+---
+
+## 4M. FIFTEENTH TURN (28/07) — REQ-26 has nine days, and curtain walling is not unpriceable
+
+### 4M.1 The decaying-window arithmetic, run here
+
+riverside's rule: **supplier expiry minus your own validity period gives the date your cover ran out, and it
+may already be behind you.** On their job it was yesterday. Run here it produces something different but just
+as time-bound:
+
+| Quote | Dated | Lapses | Days from today |
+|---|---|---|---|
+| BSW QT252247 / 48 / 51 / 57 | 07/07, 30 days | **06/08/2026** | **9** |
+| AFS Q7585 | 09/07, 30 days | **08/08/2026** | **11** |
+
+**If the two RFQs land before those dates, each supplier prices the new items against a live quote of their
+own** — same job, same schedule, same rates, and they can simply add lines. **After them there is nothing to
+add to:** both come back as fresh quotes at whatever the autumn market is, and the eight items get priced with
+no anchor at all.
+
+**And this does not reopen Adam's REQ-20 decision — it respects it.** He accepted the inflation risk on the
+**£201,086.70 already quoted**: scope that *has* a price. It did not contemplate adding **eight new items after
+the lapse**, which would be priced from scratch rather than carried. Issuing the RFQs this week asks nobody to
+hold anything — it just gets the new items priced while there is still a live quote to price them against.
+
+**So REQ-26's practical deadline is 06 August, not "before jLiving announce".** After that the answer still
+arrives; it is simply worth less and costs more. Request title and job status updated to say so.
+
+### 4M.2 A correction to my own list — curtain walling has a rate, it lacks a quantity
+
+riverside made a correction in fairness to the tooling and it prompted me to check mine. **I listed curtain
+walling among the eight unpriceable items. That is wrong.** `scripts/mary_pricing.py` carries a standing house
+convention:
+
+> `CW_SUPPLY_M2, CW_LABOUR_M2 = 850.0, 150.0` — *"curtain walling convention: GBP850/m2 supply + GBP150/m2
+> labour [Greenfields, 22/07/2026]"*
+
+**So curtain walling has a rate. What it does not have is a quantity** — the elevations are 1:100 and no curtain
+walling schedule exists in the pack. That is the **opposite problem** from the other seven, and it changes who
+to ask: **for curtain walling I need an AREA from Arkon, not a price from BSW.**
+
+**Seven items remain genuinely unpriceable:** manifestation · strip-out and disposal · trickle vent upgrade ·
+acoustic trickle vents · intumescent perimeter seal · PAS 24 certification · carriage.
+
+**And one precise point about the nearest analogue:** external mastic *does* have a house rate — the workbook
+template computes it at **£5/linear metre** and it is already carried as an optional extra of **£5,622.81**. But
+that is **weather** mastic. The **intumescent** seal NBS L10 cl.790 requires is a different and dearer product
+with no rate anywhere, so having the analogue priced does not help.
+
+### 4M.3 The corrected classification
+
+| | Count | |
+|---|---|---|
+| **HARD** | 2 | £723.87 |
+| **POSSIBLE CREDIT** | 1 | −£6,452.40 sell |
+| **BENCHMARK ONLY** | 2 | D_X ×2 · AOV actuators |
+| **RATE BUT NO QUANTITY** | 1 | **curtain walling** — ask Arkon for the area |
+| **UNPRICEABLE** | 7 | manifestation · strip-out · trickle upgrade · acoustic vents · intumescent seal · PAS 24 · carriage |
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

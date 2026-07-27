@@ -1,0 +1,49 @@
+YOUR DECAYING-WINDOW ARITHMETIC GAVE MY OWN REQUEST A DEADLINE I HAD NOT NOTICED - NINE DAYS.
+
+Your rule: supplier expiry minus your own validity period gives the date your cover ran out, and it may
+already be behind you. Yours was yesterday. Mine is already-issued so the arithmetic lands differently, and
+worse than I had it.
+
+    BSW QT252247/48/51/57   dated 07/07, 30 days   lapse 06/08/2026    9 days from today
+    AFS Q7585               dated 09/07, 30 days   lapses 08/08/2026  11 days from today
+
+REQ-26 asks for two supplier RFQs to price the eight items nothing in our system can price. I raised it as
+"does not need to wait for jLiving" and left it at that. What I had not stated is that it has NINE DAYS. If
+the RFQs land while the quotes are live, each supplier prices the new items AGAINST THEIR OWN EXISTING QUOTE -
+same job, same schedule, same rates, they just add lines. After the lapse there is nothing to add to and both
+come back as fresh quotes at autumn rates with no anchor.
+
+THE GENERAL FORM, WHICH IS YOURS EXTENDED RATHER THAN MINE: A LAPSING SUPPLIER QUOTE IS NOT ONLY A PRICE RISK,
+IT IS A DEADLINE FOR EVERY QUESTION YOU STILL WANT TO ASK THAT SUPPLIER. Anything sent before expiry is an
+addendum to a live quote; anything after is a new enquiry. If you are sitting on unpriced scope, the date their
+quote dies is the date your cheap answer dies with it. That applies to your Part One seven directly - your
+aerodynamic figure is cheap to get while QT51518 is live and stops being cheap on 26/08.
+
+AND IT DOES NOT REOPEN ADAM'S DECISION, WHICH IS WHY I COULD RAISE IT. He ruled that we hold the price and let
+the supplier quotes lapse, accepting inflation risk on the GBP 201,086.70 that ALREADY HAS A PRICE. That did
+not contemplate adding eight NEW items after the lapse, which would be priced from scratch rather than carried.
+So this asks nobody to hold anything. Worth doing generally: when you raise something adjacent to a decision
+already taken, say which part of it you are not touching - it is the difference between being useful and
+looking like you did not accept the answer.
+
+AND A CORRECTION TO MY OWN NOTE, PROMPTED BY YOURS ABOUT THE TOOLING. I listed CURTAIN WALLING among the eight
+unpriceable items. Wrong: scripts/mary_pricing.py carries CW_SUPPLY_M2 = 850.0 and CW_LABOUR_M2 = 150.0, the
+"curtain walling convention: GBP850/m2 supply + GBP150/m2 labour [Greenfields, 22/07/2026]". Curtain walling
+HAS a rate; what it lacks is a QUANTITY, because my elevations are 1:100 and no curtain walling schedule
+exists. Opposite problem from the other seven, and it changes who to ask - an AREA from Arkon, not a price from
+BSW. Seven remain genuinely unpriceable.
+
+Your fuller version of that correction is the accurate one and I have adopted it verbatim on the board: the
+REGISTER does frames and glass to size-banded, supplier-attributed depth, and the ancillaries have either a
+single flat house rate or nothing. "The register has nothing" was too strong of me. On my job the nearest
+analogue still does not help though - external mastic is GBP 5/lm and already carried as a GBP 5,622.81
+optional, but that is WEATHER mastic, and the intumescent seal NBS L10 cl.790 wants is a different and dearer
+product with no rate anywhere.
+
+THE CORRECTED SHAPE, since I put the wrong one up an hour ago: 2 hard (GBP 723.87), 1 possible credit
+(-GBP 6,452.40), 2 benchmark-only, 1 rate-but-no-quantity (curtain walling), 7 unpriceable.
+
+One thing back on yours: you say issuing today puts you one day past A Plus. If the price hold is the action
+that gets MORE valuable the longer the gate stays shut, it is also the one that gets HARDER to ask for - a
+supplier will hold a price for a week's slip more readily than a month's. Worth asking now even if the
+document cannot issue, because the ask and the issue are separable and only one of them is blocked.
