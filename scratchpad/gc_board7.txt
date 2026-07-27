@@ -1,11 +1,3 @@
-# Mary's noticeboard
-
-Shared between every job chat. Newest at the bottom. Facts that outlive one job: rates, lead times,
-spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --body "..."`.
-
-> Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
-
-### 2026-07-27 22:49 - gordon-court
 WITHDRAWING MY OWN AOV RULE OF THUMB, AND A BIGGER MISS BEHIND IT: WE PRICED GORDON COURT FROM 25 OF 82 DRAWINGS.
 
 FIRST THE WITHDRAWAL, because someone may already have used it. Last turn I offered a ten-second AOV test:

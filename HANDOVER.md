@@ -1957,6 +1957,75 @@ REQ-22 extended with both findings and five new options (12 total), read-back ve
 spec_items; run unchanged at **5 FAIL, 2 ASK**.
 
 
+### Gordon Court - seventh turn: my AOV rule of thumb withdrawn, and the pack we priced from was 25 of 82 drawings (2026-07-27, late)
+
+riverside's handoff. No queue items.
+
+**WITHDRAWING MY OWN RULE OF THUMB.** Last turn I offered a ten-second AOV test - divide the required free
+area by the **gross frame** area and query anything above ~60%. riverside showed the gross frame is the wrong
+denominator, because the sections eat a fixed share of it: **the aperture is the real ceiling.** Recomputed
+WN_7 from BSW's own stated figures:
+
+| Basis | Area | vs 1.5 m² duty |
+|---|---|---|
+| Stated glass 700 × 1865 | **1.3055 m²** | **87.0%** (short 0.1945 m²) |
+| Frame-internal aperture 770 × 1935 *(70mm section taken nominally - inferred)* | 1.4900 m² | **99.3%** (short 0.0100 m²) |
+
+**So WN_7 is MARGINAL, not "cannot reach it" as I wrote.** My gross-frame test would have condemned a
+borderline unit - the false-alarm failure mode I criticised in two other chats' work the same day. Use
+riverside's version: **divide by the aperture.** What survives untouched is that there is still **no
+actuator, no 24V motor and no fire-alarm interface** anywhere in the quote; the geometry was never the
+substantive point. On the alternative NSHEV reading the glass alone is 3.3× the 0.4 m² duty.
+
+**THE BIGGER MISS: WE PRICED THIS JOB FROM 25 OF THE 82 ARCHITECT'S DRAWINGS.** riverside's "watch for two
+layout sets" lesson at scale. The 57 never in front of anyone include **every floor Layout plan** (10001 at
+**rev 07**, 10002-10004 at rev 06 - *the most-revised drawings in the pack*), **every Existing plan**
+(10010-10012), **all three Demolition plans** (10015 rev 05, 10016 rev 02, 10017 rev 01), **all four
+Existing Elevations** (21001-21004) and the **Proposed Elevations** (21005-21008). What the job folder held
+instead was the **setting out** plans (11000-11003) and **setting out** elevations (21100-21110) - a
+different series with confusingly similar numbers.
+**The check is a one-minute scripted diff of job-folder drawing numbers against the zip's.** It complements
+the stale-document check: that one finds sheets too **old**, this one finds sheets **missing** - and here the
+missing ones were the *newest* documents in the pack. A tidy 25-drawing folder beside an 82-drawing zip is
+itself the warning sign.
+
+**AND THE DEMOLITION PLANS ANSWERED THREE OPEN ITEMS:**
+- ***"ALL WINDOWS TO BE REMOVED."*** in the notes block of all three. The **RFI-9** strip-out quantity (40
+  windows, 62.457 m²) finally has a source - the scope was defined all along on a sheet nobody held.
+- Demolition legend includes ***"NEW STRUCTURAL OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE."*** So which
+  openings are new vs existing is **marked there** - the exact floor-by-floor question raised against Adam's
+  *"the openings are newly formed"* ruling.
+- Ground floor: *"Section of the external wall is to be carefully demolished to allow for the installation
+  of **2 no. new double doors**."* Almost certainly the **unpriced 2no D_X pair** (2100 × 1800, every
+  descriptive cell blank) - now with a location and a reason.
+- First floor: *"**Curtain walling system** (frames, glazing, and fixings) to be removed in sections"* at
+  terrace level - on a job titled *"Windows, Rooflights & **Curtain Walling**"* where **we priced no curtain
+  walling at all**. Plus *"Demolish **bay windows** and associated brickwork"*, and no bay window type
+  appears in our schedule.
+
+**In fairness these are demolition / main-contractor drawings** - they also demolish the external stair and
+the entire roof - so most of the content is not ours and I am not claiming it. The finding is that the window
+and curtain-wall **removal** scope and the new-vs-existing opening marking were defined on drawings **nobody
+who priced this job ever saw**.
+
+**A FOURTH REFERENCED DOCUMENT THAT DOES NOT EXIST IN THE PACK.** All three demolition plans say *"THESE
+NOTES MUST BE READ TOGETHER WITH THE DEMOLITION ELEVATIONS TO CONFIRM HEIGHTS AND VERTICAL EXTENTS OF
+DEMOLITION."* There is no demolition elevation anywhere in the 82. It joins the **SAP Consultant's
+specification** and the **Edward Pearce Consulting Engineers specification**. **Habit worth keeping: when a
+drawing tells you to read it with another document, check that document is in the pack - three of four times
+on this job it was not.**
+
+**riverside's prior-approval check - looked, cannot answer.** They found their drawings stamped
+`24/02303/PAPCR`, a prior-approval reference that would limit external alteration. **No planning reference
+exists on Gordon Court** in the DAS's opening pages or the Drawing Register, so it is **unverified** here
+rather than answered. The scheme adds two storeys to an existing building for a housing association with a
+DAS on file - the profile of a full application rather than a permitted-development conversion - so their
+trap is unlikely to bite, but that is a reasoned expectation, not a checked fact.
+
+REQ-22 corrected and extended (17 options, read-back verified). Manifest now 24 spec_items; run unchanged at
+**5 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

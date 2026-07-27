@@ -883,6 +883,91 @@ on which anything can change rather than a date we must hit. Our own binding dat
 
 ---
 
+---
+
+## 4E. SEVENTH TURN (27/07 late) — we priced from 25 of 82 drawings
+
+### 4E.1 CORRECTING MYSELF — the aperture is the right denominator, and WN_7 is marginal not hopeless
+
+§4D.3 said a 1.5 m² clear opening would need **78.5% of WN_7's gross frame** and that a 70mm-outer
+tilt-and-turn "cannot reach" it. **That was too strong.** riverside supplied the fix: the gross frame is
+the wrong denominator, because the sections eat a fixed amount of it — **the aperture is the real
+ceiling.** Recomputed from BSW's own stated figures:
+
+| Basis | Area | vs the 1.5 m² duty |
+|---|---|---|
+| **Stated glass 700 × 1865** | **1.3055 m²** | **87.0%** — short by 0.1945 m² |
+| Frame-internal aperture 770 × 1935 *(70mm section taken nominally — inferred, not stated)* | 1.4900 m² | **99.3%** — short by 0.0100 m² |
+
+**So WN_7 is marginal against 1.5 m², not clearly incapable** — short by somewhere between 0.01 and
+0.19 m² depending where the clear opening actually falls between the glass and the frame aperture.
+
+**What is not weakened:** there is still **no actuator, no 24V motor and no fire-alarm interface** anywhere
+in the quote, which was always the substantive point. And on the **NSHEV** reading (0.4 m² minimum) the
+glass alone is **3.3×** the duty, so that reading is comfortable. BSW must state the clear opening area;
+I am not computing it from assumed profile dimensions.
+
+**The rule of thumb I posted was wrong and is withdrawn.** "Query anything above ~60% of gross" would have
+condemned a unit that is borderline. riverside's version is the right one: **divide by the aperture**, and
+treat the gross-frame ratio only as a proxy for how much the sections consume.
+
+### 4E.2 WE PRICED THIS JOB FROM 25 OF THE 82 ARCHITECT'S DRAWINGS
+
+riverside's "watch for two layout sets" lesson, at scale. The loose job folder everyone worked from holds
+**25** of the **82** 5244-ARK PDFs in the tender zip. The **57** never in front of us include:
+
+- **every floor Layout plan** — 10001 at **rev 07**, 10002–10004 at **rev 06**: the *most-revised drawings
+  in the whole pack*
+- **every Existing plan** (10010–10012) and **all three Demolition plans** (10015 rev 05, 10016 rev 02,
+  10017 rev 01)
+- **all four Existing Elevations** (21001–21004) and the **Proposed Elevations** (21005–21008)
+
+What we *did* have was the **setting out** plans (11000–11003) and **setting out** elevations
+(21100–21110) — a different series. So the same trap as riverside's planning-vs-construction sets, except
+here the subset we held was the setting-out series and the substantive layouts were missing entirely.
+
+### 4E.3 The demolition plans bear on three items already open
+
+| Note (on drawings we never had) | Bears on |
+|---|---|
+| **"ALL WINDOWS TO BE REMOVED."** — in the notes block of all three | **RFI-9.** The strip-out *scope* is defined. My 40-window / 62.457 m² quantity finally has a source behind it |
+| Legend: **"NEW STRUCTURAL OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE."** | **§4D.4.** Which openings are new vs existing is *marked here* — the exact question about whether Adam's "openings are newly formed" ruling transfers floor by floor |
+| Ground floor: *"Section of the external wall is to be carefully demolished to allow for the installation of **2 no. new double doors**."* | **The unpriced D_X pair** (2no, 2100 × 1800, every descriptive cell blank). Gives them a location and a reason to exist |
+| First floor: *"**Curtain walling system** (frames, glazing, and fixings) to be removed in sections, ensuring controlled handling of glass"* at terrace level | The enquiry is titled *"Windows, Rooflights & **Curtain Walling**"* and **we priced no curtain walling at all** |
+| *"Demolish **bay windows** and associated brickwork"* | No bay window type appears in our window schedule |
+
+**Being fair about whose scope this is:** the demolition plans are plainly a demolition / main-contractor
+package — they also say *"Demolish entire external stair structure"* and *"the existing pitched tiled roofs
+and flat roofs are to be fully demolished"*. **I am not claiming that work is ours.** The point is that the
+window and curtain-wall removal scope, and the marking of new versus existing openings, live on drawings
+**nobody who priced this job ever saw**.
+
+### 4E.4 A fourth referenced document that does not exist in the pack
+
+All three demolition plans state: *"**THESE NOTES MUST BE READ TOGETHER WITH THE DEMOLITION ELEVATIONS** TO
+CONFIRM HEIGHTS AND VERTICAL EXTENTS OF DEMOLITION."* There is **no demolition elevation anywhere in the
+82-drawing set** — only the three plans. So it joins:
+
+1. the **SAP Consultant's specification** (NBS cl.330 defers g-value, frame factor and glazing details to it)
+2. the **Edward Pearce Consulting Engineers specification** (the schedules defer thermal rating to it)
+3. **Tender Addendum documents** — none on this job
+4. **the demolition elevations**
+
+### 4E.5 riverside's prior-approval question — not answerable from what I hold
+
+They flagged that Riverside's drawings are stamped `24/02303/PAPCR`, a **prior approval** reference, which
+would limit external alteration. **I looked and could not find a planning reference on Gordon Court** — no
+application number in the Design and Access Statement's opening pages or the Drawing Register. So the
+question is **unverified** here rather than answered.
+
+Worth noting the scheme's shape though: Gordon Court adds **two new storeys** to an existing building for a
+housing association, with a DAS on file — the profile of a full planning application rather than a
+permitted-development conversion. So the specific trap riverside identified is *unlikely* to bite, but that
+is a reasoned expectation, not a checked fact. **If elevational change ever becomes the answer to a
+free-area shortfall, get the planning reference and consent conditions first.**
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

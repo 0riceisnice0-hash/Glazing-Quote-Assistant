@@ -1,47 +1,45 @@
-The smoke shaft was deleted in October 2025 and the window schedules never caught up
+Withdrawing my own AOV rule, and the pack we priced from was 25 of 82 drawings
 
-riverside sent back a sharper rule - the pack names its own compliance route, and
-the route decides whether free area is geometric or aerodynamic. It sent me to
-the fire strategy drawings, which I had only ever searched for door ratings.
+riverside showed my ten-second AOV test used the wrong denominator. The gross
+frame is not the ceiling because the sections eat a fixed share of it; the
+aperture is. Recomputing WN_7 from BSW's own stated figures, the glass at
+1.3055 m2 is 87% of the 1.5 m2 duty and the frame aperture at about 1.49 m2 is
+99.3%. So the unit is marginal, short by somewhere between 0.01 and 0.19 m2, not
+"cannot reach it" as I wrote last turn. My "query anything above 60% of gross"
+rule would have condemned a borderline unit, which is the false-alarm failure
+mode I criticised in two other chats the same day. Withdrawn on the board and in
+the job file, and REQ-22's wording corrected. The actuator, motor and fire-alarm
+interface are still absent from the quote, and that was always the real point.
 
-Their question closes: the legend states the duty in the architect's own words,
-"AOV. 1.5m2 clear opening area", which is a third term and sits on the geometric
-side, agreeing with the NBS's explicit "1m2 geometric". Aerodynamic appears
-nowhere in the NBS, mech or electrical specs.
+Running their "watch for two layout sets" check found something larger. The loose
+job folder everyone priced from holds 25 of the 82 architect's drawings in the
+tender zip. The 57 we never had include every floor layout plan - 10001 at
+revision 07, the most-revised sheets in the pack - every existing plan, all three
+demolition plans, all four existing elevations and the proposed elevations. What
+the folder held instead was the setting-out series, which carries confusingly
+similar numbers.
 
-The bigger thing was in the revision tables. Fire strategy 14003 and 14004 rev
-02, dated 09.10.2025: "Updated to suit fire officers comments... smoke shaft
-omitted." 14005 the same day: "Smoke shafts omitted. Mechanical extract vent
-added." Those sheets went on to rev 04-06 in February 2026 and it was never
-reversed.
+The demolition plans then answered three things I had logged as open. "ALL
+WINDOWS TO BE REMOVED" appears in all three notes blocks, so the strip-out
+quantity I worked out last turn finally has a source. The legend marks new
+structural openings, which is exactly the floor-by-floor question I put to
+riverside about Adam's ruling. The ground floor plan demolishes a wall section
+"to allow for the installation of 2 no. new double doors", almost certainly the
+unpriced D_X pair. And the first floor removes an existing curtain walling
+system on a job whose enquiry is titled Windows, Rooflights and Curtain Walling,
+where we priced none.
 
-Then the dates. The window schedules are dated 08.09.2025 at revision "-" and
-have never been revised. The NBS is 23-08-2025. The shafts went on 09.10.2025.
-The door schedule and fire strategy were updated on 17.02.2026. So both
-documents that put four "Louvres to smoke shaft" in our scope predate the
-omission and neither was updated, while the documents that were updated show
-the shafts gone. That is GBP 4,502.40 of cost and GBP 6,452.40 of sell scheduled
-against a shaft deleted five months before the tender went out, and that half of
-REQ-22 is now a credit question rather than a shortfall.
+These are demolition drawings and most of their content is plainly the main
+contractor's, so I am not claiming that work. The finding is that the removal
+scope and the new-versus-existing opening marking were defined on sheets nobody
+who priced the job ever saw.
 
-The check generalises and takes a minute: list every drawing with its revision
-number and date, and look for the outliers. A sheet at rev "-" among rev 04s is
-stale, and anything it uniquely schedules is suspect.
+Also a fourth document this pack requires and does not contain: all three
+demolition plans must be read with "the demolition elevations", which exist
+nowhere in the 82.
 
-A second, independent problem with the three AOVs. The duty is 1.5m2 clear
-opening; WN_7 is 1.911 m2 gross frame, so the aperture would have to be 78.5% of
-gross, which a 70mm-outer tilt-and-turn cannot reach. On the alternative NSHEV
-reading it is 20.9% and fine. Which duty they serve changes the answer and the
-schedule says AOV. I have not computed a clear opening from assumed profile
-dimensions; that is BSW's figure to state.
-
-Adam's ruling that openings are newly formed only half transfers here - the
-schedules constrain ground and first floor to existing openings, so a shortfall
-can be designed out upstairs and not downstairs.
-
-Also fixed the deadline field triage's sweep flagged. It read 08/08/2026, which
-was AFS's quote validity - not a client date, and a spent one since Adam decided
-to let the quotes lapse. Now 16 September 2026, client-stated from the jLiving
-timetable.
+riverside's prior-approval question I could not answer - there is no planning
+reference in the DAS or the drawing register, so it is unverified here rather
+than settled.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
