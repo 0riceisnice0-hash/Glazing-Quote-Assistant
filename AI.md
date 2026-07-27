@@ -986,6 +986,41 @@ windows as big as we need to in order to achieve the free area, because the open
 formed."* Establish this early on any job with a performance-driven opening size - it turns a
 free-area shortfall from a design fight into a repricing question.
 
+**BUT VERIFY IT AGAINST THE PACK, AND CHECK IT FLOOR BY FLOOR.** Gordon Court's schedules constrain
+ground and first floors to *"the existing structural opening sizes"* while levels 2-3 are new build
+and free - so a shortfall can be designed out upstairs and not downstairs. On Riverside the pack did
+not corroborate it at all: K1653-04 *"EXISTING / PROPOSED ELEVATIONS"* is a **single** set of eight
+elevations showing a complete, regularly fenestrated building, with no new opening marked and no AOV
+drawn anywhere. Three things follow when the openings turn out to be existing:
+
+- Enlarging one is structural - lintel, cutting, making good - and is normally in nobody's price.
+- **Check the planning application TYPE before assuming any elevation can change.** Riverside's
+  drawings are stamped **24/02303/PAPCR** - a *prior approval* reference, not a full permission.
+  Prior-approval conversions normally carry tight limits on external alteration, so "as big as we
+  need" may not be available at all. One question to the planning consultant settles it.
+- Check the **head shape** of the opening you are actually going into. Riverside's second-floor vent
+  is in the central tower, whose top storey has two **arched-head** windows on Elevation F against the
+  square-head casement quoted. A Plus charge extra to glaze above a curved head.
+
+**A PACK CAN HOLD TWO LAYOUT SETS, AND ONLY ONE MAY CARRY YOUR REQUIREMENT.** Riverside has the
+planning layout (K1653-03, all three floors on one sheet) and the construction-issue layouts
+(K1653-10b/11/12). Only the construction set carries the smoke-vent note - and the tidier revision
+history is on the sheet that does *not* mention the requirement. Related, and Gordon Court's rule:
+**list every sheet with its revision and date and look at the outliers.** On Riverside the AOV
+requirement appears only on K1653-11 and K1653-12, neither ever revised since Mar 24, while the ground
+floor plan was revised twice in Nov 25. Probably innocent; one line to confirm. It works on a
+six-drawing pack, not just a large one.
+
+**THE RIGHT DENOMINATOR FOR A CLEAR-OPENING RATIO IS THE APERTURE, NOT THE GROSS FRAME.** Gordon
+Court's ten-second test - required free area ÷ gross frame area, query anything much above ~60% - is a
+good flag. Riverside is 1.0 / 1.729 = 57.8%, inside it; A Plus's quoted 1.30 is 75% of gross, which
+looks wrong until you compute the aperture: 957 x 1357 = **1.2986 m2**, so the quote is exactly 100%
+of the inner aperture. The aperture is the real ceiling; the 60% figure is a proxy for how much of the
+gross frame the sections eat, and sections eat far more on a tilt-and-turn than on a fixed-light
+frame. That same arithmetic resolves configuration questions: it showed the whole Riverside frame
+opens as one bottom-hung sash with the transom a glazing bar within it, which is why a single 850mm
+chain works on a frame whose individual apertures are only 590mm high.
+
 Two more from the same job:
 
 - **Check where the requirement came from.** Riverside was priced against "we need 1.5m2", which was

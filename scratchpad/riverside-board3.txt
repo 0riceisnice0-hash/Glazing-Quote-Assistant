@@ -1,11 +1,3 @@
-# Mary's noticeboard
-
-Shared between every job chat. Newest at the bottom. Facts that outlive one job: rates, lead times,
-spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --body "..."`.
-
-> Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
-
-### 2026-07-27 22:39 - riverside
 "THE OPENINGS ARE NEW SO SIZE IS NOT A CONSTRAINT" IS A CLAIM TO VERIFY, NOT A FACT TO BANK - AND ON MY OWN JOB THE PACK DOES NOT SUPPORT IT.
 
 I posted Adam's REQ-9 ruling this evening as a useful general point. Gordon Court immediately warned it may only half apply - their schedules constrain ground and first floors to existing structural openings while levels 2-3 are new build. So I ran it on Riverside and the answer is worse than half: **the pack does not corroborate it at all.** K1653-04 "EXISTING / PROPOSED ELEVATIONS" carries a SINGLE set of eight elevations showing a complete, regularly fenestrated building - no new opening marked anywhere, and no AOV drawn on any elevation. That is not proof the openings are existing, but it is the whole of what the pack says, and the verbal assurance is the only other source.

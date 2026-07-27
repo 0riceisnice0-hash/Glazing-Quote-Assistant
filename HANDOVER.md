@@ -764,6 +764,70 @@ Gordon Court also extended `check_free_delivery_threshold` with `free_delivery_t
 suppliers who never carry delivery; re-run clean against the Riverside manifest and the selftest passes.
 `mary_checks.py data\job-checks\riverside-house-aov.json` = 0 failed, 3 questions, unchanged.
 
+### Riverside House - the pack does not corroborate "the openings are new" (2026-07-27, late)
+
+Gordon Court took the compliance-route rule and sent back three checks. All three paid out here, and one
+of them contradicts a ruling this chat had broadcast an hour earlier.
+
+**1. "THE OPENINGS ARE BEING NEWLY FORMED" IS NOT IN THE PACK.** Adam's REQ-9 answer said the vents can
+be any size because the openings are new. Gordon Court warned that this is often true of only part of a
+building - their own schedules constrain ground and first floors to *"the existing structural opening
+sizes"* while levels 2-3 are new build. Run on Riverside, the answer is not "half" but "not at all":
+**K1653-04 "EXISTING / PROPOSED ELEVATIONS" is a SINGLE set of eight elevations (A-H) showing a
+complete, regularly fenestrated building, with no new opening marked anywhere and no AOV drawn on any
+elevation.** That is not proof the openings are existing, but it is the whole of what the pack says, and
+the verbal assurance is the only other source. Three consequences:
+
+- If they are existing, enlarging one is structural - lintel, cutting masonry, making good - and is in
+  nobody's price.
+- **The drawings are stamped 24/02303/PAPCR - a PRIOR APPROVAL reference, not a full planning
+  permission.** Prior-approval conversions normally carry tight limits on external alteration, so "as
+  big as we need" may not be available at all. One question to HD Planning settles it. **Check the
+  application TYPE before assuming any elevation can change.**
+- **The second-floor vent may be going into an ARCHED opening.** AOV.01's stairwell is in the central
+  tower; on **Elevation F** that tower's top storey carries **two arched-head windows**, while Elevation
+  B's carries three rectangular. A Plus quoted a square-head 1130 x 1530 casement, and their own terms
+  charge extra to glaze above a curved head.
+
+**2. THE STALE-DOCUMENT CHECK WORKS ON A SIX-DRAWING PACK.** Gordon Court's rule - list every sheet with
+its revision and date, and treat an outlier at rev "-" as suspect:
+
+| Sheet | Title | Date | Revision |
+|---|---|---|---|
+| K1653-03 | Proposed Layout, all floors (**planning** set) | Mar 23 | B - 17.06.24 |
+| K1653-04 | Existing / Proposed Elevations | Jun 24 | none |
+| K1653-10b | Proposed Layout **Ground** Floor | Mar 24 | **B - Nov 25** |
+| K1653-11 | Proposed Layout **First** Floor | Mar 24 | **none** |
+| K1653-12 | Proposed Layout **Second** Floor | Mar 24 | **none** |
+
+**The AOV requirement appears only on K1653-11 and K1653-12, the two sheets that have never been
+revised**, while the ground floor was revised twice in November 2025. Probably innocent - those
+revisions were "Dental Lobby added" and "altered", a ground-floor commercial change - but the
+requirement has not been reviewed since March 2024, and on Gordon Court this exact pattern concealed a
+smoke shaft deleted five months before tender. Carried as one line of confirmation.
+
+Also: **the pack holds two layout sets.** The planning sheet K1653-03 puts all three floors on one sheet;
+the construction-issue sheets K1653-10b/11/12 are separate. Only the construction set carries the
+smoke-vent note - and the tidier revision history belongs to the sheet that does *not* mention the
+requirement.
+
+**3. THE RIGHT DENOMINATOR FOR A CLEAR-OPENING RATIO IS THE APERTURE, NOT THE GROSS FRAME.** Gordon
+Court's ten-second test flags anything much above ~60% of gross. Riverside's requirement is
+1.0 / 1.729 = **57.8%**, inside it. A Plus's quoted 1.30 m2 is 75% of gross, which looks alarming until
+the aperture is computed: **957 x 1357 = 1.2986 m2**, so the quoted figure is exactly 100% of the inner
+aperture (1357 = 1530 less two 86.5mm sections, 86.5 taken from the 957 daylight width). The aperture is
+the real ceiling; the 60% figure is a proxy for how much of the gross the sections eat, and they eat far
+more on a tilt-and-turn than on a fixed-light frame.
+
+**That arithmetic also resolves RFI-2.** Because the quoted free area *is* the whole inner aperture, the
+entire frame opens as one bottom-hung leaf and the 176mm transom is a glazing bar within the sash - which
+is why a single 850mm chain works on a frame whose individual apertures are only 590mm high. Carried in
+the brief as a confirmation rather than an open question.
+
+The requote brief now runs to two parts: seven items for A Plus and **six client-side questions C1-C6**
+for RRR / Campbell Ark / the fire engineer. `mary_checks` unchanged at 0 failed, 3 questions; selftest
+passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

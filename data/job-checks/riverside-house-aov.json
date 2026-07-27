@@ -1,7 +1,7 @@
 {
  "job": "Riverside House AOV Smoke Vents (RRR Group)",
  "created": "2026-07-27",
- "_note": "2no bottom-hung AOV smoke vents, one per stairwell, at each stairwell's top storey. Priced off A Plus QT51518 supply-only, made supply-and-fit. Requirement source: red note on drawings K1653-11 and K1653-12, 'AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2'. Adam ruled on REQ-9 27/07: the openings are being newly formed, so the vents can be made as large as the free area requires - size is not a constraint.",
+ "_note": "2no bottom-hung AOV smoke vents, one per stairwell, at each stairwell's top storey. Priced off A Plus QT51518 supply-only, made supply-and-fit. Requirement source: red note on drawings K1653-11 and K1653-12, 'AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2'. Adam ruled on REQ-9 27/07: the openings are being newly formed, so the vents can be made as large as the free area requires - size is not a constraint. CURRENCY CAVEAT: the requirement appears ONLY on K1653-11 and K1653-12, neither ever revised since Mar 24, while the ground floor plan K1653-10b was revised twice in Nov 25. Confirm both sheets are still current - brief C5.",
  "coupled_runs": [],
  "doors": [],
  "frame_supply": "glazed",
@@ -69,6 +69,18 @@
   {
    "ref": "Onward haulage from Fenster's MK13 9HF yard to site at HP19 7HL - QT51518 carries NO site address and is addressed to our own Bradwell Abbey yard, so A Plus's 'Delivered' ends in Milton Keynes. A Plus also require 'suitable labour at the delivery point to unload'.",
    "treatment": "excluded"
+  },
+  {
+   "ref": "Structural alteration to ENLARGE the vent openings if a resize is instructed - lintels, cutting masonry, making good. Adam ruled the openings are newly formed (REQ-9) but the pack does not corroborate it: K1653-04 shows a single set of eight elevations of a complete, regularly fenestrated building with no new opening marked and no AOV drawn. Confirm per vent before relying on the resize option - brief C2.",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Planning risk on a resize - drawings stamped 24/02303/PAPCR, a PRIOR APPROVAL reference rather than a full permission. Prior-approval conversions normally limit external alteration, so enlarging the openings may need a separate application. HD Planning to confirm - brief C3.",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Arched-head unit risk on AOV.01. Its stairwell is in the central tower; on Elevation F that tower's top storey carries TWO ARCHED-HEAD windows, while QT51518 is a square-head casement. If the vent lands in the arched face it is a different unit at a different price, and A Plus charge extra to glaze above a curved head. Face and head shape to be confirmed - brief C4.",
+   "treatment": "excluded"
   }
  ],
  "supplier_quotes": [
@@ -90,7 +102,7 @@
    "performance": {
     "required": "Free area 1.0 m2 per stairwell (drawings K1653-11 and K1653-12), basis geometric or aerodynamic NOT stated on the drawing",
     "capable": null,
-    "evidence": "A Plus state GEOMETRIC 1.30 m2 per vent on QT51518 and give no aerodynamic figure. On their QT51516 (Towcester Vale, same DualFrame 75Si AOV) aerodynamic runs 60-62% of geometric (0.49/0.81 and 0.54/0.87). On that ratio 1.30 geometric is ~0.78-0.81 aerodynamic, ~20% short of 1.0. Complies on geometric, fails on aerodynamic. A Plus have not been asked for the aerodynamic figure for these sizes - RFI-1. EVIDENCE ADDED 27/07 EVENING, POINTING TO GEOMETRIC: (a) the drawings name their own compliance route - the key on K1653-10b/11/12 reads 'MAINS OPERATED INTERLINKED HEAT DETECTOR TO AD B1', i.e. the prescriptive Approved Document B route, which expresses common-stair smoke vents as a free area; aerodynamic free area is the language of the engineered BS 9991 / EN 12101-2 route, which this pack is not on. (b) Gordon Court's NBS 9001 L20 cl.630 specifies the standard product for this exact duty as 'AXS140 STAIRWELL VENTILATOR - throat 1250mm x 1000mm - 1m2 GEOMETRIC free area', and 'aerodynamic' appears nowhere in that job's 186-page NBS, 140-page mechanical or 127-page electrical spec. Recommendation is geometric, so the vents as quoted comply by 30% - but capable stays unconfirmed because only the fire engineer or building control can rule on the basis. Requote brief written and ready to settle it either way: outputs/Riverside House - A Plus requote brief (for Gintare).txt."
+    "evidence": "A Plus state GEOMETRIC 1.30 m2 per vent on QT51518 and give no aerodynamic figure. On their QT51516 (Towcester Vale, same DualFrame 75Si AOV) aerodynamic runs 60-62% of geometric (0.49/0.81 and 0.54/0.87). On that ratio 1.30 geometric is ~0.78-0.81 aerodynamic, ~20% short of 1.0. Complies on geometric, fails on aerodynamic. A Plus have not been asked for the aerodynamic figure for these sizes - RFI-1. EVIDENCE ADDED 27/07 EVENING, POINTING TO GEOMETRIC: (a) the drawings name their own compliance route - the key on K1653-10b/11/12 reads 'MAINS OPERATED INTERLINKED HEAT DETECTOR TO AD B1', i.e. the prescriptive Approved Document B route, which expresses common-stair smoke vents as a free area; aerodynamic free area is the language of the engineered BS 9991 / EN 12101-2 route, which this pack is not on. (b) Gordon Court's NBS 9001 L20 cl.630 specifies the standard product for this exact duty as 'AXS140 STAIRWELL VENTILATOR - throat 1250mm x 1000mm - 1m2 GEOMETRIC free area', and 'aerodynamic' appears nowhere in that job's 186-page NBS, 140-page mechanical or 127-page electrical spec. Recommendation is geometric, so the vents as quoted comply by 30% - but capable stays unconfirmed because only the fire engineer or building control can rule on the basis. Requote brief written and ready to settle it either way: outputs/Riverside House - A Plus requote brief (for Gintare).txt. CONFIGURATION RESOLVED 27/07 LATE: the quoted 1.30 m2 reconciles exactly with the full inner frame aperture, 957 x 1357 = 1.2986 m2 (1357 = 1530 less two 86.5mm sections, 86.5 from the 957 daylight width). So the geometric free area quoted IS the clear opening of the whole frame, which means the entire frame opens as one bottom-hung leaf with the 176mm transom acting as a glazing bar within the sash - consistent with a single 850mm chain on a frame whose individual apertures are only 590mm high. Also passes Gordon Court's ratio flag: required 1.0 / 1.729 gross = 57.8%."
    }
   },
   {

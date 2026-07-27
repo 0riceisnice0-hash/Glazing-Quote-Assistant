@@ -45,11 +45,16 @@ centre-pane figure, and A Plus's standard notes say windows will be "no better t
 1.8" unless otherwise stated. Please state the WHOLE-WINDOW Uw for the vent as quoted,
 and confirm whether 1.6 can be met if it is required.
 
-5. THE VENT LEAF
+5. THE VENT LEAF - PLEASE CONFIRM WHAT WE THINK WE ARE READING
 
 QT51518 lists apertures A1 (957 x 590) and A7 (957 x 591), so the frame is transom
-divided, but a single 850mm stroke actuator is quoted against it. Please confirm on a
-shop drawing which leaf opens, where the transom sits and where the actuator goes.
+divided, but a single 850mm stroke actuator is quoted against it. The quoted free area
+appears to answer that: the full inner frame aperture is 957 x 1357 = 1.2986 m2, which
+is the 1.30m2 stated (1357 = 1530 less two 86.5mm frame sections, 86.5 being taken from
+the 957 daylight width). That implies the WHOLE frame opens as one bottom-hung leaf with
+the transom acting as a glazing bar within the sash, rather than one of the two panes
+opening. Please confirm that is right, and confirm the transom and actuator positions
+on a shop drawing.
 
 6. DELIVERY - TWO PARTS
 
@@ -68,12 +73,53 @@ costs before this is submitted, so the submission date is not yet known. Please 
 how long A Plus will hold the price, or what notice we would get of a change.
 
 --------------------------------------------------------------------------------
-NOT FOR A PLUS - FOR US
+PART TWO - NOT FOR A PLUS. THESE GO TO RRR / CAMPBELL ARK / THE FIRE ENGINEER
 --------------------------------------------------------------------------------
-The AOV control system is not in A Plus's scope and is not in ours. The drawings
-require the vent to be "OPERATED BY THE FIRE BRIGADE AT GROUND FLOOR ACCESS LEVEL IN
-THE STAIRS", which needs a smoke control panel, mains and battery-backed supply,
-cabling, containment, the override itself and commissioning. A Plus fix the actuator,
-test it on local batteries and leave about 2m of flex coiled at the vent - that is
-where they stop. Somebody needs to be carrying this, and at the moment nobody is.
-It is worth settling with RRR / PHDB at the same time as the above.
+Four of these have come up since the vents were priced, and two of them could change
+the answer to Part One. Worth asking before Gintare spends A Plus's time.
+
+C1. IS THE 1m2 GEOMETRIC OR AERODYNAMIC? The drawings do not say. Our reading is
+    GEOMETRIC, for two reasons: the drawings' own key works "TO AD B1", which is the
+    prescriptive Approved Document B route and states stair vents as a free area,
+    where aerodynamic is the language of the engineered BS 9991 / EN 12101-2 route;
+    and comparable packs specify this exact duty as "1m2 GEOMETRIC free area" in so
+    many words. On that reading the vents as quoted clear the requirement by 30% and
+    nothing needs to change. Please confirm.
+
+C2. ARE THE OPENINGS REALLY NEW? We have been told the openings are being newly
+    formed and can therefore be made any size. **The pack does not show that.**
+    Drawing K1653-04 "EXISTING / PROPOSED ELEVATIONS" carries a single set of eight
+    elevations showing a complete, regularly fenestrated building, with no new opening
+    marked anywhere and no AOV drawn on any elevation. If the vents are in fact going
+    into EXISTING openings, then enlarging them is structural work - new lintels,
+    cutting masonry, making good - none of which is in anybody's price, and it would
+    also change the approved external appearance. Please confirm per vent.
+
+C3. AND IF THEY ARE ENLARGED, DOES THAT NEED PLANNING? The drawings are stamped
+    24/02303/PAPCR, which is a PRIOR APPROVAL reference rather than a full planning
+    permission. Prior-approval conversions normally carry tight limits on external
+    alterations. Before anyone commits to "make them as big as we need", please
+    confirm with HD Planning whether enlarging these two openings sits inside the
+    approval or needs a separate application.
+
+C4. WHICH FACE DOES THE SECOND-FLOOR VENT SIT IN, AND IS THE HEAD ARCHED? The
+    second-floor stairwell is in the central tower. On Elevation F that tower's top
+    storey has TWO ARCHED-HEAD windows; on Elevation B it has three rectangular ones.
+    A Plus have quoted a square-head 1130 x 1530 casement. If the vent lands in an
+    arched opening it is a different unit at a different price. Please confirm the
+    face and the head shape.
+
+C5. ARE K1653-11 AND K1653-12 STILL CURRENT? They are the only documents that carry
+    the smoke-vent requirement, and neither has ever been revised - both are dated
+    Mar 24 with no revision. The ground floor plan, K1653-10b, has been revised twice
+    since ("Dental Lobby added" and "altered", both Nov 25). A requirement sitting
+    only on the sheets that never moved, in a pack where another sheet moved a year
+    later, is worth one line of confirmation.
+
+C6. WHO IS CARRYING THE AOV CONTROL SYSTEM? It is not in A Plus's scope and it is not
+    in ours. The drawings require the vent to be "OPERATED BY THE FIRE BRIGADE AT
+    GROUND FLOOR ACCESS LEVEL IN THE STAIRS", which needs a smoke control panel, mains
+    and battery-backed supply, cabling, containment, the override itself and
+    commissioning. A Plus fix the actuator, test it on local batteries and leave about
+    2m of flex coiled at the vent - that is where they stop. Worth settling with RRR /
+    PHDB at the same time as the above.

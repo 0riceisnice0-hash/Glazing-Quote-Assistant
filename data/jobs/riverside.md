@@ -79,7 +79,28 @@ So on the pack, **1.30 m2 geometric clears 1 m2 with 30% to spare** and nothing 
 > openings are being newly formed. Drop me an email to remind me and I will ask Gintare to requote."
 
 **Size is not a constraint** - the openings are newly formed and can grow, so if a resize is ever
-needed there is no structural argument to have. Note he answered against the 1.5 m2, which turned out
+needed there is no structural argument to have.
+
+**BUT THE PACK DOES NOT CORROBORATE THAT, AND IT SHOULD BE CONFIRMED BEFORE ANYONE RELIES ON IT.**
+Gordon Court's schedules turned out to constrain ground and first floors to existing structural
+openings while levels 2-3 were new build and free, so they warned to check it floor by floor. Run on
+Riverside: **K1653-04 "EXISTING / PROPOSED ELEVATIONS" carries a single set of eight elevations
+(A-H) showing a complete, regularly fenestrated building - no new opening is marked anywhere and no
+AOV is drawn on any elevation.** That is not proof the openings are existing, but it is the whole of
+what the pack says, and Adam's statement is the only source for "newly formed". Three consequences:
+
+- If the openings are **existing**, enlarging them is structural - lintels, cutting masonry, making
+  good - and none of that is in anybody's price.
+- The drawings are stamped **24/02303/PAPCR**, a **prior approval** reference rather than a full
+  planning permission. Prior-approval conversions normally carry tight limits on external alteration,
+  so "as big as we need" may not be a free decision. One question to HD Planning settles it.
+- **The second-floor vent may be in an ARCHED opening.** AOV.01's stairwell is in the central tower.
+  On **Elevation F** that tower's top storey has **two arched-head windows**; on Elevation B it has
+  three rectangular ones. A Plus have quoted a square-head 1130 x 1530 casement. If the vent lands in
+  the arched face it is a different unit at a different price - and A Plus's own terms charge extra to
+  glaze above a curved head.
+
+All three are in the requote brief as C2, C3 and C4. Note he answered against the 1.5 m2, which turned out
 to be ours rather than the client's; triage put the correction to him on the hub and asked him to hold
 off Gintare until the basis is settled. His answer becomes exactly right *if* the basis is aerodynamic.
 He asked for an email reminder - **email is still blocked**, so REQ-9 on the hub is the reminder.
@@ -118,6 +139,45 @@ ratios are 75% and 54%, so it does not scale.
 So the recommendation is that **1m2 means geometric, the vents as quoted comply by 30%, and there is
 nothing to requote**. It is a recommendation, not a ruling - the fire engineer or building control
 confirms it. But it is now a well-evidenced one rather than a coin toss, and it is on REQ-9.
+
+### The pack's revision table - Gordon Court's stale-document check, run on Riverside
+
+| Sheet | Title | Date | Revision |
+|---|---|---|---|
+| K1653-03 | Proposed Layout, all three floors (the **planning** set) | Mar 23 | **B - 17.06.24** (A - 05.07.23) |
+| K1653-04 | Existing / Proposed Elevations | Jun 24 | none |
+| K1653-10b | Proposed Layout **Ground** Floor | Mar 24 | **B - Nov 25** (A - Nov 25) |
+| K1653-11 | Proposed Layout **First** Floor | Mar 24 | **none** |
+| K1653-12 | Proposed Layout **Second** Floor | Mar 24 | **none** |
+| HD0-0197-01a | Location Plan (hd planning) | Aug 24 | a |
+
+**The AOV requirement appears only on K1653-11 and K1653-12 - the two sheets that have never been
+revised** - while the ground floor plan was revised twice in November 2025. Probably innocent: the
+Nov 25 revisions were "Dental Lobby added" and "altered", a ground-floor commercial change that need
+not touch upper floors. But the requirement has not been looked at since **March 2024**, and on Gordon
+Court this exact pattern concealed a smoke shaft deleted five months before tender. **One line of
+confirmation that K1653-11/12 are still current** - carried as C5 in the brief.
+
+Note also the pack holds **two layout sets**: the planning sheet K1653-03 (all floors on one sheet,
+Mar 23 rev B) and the construction-issue sheets K1653-10b/11/12 (Mar 24). The construction set is
+later and is marked CONSTRUCTION ISSUE, so it governs - and it is the only set carrying the smoke-vent
+note. K1653-03 does not carry it.
+
+### What A Plus's 1.30 m2 actually is - and it resolves RFI-2
+
+The full inner frame aperture is **957 x 1357 = 1.2986 m2**, which is the 1.30 m2 stated (1357 = 1530
+less two 86.5mm frame sections, 86.5 taken from the 957 daylight width). So A Plus's "geometric free
+area" is the **clear opening of the whole frame** - which means the entire frame opens as one
+bottom-hung leaf, with the 176mm transom acting as a glazing bar within the sash rather than dividing
+a fixed pane from an opening one. That matches the original objection that an 850mm chain cannot act
+on a 590mm-high aperture. Carried as a confirmation rather than a question in brief item 5.
+
+It also answers Gordon Court's ratio flag. They suggest dividing the required free area by the GROSS
+frame area and querying anything much above ~60%. Riverside: required 1.0 / 1.729 = **57.8%**, inside
+their threshold. A Plus's quoted 1.30 is 75% of gross - which looks high until you notice it is
+**100% of the inner aperture**, and the aperture is the real ceiling. The right denominator for a
+clear-opening ratio is the aperture, not the gross frame; the 60% rule of thumb is really a proxy for
+how much of the gross frame the sections eat.
 
 ### The requote brief - written and ready either way
 
