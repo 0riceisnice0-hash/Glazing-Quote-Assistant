@@ -878,6 +878,59 @@ Asking for "the rest of the pack" gets a shrug; naming the drawing that holds th
 `mary_checks` unchanged at 0 failed, 3 questions - the missing sheets are now an explicit exclusion
 rather than a silent gap. Selftest passes.
 
+### Riverside House - one vent's opening is new, the other's is not, and one may be a roof vent (2026-07-27, late)
+
+Gordon Court found that their pack encodes new-versus-existing in the **window tag prefix** - a WINDOWS
+TAGS legend on one elevation sheet reading *"WE_00 Windows in EXISTING openings replaced as new / WN_00
+Windows in NEW openings / WL_00 Louvres to smoke shaft"*. The lesson generalises: **a naming convention
+is usually documented somewhere, and the legend may not be on the sheet you are working from.**
+
+Riverside has no such convention - W1 and W2 are *performance* tags - so the two stairwells were read
+directly off K1653-11 and K1653-12. **The answer splits per vent, exactly as Gordon Court's
+floor-by-floor warning predicted, even on a two-vent job:**
+
+| | |
+|---|---|
+| **AOV.01** - second floor stairwell | **No window opening in any of its walls.** A new opening must be formed, so the size is genuinely free. **Adam's REQ-9 ruling is corroborated here.** |
+| **AOV.02** - first floor stairwell | **Three existing window openings** already in the external wall. If the vent takes one, its size is set and enlarging it is structural work in nobody's price. **Not corroborated here.** |
+
+So a blanket *"the openings are being newly formed"* was right for one vent and wrong for the other.
+Read off floor plans, so suggestive rather than conclusive - the demolition plan still settles it.
+
+**A related catch: the stair windows are the only glazing on these drawings carrying no W tag at all**,
+while every habitable-room window has one. Untagged glazing is invisible to a schedule, which is
+probably why the vents were never scheduled - and it bears on whether the drawings' 1.6 U-value binds
+them.
+
+**A FLAG THIS CHAT RAISED LAST TURN IS WITHDRAWN.** The suggestion that AOV.01 might sit in an
+arched-head opening was wrong: the two arched windows on Elevation F's tower top storey line up with the
+**Living room's** two W2 windows, not the stairwell, which has no windows on any face. What replaces it
+is more expensive. The second-floor stairwell has **no wall opening at all**, and the note says the stair
+is to be vented *"AT THE TOP STOREY ROOF"* - so **AOV.01 may be intended as a roof vent**, while A Plus
+have quoted a wall casement on a 155mm subcill. If so we have priced the wrong product for one of the two
+units. Now C4 in the brief: *establish wall or roof before accepting a window quote for an AOV.*
+
+**AND NO APERTURE PERCENTAGE IS A COMPLIANCE TEST.** Gordon Court quantified the caveat this chat gave
+them by varying only the assumed nominal section on their unit against a 1.5 m2 duty: 60mm 103.0%,
+65mm 101.1%, 70mm 99.3%, 75mm 97.5%, 85mm 94.0%. **±5mm swings the answer across the duty line**, so a
+computed "99.3%" is an estimate whose error bar swamps its margin. Accepted in full.
+
+One distinction survives and is worth keeping, because it decides when the arithmetic is worth doing:
+**reconciling a figure the supplier has stated is robust; predicting one they have not is not.** Riverside
+reconciles A Plus's published 1.30 m2 - 957 x 1357 reproduces it to 99.9%, and across head+cill from
+150mm to 200mm it only moves 101.6% to 97.9%, with no line to cross because the test is whether the
+reconciliation holds. Use the arithmetic to understand what a supplier has told you, not to decide
+whether they comply.
+
+**Drawing hygiene is now three one-minute tests** - gaps in the sheet-number series, cross-references to
+absent documents, and **duplicate numbers at different revisions**. That third one nearly cost Gordon
+Court everything: their zip holds 21005/6/7 at both rev 02 and rev 03 and the tag legend exists only on
+21007 rev 03 (5,751 characters against rev 02's 2,487 - comparing extracted text length between
+revisions is a fast way to spot it). Riverside fails the first two and **passes the third**: six
+drawings, all distinct numbers, one copy each.
+
+`mary_checks` unchanged at 0 failed, 3 questions. Selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

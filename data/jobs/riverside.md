@@ -81,7 +81,33 @@ So on the pack, **1.30 m2 geometric clears 1 m2 with 30% to spare** and nothing 
 **Size is not a constraint** - the openings are newly formed and can grow, so if a resize is ever
 needed there is no structural argument to have.
 
-**BUT THE PACK DOES NOT CORROBORATE THAT, AND IT SHOULD BE CONFIRMED BEFORE ANYONE RELIES ON IT.**
+**AND THE ANSWER SPLITS PER VENT - read off the two stairwells 27/07 late, after Gordon Court found
+their own pack encoded new-versus-existing in the window TAG PREFIX (WE_ = existing opening, WN_ =
+new opening). Riverside has no such convention - W1 and W2 are performance tags, not opening tags -
+but the floor plans show the openings directly:**
+
+| | |
+|---|---|
+| **AOV.01** - second floor stairwell (K1653-12) | **NO window opening in any of its walls.** Every wall around the stairwell is drawn solid. A new opening genuinely has to be formed, so the size is free. **Adam's ruling is corroborated for this vent.** |
+| **AOV.02** - first floor stairwell (K1653-11) | **THREE existing window openings** already in its external wall. If the vent takes one, its size is set by the existing opening and enlarging it is structural work in nobody's price. **Not corroborated for this vent.** |
+
+**And neither stairwell's glazing carries a W1 or W2 tag** - every habitable-room window on these
+drawings does. The stair windows sit outside the tagged system entirely, which is probably why the
+vents were never scheduled, and it bears on whether the drawings' 1.6 U-value binds them (RFI-6).
+
+This is read off floor plans, so it is suggestive rather than conclusive - the demolition plan is still
+the document that settles it. But it is a much better question than "confirm the openings are new",
+and it is now C2 in the brief, split per vent.
+
+**A CORRECTION TO MY OWN EARLIER FLAG.** I raised the risk that AOV.01 sits in an arched opening,
+because Elevation F's tower top storey carries two arched-head windows. Those two arched windows line
+up with the **Living room's** two W2 windows on K1653-12, not with the stairwell - the stairwell has no
+windows on that face or any other. So the arched-head risk is withdrawn. What replaces it is sharper:
+**the second-floor stairwell has no wall opening at all and the note says the stair is to be "VENTED AT
+THE TOP STOREY ROOF" - so AOV.01 may be intended as a ROOF vent, and A Plus have quoted a wall window
+on a 155mm subcill.** If so the quoted unit is the wrong product entirely. That is now C4.
+
+**THE WIDER POINT STANDS AND SHOULD STILL BE CONFIRMED.**
 Gordon Court's schedules turned out to constrain ground and first floors to existing structural
 openings while levels 2-3 were new build and free, so they warned to check it floor by floor. Run on
 Riverside: **K1653-04 "EXISTING / PROPOSED ELEVATIONS" carries a single set of eight elevations
@@ -180,6 +206,15 @@ Riverside, which has no zip at all - everything arrived as email attachments and
 - **Whole document classes absent:** no fire strategy, no existing plans, no demolition plan, no
   sections, no window or door schedule.
 
+**Duplicate-revision check (Gordon Court's third drawing-hygiene test, 27/07 late): CLEAN.** Their zip
+holds superseded revisions beside current ones - 21005/6/7 at both rev 02 and rev 03, 21008 at rev 03,
+rev 03(1) and rev 04 - and the annotation that answered their four-turn question exists **only** on
+21007 rev 03. Reading the wrong copy would have hidden it. Riverside holds no duplicate sheet numbers:
+three planning-portal PDFs (K1653-04, K1653-03 as "PROPOSED_LAYOUT", the location plan) and three loose
+construction sheets (K1653-10b/11/12), all distinct numbers, one copy each. So the three tests now are
+**gaps in the series, cross-references to absent documents, and duplicate numbers at different
+revisions** - Riverside fails the first two and passes the third.
+
 Most of that is probably not our scope. **The point is that the absent classes are exactly the ones
 that answer our open questions** - proven on Gordon Court, where the demolition legend carried *"NEW
 STRUCTURAL OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE"*, which is precisely the new-versus-existing
@@ -209,6 +244,30 @@ and the right denominator.** Riverside's requirement is 1.0 / 1.729 gross = 57.8
 aperture = 77% - comfortable either way. One caveat carried from their correction: an aperture is
 usually *inferred* from a nominal section depth unless the supplier states it, so it is an estimate
 too. The clear opening is the manufacturer's figure to give.
+
+**Gordon Court then quantified that caveat and it deserves an honest answer, because their number
+does not transfer here.** They varied only the assumed outer section on WN_7: 65mm gives 101.1% of
+the duty, 70mm gives 99.3% - so **±5mm on a nominal section swings the answer clean across the
+compliance line**, and their 99.3% is an estimate whose error bar swamps its own margin. Correct, and
+neither of our aperture percentages is a compliance test.
+
+But the direction of inference is opposite on Riverside, which makes it far less fragile. They are
+**predicting an unstated** clear opening from an assumed section. I am **reconciling a stated** figure:
+A Plus published 1.30 m2, and 957 (their own stated daylight width) x 1357 reproduces it to 99.9%.
+Only the vertical is assumed - head+cill = 2 x 86.5 - and the stated figure constrains it:
+
+| assumed head+cill | inner height | area | vs stated 1.30 |
+|---|---|---|---|
+| 150mm | 1380 | 1.3207 | 101.6% |
+| 165mm | 1365 | 1.3063 | 100.5% |
+| **173mm (assumed)** | **1357** | **1.2986** | **99.9%** |
+| 180mm | 1350 | 1.2919 | 99.4% |
+| 200mm | 1330 | 1.2728 | 97.9% |
+
+A ±25mm swing moves it ±1.9%, and there is no line to cross - the test is whether the reconciliation
+holds, and it does across the whole plausible range. So the **configuration** conclusion (whole frame
+opens as one bottom-hung leaf) is robust. It remains an inference until A Plus confirm it, which is
+brief item 5.
 
 ### The requote brief - written and ready either way
 

@@ -100,18 +100,31 @@ C1. IS THE 1m2 GEOMETRIC OR AERODYNAMIC? The drawings do not say. Our reading is
     many words. On that reading the vents as quoted clear the requirement by 30% and
     nothing needs to change. Please confirm - or send the fire strategy per C0.
 
-C2. ARE THE OPENINGS REALLY NEW? PLEASE SEND THE DEMOLITION AND EXISTING PLANS. We
-    have been told the openings are being newly formed and can therefore be made any
-    size. **The pack does not show that.** Drawing K1653-04 "EXISTING / PROPOSED
-    ELEVATIONS" carries a single set of eight elevations showing a complete, regularly
-    fenestrated building, with no new opening marked anywhere and no AOV drawn on any
-    elevation. If the vents are in fact going into EXISTING openings, then enlarging
-    them is structural work - new lintels, cutting masonry, making good - none of which
-    is in anybody's price, and it would also change the approved external appearance.
-    We hold no existing plans and no demolition plan. On a comparable job the demolition
-    legend was where new openings were marked, in exactly these words: "NEW STRUCTURAL
-    OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE." That is the drawing that answers this,
-    and it is not something we can reason our way to.
+C2. ARE THE OPENINGS REALLY NEW? THE ANSWER LOOKS DIFFERENT FOR EACH VENT.
+
+    We have been told the openings are being newly formed and can therefore be made any
+    size. Reading the two stairwells off K1653-11 and K1653-12, that appears to be true
+    of one vent and not the other:
+
+      AOV.01, second floor stairwell (K1653-12) - the stairwell has NO window opening
+        in any of its walls. Every wall around it is drawn solid. So a new opening does
+        have to be formed here, and the size is genuinely free. This one corroborates
+        what we were told.
+
+      AOV.02, first floor stairwell (K1653-11) - the stairwell already has THREE window
+        openings in its external wall. If the vent takes one of them, the size is set by
+        the existing opening and enlarging it is structural work - lintel, cutting,
+        making good - which is in nobody's price.
+
+    Please confirm per vent. And please still send the DEMOLITION and EXISTING PLANS:
+    we hold neither, and on a comparable job the demolition legend was exactly where new
+    openings were marked - "NEW STRUCTURAL OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE."
+    That drawing settles this properly; the above is read off floor plans, which is
+    suggestive rather than conclusive.
+
+    Worth noting alongside: the stair windows are the only glazing on these drawings
+    that carries NO W1 or W2 tag. Every habitable room window is tagged. That may be why
+    the vents were never scheduled, and it bears on item C6 below.
 
 C3. AND IF THEY ARE ENLARGED, DOES THAT NEED PLANNING? The drawings are stamped
     24/02303/PAPCR, which is a PRIOR APPROVAL reference rather than a full planning
@@ -120,12 +133,18 @@ C3. AND IF THEY ARE ENLARGED, DOES THAT NEED PLANNING? The drawings are stamped
     confirm with HD Planning whether enlarging these two openings sits inside the
     approval or needs a separate application.
 
-C4. WHICH FACE DOES THE SECOND-FLOOR VENT SIT IN, AND IS THE HEAD ARCHED? The
-    second-floor stairwell is in the central tower. On Elevation F that tower's top
-    storey has TWO ARCHED-HEAD windows; on Elevation B it has three rectangular ones.
-    A Plus have quoted a square-head 1130 x 1530 casement. If the vent lands in an
-    arched opening it is a different unit at a different price. Please confirm the
-    face and the head shape.
+C4. IS AOV.01 A WALL WINDOW OR A ROOF VENT? This replaces an earlier query of ours
+    about arched heads, which we now think was a false alarm - the two arched-head
+    windows on Elevation F at second floor line up with the Living room's two W2
+    windows, not with the stairwell.
+
+    The real question is simpler and more expensive. The second-floor stairwell has no
+    opening in any of its walls, and the note itself says the stair is to be "VENTED AT
+    THE TOP STOREY ROOF". A Plus have quoted a wall window - a 1130 x 1530 casement on a
+    155mm subcill. If AOV.01 is intended as a roof vent rather than a window in the
+    stairwell wall, it is a different product from a different supplier and the quoted
+    unit is simply the wrong thing. Please confirm which is intended, and if it is a
+    wall window, which elevation it goes in.
 
 C5. ARE K1653-11 AND K1653-12 STILL CURRENT? They are the only documents that carry
     the smoke-vent requirement, and neither has ever been revised - both are dated

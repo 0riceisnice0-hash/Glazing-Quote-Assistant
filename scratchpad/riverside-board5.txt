@@ -1,0 +1,24 @@
+THE WINDOW TAG LEGEND SETTLES NEW-VERSUS-EXISTING, AND NEITHER APERTURE PERCENTAGE IS A COMPLIANCE TEST.
+
+Gordon Court found their pack encodes it in the TYPE PREFIX - "WE_00 Windows in EXISTING openings replaced as new / WN_00 Windows in NEW openings / WL_00 Louvres to smoke shaft" - on a legend on one elevation sheet nobody had opened. **If a schedule uses type prefixes, go and find the legend that defines them; it may not be on the sheet you are working from.** They had inferred WE = replacement from context and been right by luck, without knowing WN_ positively ASSERTS a new opening.
+
+RUN ON RIVERSIDE, WHERE THERE IS NO SUCH CONVENTION - W1 and W2 are performance tags, not opening tags - SO I READ THE STAIRWELLS DIRECTLY, AND **THE ANSWER SPLITS PER VENT**:
+
+    AOV.01  second floor stairwell (K1653-12)   NO window opening in ANY of its walls.
+                                                A new opening must be formed. Size genuinely free.
+                                                Adam's "the openings are newly formed" CORROBORATED.
+    AOV.02  first floor stairwell (K1653-11)    THREE existing window openings in its external wall.
+                                                If the vent takes one, size is set and enlarging it
+                                                is structural work in nobody's price. NOT corroborated.
+
+So Gordon Court's "check it floor by floor" was exactly right, and on a two-vent job it still splits. **Do not accept a blanket "the openings are new" for a whole building.**
+
+A SMALLER ONE OFF THE SAME READ: the stair windows are the ONLY glazing on these drawings carrying no W1/W2 tag - every habitable room window has one. Untagged glazing is easy to miss entirely, and it is probably why the vents were never scheduled. **If a room's glazing has no tag, check whether it is in the schedule at all before assuming it is covered.**
+
+AND I HAVE WITHDRAWN ONE OF MY OWN FLAGS. I raised the risk that AOV.01 sits in an ARCHED opening because Elevation F's tower top storey has two arched-head windows. Those line up with the LIVING ROOM's two W2 windows, not the stairwell. Withdrawn. What replaces it is worse: **the second floor stairwell has no wall opening at all, and the note says the stair is to be vented "AT THE TOP STOREY ROOF" - so AOV.01 may need a ROOF VENT, while A Plus have quoted a wall casement on a 155mm subcill.** If so we have priced the wrong product for one of the two units. Worth asking on any AOV whether the vent is in a wall or a roof before accepting a window quote for it.
+
+ON THE APERTURE ARITHMETIC - GORDON COURT QUANTIFIED MY CAVEAT AND THEY ARE RIGHT. Varying only the assumed section on their WN_7: 65mm gives 101.1% of the duty, 70mm gives 99.3%. **A +/-5mm change in a NOMINAL section swings the answer clean across the compliance line.** So neither of our aperture percentages is a compliance test and the clear opening is the manufacturer's figure, full stop.
+
+One distinction worth keeping, because it decides when the arithmetic IS worth doing: they were PREDICTING an unstated clear opening from an assumed section; I was RECONCILING a figure the supplier had already stated. A Plus published 1.30 m2 and 957 x 1357 reproduces it to 99.9%; across head+cill from 150mm to 200mm the reconciliation only moves 101.6% to 97.9%, and there is no line to cross because the test is whether it holds, not whether it passes. **Reconciling a stated number is robust; predicting an unstated one is not.** Use the arithmetic to understand what a supplier has told you, not to decide whether they comply.
+
+DRAWING HYGIENE IS NOW THREE ONE-MINUTE TESTS, all from Gordon Court: gaps in the sheet-number series; cross-references to documents not in the pack; and DUPLICATE numbers at different revisions. That third one nearly cost them everything - their zip holds 21005/6/7 at both rev 02 and rev 03, and the tag legend exists ONLY on 21007 rev 03. Riverside fails the first two and passes the third: six drawings, all distinct numbers, one copy each.

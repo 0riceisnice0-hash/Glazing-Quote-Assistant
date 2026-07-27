@@ -986,6 +986,19 @@ windows as big as we need to in order to achieve the free area, because the open
 formed."* Establish this early on any job with a performance-driven opening size - it turns a
 free-area shortfall from a design fight into a repricing question.
 
+**THE PACK OFTEN ENCODES NEW-VERSUS-EXISTING IN THE WINDOW TAG - GO AND FIND THE LEGEND.** Gordon
+Court's Proposed South Elevation carries a WINDOWS TAGS legend: *"WE_00 Windows in EXISTING openings
+replaced as new / WN_00 Windows in NEW openings / WL_00 Louvres to smoke shaft"*. The type prefix
+answers the question outright - and the legend that defines a naming convention **may not be on the
+sheet you are working from**. It also scoped their strip-out (it attaches to the WE_ types) and
+confirmed their AOVs sit in new openings. If a schedule uses type prefixes, find the legend.
+
+Where there is no such convention, read the plans: Riverside's W1/W2 are *performance* tags, so the
+stairwells had to be read directly - and see below, the answer split per vent. **Also watch for
+glazing carrying NO tag at all**: Riverside's stair windows are the only glazing on the drawings
+without a W tag, which is probably why the vents were never scheduled. Untagged glazing is invisible
+to a schedule.
+
 **BUT VERIFY IT AGAINST THE PACK, AND CHECK IT FLOOR BY FLOOR.** Gordon Court's schedules constrain
 ground and first floors to *"the existing structural opening sizes"* while levels 2-3 are new build
 and free - so a shortfall can be designed out upstairs and not downstairs. On Riverside the pack did
@@ -998,9 +1011,12 @@ drawn anywhere. Three things follow when the openings turn out to be existing:
   drawings are stamped **24/02303/PAPCR** - a *prior approval* reference, not a full permission.
   Prior-approval conversions normally carry tight limits on external alteration, so "as big as we
   need" may not be available at all. One question to the planning consultant settles it.
-- Check the **head shape** of the opening you are actually going into. Riverside's second-floor vent
-  is in the central tower, whose top storey has two **arched-head** windows on Elevation F against the
-  square-head casement quoted. A Plus charge extra to glaze above a curved head.
+- Check the **head shape** of the opening you are going into - and check it is a WALL opening at all.
+  A Riverside arched-head flag was raised and then **withdrawn**: the arched windows on Elevation F
+  turned out to be the Living room's, not the stairwell's. What replaced it is worse. The second-floor
+  stairwell has **no wall opening of any kind**, and the note says the stair is vented *"AT THE TOP
+  STOREY ROOF"* - so that vent may need a **roof vent** while the supplier has quoted a wall casement
+  on a 155mm subcill. **On any AOV, establish wall or roof before accepting a window quote for it.**
 
 **A PACK CAN HOLD TWO LAYOUT SETS, AND ONLY ONE MAY CARRY YOUR REQUIREMENT.** Riverside has the
 planning layout (K1653-03, all three floors on one sheet) and the construction-issue layouts
@@ -1010,6 +1026,20 @@ history is on the sheet that does *not* mention the requirement. Related, and Go
 requirement appears only on K1653-11 and K1653-12, neither ever revised since Mar 24, while the ground
 floor plan was revised twice in Nov 25. Probably innocent; one line to confirm. It works on a
 six-drawing pack, not just a large one.
+
+**NO APERTURE PERCENTAGE IS A COMPLIANCE TEST - THE CLEAR OPENING IS THE MANUFACTURER'S FIGURE.**
+Gordon Court quantified this by varying only the assumed nominal section on their unit against a
+1.5 m2 duty: 60mm gives 103.0%, 65mm 101.1%, 70mm 99.3%, 75mm 97.5%, 85mm 94.0%. **A +/-5mm change in
+an assumed section swings the answer clean across the duty line**, so a computed "99.3%" is an
+estimate whose error bar swamps its own margin. The one thing that survives is a direction of travel:
+the aperture is an *upper bound* on clear opening, because the leaf sits within it.
+
+There is a distinction worth keeping, because it decides when the arithmetic is worth doing at all.
+**Reconciling a figure the supplier has already stated is robust; predicting one they have not is
+not.** Riverside reconciles A Plus's published 1.30 m2 - 957 x 1357 reproduces it to 99.9%, and across
+head+cill from 150mm to 200mm the reconciliation only moves 101.6% to 97.9%, with no line to cross
+because the test is whether it holds. Use the arithmetic to understand what a supplier has told you,
+not to decide whether they comply.
 
 **THE RIGHT DENOMINATOR FOR A CLEAR-OPENING RATIO IS THE APERTURE, NOT THE GROSS FRAME.** A
 "required free area ÷ GROSS frame area, query anything above ~60%" rule of thumb was proposed on
@@ -1037,6 +1067,13 @@ MISSING.** Two cheap tests, both of which fire on small packs as well as large o
   08 and 09 unaccounted for. Gordon Court's loose job folder held **25 of the 82** drawings in the
   tender zip, and the 57 absent included every floor layout, every existing plan and all three
   demolition plans; what it *did* hold was the similarly-numbered SETTING OUT series.
+
+**And check for DUPLICATE sheet numbers at different revisions** - the sibling failure where the sheet
+is present twice and one copy is stale. Gordon Court's zip holds 21005/6/7 at both rev 02 and rev 03,
+and the tag legend above exists *only* on 21007 rev 03 - 5,751 characters against rev 02's 2,487.
+Comparing extracted TEXT LENGTH between revisions of the same sheet is a fast way to spot it. So
+drawing hygiene is three one-minute tests: **gaps in the series, cross-references to absent documents,
+and duplicate numbers at different revisions.**
 
 **Ask for the drawing register or issue sheet** rather than inferring from gaps. And note which
 document classes tend to carry the answers: the **fire strategy** states the free-area basis in its
