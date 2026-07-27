@@ -1,44 +1,40 @@
-The AOV that priced like a window, and the specification nobody had opened
+Adam holds the price; the clarification window shut on 15 July
 
-Riverside asked one question about Gordon Court's "AOV & LOUVRE" quote: does
-the pack state free area as geometric or aerodynamic, given aerodynamic runs
-at 60-62% of geometric? The answer is reassuring - this pack is written
-geometric throughout, so their ~40% trap does not bite here.
+REQ-20 answered: "It's fine we will hold the price and just trust everything
+will be okay." So the 163-day validity gap is a taken decision and I won't
+raise it on this job again. Recorded with the lever arm so the choice reads as
+informed rather than blind - materials are 54.6% of the fixed price, so each 1%
+of supplier inflation is GBP 2,010.87 off the bottom line, 5% is GBP 10,054 and
+10% is GBP 20,109. Flagged that his answer covers the price hold only: the
+GBP 723.87 of omitted cost, the D_T and D_X door queries and REQ-22 are all
+still open.
 
-What sat underneath it does. The architect's schedule marks 3no WN_7 as "AOV"
-and 4no WL_1 as "Louvres to smoke shaft", and the NBS specifies both as Colt
-motorised smoke-control units - a Coltite glazed ventilator driven by a 24V
-motor, and an EN Seefire louvre tested to EN 12101-2 on a 24Vdc actuator. BSW
-quoted a Prestige tilt-and-turn and a Prestige casement. Their quote never
-says AOV, louvre, actuator, motor or smoke, and the louvre's glazing line is
-blank. They gave no free area of either kind because they had not quoted a
-ventilator.
+Then did the last outstanding technical job from the first turn - rendering the
+scanned "Q&As" file. It is not a clarification log. It is a screenshot of the
+Delta eSourcing Message Centre showing "One item found": one message from Vixus
+announcing the ITT had gone live. So nobody ever raised a clarification, and the
+U-value question stays open.
 
-The tell was the rate, and it generalises: GBP 412/m2 and GBP 443/m2 against
-riverside's AOV data point of GBP 1,401/m2. An AOV that prices like a window
-is not an AOV. GBP 10,055.76 of sell is either short or not ours.
+The route is also shut. The ITT allows questions only up to five working days
+before the return, via the Delta portal, and forbids contacting jLiving direct.
+That was about 15 July; our tender went in on 9 July, so the window was open
+while we were pricing and nobody used it. All ten open RFIs are now post-tender
+queries through Chigwell - variation territory, not clarification. With the
+price now committed firm for 180 days, the exposure on this job has moved from
+supplier inflation to scope.
 
-Also correcting myself from this morning. I recorded that the schedules set no
-U-value and implied only the sustainability annex asked for one - the exact
-escape route St Mary's warned about. The NBS specification sets 1.2 W/m2K on
-windows and on communal entrance doors, requires PAS 24 on every window with
-third-party certification, and fixes the entrance-door finish as RAL7016 matt
-external and RAL9010 gloss internal. The requirement never depended on the
-annex, and the RAL was never "TBC".
+Adam's REQ-17 answer landed in this chat and belongs to St Mary's, so it went
+there verbatim. Two of its three rulings bite here: manifestation is required by
+the NBS on the communal entrance doors and appears in no schedule, no elevation
+and not in our proposal; and strip-out is unanswered on a job twice St Mary's
+size that takes 40 windows out of an occupied building. Access we already state
+correctly.
 
-Extended riverside's delivery rule to say "never free". It could express a
-supplier who always delivers free but not one who never does, which is both of
-this job's cases, so AFS's known GBP 250 hole was reading as a question rather
-than a failure.
+Also recorded why the 25% Teleflex markup must not travel: this job's AOVs are
+Colt units with 24V motors, which is exactly the analogy that would tempt
+someone. Only Teleflex has been ruled on and the engine stays untouched.
 
-Two hub messages handled. Zac's, on the send permissions being over-corrected:
-acknowledged, no email attempted. Adam's answer on REQ-7 landed in this chat by
-mistake and belongs to Crestwood Park, so it went there verbatim. It carries a
-general ruling - mark bought-in items up 25% - which I have put on the board but
-deliberately not wired into the pricing engine, because reading it as "add 25%
-to everything" off a misrouted message would change every future quote. Asked
-Adam which he means.
-
-REQ-22 raised. Job now runs 5 FAIL, 2 ASK, all genuine.
+Repaired the Gordon Court handover row - last turn's script appended past the
+row's closing pipe and turned it into a four-cell row with no terminator.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

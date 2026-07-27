@@ -1,0 +1,38 @@
+This one reached the wrong chat - I'm gordon-court, and REQ-17 is St Mary's Refurbishment. I've
+passed your message straight to the st-marys chat verbatim so it isn't lost, and left REQ-17
+itself alone for that chat to close.
+
+But two of your three rulings bite on Gordon Court as well, so thank you - they found real gaps
+here:
+
+MANIFESTATION - a gap, same as St Mary's. NBS L20 clause 280 for the communal main entrance doors
+says "Manifestation: As drawing". The adjacent internal door clause says "Manifestation: Not
+required", so the drafter deliberately turned it on for the entrance doors. But manifestation
+appears zero times across all five architect's schedules, zero times in both elevation sets, and
+zero times in our proposal - and no drawing in the pack actually shows any. So the requirement
+exists, its extent is undefined, and it is neither priced nor excluded. On your test - "we can
+allow the manifestation for a job of this size" - Gordon Court is GBP 368,376.70, more than twice
+St Mary's, so it should be allowed and stated in the inclusions. It currently isn't.
+
+STRIP-OUT - also unanswered here, and this job is the bigger one. The pack is silent (no strip-out,
+remove-existing or disposal references in any schedule, and the NEC3 activity schedule has no SOW
+item numbers, so there's no cross-reference into our item like St Mary's SOW 1.09). Our proposal
+excludes "Waste Removal - Generally excluded unless agreed otherwise" and never names removal of
+the existing windows. The GBP 46,840 install can't absorb it - that's pure per-unit fit labour,
+GBP 160 to GBP 500 a unit. And this is 40 replacement windows plus external doors coming out of an
+occupied building. On your rule we'd include it at this size, so I've recorded it as a gap rather
+than assuming it's covered.
+
+ACCESS - already correct here. Our Gordon Court proposal exclusions name "Access/Lifting Equipment
+- Scaffold, MEWPS, Towers, Forklift etc.", so it already says what you've asked for. The separate
+commercial question stands, though, and your answer doesn't settle it: this building gains two new
+storeys, and stating we've allowed no access isn't the same as agreeing who pays for it. If
+Chigwell's subcontract prelims push scaffolding onto the subcontractor, the exclusion is a
+negotiating position rather than a protection.
+
+One caution on the strip-out logic, offered once and then I'll leave it: "if they assume it's not
+included and do it for us then happy days" is a hope rather than a position. It doesn't protect us
+where the client's own documents allocate the work to our item - which is exactly what happened on
+St Mary's. Worth clarifying in the tender, as you say.
+
+I've put all three rulings on the noticeboard so the other chats apply them consistently.

@@ -1,0 +1,46 @@
+Understood - REQ-20 is closed as answered and we hold the price. I've recorded the decision
+against the request with your wording, and I won't raise the validity point again on this job.
+
+Two things for the file, so the decision is on record as an informed one rather than a blind one.
+
+THE SIZE OF WHAT WE ARE CARRYING. Materials are 54.6% of the fixed GBP 368,376.70, so every 1%
+of supplier inflation between now and order is GBP 2,010.87 straight off the bottom line,
+because the price cannot move:
+
+    2%  =  GBP  4,021.73   (1.1% of the tender)
+    5%  =  GBP 10,054.33   (2.7%)
+   10%  =  GBP 20,108.67   (5.5%)
+   15%  =  GBP 30,163.01   (8.2%)
+
+I have no forecast and I'm not implying a number - that's just the lever arm, so nobody is
+surprised in October. Order is realistically mid-October on jLiving's own programme.
+
+WHAT YOUR ANSWER DOESN'T COVER, and I'd rather flag it than let it ride. REQ-20 carried three
+other things besides the price hold, and they are still open decisions:
+  - the GBP 723.87 of omitted supplier cost (AFS extras GBP 506.37 + BSW's "PANEL SET UP"
+    GBP 217.50). That is not inflation, it is cost we already know is missing.
+  - the D_T door query - quoted 100mm taller than its structural opening, as a double where the
+    schedule shows a single leaf, in a Store whose external/internal cell is blank. GBP 7,304.44.
+  - the 2no D_X external doors on the schedule that are priced nowhere, ~GBP 5,600 of sell.
+Plus REQ-22, still open, on the 7no AOVs and smoke-shaft louvres quoted as ordinary windows.
+
+AND ONE NEW FACT THAT MAKES THOSE HARDER, which I only established today. I rendered the pack's
+"Q&As" file - it had no text layer. It is not a clarification log at all: it's a screenshot of
+the Delta eSourcing Message Centre showing "One item found", a single 02/06 message from Vixus
+announcing the ITT had gone live. So no clarifications were ever raised on this tender, and the
+question of whose specification governs the U-value is still unanswered.
+
+The ITT allows questions only up to 5 working days before the 22/07 return - about 15 July -
+strictly via the Delta portal, and it says "Please DO NOT contact jLiving directly." Our tender
+went to Chigwell on 09/07, so the window was open while we were pricing and nobody used it. It
+is shut now. That means every open question on this job is a POST-TENDER query through Chigwell,
+which puts them in variation or qualification territory rather than clarification. Given we have
+just committed to a firm price for 180 days, the scope questions are now the exposure rather
+than the supplier prices.
+
+Worth someone checking whether "Antony Berry, Supplier Administrator" on that portal screenshot
+is ours or Chigwell's. If Fenster holds a live Delta account on this tender, jLiving's award and
+standstill notices may be landing somewhere nobody reads - same shape as the info@ and
+commercial@ gap.
+
+Nothing needs doing tonight. jLiving don't announce until 16 September.

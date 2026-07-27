@@ -73,7 +73,105 @@ carries all of that in J–V including `K3/L3/M3 = "Supplier used: BSW 182787.76
 Filwood should have followed (HANDOVER.md:715, where print area was clean but the columns
 weren't hidden and K3/L3/M3 exposed BSW's cost).
 
-## 3. THE HEADLINE RISK — 163 days of unfixed cost against a firm price
+## 2A. DECIDED — Adam has accepted the 163-day validity risk (REQ-20, 27/07)
+
+> **Adam, hub message 29, 27/07 19:37: *"It's fine we will hold the price and just trust
+> everything will be okay."*** REQ-20 is **answered and closed**. We carry the gap rather than
+> seeking a written price hold or carrying a stated allowance. **Do not re-raise this on this
+> job** — it is a taken commercial decision, not an open question. §3 below is retained as the
+> record of what was decided and why it mattered, not as a live finding.
+
+For the file, so the decision reads as informed rather than blind — materials are **54.6%** of
+the fixed £368,376.70, so **every 1% of supplier inflation is £2,010.87** straight off the
+bottom line, because the price cannot move:
+
+| Supplier increase | Cost | % of tender |
+|---|---|---|
+| 2% | £4,021.73 | 1.1% |
+| 5% | £10,054.33 | 2.7% |
+| 10% | £20,108.67 | 5.5% |
+| 15% | £30,163.01 | 8.2% |
+
+No forecast is implied — that is the lever arm only. Order is realistically mid-October on
+jLiving's own programme.
+
+**What Adam's answer does NOT cover**, and what therefore stays open: the **£723.87** of omitted
+supplier cost (that is known-missing cost, not inflation), the **D_T** door query, the **2no D_X**
+doors, and **REQ-22** on the AOVs. The exposure on this job has shifted from supplier pricing to
+**scope** — see §2B.
+
+## 2B. THE CLARIFICATION WINDOW IS SHUT — every open RFI is now post-tender
+
+The last outstanding technical job from turn one was to render the pack's scanned
+`1. Q&As 02.06.26.pdf`. Done, at 200dpi. **It is not a clarification log at all.**
+
+It is a screenshot of the **Delta eSourcing Message Centre**, topic *"Gordon Ct: ITT"*, logged in
+as **"Antony Berry, Supplier Administrator"**, showing **"One item found"** — a single message,
+02/06/2026 13:04, from **darien.jay@vixus.co.uk** to All Suppliers, announcing the ITT had gone
+live with a return deadline of 22 July 2026 @ 1400. Nothing else.
+
+So **no clarifications were ever raised on this tender**, and **RFI-3 (whose specification
+governs the U-value) is still unanswered.** The one useful thing it does is independently
+corroborate the 22/07 @ 1400 return date I read off the ITT timetable.
+
+**And the route is now closed.** The ITT is explicit:
+
+- *"Bidders may raise questions relating to this tender **up to 5 working days prior to the
+  tender return deadline**"* → 5 working days before 22/07/2026 is **~15 July 2026**
+- *"All questions during the tender should be directed **via the Delta portal**"*
+- *"**Please DO NOT contact jLiving directly.**"*
+
+Our tender went to Chigwell on **09/07** — so the window was open while we were pricing and
+**nobody used it.** It is shut now.
+
+**Consequence, and it is the single most important framing on this job now:** all seven open RFIs
+— D_T, D_X, the AOV boundary, whose spec governs the U-value, the two missing consultants'
+specifications — are **post-tender queries through Chigwell**. That is **variation or
+qualification territory, not clarification.** Combined with Adam's decision to hold a firm price
+for 180 days, the risk on this job has moved from *supplier prices rising* to *scope questions
+resolving against us with no contractual mechanism to reprice.*
+
+**Worth someone establishing whether "Antony Berry" is ours or Chigwell's.** The name appears
+nowhere in our own records. If Fenster holds a live Delta account on this tender, jLiving's award
+and standstill notices may be landing somewhere nobody reads — the same shape as the known
+`info@` and `commercial@` blind spots.
+
+## 2C. Adam's REQ-17 rulings applied here — two of three bite
+
+Adam's answer to REQ-17 (St Mary's) was misrouted to this chat. Passed to `st-marys`, and applied
+here:
+
+| Ruling | Gordon Court |
+|---|---|
+| *"Our proposal document should state that we have not allowed for any access."* | ✅ **Already complies** — exclusions name *"Access/Lifting Equipment – Scaffold, MEWPS, Towers, Forklift etc."* The separate commercial risk stands: this building gains two storeys, and saying we've allowed no access is not the same as agreeing who pays. |
+| *"Strip out… we have effectively left it unanswered however we would include it for a job of this size."* | ❌ **GAP.** Pack is silent (no strip-out/remove-existing/disposal in any schedule; NEC3 activity schedule has no SOW item numbers, so no cross-reference like St Mary's SOW 1.09). Proposal excludes *"Waste Removal – Generally"* and never names it. The £46,840 install cannot absorb it — pure per-unit fit labour at £160–500/unit. **40 replacement windows plus external doors out of an occupied building**, on a job twice St Mary's size. Not costable from anything on file. |
+| *"We can allow the manifestation for a job of this size, however we should be putting this in our inclusions or on our description."* | ❌ **GAP.** See below. |
+
+**Manifestation — new finding.** NBS **L20 clause 280** for the communal main entrance doors
+states *"14. Glazing/ Infill details: Clear double glazing / 14.1. **Manifestation: As drawing**"*.
+The adjacent internal-door clause says *"Manifestation: Not required"*, so the drafter turned it
+**on** deliberately for the entrance doors. But manifestation appears **zero times** across all
+five architect's schedules, **zero times** in `Window & Door Elevations.pdf`, **zero times** in
+`Fire Rated Door Elevations.pdf`, and **zero times in our proposal** — and **no drawing in the
+pack shows any**. So the requirement exists, its extent is undefined, and it is neither priced nor
+excluded. This is the St Mary's clause-2.24 finding repeating on a second job.
+
+## 2D. The 25% Teleflex markup does NOT extend to this job's bought-in kit
+
+Triage settled Adam's ambiguous markup instruction (hub 28): ***"we are just adding 25% mark up to
+Teleflex, keep everything else you have learnt the same in terms of pricing."*** So it is a
+line-level markup on one bought-in item, **not** a general rule and **not** an engine change —
+`scripts/mary_pricing.py` stays untouched.
+
+**Recorded here because this job is exactly where the over-generalisation would have bitten.**
+Gordon Court's AOVs are Colt units with 24V actuators and motors — bought-in specialist kit of
+precisely the Teleflex kind. **The 25% is not authorised for them.** If REQ-22 resolves with the
+Coltite and Seefire units in our scope, the uplift must come from a real supplier price, not from
+applying Teleflex's markup by analogy. Only Teleflex has been ruled on.
+
+---
+
+## 3. THE VALIDITY RISK AS IT STOOD — decided at §2A, retained for the record
 
 **jLiving's Form of Tender (`2025_jL_GCourt_FoT_V1`) states: *"This tender remains open for
 consideration for a period of 180 days from the date of receipt of tenders."*** Receipt was
@@ -502,7 +600,15 @@ Not costable from anything on file, so it is an open item, not a number. But it 
 | RFQ-1 | Whole-window **Uw** against NBS cl.330's **1.2 W/m²K** and the Energy Statement's **1.1**; 8000mm² trickle vents; Passivent AL-dB 450 acoustic vents on the marked units; **PAS 24 + BS 6375-1/2/3 + EN 14351-1 certification with the cl.205 submittals**; **geometric free area** for WL_1 and WN_7; **delivery basis and threshold** | BSW | not yet asked |
 | RFQ-2 | **RAL 7016 matt external / RAL 9010 gloss internal** price on the 3 fire doors (NBS L20 cl.280); whole-door **Ud** against cl.280's 1.2 W/m²K; written price hold to 18/01/2027; the £506.37 extras | AFS | not yet asked |
 | RFQ-3 | If WN_7/WL_1 are ours: a **real price for a Coltite glazed lobby ventilator and an EN Seefire louvred ventilator** with stated geometric free area — there is no AOV category in the rate register, so the first number has to be a supplier's | BSW / Colt | not yet asked |
-| **REQ-20** | Adam: hold Q7585 past 08/08 and cover the 180-day gap? | dashboard | **raised 27/07** |
+| RFI-8 | **Manifestation** — NBS L20 cl.280 says *"As drawing"* and no drawing shows any. Confirm extent, then allow it and state it in our inclusions per Adam's ruling | Chigwell / Arkon | open |
+| RFI-9 | **Strip-out and disposal** of the 40 existing windows and external doors — whose is it? Adam's rule says we'd include at this size; our proposal excludes waste removal generally | Chigwell | open |
+| RFI-10 | Is **"Antony Berry, Supplier Administrator"** on the Delta portal ours or Chigwell's? If ours, jLiving award/standstill notices may be going unread | internal — Zac/Adam | open |
+| **REQ-20** | Adam: hold Q7585 past 08/08 and cover the 180-day gap? | dashboard | **ANSWERED 27/07 — hold the price, carry the risk. Closed.** |
+| **REQ-22** | Adam: are the 7no AOV / smoke-shaft units ours or the specialist's? | dashboard | **raised 27/07, open** |
+
+> **All of RFI-1 to RFI-10 are now POST-TENDER queries.** The Delta portal clarification window
+> closed ~15/07/2026 and the ITT forbids contacting jLiving directly, so every one of these has to
+> go through Chigwell as a variation or qualification. See §2B.
 
 **AFS are chasing and Mary cannot reply to them (ghost protocol).** Chris Wall
 (chris@aluminiumfiresystems.com) chased Q7585 at 13:02 on 27/07 — *"following up on this quote
@@ -573,10 +679,12 @@ Priority documents extracted to `scratchpad\gc-zip\` this session. Helper script
 (supplier quotes), `gc_census.py` (door census), `gc_acoustic.py` (acoustic vent column),
 `gc_winsch.py`, `gc_scan.py`.
 
-**Still unread and worth a look:** `1. Q&As 02.06.26.pdf` is a **scanned image with no text
-layer** (pdfplumber returns 0 characters) — the Lower Range Road lesson says a clarification
-log is where U-value answers hide, and RFI-3 above is exactly such a question. **Render it.**
-Also unread in full: the 186-page NBS spec (only L10/L20 material clauses sampled),
+**~~Still unread~~ DONE (third turn):** `1. Q&As 02.06.26.pdf` rendered at 200dpi to
+`scratchpad/qa_p1.png` — it is a Delta portal screenshot with one item, **not** a clarification
+log, and it answers nothing. See §2B. The Lower Range Road lesson still holds in general, but on
+this pack there was never anything in it.
+
+**Still unread:** the 186-page NBS spec (L10/L20 clauses now read, the rest sampled),
 `GorCou Pci Rev D.pdf`, `Gordon Court wi Contract Version - V3.pdf`,
 `2025_jL_GCourt_Contract_Data_p1&2_V3.pdf`, and the asbestos survey (relevant to strip-out on
 a 1960s refurbishment).

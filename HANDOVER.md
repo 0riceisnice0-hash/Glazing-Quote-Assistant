@@ -1247,6 +1247,70 @@ authoritative documents (NBS 186pp, mech spec 140pp, electrical spec 127pp, the 
 quotes) - not on an exhaustive sweep.
 
 
+### Gordon Court - third turn: Adam holds the price, and the clarification window turns out to have closed on 15 July (2026-07-27, late)
+
+**REQ-20 ANSWERED AND CLOSED.** Adam, hub 29: *"It's fine we will hold the price and just trust
+everything will be okay."* So the 163-day validity gap on GBP 201,086.70 is a **taken decision** - we
+carry it, and it is not to be re-raised on this job. Recorded with the lever arm so the choice reads as
+informed: materials are **54.6%** of the fixed GBP 368,376.70, so **every 1% of supplier inflation is
+GBP 2,010.87** off the bottom line (2% = GBP 4,022; 5% = GBP 10,054; 10% = GBP 20,109; 15% =
+GBP 30,163). No forecast implied. Flagged to him that his answer covers the price hold **only** - the
+GBP 723.87 of omitted cost, the D_T and D_X door queries and REQ-22 all remain open.
+
+**THE LAST OUTSTANDING TECHNICAL JOB, DONE - AND IT WAS A DEAD END WORTH HAVING.** Turn one flagged
+`1. Q&As 02.06.26.pdf` (no text layer) as the priority, on the Lower Range Road logic that clarification
+logs are where U-value answers hide. Rendered at 200dpi: **it is not a clarification log.** It is a
+screenshot of the **Delta eSourcing Message Centre**, topic *"Gordon Ct: ITT"*, logged in as *"Antony
+Berry, Supplier Administrator"*, showing **"One item found"** - one 02/06/2026 13:04 message from
+darien.jay@vixus.co.uk to All Suppliers announcing the ITT had gone live, return 22/07 @ 1400. **No
+clarifications were ever raised on this tender**, so RFI-3 stays open. It does independently corroborate
+the 22/07 @ 1400 date.
+
+**AND THE ROUTE IS SHUT, WHICH IS THE REAL FINDING.** The ITT: *"Bidders may raise questions relating to
+this tender **up to 5 working days prior to the tender return deadline**"*, *"All questions during the
+tender should be directed **via the Delta portal**"*, *"**Please DO NOT contact jLiving directly.**"*
+Five working days before 22/07/2026 is **~15 July**. Our tender went to Chigwell on **09/07** - the
+window was open while we were pricing, with five known unresolved scope questions, and nobody used it.
+**Consequence: all ten open RFIs are now POST-TENDER queries via Chigwell - variation or qualification
+territory, not clarification.** Combined with Adam's decision to hold a firm price for 180 days, the risk
+on this job has moved from *supplier prices rising* to *scope resolving against us with no mechanism to
+reprice.* **General lesson for the board: find the QUESTION deadline, not just the return deadline, and
+get RFIs in while the route exists.**
+
+**ADAM'S REQ-17 RULINGS (St Mary's) LANDED IN THIS CHAT AND TWO OF THREE BIT HERE.** Forwarded verbatim
+to `st-marys`, whose request it is, then run against this job:
+- **Access** - *"Our proposal document should state that we have not allowed for any access."* Gordon
+  Court already does. Cleared on wording; the commercial risk (two new storeys, and whether the
+  exclusion survives Chigwell's prelims) is untouched by his answer and stated as such.
+- **Strip-out** - GAP. *"We have effectively left it unanswered however we would include it for a job of
+  this size."* This job is twice St Mary's and strips **40 replacement windows plus external doors** out
+  of an occupied building. Pack silent (no strip-out/disposal in any schedule; NEC3 activity schedule has
+  no SOW item numbers, so no cross-reference like St Mary's SOW 1.09). Proposal excludes *"Waste Removal -
+  Generally"* and never names it. The GBP 46,840 install cannot absorb it - pure per-unit fit labour at
+  GBP 160-500/unit. **RFI-9.**
+- **Manifestation** - GAP, and the St Mary's clause-2.24 finding repeating. **NBS L20 cl.280** requires
+  *"Manifestation: As drawing"* on the communal main entrance doors, and the adjacent internal-door clause
+  says *"Not required"*, so it is deliberate. But manifestation appears **zero times** in all five
+  schedules, **zero** in `Window & Door Elevations.pdf`, **zero** in `Fire Rated Door Elevations.pdf` and
+  **zero in our proposal** - and no drawing shows any. Requirement exists, extent undefined, neither
+  priced nor excluded. **RFI-8.**
+
+**THE 25% STAYS OFF THIS JOB'S BOUGHT-IN KIT.** Triage settled it (Adam hub 28): *"we are just adding 25%
+mark up to Teleflex, keep everything else you have learnt the same."* Recorded on the job because Gordon
+Court is where the over-generalisation would have bitten hardest - the AOVs are **Colt units with 24V
+motors and actuators**, bought-in specialist equipment of exactly the Teleflex kind. **Not authorised.**
+If REQ-22 puts them in our scope the uplift must come from a real supplier price, not Teleflex's markup by
+analogy. `mary_pricing.py` remains untouched.
+
+**A THIRD MAILBOX BLIND SPOT, POSSIBLY.** *"Antony Berry, Supplier Administrator"* on that portal
+screenshot appears nowhere in our own records. If Fenster holds a live Delta account on this tender,
+jLiving's **award and standstill notices** go to that account rather than estimating@ - a third gap
+alongside commercial@ and info@. **RFI-10**, internal.
+
+Manifest now 19 spec_items; run unchanged at **5 FAIL, 2 ASK**. Both queue items answered on the hub and
+moved to `processed\`.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

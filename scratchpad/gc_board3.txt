@@ -1,0 +1,73 @@
+A "Q&A LOG" CAN BE A SCREENSHOT OF AN EMPTY MESSAGE CENTRE - AND THE CLARIFICATION WINDOW CLOSES EARLY.
+
+Rendered Gordon Court's '1. Q&As 02.06.26.pdf' (no text layer, pdfplumber returned nothing).
+It is not a clarification log. It is a screenshot of the Delta eSourcing Message Centre for topic
+"Gordon Ct: ITT" showing "One item found" - a single 02/06/2026 message from Vixus to All Suppliers
+announcing the ITT had gone live. No questions, no answers. So the U-value question I had open
+(whose specification governs - the NBS's 1.2, the Energy Statement's 1.1, or a consultant's spec
+that is not in the pack) is not answered anywhere in the tender documents.
+
+TWO TRANSFERABLE LESSONS.
+
+1. RENDER A SCANNED PACK DOCUMENT BEFORE ASSUMING IT CONTAINS WHAT ITS FILENAME PROMISES. Georgie's
+rule was to render scanned quotes rather than skip them, and it holds - but the reverse also
+happens. A file called "Q&As" that turns out to be a portal screenshot with one item is a real
+answer: it tells you nobody asked anything. That is worth knowing and it costs one render. Do not
+carry "the clarification log might answer this" as an open hope for three turns, as I did.
+
+2. THE CLARIFICATION DEADLINE IS EARLIER THAN THE TENDER DEADLINE, AND IT IS EASY TO MISS.
+jLiving's ITT: "Bidders may raise questions relating to this tender up to 5 WORKING DAYS PRIOR to
+the tender return deadline", "All questions during the tender should be directed via the Delta
+portal", and "Please DO NOT contact jLiving directly." Return was 22/07/2026 @ 1400, so questions
+closed about 15 July. Our tender went in on 09/07 - the window was OPEN while we were pricing, with
+five known unresolved scope questions, and nobody used it.
+SO: WHEN YOU START PRICING, FIND THE QUESTION DEADLINE, NOT JUST THE RETURN DEADLINE, and get the
+RFIs in while the route exists. Once it shuts, every open question stops being a clarification and
+becomes a post-tender variation or qualification, negotiated through whoever is above you rather
+than answered by the client's advisor. On Gordon Court all ten of my open RFIs are now in that
+position - which matters far more now Adam has committed us to a firm price for 180 days.
+Also worth noting the portal is the ONLY route on these jobs and it bars direct contact with the
+client, so "we'll just ask them" is not available on a Delta/In-Tend tender.
+
+AND A THIRD, SMALLER ONE: check whose portal account holds the tender. That screenshot is logged in
+as "Antony Berry, Supplier Administrator" - a name that appears nowhere in our own records. If
+Fenster holds a live Delta account on a tender, the client's AWARD and STANDSTILL notices go to that
+account, not to estimating@. Given commercial@ and info@ are already known blind spots, a portal
+login nobody monitors is a third one. Worth a look on any In-Tend or Delta job.
+
+ADAM'S THREE SCOPE RULINGS FROM REQ-17 (St Mary's) - THEY APPLY EVERYWHERE, AND TWO OF THREE BIT ON
+GORDON COURT. His hub message 31: "Our proposal document should state that we have not allowed for
+any access. Strip out is something we need to clarify in future tenders. We have effectively left it
+unanswered however we would include it for a job of this size, but if they assume it's not included
+and do it for us then happy days. We can allow the manifestation for a job of this size, however we
+should be putting this in our inclusions or on our description." Forwarded to st-marys, whose
+request it is. Running them against my own job:
+- ACCESS: fine. Our proposal already excludes Access/Lifting Equipment by name. Note what the ruling
+  does NOT do though - stating we have allowed no access is not the same as agreeing who pays. If
+  the main contractor's prelims push scaffolding down, the exclusion is a negotiating position.
+- STRIP-OUT: GAP. Gordon Court is GBP 368,376.70, twice St Mary's, and strips 40 existing windows
+  plus external doors out of an occupied building. The pack is silent, our proposal excludes "Waste
+  Removal - generally" and never names it, and the install line cannot absorb it because it is pure
+  per-unit fit labour (GBP 160-500/unit). On Adam's own test it should be allowed here and is not.
+- MANIFESTATION: GAP, and the same one St Mary's found. NBS L20 cl.280 says "Manifestation: As
+  drawing" on the communal entrance doors - and the adjacent internal-door clause says "Not
+  required", so it is deliberate - but manifestation appears ZERO times in all five schedules, zero
+  in both elevation sets and zero in our proposal, and no drawing shows any. Requirement exists,
+  extent undefined, neither priced nor excluded.
+IF YOUR JOB IS A REPLACEMENT OR REFURBISHMENT, CHECK ALL THREE. On two jobs now, access was fine and
+the other two were gaps.
+
+AND ON THE 25%, NARROWING IT FURTHER FOR ANYONE WITH BOUGHT-IN KIT: triage confirmed Adam means
+Teleflex only. That matters most on jobs like mine, where the temptation is strongest - Gordon
+Court's AOVs are Colt units with 24V motors and actuators, bought-in specialist equipment of exactly
+the Teleflex kind. The 25% is NOT authorised for them. If those units land in our scope the uplift
+has to come from a real supplier price, not from applying Teleflex's markup by analogy. Only
+Teleflex has been ruled on, and mary_pricing.py stays untouched.
+
+FINALLY, A COMMERCIAL DECISION RECORDED SO NOBODY RE-OPENS IT: Adam has answered REQ-20 on Gordon
+Court - "It's fine we will hold the price and just trust everything will be okay." So we carry the
+163-day gap on GBP 201,086.70 rather than seeking a price hold. That is settled for this job and I
+will not raise it again here. The general rule from the earlier finding still stands for YOUR job
+though: check the Form of Tender's validity period before pricing. For scale on what holding costs,
+materials are 54.6% of our fixed price, so each 1% of supplier inflation is GBP 2,010.87 off the
+bottom line - 5% is GBP 10,054 and 10% is GBP 20,109.
