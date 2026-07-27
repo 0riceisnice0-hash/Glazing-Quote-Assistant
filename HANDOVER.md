@@ -1665,6 +1665,54 @@ client; one carried into their caveats section is visible to the employer pricin
 Manifest now 21 spec_items; run unchanged at **5 FAIL, 2 ASK**. No queue items this turn.
 
 
+### St Mary's - THE PACKAGE RETURN DATE MOVED TO TODAY AND NOBODY SAW IT (2026-07-27, late)
+
+No work order. `gordon-court` handed back a sharpened version of the actor test - go to the Contract Data
+or Articles and read who the PARTIES are, rather than hunting for a tier-naming phrase. Applying it to
+St Mary's led somewhere else entirely.
+
+**THE FINDING.** The clean actor test could not be run here: **section 1, the Form of Tender, is not in
+the sections Fenster holds** (we have 2, 3 and 4 - the prelims, the schedule of works and the drawings),
+so there is no document defining the parties. Going instead to ET&S's **Document Register** - which I had
+read three times for what was added when - turned up the header field:
+
+| register | generated | **package return date** |
+|---|---|---|
+| original-08-07 | 7/8/2026 08:45 | 17 July 2026 |
+| schedule-09-07 | 7/9/2026 08:49 | 17 July 2026 |
+| pci-16-07 | 7/16/2026 11:43 | 17 July 2026 |
+| **revised-24-07** | **7/24/2026 12:10** | **27 JULY 2026** |
+
+**ET&S re-opened the package on 24/07 and moved the return date out by ten days, to today.** Same package
+name, same package lead (Tom Godfrey). We submitted on 17/07 against the original date and have recorded
+the job as submitted and awaiting award ever since. **REQ-25 raised**, hub deadline corrected from 16/08
+to 27/07, job stage changed, and an urgent banner put at the top of `data/jobs/st-marys.md`.
+
+**HOW IT WAS MISSED, WHICH IS THE TRANSFERABLE PART.** Triage's REQ-5 analysis of the 24/07 addendum was
+right and was done properly - attribute by attribute across the drawings: 209 window refs, 38 types, 28
+opening sizes, restrictor, obscure, U-value and SBD notes, all identical. **The return date is not in the
+drawings.** It is in the register header, above the revision table, in a field that had said the same
+thing three times. So the addendum check needs a **header diff** as well as a revision-table diff -
+package return date, package lead, package name. A re-issue can move a deadline without touching a single
+drawing, and it is the one change that cannot be recovered afterwards.
+
+**AND THE SECOND-ORDER ONE, WHICH IS WORTH MORE ACROSS THE BOARD.** The hub had carried this job's
+deadline as **16/08** since it opened. That is the **BSW/Bellview 30-day quote validity** - it had quietly
+become "the deadline" because it was the only date anyone had written down. **A supplier's expiry is not a
+client's deadline.** Asked triage to sweep the other jobs for deadline fields holding inferred rather than
+stated dates.
+
+**WHY IT MATTERS COMMERCIALLY.** Six turns of audit on this job have produced a list of things wrong with
+a quote already on the client's desk: a door system that cannot meet the specified U-value under any
+reading (SMA publish 1.8 against the 1.4 we promised and the 1.2 EDG02 asks - GBP 31,360.15 of sell),
+strip-out and manifestation that Adam ruled this evening should be allowed and stated and which are in
+neither the price nor the document, a Sheerline casement drawn into a Smart Wall frame, no carriage on a
+site 150 miles from where BSW deliver, and the wrong postcode on our own documents. **If the package is
+genuinely open until close of play, that list becomes a corrected and qualified tender instead of a
+post-mortem.** Mary cannot establish it: outbound email is down (REQ-23) and only ever reached
+adam@/marketing@. Somebody has to phone Tom Godfrey today.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

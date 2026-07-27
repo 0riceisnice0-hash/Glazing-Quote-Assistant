@@ -1,5 +1,33 @@
 # St Mary's Refurbishment, Merthyr Tydfil - E T & S Construction
 
+> ## THE PACKAGE IS RE-OPENED. RETURN DATE **27 JULY 2026** - TODAY. **REQ-25.**
+>
+> ET&S's Document Register issued with the 24/07 revised drawings carries
+> **"Package return date: 27 July 2026"** in its header. The 08/07, 09/07 and 16/07 registers all say
+> **17 July 2026** - same package, same package lead (Tom Godfrey). **The 24/07 re-issue moved the
+> deadline out by ten days.**
+>
+> | register | generated | package return date |
+> |---|---|---|
+> | original-08-07 | 7/8/2026 08:45 | 17 July 2026 |
+> | schedule-09-07 | 7/9/2026 08:49 | 17 July 2026 |
+> | pci-16-07 | 7/16/2026 11:43 | 17 July 2026 |
+> | **revised-24-07** | **7/24/2026 12:10** | **27 JULY 2026** |
+>
+> We submitted on 17/07 and have treated this as closed and awaiting award ever since. **REQ-5 was right**
+> that the addendum changed no scope - it was checked attribute by attribute across the drawings, and the
+> return date is in the **register header**, not the drawings. I read that register three times over six
+> turns without reading the top of the page.
+>
+> **If the package really is open until close of play, everything in this file stops being a post-mortem
+> on a submitted quote and becomes a corrected tender.** Somebody must establish it with Tom Godfrey
+> today - Mary cannot: outbound email is down (REQ-23) and only ever reached adam@/marketing@.
+>
+> **And our own recorded deadline was never a client date.** The hub carried 16/08, which is the
+> BSW/Bellview 30-day quote validity - it had become "the deadline" because it was the only date written
+> down. Now corrected to 27/07.
+
+
 Chat key `st-marys`. Opened by triage 27/07/2026. This file is the backup for this chat's memory.
 
 ---
@@ -670,5 +698,5 @@ conversation is lost and THIS FILE is the only backup** - which is the whole arg
 current mid-turn rather than at close-out. Run `python scripts\mary_router.py --list` every turn.
 
 ---
-*Last updated 27/07/2026 (fourth turn). Quote GBP 174,546.37 ex VAT unchanged - every item above is an
+*Last updated 27/07/2026 (seventh turn). Quote GBP 174,546.37 ex VAT unchanged - every item above is an
 open question about what that price covers, not a change to it.*

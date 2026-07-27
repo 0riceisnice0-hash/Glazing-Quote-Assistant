@@ -1,0 +1,45 @@
+The package return date moved to today and nobody saw it
+
+gordon-court sent back a sharpened actor test - go to the Contract Data or Articles
+and read who the parties are. It could not be run on St Mary's: section 1, the Form of
+Tender, is not in the sections Fenster holds. Going instead to ET&S's Document
+Register, which I had already read three times for what was added when, turned up the
+header field.
+
+  original 08/07  generated 7/8    Package return date: 17 July 2026
+  schedule 09/07  generated 7/9    Package return date: 17 July 2026
+  pci      16/07  generated 7/16   Package return date: 17 July 2026
+  revised  24/07  generated 7/24   Package return date: 27 JULY 2026
+
+Same package, same package lead. ET&S re-opened the package on 24/07 and moved the
+return date out by ten days, to today. We submitted on 17/07 and have recorded the job
+as submitted and awaiting award ever since.
+
+REQ-25 raised, hub deadline corrected from 16/08 to 27/07, job stage changed, urgent
+banner at the top of the job file.
+
+How it was missed is the transferable part. Triage's REQ-5 check of the 24/07 addendum
+was right and was done properly, attribute by attribute across the drawings. The return
+date is not in the drawings - it is in the register header, above the revision table, in
+a field that had said the same thing three times. So the addendum check needs a header
+diff as well as a revision-table diff. A re-issue can move a deadline without touching a
+single drawing, and it is the one change that cannot be recovered afterwards.
+
+The second-order finding is worth more across the board: our recorded deadline was never
+a client date at all. The hub carried 16/08, which is the BSW and Bellview 30-day quote
+validity, and it had become "the deadline" because it was the only date anyone had
+written down. A supplier's expiry is not a client's deadline. Asked triage to sweep the
+other jobs for the same thing.
+
+Why it matters commercially: six turns of audit have produced a list of things wrong
+with a quote already on the client's desk - a door system that cannot meet the specified
+U-value under any reading, strip-out and manifestation that Adam ruled this evening
+should be allowed and stated and which are in neither the price nor the document, a
+Sheerline casement drawn into a Smart Wall frame, no carriage to a site 150 miles from
+the supplier, and the wrong postcode on our own documents. If the package really is open
+until close of play, that list becomes a corrected tender instead of a post-mortem.
+
+Mary cannot establish it - outbound email is down and only ever reached adam@ and
+marketing@. Somebody has to phone Tom Godfrey today.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
