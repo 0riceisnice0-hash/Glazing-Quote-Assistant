@@ -1819,6 +1819,80 @@ comes back rather than after. On a deadline that expires the same day, drafting 
 the only way the decision can still be acted on.
 
 
+### Gordon Court - sixth turn: the smoke shaft was deleted in October 2025 and the schedules never caught up (2026-07-27, late)
+
+riverside's handoff drove this. Their rule - *the pack names its own compliance route, and the route decides
+whether free area is geometric or aerodynamic (AD B prescriptive vs BS 9991 / EN 12101-2 engineered)* - sent
+me to the fire strategy drawings, which I had only ever searched for door ratings. No queue items.
+
+**RIVERSIDE'S QUESTION IS CLOSED HERE, WITH A THIRD TERM TO ADD TO THEIR RULE.** Every current fire
+strategy sheet carries the duty in the architect's own words: **"AOV. 1.5m² CLEAR OPENING AREA. Automatic
+opening vent."** and separately **"SV. NSHEV. 0.4m² clear opening area minimum. Natural Smoke and Heat
+Exhaust Ventilator."** *"Clear opening area"* is neither "geometric" nor "aerodynamic" - it is
+geometric-side language, and it agrees with the same pack's NBS saying *"1m² **geometric** free area"*
+outright. So "clear opening area" and "free area" sit on the geometric side, "aerodynamic free area" / "Aa"
+on the engineered side - though riverside's AD B test remains the stronger one because it names the
+**route** rather than the quantity.
+
+**THE BIG FINDING - A NEW AND CHEAP CLASS OF CHECK: COMPARE THE REVISION STATUS OF THE DOCUMENT THAT
+SCHEDULES AN ITEM AGAINST THE ONE THAT DESIGNS IT.**
+
+> `5244-ARK-14003` and `14004`, **rev 02, 09.10.2025**: *"Updated to suit fire officers comments…
+> **Smoke shaft omitted.**"*
+> `5244-ARK-14005`, **rev 01, 09.10.2025**: *"Updated to suit fire officers comments. **Smoke shafts
+> omitted. Mechanical extract vent added.**"*
+
+Revised three or four more times to **rev 04-06, 17.02.2026**, and never reversed - the current sheets note
+a *"Mechanical extract duct through lower ground floor ceiling void"* and the only remaining `Shaft` labels
+are 1.1-6.2 m² service and cylinder risers. **Then the dates:**
+
+| Document | Date | Rev |
+|---|---|---|
+| **Window schedules 52001 / 52002 / 52003** | **08.09.2025** | **"-" never revised** |
+| NBS specification 9001 | 23-08-2025 | - |
+| **Smoke shafts omitted** | **09.10.2025** | fire officer |
+| Door schedule 51001 / fire strategy | 17.02.2026 | rev 01 / 04-06 |
+
+**Both documents that put the 4no "Louvres to smoke shaft" in our scope predate the omission and neither
+was updated; the documents that were updated show the shafts gone.** The window schedule still lists them
+one per level 0-3 - the classic pattern of louvres serving a vertical shaft - and the NBS still specifies
+the whole Colt shaft package (AOV SHAFT *"minimum cross sectional area of 1.5m²"*, DEFENDER SMOKE DAMPERS
+*"into prepared openings to lobbies in shaft wall"*, DECORATIVE LOUVRE GRILLES).
+
+**So GBP 4,502.40 of cost / GBP 6,452.40 of sell is scheduled against a shaft deleted five months before
+the tender was issued, and the louvre half of REQ-22 has turned from a shortfall into a possible CREDIT.**
+The check takes a minute: list every drawing with its revision number and date and look for outliers. A
+sheet at rev "-" among rev 04s is stale, and anything it uniquely schedules is suspect. Same failure shape
+as triage's deadline-in-a-header find this evening, with the revision **number** instead of the date field.
+
+**A SECOND, INDEPENDENT PROBLEM WITH THE THREE AOVs - THEY MAY BE TOO SMALL.** The duty is 1.5 m² clear
+opening. **WN_7 is 910 × 2100 = 1.911 m² gross frame** (BSW's own actual frame 910 × 2075 = 1.888 m²), so
+the aperture would have to be **78.5% of gross** - not achievable on the Sheerline *"SP104 70mm Large
+Outer"* tilt-and-turn BSW quoted. On the **NSHEV** reading (0.4 m² = **20.9%** of gross) they are
+comfortably fine. **Which duty the units serve changes the answer, and the schedule says "AOV".**
+Deliberately did **not** compute a clear opening from assumed profile dimensions - that is BSW's figure to
+state. **Reusable test: divide the required free area by the GROSS FRAME AREA; anything much above ~60%
+should prompt a request for the manufacturer's clear-opening figure rather than an assumption.**
+
+**ADAM'S REQ-9 RULING ONLY HALF TRANSFERS.** His *"we can make the windows as big as we need to… because
+the openings are being newly formed"* is genuinely useful but must be checked floor by floor. Gordon
+Court's schedules carry *"WINDOW INSTALLATION NOTE - GROUND AND FIRST FLOOR. WINDOWS TO GROUND AND FIRST
+FLOORS ARE TO BE INSTALLED TO MATCH THE EXISTING STRUCTURAL OPENING SIZES."* So levels 0-1 are constrained
+and 2-3 are new build and free. WL_1 sits at 0/1/2/3, WN_7 at 1/2/3 - a shortfall can be designed out
+upstairs but not downstairs without structural work.
+
+**DEADLINE FIELD FIXED, per triage's sweep** - they were right that Gordon Court's was not a client date.
+It read **08/08/2026**, AFS Q7585's 30-day validity, and it was a **spent** date as well as a wrong one
+because Adam had already decided on REQ-20 to let the supplier quotes lapse. Now **16 September 2026**,
+`deadline_basis` **CLIENT-STATED**, from the jLiving ITT timetable - the first date on which anything can
+change rather than one we must hit. Our own binding date remains **18/01/2027**. **If your deadline field
+is a supplier expiry, check whether the underlying decision has already been taken - mine had been, which
+made the date doubly misleading.**
+
+REQ-22 extended with both findings and five new options (12 total), read-back verified. Manifest now 22
+spec_items; run unchanged at **5 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

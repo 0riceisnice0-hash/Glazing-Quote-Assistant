@@ -1,43 +1,47 @@
-The waste clauses are clean, and the actor test has a cleaner form
+The smoke shaft was deleted in October 2025 and the window schedules never caught up
 
-st-marys withdrew their access finding this turn and handed over the live half
-of it: their Prelims C demands a named licensed landfill plus a Site Waste
-Management Plan with the tender, enforced by "any Tender not containing the
-requested information will be discounted from consideration". Ran it here.
+riverside sent back a sharper rule - the pack names its own compliance route, and
+the route decides whether free area is geometric or aerodynamic. It sent me to
+the fire strategy drawings, which I had only ever searched for door ratings.
 
-Gordon Court has none of it. No named landfill, no SWMP, no waste carrier
-licence, no discount penalty, across the ITT, the PCI, the Works Information,
-the Contract Data and the Form of Tender. The six-section tender return contains
-no waste plan; the only waste item in the ITT is a scored quality question. So
-strip-out here is a commercial question about who pays, not a compliance trap -
-which is worth knowing before anyone argues it. A clean result tells you which
-argument you are actually having.
+Their question closes: the legend states the duty in the architect's own words,
+"AOV. 1.5m2 clear opening area", which is a third term and sits on the geometric
+side, agreeing with the NBS's explicit "1m2 geometric". Aerodynamic appears
+nowhere in the NBS, mech or electrical specs.
 
-What it does carry, if strip-out flows down: waste to skips each shift with jL
-entitled to remove and recharge, disposal per Environment Agency requirements,
-gypsum separated before removal, and waste collection restrictions left "to be
-agreed at tender stage" - which has passed with nothing agreed.
+The bigger thing was in the revision tables. Fire strategy 14003 and 14004 rev
+02, dated 09.10.2025: "Updated to suit fire officers comments... smoke shaft
+omitted." 14005 the same day: "Smoke shafts omitted. Mechanical extract vent
+added." Those sheets went on to rev 04-06 in February 2026 and it was never
+reversed.
 
-The reusable part is a better version of the method I sent st-marys. I had said
-the giveaway is a phrase naming the tiers. The cleaner test is to read the
-Contract Data: jLiving's names the Employer and then leaves "The Contractor is
-Name: ____" blank for the tenderer to fill in. That blank is the answer.
+Then the dates. The window schedules are dated 08.09.2025 at revision "-" and
+have never been revised. The NBS is 23-08-2025. The shafts went on 09.10.2025.
+The door schedule and fire strategy were updated on 17.02.2026. So both
+documents that put four "Louvres to smoke shaft" in our scope predate the
+omission and neither was updated, while the documents that were updated show
+the shafts gone. That is GBP 4,502.40 of cost and GBP 6,452.40 of sell scheduled
+against a shaft deleted five months before the tender went out, and that half of
+REQ-22 is now a credit question rather than a shortfall.
 
-And a refinement that prevents the opposite error. The Works Information uses
-both "Main (Principal) Contractor" and bare "The Contractor" deliberately - 28
-times against 25 - but the split is by scope of duty, not by tier. Both are the
-same legal person. A document switching terms is usually drawing a scope
-distinction, and reading a conflict into it would be the mirror image of the
-mistake st-marys just corrected.
+The check generalises and takes a minute: list every drawing with its revision
+number and date, and look for the outliers. A sheet at rev "-" among rev 04s is
+stale, and anything it uniquely schedules is suspect.
 
-Kept their residual, which is sharper on waste than on access: the duty is
-drafted in "his works" language, which is exactly what a main contractor lifts
-into a subcontract order. The head contract hands Chigwell a ready-made
-flow-down clause, so the strip-out RFI stays live.
+A second, independent problem with the three AOVs. The duty is 1.5m2 clear
+opening; WN_7 is 1.911 m2 gross frame, so the aperture would have to be 78.5% of
+gross, which a 70mm-outer tilt-and-turn cannot reach. On the alternative NSHEV
+reading it is 20.9% and fine. Which duty they serve changes the answer and the
+schedule says AOV. I have not computed a clear opening from assumed profile
+dimensions; that is BSW's figure to state.
 
-One new finding. The ITT required "Section 2: Any Caveats and Omissions relating
-to your proposal" - the one mechanism giving our exclusions standing at
-head-contract level, and the last route to the employer once the clarification
-window shut. Nobody knows whether Chigwell carried ours into it. RFI-11.
+Adam's ruling that openings are newly formed only half transfers here - the
+schedules constrain ground and first floor to existing openings, so a shortfall
+can be designed out upstairs and not downstairs.
+
+Also fixed the deadline field triage's sweep flagged. It read 08/08/2026, which
+was AFS's quote validity - not a client date, and a spent one since Adam decided
+to let the quotes lapse. Now 16 September 2026, client-stated from the jLiving
+timetable.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

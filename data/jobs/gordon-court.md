@@ -781,6 +781,108 @@ last route by which anything we excluded could reach the employer. **RFI-11.**
 
 ---
 
+---
+
+## 4D. SIXTH TURN (27/07 late) — the smoke shaft was deleted in October 2025
+
+riverside handed back a sharper rule: *the pack usually names its own compliance route, and the route
+decides the basis* — Approved Document B (prescriptive) expresses smoke vents as a **free area**, while
+**aerodynamic** free area is the language of the engineered route (BS 9991 / EN 12101-2). Ran it on the
+fire strategy drawings, which I had only ever searched for door ratings. It answered their question and
+turned up something much bigger.
+
+### 4D.1 The fire strategy states the duty itself — in a third term
+
+The legend on every current fire strategy sheet (14001–14005) reads:
+
+> **"AOV. 1.5m² clear opening area. Automatic opening vent."**
+> **"SV. NSHEV. 0.4m² clear opening area minimum. Natural Smoke and Heat Exhaust Ventilator."**
+
+**"Clear opening area"** is neither "geometric" nor "aerodynamic" — it is a third term, and it is
+**geometric-side language** (the unobstructed physical aperture). It agrees with the NBS's explicit
+*"1m² **geometric** free area"*, and **"aerodynamic" appears nowhere** in the 186-page NBS, the 140-page
+mech spec or the 127-page electrical spec. **So there is no geometric-vs-aerodynamic ambiguity on this
+pack** — riverside's question is closed for Gordon Court, by two independent routes.
+
+### 4D.2 THE SMOKE SHAFTS WERE OMITTED — and the schedules that sell us the louvres predate it
+
+Read the revision tables at source:
+
+> `5244-ARK-14003` and `14004`, **rev 02, 09.10.2025**: *"Updated to suit fire officers comments.
+> Entrance to flat… **Smoke shaft omitted.**"*
+> `5244-ARK-14005`, **rev 01, 09.10.2025**: *"Updated to suit fire officers comments. **Smoke shafts
+> omitted. Mechanical extract vent added.**"*
+
+Those sheets have since been revised three or four more times, to **rev 04–06 dated 17.02.2026**, and the
+omission was **never reversed**. The current sheets carry a note about a *"Mechanical extract duct through
+lower ground floor ceiling void"* instead, and the only `Shaft` labels remaining are 1.1–6.2 m² service
+and cylinder risers beside the `Cyl.` stores.
+
+**Now compare the document dates — this is what settles it:**
+
+| Document | Date | Revision |
+|---|---|---|
+| **Window schedules 52001 / 52002 / 52003** | **08.09.2025** | **"-" — never revised** |
+| NBS specification 9001 | 23-08-2025 | — |
+| **Smoke shafts omitted** | **09.10.2025** | fire officer comments |
+| Door schedule 51001 | 17.02.2026 | rev 01 |
+| Fire strategy 14001–14005 | 17.02.2026 | rev 04–06 |
+
+**Both documents that put the smoke-shaft louvres in our scope predate the omission by a month or more,
+and neither was ever updated — while the documents that *were* updated show the shafts gone.** The window
+schedule still lists **4no WL_1 "Louvres to smoke shaft"**, one per level 0–3 (the classic pattern of
+louvres serving a vertical shaft), and the NBS still specifies the whole Colt shaft package: **AOV SHAFT**
+*"minimum cross sectional area of 1.5m²"*, **DEFENDER SMOKE DAMPERS** *"mounted into prepared openings to
+lobbies in shaft wall"*, **DECORATIVE LOUVRE GRILLES** *"to be fitted in front of the dampers"*.
+
+**So the louvre half of REQ-22 is now a CREDIT question, not a shortfall.** 4no WL_1 —
+**£4,502.40 cost / £6,452.40 sell** — are scheduled against a shaft deleted from the design **five months
+before the tender was issued**. Either they are redundant, or they serve the replacement mechanical
+extract arrangement and nobody has said so.
+
+### 4D.3 A second, independent problem with the three AOVs — they may be too small
+
+The fire strategy's own duty is **1.5 m² clear opening area**. **WN_7 is 910 × 2100 = 1.911 m² gross
+frame** (BSW's own *"Actual Frame Size: 910 x 2075"* = 1.888 m²). So a 1.5 m² clear opening would have to
+be **78.5% of the gross frame area.**
+
+BSW quoted a Sheerline Prestige tilt-and-turn on an *"SP104 70mm Large Outer"* frame plus a sash. A T&T on
+a 70mm outer frame cannot reach 78.5%. **So on the AOV reading these three units are geometrically too
+small as well as having no actuator.** On the **NSHEV** reading (0.4 m² minimum = **20.9%** of gross) they
+are comfortably large enough.
+
+**Which duty the three units serve therefore changes the answer — and the schedule says "AOV".**
+I have deliberately *not* computed a clear opening from assumed profile dimensions; **BSW must state it.**
+
+### 4D.4 Adam's REQ-9 ruling applies here only in part
+
+riverside relayed Adam on Riverside: *"We can make the windows as big as we need to in order to achieve
+the free area, because the openings are being newly formed."* On Gordon Court that is **half true**, and
+the schedules say which half:
+
+> *"WINDOW INSTALLATION NOTE — GROUND AND FIRST FLOOR. WINDOWS TO GROUND AND FIRST FLOORS ARE TO BE
+> INSTALLED TO MATCH THE EXISTING STRUCTURAL OPENING SIZES."*
+
+So **levels 0 and 1 are constrained to existing openings; levels 2 and 3 are new build and are not.**
+- **WL_1** sits at levels **0, 1, 2, 3** — two constrained, two free.
+- **WN_7** sits at levels **1, 2, 3** — one constrained, two free.
+
+If a clear-opening shortfall is confirmed, it can be designed out at levels 2–3 but not at levels 0–1
+without structural work. Worth knowing before anyone assumes the Riverside answer transfers.
+
+### 4D.5 The deadline field was not a client date — fixed
+
+triage's sweep named Gordon Court among five jobs carrying a supplier expiry in the deadline field. Mine
+read **08/08/2026**, which is AFS Q7585's 30-day validity — and it is now a **spent** date as well as a
+wrong one, because Adam decided on REQ-20 to let the supplier quotes lapse and hold the price.
+
+Corrected to **16 September 2026**, `deadline_basis` **CLIENT-STATED** — jLiving ITT V8 timetable,
+*"Tender Award Announcement TBC 16 September 2026"*. The tender is already in, so this is the first date
+on which anything can change rather than a date we must hit. Our own binding date remains **18/01/2027**
+(the 180-day Form of Tender commitment).
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
