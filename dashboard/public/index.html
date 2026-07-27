@@ -3,51 +3,55 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mary Grace - Estimating Hub</title>
+    <title>Mary Grace - Fenster Estimating</title>
     <link rel="icon" href="/icon.png">
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <div id="app" class="app-shell">
-      <aside class="sidebar">
-        <div class="brand">
-          <img src="/logo-dark.png" alt="Fenster Glazing" class="brand-logo">
-          <div class="brand-sub">Mary Grace <span>Estimating Hub</span></div>
+    <div class="shell">
+      <aside class="nav">
+        <div class="nav-brand">
+          <img src="/logo-dark.png" alt="Fenster Glazing">
         </div>
-        <nav id="tabs" class="tabs" aria-label="Hub sections"></nav>
-        <div class="sidebar-foot">
-          <div class="pulse-dot"></div>
+        <div class="nav-mary">
+          <div class="avatar">MG</div>
           <div>
-            <strong>Mary is live</strong>
-            <small id="updated-at"></small>
+            <strong>Mary Grace</strong>
+            <span class="live"><i class="dot"></i> Live <em id="updated-at"></em></span>
           </div>
+        </div>
+        <nav id="nav-items" class="nav-items" aria-label="Sections"></nav>
+        <div class="nav-foot">
+          <label>Signed in as
+            <select id="who">
+              <option value="zac">Zac</option>
+              <option value="adam">Adam</option>
+            </select>
+          </label>
         </div>
       </aside>
 
-      <section class="workspace">
-        <header class="topbar">
+      <div class="main">
+        <header class="page-head">
           <div>
-            <p class="eyebrow" id="view-eyebrow">Estimating operations</p>
-            <h2 id="view-title">Overview</h2>
+            <h1 id="page-title"></h1>
+            <p id="page-sub" class="page-sub"></p>
           </div>
-          <div class="topbar-right">
-            <label class="who">I am
-              <select id="who">
-                <option value="zac">Zac</option>
-                <option value="adam">Adam</option>
-              </select>
-            </label>
+          <div class="page-tools">
+            <input id="search" type="search" placeholder="Filter this page..." autocomplete="off">
           </div>
         </header>
-        <section id="view" class="view"></section>
-      </section>
+        <main id="page" class="page"></main>
+      </div>
     </div>
 
-    <div id="drawer-veil" class="drawer-veil" hidden></div>
-    <aside id="drawer" class="drawer" hidden>
-      <button id="drawer-close" class="drawer-close" aria-label="Close">&times;</button>
-      <div id="drawer-body"></div>
+    <div id="panel-veil" class="panel-veil" hidden></div>
+    <aside id="panel" class="panel" hidden>
+      <button id="panel-close" class="panel-close" aria-label="Close">&times;</button>
+      <div id="panel-body"></div>
     </aside>
+
+    <div id="toast" class="toast" hidden></div>
 
     <script src="/app.js" type="module"></script>
   </body>

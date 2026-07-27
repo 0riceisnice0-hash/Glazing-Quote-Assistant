@@ -1,266 +1,346 @@
-// Mary Grace Estimating Hub - all-in-one view of Mary's world plus two-way
-// messaging (messages persist in D1; Mary's poller collects them and her
-// replies land back here).
-const $ = (s) => document.querySelector(s);
+/* Mary Grace - Fenster Estimating Hub.
+   Single-page app over /api/data (deployed state) + /api/messages (D1).
+   Everything Mary-facing that a human writes here is collected by her
+   poller within ~15 minutes and answered back into this hub. */
 
-const TABS = [
-  { key: "overview", label: "Overview" },
-  { key: "deadlines", label: "Deadlines" },
-  { key: "flags", label: "Needs a human" },
-  { key: "messages", label: "Message Mary" },
-  { key: "emails", label: "Mary's emails" },
-  { key: "inbox", label: "Inbox seen" },
-  { key: "catches", label: "Catches" },
-];
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => [...document.querySelectorAll(s)];
 
 let DATA = null;
 let MESSAGES = [];
-let active = "overview";
+let page = "overview";
+let commsTab = "sent";
 
+/* ---------------- api ---------------- */
 async function api(route, options) {
   const res = await fetch(`/api/${route}`, options);
   if (!res.ok) throw Object.assign(new Error("api"), { status: res.status });
   return res.json();
 }
-
-const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 const who = () => $("#who").value;
-const daysUntil = (iso) => Math.ceil((new Date(iso + "T12:00:00") - Date.now()) / 86400000);
 
-function rag(job) {
-  if (job.stage === "submitted") return ["ok", "Submitted"];
-  const d = daysUntil(job.deadline);
-  if (d < 0) return ["danger", `${-d}d overdue`];
-  if (d <= 2) return ["danger", d === 0 ? "DUE TODAY" : `${d}d left`];
-  if (d <= 5) return ["warn", `${d}d left`];
-  return ["ok", `${d}d left`];
-}
-
-/* ---------- drawer ---------- */
-function openDrawer(html) {
-  $("#drawer-body").innerHTML = html;
-  $("#drawer").hidden = false;
-  $("#drawer-veil").hidden = false;
-}
-function closeDrawer() {
-  $("#drawer").hidden = true;
-  $("#drawer-veil").hidden = true;
-}
-$("#drawer-close").addEventListener("click", closeDrawer);
-$("#drawer-veil").addEventListener("click", closeDrawer);
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
-
-function related(jobName) {
-  const n = jobName.toLowerCase().split(" ").filter((w) => w.length > 4);
-  const match = (t) => n.some((w) => (t || "").toLowerCase().includes(w));
-  return {
-    flags: DATA.flags.filter((f) => match(f.job)),
-    catches: DATA.catches.filter((c) => match(c.job)),
-    emails: DATA.emails.filter((e) => match(e.subject)),
-    inbox: (DATA.inbox || []).filter((i) => match(i.subject)),
-  };
-}
-
-function jobDrawer(j) {
-  const [tone, badge] = rag(j);
-  const r = related(j.job);
-  const li = (arr, fmt, empty) => arr.length ? `<div class="mini-list">${arr.map(fmt).join("")}</div>` : `<p class="empty">${empty}</p>`;
-  openDrawer(`
-    <h3>${esc(j.job)}</h3>
-    <p class="sub">${esc(j.client)} - deadline ${esc(j.deadline)} <span class="pill ${tone}">${esc(badge)}</span></p>
-    <div class="drawer-section"><h4>Position</h4><p>${esc(j.status)}</p><p><strong>${esc(j.value)}</strong></p></div>
-    <div class="drawer-section"><h4>Open flags</h4>${li(r.flags.filter((f) => f.status === "open"), (f) => `<div class="mini-item static">${esc(f.flag)}<small>owner: ${esc(f.owner)} - raised ${esc(f.raised)}</small></div>`, "None")}</div>
-    <div class="drawer-section"><h4>Catches on this job</h4>${li(r.catches, (c) => `<div class="mini-item static">${esc(c.catch)}<small>${esc(c.date)}</small></div>`, "None")}</div>
-    <div class="drawer-section"><h4>Mary's emails about it</h4>${li(r.emails, (e, i) => `<div class="mini-item" data-email="${DATA.emails.indexOf(e)}">${esc(e.subject)}<small>${esc(e.sent)}</small></div>`, "None yet")}</div>
-    <div class="drawer-section"><h4>Seen in the inbox</h4>${li(r.inbox.slice(0, 8), (i) => `<div class="mini-item" data-inbox="${(DATA.inbox || []).indexOf(i)}">${esc(i.subject)}<small>${esc(i.from)} - ${esc(i.received)}</small></div>`, "Nothing filed")}</div>
-    <div class="drawer-section"><h4>Ask Mary about this job</h4>
-      <div class="reply-inline"><textarea id="job-ask" placeholder="e.g. chase the supplier, re-price with the new quote, explain the number..."></textarea>
-      <button class="primary" id="job-ask-send">Send to Mary</button></div>
-    </div>`);
-  $("#job-ask-send").addEventListener("click", async () => {
-    const body = $("#job-ask").value.trim();
-    if (!body) return;
-    await sendMessage(body, j.job);
-    closeDrawer();
-    active = "messages";
-    render();
-  });
-}
-
-function emailDrawer(e) {
-  openDrawer(`
-    <h3>${esc(e.subject)}</h3>
-    <p class="sub">Sent ${esc(e.sent)} - to ${esc(e.to)}</p>
-    <div class="drawer-section"><h4>Full email</h4><div class="email-body">${esc(e.body || "(body not captured for this email)")}</div></div>`);
-}
-
-function inboxDrawer(i) {
-  openDrawer(`
-    <h3>${esc(i.subject) || "(no subject)"}</h3>
-    <p class="sub">From ${esc(i.from)} - ${esc(i.received)}${i.attachments ? ` - ${i.attachments} attachment(s)` : ""}</p>
-    <div class="drawer-section"><h4>What Mary read</h4><div class="email-body">${esc(i.body || "(body not stored)")}</div></div>`);
-}
-
-function flagDrawer(f) {
-  openDrawer(`
-    <h3>${esc(f.job)}</h3>
-    <p class="sub">Raised ${esc(f.raised)} - owner: ${esc(f.owner)}</p>
-    <div class="drawer-section"><h4>What Mary needs</h4><p>${esc(f.flag)}</p></div>
-    <div class="drawer-section"><h4>Answer Mary here</h4>
-      <div class="reply-inline"><textarea id="flag-reply" placeholder="Give the decision or the info - Mary picks this up within 15 minutes."></textarea>
-      <button class="primary" id="flag-reply-send">Send answer</button></div>
-    </div>`);
-  $("#flag-reply-send").addEventListener("click", async () => {
-    const body = $("#flag-reply").value.trim();
-    if (!body) return;
-    await sendMessage(body, `FLAG: ${f.job} - ${f.flag.slice(0, 120)}`);
-    closeDrawer();
-    active = "messages";
-    render();
-  });
-}
-
-/* ---------- messaging ---------- */
-async function sendMessage(body, context = "") {
+async function sendToMary(body, context = "") {
   await api("messages", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ author: who(), body, context }),
   });
   MESSAGES = await api("messages");
+  toast("Sent - Mary picks this up within 15 minutes");
 }
 
-/* ---------- views ---------- */
-const VIEWS = {
+function toast(text) {
+  const t = $("#toast");
+  t.textContent = text;
+  t.hidden = false;
+  clearTimeout(t._h);
+  t._h = setTimeout(() => { t.hidden = true; }, 3200);
+}
+
+/* ---------------- rich text ----------------
+   Mary writes plain text with conventions (blank lines, ALL-CAPS headers,
+   "- " bullets, "1." numbered items). Render it as clean HTML so nothing
+   ever looks like a raw text dump. */
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+
+function inline(s) {
+  let h = esc(s);
+  h = h.replace(/(GBP\s?[\d,]+(?:\.\d\d)?|£[\d,]+(?:\.\d\d)?)/g, '<span class="money">$1</span>');
+  return h;
+}
+
+function fmt(text) {
+  const blocks = String(text || "").trim().split(/\n\s*\n/);
+  const out = [];
+  for (const block of blocks) {
+    const lines = block.split("\n").map((l) => l.trim()).filter(Boolean);
+    if (!lines.length) continue;
+    const first = lines[0];
+    const alpha = first.replace(/[^a-zA-Z]/g, "");
+    const isCaps = alpha.length >= 3 && alpha === alpha.toUpperCase() && first.length < 70;
+    if (lines.length === 1 && isCaps) {
+      out.push(`<h6>${inline(first)}</h6>`);
+    } else if (lines.every((l) => /^[-•]\s/.test(l))) {
+      out.push(`<ul>${lines.map((l) => `<li>${inline(l.replace(/^[-•]\s/, ""))}</li>`).join("")}</ul>`);
+    } else if (/^\d+[.)]\s/.test(first)) {
+      out.push(`<div class="item"><strong>${inline(first)}</strong>${lines.slice(1).map((l) => `<div>${inline(l)}</div>`).join("")}</div>`);
+    } else {
+      out.push(`<p>${lines.map(inline).join("<br>")}</p>`);
+    }
+  }
+  return `<div class="rt">${out.join("")}</div>`;
+}
+
+/* ---------------- helpers ---------------- */
+const daysUntil = (iso) => Math.ceil((new Date(iso + "T12:00:00") - Date.now()) / 86400000);
+function rag(job) {
+  if (job.stage === "submitted") return ["ok", "Submitted"];
+  const d = daysUntil(job.deadline);
+  if (d < 0) return ["danger", `${-d} days overdue`];
+  if (d === 0) return ["danger", "Due today"];
+  if (d <= 2) return ["danger", `${d} day${d > 1 ? "s" : ""} left`];
+  if (d <= 5) return ["warn", `${d} days left`];
+  return ["ok", `${d} days left`];
+}
+const niceDate = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+const openReqs = () => (DATA.requests || []).filter((r) => r.status === "open");
+const unseenMsgs = () => MESSAGES.filter((m) => m.author !== "mary" && !m.seen_by_mary).length;
+
+/* ---------------- panel ---------------- */
+function openPanel(html) { $("#panel-body").innerHTML = html; $("#panel").hidden = false; $("#panel-veil").hidden = false; }
+function closePanel() { $("#panel").hidden = true; $("#panel-veil").hidden = true; }
+$("#panel-close").addEventListener("click", closePanel);
+$("#panel-veil").addEventListener("click", closePanel);
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closePanel(); });
+
+function related(jobName) {
+  const words = jobName.toLowerCase().split(" ").filter((w) => w.length > 4);
+  const match = (t) => words.some((w) => (t || "").toLowerCase().includes(w));
+  return {
+    reqs: (DATA.requests || []).filter((r) => match(r.job)),
+    catches: DATA.catches.filter((c) => match(c.job)),
+    emails: DATA.emails.filter((e) => match(e.subject)),
+    inbox: (DATA.inbox || []).filter((i) => match(i.subject)),
+  };
+}
+
+function jobPanel(j) {
+  const [tone, badge] = rag(j);
+  const r = related(j.job);
+  const mini = (arr, f, empty) => arr.length ? `<div class="mini">${arr.map(f).join("")}</div>` : `<p class="page-sub">${empty}</p>`;
+  openPanel(`
+    <h2>${esc(j.job)}</h2>
+    <p class="sub">${esc(j.client)} &middot; deadline ${niceDate(j.deadline)} &nbsp;<span class="chip ${tone}">${esc(badge)}</span></p>
+    <div class="panel-sec"><h4>Where it stands</h4>${fmt(j.status)}<p style="margin-top:8px"><strong>${esc(j.value)}</strong></p></div>
+    <div class="panel-sec"><h4>Open requests on this job</h4>${mini(r.reqs.filter((x) => x.status === "open"), (x) => `<div class="mini-row" data-goreq="${x.id}"><strong>${esc(x.title)}</strong><small>needs ${esc(x.owner)} - raised ${esc(x.raised)}</small></div>`, "None - nothing blocked here.")}</div>
+    <div class="panel-sec"><h4>Catches</h4>${mini(r.catches, (c) => `<div class="mini-row static">${esc(c.catch)}<small>${esc(c.date)}</small></div>`, "None on this job.")}</div>
+    <div class="panel-sec"><h4>Mary's emails about it</h4>${mini(r.emails, (e) => `<div class="mini-row" data-email="${DATA.emails.indexOf(e)}"><strong>${esc(e.subject)}</strong><small>${esc(e.sent)}</small></div>`, "None yet.")}</div>
+    <div class="panel-sec"><h4>Read from the inbox</h4>${mini(r.inbox.slice(0, 8), (i) => `<div class="mini-row" data-inbox="${(DATA.inbox || []).indexOf(i)}"><strong>${esc(i.subject || "(no subject)")}</strong><small>${esc(i.from)} - ${esc(i.received)}</small></div>`, "Nothing filed.")}</div>
+    <div class="panel-sec"><h4>Ask Mary about this job</h4>
+      <div class="ask-inline"><textarea id="panel-ask" placeholder="Chase the supplier, re-price it, explain the number..."></textarea>
+      <button class="btn" id="panel-ask-send">Send to Mary</button></div></div>`);
+  $("#panel-ask-send").addEventListener("click", async () => {
+    const body = $("#panel-ask").value.trim();
+    if (!body) return;
+    await sendToMary(body, j.job);
+    closePanel();
+  });
+}
+
+function emailPanel(e) {
+  openPanel(`
+    <h2>${esc(e.subject)}</h2>
+    <p class="sub">Sent ${esc(e.sent)} &middot; to ${esc(e.to)}</p>
+    <div class="panel-sec"><h4>Full email</h4><div class="rt-box">${fmt(e.body || "(body not captured)")}</div></div>`);
+}
+
+function inboxPanel(i) {
+  openPanel(`
+    <h2>${esc(i.subject || "(no subject)")}</h2>
+    <p class="sub">From ${esc(i.from)} &middot; ${esc(i.received)}${i.attachments ? ` &middot; ${i.attachments} attachment(s)` : ""}</p>
+    <div class="panel-sec"><h4>What Mary read</h4><div class="rt-box">${fmt(i.body || "(body not stored)")}</div></div>`);
+}
+
+/* ---------------- pages ---------------- */
+const ICONS = {
+  overview: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>',
+  pipeline: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l2.5 2.5"/><circle cx="12" cy="12" r="9"/></svg>',
+  requests: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>',
+  messages: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>',
+  comms: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
+  catches: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>',
+};
+
+const PAGES = [
+  { key: "overview", label: "Overview", sub: () => "Everything Mary is holding, at a glance" },
+  { key: "pipeline", label: "Pipeline", sub: () => "Every live tender, most urgent first" },
+  { key: "requests", label: "Mary needs you", sub: () => `${openReqs().length} decision${openReqs().length === 1 ? "" : "s"} she cannot make without a human` },
+  { key: "messages", label: "Messages", sub: () => "Two-way line - she checks every 15 minutes" },
+  { key: "comms", label: "Comms log", sub: () => "Everything sent and everything read" },
+  { key: "catches", label: "Catches", sub: () => "Errors found and money saved" },
+];
+
+const RENDER = {
   overview() {
-    const open = DATA.flags.filter((f) => f.status === "open").length;
-    const overdue = DATA.jobs.filter((j) => j.stage === "overdue").length;
-    const dueSoon = DATA.jobs.filter((j) => j.stage !== "submitted" && j.stage !== "overdue" && daysUntil(j.deadline) <= 3).length;
-    const unseen = MESSAGES.filter((m) => m.author !== "mary" && !m.seen_by_mary).length;
-    const urgent = [...DATA.jobs].filter((j) => j.stage !== "submitted").sort((a, b) => new Date(a.deadline) - new Date(b.deadline)).slice(0, 4);
+    const overdue = DATA.jobs.filter((j) => j.stage === "overdue");
+    const dueSoon = DATA.jobs.filter((j) => j.stage === "tender" && daysUntil(j.deadline) <= 3);
+    const urgent = [...DATA.jobs].filter((j) => j.stage !== "submitted").sort((a, b) => new Date(a.deadline) - new Date(b.deadline)).slice(0, 5);
     return `
-      <div class="kpis">
-        <div class="kpi"><div class="n">${DATA.jobs.length}</div><div class="l">Live jobs tracked</div></div>
-        <div class="kpi ${dueSoon ? "" : "green"}"><div class="n">${dueSoon}</div><div class="l">Due within 3 days</div></div>
-        <div class="kpi"><div class="n">${overdue}</div><div class="l">Overdue</div></div>
-        <div class="kpi"><div class="n">${open}</div><div class="l">Waiting on a human</div></div>
-        <div class="kpi green"><div class="n">${DATA.catches.length}</div><div class="l">Catches logged</div></div>
+      <div class="stats">
+        <div class="stat" data-go="pipeline"><div class="n">${DATA.jobs.length}</div><div class="l">Live jobs tracked</div></div>
+        <div class="stat ${dueSoon.length ? "amber" : "green"}" data-go="pipeline"><div class="n">${dueSoon.length}</div><div class="l">Due in the next 3 days</div></div>
+        <div class="stat ${overdue.length ? "red" : "green"}" data-go="pipeline"><div class="n">${overdue.length}</div><div class="l">Overdue</div></div>
+        <div class="stat amber" data-go="requests"><div class="n">${openReqs().length}</div><div class="l">Decisions Mary needs</div></div>
+        <div class="stat green" data-go="catches"><div class="n">${DATA.catches.length}</div><div class="l">Catches logged</div></div>
       </div>
-      <div class="card-grid">
-        ${urgent.map((j) => this._jobCard(j)).join("")}
-        <div class="card static">
-          <div class="card-head"><strong>Mary's engine room</strong></div>
-          <p>${DATA.sessions.polls.toLocaleString()} inbox polls - ${DATA.sessions.launched} working sessions - ${DATA.sessions.emailsSent} emails sent${unseen ? ` - <strong>${unseen} message(s) waiting for Mary's next cycle</strong>` : ""}</p>
-          <p>${esc(DATA.register.recent)}</p>
-        </div>
-      </div>`;
+      <div class="section"><div class="section-head"><h3>Most urgent</h3><a data-go="pipeline">Full pipeline &rarr;</a></div>
+        ${this._table(urgent)}</div>
+      <div class="section"><div class="section-head"><h3>Engine room</h3></div>
+        <div class="mail-list"><div class="mail-row" style="cursor:default">
+          <div class="mail-ico in">MG</div>
+          <div><strong>${DATA.sessions.polls.toLocaleString()} inbox polls &middot; ${DATA.sessions.launched} working sessions &middot; ${DATA.sessions.emailsSent} emails sent</strong>
+          <small>${esc(DATA.register.recent)}</small></div>
+          <span class="mail-when">${DATA.register.lines.toLocaleString()} rates</span>
+        </div></div></div>`;
   },
-  _jobCard(j) {
-    const [tone, badge] = rag(j);
-    return `<article class="card" data-job="${esc(j.job)}">
-      <header class="card-head"><div><strong>${esc(j.job)}</strong><small>${esc(j.client)}</small></div><span class="pill ${tone}">${esc(badge)}</span></header>
-      <p>${esc(j.status)}</p>
-      <footer class="card-foot"><span>Deadline: ${esc(j.deadline)}</span><span>${esc(j.value)}</span></footer></article>`;
+  _table(jobs) {
+    return `<table class="tbl"><thead><tr><th>Job</th><th>Status</th><th>Deadline</th><th>Value</th><th></th></tr></thead><tbody>
+      ${jobs.map((j) => {
+        const [tone, badge] = rag(j);
+        return `<tr data-job="${esc(j.job)}">
+          <td class="job-cell"><strong>${esc(j.job)}</strong><small>${esc(j.client)}</small></td>
+          <td style="max-width:380px">${esc(j.status.split(". ")[0])}.</td>
+          <td class="num">${niceDate(j.deadline)}</td>
+          <td class="num">${esc(j.value)}</td>
+          <td><span class="chip ${tone}">${esc(badge)}</span></td></tr>`;
+      }).join("")}</tbody></table>`;
   },
-  deadlines() {
+  pipeline() {
     const jobs = [...DATA.jobs].sort((a, b) => (a.stage === "submitted") - (b.stage === "submitted") || new Date(a.deadline) - new Date(b.deadline));
-    return `<div class="card-grid">${jobs.map((j) => this._jobCard(j)).join("")}</div>`;
+    return this._table(jobs);
   },
-  flags() {
-    const open = DATA.flags.filter((f) => f.status === "open");
-    if (!open.length) return `<p class="empty">Nothing waiting - every flag has been answered.</p>`;
-    return `<div class="card-grid">${open.map((f, i) => `
-      <article class="card" data-flag="${DATA.flags.indexOf(f)}">
-        <header class="card-head"><div><strong>${esc(f.job)}</strong><small>raised ${esc(f.raised)} - needs: ${esc(f.owner)}</small></div><span class="pill warn">answer me</span></header>
-        <p>${esc(f.flag)}</p>
-        <footer class="card-foot"><span>Click to answer Mary directly</span></footer>
-      </article>`).join("")}</div>`;
+  requests() {
+    const open = openReqs();
+    const done = (DATA.requests || []).filter((r) => r.status !== "open");
+    if (!open.length && !done.length) return `<div class="empty"><strong>Nothing needed</strong>Mary has no open requests.</div>`;
+    const card = (r) => r.status === "open" ? `
+      <article class="req" data-req="${r.id}">
+        <div class="req-top"><div><h3>${esc(r.title)}</h3><div class="meta">${esc(r.job)} &middot; raised ${esc(r.raised)} &middot; needs <strong>${esc(r.owner)}</strong></div></div><span class="chip warn">waiting</span></div>
+        <div class="req-block"><h5>Why Mary is blocked</h5><p>${inline(r.why)}</p></div>
+        <div class="req-block needs"><h5>What she needs from you</h5><p>${inline(r.needs)}</p></div>
+        <div class="req-answer">
+          ${r.options?.length ? `<div class="req-options">${r.options.map((o, i) => `<button class="opt" data-opt="${i}">${esc(o)}</button>`).join("")}</div>` : ""}
+          <div class="req-compose"><textarea placeholder="Your answer (or pick an option above and add detail)..."></textarea>
+          <button class="btn" data-answer="${r.id}">Answer</button></div>
+        </div>
+      </article>` : `
+      <article class="req resolved">
+        <div class="req-top"><div><h3>${esc(r.title)}</h3><div class="meta">${esc(r.job)} &middot; answered ${esc(r.answered_at || "")} by ${esc(r.answered_by || "team")}</div></div><span class="chip ok">resolved</span></div>
+        <div class="answered"><h5>The answer</h5>${fmt(r.answer || "")}</div>
+      </article>`;
+    return `<div class="req-grid">${open.map(card).join("")}${done.length ? `<div class="section-head" style="margin-top:14px"><h3>Resolved</h3></div>` + done.map(card).join("") : ""}</div>`;
   },
   messages() {
     const thread = [...MESSAGES].reverse();
+    let lastDay = "";
+    const parts = [];
+    for (const m of thread) {
+      const day = m.created.slice(0, 10);
+      if (day !== lastDay) { parts.push(`<div class="chat-day">${new Date(day).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}</div>`); lastDay = day; }
+      const mine = m.author !== "mary";
+      parts.push(`<div class="bubble ${mine ? "human" : "mary"}${mine && !m.seen_by_mary ? " pending" : ""}">
+        <div class="who">${esc(m.author === "mary" ? "MARY GRACE" : m.author.toUpperCase())} <time>${esc(m.created.slice(11, 16))}</time>
+        ${mine && !m.seen_by_mary ? '<span class="wait-note">waiting for Mary</span>' : ""}</div>
+        ${m.context ? `<span class="ctx">${esc(m.context)}</span>` : ""}${fmt(m.body)}</div>`);
+    }
     return `<div class="chat">
-      <div class="chat-thread">${thread.length ? thread.map((m) => `
-        <div class="msg ${m.author === "mary" ? "mary" : "human"}${m.author !== "mary" && !m.seen_by_mary ? " unseen" : ""}">
-          <div class="meta">${esc(m.author.toUpperCase())} - ${esc(m.created.slice(0, 16).replace("T", " "))}${m.author !== "mary" ? (m.seen_by_mary ? " - seen" : " - waiting for Mary") : ""}</div>
-          ${m.context ? `<div class="ctx">${esc(m.context)}</div>` : ""}${esc(m.body)}
-        </div>`).join("") : `<p class="empty">No messages yet - say hello.</p>`}</div>
+      <div class="chat-thread">${parts.length ? parts.join("") : `<div class="empty"><strong>No messages yet</strong>Say hello - Mary replies right here.</div>`}</div>
       <div class="chat-compose">
-        <textarea id="chat-body" placeholder="Ask Mary anything - price a job, chase something, explain a number. She checks every 15 minutes and replies here."></textarea>
-        <div class="chat-actions">
-          <span class="chat-hint">Sending as <strong id="chat-as">${esc(who())}</strong> - Mary picks messages up on her next poll cycle</span>
-          <button class="primary" id="chat-send">Send to Mary</button>
-        </div>
+        <textarea id="chat-body" placeholder="Ask Mary anything - price a job, chase something, explain a number..."></textarea>
+        <div class="chat-actions"><span class="chat-hint">Sending as <strong>${esc(who())}</strong> &middot; picked up on her next 15-minute cycle</span>
+        <button class="btn" id="chat-send">Send</button></div>
       </div></div>`;
   },
-  emails() {
-    return `<div class="card-grid">${DATA.emails.map((e, i) => `
-      <article class="card" data-email="${i}">
-        <header class="card-head"><div><strong>${esc(e.subject)}</strong><small>${esc(e.sent)} - to ${esc(e.to)}</small></div><span class="pill navy">sent</span></header>
-        <footer class="card-foot"><span>Click to read the full email</span></footer>
-      </article>`).join("")}</div>`;
-  },
-  inbox() {
-    const items = DATA.inbox || [];
-    if (!items.length) return `<p class="empty">No processed inbox items captured yet.</p>`;
-    return `<div class="card-grid">${items.map((m, i) => `
-      <article class="card" data-inbox="${i}">
-        <header class="card-head"><div><strong>${esc(m.subject) || "(no subject)"}</strong><small>${esc(m.from)} - ${esc(m.received)}</small></div>${m.attachments ? `<span class="pill navy">${m.attachments} att</span>` : ""}</header>
-        <p>${esc((m.body || "").slice(0, 140))}...</p>
-      </article>`).join("")}</div>`;
+  comms() {
+    const sent = DATA.emails.map((e, i) => `
+      <div class="mail-row" data-email="${i}"><div class="mail-ico out">&uarr;</div>
+        <div><strong>${esc(e.subject)}</strong><small>to ${esc(e.to)}</small></div>
+        <span class="mail-when">${esc(e.sent)}</span></div>`).join("");
+    const seen = (DATA.inbox || []).map((m, i) => `
+      <div class="mail-row" data-inbox="${i}"><div class="mail-ico in">&darr;</div>
+        <div><strong>${esc(m.subject || "(no subject)")}</strong><small>${esc(m.from)}${m.attachments ? ` &middot; ${m.attachments} attachment(s)` : ""}</small></div>
+        <span class="mail-when">${esc(m.received)}</span></div>`).join("");
+    return `
+      <div class="subtabs">
+        <button class="subtab${commsTab === "sent" ? " active" : ""}" data-comms="sent">Sent by Mary (${DATA.emails.length})</button>
+        <button class="subtab${commsTab === "seen" ? " active" : ""}" data-comms="seen">Read by Mary (${(DATA.inbox || []).length})</button>
+      </div>
+      <div class="mail-list">${commsTab === "sent" ? (sent || '<div class="empty">Nothing sent yet.</div>') : (seen || '<div class="empty">Nothing captured yet.</div>')}</div>`;
   },
   catches() {
-    return `<div class="card-grid">${DATA.catches.map((c) => `
-      <article class="card static">
-        <header class="card-head"><div><strong>${esc(c.job)}</strong><small>${esc(c.date)}</small></div><span class="pill ok">${esc(c.type)}</span></header>
-        <p>${esc(c.catch)}</p>
-      </article>`).join("")}</div>`;
+    return `<div class="catch-grid">${DATA.catches.map((c) => `
+      <article class="catch"><div class="req-top"><div><h3 style="font-size:15px">${esc(c.job)}</h3>
+        <div class="meta" style="font-size:12px;color:var(--muted)">${esc(c.date)} &middot; ${esc(c.type)}</div></div>
+        <span class="value">${esc(c.value || "")}</span></div>
+        <p style="margin:10px 0 0">${inline(c.catch)}</p></article>`).join("")}</div>`;
   },
 };
 
-const EYEBROWS = {
-  overview: "Everything at a glance", deadlines: "Every live tender, most urgent first",
-  flags: "Mary is blocked without you", messages: "Two-way line to the estimating AI",
-  emails: "Every email Mary has ever sent", inbox: "What Mary has read and filed",
-  catches: "Errors and savings Mary has caught",
-};
-
+/* ---------------- render / routing ---------------- */
 function render() {
-  const openFlags = DATA.flags.filter((f) => f.status === "open").length;
-  const counts = { flags: openFlags || "", messages: MESSAGES.filter((m) => m.author !== "mary" && !m.seen_by_mary).length || "" };
-  $("#tabs").innerHTML = TABS.map((t) =>
-    `<button class="tab${t.key === active ? " active" : ""}" data-key="${t.key}">${t.label}${counts[t.key] ? `<span class="count">${counts[t.key]}</span>` : ""}</button>`).join("");
-  $("#view-title").textContent = TABS.find((t) => t.key === active).label;
-  $("#view-eyebrow").textContent = EYEBROWS[active];
-  $("#view").innerHTML = VIEWS[active] ? VIEWS[active].call(VIEWS) : "";
-  $("#updated-at").textContent = "updated " + new Date(DATA.updated).toLocaleString("en-GB", { day: "2-digit", month: "short", hour: "2-digit", minute: "2-digit" });
+  const badges = { requests: openReqs().length, messages: unseenMsgs() };
+  $("#nav-items").innerHTML = PAGES.map((p) => `
+    <button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.key]}${p.label}
+    ${badges[p.key] ? `<span class="badge${p.key === "requests" ? " hot" : ""}">${badges[p.key]}</span>` : ""}</button>`).join("");
+  const meta = PAGES.find((p) => p.key === page);
+  $("#page-title").textContent = meta.label;
+  $("#page-sub").textContent = meta.sub();
+  $("#page").innerHTML = RENDER[page] ? RENDER[page].call(RENDER) : "";
+  $("#updated-at").textContent = "- " + new Date(DATA.updated).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  $("#search").value = "";
   const send = $("#chat-send");
   if (send) send.addEventListener("click", async () => {
     const body = $("#chat-body").value.trim();
     if (!body) return;
     send.disabled = true;
-    await sendMessage(body);
+    await sendToMary(body);
     render();
   });
 }
 
-document.addEventListener("click", (e) => {
-  const t = e.target.closest("[data-key],[data-job],[data-flag],[data-email],[data-inbox]");
-  if (!t) return;
-  if (t.dataset.key) { active = t.dataset.key; render(); return; }
-  if (t.dataset.job) { const j = DATA.jobs.find((x) => x.job === t.dataset.job); if (j) jobDrawer(j); return; }
-  if (t.dataset.flag !== undefined) { flagDrawer(DATA.flags[+t.dataset.flag]); return; }
-  if (t.dataset.email !== undefined) { emailDrawer(DATA.emails[+t.dataset.email]); return; }
-  if (t.dataset.inbox !== undefined) { inboxDrawer((DATA.inbox || [])[+t.dataset.inbox]); return; }
+document.addEventListener("click", async (e) => {
+  const nav = e.target.closest("[data-nav],[data-go],[data-goreq]");
+  if (nav) {
+    if (nav.dataset.goreq) { closePanel(); page = "requests"; render(); return; }
+    page = nav.dataset.nav || nav.dataset.go; render(); return;
+  }
+  const opt = e.target.closest(".opt");
+  if (opt) {
+    opt.closest(".req-options").querySelectorAll(".opt").forEach((o) => o.classList.toggle("sel", o === opt));
+    return;
+  }
+  const answer = e.target.closest("[data-answer]");
+  if (answer) {
+    const req = (DATA.requests || []).find((r) => r.id === answer.dataset.answer);
+    const card = answer.closest(".req");
+    const chosen = card.querySelector(".opt.sel")?.textContent || "";
+    const extra = card.querySelector("textarea").value.trim();
+    const body = [chosen && `Decision: ${chosen}`, extra].filter(Boolean).join("\n\n");
+    if (!body) { toast("Pick an option or type an answer first"); return; }
+    answer.disabled = true;
+    await sendToMary(body, `${req.id}: ${req.title}`);
+    render();
+    return;
+  }
+  const sub = e.target.closest("[data-comms]");
+  if (sub) { commsTab = sub.dataset.comms; render(); return; }
+  const row = e.target.closest("[data-job],[data-email],[data-inbox]");
+  if (row) {
+    if (row.dataset.job) { const j = DATA.jobs.find((x) => x.job === row.dataset.job); if (j) jobPanel(j); }
+    else if (row.dataset.email !== undefined) emailPanel(DATA.emails[+row.dataset.email]);
+    else if (row.dataset.inbox !== undefined) inboxPanel((DATA.inbox || [])[+row.dataset.inbox]);
+  }
 });
 
-$("#who").addEventListener("change", () => { const el = $("#chat-as"); if (el) el.textContent = who(); });
+$("#search").addEventListener("input", (e) => {
+  const q = e.target.value.toLowerCase();
+  $$("#page tr[data-job], #page .req, #page .mail-row, #page .catch, #page .bubble").forEach((el) => {
+    el.style.display = !q || el.textContent.toLowerCase().includes(q) ? "" : "none";
+  });
+});
 
+/* ---------------- boot ---------------- */
 (async () => {
   try {
     [DATA, MESSAGES] = await Promise.all([api("data"), api("messages")]);
     render();
-    setInterval(async () => { try { MESSAGES = await api("messages"); if (active === "messages" || active === "overview") render(); } catch {} }, 30000);
+    setInterval(async () => {
+      try {
+        MESSAGES = await api("messages");
+        if (page === "messages" || page === "overview") render();
+      } catch {}
+    }, 30000);
   } catch (err) {
-    $("#view").innerHTML = `<p class="empty">Could not load the hub (${err.status || err.message}).</p>`;
+    $("#page").innerHTML = `<div class="empty"><strong>Could not load the hub</strong>${err.status || err.message}</div>`;
   }
 })();
