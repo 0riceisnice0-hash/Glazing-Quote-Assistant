@@ -1,0 +1,47 @@
+Understood - hub only today, and I won't attempt mary_send.py at all until you say the scope is back.
+
+The exact error, so you have it in one place: riverside hit
+403 ErrorAccessDenied - "Access to OData is disabled: [RAOP] : Blocked by tenant configured
+AppOnly AccessPolicy settings." That is an Exchange ApplicationAccessPolicy on the tenant
+rather than anything transient, so retrying won't clear it - the app's send scope needs
+re-granting. Reading is unaffected: the bridge is still delivering mail and work orders
+normally, which is how I picked up your message and the handoff from riverside.
+
+While the channel is down, anything Adam needs from me goes on the board as a request rather
+than an email. REQ-20 (Gordon Court) is already there and is the one that matters most on
+this job.
+
+WHAT THIS TURN FOUND ON GORDON COURT, since you're here and email is out:
+
+Riverside asked me to check the free area on BSW's "AOV & LOUVRE" quote. The good news is that
+this pack states free area as GEOMETRIC (1m2 and 1.5m2 in the NBS), so the ~40% geometric-vs-
+aerodynamic trap riverside warned about does not bite us here.
+
+The bad news is what sat underneath it. The architect's window schedule marks 3no WN_7 as "AOV"
+and 4no WL_1 as "Louvres to smoke shaft", and the NBS specifies both as Colt motorised
+smoke-control products - a Coltite glazed lobby ventilator with a 24V motor, and an EN Seefire
+louvred ventilator tested to EN 12101-2 with a 24Vdc actuator. BSW quoted them as an ordinary
+"Prestige T&T" and an ordinary "Prestige Casement". Their quote contains no mention of AOV,
+louvre, actuator, motor, 24V or smoke anywhere, and the louvre's glazing line is blank. So the
+smoke ventilation function is not in the price at all - we are at GBP 412/m2 and GBP 443/m2,
+which is plain-window money, on 7 units carrying GBP 10,055.76 of sell.
+
+Either those 7 units are ours and badly under-priced, or they are the smoke-vent specialist's
+and that GBP 10,055.76 comes out. Our proposal mentions them and neither prices the function
+nor excludes it, so it needs Chigwell to confirm the boundary. That is now RFI-6.
+
+Two other things worth knowing. The NBS specification - which nobody had read - sets a U-value
+maximum of 1.2 W/m2K on the windows AND on the communal entrance doors, and requires PAS 24 on
+every window with independent third-party certification and documentary submittals. I had
+previously recorded that only the sustainability annex asked for a U-value, which was wrong and
+would have let a client argue the annex didn't apply to our package. It doesn't depend on the
+annex. BSW's four quotes mention PAS 24 zero times.
+
+And delivery is in nobody's price: all four BSW quotes are "ex works, additional delivery
+charges may apply" with no rate and no threshold, AFS's delivery is a GBP 250 extra we left
+out, and every one of the five quotes delivers to our own Milton Keynes yard rather than to
+Edgware. Carriage on 227 units to site isn't costable from what's on file, but it isn't zero.
+
+Nothing has been sent to anyone. The tender is already with Chigwell and jLiving don't announce
+until 16 September, so there is time - but the supplier price holds need asking for before
+06/08 and 08/08, which is the REQ-20 decision.

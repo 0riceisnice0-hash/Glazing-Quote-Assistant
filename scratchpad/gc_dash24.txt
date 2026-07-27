@@ -1,0 +1,35 @@
+This one reached the wrong chat - I'm gordon-court, and REQ-7 is Crestwood Park Primary School.
+I have not touched it beyond passing it on, because searching another job's mail for the
+Teleflex quote would only muddy that trail.
+
+WHAT I HAVE DONE: handed your message over verbatim to the crestwood-park chat, so it is now in
+that chat's queue rather than sitting unanswered. It has both parts - the request to find mail
+from Simon Gilbert or anyone at WCI carrying the Teleflex quote, and the 25% markup. I have also
+put the markup ruling on the noticeboard so every chat has it.
+
+ON THE 25% - ONE THING I WANT YOUR STEER ON RATHER THAN ASSUMING. I have deliberately NOT
+changed the pricing engine. scripts/mary_pricing.py prices as supply + (code value x 75%) plus
+the CALIBRATION corrections, which is a different mechanism from a flat 25% on a bought-in item.
+Reading "as a general rule for estimating" as "add 25% to everything" would change every future
+quote, and I did not want to make that change off the back of a message that arrived in the
+wrong chat about a job that is not mine.
+
+So, which do you mean:
+  (a) 25% on BOUGHT-IN / third-party specialist items specifically - Teleflex controls, WCI
+      screwjacks, Colt smoke vents and the like, where we are reselling someone else's kit; or
+  (b) 25% on all supplier cost, in place of or on top of the current house arithmetic?
+If it's (a) I can add it to the engine as a named bought-in-goods markup with your ruling as its
+source, which is how the other corrections are recorded. If it's (b) that supersedes the MASTER
+PRICING DOC arithmetic and needs saying out loud, because the two would then disagree.
+
+Also worth flagging while you are here: the mail channel to you is down. mary_send.py returns
+403 ErrorAccessDenied - "Access to OData is disabled: [RAOP] : Blocked by tenant configured
+AppOnly AccessPolicy settings." Zac knows and says to communicate on the hub for today, so that
+is where I am putting everything. Reading still works normally.
+
+Unrelated but it is the biggest thing on my own job, in case it scrolls past: REQ-20 on Gordon
+Court needs a decision before 06/08 and 08/08. jLiving's Form of Tender holds our GBP 368,376.70
+open for 180 days to 18/01/2027, while all five supplier quotes behind it are 30-day and lapse
+in early August - GBP 201,086.70, 54.6% of the tender, unfixed for 163 days against a firm lump
+sum executed as a deed. Nothing needs to move today, but the written price holds have to be asked
+for before those two dates.

@@ -1169,6 +1169,84 @@ Render it. Also the 186-page NBS spec in full, the Pre-Construction Information,
 the asbestos survey.
 
 
+### Gordon Court - second turn: the AOV function was never priced, and the NBS was where the performance lived (2026-07-27, evening)
+
+Triggered by a handoff from riverside asking one question about BSW QT252257 "AOV & LOUVRE"
+(GBP 7,085.76): does the pack state free area as GEOMETRIC or AERODYNAMIC, given aerodynamic runs at
+60-62% of geometric?
+
+**RIVERSIDE'S QUESTION HAS A GOOD ANSWER.** This pack is written **geometric** - NBS L20 cl.630 states
+*"AXS140 STAIRWELL VENTILATOR - throat dimensions 1250mm x 1000mm - 1m2 geometric free area"* and
+*"AXS140 LOBBY VENTILATOR - throat 1250 x 1500 - 1.5m2 geometric free area"*. "Aerodynamic" appears
+nowhere in the 186-page NBS; the only hit in the 140-page mech spec is attenuator fairings (p80) and the
+127-page electrical spec has none. So the ~40% trap does not bite here.
+
+**THE REAL FINDING SAT UNDERNEATH IT: THE SMOKE VENTILATION FUNCTION IS NOT IN THE PRICE AT ALL.**
+Schedule 52003 carries the heading *"AOV SMOKE SHAFT LOUVRE"* and a note *"WL_00 Louvres to smoke
+shaft"*; **3no WN_7** sit in Corridors 1-1/1-2/1-3 with **"AOV"** against them, and **4no WL_1** at
+levels 0-3. NBS L20 cl.630 specifies both as **Colt proprietary, motorised** products - *"COLTITE
+GLAZED LOBBY VENTILATOR (STAIR C)... double glazed with thermally broken glazing... **drive open/drive
+close using a 24V motor mounted to the rear**"* and *"EN SEEFIRE LOUVRED NATURAL VENTILATOR... **designed
+and tested to EN 12101-2**... controlled by a **24Vdc electric actuator**"*. **BSW quoted `Qty: 3
+Prestige T&T` and `Qty: 4 Prestige Casement`** - ordinary Sheerline windows. The quote contains **zero**
+occurrences of AOV, louvre, actuator, chain, stroke, motor, 24V or smoke, and WL_1's `Glazing:` line is
+**blank**. BSW stated no free area of either kind because they had not quoted a ventilator.
+
+**The tell was the rate, and it generalises:** WN_7 is **GBP 412.67/m2** and WL_1 **GBP 442.98/m2** -
+plain-window money against a register median of ~GBP 528.83/m2 - while riverside's A Plus AOV data point
+is **GBP 1,401.24/m2** supply, of which the actuator and AOV sash carry ~GBP 870/m2. **An AOV that prices
+like a window is not an AOV.** On that single point the 3no WN_7 alone are **GBP 4,988-5,667** of supply
+cost short (one quote, different system, order of magnitude only - and there is still no AOV category in
+the register, so the 4 louvres cannot be benchmarked at all). Whole exposure: **GBP 7,085.76 cost /
+GBP 10,055.76 sell**, and it is binary - either ours and under-priced, or the smoke-vent specialist's and
+the sell comes out. Our proposal names *"AOV windows, smoke shaft louvres"* and does neither. **REQ-22
+raised.**
+
+**A CORRECTION TO MY OWN RECORD FROM THIS MORNING, AND IT MATTERED.** I had written that Gordon Court's
+schedules *"set no U-value at all"* and deferred to a consulting engineer - which made it look as though
+only the sustainability annex asked for anything, the exact escape route St Mary's warned about. Wrong:
+**NBS L10 cl.330 "Windows & Roof Windows" sets *"Thermal performance (U-value maximum): 1.2 W/m2K"*, and
+L20 cl.280 sets *"1.2 W/m2K or better"* on communal entrance doors.** The requirement is in the governing
+technical document and does not depend on the annex. The same clause reads *"Standard: To BS6375-1,
+BS6375-2, BS6375-3, EN 14351-1 and Pas24"*, so **PAS 24 applies to every window**, with cl.205 demanding
+*"Independent, 3rd Party Certification"* and documentary submittals - upgrading the PAS 24 finding from a
+schedule note to a specification clause (BSW: zero mentions across four quotes). Cl.280 also fixes the
+entrance-door finish as **"RAL7016 MATT (EXTERNAL) & RAL9010 GLOSS (INTERNAL)"**, so AFS's *"Standard
+RAL / mat standard"* silence is now measured against an explicit dual RAL rather than a "TBC". And
+cl.330 defers g-value, frame factor **and** glazing details to a **"SAP Consultants specification"** that
+is not in the pack - a second missing consultant's spec alongside Edward Pearce (**RFI-7**).
+
+**DELIVERY IS IN NOBODY'S PRICE** (riverside's new rule, run here). All four BSW quotes: *"All estimates
+are ex works, additional delivery charges may apply"* - no rate, no threshold, no distance rule. AFS:
+the GBP 250 priced extra already recorded. And **all five quotes deliver to Fenster's own MK13 9HF yard,
+not to site**, so carriage on 227 units to Edgware is ours too and there is no carriage line in the
+workbook at all.
+
+**TOOLKIT: extended riverside's `check_free_delivery_threshold` to express "never free".** It could say
+*always* free (`free_delivery_threshold: 0`) but had no way to say a supplier never carries delivery -
+both of this job's cases. Left null, the rule *asked*, when AFS's is a known quantified GBP 250 hole.
+`free_delivery_threshold: "never"` now states it and **fails** it, as riverside's own note said a silent
+omission should. Selftest passes; `_test-riverside.json` still fires its rule. Gordon Court now runs
+**5 FAIL, 2 ASK** (was 4/2).
+
+**TWO DASHBOARD MESSAGES HANDLED.** Zac's dash-23 explained the `mary_send.py` 403 - permissions
+over-corrected, hub only for today; acknowledged, and I have not attempted to send. Adam's dash-24
+answered **REQ-7, which is Crestwood Park, not this job** - passed to `crestwood-park` verbatim rather
+than actioned here, because searching another job's mail would muddy that trail. It carries a general
+ruling worth keeping: *"we would mark the teleflex up by 25%. Please remember that mark up as a general
+rule for estimating."* **I deliberately did NOT change `mary_pricing.py`** - the engine prices supply +
+(code value x 75%) plus CALIBRATION, a different mechanism from a flat 25% on a bought-in item, and
+reading "general rule" as "add 25% to everything" off a misrouted message about someone else's job would
+change every future quote. Asked Adam on the hub to confirm whether he means bought-in/third-party kit
+specifically (Teleflex, WCI screwjacks, Colt vents) or all supplier cost; posted the ruling to the board
+so nobody loses it meanwhile.
+
+**COVERAGE CAVEAT, stated rather than glossed:** I started a keyword sweep over all ~300 PDFs in the zip
+but its stdout was lost to buffering, so the free-area conclusion rests on targeted reads of the
+authoritative documents (NBS 186pp, mech spec 140pp, electrical spec 127pp, the five schedules, the five
+quotes) - not on an exhaustive sweep.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

@@ -609,14 +609,26 @@ def check_free_delivery_threshold(m):
     for t in terms:
         ref = "%s %s" % (t.get("supplier", "?"), t.get("ref", "?"))
         val, thr = t.get("order_value"), t.get("free_delivery_threshold")
-        if val is None or thr is None:
+        # Gordon Court, 27/07 evening. Riverside's rule could say "always free"
+        # (threshold 0) but had no way to say "NEVER free", which is the more
+        # common case and the one on this job: AFS price delivery as a GBP 250
+        # extra with no threshold at all, and every BSW quote is flatly "ex
+        # works, additional delivery charges may apply". Leaving the threshold
+        # null made both read as an unanswered question when AFS's omission is
+        # a known, quantified GBP 250 hole. 'never' says so.
+        never_free = str(thr).strip().lower() == "never"
+        if val is None or (thr is None and not never_free):
             silent.append(ref)
             continue
-        if val >= thr:
+        if not never_free and val >= thr:
             continue
         priced = t.get("delivery_priced")
-        gap = "%s: order GBP %s is GBP %s below the supplier's GBP %s free-delivery threshold" % (
-            ref, format(val, ",.2f"), format(thr - val, ",.2f"), format(thr, ",.2f"))
+        if never_free:
+            gap = ("%s: the supplier never carries delivery free - no threshold exists, carriage is "
+                   "chargeable on the whole GBP %s" % (ref, format(val, ",.2f")))
+        else:
+            gap = "%s: order GBP %s is GBP %s below the supplier's GBP %s free-delivery threshold" % (
+                ref, format(val, ",.2f"), format(thr - val, ",.2f"), format(thr, ",.2f"))
         if priced is True:
             continue
         # A carriage cost the supplier makes CONTINGENT (A Plus batch sub-GBP5k

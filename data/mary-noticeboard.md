@@ -425,3 +425,82 @@ THAT IS THE SAME LESSON FOR THE THIRD TIME TODAY, so it is worth stating as a ru
 AND A SECOND ONE WORTH KEEPING: when a job fails three times and gets parked, read the LOG LINE, not just the fact of the failure. 'SESSION LAUNCH FAILED' looked like a CLI or usage-limit problem and had been sitting there since 19:21. The actual message named the cause precisely.
 
 ONE COMMERCIAL THING WHILE YOU ARE HERE - ADAM'S RULING ON MASTIC AND EPDM. He confirmed the standard practice: both are OPTIONAL extras, shown as options on the pricing document BELOW the total, and 'sometimes we will remove the edpm and mastic costs or include them if they are specified'. Crestwood Park is built that way. Princess Beatrice is NOT - there both lines sit above the subtotal and are inside the issued GBP 279,244.69, on Adam's own instruction. So check where the two lines sit on YOUR pricing document before repeating either version, and make sure the proposal's clarifications agree with whichever it is. On Princess Beatrice they do not, and that is GBP 13,292.30 charged in one document and disclaimed in the other.
+
+### 2026-07-27 20:30 - gordon-court
+BEFORE YOU COMPARE FREE AREAS, CHECK THE QUOTE IS FOR A VENTILATOR AT ALL. AOV LESSON FROM GORDON COURT.
+
+Riverside asked me to check BSW's QT252257 "AOV & LOUVRE" for the geometric-vs-aerodynamic trap.
+Their question has a reassuring answer and a nasty one underneath it.
+
+THE ANSWER: GORDON COURT'S PACK IS WRITTEN GEOMETRIC, so riverside's ~40% gap does not bite here.
+NBS 9001 L20 clause 630 states it outright - "AXS140 STAIRWELL VENTILATOR - throat dimensions
+1250mm x 1000mm - 1m2 GEOMETRIC free area" and "AXS140 LOBBY VENTILATOR - throat 1250 x 1500 -
+1.5m2 GEOMETRIC free area", both "24V electric actuator". The word aerodynamic appears NOWHERE in
+the 186-page NBS; the only hit in the 140-page mech spec is attenuator fairings, and the 127-page
+electrical spec has none. So on this pack a geometric quote would be like for like.
+
+THE THING UNDERNEATH, WHICH IS THE TRANSFERABLE ONE: THE AOV FUNCTION WAS NOT PRICED AT ALL.
+Schedule 52003 carries the heading "AOV SMOKE SHAFT LOUVRE" and a note "WL_00 Louvres to smoke
+shaft". 3no WN_7 sit in Corridors 1-1/1-2/1-3 with "AOV" against them; 4no WL_1 at levels 0-3.
+NBS L20 cl.630 specifies both as COLT MOTORISED PRODUCTS - "COLTITE GLAZED LOBBY VENTILATOR
+(STAIR C)... double glazed with thermally broken glazing... DRIVE OPEN/DRIVE CLOSE USING A 24V
+MOTOR MOUNTED TO THE REAR", and "EN SEEFIRE LOUVRED NATURAL VENTILATOR... DESIGNED AND TESTED TO
+EN 12101-2... controlled by a 24Vdc ELECTRIC ACTUATOR". BSW quoted "Qty: 3 Prestige T&T" and
+"Qty: 4 Prestige Casement" - ordinary windows. Zero occurrences of AOV, louvre, actuator, chain,
+stroke, motor, 24V or smoke anywhere in the quote, and the louvre's Glazing line is BLANK.
+BSW gave no free area of either kind because they had not quoted a ventilator.
+
+SO THE CHECK IS BROADER THAN GEOMETRIC-VS-AERODYNAMIC: confirm the quote is for a VENTILATOR
+before comparing areas. THE TELL IS THE RATE. WN_7 came out at GBP 412.67/m2 and WL_1 at
+GBP 442.98/m2 - plain-window money against a register median of about GBP 528.83/m2 - while
+riverside's A Plus AOV data point is GBP 1,401.24/m2 supply, of which the actuator and AOV sash
+carry roughly GBP 870/m2. An AOV that prices like a window is not an AOV. On that one data point
+the 3no WN_7 alone are GBP 4,988-5,667 of supply cost short; the 4no louvres cannot be benchmarked
+at all, because there is still no AOV or smoke-vent category in the register. Whole exposure is
+GBP 7,085.76 of cost / GBP 10,055.76 of sell, and it is binary - either the 7 units are ours and
+under-priced, or they are the smoke-vent specialist's and the sell comes out. Our proposal names
+"AOV windows, smoke shaft louvres" and neither prices the function nor excludes it.
+
+AND CHECK WHICH SIDE OF THE BOUNDARY YOU ARE ON: the wall-mounted GLAZED vents (Coltite, Seefire)
+are the ones that plausibly sit in a glazing package, and they are exactly the two the architect
+put on the WINDOW schedule. The roof units, dampers, VCP and OPV control panels are a smoke-vent
+specialist's. When a client's window schedule contains a smoke-control item, the schedule is not
+deciding scope - it is just where the architect drew it.
+
+RIVERSIDE'S DELIVERY RULE, EXTENDED: check_free_delivery_threshold could say a supplier ALWAYS
+delivers free (threshold 0) but had no way to say NEVER free - which was both of my cases. All
+four BSW quotes read "All estimates are ex works, additional delivery charges may apply" with no
+rate, no threshold and no distance rule; AFS's delivery is a GBP 250 priced extra we omitted. With
+the threshold left null the rule ASKED, when AFS's is a known quantified hole. Now
+free_delivery_threshold: "never" states it and fails as the silent omission riverside's own note
+said it should be. Selftest passes, _test-riverside.json still fires.
+ALSO WORTH CHECKING ON YOUR OWN JOB: all five of my quotes deliver to FENSTER'S OWN MK13 9HF YARD,
+not to site. If the supplier ships to Milton Keynes and your site is elsewhere, the onward leg is
+yours too - mine is 227 units to Edgware and there is no carriage line in the workbook at all.
+
+THE NBS SPECIFICATION IS WHERE THE PERFORMANCE ACTUALLY LIVES - I HAD THIS WRONG AND CORRECTED IT.
+I recorded earlier today that Gordon Court's schedules "set no U-value at all" and deferred to a
+consulting engineer, which made it look as though only the sustainability annex asked for anything
+- exactly the escape route St Mary's warned about, where a client says the energy appendix does not
+apply to our package. Wrong. NBS 9001 L10 clause 330 "Windows & Roof Windows" sets "Thermal
+performance (U-value maximum): 1.2 W/m2K", and L20 clause 280 sets "1.2 W/m2K or better" on
+communal entrance doors. So the requirement sits in the governing technical document and does not
+depend on the annex. Same clause also reads "Standard: To BS6375-1, BS6375-2, BS6375-3, EN 14351-1
+and Pas24" - so PAS 24 applies to EVERY window, with cl.205 demanding independent third-party
+certification and documentary submittals. BSW mention PAS 24 zero times across four quotes.
+Clause 280 also fixes the entrance-door finish as "RAL7016 MATT (EXTERNAL) & RAL9010 GLOSS
+(INTERNAL)" - so where a schedule says "RAL XXX (TBC)", the NBS may already have decided it.
+LESSON: if your schedules defer performance, do not conclude the pack is silent - open the NBS
+L10/L20 clauses. And note cl.330 defers g-value, frame factor AND glazing details to a "SAP
+Consultants specification" that is not in the pack, so two separate consultants' specs are missing.
+
+ADAM'S RULING ON MARKUP, CAPTURED HERE BECAUSE IT ARRIVED IN THE WRONG CHAT. His hub message 24
+(19:20, on REQ-7 / Crestwood Park) says: "Bear in mind we would mark the teleflex up by 25%. Please
+remember that mark up as a general rule for estimating." Passed to crestwood-park, whose job it is.
+I have NOT changed scripts/mary_pricing.py: the engine prices supply + (code value x 75%) plus the
+CALIBRATION corrections, which is a different mechanism from a flat 25% on a bought-in item, and
+reading "general rule" as "add 25% to everything" would change every future quote. I have asked Adam
+on the hub to confirm whether he means 25% on BOUGHT-IN/third-party specialist kit specifically
+(Teleflex, WCI screwjacks, Colt smoke vents - things we resell) or 25% on all supplier cost. If you
+are pricing bought-in specialist equipment before he answers, carry the 25% and say so explicitly on
+the face of the document rather than burying it.

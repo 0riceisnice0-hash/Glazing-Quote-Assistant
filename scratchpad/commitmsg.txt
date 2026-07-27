@@ -1,41 +1,44 @@
-Gordon Court: the client is jLiving, and our price is held 163 days longer than our cost
+The AOV that priced like a window, and the specification nobody had opened
 
-First full turn of the gordon-court chat. The tender was already in at
-GBP 368,376.70; this audits it against the pack rather than re-pricing it.
+Riverside asked one question about Gordon Court's "AOV & LOUVRE" quote: does
+the pack state free area as geometric or aerodynamic, given aerodynamic runs
+at 60-62% of geometric? The answer is reassuring - this pack is written
+geometric throughout, so their ~40% trap does not bite here.
 
-The pack was in the zip again, as Georgie's warned. The loose folder held 28
-drawings; the sibling zip held jLiving's ITT, the Form of Tender, the Energy
-Statement, a 186-page NBS spec, the programme and the asbestos survey.
+What sat underneath it does. The architect's schedule marks 3no WN_7 as "AOV"
+and 4no WL_1 as "Louvres to smoke shaft", and the NBS specifies both as Colt
+motorised smoke-control units - a Coltite glazed ventilator driven by a 24V
+motor, and an EN Seefire louvre tested to EN 12101-2 on a 24Vdc actuator. BSW
+quoted a Prestige tilt-and-turn and a Prestige casement. Their quote never
+says AOV, louvre, actuator, motor or smoke, and the louvre's glazing line is
+blank. They gave no free area of either kind because they had not quoted a
+ventilator.
 
-Two things came out of it that change the job. Chigwell are not the client -
-they are a main contractor who bid to jLiving on 22/07, and jLiving do not
-announce until 16/09 or award until mid-October, so the silence we were about
-to chase is structural. And jLiving's Form of Tender holds our price open for
-180 days, to 18/01/2027, while all five supplier quotes behind it are 30-day
-and lapse in early August: GBP 201,086.70, 54.6% of the tender, unfixed for
-about 163 days against a firm lump sum executed as a deed. Neither supplier's
-price binds even inside its 30 days, by their own printed terms.
+The tell was the rate, and it generalises: GBP 412/m2 and GBP 443/m2 against
+riverside's AOV data point of GBP 1,401/m2. An AOV that prices like a window
+is not an AOV. GBP 10,055.76 of sell is either short or not ours.
 
-That is now a rule rather than a note, because it is the third instance in a
-day after John North Hall's 90 days and St Mary's contract-start version:
-check_quote_validity_against_commitment, with the founding fixture.
+Also correcting myself from this morning. I recorded that the schedules set no
+U-value and implied only the sustainability annex asked for one - the exact
+escape route St Mary's warned about. The NBS specification sets 1.2 W/m2K on
+windows and on communal entrance doors, requires PAS 24 on every window with
+third-party certification, and fixes the entrance-door finish as RAL7016 matt
+external and RAL9010 gloss internal. The requirement never depended on the
+annex, and the RAL was never "TBC".
 
-Also found: GBP 723.87 of omitted cost, including a BSW extras line nobody had
-seen; the third fire door is type D_T, quoted 100mm taller than its opening, as
-a double where the schedule shows a single leaf, in a store whose
-external/internal cell is blank; 2no type D_X external doors priced nowhere;
-trickle vents at half the required area; acoustic vents ticked on 26 of 40
-windows and quoted by no one; and PAS 24 absent from all four BSW quotes.
+Extended riverside's delivery rule to say "never free". It could express a
+supplier who always delivers free but not one who never does, which is both of
+this job's cases, so AFS's known GBP 250 hole was reading as a question rather
+than a failure.
 
-Cleared and recorded so nobody re-opens them: install does cover the fire
-doors, the other three schedules reconcile unit-for-unit, and the client-facing
-workbook leaks no cost - the twin-file practice Filwood should have copied.
+Two hub messages handled. Zac's, on the send permissions being over-corrected:
+acknowledged, no email attempted. Adam's answer on REQ-7 landed in this chat by
+mistake and belongs to Crestwood Park, so it went there verbatim. It carries a
+general ruling - mark bought-in items up 25% - which I have put on the board but
+deliberately not wired into the pricing engine, because reading it as "add 25%
+to everything" off a misrouted message would change every future quote. Asked
+Adam which he means.
 
-Fixed two false positives in check_finish_substitution, which was calling a
-correctly-priced dual-colour job a substitution because BSW write a foiled
-frame as "Grey Foil On White". A false FAIL costs as much as a missed one.
-Selftest passes and every earlier founding error still fires.
-
-REQ-20 raised for Adam; handoffs to manor-house and john-north-hall.
+REQ-22 raised. Job now runs 5 FAIL, 2 ASK, all genuine.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

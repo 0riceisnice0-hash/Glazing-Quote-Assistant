@@ -174,9 +174,18 @@ magnitude ~£5,600 of sell plus ~£1,000 of install. BENCHMARK ONLY** — there 
 price for D_X. This is the Brocks Hill pattern (7 external doors on the architect's schedule
 absent from the priced bill).
 
-### 4.4 Performance — the energy annex nobody opened, and it is tighter than the schedules
+### 4.4 Performance — three documents, and the NBS is the one that actually specifies it
 
-The St Mary's rule fires again. **The architect's schedules set no U-value at all** — they
+> **CORRECTED ON THE SECOND TURN (27/07 evening).** This section originally said the only
+> thermal requirement came from the energy annex, because the architect's schedules set none.
+> That was wrong and it mattered: **NBS 9001 — the governing technical specification — sets
+> `U-value maximum 1.2 W/m²K` on windows (L10 clause 330) and `1.2 W/m²K or better` on
+> communal entrance doors (L20 clause 280).** So a thermal requirement exists in the main
+> specification and does **not** depend on the sustainability appendix at all. That closes the
+> obvious escape route St Mary's warned about — a client saying the energy annex doesn't apply
+> to our package. See §10.
+
+The St Mary's rule fires again. **The architect's schedules set no U-value** — they
 defer it: *"MIN. THERMAL RATING: To Edward Pearce Consulting Engineers specification"*, and
 **that specification is not in the tender pack**. They do set **"G-Value of 0.36 or better"**.
 
@@ -233,14 +242,23 @@ An acoustic trickle vent is a different and dearer product than the Linkvent quo
 52003 (84 units) carries the same column in three table blocks — **that count has not been
 done** and should be.
 
-### 4.6 PAS 24 / Secured by Design — total silence
+### 4.6 PAS 24 / Secured by Design — total silence, against a specification clause
 
-Schedules require *"PAS24 SBD locking mechanisms to all amenity deck floor windows and
+> **STRENGTHENED ON THE SECOND TURN.** This is not merely a schedule note. **NBS L10 clause
+> 330 "Windows & Roof Windows" reads: *"Standard: To BS6375-1, BS6375-2, BS6375-3, EN 14351-1
+> and Pas24."*** So PAS 24 applies to **every window**, not just the amenity-deck ones. Clause
+> **205** adds *"Third-party certification: Submit proposals / Verification: Independent, 3rd
+> Party Certification Schemes / Submittals: Submit documentation confirming Certifications
+> claimed."* NBS **L20 clause 280** independently requires the communal entrance doors *"To
+> BS 4873 and PAS24"* with *"Third-party certification: Tested to PAS24."*
+
+Schedules also require *"PAS24 SBD locking mechanisms to all amenity deck floor windows and
 doors"*, and 51001 carries a **PAS 24 2016 column**. Our own proposal recites *"with PAS 24,
 restrictors, trickle ventilation, acoustic requirements and safety glazing noted where
-applicable"*. **Zero occurrences of "PAS 24" or "PAS24" across all four BSW quotes.**
-Yale Shootbolt locks, Egress Hinges and 35×35mm security cylinders are quoted, but no
-certification is stated. Reciting a requirement is not pricing it.
+applicable"*. **Zero occurrences of "PAS 24" or "PAS24" across all four BSW quotes — and none
+of BS 6375-1/2/3 or EN 14351-1 either.** Yale Shootbolt locks, Egress Hinges and 35×35mm
+security cylinders are quoted, but no certification and no submittals. Reciting a requirement
+is not pricing it.
 
 ### 4.7 £5,597.89 of BSW cost has no quote line behind it (Brocks Hill pattern)
 
@@ -295,8 +313,18 @@ checking rather than assuming:
 - Alunet: `Ext Colour: (7016) Grey / Int Colour: (9016) White`
 - Sheerline: `Ext Colour: 7016M Anthracite Grey - M / Int Colour: 9910HG Hipca White -G`
 
-Residual on all three: the architect left the external RAL as **"RAL XXX (TBC)"** and BSW
-have chosen **7016**. Reasonable, but it is the supplier's choice, not the architect's.
+> **CORRECTED ON THE SECOND TURN: the RAL is not "TBC" — the NBS fixes it.** L20 clause 280
+> states *"Finish as delivered: Polyester powder-coated to BS EN 12206-1, colour **RAL7016
+> MATT (EXTERNAL) & RAL9010 GLOSS (INTERNAL)**"*. So a dual finish with both RAL numbers and
+> both gloss levels is specified outright, and AFS's silence is measured against an explicit
+> requirement rather than a blank. BSW's Sheerline *"7016M Anthracite Grey - M"* matches the
+> external face exactly, matt included; their internal *"9910HG Hipca White"* is Sheerline's
+> own white against a specified RAL 9010 gloss — probably equivalent, right gloss level, but a
+> different reference and worth confirming rather than assuming.
+
+Residual on the uPVC and patio elements: the schedules leave the external RAL as
+**"RAL XXX (TBC)"** and BSW have chosen **7016**. Reasonable, and now corroborated by the
+NBS's 7016 on the entrance doors, but for those elements it is still the supplier's choice.
 
 ### 4.10 Two contradictory scope statements in the issued proposal
 
@@ -312,6 +340,126 @@ Both on p3 of a document already with the client:
 
 If Chigwell ever relies on either sentence our scope is arguably far narrower than we priced.
 Worth correcting at order stage.
+
+---
+
+## 4A. SECOND TURN (27/07 evening) — the AOV function is not in the price at all
+
+Riverside handed over a question: their A Plus quotes state **geometric** free area only, and
+aerodynamic runs at **60–62%** of geometric, so a quote giving one against a spec wanting the
+other is ~40% out. They asked me to look at QT252257. **The answer to their question is
+reassuring. What it turned up underneath is not.**
+
+### 4A.1 Riverside's question, answered: this pack is written GEOMETRIC
+
+**NBS L20 clause 630** states free areas explicitly and states them as geometric:
+
+- *"AXS140 STAIRWELL VENTILATOR — throat dimensions 1250mm × 1000mm — **1m² geometric free
+  area** — opening and closing controlled by 24V electric actuator"*
+- *"AXS140 LOBBY VENTILATOR — throat dimensions 1250mm × 1500mm — **1.5m² geometric free
+  area** — 24V electric actuator"*
+
+The word **aerodynamic appears nowhere** in the 186-page NBS. The only aerodynamic reference in
+the 140-page mech spec is attenuator fairings (p80), nothing to do with vents; the 127-page
+electrical spec has none. **So riverside's ~40% trap does not bite here.** Do not, per their
+warning, try to derive one figure from the other or from frame area — Towcester's
+geometric/frame ratios were 75% and 54%, it does not scale.
+
+*Coverage caveat: I ran a keyword sweep over all ~300 PDFs in the zip but its output was lost
+to buffering, so this rests on targeted reads of the authoritative documents — the NBS, the
+mech and electrical specs, the five schedules and the four quotes — not on an exhaustive sweep.*
+
+### 4A.2 The real finding: 7 units of smoke-control equipment quoted as ordinary windows
+
+**Schedule 5244-ARK-52003 carries a heading `AOV SMOKE SHAFT LOUVRE` and the note
+`WL_00 Louvres to smoke shaft`.** Positioned:
+
+| Ref | Qty | Location | Size | Schedule marking |
+|---|---|---|---|---|
+| **WN_7** | 3 | Corridor 1-1, 1-2, 1-3 (levels 1–3) | 2100 h × 910 w | **"AOV"** |
+| **WL_1** | 4 | Levels 0, 1, 2, 3 | 2100 h × 1210 w | **"Louvres to smoke shaft"** |
+
+**NBS L20 clause 630 specifies these as Colt proprietary smoke-control products, every one
+motorised:**
+
+- *"**COLTITE GLAZED LOBBY VENTILATOR (STAIR C)** — mounted into prepared openings in the
+  external wall. Type CLT, double glazed with thermally broken glazing and outer frames.
+  Nominal size 1000mm wide × 2000mm high **or equivalent**. **Drive open/drive close using a
+  24V motor mounted to the rear.**"* — WN_7 at 910 × 2100 is that item's "or equivalent".
+- *"**EN SEEFIRE LOUVRED NATURAL VENTILATOR** — size to match shaft dimensions. Clear opening
+  louvred natural ventilator… **designed and tested to EN 12101-2**… the position of the
+  louvres is controlled by a **24Vdc electric actuator**, driven closed by this actuator and
+  opened by a spring."*
+
+**BSW quoted neither.** QT252257 quotes `Qty: 3 Prestige T&T` and `Qty: 4 Prestige Casement` —
+ordinary Sheerline windows — and the quote contains **zero occurrences of AOV, louvre,
+actuator, chain, stroke, motor, 24V or smoke**. WL_1's `Glazing:` line is **blank** and it
+carries no reinforcing. There is no actuator, no 24V motor, no fire-alarm interface, no control
+gear and no EN 12101-2 certification anywhere in the price.
+
+**The rates confirm it.** WN_7 is **£412.67/m²** over 5.733 m²; WL_1 is **£442.98/m²** over
+10.164 m². That is plain-window money — compare the register's ~£528.83/m² median for a plain
+glazed aluminium window. Riverside's only AOV data point (A Plus DualFrame 75Si bottom-hung
+glazed AOV, 850mm stroke single chain) is **£1,401.24/m² supply**, of which *"the actuator and
+AOV sash carry roughly £870/m²"*.
+
+**On that one point the 3no WN_7 alone are £4,988–£5,667 of supply cost short.**
+*One quote, a different system, order of magnitude only* — and riverside confirmed there is
+**no AOV or smoke-vent category anywhere in the rate register**, so the 4no louvres cannot be
+benchmarked at all.
+
+**The whole of QT252257 is this package** — £7,085.76 of cost, **£10,055.76 of sell**
+(WN_7 £3,603.36 + WL_1 £6,452.40). So the position is binary:
+
+- if these 7 units are **ours**, they are materially under-priced and quoted against the wrong
+  product; or
+- if they belong to the **smoke-vent specialist**, £10,055.76 of sell should come out.
+
+Our proposal p3 names *"AOV windows, smoke shaft louvres"* as part of the tender information
+and does **neither** — it does not price the function and does not exclude it.
+
+### 4A.3 The full Colt schedule, so nobody has to find it again
+
+NBS L20 clause 630 (and L10 clause 460 / the AXS 140 entry at L10) specifies a complete Colt
+smoke-ventilation system. **Correction to §4.8: the AXS 140 sits in both L10 and L20 cl.630,
+not L10 alone.**
+
+| Colt item | Ours? |
+|---|---|
+| AOV SHAFT — builder's work, min cross-sectional area **1.5m²** | No — "by others" |
+| AXS140 STAIRWELL VENTILATOR — roof, 1m² geometric, 24V actuator | **Not priced, not excluded** |
+| AXS140 LOBBY VENTILATOR — roof, 1.5m² geometric, 24V actuator | **Not priced, not excluded** |
+| COLTITE GLAZED LOBBY VENTILATOR (Stair C) — **wall-mounted**, glazed, thermally broken, 24V motor | **This is WN_7 — priced as a plain T&T** |
+| EN SEEFIRE LOUVRED NATURAL VENTILATOR — EN 12101-2, 24Vdc actuator | **This is WL_1 — priced as a plain casement** |
+| DEFENDER SMOKE DAMPERS — galvanised steel, 24V motor, in shaft wall | No — specialist |
+| DECORATIVE LOUVRE GRILLES — 19mm pitch, 15° turndown, in front of dampers | Probably specialist — **but check** |
+| VENT CONTROL PANEL (VCP), OPV Display Panel, OPV HEART | No — specialist |
+| *Also:* "Pitched Roof Smoke Vents Type B" (NBS p93) | **Not priced, not excluded** |
+
+The two **wall-mounted glazed** items are the ones that plausibly sit in a glazing package —
+and they are exactly the two on the architect's window schedule. The roof units and the control
+system are a smoke-ventilation specialist's scope, which is what makes the boundary worth
+settling in writing rather than assuming.
+
+### 4A.4 Delivery is in nobody's price — both suppliers, ex works to our own yard
+
+Running riverside's new `check_free_delivery_threshold` on this job:
+
+- **BSW, all four quotes (£183,005.42):** *"All estimates are **ex works**, additional delivery
+  charges may apply."* **No rate, no threshold, no distance rule** — so unlike A Plus on
+  Riverside there is no figure to test against, carriage is simply unpriced.
+- **AFS Q7585 (£18,298.94):** delivery is the **£250.00 priced extra** already recorded, with
+  the *"Logistics: Delivered"* contradiction and T&C 8.1 putting transport on us *"in addition"*.
+
+And on all five quotes the **Delivery Address is Fenster's own yard** — 98 Alston Drive,
+Bradwell Abbey, Milton Keynes MK13 9HF — **not the site**. So carriage from Milton Keynes to
+Edgware HA8 on **227 units** is ours too. The workbook has no carriage line: install (£46,840)
+is pure per-unit labour codes. Meanwhile the proposal excludes Site Storage *on the basis that*
+*"Materials will be delivered to site"* — the opposite assumption.
+
+Not costable from anything on file, so it is an open item, not a number. But it is not zero.
+
+---
 
 ## 5. Things checked and CLEARED — do not re-raise
 
@@ -349,8 +497,11 @@ Worth correcting at order stage.
 | RFI-3 | Whose spec governs U-value — the Energy Statement's 1.1 W/m²K or Edward Pearce Consulting Engineers, whose spec the schedules defer to and which is **not in the pack**? | Chigwell | open |
 | RFI-4 | Confirm external RAL (schedules say "RAL XXX (TBC)"; BSW assumed 7016) | Arkon via Chigwell | open |
 | RFI-5 | Are rooflights and the Colt AXS 140 roof AOV/access hatch in our package? | Chigwell | open |
-| RFQ-1 | Whole-window **Uw** for the Liniar, Alunet and Sheerline elements; 8000mm² trickle vents; Passivent AL-dB 450 acoustic vents on the marked units; PAS 24 certification; louvre **free area** for LW_1 | BSW | not yet asked |
-| RFQ-2 | Dual-colour (white int / grey ext) price on the 3 fire doors; written price hold to 18/01/2027; the £506.37 extras | AFS | not yet asked |
+| RFI-6 | **Are WN_7 (3no AOV) and WL_1 (4no smoke shaft louvres) in our package or the smoke-vent specialist's?** NBS L20 cl.630 specifies them as Colt motorised products; we priced them as plain Sheerline windows. £10,055.76 of sell turns on the answer | Chigwell | open |
+| RFI-7 | Issue the **SAP Consultant's specification** (NBS cl.330 defers g-value, frame factor and glazing details to it) and the **Edward Pearce Consulting Engineers** spec — neither is in the pack | Chigwell | open |
+| RFQ-1 | Whole-window **Uw** against NBS cl.330's **1.2 W/m²K** and the Energy Statement's **1.1**; 8000mm² trickle vents; Passivent AL-dB 450 acoustic vents on the marked units; **PAS 24 + BS 6375-1/2/3 + EN 14351-1 certification with the cl.205 submittals**; **geometric free area** for WL_1 and WN_7; **delivery basis and threshold** | BSW | not yet asked |
+| RFQ-2 | **RAL 7016 matt external / RAL 9010 gloss internal** price on the 3 fire doors (NBS L20 cl.280); whole-door **Ud** against cl.280's 1.2 W/m²K; written price hold to 18/01/2027; the £506.37 extras | AFS | not yet asked |
+| RFQ-3 | If WN_7/WL_1 are ours: a **real price for a Coltite glazed lobby ventilator and an EN Seefire louvred ventilator** with stated geometric free area — there is no AOV category in the rate register, so the first number has to be a supplier's | BSW / Colt | not yet asked |
 | **REQ-20** | Adam: hold Q7585 past 08/08 and cover the 180-day gap? | dashboard | **raised 27/07** |
 
 **AFS are chasing and Mary cannot reply to them (ghost protocol).** Chris Wall
@@ -395,6 +546,19 @@ their whole book, not signalling anything specific about Gordon Court.
   Selftest still passes and Georgie's Mercury case still fires.
 - Current run on this job: **4 FAIL, 2 ASK**, all genuine —
   `python scripts\mary_checks.py data\job-checks\gordon-court.json`.
+
+## 8A. Toolkit changes on the second turn
+
+- **Extended riverside's `check_free_delivery_threshold` to express "never free".** Their rule
+  could say *always* free (`free_delivery_threshold: 0`) but had no way to say a supplier never
+  carries delivery — which is the more common case and both of this job's cases. Leaving the
+  threshold `null` made AFS's **known, quantified £250 omission** read as an unanswered
+  question. `free_delivery_threshold: "never"` now states it, and the rule fails it as the
+  silent omission riverside's own note said it should be. Selftest passes, riverside's fixture
+  still fires its rule.
+- Manifest now carries `delivery_terms` for both suppliers.
+- Run on this job after the second turn: **5 FAIL, 2 ASK** (was 4 FAIL, 2 ASK) —
+  the new FAIL is delivery.
 
 ## 9. Where the documents are
 
