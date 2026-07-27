@@ -1,2 +1,11 @@
 /*
   X-Robots-Tag: noindex
+
+/index.html
+  Cache-Control: no-store
+
+/app.js
+  Cache-Control: no-store
+
+/styles.css
+  Cache-Control: no-store

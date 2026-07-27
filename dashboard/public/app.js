@@ -98,7 +98,7 @@ function render() {
 
 async function boot(user) {
   DATA = await api("data");
-  $("#login").hidden = true;
+  if ($("#login")) $("#login").hidden = true;
   $("#app").hidden = false;
   $("#active-user").textContent = user;
   render();
@@ -109,7 +109,7 @@ $("#tabs").addEventListener("click", (e) => {
   if (key) { active = key; render(); }
 });
 
-$("#login-form").addEventListener("submit", async (e) => {
+$("#login-form")?.addEventListener("submit", async (e) => {
   e.preventDefault();
   const form = new FormData(e.target);
   try {
@@ -124,9 +124,11 @@ $("#login-form").addEventListener("submit", async (e) => {
   }
 });
 
-$("#logout").addEventListener("click", async () => {
+$("#logout")?.addEventListener("click", async () => {
   await api("logout");
   location.reload();
 });
 
-api("me").then(({ user }) => boot(user)).catch(() => {});
+boot("open access").catch((err) => {
+  $("#view").textContent = "Could not load dashboard data (" + (err.status || err.message) + ")";
+});

@@ -7,30 +7,9 @@
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <main id="login" class="login-view">
-      <section class="login-panel">
-        <p class="eyebrow">Estimating operations</p>
-        <h1>Mary Grace's Desk</h1>
-        <p class="login-copy">Everything Mary sees: deadlines, actions waiting on humans, every email sent, every catch made.</p>
-        <form id="login-form">
-          <label>
-            User
-            <select name="username">
-              <option value="zac">Zac</option>
-              <option value="adam">Adam</option>
-            </select>
-          </label>
-          <label>
-            Password
-            <input name="password" type="password" autocomplete="current-password">
-          </label>
-          <button type="submit">Open desk</button>
-          <p id="login-error" class="error" aria-live="polite"></p>
-        </form>
-      </section>
-    </main>
-
-    <div id="app" class="app-shell" hidden>
+    <!-- Login view removed while AUTH_DISABLED (Zac 27/07). Restore from git
+         history (commit 51df61b) when the login gate comes back. -->
+    <div id="app" class="app-shell">
       <aside class="sidebar">
         <div class="brand">
           <span class="mark"><img src="/fenster-logo.png" alt="Fenster Glazing"></span>
