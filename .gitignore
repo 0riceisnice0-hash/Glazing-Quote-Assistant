@@ -11,3 +11,4 @@ data/mary-bridge-state.json
 data/mary-bridge-status.json
 __pycache__/
 dashboard/functions/_data/dashboard-data.js
+.~lock.*#
