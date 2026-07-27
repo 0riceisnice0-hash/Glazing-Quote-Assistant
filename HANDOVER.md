@@ -1080,6 +1080,61 @@ board.
 
 `mary_checks` 0 failed, 3 questions, now across 21 spec items. Selftest passes.
 
+### Riverside House - we were asking for a document that does not exist (2026-07-28)
+
+**Gordon Court closed their longest-running deferral by reading a title block**, and the method run here
+produced the opposite - and more useful - answer. Their Energy Statement's block reads *"Edward
+Pearce... Project No. 22/190"*, and that project number matches every M&E document in their pack, so the
+architect's deferral pointed at a document they had held since turn one.
+
+**The rule the pair of jobs produced:**
+
+| | |
+|---|---|
+| Deferral to a **named, appointed** consultant whose other work is in the pack | **ADMINISTRATIVE gap.** Ask for the document, price on, qualify if it does not arrive. |
+| Deferral to **nobody** - no consultant named, everything *"to be site agreed"* | **DESIGN gap.** There is nothing to ask for. This is the one that should stop you. |
+
+**Run on Riverside's five deferrals, only one is administrative:**
+
+| Deferral | Points at | Class |
+|---|---|---|
+| *"SEE DETAIL 1 / 2 / 4 / 5 / 6"* | Campbell Ark's own **K1653** series | **Administrative** |
+| *"CONTRACTOR TO ESTABLISH EXACT DRAINAGE LAYOUT"* | A contractor not yet appointed | **Design** |
+| *"BOILER/HEATER... SITE AGREED WITH HEATING ENGINEER/ELECTRICIAN"* | A role, no firm named | **Design** |
+| *"ELECTRICAL LAYOUTS... SITE AGREED WITH CLIENT"* | The client | **Design** |
+| Wall build-up / structural opening | No structural engineer named anywhere | **Design** |
+
+So chasing paperwork produces exactly one thing on this job, and nothing bearing on our openings.
+
+**AND THE SAME METHOD CHANGED WHO WE ARE ASKING, WHICH MATTERS MORE THAN THE CLASSIFICATION.** This chat
+spent three turns requesting *"the fire strategy"*. **There probably is not one.** No fire engineer is
+named anywhere on the six drawings, and the smoke-vent note is **Campbell Ark's own** - written in
+Approved Document B language on a sheet whose key works *"TO AD B1"*. On a prior-approval conversion of
+this size the architect commonly carries the fire strategy inside the drawings. Requesting a document
+that does not exist returns nothing and costs a week.
+
+So **C0 now asks the author**, by name off their own title block: **Campbell Ark, job number K1653,
+drawn SC, 01234 709296, drawingoffice@aol.com** - is the 1 m2 geometric, aerodynamic or clear opening
+area; is the vent in the wall or the roof; and did a fire engineer or building control officer advise
+the note. That last part decides who the arbiter is: **if nobody independent set the figure, building
+control does**, and these drawings defer to the building inspector repeatedly.
+
+**Ask the author of a note, not a consultant who may not exist.** Read the title block before writing
+the RFI - it gives the job number, the practice, the reviser's initials and a phone number. **K1653 is
+also the handle for the missing sheets**: *"please issue the K1653 drawing register and any sheets we do
+not hold"* can be actioned in a minute, where *"the rest of the pack"* cannot.
+
+**AND A HABIT ADOPTED AND APPLIED TO OURSELVES: when you withdraw something, say what you are NOT
+withdrawing.** The other half of this chat's own point that a false withdrawal costs as much as a false
+finding. Two things have been withdrawn on Riverside - the arched-head risk on AOV.01, and the claim
+that AOV.01's size was "genuinely free". **Not withdrawn:** the pack requires 1 m2 and not the 1.5 m2 in
+our own enquiry; the requirement is per stairwell; the free area is quoted geometric only; the AOV
+control system is in nobody's scope; the quote delivers to our own MK13 9HF yard and not to site; the
+order is GBP 154.78 under A Plus's free-delivery threshold; validity has zero headroom; and the
+wall-or-roof question on AOV.01 stands. None of those ever depended on the withdrawn parts.
+
+Both rules are now in `AI.md`. `mary_checks` 0 failed, 3 questions across 21 spec items; selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

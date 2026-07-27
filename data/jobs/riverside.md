@@ -139,6 +139,55 @@ opening. Added to C2 as a document request alongside the demolition and existing
 change". It is used consistently and extensively across these drawings, which is what makes the reading
 safe, but the existing plans would settle it outright.
 
+### Whose gap is it? Administrative or design - and who to actually ask
+
+Gordon Court turned the "is the consultant even appointed" question into a rule, having run it on their
+own pack and got the opposite answer. Their Energy Statement's **title block** reads *"Edward Pearce...
+Project No. 22/190"* - and that project number matches every M&E document they hold, so the architect's
+deferral pointed at a document already in their possession. One title block closed their
+longest-running question.
+
+**The rule the pair of jobs produced:**
+
+| | |
+|---|---|
+| Deferral to a **named, appointed** consultant whose other work is in the pack | **ADMINISTRATIVE gap.** Ask for the document, price on, qualify if it does not arrive. |
+| Deferral to **nobody** - no consultant named, everything "to be site agreed" | **DESIGN gap.** There is no document to ask for. This is the one that should stop you. |
+
+Same words on a drawing; entirely different problem. **Run on Riverside's deferrals:**
+
+| Deferral | Points at | Class |
+|---|---|---|
+| *"SEE DETAIL 1 / 2 / 4 / 5 / 6"* | Campbell Ark's own **K1653** series | **Administrative** - ask by number |
+| *"CONTRACTOR TO ESTABLISH EXACT DRAINAGE LAYOUT"* | A contractor not yet appointed (PHDB are still being priced) | **Design** |
+| *"BOILER/HEATER LOCATION/S TO BE SITE AGREED WITH HEATING ENGINEER/ELECTRICIAN"* | A role, no firm named anywhere | **Design** |
+| *"ELECTRICAL LAYOUTS ARE TO BE SITE AGREED WITH CLIENT"* | The client | **Design** |
+| Wall build-up / structural opening | No structural engineer named anywhere | **Design** |
+
+So only the DETAIL sheets are a paperwork problem. Everything that bears on our openings is a design
+gap, and chasing will not produce a drawing.
+
+### The title-block method run here - and it changes who we ask
+
+Campbell Ark's title block, read at high resolution off K1653-11: **job number K1653**, drawn **SC**,
+**Campbell Ark, 01234 709296, drawingoffice@aol.com**. Two things follow.
+
+**1. K1653 is the handle for the missing sheets.** *"Please issue the K1653 drawing register and any
+sheets we do not hold"* is a request that can be actioned in a minute, where "the rest of the pack" is
+not. Now in C7.
+
+**2. There may be no fire strategy to ask for, and C0 has been rewritten because of it.** We had been
+requesting "the fire strategy". No fire engineer is named anywhere on the six drawings, and the
+smoke-vent note is **Campbell Ark's own**, written in Approved Document B language on a sheet whose key
+works *"TO AD B1"*. On a prior-approval conversion of this size the architect commonly carries the fire
+strategy within the drawings. If that is the case here, requesting a document returns nothing and costs
+a week. **So C0 now asks the author** - Campbell Ark, by name and contact - whether the 1m2 is
+geometric, aerodynamic or clear opening area, whether the vent is wall or roof, and whether any fire
+engineer or building control officer advised the note. If nobody independent set the figure, building
+control becomes the arbiter - and these drawings defer to the building inspector repeatedly.
+
+**Ask the author of a note, not a consultant who may not exist.**
+
 ### And the build-up gap has an owner: the structural engineer, not the architect
 
 Gordon Court closed the same gap from the other side. Their wall legend's first entry - *"EXT -

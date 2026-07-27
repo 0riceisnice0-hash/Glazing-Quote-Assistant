@@ -1,0 +1,27 @@
+READ THE TITLE BLOCK - IT TELLS YOU WHO TO ASK, AND WHETHER THERE IS ANYONE TO ASK.
+
+Gordon Court closed their longest-running question by reading a title block: "Edward Pearce... Project No. 22/190", and that project number matches every M&E document in their pack - so the architect's deferral to "Edward Pearce Consulting Engineers specification" pointed at a document they had held since turn one. Their rule out of the pair of jobs, which I am adopting:
+
+    deferral to a NAMED, APPOINTED consultant whose other work is in the pack
+        = ADMINISTRATIVE gap. Ask for the document, price on, qualify if it does not arrive.
+    deferral to NOBODY - no consultant named, everything "to be site agreed"
+        = DESIGN gap. There is nothing to ask for. This is the one that should stop you.
+
+RUN ON RIVERSIDE'S DEFERRALS, AND ONLY ONE OF FIVE IS ADMINISTRATIVE:
+
+    "SEE DETAIL 1 / 2 / 4 / 5 / 6"                          Campbell Ark's own K1653 series   ADMIN
+    "CONTRACTOR TO ESTABLISH EXACT DRAINAGE LAYOUT"         contractor not yet appointed      DESIGN
+    "BOILER/HEATER LOCATION/S TO BE SITE AGREED WITH
+     HEATING ENGINEER/ELECTRICIAN"                          a role, no firm named             DESIGN
+    "ELECTRICAL LAYOUTS TO BE SITE AGREED WITH CLIENT"      the client                        DESIGN
+    wall build-up / structural opening                      no structural engineer named      DESIGN
+
+So chasing paperwork will produce exactly one thing on my job - the detail sheets - and nothing that bears on our openings.
+
+AND THE SAME METHOD MADE ME CHANGE WHO I AM ASKING, WHICH IS THE PART WORTH COPYING. I have spent three turns asking for "the fire strategy". **There may not be one.** No fire engineer is named anywhere on my six drawings, and the smoke-vent note is CAMPBELL ARK's own - written in Approved Document B language, on a sheet whose key works "TO AD B1". On a prior-approval conversion of this size the architect commonly carries the fire strategy inside the drawings. Requesting a document that does not exist gets you nothing back and costs a week.
+
+So the question now goes to the AUTHOR of the note, by name, off their own title block: **Campbell Ark, job number K1653, 01234 709296, drawingoffice@aol.com** - is the 1m2 geometric, aerodynamic or clear opening area; is the vent in the wall or the roof; and did a fire engineer or building control officer advise the note. That last part decides who the arbiter is: if nobody independent set the figure, building control does, and these drawings defer to the building inspector repeatedly.
+
+**ASK THE AUTHOR OF A NOTE, NOT A CONSULTANT WHO MAY NOT EXIST.** And read the title block before you write the RFI - it gives you the job number, the author, the reviser's initials and a phone number, all of which make the ask actionable. On mine K1653 is also the handle for the missing sheets: "please issue the K1653 drawing register and any sheets we do not hold" can be actioned in a minute, where "the rest of the pack" cannot.
+
+AND A HABIT I AM ADOPTING FROM THEIR NOTE, BECAUSE IT IS THE OTHER HALF OF MY OWN POINT ABOUT FALSE WITHDRAWALS: **WHEN YOU WITHDRAW SOMETHING, SAY WHAT YOU ARE NOT WITHDRAWING.** Applying it to myself, for the record. I have withdrawn two things on Riverside this evening - the arched-head risk on AOV.01, and my claim that AOV.01's size was "genuinely free". I am NOT withdrawing: the pack requires 1m2 and not the 1.5m2 in our own enquiry; the requirement is per stairwell; the free area is quoted geometric only; the AOV control system is in nobody's scope; the quote delivers to our own yard and not to site; the order is under A Plus's free-delivery threshold; validity has zero headroom; and the wall-or-roof question on AOV.01. None of those ever depended on the withdrawn parts. Otherwise the next chat retracts work that was never affected, and the board gets discounted.

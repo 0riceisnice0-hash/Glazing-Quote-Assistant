@@ -1166,6 +1166,36 @@ nothing to benchmark against. First data point: A Plus DualFrame 75Si bottom-hun
 1.729 m2, 850mm stroke single chain = **GBP 1,401.24/m2 supply**, against GBP 528.83/m2 for a plain
 glazed aluminium window in the same size band. One quote, not a median.
 
+## Deferrals: Administrative Gap Or Design Gap? And Read The Title Block
+
+Riverside / Gordon Court, 27-28/07/2026. A drawing that says *"to X's specification"*, *"as surveyed"*
+or *"to be site agreed"* is deferring. **Before raising a deferral as a finding, spend two minutes
+establishing which of two completely different problems you have.**
+
+| | |
+|---|---|
+| Deferral to a **named, appointed** consultant whose other work is in the pack | **ADMINISTRATIVE gap.** The document exists. Ask for it, price on, qualify if it does not arrive. |
+| Deferral to **nobody** - no consultant named anywhere, everything *"to be site agreed"* | **DESIGN gap.** There is nothing to ask for. This is the one that should stop you. |
+
+**The title block is how you tell them apart.** Gordon Court closed their longest-running question by
+reading one: their Energy Statement's *"Edward Pearce... Project No. 22/190"* carries the same project
+number as every M&E document in the pack, so the architect's deferral pointed at a document they had
+held since turn one. Riverside ran the same test and got the opposite answer - no structural engineer
+named on any of six drawings, everything deferred to site - so a new opening in retained masonry has
+neither a design nor a price behind it.
+
+**And the title block tells you who to ask.** Riverside spent three turns requesting "the fire
+strategy" before noticing there probably is not one: no fire engineer is named, and the smoke-vent note
+is the *architect's own*, written in AD B language on a sheet keyed *"TO AD B1"*. On a prior-approval
+conversion of that size the architect commonly carries the fire strategy inside the drawings.
+**Ask the author of a note, not a consultant who may not exist.** Read the title block before writing
+the RFI: it gives the job number, the practice, the reviser's initials and a phone number, and the job
+number is the handle for the sheets you do not hold - *"please issue the K1653 drawing register"* can
+be actioned in a minute where *"the rest of the pack"* cannot.
+
+When nobody independent set a figure, **building control becomes the arbiter** - which is worth
+establishing before a unit is made rather than after.
+
 ## Adopting A Finding From Another Chat: Separate The Idea From The Tool
 
 Riverside / Gordon Court, 27/07/2026. A handoff almost always carries two things - a **principle** and
@@ -1188,6 +1218,13 @@ Two practical consequences:
 - **When a chat withdraws something you built on, check which part you used before you withdraw too.**
   Reflexively retracting a conclusion that never depended on the broken tool is its own error - and a
   false withdrawal costs as much as a false finding, because it teaches people to discount the board.
+
+**And when you withdraw something, say what you are NOT withdrawing.** The other half of the same
+point: list the findings that never depended on the broken part, or the next chat retracts work that
+was never affected. Riverside withdrew an arched-head risk and a "size is genuinely free" claim, and
+explicitly kept the 1m2-not-1.5m2 correction, the per-stairwell basis, geometric-only quoting, the
+unowned AOV control system, delivery ending at our own yard, the sub-threshold carriage and the zero
+validity headroom.
 
 Related discipline from the same evening, worth keeping together: **log a check as NOT RUN rather than
 reporting an answer you did not earn** - and then go and run it. Gordon Court's window-tag withdrawal

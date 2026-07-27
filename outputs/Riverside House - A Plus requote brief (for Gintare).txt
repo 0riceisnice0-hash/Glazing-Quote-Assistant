@@ -75,22 +75,35 @@ costs before this is submitted, so the submission date is not yet known. Please 
 how long A Plus will hold the price, or what notice we would get of a change.
 
 --------------------------------------------------------------------------------
-PART TWO - NOT FOR A PLUS. THESE GO TO RRR / CAMPBELL ARK / THE FIRE ENGINEER
+PART TWO - NOT FOR A PLUS. THESE GO TO RRR AND CAMPBELL ARK
 --------------------------------------------------------------------------------
 These have all come up since the vents were priced, and three of them could change the
 answer to Part One. Worth asking before Gintare spends A Plus's time.
 
-If only two things get asked, make them C0 and C2 - the fire strategy and the demolition
-plan. Between them they answer most of the rest, and neither is something we can work
-out from what we hold.
+If only two things get asked, make them C0 and C2 - the question to Campbell Ark and the
+demolition plan. Between them they answer most of the rest, and neither is something we
+can work out from what we hold.
 
-C0. FIRST, PLEASE SEND THE FIRE STRATEGY. There is no fire strategy drawing or report
-    in anything we hold. The entire smoke-vent requirement reaches us as a single red
-    note on two floor plans. Somebody produced a strategy in order to write that note -
-    it will say in its own words whether the 1m2 is geometric, aerodynamic or clear
-    opening area, and it will settle C1 without anyone having to reason from the
-    drawings. On a comparable job the fire strategy legend simply stated the duty:
-    "AOV. 1.5m2 CLEAR OPENING AREA." One document, and C1 is answered.
+C0. ASK CAMPBELL ARK, WHO WROTE THE NOTE. This is the one question worth asking first,
+    and we have revised who to put it to.
+
+    We had been asking for "the fire strategy". On reflection there may not be one. No
+    fire engineer is named anywhere on the six drawings, and the smoke-vent note is
+    Campbell Ark's own, written in Approved Document B language on a drawing whose key
+    works "TO AD B1". On a prior-approval conversion of this size an architect commonly
+    carries the fire strategy themselves within the drawings. If so, requesting a
+    document gets nothing back and we lose a week.
+
+    So the ask is to the author instead. Campbell Ark, drawingoffice@aol.com,
+    01234 709296, job number K1653, drawings K1653-11 and K1653-12:
+
+      - is the 1m2 free area GEOMETRIC, AERODYNAMIC or CLEAR OPENING AREA?
+      - is the vent intended in the stairwell WALL or in the ROOF? (see C4)
+      - did a fire engineer or building control officer advise the note, and if so who?
+
+    That last part matters. If nobody independent set the figure, then building control -
+    which these drawings defer to repeatedly - becomes the arbiter, and it is much
+    cheaper to establish that now than after a unit is made.
 
 C1. IS THE 1m2 GEOMETRIC OR AERODYNAMIC? The drawings do not say. Our reading is
     GEOMETRIC, for two reasons: the drawings' own key works "TO AD B1", which is the
@@ -98,7 +111,8 @@ C1. IS THE 1m2 GEOMETRIC OR AERODYNAMIC? The drawings do not say. Our reading is
     where aerodynamic is the language of the engineered BS 9991 / EN 12101-2 route;
     and comparable packs specify this exact duty as "1m2 GEOMETRIC free area" in so
     many words. On that reading the vents as quoted clear the requirement by 30% and
-    nothing needs to change. Please confirm - or send the fire strategy per C0.
+    nothing needs to change. This is our reading and we would rather have Campbell Ark's -
+    it is the first question in C0.
 
 C2. ARE THE OPENINGS REALLY NEW - AND WHAT ARE THEY CUT INTO? Reading the two
     stairwells off K1653-11 and K1653-12:
@@ -220,10 +234,30 @@ C7. WE ARE ALMOST CERTAINLY NOT WORKING FROM THE WHOLE PACK. We hold six drawing
     detail sheets is in anything we have been sent.
 
     Most of that is probably not our scope. But the classes of drawing we are missing
-    are precisely the ones that answer C1, C2 and C4: the fire strategy, the existing
+    are precisely the ones that answer C1, C2 and C4: any fire strategy that exists, the existing
     plans, the demolition plan and the sections. **Please send the full drawing
     register or issue sheet** so we can see what exists and ask for what matters,
     rather than guessing from the gaps in a numbering sequence.
 
     Worth saying plainly: the OneDrive folder for this job is still empty. Everything
     we have priced from arrived as email attachments.
+
+    THE JOB NUMBER IS THE HANDLE. Campbell Ark's title block gives it: K1653, drawn SC.
+    So "please issue the K1653 drawing register and any sheets not listed above" is a
+    request they can act on in a minute, where "the rest of the pack" is not.
+
+    AND IT IS WORTH SEPARATING TWO KINDS OF GAP, BECAUSE THEY NEED DIFFERENT ACTIONS:
+
+      ADMINISTRATIVE - the document exists and we simply do not hold it. DETAIL 1, 2, 4,
+        5 and 6 are Campbell Ark's own K1653 sheets. Ask by number, price on, qualify if
+        they do not arrive.
+
+      DESIGN - there is no document to ask for. No structural engineer is named; the
+        boiler and heater positions defer to a heating engineer/electrician who is not
+        named; the electrical layout defers to the client; the drainage layout defers to
+        a contractor who is not yet appointed. These are not paperwork problems and no
+        amount of chasing produces a drawing.
+
+    The distinction matters most on the vent openings. If the design gap is real then
+    forming or enlarging an opening in retained masonry has not been designed by anyone,
+    and that is the thing to settle before a resize is instructed rather than after.
