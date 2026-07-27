@@ -304,6 +304,21 @@ A WON job, not a tender - and the source of a rule that applies to every job bou
 - Glass rates captured: Vetroseal 8.8L-16-4T Lami/Tgh Black Multitech G, 1.2 softcoat, argon = **GBP 110.00/m2 flat** (quote 064542, 01/07/2026) plus energy surcharge GBP 0.13/kg at ~31.9 kg/m2 = GBP 114.15/m2 all in. **CN Glass quoted the same make-up at GBP 60/m2 inc energy**, +GBP 10/m2 for a 6mm toughened softcoat inner leaf. Roughly half Vetroseal - always check both on a glass package of any size.
 - Generator: `scripts/stoke-glass-compare.py` -> `outputs\Stoke Park School - Glass Sizes vs Quoted Glass (check).xlsx` (summary / per-type deltas / full Aplus list / Vetroseal lines).
 
+### Vesuvius Way, Worksop / Staniforth Construction (BUSE Gas Solutions)
+
+Blank-rate contractor trade bill (`Aluminium Doors - Windows Bill.xls`, Staniforth format: `Pages` + `Summary` sheets, per-building sections, `Description | Qty | Unit | Rate | £ p | Notes`, `Page Total 4/9/1` markers). Priced 27/07/2026 as a budget: **GBP 110,551.98 ex VAT**. Generator `scripts/vesuvius_pricing.py`.
+
+Durable lessons from this job:
+
+- **A Logikal "Pos. NNN, Quantity: N" drawing is per-position and can under-state the bill.** Here three of eight drawings carried a lower quantity than the trade bill (Qty 1 vs 4no, Qty 1 vs 2no, Qty 6 vs 8), and the drawing for a priced bill item was not issued at all. Always run a **three-way quantity check - trade bill vs supplier-facing drawing vs architect's schedule** - BEFORE an RFQ leaves, not after the quote comes back. The workbook carries a dedicated `Quantity Check` sheet for this.
+- **The attachments on the email are often a SUBSET of the archived tender zip.** The 27/07 RFQ carried 10 files; the zip in `<client>\<job>\1. Estimating\1. Tender Documents\` held 55, including the window schedule, door schedule and NBS spec that resolve the quantity conflicts. Always extract the archived zip before pricing, never work from the email alone.
+- **Check the specified system against Fenster's actual fabricator list.** This pack is entirely Senior Architectural Systems (SF52 curtain wall, PURe No Profile Groove windows, SPD150 High Usage doors, PURe SLIDE hatch). BSW fabricate Sheerline, Aplus fabricate Technal, Bellview fabricate SMA Smart Wall - **none of them fabricate Senior**, so every register median is a proxy and must be labelled as one. A specified system nobody on the supply chain makes is a tender-stopping issue, not a detail.
+- **Watch for non-aluminium items hiding in an aluminium bill.** "Louvered Double Door" read as an aluminium door; door schedule 221P specifies an insulated steel-core PPC-galvanised leaf in a 90mm galvanised frame - a Strongdor item. Same pack also has GRP fire doors and Rw 100 dB acoustic steel doors on drawing 127.
+- **Fire glass in a non-fire-rated frame system is an exception, not a spec detail.** Bill called for Pilkington PyroStop in Senior PURe frames on an internal partition. PURe has no fire rating; that needs a tested fire screen. TBC + RFI, never a guessed rate.
+- Client folder is spelled **`Staniforth Construction LLP`** in OneDrive, but the bill and the client's own email domain say **Stainforth** (`stainforthcon.co.uk`). Search both spellings.
+- Bill dimensions read as **structural openings**, Logikal drawings as **frame sizes** (e.g. bill 2068 x 2540-2410 vs drawing 2000 x 2450). Expect a ~50-70mm difference per side and do not treat it as an error.
+- Curtain walling priced on the MASTER PRICING DOC formula, **GBP 850/m2 supply + GBP 150/m2 labour**, the same basis that produced Grange Hill Methodist. For a raked screen, take the full rectangle less the triangle (here 6.9 x 6.0 less 3.35 x 3.35 / 2 = 35.79 m2).
+
 ### Home Bargains Basingstoke
 
 Recent urgent manual quote.

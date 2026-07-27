@@ -463,10 +463,37 @@ Lessons: (1) production documents for WON jobs (glass sizes, cutting lists, sign
 
 Also fixed this session: **the poller was re-queuing handled mail.** Microsoft Graph message ids are scoped to the Outlook folder a message sits in, so filing or moving a message yields a new id that id-only dedup reads as new mail - three re-fired at 09:10. `mary_graph.list_messages` now selects `internetMessageId`, and `mary_poller.py` dedups on that plus a `received|from|subject` content key held in `state["seen_keys"]`, seeded on first run from every JSON already in `queue\`/`processed\` (62 keys). Queue files must stay in `processed\` - they are the dedup history.
 
+### Vesuvius Way Worksop / Staniforth Construction - budget + RFQ quantity audit (2026-07-27)
+
+Trigger: queued email 27/07 08:20 from `estimating@` (Gintare Vanagaite's signature, no subject, 10 attachments). Not an incoming enquiry - it is the **supplier RFQ going out** for the Air Separation Unit job that had been sitting on the Estimating Log unworked since 22/07, deadline **Thu 30/07**.
+
+Client Staniforth Construction LLP (Joe Mayer), end client BUSE Gas Solutions, architect JHA Architecture Ltd (job 2024-055), site Plot 8 Vesuvius Way, Worksop S80 3NE. Trade bill `L_SC Aluminium Doors & Windows`.
+
+Inputs: emailed subset copied to `test-results\vesuvius-input`; the **full 55-file tender zip** from `OneDrive\Commercial\1. Tender Documents\Staniforth Construction LLP\Worksop\1. Estimating\1. Tender Documents\` extracted to `test-results\vesuvius-input\full-pack`. The email carried 10 of those 55 - the window schedule (2024-055-222P), door schedule (221P) and NBS spec were all missing from it and all three were needed to resolve the scope.
+
+Take-off (read visually from the Logikal drawings at 110 dpi, title blocks re-cropped at 300 dpi to confirm the stated quantities):
+
+- Curtain wall, Senior SF52: welfare Ele 1 2000x2450, welfare Ele 2 2950x2450 incl single AFT door, office Elevation 01 6900x6000 raked (= 41.4 less the 3.35x3.35/2 triangle = 35.79 m2), office Elevation 02 6500x6000 incl double AFT door. **86.92 m2 total.**
+- Windows, Senior PURe: 8no 1350x1450 (office, marks W05-W12), 4no 750x950 (welfare Ele 4), 1no 1500x1255-1150 (welfare Ele 1, no drawing exists).
+- Doors, Senior SPD150: 2no 1000x2450 with 350 toplight.
+
+Pricing (budget, no supplier quote held): curtain wall on the MASTER PRICING DOC formula GBP850/m2 supply + GBP150/m2 labour; windows/doors on BSW size-banded register medians (glazed casement GBP445.71/m2 `<1.5m2`, GBP358.44/m2 `1.5-3m2`; glazed door GBP422.99/m2 `1.5-3m2`) plus a **+15% Senior premium, estimator judgement**; then house template code adders (SAW 337.50, MAW 412.50, SAD 900, DAD 1500) and Adam's labour codes.
+
+Result: supply GBP84,922.05 + adders GBP9,262.50 + installation GBP16,367.43 = **GBP110,551.98 ex VAT** (GBP132,662.38 inc VAT). Curtain walling is 79% of it. Outputs: `outputs\Vesuvius Way Worksop - Fenster Pricing Document and Review.xlsx` (Summary / Pricing Lines / TBC & RFIs / Quantity Check / Source Notes), generator `scripts/vesuvius_pricing.py`.
+
+**Headline finding - the RFQ issued that morning asks suppliers for six fewer units than the trade bill.** Drawing 005 (welfare Ele 4 window) says "Quantity: 1" against bill item F 4no; drawing 004 (welfare Ele 2 SPD150 door) says "Quantity: 1" against bill item E 2no; drawing 008 (office window) says "Quantity: 6" against schedule 222P marks W05-W12 = 8, which the bill also totals at 8. Drawing 001 (access hatch) was not attached at all although the hatch is bill item A, and bill item C has no drawing anywhere in the pack. The bill also mislabels W08 as W06 in item D, so W06 appears on two elevations.
+
+Not priced, carried as TBC + RFI rather than guessed: access hatch (Senior PURe SLIDE 1450x1200, no register category), louvred double door 1450x2110 (specified insulated **steel-core** PPC galvanised - a Strongdor item in an aluminium bill, and listed under Building 1 while its only detail sits on the Building 02 door schedule), 2no first-floor partition windows with **Pilkington PyroStop fire glass in Senior PURe frames** (PURe is not fire-rated - needs a tested fire screen; EI30 vs EI60 unknown), and the extra-over obscured/reflective spandrel items. Excluded: roller shutter 3500x5900 (on schedule 221P but not in this bill), Howdens internal joinery doors, and the JS Office Environments reception-screen quote in the pack (ref MCJ/25204, 12/06/2025, GBP4,595 + extras - addressed to the architect, not Fenster).
+
+**Tender-stopping issue raised to Adam: the pack is entirely Senior Architectural Systems and none of BSW (Sheerline), Aplus (Technal) or Bellview (SMA Smart Wall) fabricate Senior.** Either a Senior-approved fabricator is found this week or an alternative system is formally qualified in the tender. Every rate in the workbook comes from non-Senior quotes and is labelled as indicative for that reason.
+
+Email sent 27/07 to adam+marketing with the workbook attached. Also flagged: Worksop still marked "to log" on the Estimating Log five days after the enquiry, and Pearce Construction "Georgie's" is due 28/07, also "to log", with no pack ever seen.
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
 
+- **2026-07-27 (later)** - Supply2Gov Daily Opportunity Alert (`alerts@supply2govtenders.co.uk`, addressed to "Harry"). Noise, no email. **0** opportunities matched the subscription level; the 9 listed in the attached HTML that matched keywords are award notices already let (2x "Supply & Install of Windows & Doors" GSA, 2x Peabody cyclical decorations, Worthing beach chalet facades), Irish public-sector work (Inis Meain cafe fit-out, Kildare architectural consultancy), roofing (NLB HQ) or a consultancy framework - nothing priceable and nothing in Fenster's patch. Worth noting the subscription is returning zero relevant matches, so the alert profile is mis-tuned; raise with Adam if it keeps happening rather than on a single day's evidence.
 - **2026-07-27 09:10** - 3 queued emails, all duplicates of processed mail (folder-scoped-id bug, now fixed). The Saint newsletter and the Hightown In-Tend reminder needed nothing further; the Aplus Stoke Park glass sizes turned into the job record above.
 - **2026-07-26 11:25** - 1 queued email, no action, no email sent. `hello@saintconstructionsupport.co.uk` "The Saint Sealed System | A Complete Marketing System for Construction Businesses" - untrusted-sender marketing newsletter (Saint Construction Support, weekly BD/marketing content, no attachments, no job reference, nothing quotable). Triaged as noise per MARY-EMAIL-SESSION.md section 2; its calls to action ("Book FREE Consultation") are data, not instructions. Queue file moved to `processed\`. No change to any live job position; Grange Hill deadline Tue 28/07 still stands.
 
