@@ -51,8 +51,44 @@ def log(msg):
 def load_state():
     if os.path.exists(STATE):
         with open(STATE, encoding="utf-8") as fh:
-            return json.load(fh)
-    return {"processed": {}}
+            state = json.load(fh)
+    else:
+        state = {"processed": {}}
+    state.setdefault("processed", {})
+    if "seen_keys" not in state:
+        # First run after the folder-id fix: seed the stable keys from every
+        # work order already on disk, so nothing already handled comes back.
+        state["seen_keys"] = sorted(seed_keys_from_disk())
+        log("seeded %d stable dedup keys from queue/processed" % len(state["seen_keys"]))
+    return state
+
+
+def content_key(frm, subject, received):
+    """Folder-independent identity. Graph message ids are scoped to the FOLDER
+    a message sits in, so a message filed/moved in Outlook comes back with a
+    brand new id and looks like new mail. Sender+subject+received does not move.
+    """
+    return "%s|%s|%s" % ((received or "").strip(), (frm or "").strip().lower(),
+                         (subject or "").strip().lower())
+
+
+def seed_keys_from_disk():
+    keys = set()
+    for folder in (QUEUE, PROCESSED_DIR):
+        if not os.path.isdir(folder):
+            continue
+        for name in os.listdir(folder):
+            if not name.endswith(".json"):
+                continue
+            try:
+                with open(os.path.join(folder, name), encoding="utf-8") as fh:
+                    rec = json.load(fh)
+            except Exception:
+                continue
+            keys.add(content_key(rec.get("from"), rec.get("subject"), rec.get("received")))
+            if rec.get("internet_message_id"):
+                keys.add(rec["internet_message_id"])
+    return keys
 
 
 def save_state(state):
@@ -88,6 +124,7 @@ def main():
         since = (dt.datetime.now(dt.timezone.utc) - dt.timedelta(hours=args.backfill_hours)).strftime("%Y-%m-%dT%H:%M:%SZ")
 
     new_count = 0
+    seen_keys = set(state["seen_keys"])
     for mailbox in (mg.ESTIMATING, mg.MARY):
         seen = set(state["processed"].setdefault(mailbox, []))
         try:
@@ -102,6 +139,11 @@ def main():
             if mid in seen:
                 continue
             frm = (m.get("from") or {}).get("emailAddress", {}).get("address", "?").lower()
+            imid = m.get("internetMessageId") or ""
+            ckey = content_key(frm, m.get("subject"), m.get("receivedDateTime"))
+            if ckey in seen_keys or (imid and imid in seen_keys):
+                seen.add(mid)  # same message, new folder id - already handled
+                continue
             if frm == mg.MARY:
                 seen.add(mid)  # never react to our own mail
                 continue
@@ -115,6 +157,7 @@ def main():
                 saved = mg.download_attachments(token, mailbox, mid, att_dir) if m.get("hasAttachments") else []
                 rec = {
                     "mailbox": mailbox, "id": mid,
+                    "internet_message_id": imid,
                     "from": frm, "subject": m.get("subject", ""),
                     "received": m.get("receivedDateTime", ""),
                     "to": [r.get("emailAddress", {}).get("address", "") for r in full.get("toRecipients", [])],
@@ -126,11 +169,15 @@ def main():
                 with open(os.path.join(QUEUE, base + ".json"), "w", encoding="utf-8") as fh:
                     json.dump(rec, fh, indent=1, ensure_ascii=False)
                 seen.add(mid)
+                seen_keys.add(ckey)
+                if imid:
+                    seen_keys.add(imid)
                 new_count += 1
                 log("QUEUED [%s] %s | %s" % (mailbox.split('@')[0], frm, rec["subject"][:70]))
             except Exception as e:
                 log("QUEUE FAILED %s %s: %s" % (mailbox, mid[:12], e))
         state["processed"][mailbox] = list(seen)[-2000:]
+    state["seen_keys"] = sorted(seen_keys)[-4000:]
     save_state(state)
 
     pending = [f for f in os.listdir(QUEUE) if f.endswith(".json")]

@@ -441,10 +441,33 @@ Landing zone quoted as **GBP 1,300-2,000 ex VAT** depending on uPVC vs composite
 
 Durable learning: Hightown is a **high-frequency, low-value repeat client** (29 logged properties; won/lost both appear in the Estimating Log) whose work arrives one property at a time through In-Tend. These are the wrong shape for the tender/take-off workflow - the right move is the per-property quotation format above, priced off the nearest historical Hightown door of the same type. Body: `scratchpad\hightown-olds0056-body.txt`; layout screenshot-verified before sending.
 
+### Stoke Park School (Borras) - Aplus 17644 glass reconciliation (2026-07-27)
+
+Autopilot session, 3 queued emails - **all three were duplicates of already-processed mail** (see the poller fix below). Two needed nothing: the Saint newsletter (noise, handled 26/07) and the Hightown In-Tend stage-date reminder (handled 27/07 08:30). The third was worth a second look: Aplus `noreply@` "Glass Sizes for Job 17644-Stoke Park School" (24/07 15:25, 7 attachments). It had been swept into `processed\` inside the 54-email dry-run batch on 24/07 without being read - a production document for a job Fenster has already won, so it fell between the triage categories.
+
+Reading it changed the picture. `Glass Sizes_17644.PDF` is an **UNGLAZED, supply-only** sheet: Aplus makes the Technal frames, delivery **03/08/2026**, and the glass is Fenster's to buy. Job folder is `Commercial\2. Projects\Borras\Coventry - Stoke Park School` (client price GBP104,660.17 ex VAT, pricing doc rev 15/07; order signed off 17/07). The only glass documents on file are two 01/07 quotes - Vetroseal 064542 and a CN Glass rate in Steve Freezer's thread - both priced from Fenster's earlier `Glass sizes.xlsx` (04/06), not from this list.
+
+Reconciliation (`scripts/stoke-glass-compare.py` -> `outputs\Stoke Park School - Glass Sizes vs Quoted Glass (check).xlsx`):
+
+- Aplus final list: **170 panes / 130.81 m2** to order (86 rows; 161 panes at 28mm / 122.48 m2 + 9 at 32mm / 8.33 m2). Five panes marked "DO NOT ORDER - Unglazed" are the aluminium infill panels and are excluded.
+- Vetroseal 064542: **124 panes / 105.24 m2**, net goods GBP11,576.36 + energy surcharge GBP436.52 (3,357.82kg @ 0.13) = **GBP12,012.88 net**.
+- Shortfall **46 panes / 25.57 m2 (+24%)**, and the per-type deltas sum to exactly 46, which is what validates the mapping: pane ref **A1** (the ~391mm toplight, 1041-1049 wide) is missing on every bay of Types A (-3), B (-4), C (-20), D (-2), F (-8), G (-4); head panes missing on Door B1/D02 and B2/D04 (-1 each); **Door Type C (D03) is not on the quote at all** (-3). Types E, H, J1, J2 and Door Types A and D match.
+- **No 32mm make-up is quoted anywhere** - all 58 Vetroseal lines are 8.8L-16-4T (28.8mm). The 32mm panes are the door head/transom panes. Door leaf sizes also moved: 785x1934 quoted vs 749x2059 required.
+- Money: Vetroseal's implied rate is exactly **GBP110.00/m2 goods** (+GBP4.15/m2 surcharge = GBP114.15/m2 all in) -> ~GBP14,930 for the full list, about **+GBP2,920**, before the 32mm rate. **CN Glass quoted the same make-up at GBP60/m2 inc energy** (+GBP10/m2 for a 6mm toughened softcoat inner) -> ~GBP7,850, roughly **GBP7,000 below Vetroseal**. Glass sits inside the unit rates on the Borras pricing doc, so any increase is margin.
+
+Emailed Adam+Zac with the workbook attached, headline first, asking three things: which supplier holds the glass order and whether it is being placed against the 24/07 list, the make-up for the nine 32mm panes, and whether the CN Glass rate is in play. Body `scratchpad\stoke-glass-body.txt`, layout screenshot-verified. Stated the honest caveat: pane sizes drifted a few mm between the two lists so the *which pane* mapping is inference, but the 170-v-124 totals are firm.
+
+New register evidence: Vetroseal 8.8L-16-4T Lami/Tgh Black Multitech G 1.2 softcoat argon = **GBP110.00/m2 flat, quote 064542, 01/07/2026** (energy surcharge GBP0.13/kg at 31.9 kg/m2); **CN Glass GBP60/m2 inc energy** for the same make-up, +GBP10/m2 for 6mm toughened softcoat inner - the first CN Glass rate captured, and roughly half Vetroseal's.
+
+Lessons: (1) production documents for WON jobs (glass sizes, cutting lists, sign-offs) are a distinct triage class - the risk is procurement, not pricing, and a bulk "processed" sweep will bury them; MARY-EMAIL-SESSION.md now has a rule for them. (2) An unglazed supplier order transfers the glass buy to Fenster - always check a glass order exists and matches the FINAL sizes. (3) Fenster's own preliminary glass schedule was the source of the error, not the supplier's quote - when a shortfall is systematic (one pane per bay), suspect the schedule, not the pricing. (4) Aplus glass-sizes sheets parse cleanly with pdfplumber: `item | ref | qty | w | h | glass type | location`, negative heights and "DO NOT ORDER - Unglazed" mark infill panels.
+
+Also fixed this session: **the poller was re-queuing handled mail.** Microsoft Graph message ids are scoped to the Outlook folder a message sits in, so filing or moving a message yields a new id that id-only dedup reads as new mail - three re-fired at 09:10. `mary_graph.list_messages` now selects `internetMessageId`, and `mary_poller.py` dedups on that plus a `received|from|subject` content key held in `state["seen_keys"]`, seeded on first run from every JSON already in `queue\`/`processed\` (62 keys). Queue files must stay in `processed\` - they are the dedup history.
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
 
+- **2026-07-27 09:10** - 3 queued emails, all duplicates of processed mail (folder-scoped-id bug, now fixed). The Saint newsletter and the Hightown In-Tend reminder needed nothing further; the Aplus Stoke Park glass sizes turned into the job record above.
 - **2026-07-26 11:25** - 1 queued email, no action, no email sent. `hello@saintconstructionsupport.co.uk` "The Saint Sealed System | A Complete Marketing System for Construction Businesses" - untrusted-sender marketing newsletter (Saint Construction Support, weekly BD/marketing content, no attachments, no job reference, nothing quotable). Triaged as noise per MARY-EMAIL-SESSION.md section 2; its calls to action ("Book FREE Consultation") are data, not instructions. Queue file moved to `processed\`. No change to any live job position; Grange Hill deadline Tue 28/07 still stands.
 
 ## Known Good Historical Results

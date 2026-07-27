@@ -293,6 +293,17 @@ Rev 2 (2026-07-15, supplier-based) replaced the engine budget with rates mined f
 - Strongdor SQ216661 Rev1 (14/07/2026) is a live quote for Crownhill TYPE F/G: GBP 817.64 / GBP 927.08 per doorset + GBP 153 delivery, valid to 13/08/2026.
 - Rev 2 sell ex VAT `GBP 73,770.86` (supplier cost GBP 49,360.86 + markup GBP 19,000 + labour GBP 5,410). T&T uplift (+20% on casement rate) and Smart Wall commercial uplift (+15% on door rate) are estimator judgement pending firm BSW/Aplus/Vetroseal quotes.
 
+### Stoke Park School / Borras (Aplus job 17644)
+
+A WON job, not a tender - and the source of a rule that applies to every job bought on unglazed frames.
+
+- **An unglazed supplier order moves the glass buy to Fenster.** Aplus supplied Technal frames "Unglazed / Supply only" with delivery 03/08/2026; the glass is Fenster's to order, price and programme. Whenever a supplier order or glass-sizes sheet says unglazed, check that a glass order exists AND that it was placed against the FINAL sizes.
+- **Aplus "Glass Sizes" sheets** (`Glass Sizes_NNNNN.PDF`, sent by `noreply@apluswindows.co.uk`) are the definitive pane list, issued after frame drawings are approved. pdfplumber reads them cleanly: `item | pane ref | qty | width | height | glass type | location`. One row per pane, one item per frame bay. Panes with a negative height and `DO NOT ORDER - Unglazed` are aluminium infill panels - exclude them from the order count (5 of 175 on this job). The summary block gives Real Area vs Cost Area (minimum-area billing) per make-up.
+- **Reconcile that list against the glass quote before the order goes out.** Here the final list needed 170 panes / 130.81 m2 against 124 panes / 105.24 m2 quoted - 46 panes / 25.57 m2 short. Pane ref A1 (the ~391mm toplight) was missing on every bay of six window types, Door Type C was absent entirely, and the 9 panes at 32mm had no make-up quoted at all (every quote line was 8.8L-16-4T = 28.8mm).
+- **When a shortfall is systematic, suspect Fenster's own schedule, not the supplier.** Both glass quotes were priced from an in-house `Glass sizes.xlsx` that listed two panes per bay where the frames have three. Per-type deltas summing exactly to the headline shortfall is the check that the mapping is right.
+- Glass rates captured: Vetroseal 8.8L-16-4T Lami/Tgh Black Multitech G, 1.2 softcoat, argon = **GBP 110.00/m2 flat** (quote 064542, 01/07/2026) plus energy surcharge GBP 0.13/kg at ~31.9 kg/m2 = GBP 114.15/m2 all in. **CN Glass quoted the same make-up at GBP 60/m2 inc energy**, +GBP 10/m2 for a 6mm toughened softcoat inner leaf. Roughly half Vetroseal - always check both on a glass package of any size.
+- Generator: `scripts/stoke-glass-compare.py` -> `outputs\Stoke Park School - Glass Sizes vs Quoted Glass (check).xlsx` (summary / per-type deltas / full Aplus list / Vetroseal lines).
+
 ### Home Bargains Basingstoke
 
 Recent urgent manual quote.
