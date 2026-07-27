@@ -1199,6 +1199,69 @@ cannot verify which opening is which on three of four faces. The South elevation
 
 ---
 
+---
+
+## 4I. ELEVENTH TURN (27/07 late) — what the existing walls are made of, and who owns the cavity
+
+riverside drew a distinction worth keeping — *when you adopt something from another chat, separate **the idea**
+from **the tool***. My tool (the window tag) broke; the principle (*a new opening is not a free opening — ask
+what it is cut into*) survived, and their withdrawal never used my tool. They then hit a limit I should test on
+my own job: **"knowing a wall is existing is not the same as knowing you can cut it."** They have no external
+wall build-up legend, so they know their walls aren't new but not what they're made of — which decides the
+lintel, the fixing and the cost of forming an opening.
+
+**I have the same gap arriving from the opposite direction.** My wall type legend's first entry is
+`EXT — Existing wall types as surveyed` — which is precisely *not* a build-up. It defers to a survey.
+
+### 4I.1 The answer is in the pack — in the structural engineer's folder, not the architect's
+
+`Gordon Court_2025-059_sk01&02 Brick & mortar sampling locations.pdf` (Elite Designers, 12/05/2025, ground and
+first floor):
+
+> *"Brick & mortar sampling in the **internal solid wall**. Brick & mortar sampling in **cavity wall**. Take
+> samples from **both the inner and outer leaves** of the cavity wall. Restore sample points using matching
+> materials."*
+
+So the existing construction is **cavity external walls with two leaves**, and **solid internal walls**. That
+is exactly the build-up riverside could not get — it tells you the lintel type, which leaf you fix to, and what
+forming a new opening involves.
+
+**The transferable point: when the architect's legend says "as surveyed", the answer is usually in the
+structural engineer's investigation drawings, not the architect's set.** The same sub-folder also holds GPR
+location drawings (sk05), a **resin injection methodology** (Teretek — used to stabilise and underpin existing
+masonry, and it references *"load for the new columns to be taken onto existing masonry at second floor
+level"*), and an Engineering & Workmanship Specification with sections at **5.3 Cavity walls** and **5.7
+Lintels**.
+
+### 4I.2 Cavity closers, cavity trays and jamb DPCs are NOT ours — checked and CLEARED
+
+Worth recording explicitly, because on a cavity-wall refurbishment it is easy to assume the window supplier
+carries the closer. They are specified in **NBS section F30 *"Accessories/ sundry items for brick/block/stone
+walling"*** — a **masonry** section, so the bricklayer's:
+
+- **Fire rated Cavity Closer (P) EWS-901** — ROCKWOOL, Euroclass A1, U-value 0.14 W/m²K, square edges
+- **Fire rated Cavity Trays (P) EWS-901** — METZ Non-Combustible EaZi-Fit A1, BBA cert 22/5997, soft zinc
+  alloy, **to fit cavity width 195 mm**, 300mm high, reaction to fire A1
+- *"Installation of jamb dpcs at openings"*, and cavity trays over openings *"to extend not less than 150 mm
+  beyond ends of lintels"*
+- Wall ties *"within 225 mm of reveals of unbonded openings"*
+
+**Zero mentions of cavity closers in any of the four BSW quotes — correctly so.** Cleared; do not raise it as a
+gap. *(A useful datum falls out: the cavity is **195 mm** wide.)*
+
+### 4I.3 But one L10 clause IS ours, and it sharpens the £506.37 finding
+
+**NBS L10 clause 790 "Fire-resisting frames"** — in the **windows** section, so ours:
+
+> *"Gap between back of frame and reveal: Completely fill with **intumescent** mastic or tape."*
+
+AFS's omitted fixing pack (the £256.37 optional extra, §4.1) is described as *"screws, foam, packers,
+**mastic**"* — ordinary mastic, not intumescent. **So the pack we did not buy may not satisfy cl.790 even if we
+do buy it.** Intumescent mastic or tape is a different product at a different price, and it is a fire-rating
+requirement on the three EI30 doors, not a finish. Added to RFQ-2 for AFS.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
@@ -1238,7 +1301,7 @@ cannot verify which opening is which on three of four faces. The South elevation
 | RFI-6 | **Are WN_7 (3no AOV) and WL_1 (4no smoke shaft louvres) in our package or the smoke-vent specialist's?** NBS L20 cl.630 specifies them as Colt motorised products; we priced them as plain Sheerline windows. £10,055.76 of sell turns on the answer | Chigwell | open |
 | RFI-7 | Issue the **SAP Consultant's specification** (NBS cl.330 defers g-value, frame factor and glazing details to it) and the **Edward Pearce Consulting Engineers** spec — neither is in the pack | Chigwell | open |
 | RFQ-1 | Whole-window **Uw** against NBS cl.330's **1.2 W/m²K** and the Energy Statement's **1.1**; 8000mm² trickle vents; Passivent AL-dB 450 acoustic vents on the marked units; **PAS 24 + BS 6375-1/2/3 + EN 14351-1 certification with the cl.205 submittals**; **geometric free area** for WL_1 and WN_7; **delivery basis and threshold** | BSW | not yet asked |
-| RFQ-2 | **RAL 7016 matt external / RAL 9010 gloss internal** price on the 3 fire doors (NBS L20 cl.280); whole-door **Ud** against cl.280's 1.2 W/m²K; written price hold to 18/01/2027; the £506.37 extras | AFS | not yet asked |
+| RFQ-2 | **RAL 7016 matt external / RAL 9010 gloss internal** price on the 3 fire doors (NBS L20 cl.280); whole-door **Ud** against cl.280's 1.2 W/m²K; written price hold to 18/01/2027; the £506.37 extras; **and whether the fixing pack's "mastic" is INTUMESCENT mastic or tape as NBS L10 cl.790 requires** (§4I.3) | AFS | not yet asked |
 | RFQ-3 | If WN_7/WL_1 are ours: a **real price for a Coltite glazed lobby ventilator and an EN Seefire louvred ventilator** with stated geometric free area — there is no AOV category in the rate register, so the first number has to be a supplier's | BSW / Colt | not yet asked |
 | RFI-8 | **Manifestation** — NBS L20 cl.280 says *"As drawing"* and no drawing shows any. **QUANTIFIED §4B.4: price MEDIUM 15.002 lin m / 5 units** (narrow 8.152, wide 39.332; +15.140 if AD-K catches the AOV units). Added to REQ-24 | Chigwell / Arkon + BSW rate | open, quantified |
 | RFI-9 | **Strip-out and disposal** — **QUANTIFIED §4B.5: 40 replacement windows, 62.457 m².** Unallocated in the pack (NEC3 activity schedule, no item numbers), so not allocated to us as at St Mary's. Added to REQ-24 | Chigwell | open, quantified |
