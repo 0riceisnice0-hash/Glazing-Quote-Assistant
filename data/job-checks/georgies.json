@@ -1,0 +1,103 @@
+{
+ "job": "Georgie's (formerly Rosebank) - Pearce Construction - position at 27/07/2026, Mercury QL004741 in hand",
+ "created": "2026-07-27",
+ "_note": "Windows-only supplier return received. Doors, patio door and curtain walling have NO supplier price. This manifest is expected to FAIL - the failures ARE the report.",
+
+ "coupled_runs": [
+  {
+   "name": "GD.0008 curtain walling run CW01 + D03 + CW02 (7770mm wide x 2089mm high)",
+   "elements": [
+    {"ref": "CW01", "system": "Technal Stormframe STII"},
+    {"ref": "D03", "system": "Technal Stormframe STII"},
+    {"ref": "CW02", "system": "Technal Stormframe STII"}
+   ]
+  }
+ ],
+
+ "doors": [
+  {"ref": "D01", "fire_exit": true,  "panic_hardware_priced": false},
+  {"ref": "D02", "fire_exit": true,  "panic_hardware_priced": false},
+  {"ref": "D03", "fire_exit": true,  "panic_hardware_priced": false},
+  {"ref": "D04", "fire_exit": true,  "panic_hardware_priced": false},
+  {"ref": "D05", "fire_exit": true,  "panic_hardware_priced": false},
+  {"ref": "D06", "fire_exit": false, "panic_hardware_priced": false},
+  {"ref": "D07", "fire_exit": false, "panic_hardware_priced": false},
+  {"ref": "D08", "fire_exit": true,  "panic_hardware_priced": false}
+ ],
+
+ "frame_supply": "glazed",
+ "glass_order": [],
+
+ "quantities": [
+  {"ref": "windows W01-W23", "bill_qty": 23, "drawing_qty": 23},
+  {"ref": "external doorsets D01-D08", "bill_qty": 8, "drawing_qty": 8},
+  {"ref": "curtain walling / screen sections CW01+CW02", "bill_qty": 2, "drawing_qty": 2},
+  {"ref": "windows quoted by Mercury QL004741", "bill_qty": 23, "drawing_qty": 23}
+ ],
+
+ "spec_items": [
+  {"ref": "W01-W23 vertical sliding sash windows (spec 2.28)", "treatment": "priced"},
+  {"ref": "2.28 dual colour - white aluminium internally / dark brown externally", "treatment": "NOT ADDRESSED - Mercury quote states BROWN RAL TBC (SINGLE COLOUR ONLY) on all 23 lines"},
+  {"ref": "2.33 finish contradiction - 2.33 says standard Sapa finish WHITE, 2.28 says white in / dark brown out", "treatment": "NOT ADDRESSED - RFI to CA"},
+  {"ref": "2.28 / 2.33.5 U-value max 1.6 W/m2K plus documentary evidence of energy rating", "treatment": "NOT ADDRESSED - Mercury quote states no U-value and a clear/clear make-up"},
+  {"ref": "2.33.1 obscure glazing to all bathroom, shower and WC areas", "treatment": "NOT ADDRESSED - all 23 Mercury lines are Clear Lam Tgh"},
+  {"ref": "2.33.1 safety glass toughened/laminated to BS6262", "treatment": "priced"},
+  {"ref": "2.33.1 security fixings where external beads are used", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.33.4 trickle vents - Delta vent + grille, WHITE PVCu, external canopy, 4000mm2 per 15m2 of floor area", "treatment": "NOT ADDRESSED - Mercury quote 1 x mill finish 5000 per window regardless of room area"},
+  {"ref": "2.33.2 cills sized to extend past external brickwork", "treatment": "NOT ADDRESSED"},
+  {"ref": "D01-D08 external doorsets, Technal Stormframe STII (spec 2.38.3)", "treatment": "NOT ADDRESSED - no supplier price in hand"},
+  {"ref": "CW01/CW02 full height curtain walling / screens (spec 2.2, 2.38.3)", "treatment": "NOT ADDRESSED - no supplier price in hand"},
+  {"ref": "2.38.5 panic exit devices BS EN 1125 to D01-D05 + D08", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.38.4 5-lever mortice lock, thumbturn classroom function, suited to existing master key (D06, D07)", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.38.3 pivot hinges, concealed closers, 90-deg hold open, anti-finger trap stiles, flush drained threshold", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.38.3 door/glazing area weighted U-value 1.6 + evidence", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.43.1 asbestos internal cill boards throughout - removal expressly required within the tender submission", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.43.2 main entrance door security / egress system isolate, remove, reinstall, recommission", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.34.2 window winding gear where handle is above 1800mm FFL", "treatment": "NOT ADDRESSED - needs cill heights off the elevations"},
+  {"ref": "2.34.1 internal tower scaffold to high level windows", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.34.4 leadwork - code 4/5 flashings to window openings and abutments", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.34.6 / 2.41 internal decorations - whole walls and ceilings, Dulux Trade", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.33.13-2.33.16 / 2.40 making good externally, plaster, floors, suspended ceilings", "treatment": "NOT ADDRESSED"},
+  {"ref": "2.46 provisional sums 500 + 2500 + 2500 + 2500", "treatment": "provisional"},
+  {"ref": "2.47 contingency sum 5000", "treatment": "provisional"},
+  {"ref": "2.45 dayworks rates - craftsman, painter, labourer, electrician", "treatment": "NOT ADDRESSED"}
+ ],
+
+ "supplier_quotes": [
+  {"supplier": "Mercury Glazing Supplies", "ref": "QL004741", "date": "2026-07-27", "used_net": true}
+ ],
+
+ "full_height_screens": [
+  {"ref": "CW01", "priced_as": null},
+  {"ref": "CW02", "priced_as": null}
+ ],
+
+ "systems_specified": [
+  {"system": "Sapa Dualframe 75Si vertical sliding sash (SPECIFIED, spec 2.33)", "fabricator": null},
+  {"system": "SMA VS600 (Mercury's or-equal-approved alternative, quoted)", "fabricator": "Mercury Glazing Supplies"},
+  {"system": "Technal Stormframe STII commercial door and framing (SPECIFIED, spec 2.38.3)", "fabricator": null}
+ ],
+
+ "finishes": [
+  {
+   "ref": "W01-W23 vertical sliding sash",
+   "specified_internal": "white aluminium",
+   "specified_external": "dark brown aluminium",
+   "quoted_internal": "RAL 8000 green brown (single colour only)",
+   "quoted_external": "RAL 8000 green brown (single colour only)"
+  },
+  {
+   "ref": "D01-D08 + CW01/CW02",
+   "specified_internal": "match existing door/framing colour scheme, exact RAL TBA (spec 2.38.6)",
+   "specified_external": "match existing door/framing colour scheme, exact RAL TBA (spec 2.38.6)",
+   "quoted_internal": null,
+   "quoted_external": null
+  }
+ ],
+
+ "u_value": {
+  "required": 1.6,
+  "basis": "per element",
+  "rejected_elements": []
+ }
+}

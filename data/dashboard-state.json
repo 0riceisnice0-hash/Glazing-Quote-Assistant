@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27T15:10:00",
+ "updated": "2026-07-27T15:58:00",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -95,6 +95,14 @@
    "deadline": "2026-08-03",
    "status": "LIVE PROJECT, won and in production - Aplus job 17644, Technal Soleal Next FZ75, frames UNGLAZED supply only, DELIVERY 03/08. Glass and louvres are Fenster's to buy. REQ-3 closed: the 46 'missing' panes are louvres (IKON Q26-24329, 46 modules, GBP 10,125.91) and the glass count reconciles exactly at 124. REQ-11 open and urgent: both the glass and the louvres are dimensioned to the pre-02/07 schedule, so 0 of 124 pane sizes match and every louvre is 85mm too tall. Cost also runs GBP 5,338.93 above the sold price because the build-up carries the 05/06 quotes.",
    "value": "GBP 104,660.17 ex VAT (order signed off 17/07)"
+  },
+  {
+   "job": "Georgie's (formerly Rosebank)",
+   "client": "Pearce Construction (Barnstaple)",
+   "deadline": "2026-07-28",
+   "status": "DEADLINE TOMORROW MORNING. Rosebank Georgies Youth Centre, Barnstaple - Devon CC PSDS4 energy improvement scheme, CA is South West Norse (08-02-119364). Scope is 23 windows, 8 doorsets and 2 full-height screens. FENSTER HAS NO PRICE. One supplier return in hand and it covers the windows only: Mercury QL004741, 27/07, SMA VS600 vertical sliders, Grand Total Net GBP 27,319.03 supply only. It reconciles exactly - 23 quoted = 23 scheduled, every size matches, items and discount recompute to the penny. But it misses five specified things: dual colour (quote says BROWN RAL TBC SINGLE COLOUR ONLY against a spec of white inside / dark brown outside), the 1.6 W/m2K U-value and its evidence (no U-value stated and the make-up reads 'Clear' with no low-E named), obscure glass to WCs, the specified Delta white PVCu trickle vents with external canopy (mill finish quoted), and it substitutes SMA VS600 for the specified Sapa Dualframe 75Si. The 8 doors, patio door and the 16.23 m2 curtain walling run - 35.45 m2 with six BS EN 1125 panic bars - have no supplier price at all. Benchmark for that missing scope is about GBP 21,800 supply and that is a floor. Checks fail 5 of 11.",
+   "value": "GBP 27,319 supplier-backed, windows only",
+   "stage": "tender"
   }
  ],
  "requests": [
@@ -274,6 +282,22 @@
     "Hold both orders until Aplus confirm the apertures"
    ],
    "status": "open"
+  },
+  {
+   "id": "REQ-12",
+   "raised": "2026-07-27",
+   "job": "Georgie's (formerly Rosebank) - Pearce Construction",
+   "owner": "Adam",
+   "title": "Deadline is tomorrow morning and two thirds of the package has no supplier price",
+   "why": "Mercury QL004741 landed at 14:20 today and covers the 23 windows only - GBP 27,319.03 Grand Total Net, supply only. It reconciles exactly against the South West Norse schedule, so the windows are sound as a number. Nothing else is. The 8 doorsets, the patio door and the 16.23 m2 curtain walling run - 35.45 m2 carrying six BS EN 1125 panic bars, pivot hinges with concealed closers, anti-finger-trap stiles and master-key suiting - have no quote from anybody. Register medians put that at about GBP 21,800 supply before any of that hardware, so it is a floor and not a price. On the windows themselves Mercury have quoted single colour where spec 2.28 requires white aluminium internally and dark brown externally, have stated no U-value at all against a 1.6 W/m2K requirement that the spec says we must evidence, have quoted clear glass everywhere where WCs must be obscure, have quoted mill-finish trickle vents where spec 2.33.4 names Delta white PVCu with an external canopy, and have offered SMA VS600 in place of the specified Sapa Dualframe 75Si. This is a Devon County Council energy-improvement scheme - a window that misses 1.6 misses the entire point of the job, and the reglaze would be ours.",
+   "needs": "A decision on what goes to Pearce tomorrow morning, and someone to put the clarifications back to Mercury - Mary cannot email suppliers. Worth knowing before you choose: Aplus already fabricate both specified systems for us - Dualframe 75Si on Riverside QT51518 and Stoke Park, Technal Stormframe STII on Princess Beatrice - so the specified systems are reachable through an existing supplier, just not by the morning. Separately Pearce need to say whether the asbestos cill boards (spec 2.43.1 puts them expressly inside the window scope), the internal tower scaffold, the leadwork and the whole-room redecoration are ours or theirs.",
+   "options": [
+    "Bid windows only, doors and screens formally excluded and qualified",
+    "Bid the full package with doors and screens on a labelled benchmark",
+    "Ask Pearce to extend the deadline past 28/07 morning",
+    "Go back to Mercury for dual colour, U-value and obscure before we price anything"
+   ],
+   "status": "open"
   }
  ],
  "catches": [
@@ -395,6 +419,13 @@
    "catch": "Register-only benchmark landed within 6.3 percent of the manufacturer quote.",
    "type": "validation",
    "value": "method proven"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "Georgie's (formerly Rosebank)",
+   "catch": "Supplier quoted single colour on all 23 windows where the spec requires white inside and dark brown outside - the second colour was never in the price and the quote never mentioned it.",
+   "type": "spec compliance",
+   "value": "now a standing rule"
   }
  ],
  "register": {

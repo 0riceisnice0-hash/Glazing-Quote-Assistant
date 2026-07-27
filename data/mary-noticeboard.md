@@ -54,3 +54,21 @@ CHECK WHICH SUPPLIER QUOTE THE PRICE WAS ACTUALLY BUILT ON, AND WHETHER IT HAS B
 
 ### 2026-07-27 15:19 - bridge
 Work order 20260727T1347-xgpQAAAA.json could not be handled after 3 attempts and has been moved to test-results\mary-inbox\failed\. It needs a human look.
+
+### 2026-07-27 16:08 - georgies
+NEW SUPPLIER AND A FIRST VERTICAL-SLIDER RATE POINT - MERCURY GLAZING SUPPLIES (Gloucester, quotes@mercuryspecialistframes.co.uk / michal@mercuryglazing.co.uk, 01452 383344 opt 2). Quote QL004741 for Georgie's, 27/07/2026, turnaround 3 days from Gintare's 24/07 RFQ.
+
+23no SMA VS600 aluminium vertical sliding sash windows, 6.8/16/6 lam/toughened, single RAL, trickle vent and chrome handles: net GBP 30,354.48 less 10% end discount = Grand Total Net GBP 27,319.03, SUPPLY ONLY (no install, no delivery terms, and note the quote states NO validity period). That is GBP 1,013.40/m2 over 26.81 m2, or GBP 1,181 per window on an average unit of 1.17 m2.
+
+USE IT WITH CARE. There is NO vertical-slider category anywhere in data/supplier-rates.json - 68 categories, not one sash - so this is the only sash data point we have and nothing competes with it. For scale, BSW's aluminium casement glazed [<1.5m2] median is GBP 445.71/m2, so Mercury is 2.3x that; a slider is genuinely dearer than a casement (twice the sashes, balances, interlocks) and small units always run high per m2, so this is not evidence of an overcharge - it is simply unbenchmarked. It also has NO dual colour, NO low-E named and NO obscure in it, so it is a clear-glass single-colour rate. Add for all three.
+
+Also on file now: Aplus fabricate BOTH Sapa Dualframe 75Si (Riverside QT51518, Stoke Park) AND Technal Stormframe STII (Princess Beatrice Logikal, GBP 17,499.74). Where a pack names either system, Aplus can make it - worth checking before anyone accepts an or-equal-approved substitution.
+
+### 2026-07-27 16:08 - georgies
+READ THE FINISH ON BOTH SIDES OF THE FRAME - NEW CHECK RULE, RUNS ON EVERY JOB FROM NOW ON. On Georgie's the spec (2.28) requires white aluminium internally and dark brown externally. Mercury quoted all 23 windows 'BROWN RAL TBC (SINGLE COLOUR ONLY)'. The specified white internal face was simply not in the price, and the quote never said so - it just did not mention the internal face at all. A supplier's default finish is not the specified finish, and dual colour is a cost that is never a default.
+
+Added check_finish_substitution to scripts/mary_checks.py with fixture data/job-checks/_test-georgies.json. New manifest field 'finishes': [{ref, specified_internal, specified_external, quoted_internal, quoted_external}]. It fails when dual colour is specified but a single colour is quoted, when either side does not match, and it returns ASK when the supplier states no finish at all. Selftest passes and all four founding errors still fire.
+
+THE WIDER PATTERN, worth applying to any supplier return: Mercury answered the three things Gintare's RFQ asked for that were easy (system, safety glass, trickle vents) and were silent on the three that cost money (colour, U-value, obscure to WCs). Silence is not compliance. On that same quote there is no U-value stated at all against a 1.6 W/m2K requirement, and the make-up reads 'Clear Lam Tgh' with no low-E or soft coat named - compare Aplus who write '4-20-4 Clr Tough S Coat 1.2'. If a quote does not name the coating, assume it is not there and ask.
+
+AND: the real tender pack can be inside a zip. Georgie's job folder held six loose PDFs (elevations, plans, sizes) next to a zip - and the zip contained the building specification, preliminaries, CDP schedule and tender sum analysis. Everything that mattered was in the zip. Open it before concluding a pack is thin. Same job: the supplier's own quote PDF was 12 scanned page images with no text layer, and it carried our own RFQ email and the client's window schedule on its last two pages - render scanned quotes and read them, do not skip them because pdfplumber returns nothing.

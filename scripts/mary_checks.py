@@ -23,6 +23,7 @@ import argparse
 import datetime as dt
 import json
 import os
+import re
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -290,10 +291,75 @@ def check_uvalue_basis(m):
                   "U-value treated as %s" % basis, "SM5 Wexham")
 
 
+def _ral(s):
+    m = re.search(r"ral\s*(\d{4})", str(s or "").lower())
+    return m.group(1) if m else None
+
+
+def _finish_matches(spec, quote):
+    """Loose match - a RAL number on both sides is decisive, otherwise one
+    description containing the other is good enough. The point is to catch a
+    substitution, not to argue about wording."""
+    a, b = str(spec or "").strip().lower(), str(quote or "").strip().lower()
+    if not a or not b:
+        return None
+    ra, rb = _ral(a), _ral(b)
+    if ra and rb:
+        return ra == rb
+    return a in b or b in a
+
+
+def check_finish_substitution(m):
+    """Georgie's (formerly Rosebank), 27/07. Spec 2.28 required white aluminium
+    internally and dark brown externally. Mercury QL004741 quoted every one of
+    the 23 windows 'BROWN RAL TBC (SINGLE COLOUR ONLY)' - the specified white
+    internal face was simply not in the price, and nobody had to say so out
+    loud. A supplier's default finish is not the specified finish."""
+    fins = m.get("finishes")
+    if fins is None:
+        return result("finish quoted is the finish specified", UNKNOWN,
+                      "State the finish on both sides for every element: 'finishes': "
+                      "[{ref, specified_internal, specified_external, quoted_internal, "
+                      "quoted_external}]. Dual colour is a cost - it is never a default.",
+                      "Georgie's")
+    if not fins:
+        return result("finish quoted is the finish specified", NA, "no finishes to check", "Georgie's")
+    silent, single, wrong = [], [], []
+    for f in fins:
+        ref = f.get("ref", "?")
+        si, se = f.get("specified_internal"), f.get("specified_external")
+        qi, qe = f.get("quoted_internal"), f.get("quoted_external")
+        if not qi or not qe:
+            silent.append(ref)
+            continue
+        dual_specified = _finish_matches(si, se) is False
+        if dual_specified and _finish_matches(qi, qe):
+            single.append("%s (spec %s / %s, quoted %s both sides)" % (ref, si, se, qi))
+            continue
+        for side, s, q in (("internal", si, qi), ("external", se, qe)):
+            if _finish_matches(s, q) is False:
+                wrong.append("%s %s (spec %s, quoted %s)" % (ref, side, s, q))
+    if single:
+        return result("finish quoted is the finish specified", FAIL,
+                      "Dual colour specified, single colour quoted: %s. The second colour is not in "
+                      "the price." % "; ".join(single), "Georgie's")
+    if wrong:
+        return result("finish quoted is the finish specified", FAIL,
+                      "Finish quoted does not match the finish specified: %s." % "; ".join(wrong),
+                      "Georgie's")
+    if silent:
+        return result("finish quoted is the finish specified", UNKNOWN,
+                      "Supplier states no finish for: %s. An unstated finish is the supplier's "
+                      "standard, not yours." % ", ".join(silent), "Georgie's")
+    return result("finish quoted is the finish specified", PASS,
+                  "%d element(s) quoted in the specified finish" % len(fins), "Georgie's")
+
+
 RULES = [
     check_system_coupling, check_panic_hardware, check_glass_ownership, check_quantities,
     check_scope_gaps, check_supplier_quote_currency, check_net_pricing,
     check_full_height_screens, check_fabricator_can_make_it, check_uvalue_basis,
+    check_finish_substitution,
 ]
 
 
@@ -312,6 +378,7 @@ def blank_manifest(job):
         "supplier_quotes": None,
         "full_height_screens": None,
         "systems_specified": None,
+        "finishes": None,
         "u_value": None,
     }
 
@@ -354,6 +421,7 @@ def selftest():
         "_test-stoke.json": {"unglazed frames need a glass order"},
         "_test-vesuvius.json": {"drawing vs bill quantities", "spec covered or excluded",
                                 "someone can actually fabricate it"},
+        "_test-georgies.json": {"finish quoted is the finish specified"},
     }
     ok = True
     for name, must_fail in expected.items():

@@ -1,0 +1,37 @@
+{
+ "job": "Georgie's (formerly Rosebank) - as Mercury QL004741 landed, 27/07/2026",
+ "_fixture": "The real state of the job at the moment the mistake was live. Spec 2.28 of the South West Norse Windows and Doors pack requires white aluminium internally and dark brown externally. Mercury quoted every one of the 23 windows single colour. Nobody had to say so out loud - the quote just did not mention the internal face.",
+
+ "finishes": [
+  {
+   "ref": "W01-W23 vertical sliding sash",
+   "specified_internal": "white aluminium",
+   "specified_external": "dark brown aluminium",
+   "quoted_internal": "RAL 8000 green brown (single colour only)",
+   "quoted_external": "RAL 8000 green brown (single colour only)"
+  }
+ ],
+
+ "coupled_runs": [],
+ "doors": [],
+ "frame_supply": "glazed",
+ "glass_order": [],
+ "quantities": [
+  {"ref": "windows W01-W23", "bill_qty": 23, "drawing_qty": 23}
+ ],
+ "spec_items": [
+  {"ref": "W01-W23 vertical sliding sash windows", "treatment": "priced"}
+ ],
+ "supplier_quotes": [
+  {"supplier": "Mercury Glazing Supplies", "ref": "QL004741", "date": "2026-07-27", "used_net": true}
+ ],
+ "full_height_screens": [],
+ "systems_specified": [
+  {"system": "SMA VS600", "fabricator": "Mercury Glazing Supplies"}
+ ],
+ "u_value": {
+  "required": 1.6,
+  "basis": "per element",
+  "rejected_elements": []
+ }
+}
