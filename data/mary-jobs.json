@@ -220,6 +220,58 @@
    ],
    "senders": [],
    "opened": "2026-07-27T14:49:39"
+  },
+  "chester-thomas": {
+   "name": "Chester Thomas Developments (Earls Barton)",
+   "client": "Chester Thomas Developments",
+   "match": [
+    "chester thomas",
+    "berry close",
+    "earls barton",
+    "arched front door",
+    "arched door"
+   ],
+   "senders": [
+    "chesterthomas"
+   ],
+   "opened": "2026-07-27T16:37:36"
+  },
+  "ninn-lane": {
+   "name": "Ninn Lane Re-development (Ermine)",
+   "client": "Ermine Construction Services",
+   "match": [
+    "ninn lane",
+    "ermine",
+    "qt51269",
+    "msg639gv"
+   ],
+   "senders": [
+    "ermineconstruction"
+   ],
+   "opened": "2026-07-27T16:37:36"
+  },
+  "manor-house": {
+   "name": "Manor House (AFS Q7593)",
+   "client": "TBC - AFS enquiry",
+   "match": [
+    "manor house",
+    "q7593"
+   ],
+   "senders": [],
+   "opened": "2026-07-27T16:37:37"
+  },
+  "riverside": {
+   "name": "Riverside House AOV smoke vents (RRR Group)",
+   "client": "RRR Group",
+   "match": [
+    "riverside",
+    "qt51518",
+    "wedgewood",
+    "fairford leys",
+    "24/02303"
+   ],
+   "senders": [],
+   "opened": "2026-07-27T16:37:50"
   }
  },
  "chats": {
@@ -264,6 +316,41 @@
    "created": "2026-07-27T15:24:58",
    "last_active": "2026-07-27T16:14:22",
    "runs": 1
+  },
+  "brocks-hill": {
+   "session_id": "45734632-a617-4b15-87fb-0a6fa8e4cfd1",
+   "started": true,
+   "created": "2026-07-27T16:14:24",
+   "last_active": "2026-07-27T16:34:34",
+   "runs": 1
+  },
+  "chester-thomas": {
+   "session_id": "52e3eeae-7249-4ac4-86e7-78a6d4090a0e",
+   "started": false,
+   "created": "2026-07-27T16:37:36",
+   "last_active": null,
+   "runs": 0
+  },
+  "ninn-lane": {
+   "session_id": "7d419f29-bf4d-4d6b-b688-22bd9686b654",
+   "started": false,
+   "created": "2026-07-27T16:37:36",
+   "last_active": null,
+   "runs": 0
+  },
+  "manor-house": {
+   "session_id": "3184a734-ec97-45d7-8d39-e50ac77b70ee",
+   "started": false,
+   "created": "2026-07-27T16:37:37",
+   "last_active": null,
+   "runs": 0
+  },
+  "riverside": {
+   "session_id": "96c66624-c463-4a79-9e55-2cc1dc4f5ba3",
+   "started": false,
+   "created": "2026-07-27T16:37:50",
+   "last_active": null,
+   "runs": 0
   }
  }
 }

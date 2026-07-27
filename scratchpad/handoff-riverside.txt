@@ -22,4 +22,13 @@ So there are two unresolved variables, not one: per vent or total, and geometric
 
 ALSO CARRY: the 155mm Technal subcill against Adam's 150mm; Aplus do not run cables through the mullions and leave about 2m of flex coiled at the vent; actuators are NOT restrictors and Aplus disclaim liability for damage if a separate restrictor is not fitted 50mm beyond the stroke; vents below 2.5m FFL flag a trap hazard under BS EN 60335-2 and below 1100mm FFL need Part K anti-fall protection which Aplus exclude; 24v DC only; 15,000 cycles or 12 months warranty; free area values allow nothing for obstructions, side walls or reveals, and handed windows within about 3000mm of each other can lose free area. Aplus price holds 30 days and is supply only - installation, and any builder's work, are ours to add.
 
+LATER THE SAME AFTERNOON - THE PACK AND THE ADDRESS ARRIVED. Six more emails followed Adam's instruction and all of them are yours:
+
+- Gintare asked Adam to forward the original email so she had the site address and project details (14:46).
+- Adam forwarded "Riverside House" with the PACK ATTACHED (15:00). Eight files, now at `test-results\mary-inbox\processed\20260727T1500-xgqQAAAA-att\`: `24_02303_PAPCR-K1653-04_EXISTING_AND_PROPOSED_ELEVATIONS-3270622.pdf`, `24_02303_PAPCR-LOCATION_PLAN-3270628.pdf`, `24_02303_PAPCR-PROPOSED_LAYOUT-3270621.pdf`, `K1653-10b.pdf`, `K1653-11.pdf`, `K1653-12.pdf`, and two images `Part_2.png` / `Part_3.png`. These are CAD PDFs with almost no text layer - render and read them visually rather than trusting pdfplumber. **This is the pack that was missing when I wrote the section above - so "make some drawings" now has something to work from, and you can finally see where the two AOVs sit and what the smoke strategy is.**
+- Adam (15:01): "Paul will whatsapp the address, I have forwarded the email thread. Yes please to adding to AdminBase."
+- Paul Taylor, commercial@ (15:04), THE SITE ADDRESS: **Riverside House, 44 Wedgewood Street, Fairford Leys, Aylesbury HP19 7HL.** The planning reference on the drawings is 24/02303/PAPCR.
+
+So the job is now properly identified and the empty RRR folder can be filled. Note the address came from commercial@, which Mary reads only because Paul happened to copy estimating@.
+
 WATCH OUT: the archive holds two other unrelated Riversides - "Riverside Way" under Bradford Watts and "Riverside Close" under Neil Douglas. This chat matches on `riverside`, so check the client before acting on anything that lands here.

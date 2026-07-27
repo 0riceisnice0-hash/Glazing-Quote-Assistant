@@ -1,6 +1,6 @@
 {
- "builtAt": "2026-07-16T14:10:12.569805",
- "sourceScan": "test-results\\rate-miner-full\\mined-quotes.json",
+ "builtAt": "2026-07-27T16:42:45.418198",
+ "sourceScan": "test-results/rate-miner-2607/mined-quotes.json",
  "note": "Historical benchmark rates mined from supplier quotations. Evidence only - never present as firm prices; quotes are typically valid 30 days.",
  "register": [
   {
@@ -288,6 +288,14 @@
    "max": 1955.61,
    "sources": [
     {
+     "quoteRef": "QT50932",
+     "quoteDate": "1-Jul-2026",
+     "client": "Borras",
+     "job": "Coventry - Stoke Park School",
+     "file": "QT50932 Rev7.pdf",
+     "lines": 16
+    },
+    {
      "quoteRef": "QP65153",
      "quoteDate": "10-Feb-2025",
      "client": "Thomas Sinden (Sinden Construction)",
@@ -446,14 +454,6 @@
      "job": "Luton Airport - Departure Gates 1 & 2",
      "file": "Quotation_QT51367.PDF",
      "lines": 1
-    },
-    {
-     "quoteRef": "QT50932",
-     "quoteDate": "9-Jun-2026",
-     "client": "Borras",
-     "job": "Coventry - Stoke Park School",
-     "file": "Quotation_QT50932 Rev2.PDF - Fenster Comments 15.06.26.pdf",
-     "lines": 16
     }
    ]
   },
@@ -466,6 +466,14 @@
    "min": 291.21,
    "max": 1664.08,
    "sources": [
+    {
+     "quoteRef": "QT50932",
+     "quoteDate": "1-Jul-2026",
+     "client": "Borras",
+     "job": "Coventry - Stoke Park School",
+     "file": "QT50932 Rev7.pdf",
+     "lines": 19
+    },
     {
      "quoteRef": "QP65153",
      "quoteDate": "10-Feb-2025",
@@ -489,14 +497,6 @@
      "job": "Kenton",
      "file": "Quotation_QT42154.PDF",
      "lines": 1
-    },
-    {
-     "quoteRef": "QT50932",
-     "quoteDate": "9-Jun-2026",
-     "client": "Borras",
-     "job": "Coventry - Stoke Park School",
-     "file": "Quotation_QT50932 Rev2.PDF - Fenster Comments 15.06.26.pdf",
-     "lines": 19
     }
    ]
   },
@@ -504,10 +504,10 @@
    "supplier": "aplus",
    "category": "aluminium window/screen, glazed/unknown [1.5-3m2]",
    "unit": "GBP/m2",
-   "lineCount": 22,
-   "median": 524.42,
+   "lineCount": 23,
+   "median": 528.83,
    "min": 295.78,
-   "max": 755.61,
+   "max": 770.81,
    "sources": [
     {
      "quoteRef": "/QP65348",
@@ -524,6 +524,14 @@
      "job": "2025",
      "file": "QT40122 Quote Glazed.pdf",
      "lines": 4
+    },
+    {
+     "quoteRef": "/QT51430",
+     "quoteDate": "15/07/2026",
+     "client": "Stewarts",
+     "job": "Tradeteam Stretton",
+     "file": "K_QT51430_Offer_2026_07_15.pdf",
+     "lines": 1
     },
     {
      "quoteRef": "/QT41122",
@@ -740,8 +748,8 @@
    "supplier": "aplus",
    "category": "aluminium window/screen, unglazed [1.5-3m2]",
    "unit": "GBP/m2",
-   "lineCount": 568,
-   "median": 296.53,
+   "lineCount": 588,
+   "median": 298.87,
    "min": 82.7,
    "max": 2960.0,
    "sources": [
@@ -760,6 +768,14 @@
      "job": "Birchanger Road",
      "file": "QT40672 Quote.pdf",
      "lines": 1
+    },
+    {
+     "quoteRef": "QT50932",
+     "quoteDate": "1-Jul-2026",
+     "client": "Borras",
+     "job": "Coventry - Stoke Park School",
+     "file": "QT50932 Rev7.pdf",
+     "lines": 128
     },
     {
      "quoteRef": "QT41908",
@@ -1026,6 +1042,14 @@
      "lines": 1
     },
     {
+     "quoteRef": "QP70171",
+     "quoteDate": "21-Jul-2026",
+     "client": "Guildmore",
+     "job": "Princess Beatrice House",
+     "file": "Crystal Reports ActiveX Designer - Quotation sheet_APlus.pdf",
+     "lines": 17
+    },
+    {
      "quoteRef": "QT37532",
      "quoteDate": "22-Jan-2025",
      "client": "Parkway MK",
@@ -1072,6 +1096,14 @@
      "job": "Singleborough",
      "file": "Quotation_QT39275.PDF",
      "lines": 15
+    },
+    {
+     "quoteRef": "QT51516",
+     "quoteDate": "24-Jul-2026",
+     "client": "RRR-Group",
+     "job": "Towcester Vale Local Centre",
+     "file": "Quotation_QT51516.PDF",
+     "lines": 2
     },
     {
      "quoteRef": "QP65668",
@@ -1127,6 +1159,14 @@
      "client": "SOL",
      "job": "1 Springfield Lyons",
      "file": "Quotation_QT42156.PDF",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT51518",
+     "quoteDate": "27-Jul-2026",
+     "client": "RRR",
+     "job": "Riverside",
+     "file": "Quotation_QT51518.PDF",
      "lines": 1
     },
     {
@@ -1362,14 +1402,6 @@
      "lines": 1
     },
     {
-     "quoteRef": "QT50932",
-     "quoteDate": "9-Jun-2026",
-     "client": "Borras",
-     "job": "Coventry - Stoke Park School",
-     "file": "Quotation_QT50932 Rev2.PDF - Fenster Comments 15.06.26.pdf",
-     "lines": 128
-    },
-    {
      "quoteRef": "QT40693",
      "quoteDate": "9-Oct-2025",
      "client": "R1 Construction",
@@ -1403,6 +1435,14 @@
      "job": "Birchanger Road",
      "file": "QT40672 Quote.pdf",
      "lines": 1
+    },
+    {
+     "quoteRef": "QT50932",
+     "quoteDate": "1-Jul-2026",
+     "client": "Borras",
+     "job": "Coventry - Stoke Park School",
+     "file": "QT50932 Rev7.pdf",
+     "lines": 30
     },
     {
      "quoteRef": "QP65153",
@@ -1813,14 +1853,6 @@
      "lines": 2
     },
     {
-     "quoteRef": "QT50932",
-     "quoteDate": "9-Jun-2026",
-     "client": "Borras",
-     "job": "Coventry - Stoke Park School",
-     "file": "Quotation_QT50932 Rev2.PDF - Fenster Comments 15.06.26.pdf",
-     "lines": 30
-    },
-    {
      "quoteRef": "QT50092",
      "quoteDate": "9-Mar-2026",
      "client": "2. Completed",
@@ -1842,8 +1874,8 @@
    "supplier": "aplus",
    "category": "aluminium window/screen, unglazed [<1.5m2]",
    "unit": "GBP/m2",
-   "lineCount": 293,
-   "median": 320.67,
+   "lineCount": 314,
+   "median": 323.72,
    "min": 122.32,
    "max": 2974.96,
    "sources": [
@@ -1854,6 +1886,14 @@
      "job": "Birchanger Road",
      "file": "QT40672 Quote.pdf",
      "lines": 5
+    },
+    {
+     "quoteRef": "QT50932",
+     "quoteDate": "1-Jul-2026",
+     "client": "Borras",
+     "job": "Coventry - Stoke Park School",
+     "file": "QT50932 Rev7.pdf",
+     "lines": 24
     },
     {
      "quoteRef": "QT41908",
@@ -2048,6 +2088,14 @@
      "lines": 9
     },
     {
+     "quoteRef": "QP70171",
+     "quoteDate": "21-Jul-2026",
+     "client": "Guildmore",
+     "job": "Princess Beatrice House",
+     "file": "Crystal Reports ActiveX Designer - Quotation sheet_APlus.pdf",
+     "lines": 19
+    },
+    {
      "quoteRef": "QT40191",
      "quoteDate": "22-Aug-2025",
      "client": "Higgins Partnership",
@@ -2070,6 +2118,14 @@
      "job": "Singleborough",
      "file": "Quotation_QT39275.PDF",
      "lines": 13
+    },
+    {
+     "quoteRef": "QT51516",
+     "quoteDate": "24-Jul-2026",
+     "client": "RRR-Group",
+     "job": "Towcester Vale Local Centre",
+     "file": "Quotation_QT51516.PDF",
+     "lines": 2
     },
     {
      "quoteRef": "QT50251",
@@ -2302,14 +2358,6 @@
      "job": "DCR3 Canteen Windows",
      "file": "Quotation_QT35764[79218].pdf",
      "lines": 1
-    },
-    {
-     "quoteRef": "QT50932",
-     "quoteDate": "9-Jun-2026",
-     "client": "Borras",
-     "job": "Coventry - Stoke Park School",
-     "file": "Quotation_QT50932 Rev2.PDF - Fenster Comments 15.06.26.pdf",
-     "lines": 24
     }
    ]
   },
@@ -2560,10 +2608,10 @@
    "supplier": "bellview",
    "category": "aluminium casement window, glazed [1.5-3m2]",
    "unit": "GBP/m2",
-   "lineCount": 3,
-   "median": 306.83,
+   "lineCount": 4,
+   "median": 328.06,
    "min": 306.83,
-   "max": 349.3,
+   "max": 850.81,
    "sources": [
     {
      "quoteRef": "0000003371",
@@ -2572,6 +2620,14 @@
      "job": "2025",
      "file": "shaftsbury(BSW Unglazed).pdf",
      "lines": 3
+    },
+    {
+     "quoteRef": "0000000487",
+     "quoteDate": "20/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC_merged.pdf",
+     "lines": 1
     }
    ]
   },
@@ -2579,10 +2635,10 @@
    "supplier": "bellview",
    "category": "aluminium casement window, glazed [3-6m2]",
    "unit": "GBP/m2",
-   "lineCount": 2,
-   "median": 271.11,
+   "lineCount": 7,
+   "median": 286.49,
    "min": 271.11,
-   "max": 271.11,
+   "max": 1296.1,
    "sources": [
     {
      "quoteRef": "0000003371",
@@ -2591,6 +2647,14 @@
      "job": "2025",
      "file": "shaftsbury(BSW Unglazed).pdf",
      "lines": 2
+    },
+    {
+     "quoteRef": "0000000487",
+     "quoteDate": "20/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC_merged.pdf",
+     "lines": 5
     }
    ]
   },
@@ -2617,10 +2681,10 @@
    "supplier": "bellview",
    "category": "aluminium casement window, glazed [>6m2]",
    "unit": "GBP/m2",
-   "lineCount": 10,
-   "median": 305.84,
+   "lineCount": 12,
+   "median": 306.02,
    "min": 270.47,
-   "max": 357.1,
+   "max": 425.78,
    "sources": [
     {
      "quoteRef": "0000003371",
@@ -2629,6 +2693,14 @@
      "job": "2025",
      "file": "shaftsbury(BSW Unglazed).pdf",
      "lines": 6
+    },
+    {
+     "quoteRef": "0000000487",
+     "quoteDate": "20/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC_merged.pdf",
+     "lines": 2
     },
     {
      "quoteRef": "0000000287",
@@ -2701,10 +2773,10 @@
    "supplier": "bellview",
    "category": "aluminium door, glazed [1.5-3m2]",
    "unit": "GBP/m2",
-   "lineCount": 2,
-   "median": 897.93,
+   "lineCount": 6,
+   "median": 1287.96,
    "min": 598.29,
-   "max": 1197.58,
+   "max": 1378.34,
    "sources": [
     {
      "quoteRef": "0000003371",
@@ -2715,11 +2787,38 @@
      "lines": 1
     },
     {
+     "quoteRef": "0000000487",
+     "quoteDate": "20/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC_merged.pdf",
+     "lines": 4
+    },
+    {
      "quoteRef": "0000003429",
      "quoteDate": "21/10/2025",
      "client": "RG Carter",
      "job": "Duxford Fire Engine Shed",
      "file": "IWN DUXFORD BSW Doors Glazed.pdf",
+     "lines": 1
+    }
+   ]
+  },
+  {
+   "supplier": "bellview",
+   "category": "aluminium door, glazed [>6m2]",
+   "unit": "GBP/m2",
+   "lineCount": 1,
+   "median": 417.51,
+   "min": 417.51,
+   "max": 417.51,
+   "sources": [
+    {
+     "quoteRef": "0000000487",
+     "quoteDate": "20/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC_merged.pdf",
      "lines": 1
     }
    ]
@@ -2747,10 +2846,10 @@
    "supplier": "bsw",
    "category": "aluminium casement window, glazed [1.5-3m2]",
    "unit": "GBP/m2",
-   "lineCount": 423,
-   "median": 358.44,
+   "lineCount": 446,
+   "median": 363.5,
    "min": 154.53,
-   "max": 727.22,
+   "max": 850.35,
    "sources": [
     {
      "quoteRef": "QT232805 WINDOWS.pdf",
@@ -3126,7 +3225,7 @@
      "client": "E T & S Construction",
      "job": "St Mary's Refurbishment",
      "file": "qt252799.pdf",
-     "lines": 15
+     "lines": 30
     },
     {
      "quoteRef": "QT237128",
@@ -3175,6 +3274,30 @@
      "job": "Coventry Meetinghouse",
      "file": "qt251023.pdf",
      "lines": 1
+    },
+    {
+     "quoteRef": "QT252860",
+     "quoteDate": "16/07/2026",
+     "client": "Chigwell (London) PLC",
+     "job": "Leys Sports Pavilion",
+     "file": "QT252860 PVC_merged.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT252861",
+     "quoteDate": "16/07/2026",
+     "client": "Chigwell (London) PLC",
+     "job": "Leys Sports Pavilion",
+     "file": "QT252861 STD ALI.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT252906",
+     "quoteDate": "16/07/2026",
+     "client": "Reynolds Conservation Ltd",
+     "job": "Crestwood Park Primary School",
+     "file": "QT252906.pdf",
+     "lines": 2
     },
     {
      "quoteRef": "QT237265",
@@ -3321,6 +3444,14 @@
      "lines": 1
     },
     {
+     "quoteRef": "QT253232",
+     "quoteDate": "22/07/2026",
+     "client": "SMD",
+     "job": "Brocks Hill Phase 2",
+     "file": "qt253232.pdf",
+     "lines": 1
+    },
+    {
      "quoteRef": "QT235670",
      "quoteDate": "22/09/2025",
      "client": "Fortis Vision",
@@ -3335,6 +3466,14 @@
      "job": "Ennismore Garden",
      "file": "QT242055.pdf",
      "lines": 2
+    },
+    {
+     "quoteRef": "QT253300",
+     "quoteDate": "23/07/2026",
+     "client": "SM5 Developments",
+     "job": "Wexham Primary",
+     "file": "qt253300.pdf",
+     "lines": 3
     },
     {
      "quoteRef": "QT237675",
@@ -3486,8 +3625,8 @@
    "supplier": "bsw",
    "category": "aluminium casement window, glazed [3-6m2]",
    "unit": "GBP/m2",
-   "lineCount": 470,
-   "median": 472.29,
+   "lineCount": 481,
+   "median": 467.57,
    "min": 155.08,
    "max": 696.38,
    "sources": [
@@ -3705,7 +3844,7 @@
      "client": "E T & S Construction",
      "job": "St Mary's Refurbishment",
      "file": "qt252799.pdf",
-     "lines": 4
+     "lines": 8
     },
     {
      "quoteRef": "QT237120",
@@ -3738,6 +3877,14 @@
      "job": "Gunwharf Office",
      "file": "qt241515.pdf",
      "lines": 41
+    },
+    {
+     "quoteRef": "QT252906",
+     "quoteDate": "16/07/2026",
+     "client": "Reynolds Conservation Ltd",
+     "job": "Crestwood Park Primary School",
+     "file": "QT252906.pdf",
+     "lines": 3
     },
     {
      "quoteRef": "QT237265",
@@ -3852,6 +3999,22 @@
      "lines": 2
     },
     {
+     "quoteRef": "QT253232",
+     "quoteDate": "22/07/2026",
+     "client": "SMD",
+     "job": "Brocks Hill Phase 2",
+     "file": "qt253232.pdf",
+     "lines": 3
+    },
+    {
+     "quoteRef": "QT253300",
+     "quoteDate": "23/07/2026",
+     "client": "SM5 Developments",
+     "job": "Wexham Primary",
+     "file": "qt253300.pdf",
+     "lines": 1
+    },
+    {
      "quoteRef": "QT237675",
      "quoteDate": "23/10/2025",
      "client": "Coulson",
@@ -3953,8 +4116,8 @@
    "supplier": "bsw",
    "category": "aluminium casement window, glazed [<1.5m2]",
    "unit": "GBP/m2",
-   "lineCount": 542,
-   "median": 445.71,
+   "lineCount": 598,
+   "median": 449.77,
    "min": 126.13,
    "max": 1041.47,
    "sources": [
@@ -4324,7 +4487,7 @@
      "client": "E T & S Construction",
      "job": "St Mary's Refurbishment",
      "file": "qt252799.pdf",
-     "lines": 11
+     "lines": 22
     },
     {
      "quoteRef": "QT237128",
@@ -4373,6 +4536,14 @@
      "job": "Coventry Meetinghouse",
      "file": "qt251023-Rev1.pdf",
      "lines": 37
+    },
+    {
+     "quoteRef": "QT252906",
+     "quoteDate": "16/07/2026",
+     "client": "Reynolds Conservation Ltd",
+     "job": "Crestwood Park Primary School",
+     "file": "QT252906.pdf",
+     "lines": 41
     },
     {
      "quoteRef": "QT237265",
@@ -4479,6 +4650,14 @@
      "lines": 2
     },
     {
+     "quoteRef": "QT252983",
+     "quoteDate": "20/07/2026",
+     "client": "Bradford Watts",
+     "job": "Unit 1 Eleanor Trade Centre",
+     "file": "QT252983 WINDOWS.pdf",
+     "lines": 1
+    },
+    {
      "quoteRef": "QT237376",
      "quoteDate": "20/10/2025",
      "client": "S and R Construction",
@@ -4509,6 +4688,14 @@
      "job": "Beaumont Court",
      "file": "qt235670.pdf",
      "lines": 1
+    },
+    {
+     "quoteRef": "QT253300",
+     "quoteDate": "23/07/2026",
+     "client": "SM5 Developments",
+     "job": "Wexham Primary",
+     "file": "qt253300.pdf",
+     "lines": 3
     },
     {
      "quoteRef": "QT237675",
@@ -4660,10 +4847,10 @@
    "supplier": "bsw",
    "category": "aluminium casement window, glazed [>6m2]",
    "unit": "GBP/m2",
-   "lineCount": 77,
-   "median": 365.34,
+   "lineCount": 82,
+   "median": 365.18,
    "min": 179.04,
-   "max": 533.96,
+   "max": 538.67,
    "sources": [
     {
      "quoteRef": "QT233277 (3).pdf",
@@ -4727,7 +4914,7 @@
      "client": "E T & S Construction",
      "job": "St Mary's Refurbishment",
      "file": "qt252799.pdf",
-     "lines": 2
+     "lines": 4
     },
     {
      "quoteRef": "QT237120",
@@ -4754,6 +4941,22 @@
      "lines": 2
     },
     {
+     "quoteRef": "QT252860",
+     "quoteDate": "16/07/2026",
+     "client": "Chigwell (London) PLC",
+     "job": "Leys Sports Pavilion",
+     "file": "QT252860 PVC_merged.pdf",
+     "lines": 1
+    },
+    {
+     "quoteRef": "QT252861",
+     "quoteDate": "16/07/2026",
+     "client": "Chigwell (London) PLC",
+     "job": "Leys Sports Pavilion",
+     "file": "QT252861 STD ALI.pdf",
+     "lines": 1
+    },
+    {
      "quoteRef": "QT243768",
      "quoteDate": "18/02/2026",
      "client": "Key Property Solutions",
@@ -4776,6 +4979,14 @@
      "job": "Springside Pasture 2",
      "file": "qt239111.pdf",
      "lines": 6
+    },
+    {
+     "quoteRef": "QT252989",
+     "quoteDate": "20/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "qt252989.pdf",
+     "lines": 1
     },
     {
      "quoteRef": "QT239194",
@@ -7978,7 +8189,7 @@
    "supplier": "bsw",
    "category": "uPVC casement window, glazed [1.5-3m2]",
    "unit": "GBP/m2",
-   "lineCount": 800,
+   "lineCount": 832,
    "median": 186.28,
    "min": 70.04,
    "max": 440.01,
@@ -8712,6 +8923,22 @@
      "lines": 1
     },
     {
+     "quoteRef": "QT252860",
+     "quoteDate": "16/07/2026",
+     "client": "Chigwell (London) PLC",
+     "job": "Leys Sports Pavilion",
+     "file": "QT252860 PVC.pdf",
+     "lines": 2
+    },
+    {
+     "quoteRef": "QT252858",
+     "quoteDate": "16/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC.pdf",
+     "lines": 30
+    },
+    {
      "quoteRef": "QT237243",
      "quoteDate": "16/10/2025",
      "client": "Elkins Construction",
@@ -8853,8 +9080,8 @@
    "supplier": "bsw",
    "category": "uPVC casement window, glazed [3-6m2]",
    "unit": "GBP/m2",
-   "lineCount": 298,
-   "median": 163.08,
+   "lineCount": 315,
+   "median": 167.7,
    "min": 61.84,
    "max": 326.85,
    "sources": [
@@ -9267,6 +9494,22 @@
      "lines": 1
     },
     {
+     "quoteRef": "QT252860",
+     "quoteDate": "16/07/2026",
+     "client": "Chigwell (London) PLC",
+     "job": "Leys Sports Pavilion",
+     "file": "QT252860 PVC.pdf",
+     "lines": 2
+    },
+    {
+     "quoteRef": "QT252858",
+     "quoteDate": "16/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC.pdf",
+     "lines": 15
+    },
+    {
      "quoteRef": "QT237243",
      "quoteDate": "16/10/2025",
      "client": "Elkins Construction",
@@ -9352,8 +9595,8 @@
    "supplier": "bsw",
    "category": "uPVC casement window, glazed [<1.5m2]",
    "unit": "GBP/m2",
-   "lineCount": 992,
-   "median": 214.29,
+   "lineCount": 1005,
+   "median": 214.54,
    "min": 71.57,
    "max": 871.08,
    "sources": [
@@ -10164,6 +10407,22 @@
      "job": "130 Hainault Road",
      "file": "QT245304.pdf",
      "lines": 2
+    },
+    {
+     "quoteRef": "QT252860",
+     "quoteDate": "16/07/2026",
+     "client": "Chigwell (London) PLC",
+     "job": "Leys Sports Pavilion",
+     "file": "QT252860 PVC.pdf",
+     "lines": 6
+    },
+    {
+     "quoteRef": "QT252858",
+     "quoteDate": "16/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC.pdf",
+     "lines": 7
     },
     {
      "quoteRef": "QT237243",
@@ -11546,8 +11805,8 @@
    "supplier": "bsw",
    "category": "uPVC door, glazed [1.5-3m2]",
    "unit": "GBP/m2",
-   "lineCount": 208,
-   "median": 250.03,
+   "lineCount": 209,
+   "median": 248.24,
    "min": 168.99,
    "max": 441.08,
    "sources": [
@@ -11822,6 +12081,14 @@
      "job": "130 Hainault Road",
      "file": "QT245304.pdf",
      "lines": 2
+    },
+    {
+     "quoteRef": "QT252858",
+     "quoteDate": "16/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC.pdf",
+     "lines": 1
     },
     {
      "quoteRef": "QT235478",
@@ -12676,7 +12943,7 @@
    "supplier": "bsw",
    "category": "uPVC tilt & turn window, glazed [1.5-3m2]",
    "unit": "GBP/m2",
-   "lineCount": 106,
+   "lineCount": 107,
    "median": 242.55,
    "min": 156.32,
    "max": 317.98,
@@ -12744,6 +13011,14 @@
      "job": "2025",
      "file": "QT236371 GLAZED.pdf",
      "lines": 2
+    },
+    {
+     "quoteRef": "QT252858",
+     "quoteDate": "16/07/2026",
+     "client": "Pearce Construction (Barnstaple)",
+     "job": "Greenfields",
+     "file": "QT252858 PVC.pdf",
+     "lines": 1
     },
     {
      "quoteRef": "QT243624",
@@ -13180,8 +13455,8 @@
    "supplier": "strongdor",
    "category": "steel doorset Steeldor Double",
    "unit": "GBP/doorset",
-   "lineCount": 8,
-   "median": 2603.16,
+   "lineCount": 9,
+   "median": 2547.18,
    "min": 1642.24,
    "max": 3784.67,
    "sources": [
@@ -13190,7 +13465,7 @@
      "quoteDate": "08/07/2026",
      "client": "RRR-Group",
      "job": "Towcester Vale Local Centre",
-     "file": "Quote_Towcester Vale Local Centre_SQ216038_Rev2.pdf",
+     "file": "Quote_Towcester Vale Local Centre_SQ216038_Rev1.pdf",
      "lines": 2
     },
     {
@@ -13198,8 +13473,8 @@
      "quoteDate": "08/08/2025",
      "client": "Elkins",
      "job": "Midfield School",
-     "file": "Quote_Elkins - Midfield Primary_SQ183125_Rev3.pdf",
-     "lines": 2
+     "file": "Elkins - Midfield Primary - Strongdor Order _SQ183125_Rev6.pdf",
+     "lines": 3
     },
     {
      "quoteRef": "SQ203963",
@@ -13400,7 +13675,7 @@
    "supplier": "vetroseal",
    "category": "laminated/toughened unit, softcoat",
    "unit": "GBP/m2",
-   "lineCount": 4578,
+   "lineCount": 4625,
    "median": 87.19,
    "min": 16.35,
    "max": 422.84,
@@ -14214,6 +14489,22 @@
      "lines": 18
     },
     {
+     "quoteRef": "FENSTERG_Quote_064998(TOWCESTERVALEOVERSIZE).pdf",
+     "quoteDate": "21/07/2026",
+     "client": "RRR-Group",
+     "job": "Towcester Vale Local Centre",
+     "file": "FENSTERG_Quote_064998(TOWCESTERVALEOVERSIZE).pdf",
+     "lines": 5
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_064999(TOWCHESTERVALE).pdf",
+     "quoteDate": "21/07/2026",
+     "client": "RRR-Group",
+     "job": "Towcester Vale Local Centre",
+     "file": "FENSTERG_Quote_064999(TOWCHESTERVALE).pdf",
+     "lines": 42
+    },
+    {
      "quoteRef": "FENSTERG_Quote_059629(brandon-youth-centre).pdf",
      "quoteDate": "21/11/2025",
      "client": "Pride Developments",
@@ -14638,8 +14929,8 @@
    "supplier": "vetroseal",
    "category": "toughened unit, softcoat",
    "unit": "GBP/m2",
-   "lineCount": 1373,
-   "median": 89.75,
+   "lineCount": 1412,
+   "median": 89.74,
    "min": 26.67,
    "max": 550.04,
    "sources": [
@@ -15020,6 +15311,14 @@
      "lines": 6
     },
     {
+     "quoteRef": "FENSTERG_Quote_064940(16-18-CROWNHILL).pdf",
+     "quoteDate": "17/07/2026",
+     "client": "Zelltec Construction",
+     "job": "Units 16 & 18 Crownhill Business Centre",
+     "file": "FENSTERG_Quote_064940(16-18-CROWNHILL).pdf",
+     "lines": 6
+    },
+    {
      "quoteRef": "FENSTERG_Quote_059524(farringdon).pdf",
      "quoteDate": "17/11/2025",
      "client": "SDevs",
@@ -15078,10 +15377,26 @@
     {
      "quoteRef": "FENSTERG_Quote_061940(CRANFIELDB121).pdf",
      "quoteDate": "20/03/2026",
-     "client": "Cranfield",
-     "job": "B121",
+     "client": "2. Completed",
+     "job": "Cranfield",
      "file": "FENSTERG_Quote_061940(CRANFIELDB121).pdf",
      "lines": 1
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_064993(TRAFALGAR-HOUSE).pdf",
+     "quoteDate": "21/07/2026",
+     "client": "TSL - Topek Southern Ltd",
+     "job": "Trafalgar House",
+     "file": "FENSTERG_Quote_064993(TRAFALGAR-HOUSE).pdf",
+     "lines": 25
+    },
+    {
+     "quoteRef": "FENSTERG_Quote_064999(TOWCHESTERVALE).pdf",
+     "quoteDate": "21/07/2026",
+     "client": "RRR-Group",
+     "job": "Towcester Vale Local Centre",
+     "file": "FENSTERG_Quote_064999(TOWCHESTERVALE).pdf",
+     "lines": 8
     },
     {
      "quoteRef": "FENSTERG_Quote_057544(CAPELLAHOUSE).pdf",
@@ -15383,20 +15698,20 @@
      "lines": 16
     },
     {
+     "quoteRef": "FENSTERG_Quote_064339(DHLEXPRESSCAMBRIDGE).pdf",
+     "quoteDate": "23/06/2026",
+     "client": "2. Completed",
+     "job": "Stewarts",
+     "file": "FENSTERG_Quote_064339(DHLEXPRESSCAMBRIDGE).pdf",
+     "lines": 1
+    },
+    {
      "quoteRef": "FENSTERG_Quote_064338(RAGLANROOFINGOPTION2).pdf",
      "quoteDate": "23/06/2026",
      "client": "Borras",
      "job": "Raglan School",
      "file": "FENSTERG_Quote_064338(RAGLANROOFINGOPTION2).pdf",
      "lines": 2
-    },
-    {
-     "quoteRef": "FENSTERG_Quote_064339(DHLEXPRESSCAMBRIDGE).pdf",
-     "quoteDate": "23/06/2026",
-     "client": "Stewarts",
-     "job": "DHL Express Cambridge",
-     "file": "FENSTERG_Quote_064339(DHLEXPRESSCAMBRIDGE).pdf",
-     "lines": 1
     },
     {
      "quoteRef": "FENSTERG_Quote_064374(CULINALOGISTICS).pdf",
