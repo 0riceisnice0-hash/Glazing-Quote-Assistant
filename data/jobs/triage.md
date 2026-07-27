@@ -77,6 +77,36 @@ with `python scripts\mary_router.py --list` that every job opened here is still 
 `test-results\mary-inbox\handoffs\` for notes addressed to keys that no longer exist. Two writers, no
 locking - assume it will happen again.
 
+### 2026-07-27 - twelve work orders in one batch
+Routed and handed on. **Riverside (6 orders, incl. one the bridge had already given up on):** Adam
+instructed the pricing doc + drawings, said no urgency (waiting on PHDB for building-works costs), and
+the pack plus the site address followed - Riverside House, 44 Wedgewood Street, Fairford Leys, Aylesbury
+HP19 7HL, planning ref 24/02303/PAPCR, 8 drawings now in `processed\20260727T1500-xgqQAAAA-att\`.
+Handed to `riverside` with the free-area problem front and centre: Aplus quote only GEOMETRIC 1.30 m2 on
+QT51518, while their Towcester Vale quote QT51516 for the same DualFrame 75Si gives both figures with
+aerodynamic at 60-62% of geometric. If Riverside's 1.5 m2 is aerodynamic, 1.30 geometric is about half
+the requirement, not 0.20 m2 short - and Aplus's proposed 1235x1583 fix would still miss. Adam approved
+the pricing doc without addressing the free-area question he himself asked on 24/07.
+
+**New chats opened:** `chester-thomas` (Adam "Good to go!" on one of three live quotes - arched door
+GBP 4,455.99), `ninn-lane` (Ermine, GBP 100,730.00 issued 09/07, portal message MSG639Gv nobody can read
+without a login), `manor-house` (AFS Q7593 chased, no job folder exists anywhere and the value is
+unknown). **Manor Lodge Q7666 kept here** - Steve asked AFS 14:53 to swap the push bar for a panic pad
+after the 920mm answer; watched, not a pricing job.
+
+### 2026-07-27 - dashmsg-16, Zac: the pipeline truth for Jacob
+Built it. **282 quotes out with no recorded outcome, GBP 25,566,014.44 ex VAT** (LIVE 57 / COOLING 37 /
+COLD 166 / no trace 22). Workbook `outputs\Fenster Quote Pipeline - Issued Quotes Without an Outcome.xlsx`,
+five sheets. Generators are committed: `scripts\pipeline_sweep.py` (archive), `pipeline_values.py`
+(workbook totals + Estimating Log match), `pipeline_mailbox.py` (9,193 estimating@ messages, all folders
+incl. sent, 01/09/25-27/07/26), `pipeline_report.py` (join + workbook). Replied on the hub.
+
+Two corrections I made to my own first pass rather than shipping them, both now flagged in the workbook:
+a supplier chasing is not a client reply (Gordon Court read as "client replied today" when it was AFS),
+and two clients can share a project name so their mailbox traffic merges (Chigwell's Gordon Court showed
+Target Maintenance's tm-gb.co.uk addresses as the recipient). 56 of 282 rows are marked as having
+unreliable contact data for that reason.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

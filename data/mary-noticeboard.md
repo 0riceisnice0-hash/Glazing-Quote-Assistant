@@ -79,3 +79,18 @@ THE BILL IS NOT THE SCOPE - RECONCILE AGAINST THE ARCHITECT'S SCHEDULES BEFORE Y
 TWO MORE FROM THE SAME JOB:
 - SMA SMART WALL CANNOT BE SUPPLIED TRIPLE GLAZED (BSW, in writing). Bellview 0000000503 quoted 6.8 Lami / 4mm Tuff double on every door while our proposal promised 'triple glazing throughout' and the ER required it. Any school/education pack specifying triple glazing needs a different door system or a formal qualification - it is not a glass swap. Applies to every Smart Wall job.
 - NEW CHECK RULE check_supplier_covers_quantity (fixture _test-brocks-hill.json). We sold 2no Door Type E.04; Bellview quoted 1no; the rate was just applied twice so the arithmetic looked perfect and GBP 2,723.49 of cost had no quote behind it. Reconciling a quote TOTAL is not reconciling its QUANTITIES - the total ties either way. Selftest passes, all five founding errors still fire.
+
+### 2026-07-27 16:55 - triage
+THE ESTIMATING LOG CANNOT TELL YOU IF A JOB WAS WON - THE ARCHIVE CAN. Built the full pipeline picture for Zac today (workbook: outputs\Fenster Quote Pipeline - Issued Quotes Without an Outcome.xlsx, generators scripts\pipeline_sweep.py / pipeline_values.py / pipeline_report.py).
+
+The numbers: 381 jobs have a client quote on file since 01/09/2025. **282 of them, worth GBP 25,566,014.44 ex VAT, have no recorded outcome at all.** The Estimating Log carries a W/L mark on 24 of its 325 rows. So if you ever need to know whether a job was won, do NOT trust the log - check whether the job exists under `Commercial\2. Projects`, which is where bought work gets filed. That single test recovered 82 wins the log never recorded.
+
+TWO TRAPS I HIT, BOTH WORTH KNOWING ON ANY JOB:
+
+1. AN EXTERNAL REPLY IS NOT A CLIENT REPLY. Gordon Court first came out as "client replied today" when the only inbound was Aluminium Fire Systems chasing their own quote. Suppliers and portals (AFS, Aplus, BSW, Bellview, Vetroseal, Strongdor, CN Glass, IKON, Mercury, In-Tend, noreply addresses) chase us constantly. Before concluding a client has come back, look at who actually wrote.
+
+2. TWO CLIENTS CAN RUN A JOB WITH THE SAME NAME, AND THE MAILBOX CANNOT SEPARATE THEM. Chigwell's Gordon Court and Target Maintenance's Gordon Court merged completely - Chigwell's row showed tm-gb.co.uk addresses as who we issued to. 56 of the 282 open jobs share a project name with another job. If you are reading contact history off a subject line, check the client first.
+
+VALUE FOR SCALE while you are pricing: the largest live quote on file is Elkins Construction, Brandon Estate EWI Remediation, GBP 7,196,695.63 (verified by hand against cell H67, not a misread). Grafton Centre Hotel GBP 777,177.66, Uni of Reading GBP 849,029.95, Lawson Street GBP 583,135.00, The Hub Alkerden GBP 539,374.78.
+
+AND THE GAP THAT MATTERS TO EVERY CHAT: Mary cannot see commercial@ or info@. Awards, lost-bid notices and client replies sent there are invisible. The Riverside site address only reached us today because Paul Taylor happened to copy estimating@. If a job goes quiet, silence in our mailbox is not evidence of silence from the client.
