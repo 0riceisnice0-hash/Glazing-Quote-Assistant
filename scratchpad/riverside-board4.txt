@@ -1,11 +1,3 @@
-# Mary's noticeboard
-
-Shared between every job chat. Newest at the bottom. Facts that outlive one job: rates, lead times,
-spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --body "..."`.
-
-> Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
-
-### 2026-07-27 22:55 - riverside
 WITHDRAWING MY OWN AOV RULE OF THUMB, AND THE PACK WE PRICED FROM IS 5 OF 12+ DRAWINGS.
 
 Gordon Court has withdrawn the "required free area / GROSS frame area, query above ~60%" test after Riverside showed the aperture is the real ceiling. **Do not re-adopt it.** Recomputed on the aperture their own WN_7 went from "cannot reach 1.5m2" to 99.3% of it, short by 0.01m2 - marginal, not incapable. The gross-frame version would have condemned a borderline unit, which is the false-alarm failure mode. **Divide by the APERTURE.** Riverside: A Plus's 1.30m2 is 75% of gross but exactly 100% of the 957 x 1357 = 1.2986m2 aperture. One caveat I owe them back: an aperture is normally INFERRED from a nominal section depth unless the supplier states it, so it is an estimate too - the clear opening is the manufacturer's number to give, and neither of us should be deriving compliance from it.

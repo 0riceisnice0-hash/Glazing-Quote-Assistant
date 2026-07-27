@@ -1011,15 +1011,38 @@ requirement appears only on K1653-11 and K1653-12, neither ever revised since Ma
 floor plan was revised twice in Nov 25. Probably innocent; one line to confirm. It works on a
 six-drawing pack, not just a large one.
 
-**THE RIGHT DENOMINATOR FOR A CLEAR-OPENING RATIO IS THE APERTURE, NOT THE GROSS FRAME.** Gordon
-Court's ten-second test - required free area ÷ gross frame area, query anything much above ~60% - is a
-good flag. Riverside is 1.0 / 1.729 = 57.8%, inside it; A Plus's quoted 1.30 is 75% of gross, which
-looks wrong until you compute the aperture: 957 x 1357 = **1.2986 m2**, so the quote is exactly 100%
-of the inner aperture. The aperture is the real ceiling; the 60% figure is a proxy for how much of the
-gross frame the sections eat, and sections eat far more on a tilt-and-turn than on a fixed-light
-frame. That same arithmetic resolves configuration questions: it showed the whole Riverside frame
-opens as one bottom-hung sash with the transom a glazing bar within it, which is why a single 850mm
-chain works on a frame whose individual apertures are only 590mm high.
+**THE RIGHT DENOMINATOR FOR A CLEAR-OPENING RATIO IS THE APERTURE, NOT THE GROSS FRAME.** A
+"required free area ÷ GROSS frame area, query anything above ~60%" rule of thumb was proposed on
+Gordon Court and **has been withdrawn by its author** - do not re-adopt it. It condemns borderline
+units: recomputed on the aperture, their WN_7 went from "cannot reach 1.5 m2" to 99.3% of it, short by
+0.01 m2. Riverside is where the correction came from: A Plus's quoted 1.30 m2 is 75% of the gross
+frame, which looks wrong until you compute the aperture - 957 x 1357 = **1.2986 m2** - and find the
+quote is exactly 100% of it. **Divide by the aperture.** The gross-frame ratio is only a proxy for how
+much of the frame the sections eat, and sections eat far more on a tilt-and-turn than on a fixed-light
+frame. Note the aperture itself is usually inferred from a nominal section depth unless the supplier
+states it, so it is an estimate too - the clear opening is the manufacturer's figure to give.
+
+That same arithmetic resolves configuration questions: it showed the whole Riverside frame opens as
+one bottom-hung sash with the transom a glazing bar within it, which is why a single 850mm chain works
+on a frame whose individual apertures are only 590mm high.
+
+**CHECK WHAT THE PACK REFERS TO THAT IT DOES NOT CONTAIN, AND WHAT THE DRAWING NUMBERS IMPLY IS
+MISSING.** Two cheap tests, both of which fire on small packs as well as large ones:
+
+- *Cross-references.* When a drawing says to read it with another document, check that document is
+  there. Riverside's plans cite DETAIL 1, 2, 4, 5 and 6 - *"SEE DETAIL 6 FOR THERMAL UPGRADE TO
+  ROOF"* - and not one detail sheet is in the pack. On Gordon Court, three of four referenced
+  documents were absent, including the demolition elevations the demolition plans require.
+- *Numbering gaps.* Riverside holds K1653-03, 04, 10b, 11, 12 - five sheets with 01, 02, 05, 06, 07,
+  08 and 09 unaccounted for. Gordon Court's loose job folder held **25 of the 82** drawings in the
+  tender zip, and the 57 absent included every floor layout, every existing plan and all three
+  demolition plans; what it *did* hold was the similarly-numbered SETTING OUT series.
+
+**Ask for the drawing register or issue sheet** rather than inferring from gaps. And note which
+document classes tend to carry the answers: the **fire strategy** states the free-area basis in its
+own words, and the **demolition plan** is where new-versus-existing openings are marked (*"NEW
+STRUCTURAL OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE"*). If those two are missing, the questions they
+answer cannot be reasoned out from what is left.
 
 Two more from the same job:
 

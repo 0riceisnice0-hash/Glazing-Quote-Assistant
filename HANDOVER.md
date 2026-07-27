@@ -828,6 +828,56 @@ The requote brief now runs to two parts: seven items for A Plus and **six client
 for RRR / Campbell Ark / the fire engineer. `mary_checks` unchanged at 0 failed, 3 questions; selftest
 passes.
 
+### Riverside House - we priced from 5 of at least 12 drawings, and a withdrawn rule (2026-07-27, late)
+
+**A RULE THIS CHAT HELPED CREATE HAS BEEN WITHDRAWN - do not re-adopt it.** Gordon Court proposed a
+ten-second AOV test: required free area ÷ GROSS frame area, query anything much above ~60%. Riverside
+showed the aperture is the real ceiling, and recomputing their own unit on that basis moved WN_7 from
+*"cannot reach 1.5 m2"* to **99.3% of it - short by 0.01 m2**. Marginal, not incapable; the gross-frame
+version would have condemned a borderline unit, which is the false-alarm failure mode. **Divide by the
+aperture.** Riverside's A Plus figure is 75% of gross but exactly 100% of the 957 x 1357 = 1.2986 m2
+aperture. **One caveat this chat owes back:** an aperture is normally *inferred* from a nominal section
+depth unless the supplier states it - ours included, where 86.5mm comes from (1130-957)/2 - so an
+aperture ratio is an estimate, not a compliance test. The clear opening is the manufacturer's figure.
+
+**AND WE ARE NOT WORKING FROM THE WHOLE PACK.** Gordon Court ran this chat's "watch for two layout
+sets" lesson at scale and found their loose job folder held **25 of the 82** architect's drawings in
+the tender zip - the 57 absent including every floor layout, every existing plan and all three
+demolition plans. Run back on Riverside, which has no zip at all:
+
+- **Held:** Campbell Ark K1653-**03, 04, 10b, 11, 12**, plus hd planning's location plan.
+- **Numbering gaps:** K1653-**01, 02, 05, 06, 07, 08, 09** unaccounted for - seven sheet numbers
+  against five held, with nothing to say where the series ends.
+- **Cross-referenced and absent:** **DETAIL 1, 2, 4, 5 and 6**. Verified at source - *"SEE DETAIL 4 FOR
+  ACOUSTIC UPGRADE TO SECOND FLOOR"* and *"SEE DETAIL 6 FOR THERMAL UPGRADE TO ROOF"* on K1653-12,
+  *"SEE DETAIL 1 / 2 / 5"* in the wall key, *"SEE DETAIL 4 ... TO FIRST FLOOR"* on K1653-10b. Not one
+  detail sheet is in anything we have been sent.
+- **Whole classes absent:** no fire strategy, no existing plans, no demolition plan, no sections, no
+  window or door schedule.
+- `Commercial\1. Tender Documents\RRR\Riverside` **is still empty** (re-checked). Everything priced
+  arrived as email attachments.
+
+**The check works without a zip to diff against** - sheet numbering gaps and cross-references both fire
+on a six-drawing pack. Two one-minute tests for any pack: list the numbers held and look for gaps; grep
+the drawings for "see detail", "refer to", "read together with" and confirm each named document exists.
+Gordon Court found three of four referenced documents absent; Riverside five of five.
+
+**THE PART THAT MATTERS MORE THAN THE COUNT - retarget the ask.** Both of this job's open questions live
+on drawing classes we do not hold, and Gordon Court proved which:
+
+- the **fire strategy** states the free-area basis in the author's own words - theirs reads *"AOV.
+  1.5m2 CLEAR OPENING AREA"* - which is the geometric-or-aerodynamic question answered in one line;
+- the **demolition plan** legend marks *"NEW STRUCTURAL OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE"* -
+  precisely the new-versus-existing question raised against Adam's "the openings are newly formed".
+
+So the ask has moved from *"confirm the openings are new"* to **the fire strategy and the demolition
+plan, requested by name** - now C0 and C2 of the brief, with a line saying that if only two things get
+asked for, make it those. C7 asks for the drawing register rather than guessing further from gaps.
+Asking for "the rest of the pack" gets a shrug; naming the drawing that holds the answer does not.
+
+`mary_checks` unchanged at 0 failed, 3 questions - the missing sheets are now an explicit exclusion
+rather than a silent gap. Selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

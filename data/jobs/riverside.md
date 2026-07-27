@@ -163,6 +163,33 @@ Mar 23 rev B) and the construction-issue sheets K1653-10b/11/12 (Mar 24). The co
 later and is marked CONSTRUCTION ISSUE, so it governs - and it is the only set carrying the smoke-vent
 note. K1653-03 does not carry it.
 
+### WE ARE NOT WORKING FROM THE WHOLE PACK - and the missing sheets are the ones that matter
+
+Gordon Court found their loose job folder held **25 of the 82** drawings in the tender zip, and the 57
+absent included every floor layout, every existing plan and all three demolition plans. Run on
+Riverside, which has no zip at all - everything arrived as email attachments and
+`Commercial\1. Tender Documents\RRR\Riverside` **is still empty** (re-checked 27/07 late):
+
+- **Numbering gaps.** We hold Campbell Ark's K1653-**03, 04, 10b, 11, 12**, plus hd planning's
+  location plan. That leaves **K1653-01, 02, 05, 06, 07, 08 and 09** unaccounted for - seven sheet
+  numbers against the five we have - and nothing tells us where the series ends.
+- **Cross-referenced sheets that are not here.** The plans cite **DETAIL 1, 2, 4, 5 and 6** - verified
+  at source: *"SEE DETAIL 4 FOR ACOUSTIC UPGRADE TO SECOND FLOOR"* and *"SEE DETAIL 6 FOR THERMAL
+  UPGRADE TO ROOF"* on K1653-12, *"SEE DETAIL 1 / 2 / 5"* in the wall key, *"SEE DETAIL 4 FOR ACOUSTIC
+  UPGRADE TO FIRST FLOOR"* on K1653-10b. Not one detail sheet is in anything we hold.
+- **Whole document classes absent:** no fire strategy, no existing plans, no demolition plan, no
+  sections, no window or door schedule.
+
+Most of that is probably not our scope. **The point is that the absent classes are exactly the ones
+that answer our open questions** - proven on Gordon Court, where the demolition legend carried *"NEW
+STRUCTURAL OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE"*, which is precisely the new-versus-existing
+question we have against Adam's ruling, and where the fire strategy legend stated the duty in its own
+words (*"AOV. 1.5m2 CLEAR OPENING AREA"*), which is precisely our geometric-or-aerodynamic question.
+
+So the two documents worth asking for above all others are **the fire strategy (answers C1)** and
+**the demolition / existing plans (answer C2)**. Both are now C0 and C2 in the brief, and C7 asks for
+the drawing register rather than guessing further from numbering gaps.
+
 ### What A Plus's 1.30 m2 actually is - and it resolves RFI-2
 
 The full inner frame aperture is **957 x 1357 = 1.2986 m2**, which is the 1.30 m2 stated (1357 = 1530
@@ -172,12 +199,16 @@ bottom-hung leaf, with the 176mm transom acting as a glazing bar within the sash
 a fixed pane from an opening one. That matches the original objection that an 850mm chain cannot act
 on a 590mm-high aperture. Carried as a confirmation rather than a question in brief item 5.
 
-It also answers Gordon Court's ratio flag. They suggest dividing the required free area by the GROSS
-frame area and querying anything much above ~60%. Riverside: required 1.0 / 1.729 = **57.8%**, inside
-their threshold. A Plus's quoted 1.30 is 75% of gross - which looks high until you notice it is
-**100% of the inner aperture**, and the aperture is the real ceiling. The right denominator for a
-clear-opening ratio is the aperture, not the gross frame; the 60% rule of thumb is really a proxy for
-how much of the gross frame the sections eat.
+It also answers Gordon Court's ratio flag - and **that flag has since been withdrawn by its author,
+so do not re-adopt it.** They proposed dividing the required free area by the GROSS frame area and
+querying anything much above ~60%. A Plus's quoted 1.30 is 75% of gross, which looks high until you
+notice it is **100% of the inner aperture**. Recomputed on the aperture, Gordon Court's own WN_7 went
+from "cannot reach 1.5 m2" to 99.3% of it - short by 0.01 m2, i.e. marginal rather than incapable -
+so the gross-frame test would have condemned a borderline unit. **The aperture is the real ceiling
+and the right denominator.** Riverside's requirement is 1.0 / 1.729 gross = 57.8%, or 1.0 / 1.2986
+aperture = 77% - comfortable either way. One caveat carried from their correction: an aperture is
+usually *inferred* from a nominal section depth unless the supplier states it, so it is an estimate
+too. The clear opening is the manufacturer's figure to give.
 
 ### The requote brief - written and ready either way
 

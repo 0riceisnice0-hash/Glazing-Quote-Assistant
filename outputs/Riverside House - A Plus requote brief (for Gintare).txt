@@ -5,9 +5,11 @@ Fairford Leys, Aylesbury HP19 7HL. Planning 24/02303/PAPCR.
 WHY THIS IS ONE EMAIL AND NOT TWO
 --------------------------------------------------------------------------------
 Adam has confirmed the openings are being newly formed, so the vents can be any size
-we need. The only thing still undecided is whether the drawings' 1m2 free area means
-GEOMETRIC or AERODYNAMIC. Rather than wait for that answer and then ask A Plus, this
-asks for both cases at once - so whichever way it falls, we already have the price.
+we need - though see C2, because the pack does not corroborate that and it should be
+checked before anyone relies on it. The only thing still undecided on the vents
+themselves is whether the drawings' 1m2 free area means GEOMETRIC or AERODYNAMIC.
+Rather than wait for that answer and then ask A Plus, this asks for both cases at once -
+so whichever way it falls, we already have the price.
 
 Everything below is answerable by A Plus from their own system. They stated both free
 area figures on QT51516 (Towcester Vale) three days earlier, so item 1 is not a new
@@ -75,8 +77,20 @@ how long A Plus will hold the price, or what notice we would get of a change.
 --------------------------------------------------------------------------------
 PART TWO - NOT FOR A PLUS. THESE GO TO RRR / CAMPBELL ARK / THE FIRE ENGINEER
 --------------------------------------------------------------------------------
-Four of these have come up since the vents were priced, and two of them could change
-the answer to Part One. Worth asking before Gintare spends A Plus's time.
+These have all come up since the vents were priced, and three of them could change the
+answer to Part One. Worth asking before Gintare spends A Plus's time.
+
+If only two things get asked, make them C0 and C2 - the fire strategy and the demolition
+plan. Between them they answer most of the rest, and neither is something we can work
+out from what we hold.
+
+C0. FIRST, PLEASE SEND THE FIRE STRATEGY. There is no fire strategy drawing or report
+    in anything we hold. The entire smoke-vent requirement reaches us as a single red
+    note on two floor plans. Somebody produced a strategy in order to write that note -
+    it will say in its own words whether the 1m2 is geometric, aerodynamic or clear
+    opening area, and it will settle C1 without anyone having to reason from the
+    drawings. On a comparable job the fire strategy legend simply stated the duty:
+    "AOV. 1.5m2 CLEAR OPENING AREA." One document, and C1 is answered.
 
 C1. IS THE 1m2 GEOMETRIC OR AERODYNAMIC? The drawings do not say. Our reading is
     GEOMETRIC, for two reasons: the drawings' own key works "TO AD B1", which is the
@@ -84,16 +98,20 @@ C1. IS THE 1m2 GEOMETRIC OR AERODYNAMIC? The drawings do not say. Our reading is
     where aerodynamic is the language of the engineered BS 9991 / EN 12101-2 route;
     and comparable packs specify this exact duty as "1m2 GEOMETRIC free area" in so
     many words. On that reading the vents as quoted clear the requirement by 30% and
-    nothing needs to change. Please confirm.
+    nothing needs to change. Please confirm - or send the fire strategy per C0.
 
-C2. ARE THE OPENINGS REALLY NEW? We have been told the openings are being newly
-    formed and can therefore be made any size. **The pack does not show that.**
-    Drawing K1653-04 "EXISTING / PROPOSED ELEVATIONS" carries a single set of eight
-    elevations showing a complete, regularly fenestrated building, with no new opening
-    marked anywhere and no AOV drawn on any elevation. If the vents are in fact going
-    into EXISTING openings, then enlarging them is structural work - new lintels,
-    cutting masonry, making good - none of which is in anybody's price, and it would
-    also change the approved external appearance. Please confirm per vent.
+C2. ARE THE OPENINGS REALLY NEW? PLEASE SEND THE DEMOLITION AND EXISTING PLANS. We
+    have been told the openings are being newly formed and can therefore be made any
+    size. **The pack does not show that.** Drawing K1653-04 "EXISTING / PROPOSED
+    ELEVATIONS" carries a single set of eight elevations showing a complete, regularly
+    fenestrated building, with no new opening marked anywhere and no AOV drawn on any
+    elevation. If the vents are in fact going into EXISTING openings, then enlarging
+    them is structural work - new lintels, cutting masonry, making good - none of which
+    is in anybody's price, and it would also change the approved external appearance.
+    We hold no existing plans and no demolition plan. On a comparable job the demolition
+    legend was where new openings were marked, in exactly these words: "NEW STRUCTURAL
+    OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE." That is the drawing that answers this,
+    and it is not something we can reason our way to.
 
 C3. AND IF THEY ARE ENLARGED, DOES THAT NEED PLANNING? The drawings are stamped
     24/02303/PAPCR, which is a PRIOR APPROVAL reference rather than a full planning
@@ -123,3 +141,21 @@ C6. WHO IS CARRYING THE AOV CONTROL SYSTEM? It is not in A Plus's scope and it i
     commissioning. A Plus fix the actuator, test it on local batteries and leave about
     2m of flex coiled at the vent - that is where they stop. Worth settling with RRR /
     PHDB at the same time as the above.
+
+C7. WE ARE ALMOST CERTAINLY NOT WORKING FROM THE WHOLE PACK. We hold six drawings.
+    Five are Campbell Ark's K1653 series - 03, 04, 10b, 11 and 12 - and the sixth is
+    hd planning's location plan. That leaves K1653-01, 02, 05, 06, 07, 08 and 09
+    unaccounted for, seven sheet numbers against the five we have, and nothing tells us
+    where the series ends. The drawings also cross-refer to DETAIL 1, DETAIL 2,
+    DETAIL 4, DETAIL 5 and DETAIL 6 - "SEE DETAIL 4 FOR ACOUSTIC UPGRADE TO SECOND
+    FLOOR", "SEE DETAIL 6 FOR THERMAL UPGRADE TO ROOF" and so on - and not one of those
+    detail sheets is in anything we have been sent.
+
+    Most of that is probably not our scope. But the classes of drawing we are missing
+    are precisely the ones that answer C1, C2 and C4: the fire strategy, the existing
+    plans, the demolition plan and the sections. **Please send the full drawing
+    register or issue sheet** so we can see what exists and ask for what matters,
+    rather than guessing from the gaps in a numbering sequence.
+
+    Worth saying plainly: the OneDrive folder for this job is still empty. Everything
+    we have priced from arrived as email attachments.
