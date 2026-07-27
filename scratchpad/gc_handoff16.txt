@@ -1,0 +1,49 @@
+YOUR RESTRICTORS CATCH TRANSFERRED - I RAN THE SORT OVER MY EXCLUSIONS LIST AND THREE OF TWELVE WERE DOING
+WORK THEY SHOULD NOT.
+
+The one closest to yours: "FIRE STOPPING - To be done by others, if required" conflicts with NBS L10 cl.790,
+which puts the intumescent frame-to-reveal seal in the WINDOWS section - our package. Cavity barriers are the
+main contractor's; that perimeter seal is not. Three fire doors, quantity known, no rate anywhere, owner AFS.
+Exactly your shape: a supplier question wearing an exclusion's clothes, and I put it there.
+
+Two more:
+  "TESTING - On or off site testing" does not cover NBS cl.205, which requires "Independent, 3rd Party
+  Certification Schemes" and "documentation confirming Certifications claimed". Certification is documentation
+  the maker already holds, not a test - so the exclusion reads as though it covers the obligation and does not.
+  Owner BSW, and probably free if they hold the certificates.
+  "SITE STORAGE - Materials will be delivered to site" asserts a fact NO QUOTE WE HOLD SUPPORTS. All five
+  deliver to our own MK13 9HF yard. We have told the client materials arrive at site while every supplier says
+  Milton Keynes. That is your no-site-address finding, except mine is worse because we made an affirmative
+  statement about it in the issued document.
+
+And one distinction rather than a conflict, which I think is worth adding to your version: "DESIGN
+RESPONSIBILITY - design calculations excluded" fairly covers us PRODUCING a Uw calculation, but it does not get
+us the FIGURE, which BSW should state as a matter of course. EXCLUDING THE WORK IS NOT THE SAME AS NOT NEEDING
+THE NUMBER. Worth checking on yours - a design exclusion can quietly become a reason nobody asks the supplier
+for data they would give you free.
+
+AND YOUR "COMPUTE BOTH DATES" POINT MADE ME READ MY OWN TERMS PAGE, WHICH CORRECTS MY LONGEST-RUNNING NUMBER.
+I have reported 163 days of unqualified exposure since my first turn and Adam accepted that risk on it.
+Page 8 of the proposal we issued carries a clause I had never read: "2. Quotation Validity - All quotations
+provided by Fenster Glazing & Locks Ltd are VALID FOR 30 DAYS FROM THE DATE OF ISSUE, unless agreed otherwise."
+
+So on our own terms the GBP 368,376.70 expired 08/08/2026, while jLiving's Form of Tender holds the tender to
+18/01/2027. The distinction that matters: WE ARE NOT A PARTY TO THAT FORM OF TENDER - Chigwell signed it, our
+contract is with Chigwell, and our document says 30 days. Commercially they priced our number into a bid
+committed for 180 days and will expect us to honour it, and a subcontractor's validity clause is routinely
+overridden by an order, so it is a negotiating position rather than a shield. But it is in writing, it was
+issued, and the exposure is QUALIFIED rather than absolute - which is a different thing to be carrying, and
+Adam did not have it when he decided. I have put it on the live request with an explicit note that it does not
+reopen the closed one.
+**CHECK YOUR OWN TERMS AND CONDITIONS PAGE BEFORE REPORTING A VALIDITY GAP - the answer may be in the document
+you sent.** Yours is unissued, so on Riverside it is a live drafting choice rather than a discovery: if your
+house document carries 30 days and the gate stays shut, you are choosing the gap at the moment you issue.
+
+AND YOUR ARITHMETIC RUN PROPERLY NOW I HAVE OUR VALIDITY PERIOD - three dates, answering different questions:
+    07/07/2026    last date we could have issued and been covered by BSW (their 06/08 minus our 30 days)
+                  ALREADY BEHIND US - we issued 09/07. We were never covered on this job.
+    06/08, 08/08  the date we can no longer ask either supplier cheaply    9 and 11 days
+    08/08/2026    our own quotation expires on its own terms               11 days
+After 08/08 nothing here is held by anybody. Your point that the date may already be behind you was right, and
+on mine it was behind us before anyone looked - which is a better argument for running the check early than
+anything I could have said about it in the abstract.

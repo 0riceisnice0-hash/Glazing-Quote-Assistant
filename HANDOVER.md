@@ -2890,6 +2890,64 @@ mastic - the **intumescent** seal cl.790 requires is a different and dearer prod
 Manifest 31 spec_items; run unchanged at **5 FAIL, 2 ASK**.
 
 
+### Gordon Court - sixteenth turn: our own proposal caps the exposure at 30 days, and three exclusions were doing work they should not (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**A CORRECTION TO MY LONGEST-RUNNING NUMBER.** Since turn one I have reported **163 days of unqualified
+exposure**, and Adam accepted that risk on REQ-20. **Page 8 of the proposal we issued carries a clause I had
+never read:**
+
+> *"**2. Quotation Validity** - All quotations provided by Fenster Glazing & Locks Ltd are **valid for 30 days
+> from the date of issue**, unless agreed otherwise."*
+
+So on our own terms the GBP 368,376.70 **expired 08/08/2026**, while jLiving's Form of Tender holds the
+**tender** to 18/01/2027. The distinction that matters: **we are not a party to that Form of Tender** - Chigwell
+signed it, our contract is with Chigwell, and our document says 30 days.
+
+**Being fair about its weight:** Chigwell priced our number into a bid committed for 180 days and will expect us
+to honour it, and a subcontractor's validity clause is routinely overridden by an order - so it is a
+**negotiating position, not a shield**. But it is in writing, it was issued, and the exposure is **qualified
+rather than absolute**. **This does not reopen REQ-20** - it supplies a fact Adam did not have. It also sharpens
+**RFI-11**: if our terms went up with Chigwell's Section 2 caveats the clause is visible to jLiving; if not,
+Chigwell absorbed it silently. **General rule: check your own terms and conditions page before reporting a
+validity gap - the answer may be in the document you sent.**
+
+**THREE DATES, ANSWERING DIFFERENT QUESTIONS** (riverside's arithmetic, runnable now I have our validity):
+
+| Date | Question | Status |
+|---|---|---|
+| **07/07/2026** | last date we could have issued and been covered by BSW (06/08 - 30 days) | **already behind us - we issued 09/07. We were never covered** |
+| **06/08 / 08/08** | when we can no longer ask either supplier cheaply | 9 and 11 days |
+| **08/08/2026** | our own quotation expires on its own terms | 11 days |
+
+**After 08/08 nothing on this job is held by anybody.**
+
+**AND RIVERSIDE'S RATE-VS-QUANTITY SORT, RUN OVER THE EXCLUSIONS LIST RATHER THAN THE FINDINGS.** They caught
+window restrictors sitting in an exclusions list when they were an unanswered supplier question. **Three of our
+twelve are doing work they should not:**
+
+- **"Fire Stopping - To be done by others, if required"** **conflicts with NBS L10 cl.790**, which puts the
+  intumescent frame-to-reveal seal in the **windows** section - our package. Cavity barriers are the main
+  contractor's; that perimeter seal is not. 3 doors, no rate, **owner AFS**.
+- **"Testing - On or off site testing"** **does not cover NBS cl.205's** *"Independent, 3rd Party Certification
+  Schemes"* and *"documentation confirming Certifications claimed"* - certification is documentation the maker
+  already holds, **not a test**. **Owner BSW**, probably free if they hold the certificates.
+- **"Site Storage - Materials will be delivered to site"** **asserts a fact no quote we hold supports** - all
+  five deliver to our own MK13 9HF yard.
+
+**And a distinction rather than a conflict:** *"Design Responsibility - design calculations excluded"* fairly
+covers us **producing** a Uw calculation but does not get us the **figure**, which BSW should state as a matter
+of course. **Excluding the work is not the same as not needing the number.**
+*"Structural Alterations - by Main Contractor"* is consistent with the head contract. **Genuine, cleared.**
+
+**The transferable form: "we exclude X" is only safe if X is genuinely somebody else's under the spec.** Three
+of ours were either contradicted by a clause in our own package's NBS section, or asserted a fact our suppliers
+do not support.
+
+Manifest 31 spec_items; run unchanged at **5 FAIL, 2 ASK**. REQ-26 now 12 options, read-back verified.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

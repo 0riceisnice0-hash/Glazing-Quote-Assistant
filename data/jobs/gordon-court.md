@@ -1560,6 +1560,74 @@ with no rate anywhere, so having the analogue priced does not help.
 
 ---
 
+---
+
+## 4N. SIXTEENTH TURN (28/07) — our own proposal caps the exposure at 30 days
+
+### 4N.1 A correction to my own longest-running number
+
+Since turn one I have recorded **163 days of unqualified exposure** — jLiving's Form of Tender holding the
+price to 18/01/2027 against 30-day supplier quotes. Adam accepted that risk on REQ-20. **The figure was
+incomplete, and our own issued document is what qualifies it.**
+
+> **Page 8 of the proposal we issued on 09/07, under TERMS AND CONDITIONS:**
+> *"**2. Quotation Validity** — All quotations provided by Fenster Glazing & Locks Ltd are **valid for 30 days
+> from the date of issue**, unless agreed otherwise. All quotations are subject to final site survey and
+> measurement verification."*
+
+**So on our own terms the £368,376.70 expired on 08/08/2026** — eleven days from today — while jLiving's Form
+of Tender holds the *tender* open to **18/01/2027**. Those conflict, and the distinction that matters is:
+**we are not a party to jLiving's Form of Tender.** Chigwell signed it. Our contract is with Chigwell, our
+document says 30 days, and that clause was issued to them in writing.
+
+**Being fair about how much it is worth:** commercially Chigwell priced our number into a bid they have
+committed for 180 days and will expect us to honour it, and a subcontractor's validity clause is routinely
+overridden by a main contractor's order terms. **So it is a negotiating position, not a shield.** But it is in
+writing, it was issued, and the 163-day exposure is therefore **qualified rather than absolute** — a materially
+different thing to be carrying. **This does not reopen REQ-20**; Adam's decision stands. It supplies a fact he
+did not have when he took it.
+
+It also makes **RFI-11 more important than it looked**: if our terms went up with Chigwell's Section 2 caveats,
+the 30-day clause is visible to jLiving; if they did not, Chigwell absorbed it silently.
+
+### 4N.2 Three dates, answering different questions
+
+riverside's arithmetic, runnable properly now I have our own validity period:
+
+| Date | What it answers | Status |
+|---|---|---|
+| **07/07/2026** | last date we could have issued and still been covered by BSW (06/08 − 30 days) | **already behind us — we issued 09/07, two days late** |
+| **06/08 / 08/08** | the date we can no longer ask either supplier cheaply | 9 and 11 days |
+| **08/08/2026** | our own quotation expires on its own terms | 11 days |
+
+**We were never covered on this job.** Small, but it is precisely what their check is designed to surface, and
+it was behind us before anyone looked. **After 08/08 nothing here is held by anybody** — BSW lapsed, AFS lapsed,
+and our own price expired.
+
+### 4N.3 riverside's rate-vs-quantity sort, run over the EXCLUSIONS list
+
+They found window restrictors sitting in an exclusions list when they were really an unanswered supplier
+question. Running the same over our twelve exclusions, **three are doing work they should not**:
+
+| Exclusion (verbatim) | Problem |
+|---|---|
+| **"Fire Stopping — To be done by others, if required"** | **Conflicts with NBS L10 cl.790**, which puts the intumescent frame-to-reveal seal in the **windows** section — our package. Cavity barriers are the main contractor's; that perimeter seal is not. 3 fire doors · no rate · **owner AFS** |
+| **"Testing — On or off site testing"** | **Does not cover NBS cl.205**, which requires *"Independent, 3rd Party Certification Schemes"* and *"documentation confirming Certifications claimed"*. Certification is documentation the maker already holds, **not a test** — so the exclusion reads as if it covers the obligation and doesn't. **Owner BSW**, probably free if they hold the certificates |
+| **"Site Storage — Materials will be delivered to site"** | **Asserts a fact no quote we hold supports.** All five quotes deliver to our own MK13 9HF yard. We have told the client materials arrive at site while every supplier says Milton Keynes |
+
+**And one distinction rather than a conflict:** *"Design Responsibility — design calculations… excluded"* fairly
+covers us **producing** a Uw calculation — but it does not get us the **figure**, which BSW should state as a
+matter of course. **Excluding the work is not the same as not needing the number.**
+
+*"Structural Alterations — To be completed by Main Contractor"* is consistent with the head contract and the
+demolition plans. **Genuine exclusion, cleared.**
+
+**The transferable form:** an exclusions list is worth sorting the same way as a findings list. *"We exclude X"*
+is only safe if X is genuinely somebody else's under the spec — and three of ours were either contradicted by a
+clause in our own package's NBS section, or asserted a fact our suppliers don't support.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

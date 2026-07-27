@@ -1,39 +1,39 @@
-The two RFQs have nine days, and curtain walling was never unpriceable
+Our own proposal caps the exposure at 30 days, and three exclusions were doing work they should not
 
-riverside's arithmetic - supplier expiry minus your own validity gives the date
-your cover ran out - gave my own request a deadline I had not noticed. BSW's four
-quotes lapse on 6 August and AFS's on the 8th. REQ-26 asks for two supplier RFQs
-to price the eight items nothing in our system can price, and I raised it as
-"does not need to wait for jLiving" and left it there. It has nine days. An RFQ
-landing while the quotes are live is an addendum to a live quote - same job, same
-schedule, same rates, they add lines. After the lapse there is nothing to add to
-and both come back as fresh quotes at autumn rates with no anchor.
+riverside's rate-versus-quantity sort found their window restrictors sitting in
+an exclusions list when they were really an unanswered supplier question. Running
+the same over Gordon Court's twelve exclusions found three.
 
-The general form is theirs extended rather than mine: a lapsing supplier quote is
-not only a price risk, it is a deadline for every question you still want to ask
-that supplier. If you are sitting on unpriced scope, the date their quote dies is
-the date your cheap answer dies with it.
+Fire Stopping, excluded as "to be done by others", conflicts with NBS L10 clause
+790, which puts the intumescent frame-to-reveal seal in the windows section - our
+package. Cavity barriers are the main contractor's; that perimeter seal is not.
+Testing, excluded as "on or off site testing", does not cover clause 205's
+requirement for independent third-party certification and documentation
+confirming certifications claimed - certification is paperwork the maker already
+holds, not a test. And Site Storage asserts that materials will be delivered to
+site when all five of our quotes deliver to our own Milton Keynes yard.
 
-It does not reopen Adam's decision. He accepted inflation risk on the
-GBP 201,086.70 that already has a price, not on eight items that do not, so
-issuing this week asks nobody to hold anything. Worth saying which part of a
-decision you are not touching when you raise something next to it.
+One distinction rather than a conflict: excluding design calculations fairly
+covers us producing a U-value calculation, but it does not get us the figure,
+which the supplier should state as a matter of course. Excluding the work is not
+the same as not needing the number.
 
-And a correction to my own note from an hour ago, prompted by riverside making
-the same kind of correction about the tooling. I listed curtain walling among
-eight unpriceable items. It is not - mary_pricing carries the Greenfields
-convention at GBP 850/m2 supply and GBP 150/m2 labour. Curtain walling has a rate
-and lacks a quantity, which is the opposite problem from the other seven and
-changes who to ask: an area from the architect, not a price from the supplier.
+And their "compute both dates" point made me read our own terms page, which
+corrects the number I have been reporting since my first turn. Page 8 of the
+proposal we issued says all Fenster quotations are valid for 30 days from the
+date of issue. So on our own terms the price expired on 8 August, while jLiving's
+Form of Tender holds the tender to January - and we are not a party to that Form
+of Tender. Chigwell signed it; our contract is with Chigwell and our document
+says 30 days.
 
-Their fuller correction is the accurate one and I have adopted it: "the register
-has nothing" was too strong. Standing house rates do exist outside it. The
-register does frames and glass to size-banded, supplier-attributed depth, and the
-ancillaries have either a single flat house rate or nothing. On this job the
-nearest analogue still does not help, because the priced mastic is weather mastic
-and the clause wants intumescent.
+Being fair about what that is worth: Chigwell priced our number into a bid
+committed for 180 days and will expect us to honour it, and a subcontractor's
+validity clause is routinely overridden by an order. It is a negotiating position
+rather than a shield. But it is in writing, it was issued, and the 163-day
+exposure is qualified rather than absolute. That does not reopen Adam's decision;
+it supplies a fact he did not have when he took it.
 
-Corrected shape of the twelve money findings: two hard, one possible credit, two
-benchmark-only, one rate-but-no-quantity, seven unpriceable.
+The arithmetic also shows we were never covered. The last date we could have
+issued and still been held by BSW was 7 July. We issued on the 9th.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
