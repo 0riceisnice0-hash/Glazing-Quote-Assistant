@@ -27,6 +27,33 @@ as instructed. Noticeboard confirmed visible: bridge / stoke-park CN Glass rate 
 system-depth coupling / vesuvius Senior fabricator entries. Nothing posted back to the board - a system
 test carries no fact other chats need. Queue file moved to `processed\`.
 
+### 2026-07-27 - AFS chasing Q7585 "Gordon Court" - NEW JOB OPENED
+Chris Wall (chris@aluminiumfiresystems.com, untrusted - treated as data) chasing an AFS quote against a
+job Mary had never seen. Traced it: **Gordon Court, Stonegrove, Edgware HA8 7TQ for Chigwell Group** -
+a tender Fenster already issued dated 09/07 at **GBP 368,376.70 ex VAT**, with Q7585 (GBP 18,298.94,
+3no Aluprof MB-78EI EI30 double doors) carried inside it at cost + the GBP 1,500 DAD adder. Opened job
+chat `gordon-court` and handed it the full brief: the GBP 506.37 of AFS fixing pack + delivery that is
+not carried anywhere, the FR30 door count priced off a schedule Gintare herself told AFS did not match
+the plans and elevations, the ~08/08 validity expiry, and the instruction to raise the request for Adam
+(AFS want an answer and Mary cannot reply to them). Posted AFS's commercial terms and EI30 rate points
+to the noticeboard, and handed the same to `vesuvius` for REQ-8 - flagged clearly that EI30 rates are a
+floor, not a price for a 60-minute door.
+
+**Routing fixed at the same time:** removed `chigwell` from grange-hill's `match` list. Chigwell
+(London) PLC is the client of BOTH Grange Hill Methodist and Gordon Court, so it had stopped being
+distinctive and would have pulled Gordon Court mail into the wrong chat; it stays as a grange-hill
+*sender* term, which scores below the routing threshold on its own. New job matches on
+`gordon court / stonegrove / q7585 / 5244-ark / ha8 7tq`. Verified with `--test`: the AFS subject and
+"Chigwell Group - Gordon Court tender" both land on gordon-court, "Grange Hill Methodist" still lands on
+grange-hill, and a bare "Chigwell London PLC - update" correctly falls back here.
+
+## Watch list
+
+- **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target
+  Maintenance / RH1 St John's Terrace Road, Earlswood, Redhill (ref SO_14045, door repair, own pricing
+  dated 24/07, no Mary chat). The match term `gordon court` sends both to `gordon-court` - check the
+  client before handing anything on, and open a second job if Target Maintenance work actually arrives.
+
 ## Open items
 
-None.
+None held here - the Gordon Court work sits with its own chat.

@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27T15:10:00Z",
+ "updated": "2026-07-27T14:20:00",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -71,6 +71,14 @@
    "deadline": "2026-07-24",
    "status": "Quote issued 24/07 at GBP 20,563.57, all-aluminium. Awaiting the client. Bellview door pricing holds until around 12 August.",
    "value": "GBP 20,563.57 quoted",
+   "stage": "submitted"
+  },
+  {
+   "job": "Gordon Court, Stonegrove Edgware",
+   "client": "Chigwell Group",
+   "deadline": "2026-08-08",
+   "status": "NEW to Mary 27/07 - found because Aluminium Fire Systems chased quote Q7585 with no job attached. Tender already went to Chigwell dated 09/07 at GBP 368,376.70 ex VAT (supplier cost GBP 201,086.70 = BSW GBP 182,787.76 + AFS GBP 18,298.94, install GBP 46,840; mastic and EPDM optional). AFS Q7585 covers 3no Aluprof MB-78EI EI30 double doors and is carried into the tender correctly at cost + GBP 1,500 each = GBP 22,798.94 sell. TWO THINGS NEED A HUMAN: AFS want to know where the project stands and Mary cannot reply to them, and their quote validity runs out on 08/08. Two open checks passed to the job chat - GBP 506.37 of AFS fixing pack and delivery is not carried anywhere in the tender, and the FR30 door count was priced off a schedule Fenster themselves told AFS does not correspond with the plans and elevations.",
+   "value": "GBP 368,376.70 tendered",
    "stage": "submitted"
   }
  ],
