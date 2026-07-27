@@ -47,6 +47,36 @@ distinctive and would have pulled Gordon Court mail into the wrong chat; it stay
 "Chigwell Group - Gordon Court tender" both land on gordon-court, "Grange Hill Methodist" still lands on
 grange-hill, and a bare "Chigwell London PLC - update" correctly falls back here.
 
+### 2026-07-27 - REQ-5 answered (St Mary's addendum) + dashmsg-12 noise
+Adam asked, against REQ-5, whether ET&S's 24/07 addendum changed our submitted quote. The request had
+no job chat behind it, which is why it landed here. **Answer: no.** Compared the priced window schedule
+2376-09 against rev A attribute by attribute - 209 window refs, 38 types, 28 structural opening sizes,
+38 opening patterns, 24 restrictors, 6 obscure notes, 33 U-value notes, 38 SBD notes all identical. Only
+change: the magnetic integral blind note, 29 occurrences down to 1, and Fenster had already excluded
+blinds on proposal p3 and never priced them. Other two drawings = ceiling grid / unisex toilet and access
+road. **GBP 174,546.37 stands.** Flagged two things: rev A still carries the blind note on Type AK
+(W.92/W.93, our biggest line at GBP 17,311.95), and the revisions were dated 13.07 and 08.07 - before our
+17/07 quote - but held until 24/07. Opened chat `st-marys`, briefed it, added the handover row and hub
+card, posted the reusable lesson to the noticeboard. REQ-5 set to answered.
+
+dashmsg-12 was an automated hub-refresh ping that said to ignore it - marked seen, no reply.
+
+### 2026-07-27 - THE REGISTRY GOT CLOBBERED, AND I HAD TO REBUILD IT
+`data\mary-jobs.json` is shared mutable state and commit **a3f20c5** ("Hub feedback fixes...") overwrote
+it from a stale copy. That silently deleted the `gordon-court` job I had opened an hour earlier AND
+reinstated the `chigwell` match term I had removed from grange-hill. The Gordon Court handoff was still
+sitting unread in `test-results\mary-inbox\handoffs\` - and because the bridge kicks chats by iterating
+registry keys, a handoff addressed to a key that no longer exists never gets delivered. The brief was
+orphaned, silently.
+
+Rebuilt both: `gordon-court` re-added (new session id - no history lost, that chat had never run) and the
+grange-hill match fix re-applied. Routing re-verified in both directions.
+
+**Standing check for this chat from now on:** after any turn that touches `data\mary-jobs.json`, confirm
+with `python scripts\mary_router.py --list` that every job opened here is still present, and check
+`test-results\mary-inbox\handoffs\` for notes addressed to keys that no longer exist. Two writers, no
+locking - assume it will happen again.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

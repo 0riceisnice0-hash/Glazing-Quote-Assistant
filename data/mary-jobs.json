@@ -6,8 +6,7 @@
    "client": "Chigwell (London) PLC",
    "match": [
     "grange hill",
-    "methodist",
-    "chigwell"
+    "methodist"
    ],
    "senders": [
     "chigwelllondon",
@@ -191,6 +190,36 @@
    ],
    "senders": [],
    "opened": "2026-07-16"
+  },
+  "st-marys": {
+   "name": "St Mary's Refurbishment, Merthyr Tydfil",
+   "client": "E T & S Construction",
+   "match": [
+    "st mary's refurbishment",
+    "merthyr",
+    "caedraw",
+    "2376-09",
+    "qt252799",
+    "qp70172"
+   ],
+   "senders": [
+    "etsconstruction",
+    "et-s"
+   ],
+   "opened": "2026-07-27T14:48:33"
+  },
+  "gordon-court": {
+   "name": "Gordon Court, Stonegrove Edgware",
+   "client": "Chigwell Group (Chigwell (London) PLC)",
+   "match": [
+    "gordon court",
+    "stonegrove",
+    "q7585",
+    "5244-ark",
+    "ha8 7tq"
+   ],
+   "senders": [],
+   "opened": "2026-07-27T14:49:39"
   }
  },
  "chats": {
@@ -200,6 +229,27 @@
    "created": "2026-07-27T13:43:40",
    "last_active": "2026-07-27T13:56:46",
    "runs": 1
+  },
+  "filwood": {
+   "session_id": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
+   "started": true,
+   "created": "2026-07-27T14:10:04",
+   "last_active": "2026-07-27T14:39:22",
+   "runs": 1
+  },
+  "st-marys": {
+   "session_id": "9fefb564-0211-43da-b494-bcdd72ed1b85",
+   "started": false,
+   "created": "2026-07-27T14:48:33",
+   "last_active": null,
+   "runs": 0
+  },
+  "gordon-court": {
+   "session_id": "f42eca8f-71b4-443d-8ef8-395015784891",
+   "started": false,
+   "created": "2026-07-27T14:49:39",
+   "last_active": null,
+   "runs": 0
   }
  }
 }

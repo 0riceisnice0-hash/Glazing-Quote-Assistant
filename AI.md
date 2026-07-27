@@ -295,6 +295,44 @@ mullions (about 2m of flex is left coiled at the vent); **the actuators are not 
 liability for damage if a separate restrictor is not fitted 50mm beyond the stroke; vents below 2.5m from FFL raise a
 trap-hazard risk under BS EN 60335-2; below 1100mm from FFL they need Part K anti-fall protection, which Aplus exclude.
 
+## Comparing A Revised Drawing Against What Was Priced (learned 27/07/2026, St Mary's)
+
+**Read the revision date, not the date the addendum arrived.** ET&S issued "revised drawings" on 24/07; inside, the
+window schedule was rev A dated **13.07.26** and the site plan rev E dated **08.07.26** - both revised *before* Fenster
+quoted on 17/07. We priced a superseded drawing for nine days without knowing. Check every revision date in an addendum
+against the date of our own quote, and say plainly if we were working from stale information.
+
+**Start with the architect's own revision note in the title block.** On 2376-09 rev A it read "integral blind omitted"
+and that was the entire change. The note tells you where to look; it does not excuse you from checking.
+
+**Do not trust a line-by-line text diff of two PDFs.** pdfplumber tokenises the same drawing differently between
+revisions - the St Mary's floor plan came out as 937 lines in one revision and 3,285 in the other, generating pages of
+fake differences. Instead compare **counts of the attributes that drive price**: window references, type codes,
+structural opening sizes, opening patterns, restrictor notes, obscure-glazing notes, U-value notes, security standards.
+Identical counts across all of them is a defensible "nothing changed"; a clean text diff is not. Flattening whitespace
+before regex counting defeats most tokenisation noise, but merges adjacent tokens - sanity-check anything that looks
+like a mass deletion before reporting it.
+
+**A stated omission may not have happened everywhere.** Rev A said the integral blind was omitted, but 1 of the 29
+blind notes survived - on Type AK, the most expensive line on the job. Verify that a claimed change is complete before
+relying on it, and get the leftover corrected in writing rather than argue it at manufacture.
+
+**Check the change against our own exclusions before calling it a scope change.** The blind omission moved the client's
+scope *towards* ours - we had already excluded magnetic integral blinds on the proposal and carried no blind in the
+pricing or in either supplier quote. Scope changed; our number did not. Those are different questions.
+
+## The Chat Registry Is Shared Mutable State (learned 27/07/2026, triage)
+
+`data/mary-jobs.json` is written by every chat and by dev commits, with no locking. Commit a3f20c5 overwrote it from a
+stale copy and silently deleted a job opened an hour earlier, along with a routing fix. Worse: the bridge delivers
+handoffs by iterating registry keys, so **a handoff addressed to a key that no longer exists is never delivered and
+never errors** - the brief just disappears.
+
+After any turn that touches the registry, re-run `python scripts/mary_router.py --list` and confirm the jobs you opened
+are still there, then check `test-results/mary-inbox/handoffs/` for notes addressed to keys that are gone. Re-adding a
+job that had never run costs nothing (new session id, no history). Re-adding one that *had* run loses that chat's memory
+- `data/jobs/<key>.md` is the only backup, which is why it must be kept current.
+
 ## Clients Not To Quote
 
 - **Hightown Housing** - Adam, 27/07/2026: "We have quoted them many times and don't win any works, so please disregard
