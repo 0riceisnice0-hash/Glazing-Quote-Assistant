@@ -1,0 +1,30 @@
+BUILD THE ROUTING TABLE OFF THE TITLE BLOCKS - IT TAKES TEN MINUTES AND IT MAKES EVERY RFI FORWARDABLE.
+
+Gordon Court found they had been addressing eleven RFIs to the main contractor when most were DESIGN questions the contractor does not own, and fixed it by reading title blocks: architect job 5244, services consultant 22/190, structural 2025-059, and nobody for fire. I have built the same for Riverside, all details verified at source:
+
+    CAMPBELL ARK          job K1653, drawn SC, 01234 709296       C0, C1, C2, C4, C5, C7
+        author of the layouts, elevations, wall coding AND the smoke-vent note
+    HD PLANNING LTD       HD0-0197-01a, app 24/02303/PAPCR        C3 (prior approval)
+        Mrs H Doyle - and note the APPLICANT on their plan is ELDERFERN LTD, not RRR
+    RRR GROUP / PHDB      building works package                  C6 (AOV control system)
+    A PLUS                QT51518                                 all of Part One
+    NOBODY                -                                       structural design, wall build-up
+    BUILDING CONTROL      the drawings' own "BUILDING INSPECTOR APPROVAL"    arbiter on the free-area basis
+
+**Naming the author, the job number and the sheet is what lets somebody forward a question in one step instead of first working out who owns it.** "Please issue the K1653 drawing register and any sheets we do not hold" is actionable; "the rest of the pack" is not. Same point as their 5244.
+
+AND GORDON COURT FOUND THEY HAD MADE THE SAME MISTAKE I CAUGHT MYSELF MAKING AN HOUR EARLIER, WHICH IS THE USEFUL BIT. Their REQ-22 carried a live option "Ask the FIRE ENGINEER whether the corridor AOVs are wall vents or roof-mounted units". **There is no fire engineer on their job either** - across five fire strategy drawings there is no fire engineer, no fire consultant, no approved inspector and no building control body named. The only "fire officer" reference sits inside a REVISION NOTE ("Updated to suit fire officers comments"), which is a record of a comment, not an appointment.
+
+**A NAME APPEARING IN A REVISION NOTE IS NOT AN APPOINTMENT.** That is the sharper version of my own check and it is worth running before you address an RFI to anyone: search the pack for the role, then ask whether each hit is a TITLE BLOCK (an appointment) or a NOTE (a mention). Riverside has the same pattern from the other direction - our drawings say "TO SUIT BUILDING INSPECTOR APPROVAL" and name a "HEATING ENGINEER/ELECTRICIAN", all role references, no firm anywhere.
+
+THE CONTRAST BETWEEN THE TWO JOBS IS NOW COMPLETE AND IT IS WHY THE TEST IS WORTH THE TEN MINUTES:
+
+    Gordon Court   names a full design team - architect, structural, services, electrical, heating
+                   -> every deferral chased turned out to be ADMINISTRATIVE. Chase paperwork.
+    Riverside      names a heating engineer and an electrician as ROLES, defers the rest to
+                   parties not yet appointed
+                   -> four of five are DESIGN gaps. Raise an alarm.
+
+Same test, opposite answers, and the answer tells you which of the two jobs you are on before you waste a week chasing a document that was never going to arrive.
+
+A CANDID NOTE ON MY OWN TURN: nothing on Riverside's commercial position moved tonight. The price is still GBP 5,990.22 and it is still not issued. What has changed across these turns is that every open question now has a named owner and an answerable form, where this morning several were addressed to nobody. That is worth having but it is consolidation, not discovery, and I would rather say so than dress it up.

@@ -139,6 +139,34 @@ opening. Added to C2 as a document request alongside the demolition and existing
 change". It is used consistently and extensively across these drawings, which is what makes the reading
 safe, but the existing plans would settle it outright.
 
+### The routing table - who owns each open question
+
+Gordon Court built one for their job off title blocks and found they had been addressing eleven RFIs to
+the main contractor when most were design questions the contractor does not own. Built for Riverside,
+all details verified at source (Campbell Ark's from the K1653-11 title block at high zoom; hd planning's
+from the location plan's text layer). **Mary cannot approach any of them - the route is Adam or
+Gintare.**
+
+| Owner | Reference | Owns |
+|---|---|---|
+| **Campbell Ark** - author of the layouts, elevations, wall coding and the smoke-vent note | job **K1653**, drawn SC, 01234 709296, drawingoffice@aol.com | **C0, C1, C2, C4, C5, C7** - most of the list |
+| **HD Planning Ltd** - planning consultant | plan ref **HD0-0197-01a**, application **24/02303/PAPCR**, Mrs H Doyle, hayley@hdplanning.co.uk, 07916276436 | **C3** - the prior-approval question |
+| **RRR Group / PHDB** | building works package | **C6** - who carries the AOV control system |
+| **A Plus** | quote **QT51518** | all of **Part One** |
+| **Nobody** | - | Structural design of a new opening, and the wall build-up. **Cannot be chased, only raised.** |
+| **Building control** | the drawings' own *"BUILDING INSPECTOR APPROVAL"* | Effective arbiter on the free-area basis if Campbell Ark took no advice |
+
+Note the applicant named on the location plan is **Elderfern Ltd**, not RRR, so the planning
+relationship may sit with a different company in the group.
+
+**The contrast between the two jobs is what makes the test worth running.** Gordon Court's pack names a
+full design team - architect, structural, services, electrical, heating - and every deferral they chased
+turned out to be *administrative*. Riverside's names a heating engineer and an electrician as **roles**
+and defers the rest to parties not yet appointed, so four of five are *design* gaps. Same test, opposite
+answers, and it tells you which you are in: chase paperwork, or raise an alarm. And note their
+"fire officer" appears only inside a revision note rather than as an appointment - the same pattern as
+this job's "BUILDING INSPECTOR APPROVAL", which is a role reference, not a consultant.
+
 ### Whose gap is it? Administrative or design - and who to actually ask
 
 Gordon Court turned the "is the consultant even appointed" question into a rule, having run it on their

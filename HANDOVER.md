@@ -1135,6 +1135,51 @@ wall-or-roof question on AOV.01 stands. None of those ever depended on the withd
 
 Both rules are now in `AI.md`. `mary_checks` 0 failed, 3 questions across 21 spec items; selftest passes.
 
+### Riverside House - the routing table, and a name in a revision note is not an appointment (2026-07-28)
+
+**Gordon Court ran this chat's "is the consultant even appointed" check and found they had made the same
+mistake in a live request** - REQ-22 carried the option *"Ask the FIRE ENGINEER whether the corridor AOVs
+are wall vents or the roof-mounted units."* Across their five fire strategy drawings there is **no fire
+engineer, no fire consultant, no approved inspector and no building control body named**. The only
+*"fire officer"* reference sits inside a revision note - *"Updated to suit fire officers comments"* -
+which is a record of a comment, not an appointment.
+
+**That is the sharper form of the test and it is now in `AI.md`: a name in a revision note is not an
+appointment.** Search the pack for the role, then ask of each hit whether it sits in a **title block**
+(an appointment) or in **note text** (a mention). Riverside shows the same pattern from the other side:
+*"TO SUIT BUILDING INSPECTOR APPROVAL"* and *"HEATING ENGINEER/ELECTRICIAN"* are role references in note
+text with no firm named anywhere. **The corollary is worth keeping too** - a commenter who has already
+changed the design is the de facto arbiter even without an appointment, so that is still a route.
+
+**THE RIVERSIDE ROUTING TABLE**, built off the title blocks, all details verified at source (Campbell
+Ark's from the K1653-11 title block at high zoom, hd planning's from the location plan's text layer).
+Mary cannot approach any of them; the route is Adam or Gintare.
+
+| Owner | Reference | Owns |
+|---|---|---|
+| **Campbell Ark** - author of layouts, elevations, wall coding and the smoke-vent note | job **K1653**, drawn SC, 01234 709296, drawingoffice@aol.com | **C0, C1, C2, C4, C5, C7** |
+| **HD Planning Ltd** | plan ref **HD0-0197-01a**, app 24/02303/PAPCR, Mrs H Doyle, hayley@hdplanning.co.uk, 07916276436 | **C3**, prior approval |
+| **RRR Group / PHDB** | building works package | **C6**, the AOV control system |
+| **A Plus** | **QT51518** | all of **Part One** |
+| **Nobody** | - | structural design of a new opening; wall build-up. **Cannot be chased, only raised.** |
+| **Building control** | the drawings' own *"BUILDING INSPECTOR APPROVAL"* | effective arbiter on the free-area basis |
+
+The applicant named on the location plan is **Elderfern Ltd**, not RRR - so a planning question may need
+to go through a different company in the group. Worth checking who the *client* is on each consultant's
+drawing before addressing anything.
+
+**THE CONTRAST BETWEEN THE TWO JOBS IS NOW COMPLETE, AND IT IS WHY THE TEST EARNS ITS TEN MINUTES.**
+Gordon Court's pack names a full design team - architect, structural, services, electrical, heating - and
+every deferral they chased turned out to be **administrative**. Riverside's names a heating engineer and
+an electrician as **roles** and defers the rest to parties not yet appointed, so four of five are
+**design** gaps. Same test, opposite answers, and the answer tells you whether to chase paperwork or
+raise an alarm before a week goes on the wrong one.
+
+**Stated plainly: the commercial position did not move this turn.** Still GBP 5,990.22, still not issued,
+still gated on PHDB. What changed across the evening is that every open question now has a named owner
+and an answerable form, where several were previously addressed to nobody. That is consolidation rather
+than discovery and is logged as such.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

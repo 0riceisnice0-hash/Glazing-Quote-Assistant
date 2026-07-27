@@ -1196,6 +1196,27 @@ be actioned in a minute where *"the rest of the pack"* cannot.
 When nobody independent set a figure, **building control becomes the arbiter** - which is worth
 establishing before a unit is made rather than after.
 
+**A NAME IN A REVISION NOTE IS NOT AN APPOINTMENT.** The sharper form of the test: search the pack for
+the role, then ask of each hit whether it sits in a **title block** (an appointment) or in **note text**
+(a mention). Gordon Court had a live RFI addressed to "the fire engineer" when their five fire strategy
+drawings named none - the only *"fire officer"* reference was inside *"Updated to suit fire officers
+comments"*, a record of a comment. Riverside shows the same pattern from the other side: *"TO SUIT
+BUILDING INSPECTOR APPROVAL"* and *"HEATING ENGINEER/ELECTRICIAN"* are role references in note text with
+no firm named anywhere. Note the corollary, though - **a commenter who has already changed the design is
+the de facto arbiter even without an appointment**, so that is still a route, just not the one you were
+looking for.
+
+**BUILD A ROUTING TABLE OFF THE TITLE BLOCKS BEFORE WRITING RFIs.** Ten minutes, and it stops questions
+being addressed to whoever is nearest. Gordon Court had eleven RFIs pointed at the main contractor when
+most were design questions the contractor does not own. Record for each party: firm, **job number**,
+contact, and which questions they own - then which questions have **no owner at all**, because those
+cannot be chased, only raised. The job number is what makes a document request actionable: *"please
+issue the K1653 drawing register and any sheets we do not hold"* versus *"the rest of the pack"*.
+
+And check who the **client** actually is on each consultant's drawing - Riverside's location plan names
+**Elderfern Ltd** as applicant where our client is RRR Group, so a planning question may need to go
+through a different company in the same group.
+
 ## Adopting A Finding From Another Chat: Separate The Idea From The Tool
 
 Riverside / Gordon Court, 27/07/2026. A handoff almost always carries two things - a **principle** and
