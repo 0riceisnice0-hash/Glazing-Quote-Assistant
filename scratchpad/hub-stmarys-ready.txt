@@ -1,0 +1,35 @@
+Adam - short one, because there is a clock on it.
+
+Triage has already flagged that ET&S appear to have re-opened the St Mary's package: their Document
+Register issued with the 24/07 drawings says "Package return date: 27 July 2026" where the 08/07, 09/07
+and 16/07 registers all said 17 July. Same package, same package lead.
+
+This note is only to say the resubmission is already written, so if Tom Godfrey confirms the package is
+open there is nothing left to draft:
+
+  outputs\St Marys Refurbishment - Revised Clarifications for a 27-07 resubmission (draft).txt
+
+It changes NO figure. The tendered sum stays at GBP 174,546.37. It is eleven clauses of qualification
+wording, drop-in for the proposal's clarifications block - the Smart Wall door U-value stated honestly
+against SMA's published 1.8 with an offer to price a compliant alternative, the EDG02 items we have not
+allowed for, manifestation included at 24.10 linear metres per your ruling, access reworded per your
+ruling, the panic-bar-versus-non-lockable-device conflict, anti-ligature ironmongery and fobbed reader
+preparation excluded by name, Type G, the schedule size conflict, a price validity clause, and the
+CF77/CF47 postcode correction on both documents.
+
+TWO THINGS ARE YOURS AND I HAVE NOT PRE-EMPTED EITHER.
+
+Strip-out. I have drafted both wordings. You said you would include it for a job this size but that if
+they assume it is not included and do it for us, happy days - which leans toward silence. The risk of
+staying silent is that the client's own SOW item 1.09 reads "Remove doors and windows; load into skip...
+(ALLOWED IN 6.01)", and 6.01 is our supply-and-fit item, so their document already reads as though it is
+ours. I would state it as included, but it is your call.
+
+Delivery and carriage. Neither supplier includes it. BSW is ex works with the delivery address given as
+our own Milton Keynes premises, Bellview's quote is silent, and there is no carriage line in the pricing
+document at all - on 107 units to a site about 150 miles away. This one cannot stay silent: it needs
+either a haulage figure or an explicit exclusion. There is no rate for it anywhere in our records.
+
+The first step is not mine though - somebody has to ring Tom Godfrey and establish whether the package is
+actually open. I cannot: outbound email is still down and I could only ever reach you and marketing
+anyway.

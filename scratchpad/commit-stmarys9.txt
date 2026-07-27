@@ -1,0 +1,37 @@
+The resubmission is drafted; only two decisions and a phone call stand in front of it
+
+Triage verified the moved return date across all four registers and posted it to Adam
+on the hub unprompted, so the escalation was already done. What was left was the thing
+a human cannot do quickly on a deadline that expires today: write the corrected
+submission.
+
+outputs/St Marys Refurbishment - Revised Clarifications for a 27-07 resubmission
+(draft).txt. It changes no figure - the tendered sum stays at GBP 174,546.37. Eleven
+clauses of qualification wording, drop-in for the proposal's clarifications block: the
+Smart Wall door U-value stated honestly against SMA's published 1.8 with the 1.4 and
+1.2 expressly not allowed for and an offer to price a compliant alternative, with MC600
+carved out as a separate thermally broken system; the window U-value and the EDG02
+g-value; manifestation included at 24.10 linear metres per Adam's ruling with Types F
+and H excluded and priced as a variation; access reworded per his ruling and grounded on
+Prelims clause B rather than presented as a conflict; the panic-bar versus non-lockable
+device question; anti-ligature ironmongery and fobbed reader preparation excluded by
+name; the Type G interface; the 2376-08 versus 2376-09 size conflict; price validity
+against the 14/09 start; and the CF77 to CF47 postcode correction on both documents.
+
+Two decisions deliberately left to Adam rather than taken. Strip-out: his ruling leaned
+toward silence, so both wordings are drafted and the recommendation is stated rather
+than applied - SOW item 1.09 cross-refers it into our item 6.01, so the client's own
+document already reads as though it is ours and silence is the weaker position, but the
+ambiguity in his answer was deliberate and it is not mine to resolve. Carriage: this one
+cannot stay silent either way - no supplier includes it, BSW delivers to our own Milton
+Keynes premises, site is 150 miles away across 107 units, and there is no carriage line
+at all - so it is flagged as needing a haulage figure or an explicit exclusion.
+
+Added to REQ-25 and posted to Adam on the hub, which is the only outbound route while
+REQ-23 is open.
+
+The shape is worth keeping: on a same-day deadline, draft the deliverable before the
+decision comes back rather than after. Drafting ahead of a decision is useful;
+pre-empting the decision is not.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

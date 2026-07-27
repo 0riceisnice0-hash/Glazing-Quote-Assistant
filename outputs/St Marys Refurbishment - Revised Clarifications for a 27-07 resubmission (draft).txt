@@ -1,0 +1,178 @@
+ST MARY'S REFURBISHMENT, MERTHYR TYDFIL - E T & S CONSTRUCTION
+DRAFT REVISED CLARIFICATIONS AND EXCLUSIONS, FOR A RESUBMISSION AGAINST THE 27/07 PACKAGE RETURN DATE
+
+Prepared 27/07/2026. Nothing here changes the tendered sum of GBP 174,546.37 ex VAT.
+This is qualification wording only - it makes our position explicit on the things the
+submitted proposal left silent or overstated. Drop-in text for the proposal's
+"DESCRIPTION & CLARIFICATIONS" block and the INCLUSIONS / EXCLUSIONS table.
+
+DO NOT ISSUE until two things are settled:
+  (a) Tom Godfrey confirms the package is genuinely open - the 24/07 Document Register
+      header says "Package return date: 27 July 2026" where the three earlier registers
+      said 17 July; and
+  (b) Adam decides items 4 and 6 below, which are the two he has not yet ruled on.
+
+-------------------------------------------------------------------------------------
+FIRST, A CORRECTION TO THE ISSUED DOCUMENTS
+-------------------------------------------------------------------------------------
+The site postcode reads CF77 8HA on our pricing document (cell B5) and on the proposal.
+The client's ITT, preliminaries and Schedule of Works all give CF47 8HA. Correct on both
+documents before anything is re-issued.
+
+-------------------------------------------------------------------------------------
+1. THERMAL PERFORMANCE - EXTERNAL DOOR AND SCREEN ELEMENTS   [NEW - IMPORTANT]
+-------------------------------------------------------------------------------------
+The external door and screen elements are offered in SMA Smart Wall Pocket, for which the
+manufacturer publishes a thermal performance of 1.8 W/m2K for doors and 1.4 W/m2K for
+screens. Our price is based on that system as quoted.
+
+We have therefore NOT allowed for the external door elements to achieve either the
+1.4 W/m2K stated on window schedule 2376-09 and door schedule 2376-08, or the 1.2 W/m2K
+area-weighted average for External Doors stated in EDG02 Energy and Carbon Design
+Guidelines - Building Fabric. Should either figure be required, a thermally broken door
+system will be necessary; this is a change of system rather than a change of glazing and
+would be subject to re-design, re-quotation and a revised programme.
+
+The SMA MC600 Plus curtain walling offered to Type AK is a separate, thermally broken
+system and is not affected by the above; its performance is to be confirmed by the
+manufacturer's calculation.
+
+We would welcome the opportunity to price a compliant alternative if required.
+
+-------------------------------------------------------------------------------------
+2. THERMAL PERFORMANCE - WINDOWS, AND SOLAR CONTROL   [NEW]
+-------------------------------------------------------------------------------------
+The windows are offered with a 6.8 laminated / 18mm cavity / 4mm toughened low-emissivity
+unit with warm-edge spacer, on the basis of achieving the 1.4 W/m2K stated on window
+schedule 2376-09. A whole-window U-value calculation can be provided on request.
+
+We have NOT allowed for the 1.3 W/m2K refurbishment figure for windows, nor for the
+glazing g-value of 0.4-0.3, both stated in EDG02. The g-value in particular requires a
+solar control coating which is not included. Please confirm which document governs the
+package - window schedule 2376-09 or EDG02 - and we will price any difference.
+
+-------------------------------------------------------------------------------------
+3. MANIFESTATION   [NEW - INCLUDED, per Adam's ruling of 27/07]
+-------------------------------------------------------------------------------------
+Manifestation to glazed entrance doors and glazed screens in accordance with clause 2.24
+is INCLUDED, in two bands at 850-1000mm and 1400-1600mm above finished floor level,
+contrasting with the background in all lighting conditions, to both faces.
+
+Our allowance covers the nine glazed door and screen elements (Types G, I, L, O, U, AF
+and AK) - approximately 24.10 linear metres of band. Manifestation to the Type F and
+Type H window screens is NOT included; if these are deemed to fall within clause 2.24 a
+further 15.80 linear metres would apply and would be priced as a variation.
+
+-------------------------------------------------------------------------------------
+4. REMOVAL AND DISPOSAL OF THE EXISTING WINDOWS AND DOORS   [ADAM TO DECIDE - see note]
+-------------------------------------------------------------------------------------
+   *** TWO ALTERNATIVE WORDINGS. Adam ruled "we would include it for a job of this
+   *** size, but if they assume it's not included and do it for us then happy days."
+   *** That leans toward staying silent. The risk of silence is that SOW item 1.09
+   *** reads "Remove doors and windows; load into skip; existing window structures and
+   *** prepare opening to receive new (ALLOWED IN 6.01)" - and 6.01 is our supply-and-
+   *** fit item, so the client's own document already reads as though it is ours.
+   *** Recommendation: option A. It costs nothing to say and removes the argument.
+
+OPTION A - state it as included:
+   "Removal of the existing windows and door sets and disposal off site is INCLUDED, in
+   accordance with Schedule of Works item 1.09. Disposal will be to a licensed facility
+   and we will provide waste transfer documentation. Removal of any asbestos-containing
+   material is excluded."
+
+OPTION B - state it as excluded:
+   "Removal and disposal of the existing windows and door sets is EXCLUDED and is assumed
+   to be undertaken by others in advance of our installation."
+
+Either way, note that Preliminaries clause C requires building waste to be taken to a
+NAMED licensed landfill (Tredegar Skip Hire is named in the pack) and a Site Waste
+Management Plan to accompany the tender. Appendices A and B are not in the sections
+issued to us; if item 1.09 sits with us, please forward them.
+
+-------------------------------------------------------------------------------------
+5. ACCESS AND LIFTING EQUIPMENT   [REWORDED, per Adam's ruling of 27/07]
+-------------------------------------------------------------------------------------
+We have not allowed for any access equipment. Scaffolding, mobile elevating work
+platforms, towers, edge protection and any other temporary access or safety provision are
+EXCLUDED, on the basis of Preliminaries clause B, which requires the Contractor to provide
+all scaffolding "for himself and any Sub-Contractor".
+
+Elements up to 5,580mm in height are included in our installation scope; suitable access
+is to be provided and maintained by others for the duration of our works.
+
+-------------------------------------------------------------------------------------
+6. DELIVERY AND CARRIAGE TO SITE   [ADAM TO DECIDE]
+-------------------------------------------------------------------------------------
+   *** Neither supplier quotation includes delivery. BSW is ex works with the delivery
+   *** address given as our own Milton Keynes premises; Bellview's quotation is silent.
+   *** There is no carriage line in the pricing document. Merthyr Tydfil is roughly 150
+   *** miles from Milton Keynes, across 107 units. This must be either priced or
+   *** excluded - it cannot stay silent. No rate exists in our own records, so pricing
+   *** it needs a haulage figure. Recommendation: obtain the figure and include it.
+
+Suggested wording if excluded:
+   "Delivery of materials to site is EXCLUDED. Our price is based on collection from our
+   Milton Keynes premises; offloading and site distribution are by others."
+
+-------------------------------------------------------------------------------------
+7. DOOR IRONMONGERY AND SECURITY   [NEW]
+-------------------------------------------------------------------------------------
+The external door elements are offered with concealed panic bar hardware and closers as
+quoted by the supplier.
+
+We note that door schedule 2376-08 describes several external doors as having "no locking
+mechanism or latch" and refers to a "non-lockable device". Concealed panic hardware
+incorporates a latch. Please clarify the requirement; our price may be adjusted once the
+ironmongery intent is confirmed.
+
+We have not allowed for the anti-ligature ironmongery scheduled on 2376-08 (infilled pull
+handle on plate 300 x 75mm, hinges to BS 7352, kicking plates), nor for preparation for
+fobbed readers or access control on Doors D.01 and D.14. Access control, wiring,
+programming and commissioning remain excluded, and we understand these are carried
+separately under Schedule of Works item 15.10.
+
+-------------------------------------------------------------------------------------
+8. TYPE G - FABRICATION   [NEW]
+-------------------------------------------------------------------------------------
+Type G is scheduled as one top-hung vent, one fixed light and one external door in a
+968 x 3620mm opening. As offered, the Smart Wall Pocket element provides the door and two
+fixed fields with one aperture prepared to receive a separate opening light. The
+arrangement is subject to confirmation of the interface detail by the manufacturer prior
+to fabrication, and to any consequent adjustment.
+
+-------------------------------------------------------------------------------------
+9. DIMENSIONS AND SCHEDULE CONFLICT   [NEW]
+-------------------------------------------------------------------------------------
+Our price is based on window schedule 2376-09 rev A. Door schedule 2376-08 gives differing
+structural openings for several external doors (D.17, D.22, D.26). Please confirm which
+schedule governs. All sizes remain subject to site survey once structural openings are
+fully formed.
+
+-------------------------------------------------------------------------------------
+10. PRICE VALIDITY   [NEW]
+-------------------------------------------------------------------------------------
+Our price is held for 30 days from the date of this document. The contract particulars
+show a start on site of 14/09/2026 and completion 11/12/2026; our supplier pricing is
+held for 30 days only, and we reserve the right to review the sum should an order be
+placed after that period or should the programme move materially.
+
+-------------------------------------------------------------------------------------
+11. CARRIED FORWARD UNCHANGED FROM THE 17/07 PROPOSAL
+-------------------------------------------------------------------------------------
+- Magnetic operated integral blinds excluded.
+- Communal escape doors priced as panic bar doors; bifold locations priced as commercial
+  French doors. (These substitutions have not been accepted in writing - worth asking
+  Tom Godfrey to confirm them expressly this time.)
+- External mastic and EPDM remain optional extras, shown below the total.
+- Structural alterations, fire stopping, internal finishing, testing, waste removal
+  generally, design and structural calculations remain excluded as previously stated.
+- Installation included; site survey once structural openings are fully formed.
+
+-------------------------------------------------------------------------------------
+NOTE ON WHAT IS NOT IN HERE
+-------------------------------------------------------------------------------------
+No figure in the tendered sum has been altered. Items 1, 2, 6 and 7 all describe things
+that are not in the price; if the client requires any of them, each needs a supplier
+figure before a number can be given. In particular there is no rate anywhere in our own
+records for strip-out, disposal, manifestation or haulage, so those four would each need a
+real quotation rather than an estimate.
