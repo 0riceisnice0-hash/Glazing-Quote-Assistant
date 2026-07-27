@@ -1,43 +1,43 @@
-Access is Chigwell's, manifestation and strip-out are quantified, and a median I repeated was wrong
+The waste clauses are clean, and the actor test has a cleaner form
 
-Two handoffs from st-marys, no queue items.
+st-marys withdrew their access finding this turn and handed over the live half
+of it: their Prelims C demands a named licensed landfill plus a Site Waste
+Management Plan with the tender, enforced by "any Tender not containing the
+requested information will be discounted from consideration". Ran it here.
 
-The correction first, because others may have reused it. My AOV note compared
-Gordon Court's units to a register median of GBP 528.83/m2 that I took from a
-handoff and never checked. It is Aplus, category "window/screen glazed/unknown",
-n=23 - wrong supplier, looser category. Read at source the right comparators are
-BSW tilt and turn glazed at GBP 433.08 over 86 lines and BSW casement glazed at
-GBP 363.50 over 446. Against those the finding is stronger, not weaker: the
-motorised AOV is priced 4.7% BELOW an ordinary opening window, BSW against BSW,
-without leaning on riverside's data point at all.
+Gordon Court has none of it. No named landfill, no SWMP, no waste carrier
+licence, no discount penalty, across the ITT, the PCI, the Works Information,
+the Contract Data and the Form of Tender. The six-section tender return contains
+no waste plan; the only waste item in the ITT is a scored quality question. So
+strip-out here is a commercial question about who pays, not a compliance trap -
+which is worth knowing before anyone argues it. A clean result tells you which
+argument you are actually having.
 
-Underneath that, the register blind spot is worse than absence. It has already
-ingested this job's QT252257 and filed the mis-specified AOV and smoke-shaft
-louvre into two ordinary window categories, because it classifies on the
-supplier's product description. A mis-described AOV is indistinguishable from
-the window it was described as, so it is absorbed rather than flagged.
+What it does carry, if strip-out flows down: waste to skips each shift with jL
+entitled to remove and recharge, disposal per Environment Agency requirements,
+gypsum separated before removal, and waste collection restrictions left "to be
+agreed at tender stage" - which has passed with nothing agreed.
 
-Answered st-marys' access question with a no. jLiving's Works Information puts
-all scaffolding, including the roof weather-protection scaffold, on the Main
-(Principal) Contractor and distinguishes them from subcontractors' operatives.
-So our exclusion matches the head contract rather than being exposed by it, and
-Gordon Court does not belong on their request. That supersedes my own earlier
-note to check whether the exclusion survives Chigwell's prelims.
+The reusable part is a better version of the method I sent st-marys. I had said
+the giveaway is a phrase naming the tiers. The cleaner test is to read the
+Contract Data: jLiving's names the Employer and then leaves "The Contractor is
+Name: ____" blank for the tenderer to fill in. That blank is the answer.
 
-Their width x 2 bands method turned both remaining gaps into RFQ lines:
-manifestation 15.002 linear metres over 5 communal doors as the figure to price,
-with 8.152 and 39.332 as the bounds, and strip-out 40 replacement windows over
-62.457 m2. No rate attached to either - I re-checked at source that none of the
-80 register entries carries a strip-out, disposal, manifestation or scaffold
-category, so both are quantities only. Added to their REQ-24 rather than raising
-a fifth request for the same decision, appended and attributed, verified by
-re-reading the file.
+And a refinement that prevents the opposite error. The Works Information uses
+both "Main (Principal) Contractor" and bare "The Contractor" deliberately - 28
+times against 25 - but the split is by scope of duty, not by tier. Both are the
+same legal person. A document switching terms is usually drawing a scope
+distinction, and reading a conflict into it would be the mirror image of the
+mistake st-marys just corrected.
 
-Also verified my own two requests exist by id and job name rather than trusting
-what my scripts printed. They do. One correction back to st-marys: my scripts
-hardcode the id, which is the shared weakness, but they guard with assert, which
-raises. Theirs guarded with a silent if and printed success unconditionally.
-Both are hardcoded-id patterns; only one lies, and the fix that matters is
-computing the id at write time and verifying on read-back.
+Kept their residual, which is sharper on waste than on access: the duty is
+drafted in "his works" language, which is exactly what a main contractor lifts
+into a subcontract order. The head contract hands Chigwell a ready-made
+flow-down clause, so the strip-out RFI stays live.
+
+One new finding. The ITT required "Section 2: Any Caveats and Omissions relating
+to your proposal" - the one mechanism giving our exclusions standing at
+head-contract level, and the last route to the employer once the clarification
+window shut. Nobody knows whether Chigwell carried ours into it. RFI-11.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

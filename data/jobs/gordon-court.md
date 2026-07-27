@@ -684,6 +684,103 @@ on read-back** — not replacing asserts. I used exactly that read-back pattern 
 
 ---
 
+---
+
+## 4C. FIFTH TURN (27/07 late) — waste clauses checked, and the actor test sharpened
+
+st-marys withdrew their access finding this turn and credited the "read for the actor" method. Their
+**live** item was a warning: St Mary's Prelims C requires waste to a **named** licensed landfill plus a
+**Site Waste Management Plan with the tender**, enforced by *"a STRICT requirement… any Tender… not
+containing the requested information will be discounted from consideration… no claim will be
+entertained."* Their advice: on a refurbishment, check the waste clauses at the same time as the
+strip-out allocation, because they travel together. Ran that here.
+
+### 4C.1 Gordon Court has none of St Mary's waste traps — checked, not assumed
+
+Searched the ITT, the Pre-Construction Information (31pp), the Works Information (29pp), Contract Data
+and the Form of Tender:
+
+| St Mary's trap | Gordon Court |
+|---|---|
+| Named licensed landfill ("Tredegar Skip Hire") | **Absent** — zero hits for landfill anywhere |
+| Site Waste Management Plan **with the tender** | **Absent** — zero hits for SWMP / "site waste management" in any of the five contract documents |
+| "Discounted from consideration" penalty | **Absent** |
+| Waste carrier licence (as John North Hall) | **Absent** — zero hits |
+
+The **tender return structure** confirms it: six sections — Form of Tender, Caveats and Omissions,
+ITT question responses, Priced Activity Schedule, Contract Data Part 2, Appendices. **No waste plan
+was required with the tender.** The only waste item in the ITT is scored quality question **D1**
+(*"manage waste responsibly"*, 500 words, 5 points).
+
+**So the strip-out question here is purely commercial — who pays — not a compliance trap.** That is a
+materially better position than St Mary's and it is worth knowing before anyone argues it.
+
+### 4C.2 What Gordon Court *does* say about waste
+
+- **Works Information p12**, margin heading *"Waste Removal"*: *"The Contractor shall keep his Working
+  Area clean & tidy at all times and remove his waste to skips at the end of each shift. Failure to
+  remove waste may result in jL arranging for it to be removed by others [and the cost] will be
+  recovered from the Contractor. The Contractor shall dispose of waste in accordance with the
+  requirements of the Environment Agency."*
+- **PCI p8:** *"Gypsum based waste products such as plasterboard must be separated from other waste
+  materials before removal from site / disposal."* No burning of rubbish on site.
+- **PCI p10:** *"Restrictions on Deliveries, **Waste Collection**, Storage — **To be discussed and
+  agreed** between the jL Development Project Manager and the Contractor **at tender stage**."*
+  Nothing was discussed and **tender stage has passed** — consistent with §2B.
+- **PCI p16:** areas set aside for skips/bins for waste disposal.
+
+### 4C.3 The actor test, sharpened — the Contract Data is the cleanest proof
+
+I gave st-marys the rule *read for the actor, not just the obligation*, and said the giveaway is a
+phrase naming the tiers. **There is a better test, and this pack demonstrates it.**
+
+**NEC3 Contract Data part one/two names the parties outright:**
+
+> *"The **Employer** is Name: **Jewish Community Housing Association Ltd**, Address: Harmony Close,
+> Princes Park Avenue, London, NW11 0JJ"* … *"The **Contractor** is Name: ______ Address: ______"*
+
+That second line is **blank — for the tenderer to complete.** So "the Contractor" is, by definition,
+**whoever signs the contract: Chigwell.** Fenster is not a party to this document at all. That is the
+most direct possible answer to "whose duty is it", and it does not depend on spotting a
+"for himself and any Sub-Contractor" phrase.
+
+**And the Works Information's two terms are both Chigwell.** Usage is deliberate, not loose — *"Main
+(Principal) Contractor"* 28 times, bare *"The Contractor"* 25 times, *"sub-contractor"* 5 times. The
+split is by **scope of duty, not by tier**:
+
+- **"Main (Principal) Contractor shall…"** → whole-site provisions: scaffolding, welfare, builder's work
+  to MEP, re-routing services, measurement and MEP surveys.
+- **"The Contractor shall…"** → its own works: *"remove temporary markings… relating to **his** works"*,
+  *"clean **the his** works thoroughly"*, *"adjust, ease & lubricate… relating to **his** works"*,
+  *"keep **his** Working Area clean… remove **his** waste"*, *"supply temporary lighting to **his**
+  Working Area"*.
+
+Both are the same legal person. **So waste removal sits with Chigwell at head-contract level, exactly
+like scaffolding (§4B.3).**
+
+### 4C.4 But do not overcorrect — this is the clause most likely to flow down verbatim
+
+st-marys were right to preserve the residual, and it is sharper here than on access. The Works
+Information's waste duty is written in **"his works" / "his Working Area"** language — which is
+precisely the wording a main contractor lifts into a subcontract order to push waste removal onto each
+trade. **The head contract hands Chigwell a ready-made flow-down clause.** So **RFI-9 stays live**, not
+because the head contract puts strip-out and disposal on us, but because that is the clause most likely
+to arrive in Chigwell's order unchanged. If it does, the gypsum-separation duty and the Environment
+Agency compliance come with it.
+
+### 4C.5 NEW — the ITT had a formal slot for our exclusions, and nobody knows if they used it
+
+**"Section 2: Any Caveats and Omissions relating to your proposal"** is a required part of the tender
+return. That is the one mechanism by which our exclusions — access, waste removal, internal finishing,
+the PVC-U/aluminium qualification — could acquire standing at head-contract level.
+
+Our proposal went to Chigwell on 09/07; Chigwell returned to jLiving on 22/07. **Whether our
+qualifications were carried into Chigwell's Section 2 is unknown and only Chigwell can say.** It
+matters more than usual because the clarification window had already shut (§2B), so Section 2 was the
+last route by which anything we excluded could reach the employer. **RFI-11.**
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
@@ -728,6 +825,7 @@ on read-back** — not replacing asserts. I used exactly that read-back pattern 
 | RFI-8 | **Manifestation** — NBS L20 cl.280 says *"As drawing"* and no drawing shows any. **QUANTIFIED §4B.4: price MEDIUM 15.002 lin m / 5 units** (narrow 8.152, wide 39.332; +15.140 if AD-K catches the AOV units). Added to REQ-24 | Chigwell / Arkon + BSW rate | open, quantified |
 | RFI-9 | **Strip-out and disposal** — **QUANTIFIED §4B.5: 40 replacement windows, 62.457 m².** Unallocated in the pack (NEC3 activity schedule, no item numbers), so not allocated to us as at St Mary's. Added to REQ-24 | Chigwell | open, quantified |
 | RFI-10 | Is **"Antony Berry, Supplier Administrator"** on the Delta portal ours or Chigwell's? If ours, jLiving award/standstill notices may be going unread | internal — Zac/Adam | open |
+| RFI-11 | **Were our exclusions and qualifications carried into Chigwell's "Section 2: Caveats and Omissions"?** The ITT required that section, and with the clarification window shut it was the last route by which anything we excluded could reach jLiving. See §4C.5 | Chigwell | open |
 | **REQ-20** | Adam: hold Q7585 past 08/08 and cover the 180-day gap? | dashboard | **ANSWERED 27/07 — hold the price, carry the risk. Closed.** |
 | **REQ-22** | Adam: are the 7no AOV / smoke-shaft units ours or the specialist's? | dashboard | **raised 27/07, open** |
 

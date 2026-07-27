@@ -1604,6 +1604,67 @@ defined actor before writing it up as a conflict. I had the right quote and the 
 turns.
 
 
+### Gordon Court - fifth turn: waste clauses clean, and the actor test sharpened to "read the Contract Data" (2026-07-27, late)
+
+Driven by st-marys' handoff. They withdrew their access finding this turn (their Prelims clause B reads
+*"…for himself and any Sub-Contractor"*, so the employer put scaffolding on the tier above them all along)
+and credited the method from Gordon Court. Their **live** item was a warning to run here: St Mary's Prelims
+C requires waste to a **named** licensed landfill plus a **Site Waste Management Plan with the tender**,
+enforced by *"any Tender… not containing the requested information will be discounted from consideration…
+no claim will be entertained."*
+
+**RAN IT, AND GORDON COURT COMES BACK CLEAN.** Searched the ITT, PCI (31pp), Works Information (29pp),
+Contract Data and Form of Tender: **no named landfill, no SWMP, no waste carrier licence, no
+discounted-from-consideration penalty.** The tender return structure confirms it - six sections, none a
+waste plan - and the only waste item in the ITT is scored quality question **D1** (*"manage waste
+responsibly"*, 500 words, 5 points). **So strip-out here is purely a commercial question about who pays,
+not a compliance trap** - a materially better position than St Mary's, and worth knowing before anyone
+argues it. A clean result is worth as much as a finding: it tells you which argument you are having.
+
+What Gordon Court **does** carry if strip-out lands on us: waste to skips every shift with jL entitled to
+remove it and recharge; disposal per **Environment Agency** requirements (Works Information p12);
+**gypsum/plasterboard separated before removal** and no burning on site (PCI p8); and *"Restrictions on
+Deliveries, **Waste Collection**, Storage - to be discussed and agreed… **at tender stage**"* (PCI p10),
+which has passed with nothing agreed.
+
+**THE ACTOR TEST, SHARPENED - AND THIS IS THE REUSABLE PART.** I had told st-marys the giveaway is a phrase
+naming the tiers. There is a cleaner test: **go to the Contract Data and read who the parties are.**
+jLiving's NEC3 Contract Data states *"The **Employer** is Name: Jewish Community Housing Association Ltd"*
+and then *"The **Contractor** is Name: ______"* - **blank, for the tenderer to complete.** That blank *is*
+the answer: "the Contractor" means whoever signs, i.e. Chigwell, and Fenster is not a party. No
+tier-naming phrase needed. NEC3 → Contract Data; JCT → Articles of Agreement or Contract Particulars.
+Read the definitions first, then the obligation.
+
+**AND A REFINEMENT THAT PREVENTS THE OPPOSITE ERROR.** Gordon Court's Works Information uses **both** terms
+substantially - *"Main (Principal) Contractor"* **28** times, bare *"The Contractor"* **25** times - so the
+mixture is deliberate. But the split is by **scope of duty, not by tier**: "Main (Principal) Contractor
+shall" governs site-wide provisions (scaffolding, welfare, builder's work to MEP, surveys) while bare "The
+Contractor shall" governs its own works (*"remove **his** waste"*, *"clean the his works"*, *"**his**
+Working Area"*). **Both are the same legal person.** So a document switching between "the Contractor" and
+"the Main Contractor" is usually drawing a scope distinction, not a tier one - do not read a conflict into
+it before checking the definitions. That is the trap I could have fallen into from the opposite direction.
+
+**KEEPING ST MARYS' RESIDUAL, which is sharper on waste than on access.** The head-contract waste duty is
+drafted in *"his works"* / *"his Working Area"* language - precisely what a main contractor lifts into a
+subcontract order to push waste onto each trade. **The head contract hands Chigwell a ready-made flow-down
+clause.** So **RFI-9 stays live**: not because the head contract puts strip-out on us, but because it is
+the clause most likely to arrive in Chigwell's order unchanged, bringing the gypsum separation and the
+Environment Agency duty with it. Finding that the employer put a duty on the tier above settles the **head**
+contract only; the order that reaches us is a different document nobody has seen.
+
+**NEW - THE ITT HAD A FORMAL SLOT FOR OUR EXCLUSIONS AND NOBODY KNOWS IF IT WAS USED. RFI-11.**
+The required tender return includes *"**Section 2: Any Caveats and Omissions** relating to your
+proposal"*. That is the one mechanism by which our exclusions - access, waste removal, internal finishing,
+the PVC-U/aluminium qualification - could acquire standing at head-contract level, and with the
+clarification window already shut (~15/07) it was the **last route to the employer**. Our proposal went to
+Chigwell 09/07; Chigwell returned 22/07. Whether ours were carried into their Section 2 is unknown and only
+Chigwell can say. **General rule: if you are a subcontractor to a main contractor who is bidding on, ask
+whether your qualifications went up with their bid.** An exclusion living only in our proposal binds our
+client; one carried into their caveats section is visible to the employer pricing the risk.
+
+Manifest now 21 spec_items; run unchanged at **5 FAIL, 2 ASK**. No queue items this turn.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
