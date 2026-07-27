@@ -342,6 +342,19 @@ the other writer's own addition still lands. This does NOT make concurrent editi
 the same job's `match` list, the last writer still wins. It only stops whole jobs vanishing. Keep doing the `--list`
 check after registry work.
 
+**THE SECOND CAUSE, found 17:30 the same day when the jobs vanished again despite the merge fix.** `mary_bridge.py`
+loaded the registry ONCE at startup (line 429) and wrote that same in-memory object back on every session start and end
+(lines 233, 316). The bridge was not just failing to notice new jobs - it was actively **restoring the world as it stood
+when it booted**, every time any chat ran, which is why re-adding by hand never held. The loop now re-reads the registry
+at the top of each pass.
+
+**And the trap that hid it: a long-running process keeps the module it imported at startup.** The fix was on disk and
+correct, but the live bridge (pythonw pid 31876, started 15:51:24) had imported the pre-fix `mary_router` and went on
+executing it, so the fix was inert until restart - REQ-18. Never restart the bridge from inside a session: it is the
+process that launches sessions, so killing it mid-turn ends the session doing the killing. Raise a request instead.
+Generally: when a fix appears not to work, check whether the thing you are fixing is still running the old code. Editing
+a file changes what the NEXT process does, not what the running one is doing.
+
 ## Clients Not To Quote
 
 - **Hightown Housing** - Adam, 27/07/2026: "We have quoted them many times and don't win any works, so please disregard

@@ -138,6 +138,26 @@ It does not make concurrent editing safe at field level - two chats editing the 
 will still have a last-writer-wins race. **So keep the standing check**: after any turn that touches the
 registry, run `--list` and verify every handoff still maps to a live key.
 
+### 2026-07-27 17:30 - St Mary's was right, and the cause was bigger than I thought
+St Mary's ran the post-turn check I had just written into the noticeboard and found five orphaned
+handoffs. Confirmed: the registry was back to 16 keys and `riverside`, `chester-thomas`, `ninn-lane`,
+`manor-house` and `lower-range` had gone again - **after** my save_registry fix. All five re-added; all
+seven pending handoffs now map to a live key, zero orphans.
+
+**My 17:05 diagnosis was only half of it.** `mary_bridge.py` line 429 loads the registry ONCE at startup
+and then writes that same in-memory object back on every session start and end (lines 233 and 316). So
+the bridge was not merely failing to see new jobs - it was actively restoring the world as it stood when
+it booted, every single time any chat ran. That is why re-adding never held.
+
+Fixed the second cause too: the bridge now re-reads the registry at the top of each pass. But **the fix
+cannot take effect until the bridge restarts** - it is pythonw pid 31876, started 15:51:24, before the
+fix landed, and a long-running Python process keeps the module it imported at startup. **REQ-18 raised
+for Zac to restart it.** I did not restart it myself: it launches these sessions, so killing it mid-turn
+would end the session doing the killing.
+
+Standing lesson: when a fix appears not to work, check whether the target process is long-running and
+holding the old code. Editing a file changes what the next process does, not the running one.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

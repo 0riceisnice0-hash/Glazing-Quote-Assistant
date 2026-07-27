@@ -444,6 +444,15 @@ def main():
     try:
         while True:
             try:
+                # Re-read the registry every pass. The bridge used to hold the
+                # snapshot taken at startup and write it back on every session
+                # start and end, so any job a chat opened after the bridge came
+                # up was silently deleted the next time a session ran - four
+                # jobs went at once on 27/07/2026, orphaning their handoffs.
+                # save_registry() merges now, but a long-running process must
+                # still refresh or it keeps re-proposing a stale world.
+                reg = router.load_registry()
+                router.chat(reg, router.TRIAGE)
                 wait = one_pass(env, token, state, bst, reg,
                                 force_mail=args.once, dry_run=args.dry_run)
             except Exception as e:
