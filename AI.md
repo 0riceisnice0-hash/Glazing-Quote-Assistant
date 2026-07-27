@@ -295,6 +295,42 @@ mullions (about 2m of flex is left coiled at the vent); **the actuators are not 
 liability for damage if a separate restrictor is not fitted 50mm beyond the stroke; vents below 2.5m from FFL raise a
 trap-hazard risk under BS EN 60335-2; below 1100mm from FFL they need Part K anti-fall protection, which Aplus exclude.
 
+## The Kick Prompt Must Not Go On The Command Line (learned 27/07/2026, triage)
+
+Windows caps a whole command line at **32,767 characters**. `mary_bridge.py` passed the entire kick prompt as an argv
+element, and the shared noticeboard alone reached **30,259 characters** on 27/07 - so every attempt to start a **NEW**
+job chat began failing with `[WinError 206] The filename or extension is too long`. Resuming an existing chat was
+unaffected, which is why it looked intermittent.
+
+It ate three of Adam's dashboard messages (18:21, 18:35, 18:52 - one of them his answer to REQ-6). Each was retried
+three times and parked in `failed\`, and the log line reads `SESSION LAUNCH FAILED`, which looks like a CLI or
+usage-limit problem rather than a prompt-length one. **When a work order is parked after three attempts, read the actual
+log message** - the cause was named precisely and sat unread for two and a half hours.
+
+Fixed: the prompt now goes down **stdin** (`claude -p` with no positional prompt), which has no length limit. Verified
+end to end at 30,328 characters - the exact size that was failing - returncode 0. Do NOT "fix" this by trimming the
+noticeboard: the board is where cross-job knowledge lives and rationing it would cost more than it saves.
+
+**Third instance in one day of the same meta-rule**, after the two registry faults: a long-running process keeps the
+module it imported at startup, so a fix on disk changes what the NEXT process does, not the running one. Any plumbing
+fix is inert until the bridge restarts - say so explicitly, and raise a request rather than restarting it from inside a
+session.
+
+## Mastic And EPDM Are Optional Extras - But Check Where They Sit (Adam, 27/07/2026)
+
+Adam's ruling: mastic and EPDM are **optional extras**, shown as options on the pricing document **below** the total, so
+the client's number excludes them - "sometimes we will remove the edpm and mastic costs or include them if they are
+specified". Crestwood Park is built that way.
+
+**Princess Beatrice is not**, on Adam's own instruction of the same morning: external mastic GBP 5,356.22 and EPDM
+GBP 8,276.91 sit ABOVE the subtotal (GBP 286,404.81), which less the 2.5% MCD gives the issued GBP 279,244.69. Had they
+been optional the quote would have been GBP 265,952.39 - so GBP 13,292.30 is charged inside the client's number while
+proposal page 3 still calls external mastic an optional extra and never mentions EPDM.
+
+So before repeating either version: look at where the two lines actually sit on the pricing document for THAT job, and
+make sure the proposal clarifications agree with it. A general ruling from Adam describes the template, not necessarily
+the document in front of you - verify before closing a finding on it.
+
 ## Comparing A Revised Drawing Against What Was Priced (learned 27/07/2026, St Mary's)
 
 **Read the revision date, not the date the addendum arrived.** ET&S issued "revised drawings" on 24/07; inside, the

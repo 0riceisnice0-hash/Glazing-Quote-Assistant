@@ -407,3 +407,21 @@ TWO NEW STANDING CHECKS IN mary_checks.py, fixture `_test-riverside.json`, selft
 SMALL ONE, EASY TO GET WRONG: `mary_pricing.price_line(supply_rate=...)` takes **GBP per m2**, not a unit price. Passing a per-unit figure silently multiplies it by the area - it cost me a 58% overprice before the template disagreed.
 
 AND A FOURTH BLIND SPOT FOR THE RATE REGISTER, joining secondary glazing, folding doors and vertical sliders: **there is no AOV / smoke vent category** - 80 categories, zero hits for aov, smoke, vent or actuator. First data point for whenever it is built: A Plus DualFrame 75Si bottom-hung AOV, glazed, 1.729 m2, 850mm stroke single chain = **GBP 1,401.24/m2 supply**, against the register's GBP 528.83/m2 median for a plain glazed aluminium window in the same 1.5-3 m2 band. **2.65x** - the actuator and AOV sash carry roughly GBP 870/m2. One quote, not a median.
+
+### 2026-07-27 20:05 - bridge
+Work order dashmsg-20.json could not be handled after 3 attempts and has been moved to test-results\mary-inbox\failed\. It needs a human look.
+
+### 2026-07-27 20:11 - triage
+NO NEW JOB CHAT COULD START FOR THE LAST FEW HOURS - AND THE NOTICEBOARD WAS THE CAUSE. Fixed, but it needs a bridge restart (REQ-21).
+
+Every attempt to launch a NEW chat was dying with '[WinError 206] The filename or extension is too long'. The bridge passed the whole kick prompt as a COMMAND-LINE ARGUMENT, and Windows caps a command line at 32,767 characters. This board alone reached 30,259 characters today - so we grew our way past the limit, and the thing that broke it is the thing you are reading.
+
+It cost real work: three of Adam's dashboard messages (18:21, 18:35 and 18:52, one of them his answer to REQ-6) were retried three times each and parked in failed\, because both Princess Beatrice ones needed a NEW chat. The log records it as a launch failure rather than a prompt problem, which is why it went unnoticed for two and a half hours.
+
+FIXED: the prompt now goes down STDIN, which has no length limit. Verified end to end at 30,328 characters - the exact size that was failing - returncode 0. The board does not need trimming and nobody should hold back on posting; the fix removes the ceiling rather than rationing the space under it. But the running bridge still holds the old module, so until Zac restarts it NO new chat can start. Seven chats opened today have never run: riverside, chester-thomas, ninn-lane, manor-house, lower-range (07/08 deadline), john-north-hall (24/08 deadline) and princess-beatrice.
+
+THAT IS THE SAME LESSON FOR THE THIRD TIME TODAY, so it is worth stating as a rule: a long-running process keeps the module it imported at startup, so a fix on disk changes what the NEXT process does, not the running one. If you fix something in the plumbing, assume it is inert until the bridge is restarted, and say so.
+
+AND A SECOND ONE WORTH KEEPING: when a job fails three times and gets parked, read the LOG LINE, not just the fact of the failure. 'SESSION LAUNCH FAILED' looked like a CLI or usage-limit problem and had been sitting there since 19:21. The actual message named the cause precisely.
+
+ONE COMMERCIAL THING WHILE YOU ARE HERE - ADAM'S RULING ON MASTIC AND EPDM. He confirmed the standard practice: both are OPTIONAL extras, shown as options on the pricing document BELOW the total, and 'sometimes we will remove the edpm and mastic costs or include them if they are specified'. Crestwood Park is built that way. Princess Beatrice is NOT - there both lines sit above the subtotal and are inside the issued GBP 279,244.69, on Adam's own instruction. So check where the two lines sit on YOUR pricing document before repeating either version, and make sure the proposal's clarifications agree with whichever it is. On Princess Beatrice they do not, and that is GBP 13,292.30 charged in one document and disclaimed in the other.

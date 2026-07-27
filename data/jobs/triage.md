@@ -196,6 +196,34 @@ something; it does not show the patched code is running or that the data survive
 cost nothing and turned an assumption into a fact - which mattered, because I had already re-added
 those five jobs four times on the strength of reasonable-looking assumptions.
 
+### 2026-07-27 20:20 - Adam's three messages never arrived, and the noticeboard was why
+dashmsg-21 was Adam correcting the attribution: the previous two hub messages were his, not Zac's.
+Chasing that turned up something worse - **his messages at 18:21, 18:35 and 18:52 had all failed and
+been parked**, each retried three times. Cause in `poller.log`: `[WinError 206] The filename or
+extension is too long`. The bridge passed the whole kick prompt as an argv element, Windows caps a
+command line at 32,767 chars, and **this noticeboard alone had reached 30,259** - so no NEW chat could
+launch. Both Princess Beatrice messages needed a new chat, so they hit it every time.
+
+Fixed: prompt now goes down stdin. Verified end to end at 30,328 chars, the exact failing size,
+returncode 0. Deliberately did NOT trim the board - the fix removes the ceiling rather than rationing
+the space under it. **REQ-21 raised**: inert until the bridge restarts, and until then no new chat can
+start at all, which blocks seven chats opened today including lower-range (07/08) and john-north-hall
+(24/08).
+
+**REQ-6 - recorded Adam's ruling but did not close it.** He said mastic and EPDM are optional extras
+shown below the total, so the client's number excludes them. True of the template and of Crestwood -
+NOT true of Princess Beatrice, where both sit above the subtotal and are inside the issued
+GBP 279,244.69 on his own morning instruction. Checked the workbook rather than take the wording:
+mastic I59 GBP 5,356.22 + EPDM I60 GBP 8,276.91, subtotal I62 GBP 286,404.81, total I65
+GBP 279,244.69. Optional would have given GBP 265,952.39, so GBP 13,292.30 is charged in one document
+and disclaimed in the other. Narrowed the request to a single decision - leave p3 or reissue it - and
+told him plainly why it is still open. Answered his "is the spec correct on the whole?" from the
+record, and his 7pm "what are you working on" as well.
+
+Lesson worth keeping: **when a work order is parked after three attempts, read the log line.** "SESSION
+LAUNCH FAILED" reads like a usage limit; the actual message named the cause exactly and had been
+sitting unread since 19:21.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

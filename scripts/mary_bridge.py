@@ -245,7 +245,14 @@ def dispatch(key, orders, reg, bst, dry_run=False):
             log("        %s  <- %s" % (describe(o), o.get("_route_why")))
         return True
 
-    cmd = [mp.CLAUDE_CMD, "-p", prompt, "--dangerously-skip-permissions"]
+    # The prompt goes down STDIN, not argv. Windows caps a whole command line at
+    # 32,767 characters, and the noticeboard alone reached 30,259 on 27/07/2026 -
+    # so every NEW chat launch started dying with "[WinError 206] The filename or
+    # extension is too long". It killed three of Adam's dashboard messages before
+    # anyone noticed, because the failure looks like a launch problem rather than
+    # a prompt problem. `claude -p` reads the prompt from stdin when no positional
+    # prompt is given, which has no length limit.
+    cmd = [mp.CLAUDE_CMD, "-p", "--dangerously-skip-permissions"]
     cmd += (["--session-id", rec["session_id"]] if first_run else ["--resume", rec["session_id"]])
 
     env = os.environ.copy()
@@ -264,7 +271,8 @@ def dispatch(key, orders, reg, bst, dry_run=False):
     ok = False
     fast_fail = False
     try:
-        proc = subprocess.Popen(cmd, cwd=REPO, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+        proc = subprocess.Popen(cmd, cwd=REPO, stdin=subprocess.PIPE,
+                                stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                 text=True, env=env, encoding="utf-8", errors="replace")
         # The lock names the SESSION, so if this bridge is killed the next one
         # can tell whether the work is still going rather than waiting out a
@@ -272,7 +280,7 @@ def dispatch(key, orders, reg, bst, dry_run=False):
         with open(LOCK, "w") as fh:
             fh.write(str(proc.pid))
         try:
-            stdout, stderr = proc.communicate(timeout=SESSION_TIMEOUT)
+            stdout, stderr = proc.communicate(input=prompt, timeout=SESSION_TIMEOUT)
         except subprocess.TimeoutExpired:
             proc.kill()
             stdout, stderr = proc.communicate()
