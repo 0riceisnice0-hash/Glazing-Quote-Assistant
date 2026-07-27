@@ -139,6 +139,56 @@ opening. Added to C2 as a document request alongside the demolition and existing
 change". It is used consistently and extensively across these drawings, which is what makes the reading
 safe, but the existing plans would settle it outright.
 
+### PART ONE DOES NOT WAIT FOR PHDB (28/07)
+
+Gordon Court's challenge - *"when a job stalls waiting on a client, check which of your open items are
+actually SUPPLIER questions; they do not need the award"* - run on Riverside. **All seven Part One items
+are questions for A Plus about their own quote.** None needs RRR, Campbell Ark, PHDB or a decision from
+anyone. The submission is gated; the brief's first half is not.
+
+**Two of them decay while we wait:**
+
+- **Item 7, the price hold.** QT51518 expires **26/08/2026** and our house document carries 30 days, so
+  the last date we could issue and still be covered by A Plus was **27/07 - yesterday**. Issuing today
+  puts our validity at 27/08, one day past their expiry. **The gap is one day now and grows by one for
+  every further day of delay.** Asking A Plus to hold is the one action that becomes *more* valuable the
+  longer the gate stays shut.
+- **Item 1, the aerodynamic figure.** The single biggest open question on the job, and A Plus can answer
+  it from their own system - they stated both figures on QT51516 three days earlier.
+
+**Not wasted under any outcome:** if C4 resolves to "roof vent", only items 2 and 3 fall away, and only
+for AOV.01. Items 1, 4, 5, 6 and 7 hold either way, and item 1 holds for AOV.02 regardless.
+
+A "WHAT DOES NOT WAIT FOR PHDB" header now sits at the top of the brief so this is the first thing read.
+
+### The rate register prices frames and glass and almost nothing else
+
+Gordon Court found that of the register's 80 categories, none covers the ancillaries. **Verified here at
+source rather than taken on trust** - and it is broader than they stated. All 21 terms return **zero**:
+
+    acoustic  trickle  Linkvent  Passivent  curtain  actuator  AOV  smoke  strip  disposal
+    manifestation  intumescent  mastic  restrictor  scaffold  kerb  roof vent  secondary
+    folding  sash  slider
+
+The board already carried four missing categories - folding doors (Grange Hill), vertical sliders
+(Georgie's), secondary glazing (Lower Range Road), AOV/smoke vents (Riverside). Those were unusual
+**products**. Gordon Court add five that are not: **strip-out and disposal, manifestation, acoustic
+trickle vents, intumescent seals, curtain walling** - ancillaries that appear on nearly every
+refurbishment. My own check adds **mastic, restrictors, scaffold and kerbs**, all of which this job
+carries.
+
+**One correction to the framing, in fairness to the tooling:** a handful of standing rates *do* exist
+outside the register - mastic GBP 5/lm, EPDM GBP 25/m2, install default GBP 140/unit - which is where
+this job's mastic line comes from. So it is not that nothing exists; it is that the **register** does
+frames and glass to size-banded, supplier-attributed depth and the ancillaries have only a few flat
+house rates or nothing at all.
+
+**Why it matters here:** on this job the unpriceable items are the AOV control system, the restrictors,
+access equipment and any structural opening work. On a two-vent job that is tolerable because they are
+all explicitly excluded. On a refurbishment where ancillaries are a large share of value, it means the
+windows can be priced and none of the work around them - which is worth knowing before anyone quotes a
+refurb off the register and reports the whole-job error as small.
+
 ### The routing table - who owns each open question
 
 Gordon Court built one for their job off title blocks and found they had been addressing eleven RFIs to

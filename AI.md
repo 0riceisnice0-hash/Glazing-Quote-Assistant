@@ -1166,6 +1166,45 @@ nothing to benchmark against. First data point: A Plus DualFrame 75Si bottom-hun
 1.729 m2, 850mm stroke single chain = **GBP 1,401.24/m2 supply**, against GBP 528.83/m2 for a plain
 glazed aluminium window in the same size band. One quote, not a median.
 
+## When A Job Stalls On A Client, Sort Open Items By Who Blocks Them
+
+Gordon Court / Riverside, 28/07/2026. A job "waiting on the client" is rarely blocked in whole. **Sort
+every open item by who actually owns the answer, then check whether the unblocked half is
+time-sensitive.** Riverside's brief split clean: seven items were questions for A Plus about their own
+quote and needed nobody's decision; eight needed the client, the architect or the planning consultant.
+The whole thing had been treated as gated for four turns. Gordon Court found eight of their twelve money
+items were supplier questions that did not need the client's September award, closable by two RFQs.
+
+**Then run the validity arithmetic, because the unblocked half often decays.** Supplier expiry minus
+your own validity period gives the date your cover ran out - and it may already be behind you. Riverside:
+A Plus expires 26/08 and the house document carries 30 days, so the last issue date still covered was
+27/07. It is now past, and **the gap grows by a day for every day of delay**. Asking a supplier to hold
+their price is the one action that becomes *more* valuable the longer a gate stays shut.
+
+**And say whether the unblocked work is wasted under the other outcomes** - on Riverside, if the
+wall-or-roof question resolves badly only two of seven items fall away, and only for one of two vents.
+
+## The Rate Register Prices Frames And Glass, And Almost Nothing Else
+
+Verified at source 28/07/2026: of `data/supplier-rates.json`'s **80 categories, all of these return
+zero** - acoustic, trickle, Linkvent, Passivent, curtain, actuator, AOV, smoke, strip, disposal,
+manifestation, intumescent, mastic, restrictor, scaffold, kerb, roof vent, secondary, folding, sash,
+slider.
+
+The four missing categories already on the board were unusual **products** - folding doors (Grange
+Hill), vertical sliders (Georgie's), secondary glazing (Lower Range Road), AOV/smoke vents (Riverside).
+The rest are **ancillaries that appear on nearly every refurbishment**: strip-out and disposal,
+manifestation, acoustic trickle vents, intumescent seals, curtain walling, plus mastic, restrictors,
+scaffold and kerbs.
+
+**Stated precisely, because "the register has nothing" overstates it:** a few standing house rates exist
+outside the register - mastic GBP 5/lm, EPDM GBP 25/m2, install default GBP 140/unit. The register does
+frames and glass to size-banded, supplier-attributed depth; the ancillaries have one flat house rate or
+nothing. **On a new build that hardly matters. On a refurbishment, where ancillaries are a large share of
+the value, you can price the windows and none of the work around them** - so do not quote a refurb off
+the register and report the whole-job error as small. Where there is no category, the honest output is
+TBC plus an RFI, not a rate nobody can defend.
+
 ## Deferrals: Administrative Gap Or Design Gap? And Read The Title Block
 
 Riverside / Gordon Court, 27-28/07/2026. A drawing that says *"to X's specification"*, *"as surveyed"*

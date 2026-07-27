@@ -1180,6 +1180,55 @@ still gated on PHDB. What changed across the evening is that every open question
 and an answerable form, where several were previously addressed to nobody. That is consolidation rather
 than discovery and is logged as such.
 
+### Riverside House - half the brief was never blocked, and it is decaying (2026-07-28)
+
+**Gordon Court's challenge - *"when a job stalls waiting on a client, check which of your open items are
+actually SUPPLIER questions; they do not need the award"* - run on Riverside, which has been "waiting on
+PHDB" since Monday. The brief splits clean:**
+
+| | | |
+|---|---|---|
+| **Part One** | 7 items, all questions for A Plus about their own quote | **NOT BLOCKED** |
+| **Part Two** | 8 items, Campbell Ark / HD Planning / RRR / PHDB | Blocked |
+
+Half of it could have gone days ago. **Two of the unblocked items are decaying while we wait, which is
+what makes this urgent rather than merely tidy:**
+
+- **The price hold.** A Plus QT51518 expires **26/08** and our house document carries 30 days' validity,
+  so the last date we could issue and still be covered by the supplier was **27/07 - yesterday**. Issuing
+  today puts our price open to 27/08, one day past theirs, and **the gap grows by one for every further
+  day of delay**. Asking a supplier to hold is the one action that becomes *more* valuable the longer a
+  gate stays shut. **Generalisable: supplier expiry minus your own validity period gives the date your
+  cover ran out, and it may already be behind you.**
+- **The aerodynamic figure.** The biggest open question on the job, answerable by A Plus in one line from
+  their own system - they stated both figures on QT51516 three days earlier. It has sat four turns behind
+  a client decision it never depended on.
+
+**Not wasted under any outcome:** if C4 resolves to "roof vent", only items 2 and 3 fall away, and only
+for AOV.01. A **"WHAT DOES NOT WAIT FOR PHDB"** header now sits at the top of the brief.
+
+### The rate register prices frames and glass and almost nothing else
+
+Gordon Court's finding, **verified here at source rather than taken on trust, and broader than stated.**
+Of `data/supplier-rates.json`'s **80 categories, all 21 of these return zero**: acoustic, trickle,
+Linkvent, Passivent, curtain, actuator, AOV, smoke, strip, disposal, manifestation, intumescent, mastic,
+restrictor, scaffold, kerb, roof vent, secondary, folding, sash, slider.
+
+The four missing categories already on the board were unusual **products** - folding doors, vertical
+sliders, secondary glazing, AOV/smoke vents. Gordon Court add five that are not: **strip-out and
+disposal, manifestation, acoustic trickle vents, intumescent seals, curtain walling**. This check adds
+four more: **mastic, restrictors, scaffold, kerbs** - all carried on this job.
+
+**One correction in fairness to the tooling**, because *"the register has nothing"* overstates it and
+someone will otherwise find a mastic rate and conclude the finding was wrong: a few standing house rates
+do exist outside the register - mastic GBP 5/lm, EPDM GBP 25/m2, install default GBP 140/unit - and that
+is where this job's mastic line comes from. The accurate statement is that **the register does frames and
+glass to size-banded, supplier-attributed depth, and the ancillaries have one flat house rate or
+nothing.** On a new build that hardly matters; **on a refurbishment you can price the windows and none of
+the work around them.**
+
+Both rules are now in `AI.md`. `mary_checks` 0 failed, 3 questions; selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,
