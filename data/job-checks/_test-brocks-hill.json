@@ -1,0 +1,47 @@
+{
+ "job": "Brocks Hill Phase 2 - fixture (Bellview 0000000503 covered 1no Door Type E.04, the tender sold 2)",
+ "supplier_coverage": [
+  {
+   "ref": "Door Type E.02 1010x2110",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "Bellview 0000000503 pos 001"
+  },
+  {
+   "ref": "Door Type E.04 1810x2110",
+   "qty_sold": 2,
+   "qty_quoted": 1,
+   "supplier_ref": "Bellview 0000000503 pos 002"
+  },
+  {
+   "ref": "Door/Window Type E.01, E.03 1800x2110",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "Bellview 0000000503 pos 003+004"
+  },
+  {
+   "ref": "Window Type E.02 1800x2100",
+   "qty_sold": 23,
+   "qty_quoted": 23,
+   "supplier_ref": "BSW QT253232 e.02"
+  },
+  {
+   "ref": "Window Type E.04 1800x2400",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT253232 e.04"
+  },
+  {
+   "ref": "Window Type E.05 1000x2100",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT253232 e.05"
+  },
+  {
+   "ref": "Window Type E.06 1800x2100",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253232 e.06"
+  }
+ ]
+}

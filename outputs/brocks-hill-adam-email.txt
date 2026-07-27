@@ -1,0 +1,114 @@
+Adam, Zac,
+
+Gintare's Brocks Hill Phase 2 tender is checked. The arithmetic is clean but the scope
+is not, and I would not send it as it stands. Deadline is Friday 31st.
+
+Workbook attached: Brocks Hill Phase 2 - Quote Check (schedules vs tender).xlsx
+
+WHAT IS RIGHT
+
+GBP 93,673.34 ex VAT, and every number in it reconciles. The house template adders land
+to the penny on all seven rows. Installation of GBP 9,570.00 recomputes exactly from the
+labour codes. Both supplier quotes are current, both taken net: BSW QT253232 at
+GBP 37,960.33 ties exactly to the four window lines, and Bellview 0000000503 at
+GBP 17,094.52 is properly net of the 15% end discount. The four classroom door/window
+elements are correctly quoted as one SMA Smart Wall element each, so the system-depth
+coupling rule from SM5 is being observed.
+
+THE PROBLEM
+
+Seven external doors on the architect's door schedule are in neither supplier quote nor
+the pricing document, and are not excluded:
+
+  Door Type E.01  5no  ED.0.04/06/07/08/09  steel sports hall escape doors, 1810x2110,
+                       Strongdor Sportsdor or similar approved, panic furniture to both
+                       leaves. All five are marked Fire Escape.
+  Door Type E.03  2no  ED.0.01/05  aluminium louvred plant room doors, 1810x2110.
+
+They are missing because the BoQ SMD issued us omits them - so my own 15/07 budget missed
+them too. The door schedule 23409-...-31 XX P06 is explicit. The cross-check that settles
+it: SMD's own Building Works Pricing Schedule carries 48 m2 of External Doors. We are
+pricing 24.96 m2. Add these seven back and it comes to 51.70 m2, which brackets their
+figure. We are quoting about half the external door area SMD expects.
+
+Benchmark cost of the gap is roughly GBP 32,462 of sell, and the louvre infill on the
+E.03s is on top of that - there is no louvre rate on file.
+
+FOUR MORE THAT COST MONEY
+
+1. The proposal promises triple glazing and Bellview quoted double. Every door position on
+   0000000503 is 6.8 Lami / 4mm Tuff - a double glazed unit - while the proposal tells SMD
+   "triple glazing throughout" and both ER 7.5.1 and the door schedule require it. BSW have
+   already told us in writing that Smart Wall is not available in triple glazing. This is a
+   system change or a formal qualification in the tender; it cannot be closed by swapping
+   the glass.
+
+2. No solar control glass anywhere. The window schedule marks every external window
+   "Triple Glazed, Solar Control Glazing" and ER 7.5.17 requires it. BSW quoted "Clr" on
+   every line. About GBP 4,177 at GBP 35/m2. That is the third job this month - Filwood and
+   Crestwood were the same omission.
+
+3. The 2.5% MCD is not in the tender. Martin Moore's enquiry asks for it in terms. Grossed
+   neutral the subtotal needs to rise GBP 2,401.88; taken off the bottom as on Princess
+   Beatrice it costs GBP 2,341.84 of margin. Your call which.
+
+4. One window short and one door uncovered. The schedule lists 3no Type E.05, we quoted 2
+   (GBP 1,267.99). And we sell 2no Door Type E.04 where Bellview quoted 1no - GBP 2,723.49
+   of cost with no quote behind it. The rate should hold, same product and size, but the
+   quote needs extending, and note only the quoted one carries the auto operator header.
+
+WHERE THAT LEAVES THE NUMBER
+
+  Tender as drafted                             GBP  93,673.34
+  Quantified missing scope                      GBP  40,906.88
+  Corrected indicative                          GBP 134,580.22
+  Plus mastic and EPDM (both spec requirements) GBP 139,356.78
+  Grossed for the 2.5% MCD                      GBP 142,930.03
+
+Benchmark, not a price. Still unquantified on top: triple glazing to the doors, trickle
+vents (ER 7.5.12 requires them on every window, none quoted), restrictors and lockable
+handles with 3 keys (ER 7.5.9/7.5.10, none quoted), remote openers above 2.0m, manifest-
+ations, obscure glazing to the two toilet positions, PAS 24 / LPS 1175 SR2 certification,
+and delivery - both quotes are ex works.
+
+TWO THINGS WORTH A SEPARATE LOOK
+
+Mastic GBP 1,400.80 and EPDM GBP 3,375.76 are sitting as optional extras, but the door
+schedule requires all openings sealed with non-setting mastic all round and ER 7.5.1
+requires EPDM gaskets to BS 4255. That is GBP 4,776.56 of specified work outside the tender
+sum. You put both into the main quote on Princess Beatrice and left them optional on
+Crestwood - I need to know which is the rule.
+
+Bellview quoted "NON HOLD OPEN" closers on every door. ER 7.5.5 requires built-in hold-back
+and 7.5.7 a 90 degree hold-open facility. That is the opposite of the requirement, quoted
+against it.
+
+ADMIN
+
+Both quotes are dated 22/07 and valid 30 days - about 21/08. Date of possession is 24/08.
+They both expire before the site starts, so an order has to be placed by then or both
+prices reopen.
+
+Send the PDF only. Cells K3/L3/M3:M5 carry "Supplier used: BSW" and the supplier totals,
+and columns J and P carry frame cost. The print area C1:I28 is clean, so the PDF is safe,
+but the .xlsx is not. Cells O12 and O17 also read #VALUE!.
+
+The drawings pack we are attaching has been properly stripped of supplier prices - that is
+right, and worth saying.
+
+The enquiry also asked for VE opportunities and lead-in times. We offer neither, and
+neither supplier quote states a lead time. Free marks on a competitive bid.
+
+WHAT I NEED
+
+I cannot email SMD or the suppliers. The workbook has the RFIs drafted for Martin Moore
+(martin.moore@smd-ltd.com, 07564 581082), BSW, Bellview and a steel doorset supplier.
+The two that decide the number:
+
+  - Are the Type E.01 and E.03 doors in our package? If yes we need a steel doorset quote
+    and a louvred door quote inside four days.
+  - Will SMD accept a double glazed door against a triple glazed specification?
+
+Nothing has gone to SMD. mary_checks.py returns 4 FAILED on this job.
+
+Mary

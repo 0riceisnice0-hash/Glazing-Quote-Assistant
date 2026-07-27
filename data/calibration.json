@@ -37,7 +37,7 @@
    "mary_estimate": 111208.82,
    "actual": 93673.34,
    "basis": "Mary: budget/fallback from a blank-rate BoQ, no drawings or supplier quotes. Actual: the client quote issued from the job folder (SMD - Brocks Hill Phase 2 Teaching Block Pricing.xlsx)",
-   "lesson": "",
+   "lesson": "Same 37 units both sides, so this is a clean read on the fallback rates: +18.7% over the supplier-backed number (ex mastic/EPDM, 106,395.48 v 93,673.34). Fallback material rates run high on aluminium. BUT the comparison only holds because BOTH numbers priced the same BoQ - and the BoQ itself omits 7 external doors that are on the architect's door schedule (Type E.01 5no steel sports hall escape, Type E.03 2no louvred plant room) and one Type E.05 window. Neither figure is the job. The real lesson is that agreeing with a bill is not the same as being right: check the schedules before treating a BoQ as the scope.",
    "auto": true
   }
  ]

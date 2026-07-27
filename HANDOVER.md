@@ -233,6 +233,53 @@ Commercial position:
 
 Lesson: blank-rate BoQ workbooks ("BoQs" plural filename) are now extracted by the shared parser (Strategy B1, commit `b8d9a71`). Extra-over lines must stay TBC, not silently dropped or invented.
 
+### Brocks Hill Phase 2 - quote check (2026-07-27)
+
+Gintare's outgoing tender to Spacemaker Developments (SMDT0173), dated 28/07/2026, checked
+against the tender pack. Deadline Friday 31/07/2026.
+
+Inputs:
+
+```text
+test-results\mary-inbox\processed60727T1443-z2KwAAAA-att\   (pricing xlsx, proposal docx, drawings pdf)
+...\Commercial. Tender Documents\SMD\Brocks Hill Phase 2. Estimatingtest-resultsrocks-hill-check	ender\                          (171-file pack, extracted from the zip)
+```
+
+Outputs:
+
+```text
+outputs\Brocks Hill Phase 2 - Quote Check (schedules vs tender).xlsx
+scriptsrocks_hill_quote_check.py
+data\jobsrocks-hill.md
+data\job-checksrocks-hill-phase-2.json
+```
+
+Position:
+
+- Tender as drafted `GBP 93,673.34` ex VAT, supplier-backed and arithmetically exact: house
+  template adders land to the penny on all 7 rows, installation `GBP 9,570.00` recomputes from
+  the labour codes, and both quotes tie to the frame column - BSW QT253232 `GBP 37,960.33` and
+  Bellview 0000000503 `GBP 17,094.52` net of the 15% end discount, both 22/07/2026.
+- **Seven external doors on door schedule P06 are in neither quote nor the pricing document nor
+  the exclusions**: Type E.01 (5no steel sports hall escape doors, all Fire Escape) and Type E.03
+  (2no aluminium louvred plant room doors). ~`GBP 32,462` of sell. They are absent because SMD's
+  BoQ omits them, which is why the 15/07 budget missed them too.
+- Corrected indicative `GBP 134,580.22`; `GBP 142,930.03` with mastic/EPDM in the sum and the
+  required 2.5% MCD grossed. Benchmark, not price.
+- 18 findings in total. `scripts/mary_checks.py` returns 5 FAILED. Nothing sent to SMD.
+
+New check rule: `check_supplier_covers_quantity` with fixture `data/job-checks/_test-brocks-hill.json`.
+The tender sold 2no Door Type E.04 where Bellview quoted 1no - the rate was applied twice, so the
+quote total still tied and `GBP 2,723.49` of cost had no quote behind it. Selftest passes; all five
+founding errors still fire.
+
+Lesson: a contractor's BoQ is not the scope. Reconcile every bill against the architect's window
+and door schedules before pricing it, and where the client publishes their own quantities compare
+areas - SMD's pricing schedule carried 48 m2 of external doors against the tender's 24.96 m2, and a
+factor of two is not a measurement difference. Second lesson, from the same job: SMA Smart Wall is
+not available in triple glazing, so a proposal promising "triple glazing throughout" on a Smart Wall
+door package is uncompliant on its face.
+
 ### Crownhill Business Centre / Zelltec (2026-07-15)
 
 Inputs:

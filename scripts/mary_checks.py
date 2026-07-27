@@ -355,11 +355,46 @@ def check_finish_substitution(m):
                   "%d element(s) quoted in the specified finish" % len(fins), "Georgie's")
 
 
+def check_supplier_covers_quantity(m):
+    """Brocks Hill Phase 2, 27/07. The tender sold 2no Door Type E.04 at
+    GBP 2,723.49 each. Bellview 0000000503 quoted ONE. The rate was simply
+    applied twice, so the arithmetic looked perfect and GBP 2,723.49 of cost
+    had no quote behind it. Reconciling a quote TOTAL is not the same as
+    reconciling its QUANTITIES - the total ties either way."""
+    cov = m.get("supplier_coverage")
+    if cov is None:
+        return result("supplier quote covers every unit sold", UNKNOWN,
+                      "For every priced line, state what the supplier actually quoted: "
+                      "'supplier_coverage': [{ref, qty_sold, qty_quoted, supplier_ref}].",
+                      "Brocks Hill")
+    if not cov:
+        return result("supplier quote covers every unit sold", NA,
+                      "no supplier-backed lines to check", "Brocks Hill")
+    short, silent = [], []
+    for c in cov:
+        ref, sold, quoted = c.get("ref", "?"), c.get("qty_sold"), c.get("qty_quoted")
+        if sold is None or quoted is None:
+            silent.append(ref)
+        elif quoted < sold:
+            short.append("%s: selling %s, %s quoted %s"
+                         % (ref, sold, c.get("supplier_ref", "the supplier"), quoted))
+    if short:
+        return result("supplier quote covers every unit sold", FAIL,
+                      "Units sold with no supplier quote behind them: %s. Extend the quote before "
+                      "the order - the rate usually holds, but nobody has agreed it."
+                      % "; ".join(short), "Brocks Hill")
+    if silent:
+        return result("supplier quote covers every unit sold", UNKNOWN,
+                      "Quantities not stated for: %s." % ", ".join(silent), "Brocks Hill")
+    return result("supplier quote covers every unit sold", PASS,
+                  "%d line(s) fully covered by a supplier quote" % len(cov), "Brocks Hill")
+
+
 RULES = [
     check_system_coupling, check_panic_hardware, check_glass_ownership, check_quantities,
     check_scope_gaps, check_supplier_quote_currency, check_net_pricing,
     check_full_height_screens, check_fabricator_can_make_it, check_uvalue_basis,
-    check_finish_substitution,
+    check_finish_substitution, check_supplier_covers_quantity,
 ]
 
 
@@ -380,6 +415,7 @@ def blank_manifest(job):
         "systems_specified": None,
         "finishes": None,
         "u_value": None,
+        "supplier_coverage": None,
     }
 
 
@@ -422,6 +458,7 @@ def selftest():
         "_test-vesuvius.json": {"drawing vs bill quantities", "spec covered or excluded",
                                 "someone can actually fabricate it"},
         "_test-georgies.json": {"finish quoted is the finish specified"},
+        "_test-brocks-hill.json": {"supplier quote covers every unit sold"},
     }
     ok = True
     for name, must_fail in expected.items():

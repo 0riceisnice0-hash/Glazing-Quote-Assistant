@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27T15:58:00",
+ "updated": "2026-07-27",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -102,6 +102,14 @@
    "deadline": "2026-07-28",
    "status": "DEADLINE TOMORROW MORNING. Rosebank Georgies Youth Centre, Barnstaple - Devon CC PSDS4 energy improvement scheme, CA is South West Norse (08-02-119364). Scope is 23 windows, 8 doorsets and 2 full-height screens. FENSTER HAS NO PRICE. One supplier return in hand and it covers the windows only: Mercury QL004741, 27/07, SMA VS600 vertical sliders, Grand Total Net GBP 27,319.03 supply only. It reconciles exactly - 23 quoted = 23 scheduled, every size matches, items and discount recompute to the penny. But it misses five specified things: dual colour (quote says BROWN RAL TBC SINGLE COLOUR ONLY against a spec of white inside / dark brown outside), the 1.6 W/m2K U-value and its evidence (no U-value stated and the make-up reads 'Clear' with no low-E named), obscure glass to WCs, the specified Delta white PVCu trickle vents with external canopy (mill finish quoted), and it substitutes SMA VS600 for the specified Sapa Dualframe 75Si. The 8 doors, patio door and the 16.23 m2 curtain walling run - 35.45 m2 with six BS EN 1125 panic bars - have no supplier price at all. Benchmark for that missing scope is about GBP 21,800 supply and that is a floor. Checks fail 5 of 11.",
    "value": "GBP 27,319 supplier-backed, windows only",
+   "stage": "tender"
+  },
+  {
+   "job": "Brocks Hill Phase 2 Teaching Block",
+   "client": "Spacemaker Developments Ltd (SMDT0173)",
+   "deadline": "2026-07-31",
+   "status": "QUOTE CHECKED 27/07, NOT ISSUED. Gintare's tender is GBP 93,673.34 ex VAT and the arithmetic is exact - template adders land to the penny on all 7 rows, install recomputes from the labour codes, both supplier quotes taken net and tied to the frame column (BSW QT253232 GBP 37,960.33 + Bellview 0000000503 GBP 17,094.52). But SEVEN EXTERNAL DOORS on the architect's door schedule are in neither quote nor the pricing document nor the exclusions: Type E.01, 5no steel sports hall escape doors, all marked Fire Escape, and Type E.03, 2no aluminium louvred plant room doors. About GBP 32,462 of sell. They are missing because SMD's BoQ omits them - the same reason Mary's own 15/07 budget missed them. SMD's own pricing schedule carries 48 m2 of external doors against our 24.96 m2. Also: the proposal promises triple glazing and the door supplier quoted double (Smart Wall is not made in triple), no solar control glass on any window against a schedule that requires it throughout, and the 2.5% MCD the enquiry asks for is not applied. Corrected indicative GBP 134,580.22, or GBP 142,930.03 with mastic/EPDM in and the MCD grossed - benchmark, not price. 18 findings; mary_checks returns 5 FAILED. Nothing has gone to SMD.",
+   "value": "GBP 93,673 drafted / GBP 134,580 corrected",
    "stage": "tender"
   }
  ],
@@ -298,6 +306,38 @@
     "Go back to Mercury for dual colour, U-value and obscure before we price anything"
    ],
    "status": "open"
+  },
+  {
+   "id": "REQ-13",
+   "raised": "2026-07-27",
+   "job": "Brocks Hill Phase 2 (Spacemaker Developments)",
+   "owner": "Adam",
+   "title": "Seven external doors are missing from the Brocks Hill tender and it closes Friday",
+   "why": "The architect's door schedule 23409-S2E-04-00-D-A-31 XX P06 carries Door Type E.01 - 5no steel sports hall escape doors 1810x2110, Strongdor Sportsdor or similar, panic furniture to both leaves, all five marked Fire Escape - and Door Type E.03, 2no aluminium louvred plant room doors 1810x2110. Neither type is in the BSW or Bellview quote, in the pricing document, or in the exclusions. They are absent because the BoQ SMD issued us omits them, which is why Mary's own 15/07 budget missed them too. The cross-check that settles it: SMD's own Building Works Pricing Schedule carries 48 m2 of External Doors and we are pricing 24.96 m2 - add these seven back and it comes to 51.70 m2. That is about GBP 32,462 of sell, plus the louvre infill on the E.03s, which has no rate on file. Neither type has a fabricator engaged, and the tender returns Friday 31st.",
+   "needs": "A decision on whether these doors are in Fenster's package, and if they are, someone to get a steel doorset quote and a louvred doorset quote inside four days - Mary cannot email suppliers. SMD need asking too (Martin Moore, martin.moore@smd-ltd.com, 07564 581082), since their own bill is what omitted them.",
+   "options": [
+    "Price them - issue enquiries now for the steel and louvred doorsets",
+    "Exclude them and qualify the tender in writing",
+    "Carry both types as a provisional sum",
+    "Hold the tender until SMD confirm the package boundary"
+   ],
+   "status": "open"
+  },
+  {
+   "id": "REQ-14",
+   "raised": "2026-07-27",
+   "job": "Brocks Hill Phase 2 (Spacemaker Developments)",
+   "owner": "Adam",
+   "title": "We are promising triple glazing on doors the supplier cannot make in triple",
+   "why": "The proposal tells SMD 'triple glazing throughout'. Employer's Requirements 7.5.1 and the door schedule general specification both require factory sealed triple glazed units on windows AND doors. Bellview quote 0000000503 prices every door position as 6.8 Lami / 4mm Tuff - a double glazed unit. BSW have already told Fenster in writing that Smart Wall products are not available in triple glazing. So this cannot be closed by changing the glass: it is either a different door system or a formal non-compliance qualification in the tender. Same shape as Technal/Modeal on Princess Beatrice, Senior on Vesuvius and Aluprof on Filwood - the fourth this month.",
+   "needs": "A decision before Friday, and either way the proposal wording has to change - it currently claims compliance we do not have. Asking SMD whether a double glazed door meeting the 1.2 W/m2K door U-value is acceptable is the cheapest route, but somebody has to ask them.",
+   "options": [
+    "Ask SMD to accept a double glazed door at the 1.2 W/m2K door U-value",
+    "Qualify the deviation formally in the tender and price as quoted",
+    "Source the door package from a system available in triple glazing",
+    "Hold the tender until SMD answer"
+   ],
+   "status": "open"
   }
  ],
  "catches": [
@@ -426,6 +466,41 @@
    "catch": "Supplier quoted single colour on all 23 windows where the spec requires white inside and dark brown outside - the second colour was never in the price and the quote never mentioned it.",
    "type": "spec compliance",
    "value": "now a standing rule"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "Brocks Hill Phase 2",
+   "catch": "Seven external doors on the architect's door schedule - 5no steel sports hall escape doors and 2no louvred plant room doors - were in neither supplier quote, the pricing document nor the exclusions, because the contractor's BoQ omitted them. The client's own pricing schedule said 48 m2 of external doors against our 24.96 m2.",
+   "type": "missing scope",
+   "value": "~GBP 32,462"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "Brocks Hill Phase 2",
+   "catch": "The proposal promised triple glazing throughout while the door supplier had quoted double - and Smart Wall is not manufactured in triple glazing at all, so the promise could never have been met.",
+   "type": "spec compliance",
+   "value": "system change or a formal qualification"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "Brocks Hill Phase 2",
+   "catch": "No solar control glass priced on any window, against a schedule marking every external window 'Triple Glazed, Solar Control Glazing'. Third job this month after Filwood and Crestwood.",
+   "type": "missing scope",
+   "value": "~GBP 4,177"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "Brocks Hill Phase 2",
+   "catch": "Two doors sold against a supplier quote covering one. The rate was applied twice so the quote total still reconciled and the gap was invisible - now a standing check rule.",
+   "type": "quantity",
+   "value": "GBP 2,723.49 of uncovered cost"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "Brocks Hill Phase 2",
+   "catch": "The 2.5% main contractor's discount the enquiry expressly asked for was not in the tender.",
+   "type": "commercial terms",
+   "value": "GBP 2,401.88"
   }
  ],
  "register": {
