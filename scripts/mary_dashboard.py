@@ -30,7 +30,7 @@ LOG = os.path.join(REPO, "test-results", "mary-inbox", "poller.log")
 
 def sent_emails(token):
     st, res = mg.graph(token, "GET",
-        "/users/%s/mailFolders/sentitems/messages?$top=50&$select=subject,toRecipients,sentDateTime&$orderby=sentDateTime%%20desc" % mg.MARY)
+        "/users/%s/mailFolders/sentitems/messages?$top=50&$select=subject,toRecipients,sentDateTime,body&$orderby=sentDateTime%%20desc" % mg.MARY)
     if st != 200:
         return []
     out = []
@@ -39,8 +39,33 @@ def sent_emails(token):
             "sent": m.get("sentDateTime", "")[:16].replace("T", " "),
             "to": ", ".join(r["emailAddress"]["address"].split("@")[0] for r in m.get("toRecipients", [])),
             "subject": m.get("subject", ""),
+            "body": mg.html_to_text(m.get("body", {}).get("content", ""))[:6000],
         })
     return out
+
+
+def inbox_seen():
+    """Everything Mary has read: the processed queue records."""
+    proc = os.path.join(REPO, "test-results", "mary-inbox", "processed")
+    items = []
+    if os.path.isdir(proc):
+        for f in sorted(os.listdir(proc), reverse=True):
+            if not f.endswith(".json"):
+                continue
+            try:
+                d = json.load(open(os.path.join(proc, f), encoding="utf-8"))
+            except Exception:
+                continue
+            items.append({
+                "received": d.get("received", "")[:16].replace("T", " "),
+                "from": d.get("from", ""),
+                "subject": d.get("subject", ""),
+                "attachments": len(d.get("attachments", [])),
+                "body": (d.get("body") or "")[:5000],
+            })
+            if len(items) >= 80:
+                break
+    return items
 
 
 def poller_stats():
@@ -68,6 +93,7 @@ def main():
     data = dict(state)
     data["updated"] = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     data["emails"] = emails
+    data["inbox"] = inbox_seen()
     data["sessions"] = {
         "polls": polls,
         "launched": launched,

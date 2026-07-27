@@ -180,6 +180,43 @@ def main():
     state["seen_keys"] = sorted(seen_keys)[-4000:]
     save_state(state)
 
+    # ---- dashboard messages from Zac/Adam (mary-dashboard.pages.dev) ----
+    try:
+        import urllib.request
+        key = env.get("MARY_API_KEY")
+        base = env.get("DASHBOARD_URL", "https://mary-dashboard.pages.dev")
+        if key:
+            req = urllib.request.Request(base + "/api/mary/pending")
+            req.add_header("x-mary-key", key)
+            req.add_header("user-agent", "MaryPoller/1.0")
+            with urllib.request.urlopen(req, timeout=30) as r:
+                pending_msgs = json.load(r)
+            queued_ids = set(state.setdefault("dashboard_queued", []))
+            for msg in pending_msgs:
+                if msg["id"] in queued_ids:
+                    continue
+                base_name = "dashmsg-%d" % msg["id"]
+                rec = {
+                    "mailbox": "dashboard", "id": "dash-%d" % msg["id"],
+                    "dashboard_message_id": msg["id"],
+                    "from": "%s (via dashboard)" % msg.get("author", "team"),
+                    "subject": ("Dashboard message" + (" re: " + msg["context"] if msg.get("context") else "")),
+                    "received": msg.get("created", ""),
+                    "to": ["mary"], "cc": [],
+                    "trusted_sender": True,
+                    "attachments": [],
+                    "body": msg.get("body", ""),
+                }
+                with open(os.path.join(QUEUE, base_name + ".json"), "w", encoding="utf-8") as fh:
+                    json.dump(rec, fh, indent=1, ensure_ascii=False)
+                queued_ids.add(msg["id"])
+                new_count += 1
+                log("QUEUED [dashboard] %s | %s" % (rec["from"], rec["body"][:70]))
+            state["dashboard_queued"] = sorted(queued_ids)[-500:]
+            save_state(state)
+    except Exception as e:
+        log("DASHBOARD POLL FAILED: %s" % e)
+
     pending = [f for f in os.listdir(QUEUE) if f.endswith(".json")]
     log("poll done: %d new, %d pending in queue" % (new_count, len(pending)))
 

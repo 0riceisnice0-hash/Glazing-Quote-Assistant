@@ -1,3 +1,8 @@
 name = "mary-dashboard"
 compatibility_date = "2026-06-02"
 pages_build_output_dir = "public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "mary-dashboard-db"
+database_id = "7ee373e8-1407-49e3-83b4-61761ffecc6c"

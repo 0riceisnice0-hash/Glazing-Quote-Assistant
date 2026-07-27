@@ -3,35 +3,51 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mary Grace - Estimating Desk</title>
+    <title>Mary Grace - Estimating Hub</title>
+    <link rel="icon" href="/icon.png">
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
-    <!-- Login view removed while AUTH_DISABLED (Zac 27/07). Restore from git
-         history (commit 51df61b) when the login gate comes back. -->
     <div id="app" class="app-shell">
       <aside class="sidebar">
         <div class="brand">
-          <span class="mark"><img src="/fenster-logo.png" alt="Fenster Glazing"></span>
+          <img src="/logo-dark.png" alt="Fenster Glazing" class="brand-logo">
+          <div class="brand-sub">Mary Grace <span>Estimating Hub</span></div>
+        </div>
+        <nav id="tabs" class="tabs" aria-label="Hub sections"></nav>
+        <div class="sidebar-foot">
+          <div class="pulse-dot"></div>
           <div>
-            <strong>Mary Grace's Desk</strong>
-            <small id="active-user"></small>
+            <strong>Mary is live</strong>
+            <small id="updated-at"></small>
           </div>
         </div>
-        <nav id="tabs" class="tabs" aria-label="Dashboard tabs"></nav>
-        <button id="logout" class="ghost-button">Sign out</button>
       </aside>
 
       <section class="workspace">
         <header class="topbar">
           <div>
-            <p class="eyebrow">Live estimating desk - updated <span id="updated-at"></span></p>
-            <h2 id="view-title">Deadlines</h2>
+            <p class="eyebrow" id="view-eyebrow">Estimating operations</p>
+            <h2 id="view-title">Overview</h2>
+          </div>
+          <div class="topbar-right">
+            <label class="who">I am
+              <select id="who">
+                <option value="zac">Zac</option>
+                <option value="adam">Adam</option>
+              </select>
+            </label>
           </div>
         </header>
-        <section id="view"></section>
+        <section id="view" class="view"></section>
       </section>
     </div>
+
+    <div id="drawer-veil" class="drawer-veil" hidden></div>
+    <aside id="drawer" class="drawer" hidden>
+      <button id="drawer-close" class="drawer-close" aria-label="Close">&times;</button>
+      <div id="drawer-body"></div>
+    </aside>
 
     <script src="/app.js" type="module"></script>
   </body>

@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS messages (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  created TEXT NOT NULL,
+  author TEXT NOT NULL,
+  body TEXT NOT NULL,
+  context TEXT DEFAULT '',
+  in_reply_to INTEGER,
+  seen_by_mary INTEGER DEFAULT 0
+);

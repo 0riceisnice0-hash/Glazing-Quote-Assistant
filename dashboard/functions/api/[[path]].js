@@ -1,75 +1,74 @@
-// Mary Dashboard API - mirrors the Marketing Dashboard pattern (catch-all
-// route, cookie session) but with a single shared password held as a Pages
-// secret. Fails closed: no DASHBOARD_PASSWORD secret => nobody can log in.
+// Mary Dashboard API.
+//   Public (auth disabled per Zac 27/07): data, messages list/post.
+//   Mary-only (X-Mary-Key header == MARY_API_KEY secret): pending, reply.
+// Messages posted from the site are picked up by Mary's poller and treated
+// as instructions from Zac/Adam - re-enable the login gate before sharing
+// the URL beyond the two of them.
 import { DATA } from "../_data/dashboard-data.js";
 
-const USERS = ["zac", "adam"];
-const COOKIE = "mary_session";
-const DAY = 86400;
-// Zac 27/07/2026: "no log in for now we will add that later" - flip to false
-// to restore the login gate (password secrets are still set on the project).
-const AUTH_DISABLED = true;
-
-function json(body, status = 200, headers = {}) {
+function json(body, status = 200) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { "content-type": "application/json", ...headers },
+    headers: { "content-type": "application/json" },
   });
 }
 
-async function hmac(secret, value) {
-  const key = await crypto.subtle.importKey(
-    "raw", new TextEncoder().encode(secret),
-    { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
-  const sig = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(value));
-  return btoa(String.fromCharCode(...new Uint8Array(sig))).replace(/=+$/, "");
-}
-
-async function makeToken(env, user) {
-  const exp = Math.floor(Date.now() / 1000) + 14 * DAY;
-  const payload = `${user}.${exp}`;
-  return `${payload}.${await hmac(env.COOKIE_SECRET, payload)}`;
-}
-
-async function getUser(request, env) {
-  if (!env.COOKIE_SECRET) return null;
-  const cookie = request.headers.get("cookie") || "";
-  const match = cookie.match(new RegExp(`${COOKIE}=([^;]+)`));
-  if (!match) return null;
-  const [user, exp, sig] = match[1].split(".");
-  if (!user || !exp || !sig) return null;
-  if (parseInt(exp, 10) < Date.now() / 1000) return null;
-  if ((await hmac(env.COOKIE_SECRET, `${user}.${exp}`)) !== sig) return null;
-  return USERS.includes(user) ? user : null;
-}
-
-async function login(context) {
-  const { env, request } = context;
-  if (!env.DASHBOARD_PASSWORD || !env.COOKIE_SECRET) {
-    return json({ error: "Dashboard not yet unlocked" }, 503);
-  }
-  const body = await request.json().catch(() => ({}));
-  const user = String(body.username || "").toLowerCase();
-  if (!USERS.includes(user) || body.password !== env.DASHBOARD_PASSWORD) {
-    return json({ error: "Wrong user or password" }, 401);
-  }
-  const token = await makeToken(env, user);
-  return json({ user }, 200, {
-    "set-cookie": `${COOKIE}=${token}; HttpOnly; Secure; SameSite=Strict; Path=/; Max-Age=${14 * DAY}`,
-  });
-}
+const now = () => new Date().toISOString();
 
 export async function onRequest(context) {
-  const route = new URL(context.request.url).pathname.replace(/^\/api\/?/, "");
+  const { request, env } = context;
+  const route = new URL(request.url).pathname.replace(/^\/api\/?/, "");
+  const db = env.DB;
   try {
-    if (route === "login" && context.request.method === "POST") return login(context);
-    if (route === "logout") {
-      return json({ ok: true }, 200, { "set-cookie": `${COOKIE}=; Path=/; Max-Age=0` });
-    }
-    const user = AUTH_DISABLED ? "guest" : await getUser(context.request, context.env);
-    if (!user) return json({ error: "Not signed in" }, 401);
-    if (route === "me") return json({ user });
     if (route === "data") return json(DATA);
+
+    if (route === "messages" && request.method === "GET") {
+      const { results } = await db.prepare(
+        "SELECT id, created, author, body, context, in_reply_to, seen_by_mary FROM messages ORDER BY id DESC LIMIT 200").all();
+      return json(results);
+    }
+
+    if (route === "messages" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      const author = ["zac", "adam"].includes(String(b.author || "").toLowerCase()) ? b.author.toLowerCase() : "team";
+      const body = String(b.body || "").slice(0, 4000).trim();
+      const ctx = String(b.context || "").slice(0, 300);
+      if (!body) return json({ error: "Empty message" }, 400);
+      await db.prepare("INSERT INTO messages (created, author, body, context) VALUES (?, ?, ?, ?)")
+        .bind(now(), author, body, ctx).run();
+      return json({ ok: true });
+    }
+
+    // ---- Mary-only routes ----
+    if (!env.MARY_API_KEY || request.headers.get("x-mary-key") !== env.MARY_API_KEY) {
+      return json({ error: "Not found" }, 404);
+    }
+
+    if (route === "mary/pending") {
+      const { results } = await db.prepare(
+        "SELECT id, created, author, body, context FROM messages WHERE seen_by_mary = 0 AND author != 'mary' ORDER BY id").all();
+      return json(results);
+    }
+
+    if (route === "mary/reply" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      const body = String(b.body || "").slice(0, 8000).trim();
+      const replyTo = parseInt(b.in_reply_to, 10) || null;
+      if (body) {
+        await db.prepare("INSERT INTO messages (created, author, body, context, in_reply_to, seen_by_mary) VALUES (?, 'mary', ?, ?, ?, 1)")
+          .bind(now(), body, String(b.context || "").slice(0, 300), replyTo).run();
+      }
+      if (replyTo) {
+        await db.prepare("UPDATE messages SET seen_by_mary = 1 WHERE id = ?").bind(replyTo).run();
+      }
+      if (Array.isArray(b.mark_seen)) {
+        for (const id of b.mark_seen.slice(0, 50)) {
+          await db.prepare("UPDATE messages SET seen_by_mary = 1 WHERE id = ?").bind(parseInt(id, 10) || 0).run();
+        }
+      }
+      return json({ ok: true });
+    }
+
     return json({ error: "Not found" }, 404);
   } catch (error) {
     return json({ error: error.message || "Something went wrong" }, 500);
