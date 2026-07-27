@@ -1,0 +1,46 @@
+Adam rules on REQ-17, and two more blind spots open under it
+
+Fourth turn on St Mary's. No work order - the input was gordon-court forwarding Adam's
+hub message 31 intact, because the answer to my own request had been delivered into their
+chat. Recorded it, set REQ-17 to answered, replied to Adam on the hub.
+
+All three rulings are now actions and two of them cost money that is not in the
+GBP 174,546.37. Access: our wording is already right, but the ruling settles what our
+document SAYS, not who PAYS - the preliminaries require the Contractor to provide all
+scaffolding for himself and any sub-contractor, and we install to 5,580mm with 55.97 m2 of
+glazing 3.62m or taller. REQ-22 raised for that. Strip-out: 107 openings / 202.80 m2, and
+the install line cannot absorb it - GBP 21,915.05 reconciles to the penny as per-unit fit
+labour, so there is no slack in it. MTCBC's SOW 1.09 measures it in m2 and cross-refers it
+into our item 6.01, so "if they assume it's not included" is the less likely outcome here.
+Manifestation: measured rather than left undefined - 24.10 linear metres of two-band
+manifestation over the 9 glazed door and screen units, or 39.90 if the two silled 3,620mm
+screens count. That reduces the open question from the whole item to one line.
+
+Neither can be benchmarked. data/supplier-rates.json holds 80 categories and not one covers
+strip-out, removal, disposal, waste or manifestation - all 80 checked. Two new register
+blind spots alongside secondary glazing, folding doors, vertical sliders and AOV. And
+manifestation is already an unpriced, unexcluded gap on four live jobs - St Mary's, Gordon
+Court, Brocks Hill and Filwood - with the Estimating Log carrying "Manifestations" as a note
+against two of them, so it had been noticed before and still never got priced.
+
+Then ran the two rules other chats added since I last filled this manifest, and both fired.
+
+Delivery is in nobody's price, and it bites harder here than on the jobs that found it,
+because the site is in South Wales. BSW is ex works with no rate, no threshold and no
+distance rule, and its delivery address is Fenster's own MK13 9HF yard - 150 miles from
+Merthyr Tydfil. Bellview's quote is silent on delivery entirely. There is no carriage line
+anywhere in the workbook. That is two separate unpriced transport legs inside a fixed lump sum.
+
+And our price is committed 119 days longer than our costs are held: it must stand to
+completion on 11/12/2026 while BSW lapses 14/08 and Bellview 15/08 - both a month before the
+job even starts. GBP 91,409.18, 52.4% of the sold price, unfixed for four months. Each 1% of
+supplier inflation is GBP 914.09.
+
+Checks now 6 FAIL + 1 ASK, all of them the open RFIs.
+
+Also warned triage that the noticeboard was back to 22,315 characters within half an hour of
+the archive that unfroze the bridge - the stdin fix is still inert until the restart, so the
+32,767 ceiling still applies. Flagged rather than swept: the board is theirs and two chats
+tidying at once is how things get lost.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27",
+ "updated": "2026-07-27T21:25:00",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -85,7 +85,7 @@
    "job": "St Mary's Refurbishment, Merthyr Tydfil",
    "client": "E T & S Construction",
    "deadline": "2026-08-16",
-   "status": "QUOTE SUBMITTED 17/07 at GBP 174,546.37 ex VAT and it STANDS - the arithmetic is clean. All 31 window types reconcile to BSW QT252799 exactly on quantity and price, all 7 SMA lines to Bellview 0000000483 at the 15% discounted figure, and the global install line of GBP 21,915.05 reconciles to the penny against the house labour codes. The Filwood trap did NOT bite on the biggest line - Type AK (1825x5580) is correctly coded CW and carries GBP 3,055.05 of curtain-wall labour at GBP 150/m2. CORRECTION TO THE RECORD: the price is backed by BSW QT252799 (GBP 61,056.80) + BELLVIEW 0000000483 (GBP 30,352.38) = GBP 91,409.18. Aplus QP70172 is NOT in the price - it is dated 22/07, five days after we submitted, on a different system (Technal) and quoted UNGLAZED. SIX THINGS NOW OPEN, none of which change the price yet: (1) the pack sets two different U-values and we followed the looser one - schedule 2376-09 says 1.4 W/m2K, the client's EDG02 energy guidelines say 1.3 windows / 1.2 external doors / g-value 0.4-0.3, and NEITHER supplier states any U-value or any coating on the GBP 30,352 of doors and curtain walling; (2) Type G puts a Sheerline 70mm casement inside a Smart Wall 100mm frame - the SM5 Wexham error, live; (3) we exclude scaffold and MEWPs while the prelims require the Contractor to provide all scaffolding, on elements up to 5,580mm tall; (4) SOW 1.09 allocates strip-out and disposal of the existing windows into item 6.01, which is our line; (5) manifestation (schedule cl 2.24) is in neither quote and neither list; (6) both supplier quotes lapse mid-August but the JCT MW start on site is 14/09 with completion 11/12 and GBP 500/day delay damages. UPDATE 27/07 (2nd turn): finding (1) is worse than first read. The 7 SMA Smart Wall Pocket units - GBP 31,360.15 of sell - sit on a NON-THERMALLY-BROKEN system that our own SM5 Wexham record says cannot meet even 1.6 W/m2K, against EDG02's 1.2 for external doors. That is a system change or a formal qualification, not a glass swap - the fifth time this month. The Type AK MC600 curtain walling (GBP 17,311.95) is thermally broken and should NOT be lumped in with it. Coating uplift measured off the rate register for scale: GBP 9,000-16,500 of supply cost, benchmark only, and it prices the g-value alone. REQ-5 remains answered - the 24/07 addendum does not change our scope. LATE 27/07: SMA's own datasheet surfaced (attached to an unrelated enquiry) and publishes 1.8 W/m2K for Smart Wall doors. Our proposal promises 1.4 and EDG02 asks 1.2 - so the 7 Smart Wall Pocket units, GBP 31,360.15 of sell, fail BOTH, and the door U-value no longer depends on resolving which specification governs. 3RD TURN: read door schedule 2376-08, previously unopened. It states the 1.4 requirement twice more (four per-door notes) so it no longer depends on EDG02 at all; and its 1.2 for external doors is expressly an AREA WEIGHTED AVERAGE - a correction to our own analysis, but the average was computed and the doors still miss (MC600 would need 0.55 W/m2K). It also requires fobbed readers, anti-ligature ironmongery and 'no locking mechanism or latch' against the panic bars we priced - REQ-19. Cleared two false leads: making good is MTCBC's SOW section 8, and this pack has no tender validity clause.",
+   "status": "QUOTE SUBMITTED 17/07 at GBP 174,546.37 ex VAT and it STANDS - the arithmetic is clean. All 31 window types reconcile to BSW QT252799 exactly on quantity and price, all 7 SMA lines to Bellview 0000000483 at the 15% discounted figure, and the global install line of GBP 21,915.05 reconciles to the penny against the house labour codes. The Filwood trap did NOT bite on the biggest line - Type AK (1825x5580) is correctly coded CW and carries GBP 3,055.05 of curtain-wall labour at GBP 150/m2. CORRECTION TO THE RECORD: the price is backed by BSW QT252799 (GBP 61,056.80) + BELLVIEW 0000000483 (GBP 30,352.38) = GBP 91,409.18. Aplus QP70172 is NOT in the price - it is dated 22/07, five days after we submitted, on a different system (Technal) and quoted UNGLAZED. SIX THINGS NOW OPEN, none of which change the price yet: (1) the pack sets two different U-values and we followed the looser one - schedule 2376-09 says 1.4 W/m2K, the client's EDG02 energy guidelines say 1.3 windows / 1.2 external doors / g-value 0.4-0.3, and NEITHER supplier states any U-value or any coating on the GBP 30,352 of doors and curtain walling; (2) Type G puts a Sheerline 70mm casement inside a Smart Wall 100mm frame - the SM5 Wexham error, live; (3) we exclude scaffold and MEWPs while the prelims require the Contractor to provide all scaffolding, on elements up to 5,580mm tall; (4) SOW 1.09 allocates strip-out and disposal of the existing windows into item 6.01, which is our line; (5) manifestation (schedule cl 2.24) is in neither quote and neither list; (6) both supplier quotes lapse mid-August but the JCT MW start on site is 14/09 with completion 11/12 and GBP 500/day delay damages. UPDATE 27/07 (2nd turn): finding (1) is worse than first read. The 7 SMA Smart Wall Pocket units - GBP 31,360.15 of sell - sit on a NON-THERMALLY-BROKEN system that our own SM5 Wexham record says cannot meet even 1.6 W/m2K, against EDG02's 1.2 for external doors. That is a system change or a formal qualification, not a glass swap - the fifth time this month. The Type AK MC600 curtain walling (GBP 17,311.95) is thermally broken and should NOT be lumped in with it. Coating uplift measured off the rate register for scale: GBP 9,000-16,500 of supply cost, benchmark only, and it prices the g-value alone. REQ-5 remains answered - the 24/07 addendum does not change our scope. LATE 27/07: SMA's own datasheet surfaced (attached to an unrelated enquiry) and publishes 1.8 W/m2K for Smart Wall doors. Our proposal promises 1.4 and EDG02 asks 1.2 - so the 7 Smart Wall Pocket units, GBP 31,360.15 of sell, fail BOTH, and the door U-value no longer depends on resolving which specification governs. 3RD TURN: read door schedule 2376-08, previously unopened. It states the 1.4 requirement twice more (four per-door notes) so it no longer depends on EDG02 at all; and its 1.2 for external doors is expressly an AREA WEIGHTED AVERAGE - a correction to our own analysis, but the average was computed and the doors still miss (MC600 would need 0.55 W/m2K). It also requires fobbed readers, anti-ligature ironmongery and 'no locking mechanism or latch' against the panic bars we priced - REQ-19. Cleared two false leads: making good is MTCBC's SOW section 8, and this pack has no tender validity clause. REQ-17 ANSWERED BY ADAM 27/07 19:42 and closed: state that we have allowed no access; strip-out 'we would include it for a job of this size'; allow the manifestation and put it in the inclusions. Strip-out (107 openings / 202.80 m2) and manifestation (24.10 linear m over 9 glazed door/screen units) are now promised but unpriced, and neither has a rate anywhere in the register. REQ-22 raised for the residual: access LIABILITY is still undecided - the ruling settles what our document says, not who pays against Prelims F and B. Two more found 27/07 evening by running other chats' new rules: DELIVERY is in nobody's price (BSW ex works to Fenster's own MK yard, 150 miles from site; Bellview silent; no carriage line in the workbook) and our PRICE COMMITMENT runs to 11/12/2026 while both supplier quotes lapse mid-August - GBP 91,409.18 unfixed for 119 days. Checks now 6 FAIL + 1 ASK.",
    "value": "GBP 174,546.37 quoted - cost GBP 91,409.18 - 202.80 m2, 107 units",
    "stage": "submitted - awaiting ET&S"
   },
@@ -436,7 +436,11 @@
     "Re-issue the proposal with the three boundaries stated explicitly",
     "Price strip-out, disposal and manifestation as a stated optional extra"
    ],
-   "status": "open"
+   "status": "answered",
+   "answer": "Our proposal document should state that we have not allowed for any access. Strip out is something we need to clarify in future tenders. We have effectively left it unanswered however we would include it for a job of this size, but if they assume it's not included and do it for us then happy days. We can allow the manifestation for a job of this size, however we should be putting this in our inclusions or on our description.",
+   "answered_by": "Adam (hub message 31, 27/07 19:42)",
+   "answered_at": "2026-07-27",
+   "outcome": "ALL THREE RULED ON, AND ALL THREE ARE NOW ACTIONS RATHER THAN QUESTIONS. ACCESS - the proposal must SAY we have allowed no access; it already excludes Access/Lifting Equipment by name, so the wording is right. But the ruling settles what our document says, NOT who pays: Prelims F and B require the Contractor to provide all scaffolding 'for himself and any Sub-Contractor', and we are installing up to 5,580mm with 55.97 m2 of glazing 3.62m or taller. Residual question put back to Adam. STRIP-OUT - conceded as 'effectively left unanswered' and to be included on a job of this size. It is NOT in the GBP 174,546.37: the install line of GBP 21,915.05 reconciles exactly to per-unit fit labour and cannot absorb it. Quantity is 107 openings / 202.80 m2, and SOW 1.09 measures it in m2 and cross-refers it INTO our item 6.01. No strip-out or disposal rate exists anywhere in the register (0 of 80 categories), so this needs a real price, not a benchmark. MANIFESTATION - to be allowed AND stated in the inclusions/description. Extent now measured so it can be quoted: 24.10 linear metres of two-band manifestation across the 9 glazed door and screen units (Types G/I/L/O/U/AF/AK), or 39.90 linear m if Types F and H, the 3,620mm screens, are included - clause 2.24 says 'glazed entrance doors and glazed screens', so whether silled windows count is the one judgement left."
   },
   {
    "id": "REQ-18",
@@ -798,6 +802,34 @@
    "catch": "The 1.2 W/m2K for external doors is expressly an AREA WEIGHTED AVERAGE, not a per-element limit - a correction to our own recorded basis. Computing it rather than asserting it, the doors still miss: MC600 would need 0.55 W/m2K for the package to average 1.2.",
    "type": "specification",
    "value": "finding survived the correction"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "St Mary's Refurbishment",
+   "catch": "Adam ruled strip-out should be included on a job this size. It is not in the GBP 174,546.37 - the install line reconciles exactly to per-unit fit labour and cannot absorb 107 openings / 202.80 m2 of strip-out and disposal. No strip-out rate exists in the register.",
+   "type": "scope",
+   "value": "107 openings / 202.80 m2"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "Fenster-wide (found from st-marys)",
+   "catch": "Manifestation is required, unpriced and unexcluded on FOUR live jobs - St Mary's, Gordon Court, Brocks Hill and Filwood - and the Estimating Log carries 'Manifestations' as a note against two of them. There is no manifestation rate in the register, so nobody can price it from what we hold.",
+   "type": "register gap",
+   "value": "4 jobs"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "St Mary's Refurbishment",
+   "catch": "Nobody priced getting the goods to Merthyr Tydfil. BSW is ex works and delivers to Fenster's own MK13 9HF yard, 150 miles from site; Bellview's quote is silent on delivery entirely; and there is no carriage line anywhere in the workbook. Two unpriced transport legs inside a fixed lump sum.",
+   "type": "commercial terms",
+   "value": "107 units / 202.80 m2"
+  },
+  {
+   "date": "2026-07-27",
+   "job": "St Mary's Refurbishment",
+   "catch": "Our price is committed to completion on 11/12/2026 but BSW lapses 14/08 and Bellview 15/08 - 119 and 118 days early. GBP 91,409.18, 52.4% of the sold price, is unfixed for four months of the commitment, and both quotes die a month before the job even starts.",
+   "type": "commercial terms",
+   "value": "GBP 91,409.18"
   }
  ],
  "register": {

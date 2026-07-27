@@ -2,143 +2,467 @@
  "job": "St Marys Refurbishment",
  "created": "2026-07-27",
  "_note": "Retro-check of the quote SUBMITTED 17/07/2026 at GBP 174,546.37 ex VAT. Sources: BSW QT252799 (15/07), Bellview 0000000483 (16/07), internal workbook '...Pricing - DO NOT SEND.xlsx', proposal PDF, tender pack at test-results/st-marys-input. Every figure below was read off those documents - nothing estimated.",
-
  "coupled_runs": [
   {
    "ref": "Type G / W.24 (2 no, 968 x 3620)",
    "note": "Architect's schedule 2376-09 requires '1 no. top hung + 1 no. fixed glazing + 1 no. external door'. Bellview pos 001 quoted 'a Single Pivoted Anti Fingertrap Door and TWO FIXED FIELDS' with '1 x prepared for a thickness of 28mm' - i.e. the top-hung opening vent is NOT in the Smart Wall element. BSW QT252799 carries 'Qty: 2 Prestige Casement Location: TYPE G INSERT GBP 697.58', an 854 x 900 Sheerline opening casement, to fill that aperture.",
    "elements": [
-    {"element": "SMA Smart Wall Pocket door element 968x3620 (Bellview 0000000483 pos 001)", "system": "SMA Smart Wall Pocket"},
-    {"element": "Sheerline Prestige casement insert 854x900 (BSW QT252799, TYPE G INSERT, qty 2)", "system": "Sheerline Prestige"}
+    {
+     "element": "SMA Smart Wall Pocket door element 968x3620 (Bellview 0000000483 pos 001)",
+     "system": "SMA Smart Wall Pocket"
+    },
+    {
+     "element": "Sheerline Prestige casement insert 854x900 (BSW QT252799, TYPE G INSERT, qty 2)",
+     "system": "Sheerline Prestige"
+    }
    ]
   }
  ],
-
  "doors": [
-  {"ref": "Type G / W.24 (2 no)",  "fire_exit": true, "panic_hardware_priced": true, "evidence": "Bellview pos 001: ACIM453 CONCEALED PANIC BAR 705-1050MM + IMP041 76M STILE CONCEALED PANIC BAR"},
-  {"ref": "Type I / W.30 (1 no)",  "fire_exit": true, "panic_hardware_priced": true, "evidence": "Bellview pos 002: 2 x ACIM453 CONCEALED PANIC BAR"},
-  {"ref": "Type L / W.34 (1 no)",  "fire_exit": true, "panic_hardware_priced": true, "evidence": "Bellview pos 003: 1 x ACIM453 CONCEALED PANIC BAR"},
-  {"ref": "Type O / W.39 (1 no)",  "fire_exit": true, "panic_hardware_priced": true, "evidence": "Bellview pos 004: 2 x ACIM453 CONCEALED PANIC BAR"},
-  {"ref": "Type U (1 no)",         "fire_exit": true, "panic_hardware_priced": true, "evidence": "Bellview pos 005: 1 x ACIM453 CONCEALED PANIC BAR"},
-  {"ref": "Type AF (1 no)",        "fire_exit": true, "panic_hardware_priced": true, "evidence": "Bellview pos 006: 2 x ACIM453 CONCEALED PANIC BAR"}
+  {
+   "ref": "Type G / W.24 (2 no)",
+   "fire_exit": true,
+   "panic_hardware_priced": true,
+   "evidence": "Bellview pos 001: ACIM453 CONCEALED PANIC BAR 705-1050MM + IMP041 76M STILE CONCEALED PANIC BAR"
+  },
+  {
+   "ref": "Type I / W.30 (1 no)",
+   "fire_exit": true,
+   "panic_hardware_priced": true,
+   "evidence": "Bellview pos 002: 2 x ACIM453 CONCEALED PANIC BAR"
+  },
+  {
+   "ref": "Type L / W.34 (1 no)",
+   "fire_exit": true,
+   "panic_hardware_priced": true,
+   "evidence": "Bellview pos 003: 1 x ACIM453 CONCEALED PANIC BAR"
+  },
+  {
+   "ref": "Type O / W.39 (1 no)",
+   "fire_exit": true,
+   "panic_hardware_priced": true,
+   "evidence": "Bellview pos 004: 2 x ACIM453 CONCEALED PANIC BAR"
+  },
+  {
+   "ref": "Type U (1 no)",
+   "fire_exit": true,
+   "panic_hardware_priced": true,
+   "evidence": "Bellview pos 005: 1 x ACIM453 CONCEALED PANIC BAR"
+  },
+  {
+   "ref": "Type AF (1 no)",
+   "fire_exit": true,
+   "panic_hardware_priced": true,
+   "evidence": "Bellview pos 006: 2 x ACIM453 CONCEALED PANIC BAR"
+  }
  ],
-
  "frame_supply": "glazed",
  "glass_order": {},
-
  "quantities": [
-  {"ref": "SOW 6.01 External Windows And Doors", "bill_qty": 0, "drawing_qty": 0,
-   "note": "The client's own Schedule of Works states item 6.01 as 'm2' with quantity 0 - 'Supply and fit new external windows and doors AS SHOWN ON DRAWING; tenderer to approach specialist suppliers for quotes'. MTCBC issued NO quantity, so the Brocks Hill test (compare our area against the client's stated quantity) cannot be run on this job - there is nothing to compare against. Quantity therefore rests entirely on window schedule 2376-09, and SOW 0.08 puts that risk on the tenderer: 'Contractor is to satisfy themselves of all submitted quantities.'"}
+  {
+   "ref": "SOW 6.01 External Windows And Doors",
+   "bill_qty": 0,
+   "drawing_qty": 0,
+   "note": "The client's own Schedule of Works states item 6.01 as 'm2' with quantity 0 - 'Supply and fit new external windows and doors AS SHOWN ON DRAWING; tenderer to approach specialist suppliers for quotes'. MTCBC issued NO quantity, so the Brocks Hill test (compare our area against the client's stated quantity) cannot be run on this job - there is nothing to compare against. Quantity therefore rests entirely on window schedule 2376-09, and SOW 0.08 puts that risk on the tenderer: 'Contractor is to satisfy themselves of all submitted quantities.'"
+  }
  ],
-
  "spec_items": [
-  {"ref": "SOW 6.01 - supply and fit external windows and doors", "treatment": "priced"},
-  {"ref": "Window schedule 2376-09 - 100mm restrictors", "treatment": "priced", "evidence": "BSW QT252799: 58 restrictor references"},
-  {"ref": "Window schedule 2376-09 - obscure glazing to WCs/toilets", "treatment": "priced", "evidence": "BSW QT252799: 9 panes '6.8 Lam/18/4mm ObsTuff EcoPlus 1.0 Stippolyte 4mm'"},
-  {"ref": "Trickle ventilation", "treatment": "priced", "evidence": "BSW QT252799: 62 Linkvent references, internal + external"},
-  {"ref": "Hinge protectors", "treatment": "priced", "evidence": "BSW QT252799: 32 references"},
-  {"ref": "Magnetic operated integral blinds (schedule note 3 / rev A note 6)", "treatment": "excluded", "evidence": "Proposal p3 exclusions name 'magnetic integral blinds'"},
-  {"ref": "Fobbed readers, access control, fire alarm interfaces, wiring, commissioning", "treatment": "excluded", "evidence": "Proposal p3; and MTCBC carry it separately as SOW item 15.10 'Security and Access Control Installation'"},
-  {"ref": "Access / lifting equipment - scaffold, MEWPs, towers", "treatment": "excluded", "evidence": "Proposal p4 exclusions. NOTE: conflicts with Prelims F and Prelims B, which require the Contractor to provide all scaffolding and plant - see job file, RFI-3"},
-  {"ref": "Schedule 2376-09 clause 2.24 - manifestation to glazed entrance doors and glazed screens", "treatment": "GAP - neither priced nor excluded", "evidence": "Zero manifestation references in BSW QT252799, zero in Bellview 0000000483, and the proposal recites the requirement on p3 without either including or excluding it"},
-  {"ref": "SOW 1.09 - remove existing window structures, load into skip, prepare opening to receive new ('allowed in 6.01')", "treatment": "GAP - neither priced nor excluded", "evidence": "MTCBC allocate window strip-out and disposal INTO item 6.01, which is our line. The proposal excludes 'Waste Removal - generally' but never names removal or disposal of the existing windows"}
+  {
+   "ref": "SOW 6.01 - supply and fit external windows and doors",
+   "treatment": "priced"
+  },
+  {
+   "ref": "Window schedule 2376-09 - 100mm restrictors",
+   "treatment": "priced",
+   "evidence": "BSW QT252799: 58 restrictor references"
+  },
+  {
+   "ref": "Window schedule 2376-09 - obscure glazing to WCs/toilets",
+   "treatment": "priced",
+   "evidence": "BSW QT252799: 9 panes '6.8 Lam/18/4mm ObsTuff EcoPlus 1.0 Stippolyte 4mm'"
+  },
+  {
+   "ref": "Trickle ventilation",
+   "treatment": "priced",
+   "evidence": "BSW QT252799: 62 Linkvent references, internal + external"
+  },
+  {
+   "ref": "Hinge protectors",
+   "treatment": "priced",
+   "evidence": "BSW QT252799: 32 references"
+  },
+  {
+   "ref": "Magnetic operated integral blinds (schedule note 3 / rev A note 6)",
+   "treatment": "excluded",
+   "evidence": "Proposal p3 exclusions name 'magnetic integral blinds'"
+  },
+  {
+   "ref": "Fobbed readers, access control, fire alarm interfaces, wiring, commissioning",
+   "treatment": "excluded",
+   "evidence": "Proposal p3; and MTCBC carry it separately as SOW item 15.10 'Security and Access Control Installation'"
+  },
+  {
+   "ref": "Access / lifting equipment - scaffold, MEWPs, towers",
+   "treatment": "excluded",
+   "evidence": "Proposal p4 exclusions. NOTE: conflicts with Prelims F and Prelims B, which require the Contractor to provide all scaffolding and plant - see job file, RFI-3"
+  },
+  {
+   "ref": "Schedule 2376-09 clause 2.24 - manifestation to glazed entrance doors and glazed screens",
+   "treatment": "GAP - neither priced nor excluded",
+   "evidence": "Zero manifestation references in BSW QT252799, zero in Bellview 0000000483, and the proposal recites the requirement on p3 without either including or excluding it"
+  },
+  {
+   "ref": "SOW 1.09 - remove existing window structures, load into skip, prepare opening to receive new ('allowed in 6.01')",
+   "treatment": "GAP - neither priced nor excluded",
+   "evidence": "MTCBC allocate window strip-out and disposal INTO item 6.01, which is our line. The proposal excludes 'Waste Removal - generally' but never names removal or disposal of the existing windows"
+  }
  ],
-
  "supplier_quotes": [
-  {"supplier": "BSW Window Solutions", "ref": "QT252799", "date": "2026-07-15", "used_net": true,
-   "value": 61056.80, "note": "Total Nett Ex VAT GBP 61,056.80, 'Net Price Includes Discounts'. Sheerline Prestige casements + the Type G insert. Valid 30 days -> lapses ~14/08/2026."},
-  {"supplier": "Bellview Products (SMA)", "ref": "0000000483", "date": "2026-07-16", "used_net": true,
-   "value": 30352.38, "note": "Net Total GBP 35,708.68 less Discount 2 of 15.00% (-GBP 5,356.30) = Grand Total Net GBP 30,352.38. All 7 SMA lines carried at the discounted figure - verified line by line. Valid 30 days -> lapses ~15/08/2026."}
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT252799",
+   "date": "2026-07-15",
+   "used_net": true,
+   "value": 61056.8,
+   "note": "Total Nett Ex VAT GBP 61,056.80, 'Net Price Includes Discounts'. Sheerline Prestige casements + the Type G insert. Valid 30 days -> lapses ~14/08/2026.",
+   "validity_days": 30,
+   "valid_until": "2026-08-14"
+  },
+  {
+   "supplier": "Bellview Products (SMA)",
+   "ref": "0000000483",
+   "date": "2026-07-16",
+   "used_net": true,
+   "value": 30352.38,
+   "note": "Net Total GBP 35,708.68 less Discount 2 of 15.00% (-GBP 5,356.30) = Grand Total Net GBP 30,352.38. All 7 SMA lines carried at the discounted figure - verified line by line. Valid 30 days -> lapses ~15/08/2026.",
+   "validity_days": 30,
+   "valid_until": "2026-08-15"
+  }
  ],
-
  "full_height_screens": [
-  {"ref": "Type AK / W.92-W.93 (2 no, 1825 x 5580)", "priced_as": "curtain walling",
-   "evidence": "Workbook row 47 coded CW: supply 10.1835 m2 x GBP 850/m2 = GBP 8,655.98 each, labour 10.1835 m2 x GBP 150/m2 = GBP 1,527.53 each. The Filwood labour-code trap did NOT bite here."},
-  {"ref": "Type G / W.24 (2 no, 968 x 3620, contains an external door so runs to floor)", "priced_as": "door element on labour code SADMAW",
-   "evidence": "Workbook row 41 coded SADMAW: GBP 410/unit of install on a 3,620mm-tall element = GBP 117/m2, against the house curtain-wall labour rate of GBP 150/m2."}
+  {
+   "ref": "Type AK / W.92-W.93 (2 no, 1825 x 5580)",
+   "priced_as": "curtain walling",
+   "evidence": "Workbook row 47 coded CW: supply 10.1835 m2 x GBP 850/m2 = GBP 8,655.98 each, labour 10.1835 m2 x GBP 150/m2 = GBP 1,527.53 each. The Filwood labour-code trap did NOT bite here."
+  },
+  {
+   "ref": "Type G / W.24 (2 no, 968 x 3620, contains an external door so runs to floor)",
+   "priced_as": "door element on labour code SADMAW",
+   "evidence": "Workbook row 41 coded SADMAW: GBP 410/unit of install on a 3,620mm-tall element = GBP 117/m2, against the house curtain-wall labour rate of GBP 150/m2."
+  }
  ],
-
  "systems_specified": [
-  {"system": "Sheerline Prestige", "fabricator": "BSW Window Solutions (QT252799)",
+  {
+   "system": "Sheerline Prestige",
+   "fabricator": "BSW Window Solutions (QT252799)",
    "performance": {
     "required": "1.3 W/m2K windows (EDG02 refurbishment column); 1.4 W/m2K per window schedule 2376-09 - which governs is REQ-15",
     "capable": null,
-    "evidence": "QT252799 states no whole-window Uw anywhere - only a centre-pane glass Ug of 1.0 ('6.8 Lam/18/4mm Clr Tuff EcoPlus 1.0 Black Warm Edge Sp 18mm'). A glass Ug is not a Uw. Nobody has asked BSW for one."}},
-
-  {"system": "SMA Smart Wall Pocket", "fabricator": "Bellview Products (0000000483 pos 001-006)",
+    "evidence": "QT252799 states no whole-window Uw anywhere - only a centre-pane glass Ug of 1.0 ('6.8 Lam/18/4mm Clr Tuff EcoPlus 1.0 Black Warm Edge Sp 18mm'). A glass Ug is not a Uw. Nobody has asked BSW for one."
+   }
+  },
+  {
+   "system": "SMA Smart Wall Pocket",
+   "fabricator": "Bellview Products (0000000483 pos 001-006)",
    "performance": {
     "required": "1.2 W/m2K external doors (EDG02); 1.4 W/m2K per window schedule 2376-09 and per our own proposal",
     "capable": false,
-    "evidence": "CONFIRMED BY SMA'S OWN DATASHEET, not inference: 'SMA Smart Wall Profile.pdf' states U Value 1.8 W/m2K for Smart Wall DOORS and 1.4 W/m2K for Smart Wall SCREENS. 1.8 fails EDG02's 1.2 AND the schedule's 1.4 AND our own proposal's promise of 1.4 - so the doors miss under either reading of the spec and REQ-15's outcome does not rescue them. Corroborates SM5 Wexham, which found Smart Wall Pocket doors could not meet 1.6. CAVEATS: the sheet says 'Smart Wall' not 'Smart Wall Pocket' - confirm which figure applies to Pocket; and 1.8 presumably assumes a proper unit, whereas ours names no coating, no warm edge and no gas fill, so ours may be worse. The sheet reached us on 27/07 15:56 attached to an unrelated enquiry (John North Hall, High Wycombe). Exposure: 6 door types, 7 units, 22.078 m2, GBP 31,360.15 of sell. NOTE IN OUR FAVOUR: the same sheet certifies LPS 1175 Level 2 / BS EN 1627 Level 3, the first evidence that the schedule's 38 Secured by Design notes are satisfiable on the doors."}},
-
-  {"system": "SMA MC600 Plus Standard", "fabricator": "Bellview Products (0000000483 pos 007)",
+    "evidence": "CONFIRMED BY SMA'S OWN DATASHEET, not inference: 'SMA Smart Wall Profile.pdf' states U Value 1.8 W/m2K for Smart Wall DOORS and 1.4 W/m2K for Smart Wall SCREENS. 1.8 fails EDG02's 1.2 AND the schedule's 1.4 AND our own proposal's promise of 1.4 - so the doors miss under either reading of the spec and REQ-15's outcome does not rescue them. Corroborates SM5 Wexham, which found Smart Wall Pocket doors could not meet 1.6. CAVEATS: the sheet says 'Smart Wall' not 'Smart Wall Pocket' - confirm which figure applies to Pocket; and 1.8 presumably assumes a proper unit, whereas ours names no coating, no warm edge and no gas fill, so ours may be worse. The sheet reached us on 27/07 15:56 attached to an unrelated enquiry (John North Hall, High Wycombe). Exposure: 6 door types, 7 units, 22.078 m2, GBP 31,360.15 of sell. NOTE IN OUR FAVOUR: the same sheet certifies LPS 1175 Level 2 / BS EN 1627 Level 3, the first evidence that the schedule's 38 Secured by Design notes are satisfiable on the doors."
+   }
+  },
+  {
+   "system": "SMA MC600 Plus Standard",
+   "fabricator": "Bellview Products (0000000483 pos 007)",
    "performance": {
     "required": "1.3 W/m2K glazed element (EDG02) - Type AK curtain walling",
     "capable": null,
-    "evidence": "Thermally broken, and named in the SM5 Wexham record as part of the FIX rather than the problem, so probably capable - but Bellview state no U-value on this position either. Must NOT be lumped in with the Smart Wall Pocket lines: 2 units, 20.367 m2, GBP 17,311.95."}}
+    "evidence": "Thermally broken, and named in the SM5 Wexham record as part of the FIX rather than the problem, so probably capable - but Bellview state no U-value on this position either. Must NOT be lumped in with the Smart Wall Pocket lines: 2 units, 20.367 m2, GBP 17,311.95."
+   }
+  }
  ],
-
  "finishes": [
-  {"ref": "All 31 Sheerline window types (98 units)",
+  {
+   "ref": "All 31 Sheerline window types (98 units)",
    "specified_internal": "not stated by the architect - schedule 2376-09 says only 'grey powder coated aluminium'",
    "specified_external": "grey powder coated aluminium (no RAL given by the architect)",
    "quoted_internal": null,
    "quoted_external": "RAL 7016M Anthracite Grey - M",
-   "note": "BSW state 'Ext Colour' only and name no internal finish. The architect never fixed a RAL, and 7016 Anthracite is a dark grey chosen by the supplier, not by cfw architects. Georgie's rule: a supplier default is not a specified finish."},
-  {"ref": "All 7 SMA door / screen / curtain wall lines (9 units)",
+   "note": "BSW state 'Ext Colour' only and name no internal finish. The architect never fixed a RAL, and 7016 Anthracite is a dark grey chosen by the supplier, not by cfw architects. Georgie's rule: a supplier default is not a specified finish."
+  },
+  {
+   "ref": "All 7 SMA door / screen / curtain wall lines (9 units)",
    "specified_internal": "not stated by the architect",
    "specified_external": "grey powder coated aluminium (no RAL given by the architect)",
    "quoted_internal": null,
    "quoted_external": "Anthracite Grey (no RAL number given)",
-   "note": "Bellview state 'Profiles: Anthracite Grey' with no RAL number and no internal face."}
+   "note": "Bellview state 'Profiles: Anthracite Grey' with no RAL number and no internal face."
+  }
  ],
-
  "u_value": {
   "required": "FOUR STATEMENTS ACROSS THREE DOCUMENTS. (1) Window schedule 2376-09: 1.4 W/m2K against each window type, 33 notes - PER ELEMENT. (2) Door schedule 2376-08, per-door notes on D.01, D.17, D.22, D.26: 'Door to achieve min u-value of 1.4W/m2k'. (3) Door schedule 2376-08 general note: 'External Doors U-value 1.2 w/m2k. Note this is an AREA WEIGHTED AVERAGE u-value - not a centre pane value.' (4) EDG02 Energy and Carbon Design Guidelines - Building Fabric, refurbishment column: 1.3 W/m2K windows, 1.2 W/m2K external doors, g-value 0.4-0.3. Fenster's proposal promises 1.4 W/m2K throughout.",
   "basis": "windows: per element (2376-09 states it against each type). external doors: whole installation - 2376-08 expressly calls the 1.2 an area weighted average, not a per-element limit",
   "rejected_elements": [],
   "note": "SM5 WEXHAM RULE APPLIED, AND THE FINDING SURVIVES IT. No element is rejected against the average. Instead the average was computed: SMA publish 1.8 W/m2K for Smart Wall doors. Our external door area is 22.078 m2 of Smart Wall Pocket plus at most 20.367 m2 of MC600 (42.445 m2). For the area-weighted average to reach 1.2 with Smart Wall at 1.8, the MC600 area would have to achieve (1.2 x 42.445 - 1.8 x 22.078) / 20.367 = 0.55 W/m2K, which no glazed element achieves. Even a generous MC600 at 1.0 gives a weighted average of 1.42, and at 1.4 gives 1.61 - both miss 1.2. So the doors miss on the architect's OWN averaging basis, not merely on a per-element reading. Separately the four per-door 1.4 notes on D.01/D.17/D.22/D.26 are stated per element and 1.8 misses those outright. NOTE: the only U-value CALCULATION in the job folder is Aplus K_QP70172 of 22/07 - average Uw 1.37 over 210.2 m2 - and it is for TECHNAL frames we did not buy."
  },
-
+ "price_commitment": {
+  "source": "NO tender validity clause exists in this pack - the preliminaries and the Schedule of Works were both searched and returned zero hits for validity, remaining open, price hold or a withdrawal period. Section 1 'Form of Tender' is not in our copy, and correctly so: we hold sections 2, 3 and 4 only, because the ITT is the MAIN CONTRACT tender between MTCBC and ET&S, and Fenster is ET&S's sub-contractor. So the binding horizon here is not a tender validity period but the CONTRACT itself: JCT MW 2016, start on site 14/09/2026, completion 11/12/2026, delay damages GBP 500 per calendar day.",
+  "our_price_open_until": "2026-12-11",
+  "note": "We are exposed on a fixed lump sum of GBP 174,546.37 through to completion. BSW QT252799 lapses ~14/08/2026 and Bellview 0000000483 ~15/08/2026 - both BEFORE the job even starts on 14/09. GBP 91,409.18 of cost, 52.4% of the sold price, is unfixed for roughly four months of the commitment. For scale, each 1% of supplier inflation is GBP 914.09 off the bottom line."
+ },
+ "delivery_terms": [
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT252799",
+   "order_value": 61056.8,
+   "free_delivery_threshold": "never",
+   "charge_basis": "not stated - no rate, no threshold, no distance rule",
+   "delivery_priced": false,
+   "evidence": "Quote states 'All estimates are ex works, additional delivery charges may apply.' The Delivery Address on the quote is 98 ALSTON DRIVE, BRADWELL ABBEY, MILTON KEYNES MK13 9HF - FENSTER'S OWN YARD, not site. Site is Caedraw Rd, Merthyr Tydfil CF47 8HA, roughly 150 miles away, so the onward leg for 107 units / 202.80 m2 is ours as well and there is NO carriage line anywhere in the pricing workbook."
+  },
+  {
+   "supplier": "Bellview Products (SMA)",
+   "ref": "0000000483",
+   "order_value": 30352.38,
+   "free_delivery_threshold": "never",
+   "charge_basis": "not stated anywhere on the quote",
+   "delivery_priced": false,
+   "evidence": "The quote is SILENT on delivery entirely - zero occurrences of deliver, delivered, ex works, carriage or free. Under the Georgie's rule silence is not compliance, so it is treated as not included. Same onward-leg problem as BSW: 7 door units and the 2 MC600 curtain wall elements have to reach Merthyr Tydfil."
+  }
+ ],
  "supplier_coverage": [
-  {"ref": "Type A", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type B", "qty_sold": 6, "qty_quoted": 6, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type C", "qty_sold": 3, "qty_quoted": 3, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type D", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type E", "qty_sold": 8, "qty_quoted": 8, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type F", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type H", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type J", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type K", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type M", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type N", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type P", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type Q", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type S", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type T", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type V", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type W", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type X", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type Y", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type Z", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AA", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AB", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AC", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AD", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AE", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AG", "qty_sold": 3, "qty_quoted": 3, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AH", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AI", "qty_sold": 3, "qty_quoted": 3, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AJ", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AL", "qty_sold": 8, "qty_quoted": 8, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type AM", "qty_sold": 7, "qty_quoted": 7, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type G insert (Sheerline casement 854x900)", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252799"},
-  {"ref": "Type G (SMA door element)", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "Bellview 0000000483 pos 001"},
-  {"ref": "Type I", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "Bellview 0000000483 pos 002"},
-  {"ref": "Type L", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "Bellview 0000000483 pos 003"},
-  {"ref": "Type O", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "Bellview 0000000483 pos 004"},
-  {"ref": "Type U", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "Bellview 0000000483 pos 005"},
-  {"ref": "Type AF", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "Bellview 0000000483 pos 006"},
-  {"ref": "Type AK", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "Bellview 0000000483 pos 007"}
+  {
+   "ref": "Type A",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type B",
+   "qty_sold": 6,
+   "qty_quoted": 6,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type C",
+   "qty_sold": 3,
+   "qty_quoted": 3,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type D",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type E",
+   "qty_sold": 8,
+   "qty_quoted": 8,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type F",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type H",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type J",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type K",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type M",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type N",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type P",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type Q",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type S",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type T",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type V",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type W",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type X",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type Y",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type Z",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AA",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AB",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AC",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AD",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AE",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AG",
+   "qty_sold": 3,
+   "qty_quoted": 3,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AH",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AI",
+   "qty_sold": 3,
+   "qty_quoted": 3,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AJ",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AL",
+   "qty_sold": 8,
+   "qty_quoted": 8,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type AM",
+   "qty_sold": 7,
+   "qty_quoted": 7,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type G insert (Sheerline casement 854x900)",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT252799"
+  },
+  {
+   "ref": "Type G (SMA door element)",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "Bellview 0000000483 pos 001"
+  },
+  {
+   "ref": "Type I",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "Bellview 0000000483 pos 002"
+  },
+  {
+   "ref": "Type L",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "Bellview 0000000483 pos 003"
+  },
+  {
+   "ref": "Type O",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "Bellview 0000000483 pos 004"
+  },
+  {
+   "ref": "Type U",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "Bellview 0000000483 pos 005"
+  },
+  {
+   "ref": "Type AF",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "Bellview 0000000483 pos 006"
+  },
+  {
+   "ref": "Type AK",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "Bellview 0000000483 pos 007"
+  }
  ]
 }

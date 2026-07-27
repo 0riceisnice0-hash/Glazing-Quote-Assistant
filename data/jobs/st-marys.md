@@ -310,6 +310,49 @@ does not go into a 28mm glazing pocket either.
 GBP 697.58 of cost but **2 no. Type G = GBP 8,499.66 of sell**, and if the answer is "it can't be", the
 opening vent has to come from Bellview in Smart Wall and the element is repriced.
 
+### ADAM'S RULING ON RFI-3, RFI-4 AND RFI-5 - REQ-17 ANSWERED AND CLOSED (27/07 19:42)
+
+Hub message 31, verbatim:
+
+> *"Our proposal document should state that we have not allowed for any access. Strip out is something
+> we need to clarify in future tenders. We have effectively left it unanswered however we would include
+> it for a job of this size, but if they assume it's not included and do it for us then happy days. We
+> can allow the manifestation for a job of this size, however we should be putting this in our
+> inclusions or on our description."*
+
+It reached us via the `gordon-court` chat, which is where the hub delivered it. **REQ-17 is closed.**
+All three are now actions, and two of them cost money:
+
+| | ruling | where it leaves us |
+|---|---|---|
+| **Access** | proposal must SAY we allowed no access | wording already correct - **but he settled what our document says, not who pays.** See below. |
+| **Strip-out** | *"we would include it for a job of this size"* | **not in the GBP 174,546.37**, 107 openings / 202.80 m2, no rate anywhere |
+| **Manifestation** | allow it, and state it in the inclusions/description | **not in the price**, now measured at **24.10 linear m**, no rate anywhere |
+
+**THE MONEY.** Neither is in the sold price, and the install line cannot absorb them - GBP 21,915.05
+reconciles to the penny as per-unit fit labour, which is fit-only money with no slack in it. Gordon
+Court reached the identical conclusion on their own install line. **Neither has a rate anywhere in
+`data/supplier-rates.json` - 0 of 80 categories cover strip-out, disposal or manifestation** - so
+neither can be benchmarked and both need a real price. **REQ-22 raised** and replied to Adam on the hub.
+
+**MANIFESTATION EXTENT, now measurable rather than "undefined"** (clause 2.24: two bands at 850-1000mm
+and 1400-1600mm, contrasting, both faces):
+
+| scope | linear metres of band |
+|---|---|
+| **core** - the 9 glazed door and screen units (Types G, I, L, O, U, AF, AK) | **24.10 m** |
+| plus Types F and H, the two 3,620mm screens | +15.80 m |
+| **if both** | **39.90 m** |
+
+Clause 2.24 says *"glazed entrance doors and glazed screens"*, so whether the silled 3,620mm windows
+count is the one judgement left. **Quote the core 24.10 m and price F/H as an option.**
+
+**THE PART OF THE ACCESS ANSWER THAT IS STILL MISSING.** Adam has told us what our document should say,
+and it already says it. He has **not** said who pays. Prelims F and B require the Contractor to provide
+all scaffolding *"for himself and any Sub-Contractor"*, we install up to **5,580mm**, and **55.97 m2 of
+glazing is 3.62 m or taller**. An unqualified exclusion is a negotiating position, not an agreement, and
+on a JCT MW with **GBP 500/day** delay damages it gets argued on site. Put to Adam as **REQ-22**.
+
 ### RFI-3 (COMMERCIAL) - we excluded the access plant the preliminaries require
 
 Straight Filwood pattern, and here the pack says so explicitly.
@@ -386,6 +429,39 @@ either supplier quote. Nobody recorded what it is for. If it was a judgement all
 the money is already in the price and only the labelling is wrong. **Ask Adam what the GBP 1,000 was
 for** - it decides whether GBP 3,520.95 is missing or already covered.
 
+### RFI-8 (NEW) - nobody has priced getting the goods to Merthyr Tydfil
+
+Riverside's delivery rule and Gordon Court's carriage finding both bite here, and harder than on either
+of those jobs, because our site is in **South Wales**.
+
+- **BSW QT252799** states *"All estimates are ex works, additional delivery charges may apply"* - no
+  rate, no threshold, no distance rule. And its **Delivery Address is 98 Alston Drive, Bradwell Abbey,
+  Milton Keynes MK13 9HF** - **Fenster's own yard, not site.**
+- **Bellview 0000000483 is silent on delivery entirely** - zero occurrences of deliver, delivered, ex
+  works, carriage or free. *(Georgie's rule: silence is not compliance.)*
+- **Site is Caedraw Rd, Merthyr Tydfil CF47 8HA - roughly 150 miles from Milton Keynes.**
+- **There is no carriage line anywhere in the pricing workbook.**
+
+So on the documents as they stand, delivery from the two suppliers is chargeable and unpriced, **and**
+the onward leg from our own yard to South Wales for **107 units / 202.80 m2** is ours and unpriced too.
+That is at least two separate transport costs sitting outside a fixed lump sum. Get a carriage figure
+from both suppliers and price the MK-to-Merthyr leg before this is ordered.
+
+### RFI-9 (NEW) - our price is committed 119 days longer than our costs are held
+
+The rule Gordon Court built from their own 180-day exposure, run against this job:
+
+| | |
+|---|---|
+| Our price must hold until | **11/12/2026** (JCT MW completion; there is no tender validity clause in this pack) |
+| BSW QT252799 lapses | **14/08/2026** - **119 days early**, GBP 61,056.80 at risk |
+| Bellview 0000000483 lapses | **15/08/2026** - 118 days early, GBP 30,352.38 at risk |
+
+**GBP 91,409.18 - 52.4% of the sold price - is unfixed for roughly four months of our commitment**, and
+both quotes die a month before the job even starts on 14/09. Each 1% of supplier inflation is
+**GBP 914.09** off the bottom line; 5% is GBP 4,570. Either get both prices held in writing or accept
+the risk knowingly, as Adam did on Gordon Court.
+
 ## 5. Programme and commercial terms (from the SOW - Adam should see these)
 
 | | |
@@ -460,7 +536,7 @@ got it. Selftest passes and all six founding errors still fire.
 | **ET&S (Tom Godfrey)** | RFI-1 U-value: does EDG02 govern, or schedule 2376-09? RFI-3 access/scaffold boundary. RFI-4 window strip-out and disposal. RFI-6 the surviving blind note on Type AK. |
 | **BSW + Bellview** | RFI-2: confirm in writing how Type G is built - a Sheerline 70mm casement into a Smart Wall 100mm frame, in a 28mm pocket. **RFI-1a: an SMA U-calculation in writing for the 7 Smart Wall Pocket units**, and whether they can reach 1.2 W/m2K at all. SM5 Wexham asked SMA for the same calculation and never got it - chase it properly this time. |
 | **cfw architects (via ET&S)** | Confirm the RAL and whether the internal face matches. RFI-5 manifestation. **RFI-7: what is a "non-lockable device" on an escape door; and reconcile 2376-08 against 2376-09 rev A, which disagree on the external door opening sizes.** |
-| **Adam** | What was the GBP 1,000/unit "Additional" on Types F and H for? Sight of the JCT MW terms - GBP 500/day damages, 3% retention, 11/12/2026 completion. |
+| **Adam** | **REQ-22: a number for strip-out and manifestation, or a decision to state them as inclusions and absorb them - they should not stay promised and unpriced. And whether to put access LIABILITY to ET&S in writing before award.** What was the GBP 1,000/unit "Additional" on Types F and H for? Sight of the JCT MW terms - GBP 500/day damages, 3% retention, 11/12/2026 completion. |
 | **Fenster** | Re-validate both supplier quotes if award slips past mid-August. |
 
 ## 9. Housekeeping this chat must keep doing
@@ -476,5 +552,5 @@ conversation is lost and THIS FILE is the only backup** - which is the whole arg
 current mid-turn rather than at close-out. Run `python scripts\mary_router.py --list` every turn.
 
 ---
-*Last updated 27/07/2026 (third turn). Quote GBP 174,546.37 ex VAT unchanged - every item above is an
+*Last updated 27/07/2026 (fourth turn). Quote GBP 174,546.37 ex VAT unchanged - every item above is an
 open question about what that price covers, not a change to it.*

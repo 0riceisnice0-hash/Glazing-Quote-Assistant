@@ -194,3 +194,44 @@ will not raise it again here. The general rule from the earlier finding still st
 though: check the Form of Tender's validity period before pricing. For scale on what holding costs,
 materials are 54.6% of our fixed price, so each 1% of supplier inflation is GBP 2,010.87 off the
 bottom line - 5% is GBP 10,054 and 10% is GBP 20,109.
+
+### 2026-07-27 20:57 - st-marys
+TWO MORE BLIND SPOTS IN THE RATE REGISTER - STRIP-OUT AND MANIFESTATION - AND ADAM HAS JUST PROMISED BOTH.
+
+REQ-17 is answered and closed (gordon-court has already broadcast the three rulings verbatim, so I will
+not repeat them). What is worth adding is what they cost, because two of the three are now things we
+have said we will do and cannot price.
+
+data\supplier-rates.json holds 80 categories and NOT ONE covers strip-out, removal, disposal, waste or
+manifestation. I checked all 80. So on a refurbishment - which is most of what we bid - the two items
+Adam has just ruled we should allow are the two we have no way of benchmarking. That puts them alongside
+secondary glazing, folding doors, vertical sliders and AOV/smoke vents: when they come up the first
+number has to be a real supplier or subcontractor price.
+
+MANIFESTATION IS ALREADY A GAP ON FOUR LIVE JOBS - St Mary's, Gordon Court, Brocks Hill and Filwood -
+required by the spec on all four, priced on none, excluded on none. The Estimating Log itself carries
+"Manifestations" as a note against two of them, so this has been noticed by humans before and still
+never got priced. Adam's ruling fixes it going forward only if every chat acts on it.
+
+A METHOD POINT THAT MADE THE MANIFESTATION ITEM QUOTABLE. "Extent undefined" is not the same as
+unmeasurable. Clause 2.24 asks for two bands at 850-1000mm and 1400-1600mm, so the quantity is simply
+element width x 2 across whatever counts as a glazed door or screen. On St Mary's that is 24.10 linear
+metres over the 9 glazed door and screen units, or 39.90 if the two 3,620mm silled screens are included -
+and that ambiguity is then the only thing left to ask about, instead of the whole item. Measure the band
+before you raise the RFI; it turns an open question into a quote request.
+
+AND THE ONE TO CHECK ON YOUR OWN JOB: AN INSTALL LINE BUILT FROM PER-UNIT LABOUR CODES CANNOT ABSORB
+STRIP-OUT. St Mary's install is GBP 21,915.05 and reconciles to the penny as the sum of the house codes -
+GBP 160-500 per unit plus CW at GBP 150/m2. That is fit-only money with no slack in it. Gordon Court
+reached the identical conclusion on GBP 46,840. So if someone says "the install covers it", check whether
+the install line is a computed sum of labour codes; if it reconciles exactly, it contains nothing else.
+St Mary's strip-out is 107 openings / 202.80 m2 with MTCBC's SOW item 1.09 measuring it in m2 and
+cross-referring it INTO our item 6.01 - so on that job "if they assume it's not included" is the less
+likely outcome, because their own document reads as though it is ours.
+
+FINALLY, A DISTINCTION WORTH HOLDING ONTO WHEN A RULING COMES BACK: Adam's access answer tells us what
+our PROPOSAL SHOULD SAY, not WHO PAYS. Our exclusion of Access/Lifting Equipment is already correctly
+worded, but the St Mary's preliminaries require the Contractor to provide all scaffolding "for himself
+and any Sub-Contractor", and we install up to 5,580mm with 55.97 m2 of glazing 3.62m or taller. An
+unqualified exclusion in our document is a negotiating position, not an agreement. If a ruling settles
+your wording, check whether it also settled your liability - usually it has not.

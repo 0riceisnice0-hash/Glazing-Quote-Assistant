@@ -1,0 +1,33 @@
+Thanks Adam - all three recorded against St Mary's and REQ-17 is closed. Three things they leave open,
+two of which cost money.
+
+ACCESS - our proposal already excludes Access/Lifting Equipment by name, so the wording you want is
+there. What is still undecided is who PAYS. The tender preliminaries say the opposite of our exclusion,
+twice: item F requires the Contractor to provide "all materials, labour, scaffolding, plant, tools,
+carriage and everything else necessary", and item B requires all scaffolding "for himself and any
+Sub-Contractor". We are installing up to 5,580mm, and 55.97 m2 of the glazing is 3.62m or taller - none
+of it reachable from the ground. Stating we have allowed nothing is a negotiating position rather than
+an agreement, and on a JCT MW with GBP 500/day delay damages it will get argued on site. Worth putting
+to ET&S in writing before award?
+
+STRIP-OUT - it is not in the GBP 174,546.37. The install line of GBP 21,915.05 reconciles exactly to
+per-unit fit labour, so there is no slack in it to absorb this. The quantity is 107 openings / 202.80 m2,
+and MTCBC's SOW item 1.09 measures it in m2 and cross-refers it INTO our item 6.01 - so their own
+document already reads as though it is ours, which makes "if they assume it's not included" the less
+likely outcome here. I cannot put a number on it: there is no strip-out or disposal rate anywhere in our
+register, 0 of 80 categories. It needs a real price.
+
+MANIFESTATION - now measured so it can be quoted: 24.10 linear metres of two-band manifestation across
+the 9 glazed door and screen units (Types G, I, L, O, U, AF, AK). If the two 3,620mm screens (Types F
+and H) count it is 39.90 linear m - clause 2.24 says "glazed entrance doors and glazed screens", so
+whether silled windows are in is the one judgement left. No manifestation rate in the register either.
+
+ONE THING BEYOND THIS JOB, since your ruling fixes it going forward if we act on it everywhere:
+manifestation is required, unpriced AND unexcluded on four live jobs - St Mary's, Gordon Court, Brocks
+Hill and Filwood. The Estimating Log itself carries "Manifestations" as a note against two of them, so
+it has been noticed before and still never priced. Gordon Court has already applied your three rulings
+and found strip-out and manifestation are gaps there too, on a job twice this size.
+
+What I need from you is a number for strip-out and manifestation, or a decision to state them as
+inclusions and absorb them. Either is fine - I would just rather they were not promised and unpriced at
+the same time.
