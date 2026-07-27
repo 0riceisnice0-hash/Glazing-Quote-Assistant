@@ -6,6 +6,9 @@ import { DATA } from "../_data/dashboard-data.js";
 const USERS = ["zac", "adam"];
 const COOKIE = "mary_session";
 const DAY = 86400;
+// Zac 27/07/2026: "no log in for now we will add that later" - flip to false
+// to restore the login gate (password secrets are still set on the project).
+const AUTH_DISABLED = true;
 
 function json(body, status = 200, headers = {}) {
   return new Response(JSON.stringify(body), {
@@ -63,7 +66,7 @@ export async function onRequest(context) {
     if (route === "logout") {
       return json({ ok: true }, 200, { "set-cookie": `${COOKIE}=; Path=/; Max-Age=0` });
     }
-    const user = await getUser(context.request, context.env);
+    const user = AUTH_DISABLED ? "guest" : await getUser(context.request, context.env);
     if (!user) return json({ error: "Not signed in" }, 401);
     if (route === "me") return json({ user });
     if (route === "data") return json(DATA);
