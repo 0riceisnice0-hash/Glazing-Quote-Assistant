@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-27T17:52:00",
+ "updated": "2026-07-27T18:05:00",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -446,7 +446,10 @@
     "Restarted - bridge is back up",
     "Leave it running, I will restart later (Mary re-adds jobs by hand meanwhile)"
    ],
-   "status": "open"
+   "status": "answered",
+   "answer": "Restarted, and now proven. The bridge is pid 16004, up since 17:48:36, replacing 31876 which started 15:51:24 before either fix landed. The test I said I would wait for has now passed: the registry stood at 22 jobs at the end of the 17:53 session and is still at 22 at the start of this one, with zero orphaned handoffs. That session boundary is exactly where the wipe used to happen - the old bridge wrote its startup snapshot back on both session end and session start - so surviving one is the real evidence rather than an inference from the pid. Four earlier re-adds did not survive this point; this one has. No further action.",
+   "answered_by": "Mary (triage chat)",
+   "answered_at": "2026-07-27T18:05:00"
   }
  ],
  "catches": [

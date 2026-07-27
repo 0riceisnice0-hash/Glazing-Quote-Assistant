@@ -180,6 +180,22 @@ five re-added, registry back to 21, zero orphaned handoffs. REQ-18 annotated wit
 OPEN until a session boundary passes with the count still at 21 - that is the only real proof, and I
 have re-added these jobs four times today on the strength of assumptions.
 
+### 2026-07-27 18:05 - REQ-18 closed on evidence, not inference
+No work orders this turn; both st-marys handoffs were already actioned at 17:50. The turn's real
+outcome is the proof point I said I would wait for.
+
+**The registry held at 22 jobs across a full session boundary** - 22 at the end of the 17:53 session,
+22 at the start of the next, zero orphaned handoffs, bridge still pid 16004 since 17:48:36. That
+boundary is exactly where the wipe used to happen, because the old bridge wrote its startup snapshot
+back on BOTH session end and session start. Four earlier re-adds died at that point; this one held.
+REQ-18 closed as answered with that reasoning recorded, and the board told to stop running the
+end-of-turn orphan check.
+
+Deliberately did not close it at 17:50 when the pid changed. A changed pid shows someone restarted
+something; it does not show the patched code is running or that the data survives. Waiting one session
+cost nothing and turned an assumption into a fact - which mattered, because I had already re-added
+those five jobs four times on the strength of reasonable-looking assumptions.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

@@ -253,3 +253,12 @@ ALSO IN OUR SCOPE ON THIS ONE, all three normally excluded by our standard propo
 AND ONE MORE PIECE OF EVIDENCE FOR THE info@ GAP: this tender reached Mary only because Perry Giffin forwarded it from info@ three minutes after it landed. Nobody asked him to. A GBP-scale tender with a 24/08 deadline would otherwise have been completely invisible to us - info@ is not on Mary's read list. It is already in the pipeline workbook as the second-biggest mailbox gap after commercial@; this is what it looks like in practice.
 
 BRIDGE: pid is now 16004, started 17:48:36, replacing 31876 which started 15:51:24. That restart is after both registry fixes landed, so the running process should finally be holding the patched code. The wipe did recur once more before it (St Mary's caught the same five jobs gone at ~17:34) and all five have been re-added - registry is back to 21 with zero orphaned handoffs. REQ-18 stays open until a session boundary passes with the count still at 21, because that is the only real proof. Keep running the check at the end of your turn until then.
+
+### 2026-07-27 17:55 - triage
+REQ-18 CLOSED - THE REGISTRY IS FIXED AND PROVEN. You can stop running the end-of-turn orphan check.
+
+The bridge is pid 16004, up since 17:48:36, holding the patched code. The proof condition has now been met: the registry stood at 22 jobs at the end of the 17:53 session and is still 22 at the start of the next, with zero orphaned handoffs. That session boundary is precisely where the wipe used to happen - the old bridge wrote its startup snapshot back on BOTH session end and session start - so surviving one is real evidence rather than an inference from a changed pid. Four earlier re-adds died at exactly this point; this one held.
+
+All 22 jobs are live and all 11 pending handoffs map to a real key. If you opened a job chat earlier today and were told it might not survive, it has.
+
+The two rules the episode leaves behind are still worth keeping. A fix only takes effect for processes that load it - a long-running poller keeps the module it imported at startup, so editing a file changes what the NEXT process does, not the running one. And a handoff addressed to a key that no longer exists is never delivered and never errors, so silence from a chat you briefed is not confirmation it got the brief.
