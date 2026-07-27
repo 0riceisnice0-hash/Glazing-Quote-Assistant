@@ -1,0 +1,190 @@
+{
+ "job": "Gordon Court, Stonegrove Edgware (Chigwell Group)",
+ "created": "2026-07-27",
+ "_note": "RETRO-CHECK of the tender ALREADY ISSUED 09/07/2026 at GBP 368,376.70 ex VAT. Sources, all read this session: internal workbook 'Chigwell Group - Gordon Court Pricing DO NOT SEND.xlsx'; client twin '...Pricing.xlsx'; 'Chigwell Group - Gordon Court Proposal.pdf'; AFS Q7585 (16pp); BSW QT252247 PVC / QT252248 PATIIOS / QT252251 ALI DOORS / QT252257 AOV & LOUVRE; architect's schedules 5244-ARK-51001, 51002, 52001, 52002, 52003; and the tender pack inside 'Gordon Court Windows, Rooflights & Curtain Walling.zip' - jLiving ITT V8, Form of Tender, Energy Statement, NBS spec 9001 (186pp). Nothing below is estimated; where a figure could not be sourced it is stated as unknown.",
+
+ "coupled_runs": [],
+
+ "doors": [
+  {"ref": "D_A 2326 x 2085 (1no, AFS Q7585 pos 001)", "fire_exit": true, "panic_hardware_priced": true,
+   "evidence": "Q7585 pos 001 hardware: WILKA Panic door shootbolt guide - top AND bottom, WILKA Rod latch/Top rod/Round rod, FUHR 3-point automatic lock 833, GEZE TS 5000 + TS 4000 closers. Schedule 51001 gives D_A no ironmongery code, so the panic set is AFS's own default - but it IS priced."},
+  {"ref": "D_A 1750 x 2238 GR316 Entrance (1no, AFS Q7585 pos 002)", "fire_exit": true, "panic_hardware_priced": true,
+   "evidence": "Same hardware schedule as pos 001. This is the one D_A row the architect gives a room to: GR316 Entrance."},
+  {"ref": "D_T 1600 x 2210 as quoted (1no, AFS Q7585 pos 003)", "fire_exit": true, "panic_hardware_priced": true,
+   "evidence": "Same hardware schedule. SEE quantities/spec_items - this door's SIZE, LEAF COUNT and whether it is external at all are all unresolved against schedule 51001."},
+  {"ref": "D_B (6no), D_C (2no), D_D (2no), D_E (1no), D_U (1no) - BSW QT252251 ALI DOORS, Sheerline", "fire_exit": false, "panic_hardware_priced": true,
+   "evidence": "Not marked fire escape on schedule 51001 (D_B/D_C/D_E/D_U carry no fire rating; D_D carries FD30 on the interleaved read but no escape marking). Balcony, plant room and stair external doors. No panic hardware requirement identified in the schedule and none quoted."}
+ ],
+
+ "frame_supply": "glazed",
+ "glass_order": {},
+
+ "quantities": [
+  {"ref": "Patio and green roof doors, schedule 5244-ARK-51002", "bill_qty": 44, "drawing_qty": 44,
+   "note": "Workbook PD_A 3 + PD_B 1 + PD_C 38 + PD_I 2 = 44. Schedule states 'Grand total: 44'. Exact."},
+  {"ref": "Replacement windows, schedule 5244-ARK-52002", "bill_qty": 40, "drawing_qty": 40,
+   "note": "Workbook WE_1..WE_17 = 40. Schedule states 'Grand total: 40'. Exact."},
+  {"ref": "New windows / louvre / AOV, schedule 5244-ARK-52003", "bill_qty": 84, "drawing_qty": 84,
+   "note": "Workbook LW_1 4 + WN_7 3 + WN_1 11 + WN_2 7 + WN_3 34 + WN_4 1 + WN_5 6 + WN_6 1 + WN_8 1 + WN_9 1 + WN_10 12 + WN_11 3 = 84. Schedule states 'Grand total: 84'. Exact."},
+  {"ref": "External and communal doors, schedule 5244-ARK-51001 - D_X 2no NOT PRICED", "bill_qty": 17, "drawing_qty": 15,
+   "note": "SCOPE GAP. Schedule 51001's own per-type count cells are D_A 2, D_B 6, D_C 2, D_D 2, D_E 1, D_G 24, D_H 42, D_I 21, D_J 4, D_L 1, D_O 1, D_P 2, D_Q 1, D_R 3, D_T 1, D_U 1, D_X 2 - which sums to exactly the 116 the drawing states as its Grand total, so the counts are the drawing's own and not an extraction artefact. Stripping the 99 internal doors (D_G, D_H, D_I, D_J, D_L, D_O, D_P, D_Q, D_R - correctly left to the joinery package) leaves 17 non-internal doors. We priced 15: D_A 2, D_B 6, D_C 2, D_D 2, D_E 1, D_U 1, D_T 1. D_X - 2no, Level 0, structural 2100 high x 1800 wide - is on the External and Communal Door Schedule and is priced NOWHERE in the workbook. Every descriptive cell on both D_X rows is blank: no leaf count, no internal/external, no fire rating, no ironmongery, no room number. It is the last type on the sheet, which is consistent with an unfinished architect's entry, but it is 1800mm wide and it is in the external door schedule. Nearest priced comparator is D_E (1500 x 2100, DAD) at GBP 2,779.70 sell each, so the order of magnitude is roughly GBP 5,600 of sell plus GBP 1,000 of install - BENCHMARK ONLY, there is no supplier price for D_X and no RFI has been raised on it."}
+ ],
+
+ "spec_items": [
+  {"ref": "40no replacement windows, 84no new windows/louvre/AOV, 44no patio-green roof doors, 15no external/communal doors", "treatment": "priced",
+   "evidence": "Workbook rows 10-59, GBP 368,376.70 including GBP 46,840 install."},
+  {"ref": "Installation of the 3 FD30 doors within the global GBP 46,840", "treatment": "priced",
+   "evidence": "CHECKED AND CLEARED. I61 is =SUMPRODUCT(F*N)+SUMPRODUCT(F*code value) with DAD=500, SAD=250, PVC/LAW/MAW=160. Rows 57-59 are all coded DAD, so they contribute 3 x GBP 500 = GBP 1,500. Recomputed the whole formula independently: GBP 46,840 exactly, matching I61. Triage's open question 4 is answered - install does cover them."},
+  {"ref": "Trickle ventilation - 8000mm2 minimum (general note on all five schedules 51001, 51002, 52001, 52002, 52003)", "treatment": "GAP - priced at half the required area",
+   "evidence": "BSW quote '4000 External Linkvent Grey RAL 7016 / 4000 Internal Linkvent White' throughout QT252247 and QT252248. The note reads '8000mm2 min trickle vents UNLESS OTHERWISE SPECIFIED IN WINDOW SCHEDULE' - checked 52002 and 52003 and neither specifies a different AREA; what they specify is an Acoustic Trickle Vents yes/no column. So the 8000mm2 minimum stands and 4000mm2 is half of it."},
+  {"ref": "Acoustic trickle vents - 'Passivent AL-dB 450 or better' where the schedule's Acoustic Trickle Vents column is ticked", "treatment": "GAP - neither priced nor excluded",
+   "evidence": "Verified positionally on schedule 52002: the Acoustic Trickle Vents header sits at x=-210.9 and 26 of the 40 replacement-window rows carry a Yes at x=-218 in that column. Schedule 52003 (84 units) carries the same column in three table blocks and needs the same count - not done. BSW QT252247/48/51/57 contain ZERO occurrences of Passivent, AL-dB or acoustic. An acoustic trickle vent is a different, dearer product than the Linkvent quoted."},
+  {"ref": "PAS 24 2016 / Secured by Design - 'PAS24 SBD locking mechanisms to all amenity deck floor windows and doors', plus a PAS 24 2016 column on schedule 51001", "treatment": "GAP - neither priced nor excluded",
+   "evidence": "ZERO occurrences of 'PAS 24' or 'PAS24' across all four BSW quotes. Yale Shootbolt locks and Egress Hinges are quoted, and 35x35mm Security Cylinders on the patios, but no certification is stated anywhere. Our own proposal p2 recites 'with PAS 24, restrictors, trickle ventilation, acoustic requirements and safety glazing noted where applicable' - reciting a requirement is not pricing it."},
+  {"ref": "G-value 0.36 or better (general note on all five schedules; and promised on our own proposal p3 'G-value - 0.36')", "treatment": "GAP on the obscure units only",
+   "evidence": "Main glazing DOES carry solar control - '4Tuf/18/6.8 LAM Coolite SKN176ii Argon' on the Liniar windows, '6.Lam/16/6mmTuff Coolite SKN175ii' on the Alunet patios, 'Skn 176 6.8 Lami / 4 / 4mm Low E Tuff Black Warm Edge Sp 12mm' on the Sheerline AOV. The St Mary's 'no coating named' failure does NOT apply to BSW here. BUT WN_2 (7no) is '6.8 Lam/18/4mm ObsTuff EcoPlus 1.0 Satin 4mm Black Warm Edge Sp 18mm Argon' with no Coolite and no SKN - an obscure unit with no solar coating cannot meet 0.36."},
+  {"ref": "Restrictors - '100mm restrictor where noted', plus Restrictors and Removable Restrictor columns on 52002/52003", "treatment": "priced",
+   "evidence": "QT252247 carries 21 restrictor references ('11.5 mm Studs For Re1s1-Loc Restrictor' etc)."},
+  {"ref": "Louvre LW_1 (4no, GBP 4,502.40) - free area for the smoke shaft / plant ventilation", "treatment": "GAP - no free area stated",
+   "evidence": "QT252257 quotes LW_1 as 'Qty: 4 Prestige Casement Location: WL 1' with the Glazing line BLANK, no reinforcing and no free area figure. Our workbook calls the same line 'Sheerline Aluminium Louvre' code LAW. A louvre without a stated free area cannot be shown to meet an M&E ventilation rate. Same silence Aplus flagged in writing on Riverside."},
+  {"ref": "Colt AXS 140 Combined AOV Smoke Ventilator and Roof Access Hatch (NBS 9001 section L10, p85: roof-mounted, 1000 x 1250mm ventilator, aluminium lid, RAL 7016, U-value 1.2 W/m2K or better, Re 50, WL 1500, B300)", "treatment": "GAP - neither priced nor excluded",
+   "evidence": "The enquiry zip is titled 'Gordon Court Windows, ROOFLIGHTS & Curtain Walling' and the NBS section that governs our package is L10 'Windows/ rooflights/ screens/ louvres'. We priced 3no Sheerline T&T AOV WINDOWS (WN_7, wall-mounted) and 4no louvres - not the roof-mounted Colt unit, and no rooflights or curtain walling at all. The proposal's exclusion list does not name rooflights, roof AOVs or curtain walling. NOTE THE OTHER SIDE: the wider Colt package on NBS pp89-93 (AOV shaft, OPV Heart module, OPV display panel, electrical wiring, ductwork) is plainly a specialist smoke-ventilation contractor's scope, not ours - so the question is specifically the AXS 140 unit and any rooflights, not the Colt control system."},
+  {"ref": "PVC-U versus aluminium frame material conflict", "treatment": "excluded",
+   "evidence": "ALREADY QUALIFIED BY US - no new finding. Proposal p3: 'The schedules and specification include conflicting references to PVC-U and aluminium window systems, so the final system/material basis should be confirmed prior to order.' The schedules' notes panel says 'FRAME: PVC-U white internally. Dark Grey externally to RAL XXX (TBC)' on all five sheets while we priced 44 patio doors as Alunet ALUMINIUM (GBP 108,275.95 cost, GBP 174,275.79 sell) and the external doors as Sheerline aluminium. Checked before raising it and Gintare had got there first."},
+  {"ref": "Waste removal / strip-out of the existing windows on a refurbishment", "treatment": "excluded",
+   "evidence": "Proposal p4: 'Waste Removal - Generally excluded unless agreed otherwise'. Ran the John North Hall replacement-job check: no cross-reference into our item was found in this pack, unlike St Mary's SOW 1.09. But the jLiving ITT is an NEC3 activity-schedule contract with no SOW item numbers, so the strip-out allocation will sit in Chigwell's subcontract order rather than the tender pack - flag it at order stage, not now."},
+  {"ref": "Access / lifting equipment - scaffold, MEWPs, towers", "treatment": "excluded",
+   "evidence": "Proposal p4 excludes it. RISK, same shape as St Mary's: this is a building gaining two new storeys with windows to third floor, and jLiving's ITT requires the main contractor to carry a Construction Logistics Plan. Check the exclusion survives Chigwell's subcontract prelims before order."}
+ ],
+
+ "supplier_quotes": [
+  {"supplier": "BSW Window Solutions", "ref": "QT252247 PVC", "date": "2026-07-07", "valid_until": "2026-08-06",
+   "used_net": true, "value": 53543.90,
+   "note": "Liniar 70 uPVC windows. 'Total Nett Ex. VAT GBP 53,543.90', 'Net Price Includes Discounts'. Footer is BSW Window Solutions; the 'Bellview will not be held responsible' line is shared T&C boilerplate, so this is BSW and our records are right."},
+  {"supplier": "BSW Window Solutions", "ref": "QT252248 PATIIOS", "date": "2026-07-07", "valid_until": "2026-08-06",
+   "used_net": true, "value": 108275.95,
+   "note": "Alunet ESS47 2-rail and 3-rail sliding patio doors, 44 units. The single largest element on the job - 54% of BSW's cost and GBP 174,275.79 of sell."},
+  {"supplier": "BSW Window Solutions", "ref": "QT252251 ALI DOORS", "date": "2026-07-07", "valid_until": "2026-08-06",
+   "used_net": true, "value": 14099.81, "note": "Sheerline external and communal doors D_B, D_C, D_D, D_E, D_U."},
+  {"supplier": "BSW Window Solutions", "ref": "QT252257 AOV & LOUVRE", "date": "2026-07-07", "valid_until": "2026-08-06",
+   "used_net": true, "value": 7085.76,
+   "note": "GBP 217.50 OF THIS WAS NEVER CARRIED. The quote is WN_7 GBP 2,365.86 + WL_1 GBP 4,502.40 = GBP 6,868.26, plus an Extras block 'PANEL SET UP 1no GBP 217.50 / Total Extras Value GBP 217.50' = GBP 7,085.76. The workbook carries only the two element figures. Same class as the AFS extras below and as Princess Beatrice's GBP 668.41."},
+  {"supplier": "Aluminium Fire Systems", "ref": "Q7585", "date": "2026-07-09", "valid_until": "2026-08-08",
+   "used_net": true, "value": 18298.94,
+   "note": "Aluprof MB-78EI, EI30, standard RAL, EI30 Clear DGU U=1.0, supply only, 3 positions - GBP 6,468.03 + GBP 6,026.47 + GBP 5,804.44 = GBP 18,298.94, adds up exactly and all three carried into the tender at cost + the GBP 1,500 house DAD adder. GBP 506.37 SITS OUTSIDE IT: p7 'Not included in quote above, can be added as optional extras' - Fixing Pack (screws, foam, packers, mastic) GBP 256.37 and Delivery GBP 250.00. Neither is anywhere in the workbook. The quote contradicts itself - the Specifics page says 'Logistics: Delivered' - but T&C 8.1 settles it AGAINST us: 'That price will be exclusive of all costs and charges of packaging, insurance and transport of the Goods, which will be itemised separately if applicable and invoiced to the Customer IN ADDITION to the price of the Goods.' So the GBP 250 is real. Lead time 8 weeks from order signature AND receipt of the 60% first payment; terms 60% with order / 40% before dispatch."}
+ ],
+
+ "full_height_screens": [],
+
+ "systems_specified": [
+  {"system": "Liniar 70 uPVC", "fabricator": "BSW Window Solutions (QT252247)",
+   "performance": {
+    "required": "Energy Statement: replacement external glazing to achieve 1.1 W/m2K. Schedules: g-value 0.36 or better; 8000mm2 trickle vents; PAS24 SBD.",
+    "capable": null,
+    "evidence": "NO WHOLE-WINDOW Uw IS STATED ANYWHERE ON THE QUOTE. The only thermal figure is a centre-pane glass Ug inside the make-up string - 'EcoPlus 1.0'. St Mary's rule: a centre-pane Ug is not a Uw. In a Liniar 70 frame a 1.0 centre pane will not by itself demonstrate 1.1 whole-window, but I cannot compute Uw from what is on file and have not invented one. Nobody has asked BSW for a Uw. Note the engine's Liniar -10% correction applies to this system."}},
+
+  {"system": "Alunet ESS47 sliding patio (aluminium)", "fabricator": "BSW Window Solutions (QT252248)",
+   "performance": {
+    "required": "Energy Statement 1.1 W/m2K external glazing; g-value 0.36; schedules' notes panel says PVC-U, which we have qualified",
+    "capable": null,
+    "evidence": "No U-value stated. Glass is '6.Lam / 16/ 6mmTuff Coolite SKN175ii' - solar control named, but a 16mm cavity with no gas fill and no warm edge named, in a 2-rail sliding patio frame, is the weakest thermal element on the job and it is 44 units. Sliding patio doors are a known thermal weak point. GBP 174,275.79 of sell rests on it."}},
+
+  {"system": "Sheerline Prestige (aluminium windows, louvre, AOV, external doors)", "fabricator": "BSW Window Solutions (QT252251, QT252257)",
+   "performance": {
+    "required": "Energy Statement 1.1 W/m2K; g-value 0.36; louvre free area per M&E",
+    "capable": null,
+    "evidence": "AOV WN_7 names 'Skn 176 6.8 Lami / 4 / 4mm Low E Tuff Black Warm Edge Sp 12mm' - solar, low-E and warm edge all named, the best-specified glass on the job - but still no Uw. Louvre LW_1 has no glazing line and no free area. Note the engine's Sheerline +10% correction applies."}},
+
+  {"system": "Aluprof MB-78EI (EI30 fire doors)", "fabricator": "Aluminium Fire Systems (Q7585)",
+   "performance": {
+    "required": "FD30S / EI30 per schedule 51001; Energy Statement 1.1 W/m2K on external glazing",
+    "capable": true,
+    "evidence": "THE ONLY ELEMENT ON THE JOB WITH A STATED U-VALUE. Q7585 specifies '2 Pcs. 6+15mm GLASSPROF EI30 Clear DGU U=1.0' and the Specifics page confirms EI30 with Certifire accreditation, Aluprof-tested glass. A fire-rated aluminium door reaching a stated 1.0 on the glass is the strongest performance evidence in the pack. Fire rating is satisfied: schedule requires FD30S, AFS supply EI30 which is the equivalent European classification."}}
+ ],
+
+ "finishes": [
+  {"ref": "Liniar 70 uPVC windows - all 84 new + 40 replacement",
+   "specified_internal": "PVC-U white",
+   "specified_external": "dark grey to RAL XXX (TBC)",
+   "quoted_internal": "White",
+   "quoted_external": "Grey Foil On White (7016)",
+   "note": "PASSES the Georgie's rule. BSW quote 'Ext Colour: Grey Foil On White (7016)' plus 'Outer: 77mm Outer Frame Foil/Wt', '180mm Drop Nose Cill Foil/Whit', '28mm Sculptured Bead White' and separate internal and external Linkvents ('4000 External Linkvent Grey RAL 7016 / 4000 Internal Linkvent White'). Dual colour is genuinely in the price on both faces. ONE RESIDUAL: the architect left the external RAL as 'RAL XXX (TBC)' and BSW have chosen 7016 Anthracite. 7016 is a standard dark grey and a reasonable read, but it is the supplier's choice, not the architect's - confirm before order."},
+  {"ref": "Alunet patio doors - all 44",
+   "specified_internal": "PVC-U white",
+   "specified_external": "dark grey to RAL XXX (TBC)",
+   "quoted_internal": "(9016) White",
+   "quoted_external": "(7016) Grey",
+   "note": "PASSES on colour. 'Ext Colour: (7016) Grey / Int Colour: (9016) White' - dual colour priced. Material is aluminium not PVC-U, which is the conflict already qualified on the proposal."},
+  {"ref": "Sheerline aluminium - louvre LW_1, AOV WN_7, external doors D_B/D_C/D_D/D_E/D_U",
+   "specified_internal": "white internally",
+   "specified_external": "dark grey to RAL XXX (TBC)",
+   "quoted_internal": "9910HG Hipca White - G",
+   "quoted_external": "7016M Anthracite Grey - M",
+   "note": "PASSES. Both faces named explicitly on QT252257 and QT252251. Note the finish grades differ by face - M (matt) externally, HG (high gloss) internally - which is normal but worth confirming nobody expects matt both sides."},
+  {"ref": "Aluprof MB-78EI fire doors - 3no (AFS Q7585)",
+   "specified_internal": "white internally",
+   "specified_external": "dark grey to RAL XXX (TBC)",
+   "quoted_internal": null,
+   "quoted_external": null,
+   "note": "FINISH IS NOT PRICED AS A DUAL COLOUR. Q7585's Specifics page says only 'Colour: Standard RAL' and each position repeats 'Colours: Profiles: mat standard'. AFS name no RAL number and no internal or external face - a single standard-RAL finish. The schedules require white internally and dark grey externally on the window and door package. Dual colour on a fire door is a real cost and it is not in the GBP 18,298.94. This is the Georgie's Mercury failure exactly: the supplier answered the things that were easy - system, fire rating, glass - and was silent on the one that costs money."}
+ ],
+
+ "u_value": {
+  "required": "TWO DOCUMENTS, AND THE TIGHTER ONE IS THE ONE NOBODY OPENED. (1) The architect's schedules (51001, 51002, 52001, 52002, 52003) set no U-value at all - they defer it: 'MIN. THERMAL RATING: To Edward Pearce Consulting Engineers specification'. They DO set 'G-Value of 0.36 or better'. (2) 'Energy Statement - Gordon Court 25.02.24.pdf', inside the tender zip and never opened before today, states 'The external glazing will be replaced or improved to achieve a U-value of 1.1 W/m2K', and its performance table carries a baseline column at Glazing 1.60 W/m2K / vision-element g-value 0.63 against a proposed column at Glazing 1.40 W/m2K / g-value 0.40. Separately NBS 9001 p85 requires U-value 1.2 W/m2K or better on the Colt roof AOV. So the numbers in play are 1.1 (replacement glazing), 1.4 (new-build glazing), g-value 0.36 (schedules) and 0.40 (Energy Statement) - and the schedules' 0.36 is TIGHTER than the Energy Statement's 0.40, so on g-value the schedule governs and on U-value the Energy Statement does. Our own proposal promises g-value 0.36 and states no U-value.",
+  "basis": "per element",
+  "rejected_elements": [],
+  "note": "SM5 WEXHAM RULE APPLIED AND NOTHING IS REJECTED - deliberately. The Energy Statement's 1.1 is written as a general target for 'the external glazing' with no per-element or area-weighted wording, and there is no Uw stated on ANY of the four BSW quotes to test against it. I cannot compute the package average either, because a whole-window Uw exists for exactly one element on the job (the AFS fire doors' EI30 DGU at U=1.0, and that is a glass Ug too). St Mary's rule cuts both ways - do the arithmetic before you raise a finding OR drop it - and here the arithmetic cannot be done from what is on file. So the honest finding is not 'we fail 1.1', it is 'nothing on file demonstrates 1.1 and nobody has asked'. The open item is an RFI to BSW for whole-window Uw figures on the Liniar, Alunet and Sheerline elements, and confirmation of whose specification governs - the Energy Statement or Edward Pearce Consulting Engineers, whose spec the schedules defer to and which is NOT in the tender pack."
+ },
+
+ "supplier_coverage": [
+  {"ref": "LW_1 louvre", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "BSW QT252257"},
+  {"ref": "WN_7 AOV", "qty_sold": 3, "qty_quoted": 3, "supplier_ref": "BSW QT252257"},
+  {"ref": "WN_1", "qty_sold": 11, "qty_quoted": 11, "supplier_ref": "BSW QT252247"},
+  {"ref": "WN_2", "qty_sold": 7, "qty_quoted": 7, "supplier_ref": "BSW QT252247"},
+  {"ref": "WN_3", "qty_sold": 34, "qty_quoted": 34, "supplier_ref": "BSW QT252247"},
+  {"ref": "WN_4", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "BSW QT252247 - no matching line"},
+  {"ref": "WN_5", "qty_sold": 6, "qty_quoted": 6, "supplier_ref": "BSW QT252247"},
+  {"ref": "WN_6", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "BSW QT252247 - no matching line"},
+  {"ref": "WN_8", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "BSW QT252247 - no matching line"},
+  {"ref": "WN_9", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "BSW QT252247 - no matching line"},
+  {"ref": "WN_10", "qty_sold": 12, "qty_quoted": 12, "supplier_ref": "BSW QT252247"},
+  {"ref": "WN_11", "qty_sold": 3, "qty_quoted": 3, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_1", "qty_sold": 3, "qty_quoted": 3, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_2", "qty_sold": 7, "qty_quoted": 7, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_3", "qty_sold": 10, "qty_quoted": 10, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_4", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_5", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_6", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_7", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_8", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_9", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_10", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_11", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_12", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_13", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_14", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_15", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_16", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252247"},
+  {"ref": "WE_17", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252247"},
+  {"ref": "PD_A", "qty_sold": 3, "qty_quoted": 3, "supplier_ref": "BSW QT252248"},
+  {"ref": "PD_B", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252248"},
+  {"ref": "PD_C", "qty_sold": 38, "qty_quoted": 38, "supplier_ref": "BSW QT252248"},
+  {"ref": "PD_I", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252248"},
+  {"ref": "D_B 1040 x 1720", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252251"},
+  {"ref": "D_B 970 x 1760", "qty_sold": 3, "qty_quoted": 3, "supplier_ref": "BSW QT252251"},
+  {"ref": "D_B 1055 x 1750", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "BSW QT252251 - no matching line"},
+  {"ref": "D_C 1510 x 2110", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252251"},
+  {"ref": "D_D 1010 x 2110", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "BSW QT252251"},
+  {"ref": "D_E 1500 x 2100", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "BSW QT252251 - no matching line"},
+  {"ref": "D_U 1405 x 2170", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "BSW QT252251 - no matching line"},
+  {"ref": "D_A 2326 x 2085", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "AFS Q7585 pos 001"},
+  {"ref": "D_A 1750 x 2238", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "AFS Q7585 pos 002"},
+  {"ref": "D_T 1600 x 2210", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "AFS Q7585 pos 003"}
+ ],
+
+ "price_commitment": {
+  "source": "jLiving Form of Tender 2025_jL_GCourt_FoT_V1, inside the tender zip: 'This tender remains open for consideration for a period of 180 days from the date of receipt of tenders.' Tender receipt was 22/07/2026 @ 1400 per the ITT 2025_jL_GCourt_ITT_V8 timetable. The contract is NEC3 ECC April 2013 Option A, priced contract with activity schedule, executed as a DEED, and the ITT invites a 'lump sum, firm priced tender'. The same Form of Tender commits to 'commence the works within 4 weeks following signing of the contract'.",
+  "our_price_open_until": "2027-01-18",
+  "note": "jLiving's full timetable: ITT issued 02/06/2026, tender return 22/07/2026 @ 1400, bidder presentations 02/09/2026, tender award announcement 16/09/2026, standstill (min 10 days) 30/09/2026, contract award mid-October 2026, Go Live 30/10/2026. So the earliest realistic order date is ~11 weeks after every supplier quote behind our number has lapsed, and AFS's 8-week lead time runs from order signature AND receipt of their 60% payment, putting the fire doors on site around January 2027."
+ }
+}

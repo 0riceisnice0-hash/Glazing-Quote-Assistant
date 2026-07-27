@@ -14,3 +14,6 @@ dashboard/functions/_data/dashboard-data.js
 .~lock.*#
 data/job-history.json
 data/estimates.json
+
+# client tender documents extracted from job-folder zips - do not commit
+scratchpad/gc-zip/

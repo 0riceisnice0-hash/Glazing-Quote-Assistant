@@ -302,3 +302,85 @@ disposal before relying on our proposal's exclusions. Ran that on St Mary's - on
 us (SOW 1.09 cross-refers into our item 6.01). Making good and decoration are carried separately by the
 client as SOW section 8, so our "Internal Finishing" exclusion is safe there. Worth actually checking
 rather than assuming either way; the answer differed by item on the same job.
+
+### 2026-07-27 18:37 - gordon-court
+THE VALIDITY PERIOD LIVES IN THE FORM OF TENDER, AND ON GORDON COURT IT IS 180 DAYS. NEW STANDING CHECK.
+
+jLiving's Form of Tender (2025_jL_GCourt_FoT_V1) says "This tender remains open for consideration for
+a period of 180 days from the date of receipt of tenders." Receipt 22/07/2026, so our GBP 368,376.70
+is committed to 18 JANUARY 2027. All five supplier quotes behind it are 30-day: BSW's four lapse
+~06/08, AFS Q7585 ~08/08. That is GBP 201,086.70 - 54.6% of the tender - unfixed for ~163 days against
+a lump-sum firm price under NEC3 ECC Option A executed as a DEED.
+
+Worse, the quotes are not binding even inside their 30 days. AFS T&C 2.6: a quotation "will not
+constitute an offer and may be withdrawn or amended at any time"; 8.2 reserves the right to raise
+price before delivery for material, labour or FX movements. Every BSW quote: "An estimate is not an
+offer of contract and is not binding." So "the quote is valid for 30 days" is the ceiling, not a
+promise.
+
+This is the third instance in one day - John North Hall (ITT demands 90 days for a Section 20
+consultation) and St Mary's (validity vs CONTRACT START, not tender return). So it is now a rule:
+check_quote_validity_against_commitment in scripts/mary_checks.py, fixture _test-gordon-court.json.
+New manifest field price_commitment: {source, our_price_open_until} plus valid_until on each supplier
+quote. It compares each quote's expiry against the date OUR price stops being withdrawable and reports
+the gap in days and the cost at risk. Selftest passes, all six founding errors still fire.
+WHERE TO LOOK: Form of Tender first, then the ITT conditions, then the contract start date. Three
+different documents, and the Form of Tender is the one that actually binds you.
+
+READ THE PACK'S OWN ITT TO FIND OUT WHO THE REAL CLIENT IS AND WHEN THEY DECIDE. Gordon Court looked
+like it had gone quiet. It has not: Chigwell are a MAIN CONTRACTOR bidding to jLiving (Jewish Community
+Housing Association, advised by Vixus) and their return was 22/07/2026 @ 1400 - five days ago. jLiving's
+published timetable is presentations 02/09, award announcement 16/09, standstill 30/09, contract award
+mid-October, Go Live 30/10/2026. Chigwell CANNOT commit to us before then. If a main-contractor client
+goes quiet, look for the employer's ITT timetable in the pack before concluding anything - and it tells
+you when to chase, which is a far better answer than "no news".
+
+TWO SUPPLIERS, SAME TRAP, SAME DAY: EXTRAS SIT OUTSIDE THE QUOTE TOTAL YOU COPY. AFS Q7585 p7 carries
+"Not included in quote above, can be added as optional extras" - fixing pack GBP 256.37 + delivery
+GBP 250.00 = GBP 506.37 outside the GBP 18,298.94. And BSW QT252257 carries a separate "Extras" block,
+"PANEL SET UP GBP 217.50", which nobody carried - our workbook took GBP 6,868.26 of a GBP 7,085.76
+quote. THE ONE-MINUTE TEST: add up the quote's ELEMENT lines and compare to its stated Total. If they
+differ, the difference is an extras block. On Gordon Court that test finds GBP 723.87. Same class as
+Princess Beatrice's GBP 668.41.
+Related, on AFS specifically: their Specifics page said "Logistics: Delivered" while delivery was a
+priced extra. T&C 8.1 settles it AGAINST us - price is "exclusive of all costs and charges of
+packaging, insurance and transport... invoiced to the Customer IN ADDITION". Do not read "Delivered"
+on an AFS quote as delivery included. Also AFS lead time is PER QUOTE, not standing: 8 weeks on Q7585,
+6 weeks on Manor House Q7593, both from order signature AND receipt of their 60% first payment.
+
+BSW ARE THE GOOD ONE ON GLASS - USE THEM AS THE COMPARATOR. Against Bellview's silence on St Mary's,
+all four BSW Gordon Court quotes name the coating: "4Tuf/18/6.8 LAM Coolite SKN176ii Argon" (Liniar),
+"6.Lam/16/6mmTuff Coolite SKN175ii" (Alunet patios), "Skn 176 6.8 Lami / 4 / 4mm Low E Tuff Black Warm
+Edge Sp 12mm" (Sheerline). They also quote dual colour properly on all three systems. What BSW still
+never state is a whole-window Uw - only centre-pane values inside the make-up string - and on this job
+PAS 24 appears ZERO times across all four quotes against a spec requiring PAS24 SBD. And a genuinely
+useful performance data point: AFS Q7585 states "6+15mm GLASSPROF EI30 Clear DGU U=1.0" on Aluprof
+MB-78EI - a fire door with a stated U-value, which is rarer than it should be.
+
+A CHECKER FIX WORTH KNOWING IF YOU RUN mary_checks: check_finish_substitution was reporting a
+correctly-priced dual-colour job as a substitution, twice over. BSW write a foiled frame as "Grey Foil
+On White (7016)" - grey foil on a white substrate, so the visible face is GREY - and the old substring
+match found the word "White" inside it and concluded both faces were white. Separately the two sides
+arrive wrapped in different noise: the architect writes "PVC-U white internally" and "dark grey to RAL
+XXX (TBC)", the supplier writes "(9016) White" and "7016M Anthracite Grey - M", and neither is a
+substring of the other. Now strips the "... on <substrate>" clause and compares COLOUR WORDS. A false
+FAIL costs as much as a missed one - it teaches people to click past the checker. Georgie's Mercury
+case still fires.
+
+AND THE ZIP LESSON HOLDS ON A SECOND JOB. Georgie's said open the zip before concluding a pack is thin.
+Gordon Court's loose folder had 28 drawings; the sibling "Gordon Court Windows, Rooflights & Curtain
+Walling.zip" held the jLiving ITT, the Form of Tender, the Contract Data, the Q&A log, the Energy
+Statement, a 186-page NBS spec, the programme and the asbestos survey. Every finding above except the
+extras came out of that zip. Also: the zip TITLE is scope information - ours says "Windows, ROOFLIGHTS
+& Curtain Walling" and we priced neither rooflights nor curtain walling, and NBS L10 names a specific
+Colt AXS 140 roof AOV/access hatch that is in no quote and in no exclusion.
+Two more small ones: the Energy Statement (filed under sustainability, never opened) sets 1.1 W/m2K on
+replacement glazing where the architect's schedules set NO U-value at all and defer to a consulting
+engineer's spec that is not in the pack - the St Mary's energy-annex rule again. And the Q&A log is a
+scanned image with no text layer, so pdfplumber returns nothing - render it, per Georgie's.
+
+CHEAP TRICK FOR VALIDATING A SCHEDULE EXTRACTION: architects' schedules carry a per-type count cell and
+a stated Grand total. Sum the per-type cells and check they hit the total. On Gordon Court's door
+schedule 51001 my column-interleaved read gave 120 rows against a stated 116; the per-type cells summed
+to exactly 116, which proved the cells were trustworthy and my row-parse was not. That is what let me
+say with confidence that 2no type D_X external doors are on the schedule and priced nowhere.

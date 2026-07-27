@@ -984,6 +984,116 @@ before pricing it: the spec says *"Material - Aluminium Polyamide"* while the cl
 Wall profile as the intended product.
 
 
+### Gordon Court, Stonegrove Edgware / Chigwell Group - full audit of the quote AS ISSUED, and the real client turns out to be jLiving (2026-07-27, evening)
+
+First turn of the permanent `gordon-court` chat. Tender already issued 09/07 at **GBP 368,376.70 ex VAT**.
+Everything below is sourced; full detail in `data/jobs/gordon-court.md`.
+
+**THE PACK WAS IN THE ZIP, AGAIN.** The loose folder had 28 drawings. `Gordon Court Windows, Rooflights
+& Curtain Walling.zip` held the **jLiving ITT V8, Form of Tender, Contract Data, Q&A log, Energy
+Statement, a 186-page NBS spec, the programme and the asbestos survey**. Every commercial finding here
+came out of that zip - the Georgie's lesson holding on a second job.
+
+**WE ARE NOT SELLING TO THE END CLIENT.** Chigwell (London) PLC are a main contractor bidding to
+**jLiving** (Jewish Community Housing Association, advised by Vixus Property Advisory). Chigwell's return
+to jLiving was **22 July 2026 @ 1400 - five days before we started chasing**. jLiving's timetable:
+presentations 02/09, award announcement 16/09, standstill 30/09, contract award mid-October, **Go Live
+30/10/2026**. NEC3 ECC April 2013 Option A, priced contract with activity schedule, **executed as a
+deed**, ITT invites a *"lump sum, firm priced tender"*. So Chigwell's silence is structural, not a
+signal - they cannot commit until jLiving decide. That reframes triage's question "has Chigwell come
+back" into "Chigwell cannot answer until 16 September".
+
+**THE HEADLINE RISK - 163 DAYS OF UNFIXED COST.** jLiving's Form of Tender: *"This tender remains open
+for consideration for a period of 180 days from the date of receipt of tenders."* Receipt 22/07/2026, so
+our price is committed to **18 January 2027**. All five supplier quotes are 30-day - BSW's four
+(QT252247/48/51/57, dated 07/07) lapse ~06/08, AFS Q7585 ~08/08. **GBP 201,086.70, 54.6% of the tender,
+unfixed for ~163 days against a firm lump sum.** And neither price binds even inside 30 days: AFS T&C
+2.6 (*"will not constitute an offer and may be withdrawn or amended at any time"*), T&C 8.2 (price rises
+for material/labour/FX), and every BSW quote (*"An estimate is not an offer of contract and is not
+binding"*). Contract award is ~11 weeks after the last quote dies; AFS's 8-week lead time runs from
+order signature **and** their 60% payment, putting the fire doors on site around January 2027.
+→ Turned into a standing rule, `check_quote_validity_against_commitment`, fixture
+`_test-gordon-court.json`. Third instance in one day after John North Hall (90 days, Section 20) and
+St Mary's (validity vs contract start).
+
+**GBP 723.87 OF COST OMITTED, from two suppliers.** AFS extras **GBP 506.37** (Q7585 p7 fixing pack
+GBP 256.37 + delivery GBP 250.00, outside the GBP 18,298.94; the Specifics page says *"Logistics:
+Delivered"* but T&C 8.1 settles it against us - price is *"exclusive of... transport... invoiced to the
+Customer in addition"*). Plus a new one: **BSW QT252257 carries an Extras block "PANEL SET UP
+GBP 217.50"** never carried - the workbook took GBP 6,868.26 of a GBP 7,085.76 quote, which is exactly
+why the `M3` BSW memo of 182,787.76 is GBP 217.66 short of the four quotes' true sum of 183,005.42
+(GBP 217.50 omitted extra + 16p of penny rounding). One-minute test: sum a quote's element lines against
+its stated total; the difference is an extras block.
+
+**THE THIRD FIRE DOOR IS TYPE D_T AND THREE OF ITS ATTRIBUTES ARE WRONG OR BLANK.** The count of 3
+survives - the two `D_A` doors match schedule 51001 to the millimetre (2085x2326 and 2238x1750 GR316
+Entrance = Q7585 pos 001/002). The third is **D_T**, which the schedule gives as **2110 high (AFS quoted
+2210 - 100mm taller than the structural opening)**, as room **GR425 Store with the Internal/External
+cell left blank**, and as a **756 x 2060 single leaf** in a 1600 opening where **AFS quoted "1 Pcs.
+Double Door"**. GBP 7,304.44 of sell on three unresolved attributes; if D_T is internal it is the
+joinery package's. The ITT expressly puts this on us: *"quantities, dimensions, capacities... are purely
+indicative... It remains the Bidders' responsibility to verify"*.
+
+**SCOPE GAP - 2no TYPE D_X EXTERNAL DOORS PRICED NOWHERE.** 2100 high x 1800 wide, Level 0, on the
+*External and Communal Door Schedule*, every descriptive cell blank. Schedule 51001's per-type count
+cells sum to exactly the **116** it states as its Grand total, so those counts are the drawing's own:
+**17 non-internal doors, we priced 15**. Nearest comparator D_E at GBP 2,779.70 sell → order of
+magnitude ~GBP 5,600 sell + ~GBP 1,000 install, **benchmark only**. Brocks Hill pattern.
+
+**PERFORMANCE THE SUPPLIERS NEVER PRICED.** The architect's schedules set **no U-value at all** - they
+defer to *"Edward Pearce Consulting Engineers specification"*, **which is not in the pack** - and set
+*"G-Value of 0.36 or better"*. The **Energy Statement** (in the zip, never opened) requires **1.1 W/m2K
+on replacement external glazing**, with a proposed column at 1.40 W/m2K / g-value 0.40. No whole-window
+Uw appears on any BSW quote. Applied the SM5 Wexham rule honestly and **rejected nothing** - a Uw exists
+for no element, so the arithmetic cannot be done either way; the finding is *"nothing on file
+demonstrates 1.1 and nobody has asked"*. Also: **trickle vents quoted at 4000mm2 against a stated
+8000mm2 minimum** (checked the "unless otherwise specified in window schedule" get-out - the schedules
+specify acoustic yes/no, not a smaller area); **acoustic vents ("Passivent AL-dB 450 or better") ticked
+on 26 of the 40 replacement windows** (verified positionally against the column header) and quoted by
+nobody - zero mentions of Passivent, AL-dB or acoustic; **PAS 24 appears zero times across all four BSW
+quotes** against a spec requiring PAS24 SBD; **WN_2 (7no) is ObsTuff with no solar coating**, so it
+cannot meet the 0.36 we promised; **louvre LW_1 has no free area stated**; and **AFS priced no dual
+colour** on the fire doors (*"Standard RAL"*, *"Profiles: mat standard"*, neither face named) against a
+spec of white internal / dark grey external - the Georgie's Mercury failure exactly.
+
+**CLEARED, so nobody re-opens them.** Install **does** cover the fire doors - `I61` is
+`SUMPRODUCT(F*N)+SUMPRODUCT(F x code value)` with DAD=500, so rows 57-59 contribute 3 x GBP 500 =
+**GBP 1,500**; recomputed the whole formula independently at **GBP 46,840 exactly**. Quantities reconcile
+**unit-for-unit** on the other three schedules (patio 44=44, replacement windows 40=40, new windows
+84=84, each against the drawing's own stated total). Q7585's arithmetic is sound and nothing was dropped.
+**The client-facing workbook leaks nothing** - B2:K75, print area B1:H71, zero populated cells in J-V,
+all values hard-typed; Gordon Court's "DO NOT SEND" twin practice is the model **Filwood** should have
+followed. Panic hardware **is** priced on all three fire doors (WILKA panic shootbolt guides top and
+bottom, FUHR 3-point auto lock, GEZE closers). And the **PVC-U vs aluminium conflict was already
+qualified by us** on proposal p3 - checked before raising it, Gintare got there first.
+
+**TWO CONTRADICTORY SCOPE SENTENCES IN THE ISSUED PROPOSAL**, both p3: *"it has been noted that no doors
+are included within the schedule drawings"* (51001 is titled *External and Communal Door Schedule* and
+carries 116; 51002 carries 44 more, and we priced 59 doors off them), and *"Our scope is limited to the
+manufacture, supply and installation of replacement aluminium windows"* (the GBP 368,376.70 sells Liniar
+uPVC windows and Aluprof fire doors). Correct at order stage.
+
+**ALSO NOT PRICED AND NOT EXCLUDED:** the zip title says *"Windows, **Rooflights** & Curtain Walling"*
+and NBS 9001 p85 names a **Colt AXS 140 Combined AOV Smoke Ventilator and Roof Access Hatch** (1000 x
+1250, RAL 7016, U-value 1.2 or better). We priced 3no wall-mounted Sheerline T&T AOV *windows* and 4no
+louvres, no rooflights and no curtain walling, and the proposal excludes none of it. In fairness the
+wider Colt package (AOV shaft, OPV Heart module, wiring, ductwork) is plainly a smoke-vent specialist's.
+
+**TOOLKIT.** Added `check_quote_validity_against_commitment` (+ manifest field `price_commitment` and
+`valid_until` per quote). **Fixed two false positives in `check_finish_substitution`**, which was
+reporting a correctly-priced dual-colour job as a substitution: BSW write a foiled frame as *"Grey Foil
+On White (7016)"* and the substring match read the word *White* as the external face; and the two sides
+arrive wrapped in different noise (*"PVC-U white internally"* vs *"(9016) White"*), so neither is a
+substring of the other. Now strips the `... on <substrate>` clause and compares colour words. A false
+FAIL costs as much as a missed one. Selftest passes, all six earlier founding errors still fire.
+Run on this job: **4 FAIL, 2 ASK**, all genuine. **REQ-20 raised for Adam.**
+
+**STILL UNREAD:** `1. Q&As 02.06.26.pdf` is a **scanned image with no text layer** and the Lower Range
+Road lesson says clarification logs are where U-value answers hide - RFI-3 is exactly such a question.
+Render it. Also the 186-page NBS spec in full, the Pre-Construction Information, the Contract Data and
+the asbestos survey.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

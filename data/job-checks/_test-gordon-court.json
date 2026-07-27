@@ -1,0 +1,26 @@
+{
+ "job": "FIXTURE - Gordon Court as it stood on 27/07/2026",
+ "created": "2026-07-27",
+ "_note": "The founding case for check_quote_validity_against_commitment. Real figures. Our GBP 368,376.70 tender was issued 09/07/2026 into a jLiving tender whose Form of Tender (2025_jL_GCourt_FoT_V1) states 'This tender remains open for consideration for a period of 180 days from the date of receipt of tenders'. Receipt was 22/07/2026 @ 1400, so the price is committed to 18/01/2027. Every supplier quote behind it runs 30 days from early July. Only price_commitment and supplier_quotes are populated - this fixture exists to prove ONE rule fires.",
+
+ "price_commitment": {
+  "source": "jLiving Form of Tender 2025_jL_GCourt_FoT_V1: 'This tender remains open for consideration for a period of 180 days from the date of receipt of tenders.' Tender receipt 22/07/2026 @ 1400 per ITT 2025_jL_GCourt_ITT_V8 timetable. NEC3 ECC April 2013 Option A, priced contract with activity schedule, executed as a DEED, lump sum firm price.",
+  "our_price_open_until": "2027-01-18",
+  "note": "Contract Award is not until mid-October 2026 and Go Live 30/10/2026 - both months after the supplier quotes lapse."
+ },
+
+ "supplier_quotes": [
+  {"supplier": "BSW Window Solutions", "ref": "QT252247 PVC", "date": "2026-07-07",
+   "valid_until": "2026-08-06", "used_net": true, "value": 53543.90,
+   "note": "'THIS QUOTATION IS ONLY VALID FOR THIRTY DAYS' and 'An estimate is not an offer of contract and is not binding.'"},
+  {"supplier": "BSW Window Solutions", "ref": "QT252248 PATIOS", "date": "2026-07-07",
+   "valid_until": "2026-08-06", "used_net": true, "value": 108275.95},
+  {"supplier": "BSW Window Solutions", "ref": "QT252251 ALI DOORS", "date": "2026-07-07",
+   "valid_until": "2026-08-06", "used_net": true, "value": 14099.81},
+  {"supplier": "BSW Window Solutions", "ref": "QT252257 AOV & LOUVRE", "date": "2026-07-07",
+   "valid_until": "2026-08-06", "used_net": true, "value": 7085.76},
+  {"supplier": "Aluminium Fire Systems", "ref": "Q7585", "date": "2026-07-09",
+   "valid_until": "2026-08-08", "used_net": true, "value": 18298.94,
+   "note": "'Quotations are valid for 30 days.' AFS T&C 2.6 goes further: 'Any quotations given by AFS will not constitute an offer and may be withdrawn or amended at any time', and 8.2 reserves the right to increase price before delivery for material, labour or FX movements."}
+ ]
+}

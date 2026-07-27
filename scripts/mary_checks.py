@@ -350,16 +350,54 @@ def _ral(s):
     return m.group(1) if m else None
 
 
+_SUBSTRATE = re.compile(
+    r"\s*\b(?:foil\s+)?on\s+(?:white|cream|grey|gray|black|brown|anthracite)\b.*$")
+
+
+def _visible_face(desc):
+    """Strip the substrate off a foiled finish description.
+
+    Gordon Court, 27/07. BSW describe a dual-colour Liniar frame as 'Grey Foil
+    On White (7016)' - grey foil laminated onto a white substrate, i.e. the
+    visible external face is GREY. The substring match below saw the word
+    'White' inside it, decided the external face matched the white internal
+    face, and reported a correctly-priced dual-colour job as single colour.
+
+    A false FAIL is as expensive as a missed one: it teaches people to click
+    past the checker. So drop the '... on <substrate>' clause and compare the
+    face you can actually see."""
+    return _SUBSTRATE.sub("", str(desc or "").strip().lower()).strip()
+
+
+_COLOURS = ("white", "grey", "anthracite", "black", "brown", "cream", "silver",
+            "green", "blue", "red", "bronze", "ivory", "beige")
+
+
+def _colours(desc):
+    """The colour words in a finish description, with gray normalised to grey.
+
+    Both sides of this comparison arrive wrapped in noise. The architect writes
+    'PVC-U white internally' and 'dark grey to RAL XXX (TBC)'; the supplier
+    writes '(9016) White' and '7016M Anthracite Grey - M'. Nothing is a
+    substring of anything, so the old raw comparison called a correctly-quoted
+    dual-colour job a substitution. Compare the colours, not the packaging."""
+    d = _visible_face(desc).replace("gray", "grey")
+    return {c for c in _COLOURS if c in d}
+
+
 def _finish_matches(spec, quote):
-    """Loose match - a RAL number on both sides is decisive, otherwise one
-    description containing the other is good enough. The point is to catch a
-    substitution, not to argue about wording."""
-    a, b = str(spec or "").strip().lower(), str(quote or "").strip().lower()
+    """Loose match - a RAL number on both sides is decisive, then a shared
+    colour word, then one description containing the other. The point is to
+    catch a substitution, not to argue about wording."""
+    a, b = _visible_face(spec), _visible_face(quote)
     if not a or not b:
         return None
     ra, rb = _ral(a), _ral(b)
     if ra and rb:
         return ra == rb
+    ca, cb = _colours(a), _colours(b)
+    if ca and cb:
+        return bool(ca & cb)
     return a in b or b in a
 
 
@@ -444,12 +482,83 @@ def check_supplier_covers_quantity(m):
                   "%d line(s) fully covered by a supplier quote" % len(cov), "Brocks Hill")
 
 
+def check_quote_validity_against_commitment(m):
+    """Gordon Court, 27/07 - the third instance in one day, and the worst.
+
+    check_supplier_quote_currency asks whether a quote is in date TODAY. That is
+    the wrong horizon. What matters is how long OUR price has to stay open,
+    because that is the period we are exposed for.
+
+    Gordon Court: jLiving's Form of Tender says 'This tender remains open for
+    consideration for a period of 180 days from the date of receipt of tenders'
+    - receipt 22/07/2026, so our GBP 368,376.70 is committed to 18/01/2027. Both
+    supplier quotes behind it run 30 days and lapse in early August. GBP 201,086.70
+    of cost, 55% of the tender, is unfixed for 163 days against a firm lump sum
+    executed as a deed under NEC3 Option A.
+
+    Same shape twice more the same afternoon: John North Hall's ITT demands 90
+    days because a Section 20 leasehold consultation takes months, and St Mary's
+    reached it from the other side - quote validity against the CONTRACT START
+    date, not the tender return date. Three jobs, one rule.
+
+    Compare each supplier quote's expiry against the date our own price stops
+    being withdrawable. A quote that dies first is a repricing risk we own."""
+    quotes = m.get("supplier_quotes")
+    pc = m.get("price_commitment")
+    if pc is None:
+        return result("supplier price held as long as ours", UNKNOWN,
+                      "How long must OUR price stay open? 'price_commitment': "
+                      "{source, our_price_open_until: 'YYYY-MM-DD'}. Read the Form of Tender / ITT "
+                      "validity clause and the contract start date - not the tender return date.",
+                      "Gordon Court")
+    if quotes is None:
+        return result("supplier price held as long as ours", UNKNOWN,
+                      "see supplier_quotes above", "Gordon Court")
+    if not quotes:
+        return result("supplier price held as long as ours", NA,
+                      "no supplier quotes held - benchmark pricing", "Gordon Court")
+    try:
+        until = dt.date.fromisoformat(str(pc.get("our_price_open_until")))
+    except Exception:
+        return result("supplier price held as long as ours", UNKNOWN,
+                      "price_commitment.our_price_open_until is not a usable date.", "Gordon Court")
+    silent, gaps, exposed = [], [], 0.0
+    for q in quotes:
+        ref = "%s %s" % (q.get("supplier", "?"), q.get("ref", "?"))
+        try:
+            vu = dt.date.fromisoformat(str(q.get("valid_until")))
+        except Exception:
+            silent.append(ref)
+            continue
+        if vu < until:
+            gap = (until - vu).days
+            val = q.get("value")
+            if isinstance(val, (int, float)):
+                exposed += val
+            gaps.append("%s lapses %s, %d days before our price closes on %s%s"
+                        % (ref, vu.isoformat(), gap, until.isoformat(),
+                           "" if not isinstance(val, (int, float)) else " (GBP %s at risk)" % format(val, ",.2f")))
+    if gaps:
+        return result("supplier price held as long as ours", FAIL,
+                      "Supplier pricing expires inside our own commitment: %s. Total GBP %s of cost "
+                      "unfixed against a price we cannot withdraw. Get a written price hold to %s or "
+                      "carry a stated allowance for the gap."
+                      % ("; ".join(gaps), format(exposed, ",.2f"), until.isoformat()), "Gordon Court")
+    if silent:
+        return result("supplier price held as long as ours", UNKNOWN,
+                      "No expiry date stated for: %s. A quote with no validity period is not a held "
+                      "price." % ", ".join(silent), "Gordon Court")
+    return result("supplier price held as long as ours", PASS,
+                  "%d supplier quote(s) held to at least %s" % (len(quotes), until.isoformat()),
+                  "Gordon Court")
+
+
 RULES = [
     check_system_coupling, check_panic_hardware, check_glass_ownership, check_quantities,
     check_scope_gaps, check_supplier_quote_currency, check_net_pricing,
     check_full_height_screens, check_fabricator_can_make_it, check_uvalue_basis,
     check_finish_substitution, check_supplier_covers_quantity,
-    check_system_performance,
+    check_system_performance, check_quote_validity_against_commitment,
 ]
 
 
@@ -471,6 +580,7 @@ def blank_manifest(job):
         "finishes": None,
         "u_value": None,
         "supplier_coverage": None,
+        "price_commitment": None,
     }
 
 
@@ -515,6 +625,7 @@ def selftest():
         "_test-georgies.json": {"finish quoted is the finish specified"},
         "_test-brocks-hill.json": {"supplier quote covers every unit sold"},
         "_test-st-marys.json": {"system can meet the specified performance"},
+        "_test-gordon-court.json": {"supplier price held as long as ours"},
     }
     ok = True
     for name, must_fail in expected.items():

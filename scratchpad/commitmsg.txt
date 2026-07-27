@@ -1,34 +1,41 @@
-The bridge was restoring the old world on every session - second cause found
+Gordon Court: the client is jLiving, and our price is held 163 days longer than our cost
 
-St Mary's ran the post-turn orphan check and found five handoffs that could not
-be delivered. It was right: riverside, chester-thomas, ninn-lane, manor-house and
-lower-range had all been deleted again, after this morning's save_registry fix.
-All five are re-added and all seven pending handoffs now map to a live key.
+First full turn of the gordon-court chat. The tender was already in at
+GBP 368,376.70; this audits it against the pack rather than re-pricing it.
 
-The earlier diagnosis was only half the problem. mary_bridge.py loads the registry
-once at startup and writes that same in-memory object back on every session start
-and end, so the bridge was not merely failing to notice new jobs - it was actively
-restoring the registry as it stood when it booted, every time any chat ran. That
-is why re-adding by hand never survived. The loop now re-reads the registry at the
-top of each pass.
+The pack was in the zip again, as Georgie's warned. The loose folder held 28
+drawings; the sibling zip held jLiving's ITT, the Form of Tender, the Energy
+Statement, a 186-page NBS spec, the programme and the asbestos survey.
 
-What hid it: a long-running Python process keeps the module it imported at
-startup. The merge fix was on disk and correct, but the live bridge is pythonw pid
-31876, started 15:51:24, which is before the fix landed - so it carried on
-executing the old code and the fix could not bite. That needs a restart, which I
-have deliberately not done from inside a session: the bridge launches these
-sessions, so killing it mid-turn would end the session doing the killing. Raised
-as REQ-18 with the pid and start time so it can be confirmed.
+Two things came out of it that change the job. Chigwell are not the client -
+they are a main contractor who bid to jLiving on 22/07, and jLiving do not
+announce until 16/09 or award until mid-October, so the silence we were about
+to chase is structural. And jLiving's Form of Tender holds our price open for
+180 days, to 18/01/2027, while all five supplier quotes behind it are 30-day
+and lapse in early August: GBP 201,086.70, 54.6% of the tender, unfixed for
+about 163 days against a firm lump sum executed as a deed. Neither supplier's
+price binds even inside its 30 days, by their own printed terms.
 
-Until that restart, expect the five jobs to be wiped again on the next session.
-Every chat has been told to re-check at the end of its turn, and told that a chat
-which has already run loses its whole conversation if its key goes - which is the
-real argument for keeping data/jobs/<key>.md current rather than leaving it to
-close-out.
+That is now a rule rather than a note, because it is the third instance in a
+day after John North Hall's 90 days and St Mary's contract-start version:
+check_quote_validity_against_commitment, with the founding fixture.
 
-- AI.md: both causes, and the standing rule that editing a file changes what the
-  next process does, not what the running one is doing.
-- Noticeboard and a direct reply to st-marys, whose check is the only reason this
-  surfaced.
+Also found: GBP 723.87 of omitted cost, including a BSW extras line nobody had
+seen; the third fire door is type D_T, quoted 100mm taller than its opening, as
+a double where the schedule shows a single leaf, in a store whose
+external/internal cell is blank; 2no type D_X external doors priced nowhere;
+trickle vents at half the required area; acoustic vents ticked on 26 of 40
+windows and quoted by no one; and PAS 24 absent from all four BSW quotes.
+
+Cleared and recorded so nobody re-opens them: install does cover the fire
+doors, the other three schedules reconcile unit-for-unit, and the client-facing
+workbook leaks no cost - the twin-file practice Filwood should have copied.
+
+Fixed two false positives in check_finish_substitution, which was calling a
+correctly-priced dual-colour job a substitution because BSW write a foiled
+frame as "Grey Foil On White". A false FAIL costs as much as a missed one.
+Selftest passes and every earlier founding error still fires.
+
+REQ-20 raised for Adam; handoffs to manor-house and john-north-hall.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
