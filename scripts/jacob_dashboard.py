@@ -323,10 +323,20 @@ def main():
     print("  warm %d | known %d | cold %d" % (t["warm"], t["known"], t["cold"]))
 
     if args.deploy:
-        subprocess.run(
-            ["npx.cmd", "wrangler", "pages", "deploy", "dashboard/public",
-             "--project-name", "mary-dashboard", "--branch", "main"],
-            cwd=REPO, check=True, encoding="utf-8", errors="replace")
+        # Same invocation as mary_dashboard.py - same Pages project, same
+        # directory. Do not deploy while she is mid-deploy.
+        r = subprocess.run(
+            ["npx.cmd", "wrangler", "pages", "deploy", "public",
+             "--project-name", "mary-dashboard", "--branch", "main",
+             "--commit-dirty=true"],
+            cwd=os.path.join(REPO, "dashboard"), capture_output=True, text=True,
+            encoding="utf-8", errors="replace", timeout=600, shell=True)
+        print("deploy exit", r.returncode)
+        # wrangler emits box-drawing characters and this stdout is cp1252 -
+        # re-encode rather than let a successful deploy die on its own log.
+        enc = sys.stdout.encoding or "utf-8"
+        print((r.stdout + r.stderr)[-500:].encode(enc, "replace").decode(enc, "replace"))
+        return r.returncode
 
 
 if __name__ == "__main__":
