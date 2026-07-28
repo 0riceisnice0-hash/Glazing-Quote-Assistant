@@ -26,6 +26,8 @@ from datetime import date, datetime, timezone
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AWARDS = os.path.join(REPO, "data", "jacob", "contracts-finder-awards.json")
+INTAKE = os.path.join(REPO, "data", "jacob", "intake.json")
+JAYK = os.path.join(REPO, "data", "jacob", "jayk-recovery.json")
 OUT = os.path.join(REPO, "dashboard", "functions", "_data", "jacob-data.js")
 
 ARCHIVE = r"C:\Users\zacpl\OneDrive - Fenster Glazing (1)\Commercial"
@@ -146,6 +148,97 @@ def lead(a, extra=None):
     return row
 
 
+# Consumer mail is a person, not an account. Kept out of the company list on
+# both paths - intake filters it too, but Jayk's contacts come in separately.
+FREEMAIL = {"hotmail.com", "hotmail.co.uk", "gmail.com", "googlemail.com",
+            "outlook.com", "outlook.co.uk", "yahoo.com", "yahoo.co.uk",
+            "live.com", "live.co.uk", "aol.com", "icloud.com", "me.com",
+            "msn.com", "btinternet.com", "sky.com", "virginmedia.com",
+            "talktalk.net", "protonmail.com"}
+
+
+FREEMAIL_STEMS = {"hotmail", "gmail", "googlemail", "outlook", "yahoo", "live",
+                  "aol", "icloud", "me", "msn", "btinternet", "sky",
+                  "virginmedia", "talktalk", "protonmail", "ymail", "gmx",
+                  "mail", "inbox", "rediffmail"}
+
+
+def is_freemail(domain):
+    """Match on the first label so outlook.in and yahoo.de are caught too,
+    not just the .com/.co.uk pair."""
+    return (domain or "").lower().split(".")[0] in FREEMAIL_STEMS
+
+
+def load_json(path, default=None):
+    """Optional inputs - a missing feed shows as 'not run yet' on the hub
+    rather than taking the whole board down."""
+    try:
+        return json.load(open(path, encoding="utf-8"))
+    except (IOError, ValueError):
+        return default
+
+
+def build_relationships(clients, intake, jayk):
+    """One row per company, merged from the three things we know:
+
+      the archive   - every company Fenster has ever quoted, and who bought
+      the mailboxes - who is emailing right now, and about what
+      Jayk's threads- who the former BDM was dealing with before he left
+
+    A company that appears in the archive but has had no email for a year is
+    exactly the dormant lead Jacob exists to surface, so absence matters as
+    much as presence."""
+    rows = {}
+
+    def row(key, label):
+        return rows.setdefault(key, {
+            "company": label, "domain": "", "relationship": "unknown",
+            "lastContact": "", "messages": 0, "contacts": [],
+            "sources": [], "subjects": [],
+        })
+
+    for name, tier in clients.items():
+        r = row(re.sub(r"[^a-z0-9]", "", name.lower())[:24] or name, name)
+        r["relationship"] = tier
+        r["sources"].append("archive")
+
+    for c in (intake or {}).get("companies", []):
+        # Personal addresses are people, not accounts - their enquiries still
+        # show as signals, they just do not become a company row.
+        if c.get("isFreemail"):
+            continue
+        key = re.sub(r"[^a-z0-9]", "",
+                     re.sub(r"\.(co\.uk|com|net|org|uk)$", "", c["domain"]))[:24]
+        r = row(key, c["domain"])
+        r["domain"] = c["domain"]
+        r["messages"] += c["messages"]
+        r["lastContact"] = max(r["lastContact"], c["last"])
+        r["contacts"].extend(c["contacts"])
+        r["subjects"].extend(c.get("subjects", []))
+        if c["relationship"] != "unknown":
+            r["relationship"] = c["relationship"]
+        if "mailbox" not in r["sources"]:
+            r["sources"].append("mailbox")
+
+    for addr, n, name in (jayk or {}).get("contacts", []):
+        dom = addr.split("@")[-1]
+        if is_freemail(dom):
+            continue
+        key = re.sub(r"[^a-z0-9]", "",
+                     re.sub(r"\.(co\.uk|com|net|org|uk)$", "", dom))[:24]
+        r = row(key, dom)
+        r["domain"] = r["domain"] or dom
+        if not any(c["address"] == addr for c in r["contacts"]):
+            r["contacts"].append({"address": addr, "name": name})
+        if "jayk" not in r["sources"]:
+            r["sources"].append("jayk")
+
+    out = list(rows.values())
+    # Most recently active first, then the ones we have most history with.
+    out.sort(key=lambda r: (r["lastContact"], len(r["contacts"])), reverse=True)
+    return out
+
+
 # ---------------------------------------------------------------- build
 def build():
     awards = json.load(open(AWARDS, encoding="utf-8"))
@@ -199,6 +292,15 @@ def build():
 
     won = sum(1 for v in clients.values() if v == "won")
 
+    intake = load_json(INTAKE)
+    jayk = load_json(JAYK)
+    rel = build_relationships(clients, intake, jayk)
+
+    # Dormant = we have quoted them, and no email in the window. That is the
+    # cheapest lead in the business: they already asked us for a price once.
+    dormant = [r for r in rel
+               if r["relationship"] in ("won", "quoted") and not r["lastContact"]]
+
     return {
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "window": {"from": "2026-04-28", "to": "2026-07-27", "days": 90},
@@ -208,21 +310,39 @@ def build():
             "clients": len(clients),
             "clientsWon": won,
             "warm": len(warm), "known": len(known), "cold": len(cold),
+            "signals": len((intake or {}).get("signals", [])),
+            "mailboxCompanies": len((intake or {}).get("companies", [])),
+            "dormant": len(dormant),
+            "jaykContacts": len((jayk or {}).get("contacts", [])),
         },
         "warm": warm, "known": known, "cold": cold[:150],
-        "sources": SOURCES(len(awards), len(by_supplier)),
+        "sources": SOURCES(len(awards), len(by_supplier), intake),
+        "intake": {
+            "updated": (intake or {}).get("updated"),
+            "windowDays": (intake or {}).get("window_days"),
+            "perMailbox": (intake or {}).get("per_mailbox", {}),
+            "counts": (intake or {}).get("counts", {}),
+            "signals": (intake or {}).get("signals", [])[:120],
+        } if intake else None,
+        "jayk": {
+            "messages": sum(v["he_was_on"] for v in (jayk or {}).get("per_mailbox", {}).values()
+                            if isinstance(v, dict)),
+            "companies": (jayk or {}).get("companies", [])[:40],
+            "contacts": (jayk or {}).get("contacts", [])[:60],
+            "subjects": sorted((jayk or {}).get("subjects", []), reverse=True)[:40],
+        } if jayk else None,
         "relationships": {
             "quoted": len(clients) - won,
             "won": won,
-            "note": ("Every company in the OneDrive tender archive. Last-contact "
-                     "and outcome tracking needs the commercial@ intake - planned."),
+            "rows": rel[:300],
+            "dormant": len(dormant),
         },
         "outreach": OUTREACH,
         "decisions": DECISIONS,
     }
 
 
-def SOURCES(rows, winners):
+def SOURCES(rows, winners, intake=None):
     return [
         {"name": "Contracts Finder", "status": "live", "kind": "Award notices",
          "detail": "%d construction award rows, %d unique winning companies, "

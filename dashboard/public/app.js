@@ -203,6 +203,8 @@ const ICONS = {
   scoreboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>',
   live: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>',
   leads: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+  signals: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>',
+  jayk: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5Z"/><path d="M8 7h8M8 11h8"/></svg>',
   relationships: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20a5.5 5.5 0 0 0-3-4.9"/></svg>',
   outreach: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>',
   sources: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
@@ -229,8 +231,10 @@ const PAGES = [
    empty table - an empty table reads as "nothing to do", which is a lie. */
 const JACOB_PAGES = [
   { key: "overview", label: "Overview", sub: () => "What Jacob has found, and what is still to build" },
+  { key: "signals", label: "Signals", sub: () => `${JACOB?.totals.signals || 0} enquiries and portal notices found in the mailboxes` },
   { key: "leads", label: "Leads", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} matched to a Fenster relationship, ${JACOB?.totals.cold || 0} cold` },
-  { key: "relationships", label: "Relationships", sub: () => `${JACOB?.totals.clients || 0} companies Fenster has quoted` },
+  { key: "relationships", label: "Relationships", sub: () => `${JACOB?.relationships.rows.length || 0} companies, ${JACOB?.totals.dormant || 0} with no recent contact` },
+  { key: "jayk", label: "Jayk's book", sub: () => `${JACOB?.jayk?.messages || 0} recovered messages from the former BDM` },
   { key: "outreach", label: "Outreach", sub: () => "Nothing sends without a human approving it" },
   { key: "sources", label: "Sources", sub: () => "Where leads come from, and which feeds are live" },
   { key: "decisions", label: "Jacob needs you", sub: () => `${JACOB?.decisions.length || 0} decisions before he can go further` },
@@ -262,12 +266,16 @@ const JACOB_RENDER = {
     const t = JACOB.totals;
     return `
       <div class="stats">
+        <div class="stat green" data-go="signals"><div class="n">${t.signals}</div><div class="l">Live signals in the mailboxes</div></div>
         <div class="stat green" data-go="leads"><div class="n">${t.warm}</div><div class="l">Warm - they have bought from us</div></div>
         <div class="stat amber" data-go="leads"><div class="n">${t.known}</div><div class="l">Known - quoted, never won</div></div>
         <div class="stat" data-go="leads"><div class="n">${t.cold}</div><div class="l">Cold building contracts</div></div>
-        <div class="stat" data-go="relationships"><div class="n">${t.clients}</div><div class="l">Companies in the archive</div></div>
+        <div class="stat amber" data-go="relationships"><div class="n">${t.dormant}</div><div class="l">Gone quiet - no recent contact</div></div>
         <div class="stat amber" data-go="decisions"><div class="n">${JACOB.decisions.length}</div><div class="l">Decisions Jacob needs</div></div>
       </div>
+
+      ${JACOB.intake ? `<div class="section"><div class="section-head"><h3>Newest signals</h3><a data-go="signals">All signals &rarr;</a></div>
+        ${this._signalTable(JACOB.intake.signals.slice(0, 8))}</div>` : ""}
 
       <div class="section"><div class="section-head"><h3>Warm - call these first</h3><a data-go="leads">All leads &rarr;</a></div>
         ${this._leadTable(JACOB.warm, true)}</div>
@@ -300,23 +308,101 @@ const JACOB_RENDER = {
         ${this._leadTable(JACOB.cold, false)}</div>`;
   },
 
+  _signalTable(rows) {
+    if (!rows || !rows.length) return `<div class="empty"><strong>No signals</strong></div>`;
+    return `<table class="tbl"><thead><tr>
+        <th>When</th><th>Type</th><th>Company</th><th>Who</th><th>Subject</th><th>In</th></tr></thead><tbody>
+      ${rows.map((s) => `<tr>
+        <td>${esc(s.date)}</td>
+        <td><span class="pill ${s.kind === "portal" ? "planned" : "live"}">${esc(s.kind)}</span></td>
+        <td><strong>${esc(s.company)}</strong>${s.relationship && s.relationship !== "unknown"
+            ? ` <span class="pill ${s.relationship === "won" ? "exact" : "strong"}">${esc(s.relationship)}</span>` : ""}</td>
+        <td>${esc(s.name || s.contact)}</td>
+        <td>${esc(s.subject)}</td>
+        <td>${esc(s.mailbox)}</td></tr>`).join("")}
+    </tbody></table>`;
+  },
+
+  signals() {
+    if (!JACOB.intake) {
+      return `<div class="planned-note">Mailbox intake has not run yet.
+        <code>python scripts/jacob_intake.py</code></div>`;
+    }
+    const i = JACOB.intake;
+    const boxes = Object.entries(i.perMailbox)
+      .map(([m, n]) => `${m.split("@")[0]} ${n}`).join(" &middot; ");
+    return `
+      <div class="section"><div class="section-head"><h3>What the mailboxes are holding</h3></div>
+        <div class="planned-note">
+          <p>Last ${i.windowDays} days: ${esc(boxes)}. Classified as
+          ${Object.entries(i.counts).sort((a, b) => b[1] - a[1])
+            .map(([k, n]) => `<strong>${n}</strong> ${esc(k)}`).join(", ")}.</p>
+          <p>Everything below arrived as ordinary email. No portal login, no scraper.</p>
+        </div></div>
+      <div class="section"><div class="section-head"><h3>Enquiries and portal notices</h3></div>
+        ${this._signalTable(i.signals)}</div>`;
+  },
+
   relationships() {
     const r = JACOB.relationships;
+    const rows = r.rows || [];
+    const active = rows.filter((x) => x.lastContact);
+    const quiet = rows.filter((x) => !x.lastContact && x.relationship !== "unknown");
+    const tbl = (list) => `<table class="tbl"><thead><tr>
+        <th>Company</th><th>History</th><th>Last contact</th><th>Msgs</th><th>Contacts</th><th>Known from</th></tr></thead><tbody>
+      ${list.map((x) => `<tr>
+        <td><strong>${esc(x.company)}</strong></td>
+        <td>${x.relationship === "unknown" ? "-" :
+             `<span class="pill ${x.relationship === "won" ? "exact"
+               : x.relationship === "quoted" ? "strong" : "possible"}">${esc(x.relationship)}</span>`}</td>
+        <td>${esc(x.lastContact) || "-"}</td>
+        <td>${x.messages || "-"}</td>
+        <td>${x.contacts.slice(0, 2).map((c) => esc(c.name || c.address)).join(", ")
+             }${x.contacts.length > 2 ? ` +${x.contacts.length - 2}` : ""}</td>
+        <td>${x.sources.map((s) => `<span class="pill possible">${esc(s)}</span>`).join(" ")}</td>
+      </tr>`).join("")}
+    </tbody></table>`;
     return `
       <div class="stats">
         <div class="stat green"><div class="n">${r.won}</div><div class="l">Have bought from Fenster</div></div>
         <div class="stat"><div class="n">${r.quoted}</div><div class="l">Quoted, no recorded win</div></div>
+        <div class="stat amber"><div class="n">${quiet.length}</div><div class="l">No contact in the window</div></div>
       </div>
-      <div class="section"><div class="section-head"><h3>Planned</h3></div>
+      <div class="section"><div class="section-head"><h3>Active - they have emailed us recently</h3></div>
+        ${tbl(active.slice(0, 60))}</div>
+      <div class="section"><div class="section-head"><h3>Gone quiet - quoted before, nothing lately</h3></div>
+        <div class="planned-note">The cheapest lead in the business: they already asked
+        Fenster for a price once. Showing the first 60 of ${quiet.length}.</div>
+        ${tbl(quiet.slice(0, 60))}</div>`;
+  },
+
+  jayk() {
+    if (!JACOB.jayk) {
+      return `<div class="planned-note">Not recovered yet.
+        <code>python scripts/jacob_jayk_recovery.py</code></div>`;
+    }
+    const j = JACOB.jayk;
+    return `
+      <div class="section"><div class="section-head"><h3>The former BDM's contact book</h3></div>
         <div class="planned-note">
-          <p>${esc(r.note)}</p>
-          <p>What this page becomes: one row per company - last contact either way, what is
-          outstanding, who owns the relationship, and when to next make contact. Sorted by neglect,
-          so the ones going quiet surface themselves.</p>
-          <p>It needs two things that do not exist yet: the <code>commercial@</code> intake, and
-          somewhere to record outcomes. The Estimating Log has 325 rows and 302 of them have no
-          outcome recorded at all.</p>
-        </div></div>`;
+          <p>Jayk was Fenster's business development manager. His mailbox no longer exists -
+          no soft-deleted copy, no inactive copy - so <strong>${j.messages}</strong> messages were
+          recovered from the threads that copied a role mailbox instead.</p>
+          <p>This is a one-off recovery, not a feed. It is here so the relationships outlast
+          the person who held them.</p>
+        </div></div>
+      <div class="section"><div class="section-head"><h3>Who he was dealing with</h3></div>
+        <table class="tbl"><thead><tr><th>Contact</th><th>Company</th><th>Messages</th></tr></thead><tbody>
+        ${j.contacts.map(([addr, n, name]) => `<tr>
+          <td><strong>${esc(name || addr)}</strong></td>
+          <td>${esc(addr.split("@")[1])}</td>
+          <td>${n}</td></tr>`).join("")}
+        </tbody></table></div>
+      <div class="section"><div class="section-head"><h3>What was live when he left</h3></div>
+        <table class="tbl"><thead><tr><th>Date</th><th>Mailbox</th><th>Subject</th></tr></thead><tbody>
+        ${j.subjects.map(([d, box, subj]) => `<tr>
+          <td>${esc(d)}</td><td>${esc(box)}</td><td>${esc(subj)}</td></tr>`).join("")}
+        </tbody></table></div>`;
   },
 
   outreach() {

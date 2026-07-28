@@ -1,0 +1,7882 @@
+{
+ "updated": "2026-07-28T13:04:30Z",
+ "window_days": 180,
+ "per_mailbox": {
+  "commercial@fensterglazing.com": 1000,
+  "info@fensterglazing.com": 1000,
+  "jacob@fensterglazing.com": 0,
+  "jayk@fensterglazing.com": "HTTP 404"
+ },
+ "counts": {
+  "supplier": 142,
+  "correspondence": 548,
+  "noise": 267,
+  "enquiry": 61,
+  "possible-enquiry": 45,
+  "portal": 5
+ },
+ "companies": [
+  {
+   "domain": "vetroseal.co.uk",
+   "messages": 54,
+   "first": "2026-07-06",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "danielstutz@vetroseal.co.uk",
+     "name": "Daniel Stutz"
+    },
+    {
+     "address": "nicolegorski@vetroseal.co.uk",
+     "name": "Nicole Gorski"
+    },
+    {
+     "address": "alanlack@vetroseal.co.uk",
+     "name": "Alan Lack"
+    }
+   ],
+   "kinds": {
+    "supplier": 54
+   },
+   "relationship": "supplier",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Vetroseal Ltd Order Ack with Price: 731616 (PINCENTSURGENT)",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Vetroseal Ltd Order Ack with Price: 731615 (RAGLAN-SCHOOL)",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Vetroseal Ltd Order Ack with Price: 731607 (ANDY M URGENT)",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Vetroseal Ltd Order Ack with Price: 731507 (LEADERS15-BROOKSIDE)",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Vetroseal Ltd Order Ack with Price: 731479 (ferozdin3579)",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Vetroseal Ltd Quote: 065095 (BACON)",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "rrr-group.co.uk",
+   "messages": 22,
+   "first": "2026-07-13",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "arjun@rrr-group.co.uk",
+     "name": "arjun@rrr-group.co.uk"
+    }
+   ],
+   "kinds": {
+    "correspondence": 22
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Re: 17963_1-1.0 - Glazing Towcester",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Re: 17963_1-1.0 - Glazing Towcester",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Re: 17963_1-1.0 - Glazing Towcester",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Re: 17963_1-1.0 - Glazing Towcester",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Re: 17963_1-1.0 - Glazing Towcester",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Re: 17963_1-1.0 - Glazing Towcester",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "cnglass.co.uk",
+   "messages": 16,
+   "first": "2026-07-16",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "orders@cnglass.co.uk",
+     "name": "Orders"
+    },
+    {
+     "address": "tonys@cnglass.co.uk",
+     "name": "Tony Skinner"
+    },
+    {
+     "address": "martingregory@cnglass.co.uk",
+     "name": "Martin Gregory"
+    },
+    {
+     "address": "gemma@cnglass.co.uk",
+     "name": "Gemma"
+    }
+   ],
+   "kinds": {
+    "supplier": 16
+   },
+   "relationship": "supplier",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Midfield Primary School - Glass Order - STOP DOOR GLASS",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Midfield Primary School - Glass Order - STOP DOOR GLASS",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Midfield Primary School - Glass Order - STOP DOOR GLASS",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Midfield Primary School - Glass Order - STOP DOOR GLASS",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Midfield Primary School - Glass Order - STOP DOOR GLASS",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Midfield Primary School - Glass Order - STOP DOOR GLASS",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "hotmail.com",
+   "messages": 16,
+   "first": "2026-07-07",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "abigailrpojames@hotmail.com",
+     "name": "Abigail james"
+    },
+    {
+     "address": "dsbid@hotmail.com",
+     "name": "S D"
+    },
+    {
+     "address": "s_galea@hotmail.com",
+     "name": "Steven Galea"
+    },
+    {
+     "address": "jackieprice51@hotmail.com",
+     "name": "Jackie Price"
+    },
+    {
+     "address": "siobhan.connell@hotmail.com",
+     "name": "siobhan Connell"
+    },
+    {
+     "address": "rilunga@hotmail.com",
+     "name": "Regine Ilunga"
+    }
+   ],
+   "kinds": {
+    "correspondence": 15,
+    "enquiry": 1
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "RE: Follow up",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "Re: Replacement Window Sashes",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "Re: Replacement Window Sashes",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "Re: Replacement Window Sashes",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "Re: Replacement Window Sashes",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "Re: Replacement Window Sashes",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "hallmarkpanels.com",
+   "messages": 16,
+   "first": "2026-07-16",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "enquiries@hallmarkpanels.com",
+     "name": "Hallmark Doors"
+    },
+    {
+     "address": "enquires@hallmarkpanels.com",
+     "name": "Danielle At Hallmark Doors"
+    },
+    {
+     "address": "danielle.hammond@hallmarkpanels.com",
+     "name": "Danielle Hammond"
+    },
+    {
+     "address": "information@hallmarkpanels.com",
+     "name": "Hallmark Doors & Panels"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 1,
+    "correspondence": 14,
+    "enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Sick Of Price Increases?\ud83d\ude11",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "REDUCED COMPOSITE DOOR LEAD TIMES\ud83d\udea8",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "There's more to choose than you think\ud83d\udc40",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "4 Glazing Cassette Options\u270c\ufe0f\u270c\ufe0f",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "DOOR DESIGNER NEW FEATURE\ud83d\udca1",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Photos Of Installed Doors\ud83d\udcf7\ud83d\udcf8",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "wharfside-supplies.com",
+   "messages": 16,
+   "first": "2026-07-16",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "accounts@wharfside-supplies.com",
+     "name": "Wharfside Accounts"
+    }
+   ],
+   "kinds": {
+    "correspondence": 16
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Sales Order from Wharfside Supplies Limited (Sales Order #: SO-08239)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Sales Order from Wharfside Supplies Limited (Sales Order #: SO-08224)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Sales Order from Wharfside Supplies Limited (Sales Order #: SO-08218)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Sales Order from Wharfside Supplies Limited (Sales Order #: SO-08155)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Sales Order from Wharfside Supplies Limited (Sales Order #: SO-08153)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Sales Order from Wharfside Supplies Limited (Sales Order #: SO-08151)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "hotmail.co.uk",
+   "messages": 15,
+   "first": "2026-07-16",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "clarelavin@hotmail.co.uk",
+     "name": "Clare Lavin"
+    },
+    {
+     "address": "helen.williams13@hotmail.co.uk",
+     "name": "Helen Williams"
+    },
+    {
+     "address": "alexsmith83@hotmail.co.uk",
+     "name": "alex smith"
+    },
+    {
+     "address": "michellebacon1@hotmail.co.uk",
+     "name": "Michelle Bacon"
+    },
+    {
+     "address": "joannahayes1982@hotmail.co.uk",
+     "name": "joanna hayes"
+    }
+   ],
+   "kinds": {
+    "correspondence": 12,
+    "enquiry": 3
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Re: Fenster Glazing - Urgent",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-25",
+     "subject": "Re: Fenster Glazing - Repair",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "outlook.com",
+   "messages": 14,
+   "first": "2026-07-06",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "sbmglazing@outlook.com",
+     "name": "SBM Glazing Glazing"
+    },
+    {
+     "address": "msafinance@outlook.com",
+     "name": "Sandra Bettison"
+    },
+    {
+     "address": "swright388@outlook.com",
+     "name": "susan wright"
+    },
+    {
+     "address": "sharon66_28@outlook.com",
+     "name": "Sharon Stimpson"
+    },
+    {
+     "address": "elabennett_@outlook.com",
+     "name": "Ela Bennett"
+    },
+    {
+     "address": "keiostockley1@outlook.com",
+     "name": "Keio Stockley"
+    },
+    {
+     "address": "kevpl@outlook.com",
+     "name": "Kevin Lambourne"
+    }
+   ],
+   "kinds": {
+    "correspondence": 8,
+    "enquiry": 6
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Fenster Glazing Delivery Address",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-11",
+     "subject": "paid invoices",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-09",
+     "subject": "Re: Fenster Glazing Quotation - Mursley Sports Pavillion",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-09",
+     "subject": "Re: Fenster Glazing Quotation - Mursley Sports Pavillion",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-09",
+     "subject": "Re: West Bletchley Council",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-09",
+     "subject": "Re: West Bletchley Council",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "ot-consultancy.co.uk",
+   "messages": 13,
+   "first": "2026-07-10",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "patrick@ot-consultancy.co.uk",
+     "name": "Patrick O Donoghue"
+    }
+   ],
+   "kinds": {
+    "correspondence": 13
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Midfield Primary School - Window/Door Approval",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Midfield Primary School - Window/Door Approval",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Midfield Primary School - Window/Door Approval",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "borrasconstruction.co.uk",
+   "messages": 11,
+   "first": "2026-07-06",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "ghayes@borrasconstruction.co.uk",
+     "name": "Grant Hayes"
+    },
+    {
+     "address": "mbateman@borrasconstruction.co.uk",
+     "name": "Matt Bateman"
+    },
+    {
+     "address": "mrelf@borrasconstruction.co.uk",
+     "name": "Mark Relf"
+    }
+   ],
+   "kinds": {
+    "correspondence": 10,
+    "possible-enquiry": 1
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "RE: 5933 - Raglan Roofing Project  Hall windows",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "RE: 3195 Manor Lodge School, Rectory Lane, Ridge Hill, Radlett, Hertfordshire, WD7 9BG - E",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "RE: 3195 Manor Lodge School, Rectory Lane, Ridge Hill, Radlett, Hertfordshire, WD7 9BG - E",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "FW: 3195 Manor Lodge School, Rectory Lane, Ridge Hill, Radlett, Hertfordshire, WD7 9BG - E",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: 3195 Manor Lodge School, Rectory Lane, Ridge Hill, Radlett, Hertfordshire, WD7 9BG - E",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: 3195 Manor Lodge School, Rectory Lane, Ridge Hill, Radlett, Hertfordshire, WD7 9BG - E",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "excelhoardings.com",
+   "messages": 7,
+   "first": "2026-07-20",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "gareth@excelhoardings.com",
+     "name": "Gareth Siddle"
+    }
+   ],
+   "kinds": {
+    "enquiry": 7
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Touchwood glass quote",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Touchwood glass quote",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Touchwood glass quote",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Touchwood glass quote",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Touchwood glass quote",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Touchwood glass quote",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "cgspecialists.com",
+   "messages": 7,
+   "first": "2026-07-07",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "customerservice@cgspecialists.com",
+     "name": "Customer Service"
+    },
+    {
+     "address": "liam.jessop@cgspecialists.com",
+     "name": "Liam Jessop"
+    },
+    {
+     "address": "lauren.porter@cgspecialists.com",
+     "name": "Lauren.Porter@CGSpecialists.com"
+    },
+    {
+     "address": "limara.mcdermott@cgspecialists.com",
+     "name": "Limara McDermott"
+    }
+   ],
+   "kinds": {
+    "correspondence": 7
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Proforma Invoice 1150766 - Fenster Glazing",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Project Natilus - DHL Digital Centre",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-14",
+     "subject": "CGS - Invoice 3163798",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "RE: Delivery Call Off 13/07/2026 - Fenster Glazing FENS0517",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "RE: Delivery Call Off 13/07/2026 - Fenster Glazing FENS0517",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "Delivery Call Off 13/07/2026 - Fenster Glazing FENS0517",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "ucdlimited.co.uk",
+   "messages": 7,
+   "first": "2026-07-20",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "kirstymeadows@ucdlimited.co.uk",
+     "name": "Kirsty Meadows"
+    },
+    {
+     "address": "orders@ucdlimited.co.uk",
+     "name": "Orders"
+    },
+    {
+     "address": "sales@ucdlimited.co.uk",
+     "name": "Sales"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 4,
+    "enquiry": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "RE: FAO PERRY - QUOTATION",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "FW: FAO PERRY - QUOTATION",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "FW: FAO PERRY - QUOTATION",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "FAO PERRY - QUOTATION",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Fenster Glazing - Quote - Raj",
+     "kind": "enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Fenster Glazing - Quote - Raj",
+     "kind": "enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "porterhouserecruitment.co.uk",
+   "messages": 7,
+   "first": "2026-07-15",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "caroline.clarke@porterhouserecruitment.co.uk",
+     "name": "Caroline Clarke"
+    },
+    {
+     "address": "natalie.sanders@porterhouserecruitment.co.uk",
+     "name": "Natalie Sanders"
+    }
+   ],
+   "kinds": {
+    "correspondence": 7
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Where have all the good Estimators gone?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Where have all the good Estimators gone?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Estimator/ Order Processor",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Estimator/ Order Processor",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "Estimator/Bid Manager - Facades, Curtain Walling, Windows and Doors",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "Estimator/Bid Manager - Facades, Curtain Walling, Windows and Doors",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "aol.com",
+   "messages": 5,
+   "first": "2026-07-22",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "geraldinescovell@aol.com",
+     "name": "geraldinescovell"
+    }
+   ],
+   "kinds": {
+    "correspondence": 5
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Previous image sent not clear",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Fenster Glazing - Consultation Visit",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Fenster Glazing",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Fenster Glazing",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Fenster Glazing",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "switchfinder.co.uk",
+   "messages": 5,
+   "first": "2026-07-21",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "info@switchfinder.co.uk",
+     "name": "Switch Finder"
+    }
+   ],
+   "kinds": {
+    "correspondence": 5
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "What Happens If You Never Review Water Costs?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Water Suppliers Losing Customers: What You Need to Know",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Real Businesses, Real Savings on Water Suppliers",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "How Small Businesses Are Reviewing Water Suppliers",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Smaller UK Businesses Reviewing Water Suppliers Too",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "bradfordwatts.co.uk",
+   "messages": 4,
+   "first": "2026-07-07",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "jtaylor@bradfordwatts.co.uk",
+     "name": "Jay Taylor"
+    },
+    {
+     "address": "mgolden@bradfordwatts.co.uk",
+     "name": "Mark Golden"
+    }
+   ],
+   "kinds": {
+    "correspondence": 4
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Order - Unit 6 Pincents Klin",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Order - Unit 6 Pincents Klin",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "Re: Order - Unit 6 Pincents Klin",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "Re: Order - Unit 6 Pincents Klin",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "mercuryglazing.co.uk",
+   "messages": 4,
+   "first": "2026-07-10",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "kevin@mercuryglazing.co.uk",
+     "name": "Kevin Edmond"
+    },
+    {
+     "address": "sarah@mercuryglazing.co.uk",
+     "name": "Sarah Ravenhill"
+    },
+    {
+     "address": "sales@mercuryglazing.co.uk",
+     "name": "Mercury Glazing"
+    }
+   ],
+   "kinds": {
+    "correspondence": 4
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-13",
+     "subject": "RE: Ali Vertical Slider Data Sheet",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-10",
+     "subject": "RE: Ali Vertical Slider Data Sheet",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "FW: MGS Delivery",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "\ud83d\udea8 SMART ALUMINIUM BIFOLDS - \u00a3460 PER LEAF!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "keantools.co.uk",
+   "messages": 4,
+   "first": "2026-07-16",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "info@keantools.co.uk",
+     "name": "KEAN | The Window Fitters Choice"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2,
+    "possible-enquiry": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "KEAN Ultimate+ LMN Silicone - The Perfect White - from \u00a32.15",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "KEAN Ultimate+ LMN Silicone - Made for Window Fitters!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "KEAN Ultimate+ Gun Foam- new low Price \u00a33.25 each!",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "KEAN Ultimate+ Gun Foam- new low Price \u00a33.25 each!",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "duration.co.uk",
+   "messages": 4,
+   "first": "2026-07-15",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "amyc@duration.co.uk",
+     "name": "Amy Cross (Duration)"
+    },
+    {
+     "address": "accounts@duration.co.uk",
+     "name": "Accounts"
+    }
+   ],
+   "kinds": {
+    "correspondence": 4
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "RE: You signed: \"w8961hd, w8962ns order conf amended\"",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Invoice",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "RE: e2403",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "e2403",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "priorproducts.co.uk",
+   "messages": 4,
+   "first": "2026-07-20",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "trade@priorproducts.co.uk",
+     "name": "Prior Products Ltd"
+    }
+   ],
+   "kinds": {
+    "correspondence": 4
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Energy-Efficient Flush Fit Windows",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Short Composite Doors/Minimum Height 1740mm",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Short Cottage Composite Doors/Minimum Height 1740mm",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Short Cottage Composite Doors/Minimum Height 1740mm",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "aluminiumfiresystems.com",
+   "messages": 3,
+   "first": "2026-07-27",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "julian@aluminiumfiresystems.com",
+     "name": "Julian Ward"
+    }
+   ],
+   "kinds": {
+    "supplier": 3
+   },
+   "relationship": "supplier",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Q7666 - Fenster - Manor Lodge",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Q7666 - Fenster - Manor Lodge",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "RE: Q7666 - Fenster - Manor Lodge",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "hexaservices.co.uk",
+   "messages": 3,
+   "first": "2026-07-24",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "graeme.wolf@hexaservices.co.uk",
+     "name": "Graeme Wolf"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Coventry Labourers",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Coventry Labourers",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Coventry Labourers",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "newwavedoors.co.uk",
+   "messages": 3,
+   "first": "2026-07-20",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "claire@newwavedoors.co.uk",
+     "name": "Claire - New Wave Doors"
+    },
+    {
+     "address": "trade@newwavedoors.co.uk",
+     "name": "New Wave Doors"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Delivery NW26438  NW26437",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "It's Here: The New Wave Open Week!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "New Wave Pulse Aluminium Window Collection",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "morrisons.com",
+   "messages": 3,
+   "first": "2026-07-22",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "info@morrisons.com",
+     "name": "Morrisons online groceries"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Your Morrisons order will be delivered today",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Your Morrisons order reminder",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Your Morrisons Home Delivery order confirmation",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "fortisvision.com",
+   "messages": 2,
+   "first": "2026-07-16",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "drew.edwards@fortisvision.com",
+     "name": "Drew Edwards"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Re: Subcontractor Order Number FVAP931/SC13099",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Subcontractor Order Number FVAP931/SC13099",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "cscleaning.co.uk",
+   "messages": 2,
+   "first": "2026-07-21",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "nina@cscleaning.co.uk",
+     "name": "CS Cleaning"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "How We Helped Improve a Company's Reputation",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "The Secret to a Productive Office Environment",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "fensa.org.uk",
+   "messages": 2,
+   "first": "2026-07-23",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "latest-news@fensa.org.uk",
+     "name": "FENSA"
+    },
+    {
+     "address": "enquiries@fensa.org.uk",
+     "name": "Lewis Pinchen (Support)"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Installation of the Month: July entries closing soon \ud83d\udd25",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Missing 1 Window - 203714",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "agentsnetworkltd.com",
+   "messages": 2,
+   "first": "2026-07-21",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "jay@agentsnetworkltd.com",
+     "name": "Agents Network Ltd"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Weekly Diesel Price - 142.15 ppl",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Weekly Diesel Price - 135.27 ppl",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "directtradeltd.co.uk",
+   "messages": 2,
+   "first": "2026-07-21",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "tradesales@directtradeltd.co.uk",
+     "name": "Direct Trade (Yorkshire) Ltd"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "PVCu Double-flush, double-rebated windows & doors",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Smooth Foils for PVCu Windows & Doors",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "contechconservatories.co.uk",
+   "messages": 1,
+   "first": "2026-07-28",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "marketing@contechconservatories.co.uk",
+     "name": "Contech"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Ready for a Challenge?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "news.leitz.org",
+   "messages": 1,
+   "first": "2026-07-28",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "socialmedia.uk@news.leitz.org",
+     "name": "Your Leitz Team"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Specialist Saw Blades \u2013 Boost Your Productivity | Leitz Tooling UK Ltd",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "jspaluminium.com",
+   "messages": 1,
+   "first": "2026-07-28",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "sales@jspaluminium.com",
+     "name": "sales@jspaluminium.com"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Special Offer: Trickle Vents from \u00a31.00 each (Limited Stock)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "mickgeorge-email.com",
+   "messages": 1,
+   "first": "2026-07-28",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "news@mickgeorge-email.com",
+     "name": "Mick George Group"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Hospitality Tickets On Us... Apply Now",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "jfpl.uk",
+   "messages": 1,
+   "first": "2026-07-28",
+   "last": "2026-07-28",
+   "contacts": [
+    {
+     "address": "freddies@jfpl.uk",
+     "name": "John Fredericks Plastics"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-28",
+     "subject": "Stratus Lantern Roof from John Fredericks Plastics",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "bsws.co.uk",
+   "messages": 36,
+   "first": "2026-07-06",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "creditcontrol@bsws.co.uk",
+     "name": "Credit Control"
+    },
+    {
+     "address": "robin@bsws.co.uk",
+     "name": "Robin MacDonnell"
+    },
+    {
+     "address": "gerry@bsws.co.uk",
+     "name": "Gerry Harrison"
+    },
+    {
+     "address": "hm@bsws.co.uk",
+     "name": "Hanif Mahmood"
+    },
+    {
+     "address": "as@bsws.co.uk",
+     "name": "Andy Southern"
+    },
+    {
+     "address": "sarahc@bsws.co.uk",
+     "name": "Sarah Crofts"
+    },
+    {
+     "address": "aftersales@bsws.co.uk",
+     "name": "After Sales"
+    }
+   ],
+   "kinds": {
+    "supplier": 36
+   },
+   "relationship": "supplier",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "RE: FG02 PROFORMA QT253394",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "RE: Avebury - Glazed In Sashes",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "FG02 PROFORMA QT253398",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "FG02 PROFORMA QT253394",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Slated Row - Wolverton",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Slated Row - Kents Hill Quote",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "gmail.com",
+   "messages": 30,
+   "first": "2026-07-15",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "jameswhoyland10@gmail.com",
+     "name": "James Hoyland"
+    },
+    {
+     "address": "sarahjacobs300@gmail.com",
+     "name": "Sarah Jacobs"
+    },
+    {
+     "address": "stephanna555@gmail.com",
+     "name": "Steph Anna"
+    },
+    {
+     "address": "marquesbiongorita@gmail.com",
+     "name": "Rita"
+    },
+    {
+     "address": "iantychowski@gmail.com",
+     "name": "Ian"
+    },
+    {
+     "address": "bryan.harveysmith@gmail.com",
+     "name": "Bryan Harvey-Smith"
+    },
+    {
+     "address": "luigi.febbrile@gmail.com",
+     "name": "Luigialberto Febbrile"
+    },
+    {
+     "address": "gmcmaster67@gmail.com",
+     "name": "Gordon McMaster"
+    },
+    {
+     "address": "max.walshe57@gmail.com",
+     "name": "max.walshe57@gmail.com"
+    },
+    {
+     "address": "harkirtan.kaur.13@gmail.com",
+     "name": "Harkirtan Kaur"
+    },
+    {
+     "address": "p.n.jscaffolding@gmail.com",
+     "name": "P.N.J Scaffolding"
+    },
+    {
+     "address": "annasatraining@gmail.com",
+     "name": "annasatraining@gmail.com"
+    },
+    {
+     "address": "joe.g.potter55@gmail.com",
+     "name": "Joe Potter"
+    },
+    {
+     "address": "hninohnmarmyint@gmail.com",
+     "name": "Dr. Hnin"
+    },
+    {
+     "address": "elara99@gmail.com",
+     "name": "Elizabeth FitzGerald"
+    },
+    {
+     "address": "padalasrisai@gmail.com",
+     "name": "Padala Srisai"
+    },
+    {
+     "address": "blakes0606@gmail.com",
+     "name": "Shirley Blake"
+    }
+   ],
+   "kinds": {
+    "correspondence": 21,
+    "enquiry": 9
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Fenster Glazing - Pincents Kiln",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "22-24 powell road",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Re: Fenster Glazing - Your Quote",
+     "kind": "enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Re: Fenster Glazing - Your Quote",
+     "kind": "enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Fenster Glazing - Appointment",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Feedback Request",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "aplusaluminium.co.uk",
+   "messages": 16,
+   "first": "2026-07-08",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "jcorrie@aplusaluminium.co.uk",
+     "name": "Jack Corrie"
+    },
+    {
+     "address": "estimating@aplusaluminium.co.uk",
+     "name": "estimating"
+    },
+    {
+     "address": "daniel.charlesworth@aplusaluminium.co.uk",
+     "name": "Daniel Charlesworth"
+    },
+    {
+     "address": "asims@aplusaluminium.co.uk",
+     "name": "Ashley Sims"
+    }
+   ],
+   "kinds": {
+    "supplier": 16
+   },
+   "relationship": "supplier",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Re: Stoke Park School - Loadings and tolerance Data\u00a0For Windows - 17644",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "RE: Quotation QT51425 Rev1 for reference Glebe Farm",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "Re: Stoke Park School - Loadings and tolerance Data\u00a0For Windows",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "Re: Stoke Park School - Loadings and tolerance Data\u00a0For Windows",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "RE: Quotation QT51425 for reference Glebe Farm",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-14",
+     "subject": "RE: Quotation QT51181 for reference Avebury",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "takepayments.com",
+   "messages": 12,
+   "first": "2026-07-15",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "online@takepayments.com",
+     "name": "online@takepayments.com"
+    }
+   ],
+   "kinds": {
+    "correspondence": 12
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Pay Now Button Payment Notification (FENSTER GLAZING and LOCKS LTD)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Pay Now Button Payment Notification (FENSTER GLAZING and LOCKS LTD)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Pay Now Button Payment Notification (FENSTER GLAZING and LOCKS LTD)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Pay Now Button Payment Notification (FENSTER GLAZING and LOCKS LTD)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Pay Now Button Payment Notification (FENSTER GLAZING and LOCKS LTD)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Pay Now Button Payment Notification (FENSTER GLAZING and LOCKS LTD)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "dentonhope.com",
+   "messages": 8,
+   "first": "2026-07-14",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "c.healey@dentonhope.com",
+     "name": "Calum Healey"
+    },
+    {
+     "address": "l.diggines@dentonhope.com",
+     "name": "Lauren Diggines"
+    },
+    {
+     "address": "systems@dentonhope.com",
+     "name": "Denton Hope Systems"
+    }
+   ],
+   "kinds": {
+    "correspondence": 8
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Re: Aluminium Louvres - Tower Blocks",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Aluminium Louvres - Tower Blocks",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "RE: Aluminium Louvres - Tower Blocks",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "RE: Aluminium Louvres - Tower Blocks",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "RE: Aluminium Louvres - Tower Blocks",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "RE: Aluminium Louvres - Tower Blocks",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "framexpress.co.uk",
+   "messages": 8,
+   "first": "2026-07-20",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "michaelhodson@framexpress.co.uk",
+     "name": "Michael Hodson"
+    },
+    {
+     "address": "tiffanyrichards@framexpress.co.uk",
+     "name": "Tiffany Richards"
+    },
+    {
+     "address": "tomlewis@framexpress.co.uk",
+     "name": "Tom Lewis"
+    },
+    {
+     "address": "donnadunn@framexpress.co.uk",
+     "name": "Donna Dunn"
+    },
+    {
+     "address": "sarahholmes@framexpress.co.uk",
+     "name": "Sarah Holmes"
+    }
+   ],
+   "kinds": {
+    "correspondence": 7,
+    "possible-enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Order Ack J2645049 - Fenster Glazing - Gould",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Quotation - Ref Walshe  - Q2639102",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Order J2644924 Fenster Glazing - Jarvis",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Order J2644790 Fenster Glazing - Burton 3467",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Fenster Glazing - Brochures",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Fenster Glazing - Brochures",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "regen-london.com",
+   "messages": 5,
+   "first": "2026-07-21",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "faaris@regen-london.com",
+     "name": "Faaris Merali"
+    }
+   ],
+   "kinds": {
+    "enquiry": 5
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Re: Louvre Replacement Quote - Plant Room SE11",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Louvre Replacement Quote - Plant Room SE11",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Louvre Replacement Quote - Plant Room SE11",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Louvre Replacement Quote - Plant Room SE11",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Louvre Replacement Quote - Plant Room SE11",
+     "kind": "enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "in-tendorganiser.co.uk",
+   "messages": 5,
+   "first": "2026-07-16",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "hightownha@in-tendorganiser.co.uk",
+     "name": "hightownha@in-tendorganiser.co.uk"
+    }
+   ],
+   "kinds": {
+    "portal": 5
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Stage Date Ending - Hightown Housing",
+     "kind": "portal",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Stage Date Ending - Hightown Housing",
+     "kind": "portal",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Web Update Notification from Hightown Housing - OLDS0056 - New Back Door",
+     "kind": "portal",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Web Update Notification from Hightown Housing - FURL0005 -  Replacement cladding UPVC",
+     "kind": "portal",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Stage Date Ending - Hightown Housing",
+     "kind": "portal",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "t.brevo.com",
+   "messages": 5,
+   "first": "2026-07-22",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "welcome@t.brevo.com",
+     "name": "Brevo"
+    },
+    {
+     "address": "account-alerts@t.brevo.com",
+     "name": "Brevo"
+    },
+    {
+     "address": "contact@t.brevo.com",
+     "name": "Brevo"
+    }
+   ],
+   "kinds": {
+    "correspondence": 5
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Build your first email in minutes with Brevo Aura, your AI assistant",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Step 1: Reach your contacts' inbox \ud83d\udce9",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Welcome to Brevo!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "[Brevo] A new SMTP key has been created in your account",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Your account is validated",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "lathamssteeldoors.co.uk",
+   "messages": 4,
+   "first": "2026-07-15",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "manny@lathamssteeldoors.co.uk",
+     "name": "Manny Pank | Lathams"
+    }
+   ],
+   "kinds": {
+    "enquiry": 2,
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Re: Towcester Vale Steel Door - Quote",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Towcester Vale Steel Door - Quote",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Luton & Dunstable Hospital",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "Re: Luton & Dunstable Hospital",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "total-trade.co.uk",
+   "messages": 4,
+   "first": "2026-07-15",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "sales@total-trade.co.uk",
+     "name": "Total Roofs"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3,
+    "possible-enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "\ud83d\udca5 10% OFF FLAT SKYLIGHTS AT TOTAL ROOFS!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Best Price on PVC Lanterns \u2013 Guaranteed!",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Make More Profit with Stratus!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "Make More Profit with Stratus!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "euroglaze.co.uk",
+   "messages": 4,
+   "first": "2026-07-16",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "info@euroglaze.co.uk",
+     "name": "Euroglaze Ltd"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 1,
+    "correspondence": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Get your triple track REHAU Slinova Patio quote today",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Why choose Euroglaze - we offer one of the UKs widest ranges of REHAU and Liniar products ",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Euroglaze - We're flush with options!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Coloured Fire-rated Windows from Euroglaze",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "elkinsconstruction.co.uk",
+   "messages": 3,
+   "first": "2026-07-10",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "joe.conlon@elkinsconstruction.co.uk",
+     "name": "Joe Conlon"
+    },
+    {
+     "address": "trevor.mclellan@elkinsconstruction.co.uk",
+     "name": "Trevor McLellan"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Re: EXTERNAL: Secured Project - Midfield Primary School",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-13",
+     "subject": "Re: EXTERNAL: Secured Project - Midfield Primary School",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-10",
+     "subject": "RE: EXTERNAL: Midfield Primary School - Window/Door Approval",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "weansweranycall.com",
+   "messages": 3,
+   "first": "2026-07-24",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "receptionteam@weansweranycall.com",
+     "name": "receptionteam@weansweranycall.com"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "WeAnswerAnyCall Message DO NOT REPLY",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-25",
+     "subject": "WeAnswerAnyCall Message DO NOT REPLY",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "WeAnswerAnyCall Message DO NOT REPLY",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "cscs.co.uk",
+   "messages": 2,
+   "first": "2026-07-27",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "customerservice@cscs.co.uk",
+     "name": "customerservice@cscs.co.uk"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "CSCS application received",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "Your CSCS Account Has Been Created",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "thinkinstallergrowth.com",
+   "messages": 2,
+   "first": "2026-07-11",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "adam.brown@thinkinstallergrowth.com",
+     "name": "Adam Brown"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Re: RE: Fenster Glazing - Windows & Doors Showroom - Milton Keynes",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-11",
+     "subject": "RE: Fenster Glazing - Windows & Doors Showroom - Milton Keynes",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "trackermail.co.uk",
+   "messages": 2,
+   "first": "2026-07-20",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "clearzine@trackermail.co.uk",
+     "name": "Clearview Magazine"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "More than data: how Salestracker is helping suppliers find new opportunities",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Real-time credit alerts: the smart way to protect profit and cashflow",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "wasteonline.uk",
+   "messages": 2,
+   "first": "2026-07-27",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "marketing@wasteonline.uk",
+     "name": "WasteOnline"
+    },
+    {
+     "address": "contactus@wasteonline.uk",
+     "name": "Contact US"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "\u00a310 off your next skip | One less job on the list",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-27",
+     "subject": "54990",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "myjobquote.co.uk",
+   "messages": 2,
+   "first": "2026-07-17",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "support@myjobquote.co.uk",
+     "name": "MyJobQuote"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "10 New Jobs Posted Near Bletchley",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "7 New Jobs Posted Near Bletchley",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "lynx.cloud",
+   "messages": 2,
+   "first": "2026-07-20",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "steve@lynx.cloud",
+     "name": "Steve Milham"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Burnt Out?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Is it all just too  much...?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "neildouglas.co.uk",
+   "messages": 1,
+   "first": "2026-07-27",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "jordan.jones@neildouglas.co.uk",
+     "name": "Jordan Jones"
+    }
+   ],
+   "kinds": {
+    "enquiry": 1
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "John North Hall (1-39 Vaughan House ) - Replacement of external communal block entrance do",
+     "kind": "enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "zonepropertymanagement.co.uk",
+   "messages": 1,
+   "first": "2026-07-27",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "mandy@zonepropertymanagement.co.uk",
+     "name": "Mandy"
+    }
+   ],
+   "kinds": {
+    "enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "Quotation Request \u2013 Window Repair \u2013 152 Silbury Boulevard, Milton Keynes MK9 1LT",
+     "kind": "enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "allaboutmagazine.co.uk",
+   "messages": 1,
+   "first": "2026-07-27",
+   "last": "2026-07-27",
+   "contacts": [
+    {
+     "address": "hello@allaboutmagazine.co.uk",
+     "name": "Leaflet Delivery"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-27",
+     "subject": "\ud83d\udeaa Be Seen Across Milton Keynes This August with Door-to-Door Advertising! \ud83d\udeaa",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "kind-build.com",
+   "messages": 2,
+   "first": "2026-07-24",
+   "last": "2026-07-26",
+   "contacts": [
+    {
+     "address": "david.george@kind-build.com",
+     "name": "David George - Kind & Company (Builders) Ltd"
+    },
+    {
+     "address": "ciaran.monahan@kind-build.com",
+     "name": "Ciaran Monahan - Kind & Company (Builders) Ltd"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-26",
+     "subject": "RE: 22-24 Powell Road O&M request",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "RE: 22-24 Powell Road O&M request",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "neilpatel.com",
+   "messages": 2,
+   "first": "2026-07-16",
+   "last": "2026-07-26",
+   "contacts": [
+    {
+     "address": "np@neilpatel.com",
+     "name": "Neil Patel"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-26",
+     "subject": "SEO Week closes tomorrow night (5 months free)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "AI is changing email marketing",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "icloud.com",
+   "messages": 2,
+   "first": "2026-07-17",
+   "last": "2026-07-26",
+   "contacts": [
+    {
+     "address": "ghaibjyll@icloud.com",
+     "name": "G Beckford"
+    },
+    {
+     "address": "trudiehorne@icloud.com",
+     "name": "Trudie Horne"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-26",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Feedback Request",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "Re: Fenster Glazing - Install",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "windowsoftware.co.uk",
+   "messages": 8,
+   "first": "2026-07-21",
+   "last": "2026-07-25",
+   "contacts": [
+    {
+     "address": "windowcad@windowsoftware.co.uk",
+     "name": "WindowCAD"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 8
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-25",
+     "subject": "WindowCAD retail enquiry",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-25",
+     "subject": "WindowCAD retail enquiry",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "WindowCAD retail enquiry",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "WindowCAD retail enquiry",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "WindowCAD retail enquiry",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "WindowCAD retail enquiry",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "locally-smarter.site",
+   "messages": 2,
+   "first": "2026-07-23",
+   "last": "2026-07-25",
+   "contacts": [
+    {
+     "address": "alex@locally-smarter.site",
+     "name": "Alex Peters"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-25",
+     "subject": "Quick question",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Quick question",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "tm-gb.co.uk",
+   "messages": 9,
+   "first": "2026-07-07",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "customersupport@tm-gb.co.uk",
+     "name": "Target Maintenance"
+    },
+    {
+     "address": "trinity@tm-gb.co.uk",
+     "name": "Target Maintenance"
+    },
+    {
+     "address": "rmg@tm-gb.co.uk",
+     "name": "Target Maintenance"
+    }
+   ],
+   "kinds": {
+    "enquiry": 3,
+    "correspondence": 6
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Window frame replacement - \u00a0Glebe Farm MK17 8HF",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-14",
+     "subject": "Re: Window frame replacement - \u00a0Glebe Farm MK17 8HF",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-14",
+     "subject": "RE: King's Cross Road, London WC1X 9NH",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "roseview.co.uk",
+   "messages": 8,
+   "first": "2026-07-16",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "zoe.bygrave@roseview.co.uk",
+     "name": "Zoe Bygrave"
+    },
+    {
+     "address": "customercare@roseview.co.uk",
+     "name": "Customer  Care"
+    },
+    {
+     "address": "samantha.holmes@roseview.co.uk",
+     "name": "Samantha Holmes"
+    },
+    {
+     "address": "jason.wright@roseview.co.uk",
+     "name": "Jason Wright"
+    }
+   ],
+   "kinds": {
+    "enquiry": 1,
+    "correspondence": 7
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Fenster Glazing - Quote Request - Bacon QN70508",
+     "kind": "enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "RE: BM71603  RE:- Order - Boswell 3315",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "RE: BM71603  RE:- Order - Boswell 3315",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: BM71603  RE:- Order - Boswell 3315",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Fenster Glazing - BM70839",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "RE: Fenster Glazing - BM70839",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "yahoo.co.uk",
+   "messages": 8,
+   "first": "2026-07-16",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "alexinmk@yahoo.co.uk",
+     "name": "Alex Taylor"
+    },
+    {
+     "address": "perrygiffin@yahoo.co.uk",
+     "name": "Perry Giffin"
+    },
+    {
+     "address": "msawicki1@yahoo.co.uk",
+     "name": "Mariusz Sawicki"
+    },
+    {
+     "address": "jonnyfaulkner@yahoo.co.uk",
+     "name": "John Faulkner"
+    }
+   ],
+   "kinds": {
+    "correspondence": 8
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Re: New back door and window",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Layout",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "New back door and window",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Tychowski",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: 61 Masefeild Avenue WD6 2HH",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "mha.org.uk",
+   "messages": 7,
+   "first": "2026-07-17",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "samantha.linscott@mha.org.uk",
+     "name": "Samantha Linscott"
+    },
+    {
+     "address": "matt.gardner@mha.org.uk",
+     "name": "Matt Gardner"
+    }
+   ],
+   "kinds": {
+    "correspondence": 7
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Banbury?",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "childbase.com",
+   "messages": 6,
+   "first": "2026-07-16",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "natalie.elphick@childbase.com",
+     "name": "Natalie Elphick"
+    },
+    {
+     "address": "cedars.nursery@childbase.com",
+     "name": "Cedars Nursery"
+    },
+    {
+     "address": "amy.lawman@childbase.com",
+     "name": "Amy Lawman"
+    }
+   ],
+   "kinds": {
+    "correspondence": 6
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Fenster Glazing - Consultation Visit",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Cedars Day Nursery/ Fenster Glazing Re: Visit 10th July 2026",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Cedars Day Nursery/ Fenster Glazing Re: Visit 10th July 2026",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Cedars Day Nursery/ Fenster Glazing Re: Visit 10th July 2026",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Cedars Day Nursery/ Fenster Glazing Re: Visit 10th July 2026",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Cedars Day Nursery/ Fenster Glazing Re: Visit 10th July 2026",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "aspectwindowfilms.co.uk",
+   "messages": 5,
+   "first": "2026-07-16",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "liam@aspectwindowfilms.co.uk",
+     "name": "Liam Munt"
+    }
+   ],
+   "kinds": {
+    "enquiry": 2,
+    "possible-enquiry": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Fenster Glazing Quote Request - PH Oxford",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Fenster Glazing Quote Request - PH Oxford",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "RE: St Albans - Total Blackout Film Estimate",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: St Albans - Total Blackout Film Estimate",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "RE: St Albans - Total Blackout Film Estimate",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "porthaven.co.uk",
+   "messages": 4,
+   "first": "2026-07-21",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "maintenance.lincroft@porthaven.co.uk",
+     "name": "Maintenance Lincroft Meadow"
+    },
+    {
+     "address": "maintenance.lavender@porthaven.co.uk",
+     "name": "Maintenance Lavender Oaks"
+    }
+   ],
+   "kinds": {
+    "correspondence": 4
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Kitchen windows",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Lavender Oaks - Restrictor Hinges",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Kitchen windows",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Kitchen windows",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "btinternet.com",
+   "messages": 4,
+   "first": "2026-07-18",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "louise_billington@btinternet.com",
+     "name": "louise_billington"
+    },
+    {
+     "address": "richardburton1@btinternet.com",
+     "name": "Richard Burton"
+    },
+    {
+     "address": "dorbell@btinternet.com",
+     "name": "Doreen Bell"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2,
+    "enquiry": 2
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Fwd:cat flap",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re:Fenster Glazing - Install",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Fenster Glazing - Your Quote",
+     "kind": "enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-18",
+     "subject": "Fwd: Fenster Glazing - Your Quote",
+     "kind": "enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "ph-db.co.uk",
+   "messages": 3,
+   "first": "2026-07-15",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "paul@ph-db.co.uk",
+     "name": "Paul Hinton"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1,
+    "enquiry": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Riverside House",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Fenster Glazing Enquiry - New Window Opening",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "Re: Fenster Glazing Enquiry - New Window Opening",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "advice.hmrc.gov.uk",
+   "messages": 3,
+   "first": "2026-07-17",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "no.reply@advice.hmrc.gov.uk",
+     "name": "HMRC help and support"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Directors and payroll \u2013 getting it right",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "National Minimum Wage \u2013 support for payroll and agents in the Home Counties",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "Understanding VAT accounting schemes and your VAT return",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "virginmedia.com",
+   "messages": 2,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "keithflatt@virginmedia.com",
+     "name": "Keith Flatt"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "armstrongindustries.co.uk",
+   "messages": 2,
+   "first": "2026-07-21",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "sales@armstrongindustries.co.uk",
+     "name": "sales"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Adam Still the Best Bifold Value on the Market in 2026 \u2014 See Why",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Win work others can\u2019t supply. 38 shades of grey in 7 days.",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "origin-global.com",
+   "messages": 2,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "partnerservices@origin-global.com",
+     "name": "Partner Services"
+    },
+    {
+     "address": "vishal.patel@origin-global.com",
+     "name": "Vishal Patel"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1,
+    "enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "REF - Bacon - 625742",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Fenster Glazing - Quote Required",
+     "kind": "enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "bark.com",
+   "messages": 2,
+   "first": "2026-07-19",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "team@bark.com",
+     "name": "Bark Team"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "\ud83d\udd14  11 new customers for you",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-19",
+     "subject": "\ud83d\udd14  13 new customers for you",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "pb04.wixemails.com",
+   "messages": 2,
+   "first": "2026-07-17",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "nanaooguntola@pb04.wixemails.com",
+     "name": "Nana Oguntola"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "#02-I Have  A Confession To Make",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "#01-Welcome to \"Signals\"",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "outlook.in",
+   "messages": 1,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "brendajoanwebit@outlook.in",
+     "name": "Brenda joan"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "RE: Follow-Up",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "windowware.co.uk",
+   "messages": 1,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "sales@windowware.co.uk",
+     "name": "Window Ware"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Order Confirmation",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "pioneertc.com",
+   "messages": 1,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "keith@pioneertc.com",
+     "name": "Keith Arm"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Pioneer advert 2026",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "myadrunner.co.uk",
+   "messages": 1,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "mail@myadrunner.co.uk",
+     "name": "AdRunner"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Get more enquiries, win more customers",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "info.ebay.co.uk",
+   "messages": 1,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "ebay@info.ebay.co.uk",
+     "name": "eBay"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Updates to our eBay User Agreement",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "lrg.co.uk",
+   "messages": 1,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "contractors@lrg.co.uk",
+     "name": "Contractors"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Romans - Supplier Remittance advice for Fenster Glazing & Locks Ltd",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "gapltdmail.com",
+   "messages": 1,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "marketing@gapltdmail.com",
+     "name": "GAP Ltd"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Last week on \u00a320 decking",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "mg.sainotice.com",
+   "messages": 1,
+   "first": "2026-07-24",
+   "last": "2026-07-24",
+   "contacts": [
+    {
+     "address": "info@mg.sainotice.com",
+     "name": "Seamless.AI"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-24",
+     "subject": "Seamless.AI Personal Data Privacy Notice",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "strongdor.com",
+   "messages": 15,
+   "first": "2026-07-15",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "accounts.receivable@strongdor.com",
+     "name": "Accounts Receivable | Strongdor"
+    },
+    {
+     "address": "scheduling@strongdor.com",
+     "name": "Scheduling | Strongdor"
+    },
+    {
+     "address": "cameron.stoneley@strongdor.com",
+     "name": "Cameron Stoneley | Strongdor"
+    },
+    {
+     "address": "george.hayward@strongdor.com",
+     "name": "George Hayward | Strongdor"
+    },
+    {
+     "address": "emma.carter@strongdor.com",
+     "name": "Emma Carter | Strongdor"
+    },
+    {
+     "address": "carmen.barnes@strongdor.com",
+     "name": "Carmen Barnes | Strongdor"
+    },
+    {
+     "address": "marketing@strongdor.com",
+     "name": "Strongdor"
+    }
+   ],
+   "kinds": {
+    "supplier": 15
+   },
+   "relationship": "supplier",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Strongdor Sales Invoice",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "RE: Strongdor Despatch Date Confirmation \u2013 SO076532",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Midfield - Strongdor Material Order & Fabrication",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Midfield - Strongdor Material Order & Fabrication",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Midfield - Strongdor Material Order & Fabrication",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Midfield - Strongdor Material Order & Fabrication",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "wharfsidesupplies.com",
+   "messages": 11,
+   "first": "2026-07-15",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "sales@wharfsidesupplies.com",
+     "name": "Wharfside Supplies"
+    },
+    {
+     "address": "enquiries@wharfsidesupplies.com",
+     "name": "Wharfside Trade Desk"
+    }
+   ],
+   "kinds": {
+    "enquiry": 2,
+    "correspondence": 9
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Fenster Glazing - Panel Quote - Kerry",
+     "kind": "enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Fenster Glazing",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Fenster Glazing",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Fenster Glazing - Order - Reynolds 3538",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Fester Glazing - Letterplate",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Fester Glazing - Letterplate",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "krypton.ltd",
+   "messages": 10,
+   "first": "2026-07-13",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "j.fearon@krypton.ltd",
+     "name": "Jayden Fearon"
+    },
+    {
+     "address": "t.fallon@krypton.ltd",
+     "name": "Tony Fallon"
+    },
+    {
+     "address": "p.fisher@krypton.ltd",
+     "name": "Phil Fisher"
+    }
+   ],
+   "kinds": {
+    "correspondence": 10
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Re: Waitrose @ Storrington SC2435",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Waitrose @ Storrington",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Waitrose @ Storrington",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Waitrose @ Storrington",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "RE: Waitrose @ Storrington",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Waitrose @ Storrington",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "mac.com",
+   "messages": 7,
+   "first": "2026-07-20",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "caroljarvis@mac.com",
+     "name": "Carol Jarvis"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2,
+    "possible-enquiry": 5
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Fenster Glazing - Installs",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Fenster Glazing - Installs",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Quote",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Quote",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Quote",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Quote",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "abinitiosoftware.co.uk",
+   "messages": 6,
+   "first": "2026-07-08",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "support@abinitiosoftware.co.uk",
+     "name": "support@abinitiosoftware.co.uk"
+    }
+   ],
+   "kinds": {
+    "correspondence": 6
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Support Call LOG ID #119053",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Fenster Glazing - No Checklist on Contract LOG ID #119503",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Fenster Glazing - No Checklist on Contract LOG ID #119504",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "Support Call LOG ID #119458",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Fenster Glazing - Leads Dashboard Update LOG ID #119458",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "Support Call LOG ID #119255",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "notan.co.uk",
+   "messages": 4,
+   "first": "2026-07-21",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "info@notan.co.uk",
+     "name": "NOTAN | Info"
+    }
+   ],
+   "kinds": {
+    "correspondence": 4
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Fenster Glazing - Order - Malpass",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Fenster Glazing - Order - Malpass",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Fenster Glazing - Order - Dutton 3433",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Fenster Glazing - Order - Dutton 3433",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "titanaluminium.com",
+   "messages": 3,
+   "first": "2026-07-14",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "sales@titanaluminium.com",
+     "name": "Sales"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2,
+    "enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "RE: Titan Roof Lantern - 41 Kings Road, Windsor",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-14",
+     "subject": "FW: Titan Roof Lantern - 41 Kings Road, Windsor",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Fenster Glazing - Quote - Kotecha",
+     "kind": "enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "yaledws.com",
+   "messages": 3,
+   "first": "2026-07-16",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "info@yaledws.com",
+     "name": "Yale Door & Window Solutions"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Yale SensCheck\u2122 Door & Window Sensors: Meet the range",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Yale Lockmaster 24 Multipoint Lock x SensCheck\u2122",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Lockmaster 24 Multipoint Lock: Ready for new PAS 24 standard",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "fortisprotect.co.uk",
+   "messages": 2,
+   "first": "2026-07-21",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "dylan.bradley@fortisprotect.co.uk",
+     "name": "Dylan Bradley"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Unite Students - Cathedral Park",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Unite Students - Cathedral Park",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "atlasworkplaceservices.com",
+   "messages": 2,
+   "first": "2026-07-23",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "maximo.admin@atlasworkplaceservices.com",
+     "name": "maximo.admin@atlasworkplaceservices.com"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "140528 - Fenster Glazing - Employer Liability Insurance",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "140528 - Fenster Glazing - Public Liability Insurance",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "bdcaluminium.co.uk",
+   "messages": 2,
+   "first": "2026-07-17",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "sales@bdcaluminium.co.uk",
+     "name": "BDC Aluminium"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Smart Signature Doors: Safe, Stylish, and Sustainable",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "2 Week Lead Times on Alitherm 400 Windows and Doors",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "spittlywood.uk",
+   "messages": 2,
+   "first": "2026-07-16",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "sales@spittlywood.uk",
+     "name": "Spittlywood Windows and Doors"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Say yes to the timber job you'd normally turn down",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Quality blinds and shutters: made to last as long as the windows they match",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "glyngary.co.uk",
+   "messages": 2,
+   "first": "2026-07-16",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "hello@glyngary.co.uk",
+     "name": "Glyngary Joinery"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Free Retail Leads For Approved Partners",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Tired of the uPVC race to the bottom? \ud83c\udfc1",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "10825799.brevosend.com",
+   "messages": 1,
+   "first": "2026-07-23",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "coldcure@10825799.brevosend.com",
+     "name": "Cold Cure Windows LTD"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "UPVC & Aluminium Windows & Doors: Trade Prices",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "toughglaze.com",
+   "messages": 1,
+   "first": "2026-07-23",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "kieran@toughglaze.com",
+     "name": "Kieran Toughglaze"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Introduction \u2013 ToughGlaze Sealed Units and Processed Glass",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "shuelsolutions.co.uk",
+   "messages": 1,
+   "first": "2026-07-23",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "admin@shuelsolutions.co.uk",
+     "name": "Shuel Solutions"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Labour Supply Services \u2014 Shuel Labour Solutions Ltd",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "live.co.uk",
+   "messages": 1,
+   "first": "2026-07-23",
+   "last": "2026-07-23",
+   "contacts": [
+    {
+     "address": "has_b_a@live.co.uk",
+     "name": "Hasan A"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Fenster Glazing - Install",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "truframe.co.uk",
+   "messages": 22,
+   "first": "2026-07-15",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "amendments@truframe.co.uk",
+     "name": "Amendments"
+    },
+    {
+     "address": "joseph.duffin@truframe.co.uk",
+     "name": "Joseph Duffin"
+    },
+    {
+     "address": "liam.richards@truframe.co.uk",
+     "name": "Liam Richards"
+    },
+    {
+     "address": "assistant@truframe.co.uk",
+     "name": "assistant@truframe.co.uk"
+    },
+    {
+     "address": "evoassistant@truframe.co.uk",
+     "name": "evoassistant@truframe.co.uk"
+    },
+    {
+     "address": "cd.orders@truframe.co.uk",
+     "name": "CD.Orders"
+    },
+    {
+     "address": "bill.keightley@truframe.co.uk",
+     "name": "Bill Keightley"
+    },
+    {
+     "address": "customer.service@truframe.co.uk",
+     "name": "Customer Service"
+    }
+   ],
+   "kinds": {
+    "correspondence": 17,
+    "enquiry": 1,
+    "possible-enquiry": 4
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "FW: Flat 22 Austin House Door/Sidelight - Order",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "FW: Midfield Primary School - UPVC Frame Order",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "RE: ORDER NO 81006813 REF DAVE F",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "TruFrame Order Confirmed: 81006813 Ref: DAVE F",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "TruFrame Order Confirmed: 81006813 Ref: DAVE F",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "ORDER NO 81006813 REF DAVE F",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "slatedrow.com",
+   "messages": 8,
+   "first": "2026-07-07",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "tommy.callaghan@slatedrow.com",
+     "name": "Tommy Callaghan"
+    }
+   ],
+   "kinds": {
+    "correspondence": 6,
+    "possible-enquiry": 2
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Window and door frame PO",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Window and door frame PO",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "PO-Reception doors",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Slated Row - Kents Hill Quote",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Slated Row - Kents Hill Quote",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-10",
+     "subject": "Re: Window and door frame PO",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "pridedevelopments.co.uk",
+   "messages": 8,
+   "first": "2026-07-07",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "graham@pridedevelopments.co.uk",
+     "name": "Graham Nash"
+    },
+    {
+     "address": "reza.shemshaki@pridedevelopments.co.uk",
+     "name": "Reza Shemshaki"
+    },
+    {
+     "address": "stephen.prime@pridedevelopments.co.uk",
+     "name": "Stephen Prime"
+    },
+    {
+     "address": "leonard.white@pridedevelopments.co.uk",
+     "name": "Leonard White"
+    }
+   ],
+   "kinds": {
+    "correspondence": 7,
+    "possible-enquiry": 1
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "RE: PD7730-RAF Mildenhall B459 New window opening-PO1540",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: PD7730-RAF Mildenhall B459 New window opening-PO1540",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-13",
+     "subject": "Re: Purchase Order: PO1526 - PD7758 Full Replacement 3 x Aluminium Windows",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-13",
+     "subject": "RE: Purchase Order: PO1526 - PD7758 Full Replacement 3 x Aluminium Windows",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-10",
+     "subject": "RE: Purchase Order: PO1526 - PD7758 Full Replacement 3 x Aluminium Windows",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "RE: Purchase Order: PO1526 - PD7758 Full Replacement 3 x Aluminium Windows",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "constructionworkersupport.zohodesk.eu",
+   "messages": 5,
+   "first": "2026-07-20",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "support@constructionworkersupport.zohodesk.eu",
+     "name": "Construction Worker Support"
+    }
+   ],
+   "kinds": {
+    "correspondence": 5
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Re:[## 223186 ##] Support for CSCS Card order #03d487ac",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re:[## 223186 ##] Support for CSCS Card order #03d487ac",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re:[## 223186 ##] Support for CSCS Card order #03d487ac",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re:[## 223186 ##] Support for CSCS Card order #03d487ac",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re:[## 223186 ##] Support for CSCS Card order #03d487ac",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "dualsealglass.co.uk",
+   "messages": 3,
+   "first": "2026-07-10",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "liamjessop@dualsealglass.co.uk",
+     "name": "Liam Jessop"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2,
+    "enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Project Natilus - DHL Digital Centre",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Project Natilus - DHL Digital Centre",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-10",
+     "subject": "Re: Quote 16914, Project Nautilus Repacement Glazing",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "ikonaluminium.co.uk",
+   "messages": 2,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "jasonh@ikonaluminium.co.uk",
+     "name": "Jason Holman"
+    }
+   ],
+   "kinds": {
+    "supplier": 2
+   },
+   "relationship": "supplier",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "RE: Q26-24464 // Snap Quote",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Q26-24464 // Snap Quote",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "robinsonsfs.com",
+   "messages": 2,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "quotes@robinsonsfs.com",
+     "name": "Robinsons Facilities Services Ltd"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Robinsons FS - Glazed Door Inspections",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Robinsons FS - Glazed Door Inspections",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "renocost.co.uk",
+   "messages": 2,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "info@renocost.co.uk",
+     "name": "RenoCost"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "New renovation enquiry in your area",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "New renovation enquiry in your area",
+     "kind": "possible-enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "vehiclecontracts.co.uk",
+   "messages": 2,
+   "first": "2026-07-15",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "first@vehiclecontracts.co.uk",
+     "name": "Vehicle Contracts"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "This weeks best lease deals!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "This weeks best lease deals!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "totalsupport.org.uk",
+   "messages": 2,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "fensa@totalsupport.org.uk",
+     "name": "FENSA Training Academy"
+    },
+    {
+     "address": "contact@totalsupport.org.uk",
+     "name": "Total Support Training"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Maintenance and Repair course",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Maintenance and Repair course",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "listerwindows.co.uk",
+   "messages": 2,
+   "first": "2026-07-16",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "marketing@listerwindows.co.uk",
+     "name": "Lister Windows"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Need AOV Windows?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "New Eurocell AOV Window now available",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "solarshield.co.uk",
+   "messages": 1,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "chris@solarshield.co.uk",
+     "name": "Chris  Townend"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Kettering Police Station",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "everglade.co.uk",
+   "messages": 1,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "support@everglade.co.uk",
+     "name": "Everglade Windows"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Need a replacement shopfront door fast?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "live.com",
+   "messages": 1,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "c.murphy5@live.com",
+     "name": "Conor Murphy"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "emails.morrisons.com",
+   "messages": 1,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "info@emails.morrisons.com",
+     "name": "Morrisons"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Get \u00a310 off your Morrisons.com shop \ud83d\udcb8\u2600\ufe0f",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "23doors.co.uk",
+   "messages": 1,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "sales@23doors.co.uk",
+     "name": "23 Doors Ltd"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Are You Looking For a New Window & Door Supplier?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "hydronapplications.co.uk",
+   "messages": 1,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "fenster-leads@hydronapplications.co.uk",
+     "name": "fenster-leads@hydronapplications.co.uk"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Facebook message lead - Arooj Ferozdin",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "ebillinvoice.com",
+   "messages": 1,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "invoices@ebillinvoice.com",
+     "name": "invoices@ebillinvoice.com"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Your Fuel card invoice is ready",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "inmoment-emails.toolstation.com",
+   "messages": 1,
+   "first": "2026-07-22",
+   "last": "2026-07-22",
+   "contacts": [
+    {
+     "address": "toolstation@inmoment-emails.toolstation.com",
+     "name": "Toolstation"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-22",
+     "subject": "Toolstation wants to hear from you!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "fmsolutions.co.uk",
+   "messages": 9,
+   "first": "2026-07-14",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "ayden@fmsolutions.co.uk",
+     "name": "Ayden Lewis"
+    },
+    {
+     "address": "info@fmsolutions.co.uk",
+     "name": "Info"
+    },
+    {
+     "address": "bradley@fmsolutions.co.uk",
+     "name": "Bradley Taffurelli"
+    }
+   ],
+   "kinds": {
+    "correspondence": 9
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "RE: FM Solutions - Leonardo Hotel Window Survey",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "FM Solutions - Leonardo Hotel Window Survey",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Leonardo Hotel (Stairwell Window Survey *FMS)",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: FM Solutions - Window Film",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "RE: FM Solutions - Window Film",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "RE: FM Solutions - Window Film",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "harrispartnership.com",
+   "messages": 5,
+   "first": "2026-07-17",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "malcolmcross@harrispartnership.com",
+     "name": "Malcolm Cross"
+    }
+   ],
+   "kinds": {
+    "correspondence": 5
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "17963_1-1.0 - Glazing Towcester",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: 17963_1-1.0 -towcester - Glazing drawings - condition 4",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: 17963_1-1.0 -towcester - Glazing drawings - condition 4",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "17963_1-1.0 -towcester - Glazing drawings - condition 4",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "17963_1-1.0 -towcester - Glazing drawings - condition 4",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "bwestates.com",
+   "messages": 5,
+   "first": "2026-07-17",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "info@bwestates.com",
+     "name": "Info bwestates"
+    }
+   ],
+   "kinds": {
+    "correspondence": 5
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Re: 20 Wandsworth - back door issue",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: 20 Wandsworth - back door issue",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: 20 Wandsworth - back door issue",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "Re: 20 Wandsworth - back door issue",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "20 Wandsworth - back door issue",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "met-fab.co.uk",
+   "messages": 3,
+   "first": "2026-07-07",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "sales@met-fab.co.uk",
+     "name": "Sales"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1,
+    "possible-enquiry": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Fortis - Unite Students",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Met-Fab enquiry acknowledgement",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "Cladding & Facia Enquiry",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "stewarts.cc",
+   "messages": 3,
+   "first": "2026-07-17",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "david@stewarts.cc",
+     "name": "David Pevalin"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Milton Keynes Digital Centre A new P4 task - #00164657 has been assigned to you.",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Milton Keynes Digital Centre A new P4 task - #00164657 has been assigned to you.",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "RE: DHL Express Cambridge - Shattered Window",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "lineone.net",
+   "messages": 3,
+   "first": "2026-07-20",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "geoff.ambrose@lineone.net",
+     "name": "Geoff Ambrose"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Fenster Glazing & Locks Ltd - Final Steps",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "me.com",
+   "messages": 3,
+   "first": "2026-07-20",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "debbiereynolds1@me.com",
+     "name": "Debbie Reynolds"
+    },
+    {
+     "address": "vincereynolds1@me.com",
+     "name": "Vince Reynolds"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Fenster glazing - Install",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "Re: Fenster glazing - Install",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: FAO Perry - Rear sliding door replacement",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "guildmore.com",
+   "messages": 2,
+   "first": "2026-07-06",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "jason.mount@guildmore.com",
+     "name": "Jason Mount"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "RE:  Princess Beatrice House, 188-190 Finborough Road, London SW10 9BA - Windows and Doors",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-06",
+     "subject": "FW:  Princess Beatrice House, 188-190 Finborough Road, London SW10 9BA - Windows and Doors",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "tensei.pl",
+   "messages": 2,
+   "first": "2026-07-16",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "adam.czapka@tensei.pl",
+     "name": "Adam Czapka"
+    },
+    {
+     "address": "michal.krysiak@tensei.pl",
+     "name": "Micha\u0142 Krysiak"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Transport cooperation",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Transport Partnership Offer",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "bostockhealthcare.com",
+   "messages": 1,
+   "first": "2026-07-21",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "joanna@bostockhealthcare.com",
+     "name": "Joanna O'Donovan"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "New guidance on defibrillators",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "quickslide.co.uk",
+   "messages": 1,
+   "first": "2026-07-21",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "jacob.swallow@quickslide.co.uk",
+     "name": "Jacob Swallow"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Towcester Vale - U Value",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "higginspartnerships.co.uk",
+   "messages": 1,
+   "first": "2026-07-21",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "costmanagers@higginspartnerships.co.uk",
+     "name": "costmanagers"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Fenster Glazing - Delta Estate",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "brintcpm.co.uk",
+   "messages": 1,
+   "first": "2026-07-21",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "matthew@brintcpm.co.uk",
+     "name": "Matthew Brint"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Re: 17963_1-1.0 -towcester - Glazing drawings - condition 4",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "toolstation.com",
+   "messages": 1,
+   "first": "2026-07-21",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "reviews@toolstation.com",
+     "name": "Toolstation"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Tell us what you think and you could WIN \u00a3100!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "companyinsolvencyadvice.co.uk",
+   "messages": 1,
+   "first": "2026-07-21",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "helpline@companyinsolvencyadvice.co.uk",
+     "name": "Company Insolvency Advice"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "HMRC or Creditor Issues",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "westburycollections.co.uk",
+   "messages": 1,
+   "first": "2026-07-21",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "em@westburycollections.co.uk",
+     "name": "Westbury Collections Ltd"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Fresh branding, trusted experience.",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "centralwindowsystems.co.uk",
+   "messages": 1,
+   "first": "2026-07-21",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "martyn.elwell@centralwindowsystems.co.uk",
+     "name": "Martyn Elwell | Central Window Systems"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Who's Supporting Your Commercial Projects?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "brand.faire.com",
+   "messages": 1,
+   "first": "2026-07-21",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "sales+katiedoodlematchboxcardco@brand.faire.com",
+     "name": "Greeting Cards by Katie Doodle & Gifts by Matchbox Card Co via Faire"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "Faire Market: 20% Off Wholesale Greeting Cards",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "amazon.co.uk",
+   "messages": 14,
+   "first": "2026-07-16",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "order-update@amazon.co.uk",
+     "name": "Amazon.co.uk"
+    },
+    {
+     "address": "shipment-tracking@amazon.co.uk",
+     "name": "Amazon.co.uk"
+    },
+    {
+     "address": "auto-confirm@amazon.co.uk",
+     "name": "Amazon.co.uk"
+    }
+   ],
+   "kinds": {
+    "correspondence": 14
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "Delivered: \u2018Konig KO24378516 Touch up...\u2019",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Out for delivery: \u2018Konig KO24378516 Touch up...\u2019",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-19",
+     "subject": "Out for delivery: \u2018Konig KO24378516 Touch up...\u2019",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-18",
+     "subject": "Delivery attempted: \"Konig KO24378516 Touch up...\"",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-18",
+     "subject": "Out for delivery: \u2018Konig KO24378516 Touch up...\u2019",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "Dispatched: \u2018Konig KO24378516 Touch up...\u2019",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "cskl.co.uk",
+   "messages": 6,
+   "first": "2026-07-07",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "chris@cskl.co.uk",
+     "name": "Chris Masters"
+    },
+    {
+     "address": "wecare@cskl.co.uk",
+     "name": "wecare cskl"
+    },
+    {
+     "address": "tom@cskl.co.uk",
+     "name": "Tom Sothcott"
+    }
+   ],
+   "kinds": {
+    "correspondence": 6
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Flat 22 Austin House, Edinburgh Gate, Harlow, CM20 2UA",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "RE: Flat 22 Austin House, Edinburgh Gate, Harlow, CM20 2UA",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-14",
+     "subject": "Re: C000659 - Ms P Patricia - GHPC Flat 14, 22-24 Powell, , Hackney, , London, , E5 8DJ",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "Re: C000659 - Flat 14, 22-24 Powell, , Hackney, , London, , E5 8DJ",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "Re: C000659 - Flat 14, 22-24 Powell, , Hackney, , London, , E5 8DJ",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "Re: C000659 - Ms P Patricia - GHPC Flat 14, 22-24 Powell, , Hackney, , London, , E5 8DJ",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "leasium.co.uk",
+   "messages": 5,
+   "first": "2026-07-16",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "sarah.jones@leasium.co.uk",
+     "name": "Sarah Jones"
+    },
+    {
+     "address": "luke.clarkson@leasium.co.uk",
+     "name": "Luke Clarkson"
+    }
+   ],
+   "kinds": {
+    "correspondence": 5
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "POD Photos",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Fenster Glazing Order Request - Pendeen Crescent",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Fenster Glazing Order Request - Pendeen Crescent",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Fenster Glazing Order Request - Pendeen Crescent",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Fenster Glazing Order Request - Pendeen Crescent",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "magicman.co.uk",
+   "messages": 3,
+   "first": "2026-07-16",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "enquiries@magicman.co.uk",
+     "name": "Fiona Richmond-Smith"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "Magicman Booking Confirmation - MK43 9DE",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Magicman Pro-forma Invoice - MK43 9DE",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "RE: Fenster Glazing - Oak Wood - Wright",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "uniassist.co.uk",
+   "messages": 2,
+   "first": "2026-07-20",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "markwilliams@uniassist.co.uk",
+     "name": "Mark Williams"
+    }
+   ],
+   "kinds": {
+    "enquiry": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Commercial Aluminium Glazing Condition Survey Quotation",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Commercial Aluminium Glazing Condition Survey Quotation",
+     "kind": "enquiry",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "tsl.uk",
+   "messages": 2,
+   "first": "2026-07-14",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "michael.beyer@tsl.uk",
+     "name": "Michael Beyer"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Trafalgar House, Southampton Road, Porchester.",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-14",
+     "subject": "Trafalgar House, Southampton Road, Porchester.",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "nationaljobfairs.co.uk",
+   "messages": 2,
+   "first": "2026-07-06",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "jobfairs@nationaljobfairs.co.uk",
+     "name": "Jessica Dyball"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "Exhibit at a Jobs Fair from just \u00a3295 +VAT",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-06",
+     "subject": "Job Fairs",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "ricciostudio.com",
+   "messages": 2,
+   "first": "2026-07-20",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "rdambros@ricciostudio.com",
+     "name": "Raffa Riccio"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Fenster Glazing",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "Re: Fenster Glazing",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "stripe.com",
+   "messages": 1,
+   "first": "2026-07-20",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "invoice+statements+acct_1nd5kbcebokzqfjh@stripe.com",
+     "name": "Construction Worker Support"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "New invoice from Construction Worker Support #D637DAED-15805",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "risaltd.co.uk",
+   "messages": 1,
+   "first": "2026-07-20",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "comalley@risaltd.co.uk",
+     "name": "comalley@risaltd.co.uk"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "FENSA inspector Dave Malcolm is in the area on Wednesday 22nd July",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "chasinsurance.com",
+   "messages": 1,
+   "first": "2026-07-20",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "newquotes@chasinsurance.com",
+     "name": "CHAS New Quotes"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "August Quotes - Business Insurance 2026",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "upfrontrecruitment.co.uk",
+   "messages": 1,
+   "first": "2026-07-20",
+   "last": "2026-07-20",
+   "contacts": [
+    {
+     "address": "mark@upfrontrecruitment.co.uk",
+     "name": "Mark Thistle"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-20",
+     "subject": "Morning,  Roofing & Cladding Site Manager and Project Manager",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "autoupdate.siteground.com",
+   "messages": 1,
+   "first": "2026-07-18",
+   "last": "2026-07-18",
+   "contacts": [
+    {
+     "address": "wordpress@autoupdate.siteground.com",
+     "name": "SiteGround Autoupdate System"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-18",
+     "subject": "WordPress Site(s) were Updated",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "takepayments-ltd.com",
+   "messages": 1,
+   "first": "2026-07-18",
+   "last": "2026-07-18",
+   "contacts": [
+    {
+     "address": "updates@takepayments-ltd.com",
+     "name": "Alex from takepayments Limited"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-18",
+     "subject": "Are you getting the best value from your payments provider?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "ashegroup.co.uk",
+   "messages": 3,
+   "first": "2026-07-07",
+   "last": "2026-07-17",
+   "contacts": [
+    {
+     "address": "ben.walker@ashegroup.co.uk",
+     "name": "Ben Walker"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "FW: 19550 Gadsby Street, Bedford - Updated Stage 3 Preliminary Drawings",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-09",
+     "subject": "RE: Gadsby Street Bedford",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "RE: Gadsby Street Bedford",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "conquestenquiries.com",
+   "messages": 2,
+   "first": "2026-07-17",
+   "last": "2026-07-17",
+   "contacts": [
+    {
+     "address": "stepnellltd@conquestenquiries.com",
+     "name": "Stepnell Ltd"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "BCC, 4-16 Filwood Broadway, BS4 1JN",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "BCC, 4-16 Filwood Broadway, BS4 1JN",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "mlggroup.co.uk",
+   "messages": 2,
+   "first": "2026-07-17",
+   "last": "2026-07-17",
+   "contacts": [
+    {
+     "address": "jon.parfit@mlggroup.co.uk",
+     "name": "Jon Parfit"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "Re: 13239 - Oxford Train Station - Footbridge Glazing Panel Replacement",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "13239 - Oxford Train Station - Footbridge Glazing Panel Replacement",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "stepnell.co.uk",
+   "messages": 1,
+   "first": "2026-07-17",
+   "last": "2026-07-17",
+   "contacts": [
+    {
+     "address": "adam.warner@stepnell.co.uk",
+     "name": "Adam Warner"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "Re: BCC, 4-16 Filwood Broadway, BS4 1JN",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "kailashmanor.co.uk",
+   "messages": 1,
+   "first": "2026-07-17",
+   "last": "2026-07-17",
+   "contacts": [
+    {
+     "address": "maintenance@kailashmanor.co.uk",
+     "name": "Kailash Maintenance"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "RE: Fenster Glazing - Window Issues",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "nestpensions.org.uk",
+   "messages": 1,
+   "first": "2026-07-17",
+   "last": "2026-07-17",
+   "contacts": [
+    {
+     "address": "do_not_reply@nestpensions.org.uk",
+     "name": "Nest Pensions"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "Urgent action is needed - Overdue contribution schedule(s)",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "outreach.edfdigital.com",
+   "messages": 1,
+   "first": "2026-07-17",
+   "last": "2026-07-17",
+   "contacts": [
+    {
+     "address": "enquiries@outreach.edfdigital.com",
+     "name": "EDF Business Energy"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "Smooth Switching, Made Simple!",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "adwarrior.co.uk",
+   "messages": 1,
+   "first": "2026-07-17",
+   "last": "2026-07-17",
+   "contacts": [
+    {
+     "address": "rosie@adwarrior.co.uk",
+     "name": "Rosie Newman"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "Are you still advertising roles?",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "robust-uk.com",
+   "messages": 2,
+   "first": "2026-07-07",
+   "last": "2026-07-16",
+   "contacts": [
+    {
+     "address": "sales@robust-uk.com",
+     "name": "Robust UK"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-16",
+     "subject": "The sleek new fire exit you need",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "Upgrading your fire exit has never been easier!",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "cauldwellproperty.co.uk",
+   "messages": 1,
+   "first": "2026-07-16",
+   "last": "2026-07-16",
+   "contacts": [
+    {
+     "address": "caitlin@cauldwellproperty.co.uk",
+     "name": "Caitlin Mitchell"
+    }
+   ],
+   "kinds": {
+    "enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-16",
+     "subject": "RE: Window enquiry - Foxhunter Drive/Capital Drive MK14",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "onceforall.com",
+   "messages": 1,
+   "first": "2026-07-16",
+   "last": "2026-07-16",
+   "contacts": [
+    {
+     "address": "marketing@onceforall.com",
+     "name": "Once For All"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-16",
+     "subject": "2026 Q2 construction industry round-up",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "scribehow.com",
+   "messages": 1,
+   "first": "2026-07-16",
+   "last": "2026-07-16",
+   "contacts": [
+    {
+     "address": "hello@scribehow.com",
+     "name": "Scribe Team"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-16",
+     "subject": "Faster to capture. Easier to scale. Here\u2019s what's new.",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "service.education.gov.uk",
+   "messages": 1,
+   "first": "2026-07-16",
+   "last": "2026-07-16",
+   "contacts": [
+    {
+     "address": "apprenticeship.communications@service.education.gov.uk",
+     "name": "Apprenticeship Communications"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-16",
+     "subject": "Claim up to \u00a38,000 plus free training when hiring apprentices",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "selling.tiktok.com",
+   "messages": 1,
+   "first": "2026-07-16",
+   "last": "2026-07-16",
+   "contacts": [
+    {
+     "address": "olivia@selling.tiktok.com",
+     "name": "Olivia from TikTok"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-16",
+     "subject": "You're Invited: Start Selling on TikTok Shop",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "vistamatic.com",
+   "messages": 1,
+   "first": "2026-07-16",
+   "last": "2026-07-16",
+   "contacts": [
+    {
+     "address": "viewpoint@vistamatic.com",
+     "name": "BetweenGlassBlinds"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-16",
+     "subject": "Why upgrading Windows and Doors Matters",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "sdevs.co.uk",
+   "messages": 3,
+   "first": "2026-07-13",
+   "last": "2026-07-15",
+   "contacts": [
+    {
+     "address": "brad@sdevs.co.uk",
+     "name": "Brad"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 2,
+    "correspondence": 1
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-15",
+     "subject": "Re: 13 Summerhill way, CR4 2NL request for survey and quote.",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-14",
+     "subject": "Re: 13 Summerhill way, CR4 2NL request for survey and quote.",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-13",
+     "subject": "Re: SDevs - 41 Kings Street - Fenster Glazing",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "ymail.com",
+   "messages": 2,
+   "first": "2026-07-15",
+   "last": "2026-07-15",
+   "contacts": [
+    {
+     "address": "katestanding@ymail.com",
+     "name": "Kate Standing"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-15",
+     "subject": "Re: Fenster Glazing - Your New Windows",
+     "kind": "correspondence",
+     "mailbox": "info"
+    },
+    {
+     "date": "2026-07-15",
+     "subject": "Re: Fenster Glazing - Your New Windows",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "recorduk.co.uk",
+   "messages": 1,
+   "first": "2026-07-15",
+   "last": "2026-07-15",
+   "contacts": [
+    {
+     "address": "rachael.mcguinness@recorduk.co.uk",
+     "name": "McGuinness, Rachael"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-15",
+     "subject": "RE: [EXT] Fenster glazing - \u00a0Towster Vale",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "churchofjesuschrist.org",
+   "messages": 1,
+   "first": "2026-07-15",
+   "last": "2026-07-15",
+   "contacts": [
+    {
+     "address": "matthew.boome@churchofjesuschrist.org",
+     "name": "Matt Boome"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-15",
+     "subject": "Re: [Ext:]  Fenster Glazing - The Church of Jesus Christ of Latter-day Saints - Rev 2",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "ubersuggest.com",
+   "messages": 1,
+   "first": "2026-07-15",
+   "last": "2026-07-15",
+   "contacts": [
+    {
+     "address": "support@ubersuggest.com",
+     "name": "Ubersuggest"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-15",
+     "subject": "fensterglazing.com has 4 new backlink(s)!  \ud83d\udc40",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "methodist.org.uk",
+   "messages": 1,
+   "first": "2026-07-15",
+   "last": "2026-07-15",
+   "contacts": [
+    {
+     "address": "edson.dube@methodist.org.uk",
+     "name": "Edson Dube"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-15",
+     "subject": "Re: Fenster Glazing - Consultation Visit",
+     "kind": "correspondence",
+     "mailbox": "info"
+    }
+   ]
+  },
+  {
+   "domain": "lynchbrotherhomes.co.uk",
+   "messages": 2,
+   "first": "2026-07-10",
+   "last": "2026-07-14",
+   "contacts": [
+    {
+     "address": "chloe.rose@lynchbrotherhomes.co.uk",
+     "name": "Chloe Rose"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-14",
+     "subject": "Re: Oxford University Press - Secondary Glazing Schedule",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-10",
+     "subject": "Re: Oxford University Press - Secondary Glazing Schedule",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "smd-ltd.com",
+   "messages": 1,
+   "first": "2026-07-14",
+   "last": "2026-07-14",
+   "contacts": [
+    {
+     "address": "martin.moore@smd-ltd.com",
+     "name": "Martin Moore"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-14",
+     "subject": "FW: Tender Enquiry - SMDT0173 Brocks Hill Phase 2 Teaching Block",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "ygcpartners.co.uk",
+   "messages": 1,
+   "first": "2026-07-14",
+   "last": "2026-07-14",
+   "contacts": [
+    {
+     "address": "marcus.georgiou@ygcpartners.co.uk",
+     "name": "Marcus Georgiou"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-14",
+     "subject": "Re: New Commercial Enquiry from Marcus Georgiou",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "applus.com",
+   "messages": 2,
+   "first": "2026-07-10",
+   "last": "2026-07-13",
+   "contacts": [
+    {
+     "address": "michael.north@applus.com",
+     "name": "Michael North"
+    }
+   ],
+   "kinds": {
+    "enquiry": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-13",
+     "subject": "RE: Glass Replacement Enquiry - Applus 3C",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-10",
+     "subject": "RE: Glass Replacement Enquiry - Applus 3C",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "cranfield.ac.uk",
+   "messages": 4,
+   "first": "2026-07-09",
+   "last": "2026-07-10",
+   "contacts": [
+    {
+     "address": "e.hotton@cranfield.ac.uk",
+     "name": "Emma Hotton"
+    }
+   ],
+   "kinds": {
+    "correspondence": 4
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-10",
+     "subject": "RE: B20",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-10",
+     "subject": "RE: B20",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-10",
+     "subject": "RE: B20",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-09",
+     "subject": "B20",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "archerbuild.co.uk",
+   "messages": 5,
+   "first": "2026-07-07",
+   "last": "2026-07-09",
+   "contacts": [
+    {
+     "address": "tom.harvey@archerbuild.co.uk",
+     "name": "Tom Harvey"
+    },
+    {
+     "address": "kevin.morris@archerbuild.co.uk",
+     "name": "Kevin Morris"
+    }
+   ],
+   "kinds": {
+    "correspondence": 5
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-09",
+     "subject": "Re: 3287-41-Door manufacturer",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-09",
+     "subject": "RE: 3287-41-Door manufacturer",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "RE: 3287-41-Door manufacturer",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "RE: 3287-41-Door manufacturer",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "RE: 3287-41-Door manufacturer",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "wearehomesforstudents.com",
+   "messages": 2,
+   "first": "2026-07-06",
+   "last": "2026-07-08",
+   "contacts": [
+    {
+     "address": "dataprotection@wearehomesforstudents.com",
+     "name": "Data Protection"
+    }
+   ],
+   "kinds": {
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-08",
+     "subject": "URGENT Security Alert \u2013 Phishing Email Identified - ***UPDATE***",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-06",
+     "subject": "**URGENT Security Alert \u2013 Phishing Email Identified**",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "propakgroup.co.uk",
+   "messages": 1,
+   "first": "2026-07-07",
+   "last": "2026-07-07",
+   "contacts": [
+    {
+     "address": "sales@propakgroup.co.uk",
+     "name": "Sales"
+    }
+   ],
+   "kinds": {
+    "enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-07",
+     "subject": "RE: F&P Replacement Door Quote",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "heylandspratt.co.uk",
+   "messages": 1,
+   "first": "2026-07-07",
+   "last": "2026-07-07",
+   "contacts": [
+    {
+     "address": "daniel@heylandspratt.co.uk",
+     "name": "Daniel Butler"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 1
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-07",
+     "subject": "Quotation enquiry for Heyland and Spratt, Caterham",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "elderfern.co.uk",
+   "messages": 1,
+   "first": "2026-07-07",
+   "last": "2026-07-07",
+   "contacts": [
+    {
+     "address": "arjun@elderfern.co.uk",
+     "name": "Arjun Rayarel"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-07",
+     "subject": "AOV Riverside House - Aylesbury",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  }
+ ],
+ "signals": [
+  {
+   "date": "2026-07-28",
+   "kind": "enquiry",
+   "company": "excelhoardings.com",
+   "contact": "gareth@excelhoardings.com",
+   "name": "Gareth Siddle",
+   "subject": "RE: Touchwood glass quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-28",
+   "kind": "enquiry",
+   "company": "excelhoardings.com",
+   "contact": "gareth@excelhoardings.com",
+   "name": "Gareth Siddle",
+   "subject": "RE: Touchwood glass quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-28",
+   "kind": "enquiry",
+   "company": "hotmail.com",
+   "contact": "s_galea@hotmail.com",
+   "name": "Steven Galea",
+   "subject": "Fw: FAO Perry - Window and Internal Doors Quote Please",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-27",
+   "kind": "enquiry",
+   "company": "lathamssteeldoors.co.uk",
+   "contact": "manny@lathamssteeldoors.co.uk",
+   "name": "Manny Pank | Lathams",
+   "subject": "Re: Towcester Vale Steel Door - Quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-27",
+   "kind": "enquiry",
+   "company": "regen-london.com",
+   "contact": "faaris@regen-london.com",
+   "name": "Faaris Merali",
+   "subject": "Re: Louvre Replacement Quote - Plant Room SE11",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-27",
+   "kind": "enquiry",
+   "company": "neildouglas.co.uk",
+   "contact": "jordan.jones@neildouglas.co.uk",
+   "name": "Jordan Jones",
+   "subject": "John North Hall (1-39 Vaughan House ) - Replacement of external communal block entrance door sets - ITT",
+   "mailbox": "info",
+   "relationship": "quoted"
+  },
+  {
+   "date": "2026-07-27",
+   "kind": "enquiry",
+   "company": "zonepropertymanagement.co.uk",
+   "contact": "mandy@zonepropertymanagement.co.uk",
+   "name": "Mandy",
+   "subject": "Quotation Request \u2013 Window Repair \u2013 152 Silbury Boulevard, Milton Keynes MK9 1LT",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-27",
+   "kind": "enquiry",
+   "company": "outlook.com",
+   "contact": "elabennett_@outlook.com",
+   "name": "Ela Bennett",
+   "subject": "Request for Physical Window and Glazing Inspection and Itemised Quote \u2013 24 Lastingham Grove, MK4 2EA",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-27",
+   "kind": "enquiry",
+   "company": "gmail.com",
+   "contact": "stephanna555@gmail.com",
+   "name": "Steph Anna",
+   "subject": "Re: Fenster Glazing - Your Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-27",
+   "kind": "enquiry",
+   "company": "gmail.com",
+   "contact": "stephanna555@gmail.com",
+   "name": "Steph Anna",
+   "subject": "Re: Fenster Glazing - Your Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-27",
+   "kind": "portal",
+   "company": "in-tendorganiser.co.uk",
+   "contact": "hightownha@in-tendorganiser.co.uk",
+   "name": "hightownha@in-tendorganiser.co.uk",
+   "subject": "Stage Date Ending - Hightown Housing",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "lathamssteeldoors.co.uk",
+   "contact": "manny@lathamssteeldoors.co.uk",
+   "name": "Manny Pank | Lathams",
+   "subject": "Re: Towcester Vale Steel Door - Quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "tm-gb.co.uk",
+   "contact": "customersupport@tm-gb.co.uk",
+   "name": "Target Maintenance",
+   "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "aspectwindowfilms.co.uk",
+   "contact": "liam@aspectwindowfilms.co.uk",
+   "name": "Liam Munt",
+   "subject": "RE: Fenster Glazing Quote Request - PH Oxford",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "tm-gb.co.uk",
+   "contact": "customersupport@tm-gb.co.uk",
+   "name": "Target Maintenance",
+   "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "tm-gb.co.uk",
+   "contact": "customersupport@tm-gb.co.uk",
+   "name": "Target Maintenance",
+   "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "regen-london.com",
+   "contact": "faaris@regen-london.com",
+   "name": "Faaris Merali",
+   "subject": "Re: Louvre Replacement Quote - Plant Room SE11",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "aspectwindowfilms.co.uk",
+   "contact": "liam@aspectwindowfilms.co.uk",
+   "name": "Liam Munt",
+   "subject": "Fenster Glazing Quote Request - PH Oxford",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "hotmail.co.uk",
+   "contact": "michellebacon1@hotmail.co.uk",
+   "name": "Michelle Bacon",
+   "subject": "Re: FAO Perry - Window and Internal Doors Quote Please",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "roseview.co.uk",
+   "contact": "zoe.bygrave@roseview.co.uk",
+   "name": "Zoe Bygrave",
+   "subject": "RE: Fenster Glazing - Quote Request - Bacon QN70508",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-24",
+   "kind": "enquiry",
+   "company": "origin-global.com",
+   "contact": "vishal.patel@origin-global.com",
+   "name": "Vishal Patel",
+   "subject": "RE: Fenster Glazing - Quote Required",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "enquiry",
+   "company": "excelhoardings.com",
+   "contact": "gareth@excelhoardings.com",
+   "name": "Gareth Siddle",
+   "subject": "RE: Touchwood glass quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "enquiry",
+   "company": "gmail.com",
+   "contact": "stephanna555@gmail.com",
+   "name": "Steph Anna",
+   "subject": "Re: Fenster Glazing - Your Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "enquiry",
+   "company": "wharfsidesupplies.com",
+   "contact": "sales@wharfsidesupplies.com",
+   "name": "Wharfside Supplies",
+   "subject": "Re: Fenster Glazing - Panel Quote - Kerry",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "enquiry",
+   "company": "titanaluminium.com",
+   "contact": "sales@titanaluminium.com",
+   "name": "Sales",
+   "subject": "Re: Fenster Glazing - Quote - Kotecha",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "enquiry",
+   "company": "hotmail.co.uk",
+   "contact": "michellebacon1@hotmail.co.uk",
+   "name": "Michelle Bacon",
+   "subject": "Re: FAO Perry - Window and Internal Doors Quote Please",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "enquiry",
+   "company": "gmail.com",
+   "contact": "gmcmaster67@gmail.com",
+   "name": "Gordon McMaster",
+   "subject": "Re: Fenster Glazing - Your Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "enquiry",
+   "company": "gmail.com",
+   "contact": "max.walshe57@gmail.com",
+   "name": "max.walshe57@gmail.com",
+   "subject": "RE: Fenster Glazing - Your Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "enquiry",
+   "company": "gmail.com",
+   "contact": "gmcmaster67@gmail.com",
+   "name": "Gordon McMaster",
+   "subject": "Re: Fenster Glazing - Your Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "enquiry",
+   "company": "hotmail.co.uk",
+   "contact": "michellebacon1@hotmail.co.uk",
+   "name": "Michelle Bacon",
+   "subject": "FAO Perry - Window and Internal Doors Quote Please",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-23",
+   "kind": "portal",
+   "company": "in-tendorganiser.co.uk",
+   "contact": "hightownha@in-tendorganiser.co.uk",
+   "name": "hightownha@in-tendorganiser.co.uk",
+   "subject": "Stage Date Ending - Hightown Housing",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-22",
+   "kind": "enquiry",
+   "company": "regen-london.com",
+   "contact": "faaris@regen-london.com",
+   "name": "Faaris Merali",
+   "subject": "Re: Louvre Replacement Quote - Plant Room SE11",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-22",
+   "kind": "enquiry",
+   "company": "regen-london.com",
+   "contact": "faaris@regen-london.com",
+   "name": "Faaris Merali",
+   "subject": "Re: Louvre Replacement Quote - Plant Room SE11",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-21",
+   "kind": "enquiry",
+   "company": "excelhoardings.com",
+   "contact": "gareth@excelhoardings.com",
+   "name": "Gareth Siddle",
+   "subject": "RE: Touchwood glass quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-21",
+   "kind": "enquiry",
+   "company": "excelhoardings.com",
+   "contact": "gareth@excelhoardings.com",
+   "name": "Gareth Siddle",
+   "subject": "RE: Touchwood glass quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-21",
+   "kind": "enquiry",
+   "company": "excelhoardings.com",
+   "contact": "gareth@excelhoardings.com",
+   "name": "Gareth Siddle",
+   "subject": "RE: Touchwood glass quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-21",
+   "kind": "enquiry",
+   "company": "regen-london.com",
+   "contact": "faaris@regen-london.com",
+   "name": "Faaris Merali",
+   "subject": "Louvre Replacement Quote - Plant Room SE11",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-21",
+   "kind": "enquiry",
+   "company": "truframe.co.uk",
+   "contact": "cd.orders@truframe.co.uk",
+   "name": "CD.Orders",
+   "subject": "FW: Fenster Glazing - Quote - Raj",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "ph-db.co.uk",
+   "contact": "paul@ph-db.co.uk",
+   "name": "Paul Hinton",
+   "subject": "Re: Fenster Glazing Enquiry - New Window Opening",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "uniassist.co.uk",
+   "contact": "markwilliams@uniassist.co.uk",
+   "name": "Mark Williams",
+   "subject": "RE: Commercial Aluminium Glazing Condition Survey Quotation",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "excelhoardings.com",
+   "contact": "gareth@excelhoardings.com",
+   "name": "Gareth Siddle",
+   "subject": "Touchwood glass quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "ucdlimited.co.uk",
+   "contact": "sales@ucdlimited.co.uk",
+   "name": "Sales",
+   "subject": "Re: Fenster Glazing - Quote - Raj",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "ucdlimited.co.uk",
+   "contact": "sales@ucdlimited.co.uk",
+   "name": "Sales",
+   "subject": "Re: Fenster Glazing - Quote - Raj",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "hallmarkpanels.com",
+   "contact": "enquiries@hallmarkpanels.com",
+   "name": "Hallmark Enquiries",
+   "subject": "RE: Fenster Glazing - Quote - Raj",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "uniassist.co.uk",
+   "contact": "markwilliams@uniassist.co.uk",
+   "name": "Mark Williams",
+   "subject": "Commercial Aluminium Glazing Condition Survey Quotation",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "ucdlimited.co.uk",
+   "contact": "sales@ucdlimited.co.uk",
+   "name": "Sales",
+   "subject": "RE: Fenster Glazing - Quote - Raj",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "portal",
+   "company": "in-tendorganiser.co.uk",
+   "contact": "hightownha@in-tendorganiser.co.uk",
+   "name": "hightownha@in-tendorganiser.co.uk",
+   "subject": "Web Update Notification from Hightown Housing - OLDS0056 - New Back Door",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "gmail.com",
+   "contact": "joe.g.potter55@gmail.com",
+   "name": "Joe Potter",
+   "subject": "Re: Fenster Glazing - Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "gmail.com",
+   "contact": "joe.g.potter55@gmail.com",
+   "name": "Joe Potter",
+   "subject": "Re: Fenster Glazing - Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-20",
+   "kind": "enquiry",
+   "company": "btinternet.com",
+   "contact": "dorbell@btinternet.com",
+   "name": "Doreen Bell",
+   "subject": "Re: Fenster Glazing - Your Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-18",
+   "kind": "enquiry",
+   "company": "btinternet.com",
+   "contact": "dorbell@btinternet.com",
+   "name": "Doreen Bell",
+   "subject": "Fwd: Fenster Glazing - Your Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-17",
+   "kind": "enquiry",
+   "company": "outlook.com",
+   "contact": "kevpl@outlook.com",
+   "name": "Kevin Lambourne",
+   "subject": "Re: Window Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-17",
+   "kind": "enquiry",
+   "company": "gmail.com",
+   "contact": "gmcmaster67@gmail.com",
+   "name": "Gordon McMaster",
+   "subject": "Re: Fenster Glazing - Your Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-17",
+   "kind": "enquiry",
+   "company": "outlook.com",
+   "contact": "kevpl@outlook.com",
+   "name": "Kevin Lambourne",
+   "subject": "Re: Window Quote",
+   "mailbox": "info",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-16",
+   "kind": "enquiry",
+   "company": "cauldwellproperty.co.uk",
+   "contact": "caitlin@cauldwellproperty.co.uk",
+   "name": "Caitlin Mitchell",
+   "subject": "RE: Window enquiry - Foxhunter Drive/Capital Drive MK14",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-16",
+   "kind": "portal",
+   "company": "in-tendorganiser.co.uk",
+   "contact": "hightownha@in-tendorganiser.co.uk",
+   "name": "hightownha@in-tendorganiser.co.uk",
+   "subject": "Web Update Notification from Hightown Housing - FURL0005 -  Replacement cladding UPVC",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-16",
+   "kind": "portal",
+   "company": "in-tendorganiser.co.uk",
+   "contact": "hightownha@in-tendorganiser.co.uk",
+   "name": "hightownha@in-tendorganiser.co.uk",
+   "subject": "Stage Date Ending - Hightown Housing",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-15",
+   "kind": "enquiry",
+   "company": "ph-db.co.uk",
+   "contact": "paul@ph-db.co.uk",
+   "name": "Paul Hinton",
+   "subject": "Re: Fenster Glazing Enquiry - New Window Opening",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-15",
+   "kind": "enquiry",
+   "company": "wharfsidesupplies.com",
+   "contact": "sales@wharfsidesupplies.com",
+   "name": "Wharfside Supplies",
+   "subject": "Re: Fenster Glazing - Panel Quote - Kerry",
+   "mailbox": "info",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-13",
+   "kind": "enquiry",
+   "company": "applus.com",
+   "contact": "michael.north@applus.com",
+   "name": "Michael North",
+   "subject": "RE: Glass Replacement Enquiry - Applus 3C",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-10",
+   "kind": "enquiry",
+   "company": "applus.com",
+   "contact": "michael.north@applus.com",
+   "name": "Michael North",
+   "subject": "RE: Glass Replacement Enquiry - Applus 3C",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-10",
+   "kind": "enquiry",
+   "company": "dualsealglass.co.uk",
+   "contact": "liamjessop@dualsealglass.co.uk",
+   "name": "Liam Jessop",
+   "subject": "Re: Quote 16914, Project Nautilus Repacement Glazing",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-09",
+   "kind": "enquiry",
+   "company": "outlook.com",
+   "contact": "msafinance@outlook.com",
+   "name": "Sandra Bettison",
+   "subject": "Re: Fenster Glazing Quotation - Mursley Sports Pavillion",
+   "mailbox": "commercial",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-09",
+   "kind": "enquiry",
+   "company": "outlook.com",
+   "contact": "msafinance@outlook.com",
+   "name": "Sandra Bettison",
+   "subject": "Re: Fenster Glazing Quotation - Mursley Sports Pavillion",
+   "mailbox": "commercial",
+   "relationship": "individual"
+  },
+  {
+   "date": "2026-07-07",
+   "kind": "enquiry",
+   "company": "propakgroup.co.uk",
+   "contact": "sales@propakgroup.co.uk",
+   "name": "Sales",
+   "subject": "RE: F&P Replacement Door Quote",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-06",
+   "kind": "enquiry",
+   "company": "outlook.com",
+   "contact": "msafinance@outlook.com",
+   "name": "Sandra Bettison",
+   "subject": "Re: Fenster Glazing Quotation - Mursley Sports Pavillion",
+   "mailbox": "commercial",
+   "relationship": "individual"
+  }
+ ]
+}

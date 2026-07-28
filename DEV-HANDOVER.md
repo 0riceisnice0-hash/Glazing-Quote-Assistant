@@ -41,9 +41,29 @@ both deploy to, so **do not deploy while the other is mid-deploy**.
 **Rebuild and deploy Jacob:**
 
 ```powershell
-python scripts\jacob_dashboard.py            # rebuild data only
-python scripts\jacob_dashboard.py --deploy   # rebuild and push to Pages
+python scripts\jacob_daily.py --deploy       # the whole run: intake + awards + board
+python scripts\jacob_dashboard.py            # board only, from existing data
 ```
+
+`jacob_daily.py` is the loop that makes him a bot rather than a script - intake, then
+awards, then rebuild. **Entirely deterministic: no Claude session is spent**, so it costs
+nothing and cannot compete with Mary for quota. That matters - Mary's work has deadlines
+and Jacob's does not, so he must never starve her. Register it as a scheduled task
+(command in the file's docstring). A failing step is logged and the run continues; a
+Contracts Finder rate-limit must never stop the mailbox intake reaching the board.
+
+**His scripts**
+
+| Script | Does |
+|---|---|
+| `jacob_graph.py` | Graph helpers. Separate from `mary_graph.py` - own apps, own `.env.jacob` |
+| `jacob_intake.py` | Reads commercial@/info@/jacob@, classifies every message, finds signals |
+| `jacob_contracts_finder.py` | Pulls award notices (resumable; the API rate-limits hard) |
+| `jacob_jayk_recovery.py` | One-off: recovers the former BDM's contacts from role mailboxes |
+| `jacob_dashboard.py` | Merges all of the above into `jacob-data.js` |
+| `jacob_daily.py` | The daily run |
+| `jacob_verify.py` | Proves the credential chain and the read scope |
+| `setup-jacob-exchange.ps1` | Mailbox, scope group, access policies, transport rule |
 
 **Where his data comes from.** `scripts/jacob_contracts_finder.py` pulls Contracts Finder
 award notices (free OCDS API, no key, no login) into `data/jacob/contracts-finder-awards.json`.
@@ -67,9 +87,25 @@ folders (51 of which have actually bought). Yields **3 warm / 14 known / 129 col
    contractor. Those land in `possible` and need a human to confirm once - roughly 20% of
    matches are wrong, all in the low-confidence tiers.
 
-**Placeholders are deliberate.** Outreach, Relationships and most of Sources render a
-"planned" note rather than an empty table, because an empty table reads as "nothing to do".
-Nothing in Jacob sends email - there is no send path and no mailbox.
+**The mailbox intake is the important half.** 180 days of `commercial@` + `info@` is 2,000
+messages, which classify as ~265 noise, 143 supplier, 549 correspondence, 45 possible
+enquiries and **61 real enquiries plus 5 portal notices**. Those 66 are the Signals page,
+and they are live work arriving as ordinary email - the thing no scraper would ever find.
+Classification is regex over sender and subject; deliberately deterministic so it is free
+and reviewable. Consumer domains are matched on the first label (`is_freemail`) so
+`outlook.in` and `yahoo.de` are caught, not just the `.com`/`.co.uk` pair - otherwise 31
+unrelated Hotmail senders aggregate into a meaningless "hotmail.com relationship".
+
+**Jayk's book.** The former BDM's mailbox is gone (no soft-deleted or inactive copy);
+`jacob_jayk_recovery.py` recovered 263 messages, 33 companies and 49 named contacts from
+the threads that copied a role mailbox. That is a one-off, already run - the data lives in
+`data/jacob/jayk-recovery.json` and does not need regenerating.
+
+**Placeholders that remain deliberate.** Outreach renders a "planned" note rather than an
+empty table, because an empty table reads as "nothing to do". **Nothing in Jacob sends
+email**: there is no send path in any script, and a transport rule rejects anything from
+`jacob@` addressed outside the company. That rule comes off only when an approval queue
+exists and `JAC-1` (does he send under his own name?) has been answered.
 
 **The finding that matters most.** Fenster is a *subcontractor*: almost nothing it wins is
 advertised, and all these feeds are public-sector only (Stepnell, Borras, Chigwell, Guildmore
