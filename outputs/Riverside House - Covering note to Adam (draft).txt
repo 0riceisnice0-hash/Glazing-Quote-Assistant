@@ -128,6 +128,24 @@ and Conditions (to accompany the pricing document).txt. THE TWO MUST BE SENT TOG
 pricing document on its own carries no exclusions and no terms, and the recourse above only
 exists if the terms are issued.
 
+ONE INSTRUCTION ABOUT HOW THE PRICING DOCUMENT IS SENT, AND IT MATTERS
+
+Send a PDF of the pricing document, not the spreadsheet.
+
+Columns J, K and L of the spreadsheet hold what we pay A Plus - 2,331.08 frames, 85.66
+glass and 5.88 surcharge per vent, which is the 4,845.22 net quotation split three ways -
+against our 5,990.22. The house template has always had its print range set to stop at
+column I so those never reach a printed copy, and I have restored that after breaking it
+myself while cleaning the file. But a print range only protects a print. If the .xlsx goes
+to RRR, the buy is one scroll to the right.
+
+So: PDF of the print range, plus the terms and conditions file. Both, and nothing else.
+
+One thing I have not changed and would not without you. The printed range still carries
+the note "Frames/glass/surcharge are A Plus QT51518 27/07/2026 net, split per unit" - which
+tells RRR who supplies us and under what reference, though not what we pay. That may be
+exactly how you want it. It is your call rather than mine, and I have left it alone.
+
 TWO THINGS I GOT WRONG THIS WEEK, SO THEY ARE NOT CARRIED FORWARD
 
 I reported the OneDrive job folder as empty several times. It is not and never was - I was

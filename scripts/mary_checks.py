@@ -754,8 +754,15 @@ def _describes_absence(doc):
 # names that only ever appear in an Outlook attachment cache. Anything looser
 # fires on ordinary prose, which is the fault this week's noticeboard has been
 # full of.
+# Gordon Court, 28/07: this reported `ff@C.0` on their proposal PDF, which is
+# bytes out of a compressed stream rather than an address. Riverside's printable
+# guard does not cover it - every character in it is printable. So the address
+# arm now requires a domain label of two or more characters and an ALPHABETIC
+# TLD of two or more. Checked against every real address on both jobs:
+# dan.parker@agsurveying.co.uk, hayley@hdplanning.co.uk, drawingoffice@aol.com,
+# adam@fensterglazing.com, estimating@aplusaluminium.co.uk - all still match.
 THIRD_PARTY_TRACE = re.compile(
-    rb"[\w.+-]+@[\w-]+\.[\w.]+"
+    rb"[\w.+-]+@[\w-]{2,}(?:\.[\w-]{2,})*\.[A-Za-z]{2,}"
     rb"|C:\\+Users\\+[^\\\"<>]+"
     rb"|/Users/[^/\"<>]+"
     rb"|INetCache|Content\.Outlook", re.I)
@@ -798,6 +805,19 @@ def scan_file_for_traces(path, allow=()):
         else:
             with open(path, "rb") as fh:
                 raw = fh.read()
+            # A PDF is compression, not text. Tightening the pattern narrows the
+            # odds of a false hit; reading the extracted text instead removes
+            # the class of error. Only fall back to the bytes if the text cannot
+            # be had - and if neither works, say so rather than return clean.
+            if raw[:5] == b"%PDF-":
+                try:
+                    import pypdf
+                    rd = pypdf.PdfReader(path)
+                    raw = "".join((pg.extract_text() or "") for pg in rd.pages).encode(
+                        "utf-8", "ignore")
+                except Exception as exc:
+                    return [], ("PDF text could not be extracted (%s: %s) - not scanned is "
+                                "not the same as clean" % (type(exc).__name__, exc))
             # A compressed or binary file decoded as bytes throws up matches
             # that are not text at all - the Riverside drawings PDF produced
             # six "email addresses" out of 14 FlateDecode streams. Only accept
@@ -1610,7 +1630,19 @@ def selftest_trace_variants():
         # out of the drawings PDF before the printable guard went in
         binary = flat("binary.pdf", bytes(range(256)) * 40)
 
+        # Gordon Court's exact false positive, and the shapes either side of it.
+        ffat = flat("ffat.txt", b"noise ff@C.0 more noise")
+        short_tld = flat("shorttld.txt", b"someone@example.c")
+        numeric_tld = flat("numtld.txt", b"someone@example.11")
+        real = flat("real.txt", b"write to dan.parker@agsurveying.co.uk about it")
+
         VARIANTS = [
+            ("Gordon Court's 'ff@C.0' - not an address",
+                                        [{"name": "f", "path": ffat}],              PASS),
+            ("one-character TLD",       [{"name": "s", "path": short_tld}],         PASS),
+            ("numeric TLD",             [{"name": "n", "path": numeric_tld}],       PASS),
+            ("a real third-party address still fires",
+                                        [{"name": "r", "path": real}],              FAIL),
             ("field absent",            None,                                       UNKNOWN),
             ("empty list",              [],                                         NA),
             ("clean ooxml",             [{"name": "c", "path": clean}],             PASS),

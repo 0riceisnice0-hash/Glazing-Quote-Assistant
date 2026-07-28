@@ -4535,6 +4535,67 @@ Chrome tell**, which narrows the contamination to the pricing template specifica
 Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the buy price is two columns to the right
+
+Gordon Court's rule-20 side effect - enumerating issued documents to feed it made them notice two
+client-facing PDFs had never been recorded as issued at all, and **"Window & Door Elevations.pdf" turned
+out to be all four BSW quotations, 51 buy prices, in a client's hands since 09/07.** Their instruction:
+open every attachment in your own pack and confirm each is the thing its filename claims.
+
+**Run here, the filenames came back clean.** All eight Riverside outputs are what they claim. **The
+exposure was inside the correctly named file:**
+
+    K3  "Supplier used:"    L3  "A Plus (QT51518)"
+    J9  2331.075 frames     K9  85.655 glass     L9  5.88 surcharge     (and again on row 10)
+
+Doubled, that is **4,845.22 - A Plus's net quotation split three ways - on the document RRR would
+receive**, against a sell of 5,990.22. *The margin is arithmetic, not inference.*
+
+**Six turns auditing this workbook and every dump printed stopped at column I.** Not hidden, not another
+sheet - just to the right of the part being examined, after this chat had posted *"state where you
+looked"* to the noticeboard.
+
+**The house format already solves this, and this chat deleted the solution.** `MASTER PRICING DOC.xlsx`
+sets its print area to `'Pricing Document '!$C$1:$I$31`, deliberately stopping at column I so the buy
+columns never reach a printed or PDF'd copy. Riverside's was **empty**, because the previous night's
+external-link clean removed the 50 foreign defined names with
+`re.sub(r'<definedNames>.*?</definedNames>', '', s)` - **and a print area is stored as a defined name,
+`_xlnm.Print_Area`.** Only *formula* usage had been checked before deleting the block wholesale. **The
+same fault as the external-link miscount one night earlier: judging a set by the property you are
+interested in, and acting on all of it.**
+
+**Restored, and deliberately not verbatim.** `$C$1:$I$31` would have repeated the fault more quietly,
+because the exclusions block added the night before sits at **rows 33-45, outside it**. It is now
+`$C$1:$I$45` - priced items, total, optional mastic, footnote and all thirteen exclusions, and not
+columns J to L. Verified: total formula, `I21` array formula, 139 populated cells and 13 exclusion rows
+unchanged; defined names now exactly one.
+
+**The residual is the part that matters: a print area protects a print, not a file.** If the `.xlsx` is
+emailed rather than a PDF of the print range, columns J to L are one scroll away. Adam's covering note
+now says send a PDF of the print range plus the terms and conditions file, both and nothing else. **What
+you send matters more than what you designed.**
+
+**And one thing flagged rather than decided**, following Gordon Court's example of checking whether open
+book was compelled before calling theirs anything: the printed range still carries `H5`'s *"Frames/glass/
+surcharge are A Plus QT51518 27/07/2026 net, split per unit"* - naming our supplier and their quotation
+reference to the client, though not the figures. That may be exactly how Adam wants it.
+
+**Gordon Court's false positive in rule 20 is fixed at the class rather than the case.** It reported
+`ff@C.0` on their proposal - bytes from a compressed stream - and the printable-character guard added
+after Riverside's own FlateDecode false positive did not cover it, because every character in it is
+printable. The guard had been aimed at the instance. Now the address arm requires a two-character domain
+label and an alphabetic TLD, **and for a PDF the rule reads the extracted text rather than the raw
+bytes**, returning an error rather than "clean" where the text cannot be extracted. All five real
+addresses across both jobs still fire. Four variants added, **19/19**.
+
+**Recorded from the incoming side, not acted on:** a processed inbox folder holds A Plus's Riverside
+material alongside `QP65153.pdf` and a U-value calculation for **Alkerden, The Hub** - another job's
+supplier quotation in the same folder. Never confused here, but one careless copy from Gordon Court's
+problem in reverse.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

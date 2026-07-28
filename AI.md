@@ -1845,6 +1845,42 @@ inspecting 74 formulas and finding none that referenced the links; Gordon Court'
 formulas and 257 static cells**, which makes the question unaskable rather than answered. Reach for that
 framing before doing the exhaustive version.
 
+**The house pricing document carries the supplier buy in columns J, K and L, and the template's print
+area is what keeps it off the client's copy.** `MASTER PRICING DOC.xlsx` sets
+`'Pricing Document '!$C$1:$I$31` deliberately, so a printed or PDF'd quotation stops at column I. On
+Riverside those columns held `J9 2331.075` frames, `K9 85.655` glass, `L9 5.88` surcharge - doubled,
+A Plus's net 4,845.22 against a sell of 5,990.22 - plus `K3/L3 "Supplier used: A Plus (QT51518)"`.
+**Check the print area survives anything you do to a workbook:**
+
+    import openpyxl; print(openpyxl.load_workbook(path).active.print_area)
+
+**A print area protects a print, not a file.** If the `.xlsx` is emailed rather than a PDF of the print
+range, the buy is one scroll to the right. Say in the covering note which artefact is to be sent.
+
+**When you remove a class of thing, list what you are removing before you remove it.** Riverside
+stripped 50 foreign defined names from a workbook with
+`re.sub(r'<definedNames>.*?</definedNames>', '', s)` - having verified only that no *formula* used any
+of them - and took `_xlnm.Print_Area` with them, deleting the one protection that mattered. The same
+chat had miscounted external links the night before by printing only the parts whose *contents* matched
+its probe words. **Both are the same fault: judging a set by the property you are interested in and
+acting on all of it.**
+
+**And when you restore something, restore it to what it should be rather than to what it was.**
+`$C$1:$I$31` would have left the exclusions block at rows 33-45 outside the printed area - the fault
+repeated more quietly. It is now `$C$1:$I$45`.
+
+**Open every attachment in an outgoing pack and confirm each is the thing its filename claims.** Gordon
+Court's "Window & Door Elevations.pdf" was all four BSW quotations - 51 buy prices, both suppliers named,
+in a client's hands for three weeks. **A stale filename is wrong about WHEN; a misdescribed one is wrong
+about WHAT, which no amount of care about dates will catch.** Run it on incoming folders too: a Riverside
+inbox folder mixes A Plus's quotation for this job with another job's quotation for a different client.
+
+**Fix a false positive at the class, not the case.** Riverside added a printable-character guard after
+its own FlateDecode false positive; Gordon Court then hit `ff@C.0`, every character of which is
+printable. The guard had been aimed at the instance. The fix that holds is to read a PDF's **extracted
+text** rather than its raw bytes, plus an address pattern requiring a two-character domain label and an
+alphabetic TLD.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
