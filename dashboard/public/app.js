@@ -137,6 +137,48 @@ const openReqs = () => (DATA.requests || []).filter((r) => r.status === "open");
 const awaitingReqs = () => openReqs().filter((r) => !SENT_ANSWERS[r.id]);
 const unseenMsgs = () => MESSAGES.filter((m) => m.author !== "mary" && !m.seen_by_mary).length;
 
+/* ---------------- live feed ----------------
+   One feed, two boards: Mary's Live tab and Jacob's render identical event
+   rows, so the markup lives here once.
+
+   A feed update must never call render(). render() replaces #page.innerHTML,
+   which collapses the page height, and the browser paints a frame at scroll
+   0 before anything can put the position back - that painted frame is the
+   flash. Restoring scroll afterwards cannot fix it because it has already
+   been seen. So a poll patches #ev-feed in place and touches nothing else. */
+const EV_ICON = { say: "&#9679;", think: "&#8230;", tool: "&#9656;", result: "&#8629;" };
+const maryChip = () => (STATUS?.state === "working"
+  ? { tone: "warn", text: "working" } : { tone: "ok", text: "idle" });
+
+const feedRows = (events) => (events || []).map((e) => `
+  <div class="ev ev-${esc(e.kind)}">
+    <span class="ev-mark">${EV_ICON[e.kind] || "&#9679;"}</span>
+    <div class="ev-body">${esc(e.text)}</div>
+  </div>`).join("");
+
+const feedWhen = (a) => (a && a.updated
+  ? new Date(a.updated).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" })
+  : "");
+
+/* Returns false when there is nothing on screen to patch - first paint, or
+   coming out of the empty state - and the caller falls back to render(). */
+function paintFeed(a, chip) {
+  const feed = $("#ev-feed");
+  if (!feed || !((a && a.events) || []).length) return false;
+  // Follow new events only if the reader was already at the bottom. Scrolling
+  // up to read an earlier step has to hold, or the feed is unreadable.
+  const stick = feed.scrollHeight - feed.scrollTop - feed.clientHeight < 40;
+  feed.innerHTML = feedRows(a.events);
+  if (stick) feed.scrollTop = feed.scrollHeight;
+  const when = $(".live-head .live-when");
+  if (when) when.textContent = `last step ${feedWhen(a)}`;
+  // The head chip tracks STATUS, not the feed, and used to stay fresh only
+  // because the whole page was being rebuilt every three seconds.
+  const dot = chip && $(".live-head .chip");
+  if (dot) { dot.className = `chip ${chip.tone}`; dot.textContent = chip.text; }
+  return true;
+}
+
 /* ---------------- panel ---------------- */
 function openPanel(html) { $("#panel-body").innerHTML = html; $("#panel").hidden = false; $("#panel-veil").hidden = false; }
 function closePanel() { $("#panel").hidden = true; $("#panel-veil").hidden = true; }
@@ -180,6 +222,91 @@ function jobPanel(j) {
   });
 }
 
+/* ---------------- Jacob: editing a row ----------------
+   Anything on his board with a key can be opened and corrected. What he
+   derived stays visible next to what you set, so it is always clear which
+   is which - and "dead" or "done" takes the row off Today for good. */
+function findJacobRow(key) {
+  if (!JACOB) return null;
+  const pools = [
+    [JACOB.threads, (t) => ({ title: t.person || t.contact, sub: `${t.company} - ${t.mailbox}@`,
+      evidence: `<p><strong>${esc(t.subject)}</strong></p><p>${t.messages} message${t.messages === 1 ? "" : "s"} between ${esc(t.first)} and ${esc(t.last)}, from ${esc(t.contact)}. Fenster history: ${esc(t.relationship)}.</p>`,
+      unknowns: t.unknowns })],
+    [JACOB.warm.concat(JACOB.known, JACOB.cold), (r) => ({ title: r.supplier,
+      sub: `${r.client ? r.client + " - " : ""}${gbp(r.total || r.value)}`,
+      evidence: `<p><strong>${esc(r.title)}</strong></p><p>Buyer ${esc(r.buyer) || "not named"}. Awarded ${esc(r.awarded) || "date not published"}${r.n > 1 ? `, ${r.n} live contracts in the window` : ""}. ${esc(r.area) ? "Postcode area " + esc(r.area) + "." : ""}</p>${r.url ? `<p><a href="${esc(r.url)}" target="_blank" rel="noopener">The notice on Contracts Finder</a></p>` : ""}`,
+      unknowns: r.confidence === "possible" ? ["Whether this is the same company as the archive folder. Single-word names throw false positives."] : [] })],
+    [JACOB.relationships.rows, (x) => ({ title: x.company, sub: x.domain || "from the archive",
+      evidence: `<p>${x.messages || "No"} message${x.messages === 1 ? "" : "s"} in the window${x.lastContact ? `, last on ${esc(x.lastContact)}` : ""}. Known from ${x.sources.join(", ")}.</p><p>${x.contacts.length ? x.contacts.map((c) => esc(c.name || c.address)).join(", ") : "No named contact."}</p>`,
+      unknowns: [] })],
+  ];
+  for (const [list, shape] of pools) {
+    const hit = (list || []).find((r) => r.key === key);
+    if (hit) return { ...hit, ...shape(hit) };
+  }
+  const q = quotesOut().find((r) => r.key === key);
+  if (q) {
+    return { ...q, title: q.job, sub: `${q.client} - ${q.value}`,
+      evidence: `<p>Issued against a return date of ${esc(q.sent)}${q.days > 0 ? `, ${q.days} days ago` : ""}. Read from Mary's job records - she owns that row, Jacob only looks at it.</p>`,
+      unknowns: ["Whether the client has answered. Nothing records that anywhere yet."] };
+  }
+  return null;
+}
+
+function crmPanel(key) {
+  const item = findJacobRow(key);
+  if (!item) { toast("Cannot find that row - the board may have been rebuilt"); return; }
+  const o = jp(key);
+  const pick = (id, list, current) => `<div class="req-options" id="${id}">${list.map((v) =>
+    `<span class="opt${current === v ? " sel" : ""}" data-pick="${id}">${esc(v)}</span>`).join("")}</div>`;
+  openPanel(`
+    <h2>${esc(item.title)}</h2>
+    <p class="sub">${esc(item.sub || "")}</p>
+    <div class="panel-sec"><h4>What Jacob can see</h4><div class="rt">${item.evidence}</div></div>
+    ${item.unknowns?.length ? `<div class="panel-sec"><h4>What he cannot</h4>
+      <ul class="unk">${item.unknowns.map((u) => `<li>${esc(u)}</li>`).join("")}</ul></div>` : ""}
+    <div class="panel-sec"><h4>State</h4>${pick("jstate", JSTATES, jState(item))}
+      <p class="page-sub">Jacob derived <strong>${esc(item.state || "nothing")}</strong> from the evidence.
+      Picking one here overrides that and survives every rebuild.</p></div>
+    <div class="panel-sec"><h4>Who does the next thing</h4>${pick("jowner", JOWNERS, jOwner(item))}</div>
+    <div class="panel-sec"><h4>Next action</h4>
+      <div class="ask-inline"><textarea id="jnext" rows="3">${esc(jNext(item))}</textarea></div></div>
+    <div class="panel-sec"><h4>What happened last</h4>
+      <div class="ask-inline"><textarea id="jnote" rows="3" placeholder="Rang him - wants a price by Friday...">${esc(o.note || "")}</textarea></div>
+      ${o.updated ? `<p class="page-sub">Last edited by ${esc(o.updated_by || "team")} on ${esc((o.updated || "").slice(0, 10))}.</p>` : ""}</div>
+    <div class="panel-sec panel-btns">
+      <button class="btn" id="jsave">Save</button>
+      <button class="btn ghost" id="jdone">Done - take it off the list</button>
+    </div>`);
+
+  const save = async (state) => {
+    const btn = $("#jsave");
+    if (btn) { btn.disabled = true; btn.textContent = "Saving..."; }
+    try {
+      await api("jacob/pipeline", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          key, label: item.title, author: who(),
+          state: state || $("#jstate .opt.sel")?.textContent.trim() || "",
+          owner: $("#jowner .opt.sel")?.textContent.trim() || "",
+          next_action: $("#jnext").value.trim(),
+          note: $("#jnote").value.trim(),
+        }),
+      });
+      JPIPE = Object.fromEntries((await api("jacob/pipeline")).map((r) => [r.key, r]));
+      closePanel();
+      toast(`Saved - ${item.title}`);
+      render();
+    } catch {
+      if (btn) { btn.disabled = false; btn.textContent = "Save"; }
+      toast("Could not save that - try again");
+    }
+  };
+  $("#jsave").addEventListener("click", () => save());
+  $("#jdone").addEventListener("click", () => save("done"));
+}
+
 function emailPanel(e) {
   openPanel(`
     <h2>${esc(e.subject)}</h2>
@@ -214,6 +341,9 @@ const ICONS = {
   outreach: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>',
   sources: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
   decisions: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>',
+  enquiries: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>',
+  chasing: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>',
+  companies: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20a5.5 5.5 0 0 0-3-4.9"/></svg>',
 };
 
 const PAGES = [
@@ -237,16 +367,20 @@ const PAGES = [
 const JACOB_PAGES = [
   // Order matters: the group heading is emitted when the group changes,
   // so pages in the same group have to sit together or the heading repeats.
-  { key: "overview", label: "Overview", group: "Find", sub: () => "What Jacob has found, and what is still to build" },
-  { key: "signals", label: "Signals", group: "Find", sub: () => `${JACOB?.totals.signals || 0} enquiries and portal notices found in the mailboxes` },
-  { key: "leads", label: "Leads", group: "Find", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} matched to a Fenster relationship, ${JACOB?.totals.cold || 0} cold` },
-  { key: "relationships", label: "Relationships", group: "People", sub: () => `${JACOB?.relationships.rows.length || 0} companies, ${JACOB?.totals.dormant || 0} with no recent contact` },
-  { key: "jayk", label: "Jayk's book", group: "People", sub: () => `${JACOB?.jayk?.messages || 0} recovered messages from the former BDM` },
+  //
+  // Ordered the way the job is actually done. "Today" is a list of things to
+  // do, not a summary of what was found; Enquiries and Chasing are the two
+  // places money is either won or quietly lost; everything else is reference.
+  { key: "overview", label: "Today", group: "Work", sub: () => `${jActions().length} things to do, most urgent first` },
+  { key: "enquiries", label: "Enquiries", group: "Work", sub: () => `${JACOB?.totals.buyers || 0} live conversations with a buyer, out of ${JACOB?.totals.signals || 0} raw messages` },
+  { key: "chasing", label: "Chasing", group: "Work", sub: () => `${quotesWaiting().length} quotes past their return date, ${JACOB?.totals.quietBuyers || 0} enquiries gone quiet` },
+  { key: "leads", label: "Leads", group: "Work", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} winners Fenster knows, ${JACOB?.totals.cold || 0} it does not` },
+  { key: "companies", label: "Companies", group: "People", sub: () => `${JACOB?.relationships.total || 0} companies, ${JACOB?.totals.dormantWon || 0} who have paid us and gone silent` },
+  { key: "jayk", label: "Jayk's book", group: "People", sub: () => `${JACOB?.totals.jaykContacts || 0} contacts recovered from the former BDM` },
   { key: "jmessages", label: "Messages", group: "Talk", sub: () => "Two-way line with Jacob" },
   { key: "botchat", label: "Internal chat", group: "Talk", sub: () => "What Jacob and Mary say to each other - max ten an hour each" },
   { key: "decisions", label: "Jacob needs you", group: "Talk", sub: () => `${openJacobReqs().length} open, ${JACOB?.decisions.length || 0} standing` },
-  { key: "outreach", label: "Outreach", group: "Build", sub: () => "Nothing sends without a human approving it" },
-  { key: "sources", label: "Sources", group: "Build", sub: () => "Where leads come from, and which feeds are live" },
+  { key: "sources", label: "How this works", group: "Build", sub: () => "Where leads come from, what is wired up, and what still is not" },
   { key: "jlive", label: "Live", group: "Build", sub: () => "What Jacob is doing right now" },
 ];
 
@@ -256,6 +390,11 @@ let JMSGS = [];
 let JREQS = [];
 let BOTCHAT = [];
 let JACTIVITY = null;
+/* The CRM overlay. Jacob derives a state and a next action for everything
+   from the evidence; this is a human saying otherwise, keyed by the stable
+   key his generator emits. It survives a rebuild of jacob-data.js, which is
+   the whole point - a board you cannot correct is a report, not a CRM. */
+let JPIPE = {};
 /* What was on screen last time render() ran. A background refresh must leave
    the page exactly where you left it; only a deliberate tab change resets it. */
 let LAST_VIEW = { page: null, bot: null };
@@ -277,134 +416,375 @@ const gbp = (v) => {
   return `GBP ${Math.round(v).toLocaleString()}`;
 };
 
+/* A stat tile is read at a glance and has one line to do it in. "GBP 548,513"
+   wraps and stops being a glance. */
+const gbpShort = (v) => (!v ? "none" : v >= 1e6 ? `GBP ${(v / 1e6).toFixed(1)}m`
+  : v >= 1e4 ? `GBP ${Math.round(v / 1000)}k` : gbp(v));
+
+/* ---------------- Jacob's CRM layer ----------------
+   Every row on his board has a key, a state, an owner and a next action.
+   The generator derives all four; anything a human has changed wins. */
+const jp = (key) => JPIPE[key] || {};
+const jState = (r) => jp(r.key).state || r.state || "";
+const jOwner = (r) => jp(r.key).owner || r.owner || "-";
+const jNext = (r) => jp(r.key).next_action || r.next || "";
+const jNote = (r) => jp(r.key).note || "";
+/* Done and dead both mean "stop showing me this", and both are human-set. */
+const jShut = (r) => ["done", "dead"].includes(jState(r));
+
+const JSTATES = ["live", "waiting", "quoted", "gone quiet", "dormant", "dead", "done"];
+const JOWNERS = ["Adam", "Jacob", "Gintare", "Mary", "Zac", "-"];
+
+/* One colour vocabulary across every page, so "amber" always means the same
+   thing whether it is a company, an enquiry or a quote sitting out. */
+function stateTone(s) {
+  if (["live", "done"].includes(s)) return "ok";
+  if (["waiting", "quoted", "dormant - has bought", "dormant"].includes(s)) return "warn";
+  if (["gone quiet", "stale"].includes(s)) return "danger";
+  return "navy";
+}
+const stateChip = (r) => `<span class="chip ${stateTone(jState(r))}">${esc(jState(r) || "no state")}</span>`;
+
+/* An owner with nothing to do is honest; a blank one is an unfinished row. */
+const ownerTag = (r) => {
+  const o = jOwner(r);
+  return o === "-" ? `<span class="who-tag none">nobody</span>` : `<span class="who-tag">${esc(o)}</span>`;
+};
+
+/* Mary's board, read only. Fenster's second handover - the quote has gone
+   out and it comes back to Jacob to chase - is the one nobody currently
+   does, and her job records are the only place the issued quotes exist.
+   Everything here is defensive: her file is hers and its shape can change. */
+function quotesOut() {
+  // Priced and approved is not the same as sent, and "not yet priced" is
+  // neither. Both tests are anchored on the stage rather than the value, so a
+  // value reading "not yet priced" cannot match the word "priced" and land an
+  // unpriced tender on a chase list. Unsent is checked first: "approved to
+  // issue" jobs carry a quoted value and have still not gone anywhere.
+  const isUnsent = (j) => /approved to issue|awaiting send|drafted|priced -/i.test(j.stage || "");
+  const isOut = (j) => /submitted/i.test(j.stage || "") || /\b(quoted|tendered)\b/i.test(j.value || "");
+  const jobs = (DATA?.jobs || []).filter((j) => isUnsent(j) || isOut(j));
+  return jobs.map((j) => {
+    const days = /^\d{4}-\d{2}-\d{2}$/.test(j.deadline || "") ? -daysUntil(j.deadline) : null;
+    const key = `job:${String(j.job).toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 50)}`;
+    const unsent = isUnsent(j);
+    let state, next, owner = "Adam";
+    if (unsent) {
+      state = "not issued"; owner = "Gintare";
+      next = `Not out yet - priced and waiting to be issued. Nothing to chase until it has gone.`;
+    } else if (days === null) {
+      state = "quoted"; owner = "Jacob";
+      next = `No date on this one. Find out when ${j.client} was sent it, then chase.`;
+    } else if (days < 0) {
+      state = "not due"; owner = "-";
+      next = `Return date is ${niceDate(j.deadline)}. Chase the week after, not before.`;
+    } else if (days < 7) {
+      state = "quoted"; owner = "-";
+      next = `Out ${days} day${days === 1 ? "" : "s"}. Leave it until day seven, then Adam calls ${j.client}.`;
+    } else if (days < 21) {
+      next = `Adam calls ${j.client}. ${j.value} has been out ${days} days with nothing back.`;
+      state = "waiting";
+    } else {
+      state = "gone quiet";
+      next = `Adam calls ${j.client} - ${days} days, no answer. Ask outright: won, lost or parked.`;
+    }
+    return { key, job: j.job, client: j.client, value: j.value, due: j.deadline,
+             days, unsent, state, owner, next };
+  }).sort((a, b) => (b.days ?? -999) - (a.days ?? -999));
+}
+/* Only what has genuinely left the building and is past its return date. */
+const quotesWaiting = () => quotesOut().filter((q) => !q.unsent && (q.days === null || q.days >= 0));
+const poundsOf = (s) => parseFloat(String(s).replace(/[^\d.]/g, "")) || 0;
+
+/* Does Mary already have this? Two words of five letters or more in common
+   is enough to be worth showing and tight enough that "House" alone never
+   matches. Wrong here costs a chip on a row, not a decision. */
+const bigWords = (s) => [...new Set(String(s || "").toLowerCase().match(/[a-z]{5,}/g) || [])];
+function maryHas(text) {
+  const t = String(text || "").toLowerCase();
+  return (DATA?.jobs || []).find((j) => bigWords(j.job).filter((w) => t.includes(w)).length >= 2);
+}
+
+/* Everything on the Today list: what Jacob derived, minus anything a human
+   has ticked off, plus the quotes sitting out on Mary's board. */
+function jActions() {
+  if (!JACOB) return [];
+  const out = (JACOB.actions || []).filter((a) => !jShut(a));
+  for (const q of quotesOut()) {
+    // Not due and not yet issued are both real states and neither is a thing
+    // to do today. They live on Chasing so nothing disappears.
+    if (jShut(q) || q.owner === "-" || q.unsent) continue;
+    out.push({
+      key: q.key, company: q.client, headline: q.job, what: `${q.value} - issued, nothing back`,
+      owner: jOwner(q), next: jNext(q), state: jState(q), page: "chasing",
+      score: q.days >= 21 ? 90 : 70,
+    });
+  }
+  return out.sort((a, b) => (b.score || 0) - (a.score || 0));
+}
+
 const JACOB_RENDER = {
-  _leadTable(rows, showClient) {
-    if (!rows.length) return `<div class="empty"><strong>Nothing here yet</strong></div>`;
-    return `<table class="tbl"><thead><tr>
-        <th>Winner</th>${showClient ? "<th>Fenster history</th>" : ""}
-        <th>What they won</th><th>Value</th><th>Where</th><th>Awarded</th></tr></thead><tbody>
-      ${rows.map((r) => `<tr data-jlead="${esc(r.supplier)}">
-        <td><strong>${esc(r.supplier)}</strong></td>
-        ${showClient ? `<td>${esc(r.client)} <span class="pill ${r.confidence}">${r.confidence}</span></td>` : ""}
-        <td>${esc(r.title)}</td>
-        <td class="money">${gbp(r.total || r.value)}</td>
-        <td>${esc(r.area) || "-"}</td>
-        <td>${esc(r.awarded) || "-"}</td></tr>`).join("")}
-    </tbody></table>`;
+  /* One row shape for everything with a next action against it. Company,
+     what happened, what to do, who does it - in that order, because that is
+     the order the question gets asked in. */
+  _acts(list, empty) {
+    if (!list.length) return `<div class="empty"><strong>${empty}</strong></div>`;
+    return `<div class="acts">${list.map((a, i) => `
+      <div class="act ${stateTone(jState(a))}" data-jkey="${esc(a.key)}">
+        <div class="act-no">${i + 1}</div>
+        <div class="act-main">
+          <div class="act-top"><strong>${esc(a.headline || a.company)}</strong>
+            ${a.headline && a.company !== a.headline ? `<span class="act-co">${esc(a.company)}</span>` : ""}
+            ${stateChip(a)}</div>
+          <div class="act-what">${inline(a.what || "")}</div>
+          <div class="act-next">${inline(jNext(a) || "No next action set - open it and give it one.")}</div>
+          ${jNote(a) ? `<div class="act-note">Last note: ${esc(jNote(a))}</div>` : ""}
+        </div>
+        <div class="act-side">${ownerTag(a)}<small data-go="${esc(a.page || "overview")}">${esc(a.page || "")} &rarr;</small></div>
+      </div>`).join("")}</div>`;
   },
 
   overview() {
     const t = JACOB.totals;
+    const acts = jActions();
+    const mine = (o) => acts.filter((a) => jOwner(a) === o).length;
+    const outValue = quotesWaiting().reduce((n, q) => n + poundsOf(q.value), 0);
     return `
       <div class="stats">
-        <div class="stat green" data-go="signals"><div class="n">${t.signals}</div><div class="l">Live signals in the mailboxes</div></div>
-        <div class="stat green" data-go="leads"><div class="n">${t.warm}</div><div class="l">Warm - they have bought from us</div></div>
-        <div class="stat amber" data-go="leads"><div class="n">${t.known}</div><div class="l">Known - quoted, never won</div></div>
-        <div class="stat" data-go="leads"><div class="n">${t.cold}</div><div class="l">Cold building contracts</div></div>
-        <div class="stat amber" data-go="relationships"><div class="n">${t.dormant}</div><div class="l">Gone quiet - no recent contact</div></div>
-        <div class="stat amber" data-go="decisions"><div class="n">${JACOB.decisions.length}</div><div class="l">Decisions Jacob needs</div></div>
+        <div class="stat ${mine("Adam") ? "red" : "green"}"><div class="n">${mine("Adam")}</div><div class="l">Waiting on Adam - a call or a decision</div></div>
+        <div class="stat amber" data-go="enquiries"><div class="n">${t.liveBuyers}</div><div class="l">Buyers mid-conversation right now</div></div>
+        <div class="stat amber" data-go="chasing"><div class="n">${gbpShort(outValue)}</div><div class="l">Quoted and waiting on an answer</div></div>
+        <div class="stat" data-go="leads"><div class="n">${gbpShort(t.knownWinnerValue)}</div><div class="l">Live contracts won by companies we know</div></div>
+        <div class="stat amber" data-go="companies"><div class="n">${t.dormantWon}</div><div class="l">Have paid Fenster, silent 180 days</div></div>
       </div>
 
-      ${JACOB.intake ? `<div class="section"><div class="section-head"><h3>Newest signals</h3><a data-go="signals">All signals &rarr;</a></div>
-        ${this._signalTable(JACOB.intake.signals.slice(0, 8))}</div>` : ""}
+      <div class="section"><div class="section-head"><h3>Do these today</h3>
+        <span class="page-sub">Ranked by how close it is to a real enquiry from a real buyer</span></div>
+        ${this._acts(acts, "Nothing outstanding")}</div>
 
-      <div class="section"><div class="section-head"><h3>Warm - call these first</h3><a data-go="leads">All leads &rarr;</a></div>
-        ${this._leadTable(JACOB.warm, true)}</div>
-
-      <div class="section"><div class="section-head"><h3>How this was built</h3></div>
+      <div class="section"><div class="section-head"><h3>What Jacob cannot see</h3></div>
         <div class="planned-note">
-          <p>${t.awardRows.toLocaleString()} construction award rows over ${JACOB.window.days} days
-          (${JACOB.window.from} to ${JACOB.window.to}), ${t.winners.toLocaleString()} unique winning
-          companies, cross-referenced against ${t.clients} client folders in the OneDrive archive
-          (${t.clientsWon} of which have actually bought).</p>
-          <p><strong>Two rules do most of the filtering.</strong> Leads are scored on what the contract
-          <em>is</em> (CPV building families) rather than what its title says - keyword matching
-          returned window <em>cleaning</em>, STI <em>screening</em>, and one award that matched only on
-          the phrase "the front door to maternity services". And a notice only counts if the award is
-          recent and the job is still running: one was published 469 days after the award, on a
-          contract that had already finished.</p>
-          <p><strong>Confidence matters.</strong> Single-word company names throw false positives -
-          "Atlas" matched a window-cleaning contractor. Anything marked
-          <span class="pill possible">possible</span> needs a human to confirm it once.</p>
+          <p><strong>Whether anyone has already replied.</strong> Mailbox intake reads
+          received mail only, so an enquiry Gintare answered an hour ago looks exactly like
+          one nobody has touched. Every "check for a reply, then call" above exists because
+          of that gap. <a data-go="decisions">JAC-5</a> asks for sent items.</p>
+          <p><strong>Anything private-sector before it is awarded.</strong> All the free feeds
+          are public procurement. Stepnell, Borras, Chigwell and Guildmore - four of Fenster's
+          real clients - appear in none of them.</p>
         </div></div>`;
   },
 
-  leads() {
-    return `
-      <div class="section"><div class="section-head"><h3>Warm - Fenster has delivered for them</h3></div>
-        ${this._leadTable(JACOB.warm, true)}</div>
-      <div class="section"><div class="section-head"><h3>Known - quoted before, never won</h3></div>
-        ${this._leadTable(JACOB.known, true)}</div>
-      <div class="section"><div class="section-head"><h3>Cold - building contracts, no relationship yet</h3></div>
-        ${this._leadTable(JACOB.cold, false)}</div>`;
-  },
-
-  _signalTable(rows) {
-    if (!rows || !rows.length) return `<div class="empty"><strong>No signals</strong></div>`;
+  /* ------------------------------------------------ enquiries */
+  _threadRows(list) {
     return `<table class="tbl"><thead><tr>
-        <th>When</th><th>Type</th><th>Company</th><th>Who</th><th>Subject</th><th>In</th></tr></thead><tbody>
-      ${rows.map((s) => `<tr>
-        <td>${esc(s.date)}</td>
-        <td><span class="pill ${s.kind === "portal" ? "planned" : "live"}">${esc(s.kind)}</span></td>
-        <td><strong>${esc(s.company)}</strong>${s.relationship && s.relationship !== "unknown"
-            ? ` <span class="pill ${s.relationship === "won" ? "exact" : "strong"}">${esc(s.relationship)}</span>` : ""}</td>
-        <td>${esc(s.name || s.contact)}</td>
-        <td>${esc(s.subject)}</td>
-        <td>${esc(s.mailbox)}</td></tr>`).join("")}
+        <th>Who</th><th>What they want</th><th>State</th><th>Next action</th><th>Owner</th></tr></thead><tbody>
+      ${list.map((t) => {
+        const job = maryHas(t.subject);
+        return `<tr data-jkey="${esc(t.key)}">
+        <td class="job-cell"><strong>${esc(t.person || t.company)}</strong>
+          <small>${esc(t.person ? t.company : t.contact)} &middot; ${t.messages} msg${t.messages === 1 ? "" : "s"} &middot; last ${esc(t.last)}</small></td>
+        <td>${esc(t.subject)}
+          ${t.relationship !== "unknown" ? ` <span class="pill ${t.relationship === "won" ? "exact" : "strong"}">${esc(t.relationship)}</span>` : ""}
+          ${job ? ` <span class="pill live">Mary has this</span>` : ""}</td>
+        <td>${stateChip(t)}<small class="dim">${t.days}d</small></td>
+        <td style="max-width:340px">${inline(jNext(t))}</td>
+        <td>${ownerTag(t)}</td></tr>`;
+      }).join("")}
     </tbody></table>`;
   },
 
-  signals() {
-    if (!JACOB.intake) {
+  enquiries() {
+    if (!JACOB.threads) {
       return `<div class="planned-note">Mailbox intake has not run yet.
         <code>python scripts/jacob_intake.py</code></div>`;
     }
-    const i = JACOB.intake;
-    const boxes = Object.entries(i.perMailbox)
-      .map(([m, n]) => `${m.split("@")[0]} ${n}`).join(" &middot; ");
+    const T = JACOB.threads.filter((t) => !jShut(t));
+    const buyers = T.filter((t) => t.kind === "buyer");
+    const open = buyers.filter((t) => !["gone quiet", "stale"].includes(t.state));
+    const quiet = buyers.filter((t) => ["gone quiet", "stale"].includes(t.state));
+    const portal = T.filter((t) => t.kind === "portal");
+    const other = T.filter((t) => ["supplier", "domestic"].includes(t.kind));
+    const t = JACOB.totals;
     return `
-      <div class="section"><div class="section-head"><h3>What the mailboxes are holding</h3></div>
+      <div class="section"><div class="section-head"><h3>Buyers, mid-conversation</h3></div>
+        ${open.length ? this._threadRows(open) : `<div class="empty"><strong>Nothing open</strong></div>`}</div>
+
+      ${quiet.length ? `<div class="section"><div class="section-head"><h3>Buyers who have gone quiet</h3>
+        <a data-go="chasing">Chasing &rarr;</a></div>
+        ${this._threadRows(quiet)}</div>` : ""}
+
+      ${portal.length ? `<div class="section"><div class="section-head"><h3>Portal notices</h3></div>
+        ${this._threadRows(portal)}</div>` : ""}
+
+      <div class="section"><div class="section-head"><h3>Why this list is short</h3></div>
         <div class="planned-note">
-          <p>Last ${i.windowDays} days: ${esc(boxes)}. Classified as
-          ${Object.entries(i.counts).sort((a, b) => b[1] - a[1])
-            .map(([k, n]) => `<strong>${n}</strong> ${esc(k)}`).join(", ")}.</p>
-          <p>Everything below arrived as ordinary email. No portal login, no scraper.</p>
+          <p>The mailboxes produced <strong>${t.signals}</strong> messages the classifier called
+          enquiries. They are <strong>${t.threads}</strong> conversations, and only
+          <strong>${t.buyers}</strong> of those are a buyer asking Fenster for something.</p>
+          <p>The rest: <strong>${t.supplierThreads}</strong> are fabricators and glass suppliers
+          <em>replying to Fenster</em> - a subject line like "Fenster Glazing - Quote - Raj" is
+          Fenster asking Truframe for a price, not Truframe asking us for one. Counting those as
+          leads inflates the number by two thirds and points Adam at his own supply chain.
+          <strong>${t.domestic}</strong> are householders replying to quotes Fenster has already
+          issued - real work, but Gintare's, not business development.</p>
+          <p>A hundred names nobody will ever call is worse than three companies with a live
+          project and a person who knows us. The permanent fix belongs in
+          <code>jacob_intake.py</code>'s classifier; today it is done here.</p>
         </div></div>
-      <div class="section"><div class="section-head"><h3>Enquiries and portal notices</h3></div>
-        ${this._signalTable(i.signals)}</div>`;
+
+      ${other.length ? `<div class="section"><div class="section-head"><h3>Not enquiries - listed so the count adds up</h3></div>
+        ${this._threadRows(other)}</div>` : ""}`;
   },
 
-  relationships() {
+  /* ------------------------------------------------ chasing */
+  chasing() {
+    const out = quotesOut().filter((q) => !jShut(q));
+    const quiet = (JACOB.threads || []).filter(
+      (t) => t.kind === "buyer" && ["gone quiet", "stale"].includes(t.state) && !jShut(t));
+    const total = quotesWaiting().reduce((n, q) => n + poundsOf(q.value), 0);
+    return `
+      <div class="section"><div class="section-head"><h3>The handover nobody does</h3></div>
+        <div class="planned-note">
+          <p>Fenster finds it, Mary prices it, the quote goes out - and then nothing happens.
+          That second handover, back to business development to chase, is not a job anyone
+          currently holds, which is why quotes go quiet and nobody notices.</p>
+          <p><strong>${gbp(total)}</strong> is past its return date with no answer recorded.
+          Rows still inside their return date, and rows priced but not yet issued, are listed
+          too but carry no chase - calling about a quote that never left the building is worse
+          than not calling. All of this is read from Mary's job records: she owns them, Jacob
+          only looks.</p>
+        </div></div>
+
+      <div class="section"><div class="section-head"><h3>Quotes out, no answer recorded</h3></div>
+        ${out.length ? `<table class="tbl"><thead><tr>
+          <th>Job</th><th>Value</th><th>Return date</th><th>State</th><th>Next action</th><th>Owner</th></tr></thead><tbody>
+        ${out.map((q) => `<tr data-jkey="${esc(q.key)}">
+          <td class="job-cell"><strong>${esc(q.job)}</strong><small>${esc(q.client)}</small></td>
+          <td class="money">${esc(q.value)}</td>
+          <td class="num">${esc(q.due)}${q.days > 0 && !q.unsent ? ` <small class="dim">${q.days}d ago</small>` : ""}</td>
+          <td>${stateChip(q)}</td>
+          <td style="max-width:320px">${inline(jNext(q))}</td>
+          <td>${ownerTag(q)}</td></tr>`).join("")}
+        </tbody></table>` : `<div class="empty"><strong>Nothing issued and waiting</strong>Either every quote has had an answer, or Mary's board has not been rebuilt.</div>`}</div>
+
+      <div class="section"><div class="section-head"><h3>Enquiries that went quiet</h3></div>
+        ${quiet.length ? this._threadRows(quiet)
+          : `<div class="empty"><strong>None</strong>Every buyer who wrote in has been answered inside ten days.</div>`}</div>`;
+  },
+
+  /* ------------------------------------------------ leads */
+  _leadTable(rows, showClient) {
+    if (!rows.length) return `<div class="empty"><strong>Nothing here yet</strong></div>`;
+    return `<table class="tbl"><thead><tr>
+        <th>Winner</th>${showClient ? "<th>Fenster history</th>" : ""}
+        <th>What they won</th><th>Value</th><th>Where</th>${showClient ? "<th>Next action</th><th>Owner</th>" : "<th>Awarded</th>"}</tr></thead><tbody>
+      ${rows.map((r) => `<tr data-jkey="${esc(r.key)}">
+        <td class="job-cell"><strong>${esc(r.supplier)}</strong><small>awarded ${esc(r.awarded) || "date not published"}</small></td>
+        ${showClient ? `<td>${esc(r.client)} <span class="pill ${r.confidence}">${r.confidence}</span></td>` : ""}
+        <td>${esc(r.title)}</td>
+        <td class="money">${gbp(r.total || r.value)}</td>
+        <td>${esc(r.area) || "-"}</td>
+        ${showClient ? `<td style="max-width:300px">${inline(jNext(r))}</td><td>${ownerTag(r)}</td>`
+                     : `<td>${esc(r.awarded) || "-"}</td>`}</tr>`).join("")}
+    </tbody></table>`;
+  },
+
+  leads() {
+    const warm = JACOB.warm.filter((r) => !jShut(r));
+    const known = JACOB.known.filter((r) => !jShut(r));
+    return `
+      <div class="section"><div class="section-head"><h3>They have bought from Fenster, and they have just won work</h3></div>
+        <div class="planned-note">A warm name beats a perfect-fit stranger nearly every time.
+        In this trade a relationship buys one thing: being asked to price.</div>
+        ${this._leadTable(warm, true)}</div>
+
+      <div class="section"><div class="section-head"><h3>Quoted before, never won - and building again</h3></div>
+        ${this._leadTable(known, true)}</div>
+
+      <div class="section"><div class="section-head"><h3>Cold - no relationship at all</h3>
+        <span class="pill planned">blocked</span></div>
+        <div class="planned-note">${JACOB.totals.cold} live building contracts whose winner Fenster
+        has never spoken to. Nobody is assigned to any of them: cold approach needs
+        <a data-go="decisions">JAC-2</a> answered and a separate sending domain. They are here so
+        the moment that changes there is a list to work, not so anyone acts on them today.</div>
+        ${this._leadTable(JACOB.cold, false)}</div>
+
+      <div class="section"><div class="section-head"><h3>How a name gets on this page</h3></div>
+        <div class="planned-note">
+          <p>${JACOB.totals.awardRows.toLocaleString()} construction award rows over
+          ${JACOB.window.days} days, ${JACOB.totals.winners.toLocaleString()} unique winners,
+          cross-referenced against ${JACOB.totals.clients} client folders in the archive
+          (${JACOB.totals.clientsWon} of which actually bought).</p>
+          <p>Leads are scored on what a contract <em>is</em> - CPV building families - not what its
+          title says. Keyword matching returned window <em>cleaning</em>, STI <em>screening</em>, and
+          one award that matched only on the phrase "the front door to maternity services". A notice
+          counts only if the award is recent <em>and</em> the job is still running: one published 469
+          days late described a contract that had already finished. And anything marked
+          <span class="pill possible">possible</span> waits for a human to confirm it once -
+          "Atlas" matched a window-cleaning contractor.</p>
+          <p><strong>An award is the weakest signal there is.</strong> By the time it publishes the
+          main contractor has picked their subcontractors. It is on the board because it is free and
+          it names companies; the stage that matters is tender, and that feed is not built.</p>
+        </div></div>`;
+  },
+
+  /* ------------------------------------------------ companies */
+  companies() {
     const r = JACOB.relationships;
-    const rows = r.rows || [];
-    const active = rows.filter((x) => x.lastContact);
-    const quiet = rows.filter((x) => !x.lastContact && x.relationship !== "unknown");
-    const tbl = (list) => `<table class="tbl"><thead><tr>
-        <th>Company</th><th>History</th><th>Last contact</th><th>Msgs</th><th>Contacts</th><th>Known from</th></tr></thead><tbody>
-      ${list.map((x) => `<tr>
-        <td><strong>${esc(x.company)}</strong></td>
+    const rows = (r.rows || []).filter((x) => !jShut(x));
+    const group = (...states) => rows.filter((x) => states.includes(jState(x)));
+    const tbl = (list, cap) => `<table class="tbl"><thead><tr>
+        <th>Company</th><th>History</th><th>State</th><th>Next action</th><th>Owner</th><th>Known from</th></tr></thead><tbody>
+      ${list.slice(0, cap).map((x) => `<tr data-jkey="${esc(x.key)}">
+        <td class="job-cell"><strong>${esc(x.company)}</strong>
+          <small>${x.contacts.slice(0, 2).map((c) => esc(c.name || c.address)).join(", ") || "no named contact"
+            }${x.contacts.length > 2 ? ` +${x.contacts.length - 2}` : ""}</small></td>
         <td>${x.relationship === "unknown" ? "-" :
              `<span class="pill ${x.relationship === "won" ? "exact"
                : x.relationship === "quoted" ? "strong" : "possible"}">${esc(x.relationship)}</span>`}</td>
-        <td>${esc(x.lastContact) || "-"}</td>
-        <td>${x.messages || "-"}</td>
-        <td>${x.contacts.slice(0, 2).map((c) => esc(c.name || c.address)).join(", ")
-             }${x.contacts.length > 2 ? ` +${x.contacts.length - 2}` : ""}</td>
+        <td>${stateChip(x)}<small class="dim">${esc(x.lastContact) || "no email"}</small></td>
+        <td style="max-width:300px">${inline(jNext(x))}</td>
+        <td>${ownerTag(x)}</td>
         <td>${x.sources.map((s) => `<span class="pill possible">${esc(s)}</span>`).join(" ")}</td>
       </tr>`).join("")}
-    </tbody></table>`;
+    </tbody></table>${list.length > cap ? `<div class="planned-note">Showing ${cap} of ${list.length}. Use the filter box to find a name.</div>` : ""}`;
+
+    const bought = group("dormant - has bought");
+    const quiet = group("gone quiet", "stale");
+    const talking = group("live", "waiting");
+    const cold = group("dormant - quoted only", "no contact on record");
     return `
       <div class="stats">
-        <div class="stat green"><div class="n">${r.won}</div><div class="l">Have bought from Fenster</div></div>
-        <div class="stat"><div class="n">${r.quoted}</div><div class="l">Quoted, no recorded win</div></div>
-        <div class="stat amber"><div class="n">${quiet.length}</div><div class="l">No contact in the window</div></div>
+        <div class="stat amber"><div class="n">${bought.length}</div><div class="l">Have paid Fenster, silent 180 days</div></div>
+        <div class="stat red"><div class="n">${quiet.length}</div><div class="l">Went quiet mid-conversation</div></div>
+        <div class="stat green"><div class="n">${talking.length}</div><div class="l">Talking to us right now</div></div>
+        <div class="stat"><div class="n">${cold.length}</div><div class="l">Quoted once, long ago</div></div>
       </div>
-      <div class="section"><div class="section-head"><h3>Active - they have emailed us recently</h3></div>
-        ${tbl(active.slice(0, 60))}</div>
-      <div class="section"><div class="section-head"><h3>Gone quiet - quoted before, nothing lately</h3></div>
-        <div class="planned-note">The cheapest lead in the business: they already asked
-        Fenster for a price once. Showing the first 60 of ${quiet.length}.</div>
-        ${tbl(quiet.slice(0, 60))}</div>`;
+
+      <div class="section"><div class="section-head"><h3>They bought, then we stopped talking</h3></div>
+        <div class="planned-note">
+          <p>The cheapest lead in the business. Every one of these paid Fenster for something and
+          has not been emailed since. No cold-contact question applies - they are existing
+          customers.</p>
+          ${bought.filter((x) => !x.contacts.length).length ? `<p><strong>${bought.filter((x) => !x.contacts.length).length}
+          of them have no contact address anywhere.</strong> The archive stores a folder with the
+          company's name on it, not the person who signed the order, and their mail predates the
+          180-day window. Until somebody has a name, these are companies, not leads - which is
+          what <a data-go="jayk">Jayk's book</a> is for.</p>` : ""}
+        </div>
+        ${tbl(bought, 60)}</div>
+
+      <div class="section"><div class="section-head"><h3>Went quiet mid-conversation</h3></div>
+        ${tbl(quiet, 40)}</div>
+
+      <div class="section"><div class="section-head"><h3>Currently talking to us</h3></div>
+        ${tbl(talking, 40)}</div>
+
+      <div class="section"><div class="section-head"><h3>Quoted once, nothing since</h3></div>
+        <div class="planned-note">${cold.length} companies in the archive with a tender folder and
+        no email in the 180-day window. Not worth a call each; worth an email the day one of them
+        turns up in a feed.</div>
+        ${tbl(cold, 40)}</div>`;
   },
 
   jayk() {
@@ -436,21 +816,23 @@ const JACOB_RENDER = {
         </tbody></table></div>`;
   },
 
-  outreach() {
+  /* Outreach had a page of its own and nothing on it was wired up. It is a
+     paragraph in the honest answer to "where does this come from", not a
+     section of the board someone opens looking for work. */
+  sources() {
     const o = JACOB.outreach;
     return `
-      <div class="section"><div class="section-head"><h3>Not wired up yet</h3><span class="pill planned">planned</span></div>
-        <div class="planned-note"><p>${esc(o.note)}</p></div></div>
-      <div class="section"><div class="section-head"><h3>Message types, and how much rope each gets</h3></div>
-        <table class="tbl"><thead><tr><th>Type</th><th>When it fires</th><th>Example we already have</th><th>Autonomy</th></tr></thead><tbody>
-        ${o.classes.map((c) => `<tr>
-          <td><strong>${esc(c.name)}</strong></td><td>${esc(c.why)}</td>
-          <td>${esc(c.example)}</td><td>${esc(c.autonomy)}</td></tr>`).join("")}
-        </tbody></table></div>`;
-  },
+      <div class="section"><div class="section-head"><h3>The thing worth knowing</h3></div>
+        <div class="planned-note">
+          <p>Fenster is a <strong>subcontractor</strong>. Almost nothing it wins is advertised - what
+          gets published is the main contract the contractor was bidding for. So the job is not
+          "find tenders". It is: find the scheme, find who is bidding it, and get Fenster onto their
+          enquiry list, ideally before the list is drawn up.</p>
+          <p>Every feed below is <strong>public sector only</strong>. Stepnell, Borras, Chigwell,
+          Guildmore and Zelltec - real Fenster clients - appear in none of them. That is what
+          <a data-go="decisions">JAC-3</a> is about.</p>
+        </div></div>
 
-  sources() {
-    return `
       <div class="section"><div class="section-head"><h3>Feeds</h3></div>
         <table class="tbl"><thead><tr><th>Source</th><th>Status</th><th>Gives us</th><th>Detail</th><th>Cost</th></tr></thead><tbody>
         ${JACOB.sources.map((s) => `<tr>
@@ -458,14 +840,14 @@ const JACOB_RENDER = {
           <td><span class="pill ${s.status === "live" ? "live" : s.status === "planned" ? "planned" : "notstarted"}">${esc(s.status)}</span></td>
           <td>${esc(s.kind)}</td><td>${esc(s.detail)}</td><td>${esc(s.cost)}</td></tr>`).join("")}
         </tbody></table></div>
-      <div class="section"><div class="section-head"><h3>The thing worth knowing</h3></div>
-        <div class="planned-note">
-          <p>Fenster is a <strong>subcontractor</strong>. Almost nothing it wins is advertised - what
-          gets published is the main contract the contractor was bidding for. So the job is not
-          "find tenders", it is find the scheme, then find who is bidding it and get on their list.</p>
-          <p>All of these feeds are <strong>public sector only</strong>. Stepnell, Borras, Chigwell,
-          Guildmore and Zelltec work appears in none of them.</p>
-        </div></div>`;
+
+      <div class="section"><div class="section-head"><h3>Outreach</h3><span class="pill planned">planned</span></div>
+        <div class="planned-note"><p>${esc(o.note)}</p></div>
+        <table class="tbl"><thead><tr><th>Type</th><th>When it fires</th><th>Example we already have</th><th>Autonomy</th></tr></thead><tbody>
+        ${o.classes.map((c) => `<tr>
+          <td><strong>${esc(c.name)}</strong></td><td>${esc(c.why)}</td>
+          <td>${esc(c.example)}</td><td>${esc(c.autonomy)}</td></tr>`).join("")}
+        </tbody></table></div>`;
   },
 
   jmessages() {
@@ -521,25 +903,17 @@ const JACOB_RENDER = {
 
   jlive() {
     const a = JACTIVITY || {};
-    const events = a.events || [];
-    if (!events.length) {
+    if (!(a.events || []).length) {
       return `<div class="empty"><strong>Nothing running</strong>When Jacob picks up
         a message or a lead, every step he takes appears here as it happens.</div>`;
     }
-    const icon = { say: "&#9679;", think: "&#8230;", tool: "&#9656;", result: "&#8629;" };
-    const when = a.updated ? new Date(a.updated).toLocaleTimeString("en-GB",
-      { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "";
     return `
       <div class="live-head">
         <span class="chip warn">working</span>
         <strong>${esc(a.title || "Business development")}</strong>
-        <span class="live-when">last step ${esc(when)}</span>
+        <span class="live-when">last step ${esc(feedWhen(a))}</span>
       </div>
-      <div class="ev-feed" id="ev-feed">${events.map((e) => `
-        <div class="ev ev-${esc(e.kind)}">
-          <span class="ev-mark">${icon[e.kind] || "&#9679;"}</span>
-          <div class="ev-body">${esc(e.text)}</div>
-        </div>`).join("")}</div>`;
+      <div class="ev-feed" id="ev-feed">${feedRows(a.events)}</div>`;
   },
 
   decisions() {
@@ -673,26 +1047,19 @@ const RENDER = {
   },
   live() {
     const a = ACTIVITY || {};
-    const events = a.events || [];
-    if (!events.length) {
+    if (!(a.events || []).length) {
       return `<div class="empty"><strong>Nothing running</strong>${STATUS?.state === "working"
         ? "Mary is working - her first step will appear here in a moment."
         : "When Mary picks up a job, everything she does appears here as it happens."}</div>`;
     }
-    const icon = { say: "&#9679;", think: "&#8230;", tool: "&#9656;", result: "&#8629;" };
-    const rows = events.map((e) => `
-      <div class="ev ev-${esc(e.kind)}">
-        <span class="ev-mark">${icon[e.kind] || "&#9679;"}</span>
-        <div class="ev-body">${esc(e.text)}</div>
-      </div>`).join("");
-    const when = a.updated ? new Date(a.updated).toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "";
+    const c = maryChip();
     return `
       <div class="live-head">
-        <span class="chip ${STATUS?.state === "working" ? "warn" : "ok"}">${STATUS?.state === "working" ? "working" : "idle"}</span>
+        <span class="chip ${c.tone}">${c.text}</span>
         <strong>${esc(a.title || a.chat || "")}</strong>
-        <span class="live-when">last step ${esc(when)}</span>
+        <span class="live-when">last step ${esc(feedWhen(a))}</span>
       </div>
-      <div class="ev-feed" id="ev-feed">${rows}</div>`;
+      <div class="ev-feed" id="ev-feed">${feedRows(a.events)}</div>`;
   },
   scoreboard() {
     const sb = DATA.scoreboard;
@@ -767,7 +1134,7 @@ function restoreDrafts() {
 
 function applyFilter() {
   const q = searchTerm.toLowerCase();
-  $$("#page tr[data-job], #page .req, #page .mail-row, #page .catch, #page .bubble").forEach((el) => {
+  $$("#page tr[data-job], #page tr[data-jkey], #page .act, #page .req, #page .mail-row, #page .catch, #page .bubble").forEach((el) => {
     el.style.display = !q || el.textContent.toLowerCase().includes(q) ? "" : "none";
   });
 }
@@ -861,6 +1228,26 @@ function render() {
     delete DRAFTS.chat;
     render();
   });
+
+  // Jacob's Send. This was missing entirely: the button rendered and did
+  // nothing, because the patch that added it anchored on a selector that does
+  // not exist in this file and silently replaced nothing.
+  const jsend = $("#jacob-send");
+  if (jsend) jsend.addEventListener("click", async () => {
+    const ta = $('[data-draft="jacob-msg"]');
+    const text = (ta?.value || "").trim();
+    if (!text) return;
+    jsend.disabled = true;
+    try {
+      await sendToJacob(text);
+      delete DRAFTS["jacob-msg"];
+      if (ta) ta.value = "";
+      render();
+    } catch {
+      toast("Could not send that");
+      jsend.disabled = false;
+    }
+  });
 }
 
 document.addEventListener("input", (e) => {
@@ -886,6 +1273,18 @@ document.addEventListener("click", async (e) => {
     if (nav.dataset.goreq) { closePanel(); page = "requests"; render(); return; }
     page = nav.dataset.nav || nav.dataset.go; render(); return;
   }
+  // Picking a state or an owner inside Jacob's edit panel. Must come before
+  // the generic .req-options handler below, which assumes a .req card around
+  // it and throws on anything else.
+  const pick = e.target.closest(".opt[data-pick]");
+  if (pick) {
+    [...pick.parentElement.querySelectorAll(".opt")]
+      .forEach((o) => o.classList.toggle("sel", o === pick));
+    return;
+  }
+  // Any row on Jacob's board with a key: open it and correct it.
+  const jrow = e.target.closest("[data-jkey]");
+  if (jrow) { crmPanel(jrow.dataset.jkey); return; }
   // Jacob's questions post to his own endpoint, not Mary's.
   const jopt = e.target.closest(".req-options .opt[data-jreq]");
   if (jopt) {
@@ -988,11 +1387,15 @@ $("#search").addEventListener("input", (e) => {
     ]);
     // His channels are separate calls so one failing endpoint cannot blank
     // the whole section.
-    [JMSGS, JREQS, BOTCHAT] = await Promise.all([
+    let pipe = [];
+    [JMSGS, JREQS, BOTCHAT, pipe] = await Promise.all([
       api("jacob/messages").catch(() => []),
       api("jacob/requests").catch(() => []),
       api("botchat").catch(() => []),
+      // No edits yet is the normal state on a fresh board, not a failure.
+      api("jacob/pipeline").catch(() => []),
     ]);
+    JPIPE = Object.fromEntries(pipe.map((r) => [r.key, r]));
     JACTIVITY = await api("jacob-activity").catch(() => null);
     if (!JACOB) $$(".nav-bot[data-bot='jacob']").forEach((b) => { b.hidden = true; });
 
@@ -1005,7 +1408,9 @@ $("#search").addEventListener("input", (e) => {
         const fresh = await api("jacob-activity");
         if (JSON.stringify(fresh) === JSON.stringify(JACTIVITY)) return;
         JACTIVITY = fresh;
-        render();
+        // Patch the feed if it is on screen; render() only for the first
+        // paint or when coming out of the empty state.
+        if (!paintFeed(fresh)) render();
       } catch {}
     }, 3000);
 
@@ -1015,7 +1420,7 @@ $("#search").addEventListener("input", (e) => {
         const fresh = await api("activity");
         if (JSON.stringify(fresh) === JSON.stringify(ACTIVITY)) return;
         ACTIVITY = fresh;
-        render();
+        if (!paintFeed(fresh, maryChip())) render();
       } catch {}
     }, 3000);
     msgSig = signature(MESSAGES);
@@ -1032,6 +1437,29 @@ $("#search").addEventListener("input", (e) => {
         MESSAGES = fresh;
         msgSig = sig;
         if (BOT === "mary" && (page === "messages" || page === "overview")) render();
+      } catch {}
+    }, 10000);
+
+    // The same beat for Jacob's channels. Without this his replies only
+    // appeared on a page reload, which made the Messages tab look broken:
+    // you sent something and nothing ever came back.
+    let jacobSig = "";
+    setInterval(async () => {
+      if (BOT !== "jacob") return;
+      if (!["jmessages", "botchat", "decisions", "overview"].includes(page)) return;
+      try {
+        const [msgs, chat, reqs] = await Promise.all([
+          api("jacob/messages").catch(() => JMSGS),
+          api("botchat").catch(() => BOTCHAT),
+          api("jacob/requests").catch(() => JREQS),
+        ]);
+        const sig = [msgs.length, chat.length, reqs.length,
+                     msgs[0]?.id, chat[0]?.id,
+                     reqs.filter((r) => r.status !== "answered").length].join(":");
+        if (sig === jacobSig) return;   // nothing new - never redraw over the user
+        jacobSig = sig;
+        JMSGS = msgs; BOTCHAT = chat; JREQS = reqs;
+        render();
       } catch {}
     }, 10000);
   } catch (err) {

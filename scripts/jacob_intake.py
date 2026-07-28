@@ -89,9 +89,13 @@ def is_freemail(domain):
     return (domain or "").lower().split(".")[0] in FREEMAIL_STEMS
 
 
-def classify(frm, subject):
-    """Deterministic. Order matters - noise first, then the useful classes."""
-    blob = "%s %s" % (frm, subject)
+def classify(frm, subject, preview=""):
+    """Deterministic. Order matters - noise first, then the useful classes.
+
+    The preview is the opening lines of the message. A subject alone cannot
+    tell "please quote us" from "here is our quote to you" - the direction of
+    the ask is in the first sentence, not the subject line."""
+    blob = "%s %s %s" % (frm, subject, preview)
     if PORTALS.search(blob):
         return "portal"
     if NOISE_FROM.search(frm) or NOISE_SUBJECT.search(subject):
@@ -142,7 +146,11 @@ def fetch(token, mailbox, since_iso, max_pages=20):
         "$filter": "receivedDateTime ge %s" % since_iso,
         "$orderby": "receivedDateTime desc",
         "$top": 50,
-        "$select": "subject,from,toRecipients,receivedDateTime,hasAttachments",
+        # bodyPreview is the first ~255 characters, returned in the SAME call
+        # for free. Without it every judgement was made from a subject line
+        # alone, which is how "Fenster Glazing - Quote - Raj" read as a
+        # customer enquiry when it was Fenster asking a fabricator for a price.
+        "$select": "subject,from,toRecipients,receivedDateTime,hasAttachments,bodyPreview",
     })
     path = "/users/%s/messages?%s" % (urllib.parse.quote(mailbox), qs)
     out, pages = [], 0
@@ -190,11 +198,12 @@ def main():
             addr = (e.get("address") or "").lower()
             name = e.get("name") or ""
             subj = (m.get("subject") or "").strip()
+            preview = re.sub(r"\s+", " ", m.get("bodyPreview") or "").strip()
             when = (m.get("receivedDateTime") or "")[:10]
             if not addr or addr.endswith("@" + DOMAIN):
                 continue                      # internal - not a signal in itself
 
-            kind = classify(addr, subj)
+            kind = classify(addr, subj, preview)
             counts[kind] += 1
             if kind == "noise":
                 continue
@@ -220,12 +229,13 @@ def main():
                 c["contacts"][addr] = name
             if len(c["subjects"]) < 6:
                 c["subjects"].append({"date": when, "subject": subj[:90],
+                                      "preview": preview[:200],
                                       "kind": kind, "mailbox": mbx.split("@")[0]})
 
             if kind in ("enquiry", "portal"):
                 signals.append({"date": when, "kind": kind, "company": dom,
                                 "contact": addr, "name": name,
-                                "subject": subj[:110],
+                                "subject": subj[:110], "preview": preview[:240],
                                 "mailbox": mbx.split("@")[0],
                                 "relationship": c["relationship"]})
 

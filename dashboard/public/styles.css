@@ -331,7 +331,44 @@ button, input, select, textarea { font-family: inherit; }
 .empty { color: var(--muted); text-align: center; padding: 46px 20px; font-size: var(--t-14); }
 .empty strong { display: block; font-size: var(--t-17); color: var(--ink); margin-bottom: 6px; }
 
+/* ---- Jacob's board. Additive only - nothing above is Mary's to lose. ---- */
+/* The action row on Today. Reads name, then what happened, then what to do,
+   then whose name is on it, because that is the order it gets asked in. */
+.acts { display: grid; gap: 10px; }
+.act { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 14px; align-items: start;
+  background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--green);
+  border-radius: var(--r-lg); padding: 15px 18px; cursor: pointer; transition: border-color .13s, box-shadow .13s; }
+.act:hover { border-color: var(--line-strong); box-shadow: var(--sh-1); }
+/* The stripe carries the state, so the shape of the day is readable before a
+   word of it is. Same vocabulary as the chips. */
+.act.warn { border-left-color: var(--amber); }
+.act.danger { border-left-color: var(--red); }
+.act.navy { border-left-color: var(--navy); }
+.act-no { font-size: var(--t-13); font-weight: 700; color: var(--muted); line-height: 1.5; }
+.act-top { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; }
+.act-top strong { font-size: var(--t-15); }
+.act-co { font-size: var(--t-12); color: var(--muted); }
+.act-what { font-size: var(--t-13); color: var(--body); margin-top: 3px; }
+.act-next { font-size: var(--t-14); margin-top: 7px; }
+.act-next .rt p { margin: 0; }
+.act-note { font-size: var(--t-12); color: var(--muted); font-style: italic; margin-top: 6px; }
+.act-side { display: grid; gap: 5px; justify-items: end; text-align: right; }
+.act-side small { font-size: var(--t-11); color: var(--muted); }
+
+/* Whose name is on it. "nobody" is a legitimate answer and looks like one. */
+.who-tag { display: inline-block; font-size: var(--t-12); font-weight: 600; color: var(--navy);
+  background: var(--navy-100); border-radius: 99px; padding: 4px 12px; white-space: nowrap; }
+.who-tag.none { background: transparent; color: var(--muted); font-weight: 400; font-style: italic; }
+
+.tbl td .dim { display: block; color: var(--muted); font-size: var(--t-11); margin-top: 4px; }
+.unk { margin: 0; padding-left: 18px; font-size: var(--t-13); color: var(--body); }
+.unk li { margin-bottom: 6px; }
+.panel-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.section-head .page-sub { margin: 0; font-size: var(--t-12); }
+
 @media (max-width: 900px) {
+  .act { grid-template-columns: 1fr; }
+  .act-side { justify-items: start; text-align: left; }
   .shell { grid-template-columns: 1fr; }
   .nav { position: static; height: auto; }
   .page-head { flex-direction: column; align-items: stretch; padding: 20px 18px 12px; }

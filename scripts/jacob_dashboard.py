@@ -53,6 +53,29 @@ INFRA_CPV = ("45233", "45231", "45232", "45234", "45235", "45236", "45246",
              "45247", "45112", "45111", "45331", "45230", "45310", "45350")
 MIN_VALUE, MAX_VALUE = 400_000, 40_000_000
 
+# Adam, 27/07/2026: many quotes, no wins. Their notices stay on the board so
+# nobody quietly re-opens the question, but they carry no action.
+DO_NOT_QUOTE = re.compile(r"hightown", re.I)
+
+# Fenster's own outgoing subject line coming back with a Re:. When Fenster
+# asks a fabricator for a price, the intake classifier sees the word "quote"
+# next to the word "window" and files it as an enquiry. It is the exact
+# opposite - a cost being collected, not a customer asking to buy.
+# "Fenster Glazing - Your Quote" is the other direction and must not match.
+FENSTER_ASKED = re.compile(r"fenster\s*glazing\s*[-:]?\s*(panel\s+)?quot", re.I)
+
+# Trade fabricators and glass suppliers whose threads do not carry that
+# subject line. Every one of these sells TO Fenster. The permanent fix is in
+# jacob_intake.py's SUPPLIERS regex; this list is the stopgap so the enquiry
+# count on the board means something today.
+TRADE = re.compile(
+    r"(truframe|ucdlimited|hallmarkpanels|titanaluminium|roseview|origin-global|"
+    r"dualsealglass|wharfsidesupplies|aspectwindowfilms|lathamssteeldoors|"
+    r"garnalex|deceuninck|liniar|eurocell|epwin|veka|rehau|kommerling)", re.I)
+
+# Who does the next thing. Nothing goes on the board without one of these.
+ADAM, JACOB, GINTARE, ZAC, NOBODY = "Adam", "Jacob", "Gintare", "Zac", "-"
+
 
 # ---------------------------------------------------------------- matching
 def norm(s):
@@ -233,10 +256,306 @@ def build_relationships(clients, intake, jayk):
         if "jayk" not in r["sources"]:
             r["sources"].append("jayk")
 
+    # An archive folder ("Borras") and a mailbox domain ("borrasconstruction
+    # .co.uk") are the same company. Keeping them apart is how a client who
+    # emailed us yesterday appears on the board as dormant, and how forty
+    # dormant clients end up with no contact address between them.
+    #
+    # Containment only, and only on stems of six characters or more - a
+    # three-letter folder name inside a domain is a coincidence waiting to
+    # happen, and a wrong merge here puts the wrong person's name on a lead.
+    keys = sorted(rows, key=len)
+    for short in list(keys):
+        if len(short) < 6 or short not in rows:
+            continue
+        src = rows[short]
+        if "archive" not in src["sources"] or src["lastContact"]:
+            continue
+        for long in keys:
+            if long == short or long not in rows or short not in long:
+                continue
+            dst = rows[long]
+            if "mailbox" not in dst["sources"] and "jayk" not in dst["sources"]:
+                continue
+            # The archive knows the trading name; the mailbox only knows a
+            # domain. Keep the name and take everything else.
+            dst["company"] = src["company"]
+            dst["relationship"] = src["relationship"]
+            dst["sources"] = sorted(set(dst["sources"] + src["sources"]))
+            del rows[short]
+            break
+
     out = list(rows.values())
     # Most recently active first, then the ones we have most history with.
     out.sort(key=lambda r: (r["lastContact"], len(r["contacts"])), reverse=True)
     return out
+
+
+# ------------------------------------------------------- threads and states
+def thread_key(subject):
+    """One conversation, not one email. Six 'RE: Touchwood glass quote'
+    messages are one thing to do, and counting them six times is how a board
+    ends up claiming 61 enquiries when it is holding about a dozen."""
+    s = re.sub(r"^((re|fw|fwd|aw|tr)\s*[:\-]\s*)+", "", (subject or "").strip(), flags=re.I)
+    s = re.sub(r"[^a-z0-9 ]", " ", s.lower())
+    return re.sub(r"\s+", " ", s).strip()[:70]
+
+
+def days_since(iso):
+    try:
+        return (date.fromisoformat(TODAY) - date.fromisoformat(iso)).days
+    except ValueError:
+        return 999
+
+
+def state_for(days):
+    """What a human means by 'where is this'. Deliberately coarse - the only
+    question that matters is whether it needs touching today."""
+    if days <= 3:
+        return "live"
+    if days <= 10:
+        return "waiting"
+    if days <= 30:
+        return "gone quiet"
+    return "stale"
+
+
+def thread_kind(company, subject, relationship):
+    if relationship == "individual":
+        return "domestic"
+    if TRADE.search(company) or FENSTER_ASKED.search(subject or ""):
+        return "supplier"
+    if relationship == "supplier":
+        return "supplier"
+    return "buyer"
+
+
+# "Sales", "Enquiries", "Orders" is a mailbox, not a person. Calling one of
+# those and asking for them by name is how you sound like a robot.
+GENERIC_NAME = re.compile(r"^(sales|enquiries|enquiry|info|orders|accounts|"
+                          r"admin|estimating|office|team|support|cd\.orders)\b", re.I)
+
+
+def person(t):
+    n = (t["name"] or "").strip()
+    if not n or GENERIC_NAME.match(n) or "@" in n:
+        return ""
+    return n.split("|")[0].strip()
+
+
+def thread_action(t):
+    """Every row gets a next action and a name against it, or it is trivia.
+
+    The honest first question on any inbound enquiry is *has anyone answered
+    it* - and Jacob cannot see that. Intake reads received mail only, so a
+    thread where Gintare replied an hour ago looks identical to one nobody
+    has touched. The action says so rather than pretending, and JAC-5 asks
+    for the sent-items scope that would fix it."""
+    who = person(t)
+    co = t["company"]
+    at = ("%s at %s" % (who, co)) if who else co
+    if t["kind"] == "portal":
+        if DO_NOT_QUOTE.search(t["subject"] + co):
+            return (NOBODY, "Nothing. Adam ruled Hightown out on 27/07 - many quotes, "
+                            "no wins. Left on the board so the question is not re-opened.")
+        return (JACOB, "Pull the pack off the portal, check the return date, hand it to Mary.")
+    if t["kind"] == "supplier":
+        return (NOBODY, "None. This is a price coming back to Fenster, not an enquiry.")
+    if t["kind"] == "domestic":
+        return (GINTARE, "Small works, not BD. Listed so nobody counts it as a lead.")
+    # Buyer.
+    if t["state"] in ("gone quiet", "stale"):
+        return (ADAM, "Chase %s - %d days since they last wrote and nothing since. "
+                      "Either it went cold or the reply never went out." % (at, t["days"]))
+    if t["relationship"] == "won":
+        return (ADAM, "Call %s. They have bought from Fenster before and they are asking "
+                      "again - that is the best call on this board." % at)
+    if t["relationship"] == "quoted":
+        return (ADAM, "Call %s. Fenster has priced for them before and never won. "
+                      "This is the second chance." % at)
+    return (ADAM, "Check commercial@ for a reply to %s, then call them. %d message%s in "
+                  "and no history with them at all." % (at, t["messages"],
+                                                        "" if t["messages"] == 1 else "s"))
+
+
+def thread_unknowns(t):
+    """Say what you do not know. A blank is honest; a confident guess is not."""
+    out = []
+    if t["kind"] == "buyer":
+        out.append("Whether anyone at Fenster has already replied - Jacob reads "
+                   "received mail only (JAC-5).")
+        if t["relationship"] == "unknown":
+            out.append("Whether they are a buyer or another supplier. No archive "
+                       "folder and no history in any mailbox - worth one look before "
+                       "Adam calls.")
+        if not person(t):
+            out.append("Who to ask for. The mail came from a shared address, not a person.")
+    return out
+
+
+def build_threads(intake):
+    """Signals -> conversations -> things to do."""
+    by_key = {}
+    for s in (intake or {}).get("signals", []):
+        key = "%s|%s" % (s["company"], thread_key(s["subject"]))
+        t = by_key.setdefault(key, {
+            "key": "thread:" + re.sub(r"[^a-z0-9]", "-", key.lower())[:60],
+            "company": s["company"], "contact": s["contact"], "name": s.get("name") or "",
+            "subject": s["subject"], "mailbox": s["mailbox"],
+            "relationship": s.get("relationship", "unknown"),
+            "first": s["date"], "last": s["date"], "messages": 0,
+        })
+        t["messages"] += 1
+        t["first"] = min(t["first"], s["date"])
+        t["last"] = max(t["last"], s["date"])
+        if s["kind"] == "portal":
+            t["portal"] = True
+        if not t["name"] and s.get("name"):
+            t["name"] = s["name"]
+
+    out = []
+    for t in by_key.values():
+        t["days"] = days_since(t["last"])
+        t["state"] = state_for(t["days"])
+        t["kind"] = "portal" if t.pop("portal", False) else \
+            thread_kind(t["company"], t["subject"], t["relationship"])
+        # "3 days old" is not the state of a Hightown notice. The state is that
+        # Adam has ruled them out, and a date-based chip hides that.
+        if DO_NOT_QUOTE.search(t["company"] + t["subject"]):
+            t["state"] = "do not quote"
+        t["owner"], t["next"] = thread_action(t)
+        t["person"] = person(t)
+        t["unknowns"] = thread_unknowns(t)
+        out.append(t)
+    out.sort(key=lambda t: (t["last"], t["messages"]), reverse=True)
+    return out
+
+
+def lead_action(row, tier):
+    """An award notice is a company, not a lead, until somebody is going to
+    do something about it."""
+    co = row.get("client") or row["supplier"]
+    if row.get("confidence") == "possible":
+        return (JACOB, "Confirm this is the same %s before anyone calls - single-word "
+                       "names throw false positives." % co)
+    if tier == "warm":
+        return (ADAM, "Call %s. They have bought from Fenster and they have just won "
+                      "%s - get on the enquiry list before it is drawn up." % (co, row["title"][:60]))
+    if tier == "known":
+        return (JACOB, "Draft an intro for Adam to send to %s - quoted before, never "
+                       "won, and they are building again." % co)
+    return (NOBODY, "Blocked. Cold contact needs JAC-2 answered and a sending domain.")
+
+
+def book_state(r):
+    """One state per company. 'If you cannot say which, the row is not
+    finished' - so unknown is a state too, and it says so."""
+    if r["relationship"] == "supplier":
+        return "supplier"
+    if DO_NOT_QUOTE.search(r["company"] + r.get("domain", "")):
+        return "do not quote"
+    if r["lastContact"]:
+        return state_for(days_since(r["lastContact"]))
+    if r["relationship"] == "won":
+        return "dormant - has bought"
+    if r["relationship"] == "quoted":
+        return "dormant - quoted only"
+    return "no contact on record"
+
+
+def book_action(r):
+    st = r["state"]
+    if st == "supplier":
+        return (NOBODY, "None. Supplier, not a customer.")
+    if st == "do not quote":
+        return (NOBODY, "Nothing. Adam ruled them out 27/07.")
+    who = next((c.get("name") or c["address"] for c in r["contacts"]
+                if c.get("name") and "@" not in c.get("name", "@")), None)
+    if st == "dormant - has bought":
+        if who:
+            return (JACOB, "Draft a note to %s for Adam to send. They have paid Fenster "
+                           "before and nobody has emailed them in 180 days." % who)
+        if r["contacts"]:
+            return (JACOB, "Draft a note to %s for Adam to send - paid customer, silent "
+                           "180 days." % r["contacts"][0]["address"])
+        return (JACOB, "Find a contact first. The archive has a folder with their name "
+                       "on it and no address in it - there is nobody here to write to.")
+    if st == "dormant - quoted only":
+        if not r["contacts"]:
+            return (NOBODY, "Nothing to do - folder in the archive, no address anywhere. "
+                            "Becomes a lead the day one of their schemes shows up.")
+        return (JACOB, "Worth one email to %s if a scheme of theirs shows up. Not worth "
+                       "a cold call on its own." % (who or r["contacts"][0]["address"]))
+    if st in ("gone quiet", "stale"):
+        return (ADAM, "Last heard from them %s. One call answers whether they are "
+                      "still live." % r["lastContact"])
+    return (NOBODY, "Talking to us already - nothing to start.")
+
+
+def build_actions(threads, warm, known, book):
+    """The list a Commercial Director reads in ten seconds. Ranked by how
+    close it is to a real enquiry from a real buyer, which is the only thing
+    Jacob is for."""
+    acts = []
+
+    def add(score, key, company, headline, what, owner, nxt, state, page):
+        acts.append({"score": score, "key": key, "company": company,
+                     "headline": headline, "what": what, "owner": owner,
+                     "next": nxt, "state": state, "page": page})
+
+    for t in threads:
+        if t["owner"] == NOBODY:
+            continue
+        if t["kind"] == "buyer":
+            base = 100 if t["relationship"] in ("won", "quoted") else 78
+            if t["state"] in ("gone quiet", "stale"):
+                base -= 25
+            # A shared mailbox is not a person. Leading with "sales@..." as
+            # though it were a name is how a board starts sounding fake.
+            add(base + min(t["messages"], 8), t["key"], t["company"],
+                t["person"] or t["company"], t["subject"], t["owner"], t["next"],
+                t["state"], "enquiries")
+        elif t["kind"] == "portal":
+            add(74, t["key"], t["company"], "Portal notice", t["subject"],
+                t["owner"], t["next"], t["state"], "enquiries")
+
+    for r in warm[:6]:
+        add(55, "lead:" + re.sub(r"[^a-z0-9]", "-", r["supplier"].lower())[:50],
+            r["client"], r["supplier"], "%s - %s" % (r["title"], gbp(r["total"] or r["value"])),
+            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "leads")
+
+    for r in [x for x in book if x["state"] == "dormant - has bought"][:5]:
+        add(32, "co:" + x_key(r), r["company"], r["company"],
+            "Has bought from Fenster. No email in the 180-day window.",
+            r["owner"], r["next"], r["state"], "companies")
+
+    for r in known[:4]:
+        add(22, "lead:" + re.sub(r"[^a-z0-9]", "-", r["supplier"].lower())[:50],
+            r["client"], r["supplier"], "%s - %s" % (r["title"], gbp(r["total"] or r["value"])),
+            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "leads")
+
+    acts.sort(key=lambda a: -a["score"])
+    # Two award notices against the same client collapse to one thing to do.
+    seen, out = set(), []
+    for a in acts:
+        sig = (a["company"], a["next"])
+        if sig in seen:
+            continue
+        seen.add(sig)
+        out.append(a)
+    return out[:14]
+
+
+def x_key(r):
+    return re.sub(r"[^a-z0-9]", "-", (r.get("domain") or r["company"]).lower())[:50]
+
+
+def gbp(v):
+    if not v:
+        return "value not published"
+    if v >= 1e6:
+        return "GBP %.1fm" % (v / 1e6)
+    return "GBP %s" % format(int(round(v)), ",")
 
 
 # ---------------------------------------------------------------- build
@@ -292,17 +611,33 @@ def build():
 
     won = sum(1 for v in clients.values() if v == "won")
 
+    for tier, rows in (("warm", warm), ("known", known), ("cold", cold)):
+        for r in rows:
+            r["owner"], r["next"] = lead_action(r, tier)
+            r["key"] = "lead:" + re.sub(r"[^a-z0-9]", "-", r["supplier"].lower())[:50]
+
     intake = load_json(INTAKE)
     jayk = load_json(JAYK)
     rel = build_relationships(clients, intake, jayk)
+    for r in rel:
+        r["key"] = "co:" + x_key(r)
+        r["state"] = book_state(r)
+        r["owner"], r["next"] = book_action(r)
 
     # Dormant = we have quoted them, and no email in the window. That is the
     # cheapest lead in the business: they already asked us for a price once.
-    dormant = [r for r in rel
-               if r["relationship"] in ("won", "quoted") and not r["lastContact"]]
+    dormant = [r for r in rel if r["state"].startswith("dormant")]
+    dormantWon = [r for r in rel if r["state"] == "dormant - has bought"]
+
+    threads = build_threads(intake)
+    buyers = [t for t in threads if t["kind"] == "buyer"]
+    liveBuyers = [t for t in buyers if t["state"] in ("live", "waiting")]
+    quiet = [t for t in buyers if t["state"] in ("gone quiet", "stale")]
+    actions = build_actions(threads, warm, known, rel)
 
     return {
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "today": TODAY,
         "window": {"from": "2026-04-28", "to": "2026-07-27", "days": 90},
         "totals": {
             "awardRows": len(awards),
@@ -313,8 +648,23 @@ def build():
             "signals": len((intake or {}).get("signals", [])),
             "mailboxCompanies": len((intake or {}).get("companies", [])),
             "dormant": len(dormant),
+            "dormantWon": len(dormantWon),
             "jaykContacts": len((jayk or {}).get("contacts", [])),
+            # What the board is actually holding, after the duplicates and the
+            # suppliers come out. These are the numbers on the Today page.
+            "threads": len(threads),
+            "buyers": len(buyers),
+            "liveBuyers": len(liveBuyers),
+            "quietBuyers": len(quiet),
+            "domestic": sum(1 for t in threads if t["kind"] == "domestic"),
+            "supplierThreads": sum(1 for t in threads if t["kind"] == "supplier"),
+            "portalThreads": sum(1 for t in threads if t["kind"] == "portal"),
+            # The one money number on the board that is sourced, not guessed:
+            # published values of live contracts whose winner Fenster knows.
+            "knownWinnerValue": sum((r.get("total") or 0) for r in warm + known),
         },
+        "actions": actions,
+        "threads": threads,
         "warm": warm, "known": known, "cold": cold[:150],
         "sources": SOURCES(len(awards), len(by_supplier), intake),
         "intake": {
@@ -334,12 +684,27 @@ def build():
         "relationships": {
             "quoted": len(clients) - won,
             "won": won,
-            "rows": rel[:300],
+            # Ordered by what a human would do with the row, not by date. The
+            # 300 cap used to cut off exactly the dormant clients who had
+            # bought - the most valuable rows in the file - because they are
+            # by definition the ones with no recent email.
+            "rows": sorted(rel, key=lambda r: (BOOK_ORDER.get(r["state"], 9),
+                                               r["lastContact"] or "", len(r["contacts"])),
+                           reverse=False)[:600],
+            "total": len(rel),
             "dormant": len(dormant),
+            "dormantWon": len(dormantWon),
         },
         "outreach": OUTREACH,
         "decisions": DECISIONS,
     }
+
+
+# What order a person wants to read the company book in: the ones who have
+# paid Fenster and gone silent first, the ones already talking to us last.
+BOOK_ORDER = {"dormant - has bought": 0, "gone quiet": 1, "stale": 2,
+              "dormant - quoted only": 3, "waiting": 4, "live": 5,
+              "no contact on record": 6, "supplier": 7, "do not quote": 8}
 
 
 def SOURCES(rows, winners, intake=None):
@@ -441,6 +806,12 @@ def main():
     print("  %d award rows, %d winners, %d client folders (%d won)"
           % (t["awardRows"], t["winners"], t["clients"], t["clientsWon"]))
     print("  warm %d | known %d | cold %d" % (t["warm"], t["known"], t["cold"]))
+    print("  %d signals -> %d threads: %d buyer (%d live, %d quiet), "
+          "%d supplier, %d domestic, %d portal"
+          % (t["signals"], t["threads"], t["buyers"], t["liveBuyers"],
+             t["quietBuyers"], t["supplierThreads"], t["domestic"], t["portalThreads"]))
+    print("  %d actions on the Today page, %d dormant clients who have bought"
+          % (len(data["actions"]), t["dormantWon"]))
 
     if args.deploy:
         # Same invocation as mary_dashboard.py - same Pages project, same

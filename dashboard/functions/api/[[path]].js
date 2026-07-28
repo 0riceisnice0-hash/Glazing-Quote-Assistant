@@ -125,6 +125,46 @@ export async function onRequest(context) {
       return json({ ok: true });
     }
 
+    // ---- Jacob's CRM overlay ----
+    // Jacob derives a state and a next action for everything from evidence;
+    // these rows are a human saying otherwise. Read is public like the rest of
+    // the board. Missing table reads as "nobody has edited anything yet",
+    // which is true on a fresh database and is not an error.
+    if (route === "jacob/pipeline" && request.method === "GET") {
+      try {
+        const { results } = await db.prepare(
+          "SELECT key, label, state, owner, next_action, note, updated, updated_by " +
+          "FROM jacob_pipeline ORDER BY updated DESC LIMIT 800").all();
+        return json(results);
+      } catch {
+        return json([]);
+      }
+    }
+
+    if (route === "jacob/pipeline" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      const key = String(b.key || "").slice(0, 120).trim();
+      if (!key) return json({ error: "key required" }, 400);
+      // Created here rather than in a migration so a hub deployed against a
+      // database that predates this table still works on first use.
+      await db.prepare(
+        "CREATE TABLE IF NOT EXISTS jacob_pipeline (key TEXT PRIMARY KEY, label TEXT DEFAULT '', " +
+        "state TEXT DEFAULT '', owner TEXT DEFAULT '', next_action TEXT DEFAULT '', " +
+        "note TEXT DEFAULT '', updated TEXT NOT NULL, updated_by TEXT DEFAULT 'team')").run();
+      const s = (v, n) => String(v || "").slice(0, n);
+      await db.prepare(
+        "INSERT INTO jacob_pipeline (key, label, state, owner, next_action, note, updated, updated_by) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT(key) DO UPDATE SET " +
+        "label=excluded.label, state=excluded.state, owner=excluded.owner, " +
+        "next_action=excluded.next_action, note=excluded.note, " +
+        "updated=excluded.updated, updated_by=excluded.updated_by")
+        .bind(key, s(b.label, 200), s(b.state, 40), s(b.owner, 40), s(b.next_action, 600),
+              s(b.note, 2000), now(),
+              ["zac", "adam"].includes(String(b.author || "").toLowerCase())
+                ? String(b.author).toLowerCase() : "team").run();
+      return json({ ok: true });
+    }
+
     if (route === "jacob/requests" && request.method === "GET") {
       const { results } = await db.prepare(
         "SELECT * FROM jacob_requests ORDER BY status = 'answered', id DESC").all();

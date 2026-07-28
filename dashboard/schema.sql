@@ -63,6 +63,22 @@ CREATE TABLE IF NOT EXISTS jacob_requests (
   answered_at TEXT
 );
 
+-- The CRM overlay on Jacob's board. His generator derives a state and a next
+-- action for every company, thread and lead from the evidence; this table is
+-- where a human overrides it - moves something to "dead", puts Adam's name on
+-- it, or ticks it done. Keyed by the stable key Jacob emits (thread:..,
+-- co:.., lead:..), so a rebuild of jacob-data.js never orphans an edit.
+CREATE TABLE IF NOT EXISTS jacob_pipeline (
+  key TEXT PRIMARY KEY,
+  label TEXT DEFAULT '',            -- what it was called when it was edited
+  state TEXT DEFAULT '',            -- overrides the derived state; '' = leave it
+  owner TEXT DEFAULT '',            -- who does the next thing
+  next_action TEXT DEFAULT '',
+  note TEXT DEFAULT '',             -- what happened last, in a human's words
+  updated TEXT NOT NULL,
+  updated_by TEXT DEFAULT 'team'
+);
+
 -- Bot to bot. Jacob knows what is being quoted; Mary knows who is buying.
 -- Neither is obliged to reply - a message that needs no answer gets none,
 -- which is the main thing stopping two agents talking each other in circles.
