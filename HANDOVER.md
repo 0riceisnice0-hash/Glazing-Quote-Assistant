@@ -4728,6 +4728,63 @@ Run now **6 FAIL, 3 ASK** - up one, and the extra one is honest. Position **GBP 
 BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, a list whose name made a claim
+
+Gordon Court found a whole check returning `n/a` on their job because of one boolean set five turns
+earlier: `is_the_priced_document` was on the proposal PDF and not on the spreadsheet, so rule 21 never
+opened the workbook that had gone to Chigwell. **An `n/a` sits in a run reading like a considered
+answer.** Their rule: **every `n/a` is a rule that decided not to look.**
+
+**Run here, all four `n/a` are correct** - and verified against source rather than against the manifest
+entry that produced them: nothing coupled (two separate single units in two separate stairwells); no
+doors in scope (the pack's D1 FD30s and D5 are outside it); `frame_supply: glazed` against QT51518's own
+Job Spec line *"Glazed /Supply Only (Delivered)"*; no full-height screens. **Reported clean, and clean
+because it was checked.**
+
+**Their diagnosis landed anyway, one field over and harder.** Theirs was *"the field models a singular
+priced document and this job issued two"* - a field whose name asserts something its contents do not
+honour. **Riverside's `issued_documents` held five entries, two of which are not issued to anybody:**
+the **working** pricing document, which carries the supplier buy in columns J to L and must never be
+sent, and the **internal** covering note to Adam. The field was being used for *what we produced* rather
+than *what the client receives*, and those were never going to stay the same set.
+
+Three rules iterate that list, so *"5 issued documents scanned, no third-party traces"* was counting two
+that are not issued. **`goes_to_client` is now explicit and rules 18, 20 and 21 all respect it**,
+defaulting to true so nothing else changes. The scan reports **3** - exactly the three documents the
+previous turn's *"three documents, one price, no buy"* was checked across. **The claim was right and the
+manifest disagreed with it, and nothing would ever have said so.**
+
+**The ruling on `check_exclusions_reach_the_issued_document`,** which Gordon Court referred back rather
+than resolving by editing a flag - *"do not resolve someone else's rule by editing your own data"*:
+
+    no CLIENT-FACING PRICED document carries the exclusions   ->  FAIL
+    some priced client-facing documents carry them, not all   ->  ASK, naming which
+    every client-facing priced document carries them          ->  PASS
+
+**The founding case still fails, for the distinction Gordon Court drew themselves.** A covering letter
+holding the exclusions while the priced document does not fails because **a covering letter is
+detachable and unpriced - it will not travel with the figure.** Their proposal is different *in kind*: it
+is **itself priced** and carries the subtotal. **Only priced documents count as carriers.** Partial
+coverage across priced documents becomes an ASK because it is a judgement about how a pack will be used
+and by whom, which a manifest cannot adjudicate - and their sentence *"our defence rests on a sentence in
+a letter nobody has sent yet"* stays visible rather than disappearing into a PASS.
+
+**The first implementation of that ruling got it wrong.** It let *any* client-facing document count as a
+carrier, turning the founding case from FAIL into ASK - **the exact weakening the ruling had just
+disclaimed.** The existing covering-letter variant caught it before it shipped. Four variants now pin all
+three branches plus the not-client-facing case; **18/18**.
+
+**And Gordon Court's column-B result is recorded because it is the best argument for the two-file
+discipline, and it is not about secrecy.** Riverside's client copy failed rule 21 on `PRODUCT CODES` /
+`MAW` in column B, because the template's print area starts at C to exclude internal codes. **Theirs
+starts at B**, because their column B holds `LW_1`, `WN_7`, *"Sheerline Aluminium Louvre"* - the
+architect's own window tags, which is what a client should see. *"Deliberate, not accidental - and I only
+know that because there were two files to compare."* **Two files are a diff, and a diff tells you whether
+a difference was a decision.**
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

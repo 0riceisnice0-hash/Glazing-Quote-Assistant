@@ -241,6 +241,22 @@
     {
       "ref": "Gordon Court's closing point run rather than admired - 'a control that works on one document is worth nothing if the same information travels in another'. CHECK RUN, CLEAN. Across everything Riverside would send: the drawings PDF carries the specification and no prices; the terms and conditions document carries no figures; the client copy is sell-only with the buy columns removed. Three documents, one price, no buy.  ->  REPORTED CLEAN, and clean because it was checked rather than because it was designed that way. Their own position is not closed by the equivalent fix - Chigwell hold the margin from the 'Elevations' attachments regardless of what their two workbooks now do.",
       "treatment": "excluded"
+    },
+    {
+      "ref": "RULING ON RULE 18, REFERRED BACK BY GORDON COURT RATHER THAN RESOLVED BY EDITING A FLAG. They flagged their workbook as priced, check_exclusions_reach_the_issued_document failed them for 7 exclusions absent from its face, and they LEFT IT FAILING - 'do not resolve someone else's rule by editing your own data'. THE RULING IS NEITHER ANY NOR ALL: no CLIENT-FACING PRICED document carrying the exclusions is a FAIL; some priced client-facing documents carrying them but not all is an ASK naming which; every one carrying them is a PASS. The founding case still fails, and for the distinction Gordon Court drew themselves - a covering letter is DETACHABLE AND UNPRICED and will not travel with the figure, whereas their proposal is different in kind because it is ITSELF priced and carries the subtotal. Only priced documents count as carriers. Partial coverage is an ASK because it is a judgement about how a pack will be used - whether the bare document can be forwarded, filed or quoted from alone - which a manifest cannot adjudicate.  ->  AND MY FIRST IMPLEMENTATION OF MY OWN RULING GOT IT WRONG: I let any client-facing document count as a carrier, turning the founding case from FAIL into ASK - the exact weakening I had just written a paragraph promising not to make. My own covering-letter variant caught it before shipping. Four variants now pin all three branches plus the not-client-facing case; 18/18.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "issued_documents HELD TWO DOCUMENTS THAT ARE NOT ISSUED TO ANYBODY - the WORKING pricing document, which holds the supplier buy in columns J-L and must never be sent, and the internal covering note to Adam. The field was being used for 'what we produced' rather than 'what the client receives', which were never going to stay the same set. Gordon Court's own diagnosis of their n/a fault - 'the field models a singular priced document and this job issued two' - is a field whose name asserts something its contents do not honour, and mine had the same shape. THREE RULES ITERATE THAT LIST, so '5 issued documents scanned, no third-party traces' was counting two that are not issued.  ->  'goes_to_client' is now explicit and rules 18, 20 and 21 respect it, defaulting to true so nothing else changes. The scan now reports 3 - exactly the three documents last night's 'three documents, one price, no buy' was checked across. THE CLAIM WAS RIGHT AND THE MANIFEST DISAGREED WITH IT, and nothing would ever have said so.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Gordon Court's n/a lesson run on this run - 'every n/a is a rule that decided not to look' - CHECK RUN, ALL FOUR CORRECT, verified against source rather than against my own manifest entry. system-depth coupling: two separate single units in two separate stairwells. fire-exit panic hardware: the scope is two windows, and the pack's D1 FD30s and D5 external glazed door are outside it. unglazed frames need a glass order: QT51518's own Job Spec line reads 'Glazed /Supply Only (Delivered)'. full-height screens: 1130 x 1530 vents.  ->  REPORTED CLEAN, and clean because it was checked. Their diagnosis landed anyway, one field over - see the issued_documents item above.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Gordon Court's column-B result, recorded because it is the best argument for the two-file discipline and it is not about secrecy. My client copy failed rule 21 on PRODUCT CODES / MAW in column B, because our template's print area starts at C to exclude the internal product codes. THEIRS STARTS AT B - and their column B holds LW_1, WN_7, 'Sheerline Aluminium Louvre': the architect's own window tags, which is what a client should see. Column B was repurposed on the issued file and the print area widened to match. Their sentence: 'deliberate, not accidental - and I only know that because there were two files to compare. A single file would have left me guessing.'  ->  RECORDED. Two files are not a way of hiding something; they are a diff, and a diff tells you whether a difference was a decision. Riverside now holds two for the first time and will keep both after issue for that reason.",
+      "treatment": "excluded"
     }
   ],
   "supplier_quotes": [
@@ -350,7 +366,8 @@
       "path": "outputs/Riverside House - Fenster Pricing Document (CLIENT COPY - send this one).xlsx",
       "is_the_priced_document": true,
       "exclusions_stated": 12,
-      "note": "Built 28/07 from the working document. Columns J-V REMOVED, not merely outside the print range; sell side frozen to values; print area $C$1:$I$45 and print titles $2:$7 both present. Every figure derived from the working document and asserted against 5,990.22 before writing."
+      "note": "Built 28/07 from the working document. Columns J-V REMOVED, not merely outside the print range; sell side frozen to values; print area $C$1:$I$45 and print titles $2:$7 both present. Every figure derived from the working document and asserted against 5,990.22 before writing.",
+      "goes_to_client": true
     },
     {
       "name": "Riverside House - Fenster Pricing Document (house format).xlsx",
@@ -369,29 +386,33 @@
         "dimensions provided by others assumed accurate - errors are a variation",
         "free area stated is GEOMETRIC; no aerodynamic figure warranted"
       ],
-      "note": "Added 28/07. The block did not exist before tonight - MASTER PRICING DOC.xlsx has no exclusions section, and Fenster's standard twelve-line INCLUSIONS/EXCLUSIONS schedule lives in the proposal/cover-letter template, which this job was never generated from. 28/07: DEMOTED - this is the WORKING document and holds the supplier buy in columns J-L. It is not what goes to the client.",
-      "path": "outputs/Riverside House - Fenster Pricing Document (house format).xlsx"
+      "note": "WORKING document. Holds the supplier buy in columns J-L and the internal product codes in column B. Must never be sent. Added 28/07. The block did not exist before tonight - MASTER PRICING DOC.xlsx has no exclusions section, and Fenster's standard twelve-line INCLUSIONS/EXCLUSIONS schedule lives in the proposal/cover-letter template, which this job was never generated from. 28/07: DEMOTED - this is the WORKING document and holds the supplier buy in columns J-L. It is not what goes to the client.",
+      "path": "outputs/Riverside House - Fenster Pricing Document (house format).xlsx",
+      "goes_to_client": false
     },
     {
       "name": "Riverside House - Fenster Standard Terms and Conditions (to accompany the pricing document).txt",
       "is_the_priced_document": false,
       "exclusions_stated": 16,
       "note": "Created 28/07 to make cell C31's 'a copy of which accompanies this document' true. Twelve standard exclusions plus this job's four. MUST be sent with the xlsx.",
-      "path": "outputs/Riverside House - Fenster Standard Terms and Conditions (to accompany the pricing document).txt"
+      "path": "outputs/Riverside House - Fenster Standard Terms and Conditions (to accompany the pricing document).txt",
+      "goes_to_client": true
     },
     {
       "name": "Riverside House - Covering note to Adam (draft).txt",
       "is_the_priced_document": false,
       "exclusions_stated": 0,
-      "note": "internal, to Adam - not a client-facing document",
-      "path": "outputs/Riverside House - Covering note to Adam (draft).txt"
+      "note": "INTERNAL - a note to Adam, not to RRR. Was sitting in issued_documents because the field was being used for \"what we produced\" rather than \"what the client receives\". internal, to Adam - not a client-facing document",
+      "path": "outputs/Riverside House - Covering note to Adam (draft).txt",
+      "goes_to_client": false
     },
     {
       "name": "Riverside House - AOV Smoke Vent Drawings.pdf",
       "path": "outputs/Riverside House - AOV Smoke Vent Drawings.pdf",
       "is_the_priced_document": false,
       "exclusions_stated": 0,
-      "note": "2 sheets Rev A. Metadata cleaned 28/07 - it announced /Title 'riverside-drawings.html' and /Creator 'Mozilla/5.0... AppleWebKit', i.e. an HTML file printed from Chrome, on a client-facing drawing."
+      "note": "2 sheets Rev A. Metadata cleaned 28/07 - it announced /Title 'riverside-drawings.html' and /Creator 'Mozilla/5.0... AppleWebKit', i.e. an HTML file printed from Chrome, on a client-facing drawing.",
+      "goes_to_client": true
     }
   ],
   "exposures": [

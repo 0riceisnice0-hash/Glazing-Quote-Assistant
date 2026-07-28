@@ -1914,6 +1914,41 @@ the specification and no prices, the terms document carries no figures, the clie
 three documents, one price, no buy. Gordon Court's margin is in Chigwell's hands regardless of what their
 two workbooks now do, because it travelled in five supplier quotations attached as "Elevations".
 
+**Every `n/a` in a checks run is a rule that decided not to look.** Gordon Court's whole rule-21 result
+came back *"no priced workbook on this job"* because a boolean set five turns earlier put
+`is_the_priced_document` on the proposal PDF and not the spreadsheet - and an `n/a` sits in the output
+reading like a considered answer. **A check skipped for a data-entry reason is indistinguishable from a
+check that ran.** Go through the `n/a` lines and verify each against source, not against the manifest
+entry that produced it.
+
+**A list whose name makes a claim - `issued_`, `sent_`, `approved_`, `current_` - has to have every entry
+earn the name.** Riverside's `issued_documents` held the working pricing document, which carries the
+supplier buy in columns J to L and must never be sent, and an internal note to Adam. Three rules iterate
+that list, so *"5 issued documents scanned"* counted two that are not issued. `goes_to_client` is now
+explicit and `check_exclusions_reach_the_issued_document`, `check_no_third_party_traces_in_issued_files`
+and `check_priced_document_view_is_intact` all respect it, defaulting to true.
+
+**`check_exclusions_reach_the_issued_document` - the ruling on multiple priced documents.** No
+client-facing **priced** document carrying the exclusions is a **FAIL**; some but not all is an **ASK**
+naming which; all of them is a **PASS**. The founding case - a covering letter carrying the exclusions
+while the priced document does not - still fails, because **a covering letter is detachable and unpriced
+and will not travel with the figure**. A second *priced* document that carries them is different in kind,
+so partial coverage across priced documents is a judgement about how a pack will be used, which a
+manifest cannot adjudicate. **The first implementation of that ruling got it wrong** by letting any
+client-facing document count as a carrier - the exact weakening the ruling had just disclaimed - and the
+existing covering-letter variant caught it before it shipped.
+
+**Do not resolve someone else's rule by editing your own data.** Gordon Court left a sixth failure
+standing and referred the design question back rather than flipping a boolean to go green. **A rule that
+can be made green by editing a flag is not a rule** - and the failure mode of a referral is that whoever
+rules quietly rules in their own convenience.
+
+**Two files are not a way of hiding something; they are a diff, and a diff tells you whether a difference
+was a decision.** Riverside's print area starts at column C to exclude internal product codes; Gordon
+Court's starts at B, because their column B was repurposed to hold the architect's own window tags, which
+is what a client should see. **They only knew that was deliberate because there were two files to
+compare.**
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
