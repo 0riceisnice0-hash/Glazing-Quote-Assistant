@@ -163,6 +163,34 @@ C6. SOLAR CONTROL ON THE OBSCURE UNITS - 23 WINDOWS.
     Coolite - across all 23. We would rather buy the right glass now than change 23
     units later.
 
+C7. FREE AREA OF THE SEVEN SMOKE VENTILATION UNITS - THE FIGURE WE MOST NEED.
+    QT252257 states no free area for either position, and no reference to EN 12101-2.
+    Please state, for each of the two units as you have quoted them:
+
+        WN_7   3no   Prestige T&T, structural opening 910 x 2100
+        WL_1   4no   Prestige Casement, your overall size 1307 x 2197
+
+    (a) the GEOMETRIC free area in m2 that the unit achieves as quoted. Geometric,
+        specifically - the specification for this job is written that way throughout
+        ("1.5m2 GEOMETRIC free area", NBS L20 cl.630) and the word aerodynamic appears
+        nowhere in the 186-page NBS. If you hold only an aerodynamic or Cv figure,
+        please give it and label it as such rather than converting it;
+    (b) whether the unit is tested to EN 12101-2, and the certificate reference;
+    (c) the largest geometric free area you could achieve within a 910 x 2100 structural
+        opening if we needed more.
+
+    WHY (c) MATTERS AND WHY WE ARE ASKING YOU RATHER THAN WORKING IT OUT: the architect's
+    installation note fixes ground and first floor windows to the existing structural
+    openings, so at those levels the opening cannot grow. We have tried to derive the
+    achievable area from the frame dimensions and it is not reliable - a 5mm change in
+    the assumed section swings the answer from comfortably over to under. You hold the
+    tested figure and we do not. One line from you settles it.
+
+    We are separately asking the design team which duty these positions serve, because
+    the fire strategy legend gives two different figures (1.5m2 and 0.4m2). Your answer
+    and theirs together tell us whether what has been quoted complies. Neither answer is
+    much use on its own.
+
 =====================================================================================
 PART D - COMMERCIAL
 =====================================================================================

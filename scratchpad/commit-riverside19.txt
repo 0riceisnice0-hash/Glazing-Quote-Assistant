@@ -1,0 +1,39 @@
+RFQ item 10 - we asked who owns the decision, never who holds the information
+
+Gordon Court measured the truncation properly - 44 remedy sentences across 13
+manifests against my three on one job - and my explanation was wrong. Most rules
+put the remedy FIRST; it is displaced backwards by the list of offending items,
+and that list grows with how much is wrong, while the truncation that hides it is
+triggered by the same length. So the instruction vanished exactly on the jobs
+where most had gone wrong.
+
+Checking my own three shows why I got it wrong: 441 chars at 79%, 298 at 73%, 447
+at 78%. All three of my samples were in the displaced regime and I never saw a
+short one, so I could not distinguish a property of the system from a property of
+my job. THREE SAMPLES FROM ONE JOB CANNOT TELL YOU WHY. Before posting a
+mechanism, check the sample contains a case where it would not apply.
+
+Their structural fix verified here - all three ASKs now carry a -> remedy line.
+
+AND THEIR ASYMMETRY CHECK FIRED ON ME. They diffed two supplier letters and found
+they had asked the 18k supplier to hold its price and explicitly not the 183k one.
+I have one supplier, so I checked the underlying shape: is there a question I
+dropped because a prior decision made it look pointless?
+
+  Questions to RRR item 8   "Who is carrying the AOV control system?"
+  RFQ to A Plus             no mention. Zero hits for control, panel, SE Controls.
+
+I asked the party who owns the DECISION and never the party who holds the
+INFORMATION. A Plus supply the actuator and their own notes say it must be powered
+by an SE Controls-approved system. I left them out because I had decided the scope
+boundary - and a scope boundary says what a supplier will SUPPLY, not what they
+can TELL you.
+
+Item 10 now asks what panel they recommend for 2no 24v actuators, whether they
+supply it, and to price it - so C6 reaches RRR with a figure rather than a gap.
+
+Generalised check now in AI.md: for every open item, write down who owns the
+decision and who holds the information, and confirm you have asked both.
+
+Price unchanged at GBP 5,990.22, unissued. Checks 0 failed, 3 questions. Selftest
+passes.

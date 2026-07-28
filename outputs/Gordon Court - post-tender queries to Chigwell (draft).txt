@@ -56,6 +56,10 @@ marked "AOV" in Corridors 1-1/1-2/1-3, and 4no WL_1 noted "Louvres to smoke shaf
      910 x 2100.
      Please confirm which duty applies to WN_7 and whether the position is a wall or a roof
      vent. It determines the product, and we do not want to supply the wrong one.
+     We are asking our supplier in parallel for the geometric free area their quoted units
+     achieve, and for the maximum achievable within the existing 910 x 2100 opening, since
+     the installation note fixes ground and first floor to the existing openings. That is
+     our half of the question and we are not waiting on you for it.
 
 1.3  IS THE COLT PACKAGE IN OUR SCOPE?
      NBS L20 clause 630 specifies a full Colt system - AXS140 roof ventilators, Defender

@@ -2085,6 +2085,83 @@ hid the one remedy I had not independently derived, on 91% of the exposure, in a
 
 ---
 
+## 4U. TWENTY-THIRD TURN (28/07) — I asked who decides the free area and never asked who measures it
+
+### 4U.1 riverside's generalised check, run across every open item
+
+> **For every open item, write down who owns the DECISION and who holds the INFORMATION, and confirm you
+> have asked both. They are usually different parties.**
+
+Ran as a diff of all three letters against the open-items list. Twenty-three topics. Most came back clean —
+curtain walling (Chigwell decides, BSW asked for area and price), manifestation (Arkon decides extent, BSW
+asked to price 15.002 lm), acoustic vents, PAS 24, obscure glazing, Uw, the g-value. Restrictors are a
+non-issue: QT252247 carries **21** restrictor references and **27** egress-hinge references, so they are
+priced.
+
+**One topic failed it, and it is the biggest finding on the job.**
+
+    "free area"     0 hits in all three letters
+    "aerodynamic"   0 hits in all three letters
+    "geometric"     0 hits in all three letters
+    "clear opening" 2 hits, Chigwell letter only
+
+The Chigwell letter asks *which duty applies to WN_7* — **the decision**. Nothing anywhere asks BSW what
+free area the units they have quoted actually achieve — **the information**. QT252257 states no free area,
+no EN 12101-2 reference, no Cv. And my own checks manifest, item 4, already recorded it: *"GAP — the pack
+states geometric, **the quote states neither**."* **I wrote down the information gap and then only ever
+asked the decision-owner.**
+
+### 4U.2 Why this one stings more than riverside's
+
+At the second turn I spent the turn deriving the achievable free area from the frame geometry, and had to
+withdraw the result: a **±5mm change in the assumed section swings it 103.0% → 94.0%**, so the inferred
+aperture cannot distinguish pass from fail. I recorded that as a limit of the drawings.
+
+**It was not a limit of the drawings. It was a question I had not asked.** BSW hold the tested figure and
+can state it in one line. I did arithmetic in place of an email, then filed the arithmetic's failure as an
+external constraint.
+
+Fixed: new **C7** in the BSW letter asking for (a) the **geometric** free area of each unit as quoted —
+geometric specifically, because the pack is written that way throughout and the word aerodynamic appears
+nowhere in the 186-page NBS, so an EN 12101-2 certificate would give the wrong basis; (b) whether the unit
+is EN 12101-2 tested and the certificate reference; (c) **the largest geometric free area achievable within
+a 910 x 2100 structural opening**, which is the one that matters because the installation note fixes ground
+and first floor to the existing openings. It says outright why we are asking them rather than working it
+out. The Chigwell letter §1.2 now notes we are asking our supplier in parallel and are not waiting on them
+for that half.
+
+**Neither answer is much use alone. Together they say whether what we have quoted complies.**
+
+### 4U.3 The Colt package — considered under the same test, and deliberately not actioned
+
+Same shape: Chigwell are asked whether the Colt AXS140 / Defender / Vent Control Panel package is ours
+(decision), and we have asked no smoke-ventilation specialist what it would cost (information). Left alone
+on purpose — we have stated the assumption that it is a specialist's, approaching Colt would be soliciting
+a supplier outside our chain for scope we have excluded, and clause 16 puts the strategy on the design team.
+**Recorded as declined rather than missed**, so the next turn does not re-derive it.
+
+### 4U.4 riverside's sampling lesson, turned on my own newest tool
+
+> **Three samples from one job cannot tell you whether you are seeing a property of the system or a
+> property of your job.** All three of riverside's samples sat in the displaced regime, so they could not
+> distinguish "the rules are action-last" from "my job is where they behave that way".
+
+I shipped `check_spec_label_matches_evidence` last turn on the strength of **0 fires across 119 spec items
+in 13 manifests** — which sounds rigorous and is **the same error**. My validation set contained exactly
+**one** positive case: the one I built the rule from. That measures precision and says nothing about recall.
+
+Tested against nine plausible ways of writing the same contradiction: **it caught five.** Missed *"still to
+do"*, *"never checked"*, *"awaiting"*, *"no answer yet"*. Vocabulary widened, and re-tested in **both**
+directions — recall now **8 of 9**, three deliberate negatives stay silent, all 13 real manifests still
+clean, selftest passes.
+
+**The ninth is a known miss and I am not claiming nine.** It fails on the *evidence* side: the evidence
+reads "Checked - 21 refs" and `checked` is not in the done-vocabulary. Adding it would make *"We have not
+checked this yet"* and *"Nobody has run it"* both read as done — trading one miss for a class of false
+positives on the rule that is supposed to catch labels contradicting their evidence.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

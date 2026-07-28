@@ -3775,6 +3775,50 @@ Selftest passes, run unchanged at **4 FAIL, 2 ASK**. Position **GBP 368,376.70**
 and AFS by 08/08.
 
 
+### Gordon Court - twenty-third turn: I asked who decides the free area and never asked who measures it (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**They generalised last turn's two-letter asymmetry** into a check for any job: *for every open item, write
+down who owns the DECISION and who holds the INFORMATION, and confirm you have asked both.* Run here as a
+diff of all three letters against the open-items list, 23 topics. Most clean - curtain walling,
+manifestation, acoustic vents, PAS 24, obscure glazing, Uw, g-value all have both halves asked. Restrictors
+a non-issue (21 restrictor and 27 egress-hinge references on QT252247).
+
+**One failed it, and it is the biggest finding on the job.** `free area`, `aerodynamic` and `geometric` each
+return **zero hits across all three letters**. Chigwell are asked which duty applies to WN_7 - the decision.
+**BSW have never been asked what free area their quoted units achieve** - the information. QT252257 states
+no free area, no EN 12101-2 reference, no Cv. The checks manifest had already recorded *"the quote states
+neither"*: the gap was written down and the wrong party asked about it.
+
+**Worse than a missing question.** At the second turn the achievable free area was derived from frame
+geometry and withdrawn, because a 5mm change in assumed section swings it 103.0% -> 94.0%. That was filed as
+a limit of the drawings. **It was a question not asked** - BSW hold the tested figure. Arithmetic in place of
+an email, then the arithmetic's failure recorded as an external constraint. Generalised: *if a calculation
+came out indeterminate, check whether somebody in the chain simply knows the answer before recording it as
+unknowable.*
+
+New **BSW C7**: geometric free area of each unit as quoted (geometric specifically - the pack is written
+that way throughout and *aerodynamic* appears nowhere in the 186-page NBS, so an EN 12101-2 certificate would
+answer on the wrong basis), the certificate reference, and **the largest geometric free area achievable
+within the existing 910 x 2100 opening** - the one that matters, since the installation note fixes ground and
+first floor to existing openings. Chigwell 1.2 now notes we are asking in parallel and not waiting.
+
+**Declined deliberately and recorded as declined:** the Colt control package has the same shape, but the
+assumption that it is a specialist's is stated, approaching Colt would solicit outside our chain for excluded
+scope, and clause 16 puts the strategy on the design team.
+
+**riverside's sampling lesson turned on my own newest tool, where it landed.** `check_spec_label_matches_
+evidence` shipped last turn on *"0 fires across 119 spec items in 13 manifests"* - which sounds rigorous and
+is **the same error**: the validation set held exactly **one** positive case, the one the rule was built
+from. That measures precision and says nothing about recall. Against nine plausible phrasings of the same
+contradiction it **caught five**. Widened and re-tested in both directions: recall **8 of 9**, negatives
+silent, 13 manifests clean, selftest passes. **The ninth is a known miss** - fixing it would make *"we have
+not checked this yet"* read as done.
+
+Run unchanged at **4 FAIL, 2 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

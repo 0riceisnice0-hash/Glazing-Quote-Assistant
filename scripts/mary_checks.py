@@ -685,8 +685,16 @@ def check_free_delivery_threshold(m):
                   "Riverside House")
 
 
-_LABEL_STALE = re.compile(r"\b(NOT RUN|not run|outstanding|TBC|not yet done)\b")
-_LABEL_DONE = re.compile(r"\b(RUN|DONE|resolved|CLEARED|answered|withdrawn|CORRECTED)\b")
+# Widened 28/07 after riverside's sampling lesson. The first version was validated
+# against ONE positive case - the founding one - so "0 false positives across 119
+# spec items" measured precision and said nothing about recall. Tested against nine
+# plausible ways of writing the same contradiction it caught five. These four were
+# missed: "still to do", "never checked", "awaiting", "no answer yet".
+_LABEL_STALE = re.compile(
+    r"\b(NOT RUN|not run|outstanding|TBC|not yet done|still to do|to be (?:run|checked|done|confirmed)"
+    r"|never (?:run|checked|done|asked)|awaiting|unanswered|not asked|no answer(?: yet)?|pending)\b",
+    re.I)
+_LABEL_DONE = re.compile(r"\b(RUN|DONE|resolved|CLEARED|answered|withdrawn|CORRECTED|confirmed|closed)\b")
 
 
 def check_spec_label_matches_evidence(m):
