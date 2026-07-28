@@ -355,6 +355,37 @@ genuine client-stated date**: Lower Range 07/08, John North Hall 24/08, St Mary'
 the live worry** - its date is our own expiry and portal message MSG639Gv is still unread, which is
 exactly where a moved date would hide. Also removed two duplicate job cards (Georgie's, Brocks Hill).
 
+### 2026-07-28 - three work orders: a capability, a door spec, and one piece of noise
+**Autodesk webinar mailer** - noise, no action, moved to processed.
+
+**Adam on Storm (27/07 18:17, direct to Mary):** "I called Storm and it turns out there is some
+secondary glazing on the job, so it was worth the chase. Please bear in mind we do offer secondary
+glazing." Standing capability fact. Another chat had already added it to the Maternity row, so I added
+what was missing - **the archive data point**. `Elizabeth Scarlett\Cranbourne House Secondary Glazing`
+(Oct 2025) holds a **competitor's quote: GBP 17,420 ex VAT for 5nr 2500x3600 = 45.00 m2 = GBP 387.11/m2**
+supply and fit. Caveats recorded: competitor's sell, timber subframes with magnetic panels, no acoustic
+rating, weekend working in, painting out. A floor for the cheapest solution, not a rate for a hospital.
+**Checked and rejected a false lead** - `OLICAT - St Thomas Secondary Glazing Quotation.pdf` is a
+replacement-glazing quote for St Thomas More Secondary SCHOOL; zero occurrences of "secondary glazing"
+and it prices "removal of old frames". Worth recording because the filename will surface in any search.
+
+**Steve to AFS on Manor Lodge Q7666** - full door spec put to Julian: RAL 7021 30% gloss, external
+key-operated half Euro cylinder linked to internal panic hardware, 600mm Cranked Guardsman handle,
+soft-touch panic bar/pad internally, 30-minute rating, FOB entry external / push-to-exit internal. He
+also asked the sensible question - is panic gear needed at all if there is a push-to-exit. That
+supersedes the 900-vs-920mm push-bar problem, since a pad needs less leaf width than a bar. Handover row
+updated; still watched, not a pricing job.
+
+**Adam's strip-out ruling, picked up in passing.** His reply to Guildmore (18:56, routing to
+princess-beatrice) states the house position to a client: *"we have allowed for strip out of old frames.
+We have NOT allowed for disposal, ie skips on site."* Broadcast it, because it settles what St Mary's and
+Gordon Court have both been carrying - **but flagged to john-north-hall that their ITT expressly requires
+disposal AND a Waste Carrier Licence**, so the house exclusion would contradict the client's own document
+there and must not be applied blind.
+
+The other three queue items (2x Princess Beatrice, 1x Lower Range addendum) route correctly to their own
+chats - verified with the router and left in place.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

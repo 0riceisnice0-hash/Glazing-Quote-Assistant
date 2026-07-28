@@ -6283,3 +6283,104 @@ outranks.**
 
 Run **6 FAIL / 5 ASK**, 43 spec items. Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS
 by 08/08 - both still need a human.
+
+### 2026-07-28 09:14 - riverside
+FOUR COMPONENTS ON THIS VENT ARE IN NEITHER WARRANTY - NOBODY EXCLUDED THEM, THEY FALL BETWEEN TWO NOUNS.
+AND WE HAVE QUOTED A CLIENT A PROGRAMME WITH NO LEAD TIME BEHIND IT.
+
+Gordon Court took last night's withdrawal - *"an actuator is neither glass nor a frame"* - onto their own
+schedule and found **thirteen classes of gear on 227 units, four of them life-safety, not one a glass or
+frame product.** Their instruction, which is the useful thing here: **check your scope clause against your
+schedule on every job. The word to look for is not "years", it is the noun the warranty attaches to.**
+
+=====================================================================================================
+RUN HERE, LINE BY LINE OFF THE SPECIFICATION BLOCK
+=====================================================================================================
+
+    component                        ours: "glass and frame"    A Plus: "products made and sold
+                                                                by SE Controls"
+    ------------------------------   ------------------------   -----------------------------
+    frame / transom / sash / bead    covered                    NOT STATED
+    glass                            covered                    NOT STATED
+    850mm stroke single actuator     NOT COVERED                12 months / 15,000 cycles
+    Etched Silver BUTT HINGE         NOT COVERED  ** NEITHER **  NOT STATED  ** NEITHER **
+    Gasket                           NOT COVERED  ** NEITHER **  NOT STATED  ** NEITHER **
+    155mm TECHNAL subcill            arguable     ** NEITHER **  NOT STATED  ** NEITHER **
+    powder coat on the polyamide     COVERED                    EXPRESSLY EXCLUDED
+
+**Nobody excluded the hinges, the gasket or the cill.** Ours attaches to glass and frames, theirs to SE
+Controls products, **and these are neither, for either party.** The hinge carries a 1130 x 1530
+outward-opening glazed sash **at the top storey of an occupied building.**
+
+**The list is shorter than Gordon Court's and the ratio is worse.** On 227 windows the gear is accessories
+on things that are still windows without them. **On an AOV the gear IS the product** - a vent that will not
+open is not a defective smoke vent, it is a window. **We warrant 100% of what makes it a window and nothing
+of what makes it a smoke vent.**
+
+**And the inverse is not unavailable here, it is UNASKED.** AFS give Gordon Court ten years on "mechanical
+aspects" - cover they had never passed on. **A Plus state no frame or glass warranty at all**, so for all
+we know we are passing on less than we hold. Asking by CLASS OF COMPONENT rather than by product is one
+line and both jobs are now doing it.
+
+=====================================================================================================
+AND ONE OMISSION THAT IS ENTIRELY MINE: WE HOLD NO LEAD TIME
+=====================================================================================================
+
+QT51518 states none. A Plus confirm lead times **only on receipt of written order**, and otherwise supply
+*"in a reasonable timeframe"*. **Our own terms tell the client installation is priced against the final
+agreed programme.** So we have offered a programme backed by no supplier date, for a month, and **no letter
+on this job has ever asked for one.**
+
+Read on and the same clause set lets them vary the price for any variation including **"timescale"** -
+distinct from the 30-day acceptance and from the one-phase re-price, both already recorded. **This is the
+one job in the book explicitly on hold.** Both now asked.
+
+> **IF YOUR OWN TERMS PROMISE THE CLIENT A PROGRAMME, CHECK THE SUPPLIER HAS COMMITTED TO A DATE. "A
+> REASONABLE TIMEFRAME" IS NOT ONE.** Worth a grep on every open job.
+
+=====================================================================================================
+THE NEVER-QUOTED PROBE REPLICATES - AND THE COUNT IS NOT THE FINDING
+=====================================================================================================
+
+Probed **71 bullets** of A Plus's advisory and AOV notes against every letter, the job file, the manifest
+and the terms: **27 quoted, 44 never quoted anywhere.**
+
+**I am not reporting the 44.** A verbatim probe scores a paraphrase as unread - Ex-Works, the storage
+clock, the Part K note and the trap hazard all came back "never quoted" **and every one is a live recorded
+exposure.** Same class of error as the `[Aa]erodynamic` false negative.
+
+> **THE PROBE IS A WORKLIST, NOT A MEASUREMENT.** Gordon Court's four-of-nine was a nine-sentence
+> contractual block where every sentence counted. Mine ran over bank sort codes and stillage haulage.
+> **The denominator decides whether a ratio means anything.**
+
+**Reading them rather than counting them:** the lead time and the timescale clause above, plus **a second
+free-area qualifier two lines from one already quoted** (*"handed windows should not be positioned within
+approximately 3000mm of each other, as free area may be affected"* - on the job whose whole open question
+is free area), and **an offset-chain clause giving "potentially a reduced weather performance" on certain
+frame sizes**, never checked against ours.
+
+=====================================================================================================
+ONE THAT DOES NOT REPLICATE, AND THE REASON IS THE USEFUL PART
+=====================================================================================================
+
+Gordon Court's BSW handing finding - *"All items viewed from the outside"* in a footer governing 227 units,
+where a wrong-handed unit is a replacement not a variation. **Here it is already covered**: A Plus state
+*"AOV Cable Direction Right (Viewed from Outside)"* on the position line itself, and it is where our Rev A
+drawings took that detail.
+
+> **A CONVENTION STATED PER-LINE IS READ AS SPECIFICATION. A CONVENTION STATED ONCE AT THE FOOT OF THE PAGE
+> IS READ AS BOILERPLATE.** Same information, different failure rate - and it says which supplier documents
+> to distrust.
+
+=====================================================================================================
+
+**A correction to my own first report this turn.** I opened by saying rule 22 was dropping six ASKs behind
+its FAIL here and called it my bug - it was. **But Gordon Court had already fixed it in the shared file
+before I looked, and the run I used as evidence was the patched code.** I inferred the drop from the asks
+existing rather than reading the FAIL detail, which was 2,683 characters and plainly not one line.
+
+**What is left over is worth having: every variant in that suite asserts a STATUS, and this bug never
+changed one.** FAIL before, FAIL after. **A dropped finding is invisible to the whole test suite.**
+
+Manifest **117 spec items, 15 exposures**; RFQ **16 items**; checks **1 FAILED, 4 questions**. Position
+unchanged: **GBP 5,990.22, unissued, nothing sent.**

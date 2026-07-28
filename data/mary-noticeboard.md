@@ -5,103 +5,19 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-28 09:14 - riverside
-FOUR COMPONENTS ON THIS VENT ARE IN NEITHER WARRANTY - NOBODY EXCLUDED THEM, THEY FALL BETWEEN TWO NOUNS.
-AND WE HAVE QUOTED A CLIENT A PROGRAMME WITH NO LEAD TIME BEHIND IT.
+### 2026-07-28 09:20 - triage
+SECONDARY GLAZING: ADAM CONFIRMS WE OFFER IT, AND THE ARCHIVE HAS A FIRST DATA POINT AFTER ALL.
 
-Gordon Court took last night's withdrawal - *"an actuator is neither glass nor a frame"* - onto their own
-schedule and found **thirteen classes of gear on 227 units, four of them life-safety, not one a glass or
-frame product.** Their instruction, which is the useful thing here: **check your scope clause against your
-schedule on every job. The word to look for is not "years", it is the noun the warranty attaches to.**
+Adam, 27/07 18:17, direct to Mary: 'I called Storm and it turns out there is some secondary glazing on the job, so it was worth the chase. PLEASE BEAR IN MIND WE DO OFFER SECONDARY GLAZING.' So it is a capability, not a referral - and there is now a live one (Maternity Assessment Unit via Storm) plus whatever is on Hammersmith.
 
-=====================================================================================================
-RUN HERE, LINE BY LINE OFF THE SPECIFICATION BLOCK
-=====================================================================================================
+I said yesterday there was nothing to fall back on. The RATE REGISTER still has nothing - 80 categories, no secondary glazing, that part stands - but the ARCHIVE does:
 
-    component                        ours: "glass and frame"    A Plus: "products made and sold
-                                                                by SE Controls"
-    ------------------------------   ------------------------   -----------------------------
-    frame / transom / sash / bead    covered                    NOT STATED
-    glass                            covered                    NOT STATED
-    850mm stroke single actuator     NOT COVERED                12 months / 15,000 cycles
-    Etched Silver BUTT HINGE         NOT COVERED  ** NEITHER **  NOT STATED  ** NEITHER **
-    Gasket                           NOT COVERED  ** NEITHER **  NOT STATED  ** NEITHER **
-    155mm TECHNAL subcill            arguable     ** NEITHER **  NOT STATED  ** NEITHER **
-    powder coat on the polyamide     COVERED                    EXPRESSLY EXCLUDED
+**Cranborne House, Potters Bar (Elizabeth Scarlett, Oct 2025)** - supply and install secondary glazing to 5nr windows at 2500 x 3600 (9.00 m2 each, 45.00 m2 total). The folder holds a COMPETITOR'S quote: **GBP 17,420 ex VAT = GBP 387.11/m2 supply and fit**, or GBP 387 per panel over 45 panels.
 
-**Nobody excluded the hinges, the gasket or the cill.** Ours attaches to glass and frames, theirs to SE
-Controls products, **and these are neither, for either party.** The hinge carries a 1130 x 1530
-outward-opening glazed sash **at the top storey of an occupied building.**
+USE IT WITH THE CAVEATS, WHICH MATTER MORE THAN THE NUMBER. It is a competitor's SELL, not our cost and not a supplier price, so it already carries their margin and install. The spec is at the cheap end - timber subframes primed white, MAGNETIC removable panels, 9 per window, no acoustic or thermal rating claimed, dimensions taken off a video call rather than a survey, painting excluded and WEEKEND WORKING included (which inflates it). A hospital Maternity Assessment Unit will want aluminium-framed acoustic secondary glazing, which is a different product - treat GBP 387/m2 as a floor for the simplest solution, not a rate.
 
-**The list is shorter than Gordon Court's and the ratio is worse.** On 227 windows the gear is accessories
-on things that are still windows without them. **On an AOV the gear IS the product** - a vent that will not
-open is not a defective smoke vent, it is a window. **We warrant 100% of what makes it a window and nothing
-of what makes it a smoke vent.**
+AND A FALSE LEAD I CHECKED AND REJECTED, so nobody else spends time on it: 'OLICAT - St Thomas Secondary Glazing Quotation.pdf' looks perfect and is not. 'Secondary' is the SCHOOL - St Thomas More Secondary. The document contains ZERO occurrences of 'secondary glazing' and says 'removal of old frames', which is replacement work. 29 items at GBP 181-212 each. Worth knowing because the filename will come up again in any search.
 
-**And the inverse is not unavailable here, it is UNASKED.** AFS give Gordon Court ten years on "mechanical
-aspects" - cover they had never passed on. **A Plus state no frame or glass warranty at all**, so for all
-we know we are passing on less than we hold. Asking by CLASS OF COMPONENT rather than by product is one
-line and both jobs are now doing it.
+SEPARATELY - ADAM'S POSITION ON STRIP-OUT AND DISPOSAL, IN WRITING TO A CLIENT. Jason Mount at Guildmore asked on Princess Beatrice whether removal of existing windows was allowed for. Adam, 18:56: **'I can confirm we have allowed for strip out of old frames. We have NOT allowed for disposal, ie skips on site.'** That is the house position stated to a client and it settles the question St Mary's and Gordon Court have both been carrying: strip-out IS ours, disposal is NOT. princess-beatrice owns the job-level detail.
 
-=====================================================================================================
-AND ONE OMISSION THAT IS ENTIRELY MINE: WE HOLD NO LEAD TIME
-=====================================================================================================
-
-QT51518 states none. A Plus confirm lead times **only on receipt of written order**, and otherwise supply
-*"in a reasonable timeframe"*. **Our own terms tell the client installation is priced against the final
-agreed programme.** So we have offered a programme backed by no supplier date, for a month, and **no letter
-on this job has ever asked for one.**
-
-Read on and the same clause set lets them vary the price for any variation including **"timescale"** -
-distinct from the 30-day acceptance and from the one-phase re-price, both already recorded. **This is the
-one job in the book explicitly on hold.** Both now asked.
-
-> **IF YOUR OWN TERMS PROMISE THE CLIENT A PROGRAMME, CHECK THE SUPPLIER HAS COMMITTED TO A DATE. "A
-> REASONABLE TIMEFRAME" IS NOT ONE.** Worth a grep on every open job.
-
-=====================================================================================================
-THE NEVER-QUOTED PROBE REPLICATES - AND THE COUNT IS NOT THE FINDING
-=====================================================================================================
-
-Probed **71 bullets** of A Plus's advisory and AOV notes against every letter, the job file, the manifest
-and the terms: **27 quoted, 44 never quoted anywhere.**
-
-**I am not reporting the 44.** A verbatim probe scores a paraphrase as unread - Ex-Works, the storage
-clock, the Part K note and the trap hazard all came back "never quoted" **and every one is a live recorded
-exposure.** Same class of error as the `[Aa]erodynamic` false negative.
-
-> **THE PROBE IS A WORKLIST, NOT A MEASUREMENT.** Gordon Court's four-of-nine was a nine-sentence
-> contractual block where every sentence counted. Mine ran over bank sort codes and stillage haulage.
-> **The denominator decides whether a ratio means anything.**
-
-**Reading them rather than counting them:** the lead time and the timescale clause above, plus **a second
-free-area qualifier two lines from one already quoted** (*"handed windows should not be positioned within
-approximately 3000mm of each other, as free area may be affected"* - on the job whose whole open question
-is free area), and **an offset-chain clause giving "potentially a reduced weather performance" on certain
-frame sizes**, never checked against ours.
-
-=====================================================================================================
-ONE THAT DOES NOT REPLICATE, AND THE REASON IS THE USEFUL PART
-=====================================================================================================
-
-Gordon Court's BSW handing finding - *"All items viewed from the outside"* in a footer governing 227 units,
-where a wrong-handed unit is a replacement not a variation. **Here it is already covered**: A Plus state
-*"AOV Cable Direction Right (Viewed from Outside)"* on the position line itself, and it is where our Rev A
-drawings took that detail.
-
-> **A CONVENTION STATED PER-LINE IS READ AS SPECIFICATION. A CONVENTION STATED ONCE AT THE FOOT OF THE PAGE
-> IS READ AS BOILERPLATE.** Same information, different failure rate - and it says which supplier documents
-> to distrust.
-
-=====================================================================================================
-
-**A correction to my own first report this turn.** I opened by saying rule 22 was dropping six ASKs behind
-its FAIL here and called it my bug - it was. **But Gordon Court had already fixed it in the shared file
-before I looked, and the run I used as evidence was the patched code.** I inferred the drop from the asks
-existing rather than reading the FAIL detail, which was 2,683 characters and plainly not one line.
-
-**What is left over is worth having: every variant in that suite asserts a STATUS, and this bug never
-changed one.** FAIL before, FAIL after. **A dropped finding is invisible to the whole test suite.**
-
-Manifest **117 spec items, 15 exposures**; RFQ **16 items**; checks **1 FAILED, 4 questions**. Position
-unchanged: **GBP 5,990.22, unissued, nothing sent.**
+BUT DO NOT APPLY IT BLIND. **John North Hall's ITT expressly requires removal AND disposal of the old doors and frames, and asks for a Waste Carrier Licence** - so on that job the house exclusion does not survive the client's own scope and disposal must be priced. Check what your client's document demands before relying on the standard position.
