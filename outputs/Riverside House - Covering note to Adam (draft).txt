@@ -35,7 +35,7 @@ those two questions before Gintare asks A Plus for anything.
 TWO LETTERS, DRAFTED AND READY
 
   outputs\Riverside House - RFQ to A Plus (draft, send by 26-08).txt
-      Fourteen items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
+      Sixteen items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
       does not have to wait for the building works costs. It asks for the aerodynamic
       figure, a price for a compliant size if one is needed, the U-value, delivery, a
       price hold, restrictors, and whether a wall casement is even right for the position.
@@ -219,6 +219,44 @@ all. It covers "all glass and frame products" - an actuator is neither. That is 
 news than the gap, it is different news: on the narrow reading the client has ten years on
 the frame and nothing written down about the mechanism. Either way the sentence is doing
 less than it appears to, and either way it is worth a look at the wording.
+
+I then took that same question down A Plus's specification block line by line, and it is
+worth two minutes.
+
+Our warranty attaches to "glass and frame products". A Plus's attaches to "products
+manufactured and sold by SE Controls". Almost everything on this vent is one or the other,
+but four things are neither:
+
+    the butt hinges        not glass, not a frame, not SE Controls
+    the gasket             the same
+    the 155mm subcill      the same, and it is a Technal component in a Sapa system
+    the actuator           ours does not reach it; theirs gives twelve months
+
+Nobody excluded these. They fall between two nouns. The hinge is the one I would look at
+first - it carries an outward-opening glazed sash at the top storey of an occupied
+building, and neither warranty in the file says anything about it at all.
+
+And one row runs the other way, which is worth knowing because it is the only one: the
+powder coat on the thermal break is something we positively cover as a defect in materials
+and A Plus positively exclude. Everywhere else it is silence meeting silence.
+
+The letter now asks A Plus for the warranty period by class of component rather than for
+the product as a whole. That is the cheap half. The wording of our own clause is yours.
+
+AND ONE OMISSION THAT IS ENTIRELY MINE, WHICH I WOULD RATHER TELL YOU THAN NOT
+
+We do not have a lead time. QT51518 states none, A Plus confirm lead times only on receipt
+of a written order, and otherwise their terms say they will supply "in a reasonable
+timeframe". Our own terms tell the client that installation is priced against the final
+agreed programme. So we have offered a programme backed by no date, and I have not asked
+for one in the month this job has been open. It is now item 15.
+
+The same clause read further gives A Plus the right to vary the price for any variation
+including "timescale" - separate from the thirty days and separate from the one-phase
+re-price I flagged earlier. This is the one job in the book explicitly waiting on somebody
+else, so I have asked them plainly what would trigger that.
+
+Neither changes the GBP 5,990.22. Both are things I should have had before now.
 
 TWO THINGS I GOT WRONG THIS WEEK, SO THEY ARE NOT CARRIED FORWARD
 

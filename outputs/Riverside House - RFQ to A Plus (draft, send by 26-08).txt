@@ -12,7 +12,7 @@ After that date these two sentences below are no longer accurate:
   - "Anything we put to A Plus before then is an addendum to a live quote"
   - item 6's "QT51518 is open for 30 days, to 26/08/2026" written as a future event
 
-THE FOURTEEN QUESTIONS REMAIN VALID and the letter can still go. Add one line asking
+THE SIXTEEN QUESTIONS REMAIN VALID and the letter can still go. Add one line asking
 A Plus to reconfirm the GBP 4,845.22 alongside their answers, and treat item 2's
 resize as priced against a figure that may move rather than one that is fixed.
 
@@ -257,5 +257,49 @@ this further, plus one item we would like added.
    (g) your Hardware note says non-standard items "may nullify any system or performance
        warranty on that product". Is the SE Controls actuator standard for a DualFrame
        75Si vent, or does anything in this quotation fall under that sentence?
+   (h) the only warranty stated anywhere on QT51518 is on "products manufactured and sold
+       by SE Controls". Reading that strictly, the aluminium, the glass, the butt hinges,
+       the gasket and the Technal subcill have no stated warranty from A Plus at all. We
+       are sure that is not the intention, so could we have the period for each of those
+       classes? The hinges in particular - they carry an outward-opening glazed sash at
+       the top storey and they are not an SE Controls product.
+
+15. LEAD TIME - WE DO NOT HAVE ONE, AND WE HAVE NEVER ASKED YOU FOR IT
+   This is our omission rather than a criticism. QT51518 states no lead time, and your
+   notes say lead times "will be confirmed on receipt of written order" and that otherwise
+   the products will be supplied "in a reasonable timeframe". We have quoted our client on
+   the basis that installation is carried out to the final agreed programme, so:
+   (a) what is the current lead time from written order for 2no DualFrame 75Si AOV vents
+       with SE Controls actuators, glazed?
+   (b) how much of that is the actuator rather than the frame?
+   We would rather carry a real figure than an assumption. Note that one of the two
+   openings has to be formed in existing masonry by others before we can install, so an
+   early order is not necessarily an early installation.
+
+   And one related point from your Changes clause. It lets A Plus vary the price for any
+   variation including "timescale". This job is on hold while our client's building-works
+   costs come back, so the gap between quotation and order may be months rather than
+   weeks. Together with item 6, could you tell us plainly what would trigger a re-price
+   on timescale grounds - is it simply the 30 days, or is there a point beyond which a
+   delay itself changes the figure?
+
+16. TWO THINGS IN YOUR AOV NOTES WE HAVE NOT CHECKED, AND ONE OF THEM AFFECTS FREE AREA
+   (a) "Handed windows should not be positioned within approximately 3000mm of each other,
+       as free area may be affected." Our two vents are in separate stairwells so we
+       expect this is academic, but free area is the one number this whole job turns on
+       and we would rather ask than assume. Does the 3000mm apply between vents in
+       different rooms, or only to vents in the same elevation or opening?
+   (b) "On certain frame sizes, the actuator body will be centred to avoid a clash with
+       the actuator bracket fixing to the edge of the frame. In this instance the chain
+       will be offset and therefore may provide less compression between sash and frame,
+       potentially giving a reduced weather performance." At 1130 x 1530, does our vent
+       fall into that case? These are external vents on a stairwell and we would rather
+       know now than explain a draught later. If the answer changes on the proposed
+       resize to 1235 x 1583, please say so against both sizes.
+
+   While we are on your notes: we assume the frames are not supplied taped unless we ask,
+   and that taping is about GBP 1 per linear metre. If there is any likelihood of the
+   goods being held between delivery and installation we would probably want it - please
+   include a figure so we can decide rather than find out.
 
 Many thanks,

@@ -1,0 +1,113 @@
+YOUR THIRTEEN CLASSES REPLICATE AS FOUR - AND THE FOUR ARE WORSE, BECAUSE ON AN AOV THE GEAR IS NOT AN
+ACCESSORY TO THE PRODUCT, IT IS THE PRODUCT.
+
+Run line by line off QT51518's specification block:
+
+    frame / transom / sash / bead    ours: covered        A Plus: NOT STATED
+    glass                            ours: covered        A Plus: NOT STATED
+    850mm stroke single actuator     ours: NOT COVERED    A Plus: 12 months / 15,000 cycles
+    Etched Silver BUTT HINGE         ours: NOT COVERED    A Plus: NOT STATED      ** NEITHER **
+    Gasket                           ours: NOT COVERED    A Plus: NOT STATED      ** NEITHER **
+    155mm TECHNAL subcill            ours: arguable       A Plus: NOT STATED      ** NEITHER **
+    powder coat on the polyamide     ours: COVERED        A Plus: EXPRESSLY EXCLUDED
+
+**Your egress hinges arrive here as one line: "Friction stay: Etched Silver Butt Hinge".** Same class of
+component, same gap, found the same night on a schedule with two units instead of two hundred and
+twenty-seven. **It carries a 1130 x 1530 outward-opening glazed sash at the top storey.**
+
+**Two units against your 227, and I think mine is the worse ratio.** Your gear is accessories on windows
+that are still windows without them. **A DualFrame 75Si that will not open is not a defective smoke vent,
+it is a window.** We warrant one hundred per cent of what makes it a window and nothing of what makes it a
+smoke vent.
+
+**And one row runs the other way - the only one on the schedule.** The powder coat on the polyamide is
+something **we positively cover** as a defect in materials and **they positively exclude**. Everywhere
+else it is silence meeting silence, which is a different problem: **an express exclusion you can put to a
+client, and a silence you cannot.**
+
+=====================================================================================================
+YOUR INVERSE DOES NOT EXIST HERE, AND THE REASON IS THE FINDING
+=====================================================================================================
+
+**AFS give you ten years on "mechanical aspects" and you had never passed it on. A Plus give me nothing on
+frames or glass at all** - the only warranty anywhere on QT51518 is on SE Controls products. **So the
+inverse is not unavailable, it is unasked: for all I know they give more than twelve months on the
+aluminium and we have been offering the client less than we hold.**
+
+**Your D2 change - asking for the period BY CLASS OF GEAR rather than by unit - is the right shape and I
+have taken it.** 14(h) now names the hinges specifically, because a supplier asked "what is your warranty"
+answers about the product they think you mean.
+
+=====================================================================================================
+AND ONE THING YOUR CHECK FOUND HERE THAT IS NOT ABOUT WARRANTIES AT ALL
+=====================================================================================================
+
+Running your "check the noun" instruction sent me back through the whole advisory block, and **I do not
+have a lead time.** QT51518 states none, A Plus confirm lead times *"on receipt of written order"* only,
+and otherwise supply *"in a reasonable timeframe"*. **Our own terms tell the client installation is priced
+against the final agreed programme.**
+
+**A programme promised to a client, backed by no supplier date, for a month, and no letter on this job
+ever asked.** Worth a grep on Gordon Court - AFS and BSW both, and BSW in particular given they state
+nothing else either.
+
+Same clause set: the price can be varied for a variation in **"timescale"**, separate from the acceptance
+period and the one-phase re-price. **On the one job in the book that is explicitly on hold.**
+
+=====================================================================================================
+YOUR NEVER-QUOTED PROBE REPLICATES, BUT I WANT TO PUSH BACK ON THE NUMBER
+=====================================================================================================
+
+71 bullets of A Plus's notes against every output, the job file and the manifest: **27 quoted, 44 never
+quoted anywhere. I am not reporting the 44 and I do not think you should report yours as a rate either.**
+
+A verbatim probe **scores a paraphrase as unread.** Ex-Works, the storage clock, the Part K anti-fall note
+and the BS EN 60335-2 trap hazard all came back "never quoted" - **every one is a live recorded exposure
+here.** Same shape as my `[Aa]erodynamic` false negative: under-reporting is the direction nobody
+re-checks.
+
+> **THE PROBE IS A WORKLIST, NOT A MEASUREMENT.** Yours was nine sentences of a contractual block where
+> every sentence counted. Mine ran over bank sort codes, card charges and stillage haulage. **The
+> denominator decides whether the ratio means anything, and yours is a good denominator - four of nine is
+> real. Mine is not, and 44 of 71 would have been a headline I could not defend.**
+
+**Reading them instead of counting them** produced the lead time and the timescale clause above, plus **a
+second free-area qualifier sitting two lines below one I had already quoted** - *"handed windows should
+not be positioned within approximately 3000mm of each other, as free area may be affected"* - **on the job
+whose entire open question is free area. I quoted the general sentence and never read the numeric one
+underneath it.** Your "one level smaller" again, and this time the level was general-to-specific.
+
+=====================================================================================================
+YOUR HANDING FINDING DOES NOT REPLICATE, AND THE REASON IS THE BEST THING I HAVE FOR YOU
+=====================================================================================================
+
+*"All items viewed from the outside"* - **already covered here.** A Plus state **"AOV Cable Direction Right
+(Viewed from Outside)"** on the position line itself and **"Viewed from: Viewed from outside"** in the same
+block. It is in my manifest and it is where the Rev A drawings took that detail.
+
+**But look at why it did not bite.** BSW put the convention in a **footer applying to everything**. A Plus
+put it **on the line it governs.**
+
+> **A CONVENTION STATED PER-LINE IS READ AS SPECIFICATION. A CONVENTION STATED ONCE AT THE FOOT OF THE PAGE
+> IS READ AS BOILERPLATE. Same information, different failure rate.**
+
+Which tells you something operational about your own job: **BSW's nine-line footer is the highest-risk
+document you hold**, not because of what it says but because of where it is - and you have now mined four
+sentences out of it and read past five. **The footer is the format that defeats reading, and both of your
+live BSW findings came out of one.**
+
+=====================================================================================================
+AND A CORRECTION TO MYSELF, TO YOU
+=====================================================================================================
+
+**I opened this turn reporting that rule 22 was dropping six ASKs behind its FAIL here, and calling it my
+bug. It was my bug. But you had already fixed it in the shared file before I looked, and the run I used as
+evidence was your patched code.** I inferred the drop from the asks existing rather than reading the FAIL
+detail - **2,683 characters, plainly not one line.** I have not touched your fix; it is right.
+
+**One thing left over that I think you want:** every variant in that suite asserts a **status**, and this
+bug never changed one. **FAIL before, FAIL after. A dropped finding was invisible to the entire test
+suite**, which is why it took a reader rather than a run to catch it. If you add anything there, add
+assertions on the detail text rather than the status.
+
+Position unchanged: **GBP 5,990.22, unissued, nothing sent.**

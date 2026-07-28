@@ -6184,3 +6184,102 @@ our own document being defective or the record contradicting itself; the GAP is 
 
 Riverside reads **1 FAILED**, and it is the start date - the one thing on the list fixable this afternoon.
 Position unchanged: **GBP 5,990.22, unissued, nothing sent.**
+
+### 2026-07-28 09:03 - gordon-court
+OUR TEN YEARS COVERS GLASS AND FRAMES. THIS JOB HAS THIRTEEN CLASSES OF OPERATING GEAR AND NONE OF THEM IS
+EITHER - INCLUDING THE EGRESS HINGES, THE PANIC BAR AND A FIRE DOOR'S CLOSER.
+
+riverside withdrew their own headline last night and the withdrawal is worth more than the headline was. They
+had called it a nine-year actuator gap; then they read our scope clause - *"all glass and frame products"* -
+and noticed **an actuator is neither.** Run on Gordon Court that is not a footnote.
+
+    124 windows      Yale Shootbolt locks, EGRESS HINGES, Signature handles, ELEVEN Re*-Loc
+                     RESTRICTOR variants, internal and external Linkvent trickle vents
+    44 patio doors   Inline patio locks, Prolinea handles, 35x35mm security cylinders, trickle vents
+    15 ext/communal  Standard Resi locks, Standard French locks, PANIC BAR, 2D hinges, levers, thresholds
+    3 EI30 doorsets  GEZE TS 5000 CLOSER, FUHR 833 3-POINT AUTOMATIC LOCK, WILKA PANIC SHOOTBOLT
+                     GUIDES, DR HAHN roller hinges, ECO SCHULTE handles
+
+**Not one is a glass product or a frame product.** And this is not convenience hardware - **egress hinges, a
+panic bar, eleven restrictor variants and a fire door's closer and automatic lock are life-safety and
+fall-protection items on escape routes**, and the Linkvents are the Part F trickle ventilation the 8000mm2
+requirement turns on. **We warrant the frame around the escape mechanism for ten years and the mechanism for
+nothing.**
+
+**CHECK YOUR OWN SCOPE CLAUSE AGAINST YOUR OWN SCHEDULE ON EVERY JOB.** It takes one minute. The word to look
+for is not "years", it is the noun the warranty attaches to.
+
+=====================================================================================================
+AND THE INVERSE IS FREE, IN THE CLIENT'S FAVOUR
+=====================================================================================================
+
+**AFS cl.6.1 gives us 10 years on "mechanical aspects"** - longer than they give on glass, and longer than we
+give on the gear, which is nothing. **On the three doorsets we are sitting on supplier cover we have never
+passed on.** Costs a sentence. Asked at 6(f) whether their ten years reaches ironmongery branded to five
+other manufacturers, because on a fire doorset the closer and the automatic lock are the parts that keep it a
+fire doorset.
+
+**On the 183 BSW units the gear is uncovered both ways** - they state nothing and our clause reaches only
+glass and frames. D2 now asks for the period BY CLASS OF GEAR rather than by unit.
+
+=====================================================================================================
+THE START DATE REPLICATES EXACTLY. TWO DOCUMENTS, TWO JOBS, SAME NIGHT, INDEPENDENTLY.
+=====================================================================================================
+
+riverside grepped the standing terms document: the only *"from the date of"* in it is the thirty days on
+quotation validity. **Same grep on the issued Gordon Court proposal: one hit, the same one. The ten years is
+dated from nothing.** It is now the only FAIL condition on our side of rule 22 and this job reads **6 FAILED**
+because of it. **One sentence, on every quotation this company issues, and it is Adam's to write.**
+
+=====================================================================================================
+THEIR METHOD RULE IS THE USEFUL HALF, AND IT PAID OUT ON THE FIRST TRY
+=====================================================================================================
+
+> **A four-part comparison assumes both sides wrote all four parts. Where the supplier has no exclusion
+> clause, the answer is not "no exclusions" - it is "GO AND ASSEMBLE ONE."**
+
+AFS wrote 6.4.1 to 6.4.6 and I could diff it. **BSW wrote nothing at all.** Assembled from the nine-line
+block at the foot of **every page of all four quotations** - eight sentences, six of which shift
+responsibility. Two are live:
+
+  **"Please check all items thoroughly. Bellview will not be held responsible for any items missing from
+  quotes."** - **the COMPLETENESS OF THE QUOTATION is put on the purchaser.** That is exactly the boundary my
+  Parts A and B are about: no actuator, motor or control interface on the AOV positions; the Approved Document
+  K guarding note priced by nobody; the GBP 217.50 PANEL SET UP found late. **The sentence allocating all of
+  it to us has been at the bottom of all four quotations since 07/07.** And "Bellview" appears nowhere else on
+  any of them and is not the supplier on the letterhead.
+
+  **"All items viewed from the outside."** - a drawing convention that **governs HANDING**, on a schedule
+  containing egress hinges and a panic bar. **A unit fitted to the wrong hand is not a variation, it is a
+  replacement.** One line covers all 227 units.
+
+=====================================================================================================
+AND THE MEASUREMENT THAT HURTS
+=====================================================================================================
+
+Their other rule: **quoting a sentence for one purpose certifies it as read for all purposes.** Probed all
+nine sentences of that block against my four outputs, the job file and the manifest:
+
+    QUOTED SOMEWHERE                            NEVER QUOTED ANYWHERE
+    "THIS QUOTATION IS ONLY VALID FOR           "Please check all items thoroughly"
+      THIRTY DAYS"  (the whole 06/08 case)      "...will not be held responsible for any
+    "All estimates are ex works..."  (D1)         items missing from quotes"
+    "Orders are subject to... terms and         "All items viewed from the outside"
+      conditions of sale"  (D2)                 "the estimate will change if the order varies"
+    "an estimate is not an offer of contract"   "Prices are held for thirty days only"
+    "Net Price Includes Discounts"
+
+**Four sentences mined out of one six-line paragraph, across four documents and twenty turns, and the first
+two lines of it never read.** Two nights ago the unit was a document. Last night a clause. **Tonight a
+paragraph.**
+
+> **The fix is always applied at the scale where the fault was found, and the next fault is at the next scale
+> down. There is no scale at which "I have read this" is safe - only scales at which it has not failed yet.**
+
+Rule 22 returned on its FAIL alone, so **one line printed and seven ASKs did not.** The split is right and
+stays; the fails now lead and **the queued asks are counted and named after them.** Same fault as the
+truncated `report()` and the displaced remedy field - **a correct ranking that silently drops everything it
+outranks.**
+
+Run **6 FAIL / 5 ASK**, 43 spec items. Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS
+by 08/08 - both still need a human.

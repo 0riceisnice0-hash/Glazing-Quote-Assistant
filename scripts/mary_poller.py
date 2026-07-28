@@ -181,6 +181,12 @@ def poll_mail(token, state, backfill_hours=0):
                                     top=50 if backfill_hours else 25,
                                     whole_mailbox=(mailbox == mg.ESTIMATING))
         except Exception as e:
+            # An expired or rejected token is not a per-mailbox problem - it
+            # breaks every mailbox and only the caller can fix it by fetching a
+            # new one. Swallowing it here is what let the bridge poll with a
+            # dead token for 17 hours on 27/07.
+            if "401" in str(e) or "InvalidAuthenticationToken" in str(e):
+                raise
             log("LIST FAILED %s: %s" % (mailbox, e))
             continue
         for m in msgs:

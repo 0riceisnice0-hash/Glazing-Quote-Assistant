@@ -46,6 +46,7 @@ PIDFILE = os.path.join(REPO, "test-results", "mary-inbox", "bridge.pid")
 DASH_EVERY = 5           # seconds - our own endpoint, free
 ACTIVITY_EVERY = 6       # seconds - how often the live feed refreshes on the hub
 MAIL_EVERY = 120         # seconds - Microsoft Graph
+TOKEN_MAX_AGE = 45 * 60  # seconds - Graph tokens last an hour; renew before that
 TICK = 2
 MAX_ATTEMPTS = 3         # per work order before it is quarantined
 SESSION_TIMEOUT = 90 * 60
@@ -356,6 +357,12 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
         mp.poll_dashboard(env, state)
         state["_last_dash"] = now
     if force_mail or now - state.get("_last_mail", 0) >= MAIL_EVERY:
+        # Renew BEFORE it lapses. Waiting for a failure to trigger the refresh
+        # is what killed intake for 17 hours on 27/07: poll_mail swallowed the
+        # 401 per mailbox, so the except below never fired and the bridge kept
+        # polling with a token that had expired at 16:56.
+        if token[0] and now - state.get("_token_at", 0) >= TOKEN_MAX_AGE:
+            token[0] = None
         if token[0]:
             try:
                 mp.poll_mail(token[0], state)
@@ -365,6 +372,8 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
         else:
             try:
                 token[0] = mg.get_token(env, "READER")
+                state["_token_at"] = now
+                log("Graph token refreshed")
             except Exception as e:
                 log("TOKEN REFRESH FAILED: %s" % e)
         state["_last_mail"] = now
@@ -451,6 +460,7 @@ def main():
     token = [None]
     try:
         token[0] = mg.get_token(env, "READER")
+        state["_token_at"] = time.time()
     except Exception as e:
         log("BRIDGE start: no Graph token yet (%s) - dashboard still works" % e)
 
