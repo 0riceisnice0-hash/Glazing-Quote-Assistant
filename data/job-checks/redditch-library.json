@@ -1,0 +1,213 @@
+{
+ "job": "Redditch Library BLBS0956 - take-off and benchmark price for Adam, 28/07/2026",
+ "created": "2026-07-28",
+ "_note": "Nothing has been issued and nothing has been bought. This is a take-off against Gleeds' own blank pricing schedule (tender pack p77), priced on benchmarks only. Every field below is stated from the tender pack, the elevational drawings BLBS0956-GLE-RL-XX-DR-B-02/03, or the asbestos survey - not from a supplier.",
+
+ "coupled_runs": [
+  {
+   "name": "Ref 32 (Elevation C) - one assembly, scheduled as two rows, PRICED IN ONE SYSTEM",
+   "elements": [
+    {"ref": "32.1 window 1800x1600", "system": "EL75 thermally broken (or equivalent) - 75mm"},
+    {"ref": "32.2 door 1170x2100", "system": "EL75 thermally broken (or equivalent) - 75mm"}
+   ]
+  },
+  {
+   "name": "Ref 34 (Elevation C) - one assembly, scheduled as two rows, PRICED IN ONE SYSTEM",
+   "elements": [
+    {"ref": "34.1 window 2400x1600", "system": "EL75 thermally broken (or equivalent) - 75mm"},
+    {"ref": "34.2 door 900x2100", "system": "EL75 thermally broken (or equivalent) - 75mm"}
+   ]
+  }
+ ],
+ "_coupled_runs_note": "WHAT IS RECORDED ABOVE IS WHAT FENSTER IS PRICING, NOT WHAT THE TENDER SPECIFIES - and the difference is the finding. Refs 32 and 34 are each drawn on Elevation C as ONE assembly, a window frame joined directly to a door frame (verified by rendering the drawing at 150dpi, not from the text layer). The specification puts the windows in EL75mm Squareline, thermally broken at 75mm, and the doors in AC100 Commercial, non-thermal at 100mm. Adam's ruling of 24/07 is that frames can only be coupled within the same system and that any window in the same coupled run as a door must be quoted in the door's system - but here the door system is NON-THERMAL, so following that rule literally would put refs 32.1 and 34.1 outside the 1.4 W/m2K window requirement. The tender as written cannot be built at these two positions. This take-off therefore prices both runs in a single thermally broken system throughout, which is the only reading that satisfies both the coupling and the thermal requirement, and RFI-03 puts the choice back to Gleeds. This entry passes the coupling check because OUR price is coherent; the tender's incoherence is recorded in 'exposures' where it belongs.",
+
+ "doors": [
+  {"ref": "32.2", "type": "single", "fire_exit": true,
+   "ironmongery_required": "Axim 8800 concealed non-hold-open transom closer, PR7100 Exit Panic Device without external access, anti-finger-trap stiles, 100mm bottom and mid rail, mill finished low threshold",
+   "panic_hardware_priced": true, "source": "Gleeds spec 3.5.3 cl.5 - 'Doors 32,34,37,41'"},
+  {"ref": "34.2", "type": "single", "fire_exit": true,
+   "ironmongery_required": "as 32.2 - Axim 8800 closer, PR7100 panic device, anti-finger-trap stiles",
+   "panic_hardware_priced": true, "source": "Gleeds spec 3.5.3 cl.5"},
+  {"ref": "37", "type": "single", "fire_exit": true,
+   "ironmongery_required": "as 32.2 - Axim 8800 closer, PR7100 panic device, anti-finger-trap stiles",
+   "panic_hardware_priced": true, "source": "Gleeds spec 3.5.3 cl.5"},
+  {"ref": "41", "type": "double", "fire_exit": true,
+   "ironmongery_required": "as above PLUS flush bolts to head and threshold of slave leaf",
+   "panic_hardware_priced": true, "source": "Gleeds spec 3.5.3 cl.5"},
+  {"ref": "39", "type": "single", "fire_exit": false,
+   "ironmongery_required": "NOT STATED ANYWHERE IN THE PACK. Ref 39 is the one door omitted from spec 3.5.3 cl.5's list of 32, 34, 37, 41. Joedan priced it at GBP 2,621.58, the dearest of the four singles and GBP 327 above ref 37 at the identical 1200x2100, so their price carries something ours does not. Drawn on Elevation C as a solid narrow leaf with no vision panel.",
+   "panic_hardware_priced": false,
+   "source": "RFI-06 raised. Priced as a standard single commercial doorset with no panic set."}
+ ],
+
+ "frame_supply": [
+  {"supplier": null, "ref": null, "basis": "NO SUPPLIER QUOTE EXISTS FOR THIS JOB. The Commercial archive holds one file under 'Pride Developments/Redditch Library' and it is the tender pack itself. Every rate in the take-off is a benchmark from data/supplier-rates.json or data/learned-rates.json and is labelled as such on the face of the document."}
+ ],
+
+ "glass_order": [],
+
+ "quantities": [
+  {"ref": "1", "bill_qty": 1, "drawing_qty": 1}, {"ref": "2", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "3", "bill_qty": 1, "drawing_qty": 1}, {"ref": "4", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "5", "bill_qty": 1, "drawing_qty": 1}, {"ref": "6", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "7", "bill_qty": 1, "drawing_qty": 1}, {"ref": "8", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "9", "bill_qty": 1, "drawing_qty": 1}, {"ref": "10", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "11", "bill_qty": 1, "drawing_qty": 1}, {"ref": "12", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "13", "bill_qty": 1, "drawing_qty": 1}, {"ref": "14", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "15", "bill_qty": 1, "drawing_qty": 1}, {"ref": "16", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "17", "bill_qty": 1, "drawing_qty": 1}, {"ref": "18", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "19", "bill_qty": 1, "drawing_qty": 1}, {"ref": "20", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "21", "bill_qty": 1, "drawing_qty": 1}, {"ref": "22", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "23", "bill_qty": 1, "drawing_qty": 1}, {"ref": "24", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "25", "bill_qty": 1, "drawing_qty": 1}, {"ref": "26", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "27", "bill_qty": 1, "drawing_qty": 1}, {"ref": "28", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "29", "bill_qty": 1, "drawing_qty": 1}, {"ref": "30", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "31", "bill_qty": 1, "drawing_qty": 1}, {"ref": "32.1", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "32.2", "bill_qty": 1, "drawing_qty": 1}, {"ref": "33", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "34.1", "bill_qty": 1, "drawing_qty": 1}, {"ref": "34.2", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "35", "bill_qty": 1, "drawing_qty": 1}, {"ref": "36", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "37", "bill_qty": 1, "drawing_qty": 1}, {"ref": "38", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "39", "bill_qty": 1, "drawing_qty": 1}, {"ref": "40", "bill_qty": 1, "drawing_qty": 1},
+  {"ref": "41", "bill_qty": 1, "drawing_qty": 1}
+ ],
+
+ "spec_items": [
+  {"ref": "3.5.3 supply and fit 43no windows and doors", "treatment": "priced"},
+  {"ref": "3.5.3 trickle vents to all casements (cl.4, 'must be included')", "treatment": "priced"},
+  {"ref": "3.5.3 cl.3 shootbolt espagnolette locking, Securistyle Defender friction hinges", "treatment": "priced"},
+  {"ref": "3.5.3 cl.3 concealed 100mm restrictors where required", "treatment": "priced"},
+  {"ref": "3.5.3 cl.5 panic ironmongery to doors 32, 34, 37, 41", "treatment": "priced"},
+  {"ref": "3.5.3 cl.8 argon DGU, warm edge, 4mm clear softcoat low-E toughened inner / 4mm bronze anti-sun toughened outer", "treatment": "priced"},
+  {"ref": "3.5.3 cl.9 solid phenolic core panels, 2.0mm PPC alu both faces, matt, 1.2 W/m2K", "treatment": "priced"},
+  {"ref": "3.5.3 cl.11 external waterproof mastic to all windows", "treatment": "priced"},
+  {"ref": "Joedan cl.13 45mm white cellular uPVC cloaking profile to internal perimeter", "treatment": "priced"},
+  {"ref": "3.5.3 cl.6 single standard RAL, colour TBC", "treatment": "priced"},
+  {"ref": "3.5.3 cl.10 provisional sum for preparing out-of-square openings", "treatment": "provisional"},
+  {"ref": "3.3 asbestos - GBP 5,000 Defined Provisional Sum for asbestos-related remedial or removal works", "treatment": "provisional"},
+  {"ref": "Window Strip Out Works (p68) - strip out existing windows and doors in entirety, cart debris off site", "treatment": "excluded"},
+  {"ref": "3.5.3 cl.11 making good internally including localised decorations to all reveals", "treatment": "excluded"},
+  {"ref": "Strip Out cl.6 remove, mark up, store and re-fix internal blinds and curtains", "treatment": "excluded"},
+  {"ref": "Strip Out cl.5/.7 move furniture, protect retained items, dust sheets", "treatment": "excluded"},
+  {"ref": "3.4 High Level Access and Scaffolding - tubular scaffold, temporary works design", "treatment": "excluded"},
+  {"ref": "3.2 site set-up, Heras fencing, compound, hoardings and protection to Elevation A public highway", "treatment": "excluded"},
+  {"ref": "3.5.1 flat roof covering replacement (Alumasc, Appendix 1)", "treatment": "excluded"},
+  {"ref": "3.5.2 edge protection guard rail", "treatment": "excluded"},
+  {"ref": "3.5.4 general repair and reinstatement - boxing in at roof level, rainwater goods, brickwork", "treatment": "excluded"},
+  {"ref": "Up-stand where windows sit onto flat roof (refs 19, 35, 36, 37 sit at roof level)", "treatment": "excluded"},
+  {"ref": "Building Control, skips, containers, welfare, internal window boards, manifestations, mag locks, door restraints", "treatment": "excluded"}
+ ],
+
+ "supplier_quotes": [],
+
+ "full_height_screens": [],
+ "_full_height_screens_note": "Empty after checking the three candidates on the elevations, not by default. Ref 19 (17000x900) and ref 20 (7000x1100) are the two big ones, and both are high-level ribbons - 900mm and 1100mm tall - so they are window bands in a wall, not floor-to-ceiling screens, and the Greenfields curtain-walling convention does not reach them. Refs 16, 17 and 18 are the stair glazing at 2250x2304 and they are the closest call: stair screens are exactly what Greenfields was about. Rendered Elevation A at 200dpi to settle it - each is a discrete glazed band with solid wall above the head and below the cill, not glazing from floor to soffit. Priced as MAW windows. If they were treated as curtain walling instead, GBP850+150/m2 over 15.55 m2 gives GBP 15,552 against the GBP 8,509 carried here, so this judgement is worth about GBP 7,000 and is the single line most worth a second opinion.",
+
+ "systems_specified": [
+  {"system": "EL75mm Squareline", "fabricator": "Joedan Manufacturing (UK) Ltd - their own system, not available to Fenster",
+   "performance": {"required": "1.4 W/m2K area-weighted average across the windows (Gleeds 3.5.3 cl.7)",
+                   "capable": true,
+                   "evidence": "Joedan state it in their own quotation JCQ.9727 cl.7 and Gleeds have adopted the sentence verbatim into the specification. Not our route to market: Fenster would tender an alternative under the Contractor's Designed Portion, which Gleeds expressly permit at 3.5.3 cl.3 subject to a compliance specification with the tender return and CA/Client written approval. 1.4 area-weighted is an undemanding target for any thermally broken 70-75mm system - Sheerline Prestige and Smart Alitherm 400 both clear it - so this is a commercial and PI question, not a technical one."}},
+  {"system": "AC100 Commercial", "fabricator": "Joedan Manufacturing (UK) Ltd - their own system, not available to Fenster",
+   "performance": {"required": "3.0 W/m2K area-weighted average across the doors (Gleeds 3.5.3 cl.7)",
+                   "capable": true,
+                   "evidence": "Explicitly a NON-THERMAL high-traffic aluminium door, and 3.0 W/m2K is the number a non-thermal door gives. Worth knowing which way this one points: our usual SMA Smart Wall is 1.8 W/m2K on SMA's own datasheet, so for once the house system comfortably BEATS the specified performance rather than failing it. This is the opposite of SM5 Wexham and St Mary's."}}
+ ],
+
+ "finishes": [
+  {"ref": "all aluminium windows and doors",
+   "specified_internal": "polyester powder coated, single standard RAL, colour TBC",
+   "specified_external": "polyester powder coated, single standard RAL, colour TBC",
+   "quoted_internal": "polyester powder coated, single standard RAL, colour TBC",
+   "quoted_external": "polyester powder coated, single standard RAL, colour TBC",
+   "note": "Gleeds 3.5.3 cl.6 says 'internally and externally in a single standard RAL colours TBC' - the same colour both faces, which is the cheap case, and no dual-colour exposure of the Georgie's kind. Joedan's own wording was more guarded: 'colours and finishes will be priced on application'. RFI-04 asks Gleeds to name the RAL, because a non-standard, metallic or anodised finish is an extra and 'standard' is doing a lot of work in that sentence."},
+  {"ref": "internal cloaking profile",
+   "specified_internal": "white 45mm cellular uPVC", "specified_external": "not applicable - internal perimeter only",
+   "quoted_internal": "white 45mm cellular uPVC", "quoted_external": "not applicable - internal perimeter only"},
+  {"ref": "infill panels (refs 1-8, 16-18, 20, 32.1, 34.1)",
+   "specified_internal": "2.0mm polyester powder coated aluminium, matt",
+   "specified_external": "2.0mm polyester powder coated aluminium, matt",
+   "quoted_internal": "2.0mm polyester powder coated aluminium, matt",
+   "quoted_external": "2.0mm polyester powder coated aluminium, matt",
+   "note": "Solid phenolic core both faces, 1.2 W/m2K. Matt is specified on both faces, so a gloss standard would be a substitution."}
+ ],
+
+ "u_value": {
+  "required": "1.4 W/m2K windows, 3.0 W/m2K doors (both area-weighted); 1.2 W/m2K infill panels",
+  "basis": "whole installation",
+  "rejected_elements": [],
+  "note": "Gleeds 3.5.3 cl.7 says 'area weighted u-value' for the windows and 'area weighted average u-value' for the doors, so both are package averages and Adam's ruling of 24/07 applies - not a per-element limit. Ref 19 at 15.3 m2 is 11% of the package area on its own and dominates the window weighting. Nothing is rejected: no element has been failed against an average, which is the SM5 Wexham error this rule exists to stop. The 1.2 on the panels is the one genuinely per-element figure and it is a panel make-up, not a frame. Worth recording that the doors point the opposite way from every recent job - 3.0 W/m2K is a non-thermal door, and SMA Smart Wall at 1.8 beats it comfortably."
+ },
+
+ "supplier_coverage": [],
+
+ "price_commitment": {
+  "our_validity": "Not yet issued. When it is: the Form of Tender holds the TENDERED SUM open for 10 WEEKS from the submission date, and the JCT Minor Works preliminaries at p23 separately require the tender to be kept open 'for not less than 3 months'. Two different periods in one pack - the longer governs unless Gleeds say otherwise (RFI-08).",
+  "supplier_valid_until": null,
+  "note": "No supplier quote is held, so there is nothing to compare against yet - but this is the John North Hall gap in advance and it is worse here. Any BSW or Bellview quote runs 30 days. Committing for 10-13 weeks against a 30-day buy leaves 5-10 weeks uncovered. Do not send an RFQ until Pride confirm when they actually submit, or the 30 days will burn before the tender is even in."
+ },
+
+ "delivery_terms": [],
+
+ "incorporated_terms": [],
+ "_incorporated_terms_note": "Empty because this rule is about SUPPLIER quotes incorporating terms by reference, and no supplier quote exists on this job - nothing has been bought and no RFQ has gone out. Two related facts that belong on the record but are not this rule's: (1) Joedan's Standard Terms are printed in full at pack p154, so for once a terms document referenced in a quotation is actually held - though Joedan are the competitor, not our supplier. (2) The head contract is a JCT Minor Works with Contractor's Design Portion between WCC and Pride, and the FORM ITSELF IS NOT IN THE PACK - only the contract particulars at p20-22 (10 weeks to completion, GBP 1,000 per week liquidated damages, 5% retention, six-month rectification, GBP 5m public liability, GBP 5m CDP professional indemnity, 'No Amendments' to sections 3-7). Our exposure is whatever Pride pass down in a sub-contract nobody has sent us. That is recorded in 'exposures'. When an RFQ does go to BSW or Bellview, this field must be filled from their quotations.",
+
+ "qualification_regime": {
+  "form_signed": "None by Fenster. The Form of Tender at pack p7 is Pride's to sign, not ours - we are their window and door sub-contractor and our offer goes to Pride, not to Gleeds.",
+  "disapplies_exclusions": false,
+  "qualifications_permitted": true,
+  "clause": "Form of Tender, pack p7, in full on the point: 'I/We, having read the Agreement, Conditions of Contract and General Description of Work Delivered to me/us, and having examined [the nine listed documents] ... Referred to therein, and also having satisfied myself/ourselves as to the Conditions appertaining at the Site, do hereby offer to execute and complete the work specified, for the Tendered Sum of: ...' The document contains nothing further bearing on qualifications - no clause disapplying caveats, assumptions, reservations or exclusions printed on tender correspondence, which is the John North Hall clause and the reason this was read word by word. The Invitation to Tender reinforces that qualifications are contemplated rather than barred: it directs technical queries to Gleeds 'to be assessed under the JCT Tendering Practice Note, 3rd Edition 2017', which is the standard machinery for qualified tenders, and the evaluation section reserves the Employer's right to reject a tender where 'significant pricing errors, qualifications or exclusions are identified' - a right to reject qualifications is not a provision voiding them.",
+  "evidence": "Read in full. The Form of Tender is a plain unqualified offer to 'execute and complete the work specified' for the tendered sum. It contains NO clause of the John North Hall kind disapplying caveats, assumptions, reservations or exclusions printed on tender correspondence. Checked word by word because that is the trap that job walked into eight days ago.",
+  "note": "The live risk is one level down and it is Pride's to manage, not ours: Pride sign an unqualified offer to Gleeds while holding a heavily qualified sub-quote from us. Our exclusions bind Pride and do not reach Gleeds. That is normal and it is why the exclusions must be on the face of anything we send Leonard White, itemised, rather than assumed."
+ },
+
+ "priced_lines": [
+  {"ref": "43 window and door lines, supply and fit (refs 1-41, with 32 and 34 split)", "amount": 88096.26,
+   "covered_by_our_exclusions": false},
+  {"ref": "Solar-control glass premium, 136.54 m2 x GBP 13.29/m2", "amount": 1814.56,
+   "covered_by_our_exclusions": false},
+  {"ref": "Provisional sum - preparing out-of-square openings (Gleeds 3.5.3 cl.10)", "amount": 5000.00,
+   "covered_by_our_exclusions": false}
+ ],
+ "_priced_lines_note": "Read the eleven exclusions against the three priced lines one by one. None collides. The two that had to be checked hardest: 'making good internally including localised decorations to all reveals' is excluded while the GBP 5,000 provisional sum for PREPARING OPENINGS is priced - those are different operations at different ends of the job (preparing an out-of-square aperture to receive the frame, against redecorating the reveal afterwards), and the pack itself separates them into cl.10 and cl.11. And external mastic is PRICED, not excluded, which is the Princess Beatrice trap the other way round - cl.11 requires external waterproof mastic to all windows and it is in the rates. The 88,096.26 is the 43 lines including their fit labour; the take-off shows frames, adders and installation separately.",
+
+ "bought_in_lines": [],
+
+ "warranty": {
+  "ours": {"period_months": 120, "scope": "Fenster's standard ten-year guarantee on the windows and doors",
+           "start_date": "not defined in any document we hold - the house terms do not state whether it runs from practical completion, from delivery or from invoice",
+           "usage_cap": null,
+           "exclusions": ["not yet drafted for this job - nothing has been issued"]},
+  "suppliers": [],
+  "note": "NOT BACK-TO-BACK AND CANNOT YET BE MADE SO, because no supplier has been asked. The gap is worth stating now rather than after an order: Fenster offer ten years and Joedan, pricing the same building, offered TWELVE MONTHS (their cl.21). Whoever we buy from will offer something closer to Joedan's number than to ours, and the difference is carried by Fenster. Gleeds do not specify a warranty period for the windows and doors anywhere in 3.5.3 - the only warranty requirement in the pack is the roofing one at 3.5.1, which wants 25 years insurance-backed and is not our package. So there is no tender requirement to meet, only our own promise to fund. Fill 'suppliers' from the quotations before anything goes to Pride."
+ },
+
+ "issued_documents": [
+  {"name": "Redditch Library BLBS0956 - Fenster Take-Off and Benchmark Price (for Adam only)",
+   "path": "outputs/Redditch Library - Fenster Take-Off and Benchmark Price.xlsx",
+   "is_the_priced_document": true,
+   "goes_to_client": false,
+   "exclusions_stated": 11,
+   "note": "INTERNAL. This has gone to Adam and to nobody else - it is not a client document and nothing has been sent to Pride Developments or to Gleeds. It is recorded here because it is the only priced document that exists on this job, and because the eleven exclusions are written on its face rather than left in this manifest. If and when a quotation goes to Leonard White, this field must be replaced with that document and the eleven exclusions must survive the copy across."}
+ ],
+
+ "exposures": [
+  {"item": "STRIP-OUT IS NOT IN THE PRICE AND GLEEDS ASK FOR IT AS A NAMED LINE. Pack p70 ends with two blanks: 'Cost for stripping out windows' and 'Cost for new windows and doors'. We can fill the second and not the first. The house labour codes are fit-only - proven to the penny on Princess Beatrice (GBP 39,680 over 217 units) and on Brocks Hill, a new build with nothing to remove, which recomputes from the same codes. data/supplier-rates.json has no strip-out category among its 80. This is the fifth job to hit it after Gordon Court, St Mary's, Princess Beatrice and John North Hall.",
+   "our_recourse": "Stated as TBC on the face of the take-off with the reason, not buried and not guessed. Added to REQ-24, which is already open with Adam asking for exactly this number, rather than raised as a 25th request. Fenster cannot return a compliant tender to Pride until it exists - and here it is worse than the earlier four, because on those jobs strip-out was an implied inclusion we had absorbed, while here it is a blank line on the client's own form that we would be handing back empty."},
+  {"item": "CHRYSOTILE ON THE LEFT-HAND ELEVATION. Bradley Environmental J449293 sample FM000125: asbestos bitumen paint to metal cladding, chrysotile, 100 m2, 'Present to left hand elevation', accessibility 2 (easily disturbed), risk C8, management recommendation 'Monitor Condition / REMOVE if affected by scheduled work'. Sample FM000113, asbestos mastic to ducting joints, chrysotile, 25 linear metres on the high-level roof, is the second. The GOOD news is that all four window-specific samples - FM000123 mastic to metal framed windows, FM000124 putty sealant, FM000126 mastic to metal window frames, FM000127 mastic to window joins, 75 linear metres between them - came back NO ASBESTOS DETECTED, so the mastic we cut through is clean.",
+   "our_recourse": "Asbestos removal excluded, as Joedan also excluded it. RFI-07 asks Gleeds via Pride which elevation is 'left hand' and whether the cladding is disturbed by the window works - if it is the raking wall carrying refs 16, 17 and 18 then our strip-out disturbs 100 m2 of chrysotile and the GBP 5,000 provisional sum covers the whole building's asbestos, roof included. The survey itself is caveated: it is a TARGETED R&D survey and Bradley recommend further investigation once the building is vacated."},
+  {"item": "THE TENDER COUPLES A THERMALLY BROKEN WINDOW TO A NON-THERMAL DOOR AT REFS 32 AND 34, AND IT CANNOT BE BUILT THAT WAY. Both are drawn on Elevation C as one assembly - window frame joined directly to door frame - and the specification puts the window in EL75mm Squareline (thermally broken, 75mm) and the door in AC100 Commercial (non-thermal, 100mm). Two depths cannot be joined. This is Adam's SM5 Wexham ruling of 24/07 exactly, except that on SM5 it was Fenster's own quotation that coupled Sheerline to Smart Wall, and here it is written into the client's specification before anyone has priced anything. Following Adam's rule literally - window takes the door's system - would put refs 32.1 and 34.1 in a non-thermal frame and outside the 1.4 W/m2K window requirement, so the rule and the spec cannot both be obeyed.",
+   "our_recourse": "Priced with both runs in a single thermally broken system throughout, which is the only reading that satisfies the coupling rule and the thermal requirement together, and stated as an assumption on the face of the take-off. RFI-03 puts the three possible resolutions to Gleeds through Pride - a thermally broken door, a structural mullion splitting the run into two frames, or the window taken into the non-thermal system with the thermal requirement relaxed. Fenster is not exposed today because nothing has been offered; the exposure arrives if a price goes out assuming one resolution and the CA later directs another. Refs 32 and 34 carry GBP 7,552.56 of the benchmark between them."},
+  {"item": "THE SPECIFIED SYSTEMS ARE THE COMPETITOR'S OWN. EL75mm Squareline and AC100 Commercial are Joedan Manufacturing products. Fenster cannot buy either. Gleeds 3.5.3 cl.3 permits an alternative but the tenderer 'will become responsible for the design for the new windows under contractor's designed portion', with a compliance specification required WITH the tender return and written CA and Client approval. Pack p30 requires GBP 5,000,000 professional indemnity for Contractor Designed Works, stating both '12 years' and 'Six years' for the expiry of the required period.",
+   "our_recourse": "Priced as a compliant alternative and the CDP position stated on the face of the take-off rather than assumed away. Two things must be settled before anything goes to Pride: whether Fenster carries the CDP and its PI, or whether Pride carry it and we supply to their design; and which of 12 or 6 years the PI period actually is, because the pack says both (RFI-09). The compliance specification is a tender deliverable, not a post-award one - a bid without it is non-compliant on its face."},
+  {"item": "REFS 16, 17 AND 18 ARE RAKED, NOT RECTANGULAR. Rendered Elevation A at 200dpi and they are parallelograms following the stair soffit - sloping head and sloping cill. The schedule gives 2250 x 2304 with 2 fixed lights and 2 fixed panels, identical for all three, and Joedan priced all three at exactly GBP 2,619.48. A parallelogram frame needs raked cuts to head, cill and both mullions and cannot be priced off a rectangle.",
+   "our_recourse": "RFI-01, and the m2 rate carries a bounding-box area which OVERSTATES the glass and UNDERSTATES the fabrication. Flagged on the face of the take-off as a measure-on-site item. GBP 8,509.14 of the benchmark sits on these three."},
+  {"item": "REF 38 IS DRAWN AS A 15-PANE SCREEN AND SCHEDULED AS 6 FIXED LIGHTS. 2700 x 1700 on Elevation C, rendered at 300dpi: a 5-wide by 3-high grid, 15 panes at roughly 540 x 567. The schedule says 6. Four mullions and two transoms of framing is not the same buy as 6 lights.",
+   "our_recourse": "RFI-05. Priced on area, which is unaffected, but the framing content is understated if the drawing is right. This is the '46 panes of glass' shape from Stoke Park and it is why the drawing gets read as well as the bill."},
+  {"item": "REFS 29, 30 AND 31 HAVE NO CONFIGURATION AT ALL. Three units at 900 x 300 with every one of the five configuration columns blank - on GLEEDS' schedule as well as Joedan's, so it is the tender that is silent, not a transcription slip. Joedan still priced them, at GBP 640.23 each. 0.27 m2 apiece.",
+   "our_recourse": "RFI-02. Priced as fixed lights, which is the cheapest compliant reading and is stated as an assumption. If they are opening vents or louvres the price moves."},
+  {"item": "THE RETURN DATE IN THE PACK EXPIRED A MONTH AGO AND IS NOT OURS. Gleeds' invitation says 12 noon Friday 26 June 2026. That is Gleeds' date to the main contractors. Fenster has no stated date at all - Leonard White asked on 22/07 to acknowledge and 'submit your tender back asap' and gave none. The pack also allows the tendering contractor ONE site visit only, arranged through Gleeds, with all sub-contractors in attendance.",
+   "our_recourse": "Not promoted to a deadline anywhere - that error has been made three times in a week (SM5 Wexham, St Mary's, Grange Hill) and the rule is to take the date from the invitation, the document register or the estimating log and never from our own file dates. Adam has been asked to get Pride's real date from Leonard. The single-visit rule matters to us: 3.5.3 requires a measured survey of every opening before ordering and forbids relying on Gleeds' dimensions, so if Pride's one tender visit has gone, our survey has to be a post-award condition."}
+ ],
+
+ "own_domains": ["fensterglazing.com"]
+}

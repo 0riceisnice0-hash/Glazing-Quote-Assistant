@@ -60,6 +60,16 @@
    "basis_type": "benchmark COST vs supplier COST",
    "basis": "Mary's 27/07 register benchmark for the scope no supplier had quoted - 7 doors on BSW glazed-door medians (GBP 8,021) plus the 16.23 m2 CW01+D03+CW02 run on the house GBP 850/m2 curtain-walling template (GBP 13,795) - against the supplier returns that landed 28/07: Bellview 0000000513 GBP 20,861.92 net of 15% (CW run + D01 + D04 + D05-D08) plus BSW QT253508 GBP 2,381.70 (D02 patio). Identical scope both sides.",
    "lesson": "The benchmark was labelled 'a floor and not a price' and it was one, by 6.1% - the first entry where the stated direction held. But the margin is flattered: the benchmark was called low because it carried no panic hardware, pivot/concealed-closer set or master-key suiting, and the actual return turned out to carry almost none of that either (4 of 6 required BS EN 1125 devices absent, no suiting at all). So -6.1% is the gap between two prices that BOTH omit the hardware, not the gap to a compliant one. When you flag a benchmark as a floor because of missing content, check the supplier return actually contains that content before treating the comparison as closed."
+  },
+  {
+   "job": "Redditch Library BLBS0956",
+   "client": "Pride Developments (for Worcestershire CC via Gleeds)",
+   "date": "2026-07-28",
+   "mary_estimate": 89910.82,
+   "actual": 90687.17,
+   "basis_type": "benchmark SELL vs competitor's tendered SELL",
+   "basis": "Identical take-off both sides - Gleeds' blank pricing schedule (pack p77) and Joedan's Appendix 2 schedule (p150) are the same 43 rows, same sizes, same configurations, so quantity error is zero and the whole difference is rate. Mary: learned/register benchmarks through mary_pricing, frames GBP 60,551.26 + template code adders GBP 19,875.00 + fit labour GBP 7,670.00 + solar-control glass premium GBP 1,814.56. Joedan JCQ.9727, 23/03/2026, Nathan Swenson: GBP 90,687.17 ex VAT gross of 2.5% MCD, so GBP 88,419.99 net to a main contractor. A NEW KIND OF ENTRY - the first where the comparator is a competitor's tendered price for the same building rather than Fenster's own issued quote or a supplier return.",
+   "lesson": "-0.9% against Joedan's gross and +1.7% against their net, and the closeness is NOT the finding - it is two errors pointing opposite ways and cancelling. THE COMPARISON IS NOT LIKE FOR LIKE: Joedan's figure INCLUDES strip-out of the existing windows (their cl.12) and Mary's excludes it because no strip-out rate exists anywhere in Fenster's records. So on identical scope Fenster is already ABOVE Joedan by the whole cost of stripping 43 openings out of an occupied library, before anything else. Against that, 62% of this job's value sits in the 3-6 m2 band where St Mary's measured the register +37.5% high, and applying the St Mary's band corrections to the supply component alone gives GBP 79,047.55, or -12.8% against Joedan. TWO LESSONS. First, when a benchmark lands within 1% of a real price, check what each number contains before believing it - here the agreement was an accident. Second, this is the sixth of seven entries and the fifth to run high, which is now a settled pattern rather than a run: whatever the aggregate says, a 3-6 m2-weighted job should be expected high and said so on the face of the document."
   }
  ]
 }

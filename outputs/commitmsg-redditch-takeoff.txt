@@ -1,0 +1,37 @@
+Redditch Library: the take-off is done, and the client's own spec cannot be built at two positions
+
+Adam asked for a full take-off, urgently, on a job estimating had never picked up. 43 items,
+41 references, 136.54 m2, GBP 89,910.82 net ex VAT - benchmark only, nothing issued, no supplier
+asked. mary_checks.py passes on all rules.
+
+The quantities come from the tender's OWN blank pricing schedule at pack p77, not from Appendix 2,
+which turns out to be Joedan Commercial Division's fully priced quotation to Gleeds left in the pack
+complete with rates. Identical rows, so same numbers - and nobody can say we worked off a
+competitor's take-off. Both cross-checked against the elevational drawings; all 41 refs present.
+
+Refs 32 and 34 are each ONE coupled window-to-door assembly, with the window specified in EL75mm
+Squareline (thermally broken, 75mm) and the door in AC100 Commercial (non-thermal, 100mm). Two
+depths cannot be joined. That is Adam's SM5 Wexham ruling, this time written into the client's
+specification - and obeying it literally puts the window in a non-thermal frame and fails the
+1.4 W/m2K the same spec demands two clauses later. Priced in one thermally broken system and put
+back to Gleeds as an RFI. el75/ac100 added to SYSTEM_DEPTH; the founding-error selftest still passes.
+
+Strip-out is a numbered blank on the client's own pricing page and we still have no rate for it.
+Fifth job after Gordon Court, St Mary's, Princess Beatrice and John North Hall, and the first where
+leaving it empty makes the return incomplete on its face. Added to REQ-24 rather than raised as a
+25th request.
+
+Our number lands 0.9% under Joedan's and that is an accident, not validation: they include strip-out
+and we exclude it, so like-for-like we are already above them, while the register runs 37.5% high in
+the band carrying 62% of this job. Logged as calibration entry 7 - the first whose comparator is a
+competitor's tendered price rather than our own quote or a supplier return.
+
+Four more things the drawings say and the schedule does not: refs 16/17/18 are raked parallelograms
+scheduled as rectangles, ref 38 is drawn as a 15-pane grid and scheduled as 6 lights, refs 29/30/31
+have no configuration at all on either schedule, and ref 39 is a door absent from the ironmongery
+clause. All four came from rendering the elevations rather than trusting the text layer.
+
+No deadline has been put on the board. The date in the pack is Gleeds' date to the main contractors
+and it passed a month ago; Pride have never given us one.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

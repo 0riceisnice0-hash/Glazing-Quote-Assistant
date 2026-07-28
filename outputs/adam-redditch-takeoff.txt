@@ -1,0 +1,148 @@
+Take-off done. 43 items, 41 references, 136.54 m2, and it is attached as a five-sheet workbook -
+schedule, priced schedule with the source of every rate, inclusions and exclusions, and ten RFIs.
+
+BENCHMARK NET, EX VAT: GBP 89,910.82
+
+That figure EXCLUDES strip-out, and that is the first thing you need to know.
+
+WHERE THE TAKE-OFF COMES FROM
+
+Not from Joedan. The tender has its own blank pricing schedule at page 77 of the pack, and it is the
+same 43 rows as Appendix 2 - same references, same sizes, same configurations, rates deleted. So the
+quantities are the client's, not the competitor's, and I have cross-checked every row against the two
+elevational drawings. All 41 references appear on the elevations. Nothing missing, nothing duplicated.
+
+I priced ours first and only then looked at Joedan's number.
+
+STRIP-OUT: THE CLIENT HAS ASKED FOR IT AS A SEPARATE LINE AND WE CANNOT FILL IT IN
+
+Page 70 of the pack ends with two blanks:
+
+    Cost for stripping out windows          GBP ...........
+    Cost for new windows and doors          GBP ...........
+
+We can fill the second one. We cannot fill the first, because there is no strip-out rate anywhere in
+Fenster's records. Our installation figure is fit-only - that is proven, not assumed: GBP 39,680 on
+Princess Beatrice is exactly the per-unit codes over 217 units, and Brocks Hill, a new build with no
+window to remove, recomputes from the same codes at the same rates.
+
+This is the fifth job in a fortnight to hit it - Gordon Court, St Mary's, Princess Beatrice, John North
+Hall, now this. I have added it to REQ-24 rather than raise a new request, because it is the same
+question you already have open. But this one is different in kind from the other four. On those,
+strip-out was an inclusion we had implied and would have absorbed. Here it is a numbered blank on the
+client's own tender form, and a return that leaves it empty is incomplete on its face.
+
+43 openings stripped out of an occupied public library, same-day replacement, no reveal left vacant
+over a shift. That is what needs a number.
+
+HOW IT COMPARES TO JOEDAN, AND WHY THE CLOSENESS IS MISLEADING
+
+Joedan: GBP 90,687.17 gross of 2.5% main contractor's discount, so GBP 88,419.99 net to a main
+contractor.
+
+Ours: GBP 89,910.82. Minus 0.9% on their gross, plus 1.7% on their net.
+
+Do not take any comfort from that. It is two errors pointing in opposite directions.
+
+Joedan's price INCLUDES strip-out - their clause 12, removal of the existing elements, disposal by the
+main contractor. Ours excludes it. So on identical scope we are ALREADY ABOVE Joedan, before a penny of
+strip-out goes in.
+
+Pulling the other way: 62% of this job's value sits in the 3 to 6 m2 size band, and that is the band
+where the St Mary's calibration measured our register running 37.5% high. Apply those band corrections
+to the supply and the same take-off gives GBP 79,047.55.
+
+So the honest range is roughly GBP 79k to GBP 90k on frames and fit, plus strip-out, and the benchmark
+is more likely high than accurate. It is not a price to give anybody. Nothing has gone to Pride.
+
+THE SPECIFICATION CANNOT BE BUILT AT TWO POSITIONS
+
+This is the one I would want you to see even if you read nothing else.
+
+References 32 and 34 are each drawn on Elevation C as ONE assembly - a window frame joined directly to
+a door frame. The specification puts the windows in EL75mm Squareline, thermally broken, 75mm deep, and
+the doors in AC100 Commercial, expressly non-thermal, 100mm deep.
+
+You cannot couple a 75mm frame to a 100mm frame. That is your own ruling from SM5 Wexham on 24 July,
+and this is the same fault - except that on SM5 it was our quotation that did it, and here it is written
+into the client's specification before anyone has priced anything.
+
+Your rule says the window takes the door's system. Here that would put both windows into a non-thermal
+frame, which fails the 1.4 W/m2K the same specification demands two clauses later. The rule and the
+spec cannot both be satisfied as written.
+
+I have priced both runs in a single thermally broken system throughout, which is the only reading that
+satisfies both, and RFI-03 puts the three possible resolutions back to Gleeds. GBP 7,552.56 rides on it.
+
+FOUR MORE THINGS FROM THE DRAWINGS THAT ARE NOT IN THE SCHEDULE
+
+I rendered the elevations rather than trusting the text layer, and four items do not match their rows.
+
+References 16, 17 and 18 are RAKED. They are parallelograms following the stair soffit - sloping head
+and sloping cill - and the schedule gives them as 2250 x 2304 rectangles, all three identical, which is
+a bounding box and not a frame. Joedan priced all three at exactly GBP 2,619.48 each. GBP 8,509 of our
+number sits on them.
+
+Reference 38 is drawn as a five-by-three grid, fifteen panes. The schedule says six fixed lights. Four
+mullions and two transoms is not the same buy as six lights.
+
+References 29, 30 and 31 have every configuration column blank - on GLEEDS' schedule as well as
+Joedan's, so it is the tender that is silent. Joedan priced them anyway at GBP 640.23 each. I have
+priced them as fixed lights and said so.
+
+Reference 39 is a door that appears nowhere in the ironmongery clause, which lists 32, 34, 37 and 41.
+No ironmongery is specified for it anywhere in the pack. Joedan charged GBP 2,621.58, which is GBP 327
+more than reference 37 at the identical size, so their price carries something ours does not. I have
+priced it as a plain doorset with no panic set.
+
+ASBESTOS - GOOD NEWS ON THE WINDOWS
+
+All four window-specific samples came back clean: mastic to the metal framed windows, putty sealant,
+mastic to the window frames, mastic to the window joins. Seventy-five linear metres, no asbestos
+detected. The stuff we cut through is fine.
+
+But sample FM000125 is asbestos bitumen paint to metal cladding - chrysotile, 100 m2, recorded as
+"present to left hand elevation", accessibility "easily disturbed", with the recommendation "REMOVE if
+affected by scheduled work". If "left hand" is the raking wall carrying 16, 17 and 18, our strip-out
+disturbs it. RFI-07 asks. The pack carries GBP 5,000 provisional for asbestos across the whole building
+including the roof, which will not go far if it is ours.
+
+THE SYSTEMS ARE THE COMPETITOR'S OWN, AND THE DESIGN COMES WITH THEM
+
+EL75mm Squareline and AC100 Commercial are Joedan Manufacturing's products. We cannot buy either.
+
+The specification does allow an alternative - clause 3.5.3.3 - but on terms worth reading before we
+commit to bidding. The compliance specification has to be submitted WITH the tender return, not after
+award. It needs written approval from both the CA and the client. And the tenderer "will become
+responsible for the design for the new windows under contractor's designed portion", with GBP 5,000,000
+professional indemnity required for contractor designed works. The pack states the PI period as both
+"12 years" and "Six years" in the same paragraph.
+
+So there is a decision for you underneath the price: does Fenster carry the CDP and the PI, or do Pride
+carry the design and we supply to it?
+
+THE DEADLINE IS STILL NOT A DEADLINE
+
+Leonard White asked on 22 July to acknowledge and submit "asap" and gave no date. The 26 June in the
+pack is Gleeds' date to the main contractors and it went a month ago. I have not put a date on the board
+and I am not going to invent one - that mistake has been made three times this week. Somebody needs to
+ask Leonard when Pride actually submit.
+
+It matters for more than the diary. The Form of Tender holds the price open for 10 weeks and the
+preliminaries say "not less than 3 months", while any aluminium quote we get runs 30 days. I have
+deliberately NOT sent an RFQ yet, because starting that 30-day clock before we know Pride's date wastes
+it. Say the word and it goes the same day.
+
+CHECKS
+
+mary_checks.py passes on this job - all rules. The workbook carries the eleven exclusions on its face
+rather than in a file nobody opens, and its properties are clean.
+
+WHAT I NEED FROM YOU
+
+1. A strip-out number, or a decision to carry it as an absorbed inclusion. REQ-24.
+2. Pride's real deadline, from Leonard White.
+3. Whether we bid at all - and if so, whether Fenster or Pride carries the contractor's design portion
+   and its PI.
+
+Mary

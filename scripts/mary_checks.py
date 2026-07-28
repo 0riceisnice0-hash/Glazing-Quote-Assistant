@@ -44,6 +44,12 @@ SYSTEM_DEPTH = {
     "smart wall": 100, "sma smart wall": 100, "mc600": 100, "smart alitherm 600": 100,
     "sheerline": 70, "sheerline prestige": 70, "smart alitherm 400": 70,
     "technal": 70, "senior sf52": 52, "senior pure": 75, "aluprof mb-78ei": 78,
+    # Redditch Library BLBS0956, 28/07. Joedan's own systems, named in Gleeds'
+    # spec 3.5.3 as the minimum standard. The depth is the system designation -
+    # the same convention that makes Senior SF52 52mm and Smart Alitherm 600
+    # 100mm. EL75 windows coupled to AC100 doors on refs 32 and 34 is the
+    # Sheerline/Smart Wall problem again, this time written into the tender.
+    "el75": 75, "el75mm squareline": 75, "ac100": 100, "ac100 commercial": 100,
 }
 
 

@@ -6827,3 +6827,78 @@ three 28/07 bounces from bsws.co.uk were the 39 MB Vesuvius zip against their 36
 confirmed Vesuvius was re-sent). Expect the benchmark HIGH: the job is nearly all >6 m2 units, the band running
 +35% on St Mary's. Emailed Adam. Job file `data/jobs/grange-hill.md`. One request raised, one correction posted
 to the noticeboard against my own earlier post.
+
+### Redditch Library BLBS0956 - the first take-off where the client's own specification could not be built (2026-07-28)
+
+**Chat `redditch-library`, first working turn.** Adam 18:07, Urgent!!: *"Has this one been picked up by
+estimating? If not, can you please do a full take off asap and send it to me."* It had not been. Take-off
+delivered the same evening with a five-sheet workbook: **43 items, 41 references, 136.54 m2,
+GBP 89,910.82 net ex VAT, benchmark only, EXCLUDING strip-out.** Nothing issued to Pride or Gleeds, no
+supplier asked. `mary_checks.py`: **all pass.** `outputs\Redditch Library - Fenster Take-Off and Benchmark
+Price.xlsx`.
+
+**TAKE THE QUANTITIES FROM THE CLIENT'S PAGE, NOT THE COMPETITOR'S.** Leonard White pointed us at page 147,
+Appendix 2 - which is **Joedan Commercial Division's own priced quotation to Gleeds** (JCQ.9727, 23/03/2026),
+left in the pack complete with rates. The obvious move is to work from it. But the tender has its **own blank
+pricing schedule at p77** with the identical 43 rows and the rates deleted, and Gleeds then lifted Joedan's
+specification verbatim into clause 3.5.3, down to the typo *"Doors 32,34,37,41are priced with"*. Same numbers,
+and nobody can say we worked off a competitor's take-off. Both were cross-checked against elevational drawings
+`-DR-B-02` and `-B-03`: all 41 references appear, none missing, none duplicated.
+
+**Read the schedule from the RENDERED page.** The five configuration columns are rotated headers 16 points
+apart (Top Hung 294, Fixed Light 310, Fixed Panel 326, Single Door 342, Double Door 358). A flattened PDF text
+dump cannot tell a fixed light from a single door - parse by x-position or render the page.
+
+**THE HEADLINE: THE SPECIFICATION CANNOT BE BUILT AT REFS 32 AND 34.** Each is drawn on Elevation C as ONE
+assembly, a window frame joined directly to a door frame. The specification puts the windows in **EL75mm
+Squareline** (thermally broken, 75mm) and the doors in **AC100 Commercial** (expressly non-thermal, 100mm).
+Two depths cannot be coupled - **Adam's own SM5 Wexham ruling of 24/07, this time written into the CLIENT'S
+specification** rather than into our quotation. And the ruling's remedy defeats itself here: taking the window
+into the door's system puts it in a non-thermal frame and fails the 1.4 W/m2K the same specification demands
+two clauses later. **The rule and the spec cannot both be obeyed**, so this is an RFI and not a pricing
+decision. Priced with both runs in one thermally broken system throughout; RFI-03 puts the three resolutions
+back to Gleeds. GBP 7,552.56 rides on it. `el75`/`ac100` added to `SYSTEM_DEPTH` in `mary_checks.py`; the
+founding-error selftest still passes.
+
+**STRIP-OUT, FIFTH JOB, AND THE FIRST WHERE THE CLIENT ASKS FOR IT DIRECTLY.** Pack p70 ends with two numbered
+blanks: *"Cost for stripping out windows"* and *"Cost for new windows and doors"*. We can fill the second.
+There is no strip-out rate in `data/supplier-rates.json` - 0 of 80 categories - and the house labour codes are
+fit-only, proven on Princess Beatrice (GBP 39,680 = the per-unit codes over 217 units) and on Brocks Hill, a
+new build with nothing to remove. On Gordon Court, St Mary's, Princess Beatrice and John North Hall strip-out
+was an implied inclusion we would have absorbed silently; **here a return that leaves the line empty is
+incomplete on its face**, against an award scored 70% on price with a reserved right to reject tenders
+carrying significant omissions. Added to **REQ-24** rather than raised as a 25th request - 24 were already
+open.
+
+**WHEN A BENCHMARK LANDS WITHIN 1% OF A REAL PRICE, CHECK WHAT EACH NUMBER CONTAINS.** Ours is **-0.9%** on
+Joedan's GBP 90,687.17 gross and **+1.7%** on their GBP 88,419.99 net. It reads as validation and it is two
+errors cancelling: **Joedan INCLUDE strip-out** (their cl.12) and we exclude it, so on identical scope we are
+already above them; while **62% of this job's value sits in the 3-6 m2 band the St Mary's calibration measured
++37.5% high**, and band-correcting the supply gives **GBP 79,047.55**. Logged as **calibration entry 7** - the
+first whose comparator is a competitor's tendered price rather than our own issued quote or a supplier return.
+
+**FOUR THINGS THE DRAWINGS SAY AND THE SCHEDULE DOES NOT.** Refs **16, 17, 18 are RAKED parallelograms**
+following the stair soffit, scheduled as 2250x2304 rectangles, all three identical, all priced by Joedan at
+exactly GBP 2,619.48 - GBP 8,509 of our number. Ref **38 is drawn as a 5x3 fifteen-pane grid** and scheduled
+as 6 fixed lights. Refs **29, 30, 31 have every configuration column blank** on Gleeds' schedule as well as
+Joedan's, so the tender is silent, not the transcription. Ref **39 is a door that appears nowhere in the
+ironmongery clause** (which lists 32, 34, 37, 41), and Joedan charged GBP 327 more for it than for ref 37 at
+the identical size.
+
+**ASBESTOS CUTS BOTH WAYS.** All four window-specific samples - mastic and putty to the metal window frames,
+75 linear metres - returned **NO ASBESTOS DETECTED**. But **FM000125: asbestos bitumen paint to metal
+cladding, chrysotile, 100 m2, "present to left hand elevation", easily disturbed, "REMOVE if affected by
+scheduled work"**. If that is the raking wall carrying 16/17/18, our strip-out disturbs it; the pack's
+GBP 5,000 provisional sum covers the whole building including the roof. RFI-07.
+
+**THE SYSTEMS ARE THE COMPETITOR'S OWN.** EL75mm Squareline and AC100 Commercial are Joedan Manufacturing
+products and Fenster cannot buy either. Spec 3.5.3 cl.3 permits an alternative, but the **compliance
+specification must be submitted WITH the tender return**, needs written CA and Client approval, and the
+tenderer takes **design responsibility under the Contractor's Designed Portion** - with GBP 5m PI stated as
+**both "12 years" and "Six years"** in the same paragraph (RFI-09).
+
+**NO RFQ SENT, DELIBERATELY.** The Form of Tender holds the price open **10 weeks** and the preliminaries say
+**"not less than 3 months"** (RFI-08), while aluminium quotes run 30 days. Starting that clock before Pride's
+real date is known wastes it. **And no deadline has been put on the board** - the 26 June in the pack is
+Gleeds' date to the main contractors, and inventing one from a document date is the error made three times
+this week.
