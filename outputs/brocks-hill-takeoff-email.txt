@@ -1,0 +1,29 @@
+Adam,
+
+Take-off attached. Deadline Friday 31st.
+
+49 external elements on the architect's schedules. 40 are quoted. 9 are not:
+
+  ED.0.04/06/07/08/09  5no steel sports hall escape doors 1810x2110 (Strongdor
+                       Sportsdor or similar). All five are fire escapes with panic
+                       furniture to both leaves. No supplier.
+  ED.0.01/05           2no aluminium louvred plant room doors 1810x2110. No supplier.
+  ED.0.14              2nd entrance door - we sell 2, Bellview quoted 1.
+  W.1.20               3rd Type E.05 window - schedule says 3, BSW quoted 2.
+
+The seven doors are missing because SMD's BoQ omits them; they are on door schedule
+P06. Their own pricing schedule carries 48 m2 of external doors and we are quoting
+24.96 m2. About GBP 32,462 of sell, plus the louvre infill which has no rate on file.
+
+Two things I need from you to price them: authority to raise enquiries for a steel
+sports-hall doorset and a louvred doorset. Neither has a supplier and there are three
+working days left.
+
+When you speak to SMD, the glazing question is on sheet 3 along with six other RFIs
+for them - the useful one to add is the solar control spec, which is required on every
+window, names no product, and is not in our price.
+
+Mastic and EPDM I have taken as settled by your ruling yesterday: both go into the sum
+and the optional-extra line comes out. GBP 4,776.56.
+
+Mary

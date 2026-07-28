@@ -9,9 +9,19 @@ martin.moore@smd-ltd.com, 07564 581082
 **Scope:** external windows and doors to a new teaching block (classrooms, hall, toilets,
 ancillary). Fenster is a sub-contractor to SMD, who are main-contract tendering to the Trust.
 
-## Where this stands (27/07/2026)
+## Where this stands (28/07/2026)
 
-**TENDER DRAFTED, NOT ISSUED. Deadline Friday 31/07/2026.**
+**TENDER DRAFTED, NOT ISSUED. Deadline Friday 31/07/2026 - three working days.**
+
+**TAKE-OFF DELIVERED 28/07** on Adam's dashboard answer to REQ-2 ("email me a take-off in
+the meantime please. Needs to be asap"). `outputs\Brocks Hill Phase 2 - Take-Off.xlsx`,
+generator `scripts/brocks_hill_takeoff.py`. Greenfields 3-sheet format: Project Information /
+Window & Door Schedule / RFIs & Queries. **49 external elements on the architect's schedules,
+40 quoted, 9 not** - W.1.20, ED.0.01, ED.0.04, ED.0.05, ED.0.06, ED.0.07, ED.0.08, ED.0.09,
+ED.0.14. Emailed to Adam the same evening.
+
+**BLOCKED ON ONE THING:** authority to raise a steel sports-hall doorset enquiry and a louvred
+doorset enquiry. Neither type has a supplier and there are three working days left.
 
 Gintare's outgoing tender is **GBP 93,673.34 ex VAT**, supplier-backed, dated 28/07/2026.
 Checked 27/07 — full audit at `outputs\Brocks Hill Phase 2 - Quote Check (schedules vs
@@ -132,12 +142,25 @@ JCT Design and Build 2024. Possession **24/08/2026**, completion **12/03/2027**.
 LADs GBP 12,500/calendar week. Retention 3%. PI 12 years. Occupied primary school —
 term dates PDF in the pack; Phase 1 completes 21/08/2026.
 
+## Adam's answers, 28/07 (dashboard)
+
+- **REQ-2 / REQ-14 (triple glazing vs Smart Wall) — ANSWERED.** "I will call the client and see
+  what they want to do." Adam is taking the glazing question to SMD himself. REQ-14 was a
+  duplicate of REQ-2 and is folded into it. **The proposal's "triple glazing throughout" wording
+  has to change either way** — redraft once SMD answer.
+- **REQ-13 (seven missing doors) — ANSWERED.** "please email me this." Delivered inside the
+  take-off, sheet 2, ref by ref.
+- **Mastic and EPDM — SETTLED**, by Adam's separate ruling of 28/07 on Princess Beatrice REQ-6:
+  the mastic exclusion comes out when we send pricing. Both are specification requirements on
+  this job, so **both go into the tender sum (GBP 4,776.56) and the proposal's "External mastic
+  is charged as an optional extra" line comes out.** No longer a question for Adam.
+
 ## Open — who owes what
 
 **Adam:**
+- **Authority to raise the two door enquiries** (steel sports-hall doorset, louvred doorset).
+  Nothing can be priced on those seven doors until someone can email a supplier. Three days left.
 - MCD: gross up 2.5% or take it off the bottom (as Princess Beatrice)?
-- Mastic/EPDM into the tender sum (Princess Beatrice) or optional (Crestwood)? Both are
-  specification requirements here.
 - Who chases BSW and Bellview for the requotes before Friday — Mary cannot email suppliers.
 
 **SMD (Martin Moore)** — RFIs drafted in the workbook:
@@ -153,7 +176,8 @@ doorsets. Neither has a fabricator engaged — `check_fabricator_can_make_it` fa
 
 - Tender pack (171 files, extracted from the zip): `test-results\brocks-hill-check\tender\`
 - Audit workbook: `outputs\Brocks Hill Phase 2 - Quote Check (schedules vs tender).xlsx`
-- Generator: `scripts/brocks_hill_quote_check.py`
+- Take-off: `outputs\Brocks Hill Phase 2 - Take-Off.xlsx`
+- Generators: `scripts/brocks_hill_quote_check.py`, `scripts/brocks_hill_takeoff.py`
 - Check manifest: `data/job-checks/brocks-hill-phase-2.json`
 - Email to Adam: `outputs/brocks-hill-adam-email.txt`
 - Superseded: 15/07 budget GBP 111,208.82 (blank-rate BoQ, no drawings) — see HANDOVER.md.
@@ -166,3 +190,7 @@ doorsets. Neither has a fabricator engaged — `check_fabricator_can_make_it` fa
 - **27/07/2026** — Gintare's tender received for checking. Full tender pack found **inside the
   zip** in the job folder (Georgie's lesson) — 171 files including the ERs, preliminaries and
   the architect's schedules that expose the seven missing doors. Audit issued to Adam + Zac.
+- **28/07/2026** — Adam answered REQ-2, REQ-13 and REQ-14 on the dashboard. Take-off built and
+  emailed the same evening. Mastic/EPDM settled by his separate ruling. Dashboard deploy blocked
+  by the npx/miniflare lock the gordon-court chat flagged at 22:27 — the state file is written and
+  committed, and the replies went straight to D1, so nothing is lost.
