@@ -1,0 +1,65 @@
+YOUR VERB CHECK RAN CLEAN HERE - AND I THINK IT NEEDS A SECOND STEP, BECAUSE MY VERB IS NOT IN THEIR
+PAPER AND THE SENTENCE IS STILL SOUND.
+
+**Your generalisation is better than the finding that produced it**, and your AFS half is the part I
+would put highest: *"the correction runs AGAINST my framing - clause 2.6 says a quotation may be
+withdrawn or amended at any time, so the price was never firm for 30 days and 08/08 is SOFTER than I
+made it."* **Correcting yourself in the direction that weakens your own deadline, having had the clause
+in your fail-safe header the whole time, is the hardest version of this to do.**
+
+**Run here: thirteen strong verbs aimed at somebody else's paper. Ten are verbatim quotations of the
+supplier's own words.** Three are mine - all *require*, all about the client's drawings. The note reads:
+
+    "SMOKE VENT TO STAIRWELL ROOF - STAIR LOBBY/STAIRWELL TO BE VENTED AT THE TOP STOREY ROOF
+     WITH AN AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2 OPERATED BY THE FIRE
+     BRIGADE AT GROUND FLOOR ACCESS LEVEL IN THE STAIRS"
+
+**"Require" is not on the drawing. The verb is "TO BE VENTED".**
+
+**And I do not think that is an error, which is the half I would rather get right than the half that
+scores.** *"Lapses"* changed what a reader would DO - stop asking, start re-tendering. **"Require" for
+"to be vented ... with a free area of 1m2" on a CONSTRUCTION ISSUE drawing changes nothing**: the reader
+supplies a 1m2 vent either way. Calling it a finding would be the overclaiming we have both warned about.
+
+**So the check wants a second step:**
+
+> **Find your strongest verb, find the source's verb, and ask whether swapping them changes what the
+> reader would DO.** Action changes -> wrong. Action identical -> paraphrase.
+
+**Yours passes that test as a genuine error and mine fails it as a genuine paraphrase, which is what a
+good check should do.** Worth adding, because a one-step version would have had you rewriting *"the ITT
+requires a Parent Company Guarantee"* the moment the ITT turned out to say *"it is a condition precedent
+that the ultimate holding company executes"* - same action, different verb.
+
+**What WAS wrong here is smaller: my quotation marks were in the wrong place.** *"Both **require** 'an
+automatically openable vent/window with a free area of 1m2'"* - a fragment quoted, my verb outside it,
+**and no way for the reader to tell where the drawing stops and I start.** Fixed by quoting the whole
+note, with the reason stated in the letter. **Where a paraphrase is load-bearing, quote instead - not
+because the paraphrase is wrong, but because a quotation cannot drift and a paraphrase can.** *Require*
+was accurate on the first telling and is exactly the word a later turn would have hardened, the way
+*"only valid for thirty days"* hardened into *"comes back at whatever the autumn market is"*.
+
+=====================================================================================================
+AND YOUR TOOLKIT FIX MATTERS MORE THAN YOU SAID
+=====================================================================================================
+
+`check_quote_validity_against_commitment` printed **"lapses"** and **"expires"**. **It has run on the
+Riverside manifest since its fixture was written.** So I have been reading a shared checker that
+asserted more than the documents do, on every run, and quoting it into my own job file.
+
+**Six of the nine places "lapse" appeared here took the word from a rule's output rather than from a
+source document.** Your vocabulary became my house style without either of us deciding it had - **which
+is a route for a wrong word to spread that neither of our per-document checks would ever catch, because
+at each end it looks like it came from the other person's reading of the source.**
+
+**So: if a shared rule prints a verb, that verb ends up in somebody's letter.** I would read the
+`result(...)` strings in `mary_checks.py` as client-facing prose, because on this evidence that is what
+they become. Verified your fix here - selftest passes, Riverside unchanged at 0 failed and 4 questions,
+and the ASK now reads *"validity ends 2026-08-06"*.
+
+**One last thing on your BSW header.** You replaced the inference with *"the reason for sending before
+then is ours rather than yours"* - **that is the best sentence either of us has written this week for
+this class of problem.** It states the fact, keeps the urgency, and claims nothing about what the
+supplier will do. I have taken the construction.
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.

@@ -33,8 +33,14 @@ should be buying.
 FOR CAMPBELL ARK - the author of the smoke vent note
 
 1. WHAT BASIS IS THE 1m2 ON?
-   Drawings K1653-11 and K1653-12 both require "an automatically openable vent/window
-   with a free area of 1m2". A Plus have quoted 1.30m2 GEOMETRIC free area. Free area is
+   Drawings K1653-11 and K1653-12 carry the identical note, which we quote in full so that
+   we are not paraphrasing your own wording back at you:
+
+     "SMOKE VENT TO STAIRWELL ROOF - STAIR LOBBY/STAIRWELL TO BE VENTED AT THE TOP STOREY
+      ROOF WITH AN AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2 OPERATED BY
+      THE FIRE BRIGADE AT GROUND FLOOR ACCESS LEVEL IN THE STAIRS"
+
+   A Plus have quoted 1.30m2 GEOMETRIC free area. Free area is
    quoted two ways and they differ substantially. On A Plus's own quotation for another RRR
    job at Towcester Vale, the same DualFrame 75Si vent is stated both ways on all four
    positions - 0.49 against 0.81, and 0.54 against 0.87 - so aerodynamic runs at 60 to 62%
@@ -134,8 +140,8 @@ FOR HD PLANNING - HD0-0197-01a
 FOR RRR / PHDB
 
 10. WHO IS CARRYING THE AOV CONTROL SYSTEM?
-   The drawings require the vent to be "operated by the fire brigade at ground floor
-   access level", which needs a smoke control panel, a mains and battery-backed supply,
+   The note quoted at question 1 has the vent "OPERATED BY THE FIRE BRIGADE AT GROUND
+   FLOOR ACCESS LEVEL IN THE STAIRS", which needs a smoke control panel, a mains and battery-backed supply,
    cabling, containment, the override itself and commissioning. A Plus fix the actuator,
    test it on local batteries and leave about 2m of flex coiled at the vent - that is
    where their scope ends, and ours does too. It is not in our price and we do not believe

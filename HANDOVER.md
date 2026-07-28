@@ -5736,6 +5736,60 @@ and now prints *"validity ends"*, with the reason in the docstring. Selftest pas
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the verb check needs a second step
+
+Gordon Court generalised the *"lapses"* finding: **search your own documents for the strongest verb you
+have used about somebody else's paper - lapses, expires, requires, mandates, prohibits, guarantees - then
+search their paper for that verb.**
+
+**Run across both outgoing letters: thirteen strong verbs aimed at a third party's document. Ten are
+verbatim quotations of the supplier's own words** - *"must be powered by a compatible control system"*,
+*"a larger actuator is required"*, *"we would require payment for such materials"*. **Three are mine, all
+the word *require*, all about the client's drawings**, whose note reads:
+
+    "SMOKE VENT TO STAIRWELL ROOF - STAIR LOBBY/STAIRWELL TO BE VENTED AT THE TOP STOREY
+     ROOF WITH AN AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2 OPERATED BY
+     THE FIRE BRIGADE AT GROUND FLOOR ACCESS LEVEL IN THE STAIRS"
+
+**"Require" is not on the drawing. The drawing's verb is "TO BE VENTED".**
+
+**And it is not an error, which is the half worth getting right rather than the half that scores.**
+*"Lapses"* changed the meaning - a cliff where the source has a soft reconfirmation. **"Require" for *"to
+be vented ... with a free area of 1m2"* on a CONSTRUCTION ISSUE drawing changes nothing**: an instruction
+on an issued construction drawing is a requirement in any ordinary reading. Reporting it as a finding
+would be the overclaiming this week has warned about twice.
+
+**So the check needs a second step, and it is the one that separates them:**
+
+> **Find your strongest verb, find the source's verb, and ask whether swapping them changes what the
+> reader would DO.** Action changes -> wrong. Action identical -> paraphrase.
+
+A one-step version would have had Gordon Court rewriting *"the ITT requires a Parent Company Guarantee"*
+the moment the ITT turned out to say *"it is a condition precedent that the ultimate holding company
+executes"* - same action, different verb.
+
+**What was genuinely wrong is smaller: the quotation marks were in the wrong place.** RRR question 1 read
+*"both **require** 'an automatically openable vent/window with a free area of 1m2'"* - a fragment inside
+quotation marks with the paraphrased verb outside them, **so the reader cannot tell where the drawing
+stops and we start.** Fixed by quoting the whole note, with the reason stated in the letter itself:
+*"which we quote in full so that we are not paraphrasing your own wording back at you."* Question 10 now
+refers back to it, and the RFQ's two roof references use the drawing's own capitals. **Where a paraphrase
+is load-bearing, quote instead - not because the paraphrase is wrong, but because a quotation cannot
+drift and a paraphrase can.**
+
+**And one thing about shared tooling that no per-document check would catch.** Gordon Court fixed
+`check_quote_validity_against_commitment` because it printed *"lapses"* and *"expires"* - words no
+quotation on either job uses. **That rule has run on the Riverside manifest since its fixture was
+written**, so this chat has been reading a shared checker that asserted more than the documents do, on
+every run, and quoting it into the job file. **Six of the nine places *"lapse"* appeared here took the
+word from a rule's output rather than from a source document** - a route for a wrong word to spread that
+looks, at each end, as though it came from the other reader's source. **If a shared rule prints a verb,
+that verb ends up in somebody's letter.** Their fix verified here: selftest passes, the ASK now reads
+*"validity ends 2026-08-06"*, Riverside unchanged.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

@@ -2283,6 +2283,38 @@ Court's NBS contains *geometric* seven times; **two are free-area specifications
 geometrical tolerances to BS EN 13670 and geometric shapes on signage to BS ISO 7001. *"True, and thinner
 than the count suggests."*
 
+**Search your own documents for the strongest verb you have used about somebody else's paper - lapses,
+expires, requires, mandates, prohibits, guarantees - then search their paper for that verb.** Gordon
+Court's generalisation of the *"lapses"* finding. **Then apply the second step, because the first one on
+its own condemns honest paraphrase: ask whether swapping your verb for theirs changes what the reader
+would DO.**
+
+    "lapses" for "subject to confirmation"   the reader stops asking and starts re-tendering
+                                             ACTION CHANGES  ->  wrong
+    "require" for "to be vented with"        the reader supplies a 1m2 vent either way
+                                             ACTION IDENTICAL  ->  paraphrase, not an error
+
+Riverside's sweep found thirteen strong verbs across two letters: ten were verbatim quotations of the
+supplier's own words, and the three that were not - all *require*, about a construction-issue drawing
+reading *"STAIRWELL TO BE VENTED AT THE TOP STOREY ROOF WITH AN AUTOMATICALLY OPENABLE VENT/WINDOW WITH A
+FREE AREA OF 1m2"* - **passed the second step and were left alone.** Reporting them would have been
+overclaiming.
+
+**What was wrong was the punctuation: a fragment inside quotation marks with the paraphrased verb outside
+them**, so a reader cannot tell where the source stops and you start. **Where a paraphrase is
+load-bearing, quote the whole thing instead - not because the paraphrase is wrong, but because a
+quotation cannot drift and a paraphrase can.** *Require* was accurate on the first telling and is exactly
+the word a later turn hardens, the way *"only valid for thirty days"* became *"comes back at whatever the
+autumn market is"*.
+
+**If a shared rule prints a verb, that verb ends up in somebody's letter.**
+`check_quote_validity_against_commitment` printed *"lapses"* and *"expires"* - words no quotation on
+either job uses - and had run on both manifests since its fixture was written. **Six of the nine places
+"lapse" appeared on Riverside took the word from a rule's output rather than from a source document.**
+That is a route for a wrong word to spread which no per-document check catches, because at each end it
+looks as though it came from the other reader's source. **Read the `result(...)` strings in
+`mary_checks.py` as client-facing prose, because that is what they become.**
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
