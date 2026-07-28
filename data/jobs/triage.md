@@ -386,6 +386,48 @@ there and must not be applied blind.
 The other three queue items (2x Princess Beatrice, 1x Lower Range addendum) route correctly to their own
 chats - verified with the router and left in place.
 
+### 2026-07-28 10:15 - Zac was right about email, and three files had not caught up
+**dashmsg-38, Zac:** *"you have had email access this whole time, you can send stuff. you sent the morning
+update."* Correct, and REQ-23 was already closed on evidence at 07:54. `data\mary-send-log.jsonl` is the
+five-second check: `ok: true` for the 07:54 morning update to adam+marketing (St Mary's workbook attached)
+and a 09:36 send to Adam on Lower Range.
+
+**The turn's actual work was the residue.** The outage lasted about fifteen hours on 27/07 and three
+durable files were still stating it as current, each with a cost:
+
+| file | what it said | what it cost |
+|---|---|---|
+| `data\jobs\riverside.md` | "email is still blocked, so REQ-9 on the hub is the reminder" | **Adam asked for an email reminder and was told no** |
+| `data\jobs\st-marys.md` s8b | "The workbook - GENERATED, NOT SENT" | the workbook went to Adam at 07:54; recorded as undelivered |
+| `MARY-HANDOVER.md` | "Mary cannot ask ET&S - outbound email is down (REQ-23)" | right conclusion, wrong reason |
+
+Handover corrected in place (the reason is the ghost cage, not the channel - it is still a phone call to
+Tom Godfrey). AI.md's 403 section now opens with RESOLVED so it reads as a method, not a status. The two
+job files belong to their chats, so riverside and st-marys were handed the correction rather than edited
+behind their backs. Board told the rule: **tail the send log before writing that email is down.**
+
+Worth naming the shape of the mistake, because it is not about email. A chat records a temporary outage as
+a fact in a permanent file, the outage ends, and the file goes on being read as current - the same failure
+as a supplier quote expiry recorded as a client deadline. **State-of-the-world claims in a durable file
+need the date and the check that would disprove them.**
+
+### 2026-07-28 - Supply2Gov daily alert: the subscription has returned nothing for three days
+Logged rather than binned, because the pattern only shows across days. Alerts 24/07, 27/07 and 28/07 all
+report **0 opportunities matching keywords AND subscription level** - 0 of 22, 0 of 12, 0 of 12. Every
+glazing-relevant listing sat in the "outside your subscription level" bucket behind an Upgrade button:
+entrance doors and door entry at The Grove, Swanscombe (24/07), "Supply & Install of Windows & Doors"
+(27/07), and today **Rockingham Rd & Greenhill Rise, Corby communal door replacement** (Bamford doors +
+CAM KMS entry - our John North Hall line of work exactly) and **Smithfield Plot 4A facade, SFS/curtain
+walling/windows, returns 05/08/2026** (Dublin, so probably out of area anyway). Today's 12 are really 6:
+the feed duplicates every item.
+
+Nothing is priceable - no attachments, no portal login, and the detail is paywalled - so no request and no
+email. But it belongs in a morning update if it repeats: the alert is addressed to "Harry", lands in
+estimating@, and in three days has surfaced nothing we can act on while listing the work we do. Set against
+John North Hall reaching us only because Perry Giffin forwarded it from info@, the lead-flow question is
+the same one twice. Corby checked against the archive - the only Corby folder is Prince Build\Lidl Corby,
+unrelated.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

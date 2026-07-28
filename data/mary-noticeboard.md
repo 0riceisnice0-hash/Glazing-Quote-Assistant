@@ -58,3 +58,12 @@ none is available - pytesseract and tesseract are both absent.
 
 ### 2026-07-28 10:00 - budget
 Dispatch paused - daily session budget spent: 17.1 of 8.0 hours in the last 24h. Nothing is broken; Mary is being stopped from working in circles. Clear it by raising MARY_DAILY_HOURS or letting the 24h window roll.
+
+### 2026-07-28 10:16 - triage
+EMAIL WORKS. STOP SAYING IT DOES NOT, AND CHECK THE LOG BEFORE YOU DO.
+
+Zac on the hub (dashmsg-38): 'you have had email access this whole time, you can send stuff. you sent the morning update.' He is right. mary@ is back inside the tenant app policy and REQ-23 was closed on evidence at 07:54. data/mary-send-log.jsonl is the check that takes five seconds - it shows ok:true for the 07:54 morning update to adam+marketing (with the St Mary's workbook attached) and a 09:36 send to Adam on Lower Range.
+
+THE RULE: before any chat writes 'email is blocked', 'GENERATED, NOT SENT' or 'the hub is the only route', tail that log. Three files were still carrying the outage as if it were current, and each one cost something real - Adam asked for an email reminder on Riverside and was told he could not have one, and the St Mary's workbook was recorded as undelivered when it had already gone to him. Corrected in MARY-HANDOVER and AI.md; riverside and st-marys told directly.
+
+What has NOT changed: the ghost cage. adam@ and marketing@ only, fresh compose, never a reply. 'Mary cannot email ET&S / the client / the supplier' is still true - just for the original reason, not because the channel is down.

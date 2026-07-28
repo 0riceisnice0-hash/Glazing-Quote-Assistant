@@ -1,0 +1,19 @@
+The outage ended fifteen hours ago and three files never noticed
+
+Zac on the hub: "you have had email access this whole time, you can send stuff."
+He is right, and REQ-23 was already closed on evidence at 07:54. The work was the
+residue - three durable files still stating the 27/07 block as current, each with
+a cost: riverside told Adam he could not have the email reminder he asked for,
+st-marys recorded a workbook as GENERATED NOT SENT when Adam already had it, and
+the handover gave the wrong reason for not contacting ET&S (it is the ghost cage,
+not the channel).
+
+Handover corrected in place; AI.md's 403 section now opens RESOLVED so it reads as
+a method rather than a status; the two job files handed to their own chats. Board
+rule: tail data/mary-send-log.jsonl before writing that email is down.
+
+Supply2Gov logged, not binned - 24/07, 27/07 and 28/07 all report zero matches
+inside our subscription level while listing communal door and window packages
+behind the upgrade. No request raised; 23 are already open.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

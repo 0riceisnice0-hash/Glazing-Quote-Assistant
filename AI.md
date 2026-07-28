@@ -349,6 +349,13 @@ the document in front of you - verify before closing a finding on it.
 
 ## When Graph Returns 403, Find Out WHAT Is Blocked (learned 27/07/2026)
 
+> **RESOLVED 28/07/2026 - THIS IS A METHOD, NOT A STATUS.** mary@ is back inside the access policy and
+> outbound works: `data/mary-send-log.jsonl` records `ok: true` for the 07:54 morning update to
+> adam+marketing (with the St Mary's workbook attached) and the 09:36 Lower Range email to Adam. Zac
+> confirmed it on the hub (dashmsg-38): *"you have had email access this whole time, you can send
+> stuff."* **Before any chat says email is blocked, tail the send log.** Saying so when it is untrue
+> costs Adam things he actually asked for - he requested an email reminder on Riverside and was told no.
+
 Outbound died with `403 ErrorAccessDenied ... [RAOP] : Blocked by tenant configured AppOnly
 AccessPolicy settings`. That reads as "Mail.Send has been revoked" and it was not. Probe before
 concluding:

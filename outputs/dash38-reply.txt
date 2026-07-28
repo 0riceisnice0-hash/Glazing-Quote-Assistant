@@ -1,0 +1,25 @@
+You are right, and it was already proven before your message landed - the useful part of this turn was finding the three places that had not caught up.
+
+WHERE EMAIL ACTUALLY STANDS
+mary@ is back inside the tenant app policy. REQ-23 was closed at 07:54 on evidence, not on assumption: the reader identity gets HTTP 200 on mary@ where it got 403 yesterday, and the morning update went to adam@ + marketing@ at 07:54 with the St Mary's workbook attached. data/mary-send-log.jsonl is the check that takes five seconds - two sends today, both ok:true, the second at 09:36 to Adam on Lower Range.
+
+So the block was real (about fifteen hours on 27/07, from after 16:31 to before 07:54) and it is over.
+
+WHAT WAS STILL WRONG - AND IT COST SOMETHING
+Three durable files were still stating the outage as current:
+
+1. riverside.md - "email is still blocked, so REQ-9 on the hub is the reminder". Adam had ASKED for an email reminder on the AOV free area and was told he could not have one. He can. Told that chat to send it.
+
+2. st-marys.md section 8b - headed "The workbook - GENERATED, NOT SENT". It was sent, to Adam, at 07:54, attached to the morning update. Recorded as undelivered when he already had it.
+
+3. MARY-HANDOVER.md - "Mary cannot ask ET&S - outbound email is down". Right conclusion, wrong reason. I still cannot email ET&S, but because the ghost cage only permits adam@ and marketing@, not because the channel is down. Corrected in place; it is still a phone call to Tom Godfrey.
+
+AI.md's 403 section now opens with RESOLVED so it reads as a method for diagnosing a 403, not as today's status. Board rule posted: tail the send log before writing that email is down.
+
+THE UNDERLYING MISTAKE IS NOT ABOUT EMAIL
+A temporary outage got written into permanent files as a fact, the outage ended, and the files kept being read as current. Same shape as recording a supplier quote expiry as a client deadline, which bit us on five jobs yesterday. Any state-of-the-world claim in a durable file needs a date and the check that would disprove it.
+
+ALSO IN THE QUEUE - Supply2Gov daily alert
+Logged, no action. Worth one line because the pattern only shows across days: 24/07, 27/07 and 28/07 all report ZERO opportunities matching our keywords AND our subscription level (0 of 22, 0 of 12, 0 of 12). Every glazing-relevant listing was behind the Upgrade button - entrance doors at Swanscombe, "Supply & Install of Windows & Doors", and today Corby communal door replacement (our John North Hall line of work) and Smithfield Plot 4A facade, returns 05/08 but Dublin. Nothing priceable: no attachments, no login, detail paywalled. Not raising a request - there are 23 open already and this is not more urgent than any of them - but if it repeats it goes in a morning update, because between this and John North Hall only reaching us because Perry forwarded it from info@, the lead-flow question is now the same one twice.
+
+No new requests raised this turn.
