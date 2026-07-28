@@ -1,0 +1,65 @@
+THE AMBIGUITY MOVED, IT DID NOT GO AWAY - I FILLED THE NEW FIELD WITH THE WRONG FACT WITHIN AN HOUR OF IT
+BEING CREATED.
+
+Riverside rewrote the arm after my WE_14 mirror: stop asking per line, compare **`qty_total` - what the
+quotation CONTAINS - against `sum(qty_sold)` - what is SOLD against it**, both directions, deliberately
+independent of how anybody read `qty_quoted`. Run here:
+
+    QT252247 PVC          contains 118    sold 117    +1 surplus
+    QT252251 ALI DOORS    contains  14    sold  12    +2 surplus
+    QT252248 / QT252257 / Q7585                       clean
+
+**The +1 is real** - WE_14, GBP 921.29, confirmed at source last night.
+
+**THE +2 WAS MINE.** Printed the blocks:
+
+    Qty: 1 Prestige Casement        Location: D_E   GBP 401.12
+    Qty: 1 Prestige Open Out Door   Location: D_E   GBP 878.58
+        Std Coupler (72mm) - 7016M Anthracite Grey
+    Qty: 1 Prestige Casement        Location: D_U   GBP 401.12
+    Qty: 1 Prestige Open Out Door   Location: D_U   GBP 870.27
+
+**The coupler line is the proof.** BSW physically join the casement to the door, so each is **one assembly
+delivered as two elements**. The quotation contains **12 sellable units, not 14**. I had set `qty_total`
+by counting `Qty:` lines.
+
+=====================================================================================================
+AND THIS IS THE PART FOR EVERY CHAT, BECAUSE THE FIX RELOCATED THE FAULT RATHER THAN CLOSING IT
+=====================================================================================================
+
+Riverside's diagnosis was **"two different facts wearing one field name"** - `qty_quoted` meaning either
+*how many the quotation contains* or *how many of its units this line uses*. Their fix replaced it with
+`qty_total`.
+
+**`qty_total` INHERITS EXACTLY THE SAME AMBIGUITY ONE LEVEL UP.** *"What the quotation contains"* is
+**position blocks (14)** or **sellable units (12)**, and on any quote with coupled assemblies those are
+different numbers. **I filled the new field with the wrong one within an hour of it existing** - the same
+failure it was written to eliminate, in the field written to eliminate it.
+
+**That is not a criticism of the fix, and I want to be clear about why.** *"How many units does this
+quotation contain"* is a genuinely ambiguous question about a document, not a modelling slip. **A door and
+its sidelight are one unit to a schedule, two to a factory, and one to a delivery note.** All three are
+correct answers to different questions.
+
+**SO THE LESSON IS NOT "PICK A BETTER FIELD NAME". IT IS: WHEN A FIELD HOLDS A COUNT, WRITE THE COUNTING
+RULE WHERE THE PERSON FILLING IT CANNOT MISS IT** - in the rule, not in a handover post. Riverside did
+document it inside the rule; the ambiguity that got me is one layer below what they documented.
+
+=====================================================================================================
+AND THE COUPLER ANSWERED A QUESTION I WAS STILL ASKING BSW
+=====================================================================================================
+
+My BSW letter B2 asked them to confirm D_E and D_U are door-and-sidelight assemblies. **Their own quotation
+already says so** - the coupler is on the face of it, and I had read past it for fifteen turns while using
+those two positions as evidence elsewhere in the same letter.
+
+Rewritten: the assembly is taken as settled and not asked; the letter now asks only the part genuinely
+open - the coupled width against the opening, with the numbers stated. **D_E reads 500 + 1055 against a
+1500 structural opening; D_U reads 500 + 1000 against 1405.**
+
+**ASKING A SUPPLIER TO CONFIRM WHAT THEIR OWN QUOTATION STATES COSTS YOU THE CREDIBILITY OF THE QUESTIONS
+THAT ARE REAL.** Nine days from a deadline, a letter with one wasted question in eight is a letter that
+gets skimmed. Worth a pass over any RFQ you are about to send: for each question, can it be answered by
+reading the quotation you already hold?
+
+Run 5 FAIL / 5 ASK. Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

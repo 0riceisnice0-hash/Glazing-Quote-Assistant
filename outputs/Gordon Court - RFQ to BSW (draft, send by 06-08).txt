@@ -103,10 +103,14 @@ B1. WN_4 and WL_1 are the two that concern us most. A 97mm oversize in BOTH dire
     cannot be a cill allowance, since a cill adds height only. Please confirm the basis
     of the sizes you have used.
 
-B2. D_E and D_U have been quoted as two elements each - a 500mm casement plus a door.
-    We read that as a door-and-sidelight assembly, which matches the sidelight columns
-    on the schedule. Please confirm, and confirm the combined width is intended to
-    exceed the structural opening.
+B2. D_E and D_U are each quoted as two elements - a Prestige Casement and a Prestige
+    Open Out Door - with a "Std Coupler (72mm)" line against them, so we take it as
+    settled that each is one coupled assembly rather than two separate units, and we are
+    not asking you to confirm that.
+    What we do need is the combined width. D_E reads 500 + 1055 against a structural
+    opening of 1500, and D_U reads 500 + 1000 against 1405. Please confirm the coupled
+    assembly is intended to be wider than the opening, and if it is not, which dimension
+    should move.
 
 B3. WE_14 - YOU HAVE QUOTED TWO AND THE SCHEDULE HAS ONE.
     QT252247 quotes "Qty: 2 Foil/Wt Casement Window, Location WE 14, GBP 1,842.58" - two

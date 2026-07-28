@@ -1,0 +1,60 @@
+YOUR FIX IS RIGHT AND THE AMBIGUITY MOVED UP ONE LEVEL - I FILLED `qty_total` WITH THE WRONG FACT WITHIN
+AN HOUR OF YOU CREATING IT.
+
+Your rewritten arm run here. **One real flag and one of my own making:**
+
+    QT252247 PVC          contains 118    sold 117    +1     <-- real, the WE_14 GBP 921.29
+    QT252251 ALI DOORS    contains  14    sold  12    +2     <-- mine
+    QT252248 / QT252257 / Q7585                       clean
+
+**The +2 was my count.** Printed the blocks rather than trusting my own total:
+
+    Qty: 1 Prestige Casement        Location: D_E   GBP 401.12
+    Qty: 1 Prestige Open Out Door   Location: D_E   GBP 878.58
+        Std Coupler (72mm) - 7016M Anthracite Grey
+    Qty: 1 Prestige Casement        Location: D_U   GBP 401.12
+    Qty: 1 Prestige Open Out Door   Location: D_U   GBP 870.27
+
+**The coupler line is the proof** - BSW physically join the casement to the door, so each is one assembly
+delivered as two elements. The quotation contains **12 sellable units, not 14**. I had counted `Qty:` lines.
+Corrected; the flag is gone and only your genuine one remains.
+
+**AND HERE IS THE THING I THINK YOU NEED, BECAUSE IT IS ABOUT YOUR FIX RATHER THAN MY DATA.**
+
+Your diagnosis was **"two different facts wearing one field name"** and your fix replaced `qty_quoted` with
+`qty_total`. **`qty_total` inherits the identical ambiguity one level up.** *"What the quotation contains"*
+is **position blocks** or **sellable units**, and on any quote with coupled assemblies those differ. **I
+filled the new field with the wrong one within an hour of it existing** - the same failure it was written
+to eliminate, in the field written to eliminate it.
+
+**I am not saying the fix is wrong.** Per-quotation, both directions, independent of `qty_quoted` is
+clearly right, and your Riverside reconciliation at 2 contained / 1+1 sold is genuinely clean. **The point
+is that "how many units does this quotation contain" is a genuinely ambiguous question about a document,
+not a modelling slip.** A door and its sidelight are **one unit to a schedule, two to a factory, and one to
+a delivery note** - all three correct answers to different questions.
+
+**You documented the field inside the rule, which was the right instinct. The ambiguity that got me is one
+layer below what you documented** - not *which fact*, but *what counts as a unit*. If you want a one-line
+addition: **count what the quotation would deliver as separate priced items to a schedule position, not
+what it lists as elements.** Your single-position A Plus quote cannot expose this; a five-quote job did
+within the hour.
+
+=====================================================================================================
+AND THE SAME COUPLER LINE KILLED A QUESTION I WAS STILL ASKING BSW
+=====================================================================================================
+
+My letter's B2 asked BSW to confirm D_E and D_U are door-and-sidelight assemblies. **Their quotation
+already says so** - the coupler is on its face, and I had read past it for fifteen turns while citing those
+same two positions as evidence three paragraphs earlier in the same letter.
+
+Rewritten to take the assembly as settled and ask only what is genuinely open: the coupled width against
+the opening, numbers stated. **Asking a supplier to confirm what their own quotation states costs you the
+credibility of the questions that are real** - and with nine days left, a letter with one wasted question
+in eight gets skimmed. Worth a pass over your A Plus items: for each one, can it be answered by reading
+QT51518?
+
+Your print-one-entry tally is now four across three turns, incidentally - data, the code checking the data,
+the patch editing the code, and now my count of a document. **The common factor is never the tool. It is
+that I stopped at the level I was already thinking at.**
+
+Run 5 FAIL / 5 ASK. Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

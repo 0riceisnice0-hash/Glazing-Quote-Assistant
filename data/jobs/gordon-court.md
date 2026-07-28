@@ -2933,6 +2933,74 @@ Rule now **PASSES**. Run **5 FAIL, 4 ASK**.
 
 ---
 
+## 4AG. THIRTY-FIFTH TURN (28/07) — the ambiguity moved, it did not go away
+
+### 4AG.1 riverside's rewritten arm, run here — one real flag and one of my own making
+
+They stopped asking per line. Per quotation now: `qty_total` (what the quotation **contains**) against
+`sum(qty_sold)` (what is **sold** against it), both directions, deliberately independent of how anybody
+read `qty_quoted`. Run here:
+
+| Quote | contains | sold | flagged |
+|---|---|---|---|
+| QT252247 PVC | 118 | 117 | **+1 surplus** |
+| QT252251 ALI DOORS | 14 | 12 | **+2 surplus** |
+| QT252248, QT252257, Q7585 | 44 / 7 / 3 | 44 / 7 / 3 | clean |
+
+**The +1 is the real one** — WE_14, £921.29, confirmed at source last turn.
+
+**The +2 was mine.** Printed the blocks:
+
+```
+Qty: 1 Prestige Casement       Location: D_E  £401.12
+Qty: 1 Prestige Open Out Door  Location: D_E  £878.58
+    Std Coupler (72mm) - 7016M Anthracite Grey
+Qty: 1 Prestige Casement       Location: D_U  £401.12
+Qty: 1 Prestige Open Out Door  Location: D_U  £870.27
+```
+
+**The coupler line is the proof.** BSW are physically joining the casement to the door, so each is **one
+assembly delivered as two elements**. The quotation contains **12 sellable units**, not 14. I had set
+`qty_total = 14` by counting `Qty:` lines. Corrected to 12; that flag is gone.
+
+### 4AG.2 Their fix relocated the ambiguity rather than removing it — and that is worth telling them
+
+riverside's diagnosis was **"two different facts wearing one field name"**: `qty_quoted` could mean *how
+many the quotation contains for this reference* or *how many of the quotation's units this line uses*.
+Their fix was to stop using it and compare `qty_total` against `sum(qty_sold)` instead.
+
+**The rule design is right — per quotation, both directions, immune to how `qty_quoted` was read. But
+`qty_total` inherits exactly the same ambiguity one level up:**
+
+> *"what the quotation contains"* is **position blocks (14)** or **sellable units (12)**, and on any quote
+> with coupled assemblies those are different numbers.
+
+The rule cannot tell which you meant, and **I filled it with the wrong one within an hour of the field
+being created** — the same failure it was written to eliminate, in the field written to eliminate it.
+
+**This is not a criticism of the fix.** It is that *"how many units does this quotation contain"* is a
+genuinely ambiguous question about a document, not a modelling slip. **A door and its sidelight are one
+unit to a schedule, two to a factory, and one to a delivery note.** Any field holding that number needs to
+say which, in the rule, where it cannot be missed. Reported to riverside as such.
+
+### 4AG.3 And the coupler answered a question I was still asking
+
+BSW letter **B2** asked them to confirm that D_E and D_U are door-and-sidelight assemblies. **Their own
+quotation already says so** — the coupler line is on the face of it, and I had read past it for fifteen
+turns while using those same two positions as evidence in Part B.
+
+Rewritten: the assembly is taken as settled and **not** asked, and the letter now asks only the part that
+is genuinely open — the coupled width against the opening, with the numbers stated: *D_E reads 500 + 1055
+against a structural opening of 1500; D_U reads 500 + 1000 against 1405.*
+
+**Asking a supplier to confirm what their own quotation states costs you the credibility of the questions
+that are real.** Nine days out from a deadline, a letter with one wasted question in eight is a letter that
+gets skimmed.
+
+Run **5 FAIL, 5 ASK**.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

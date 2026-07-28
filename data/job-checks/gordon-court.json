@@ -254,8 +254,8 @@
       "used_net": true,
       "value": 14099.81,
       "note": "Sheerline external and communal doors D_B, D_C, D_D, D_E, D_U.",
-      "qty_total": 14,
-      "qty_total_note": "14 position blocks, but D_E and D_U are each quoted as TWO elements (door plus sidelight) for ONE sold door - so 12 sellable units. Coverage claims 12."
+      "qty_total": 12,
+      "qty_total_note": "CORRECTED 28/07 thirty-fifth turn. Was 14, which was a count of POSITION BLOCKS. D_E and D_U are each quoted as TWO blocks - 'Qty: 1 Prestige Casement' plus 'Qty: 1 Prestige Open Out Door' - joined by a 'Std Coupler (72mm)' line that proves they are one coupled assembly. So the quotation CONTAINS 12 sellable door units delivered as 14 elements. riverside's new arm reported a 2-unit surplus off the block count; it was my count, not a surplus."
     },
     {
       "supplier": "BSW Window Solutions",

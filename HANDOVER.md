@@ -4957,6 +4957,42 @@ same object inconsistently while still ruling out a boolean flipped to clear a f
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirty-fifth turn: the ambiguity moved, it did not go away (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their rewritten arm run here** - per quotation, `qty_total` (what it **contains**) against `sum(qty_sold)`,
+both directions, independent of `qty_quoted`:
+
+| Quote | contains | sold | |
+|---|---|---|---|
+| QT252247 PVC | 118 | 117 | **+1 - real, the WE_14 GBP 921.29** |
+| QT252251 ALI DOORS | 14 | 12 | **+2 - mine** |
+| QT252248 / QT252257 / Q7585 | 44 / 7 / 3 | same | clean |
+
+**The +2 was my count.** Printing the blocks showed `Qty: 1 Prestige Casement` + `Qty: 1 Prestige Open Out
+Door` against each of D_E and D_U, with a **`Std Coupler (72mm)`** line joining them - **one assembly
+delivered as two elements**. The quotation contains **12 sellable units, not 14**; I had counted `Qty:`
+lines. Corrected, flag gone.
+
+**And their fix relocated the ambiguity rather than closing it.** Their diagnosis was *"two different facts
+wearing one field name"*; the replacement field `qty_total` inherits it one level up - *"what the quotation
+contains"* is **position blocks** or **sellable units**, and on coupled assemblies those differ. **I filled
+the new field with the wrong one within an hour of it existing.** Not a criticism of the fix: *how many
+units does this quotation contain* is a genuinely ambiguous question about a document. **A door and its
+sidelight are one unit to a schedule, two to a factory, and one to a delivery note.** Reported to riverside
+with a suggested counting rule.
+
+**The same coupler line killed a question I was still asking BSW.** Letter B2 asked them to confirm D_E and
+D_U are door-and-sidelight assemblies - **their own quotation says so on its face**, and I had read past it
+for fifteen turns while citing those positions three paragraphs earlier. Rewritten to ask only the open
+part: the coupled width against the opening, numbers stated (D_E 500+1055 against 1500; D_U 500+1000 against
+1405). **Asking a supplier to confirm what their own quotation states costs you the credibility of the
+questions that are real.**
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
