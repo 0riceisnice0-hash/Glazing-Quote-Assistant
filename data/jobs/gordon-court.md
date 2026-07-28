@@ -2302,6 +2302,79 @@ whose contents we cannot state."* A rule written on their job, catching a live g
 
 ---
 
+## 4X. TWENTY-SIXTH TURN (28/07) — BSW's quotations allocate one of twenty-five things
+
+### 4X.1 riverside's point, and my probe failed the same test one level down
+
+> **A document-driven sweep is a sample of the supplier's drafting priorities. It is not a sweep.**
+
+Fair, and it applies to me twice. My ten categories last turn came from **our own exclusions list** — still
+document-driven, just driven by a different document. So I built **25 categories** from what a glazing
+sub-contract actually allocates, then probed all five quotes.
+
+**And the first run of that sweep was wrong, in the same way, one level down.** The category list was from
+first principles; the **regexes were written from riverside's supplier's clause wording**. It reported ten
+categories as addressed by nobody. Re-probed with patterns written from the concept rather than from A
+Plus's phrasing: **eight of those ten were false negatives on AFS.** A category list from first principles
+with probe wording copied from one supplier is still a sample of that supplier's drafting.
+
+**Their lesson generalises further than they put it:** it is not only which categories you look for, it is
+the words you look for them with.
+
+### 4X.2 The corrected result, and it quantifies last turn's correction
+
+| | Categories addressed, of 25 |
+|---|---|
+| **AFS Q7585** | **23** — the only genuine absence is free area / smoke performance, appropriate for a fire-door supplier |
+| **BSW ×4** | **1** — delivery basis, and that only as *"ex works, additional delivery charges may apply"* |
+
+A 42-hit "dimension" signal on BSW proved to be the word in their **size schedule**, not an allocation:
+**zero** contractual allocations of measurement responsibility.
+
+**So the asymmetry puts a number on what I withdrew last turn.** I had said BSW were silent on ten
+categories, then corrected it to *"defined somewhere I cannot read"*. It is not ten. **For BSW, 24 of 25
+categories are unanswerable** — retention of title, payment terms, limitation of liability, price variation
+on a change of quantity, storage, building regulations, all of it — because the answers sit in a terms of
+sale nobody has requested in seven years.
+
+**BSW D3 now says exactly that**, with the count, rather than gesturing at "potentially your position on…".
+
+### 4X.3 riverside's two live finds, tested here — one replicates, one is forward-looking
+
+**Part-order / re-price: REPLICATES, in the sizes limb rather than the quantity limb.** AFS state *"Any
+variation to the estimated prices because of changes made to quantities, sizes or specification will be
+reflected in the final sum due"*, plus a right to increase price where a specification amendment increases
+their cost. **Live now: position 003 is quoted 1600 x 2210 against a 1600 x 2110 opening**, so the
+unresolved size moves the price *whichever way it is answered*. Added to AFS §5 — *"it is why we would
+rather have the correct figure than the convenient one."*
+
+*The BSW version of this is the one that should worry us and cannot be answered:* **WL_1 4no may be deleted
+entirely** if the smoke shafts are gone, and WN_7 3no may change product. Whether BSW priced on the whole
+order is in the terms we do not hold.
+
+**Storage clock: does NOT replicate as a clock, but the cost of waiting is still ours.** AFS have no
+3-working-day charge. They do have — on a deferred-delivery request — *"the Customer will pay AFS's costs…
+including (without limitation) storage and re-delivery costs."* **Not live today**, because we will not
+order before jLiving's 16/09 award. It prices any post-order slip in Chigwell's programme, uncapped, with no
+rate stated. **Recorded, not quantified, and not presented as a current exposure.**
+
+**Part B: does NOT replicate, and the conclusion from last turn holds.** AFS's statutory references are an
+interpretation clause and a right to *change the goods to achieve compliance* — the opposite of A Plus's
+disclaimer. **But it held despite my method rather than because of it**: the narrow probe would have
+reported it clean either way, and only the wide re-probe actually tested it.
+
+### 4X.4 The manifest was describing a fact the code needed encoded
+
+riverside rebuilt `check_incorporated_terms_held` to grade an **unnamed** incorporation as worse than a
+named one. It did not fire on my data — because I had written *"BSW 'terms and conditions of sale, available
+on request' — no revision, no date, no title"* into the `document` field, and the rule tests
+`named = bool(doc)`. **I described the unnamedness in prose, in the field whose emptiness was the signal.**
+`document` set to `null`, wording moved to `quote_wording`; the rule now reports it in the unnamed bucket
+with the remedy that can actually be carried out. Same family as §4S.3 — the human-readable field said one
+thing and the machine-readable one another.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

@@ -645,33 +645,46 @@
   "supplier_terms_vs_our_exclusions": {
     "checked": "2026-07-28, twenty-fourth turn, on riverside's 'hole with two signatures' check",
     "bsw": "SILENT on all ten categories tested (access, waste, making good, fire stopping, testing, builders work, painting, electrical, storage, design calculations). Their four quotes are supply price lists with no exclusions schedule. Not a clean result - an UNDEFINED one. The boundary between us and BSW is unstated on all ten.",
-    "afs": "Q7585 conditions cl.3.6 makes the CUSTOMER responsible for ensuring all measurements, plans, drawings and designs are accurate, complete and fit for purpose; cl.3.7.2/3.7.5 let AFS reprice or cancel if a dimension we supplied is wrong. Our own cl.16 DISCLAIMS design intent and architectural suitability and relies on the client's team. Measurement is consistent both ways; FITNESS FOR PURPOSE OF DRAWINGS AND DESIGNS IS NOT BACK TO BACK - disclaimed upstream, warranted downstream. Live exposure: position 003 quoted 1600x2210 against a 1600x2110 structural opening, sourced from client schedule 51001. Raised in AFS letter s5 pre-order."
+    "afs": "Q7585 conditions cl.3.6 makes the CUSTOMER responsible for ensuring all measurements, plans, drawings and designs are accurate, complete and fit for purpose; cl.3.7.2/3.7.5 let AFS reprice or cancel if a dimension we supplied is wrong. Our own cl.16 DISCLAIMS design intent and architectural suitability and relies on the client's team. Measurement is consistent both ways; FITNESS FOR PURPOSE OF DRAWINGS AND DESIGNS IS NOT BACK TO BACK - disclaimed upstream, warranted downstream. Live exposure: position 003 quoted 1600x2210 against a 1600x2110 structural opening, sourced from client schedule 51001. Raised in AFS letter s5 pre-order.",
+    "category_sweep_28_07": "TWENTY-SIXTH TURN. riverside's point that a document-driven sweep is a sample of the supplier's drafting priorities. Built 25 categories a glazing sub-contract allocates FIRST, then probed all five quotes. RESULT: BSW's four quotations address exactly ONE of 25 contractually - delivery basis, and that only as 'ex works, additional delivery charges may apply'. (A 42-hit 'dimension' signal proved to be the word in their size schedule, not an allocation - 0 contractual allocations of measurement responsibility.) AFS Q7585 addresses 23 of 25; the only genuine absence is free area / smoke performance, which is appropriate since AFS supply fire doors not vents. SO THE ASYMMETRY QUANTIFIES LAST TURN'S CORRECTION: for BSW, 24 of 25 categories are UNANSWERABLE rather than silent, because the answers are in the terms of sale we have never requested. MY OWN METHOD FAILED FIRST TIME: the category list was built from first principles but the probe REGEXES were written from riverside's supplier's clause wording, producing 8 FALSE NEGATIVES on AFS out of 10 - including the Part B question. Re-probed wide. Part B conclusion HELD (AFS's statutory references are an interpretation clause and a right to change goods to achieve compliance - the opposite of A Plus's disclaimer), but it held despite the method, not because of it.",
+    "afs_quantity_and_storage": "AFS DO carry riverside's part-order shape, in the SIZES limb rather than the quantity limb: 'Any variation to the estimated prices because of changes made to quantities, sizes or specification will be reflected in the final sum due', plus a right to increase price where an amendment to the Goods Specification increases their costs. LIVE: position 003 is quoted 1600x2210 against a 1600x2110 structural opening, so the unresolved size question moves the price whichever way it is answered. Raised in AFS letter s5. STORAGE: AFS have no 3-working-day clock like A Plus, but on a deferred-delivery request 'the Customer will pay AFS's costs... including (without limitation) storage and re-delivery costs'. Not live today - we will not order before jLiving's 16/09 award - but it prices any post-order slip in Chigwell's programme, and no rate is stated. Recorded, not quantified."
   },
   "incorporated_terms": [
     {
       "supplier": "BSW Window Solutions",
       "ref": "QT252247 PVC",
-      "document": "BSW 'terms and conditions of sale, available on request' - no revision, no date, no title",
+      "document": null,
       "held": false,
-      "note": "Printed on all four BSW quotations. Checked the Commercial archive rather than assuming: 280 BSW-named files and 86 documents named as terms/conditions, NONE of them BSW's. Never requested in seven years. GBP 183,005.42 of cost, 91% of supplier exposure."
+      "note": "Printed on all four BSW quotations. Checked the Commercial archive rather than assuming: 280 BSW-named files and 86 documents named as terms/conditions, NONE of them BSW's. Never requested in seven years. GBP 183,005.42 of cost, 91% of supplier exposure.",
+      "quote_wording": "Orders are subject to acceptance and terms and conditions of sale, available on request.",
+      "_was": "BSW 'terms and conditions of sale, available on request' - no revision, no date, no title"
     },
     {
       "supplier": "BSW Window Solutions",
       "ref": "QT252248 PATIOS",
-      "document": "as QT252247",
-      "held": false
+      "document": null,
+      "held": false,
+      "quote_wording": "Orders are subject to acceptance and terms and conditions of sale, available on request.",
+      "note": "No title, no revision, no date on the quotation.",
+      "_was": "as QT252247"
     },
     {
       "supplier": "BSW Window Solutions",
       "ref": "QT252251 ALI DOORS",
-      "document": "as QT252247",
-      "held": false
+      "document": null,
+      "held": false,
+      "quote_wording": "Orders are subject to acceptance and terms and conditions of sale, available on request.",
+      "note": "No title, no revision, no date on the quotation.",
+      "_was": "as QT252247"
     },
     {
       "supplier": "BSW Window Solutions",
       "ref": "QT252257 AOV & LOUVRE",
-      "document": "as QT252247",
-      "held": false
+      "document": null,
+      "held": false,
+      "quote_wording": "Orders are subject to acceptance and terms and conditions of sale, available on request.",
+      "note": "No title, no revision, no date on the quotation.",
+      "_was": "as QT252247"
     },
     {
       "supplier": "Aluminium Fire Systems",

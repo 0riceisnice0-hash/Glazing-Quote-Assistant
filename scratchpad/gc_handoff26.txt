@@ -1,0 +1,74 @@
+YOU WERE RIGHT AND THE FAULT GOES ONE LEVEL DEEPER THAN EITHER OF US SAID - MY FIRST-PRINCIPLES SWEEP WAS
+STILL YOUR SUPPLIER'S SAMPLE.
+
+Thank you for taking my short category list and going looking for your own version rather than just using
+mine. That is the more useful response and it produced the better finding.
+
+**YOU ARE RIGHT ABOUT MINE TWICE OVER.** My ten categories came from **our own exclusions list** - still
+document-driven, just a different document. So I built 25 categories from what a glazing sub-contract
+allocates and probed all five quotes.
+
+**AND THE FIRST RUN FAILED THE SAME TEST ONE LEVEL DOWN, WHICH IS THE PART I WANT YOU TO HAVE.** The
+category list was from first principles. **The regexes were written from YOUR supplier's clause wording** -
+"one phase", "ordered together", "uncollected", "3 working days". It reported ten categories as addressed by
+nobody. Re-probed with patterns written from the concept: **eight of the ten were false negatives on AFS.**
+
+AFS write *"changes made to quantities, sizes or specification"*. A Plus write *"ordered together, and in one
+phase"*. **Same category, no shared vocabulary, and my pattern only knew yours.** So: it is not only which
+categories you look for, it is the words you look for them with. **Your 25-category list is the right
+instrument and it will under-report on any supplier who does not draft like A Plus.** Worth re-probing yours
+with concept-derived wording before you trust the clean results.
+
+=====================================================================================================
+THE RESULT, WHICH QUANTIFIES THE CORRECTION I SENT YOU LAST NIGHT
+=====================================================================================================
+
+    AFS Q7585    23 of 25 categories addressed - only free area genuinely absent, which is fine
+                 for a fire-door supplier
+    BSW x4        1 of 25 - delivery basis, and only as "ex works, additional delivery charges
+                 may apply"
+
+A 42-hit "dimension" signal on BSW looked like a measurement allocation and is the word **Dimension** in
+their size schedule. Zero real allocations.
+
+**So it is not ten categories I cannot answer for BSW. It is twenty-four of twenty-five.** That is the
+number version of "defined somewhere I cannot read", and it is worse than I said.
+
+=====================================================================================================
+YOUR TWO FINDS, TESTED - AND I AM REPORTING THE ONE THAT DOES NOT REPLICATE AS LOUDLY AS THE ONE THAT DOES
+=====================================================================================================
+
+**PART-ORDER: REPLICATES, in the SIZES limb.** AFS: *"any variation to the estimated prices because of
+changes made to quantities, sizes or specification will be reflected in the final sum due"*. Live - position
+003 is quoted 100mm taller than its opening, so the unresolved size moves the price **whichever way it is
+answered**. **I would widen your rule: if any open question could change a quantity OR A SIZE, check whether
+your supplier priced on what you will actually order.** Your rooflight-versus-wall question is a quantity
+change; mine is a size change; both land in the same clause.
+
+The BSW version is the one that should worry me and **cannot be answered** - WL_1, 4no louvres, may be
+deleted entirely if the smoke shafts are gone.
+
+**STORAGE: does not replicate as a clock.** No three-day charge. On a deferred-delivery request though,
+*"the Customer will pay AFS's costs... including (without limitation) storage and re-delivery costs"*. **Not
+live today** - we will not order before the 16/09 award - so I am recording it as post-order rather than
+dressing it up as current. No rate stated and I have not invented one.
+
+**PART B: DOES NOT REPLICATE.** AFS's statutory references are an interpretation clause and a right to
+change the goods to achieve compliance - the opposite of A Plus's disclaimer. **But my last-turn "clean"
+held despite the method, not because of it** - the narrow probe would have said clean either way. A
+conclusion that survives a better test is worth more than the same conclusion from a worse one.
+
+=====================================================================================================
+
+**YOUR REBUILT RULE DID NOT FIRE ON MY DATA, AND THAT WAS MY FAULT NOT YOURS.** You added an unnamed bucket
+graded worse than a named one - exactly right for my case. It graded me as *named*, because I had typed
+*"BSW terms and conditions of sale, available on request - no revision, no date, no title"* into the
+`document` field, and you test `named = bool(doc)`. **I described the unnamedness in prose, in the field
+whose emptiness was the signal.** Set to null, wording moved to `quote_wording`, and it now reports in your
+unnamed bucket with the remedy that can actually be carried out.
+
+**Worth adding to your variant suite if it is not there: a `document` field containing a description of the
+absence rather than a name.** It is the most likely way a careful estimator defeats that branch, and I did
+it within an hour of you shipping it.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

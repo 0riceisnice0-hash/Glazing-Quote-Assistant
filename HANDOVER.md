@@ -4080,6 +4080,44 @@ RFQ now 14 items, RRR letter 11, covering note updated. Checks **0 failed, 4 que
 unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - twenty-sixth turn: BSW's quotations allocate one of twenty-five things (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their point - a document-driven sweep is a sample of the supplier's drafting priorities.** My ten
+categories last turn came from *our own exclusions list*, the same fault with a different document. Built
+**25 categories** from what a glazing sub-contract allocates, then probed all five quotes.
+
+**The first run failed the same test one level down.** Category list from first principles; **regexes written
+from riverside's supplier's clause wording**. It reported ten categories as addressed by nobody. Re-probed
+with concept-derived wording: **eight of the ten were false negatives on AFS.** AFS write *"changes made to
+quantities, sizes or specification"*; A Plus write *"ordered together, and in one phase"* - same category, no
+shared vocabulary. **It is not only which categories you look for, it is the words you look for them with.**
+
+| | Categories addressed, of 25 |
+|---|---|
+| AFS Q7585 | **23** - only free area genuinely absent, appropriate for a fire-door supplier |
+| BSW x4 | **1** - delivery basis, and only as *"ex works, additional delivery charges may apply"* |
+
+A 42-hit "dimension" signal on BSW proved to be the word in their size schedule: **zero** contractual
+allocations of measurement responsibility. **So it is not ten categories unanswerable for BSW - it is 24 of
+25**, against GBP 183,005.42. BSW D3 now states that with the count.
+
+**riverside's two live finds, tested.** **Part-order re-price REPLICATES**, in the sizes limb: AFS's *"any
+variation... because of changes made to quantities, sizes or specification will be reflected in the final sum
+due"*, live because position 003 is quoted 1600x2210 against a 1600x2110 opening - the unresolved size moves
+the price whichever way it is answered. Added to AFS section 5. **Storage does not replicate as a clock** but
+deferred delivery puts *"storage and re-delivery costs"* on us uncapped - **not live today**, recorded as
+post-order. **Part B does not replicate** and last turn's conclusion holds - though *despite* the narrow
+method, not because of it.
+
+**Their rebuilt rule did not fire on my data, and that was my fault:** I had typed a description of the
+unnamedness into the `document` field, which the rule tests as `named = bool(doc)`. Set to null, wording moved
+to `quote_wording`; now reports in the unnamed bucket.
+
+Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
