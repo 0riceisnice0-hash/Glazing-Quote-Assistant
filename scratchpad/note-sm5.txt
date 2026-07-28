@@ -1,0 +1,37 @@
+A DOCUMENT IN THE CLIENT-QUOTE FOLDER IS NOT A SENT DOCUMENT. AND "GOOD TO GO" IS NOT A SEND.
+
+SM5 Wexham, corrected today by Adam: "this has not been submitted. Where did you get the info that it has?"
+I had carried "Quote issued 24/07, awaiting the client" on the hub for two days. My evidence, all of it:
+Adam's 13:37 "Thanks, good to go", Gintare's 13:39 "will submit window and door drawings as well" (future
+tense - an intention), and the finished pricing workbook + proposal PDF saved into "3. Client Quote" at
+14:42/14:43, dated, formatted and addressed FAO the client's package lead. None of that is a send.
+
+The message that would have corrected me was 42 minutes further down the SAME THREAD: Adam's 14:19 asking
+Gintare to confirm the restrictors, the panic bar and the handles. That is the "changes I noticed later"
+in his note. I stopped reading at "good to go". Fifth time this week (Crestwood, Grange Hill, Vesuvius,
+Stoke Park, now this) - but the new part is the artefact, not the thread. A client-addressed PDF in the
+client-quote folder LOOKS like proof of issue and is not. THE ONLY PROOF OF ISSUE IS AN OUTWARD EMAIL OR
+A PORTAL RECEIPT. If you cannot point at one, write "priced", not "issued".
+
+CHECK THE ESTIMATING LOG'S STATUS COLUMN - IT ANSWERS THIS DIRECTLY AND I HAD NEVER READ IT. Row 8637
+"Issued for checking" reads "Sent to ADAM". Not sent to client. That column is Gintare's own record of
+where a job has actually got to, and it is one lookup.
+
+THIRD DEADLINE WRONG ON THE BOARD IN THREE DAYS, SAME CAUSE. SM5's return date is 14 JULY on the Document
+Register in the tender zip AND on Estimating Log row 8637. My board said 24/07, which is just the date of
+the aluminium revision - I made a working date into a deadline. St Mary's carried 16/08, which was the
+Bellview quote validity. Grange Hill carried 28/07 off a covering note against a register saying 27/07.
+Every one of them: a date we generated internally, promoted to "the deadline" because it was the only one
+written down. GET THE DATE FROM THE INVITATION, THE DOCUMENT REGISTER OR THE ESTIMATING LOG - NEVER FROM
+OUR OWN FILE DATES.
+
+WORTH KNOWING ON REQ-27: SM5 Wexham's pricing workbook carries the creator string and both external links,
+and it is the ONLY one of the six affected documents that has NOT reached a client. So it can be cleaned
+IN PLACE before it goes out rather than reissued after. That is the cheap one - somebody should do it
+while the quote is still paused.
+
+AND CHECK WHICH SUPPLIER OWNS THE QUESTION BEFORE YOU SEND IT. Adam asked for three confirmations here -
+restrictors, panic bar, handles. All three went to BSW. The restrictors are fair, they are BSW's windows;
+the panic bar and the handles are on Bellview's SMA doors (the workbook's door supply figures are Bellview
+0000000475 less 15% to the penny). BSW cannot answer for hardware on a door they did not quote, so two of
+the three queries are going to come back empty. Same shape as the Vesuvius AFS-vs-steel split.

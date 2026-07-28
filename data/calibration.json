@@ -17,8 +17,9 @@
    "date": "2026-07-24",
    "mary_estimate": 18611.95,
    "actual": 20563.57,
-   "basis": "Mary's benchmark aluminium estimate (BSW register medians) vs the pricing doc issued 24/07 off the BSW Sheerline requote QT253300",
-   "lesson": "Live Sheerline Prestige runs ~10% above register alu medians. Mary's number also predated the system-depth coupling correction, which pushes it further up."
+   "basis": "Mary's benchmark aluminium estimate (BSW register medians) vs Gintare's pricing document of 24/07, built off BSW Sheerline requote QT253300 with Bellview 0000000475 doors at 15%. CORRECTED 28/07: that document was never issued. Adam approved it at 13:37 then pulled it at 14:19 for the restrictor / panic bar / handle queries, and it has not gone to the client. So the 20,563.57 is a Fenster-priced sell for the same scope but NOT a tendered figure, and it will move up when W.01/W.04/W.05 are repriced as Smart Wall under Adam's coupling ruling. Treat this point as provisional and re-measure it when the corrected quote issues.",
+   "lesson": "Live Sheerline Prestige runs ~10% above register alu medians. Mary's number also predated the system-depth coupling correction, which pushes the actual further up - so the true gap is wider than -9.5%. SEPARATE LESSON, on the log itself: an 'actual' must be sourced to a send, not to a finished-looking document in the client-quote folder. This entry was logged as issued on the strength of a file, and the file had never left.",
+   "basis_type": "benchmark SELL vs Fenster SELL (priced, NOT issued)"
   },
   {
    "job": "Filwood Broadway",

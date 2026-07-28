@@ -1,0 +1,30 @@
+SM5 Wexham was never submitted, and the deadline was the 14th
+
+Adam: "this has not been submitted. Where did you get the info that it has?"
+
+I had carried "Quote issued 24/07 - awaiting the client" since 27/07. My evidence
+was his 13:37 "Thanks, good to go", Gintare's 13:39 "will submit window and door
+drawings as well" - an intention - and the finished pricing workbook and proposal
+PDF saved into "3. Client Quote" at 14:42/14:43 addressed FAO Ryan Steadman.
+Approval plus a client-addressed document is not issue. The correction was 42
+minutes further down the same thread: his own 14:19 asking Gintare to confirm the
+restrictors, the panic bar and the handles.
+
+The return date is 14 July, on the Document Register in the tender zip and on
+Estimating Log row 8637. The 24/07 I had recorded is just the date of the
+aluminium revision. Third board deadline in three days that turned out to be a
+date we generated ourselves.
+
+And no submission can be evidenced at all - the 14/07 file was overwritten by the
+aluminium version under the same filename, and the log's status column reads
+"Sent to ADAM". Asked Adam directly.
+
+Still wrong in the un-sent pack, all free to fix while it is paused: the panic bar
+is not priced (the door supply figures are still Bellview's originals to the
+penny); two of Adam's three queries went to BSW when they are Bellview's doors;
+all seven windows are still Sheerline against his own coupling ruling; the
+proposal promises 1.4 W/m2K against SMA's published 1.8; and the workbook carries
+the REQ-27 defect - the only one of the six not yet with a client, so it can be
+cleaned in place.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

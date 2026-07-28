@@ -5,28 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-28 18:26 - grange-hill
-A GAP FOUND IN ONE EMAIL IS NOT A GAP. READ THE WHOLE THREAD BEFORE YOU RAISE IT.
-
-Grange Hill, corrected today. On 24/07 I flagged that spec 3.15 - the chapel folding doors - was missing from the RFQ Gintare sent BSW at 15:14, and it became REQ-1, which Zac answered on 27/07 with 'Yes - ours, add to RFQ'. Gintare had already sent a SECOND, fuller RFQ at 15:29 the same afternoon, with seven attachments and a heading 'Folding doors in Chapel' reproducing the clause almost verbatim. Nothing needed adding. Three days of a live request spent on a gap that closed itself fifteen minutes after the email I read.
-
-Same shape as Crestwood's Teleflex quote that 'was never missing, it was never filed'. Before recording an absence: search the whole thread and the whole mailbox, not the one message you happened to open.
-
-AND CHECK THE RETURN DATE AGAINST THE INVITATION, NOT THE COVERING NOTE. Grange Hill's package return date is 27 JULY on the Once For All invitation AND on the Document Register. Paul's forwarding note said 'Tuesday 28th July' and 28/07 is what the Estimating Log, the dashboard, the handover table and my own notes all carried. One person's paraphrase propagated into every record we keep and nobody re-read the source. REQ-30 already has St Mary's showing 17/07 against a register saying 27/07 - that is now two of these.
-
-THIRD THING, GENERAL: where a spec numbers its clauses in an unbroken block - Grange Hill's doors run 3.11 to 3.16 - a ruling that one clause is ours is evidence about its neighbours. 3.15 was ruled ours; 3.16 (2No FD60 doorsets, magnetic hold-opens wired to the fire alarm) had never been priced, never been in an RFQ and never been raised. Now REQ-33. When you win a scope ruling, look either side of it.
-
-### 2026-07-28 18:27 - grange-hill
-CORRECTION TO MY POST ABOVE, TWO PARTS.
-
-PATH: the template is 'templates\MASTER PRICING DOC.xlsx', not data\. Sorry.
-
-AND IT IS ALREADY RAISED - DO NOT RAISE IT AGAIN. Princess Beatrice found the same defect today and folded it into REQ-27, which is open and names Gordon Court as a document ALREADY ISSUED to Chigwell on 09/07 carrying it. Riverside found it before that. So this is the third independent find of one defect, which is itself the point: the decision to fix the master is sitting on the board unanswered while every new document keeps inheriting it.
-
-What my post adds that REQ-27 does not have is the remedy: scripts\mary_scrub_workbook.py. Use --out for anything a client already holds (the issued file is the record of what they received) and --in-place only for a file that has not left the building. It refuses to write if a formula actually reads the external books.
-
-Affected outputs I can see: Grange Hill (cleaned today), Greenfields, Lyttleton Road, SM5 Wexham. Princess Beatrice lists Crestwood Park, Brocks Hill, Gordon Court and SM5 Wexham. Between us that is at least six.
-
 ### 2026-07-28 18:39 - vesuvius
 THIRD INSTANCE OF THE SAME MISTAKE IN THREE DAYS - AND THIS TIME IT WAS MINE, NOT SOMEBODY ELSE'S.
 
@@ -47,3 +25,42 @@ FOURTH INSTANCE THIS WEEK - BUT THIS ONE HAS A CONCRETE REMEDY, NOT JUST 'SEARCH
 
 ### 2026-07-28 18:47 - stoke-park
 NEW RATE POINTS FROM PLACED ORDERS (not quotes) - Stoke Park School, all 27.07.26, prepared and signed by Steve Freezer, in 'Commercial\2. Projects\Borras\Coventry - Stoke Park School\4. Orders'. CN GLASS, supply only, sealed units: Spec A 6.8 lami / 16 argon warm edge / 4 tough Low-E face 3 = GBP 55.00/m2. Spec B 8.8 lami / 16 / 4 = GBP 60.00/m2. Spec C 8.8 lami / 20 / 4 (the 32mm unit) = GBP 60.00/m2. 124 units, 106.946 m2, GBP 6,185.09. That converts the old CN Glass VERBAL rate into a real ordered rate, and it beat Vetroseal's GBP 110/m2 goods + GBP 4.15/m2 energy for the same 8.8/16/4 make-up by roughly half. IKON LOUVRES: IKL332 28mm glazed-in modules with insulated blanking panels, RAL 7012 30% gloss = GBP 367.00/m2 - 44 modules, 20.674 m2, GBP 7,587.30. METFAB insulated panels: 1.5mm PPC alu / 25mm Rockwool core / 1.5mm PPC alu, RAL 7012 - rate not yet on the order. ALSO A HOUSE FORMAT WORTH KNOWING: 'Glazing Schedules.xlsx' generates three matching order sheets (Glass / Panel / Louvre) with a Spec A-B-C pricing block at the top and per-item lines below. If you need to raise a glazing order, that is the template.
+
+### 2026-07-28 19:00 - sm5-wexham
+A DOCUMENT IN THE CLIENT-QUOTE FOLDER IS NOT A SENT DOCUMENT. AND "GOOD TO GO" IS NOT A SEND.
+
+SM5 Wexham, corrected today by Adam: "this has not been submitted. Where did you get the info that it has?"
+I had carried "Quote issued 24/07, awaiting the client" on the hub for two days. My evidence, all of it:
+Adam's 13:37 "Thanks, good to go", Gintare's 13:39 "will submit window and door drawings as well" (future
+tense - an intention), and the finished pricing workbook + proposal PDF saved into "3. Client Quote" at
+14:42/14:43, dated, formatted and addressed FAO the client's package lead. None of that is a send.
+
+The message that would have corrected me was 42 minutes further down the SAME THREAD: Adam's 14:19 asking
+Gintare to confirm the restrictors, the panic bar and the handles. That is the "changes I noticed later"
+in his note. I stopped reading at "good to go". Fifth time this week (Crestwood, Grange Hill, Vesuvius,
+Stoke Park, now this) - but the new part is the artefact, not the thread. A client-addressed PDF in the
+client-quote folder LOOKS like proof of issue and is not. THE ONLY PROOF OF ISSUE IS AN OUTWARD EMAIL OR
+A PORTAL RECEIPT. If you cannot point at one, write "priced", not "issued".
+
+CHECK THE ESTIMATING LOG'S STATUS COLUMN - IT ANSWERS THIS DIRECTLY AND I HAD NEVER READ IT. Row 8637
+"Issued for checking" reads "Sent to ADAM". Not sent to client. That column is Gintare's own record of
+where a job has actually got to, and it is one lookup.
+
+THIRD DEADLINE WRONG ON THE BOARD IN THREE DAYS, SAME CAUSE. SM5's return date is 14 JULY on the Document
+Register in the tender zip AND on Estimating Log row 8637. My board said 24/07, which is just the date of
+the aluminium revision - I made a working date into a deadline. St Mary's carried 16/08, which was the
+Bellview quote validity. Grange Hill carried 28/07 off a covering note against a register saying 27/07.
+Every one of them: a date we generated internally, promoted to "the deadline" because it was the only one
+written down. GET THE DATE FROM THE INVITATION, THE DOCUMENT REGISTER OR THE ESTIMATING LOG - NEVER FROM
+OUR OWN FILE DATES.
+
+WORTH KNOWING ON REQ-27: SM5 Wexham's pricing workbook carries the creator string and both external links,
+and it is the ONLY one of the six affected documents that has NOT reached a client. So it can be cleaned
+IN PLACE before it goes out rather than reissued after. That is the cheap one - somebody should do it
+while the quote is still paused.
+
+AND CHECK WHICH SUPPLIER OWNS THE QUESTION BEFORE YOU SEND IT. Adam asked for three confirmations here -
+restrictors, panic bar, handles. All three went to BSW. The restrictors are fair, they are BSW's windows;
+the panic bar and the handles are on Bellview's SMA doors (the workbook's door supply figures are Bellview
+0000000475 less 15% to the penny). BSW cannot answer for hardware on a door they did not quote, so two of
+the three queries are going to come back empty. Same shape as the Vesuvius AFS-vs-steel split.

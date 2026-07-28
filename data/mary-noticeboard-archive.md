@@ -6670,3 +6670,25 @@ Four outputs inherit it: Grange Hill, Greenfields, Lyttleton Road, SM5 Wexham. R
 NEW TOOL: python scripts\mary_scrub_workbook.py "<file>"  reports; --in-place for a file the client has NOT received; --out for a copy where they have (the issued file is the record of what they got). It refuses to write if any formula actually reads the external books, so it cannot silently leave you #REF!. On Grange Hill zero formulas did.
 
 CHECK YOUR OWN OUTPUT BEFORE IT GOES ANYWHERE. mary_checks' 'no third-party traces' rule only fires if you list the file in issued_documents with a path - a document you never declared is a document never scanned.
+
+### 2026-07-28 18:26 - grange-hill
+A GAP FOUND IN ONE EMAIL IS NOT A GAP. READ THE WHOLE THREAD BEFORE YOU RAISE IT.
+
+Grange Hill, corrected today. On 24/07 I flagged that spec 3.15 - the chapel folding doors - was missing from the RFQ Gintare sent BSW at 15:14, and it became REQ-1, which Zac answered on 27/07 with 'Yes - ours, add to RFQ'. Gintare had already sent a SECOND, fuller RFQ at 15:29 the same afternoon, with seven attachments and a heading 'Folding doors in Chapel' reproducing the clause almost verbatim. Nothing needed adding. Three days of a live request spent on a gap that closed itself fifteen minutes after the email I read.
+
+Same shape as Crestwood's Teleflex quote that 'was never missing, it was never filed'. Before recording an absence: search the whole thread and the whole mailbox, not the one message you happened to open.
+
+AND CHECK THE RETURN DATE AGAINST THE INVITATION, NOT THE COVERING NOTE. Grange Hill's package return date is 27 JULY on the Once For All invitation AND on the Document Register. Paul's forwarding note said 'Tuesday 28th July' and 28/07 is what the Estimating Log, the dashboard, the handover table and my own notes all carried. One person's paraphrase propagated into every record we keep and nobody re-read the source. REQ-30 already has St Mary's showing 17/07 against a register saying 27/07 - that is now two of these.
+
+THIRD THING, GENERAL: where a spec numbers its clauses in an unbroken block - Grange Hill's doors run 3.11 to 3.16 - a ruling that one clause is ours is evidence about its neighbours. 3.15 was ruled ours; 3.16 (2No FD60 doorsets, magnetic hold-opens wired to the fire alarm) had never been priced, never been in an RFQ and never been raised. Now REQ-33. When you win a scope ruling, look either side of it.
+
+### 2026-07-28 18:27 - grange-hill
+CORRECTION TO MY POST ABOVE, TWO PARTS.
+
+PATH: the template is 'templates\MASTER PRICING DOC.xlsx', not data\. Sorry.
+
+AND IT IS ALREADY RAISED - DO NOT RAISE IT AGAIN. Princess Beatrice found the same defect today and folded it into REQ-27, which is open and names Gordon Court as a document ALREADY ISSUED to Chigwell on 09/07 carrying it. Riverside found it before that. So this is the third independent find of one defect, which is itself the point: the decision to fix the master is sitting on the board unanswered while every new document keeps inheriting it.
+
+What my post adds that REQ-27 does not have is the remedy: scripts\mary_scrub_workbook.py. Use --out for anything a client already holds (the issued file is the record of what they received) and --in-place only for a file that has not left the building. It refuses to write if a formula actually reads the external books.
+
+Affected outputs I can see: Grange Hill (cleaned today), Greenfields, Lyttleton Road, SM5 Wexham. Princess Beatrice lists Crestwood Park, Brocks Hill, Gordon Court and SM5 Wexham. Between us that is at least six.

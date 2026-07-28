@@ -1,0 +1,52 @@
+You are right, and I had no send to point at. Here is exactly where it came from.
+
+WHERE I GOT IT
+
+The hub job card has read "Quote sent 24/07 (GBP 20,563.57, all-alu) - awaiting client" since I built it on 27/07, and the redesign later that day carried the same sentence over as "Quote issued 24/07 ... Awaiting the client", stage "submitted". Nothing behind it was ever a send. What I actually had was three things, all from 24/07:
+
+1. Your 13:37 to Gintare - "Thanks, good to go. Are there drawings we can submit as well please!"
+
+2. Gintare's 13:39 back - "Yes, will submit window and door drawings as well." Future tense. An intention, not a send.
+
+3. The finished client documents saved into "1. Estimating\3. Client Quote" at 14:42 and 14:43 - the pricing workbook and the proposal PDF, both dated 24/07, both addressed FAO Ryan Steadman.
+
+I read approval plus a finished client-addressed document as issue. It is not, and I should not have written it down as one.
+
+The message that would have corrected me is 42 minutes further down the same thread - your own 14:19, asking Gintare to confirm the restrictors, the panic bar and the handles. That is the "changes I noticed later" in your note. I stopped reading at "good to go". Fourth time this week I have called something from one message instead of the whole thread, so it is on me.
+
+For completeness: there is no outward mail on this job anywhere I can see. The entire 24/07 exchange is estimating@ to adam@ and back. The only thing that has left the building since is Gintare to BSW on 27/07.
+
+
+THE THING THAT MATTERS MORE THAN MY ERROR
+
+Two sources say the return date was 14 JULY, not 24 July.
+
+- The Document Register inside the tender zip: "Package return date: 14 July 2026", package lead Ryan Steadman, generated 03/07.
+- The Estimating Log, row 8637: enquiry 03/07, Deadline 14/07/2026, controller Gintare.
+
+The 24/07 on my board is not a client date at all - it is the date of the aluminium revision, and I turned it into a deadline. Same mistake as St Mary's, where the board carried 16/08 and that turned out to be a supplier quote validity.
+
+AND I CANNOT EVIDENCE ANY SUBMISSION ON THIS JOB AT ALL. On 22/07 I recorded that a quote had gone on 14/07 at GBP 14,575.88, uPVC windows with aluminium doors. I can no longer open the file that told me so - the client pricing workbook in that folder was overwritten by the aluminium version on 24/07 13:42, same filename. And the Estimating Log's status column does not say issued; it says "Sent to ADAM". W/L blank.
+
+So: do you know whether anything went to Ryan Steadman on or around 14 July? If nothing did, this package closed a fortnight ago with no submission, and that is a different conversation from a quote sitting waiting for changes.
+
+
+WHAT IS ACTUALLY IN THE UN-SENT PACK, WHILE IT IS STILL FIXABLE
+
+Since it has not gone, all of this is free to correct rather than to reissue.
+
+1. THE PANIC BAR IS STILL NOT PRICED. ED.01 and ED.02 carry supply of 1,869.12 and 2,813.46, which are Bellview 0000000475 at 15% off to the penny - the original figures, unchanged. That quote had no panic bar on the fire-exit double doors. You accepted that catch on 24/07 and the money has not moved since, so the correction is not in the document.
+
+2. THE PANIC BAR AND HANDLE QUESTIONS WENT TO THE WRONG SUPPLIER. Gintare put all three of your queries to BSW on 27/07 10:10. Restrictors are fair - those are BSW's windows. But ED.01 and ED.02 are Bellview SMA Smart Wall doors, per the arithmetic above. BSW cannot answer for a panic bar or a handle on a door they did not quote. Nobody has asked Bellview, and BSW have not replied to that email either - nothing back in estimating@ as of now, four days after you asked.
+
+3. THE PACK IS STILL THE PRE-CORRECTION ONE. All seven windows sit under a "Sheerline Windows" heading, W.01, W.04 and W.05 included - the three your own 24/07 ruling says cannot be Sheerline against a 100mm Smart Wall door. The proposal says the same in words: window package Sheerline Prestige, door package SMA Smart Wall Pocket. The price will move up when those three become Smart Wall.
+
+4. THE PROPOSAL PROMISES 1.4 W/m2K. Page 3, under Glazing Specification. Not the drawing's 1.6 - tighter than it. I am not reopening your averaging ruling; the point is that the document does not state an average, it states 1.4 flat. SMA's own datasheet, which surfaced on St Mary's on 27/07, publishes 1.8 W/m2K for Smart Wall doors. The same page also describes the glazing as "6.8 laminated / 4mm toughened", which is the door make-up only - the BSW windows are 6.8 / 18 argon EcoPlus.
+
+5. THE PRICING WORKBOOK CARRIES THE REQ-27 DEFECT. Author reads "Dan Parker;dan.parker@agsurveying.co.uk" and there are two external links to other people's Outlook caches. Of the six documents on that list this is the only one that has NOT reached a client, so it is the only one that can be cleaned in place before it goes rather than reissued after. It needs doing in OneDrive by a person - that archive is read-only to me.
+
+6. RE-DATE IT ON ISSUE. The proposal is dated 24/07 and the terms give 30 days from date of issue. Bellview's door pricing holds to around 12/08 regardless.
+
+SUGGESTED ORDER: get Bellview the panic bar and handle questions and the W.01 / W.04 / W.05 Smart Wall pricing in one enquiry, chase BSW on the restrictors, then rebuild. I will run the pre-issue checks on the new number before it goes anywhere.
+
+Board corrected: deadline now 14/07 with the register and log cited, stage back to "with Adam - not submitted", and the calibration entry no longer claims 20,563.57 was an issued figure.
