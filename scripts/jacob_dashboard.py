@@ -28,6 +28,8 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AWARDS = os.path.join(REPO, "data", "jacob", "contracts-finder-awards.json")
 INTAKE = os.path.join(REPO, "data", "jacob", "intake.json")
 JAYK = os.path.join(REPO, "data", "jacob", "jayk-recovery.json")
+OUTCOMES = os.path.join(REPO, "data", "jacob", "outcomes.json")
+TENDERS = os.path.join(REPO, "data", "jacob", "tender-notices.json")
 JOBS = os.path.join(REPO, "data", "jobs")
 OUT = os.path.join(REPO, "dashboard", "functions", "_data", "jacob-data.js")
 
@@ -64,6 +66,14 @@ BUILDING_CPV = ("45210", "45211", "45212", "45213", "45214", "45215", "45216",
 INFRA_CPV = ("45233", "45231", "45232", "45234", "45235", "45236", "45246",
              "45247", "45112", "45111", "45331", "45230", "45310", "45350")
 MIN_VALUE, MAX_VALUE = 400_000, 40_000_000
+
+# The board used to rank by published contract value, biggest first. The
+# Opportunity Log says that is exactly backwards: 229 decided outcomes, and
+# no job over GBP 50,000 has ever been won - 0 from 52. So value now buys a
+# row a warning, not a place at the top. Everything here is read from
+# outcomes.json at build time rather than written down, because the log is
+# hand-kept and these numbers will move.
+FIT_UNKNOWN = {"band": "no value published", "winRate": None, "note": ""}
 
 # Adam, 27/07/2026: many quotes, no wins. Their notices stay on the board so
 # nobody quietly re-opens the question, but they carry no action.
@@ -192,6 +202,44 @@ def is_freemail(domain):
     """Match on the first label so outlook.in and yahoo.de are caught too,
     not just the .com/.co.uk pair."""
     return (domain or "").lower().split(".")[0] in FREEMAIL_STEMS
+
+
+def fit_for(value, outcomes):
+    """What the outcome history says about a job of this size.
+
+    Not a prediction and not a score - it is the row from the Opportunity Log
+    that this value falls into, handed to a human with its own sample size
+    attached. 'W0 L29' is a fact Adam can act on; '0.12 fit' is not."""
+    if not outcomes or not value:
+        return dict(FIT_UNKNOWN)
+    for b in outcomes.get("bands", []):
+        if value >= b["from"] and (b["to"] is None or value < b["to"]):
+            note = ""
+            if b["decided"] and not b["won"]:
+                note = ("Fenster has never won one this size - %d tried, %d won"
+                        % (b["decided"], b["won"]))
+            elif b["winRate"] is not None:
+                note = "%d%% of these are won (%d of %d)" % (
+                    round(b["winRate"]), b["won"], b["decided"])
+            return {"band": b["label"], "winRate": b["winRate"],
+                    "won": b["won"], "decided": b["decided"], "note": note}
+    return dict(FIT_UNKNOWN)
+
+
+def outcome_index(outcomes):
+    """Client name -> their record in the Opportunity Log, keyed on the same
+    normalised tokens the archive matcher uses, so 'FM Solutions' and
+    'FM Solutions Ltd' are one company."""
+    idx = {}
+    for c in (outcomes or {}).get("clients", []):
+        key = " ".join(tokens(c["client"]))
+        if key and (key not in idx or c["decided"] > idx[key]["decided"]):
+            idx[key] = c
+    return idx
+
+
+def record_for(name, idx):
+    return idx.get(" ".join(tokens(name or "")))
 
 
 def load_json(path, default=None):
@@ -461,6 +509,14 @@ def thread_action(t):
     if t.get("job") and t["stage"] != "quoted":
         return (ADAM, "Already with Mary - job file '%s'. Nothing for BD to start; "
                       "chase it there if %s is waiting." % (t["job"], at))
+    # They have told us the answer. Won or lost, this is the message that
+    # ends a row - and it is worth more than any of the guesses below it,
+    # because it is the only one where somebody has actually said what
+    # happened. Every outcome in here is also a correction to the BD log.
+    if t["stage"] == "decided":
+        return (ADAM, "%s has given a decision on this - read it and act on it "
+                      "today. Whatever it says, it also closes or corrects a row "
+                      "in the Opportunity Log, which still has it open." % at)
     # Buyer. A price already with them is a different job from a new ask:
     # this is the second handover, the one that currently nobody does.
     if t["stage"] == "quoted":
@@ -546,7 +602,11 @@ def build_threads(intake):
         # How far along it is, which is a different question from how old it
         # is. A price already sitting with the client is the one thing on
         # this board nobody was tracking.
-        t["stage"] = ("quoted" if "quote-out" in kinds else
+        # "decided" outranks everything: a client telling us the answer is the
+        # one message that closes a row or starts a job, and it was being
+        # filed as correspondence because it opens "I hope you are well".
+        t["stage"] = ("decided" if "decision" in kinds else
+                      "quoted" if "quote-out" in kinds else
                       "enquiry" if "enquiry" in kinds else "unconfirmed")
         # A stated return date beats how old the thread is. "Gone quiet" is
         # what a tender does in the fortnight before it closes.
@@ -625,7 +685,75 @@ def book_action(r):
     return (NOBODY, "Talking to us already - nothing to start.")
 
 
-def build_actions(threads, warm, known, book):
+def build_tenders(tenders, outcomes, book):
+    """Contracts still out to bid. The only stage at which a subcontractor
+    can still get onto an enquiry list, which is why this feed exists at all.
+
+    Two different jobs live in here and the board must not blur them:
+      direct        - the buyer is asking for glazing work. Fenster can price
+                      this itself, and the decision is Gintare's and Adam's.
+      main-contract - the buyer is asking for a building. Fenster cannot bid
+                      it; the work is finding out who is bidding, and that is
+                      Jacob's.
+    """
+    known_names = {" ".join(tokens(r["company"])) for r in book}
+    idx = outcome_index(outcomes)
+    rows = []
+    for n in (tenders or {}).get("notices", []):
+        left = n.get("daysLeft")
+        buyer_key = " ".join(tokens(n.get("buyer") or ""))
+        rec = record_for(n.get("buyer"), idx)
+        row = dict(n)
+        row["key"] = "tender:" + re.sub(r"[^a-z0-9]", "-", (n.get("ocid") or "")[-24:])
+        row["fit"] = fit_for(n.get("value"), outcomes)
+        row["knownBuyer"] = buyer_key in known_names
+        row["record"] = rec
+        row["state"] = ("closing" if left is not None and left <= 7
+                        else "open" if left is not None else "no closing date")
+
+        if n.get("coverage") == "outside coverage":
+            # Fenster's own PQQ names 78 postcode areas. This is not one.
+            row["owner"] = NOBODY
+            row["next"] = ("None - %s is outside the postcode coverage Fenster "
+                           "puts on its own PQQs." % (n.get("where") or "this area"))
+            row["state"] = "outside coverage"
+        elif not n.get("confident"):
+            row["owner"] = JACOB
+            spray = (n.get("cpvCount") or 0) > 12
+            row["next"] = ("Read this before anyone acts. %s, and the notice never "
+                           "says window, door or glazing in words."
+                           % ("The buyer tagged it with %d CPV codes, which is a net "
+                              "rather than a description" % n["cpvCount"] if spray
+                              else "It matched on one of the broader codes in Adam's "
+                                   "list (%s)" % n.get("cpv", "-")))
+            row["state"] = "needs reading"
+        elif n["tier"] == "direct":
+            row["owner"] = GINTARE
+            row["next"] = ("Decide whether to price. %s want glazing work and it "
+                           "closes %s." % (n["buyer"] or "The buyer",
+                                           n.get("closes") or "with no date given"))
+            if rec and rec["won"]:
+                row["owner"] = ADAM
+                row["next"] = ("Call %s - they have bought from Fenster %d time%s "
+                               "and this closes %s."
+                               % (n["buyer"], rec["won"], "" if rec["won"] == 1 else "s",
+                                  n.get("closes") or "soon"))
+        elif n["tier"] == "main-contract":
+            row["owner"] = JACOB
+            row["next"] = ("Find who is bidding %s before it closes %s, then get "
+                           "Fenster onto their enquiry list."
+                           % (n["title"][:50], n.get("closes") or "-"))
+        else:
+            row["owner"] = JACOB
+            row["next"] = ("Read the notice before anyone acts - it matched on "
+                           "words, not on a CPV code, and words lie.")
+        rows.append(row)
+    rows.sort(key=lambda r: (r["closes"] or "9999",
+                             {"direct": 0, "main-contract": 1}.get(r["tier"], 2)))
+    return rows
+
+
+def build_actions(threads, warm, known, book, tenders=None):
     """The list a Commercial Director reads in ten seconds. Ranked by how
     close it is to a real enquiry from a real buyer, which is the only thing
     Jacob is for."""
@@ -645,8 +773,12 @@ def build_actions(threads, warm, known, book):
                 base -= 25
             # A price already out ranks below a fresh ask, and a thread Jacob
             # has not read yet ranks below both - it is not a lead until
-            # somebody has confirmed it is one.
-            if t["stage"] == "quoted":
+            # somebody has confirmed it is one. A decision outranks all of
+            # them: somebody has said what happened, and nothing else on this
+            # board is that certain.
+            if t["stage"] == "decided":
+                base += 20
+            elif t["stage"] == "quoted":
                 base -= 6
             elif t["stage"] == "unconfirmed":
                 base -= 30
@@ -663,6 +795,41 @@ def build_actions(threads, warm, known, book):
         elif t["kind"] == "portal":
             add(74, t["key"], t["company"], "Portal notice", t["subject"],
                 t["owner"], t["next"], t["state"], "enquiries")
+
+    # A contract still out to bid beats one already awarded, every time - but
+    # it does not beat a buyer who is emailing us. A public notice is a
+    # stranger with a deadline; a live thread is somebody who already knows
+    # our name, and "a warm name beats a perfect-fit stranger nearly every
+    # time" is the whole reason this job exists. So these are scored to sit
+    # under the buyer threads, and only three of them ever reach this page.
+    #
+    # An earlier version scored them at 96 and nine of the fourteen rows here
+    # were public tenders, two of them in Scotland and one for cable cutters.
+    tender_acts = []
+    for n in (tenders or []):
+        left = n.get("daysLeft")
+        if left is None or left < 0:
+            continue
+        if n.get("coverage") == "outside coverage":
+            continue                 # Fenster's own PQQ says it will not work there
+        if not n.get("confident"):
+            continue                 # broad CPV, no glazing word - read it first
+        base = {"direct": 62, "main-contract": 45}.get(n["tier"])
+        if base is None:
+            continue                 # matched on wording alone; not an action yet
+        if left <= 14:
+            base += (14 - left)
+        if n.get("record") and n["record"]["won"]:
+            base += 12
+        tender_acts.append((base, n))
+    tender_acts.sort(key=lambda t: -t[0])
+    for base, n in tender_acts[:3]:
+        left = n["daysLeft"]
+        add(base, n["key"], n.get("buyer") or "-",
+            n["title"][:70],
+            "Closes %s - %d days. %s" % (n.get("closes") or "no date", left,
+                                         n["fit"].get("note") or ""),
+            n["owner"], n["next"], n["state"], "tenders")
 
     for r in warm[:6]:
         add(55, "lead:" + re.sub(r"[^a-z0-9]", "-", r["supplier"].lower())[:50],
@@ -681,12 +848,26 @@ def build_actions(threads, warm, known, book):
 
     acts.sort(key=lambda a: -a["score"])
     # Two award notices against the same client collapse to one thing to do.
-    seen, out = set(), []
+    seen, ranked = set(), []
     for a in acts:
         sig = (a["company"], a["next"])
         if sig in seen:
             continue
         seen.add(sig)
+        ranked.append(a)
+
+    # A cap per kind, not just an overall one. Pure score ordering filled all
+    # fourteen slots with "chase a buyer who has gone quiet" - which is one
+    # finding repeated fourteen times, not fourteen things to do. Adam is a
+    # Commercial Director between site visits; he needs the shape of the day,
+    # and the full list is one click away on each page.
+    ROOM = {"enquiries": 8, "tenders": 3, "leads": 2, "companies": 2}
+    used, out = defaultdict(int), []
+    for a in ranked:
+        page = a.get("page") or "overview"
+        if used[page] >= ROOM.get(page, 2):
+            continue
+        used[page] += 1
         out.append(a)
     return out[:14]
 
@@ -763,6 +944,8 @@ def build():
 
     intake = load_json(INTAKE)
     jayk = load_json(JAYK)
+    outcomes = load_json(OUTCOMES)
+    tenderfeed = load_json(TENDERS)
     rel = build_relationships(clients, intake, jayk)
     for r in rel:
         r["key"] = "co:" + x_key(r)
@@ -778,7 +961,15 @@ def build():
     buyers = [t for t in threads if t["kind"] == "buyer"]
     liveBuyers = [t for t in buyers if t["state"] in ("live", "waiting")]
     quiet = [t for t in buyers if t["state"] in ("gone quiet", "stale")]
-    actions = build_actions(threads, warm, known, rel)
+    tenders = build_tenders(tenderfeed, outcomes, rel)
+    actions = build_actions(threads, warm, known, rel, tenders)
+
+    # Every lead now carries what the outcome history says about a job that
+    # size. The point is not to hide the big ones - it is to stop the board
+    # putting a GBP 4m academy above a GBP 3k door set when the log says the
+    # door set is the one Fenster wins.
+    for r in warm + known + cold:
+        r["fit"] = fit_for(r.get("total") or r.get("value"), outcomes)
 
     return {
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -817,6 +1008,21 @@ def build():
             "quotedOut": sum(1 for t in buyers if t["stage"] == "quoted"),
             "unconfirmed": sum(1 for t in threads if t["stage"] == "unconfirmed"),
             "smallWorks": ((intake or {}).get("counts", {}) or {}).get("small-works", 0),
+            # Mailboxes deliberately not read. Adam took info@ off the list on
+            # 28/07/2026; a count that does not say which mailboxes it comes
+            # from is a claim, not a fact.
+            "mailExcluded": (intake or {}).get("excluded", []),
+            # Contracts still out to bid, which is the only stage a
+            # subcontractor can still get onto an enquiry list at.
+            "tenders": len(tenders),
+            "tendersDirect": sum(1 for t in tenders if t["tier"] == "direct"),
+            "tendersClosing": sum(1 for t in tenders
+                                  if (t.get("daysLeft") or 99) <= 7),
+            # What Fenster actually converts, from 229 decided outcomes.
+            "winRate": ((outcomes or {}).get("summary") or {}).get("winRate"),
+            "wonMedian": ((outcomes or {}).get("summary") or {}).get("wonMedian"),
+            "noWinAbove": ((outcomes or {}).get("summary") or {}).get("noWinAbove"),
+            "openThisYear": len((outcomes or {}).get("openThisYear", [])),
             # The one money number on the board that is sourced, not guessed:
             # published values of live contracts whose winner Fenster knows.
             "knownWinnerValue": sum((r.get("total") or 0) for r in warm + known),
@@ -824,11 +1030,36 @@ def build():
         "actions": actions,
         "threads": threads,
         "warm": warm, "known": known, "cold": cold[:150],
-        "sources": SOURCES(len(awards), len(by_supplier), intake),
+        "tenders": tenders,
+        # The outcome history, whole. Every number the board leans on lives
+        # here with its sample size next to it, so a person can check the
+        # claim instead of taking it.
+        "outcomes": {
+            "updated": (outcomes or {}).get("updated"),
+            "source": (outcomes or {}).get("source"),
+            "summary": (outcomes or {}).get("summary"),
+            "bands": (outcomes or {}).get("bands", []),
+            "clients": (outcomes or {}).get("clients", [])[:80],
+            "lostReasons": (outcomes or {}).get("lostReasons", []),
+            "lostLegend": (outcomes or {}).get("lostLegend"),
+            "chased": (outcomes or {}).get("chased", []),
+            "openThisYear": (outcomes or {}).get("openThisYear", []),
+            "rows": (outcomes or {}).get("rows"),
+        } if outcomes else None,
+        "tenderFeed": {
+            "updated": (tenderfeed or {}).get("updated"),
+            "sources": (tenderfeed or {}).get("sources"),
+            "from": (tenderfeed or {}).get("publishedFrom"),
+            "cpvList": (tenderfeed or {}).get("cpvList", []),
+            "cpvListFrom": (tenderfeed or {}).get("cpvListFrom"),
+            "counts": (tenderfeed or {}).get("counts", {}),
+        } if tenderfeed else None,
+        "sources": SOURCES(len(awards), len(by_supplier), intake, tenderfeed),
         "intake": {
             "updated": (intake or {}).get("updated"),
             "windowDays": (intake or {}).get("window_days"),
             "perMailbox": (intake or {}).get("per_mailbox", {}),
+            "excluded": (intake or {}).get("excluded", []),
             "counts": (intake or {}).get("counts", {}),
             "signals": (intake or {}).get("signals", [])[:120],
         } if intake else None,
@@ -865,33 +1096,54 @@ BOOK_ORDER = {"dormant - has bought": 0, "gone quiet": 1, "stale": 2,
               "no contact on record": 6, "supplier": 7, "do not quote": 8}
 
 
-def SOURCES(rows, winners, intake=None):
+def SOURCES(rows, winners, intake=None, tenderfeed=None):
+    tf = tenderfeed or {}
+    tcounts = tf.get("counts") or {}
+    per = tf.get("sources") or {}
     return [
-        {"name": "Contracts Finder", "status": "live", "kind": "Award notices",
-         "detail": "%d construction award rows, %d unique winning companies, "
-                   "90-day window" % (rows, winners),
-         "cost": "Free, no key"},
-        {"name": "Find a Tender (FTS)", "status": "planned",
-         "kind": "High-value notices",
-         "detail": "Above-threshold works, GBP 5.3m+. Same OCDS shape as "
-                   "Contracts Finder, so it reuses the same puller.",
-         "cost": "Free, no key"},
-        {"name": "Tender-stage notices", "status": "planned",
+        {"name": "The Opportunity Log", "status": "live",
+         "kind": "What Fenster actually wins",
+         "detail": "The BD pipeline from the Commercial OneDrive, read-only. "
+                   "229 decided outcomes with values and lost reasons - the "
+                   "only record either bot has of what converts. Everything "
+                   "on the board that mentions a win rate comes from here.",
+         "cost": "Free - hand-kept by the BD team"},
+        {"name": "Contracts Finder - tender stage", "status": "live",
          "kind": "Contracts out to bid",
-         "detail": "The stage that actually matters for a subcontractor - "
-                   "bidders are pricing and need our number now. Awards are "
-                   "the latest and weakest signal.",
-         "cost": "Free"},
+         "detail": "%d notices still open: %d matching Adam's CPV list "
+                   "directly, %d main contracts a glazing package sits inside, "
+                   "%d matched on wording alone. Volume is genuinely thin - "
+                   "about 11 tender notices a day nationally against 110 "
+                   "awards, so this feed finds few things but they are live."
+                   % (sum(tcounts.values()), tcounts.get("direct", 0),
+                      tcounts.get("main-contract", 0), tcounts.get("text-only", 0)),
+         "cost": "Free, no key"},
+        {"name": "Find a Tender (FTS)", "status": "live",
+         "kind": "Above-threshold notices",
+         "detail": "Same puller, second service. %s"
+                   % (("%d releases read in the window."
+                       % (per.get("fts", {}) or {}).get("releases", 0))
+                      if "fts" in per else "Not reached on the last run."),
+         "cost": "Free, no key"},
+        {"name": "Contracts Finder - awards", "status": "live",
+         "kind": "Who won what",
+         "detail": "%d construction award rows, %d unique winning companies. "
+                   "The weakest signal of the three - by the time it publishes, "
+                   "the enquiry list was drawn up months ago." % (rows, winners),
+         "cost": "Free, no key"},
         {"name": "PlanIt planning applications", "status": "planned",
          "kind": "Schemes 6-18 months out",
          "detail": "Gets Fenster onto the enquiry list before the list exists.",
          "cost": "Free"},
-        {"name": "Portal notification emails", "status": "planned",
+        {"name": "Portal notification emails", "status": "blocked",
          "kind": "In-Tend, ProContract, Delta, Jaggaer",
-         "detail": "These already arrive in info@ and commercial@. No login or "
-                   "scraper needed - it is a mailbox problem, not a portal one. "
-                   "This is how the Hightown tender was nearly lost.",
-         "cost": "Free - needs the commercial@/info@ intake"},
+         "detail": "79 of the 88 portal notices in the last six months arrived "
+                   "at info@, and info@ came off Jacob's list on 28/07/2026 at "
+                   "Adam's instruction. All 79 were Hightown, who are do-not-"
+                   "quote, so nothing is being lost today - but the portal "
+                   "registrations point at info@, so the next non-Hightown "
+                   "notice will land somewhere Jacob cannot see. JAC-7.",
+         "cost": "Free - needs the registrations re-pointed at commercial@"},
         {"name": "Companies House", "status": "planned",
          "kind": "Enrichment",
          "detail": "Company type decides whether cold contact is lawful at all "
@@ -978,6 +1230,16 @@ def main():
              if t["mailTruncated"] else ""))
     print("  %d actions on the Today page, %d dormant clients who have bought"
           % (len(data["actions"]), t["dormantWon"]))
+    if t.get("mailExcluded"):
+        print("  mailboxes NOT read: %s"
+              % "; ".join("%s (%s)" % (m["mailbox"], m["why"]) for m in t["mailExcluded"]))
+    print("  %d contracts out to bid (%d Adam's CPV list, %d closing inside a week)"
+          % (t["tenders"], t["tendersDirect"], t["tendersClosing"]))
+    if t.get("winRate") is not None:
+        print("  outcome history: %.0f%% win rate, median win GBP %s, nothing won over GBP %s"
+              % (t["winRate"], format(t["wonMedian"] or 0, ","),
+                 format(t["noWinAbove"] or 0, ",")))
+        print("  %d rows still open on the current BD sheet" % t["openThisYear"])
 
     if args.deploy:
         # Same invocation as mary_dashboard.py - same Pages project, same

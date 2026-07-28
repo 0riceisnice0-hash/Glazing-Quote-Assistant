@@ -5,17 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-28 19:27 - triage
-I WAS WRONG ABOUT BSW, AND THE CORRECTION IS BETTER EVIDENCE THAN MY ORIGINAL.
-
-My 16:00 board note said the Vesuvius RFQ bounced three times and BSW hold nothing. Vesuvius checked it and only TWO sends bounced. I verified their working at source rather than take it: the 15:17 zip is 29,861,398 bytes (28.5 MiB, ~39 MB once base64 adds its 37%) and both bounces quote 39 MB; the 15:22 zip is a REBUILT 20,914,588 bytes (19.9 MiB, ~27 MB) and sits inside BSW's 36 MB cap. There is no third bounce anywhere in queue or processed, and Adam confirmed at 15:50 that it went 'after documents were removed'. **BSW HOLD THE RFQ.**
-
-The 36 MB cap stands and so does 'check for a bounce before assuming a supplier is slow'. What does not stand is my inference. I wrote 'assume the 15:22 attempt failed the same way' - two data points and a guess, presented in the same voice as the two facts. **If you have not seen the bounce, do not assert the bounce.** An attachment's byte count is one ls away and would have settled it in ten seconds.
-
-ADAM'S SCOPE RULING, 15:50, AND IT SETTLES SOMETHING SEVERAL CHATS KEEP TRIPPING OVER: **'this is a live project so it does not fall under estimating.'** Said of Manor Lodge Q7666. Live projects belong to Joseph, the project manager bot Zac has not built yet. So when a thread turns out to be a WON job - order sign-offs, cutting lists, delivery dates, a supplier revising a design with the client - record what you found and stop; do not open a pricing workstream. It pairs exactly with stoke-park's finding that live-project procurement lives in commercial@ and '4. Orders', both of which I structurally cannot see. Adam's nudge to build Joseph has gone to marketing with both examples.
-
-Also from that reply, on Eleanor: **'Please do keep me updated with this sort of thing though.'** He acted on the out-of-office within the hour - WhatsApped Mark directly. A quote sitting with an absent recipient is worth telling him about.
-
 ### 2026-07-28 19:56 - redditch-library
 REDDITCH LIBRARY: A CLIENT SPECIFICATION THAT COUPLES TWO FRAME DEPTHS, AND A FIFTH JOB WITH NO STRIP-OUT RATE.
 
@@ -99,3 +88,16 @@ HEADS UP FOR ANY CHAT DEPLOYING THE HUB TONIGHT: mary_dashboard.py --deploy is f
 I did NOT kill them - they may belong to a chat mid-deploy, and that is not mine to end.
 
 WHAT THIS MEANS: data/dashboard-state.json edits are still safe to make and commit; only the publish step is blocked, and the next chat that gets a clean deploy publishes everyone's pending changes with it. So do not re-edit state thinking your write was lost - check git first. Redditch Library's job entry is committed and waiting for exactly that.
+
+### 2026-07-28 21:05 - triage
+THERE IS NOW A ONE-COMMAND ANSWER TO 'WAS THIS ACTUALLY SENT, AND WHEN' - AND IT FOUND AN UNISSUED QUOTE ON THE CHASING LIST.
+
+Run **python scripts\quote_send_dates.py** - it searches estimating@ across all folders and prints, per job, every outbound message with its date, its recipients and whether any of them is outside fensterglazing.com. Written for Jacob's Chasing page; useful to every chat, because sm5-wexham's rule - **the only proof of issue is an outward email or a portal receipt** - now has a tool behind it instead of a folder full of client-addressed PDFs.
+
+Nine jobs dated at source (BST): Gordon Court 10/07 09:28 to Luke Baker at Chigwell - NOT the 09/07 our records say, that is the day it went to Adam to check. Ninn Lane 09/07 11:40 to Tom Dixon. St Mary's 17/07 12:17 to Tom Godfrey. Princess Beatrice 27/07 10:49 to Jason Mount. Crestwood 27/07 11:49 to Adam Lewis. Eleanor 28/07 14:22 to Mark Golden. Chester Thomas arched door 27/07 16:13 - which we had recorded as priced but not issued, wrongly.
+
+**AND FILWOOD BROADWAY HAS NEVER BEEN ISSUED.** Nine messages exist on that job in estimating@ and not one goes to an external address: the enquiry in from commercial@, an RFQ to BSW, BSW's return, A Plus's quote, and a QUOTE TO CHECK to Adam on 27/07 14:17. GBP 67,067.50 is sitting with Adam, not with Stepnell. Third job this week recorded as issued when it was not, after SM5 Wexham and Chester Thomas in the other direction.
+
+**THE LIMIT, STATED SO NOBODY OVER-TRUSTS IT:** this reads estimating@ only. A quote sent from commercial@ or from Adam's own mailbox WITHOUT copying estimating@ is invisible to it. In practice estimating@ is copied on everything I have checked, including Adam's own client emails - but 'no send found' means no evidence, not proof of absence.
+
+SEPARATELY, A GAP THAT OPENED TODAY: **info@ came off Jacob's watch list this evening on Adam's instruction, and it was never on mine.** Three commercial tenders have arrived there in a week - Redditch Library 22/07 (which sat six days), John North Hall (only seen because Perry forwarded it by hand), and the Neil Douglas ITT 27/07. From tomorrow nobody is reading it. I have put the case for a forwarding rule to Jacob rather than raising a request.

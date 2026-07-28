@@ -1,0 +1,3916 @@
+{
+ "updated": "2026-07-28T19:11:58Z",
+ "source": "Commercial OneDrive - 4. Business Development\\Just in Case\\Opportunity Log 2025-2026.xlsx (read-only copy)",
+ "sheets": [
+  "2025",
+  "2026"
+ ],
+ "rows": 536,
+ "summary": {
+  "decided": 229,
+  "won": 55,
+  "lost": 174,
+  "winRate": 24.0,
+  "wonMean": 5105,
+  "wonMedian": 1822,
+  "wonMax": 40850,
+  "wonTotal": 270574,
+  "lostMean": 83369,
+  "lostMedian": 14973,
+  "lostMax": 4070349,
+  "valueFilled": 439,
+  "biggestWon": 40850,
+  "noWinAbove": 50000,
+  "lostAboveThat": 52
+ },
+ "bands": [
+  {
+   "label": "under GBP 5k",
+   "from": 0,
+   "to": 5000,
+   "won": 42,
+   "lost": 56,
+   "decided": 98,
+   "winRate": 42.9
+  },
+  {
+   "label": "GBP 5k-20k",
+   "from": 5000,
+   "to": 20000,
+   "won": 7,
+   "lost": 37,
+   "decided": 44,
+   "winRate": 15.9
+  },
+  {
+   "label": "GBP 20k-50k",
+   "from": 20000,
+   "to": 50000,
+   "won": 4,
+   "lost": 26,
+   "decided": 30,
+   "winRate": 13.3
+  },
+  {
+   "label": "GBP 50k-100k",
+   "from": 50000,
+   "to": 100000,
+   "won": 0,
+   "lost": 14,
+   "decided": 14,
+   "winRate": 0.0
+  },
+  {
+   "label": "GBP 100k-250k",
+   "from": 100000,
+   "to": 250000,
+   "won": 0,
+   "lost": 29,
+   "decided": 29,
+   "winRate": 0.0
+  },
+  {
+   "label": "over GBP 250k",
+   "from": 250000,
+   "to": null,
+   "won": 0,
+   "lost": 9,
+   "decided": 9,
+   "winRate": 0.0
+  }
+ ],
+ "clients": [
+  {
+   "client": "FM Solutions",
+   "won": 9,
+   "lost": 2,
+   "open": 2,
+   "decided": 11,
+   "winRate": 81.8,
+   "wonValue": 13518,
+   "lostValue": 12980,
+   "lastEnquiry": "2025-12-09",
+   "projects": [
+    "Woodmansterne Glass Replacement",
+    "Woodmansterne Glass Replacement 2",
+    "Bletchley Park Secondary Glazing",
+    "Capella House Window Replacement",
+    "Brioche Pasquier Glazing Replacement",
+    "Replacement Glass Collingtree Hilton"
+   ]
+  },
+  {
+   "client": "Cranfield University",
+   "won": 7,
+   "lost": 0,
+   "open": 3,
+   "decided": 7,
+   "winRate": 100.0,
+   "wonValue": 17971,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-19",
+   "projects": [
+    "Replacement Window AIRC",
+    "DARTEC Window Replace",
+    "Stringfellow Replacement Glass",
+    "Stringfellow Make-Safe",
+    "Main Block (B205)",
+    "Test Area Buildings TH4, TH5 & 5a, TH6, TH8, TH9"
+   ]
+  },
+  {
+   "client": "Aspire Federation",
+   "won": 3,
+   "lost": 0,
+   "open": 0,
+   "decided": 3,
+   "winRate": 100.0,
+   "wonValue": 5440,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-11",
+   "projects": [
+    "Slated Row uVPC French Door",
+    "Repairs Kents Hill/Slated Row",
+    "Slated Row various Repairs 2"
+   ]
+  },
+  {
+   "client": "Broomfield Care Home",
+   "won": 2,
+   "lost": 0,
+   "open": 0,
+   "decided": 2,
+   "winRate": 100.0,
+   "wonValue": 936,
+   "lostValue": 0,
+   "lastEnquiry": "2025-06-09",
+   "projects": [
+    "Replacement Locks, Handles and Glazing",
+    "Further repairs - DGU, Locks, Handles"
+   ]
+  },
+  {
+   "client": "MPS Contracts",
+   "won": 2,
+   "lost": 0,
+   "open": 2,
+   "decided": 2,
+   "winRate": 100.0,
+   "wonValue": 23298,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-16",
+   "projects": [
+    "Holiday Inn MK",
+    "Holiday Inn Stoke",
+    "Holiday Inn Ipswich",
+    "Edinburgh Secondary School"
+   ]
+  },
+  {
+   "client": "RSR Design and Build",
+   "won": 2,
+   "lost": 0,
+   "open": 0,
+   "decided": 2,
+   "winRate": 100.0,
+   "wonValue": 2098,
+   "lostValue": 0,
+   "lastEnquiry": "2025-06-05",
+   "projects": [
+    "DWR1 - uPVC Door",
+    "DRH1, Crawley Replacement Window"
+   ]
+  },
+  {
+   "client": "TLC Care",
+   "won": 2,
+   "lost": 0,
+   "open": 2,
+   "decided": 2,
+   "winRate": 100.0,
+   "wonValue": 1506,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-05",
+   "projects": [
+    "Harrow Support Office Ally Windows",
+    "Harrow Support Office 6no. DGU to Replace",
+    "Cuffley Manor Window Locks",
+    "Cherry Hinton Repairs"
+   ]
+  },
+  {
+   "client": "Pride Developments",
+   "won": 2,
+   "lost": 1,
+   "open": 8,
+   "decided": 3,
+   "winRate": 66.7,
+   "wonValue": 64947,
+   "lostValue": 3215,
+   "lastEnquiry": "2026-02-24",
+   "projects": [
+    "92-94 High Street",
+    "Brune Medical centre",
+    "Rubery Library",
+    "1-7 Exmoor Drive",
+    "Brandon Youth Centre",
+    "Kingsley House Barnstaple"
+   ]
+  },
+  {
+   "client": "Stewarts Contracting",
+   "won": 2,
+   "lost": 1,
+   "open": 3,
+   "decided": 3,
+   "winRate": 66.7,
+   "wonValue": 6548,
+   "lostValue": 10017,
+   "lastEnquiry": "2026-01-29",
+   "projects": [
+    "DHL Solstice House",
+    "DHL Solstice House Vandalised Glass Replacement",
+    "DHL Didcot",
+    "The Roots Spinnaker",
+    "DHL Mars Derby",
+    "DHL Inside Track - Frosting"
+   ]
+  },
+  {
+   "client": "First Facilities",
+   "won": 2,
+   "lost": 2,
+   "open": 3,
+   "decided": 4,
+   "winRate": 50.0,
+   "wonValue": 648,
+   "lostValue": 15352,
+   "lastEnquiry": "2026-01-16",
+   "projects": [
+    "BMW Tring Windows",
+    "Campbell Wharf",
+    "DS Smith replacement glass",
+    "DS Smith Formation of a window",
+    "Shenley Pavillion Replacement Glass",
+    "Shenley Pavillion Boarding Up"
+   ]
+  },
+  {
+   "client": "SDevs",
+   "won": 2,
+   "lost": 9,
+   "open": 14,
+   "decided": 11,
+   "winRate": 18.2,
+   "wonValue": 18098,
+   "lostValue": 161708,
+   "lastEnquiry": "2026-01-30",
+   "projects": [
+    "Oakfield Camberley",
+    "Crittall Glass/Aluminium alternative Reading",
+    "23 Oakfield Lane Windows, Doors, Roof Lantern",
+    "Paxfords 6 no. uPVC Windows",
+    "Western Road Shopfront",
+    "78-88 Mendip Road"
+   ]
+  },
+  {
+   "client": "Atlas Workplace Services",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 876,
+   "lostValue": 0,
+   "lastEnquiry": "2025-04-29",
+   "projects": [
+    "B2 Bearbrook Window"
+   ]
+  },
+  {
+   "client": "Burge Hughes Walsh",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 250,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-05",
+   "projects": [
+    "Unit 6 Allerton Road"
+   ]
+  },
+  {
+   "client": "Chelton Brown",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 80,
+   "lostValue": 0,
+   "lastEnquiry": "2025-07-11",
+   "projects": [
+    "52 Queen Street, Weedon 2 Sash Windows"
+   ]
+  },
+  {
+   "client": "Conamar",
+   "won": 1,
+   "lost": 0,
+   "open": 2,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-06",
+   "projects": [
+    "All Hallows Aluminium Doors and Glazing",
+    "Hollickwood Primary School",
+    "DWP Jobcentre Felixstowe"
+   ]
+  },
+  {
+   "client": "Denton Hope",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 250,
+   "lostValue": 0,
+   "lastEnquiry": "2025-09-10",
+   "projects": [
+    "Roseford Court Survey"
+   ]
+  },
+  {
+   "client": "Fortis Vision",
+   "won": 1,
+   "lost": 0,
+   "open": 4,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 8420,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-05",
+   "projects": [
+    "Jennens Court",
+    "Clodien House DGU's",
+    "Thetford uPVC W&D",
+    "Cambrian Point Amenity",
+    "Newcastle Blue Lagoon Fish and Chips"
+   ]
+  },
+  {
+   "client": "Hough Gould",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 250,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-20",
+   "projects": [
+    "Unit 4 iQuarter Repairs"
+   ]
+  },
+  {
+   "client": "Krypton Construction",
+   "won": 1,
+   "lost": 0,
+   "open": 3,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-23",
+   "projects": [
+    "John Lewis Canopy Repair",
+    "Estcourt Arms",
+    "GSK Ware",
+    "The Griffin Whetstone"
+   ]
+  },
+  {
+   "client": "MHA",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 840,
+   "lostValue": 0,
+   "lastEnquiry": "2025-12-03",
+   "projects": [
+    "Welland Place Juliette Balcony"
+   ]
+  },
+  {
+   "client": "Marbrook",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 400,
+   "lostValue": 0,
+   "lastEnquiry": "2025-09-09",
+   "projects": [
+    "Ardale Pottes Grange Window Repairs"
+   ]
+  },
+  {
+   "client": "Northampton Motofix",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 2029,
+   "lostValue": 0,
+   "lastEnquiry": "2025-09-03",
+   "projects": [
+    "Integrated Blinds"
+   ]
+  },
+  {
+   "client": "OLICAT",
+   "won": 1,
+   "lost": 0,
+   "open": 18,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 3000,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-05",
+   "projects": [
+    "12 Schools Glazing Surveys",
+    "St Thomas More Primary Replacements",
+    "The Good Shepherd Replacements",
+    "St Brendans Glazing Replacements",
+    "Our Lady Walshingham Survey Results + Repairs",
+    "St Thomas More Secondary Survey Repair Results"
+   ]
+  },
+  {
+   "client": "Stadium MK",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 496,
+   "lostValue": 0,
+   "lastEnquiry": "2025-04-14",
+   "projects": [
+    "Broken Ally Unit"
+   ]
+  },
+  {
+   "client": "TSL - Topek Southern Ltd",
+   "won": 1,
+   "lost": 0,
+   "open": 0,
+   "decided": 1,
+   "winRate": 100.0,
+   "wonValue": 15345,
+   "lostValue": 0,
+   "lastEnquiry": "2025-03-18",
+   "projects": [
+    "Lawford House Doors, AOV and Roof Lantern"
+   ]
+  },
+  {
+   "client": "Midsomer Norton Partnership",
+   "won": 1,
+   "lost": 1,
+   "open": 0,
+   "decided": 2,
+   "winRate": 50.0,
+   "wonValue": 27193,
+   "lostValue": 23692,
+   "lastEnquiry": "2025-11-24",
+   "projects": [
+    "Frome College Merlin Theatre Replacements",
+    "Frome College Windows"
+   ]
+  },
+  {
+   "client": "GD Construction",
+   "won": 1,
+   "lost": 3,
+   "open": 1,
+   "decided": 4,
+   "winRate": 25.0,
+   "wonValue": 3335,
+   "lostValue": 40498,
+   "lastEnquiry": "2025-10-13",
+   "projects": [
+    "Leaking Window MK",
+    "Finsbury Park Animal Hospital",
+    "Blackberry Farm Cattery (RSPCA)",
+    "Holiday Inn CMK Replacement Glass",
+    "Westmead Clinic"
+   ]
+  },
+  {
+   "client": "Bradford Watts",
+   "won": 1,
+   "lost": 4,
+   "open": 21,
+   "decided": 5,
+   "winRate": 20.0,
+   "wonValue": 38253,
+   "lostValue": 73972,
+   "lastEnquiry": "2026-02-26",
+   "projects": [
+    "West Quay Glazing Upgrades",
+    "Bilton Road Refurb Windows and Doors",
+    "Albone Way Aluminium Windows and Doors",
+    "Dawson Road Windows",
+    "Highams Park Industrial Estate",
+    "Beddington Doors"
+   ]
+  },
+  {
+   "client": "Target Maintenance",
+   "won": 1,
+   "lost": 6,
+   "open": 11,
+   "decided": 7,
+   "winRate": 14.3,
+   "wonValue": 4820,
+   "lostValue": 15722,
+   "lastEnquiry": "2026-02-03",
+   "projects": [
+    "Oak Lane Window Replacements",
+    "Dene Mansion Window Replacements",
+    "1-9 Tobermory Close Aluminium Doors",
+    "Petersfield uPVC Door replacements",
+    "Saint Quentin Door Replacement",
+    "Cavell Drive Door Replacement"
+   ]
+  },
+  {
+   "client": "Elkins Construction",
+   "won": 1,
+   "lost": 9,
+   "open": 12,
+   "decided": 10,
+   "winRate": 10.0,
+   "wonValue": 7003,
+   "lostValue": 1221509,
+   "lastEnquiry": "2026-02-17",
+   "projects": [
+    "Brunner and Hoover House Phoenix Community Housing Window Replacement",
+    "Mill Green Windows and Doors",
+    "Mill Green Brise Soleil",
+    "Midfield Primary School",
+    "Little Cattins - Windows and Doors (uPVC)",
+    "Spencers Croft - Windows and Doors"
+   ]
+  },
+  {
+   "client": "Hightown Housing",
+   "won": 1,
+   "lost": 17,
+   "open": 8,
+   "decided": 18,
+   "winRate": 5.6,
+   "wonValue": 2727,
+   "lostValue": 40441,
+   "lastEnquiry": "2026-01-19",
+   "projects": [
+    "48 Norris Close Replacement Entrance Door",
+    "16 Martian Avenue, Door, sidelight and french door",
+    "61-74 Ellis House Aluminium Door",
+    "23 Norris Close",
+    "52 Lester Road",
+    "6 Springfield Close French Doors"
+   ]
+  },
+  {
+   "client": "Apex Quantity Surveying",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-07-16",
+   "projects": [
+    "Little Green Farm Aluminium Windows"
+   ]
+  },
+  {
+   "client": "BC Workspace",
+   "won": 0,
+   "lost": 0,
+   "open": 5,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-03",
+   "projects": [
+    "25 Peverel Drive Aluminium Windows",
+    "25 Peverel Drive Aluminium Door",
+    "Nimrod Ind. Estate",
+    "Windsor office",
+    "Unit 14 Stanstead DC"
+   ]
+  },
+  {
+   "client": "Broomfield Residential Care",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-25",
+   "projects": [
+    "Broomfield Door"
+   ]
+  },
+  {
+   "client": "Cfield",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-05-09",
+   "projects": [
+    "Windows Package - Pond Meadow"
+   ]
+  },
+  {
+   "client": "Chartsign",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-07-24",
+   "projects": [
+    "Replacement of uPVC Windows - Research Centre"
+   ]
+  },
+  {
+   "client": "Cheil Construction",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-13",
+   "projects": [
+    "Swanhurst School"
+   ]
+  },
+  {
+   "client": "Comparelli Architects",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-04-16",
+   "projects": [
+    "Louvre and Ventilation Solution for Luxury Home"
+   ]
+  },
+  {
+   "client": "Coulson",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-22",
+   "projects": [
+    "Farleigh House - Uppingham School",
+    "227A Milton Road"
+   ]
+  },
+  {
+   "client": "DLA Architects",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-12-05",
+   "projects": [
+    "5 The Greys"
+   ]
+  },
+  {
+   "client": "Deana Towersey",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-12-01",
+   "projects": [
+    "42 Eden Close"
+   ]
+  },
+  {
+   "client": "Derbyshire County Council",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-02-24",
+   "projects": [
+    "Cotmanhay School Window Replacements",
+    "St Lukes CofE Aluminium Windows and Doors"
+   ]
+  },
+  {
+   "client": "ETEC Group",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-24",
+   "projects": [
+    "Meridian Primary"
+   ]
+  },
+  {
+   "client": "Edward Williams Furniture",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-07-16",
+   "projects": [
+    "Formation of 4 new Aluminium Windows"
+   ]
+  },
+  {
+   "client": "Elizabeth Scarlett",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-20",
+   "projects": [
+    "Cranborne House Secondary Glazing"
+   ]
+  },
+  {
+   "client": "Fireact",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-23",
+   "projects": [
+    "Buckingham University"
+   ]
+  },
+  {
+   "client": "Francis Construction",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-07-22",
+   "projects": [
+    "University of Reading, URS"
+   ]
+  },
+  {
+   "client": "Furnell Transport",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-18",
+   "projects": [
+    "Enterprise House"
+   ]
+  },
+  {
+   "client": "GLF Schools",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-03-13",
+   "projects": [
+    "Formation of Libray with Acoustic Partioning",
+    "Installtion of uPVC Conservatory"
+   ]
+  },
+  {
+   "client": "Gardiner & Theobald",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-27",
+   "projects": [
+    "Uni of Arts London - CSM"
+   ]
+  },
+  {
+   "client": "Garland UK",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-03-06",
+   "projects": [
+    "Royal and Derngate Curtain Wall and AOV"
+   ]
+  },
+  {
+   "client": "Gillman Group",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-12",
+   "projects": [
+    "Unit 6 Snowden Drive"
+   ]
+  },
+  {
+   "client": "Great Linford Primary School",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-26",
+   "projects": [
+    "uPVC Doors"
+   ]
+  },
+  {
+   "client": "Grundfos",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-09-17",
+   "projects": [
+    "Grovebury Road Blinds"
+   ]
+  },
+  {
+   "client": "Guildmore",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-09-01",
+   "projects": [
+    "Carlton & Granville – Windows & Curtain Walling",
+    "LB of Sutton - Shanlkin Village/Estate"
+   ]
+  },
+  {
+   "client": "Gullett and Sons",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-23",
+   "projects": [
+    "Nora Grace Hall"
+   ]
+  },
+  {
+   "client": "Gute",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-06",
+   "projects": [
+    "Regus"
+   ]
+  },
+  {
+   "client": "HP Construction",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-06-27",
+   "projects": [
+    "Lakeside 1  Curtain Walling and Louvres"
+   ]
+  },
+  {
+   "client": "Harris Calnan",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-23",
+   "projects": [
+    "20 Addison Avenue"
+   ]
+  },
+  {
+   "client": "Hastoe Housing Association",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-16",
+   "projects": [
+    "Cholesbury Grange"
+   ]
+  },
+  {
+   "client": "Herrett Construction",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-12-04",
+   "projects": [
+    "Ford Milton Keynes"
+   ]
+  },
+  {
+   "client": "Higgins Partnership",
+   "won": 0,
+   "lost": 0,
+   "open": 3,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-23",
+   "projects": [
+    "Bloomsbury House Curtain Walling",
+    "LB of Havering - Delta, Petra and Kipling/Dryden Towers",
+    "Cripps Lodge"
+   ]
+  },
+  {
+   "client": "HouseUP",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-06",
+   "projects": [
+    "Domu Restaurant Aluminium Windows",
+    "49 Birchanger Road"
+   ]
+  },
+  {
+   "client": "IWS Projects",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-01",
+   "projects": [
+    "Rutherford Drive"
+   ]
+  },
+  {
+   "client": "JJ Rhatigan",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-05-30",
+   "projects": [
+    "Smith Centre Refurb Windows and Doors"
+   ]
+  },
+  {
+   "client": "Jaques",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-12-11",
+   "projects": [
+    "Padel Court Budget Costs"
+   ]
+  },
+  {
+   "client": "John Martin Hoyes",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-10",
+   "projects": [
+    "Staunton Ind. Estate - Midland Feeds"
+   ]
+  },
+  {
+   "client": "Kemdoc",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-12",
+   "projects": [
+    "Churchdown School"
+   ]
+  },
+  {
+   "client": "Kingsley Healthcare",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-17",
+   "projects": [
+    "Timperley"
+   ]
+  },
+  {
+   "client": "Kumon",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-09-17",
+   "projects": [
+    "Unit 1 Walker Lane Wolverton"
+   ]
+  },
+  {
+   "client": "Larchfield Nursery",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-01-23",
+   "projects": [
+    "Replacement uPVC Windows"
+   ]
+  },
+  {
+   "client": "Light Enterprises",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-03-07",
+   "projects": [
+    "Old Granary Partitioning"
+   ]
+  },
+  {
+   "client": "Lindum Group",
+   "won": 0,
+   "lost": 0,
+   "open": 5,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-15",
+   "projects": [
+    "External Glazing at Howden Fire Station",
+    "2nr Fire Rated Glass at Howden Fire Station",
+    "Elvington Medical Practice Internal",
+    "Elvington Medical Practice Aluminium",
+    "Elvington Medical Practice uPVC"
+   ]
+  },
+  {
+   "client": "MCR Partnership",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-25",
+   "projects": [
+    "Dallas Road Bedford"
+   ]
+  },
+  {
+   "client": "MCR Property",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-09-05",
+   "projects": [
+    "Dallas Road Bedford"
+   ]
+  },
+  {
+   "client": "MJS Projects",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-01-23",
+   "projects": [
+    "Plot 302 B Fire Screens",
+    "Attleborough Windows/Doors"
+   ]
+  },
+  {
+   "client": "MSN Partnership",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-20",
+   "projects": [
+    "St Marks School"
+   ]
+  },
+  {
+   "client": "Macdermid Autotype",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-30",
+   "projects": [
+    "Replacement Windows Grove Road"
+   ]
+  },
+  {
+   "client": "Massco Construction",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-17",
+   "projects": [
+    "Acreland Farmhouse"
+   ]
+  },
+  {
+   "client": "Milewood Healthcare",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-04-07",
+   "projects": [
+    "Glenthorne Court Stockton Window Replacement"
+   ]
+  },
+  {
+   "client": "Mobius Group",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-14",
+   "projects": [
+    "Churchdown School"
+   ]
+  },
+  {
+   "client": "Neil Douglas",
+   "won": 0,
+   "lost": 0,
+   "open": 3,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-05",
+   "projects": [
+    "Kaybridge Close",
+    "Riverside Close",
+    "Earleswood Court"
+   ]
+  },
+  {
+   "client": "Neil Douglas Block Management",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-21",
+   "projects": [
+    "25-48 Tithe Court Entrance Doors",
+    "Alsford Wharf"
+   ]
+  },
+  {
+   "client": "Nene Financial",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-03",
+   "projects": [
+    "88 High Street"
+   ]
+  },
+  {
+   "client": "Nevilles Special Projects",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-17",
+   "projects": [
+    "Sponne School"
+   ]
+  },
+  {
+   "client": "Newcastle City Council",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-02-03",
+   "projects": [
+    "West Denton Window/Door Supply"
+   ]
+  },
+  {
+   "client": "Northampton Primary Academy Trust",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-07",
+   "projects": [
+    "Upton Meadows Door Adjustment"
+   ]
+  },
+  {
+   "client": "One Solution",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-08",
+   "projects": [
+    "MK Box Alston Drive"
+   ]
+  },
+  {
+   "client": "Open Arch",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-05-28",
+   "projects": [
+    "Littleport uPVC Window Replacement"
+   ]
+  },
+  {
+   "client": "Pauley Construction",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-17",
+   "projects": [
+    "Springside Pasture"
+   ]
+  },
+  {
+   "client": "Pexhurst Services",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-16",
+   "projects": [
+    "Unit 4 Berry Hill"
+   ]
+  },
+  {
+   "client": "Porthaven",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-24",
+   "projects": [
+    "Lavender Oak"
+   ]
+  },
+  {
+   "client": "Prashant Patel",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-05-08",
+   "projects": [
+    "25 Paterson Road (head office glazing)"
+   ]
+  },
+  {
+   "client": "Principle Estate Management",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-29",
+   "projects": [
+    "16a Hampton Road",
+    "Swindon Window Repairs"
+   ]
+  },
+  {
+   "client": "Pro-Align",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-08-01",
+   "projects": [
+    "Window Replacements"
+   ]
+  },
+  {
+   "client": "RJS Ventol",
+   "won": 0,
+   "lost": 0,
+   "open": 3,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-02",
+   "projects": [
+    "Northumberland Avenue",
+    "Passmore Centre",
+    "Faraday Wing Flat"
+   ]
+  },
+  {
+   "client": "Rase Steels",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-06",
+   "projects": [
+    "Whisby Road"
+   ]
+  },
+  {
+   "client": "Reach CM",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-06",
+   "projects": [
+    "Luton Mosque"
+   ]
+  },
+  {
+   "client": "Robinsons FS",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-29",
+   "projects": [
+    "All Saints Road AOV Repairs"
+   ]
+  },
+  {
+   "client": "Roof Estimating Services",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-12-02",
+   "projects": [
+    "Churchdown School"
+   ]
+  },
+  {
+   "client": "SRP Property",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-06-20",
+   "projects": [
+    "Replacement of windows with new Aluminium sets"
+   ]
+  },
+  {
+   "client": "Said Business School (Oxford Uni)",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-28",
+   "projects": [
+    "Integral Blinds (Oxford Uni)"
+   ]
+  },
+  {
+   "client": "Skillcrown",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-07",
+   "projects": [
+    "Corbens Place"
+   ]
+  },
+  {
+   "client": "Sol Services",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-17",
+   "projects": [
+    "Newport Pagnell Library",
+    "1 Springfield Lyons"
+   ]
+  },
+  {
+   "client": "Southern Projects",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-12-02",
+   "projects": [
+    "Churchdown School"
+   ]
+  },
+  {
+   "client": "Spandrel Interiors",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-05",
+   "projects": [
+    "Kent House"
+   ]
+  },
+  {
+   "client": "Steele and Bray",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-12",
+   "projects": [
+    "Ecton Brook"
+   ]
+  },
+  {
+   "client": "Stepnell",
+   "won": 0,
+   "lost": 0,
+   "open": 4,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-19",
+   "projects": [
+    "St James House Door",
+    "St James House Windows",
+    "St James House Secondary",
+    "St James House Amendments/Additions"
+   ]
+  },
+  {
+   "client": "Stimpsons Eves",
+   "won": 0,
+   "lost": 0,
+   "open": 2,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-11-19",
+   "projects": [
+    "Leck House",
+    "86-88 High Street"
+   ]
+  },
+  {
+   "client": "Stratos Controls",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-07-15",
+   "projects": [
+    "New Windows and Doors"
+   ]
+  },
+  {
+   "client": "TES-N",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-05-02",
+   "projects": [
+    "Plymouth Shopfront Doors"
+   ]
+  },
+  {
+   "client": "TGC Builders",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-06-04",
+   "projects": [
+    "Long Crendon Doors and Windows"
+   ]
+  },
+  {
+   "client": "Thomas Sinden",
+   "won": 0,
+   "lost": 0,
+   "open": 9,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-17",
+   "projects": [
+    "Hub Alkerden Windows/Doors ect",
+    "GEM Framework Lots 2, 3, 4",
+    "Hornsby House School Secondary Glazing",
+    "White Oak Residential Aluminium Windows",
+    "Acclaim Handling Purfleet",
+    "North Hertfordshire College"
+   ]
+  },
+  {
+   "client": "Warwick Burt Construction",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-08-14",
+   "projects": [
+    "Ashford Cinch Self Storage Louvres"
+   ]
+  },
+  {
+   "client": "Westcliffe High School for Boys",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-10-13",
+   "projects": [
+    "Replacement Fire Rated internal windows"
+   ]
+  },
+  {
+   "client": "Woburn Sands Methodist Church",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-01-26",
+   "projects": [
+    "Woburn Sands Methodist Church"
+   ]
+  },
+  {
+   "client": "Wolverton and Greenleys TC",
+   "won": 0,
+   "lost": 0,
+   "open": 1,
+   "decided": 0,
+   "winRate": null,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-05-23",
+   "projects": [
+    "Replacement uPVC Windows"
+   ]
+  },
+  {
+   "client": "7Formation",
+   "won": 0,
+   "lost": 1,
+   "open": 3,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 136667,
+   "lastEnquiry": "2026-02-17",
+   "projects": [
+    "NLaG Scunthorpe Hospital",
+    "Sycamore House",
+    "Lewsey Community Centre",
+    "Flannels and Everlast Gym Birmingham"
+   ]
+  },
+  {
+   "client": "Alexander James",
+   "won": 0,
+   "lost": 1,
+   "open": 4,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 292804,
+   "lastEnquiry": "2025-12-23",
+   "projects": [
+    "Harwarden Road - Windows and Doors",
+    "Weymouth Court",
+    "Brooklands College",
+    "Tiverton Estate",
+    "Archway Road"
+   ]
+  },
+  {
+   "client": "Alternative Heat",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 287675,
+   "lastEnquiry": "2025-09-17",
+   "projects": [
+    "The Storey Lancaster"
+   ]
+  },
+  {
+   "client": "Arc Structures",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 10667,
+   "lastEnquiry": "2025-10-16",
+   "projects": [
+    "QNAP Offices"
+   ]
+  },
+  {
+   "client": "Barnfield Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 5,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 9586,
+   "lastEnquiry": "2026-02-05",
+   "projects": [
+    "Bradstone Road Ally W&D",
+    "Moston Cash & Carry",
+    "Swizzles Factory Extension",
+    "MSM Aerospace CW",
+    "St Johns Refurbishment",
+    "The Grange Apartments"
+   ]
+  },
+  {
+   "client": "Carefoot and Sons",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 171125,
+   "lastEnquiry": "2025-08-29",
+   "projects": [
+    "Whittingham & Goosnargh Sports & Social Club"
+   ]
+  },
+  {
+   "client": "Childbase Nursery",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 1703,
+   "lastEnquiry": "2025-05-15",
+   "projects": [
+    "Coversion of Window to Door Meadow View Nursery"
+   ]
+  },
+  {
+   "client": "Clarks Construction (St Albans)",
+   "won": 0,
+   "lost": 1,
+   "open": 1,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 95602,
+   "lastEnquiry": "2025-11-26",
+   "projects": [
+    "38 Honey Lane",
+    "38 Honey Lane Waltham Abbey  W+D"
+   ]
+  },
+  {
+   "client": "Datron Technologies",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 52200,
+   "lastEnquiry": "2025-07-21",
+   "projects": [
+    "Kiln Farm windows Replacement"
+   ]
+  },
+  {
+   "client": "Dodd Group",
+   "won": 0,
+   "lost": 1,
+   "open": 2,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 4070349,
+   "lastEnquiry": "2025-07-11",
+   "projects": [
+    "Glass House Leamington Spa Louvre Doors",
+    "Alderbrook School Solihul Louvre Door",
+    "Fusion 21 Decarb Framework - East Suffolk Council"
+   ]
+  },
+  {
+   "client": "Elite Landscapes",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 105895,
+   "lastEnquiry": "2025-07-10",
+   "projects": [
+    "P2 Barbican Entrance Foyer"
+   ]
+  },
+  {
+   "client": "Ermine (Frankums)",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 156328,
+   "lastEnquiry": "2026-01-06",
+   "projects": [
+    "Lockley Crescent and Haseldine Meadows"
+   ]
+  },
+  {
+   "client": "Forest Gate Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 102924,
+   "lastEnquiry": "2025-05-28",
+   "projects": [
+    "West Leigh Baptist Church"
+   ]
+  },
+  {
+   "client": "Form Five Group",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-02-25",
+   "projects": [
+    "Everglades Aluminium W&D"
+   ]
+  },
+  {
+   "client": "Frankum Associates",
+   "won": 0,
+   "lost": 1,
+   "open": 1,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 165036,
+   "lastEnquiry": "2025-11-28",
+   "projects": [
+    "Corbens Place",
+    "223 Southwark"
+   ]
+  },
+  {
+   "client": "Fulcrum Facilities",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 1142,
+   "lastEnquiry": "2025-10-06",
+   "projects": [
+    "Restaurant Pho"
+   ]
+  },
+  {
+   "client": "GNSA",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 2401,
+   "lastEnquiry": "2025-06-19",
+   "projects": [
+    "Shutter replacement with uPVC Windows"
+   ]
+  },
+  {
+   "client": "Gray and Sons",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 52616,
+   "lastEnquiry": "2025-01-01",
+   "projects": [
+    "Radcliffe School Windows"
+   ]
+  },
+  {
+   "client": "Green-Light",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 180,
+   "lastEnquiry": "2025-06-19",
+   "projects": [
+    "Transglobal Window Repairs"
+   ]
+  },
+  {
+   "client": "Greenchurch Developments",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 183881,
+   "lastEnquiry": "2025-08-14",
+   "projects": [
+    "Oakhaven Care Home W+D package"
+   ]
+  },
+  {
+   "client": "Hargreaves Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 1,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 46969,
+   "lastEnquiry": "2025-10-30",
+   "projects": [
+    "MSM Aerospace CW",
+    "1934 Sharston Road"
+   ]
+  },
+  {
+   "client": "Hargreaves Contracting",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 214819,
+   "lastEnquiry": "2025-03-14",
+   "projects": [
+    "Penryhn Glazing works"
+   ]
+  },
+  {
+   "client": "Harrabin Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 71466,
+   "lastEnquiry": "2025-05-19",
+   "projects": [
+    "Kenilworth Road - Windows and Doors (Ally)"
+   ]
+  },
+  {
+   "client": "Havercroft Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 39901,
+   "lastEnquiry": "2025-05-15",
+   "projects": [
+    "Gildersome Spur Industrial Estate"
+   ]
+  },
+  {
+   "client": "Hickford Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 1,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 46737,
+   "lastEnquiry": "2026-02-24",
+   "projects": [
+    "Singleborough Stud Windows",
+    "Fair Winter Farm Singleborough"
+   ]
+  },
+  {
+   "client": "Highwood Group",
+   "won": 0,
+   "lost": 1,
+   "open": 1,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 156573,
+   "lastEnquiry": "2026-01-30",
+   "projects": [
+    "Waterlooville Windows and Doors (Barchester)",
+    "Wimborne Barchester"
+   ]
+  },
+  {
+   "client": "Hookway",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 125440,
+   "lastEnquiry": "2025-11-13",
+   "projects": [
+    "Blackbrook Primary School"
+   ]
+  },
+  {
+   "client": "Horley Council",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 16877,
+   "lastEnquiry": "2025-07-04",
+   "projects": [
+    "Innes Pavillion Replacement Windows"
+   ]
+  },
+  {
+   "client": "J Wilkinson",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 2407,
+   "lastEnquiry": "2025-07-21",
+   "projects": [
+    "Premier Inn Buckingham"
+   ]
+  },
+  {
+   "client": "Jaques Int",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 7298,
+   "lastEnquiry": "2025-03-14",
+   "projects": [
+    "Pembridge Hall - Aluminium Door"
+   ]
+  },
+  {
+   "client": "Keady Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 202359,
+   "lastEnquiry": "2025-03-02",
+   "projects": [
+    "KCL New Offices"
+   ]
+  },
+  {
+   "client": "Key Property Solutions",
+   "won": 0,
+   "lost": 1,
+   "open": 1,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 119222,
+   "lastEnquiry": "2026-02-03",
+   "projects": [
+    "Newport Aldi Windows and CW, Ext Doors",
+    "David Lloyd Wirral Waters"
+   ]
+  },
+  {
+   "client": "Kingsbridge Education",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 2841,
+   "lastEnquiry": "2025-01-13",
+   "projects": [
+    "Sliding Glass at Kents Hill School"
+   ]
+  },
+  {
+   "client": "Kirkman and Jourdain",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 42000,
+   "lastEnquiry": "2025-01-24",
+   "projects": [
+    "Hetfordshire House Curtain Walling"
+   ]
+  },
+  {
+   "client": "Level UP Property Maintanence",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 3194,
+   "lastEnquiry": "2025-03-06",
+   "projects": [
+    "Sandy Court Sash Window"
+   ]
+  },
+  {
+   "client": "MCS Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 2,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 119800,
+   "lastEnquiry": "2025-09-16",
+   "projects": [
+    "2-4 Addington Road uPVC Windows",
+    "2-4 Addington Road Composites",
+    "48 Brighton Road"
+   ]
+  },
+  {
+   "client": "Manor Interior Solutions",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 3706,
+   "lastEnquiry": "2025-07-09",
+   "projects": [
+    "Andrew Vaughan Glass replacement"
+   ]
+  },
+  {
+   "client": "Mike Hibberd (Markey Construction)",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 7533,
+   "lastEnquiry": "2025-04-07",
+   "projects": [
+    "Bristol Residential"
+   ]
+  },
+  {
+   "client": "NBSNI",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 200,
+   "lastEnquiry": "2025-06-23",
+   "projects": [
+    "Replacement Locks and Mech at MK10"
+   ]
+  },
+  {
+   "client": "Next Step Trust",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 4490,
+   "lastEnquiry": "2025-06-20",
+   "projects": [
+    "Hoover Building Rebound Therapy Room"
+   ]
+  },
+  {
+   "client": "PMR Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 14415,
+   "lastEnquiry": "2025-04-25",
+   "projects": [
+    "Birmingham Louvres"
+   ]
+  },
+  {
+   "client": "PTP Architects",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2026-02-17",
+   "projects": [
+    "Kenton Entrance (KPC)"
+   ]
+  },
+  {
+   "client": "Pacy and Wheatley",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 315118,
+   "lastEnquiry": "2025-08-06",
+   "projects": [
+    "Crowthorne (Barchester Care) Windows, Doors and CW"
+   ]
+  },
+  {
+   "client": "PandR Management",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 3337,
+   "lastEnquiry": "2025-01-17",
+   "projects": [
+    "Door Repair Wagstaff Way"
+   ]
+  },
+  {
+   "client": "Parkway MK",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 180994,
+   "lastEnquiry": "2025-01-21",
+   "projects": [
+    "Scania Aluminium Windows/Doors"
+   ]
+  },
+  {
+   "client": "Parr Facilities Management",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 0,
+   "lastEnquiry": "2025-02-25",
+   "projects": [
+    "Parkside Care Home Window Repairs"
+   ]
+  },
+  {
+   "client": "Peak PM / ERL",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 630000,
+   "lastEnquiry": "2025-02-13",
+   "projects": [
+    "Windows and Doors Mountbattenhall"
+   ]
+  },
+  {
+   "client": "Pearce Construction (Barnstaple)",
+   "won": 0,
+   "lost": 1,
+   "open": 2,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 42806,
+   "lastEnquiry": "2025-12-23",
+   "projects": [
+    "Welland House",
+    "Project Thatch Bideford",
+    "Greenfields"
+   ]
+  },
+  {
+   "client": "Prince Build",
+   "won": 0,
+   "lost": 1,
+   "open": 3,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 140038,
+   "lastEnquiry": "2026-01-22",
+   "projects": [
+    "Next Fit out",
+    "Corby Lidl",
+    "Knights Court",
+    "40 Putney Hill"
+   ]
+  },
+  {
+   "client": "Quantity Surveying SW",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 39636,
+   "lastEnquiry": "2025-05-02",
+   "projects": [
+    "6 & 7 Derry's Cross windows & doors"
+   ]
+  },
+  {
+   "client": "RFM Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 100496,
+   "lastEnquiry": "2025-05-21",
+   "projects": [
+    "Ramada Gardens uPVC windows"
+   ]
+  },
+  {
+   "client": "Royal Latin School",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 174,
+   "lastEnquiry": "2025-02-07",
+   "projects": [
+    "Replacement Bathroom Window"
+   ]
+  },
+  {
+   "client": "Ryebridge Construction",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 118364,
+   "lastEnquiry": "2025-10-01",
+   "projects": [
+    "MK Padel - Rainbow Drive"
+   ]
+  },
+  {
+   "client": "SJR Group",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 4406,
+   "lastEnquiry": "2025-04-23",
+   "projects": [
+    "15 Parker Road uPVC Fittings"
+   ]
+  },
+  {
+   "client": "Steele & Bray",
+   "won": 0,
+   "lost": 1,
+   "open": 1,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 87991,
+   "lastEnquiry": "2025-05-30",
+   "projects": [
+    "Broadmead Court Flats",
+    "Daventry Job Centre Ally Windows and Doors"
+   ]
+  },
+  {
+   "client": "T&B Contractors",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 106840,
+   "lastEnquiry": "2025-10-30",
+   "projects": [
+    "70 Royal Hill"
+   ]
+  },
+  {
+   "client": "The School Renovation Company",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 3529,
+   "lastEnquiry": "2025-07-24",
+   "projects": [
+    "Aluminium Door - Slough School"
+   ]
+  },
+  {
+   "client": "Urban Homes Management",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 2553,
+   "lastEnquiry": "2025-04-29",
+   "projects": [
+    "Sekloe House Door Replacement"
+   ]
+  },
+  {
+   "client": "Wynbrook",
+   "won": 0,
+   "lost": 1,
+   "open": 1,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 13187,
+   "lastEnquiry": "2025-07-08",
+   "projects": [
+    "Hoveringham Scouts Centre",
+    "Harrisons Mill"
+   ]
+  },
+  {
+   "client": "York St Johns University",
+   "won": 0,
+   "lost": 1,
+   "open": 0,
+   "decided": 1,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 240000,
+   "lastEnquiry": "2025-01-24",
+   "projects": [
+    "Window Replacements"
+   ]
+  },
+  {
+   "client": "Borras Construction",
+   "won": 0,
+   "lost": 2,
+   "open": 11,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 32130,
+   "lastEnquiry": "2026-01-27",
+   "projects": [
+    "Moulton Football Club",
+    "Roxbourne uPVC Windows and Doors",
+    "Pinnor Wood uPVC Windows and Doors",
+    "Teversham Early Years Extension",
+    "T0635 (Yellow) Window and Door Enquiry Longfield",
+    "T0635 (Yellow) Window and Door Enquiry Vaughan"
+   ]
+  },
+  {
+   "client": "CHADD",
+   "won": 0,
+   "lost": 2,
+   "open": 0,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 113960,
+   "lastEnquiry": "2025-03-26",
+   "projects": [
+    "Neville House Windows",
+    "Brook Street Windows"
+   ]
+  },
+  {
+   "client": "Cadman Group",
+   "won": 0,
+   "lost": 2,
+   "open": 0,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 222304,
+   "lastEnquiry": "2025-11-21",
+   "projects": [
+    "Falkland and Norfolk House uPVC Doors",
+    "Myark Car Showroom Curtain Walling"
+   ]
+  },
+  {
+   "client": "Calcon Projects",
+   "won": 0,
+   "lost": 2,
+   "open": 0,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 1734,
+   "lastEnquiry": "2025-06-26",
+   "projects": [
+    "Crystal Ward Glass Replacement",
+    "Capella House Window Replacement"
+   ]
+  },
+  {
+   "client": "Cold Developments",
+   "won": 0,
+   "lost": 2,
+   "open": 0,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 18477,
+   "lastEnquiry": "2025-07-08",
+   "projects": [
+    "Simpson Day Centre Ally Door",
+    "Cambourne Morrisons Shopfront"
+   ]
+  },
+  {
+   "client": "Colonial Construction",
+   "won": 0,
+   "lost": 2,
+   "open": 0,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 58296,
+   "lastEnquiry": "2025-12-01",
+   "projects": [
+    "LA 175 Beatrice Road",
+    "Victoria Park Royal"
+   ]
+  },
+  {
+   "client": "FK Ltd",
+   "won": 0,
+   "lost": 2,
+   "open": 0,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 23266,
+   "lastEnquiry": "2025-09-12",
+   "projects": [
+    "Civitas Rushden CareHome",
+    "Old Barn Cottage Ali Bifolds"
+   ]
+  },
+  {
+   "client": "G Oakley and Sons",
+   "won": 0,
+   "lost": 2,
+   "open": 0,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 20000,
+   "lastEnquiry": "2025-02-19",
+   "projects": [
+    "Harvester Portsmouth Aluminium Doors",
+    "Harvester Bristol Lobby Doors"
+   ]
+  },
+  {
+   "client": "Glazing Consultancy Services",
+   "won": 0,
+   "lost": 2,
+   "open": 2,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 225426,
+   "lastEnquiry": "2025-11-04",
+   "projects": [
+    "Shepton Vets",
+    "Sunny Glen",
+    "Aylesbury High School",
+    "Churchdown School"
+   ]
+  },
+  {
+   "client": "ICM Ltd",
+   "won": 0,
+   "lost": 2,
+   "open": 1,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 62076,
+   "lastEnquiry": "2026-01-05",
+   "projects": [
+    "Flying Tiger Merry Hills Shopfront",
+    "Paddock Wood",
+    "Club 3000, Leith"
+   ]
+  },
+  {
+   "client": "Logan Construction",
+   "won": 0,
+   "lost": 2,
+   "open": 1,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 48525,
+   "lastEnquiry": "2025-11-12",
+   "projects": [
+    "Daleham Aluminium Doors",
+    "59 Cordwell Road",
+    "Queen Victoria"
+   ]
+  },
+  {
+   "client": "R1 Construction",
+   "won": 0,
+   "lost": 2,
+   "open": 5,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 168877,
+   "lastEnquiry": "2025-10-27",
+   "projects": [
+    "Roman Aurora Way",
+    "Balmoral Drive, Mansfield",
+    "Wealstone Care Home",
+    "Gresty Road",
+    "The Grove School SEND",
+    "12 Craignaish Avenue"
+   ]
+  },
+  {
+   "client": "RG Carter",
+   "won": 0,
+   "lost": 2,
+   "open": 2,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 483476,
+   "lastEnquiry": "2025-10-30",
+   "projects": [
+    "Linford Wood Curtain Wall",
+    "Huxlow Academy  General Glazing",
+    "IWM Duxford Fire Engine Shed",
+    "Addenbrookes Ambulance Station"
+   ]
+  },
+  {
+   "client": "S and R Construction",
+   "won": 0,
+   "lost": 2,
+   "open": 0,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 614597,
+   "lastEnquiry": "2025-10-21",
+   "projects": [
+    "Lawson Street",
+    "4 Higham Road"
+   ]
+  },
+  {
+   "client": "Snape Group",
+   "won": 0,
+   "lost": 2,
+   "open": 0,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 4594,
+   "lastEnquiry": "2025-07-31",
+   "projects": [
+    "1 Walton House uPVC Window Replacement",
+    "1 Walton House Composite Door"
+   ]
+  },
+  {
+   "client": "Stoic Roofing",
+   "won": 0,
+   "lost": 2,
+   "open": 2,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 8045,
+   "lastEnquiry": "2025-11-12",
+   "projects": [
+    "Elizabeth Woodville School uPVC W+D",
+    "Royal Free Hospital Doors",
+    "Freemantle Academy Doors",
+    "CMK Shopping Centre"
+   ]
+  },
+  {
+   "client": "Zelltec Construction",
+   "won": 0,
+   "lost": 2,
+   "open": 8,
+   "decided": 2,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 41029,
+   "lastEnquiry": "2025-11-12",
+   "projects": [
+    "Princes Court Windows and Curtain Walling",
+    "Units C and D Imperial Park Windows x2",
+    "Addiscombe Windows and Doors",
+    "Unit 6 Pincents Kiln Windows Doors and Louvres",
+    "Unit 3 Ashford Road Windows and Doors",
+    "Unit A Daventry Interchange"
+   ]
+  },
+  {
+   "client": "Bespoke Construction (Norfolk)",
+   "won": 0,
+   "lost": 3,
+   "open": 0,
+   "decided": 3,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 95122,
+   "lastEnquiry": "2025-06-03",
+   "projects": [
+    "Fordham House Renovation",
+    "Pendle Buntingford uPVC",
+    "West End Costessey"
+   ]
+  },
+  {
+   "client": "Caldecotte Group",
+   "won": 0,
+   "lost": 3,
+   "open": 1,
+   "decided": 3,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 7965,
+   "lastEnquiry": "2025-10-30",
+   "projects": [
+    "The Grange Micron Film",
+    "Smashed DGU Grove Independent School",
+    "Cleeveland Medical Centre - Cheltenham",
+    "Unit 3 and Office London House Stony Stratford"
+   ]
+  },
+  {
+   "client": "OpenArch",
+   "won": 0,
+   "lost": 3,
+   "open": 0,
+   "decided": 3,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 38871,
+   "lastEnquiry": "2026-01-22",
+   "projects": [
+    "The Grange",
+    "The Grange",
+    "Cambridge Windows and Doors"
+   ]
+  },
+  {
+   "client": "Re-Gen",
+   "won": 0,
+   "lost": 3,
+   "open": 1,
+   "decided": 3,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 91435,
+   "lastEnquiry": "2025-09-22",
+   "projects": [
+    "Balham Hill Windows",
+    "Barham Park Units 1-10 uPVC Windows",
+    "London Road, Luton - uPVC",
+    "59 Cordwell Road"
+   ]
+  },
+  {
+   "client": "Clegg Construction",
+   "won": 0,
+   "lost": 4,
+   "open": 1,
+   "decided": 4,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 788569,
+   "lastEnquiry": "2025-08-27",
+   "projects": [
+    "Liberty Care Home Aluminium Windows/Doors",
+    "B1 Inifinity Park Derby",
+    "A2 Infinity Park Derby",
+    "B1 Inifinity Park Derby Enhancements",
+    "Grafton Centre Hotel"
+   ]
+  },
+  {
+   "client": "Maxwell Facilities",
+   "won": 0,
+   "lost": 4,
+   "open": 0,
+   "decided": 4,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 34305,
+   "lastEnquiry": "2026-01-19",
+   "projects": [
+    "Clipston Primary uPVC Fittings",
+    "Great Kimble door and hatch replacement",
+    "St Mary Magdelene",
+    "St Thomas Aquinas Window Repairs"
+   ]
+  },
+  {
+   "client": "Storm Building",
+   "won": 0,
+   "lost": 5,
+   "open": 4,
+   "decided": 5,
+   "winRate": 0.0,
+   "wonValue": 0,
+   "lostValue": 257493,
+   "lastEnquiry": "2026-02-10",
+   "projects": [
+    "Steel Doors Hammersmith Hospital",
+    "Granard School Windows",
+    "Nescot Windows",
+    "Derwent Valley Hospital",
+    "SLAM: Monks Orchard",
+    "Lister Hospital FR CW"
+   ]
+  }
+ ],
+ "lostReasons": [
+  {
+   "code": "C",
+   "count": 64,
+   "shareOfLosses": 36.8,
+   "reading": "the main contractor lost it at their end - not a Fenster loss at all",
+   "confidence": "high",
+   "evidence": "the dominant phrasing on these rows is 'Clegg lost this to Bowmer and Kirkland', 'Borras lost this work. Our price was competitive', 'lost at contractor stage'"
+  },
+  {
+   "code": "P",
+   "count": 50,
+   "shareOfLosses": 28.7,
+   "reading": "lost on price",
+   "confidence": "high",
+   "evidence": "44 of 50 rows say so in the notes, several verbatim ('Lost on price', 'we were most expensive', '80k out')"
+  },
+  {
+   "code": "?",
+   "count": 25,
+   "shareOfLosses": 14.4,
+   "reading": "never found out - client went quiet",
+   "confidence": "medium",
+   "evidence": "'never heard back', 'not worth chasing', 'gone quiet' recur across the 25 rows"
+  },
+  {
+   "code": "V",
+   "count": 17,
+   "shareOfLosses": 9.8,
+   "reading": "unclear - the rows are a mixture (spec deviation, a missing SBD accreditation, supply-only competitors, an incumbent supplier, and three we admit we fumbled)",
+   "confidence": "low",
+   "evidence": "no single theme across 17 rows; do not build anything on this code until the legend is confirmed"
+  },
+  {
+   "code": "NA",
+   "count": 13,
+   "shareOfLosses": 7.5,
+   "reading": "no reason recorded",
+   "confidence": "medium",
+   "evidence": "13 rows, mostly carrying only a generic chase note"
+  }
+ ],
+ "lostLegend": {
+  "status": "not recorded anywhere in the workbook or the BD folder",
+  "note": "The readings below are taken from the free text on the rows carrying each code. Adam has not confirmed them (JAC-8). Nothing on the board is ranked by this column."
+ },
+ "chased": [
+  {
+   "sheet": "2025",
+   "rows": 448,
+   "chased": 382,
+   "pct": 85
+  },
+  {
+   "sheet": "2026",
+   "rows": 88,
+   "chased": 7,
+   "pct": 8
+  }
+ ],
+ "openThisYear": [
+  {
+   "client": "Bradford Watts",
+   "project": "Galleywall Trading Estate",
+   "enquiry": "2026-02-26",
+   "deadline": "2026-03-24",
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Broomfield Residential Care",
+   "project": "Broomfield Door",
+   "enquiry": "2026-02-25",
+   "deadline": null,
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Survey required and booked for 03/03"
+  },
+  {
+   "client": "Highwood Group",
+   "project": "Wimborne Barchester",
+   "enquiry": "2026-01-30",
+   "deadline": "2026-02-27",
+   "returned": "2026-02-25",
+   "value": 110757.65,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Key Property Solutions",
+   "project": "David Lloyd Wirral Waters",
+   "enquiry": "2026-02-03",
+   "deadline": "2026-02-20",
+   "returned": "2026-02-25",
+   "value": 193205.69,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Pexhurst Services",
+   "project": "Unit 4 Berry Hill",
+   "enquiry": "2026-02-16",
+   "deadline": "2026-02-20",
+   "returned": "2026-02-25",
+   "value": 56731.22,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Extension given for the 27th of February"
+  },
+  {
+   "client": "Rase Steels",
+   "project": "Whisby Road",
+   "enquiry": "2026-02-06",
+   "deadline": null,
+   "returned": "2026-02-25",
+   "value": 133962.11,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Storm Building",
+   "project": "Maudsley Hospital",
+   "enquiry": "2026-02-10",
+   "deadline": "2026-02-23",
+   "returned": "2026-02-25",
+   "value": 6733.63,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Bradford Watts",
+   "project": "9 Colonial Way",
+   "enquiry": "2026-02-05",
+   "deadline": "2026-02-23",
+   "returned": "2026-02-24",
+   "value": 220691.95,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "ETEC Group",
+   "project": "Meridian Primary",
+   "enquiry": "2026-02-24",
+   "deadline": "2026-03-09",
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Hickford Construction",
+   "project": "Fair Winter Farm Singleborough",
+   "enquiry": "2026-02-24",
+   "deadline": null,
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Pride Developments",
+   "project": "Mint Street",
+   "enquiry": "2026-02-24",
+   "deadline": "2026-03-06",
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Elkins Construction",
+   "project": "Mountbatten House",
+   "enquiry": "2026-02-16",
+   "deadline": "2026-02-22",
+   "returned": "2026-02-23",
+   "value": 243207.54,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Harris Calnan",
+   "project": "20 Addison Avenue",
+   "enquiry": "2026-02-23",
+   "deadline": "2026-02-27",
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Furnell Transport",
+   "project": "Enterprise House",
+   "enquiry": "2026-02-18",
+   "deadline": null,
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "With Adam"
+  },
+  {
+   "client": "Neil Douglas",
+   "project": "Earleswood Court",
+   "enquiry": "2026-02-05",
+   "deadline": "2026-03-02",
+   "returned": "2026-02-18",
+   "value": 14003.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "3 Options submitted: 14,003.00 / 14,304.00 / 14,519.30"
+  },
+  {
+   "client": "Spandrel Interiors",
+   "project": "Kent House",
+   "enquiry": "2026-02-05",
+   "deadline": null,
+   "returned": "2026-02-18",
+   "value": 79090.15,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "7Formation",
+   "project": "Flannels and Everlast Gym Birmingham",
+   "enquiry": "2026-02-17",
+   "deadline": null,
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "EOI Submitted, now awaiting documents"
+  },
+  {
+   "client": "Elkins Construction",
+   "project": "Blenheim Court",
+   "enquiry": "2026-02-17",
+   "deadline": null,
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Nevilles Special Projects",
+   "project": "Sponne School",
+   "enquiry": "2026-02-17",
+   "deadline": "2026-03-19",
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Sol Services",
+   "project": "1 Springfield Lyons",
+   "enquiry": "2026-02-17",
+   "deadline": "2026-02-26",
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Thomas Sinden",
+   "project": "Cold Ash",
+   "enquiry": "2026-02-17",
+   "deadline": "2026-02-03",
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Borras Construction",
+   "project": "John Shelton Primary",
+   "enquiry": "2026-01-05",
+   "deadline": "2026-01-14",
+   "returned": "2026-02-16",
+   "value": 21052.68,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Bradford Watts",
+   "project": "Unit 3 Alliance Road",
+   "enquiry": "2026-02-05",
+   "deadline": "2026-02-25",
+   "returned": "2026-02-16",
+   "value": 19900.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Gute",
+   "project": "Regus",
+   "enquiry": "2026-01-06",
+   "deadline": null,
+   "returned": "2026-02-16",
+   "value": 4485.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Steve completed survey today"
+  },
+  {
+   "client": "MPS Contracts",
+   "project": "Edinburgh Secondary School",
+   "enquiry": "2026-02-16",
+   "deadline": null,
+   "returned": "2026-02-16",
+   "value": 14850.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Sol Services",
+   "project": "Newport Pagnell Library",
+   "enquiry": "2026-01-27",
+   "deadline": "2026-02-10",
+   "returned": "2026-02-16",
+   "value": 58069.5,
+   "state": "outstanding",
+   "chased": true,
+   "notes": ""
+  },
+  {
+   "client": "Borras Construction",
+   "project": "Newport Pagnell Library",
+   "enquiry": "2026-01-23",
+   "deadline": "2026-02-04",
+   "returned": "2026-02-11",
+   "value": 58069.5,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "MPS Contracts",
+   "project": "Holiday Inn Ipswich",
+   "enquiry": "2026-01-27",
+   "deadline": null,
+   "returned": "2026-02-10",
+   "value": 3450.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Krypton Construction",
+   "project": "GSK Ware",
+   "enquiry": "2026-02-06",
+   "deadline": null,
+   "returned": "2026-02-09",
+   "value": 19721.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Neil Douglas",
+   "project": "Riverside Close",
+   "enquiry": "2026-01-21",
+   "deadline": "2026-02-17",
+   "returned": "2026-02-06",
+   "value": 20752.12,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Target Maintenance",
+   "project": "Pine Court",
+   "enquiry": "2026-02-03",
+   "deadline": "2026-02-06",
+   "returned": "2026-02-06",
+   "value": 18628.19,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Barnfield Construction",
+   "project": "The Grange Apartments",
+   "enquiry": "2026-02-05",
+   "deadline": "2026-02-26",
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "BC Workspace",
+   "project": "Unit 14 Stanstead DC",
+   "enquiry": "2026-02-03",
+   "deadline": "2026-02-10",
+   "returned": "2026-02-05",
+   "value": 4082.86,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Fireact",
+   "project": "Buckingham University",
+   "enquiry": "2026-01-23",
+   "deadline": null,
+   "returned": "2026-02-05",
+   "value": 13590.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Fortis Vision",
+   "project": "Newcastle Blue Lagoon Fish and Chips",
+   "enquiry": "2026-02-05",
+   "deadline": "2026-02-16",
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "OLICAT",
+   "project": "St Thomas Secondary Glass Replacement",
+   "enquiry": "2026-02-05",
+   "deadline": null,
+   "returned": null,
+   "value": 7488.66,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "TLC Care",
+   "project": "Cherry Hinton Repairs",
+   "enquiry": "2026-02-05",
+   "deadline": null,
+   "returned": null,
+   "value": 7309.08,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Awaiting details"
+  },
+  {
+   "client": "Krypton Construction",
+   "project": "Estcourt Arms",
+   "enquiry": "2026-02-04",
+   "deadline": null,
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Adam surveying 04/02/2026"
+  },
+  {
+   "client": "RJS Ventol",
+   "project": "Faraday Wing Flat",
+   "enquiry": "2026-02-02",
+   "deadline": "2026-02-06",
+   "returned": "2026-02-04",
+   "value": 5553.72,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Stewarts Contracting",
+   "project": "DHL Inside Track - Frosting",
+   "enquiry": "2026-01-29",
+   "deadline": null,
+   "returned": "2026-02-04",
+   "value": 690.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Survey booked for 30/01"
+  },
+  {
+   "client": "Borras Construction",
+   "project": "Ashtree School",
+   "enquiry": "2026-01-27",
+   "deadline": "2026-02-02",
+   "returned": "2026-02-03",
+   "value": 6347.68,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Target Maintenance",
+   "project": "23 Regents Place",
+   "enquiry": "2026-02-02",
+   "deadline": null,
+   "returned": null,
+   "value": null,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "With Adam for now"
+  },
+  {
+   "client": "SDevs",
+   "project": "Ennismore Garden",
+   "enquiry": "2026-01-21",
+   "deadline": "2026-02-26",
+   "returned": "2026-01-30",
+   "value": 45367.15,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "SDevs",
+   "project": "17 Rosebery Avenue",
+   "enquiry": "2026-01-30",
+   "deadline": null,
+   "returned": "2026-01-30",
+   "value": 7881.21,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Gullett and Sons",
+   "project": "Nora Grace Hall",
+   "enquiry": "2026-01-23",
+   "deadline": "2026-02-06",
+   "returned": "2026-01-29",
+   "value": 81324.26,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Hightown Housing",
+   "project": "15 Frank Young Court",
+   "enquiry": "2026-01-19",
+   "deadline": "2026-02-03",
+   "returned": "2026-01-29",
+   "value": 1489.6,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "MSN Partnership",
+   "project": "St Marks School",
+   "enquiry": "2026-01-20",
+   "deadline": null,
+   "returned": "2026-01-29",
+   "value": 81248.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Woburn Sands Methodist Church",
+   "project": "Woburn Sands Methodist Church",
+   "enquiry": "2026-01-26",
+   "deadline": "2026-01-26",
+   "returned": "2026-01-29",
+   "value": 16300.79,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Borras Construction",
+   "project": "Lister Hospital 1nr uPVC Window",
+   "enquiry": "2026-01-21",
+   "deadline": null,
+   "returned": "2026-01-27",
+   "value": 2183.01,
+   "state": "work in progress",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Lindum Group",
+   "project": "Elvington Medical Practice Internal",
+   "enquiry": "2026-01-15",
+   "deadline": "2026-01-30",
+   "returned": "2026-01-27",
+   "value": 4406.81,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Lindum Group",
+   "project": "Elvington Medical Practice Aluminium",
+   "enquiry": "2026-01-15",
+   "deadline": "2026-01-30",
+   "returned": "2026-01-27",
+   "value": 11312.07,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Lindum Group",
+   "project": "Elvington Medical Practice uPVC",
+   "enquiry": "2026-01-15",
+   "deadline": "2026-01-30",
+   "returned": "2026-01-27",
+   "value": 3314.41,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "OLICAT",
+   "project": "St Edwards School Leaking Windows",
+   "enquiry": "2026-01-26",
+   "deadline": null,
+   "returned": null,
+   "value": 100.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "27/01/2026 Survey suggests full replacement is required"
+  },
+  {
+   "client": "Steele and Bray",
+   "project": "Ecton Brook",
+   "enquiry": "2026-01-12",
+   "deadline": "2026-01-23",
+   "returned": "2026-01-23",
+   "value": 129026.2,
+   "state": "outstanding",
+   "chased": true,
+   "notes": ""
+  },
+  {
+   "client": "Prince Build",
+   "project": "40 Putney Hill",
+   "enquiry": "2026-01-22",
+   "deadline": "2026-01-23",
+   "returned": "2026-01-22",
+   "value": 6718.42,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Thomas Sinden",
+   "project": "Gunwharf Office",
+   "enquiry": "2026-01-09",
+   "deadline": "2026-01-23",
+   "returned": "2026-01-22",
+   "value": 1345674.97,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Extension granted for the 28th"
+  },
+  {
+   "client": "Hightown Housing",
+   "project": "25 Meadow Avenue",
+   "enquiry": "2026-01-19",
+   "deadline": "2026-02-03",
+   "returned": "2026-01-20",
+   "value": 1937.35,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Jayk to quote"
+  },
+  {
+   "client": "Hightown Housing",
+   "project": "28 Millway Furlong",
+   "enquiry": "2026-01-19",
+   "deadline": "2026-02-03",
+   "returned": null,
+   "value": 1973.64,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Jayk to quote"
+  },
+  {
+   "client": "First Facilities",
+   "project": "7 Manor Farm Court",
+   "enquiry": "2026-01-16",
+   "deadline": null,
+   "returned": "2026-01-16",
+   "value": 2166.92,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "SDevs",
+   "project": "Stanley Arms Pub",
+   "enquiry": "2026-01-15",
+   "deadline": "2026-01-23",
+   "returned": "2026-01-16",
+   "value": 146698.16,
+   "state": "outstanding",
+   "chased": true,
+   "notes": ""
+  },
+  {
+   "client": "Gillman Group",
+   "project": "Unit 6 Snowden Drive",
+   "enquiry": "2026-01-12",
+   "deadline": null,
+   "returned": "2026-01-15",
+   "value": 3400.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Dave surveyed today 12/01/2026"
+  },
+  {
+   "client": "Reach CM",
+   "project": "Luton Mosque",
+   "enquiry": "2026-01-06",
+   "deadline": null,
+   "returned": "2026-01-15",
+   "value": 18139.75,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Pride Developments",
+   "project": "Mildenhall uPVC",
+   "enquiry": "2026-01-13",
+   "deadline": null,
+   "returned": "2026-01-13",
+   "value": 1223.04,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Budget costs issued."
+  },
+  {
+   "client": "Pride Developments",
+   "project": "Rubery Library Facias",
+   "enquiry": "2026-01-12",
+   "deadline": "2026-01-12",
+   "returned": "2026-01-12",
+   "value": 3250.0,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Neil Douglas",
+   "project": "Kaybridge Close",
+   "enquiry": "2026-01-05",
+   "deadline": "2026-01-02",
+   "returned": "2026-01-09",
+   "value": 16024.14,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Option 1 Price: 16024.14 Option 2 Price: 19228.97"
+  },
+  {
+   "client": "One Solution",
+   "project": "MK Box Alston Drive",
+   "enquiry": "2026-01-08",
+   "deadline": "2026-01-08",
+   "returned": "2026-01-09",
+   "value": 3392.59,
+   "state": "outstanding",
+   "chased": false,
+   "notes": "Jayk has gone out for pricing"
+  },
+  {
+   "client": "SDevs",
+   "project": "5 Nursery Road",
+   "enquiry": "2026-01-06",
+   "deadline": null,
+   "returned": "2026-01-09",
+   "value": 6433.17,
+   "state": "outstanding",
+   "chased": false,
+   "notes": ""
+  },
+  {
+   "client": "Skillcrown",
+   "project": "Corbens Place",
+   "enquiry": "2026-01-07",
+   "deadline": "2026-01-07",
+   "returned": "2026-01-07",
+   "value": 165035.98,
+   "state": "outstanding",
+   "chased": true,
+   "notes": ""
+  }
+ ],
+ "states": {
+  "L": 174,
+  "DM": 7,
+  "O": 207,
+  "W": 55,
+  "NA": 76,
+  "WIP": 16,
+  "blank": 1
+ }
+}

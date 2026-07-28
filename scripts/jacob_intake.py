@@ -33,7 +33,19 @@ OUT = os.path.join(REPO, "data", "jacob", "intake.json")
 ARCHIVE = r"C:\Users\zacpl\OneDrive - Fenster Glazing (1)\Commercial"
 
 DOMAIN = "fensterglazing.com"
-MAILBOXES = [jg.COMMERCIAL, jg.INFO, jg.JACOB, "jayk@" + DOMAIN]
+
+# Adam, 28/07/2026: "you are solely focussed on Commercial projects ... can you
+# please not look into info@. Everything you need should come from estimating@,
+# jayk@ and commercial@. info@ is used by the residential team ... they will
+# always forward anything commercial to commercial@."
+#
+# So info@ is out. Of the three he named, only commercial@ is actually
+# readable: estimating@ is Mary's and blocked at Exchange by design, and
+# jayk@ returns HTTP 404 - the mailbox does not exist under that address.
+# Both are still listed here so a run says out loud what it could not read,
+# rather than quietly reading one mailbox and reporting four.
+EXCLUDED = {jg.INFO: "Adam 28/07/2026 - residential team's mailbox, not ours"}
+MAILBOXES = [jg.COMMERCIAL, jg.JACOB, "jayk@" + DOMAIN]
 
 # ---------------------------------------------------------------- classifying
 PORTALS = re.compile(
@@ -60,6 +72,11 @@ NOISE_FROM = re.compile(
     r"linkedin|twitter|facebook|instagram|xero|sage|quickbooks|indeed|"
     r"mailchimp|hubspot|eventbrite|survey|feedback@|britishgas|"
     r"checkatrade|trustpilot|googlemail|microsoft|adobe|autodesk|"
+    # Card and certification admin. "Your payment has been pre-authorised" and
+    # "we are pleased to confirm" read exactly like a client accepting a
+    # quote, which is how three CSCS card applications landed in the decision
+    # class next to Neil Douglas.
+    r"cscs\.co\.uk|constructionworkersupport|citb\.co\.uk|"
     r"agentsnetworkltd|renocost)", re.I)
 
 # Repairs portals. A letting agent or housing association raises a job and
@@ -194,6 +211,34 @@ REQUEST_SUBJECT = re.compile(
     r"(new |commercial |glass |glazing |window |door |cladding )enquiry\b|"
     r"enquiry (for|from)\b|request (a |an )?(survey|quote|quotation))", re.I)
 
+# The answer to a quote. Not an enquiry, not a courtesy - the outcome, which
+# is the one message in the mailbox that closes a row or starts a job.
+#
+# This class exists because of Neil Douglas. On 29/06 Anton Antonov wrote to
+# say Alsford Wharf and Riverside Close had gone to other contractors, Tithe
+# Court had stalled, and the client had been told they could proceed with
+# Fenster on Earleswood Court once consultation lapsed on 30/07. Four
+# outcomes and a job about to land, in one email - and the classifier filed
+# it as "correspondence", because it opens "I hope you are well" and contains
+# no enquiry word anywhere. All four rows are still marked Outstanding in the
+# BD log a month later.
+DECISION = re.compile(
+    r"((was|has been|were|have been) (awarded|instructed|appointed) to|"
+    r"awarded to (an?(other)?|the) (alternative |different )?(contractor|company|supplier|firm)|"
+    r"(instructed|awarded|appointed) (to|another|an alternative)|"
+    r"(you|we|fenster) (have|has|were|was) (been )?(un)?successful|"
+    r"(proceed|go ahead|going ahead|move forward) with (you|yourselves|fenster)|"
+    r"we can proceed with|recommended to proceed with|"
+    r"(given|gave|got|received) (the |a )?go[- ]ahead|"
+    r"(issue|issuing|raise|raising|place|placing) (a |the )?(formal )?"
+    r"(works? order|purchase order|\bpo\b)|"
+    r"(decided|chosen|opted) to (go|proceed) with|(gone|went) with (another|a different)|"
+    r"(not|no longer) proceeding|(project|works?|scheme) (is |has been |was )?"
+    r"(cancelled|shelved|postponed|delayed until|put on hold|on hold)|"
+    r"(lost|missed out on) (the|this|that) (job|works?|tender|project)|"
+    r"unfortunately[^.!?]{0,60}(unsuccessful|not been successful|another contractor))",
+    re.I)
+
 IS_REPLY = re.compile(r"^((re|fw|fwd|aw|tr)\s*[:\-]\s*)+", re.I)
 
 
@@ -218,8 +263,8 @@ def classify(frm, subject, preview=""):
     were counted as demand. The question is *who is asking whom*, and the
     answer is in the first sentence.
 
-    Returns one of: portal, small-works, noise, supplier, enquiry, quote-out,
-    possible-enquiry, correspondence."""
+    Returns one of: portal, small-works, noise, supplier, enquiry, decision,
+    quote-out, possible-enquiry, correspondence."""
     blob = "%s %s %s" % (frm, subject, preview)
     if PORTALS.search(blob):
         return "portal"
@@ -236,6 +281,12 @@ def classify(frm, subject, preview=""):
     # that thanks us for a quote and then asks for another is a live one.
     if ASKING_US.search(preview):
         return "enquiry"
+    # Above QUOTING_US on purpose: "we have been unsuccessful" and "we are
+    # unable to quote" are both refusals, but the first is a client closing
+    # our tender and the second is a fabricator declining to price for us.
+    # Known suppliers are already out by this point, on the from-address.
+    if DECISION.search(preview) or DECISION.search(subject):
+        return "decision"
     if QUOTING_US.search(preview):
         return "supplier"
     if ON_OUR_QUOTE.search(preview):
@@ -418,7 +469,8 @@ def main():
             # board as one rather than being filed where nobody reads it.
             # small-works is deliberately absent: 125 lock repairs would bury
             # the six tender invitations sitting next to them.
-            if kind in ("enquiry", "portal", "quote-out", "possible-enquiry"):
+            if kind in ("enquiry", "portal", "quote-out", "possible-enquiry",
+                        "decision"):
                 signals.append({"date": when, "kind": kind, "company": dom,
                                 "contact": addr, "name": name,
                                 "subject": subj[:110], "preview": preview[:240],
@@ -437,6 +489,9 @@ def main():
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "window_days": args.days,
         "per_mailbox": per_mailbox,
+        # A mailbox that is deliberately not read is a fact about the numbers
+        # below, so it travels with them instead of living only in a comment.
+        "excluded": [{"mailbox": m, "why": w} for m, w in EXCLUDED.items()],
         # The window that was asked for is not necessarily the one that was
         # read. Anything reporting a count should say which.
         "coverage": coverage,

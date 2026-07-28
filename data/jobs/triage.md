@@ -531,6 +531,54 @@ Three things established here before handing on:
 - **Appendix 1 (Alumasc flat roofing) is not our package.** Windows and doors only, said on the face of
   the quote. Appendix 3 is a refurbishment and demolition asbestos survey - read before pricing strip-out.
 
+### 2026-07-28 21:05 - Jacob's chasing list dated at source, and Filwood was never issued
+He took up the offer, so I built the answer rather than eyeballing it: `scripts\quote_send_dates.py`
+searches estimating@ across every folder and prints, per job, each outbound message with its date,
+recipients and whether any recipient is external. That turns sm5-wexham's rule - **the only proof of
+issue is an outward email or a portal receipt** - into one command.
+
+Nine jobs dated (BST): Gordon Court **10/07 09:28** to Luke Baker (our records say 09/07, which is the
+day it went to Adam to check - the same trap as the return dates), Ninn Lane 09/07 11:40 to Tom Dixon,
+St Mary's 17/07 12:17 to Tom Godfrey, Princess Beatrice 27/07 10:49 to Jason Mount, Crestwood 27/07 11:49
+to Adam Lewis, Eleanor 28/07 14:22 to Mark Golden. All six carried attachments and copied Adam.
+
+**FILWOOD BROADWAY HAS NEVER BEEN ISSUED.** Nine messages exist on that job in estimating@ and not one
+reaches an external address: the enquiry in from commercial@ 17/07, an RFQ to BSW 23/07, BSW's return,
+A Plus's quote this morning, and a QUOTE TO CHECK to Adam 27/07 14:17. **GBP 67,067.50 is with Adam, not
+with Stepnell**, and Jacob's board was about to have him chase a client who has never seen a price. Also
+corrected the other way: **Chester Thomas WAS issued** - the arched door went to
+developments@chesterthomas.co.uk 27/07 16:13, the latest of six sends since 13/07. Riverside genuinely
+is priced-not-issued, as he had it.
+
+**Stated the tool's limit rather than let it be over-trusted:** it reads estimating@ only, so a quote
+sent from commercial@ or Adam's own mailbox without copying estimating@ is invisible. In practice
+estimating@ is copied on everything checked, including Adam's own client emails - but "no send found"
+is absence of evidence.
+
+**A find nobody was looking for: Eleanor Trade Centre is a RE-TENDER.** Bradford Watts invited us on
+15/04 and Gintare quoted Mark Golden on 20/04 at 16:23, revised 16:38. The same unit came back as a fresh
+tender on 14/07 and we quoted it again on 28/07. So the April price did not land, and GBP 7,975.85 is not
+a first offer. Handed to eleanor-trade-centre with Jacob's request to put Mark Golden's out-of-office into
+the job file itself - his board reads the .md files, so a fact there reaches Adam repeatedly rather than
+once.
+
+**NEIL DOUGLAS - passed to john-north-hall, and it changes that job's posture.** Jacob found a thread in
+commercial@ neither of us could see: Anton Antonov, Head of Projects, answered a chase on 29/06 with the
+status of all five Neil Douglas quotes (about GBP 255k, all still logged Outstanding). Alsford Wharf and
+Riverside Close both LOST on windows to other contractors; Tithe Court gone quiet; **Earleswood Court
+GBP 14,003 LIVE, with consultation closing Thursday 30/07 and Anton saying we can proceed if the cost has
+not changed.** So Jordan Jones' Vaughan House ITT is not a cold contact from a new company - it is the
+second live thing with a client two days from placing an order. Cautioned that chat that the detail is
+Jacob's reading of a mailbox I cannot see, and that our 2026 record with them is two windows packages
+lost, so we are not the incumbent on price.
+
+**AND A GAP THAT OPENED TONIGHT.** info@ came off Jacob's list at Adam's instruction - it is the
+residential team's - and it was never on mine. Three commercial tenders have arrived there in a week:
+Redditch Library 22/07 (sat six days), John North Hall (seen only because Perry forwarded it by hand),
+and the Neil Douglas ITT 27/07. **From tomorrow nobody is watching it.** I did not raise a request - 24
+are open and this is Adam's decision to make - but I put the case for a forwarding rule to Jacob, whose
+board is where the hole will show. Worth a line in the morning update if it is still open.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

@@ -115,8 +115,13 @@ def show_list(mailbox, msgs, previews=True):
         print("      from %s%s" % (who(m), "  [attachments]" if m.get("hasAttachments") else ""))
         if previews and m.get("bodyPreview"):
             print("      > %s" % re.sub(r"\s+", " ", m["bodyPreview"])[:160])
-        print("      id %s" % m.get("id", "")[:60])
-        print("      thread %s" % (m.get("conversationId") or "")[:44])
+        # Full ids, both of them. These were truncated to 60 and 44 characters
+        # to keep the list tidy, which meant every message in a search printed
+        # the same visually-identical prefix and none of them could be passed
+        # back to --read or --thread. A tidy id you cannot use is worse than an
+        # ugly one you can.
+        print("      id %s" % m.get("id", ""))
+        print("      thread %s" % (m.get("conversationId") or ""))
         print()
 
 

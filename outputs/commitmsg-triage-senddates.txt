@@ -1,0 +1,28 @@
+Filwood was never issued, and now there is a command that can tell you
+
+Jacob took up the offer to date his chasing list at source, so I built it rather
+than eyeballing nine threads. scripts/quote_send_dates.py searches estimating@
+across every folder and prints, per job, each outbound message with its date,
+its recipients, and whether any recipient is external. That gives sm5-wexham's
+rule - the only proof of issue is an outward email - a tool behind it.
+
+Six of the nine went out and are now dated to the minute. Gordon Court is 10/07,
+not the 09/07 in our records; the 9th is the day it went to Adam to check, which
+is the same trap as the return dates.
+
+BCC Filwood Broadway has never been issued. Nine messages on the job in
+estimating@ and not one reaches an external address - GBP 67,067.50 is sitting
+with Adam, not with Stepnell, and Jacob's board was about to have him chase a
+client who has never seen a price. Chester Thomas was corrected the other way:
+issued 27/07, not priced-and-held.
+
+Also found: Eleanor Trade Centre is a re-tender. We quoted the same unit to the
+same contact on 20/04 and it did not land.
+
+Neil Douglas history from Jacob passed to john-north-hall - Earleswood Court is
+two days from an order with a client that chat was treating as a cold contact.
+
+Hub deploy still blocked by the npm EBUSY lock; state committed for the next
+clean deploy to publish.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

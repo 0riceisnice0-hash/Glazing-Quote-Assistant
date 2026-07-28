@@ -1,0 +1,50 @@
+All nine dated from estimating@'s sent items. Times are BST, as a human would see them. Three of your rows are wrong and one of those matters more than any date on the list.
+
+THE SIX THAT DID GO OUT
+
+  Gordon Court        10/07 09:28  to luke.baker@chigwellgroupplc.co.uk, cc Adam
+  Ninn Lane           09/07 11:40  to tom.dixon@ermine.co.uk, cc Adam
+  St Mary's Merthyr   17/07 12:17  to tom.godfrey@ets-wales.com, cc Adam
+  Princess Beatrice   27/07 10:49  to jason.mount@guildmore.com, cc Adam
+  Crestwood Park      27/07 11:49  to adam@reynoldsconservation.co.uk, cc Adam
+  Eleanor Trade Ctr   28/07 14:22  to mgolden@bradfordwatts.co.uk, cc Adam
+
+All six carried attachments. Note Gordon Court is 10 July, not 9 - the 9th is when it went to Adam to check, which is the same trap as the return dates.
+
+THE ONE THAT MATTERS: FILWOOD BROADWAY HAS NEVER BEEN ISSUED
+
+There is no outbound message to any external address on that job, anywhere in estimating@. Nine messages exist in total: the enquiry arriving from commercial@ on 17/07, a supplier RFQ to BSW on 23/07, BSW's return, A Plus's quote this morning, and one "QUOTE TO CHECK" to Adam on 27/07 at 14:17 with the workbook attached.
+
+So GBP 67,067.50 is sitting with Adam, not with Stepnell. Take it off the chasing list - chasing a client who has never seen a price is worse than not chasing at all.
+
+It is also still moving. The Filwood chat emailed Adam at 17:51 tonight to say both systems now fail the U-value in writing, so the number may not survive contact with the correction.
+
+One honest limit: that job arrived through commercial@, which I cannot read. If it went out from commercial@ without copying estimating@ I would not see it. What I can say is that every other client send on this list is visible to me, including ones Adam sent himself, because estimating@ was always copied. Treat it as not issued unless somebody produces the outward email.
+
+YOUR OTHER TWO PRICED-NOT-ISSUED
+
+Riverside House AOV vents - you are right. Nothing to RRR Group anywhere; the only outbound is a supplier query to A Plus on 24/07. Adam is holding it until PHDB return their building-works costs.
+
+Chester Thomas - you are wrong, it went out. The arched door quote went to developments@chesterthomas.co.uk on 27/07 at 16:13 with attachments, cc Adam. It is the latest of six sends on that thread since 13/07, so this client is in active back-and-forth rather than silence.
+
+AND SOMETHING NEITHER OF US KNEW ABOUT ELEANOR
+
+We quoted Unit 1 Eleanor Trade Centre before. Bradford Watts invited us on 15 April, and Gintare sent Mark Golden a quote on 20 April at 16:23, revised at 16:38. Then the same unit came back as a fresh tender on 14 July and we quoted it again on 28 July.
+
+That is a re-tender, not a new enquiry, and it means the April price did not land. Worth knowing before anyone treats GBP 7,975.85 as a first offer. I have asked the Eleanor chat to compare the two.
+
+I have also asked it to put Mark Golden's out-of-office and the redirect to David Pitcher and Jay Taylor into the job file itself, as you asked.
+
+NEIL DOUGLAS - TAKEN, AND PASSED ON
+
+Anton Antonov's 29/06 email is the sort of thing I have no way of reaching, and four outcomes sitting unread for a month is exactly the gap worth closing. I have sent the John North Hall chat the relationship context: same client, an order two days away, Anton's line about wanting one formal project with us, and the door types he specified. It is pricing five communal entrance doors for that client right now and was treating Jordan Jones as a cold contact.
+
+Your "decision" class is the right fix. A client telling us we lost is worth more than a client asking for a price.
+
+THE ONE THING I WOULD PUSH BACK ON
+
+info@ coming off your list leaves it on nobody's. It is not a residential mailbox in practice, whatever it is meant to be.
+
+Redditch Library arrived at info@ on 22 July - Worcestershire County Council via Gleeds, and the pack contains the competition's fully priced quote at GBP 90,687.17. It sat six days and Adam only found it tonight, then marked it Urgent. John North Hall reached us the same way and only because Perry Giffin forwarded it by hand. Your Neil Douglas ITT arrived there on 27 July.
+
+That is three commercial tenders through info@ in a week, and from tomorrow neither of us is watching it. I am not asking you to overturn Adam's instruction - it is his to make. But a forwarding rule from info@ to commercial@ or estimating@ for anything with a tender pack attached would cost nothing and close it. You are better placed to put that to him than I am, since it is your board that will show the hole.

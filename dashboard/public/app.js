@@ -380,9 +380,13 @@ const JACOB_PAGES = [
   // do, not a summary of what was found; Enquiries and Chasing are the two
   // places money is either won or quietly lost; everything else is reference.
   { key: "overview", label: "Today", group: "Work", sub: () => `${jActions().length} things to do, most urgent first` },
-  { key: "enquiries", label: "Enquiries", group: "Work", sub: () => `${JACOB?.totals.buyers || 0} live conversations with a buyer, out of ${JACOB?.totals.signals || 0} raw messages` },
+  // Chasing sits second on purpose. A quote already out is money Fenster has
+  // spent and can still lose; an enquiry is money it has not spent yet.
   { key: "chasing", label: "Chasing", group: "Work", sub: () => `${quotesWaiting().length} quotes past their return date, ${JACOB?.totals.quietBuyers || 0} enquiries gone quiet` },
+  { key: "enquiries", label: "Enquiries", group: "Work", sub: () => `${JACOB?.totals.buyers || 0} live conversations with a buyer, out of ${JACOB?.totals.signals || 0} raw messages` },
+  { key: "tenders", label: "Out to bid", group: "Work", sub: () => `${JACOB?.totals.tenders || 0} contracts still open, ${JACOB?.totals.tendersClosing || 0} closing inside a week` },
   { key: "leads", label: "Leads", group: "Work", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} winners Fenster knows, ${JACOB?.totals.cold || 0} it does not` },
+  { key: "outcomes", label: "What we win", group: "Work", sub: () => JACOB?.outcomes ? `${JACOB.outcomes.summary.won} won, ${JACOB.outcomes.summary.lost} lost - a ${JACOB.outcomes.summary.winRate}% win rate over two years` : "The Opportunity Log has not been read yet" },
   { key: "companies", label: "Companies", group: "People", sub: () => `${JACOB?.relationships.total || 0} companies, ${JACOB?.totals.dormantWon || 0} who have paid us and gone silent` },
   { key: "jayk", label: "Jayk's book", group: "People", sub: () => `${JACOB?.totals.jaykContacts || 0} contacts recovered from the former BDM` },
   { key: "jmessages", label: "Messages", group: "Talk", sub: () => "Two-way line with Jacob" },
@@ -560,9 +564,10 @@ const JACOB_RENDER = {
     return `
       <div class="stats">
         <div class="stat ${mine("Adam") ? "red" : "green"}"><div class="n">${mine("Adam")}</div><div class="l">Waiting on Adam - a call or a decision</div></div>
-        <div class="stat amber" data-go="enquiries"><div class="n">${t.liveBuyers}</div><div class="l">Buyers mid-conversation right now</div></div>
         <div class="stat amber" data-go="chasing"><div class="n">${gbpShort(outValue)}</div><div class="l">Quoted and waiting on an answer</div></div>
-        <div class="stat" data-go="leads"><div class="n">${gbpShort(t.knownWinnerValue)}</div><div class="l">Live contracts won by companies we know</div></div>
+        <div class="stat amber" data-go="enquiries"><div class="n">${t.liveBuyers}</div><div class="l">Buyers mid-conversation right now</div></div>
+        <div class="stat ${t.tendersClosing ? "red" : ""}" data-go="tenders"><div class="n">${t.tenders || 0}</div><div class="l">Contracts still out to bid, ${t.tendersClosing || 0} closing this week</div></div>
+        <div class="stat" data-go="outcomes"><div class="n">${t.winRate ?? "-"}%</div><div class="l">Win rate, and nothing won over ${gbpShort(t.noWinAbove)}</div></div>
         <div class="stat amber" data-go="companies"><div class="n">${t.dormantWon}</div><div class="l">Have paid Fenster, silent 180 days</div></div>
       </div>
 
@@ -575,7 +580,15 @@ const JACOB_RENDER = {
           <p><strong>Whether anyone has already replied.</strong> Mailbox intake reads
           received mail only, so an enquiry Gintare answered an hour ago looks exactly like
           one nobody has touched. Every "check for a reply, then call" above exists because
-          of that gap. <a data-go="decisions">JAC-5</a> asks for sent items.</p>
+          of that gap. <a data-go="decisions">JAC-5</a> asks for sent items. Mary confirmed
+          the same problem from her side on 28/07: two quotes on the Chasing page were dated
+          ten and seven days too early, because a return date was being read as a send date.</p>
+          ${(t.mailExcluded || []).length ? `<p><strong>info@ is off the list.</strong>
+          ${(t.mailExcluded || []).map((m) => `${esc(m.mailbox)} - ${esc(m.why)}`).join("; ")}.
+          That is Adam's instruction of 28/07 and it removes about three quarters of the raw
+          message volume, nearly all of it residential. The one thing it also removes is
+          portal notices: 79 of 88 arrived at info@. All 79 were Hightown, who are
+          do-not-quote, so nothing is lost today - see <a data-go="sources">JAC-7</a>.</p>` : ""}
           <p><strong>Anything private-sector before it is awarded.</strong> All the free feeds
           are public procurement. Stepnell, Borras, Chigwell and Guildmore - four of Fenster's
           real clients - appear in none of them.</p>
@@ -592,6 +605,7 @@ const JACOB_RENDER = {
         <td class="job-cell"><strong>${esc(t.person || t.company)}</strong>
           <small>${esc(t.person ? t.company : t.contact)} &middot; ${t.messages} msg${t.messages === 1 ? "" : "s"} &middot; last ${esc(t.last)}</small></td>
         <td>${esc(t.subject)}
+          ${t.stage === "decided" ? ` <span class="pill exact">they have answered</span>` : ""}
           ${t.relationship !== "unknown" ? ` <span class="pill ${t.relationship === "won" ? "exact" : "strong"}">${esc(t.relationship)}</span>` : ""}
           ${job ? ` <span class="pill live">Mary has this</span>` : ""}</td>
         <td>${stateChip(t)}<small class="dim">${t.days}d</small></td>
@@ -612,8 +626,17 @@ const JACOB_RENDER = {
     const quiet = buyers.filter((t) => ["gone quiet", "stale"].includes(t.state));
     const portal = T.filter((t) => t.kind === "portal");
     const other = T.filter((t) => ["supplier", "domestic"].includes(t.kind));
+    const decided = buyers.filter((t) => t.stage === "decided");
     const t = JACOB.totals;
     return `
+      ${decided.length ? `<div class="section"><div class="section-head"><h3>They have told us the answer</h3>
+        <span class="page-sub">Won or lost, somebody has said what happened - nothing else on this board is that certain</span></div>
+        <div class="planned-note">These were being filed as ordinary correspondence. A client
+        writing "the works were awarded to an alternative contractor" or "we can proceed with
+        Fenster Glazing" uses none of the words a quote request uses, so the classifier never
+        saw them. Each one of these also closes or corrects a row in the Opportunity Log.</div>
+        ${this._threadRows(decided)}</div>` : ""}
+
       <div class="section"><div class="section-head"><h3>Buyers, mid-conversation</h3></div>
         ${open.length ? this._threadRows(open) : `<div class="empty"><strong>Nothing open</strong></div>`}</div>
 
@@ -626,18 +649,22 @@ const JACOB_RENDER = {
 
       <div class="section"><div class="section-head"><h3>Why this list is short</h3></div>
         <div class="planned-note">
-          <p>The mailboxes produced <strong>${t.signals}</strong> messages the classifier called
-          enquiries. They are <strong>${t.threads}</strong> conversations, and only
-          <strong>${t.buyers}</strong> of those are a buyer asking Fenster for something.</p>
-          <p>The rest: <strong>${t.supplierThreads}</strong> are fabricators and glass suppliers
-          <em>replying to Fenster</em> - a subject line like "Fenster Glazing - Quote - Raj" is
-          Fenster asking Truframe for a price, not Truframe asking us for one. Counting those as
-          leads inflates the number by two thirds and points Adam at his own supply chain.
-          <strong>${t.domestic}</strong> are householders replying to quotes Fenster has already
-          issued - real work, but Gintare's, not business development.</p>
+          <p>One mailbox now, not four. Adam took info@ off the list on 28/07 - it belongs to
+          the residential team and anything commercial gets forwarded to commercial@. That
+          removed about three quarters of the raw volume, and it was the right call: 22% of the
+          senders in info@ were hotmail and gmail addresses, against 4% in commercial@.</p>
+          <p>What is left produced <strong>${t.signals}</strong> signals over 180 days. They are
+          <strong>${t.threads}</strong> conversations, and <strong>${t.buyers}</strong> of those
+          are a buyer asking Fenster for something. The board shows the last
+          <strong>${t.boardDays}</strong> days of them; ${t.signalsOlder} older signals are held
+          back rather than deleted.</p>
+          <p>Suppliers (<strong>${t.supplierThreads}</strong>) and householders
+          (<strong>${t.domestic}</strong>) are listed at the bottom so the count adds up. A
+          subject line like "Fenster Glazing - Quote - Raj" is Fenster asking Truframe for a
+          price, not Truframe asking us for one - counting those as leads points Adam at his
+          own supply chain.</p>
           <p>A hundred names nobody will ever call is worse than three companies with a live
-          project and a person who knows us. The permanent fix belongs in
-          <code>jacob_intake.py</code>'s classifier; today it is done here.</p>
+          project and a person who knows us.</p>
         </div></div>
 
       ${other.length ? `<div class="section"><div class="section-head"><h3>Not enquiries - listed so the count adds up</h3></div>
@@ -680,6 +707,162 @@ const JACOB_RENDER = {
           : `<div class="empty"><strong>None</strong>Every buyer who wrote in has been answered inside ten days.</div>`}</div>`;
   },
 
+  /* ------------------------------------------------ out to bid
+     The only stage at which a subcontractor can still get onto an enquiry
+     list. Sorted by closing date and nothing else - a big one closing in six
+     weeks is worth less than a small one closing on Friday, because the list
+     on the small one is being drawn up now. */
+  tenders() {
+    if (!JACOB.tenders) {
+      return `<div class="planned-note">The tender feed has not run yet.
+        <code>python scripts/jacob_tenders.py</code></div>`;
+    }
+    const rows = JACOB.tenders.filter((t) => !jShut(t));
+    const direct = rows.filter((t) => t.tier === "direct");
+    const main = rows.filter((t) => t.tier === "main-contract");
+    const loose = rows.filter((t) => t.tier === "text-only");
+    const f = JACOB.tenderFeed || {};
+    const tbl = (list, empty) => list.length ? `<table class="tbl"><thead><tr>
+        <th>Closes</th><th>What it is</th><th>Buyer</th><th>Value</th>
+        <th>Next action</th><th>Owner</th></tr></thead><tbody>
+      ${list.map((t) => `<tr data-jkey="${esc(t.key)}">
+        <td class="num"><strong>${esc(t.closes) || "no date"}</strong>
+          ${t.daysLeft !== null && t.daysLeft !== undefined
+            ? `<small class="dim">${t.daysLeft}d left</small>` : ""}</td>
+        <td class="job-cell"><strong>${t.url ? `<a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.title)}</a>` : esc(t.title)}</strong>
+          <small>${esc(t.why)}${t.regions?.length ? ` &middot; ${esc(t.regions[0])}` : ""}</small></td>
+        <td>${esc(t.buyer)}${t.record ? ` <span class="pill ${t.record.won ? "exact" : "strong"}">${t.record.won}W ${t.record.lost}L with us</span>` : ""}</td>
+        <td class="money">${gbp(t.value)}
+          ${t.fit?.note ? `<small class="dim">${esc(t.fit.note)}</small>` : ""}</td>
+        <td style="max-width:320px">${inline(jNext(t))}</td>
+        <td>${ownerTag(t)}</td></tr>`).join("")}
+      </tbody></table>` : `<div class="empty"><strong>${empty}</strong></div>`;
+
+    return `
+      <div class="section"><div class="section-head"><h3>Fenster can price these itself</h3>
+        <span class="page-sub">The buyer is asking for glazing work by name</span></div>
+        <div class="planned-note">Matched on the CPV codes Adam gave on 28/07/2026.
+        These are the only notices where Fenster is the contractor being asked, rather than
+        a package inside somebody else's contract.</div>
+        ${tbl(direct, "Nothing open in this tier today")}</div>
+
+      <div class="section"><div class="section-head"><h3>Main contracts with a glazing package in them</h3>
+        <span class="page-sub">Fenster cannot bid these - the job is finding who is</span></div>
+        ${tbl(main, "Nothing open in this tier today")}</div>
+
+      ${loose.length ? `<div class="section"><div class="section-head"><h3>Matched on wording only - read before acting</h3></div>
+        <div class="planned-note">No useful CPV code, so these matched on the words in the
+        notice. Words lie: keyword matching has previously returned window <em>cleaning</em>,
+        STI <em>screening</em>, and one contract that matched only on the phrase "the front
+        door to maternity services".</div>
+        ${tbl(loose, "None")}</div>` : ""}
+
+      <div class="section"><div class="section-head"><h3>How thin this feed really is</h3></div>
+        <div class="planned-note">
+          <p>Contracts Finder publishes roughly <strong>eleven</strong> tender-stage notices a
+          day across every sector, against about <strong>110</strong> award notices. Over
+          ${esc(f.from || "the window")} to today, ${Object.entries(f.sources || {}).map(([k, v]) =>
+            `<strong>${esc(k)}</strong> returned ${v.releases ?? "?"} releases`).join(", ")},
+          and <strong>${rows.length}</strong> of them survived the filter.</p>
+          <p>That is not a bug and it is not a small number for the wrong reason: almost
+          nothing Fenster actually wins is publicly advertised, because it is a subcontractor.
+          This feed is worth running because the few it finds are live, not because it is
+          where the work is. The work is in the mailbox and in who is bidding.</p>
+        </div></div>`;
+  },
+
+  /* ------------------------------------------------ what we win */
+  outcomes() {
+    if (!JACOB.outcomes) {
+      return `<div class="planned-note">The Opportunity Log has not been read yet.
+        <code>python scripts/jacob_outcomes.py</code></div>`;
+    }
+    const o = JACOB.outcomes;
+    const s = o.summary;
+    const conv = o.clients.filter((c) => c.decided >= 3);
+    const open = o.openThisYear || [];
+    return `
+      <div class="stats">
+        <div class="stat green"><div class="n">${s.winRate}%</div><div class="l">Win rate over ${s.decided} decided outcomes</div></div>
+        <div class="stat"><div class="n">${gbpShort(s.wonMedian)}</div><div class="l">Median job Fenster wins</div></div>
+        <div class="stat red"><div class="n">${gbpShort(s.lostMedian)}</div><div class="l">Median job Fenster loses</div></div>
+        <div class="stat red"><div class="n">${s.lostAboveThat}</div><div class="l">Tried and lost above ${gbpShort(s.noWinAbove)} - none won</div></div>
+        <div class="stat amber"><div class="n">${open.length}</div><div class="l">Still open on this year's sheet</div></div>
+      </div>
+
+      <div class="section"><div class="section-head"><h3>The one number that should change what we chase</h3></div>
+        <div class="planned-note">
+          <p>Fenster has never won a job over <strong>${gbp(s.noWinAbove)}</strong>.
+          ${s.lostAboveThat} were priced and ${s.lostAboveThat} were lost. The biggest job it
+          has won in two years is <strong>${gbp(s.biggestWon)}</strong>, and the median win is
+          <strong>${gbp(s.wonMedian)}</strong>.</p>
+          <p>That is the opposite of how this board used to rank things, and the opposite of
+          most of what has been pointed at it - GBP 20m academies, national frameworks. Value
+          now buys a row a warning, not a place at the top.</p>
+          <p class="dim">Value is filled on ${s.valueFilled} of ${o.rows} rows, so the bands
+          below describe the rows that carry a number, not every enquiry.</p>
+        </div>
+        <table class="tbl"><thead><tr><th>Job size</th><th>Won</th><th>Lost</th><th>Win rate</th></tr></thead><tbody>
+        ${o.bands.map((b) => `<tr>
+          <td><strong>${esc(b.label)}</strong></td>
+          <td class="num">${b.won}</td><td class="num">${b.lost}</td>
+          <td class="num">${b.winRate === null ? "-" : `${Math.round(b.winRate)}%`}
+            ${b.decided && !b.won ? ` <span class="pill planned">never</span>` : ""}</td>
+        </tr>`).join("")}
+        </tbody></table></div>
+
+      <div class="section"><div class="section-head"><h3>Clients Fenster actually converts</h3>
+        <span class="page-sub">Three or more decided outcomes, so it is a pattern and not a coincidence</span></div>
+        <table class="tbl"><thead><tr>
+          <th>Client</th><th>Won</th><th>Lost</th><th>Rate</th><th>Still open</th><th>Last enquiry</th></tr></thead><tbody>
+        ${conv.map((c) => `<tr>
+          <td class="job-cell"><strong>${esc(c.client)}</strong>
+            <small>${esc((c.projects || []).slice(0, 2).join(" &middot; "))}</small></td>
+          <td class="num">${c.won}</td><td class="num">${c.lost}</td>
+          <td class="num"><span class="chip ${c.winRate >= 50 ? "ok" : c.winRate >= 20 ? "warn" : "danger"}">${Math.round(c.winRate)}%</span></td>
+          <td class="num">${c.open || "-"}</td>
+          <td class="num">${esc(c.lastEnquiry) || "-"}</td></tr>`).join("")}
+        </tbody></table></div>
+
+      <div class="section"><div class="section-head"><h3>Why we lose</h3>
+        <span class="pill planned">legend unconfirmed</span></div>
+        <div class="planned-note">${esc(o.lostLegend?.note || "")}
+        The legend is ${esc(o.lostLegend?.status || "unknown")}.</div>
+        <table class="tbl"><thead><tr>
+          <th>Code</th><th>Rows</th><th>Share of losses</th><th>What the notes on those rows say</th><th>Confidence</th></tr></thead><tbody>
+        ${o.lostReasons.map((r) => `<tr>
+          <td><strong>${esc(r.code)}</strong></td>
+          <td class="num">${r.count}</td><td class="num">${r.shareOfLosses}%</td>
+          <td style="max-width:420px">${esc(r.reading)}<small class="dim">${esc(r.evidence)}</small></td>
+          <td><span class="chip ${r.confidence === "high" ? "ok" : r.confidence === "low" ? "danger" : "warn"}">${esc(r.confidence)}</span></td>
+        </tr>`).join("")}
+        </tbody></table></div>
+
+      <div class="section"><div class="section-head"><h3>Still open on this year's sheet</h3>
+        <span class="page-sub">Fenster's own record of quotes with no outcome written against them</span></div>
+        <div class="planned-note">These are not analysis. They are ${open.length} enquiries the
+        BD log says are still live, and
+        <strong>${open.filter((r) => !r.chased).length}</strong> of them have nothing in the
+        Chased column. The same column was filled
+        ${(o.chased || []).map((c) => `${c.pct}% of the time in ${esc(c.sheet)}`).join(", ")} -
+        that is a habit that stopped, not a business that got quieter.</div>
+        <table class="tbl"><thead><tr>
+          <th>Client</th><th>Project</th><th>Value</th><th>Quote returned</th><th>Chased?</th></tr></thead><tbody>
+        ${open.slice(0, 60).map((r) => `<tr>
+          <td><strong>${esc(r.client)}</strong></td>
+          <td>${esc(r.project)}<small class="dim">${esc(r.notes || "")}</small></td>
+          <td class="money">${gbp(r.value)}</td>
+          <td class="num">${esc(r.returned) || "not recorded"}</td>
+          <td>${r.chased ? `<span class="chip ok">yes</span>` : `<span class="chip danger">no</span>`}</td>
+        </tr>`).join("")}
+        </tbody></table></div>
+
+      <div class="section"><div class="section-head"><h3>Where this comes from</h3></div>
+        <div class="planned-note">${esc(o.source)}. Read-only: the workbook is copied into
+        <code>test-results\\jacob-bd\\</code> and opened from the copy, because Gintare, Adam
+        and Steve are working in that drive. Last read ${esc((o.updated || "").slice(0, 16))}.</div></div>`;
+  },
+
   /* ------------------------------------------------ leads */
   _leadTable(rows, showClient) {
     if (!rows.length) return `<div class="empty"><strong>Nothing here yet</strong></div>`;
@@ -690,7 +873,8 @@ const JACOB_RENDER = {
         <td class="job-cell"><strong>${esc(r.supplier)}</strong><small>awarded ${esc(r.awarded) || "date not published"}</small></td>
         ${showClient ? `<td>${esc(r.client)} <span class="pill ${r.confidence}">${r.confidence}</span></td>` : ""}
         <td>${esc(r.title)}</td>
-        <td class="money">${gbp(r.total || r.value)}</td>
+        <td class="money">${gbp(r.total || r.value)}
+          ${r.fit?.note ? `<small class="dim">${esc(r.fit.note)}</small>` : ""}</td>
         <td>${esc(r.area) || "-"}</td>
         ${showClient ? `<td style="max-width:300px">${inline(jNext(r))}</td><td>${ownerTag(r)}</td>`
                      : `<td>${esc(r.awarded) || "-"}</td>`}</tr>`).join("")}
