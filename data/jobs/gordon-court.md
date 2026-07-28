@@ -1690,6 +1690,69 @@ opening, and both are over.**
 
 ---
 
+---
+
+## 4P. EIGHTEENTH TURN (28/07) — clause 16 splits the findings into ours-to-fix and ours-to-ask
+
+riverside audited their own sources after my withdrawal and found they had reported *"the OneDrive job folder
+is empty"* five times off a search against a folder name that does not exist — **a failed search is not
+evidence of absence.** Following the rule properly, they then compared the real cover letter against the
+template extraction and found **the extraction was faithful but half the length**, missing the clause that
+mattered most to them.
+
+### 4P.1 The docx-versus-PDF check on my job — no discrepancy, and one false alarm of my own
+
+Compared `Chigwell Group - Gordon Court Proposal.docx` (56 paragraphs + 5 tables, 15,708 chars) against the
+issued PDF (10 pages, 15,893 chars). **They match.** I briefly flagged *"structural openings are fully formed"*
+as being in the docx and not the PDF — **that was my own extraction artefact**, not a finding: the two-column
+inclusions/exclusions table interleaves the text, so the phrase reads *"Site Survey — Only conducted once the
+structural openings **Fire Stopping — To be done by others, if required** are fully formed"*. Same trap as the
+door schedules. Stated because I nearly reported it.
+
+### 4P.2 But their second clause IS in my proposal, and I have never quoted it
+
+**Terms and Conditions, clause 16 — in the issued PDF and the docx:**
+
+> ***"16. Design Responsibility** — Fenster Glazing & Locks Ltd is not responsible for overall design intent,
+> architectural suitability, or **regulatory strategy** and relies on information, drawings, and specifications
+> provided by the client or their professional team. **Responsibility is limited to measurement verification,
+> supply, and installation of the agreed glazing systems.**"*
+
+Eighteen turns and I had not read it. It creates a **third sort** over the findings — distinct from
+priced/benchmark/unpriceable and rate/quantity: **whose responsibility is it under our own terms?**
+
+| Under clause 16 | Findings |
+|---|---|
+| **Regulatory strategy — theirs; we rely on their professional team** | which duty the AOVs serve (1.5 m² vs 0.4 m²) · whether the smoke-shaft omission removes the louvres · the 1.10 W/m²K and 0.36 g-value targets · PAS 24 · trickle vents at 8000mm² · acoustic vents · manifestation extent (Approved Doc K) |
+| **Expressly OURS — the same clause retains it** | **measurement verification** → the six dimensional discrepancies · **supply of the agreed glazing systems** → whether we quoted the specified product |
+
+### 4P.3 The distinction that stops this being a get-out
+
+**The AOV finding splits in two, and only half is qualified:**
+
+- *"Is 1.5 m² the right duty, and is it a wall or a roof vent?"* — **regulatory strategy. Theirs.** We rely on
+  the client's professional team, and asking is still right — but the exposure is *"we relied and we asked"*,
+  not *"we supplied a non-compliant vent"*.
+- *"Did we quote the specified product?"* — **supply. Ours.** BSW quoted a plain Prestige T&T and a plain
+  casement where the NBS names a **Colt motorised ventilator** with a 24V actuator. **That is a supply failure
+  and clause 16 does not touch it.**
+
+The same split runs through the thermal findings: *"is 1.10 the right target?"* is theirs; *"has our supplier
+stated a whole-window Uw at all?"* is ours to ask and ours to obtain.
+
+### 4P.4 And it tightens rather than loosens the dimensional findings
+
+Clause 16 **expressly retains measurement verification as our responsibility.** So the six dimensional
+discrepancies (§4O.2) are unambiguously ours — and riverside's survey-clause point from last turn needs
+tempering accordingly: **the survey makes them fixable, it does not make them somebody else's.** Our own terms
+assign them to us twice over, in clause 2 (*"subject to final site survey and measurement verification"*) and
+clause 16 (*"responsibility is limited to measurement verification…"*).
+
+**Practical effect on the two RFQs:** *ours-to-fix* items belong in the BSW and AFS RFQs (REQ-26); *theirs*
+items belong in the post-tender qualification to Chigwell, framed as reliance rather than as defects.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

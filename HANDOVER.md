@@ -3101,6 +3101,56 @@ there, reconciling the total hid a missing quantity; here it hid a wrong dimensi
 Manifest 32 spec_items; run now **4 FAIL, 2 ASK**.
 
 
+### Gordon Court - eighteenth turn: clause 16 splits every finding into ours-to-fix and ours-to-ask (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**THEIR AUDIT:** they had reported *"the OneDrive job folder is empty"* five times off a search against a folder
+name that does not exist - **a failed search is not evidence of absence**. Following the rule properly they then
+compared the real cover letter against `templates/proposal-content.json` and found the extraction **faithful but
+half the length** (76 paragraphs against 153), missing the clause that mattered most to them. **An extraction can
+be faithful and still incomplete.**
+
+**RAN THE SAME CHECK HERE - CLEAN.** Proposal `.docx` (56 paragraphs + 5 tables, 15,708 chars) against the issued
+`.pdf` (15,893). They match. **And one false alarm of my own, stated because I nearly posted it:** I briefly had
+*"structural openings are fully formed"* as docx-only. It is in both - the two-column inclusions/exclusions table
+interleaves the text, so it reads *"Site Survey - Only conducted once the structural openings **Fire Stopping -
+To be done by others** are fully formed"*. My own extraction artefact, the same trap the door schedules set on
+turn one.
+
+**BUT THEIR CLAUSE IS IN MY PROPOSAL TOO, AND I HAD NOT READ IT IN EIGHTEEN TURNS:**
+
+> ***"16. Design Responsibility** - Fenster Glazing & Locks Ltd is not responsible for overall design intent,
+> architectural suitability, or **regulatory strategy** and relies on information, drawings, and specifications
+> provided by the client or their professional team. **Responsibility is limited to measurement verification,
+> supply, and installation of the agreed glazing systems.**"*
+
+**IT IS A THIRD SORT, AND IT ANSWERS A DIFFERENT QUESTION FROM THE OTHER TWO.** Priced/benchmark/unpriceable
+tells you what you can cost; rate-versus-quantity tells you who to ask; **this tells you whose responsibility it
+is under our own terms - and therefore whether a finding belongs in a supplier RFQ or a client qualification.**
+
+| Under clause 16 | Findings |
+|---|---|
+| **Regulatory strategy - theirs, we rely** | which duty the AOVs serve · whether the smoke-shaft omission removes the louvres · the 1.10 W/m2K and 0.36 g-value targets · PAS 24 · 8000mm2 trickle vents · acoustic vents · manifestation extent |
+| **Expressly OURS, retained by the same clause** | **measurement verification** -> the six dimensional discrepancies · **supply of the agreed glazing systems** -> whether we quoted the specified product |
+
+**AND IT IS NOT A GET-OUT - the AOV shows why it splits.** *"Is 1.5 m2 the right duty, wall or roof?"* is
+regulatory strategy and **theirs**, so the exposure is *"we relied and we asked"*. *"Did we quote the specified
+product?"* is **supply and ours** - BSW quoted a plain Prestige T&T and a plain casement where the NBS names a
+**Colt motorised ventilator with a 24V actuator**, and clause 16 does not touch that. Same split on thermal: the
+1.10 target is theirs; obtaining a whole-window Uw from our supplier is ours.
+
+**AND IT TIGHTENS THE DIMENSIONAL FINDINGS RATHER THAN LOOSENING THEM.** Clause 16 expressly *retains*
+measurement verification, so the six discrepancies are ours twice over - clause 2 (*"subject to final site survey
+and measurement verification"*) and clause 16. **The survey makes them fixable; it does not make them somebody
+else's.** Tempering what I took from riverside last turn.
+
+**Practical effect:** ours-to-fix -> the BSW and AFS RFQs (REQ-26); theirs -> the post-tender qualification to
+Chigwell, framed as **reliance** rather than as defects. Two documents, two tones.
+
+Manifest 33 spec_items; run unchanged at **4 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
