@@ -49,6 +49,9 @@ MAIL_EVERY = 120         # seconds - Microsoft Graph
 TOKEN_MAX_AGE = 45 * 60  # seconds - Graph tokens last an hour; renew before that
 TICK = 2
 MAX_ATTEMPTS = 3         # per work order before it is quarantined
+# Consecutive runs a chat may have on handoffs alone, with no new work order.
+# Resets the moment real work arrives for it.
+MAX_HANDOFF_RUNS = 3
 SESSION_TIMEOUT = 90 * 60
 # A session that dies in under a minute did not do any work - that is a usage
 # limit or a broken CLI, and retrying instantly would just hammer the API.
@@ -318,7 +321,19 @@ def dispatch(key, orders, reg, bst, dry_run=False):
     except subprocess.TimeoutExpired:
         log("  [%s] session TIMED OUT after %ds" % (key, SESSION_TIMEOUT))
     except Exception as e:
-        log("  [%s] SESSION LAUNCH FAILED: %s" % (key, e))
+        # A launch that never starts costs no tokens, which is exactly why this
+        # went unnoticed: on 27/07 an over-long prompt failed to launch 1,637
+        # times in a row at two-second intervals, and Mary was frozen all night
+        # while the log filled up. Treat it like any other fast failure and back
+        # off, so a broken launch is loud and slow instead of silent and fast.
+        fast_fail = True
+        bst["fails"] = bst.get("fails", 0) + 1
+        wait = BACKOFF[min(bst["fails"] - 1, len(BACKOFF) - 1)]
+        bst["backoff_until"] = time.time() + wait
+        log("  [%s] SESSION LAUNCH FAILED (#%d, backing off %ds): %s"
+            % (key, bst["fails"], wait, e))
+        write_status("backoff", key, len(orders), "launch failed - retrying in %ds" % wait,
+                     title=title)
     finally:
         if os.path.exists(LOCK):
             os.remove(LOCK)
@@ -417,14 +432,31 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
     # job's finding reaches another.
     if not groups:
         for key in list(reg["chats"].keys()) + [router.TRIAGE]:
-            if note.pending_handoffs(key):
-                groups = [(key, [])]
-                break
+            if not note.pending_handoffs(key):
+                continue
+            # Two chats can hand off to each other forever. Overnight on
+            # 27/07 riverside and gordon-court did exactly that: 1,670
+            # dispatches with ZERO work orders, 12.7 hours of sessions
+            # re-auditing the same two jobs, because nothing new was arriving
+            # and a handoff always looked like a reason to run again. A chat
+            # gets a limited number of turns on handoffs alone before it has
+            # to wait for real work.
+            spent = bst.setdefault("handoff_runs", {}).get(key, 0)
+            if spent >= MAX_HANDOFF_RUNS:
+                continue
+            groups = [(key, [])]
+            break
     if not groups:
         write_status("idle", None, 0)
         return TICK
 
     key, group = groups[0]
+    # Track handoff-only turns, and forgive them as soon as real work lands.
+    runs = bst.setdefault("handoff_runs", {})
+    if group:
+        runs.pop(key, None)
+    else:
+        runs[key] = runs.get(key, 0) + 1
     if dry_run:
         dispatch(key, group, reg, bst, dry_run=True)
         return 0
@@ -463,6 +495,20 @@ def main():
         state["_token_at"] = time.time()
     except Exception as e:
         log("BRIDGE start: no Graph token yet (%s) - dashboard still works" % e)
+
+    # Exactly one bridge. The scheduled task's five-minute "restart if dead"
+    # heartbeat, plus manual restarts that leave the old pythonw alive, put TWO
+    # bridges up on 28/07 - both polling, both dispatching, every dashboard
+    # message queued twice.
+    if os.path.exists(PIDFILE):
+        try:
+            with open(PIDFILE) as fh:
+                other = int((fh.read() or "0").strip() or 0)
+        except Exception:
+            other = 0
+        if other and other != os.getpid() and mp.pid_alive(other):
+            log("bridge %d is already running - this instance is standing down" % other)
+            return 0
 
     with open(PIDFILE, "w") as fh:
         fh.write(str(os.getpid()))

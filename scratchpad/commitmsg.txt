@@ -1,38 +1,42 @@
-The three documents are drafted, split by clause 16
+We do offer secondary glazing, and the archive had a price after all
 
-riverside verified the clause numbering independently - twenty clauses, 2 is
-Quotation Validity and 16 is Design Responsibility - so we now have it from two
-documents. They applied the sort to their own brief with the reasoning printed at
-the foot of it.
+Adam called Storm and came back: there is secondary glazing on the job, and
+"please bear in mind we do offer secondary glazing". So it is a capability rather
+than something to refer out, and there is scope on Hammersmith as well as the
+Maternity Assessment Unit.
 
-The equivalent here was overdue. REQ-26 had nine days on it and no text behind
-it, which is exactly what st-marys warned about earlier: on a deadline you draft
-the deliverable before the decision comes back, not after. So there are now three
-drafts in outputs - an RFQ to BSW to send by 6 August when their quotes lapse, an
-RFQ to AFS by the 8th, and post-tender queries to Chigwell that can wait until
-September.
+I said yesterday there was nothing to benchmark it against. The rate register is
+still empty on it - 80 categories, none - but the archive is not. Cranborne House
+in Potters Bar, October 2025, holds a competitor's quote for the same work: five
+windows at 2500 x 3600, 45.00 m2, GBP 17,420 ex VAT, which is GBP 387.11/m2 supply
+and fit. Recorded with the caveats that matter more than the number - it is a
+competitor's sell rather than our cost, the spec is timber subframes with magnetic
+removable panels and no acoustic or thermal rating, the sizes came off a video
+call, painting is excluded and weekend working is included. A hospital unit will
+want aluminium-framed acoustic panels, so it is a floor for the cheapest solution
+and not a rate.
 
-They are split by clause 16 and each carries its reasoning at the head, so
-whoever sends them knows why the tone differs. The supplier letters take what our
-own terms make ours: measurement verification, supply of the agreed glazing
-systems, and figures the supplier holds and we do not. The Chigwell letter takes
-what the clause puts on the client's professional team, worded as questions and
-reliances rather than defects.
+Also checked and rejected the obvious false lead, because the filename will come up
+in any future search: "OLICAT - St Thomas Secondary Glazing Quotation.pdf" is not
+secondary glazing. Secondary is the school. The document contains no occurrence of
+the phrase and prices replacement work including removal of old frames.
 
-Writing them is where the sort earned its keep. Agreeing with clause 16 in the
-abstract is easy; drafting forces each finding into one document or the other, in
-words. The biggest finding ended up in both, split - to BSW an instruction about
-a product we buy, to Chigwell a question about a duty we do not set.
+Steve has put the full Manor Lodge door spec to AFS - RAL 7021 30% gloss, external
+half-cylinder linked to internal panic hardware, 600mm cranked handle, soft-touch
+panic pad, 30 minute rating, fob entry and push to exit - and asked whether panic
+gear is needed at all given the push-to-exit. That supersedes the 900 against
+920mm push-bar problem, since a pad needs less leaf width than a bar. Handover row
+updated; still watched rather than priced.
 
-Two drafting choices worth keeping. Ask a supplier what they priced against
-rather than why they got it wrong: the AFS door is quoted 100mm taller than the
-opening, but our source is the same never-revised schedule that still shows a
-deleted smoke shaft, so the letter says we accept the schedule may be wrong
-rather than the quotation. And when a decision has been taken, say so in the
-document: the Chigwell draft states we will honour the tendered figure per Adam's
-ruling, and raises our own 30-day validity only to put it on record. A draft that
-quietly reopens a decision its author accepted is worse than no draft.
+One thing picked up in passing that was not mine to handle but was worth
+broadcasting. Adam's reply to Guildmore states the house position to a client:
+strip out of old frames is allowed for, disposal and skips are not. That settles a
+question St Mary's and Gordon Court have both been carrying. But John North Hall's
+ITT expressly requires disposal and a waste carrier licence, so the standard
+exclusion would contradict the client's own document there - flagged to that chat
+rather than left to be applied blind.
 
-Nothing is sent. A human issues all three.
+The Autodesk mailer is noise. The other three queue items belong to Princess
+Beatrice and Lower Range, route correctly, and were left in place.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
