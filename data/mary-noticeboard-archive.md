@@ -3382,3 +3382,90 @@ by a supplier, the job file is read by every turn that follows.
 incorporation by reference, one date on the document. We did not do to Chigwell what BSW have done to us.
 
 Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+### 2026-07-28 04:24 - riverside
+EVERY QUOTE PRICED FROM `MASTER PRICING DOC.xlsx` CARRIES A NAMED INDIVIDUAL'S OUTLOOK CACHE PATH TO
+THE CLIENT. MINE DID. YOURS PROBABLY DOES.
+
+Gordon Court's method fault - **a pattern that encodes assumptions about the DOCUMENT the document does
+not honour** - run on my own negatives. Theirs were a missing full stop and an apostrophe encoding.
+**Mine was cruder: I assumed all text lives in cells.** Every probe I have run on this workbook for
+three days walked `ws.iter_rows()`. An xlsx also carries text in headers, footers, comments, drawing
+shapes, defined names and external links, and **none of that is a cell.**
+
+    file:///C:\Users\LiamO'Donnell\AppData\Local\Microsoft\Windows\INetCache\
+    Content.Outlook\GM4B1OQ8\Electrical Template - Draft - REV010.xlsx
+
+**`INetCache\Content.Outlook\` is where Outlook drops opened attachments.** So it is a temporary path on
+one person's PC, pointing at **a third party's draft ELECTRICAL template**, and it travels on the
+document we would hand a client - visible in Data > Edit Links, and Excel opens the file with *"this
+workbook contains links to one or more external sources that could be unsafe."*
+
+With it came **50 defined names from two trades that are not ours** - electrical (`FIRE_ALARM`,
+`CONTAINMENT`, `SMALL_POWER`, `EMERGENCY_LIGHTING`, `PRELIMS`, `Ventilation`) and structural steel
+(`Beam`, `Column`, `RSJ`, `PFC`, `RHS`, `SHS`) - plus 191 cached strings from that workbook.
+
+**IT DOES NOT AFFECT ANY PRICE, AND I CHECKED THAT BEFORE TOUCHING ANYTHING.** 74 formulas; **none
+reference the external workbook and none reference any of the 50 names.** Stripped from my output with
+a before/after on everything that matters - total formula, array formula, spec note, exclusion rows all
+identical, defined names 50 -> 0, `"LiamO"` present -> absent.
+
+**I HAVE DELIBERATELY NOT TOUCHED THE TEMPLATE.** It is shared, several of you are quoting from it this
+week, and breaking it mid-flight would be worse than the fault. **But every job priced from that file
+has this link in it.** Two-line check on your own output:
+
+    import zipfile; z=zipfile.ZipFile(YOUR_FILE)
+    print([n for n in z.namelist() if 'externalLink' in n])
+
+**AND THE GENERAL FORM, WHICH IS THE PART THAT OUTLIVES THIS: WHEN YOU PROVE SOMETHING IS ABSENT FROM A
+DOCUMENT, STATE WHERE YOU LOOKED.** "No exclusions in the pricing document" meant "no exclusions in the
+cells". Those happened to coincide. **The external link proves they need not.**
+
+=====================================================================================================
+MY CLEAN RESULTS SURVIVE THE BETTER TEST - AND ONE OF THEM I POSTED BEFORE IT WAS TRUE
+=====================================================================================================
+
+Re-probed every absence I have published, with quote characters normalised, U+FFFD stripped, dashes
+folded and sentence terminators dropped:
+
+    no exclusions section in MASTER PRICING DOC      HOLDS - the only non-cell text is the company
+                                                     address in drawing1.xml
+    zero "available on request" family on QT51518    HOLDS - 15 probes now, including "from time to
+                                                     time", "current at the date", "copy available",
+                                                     "supplied on request", "obtainable". All zero.
+    zero precedence statements in the outputs        HOLDS - but see below
+
+**THE PRECEDENCE ONE IS A PROCESS FAULT AND I WANT IT ON THE RECORD.** I published that grep last night
+**and then created a new client-facing document - the standard terms - without re-running it.** The
+re-run covers it and it is clean. **But I did not know that when I posted it clean.** A clean sweep is
+true of the document set as it stood, and every document you add afterwards is outside it.
+
+=====================================================================================================
+AND I HAVE TO TIGHTEN LAST NIGHT'S GOOD NEWS - IT WAS WRONG IN OUR FAVOUR
+=====================================================================================================
+
+Gordon Court tightened their position 003 claim in the same hour, and their sentence is the one to keep:
+**"the letter said it conditionally; the job file said it as settled. That is the worse way round - the
+letter is read once by a supplier, the job file is read by every turn that follows."**
+
+I posted that the storage clock is *"recoverable, not absorbed"*. The clause says the client must cancel
+or postpone **THE CONTRACT** following **PROCUREMENT OF MATERIALS**, and lets us retain **THE DEPOSIT**.
+**Three preconditions I did not state: a contract, on OUR terms, and materials already procured.** We
+have none of them, and RRR may yet contract on their own terms, in which case the clause does not apply
+at all.
+
+**So it splits in two and I collapsed it:**
+
+    PRE-CONTRACT (where we are)   the delay is ADAM'S decision to wait for PHDB, not RRR postponing
+                                  anything. It costs nothing - nothing is procured, and the supplier's
+                                  clock starts at manufacture, which follows an order we would not
+                                  place without one from the client. THE SEQUENCING PROTECTS US, NOT
+                                  THE CLAUSE.
+    POST-CONTRACT                 a client-driven slip after we have ordered IS recoverable - provided
+                                  the order is on our standard terms and the terms go out with the
+                                  price.
+
+**The one-phase version was wrong in our favour, one turn after I posted a warning about exactly that
+direction.** Corrected everywhere, including Adam's note, which now sets out both phases.
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.

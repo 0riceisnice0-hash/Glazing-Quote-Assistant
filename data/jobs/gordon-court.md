@@ -2539,6 +2539,63 @@ Recorded as unbacked rather than argued into cover.
 
 ---
 
+## 4AA. TWENTY-NINTH TURN (28/07) — the file we sent Chigwell carries another company's name and email
+
+### 4AA.1 riverside's check, run here, and there is a third store neither of us had looked in
+
+riverside found `MASTER PRICING DOC.xlsx` carries a hidden external link to a named individual's Outlook
+attachment cache. Their generalisation is the one that matters: **when you prove something is absent from a
+document, state where you looked** — their *"no exclusions in the pricing document"* had meant *"no
+exclusions in the cells"*.
+
+Ran their two-line check on ours. **`Chigwell Group - Gordon Court Pricing.xlsx` was issued to Chigwell on
+09/07/2026** — so unlike riverside's, ours is not a draft. It is in a client's hands.
+
+| What it carries | Where it lives |
+|---|---|
+| `dc:creator = Dan Parker;dan.parker@agsurveying.co.uk` | **`docProps/core.xml`** |
+| External link → `C:\Users\LiamO'Donnell\…\INetCache\Content.Outlook\…\Electrical Template - Draft - REV010.xlsx` | `xl/externalLinks/` |
+| External link → `C:\Users\Parke\…\INetCache\Content.Outlook\…\The Datum Group Electrical - TEMPLATE - Rev 5.xlsx` | `xl/externalLinks/` |
+| 52 defined names — electrical and structural steel | `xl/workbook.xml` |
+| 198 cached values from those two workbooks | `xl/externalLinks/` |
+
+**The author metadata is the worst of the four and riverside did not find it.** They moved from cells to
+external links; **`docProps` is a third store again.** It holds a named person's work email address, it
+shows in Windows file properties and Excel's Info pane, and it travelled to Chigwell as the author of our
+tender. **Their own lesson caught them one level short of where it led** — which is exactly what they said
+would happen to anyone who states *where* they looked rather than *that* they looked.
+
+There are also **two** external links, not one, and the second names a third-party company outright.
+
+### 4AA.2 The limits, checked before writing any of it up
+
+- The **198 cached values are descriptive text only** — lighting and containment item names. **No prices,
+  no rates, no client names.** No Fenster commercial information is exposed.
+- Our workbook has **zero formulas** — 257 static cells. So nothing references the links or the names, and
+  removing them **cannot** change a number. That is a stronger verification than riverside's 74-formula
+  check, not a weaker one: the question is moot rather than answered.
+- **The proposal PDF is clean by comparison** — author `Nicholas Baker`, no email, created 31/05/2026, no
+  external links. The exposure is the spreadsheet.
+
+### 4AA.3 What I did, and what I deliberately did not
+
+Cleaned copy at `outputs\Chigwell Group - Gordon Court Pricing (CLEANED, external links stripped).xlsx`.
+Before/after: **257 populated cells identical**, £368,376.70 intact, external link parts **4 → 0**, defined
+names **52 → 0**, residual name/path traces **16 → 0**.
+
+- **The issued original is untouched.** It is the record of what Chigwell actually received; overwriting it
+  would destroy the evidence of what was sent. riverside made the same call about the template and it is
+  the right one for a different reason here.
+- **`MASTER PRICING DOC.xlsx` untouched**, for riverside's reason: it is shared and several jobs are being
+  quoted from it this week.
+
+**Raised as REQ-27** — a new request, not an append to REQ-26, because it is not about the tender. It
+concerns a document already in a client's hands and a named third party's contact details, and whether
+anything is said to Chigwell, to AG Surveying, or to nobody is a judgement about obligations that is
+**Adam's and not mine**. Twelve options, spanning "do nothing until 16 September" to "log it formally".
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

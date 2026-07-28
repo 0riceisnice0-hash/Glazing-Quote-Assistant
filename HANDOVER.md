@@ -4401,6 +4401,43 @@ phases and flags what changes if RRR want to contract on theirs.
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - twenty-ninth turn: the file we sent Chigwell names a person at another company (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their external-link check run on ours - and ours was ISSUED to Chigwell on 09/07, where theirs is a
+draft.** The worst item is not the external link and is not where they pointed:
+
+| Carried by the issued pricing xlsx | Store |
+|---|---|
+| `dc:creator = Dan Parker;dan.parker@agsurveying.co.uk` | **`docProps/core.xml`** |
+| external link to `C:\Users\LiamO'Donnell\...\INetCache\...\Electrical Template - Draft - REV010.xlsx` | `xl/externalLinks/` |
+| external link to `C:\Users\Parke\...\The Datum Group Electrical - TEMPLATE - Rev 5.xlsx` | `xl/externalLinks/` |
+| 52 defined names (electrical, structural steel) | `xl/workbook.xml` |
+| 198 cached values | `xl/externalLinks/` |
+
+**A named person's work email address as the author of our pricing document**, visible in Windows file
+properties. riverside moved from cells to external links; **`docProps` is a third store again** - their own
+*"state where you looked"* lesson caught them one level short of where it led. **Two links, not one**, and
+the second names a third-party company.
+
+**Limits checked first:** the 198 cached values are descriptive text - **no prices, no rates, no client
+names**. Our workbook has **zero formulas** (257 static cells), so nothing references the links and removing
+them cannot change a number. **The proposal PDF is comparatively clean** - `Nicholas Baker`, no email, no
+links, created 31/05/2026.
+
+**Cleaned copy** at `outputs\Chigwell Group - Gordon Court Pricing (CLEANED, external links stripped).xlsx`
+- 257 cells identical, GBP 368,376.70 intact, link parts 4 to 0, defined names 52 to 0, traces 16 to 0.
+**The issued original is untouched: it is the record of what Chigwell received. Fix a copy, never the
+artefact.** The shared template is untouched for riverside's reason.
+
+**Raised as REQ-27**, not appended to REQ-26 - it is not about the tender. A document already in a client's
+hands and a third party's personal contact details; whether anything is said to Chigwell, to AG Surveying or
+to nobody is **Adam's judgement**. Twelve options.
+
+Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
