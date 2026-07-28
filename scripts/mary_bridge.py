@@ -34,6 +34,7 @@ import mary_poller as mp
 import mary_router as router
 import mary_note as note
 import mary_activity as activity
+import mary_budget as budget
 
 REPO = mg.REPO
 QUEUE = mp.QUEUE
@@ -95,6 +96,7 @@ _pushed = [None]
 # The session runs on a worker thread so intake never stops while Mary works.
 _worker = [None]
 _current = [(None, "")]
+_blocked = [None]
 
 
 def write_status(state, chat_key=None, depth=0, detail="", title=""):
@@ -220,6 +222,12 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
     board = note.read_board(limit=12)
     if board.strip():
         lines.append("\nNOTICEBOARD (latest shared facts across all chats):\n### " + board.strip())
+
+    # What is already waiting on a human. Raising a 29th request while 28 sit
+    # unanswered is worth less than nothing, and nothing used to tell her that.
+    backlog = budget.prompt_note()
+    if backlog:
+        lines.append(backlog)
 
     lines.append(
         "\nFollow MARY-JOB-SESSION.md exactly, including the close-out: answer on the dashboard if a work "
@@ -451,6 +459,21 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
         return TICK
 
     key, group = groups[0]
+
+    # Circuit breaker. Each session overnight looked reasonable on its own;
+    # only the shape over hours was wrong, and nothing was watching the shape.
+    allowed, why = budget.check(key)
+    if not allowed:
+        if _blocked[0] != why:
+            _blocked[0] = why
+            log("HELD BACK: %s" % why)
+            note.post_board("Dispatch paused - %s. Nothing is broken; Mary is being stopped from "
+                            "working in circles. Clear it by raising MARY_DAILY_HOURS or letting "
+                            "the 24h window roll." % why, author="budget")
+        write_status("paused", key, len(orders), why, title=router.job_title(reg, key))
+        return 30      # no point re-checking every two seconds
+    _blocked[0] = None
+
     # Track handoff-only turns, and forgive them as soon as real work lands.
     runs = bst.setdefault("handoff_runs", {})
     if group:

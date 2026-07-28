@@ -1,0 +1,23 @@
+{
+ "job": "Princess Beatrice House",
+ "created": "2026-07-28",
+ "_help": "Fill every field. A field left null fails the run - that is deliberate: the errors this catches are all errors of silence.",
+ "coupled_runs": null,
+ "doors": null,
+ "frame_supply": null,
+ "glass_order": null,
+ "quantities": null,
+ "spec_items": null,
+ "supplier_quotes": null,
+ "full_height_screens": null,
+ "systems_specified": null,
+ "finishes": null,
+ "u_value": null,
+ "supplier_coverage": null,
+ "price_commitment": null,
+ "delivery_terms": null,
+ "incorporated_terms": null,
+ "issued_documents": null,
+ "exposures": null,
+ "own_domains": null
+}
