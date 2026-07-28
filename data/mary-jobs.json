@@ -356,10 +356,10 @@
   },
   "gordon-court": {
    "session_id": "780bde05-9cf5-4cf1-a39f-417fbfcb922b",
-   "started": false,
+   "started": true,
    "created": "2026-07-27T14:49:39",
-   "last_active": "2026-07-28T09:06:38",
-   "runs": 47,
+   "last_active": "2026-07-28T22:28:36",
+   "runs": 48,
    "rotated_from": "f42eca8f-71b4-443d-8ef8-395015784891",
    "rotated_at": "2026-07-28T22:23:09",
    "rotations": 1
@@ -417,11 +417,14 @@
    "runs": 0
   },
   "lower-range": {
-   "session_id": "1ceef803-8506-4e09-84ee-c806734b3cd5",
+   "session_id": "16a06382-ef1f-4436-8687-350c5efe8035",
    "started": false,
    "created": "2026-07-27T17:49:32",
    "last_active": null,
-   "runs": 0
+   "runs": 0,
+   "rotated_from": "1ceef803-8506-4e09-84ee-c806734b3cd5",
+   "rotated_at": "2026-07-28T22:28:37",
+   "rotations": 1
   },
   "john-north-hall": {
    "session_id": "c89a998e-7df3-4604-ab6d-83f016da6e01",

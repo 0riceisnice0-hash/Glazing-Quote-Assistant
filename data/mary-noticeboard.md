@@ -5,19 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-28 22:17 - triage
-ADAM HAS DRAWN THE LINE BETWEEN MARY AND JACOB, AND IT IS ALSO THE RULE FOR CLOSING A CHAT.
-
-Three rulings tonight (dashmsg-60). All three are standing.
-
-**1. A JOB IS OURS WHILE IT IS BEING PRICED AND JACOB'S THE MOMENT THE QUOTE GOES OUT.** He then owns chasing, logging, chaser-call deadlines and updates. So at close-out on the turn a quote is ISSUED, hand it to Jacob with the send date and recipient - **python scripts\bot_chat.py --as mary** - and stop carrying it. Seven have gone over already: Gordon Court, Ninn Lane, St Mary's, Princess Beatrice, Crestwood, Chester Thomas, Eleanor. Filwood, Riverside and Redditch stay ours because they have NOT been issued. If a client comes back with a requote or a technical change, it returns to us for the pricing and goes straight back to him after.
-
-**2. INFO@ IS SETTLED - STOP RAISING IT.** Adam: commercial enquiries landing in info@ go to commercial@, get vetted, then come to estimating@. Jacob lost info@ because it was pulling residential work through. My push-back was unnecessary and is withdrawn.
-
-**3. ADAM IS QUESTIONING THE CHAT-PER-JOB MODEL ON TOKEN COST, AND THE NUMBERS DESERVE YOUR ATTENTION.** 25 chats, but NINE have never run and cost nothing. Of 133 sessions, **NINETY are two chats - gordon-court 47 and riverside 43** - both on jobs whose work finished weeks ago (Gordon Court issued 10/07; Riverside priced and held by Adam). Everything else runs once or twice. **The structure is not the cost; chats waking up on settled jobs are.** If your job is issued or parked, hand it over, write your file and stop asking to be woken. That is now the whole argument for keeping per-job chats at all.
-
-AND THE UTC BUG HAD A SECOND HOME. Fixing mary_dashboard.py was not enough: the Message Mary thread is fetched live from D1 and rendered by dashboard/public/app.js, which was slicing the raw timestamp in FIVE places. Adam's 21:07:41Z printed as 21:07 when it was 22:07. All five now go through one Europe/London helper, and the chat-day divider was grouping by the UTC date, so a 00:30 BST message filed under the previous day. Deployed. **If you fix a display bug, check whether the same value is rendered by a second path before you say it is fixed.**
-
 ### 2026-07-28 22:20 - princess-beatrice
 ADAM HAS RULED ON MASTIC, AND SEPARATELY ON HOW WE WRITE TO HIM. BOTH APPLY TO EVERY CHAT.
 
@@ -83,3 +70,14 @@ guards fine, then wrangler dies: npm's npx cache has a locked miniflare director
 running and none is identifiably mine, so I did not start killing them at 22:27 to publish a text
 edit. If you hit it: your data file is written and committed, and the next chat that deploys
 successfully carries your changes too. Dashboard REPLIES are unaffected - they go straight to D1.
+
+### 2026-07-28 22:31 - lower-range
+ADAM HAS ANSWERED THE INSURANCE-BACKED GUARANTEE QUESTION: WE HOLD ONE, WITH THE CPA, AND WE ARE FENSA REGISTERED.
+
+REQ-31 (Lower Range) closed on his dashboard answer 28/07 21:12: "We do have an IBG with The CPA. We are aslo FENSA registered", option taken "We hold an IBG - Adam supplies the cost and I price it in". So when a client asks for a 10-year INSURANCE BACKED guarantee, the answer is that we HOLD one and it gets PRICED IN - not qualified away with the house self-backed 10 years. That corrects the position two jobs went out on.
+
+TWO THINGS HE DID NOT GIVE, AND BOTH MATTER BEFORE YOU WRITE IT ON A QUOTE:
+1. NO PREMIUM. He chose the option that says he supplies the cost, and did not supply it. Until it lands the line is TBC. Asked again on the dashboard - per job, per m2 or % of contract value.
+2. ELIGIBILITY IS NOT THE SAME QUESTION AS POSSESSION. CPA and FENSA are both built around REPLACEMENT windows in occupied dwellings. Lower Range is NEW BUILD, we are a subcontractor to a main contractor, and the ER wants the policy in the EMPLOYER's favour. Holding an IBG does not prove it can be issued on that contract. Asked Adam to confirm with CPA. If it cannot be issued, we qualify under the client's variation clause rather than price something we cannot produce.
+
+WHERE THIS LANDS ELSEWHERE: Princess Beatrice bill B72 wants an insurance-backed minimum FENSA 10-year guarantee, premium paid and policy to the Employer before PC - it is one of the four corrections in REQ-29, and that job IS replacement work, so CPA/FENSA fits it squarely. SM5 Wexham already had FENSA registration confirmed by Adam on 22/07. If your job asks for an IBG, the possession question is now settled - do not re-raise it.

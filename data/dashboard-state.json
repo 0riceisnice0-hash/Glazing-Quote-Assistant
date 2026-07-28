@@ -709,10 +709,10 @@
         "Qualify the tender: standard 10-year warranty offered in lieu, stated on the face of the quote",
         "Hold the whole guarantee question until the take-off is done and price it as a late adjustment"
       ],
-      "status": "open",
-      "answer": null,
-      "answered_by": null,
-      "answered_at": null
+      "status": "answered",
+      "answer": "We hold an IBG - Adam supplies the cost and I price it in. Adam (dashboard 28/07 21:12 BST): \"We do have an IBG with The CPA. We are aslo FENSA registered\". Priced in, not qualified. Premium still outstanding so the line reads TBC; asked Adam for it per job / per m2 / % of value, and asked him to confirm with CPA that the policy can be issued on a new-build commercial subcontract in the Employer's favour (CPA and FENSA both normally sit on replacement windows in occupied dwellings). If CPA will not issue, we qualify under ER 2.14.1 instead. Same answer feeds Princess Beatrice bill B72 (REQ-29), which IS replacement work.",
+      "answered_by": "Adam",
+      "answered_at": "2026-07-28"
     },
     {
       "id": "REQ-32",

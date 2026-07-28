@@ -162,14 +162,23 @@ readable at that. **This is the next task and it is the long pole before 07/08.*
    C08.1's answer says the thermal performance statement it carries is in Tender Addendum 1.
 4. **AOV interface** - who supplies the actuator, control panel and power to WS01/WS02?
 5. **Window boards** - in or out of our package (Ermine's CSA element 02.06.06 says they expect them).
-6. **Insurance-backed guarantee** - see below. A question for Adam, not the client.
+6. ~~Insurance-backed guarantee~~ **ANSWERED 28/07 - we hold one (CPA). Premium still outstanding.**
 
 ## Commercial conditions Adam needs to see
 
 - **10-year INSURANCE BACKED guarantee** required, *"to cover repair, renewal and replacement of any item
   installed"* (ER 2.13.4.6.1). An IBG is a third-party insurance product with a premium - **not the same
-  as our standard 10-year warranty**, which the board records as covering glass and frames. **Do we hold
-  one, and at what cost?**
+  as our standard 10-year warranty**, which the board records as covering glass and frames.
+  **ANSWERED - REQ-31, Adam on the dashboard 28/07 21:12:** *"We do have an IBG with The CPA. We are aslo
+  FENSA registered."* Option taken: *"We hold an IBG - Adam supplies the cost and I price it in."*
+  So the line is **priced in, not qualified**. Two things still open on it:
+  - **The premium was not supplied.** Line reads TBC until Adam gives it (per job / per m2 / % of value).
+    Asked on the dashboard 28/07. **Nothing goes on the quote until it lands.**
+  - **Eligibility is not proven for THIS contract.** CPA and FENSA are both built around replacement
+    windows in occupied dwellings; Lower Range is **new build**, we are a **subcontractor to Ermine**,
+    and the policy has to run in the **Employer's** favour. Asked Adam to confirm with CPA that they will
+    issue on that basis. If they will not, we qualify under ER 2.14.1 rather than price it. Do not write
+    the guarantee onto the face of the quote until this is confirmed.
 - Supporting guarantee stack (ER 2.13.4.6.10 and .12, windows and doorsteps alike): **30 years** against
   fungal and rot decay; **10 years** against manufacturing defects; factory-applied decoration **8-year
   guarantee or 10-year durability statement** against blistering/cracking/flaking/erosion; factory-fitted
@@ -190,6 +199,9 @@ readable at that. **This is the next task and it is the long pole before 07/08.*
   quote as subject to the Quinn Ross energy strategy P3250-ENE-01 which we have never seen.
 - **28/07** - price the safety glazing to the **drawings** (P2A to all ground floor windows and doors),
   which is the more onerous of the two documents, and say so on the quote.
+- **28/07 (evening)** - REQ-31 closed on Adam's answer: we hold an IBG with **The CPA** and are **FENSA
+  registered**, so the guarantee is **priced in rather than qualified away**. Premium TBC and CPA
+  eligibility for a new-build commercial subcontract still to be confirmed - both back with Adam.
 
 ## History
 
@@ -197,3 +209,12 @@ readable at that. **This is the next task and it is the long pole before 07/08.*
   addendum touched nothing on windows or doors, and flagged Tender Addendum 1 and drawing 25.578.15 absent.
 - **28/07** - ER's Document addendum assessed (this turn). U-value answered, internal colour closed,
   AOVs / louvred doors / P2A / SBD / IBG surfaced. Return date re-confirmed 07/08.
+- **28/07 21:12** - Adam answered REQ-31 on the dashboard (dashmsg-49). IBG held with The CPA, FENSA
+  registered. Replied same night with the two residuals (premium, CPA eligibility on new build).
+  No new request raised - 21 are already open.
+
+## NEXT TURN, IN ORDER
+
+1. **The take-off.** Still the long pole and nothing else has moved it. 10 days to 07/08.
+2. Chase **Quinn Ross P3250-ENE-01** by name (via Paul) - the only thing that can still move the glass.
+3. Pick up the **IBG premium** from Adam when it comes and price the line.

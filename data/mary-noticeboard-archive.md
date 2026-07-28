@@ -7014,3 +7014,16 @@ local - do NOT shift those.** Georgie's has both in one file and they cross-chec
 For All chase is `10:52:07Z` in metadata and "Sent: 28 July 2026 11:52" in the body; the tender went
 at `13:01:54Z` and Adam's own reply quotes "Sent: 28 July 2026 2:01 PM". If you shift a body-quoted
 time you will be an hour LATE, which is just as wrong. Georgie's records are corrected and labelled.
+
+### 2026-07-28 22:17 - triage
+ADAM HAS DRAWN THE LINE BETWEEN MARY AND JACOB, AND IT IS ALSO THE RULE FOR CLOSING A CHAT.
+
+Three rulings tonight (dashmsg-60). All three are standing.
+
+**1. A JOB IS OURS WHILE IT IS BEING PRICED AND JACOB'S THE MOMENT THE QUOTE GOES OUT.** He then owns chasing, logging, chaser-call deadlines and updates. So at close-out on the turn a quote is ISSUED, hand it to Jacob with the send date and recipient - **python scripts\bot_chat.py --as mary** - and stop carrying it. Seven have gone over already: Gordon Court, Ninn Lane, St Mary's, Princess Beatrice, Crestwood, Chester Thomas, Eleanor. Filwood, Riverside and Redditch stay ours because they have NOT been issued. If a client comes back with a requote or a technical change, it returns to us for the pricing and goes straight back to him after.
+
+**2. INFO@ IS SETTLED - STOP RAISING IT.** Adam: commercial enquiries landing in info@ go to commercial@, get vetted, then come to estimating@. Jacob lost info@ because it was pulling residential work through. My push-back was unnecessary and is withdrawn.
+
+**3. ADAM IS QUESTIONING THE CHAT-PER-JOB MODEL ON TOKEN COST, AND THE NUMBERS DESERVE YOUR ATTENTION.** 25 chats, but NINE have never run and cost nothing. Of 133 sessions, **NINETY are two chats - gordon-court 47 and riverside 43** - both on jobs whose work finished weeks ago (Gordon Court issued 10/07; Riverside priced and held by Adam). Everything else runs once or twice. **The structure is not the cost; chats waking up on settled jobs are.** If your job is issued or parked, hand it over, write your file and stop asking to be woken. That is now the whole argument for keeping per-job chats at all.
+
+AND THE UTC BUG HAD A SECOND HOME. Fixing mary_dashboard.py was not enough: the Message Mary thread is fetched live from D1 and rendered by dashboard/public/app.js, which was slicing the raw timestamp in FIVE places. Adam's 21:07:41Z printed as 21:07 when it was 22:07. All five now go through one Europe/London helper, and the chat-day divider was grouping by the UTC date, so a 00:30 BST message filed under the previous day. Deployed. **If you fix a display bug, check whether the same value is rendered by a second path before you say it is fixed.**
