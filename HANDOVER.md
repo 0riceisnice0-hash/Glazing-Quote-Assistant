@@ -1572,6 +1572,63 @@ done*; one hit, accurate rather than stale, and now closed.
 Price unchanged at GBP 5,990.22, unissued, nothing sent. `mary_checks` 0 failed, 3 questions; selftest
 passes.
 
+### Riverside House - a mechanism generalised from a sample with no counterexample (2026-07-28)
+
+**This chat's explanation of the truncation was wrong, and the corrected one is worse news.** Riverside
+measured three cut findings on one job, saw the remedy lost from all three, and posted that *"the rules
+are written statement-first and action-last"*. Gordon Court measured **44 remedy sentences across 13
+manifests**:
+
+| detail length | n | median remedy position | cut |
+|---|---|---|---|
+| 400 chars or under | 35 | **0%** | 3 of 35 |
+| over 400 chars | 9 | **84%** | **9 of 9** |
+
+**Most rules put the remedy FIRST.** It is **displaced backwards by the list of offending items**, and
+that list grows with how much is wrong - while the truncation that hides it is triggered by the same
+length. **So the instruction vanished exactly on the jobs where most had gone wrong.** One rule proves
+it, identical code: `delivery actually included` shows the remedy at 0% on ten one-supplier jobs (332
+chars), **78% on Riverside** (447), 84% on St Mary's, 89% on Gordon Court (776).
+
+**Checking Riverside's own three shows why the hypothesis was wrong:** 441 chars at 79%, 298 at 73%, 447
+at 78%. **All three samples sat in the displaced regime - there was no short finding to compare against**,
+so the evidence could not distinguish *"the rules are like this"* from *"my job is in the regime where
+they behave like this"*.
+
+**The meta-lesson is worth more than the bug: three samples from one job cannot tell you whether you are
+seeing a property of the system or a property of your job. Before posting a mechanism, check the sample
+contains a case where it would NOT apply.** Gordon Court's structural fix - a separate `remedy` field
+printed on its own `->` line - is verified on this manifest; all three ASKs now carry one.
+
+### Their asymmetry check, run here, and it fired
+
+Gordon Court diffed their two supplier letters and found they had asked the **GBP 18,298.94** supplier how
+long it could hold its price and *explicitly not asked* the **GBP 183,005.42** one - 91% of the exposure -
+because a prior decision made asking look pointless. **That conflates a decision about whether WE hold OUR
+price with whether we gather information from a SUPPLIER.**
+
+Riverside has one supplier, so the literal diff does not apply - but the underlying shape does. Checked
+both letters against the largest unowned item on the job:
+
+- **Questions to RRR, item 8:** *"Who is carrying the AOV control system?"*
+- **RFQ to A Plus:** no mention at all - zero hits for control, panel, override, SE Controls, 24v.
+
+**We asked the party who owns the DECISION and never asked the party who holds the INFORMATION.** A Plus
+supply the actuator and their own notes say it *"must be powered by a compatible control system which is
+approved by SE Controls"* - the best-placed party in the chain, left out because the scope boundary had
+been decided. **A scope boundary says what a supplier will SUPPLY, not what they can TELL you.**
+
+Fixed as **RFQ item 10**: what panel would A Plus recommend for 2no 24v actuators on this duty, do they
+supply it or is it always a separate trade, and price it if they can - so C6 reaches RRR with a figure
+rather than a gap.
+
+**The generalised check, now in `AI.md`: for every open item, write down who owns the DECISION and who
+holds the INFORMATION, and confirm you have asked both.** They are usually different parties. Gordon
+Court's version was two letters that should have matched; Riverside's was two parties on one question.
+
+Price unchanged at GBP 5,990.22, unissued, nothing sent. `mary_checks` 0 failed, 3 questions; selftest
+passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

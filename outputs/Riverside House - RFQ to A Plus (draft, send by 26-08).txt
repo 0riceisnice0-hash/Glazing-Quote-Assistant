@@ -7,9 +7,9 @@ QT51518 lapses 26/08/2026. After that date these sentences in this letter are fa
   - item 7's "QT51518 is open for 30 days, to 26/08/2026"
   - item 2's premise that a resize can be set against the GBP 4,845.22 already quoted
 
-THE NINE QUESTIONS REMAIN VALID. This needs re-heading as a fresh enquiry, not
+THE TEN QUESTIONS REMAIN VALID. This needs re-heading as a fresh enquiry, not
 binning - A Plus would be quoting from scratch rather than adding lines, so ask for
-a new quotation covering all nine points and expect the base price to move.
+a new quotation covering all ten points and expect the base price to move.
 
 DRAFT - FOR GINTARE TO SEND TO A PLUS. Nothing has been sent.
 Send by 26/08/2026 - see "why the date" below.
@@ -107,5 +107,25 @@ this further, plus one item we would like added.
    vent in this position, and whether A Plus offer or would recommend a roof-mounted unit
    on a kerb instead. We are checking the intent with the architect separately; we would
    rather hear now if you think the wall unit is the wrong answer.
+
+10. THE CONTROL SYSTEM - what would you recommend, and can you price it?
+
+   Your AOV notes say the actuators "must be powered by a compatible control system
+   which is approved by SE Controls to provide suitable power management and where
+   necessary, record actuator operation cycles", and that you fix the actuator, test it
+   on local batteries and leave about 2m of flex coiled at the vent.
+
+   The drawings require the vent to be "operated by the fire brigade at ground floor
+   access level", which means a smoke control panel, a mains and battery-backed supply,
+   cabling and a fireman's override. We understand that sits outside what you quoted.
+   But you supply the actuator and know what it needs, so before anyone else prices it:
+
+   (a) what control panel would you recommend for 2no 24v DC actuators on this duty?
+   (b) do A Plus offer that as a supply item, or is it always a separate trade?
+   (c) if you can supply it, please price it - panel, override and commissioning - so
+       we can put a figure in front of the client rather than a gap.
+
+   We are asking the client separately who is carrying this. We would rather come to
+   that conversation with a number than without one.
 
 Many thanks,

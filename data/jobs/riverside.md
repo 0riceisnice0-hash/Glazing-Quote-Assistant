@@ -193,6 +193,68 @@ So there are now two dates on this job and they answer different questions:
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
 
+### I generalised a mechanism from a sample with no variation in it (28/07)
+
+Gordon Court measured the truncation properly - **44 remedy sentences across 13 manifests** against my
+three on one job - and corrected my explanation. I had said the rules are *written statement-first and
+action-last*. They are not:
+
+    details 400 chars or under    n=35    median remedy at   0% through     3 of 35 cut
+    details over 400 chars        n= 9    median remedy at  84% through     9 of  9 CUT
+
+**Most rules put the remedy FIRST.** What actually happens is that the remedy is **pushed backwards by
+the list of offending items**, and that list grows with how much is wrong - while the truncation that
+hides it is triggered by the same length. So *the instruction vanished exactly on the jobs where most had
+gone wrong.* Their one-rule proof: `delivery actually included`, identical code, remedy at 0% on ten
+one-supplier jobs (332 chars), **78% on Riverside** (447), 84% on St Mary's, 89% on Gordon Court (776).
+
+**Riverside is a data point in their proof, and checking my own three shows why I was wrong:**
+
+| rule | detail | remedy | combined | remedy position |
+|---|---|---|---|---|
+| system can meet the specified performance | 348 | 92 | 441 | 79% |
+| supplier price held as long as ours | 219 | 78 | 298 | 73% |
+| delivery actually included | 347 | 99 | 447 | 78% |
+
+**All three of my samples were from the displaced regime. I never saw a short one.** So "the rules are
+written action-last" was an artefact of a sample with no variation in the independent variable - every
+finding on this job happened to be long enough to displace its own remedy.
+
+**The lesson is better than the original one: three samples from one job cannot distinguish "the rules
+are written this way" from "my job is in the regime where they behave this way."** Same family as
+everything else tonight - a conclusion that looked clean because the evidence contained no counterexample.
+
+Their fix is structural rather than cosmetic: `result()` now takes a separate **`remedy`** field printed
+on its own `->` line where no future abridgement can displace it. Verified on this manifest - all three
+ASKs now carry one.
+
+### Their asymmetry check, run here - and it found something
+
+Gordon Court diffed their two supplier letters and found they had asked the **GBP 18,298.94** supplier how
+long it could hold its price and *explicitly not asked* the **GBP 183,005.42** one. The reasoning was that
+Adam had decided we carry the risk, so asking seemed pointless - **which conflates a decision about
+whether WE hold OUR price with whether we gather information from a SUPPLIER.**
+
+Riverside has one supplier, so the literal diff does not apply. **The underlying shape does, and it
+fired.** Checked both letters for the AOV control system - the single largest unowned item on this job:
+
+- **Questions to RRR, item 8:** *"Who is carrying the AOV control system?"*
+- **RFQ to A Plus:** no mention. Zero hits for control, panel, override, SE Controls, 24v or interface.
+
+**I asked the party who owns the DECISION and never asked the party who holds the INFORMATION.** A Plus
+supply the actuator; their own notes say it *"must be powered by a compatible control system which is
+approved by SE Controls"*. They are the best-placed party in the chain to say what that system is, and I
+excluded them because I had decided the scope boundary - **a scope boundary says what a supplier will
+SUPPLY, not what they can TELL you.** Exactly Gordon Court's conflation with the parties swapped.
+
+Fixed: **item 10** now asks A Plus what panel they would recommend for 2no 24v actuators on this duty,
+whether they supply it or it is always a separate trade, and to price it if they can - so C6 can go to
+RRR with a figure rather than a gap.
+
+**The generalised check: for every open item, list who owns the DECISION and who holds the INFORMATION,
+and confirm you have asked both.** They are often different parties, and a scope boundary is not a reason
+to skip the second.
+
 ### The price gate was truncating every remedy (28/07)
 
 Gordon Court took the *"a report that omits a category is worse than one that shows it wrongly"* form and

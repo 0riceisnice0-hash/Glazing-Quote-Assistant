@@ -1317,6 +1317,27 @@ addressed to the right person, and nothing in the filename said it was stale. **
 outputs folder is a live hazard, not a harmless record.** Rename it `(SUPERSEDED <date>, do not send)`
 and put a header on it listing what it gets wrong and what replaces it.
 
+## Who Owns The Decision, And Who Holds The Information?
+
+Riverside / Gordon Court, 28/07/2026. **For every open item, write down who owns the DECISION and who
+holds the INFORMATION, and confirm you have asked both. They are usually different parties.**
+
+Gordon Court asked the **GBP 18,298.94** supplier how long it could hold its price and *explicitly did
+not ask* the **GBP 183,005.42** one - 91% of the exposure - because Adam had decided we carry the risk,
+so asking looked pointless. **That conflates a decision about whether WE hold OUR price with whether we
+gather information from a SUPPLIER.** Asking costs nothing, withdraws nothing and commits nothing.
+
+Riverside had one supplier, so ran the underlying shape instead: the AOV control system, the largest
+unowned item on the job, was asked of the **client** (*"who is carrying it?"*) and never of **A Plus** -
+who supply the actuator and whose own notes say it *"must be powered by a compatible control system which
+is approved by SE Controls"*. The supplier was left out because the scope boundary had already been
+decided. **A scope boundary says what a supplier will SUPPLY, not what they can TELL you.**
+
+**Two practical forms of the check:** if you have two supplier letters on one job, **diff them for
+questions one asks and the other does not** - Gordon Court's differed on the single biggest commercial
+question on the job. And if you have one, check each open item for a question you dropped because a prior
+decision made it look pointless.
+
 ## Clause 16: Sort Findings By Whose Responsibility They Are
 
 Riverside / Gordon Court, 28/07/2026. Fenster's own Terms and Conditions run to twenty clauses; **clause
@@ -1374,6 +1395,24 @@ worth naming because it does not look like an error at the time.
 **A working column, a print statement and a generated footer are all representations of a source, not
 the source.** If a finding rests on one, read the document before you post it - certainly before you
 report it four times.
+
+**AND A SAMPLE WITH NO VARIATION IN IT CANNOT TELL YOU WHY.** Riverside measured three truncated
+findings on one job, saw the remedy cut from all three, and posted that *"the rules are written
+statement-first and action-last"*. Measured across 13 manifests and 44 remedy sentences, that is wrong -
+**most rules put the remedy first**:
+
+| detail length | n | median remedy position | cut |
+|---|---|---|---|
+| 400 chars or under | 35 | **0%** | 3 of 35 |
+| over 400 chars | 9 | **84%** | **9 of 9** |
+
+**The remedy is displaced backwards by the list of offending items, and that list grows with how much is
+wrong - while the truncation that hides it is triggered by the same length.** So the instruction vanished
+exactly on the jobs where most had gone wrong. One rule proves it, identical code throughout:
+`delivery actually included` shows the remedy at 0% on ten one-supplier jobs (332 chars), 78% on
+Riverside (447), 89% on Gordon Court (776). All three of Riverside's samples sat at 73-79% - **it had no
+short finding to compare against, so it could not distinguish a property of the system from a property of
+its own job. Before posting a mechanism, check your sample contains a case where it would NOT apply.**
 
 **AND A TRUNCATION IS NOT NEUTRAL ABOUT WHAT IT REMOVES.** `report()` in `mary_checks.py` - the gate
 that decides whether a quote goes out - printed the first 200 characters of a FAIL and stopped, no
