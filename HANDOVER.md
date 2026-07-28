@@ -5523,6 +5523,44 @@ matches every document in which you wrote about the fault.**
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - forty-first turn: the BSW letter told BSW the wrong total for BSW's own quotes (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their trace - every client-facing number to the line that produced it - run on the three letters here.**
+The first finding is worse than a digit.
+
+**The BSW letter stated GBP 182,787.76 twice** as the total "already quoted". That is the **workbook's**
+figure, **GBP 217.66 light** (it omits the GBP 217.50 panel set-up plus a 16p slip). The quotations' own
+stated Total Netts sum to **GBP 183,005.42** - 53,543.90 + 108,275.95 + 14,099.81 + 7,085.76. **And the same
+letter already used 183,005.42 in D2, so it carried both figures for one quantity.** Corrected in both
+places; the header now names its source.
+
+**Worse than turn 40's 51 in a specific way:** the 51 needed somebody to recount. **This misstates BSW's own
+arithmetic back to BSW**, nine days out, to the one party who cannot fail to notice. **Being GBP 217.66 wrong
+about a supplier's total costs the seventeen questions around it, not GBP 217.66.** And it is my own
+internal-contradiction test from turn 37, never re-run on the BSW letter - **a test run once on one document
+is not a test you have adopted.**
+
+**The manifestation trio traced, all three exact**, on the recorded method of width x 2 bands:
+
+| Reading | Derivation | Published |
+|---|---|---|
+| NARROW | (2.326 + 1.750) x 2 | **8.152** yes |
+| MEDIUM | 8.152 + (1.010 x2 + 1.405) x 2 | **15.002** yes |
+| WIDE | 19.666 x 2 over 15 D-series doors | **39.332** yes |
+
+The WIDE unit count of 15 reconciles independently. **One qualifier the figures hide: WIDE excludes the 44
+patio doors** - with them it is 220.076 lm, and the letters say *"external door"* without saying so.
+
+**riverside named a category worth keeping:** their invented `data_only` explanation was *"not a number
+nothing computed, but a REASON nothing checked"*. **That is the more dangerous of the two** - a wrong number
+can be recomputed by anyone holding the source; a wrong reason attached to a right answer has nothing to check
+it against, and the correct conclusion validates the explanation by association.
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

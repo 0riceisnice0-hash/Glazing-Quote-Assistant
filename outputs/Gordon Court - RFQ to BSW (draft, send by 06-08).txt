@@ -5,7 +5,7 @@
 # After 06/08 that is no longer true and the document asserts something false to a
 # supplier. What specifically stops being true:
 #   - "Sent BEFORE that date this is an ADDENDUM to a live quote" (below) - it isn't.
-#   - The anchor against the GBP 182,787.76 already quoted - there is nothing to
+#   - The anchor against the GBP 183,005.42 already quoted - there is nothing to
 #     anchor to once QT252247/48/51/57 have lapsed.
 # The QUESTIONS in Parts A to D remain valid and worth asking. Re-head it as a fresh
 # enquiry, delete the "SEND BY" block, and expect autumn rates rather than July ones.
@@ -27,7 +27,8 @@ THIRTY DAYS" - so they lapse on 06/08/2026.
 Sent BEFORE that date this is an ADDENDUM to a live quote: same job, same schedule,
 same rates, and BSW can simply add lines. Sent after, there is nothing to add to and
 every item below comes back as a fresh quote at whatever the autumn market is, with no
-anchor against the GBP 182,787.76 already quoted.
+anchor against the GBP 183,005.42 already quoted - the sum of the four stated Total Nett
+figures on QT252247, QT252248, QT252251 and QT252257.
 
 Nothing here asks BSW to guarantee a price. Adam has decided (REQ-20) that we carry the
 inflation risk on the scope already quoted, and that decision is not reopened by this

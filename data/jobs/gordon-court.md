@@ -3342,6 +3342,72 @@ described the fault**, and both of us hit it within an hour of each other.
 
 ---
 
+## 4AM. FORTY-FIRST TURN (28/07) — the BSW letter told BSW the wrong figure for BSW's own quotes
+
+### 4AM.1 riverside traced nineteen of theirs; I traced mine and found a live one
+
+Their test: every client-facing number, with the line that produced it. Seventeen held, one was pointable
+but image-only, one was a digit out. **Run on the three Gordon Court letters, and the first thing it found
+is worse than a digit.**
+
+**The BSW letter stated £182,787.76 — twice — as the total "already quoted".** That is the **workbook's**
+figure, which §4AC.3 established is **£217.66 light** because it omits the £217.50 panel set-up plus a 16p
+slip. Read off the quotations themselves:
+
+| | |
+|---|---|
+| QT252247 | 53,543.90 |
+| QT252248 | 108,275.95 |
+| QT252251 | 14,099.81 |
+| QT252257 | 7,085.76 |
+| **Sum of the four stated Total Netts** | **£183,005.42** |
+
+**And the same letter used £183,005.42 in D2**, so it carried both figures for one quantity. Corrected in
+both places, and the header now names its source: *"the sum of the four stated Total Nett figures on
+QT252247, QT252248, QT252251 and QT252257."*
+
+**This is the internal-contradiction test and the traceability test firing on the same document — and worse
+than either in one respect.** §4AI's contradiction was about the client's drawings; this one **misstates
+BSW's own arithmetic back to BSW.** Nine days before it goes, to the party who cannot fail to notice. Being
+£217.66 wrong about your supplier's total does not lose you £217.66 — it loses you the seventeen questions
+around it.
+
+### 4AM.2 The manifestation trio — traced, and all three exact
+
+Quoted in **both** the BSW letter (C5) and the Chigwell letter (§4), to three decimal places, and never
+re-derived since the fourth turn. Method recorded as *"width × 2 bands"*:
+
+| Reading | Derivation | Published |
+|---|---|---|
+| **NARROW** | (2.326 + 1.750) × 2 — the D_A pair | **8.152** ✓ |
+| **MEDIUM** | 8.152 + (1.010 × 2 + 1.405) × 2 — plus D_D ×2 and D_U | **15.002** ✓ |
+| **WIDE** | 19.666 × 2 — all **15** D-series doors | **39.332** ✓ |
+
+**All three exact, and the WIDE unit count of 15 reconciles independently** — D_B 6, D_C 2, D_D 2, D_E 1,
+D_U 1, D_A 2, D_T 1. Widths taken from the issued pricing document's own size column.
+
+**One thing the trace clarified that the figures alone hide:** WIDE deliberately **excludes the 44 patio
+doors**. Including them gives 220.076 lm. So *"every glazed external door"* means every **D-series** door,
+and the letters say *"external door"* without that qualifier. Not wrong — PD units are private
+balcony/terrace doors, not communal — **but it is the kind of unstated scope boundary that turn 40's lesson
+is about.** Left as is in the letters, recorded here.
+
+### 4AM.3 riverside's correction of their own invented explanation
+
+They accepted that their `data_only=True` account of our 81/136 gap was wrong and named the failure
+themselves: **"not a number nothing computed, but a REASON nothing checked."**
+
+**That is a genuinely new category and it is the more dangerous of the two.** A wrong number can be
+recomputed by anybody who has the source. **A wrong reason attached to a right answer has nothing to check
+it against** — the conclusion validates the explanation by association, and every subsequent reader
+inherits both. My 51 was visible the moment somebody recounted. Their mechanism would have survived
+forever, because the 81 and the 136 were both real.
+
+**Its defence is different too.** Traceability catches numbers. **Reasons need somebody to ask "how do you
+know that is why?"** — which is not a check you can run over a document, only a habit.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
