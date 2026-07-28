@@ -700,28 +700,32 @@
       "is_the_priced_document": true,
       "exclusions_stated": 12,
       "note": "VERIFIED by reading the issued PDF, not the template. Carries the full two-column INCLUSIONS/EXCLUSIONS table: Site Welfare, Access/Lifting Equipment, Site Storage, Fire Stopping, Waste Removal, Internal Finishing, Final Clean on handover, Testing, Structural Alterations, Design Responsibility, Traffic Management, Additional Limitations. Carries the SUBTOTAL GBP 368,376.70 + VAT on the same page, so it is the priced document.",
-      "path": "C:/Users/zacpl/OneDrive - Fenster Glazing (1)/Commercial/1. Tender Documents/Chigwell (London) PLC/Gordon Court/1. Estimating/3. Client Quote/Chigwell Group - Gordon Court Proposal.pdf"
+      "path": "C:/Users/zacpl/OneDrive - Fenster Glazing (1)/Commercial/1. Tender Documents/Chigwell (London) PLC/Gordon Court/1. Estimating/3. Client Quote/Chigwell Group - Gordon Court Proposal.pdf",
+      "goes_to_client": true
     },
     {
       "name": "Chigwell Group - Gordon Court Pricing.xlsx (issued alongside)",
       "is_the_priced_document": true,
       "exclusions_stated": 0,
       "note": "Counted cell by cell: ONE exclusion-ish cell in the whole workbook, B70 '* Total value excluding VAT'. Zero actual exclusions - riverside's MASTER PRICING DOC template fault, present here too. Gordon Court is not exposed to it only because a proposal was issued alongside and carries the schedule. CHANGED 28/07 thirty-second turn: this was flagged False because the PROPOSAL carries the SUBTOTAL and the exclusions, so I treated that as 'the' priced document. Both are priced - the workbook carries the full line-item schedule and the same total. The boolean models a singular priced document and this job issued two, which silently skipped riverside's rule 21 entirely.",
-      "path": "C:/Users/zacpl/OneDrive - Fenster Glazing (1)/Commercial/1. Tender Documents/Chigwell (London) PLC/Gordon Court/1. Estimating/3. Client Quote/Chigwell Group - Gordon Court Pricing.xlsx"
+      "path": "C:/Users/zacpl/OneDrive - Fenster Glazing (1)/Commercial/1. Tender Documents/Chigwell (London) PLC/Gordon Court/1. Estimating/3. Client Quote/Chigwell Group - Gordon Court Pricing.xlsx",
+      "goes_to_client": true
     },
     {
       "name": "Window & Door Elevations.pdf (issued 09/07/2026)",
       "is_the_priced_document": false,
       "exclusions_stated": 0,
       "path": "C:/Users/zacpl/OneDrive - Fenster Glazing (1)/Commercial/1. Tender Documents/Chigwell (London) PLC/Gordon Court/1. Estimating/3. Client Quote/Window & Door Elevations.pdf",
-      "note": "Client-facing drawing issued with the tender. Added 28/07 - riverside found their drawings PDF announced /Creator Mozilla and a scratchpad HTML filename, so these needed recording and scanning too. They had never been listed as issued documents at all."
+      "note": "Client-facing drawing issued with the tender. Added 28/07 - riverside found their drawings PDF announced /Creator Mozilla and a scratchpad HTML filename, so these needed recording and scanning too. They had never been listed as issued documents at all.",
+      "goes_to_client": true
     },
     {
       "name": "Fire Rated Door Elevations.pdf (issued 09/07/2026)",
       "is_the_priced_document": false,
       "exclusions_stated": 0,
       "path": "C:/Users/zacpl/OneDrive - Fenster Glazing (1)/Commercial/1. Tender Documents/Chigwell (London) PLC/Gordon Court/1. Estimating/3. Client Quote/Fire Rated Door Elevations.pdf",
-      "note": "Client-facing drawing issued with the tender. Added 28/07 - riverside found their drawings PDF announced /Creator Mozilla and a scratchpad HTML filename, so these needed recording and scanning too. They had never been listed as issued documents at all."
+      "note": "Client-facing drawing issued with the tender. Added 28/07 - riverside found their drawings PDF announced /Creator Mozilla and a scratchpad HTML filename, so these needed recording and scanning too. They had never been listed as issued documents at all.",
+      "goes_to_client": true
     }
   ],
   "exposures": [
@@ -785,5 +789,6 @@
       "lands_on": "Fenster",
       "our_recourse": "none identified. Whether BSW priced on the whole order is in the terms we do not hold, so a scope reduction could carry a re-price on the units that remain. Cannot be quantified until D3 is answered."
     }
-  ]
+  ],
+  "supplier_coverage_completeness": "CHECKED 28/07 thirty-third turn, on riverside's 'does every entry earn the list's name' rule. The issued pricing document carries 43 priced line items across 40 distinct references; supplier_coverage holds 43 entries. Matched properly: ALL 40 sold references appear, and NO coverage entry is an orphan. The 43-vs-40 gap is the split lines established at turn 17 - D_E and D_U are each quoted by BSW as two elements. MY FIRST PROBE REPORTED 9 SOLD LINES MISSING. It was comparing bare refs ('LW_1') against the descriptive refs the list actually holds ('LW_1 louvre'). Caught before publishing. The list earns its name."
 }

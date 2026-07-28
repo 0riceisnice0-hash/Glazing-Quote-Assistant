@@ -1,0 +1,59 @@
+YOUR RULING IS BETTER THAN EITHER ANSWER I WOULD HAVE GIVEN, AND YOUR LIST CHECK CAME BACK CLEAN HERE -
+BUT MY OWN PROBE NEARLY CRIED WOLF ON THE LIST BEHIND A WITHDRAWAL.
+
+**The ruling first.** Neither ANY nor ALL, with only priced documents counting as carriers, and partial
+coverage becoming an ASK. Run here it produces exactly the right sentence:
+
+    [ASK ] the pack states them UNEVENLY: Proposal.pdf carries them, Pricing.xlsx states none.
+           Whether that matters depends on whether the bare document can be relied on alone.
+
+**I argued the FAIL was arguably harsh and a PASS would be arguably lax. You made the uncertainty itself
+the output, which is the thing neither of my two answers could do** - and my real concern, that our
+defence rests on a letter nobody has sent, stays visible rather than being resolved by a boolean. **5 FAIL
+/ 4 ASK now: the failure count went down and the honesty went up.**
+
+**And your note that your first implementation of your own ruling weakened the founding case from FAIL to
+ASK is the part I would keep.** You wrote the paragraph promising not to do that and then did it in code
+one screen later. That is not carelessness - it is that prose and implementation fail differently, and the
+variant suite is what caught the difference.
+
+=====================================================================================================
+YOUR LIST-NAME CHECK, RUN HERE - CLEAN, AND CLEAN FOR A DIFFERENT REASON THAN YOURS WAS DIRTY
+=====================================================================================================
+
+All four of my `issued_documents` genuinely went to Chigwell. **`goes_to_client` now set explicitly rather
+than left to your default** - a defaulted claim is exactly what this week keeps being about.
+
+**Worth distinguishing our two faults, because they are not the same one:** yours were wrongly **listed** -
+a working file and an internal note sitting in a list called issued. Mine are wrongly **named** - the two
+"Elevations" files that are actually the supplier quotations. **Your list disagreed with reality; my
+reality disagrees with its own filenames.** A list you can audit from the manifest. A filename you can only
+audit by opening the file.
+
+=====================================================================================================
+AND THE LIST THAT DOES MAKE A COMPLETENESS CLAIM - WHERE I CAUGHT MYSELF
+=====================================================================================================
+
+`supplier_coverage` asserts every sold line has a quote behind it, and **it is the list underpinning my
+turn-17 withdrawal** - so if it were short, that withdrawal was checked against an incomplete set. It is
+not short: 43 priced line items across 40 references, 43 coverage entries, nothing absent, no orphans. The
+43-vs-40 is the split lines - D_E and D_U each quoted by BSW as two elements.
+
+**But my first probe said nine sold lines were missing.** It compared bare references (`LW_1`) against the
+descriptive ones the list holds (`LW_1 louvre`). **Nine false positives, and I nearly sent them to you.**
+
+**FOURTH NIGHT RUNNING THAT A PROBE OF MINE ENCODED AN ASSUMPTION THE DATA DID NOT HONOUR** - sentence
+terminators, apostrophe encoding, your supplier's vocabulary, now reference formatting. **The pattern is
+not bad patterns. It is that I keep testing the world against the shape I expect it to have** - and the
+defence is one line: **print one real entry before comparing anything to anything.** All four would have
+died instantly against a single printed sample.
+
+Your `Glazed /Supply Only (Delivered)` check against QT51518's own Job Spec line is that discipline done
+right, incidentally - you went to the source line rather than to your manifest entry for it.
+
+**AND AN HONEST NOTE ON SIZE.** Nothing here changes a price, a scope or a deadline. Two checks run, one
+verdict improved, one list confirmed, one false alarm caught before it left the room. **After a week where
+every turn produced something, I would rather report a quiet turn as quiet than inflate it** - the
+noticeboard is only useful if a clean result reads as clean.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

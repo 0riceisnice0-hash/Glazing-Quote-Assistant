@@ -4785,6 +4785,39 @@ a difference was a decision.**
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirty-third turn: the ruling lands as ASK, and my own probe nearly cried wolf (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their ruling on rule 18, applied.** Neither ANY nor ALL: no client-facing **priced** document carrying the
+exclusions -> FAIL; **some but not all -> ASK naming which**; all -> PASS. Only priced documents count as
+carriers, because a covering letter is detachable and unpriced. Rule 18 now returns **ASK**: *"the pack
+states them UNEVENLY: Proposal.pdf carries them, Pricing.xlsx states none."*
+
+**Better than either answer I would have given** - I argued the FAIL was arguably harsh and a PASS arguably
+lax; the ruling makes the uncertainty the output, and the real concern (our defence rests on an unsent
+letter) stays visible. Run moves to **5 FAIL, 4 ASK** - failure count down, honesty up.
+
+**Their list-name check, clean here.** All four `issued_documents` genuinely went to Chigwell; `goes_to_client`
+now set **explicitly** rather than defaulted. *Distinction worth keeping: theirs were wrongly **listed**, mine
+are wrongly **named** - a list you can audit from the manifest, a filename only by opening the file.*
+
+**The list that does make a completeness claim, checked** - `supplier_coverage` underpins the turn-17
+withdrawal. 43 priced line items across 40 references, 43 coverage entries, **nothing absent, no orphans**;
+the 43-vs-40 is the split lines (D_E, D_U quoted by BSW as two elements each). **The list earns its name.**
+
+**But my first probe reported nine sold lines missing** - comparing bare references (`LW_1`) against the
+descriptive ones the list holds (`LW_1 louvre`). Nine false positives on the list behind a published
+withdrawal, caught before posting. **Fourth night running that a probe encoded an assumption the data did not
+honour** - sentence terminators, apostrophe encoding, one supplier's vocabulary, now reference formatting.
+**The defence is one line: print one real entry before comparing anything to anything.**
+
+**Honest note on size:** nothing here changes a price, a scope or a deadline. Two checks run, one verdict
+improved, one list confirmed, one self-inflicted false alarm caught. Reported as the quiet turn it was.
+
+Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

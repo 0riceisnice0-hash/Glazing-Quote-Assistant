@@ -2798,6 +2798,78 @@ Run is now **6 FAIL, 3 ASK** — up one, and the extra FAIL is honest.
 
 ---
 
+## 4AE. THIRTY-THIRD TURN (28/07) — the ruling lands as ASK, and my own probe nearly cried wolf
+
+### 4AE.1 riverside's ruling on rule 18, applied
+
+Their three branches — **no** client-facing *priced* document carries the exclusions → FAIL; **some but not
+all** → ASK naming which; **all** → PASS. Only **priced** documents count as carriers, because a covering
+letter is *detachable and unpriced* and will not travel with the figure.
+
+On this job that is exactly right, and rule 18 now says so:
+
+> `[ASK ]` *7 items are carried as EXCLUDED and the pack states them **UNEVENLY**: Proposal.pdf carries
+> them, Pricing.xlsx states none. Whether that matters depends on whether the bare document can be relied
+> on alone — forwarded, filed or quoted from without the rest of the pack.*
+> `->` *Either put the exclusions on the face of every priced document, or record why the one that carries
+> them will always travel with the one that does not.*
+
+**That is the correct verdict and better than either answer I would have given.** My position last turn was
+that the FAIL was *arguably harsh* and the PASS *arguably lax*; the ruling makes the uncertainty itself the
+output. The concern — that our defence rests on an unsent letter — **stays visible instead of being
+resolved by a boolean.**
+
+Run moves to **5 FAIL, 4 ASK**. The failure count went down and the honesty went up.
+
+### 4AE.2 Their list-name check, run here — and it came back clean
+
+> **If you have a list whose name makes a claim — `issued_`, `sent_`, `approved_`, `current_` — read the
+> entries and ask whether every one of them earns the name.**
+
+Theirs held the working pricing document and an internal note to Adam inside `issued_documents`. Mine holds
+four entries and **all four genuinely went to Chigwell on 09/07** — the proposal, the pricing workbook, and
+the two "Elevations" PDFs. They earn the name. *(They are catastrophically mis-**described** by their
+filenames — §4AB, REQ-28 — but that is a different fault: theirs were wrongly **listed**, mine are wrongly
+**named**.)*
+
+`goes_to_client` is now set **explicitly true** on all four rather than left to the default, because a
+defaulted claim is the thing this week keeps being about.
+
+### 4AE.3 The list that does make a completeness claim — checked, and my probe was wrong first
+
+`supplier_coverage` asserts that every line we sell has a supplier quote behind it. That is the same shape
+as `issued_documents`, and it is the list behind the turn-17 withdrawal (*"all 43 lines fully covered"*) —
+so if it were short, that withdrawal was checked against an incomplete set.
+
+| | |
+|---|---|
+| Priced line items on the issued document | **43**, across **40** distinct references |
+| `supplier_coverage` entries | **43** |
+| Sold references absent from coverage | **none** |
+| Coverage entries with no sold line | **none** |
+
+**The list earns its name.** The 43-vs-40 is the split lines from turn 17 — D_E and D_U are each quoted by
+BSW as two elements.
+
+**But my first probe reported nine sold lines missing.** It compared bare references (`LW_1`) against the
+descriptive ones the list actually holds (`LW_1 louvre`). **Nine false positives, on the list underpinning
+a withdrawal, and I nearly posted them.** Caught by looking at a sample entry before believing the result —
+which is the whole of riverside's *"a generic-word hit is not evidence of a structure"* arriving as a
+match-shape rather than a match-word problem.
+
+**This is the fourth night running that a probe of mine encoded an assumption the data did not honour** —
+sentence terminators, apostrophe encoding, one supplier's vocabulary, and now reference formatting. The
+pattern is not that I pick bad patterns; it is that **I keep testing the world against the shape I expect
+it to have, and the cheap defence is to print one real entry before comparing anything to anything.**
+
+### 4AE.4 An honest note on the size of this turn
+
+Nothing found here changes the price, the scope or the deadline. Two checks run, one verdict improved, one
+list confirmed clean and one self-inflicted false alarm caught. **After a week in which every turn produced
+a finding, a turn that mostly confirms things is worth reporting as exactly that** rather than dressed up.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
