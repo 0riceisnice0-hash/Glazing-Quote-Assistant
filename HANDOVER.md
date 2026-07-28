@@ -1327,6 +1327,63 @@ quotes, which is presumably how it reached theirs.
 
 Price unchanged at GBP 5,990.22, unissued. `mary_checks` 0 failed, 3 questions; selftest passes.
 
+### Riverside House - the folder was never empty, and the extraction was missing half the document (2026-07-28)
+
+**Gordon Court withdrew a founding finding tonight** - GBP 5,597.89 of cost reported since their first
+turn as having "no supplier quote behind it", in four documents. All seven lines were quoted, at exactly
+the workbook costs. They had used a **half-filled working column** as the test. Their rule: *a working
+column, a print statement and a generated footer are all representations of a source, not the source.*
+
+Riverside made the generator-footer version of that last night, so this chat audited its own claims.
+**One failed badly.**
+
+**THE ONEDRIVE JOB FOLDER IS NOT EMPTY AND NEVER WAS.** It was reported empty in the brief, the job file,
+the hub, the noticeboard and the handover - five times. It holds the full job structure and real files:
+
+    1. Estimating\2. Supplier Quotes\Quotation_QT51518.PDF        filed 27/07 15:46
+    1. Estimating\3. Client Quote\MASTER COVER LETTER 31.05.2026.docx
+    1. Estimating\3. Client Quote\MASTER PRICING DOC 10.07.2026.xlsx
+    plus 1. PO, 2. Site Survey, 3. Drawings, 4. Orders, 5. Finance, 6. H&S, 7. Aftersales
+
+The cause: searches ran against `OneDrive - Fenster Glazing & Locks Ltd`, which does not exist. The root
+is **`OneDrive - Fenster Glazing (1)`**. Zero results were read as an empty folder. **A failed search is
+not evidence of absence - it is evidence of a failed search. If a check returns nothing, prove the check
+can return something before you report the nothing.**
+
+**Not withdrawn:** the `3. Drawings` folder holds no files, so none of the six drawings we work from is
+filed anywhere - the pack-completeness finding stands, only the wording was wrong. And A Plus's quote
+**is** filed, so triage's original "the only copy is the email attachment" is out of date.
+
+### An extraction can be faithful and still incomplete
+
+Having found the real folder, the **actual** `MASTER COVER LETTER 31.05.2026.docx` could be read instead
+of `templates/proposal-content.json`, which is an extraction of it. **76 paragraphs against the
+document's 153.** The validity clause is faithful in both - so last night's figure was right - but two
+clauses matter and **one is absent from the extraction entirely**:
+
+- **NOT IN THE EXTRACTION:** *"Site Survey - Only conducted once the structural openings are fully
+  formed. Any revisits may be subject to a fee."* AOV.01 needs a new opening cut in retained masonry, so
+  the sequence is **PHDB form the opening, then we survey, then A Plus manufacture**. Our survey cannot
+  precede the builder and nobody has stated when that is - and it bears directly on how long A Plus are
+  being asked to hold their price. Now **C8** in the brief.
+- **In the extraction but unread:** *"Fenster Glazing & Locks Ltd is not responsible for overall design
+  intent, architectural suitability, or **regulatory strategy** and relies on information, drawings, and
+  specifications provided by the client or their professional team."* **The geometric-versus-aerodynamic
+  question is regulatory strategy.** Asking is still right and C0/C1 stand, but the exposure changes from
+  "we may be liable for a non-compliant vent" to "we rely on their team, and we asked".
+
+**Checking that a quoted line is accurate is not the same as checking the source has nothing else in
+it.** Worth running against any extracted spec or NBS text. Rule added to `AI.md`.
+
+### One check logged as NOT RUN
+
+**The GBP 5,990.22 has never been observed as a value computed by Excel.** It is hand-derived from the
+workbook's stored formulas and independently reproduced by `mary_pricing` - two routes that agree, but
+both from this chat's reading of the same formula chain. A live recalculation via Excel COM **will not
+start in this environment**. Mitigating: the repo template's formulas were confirmed **identical** to the
+live `MASTER PRICING DOC 10.07.2026.xlsx` in the job folder, so the document is built on the current
+master, and the code values are independently corroborated by Adam's table in `MARY-HANDOVER.md` s6.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

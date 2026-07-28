@@ -182,6 +182,61 @@ So there are now two dates on this job and they answer different questions:
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
 
+### CORRECTION: the OneDrive job folder is NOT empty, and never was (28/07)
+
+**This chat reported "the OneDrive job folder is still empty" in the brief, the job file, the hub, the
+noticeboard and the handover.** It is wrong. The folder carries the full job structure and real files:
+
+    1. Estimating. Supplier Quotes\Quotation_QT51518.PDF        filed 27/07 15:46
+    1. Estimating. Client Quote\MASTER COVER LETTER 31.05.2026.docx
+    1. Estimating. Client Quote\MASTER PRICING DOC 10.07.2026.xlsx
+    1. Estimating. Client Quote\Fenster Glazing - Tender Package\...   (QA, H&S, method statement)
+    plus 1. PO, 2. Site Survey, 3. Drawings, 4. Orders, 5. Finance, 6. H&S, 7. Aftersales
+
+**The cause is exactly the error Gordon Court described tonight.** Searches were run against
+`OneDrive - Fenster Glazing & Locks Ltd`, which does not exist - the root is
+`OneDrive - Fenster Glazing (1)`. Zero results were read as an empty folder. **A failed search is not
+evidence of absence; it is evidence of a failed search.** The same class as their half-filled column,
+their print statement and this chat's generator footer.
+
+**What survives the correction:** the `3. Drawings` folder holds no files, so none of the six drawings we
+are working from is filed anywhere - they exist only as email attachments. The pack-completeness finding
+stands; only the "folder is empty" wording was wrong. And A Plus's quote **is** filed, so triage's
+original "the only copy is the email attachment" is also out of date.
+
+### Two clauses in the true source that the extraction did not carry
+
+Having found the real folder, the **actual** `MASTER COVER LETTER 31.05.2026.docx` could be read rather
+than `templates/proposal-content.json`, which is an extraction of it. **The extraction has 76 paragraphs;
+the docx has 153.** The validity clause is faithful in both - so last night's figure was right - but two
+clauses matter here and one is absent from the extraction entirely:
+
+- **NOT IN THE EXTRACTION.** *"Site Survey - Only conducted once the structural openings are fully
+  formed. Any revisits may be subject to a fee."* **Material.** AOV.01 needs a new opening cut in
+  retained masonry, so the sequence is: PHDB form the opening, then we survey, then A Plus manufacture.
+  Our survey cannot precede the builder's work, and **nobody has stated when that is**. It bears directly
+  on the price hold - the further out the opening, the longer A Plus are being asked to hold, and it may
+  exceed anything they will give. Now **C8** in the brief.
+- **In the extraction, but not previously read.** *"Fenster Glazing & Locks Ltd is not responsible for
+  overall design intent, architectural suitability, or **regulatory strategy** and relies on information,
+  drawings, and specifications provided by the client or their professional team. Responsibility is
+  limited to measurement verification, supply, and installation of the agreed glazing systems."*
+  **The geometric-versus-aerodynamic question is regulatory strategy.** Our own terms disclaim
+  responsibility for it and place reliance on the client's professional team. That does not make asking
+  optional - asking is still right, and C0/C1 stand - but it changes the character of the exposure from
+  "we may be liable for a non-compliant vent" to "we rely on the client's team, and we asked".
+
+### One check logged as NOT RUN
+
+The **GBP 5,990.22** has never been observed as a value computed by Excel. It is derived from the
+formulas stored in the workbook, hand-evaluated, and independently reproduced by `mary_pricing` - two
+routes that agree, but both from this chat's reading of the same formula chain. A live recalculation was
+attempted via Excel COM and **failed - COM automation will not start in this environment**. Logged as
+outstanding rather than claimed. Mitigating: the template's code values are corroborated independently by
+Adam's table in `MARY-HANDOVER.md` section 6, and the repo template's formulas were confirmed **identical**
+to the live `MASTER PRICING DOC 10.07.2026.xlsx` in the job folder, so the document is at least built on
+the current master.
+
 ### Our own validity clause, verified at source - and its second half matters (28/07)
 
 Gordon Court's lesson: **check your own terms and conditions page before you report a validity gap - the

@@ -1266,6 +1266,40 @@ the value, you can price the windows and none of the work around them** - so do 
 the register and report the whole-job error as small. Where there is no category, the honest output is
 TBC plus an RFI, not a rate nobody can defend.
 
+## A Representation Of The Source Is Not The Source
+
+Gordon Court / Riverside / St Mary's, 28/07/2026 - the same error three times in one night, and it is
+worth naming because it does not look like an error at the time.
+
+- Gordon Court reported **GBP 5,597.89 of cost with "no supplier quote behind it"** since their first
+  turn, in four documents. They had used a **half-filled working column** as the test of whether a
+  supplier line existed. All seven lines were quoted, at exactly the workbook costs. Withdrawn.
+- St Mary's found a request a **print statement** said had been raised and which never existed.
+- Riverside quoted a 30-day validity off a **generated footer** rather than the house document.
+
+**A working column, a print statement and a generated footer are all representations of a source, not
+the source.** If a finding rests on one, read the document before you post it - certainly before you
+report it four times.
+
+**AND THE SIGN-REVERSED VERSION: A FAILED SEARCH IS NOT EVIDENCE OF ABSENCE.** Riverside reported "the
+OneDrive job folder is still empty" five times. It was never empty - it held the supplier quote, the
+master cover letter and the master pricing doc. The searches ran against
+`OneDrive - Fenster Glazing & Locks Ltd`, which does not exist; the root is
+`OneDrive - Fenster Glazing (1)`. **If a check returns nothing, prove the check can return something
+before you report the nothing.**
+
+**AND AN EXTRACTION CAN BE FAITHFUL AND STILL INCOMPLETE.** `templates/proposal-content.json` misquotes
+nothing, but it holds **76 paragraphs against the source docx's 153** - and the missing half contained
+*"Site Survey - Only conducted once the structural openings are fully formed"*, the clause most material
+to a job forming a new opening. **Checking that a quoted line is accurate is not the same as checking
+the source has nothing else in it.** Worth running against any extracted spec or NBS text.
+
+**Two clauses of our own that turn up when you read the real cover letter**, both worth knowing on every
+job: the site survey happens only *after* structural openings are formed, which puts our survey and the
+supplier's manufacture behind the builder's programme; and Fenster is *"not responsible for overall
+design intent, architectural suitability, or **regulatory strategy**"*, relying on the client's
+professional team - which qualifies compliance questions like a smoke vent's free-area basis.
+
 ## Deferrals: Administrative Gap Or Design Gap? And Read The Title Block
 
 Riverside / Gordon Court, 27-28/07/2026. A drawing that says *"to X's specification"*, *"as surveyed"*

@@ -99,7 +99,7 @@ on a shop drawing.
     in item 2 takes the order over GBP 5,000, please confirm delivery is then FOC.
     Please also quote delivery direct to site at HP19 7HL as an alternative.
 
-7. PRICE HOLD
+7. PRICE HOLD  ** and see the programme note under C8 below **
 
 QT51518 is open for 30 days, to 26/08/2026. RRR are waiting on PHDB's building-works
 costs before this is submitted, so the submission date is not yet known. Please confirm
@@ -300,6 +300,19 @@ C6. WHO IS CARRYING THE AOV CONTROL SYSTEM? It is not in A Plus's scope and it i
     2m of flex coiled at the vent - that is where they stop. Worth settling with RRR /
     PHDB at the same time as the above.
 
+C8. WHEN WILL THE OPENINGS BE FORMED? A PROGRAMME QUESTION WE HAD NOT ASKED.
+
+    Our own terms of business say: "Site Survey - Only conducted once the structural
+    openings are fully formed. Any revisits may be subject to a fee."
+
+    AOV.01 needs a new opening cut in retained masonry (C2). So the sequence on this job
+    is: PHDB form the opening, then we survey, then A Plus manufacture - and our survey
+    cannot happen before the builder's work. Nobody has stated when that is. It matters
+    for the price hold at Part One item 7, because the further out the opening is, the
+    longer A Plus are being asked to hold, and it may be beyond anything they will give.
+
+    Please confirm the intended programme date for forming the stair openings.
+
 C7. WE ARE ALMOST CERTAINLY NOT WORKING FROM THE WHOLE PACK. We hold six drawings.
     Five are Campbell Ark's K1653 series - 03, 04, 10b, 11 and 12 - and the sixth is
     hd planning's location plan. That leaves K1653-01, 02, 05, 06, 07, 08 and 09
@@ -315,8 +328,12 @@ C7. WE ARE ALMOST CERTAINLY NOT WORKING FROM THE WHOLE PACK. We hold six drawing
     register or issue sheet** so we can see what exists and ask for what matters,
     rather than guessing from the gaps in a numbering sequence.
 
-    Worth saying plainly: the OneDrive folder for this job is still empty. Everything
-    we have priced from arrived as email attachments.
+    CORRECTION TO SOMETHING WE SAID EARLIER: we had reported the OneDrive job folder as
+    empty. It is not - it carries the full job structure, and A Plus's QT51518 was filed
+    into "1. Estimating. Supplier Quotes" on 27/07. That was our error, from checking
+    the wrong path. What IS still true and matters here: the "3. Drawings" folder holds
+    nothing, so none of the six drawings we are working from is filed anywhere - they
+    exist only as email attachments.
 
     THE JOB NUMBER IS THE HANDLE. Campbell Ark's title block gives it: K1653, drawn SC.
     So "please issue the K1653 drawing register and any sheets not listed above" is a
