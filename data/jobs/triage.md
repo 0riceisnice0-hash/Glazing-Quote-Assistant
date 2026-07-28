@@ -480,12 +480,72 @@ Saint Global growth consultation, HS Direct business goals.
 **One digest email to Adam** carried items 1-3 with the actions named. No new requests raised - 23 were
 already open and none of these needs a decision from him that is not already obvious.
 
+### 2026-07-28 19:30 - Redditch Library, and I owed a correction on Vesuvius
+**THE CORRECTION FIRST.** My 16:00 note said the Vesuvius RFQ bounced three times and BSW hold nothing.
+Vesuvius says two bounced and the third got through; I checked their working at source rather than accept
+it. The 15:17 zip is 29,861,398 bytes (28.5 MiB, ~39 MB with base64's 37%) and both bounces quote 39 MB;
+the 15:22 zip is a rebuilt 20,914,588 bytes (19.9 MiB, ~27 MB), inside BSW's 36 MB cap. No third bounce
+exists in queue or processed, and Adam's 15:50 reply says it went "after documents were removed".
+**BSW hold the RFQ.** The 36 MB cap and "check for a bounce before blaming the supplier" both stand.
+What does not is the sentence I wrote: *"Assume the 15:22 attempt failed the same way."* Two facts and a
+guess in one voice, and an `ls` on the attachment would have settled it in ten seconds. **If you have not
+seen the bounce, do not assert the bounce.** Adam already has the correction from vesuvius' 18:38 email,
+so I did not send a second one - board corrected instead.
+
+**ADAM'S 15:50 REPLY CARRIED TWO THINGS THAT WERE MINE, NOT VESUVIUS'.** (1) A scope ruling: *"this is a
+live project so it does not fall under estimating. This will be a job for your Project Manager bot,
+Joseph, but Zac has not created him yet."* So **Manor Lodge is closed here** - the Rev A discrepancies
+are recorded and it is off the watch list; live projects are Joseph's. (2) An instruction: *"Maybe give
+marketing a nudge to get Joseph up and running."* Done - emailed marketing with Manor Lodge and Stoke
+Park as the two worked examples, and named what Joseph would need that I do not have (commercial@ and the
+`4. Orders` folder). Also noted for the record: on Eleanor he said *"please do keep me updated with this
+sort of thing"* and had WhatsApped Mark Golden within the hour.
+
+**REDDITCH LIBRARY - NEW JOB, AND THE PACK CONTAINS THE COMPETITION'S PRICE.** Adam 18:07, marked
+Urgent!!: *"Has this one been picked up by estimating? If not, can you please do a full take off asap."*
+**Answer: no.** Zero Redditch rows across all 349 on the Estimating Log, though Pride Developments have
+14 rows of their own. It reached info@ on 22/07, Kerry forwarded it to Commercial@ and Adam the same
+afternoon, and it sat six days - **the third info@ miss this week** after John North Hall and the
+pipeline finding.
+
+Redditch Library, 15 Market Place B98 8AR. End client Worcestershire CC, CA Gleeds (Shaun Wilkes, ref
+BLBS0956, 254 pages, May 2026). We are invited by **Pride Developments** (Leonard White, Senior QS) as
+their window and door subcontractor. Chat `redditch-library` opened, work order routed, full brief handed
+over; emailed Adam the answer and the headline.
+
+Three things established here before handing on:
+- **The pack's return date is 12 noon Friday 26 June 2026 - a month gone.** That is Gleeds' date to the
+  main contractors, not ours. Fenster has no stated date; Leonard said "asap" on 22/07. Told the new chat
+  explicitly not to promote 26/06 to a hub deadline - that error has now been made three times this week.
+  The Form of Tender also holds the price open **10 weeks** from submission against 30-day supplier
+  quotes, the John North Hall problem again.
+- **Appendix 2 is not a specification - it is Joedan Commercial Division's own quotation to Gleeds**
+  (JCQ.9727, 23/03/2026, Nathan Swenson), left in the pack complete with rates. 43 items with sizes,
+  configurations, unit rates and extended costs. **Grand total GBP 90,687.17 ex VAT** gross of 2.5% MCD.
+  EL75mm Squareline alu windows, AC100 Commercial doors, 1.4 W/m2K windows and 3.0 doors, 12-month
+  warranty against our ten years. Their exclusions are the commercial map: no access equipment of any
+  kind, no skips, no containers, no Building Control, no asbestos removal, no mag locks, no
+  manifestations, no up-stand where windows meet the flat roof - and strip-out included with disposal on
+  the main contractor, which is Adam's house position exactly. Told the chat to price ours first and
+  compare second, or it will anchor.
+- **Appendix 1 (Alumasc flat roofing) is not our package.** Windows and doors only, said on the face of
+  the quote. Appendix 3 is a refurbishment and demolition asbestos survey - read before pricing strip-out.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target
   Maintenance / RH1 St John's Terrace Road, Earlswood, Redhill (ref SO_14045, door repair, own pricing
   dated 24/07, no Mary chat). The match term `gordon court` sends both to `gordon-court` - check the
   client before handing anything on, and open a second job if Target Maintenance work actually arrives.
+
+- **Manor Lodge Q7666 is CLOSED here, on Adam's ruling of 28/07 15:50** - it is a live project, not
+  estimating, and belongs to Joseph when he exists. Do not re-open a pricing workstream on it. The Rev A
+  findings are logged in the 16:00 entry above if anyone needs them.
+
+- **Live-project work generally.** Same ruling. If a thread turns out to be a job Fenster has already won
+  - order sign-offs, cutting lists, delivery dates, a supplier finalising design with the client - record
+  what you found and stop. It also lives in commercial@ and each job's `4. Orders` folder, neither of
+  which Mary can see, so absence of evidence there is not evidence of absence.
 
 ## Open items
 

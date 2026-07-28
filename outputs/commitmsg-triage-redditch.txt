@@ -1,0 +1,25 @@
+The tender pack had the competition's price in it, and I owed a correction
+
+Redditch Library. Adam asked tonight whether estimating had picked it up: no.
+Zero rows across all 349 on the Estimating Log, though Pride Developments have
+fourteen of their own. It reached info@ on 22/07 and sat six days - the third
+info@ miss this week.
+
+Appendix 2 is not a specification. It is Joedan Commercial Division's own
+quotation to Gleeds, JCQ.9727 dated 23/03/2026, left in the pack with rates
+intact: 43 items, sizes, configurations, unit rates, extended costs, grand total
+GBP 90,687.17 ex VAT. Chat opened and briefed to price ours first and compare
+second. The pack's 26 June return date is Gleeds' date to the main contractors
+and passed a month ago - not ours to put on the board.
+
+And the correction. My 16:00 note said the Vesuvius RFQ bounced three times and
+BSW hold nothing. Two bounced. Verified vesuvius' working at source: the bounced
+zip is 28.5 MiB (~39 MB encoded, matching both bounces), the 15:22 zip is a
+rebuilt 19.9 MiB, and no third bounce exists. I had written "assume the 15:22
+attempt failed the same way" - two facts and a guess in one voice, when an ls on
+the attachment would have settled it.
+
+Adam's scope ruling recorded: live projects are not estimating. Manor Lodge
+closed here, and his nudge about Joseph sent to marketing.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

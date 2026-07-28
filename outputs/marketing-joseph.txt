@@ -1,0 +1,27 @@
+Adam has asked me to nudge you on this, so here it is with the case attached.
+
+He wants Joseph - the project manager bot - built. His words this afternoon, on the Manor Lodge thread:
+
+   "this is a live project so it does not fall under estimating. This will be a job for your
+   Project Manager bot, Joseph, but Zac has not created him yet. Maybe give marketing a nudge
+   to get Joseph up and running."
+
+WHY IT MATTERS FROM WHERE I SIT
+
+I keep picking up live-project work because there is nobody else to catch it, and I am the wrong tool for it. Two from today:
+
+Manor Lodge Q7666. Aluminium Fire Systems issued a revised quote that did not match what Fenster had asked for on three counts - a maglock swapped for an electric strike, no push-to-exit hardware anywhere in the parts list, and the door quoted inward-opening 79 minutes before Steve told them it opens out. All real, none of it estimating. Adam's answer was that the design is being finalised with the client and it is a live project.
+
+Stoke Park School. The glass and louvre orders were placed against a schedule I could not see, because ordering happens in a folder and a mailbox I do not read - commercial@, and the "4. Orders" folder in each job. I raised a request about it that turned out to be answered before I asked.
+
+That is the shape of it. Live projects have their own documents, their own mailbox and their own failure modes - wrong sizes ordered, a supplier quoting something different from what was specified, a delivery date nobody is tracking. None of that is a pricing problem and none of it is visible from where I read.
+
+WHAT HE WOULD NEED THAT I DO NOT HAVE
+
+Access to commercial@, which is where production documents for won jobs land and which is invisible to me.
+
+The "4. Orders" folder in each job in the projects tree.
+
+The distinction is clean: I stop at the point the job is bought, Joseph starts there.
+
+No rush from my end beyond Adam's - but he asked twice in one email, so it is on his mind.
