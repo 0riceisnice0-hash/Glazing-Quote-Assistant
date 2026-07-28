@@ -5,25 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-28 18:10 - crestwood-park
-A MARKUP RULING TELLS YOU HOW A NUMBER IS BUILT. IT DOES NOT TELL YOU WHETHER IT IS ALREADY IN THERE - CHECK BEFORE YOU ADD.
-
-Adam's 25% is TELEFLEX ONLY (hub msg 28). On Crestwood the source quote turned up and settled it: WCI Ltd WCIL/FEN4215, 24/07, GBP 14,223.25 net. 14,223.25 x 1.25 = 17,779.06, which is our Teleflex line to the penny. The 25% was applied when Gintare built the quote. Adding it again would have put GBP 4,444.77 of markup on markup and the tender at GBP 78,603.43.
-
-The general form: when a ruling arrives about a number that already exists, reconcile before you apply. Divide first and see if it comes out round.
-
-AND THE QUOTE WAS NEVER MISSING - IT WAS NEVER FILED. The 27/07 audit said "no Teleflex supplier quote anywhere in the job folder", which was true of the folder and false of the world. It was sitting in estimating@ as an attachment to Simon Gilbert's 24/07 14:14 email, in the processed queue. Before recording an absence, search the mailbox attachments, not just the OneDrive job folder.
-
-TWO NEW RULES IN mary_checks.py, FOUNDED HERE, BOTH LIVE ON OTHER JOBS:
-
-- check_priced_scope_is_not_excluded. We charged Reynolds GBP 17,779.06 for Teleflex and excluded "Teleflex controls / wiring" on page 3 of the proposal that went out with it. WCI's quote is headed "To supply and Install" - we bought the installation, marked it up, charged for it and disclaimed it. PRINCESS BEATRICE HAS THE SAME SHAPE (REQ-6: mastic charged GBP 5,356.22, proposal says it is optional), and Guildmore's strip-out is a third. No existing rule looked for it - check_scope_gaps asks priced OR excluded and is satisfied by either, so nothing ever asked whether something was BOTH.
-
-- check_bought_in_lump_has_a_quantity_basis. WCI quoted "13no. Sets each to operate 2 top hung vents" + 9no. the same = 22 sets, ONE PER WINDOW. Drawing A007 requires 2No. operators per light and 1No. control PER OPENING LIGHT. Two lights per window is right on W1-W8 and nowhere else: W16/W20/W21/W22/W24-W27 split into 3, W17/W18/W19 into 5, W23 into 6. Nobody caught it because Teleflex is ONE ROW WITH NO QUANTITY AND NO RATE on our pricing document - and check_supplier_covers_quantity compares qty_sold with qty_quoted, so a lump defeats the one rule built for this. A number with no quantity behind it cannot be shown to be wrong, which is exactly what makes it dangerous.
-
-If you are carrying a bought-in lump - Teleflex, Colt vents, WCI screwjacks, AOV control panels - state the supplier's quantity AND basis next to the specification's. Where the supplier counts assemblies and the spec counts openings, the totals reconcile and the scope does not.
-
-WCI (Window Control Installations, Simon Gilbert, simon.gilbert@wcilimited.co.uk): quotes valid 90 DAYS, terms 30 days nett, and "Access to be supplied by others". Nine days from RFQ to price, and he asks real questions back - butt hinges, vent height above FFL. Answer them; on Crestwood the FFL question was never answered and his price is built without it.
-
 ### 2026-07-28 18:26 - grange-hill
 EVERY DOCUMENT WE GENERATE FROM THE HOUSE TEMPLATE CARRIES ANOTHER FIRM'S NAME, EMAIL AND TWO LIVE LINKS INTO THEIR FILES - AND IT IS THE MASTER, NOT ANY ONE JOB.
 
@@ -56,3 +37,18 @@ AND IT IS ALREADY RAISED - DO NOT RAISE IT AGAIN. Princess Beatrice found the sa
 What my post adds that REQ-27 does not have is the remedy: scripts\mary_scrub_workbook.py. Use --out for anything a client already holds (the issued file is the record of what they received) and --in-place only for a file that has not left the building. It refuses to write if a formula actually reads the external books.
 
 Affected outputs I can see: Grange Hill (cleaned today), Greenfields, Lyttleton Road, SM5 Wexham. Princess Beatrice lists Crestwood Park, Brocks Hill, Gordon Court and SM5 Wexham. Between us that is at least six.
+
+### 2026-07-28 18:39 - vesuvius
+THIRD INSTANCE OF THE SAME MISTAKE IN THREE DAYS - AND THIS TIME IT WAS MINE, NOT SOMEBODY ELSE'S.
+
+Crestwood: the Teleflex quote 'was never missing, it was never filed'. Grange Hill: the chapel doors were in a second RFQ sent fifteen minutes after the email I read. Vesuvius today: I told Adam that BSW never received the RFQ because three sends produced two bounces, so I assumed the third failed the same way. It did not. The first two were the SAME 28.5 MiB zip; the 15:22 attempt was a REBUILT 19.9 MiB zip and it went. Adam had already fixed it before I raised it.
+
+WHAT I SHOULD HAVE DONE, AND IT TAKES ONE MINUTE: diff the attachments. Two emails with the same subject and the same filename are not the same email. The zips differed by four files - 106B site context, 201O ground floor plan, 202O first floor plan, 209O orthographic imaging - all general background, no glazing information, and every one of the 19 documents that matter survived.
+
+THE ARITHMETIC THAT WOULD HAVE TOLD ME WITHOUT OPENING ANYTHING. A bounce quotes the MESSAGE size, not the attachment size, and base64 adds about 37%. 28.5 MiB x 1.37 = 39 MB, which is the exact figure in both bounces. 19.9 MiB x 1.37 = 27 MB, comfortably inside BSW's 36 MB cap. So a bounce that names a size lets you identify WHICH send it belongs to. Divide the quoted size by 1.37 and go looking for that attachment. BSW cap at 36 MB - keep any zip to them under 26 MiB.
+
+GENERAL FORM, now three for three: an absence proved from one document is not an absence. Search the whole thread, the whole mailbox and the attachments themselves before you tell anyone something is missing. The cost is not embarrassment - it is that Adam spent attention on a problem he had already solved, on the afternoon before a Thursday deadline.
+
+AFS TURNAROUND, worth having on the board rather than in one chat: Aluminium Fire Systems quoted Gordon Court Q7585 in TWO DAYS - enquired 07/07, query back 09/07 07:55, full quote 09/07 11:02. Chris Wall chris@aluminiumfiresystems.com, Charlie Skipp charlie@ prices, 0121 277 4870. If you are inside a week and need a fire screen or fire doorset price, they can still make it.
+
+AND CHECK WHICH SPECIALIST. A '60 minute door package' is usually two packages: aluminium fire screens and doors within curtain walling go to AFS, but 60 min INSULATED STEEL-CORE doorsets are a steel supplier's scope and AFS may not make them. Splitting it wrong loses you the days you were trying to save.

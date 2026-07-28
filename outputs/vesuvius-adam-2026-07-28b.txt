@@ -1,0 +1,85 @@
+Adam,
+
+Two things on Vesuvius. The first is me correcting myself; the second is the one
+that still needs doing before Thursday.
+
+1. THE RFQ DID REACH BSW - I WAS WRONG, AND I HAVE CHECKED IT PROPERLY THIS TIME
+
+You said it was sorted and sent after documents were removed. It was, and I can
+now show it rather than take your word for it.
+
+Gintare sent three times. Only the first two bounced, and they were the SAME zip -
+28.5 MiB, which encodes to the 39 MB the bounce quotes against BSW's 36 MB cap.
+The 15:22 attempt was a rebuilt zip of 19.9 MiB, about 27 MB as a message, and no
+bounce ever came back for it. I diffed the two attachments side by side.
+
+The four files dropped to get under the cap were 106B site context plan, 201O
+ground floor plan, 202O first floor plan and 209O orthographic imaging - all
+general background, none of it glazing information. BSW hold all nineteen of the
+documents that matter, including the window schedule 222P, the door schedule 221P
+and the NBS specification. That is actually a better enquiry than the one that went
+on 27/07, which carried ten of the fifty-five files and was missing all three of
+those. Whoever rebuilt that zip dropped exactly the right four files.
+
+So there is nothing to re-send, and my note this afternoon telling you it needed
+re-sending today was wrong. I had two bounces and three sends and assumed the
+third failed like the other two.
+
+2. THE 60 MINUTE DOORS - THE LETTER IS NOW WRITTEN
+
+This is REQ-8, open since Sunday, and it is the one with money on it. Nothing about
+the BSW enquiry closes it, because that enquiry EXCLUDES fire-rated leaves and
+doorsets unless BSW can certify them. Their return will come back with a hole
+exactly where the money is.
+
+The specification is not ambiguous - JHA NBS Section 2 clause L20 carries four
+separate 60 minute door clauses, including "60 Min Door installed in curtain wall",
+and the door schedule 221P agrees on every external type. We have the 2no doors in
+at GBP 4,683.56 as standard Senior SPD150, which is the wrong product family, and
+the welfare screen at GBP 8,377.50 plus the office entrance screen at GBP 41,000.00
+both carry doors inside them. That is GBP 49,377.50 - about 45% of the budget -
+sitting on SF52 screens whose doors have to be fire rated, and SF52 is not a fire
+rated system.
+
+I have written the enquiry so that sending it is a two-minute job:
+
+    outputs\Vesuvius Way - RFQ to Aluminium Fire Systems (draft, send today).txt
+
+It goes to Chris Wall, cc Charlie Skipp, lists the attachments, sets out five door
+types with sizes and ironmongery from 221P, asks for a rate per type so the counts
+can flex, and asks for a return by 12:00 Thursday. AFS turned Gordon Court round in
+two days - enquired 07/07, quoted 09/07 at 11:02 - so they can still make it if it
+goes today. I cannot send it myself; it needs Gintare or Steve.
+
+THREE THINGS I COULD NOT SETTLE MYSELF
+
+The package splits two ways and REQ-8 did not say so. AFS are aluminium fire
+screens, so they cover the doors inside the curtain wall and the two internal
+PyroStop screens. The 60 minute insulated STEEL-CORE doors - fire escape, vision
+panel, louvred - are a steel doorset scope. Gintare sent a steel-door enquiry at
+15:31 naming drawing 2024/055/127 and the D.04 louvre door, but our copy of that
+email shows no recipient at all, and nothing has come back. Worth thirty seconds
+of Gintare's time to confirm where it went.
+
+L20 and the door schedule both demand U-value 1.2 W/m2K on doors they also require
+to be 60 minute fire rated. I have asked AFS whether that is achievable. If it is
+not, that is a conflict inside JHA's own specification and it is theirs to resolve,
+not something we should quietly price around.
+
+L20 tells the reader to refer to drawing 2024-055-114, "Building 01 Fire Plan",
+before any order is placed. It is not in the 55-file tender pack. It is the document
+that would tell us which doors are 60 minute and where, so it is worth asking
+Staniforth for it.
+
+WHERE THE JOB STANDS
+
+GBP 110,551.98 ex VAT, benchmark only, no supplier quote held, nothing issued to
+Staniforth. Expect it high - the calibration log runs +10.4% on average and the
+large-unit band ran +35% on St Mary's, and this job is mostly large curtain wall.
+The Senior fabricator problem is still open underneath all of it: the pack is
+entirely Senior and none of BSW, Aplus or Bellview make it.
+
+Also for the file, so nobody prices them by accident: Building 03 is not ours - its
+doors are acoustic steel with two big roller shutters - and neither is the switch
+room roller shutter on 221P. Both should be named in the exclusions when anything
+goes to Staniforth.

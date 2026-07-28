@@ -27,10 +27,10 @@
   },
   {
    "job": "Air Separation Unit, Vesuvius Way",
-   "client": "Stainforth Construction",
+   "client": "Staniforth Construction LLP",
    "deadline": "2026-07-30",
-   "status": "DEADLINE THURSDAY 30/07 - AND BSW NEVER RECEIVED THE ENQUIRY. Gintare sent the RFQ to estimations@bsws.co.uk three times this afternoon (~15:13, 15:17, 15:22) with a 39 MB zip; postmaster bounced it at 15:14 and 15:18 on 550 5.2.3 RESOLVER.RST.RecipSizeLimit - their cap is 36 MB. BSW hold nothing, and a bounce goes only to the sender, so this reads as a slow supplier. Re-send as a OneDrive link or split today. The enquiry also EXCLUDES fire-rated leaves and doorsets unless BSW can certify them, so REQ-8 is not closed by it - the 60-minute package (2no doors plus the doors inside the welfare and office screens, ~GBP 49,377.50 of a GBP 110,551.98 budget) still has no specialist asked, with two days left. A separate steel-door RFQ went out 15:31 and did not bounce. Budget GBP 110,551.98 ex VAT issued 27/07, but CONFIRMED AT SOURCE that it is understated: JHA NBS Section 2 clause L20 requires every external door to be 60 MINUTE FIRE RATED insulated steel-core, including \"60 Min Door installed in curtain wall\". The 2no doors are in at GBP 4,683.56 as standard Senior SPD150 aluminium - wrong product family. Worse, the welfare screen (GBP 8,377.50) and office entrance screen (GBP 41,000.00) carry doors within them: GBP 49,377.50, about 45% of the budget, sits on SF52 screens whose doors must be fire rated, which a standard SF52 cannot do. Needs a tested fire-screen system priced by a specialist - Aluminium Fire Systems are already quoting Manor Lodge. Compounds the open Senior-fabricator problem.",
-   "value": "GBP 110,551.98 budget - understated",
+   "status": "DEADLINE THURSDAY 30/07. CORRECTION TO YESTERDAY'S ENTRY: BSW DO HOLD THE ENQUIRY. Gintare sent it three times (~15:13, 15:17, 15:22) and only the FIRST TWO bounced on 550 5.2.3 RESOLVER.RST.RecipSizeLimit - both were the same 28.5 MiB zip, which encodes to the 39 MB in the bounce against BSW's 36 MB cap. The 15:22 attempt was a DIFFERENT, REBUILT zip of 19.9 MiB (~27 MB encoded), it did not bounce, and Adam confirmed at 15:50 that it went 'after documents were removed'. Verified by diffing the two attachments: the four files dropped are 106B site context, 201O ground floor plan, 202O first floor plan and 209O orthographic imaging - all general background, NO glazing information. BSW hold all 19 glazing documents including the window schedule 222P, door schedule 221P and the NBS specification, which is BETTER than the 27/07 enquiry that carried 10 of 55 files and was missing all three. Nothing to re-send. WHAT IS STILL LIVE IS REQ-8. The BSW enquiry EXCLUDES fire-rated leaves and doorsets unless BSW can certify them, so their return will come back with a hole exactly where the money is. JHA NBS clause L20 requires every external door to be 60 MINUTE fire rated, including a '60 Min Door installed in curtain wall'. The 2no doors are priced at GBP 4,683.56 as standard Senior SPD150 - wrong product family - and the welfare screen (GBP 8,377.50) plus office entrance screen (GBP 41,000.00) carry doors within them: GBP 49,377.50, about 45% of the budget, sits on SF52 screens whose doors must be fire rated, which a standard SF52 cannot do. The AFS enquiry is now WRITTEN and ready to send. Compounds the open Senior-fabricator problem: nobody we buy from fabricates Senior.",
+   "value": "GBP 110,551.98 budget - understated, expect it HIGH (large-unit mix)",
    "stage": "tender"
   },
   {
@@ -286,15 +286,18 @@
    "raised": "2026-07-27",
    "job": "Air Separation Unit, Vesuvius Way",
    "owner": "Adam",
-   "title": "Every external door has to be 60 minute fire rated - who prices it before Thursday?",
+   "title": "Every external door has to be 60 minute fire rated - the AFS enquiry is written and needs sending today",
    "why": "JHA NBS Section 2 clause L20 requires 60 minute insulated steel-core external doors, AND a \"60 Min Door installed in curtain wall\", AND a 60 minute louvred door meeting the NOVA acoustic report. My budget priced the 2no doors as standard aluminium at GBP 4,683.56, and the two curtain wall screens carrying doors total GBP 49,377.50 - about 45% of the GBP 110,551.98. A 60 minute door cannot go into a standard SF52 screen.",
-   "needs": "A fire-screen specialist to price the door package. Aluminium Fire Systems already have Manor Lodge (Julian Ward, Q7666).",
+   "needs": "THE LETTER IS NOW WRITTEN, NOT JUST SPECIFIED - clicking option 1 is a send, not a drafting job: outputs\\Vesuvius Way - RFQ to Aluminium Fire Systems (draft, send today).txt. It names the attachments, gives a rate per door type so the counts can flex, and asks the five questions that decide whether this is even buildable. Chris Wall chris@aluminiumfiresystems.com, cc Charlie Skipp charlie@, 0121 277 4870. AFS turned Gordon Court Q7585 round in TWO DAYS (enquired 07/07, quoted 09/07 11:02), so they can still make Thursday if it goes today. Mary cannot send it - ghost protocol limits outbound to Adam and marketing - so it needs Gintare or Steve.\n\nAND THE PACKAGE SPLITS TWO WAYS, WHICH THE ORIGINAL OPTIONS DID NOT SAY. AFS are aluminium fire screens: they cover the 60 min doors INSIDE the curtain wall (Types 2 and 3) and the 2no internal PyroStop screens. The 60 min INSULATED STEEL-CORE external doors - fire escape, vision panel, louvred - are a steel doorset scope. Gintare sent a steel-door enquiry at 15:31 on 28/07 naming drawing 2024/055/127 Door Type A and the D.04 louvre door, but OUR COPY OF THAT EMAIL SHOWS NO RECIPIENT and no reply or bounce has come back. Somebody should confirm who it actually went to before Thursday.\n\nTwo answers we do not have and cannot get ourselves: whether a 60 minute doorset can reach the U-value 1.2 W/m2K that L20 and the schedule both demand (if it cannot, that is a conflict in JHA's own specification and it is theirs to resolve), and drawing 2024-055-114 'Building 01 Fire Plan', which L20 refers to and which is NOT in the 55-file tender pack at all - it is the document that says which doors are 60 minute and where.",
    "options": [
-    "Send it to Aluminium Fire Systems today",
-    "Try Strongdor",
-    "Qualify the return and price it later"
+    "Send the AFS enquiry today as drafted - it is written and dated for Thursday",
+    "Send the AFS enquiry AND have Gintare confirm who the 15:31 steel-door enquiry went to",
+    "Ask Staniforth for drawing 2024-055-114 Building 01 Fire Plan before anyone prices it",
+    "Qualify the return - exclude all 60 minute doorsets in writing and price them as a variation",
+    "Carry the 60 minute door package as a provisional sum and issue on Thursday"
    ],
-   "status": "open"
+   "status": "open",
+   "updated": "2026-07-28"
   },
   {
    "id": "REQ-9",

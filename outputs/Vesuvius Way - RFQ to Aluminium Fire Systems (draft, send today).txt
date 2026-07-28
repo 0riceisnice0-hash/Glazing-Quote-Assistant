@@ -1,0 +1,115 @@
+DRAFT ENQUIRY - FOR GINTARE / STEVE TO SEND FROM estimating@fensterglazing.com
+To:      chris@aluminiumfiresystems.com
+Cc:      charlie@aluminiumfiresystems.com
+Subject: Fenster Glazing - Air Separation Unit, Vesuvius Way Worksop - 60 minute door package
+
+Attach (all from the tender pack, already extracted to test-results\vesuvius-input\):
+  2024-055-221P - DOOR SCHEDULE.pdf
+  2024-055-127-PROPOSED DOOR DETAILS.pdf
+  2024-055-204O - ELEVATIONS 01 & 03.pdf
+  2024-055-205O - ELEVATIONS 02 & 04.pdf
+  2024-055-108D-WELFARE ELEVATIONS.pdf
+  JHA-JOH-2024-055-JHA NBS Section 2.pdf   (clause L20 is the relevant part)
+  003. Welfare Building Ele 2 Curtain Wall.pdf
+  004. Welfare Building Ele 2 Door.pdf
+  006. Office Elevation 2 Lobby.pdf
+
+--------------------------------------------------------------------------------
+
+Hi Chris,
+
+Could you please price the 60 minute door package on the following, and note the
+return date before you read any further - we need this by 12:00 Thursday 30 July.
+
+    Proposed New Gas Plant, Plot 8 Vesuvius Way, Worksop S80 3NE
+    Main contractor: Staniforth Construction LLP.  End client: BUSE Gas Solutions.
+    Architect: JHA Architecture Ltd, job 2024-055.
+
+The specification (JHA NBS Section 2, clause L20, 15/07/2026) requires every
+external door on this building to be 60 minute fire rated, including the doors
+that sit inside the curtain walling. L20 carries four separate 60 minute door
+clauses - "External Doors", "External Doors Curtain Walling", "External Doors
+Louvered", and clause 45 "Door leaves (Internal)".
+
+Quantities below are our take-off from the trade bill and the architect's
+drawings and are to be confirmed by survey - please price a RATE PER DOOR TYPE
+as well as the totals, so the numbers can flex if the counts move.
+
+TYPE 1 - 60 MIN SINGLE LEAF EXTERNAL DOOR                             2 no.
+    Structural opening 1000 x 2450, comprising a 1000 x 2100 door with a
+    350 high toplight over. Welfare building, Elevation 2.
+    60 min insulated steel-core external open-out single-leaf door, PPC
+    galvanised double-skinned leaf, PPC galvanised 90mm enclosed frame.
+    Double glazed vision panel 572 x 572.
+    Ironmongery: pushpad nightlatch with snib lock back and external cylinder
+    access, emergency exit hardware internally, stainless steel lever handle
+    with split follower, 300mm high stainless steel kick plates both sides
+    (SAA), low profile threshold strip, 4 no. stainless steel ball bearing
+    hinges, slow release closer, keyfob access sensor preparation.
+    Purpose made emergency exit signage - "running man" internally, "fire door
+    keep clear" externally.
+
+TYPE 2 - 60 MIN DOUBLE DOOR INSTALLED IN CURTAIN WALL                 1 no.
+    1570 overall (785 + 785 leaves) x 2175. Office building, Elevation 02,
+    set within a Senior SF52 fully capped screen 6500 x 6000.
+    L20: "60 Min Door installed in curtain wall to manufacturers design",
+    double glazed window unit panels, U-value 1.2 W/m2K.
+    Ironmongery: bar pull handle with snib lock back on maglock fob release,
+    stainless steel lever handle with split follower internally, slow release
+    closers internally, keyfob access sensor preparation.
+
+TYPE 3 - 60 MIN SINGLE DOOR INSTALLED IN CURTAIN WALL                 1 no.
+    Welfare building, Elevation 2, set within a Senior SF52 fully capped screen
+    2950 x 2450 with toplight. Leaf size to be confirmed - please price on your
+    standard leaf for a screen of this size and state what you have allowed.
+    Same clause and same ironmongery principle as Type 2.
+
+TYPE 4 - 60 MIN LOUVRED DOUBLE DOOR                                   1 no.
+    1450 (724 + 724) x 2110. 60 min insulated steel-core, PPC galvanised
+    double-skinned LOUVRED leaves, PPC galvanised 90mm enclosed frame.
+    Louvres to be manufactured and installed into the door unit and to comply
+    with the NOVA acoustic specification and report.
+    Please price this ONLY if it is something you make - we are running a steel
+    doorset enquiry on it in parallel and would rather have your price as an
+    alternative than not have one at all.
+
+TYPE 5 - INTERNAL FIRE SCREENS                                        2 no.
+    First floor partition, office building. 2400 x 1500 and 3100 x 1500.
+    Specified as Pilkington PyroStop Active Sun Cool 70/40 in Senior PURe
+    frames. Senior PURe is not a fire rated system, so this needs to come from
+    a tested screen - please quote your equivalent and state the classification
+    you are offering.
+
+QUESTIONS WE NEED ANSWERED WITH THE PRICE
+
+1.  What classification are you offering on each type - EI60 or E60? L20 says
+    "60 Min" throughout and does not distinguish, so please state what your
+    tested evidence covers and we will put the question to the architect.
+
+2.  Can you meet U-value 1.2 W/m2K on Types 1, 2 and 3? The schedule and L20
+    both state 1.2 against these doors. If a 60 minute doorset cannot reach
+    1.2, say so plainly - that is a conflict in the specification and we need
+    to raise it with JHA rather than price around it.
+
+3.  Types 2 and 3 sit inside a Senior SF52 curtain wall, which is not a fire
+    rated system. Please tell us what you need at that interface - whether you
+    supply a fire rated sub-frame or screen within the SF52 opening, what
+    builder's work or structural opening you require, and where the
+    responsibility line falls between your doorset and our screen.
+
+4.  Supply only, or supply and install? Please price supply only delivered to
+    site at Worksop S80 3NE, and give us the install as a separate figure.
+
+5.  Lead time from order, and how long the quotation stays open.
+
+6.  Anything you need that is not in the attachments. Note that L20 refers to
+    drawing 2024-055-114 "Building 01 Fire Plan" and to the fire consultant's
+    comments; neither is in the tender pack we have been issued, so if you need
+    the fire strategy to classify these doors, tell us and we will chase it
+    from the main contractor.
+
+Tender return to Staniforth is Thursday 30 July, so if the full package cannot
+be priced in the time, please send rates for Types 1, 2 and 3 first and follow
+with the rest.
+
+Many thanks,

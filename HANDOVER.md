@@ -6077,6 +6077,62 @@ Positions unchanged and nothing issued: Grange Hill GBP 27,560.07 benchmark and 
 Filwood and Vesuvius Thursday, Brocks Hill Friday.
 
 
+### Vesuvius Way - the RFQ did reach BSW, and the 60-minute door enquiry is finally written (2026-07-28)
+
+First turn of the permanent `vesuvius` job chat. Six work orders, all one story, plus a handoff from triage
+saying **"BSW NEVER RECEIVED YOUR RFQ - THREE ATTEMPTS, ALL BOUNCED"**. That conclusion was wrong, and so
+was the email I sent Adam at 16:44 repeating it.
+
+**TWO BOUNCES, THREE SENDS, AND THE THIRD ZIP WAS A DIFFERENT FILE.** The 15:14 and 15:18 bounces both quote
+39 MB against BSW's 36 MB cap, and both belong to the SAME 28.5 MiB attachment - base64 adds ~37%, and
+28.5 x 1.37 = 39 MB exactly. The 15:22 send carried a **rebuilt 19.9 MiB zip** (~27 MB encoded), no bounce
+for it exists anywhere in the queue or processed, and Adam confirmed at 15:50: *"Vesuvius should be sorted
+and sent now after documents were removed."* Proven by diffing the two attachments rather than by taking
+his word for it.
+
+**The four files dropped were exactly the right four:** 106B site context plan, 201O ground floor plan,
+202O first floor plan, 209O orthographic imaging - all general background, no glazing information. BSW hold
+all 19 documents that matter, including window schedule 222P, door schedule 221P and the NBS specification.
+**That is a better enquiry than the 27/07 one**, which carried 10 of 55 files and was missing all three of
+those - so the RFQ shortfall raised on 27/07 has closed itself.
+
+Third instance in three days of the same error: Crestwood's Teleflex quote "was never missing, it was never
+filed"; Grange Hill's chapel doors were in a second RFQ sent 15 minutes later; this one. General rule now on
+the board, with the arithmetic that catches it: **a bounce quotes the MESSAGE size, so it identifies WHICH
+send it belongs to - divide by 1.37 and go looking for that attachment.** Keep any zip to BSW under 26 MiB.
+
+**THE REAL EXPOSURE WAS NEVER THE BOUNCE - IT IS REQ-8, OPEN SINCE 27/07 WITH THE TENDER DUE THURSDAY.** The
+BSW enquiry EXCLUDES fire-rated leaves and doorsets, so their return comes back with a hole exactly where
+the money is: GBP 49,377.50, about 45% of the GBP 110,551.98 budget, sits on SF52 screens with 60-minute
+doors in them, and SF52 is not a fire-rated system. Verified again at source in JHA NBS Section 2 clause
+L20, which carries four separate 60-minute door clauses.
+
+**The enquiry is now written** - `outputs\Vesuvius Way - RFQ to Aluminium Fire Systems (draft, send today).txt`
+- to Chris Wall cc Charlie Skipp, five door types with sizes and ironmongery read off 221P, a rate per type
+so the counts can flex, and five questions with the price. AFS quoted Gordon Court Q7585 in two days, so
+Thursday is still reachable. Same pattern as Riverside's REQ-9: **the letter is written, not just specified**,
+so clicking the option is a send rather than a drafting job.
+
+Three things surfaced that the original request did not say. **The package splits two ways** - AFS are
+aluminium fire screens and take the doors inside the curtain wall plus the 2no internal PyroStop screens,
+while the 60-min insulated STEEL-CORE doors are a steel doorset scope; Gintare's 15:31 steel enquiry covers
+them but **our copy of that email shows no recipient at all**. **L20 demands U 1.2 W/m2K on doors it also
+requires to be 60 minutes** - if that is not achievable it is a conflict inside JHA's own specification, so
+it is asked rather than priced around. And **drawing 2024-055-114 "Building 01 Fire Plan", which L20 tells
+the reader to refer to before any order is placed, is not in the 55-file tender pack at all** - it is the
+document that would say which doors are 60 minute and where.
+
+Scope boundary confirmed by reading the drawings: **Building 03 is not ours** (2024-055-308B - D1-D5 acoustic
+steel-core doors at Rw 33dB and 2no SilentRoll 31 roller shutters), and neither is the Building 02 switch
+room roller shutter on 221P. Both to be named in the exclusions when anything is issued.
+
+Position unchanged: **GBP 110,551.98 ex VAT, benchmark only, no supplier quote held, nothing issued to
+Staniforth.** Expect it high - +10.4% mean bias on the calibration log and +35% in the >6 m2 band, and this
+job is mostly large curtain wall. The Senior fabricator problem is still open underneath everything.
+REQ-8 updated in place rather than a new request raised; board entry corrected; job file
+`data/jobs/vesuvius.md` opened; correction handed back to triage.
+
+
 ### Gordon Court - forty-fifth turn: an ellipsis hid an Approved Document K requirement (2026-07-28)
 
 riverside's handoff. No queue items.
