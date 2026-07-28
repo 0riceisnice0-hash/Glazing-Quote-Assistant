@@ -1,0 +1,31 @@
+Crestwood: the Teleflex quote was never missing, and the 25% was already in it
+
+Adam asked whether there was an email from Simon Gilbert or anyone at WCI
+carrying the Teleflex quote. There is - WCI Ltd WCIL/FEN4215, 24/07/2026,
+GBP 14,223.25 net, attached to his 14:14 mail and never filed to the job
+folder. The 27/07 audit called it missing, which was true of the folder and
+false of the world.
+
+GBP 14,223.25 x 1.25 = GBP 17,779.06, our Teleflex line to the penny. So the
+25% was applied when the quote was built and must not be added again; doing so
+would put the tender at GBP 78,603.43.
+
+Two findings off the same PDF, both bigger than the markup question. WCI's
+quote is headed "To supply and Install" - we bought the installation, marked
+it up, charged Reynolds for it and excluded "Teleflex controls / wiring" in
+the proposal issued alongside. And WCI priced 22 sets at two vents per window
+where A007 requires one control per opening light: right on W1-W8 and nowhere
+else, with W17/W18/W19 split into 5 and W23 into 6. Not costed - A007 does not
+say how many parts open, and guessing on a GBP 17,779 line is the failure mode
+the rules forbid.
+
+Two new check rules, fixture _test-crestwood.json, selftest passes:
+check_priced_scope_is_not_excluded (also live on Princess Beatrice REQ-6 -
+nothing looked for it, because check_scope_gaps asks priced OR excluded and is
+satisfied by either) and check_bought_in_lump_has_a_quantity_basis (a lump has
+neither qty_sold nor qty_quoted, so the rule built for this had nothing to
+compare).
+
+Answered on the hub. No new request raised - REQ-7 rewritten, not duplicated.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

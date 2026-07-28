@@ -613,6 +613,71 @@ Client-facing typos: "W23 2/2" should read 2/3; "EDPM" for EPDM.
 
 Tender pack extracted to `test-results\crestwood-input`. Issued 7 days after the 20/07 return date.
 
+### Crestwood Park - the Teleflex quote was never missing, and the 25% was never absent (2026-07-28)
+
+Adam asked, on the hub against REQ-7: *"Is there an email from Simon Gilbert or someone else at WCI with the teleflex
+quote? Bear in mind we would mark the teleflex up by 25%."* It routed to gordon-court by mistake and was handed on.
+
+**The email exists.** Simon Gilbert, Window Control Installations Ltd, quote ref **WCIL/FEN4215, 24/07/2026,
+GBP 14,223.25 net ex VAT**, attached to his 14:14 mail - *"Please see attached your quotation, the Maxi's & Screw jacks
+are not cheap."* It sits in `test-results\mary-inbox\processed60724T1414-MNP9UAAA-att\`.
+
+The 27/07 audit said there was "no Teleflex supplier quote anywhere in the job folder". That was true of the folder and
+false of the world. **Before recording an absence, search the mailbox attachments, not only the OneDrive job folder** -
+a quote that arrived by email and was never filed reads identically to one that never came.
+
+**GBP 14,223.25 x 1.25 = GBP 17,779.0625 -> GBP 17,779.06**, which is the Teleflex line on the issued pricing document
+to the penny. Uplift GBP 3,555.81. So Adam's Teleflex-only 25% (hub msg 28) **was already applied when Gintare built the
+quote**; applying it again would give GBP 22,223.83 and a tender of GBP 78,603.43, GBP 4,444.77 of markup on markup.
+The general lesson is not about Teleflex: **when a markup ruling arrives about a number that already exists, reconcile
+before you apply. Divide first and see whether it comes out round.**
+
+**Two findings off the same PDF, both larger than the markup question.**
+
+**(1) We charge for the installation we exclude.** WCI's quote is headed *"To supply and Install Teleflex"*. We bought
+the install, marked it up, charged Reynolds GBP 17,779.06 - 24% of the tender - and page 3 of the proposal issued
+alongside excludes *"Teleflex controls / wiring"*, against drawing A007's *"Include for all installation, core wire,
+conduit and fittings as required"*. Adam Lewis acknowledged receipt on 28/07 12:01, so both documents are with the
+client. Either reading costs us: they take the exclusion and pay someone else for work we have already bought, or they
+take the price and hold us to scope we said was not ours.
+
+**(2) WCI counted windows. A007 counts opening lights.** Their schedule is *"13no. Sets each to operate 2 top hung vent
+2pp"* plus *"9no. Sets"* the same with Maxi & Screwjacks - 22 sets, one per window (the nine map exactly onto A007's
+Maxi list, W12/W16-W19/W24-W27). A007 requires *"2No. White Teleflex chain operators per light"* and *"Opening lights to
+operate with 1No. new White Teleflex Midi control each"*. Two lights per window is right on **W1-W8 only**;
+W16/W20/W21/W22/W24-W27 split into 3, W17/W18/W19 into 5, W23 into 6.
+
+**This was deliberately not costed.** A007 does not state how many of each window's parts open, so the required control
+count cannot be established from the drawing, and inventing one on a GBP 17,779 line is the exact failure mode the house
+rules forbid. What is established is that the supplier priced a different basis from the one specified.
+
+It went unchallenged because **Teleflex is one row on our pricing document with no quantity and no rate.** A number with
+no quantity behind it cannot be shown to be wrong, which is what makes it dangerous.
+
+**Two new rules in `scripts/mary_checks.py`, fixture `data/job-checks/_test-crestwood.json`, selftest passes:**
+
+1. `check_priced_scope_is_not_excluded` - nothing we charge for may also appear in our own exclusions. Founded here and
+   **live on Princess Beatrice too** (REQ-6: mastic charged GBP 5,356.22, proposal calls it optional; EPDM GBP 8,276.91
+   not in the clarifications at all). Neither was caught by anything, because `check_scope_gaps` asks whether an item is
+   priced OR excluded and is satisfied by either - nothing ever asked whether it was BOTH. Field: `priced_lines`.
+   Its own first output truncated the exclusion at 90 characters and cut it two items before the words that prove the
+   clash, so the quoting now centres on the offending phrase - the `remedy` lesson from `result()`, one level down.
+2. `check_bought_in_lump_has_a_quantity_basis` - a bought-in lump must carry the supplier's quantity and basis next to
+   the specification's. `check_supplier_covers_quantity` compares qty_sold with qty_quoted and a lump has neither, so
+   the rule built for exactly this had nothing to compare. Field: `bought_in_lines`. A null `spec_required_qty` ASKS
+   rather than passing, which is the honest state here.
+
+**Smaller, from the same thread.** Simon asked on 15/07 how high the vents sit above FFL; he was told on 20/07 "we don't
+have any further information at this stage" and never got an answer, so his price is built without it. Gintare told him
+to assume butt hinges and wrote *"I will add a note to our quote to confirm this assumption"* - **there is no such note
+in the issued proposal.** Access is consistent for once: WCI say *"Access to be supplied by others"* and our exclusions
+rule out scaffold and MEWPs, so it sits with Reynolds. WCI validity is **90 days, to 22/10/2026**, comfortably beyond
+our own 30 days to 26/08 - the Gordon Court validity trap does not bite here.
+
+Answered on the hub in reply to message 24. **No new request raised** - both findings went onto REQ-7, which was
+rewritten rather than duplicated, with 24 requests already open and unanswered. Job file `data/jobs/crestwood-park.md`;
+live manifest `data/job-checks/crestwood-park.json` = 3 FAILED.
+
 ### Riverside - Aplus QT51518 AOV free area (2026-07-27)
 
 Adam asked Gintare on 24/07 for 2nr bottom-hung AOV smoke vents at 1130 x 1530, standard white, 150mm cill, and

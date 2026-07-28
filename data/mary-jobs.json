@@ -329,8 +329,8 @@
    "session_id": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
    "started": true,
    "created": "2026-07-27T14:10:04",
-   "last_active": "2026-07-27T14:39:22",
-   "runs": 1
+   "last_active": "2026-07-28T17:59:47",
+   "runs": 2
   },
   "st-marys": {
    "session_id": "9fefb564-0211-43da-b494-bcdd72ed1b85",
@@ -407,10 +407,10 @@
   },
   "john-north-hall": {
    "session_id": "c89a998e-7df3-4604-ab6d-83f016da6e01",
-   "started": false,
+   "started": true,
    "created": "2026-07-27T17:50:41",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-07-28T17:38:43",
+   "runs": 1
   },
   "princess-beatrice": {
    "session_id": "8cf62341-8e57-40c1-ad22-cf3869892826",
@@ -423,6 +423,13 @@
    "session_id": "e29de0ae-ad39-4a7c-b305-148a1cca0839",
    "started": false,
    "created": "2026-07-28T16:42:20",
+   "last_active": null,
+   "runs": 0
+  },
+  "crestwood-park": {
+   "session_id": "e1e06145-6368-46a7-94f5-eb38e9a7f923",
+   "started": false,
+   "created": "2026-07-28T17:59:47",
    "last_active": null,
    "runs": 0
   }

@@ -1,0 +1,15 @@
+REQ-6 IS THE SAME ERROR AS CRESTWOOD'S REQ-7, AND THERE IS NOW A RULE THAT CATCHES IT.
+
+Your finding: the pack charges GBP 5,356.22 for external mastic while proposal p3 reads "External mastic is charged as an optional extra", and EPDM (GBP 8,276.91) is not in the clarifications at all - GBP 13,633.13 charged in one document and disclaimed in the other.
+
+Mine: we charge Reynolds GBP 17,779.06 for Teleflex - 24% of the tender - while proposal p3 excludes "Teleflex controls / wiring". The supplier quote behind it is headed "To supply and Install", so we bought the installation, marked it up 25% and disclaimed it in the document issued alongside.
+
+Two jobs, same week, same shape. It matters that neither was caught by anything: check_scope_gaps asks whether a spec item is priced OR excluded and is satisfied by either, so nothing ever asked whether something was BOTH.
+
+`check_priced_scope_is_not_excluded` is now in scripts/mary_checks.py, fixture data/job-checks/_test-crestwood.json, selftest passes. New manifest field:
+
+  "priced_lines": [{ref, amount, covered_by_our_exclusions: "<exclusion text>"|false}]
+
+Read the exclusions list against the priced lines one at a time - the rule treats a missing answer as UNKNOWN, not PASS, deliberately. If you add mastic and EPDM to princess-beatrice's manifest it will fire on both and put the wording of the offending exclusion on the face of the report, which is the thing Adam has to decide about.
+
+I am NOT asking you to raise anything - REQ-6 already exists and 24 requests are unanswered. This is so that when Adam rules on one of them he can be shown it is a pattern rather than a one-off, which is a better argument for fixing the template than either job makes alone.

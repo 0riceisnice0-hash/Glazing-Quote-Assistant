@@ -1871,8 +1871,182 @@ def check_our_qualifications_survive_signature(m):
                          "BEFORE the return date. After signature the clause has already bitten.")
 
 
+def check_priced_scope_is_not_excluded(m):
+    """Crestwood Park, 28/07 - and Princess Beatrice, 27/07, which is the same
+    error on another job in the same week.
+
+    We charged Reynolds GBP 17,779.06 for Teleflex, 24% of the tender, and the
+    clarifications on page 3 of the proposal that went out with it exclude
+    "Teleflex controls / wiring". Princess Beatrice charges GBP 5,356.22 for
+    external mastic against a proposal reading "External mastic is charged as
+    an optional extra". Two documents, issued together, one saying we are doing
+    it and the other saying we are not.
+
+    This is not a drafting nicety. It is the worst possible pair to hold: the
+    client can read the exclusion and employ someone else for work we have
+    already bought and marked up, or read the price and hold us to scope we
+    have told them we do not own. Whichever way it resolves, it resolves
+    against us, because we wrote both halves.
+
+    It is also invisible to every other rule here. check_scope_gaps asks
+    whether a spec item is priced OR excluded and is satisfied by either;
+    nothing asked whether it was somehow BOTH. The arithmetic ties, the
+    supplier quote reconciles, the exclusion is properly written on the face of
+    the document - and the contradiction sails through.
+
+    'priced_lines': [{ref, amount, covered_by_our_exclusions}] -
+    covered_by_our_exclusions is the TEXT of the exclusion that eats this line,
+    or false if no exclusion touches it. Read the exclusions list against the
+    priced lines one at a time; do not answer it from memory."""
+    lines = m.get("priced_lines")
+    if lines is None:
+        return result("nothing priced is also excluded", UNKNOWN,
+                      "List what the client is being charged for and whether any of our own "
+                      "exclusions covers it: 'priced_lines': [{ref, amount, "
+                      "covered_by_our_exclusions: \"<exclusion text>\"|false}].",
+                      "Crestwood Park",
+                      remedy="Open the priced document and the exclusions list side by side and "
+                             "read one against the other.")
+    if not lines:
+        return result("nothing priced is also excluded", NA, "no priced lines recorded",
+                      "Crestwood Park")
+    clash, silent = [], []
+    for ln in lines:
+        ref = str(ln.get("ref", "?"))
+        if "covered_by_our_exclusions" not in ln or ln.get("covered_by_our_exclusions") is None:
+            silent.append(ref)
+            continue
+        cov = ln.get("covered_by_our_exclusions")
+        if cov is False or (isinstance(cov, str) and not cov.strip()):
+            continue
+        amt = ln.get("amount")
+        # Quote the exclusion at length, and if it has to be cut, cut it around
+        # the words that matter rather than at a fixed offset. Crestwood's
+        # exclusion is a 300-character run-on list and "Teleflex controls /
+        # wiring" is the ninth item in it - a 90-character cap stopped at
+        # "asbestos removal" and printed a clash whose evidence was invisible.
+        # Same lesson as `remedy` in result(): the proof must not be what the
+        # truncation eats.
+        text = " ".join(str(cov).split())
+        if len(text) > 220:
+            key = str(ref).split("(")[0].strip().lower()
+            at = text.lower().find(key) if key else -1
+            if at > 110:
+                text = "..." + text[at - 60:at + 160].strip() + "..."
+            else:
+                text = text[:220] + "..."
+        clash.append("%s%s is charged and excluded by our own words: %r"
+                     % (ref,
+                        "" if amt in (None, "") else " (GBP %s)" % amt,
+                        text))
+    if clash:
+        return result("nothing priced is also excluded", FAIL,
+                      "%d line(s) are charged for and disclaimed in the same pack: %s. The client "
+                      "holds both documents, so this is decided against us either way - they take "
+                      "the exclusion and pay someone else for work we have bought, or they take "
+                      "the price and hold us to scope we said was not ours."
+                      % (len(clash), "; ".join(clash)),
+                      "Crestwood Park",
+                      remedy="Decide which one is true, then change the OTHER document before the "
+                             "client reads them together. Withdrawing the exclusion is free; "
+                             "withdrawing the price is not.")
+    if silent:
+        return result("nothing priced is also excluded", UNKNOWN,
+                      "Not stated whether our exclusions touch: %s." % ", ".join(silent),
+                      "Crestwood Park",
+                      remedy="Answer it per line from the documents, not from memory.")
+    return result("nothing priced is also excluded", PASS,
+                  "%d priced line(s) checked against our own exclusions, no overlap" % len(lines),
+                  "Crestwood Park")
+
+
+def check_bought_in_lump_has_a_quantity_basis(m):
+    """Crestwood Park, 28/07. WCI's quote WCIL/FEN4215 is GBP 14,223.25 for
+    "13no. Sets each to operate 2 top hung vent 2pp" and "9no. Sets each to
+    operate 2 top hung vent 2pp" - 22 sets, two vents apiece. Drawing A007
+    requires 2No. operators per light and "Opening lights to operate with 1No.
+    new White Teleflex Midi control EACH". Per light, not per window.
+
+    Two vents per window is right on W1-W8, which the elevations split into 2.
+    The other thirteen windows are split into 3, 5 and 6 parts. So the supplier
+    priced a different question from the one the drawing asks, and the gap goes
+    the expensive way.
+
+    Nothing caught it, because on our own pricing document Teleflex is ONE ROW
+    with no quantity and no rate - a lump. check_supplier_covers_quantity
+    compares qty_sold against qty_quoted and a lump has neither, so the rule
+    that exists for exactly this had nothing to compare. A number with no
+    quantity behind it cannot be wrong, which is precisely what makes it
+    dangerous: GBP 17,779.06, 24% of the tender, and the only thing anyone
+    verified was that it multiplied up from the supplier's total correctly.
+
+    So: any bought-in lump must state BOTH quantities and both bases. Where the
+    supplier's basis is not the specification's basis, that is a finding even
+    when no number is yet known - "we cannot say" is the answer, and it has to
+    be said out loud rather than left as a lump nobody can question.
+
+    'bought_in_lines': [{ref, amount, supplier_ref, supplier_qty,
+    supplier_qty_basis, spec_required_qty, spec_qty_basis}]. spec_required_qty
+    may be null where the drawing does not let you count it - that ASKS rather
+    than passing."""
+    lines = m.get("bought_in_lines")
+    if lines is None:
+        return result("bought-in lumps have a quantity basis", UNKNOWN,
+                      "For every bought-in item carried as a lump: 'bought_in_lines': "
+                      "[{ref, amount, supplier_ref, supplier_qty, supplier_qty_basis, "
+                      "spec_required_qty, spec_qty_basis}].",
+                      "Crestwood Park",
+                      remedy="Read the supplier's own wording for what a unit of theirs covers, "
+                             "then read the specification for what it counts.")
+    if not lines:
+        return result("bought-in lumps have a quantity basis", NA,
+                      "no bought-in lump lines on this job", "Crestwood Park")
+    short, mismatch, silent = [], [], []
+    for ln in lines:
+        ref = str(ln.get("ref", "?"))
+        sq, rq = ln.get("supplier_qty"), ln.get("spec_required_qty")
+        sb, rb = ln.get("supplier_qty_basis"), ln.get("spec_qty_basis")
+        if not sb or not rb:
+            silent.append("%s (quantity basis not stated on %s)"
+                          % (ref, "the supplier quote" if not sb else "the specification"))
+            continue
+        # The bases are prose, not codes. Equality is only meaningful when they
+        # are written the same way; anything else is for a human to read.
+        same_basis = str(sb).strip().lower() == str(rb).strip().lower()
+        if sq is not None and rq is not None and sq < rq:
+            short.append("%s: %s quoted %s (%s), the spec requires %s (%s)"
+                         % (ref, ln.get("supplier_ref", "the supplier"), sq, sb, rq, rb))
+        elif not same_basis:
+            mismatch.append("%s: %s priced per %r, the specification counts per %r%s"
+                            % (ref, ln.get("supplier_ref", "the supplier"), str(sb)[:60],
+                               str(rb)[:60],
+                               "" if rq is not None else
+                               " - and the required quantity has not been established"))
+    if short:
+        return result("bought-in lumps have a quantity basis", FAIL,
+                      "Bought-in quantity is short of the specification: %s. A lump sum hides "
+                      "this: there is no quantity on our document for anyone to challenge."
+                      % "; ".join(short), "Crestwood Park",
+                      remedy="Go back to the supplier with the specification's own count before "
+                             "the price is relied on.")
+    if mismatch:
+        return result("bought-in lumps have a quantity basis", FAIL,
+                      "Supplier and specification are counting different things: %s. The totals "
+                      "reconcile and the scope does not." % "; ".join(mismatch),
+                      "Crestwood Park",
+                      remedy="Re-ask the supplier on the specification's basis. Do not reconcile "
+                             "a lump to its own total and call it checked.")
+    if silent:
+        return result("bought-in lumps have a quantity basis", UNKNOWN,
+                      "Quantity basis missing for: %s." % "; ".join(silent), "Crestwood Park")
+    return result("bought-in lumps have a quantity basis", PASS,
+                  "%d bought-in lump(s) counted on the specification's own basis" % len(lines),
+                  "Crestwood Park")
+
+
 RULES = [
     check_our_qualifications_survive_signature,
+    check_priced_scope_is_not_excluded, check_bought_in_lump_has_a_quantity_basis,
     check_system_coupling, check_panic_hardware, check_glass_ownership, check_quantities,
     check_scope_gaps, check_supplier_quote_currency, check_net_pricing,
     check_full_height_screens, check_fabricator_can_make_it, check_uvalue_basis,
@@ -1907,6 +2081,8 @@ def blank_manifest(job):
         "delivery_terms": None,
         "incorporated_terms": None,
         "qualification_regime": None,
+        "priced_lines": None,
+        "bought_in_lines": None,
         "issued_documents": None,
         "exposures": None,
         "own_domains": None,
@@ -2834,6 +3010,8 @@ def selftest():
         "_test-gordon-court.json": {"supplier price held as long as ours"},
         "_test-riverside.json": {"delivery actually included"},
         "_test-john-north-hall.json": {"our qualifications survive signature"},
+        "_test-crestwood.json": {"nothing priced is also excluded",
+                                 "bought-in lumps have a quantity basis"},
     }
     # Rules whose founding error is a QUESTION rather than an outright error.
     # Asserted separately so that widening "fired" to include ASK cannot quietly

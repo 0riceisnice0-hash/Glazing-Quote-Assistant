@@ -1,0 +1,63 @@
+Yes - the email exists, and it settles the number exactly.
+
+SOURCE QUOTE FOUND
+
+Simon Gilbert, Window Control Installations Ltd, quote ref WCIL/FEN4215, dated 24 July 2026.
+
+It came into estimating@ at 14:14 on 24/07 with the subject "RE: Fenster Glazing - Crestwood Park Primary School" - his words were "Please see attached your quotation, the Maxi's & Screw jacks are not cheap."
+
+The PDF is "Fenster Glazing - 4215 Crestwood Park Primary School.pdf". It was never filed into the job folder, which is why the earlier audit said there was no supplier quote on file. It is now recorded against the job.
+
+Headline: "To supply and Install Teleflex". 13no. sets each to operate 2 top hung vents, plus 9no. sets each to operate 2 top hung vents with Maxi & Screwjacks. All for GBP 14,223.25 excluding VAT. Terms 30 days nett, valid 90 days.
+
+
+THE 25% IS ALREADY IN THE PRICE - PLEASE DO NOT ADD IT AGAIN
+
+GBP 14,223.25 x 1.25 = GBP 17,779.06.
+
+That is the Teleflex line on the pricing document to the penny. The uplift is GBP 3,555.81.
+
+So the markup you described was applied when Gintare built the quote. Adding it a second time would take the line to GBP 22,223.83 and the tender to GBP 78,603.43 - an extra GBP 4,444.77 of markup on markup.
+
+I have noted the ruling as Teleflex-only, exactly as you set it out in message 28, and I have not changed anything in the pricing engine.
+
+
+NOW THE PART THAT WORRIES ME MORE THAN THE MARKUP
+
+Two things, both from that same PDF.
+
+1. WCI'S PRICE INCLUDES THE INSTALLATION WE EXCLUDED.
+
+Their quote is headed "To supply and Install Teleflex". We have bought the install, marked it up 25%, and charged Reynolds GBP 17,779.06 for it - and page 3 of the proposal we issued on 27/07 excludes "Teleflex controls / wiring".
+
+Drawing A007 says the opposite of our exclusion: "Include for all installation, core wire, conduit and fittings as required."
+
+Adam Lewis acknowledged receipt of the quote this morning, so both documents are now in Reynolds' hands. Whichever half they read, it goes against us - they take the exclusion and pay someone else for work we have already bought, or they take the price and hold us to scope we have told them is not ours.
+
+My recommendation is that the exclusion is simply wrong and should be withdrawn. We are doing the work and we are charging for it.
+
+2. WCI HAVE COUNTED WINDOWS. THE DRAWING COUNTS OPENING LIGHTS.
+
+Their schedule is 22 sets, "each to operate 2 top hung vents" - which is one set per window across the 21 windows that need controls, near enough.
+
+A007 asks for something different: "2No. White Teleflex chain operators per light" and "Opening lights to operate with 1No. new White Teleflex Midi control each". Per light, not per window.
+
+Two lights per window is correct on W1 to W8 - the elevations split those into 2. It is not correct anywhere else. W20, W21, W22, W16, W24, W25, W26 and W27 are each split into 3. W17, W18 and W19 are split into 5. W23 is split into 6.
+
+I cannot tell you the shortfall in pounds, because A007 does not state how many of each window's parts actually open, and I will not guess at a number this size. What I can tell you is that the basis WCI priced on is not the basis the drawing specifies, and the difference runs our way only if most of those parts are fixed.
+
+This never got challenged because Teleflex sits on our pricing document as a single row with no quantity and no rate. There was nothing for anyone to check it against.
+
+
+TWO SMALLER THINGS FROM THE SAME THREAD
+
+Simon asked on 15/07 how high the vents are above finished floor level. He was told "we don't have any further information at this stage" and never got an answer. His price is built without it.
+
+Gintare told him on 20/07 to assume butt hinges and wrote "I will add a note to our quote to confirm this assumption". There is no such note in the proposal we issued. Worth adding if the quote is revised.
+
+Access is consistent, for once - WCI say "Access to be supplied by others" and our own exclusions rule out scaffold and MEWPs, so it sits with Reynolds. No gap, but nobody should assume WCI arrive with their own.
+
+
+WHAT I NEED FROM YOU
+
+The markup question is answered and closed. The open decision is the exclusion, and whether we go back to WCI on the drawing's counting basis before Reynolds does. I have put both on REQ-7 rather than raising anything new.

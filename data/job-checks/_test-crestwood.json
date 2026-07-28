@@ -1,0 +1,44 @@
+{
+  "job": "Crestwood Park Primary School (FIXTURE - the state at 27/07/2026 10:49, as issued)",
+  "created": "2026-07-28",
+  "_help": "Do not edit to make it pass. This is the real state of the quote at the moment it went to Reynolds Conservation. If either rule stops firing here, the rule is broken, not the fixture.",
+
+  "priced_lines": [
+    {"ref": "Sheerline aluminium windows (46 rows, 52 units)", "amount": 47879.60,
+     "covered_by_our_exclusions": false},
+    {"ref": "INSTALLATION", "amount": 8500.00, "covered_by_our_exclusions": false},
+    {"ref": "TELEFLEX", "amount": 17779.06,
+     "covered_by_our_exclusions": "Roofing works, rooflights, rainwater goods, fascias, soffits, insulation, asbestos removal, Teleflex controls / wiring, M&E works, making good and principal design responsibilities are excluded unless specifically agreed"}
+  ],
+
+  "bought_in_lines": [
+    {"ref": "TELEFLEX",
+     "amount": 17779.06,
+     "supplier_ref": "WCI WCIL/FEN4215 (24/07/2026, GBP 14,223.25 net + 25% = 17,779.06)",
+     "supplier_qty": 22,
+     "supplier_qty_basis": "sets, one per window, each set operating 2 top hung vents (13no + 9no)",
+     "spec_required_qty": null,
+     "spec_qty_basis": "1No. control per opening light, 2No. operators per light (drawing A007)"}
+  ],
+
+  "spec_items": [
+    {"ref": "High-level aluminium windows W1-W12, W16-W27", "treatment": "priced"},
+    {"ref": "Teleflex controls and operators", "treatment": "priced"},
+    {"ref": "W15 - remove window and winders, infill with ladder frame/PIR/uPVC", "treatment": "unresolved"},
+    {"ref": "W12 catering-standard insect mesh grill", "treatment": "unresolved"},
+    {"ref": "Remove and dispose of existing windows", "treatment": "unresolved"},
+    {"ref": "Asbestos (chrysotile) in existing high-level window mastic", "treatment": "unresolved"}
+  ],
+
+  "supplier_quotes": [
+    {"supplier": "BSW", "ref": "QT252906", "date": "2026-07-16", "net_total": 27329.60},
+    {"supplier": "Window Control Installations", "ref": "WCIL/FEN4215", "date": "2026-07-24", "net_total": 14223.25}
+  ],
+
+  "issued_documents": [
+    {"name": "Reynolds Conservation Ltd - Crestwood Park Primary School Proposal.pdf",
+     "is_the_priced_document": false, "exclusions_stated": 12},
+    {"name": "Reynolds Conservation Ltd - Crestwood Park Primary School Pricing.xlsx",
+     "is_the_priced_document": true, "exclusions_stated": 0}
+  ]
+}
