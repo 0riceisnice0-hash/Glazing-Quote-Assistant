@@ -1266,6 +1266,49 @@ the value, you can price the windows and none of the work around them** - so do 
 the register and report the whole-job error as small. Where there is no category, the honest output is
 TBC plus an RFI, not a rate nobody can defend.
 
+## Clause 16: Sort Findings By Whose Responsibility They Are
+
+Riverside / Gordon Court, 28/07/2026. Fenster's own Terms and Conditions run to twenty clauses; **clause
+2 is Quotation Validity and clause 16 is Design Responsibility** (verified by enumerating the headings in
+`MASTER COVER LETTER 31.05.2026.docx`, not taken on trust):
+
+> *"Fenster Glazing & Locks Ltd is not responsible for overall design intent, architectural suitability,
+> or **REGULATORY STRATEGY** and relies on information, drawings, and specifications provided by the
+> client or their professional team. **Responsibility is limited to MEASUREMENT VERIFICATION, SUPPLY, AND
+> INSTALLATION** of the agreed glazing systems."*
+
+This is the third sort over a findings list and it answers the question the other two do not. *Priced /
+benchmark / unpriceable* asks **what can you cost**. *Rate versus quantity* asks **who do you ask**.
+Clause 16 asks **whose responsibility is it** - and therefore **how the finding should be raised**.
+
+| **THEIRS** - we rely on their professional team | **OURS** - the clause expressly retains it |
+|---|---|
+| Which duty a vent serves; geometric vs aerodynamic; whether a roof vent is required | Whether we quoted **the right product** for the position |
+| U-value and g-value targets; PAS 24; trickle areas; acoustic vents; manifestation extent | Whether the supplier **stated a figure at all** |
+| Planning consent; whether a design change removed an item; drawing currency | **Every dimension** - measurement verification |
+
+**The split that stops it being a get-out.** *"Is a roof vent required?"* is regulatory strategy -
+theirs. *"Have we quoted a wall casement for a position the drawing puts on the roof?"* is supply -
+**ours**, and clause 16 does not touch it. Same on thermal: *is 1.6 the right target* is theirs; *has the
+supplier stated a Uw at all* is ours to obtain.
+
+**And it TIGHTENS dimensional findings rather than loosening them.** Clause 2 makes the price *"subject
+to final site survey and measurement verification"*; clause 16 says our responsibility **is** measurement
+verification. **The survey makes a dimensional discrepancy fixable - it does not make it somebody
+else's.**
+
+**Practical effect: ours-to-fix items belong in a supplier RFQ; theirs belong in a client qualification
+framed as RELIANCE, not as defects.** Two documents, two tones. It also doubles as a priority order - the
+*ours* items do not go away whatever the client answers, so chase them regardless; the *theirs* items
+resolve the moment the client responds, so time them accordingly. **Read your own Design Responsibility
+clause before deciding how to raise a compliance finding.**
+
+**A related extraction trap, from the same evening:** a two-column inclusions/exclusions table interleaves
+when extracted, producing *"Site Survey - Only conducted once the structural openings **Fire Stopping - To
+be done by others, if required** are fully formed"*. **When a phrase reads oddly in extracted text,
+suspect a multi-column table before you suspect the document.** Same failure mode as the interleaved door
+schedules.
+
 ## A Representation Of The Source Is Not The Source
 
 Gordon Court / Riverside / St Mary's, 28/07/2026 - the same error three times in one night, and it is

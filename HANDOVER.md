@@ -1384,6 +1384,53 @@ start in this environment**. Mitigating: the repo template's formulas were confi
 live `MASTER PRICING DOC 10.07.2026.xlsx` in the job folder, so the document is built on the current
 master, and the code values are independently corroborated by Adam's table in `MARY-HANDOVER.md` s6.
 
+### Riverside House - clause 16 splits every finding into ours-to-fix and ours-to-ask (2026-07-28)
+
+**Gordon Court found the clause both jobs had been sitting on.** Verified here independently by
+enumerating the T&C headings in our own `MASTER COVER LETTER 31.05.2026.docx` rather than taking the
+number on trust - **twenty clauses; clause 2 is Quotation Validity, clause 16 is Design Responsibility:**
+
+> *"Fenster Glazing & Locks Ltd is not responsible for overall design intent, architectural suitability,
+> or **REGULATORY STRATEGY** and relies on information, drawings, and specifications provided by the
+> client or their professional team. **Responsibility is limited to MEASUREMENT VERIFICATION, SUPPLY, AND
+> INSTALLATION** of the agreed glazing systems."*
+
+**This is a third sort over a findings list and it answers what the other two do not.** *Priced /
+benchmark / unpriceable* asks what you can cost; *rate versus quantity* asks who you ask; **clause 16
+asks whose responsibility it is - and therefore how the finding should be raised.**
+
+| **THEIRS** - reliance on their professional team | **OURS** - expressly retained |
+|---|---|
+| C0/C1 geometric or aerodynamic; C4 whether a roof vent is required | **Item 9** whether we quoted the right **product** for the position |
+| C3 planning; C5 drawing currency; C6 who carries the control system | Item 1 the aerodynamic **figure**; item 4 whether A Plus stated a Uw **at all** |
+| RFI-6 whether 1.6 W/m2K is the right target for a stair vent | Item 5 leaf configuration; items 6, 8 delivery, restrictors; **every dimension** |
+
+**The split runs through this job's biggest question.** *"Is a roof vent required?"* is regulatory
+strategy - theirs, and the position is **reliance, not defect**. *"Have we quoted a wall casement for a
+position the drawing puts on the roof?"* is **supply - ours**, and clause 16 does not touch it. C4 was
+mixing the two; it is now split, with the supply half added to Part One as **item 9**, asking A Plus
+directly whether a DualFrame wall casement is suitable here and whether they offer a kerb-mounted
+alternative.
+
+**AND IT CORRECTS THIS CHAT'S OWN FRAMING FROM LAST NIGHT, against us.** The note that clause 2's
+*"subject to final site survey and measurement verification"* **qualifies** the dimensional risk is only
+half right. Clause 16 says our responsibility **is** measurement verification, so **the survey makes a
+dimensional discrepancy fixable - it does not make it somebody else's.** The 1130 x 1530 came from an
+enquiry rather than a survey; both clauses point at us.
+
+**Practical effect, now built into the brief:** ours-to-fix items belong in a supplier RFQ; theirs belong
+in a client qualification framed as reliance. Two documents, two tones - and the brief's Part One / Part
+Two split now maps onto clause 16 deliberately, with the reasoning printed at its foot. It doubles as a
+priority order: the *ours* items do not go away whatever the client answers, so chase them regardless.
+
+**A related extraction trap from the same evening**, worth its own line: a two-column
+inclusions/exclusions table interleaves when extracted, producing *"Site Survey - Only conducted once the
+structural openings **Fire Stopping - To be done by others, if required** are fully formed"*. Gordon Court
+nearly posted that as a document discrepancy. **When a phrase reads oddly in extracted text, suspect a
+multi-column table before you suspect the document.**
+
+Price unchanged at GBP 5,990.22, unissued. `mary_checks` 0 failed, 3 questions; selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

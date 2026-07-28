@@ -5,7 +5,7 @@ Fairford Leys, Aylesbury HP19 7HL. Planning 24/02303/PAPCR.
 WHAT DOES NOT WAIT FOR PHDB  ** read this first **
 --------------------------------------------------------------------------------
 The submission is on hold until PHDB return building-works costs. **Part One is not.**
-All eight items below are questions for A Plus about their own quote - none of them
+All nine items below are questions for A Plus about their own quote - none of them
 needs RRR, Campbell Ark, PHDB or a decision from anyone. They can go today.
 
 Two of them are getting worse while we wait:
@@ -29,7 +29,7 @@ GBP 4,845.22; asked in September it is a new number with no anchor. So the 29 da
 the deadline for the questions, not just for the price.
 
 One caveat, stated so nobody is surprised. If C4 comes back "roof vent", items 2 and 3
-stop applying to AOV.01. Items 1, 4, 5, 6, 7 and 8 hold either way, and item 1 holds
+stop applying to AOV.01. Items 1, 4, 5, 6, 7, 8 and 9 hold either way, and item 1 holds
 for AOV.02 regardless - so sending Part One now is not wasted under any outcome.
 
 --------------------------------------------------------------------------------
@@ -119,6 +119,19 @@ On this job Fenster are the installer, so "the facade contractor" is us. Please 
 2no suitable restrictors set 50mm beyond the 850mm stroke, so the cost of carrying them
 can be compared against the cost of excluding them. There is no rate for restrictors
 anywhere in our own system, so a supplier figure is the only way to put a number on it.
+
+9. HAVE WE QUOTED THE RIGHT PRODUCT? - PLEASE CONFIRM SUITABILITY
+
+The drawings say the stair is to be vented "AT THE TOP STOREY ROOF", and the second
+floor stairwell has no opening in any of its walls. A Plus have quoted a wall casement
+on a 155mm subcill.
+
+Whether the fire strategy requires a roof vent is the client's designer's call and is
+asked separately as C4. But whether the unit we have quoted is the right product for
+the position is OURS, so please confirm: is a DualFrame 75Si wall casement suitable for
+a top-storey stairwell smoke vent in this position, and do A Plus offer or recommend a
+roof-mounted alternative on a kerb? If the answer is that a roof unit is needed, we
+would rather know from you now than discover it after a decision.
 
 --------------------------------------------------------------------------------
 PART TWO - NOT FOR A PLUS. THESE GO TO RRR AND CAMPBELL ARK
@@ -259,7 +272,8 @@ C3. AND IF THEY ARE ENLARGED, DOES THAT NEED PLANNING? The drawings are stamped
     confirm with HD Planning whether enlarging these two openings sits inside the
     approval or needs a separate application.
 
-C4. IS AOV.01 A WALL WINDOW OR A ROOF VENT? This replaces an earlier query of ours
+C4. IS A ROOF VENT WHAT THE FIRE STRATEGY INTENDS? (the other half of this is ours,
+    and it is in Part One - see the note at the foot of this brief) This replaces an earlier query of ours
     about arched heads, which we now think was a false alarm - the two arched-head
     windows on Elevation F at second floor line up with the Living room's two W2
     windows, not with the stairwell.
@@ -354,3 +368,35 @@ C7. WE ARE ALMOST CERTAINLY NOT WORKING FROM THE WHOLE PACK. We hold six drawing
     The distinction matters most on the vent openings. If the design gap is real then
     forming or enlarging an opening in retained masonry has not been designed by anyone,
     and that is the thing to settle before a resize is instructed rather than after.
+
+
+--------------------------------------------------------------------------------
+WHY THE TWO PARTS ARE SPLIT THE WAY THEY ARE
+--------------------------------------------------------------------------------
+Our own Terms and Conditions, clause 16, Design Responsibility:
+
+    "Fenster Glazing & Locks Ltd is not responsible for overall design intent,
+     architectural suitability, or REGULATORY STRATEGY and relies on information,
+     drawings, and specifications provided by the client or their professional team.
+     RESPONSIBILITY IS LIMITED TO MEASUREMENT VERIFICATION, SUPPLY, AND INSTALLATION
+     OF THE AGREED GLAZING SYSTEMS."
+
+That clause sorts this list cleanly, and it is why Part Two is written as questions
+rather than as defects:
+
+  THEIRS - we rely on their professional team.  C0, C1, C3, C4, C5, C6.
+      Whether the 1m2 is geometric or aerodynamic, whether a roof vent is required,
+      whether enlarging an opening needs planning, whether the sheets are current, and
+      who carries the control system are all regulatory strategy or design intent.
+      Asking is still right; the position is reliance, not defect.
+
+  OURS - the same clause expressly retains it.  All of Part One.
+      Whether we have quoted the right product (item 9), whether the leaf configuration
+      is as we read it (item 5), whether A Plus have stated a Uw at all (item 4), the
+      aerodynamic figure itself (item 1), delivery, restrictors - and every dimension.
+
+ONE THING THAT CUTS AGAINST US RATHER THAN FOR US, WHICH IS WHY IT IS WORTH SAYING.
+Clause 2 makes the price "subject to final site survey and measurement verification",
+and clause 16 says our responsibility IS measurement verification. So the survey makes
+a dimensional discrepancy FIXABLE - it does not make it somebody else's. The 1130 x 1530
+came from an enquiry rather than a survey, and both clauses point at us on that.

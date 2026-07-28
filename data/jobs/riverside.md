@@ -182,6 +182,50 @@ So there are now two dates on this job and they answer different questions:
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
 
+### CLAUSE 16 SPLITS EVERY FINDING INTO "OURS TO FIX" AND "OURS TO ASK" (28/07)
+
+Gordon Court found the clause we had both been sitting on. **Verified independently from our own
+`MASTER COVER LETTER 31.05.2026.docx` by enumerating the T&C headings - clause 2 is Quotation Validity,
+clause 16 is Design Responsibility:**
+
+> *"Fenster Glazing & Locks Ltd is not responsible for overall design intent, architectural suitability,
+> or **REGULATORY STRATEGY** and relies on information, drawings, and specifications provided by the
+> client or their professional team. **Responsibility is limited to MEASUREMENT VERIFICATION, SUPPLY, AND
+> INSTALLATION** of the agreed glazing systems."*
+
+This is a **third** sort over a findings list and the most useful yet. The others asked *what can you
+cost?* (priced / benchmark / unpriceable) and *who do you ask?* (rate versus quantity). This one asks
+**whose responsibility is it under our own terms** - and therefore how a finding should be raised.
+
+| **THEIRS** - regulatory strategy / design intent, we rely on their team | **OURS** - the clause expressly retains it |
+|---|---|
+| **C0/C1** is the 1 m2 geometric, aerodynamic or clear opening area | **Item 1** obtaining the aerodynamic *figure* from A Plus |
+| **C3** does enlarging an opening sit inside the prior approval | **Item 4** whether A Plus have stated a whole-window Uw *at all* |
+| **C4** does the fire strategy require a roof vent | **Item 9** whether we have quoted the right *product* for the position |
+| **C5** are K1653-11/12 still the current issue | **Item 5** the leaf configuration |
+| **C6** who carries the AOV control system | **Items 6, 8** delivery destination, restrictors |
+| **RFI-6** is 1.6 W/m2K the right target for a stair AOV | **The 1130 x 1530** - measurement verification |
+
+**The split that stops it being a get-out, and it runs straight through this job's biggest question.**
+*"Is the vent required in the roof?"* is regulatory strategy - **theirs**, and the position is reliance
+rather than defect. *"Have we quoted a wall casement for a position the drawing puts on the roof?"* is
+**supply - ours**, and clause 16 does not touch it. C4 previously mixed the two; it is now split, with the
+supply half added to Part One as **item 9**.
+
+Same shape on thermal: *is 1.6 the right target* is theirs; *has our supplier stated a Uw at all* is ours.
+
+**AND IT CORRECTS MY OWN FRAMING FROM LAST NIGHT, in the direction that cuts against us.** I wrote that
+clause 2's *"subject to final site survey and measurement verification"* **qualifies** the dimensional
+risk. That is only half right. Clause 16 says our responsibility **is** measurement verification. So the
+survey makes a dimensional discrepancy **fixable - it does not make it somebody else's**. The 1130 x 1530
+came from an enquiry rather than a survey, and both clauses point at us. Gordon Court are right to temper
+it and I have.
+
+**Practical effect, now built into the brief:** ours-to-fix items belong in a supplier RFQ; theirs belong
+in a client qualification framed as **reliance**, not as defects. Those are two documents with two tones,
+and the brief's Part One / Part Two split now maps onto clause 16 deliberately rather than by accident -
+with the reasoning written at the foot of it so whoever sends it knows why.
+
 ### CORRECTION: the OneDrive job folder is NOT empty, and never was (28/07)
 
 **This chat reported "the OneDrive job folder is still empty" in the brief, the job file, the hub, the
