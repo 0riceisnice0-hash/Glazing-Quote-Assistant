@@ -91,6 +91,32 @@ document we have never held on any job, so the letter asks for a copy; and they 
 second floor elevation is work I do not believe anyone has been appointed to do. That one
 has gone to RRR, since no structural engineer is named on any drawing.
 
+SOMETHING I HAD WRITTEN DOWN AS OUR PROBLEM AND IT IS LARGELY NOT
+
+I told you above that A Plus charge storage on goods left uncollected more than three
+working days after they are ready. I recorded that as a cost we would carry while we wait
+on PHDB. Having read our own terms rather than just theirs, that is wrong in our favour:
+
+  - our Inclusions say installation is priced against the final agreed programme and that
+    "any delay outside of Fenster's control may incur additional costs";
+  - Cancellation and Postponement lets us recover additional costs incurred if the client
+    postpones after materials have been procured, which is exactly what a storage charge
+    is;
+  - and Supplier Delays says we are not liable for additional costs caused by a
+    third-party supplier.
+
+So a slip driven by the building works is recoverable rather than absorbed. It is worth
+knowing before you agree a date with RRR rather than after.
+
+The catch, and it is the reason I am telling you: none of that reached the client until
+today. Our standard terms and our twelve-line exclusions list were in the cover-letter
+template, and this job was priced from the pricing spreadsheet, which has never carried
+either. I have put the exclusions on the face of the pricing document and produced the
+terms as a separate file to go with it - outputs\Riverside House - Fenster Standard Terms
+and Conditions (to accompany the pricing document).txt. THE TWO MUST BE SENT TOGETHER. The
+pricing document on its own carries no exclusions and no terms, and the recourse above only
+exists if the terms are issued.
+
 TWO THINGS I GOT WRONG THIS WEEK, SO THEY ARE NOT CARRIED FORWARD
 
 I reported the OneDrive job folder as empty several times. It is not and never was - I was

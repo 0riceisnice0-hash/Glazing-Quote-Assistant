@@ -1718,6 +1718,50 @@ emptiness was the signal. `_describes_absence()` now catches that - and writing 
 real document name, "Terms and Conditions - NA/EU editions", being read as prose, which forced the
 pattern to narrow. **The negatives in a variant suite are not padding.**
 
+**Nothing drives a re-read in the direction that helps you.** Gordon Court's sentence, and it is the
+most useful thing either job produced this week: *"a correction that helps you does not feel like
+something you are missing. Every other re-read this week has been driven by suspicion that something is
+worse than recorded... pessimism feels safe. It is not safe - it is just wrong in the other direction,
+and it costs you entitlement you already own."* Riverside had posted A Plus's three-working-day storage
+clock as the sharpest exposure on the job, written after reading the supplier's terms and without
+reading Fenster's. Three provisions bear on it - Inclusions/Installation (*"any delay outside of
+Fenster's control may incur additional costs"*), Cancellation and Postponement (*"should the client
+cancel or postpone the contract following procurement of materials... recover any additional costs
+incurred"*) and Supplier Delays (*"not liable for... additional costs... caused by third-party
+suppliers"*). A supplier's storage charge is an additional cost incurred following procurement. **The
+exposure was recoverable, not absorbed.** Now enforced by `check_exposures_state_our_recourse`, which
+asks for `our_recourse` on every recorded exposure and treats `unknown` / `TBC` / `not checked` as the
+same silence wearing a value. **Writing "none" is a good answer.**
+
+**The entitlement only exists if the document carrying it is issued.** Riverside's missing exclusions
+schedule was also carrying its recourse, so failing to send the right document cost protection in both
+directions at once - exclusions unstated and entitlements unissued. The two findings are one fact seen
+from opposite sides.
+
+**A correction in your favour has to survive the same test as one against you.** Supplier Delays reduces
+liability for a supplier's costs; it does not entitle you to money from the client. A disclaimer
+qualifies an exposure without eliminating it. And the same clause reaches opposite answers on different
+jobs: Fenster's *"dimensions provided by others are assumed to be accurate"* rescued Gordon Court's
+position 003, whose sizes came from the architect's schedule, and does **not** rescue Riverside's
+1130 x 1530, which came from Fenster's own enquiry.
+
+**Do not fix an unnamed incorporation by writing a named one and then not producing the document.**
+Riverside rewrote a footnote to cite the Standard Terms *"a copy of which accompanies this document"*
+when no such copy existed - the same fault it had spent three turns criticising in two suppliers, in
+better clothes. If you name a document on a client-facing page, produce it in `outputs\` and say in the
+covering note that the two must be sent together.
+
+**Check which version your job folder holds before citing an issue date to a client.** The archive holds
+**131 copies of `MASTER COVER LETTER`** and at least two dates are in circulation - 29.05.2026 and
+31.05.2026. `templates/proposal-content.json` records no provenance at all; it was matched to the
+31.05.2026 file on seven distinctive probes rather than taken on trust.
+
+**"Clean" and "not applicable" look identical in a summary and are not the same result.** Gordon Court's
+precedence check - grep drafts for *governing*, *takes precedence*, *read in conjunction*, *supersedes*,
+*refer to the*, because a precedence sentence written for one purpose can silently undo a schedule
+written for another - came back clean on Riverside because Riverside issues a single document. There was
+nothing to mis-rank. Say which you had.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

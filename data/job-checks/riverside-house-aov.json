@@ -161,6 +161,22 @@
     {
       "ref": "CATEGORY RE-PROBE WITH CONCEPT-DERIVED WORDING - Gordon Court's extension, that a first-principles category list probed with one supplier's phrasing is still that supplier's sample. Their re-probe found 8 false negatives of 10 on AFS. Run here (scratchpad/riverside_category_sweep_v2.py): FIVE false negatives. structural design of openings - A Plus do address it, the word was 'structural' not 'masonry'. windload, unloading labour, and part-order/size - all three found in FENSTER's own exclusions schedule, which v1 never reached. testing and commissioning - both parties exclude it, which is the withdrawal above. Gordon Court's widening of the part-order rule to cover SIZE as well as quantity is live here in both limbs: the aerodynamic answer could change the size (RFQ item 2) and the wall-or-roof answer could change the quantity (RFQ item 13). A Plus's Changes clause covers both - 'any variation in Specification, quality, quantity, Products, timescale, or method'.  ->  RECORDED; the findings it produced are the items above.",
       "treatment": "excluded"
+    },
+    {
+      "ref": "THE STORAGE CLOCK IS RECOVERABLE, NOT ABSORBED - CORRECTION TO LAST TURN'S HEADLINE. It was recorded as 'the first cost on this job that grows with the delay Adam has deliberately accepted', written after reading A Plus's terms and without reading ours. Three provisions bear on it, all verified at source: Inclusions/Installation - 'any delay outside of Fenster's control may incur additional costs'; T&C Cancellation and Postponement - 'should the client cancel or POSTPONE the contract following procurement of materials..., Fenster reserves the right to retain the deposit and recover any additional costs incurred'; T&C Supplier Delays - 'not liable for delays, additional costs, losses... caused by third-party suppliers'. A storage charge IS an additional cost incurred following procurement and a PHDB-driven slip IS a postponement. Also recovered: Inclusions/Site Survey 'any revisits may be subject to a fee' - the first half of that sentence was recorded three turns ago and the entitlement in the second half was not.  ->  CORRECTED on the board, in the handover and in Adam's covering note. THE ENTITLEMENT ONLY EXISTS IF THE DOCUMENT CARRYING IT IS ISSUED - which it was not until yesterday's fix, so last night's finding and this one are the same fact from two sides.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "I ASSERTED AN ATTACHMENT THAT DID NOT EXIST. Cell C31 was rewritten last turn to read '...Standard Terms and Conditions (issue 31.05.2026), a copy of which accompanies this document.' There was no such copy: Riverside has no proposal and had no terms output. Fixing an UNNAMED incorporation by writing a NAMED one and then not producing the document is the same fault criticised in A Plus and BSW for three turns, in better clothes.  ->  FIXED. 'outputs/Riverside House - Fenster Standard Terms and Conditions (to accompany the pricing document).txt' now exists - inclusions, the twelve standard exclusions, this job's four specific ones, and the full T&Cs - stating at its head that it must be sent with the pricing document. Adam's covering note says the same. Provenance checked rather than assumed: the template matches MASTER COVER LETTER 31.05.2026.docx on seven probes, and the Riverside job folder holds the 31.05 version. FLAGGED TO THE BOARD: 131 copies of that letter in the archive and at least two dates in circulation (29.05.2026 and 31.05.2026).",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Gordon Court's precedence check, run here - CHECK RUN, CLEAN, FOR A POOR REASON. They found their own draft said 'please treat the pricing document as governing on scope', pointing the client at the one of their two issued documents carrying none of their exclusions. Grepped every Riverside output and every cell of the pricing document for governing / governs / takes precedence / prevails / shall prevail / read in conjunction / supersedes / refer to the / in the event of conflict: ZERO, bar two 'SUPERSEDED - do not send' markers on the withdrawn 27/07 draft, which is correct labelling rather than precedence.  ->  REPORTED CLEAN, with the reason stated: Riverside issues a SINGLE document, so there was nothing to mis-rank. A one-document job cannot have their fault and could not have had their protection either. 'Clean' and 'not applicable' look identical in a summary and are not the same result.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "New rule check_exposures_state_our_recourse (19th), from Gordon Court's observation that every re-read this week - theirs and mine - was driven by suspicion that something was worse than recorded, and that nothing drives a re-read in the other direction because a pessimistic position feels prudent. 'exposures': [{item, lands_on, our_recourse}], ASK where the recourse is unstated OR where it is 'unknown'/'TBC'/'not checked'/'n/a' - the same silence wearing a value, which is how the previous new rule was defeated. Writing 'none' is a good answer. Fifteen variants written before shipping, seven negatives.  ->  NINE EXPOSURES RECORDED AND READ BOTH WAYS: four backed (storage, free-area basis, validity gap, wind loading check), four recorded as 'none' deliberately (delivery carriage, part-order re-price, the 1130 x 1530 dimensional risk, Part K before last night). ANTI-OVERCLAIMING APPLIED TO THE GOOD NEWS: Supplier Delays reduces our liability, it does not entitle us to money from RRR; the free-area exposure is qualified, not eliminated; and the dimensions clause that rescued Gordon Court's position 003 does NOT rescue our 1130 x 1530, because that size came from our own enquiry rather than the client's team.",
+      "treatment": "excluded"
     }
   ],
   "supplier_quotes": [
@@ -285,10 +301,63 @@
       "note": "Added 28/07. The block did not exist before tonight - MASTER PRICING DOC.xlsx has no exclusions section, and Fenster's standard twelve-line INCLUSIONS/EXCLUSIONS schedule lives in the proposal/cover-letter template, which this job was never generated from."
     },
     {
+      "name": "Riverside House - Fenster Standard Terms and Conditions (to accompany the pricing document).txt",
+      "is_the_priced_document": false,
+      "exclusions_stated": 16,
+      "note": "Created 28/07 to make cell C31's 'a copy of which accompanies this document' true. Twelve standard exclusions plus this job's four. MUST be sent with the xlsx."
+    },
+    {
       "name": "Riverside House - Covering note to Adam (draft).txt",
       "is_the_priced_document": false,
       "exclusions_stated": 0,
       "note": "internal, to Adam - not a client-facing document"
+    }
+  ],
+  "exposures": [
+    {
+      "item": "A Plus levy storage on goods uncollected more than 3 working days after first availability, and exclude holding materials off-site through a programme slip, requiring payment for the materials against a letter of indemnity. Recorded last turn as 'the first cost on this job that grows with the delay we deliberately accepted'.",
+      "lands_on": "recorded as ours to absorb - WRONGLY, one-sidedly",
+      "our_recourse": "THREE PROVISIONS OF OUR OWN TERMS BEAR ON IT AND I HAD READ NONE OF THEM. (1) Inclusions, Installation: 'Installation is included within our costs as per final agreed programme. ANY DELAY OUTSIDE OF FENSTER'S CONTROL MAY INCUR ADDITIONAL COSTS.' (2) T&C, Cancellation and Postponement: 'Should the client cancel or POSTPONE the contract following procurement of materials..., Fenster reserves the right to retain the deposit and RECOVER ANY ADDITIONAL COSTS INCURRED up to the date of cancellation or postponement' - and A Plus's storage charge is precisely an additional cost incurred following procurement. (3) T&C, Supplier Delays and Liability: 'Fenster shall not be liable for delays, additional costs, losses, or consequential damages arising from delays, defects, or errors caused by third-party suppliers or manufacturers.' A programme slip driven by PHDB is a client-side delay, and our terms make client-caused additional costs recoverable. THE EXPOSURE IS RECOVERABLE, NOT ABSORBED - but only because the document carrying those terms is now issued with the price, which as of last night it was not."
+    },
+    {
+      "item": "Free area basis unresolved (C0/C1). If the 1m2 is aerodynamic, A Plus's 1.30m2 geometric gives roughly 0.78-0.81m2 and does not satisfy the drawing. A Plus's Product Performance clause makes Building Regulations compliance the Customer's and does not warrant that any product complies.",
+      "lands_on": "us, on the supplier side",
+      "our_recourse": "QUALIFIED IN THREE PLACES, TWO OF WHICH NOW REACH THE CLIENT. (1) Clause 16 disclaims regulatory strategy and states reliance on the client's professional team. (2) Clause 2: 'all quotations are subject to final site survey and measurement verification.' (3) The pricing document now states on its face that the free area quoted is GEOMETRIC and that no aerodynamic figure is warranted - added 28/07. NOT ELIMINATED: supplying a vent that does not meet the requirement is still a problem, and none of these makes it somebody else's product. But the entitlement position is materially better than 'the shortfall is ours', which is how it has been recorded since 27/07."
+    },
+    {
+      "item": "Validity gap. QT51518 lapses 26/08/2026 and our own house validity is 30 days, so an issue today closes after the supplier price it rests on. Adam is holding the submission pending PHDB, so the gap widens daily.",
+      "lands_on": "us, commercially",
+      "our_recourse": "PARTLY BACKED, AND BE PRECISE ABOUT HOW FAR. Clause 2 makes our quotation valid 30 days 'unless agreed otherwise' and expressly subject to final survey and measurement verification, so a lapsed input is a re-quotation rather than a fixed liability. T&C Supplier Delays reduces our LIABILITY for costs caused by a third-party supplier. NEITHER ENTITLES US TO MORE MONEY BY ITSELF - claiming that would be the overclaiming Gordon Court warns about. What they do is stop this being an open-ended exposure: the remedy is to re-price, not to absorb."
+    },
+    {
+      "item": "Part K anti-fall protection and the BS EN 60335-2 trap hazard below 2.5m FFL, both dependent on a cill height only the architect holds. Excluded by A Plus and excluded by us.",
+      "lands_on": "nobody, until somebody is asked",
+      "our_recourse": "NOW BACKED ON OUR SIDE, WHERE IT WAS NOT ON 27/07. The pricing document states the exclusion on its face as of 28/07, and the accompanying terms carry the standard schedule. Before tonight the exclusion existed only in a template this job was never generated from - so the recourse is real but it is one day old, and it exists only if both documents are sent together."
+    },
+    {
+      "item": "The wind loading check to BS 6399-2 and the structural calculations on brackets and spigots, which A Plus put on the Customer and expressly do not warrant, on a second floor elevation with no structural engineer named on any of the six drawings.",
+      "lands_on": "nobody appointed on this job",
+      "our_recourse": "OUR STANDARD EXCLUSION COVERS IT - 'Design Responsibility - design calculations, structural calculations and engineer approvals unless specifically included within our scope' - and it is now on the issued pricing document and in the accompanying terms. The company always had the answer; this job did not carry it until 28/07. RRR question 5 asks who is appointed, which remains the right question: an exclusion tells the client it is not ours, it does not tell anybody who will do it."
+    },
+    {
+      "item": "Testing and certification of the completed smoke ventilation system - excluded by us ('Testing - on or off site testing'), and A Plus test the actuator on local batteries only.",
+      "lands_on": "nobody, on a life-safety system",
+      "our_recourse": "OUR EXCLUSION IS REAL AND NOW ISSUED, but state the limit honestly: on a life-safety system an exclusion is a commercial answer and not a safety one. RRR question 10 now asks who carries the witnessed test and the certificate building control will want, and who arranges the RRO 2005 maintenance the occupier owes from handover."
+    },
+    {
+      "item": "Delivery. A Plus price ex-works and deliver free only above GBP 5,000; the order is GBP 4,845.22, GBP 154.78 under, so carriage is charged at GBP 1/mile each way or the load is batched.",
+      "lands_on": "us, and it is priced as provisional",
+      "our_recourse": "NONE, and that is the right answer. Nothing in our terms shifts a supplier's carriage to the client, and it should not - it is a cost of buying, not a risk. Carried as provisional at the supplier's stated basis and asked as RFQ item 6. Recorded as 'none' deliberately, because 'none' is an answer and an unread field is not."
+    },
+    {
+      "item": "Part-order re-price. A Plus price on the basis that materials are ordered together and in one phase, and reserve the right to re-price a part order. If C2 resolves to a roof vent we order one unit rather than two.",
+      "lands_on": "us, and unquantified",
+      "our_recourse": "NONE ON THE TERMS, but the position is better than it looks for a different reason: nothing has been ordered and nothing issued, so the whole thing is still a question rather than a variation. RFQ item 13 asks the single-vent price BEFORE the architect answers. The recourse here is sequence, not contract - and asking early is the only form of it."
+    },
+    {
+      "item": "Dimensional risk on the 1130 x 1530, which came from Fenster's enquiry of 24/07 rather than from a survey or a dimensioned drawing.",
+      "lands_on": "us",
+      "our_recourse": "NONE ON THIS JOB, and the reason matters. Our Additional Limitations - 'dimensions provided by others are assumed to be accurate; any additional costs arising from incorrect dimensions shall be treated as a variation' - would back us if the sizes had come from the client's team. They came from us. So the clause that rescued Gordon Court's position 003 does not rescue this one, and clause 2's 'subject to final site survey and measurement verification' makes it fixable rather than somebody else's. Recorded as none rather than stretched."
     }
   ]
 }

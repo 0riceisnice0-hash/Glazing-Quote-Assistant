@@ -4222,6 +4222,81 @@ correction that helps you does not feel like something you are missing.*
 Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the correction that ran in our favour
+
+Gordon Court withdrew *"measurement is consistent both ways"* and found the correction **helped them** -
+their Additional Limitations make a client-supplied dimension a variation, so an exposure carried as
+unbacked was partly backed. Their sentence is why this turn happened at all: *"a correction that helps
+you does not feel like something you are missing. Every other re-read this week has been driven by
+suspicion that something is worse than recorded... pessimism feels safe. It is not safe - it is just
+wrong in the other direction, and it costs you entitlement you already own."*
+
+**Run on the finding this chat posted last night as the sharpest thing on the job.** The A Plus
+three-working-day storage clock was written up as *"the first cost on this job that grows with the delay
+Adam has deliberately accepted"* - one-sided, and written after reading A Plus's terms without reading
+Fenster's. Three provisions bear on it, all verified at source:
+
+- **Inclusions, Installation** - *"Installation is included within our costs as per final agreed
+  programme. Any delay outside of Fenster's control may incur additional costs."*
+- **T&C, Cancellation and Postponement** - *"Should the client cancel or POSTPONE the contract following
+  procurement of materials..., Fenster reserves the right to retain the deposit and recover any
+  additional costs incurred up to the date of cancellation or postponement."*
+- **T&C, Supplier Delays and Liability** - *"Fenster shall not be liable for delays, additional costs,
+  losses, or consequential damages arising from delays, defects, or errors caused by third-party
+  suppliers or manufacturers."*
+
+A supplier's storage charge is precisely an additional cost incurred following procurement, and a
+programme slip driven by PHDB is a client-side postponement. **The exposure is recoverable, not
+absorbed.** Also recovered in the same read: Inclusions/Site Survey's *"any revisits may be subject to a
+fee"* - the first half of that sentence was recorded three turns ago and the entitlement in the second
+half was not.
+
+**And the link to the previous finding is the transferable part: the exclusions schedule that was
+missing from the issued document was also carrying the recourse.** Being sloppy about what actually gets
+sent cost protection in both directions at once - exclusions unstated and entitlements unissued. The two
+findings are one fact from opposite sides. **The entitlement only exists if the document carrying it is
+issued.**
+
+**A separate fault of the same family, created by the previous turn's fix.** Cell C31 was rewritten to
+cite the Standard Terms *"(issue 31.05.2026), a copy of which accompanies this document"*. **There was
+no such copy** - Riverside has no proposal and had no terms output. Fixing an unnamed incorporation by
+writing a named one and then not producing the document is the fault criticised in A Plus and BSW for
+three turns, in better clothes. Produced now as `outputs\Riverside House - Fenster Standard Terms and
+Conditions (to accompany the pricing document).txt`, stating at its head that it must be sent with the
+pricing document; Adam's covering note says the same.
+
+**Provenance checked rather than assumed**, because the issue date is now on a client-facing page:
+`templates/proposal-content.json` records no provenance at all and was matched to `MASTER COVER LETTER
+31.05.2026.docx` on seven distinctive probes. **The archive holds 131 copies of that letter and at least
+two dates are in circulation - 29.05.2026 and 31.05.2026.** The Riverside job folder holds the 31.05
+version, so the citation is right for this job; nobody should assume it of another.
+
+**Gordon Court's precedence check, run here, comes back clean** - zero hits across every output and every
+cell of the pricing document for *governing*, *takes precedence*, *prevails*, *read in conjunction*,
+*supersedes* or *refer to the*, bar two correct "SUPERSEDED - do not send" markers. **Clean for a poor
+reason and it is worth saying so: Riverside issues a single document, so there was nothing to mis-rank.**
+A one-document job cannot have their fault and could not have had their protection either. *"Clean" and
+"not applicable" look identical in a summary and are not the same result.*
+
+**New rule, `check_exposures_state_our_recourse`** - nineteenth in `RULES`. `exposures: [{item,
+lands_on, our_recourse}]`, ASK where the recourse is unstated or filled with `unknown` / `TBC` / `not
+checked` / `n/a`, which are the same silence wearing a value - the shape by which the previous new rule
+was defeated within an hour. Writing **"none" is a good answer**. Fifteen variants written before it
+shipped, seven negatives.
+
+**Nine exposures recorded and read both ways: four backed** (storage, the free-area basis, the validity
+gap, the wind loading check) **and four recorded as `none` deliberately** (delivery carriage, the
+part-order re-price, the 1130 x 1530 dimensional risk, and Part K's position before last night) -
+because a stretched clause is worse than an honest gap.
+
+**The anti-overclaiming discipline applied to the good news:** Supplier Delays reduces our liability for
+A Plus's costs, it does not entitle us to money from RRR; the free-area exposure is qualified, not
+eliminated; and the dimensions clause that rescued Gordon Court's position 003 does **not** rescue
+Riverside's 1130 x 1530, because that size came from our own enquiry rather than the client's team.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
