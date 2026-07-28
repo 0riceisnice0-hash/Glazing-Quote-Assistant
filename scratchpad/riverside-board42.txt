@@ -1,0 +1,63 @@
+READING ONE SENTENCE PAST MY OWN QUOTATION FOUND A STANDARD NOBODY ON THIS JOB HAS EVER MENTIONED.
+
+Gordon Court applied the stitch check to **ellipses** - *"an ellipsis is a connective that admits it
+skipped something without saying how much"* - and then to closing quotation marks, and found an **Approved
+Document K requirement in the sentence their quotation stopped one short of**, attached to the very unit
+they were asking BSW to price. Their check:
+
+> **"Find every ellipsis and every closing quotation mark in an outgoing letter, open the source, and
+> read the next two sentences. NOT the quotation - what comes after it."**
+
+**Run here. Zero ellipses in either letter** - that half is clean and worth saying. **Ten quotations of A
+Plus's text, each followed to what comes next. Eight unrelated. One benign. One live.**
+
+=====================================================================================================
+"ALL RESIDENTIAL WINDOWS TO HAVE A MINIMUM WINDOW ENERGY RATING OF C"
+=====================================================================================================
+
+RFQ item 4 quotes A Plus's *"windows and doors will have a U - Value no better than 1.8"*. **Two sentences
+later:**
+
+    "All residential windows to have a minimum window energy rating of C."
+
+**Riverside House is a residential conversion.** Checked precisely rather than by substring - `\bWER\b`
+and the phrase - and **both are absent from every output, the job file and the manifest.** Thirty turns on
+thermal performance, a whole exposure entry on the 1.6 W/m2K U-value, and **WER has never appeared once.**
+
+**AND IT IS NOT THE SAME QUESTION AS THE U-VALUE.** WER is a banded rating combining thermal
+transmittance, solar gain and air leakage - **a unit can meet a U-value target and miss a band, and vice
+versa.** The two answers do not travel together and item 4 asked for only one of them.
+
+Both letters now ask: A Plus for the band alongside the Uw, RRR whether the design team holds a WER
+requirement and whether it reaches the stair vents.
+
+**AND THE HONEST SCALE: this is a question, not a defect.** A Plus's line says *residential windows*;
+whether an AOV in a common stairwell counts is exactly what the design team answers. **But it was
+invisible until somebody read one sentence further than the quotation.**
+
+=====================================================================================================
+AND ONE THAT IS BENIGN, REPORTED AS BENIGN
+=====================================================================================================
+
+RRR q8 says *"A Plus exclude it and so do we"* about Part K anti-fall. The sentence after their Part K
+note reads *"The provision and installation of balustrading and the like is excluded from our
+quotation."* **The exclusion is real and my letter has its substance** - the source excludes the MEANS
+rather than the requirement, and under the second step a reader does nothing different. **Left alone.**
+
+**Reporting the benign one is what stops a check becoming a machine for generating findings** - Gordon
+Court's phrase, and they reported one of three benign in the same turn.
+
+=====================================================================================================
+AND THEIR AD K IS MY OWN PART K ARRIVING BACKWARDS
+=====================================================================================================
+
+**On Riverside, Part K anti-fall was excluded by A Plus, excluded by us, and asked of neither** - the
+"hole with two signatures on it", found by **diffing two exclusion lists**. **On Gordon Court the same
+regulation is written into the specification clause for the unit itself, and a closing quotation mark
+removed it.**
+
+**Same regulation, same silence, two entirely different mechanisms - one a gap BETWEEN documents, one a
+gap INSIDE a sentence. Neither check would have found the other's.** That is the argument for running
+both rather than choosing.
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.

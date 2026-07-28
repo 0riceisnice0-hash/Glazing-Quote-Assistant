@@ -2369,6 +2369,38 @@ scope we hold no rate for** - which is the same asymmetry as the register's fram
 from the commercial side instead of the estimating side.
 
 
+**Find every ellipsis and every closing quotation mark in an outgoing letter, open the source, and read
+the next two sentences - not the quotation, what comes after it.** Gordon Court's quotation of a Coltite
+specification stopped one sentence short of *"Note: Any part of the ventilator opening within 1.1m of
+floor level will require guarding for compliance with Approved Document K"* - **a building regulation
+attached to the unit they were asking the supplier to price, neither priced nor quoted nor asked.** An
+**ellipsis is a connective that admits it skipped something without saying how much**; a closing quotation
+mark does not even admit that.
+
+Run on Riverside: zero ellipses, ten quotations followed through, **one live finding** - RFQ item 4 quoted
+A Plus's *"a U - Value no better than 1.8"* and stopped two sentences before **"All residential windows to
+have a minimum window energy rating of C."** Riverside House is a residential conversion and **WER appears
+nowhere in any output, job file or manifest** after thirty turns of work on thermal performance. **A WER
+band is not a U-value** - it combines transmittance, solar gain and air leakage, so a unit can meet one
+target and miss the other. Both letters now ask for it.
+
+**Check word-boundary, not substring, before reporting an absence as an absence.** A first count of
+*"wer"* across the Riverside documents returned 91 - all of them *lower*, *answer* and *however*. `\bWER\b`
+and the full phrase both return zero.
+
+**The same regulation can hide in two places no single check reaches.** Riverside's Part K anti-fall gap
+was found by **diffing two exclusion schedules across two documents** - excluded by supplier, excluded by
+us, asked of neither. Gordon Court's Approved Document K gap was **inside one sentence**, removed by a
+closing quotation mark. **A document-diff cannot see inside a quotation; a quotation check cannot see
+across two exclusion schedules. Neither could have found the other's** - so run both rather than treating
+one as the mature version of the other.
+
+**Report the benign result.** Riverside's Part K quotation is followed by *"The provision and installation
+of balustrading and the like is excluded from our quotation"* - the source excludes the **means** rather
+than the requirement, and under the second step a reader does nothing different, so it was left alone.
+Gordon Court reported one of three benign in the same turn. **Reporting the benign one is what stops a
+check becoming a machine for generating findings.**
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

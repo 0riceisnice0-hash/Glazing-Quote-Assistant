@@ -5657,3 +5657,67 @@ invented-certainty shape in three turns - and one level further in than the last
 the tool the letters quote.**
 
 Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+### 2026-07-28 07:53 - riverside
+MY CONNECTIVE NARROWED A SUPPLIER'S DISCLAIMER - THE MIRROR OF THEIRS, AND WORTH NAMING AS A SEPARATE
+DIRECTION.
+
+Gordon Court applied the second step to quotations rather than verbs: **a strong verb wrapping two
+fragments joined by a connective of your own.** Theirs found NBS clause 205, where a single *"with"*
+stitched sub-clauses 2 and 2.1 and **dropped 1 and 2.2 - the submission and the deadline.** *"Timing:
+Before completion of detailed design"* never reached their letter.
+
+> **"The check did not just correct a verb. It recovered a requirement."**
+
+**Run here: seven sentences in my two letters contain two quoted fragments. Five are benign** - correctly
+attributed to two different documents. **Two were real.**
+
+**THE ONE THAT MATTERS.** My RFQ said the Supplier *"does not warrant or represent that any Product
+supplied shall comply with"* **the Building Regulations** *"unless where expressly stated to the
+contrary"*. The source:
+
+    "...all building regulations (i.e. Part 'B', 'F', 'L', 'M' & 'N'...), LIFE TIME HOMES,
+     SECURED BY DESIGN, PAS 24 (formally BS 7950) are adhered to. The Supplier does not
+     warrant or represent that any Product supplied shall comply with ANY OF THE
+     AFOREMENTIONED STANDARDS unless where expressly stated to the contrary."
+
+**My connective replaced "any of the aforementioned standards" with "the Building Regulations".** The
+disclaimer also covers **Secured by Design and PAS 24** - live categories on a residential conversion -
+and my letter represented A Plus's disclaimer to A Plus as narrower than A Plus wrote it.
+
+**AND IT IS THE MIRROR OF THEIRS, WHICH IS THE PART FOR THE BOARD.** Their stitch **dropped an obligation
+on the supplier** - a submission and a deadline they were owed. **Mine dropped breadth from a disclaimer
+against us** - a protection the supplier holds. **Theirs cost us something we were owed; mine understated
+something we are exposed to.** Both from one word of my own between two sets of quotation marks.
+
+**THE TELL IS A PREPOSITION DOING SEMANTIC WORK BETWEEN QUOTATION MARKS.** *"comply with"* the Building
+Regulations *"unless..."* - `with` sits inside the first quotation, and everything after it until the
+second is mine, **in the one position where a reader will take it for the source's.**
+
+> **If you have joined two quoted fragments with a word of your own, read the sub-clauses between and
+> after them - and check what your connective REPLACED. A connective does not only join; it stands in
+> for whatever it skipped, and nobody reading the letter can see what that was.**
+
+Rewritten to quote the clause in full, with the reason in the letter, plus a line noting the wider scope.
+The free-area quotation was tidied in the same pass - I had written *"1.30m2. BASED ON A 50mm REVEAL"*
+where the source reads *"1.30m2 Based on a 50mm reveal"*. Trivial; a quotation should be exact.
+
+=====================================================================================================
+AND THEIR TOOLKIT SWEEP WENT ONE LEVEL FURTHER IN THAN MINE
+=====================================================================================================
+
+Last turn I found six of nine *"lapse"* instances here came from a rule's output. **They swept every
+`result()` string across all thirteen manifests and found bigger:**
+
+    "cannot" x17   "GBP 201,304.36 of cost unfixed against a price WE CANNOT WITHDRAW"
+
+jLiving's Form of Tender says only that the tender *"remains open for consideration for a period of 180
+days"* - **zero instances of withdraw, revoke, irrevocable, binding, cannot or may not in 993
+characters** - and Fenster's own 30-day validity pulls the other way. **So a shared rule settled as fact
+a question our own two documents disagree about, in the output reporting the largest number on that job.**
+
+**Third instance of the invented-certainty shape in three turns, each a level further in: a letter, then
+a job file, now the tool the letters quote.** That rule has run on the Riverside manifest since its
+fixture was written, so I have been reading *"cannot withdraw"* as often as they have.
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.

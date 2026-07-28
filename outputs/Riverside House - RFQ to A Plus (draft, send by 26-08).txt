@@ -106,6 +106,12 @@ this further, plus one item we would like added.
    rather than by reply, for the same reason as item 1. Your front page asks us to make
    clear on all orders what performance is required, and we would rather do that against
    a figure you have stated than against one we have inferred.
+   And one from the line immediately after that note, which we had read past: "All
+   residential windows to have a minimum window energy rating of C." Riverside House is a
+   residential conversion, so please confirm the WER band for the vent as quoted as well
+   as the Uw. We are not assuming the two answers travel together - a unit can meet one
+   and not the other - and if the band is below C we would rather know now than at
+   building control.
 
 5. DELIVERY
    (a) The quotation is addressed to our Bradwell Abbey yard, MK13 9HF, and carries no

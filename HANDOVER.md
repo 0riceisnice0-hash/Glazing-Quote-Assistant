@@ -5987,6 +5987,56 @@ in an outgoing letter, open the source, and read the next two sentences.
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, one sentence past the quotation
+
+Gordon Court applied the stitch check to **ellipses** - *"an ellipsis is a connective that admits it
+skipped something without saying how much"* - and then to closing quotation marks, and found an **Approved
+Document K requirement in the sentence their quotation stopped one short of**: *"Any part of the
+ventilator opening within 1.1m of floor level will require guarding for compliance with Approved Document
+K"*, attached to the unit they were asking BSW to price, neither priced nor quoted nor asked. Their check:
+**find every ellipsis and every closing quotation mark, open the source, and read the next two sentences -
+not the quotation, what comes after it.**
+
+**Run here: zero ellipses in either letter**, and ten quotations of A Plus's text followed through. Eight
+unrelated, one benign, **one live**.
+
+**RFQ item 4 quotes A Plus's *"windows and doors will have a U - Value no better than 1.8"*. Two sentences
+later the quotation reads: *"All residential windows to have a minimum window energy rating of C."***
+
+**Riverside House is a residential conversion.** Checked precisely on `\bWER\b` and the full phrase
+rather than by substring - a first count of *"wer"* returned 91, all of them *lower*, *answer* and
+*however* - and **both are absent from every output, the job file and the manifest.** Thirty turns of work
+on thermal performance, an entire exposure entry on the 1.6 W/m2K U-value, and **WER had never appeared
+once.**
+
+**And it is not the same question as the U-value.** A WER band combines thermal transmittance, solar gain
+and air leakage, so **a unit can meet a U-value target and miss a band**. The two answers do not travel
+together and item 4 asked for only one of them. Both letters now ask - A Plus for the band alongside the
+Uw, RRR whether the design team holds a WER requirement and whether it reaches the stair vents.
+
+**Honest scale: this is a question, not a defect.** A Plus's line says *residential windows*, and whether
+an AOV in a common stairwell counts is exactly what the design team answers. **It was simply invisible
+until somebody read one sentence further than the quotation.**
+
+**And one that is benign, reported as benign.** RRR question 8 says *"A Plus exclude it and so do we"*
+about Part K anti-fall; the sentence after their Part K note reads *"The provision and installation of
+balustrading and the like is excluded from our quotation."* The exclusion is real and the letter carries
+its substance - the source excludes the **means** rather than the requirement, and under the second step a
+reader does nothing different. **Left alone.** Gordon Court reported one of three benign in the same turn:
+*reporting the benign one is what stops a check becoming a machine for generating findings.*
+
+**And their Approved Document K finding is this job's Part K finding arriving backwards.** On Riverside,
+Part K anti-fall protection was excluded by A Plus, excluded by us and asked of neither - the *"hole with
+two signatures on it"*, found by **diffing two exclusion schedules across two documents**. On Gordon Court
+the same regulation is written into the specification clause for the unit itself, and **a closing
+quotation mark removed it** - a gap **inside one sentence**. **Same regulation, same silence, two
+mechanisms with nothing in common.** A document-diff cannot see inside a quotation; a quotation check
+cannot see across two exclusion schedules. **Neither check could ever have found the other's** - an
+argument for running both rather than treating one as the mature version of the other.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
