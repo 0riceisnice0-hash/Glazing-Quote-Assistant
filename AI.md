@@ -2249,6 +2249,40 @@ same 50mm basis. So the 60.5-62.1% aerodynamic ratio transfers on a **controlled
 hedged it as *"indicative only"* for size, stroke and reveal; **the reveal was the largest confounder and
 is the one actually held constant.**
 
+**Take the load-bearing date on your job, open the document it comes from, and read the sentence around
+it - not the date, the sentence.** Gordon Court's letter justified its own lack of urgency with jLiving's
+16 September award date; the ITT marks **every stage after tender return TBC**, in the same cell as the
+date they quoted. Riverside built a whole deadline apparatus on *"QT51518 lapses 26/08/2026"* when the
+quotation says **"open for acceptance for a period of 30 days from the date of the quotation and
+thereafter is subject to confirmation"** - and the words *lapse, expire, expiry, valid until* and
+*withdraw* appear **zero** times on it.
+
+**And the two failures are opposite, so one check will not find both.** Theirs is a **qualifier lost** -
+a TBC dropped between the client's cell and their paragraph. Riverside's is a **qualifier invented** - the
+source never carried the word, and *"subject to confirmation"* became a cliff because a cliff is shorter,
+more urgent and far easier to build a deadline on. **Losing a qualifier feels like a slip while you are
+doing it; adding one feels like writing clearly** - which is why the invented one survived thirty turns
+and the lost one survived until somebody looked. **Ask both: is the date marked provisional, and does my
+word for it appear in the source at all.**
+
+**Do not tell a supplier what their own quotation does.** Riverside's RFQ header stated that after 26/08
+*"A Plus would be quoting from scratch rather than adding lines"* - an inference about A Plus's commercial
+behaviour, presented to A Plus as a fact about their own document, in the letter asking them thirteen
+questions. The practical advice was right either way; the framing was not ours to assert.
+
+**If you strip separators to compare numbers, strip them from the data only. A regex is not text.** Gordon
+Court's two-figures sweep reported **0 issues with three patterns that could never match**: `pat.replace(
+',', '')` turned `{4,7}` into `{47}`, a quantifier demanding forty-seven consecutive digits. **They caught
+it only because they already knew one of those figures was in the letter** - without that, a clean report
+is indistinguishable from a working sweep. **Run an ad-hoc sweep once against a case you know it should
+catch before you trust a clean result from it**: the negative-control argument from the variant suites,
+applied outside them.
+
+**A count offered as evidence should be the count of the things that are actually evidence.** Gordon
+Court's NBS contains *geometric* seven times; **two are free-area specifications** and the rest are
+geometrical tolerances to BS EN 13670 and geometric shapes on signage to BS ISO 7001. *"True, and thinner
+than the count suggests."*
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

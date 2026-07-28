@@ -15,7 +15,7 @@ building works. No deadline.
 | | |
 |---|---|
 | Client | RRR Group Limited (Adam's instruction 27/07 13:47, trusted, cc Commercial) |
-| Deadline | **None client-stated.** The hub's 26/08 is A Plus QT51518's expiry, not a client date - `deadline_basis` says so. Adam: no urgency, gated by PHDB's building-works costs. |
+| Deadline | **None client-stated.** The hub's 26/08 is A Plus the end of QT51518's 30-day acceptance period, not a client date - `deadline_basis` says so. Adam: no urgency, gated by PHDB's building-works costs. |
 | Site | Riverside House, 44 Wedgewood Street, Fairford Leys, Aylesbury, Bucks HP19 7HL |
 | Planning ref | 24/02303/PAPCR. Planning applicant on the location plan is **Elderfern Ltd**, not RRR - RRR's associated companies are Primrose Property, Elderfern and SRP Investments |
 | Scope | 2no bottom-hung AOV smoke vents, one per stairwell, at each stairwell's top storey |
@@ -174,13 +174,13 @@ A "WHAT DOES NOT WAIT FOR PHDB" header now sits at the top of the brief so this 
 
 ### A SECOND, HARDER DEADLINE: 29 DAYS TO ASK A PLUS ANYTHING CHEAPLY (28/07)
 
-Gordon Court took last night's validity arithmetic and found the sharper consequence: **a lapsing
+Gordon Court took last night's validity arithmetic and found the sharper consequence: **a passing out of its acceptance period
 supplier quote is not only a price risk, it is a deadline for every question you still want to ask that
 supplier.** Anything sent before expiry is an addendum to a live quote - same job, same spec, same rates,
 they add lines. Anything after is a fresh enquiry at whatever the market is by then. Theirs has nine
 days; Riverside has more room but the same clock.
 
-    QT51518 dated 27/07, 30 days   ->  lapses 26/08/2026  ->  29 days from today
+    QT51518 dated 27/07, 30 days   ->  is open for acceptance to 26/08/2026 and is subject to confirmation after it  ->  29 days from today
 
 **It matters most for brief item 2**, which asks A Plus to price a resized unit. Asked now it is a
 revision we can set against GBP 4,845.22. Asked in September it is a new number with no anchor, and the
@@ -192,6 +192,78 @@ So there are now two dates on this job and they answer different questions:
 |---|---|
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
+
+### QT51518 DOES NOT LAPSE. I HAVE BEEN SAYING IT DOES FOR THIRTY TURNS (28/07)
+
+Gordon Court found their letter's entire lack of urgency resting on jLiving's 16 September award date -
+**which the ITT marks TBC, in the same cell as the date they quoted.** Every stage after tender return is
+TBC, and the qualifier never reached their paragraph.
+
+> **"If you have a document whose urgency is framed by somebody else's programme date, go and look at
+> whether that date is marked provisional."**
+
+**Run on the date this entire job is built around.** QT51518, printed rather than remembered:
+
+    "The Price stated in the quotation is open for acceptance for a period of 30 days
+     from the date of the quotation AND THEREAFTER IS SUBJECT TO CONFIRMATION"
+
+    lapse 0    expire 0    expiry 0    "valid until" 0    withdraw 0
+
+**Thirty turns of documents here say "QT51518 lapses 26/08/2026". The quotation never says that.**
+*Subject to confirmation* means the price stops being automatically binding and A Plus would reconfirm
+it - **not that the quotation is void and a fresh enquiry is required.**
+
+**And the RFQ header went further than a wrong word.** It told Gintare that four sentences become
+**false** after 26/08 - one of which, *"QT51518 lapses 26/08/2026"*, was never true in those terms - and
+then asserted that after that date **"A Plus would be quoting from scratch rather than adding lines"**.
+**That is my inference about A Plus's commercial behaviour, stated to A Plus as a fact about their own
+quotation**, in the same letter that asks them thirteen questions. It is the credibility point I have
+posted twice this week, landing on the loudest paragraph in my own document.
+
+**Rewritten to quote what the quotation says.** The header now states the acceptance wording verbatim,
+says 26/08 is the day the price stops being automatically binding rather than the day the quote dies,
+reduces the "no longer accurate" list from four sentences to the two that genuinely are, and replaces
+*"ask for a new quotation"* with *"add one line asking A Plus to reconfirm the GBP 4,845.22 alongside
+their answers"*.
+
+**The practical advice does not change and never depended on the wrong word: send before 26/08, because
+an addendum to a price that still stands is cleaner than a reconfirmation.** What changes is that the
+letter no longer tells a supplier what their own document does.
+
+Corrected across five live documents - the RFQ, the covering note, the requote brief, the job file, the
+manifest and the hub. **The superseded 27/07 draft is untouched: it is the record of what was written
+that day.**
+
+### THE SHAPE, BECAUSE IT IS NOT THE SAME AS THE OTHERS (28/07)
+
+This is not a qualifier lost in restatement - the source never carried the word at all. **It is a
+qualifier INVENTED in restatement.** *"Open for acceptance, thereafter subject to confirmation"* became
+*"lapses"*, which is shorter, more urgent, and easier to build a deadline apparatus on. **Every
+subsequent document inherited the harder word because the harder word was more useful.**
+
+**Gordon Court's decay went soft - a TBC dropped. Mine went hard - a certainty added.** Both directions
+end in a document that says more than its source, and only one of them feels like carelessness while
+you are doing it.
+
+### Their pattern-normalisation fault, run here - clean (28/07)
+
+Their two-figures sweep reported **0 issues with three patterns that could never match**, because they
+normalised the pattern with the same operation as the text: `pat.replace(',', '')` turned `{4,7}` into
+`{47}` - **a quantifier demanding forty-seven consecutive digits.**
+
+> **"If you strip separators to compare numbers, strip them from the DATA only. A regex is not text."**
+
+**Swept every script this chat has written for a pattern being transformed rather than the data: zero.**
+Mine normalise the text and leave the pattern alone. **Clean** - and worth recording that theirs
+over-reported *clean*, which as they say is the one nobody re-checks. My equivalent failure last night
+under-reported a count; **both are the silent direction, and between us we have now produced both in two
+hours.**
+
+**And their `geometric` recount is the discipline worth copying**: seven occurrences in their NBS, of
+which **only two are free-area specifications** - the rest are geometrical tolerances to BS EN 13670 and
+geometric shapes on signage to BS ISO 7001. *"The pack is written geometric" rests on two lines, not
+seven - true, and thinner than the count suggests.* **A count that supports a conclusion should be the
+count of things that actually support it.**
 
 ### ONE QUANTITY, TWO FIGURES - RUN ACROSS EVERY DOCUMENT AT ONCE, AND CLEAN (28/07)
 
@@ -1340,7 +1412,7 @@ Mine has the same hole. The clause reads:
 Riverside has none of them - nothing issued, ordered or deposited - and RRR may yet contract on their
 own terms, in which case the clause does not apply at all.
 
-**So the exposure splits in two and I had collapsed it:**
+**So the exposure splits in two and I had colpass out of its acceptance periodd it:**
 
 | phase | who is delaying | what it costs |
 |---|---|---|
@@ -1996,7 +2068,7 @@ to disassemble first.** So it is split, along clause 16, each letter carrying it
 
 | | |
 |---|---|
-| **RFQ to A Plus** (`send by 26-08`) | The nine items clause 16 makes **ours** - product suitability, the aerodynamic figure, the Uw, leaf configuration, delivery, restrictors, price hold. Dated, because QT51518 lapses 26/08 and after that it is a fresh enquiry rather than an addendum. |
+| **RFQ to A Plus** (`send by 26-08`) | The nine items clause 16 makes **ours** - product suitability, the aerodynamic figure, the Uw, leaf configuration, delivery, restrictors, price hold. Dated, because QT51518 is open for acceptance to 26/08 and subject to confirmation after it and after that it is a fresh enquiry rather than an addendum. |
 | **Questions to RRR** (no date) | The items clause 16 puts on **their professional team** - free-area basis, wall or roof, the 1.5 m2 source, sheet currency, the openings, planning, the control system, the programme. Grouped by owner (Campbell Ark / HD Planning / RRR) so it can be forwarded rather than answered. |
 
 **Two drafting choices taken from Gordon Court, both about not overclaiming:**
@@ -2585,7 +2657,7 @@ the answer is NO") is superseded.
    comparing free areas, confirm the quote is for a ventilator at all. The rate is the tell.**
 3. **Zero validity headroom, and it will go negative.** Our price (30 days from a 27/07 document) and
    A Plus's both close on **26/08/2026** - the same day. Since Adam is deferring issue until PHDB
-   report, our 30 days will run past the day the cost behind it lapses.
+   report, our 30 days will run past the day the cost behind it pass out of its acceptance periods.
 4. Actuators are **not** restrictors; A Plus disclaim liability for damage without one fitted 50mm
    beyond the stroke. Not priced.
 5. Trap hazard under BS EN 60335-2 below 2.5m FFL; Part K anti-fall below 1100mm FFL, which A Plus

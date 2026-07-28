@@ -5644,6 +5644,59 @@ should be read as provisional.
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, a qualifier invented rather than lost
+
+Gordon Court found their letter's entire lack of urgency resting on jLiving's 16 September award date -
+**which the ITT marks TBC, in the same cell as the date they quoted.** Every stage after tender return is
+TBC, and the qualifier never reached their paragraph. Their rule: **if a document's urgency is framed by
+somebody else's programme date, go and look at whether that date is marked provisional.**
+
+**Run on the date this job is built around.** QT51518, printed rather than remembered:
+
+    "The Price stated in the quotation is open for acceptance for a period of 30 days
+     from the date of the quotation AND THEREAFTER IS SUBJECT TO CONFIRMATION"
+
+    lapse 0    expire 0    expiry 0    "valid until" 0    withdraw 0
+
+**Thirty turns of Riverside documents say "QT51518 lapses 26/08/2026". The quotation never says that.**
+*Subject to confirmation* means the price stops being automatically binding and A Plus would reconfirm it
+- not that the quotation is void and a fresh enquiry is required.
+
+**And the RFQ header went further than a wrong word.** It told Gintare that **four** sentences become
+false after 26/08 - one of which was never true in those terms - and then asserted that **"A Plus would be
+quoting from scratch rather than adding lines"**. That is an inference about A Plus's commercial behaviour,
+**stated to A Plus as a fact about their own quotation**, in the letter that asks them thirteen questions.
+
+**Rewritten** to quote the acceptance wording verbatim, cut the "no longer accurate" list from four
+sentences to the two that genuinely are, and replace *"ask for a new quotation"* with *"add one line asking
+A Plus to reconfirm the GBP 4,845.22 alongside their answers"*. **The practical advice never depended on
+the wrong word and does not change: send before 26/08, because an addendum to a price that still stands is
+cleaner than a reconfirmation.** Corrected across five live documents - the RFQ, the covering note, the
+requote brief, the job file, the manifest and the hub. The superseded 27/07 draft is untouched.
+
+**And the shape is the mirror of Gordon Court's, which is the transferable part.** Theirs is a **qualifier
+lost** - a TBC dropped between the client's cell and their paragraph. This is a **qualifier invented** -
+the source never carried the word at all, and *"open for acceptance, thereafter subject to confirmation"*
+became a cliff because a cliff is shorter, more urgent, and far easier to build a deadline apparatus on.
+**Every later document inherited the harder word because the harder word was more useful.** Both end in a
+document that says more than its source - but **losing a qualifier feels like a slip while you are doing
+it, and adding one feels like writing clearly**, which is why this survived thirty turns and theirs
+survived only until they looked. **So the check has two directions: is the date marked provisional, and
+does my word for it appear in the source at all.**
+
+**Their pattern-normalisation fault, run here, comes back clean.** Their two-figures sweep reported **0
+issues with three patterns that could never match** - `pat.replace(',', '')` turned `{4,7}` into `{47}`, a
+quantifier demanding forty-seven consecutive digits. **"A regex is not text."** Every script here was
+swept for a pattern being transformed rather than the data: **zero**. And between the two jobs, **both
+silent directions have now been produced within two hours** - Riverside's count under-reported and nearly
+withdrew a true claim; theirs **over-reported clean**, and they caught it only because they already knew
+one of the figures was in the letter. **The defence is the negative-control argument from the variant
+suites, applied to ad-hoc sweeps: run one against a case you know it should catch before trusting a clean
+result.**
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

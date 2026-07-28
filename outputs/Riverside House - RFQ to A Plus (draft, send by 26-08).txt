@@ -1,15 +1,20 @@
-*** IF TODAY IS AFTER 26 AUGUST 2026, DO NOT SEND THIS AS IT STANDS ***
+*** IF TODAY IS AFTER 26 AUGUST 2026, RE-READ THE FIRST TWO SENTENCES BEFORE SENDING ***
 
-QT51518 lapses 26/08/2026. After that date these sentences in this letter are false:
+What QT51518 actually says, in terms: "The Price stated in the quotation is open for
+acceptance for a period of 30 days from the date of the quotation and thereafter is
+SUBJECT TO CONFIRMATION." The words lapse, expire and withdraw appear nowhere on it.
+So 26/08/2026 is the day the price stops being automatically binding, not the day the
+quotation dies - after it, A Plus would need to reconfirm the figure rather than start
+again.
+
+After that date these two sentences below are no longer accurate:
 
   - "Anything we put to A Plus before then is an addendum to a live quote"
-  - "QT51518 lapses 26/08/2026" written as a future event
-  - item 6's "QT51518 is open for 30 days, to 26/08/2026"
-  - item 2's premise that a resize can be set against the GBP 4,845.22 already quoted
+  - item 6's "QT51518 is open for 30 days, to 26/08/2026" written as a future event
 
-THE THIRTEEN QUESTIONS REMAIN VALID. This needs re-heading as a fresh enquiry, not
-binning - A Plus would be quoting from scratch rather than adding lines, so ask for
-a new quotation covering all thirteen points and expect the base price to move.
+THE THIRTEEN QUESTIONS REMAIN VALID and the letter can still go. Add one line asking
+A Plus to reconfirm the GBP 4,845.22 alongside their answers, and treat item 2's
+resize as priced against a figure that may move rather than one that is fixed.
 
 DRAFT - FOR GINTARE TO SEND TO A PLUS. Nothing has been sent.
 Send by 26/08/2026 - see "why the date" below.
@@ -22,9 +27,10 @@ WHY THIS GOES NOW AND NOT WITH THE ORDER
 Everything below is a question about A Plus's own quotation. None of it waits on the
 client, and two parts of it decay if we hold on:
 
-  QT51518 lapses 26/08/2026. Anything we put to A Plus before then is an addendum to
-  a live quote - same job, same spec, same rates, they add lines. After it, item 2 in
-  particular comes back as a fresh enquiry with nothing to compare it against.
+  QT51518 is open for acceptance for 30 days, to 26/08/2026, and their own wording is
+  that it is "subject to confirmation" thereafter. Anything we put to A Plus before
+  then is an addendum to a price that still stands. After it, item 2 in particular
+  comes back against a figure they would want to reconfirm first.
 
   Our own document carries 30 days' validity, so the last date we could issue and
   still be covered by A Plus was 27/07. That is behind us and the gap widens daily,
