@@ -116,7 +116,11 @@ def main():
         rows.append((ref, w, h, code, area, rate, line["unit_rate"], line["labour"], basis))
 
     job = engine.price_job(lines)
-    area_total = sum(l["area_m2"] for l in lines)
+    # Sum from integer mm2, not from the 3dp line areas. 900 x 525 is exactly
+    # 0.4725 m2 and rounds either way depending on the order of the division,
+    # which put five units 0.0005 m2 out and the total at 136.54 instead of
+    # 136.53. Worth GBP 1.24 and worth not having two figures in circulation.
+    area_total = sum(w * h for _, w, h, *_r in SCHEDULE) / 1e6
 
     # Solar-control glass premium. The spec demands a 4mm bronze anti-sun
     # toughened outer pane; the learned/register frame rates are built from

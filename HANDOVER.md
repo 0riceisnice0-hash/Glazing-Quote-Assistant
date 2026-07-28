@@ -6902,3 +6902,89 @@ tenderer takes **design responsibility under the Contractor's Designed Portion**
 real date is known wastes it. **And no deadline has been put on the board** - the 26 June in the pack is
 Gleeds' date to the main contractors, and inventing one from a document date is the error made three times
 this week.
+
+### Redditch Library - the profit question, and the register's band error confirmed by a second job (2026-07-28)
+
+Adam, 19:26, on the take-off: *"We need to undercut Joedan on this one and secure these works with
+Pride! ... Are you confident in your pricing? We already know the price to beat, so give me an idea
+of profit on this."* And a standing instruction: Mary becomes Fenster's full-time estimator -
+*"search all old jobs, don't stop learning."*
+
+**THE PROFIT.** Material buy GBP 62,365.77 (frames 60,551.26 + solar-control glass 1,814.51). House
+code adders **GBP 19,875.00 - that is the margin**. Installation GBP 7,670.00 is **revenue, not
+margin**: what fitting actually costs Fenster is recorded nowhere in anything Mary can see. So gross
+margin is **22.1% of sell / 31.9% mark-up on material, and only if fitting breaks even**. No prelims,
+supervision, survey, MCD or strip-out are in it. That is deliberately not presented as net profit.
+
+**WE CANNOT UNDERCUT JOEDAN ON THIS EVIDENCE, AND THE TARGET IS NOT THE NUMBER ON THEIR QUOTE.**
+Joedan's GBP 90,687.17 is GROSS of 2.5% MCD, so a main contractor takes it at **GBP 88,419.99** - and
+**it includes their strip-out** (their cl.12) while ours excludes it. At our benchmark we are
+**GBP 1,490.78 OVER** before a penny of strip-out. On the best comparator we have GBP 2,065.10 of
+headroom, **GBP 48.03 per opening** to strip 43 windows out of an occupied library.
+
+**THE BAND ERROR IS NOW EVIDENCED TWICE, INDEPENDENTLY - this is the finding that outlives the job.**
+Searching the archive turned up **BSW QT250834, 15/06/2026: a Sheerline Prestige quote to Fenster for
+PRIDE DEVELOPMENTS' Severn Trent job.** Six lines, 27 units, 72.578 m2, reconciling exactly to their
+stated Total Nett Ex VAT of GBP 34,902.35. Same supplier, same client, six weeks old, same product
+family, unit sizes bracketing Redditch's from 1.44 to 6.75 m2. The rates fit
+`rate = 721.47 x area^-0.4093` with **R2 = 0.9934**.
+
+| band | St Mary's | Severn Trent |
+|---|---|---|
+| <1.5 m2 | -35.5% | **-38.9%** |
+| 1.5-3 m2 | -1.2% | -20.4% |
+| 3-6 m2 | +37.5% | **+18.1%** |
+| >6 m2 | +35.2% | **+34.1%** |
+
+Positive = the engine sits ABOVE the real price. **Two different jobs, different suppliers, different
+dates, agreeing within four points on the small band and within one point on the large one.** The
+register **under-prices small units by roughly a third and over-prices large ones by roughly a
+third**, and on a broad mix those errors cancel - which is exactly why whole-job accuracy has always
+looked better than per-element accuracy. St Mary's said this from one job and it was right to hold it
+lightly; **it should not be held lightly any more.** Calibration entries 7 and 8. Two caveats, both
+pushing the comparator HIGH: Severn Trent is 3005 Wine Red metallic, and its outer pane is 6.8
+laminated rather than 4mm toughened.
+
+**THE HOUSE TEMPLATE PRICES BIG-UNIT WORK AT HALF THE MARGIN OF SMALL-UNIT WORK, AND NOBODY HAD
+NOTICED.** The code adder is a FIXED SUM PER UNIT, so it thins as units grow: **50.7%** of the frame
+line under 1.5 m2, 38.6% at 1.5-3, **19.0%** at 3-6, **12.2%** over 6. Redditch averages 3.18 m2 a
+unit and earns **24.7%**; **Crestwood Park averaged 1.29 m2 and earned 42.9%** (GBP 20,550 of adders
+on a GBP 27,329.60 BSW buy - both figures verified against the quote that went out). Same template,
+same rules, nearly double the margin, purely on unit size. Worth knowing **before** anyone agrees a
+discount on a big-unit job.
+
+**STRIP-OUT: NOW A SEARCHED ANSWER RATHER THAN A NOTICED ABSENCE - AND A METHOD WARNING.** Scanned
+**362 workbooks** across the whole tender archive for a priced window-removal line. The promising hits
+were all false: Spencer Scroft's *"Carefully remove existing PVCu doors and windows"* against 30.06,
+Hollyfield's *"remove existing PVCu framed windows"* against 24.11. **Those are ITEM REFERENCE
+NUMBERS.** Opening the files showed the Rate columns empty - they are unpriced schedules of works that
+main contractors sent US. **A number on the same row as a description is not a rate until you have
+seen its column header.** The Axis CLC / EEM schedule does hold Fenster-priced *renew* rates (uPVC,
+GBP 267.75-838.84/m2, remove and replace combined), but some fall BELOW our own supply-and-fit-new
+price, so differencing them to extract strip-out would have manufactured a number. Not done.
+
+**RFQ BUILT AS A SEPARATE, PRICE-FREE FILE.** `outputs\Redditch Library - RFQ Schedule for
+Supplier.xlsx` - deliberately not the take-off, which carries our buy rates, our margin and a
+competitor's tendered price. That separation is the cheap guard against the Gordon Court error
+(REQ-28, five supplier quotations sent to a client under the filename "Elevations"). It asks for refs
+32/34 as single coupled units in ONE frame depth so the quote does not come back with the tender's
+own fault in it, asks for validity beyond 30 days against a 10-week tender, and flags refs 16/17/18,
+38 and 29/30/31. Sent to Adam, not to a supplier - ghost protocol. **Recommended to BSW *and* Aplus
+or 4Ali:** measured supplier factors are BSW **+5.7%** (n=272), Aplus -1.6% (n=83), 4Ali -1.5%
+(n=82), TruFrame -17.9% (n=42) - about **GBP 4,200** of frame buy on this job, twice the headroom we
+have against Joedan.
+
+**ON PRIDE, FROM FENSTER'S OWN LOG.** They are on the Estimating Log's **Priority Customer** list.
+They have **19 rows** (triage had said 14) - and **every single win/loss cell is blank**. No recorded
+outcome on any Pride job ever. Yet **RAF Mildenhall has a folder under `2. Projects`**, which is where
+won work lives, so at least one was won and never written down.
+
+**A correction made this turn:** the package area is **136.53 m2**, not the 136.54 reported earlier.
+Five 900 x 525 units are exactly 0.4725 m2 and rounded up or down depending on the order of the
+division. Worth GBP 1.24; fixed at source so a single figure circulates. Sell GBP 89,910.82 ->
+**GBP 89,910.77**.
+
+**Dashboard state updated but NOT deployed** - `mary_dashboard.py --deploy` failed three times with an
+npm cache EBUSY lock while other chats were deploying concurrently. The state file is committed, so the
+next successful deploy from any chat publishes it. Stale `workerd`/`node` processes were left alone
+rather than killed, since they belong to other chats.

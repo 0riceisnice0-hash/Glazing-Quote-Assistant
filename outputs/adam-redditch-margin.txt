@@ -1,0 +1,177 @@
+Three questions, three answers, and one of them is uncomfortable. Updated workbook attached with a
+new Margin & Confidence sheet, plus a separate clean RFQ schedule you can send to a supplier today.
+
+SHORT VERSION
+
+Am I confident? In the TAKE-OFF, yes - quantities, sizes, configurations, all 43 items. In the
+PRICE, no, not to the standard needed to commit to beating a competitor. I can now put a number on
+how unsure: roughly plus or minus 6%, and I found real evidence to narrow it.
+
+Profit: GBP 19,875 gross on materials, 22.1% of the sell, IF fitting breaks even.
+
+Undercut Joedan: at my benchmark we cannot. We are already GBP 1,491 OVER their net before a penny
+of strip-out. On better evidence we get about GBP 2,065 of headroom, which is GBP 48 per opening to
+strip 43 windows out of an occupied library. That is tight, not comfortable.
+
+1. THE PROFIT
+
+    Frame supply, COST                     60,551.26
+    Solar-control glass premium, COST       1,814.51
+    = material we buy                      62,365.77
+    House code adders, MARGIN              19,875.00
+    Installation, revenue                   7,670.00
+    SELL                                   89,910.77
+
+Gross margin GBP 19,875.00 - 22.1% of the sell, 31.9% mark-up on the material.
+
+That is NOT net profit, and I do not want to give you a number that pretends to be. It carries no
+prelims, no supervision, no survey time, no main contractor's discount, and no strip-out. And the
+installation line is revenue, not margin: what fitting actually costs Fenster is not recorded
+anywhere I can see, so I have assumed it breaks even. If fitting runs at a loss on this job the
+22.1% is the ceiling, not the answer.
+
+2. WHY THIS JOB EARNS LESS THAN YOU MIGHT EXPECT - AND IT IS THE TEMPLATE, NOT THE PRICING
+
+I think this is the most useful thing I found today, and it applies to every job we price.
+
+The house adder is a FIXED SUM PER UNIT - SAW 337.50, MAW 412.50, and so on. So the bigger the
+window, the smaller that fixed sum is as a proportion. On this job:
+
+    under 1.5 m2   11 items    adder is 50.7% of the frame line
+    1.5 - 3 m2     10 items    adder is 38.6%
+    3 - 6 m2       20 items    adder is 19.0%
+    over 6 m2       2 items    adder is 12.2%
+
+Redditch averages 3.18 m2 a unit, so the adder is 24.7% of the frame line overall.
+
+Crestwood Park averaged 1.29 m2 a unit and the adder there was 42.9% - GBP 20,550 on a GBP 27,329.60
+BSW buy, both figures checked against the quote that went out.
+
+Same template, same rules, nearly double the margin - purely because the units were smaller. This
+job is big-unit work, so the template hands us a thin margin automatically. That is worth knowing
+before we discount anything: there is less fat here to give away than on a normal schools job.
+
+3. HOW CONFIDENT I AM, AND WHAT I DID ABOUT IT
+
+You told me to search the old jobs, so I did, and I found the single best comparator we own.
+
+BSW quotation QT250834, dated 15 June 2026 - Sheerline Prestige aluminium casements, factory glazed,
+trickle vents, shootbolt locking, cills, couplers. Six lines, 27 units, 72.578 m2, Total Nett Ex VAT
+GBP 34,902.35. It is for PRIDE DEVELOPMENTS, on Severn Trent. Same supplier, same client, six weeks
+old, the same product family as Redditch, and the unit sizes bracket ours from 1.44 m2 up to 6.75 m2.
+
+The rates fit a clean curve - rate = 721.47 x area to the power -0.4093, R2 of 0.9934 - and I
+re-priced all 43 Redditch items on it.
+
+That gives GBP 86,354.89 against my benchmark GBP 89,910.77. So my number is about 4% high overall.
+
+But the interesting part is underneath the total:
+
+    band          St Mary's says     Severn Trent says
+    under 1.5m2        -35.5%              -38.9%
+    1.5 - 3 m2          -1.2%              -20.4%
+    3 - 6 m2           +37.5%              +18.1%
+    over 6 m2          +35.2%              +34.1%
+
+Positive means my engine sits ABOVE the real price. Two completely independent jobs, different
+suppliers, different dates - and they agree within a few points on the small band and the large
+band. My register UNDER-prices small windows by roughly a third and OVER-prices big ones by roughly
+a third, and those errors partly cancel on a broad job, which is why the total only looks 4% out.
+
+Redditch is 62% big-unit work by value, so the cancelling is weaker here than usual, and my
+benchmark is more likely high than low. That is the direction that matters when you are trying to
+undercut somebody.
+
+So: three estimates of the same job. GBP 89,910.77 on my benchmark, GBP 86,354.89 on the Severn
+Trent curve, GBP 79,047.50 if the St Mary's band corrections are right. The whole spread is the
+3 to 6 m2 band.
+
+Two honest caveats on the Severn Trent curve, and both push it HIGH: that job is 3005 Wine Red
+metallic, which carries a colour premium, and its outer pane is 6.8 laminated rather than the 4mm
+toughened Redditch needs. So GBP 86,355 is probably still a little conservative.
+
+4. CAN WE UNDERCUT JOEDAN? NOT ON WHAT I HAVE.
+
+The number to beat is not GBP 90,687.17. That figure is GROSS of 2.5% main contractor's discount,
+so a main contractor takes it at GBP 88,419.99. That is the target.
+
+And it includes their strip-out. Ours does not.
+
+    our basis                            our sell      headroom    per opening
+    my benchmark                        89,910.77     -1,490.78        -34.67
+    Severn Trent curve                  86,354.89      2,065.10         48.03
+    St Mary's band correction           79,047.50      9,372.50        217.97
+
+Headroom is what is left to pay for stripping 43 openings out of an occupied public library, same
+day replacement, nothing left out over a shift.
+
+At my benchmark there is nothing left - we are already over before we start. On the better evidence
+there is GBP 48 an opening. I do not believe GBP 48 an opening strips out and disposes of a
+commercial aluminium window, but I cannot prove that either, which brings me back to the same wall.
+
+5. THE STRIP-OUT RATE STILL DOES NOT EXIST, AND I HAVE NOW PROVED IT PROPERLY
+
+I searched every workbook in the tender archive - 362 of them - for a priced window removal line.
+
+I got some promising hits and they were all false. Lines like "Carefully remove existing PVCu doors
+and windows" on Spencer Scroft against the number 30.06, and "remove existing PVCu framed windows"
+on Hollyfield against 24.11. Those are ITEM REFERENCE NUMBERS, not rates. I opened the files: the
+Rate columns in those schedules are empty. They are unpriced schedules of works that main
+contractors sent US.
+
+I nearly reported them as rates. They are not. There is genuinely no strip-out rate anywhere in
+Fenster's records, and that is now a properly searched answer rather than an absence I noticed.
+
+The nearest thing that does exist is the Axis CLC / Efficiency East Midlands schedule where we
+priced "renew" rates - remove and replace combined - for uPVC, GBP 267.75 to GBP 838.84 per m2. I
+tried to subtract our supply-and-fit rate to leave strip-out. It does not work: some of those renew
+rates come out BELOW what we would charge to fit a new window alone, so that schedule was priced on
+a different commercial basis and differencing it would give a made-up number. I am not going to
+give you one.
+
+6. WHAT WOULD ACTUALLY MOVE THIS
+
+An RFQ. Everything above is benchmark, and one real quotation collapses the whole GBP 79k-to-GBP 90k
+range to a number we can bid on.
+
+I have attached a separate RFQ schedule ready to send - all 43 items with sizes, configurations and
+the full performance specification, and no prices in it. It is a separate file from the take-off on
+purpose: the take-off carries our buy rates, our margin and Joedan's tendered price, and it must
+never be the file that reaches a supplier.
+
+Two things in it worth knowing. It asks the supplier to quote refs 32 and 34 as single coupled units
+in ONE frame depth, so we do not get back a quote with the same fault the specification has. And it
+asks for validity longer than 30 days, because the main tender must stay open 10 weeks.
+
+I cannot send it - I can only email you and marketing. It needs to go from you or Gintare.
+
+My recommendation: send it to BSW and to Aplus or 4Ali, not BSW alone. Measured across our own sent
+quotes, BSW runs 5.7% above the all-supplier rate for the same code and size, Aplus 1.6% below and
+4Ali 1.5% below. On this job that spread is about GBP 4,200 of frame buy - which is twice the
+headroom we currently have against Joedan. The competition between them is the undercut.
+
+7. ON PRIDE - TWO THINGS FROM OUR OWN LOG
+
+Pride Developments is on Fenster's own Priority Customer list. That is our designation, already made.
+
+They have 19 rows on the Estimating Log - Peckham Pulse, Severn Trent, St Catherines, Usk House,
+Mailbox Birmingham, RAF Mildenhall and more. Every single one has a BLANK win/loss column. We have
+no recorded outcome on any Pride job ever. Yet RAF Mildenhall has a folder under 2. Projects, which
+is where won work lives - so we have won at least one and never wrote it down.
+
+If we want to know how to beat Joedan for this client, the honest position is that we do not
+currently record enough to know how we have done with them before.
+
+WHAT I STILL NEED
+
+1. Say the word and the RFQ goes out - and to whom. This is the one thing that turns a range into a
+   price.
+2. A strip-out number, or a decision to absorb it. REQ-24. It is the difference between a compliant
+   return and an incomplete one, and on the current arithmetic it is also the difference between
+   winning and losing.
+3. Pride's real deadline from Leonard White. Still nobody has asked, and supplier quotes run 30 days.
+
+On the six days: agreed, and it is logged. The enquiry reached info@ on 22 July and sat until you
+forwarded it. That is the third this week that only moved because a person happened to look.
+
+Mary

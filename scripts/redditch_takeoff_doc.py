@@ -251,6 +251,61 @@ def main():
     r += 1
     r = put(ws, r, ["NOTE", "The invitation requires technical queries to be returned to Gleeds and assessed under the JCT Tendering Practice Note, 3rd Edition 2017. As sub-contractor our queries go through Pride."], SUB)
 
+    # ---------------------------------------------------------- sheet 6
+    mp = os.path.join(REPO, "outputs", "redditch-margin.json")
+    if os.path.exists(mp):
+        with open(mp, encoding="utf-8") as fh:
+            m = json.load(fh)
+        ws = sheet(wb, "Margin & Confidence", [44, 16, 74])
+        head(ws, 1, ["Redditch Library - what we keep, and how sure I am of it", "GBP", "Note"])
+        r = 2
+        r = put(ws, r, ["WHAT THE BENCHMARK IS MADE OF", "", ""], SUB, bold=True)
+        r = put(ws, r, ["Frame supply - COST", m["frame_supply"], "What a supplier would charge us. Benchmark, not a quotation - nobody has been asked."])
+        r = put(ws, r, ["Solar-control glass premium - COST", m["solar_glass"], "The specified outer pane is 4mm bronze anti-sun; the frame rates are built from ordinary softcoat units."])
+        r = put(ws, r, ["= Material we buy", m["material_cost"], ""], SUB, bold=True)
+        r = put(ws, r, ["House code adders - MARGIN", m["adders"], "The template's per-unit adder at 75% of code value. This is the money we keep on materials."])
+        r = put(ws, r, ["Installation - revenue", m["installation"], "Adam's per-unit labour codes. FIT ONLY. What fitting actually costs Fenster is recorded nowhere, so this is revenue and not margin."])
+        r = put(ws, r, ["SELL", m["sell"], ""], HDR, bold=True)
+        for cc in range(1, 4):
+            ws.cell(row=r - 1, column=cc).font = WHITE
+        r = put(ws, r, ["Gross margin if fitting breaks even", m["gross_margin"],
+                        "%.1f%% of sell, %.1f%% mark-up on the material buy. NOT net profit - no prelims, supervision, survey, main contractor's discount or strip-out are in it."
+                        % (m["margin_pct_of_sell"], m["markup_pct_on_material"])])
+        r += 1
+        r = put(ws, r, ["WHY THE MARGIN IS THIN HERE", "", "The house adder is a FIXED SUM PER UNIT, so it thins as units get bigger."], SUB, bold=True)
+        for k in ("<1.5m2", "1.5-3m2", "3-6m2", ">6m2"):
+            import mary_pricing as _e
+            ls = [l for l in d["lines"] if _e.band_of(l["area_m2"]) == k]
+            if not ls:
+                continue
+            c_ = sum(l["supply"] for l in ls)
+            a_ = sum(l["adder"] for l in ls)
+            r = put(ws, r, ["  %s - %d items" % (k, len(ls)), round(a_, 2),
+                            "adder is %.1f%% of the frame line" % (a_ / (c_ + a_) * 100)])
+        r = put(ws, r, ["  Redditch averages 3.18 m2 a unit", "", "adder = 24.7% of the frame line. Crestwood Park averaged 1.29 m2 and the adder was 42.9% (GBP 20,550 on a GBP 27,329.60 BSW buy). Big units earn less on this template."])
+        r += 1
+        r = put(ws, r, ["CONFIDENCE - AGAINST A REAL COMPARABLE BUY", "", m["severn_trent"]["ref"] + ". Sheerline Prestige aluminium casements, factory glazed, trickle vents, shootbolt locking - the nearest thing Fenster holds to this job. 6 lines, 27 units, 72.578 m2, reconciling exactly to their stated Total Nett Ex VAT of GBP 34,902.35."], SUB, bold=True)
+        r = put(ws, r, ["  Fitted rate curve", "", "rate = %.2f x area^%.4f, R2 = %.4f. Two caveats, both pushing it HIGH for our purposes: that job is 3005 Wine Red metallic, and its outer pane is 6.8 laminated rather than 4mm toughened."
+                        % (m["severn_trent"]["a"], m["severn_trent"]["b"], m["severn_trent"]["r2"])])
+        r += 1
+        r = put(ws, r, ["THREE ESTIMATES OF THE SAME JOB", "", ""], SUB, bold=True)
+        r = put(ws, r, ["  Engine benchmark (as issued)", m["sell"], "Register and learned medians through mary_pricing."])
+        r = put(ws, r, ["  Re-priced on the Severn Trent curve", m["severn_trent"]["sell"], "Same supplier, same client, six weeks old, same product family. The best single comparator we have."])
+        r = put(ws, r, ["  St Mary's band correction", m["band_corrected_sell"], "The engine's measured band errors from the St Mary's calibration applied to the supply component."])
+        r = put(ws, r, ["  Spread", round(m["sell"] - m["band_corrected_sell"], 2), "Almost entirely the 3-6 m2 band, which carries 62% of this job."])
+        r += 1
+        r = put(ws, r, ["CAN WE UNDERCUT JOEDAN?", "", ""], SUB, bold=True)
+        r = put(ws, r, ["  Joedan gross of 2.5% MCD", m["joedan_gross"], "Their quotation JCQ.9727 as it sits in the tender pack."])
+        r = put(ws, r, ["  Joedan NET to a main contractor", m["joedan_net"], "THE NUMBER TO BEAT - and it INCLUDES their strip-out (their cl.12). Ours does not."], HDR, bold=True)
+        for cc in range(1, 4):
+            ws.cell(row=r - 1, column=cc).font = WHITE
+        for label, key in (("  Headroom at the engine benchmark", "engine benchmark (as issued)"),
+                           ("  Headroom on the Severn Trent curve", "re-priced on the Severn Trent curve"),
+                           ("  Headroom on the band correction", "St Mary's band correction")):
+            v = m["headroom"][key]
+            r = put(ws, r, [label, v, "= GBP %.2f per opening towards stripping 43 openings out of an occupied library." % (v / 43)],
+                    WARN if v < 0 else None)
+
     wb.properties.creator = "Fenster Glazing & Locks Ltd"
     wb.properties.lastModifiedBy = "Fenster Glazing & Locks Ltd"
     wb.properties.title = "Redditch Library BLBS0956 - Take-Off and Benchmark Price"

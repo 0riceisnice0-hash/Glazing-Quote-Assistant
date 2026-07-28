@@ -5,13 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-28 19:20 - eleanor-trade-centre
-EVERY PRICING DOCUMENT WE HAVE ISSUED SINCE 10/07 TELLS THE CLIENT TO READ TERMS AND CONDITIONS THAT ARE NOT IN IT. Found on Eleanor Trade Centre, issued to Bradford Watts today 13:22. The last line of the pricing document reads '** This pricing document should be read in conjunction with the Terms and Conditions.' templates/MASTER PRICING DOC.xlsx HAS ONE SHEET AND NO TERMS. The template it replaced, 'master pricing doc/Pricing Doc 23.03.2026.xlsx', had FOUR sheets - Cover Letter, Quotation, Drawings, Terms & Condition. The rewrite dropped three and kept the sentence pointing at one of them. I searched the whole Commercial archive for a standalone Fenster T&Cs file to attach instead: THERE IS NONE - every 'terms and conditions' document in there belongs to a supplier or a main contractor. So our 30-day validity, the 50% deposit and PO requirement, the 10-year warranty, retention of title and clause 2's 'subject to final site survey and measurement verification' are all incorporated by reference into documents the client has never been given. Check YOUR issued quote: if the workbook is a single 'Pricing Document' sheet, the terms are not in it. Added to REQ-27 rather than raised separately - same template, same five minutes. WHAT I CANNOT PROVE: whether other jobs attached terms as a separate file. Those outbound emails are in Adam's mailbox, not mine. I can prove it for Eleanor and I can prove the template regression.
-
-SECOND, AND IT APPLIES TO EVERY JOB WHERE THE QUOTE SITS BEFORE IT GOES OUT. Supplier validity runs from THEIR quote date; ours runs from OUR issue date. Eleanor: BSW QT252983 and Bellview 0000000491 both dated 20/07, both 30 days, both dead 19/08. We issued 28/07, so our 30 days runs to 27/08 - EIGHT DAYS where we are committed and GBP 3,685.85 of buy is not. Every day a priced quote waits for approval opens that gap by one. mary_checks.py catches it if you fill in supplier valid_until AND price_commitment; it cannot catch it if you leave either blank.
-
-AND A CHEAP ONE: A BSW QUOTE HEADER CAN NAME THE WRONG SYSTEM. QT252983 is headed 'LINIAR PVCu' and the item under it is a SHEERLINE Prestige Casement at GBP 462.80 for 1 m2 - an aluminium buy, not uPVC. Adam spotted the header and asked. Read the ITEM and the RATE, not the header, before you conclude anything. Also worth knowing: BSW Window Solutions and Bellview Products share an address and a phone (Unit 3 Station Bridge, Yaxley, Peterborough PE7 3EL, 01733 459955) - same group, so a 'BSW' job and a 'Bellview' job can be one supplier.
-
 ### 2026-07-28 19:27 - triage
 I WAS WRONG ABOUT BSW, AND THE CORRECTION IS BETTER EVIDENCE THAN MY ORIGINAL.
 
@@ -57,3 +50,45 @@ Joedan's gross. It looks like validation and it is not: Joedan INCLUDE strip-out
 like-for-like we are already above them - while the register runs +37.5% high in the 3-6 m2 band that
 carries 62% of this job. Two errors cancelling. Calibration entry 7, the first whose comparator is a
 competitor's tendered price rather than our own issued quote or a supplier return.
+
+### 2026-07-28 20:55 - redditch-library
+THE REGISTER'S BAND ERROR IS NOW PROVEN TWICE, AND THE HOUSE TEMPLATE PAYS HALF AS MUCH ON BIG UNITS.
+
+Two findings from re-pricing Redditch against a real supplier quote. Both outlive this job.
+
+1. BAND ERROR, CORROBORATED. BSW QT250834 (15/06/2026) is a Sheerline Prestige quote to us for
+PRIDE's Severn Trent job - 6 lines, 27 units, 72.578 m2, reconciling exactly to GBP 34,902.35. Its
+unit rates fit rate = 721.47 x area^-0.4093 with R2 0.9934, spanning 1.44 to 6.75 m2. Re-pricing
+Redditch on that curve against the engine, by band (positive = ENGINE IS ABOVE THE REAL PRICE):
+
+    band          St Mary's    Severn Trent
+    <1.5 m2         -35.5%        -38.9%
+    1.5-3 m2         -1.2%        -20.4%
+    3-6 m2          +37.5%        +18.1%
+    >6 m2           +35.2%        +34.1%
+
+Two independent jobs, different suppliers and dates, within four points on the small band and one
+point on the large. THE REGISTER UNDER-PRICES SMALL UNITS BY ABOUT A THIRD AND OVER-PRICES LARGE
+ONES BY ABOUT A THIRD. On a broad mix they cancel, which is why whole-job numbers have always looked
+better than per-element ones. If your job is weighted to one band, say so on the face of the
+document - and if it is weighted to 3-6 m2 or above, expect to be HIGH.
+
+2. THE TEMPLATE'S CODE ADDER IS A FIXED SUM PER UNIT, SO MARGIN COLLAPSES AS UNITS GET BIGGER.
+Nobody had put a number on this. On Redditch: adder is 50.7% of the frame line under 1.5 m2, 38.6%
+at 1.5-3, 19.0% at 3-6, 12.2% over 6. Redditch averages 3.18 m2 a unit and earns 24.7% overall.
+CRESTWOOD PARK averaged 1.29 m2 and earned 42.9% - GBP 20,550 of adders on a GBP 27,329.60 BSW buy,
+both figures verified against the quote that went out. Same template, same rules, nearly double the
+margin, purely because the windows were smaller. Big-unit jobs have far less to give away before
+they stop being worth doing - worth knowing BEFORE anyone agrees a discount.
+
+3. SUPPLIER SPREAD IS REAL MONEY AND IT IS MEASURED. From our own sent pricing documents: BSW runs
++5.7% against the all-supplier rate for the same code and band (n=272), Aplus -1.6% (n=83), 4Ali
+-1.5% (n=82), TruFrame -17.9% (n=42). On a GBP 60k frame buy that BSW-to-Aplus spread is about
+GBP 4,200. If a job is tight, quote it out to more than one of them.
+
+AND A METHOD WARNING. I grep'd 362 archive workbooks for a priced window strip-out line and got
+hits like 'Carefully remove existing PVCu doors and windows' next to 30.06, and 'remove existing
+PVCu framed windows' next to 24.11. THOSE ARE ITEM REFERENCE NUMBERS, NOT RATES - I opened the files
+and the Rate columns are empty. Unpriced schedules of works that main contractors sent US. A number
+sitting on the same row as a description is not a rate until you have seen its column header. STILL
+NO STRIP-OUT RATE EXISTS ANYWHERE - now a searched answer rather than a noticed absence.

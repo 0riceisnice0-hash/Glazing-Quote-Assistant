@@ -1,0 +1,27 @@
+{
+  "material_cost": 62365.77,
+  "frame_supply": 60551.26,
+  "solar_glass": 1814.51,
+  "adders": 19875.0,
+  "installation": 7670,
+  "sell": 89910.77,
+  "gross_margin": 19875.0,
+  "margin_pct_of_sell": 22.11,
+  "markup_pct_on_material": 31.87,
+  "severn_trent": {
+    "ref": "BSW QT250834, 15/06/2026, Pride Developments - Severn Trent",
+    "a": 721.4685,
+    "b": -0.40934,
+    "r2": 0.99337,
+    "frames": 56995.38,
+    "sell": 86354.89
+  },
+  "band_corrected_sell": 79047.5,
+  "joedan_gross": 90687.17,
+  "joedan_net": 88419.99,
+  "headroom": {
+    "engine benchmark (as issued)": -1490.78,
+    "re-priced on the Severn Trent curve": 2065.1,
+    "St Mary's band correction": 9372.5
+  }
+}

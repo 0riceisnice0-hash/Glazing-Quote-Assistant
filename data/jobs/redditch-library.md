@@ -11,7 +11,7 @@
 | **Our position** | Window and door **sub-contractor to Pride**, who are bidding to Gleeds as main contractor. Our offer goes to Pride, not to Gleeds. |
 | **Tender pack** | BLBS0956 v01, May 2026, 254 pages. `Commercial\1. Tender Documents\Pride Developments\Redditch Library` and in the work-order attachment folder. |
 | **Deadline** | **NOT SET - do not invent one.** Leonard White, 22/07: acknowledge and "submit your tender back asap", no date. The pack's 12 noon Friday **26 June 2026** is GLEEDS' date to the main contractors and it has passed. Adam has been asked to get Pride's real date. |
-| **Live number** | **GBP 89,910.82 net ex VAT, BENCHMARK ONLY**, excluding strip-out. Nothing issued to anyone. |
+| **Live number** | **GBP 89,910.77 net ex VAT, BENCHMARK ONLY**, excluding strip-out. Best evidence says **GBP 86,354.89**. Nothing issued to anyone. |
 
 ## Where it stands
 
@@ -24,7 +24,7 @@ has been asked and no quotation is held.
 
 ## The take-off
 
-**43 items across 41 references, 136.54 m2.** Taken from the tender's OWN blank pricing schedule at pack
+**43 items across 41 references, 136.53 m2.** Taken from the tender's OWN blank pricing schedule at pack
 **p77**, cross-checked line by line against Joedan's Appendix 2 schedule at **p150** - the two are identical
 in every size and configuration - and against elevational drawings **BLBS0956-GLE-RL-XX-DR-B-02** and
 **-B-03**. All 41 references appear on the elevations, none missing, none duplicated.
@@ -37,8 +37,8 @@ flattened text dump cannot tell a fixed light from a single door.
 |---|---|
 | Frames + house code adders | 80,426.26 |
 | Installation (**fit only**) | 7,670.00 |
-| Solar-control glass premium (136.54 m2 x 13.29) | 1,814.56 |
-| **BENCHMARK NET ex VAT** | **89,910.82** |
+| Solar-control glass premium (136.53 m2 x 13.29) | 1,814.51 |
+| **BENCHMARK NET ex VAT** | **89,910.77** |
 | Strip out existing windows and doors | **TBC - no rate exists** |
 | Provisional sum, preparing openings (cl.10) | 5,000.00 |
 
@@ -141,3 +141,84 @@ a measured survey of every opening before ordering and forbids relying on Gleeds
   "incl solar control" register categories, which have n=1 to n=39 behind them. The glass-unit medians
   differ by GBP 13.29/m2 (103.03 solar vs 89.74 plain softcoat) and that is the defensible number.
 - **Nothing sent to any supplier or to Pride.** Ghost protocol, and the validity clock.
+
+
+## 28/07 evening - Adam's reply: undercut Joedan, and give me a profit figure
+
+Adam 19:26: *"We need to undercut Joedan on this one and secure these works with Pride! Not good this
+has gone 6 days missed. Are you confident in your pricing? We already know the price to beat, so give
+me an idea of profit on this."* Plus: Mary is to become Fenster's full-time estimator - *"search all
+old jobs, don't stop learning."*
+
+**PROFIT.** Material we buy GBP 62,365.77 (frames 60,551.26 + solar glass 1,814.51). House code adders
+GBP 19,875.00 - that is the margin. Installation GBP 7,670.00 is revenue, not margin: **what fitting
+costs Fenster is recorded nowhere.** So gross margin is **GBP 19,875.00 = 22.1% of sell, 31.9% mark-up
+on material**, and only if fitting breaks even. No prelims, supervision, survey, MCD or strip-out in it.
+
+**WHY THIS JOB EARNS LESS - AND IT IS THE TEMPLATE.** The code adder is a FIXED SUM PER UNIT, so it
+thins as units grow: **50.7%** of the frame line under 1.5 m2, 38.6% at 1.5-3, **19.0%** at 3-6,
+**12.2%** over 6. Redditch averages 3.18 m2 a unit and earns **24.7%**; **Crestwood Park averaged
+1.29 m2 and earned 42.9%** (GBP 20,550 of adders on a GBP 27,329.60 BSW buy, both verified). Same
+template, nearly double the margin, purely on unit size. Big-unit work has little to give away.
+
+**CONFIDENCE - AND THE BEST COMPARATOR WE OWN.** Found **BSW QT250834, 15/06/2026 - a Sheerline
+Prestige quote to us for PRIDE's Severn Trent job.** Six lines, 27 units, 72.578 m2, reconciling
+exactly to GBP 34,902.35. Same supplier, same client, six weeks old, same product family, sizes
+bracketing ours. Rates fit `rate = 721.47 x area^-0.4093`, **R2 = 0.9934**. Redditch re-priced on it:
+frames **GBP 56,995.38** vs the engine's 60,551.26, sell **GBP 86,354.89**.
+
+By band, engine error (positive = engine above the real price):
+
+| band | St Mary's | Severn Trent |
+|---|---|---|
+| <1.5 m2 | -35.5% | -38.9% |
+| 1.5-3 m2 | -1.2% | -20.4% |
+| 3-6 m2 | +37.5% | +18.1% |
+| >6 m2 | +35.2% | +34.1% |
+
+**Two independent jobs agreeing within four points on the small band and one point on the large.** The
+band structure is now evidenced twice. Calibration entry 8. Two caveats, both pushing the comparator
+HIGH: Severn Trent is 3005 Wine Red metallic, and its outer pane is 6.8 laminated not 4mm toughened.
+
+**THREE ESTIMATES:** engine GBP 89,910.77 | Severn Trent curve **GBP 86,354.89** | St Mary's band
+correction GBP 79,047.50. The whole spread is the 3-6 m2 band, which carries 62% of this job.
+
+**CAN WE UNDERCUT JOEDAN? NOT ON WHAT WE HAVE.** The target is **GBP 88,419.99** - Joedan's
+GBP 90,687.17 is GROSS of 2.5% MCD - and **it includes their strip-out**.
+
+| basis | our sell | headroom | per opening |
+|---|---|---|---|
+| engine benchmark | 89,910.77 | **-1,490.78** | -34.67 |
+| Severn Trent curve | 86,354.89 | 2,065.10 | 48.03 |
+| St Mary's band correction | 79,047.50 | 9,372.50 | 217.97 |
+
+Headroom is what is left to strip 43 openings out of an occupied library. **At the benchmark there is
+none.** GBP 48 an opening is not obviously enough, and I cannot prove it either way.
+
+**STRIP-OUT: PROPERLY SEARCHED NOW, AND IT DOES NOT EXIST.** Scanned **362 archive workbooks**.
+Promising hits - Spencer Scroft *"Carefully remove existing PVCu doors and windows"* against 30.06,
+Hollyfield *"remove existing PVCu framed windows"* against 24.11 - **are ITEM REFERENCE NUMBERS, not
+rates.** Opened the files: the Rate columns are empty; they are unpriced schedules main contractors
+sent US. Nearly reported them as rates. The Axis CLC / EEM schedule does hold Fenster-priced *renew*
+rates (remove+replace, uPVC, GBP 267.75-838.84/m2), but some fall BELOW our supply-and-fit-new price,
+so differencing them to extract strip-out would invent a number. **Not done.**
+
+**RFQ BUILT AND SENT TO ADAM, NOT TO A SUPPLIER** (ghost protocol - I can only email adam/marketing).
+`outputs\Redditch Library - RFQ Schedule for Supplier.xlsx`, a **separate file with no prices in it**,
+deliberately not the take-off (which carries our buy, our margin and Joedan's price - the REQ-28
+mistake). It asks for refs 32/34 as single coupled units in ONE depth, asks for validity beyond 30
+days, and flags refs 16/17/18, 38 and 29/30/31. **Recommended to BSW *and* Aplus or 4Ali:** measured
+supplier factors are BSW +5.7% (n=272), Aplus -1.6% (n=83), 4Ali -1.5% (n=82), TruFrame -17.9% (n=42)
+- about **GBP 4,200** of frame buy on this job, twice the headroom we have.
+
+**PRIDE, FROM OUR OWN LOG.** They are on Fenster's **Priority Customer** list. **19 rows** on the
+Estimating Log (not 14 as triage had it) - and **every one has a blank win/loss column**. We have no
+recorded outcome on any Pride job ever, yet **RAF Mildenhall sits under `2. Projects`**, so we won at
+least one and never wrote it down.
+
+**Correction made this turn:** the area is **136.53 m2**, not 136.54. Five 900x525 units at exactly
+0.4725 m2 rounded up or down depending on the order of the division. Worth GBP 1.24; fixed at source
+so one figure circulates. Sell moved GBP 89,910.82 -> GBP 89,910.77.
+
+**Still open with Adam:** (1) send the RFQ, and to whom; (2) strip-out number or absorb it (REQ-24);
+(3) Pride's real deadline from Leonard White.

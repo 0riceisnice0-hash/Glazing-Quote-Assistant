@@ -1,0 +1,28 @@
+The RFQ schedule for Redditch, attached, separate from the priced take-off so the priced one cannot
+go out by mistake.
+
+It has no prices in it. Two sheets: the enquiry and specification, and all 43 items with sizes,
+configurations and a blank rate column.
+
+Three things in it that are deliberate:
+
+It asks the supplier to quote refs 32 and 34 as SINGLE COUPLED UNITS IN ONE FRAME DEPTH. The tender
+specifies a 75mm thermally broken window coupled to a 100mm non-thermal door, which cannot be built.
+If we send the schedule as the client wrote it we will get back a quote with the same fault in it.
+
+It asks how long the price is firm, and says why - the main tender has to stay open 10 weeks and a
+30-day quotation leaves us uncovered.
+
+It flags the three items where the drawings and the schedule disagree - the raked units 16, 17 and
+18, ref 38 drawn as 15 panes against 6 scheduled, and refs 29, 30 and 31 with no configuration at
+all - so the supplier prices what is actually there.
+
+Worth sending to more than BSW. Measured across our own sent pricing documents, BSW runs 5.7% above
+the all-supplier rate for the same code and size band (272 lines), Aplus 1.6% below (83 lines) and
+4Ali 1.5% below (82 lines). On this job that spread is around GBP 4,200 of frame buy, and we
+currently have about GBP 2,000 of headroom against Joedan. The competition between suppliers is
+where the undercut comes from.
+
+I cannot send this to a supplier - it needs to go from you or Gintare.
+
+Mary

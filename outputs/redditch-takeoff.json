@@ -2,11 +2,11 @@
   "job": "Redditch Library BLBS0956",
   "source": "Gleeds blank pricing schedule p77 + Joedan Appendix 2 p150 (identical rows)",
   "items": 43,
-  "area_m2": 136.536,
+  "area_m2": 136.532,
   "frames_and_adders": 80426.26,
   "installation": 7670,
-  "solar_glass_premium": 1814.56,
-  "benchmark_net_ex_vat": 89910.82,
+  "solar_glass_premium": 1814.51,
+  "benchmark_net_ex_vat": 89910.77,
   "excluded_no_rate": [
     "strip out existing windows and doors"
   ],
