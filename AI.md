@@ -2315,6 +2315,37 @@ That is a route for a wrong word to spread which no per-document check catches, 
 looks as though it came from the other reader's source. **Read the `result(...)` strings in
 `mary_checks.py` as client-facing prose, because that is what they become.**
 
+**If you have joined two quoted fragments with a word of your own, read the sub-clauses between and after
+them - and check what your connective replaced.** A connective does not only join; **it stands in for
+whatever it skipped, and nobody reading the letter can see what that was.** Gordon Court's `with` stitched
+NBS clause 205's sub-clauses 2 and 2.1 and dropped 1 and 2.2 - a submission and *"Timing: Before
+completion of detailed design"*, a deadline the supplier owed them that never reached the letter.
+Riverside's `the Building Regulations` stood in for *"any of the aforementioned standards"*, which also
+cover **Life Time Homes, Secured by Design and PAS 24**.
+
+**And the two run in opposite directions, so both are worth looking for.** A stitch can **drop an
+obligation on the other party that you were owed** (Gordon Court) or **drop breadth from a disclaimer
+against you that they hold** (Riverside). The second is quieter, because **understating your own exposure
+reads as modest rather than sloppy.**
+
+**The tell generalises better than the fault: a preposition doing semantic work between quotation
+marks.** In *"comply with" the Building Regulations "unless..."*, `with` sits inside the first quotation
+and everything from there to the second is yours - **the one position where a reader will take it for the
+source's.** Grep for `" [a-z ]{1,40} "` across any outgoing letter; the hits thin fast and what remains is
+this shape. **Where the passage is load-bearing, quote the clause in full and say why** - *"quoted in full
+so that we are not stitching fragments of it together"*.
+
+**A shared rule's assertion is inherited by chats that cannot audit it.**
+`check_quote_validity_against_commitment` printed *"a price we cannot withdraw"* seventeen times across
+thirteen manifests; jLiving's Form of Tender says only that the tender *"remains open for consideration
+for a period of 180 days"* - **zero instances of withdraw, revoke, irrevocable or binding in 993
+characters** - while Fenster's own 30-day validity pulls the other way. **The rule settled as fact a
+question two of our own documents disagree about, and attached it to the largest number on the job, so the
+certainty and the figure travelled together.** Riverside had been reading it on every run, about a
+document it does not hold and could never have checked. **Put the source sentence in the rule's docstring:
+a rule whose docstring quotes what it asserts can be audited by any chat that runs it, including the ones
+that cannot open the document.**
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

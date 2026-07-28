@@ -56,16 +56,24 @@ this further, plus one item we would like added.
    four of its positions, in those words, and on the same assumed 50mm reveal - so we take
    it the figure is available in the same way here.
 
-   One request about WHERE it is stated. Your Product Performance note says the Supplier
-   "does not warrant or represent that any Product supplied shall comply with" the
-   Building Regulations "unless where expressly stated to the contrary by the Supplier".
-   We are not disputing that. But it means an answer in an email does not do the same
+   One request about WHERE it is stated. Your Product Performance note, quoted in full so
+   that we are not stitching fragments of it together:
+
+     "It is the responsibility of the Customer to ensure all building regulations (i.e.
+      Part 'B', 'F', 'L', 'M' & 'N' and any others relevant to the building), Life Time
+      Homes, Secured by Design, PAS 24 (formally BS 7950) are adhered to. The Supplier
+      does not warrant or represent that any Product supplied shall comply with any of
+      the aforementioned standards unless where expressly stated to the contrary by the
+      Supplier."
+
+   We are not disputing any of that - and we note it is wider than the Building
+   Regulations alone, since Secured by Design and PAS 24 sit inside the same sentence. But it means an answer in an email does not do the same
    work as a figure on the quotation, so please state the aerodynamic free area - and
    the EN 12101-2 classification the vent is declared to - on the revised quotation
    itself rather than in a covering reply.
 
    And a second point on the same figure, where your quotation has already half answered
-   us. The position block states "Geometric free area = 1.30m2. BASED ON A 50mm REVEAL",
+   us. The position block states "Geometric free area = 1.30m2 Based on a 50mm reveal",
    and your standard notes add that "the output free area values do not allow for any
    obstructions, side walls, reveals or neighbouring vents". So the 1.30m2 is stated on a
    50mm basis rather than as a bare figure, which is more helpful than we first read it.

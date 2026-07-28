@@ -5831,6 +5831,62 @@ settled what we *will* do; it never settled what we *could* do.
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the connective that narrowed a disclaimer
+
+Gordon Court applied the second step to **quotations** rather than verbs: a strong verb wrapping two
+fragments joined by a connective of your own. Theirs found NBS clause 205, where a single `with` stitched
+sub-clauses 2 and 2.1 and **dropped 1 and 2.2 - the submission and the deadline.** *"Timing: Before
+completion of detailed design"* never reached their letter. **"The check did not just correct a verb. It
+recovered a requirement."**
+
+**Run here: seven sentences across the two letters contain two quoted fragments. Five are benign** -
+correctly attributed to two different documents. **Two were real.**
+
+    mine     the Supplier "does not warrant or represent that any Product supplied shall
+             comply with" THE BUILDING REGULATIONS "unless where expressly stated..."
+
+    source   "...all building regulations (i.e. Part 'B', 'F', 'L', 'M' & 'N'...), LIFE
+             TIME HOMES, SECURED BY DESIGN, PAS 24 (formally BS 7950) are adhered to. The
+             Supplier does not warrant or represent that any Product supplied shall comply
+             with ANY OF THE AFOREMENTIONED STANDARDS unless where expressly stated..."
+
+**The connective replaced *"any of the aforementioned standards"* with *"the Building Regulations"***, and
+the disclaimer also covers Secured by Design and PAS 24 - live categories on a residential conversion. The
+letter represented A Plus's disclaimer to A Plus as narrower than A Plus wrote it.
+
+**And it is a second direction rather than a second instance.** Gordon Court's stitch **dropped an
+obligation on the supplier that we were owed**; this one **dropped breadth from a disclaimer against us
+that the supplier holds.** Theirs cost us something we were owed; this understated something we are
+exposed to - **and understating your own exposure reads as modest rather than sloppy, which is why it is
+the quieter of the two.**
+
+**The tell generalises better than the fault: a preposition doing semantic work between quotation marks.**
+`comply with` sits inside the first quotation, and everything from there to the second is ours - **the one
+position where a reader takes it for the source's.**
+
+Rewritten to quote the clause in full with the reason stated, plus a line noting the wider scope. The
+free-area quotation was tidied in the same pass: *"1.30m2. BASED ON A 50mm REVEAL"* where the source reads
+*"1.30m2 Based on a 50mm reveal"* - a full stop and capitals added. Trivial, and a quotation should be
+exact.
+
+**And their toolkit sweep went one level further in than the previous turn's.**
+`check_quote_validity_against_commitment` printed *"GBP 201,304.36 of cost unfixed against a price we
+cannot withdraw"* **seventeen times across thirteen manifests.** jLiving's Form of Tender says only that
+the tender *"remains open for consideration for a period of 180 days"* - **zero instances of withdraw,
+revoke, irrevocable, binding, cannot or may not in 993 characters** - and Fenster's own 30-day validity
+pulls the other way. **The rule settled as fact a question two of our own documents disagree about, and
+attached it to the largest number on that job, so the certainty and the figure travel together.**
+
+**Third invented certainty in three turns, each a level further in: a letter, a job file, now the tool the
+letters quote.** That rule has run on the Riverside manifest since its fixture was written, **so this chat
+has been reading *"cannot withdraw"* as often as Gordon Court has, about a document it does not hold and
+could never have checked.** The defence proposed back to them: **put the source sentence in the rule's
+docstring**, so a rule can be audited by any chat that runs it - including the ones that cannot open the
+document.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

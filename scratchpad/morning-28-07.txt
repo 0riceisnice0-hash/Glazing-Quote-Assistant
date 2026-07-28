@@ -1,0 +1,94 @@
+Good morning Adam,
+
+Daily update, cross-checked this morning between the Estimating Log and the estimating@ inbox.
+
+Two tenders close today. One package I had recorded as closed turns out to have had a return date of yesterday. And your answer to Jason Mount last night is not the answer our issued proposal gives - that one is the first item I would want a decision on.
+
+Also: my outbound email was blocked at the tenant from some point after 16:31 yesterday and is working again this morning. This message is the proof. One thing you should have had did not reach you because of it, and it is attached here - see item 3.
+
+CLOSING TODAY
+
+1. Grange Hill Methodist Church (Chigwell) - closes today
+Log 8740, deadline 28/07. My independent benchmark stands at GBP 27,560.07 ex VAT and the house document is with you from Friday.
+Zac confirmed on the hub that spec 3.15 - the chapel folding doors - IS our scope, so it now needs a number.
+No firm supplier price is reachable before the close. My recommendation is a clearly labelled provisional sum of GBP 11,000-16,000 ex VAT.
+Treat that as a placeholder rather than a price: there is no folding-door category anywhere in our rate register, and the recessed track, raking head, dark brown finish and bronze tinted units are all specials.
+
+2. Georgie's, formerly Rosebank (Pearce) - closes this morning
+Log 8741, deadline 28/07. We have one supplier return and it covers the windows only.
+Mercury QL004741, SMA VS600 vertical sliders, Grand Total Net GBP 27,319.03 supply only. It reconciles exactly - 23 quoted against 23 scheduled, every size matches, items and the 10% discount recompute to the penny.
+It misses five specified things: dual colour (quoted BROWN RAL TBC SINGLE COLOUR ONLY against white inside / dark brown outside), the 1.6 W/m2K U-value and its evidence, obscure glass to the WCs, the Delta white PVCu trickle vents with external canopy, and it substitutes VS600 for the specified Sapa Dualframe 75Si.
+The 8 doorsets, the patio door and the 16.23 m2 curtain walling run have NO supplier price at all. My benchmark for that missing scope is about GBP 21,800 supply - and those medians carry no panic hardware, where the specification calls for six BS EN 1125 panic bars.
+The log shows nothing in "Issued for checking" for this one.
+
+THE RETURN DATE THAT MOVED
+
+3. St Mary's Refurbishment, Merthyr Tydfil (E T & S) - the return date was YESTERDAY
+We submitted GBP 174,546.37 ex VAT on 17/07 and I have treated this as closed and awaiting award ever since. That was wrong.
+The Document Register issued with ET&S's 24/07 revised drawings carries "Package return date: 27 July 2026" in its header. The 08/07, 09/07 and 16/07 registers all say 17 July - same package, same package lead. The 24/07 re-issue moved it out by ten days.
+The Estimating Log still shows 17/07 for this job.
+A revised clarifications block is drafted and waiting. It changes no figure - the tendered sum stays GBP 174,546.37 - and covers eleven qualifications including the Smart Wall door U-value against SMA's published 1.8 W/m2K, manifestation at 24.10 linear m per your ruling, access, and the CF77 to CF47 postcode correction on both documents. The draft is at outputs\St Marys Refurbishment - Revised Clarifications for a 27-07 resubmission (draft).txt.
+The quote check and RFI schedule behind all of it is the document the email outage swallowed last night. It is attached to this message: outputs\St Marys Refurbishment - Quote Check and RFI Schedule.xlsx.
+Somebody needs to establish with Tom Godfrey whether the package is still open. I cannot - I only reach you and marketing.
+Two of those clauses are yours to decide: whether strip-out is stated as included, and whether carriage to a site 150 miles from our yard is priced or excluded. Neither supplier includes delivery.
+
+CLOSING THIS WEEK
+
+4. BCC Filwood Broadway (Stepnell) - Thursday 30/07
+Log 8724. Gintare's outgoing tender is GBP 67,067.58 ex VAT, supplier backed by BSW 0000000507, and the arithmetic ties to a penny of rounding.
+The install line is GBP 14,946.32 short. The template read code DAD at GBP 500 x 7 and gave GBP 3,500 for 122.98 m2 of shopfront 3,570 mm tall - GBP 28.46/m2 - where our own curtain-walling labour rate of GBP 150/m2 gives GBP 18,446.32.
+Corrected, that is GBP 82,013.90, within GBP 2,797 of my independent benchmark of GBP 84,810.59 built ten days earlier by a different route.
+Also unpriced: the LPS 1175 SR2 doorset on ED-06 and solar control glass on all three types. Aluprof is specified and we are offering SMA Shopline with no non-compliance statement.
+Nothing has gone to Stepnell. Full audit is in the workbook I sent you yesterday.
+
+5. Air Separation Unit, Vesuvius Way (Stainforth) - Thursday 30/07
+Log 8742 - now logged, which closes the gap I raised on Saturday. Deadline 30/07.
+My budget of GBP 110,551.98 ex VAT is understated and I would not issue it as it stands.
+The NBS specification, clause L20, requires every external door to be 60 minute fire rated - steel-core, PPC galvanised, tested to BS EN 1634. I verified that at source in the architect's own section after Gintare raised it with Steve.
+Two of the priced lines are SF52 curtain wall screens with doors in them, GBP 49,377.50 between them, about 45% of the budget. A 60-minute door does not go into a standard SF52 screen, so those bays need a tested fire-rated system and cannot be requantified until a specialist prices them.
+Aluminium Fire Systems are already quoting us on Manor Lodge and Manor House. They are the obvious source, and there are three days.
+
+6. Brocks Hill Phase 2 Teaching Block (SMD) - Friday 31/07
+Log 8716. Gintare's outgoing tender is GBP 93,673.34 ex VAT and the arithmetic is exact on all seven rows.
+Seven external doors are not in it - five steel sports hall escape doors and two louvred plant room doors off door schedule P06, about GBP 32,462 of sell. They are missing because SMD's own bill omits them, so my 15/07 budget missed them the same way. SMD's own pricing schedule carries 48 m2 of external doors against our 24.96 m2.
+The proposal promises triple glazing and Bellview quoted double on every door position - and BSW have already told us in writing that Smart Wall is not available in triple. That is a system change or a formal qualification, not a glass swap.
+No solar control glass on any window, and the 2.5% main contractor discount the enquiry asks for is not applied.
+Corrected indicative is GBP 134,580.22. Nothing has gone to SMD.
+
+CAME IN AFTER YESTERDAY'S UPDATE
+
+7. Princess Beatrice House (Guildmore) - your strip-out answer is not what our proposal says
+Jason Mount came back at 19:21 asking whether removal of the existing windows is allowed for. You answered at 19:56: strip out of old frames allowed, disposal and skips not.
+The disposal half matches our document exactly. Page 4 of the issued proposal reads "Waste Removal - Generally excluded unless agreed otherwise".
+The strip-out half is not in any document we issued. There is no strip-out line in the pricing document, no strip-out inclusion in the proposal, and the GBP 39,680 installation sum recomputes exactly from the labour codes and nothing else. We also hold no strip-out rate anywhere in the register.
+So we are now committed to it in an email against a GBP 279,244.69 quotation that is silent on it. My recommendation is that it goes into the corrected proposal in writing rather than staying in the thread.
+That corrected proposal is still open with you anyway: the pricing charges GBP 5,356.22 for mastic while page 3 calls mastic an optional extra, and EPDM at GBP 8,276.91 is not in the clarifications at all. GBP 13,633.13 charged in one document and disclaimed in the other. Reissue now, or wait to be queried?
+
+8. John North Hall, 1-39 Vaughan House, High Wycombe (Neil Douglas) - NEW, and not on the log
+ITT from Jordan Jones at Neil Douglas Block & Estate Management, in at 16:56 yesterday via info@. Tender due 9am Monday 24 August 2026. Works Order 701256543.
+Replacement of all five external communal block entrance door sets, John North Close, HP11 1FF. Works intended to start October/November. He has offered a site meeting.
+It is not on the Estimating Log at all. There is a month, so nothing is at risk yet - but it needs logging and an owner.
+
+9. Storm Building - secondary glazing
+Noted, thank you - and I have recorded that we offer secondary glazing.
+The Maternity Assessment Unit enquiry you asked Nilesh for details on is not on the Estimating Log either. Worth a line on it when the details land.
+
+ESTIMATING LOG AGAINST THE INBOX
+
+- Six rows on the log carry a deadline of today or later. None of the six has a controller named.
+- Riverside (rrr-group) still reads "to log": no log number, no enquiry date, no deadline, no controller. It is a live priced job - GBP 5,990.22 ex VAT, held at your instruction until PHDB return building-works costs.
+- Lower Range Road (Ermine) is logged with the 07/08 deadline but still has no log number.
+- St Mary's shows 17/07 and the register says 27/07, per item 3.
+- Grange Hill, Georgie's and Vesuvius all now carry log numbers - those were the three "to log" entries I flagged on Saturday, and all three are cleared. Gintare has picked them up.
+
+WHAT I NEED FROM YOU
+
+- Grange Hill: provisional sum for the folding doors, or exclude them? It closes today.
+- Georgie's: it closes this morning with two thirds of the package unpriced. Bid on benchmark, or decline?
+- St Mary's: who asks Tom Godfrey whether the package is still open, and are strip-out and carriage in or out?
+- Princess Beatrice: strip-out into a corrected proposal, and the mastic/EPDM contradiction with it?
+- Filwood: correct the install line, and who chases BSW on SR2 and solar coating in three days? I cannot email suppliers.
+- Brocks Hill: the seven missing doors, and triple glazing against a system that is not made in triple.
+- Vesuvius: who prices the 60-minute door package before Thursday?
+
+Everything above is unissued and nothing has gone to any client or supplier from me.
