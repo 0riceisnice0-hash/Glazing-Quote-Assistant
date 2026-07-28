@@ -904,7 +904,7 @@ on which anything can change rather than a date we must hit. Our own binding dat
 
 ---
 
-## 4E. SEVENTH TURN (27/07 late) — we priced from 25 of 82 drawings
+## 4E. SEVENTH TURN (27/07 late) — ~~we priced from 25 of 82 drawings~~ **SEE §4AI: WE HOLD ALL 84**
 
 ### 4E.1 CORRECTING MYSELF — the aperture is the right denominator, and WN_7 is marginal not hopeless
 
@@ -1440,7 +1440,7 @@ AOV rule of thumb (§4E.1); (3) the claim that WN_7 *"cannot reach"* 1.5 m² —
 12. **Manifestation** required by NBS L20 cl.280, quantified at 15.002 lin m, neither priced nor excluded
 13. **Strip-out** 40 windows / 62.457 m², unallocated
 14. **Curtain walling** in the design on three independent pointers, priced nowhere
-15. **We priced from 25 of the 82 drawings**
+15. ~~**We priced from 25 of the 82 drawings**~~ **WITHDRAWN 28/07, §4AI — 25 were LOOSE in the job folder; the zip holds all 84 distinct sheets. Only the demolition ELEVATIONS are genuinely absent.**
 16. **The clarification window shut ~15/07** — every RFI is post-tender
 17. **The 180-day validity gap** — *decided* by Adam (REQ-20), accepted, not withdrawn
 18. **RFI-11** — unknown whether our exclusions reached Chigwell's Section 2 caveats
@@ -1817,7 +1817,7 @@ agreed glazing systems, and performance figures the supplier holds and we do not
 
 **The Chigwell letter carries what clause 16 puts on the client's professional team**, worded as questions and
 reliances rather than defects: the smoke-shaft omission and whether the 4no louvres survive it; which duty the
-AOVs serve and wall-or-roof; D_T and D_X; the demolition elevations and the 57 missing drawings; the SAP
+AOVs serve and wall-or-roof; D_T and D_X; the demolition elevations ~~and the 57 missing drawings~~; the SAP
 calculations; manifestation extent; strip-out allocation; and the two admin corrections to our own proposal.
 
 ### 4Q.2 Two deliberate choices in the drafting
@@ -3055,6 +3055,72 @@ one line per element joined by a coupler (collapse them).** Checked every quote 
 hits. All three are **`Outer: 80113 2 Rail Patio Screen`** — the *product name* for a sliding patio leaf,
 not a coupling. **`screen` is unsafe as a coupler keyword on any patio door quote**, which is the
 generic-word-hit lesson landing inside the rule written to encode the counting discipline.
+
+---
+
+## 4AI. THIRTY-SEVENTH TURN (28/07) — we were about to ask Chigwell for drawings they had already sent us
+
+### 4AI.1 The second arm, run on the client letter — and it found the worst assertion on the job
+
+Last turn's second arm — *is this assertion actually true?* — was run on the two **supplier** letters. **I
+never ran it on the Chigwell letter**, which is the one making assertions about the client's own drawings.
+riverside's note that their letters stated flatly what their job file qualified is what sent me to it.
+
+**§3.1 quotes all three demolition plans verbatim. §3.2, seven lines later, tells Chigwell we do not hold
+all three demolition plans.** The letter contradicts itself inside one section.
+
+**The cheapest possible second-arm test, and I had not thought of it: an internal contradiction needs no
+source document at all — only the document you wrote.** Everything else this week has needed the quotation,
+the schedule or the zip. This needed nothing but reading two paragraphs together.
+
+### 4AI.2 Counted at source, and §3.2 was false in every particular
+
+| The letter said we do not hold | Actually in the zip |
+|---|---|
+| all five floor layout plans | **10 files** |
+| all existing plans | **10 files** |
+| all three demolition plans | **6 files** — 10015, 10016, 10017 in PDF and DWG |
+| the existing and proposed elevations | **8 + 13 files** |
+
+**The zip holds 84 distinct 5244-ARK sheets across 94 PDFs**, five sheets at two revisions. Ground floor
+demolition plan 10015 opens and reads at **16,183 characters** — I have been quoting it since the first
+week, in this same letter at §2.2.
+
+### 4AI.3 Where it came from, and it is not the shape I expected
+
+The manifest's evidence sentence is **correct and was always correct**:
+
+> *"The **loose job folder** holds 25 of the 82 5244-ARK PDFs **in the zip**."*
+
+That is a fact about **where the drawings sit**. Over several turns the qualifier came off — heading §4E
+*"we priced from 25 of 82 drawings"*, standing finding 15 *"We priced from 25 of the 82 drawings"*, then
+*"the 57 missing drawings"*, and finally a letter telling the main contractor to issue sheets they had
+already sent.
+
+**This is the letter-versus-job-file asymmetry a third time and in a third configuration.** At the
+twenty-eighth turn my job file stated as settled what my letter put conditionally. riverside found the
+reverse. **Here neither document was wrong at the point it was written — the claim degraded in transit
+between them, one restatement at a time, and every intermediate step looked like a faithful summary of the
+one before it.**
+
+> **A qualifier is the first thing lost when a finding is restated, and nothing in a summary chain flags
+> that it has gone.** The defence is the same one as all week, applied to your own prose: go back to the
+> sentence that first recorded the fact, not to the last thing you wrote about it.
+
+### 4AI.4 What survives, and it is still worth asking
+
+**There is no demolition ELEVATION anywhere in the zip** — 31 elevation drawings, not one of them is one,
+while all three demolition **plans** state they *"must be read together with the demolition elevations to
+confirm heights and vertical extents."* Real gap, still Arkon's, and vertical extents set head and cill
+positions on openings we are glazing.
+
+- **§3.1 strengthened** with the sheet numbers and the count, and now ends *"please issue them if they
+  exist"* rather than asserting they do.
+- **§3.2 rewritten** to ask only for the **register** — because 21005 to 21008 each reached us at two
+  revisions and we would like to know the set is complete. It now opens *"We are not asking for sheets."*
+- Section heading changed from *"INFORMATION REFERENCED BUT NOT IN THE PACK"* to *"INFORMATION WE STILL NEED
+  FROM THE DESIGN TEAM"*, since 3.2 is no longer an absence claim.
+- Corrected in the manifest, at three sites in this file, and on **REQ-22**, which was carrying it live.
 
 ---
 

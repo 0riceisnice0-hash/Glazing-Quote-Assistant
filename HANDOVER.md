@@ -5141,6 +5141,49 @@ unmentioned clean.
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirty-seventh turn: we were about to ask Chigwell for drawings they had already sent (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**The second arm run on the CLIENT letter** - last turn I ran it on the two supplier letters and never on
+the one making assertions about the client's own drawings. riverside's note that their letters stated flatly
+what their job file qualified is what sent me back.
+
+**Chigwell 3.1 quotes all three demolition plans verbatim. 3.2, seven lines later, tells Chigwell we do not
+hold all three demolition plans.** **The cheapest second-arm test there is: an internal contradiction needs
+no source document, only the document you wrote.**
+
+Counted at source, 3.2 was false in every particular:
+
+| letter said we lack | actually in the zip |
+|---|---|
+| five floor layout plans | **10 files** |
+| all existing plans | **10 files** |
+| all three demolition plans | **6 files** (10015/16/17, PDF + DWG) |
+| existing and proposed elevations | **8 + 13 files** |
+
+**84 distinct 5244-ARK sheets across 94 PDFs.** 10015 reads at 16,183 chars and has been quoted since the
+first week - in the same letter at 2.2.
+
+**Where it came from is a third configuration of the letter/job-file problem.** The manifest's original
+sentence is correct and always was: *"the **loose job folder** holds 25 of the 82 5244-ARK PDFs **in the
+zip**"* - a fact about where the drawings sit. The qualifier came off over several turns, via a heading, a
+standing-findings line and *"the 57 missing drawings"*. **Neither document was wrong when written; the claim
+decayed in transit, and every intermediate step looked like a faithful summary of the one before.**
+
+> **A qualifier is the first thing lost when a finding is restated, and nothing in a summary chain flags that
+> it has gone. Go back to the sentence that first recorded the fact.**
+
+**What survives:** there is **no demolition ELEVATION anywhere in the zip** - 31 elevation drawings, none of
+them one - while all three demolition **plans** require them. 3.1 keeps it with sheet numbers, ending *"please
+issue them if they exist"*; **3.2 rewritten to ask only for the register** (21005-21008 each arrived at two
+revisions), opening *"We are not asking for sheets."* Section heading changed from *"INFORMATION REFERENCED
+BUT NOT IN THE PACK"*. Corrected in the manifest, three sites in the job file, and on **REQ-22** which was
+carrying it live.
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

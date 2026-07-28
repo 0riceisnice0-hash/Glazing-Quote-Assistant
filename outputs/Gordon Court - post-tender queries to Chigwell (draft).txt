@@ -87,19 +87,22 @@ marked "AOV" in Corridors 1-1/1-2/1-3, and 4no WL_1 noted "Louvres to smoke shaf
      package, and if so issue the type information so we can price them.
 
 =====================================================================================
-3. INFORMATION REFERENCED BUT NOT IN THE PACK
+3. INFORMATION WE STILL NEED FROM THE DESIGN TEAM
 =====================================================================================
 3.1  THE DEMOLITION ELEVATIONS.  [ARKON]
-     All three demolition plans state "These notes must be read together with the demolition
-     elevations to confirm heights and vertical extents of demolition." No demolition
-     elevation appears in the pack. Vertical extents set head and cill positions on the
-     openings we are glazing.
+     All three demolition plans - 10015 Ground Floor, 10016 First Floor and 10017 Roof -
+     state "These notes must be read together with the demolition elevations to confirm
+     heights and vertical extents of demolition." We hold thirty-one elevation drawings in
+     the tender issue and none of them is a demolition elevation; the three demolition
+     sheets are all plans. Vertical extents set head and cill positions on the openings we
+     are glazing, so please issue them if they exist.
 
-3.2  THE DRAWING REGISTER AND THE BALANCE OF THE 5244 SERIES.  [ARKON]
-     The information we hold comprises 25 of the 82 architect's drawings in the tender
-     issue. Among those we do not hold are all five floor layout plans, all existing plans,
-     all three demolition plans and the existing and proposed elevations. Please issue the
-     5244 drawing register and the sheets we are missing.
+3.2  THE DRAWING REGISTER.  [ARKON]
+     We hold 84 distinct 5244-ARK sheets from the tender issue, five of them at two
+     revisions. We are not asking for sheets - what we would like is the register, so we
+     can confirm the set is complete and see whether anything has been revised since the
+     issue we are working from. Sheets 21005 to 21008 each reached us at more than one
+     revision, which is the reason for asking.
 
 3.3  THE SAP CALCULATIONS.  [EDWARD PEARCE, job 22/190]
      NBS L10 clause 330 defers g-value, frame factor and glazing details to "SAP Consultants
