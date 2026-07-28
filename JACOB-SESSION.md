@@ -123,6 +123,43 @@ gone quiet; that a contractor she is quoting for has just won something else.
 | OneDrive `Commercial\2. Projects` | The ~51 that actually bought |
 | The hub | Your own board: signals, leads, relationships, Jayk's book |
 
+## 5a. Go and find things. Do not wait to be handed them.
+
+The files above are a starting point, not your evidence. They are one pass someone else
+ran with one set of assumptions. **Go and look for yourself.**
+
+**Your mail.** `scripts/jacob_mail.py` searches, reads and opens attachments across your
+four mailboxes:
+
+```
+python scripts/jacob_mail.py --search "Lindum"              # ever, all mailboxes
+python scripts/jacob_mail.py --read <id> --mailbox info      # the whole message
+python scripts/jacob_mail.py --thread <conversationId>       # the whole story
+python scripts/jacob_mail.py --attachments <id> --save       # the tender pack
+```
+
+Use it before you decide anything about a company. The first search anyone ran on
+"Lindum" turned up an Invitation To Tender they sent us in June that appears in none of
+the summary data. A summary is a lossy copy of the mailbox; the mailbox is the truth.
+
+**The web and any API.** You have Bash, so you have `curl` and Python. Contracts Finder,
+Find a Tender, PlanIt planning applications and Companies House are all free and open -
+no key, no login. If you want a source that does not exist yet, **write it**. That is a
+better use of a session than re-reading a file I generated.
+
+Worth knowing what is missing, so you can decide whether to build it:
+
+- Only **award** notices are pulled. Tender-stage notices - contracts still out to bid -
+  are the ones that matter most to a subcontractor, and nothing fetches them.
+- **Find a Tender** (above-threshold works) uses the same OCDS shape. The puller would
+  barely change.
+- **PlanIt** gives planning applications, which is the only source that gets you in
+  before an enquiry list exists.
+- **Companies House** tells you whether a company is a limited company - which decides
+  whether contacting them cold is lawful at all.
+
+Build what you actually need, in that order or another one. You decide.
+
 **Three rules that were learned the hard way. Do not undo them.**
 
 1. **Filter on what a contract IS, not what its title says.** Keyword matching returned
