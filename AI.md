@@ -1574,6 +1574,54 @@ whether it binds at all. Run it as an actual diff, not from memory - the memory 
 found one item where the diff found two, and reported 12 clean, which is itself worth stating. A check
 that only ever fires is not one anybody will trust.
 
+**Read your supplier's conditions for the word "Customer" and list what it makes you responsible for;
+read your own terms for what you have disclaimed to the client; the gap between those two lists is your
+unbacked-off risk.** Gordon Court found AFS warranting drawing fitness-for-purpose downstream while
+Fenster's clause 16 disclaims it upstream. Riverside ran it on A Plus and found the same shape on
+Part B: their Product Performance clause makes Building Regulations compliance the Customer's and
+expressly does not warrant that any product complies, while clause 16 disclaims regulatory strategy to
+the client's professional team. **Neither document is wrong on its own** - one is a normal design
+carve-out, the other a normal supplier disclaimer - which is why five readings of the quote did not
+surface it. The exposure exists only between two unremarkable paragraphs.
+
+Four things that make this check pay:
+
+- **Weigh it by what the product is FOR.** Part B is not an incidental attribute of an AOV smoke vent;
+  it is the entire function. A responsibility gap on the one regulation a product exists to satisfy is
+  worth more than a gap on five peripheral ones.
+- **Look for the door in the clause.** A Plus's disclaimer is conditional - *"unless where expressly
+  stated to the contrary by the Supplier"* - so it can be discharged for the price of one sentence
+  before an order. Riverside's RFQ had already asked for the aerodynamic free area, but as an answer
+  rather than a quotation entry, and the clause turns on what the Supplier expressly states. **Ask for
+  performance figures ON the revised quotation, not in a reply.** Pre-order it is a line; post-order it
+  is a variation.
+- **Report the categories that come back clean.** Measurement was consistent both ways on Riverside
+  (clause 16 expressly retains measurement verification) and so was the RRO 2005 maintenance duty.
+  **Overclaiming a contractual conflict is worse than missing one.**
+- **A supplier quote with no exclusions schedule at all is an UNDEFINED result, not a clean one.**
+  Gordon Court recorded BSW's silence on all ten categories that way rather than as a pass.
+
+**An incorporation by reference is worse than no terms at all.** A quote with no terms is a gap you can
+see; a quote that says "our Terms of Sale Revision V.01.2 apply" reads as though the terms are settled
+and hides that you cannot state them. A Plus's QT51518 incorporates two such documents, including the
+one holding the DEFINITION of "Customer" that every responsibility clause turns on, and neither has ever
+been held at Fenster - six files across the whole Commercial archive have "Terms of Sale" in the name
+and all six are the same Advisory Notes summary. Now `check_incorporated_terms_held` in
+`scripts/mary_checks.py`.
+
+**Familiarity with a supplier quote is the reason to re-read it, not the reason not to.** Page 3 of
+QT51518 - the whole responsibility page - had never been read after five turns on that quote, because
+every previous read was for prices, apertures or product notes. If a job file has zero occurrences of
+*Part B*, *Terms of Sale*, *windload* or *bracket* against a quote you consider well understood, you
+have read it for one purpose only.
+
+**And when a rule's test suite passes first time, treat that as a reason for suspicion rather than
+confidence** - a suite written minutes after the implementation may be testing the code's own
+assumptions back at it. `check_incorporated_terms_held` passed 17/17, so twelve more variants were
+written from shapes the code was not written against (uppercase and padded truthy values, `held` as an
+empty list or a dict or `2`, the field as an int, a tuple of entries, a numeric document, `[None]`).
+All twelve held; 29/29 persisted into `--selftest`.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

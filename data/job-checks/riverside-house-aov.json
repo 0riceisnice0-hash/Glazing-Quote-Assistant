@@ -1,191 +1,227 @@
 {
- "job": "Riverside House AOV Smoke Vents (RRR Group)",
- "created": "2026-07-27",
- "_note": "2no bottom-hung AOV smoke vents, one per stairwell, at each stairwell's top storey. Priced off A Plus QT51518 supply-only, made supply-and-fit. Requirement source: red note on drawings K1653-11 and K1653-12, 'AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2'. Adam ruled on REQ-9 27/07: the openings are being newly formed, so the vents can be made as large as the free area requires - size is not a constraint. CURRENCY CAVEAT: the requirement appears ONLY on K1653-11 and K1653-12, neither ever revised since Mar 24, while the ground floor plan K1653-10b was revised twice in Nov 25. Confirm both sheets are still current - brief C5.",
- "coupled_runs": [],
- "doors": [],
- "frame_supply": "glazed",
- "quantities": [
-  {
-   "ref": "AOV.01 - Stairwell 1, second floor (K1653-12)",
-   "bill_qty": 1,
-   "drawing_qty": 1
+  "job": "Riverside House AOV Smoke Vents (RRR Group)",
+  "created": "2026-07-27",
+  "_note": "2no bottom-hung AOV smoke vents, one per stairwell, at each stairwell's top storey. Priced off A Plus QT51518 supply-only, made supply-and-fit. Requirement source: red note on drawings K1653-11 and K1653-12, 'AUTOMATICALLY OPENABLE VENT/WINDOW WITH A FREE AREA OF 1m2'. Adam ruled on REQ-9 27/07: the openings are being newly formed, so the vents can be made as large as the free area requires - size is not a constraint. CURRENCY CAVEAT: the requirement appears ONLY on K1653-11 and K1653-12, neither ever revised since Mar 24, while the ground floor plan K1653-10b was revised twice in Nov 25. Confirm both sheets are still current - brief C5.",
+  "coupled_runs": [],
+  "doors": [],
+  "frame_supply": "glazed",
+  "quantities": [
+    {
+      "ref": "AOV.01 - Stairwell 1, second floor (K1653-12)",
+      "bill_qty": 1,
+      "drawing_qty": 1
+    },
+    {
+      "ref": "AOV.02 - Stairwell 2, first floor (K1653-11)",
+      "bill_qty": 1,
+      "drawing_qty": 1
+    }
+  ],
+  "spec_items": [
+    {
+      "ref": "AOV smoke vent to Stairwell 1 top storey",
+      "treatment": "priced"
+    },
+    {
+      "ref": "AOV smoke vent to Stairwell 2 top storey",
+      "treatment": "priced"
+    },
+    {
+      "ref": "External mastic to vent perimeters (10.64 lm)",
+      "treatment": "priced"
+    },
+    {
+      "ref": "AOV control panel, mains + battery supply, cabling, containment, fire brigade override at ground floor access level, commissioning, EN 12101 O&M. STILL EXCLUDED from our price, but 28/07 we are at last ASKING THE PARTY WHO HOLDS THE INFORMATION as well as the one who owns the decision. RRR are asked who is carrying it (Questions to RRR item 8); A Plus are now asked what panel they would recommend for 2no 24v actuators, whether they supply it or it is always a separate trade, and to price it if they can (RFQ item 10). A Plus supply the actuator and their own notes say it 'must be powered by a compatible control system which is approved by SE Controls', so they are best placed to answer - and they had been left out because we had decided the scope boundary. A scope boundary says what a supplier will SUPPLY, not what they can TELL you. Found by running Gordon Court's two-letters asymmetry check in the form that applies to a one-supplier job.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Window restrictors - RECLASSIFIED 28/07 and now a PROVISIONAL, not a bare exclusion. Applying Gordon Court's rate-versus-quantity lens: this is a QUANTITY KNOWN (2no), NO RATE ANYWHERE item - the register has no restrictor category - so the only way to put a number on it is a supplier figure, and A Plus can give one. It also should not have sat quietly excluded: A Plus's own AOV notes put the duty on 'the facade contractor / fabricator', and on this job FENSTER ARE THE INSTALLER, so that is us. They further disclaim liability for replacement actuators or damage to the vent if no restrictor is fitted 50mm beyond the stroke, on a life-safety system. Now Part One item 8 - price 2no so the cost of carrying them can be compared against the cost of excluding them.",
+      "treatment": "provisional"
+    },
+    {
+      "ref": "Builder's work - forming/adapting/making good openings, lintels, internal finishes",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Access equipment / scaffold to top-storey level",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Ongoing maintenance of the life-safety system (RRO 2005 duty of occupier/agent)",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Part K anti-fall protection / balustrading if vent cill below 1100mm FFL, and the BS EN 60335-2 trap hazard below 2.5m FFL. 28/07: this was EXCLUDED BY BOTH PARTIES AND ASKED OF NEITHER - A Plus expressly exclude the Part K protection and we exclude it too, on a life-safety system in a stairwell, and it had sat as RFI-5 since the first day without reaching either letter. Both depend on cill height, which only the architect can state. Now question 8 of the RRR letter. Found by running the decision-versus-information diff properly across 14 topics rather than from memory - 12 came back clean.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "W1 escape windows and W2 windows throughout the flat conversion (drawings K1653-10b/11/12 key, U 1.6)",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "D1 flat entrance doors FD30s and D5 external quality glazed door (drawings key, U 1.6)",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "VENTILATOR-NOT-WINDOW TEST (Gordon Court, 27/07) - confirmed A Plus QT51518 prices the AOV FUNCTION, not a plain window: the quote carries 'AOV Type 850mm Stroke Single', 'AOV Cable Direction', 'AOV Colour 9006 Satin', a dedicated AOV Notes page and the SE Controls actuator warranty, at GBP 1,401.24/m2 against GBP 528.83/m2 for a plain glazed aluminium window in the same size band. Gordon Court's BSW quote failed this test - 3no WN_7 at GBP 412.67/m2 and 4no WL_1 at GBP 442.98/m2 with zero occurrences of AOV, actuator, chain, stroke or 24V.",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Onward haulage from Fenster's MK13 9HF yard to site at HP19 7HL - RECLASSIFIED 28/07 from excluded to PROVISIONAL, second item of the same class as the restrictors. Gordon Court's sharper test - 'we exclude X' is only safe if X is genuinely somebody else's under the spec - fails here: Fenster are the installer, so getting material from our own yard to site is OURS. It was excluded because nobody had priced it, not because it belongs to another package. Quantity known (1 delivery), no rate anywhere, so a supplier figure is the route - already brief item 6(b), which asks A Plus to quote delivery direct to HP19 7HL as an alternative. QT51518 carries NO site address and is addressed to our own Bradwell Abbey yard; A Plus also require 'suitable labour at the delivery point to unload'. AND A TRAP TO AVOID WHEN THE PROPOSAL IS WRITTEN: Gordon Court's issued proposal excludes Site Storage on the basis that 'Materials will be delivered to site', which contradicts every supplier quote they hold. Riverside has no proposal yet - do not let that wording in, because A Plus deliver to Milton Keynes.",
+      "treatment": "provisional"
+    },
+    {
+      "ref": "Structural alteration to form or ENLARGE a vent opening - lintels, cutting masonry, making good. CORRECTED 27/07 latest: NEITHER VENT HAS A COST-FREE RESIZE. AOV.01 (second floor) has no opening in any stairwell wall so a new one must be formed, but 'new' is not 'free' - what matters is what it is cut into, and Riverside is existing fabric throughout (K1653-04 is a SINGLE existing/proposed elevation set, no added storey shown, no new construction annotated, cornice and pediment continuous through all three storeys), so it is cut into RETAINED masonry. AOV.02 (first floor) has three existing openings, so if the vent takes one its size is set. The earlier note that AOV.01's size was 'genuinely free' is WITHDRAWN - it was this chat's own error, caught by Gordon Court correcting the same mistake on their job. Inference from the elevations, not proof; the existing and demolition plans settle it. Brief C2. CORROBORATED 27/07 latest by a second independent instrument: the plans colour-code every NEW or ALTERED wall (new partition, new separating wall upgrade, separating wall upgrade to existing, blockwork infill), and at BOTH stairwells the internal walls are coded while the external walls carry no coding at all - i.e. retained existing fabric. Gordon Court have since withdrawn the WINDOW TAG as a statement of opening condition (their WE_2 windows sit in new stud walls), but that does not touch this job: Riverside has no such tag and the reasoning never used one. REMAINING GAP: no external wall BUILD-UP legend, so we know these walls are not new but not what they are made of - which decides the lintel, the fixing and the cost of forming the opening. A wall type schedule or section is now requested with the demolition and existing plans at C2.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Planning risk on a resize - drawings stamped 24/02303/PAPCR, a PRIOR APPROVAL reference rather than a full permission. Prior-approval conversions normally limit external alteration, so enlarging the openings may need a separate application. HD Planning to confirm - brief C3.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "WALL WINDOW OR ROOF VENT on AOV.01 - replaces our withdrawn arched-head flag (the two arched-head windows on Elevation F line up with the Living room's W2 pair, not the stairwell). The second floor stairwell has NO opening in any of its walls and the note says the stair is to be vented 'AT THE TOP STOREY ROOF'. A Plus have quoted a wall casement on a 155mm subcill. If a roof vent is intended, the quoted unit is the wrong product from the wrong supplier - brief C4. THIRD POINTER ADDED 27/07 latest: Gordon Court's NBS names the standard product for this exact duty as 'STAIRWELL VENTILATOR... ROOF MOUNTED ONTO HORIZONTAL KERB... 1m2 geometric free area' - same duty, same 1m2, roof mounted - with a DIFFERENT model specified where a wall unit is wanted. So three independent pointers now say AOV.01 may be a roof vent: the note's wording, the absent wall opening, and the standard product for the duty. If it is, none of Part One of the brief applies to AOV.01 and the priced unit is wrong - roughly half the quote.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "PACK COMPLETENESS (Gordon Court's 25-of-82 check, run 27/07 late) - we hold Campbell Ark's K1653-03/04/10b/11/12 plus hd planning's location plan, with K1653-01, 02, 05, 06, 07, 08 and 09 unaccounted for. The plans cross-refer to DETAIL 1, 2, 4, 5 and 6 and no detail sheet is held. No fire strategy, no existing plans, no demolition plan, no sections, no window schedule; CORRECTED 28/07 - the OneDrive job folder is NOT empty (that was our error, from searching a path that does not exist: the root is 'OneDrive - Fenster Glazing (1)'). It holds the full job structure, A Plus QT51518 filed 27/07 15:46, the MASTER COVER LETTER 31.05.2026.docx and MASTER PRICING DOC 10.07.2026.xlsx. What survives: the '3. Drawings' folder holds NO files, so none of the six drawings we work from is filed anywhere. Anything on those sheets is neither priced nor knowingly excluded - the exclusion below is stated on that basis. Fire strategy and demolition plan requested by name as brief C0 and C2; drawing register as C7. 28/07: the title block gives the handle - Campbell Ark job number K1653, drawn SC, 01234 709296, drawingoffice@aol.com. C7 now asks for the K1653 drawing register by number. AND C0 HAS BEEN REDIRECTED: there may be no fire strategy to request at all - no fire engineer is named on any of the six drawings and the smoke-vent note is Campbell Ark's own, in AD B language on a sheet keyed 'TO AD B1'. The question now goes to the author rather than to a consultant who may never have been appointed.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Untagged stair glazing - the stair windows are the only glazing on K1653-11/12 carrying no W1 or W2 tag, while every habitable-room window has one. They sit outside the tagged system, which is probably why the vents were never scheduled, and it bears on whether the drawings' 1.6 U-value binds them (RFI-6).",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Cavity closers, cavity trays and jamb DPCs at the vent openings - CHECKED AND CORRECTLY NOT OURS (Gordon Court, 27/07). These accessories sit in NBS F30 'Accessories/sundry items for brick/block/stone walling', a MASONRY section, not L10 windows - so they are the bricklayer's even where a new opening is formed. Recorded as a knowing exclusion rather than a silent gap. Riverside's external walls are of unestablished construction (no build-up legend), so if they prove to be cavity these items will exist and belong to the builder's work package.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Intumescent perimeter seal - CHECK RUN, NOT APPLICABLE. NBS L10 cl.790 'Fire-resisting frames' requires the gap between frame and reveal to be filled with INTUMESCENT mastic or tape, and L10 is the windows section, so on fire-rated frames it is the glazing scope and ordinary mastic in a fixings line does not comply (Gordon Court, 27/07). Not applicable here: the AOVs are smoke vents in the EXTERNAL wall of a protected stairwell, so the perimeter seal is weathering, not compartmentation - fire separation on this building runs between the stair and the flats (FD30s doors, fire collars, separating wall upgrades), not through the external envelope. A Plus quote no fire rating and none is specified for these frames. Our priced external mastic at 10.64 lm x GBP 5 stands. Re-check if any vent is ever relocated into a compartment wall.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Structural design for a new opening in retained masonry - NO STRUCTURAL ENGINEER IS NAMED anywhere on the six drawings we hold. The notes name a heating engineer and an electrician and otherwise defer to site: 'CONTRACTOR TO ESTABLISH EXACT DRAINAGE LAYOUT', 'TO BE SITE AGREED WITH HEATING ENGINEER/ELECTRICIAN & TO SUIT BUILDING INSPECTOR APPROVAL', 'ELECTRICAL LAYOUTS ARE TO BE SITE AGREED WITH CLIENT'. So the opening Adam authorised enlarging may have neither a structural design nor a price behind it. Engineer's investigation drawings (brick/mortar sampling, GPR) requested at C2 - on a refurbishment that is where the wall build-up normally lives, and it is a different request from asking the architect. CLASSIFIED 28/07 (Gordon Court's admin-versus-design test): of Riverside's five deferrals only the DETAIL sheets are ADMINISTRATIVE - they are Campbell Ark's own K1653 series and can be asked for by number. Drainage defers to a contractor not yet appointed, boiler/heater to an unnamed heating engineer, electrical to the client, and the wall build-up to a structural engineer who is not named anywhere. Those are DESIGN gaps: there is no document to chase.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "PART B COMPLIANCE IS NOT BACK TO BACK - a plus put it on us, our clause 16 disclaims it to the client. QT51518 Product Performance: \"It is the responsibility of the Customer to ensure all building regulations (i.e. Part 'B', 'F', 'L', 'M' & 'N' and any others relevant to the building)... are adhered to. The Supplier does not warrant or represent that any Product supplied shall comply with any of the aforementioned standards unless where expressly stated to the contrary by the Supplier.\" Our clause 16 disclaims regulatory strategy and relies on the client's professional team. Part B is not an incidental attribute of an AOV smoke vent - it is the entire function of the product, so the one regulation it exists to satisfy is the one disclaimed upstream and accepted downstream. Bites directly on C0/C1: if the 1m2 is aerodynamic, 1.30m2 geometric gives ~0.78-0.81m2 and the shortfall is ours. Verified at source on page 3 of QT51518 and in templates/proposal-content.json clause 16.  ->  RAISED, and the remedy is pre-order and free. The clause reads 'unless where expressly stated to the contrary by the Supplier', so RFQ items 1 and 4 now ask A Plus to state the aerodynamic free area, the EN 12101-2 classification and the whole-window Uw ON the revised quotation rather than by reply - an express statement by the Supplier is what the clause turns on. Flagged to Adam in the covering note. Measurement and maintenance checked in the same pass and are consistent both ways - recorded as clean, not claimed as gaps.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "QT51518 INCORPORATES A TERMS OF SALE WE HAVE NEVER HELD. The advisory notes say the 'A Plus Windows & Doors Limited Terms of Sale Revision V.01.2 - 08.01.2018' apply to the quotation and to any subsequent Contract, and that the definitions - including who the 'Customer' is in every responsibility clause - come from 'Revision V.01 - 03.11.2017'. Neither is attached. Checked the archive rather than assuming: six files in the whole Commercial archive have 'Terms of Sale' in the name (Bradford Watts, Elkins, HouseUP, Prince Build, Stepnell, Conamar) and all six are the same Quotation Advisory Notes_Jan2019 PDF, which is the summary and not the terms. Diffed that 2019 file against QT51518's advisory pages - 0.75 sentence similarity, the only substantive change in seven years being frames splitting at 5m rather than 4m.  ->  RAISED as RFQ item 11, asking for both documents. Also turned into a rule: check_incorporated_terms_held, registered as the seventeenth check, with 29 variants written before it shipped and persisted into --selftest. An incorporation by reference reads as though the terms are settled and hides that you cannot say what they are - unlike a quote with no terms at all, which is a gap you can see.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "THE 1.30m2 GEOMETRIC IS A BARE-VENT FIGURE. QT51518 page 5: 'The output free area values do not allow for any obstructions, side walls, reveals or neighbouring vents.' Both vents sit in a reveal in existing masonry on a 155mm subcill. This is the first thing found that could erode the geometric margin itself - the 30% headroom over 1m2 has been treated as comfortable and it is headroom against an unobstructed number. Not quantified here and not guessed at.  ->  RAISED in RFQ item 1, asking whether the 1.30m2 changes once installed in a reveal and whether the figure quoted is the bare vent or the installed opening.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "THE WIND LOADING CHECK AND THE FIXING CALCULATIONS HAVE NO OWNER. QT51518: mullion selection calculated to BS 6399 Part 2 'with a design windload of 1200Pa unless otherwise stated'; 'all design responsibility remains with the Customer and our calculations are not to be relied on for any design purposes whatsoever'; the Customer should carry out their own full wind loading check and 'undertake full structural calculations on all brackets/spigots supplied by A Plus'; fixing lugs, bolts and brackets are excluded. Our clause 16 limits us to measurement verification, supply and installation, and no structural engineer is named on any of the six drawings. So on a second floor elevation neither the check nor the fixing design is anybody's.  ->  RAISED both ways: RFQ item 12 asks A Plus to confirm 1200Pa is the figure used and what fixing components are included; RRR question 5 now asks who is carrying the wind loading check and the fixing calculation, or whether a structural engineer is to be appointed. Compounds the existing structural-design gap rather than being a new seat.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "'Actuators to EN 12101-2 are not formally weather tested' (QT51518 page 5).  ->  CONSIDERED AND DECLINED, recorded so nobody re-derives it. These vents are the only opening in those stairwells and nothing in the pack sets a weather-tightness requirement against them, so there is no standard to test the statement against. Revisit only if a performance spec appears.",
+      "treatment": "excluded"
+    }
+  ],
+  "supplier_quotes": [
+    {
+      "supplier": "A Plus Windows & Doors",
+      "ref": "QT51518",
+      "date": "2026-07-27",
+      "valid_until": "2026-08-26",
+      "used_net": true,
+      "value": 4845.22,
+      "note": "Frames 4662.15 + glass 171.31 + energy surcharge 11.76 = 4845.22, ties exactly to the stated Total - no extras block on this quote (the Gordon Court element-lines-vs-total test passes). Supply only, delivered, glazed. 'The Price stated in the quotation is open for acceptance for a period of 30 days'. Order value is 154.78 BELOW A Plus's 5000 ex VAT free-delivery threshold, so delivery is chargeable at 1/mile each way from Watford unless batched - see check_free_delivery_threshold."
+    }
+  ],
+  "full_height_screens": [],
+  "systems_specified": [
+    {
+      "system": "Sapa DualFrame 75Si",
+      "fabricator": "A Plus Windows & Doors",
+      "performance": {
+        "required": "Free area 1.0 m2 per stairwell (drawings K1653-11 and K1653-12), basis geometric or aerodynamic NOT stated on the drawing",
+        "capable": null,
+        "evidence": "A Plus state GEOMETRIC 1.30 m2 per vent on QT51518 and give no aerodynamic figure. On their QT51516 (Towcester Vale, same DualFrame 75Si AOV) aerodynamic runs 60-62% of geometric (0.49/0.81 and 0.54/0.87). On that ratio 1.30 geometric is ~0.78-0.81 aerodynamic, ~20% short of 1.0. Complies on geometric, fails on aerodynamic. A Plus have not been asked for the aerodynamic figure for these sizes - RFI-1. EVIDENCE ADDED 27/07 EVENING, POINTING TO GEOMETRIC: (a) the drawings name their own compliance route - the key on K1653-10b/11/12 reads 'MAINS OPERATED INTERLINKED HEAT DETECTOR TO AD B1', i.e. the prescriptive Approved Document B route, which expresses common-stair smoke vents as a free area; aerodynamic free area is the language of the engineered BS 9991 / EN 12101-2 route, which this pack is not on. (b) Gordon Court's NBS 9001 L20 cl.630 specifies the standard product for this exact duty as 'AXS140 STAIRWELL VENTILATOR - throat 1250mm x 1000mm - 1m2 GEOMETRIC free area', and 'aerodynamic' appears nowhere in that job's 186-page NBS, 140-page mechanical or 127-page electrical spec. Recommendation is geometric, so the vents as quoted comply by 30% - but capable stays unconfirmed because only the fire engineer or building control can rule on the basis. Requote brief written and ready to settle it either way: outputs/Riverside House - A Plus requote brief (for Gintare).txt. CONFIGURATION RESOLVED 27/07 LATE: the quoted 1.30 m2 reconciles exactly with the full inner frame aperture, 957 x 1357 = 1.2986 m2 (1357 = 1530 less two 86.5mm sections, 86.5 from the 957 daylight width). So the geometric free area quoted IS the clear opening of the whole frame, which means the entire frame opens as one bottom-hung leaf with the 176mm transom acting as a glazing bar within the sash - consistent with a single 850mm chain on a frame whose individual apertures are only 590mm high. Also passes Gordon Court's ratio flag: required 1.0 / 1.729 gross = 57.8%. RATIO CAVEAT 27/07 LATE: Gordon Court have WITHDRAWN the 'above ~60% of gross frame' rule of thumb after recomputing their own unit on the aperture (WN_7 went from 'cannot reach 1.5 m2' to 99.3% of it). Use the aperture, not the gross frame - but note an aperture is normally INFERRED from a nominal section depth, including ours (86.5mm from (1130-957)/2), so it is an estimate and not a compliance test. The clear opening is A Plus's figure to state. APERTURE SENSITIVITY, 27/07 late: Gordon Court quantified the caveat - on their unit a +/-5mm change in an assumed nominal section swings the answer across the compliance line (65mm 101.1%, 70mm 99.3%), so no aperture percentage is a compliance test. Accepted. The direction of inference differs here though: they PREDICT an unstated clear opening from an assumed section; we RECONCILE a figure A Plus published. Across head+cill from 150mm to 200mm our reconciliation moves only 101.6% to 97.9% of the stated 1.30 m2, and there is no line to cross - the test is whether it holds, not whether it passes. The configuration conclusion is robust; it stays an inference until A Plus confirm it (brief item 5)."
+      }
+    },
+    {
+      "system": "Sapa DualFrame 75Si (thermal)",
+      "fabricator": "A Plus Windows & Doors",
+      "performance": {
+        "required": "U-value 1.6 W/m2K, per the key on drawings K1653-10b/11/12 (W1, W2 and D1 all carry 1.6)",
+        "capable": null,
+        "evidence": "QT51518 states a CENTRE-PANE glass figure only - '4-20-4 Clr Tough S Coat 1.2' - and no whole-window Uw. A Plus's own advisory notes set their default the other way: 'Unless otherwise stated, windows and doors will have a U-Value no better than 1.8.' Whether the 1.6 key value binds the stair AOV (which is called out only by the red smoke-vent note, not lettered W1/W2) is itself unconfirmed. Nobody has asked A Plus for a Uw - RFI-6. 28/07 - AND THE DECISION OWNER HAD NEVER BEEN ASKED. We asked A Plus for the figure (RFQ item 4) but nobody was ever asked whether 1.6 BINDS these vents at all. The stair vents are the only glazing on K1653-10b/11/12 carrying no W tag, which is exactly why it is ambiguous. Now question 7 of the RRR letter. Mirror of the control-system finding: there the information holder was missing, here the decision owner."
+      }
+    }
+  ],
+  "finishes": [
+    {
+      "ref": "AOV.01",
+      "specified_internal": "white",
+      "specified_external": "white",
+      "quoted_internal": "white",
+      "quoted_external": "white"
+    },
+    {
+      "ref": "AOV.02",
+      "specified_internal": "white",
+      "specified_external": "white",
+      "quoted_internal": "white",
+      "quoted_external": "white"
+    }
+  ],
+  "u_value": {
+    "required": 1.6,
+    "basis": "per element",
+    "note": "The drawings key states 1.6 against each window/door TYPE (W1, W2, D1, D5) rather than as a package average, so it reads per element. No energy or sustainability appendix is present in the pack to test against (the St Mary's / Gordon Court check) - the pack is 6 planning and construction-issue drawings only. CLAUSE 16 SPLIT 28/07: our own Terms and Conditions clause 16 (Design Responsibility, verified by enumerating the T&C headings in MASTER COVER LETTER 31.05.2026.docx) says Fenster is 'not responsible for overall design intent, architectural suitability, or REGULATORY STRATEGY' and limits responsibility to 'measurement verification, supply, and installation'. So 'is 1.6 the right target for a stair AOV' is THEIRS and we rely on their professional team; 'has A Plus stated a whole-window Uw at all' is OURS to obtain. Same split on the free area: the BASIS is theirs, the FIGURE is ours to get, and whether we quoted the right PRODUCT for the position is ours entirely - now brief item 9.",
+    "rejected_elements": []
   },
-  {
-   "ref": "AOV.02 - Stairwell 2, first floor (K1653-11)",
-   "bill_qty": 1,
-   "drawing_qty": 1
-  }
- ],
- "spec_items": [
-  {
-   "ref": "AOV smoke vent to Stairwell 1 top storey",
-   "treatment": "priced"
+  "supplier_coverage": [
+    {
+      "ref": "AOV.01",
+      "qty_sold": 1,
+      "qty_quoted": 2,
+      "supplier_ref": "A Plus QT51518"
+    },
+    {
+      "ref": "AOV.02",
+      "qty_sold": 1,
+      "qty_quoted": 2,
+      "supplier_ref": "A Plus QT51518"
+    }
+  ],
+  "price_commitment": {
+    "source": "Private client, no ITT and no Form of Tender. OUR OWN VALIDITY VERIFIED AT SOURCE 28/07 rather than inferred: templates/proposal-content.json, Terms and Conditions, 'Quotation Validity - All quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from the date of issue, unless agreed otherwise. All quotations are subject to final site survey and measurement verification.' The pricing document is dated 27/07/2026, so our price would be open to 26/08/2026. The 30-day figure had previously been taken from a generator footer; it is now sourced from the house document itself, which is what the deadline arithmetic rests on.",
+    "our_price_open_until": "2026-08-26",
+    "note": "ZERO HEADROOM, and it will go negative. A Plus QT51518 also expires 26/08/2026 - the same day. Adam has said the submission waits on PHDB returning building-works costs, so the issue date will be LATER than 27/07 and our 30 days will run past the day the cost behind it lapses. Any issue date after today needs the A Plus price re-confirmed, or a stated allowance. AND THE SECOND HALF OF THAT CLAUSE MATTERS HERE: 'subject to final site survey and measurement verification'. Riverside's 1130 x 1530 came from Adam's enquiry of 24/07, not from a survey or any dimensioned drawing - the pack has no window schedule and no dimensioned opening. So our own standard terms already qualify the dimensional risk. It does not remove the need to settle C2 and C4, but the issued price would not be a fixed commitment on unsurveyed dimensions. 28/07 VERIFIED AT THE TRUE SOURCE: read from MASTER COVER LETTER 31.05.2026.docx in the job folder rather than templates/proposal-content.json, which is an EXTRACTION of it - 76 paragraphs against the docx's 153. The validity clause is faithful in both, so the figure was right. But two clauses matter and one is ABSENT from the extraction: 'Site Survey - Only conducted once the structural openings are fully formed. Any revisits may be subject to a fee' (not in the extraction; material because AOV.01 needs a new opening cut first, so our survey and A Plus's manufacture both wait on PHDB - now brief C8); and 'Fenster Glazing & Locks Ltd is not responsible for overall design intent, architectural suitability, or REGULATORY STRATEGY and relies on information, drawings and specifications provided by the client or their professional team' - the geometric-versus-aerodynamic question IS regulatory strategy, so our own terms qualify that exposure too. NOW RUN 28/07 (was NOT RUN): the GBP 5,990.22 is verified by a parser that reads the code-to-adder map out of H9's own IF-chain (412.50) and the code-to-labour map out of I21's SUMPRODUCT (160), then applies them to the actual cell values - items 5,670.22 + installation 320.00 = 5,990.22. That removes this chat's READING of the formulas as the single point of failure; three independent routes now agree. A live Excel recalculation still could not be run (COM will not start here), so the residual is only whether Excel would read those formulas differently from the parser. The figure is derived from the workbook's stored formulas and independently reproduced by mary_pricing, and the repo template's formulas were confirmed identical to the live MASTER PRICING DOC 10.07.2026.xlsx, but Excel's own computed value has not been observed. TEMPERED 28/07: last night's framing that clause 2's 'subject to final site survey and measurement verification' QUALIFIES the dimensional risk is only half right. Clause 16 says our responsibility IS measurement verification, so the survey makes a dimensional discrepancy FIXABLE rather than somebody else's. The 1130 x 1530 came from an enquiry rather than a survey and both clauses point at us."
   },
-  {
-   "ref": "AOV smoke vent to Stairwell 2 top storey",
-   "treatment": "priced"
-  },
-  {
-   "ref": "External mastic to vent perimeters (10.64 lm)",
-   "treatment": "priced"
-  },
-  {
-   "ref": "AOV control panel, mains + battery supply, cabling, containment, fire brigade override at ground floor access level, commissioning, EN 12101 O&M. STILL EXCLUDED from our price, but 28/07 we are at last ASKING THE PARTY WHO HOLDS THE INFORMATION as well as the one who owns the decision. RRR are asked who is carrying it (Questions to RRR item 8); A Plus are now asked what panel they would recommend for 2no 24v actuators, whether they supply it or it is always a separate trade, and to price it if they can (RFQ item 10). A Plus supply the actuator and their own notes say it 'must be powered by a compatible control system which is approved by SE Controls', so they are best placed to answer - and they had been left out because we had decided the scope boundary. A scope boundary says what a supplier will SUPPLY, not what they can TELL you. Found by running Gordon Court's two-letters asymmetry check in the form that applies to a one-supplier job.",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "Window restrictors - RECLASSIFIED 28/07 and now a PROVISIONAL, not a bare exclusion. Applying Gordon Court's rate-versus-quantity lens: this is a QUANTITY KNOWN (2no), NO RATE ANYWHERE item - the register has no restrictor category - so the only way to put a number on it is a supplier figure, and A Plus can give one. It also should not have sat quietly excluded: A Plus's own AOV notes put the duty on 'the facade contractor / fabricator', and on this job FENSTER ARE THE INSTALLER, so that is us. They further disclaim liability for replacement actuators or damage to the vent if no restrictor is fitted 50mm beyond the stroke, on a life-safety system. Now Part One item 8 - price 2no so the cost of carrying them can be compared against the cost of excluding them.",
-   "treatment": "provisional"
-  },
-  {
-   "ref": "Builder's work - forming/adapting/making good openings, lintels, internal finishes",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "Access equipment / scaffold to top-storey level",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "Ongoing maintenance of the life-safety system (RRO 2005 duty of occupier/agent)",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "Part K anti-fall protection / balustrading if vent cill below 1100mm FFL, and the BS EN 60335-2 trap hazard below 2.5m FFL. 28/07: this was EXCLUDED BY BOTH PARTIES AND ASKED OF NEITHER - A Plus expressly exclude the Part K protection and we exclude it too, on a life-safety system in a stairwell, and it had sat as RFI-5 since the first day without reaching either letter. Both depend on cill height, which only the architect can state. Now question 8 of the RRR letter. Found by running the decision-versus-information diff properly across 14 topics rather than from memory - 12 came back clean.",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "W1 escape windows and W2 windows throughout the flat conversion (drawings K1653-10b/11/12 key, U 1.6)",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "D1 flat entrance doors FD30s and D5 external quality glazed door (drawings key, U 1.6)",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "VENTILATOR-NOT-WINDOW TEST (Gordon Court, 27/07) - confirmed A Plus QT51518 prices the AOV FUNCTION, not a plain window: the quote carries 'AOV Type 850mm Stroke Single', 'AOV Cable Direction', 'AOV Colour 9006 Satin', a dedicated AOV Notes page and the SE Controls actuator warranty, at GBP 1,401.24/m2 against GBP 528.83/m2 for a plain glazed aluminium window in the same size band. Gordon Court's BSW quote failed this test - 3no WN_7 at GBP 412.67/m2 and 4no WL_1 at GBP 442.98/m2 with zero occurrences of AOV, actuator, chain, stroke or 24V.",
-   "treatment": "priced"
-  },
-  {
-   "ref": "Onward haulage from Fenster's MK13 9HF yard to site at HP19 7HL - RECLASSIFIED 28/07 from excluded to PROVISIONAL, second item of the same class as the restrictors. Gordon Court's sharper test - 'we exclude X' is only safe if X is genuinely somebody else's under the spec - fails here: Fenster are the installer, so getting material from our own yard to site is OURS. It was excluded because nobody had priced it, not because it belongs to another package. Quantity known (1 delivery), no rate anywhere, so a supplier figure is the route - already brief item 6(b), which asks A Plus to quote delivery direct to HP19 7HL as an alternative. QT51518 carries NO site address and is addressed to our own Bradwell Abbey yard; A Plus also require 'suitable labour at the delivery point to unload'. AND A TRAP TO AVOID WHEN THE PROPOSAL IS WRITTEN: Gordon Court's issued proposal excludes Site Storage on the basis that 'Materials will be delivered to site', which contradicts every supplier quote they hold. Riverside has no proposal yet - do not let that wording in, because A Plus deliver to Milton Keynes.",
-   "treatment": "provisional"
-  },
-  {
-   "ref": "Structural alteration to form or ENLARGE a vent opening - lintels, cutting masonry, making good. CORRECTED 27/07 latest: NEITHER VENT HAS A COST-FREE RESIZE. AOV.01 (second floor) has no opening in any stairwell wall so a new one must be formed, but 'new' is not 'free' - what matters is what it is cut into, and Riverside is existing fabric throughout (K1653-04 is a SINGLE existing/proposed elevation set, no added storey shown, no new construction annotated, cornice and pediment continuous through all three storeys), so it is cut into RETAINED masonry. AOV.02 (first floor) has three existing openings, so if the vent takes one its size is set. The earlier note that AOV.01's size was 'genuinely free' is WITHDRAWN - it was this chat's own error, caught by Gordon Court correcting the same mistake on their job. Inference from the elevations, not proof; the existing and demolition plans settle it. Brief C2. CORROBORATED 27/07 latest by a second independent instrument: the plans colour-code every NEW or ALTERED wall (new partition, new separating wall upgrade, separating wall upgrade to existing, blockwork infill), and at BOTH stairwells the internal walls are coded while the external walls carry no coding at all - i.e. retained existing fabric. Gordon Court have since withdrawn the WINDOW TAG as a statement of opening condition (their WE_2 windows sit in new stud walls), but that does not touch this job: Riverside has no such tag and the reasoning never used one. REMAINING GAP: no external wall BUILD-UP legend, so we know these walls are not new but not what they are made of - which decides the lintel, the fixing and the cost of forming the opening. A wall type schedule or section is now requested with the demolition and existing plans at C2.",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "Planning risk on a resize - drawings stamped 24/02303/PAPCR, a PRIOR APPROVAL reference rather than a full permission. Prior-approval conversions normally limit external alteration, so enlarging the openings may need a separate application. HD Planning to confirm - brief C3.",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "WALL WINDOW OR ROOF VENT on AOV.01 - replaces our withdrawn arched-head flag (the two arched-head windows on Elevation F line up with the Living room's W2 pair, not the stairwell). The second floor stairwell has NO opening in any of its walls and the note says the stair is to be vented 'AT THE TOP STOREY ROOF'. A Plus have quoted a wall casement on a 155mm subcill. If a roof vent is intended, the quoted unit is the wrong product from the wrong supplier - brief C4. THIRD POINTER ADDED 27/07 latest: Gordon Court's NBS names the standard product for this exact duty as 'STAIRWELL VENTILATOR... ROOF MOUNTED ONTO HORIZONTAL KERB... 1m2 geometric free area' - same duty, same 1m2, roof mounted - with a DIFFERENT model specified where a wall unit is wanted. So three independent pointers now say AOV.01 may be a roof vent: the note's wording, the absent wall opening, and the standard product for the duty. If it is, none of Part One of the brief applies to AOV.01 and the priced unit is wrong - roughly half the quote.",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "PACK COMPLETENESS (Gordon Court's 25-of-82 check, run 27/07 late) - we hold Campbell Ark's K1653-03/04/10b/11/12 plus hd planning's location plan, with K1653-01, 02, 05, 06, 07, 08 and 09 unaccounted for. The plans cross-refer to DETAIL 1, 2, 4, 5 and 6 and no detail sheet is held. No fire strategy, no existing plans, no demolition plan, no sections, no window schedule; CORRECTED 28/07 - the OneDrive job folder is NOT empty (that was our error, from searching a path that does not exist: the root is 'OneDrive - Fenster Glazing (1)'). It holds the full job structure, A Plus QT51518 filed 27/07 15:46, the MASTER COVER LETTER 31.05.2026.docx and MASTER PRICING DOC 10.07.2026.xlsx. What survives: the '3. Drawings' folder holds NO files, so none of the six drawings we work from is filed anywhere. Anything on those sheets is neither priced nor knowingly excluded - the exclusion below is stated on that basis. Fire strategy and demolition plan requested by name as brief C0 and C2; drawing register as C7. 28/07: the title block gives the handle - Campbell Ark job number K1653, drawn SC, 01234 709296, drawingoffice@aol.com. C7 now asks for the K1653 drawing register by number. AND C0 HAS BEEN REDIRECTED: there may be no fire strategy to request at all - no fire engineer is named on any of the six drawings and the smoke-vent note is Campbell Ark's own, in AD B language on a sheet keyed 'TO AD B1'. The question now goes to the author rather than to a consultant who may never have been appointed.",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "Untagged stair glazing - the stair windows are the only glazing on K1653-11/12 carrying no W1 or W2 tag, while every habitable-room window has one. They sit outside the tagged system, which is probably why the vents were never scheduled, and it bears on whether the drawings' 1.6 U-value binds them (RFI-6).",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "Cavity closers, cavity trays and jamb DPCs at the vent openings - CHECKED AND CORRECTLY NOT OURS (Gordon Court, 27/07). These accessories sit in NBS F30 'Accessories/sundry items for brick/block/stone walling', a MASONRY section, not L10 windows - so they are the bricklayer's even where a new opening is formed. Recorded as a knowing exclusion rather than a silent gap. Riverside's external walls are of unestablished construction (no build-up legend), so if they prove to be cavity these items will exist and belong to the builder's work package.",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "Intumescent perimeter seal - CHECK RUN, NOT APPLICABLE. NBS L10 cl.790 'Fire-resisting frames' requires the gap between frame and reveal to be filled with INTUMESCENT mastic or tape, and L10 is the windows section, so on fire-rated frames it is the glazing scope and ordinary mastic in a fixings line does not comply (Gordon Court, 27/07). Not applicable here: the AOVs are smoke vents in the EXTERNAL wall of a protected stairwell, so the perimeter seal is weathering, not compartmentation - fire separation on this building runs between the stair and the flats (FD30s doors, fire collars, separating wall upgrades), not through the external envelope. A Plus quote no fire rating and none is specified for these frames. Our priced external mastic at 10.64 lm x GBP 5 stands. Re-check if any vent is ever relocated into a compartment wall.",
-   "treatment": "excluded"
-  },
-  {
-   "ref": "Structural design for a new opening in retained masonry - NO STRUCTURAL ENGINEER IS NAMED anywhere on the six drawings we hold. The notes name a heating engineer and an electrician and otherwise defer to site: 'CONTRACTOR TO ESTABLISH EXACT DRAINAGE LAYOUT', 'TO BE SITE AGREED WITH HEATING ENGINEER/ELECTRICIAN & TO SUIT BUILDING INSPECTOR APPROVAL', 'ELECTRICAL LAYOUTS ARE TO BE SITE AGREED WITH CLIENT'. So the opening Adam authorised enlarging may have neither a structural design nor a price behind it. Engineer's investigation drawings (brick/mortar sampling, GPR) requested at C2 - on a refurbishment that is where the wall build-up normally lives, and it is a different request from asking the architect. CLASSIFIED 28/07 (Gordon Court's admin-versus-design test): of Riverside's five deferrals only the DETAIL sheets are ADMINISTRATIVE - they are Campbell Ark's own K1653 series and can be asked for by number. Drainage defers to a contractor not yet appointed, boiler/heater to an unnamed heating engineer, electrical to the client, and the wall build-up to a structural engineer who is not named anywhere. Those are DESIGN gaps: there is no document to chase.",
-   "treatment": "excluded"
-  }
- ],
- "supplier_quotes": [
-  {
-   "supplier": "A Plus Windows & Doors",
-   "ref": "QT51518",
-   "date": "2026-07-27",
-   "valid_until": "2026-08-26",
-   "used_net": true,
-   "value": 4845.22,
-   "note": "Frames 4662.15 + glass 171.31 + energy surcharge 11.76 = 4845.22, ties exactly to the stated Total - no extras block on this quote (the Gordon Court element-lines-vs-total test passes). Supply only, delivered, glazed. 'The Price stated in the quotation is open for acceptance for a period of 30 days'. Order value is 154.78 BELOW A Plus's 5000 ex VAT free-delivery threshold, so delivery is chargeable at 1/mile each way from Watford unless batched - see check_free_delivery_threshold."
-  }
- ],
- "full_height_screens": [],
- "systems_specified": [
-  {
-   "system": "Sapa DualFrame 75Si",
-   "fabricator": "A Plus Windows & Doors",
-   "performance": {
-    "required": "Free area 1.0 m2 per stairwell (drawings K1653-11 and K1653-12), basis geometric or aerodynamic NOT stated on the drawing",
-    "capable": null,
-    "evidence": "A Plus state GEOMETRIC 1.30 m2 per vent on QT51518 and give no aerodynamic figure. On their QT51516 (Towcester Vale, same DualFrame 75Si AOV) aerodynamic runs 60-62% of geometric (0.49/0.81 and 0.54/0.87). On that ratio 1.30 geometric is ~0.78-0.81 aerodynamic, ~20% short of 1.0. Complies on geometric, fails on aerodynamic. A Plus have not been asked for the aerodynamic figure for these sizes - RFI-1. EVIDENCE ADDED 27/07 EVENING, POINTING TO GEOMETRIC: (a) the drawings name their own compliance route - the key on K1653-10b/11/12 reads 'MAINS OPERATED INTERLINKED HEAT DETECTOR TO AD B1', i.e. the prescriptive Approved Document B route, which expresses common-stair smoke vents as a free area; aerodynamic free area is the language of the engineered BS 9991 / EN 12101-2 route, which this pack is not on. (b) Gordon Court's NBS 9001 L20 cl.630 specifies the standard product for this exact duty as 'AXS140 STAIRWELL VENTILATOR - throat 1250mm x 1000mm - 1m2 GEOMETRIC free area', and 'aerodynamic' appears nowhere in that job's 186-page NBS, 140-page mechanical or 127-page electrical spec. Recommendation is geometric, so the vents as quoted comply by 30% - but capable stays unconfirmed because only the fire engineer or building control can rule on the basis. Requote brief written and ready to settle it either way: outputs/Riverside House - A Plus requote brief (for Gintare).txt. CONFIGURATION RESOLVED 27/07 LATE: the quoted 1.30 m2 reconciles exactly with the full inner frame aperture, 957 x 1357 = 1.2986 m2 (1357 = 1530 less two 86.5mm sections, 86.5 from the 957 daylight width). So the geometric free area quoted IS the clear opening of the whole frame, which means the entire frame opens as one bottom-hung leaf with the 176mm transom acting as a glazing bar within the sash - consistent with a single 850mm chain on a frame whose individual apertures are only 590mm high. Also passes Gordon Court's ratio flag: required 1.0 / 1.729 gross = 57.8%. RATIO CAVEAT 27/07 LATE: Gordon Court have WITHDRAWN the 'above ~60% of gross frame' rule of thumb after recomputing their own unit on the aperture (WN_7 went from 'cannot reach 1.5 m2' to 99.3% of it). Use the aperture, not the gross frame - but note an aperture is normally INFERRED from a nominal section depth, including ours (86.5mm from (1130-957)/2), so it is an estimate and not a compliance test. The clear opening is A Plus's figure to state. APERTURE SENSITIVITY, 27/07 late: Gordon Court quantified the caveat - on their unit a +/-5mm change in an assumed nominal section swings the answer across the compliance line (65mm 101.1%, 70mm 99.3%), so no aperture percentage is a compliance test. Accepted. The direction of inference differs here though: they PREDICT an unstated clear opening from an assumed section; we RECONCILE a figure A Plus published. Across head+cill from 150mm to 200mm our reconciliation moves only 101.6% to 97.9% of the stated 1.30 m2, and there is no line to cross - the test is whether it holds, not whether it passes. The configuration conclusion is robust; it stays an inference until A Plus confirm it (brief item 5)."
-   }
-  },
-  {
-   "system": "Sapa DualFrame 75Si (thermal)",
-   "fabricator": "A Plus Windows & Doors",
-   "performance": {
-    "required": "U-value 1.6 W/m2K, per the key on drawings K1653-10b/11/12 (W1, W2 and D1 all carry 1.6)",
-    "capable": null,
-    "evidence": "QT51518 states a CENTRE-PANE glass figure only - '4-20-4 Clr Tough S Coat 1.2' - and no whole-window Uw. A Plus's own advisory notes set their default the other way: 'Unless otherwise stated, windows and doors will have a U-Value no better than 1.8.' Whether the 1.6 key value binds the stair AOV (which is called out only by the red smoke-vent note, not lettered W1/W2) is itself unconfirmed. Nobody has asked A Plus for a Uw - RFI-6. 28/07 - AND THE DECISION OWNER HAD NEVER BEEN ASKED. We asked A Plus for the figure (RFQ item 4) but nobody was ever asked whether 1.6 BINDS these vents at all. The stair vents are the only glazing on K1653-10b/11/12 carrying no W tag, which is exactly why it is ambiguous. Now question 7 of the RRR letter. Mirror of the control-system finding: there the information holder was missing, here the decision owner."
-   }
-  }
- ],
- "finishes": [
-  {
-   "ref": "AOV.01",
-   "specified_internal": "white",
-   "specified_external": "white",
-   "quoted_internal": "white",
-   "quoted_external": "white"
-  },
-  {
-   "ref": "AOV.02",
-   "specified_internal": "white",
-   "specified_external": "white",
-   "quoted_internal": "white",
-   "quoted_external": "white"
-  }
- ],
- "u_value": {
-  "required": 1.6,
-  "basis": "per element",
-  "note": "The drawings key states 1.6 against each window/door TYPE (W1, W2, D1, D5) rather than as a package average, so it reads per element. No energy or sustainability appendix is present in the pack to test against (the St Mary's / Gordon Court check) - the pack is 6 planning and construction-issue drawings only. CLAUSE 16 SPLIT 28/07: our own Terms and Conditions clause 16 (Design Responsibility, verified by enumerating the T&C headings in MASTER COVER LETTER 31.05.2026.docx) says Fenster is 'not responsible for overall design intent, architectural suitability, or REGULATORY STRATEGY' and limits responsibility to 'measurement verification, supply, and installation'. So 'is 1.6 the right target for a stair AOV' is THEIRS and we rely on their professional team; 'has A Plus stated a whole-window Uw at all' is OURS to obtain. Same split on the free area: the BASIS is theirs, the FIGURE is ours to get, and whether we quoted the right PRODUCT for the position is ours entirely - now brief item 9.",
-  "rejected_elements": []
- },
- "supplier_coverage": [
-  {
-   "ref": "AOV.01",
-   "qty_sold": 1,
-   "qty_quoted": 2,
-   "supplier_ref": "A Plus QT51518"
-  },
-  {
-   "ref": "AOV.02",
-   "qty_sold": 1,
-   "qty_quoted": 2,
-   "supplier_ref": "A Plus QT51518"
-  }
- ],
- "price_commitment": {
-  "source": "Private client, no ITT and no Form of Tender. OUR OWN VALIDITY VERIFIED AT SOURCE 28/07 rather than inferred: templates/proposal-content.json, Terms and Conditions, 'Quotation Validity - All quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from the date of issue, unless agreed otherwise. All quotations are subject to final site survey and measurement verification.' The pricing document is dated 27/07/2026, so our price would be open to 26/08/2026. The 30-day figure had previously been taken from a generator footer; it is now sourced from the house document itself, which is what the deadline arithmetic rests on.",
-  "our_price_open_until": "2026-08-26",
-  "note": "ZERO HEADROOM, and it will go negative. A Plus QT51518 also expires 26/08/2026 - the same day. Adam has said the submission waits on PHDB returning building-works costs, so the issue date will be LATER than 27/07 and our 30 days will run past the day the cost behind it lapses. Any issue date after today needs the A Plus price re-confirmed, or a stated allowance. AND THE SECOND HALF OF THAT CLAUSE MATTERS HERE: 'subject to final site survey and measurement verification'. Riverside's 1130 x 1530 came from Adam's enquiry of 24/07, not from a survey or any dimensioned drawing - the pack has no window schedule and no dimensioned opening. So our own standard terms already qualify the dimensional risk. It does not remove the need to settle C2 and C4, but the issued price would not be a fixed commitment on unsurveyed dimensions. 28/07 VERIFIED AT THE TRUE SOURCE: read from MASTER COVER LETTER 31.05.2026.docx in the job folder rather than templates/proposal-content.json, which is an EXTRACTION of it - 76 paragraphs against the docx's 153. The validity clause is faithful in both, so the figure was right. But two clauses matter and one is ABSENT from the extraction: 'Site Survey - Only conducted once the structural openings are fully formed. Any revisits may be subject to a fee' (not in the extraction; material because AOV.01 needs a new opening cut first, so our survey and A Plus's manufacture both wait on PHDB - now brief C8); and 'Fenster Glazing & Locks Ltd is not responsible for overall design intent, architectural suitability, or REGULATORY STRATEGY and relies on information, drawings and specifications provided by the client or their professional team' - the geometric-versus-aerodynamic question IS regulatory strategy, so our own terms qualify that exposure too. NOW RUN 28/07 (was NOT RUN): the GBP 5,990.22 is verified by a parser that reads the code-to-adder map out of H9's own IF-chain (412.50) and the code-to-labour map out of I21's SUMPRODUCT (160), then applies them to the actual cell values - items 5,670.22 + installation 320.00 = 5,990.22. That removes this chat's READING of the formulas as the single point of failure; three independent routes now agree. A live Excel recalculation still could not be run (COM will not start here), so the residual is only whether Excel would read those formulas differently from the parser. The figure is derived from the workbook's stored formulas and independently reproduced by mary_pricing, and the repo template's formulas were confirmed identical to the live MASTER PRICING DOC 10.07.2026.xlsx, but Excel's own computed value has not been observed. TEMPERED 28/07: last night's framing that clause 2's 'subject to final site survey and measurement verification' QUALIFIES the dimensional risk is only half right. Clause 16 says our responsibility IS measurement verification, so the survey makes a dimensional discrepancy FIXABLE rather than somebody else's. The 1130 x 1530 came from an enquiry rather than a survey and both clauses point at us."
- },
- "delivery_terms": [
-  {
-   "supplier": "A Plus Windows & Doors",
-   "ref": "QT51518",
-   "order_value": 4845.22,
-   "free_delivery_threshold": 5000.0,
-   "stated_on_quote": "Glazed /Supply Only (Delivered)",
-   "charge_basis": "1/mile each way from Watford or previous drop, whichever is lower, where a load under 5000 ex VAT cannot be efficiently batched",
-   "delivery_priced": "provisional",
-   "note": "A Plus batch sub-GBP5,000 loads to avoid charges and only levy GBP1/mile each way where batching is not possible, so the amount is contingent, not fixed. Carried as provisional pending A Plus confirmation - RFI-7. Note the resize option removes it: at 1235 x 1583 the order clears GBP 5,000 and delivery is FOC. AND THE DESTINATION IS NOT SITE. QT51518 carries no site address at all - the only address on it is Fenster Glazing & Locks Ltd, 97-98 Alston Drive, Bradwell Abbey, MK13 9HF. So 'Glazed /Supply Only (Delivered)' means delivered to our own yard in Milton Keynes, not to Aylesbury, and the onward leg is ours. Gordon Court found the same on all five of their supplier quotes."
-  }
- ]
+  "delivery_terms": [
+    {
+      "supplier": "A Plus Windows & Doors",
+      "ref": "QT51518",
+      "order_value": 4845.22,
+      "free_delivery_threshold": 5000.0,
+      "stated_on_quote": "Glazed /Supply Only (Delivered)",
+      "charge_basis": "1/mile each way from Watford or previous drop, whichever is lower, where a load under 5000 ex VAT cannot be efficiently batched",
+      "delivery_priced": "provisional",
+      "note": "A Plus batch sub-GBP5,000 loads to avoid charges and only levy GBP1/mile each way where batching is not possible, so the amount is contingent, not fixed. Carried as provisional pending A Plus confirmation - RFI-7. Note the resize option removes it: at 1235 x 1583 the order clears GBP 5,000 and delivery is FOC. AND THE DESTINATION IS NOT SITE. QT51518 carries no site address at all - the only address on it is Fenster Glazing & Locks Ltd, 97-98 Alston Drive, Bradwell Abbey, MK13 9HF. So 'Glazed /Supply Only (Delivered)' means delivered to our own yard in Milton Keynes, not to Aylesbury, and the onward leg is ours. Gordon Court found the same on all five of their supplier quotes."
+    }
+  ],
+  "incorporated_terms": [
+    {
+      "supplier": "A Plus",
+      "ref": "QT51518",
+      "document": "A Plus Windows & Doors Limited Terms of Sale Revision V.01.2 - 08.01.2018",
+      "held": false,
+      "what_it_governs": "the whole contract - 'apply to this quotation and shall apply to any subsequent Contract entered into between the Supplier and the Customer'"
+    },
+    {
+      "supplier": "A Plus",
+      "ref": "QT51518",
+      "document": "A Plus Windows & Doors Limited Terms of Sale Revision V.01 - 03.11.2017",
+      "held": false,
+      "what_it_governs": "the DEFINITIONS, including who the 'Customer' is in every clause that makes the Customer responsible for design and Building Regulations compliance"
+    }
+  ]
 }

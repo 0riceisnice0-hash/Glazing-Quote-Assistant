@@ -725,6 +725,93 @@ _LABEL_STALE = re.compile(
 _LABEL_DONE = re.compile(r"\b(RUN|DONE|resolved|CLEARED|answered|withdrawn|CORRECTED|confirmed|closed)\b")
 
 
+def check_incorporated_terms_held(m):
+    """Riverside House, 28/07. A supplier quote that incorporates its terms BY
+    REFERENCE to a document we do not hold.
+
+    A Plus QT51518 says the "Terms of Sale Revision V.01.2 - 08.01.2018" apply
+    to the quotation and to any subsequent Contract, and that the DEFINITIONS -
+    including who the "Customer" is - come from "Revision V.01 - 03.11.2017".
+    Neither document is attached. Six files across the whole Commercial archive
+    have "Terms of Sale" in the name and all six are the same Advisory Notes
+    PDF; the Terms of Sale itself is in none of them. So the contract we would
+    be ordering GBP 4,845.22 under has never been read here, on any job, in
+    seven years.
+
+    This is not the same as a quote with no terms at all - that is a gap you can
+    see. An incorporation by reference reads as though the terms are settled and
+    hides that you cannot say what they are. Asking a supplier for their terms
+    costs one line of an email before an order and is a variation after one.
+
+    'incorporated_terms': [{supplier, ref, document, held}] - held true when the
+    named document is actually in our hands, false when it is only cited."""
+    terms = m.get("incorporated_terms")
+    if terms is None:
+        return result("incorporated terms are actually held", UNKNOWN,
+                      "State every document a supplier quote incorporates by reference and "
+                      "whether we hold it: 'incorporated_terms': [{supplier, ref, document, "
+                      "held}]. If a quote incorporates nothing by reference, say so with an "
+                      "empty list.",
+                      "Riverside House",
+                      remedy="Read each supplier quote for the words 'apply to this quotation', "
+                             "'Terms of Sale', 'conditions of sale' or 'as amended', then record "
+                             "what it names and whether the file is in the job folder.")
+    if isinstance(terms, dict):
+        terms = [terms]
+    if isinstance(terms, str) or not isinstance(terms, (list, tuple)):
+        return result("incorporated terms are actually held", UNKNOWN,
+                      "'incorporated_terms' is %r - it must be a list of "
+                      "{supplier, ref, document, held} entries." % (terms,),
+                      "Riverside House",
+                      remedy="Rewrite the field as a list, one entry per incorporated document.")
+    if not terms:
+        return result("incorporated terms are actually held", NA,
+                      "no supplier quote on this job incorporates terms by reference",
+                      "Riverside House")
+    missing, unclear = [], []
+    for t in terms:
+        if not isinstance(t, dict):
+            unclear.append("%r is not a {supplier, ref, document, held} entry" % (t,))
+            continue
+        ref = "%s %s" % (t.get("supplier", "?"), t.get("ref", "?"))
+        doc = t.get("document")
+        held = t.get("held")
+        if not doc or not str(doc).strip():
+            unclear.append("%s (no document named - say WHICH terms are incorporated)" % ref)
+            continue
+        where = "%s incorporates \"%s\"" % (ref, str(doc).strip())
+        # The lesson from check_free_delivery_threshold the same night: an
+        # else-branch that produces an ASSERTION rather than a question will
+        # eventually assert something false from a value it did not understand.
+        # Only a documented vocabulary decides; anything else is asked about.
+        if held in (True, 1):
+            continue
+        flat = str(held).strip().lower()
+        if flat in ("true", "yes", "y", "held", "attached", "1"):
+            continue
+        if held is None or flat in ("", "none", "null"):
+            missing.append("%s - and 'held' is unstated, which is not the same as held" % where)
+        elif held in (False, 0) or flat in ("false", "no", "n", "0", "not held", "missing"):
+            missing.append("%s - we do not hold it" % where)
+        else:
+            unclear.append("%s but 'held' is %r - use true or false" % (where, held))
+    if unclear:
+        return result("incorporated terms are actually held", UNKNOWN,
+                      "Cannot tell whether the incorporated terms are held: " + "; ".join(unclear),
+                      "Riverside House",
+                      remedy="Fill the entry properly, then re-run before issuing anything.")
+    if missing:
+        return result("incorporated terms are actually held", UNKNOWN,
+                      "A supplier quote incorporates terms we have never read: " + "; ".join(missing)
+                      + ". The price rests on a contract whose contents we cannot state.",
+                      "Riverside House",
+                      remedy="Ask the supplier for the named document before placing an order - "
+                             "it is one line pre-order and a variation afterwards.")
+    return result("incorporated terms are actually held", PASS,
+                  "%d incorporated terms document(s) are in our hands" % len(terms),
+                  "Riverside House")
+
+
 def check_spec_label_matches_evidence(m):
     """Gordon Court, 28/07. A spec item whose LABEL says outstanding while its own
     EVIDENCE says it was done.
@@ -770,6 +857,7 @@ RULES = [
     check_finish_substitution, check_supplier_covers_quantity,
     check_system_performance, check_quote_validity_against_commitment,
     check_free_delivery_threshold, check_spec_label_matches_evidence,
+    check_incorporated_terms_held,
 ]
 
 
@@ -793,6 +881,7 @@ def blank_manifest(job):
         "supplier_coverage": None,
         "price_commitment": None,
         "delivery_terms": None,
+        "incorporated_terms": None,
     }
 
 
@@ -882,6 +971,78 @@ def report(results, job=""):
     return 0 if not fails and not unknowns else 1
 
 
+# Riverside, 28/07/2026, written BEFORE check_incorporated_terms_held shipped
+# rather than after. The whole point of the delivery exercise was that a rule
+# validated on one positive case has measured precision and called it quality,
+# so this one gets its variants first: eight that must FIRE and eight that must
+# stay silent, including the three shapes that crash a rule rather than answer
+# it - a dict where a list belongs, a bare string, and a non-dict entry.
+TERMS_VARIANTS = [
+    # (name, manifest value, expected status)
+    ("field absent",           None,                                            UNKNOWN),
+    ("empty list",             [],                                              NA),
+    ("held true",              [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": True}],  PASS),
+    ("held 'yes'",             [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": "yes"}], PASS),
+    ("held 'attached'",        [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2",
+                                 "held": "attached"}],                          PASS),
+    ("held 1",                 [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": 1}], PASS),
+    ("held false",             [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": False}], UNKNOWN),
+    ("held 'no'",              [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": "no"}],  UNKNOWN),
+    ("held 0",                 [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": 0}],     UNKNOWN),
+    ("held unstated",          [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2"}],           UNKNOWN),
+    ("held None",              [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": None}],  UNKNOWN),
+    ("held 'maybe'",           [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2",
+                                 "held": "maybe"}],                              UNKNOWN),
+    ("no document named",      [{"supplier": "A Plus", "ref": "QT51518", "held": True}], UNKNOWN),
+    ("one held, one not",      [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": True},
+                                {"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Definitions V.01", "held": False}],  UNKNOWN),
+    ("a dict, not a list",     {"supplier": "A Plus", "ref": "QT51518",
+                                "document": "Terms of Sale V.01.2", "held": True},  PASS),
+    ("a bare string",          "Terms of Sale V.01.2",                           UNKNOWN),
+    ("entry is not a dict",    ["Terms of Sale V.01.2"],                         UNKNOWN),
+    # Twelve more written AFTER the first seventeen passed, deliberately chosen
+    # from shapes the implementation was not written against - because a suite
+    # that passes first time may be testing the code's own assumptions back at
+    # it rather than the behaviour. These all held; that is worth recording too.
+    ("held 'TRUE' uppercase",  [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": "TRUE"}], PASS),
+    ("held ' yes ' padded",    [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": " yes "}], PASS),
+    ("document is whitespace", [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "   ", "held": True}],              UNKNOWN),
+    ("held is an empty list",  [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": []}], UNKNOWN),
+    ("held 2",                 [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": 2}],  UNKNOWN),
+    ("held 'n/a'",             [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": "n/a"}], UNKNOWN),
+    ("held is a dict",         [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2",
+                                 "held": {"status": True}}],                     UNKNOWN),
+    ("field is an int",        7,                                                UNKNOWN),
+    ("a tuple of entries",     ({"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": False},), UNKNOWN),
+    ("document is a number",   [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": 12345, "held": False}],             UNKNOWN),
+    ("held 'Not Held'",        [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2",
+                                 "held": "Not Held"}],                           UNKNOWN),
+    ("entry is None",          [None],                                           UNKNOWN),
+]
+
+
 DELIVERY_VARIANTS = [
     # Riverside, 28/07/2026. Gordon Court's point: a detector validated against one
     # positive case has measured PRECISION and called it quality. This rule shipped
@@ -929,6 +1090,27 @@ def selftest_delivery_variants():
             bad.append("%s: expected %s, got %s" % (name, expect, got))
     print("  %-22s %d/%d delivery variants behave as intended%s"
           % ("delivery recall", len(DELIVERY_VARIANTS) - len(bad), len(DELIVERY_VARIANTS),
+             "" if not bad else "  MISSED: " + "; ".join(bad)))
+    return not bad
+
+
+def selftest_terms_variants():
+    """Recall test for check_incorporated_terms_held - see TERMS_VARIANTS.
+
+    Written before the rule shipped, not after it fired. Eight of the seventeen
+    are NEGATIVES: a rule that only ever says yes has not been tested.
+    """
+    bad = []
+    for name, value, expect in TERMS_VARIANTS:
+        m = {} if value is None else {"incorporated_terms": value}
+        try:
+            got = check_incorporated_terms_held(m)["status"]
+        except Exception as exc:
+            got = "EXCEPTION %s: %s" % (type(exc).__name__, exc)
+        if got != expect:
+            bad.append("%s: expected %s, got %s" % (name, expect, got))
+    print("  %-22s %d/%d terms variants behave as intended%s"
+          % ("incorporated terms", len(TERMS_VARIANTS) - len(bad), len(TERMS_VARIANTS),
              "" if not bad else "  MISSED: " + "; ".join(bad)))
     return not bad
 
@@ -1007,6 +1189,8 @@ def selftest():
         if missed or missed_ask:
             ok = False
     if not selftest_delivery_variants():
+        ok = False
+    if not selftest_terms_variants():
         ok = False
     if not selftest_one_crash_costs_one_rule():
         ok = False

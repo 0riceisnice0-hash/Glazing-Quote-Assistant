@@ -35,7 +35,7 @@ those two questions before Gintare asks A Plus for anything.
 TWO LETTERS, DRAFTED AND READY
 
   outputs\Riverside House - RFQ to A Plus (draft, send by 26-08).txt
-      Nine items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
+      Twelve items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
       does not have to wait for the building works costs. It asks for the aerodynamic
       figure, a price for a compliant size if one is needed, the U-value, delivery, a
       price hold, restrictors, and whether a wall casement is even right for the position.
@@ -49,6 +49,32 @@ TWO LETTERS, DRAFTED AND READY
       because our own terms put regulatory strategy on the client's team, not us.
 
 Neither has been sent and I cannot send them - a human needs to.
+
+ONE THING IN A PLUS'S TERMS THAT IS WORTH A MINUTE OF YOUR TIME
+
+Reading their conditions rather than their prices: A Plus state that it is the customer's
+responsibility - ours - to ensure the Building Regulations are complied with, and that
+they "do not warrant or represent that any Product supplied shall comply" unless they have
+expressly said so on the quotation. Our own terms do the opposite: clause 16 says we are
+not responsible for regulatory strategy and rely on the client's professional team.
+
+Neither document is unusual and I am not suggesting either is wrong. But this product
+exists to satisfy one regulation - Part B - and that is precisely the responsibility we
+have disclaimed to the client and accepted from the supplier. If the 1m2 turns out to be
+aerodynamic and the vent as quoted does not meet it, that gap is where the argument would
+happen.
+
+The fix is free and it is pre-order: their clause has a door in it - "unless where
+expressly stated to the contrary by the Supplier" - so the letter now asks A Plus to state
+the aerodynamic free area and the EN 12101-2 classification ON the revised quotation
+rather than in a reply, and to confirm the whole-window U-value the same way. Asking costs
+a line before an order and is a variation afterwards.
+
+Two smaller things from the same read: their quotation incorporates a Terms of Sale
+document we have never held on any job, so the letter asks for a copy; and they assume a
+1200Pa design windload and put the wind loading and fixing calculations on us, which on a
+second floor elevation is work I do not believe anyone has been appointed to do. That one
+has gone to RRR, since no structural engineer is named on any drawing.
 
 TWO THINGS I GOT WRONG THIS WEEK, SO THEY ARE NOT CARRIED FORWARD
 

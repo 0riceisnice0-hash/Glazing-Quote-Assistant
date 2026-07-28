@@ -73,7 +73,15 @@ FOR CAMPBELL ARK - the author of the smoke vent note
    in our price and, as far as we can see, not in anyone's. The existing plans, the
    demolition plan and any wall type schedule or section would settle it. We hold none of
    those.
-   Related: no structural engineer is named on any of the six drawings we have.
+   Related: no structural engineer is named on any of the six drawings we have. That
+   matters beyond the opening itself. Our window supplier's conditions state that they
+   calculate to BS 6399 Part 2 assuming a design windload of 1200Pa unless told
+   otherwise, that their calculations "are not to be relied on for any design purposes
+   whatsoever", and that checking the windload and the structural fixings is the
+   customer's. Our own terms limit us to measurement verification, supply and
+   installation. So on a second floor elevation there is a wind loading check and a
+   fixing calculation that we do not believe anybody has been appointed to do. Please
+   confirm who is carrying that, or whether a structural engineer is to be appointed.
 
 6. COULD WE HAVE THE K1653 DRAWING REGISTER?
    We hold K1653-03, 04, 10b, 11 and 12 plus the location plan. K1653-01, 02 and 05 to 09

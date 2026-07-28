@@ -3902,6 +3902,81 @@ Selftest passes (16/16 delivery variants, crash isolation). Run unchanged at **4
 **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the back-to-back gap on Part B
+
+**Gordon Court's generalised check, run on A Plus:** read the supplier's conditions for the word
+"Customer" and list what it makes you responsible for; read your own terms for what you have disclaimed
+to the client; the gap between the two lists is your unbacked-off risk.
+
+    A Plus QT51518, Product Performance:  "It is the responsibility of the CUSTOMER to ensure all
+                                           building regulations (i.e. Part 'B', 'F', 'L', 'M' & 'N'...)
+                                           are adhered to. The Supplier does not warrant or represent
+                                           that any Product supplied shall comply... unless where
+                                           expressly stated to the contrary by the Supplier."
+    Fenster, clause 16:                    not responsible for "regulatory strategy"; relies on the
+                                           client's professional team.
+
+**Neither document is wrong on its own** - one is a normal design-responsibility carve-out, the other a
+normal supplier disclaimer. The exposure exists only in the space between them, which is why five
+readings of this quotation did not surface it. **What makes it sharp: Part B is not an incidental
+attribute of an AOV smoke vent, it is the entire function of the product** - so the one regulation the
+thing exists to satisfy is the one disclaimed upstream and accepted downstream. It bites on the item
+already top of the list: if the 1 m2 is aerodynamic, 1.30 m2 geometric gives about 0.78-0.81 m2, and
+under their clause that shortfall is ours because they never warranted it.
+
+**The remedy is free and pre-order, because the clause is conditional.** *"Unless where expressly
+stated to the contrary by the Supplier."* The RFQ already asked for the aerodynamic figure - but as an
+answer, not as a quotation entry, and the clause turns on what the Supplier expressly states. Items 1
+and 4 now ask for the aerodynamic free area, the EN 12101-2 classification and the whole-window Uw **on
+the revised quotation itself**. A line before an order; a variation after one.
+
+**What it cost to find, which is the transferable part: page 3 of QT51518 had never been read.** The
+job file held zero occurrences of *Part B*, *building regulation*, *Terms of Sale*, *windload*,
+*BS 6399* or *bracket* before this turn - five turns on that quote, every one of them for prices,
+apertures or product notes, none for its allocation of responsibility. **Familiarity with a supplier
+quote is the reason to re-read it, not the reason not to.**
+
+**Two categories came back clean and are reported as clean** - measurement is consistent both ways
+(clause 16 expressly retains measurement verification, and the 1130 x 1530 came from our own enquiry),
+and the RRO 2005 maintenance duty genuinely sits with the occupier. Overclaiming a contractual conflict
+is worse than missing one.
+
+**Three more findings off the same two pages:**
+
+1. *"The output free area values do not allow for any obstructions, side walls, reveals or neighbouring
+   vents."* The 1.30 m2 geometric is a **bare-vent** figure, and both vents sit in a reveal in existing
+   masonry on a 155mm subcill. **The first thing found that erodes the geometric margin itself** - the
+   30% headroom over 1 m2 has been treated as comfortable and it is headroom against an unobstructed
+   number. Not quantified, not guessed at; RFQ item 1.
+2. A **1200Pa** design windload assumed unless otherwise stated, the calculations expressly not to be
+   relied on, and the BS 6399-2 check plus the bracket/spigot calculations put on the Customer -
+   against a clause 16 that limits us to measurement, supply and installation, and **no structural
+   engineer named on any of the six drawings**. Neither the check nor the fixing design is anybody's.
+   RFQ item 12 and RRR question 5.
+3. The quotation **incorporates a Terms of Sale we have never held** - Revision V.01.2 (08.01.2018),
+   plus the V.01 (03.11.2017) that holds the DEFINITION of "Customer" every clause above turns on. Six
+   files across the whole Commercial archive have "Terms of Sale" in the name and **all six are the
+   same `Quotation Advisory Notes_Jan2019` summary**; diffed against QT51518's advisory pages at 0.75
+   similarity, the only substantive change in seven years being frames splitting at 5m rather than 4m.
+   **An incorporation by reference is worse than no terms at all**: no terms is a gap you can see, an
+   incorporation reads as settled and hides that you cannot state it. RFQ item 11.
+
+**New rule, `check_incorporated_terms_held`** - seventeenth in `RULES`, ASK when a supplier quote
+incorporates a document we do not hold, NA when nothing is incorporated, UNKNOWN rather than an
+assertion on any value it does not understand. **Its variants were written before it shipped**, 17 to
+start with eight negatives. **It passed 17/17 first time, which was treated as a reason for suspicion
+rather than confidence** - a suite written minutes after the implementation may be testing the code's
+own assumptions back at it - so twelve more were written from shapes the code was not written against.
+All twelve held; 29/29 persisted into `--selftest`.
+
+**And Grange Hill's oldest rule caught this chat an hour later:** narrative prose written into a
+`treatment` field instead of `priced`/`excluded`/`provisional` returned *1 FAILED - do not issue this
+quote*. Correctly. Fixed; back to **0 failed, 4 questions**.
+
+RFQ now 12 items, RRR letter 11, covering note to Adam updated. Position unchanged:
+**GBP 5,990.22 ex VAT, unissued, nothing sent.** A Plus RFQ due by 26/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

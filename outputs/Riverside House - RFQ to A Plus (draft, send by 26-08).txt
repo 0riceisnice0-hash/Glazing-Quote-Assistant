@@ -7,9 +7,9 @@ QT51518 lapses 26/08/2026. After that date these sentences in this letter are fa
   - item 7's "QT51518 is open for 30 days, to 26/08/2026"
   - item 2's premise that a resize can be set against the GBP 4,845.22 already quoted
 
-THE TEN QUESTIONS REMAIN VALID. This needs re-heading as a fresh enquiry, not
+THE TWELVE QUESTIONS REMAIN VALID. This needs re-heading as a fresh enquiry, not
 binning - A Plus would be quoting from scratch rather than adding lines, so ask for
-a new quotation covering all ten points and expect the base price to move.
+a new quotation covering all twelve points and expect the base price to move.
 
 DRAFT - FOR GINTARE TO SEND TO A PLUS. Nothing has been sent.
 Send by 26/08/2026 - see "why the date" below.
@@ -43,11 +43,26 @@ Thank you for QT51518 of 27/07 for the two AOV smoke vents at Riverside House,
 44 Wedgewood Street, Fairford Leys, Aylesbury HP19 7HL. A few questions before we take
 this further, plus one item we would like added.
 
-1. AERODYNAMIC FREE AREA - the one we most need
+1. AERODYNAMIC FREE AREA - the one we most need, and please put it ON the quotation
    QT51518 states "Geometric free area = 1.30m2" and gives no aerodynamic figure. Please
    state the APPROXIMATE AERODYNAMIC FREE AREA for the vent as quoted - 1130 x 1530,
    style FF, 850mm stroke single chain. Your QT51516 for Towcester Vale states both on
    every line, so we assume the figure is available in the same way.
+
+   One request about WHERE it is stated. Your Product Performance note says the Supplier
+   "does not warrant or represent that any Product supplied shall comply with" the
+   Building Regulations "unless where expressly stated to the contrary by the Supplier".
+   We are not disputing that. But it means an answer in an email does not do the same
+   work as a figure on the quotation, so please state the aerodynamic free area - and
+   the EN 12101-2 classification the vent is declared to - on the revised quotation
+   itself rather than in a covering reply.
+
+   And a second point on the same figure. Your notes say "the output free area values do
+   not allow for any obstructions, side walls, reveals or neighbouring vents". Both of
+   these vents sit in a reveal in an existing masonry wall, on a 155mm subcill. Does the
+   1.30m2 change once it is installed in a reveal, and if so, is the figure you quote the
+   bare vent or the installed opening? We would rather understand the basis than assume
+   the headroom is there.
 
 2. A SIZE THAT ACHIEVES 1.0 m2 AERODYNAMIC
    If the aerodynamic figure at 1130 x 1530 falls below 1.0 m2, please give the O/A size
@@ -66,7 +81,10 @@ this further, plus one item we would like added.
    building. QT51518 gives the glass make-up only ("4-20-4 Clr Tough S Coat 1.2"), which
    is a centre-pane figure, and your standard notes say windows will be "no better than
    1.8" unless otherwise stated. Please state the WHOLE-WINDOW Uw for the vent as quoted,
-   and confirm whether 1.6 can be met if it is required.
+   and confirm whether 1.6 can be met if it is required - again on the revised quotation
+   rather than by reply, for the same reason as item 1. Your front page asks us to make
+   clear on all orders what performance is required, and we would rather do that against
+   a figure you have stated than against one we have inferred.
 
 5. THE VENT LEAF - please confirm what we think we are reading
    The quote lists apertures A1 (957 x 590) and A7 (957 x 591), so the frame is transom
@@ -127,5 +145,28 @@ this further, plus one item we would like added.
 
    We are asking the client separately who is carrying this. We would rather come to
    that conversation with a number than without one.
+
+11. COULD WE HAVE A COPY OF YOUR TERMS OF SALE?
+   Your advisory notes say the "A Plus Windows & Doors Limited Terms of Sale Revision
+   V.01.2 - 08.01.2018" apply to this quotation and to any subsequent contract, and that
+   the definitions come from "Revision V.01 - 03.11.2017". We do not hold either
+   document. Since several of the notes turn on what the Customer is responsible for, we
+   would rather read the definitions than work from the summary. A copy of both, or a
+   link, would be appreciated.
+
+12. THE DESIGN WINDLOAD, AND THE FIXINGS
+   Your notes say mullion selection is calculated to BS 6399 Part 2 "with a design
+   windload of 1200Pa unless otherwise stated", that the calculations are not to be
+   relied on for design purposes, and that the Customer should carry out their own wind
+   loading check and the structural calculations on any brackets or spigots. Two things
+   follow that we would like to get right before an order:
+   (a) please confirm that 1200Pa is the figure used for these two vents, so that whoever
+       carries out the check is checking against the right number;
+   (b) your price excludes fixing lugs, bolts and brackets to suit structural
+       attachments. Please confirm what, if any, fixing components are included, so we
+       know exactly where your supply stops.
+   The building is existing and the openings are being formed, so this is a question for
+   the design team as much as for you - but we would rather ask you what you assumed than
+   guess at it.
 
 Many thanks,
