@@ -103,6 +103,25 @@ def make_pricing_doc(job, out_path):
         if row.get("unitRateOverride") is not None:
             ws["H%d" % r] = row["unitRateOverride"]  # manual price, like Adam's revisions
 
+    # The template merges C:D across its OWN twelve rows only, so every row
+    # cloned past row 20 loses the merge and any description longer than
+    # column C clips at the column edge - on a real schedule that is most of
+    # them, and the client reads a truncated scope. Merge, wrap, and give the
+    # row enough height for the text: openpyxl cannot autofit, and a merged
+    # cell would not autofit in Excel either.
+    merged = {str(m) for m in ws.merged_cells.ranges}
+    width = (ws.column_dimensions["C"].width or 9.0) + (ws.column_dimensions["D"].width or 30.0)
+    for i, row in enumerate(rows):
+        r = FIRST_ROW + i
+        rng = "C%d:D%d" % (r, r)
+        if rng not in merged:
+            ws.merge_cells(rng)
+        cell = ws["C%d" % r]
+        cell.alignment = copy.copy(cell.alignment)      # styles are immutable
+        cell.alignment = cell.alignment.copy(wrap_text=True, vertical="top")
+        n_lines = max(1, int(len(row.get("desc", "")) / max(width - 4, 10)) + 1)
+        ws.row_dimensions[r].height = max(15, 12.0 * n_lines)
+
     inst_row = last + 1 if last > LAST_ROW else 21
     total_row = inst_row + 2
     if last > LAST_ROW:
@@ -128,6 +147,11 @@ def make_pricing_doc(job, out_path):
     mastic_row, epdm_row = total_row + 4, total_row + 5
     ws["I%d" % mastic_row] = job.get("mastic", 0) or 0
     ws["I%d" % epdm_row] = job.get("epdm", 0) or 0
+
+    # The template's print area is C1:I31, sized for its own 12 example rows.
+    # Insert more and the PDF silently stops mid-schedule - which is the whole
+    # document as far as the client is concerned. Extend it to the real end.
+    ws.print_area = "$C$1:$I$%d" % (epdm_row + 4)
 
     wb.save(out_path)
     return out_path

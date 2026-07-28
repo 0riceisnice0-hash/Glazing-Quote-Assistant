@@ -1,0 +1,117 @@
+Adam,
+
+Redditch Library. The pricing document and the proposal are both built and attached. Nothing has
+gone to Pride.
+
+THE NUMBER
+
+TENDER SUM GBP 89,218.65, gross of 2.5% Main Contractor's Discount, excluding VAT.
+
+That undercuts Joedan by GBP 1,468.52, which is 1.62% on the number printed in the pack. Their
+GBP 90,687.17 is also gross of 2.5% MCD, so the two figures are now stated on exactly the same
+basis and can be put side by side. Net to Pride, ours is GBP 86,988.18 against their GBP 88,419.99.
+
+MATCHING JOEDAN'S INCLUSIONS IS WHAT MOVED THE PRICE, AND IT IS NOT FREE
+
+You asked for the same inclusions and exclusions as Joedan. I have taken their lists verbatim from
+pages 151 to 153 of the pack - 11 inclusions, 25 exclusions - with one deliberate difference, the
+warranty, which I come to below.
+
+Four of their inclusions were not in the benchmark I sent you at 19:56, and three of them cost money:
+
+  Removal of the existing windows and doors. Their clause 12 includes it. So this settles the
+  strip-out question by the back door - if we match their inclusions, strip-out is in our price.
+
+  Perimeter sealing at the time of installation, their clause 15. GBP 1,571.45 at 314.29 linear
+  metres. Our house documents have always offered mastic as an OPTIONAL extra, and page 70 clause
+  11 of this pack REQUIRES it. That is the Princess Beatrice mistake exactly - offering as an
+  option work we are obliged to do, and inviting the QS to strike it. It is now inside the sum and
+  I have removed the OPTIONAL block from the face of the document so nobody can strike it.
+
+  45mm cellular uPVC cloaking profile to the internal perimeter, their clause 13. NO RATE EXISTS
+  for this anywhere in our data. It is carried as included scope with the sealing line and priced
+  at nothing. It needs to come back on a supplier quote - roughly 314 linear metres of trim.
+
+  Trickle vents, their clause 4, which we already had.
+
+THE STRIP-OUT LINE IS AN ALLOWANCE AND YOU NEED TO LOOK AT IT
+
+GBP 3,000 net. GBP 69.77 per opening, 43 openings, metal frames, occupied library.
+
+I want to be plain that this is not a rate. There is no strip-out rate in Fenster's records - I
+searched 362 archive workbooks for one last night and the promising hits turned out to be item
+reference numbers in unpriced schedules. GBP 3,000 is a figure I have put in so that the client's
+own blank on page 70 can be filled and so that we match Joedan's scope. It is the only number in
+the document that is not evidence-backed, and it is yours to move.
+
+Here is the trade-off, because the undercut and the strip-out allowance come out of the same pot:
+
+  strip-out allowance    tender sum      undercut on Joedan
+  GBP 2,000              88,193.02       GBP 2,494.15   (2.75%)   GBP 46.51 an opening
+  GBP 3,000  (as built)  89,218.65       GBP 1,468.52   (1.62%)   GBP 69.77 an opening
+  GBP 4,000              90,244.29       GBP   442.88   (0.49%)   GBP 93.02 an opening
+  GBP 4,432              90,687.17       nil - we match them       GBP 103.07 an opening
+
+Every pound we add to strip-out is a pound off the undercut. You have taken 43 metal windows out
+of a building and I have not, so the per-opening column is the one to read.
+
+WHAT THE PRICE RESTS ON, AND WHY THE RFQ MATTERS TONIGHT
+
+The frames are on the BSW Severn Trent curve from last night - their quote to us for Pride's own
+job, 15/06, R-squared 0.9934 - converted to a second-supplier position using the measured factors
+BSW +5.7% against Aplus -1.6%. That conversion is worth GBP 3,936.12 of frame buy, and it is the
+whole reason we can undercut them at all. Priced on BSW's own rates instead, with the sealing line
+in and NO strip-out at all, we come out at GBP 90,178.77 gross - GBP 508 under Joedan with nothing
+whatever left to strip 43 openings. In other words, on the supplier we actually have a quote from,
+we cannot do this.
+
+So the undercut currently depends on a supplier we have not asked. The RFQ is written, it is
+price-free, and it has been sitting with you since 21:00. If it goes to Aplus or 4Ali as well as
+BSW, we find out whether this number is real. If we issue first and BSW's rates are what comes
+back, we are about GBP 3,900 underwater on our own document.
+
+THE TEN YEAR WARRANTY
+
+Done, and in three places: the executive summary, the inclusions list, and the terms on the back
+page which already carry it. Joedan offer twelve months on the same building (their clause 21), so
+it is the one line where I have deliberately NOT matched them, and the proposal says so in as many
+words - "in place of the twelve month product warranty customary in this sector."
+
+Worth knowing what it costs us: no supplier will back ten years. Whoever we buy from will offer
+something nearer Joedan's twelve months, and the difference sits with Fenster.
+
+TWO THINGS ON THE BACK PAGE OF OUR OWN PROPOSAL THAT A QS WILL FIND
+
+These are the house terms, not a Redditch slip, so they are on every proposal we send.
+
+  1. Our terms say the quotation is valid 30 days. The Form of Tender holds the sum open for 10
+     weeks and the preliminaries say not less than 3 months. A return whose own terms expire
+     before the client's validity period is non-compliant on its face.
+
+  2. Our terms demand a 50% deposit before commencement. The head contract is a JCT Minor Works
+     with 5% retention reducing to 2.5%. No main contractor pays a 50% deposit under JCT. Joedan
+     dealt with the same point head on - they stated their first release of retention instead.
+
+I have not edited the house terms. Fixing them here would fix one tender and leave the template
+wrong for the next one, which is exactly what happened with the file properties on Gordon Court.
+Tell me which way you want it and I will do it once, at source.
+
+TWO SEPARATE FILES, DELIBERATELY
+
+The working pricing document keeps the product codes and the frame-cost columns live. Those sit
+outside the print area - and a print area protects a print, not the file. Anyone who opens the
+.xlsx and scrolls right reads our buy, our margin and the supplier name. The checks caught it.
+
+So the CLIENT COPY is a separate file with every formula resolved to a value and those columns
+emptied, and both have been scrubbed of the master template's inherited file properties. Send the
+client copy and the proposal. Do not send the working copy or last night's take-off - the take-off
+carries Joedan's price as well as ours.
+
+mary_checks.py passes on all rules.
+
+STILL WITH YOU
+
+  1. Confirm or move the GBP 3,000 strip-out allowance (REQ-24).
+  2. Send the RFQ, and say whether it goes to Aplus or 4Ali as well as BSW.
+  3. Pride's real deadline from Leonard White - still no date from anybody.
+  4. Whether Fenster carries the contractor's design portion and its PI, or Pride do.

@@ -11,7 +11,7 @@
 | **Our position** | Window and door **sub-contractor to Pride**, who are bidding to Gleeds as main contractor. Our offer goes to Pride, not to Gleeds. |
 | **Tender pack** | BLBS0956 v01, May 2026, 254 pages. `Commercial\1. Tender Documents\Pride Developments\Redditch Library` and in the work-order attachment folder. |
 | **Deadline** | **NOT SET - do not invent one.** Leonard White, 22/07: acknowledge and "submit your tender back asap", no date. The pack's 12 noon Friday **26 June 2026** is GLEEDS' date to the main contractors and it has passed. Adam has been asked to get Pride's real date. |
-| **Live number** | **GBP 89,910.77 net ex VAT, BENCHMARK ONLY**, excluding strip-out. Best evidence says **GBP 86,354.89**. Nothing issued to anyone. |
+| **Live number** | **TENDER SUM GBP 89,218.65, gross of 2.5% MCD, ex VAT** - the client-facing pricing document, built 28/07 21:30 on Adam's instruction. Net to Pride GBP 86,988.18. Undercuts Joedan's GBP 90,687.17 by **GBP 1,468.52 (1.62%)**. INCLUDES strip-out at a GBP 3,000 allowance. **BENCHMARK, and nothing issued to anyone.** |
 
 ## Where it stands
 
@@ -222,3 +222,173 @@ so one figure circulates. Sell moved GBP 89,910.82 -> GBP 89,910.77.
 
 **Still open with Adam:** (1) send the RFQ, and to whom; (2) strip-out number or absorb it (REQ-24);
 (3) Pride's real deadline from Leonard White.
+
+
+## 28/07 21:30 - Adam: put it in the pricing document, undercut Joedan, match their inclusions, sell the ten years
+
+Adam 19:43: *"Can you put this into our pricing document, but we need to undercut Joedan. We also need
+to ensure we inform the client of our 10 year warranty, which we can manually put in a proposal
+document. We will also need to include the same inclusions/exclusions as Joedan."*
+
+**BUILT AND SENT TO ADAM, NOT TO PRIDE.** Three files:
+
+| file | who it is for |
+|---|---|
+| `outputs\Redditch Library - Fenster Pricing Document (CLIENT COPY).xlsx` | **Pride.** Values only, working columns emptied, scrubbed. |
+| `outputs\Redditch Library - Fenster Proposal.pdf` | **Pride.** Price, 11 inclusions, 25 exclusions, ten year guarantee, house T&Cs. |
+| `outputs\Redditch Library - Fenster Pricing Document.xlsx` | **Adam only.** Codes and frame cost live in B and J-O. |
+
+Built by `scripts\redditch_pricing_doc.py` on the house template through
+`scripts\generate-fenster-docs.py`. `mary_checks.py`: **all pass** (three FAILED first - see below).
+
+### The tender sum
+
+**GBP 89,218.65 gross of 2.5% MCD**, stated on the same basis as Joedan's GBP 90,687.17 so the two
+can sit side by side. Net GBP 86,988.18 against their GBP 88,419.99. **Undercut GBP 1,468.52, 1.62%.**
+
+| | net GBP |
+|---|---|
+| frames, second-supplier basis | 53,057.22 |
+| house code adders | 19,875.00 |
+| installation (fit only) | 7,670.00 |
+| solar-control glazing | 1,814.51 |
+| perimeter sealing, 314.29 lin m x 5.00 | 1,571.45 |
+| **strip out - ALLOWANCE, NOT A RATE** | **3,000.00** |
+| net | 86,988.18 |
+| add 2.5% MCD | 2,230.47 |
+| **TENDER SUM** | **89,218.65** |
+
+The 46 rows are the 43 scheduled positions plus sealing, solar glazing and strip-out; installation
+comes off the template's own labour-code SUMPRODUCT. The sheet reconciles to the penny.
+
+### Matching Joedan's inclusions is what moved the price
+
+Their lists taken verbatim from pack p151-153. Four of their inclusions were not in the 19:56
+benchmark, and three cost money:
+
+1. **Their cl.12 INCLUDES removal of the existing elements.** So Adam's "match their inclusions"
+   settles the strip-out question by the back door - it is in our price now. (Corroborated the same
+   evening on a different job: Adam on Princess Beatrice, *"I decided I would include the strip out
+   (effectively FOC) in order to remain competitive."*)
+2. **Perimeter sealing, their cl.15 - GBP 1,571.45.** Pack p70 cl.11 REQUIRES it. Our house
+   documents have always offered mastic as an OPTIONAL extra: that is the Princess Beatrice REQ-6
+   error, offering as an option work we are obliged to do. It is inside the sum and the OPTIONAL
+   block is deleted from the face of the client copy.
+3. **45mm cellular uPVC cloaking profile, their cl.13 - NO RATE EXISTS.** Carried as included scope
+   at nil. ~314 lin m of trim. Must come back on a supplier quote.
+4. Trickle vents, their cl.4 - already had.
+
+**The one deliberate divergence is the warranty:** Joedan cl.21 gives twelve months, we give ten
+years, and the proposal says so in as many words. No supplier will back ten years, so the difference
+sits with Fenster.
+
+### The strip-out allowance is the decision Adam has to make
+
+GBP 3,000 net, GBP 69.77 an opening, 43 metal-framed openings in an occupied library. **Not a rate**
+- none exists, 362 workbooks searched. **The undercut and the allowance come out of the same pot:**
+
+| allowance | tender sum | undercut | per opening |
+|---|---|---|---|
+| 2,000 | 88,193.01 | 2,494.16 (2.75%) | 46.51 |
+| **3,000 (as built)** | **89,218.65** | **1,468.52 (1.62%)** | **69.77** |
+| 4,000 | 90,244.29 | 442.88 (0.49%) | 93.02 |
+| 4,431.81 | 90,687.17 | nil, we match them | 103.07 |
+
+### The undercut depends on a supplier we have not asked
+
+Frames are the BSW Severn Trent curve converted to a second-supplier position by the measured
+factors (BSW +5.7% / Aplus -1.6%), worth **GBP 3,936.12** of frame buy. **On BSW's own rates, with
+sealing in and NO strip-out at all, we are at GBP 90,178.77 gross - GBP 508 under Joedan with
+nothing left to strip 43 openings.** So: the RFQ has to go and come back before this is issued, or
+we are ~GBP 3,900 underwater on our own document.
+
+### Three things mary_checks.py caught before anything could go out
+
+1. **The house template's inherited identity** - `dan.parker@agsurveying.co.uk` in docProps and two
+   live external links into `C:\Users\Parke` and `C:\Users\LiamO'Donnell` Outlook caches. REQ-27.
+   Scrubbed in place on both files.
+2. **A print area protects a print, not the file.** 290 populated cells outside `$C$1:$I$66` -
+   product codes in B, frame cost in J-O, and "Supplier used:" in K3/L3. Anyone opening the .xlsx
+   and scrolling right reads our buy and our margin. Hence the separate CLIENT COPY: formulas
+   resolved to values, working columns emptied.
+3. **A line priced and disclaimed in the same pack** - my own manifest error on the GBP 5,000
+   provisional sum. Removed; it is excluded, as Joedan also excluded it.
+
+### Two generator bugs fixed at source, not just here
+
+- `generate-fenster-docs.py` never extended the template's `$C$1:$I$31` print area, so **any job
+  with more than 12 rows produced a PDF that stopped mid-schedule.** Now sized to the real end.
+- The template merges C:D across its own twelve rows only, so every cloned row lost the merge and
+  clipped its description. Now merged, wrapped, and row heights set.
+
+### Two clauses on the back page of our own proposal that a QS will find
+
+Both are the HOUSE terms, so they are on every proposal Fenster sends - **not edited here**, because
+fixing one tender and leaving the template wrong is the Gordon Court mistake. Put to Adam:
+
+1. **Validity.** Our T&Cs say 30 days. The Form of Tender holds the sum open 10 weeks; the prelims
+   say not less than 3 months. A return whose own terms expire before the client's validity period
+   is non-compliant on its face.
+2. **Payment.** Our T&Cs demand a 50% deposit before commencement. The head contract is JCT Minor
+   Works with 5% retention to 2.5%. No main contractor pays a 50% deposit under JCT. Joedan met the
+   same point by stating their retention release instead.
+
+### Open with Adam after this turn
+
+1. Confirm or move the **GBP 3,000 strip-out allowance** (REQ-24).
+2. **Send the RFQ**, and to Aplus or 4Ali as well as BSW - the undercut depends on it.
+3. **Pride's real deadline** from Leonard White. Still no date from anybody.
+4. CDP and its PI - Fenster or Pride.
+5. The two house T&C clauses above - fix at the template, once.
+
+
+## 28/07 22:10 - Adam's second reply: strip out is IN, four Pride wins exist, SBM, and how to price better
+
+Adam 20:09: *"We will include strip out to remain competitive. We have won bigger jobs with Pride.
+Namely Rubery Library and 92-94 High St Merthyr Tydfil. Please do not change any of your coding but,
+give me an indication of how you would better price up jobs instead of our current system. There's
+not much to go on at all, but try looking for SBM quotes to get a new idea of cheaper supply on
+aluminium windows."*
+
+**STRIP-OUT IS SETTLED, AND WE HAD THE PRECEDENT ALL ALONG.** Fenster's own issued quotation
+`Commercial\2. Projects\2. Completed\Pride Developments\Rubery Library\Client Quote\Pride
+Developments - Rubery Library Quotation (REV 2).pdf`, **21/10/2025, GBP 24,096.72 ex VAT**, says on
+its front page: ***"All prices include installation and removal of old frames."*** Same client, same
+building type, a job we WON. The first Fenster document found anywhere that puts frame removal
+inside the price in writing. **Still no RATE** - Rubery does not break it out, and differencing it
+would invent one. REQ-24 stays open for the rate, not the principle.
+
+**RUBERY LIBRARY IS THE COMPARATOR THIS JOB SHOULD HAVE BEEN PRICED AGAINST.** Same client, same
+building type, won, with drawings, glass sizes, O&M and a full Finance folder. Better than Severn
+Trent. **Not re-priced on it tonight** because Rubery is mixed - Liniar EnergyPlus uPVC casements on
+the small windows (frames 1-4, GBP 416.98 to 692.65) and aluminium only on the four big screens
+(frames 5-8, GBP 3,293.52 to 4,722.71) - so it needs unpicking properly. **First job next turn.**
+
+**FOUR PRIDE WINS CONFIRMED, NONE OF THEM ON THE LOG.** `2. Projects\2. Completed\Pride
+Developments` holds **Rubery Library**, **92-94 High Street (BARCODE)** and **Catherine's House,
+Plymouth 2026**; **RAF Mildenhall** is live under `2. Projects\Pride Developments`. Pride have 19
+Estimating Log rows and every win/loss cell is blank. Log-wide it is 327 jobs, 24 marked, 7.3%.
+**Not yet on the hub Scoreboard** - outcomes are written through a deploy and the deploy is locked.
+
+**SBM GLAZING LTD IS REAL AND OFF-REGISTER.** 418-420 London Road, High Wycombe, co. 12083999, VAT
+332846302. A **Cortizo** fabricator; Raj quotes `estimating@` direct. **Not on the Suppliers
+Listing** - used job by job. Three documents: Raglan School 26/06/2026, 5 aluminium windows
+**UNGLAZED**, white, GBP 2,500, 2-3 week lead; Welland Place 11/05/2026, 1 window **UNGLAZED**
+RAL 7005, GBP 500; Pincents Kiln 07/05/2026, GBP 8,560, 4 windows + 1 commercial door, **glazed**,
+supply only.
+
+**NO RATE DERIVED, DELIBERATELY.** Two of the three are unglazed, which is a different product from
+our glazed rates. The third has no schedule that belongs to it - the drawings and glass order in
+that folder are dated a MONTH after the proforma and cover **12 positions, not 5**. Pairing them
+would manufacture a rate. Same trap as the strip-out "rates" that were item reference numbers.
+**The answer is to put SBM on the Redditch RFQ**, which is written and price-free. Caution first:
+their terms want 50% with order, balance before delivery, title retained until paid - on a
+GBP 53,000 frame buy that is real cash flow and it is not how BSW trade with us.
+
+**PRICING-METHOD RECOMMENDATION MADE, NO CODE CHANGED** (Adam: *"do not change any of your coding"*).
+Three points, all evidenced: (1) replace the band median with a fitted curve per supplier per system
+- `rate = a x area^b`, R2 0.9934 on six real BSW points - which removes the band cliff entirely;
+(2) make the code adder a PERCENTAGE of frame value with a floor, because a fixed sum per unit is
+what collapses margin from 50.7% to 12.2% as units grow; (3) Fenster has **two pricing routes that
+do not agree** - the MASTER PRICING DOC with per-unit labour codes, and whatever produced the Rubery
+quotation, which carries labour as a single **GBP 1,620 ancillary line**. Same client, same year.

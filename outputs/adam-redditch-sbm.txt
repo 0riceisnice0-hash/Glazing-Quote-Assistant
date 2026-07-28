@@ -1,0 +1,107 @@
+Adam,
+
+Your four points, in order. The pricing document and proposal went over separately a few minutes ago.
+
+1. STRIP OUT INCLUDED - AGREED, AND I HAVE FOUND OUR OWN PRECEDENT FOR IT
+
+It is in the document I have just sent you, at a GBP 3,000 allowance, GBP 69.77 an opening.
+
+And chasing Rubery Library turned up something better than my allowance. Our own issued quotation
+to Pride for Rubery Library, 21/10/2025, GBP 24,096.72 ex VAT, says this on the front page:
+
+    "All prices include installation and removal of old frames."
+
+That is the first Fenster document I have found anywhere that puts removal of old frames inside the
+price in writing - and it is the same client, the same building type, and a job we won. So the
+position you have taken tonight is the position we already took with Pride. I have stopped calling
+strip-out an open question.
+
+What I still do not have is a RATE. Rubery does not break it out - it is inside the frame prices -
+so I cannot difference it without inventing a number. REQ-24 stays open for the rate itself, not
+for the principle.
+
+2. RUBERY LIBRARY AND MERTHYR TYDFIL - BOTH CONFIRMED, AND OUR RECORDS HAD NEITHER
+
+Both are in the archive under 2. Projects\2. Completed\Pride Developments. Rubery has a full O&M
+manual issued. 92-94 High Street is there as "92-94 High Street (BARCODE)". Catherine's House,
+Plymouth is a third completed Pride job, and RAF Mildenhall is live.
+
+Worth knowing why I did not have this last night: Pride have 19 rows on the Estimating Log and
+EVERY win/loss cell is blank. Four completed jobs and the log records none of them. That is why I
+told you I could not give you a win rate on Pride - it was not caution, the data is not there.
+
+Across the whole log it is 327 jobs and 24 with any win/loss mark, so 7.3%. I have written the four
+Pride wins into the Redditch job record and onto the noticeboard so the other chats have them. I
+have NOT been able to put them on the hub Scoreboard: outcomes live in a table I can only write
+through a deploy, and the hub deploy has been locked since 19:56 by an npm cache conflict with
+another session. It will go up with the next clean deploy.
+
+RUBERY IS THE COMPARATOR I SHOULD HAVE HAD. Same client, same building type, a library, and won.
+Better than the Severn Trent quote I used, which is a different building for the same client. I
+have not re-priced Redditch on it tonight because Rubery is a mixed job - Liniar uPVC casements for
+the small windows, aluminium only on the four big screens - so it needs unpicking properly rather
+than quickly. It is the first thing I will do when the RFQ position is settled.
+
+3. HOW I WOULD PRICE JOBS DIFFERENTLY - RECOMMENDATION ONLY, I HAVE CHANGED NO CODING
+
+Two things are wrong with the current system and I can put numbers on both.
+
+THE RATE REGISTER IS A BAND MEDIAN AND IT IS WRONG AT BOTH ENDS. Measured on two independent jobs
+now, St Mary's and Severn Trent, different suppliers and dates:
+
+    band          St Mary's    Severn Trent
+    under 1.5 m2    -35.5%        -38.9%
+    1.5-3 m2         -1.2%        -20.4%
+    3-6 m2          +37.5%        +18.1%
+    over 6 m2       +35.2%        +34.1%
+
+Positive means we are ABOVE the real price. We under-price small units by about a third and
+over-price large ones by about a third. On a broad mix they cancel, which is exactly why whole-job
+numbers have always looked respectable while per-window numbers were not.
+
+WHAT I WOULD DO INSTEAD. Stop taking a median for a band and fit a curve to real recent supplier
+quotes instead - rate per m2 against area. I did it on the BSW Severn Trent quote and six points
+gave an R-squared of 0.9934, which is as close to a straight line as this trade gets. One curve per
+supplier per system, refitted whenever a new quote lands. It costs nothing, it uses quotes we
+already hold, and it removes the band cliff entirely.
+
+THE CODE ADDER IS A FIXED SUM PER UNIT, SO OUR MARGIN COLLAPSES AS WINDOWS GET BIGGER. On Redditch
+the adder is 50.7% of the frame line under 1.5 m2, 38.6% at 1.5-3, 19.0% at 3-6 and 12.2% over 6.
+Redditch averages 3.18 m2 a unit and earns 24.7%. Crestwood Park averaged 1.29 m2 and earned 42.9%.
+Same template, same rules, nearly double the margin, purely because the windows were smaller.
+
+WHAT I WOULD DO INSTEAD. Make the adder a percentage of the frame value with a floor - so a small
+window still carries its minimum handling cost, and a big one still earns proportionally. Set the
+percentage so the small end lands where it does today and nothing changes on the jobs we already
+price well. That is a one-line change to the template and it is yours to approve, not mine to make.
+
+The third thing is not a formula. Fenster has two pricing routes that do not agree: the MASTER
+PRICING DOC with its per-unit labour codes, and whatever produced the Rubery quotation, which
+carries labour as a single GBP 1,620 ancillary line. Same client, same year. Whichever we keep, it
+should be one of them.
+
+4. SBM - THEY ARE REAL, THEY ARE CHEAP-LOOKING, AND I CANNOT GIVE YOU A RATE YET
+
+SBM Glazing Ltd, 418-420 London Road, High Wycombe, company 12083999. A Cortizo fabricator. Raj
+quotes estimating@ direct. They are NOT on our Suppliers Listing - we have been using them job by
+job. Three documents:
+
+  Raglan School, 26/06/2026, quoted to estimating@ - 5 aluminium windows, UNGLAZED, white,
+  GBP 2,500, lead time 2-3 weeks.
+  Welland Place, 11/05/2026 - 1 window UNGLAZED RAL 7005, GBP 500.
+  Pincents Kiln, 07/05/2026 - GBP 8,560, 4 windows plus 1 commercial door, GLAZED, supply only.
+
+Here is why I am not giving you a comparison off those. Two of the three are UNGLAZED, which is a
+different product from the glazed rates Redditch is priced on, and the third has no schedule I can
+tie to it - the drawings and glass order in that folder are dated a MONTH after the proforma and
+cover twelve positions, not five, so pairing them would manufacture a rate rather than find one.
+That is the same trap as the strip-out "rates" that turned out to be item reference numbers.
+
+WHAT I WOULD DO: put SBM on the Redditch RFQ. It is already written, it has no prices in it, and
+sending it to SBM alongside BSW and Aplus costs nothing and answers the question properly - on our
+own 43 units, glazed, in one standard RAL. Two to three weeks lead time is well inside anything
+this tender needs. Say the word and it goes.
+
+Worth flagging one thing before we lean on them: their proforma terms want 50% with the order and
+the balance before delivery, and they retain title until paid in full. On a GBP 53,000 frame buy
+that is real cash flow, and it is not how BSW trade with us.

@@ -1,0 +1,31 @@
+Redditch: the client documents are built, and a print area was never protecting the file
+
+Adam asked for the take-off to go into the house pricing document, to undercut Joedan, to sell our
+ten year warranty, and to carry the same inclusions and exclusions as Joedan. Tender sum
+GBP 89,218.65 gross of 2.5% MCD, which undercuts Joedan by GBP 1,468.52 on their own basis. Sent to
+Adam; nothing has gone to Pride.
+
+Matching Joedan's inclusions is what moved the price. Their clause 12 includes removing the existing
+elements, clause 15 perimeter sealing, clause 13 a cloaking profile nobody has a rate for. So
+strip-out is in the price now - at a labelled allowance of GBP 3,000, because there is still no rate
+- and perimeter sealing is inside the sum rather than offered as an optional extra, which is the
+Princess Beatrice mistake and the tender requires it anyway.
+
+The checks earned their keep. 290 populated cells sat outside the print area of the client document:
+the product code, the frame cost, the supplier name. Invisible on the printed page and one scroll
+away in any workbook we email. Hence a separate values-only client copy, and two bugs fixed at
+source in generate-fenster-docs.py - the print area was never extended past the template's twelve
+example rows, so every document with more than twelve items printed a PDF that stopped mid-schedule,
+and cloned rows lost the C:D merge and clipped their descriptions.
+
+Then Adam confirmed strip-out goes in, and the archive produced the precedent: our own won quotation
+to Pride for Rubery Library, October 2025, says on its front page that all prices include
+installation and removal of old frames. Same client, same building type. Four completed Pride jobs
+exist against nineteen blank win/loss cells on the log.
+
+SBM Glazing is real - a Cortizo fabricator quoting estimating@ direct and absent from the suppliers
+listing - but two of their three documents are unglazed and the third's schedule is dated a month
+after its proforma and covers twelve positions rather than five. No rate derived from that. It is an
+RFQ, not a derivation.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

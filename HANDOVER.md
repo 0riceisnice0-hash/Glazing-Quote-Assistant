@@ -6988,3 +6988,103 @@ division. Worth GBP 1.24; fixed at source so a single figure circulates. Sell GB
 npm cache EBUSY lock while other chats were deploying concurrently. The state file is committed, so the
 next successful deploy from any chat publishes it. Stale `workerd`/`node` processes were left alone
 rather than killed, since they belong to other chats.
+
+### Redditch Library - the client documents, and the .xlsx that carries more than it prints (2026-07-28)
+
+**Chat `redditch-library`, second and third working turns.** Adam 19:43: *"Can you put this into our
+pricing document, but we need to undercut Joedan. We also need to ensure we inform the client of our
+10 year warranty... We will also need to include the same inclusions/exclusions as Joedan."* Then
+20:09: *"We will include strip out to remain competitive... give me an indication of how you would
+better price up jobs instead of our current system... try looking for SBM quotes."*
+
+**BUILT AND SENT TO ADAM. NOTHING TO PRIDE.** `outputs\Redditch Library - Fenster Pricing Document
+(CLIENT COPY).xlsx`, `... - Fenster Proposal.pdf`, and a working copy for Adam only. Built by
+`scripts\redditch_pricing_doc.py` on the house template through `generate-fenster-docs.py`.
+**TENDER SUM GBP 89,218.65 gross of 2.5% MCD**, net GBP 86,988.18, against Joedan's GBP 90,687.17 -
+**undercut GBP 1,468.52, 1.62%** - stated on Joedan's own basis so the two compare line for line.
+`mary_checks.py`: **all pass**, after three FAILED.
+
+**A PRINT AREA PROTECTS A PRINT, NOT THE FILE - THIS IS THE ONE THAT GENERALISES.** The checks found
+**290 populated cells outside `$C$1:$I$66`**: the product code in column B, the frame COST in J to O,
+and *"Supplier used:"* in K3/L3. All invisible on the printed page, all one scroll away in the
+workbook. **Any job that has emailed the .xlsx rather than a PDF has sent its buy and its margin.**
+Fixed by generating a separate CLIENT COPY - every formula resolved to a value, working columns
+emptied, the OPTIONAL block deleted - and scrubbing both files of the master template's inherited
+`dan.parker@agsurveying.co.uk` identity (REQ-27). `make_client_copy()` is worth lifting wholesale.
+
+**TWO BUGS IN `generate-fenster-docs.py`, BOTH FIXED AT SOURCE, BOTH AFFECTING EVERY JOB.** (a) The
+template's print area is `$C$1:$I$31`, sized for its twelve example rows, and the generator never
+moved it - **so any document with more than 12 items printed a PDF that stopped mid-schedule.**
+(b) The template merges C:D across its own twelve rows only, so every cloned row lost the merge and
+clipped its description. Now merged, wrapped, row heights set. **Re-generate anything built earlier.**
+
+**MATCHING A COMPETITOR'S INCLUSIONS IS A PRICING DECISION, NOT A COPY-PASTE.** Joedan's lists taken
+verbatim from pack p151-153 - 11 inclusions, 25 exclusions. Four of their inclusions were not in the
+19:56 benchmark and three cost money: **cl.12 removal of the existing elements**, **cl.15 perimeter
+sealing GBP 1,571.45**, **cl.13 a 45mm uPVC cloaking profile with NO RATE ANYWHERE** (carried as
+included scope at nil), and cl.4 trickle vents. **The one deliberate divergence is the warranty** -
+theirs 12 months, ours ten years, said in as many words in the proposal.
+
+**MASTIC MUST NEVER BE OPTIONAL WHERE THE BILL REQUIRES IT.** Pack p70 cl.11 requires external
+waterproof mastic; the house template offers it as an OPTIONAL extra. That is REQ-6 on Princess
+Beatrice exactly - offering as an option work we are obliged to do. Priced in at GBP 5/lin m over
+314.29 lin m and the OPTIONAL block removed from the face of the client copy.
+
+**STRIP-OUT IS SETTLED AFTER SIX JOBS, AND WE HAD THE PRECEDENT ALL ALONG.** Adam ruled *"we will
+include strip out to remain competitive"* on Redditch and, the same evening on Princess Beatrice,
+*"I decided I would include the strip out (effectively FOC) in order to remain competitive."* Then
+the archive produced the proof: **Fenster's own won quotation to Pride for RUBERY LIBRARY**
+(21/10/2025, GBP 24,096.72 ex VAT) says on its front page ***"All prices include installation and
+removal of old frames."*** Same client, same building type, won. The first Fenster document anywhere
+that puts frame removal inside the price in writing. **There is still no RATE** - Rubery does not
+break it out and differencing it would invent one. Carried on Redditch as a GBP 3,000 **ALLOWANCE**,
+GBP 69.77 an opening, labelled as such everywhere. REQ-24 stays open for the rate, not the principle.
+
+**THE UNDERCUT AND THE STRIP-OUT ALLOWANCE ARE THE SAME MONEY.** GBP 2,000 leaves a 2.75% undercut;
+GBP 4,431.81 leaves none. And the undercut itself rests on a supplier nobody has asked: the frames
+are the BSW Severn Trent curve converted to a second-supplier position by the measured factors
+(BSW +5.7% / Aplus -1.6%), worth **GBP 3,936.12**. **On BSW's own rates, with sealing in and no
+strip-out at all, we are GBP 508 under Joedan with nothing left to strip 43 openings.** The RFQ has
+to go and come back before this is issued.
+
+**FOUR COMPLETED PRIDE JOBS EXIST AND THE ESTIMATING LOG RECORDS NONE OF THEM.** `2. Projects\2.
+Completed\Pride Developments` holds **Rubery Library**, **92-94 High Street (BARCODE)** and
+**Catherine's House, Plymouth 2026**; **RAF Mildenhall** is live. Pride have 19 log rows and every
+win/loss cell is blank; log-wide it is 327 jobs and 24 marked, 7.3%. **The folder tree is the
+outcome record and the log is not** - look in `2. Projects\2. Completed` first. **Rubery Library is
+the comparator Redditch should have been priced against** (same client, a library, won) and it has
+not been used yet: it is a mixed job, Liniar uPVC casements on the small windows and aluminium only
+on the four big screens, so it needs unpicking properly rather than quickly.
+
+**SBM GLAZING LTD - A SUPPLIER NOBODY HAD.** 418-420 London Road, High Wycombe, co. 12083999, VAT
+332846302. A **Cortizo** fabricator; Raj quotes `estimating@` direct. **Not on the Suppliers
+Listing** - used job by job on Raglan School, Welland Place, Pincents Kiln and West Bletchley. Known
+figures: 5 aluminium windows **UNGLAZED** white GBP 2,500 (26/06/2026, 2-3 week lead); 1 window
+**UNGLAZED** GBP 500; GBP 8,560 for 4 windows plus 1 commercial door, **glazed**, supply only.
+**NO GBP/m2 DERIVED, DELIBERATELY** - two of the three are unglazed, a different product from our
+glazed rates, and the third's folder holds drawings and a glass order dated a **month after** the
+proforma covering **12 positions, not 5**, so pairing them would manufacture a rate. Same trap as
+the strip-out "rates" that turned out to be item reference numbers. The answer is an RFQ, not a
+derivation. Their terms want 50% with order, balance before delivery, title retained until paid.
+
+**A PRICING-METHOD RECOMMENDATION, WITH NO CODE CHANGED** (Adam: *"do not change any of your
+coding"*). (1) Replace the band median with a **fitted curve per supplier per system**,
+`rate = a x area^b` - R2 0.9934 on six real BSW points - which removes the band cliff that measures
+-35.5%/-38.9% under 1.5 m2 and +35.2%/+34.1% over 6 m2 on two independent jobs. (2) Make the code
+adder a **percentage of frame value with a floor**: a fixed sum per unit is precisely what collapses
+margin from 50.7% to 12.2% as units grow. (3) **Fenster has two pricing routes that do not agree** -
+the MASTER PRICING DOC with per-unit labour codes, and whatever produced the Rubery quotation, which
+carries labour as a single **GBP 1,620 ancillary line**. Same client, same year. If an old Fenster
+quote's labour will not recompute from the codes, check which route produced it before concluding
+the arithmetic is wrong.
+
+**AND TWO CLAUSES ON THE BACK OF EVERY PROPOSAL FENSTER SENDS.** The house T&Cs say a quotation is
+**valid 30 days** - Redditch's Form of Tender holds the sum open **10 weeks** and the prelims say
+**not less than 3 months**, so our own terms expire inside the client's validity period and the
+return is non-compliant on its face. And they demand a **50% deposit before commencement** against a
+**JCT Minor Works with 5% retention**; no main contractor pays that, and Joedan met the same point by
+stating their retention release instead. **Not edited here** - fixing one tender and leaving the
+template wrong is the Gordon Court/REQ-27 mistake. Put to Adam to fix once, at source.
+
+**Dashboard state updated, NOT deployed** - `mary_dashboard.py --deploy` still failing on the npm
+cache EBUSY lock first reported at 21:00. State is committed; the next clean deploy publishes it.

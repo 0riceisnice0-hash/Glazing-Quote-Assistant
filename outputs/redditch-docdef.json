@@ -1,0 +1,474 @@
+{
+ "client": "Pride Developments Group Ltd",
+ "fao": "Leonard White, Senior Quantity Surveyor",
+ "projectRef": "Redditch Library - BLBS0956 - window and door replacement",
+ "siteAddress": "Redditch Library, 15 Market Place, Redditch, B98 8AR",
+ "date": "28/07/2026",
+ "supplier": "TBC - see clarifications",
+ "note": "All figures exclusive of VAT and gross of 2.5% Main Contractor's Discount.",
+ "rows": [
+  {
+   "code": "MAW",
+   "desc": "Ref 1 - Aluminium window: 1 fixed light, 1 infill panel",
+   "size": "1800 x 2000",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1431.28,
+   "additional": 51.85
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 2 - Aluminium window: 1 fixed light, 1 infill panel",
+   "size": "1800 x 2000",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1431.28,
+   "additional": 51.85
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 3 - Aluminium window: 2 fixed lights, 2 infill panels",
+   "size": "2650 x 1800",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1690.1,
+   "additional": 59.13
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 4 - Aluminium window: 2 fixed lights, 2 infill panels",
+   "size": "2650 x 1800",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1690.1,
+   "additional": 59.13
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 5 - Aluminium window: 2 fixed lights, 2 infill panels",
+   "size": "2650 x 1800",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1690.1,
+   "additional": 59.13
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 6 - Aluminium window: 2 fixed lights, 2 infill panels",
+   "size": "2650 x 1800",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1690.1,
+   "additional": 59.13
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 7 - Aluminium window: 2 fixed lights, 2 infill panels",
+   "size": "2650 x 1800",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1690.1,
+   "additional": 59.13
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 8 - Aluminium window: 2 fixed lights, 2 infill panels",
+   "size": "2650 x 1800",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1690.1,
+   "additional": 59.13
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 9 - Aluminium window: 2 top hung opening lights",
+   "size": "2248 x 1600",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1430.52,
+   "additional": 51.83
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 10 - Aluminium window: 2 top hung opening lights",
+   "size": "2248 x 1600",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1430.52,
+   "additional": 51.83
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 11 - Aluminium window: 2 top hung opening lights",
+   "size": "2248 x 1600",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1430.52,
+   "additional": 51.83
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 12 - Aluminium window: 2 top hung opening lights",
+   "size": "2248 x 1600",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1430.52,
+   "additional": 51.83
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 13 - Aluminium window: 2 top hung opening lights",
+   "size": "2248 x 1600",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1430.52,
+   "additional": 51.83
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 14 - Aluminium window: 2 top hung opening lights",
+   "size": "2248 x 1600",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1430.52,
+   "additional": 51.83
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 15 - Aluminium window: 1 top hung opening light",
+   "size": "900 x 1600",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 833.06,
+   "additional": 32.92
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 16 - Aluminium window: 2 fixed lights, 2 infill panels",
+   "size": "2250 x 2304",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1775.26,
+   "additional": 61.52
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 17 - Aluminium window: 2 fixed lights, 2 infill panels",
+   "size": "2250 x 2304",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1775.26,
+   "additional": 61.52
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 18 - Aluminium window: 2 fixed lights, 2 infill panels",
+   "size": "2250 x 2304",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1775.26,
+   "additional": 61.52
+  },
+  {
+   "code": "ELAW",
+   "desc": "Ref 19 - Aluminium window: 20 fixed lights",
+   "size": "17000 x 900",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 3364.24,
+   "additional": 112.53
+  },
+  {
+   "code": "LAW",
+   "desc": "Ref 20 - Aluminium window: 7 fixed lights, 1 infill panel",
+   "size": "7000 x 1100",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 2242.6,
+   "additional": 76.77
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 21 - Aluminium window: 1 top hung opening light, 1 fixed light",
+   "size": "1200 x 1200",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 833.06,
+   "additional": 32.92
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 22 - Aluminium window: 1 fixed light",
+   "size": "1500 x 1000",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 853.39,
+   "additional": 33.49
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 23 - Aluminium window: 1 fixed light",
+   "size": "1500 x 1000",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 853.39,
+   "additional": 33.49
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 24 - Aluminium window: 1 top hung opening light",
+   "size": "900 x 525",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 431.34,
+   "additional": 21.62
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 25 - Aluminium window: 1 top hung opening light",
+   "size": "900 x 525",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 431.34,
+   "additional": 21.62
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 26 - Aluminium window: 1 top hung opening light",
+   "size": "900 x 525",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 431.34,
+   "additional": 21.62
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 27 - Aluminium window: 1 top hung opening light",
+   "size": "900 x 525",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 431.34,
+   "additional": 21.62
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 28 - Aluminium window: 1 top hung opening light",
+   "size": "900 x 525",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 431.34,
+   "additional": 21.62
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 29 - Aluminium window: fixed light (configuration not stated on the tender schedule)",
+   "size": "900 x 300",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 309.93,
+   "additional": 18.21
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 30 - Aluminium window: fixed light (configuration not stated on the tender schedule)",
+   "size": "900 x 300",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 309.93,
+   "additional": 18.21
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 31 - Aluminium window: fixed light (configuration not stated on the tender schedule)",
+   "size": "900 x 300",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 309.93,
+   "additional": 18.21
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 32.1 - Aluminium window: 1 top hung opening light, 1 fixed light, 1 infill panel",
+   "size": "1800 x 1600",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1254.53,
+   "additional": 46.88
+  },
+  {
+   "code": "SAD",
+   "desc": "Ref 32.2 - Aluminium doorset: single leaf commercial doorset",
+   "size": "1170 x 2100",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1142.18,
+   "additional": 57.43
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 33 - Aluminium window: 1 top hung opening light, 1 fixed light",
+   "size": "1800 x 1200",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1058.49,
+   "additional": 39.26
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 34.1 - Aluminium window: 1 top hung opening light, 2 fixed lights, 1 infill panel",
+   "size": "2400 x 1600",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1486.89,
+   "additional": 53.41
+  },
+  {
+   "code": "SAD",
+   "desc": "Ref 34.2 - Aluminium doorset: single leaf commercial doorset",
+   "size": "900 x 2100",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 978.21,
+   "additional": 52.82
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 35 - Aluminium window: 1 top hung opening light, 1 fixed light",
+   "size": "1800 x 1200",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1058.49,
+   "additional": 39.26
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 36 - Aluminium window: 1 top hung opening light, 1 fixed light",
+   "size": "1800 x 1200",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1058.49,
+   "additional": 39.26
+  },
+  {
+   "code": "SAD",
+   "desc": "Ref 37 - Aluminium doorset: single leaf commercial doorset",
+   "size": "1200 x 2100",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1159.39,
+   "additional": 57.91
+  },
+  {
+   "code": "MAW",
+   "desc": "Ref 38 - Aluminium window: 6 fixed lights",
+   "size": "2700 x 1700",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1652.13,
+   "additional": 58.06
+  },
+  {
+   "code": "SAD",
+   "desc": "Ref 39 - Aluminium doorset: single leaf commercial doorset",
+   "size": "1200 x 2100",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1159.39,
+   "additional": 57.91
+  },
+  {
+   "code": "SAW",
+   "desc": "Ref 40 - Aluminium window: 2 fixed lights",
+   "size": "1200 x 1000",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 748.01,
+   "additional": 30.53
+  },
+  {
+   "code": "DAD",
+   "desc": "Ref 41 - Aluminium doorset: double leaf commercial doorset",
+   "size": "1500 x 2100",
+   "qty": 1,
+   "unit": "nr",
+   "frames": 1322.73,
+   "additional": 79.38
+  },
+  {
+   "code": "",
+   "desc": "Perimeter sealing - external grade low modulus waterproof mastic to all window and doorset joints with the structure, applied at the time of installation. Includes 45mm white cellular uPVC cloaking profile to the internal perimeter where required.",
+   "size": "314 lin m",
+   "qty": 1,
+   "unit": "item",
+   "unitRateOverride": 1615.64
+  },
+  {
+   "code": "",
+   "desc": "Solar control glazing - upgrade of the outer pane to 4mm bronze anti-sun toughened throughout, per specification cl.8.",
+   "size": "136.53 m2",
+   "qty": 1,
+   "unit": "item",
+   "unitRateOverride": 1865.53
+  },
+  {
+   "code": "",
+   "desc": "Strip out of the existing metal framed windows and doorsets, set down on site for disposal by the main contractor.",
+   "size": "43 openings",
+   "qty": 1,
+   "unit": "item",
+   "unitRateOverride": 3084.28
+  }
+ ],
+ "mastic": 0,
+ "epdm": 0,
+ "summary": [
+  "Fenster Glazing are pleased to submit our proposal for the replacement of the external windows and doors at Redditch Library, 15 Market Place, Redditch, B98 8AR, forming part of the wider refurbishment of the building for Worcestershire County Council.",
+  "Our offer covers 43 window and doorset positions across 41 references and 136.53 m2, taken from the pricing schedule issued with tender BLBS0956 and verified line by line against elevational drawings BLBS0956-GLE-RL-XX-DR-B-02 and -B-03. Every reference on the schedule appears on the elevations; none is missing and none is duplicated.",
+  "The library remains open and in public use throughout. Our sequence is planned opening by opening so that no reveal is left unglazed at the end of a shift, with the Market Place frontage managed to keep the public highway clear and safe at all times.",
+  "Fenster provide a TEN YEAR GUARANTEE on frames and glazed units. This is materially longer than the twelve month product warranty customary in this sector, and it is offered here without qualification or additional cost."
+ ],
+ "priceText": "GBP 89,218.65, gross of 2.5% Main Contractor's Discount,",
+ "inclusions": [
+  "Polyester powder coated thermally broken aluminium windows, and commercial aluminium doorsets, in a single standard RAL colour internally and externally.",
+  "Argon filled double glazed units with warm edge spacer bar - inner pane 4mm clear soft coat low-E toughened, outer pane 4mm bronze anti-sun toughened. Area weighted U-value no worse than 1.4 W/m2K to windows and 3.0 W/m2K to doors.",
+  "Infill panels of solid phenolic core faced both sides with 2.0mm polyester powder coated aluminium sheets in a matt finish, U-value no greater than 1.2 W/m2K.",
+  "All casements with shootbolt espagnolette locking, Securistyle Defender friction hinges, and separate concealed devices restricting initial opening to 100mm where required.",
+  "Trickle ventilators throughout.",
+  "Ironmongery to doors 32, 34, 37 and 41 - anti-finger-trap stiles, 100mm bottom rail, 100mm midrail, Axim 8800 concealed non hold-open transom closer, PR7100 exit panic device without external access, flush bolts to head and threshold of the slave leaf of all double doors, mill finished low threshold.",
+  "Removal of the existing windows and doorsets, set down on site for disposal by the main contractor.",
+  "45mm white cellular uPVC cloaking profile to the internal perimeter where required.",
+  "Sealing of all joints between framing and structure with external grade low modulus silicone, applied at the time of installation.",
+  "One site visit to undertake the manufacturing survey and take dimensions.",
+  "FENSTER'S TEN YEAR GUARANTEE on frames and glazed units - in place of the twelve month product warranty customary in this sector."
+ ],
+ "exclusions": [
+  "Building Control.",
+  "Secure containers for our sole use (2no 20ft x 8ft).",
+  "Skips adjacent to our works, and disposal of the removed windows and doors.",
+  "Heras fencing and safety balustrades.",
+  "Access scaffolding internally and externally, with board heights to suit the window installation and suitable access to distribute windows and remove debris from all board levels.",
+  "Any access equipment including towers, podiums, scaffolding and MEWPs.",
+  "Lifting and hoisting equipment suitable for window frames and glass.",
+  "Removal and disposal of asbestos in the areas proposed for window replacement.",
+  "Removal or reinstatement of utility based items, for example pipes, sinks, radiators.",
+  "Protection of frames once fitted.",
+  "Welfare facilities.",
+  "Internal window boards.",
+  "Manifestations and fire signage.",
+  "Moving electrics or fire alarms.",
+  "Removal and reinstatement of extractor fans.",
+  "Disconnecting existing keypads and reconnecting them to the new doors.",
+  "Removal and reinstatement of internal blinds.",
+  "Magnetic locks.",
+  "Door stops and door restraints.",
+  "Suspended ceiling removal, reinstatement or repairs.",
+  "Up-stand where windows sit onto the flat roof.",
+  "Making good internally beyond the cloaking profile described above, including localised decoration to reveals - builder's work.",
+  "Fire rated items and fire rated glass - no item is fire rated.",
+  "Works outside normal working hours. One continuous visit is allowed; free and clear access to create a full day's work for our operatives is required, and return visits are chargeable.",
+  "The defined provisional sum of GBP 5,000 for preparing out-of-square openings (specification cl.10) - all items are priced on the basis of square and plumb apertures."
+ ],
+ "previousProjects": "Recent comparable projects include Headrow Court, Leeds (replacement aluminium windows, doors and curtain wall, GBP630,000, occupied city-centre phased installation) and Crestwood Park Primary School, Dudley (replacement aluminium windows to an occupied school).",
+ "outXlsx": "C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\outputs\\Redditch Library - Fenster Pricing Document.xlsx",
+ "outHtml": "C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\outputs\\Redditch Library - Fenster Proposal.html"
+}

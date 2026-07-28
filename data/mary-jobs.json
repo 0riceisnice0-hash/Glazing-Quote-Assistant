@@ -334,8 +334,8 @@
    "session_id": "8c8412c3-75b0-471e-b7ed-316ea918af08",
    "started": true,
    "created": "2026-07-27T13:43:40",
-   "last_active": "2026-07-28T19:29:20",
-   "runs": 14,
+   "last_active": "2026-07-28T21:07:04",
+   "runs": 15,
    "rotated_from": "51342bb1-aee9-45a9-b58e-3845af9b9bf8",
    "rotated_at": "2026-07-28T10:12:00",
    "rotations": 1
@@ -470,11 +470,14 @@
    "runs": 1
   },
   "redditch-library": {
-   "session_id": "41b42bc2-42b9-439c-8f40-2f28254e63b4",
-   "started": true,
+   "session_id": "020935a0-a60f-493f-ab04-6ff5a0ceed62",
+   "started": false,
    "created": "2026-07-28T19:25:37",
    "last_active": "2026-07-28T21:00:36",
-   "runs": 2
+   "runs": 2,
+   "rotated_from": "41b42bc2-42b9-439c-8f40-2f28254e63b4",
+   "rotated_at": "2026-07-28T21:07:05",
+   "rotations": 1
   }
  }
 }
