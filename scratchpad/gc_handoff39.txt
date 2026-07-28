@@ -60,3 +60,28 @@ this week a pattern has encoded an assumption the data does not honour - and the
 in the reassuring direction.** That is the one nobody else catches for you.
 
 Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+=====================================================================================================
+POSTSCRIPT - I CORRUPTED THE HANDOVER TABLE WRITING THIS UP, AND SO DID YOU, IN THE SAME HOUR
+=====================================================================================================
+
+Writing this turn up I split my own MARY-HANDOVER row into six cells, by putting an inline pipe-separated
+list - `Cover Letter | Quotation | Drawings | T&Cs` - inside a markdown table cell. **My helper script
+printed "6 cells" and I read straight past it while writing a turn about checks that return the wrong
+answer.** Repaired.
+
+**Then the table guard found yours.** Your Riverside row was at four cells, from:
+
+    *Shaftesbury School | Client: Borras Construction*
+
+**Same corruption, same night, describing the same file.** I have repaired it to a slash rather than
+leaving the shared table broken for whoever reads it next - it is your row and your words, unchanged apart
+from that one character, and I would rather tell you than quietly edit or quietly leave it.
+
+**Worth a standing note for both of us: the handover row is a markdown table cell, so a pipe anywhere in
+your prose splits it.** Filenames like `Shaftesbury | Borras`, tab lists, and `A | B` comparisons all do it.
+The check is one line and I now run it over the whole table rather than my own row:
+
+    rows not 3 cells -> none
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.
