@@ -57,21 +57,11 @@ MIN_VALUE, MAX_VALUE = 400_000, 40_000_000
 # nobody quietly re-opens the question, but they carry no action.
 DO_NOT_QUOTE = re.compile(r"hightown", re.I)
 
-# Fenster's own outgoing subject line coming back with a Re:. When Fenster
-# asks a fabricator for a price, the intake classifier sees the word "quote"
-# next to the word "window" and files it as an enquiry. It is the exact
-# opposite - a cost being collected, not a customer asking to buy.
-# "Fenster Glazing - Your Quote" is the other direction and must not match.
-FENSTER_ASKED = re.compile(r"fenster\s*glazing\s*[-:]?\s*(panel\s+)?quot", re.I)
-
-# Trade fabricators and glass suppliers whose threads do not carry that
-# subject line. Every one of these sells TO Fenster. The permanent fix is in
-# jacob_intake.py's SUPPLIERS regex; this list is the stopgap so the enquiry
-# count on the board means something today.
-TRADE = re.compile(
-    r"(truframe|ucdlimited|hallmarkpanels|titanaluminium|roseview|origin-global|"
-    r"dualsealglass|wharfsidesupplies|aspectwindowfilms|lathamssteeldoors|"
-    r"garnalex|deceuninck|liniar|eurocell|epwin|veka|rehau|kommerling)", re.I)
+# The supplier stopgap that used to live here has gone. It was correcting
+# the enquiry count downstream, which meant anything else reading
+# intake.json still got the inflated number. jacob_intake.py now reads the
+# first sentence of each message and settles the direction of the ask at
+# source, so this file can trust the kind it is given.
 
 # Who does the next thing. Nothing goes on the board without one of these.
 ADAM, JACOB, GINTARE, ZAC, NOBODY = "Adam", "Jacob", "Gintare", "Zac", "-"
@@ -323,8 +313,6 @@ def state_for(days):
 def thread_kind(company, subject, relationship):
     if relationship == "individual":
         return "domestic"
-    if TRADE.search(company) or FENSTER_ASKED.search(subject or ""):
-        return "supplier"
     if relationship == "supplier":
         return "supplier"
     return "buyer"
@@ -363,7 +351,18 @@ def thread_action(t):
         return (NOBODY, "None. This is a price coming back to Fenster, not an enquiry.")
     if t["kind"] == "domestic":
         return (GINTARE, "Small works, not BD. Listed so nobody counts it as a lead.")
-    # Buyer.
+    # Buyer. A price already with them is a different job from a new ask:
+    # this is the second handover, the one that currently nobody does.
+    if t["stage"] == "quoted":
+        if t["state"] in ("gone quiet", "stale"):
+            return (ADAM, "Chase %s for a decision. Fenster's price has been with "
+                          "them %d days with nothing back." % (at, t["days"]))
+        return (ADAM, "Fenster has priced this and %s is deciding. %d days in - "
+                      "worth a call before it goes quiet." % (at, t["days"]))
+    if t["stage"] == "unconfirmed":
+        return (JACOB, "Read the thread from %s before anyone acts. The subject "
+                       "looked like an enquiry; the first line did not say either "
+                       "way." % at)
     if t["state"] in ("gone quiet", "stale"):
         return (ADAM, "Chase %s - %d days since they last wrote and nothing since. "
                       "Either it went cold or the reply never went out." % (at, t["days"]))
@@ -408,17 +407,22 @@ def build_threads(intake):
         t["messages"] += 1
         t["first"] = min(t["first"], s["date"])
         t["last"] = max(t["last"], s["date"])
-        if s["kind"] == "portal":
-            t["portal"] = True
+        t.setdefault("kinds", set()).add(s["kind"])
         if not t["name"] and s.get("name"):
             t["name"] = s["name"]
 
     out = []
     for t in by_key.values():
+        kinds = t.pop("kinds", set())
         t["days"] = days_since(t["last"])
         t["state"] = state_for(t["days"])
-        t["kind"] = "portal" if t.pop("portal", False) else \
+        t["kind"] = "portal" if "portal" in kinds else \
             thread_kind(t["company"], t["subject"], t["relationship"])
+        # How far along it is, which is a different question from how old it
+        # is. A price already sitting with the client is the one thing on
+        # this board nobody was tracking.
+        t["stage"] = ("quoted" if "quote-out" in kinds else
+                      "enquiry" if "enquiry" in kinds else "unconfirmed")
         # "3 days old" is not the state of a Hightown notice. The state is that
         # Adam has ruled them out, and a date-based chip hides that.
         if DO_NOT_QUOTE.search(t["company"] + t["subject"]):
@@ -659,6 +663,11 @@ def build():
             "domestic": sum(1 for t in threads if t["kind"] == "domestic"),
             "supplierThreads": sum(1 for t in threads if t["kind"] == "supplier"),
             "portalThreads": sum(1 for t in threads if t["kind"] == "portal"),
+            # A price already issued and sitting with the client. Nobody at
+            # Fenster currently owns chasing these.
+            "quotedOut": sum(1 for t in buyers if t["stage"] == "quoted"),
+            "unconfirmed": sum(1 for t in threads if t["stage"] == "unconfirmed"),
+            "smallWorks": ((intake or {}).get("counts", {}) or {}).get("small-works", 0),
             # The one money number on the board that is sourced, not guessed:
             # published values of live contracts whose winner Fenster knows.
             "knownWinnerValue": sum((r.get("total") or 0) for r in warm + known),

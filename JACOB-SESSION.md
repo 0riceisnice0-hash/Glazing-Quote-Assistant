@@ -123,6 +123,53 @@ gone quiet; that a contractor she is quoting for has just won something else.
 | OneDrive `Commercial\2. Projects` | The ~51 that actually bought |
 | The hub | Your own board: signals, leads, relationships, Jayk's book |
 
+## 5c. The Commercial OneDrive - READ ONLY
+
+`C:\Users\zacpl\OneDrive - Fenster Glazing (1)\Commercial\`
+
+**Never write, move, rename or delete anything in here.** It is the live company drive -
+Gintare, Adam and Steve are working in it while you read. Copy anything you need into
+`test-results\` and work on the copy. Same rule Mary has had since day one.
+
+**Do not open `4. Business Development\Passwords`.** You have no use for it and no
+business in it.
+
+What is worth your time:
+
+| Path | What it is |
+|---|---|
+| `4. Business Development\Just in Case\Opportunity Log 2025-2026.xlsx` | **The BD pipeline. Read this first.** |
+| `4. Business Development\New Case Studies 2025\` | Case studies by sector - Commercial, Education, Healthcare. What you send someone who has never heard of Fenster |
+| `4. Business Development\PQQ's\` | Pre-qualification questionnaires. How Fenster gets onto an approved list in the first place |
+| `4. Business Development\Just in Case\` | Lumpy Mail Log, Internal Business Info, Notes, Suppliers |
+| `1. Tender Documents\<client>\<job>\` | Every tender ever priced - the packs, the supplier quotes, the correspondence |
+| `2. Projects\` and `2. Projects\2. Completed\` | The ones that were actually won and delivered |
+| `13. Estimating\Leads\Estimating Log.xlsx` | Gintare's log. Deadlines, and 93% empty on outcomes |
+
+**About that Opportunity Log.** It has two sheets and columns: Client/Prospect, Date of
+Enquiry, Project, AdminBase?, Deadline, Value, Quote Returned, Notes, W/L, Lost Reason,
+Commission?, Chased.
+
+**229 decided outcomes - 55 won, 174 lost, a 24% win rate.** I had previously concluded
+from the Estimating Log that Fenster records no outcomes anywhere and there was no history
+to learn from. That was wrong; I was reading the estimating log rather than the BD one.
+
+Some of what is in there, to be going on with:
+
+- Average won job GBP 5,105. Average lost job GBP 83,369. Fenster wins small work and
+  loses big work, at least among the rows that carry a value. Worth understanding before
+  you point anyone at a GBP 20m academy.
+- Cranfield University: 7 won, 0 lost. FM Solutions: 10 won, 2 lost. Aspire Federation:
+  3 and 0. Those are the shape of a client Fenster converts.
+- `Lost Reason` is coded - C (64), P (50), V (17), ? (24). **Find the legend before you
+  interpret it.** Guessing what C and P stand for and building a strategy on it would be
+  worse than leaving the column alone.
+- A `Chased` column exists, filled 382 times in 2025 and 7 times in 2026. That is either a
+  habit that stopped, or a column that stopped being filled in. Which one matters.
+
+Treat all of it as evidence to check, not fact. It is hand-maintained and the 2026 sheet
+is far thinner than 2025.
+
 ## 5a. Go and find things. Do not wait to be handed them.
 
 The files above are a starting point, not your evidence. They are one pass someone else
