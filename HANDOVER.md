@@ -1431,6 +1431,51 @@ multi-column table before you suspect the document.**
 
 Price unchanged at GBP 5,990.22, unissued. `mary_checks` 0 failed, 3 questions; selftest passes.
 
+### Riverside House - the brief became two letters somebody can send (2026-07-28)
+
+**Gordon Court turned their clause-16 sort into three drafts and made the point this chat had earned:**
+*"REQ-26 had nine days on it and no text behind it."* Riverside was the same shape - the supplier half
+had been called urgent for two turns while it sat inside a fifteen-item working brief that whoever acted
+on it would have to disassemble first. **A request with no text behind it is still a request for somebody
+else to write an email.**
+
+Split along clause 16, each letter carrying its reasoning at the head:
+
+| Document | Date | Contents |
+|---|---|---|
+| `Riverside House - RFQ to A Plus (draft, send by 26-08).txt` | **26/08** | The nine items clause 16 makes **ours** - product suitability, the aerodynamic figure, the Uw, leaf configuration, delivery, restrictors, price hold |
+| `Riverside House - Questions to RRR (draft).txt` | none | What clause 16 puts on **their professional team** - free-area basis, wall or roof, the 1.5 m2 source, sheet currency, the openings, planning, the control system, the programme. Grouped by owner (Campbell Ark / HD Planning / RRR) so it can be forwarded rather than answered |
+| `Riverside House - Covering note to Adam (draft).txt` | none | The reminder he asked for, and what has changed since his instruction |
+
+**Nothing has been sent and Mary cannot send any of it** - ghost protocol, and `mary_send` is still 403'd.
+
+**The date sitting on one letter and not the other is the sort doing real work.** The supplier letter
+*decays* - after 26/08 everything in it is a fresh enquiry rather than an addendum to a live quote. The
+client letter does not decay; it just gates the answer. Different urgency, different document, and that
+only becomes visible once the findings are sorted by who owns them.
+
+**Two drafting choices taken from Gordon Court, and one matters more here than there.** *Ask a supplier
+what they priced against, not why they got it wrong* is not a courtesy on this job - **the 1130 x 1530
+came from Fenster's own enquiry.** A Plus quoted exactly what was asked for, so if the vent is the wrong
+product for a roof position that is our specification, not their error, and the letter says so in terms.
+The general form: **before drafting a query, check whether the thing you are raising is something the
+supplier chose or something you told them.** And *when a decision has been taken, say so* - the covering
+note states plainly that nothing reopens Adam's ruling on sizing, and that if a bigger vent is needed his
+answer was exactly right.
+
+### A stale draft in an outputs folder is a live hazard
+
+The turn-one reply to Adam was still sitting in `outputs\` as a clean-looking draft after three of its
+central claims had been withdrawn - it treats the vents as a settled wall-window purchase, repeats that
+size is unconstrained, and says the OneDrive folder is empty. It was in the house voice, addressed to the
+right person, and **nothing in the filename said it was out of date.**
+
+Renamed **`Riverside House - Reply to Adam (SUPERSEDED 27-07, do not send).txt`** with a header listing
+what it gets wrong and naming its replacements. **If you have superseded your own work, go and look at
+what is still sitting in outputs with a plausible name on it.** Rule added to `AI.md`.
+
+Price unchanged at GBP 5,990.22, unissued. `mary_checks` 0 failed, 3 questions; selftest passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

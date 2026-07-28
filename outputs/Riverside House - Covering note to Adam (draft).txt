@@ -1,0 +1,66 @@
+DRAFT - covering note for Adam. Nothing has been sent; email is still 403'd.
+This replaces the 27/07 reply, which is now marked superseded and should not go out.
+
+Subject: Riverside House - two letters ready to send, and where the job actually stands
+
+Adam,
+
+You asked for a reminder about Riverside so you could get Gintare to requote. This is it,
+though the answer has moved on since you gave that instruction and it is worth two minutes
+before anything goes to A Plus.
+
+WHERE THE NUMBER IS
+
+GBP 5,990.22 ex VAT, supply and fit, for the two vents. A Plus QT51518 at GBP 4,845.22 net
+plus the code adder and installation; optional external mastic GBP 53.20. That has not
+changed all week and the pricing document and drawings are done.
+
+THE ONE THING THAT COULD CHANGE WHAT WE BUY
+
+Your instruction was to make the vents bigger to reach the free area. Two things have come
+out of the drawings since:
+
+  The pack asks for 1m2, not the 1.5m2 in our enquiry - and A Plus's 1.30m2 already clears
+  1m2, IF the 1m2 is measured the way they measure it. Free area is quoted two ways and
+  they differ by about 40%. So there may be nothing to requote at all.
+
+  More seriously, the drawings say the stair is vented "at the top storey roof", and the
+  second floor stairwell has no window opening in any of its walls. A Plus have quoted a
+  wall casement on a subcill - because that is what we asked them for. If a roof vent is
+  what is intended, we have priced the wrong product for half the job.
+
+So resizing first risks paying to enlarge something we should not be buying. I would settle
+those two questions before Gintare asks A Plus for anything.
+
+TWO LETTERS, DRAFTED AND READY
+
+  outputs\Riverside House - RFQ to A Plus (draft, send by 26-08).txt
+      Nine items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
+      does not have to wait for the building works costs. It asks for the aerodynamic
+      figure, a price for a compliant size if one is needed, the U-value, delivery, a
+      price hold, restrictors, and whether a wall casement is even right for the position.
+      The date matters: QT51518 lapses 26/08. Before then everything is an addendum to a
+      live quote; after it, a fresh enquiry at autumn prices with nothing to compare.
+
+  outputs\Riverside House - Questions to RRR (draft).txt
+      The design questions - free area basis, wall or roof, where 1.5m2 came from, whether
+      the sheets are current, the openings, planning, who carries the AOV control panel,
+      and when the openings will be formed. Written as questions rather than complaints,
+      because our own terms put regulatory strategy on the client's team, not us.
+
+Neither has been sent and I cannot send them - a human needs to.
+
+TWO THINGS I GOT WRONG THIS WEEK, SO THEY ARE NOT CARRIED FORWARD
+
+I reported the OneDrive job folder as empty several times. It is not and never was - I was
+searching a folder name that does not exist. A Plus's quote is filed in it. And I said the
+size was "free to change" on the second floor vent; it is not, because that opening would
+be cut into existing masonry, which is builder's work nobody has priced.
+
+WHAT I HAVE NOT ASKED YOU TO DECIDE
+
+Nothing here reopens your ruling that the openings can be sized to suit. If the answer
+comes back that we do need a bigger vent, that is exactly what you said and we will get it
+priced. The point is only that we do not know yet whether we need one.
+
+Mary

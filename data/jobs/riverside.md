@@ -43,14 +43,25 @@ supply_rate=1401.24)` - note `supply_rate` is **GBP/m2**, not a unit price).
 
 ### Files
 
+**Deliverables (done):**
 - `outputs\Riverside House - Fenster Pricing Document (house format).xlsx`
 - `outputs\Riverside House - AOV Smoke Vent Drawings.pdf` (2 sheets, Rev A)
-- `outputs\Riverside House - Reply to Adam (draft).txt` - **written but NOT SENT, see below**
-- `outputs\Riverside House - A Plus requote brief (for Gintare).txt` - ready to go on Adam's word
+
+**Ready to send - nothing has been sent, and Mary cannot send any of it:**
+- `outputs\Riverside House - Covering note to Adam (draft).txt` - the reminder he asked for
+- `outputs\Riverside House - RFQ to A Plus (draft, send by 26-08).txt` - 9 items, ours to fix
+- `outputs\Riverside House - Questions to RRR (draft).txt` - design questions, theirs to answer
+
+**Working / superseded:**
+- `outputs\Riverside House - A Plus requote brief (for Gintare).txt` - the full working brief the
+  two letters were split out of; keep as the reasoning behind them
+- `outputs\Riverside House - Reply to Adam (SUPERSEDED 27-07, do not send).txt` - turn-one draft,
+  wrong on the product question, the openings and the OneDrive folder. Header says so.
 - `data\job-checks\riverside-house-aov.json` + fixture `_test-riverside.json`
 - Generator: `scratchpad\riverside_drawings.py`; job json `test-results\riverside-run\`
-- Quote: `test-results\mary-inbox\processed\20260727T0842-xgnwAAAA-att\Quotation_QT51518.PDF`
-- Pack: `test-results\mary-inbox\processed\20260727T1500-xgqQAAAA-att\` (6 drawings + 2 logo images)
+- Quote: filed at `...\RRR\Riverside\1. Estimating\2. Supplier Quotes\Quotation_QT51518.PDF`
+  (and at `test-results\mary-inbox\processed\20260727T0842-xgnwAAAA-att\`)
+- Pack: `test-results\mary-inbox\processed\20260727T1500-xgqQAAAA-att\` - 6 drawings, filed nowhere
 
 ## THE FREE AREA - what changed on 27/07 and why it matters
 
@@ -181,6 +192,33 @@ So there are now two dates on this job and they answer different questions:
 |---|---|
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
+
+### The brief is now two letters somebody can actually send (28/07)
+
+Gordon Court turned their clause-16 sort into three drafts and made the fair point that an urgent item
+with no text behind it is still a request for somebody else to write an email. **This chat had been
+calling Part One urgent for two turns while leaving it inside a fifteen-item document someone would have
+to disassemble first.** So it is split, along clause 16, each letter carrying its reasoning at the head:
+
+| | |
+|---|---|
+| **RFQ to A Plus** (`send by 26-08`) | The nine items clause 16 makes **ours** - product suitability, the aerodynamic figure, the Uw, leaf configuration, delivery, restrictors, price hold. Dated, because QT51518 lapses 26/08 and after that it is a fresh enquiry rather than an addendum. |
+| **Questions to RRR** (no date) | The items clause 16 puts on **their professional team** - free-area basis, wall or roof, the 1.5 m2 source, sheet currency, the openings, planning, the control system, the programme. Grouped by owner (Campbell Ark / HD Planning / RRR) so it can be forwarded rather than answered. |
+
+**Two drafting choices taken from Gordon Court, both about not overclaiming:**
+
+- **Ask a supplier what they priced against, not why they got it wrong.** It matters more here than on
+  their job: the 1130 x 1530 came from *our* enquiry, so A Plus quoted exactly what we asked for. The
+  letter says so in terms. Items 5 and 9 ask them to confirm what we think we are reading and whether the
+  product suits the position - neither is a complaint.
+- **When a decision has been taken, say so.** Adam ruled the openings can be sized to suit. The covering
+  note states plainly that nothing here reopens that, and that if a bigger vent is needed his answer is
+  exactly right - the point is only that we do not yet know whether one is.
+
+**And the turn-one reply to Adam has been marked SUPERSEDED - DO NOT SEND**, with a header listing what
+it gets wrong: it treats the vents as a settled wall-window purchase, repeats that size is unconstrained,
+and says the OneDrive folder is empty. It was sitting in `outputs\` where somebody could have sent it.
+**A stale draft in an outputs folder is a live hazard, not a harmless record.**
 
 ### CLAUSE 16 SPLITS EVERY FINDING INTO "OURS TO FIX" AND "OURS TO ASK" (28/07)
 

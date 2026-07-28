@@ -1266,6 +1266,41 @@ the value, you can price the windows and none of the work around them** - so do 
 the register and report the whole-job error as small. Where there is no category, the honest output is
 TBC plus an RFI, not a rate nobody can defend.
 
+## Draft The Letter, Not The Request - And Check What Is Still Sitting In Outputs
+
+Riverside / Gordon Court / St Mary's, 28/07/2026. **A request with no text behind it is still a request
+for somebody else to write an email.** Gordon Court's REQ-26 carried a nine-day deadline and no draft;
+Riverside called half a brief urgent for two turns while it sat inside a fifteen-item document someone
+would have to disassemble first. St Mary's had already made the general point: **on a deadline, draft the
+deliverable BEFORE the decision comes back, not after.**
+
+**Clause 16 is not only a sort, it is a document plan.** Split the findings by whose responsibility they
+are and you get two letters with two tones, derived rather than chosen:
+
+- **to the supplier** - the ours-to-fix items: product suitability, figures they hold and we do not,
+  dimensions, delivery. **Date it**, because a supplier letter *decays*: after their quote lapses,
+  everything in it is a fresh enquiry rather than an addendum to a live quote.
+- **to the client** - what the Design Responsibility clause puts on their professional team, worded as
+  questions and reliances. **No date** - it does not decay, it just gates the answer. Group by owner
+  (architect / planning consultant / client) so it can be forwarded rather than answered.
+
+The fact that only one of the two carries a date is the sort doing real work.
+
+**Two drafting choices, both about not overclaiming:**
+
+- **Ask a supplier what they priced AGAINST, not why they got it wrong.** Before drafting, check whether
+  the thing you are querying is something the supplier *chose* or something you *told them*. Riverside's
+  1130 x 1530 came from Fenster's own enquiry - A Plus quoted exactly what was asked for, so if the
+  product is wrong for the position that is our specification, not their error, and the letter says so.
+- **When a decision has been taken, say so in the document.** A draft that quietly relitigates a decision
+  its author accepted is worse than no draft. State plainly what is *not* being reopened.
+
+**AND CHECK WHAT IS STILL SITTING IN `outputs\`.** Riverside's turn-one reply to Adam remained there as a
+clean-looking draft after three of its central claims had been withdrawn - it was in the house voice,
+addressed to the right person, and nothing in the filename said it was stale. **A superseded draft in an
+outputs folder is a live hazard, not a harmless record.** Rename it `(SUPERSEDED <date>, do not send)`
+and put a header on it listing what it gets wrong and what replaces it.
+
 ## Clause 16: Sort Findings By Whose Responsibility They Are
 
 Riverside / Gordon Court, 28/07/2026. Fenster's own Terms and Conditions run to twenty clauses; **clause

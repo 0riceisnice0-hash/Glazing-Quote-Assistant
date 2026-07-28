@@ -1,0 +1,98 @@
+DRAFT - FOR GINTARE TO SEND TO A PLUS. Nothing has been sent.
+Send by 26/08/2026 - see "why the date" below.
+
+Subject: Riverside House, Aylesbury - QT51518 - a few questions and one addition
+
+--------------------------------------------------------------------------------
+WHY THIS GOES NOW AND NOT WITH THE ORDER
+--------------------------------------------------------------------------------
+Everything below is a question about A Plus's own quotation. None of it waits on the
+client, and two parts of it decay if we hold on:
+
+  QT51518 lapses 26/08/2026. Anything we put to A Plus before then is an addendum to
+  a live quote - same job, same spec, same rates, they add lines. After it, item 2 in
+  particular comes back as a fresh enquiry with nothing to compare it against.
+
+  Our own document carries 30 days' validity, so the last date we could issue and
+  still be covered by A Plus was 27/07. That is behind us and the gap widens daily,
+  which makes item 7 worth asking now rather than at order.
+
+A note on tone, because it matters here: the 1130 x 1530 came from OUR enquiry of
+24/07, not from A Plus. They quoted what we asked for. Nothing below is a complaint
+about their quotation - items 5 and 9 in particular ask what they priced against, not
+why anything is wrong.
+
+--------------------------------------------------------------------------------
+
+Hello,
+
+Thank you for QT51518 of 27/07 for the two AOV smoke vents at Riverside House,
+44 Wedgewood Street, Fairford Leys, Aylesbury HP19 7HL. A few questions before we take
+this further, plus one item we would like added.
+
+1. AERODYNAMIC FREE AREA - the one we most need
+   QT51518 states "Geometric free area = 1.30m2" and gives no aerodynamic figure. Please
+   state the APPROXIMATE AERODYNAMIC FREE AREA for the vent as quoted - 1130 x 1530,
+   style FF, 850mm stroke single chain. Your QT51516 for Towcester Vale states both on
+   every line, so we assume the figure is available in the same way.
+
+2. A SIZE THAT ACHIEVES 1.0 m2 AERODYNAMIC
+   If the aerodynamic figure at 1130 x 1530 falls below 1.0 m2, please give the O/A size
+   that achieves at least 1.0 m2 AERODYNAMIC in the same configuration, and price it.
+   Please state both figures for that size.
+   Please do NOT size it to 1.5 m2. That figure came from our own enquiry and is not
+   what the drawings ask for - they require 1m2, once per stairwell.
+
+3. THE ACTUATOR IF THE VENT GROWS
+   Your notes say the quoted prices may change if the vent sizes increase and a larger
+   actuator is required. If the size in item 2 needs a larger actuator or a twin chain,
+   please say so and price it separately so the change is visible.
+
+4. WHOLE-WINDOW U-VALUE
+   The drawings set a U-value of 1.6 W/m2K against the window and door types on this
+   building. QT51518 gives the glass make-up only ("4-20-4 Clr Tough S Coat 1.2"), which
+   is a centre-pane figure, and your standard notes say windows will be "no better than
+   1.8" unless otherwise stated. Please state the WHOLE-WINDOW Uw for the vent as quoted,
+   and confirm whether 1.6 can be met if it is required.
+
+5. THE VENT LEAF - please confirm what we think we are reading
+   The quote lists apertures A1 (957 x 590) and A7 (957 x 591), so the frame is transom
+   divided, but a single 850mm stroke actuator is quoted. We read the stated 1.30m2 as the
+   full inner frame aperture (957 x 1357), which would mean the whole frame opens as one
+   bottom-hung leaf with the transom acting as a glazing bar within the sash. Is that
+   right? A shop drawing showing the leaf, the transom and the actuator position would
+   settle it.
+
+6. DELIVERY
+   (a) The quotation is addressed to our Bradwell Abbey yard, MK13 9HF, and carries no
+       site address. Please confirm delivery is to MK13 9HF rather than to site.
+   (b) The order is GBP 4,845.22, which is GBP 154.78 below the GBP 5,000 threshold for
+       free delivery. Please confirm whether this load will be batched at no charge or
+       whether carriage is chargeable, and at what figure. If the resize at item 2 takes
+       the order over GBP 5,000, please confirm delivery is then FOC.
+   (c) Please also price delivery direct to site at HP19 7HL as an alternative.
+
+7. PRICE HOLD
+   QT51518 is open for 30 days, to 26/08/2026. The client is waiting on their building
+   works costs before this is submitted, so the submission date is not yet known. Please
+   confirm how long A Plus can hold the price, or what notice we would have of a change.
+   Related: the vents sit at the top storey and one requires a new opening to be formed
+   by others first, so the installation date may be some way out.
+
+8. WINDOW RESTRICTORS - please price 2no
+   Your AOV notes say the actuators will not act as window restrictors, that the facade
+   contractor should fit suitable restrictors set 50mm beyond the stroke, and that A Plus
+   are not liable for replacement actuators or damage to the vent if none is fitted. We
+   are the installer here, so that is us. Please price 2no suitable restrictors for the
+   850mm stroke so we can carry them properly rather than exclude them.
+
+9. IS THIS THE RIGHT PRODUCT FOR THE POSITION?
+   The architect's drawings say the stair is to be vented "at the top storey roof", and
+   the second floor stairwell has no opening in any of its walls. We asked you for a
+   window, so a window is what you quoted - but before we go further, please confirm
+   whether a DualFrame 75Si wall casement is suitable for a top-storey stairwell smoke
+   vent in this position, and whether A Plus offer or would recommend a roof-mounted unit
+   on a kerb instead. We are checking the intent with the architect separately; we would
+   rather hear now if you think the wall unit is the wrong answer.
+
+Many thanks,

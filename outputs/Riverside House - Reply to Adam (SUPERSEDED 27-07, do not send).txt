@@ -1,3 +1,25 @@
+*** SUPERSEDED - DO NOT SEND ***
+
+Written 27/07 before most of what has since been established. It is kept only as a
+record of the position at that point. Specifically, it is wrong or incomplete on:
+
+  - it treats the vents as a settled wall-window purchase. The drawings say the stair
+    is vented "at the top storey roof" and the second floor stairwell has no wall
+    opening, so AOV.01 may be the wrong product altogether.
+  - it repeats "the openings are newly formed, so size is not a constraint". Neither
+    vent has a cost-free resize - the building is existing throughout, so a new opening
+    is cut into retained masonry.
+  - it says the OneDrive job folder is empty. It is not, and never was.
+  - it predates the restrictors, the onward haulage, the delivery destination, the
+    validity arithmetic and the clause 16 split.
+
+USE INSTEAD:
+  outputs\Riverside House - Covering note to Adam (draft).txt
+  outputs\Riverside House - RFQ to A Plus (draft, send by 26-08).txt
+  outputs\Riverside House - Questions to RRR (draft).txt
+
+--------------------------------------------------------------------------------
+
 Adam,
 
 Riverside House is on the pricing document and I have drawn it up. Both attached.

@@ -1,0 +1,109 @@
+DRAFT - FOR ADAM OR GINTARE TO SEND TO RRR GROUP. Nothing has been sent.
+No date on this one. It is not urgent in the way the A Plus letter is, but two of the
+answers decide what we buy, so earlier is better than later.
+
+Subject: Riverside House, Aylesbury - a few questions on the stairwell smoke vents
+
+--------------------------------------------------------------------------------
+WHY THIS IS SEPARATE FROM THE SUPPLIER LETTER, AND WHY IT READS AS QUESTIONS
+--------------------------------------------------------------------------------
+Our own terms of business, clause 16, say Fenster is "not responsible for overall design
+intent, architectural suitability, or regulatory strategy" and relies on the information
+the client's professional team provides; our responsibility is limited to measurement
+verification, supply and installation.
+
+Everything in this letter falls on their side of that line. So it is written as questions
+and reliances, not as defects - we are asking what the design intends so that we supply
+the right thing, not suggesting anything is wrong. The items that are OURS have gone to
+A Plus in a separate letter.
+
+Two of these need Campbell Ark (job K1653, drawn SC) and one needs HD Planning
+(plan ref HD0-0197-01a), so RRR may wish to forward rather than answer.
+
+--------------------------------------------------------------------------------
+
+Hello,
+
+We have priced the two automatically-opening smoke vents for the stairwells and produced
+drawings of what we would supply. Before this goes any further there are a few points we
+would like the design team to confirm, because between them they decide which product we
+should be buying.
+
+FOR CAMPBELL ARK - the author of the smoke vent note
+
+1. WHAT BASIS IS THE 1m2 ON?
+   Drawings K1653-11 and K1653-12 both require "an automatically openable vent/window
+   with a free area of 1m2". A Plus have quoted 1.30m2 GEOMETRIC free area. Free area is
+   quoted two ways and they differ substantially - aerodynamic free area typically runs
+   at around 60% of geometric on this type of vent.
+   So: is the 1m2 GEOMETRIC, AERODYNAMIC, or clear opening area? On a geometric reading
+   the vents as quoted clear the requirement comfortably. On an aerodynamic reading they
+   would not. We have asked A Plus for the aerodynamic figure in parallel.
+   Our own reading is that it is geometric, because the drawings key works to AD B1 and
+   free area is the language of that route - but we would rather have it confirmed than
+   rely on our reading.
+
+2. IS THE VENT IN THE WALL OR THE ROOF?
+   The note says the stair is to be vented "at the top storey roof". The second floor
+   stairwell has no window opening in any of its walls. A Plus have quoted a wall
+   casement on a subcill, because that is what we asked them for.
+   Please confirm whether a wall vent or a roof-mounted unit is intended. If it is a roof
+   vent we are pricing the wrong product and would like to know before, rather than after.
+
+3. AND WHERE DID 1.5m2 COME FROM?
+   Our original enquiry asked for 1.5m2. We can find that figure nowhere in the pack. If
+   it came from a fire engineer or from site rather than from the drawings, that source
+   would govern and we would resize accordingly.
+
+4. ARE K1653-11 AND K1653-12 STILL CURRENT?
+   They are the only documents carrying the smoke vent requirement and neither has been
+   revised since Mar 24, while the ground floor plan K1653-10b was revised twice in
+   Nov 25. One line of confirmation is all we need.
+
+5. THE OPENINGS - AND WHAT THEY ARE CUT INTO
+   We understand from Adam that the openings are being newly formed and can be sized to
+   suit, and we are not questioning that. Reading the drawings, though, the two vents look
+   different from each other: the second floor stairwell has no opening at all, so one
+   would have to be formed; the first floor stairwell already has three. And the building
+   reads as existing throughout - K1653-04 is a single existing/proposed elevation set
+   with no added storey - so a new opening at second floor would be cut into retained
+   masonry rather than new construction.
+   If that is right, enlarging or forming an opening carries structural work that is not
+   in our price and, as far as we can see, not in anyone's. The existing plans, the
+   demolition plan and any wall type schedule or section would settle it. We hold none of
+   those.
+   Related: no structural engineer is named on any of the six drawings we have.
+
+6. COULD WE HAVE THE K1653 DRAWING REGISTER?
+   We hold K1653-03, 04, 10b, 11 and 12 plus the location plan. K1653-01, 02 and 05 to 09
+   are unaccounted for, and the plans cross-refer to Details 1, 2, 4, 5 and 6, none of
+   which we have. Most of it is probably not our scope - we would just rather ask for what
+   exists than guess from the numbering.
+
+FOR HD PLANNING - HD0-0197-01a
+
+7. IF AN OPENING IS ENLARGED, DOES THAT SIT INSIDE THE APPROVAL?
+   The drawings are stamped 24/02303/PAPCR, which we take to be a prior approval rather
+   than a full planning permission. If that is right, external alterations may be limited.
+   Before anyone commits to changing an opening size it would be worth confirming whether
+   that sits inside the approval or needs a separate application.
+
+FOR RRR / PHDB
+
+8. WHO IS CARRYING THE AOV CONTROL SYSTEM?
+   The drawings require the vent to be "operated by the fire brigade at ground floor
+   access level", which needs a smoke control panel, a mains and battery-backed supply,
+   cabling, containment, the override itself and commissioning. A Plus fix the actuator,
+   test it on local batteries and leave about 2m of flex coiled at the vent - that is
+   where their scope ends, and ours does too. It is not in our price and we do not believe
+   it is in theirs. Somebody needs to be carrying it.
+
+9. WHEN WILL THE OPENINGS BE FORMED?
+   Our terms provide for a site survey only once structural openings are fully formed. So
+   the sequence is: openings formed, then we survey, then manufacture. A rough programme
+   date would help - it affects how long we can reasonably ask A Plus to hold their price.
+
+None of this is holding up the pricing document, which is with you. These are the points
+we would want settled before an order rather than after.
+
+Many thanks,
