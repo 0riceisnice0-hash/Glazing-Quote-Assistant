@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-28",
+ "updated": "2026-07-28T18:10:00",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -317,14 +317,15 @@
    "raised": "2026-07-27",
    "job": "BCC Filwood Broadway",
    "owner": "Adam",
-   "title": "Filwood: correct the install line, and firm price or provisional sum?",
-   "why": "The tender goes to Stepnell on Thursday 30/07 at GBP 67,067.58 ex VAT. The installation inside it is GBP 3,500 for 122.98 m2 of shopfront 3.5 metres tall - GBP 28.46 a square metre - because the template INSTALLATION formula read the DAD door code and gave GBP 500 per screen. Our own CW labour rate of GBP 150/m2 makes it GBP 18,446.32. The proposal also excludes scaffold, MEWPs and towers while including installation of 3,570mm elements, so there is no access plant in the price either. Separately, Stepnell's bill item A instructs tenderers to carry the shopfronts as Contractor's Provisional Sums under Work Section A54 and not to price them twice - Mary's 17/07 submission was a provisional sum, Gintare's is a firm lump sum, and item A is currently unanswered. Since raising this, Mary found the BSW correspondence: Gintare's RFQ of 23/07 asked for all of it correctly - mill finish, RAL 7035 to the doors only, U 1.0, g 0.5-0.6, Rw 32 dB, LPS 1175 SR2, thresholds, M4(2) - and BSW's reply answered only on u/g/acoustic values and panels, limiting even that to \"glazing only ... non rebated\". So the RFQ was right and the quote did not answer it.",
-   "needs": "Two decisions: (1) correct the install to GBP 18,446.32 or give a figure you are happy with, and say whether access plant stays excluded; (2) submit firm or as a provisional sum. Also who chases BSW in the three days left for the LPS 1175 SR2 doorset on ED-06, the solar control coating on all seven, and a mill-finish requote - Mary cannot email suppliers.",
+   "title": "Filwood: install line, firm-or-provisional, and now a system question that outranks both",
+   "why": "The tender goes to Stepnell on Thursday 30/07 at GBP 67,067.58 ex VAT. The installation inside it is GBP 3,500 for 122.98 m2 of shopfront 3.5 metres tall - GBP 28.46 a square metre - because the template INSTALLATION formula read the DAD door code and gave GBP 500 per screen. Our own CW labour rate of GBP 150/m2 makes it GBP 18,446.32. The proposal also excludes scaffold, MEWPs and towers while including installation of 3,570mm elements, so there is no access plant in the price either. Separately, Stepnell's bill item A instructs tenderers to carry the shopfronts as Contractor's Provisional Sums under Work Section A54 and not to price them twice - Mary's 17/07 submission was a provisional sum, Gintare's is a firm lump sum, and item A is currently unanswered. Since raising this, Mary found the BSW correspondence: Gintare's RFQ of 23/07 asked for all of it correctly - mill finish, RAL 7035 to the doors only, U 1.0, g 0.5-0.6, Rw 32 dB, LPS 1175 SR2, thresholds, M4(2) - and BSW's reply answered only on u/g/acoustic values and panels, limiting even that to \"glazing only ... non rebated\". So the RFQ was right and the quote did not answer it. UPDATE 28/07, two days before the return: a SECOND quote arrived - Aplus QT51510, Technal STII, GBP 34,445.91 against BSW's GBP 46,067.59. It is not a like-for-like: Aplus state 'Panels by others' and leave 46.09 m2 of infill out, 37.5% of the elevation, which BSW include. Break-even is GBP 252.15/m2 of panel and neither quote yields a panel rate, so the comparison cannot be settled from anything we hold. More important: Aplus state 'Quoted in STII, these will only reach 1.8/1.9 U Value' against a specified 1.0, and 'STII doors have no formal acoustic test data' against ED-06's Rw 32 dB. BSW had already limited their compliance to 'glazing only ... non rebated'. Two independent fabricators, two systems, both saying no - which points at the Aluprof specification being the only route to the performance, and we have approached no Aluprof fabricator at all.",
+   "needs": "Now four things, and the third is new and outranks the rest: (1) correct the install to GBP 18,446.32 or give a figure; (2) firm price or provisional sum; (3) do we go to an Aluprof-approved fabricator before Thursday, or submit on a substituted system with the U-value non-compliance stated on the face of the tender; (4) who gets a panel price so the two quotes can actually be compared. Also, before anything is attached: the pricing workbook carries dan.parker@agsurveying.co.uk and external links to two other firms' machines - the Georgie's defect, caught this time before issue.",
    "options": [
-    "Correct install to GBP 18,446.32 and submit firm at GBP 82,013.90",
+    "Correct install and submit firm on BSW, with the U-value non-compliance stated",
     "Correct install and submit as a Contractor's Provisional Sum per bill item A",
-    "Leave GBP 3,500 and submit at GBP 67,067.58",
-    "Ask Stepnell for an extension until BSW have requoted the SR2 doorset and the solar glass"
+    "Get an Aluprof fabricator to price it before Thursday",
+    "Ask Stepnell for an extension and price it properly",
+    "Get a panel price first, then choose between BSW and Aplus"
    ],
    "status": "open",
    "answer": null,
@@ -755,6 +756,27 @@
   }
  ],
  "catches": [
+  {
+   "date": "2026-07-28",
+   "job": "BCC Filwood Broadway",
+   "catch": "Both suppliers have now put the U-value failure in writing, in different words. Aplus QT51510: \"Quoted in STII, these will only reach 1.8/1.9 U Value\" against a specified 1.0 per element - and their standard terms add \"Commercial doors and framing will be supplied with a U-Value of up to 3.0\". BSW had already limited theirs to \"glazing only ... non rebated\". Two independent fabricators, two systems, both saying no. That stops being a supplier problem: a standard commercial shopfront system is not thermally broken to curtain-walling standard, which is very likely why the architect specified Aluprof and issued the drawings to Aluprof directly. Fenster have approached no Aluprof fabricator at all.",
+   "type": "specification not achievable",
+   "value": "both quotes may be for the wrong product"
+  },
+  {
+   "date": "2026-07-28",
+   "job": "BCC Filwood Broadway",
+   "catch": "The cheaper quote is cheaper because it has no panels in it. Aplus QT51510 came in GBP 11,621.68 under BSW, and page 16 says \"Panels by others\" - 46.09 m2 of spandrel, base and ventilation-zone infill, 37.5% of the elevation, that BSW include as 70 flat aluminium panels. Visible line by line: every non-glazed aperture is a 32mm opening with no product against it, and three of ED-06's seven segments carry no glass line at all. Break-even is GBP 252.15/m2 of panel, and neither quote yields a panel rate - BSW bundle them with no extractable figure, Aplus exclude them, and the register has no panel category.",
+   "type": "quotes not comparable",
+   "value": "GBP 11,621.68 apparent saving"
+  },
+  {
+   "date": "2026-07-28",
+   "job": "BCC Filwood Broadway",
+   "catch": "The Filwood pricing workbook carries dan.parker@agsurveying.co.uk in its document properties and external links to C:\\Users\\LiamO'Donnell and C:\\Users\\Parke through an Outlook cache path - the same defect that reached Pearce Construction on Georgie's this week, and the fourth job running. Caught this time BEFORE issue, because mary_checks was pointed at the actual files rather than at a description of them.",
+   "type": "third-party traces",
+   "value": "catchable - not yet issued"
+  },
   {
    "date": "2026-07-28",
    "job": "Princess Beatrice House",

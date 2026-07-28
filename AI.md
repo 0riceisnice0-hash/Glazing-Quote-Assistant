@@ -223,6 +223,94 @@ landed within GBP 2,797 of the GBP 84,810.59 built ten days earlier from registe
 quote at all. Two independent routes converging is the strongest evidence available that the correction, not
 the original, is right.
 
+## When Two Fabricators Refuse The Same Requirement, The Finding Is Against The SPEC (learned 28/07/2026, Filwood)
+
+One supplier declining a performance figure is a supplier problem: get another quote. **Two independent
+fabricators, on two different systems, declining the SAME figure in writing is a specification problem** -
+and the response is not a third quote, it is to go to the manufacturer the spec actually names.
+
+Filwood asks for U 1.0 per element on shopfront screens:
+
+- Bellview/BSW, 24/07: performance met "for glazing only, as these area commercial thermally broken
+  shopfront products they are **non rebated**".
+- Aplus QT51510 p16, 27/07: "**Quoted in STII, these will only reach 1.8/1.9 U Value**" - and their
+  standard Terms of Sale go further, "Commercial doors and framing will be supplied with a U-Value of up
+  to **3.0** Wm2/K".
+
+A standard commercial shopfront/door system is not thermally broken to curtain-walling standard and does
+not reach 1.0. So a schedule asking for 1.0 or better on a shopfront is asking for a CW-grade or
+specialist system - **it cannot be closed by changing the glass make-up**, and quoting a glass Ug of 1.0
+against it answers nothing (see the Ug/Uw rule).
+
+The tell that this had happened on Filwood: the architect named **Aluprof** in the bill AND in the
+materials schedule, and drawing 31551's revision history read "Issued to Aluprof 2025.10.22". RCKa had
+developed the design with the manufacturer. Fenster had approached **no Aluprof fabricator at all** and
+were about to submit a substituted system, so the "alternative system needs a formal qualification"
+finding was actually understating it: both prices may be for the wrong product.
+
+What to do when the pattern appears:
+
+1. Ask the SPECIFIED manufacturer whether their system meets the schedule, even late. That is the only
+   question that resolves it.
+2. If nobody can meet it, that is an RFI to the architect through the main contractor - a stated,
+   documented non-compliance - not a silent substitution.
+3. Never repeat a supplier's performance claim to a client without the number behind it. Aplus gave
+   "Glass quoted has a g value of **0.66**" against a 0.5-0.6 requirement; BSW claimed to meet the same
+   requirement on an un-named make-up. The honest reading is that a clear lami/tough soft-coat DGU is
+   ~0.66, so a SOLAR coating has to be priced separately on both.
+
+## A Cheaper Quote Is Not Cheaper Until You Count What Is Not In It (learned 28/07/2026, Filwood)
+
+Aplus QT51510 came in **GBP 11,621.68 under** Bellview on the same seven screens. Page 16, three words:
+**"Panels by others"** - 46.09 m2 of spandrel, base and ventilation-zone infill, **37.5% of the
+elevation**, which Bellview included as 70 flat aluminium panels.
+
+**How to spot it on an Aplus quote without reaching page 16.** Under "Glazing Details & Apertures" each
+aperture sits beneath a heading. A priced one reads a make-up: `6.8-18-4 Clr Lam Tough S Coat 1.0 : 18mm
+Blk Warmedge`. An unpriced one sits beneath a bare **`32mm (Max 30kg/m)`** - that is an aperture thickness
+and a weight limit, **not a product**. Apertures under a bare thickness heading are holes nobody has
+priced. Corroborate with the price lines: on Filwood, three of ED-06's seven segments had a Frame Price
+and **no Glass line at all**.
+
+Then do the arithmetic that makes the difference decidable: **break-even rate = price gap / excluded
+area**. Filwood: 11,621.68 / 46.09 = **GBP 252.15/m2 of panel**. Below that Aplus is genuinely cheaper,
+above it Bellview is.
+
+And know when you cannot decide it. Bellview bundle panels into the element price with no extractable
+figure; Aplus exclude them; `data/supplier-rates.json` has **no panel or spandrel category at all**. So
+the answer needed a panel price, and inventing one would have breached the never-invent rule. Give the
+break-even and say plainly that it is not decidable yet - that is a finished piece of work, not a
+half-finished one.
+
+Two more things from the same comparison worth reusing:
+
+- **Where two quotes disagree on size, the one that reproduces the drawing's own dimension string read
+  the drawing.** Aplus segmented ED-06 as 300 + 1200 + 700 + 600 + 1172 + 1172 + 1171 = 6315 x 3105 - and
+  "300 1200 700 600" is printed on drawing 31551. That settled that Bellview's 4850/4800/6250 were wrong
+  on five of seven elements, and caught a 3150-for-3105 typo in Fenster's own pricing document.
+- **Aplus segment totals are ALREADY extended for quantity.** "Frame Price 1233 x 3570 **4** GBP 8,876.83"
+  is the price for all four, not each; the segment totals sum straight to the quote total. Divide to get
+  the per-screen cost, do not multiply. Always reconcile a reconstructed total back to the figure printed
+  on the quote before using it - this was caught only because the first build produced GBP 102,036.76
+  against a stated GBP 34,445.91.
+
+## Point mary_checks At Real File Paths (learned 28/07/2026, Filwood)
+
+`check_no_third_party_traces_in_issued_files` returns **ASK** when `issued_documents` entries have no
+`path` - "not scanned is not the same as clean". Filling the paths in turned that ASK into a **FAIL**:
+the Filwood pricing workbook carries `dan.parker@agsurveying.co.uk` in `docProps/core.xml` and external
+links to `C:\Users\LiamO'Donnell` and `C:\Users\Parke` through an Outlook `INetCache` path, with
+`C:\Users\fenst` in the proposal's `word/document.xml`. That is the identical defect that had already
+reached Pearce Construction on Georgie's that same week - **the fourth job running** - and Filwood was
+caught only because it had not been issued yet.
+
+The same run also turned a described workbook into a measured one: **62 populated cells outside the print
+area** `$C$1:$I$27`. A print area protects a print, not the file.
+
+So: when writing a job manifest, give every `issued_documents` entry its real `path`. A rule that can open
+the file tells you what is in it; a rule that can only read your description tells you what you already
+thought. The two most valuable results on Filwood both came from the file, not the description.
+
 ## Audit The RFQ, Not Just The Quote (learned 27/07/2026, Filwood)
 
 A supplier quote can reconcile to the penny and still be the wrong product. Bellview/BSW 0000000507 was

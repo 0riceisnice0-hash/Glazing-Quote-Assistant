@@ -2,7 +2,7 @@
 
 Chat key `filwood`. Backup for this chat's own memory. Update whenever the position moves.
 
-Last updated: 2026-07-27 (first turn of the permanent chat - quote check for the 30/07 submission).
+Last updated: 2026-07-28 (Aplus QT51510 checked; job put into mary_checks; 18 findings).
 
 ---
 
@@ -102,7 +102,7 @@ What follows from that:
 
 Full audit: `outputs\Filwood Broadway - Quote Check (BSW 0000000507 vs Tender).xlsx`
 (regenerate with `python scripts\filwood_quote_check.py`). Five sheets: Findings, Line reconciliation,
-Spec compliance, RFIs, Sources. **15 findings.** The five that matter:
+Spec compliance, RFIs, Sources, Aplus QT51510. **18 findings.** The five that matter:
 
 1. **Install GBP 3,500 for 122.98 m2 of 3.5 m tall shopfront - understated GBP 14,946.32.** The template
    INSTALLATION formula read the product code DAD = GBP 500 x 7. Made worse by the proposal excluding
@@ -124,7 +124,79 @@ manifestation neither priced nor excluded (9); single doors quoted, coded DAD (d
 mill finish vs RAL 7035 throughout - the RFQ asked for mill finish and BSW ignored it (11); **bill item A /
 Work Section A54 provisional sums never addressed** (12); admin defects (13); Stepnell's commercial terms
 unqualified (14); **BSW's written "glazing only / non-rebated" caveat not carried into the tender, and the
-quote has no terms page, no validity and no lead time** (15).
+quote has no terms page, no validity and no lead time** (15). Added 28/07: third-party traces in the
+pricing workbook (16); the Aplus quote is not a like-for-like (17); **neither system can meet the
+specification and nobody has asked the one that might** (18) - see section 4a.
+
+## 4a. 28/07 - the second quote, and what it settles
+
+**Aplus QT51510, 27/07/2026 (printed 28/07), Technal STII, "Glazed /Supply Only (Delivered)",
+`GBP 34,445.91` net ex VAT.** 18 priced segments over the same seven screens; the segment totals sum
+straight to the quote total - **they are already extended for quantity, so divide, do not multiply.**
+Per screen: ED-04 GBP 4,848.23, ED-05 GBP 4,706.06, ED-06 GBP 5,640.88.
+Source PDF `test-results\mary-inbox\processed\20260728T1114-QnQXBAAA-att\Quotation_QT51510.PDF`;
+text dump `scratchpad\qt51510.txt`.
+
+**It is GBP 11,621.68 under BSW and it is NOT a like-for-like.** Page 16: **"Panels by others"** -
+46.09 m2 of spandrel, base and ventilation-zone infill, **37.5% of the elevation**, which BSW include as
+70 flat aluminium panels. Visible line by line: every non-glazed aperture sits under a bare
+`32mm (Max 30kg/m)` heading with no product named, and ED-06 segments 1, 3 and 4 (300 / 700 / 600 wide)
+carry no Glass price line at all. **Break-even is GBP 252.15/m2 of panel.** Neither quote yields a panel
+rate - BSW bundle them with no extractable figure, Aplus exclude them - and `data/supplier-rates.json`
+has **no panel or spandrel category**. It cannot be settled from anything we hold.
+
+**Aplus's own qualifications, page 16, verbatim - this is the value of the quote:**
+
+- **"Quoted in STII, these will only reach 1.8/1.9 U Value."** Against a specified 1.0 per element. Their
+  Terms of Sale add "Commercial doors and framing will be supplied with a U-Value of up to 3.0 Wm2/K".
+- **"STII doors have no formal acoustic test data."** ED-06 needs >= Rw 32 dB.
+- **"Glass quoted has a g value of 0.66."** Against 0.5-0.6. First hard g-number anyone has given us.
+- **"Access controls /automation by others - quoted with Pas24 maglock."**
+- **"Mullions tested to a minimum of 950Pa"** while their own terms calculate to BS 6399 Pt 2 at 1200Pa
+  "unless otherwise stated", then disclaim: "all design responsibility remains with the Customer". On
+  3,570 mm mullions that is the contractor's-design element behind Stepnell's PI requirement.
+- **"Please specify exact clear opening required"** - M4(2) unconfirmed; the ED-04 door segment is
+  separately marked **"DDA Compliant No"**.
+- **"DO NOT ORDER - Unglazed : A4 - (1163 x -3)"** - a NEGATIVE 3mm aperture on all three door segments.
+  The Logikal model does not close; transom setting-out needs confirming against 31551's zones.
+- **"All orders are priced as Ex-Works"** against a header reading "(Delivered)". Free only over
+  GBP 5,000 AND within 50 miles of Watford; Bristol is ~105 miles and the GBP 1/mile rule is written only
+  for loads UNDER GBP 5,000. **Carriage is in neither supplier's number.**
+- 30-day validity (~26/08/2026); lead time "confirmed on receipt of written order", i.e. none; payment
+  "Deposit and cleared Funds Prior to delivery on first order" - 100% before delivery.
+
+**Three things the second quote settles:**
+
+1. **The sizes.** Aplus segment to 1233+1233+1232+1232 = **4930**, 1250+1434+1434+1432 = **5550**, and
+   300+1200+700+600+1172+1172+1171 = **6315 x 3105** - the trade bill exactly, with ED-06's split being
+   the dimension string printed on drawing 31551 itself. So BSW's 4850/4800/6250x3100 are wrong on five
+   of seven, and our own 3150 is confirmed a typo for 3105.
+2. **The g-value.** 0.66 on a standard clear lami/tough soft-coat build. Finding 3 is now quantified,
+   and it applies to BSW's un-named make-up too.
+3. **The U-value.** Two independent fabricators have now refused it in writing. **This stops being a
+   supplier problem and becomes a specification one** - a standard commercial shopfront system is not
+   thermally broken to curtain-walling standard and does not reach 1.0. Very likely why RCKa named
+   Aluprof and issued the drawings to Aluprof directly in October 2025. **Fenster have approached no
+   Aluprof fabricator at all.** Findings 17 and 18.
+
+## 4b. The house rule engine now covers this job
+
+`python scripts\mary_checks.py data/job-checks/filwood.json` - manifest written 28/07. **9 FAILED,
+4 unanswered.** It independently reproduced findings 1, 4, 5, 9, 11, 12, 15 and 17-18, and found two
+things the manual check had not:
+
+- **THIRD-PARTY TRACES IN THE PRICING WORKBOOK.** `dan.parker@agsurveying.co.uk` in `docProps/core.xml`;
+  external links to `C:\Users\LiamO'Donnell` and `C:\Users\Parke` via an Outlook `INetCache` path in
+  `xl/externalLinks/_rels/externalLink1.xml.rels` and `externalLink2.xml.rels`; and `C:\Users\fenst` in
+  the proposal's `word/document.xml`. **The same defect that reached Pearce on Georgie's, fourth job
+  running - but Filwood has NOT been issued, so this one is catchable.** Strip in place, not on a copy.
+- **62 populated cells OUTSIDE the print area** `$C$1:$I$27`. "A print area protects a print, not the
+  file." Issue a sell-only copy with the working columns REMOVED, not merely outside the printed range.
+
+Still unanswered by the engine, honestly: BSW's delivery basis (their quote has no terms page, so the
+threshold is genuinely unknown); both suppliers' incorporated terms, which we have never read; and the
+warranty back-to-back - **we offer the client 10 years and hold no stated warranty period from either
+supplier.**
 
 ## 5. Fix before it goes out
 
@@ -148,7 +220,18 @@ the architect's specification.
 
 To BSW: solar coating + g-value; LPS 1175 SR2 for ED-06; Rw 32 dB for the ED-06 element and whether the
 ED-05/ED-06 make-ups are swapped; the 4850/4800/6250 widths; mill-finish requote; Uw not Ug on ED-05; door
-opening direction, thresholds, M4(2), BS EN 12600.
+opening direction, thresholds, M4(2), BS EN 12600; validity, lead time and delivery basis, none of which
+appear on the quote.
+
+To Aplus (added 28/07): a price for the 46.09 m2 of panels they have excluded; carriage to Bristol, since
+their terms are ex-works and Bristol is outside the 50-mile free radius on a GBP 34k load; whether STII
+can be built to 1.0 at all, or only to the 1.8/1.9 they state; the negative -3mm apertures and the
+transom setting-out against 31551's zones; M4(2) clear openings and the "DDA Compliant No" flag; the
+Terms of Sale V.01.2 08.01.2018 they incorporate and we have never held.
+
+**To an Aluprof-approved fabricator, which is the one nobody has done:** can the specified system meet
+U 1.0, g 0.5-0.6, Rw 32 dB on ED-06 and LPS 1175 SR2, and at what price. If the answer is that nobody can
+reach 1.0 in a shopfront, that is an RFI to RCKa through Stepnell - not a silent substitution.
 
 ## 7. Decisions taken and why
 
@@ -161,9 +244,28 @@ opening direction, thresholds, M4(2), BS EN 12600.
 - **27/07:** the GBP 1,500 DAD adder x7 is left alone in the recommendation. Adam ruled 17/07 that the
   template maths is the price, and 24/07 that estimators may load discretionary money into a unit rate.
   The DAD-vs-SAD question (GBP 4,200) is put to Adam as a decision, not corrected unilaterally.
+- **28/07:** the Aplus GBP 34,445.91 is NOT presented as a saving, and no recommendation is made between
+  the two suppliers. Without a panel rate the comparison is not decidable, and inventing one would breach
+  the never-invent rule. The break-even (GBP 252.15/m2) is given instead so Adam can decide the moment a
+  panel price exists.
+- **28/07:** no new dashboard request raised. 24 were already open and unanswered; the noticeboard's own
+  instruction is to consolidate rather than add. Everything went into REQ-10, which was already the
+  Filwood decision, with the options rewritten.
 
 ## 8. Status
 
-**Checked 27/07 and reported to Adam + Zac by email with the workbook attached.** Nothing has been sent to
-Stepnell. Deadline Thursday 30/07. Waiting on Adam for: the install correction, who chases the SR2 and
-solar-glass requote in three days, and whether we submit firm or as a provisional sum.
+**Checked 27/07, rechecked 28/07 against the second quote, and reported to Adam + Zac by email each time
+with the workbook attached.** Nothing has been sent to Stepnell.
+
+**Deadline THURSDAY 30/07 - two days.** REQ-10 on the hub carries all four open decisions:
+
+1. Correct the install line to GBP 18,446.32, or give a figure.
+2. Firm price, or Contractor's Provisional Sum per bill item A.
+3. **New and outranking both:** go to an Aluprof-approved fabricator before Thursday, or submit on a
+   substituted system with the U-value non-compliance stated on the face of the tender. Two fabricators
+   have now refused 1.0 in writing.
+4. Who gets a panel price, so BSW and Aplus can actually be compared.
+
+And before anything is attached to anything: strip the third-party traces out of the pricing workbook,
+and issue a sell-only copy with the working columns removed. Re-run
+`python scripts\mary_checks.py data/job-checks/filwood.json` after.

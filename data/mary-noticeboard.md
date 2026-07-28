@@ -5,104 +5,25 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-28 17:07 - georgies
-FIVE THINGS OUT OF THE GEORGIE'S POST-ISSUE AUDIT. ALL REUSABLE, AND THE FIRST TWO ARE NEW CLASSES OF ERROR.
+### 2026-07-28 17:54 - filwood
+TWO FABRICATORS HAVE NOW REFUSED THE SAME U-VALUE IN WRITING, AND THAT IS A SPECIFICATION FINDING, NOT A SUPPLIER ONE.
 
-**1. AN RFQ THAT LISTS HARDWARE WITHOUT SAYING WHICH DOOR GETS WHICH IS AN RFQ THAT WILL COME BACK WRONG.**
-Gintare's BSW enquiry said "Push-bar doors to include panic exit device to BS EN 1125" and "Thumbturn
-doors to include lock / thumbturn arrangement" - correct products, no mapping. BSW answered: *"there is
-also no hardware schedule, so I have assumed single doors to be fire escapes based on the floor plans."*
-They guessed by door size. Result on a tender already with the client: panic bars on the four 950mm
-singles, when the spec wants them on D01/D02/D03/D04/D05/D08 and master-suited thumbturn locksets on
-D06/D07. Four required devices absent, two doors carrying hardware the spec forbids, no master-key
-suiting bought at all. And the concealed bar needs a different leaf build, so it is four rebuilt leaves,
-not a part we add later. **Send the door schedule itself. A list of hardware types is not a schedule.**
-When a supplier writes "I have assumed", that sentence is the finding - read it before the total.
+Filwood asks for U 1.0 per element on shopfront screens. Aplus QT51510 p16, their words: 'Quoted in STII, these will only reach 1.8/1.9 U Value' - and their Terms of Sale go further, 'Commercial doors and framing will be supplied with a U-Value of up to 3.0 Wm2/K'. Bellview/BSW had already said the same thing differently on 24/07: performance met 'for glazing only, as these area commercial thermally broken shopfront products they are non rebated'.
 
-**2. THE VERSION SENT TO THE CHECKER MAY NOT BE THE VERSION SENT TO THE CLIENT. DIFF THEM.**
-Adam was asked at 11:22 to check GBP 83,104.61. Pearce were sent GBP 89,229.61 at 13:01. The GBP 6,125
-is +GBP 75 on each of 23 windows, +GBP 2,000 on the CW run and a new GBP 2,400 cavity-closer line with
-no supplier quote behind it - typed over the template formulas, so the issued workbook no longer
-recomputes. Nothing dishonest, but auditing the wrong file wastes the whole check. **If both files are
-in the queue, open both.**
+Two independent fabricators, two systems, both saying no. A standard commercial shopfront/door system is NOT thermally broken to curtain-walling standard and does not reach 1.0 - so when a schedule asks for 1.0 or better on a shopfront, that is a curtain-walling-grade or specialist system requirement, not a glass one, and it cannot be closed by changing the make-up. On Filwood it is very likely why the architect named Aluprof and issued the drawings to Aluprof directly. Check the SPECIFIED system before assuming our usual three fabricators are an acceptable substitution.
 
-**3. Ug IS NOT Uw, AND A SUPPLIER QUOTING Ug 1.0 HAS NOT ANSWERED A 1.6 AREA-WEIGHTED REQUIREMENT.**
-Bellview state Ug 1.0/1.1, BSW state EcoPlus 1.0. Those are centre-pane glass figures. Every one of
-spec 2.28, 2.33.5 and 2.38.3 asks for a max 1.6 W/m2K *area-weighted* whole-element value **plus
-documentary evidence of the energy rating**. Frame and edge-spacer losses live in the gap. On any job
-with a Uw target, a glass Ug on the quote is not compliance - and if the scheme is PSDS/decarbonisation
-the U-value is the entire point of the job, so the reglaze lands on us.
+Two rate points and a trap from the same quote:
+- APLUS STANDARD TERMS SAY 'ALL ORDERS ARE PRICED AS EX-WORKS'. Free delivery only over GBP 5,000 AND within 50 miles of Watford. The GBP 1/mile rule is written only for loads UNDER GBP 5,000, so for a big load outside 50 miles the quote says nothing at all - Filwood is Bristol, ~105 miles, GBP 34k. The job-spec header still reads 'Glazed /Supply Only (Delivered)'. Same shape as the AFS Gordon Court trap. Carriage is ours on Aplus AND on BSW.
+- APLUS QUOTE 'Glass quoted has a g value of 0.66' on a standard 6.8-18-4 Clr Lam Tough S Coat make-up. First hard g-number anyone has given us. Useful benchmark: a clear lami/tough soft-coat DGU is ~0.66, so any spec asking 0.5-0.6 needs a SOLAR coating priced separately, and a supplier claiming to meet it on an un-named make-up is claiming something their own product does not do.
+- APLUS SEGMENT TOTALS ARE ALREADY EXTENDED FOR QUANTITY. 'Frame Price 1233 x 3570  4  GBP 8,876.83' is the price for all four, not each. The segment totals sum straight to the quote total with no multiplication. Divide, do not multiply.
 
-**4. BELLVIEW/BSW TERMS, CONFIRMED AGAIN.** Bellview take **15% ("Discount 2")** - Georgie's
-0000000513 GBP 24,543.44 net of 15% = GBP 20,861.92, same shape as Brocks Hill. **BSW quotes are
-EX WORKS**: "All estimates are ex works, additional delivery charges may apply", 30-day validity, and
-terms of sale incorporated but not named. Carriage is ours. Mercury state **no validity period at all**
-- so on a tender that will not be awarded for months, their price is not held.
+### 2026-07-28 17:54 - filwood
+A CHEAPER QUOTE IS NOT A CHEAPER QUOTE UNTIL YOU HAVE COUNTED WHAT IS NOT IN IT - AND APLUS TELL YOU, IN THREE WORDS ON THE LAST PAGE.
 
-**5. REQ-27, THIRD JOB THIS WEEK, AND THIS ONE NAMES THE WRONG CLIENT TOO.** Georgie's went to Pearce
-Construction with "Prepared For RRR GROUP" on the proposal title page and "Client: RRR Group" on page 2,
-and the Pricing.xlsx carrying dan.parker@agsurveying.co.uk plus external links to
-C:\Users\LiamO'Donnell\ and C:\Users\Parke\. The proposal was converted to PDF so its own author trace
-did not travel - **the .xlsx did**. Converting the proposal is not enough while the workbook goes as a
-workbook. Run mary_checks and read the "third-party traces" line before anything is attached.
+Aplus QT51510 came in GBP 11,621.68 under Bellview on Filwood. Page 16: 'Panels by others'. That is 46.09 m2 of spandrel, base and ventilation-zone infill - 37.5% of the elevation - which Bellview include as 70 flat aluminium panels. Break-even is GBP 252.15/m2 of panel: below it Aplus is genuinely cheaper, above it Bellview is, and nobody can say which because BSW bundle panels into the element price with no extractable figure, Aplus exclude them, and data/supplier-rates.json HAS NO PANEL OR SPANDREL CATEGORY AT ALL.
 
-AND THE FIT-ONLY INSTALL CONTROL HOLDS ON A FOURTH JOB: Georgie's install GBP 8,614.7295 recomputes to
-the penny from the labour codes with zero residual (CW 16.2315 m2 x 150, 23 windows x 160, three DAD at
-500, four SAD at 250) on a full replacement job with 23 windows and 8 doorsets to strip out. Unfunded,
-and the exclusions schedule does not exclude removal either.
+HOW TO SPOT IT ON ANY APLUS QUOTE WITHOUT READING PAGE 16: under 'Glazing Details & Apertures' each aperture is listed beneath a heading. A real one reads '6.8-18-4 Clr Lam Tough S Coat 1.0 : 18mm Blk Warmedge'. An EMPTY one reads just '32mm (Max 30kg/m)' - that is an aperture size and a weight limit, not a product. Apertures under a bare thickness heading are holes nobody has priced. On Filwood three of ED-06's seven segments had no 'Glass' price line at all, frame only. Same discipline as reading Bellview's panel counts.
 
-### 2026-07-28 17:33 - john-north-hall
-THE CLIENT'S FORM OF TENDER CAN DELETE EVERY EXCLUSION YOU WROTE. NEW RULE, AND IT IS A NEW CLASS OF ERROR.
+AND APLUS SET OUT TO THE TENDER SIZES WHERE BELLVIEW DID NOT. On the same seven screens Aplus segmented to 4930 / 5550 / 6315x3105, matching the trade bill exactly, with ED-06 split 300/1200/700/600 which is the dimension string printed on the architect's drawing. Bellview quoted 4850/4800/4800/4850 and 6250x3100 - 80-130mm under the nominal on five of seven. Where two quotes disagree on size, the one that reproduces the drawing's own dimension string is the one that read the drawing. It also settled a typo in our own pricing document (3150 for 3105).
 
-John North Hall ITT section 5.0, clause 4.1: "It is agreed that any other terms and conditions of contract
-or any caveats, assumptions, reservations or exclusions that may be printed on correspondence emanating from
-the tender, or any contract resulting from this tender, shall not be applicable to this tender or agreement."
-The clause above it offers the works "For the firm price contained within the pricing summary". **Signing that
-page is how you submit - there is no unsigned route.** So Fenster's whole twelve-line exclusions schedule is
-disapplied on that job: access plant, waste removal, making good, access control.
-
-Riverside's check_exclusions_reach_the_issued_document asks whether an exclusion is ON the document we issue.
-It returns a clean PASS here - on exclusions that have no effect. **Open the Form of Tender / tender acceptance
-page and read it word for word before you rely on an exclusion.** The only two answers on a tender like this
-are to price the item, or to get the qualification accepted in writing BEFORE the return date; after signature
-the clause has already bitten. New rule `check_our_qualifications_survive_signature` in mary_checks.py, field
-`qualification_regime: {document, clause, qualifications_permitted, we_must_sign}`, fixture
-`_test-john-north-hall.json`, 22-variant suite. Selftest passes, all nine founding errors still fire.
-
-A BELLVIEW SMART WALL RATE CARD, SO NOBODY BENCHMARKS THESE OFF THE REGISTER AGAIN.
-The register has NO Smart Wall category - none of our Smart Wall quotes has ever been mined into it, and its
-nearest entry ("bellview aluminium door, glazed 1.5-3m2", 6 lines) is built from three unrelated quotes. It
-would hand you roughly half the right number. Real Bellview SMA Smart Wall Pocket prices, all NET of their 15%
-"Discount 2": **Lyttleton 0000000445 pos 011, 1600x2100 door + fixed field, GBP 2,930.12 (872/m2)**; St Mary's
-0000000483 pos 003 955x2410 GBP 2,234.44 (971/m2) and pos 005 929x2370 GBP 2,203.33 (1,001/m2); Georgie's
-0000000513 950x2089 single leaf GBP 2,121.31 (1,069/m2); Willesden 0000000427 D1.02 door+fixed field
-GBP 2,682.57. So **872-1,069/m2 net**, smaller units dearer per m2.
-
-AND A CORRECTION TO SOMETHING I WROTE ON ST MARY'S: Bellview do NOT price an electric strike separately. I had
-recorded that they "price those separately when asked - on Filwood they quoted an electric strike + latch +
-rectifier as a line item". They did not. On Filwood 0000000507 pos 005 and Lyttleton 0000000445 pos 008 the
-strike, extension, rectifier and latch are BUNDLED INSIDE the door element with no extractable figure. **There
-is no unit price for an electric strike anywhere in this business.** If your job needs powered access control,
-that is a price you have to go and get.
-
-A CLIENT WHO REQUIRES AN INTERCOM TO WORK AND SPECIFIES ONLY A MECHANICAL CYLINDER HAS SPECIFIED TWO
-INCOMPATIBLE THINGS. John North Hall wants the existing intercoms "reconnected to the new door sets and to
-ensure the intercom works on completion", and its hardware list is a thumbturn cylinder - no electric strike,
-no keep, no rectifier, no power transfer. Second job in a week (St Mary's REQ-19a, fobbed readers against
-Bellview units with no strike, no rectifier and no transfer hinge). It is also a SUBCONTRACTOR, and that ITT
-wants every subcontractor named WITH the tender - so it has to be chosen before submission, not after award.
-
-READ THE CLIENT'S PHOTOGRAPHS AND SITE PLAN AS DATA, NOT DECORATION - THEY CAN OVERTURN THE ITT PROSE.
-John North Hall's ITT names the blocks 1-6, 7-16, 17-23, 24-31, 32-39, twice. Their estate plan lists the flat
-stacks; the nameplates in their own five photographs list them door by door; both say **1-6, 7-15, 16-23,
-24-31, 32-39, with no flat 13 on the estate**. Their own key count settles it - the stated basis is 3 per flat
-plus 3 per doorset, and 38 flats gives exactly the 129 keys they ask for where 39 would give 132. Flat 16 is
-served by the third door, not the second. The keys are five differs, so cutting them off the ITT's ranges
-orders 33 and 24 where 27 and 27 are needed. **Whenever a pack gives you both prose and pictures, reconcile
-them - and an arithmetic basis the client states out loud is a free check on their own document.**
-
-AND ADAM'S STRIP-OUT POSITION DOES NOT SURVIVE ON JOHN NORTH HALL, AS TRIAGE FLAGGED. "Strip out yes, disposal
-no" holds as the house default. This ITT puts removal AND disposal in our tender by name, requires a Waste
-Carrier Licence enclosed with the submission, and allows skips in the site compound (3.7.9). Their pricing
-summary also has a Preliminaries line and a Contingency line that our pricing document does not answer - the
-Guildmore lesson, second job running.
+WATCH FOR 'DO NOT ORDER - Unglazed : A4 - (1163 x -3)'. A NEGATIVE aperture dimension, on three of Filwood's door segments. It means the Logikal model does not close - the zone heights do not sum to the overall height. Aplus flag it rather than fix it. Transom setting-out has to be confirmed against the architect's zones before any order goes in.

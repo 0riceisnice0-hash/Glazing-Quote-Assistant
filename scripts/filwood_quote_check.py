@@ -85,7 +85,10 @@ ws["B3"] = ("Checked 27/07/2026 by Mary. Outgoing tender: 'Stepnell - BCC Filwoo
             "(GBP 67,067.58 ex VAT) + Proposal.docx, both 27/07/2026. Checked against Stepnell trade bill "
             "L_SC Shop Front Systems (bid S25233B), ITT STP10 02/07/2026, drawing 2411-RCK-ZZ-ZZ-DR-A-31551 "
             "Rev.P02, External Materials Schedule 00700 Rev.P00 s.N p41, and supplier quote "
-            "Bellview/BSW 0000000507 dated 24/07/2026. Submission deadline THU 30/07/2026.")
+            "Bellview/BSW 0000000507 dated 24/07/2026. Submission deadline THU 30/07/2026. "
+            "UPDATED 28/07 for a SECOND supplier quote, Aplus QT51510 (Technal STII, 27/07/2026, "
+            "GBP 34,445.91) - see the 'Aplus QT51510' sheet - and for a run of the house rule engine, "
+            "`python scripts/mary_checks.py data/job-checks/filwood.json`, which returns 9 FAILED.")
 ws["B3"].font = BASE
 ws["B3"].alignment = WRAP
 ws.merge_cells("B3:H3")
@@ -273,6 +276,44 @@ FINDINGS = [
      "is its own exposure.",
      "risk", "Carry BSW's caveat verbatim as a qualification, or get them to confirm element-level compliance. "
      "Ask for lead time and validity in writing."),
+    (16, "The pricing workbook carries three other companies' traces - and this one has not been issued yet",
+     "`python scripts/mary_checks.py data/job-checks/filwood.json` scans the actual files. "
+     "'Stepnell - BCC Filwood Broadway Pricing.xlsx' carries **dan.parker@agsurveying.co.uk** in "
+     r"docProps/core.xml, and external links pointing at C:\Users\LiamO'Donnell and "
+     r"C:\Users\Parke by way of an Outlook INetCache path, in "
+     "xl/externalLinks/_rels/externalLink1.xml.rels and externalLink2.xml.rels. The proposal separately "
+     r"carries C:\Users\fenst in word/document.xml. The same rule also reports 62 populated cells "
+     "OUTSIDE the print area $C$1:$I$27 - a print area protects a print, not the file.",
+     "Identical to the Georgie's defect that reached Pearce Construction on 28/07, and the fourth job this "
+     "week. The difference here is that Filwood has NOT gone out, so it is still catchable. It is visible "
+     "in file properties without opening the document.",
+     "reputational", "Strip docProps and the external links IN PLACE - the file has not been issued - and "
+     "issue a sell-only copy with the working columns REMOVED, not merely outside the printed range. "
+     "Re-run mary_checks before anything is attached."),
+    (17, "A second quote arrived on 28/07 and it is not a like-for-like - but it does settle three questions",
+     "Aplus QT51510 (27/07/2026, Technal STII, 'Glazed /Supply Only (Delivered)') totals GBP 34,445.91 net, "
+     "GBP 11,621.68 under BSW. It is NOT comparable: Aplus state 'Panels by others' and leave 46.09 m2 of "
+     "infill - 37.5% of the elevation - as unfilled 32mm apertures, where BSW include 70 flat aluminium "
+     "panels bundled into their element price. Break-even is GBP 252.15/m2 of panel. Neither quote yields a "
+     "panel rate and the register has no panel category, so this cannot be settled from anything we hold. "
+     "What the second quote DOES settle: (a) Aplus set out to the trade bill exactly - 4930 / 5550 / "
+     "6315x3105, with ED-06 segmented 300/1200/700/600 straight off drawing 31551 - so BSW's 4850/4800/6250 "
+     "are wrong and our own 3150 is a typo; (b) 'Glass quoted has a g value of 0.66' against a 0.5-0.6 "
+     "requirement, quantifying finding 3; (c) 'Quoted in STII, these will only reach 1.8/1.9 U Value' and "
+     "'STII doors have no formal acoustic test data'. Full detail on the 'Aplus QT51510' sheet.",
+     "Two independent fabricators have now put the same non-compliance in writing. This stops being a "
+     "supplier problem and becomes a specification one.",
+     "not comparable", "Do not present GBP 34,445.91 as a saving. Get a panel price, then compare."),
+    (18, "Neither system can meet the specification, and nobody has asked the one that might",
+     "BSW on 24/07: performance met 'for glazing only ... non rebated'. Aplus on 27/07: 'will only reach "
+     "1.8/1.9 U Value', 'no formal acoustic test data', 'g value of 0.66'. The specified system is Aluprof, "
+     "and Fenster have approached no Aluprof fabricator at all - the architect developed the design with "
+     "Aluprof directly, which is the likeliest reason the target is 1.0. A standard commercial shopfront "
+     "system is not a thermally broken curtain-walling-grade system and does not get to 1.0.",
+     "The Aluprof specification is probably not a formality to value-engineer around; it may be the only "
+     "route to the stated performance. That reframes finding 4 from a paperwork problem into a pricing one.",
+     "structural", "Ask an Aluprof-approved fabricator to price it, even late. If the answer is that nobody "
+     "can hit 1.0 in a shopfront, that is an RFI to RCKa via Stepnell, not a silent substitution."),
 ]
 
 r = 6
@@ -283,7 +324,7 @@ for num, title, detail, effect, money, action in FINDINGS:
     ws.cell(row=r, column=5, value=effect).font = BASE
     ws.cell(row=r, column=6, value=money).font = BOLD
     ws.cell(row=r, column=7, value=action).font = BASE
-    fill = RED if num <= 5 else AMB
+    fill = RED if (num <= 5 or num >= 16) else AMB
     for c in range(2, 8):
         cell = ws.cell(row=r, column=c)
         cell.alignment = WRAP
@@ -608,6 +649,209 @@ for a, b in SRC:
     ws5.cell(row=r, column=2).alignment = WRAP
     ws5.cell(row=r, column=3).alignment = WRAP
     ws5.row_dimensions[r].height = 30
+    r += 1
+
+# ================================================== 6. APLUS QT51510 COMPARISON
+# Aplus QT51510, 27/07/2026, Technal STII, "Glazed /Supply Only (Delivered)".
+# 15 priced segments; total net GBP 34,445.91 ex VAT. Panels EXCLUDED.
+APLUS_SEGS = [
+    # ref, nr, seg, kind, w, h, frame, glass, energy, total
+    ("ED-04", 4, "coupler", "STII Coupled", None, None, 127.79, 0, 0, 127.79),
+    ("ED-04", 4, "1 of 4", "Single Door (Style 8)", 1233, 3570, 8876.83, 619.42, 57.96, 9554.21),
+    ("ED-04", 4, "2 of 4", "Sidepanel (Style 4)", 1233, 3570, 2619.73, 552.98, 51.74, 3224.45),
+    ("ED-04", 4, "3 of 4", "Sidepanel (Style 4)", 1232, 3570, 2619.07, 552.51, 51.70, 3223.28),
+    ("ED-04", 4, "4 of 4", "Sidepanel (Style 4)", 1232, 3570, 2665.15, 546.86, 51.17, 3263.18),
+    ("ED-05", 2, "coupler", "STII Coupled", None, None, 53.16, 0, 0, 53.16),
+    ("ED-05", 2, "1 of 4", "Single Door (Style 5)", 1250, 2970, 4165.41, 296.24, 27.72, 4489.37),
+    ("ED-05", 2, "2 of 4", "Sidepanel (Style FF)", 1434, 2970, 1117.79, 447.55, 53.30, 1618.64),
+    ("ED-05", 2, "3 of 4", "Sidepanel (Style FF)", 1434, 2970, 1117.79, 447.55, 53.30, 1618.64),
+    ("ED-05", 2, "4 of 4", "Sidepanel (Style FF)", 1432, 2970, 1136.56, 443.00, 52.75, 1632.31),
+    ("ED-06", 1, "coupler", "STII Coupled", None, None, 55.58, 0, 0, 55.58),
+    ("ED-06", 1, "1 of 7", "Sidepanel (Style 2)", 300, 3105, 369.39, 0, 0, 369.39),
+    ("ED-06", 1, "2 of 7", "Single Door (Style 6)", 1200, 3105, 2075.74, 151.46, 14.17, 2241.37),
+    ("ED-06", 1, "3 of 7", "Sidepanel (Style 2)", 700, 3105, 423.39, 0, 0, 423.39),
+    ("ED-06", 1, "4 of 7", "Sidepanel (Style 1)", 600, 3105, 366.45, 0, 0, 366.45),
+    ("ED-06", 1, "5 of 7", "Sidepanel (Style FF)", 1172, 3105, 536.71, 172.16, 16.76, 725.63),
+    ("ED-06", 1, "6 of 7", "Sidepanel (Style FF)", 1172, 3105, 536.71, 172.16, 16.76, 725.63),
+    ("ED-06", 1, "7 of 7", "Sidepanel (Style FF)", 1171, 3105, 546.74, 170.14, 16.56, 733.44),
+]
+APLUS_NET = 34445.91
+UNFILLED_M2 = 46.090          # "32mm (Max 30kg/m)" apertures with no product named
+GLAZED_M2 = 59.941
+
+ws6 = wb.create_sheet("Aplus QT51510")
+ws6["B2"] = "SECOND QUOTE: A PLUS QT51510 (27/07/2026, TECHNAL STII) vs BELLVIEW/BSW 0000000507"
+ws6["B2"].font = TITLE
+ws6["B3"] = ("Aplus is GBP 11,621.68 under BSW - and it is not a like-for-like. Aplus state 'Panels by "
+             "others' and leave %.2f m2 of infill (%.1f%% of the elevation) as unfilled 32mm apertures, "
+             "where BSW include 70 flat aluminium panels bundled in their element price. The apparent "
+             "saving works out at GBP %.2f per m2 of the panel area: below that rate Aplus is genuinely "
+             "cheaper, above it BSW is. Neither quote yields a panel rate - BSW bundle them with no "
+             "extractable figure and Aplus exclude them - and `data/supplier-rates.json` has no panel or "
+             "spandrel category at all, so this cannot be settled from anything we hold. It needs a "
+             "panel price."
+             % (UNFILLED_M2, UNFILLED_M2 / bill_sqm * 100, (bsw_net - APLUS_NET) / UNFILLED_M2))
+ws6["B3"].font = BASE
+ws6["B3"].alignment = WRAP
+ws6.merge_cells("B3:K3")
+ws6.row_dimensions[3].height = 74
+
+for c, w in [("B", 9), ("C", 9), ("D", 24), ("E", 14), ("F", 12), ("G", 12), ("H", 12),
+             ("I", 12), ("J", 13), ("K", 13)]:
+    ws6.column_dimensions[c].width = w
+
+# NOTE: Aplus's segment Total lines are ALREADY extended for the quantity - "Frame Price 1233 x 3570
+# 4 GBP 8,876.83" is the price for all four, not each. The 18 segment totals sum to 34,445.91 with no
+# further multiplication. Per-screen cost is therefore the segment total divided by Nr.
+for i, h in enumerate(["Ref", "Segment", "Type", "Size", "Frame", "Glass", "Energy",
+                       "Total (all nr)", "Nr", "Each"]):
+    cell = ws6.cell(row=5, column=2 + i, value=h)
+    cell.fill, cell.font, cell.alignment, cell.border = HDR, HDRF, WRAP, THIN
+
+r = 6
+check = 0.0
+for ref, nr, seg, kind, w, h, fr, gl, en, tot in APLUS_SEGS:
+    check += tot
+    ext = tot / nr
+    row = [ref, seg, kind, ("%d x %d" % (w, h)) if w else "-", fr, gl, en, tot, nr, ext]
+    for i, v in enumerate(row):
+        cell = ws6.cell(row=r, column=2 + i, value=v)
+        cell.font = BASE
+        cell.alignment = TOP
+        cell.border = THIN
+        if i in (4, 5, 6, 7, 9):
+            cell.number_format = "#,##0.00"
+    if gl == 0 and w:
+        for cc in range(2, 12):
+            ws6.cell(row=r, column=cc).fill = AMB      # no glass line at all
+    r += 1
+
+ws6.cell(row=r, column=3, value="TOTAL").font = BOLD
+c = ws6.cell(row=r, column=11, value=round(check, 2))
+c.number_format = "#,##0.00"
+c.font = BOLD
+c.fill = GRN
+ws6.cell(row=r, column=12, value="quote states GBP 34,445.91 - reconciles exactly").font = BASE
+r += 2
+
+ws6.cell(row=r, column=2, value="SIZES - APLUS SET OUT TO THE TRADE BILL, BSW DID NOT").font = TITLE
+r += 1
+for ref, aseg, atot, bill_s, bsw_s in [
+    ("ED-04", "1233 + 1233 + 1232 + 1232", "4930 x 3570", "4930 x 3570", "4850 / 4800 / 4800 / 4850 x 3570"),
+    ("ED-05", "1250 + 1434 + 1434 + 1432", "5550 x 2970", "5550 x 2970", "5550 x 2970"),
+    ("ED-06", "300 + 1200 + 700 + 600 + 1172 + 1172 + 1171", "6315 x 3105", "6315 x 3105", "6250 x 3100"),
+]:
+    ws6.cell(row=r, column=2, value=ref).font = BOLD
+    ws6.cell(row=r, column=3, value=aseg).font = BASE
+    ws6.merge_cells(start_row=r, start_column=3, end_row=r, end_column=5)
+    ws6.cell(row=r, column=6, value=atot).font = BOLD
+    ws6.cell(row=r, column=6).fill = GRN
+    ws6.cell(row=r, column=8, value="bill: " + bill_s).font = BASE
+    ws6.cell(row=r, column=10, value="BSW: " + bsw_s).font = BASE
+    ws6.cell(row=r, column=10).fill = RED
+    ws6.merge_cells(start_row=r, start_column=10, end_row=r, end_column=12)
+    r += 1
+ws6.cell(row=r, column=3,
+         value="Aplus's ED-06 segments 300 / 1200 / 700 / 600 are the dimension string printed on "
+               "drawing 31551 itself. They set out from the drawing; BSW did not. This settles finding 6 "
+               "and confirms our own document's 3150 is a typo for 3105.").font = BASE
+ws6.cell(row=r, column=3).alignment = WRAP
+ws6.merge_cells(start_row=r, start_column=3, end_row=r, end_column=12)
+ws6.row_dimensions[r].height = 30
+r += 2
+
+ws6.cell(row=r, column=2, value="APLUS'S OWN QUALIFICATIONS, PAGE 16 - VERBATIM").font = TITLE
+r += 1
+for q, why in [
+    ('"Quoted in STII, these will only reach 1.8/1.9 U Value."',
+     "Against a specified Target U-Value of 1.0 per element. Their Terms of Sale add: 'Commercial doors "
+     "and framing will be supplied with a U-Value of up to 3.0 Wm2/K'. This is the second supplier to "
+     "put the U-value non-compliance in writing - BSW said 'glazing only ... non rebated' on 24/07. "
+     "TWO independent fabricators saying no is the finding: a standard commercial shopfront system does "
+     "not reach 1.0, which is very likely why the architect specified Aluprof."),
+    ('"Panels by others"',
+     "Excludes %.2f m2 of spandrel, base and ventilation-zone infill - %.1f%% of the elevation. Visible "
+     "line by line in the quote: every non-glazed aperture is listed under '32mm (Max 30kg/m)' with no "
+     "product named, and ED-06 segments 1, 3 and 4 have no glass line at all."
+     % (UNFILLED_M2, UNFILLED_M2 / bill_sqm * 100)),
+    ('"STII doors have no formal acoustic test data."',
+     "ED-06 requires >= Rw 32 dB. Aplus cannot evidence any acoustic figure for the system; BSW limited "
+     "theirs to the glazing. Neither offer can evidence the one acoustic requirement on the job."),
+    ('"Glass quoted has a g value of 0.66."',
+     "Against 0.5-0.6 on all three types. A stated, quantified failure - and it corroborates finding 3, "
+     "because BSW's un-named make-up is the same clear laminated/toughened build."),
+    ('"Access controls /automation by others - quoted with Pas24 maglock"',
+     "ED-06's access control is excluded, as it is in our own proposal. Note a maglock needs power and "
+     "fail-safe release, which is also 'by others'. BSW instead bundled a strike, latch and rectifier "
+     "inside the element with no extractable figure."),
+    ('"Mullions tested to a minimum of 950Pa" / "Mullions to run full height"',
+     "Their own terms calculate mullions to BS 6399 Pt 2 at 1200Pa 'unless otherwise stated' - here they "
+     "have stated 950Pa - and then: 'all design responsibility remains with the Customer and our "
+     "calculations are not to be relied on for any design purposes whatsoever'. On 3,570 mm mullions on "
+     "an exposed Bristol high street this is the contractor's design element that triggers Stepnell's "
+     "PI requirement."),
+    ('"Please specify exact clear opening required so we can ensure this will meet the requirement"',
+     "M4(2) clear openings are required by the drawing and Aplus have not confirmed them. The ED-04 door "
+     "segment is separately marked 'DDA Compliant No'."),
+    ('"DO NOT ORDER - Unglazed : A4 - (1163 x -3)"',
+     "A NEGATIVE 3 mm aperture, on the ED-04, ED-05 and ED-06 door segments alike. The Logikal model "
+     "does not close - the zone heights do not sum to the overall height. Transom setting-out has to be "
+     "confirmed against 31551's zones (660 / 200 / 1910 / 800 on ED-04) before any order."),
+    ('"All orders are priced as Ex-Works"',
+     "Against a job-spec header that reads 'Glazed /Supply Only (Delivered)'. Free delivery is over "
+     "GBP 5,000 AND within 50 miles of Watford; Filwood is about 105 miles. The GBP 1/mile rule is "
+     "written only for loads UNDER GBP 5,000, so the quote does not say what a GBP 34k load to Bristol "
+     "costs. Unloading is ours: 'We require suitable labour at the delivery point'. BSW are ex works too "
+     "and their quote has no delivery terms at all. Carriage is in neither number."),
+    ('"open for acceptance for a period of 30 days ... and thereafter is subject to confirmation"',
+     "Expires ~26/08/2026. Payment basis is 'Deposit and cleared Funds Prior to delivery on first order' "
+     "- 100% before delivery - against Stepnell paying on the last business day of the month following "
+     "application. Lead time: 'will be confirmed on receipt of written order', i.e. none. Main contract "
+     "starts 09/11/2026."),
+]:
+    ws6.cell(row=r, column=2, value=q).font = BOLD
+    ws6.cell(row=r, column=2).alignment = WRAP
+    ws6.merge_cells(start_row=r, start_column=2, end_row=r, end_column=4)
+    ws6.cell(row=r, column=5, value=why).font = BASE
+    ws6.cell(row=r, column=5).alignment = WRAP
+    ws6.merge_cells(start_row=r, start_column=5, end_row=r, end_column=12)
+    ws6.cell(row=r, column=2).fill = RED
+    ws6.row_dimensions[r].height = max(40, min(112, len(why) // 1.5))
+    r += 1
+
+r += 1
+ws6.cell(row=r, column=2, value="SIDE BY SIDE").font = TITLE
+r += 1
+for i, h in enumerate(["", "Bellview / BSW 0000000507", "A Plus QT51510"]):
+    cell = ws6.cell(row=r, column=2 + i * 4, value=h)
+    cell.fill, cell.font, cell.alignment = HDR, HDRF, WRAP
+    ws6.merge_cells(start_row=r, start_column=2 + i * 4, end_row=r, end_column=5 + i * 4)
+r += 1
+for label, a, b in [
+    ("Date / system", "24/07/2026, SMA Shopline Double", "27/07/2026, Technal STII"),
+    ("Net ex VAT", "GBP 46,067.59 (after 15% Discount 2)", "GBP 34,445.91 (no discount line)"),
+    ("Per m2 of elevation", "GBP 374.61", "GBP 280.10"),
+    ("Sizes", "4850/4800/6250x3100 - NOT the bill", "4930 / 5550 / 6315x3105 - matches the bill"),
+    ("Infill panels", "70 flat aluminium panels INCLUDED", "EXCLUDED - 'Panels by others', 46.09 m2"),
+    ("Element U-value", "'glazing only ... non rebated'", "'will only reach 1.8/1.9'"),
+    ("g-value (0.5-0.6 required)", "no coating named, no g stated", "0.66 STATED"),
+    ("Acoustic (Rw 32 dB on ED-06)", "glazing only", "'no formal acoustic test data'"),
+    ("LPS 1175 SR2 (ED-06)", "not addressed", "not addressed (PAS 24 offered instead)"),
+    ("Access control", "strike + latch + rectifier bundled in", "excluded, PAS 24 maglock only"),
+    ("Finish", "RAL 7035 throughout (spec: mill)", "single colour throughout (spec: mill)"),
+    ("Delivery", "ex works, no terms page at all", "ex works; FOC only <50 miles of Watford"),
+    ("Validity", "none stated anywhere", "30 days, ~26/08/2026"),
+    ("Lead time", "none stated", "'confirmed on receipt of written order'"),
+    ("Warranty", "none on the document", "none on the document"),
+]:
+    ws6.cell(row=r, column=2, value=label).font = BOLD
+    ws6.cell(row=r, column=2).alignment = WRAP
+    ws6.cell(row=r, column=6, value=a).font = BASE
+    ws6.cell(row=r, column=6).alignment = WRAP
+    ws6.merge_cells(start_row=r, start_column=6, end_row=r, end_column=9)
+    ws6.cell(row=r, column=10, value=b).font = BASE
+    ws6.cell(row=r, column=10).alignment = WRAP
+    ws6.merge_cells(start_row=r, start_column=10, end_row=r, end_column=13)
     r += 1
 
 for s in wb.worksheets:

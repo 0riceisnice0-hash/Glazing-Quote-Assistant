@@ -1,0 +1,83 @@
+Adam,
+
+Aplus have quoted Filwood too - QT51510 came in this morning. Deadline is Thursday.
+
+The number looks like good news and is not. But it has settled three arguments, and it has raised one
+that matters more than the price.
+
+
+THE HEADLINE
+
+Aplus GBP 34,445.91. BSW GBP 46,067.59. That is GBP 11,621.68 apart - and they are not the same scope.
+
+Aplus say, in three words on page 16: "Panels by others."
+
+They have left 46.09 m2 of spandrel, base and ventilation-zone infill out - 37.5% of the elevation.
+It is visible line by line: every non-glazed aperture is listed as a 32mm opening with no product
+against it, and three of ED-06's seven segments have no glass line at all. BSW include all of it, as
+70 flat aluminium panels.
+
+Break-even is GBP 252.15 per m2 of panel. Below that Aplus is genuinely cheaper, above it BSW is.
+
+I cannot tell you which. BSW bundle the panels into the element price with no extractable figure,
+Aplus exclude them, and our rate register has no panel or spandrel category at all. It needs a price,
+not an estimate. Please do not let GBP 34,445.91 be read as a saving.
+
+
+THE ONE THAT MATTERS MORE
+
+Page 16, again their words: "Quoted in STII, these will only reach 1.8/1.9 U Value."
+
+The drawing schedule asks for 1.0 per element.
+
+BSW told us the same thing on 24 July in different words - performance met "for glazing only... they are
+non rebated". Aplus have now put a number on it. Their standard terms go further still: "Commercial
+doors and framing will be supplied with a U-Value of up to 3.0".
+
+Two independent fabricators, two systems, both saying no. At that point it stops being a supplier
+problem. A standard commercial shopfront system is not thermally broken to curtain-walling standard and
+does not get to 1.0 - which is very probably why the architect specified Aluprof and issued the drawings
+to Aluprof directly in October.
+
+We have not approached a single Aluprof fabricator. I think the Aluprof specification is not a
+formality to engineer around; it may be the only route to the performance, and if it is, both our
+prices are for the wrong product.
+
+Aplus also state "STII doors have no formal acoustic test data" - ED-06 needs Rw 32 dB - and "Glass
+quoted has a g value of 0.66" against a required 0.5 to 0.6. That last one is useful: it is the first
+hard number anyone has given us on the g-value, and it confirms neither quote has solar control glass
+in it.
+
+
+THREE ARGUMENTS SETTLED
+
+1. The sizes. Aplus set out to the trade bill exactly - 4930, 5550, and 6315 x 3105 - and their ED-06
+   segments run 300 / 1200 / 700 / 600, which is the dimension string printed on the drawing. So BSW's
+   4850 / 4800 / 6250 are wrong, and our own 3150 for ED-06 is a typo for 3105.
+
+2. The g-value. 0.66 quoted against 0.5-0.6 required.
+
+3. Delivery. Aplus: "All orders are priced as Ex-Works", free only over GBP 5,000 AND within 50 miles of
+   Watford. Bristol is about 105 miles. BSW are ex works too and their quote carries no terms page at
+   all. Carriage is in neither number.
+
+
+SOMETHING TO STOP BEFORE THURSDAY
+
+I ran the job through mary_checks and pointed it at the actual files. The Filwood pricing workbook
+carries dan.parker@agsurveying.co.uk in its properties, and external links to C:\Users\LiamO'Donnell
+and C:\Users\Parke through an Outlook cache path.
+
+That is the same defect that went to Pearce on Georgie's this week. The difference is that Filwood has
+not gone out yet, so this one we can still catch. Strip it before anything is attached.
+
+The full run returns 9 failures. Workbook attached - the new "Aplus QT51510" sheet has the line-by-line
+comparison and every one of Aplus's own qualifications quoted verbatim.
+
+
+WHAT I HAVE NOT DONE
+
+I have not raised a new request. There are 24 open already and you cannot clear those in a day. I have
+added this to REQ-10, which was already the Filwood decision.
+
+Nothing has gone to Stepnell.

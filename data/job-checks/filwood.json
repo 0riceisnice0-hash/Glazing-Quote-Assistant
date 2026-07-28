@@ -1,0 +1,375 @@
+{
+ "job": "BCC 4-16 Filwood Broadway (Stepnell), bid S25233B - as it stands 28/07/2026, two days before the 30/07 return",
+ "created": "2026-07-28",
+ "_note": "Live job, not a fixture. Seven Aluprof shopfront screens, 122.98 m2 at the trade bill's nominal S.O. (ED-04 4930x3570 x4, ED-05 5550x2970 x2, ED-06 6315x3105 x1). Gintare's outgoing tender is GBP 67,067.58 ex VAT on Bellview/BSW 0000000507. A second quote, Aplus QT51510 (Technal STII, 27/07), arrived 28/07 at GBP 34,445.91 - but with 46.09 m2 of infill excluded as 'Panels by others', so it is not a like-for-like. Both suppliers have now stated in writing that they cannot meet the element U-value. Rebuild the workbook with scripts/filwood_quote_check.py.",
+ "systems_specified": [
+  {
+   "system": "Aluprof aluminium framed shopfront system",
+   "fabricator": null,
+   "performance": {
+    "required": "U 1.0 per element, g 0.5-0.6, ED-06 >= Rw 32 dB and LPS 1175 SR2",
+    "capable": null,
+    "evidence": "Named as Manufacturer in the trade bill item header (with address and website) and in the External Materials Schedule s.N p41. Drawing 31551's own revision history reads 'Issued to Aluprof 2025.10.22' and 'Updated Issue to Aluprof 2025.10.29' - RCKa developed the design with Aluprof directly. Fenster have approached NO Aluprof fabricator. Nobody has asked Aluprof whether their system meets the schedule."
+   }
+  },
+  {
+   "system": "SMA Shopline Double (offered as an unstated alternative)",
+   "fabricator": "Bellview Products Ltd / BSW",
+   "performance": {
+    "required": "U 1.0 per element, g 0.5-0.6, ED-06 >= Rw 32 dB",
+    "capable": false,
+    "evidence": "Bellview email 24/07/2026 06:43: 'we have met the u- and g- and acoustic value for glazing only, as these area commercial thermally broken shopfront products they are non rebated.' Glazing-only compliance is not element compliance. No Rw, no g-value and no coating appear anywhere on quote 0000000507."
+   }
+  },
+  {
+   "system": "Technal STII (offered as an unstated alternative)",
+   "fabricator": "A Plus Windows & Doors Ltd",
+   "performance": {
+    "required": "U 1.0 per element, g 0.5-0.6, ED-06 >= Rw 32 dB",
+    "capable": false,
+    "evidence": "Aplus QT51510 p16, their own words: 'Quoted in STII, these will only reach 1.8/1.9 U Value.' Also 'STII doors have no formal acoustic test data' and 'Glass quoted has a g value of 0.66' against a 0.5-0.6 requirement. Their Terms of Sale go further: 'Commercial doors and framing will be supplied with a U-Value of up to 3.0 Wm2/K'."
+   }
+  }
+ ],
+ "u_value": {
+  "required": 1.0,
+  "basis": "per element",
+  "rejected_elements": [
+   "ED-04 x4, ED-05 x2, ED-06 - Aplus STII stated at 1.8/1.9 against a 1.0 target",
+   "ED-04 x4, ED-05 x2, ED-06 - BSW SMA Shopline compliance stated for GLAZING ONLY on non-rebated frames"
+  ],
+  "note": "Drawing 2411-RCK-ZZ-ZZ-DR-A-31551 Rev.P02 gives 'Target U-Value' per type mark in a per-element schedule: 1.0 for ED-04 and ED-05, '1.0 for Retail Unit, N/A for Core' on ED-06. Both suppliers have quoted glass Ug (1.0 / 1.1 / 1.2) and neither has offered an element Uw. Two independent fabricators saying no is the finding: a standard commercial shopfront system does not reach 1.0, which is very likely why the architect specified Aluprof."
+ },
+ "supplier_quotes": [
+  {
+   "supplier": "Bellview Products Ltd (BSW)",
+   "ref": "0000000507",
+   "date": "2026-07-24",
+   "valid_until": null,
+   "used_net": true,
+   "value": 46067.59,
+   "note": "Net total 54,197.17 less 'Discount 2' 15% (8,129.58) = Grand Total Net 46,067.59. Seven positions, all carried into the tender, nothing dropped. THE QUOTE AS FILED HAS NO TERMS PAGE AT ALL - no validity period, no lead time, no payment terms, no compliance statement. The only caveat exists in the covering email."
+  },
+  {
+   "supplier": "A Plus Windows & Doors Ltd",
+   "ref": "QT51510",
+   "date": "2026-07-27",
+   "valid_until": "2026-08-26",
+   "used_net": true,
+   "value": 34445.91,
+   "note": "Technal STII, 'Glazed /Supply Only (Delivered)', 15 priced segments across the same seven screens. NOT comparable with BSW: 'Panels by others' excludes 46.09 m2 of infill (37.5% of the elevation) that BSW include as 70 flat aluminium panels. Price open 30 days from the date of the quotation."
+  }
+ ],
+ "quantities": [
+  {
+   "ref": "ED-04 lower shopfronts",
+   "bill_qty": 4,
+   "drawing_qty": 4
+  },
+  {
+   "ref": "ED-05 upper shopfronts",
+   "bill_qty": 2,
+   "drawing_qty": 2
+  },
+  {
+   "ref": "ED-06 core entrance and retail",
+   "bill_qty": 1,
+   "drawing_qty": 1
+  }
+ ],
+ "supplier_coverage": [
+  {
+   "ref": "ED-04 4930x3570",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW 0000000507 pos 001-004 (at 4850/4800/4800/4850 - NOT the bill's 4930); Aplus QT51510 segments 1-4 (1233+1233+1232+1232 = 4930, matches the bill)"
+  },
+  {
+   "ref": "ED-05 5550x2970",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW pos 006-007 (5550x2970, matches); Aplus segments 5-8 (1250+1434+1434+1432 = 5550, matches)"
+  },
+  {
+   "ref": "ED-06 6315x3105",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW pos 005 (at 6250x3100 - NOT the bill's 6315x3105); Aplus segments 9-15 (300+1200+700+600+1172+1172+1171 = 6315 x 3105, matches the bill AND the drawing's 300/1200/700/600 dimension string)"
+  }
+ ],
+ "full_height_screens": [
+  {
+   "ref": "ED-04 x4, 4930 x 3570 shopfront screen with integral door",
+   "priced_as": "door (product code DAD)"
+  },
+  {
+   "ref": "ED-05 x2, 5550 x 2970 shopfront screen with integral door",
+   "priced_as": "door (product code DAD)"
+  },
+  {
+   "ref": "ED-06 x1, 6315 x 3105 core entrance and retail screen",
+   "priced_as": "door (product code DAD)"
+  }
+ ],
+ "doors": [
+  {
+   "ref": "ED-04 entrance door x4",
+   "fire_exit": null,
+   "panic_hardware_priced": false,
+   "note": "Drawing 31551 twice: '>60 occupants -> double doors/outward-opening exits required (see OFR)'. THE OFR IS NOT IN THE TENDER PACK, so whether these are fire exits is unanswerable from what we hold. BSW quoted a single pivoted anti-fingertrap door with a closer, direction unstated. Aplus quoted a single door, 'Open out', PAS 24 maglock, 'DDA Compliant No'."
+  },
+  {
+   "ref": "ED-05 entrance door x2",
+   "fire_exit": null,
+   "panic_hardware_priced": false,
+   "note": "Same conditional note sits directly beneath the ED-05 door bay on the drawing."
+  },
+  {
+   "ref": "ED-06 core entrance door x1",
+   "fire_exit": null,
+   "panic_hardware_priced": false,
+   "note": "Access controlled key fob. BSW bundled an electric strike, latch and rectifier inside the element with no extractable figure; Aplus exclude it - 'Access controls /automation by others - quoted with Pas24 maglock'."
+  }
+ ],
+ "coupled_runs": [
+  {
+   "ref": "ED-04 / ED-05 / ED-06",
+   "systems": [
+    "Technal STII"
+   ],
+   "note": "Aplus price each screen as a coupled multi-segment run using STP287 concealed couplers, all within one system, so the SM5 Wexham depth rule is satisfied. BSW quote each screen as a single element."
+  }
+ ],
+ "frame_supply": "glazed",
+ "glass_order": [],
+ "finishes": [
+  {
+   "ref": "ED-04 / ED-05 / ED-06 frame and mullions",
+   "specified_internal": "mill finish aluminium",
+   "specified_external": "mill finish aluminium",
+   "quoted_internal": "BSW: RAL 7035 Light Grey. Aplus: 'Single Colour' standard RAL, one colour inside and out",
+   "quoted_external": "BSW: RAL 7035 Light Grey. Aplus: 'Single Colour' standard RAL, one colour inside and out"
+  },
+  {
+   "ref": "Spandrel panels",
+   "specified_internal": "mill finish aluminium",
+   "specified_external": "mill finish aluminium",
+   "quoted_internal": "BSW: flat aluminium panel, finish unstated. Aplus: excluded - 'Panels by others'",
+   "quoted_external": "BSW: flat aluminium panel, finish unstated. Aplus: excluded - 'Panels by others'"
+  },
+  {
+   "ref": "ED-04 / ED-05 doorsets only",
+   "specified_internal": "PPC RAL 7035 Light Grey",
+   "specified_external": "PPC RAL 7035 Light Grey",
+   "quoted_internal": "RAL 7035",
+   "quoted_external": "RAL 7035"
+  }
+ ],
+ "spec_items": [
+  {
+   "ref": "ED-04 shopfront screens x4",
+   "treatment": "priced"
+  },
+  {
+   "ref": "ED-05 shopfront screens x2",
+   "treatment": "priced"
+  },
+  {
+   "ref": "ED-06 core entrance and retail screen x1",
+   "treatment": "priced"
+  },
+  {
+   "ref": "Solar control glazing to g 0.5-0.6 (dwg 31551 schedule, all three types)",
+   "treatment": null,
+   "note": "Not priced by either supplier and not excluded in the proposal. Aplus state g 0.66; BSW name no coating and state no g."
+  },
+  {
+   "ref": "LPS 1175 SR2 security doorset to ED-06 (dwg 31551 schedule)",
+   "treatment": null,
+   "note": "Asked for in Gintare's RFQ of 23/07 and answered by neither supplier. Not excluded in the proposal."
+  },
+  {
+   "ref": "ED-06 acoustic performance >= Rw 32 dB (dwg 31551 schedule)",
+   "treatment": null,
+   "note": "BSW claim glazing only; Aplus state STII has no formal acoustic test data at all."
+  },
+  {
+   "ref": "Manifestation, two continuous bands 850-1000 and 1400-1600 above FFL to all clear glazing (dwg 31551 + 31550, Approved Document M)",
+   "treatment": null,
+   "note": "Named in our own proposal Executive Summary as part of the requirement, then priced nowhere and excluded nowhere. The 'signage, branding' exclusion does not reach an ADM safety requirement."
+  },
+  {
+   "ref": "Ventilation Zone - Q2 Cadisch expanded aluminium mesh, high free area, plus the integrated louvre element (dwg 31551; Materials Schedule Q2 p45 and G p31)",
+   "treatment": null,
+   "note": "The trade bill measures the full 3570 / 2970 / 3105 height, so the band is inside our item. BSW priced it as solid flat aluminium sheet ('I have used flat aluminium panels everywhere glass was not indicated'); Aplus leave it as an unfilled 32mm aperture. Our RFQ never mentioned it."
+  },
+  {
+   "ref": "Spandrel / base / awning infill panels - 46.09 m2, 37.5% of the elevation",
+   "treatment": null,
+   "note": "BSW include 70 flat aluminium panels bundled in the element price with no extractable figure. Aplus exclude them outright: 'Panels by others'. Neither route gives a panel rate, and the register has no panel or spandrel category at all."
+  },
+  {
+   "ref": "Access control to ED-06 - fob reader, wiring, power supply and fail-safe release",
+   "treatment": "excluded",
+   "note": "Excluded in the proposal, though BSW have bundled a strike, latch and rectifier into the element price - so we are charging for part of what we exclude."
+  },
+  {
+   "ref": "Retail signage, illuminated lightbox and tenant fit-out",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "Installation of the seven screens",
+   "treatment": "priced",
+   "note": "GBP 3,500 - the DAD labour code at GBP 500 x 7. House CW labour at GBP 150/m2 on 122.98 m2 is GBP 18,446.32."
+  },
+  {
+   "ref": "Access plant - scaffold, MEWPs, towers, forklift",
+   "treatment": "excluded",
+   "note": "Excluded while including the installation of elements 3,570 mm tall."
+  },
+  {
+   "ref": "Bill item A - Work Section A54 shopfront Provisional Sum inclusions",
+   "treatment": null,
+   "note": "The bill directs tenderers to A54 and says 'DO NOT include the shopfronts twice within your tender submission'. A54 was never issued to us and item A is unpriced and unanswered in our submission."
+  },
+  {
+   "ref": "Carriage to Bristol",
+   "treatment": null,
+   "note": "Aplus: 'All orders are priced as Ex-Works'; free delivery only over GBP 5,000 AND within 50 miles of Watford. Bristol is about 105 miles. BSW's quote has no delivery terms on it at all."
+  }
+ ],
+ "delivery_terms": [
+  {
+   "supplier": "A Plus Windows & Doors",
+   "ref": "QT51510",
+   "order_value": 34445.91,
+   "free_delivery_threshold": 5000.0,
+   "stated_on_quote": "Glazed /Supply Only (Delivered)",
+   "charge_basis": "Aplus Terms of Sale p18: 'All orders are priced as Ex-Works'. 'Loads over GBP 5000 + VAT will be delivered FOC within a 50-mile radius of Watford'. The GBP 1/mile each way rule is written only for loads UNDER GBP 5,000. Filwood Broadway, Bristol BS4 1JN is roughly 105 miles from Watford, so the order is over the value threshold and outside the distance one, and the quote does not say what happens there. Deliveries are on Aplus's own Cargo or Luton box vans and 'We require suitable labour at the delivery point to unload' - unloading 3.5 m screens is not a box-van job. Stillage deliveries go by independent flat-bed haulier, priced by location, plus GBP 400 per load to collect the empties.",
+   "delivery_priced": false
+  },
+  {
+   "supplier": "Bellview Products Ltd (BSW)",
+   "ref": "0000000507",
+   "order_value": 46067.59,
+   "free_delivery_threshold": null,
+   "stated_on_quote": "nothing - the quote has no terms page",
+   "charge_basis": "House note, confirmed on Georgie's 28/07: BSW quotes are EX WORKS - 'All estimates are ex works, additional delivery charges may apply'. Carriage to Bristol is ours and is not in the 46,067.59.",
+   "delivery_priced": false
+  }
+ ],
+ "incorporated_terms": [
+  {
+   "supplier": "A Plus Windows & Doors",
+   "ref": "QT51510",
+   "document": "A Plus Windows & Doors Limited Terms of Sale Revision V.01.2 - 08.01.2018",
+   "held": false,
+   "note": "Incorporated by reference on p17 and never supplied. The quote also cites a second, different revision (V.01 - 03.11.2017) for definitions. Payment basis is 'Deposit and cleared Funds Prior to delivery on first order' - 100% before delivery - against Stepnell paying on the last business day of the month following application."
+  },
+  {
+   "supplier": "Bellview Products Ltd (BSW)",
+   "ref": "0000000507",
+   "document": "none cited",
+   "held": false,
+   "note": "The quote as filed carries no terms at all, so there is nothing to hold and nothing to rely on."
+  }
+ ],
+ "price_commitment": {
+  "source": "Stepnell ITT STP10 02/07/2026, bid S25233B. D&B 2024; 'The form of subcontract will be amended to suit the provisions of the main contract and Stepnell standard provisions of subcontract and are available for inspection at our offices' - we have never seen them. Main contract programme 09/11/2026 to 28/06/2027. Retention 3%, LADs GBP 1,358.00 per calendar week, 12 month maintenance period, PI required where Contractors Design. Our own proposal offers 30 day validity.",
+  "our_price_open_until": "2026-08-29",
+  "note": "Submission 30/07/2026. Both supplier quotes lapse in late August (BSW ~23/08 by custom, since the document itself states nothing; Aplus 26/08) and the main contract does not start until 09/11/2026 - two and a half months after both. Nothing is held to the point of award, let alone to site."
+ },
+ "qualification_regime": {
+  "document": "Stepnell ITT letter STP10, 02/07/2026, and the Trade Enquiry Project Particulars",
+  "clause": "'The form of subcontract will be amended to suit the provisions of the main contract and Stepnell standard provisions of subcontract and are available for inspection at our offices.' Also: 'Your Value Engineering Proposals are encouraged, but must be fully detailed indicating any areas of non-compliance and be accompanied by a compliant bid.'",
+  "qualifications_permitted": null,
+  "we_must_sign": false,
+  "evidence": "No Form of Tender or tender acceptance page was issued with this enquiry - the ITT document list contains the ITT letter alone. Submission is by email to Adam Warner, so there is no signature page that could disapply our exclusions the way John North Hall's does. But Stepnell's own subcontract conditions are only 'available for inspection at our offices' and have never been read, so whether our exclusions survive is genuinely unknown rather than safe. The VE clause is the live one: it requires any non-compliance to be fully detailed AND a compliant bid submitted alongside - and we are offering a substituted system with neither."
+ },
+ "issued_documents": [
+  {
+   "name": "Stepnell - BCC Filwood Broadway Pricing.xlsx",
+   "is_the_priced_document": true,
+   "exclusions_stated": false,
+   "note": "NOT YET ISSUED. No columns are hidden, so J-P carry BSW's cost per screen and K3/L3/M3 read 'Supplier used: BSW 46067.59'. Print area C1:I27 is clean, so a PDF is safe and the workbook is not.",
+   "path": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\1. Tender Documents\\Stepnell\\BCC Filwood Broadway\\1. Estimating\\3. Client Quote\\Stepnell - BCC Filwood Broadway Pricing.xlsx"
+  },
+  {
+   "name": "Stepnell - BCC Filwood Broadway Proposal.docx",
+   "is_the_priced_document": false,
+   "exclusions_stated": true,
+   "note": "NOT YET ISSUED. Addressed 'FAO: Trevor Copeman' where the ITT names Adam Warner. Carries live Word LINK fields to C:\\Users\\fenst\\Downloads\\Pricing Doc Template.xlsx.",
+   "path": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\1. Tender Documents\\Stepnell\\BCC Filwood Broadway\\1. Estimating\\3. Client Quote\\Stepnell - BCC Filwood Broadway Proposal.docx"
+  }
+ ],
+ "exposures": [
+  {
+   "item": "Element U-value 1.8/1.9 (Aplus, stated) or glazing-only (BSW) against a specified 1.0",
+   "lands_on": "Fenster",
+   "our_recourse": "None. Aplus Terms of Sale: 'The Supplier does not warrant or represent that any Product supplied shall comply with any of the aforementioned standards unless where expressly stated to the contrary', and they have expressly stated the opposite. BSW's caveat is in an email, not on the quote."
+  },
+  {
+   "item": "Wind loading and structural design of 3,570 mm mullions",
+   "lands_on": "Fenster",
+   "our_recourse": "None, and it is disclaimed twice. Aplus quote 'Mullions tested to a minimum of 950Pa' while their own terms calculate to BS 6399 Pt 2 at 1200Pa 'unless otherwise stated', and add 'all design responsibility remains with the Customer and our calculations are not to be relied on for any design purposes whatsoever'. This is the contractor's design element that triggers Stepnell's PI requirement."
+  },
+  {
+   "item": "Carriage to Bristol on both quotes",
+   "lands_on": "Fenster",
+   "our_recourse": "None - both suppliers price ex works."
+  },
+  {
+   "item": "Supplier prices lapsing in late August against a 09/11/2026 start",
+   "lands_on": "Fenster",
+   "our_recourse": "None. Aplus: price open 30 days 'and thereafter is subject to confirmation', plus a standing right to vary the price for any variation. BSW state no validity at all."
+  },
+  {
+   "item": "Installation of seven 3.5 m screens funded at GBP 3,500 with access plant excluded",
+   "lands_on": "Fenster",
+   "our_recourse": "None - it is our own pricing error, not a supplier's."
+  }
+ ],
+ "own_domains": [
+  "fensterglazing.com"
+ ],
+ "warranty": {
+  "ours": {
+   "period_months": 120,
+   "scope": "all glass and frame products supplied and installed, covering defects in materials as supplied and workmanship in installation",
+   "start_date": "not stated - the proposal fixes no start point",
+   "usage_cap": null,
+   "exclusions": [
+    "misuse",
+    "accidental or intentional damage",
+    "vandalism",
+    "inadequate or incorrect maintenance",
+    "external factors including severe weather"
+   ],
+   "note": "Fenster proposal Terms and Conditions, 'Guarantee and Warranty': 10 years, 'subject to the terms and conditions of any applicable manufacturer warranties' - which is the whole problem, because we hold neither manufacturer's terms."
+  },
+  "suppliers": [
+   {
+    "supplier": "A Plus Windows & Doors",
+    "ref": "QT51510",
+    "covers": "Technal STII frames and glass, supply only",
+    "period_months": null,
+    "start_date": null,
+    "usage_cap": null,
+    "exclusions": [],
+    "exclusions_complete": false,
+    "note": "QT51510 states NO warranty period anywhere. The only guarantee on the document is SE Controls' 12 months / 15,000 cycles on AOV actuators - boilerplate from another job, there are no AOVs at Filwood. Whatever warranty exists sits in the Terms of Sale V.01.2 08.01.2018, which we do not hold."
+   },
+   {
+    "supplier": "Bellview Products Ltd (BSW)",
+    "ref": "0000000507",
+    "covers": "SMA Shopline elements, supply only",
+    "period_months": null,
+    "start_date": null,
+    "usage_cap": null,
+    "exclusions": [],
+    "exclusions_complete": false,
+    "note": "The quote has no terms page at all, so there is no warranty on the document to be back-to-back with."
+   }
+  ]
+ }
+}
