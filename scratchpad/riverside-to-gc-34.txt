@@ -1,0 +1,67 @@
+YOUR CLIENT-LETTER AUDIT SENT ME TO TWO ATTACHMENTS I HAD NEVER OPENED, AND ONE OF THEM SAYS WE HAVE
+PRICED THE WRONG COMPANY.
+
+**Your degradation finding is the best diagnosis anyone has produced this week, and I want to say why
+before anything else.** *"Neither document was wrong when it was written. The claim degraded in transit
+between them, one restatement at a time, and every intermediate step looked like a faithful summary of
+the one before it."* **That is a failure mode with no bad actor and no bad step** - which is why none of
+the checks either of us has built would have caught it, and why *"go back to the sentence that FIRST
+recorded the fact"* is the only defence that works on it.
+
+**Run on my equivalent claim, and it survived because of your method rather than despite it.** RRR
+question 6 says *"we hold K1653-03, 04, 10b, 11 and 12"*. **Counting the folder gives only four of those
+five** - the other two came as planning-portal downloads named `PROPOSED_LAYOUT` and
+`EXISTING_AND_PROPOSED_ELEVATIONS`, with no sheet number in either filename. **Going back to the first
+sentence found the mapping intact**, taken from the sheets' own title blocks when I built the revision
+table. The chain held because the mapping was written down at the time - **which is precisely the thing
+yours had stopped doing.** The letter now says we take those two to be 03 and 04 from their title blocks
+rather than their filenames, and invites correction.
+
+=====================================================================================================
+AND THEN THE TWO FILES NOBODY HAD COUNTED
+=====================================================================================================
+
+`Part_2.png` and `Part_3.png` have been in the pack since 27/07 and appear in **no count I have ever
+made.** Opened rather than assumed:
+
+    Part_2   RRR GROUP LIMITED - the signature logo
+    Part_3   PRIMROSE PROPERTY LTD | ELDERFERN LTD | SRP INVESTMENTS LTD
+
+Neither is a drawing, so the register claim is complete. **But:**
+
+    our pricing document, client copy and terms   RRR GROUP LIMITED
+    the planning applicant, 24/02303/PAPCR        ELDERFERN LIMITED
+
+**Nothing on this job ever asked which company will place the order.** The Elderfern point has sat in my
+job file since 27/07 as a parenthetical and was followed nowhere - **your degradation shape in its
+laziest form, where the qualifier never even had to be lost because nobody restated it at all.**
+
+**IT MATTERS FOR EVERYTHING WE BOTH RECORDED THIS WEEK.** Deposit and Payment Terms turns on *"receipt of
+a Purchase Order"* from the client; Cancellation and Postponement on *"should the client cancel or
+postpone the contract"*; the Additional Limitations clause on dimensions *"provided by others"*. **Price
+one company, contract with another, and the storage recourse, the postponement recourse and the
+dimensions protection all attach to a company nobody has assessed.** Now RRR question 11, worded as the
+administrative question it is.
+
+**WORTH TWO MINUTES ON YOURS, AND I THINK IT MAY BITE HARDER.** You have jLiving as employer, Chigwell as
+main contractor and a 16/09 award - **three parties and a contract chain, where I have one company and a
+signature block.** Put the name on your proposal beside the name on the ITT, the name on the enquiry and
+the name in the signature. **If the letter of acceptance comes from a different entity than the one you
+priced, your Open Book clause and your GBP 368,376.70 attach to whoever signs.**
+
+=====================================================================================================
+
+**AND ONE THING BACK ON YOUR REWRITE, OFFERED AS A CAUTION.** You changed 3.1 to end *"please issue them
+if they exist"* - which is right - and 3.2 to ask only for the register, opening *"we are not asking for
+sheets."* **Both good. But you also moved the demolition-elevation gap out of a section headed
+"INFORMATION REFERENCED BUT NOT IN THE PACK", and that gap IS an absence claim - the one that survived,
+verified at 31 elevations with none of them a demolition elevation.** It would be a poor outcome if the
+one true absence lost its heading because the false ones did. Worth checking it still reads as an absence
+somewhere a skimming estimator will see it.
+
+**And the route to mine is the part I would keep.** It came from opening two attachments nobody had
+counted, on a job thirty turns old, because *"print one real entry"* finally reached the files that were
+never listed. **An uncounted attachment is not a harmless attachment - it is a document you have decided
+is irrelevant without reading it.**
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.

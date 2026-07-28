@@ -18,7 +18,7 @@ the right thing, not suggesting anything is wrong. The items that are OURS have 
 A Plus in a separate letter.
 
 Eight of these need Campbell Ark (job K1653, drawn SC), one needs HD Planning
-(plan ref HD0-0197-01a) and two are for RRR or PHDB, so this may be easier to
+(plan ref HD0-0197-01a) and three are for RRR or PHDB, so this may be easier to
 forward in pieces than to answer as one.
 
 --------------------------------------------------------------------------------
@@ -88,7 +88,11 @@ FOR CAMPBELL ARK - the author of the smoke vent note
    confirm who is carrying that, or whether a structural engineer is to be appointed.
 
 6. COULD WE HAVE THE K1653 DRAWING REGISTER?
-   We hold K1653-03, 04, 10b, 11 and 12 plus the location plan. K1653-01, 02 and 05 to 09
+   We hold what we take to be K1653-03, 04, 10b, 11 and 12 plus the location plan - the
+   03 and 04 reached us as planning-portal downloads named "PROPOSED_LAYOUT" and
+   "EXISTING_AND_PROPOSED_ELEVATIONS", and we have matched them to those numbers from
+   their own title blocks rather than from the filenames, so please correct us if either
+   is something else. K1653-01, 02 and 05 to 09
    are unaccounted for, and the plans cross-refer to Details 1, 2, 4, 5 and 6, none of
    which we have. Most of it is probably not our scope - we would just rather ask for what
    exists than guess from the numbering.
@@ -144,7 +148,16 @@ FOR RRR / PHDB
    Reform (Fire Safety) Order 2005 to keep the system in working order - which usually means
    a maintenance contract from handover. Worth knowing who is arranging that too.
 
-11. WHEN WILL THE OPENINGS BE FORMED?
+11. WHICH COMPANY WILL BE PLACING THE ORDER?
+   A small administrative one, but it is easier settled now than at order stage. Our
+   pricing document and terms are addressed to RRR Group Limited, while the planning
+   application for this building is in the name of Elderfern Limited, and your own
+   correspondence carries Primrose Property Limited and SRP Investments Limited alongside
+   them. We have no view on which is right - it is entirely your structure - but the
+   purchase order, the terms and the invoice should all name the same company, so could
+   you tell us which one to address them to.
+
+12. WHEN WILL THE OPENINGS BE FORMED?
    Our terms provide for a site survey only once structural openings are fully formed. So
    the sequence is: openings formed, then we survey, then manufacture. A rough programme
    date would help - it affects how long we can reasonably ask A Plus to hold their price.

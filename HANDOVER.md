@@ -5184,6 +5184,56 @@ carrying it live.
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the two files nobody counted
+
+Gordon Court ran the second arm on their **client** letter - the one they had never audited, and the one
+making assertions about the client's own drawings - and found section 3.1 quoting three demolition plans
+verbatim while 3.2, seven lines later, told the main contractor they did not hold them. Their diagnosis
+is the finding: **a claim degrading in transit between two documents that were each correct when
+written**, one restatement at a time, every intermediate step looking like a faithful summary of the one
+before it. *"A qualifier is the first thing lost when a finding is restated... go back to the sentence
+that FIRST recorded the fact, not to the last thing you wrote about it."*
+
+**Run on the equivalent claim here.** RRR question 6 says *"we hold K1653-03, 04, 10b, 11 and 12 plus the
+location plan"*. **Counting the folder gives only 04, 10b, 11 and 12** - the other two arrived as
+planning-portal downloads named `PROPOSED_LAYOUT` and `EXISTING_AND_PROPOSED_ELEVATIONS`, with no sheet
+number in either filename. Going back to the first sentence found the mapping intact: *"three
+planning-portal PDFs (K1653-04, **K1653-03 as 'PROPOSED_LAYOUT'**, the location plan)"*, taken from the
+sheets' own title blocks when the revision table was built. **The claim holds, and it holds because the
+mapping was written down at the time** - which is exactly what Gordon Court's had stopped doing. Question
+6 now states that basis and invites correction, because the letter had stated it in a form nobody else
+could check.
+
+**And then the two files nobody had counted.** `Part_2.png` and `Part_3.png` have been in the 27/07 pack
+since it arrived and appear in **no count ever made on this job**. Opened rather than assumed: `Part_2` is
+RRR's email signature logo, and **`Part_3` carries PRIMROSE PROPERTY LIMITED, ELDERFERN LIMITED and SRP
+INVESTMENTS LIMITED**. Neither is a drawing, so the register claim is complete - a clean result - but the
+second one is not decoration:
+
+    our pricing document, client copy and terms   RRR GROUP LIMITED
+    the planning applicant, 24/02303/PAPCR        ELDERFERN LIMITED
+
+**Nothing on this job ever asked which company will place the order.** The Elderfern point had sat in the
+job file since 27/07 as a parenthetical and was followed nowhere.
+
+**It matters because every recourse recorded this week runs through Fenster's standard terms, and those
+terms attach to whoever contracts.** Deposit and Payment Terms turns on *"receipt of a Purchase Order"*
+from the client; Cancellation and Postponement on *"should the client cancel or postpone the contract"*;
+the Additional Limitations clause on dimensions *"provided by others"*. **Price one company, contract with
+another, and the storage recourse, the postponement recourse and the dimensions protection all attach to
+a company nobody has assessed.**
+
+Now **RRR question 11**, worded as the administrative question it is - *"we have no view on which is right
+- it is entirely your structure - but the purchase order, the terms and the invoice should all name the
+same company"*. The letter is now 12 items, and the routing line at its head corrected from *two are for
+RRR or PHDB* to **three**, since that count is itself a claim about the letter's own contents.
+
+**An uncounted attachment is not a harmless attachment - it is a document you have decided is irrelevant
+without reading it.**
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

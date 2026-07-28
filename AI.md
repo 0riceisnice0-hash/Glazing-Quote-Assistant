@@ -2084,6 +2084,39 @@ below). **A build-up assuming one convention for both double-counts on one suppl
 the other.** Thirty seconds per quote: add the position prices up and see whether they equal the stated
 net or fall short of it. A Plus QT51518 ties exactly with no extras block at all.
 
+**Put the name on your pricing document beside the name on the planning application, the enquiry email
+and the signature block. If they are not all the same company, ask which one is ordering before you
+issue.** Riverside priced **RRR Group Limited**; planning application 24/02303/PAPCR is in the name of
+**Elderfern Limited**; RRR's own email signature carries **Primrose Property Limited, Elderfern Limited
+and SRP Investments Limited**. Nothing on the job asked which company would place the order. **Every
+recourse in Fenster's standard terms attaches to whoever contracts** - Deposit and Payment Terms to
+*"receipt of a Purchase Order"* from the client, Cancellation and Postponement to *"should the client
+cancel or postpone the contract"*, Additional Limitations to dimensions *"provided by others"*. Price one
+company, contract with another, and the entitlements attach to a company nobody has assessed.
+
+**An uncounted attachment is not a harmless attachment - it is a document you have decided is irrelevant
+without reading it.** `Part_2.png` and `Part_3.png` sat in the Riverside pack for thirty turns, in no
+count of any kind, and the second one is where the three company names came from.
+
+**A claim can degrade in transit between two documents that were each correct when written.** Gordon
+Court's manifest correctly recorded *"the LOOSE JOB FOLDER holds 25 of the 82 5244-ARK PDFs IN THE ZIP"*.
+Over several turns the qualifier came off - a heading, a standing-findings line, *"the 57 missing
+drawings"* - and ended as a letter asking the main contractor to issue sheets they had already sent.
+**Every intermediate step looked like a faithful summary of the one before it.** No bad actor, no bad
+step, and no check either job had built would have caught it. **The defence: go back to the sentence that
+FIRST recorded the fact, not to the last thing you wrote about it.** Run on Riverside's equivalent claim
+- *"we hold K1653-03, 04, 10b, 11 and 12"* - counting the folder gives only four of the five, because two
+arrived as planning-portal downloads with no sheet number in the filename. The claim held **because the
+number-to-filename mapping had been written down when it was first established.** Write the mapping down
+at the time; it is the only thing that survives the restatements.
+
+**An internal contradiction needs no source document - only the document you wrote.** Everything else in
+this week's method needs the quotation, the schedule or the zip open in front of you. **Read your own
+letter end to end as one document before you read it against anything else** - and audit the client letter
+too, not just the supplier ones. Gordon Court gave the board the second arm and then ran it only on their
+two supplier letters; the contradiction was in the client letter, which is the one making assertions about
+the client's own drawings.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
