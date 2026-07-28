@@ -4335,6 +4335,72 @@ issued proposal prints the T&Cs **in full**, no incorporation by reference, one 
 Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, where you looked is part of the claim
+
+Gordon Court probed their own proposal for two recourse clauses, got NOT PRESENT on both, and both were
+there - one pattern required a trailing full stop in a two-column table with no sentence terminators,
+the other missed an apostrophe encoding. **The pattern encoded assumptions about the document that the
+document does not honour.**
+
+**Run on Riverside's own negatives, and the assumption here was cruder than either of theirs: that all
+text lives in cells.** Every probe of the pricing workbook for three days walked `ws.iter_rows()`.
+
+**`MASTER PRICING DOC.xlsx` - and therefore every job priced from it - carries a live external link to**
+`file:///C:\Users\LiamO'Donnell\AppData\Local\Microsoft\Windows\INetCache\Content.Outlook\
+GM4B1OQ8\Electrical Template - Draft - REV010.xlsx`. `INetCache\Content.Outlook\` is where Outlook
+drops opened attachments, so it is a temporary path on one person's machine pointing at a third party's
+**draft electrical template**. With it come **50 defined names** from electrical (`FIRE_ALARM`,
+`CONTAINMENT`, `SMALL_POWER`, `PRELIMS`) and structural steel (`Beam`, `Column`, `RSJ`, `PFC`, `RHS`,
+`SHS`) and 191 cached strings. It is visible in Data > Edit Links and makes Excel open the file on
+*"this workbook contains links to one or more external sources that could be unsafe"*.
+
+**It does not affect any price, and that was established before anything was touched**: 74 formulas,
+none referencing the external workbook and none referencing any of the 50 names. Stripped from the
+Riverside output with a verified before/after - `I23` formula, the `I21` array formula, the `H5` spec
+note and all 13 exclusion rows identical; defined names 50 to 0; `externalLink` parts 1 to 0; `LiamO`
+present to absent. **The template is deliberately untouched** - it is shared, other chats are quoting
+from it this week, and breaking it mid-flight would be worse than the fault - and flagged to the board
+with a two-line check.
+
+**The general form: when you prove something is absent from a document, state where you looked.** "No
+exclusions in the pricing document" meant "no exclusions in the cells". Those coincided; the external
+link proves they need not.
+
+**All three published absences re-probed with the assumptions removed - quote characters normalised,
+U+FFFD stripped, dashes folded, terminators dropped - and all three hold.** The QT51518 incorporation
+sweep widened from 6 probes to 15, adding *from time to time*, *current at the date*, *copy available*,
+*supplied on request* and *obtainable*, all zero.
+
+**One process fault on the record, and it is not a pattern fault.** The precedence grep was published
+last night and a new client-facing document - the standard terms - was created afterwards **without
+re-running it**. The re-run is clean, and the only `govern` hits are *"would govern"* about a fire
+engineer's source and the T&Cs' own Governing Law heading. But that was not known when the clean result
+was posted. **A clean sweep is true of the document set as it stood.**
+
+**And last night's storage recourse is tightened, having been stated more flatly than the clause
+supports - wrong in our favour, one turn after this chat posted a warning about that exact direction.**
+Cancellation and Postponement requires the client to cancel or postpone **the contract** following
+**procurement of materials**, and lets us retain **the deposit**: three preconditions, none of which
+exist here, and RRR may yet contract on their own terms and displace the clause. Gordon Court tightened
+the identical shape on their position 003 in the same hour - *"the letter said it conditionally; the job
+file said it as settled. That is the worse way round."*
+
+The exposure splits in two and had been collapsed into one:
+
+- **Pre-contract, which is where the job is.** The delay is Adam's decision to hold the submission
+  pending PHDB, not RRR postponing anything. It costs nothing: nothing is procured, and A Plus's storage
+  clock starts at manufacture, which follows an order we would not place without one from RRR. **The
+  sequencing protects us here, not the clause.**
+- **Post-contract.** A client-driven slip after we have ordered is an additional cost incurred following
+  procurement and is recoverable - provided the order is on our standard terms and the terms document
+  goes out with the price.
+
+Corrected in the exposure register, on the board, and in Adam's covering note, which now sets out both
+phases and flags what changes if RRR want to contract on theirs.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

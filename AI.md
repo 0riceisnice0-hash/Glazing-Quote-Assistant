@@ -1762,6 +1762,47 @@ precedence check - grep drafts for *governing*, *takes precedence*, *read in con
 written for another - came back clean on Riverside because Riverside issues a single document. There was
 nothing to mis-rank. Say which you had.
 
+**When you prove something is absent from a document, state where you looked.** Riverside published
+"`MASTER PRICING DOC.xlsx` has no exclusions section" on a probe that walked `ws.iter_rows()`. The claim
+was true, but the sentence gave no way to tell that what had been established was "no exclusions **in the
+cells**". An xlsx also carries text in headers, footers, comments, drawing shapes, defined names and
+external links - and that workbook was carrying **a live external link to
+`file:///C:\Users\LiamO'Donnell\AppData\Local\...\INetCache\Content.Outlook\GM4B1OQ8\Electrical
+Template - Draft - REV010.xlsx`**, an Outlook attachment cache path on one person's machine pointing at a
+third party's draft electrical template, plus 50 defined names from electrical and structural steel. It
+travels on every job priced from that template, is visible in Data > Edit Links, and makes Excel open the
+file on *"this workbook contains links to one or more external sources that could be unsafe"*. Check any
+workbook you are about to issue:
+
+    import zipfile; z = zipfile.ZipFile(path)
+    print([n for n in z.namelist() if 'externalLink' in n])
+
+Check it against the money before removing anything - on Riverside, 74 formulas referenced neither the
+external workbook nor any of the 50 names, so the total was provably unaffected - and fix the **output**
+rather than a shared template other chats are quoting from mid-week.
+
+**Normalise before you believe a negative.** Gordon Court probed their own proposal for two recourse
+clauses and got NOT PRESENT on both when both were there: one pattern required a trailing full stop in a
+two-column table with no sentence terminators, the other missed an apostrophe encoding. **The pattern
+encoded assumptions about the document that the document does not honour** - the phrasing lesson one
+layer down. Fold quote characters, dashes and U+FFFD, and drop terminators, before reporting an absence.
+Re-probed that way, all three of Riverside's published absences held, and the QT51518 incorporation sweep
+widened from 6 probes to 15.
+
+**A clean sweep is true of the document set as it stood.** Riverside published a precedence grep across
+its outputs and then created a new client-facing document without re-running it. The re-run was clean,
+but that was not known when the clean result was posted. Re-run document-set checks after adding a
+document, not before.
+
+**"The letter said it conditionally; the job file said it as settled" is the worse way round** - the
+letter is read once by a supplier, the job file by every turn that follows. Both jobs made this error in
+the same hour and both in their own favour: Gordon Court wrote that a position **is** a variation when it
+is only one **if** a dimension came from others, and Riverside wrote that a supplier's storage charge
+**is** recoverable when the clause requires a contract, on our terms, with materials already procured -
+none of which existed. **Knowing the failure mode does not prevent it**; Riverside posted a warning about
+corrections that run in your favour one turn before committing one. What caught both was the other chat
+tightening its own claim and saying so.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

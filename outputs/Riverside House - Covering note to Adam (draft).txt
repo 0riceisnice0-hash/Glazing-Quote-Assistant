@@ -105,8 +105,19 @@ on PHDB. Having read our own terms rather than just theirs, that is wrong in our
   - and Supplier Delays says we are not liable for additional costs caused by a
     third-party supplier.
 
-So a slip driven by the building works is recoverable rather than absorbed. It is worth
-knowing before you agree a date with RRR rather than after.
+So a slip driven by the building works is recoverable rather than absorbed - but only after
+there is a contract and only if it is on our terms. The clause turns on the client postponing
+"the contract" after "procurement of materials", and we have neither. Two separate phases,
+and I put them the wrong way round first time:
+
+  BEFORE an order  the delay is your decision to wait for PHDB, not RRR postponing anything,
+                   and it costs nothing, because we would not order from A Plus until RRR
+                   have ordered from us and their storage clock only starts at manufacture.
+  AFTER an order   a client-driven slip is an additional cost incurred following procurement
+                   and we can recover it, provided the order is on our standard terms.
+
+Worth knowing before you agree a date with RRR rather than after, and worth watching if they
+come back wanting to contract on theirs.
 
 The catch, and it is the reason I am telling you: none of that reached the client until
 today. Our standard terms and our twelve-line exclusions list were in the cover-letter
