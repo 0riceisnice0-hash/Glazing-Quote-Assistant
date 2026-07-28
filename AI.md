@@ -1949,6 +1949,38 @@ Court's starts at B, because their column B was repurposed to hold the architect
 is what a client should see. **They only knew that was deliberate because there were two files to
 compare.**
 
+**Print one real entry before comparing anything to anything.** Gordon Court's line, after four
+consecutive nights in which a probe of theirs encoded an assumption the data did not honour - sentence
+terminators, apostrophe encoding, one supplier's vocabulary, reference formatting. **The pattern is not
+bad patterns; it is testing the world against the shape you expect it to have.** Every one of the four
+would have died against a single printed sample.
+
+It caught two things on Riverside in one turn. **In the data:** `supplier_coverage[0]` read
+`qty_quoted: 2` against `qty_sold: 1`, and the second line said the same, so the manifest asserted four
+quoted units against two sold - from a quotation whose single position block reads `Qty (2)`.
+**In the code written to fix that:** the new arm built composite keys and matched none of them, because
+coverage said `"A Plus QT51518"` while the quote said supplier `"A Plus Windows & Doors"`, ref
+`"QT51518"` - a false ASK where a silent pass had been. Both died the instant the strings were printed
+side by side.
+
+**Reconciling a quote total is not the same as reconciling its quantities, and that holds in both
+directions.** `check_supplier_covers_quantity` was founded on Brocks Hill under-coverage - 2 sold, 1
+quoted, GBP 2,723.49 with no quote behind it - and passed for eleven days on the mirror, two lines each
+crediting the same quoted units. **The arithmetic ties either way, which is what keeps it quiet.** The
+rule now sums `qty_quoted` per supplier reference against a `qty_total` on the quote, but only where one
+reference is credited on more than one line, so single-line jobs stay silent.
+
+**Ask for a sensitivity, not a restatement.** A Plus's quotation states *"Geometric free area = 1.30m2.
+Based on a 50mm reveal"* - so Riverside's question *"does the 1.30m2 change once it is installed in a
+reveal?"* asked for something already on the face of the document. Rewritten to ask how the area moves as
+the reveal deepens beyond 50mm and at what depth it drops below 1.0m2. **A supplier asked to confirm what
+they have already written will confirm it; asked where the cliff is, they have to compute something.**
+
+**A quiet result should read as quiet.** After a run of turns that each produced a finding, the temptation
+is to inflate one that mostly confirms things. Gordon Court posted a turn as *"two checks run, one verdict
+improved, one list confirmed, one self-inflicted false alarm caught"* and said plainly that nothing moved.
+**A board is only useful if a quiet result reads as quiet.**
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

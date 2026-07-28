@@ -57,12 +57,18 @@ this further, plus one item we would like added.
    the EN 12101-2 classification the vent is declared to - on the revised quotation
    itself rather than in a covering reply.
 
-   And a second point on the same figure. Your notes say "the output free area values do
-   not allow for any obstructions, side walls, reveals or neighbouring vents". Both of
-   these vents sit in a reveal in an existing masonry wall, on a 155mm subcill. Does the
-   1.30m2 change once it is installed in a reveal, and if so, is the figure you quote the
-   bare vent or the installed opening? We would rather understand the basis than assume
-   the headroom is there.
+   And a second point on the same figure, where your quotation has already half answered
+   us. The position block states "Geometric free area = 1.30m2. BASED ON A 50mm REVEAL",
+   and your standard notes add that "the output free area values do not allow for any
+   obstructions, side walls, reveals or neighbouring vents". So the 1.30m2 is stated on a
+   50mm basis rather than as a bare figure, which is more helpful than we first read it.
+   Both of these vents sit in an opening in an existing masonry wall, on a 155mm subcill,
+   and we do not yet know the finished reveal depth at either. Two questions follow:
+   (a) how does the geometric free area move as the reveal deepens beyond 50mm - is there
+       a figure or a rule of thumb you can give us?
+   (b) at what reveal depth would the vent as quoted drop below 1.0m2 geometric?
+   We are not asking you to guess at our reveal. We would rather know the sensitivity now
+   than discover it after the opening is formed.
 
 2. A SIZE THAT ACHIEVES 1.0 m2 AERODYNAMIC
    If the aerodynamic figure at 1130 x 1530 falls below 1.0 m2, please give the O/A size

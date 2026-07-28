@@ -490,6 +490,7 @@ def check_supplier_covers_quantity(m):
         return result("supplier quote covers every unit sold", NA,
                       "no supplier-backed lines to check", "Brocks Hill")
     short, silent = [], []
+    claimed = {}
     for c in cov:
         ref, sold, quoted = c.get("ref", "?"), c.get("qty_sold"), c.get("qty_quoted")
         if sold is None or quoted is None:
@@ -497,6 +498,70 @@ def check_supplier_covers_quantity(m):
         elif quoted < sold:
             short.append("%s: selling %s, %s quoted %s"
                          % (ref, sold, c.get("supplier_ref", "the supplier"), quoted))
+        else:
+            key = c.get("supplier_ref")
+            if key:
+                claimed.setdefault(key, []).append((ref, quoted))
+    # Riverside, 28/07. The Brocks Hill case is under-coverage - 2 sold, 1
+    # quoted, GBP 2,723.49 with no quote behind it. This is the same money
+    # problem from the other side: two lines each crediting the SAME quoted
+    # units, so one of them is uncovered while the arithmetic still ties. It
+    # was live here - both vents claimed qty_quoted 2 from a quotation whose
+    # single position reads "Qty (2)", asserting four units against two sold -
+    # and the rule passed, because it only ever asked whether quoted < sold.
+    # Checked only where over-claim is possible: one supplier reference
+    # credited on more than one line.
+    # Match by whether the quotation's REFERENCE appears inside the coverage
+    # entry's supplier_ref, rather than by reconstructing a composite key. The
+    # first version built keys from ref, "supplier ref" and "firstword ref",
+    # and matched none of them: coverage said "A Plus QT51518" and the quote
+    # said supplier "A Plus Windows & Doors", ref "QT51518". So the rule
+    # reported that nothing recorded the quantity when something did - a false
+    # ASK, from assuming a string shape without printing the two strings. It
+    # died the instant they were printed side by side, which is the whole of
+    # Gordon Court's lesson.
+    quote_totals = [(str(q.get("ref", "")).strip(), q.get("qty_total"))
+                    for q in (m.get("supplier_quotes") or [])
+                    if isinstance(q, dict) and q.get("qty_total") is not None
+                    and str(q.get("ref", "")).strip()]
+
+    def total_for(supplier_ref):
+        s = str(supplier_ref).strip().lower()
+        for ref, tot in quote_totals:
+            if ref.lower() in s:
+                return tot
+        return None
+    over, unbounded = [], []
+    for key, lines in claimed.items():
+        if len(lines) < 2:
+            continue
+        total = total_for(key)
+        asked = sum(n for _, n in lines)
+        if total is None:
+            unbounded.append("%s is credited on %d lines (%s) with no qty_total recorded for it"
+                             % (key, len(lines), ", ".join("%s x%s" % (r, n) for r, n in lines)))
+        elif asked > total:
+            try:
+                over.append("%s: %d line(s) claim %s units between them but the quotation covers "
+                            "%s" % (key, len(lines), asked, total))
+            except Exception:
+                pass
+    if over:
+        return result("supplier quote covers every unit sold", FAIL,
+                      "The same quoted units are credited to more than one line, so at least one "
+                      "line is not actually covered: " + "; ".join(over)
+                      + ". The arithmetic ties either way - that is what makes it quiet.",
+                      "Brocks Hill",
+                      remedy="Split the quoted quantity across the lines it actually covers, or "
+                             "get the missing units quoted.")
+    if unbounded and not short and not silent:
+        return result("supplier quote covers every unit sold", UNKNOWN,
+                      "One supplier quotation is credited on several lines and nothing records "
+                      "how many units it actually contains: " + "; ".join(unbounded)
+                      + ". Without that, double-counting cannot be ruled out.",
+                      "Brocks Hill",
+                      remedy="Add 'qty_total' to that entry in 'supplier_quotes', counted off the "
+                             "quotation rather than inferred.")
     if short:
         return result("supplier quote covers every unit sold", FAIL,
                       "Units sold with no supplier quote behind them: %s. Extend the quote before "
@@ -1761,6 +1826,63 @@ EXPOSURE_VARIANTS = [
 ]
 
 
+# Riverside, 28/07, from Gordon Court's "print one real entry before comparing
+# anything to anything". Printing supplier_coverage[0] showed both vents
+# claiming qty_quoted 2 from a quotation whose single position reads "Qty (2)" -
+# four units asserted against two sold - and the rule PASSED, because it only
+# ever asked whether quoted < sold. The last two cases pin the reference
+# matching, which failed on the real strings the first time it was written.
+COVERAGE_VARIANTS = [
+    ("Brocks Hill founding case - 2 sold, 1 quoted",
+     [{"ref": "E.04", "qty_sold": 2, "qty_quoted": 1, "supplier_ref": "0000000503"}], [], FAIL),
+    ("the Riverside bug - both lines claim the same 2 units",
+     [{"ref": "AOV.01", "qty_sold": 1, "qty_quoted": 2, "supplier_ref": "A Plus QT51518"},
+      {"ref": "AOV.02", "qty_sold": 1, "qty_quoted": 2, "supplier_ref": "A Plus QT51518"}],
+     [{"supplier": "A Plus Windows & Doors", "ref": "QT51518", "qty_total": 2}], FAIL),
+    ("corrected - one unit each",
+     [{"ref": "AOV.01", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "A Plus QT51518"},
+      {"ref": "AOV.02", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "A Plus QT51518"}],
+     [{"supplier": "A Plus Windows & Doors", "ref": "QT51518", "qty_total": 2}], PASS),
+    ("two lines, one quote, no qty_total recorded",
+     [{"ref": "A", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"},
+      {"ref": "B", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"}], [], UNKNOWN),
+    ("one line only - over-claim impossible, stays quiet",
+     [{"ref": "A", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"}], [], PASS),
+    ("two quotes, one line each - stays quiet",
+     [{"ref": "A", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"},
+      {"ref": "B", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT10"}], [], PASS),
+    ("claim equals the quotation exactly",
+     [{"ref": "A", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"},
+      {"ref": "B", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"}],
+     [{"ref": "QT9", "qty_total": 2}], PASS),
+    ("bare reference matches a composite one",
+     [{"ref": "A", "qty_sold": 1, "qty_quoted": 2, "supplier_ref": "QT9"},
+      {"ref": "B", "qty_sold": 1, "qty_quoted": 2, "supplier_ref": "QT9"}],
+     [{"supplier": "Someone Ltd", "ref": "QT9", "qty_total": 2}], FAIL),
+    ("a quote reference that matches nothing stays unbounded",
+     [{"ref": "A", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"},
+      {"ref": "B", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"}],
+     [{"ref": "QT99", "qty_total": 2}], UNKNOWN),
+]
+
+
+def selftest_coverage_variants():
+    """Recall test for the over-claim arm of check_supplier_covers_quantity."""
+    bad = []
+    for name, cov, quotes, expect in COVERAGE_VARIANTS:
+        try:
+            got = check_supplier_covers_quantity(
+                {"supplier_coverage": cov, "supplier_quotes": quotes})["status"]
+        except Exception as exc:
+            got = "EXCEPTION %s: %s" % (type(exc).__name__, exc)
+        if got != expect:
+            bad.append("%s: expected %s, got %s" % (name, expect, got))
+    print("  %-22s %d/%d coverage variants behave as intended%s"
+          % ("coverage over-claim", len(COVERAGE_VARIANTS) - len(bad), len(COVERAGE_VARIANTS),
+             "" if not bad else "  MISSED: " + "; ".join(bad)))
+    return not bad
+
+
 def selftest_view_variants():
     """Recall test for check_priced_document_view_is_intact.
 
@@ -2070,6 +2192,8 @@ def selftest():
     if not selftest_trace_variants():
         ok = False
     if not selftest_view_variants():
+        ok = False
+    if not selftest_coverage_variants():
         ok = False
     if not selftest_one_crash_costs_one_rule():
         ok = False

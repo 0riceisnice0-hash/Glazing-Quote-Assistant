@@ -4818,6 +4818,55 @@ improved, one list confirmed, one self-inflicted false alarm caught. Reported as
 Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, print one real entry
+
+Gordon Court's line, after four consecutive nights in which one of their probes encoded an assumption the
+data did not honour: **print one real entry before comparing anything to anything.** It caught two things
+here in one turn.
+
+**In the data.** `supplier_coverage[0]` read `qty_quoted: 2` against `qty_sold: 1`, and the second line
+said the same - **four quoted units asserted against two sold**, from a quotation with a single position
+block. Counted off the quote rather than taken from the manifest: one `O/A Sizes`, one `Frame Price`, one
+`Glazing Details & Apertures`, zero `Location:` headers, position reading *"Qty (2) O/A Sizes 1130mm x
+1530mm (Style FF)"*.
+
+**And `check_supplier_covers_quantity` passed on it**, because it only ever asked whether `quoted < sold`.
+Its founding case at Brocks Hill was **under**-coverage - 2 sold, 1 quoted, GBP 2,723.49 with no quote
+behind it. **This is the same money problem from the other side: two lines crediting the same quoted units
+means one of them is uncovered, and the arithmetic ties either way.** That is what kept it quiet.
+Corrected to one unit each, with `qty_total: 2` recorded against QT51518 and a note that it was counted
+rather than inferred. The rule now catches over-claim, and only where over-claim is possible - one
+supplier reference credited on more than one line - so single-line jobs stay silent. Nine variants; the
+Brocks Hill founding case still fails.
+
+**In the code written to fix it.** The first version of that extension built composite keys - `ref`,
+`"supplier ref"`, `"firstword ref"` - and matched none of them, because coverage says `"A Plus QT51518"`
+and the quote says supplier `"A Plus Windows & Doors"`, ref `"QT51518"`. **So the extension written to
+catch a silent pass produced a false ASK instead**, reporting that nothing recorded the quantity when
+something did. Matching is now by whether the quotation's reference appears inside the coverage entry's,
+with two variants pinning it. **Gordon Court's line caught the same class of fault twice in one turn -
+once in the data and once in the code written to check the data.**
+
+**And the same printed line held six words read past for a week:** *"Geometric free area = 1.30m2. **Based
+on a 50mm reveal.** Cill horn size = 100mm."* Three turns ago this chat found A Plus's note that free area
+values *"do not allow for any obstructions, side walls, reveals or neighbouring vents"*, posted it as the
+first thing found that could erode the geometric margin itself, and asked whether the 1.30m2 changes once
+installed in a reveal. **It does not - it was never a bare figure.** The basis is stated on the face of
+the quotation, one line below the number quoted in every document on this job. Right in direction, wrong
+in what it asked; what is unknown is **our** reveal, being cut into existing masonry on a 155mm subcill
+and not yet dimensioned. RFQ item 1 now asks how the geometric area moves as the reveal deepens beyond
+50mm, and at what depth the vent drops below 1.0m2 - **a sensitivity rather than a restatement. A supplier
+asked to confirm what they have already written will confirm it; asked where the cliff is, they have to
+compute something.**
+
+**On the size of this one, taking Gordon Court's point that a quiet result should read as quiet:** one
+real error, found sitting in the manifest passing a check since its fixture was written; one question
+improved rather than answered; one self-inflicted false ASK caught inside the fix. **No change to price,
+scope or any deadline.**
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

@@ -257,6 +257,18 @@
     {
       "ref": "Gordon Court's column-B result, recorded because it is the best argument for the two-file discipline and it is not about secrecy. My client copy failed rule 21 on PRODUCT CODES / MAW in column B, because our template's print area starts at C to exclude the internal product codes. THEIRS STARTS AT B - and their column B holds LW_1, WN_7, 'Sheerline Aluminium Louvre': the architect's own window tags, which is what a client should see. Column B was repurposed on the issued file and the print area widened to match. Their sentence: 'deliberate, not accidental - and I only know that because there were two files to compare. A single file would have left me guessing.'  ->  RECORDED. Two files are not a way of hiding something; they are a diff, and a diff tells you whether a difference was a decision. Riverside now holds two for the first time and will keep both after issue for that reason.",
       "treatment": "excluded"
+    },
+    {
+      "ref": "SUPPLIER COVERAGE WAS DOUBLE-COUNTED AND THE RULE WAS PASSING ON IT. Gordon Court's rule - print one real entry before comparing anything to anything - took one line here: supplier_coverage[0] read qty_quoted 2 against qty_sold 1, and AOV.02 said the same, so the manifest asserted FOUR quoted units against two sold. QT51518 has ONE position block, counted off the quote rather than taken from the manifest: one 'O/A Sizes', one 'Frame Price', one 'Glazing Details & Apertures', zero 'Location:' headers, position reading 'Qty (2) O/A Sizes 1130mm x 1530mm (Style FF)'. check_supplier_covers_quantity PASSED, because it only ever asked whether quoted < sold. Its founding case at Brocks Hill was UNDER-coverage - 2 sold, 1 quoted, GBP 2,723.49 with no quote behind it - and this is the same money problem from the other side: two lines crediting the same quoted units means one is uncovered while the arithmetic ties either way.  ->  CORRECTED to one unit each, with qty_total 2 recorded against QT51518 and a note saying it was counted rather than inferred. The rule now catches over-claim, only where over-claim is possible (one supplier reference credited on more than one line), and asks for qty_total in that case. Nine variants; the Brocks Hill founding case still fails.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "AND MY FIRST VERSION OF THAT EXTENSION MADE THE SAME MISTAKE IT WAS WRITTEN TO CATCH. It built composite keys - ref, 'supplier ref', 'firstword ref' - and matched none of them, because coverage says 'A Plus QT51518' and the quote says supplier 'A Plus Windows & Doors', ref 'QT51518'. So the extension written to catch a silent pass produced a FALSE ASK instead, reporting that nothing recorded the quantity when something did.  ->  FIXED: matching is now by whether the quotation's reference appears inside the coverage entry's supplier_ref, with two variants pinning it. It died the instant the two strings were printed side by side, which is the whole of Gordon Court's lesson - and their line has now caught the same class of fault twice in one turn, once in the data and once in the code written to check the data.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "THE QUOTE HAD ALREADY HALF-ANSWERED THE FREE-AREA-IN-A-REVEAL QUESTION. The same printed position block reads 'Geometric free area = 1.30m2. BASED ON A 50mm REVEAL. Cill horn size = 100mm.' Three turns ago this chat found A Plus's note that free area values 'do not allow for any obstructions, side walls, reveals or neighbouring vents', called it the first thing found that could erode the geometric margin itself, and asked them whether the 1.30m2 changes once installed in a reveal. IT DOES NOT CHANGE - IT WAS NEVER A BARE FIGURE. The basis is stated on the face of the quotation, one line below the number quoted in every document on this job. The finding was right in direction and wrong in what it asked; what is unknown is OUR reveal, being cut into existing masonry on a 155mm subcill and not yet dimensioned.  ->  RFQ ITEM 1 REWRITTEN to ask (a) how the geometric free area moves as the reveal deepens beyond 50mm and (b) at what reveal depth the vent as quoted drops below 1.0m2 geometric. A better question because it asks for a SENSITIVITY rather than a restatement: a supplier asked to confirm what they have already written will confirm it; asked where the cliff is, they have to compute something.",
+      "treatment": "excluded"
     }
   ],
   "supplier_quotes": [
@@ -267,7 +279,9 @@
       "valid_until": "2026-08-26",
       "used_net": true,
       "value": 4845.22,
-      "note": "Frames 4662.15 + glass 171.31 + energy surcharge 11.76 = 4845.22, ties exactly to the stated Total - no extras block on this quote (the Gordon Court element-lines-vs-total test passes). Supply only, delivered, glazed. 'The Price stated in the quotation is open for acceptance for a period of 30 days'. Order value is 154.78 BELOW A Plus's 5000 ex VAT free-delivery threshold, so delivery is chargeable at 1/mile each way from Watford unless batched - see check_free_delivery_threshold."
+      "note": "Frames 4662.15 + glass 171.31 + energy surcharge 11.76 = 4845.22, ties exactly to the stated Total - no extras block on this quote (the Gordon Court element-lines-vs-total test passes). Supply only, delivered, glazed. 'The Price stated in the quotation is open for acceptance for a period of 30 days'. Order value is 154.78 BELOW A Plus's 5000 ex VAT free-delivery threshold, so delivery is chargeable at 1/mile each way from Watford unless batched - see check_free_delivery_threshold.",
+      "qty_total": 2,
+      "qty_total_note": "Counted off the quotation, not inferred: one 'O/A Sizes', one 'Frame Price', one 'Glazing Details & Apertures', zero 'Location:' headers, and the position reads 'Qty (2) O/A Sizes 1130mm x 1530mm (Style FF)'."
     }
   ],
   "full_height_screens": [],
@@ -317,14 +331,16 @@
     {
       "ref": "AOV.01",
       "qty_sold": 1,
-      "qty_quoted": 2,
-      "supplier_ref": "A Plus QT51518"
+      "qty_quoted": 1,
+      "supplier_ref": "A Plus QT51518",
+      "note": "QT51518 has ONE position block, Qty (2), covering both vents - so each line is covered by one quoted unit, not two. Was 2, which asserted four quoted units against two sold. Corrected 28/07 after printing the entry."
     },
     {
       "ref": "AOV.02",
       "qty_sold": 1,
-      "qty_quoted": 2,
-      "supplier_ref": "A Plus QT51518"
+      "qty_quoted": 1,
+      "supplier_ref": "A Plus QT51518",
+      "note": "QT51518 has ONE position block, Qty (2), covering both vents - so each line is covered by one quoted unit, not two. Was 2, which asserted four quoted units against two sold. Corrected 28/07 after printing the entry."
     }
   ],
   "price_commitment": {
