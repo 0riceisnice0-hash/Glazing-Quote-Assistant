@@ -25,6 +25,7 @@ import json
 import os
 import re
 import sys
+import textwrap
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MANIFEST_DIR = os.path.join(REPO, "data", "job-checks")
@@ -660,13 +661,55 @@ def check_free_delivery_threshold(m):
                   "Riverside House")
 
 
+_LABEL_STALE = re.compile(r"\b(NOT RUN|not run|outstanding|TBC|not yet done)\b")
+_LABEL_DONE = re.compile(r"\b(RUN|DONE|resolved|CLEARED|answered|withdrawn|CORRECTED)\b")
+
+
+def check_spec_label_matches_evidence(m):
+    """Gordon Court, 28/07. A spec item whose LABEL says outstanding while its own
+    EVIDENCE says it was done.
+
+    The founding case: 'Untagged glazing on the elevations - riverside's check,
+    NOT RUN', whose evidence field ended 'TENTH TURN - RUN. Rendered the
+    elevations at 110-260 dpi.' Both were written by me, ten turns apart. Only
+    the ref was ever visible, because report() truncated the evidence - so the
+    contradiction sat in the file for eleven turns and then cost a turn of
+    re-derived work when I trusted the label.
+
+    This matters to a price because check_scope_gaps reads the treatment field.
+    A label that says GAP on something already resolved produces a FAIL nobody
+    can action; a label that says NOT RUN on something already run sends
+    somebody to do it twice.
+
+    Verified before shipping: 0 fires across 119 spec items in 13 manifests,
+    and it fires on the one real case recovered from git.
+    """
+    bad = []
+    for s in m.get("spec_items") or []:
+        label = "%s || %s" % (s.get("ref", ""), s.get("treatment", ""))
+        ev = str(s.get("evidence", ""))
+        if _LABEL_STALE.search(label) and _LABEL_DONE.search(ev):
+            hit = _LABEL_DONE.search(ev)
+            bad.append("%s - but its evidence says '%s'" % (
+                str(s.get("ref", ""))[:70], ev[max(0, hit.start() - 30):hit.end() + 40].strip()))
+    if bad:
+        return result("spec item labels match their evidence", FAIL,
+                      "A spec item is labelled outstanding while its own evidence records it as done: "
+                      + "; ".join(bad)
+                      + ". Fix the label or the evidence - whichever is wrong, somebody will act on the "
+                        "one that is visible.",
+                      catch="gordon-court")
+    return result("spec item labels match their evidence", PASS,
+                  "%d spec item label(s) agree with their evidence" % len(m.get("spec_items") or []))
+
+
 RULES = [
     check_system_coupling, check_panic_hardware, check_glass_ownership, check_quantities,
     check_scope_gaps, check_supplier_quote_currency, check_net_pricing,
     check_full_height_screens, check_fabricator_can_make_it, check_uvalue_basis,
     check_finish_substitution, check_supplier_covers_quantity,
     check_system_performance, check_quote_validity_against_commitment,
-    check_free_delivery_threshold,
+    check_free_delivery_threshold, check_spec_label_matches_evidence,
 ]
 
 
@@ -698,16 +741,44 @@ def run(manifest):
 
 
 def report(results, job=""):
+    """Print every result, and every character of the ones that gate the price.
+
+    Fixed 28/07/2026, Gordon Court, applying riverside's general form: a report
+    that omits a category is worse than one that shows it wrongly, because the
+    output looks clean and clean is not the same as complete.
+
+    This function used to print detail[:96], then detail[96:200] for FAIL and
+    ASK, and stop. On Gordon Court that threw away 1,877 of the 2,077 characters
+    of the "spec covered or excluded" FAIL - 90%, cut mid-word, with no ellipsis
+    and no count. That rule lists the items neither priced nor excluded: it named
+    NINETEEN and three reached the screen. Among the sixteen nobody ever saw were
+    curtain walling priced nowhere, the strip-out allocation, the demolition
+    elevations, and the closing sentence "A silent gap reads as included to the
+    client" - which was itself silently dropped.
+
+    So: FAIL and ASK now wrap in FULL, because those are the lines that decide
+    whether a price goes out. PASS and n/a stay on one line but say how much was
+    cut, so nothing is lost without the reader being told.
+    """
     fails = [r for r in results if r["status"] == FAIL]
     unknowns = [r for r in results if r["status"] == UNKNOWN]
     width = max(len(r["rule"]) for r in results)
+    indent = " " * (width + 9)
+    body = max(40, 118 - width)
     print("PRE-ISSUE CHECKS%s" % (" - " + job if job else ""))
     print("=" * (width + 60))
     for r in results:
         mark = {PASS: "PASS", FAIL: "FAIL", UNKNOWN: "ASK ", NA: "  - "}[r["status"]]
-        print("  [%s] %-*s  %s" % (mark, width, r["rule"], r["detail"][:96]))
-        if r["status"] in (FAIL, UNKNOWN) and len(r["detail"]) > 96:
-            print("         %s%s" % (" " * width, r["detail"][96:200]))
+        detail = r["detail"]
+        if r["status"] in (FAIL, UNKNOWN):
+            lines = textwrap.wrap(detail, body) or [""]
+            print("  [%s] %-*s  %s" % (mark, width, r["rule"], lines[0]))
+            for extra in lines[1:]:
+                print("%s%s" % (indent, extra))
+        else:
+            if len(detail) > body:
+                detail = "%s... (+%d chars)" % (detail[:body], len(r["detail"]) - body)
+            print("  [%s] %-*s  %s" % (mark, width, r["rule"], detail))
     print("=" * (width + 60))
     if fails:
         print("%d FAILED - do not issue this quote." % len(fails))

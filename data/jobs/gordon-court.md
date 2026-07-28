@@ -1138,7 +1138,14 @@ package**, because it decides whether the clear-opening question exists at all:
 
 It needs the **architect or fire engineer**, not a supplier.
 
-### 4G.3 One check I could not run — stated rather than faked
+### 4G.3 ~~One check I could not run~~ — **SUPERSEDED BY 4H.6 (tenth turn) AND 4R.2. DO NOT READ THIS AS CURRENT.**
+
+> **Marked 28/07, twentieth turn.** This section stood unamended for eleven turns after **4H.6 answered it**,
+> and on the nineteenth turn I read *this* section, believed the render was still outstanding, and re-ran it.
+> The two claims below are both wrong: the tags are **not** in a CAD graphics layer (4R.2 — they are not on
+> the sheets at all), and the render **was** performed, at the tenth turn. The convention for this already
+> existed in section 9 of this file — `~~Still unread~~ DONE (third turn)` — and I simply had not applied it
+> here. **An append-only job file does not reconcile section N against section N+1. Nothing does that but me.**
 
 riverside also found their stair windows were the only glazing carrying no performance tag, which is
 probably why the vents were never scheduled, and suggested checking for **untagged glazing**. On this pack
@@ -1867,6 +1874,16 @@ read visually**, because only `21007 rev 03` yields window tags to text extracti
 in the CAD graphics layer"*. **They do not. They are simply not on those sheets.** The extraction was
 right; my explanation for it was wrong.
 
+> **CORRECTED 28/07, twentieth turn — this was not outstanding and I should not have said it was.**
+> **4H.6 rendered the elevations at the tenth turn** and had already concluded *"three of the four proposed
+> elevations carry no window tags at all"*. I read the stale 4G.3 instead, believed the job was undone, and
+> re-derived a finding this file already held. The manifest recorded the same contradiction — its `ref` said
+> `NOT RUN` while its own `evidence` field said `TENTH TURN - RUN` — and only the `ref` was ever visible,
+> because `report()` truncated the evidence. **Three records, two of them right, and the wrong one was the
+> only one on screen.** What below IS new to this turn and stands: the FR frosted-glass count, the 23-unit
+> obscure correction, the block-parsing lesson, and the "no sheet pairs a window reference with a glazing
+> treatment" framing. None of that existed at the tenth turn. The re-run was not wasted; the framing was wrong.
+
 What the renders show is better than a graphics-layer problem — the set is drawn in **two incompatible
 annotation conventions**:
 
@@ -1907,6 +1924,82 @@ obscure and it was not the elevations.
 - The admin section renumbered **6 → 7**, deliberately, so that **7.2 is still the last section and still
   deletes cleanly** — that was an explicit promise to Adam last turn and inserting after it would have
   broken it.
+
+---
+
+## 4S. TWENTY-FIRST TURN (28/07) — the checker was hiding £201,304.36, and I re-ran work already done
+
+### 4S.1 riverside found a real bug in my tool, and their fix holds
+
+`mary_stale_drafts.py` bucketed `days < 0` to expired and `days <= warn_days` to due, **with no else** —
+so any dated draft more than a fortnight out was parsed, dated and silently dropped. Their A Plus letter at
+29 days was absent from every section while the report concluded *"Nothing expired"*. Fixed with a
+**DATED, NOT YET DUE** bucket.
+
+Verified rather than taken: all three date views now account for every dated draft; exit codes are 0 / 1 / 1
+across 28-07 / 07-08 / 27-08; `--quiet` prints nothing on a clean day and exits 1 on an expiry day. Their
+claim that nothing else calls `scan()` also holds — the two other `.scan(` hits in the tree are
+`mary_backtest.py` and `mary_calibrate.py` calling a **different** module's reader.
+
+**One residual instance of the same bug was mine and still in the file.** The SUPERSEDED date was parsed
+into `when` and then discarded by `"" if not when else ""` — both branches empty. Milder than theirs,
+because nothing was hidden from the report, only the date. Now printed.
+
+### 4S.2 Their general form, run on the price gate — and it was the worst instance of the three
+
+> **A report that omits a category is worse than one that shows it wrongly, because the output looks clean
+> and clean is not the same as complete.**
+
+`report()` in `mary_checks.py` printed `detail[:96]`, then `detail[96:200]` for FAIL and ASK, and stopped.
+No ellipsis, no count, cut mid-word. On this job:
+
+| Rule | Detail | Shown | **Lost** |
+|---|---|---|---|
+| spec covered or excluded | 2,077 | 200 | **1,877 (90%)** |
+| supplier price held as long as ours | 843 | 200 | 643 (76%) |
+| delivery actually included | 776 | 200 | 576 (74%) |
+| system can meet the specified performance | 634 | 200 | 434 (68%) |
+
+**What was behind the cut, on the four lines that decide whether a price goes out:**
+
+- **`Total GBP 201,304.36 of cost unfixed against a price we cannot withdraw`** — the single number that
+  quantifies what Adam's REQ-20 decision commits us to. **Never once on screen.**
+- `Get a written price hold to 2027-01-18 or carry a stated allowance for the gap` — the remedy, also cut.
+- `GBP 183,005.42` of chargeable carriage, and `get the supplier to confirm the load is being batched free`.
+- The spec-gap rule named **nineteen** uncovered items and **three** reached the screen. Among the sixteen
+  nobody ever saw: **curtain walling priced nowhere**, strip-out allocation, the demolition elevations.
+- And the rule's closing sentence — *"A silent gap reads as included to the client"* — **was itself
+  silently dropped.**
+
+Fixed: FAIL and ASK now wrap in full; PASS and n/a stay on one line but state `... (+N chars)`. Nothing is
+lost without the reader being told. Selftest passes, run unchanged at **4 FAIL, 2 ASK**.
+
+### 4S.3 The same shape a third time, and this one cost me a turn
+
+**The nineteenth turn re-ran work the tenth turn had already done.** §4H.6 rendered the elevations and
+concluded *"three of the four proposed elevations carry no window tags at all"*. §4G.3, written one turn
+earlier, said the check could not be run — and was **never amended**. On the nineteenth turn I read §4G.3,
+believed the render was outstanding, and re-derived it.
+
+The manifest held the same contradiction: `ref` said `NOT RUN`, its own `evidence` field said
+`TENTH TURN - RUN`. **Three records, two of them right, and the wrong one was the only one visible** —
+because `report()` truncated the evidence.
+
+**What was genuinely new on the nineteenth turn and stands:** the FR frosted-glass count, the 23-unit
+obscure correction, the block-parsing lesson, and the "no sheet pairs a window reference with a glazing
+treatment" framing. None of that existed at the tenth turn. The re-run was not wasted; **the framing was
+wrong and I have corrected it in place at 4G.3 and 4R.2.**
+
+The house convention for this already existed at section 9 — `~~Still unread~~ DONE (third turn)` — and I
+had simply not applied it. **An append-only job file does not reconcile section N against section N+1.**
+
+### 4S.4 New rule: `check_spec_label_matches_evidence`
+
+Fires when a spec item's label says outstanding while its own evidence records it as done. Earned its place
+rather than assumed it: **0 fires across 119 spec items in 13 manifests**, and it **FAILs on the pre-fix
+manifest recovered from git**. A label that says GAP on something resolved produces a FAIL nobody can
+action; one that says NOT RUN on something already run sends somebody to do it twice — which is precisely
+what it did to me.
 
 ---
 
@@ -2009,6 +2102,15 @@ their whole book, not signalling anything specific about Gordon Court.
   due-within-N-days, and correctly-marked. Exits 1 on anything expired, so it can gate a routine.
   `--today YYYY-MM-DD` shows a future date's report. Undated drafts are **listed, not judged**.
   Not a pricing rule and deliberately not wired into `mary_checks.py`: it tests the folder, not the job.
+- **28/07 twenty-first turn — `report()` in `mary_checks.py` no longer truncates a FAIL.** It printed
+  `detail[:200]` and stopped, discarding 90% of the biggest FAIL on this job including the
+  **£201,304.36** exposure total and the remedy line beside it. FAIL and ASK now wrap in full; PASS and n/a
+  state `... (+N chars)`. See §4S.2 for what was behind the cut.
+- **28/07 — new rule `check_spec_label_matches_evidence`.** Fires when a spec item's label says outstanding
+  while its own evidence records it as done. 0 fires across 119 spec items in 13 manifests; FAILs on the
+  pre-fix manifest from git. See §4S.4.
+- **28/07 — `mary_stale_drafts.py`:** riverside fixed the missing `else` (dated drafts beyond `warn_days`
+  were silently dropped); I fixed the residual no-op that parsed the SUPERSEDED date and discarded it.
 
 ## 8A. Toolkit changes on the second turn
 

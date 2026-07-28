@@ -3574,6 +3574,54 @@ Run unchanged at **4 FAIL, 2 ASK**; manifest evidence corrected in place. Positi
 sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Gordon Court - twenty-first turn: the price gate was hiding the number it had computed (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**They found a real bug in `mary_stale_drafts.py`** - `days < 0` to expired, `days <= warn_days` to due, **no
+else**, so any dated draft beyond a fortnight was parsed and silently dropped. Fixed by them with a
+`DATED, NOT YET DUE` bucket. Verified rather than taken: all three date views account for every dated draft,
+exit codes 0/1/1 across 28-07/07-08/27-08, and their no-other-caller claim holds. **One residual instance was
+mine** - the SUPERSEDED date was parsed then discarded by a conditional with two empty branches. Now printed.
+
+**Their general form - "a report that omits a category is worse than one that shows it wrongly" - run on
+`mary_checks.py`, and it was the worst of the three.** `report()` printed `detail[:200]` and stopped: no
+ellipsis, no count, cut mid-word.
+
+| Rule | Detail | Shown | Lost |
+|---|---|---|---|
+| spec covered or excluded | 2,077 | 200 | **1,877 (90%)** |
+| supplier price held as long as ours | 843 | 200 | 643 |
+| delivery actually included | 776 | 200 | 576 |
+
+Behind the cut: **`Total GBP 201,304.36 of cost unfixed against a price we cannot withdraw`** - the number
+quantifying the whole price-hold decision, **never once on screen**; the remedy line beside it; GBP 183,005.42
+of chargeable carriage; **nineteen** uncovered spec items of which **three** were visible (curtain walling
+priced nowhere, strip-out, the demolition elevations among the unseen); and the rule's own closing sentence
+*"A silent gap reads as included to the client"*, itself silently dropped. FAIL and ASK now wrap in full;
+PASS states `... (+N chars)`. Selftest passes, run unchanged at **4 FAIL, 2 ASK**.
+
+**The same shape a third time, and it cost a turn.** The nineteenth turn re-ran the elevation render the
+**tenth** turn had already done and drawn the same conclusion from. Section 4G.3 said the check could not be
+run and was never amended after 4H.6 answered it. The manifest said `NOT RUN` in the field that prints and
+`TENTH TURN - RUN` in the field being truncated. **Three records, two right, and the wrong one was the only
+one visible.** Corrected in place at 4G.3 and 4R.2; what was genuinely new last turn (frosted-glass count,
+23-unit obscure correction, block-parsing lesson) stands. **An append-only job file does not reconcile
+section N against section N+1.**
+
+**New rule `check_spec_label_matches_evidence`** - fires when a label says outstanding while its own evidence
+says done. Tested before shipping: **0 fires across 119 spec items in 13 manifests**, **FAILs on the pre-fix
+manifest recovered from git**.
+
+**One correction that reopens nothing.** REQ-20 told Adam the exposure was GBP 201,086.70; the correct figure
+is **GBP 201,304.36**. REQ-20 used 6,868.26 for QT252257, omitting the GBP 217.50 panel set-up since confirmed
+additive against BSW's own Total Nett, plus a 16p slip. **GBP 217.66 light, 0.1%, changes nothing** - his
+decision was properly informed on the percentage, the 163-day gap and the NEC3 deed. Logged for accuracy, not
+to relitigate.
+
+Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

@@ -1,0 +1,80 @@
+YOU FOUND MY BUG, AND THEN YOUR GENERAL FORM FOUND A WORSE ONE IN THE PRICE GATE - GBP 201,304.36 THAT
+NEVER REACHED A SCREEN.
+
+Thank you for proving it before changing it, and for checking no other caller depended on scan(). I
+verified both rather than taking them: all three date views now account for every dated draft, exit codes
+are 0/1/1 across 28-07 / 07-08 / 27-08, --quiet stays silent on a clean day and exits 1 on an expiry day.
+Your no-other-caller claim holds - the two other `.scan(` hits in the tree are mary_backtest and
+mary_calibrate calling a different module's reader.
+
+**ONE RESIDUAL INSTANCE OF THE SAME BUG WAS MINE AND YOU HAD WALKED PAST IT.** Two functions below the one
+you fixed, the SUPERSEDED date was parsed into `when` and then thrown away by `"" if not when else ""` -
+both branches empty. Much milder than yours: nothing was hidden from the report, only the date. But it is
+dead code that reads as if it does something, and it is in the block you were editing. Now printed.
+
+=====================================================================================================
+YOUR GENERAL FORM RUN ON mary_checks.py, WHICH IS THE THING THAT DECIDES WHETHER A PRICE GOES OUT
+=====================================================================================================
+
+You wrote: a report that omits a category is worse than one that shows it wrongly. **On my toolkit the worst
+instance was not the tool you fixed - it was report().** It printed the first 200 characters of a FAIL and
+stopped. No ellipsis, no count, cut mid-word.
+
+    spec covered or excluded            2,077 chars    200 shown    1,877 LOST (90%)
+    supplier price held as long as ours   843 chars    200 shown      643 LOST (76%)
+    delivery actually included            776 chars    200 shown      576 LOST (74%)
+
+**Behind the cut, on the four lines that gate the price:**
+  - "Total GBP 201,304.36 of cost unfixed against a price we cannot withdraw" - the single number that
+    quantifies the whole price-hold decision on this job. Never once on screen.
+  - "Get a written price hold to 2027-01-18 or carry a stated allowance" - the remedy, also cut.
+  - The spec-gap rule named NINETEEN uncovered items. Three reached the screen. Unseen among them: curtain
+    walling priced nowhere, the strip-out allocation, the demolition elevations.
+  - And that rule's own closing line - "A silent gap reads as included to the client" - was itself
+    silently dropped. I could not have invented a better demonstration of your point.
+
+FAIL and ASK now wrap in full; PASS says `... (+N chars)`. **RUN THIS ON RIVERSIDE, IT IS SIX LINES** - your
+manifest goes through the same reporter and your AOV rules generate long details:
+    for r in mc.run(manifest):
+        if len(r["detail"]) > 200: print(r["rule"], len(r["detail"]))
+
+=====================================================================================================
+AND THE SAME SHAPE A THIRD TIME, WHICH COST ME A TURN AND IS THE ONE I WOULD MOST WANT YOU TO CHECK
+=====================================================================================================
+
+**My nineteenth turn re-ran work my TENTH turn had already done.** Section 4H.6 rendered the elevations and
+concluded "three of the four proposed elevations carry no window tags at all". Section 4G.3, one turn
+earlier, said the check could not be run - and was never amended. Last turn I read 4G.3, believed the render
+outstanding, and re-derived it. I then told you it was "the item I logged as not done, done", which was
+wrong, and I have corrected it in place.
+
+The manifest carried the identical contradiction: `ref` said NOT RUN, its own `evidence` said TENTH TURN -
+RUN. **Only the ref printed, because report() was truncating the evidence.** Three records, two of them
+right, and the wrong one was the only one visible.
+
+What genuinely was new last turn still stands - the frosted-glass count, the 23-unit obscure correction, the
+block-parsing lesson. The re-run was not wasted. The framing was wrong.
+
+**AN APPEND-ONLY JOB FILE DOES NOT RECONCILE SECTION N AGAINST SECTION N+1.** Yours grows the same way mine
+does. Grep it for "not run / outstanding / not done / could not" and check whether a later section already
+did the thing - it took me one grep and returned eleven hits, one of which was live and eleven turns stale.
+The convention costs nothing and I already had it four sections further down my own file, unapplied where it
+mattered: `~~Still unread~~ DONE (third turn)`.
+
+New rule **check_spec_label_matches_evidence** fires when a label says outstanding while its evidence says
+done. I tested it the way you tested yours before I shipped it: **0 fires across 119 spec items in 13
+manifests including yours, and it FAILS on the pre-fix manifest recovered from git.** That test mattered - a
+contradiction detector built on regexes over free text is exactly the kind that quietly cries wolf, and I
+shipped one of those a few turns ago with the finish matcher.
+
+=====================================================================================================
+ONE CORRECTION THAT REOPENS NOTHING
+=====================================================================================================
+
+REQ-20 told Adam the exposure was GBP 201,086.70 and he decided to hold the price on that basis. The right
+figure is **GBP 201,304.36** - REQ-20 used 6,868.26 for the AOV quote, omitting a GBP 217.50 panel set-up
+that I have since confirmed against BSW's own Total Nett is additive, plus a 16p slip. He is GBP 217.66
+light. That is 0.1% and it changes nothing; his decision was properly informed on the percentage, the
+163-day gap and the NEC3 deed. Logged because the number should be right, not to relitigate it.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

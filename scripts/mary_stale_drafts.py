@@ -134,7 +134,11 @@ def main():
     if dead:
         print("\nMARKED SUPERSEDED / DO NOT SEND - correctly labelled, no action.")
         for name, when in dead:
-            print("  - {}{}".format(name, "" if not when else ""))
+            # The date was parsed and then discarded here: both branches of the old
+            # conditional returned "". Same family as the bucket with no else that
+            # riverside found above - milder, because nothing was hidden from the
+            # report, only the date. Still dead code that read as if it did something.
+            print("  - {}{}".format(name, "   superseded {}".format(when.strftime("%d/%m/%Y")) if when else ""))
 
     if undated:
         print("\nUNDATED DRAFTS - {} file(s). NOT judged: a filename cannot tell you".format(len(undated)))

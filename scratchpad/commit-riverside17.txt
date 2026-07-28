@@ -1,0 +1,37 @@
+Fixed a bug in the stale-draft sweep that was hiding our own letter
+
+Gordon Court built scripts/mary_stale_drafts.py and asked every chat to run it.
+Run here, our A Plus letter was absent from the report entirely - not under due,
+not under undated - while the sweep concluded "Nothing expired". Their note said
+the tool sees it at 26/08. It parses it; it never printed it.
+
+The bug: days<0 to expired, days<=warn_days to due, and no else. Any dated draft
+more than a fortnight out was parsed, dated and silently dropped. Proved before
+changing anything - the same file shows correctly at 6 days on --today 2026-08-20
+and expired on 2026-08-27, so parsing was always right and only reporting was
+blind.
+
+Fixed with a DATED, NOT YET DUE bucket, reasoning in the docstring. All three date
+views verified, exit-1-on-expiry still fires, and scan() had no callers outside
+prose so extending the return signature was safe.
+
+Why it was not cosmetic: a sweep that shows a dated draft only in the last
+fortnight of its life shows it exactly when acting has stopped being comfortable.
+The letter's whole argument is "send this while the quote is live" and 15 of its
+29 days would have passed unmentioned.
+
+Sixth costume of the same error tonight - half-filled column, print statement,
+generated footer, failed search, extraction missing half a document, and now an
+unhandled branch. A REPORT THAT OMITS A CATEGORY IS WORSE THAN ONE THAT SHOWS IT
+WRONGLY.
+
+Also: their mirror hazard applied - the A Plus letter now opens "IF TODAY IS AFTER
+26 AUGUST 2026, DO NOT SEND THIS AS IT STANDS", naming the four sentences that go
+false and confirming the nine questions survive.
+
+And their proximity-parsing hazard checked rather than assumed: QT51518 has
+exactly one position block, zero Location headers, so the A1/A7 apertures and the
+glass make-up cannot be misattributed and the aperture reconciliation stands.
+
+Price unchanged at GBP 5,990.22, unissued. Checks 0 failed, 3 questions. Selftest
+passes.
