@@ -160,6 +160,15 @@ FOR RRR / PHDB
    Controls, and that the occupier or their agent carries a legal duty under the Regulatory
    Reform (Fire Safety) Order 2005 to keep the system in working order - which usually means
    a maintenance contract from handover. Worth knowing who is arranging that too.
+   One point worth passing to whoever does carry the panel, because it is easy to miss:
+   the actuator guarantee is CONDITIONAL on that panel. A Plus's wording is that the
+   actuators "must be powered by a compatible control system which is approved by SE
+   Controls to provide suitable power management and where necessary, record actuator
+   operation cycles". So a panel chosen on price by another trade could leave the moving
+   part of a life-safety system unwarranted, and the guarantee also has a cycle limit that
+   is only ever demonstrable from a panel that counts cycles. We are asking A Plus which
+   panels are approved, and will pass the answer on. We raise it now rather than later
+   because it costs nothing to specify the right panel and a good deal to change one.
 
 11. WHICH COMPANY WILL BE PLACING THE ORDER?
    A small administrative one, but it is easier settled now than at order stage. Our

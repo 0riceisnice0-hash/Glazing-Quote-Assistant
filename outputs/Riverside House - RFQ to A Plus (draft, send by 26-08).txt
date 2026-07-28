@@ -236,10 +236,26 @@ this further, plus one item we would like added.
    (a) what is the warranty period on the frame, the glass and the finish, as distinct
        from the actuator?
    (b) is there an extended warranty available on the actuator, and at what cost?
-   (c) the 15,000-cycle limit - on a smoke vent subject to routine testing, roughly what
-       service life does that represent in your experience?
+   (c) the 15,000-cycle limit - by our arithmetic weekly testing is about 52 operations a
+       year, so 15,000 cycles is a very long time and the twelve months would always be
+       reached first. Is that how you read it too? We ask because if the vent is ever used
+       for day-to-day ventilation as well as smoke, the answer may change.
    (d) please send the manufacturer's installation instructions for the actuator. We
        install, your note conditions the guarantee on following them, and we would rather
        read them before we start than be told about them afterwards.
+   (e) the twelve months runs "from the date of delivery completion". This job is waiting
+       on the client's building-works costs, so there may be a real gap between delivery
+       and the vents being installed and commissioned. Can the twelve months run from
+       installation or handover instead, or can it be suspended while the goods are held?
+       We ask because your storage terms encourage us to take delivery promptly and the
+       warranty terms encourage us to take it late.
+   (f) your notes say the actuators "must be powered by a compatible control system which
+       is approved by SE Controls". The panel is not in your price and we are asking the
+       client who is carrying it. Which panels are approved, and what happens to the
+       actuator guarantee if the system is supplied by others and turns out not to be one
+       of them? We would rather tell the client that now than discover it at handover.
+   (g) your Hardware note says non-standard items "may nullify any system or performance
+       warranty on that product". Is the SE Controls actuator standard for a DualFrame
+       75Si vent, or does anything in this quotation fall under that sentence?
 
 Many thanks,

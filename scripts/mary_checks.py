@@ -1485,6 +1485,211 @@ def check_incorporated_terms_held(m):
                   "Riverside House")
 
 
+def check_warranty_is_back_to_back(m):
+    """Riverside House / Gordon Court, 28/07. What we promise the client against
+    what the supplier promises us - compared as FOUR things, not one.
+
+    Gordon Court found a five-year glass gap on AFS by comparing PERIODS. The
+    same check run here on A Plus returned a period, an outright component
+    exclusion and a cycle cap - three findings from one check - and their
+    conclusion was that the check itself had been a quarter of a check:
+
+        the PERIOD          10 years against 12 months
+        the START DATE      ours states none at all; theirs runs from delivery
+                            to our own yard, so the client's cover is spent
+                            before the building is occupied
+        the EXCLUSION LIST  four of six of A Plus's have no counterpart in ours
+        a USAGE CAP         "15,000 cycles or 12 months, whichever is sooner" -
+                            a period stated in years and capped in cycles is not
+                            a period in years
+
+    Two things this rule refuses to accept, both learned here:
+
+    A PERIOD WITH NO START DATE IS NOT A PERIOD. Our own clause offers ten years
+    and never says ten years from what. Both jobs had this defect and neither
+    noticed while comparing the number of years.
+
+    AN EXCLUSION LIST CANNOT BE COMPLETE WHERE THE TERMS ARE NOT HELD. AFS wrote
+    theirs as 6.4.1-6.4.6 and it could be diffed. A Plus never wrote a list at
+    all - theirs are conditional clauses scattered through Finishes, Hardware
+    and the AOV notes, and the rest are in a Terms of Sale nobody has requested.
+    So this rule reads `incorporated_terms`: if a supplier's terms are not held,
+    `exclusions_complete: true` is a contradiction and is reported as one.
+
+    THE RULING SPLITS BY WHOSE PROBLEM IT IS, corrected before this shipped. FAIL
+    is for our own document being defective and for the record contradicting
+    itself - a period with no start date, a list called complete that lives in
+    terms we do not hold. Both are ours to fix unilaterally. The GAP itself -
+    shorter period, unmatched exclusions, a usage cap - is an ASK, because a
+    ten-year client warranty backed by twelve-month supplier terms is what the
+    whole trade offers, and a gate that fails on the normal case stops being
+    read. Surfacing it by name and handing the decision to a human is the job;
+    vetoing a commercial position is not.
+
+    'warranty': {'ours': {period_months, scope, start_date, usage_cap,
+    exclusions[]}, 'suppliers': [{supplier, ref, covers, period_months,
+    start_date, usage_cap, exclusions: [{exclusion, counterpart_in_ours}],
+    exclusions_complete}]}. `counterpart_in_ours` is null where ours has none -
+    that null is the finding."""
+    w = m.get("warranty")
+    if w is None:
+        return result("warranty is back-to-back with the supplier", UNKNOWN,
+                      "State what we warrant and what each supplier warrants us: 'warranty': "
+                      "{'ours': {period_months, scope, start_date, usage_cap, exclusions}, "
+                      "'suppliers': [{supplier, ref, covers, period_months, start_date, "
+                      "usage_cap, exclusions, exclusions_complete}]}. Compare four things, not "
+                      "one - the period, the start date, the exclusion list, and whether "
+                      "anything is capped by cycles or usage rather than time.",
+                      "Riverside House / Gordon Court",
+                      remedy="Find our guarantee clause and the supplier's, and read each one "
+                             "through rather than for its number of years. A period stated in "
+                             "years and capped in cycles is not a period in years.")
+    if not isinstance(w, dict):
+        return result("warranty is back-to-back with the supplier", UNKNOWN,
+                      "'warranty' is %r - it must be {'ours': {...}, 'suppliers': [...]}." % (w,),
+                      "Riverside House / Gordon Court",
+                      remedy="Rewrite the field with an 'ours' object and a 'suppliers' list.")
+    ours = w.get("ours")
+    if not isinstance(ours, dict):
+        return result("warranty is back-to-back with the supplier", UNKNOWN,
+                      "'warranty.ours' is missing - state what WE offer the client before "
+                      "comparing it with anything.",
+                      "Riverside House / Gordon Court",
+                      remedy="Quote our own guarantee clause into 'ours', including its start "
+                             "date. If it states no start date, record start_date as null - "
+                             "that is a finding, not a blank.")
+    sups = w.get("suppliers")
+    if sups is None:
+        return result("warranty is back-to-back with the supplier", UNKNOWN,
+                      "'warranty.suppliers' is missing. If no supplier on this job states a "
+                      "warranty at all, say so with an empty list - a supplier who states "
+                      "nothing is a worse answer than a short period, not a better one.",
+                      "Riverside House / Gordon Court",
+                      remedy="Read each supplier quotation for 'guarantee', 'warrant', 'year' "
+                             "and 'defect'. Record what you find, or the empty list.")
+    if isinstance(sups, dict):
+        sups = [sups]
+    if isinstance(sups, str) or not isinstance(sups, (list, tuple)):
+        return result("warranty is back-to-back with the supplier", UNKNOWN,
+                      "'warranty.suppliers' is %r - it must be a list." % (sups,),
+                      "Riverside House / Gordon Court",
+                      remedy="Rewrite the field as a list, one entry per supplier warranty.")
+
+    ours_months = ours.get("period_months")
+    ours_cap = ours.get("usage_cap")
+    unheld = set()
+    for it in (m.get("incorporated_terms") or []):
+        if isinstance(it, dict) and not it.get("held"):
+            unheld.add(str(it.get("supplier", "")).strip().lower())
+
+    fails, asks, notes = [], [], []
+
+    if not ours.get("start_date"):
+        fails.append("we offer the client %s and our clause states NO START DATE - a period "
+                     "with no start date is not a period"
+                     % (ours.get("period") or _months(ours_months) or "a warranty"))
+    if not ours.get("scope"):
+        asks.append("what our warranty COVERS is not recorded - a clause worded for one kind "
+                    "of product may not reach a component of another kind")
+
+    for s in sups:
+        if not isinstance(s, dict):
+            asks.append("%r is not a supplier warranty entry" % (s,))
+            continue
+        who = "%s %s" % (s.get("supplier", "?"), s.get("ref", ""))
+        who = who.strip()
+        covers = s.get("covers")
+        label = "%s%s" % (who, " (%s)" % covers if covers else "")
+        sm = s.get("period_months")
+        if sm is None:
+            asks.append("%s states no period - a supplier who says nothing has not given us "
+                        "an unlimited warranty, they have given us their terms of sale" % label)
+        elif isinstance(sm, (int, float)) and isinstance(ours_months, (int, float)):
+            if sm < ours_months:
+                asks.append("%s gives us %s against the %s we offer the client - WE CARRY THE "
+                            "%s IN BETWEEN. Whether the client-facing period is offered as it "
+                            "stands is a commercial decision and needs a human to take it"
+                            % (label, _months(sm), _months(ours_months),
+                               _months(ours_months - sm)))
+        if s.get("usage_cap") and not ours_cap:
+            asks.append("%s is capped by USE, not time - \"%s\" - and our own warranty has no "
+                        "equivalent cap. Work out what the cap means in service before "
+                        "reporting it: a limit that cannot be reached inside the period is not "
+                        "a finding, and one that can be is the real period"
+                        % (label, s.get("usage_cap")))
+        if s.get("start_date") and not ours.get("start_date"):
+            notes.append("%s runs from \"%s\"" % (label, s.get("start_date")))
+
+        excl = s.get("exclusions")
+        if excl is None:
+            asks.append("%s: exclusions not recorded. Read the clause through rather than for "
+                        "its period - a supplier who writes no exclusion LIST still has "
+                        "exclusions, scattered as conditions inside other paragraphs" % label)
+            continue
+        if isinstance(excl, dict):
+            excl = [excl]
+        orphans = []
+        for e in (excl if isinstance(excl, (list, tuple)) else []):
+            if isinstance(e, dict):
+                if not e.get("counterpart_in_ours"):
+                    orphans.append(str(e.get("exclusion", e))[:90])
+            elif e:
+                asks.append("%s: exclusion %r is not a {exclusion, counterpart_in_ours} entry "
+                            "- the null counterpart IS the finding, so it has to be stated"
+                            % (label, e))
+        if orphans:
+            asks.append("%s excludes %d thing(s) our warranty does not: %s. Where they decline "
+                        "on one of these we still owe the client - decide which are worth "
+                        "asking about and which are worth carrying"
+                        % (label, len(orphans), "; ".join(orphans)))
+        complete = s.get("exclusions_complete")
+        supplier_key = str(s.get("supplier", "")).strip().lower()
+        if complete and supplier_key in unheld:
+            fails.append("%s: exclusions are recorded as COMPLETE while incorporated_terms says "
+                         "we do not hold their terms of sale. Both cannot be true - the list "
+                         "you have is the part they printed on the quotation" % label)
+        elif not complete:
+            asks.append("%s: the exclusion list is not complete, so the gaps above are a floor "
+                        "and not a count" % label)
+
+    if fails:
+        return result("warranty is back-to-back with the supplier", FAIL,
+                      "Our own warranty document is defective, or the comparison contradicts "
+                      "itself - neither of these needs anyone's permission to fix: "
+                      + "; ".join(fails)
+                      + ("." if not notes else ". Also: " + "; ".join(notes) + "."),
+                      "Riverside House / Gordon Court",
+                      remedy="Put a start date in the clause, and stop describing a list as "
+                             "complete while the document it lives in has never been read. The "
+                             "SIZE of the gap is a separate question and comes through as one.")
+    if asks:
+        return result("warranty is back-to-back with the supplier", UNKNOWN,
+                      "The warranty we offer runs past the warranties we are given, or the "
+                      "comparison is not finished: " + "; ".join(asks) + ".",
+                      "Riverside House / Gordon Court",
+                      remedy="Finish the four-part comparison - period, start date, exclusion "
+                             "list, usage cap - then put the gap to a human. A ten-year client "
+                             "warranty backed by twelve-month supplier terms is normal and may "
+                             "be perfectly deliberate; what is not acceptable is nobody knowing.")
+    return result("warranty is back-to-back with the supplier", PASS,
+                  "%d supplier warranty(ies) compared on period, start date, exclusions and "
+                  "usage cap - nothing we offer runs past what we are given" % len(sups),
+                  "Riverside House / Gordon Court")
+
+
+def _months(n):
+    """A period in words, so a 108-month gap does not read as a number."""
+    if not isinstance(n, (int, float)):
+        return None
+    n = int(n)
+    if n and n % 12 == 0:
+        y = n // 12
+        return "%d year%s" % (y, "" if y == 1 else "s")
+    if n < 12:
+        return "%d month%s" % (n, "" if n == 1 else "s")
+    return "%d months" % n
+
+
 def check_spec_label_matches_evidence(m):
     """Gordon Court, 28/07. A spec item whose LABEL says outstanding while its own
     EVIDENCE says it was done.
@@ -1532,7 +1737,7 @@ RULES = [
     check_free_delivery_threshold, check_spec_label_matches_evidence,
     check_incorporated_terms_held, check_exclusions_reach_the_issued_document,
     check_exposures_state_our_recourse, check_no_third_party_traces_in_issued_files,
-    check_priced_document_view_is_intact,
+    check_priced_document_view_is_intact, check_warranty_is_back_to_back,
 ]
 
 
@@ -2220,6 +2425,127 @@ def selftest_issued_variants():
     return not bad
 
 
+WARRANTY_OURS = {
+    "period": "10 years", "period_months": 120,
+    "scope": "all glass and frame products supplied and installed",
+    "start_date": "practical completion", "usage_cap": None,
+    "exclusions": ["misuse", "vandalism"],
+}
+
+
+def _wsup(**kw):
+    """A supplier warranty that is back-to-back, before the variant breaks it."""
+    s = {"supplier": "A Plus", "ref": "Q1", "covers": "frames", "period_months": 120,
+         "start_date": "date of delivery completion", "usage_cap": None,
+         "exclusions": [{"exclusion": "misuse", "counterpart_in_ours": "misuse"}],
+         "exclusions_complete": True}
+    s.update(kw)
+    return s
+
+
+def _wours(**kw):
+    o = dict(WARRANTY_OURS)
+    o.update(kw)
+    return o
+
+
+HELD = [{"supplier": "A Plus", "ref": "Q1", "document": "Terms of Sale", "held": True}]
+UNHELD = [{"supplier": "A Plus", "ref": "Q1", "document": "Terms of Sale", "held": False}]
+
+# (name, warranty, incorporated_terms, expected)
+WARRANTY_VARIANTS = [
+    ("field absent",            None,                                       None, UNKNOWN),
+    ("not a dict",              "10 years",                                 None, UNKNOWN),
+    ("ours missing",            {"suppliers": [_wsup()]},                   None, UNKNOWN),
+    ("suppliers missing",       {"ours": _wours()},                         None, UNKNOWN),
+    ("suppliers not a list",    {"ours": _wours(), "suppliers": "A Plus"},  None, UNKNOWN),
+    ("nobody to compare",       {"ours": _wours(), "suppliers": []},        None, PASS),
+    ("fully back-to-back",      {"ours": _wours(), "suppliers": [_wsup()]}, HELD, PASS),
+    ("a dict, not a list",      {"ours": _wours(), "suppliers": _wsup()},   HELD, PASS),
+
+    # the founding case - both jobs offer a period and never say from when
+    ("OURS HAS NO START DATE",  {"ours": _wours(start_date=None),
+                                 "suppliers": [_wsup()]},                   HELD, FAIL),
+    ("ours start date empty",   {"ours": _wours(start_date=""),
+                                 "suppliers": [_wsup()]},                   HELD, FAIL),
+    ("ours scope not stated",   {"ours": _wours(scope=None),
+                                 "suppliers": [_wsup()]},                   HELD, UNKNOWN),
+
+    # the period, which was the only part anyone was comparing
+    ("supplier shorter",        {"ours": _wours(),
+                                 "suppliers": [_wsup(period_months=12)]},   HELD, UNKNOWN),
+    ("supplier longer",         {"ours": _wours(),
+                                 "suppliers": [_wsup(period_months=180)]},  HELD, PASS),
+    ("supplier equal",          {"ours": _wours(),
+                                 "suppliers": [_wsup(period_months=120)]},  HELD, PASS),
+    ("supplier states none",    {"ours": _wours(),
+                                 "suppliers": [_wsup(period_months=None)]}, HELD, UNKNOWN),
+
+    # a period in years capped in cycles is not a period in years
+    ("capped by cycles",        {"ours": _wours(),
+                                 "suppliers": [_wsup(usage_cap="15,000 cycles")]},
+                                                                            HELD, UNKNOWN),
+    ("capped, ours capped too", {"ours": _wours(usage_cap="15,000 cycles"),
+                                 "suppliers": [_wsup(usage_cap="15,000 cycles")]},
+                                                                            HELD, PASS),
+
+    # the exclusion list, which is where the wider gap turned out to be
+    ("exclusion no counterpart", {"ours": _wours(), "suppliers": [_wsup(
+        exclusions=[{"exclusion": "powder coat adhesion", "counterpart_in_ours": None}])]},
+                                                                            HELD, UNKNOWN),
+    ("exclusion matched",       {"ours": _wours(), "suppliers": [_wsup(
+        exclusions=[{"exclusion": "misuse", "counterpart_in_ours": "misuse"}])]},
+                                                                            HELD, PASS),
+    ("exclusions not recorded", {"ours": _wours(),
+                                 "suppliers": [_wsup(exclusions=None)]},    HELD, UNKNOWN),
+    ("exclusions empty list",   {"ours": _wours(),
+                                 "suppliers": [_wsup(exclusions=[])]},      HELD, PASS),
+    ("a bare string exclusion", {"ours": _wours(),
+                                 "suppliers": [_wsup(exclusions=["misuse"])]},
+                                                                            HELD, UNKNOWN),
+    ("list not called complete", {"ours": _wours(),
+                                  "suppliers": [_wsup(exclusions_complete=False)]},
+                                                                            HELD, UNKNOWN),
+
+    # the contradiction: you cannot have read a list you do not hold
+    ("COMPLETE BUT TERMS UNHELD", {"ours": _wours(), "suppliers": [_wsup()]},
+                                                                            UNHELD, FAIL),
+    ("supplier entry is a string", {"ours": _wours(), "suppliers": ["A Plus"]},
+                                                                            HELD, UNKNOWN),
+
+    # the split: a document defect outranks a gap, and a gap alone never FAILs
+    ("gap AND no start date",   {"ours": _wours(start_date=None),
+                                 "suppliers": [_wsup(period_months=12, usage_cap="15,000 cycles",
+                                 exclusions=[{"exclusion": "powder coat",
+                                              "counterpart_in_ours": None}])]},
+                                                                            HELD, FAIL),
+    ("every gap, ours sound",   {"ours": _wours(),
+                                 "suppliers": [_wsup(period_months=12, usage_cap="15,000 cycles",
+                                 exclusions=[{"exclusion": "powder coat",
+                                              "counterpart_in_ours": None}])]},
+                                                                            HELD, UNKNOWN),
+]
+
+
+def selftest_warranty_variants():
+    """Recall test for check_warranty_is_back_to_back."""
+    bad = []
+    for name, w, terms, expect in WARRANTY_VARIANTS:
+        m = {} if w is None else {"warranty": w}
+        if terms is not None:
+            m["incorporated_terms"] = terms
+        try:
+            got = check_warranty_is_back_to_back(m)["status"]
+        except Exception as exc:
+            got = "EXCEPTION %s: %s" % (type(exc).__name__, exc)
+        if got != expect:
+            bad.append("%s: expected %s, got %s" % (name, expect, got))
+    print("  %-22s %d/%d warranty variants behave as intended%s"
+          % ("warranty back-to-back", len(WARRANTY_VARIANTS) - len(bad), len(WARRANTY_VARIANTS),
+             "" if not bad else "  MISSED: " + "; ".join(bad)))
+    return not bad
+
+
 def selftest_terms_variants():
     """Recall test for check_incorporated_terms_held - see TERMS_VARIANTS.
 
@@ -2317,6 +2643,8 @@ def selftest():
     if not selftest_delivery_variants():
         ok = False
     if not selftest_terms_variants():
+        ok = False
+    if not selftest_warranty_variants():
         ok = False
     if not selftest_issued_variants():
         ok = False

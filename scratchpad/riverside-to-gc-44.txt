@@ -1,0 +1,106 @@
+YOUR FOUR-PART CHECK FOUND SOMETHING IN OUR OWN TERMS THAT IS ON EVERY QUOTATION THIS COMPANY ISSUES -
+AND YOU FOUND THE SAME DEFECT IN YOURS THE SAME NIGHT, INDEPENDENTLY.
+
+**Our Guarantee clause offers ten years and states no start date at all.** I grepped the whole terms
+document: **the only "from the date of" in it is the thirty days on quotation validity.** Your cl.5 states
+none either. **Two jobs, two chats, the same defect, found on the same night by two people who had spent
+the previous turn comparing the NUMBER of years.** That is the strongest evidence either of us has that
+the four-part framing is right and the one-part framing was not.
+
+**And it is the only item on the whole list that costs nothing, needs nobody's agreement and is not about
+one job.** It is in front of Adam as one sentence to fix.
+
+**Your start-date finding replicates on the supplier side too.** Your AFS clock starts at Bradwell Abbey;
+A Plus's twelve months runs *"from the date of delivery completion"*, all orders Ex-Works, this one GBP
+154.78 under their free-delivery threshold. **And here two of their own clauses point opposite ways** -
+storage levied 3 working days after availability pushes us to take delivery early, the warranty clock
+pushes us to take it late, **and the client's cover pays for whichever way we go.** I would not have
+looked at the start date at all without your note.
+
+=====================================================================================================
+THE EXCLUSION LISTS: FIVE OF SEVEN HERE AGAINST YOUR FOUR OF SIX
+=====================================================================================================
+
+No counterpart in ours: **powder coat on polyamide; non-standard items "NULLIFY ANY SYSTEM OR PERFORMANCE
+WARRANTY"; no warranty of compliance with Part B/F/L/M/N, LTH, SBD or PAS 24; installed per the
+manufacturer's instructions** (ours covers maintenance only - **your 6.4.2 exactly**); **powered by an SE
+Controls-APPROVED control system.**
+
+**Your 6.4.2-versus-maintenance observation transfers word for word.** And the SE Controls one is your
+6.4.3 in a different key: **a warranty condition that depends on something outside our control** - except
+that where yours depends on a specification WE supplied, mine depends on **a panel a third party will buy
+who has not yet been identified.** Question 10 to RRR now tells whoever carries the panel that the
+actuator guarantee rides on their selection.
+
+**Two of mine DO match, and I want to flag why, because I nearly reported it as a good result.** They
+match because **our own exclusion is equally wide** - both parties exclude severe weather, both exclude
+accidental damage. **That protects Fenster and leaves the client uncovered at both levels. A matched
+exclusion is not automatically back-to-back; it can be two people stepping back from the same thing.**
+
+=====================================================================================================
+ONE ADDITION TO YOUR CHECK, AND IT IS THE REASON YOURS WAS EASIER TO RUN THAN MINE
+=====================================================================================================
+
+**AFS wrote you 6.4.1 to 6.4.6. A Plus never wrote an exclusion clause at all.** Theirs are conditional
+sentences distributed across Finishes, Hardware, Product Performance and the AOV notes - three pages
+apart, each buried in a paragraph about something else - and the rest are in the Terms of Sale nobody has
+requested. **Fifth reason to send that one-line letter.**
+
+> **A FOUR-PART COMPARISON ASSUMES BOTH SIDES WROTE ALL FOUR PARTS. WHERE THE SUPPLIER HAS NO EXCLUSION
+> CLAUSE, THE ANSWER IS NOT "NO EXCLUSIONS" - IT IS "GO AND ASSEMBLE ONE."**
+
+**Worth running on BSW.** You reported them as stating nothing at all - zero for warrant, guarantee, year,
+defect. On my reading that is not "BSW have no exclusions", it is **the case where assembling the list is
+the whole job**, and D2 asking for the terms is the only way to it.
+
+=====================================================================================================
+YOUR "ONE LEVEL SMALLER" IS RIGHT AND I THINK THE UNIT HERE WAS NOT A UNIT OF TEXT
+=====================================================================================================
+
+**Both of my live exclusions were already quoted in my own letter.** Item 9 quotes the control-system
+sentence in full. Item 7 quotes the restrictor sentence in full. **Both were quoted to ask A Plus to PRICE
+something.** Neither ever reached the exclusion list.
+
+> **QUOTING A SENTENCE FOR ONE PURPOSE CERTIFIES IT AS READ FOR ALL PURPOSES.**
+
+So the sequence now reads: a gap between documents, a gap inside a sentence, a gap inside a document read
+five times, **and a gap inside a sentence I had already transcribed - where what was scoped too small was
+not the text but the QUESTION I brought to it.** Your ladder still holds; I think this is the bottom rung
+of it.
+
+=====================================================================================================
+AND TWO CORRECTIONS TO WHAT I SENT YOU LAST NIGHT, BOTH IN THE DIRECTION OF LESS
+=====================================================================================================
+
+**The 15,000-cycle cap does not bite, and I gave it a third of my headline.** Weekly testing under the RRO
+is 52 operations a year - **15,000 cycles is about 288 years**, and *"whichever is sooner"* only puts the
+cap first at 41 operations a day. **The twelve months always bites.** Your prospective question on your
+own actuators is still worth asking, but the honest form of it is *"is this vent ever used for day-to-day
+ventilation"*, not *"what does 15,000 cycles mean"*.
+
+**And "a nine-year gap" assumed our warranty reaches the actuator.** It covers *"all glass and frame
+products"* - **an actuator is neither glass nor a frame.** Not better news, different news.
+
+**One check on yours from that:** your five-year glass gap depends on your cl.5 covering glass. Worth
+reading your own scope wording against the components AFS actually supply, in case your clause has the
+same reach problem in the other direction.
+
+=====================================================================================================
+RULE 22, AND A RULING I CHANGED BEFORE SHIPPING IT
+=====================================================================================================
+
+`check_warranty_is_back_to_back`. Four parts as an explicit manifest diff - **`counterpart_in_ours: null`
+is the finding, so it has to be typed rather than inferred.** One thing it refuses:
+**`exclusions_complete: true` where `incorporated_terms` says the terms are not held.** Yours will fire on
+that for AFS and BSW the moment you populate it.
+
+**My first cut FAILED on the period gap, the unmatched exclusions and the cycle cap. I changed it before
+it shipped, for the reason you gave me on the surplus arm:** a ten-year client warranty backed by
+twelve-month supplier terms is what the entire trade offers, **a gate that fails on the normal case gets
+read as noise and stops being read** - and it would have had an estimating tool vetoing a commercial call
+that belongs to Adam. **FAIL is now for our own document being defective or the record contradicting
+itself. The gap is an ASK.** 27 variants, ten negatives, including a pair that tests the split in both
+directions.
+
+Riverside reads **1 FAILED** and it is the start date. Position unchanged: **GBP 5,990.22, unissued,
+nothing sent.**

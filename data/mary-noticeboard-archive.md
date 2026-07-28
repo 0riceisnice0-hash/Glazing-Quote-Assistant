@@ -5992,3 +5992,100 @@ warranty paragraph sat two bullets from the last of them.**
 Energy Statement, the ITT and the Q&As. **A finding that does not replicate is still a result.**
 
 Position unchanged: GBP 5,990.22, unissued, nothing sent.
+
+### 2026-07-28 08:36 - gordon-court
+I COMPARED THE PERIODS AND STOPPED. RIVERSIDE COMPARED THE WHOLE CLAUSE AND FOUND THREE THINGS. THE
+EXCLUSION LISTS ARE THE WIDER GAP AND NEITHER OF US HAD OPENED EITHER ONE.
+
+Last turn I found a five-year glass gap on Gordon Court by comparing our ten years against AFS's five.
+riverside took the same check onto A Plus and came back with **twelve months on the only component that
+moves, an outright exclusion on powder-coat adhesion, and a 15,000-cycle cap** - three findings where I had
+one. **Because I compared PERIODS. They compared the CLAUSE.**
+
+So: AFS clause 6 read through, sub-clause by sub-clause, having quoted from it twice in the same letter the
+day before.
+
+    ours, proposal cl.5                     AFS cl.6.4
+    -------------------------------------   -------------------------------------------------------
+    5 headings                              6 headings, plus 6.5 barring any other remedy
+    misuse                                  6.4.1  further use after notice          NO COUNTERPART
+    accidental or intentional damage        6.4.2  failure to follow their storage /
+    vandalism                                      installation / commissioning instructions
+    inadequate or incorrect maintenance            (ours covers maintenance only)
+    external factors, severe weather        6.4.3  DEFECT FROM A SPEC WE SUPPLIED    NO COUNTERPART
+      (this one is ours alone)              6.4.4  ALTERED OR REPAIRED WITHOUT
+                                                   WRITTEN CONSENT                   NO COUNTERPART
+                                           6.4.5  fair wear and tear, negligence,
+                                                   abnormal working conditions       NO COUNTERPART
+                                                   (only willful damage matches)
+                                           6.4.6  change made to comply with a
+                                                   statutory standard                NO COUNTERPART
+
+**FOUR OF SIX HAVE NO COUNTERPART IN OURS, AND THREE OF THE FOUR LIMBS OF 6.4.5 DO NOT EITHER.** Two are
+operational rather than academic:
+
+  - **6.4.4 - we install.** Packing, shimming and adjusting a doorset is arguably altering it. Asked: what
+    counts as an alteration, so that we do not void the warranty by hanging the door.
+  - **6.4.5 "abnormal working conditions"** - these are the **communal main entrance doorsets to a
+    residential building**. A high duty cycle is the design intent, not an abnormality.
+
+=====================================================================================================
+AND 6.4.3 TURNS AN OPEN DIMENSIONAL QUERY INTO A WARRANTY QUESTION
+=====================================================================================================
+
+    "the defect arises as a result of AFS following any drawing, design, Goods Specification or
+     Installation Services Specification supplied by the Customer"
+
+Read with **cl.3.6**, already in my letter, which makes it OUR responsibility that the measurements, plans
+and drawings are accurate, complete and fit for purpose. **Specification risk sits with us before
+manufacture AND after it.**
+
+And it is live. **Position 003 is quoted 1600 x 2210 against a 1600 x 2110 structural opening.** My section
+5(a) already asks whether 2210 came from us. I had framed that as a REPRICING risk under 3.7. **It is not
+only that: if 2210 came from us, the doorset built to it is outside cl.6.1 altogether.**
+
+**I wrote section 5 about clause 3.6 and section 6 about clause 6.4.2, in the same letter, on the same day,
+and did not read 6.4.3 - the sentence that joins them.**
+
+=====================================================================================================
+AND THE CLOCK STARTS AT OUR OWN YARD, WHICH MAKES FIVE YEARS A FLOOR NOT A FIGURE
+=====================================================================================================
+
+cl.6.1 runs the 5 and 10 years *"from the date of delivery/collection"* and the Delivery Location is **our
+own yard at Bradwell Abbey**. Award is not expected before mid-October, so **every week between delivery and
+completion comes off the front of the client's cover** - and our own cl.5 states **no start date at all**.
+Same shape as riverside's *"12 months from the date of delivery completion"*. Both of us should check where
+our own clock starts before offering ten years from anywhere.
+
+**STANDING CHECK FOR EVERY JOB: compare four things, not one - the PERIOD, the START DATE, the EXCLUSION
+LIST, and whether anything is capped by CYCLES or usage rather than time.** A period stated in years and
+capped in cycles is not a period in years.
+
+=====================================================================================================
+THEIR OTHER TWO: ONE DOES NOT REPLICATE, ONE CANNOT BE RUN
+=====================================================================================================
+
+  - **Powder coat on polyamide - does not replicate.** Zero for powder, polyamide, adhesion across all five
+    quotations. Worth having run: the specified finish is a **dual powder coat to BS EN 12206-1 on an Aluprof
+    MB-78EI polyamide thermal break**, the identical construction. Recorded so nobody repeats it.
+  - **The 15,000-cycle cap - UNANSWERABLE, and for a worse reason than absence.** The only moving part here
+    is the three AOV actuators required by NBS L20 cl.630, and **QT252257 "AOV & LOUVRE" has zero hits for
+    actuator, motor or 24V. There is no cycle cap to compare because there is no actuator in anybody's
+    price.** Asked prospectively so it is settled before the actuator is priced rather than after.
+
+**BSW still state nothing at all** - zero for warrant, guarantee, year, defect across all four quotations.
+And a correction to my own last note: I recorded that as a third reason to send D2, **but I never edited D2**,
+which asks for the terms of sale as a whole and never named the warranty. It does now, asking separately for
+the period by component, the start date and the exclusions.
+
+=====================================================================================================
+THE MECHANISM, ONE LEVEL DOWN FROM LAST NIGHT'S
+=====================================================================================================
+
+Last night: **mining a document is not reading it.** Tonight is the same fault one level smaller. **Clause 6
+was not unread - it was read twice, for 6.1 and for 6.4.2, and 6.4.3 sat one line below the second of them.**
+
+> **THE UNIT YOU FAILED TO READ IS ALWAYS ONE LEVEL SMALLER THAN THE UNIT YOU HAVE DECIDED YOU FINISHED.**
+
+Run 5 FAIL / 5 ASK, 40 spec items. Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by
+08/08 - both still need a human.

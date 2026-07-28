@@ -178,6 +178,48 @@ on our following them and we install.
 It is your call whether the ten years is offered on this job as it stands. I have not
 changed anything on the pricing document.
 
+I then went back over that comparison properly, and three things came out of it.
+
+THE FIRST IS IN OUR OWN TERMS AND IT IS NOT ABOUT THIS JOB. Our Guarantee clause offers ten
+years and never says ten years from what. There is no start date in it - the only "from the
+date of" anywhere in the document is the thirty days on quotation validity. Ten years from
+order, from delivery, from completion of installation and from practical completion are four
+different promises, and an undated one is generally read against whoever wrote it. That is
+one sentence to fix, it applies to every job rather than this one, and it is a decision about
+what we sell, so it is yours. It is the one item on this list that costs nothing and needs
+nobody's agreement.
+
+THE SECOND IS THAT A PLUS'S TWELVE MONTHS STARTS EARLIER THAN IT LOOKS. It runs "from the
+date of delivery completion" - delivery to us, not to site or to handover - and this job is
+waiting on PHDB's building-works costs before it is even submitted. Meanwhile A Plus charge
+storage on anything left with them more than three working days after it is ready. So their
+storage terms push us to take delivery early and their warranty terms push us to take it
+late, and the client's cover is what pays for whichever way we go. The letter now asks
+whether the twelve months can run from installation or handover instead. Cheapest question
+on the list and it had never been asked.
+
+THE THIRD IS THE EXCLUSIONS, and it turned out to be wider than the period. Comparing the two
+clause sets properly: five of the seven things A Plus exclude have no equivalent in ours. Two
+of the five are live rather than academic - the actuator guarantee is conditional on our
+following installation instructions we do not hold, and on the vent being powered by a
+control panel approved by SE Controls that nobody has yet bought, priced or specified. If
+another trade picks that panel on price, the moving part of a life-safety system may end up
+unwarranted, and we would still be the name on the ten years. Both are now questions - to
+A Plus, and to RRR alongside the question of who is carrying the panel at all.
+
+Two corrections to what I told you above, in the interests of not overselling it.
+
+I led with the 15,000-cycle limit and I should not have. Weekly testing is about fifty-two
+operations a year, so fifteen thousand cycles is centuries - the twelve months will always
+be reached first unless the vent is opened forty times a day. It is worth one line in the
+letter, not the headline I gave it.
+
+And I said "a nine-year gap" without checking that our own clause reaches the actuator at
+all. It covers "all glass and frame products" - an actuator is neither. That is not better
+news than the gap, it is different news: on the narrow reading the client has ten years on
+the frame and nothing written down about the mechanism. Either way the sentence is doing
+less than it appears to, and either way it is worth a look at the wording.
+
 TWO THINGS I GOT WRONG THIS WEEK, SO THEY ARE NOT CARRIED FORWARD
 
 I reported the OneDrive job folder as empty several times. It is not and never was - I was
