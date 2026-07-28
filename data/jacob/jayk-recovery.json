@@ -1,0 +1,1712 @@
+{
+ "target": "jayk@fensterglazing.com",
+ "per_mailbox": {
+  "commercial@fensterglazing.com": "HTTP 504",
+  "info@fensterglazing.com": {
+   "searched": 275,
+   "he_was_on": 233
+  },
+  "estimating@fensterglazing.com": {
+   "searched": 275,
+   "he_was_on": 30
+  }
+ },
+ "companies": [
+  [
+   "in-tendorganiser.co.uk",
+   7
+  ],
+  [
+   "masscouk.com",
+   6
+  ],
+  [
+   "lindumgroup.co.uk",
+   5
+  ],
+  [
+   "fortisvision.com",
+   5
+  ],
+  [
+   "hightownha.org.uk",
+   4
+  ],
+  [
+   "nbsni.co.uk",
+   4
+  ],
+  [
+   "kpslimited.co.uk",
+   3
+  ],
+  [
+   "rjsventol.com",
+   3
+  ],
+  [
+   "gmail.com",
+   3
+  ],
+  [
+   "sdevs.co.uk",
+   3
+  ],
+  [
+   "cheltonbrown.co.uk",
+   3
+  ],
+  [
+   "elkinsconstruction.co.uk",
+   3
+  ],
+  [
+   "kingestateagents.com",
+   2
+  ],
+  [
+   "icmltd.net",
+   2
+  ],
+  [
+   "caldecottegroup.com",
+   2
+  ],
+  [
+   "firstfm.co.uk",
+   2
+  ],
+  [
+   "solservices.co.uk",
+   2
+  ],
+  [
+   "porthaven.co.uk",
+   2
+  ],
+  [
+   "bradfordwatts.co.uk",
+   2
+  ],
+  [
+   "combatdoors.com",
+   2
+  ],
+  [
+   "hotmail.com",
+   1
+  ],
+  [
+   "vetroseal.co.uk",
+   1
+  ],
+  [
+   "sfoa.beds.olicatschools.org",
+   1
+  ],
+  [
+   "tm-gb.co.uk",
+   1
+  ],
+  [
+   "yahoo.co.uk",
+   1
+  ],
+  [
+   "molocs.co.uk",
+   1
+  ],
+  [
+   "ajgroup.co.uk",
+   1
+  ],
+  [
+   "empireglazingsystems.co.uk",
+   1
+  ],
+  [
+   "ewslondon.co.uk",
+   1
+  ],
+  [
+   "mercuryglazing.co.uk",
+   1
+  ],
+  [
+   "rasesteels.co.uk",
+   1
+  ],
+  [
+   "pexhurst.co.uk",
+   1
+  ],
+  [
+   "furnell.com",
+   1
+  ]
+ ],
+ "contacts": [
+  [
+   "hightownha@in-tendorganiser.co.uk",
+   7,
+   "hightownha@in-tendorganiser.co.uk"
+  ],
+  [
+   "nigel_holland@lindumgroup.co.uk",
+   5,
+   "NIGEL HOLLAND"
+  ],
+  [
+   "sam.vale@rjsventol.com",
+   3,
+   "Sam Vale"
+  ],
+  [
+   "deana2404@gmail.com",
+   3,
+   "deana2404@gmail.com"
+  ],
+  [
+   "brad@sdevs.co.uk",
+   3,
+   "Brad"
+  ],
+  [
+   "tracey.sample@cheltonbrown.co.uk",
+   3,
+   "Chelton Brown Property Management \u2013 Tracey Sample"
+  ],
+  [
+   "andrew.jordan@hightownha.org.uk",
+   2,
+   "Andrew Jordan"
+  ],
+  [
+   "gemma.hayter@hightownha.org.uk",
+   2,
+   "Gemma Hayter"
+  ],
+  [
+   "alexandra@kingestateagents.com",
+   2,
+   "Alexandra Mezo"
+  ],
+  [
+   "ethan.feenan@nbsni.co.uk",
+   2,
+   "Ethan Feenan"
+  ],
+  [
+   "nickfoster@icmltd.net",
+   2,
+   "Nick Foster"
+  ],
+  [
+   "kerrylince@caldecottegroup.com",
+   2,
+   "Kerry Lince"
+  ],
+  [
+   "admin@masscouk.com",
+   2,
+   "Admin Massco"
+  ],
+  [
+   "sam@masscouk.com",
+   2,
+   "Sam Coulson"
+  ],
+  [
+   "sadie@masscouk.com",
+   2,
+   "Sadie Jones"
+  ],
+  [
+   "ross.bennett@solservices.co.uk",
+   2,
+   "Ross Bennett"
+  ],
+  [
+   "info@combatdoors.com",
+   2,
+   "Combat Doors"
+  ],
+  [
+   "d.mckenzie@kpslimited.co.uk",
+   1,
+   "David McKenzie"
+  ],
+  [
+   "m.pither@kpslimited.co.uk",
+   1,
+   "Matthew Pither"
+  ],
+  [
+   "r.mcmanus@kpslimited.co.uk",
+   1,
+   "Ryan McManus"
+  ],
+  [
+   "sammieromp@hotmail.com",
+   1,
+   "sammieromp@hotmail.com"
+  ],
+  [
+   "danielstutz@vetroseal.co.uk",
+   1,
+   "danielstutz@vetroseal.co.uk"
+  ],
+  [
+   "lotter@sfoa.beds.olicatschools.org",
+   1,
+   "Lotter@sfoa.beds.olicatschools.org"
+  ],
+  [
+   "jack.snelus@tm-gb.co.uk",
+   1,
+   "jack.snelus@tm-gb.co.uk"
+  ],
+  [
+   "jane.eastgate@yahoo.co.uk",
+   1,
+   "jane.eastgate@yahoo.co.uk"
+  ],
+  [
+   "office@molocs.co.uk",
+   1,
+   "office@molocs.co.uk"
+  ],
+  [
+   "camille@nbsni.co.uk",
+   1,
+   "Camille"
+  ],
+  [
+   "gary.mehmetllari@nbsni.co.uk",
+   1,
+   "Gary Mehmetllari"
+  ],
+  [
+   "gleb.saliev@ajgroup.co.uk",
+   1,
+   "Gleb Saliev"
+  ],
+  [
+   "sd@firstfm.co.uk",
+   1,
+   "Sharon Deeley"
+  ],
+  [
+   "michael@empireglazingsystems.co.uk",
+   1,
+   "Michael Mottram"
+  ],
+  [
+   "will.hl@ewslondon.co.uk",
+   1,
+   "Will"
+  ],
+  [
+   "joe.grout@elkinsconstruction.co.uk",
+   1,
+   "Joe Grout"
+  ],
+  [
+   "florin.albertfi@elkinsconstruction.co.uk",
+   1,
+   "Florin Albertfi"
+  ],
+  [
+   "michael.bailey@elkinsconstruction.co.uk",
+   1,
+   "Michael Bailey MCIOB"
+  ],
+  [
+   "pv@firstfm.co.uk",
+   1,
+   "Paige Varney"
+  ],
+  [
+   "tom.lewis@fortisvision.com",
+   1,
+   "Tom Lewis"
+  ],
+  [
+   "drew.edwards@fortisvision.com",
+   1,
+   "Drew Edwards"
+  ],
+  [
+   "joanne.robertson@fortisvision.com",
+   1,
+   "Joanne Robertson"
+  ],
+  [
+   "dan.berry@porthaven.co.uk",
+   1,
+   "Dan Berry"
+  ],
+  [
+   "jonathan.knapper@porthaven.co.uk",
+   1,
+   "Jonathan Knapper"
+  ],
+  [
+   "sales@mercuryglazing.co.uk",
+   1,
+   "Mercury Glazing"
+  ],
+  [
+   "dean@rasesteels.co.uk",
+   1,
+   "Dean Morley"
+  ],
+  [
+   "david.pitcher@bradfordwatts.co.uk",
+   1,
+   "david.pitcher@bradfordwatts.co.uk"
+  ],
+  [
+   "nowen@bradfordwatts.co.uk",
+   1,
+   "nowen@bradfordwatts.co.uk"
+  ],
+  [
+   "richard.cook@fortisvision.com",
+   1,
+   "Richard  Cook"
+  ],
+  [
+   "charlie.borthwick@fortisvision.com",
+   1,
+   "Charlie Borthwick"
+  ],
+  [
+   "kevino@pexhurst.co.uk",
+   1,
+   "Kevin O'Malley"
+  ],
+  [
+   "ian@furnell.com",
+   1,
+   "Ian Kidd - Furnells"
+  ]
+ ],
+ "subjects": [
+  [
+   "2026-07-09",
+   "estimating",
+   "ITT - Darrick Wood - Windows & Doors"
+  ],
+  [
+   "2026-06-08",
+   "estimating",
+   "Re: First Facilities Management - DS Smith - Fenster Glazing Quote"
+  ],
+  [
+   "2026-04-20",
+   "estimating",
+   "Aluminium Quotes"
+  ],
+  [
+   "2026-04-15",
+   "estimating",
+   "Re: Mountbatten House"
+  ],
+  [
+   "2026-04-01",
+   "estimating",
+   "Re: Massco MC169 - Acreland Farmhouse - Fenster Quote"
+  ],
+  [
+   "2026-03-29",
+   "estimating",
+   "Re: EXTERNAL: Re: Elkins - Blenheim Court, SE10 0SJ"
+  ],
+  [
+   "2026-03-27",
+   "estimating",
+   "Massco MC169 - Acreland Farmhouse - Fenster Quote"
+  ],
+  [
+   "2026-03-19",
+   "estimating",
+   "Stage Date Ending - Hightown Housing"
+  ],
+  [
+   "2026-03-17",
+   "estimating",
+   "Re: Newport Pagnell Library - New Aluminium windows"
+  ],
+  [
+   "2026-03-17",
+   "estimating",
+   "Re: First Facilities Management - DS Smith - Fenster Glazing Quote"
+  ],
+  [
+   "2026-03-17",
+   "estimating",
+   "RE: Newport Pagnell Library - New Aluminium windows"
+  ],
+  [
+   "2026-03-16",
+   "estimating",
+   "RE: Fortis Vision - Jennens Court - Fenster Glazing Quote"
+  ],
+  [
+   "2026-03-13",
+   "estimating",
+   "Stage Date Ending - Hightown Housing"
+  ],
+  [
+   "2026-03-10",
+   "estimating",
+   "Fw: Tender Opportunity: NHSPS Heaton Road Surgery - Window Replacement Sche"
+  ],
+  [
+   "2026-03-09",
+   "estimating",
+   "Project Submission Receipt: NORR0012 - Door Replacement"
+  ],
+  [
+   "2026-03-06",
+   "info",
+   "Web Update Notification from Hightown Housing - NORR0012 - Door Replacement"
+  ],
+  [
+   "2026-03-06",
+   "info",
+   "Stage Return Accepted - Hightown Housing"
+  ],
+  [
+   "2026-03-06",
+   "info",
+   "Quote Ref: Q/REF 5408  Quote Title: LESTROSC02 - New Side Entrance Door"
+  ],
+  [
+   "2026-03-06",
+   "estimating",
+   "RE: Porthaven - Lavender Oaks Restrictors - Fenster"
+  ],
+  [
+   "2026-02-27",
+   "estimating",
+   "test"
+  ],
+  [
+   "2026-02-27",
+   "estimating",
+   "Re: Southwark Quote"
+  ],
+  [
+   "2026-02-26",
+   "estimating",
+   "Re: Galleywall Trading Estate - Invitation to Tender"
+  ],
+  [
+   "2026-02-26",
+   "estimating",
+   "Re: BL Quote"
+  ],
+  [
+   "2026-02-26",
+   "estimating",
+   "Re: AdminBase Changes"
+  ],
+  [
+   "2026-02-26",
+   "estimating",
+   "RE: Rase Steels - Whisby Road - Fenster Quote"
+  ],
+  [
+   "2026-02-26",
+   "estimating",
+   "RE: Galleywall Trading Estate - Invitation to Tender"
+  ],
+  [
+   "2026-02-26",
+   "estimating",
+   "Galleywall Trading Estate - Invitation to Tender"
+  ],
+  [
+   "2026-02-26",
+   "estimating",
+   "FW: The UK\u2019s only dedicated fabricator and installer trade show"
+  ],
+  [
+   "2026-02-26",
+   "estimating",
+   "AdminBase Changes"
+  ],
+  [
+   "2026-02-25",
+   "estimating",
+   "Re: HP2 7BT - Windows"
+  ],
+  [
+   "2026-02-25",
+   "estimating",
+   "Re: Blue Lagoon Fish and Chips - 77 Grainger Street"
+  ],
+  [
+   "2026-02-25",
+   "estimating",
+   "Re: BL Quote"
+  ],
+  [
+   "2026-02-25",
+   "estimating",
+   "RE: Pexhurst - Unit 4 Berry Hill - Fenster Quote"
+  ],
+  [
+   "2026-02-20",
+   "info",
+   "RE: David Lloyd - Wirral Waters - Invitation To Tender For New Build Leisur"
+  ],
+  [
+   "2026-02-19",
+   "info",
+   "Stage Date Ending - Hightown Housing"
+  ],
+  [
+   "2026-02-17",
+   "info",
+   "Fw: E25-080 - Sponne School - New Build"
+  ],
+  [
+   "2026-02-17",
+   "info",
+   "Automatic reply: E25-080 - Sponne School - New Build"
+  ],
+  [
+   "2026-02-16",
+   "info",
+   "RE: Stage Date Ending - Hightown Housing"
+  ],
+  [
+   "2026-02-16",
+   "info",
+   "RE: Stage Date Ending - Hightown Housing"
+  ],
+  [
+   "2026-02-13",
+   "info",
+   "Re: Stage Date Ending - Hightown Housing"
+  ],
+  [
+   "2026-02-13",
+   "info",
+   "Fw: Stage Date Ending - Hightown Housing"
+  ],
+  [
+   "2026-02-13",
+   "info",
+   "Automatic reply: Stage Date Ending - Hightown Housing"
+  ],
+  [
+   "2026-02-06",
+   "info",
+   "Re: Web Update Notification from Hightown Housing - BERRWASC01 -"
+  ],
+  [
+   "2026-02-06",
+   "info",
+   "Re: Web Update Notification from Hightown Housing - BERRWASC01 -"
+  ],
+  [
+   "2026-02-06",
+   "info",
+   "Fwd: Web Update Notification from Hightown Housing - BERRWASC01 -"
+  ],
+  [
+   "2026-02-06",
+   "info",
+   "Fw: Commercial Development - Whisby Road - Lincoln LN6 3AN"
+  ],
+  [
+   "2026-02-05",
+   "info",
+   "Fw: Replace aluminium windows quote"
+  ],
+  [
+   "2026-02-02",
+   "info",
+   "Window Replacement"
+  ],
+  [
+   "2026-02-02",
+   "info",
+   "RE: Window Replacement"
+  ],
+  [
+   "2026-02-02",
+   "info",
+   "RE: Window Replacement"
+  ],
+  [
+   "2026-01-28",
+   "info",
+   "RE: Fenster Glazing - Quote - 4 Frank Court"
+  ],
+  [
+   "2026-01-28",
+   "info",
+   "Fenster Glazing - Quote - 4 Frank Court"
+  ],
+  [
+   "2026-01-28",
+   "info",
+   "4 Frank Young"
+  ],
+  [
+   "2026-01-27",
+   "info",
+   "Re: Hightown Housing Handover"
+  ],
+  [
+   "2026-01-27",
+   "info",
+   "RE: Hightown Housing Handover"
+  ],
+  [
+   "2026-01-27",
+   "info",
+   "Hightown Housing Handover"
+  ],
+  [
+   "2026-01-26",
+   "info",
+   "Fw: Market Testing - Arched Double Glazed Window"
+  ],
+  [
+   "2026-01-23",
+   "info",
+   "RE: Request for updated Accreditations and Insurance documentation"
+  ],
+  [
+   "2026-01-23",
+   "info",
+   "Fw: Request for updated Accreditations and Insurance documentation"
+  ],
+  [
+   "2026-01-23",
+   "info",
+   "Fw: Replacement Louvre Vents - Holiday Inn, Stoke"
+  ],
+  [
+   "2026-01-23",
+   "info",
+   "Fw: New order for 13 x Windows - Holiday Inn Milton Keynes"
+  ],
+  [
+   "2026-01-23",
+   "info",
+   "Fw: Enquiry - Nora Grace Hall Tring HP23 5BA"
+  ],
+  [
+   "2026-01-15",
+   "info",
+   "RE: Invitation To Tender for WINDOWS - UPVC works for MCY260016 Elvington M"
+  ],
+  [
+   "2026-01-15",
+   "info",
+   "RE: Invitation To Tender for Screens - Glazed Fire works for MCY260016 Elvi"
+  ],
+  [
+   "2026-01-15",
+   "info",
+   "Fw: Invitation To Tender for WINDOWS - UPVC works for MCY260016 Elvington M"
+  ],
+  [
+   "2026-01-15",
+   "info",
+   "Fw: Invitation To Tender for Screens - Glazed Fire works for MCY260016 Elvi"
+  ],
+  [
+   "2026-01-09",
+   "info",
+   "Re: 1 Hood Street"
+  ],
+  [
+   "2026-01-09",
+   "info",
+   "1 Hood Street"
+  ],
+  [
+   "2026-01-07",
+   "info",
+   "1 Hood Street Lock"
+  ],
+  [
+   "2026-01-06",
+   "info",
+   "Re: Holiday Request"
+  ],
+  [
+   "2026-01-06",
+   "info",
+   "RE: Reference - Reference: SR00330-318310 window repair / replacement"
+  ],
+  [
+   "2026-01-06",
+   "info",
+   "RE: Holiday Request"
+  ],
+  [
+   "2026-01-06",
+   "info",
+   "Holiday Request"
+  ],
+  [
+   "2026-01-06",
+   "info",
+   "Fw: Reference - Reference: SR00330-318310 window repair / replacement"
+  ],
+  [
+   "2026-01-05",
+   "info",
+   "Fw: New supplier form"
+  ],
+  [
+   "2026-01-05",
+   "info",
+   "Fw: Luton Mosque - Window Supply Package"
+  ],
+  [
+   "2025-12-23",
+   "info",
+   "Re: Onedrive"
+  ],
+  [
+   "2025-12-23",
+   "info",
+   "Onedrive"
+  ],
+  [
+   "2025-12-22",
+   "info",
+   "ICO Certificate"
+  ],
+  [
+   "2025-12-19",
+   "info",
+   "Fw: AES - Works request - (AES-WPC-01812) - Woodgreen Pets Charity \u2013 Door F"
+  ],
+  [
+   "2025-12-16",
+   "info",
+   "Re: Milton Keynes City Council - New Project Published"
+  ],
+  [
+   "2025-12-16",
+   "info",
+   "RE: Milton Keynes City Council - New Project Published"
+  ],
+  [
+   "2025-12-16",
+   "info",
+   "Fw: Milton Keynes City Council - New Project Published"
+  ],
+  [
+   "2025-12-16",
+   "info",
+   "Fw: ICO - receipt of payment ICO:00012549461"
+  ],
+  [
+   "2025-12-15",
+   "info",
+   "Fw: SAS Project Nomination: 5 The Grey, Milton Keynes"
+  ],
+  [
+   "2025-12-15",
+   "info",
+   "Fw: ICO - your contact information ICO:00012534365"
+  ],
+  [
+   "2025-12-15",
+   "info",
+   "FW: Your ICO data protection registration payment was successful"
+  ],
+  [
+   "2025-12-12",
+   "info",
+   "Re: 95 Chelsea House, 599 Witan Gate, Milton Keynes, MK9 2BS - Balcony Door"
+  ],
+  [
+   "2025-12-12",
+   "info",
+   "RE: 95 Chelsea House, 599 Witan Gate, Milton Keynes, MK9 2BS - Balcony Door"
+  ],
+  [
+   "2025-12-10",
+   "info",
+   "Re: 2026 Holiday"
+  ],
+  [
+   "2025-12-10",
+   "info",
+   "RE: 95 Chelsea House, 599 Witan Gate, Milton Keynes, MK9 2BS - Balcony Door"
+  ],
+  [
+   "2025-12-10",
+   "info",
+   "RE: 2026 Holiday"
+  ],
+  [
+   "2025-12-08",
+   "info",
+   "2026 Holiday"
+  ],
+  [
+   "2025-12-05",
+   "info",
+   "RE: Local Glazing/Window/Door and Repair Firm"
+  ],
+  [
+   "2025-12-05",
+   "info",
+   "Local Glazing/Window/Door and Repair Firm"
+  ],
+  [
+   "2025-12-05",
+   "info",
+   "Fw: Quotation Enquiry - Windows & doors - 5 The Grey, MK"
+  ],
+  [
+   "2025-12-04",
+   "info",
+   "RE: Your ChatGPT code is 994886"
+  ],
+  [
+   "2025-12-04",
+   "info",
+   "Fw: Your ChatGPT code is 994886"
+  ],
+  [
+   "2025-12-04",
+   "info",
+   "Fw: Ford Milton Keynes - Addendum 3"
+  ],
+  [
+   "2025-12-04",
+   "info",
+   "4:30 Interview"
+  ],
+  [
+   "2025-12-03",
+   "info",
+   "Re: 42 Eden Close, Daventry - Deana Towersey"
+  ],
+  [
+   "2025-12-01",
+   "info",
+   "Re: 42 Eden Close, Daventry - Deana Towersey"
+  ],
+  [
+   "2025-12-01",
+   "info",
+   "42 Eden Close, Daventry - Deana Towersey"
+  ],
+  [
+   "2025-11-27",
+   "info",
+   "Fw: 4 St Giles Street, Northampton"
+  ],
+  [
+   "2025-11-26",
+   "info",
+   "Secondary Glazing Install"
+  ],
+  [
+   "2025-11-26",
+   "info",
+   "Re: FW:"
+  ],
+  [
+   "2025-11-26",
+   "info",
+   "Re: Annual Leave"
+  ],
+  [
+   "2025-11-26",
+   "info",
+   "Annual Leave"
+  ],
+  [
+   "2025-11-25",
+   "info",
+   "FW:"
+  ],
+  [
+   "2025-11-24",
+   "info",
+   "Siana Eberle / Dhiren Basu - Shakespeare Road"
+  ],
+  [
+   "2025-11-24",
+   "info",
+   "Phishing:0f2a4d70-4b41-4a82-b132-08de2b170f66|hr.dept-diwqlhkwpyfidgvyppmww"
+  ],
+  [
+   "2025-11-21",
+   "info",
+   "Re: Milton Keynes - Regus - 255518"
+  ],
+  [
+   "2025-11-21",
+   "info",
+   "Re: Milton Keynes - Regus - 255518"
+  ],
+  [
+   "2025-11-20",
+   "info",
+   "RE: MCY250015 Howden Fire Station - New Build"
+  ],
+  [
+   "2025-11-20",
+   "info",
+   "RE: MCY250015 Howden Fire Station - New Build"
+  ],
+  [
+   "2025-11-20",
+   "info",
+   "RE: MCY250015 Howden Fire Station - New Build"
+  ],
+  [
+   "2025-11-19",
+   "info",
+   "Stimpsons Eve - Leck House"
+  ],
+  [
+   "2025-11-18",
+   "info",
+   "Target Maintenance SO/2734 - Leacroft - Fenster Quote"
+  ],
+  [
+   "2025-11-18",
+   "info",
+   "Alex and Co"
+  ],
+  [
+   "2025-11-17",
+   "info",
+   "Fw: Quote for Services: CB24 4QG"
+  ],
+  [
+   "2025-11-14",
+   "info",
+   "Re: SO/2734 - Quote Request"
+  ],
+  [
+   "2025-11-14",
+   "info",
+   "Fw: SO/2734 - Quote Request"
+  ],
+  [
+   "2025-11-11",
+   "info",
+   "Fw: Said Business School, Park End Street, Oxford, OX1 1HP, England - Fault"
+  ],
+  [
+   "2025-11-11",
+   "info",
+   "Fw: Louvre Panel Quote - CMK Shopping Centre"
+  ],
+  [
+   "2025-11-11",
+   "info",
+   "Fw: Lewsey Community Centre - Local Supply Chain"
+  ],
+  [
+   "2025-11-07",
+   "info",
+   "Re: Annual Leave"
+  ],
+  [
+   "2025-11-07",
+   "info",
+   "RE: Annual Leave"
+  ],
+  [
+   "2025-11-07",
+   "info",
+   "Annual Leave"
+  ],
+  [
+   "2025-11-06",
+   "info",
+   "FW: Kerry Lince / Lead no. 6585 (Hatton Court Converted Barns)"
+  ],
+  [
+   "2025-11-06",
+   "info",
+   "FW: Kerry Lince / Lead no. 6585 (Hatton Court Converted Barns)"
+  ],
+  [
+   "2025-11-06",
+   "info",
+   "FM Sol - Spinal Injuries"
+  ],
+  [
+   "2025-11-04",
+   "info",
+   "RE: BG Paddock Wood"
+  ],
+  [
+   "2025-11-04",
+   "info",
+   "BG Paddock Wood"
+  ],
+  [
+   "2025-11-03",
+   "info",
+   "Fw: New Residential Enquiry from Chris Hall"
+  ],
+  [
+   "2025-10-31",
+   "info",
+   "Re: OLICAT - Glazing Survey St Francis of Assisi"
+  ],
+  [
+   "2025-10-30",
+   "info",
+   "Siana Eberle - Jayk Lead"
+  ],
+  [
+   "2025-10-30",
+   "info",
+   "Siana Eberle - 77 Shakespeare Road Northampton"
+  ],
+  [
+   "2025-10-30",
+   "info",
+   "Fw: T&B Portal: Invitation to Tender"
+  ],
+  [
+   "2025-10-29",
+   "info",
+   "OLICAT - Glazing Survey St Francis of Assisi"
+  ],
+  [
+   "2025-10-29",
+   "info",
+   "Fw: New Residential Enquiry from Richard Evans"
+  ],
+  [
+   "2025-10-29",
+   "info",
+   "Fw: New Residential Enquiry from Jason Rose"
+  ],
+  [
+   "2025-10-28",
+   "info",
+   "Re: [EXT] Glazing Survey - OLICAT - St Francis of Assisi"
+  ],
+  [
+   "2025-10-28",
+   "info",
+   "RE: [EXT] Glazing Survey - OLICAT - St Francis of Assisi"
+  ],
+  [
+   "2025-10-28",
+   "info",
+   "Fw: SO/6768 - Quote Request"
+  ],
+  [
+   "2025-10-23",
+   "info",
+   "Fw: Fosterplus Ltd Wavendon Tower, MK17 8LX"
+  ],
+  [
+   "2025-10-23",
+   "info",
+   "Fw: Cripps Lodge, Milton Keynes MK6 4JJ"
+  ],
+  [
+   "2025-10-22",
+   "info",
+   "RE: 8 North Road - Bathroom Window"
+  ],
+  [
+   "2025-10-20",
+   "info",
+   "Tom Gage - 8 North Road NN6 0LP"
+  ],
+  [
+   "2025-10-20",
+   "info",
+   "FW: 8 North Road - Bathroom Window"
+  ],
+  [
+   "2025-10-17",
+   "info",
+   "Re: [EXT] Glazing Survey - OLICAT - St Francis of Assisi"
+  ],
+  [
+   "2025-10-17",
+   "info",
+   "FW: [EXT] Glazing Survey - OLICAT - St Francis of Assisi"
+  ],
+  [
+   "2025-10-17",
+   "info",
+   "FW: Tender Locator alert from WiredGov"
+  ],
+  [
+   "2025-10-16",
+   "info",
+   "Glazing Survey - OLICAT - St Francis of Assisi"
+  ],
+  [
+   "2025-10-16",
+   "info",
+   "Fw: 721s QNAP - Supply and install"
+  ],
+  [
+   "2025-10-16",
+   "info",
+   "Fw: 721s QNAP - Aluminium soffits and fascias"
+  ],
+  [
+   "2025-10-09",
+   "info",
+   "RE: Lawson Street, Kettering - UPVC Windows & Doors Enquiry"
+  ],
+  [
+   "2025-10-09",
+   "info",
+   "Fw: Lawson Street, Kettering - UPVC Windows & Doors Enquiry"
+  ],
+  [
+   "2025-10-08",
+   "info",
+   "Phishing:1c51fa1b-cada-4ac8-6aa3-08de063f1a9b|no-reply@docsend.com|(Matt Br"
+  ],
+  [
+   "2025-10-07",
+   "info",
+   "Fw: MK Padel - External Windows and Doors Package"
+  ],
+  [
+   "2025-10-01",
+   "info",
+   "RE: SO/6296 - 3 Phelps Road"
+  ],
+  [
+   "2025-10-01",
+   "info",
+   "RE: Request for updated Accreditations and Insurance documentation"
+  ],
+  [
+   "2025-10-01",
+   "info",
+   "Fw: SO/6296"
+  ],
+  [
+   "2025-10-01",
+   "info",
+   "Fw: Request for updated Accreditations and Insurance documentation"
+  ],
+  [
+   "2025-10-01",
+   "info",
+   "FW: Tender Locator alert from WiredGov"
+  ],
+  [
+   "2025-09-30",
+   "info",
+   "RE: MK Padel - External Windows and Doors Package"
+  ],
+  [
+   "2025-09-30",
+   "info",
+   "Fw: New Residential Enquiry from Bella Alagna"
+  ],
+  [
+   "2025-09-30",
+   "info",
+   "Fw: MK Padel - External Windows and Doors Package"
+  ],
+  [
+   "2025-09-25",
+   "info",
+   "Fw: SO/5383 - Quote Request"
+  ],
+  [
+   "2025-09-23",
+   "info",
+   "Re: Windows Reading (6819)"
+  ],
+  [
+   "2025-09-22",
+   "info",
+   "Re: Windows Reading (6819)"
+  ],
+  [
+   "2025-09-22",
+   "info",
+   "Fw: Windows Reading (6819)"
+  ],
+  [
+   "2025-09-22",
+   "info",
+   "Fw: Windows Reading (6819)"
+  ],
+  [
+   "2025-09-19",
+   "info",
+   "Fw: Voice Message Attached from 07999163213 - name unavailable"
+  ],
+  [
+   "2025-09-18",
+   "info",
+   "Tiny favour :)"
+  ],
+  [
+   "2025-09-18",
+   "info",
+   "Re: Tiny favour :)"
+  ],
+  [
+   "2025-09-18",
+   "info",
+   "Re: Tiny favour :)"
+  ],
+  [
+   "2025-09-18",
+   "info",
+   "Re: Quick favour"
+  ],
+  [
+   "2025-09-18",
+   "info",
+   "RE: Tiny favour :)"
+  ],
+  [
+   "2025-09-18",
+   "info",
+   "RE: Quick favour"
+  ],
+  [
+   "2025-09-18",
+   "info",
+   "Quick favour"
+  ],
+  [
+   "2025-09-17",
+   "info",
+   "Fw: New Residential Enquiry from Maia Jackson"
+  ],
+  [
+   "2025-09-17",
+   "info",
+   "Fw: New Residential Enquiry from Adish Rastogi"
+  ],
+  [
+   "2025-09-15",
+   "info",
+   "Fw: SO/4692 - Quote Request"
+  ],
+  [
+   "2025-09-12",
+   "info",
+   "Fw: Window Help"
+  ],
+  [
+   "2025-09-10",
+   "info",
+   "Fw: SO/5966 - Quote Request"
+  ],
+  [
+   "2025-09-04",
+   "info",
+   "Re: Motofix Northampton - Integrated Blinds - Fenster Opportunity"
+  ],
+  [
+   "2025-09-04",
+   "info",
+   "RE: Leaking Double glazing windows"
+  ],
+  [
+   "2025-09-04",
+   "info",
+   "Motofix Northampton - Integrated Blinds - Fenster Opportunity"
+  ],
+  [
+   "2025-09-04",
+   "info",
+   "Fw: Leaking Double glazing windows"
+  ],
+  [
+   "2025-09-03",
+   "info",
+   "RE: Replacement Glazing Flat 61 Chelsea House MK9 2BS"
+  ],
+  [
+   "2025-09-03",
+   "info",
+   "Fw: Replacement Glazing Flat 61 Chelsea House MK9 2BS"
+  ],
+  [
+   "2025-08-29",
+   "info",
+   "Fw: Luca Locci sent you DOMU Restaurant, London via WeTransfer"
+  ],
+  [
+   "2025-08-29",
+   "info",
+   "Fw: DOMU Restaurant, London"
+  ],
+  [
+   "2025-08-28",
+   "info",
+   "Fw: SO/5161 - Quote Request"
+  ],
+  [
+   "2025-08-27",
+   "info",
+   "Re: SO/5167 - Quote Request"
+  ],
+  [
+   "2025-08-27",
+   "info",
+   "RE: SO/5167 - Quote Request"
+  ],
+  [
+   "2025-08-27",
+   "info",
+   "RE: SO/5167 - Quote Request"
+  ],
+  [
+   "2025-08-26",
+   "info",
+   "Fw: SO/5167 - Quote Request"
+  ],
+  [
+   "2025-08-22",
+   "info",
+   "Re: Holiday"
+  ],
+  [
+   "2025-08-22",
+   "info",
+   "Holiday"
+  ],
+  [
+   "2025-08-21",
+   "info",
+   "Re: Removal & replacement Windows"
+  ],
+  [
+   "2025-08-21",
+   "info",
+   "RE: Kerry Lince / Lead no. 6585 (Hatton Court Converted Barns)"
+  ],
+  [
+   "2025-08-21",
+   "info",
+   "RE: Kerry Lince / Lead no. 6585 (Hatton Court Converted Barns)"
+  ],
+  [
+   "2025-08-21",
+   "info",
+   "RE: Fenster Glazing - Public Liability - 2025"
+  ],
+  [
+   "2025-08-21",
+   "info",
+   "RE: Fenster Glazing - Public Liability - 2025"
+  ],
+  [
+   "2025-08-21",
+   "info",
+   "Fw: Removal & replacement Windows"
+  ],
+  [
+   "2025-08-20",
+   "info",
+   "Fw: Removal & replacement Windows"
+  ],
+  [
+   "2025-08-20",
+   "info",
+   "Fenster Glazing - Public Liability - 2025"
+  ],
+  [
+   "2025-08-19",
+   "info",
+   "RE: WindowCAD retail enquiry - Fenster Glazing"
+  ],
+  [
+   "2025-08-19",
+   "info",
+   "RE: SO/5044"
+  ],
+  [
+   "2025-08-19",
+   "info",
+   "RE: SO/4692 - Quote Request"
+  ],
+  [
+   "2025-08-19",
+   "info",
+   "Fw: SO/5044"
+  ],
+  [
+   "2025-08-19",
+   "info",
+   "Fw: SO/4692 - Quote Request"
+  ],
+  [
+   "2025-08-19",
+   "info",
+   "6585 - Hatton Court - Converted Barns"
+  ],
+  [
+   "2025-08-18",
+   "info",
+   "Fw: WindowCAD retail enquiry"
+  ],
+  [
+   "2025-08-14",
+   "info",
+   "Fw: Cinch Self Storage"
+  ],
+  [
+   "2025-08-13",
+   "info",
+   ""
+  ],
+  [
+   "2025-08-08",
+   "info",
+   "Re: Vetroseal Ltd Quote: 057294 (JARDINES)"
+  ],
+  [
+   "2025-08-04",
+   "info",
+   "RE: MCY250015 Howden Fire Station - New Build"
+  ],
+  [
+   "2025-08-04",
+   "info",
+   "RE: MCY250015 Howden Fire Station - New Build"
+  ],
+  [
+   "2025-08-04",
+   "info",
+   "Info for James - TSL site visit."
+  ],
+  [
+   "2025-07-31",
+   "info",
+   "Fw: Welcome from Fenster Glazing! Let's bring your vision to life."
+  ],
+  [
+   "2025-07-25",
+   "info",
+   "RE: Hightown Housing - 23 Norris Close - Fenster Opportunity"
+  ],
+  [
+   "2025-07-25",
+   "info",
+   "RE: Finsbury Park Animal Hospital - UPVC Window & Doors"
+  ],
+  [
+   "2025-07-25",
+   "info",
+   "Fw: Finsbury Park Animal Hospital - UPVC Window & Doors"
+  ],
+  [
+   "2025-07-24",
+   "info",
+   "Re: Hightown Housing - 23 Norris Close - Fenster Opportunity"
+  ],
+  [
+   "2025-07-24",
+   "info",
+   "Hightown Housing - 23 Norris Close - Fenster Opportunity"
+  ],
+  [
+   "2025-07-21",
+   "info",
+   "Re: Premier Inn Buckingham"
+  ],
+  [
+   "2025-07-21",
+   "info",
+   "Re: Invoice Number"
+  ],
+  [
+   "2025-07-21",
+   "info",
+   "RE: Premier Inn Buckingham"
+  ],
+  [
+   "2025-07-21",
+   "info",
+   "RE: Invoice Number"
+  ],
+  [
+   "2025-07-21",
+   "info",
+   "Invoice Number"
+  ],
+  [
+   "2025-07-21",
+   "info",
+   "Fw: Premier Inn Buckingham"
+  ],
+  [
+   "2025-07-21",
+   "info",
+   "Fw: New Residential Enquiry from Jonathan Quinn"
+  ],
+  [
+   "2025-07-18",
+   "info",
+   "Chelton Brown"
+  ],
+  [
+   "2025-07-17",
+   "info",
+   "Re: Hightown Housing - Martian Avenue - Fenster Glazing"
+  ],
+  [
+   "2025-07-17",
+   "info",
+   "Hightown Housing - 61-74 Ellis House - Fenster Opportunity"
+  ],
+  [
+   "2025-07-17",
+   "info",
+   "Fw: Invitation To Tender for Screens - Glazed Fire works for MCY250015 - 05"
+  ],
+  [
+   "2025-07-17",
+   "info",
+   "Fw: Invitation To Tender for Curtain Walling works for MCY250015 - 05 Howde"
+  ],
+  [
+   "2025-07-17",
+   "info",
+   "Cranfield - Dartec Docs"
+  ],
+  [
+   "2025-07-16",
+   "info",
+   "Fw: St John Rigby School Bedford MK41 9DQ"
+  ],
+  [
+   "2025-07-16",
+   "info",
+   "Fw: Enquiry - New Office Windows"
+  ],
+  [
+   "2025-07-15",
+   "info",
+   "RE: New Residential Enquiry from Denise Green"
+  ],
+  [
+   "2025-07-15",
+   "info",
+   "Fw: New Residential Enquiry from Denise Green"
+  ],
+  [
+   "2025-07-14",
+   "info",
+   "Hightown Housing - Martian Avenue - Fenster Glazing"
+  ],
+  [
+   "2025-07-14",
+   "info",
+   "Fenster Glazing - Quote Hightown - 48 Norris Close"
+  ],
+  [
+   "2025-07-11",
+   "info",
+   "Re: Please quote: 52 Queen Street, Weedon"
+  ],
+  [
+   "2025-07-11",
+   "info",
+   "RE: Please quote: 52 Queen Street, Weedon"
+  ],
+  [
+   "2025-07-11",
+   "info",
+   "Hightown Housing - 48 Norris Close - Fenster Opportunity"
+  ],
+  [
+   "2025-07-11",
+   "info",
+   "FW: Please quote: 52 Queen Street, Weedon"
+  ],
+  [
+   "2025-07-09",
+   "info",
+   "FW: Contracts Locator alert from WiredGov"
+  ],
+  [
+   "2025-07-08",
+   "info",
+   "Re: Tender Communication for: Huxlow Academy - Internal Remodelling: Genera"
+  ],
+  [
+   "2025-07-08",
+   "info",
+   "Fw: Tender Communication for: Huxlow Academy - Internal Remodelling: Genera"
+  ],
+  [
+   "2025-07-03",
+   "info",
+   "Re: Provisional Appointment"
+  ],
+  [
+   "2025-07-03",
+   "info",
+   "Re: Provisional Appointment"
+  ],
+  [
+   "2025-07-03",
+   "info",
+   "RE: Provisional Appointment"
+  ],
+  [
+   "2025-07-03",
+   "info",
+   "RE: Provisional Appointment"
+  ],
+  [
+   "2025-07-03",
+   "info",
+   "Provisional Appointment"
+  ],
+  [
+   "2025-06-27",
+   "info",
+   "RE: Bromford Flagship  Invitation to Tender \u2013 Glazing Materials and Works ("
+  ],
+  [
+   "2025-06-27",
+   "info",
+   "Fwd: Contracts Locator alert from WiredGov"
+  ],
+  [
+   "2025-06-25",
+   "info",
+   "Fw: Bromford Flagship  Invitation to Tender \u2013 Glazing Materials and Works ("
+  ],
+  [
+   "2025-06-24",
+   "info",
+   "Re: job at Milton Keynes,  MK10 9RG"
+  ],
+  [
+   "2025-06-19",
+   "info",
+   "Re: Project Enquiry - NN5 7US"
+  ]
+ ]
+}
