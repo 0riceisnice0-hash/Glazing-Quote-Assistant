@@ -768,7 +768,7 @@ def check_incorporated_terms_held(m):
         return result("incorporated terms are actually held", NA,
                       "no supplier quote on this job incorporates terms by reference",
                       "Riverside House")
-    missing, unclear = [], []
+    missing, unnamed, unclear = [], [], []
     for t in terms:
         if not isinstance(t, dict):
             unclear.append("%r is not a {supplier, ref, document, held} entry" % (t,))
@@ -776,8 +776,23 @@ def check_incorporated_terms_held(m):
         ref = "%s %s" % (t.get("supplier", "?"), t.get("ref", "?"))
         doc = t.get("document")
         held = t.get("held")
-        if not doc or not str(doc).strip():
-            unclear.append("%s (no document named - say WHICH terms are incorporated)" % ref)
+        named = bool(doc) and bool(str(doc).strip())
+        # Gordon Court, 28/07, the first time this rule saw data that was not
+        # mine. All four BSW quotations read "Orders are subject to acceptance
+        # and terms and conditions of sale, AVAILABLE ON REQUEST" - no title, no
+        # revision, no date. That is a WORSE position than my named A Plus case,
+        # not a manifest-filling problem, and the rule used to grade it as the
+        # lesser one and then hand back a remedy the estimator cannot carry out
+        # ("say WHICH terms are incorporated" - the quotation does not say).
+        # An unnamed incorporation gets its own bucket and its own remedy: ask
+        # the supplier for the title, revision and date.
+        if not named:
+            if held in (True, 1) or str(held).strip().lower() in (
+                    "true", "yes", "y", "held", "attached", "1"):
+                unclear.append("%s is marked held but names no document - you cannot hold a "
+                               "document you cannot name" % ref)
+            else:
+                unnamed.append("%s incorporates terms it does not even name" % ref)
             continue
         where = "%s incorporates \"%s\"" % (ref, str(doc).strip())
         # The lesson from check_free_delivery_threshold the same night: an
@@ -800,13 +815,27 @@ def check_incorporated_terms_held(m):
                       "Cannot tell whether the incorporated terms are held: " + "; ".join(unclear),
                       "Riverside House",
                       remedy="Fill the entry properly, then re-run before issuing anything.")
-    if missing:
+    if unnamed or missing:
+        # Unnamed first, deliberately. A quote that names its terms tells you
+        # what to ask for; one that says "available on request" leaves you
+        # unable to say which version you have not read.
+        parts = []
+        if unnamed:
+            parts.append("A supplier quote incorporates terms IT DOES NOT NAME: "
+                         + "; ".join(unnamed)
+                         + ". No title, revision or date, so we cannot even say which document "
+                           "we have not read")
+        if missing:
+            parts.append("A supplier quote incorporates terms we have never read: "
+                         + "; ".join(missing))
         return result("incorporated terms are actually held", UNKNOWN,
-                      "A supplier quote incorporates terms we have never read: " + "; ".join(missing)
+                      ". ".join(parts)
                       + ". The price rests on a contract whose contents we cannot state.",
                       "Riverside House",
-                      remedy="Ask the supplier for the named document before placing an order - "
-                             "it is one line pre-order and a variation afterwards.")
+                      remedy="Ask the supplier for the document - by title, revision and date "
+                             "where the quote names one, and for whatever their quotation refers "
+                             "to where it does not - before placing an order. It is one line "
+                             "pre-order and a negotiation afterwards.")
     return result("incorporated terms are actually held", PASS,
                   "%d incorporated terms document(s) are in our hands" % len(terms),
                   "Riverside House")
@@ -1040,6 +1069,21 @@ TERMS_VARIANTS = [
                                  "document": "Terms of Sale V.01.2",
                                  "held": "Not Held"}],                           UNKNOWN),
     ("entry is None",          [None],                                           UNKNOWN),
+    # Gordon Court, 28/07, the first time this rule saw data that was not mine.
+    # BSW's four quotations incorporate terms "available on request" - no title,
+    # no revision, no date. The rule had no branch for it: an unnamed
+    # incorporation fell into the manifest-filling bucket and got a remedy the
+    # estimator could not carry out. These six fix that in both directions.
+    ("unnamed, held false",    [{"supplier": "BSW", "ref": "Q1234", "held": False}],  UNKNOWN),
+    ("unnamed, held unstated", [{"supplier": "BSW", "ref": "Q1234"}],                 UNKNOWN),
+    ("unnamed, held 'no'",     [{"supplier": "BSW", "ref": "Q1234", "held": "no"}],   UNKNOWN),
+    ("unnamed but marked held", [{"supplier": "BSW", "ref": "Q1234", "held": True}],  UNKNOWN),
+    ("unnamed, document blank", [{"supplier": "BSW", "ref": "Q1234",
+                                  "document": "", "held": False}],                    UNKNOWN),
+    ("unnamed and named together",
+                               [{"supplier": "BSW", "ref": "Q1234", "held": False},
+                                {"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "Terms of Sale V.01.2", "held": False}],  UNKNOWN),
 ]
 
 

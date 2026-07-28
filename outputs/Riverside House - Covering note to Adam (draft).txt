@@ -35,7 +35,7 @@ those two questions before Gintare asks A Plus for anything.
 TWO LETTERS, DRAFTED AND READY
 
   outputs\Riverside House - RFQ to A Plus (draft, send by 26-08).txt
-      Twelve items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
+      Fourteen items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
       does not have to wait for the building works costs. It asks for the aerodynamic
       figure, a price for a compliant size if one is needed, the U-value, delivery, a
       price hold, restrictors, and whether a wall casement is even right for the position.
@@ -69,6 +69,21 @@ expressly stated to the contrary by the Supplier" - so the letter now asks A Plu
 the aerodynamic free area and the EN 12101-2 classification ON the revised quotation
 rather than in a reply, and to confirm the whole-window U-value the same way. Asking costs
 a line before an order and is a variation afterwards.
+
+AND TWO COMMERCIAL POINTS I HAD NOT PICKED UP, BOTH LIVE
+
+A Plus price on the basis that the materials are "ordered together, and in one phase", and
+say a part order may carry extra costs and should be re-priced. We are still establishing
+whether the second floor vent is a wall unit at all - if it turns out to be a roof vent we
+would be ordering one of the two. So the GBP 5,990.22 should not be read as two halves that
+can be taken separately; the letter now asks what a single vent would cost.
+
+And they charge storage on goods left uncollected more than three working days after they
+are ready, and exclude holding materials off-site if the programme slips - in which case they
+would want paying for the materials before delivery. This is the one job in the book that is
+explicitly waiting on somebody else's programme, so the gap between manufacture and a ready
+opening has a price on it. Asked of A Plus, and it is now a second reason for asking RRR when
+the openings will be formed.
 
 Two smaller things from the same read: their quotation incorporates a Terms of Sale
 document we have never held on any job, so the letter asks for a copy; and they assume a

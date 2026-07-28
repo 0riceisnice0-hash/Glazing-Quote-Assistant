@@ -4014,6 +4014,72 @@ with it.
 Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, a document-driven sweep is not a sweep
+
+Gordon Court found their ten-category exclusions list was short by **building regulations** - on a fire
+product, the category that matters most. Looking for the same fault here found a larger one: **the
+back-to-back sweep run last turn was DOCUMENT-driven.** It read A Plus's conditions and diffed what they
+said against clause 16, so it could only ever surface categories A Plus chose to write about. It could
+not surface a responsibility neither document mentions, nor a clause whose consequence lands on us for a
+reason the clause never states. **A document-driven sweep is a sample of the supplier's drafting
+priorities.**
+
+Rebuilt as **25 categories listed before reading either document**
+(`scratchpad/riverside_category_sweep.py`). Two came back live and unrecorded, and both are commercial
+rather than technical - which is exactly why a compliance-shaped read had walked past them.
+
+**1. The price is not divisible by two.** QT51518: *"The Price is based on the materials quoted being
+ordered together, and in one phase. Orders for only part of the quote... may incur additional charges...
+We strongly recommend that when placing all such orders, a re-price is requested."* Every description of
+this price - job file, hub, handover - has been **2 x a unit rate**. That is correct as a build-up and
+wrong as a statement of what one vent costs. **It is live because the largest open question could halve
+the order**: if the second floor stairwell is vented at the roof rather than the wall, we order ONE unit
+and the survivor is expressly subject to re-price. So C2's exposure is not "lose one unit at
+GBP 2,995.11" - it is that **plus an unquantified re-price on the unit that stays**. RFQ item 13 asks
+what a single vent costs, **before the architect answers rather than after**.
+
+**2. Storage has a three-working-day clock, on the one job in the book that is waiting on somebody
+else.** *"A Plus reserves the right to levy storage costs for all goods which remain uncollected 3
+working days after first availability"*, and materials held off-site through a programme slip are
+excluded, with payment for the materials required against a letter of indemnity. **Neither clause is
+unusual.** What makes them bite is the defining fact of this job: the submission is deliberately held
+until PHDB return building-works costs, the sequence is openings formed -> survey -> manufacture, and
+there is no programme date. A slip starts the clock three working days after manufacture and converts
+the balance into payment-before-delivery. **The first cost on this job that grows with a delay the
+business chose to accept**, and it was written down nowhere. Not quantified - no rate stated on the
+quote and none invented. RFQ item 14, and a second reason under RRR question 11 for giving a date.
+
+**Their "available on request" grep, run here, comes back clean** - zero hits on QT51518 for *available
+on request*, *on request*, *subject to our standard*, *conditions of sale*, *standard terms* or *as
+amended*; the only incorporations are the two named revisions already recorded. Reported clean, because
+a check that only ever fires is not one anybody trusts.
+
+**And their data found a defect in `check_incorporated_terms_held`, one turn after it shipped.** BSW's
+four quotations incorporate terms *"available on request"* - **no title, no revision, no date**. The
+rule had no branch for that shape and got it backwards twice: it **graded the worse case as the lesser
+one** (unnamed fell into "cannot tell whether they are held", which reads as a form-filling problem when
+the answer is known - nothing is held, and the missing document cannot even be named), and **its remedy
+could not be carried out**, because *"say WHICH terms are incorporated"* asks the estimator for a fact
+only the supplier holds. **A remedy nobody can act on is the same family of defect as an assertion made
+from a value the rule did not understand.** Fixed: unnamed incorporations get their own bucket, are
+reported first, and ask for title, revision and date where a quote names one and for whatever it refers
+to where it does not. Six variants added; **35/35**.
+
+**The uncomfortable part, recorded deliberately: that rule shipped with 29 variants written before it
+and still had a hole, because every one of the 29 was written against the shape on this job's own
+quote. Variant count is not coverage; variant diversity is** - and the diversity only arrived when the
+rule met another job's data. A rule that has only ever run on the job that produced it is still a
+one-case rule however many variants sit under it.
+
+**Gordon Court's cross-reference lesson caught something here immediately**: adding two RFQ items left
+the covering note to Adam saying "Twelve items". A cross-reference is a claim and it goes stale when you
+edit around it; the whole document set is now grepped for item and question numbers after any
+renumbering.
+
+RFQ now 14 items, RRR letter 11, covering note updated. Checks **0 failed, 4 questions**. Position
+unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

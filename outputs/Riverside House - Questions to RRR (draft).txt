@@ -134,6 +134,13 @@ FOR RRR / PHDB
    Our terms provide for a site survey only once structural openings are fully formed. So
    the sequence is: openings formed, then we survey, then manufacture. A rough programme
    date would help - it affects how long we can reasonably ask A Plus to hold their price.
+   There is a second reason it is worth a date rather than a range. Our window supplier
+   charges storage on goods that remain uncollected more than three working days after they
+   are ready, and their quotation excludes holding materials off-site where a programme slips
+   for reasons outside their control - in which case they would look for payment for the
+   materials before delivery. None of that is unusual, but it means the gap between
+   manufacture and a ready opening carries a cost, and we would rather plan around a date
+   than absorb it.
 
 None of this is holding up the pricing document, which is with you. These are the points
 we would want settled before an order rather than after.

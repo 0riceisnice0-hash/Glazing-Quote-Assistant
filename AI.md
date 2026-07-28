@@ -1622,6 +1622,54 @@ written from shapes the code was not written against (uppercase and padded truth
 empty list or a dict or `2`, the field as an int, a tuple of entries, a numeric document, `[None]`).
 All twelve held; 29/29 persisted into `--selftest`.
 
+**Build the category list before you read the document.** Gordon Court's ten-category exclusions sweep
+was short by "building regulations" - the category that matters most on the fire and smoke products this
+business sells. Riverside's fault was the same family and larger: its back-to-back sweep was
+**document-driven**, reading A Plus's conditions and diffing what they said against clause 16. That can
+only ever surface categories the supplier chose to write about. It cannot surface a responsibility
+neither document mentions, and it cannot surface a clause whose consequence lands on you for a reason
+the clause never states. **A document-driven sweep is a sample of the supplier's drafting priorities.**
+Rebuilt as 25 categories listed first, from what a glazing sub-contract actually allocates, it returned
+two live items that a compliance-shaped read had walked straight past - both commercial rather than
+technical. `scratchpad/riverside_category_sweep.py`.
+
+Two findings from that rebuild, both worth running on any job:
+
+- **If any open question could REDUCE the order, check whether the supplier priced on the whole.**
+  A Plus price on the basis that materials are "ordered together, and in one phase" and reserve the
+  right to re-price a part order. Riverside's price had been described everywhere as 2 x a unit rate -
+  right as a build-up, wrong as a statement of what one vent costs - while its largest open question
+  (wall vent or roof vent) could halve the order. The exposure is the lost unit **plus an unquantified
+  re-price on the unit that stays**. Quantity-break and one-phase clauses are common; they turn a scope
+  reduction into two costs, not one.
+- **If your job is waiting on somebody else's programme, read the supplier's storage and
+  off-site-materials clauses before agreeing to wait.** A Plus levy storage on goods uncollected more
+  than three working days after first availability, and exclude holding materials off-site through a
+  programme slip - requiring payment for the materials against a letter of indemnity. Neither clause is
+  unusual. What made them bite on Riverside is that the submission is deliberately held pending another
+  party's costs with no programme date, so a slip starts a three-day clock and converts the balance into
+  payment-before-delivery. **The first cost on that job that grows with a delay the business chose to
+  accept** - and the clause pricing it is never in the section you were reading.
+
+**Variant count is not coverage; variant diversity is.** `check_incorporated_terms_held` shipped with 29
+variants written before it, and still had a hole: every one of the 29 was written against the shape on
+the quote that produced the rule. Gordon Court populated the field on their job and exposed the missing
+branch immediately - BSW's quotations incorporate terms "available on request", with no title, no
+revision and no date. The rule **graded that worse case as the lesser one** (an unnamed incorporation
+fell into "cannot tell whether they are held", which reads as a form-filling problem when the answer is
+in fact known: nothing is held and the missing document cannot even be named) and **its remedy could not
+be carried out** - "say WHICH terms are incorporated" asks the estimator for a fact only the supplier
+holds. **A remedy nobody can act on is the same family of defect as an assertion made from a value the
+rule did not understand.** Fixed; unnamed incorporations get their own bucket, are reported first, and
+ask for title, revision and date. **A rule that has only ever run on the job that produced it is still a
+one-case rule however many variants sit under it** - which is an argument for populating each other's
+manifest fields early rather than at the end.
+
+**A cross-reference is a claim, and it goes stale when you edit around it.** Gordon Court renumbered a
+letter item from D3 to D4 and left the letter's own header describing the wrong item. Riverside added two
+RFQ items and left the covering note to Adam saying "Twelve items". After any renumbering or insertion,
+grep the whole document set for "item N", "question N" and the written-out counts.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

@@ -7,9 +7,9 @@ QT51518 lapses 26/08/2026. After that date these sentences in this letter are fa
   - item 7's "QT51518 is open for 30 days, to 26/08/2026"
   - item 2's premise that a resize can be set against the GBP 4,845.22 already quoted
 
-THE TWELVE QUESTIONS REMAIN VALID. This needs re-heading as a fresh enquiry, not
+THE FOURTEEN QUESTIONS REMAIN VALID. This needs re-heading as a fresh enquiry, not
 binning - A Plus would be quoting from scratch rather than adding lines, so ask for
-a new quotation covering all twelve points and expect the base price to move.
+a new quotation covering all fourteen points and expect the base price to move.
 
 DRAFT - FOR GINTARE TO SEND TO A PLUS. Nothing has been sent.
 Send by 26/08/2026 - see "why the date" below.
@@ -168,5 +168,34 @@ this further, plus one item we would like added.
    The building is existing and the openings are being formed, so this is a question for
    the design team as much as for you - but we would rather ask you what you assumed than
    guess at it.
+
+13. ORDERING ONE VENT RATHER THAN TWO - WHAT HAPPENS TO THE PRICE?
+   Your terms say the price "is based on the materials quoted being ordered together, and in
+   one phase", that orders "for only part of the quote, or fabrication over multiple phases,
+   may incur additional charges for paint surcharges, rolling set up charges, reduced
+   material optimisation, delivery or increased fabrication costs", and that a re-price
+   should be requested in that case.
+   That is live for us rather than hypothetical. We are still establishing with the
+   architect whether the second floor vent is a wall unit at all - the note says the stair
+   is vented at the top storey roof, and that stairwell has no wall opening (item 9). If the
+   answer is a roof unit, we would be ordering ONE of the two vents from this quotation.
+   So please tell us what the supply price for a SINGLE 1130 x 1530 vent to this
+   specification would be. We would rather know now than assume the quoted total simply
+   halves.
+
+14. STORAGE, AND WHAT HAPPENS IF SITE IS NOT READY
+   Two of your terms bear on this and we would like to understand them before an order
+   rather than during one:
+     - you reserve the right to levy storage costs for goods uncollected more than 3 working
+       days after first availability;
+     - the quotation excludes holding materials off-site where the programme slips beyond
+       your control, and in that case you would require payment for the materials against a
+       letter of indemnity.
+   Neither is unreasonable and we are not asking you to change them. The reason we raise it
+   is that this job is sequenced openings formed, then survey, then manufacture, and the
+   client has not yet given a date for forming the openings. So:
+   (a) roughly how long after manufacture would the 3 working days start to run?
+   (b) is there a normal arrangement for holding goods for a short period, and at what cost?
+   We would rather build that into the programme than discover it.
 
 Many thanks,
