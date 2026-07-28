@@ -366,6 +366,31 @@ button, input, select, textarea { font-family: inherit; }
 .panel-btns { display: flex; gap: 10px; flex-wrap: wrap; }
 .section-head .page-sub { margin: 0; font-size: var(--t-12); }
 
+/* Decision cards. These had no rules at all and were rendering as bare divs -
+   which is survivable on a list of four and not on a page that now has to
+   show an answer as well as a question. */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: 18px 20px; }
+.card-head { display: flex; align-items: baseline; justify-content: space-between;
+  gap: 10px; margin-bottom: 8px; }
+.card p { margin: 0 0 12px; font-size: var(--t-14); }
+/* An answered decision stays on the page. The green edge is the difference
+   between "we decided this" and "nobody has looked at it". */
+.card.answered { border-left: 4px solid var(--green); background: var(--green-50); }
+.opt.chosen { background: var(--green); border-color: var(--green); color: #fff; cursor: default; }
+.opt.chosen:hover { color: #fff; }
+
+/* A draft is read, edited and pasted into Outlook. It is shown as the plain
+   text it will be sent as - selectable, wrapped, and in nobody's house style
+   but the sender's. */
+.draft-body { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--navy-100);
+  border-radius: var(--r-md); padding: 18px 20px; margin: 0 0 14px; white-space: pre-wrap;
+  font-family: inherit; font-size: var(--t-14); line-height: 1.62; color: var(--body);
+  user-select: text; overflow-x: auto; }
+ul.plain { margin: 0; padding-left: 20px; font-size: var(--t-13); color: var(--body); }
+ul.plain li { margin-bottom: 8px; }
+
 @media (max-width: 900px) {
   .act { grid-template-columns: 1fr; }
   .act-side { justify-items: start; text-align: left; }

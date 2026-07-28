@@ -385,8 +385,8 @@
    "session_id": "45734632-a617-4b15-87fb-0a6fa8e4cfd1",
    "started": true,
    "created": "2026-07-27T16:14:24",
-   "last_active": "2026-07-27T16:34:34",
-   "runs": 1
+   "last_active": "2026-07-28T22:38:27",
+   "runs": 2
   },
   "riverside": {
    "session_id": "b664294f-b027-4e0e-9f7b-084072d720c9",
@@ -418,10 +418,10 @@
   },
   "lower-range": {
    "session_id": "16a06382-ef1f-4436-8687-350c5efe8035",
-   "started": false,
+   "started": true,
    "created": "2026-07-27T17:49:32",
-   "last_active": null,
-   "runs": 0,
+   "last_active": "2026-07-28T22:32:44",
+   "runs": 1,
    "rotated_from": "1ceef803-8506-4e09-84ee-c806734b3cd5",
    "rotated_at": "2026-07-28T22:28:37",
    "rotations": 1

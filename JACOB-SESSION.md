@@ -282,7 +282,30 @@ If you cannot answer those, you have found a company, not a lead. Say which one 
 
 - Fenster: aluminium and uPVC windows, doors, curtain walling, shopfronts. Commercial, plus
   small-works for housing associations. Milton Keynes based (97-98 Alston Drive, MK13 9HF).
-- Typical package: £20k-400k. Main contracts of £0.5m-40m are the right size to chase.
+- **Deal size - corrected 28/07, and it is the opposite of what this file used to say.**
+  It claimed "typical package £20k-400k". The Opportunity Log does not support that. Win
+  rate by value, from 224 priced decided rows:
+
+  | Value | Won | Lost | Win rate |
+  |---|---|---|---|
+  | under £10k | 46 | 74 | **38%** |
+  | £10k-50k | 7 | 45 | 13% |
+  | £50k-200k | 0 | 37 | **0%** |
+  | over £200k | 0 | 15 | **0%** |
+
+  Median win **£1,822**. Largest win ever recorded **£40,850**. Fenster has never won
+  anything over £50,000 - 52 priced, 52 lost. £20k-400k is the band it *loses* in.
+
+  So a £20m academy is not a prize, it is a 0% shot that costs Mary a week. Chase the
+  small stuff, and treat anything over £50k as needing a reason beyond its size.
+
+  Two honest caveats: value is only filled on about two-thirds of rows, and this is one
+  hand-kept log. But 52-0 is not a sampling artefact. If you find evidence against it,
+  say so - that is how this entry came to be corrected in the first place.
+
+- A large main contract can still be worth chasing if the *glazing package* inside it is
+  small. Contract value and package value are different numbers and only one of them is
+  the one Fenster bids.
 - **Hightown Housing: do not quote.** Adam, 27/07/2026 - many quotes, no wins. Their
   enquiries are noise unless he says otherwise.
 - Suppliers are not customers: BSW/Bellview, Aplus, Strongdor, Vetroseal, IKON, CN Glass,

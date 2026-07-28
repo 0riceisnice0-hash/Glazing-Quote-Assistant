@@ -1,0 +1,206 @@
+{
+  "note": "The second handover, made explicit. Adam's rule, 28/07/2026: a job is Mary's while it is being priced and Jacob's the moment the quote goes out. Jacob then owns chasing, logging and the diary. This file is that boundary written down - one row per priced job, and which side of the line it is on.",
+  "updated": "2026-07-28",
+  "rule": {
+    "set_by": "Adam Butcher",
+    "date": "2026-07-28",
+    "text": "A job is Mary's while it is being priced, and Jacob's the moment the quote goes out. Jacob owns chasing, logging, deadlines for chaser calls and updates."
+  },
+  "verification": {
+    "source": "estimating@fensterglazing.com sent items, read by Mary on 28/07/2026",
+    "why": "Jacob cannot read estimating@. Every issue date below was checked against the message that actually left the building, not against a job record or a return date.",
+    "timezone": "Issue times are BST, as a human would see them. Mary's job files carry the same sends in UTC, so a file reading 09:49 and a row reading 10:49 are the same message - not a conflict to correct.",
+    "limit": "Anything issued from commercial@ without copying estimating@ would be invisible to both of us. No row here depends on that, but Filwood does.",
+    "keys": "Row keys are the same slugs Mary's job board emits, so a human correction made on either page sticks to the same job and neither board shows it twice. If she renames a job, its row will appear twice until the key here is updated."
+  },
+  "issued": [
+    {
+      "key": "job:gordon-court-stonegrove-edgware",
+      "job": "Gordon Court, Stonegrove Edgware",
+      "client": "Chigwell (London) PLC",
+      "contact": "Luke Baker",
+      "email": "luke.baker@chigwellgroupplc.co.uk",
+      "value": 368376.7,
+      "issued": "2026-07-10",
+      "issuedTime": "09:28",
+      "lastClientContact": "2026-07-06",
+      "state": "waiting",
+      "blockedUntil": "2026-09-16",
+      "blockedReason": "Chigwell has not gone quiet - Chigwell cannot answer. Our number fed their bid to jLiving, returned 22/07 at 14:00. jLiving does not decide before 16 September. The ITT also says in terms: do not contact jLiving directly.",
+      "owner": "Adam",
+      "next": "One short call to Luke Baker now, and it is not about the decision - it is to confirm our GBP 368,376.70 went into Chigwell's bid unchanged, and to ask what Chigwell's own position on the tender is. Then diary the real chase for the week of 14 September. Grange Hill Methodist Church is the same client and still at tender, so it is one call, not two.",
+      "history": "No rows in the Opportunity Log under Chigwell at all. Two live jobs with them and no recorded history is a relationship being built right now.",
+      "verified": true
+    },
+    {
+      "key": "job:ninn-lane-re-development",
+      "job": "Ninn Lane Re-development",
+      "client": "Ermine Construction Services",
+      "contact": "Tom Dixon",
+      "email": "tom.dixon@ermine.co.uk",
+      "value": 100730.0,
+      "issued": "2026-07-09",
+      "issuedTime": "11:40",
+      "lastClientContact": null,
+      "state": "gone quiet",
+      "blockedUntil": null,
+      "blockedReason": null,
+      "owner": "Adam",
+      "next": "Adam calls Tom Dixon. GBP 100,730 has been out 19 days with nothing back, and Ermine also has Lower Range Road sitting with us unpriced against a 07/08 return. One call covers both: where is Ninn Lane, and do they still want Lower Range Road priced.",
+      "history": "Ermine is 0 won, 1 lost - Lockley Crescent and Haseldine Meadows, GBP 156,328, lost January 2026. Ninn Lane is the second bite at the same client.",
+      "verified": true
+    },
+    {
+      "key": "job:st-mary-s-refurbishment-merthyr-tydfil",
+      "job": "St Mary's Refurbishment, Merthyr Tydfil",
+      "client": "E T & S Construction",
+      "contact": "Tom Godfrey",
+      "email": "tom.godfrey@ets-wales.com",
+      "value": 174546.37,
+      "issued": "2026-07-17",
+      "issuedTime": "12:17",
+      "lastClientContact": null,
+      "state": "gone quiet",
+      "blockedUntil": null,
+      "blockedReason": null,
+      "owner": "Adam",
+      "next": "This is the urgent one and it is not a normal chase. The 24/07 re-issued register moved the package return date to 27 July - yesterday - on a package we submitted on 17 July and have treated as closed ever since. Adam asks Tom Godfrey one question outright: is the package still open, and is our 17/07 submission the one being considered. If it is open, this stops being a chase and becomes a corrected tender, and it goes straight back to Mary.",
+      "history": "No rows in the Opportunity Log under E T & S. First quote to this client.",
+      "verified": true
+    },
+    {
+      "key": "job:princess-beatrice-house",
+      "job": "Princess Beatrice House",
+      "client": "Guildmore Planned Works",
+      "contact": "Jason Mount",
+      "email": "jason.mount@guildmore.com",
+      "value": 279244.69,
+      "issued": "2026-07-27",
+      "issuedTime": "10:49",
+      "lastClientContact": "2026-07-27",
+      "state": "live",
+      "blockedUntil": null,
+      "blockedReason": null,
+      "owner": "-",
+      "next": "Nothing yet. Guildmore came back the same evening asking about window removal and Adam answered it. Leave it alone until 10 August, then Adam asks Jason Mount where it sits.",
+      "history": "Guildmore is 0 won, 0 lost, 2 enquiries - both closed NA, one of them noted as 'information was not shared with us'. This is the first time we have got a real price in front of them.",
+      "verified": true
+    },
+    {
+      "key": "job:crestwood-park-primary-school",
+      "job": "Crestwood Park Primary School",
+      "client": "Reynolds Conservation",
+      "contact": "Adam Lewis",
+      "email": "adam@reynoldsconservation.co.uk",
+      "value": 74158.66,
+      "issued": "2026-07-27",
+      "issuedTime": "11:49",
+      "lastClientContact": "2026-07-28",
+      "state": "live",
+      "blockedUntil": null,
+      "blockedReason": null,
+      "owner": "-",
+      "next": "Acknowledged by Adam Lewis on 28/07 with no queries. Leave it until 10 August, then chase. Worth knowing when the call happens that we issued 7 days after their 20/07 return date and they took it anyway.",
+      "history": "No rows in the Opportunity Log under Reynolds. First quote to this client.",
+      "verified": true
+    },
+    {
+      "key": "job:chester-thomas-developments-arched-front-door",
+      "job": "Chester Thomas Developments - arched front door",
+      "client": "Chester Thomas Developments",
+      "contact": "Chester Thomas Developments",
+      "email": "developments@chesterthomas.co.uk",
+      "value": 4455.99,
+      "issued": "2026-07-27",
+      "issuedTime": "16:13",
+      "lastClientContact": "2026-07-27",
+      "state": "live",
+      "blockedUntil": null,
+      "blockedReason": null,
+      "owner": "-",
+      "next": "Do not chase. Six sends on this thread since 13/07 and the client is answering - this is a conversation, not a silence. It was on my board as priced-but-not-issued and that was wrong.",
+      "history": "No rows in the Opportunity Log under Chester Thomas. New client, introduced by Steve Freezer on 30/06.",
+      "verified": true
+    },
+    {
+      "key": "job:unit-1-eleanor-trade-centre-waltham-cross-bradford",
+      "job": "Unit 1 Eleanor Trade Centre, Waltham Cross (Bradford Watts)",
+      "client": "Bradford Watts",
+      "contact": "Mark Golden",
+      "email": "mgolden@bradfordwatts.co.uk",
+      "value": 7975.85,
+      "issued": "2026-07-28",
+      "issuedTime": "14:22",
+      "lastClientContact": null,
+      "state": "quoted",
+      "blockedUntil": null,
+      "blockedReason": null,
+      "owner": "Jacob",
+      "next": "The quote is unread - Mark Golden's out-of-office landed one minute after it. Re-point it at David Pitcher and Jay Taylor, who his auto-reply names. Then the real question, and it is not about this GBP 7,975.85: we quoted this same unit to this same man on 20/04 and it did not land. Find out why before we assume the second price is the problem.",
+      "history": "Bradford Watts is our most frequent enquirer and our worst conversion: 26 enquiries, 1 won, 4 lost, 9 still sitting open. They are on the Priority Customer list. Those two facts do not currently agree with each other.",
+      "verified": true,
+      "retender": {
+        "of": "2026-04-20",
+        "note": "Bradford Watts invited us 15/04; Gintare quoted Mark Golden 20/04 16:23, revised 16:38. Same unit came back as a fresh tender 14/07. Treating GBP 7,975.85 as a first offer would misread the situation."
+      }
+    }
+  ],
+  "held": [
+    {
+      "key": "job:bcc-filwood-broadway",
+      "job": "BCC Filwood Broadway",
+      "client": "Stepnell",
+      "value": 67067.5,
+      "heldBy": "Adam",
+      "since": "2026-07-27",
+      "state": "not issued",
+      "owner": "Adam",
+      "next": "Not mine and not chaseable. Priced and sent to Adam on 27/07 at 14:17; there is no outbound message to any external address on this job anywhere in estimating@. It is also still moving - both systems now fail the U-value in writing as of 17:51 on 28/07, so the number may not survive the correction.",
+      "caveat": "This job arrived through commercial@, which Mary cannot read. If it went out from commercial@ without copying estimating@, neither of us would see it. Treat it as not issued unless somebody produces the outward email.",
+      "verified": true
+    },
+    {
+      "key": "job:riverside-house-aov-smoke-vents",
+      "job": "Riverside House AOV smoke vents",
+      "client": "RRR Group",
+      "value": 5990.22,
+      "heldBy": "Adam",
+      "since": null,
+      "state": "not issued",
+      "owner": "Adam",
+      "next": "Nothing to RRR Group anywhere - the only outbound is a supplier query to A Plus on 24/07. Adam is holding it until PHDB return their building-works costs. It becomes mine the day it goes.",
+      "caveat": null,
+      "verified": true
+    },
+    {
+      "key": "job:redditch-library-windows-and-doors-pride-developme",
+      "job": "Redditch Library - windows and doors (Pride Developments)",
+      "client": "Pride Developments Group",
+      "value": null,
+      "heldBy": "Mary",
+      "since": "2026-07-28",
+      "state": "not issued",
+      "owner": "Mary",
+      "next": "Priced on 28/07, nothing to Pride yet. Still Mary's until it is issued.",
+      "caveat": "Arrived at info@ on 22 July and took six days to reach estimating@. Adam has settled the routing - info@ to commercial@, vetted, then estimating@ - so a delay on the next one will be at the vetting step, not the routing.",
+      "verified": true
+    }
+  ],
+  "corrections": [
+    {
+      "was": "Gordon Court issued 09/07",
+      "now": "Issued 10/07 09:28. The 9th is the day it went to Adam to check.",
+      "why": "The same trap as reading a return date as an issue date."
+    },
+    {
+      "was": "Chester Thomas priced but not issued",
+      "now": "Issued 27/07 16:13 to developments@chesterthomas.co.uk, cc Adam.",
+      "why": "Its stage on Mary's board still reads 'approved to issue'. The send is real and in estimating@."
+    },
+    {
+      "was": "Filwood Broadway on the chasing list",
+      "now": "Never issued. GBP 67,067.50 is sitting with Adam, not with Stepnell.",
+      "why": "Chasing a client who has never seen a price is worse than not chasing at all."
+    }
+  ]
+}

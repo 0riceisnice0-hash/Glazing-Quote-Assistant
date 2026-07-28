@@ -1,0 +1,122 @@
+{
+  "note": "So nothing here sends, and nothing here goes out under my name. Each draft is written for a named human to read, change and send from their own mailbox. That is the point of the answer rather than a limitation of it: the question of whose name is on outbound is deferred, and until it is settled every word below belongs to the person who sends it.",
+  "decision": {
+    "ref": "JAC-1",
+    "question": "Does Jacob send under his own name?",
+    "answer": "Decide later - drafts only for now",
+    "by": "Zac",
+    "date": "2026-07-28",
+    "effect": "Drafting is live. Sending is not, and no mailbox has been asked for."
+  },
+  "rules": [
+    "No price appears in a draft unless it came out of a message we watched leave the building. Five of the drafts below name a figure; every one of those figures is from estimating@'s sent items. The AdminBase rows are quoted from the CRM, and the CRM has already been shown to disagree with reality, so those drafts ask what happened rather than assert a number.",
+    "No draft commits Fenster to a date, a term or a price. They ask questions.",
+    "Nothing here is signed by me. The sender's own sign-off goes on it."
+  ],
+  "drafts": [
+    {
+      "id": "D-1",
+      "priority": 1,
+      "why_now": "The register E T & S re-issued on 24/07 moved the package return date to 27 July - a package we submitted on 17 July and have treated as closed for eleven days. If it is open, this is not a chase, it is a live tender we are not working on. It is the only draft here where a day's delay can lose the job outright.",
+      "job": "St Mary's Refurbishment, Merthyr Tydfil",
+      "client": "E T & S Construction",
+      "to": "tom.godfrey@ets-wales.com",
+      "to_name": "Tom Godfrey",
+      "cc": "estimating@fensterglazing.com",
+      "send_as": "Adam Butcher",
+      "subject": "St Mary's, Merthyr Tydfil - is the glazing package still open?",
+      "body": "Tom,\n\nWe sent our price for the windows and doors at St Mary's on 17 July and had understood the package to be closed at that point.\n\nThe register you re-issued on 24 July gives a return date of 27 July for that package, which is after our submission. Before I read anything into that, two questions:\n\n1. Is the package still open?\n2. Is our 17 July submission the one you are considering, or do you need it re-submitted against the re-issued register?\n\nIf anything in the register has moved since we priced it, tell me what and we will turn a revision round quickly - our estimating team has the drawings open.\n\n",
+      "evidence": "Quote issued 17/07/2026 12:17 from estimating@, GBP 174,546.37. Re-issued tender register dated 24/07 gives a 27/07 return for the glazing package. AdminBase lead 16/07, next action 17/07, never actioned.",
+      "value": 174546.37,
+      "value_source": "verified send",
+      "must_not_say": "Do not offer a revised price, a discount or a delivery date. If the package is open it goes back to Mary to re-price properly.",
+      "status": "awaiting a human"
+    },
+    {
+      "id": "D-2",
+      "priority": 2,
+      "why_now": "GBP 7,975.85 went out on 28/07 at 14:22 and Mark Golden's out-of-office landed a minute later, so the quote is unread. AdminBase shows every 2026 Bradford Watts enquiry - five of them, including this same unit - coming from hpaxton@, not from Mark Golden.",
+      "job": "Unit 1 Eleanor Trade Centre, Waltham Cross",
+      "client": "Bradford Watts",
+      "to": "hpaxton@bradfordwatts.co.uk",
+      "to_name": "H Paxton",
+      "to_caveat": "I do not have a first name for this address. The sender should correct the greeting before it goes.",
+      "cc": "mgolden@bradfordwatts.co.uk, estimating@fensterglazing.com",
+      "send_as": "Adam Butcher",
+      "subject": "Unit 1 Eleanor Trade Centre - our price, and a question about April",
+      "body": "Hello,\n\nWe sent our price for Unit 1 Eleanor Trade Centre to Mark yesterday afternoon and his out-of-office came back straight away, so I am re-pointing it to you - I think the 2026 enquiries have been coming from your side.\n\nThe price is GBP 7,975.85. It is attached again for convenience.\n\nThe reason I am writing rather than just forwarding: we quoted this same unit in April, at exactly the same figure, and never heard back. Rather than send you the same number a second time and hope for a different outcome, I would rather know what happened the first time. Was it price, programme, specification, or simply that the job did not proceed?\n\nWe have quoted Bradford Watts a good deal over the last year and I would like to understand what we are getting wrong, if anything.\n\n",
+      "evidence": "Issued 28/07/2026 14:22, GBP 7,975.85, from estimating@; out-of-office received 14:23. AdminBase lead 8142-series dated 17/04/2026 for the same unit carries GBP 9,571.02 inc VAT = GBP 7,975.85 ex VAT - the same figure to the penny. All five 2026 Bradford Watts leads carry hpaxton@bradfordwatts.co.uk.",
+      "value": 7975.85,
+      "value_source": "verified send",
+      "must_not_say": "Do not offer to re-price or to hold the figure. The question is why April failed, not what we would charge now.",
+      "status": "awaiting a human",
+      "blocked_on": "Mary read the out-of-office and it names David Pitcher and Jay Taylor. I have asked her for their addresses. If she has them, they replace hpaxton@ as the addressee."
+    },
+    {
+      "id": "D-3",
+      "priority": 3,
+      "why_now": "GBP 100,730 has been with Ermine for nineteen days with nothing back, and a second Ermine job - Lower Range Road - is with Mary now against a 7 August return. One email covers both, and the second gives the first a reason to be answered.",
+      "job": "Ninn Lane Re-development, and Lower Range Road",
+      "client": "Ermine Construction Services",
+      "to": "tom.dixon@ermine.co.uk",
+      "to_name": "Tom Dixon",
+      "cc": "estimating@fensterglazing.com",
+      "send_as": "Adam Butcher",
+      "subject": "Ninn Lane - where does our price sit? And Lower Range Road",
+      "body": "Tom,\n\nWe sent our price for the Ninn Lane re-development on 9 July - GBP 100,730 - and I have not heard anything back, so I wanted to check where it sits. Has your bid gone in? Is there anything on our package you want looked at again?\n\nSeparately, we have your Lower Range Road enquiry in and it is being priced now against your 7 August return. If the scope has moved since you sent it, this week is the time to tell us.\n\nOne thing worth saying plainly: we priced Lockley Crescent and Haseldine Meadows for you in January and did not win them. I would genuinely like to know why, because I would rather fix it than keep quoting.\n\n",
+      "evidence": "Ninn Lane issued 09/07/2026 11:40 from estimating@, GBP 100,730.00. Lower Range Road: AdminBase lead 28/07/2026, next action 07/08, state 'quote being prepared'. Opportunity Log: Ermine 0 won, 1 lost - Lockley Crescent and Haseldine Meadows, GBP 156,328, January 2026.",
+      "value": 100730.0,
+      "value_source": "verified send",
+      "must_not_say": "Do not promise a return date for Lower Range Road. That is Mary's to give and she has not given it.",
+      "status": "awaiting a human"
+    },
+    {
+      "id": "D-4",
+      "priority": 4,
+      "why_now": "Alexander James is the largest client in AdminBase by value - GBP 1,910,808 across six quotes - and four of them have been silent since December. Nobody at Fenster has recorded contact with them in 2026. This is the single biggest block of quoted money nobody is chasing.",
+      "job": "Six open quotes - Tiverton Estate, Archway Road, Brooklands Weybridge, Weymouth Court, Darrick Wood, Emmbrook School",
+      "client": "Alexander James",
+      "to": "dan@alexanderjamesltd.co.uk",
+      "to_name": "Dan",
+      "cc": "kieran@alexanderjamesltd.co.uk",
+      "send_as": "Adam Butcher",
+      "subject": "Six windows and doors packages we have priced for you - where do they stand?",
+      "body": "Dan, Kieran,\n\nWe have six glazing packages priced and sitting open with Alexander James: Weymouth Court and Brooklands Weybridge from the start of December, Tiverton Estate and Archway Road from just before Christmas, and more recently Emmbrook School and Darrick Wood.\n\nI am not chasing all six. I am asking one question: which of them are still live?\n\nIf some of those schemes were awarded elsewhere or shelved, say so and I will close them off our side - I would rather have an accurate list than an optimistic one. For any still running, tell me where they are and what you need from us.\n\nIf it is easier, I can come to you. A half-hour going through the list together would be worth more than six emails.\n\n",
+      "evidence": "AdminBase, all six 'Live - Quoted': Tiverton Estate and Archway Road 23/12/2025, Brooklands Weybridge and Weymouth Court 05/12/2025, Emmbrook School 28/04/2026, Darrick Wood 26/05/2026. Two addresses on the same domain, which is how the CRM's two 'Alexander James' spellings were confirmed as one company.",
+      "value": null,
+      "value_source": "CRM only - no figure stated in the draft, deliberately",
+      "must_not_say": "No totals. Every figure for this client comes from AdminBase and AdminBase has already been shown to disagree with what was actually sent. Naming a number we cannot source would be the exact mistake this board is supposed to prevent.",
+      "status": "awaiting a human"
+    },
+    {
+      "id": "D-5",
+      "priority": 5,
+      "why_now": "Pride Developments has eleven quotes open, a twelfth being priced right now (Redditch Library) and a GBP 321,833 package quoted on 26 June that has never been followed up. They are one of the few clients here who are actively still sending us work, which makes the silence on the older ones worth a single call rather than a series of chases.",
+      "job": "B239 Windows, and the older open quotes",
+      "client": "Pride Developments Group",
+      "to": "roddy.short@pridedevelopments.co.uk",
+      "to_name": "Roddy Short",
+      "cc": "steven.elley@pridedevelopments.co.uk",
+      "send_as": "Adam Butcher",
+      "subject": "B239 windows - and a tidy-up of what we have open with you",
+      "body": "Roddy,\n\nWe priced the B239 windows package for you at the end of June and I have not heard where it went. Is that one still live?\n\nWhile I have you - we have a number of packages open with Pride going back to last autumn, including two rounds on St Catherines House in Plymouth and the Exmoor Drive and Brandon Youth schemes. I suspect some of those are long since decided. If you can tell me which are dead I will take them off our list, and we can concentrate on the ones that are not.\n\nYour Redditch Library enquiry is with our estimators now.\n\n",
+      "evidence": "AdminBase: eleven Pride rows 'Live - Quoted', B239 Windows PD7851 quoted 26/06/2026 with a 10/07 follow-up never actioned; St Catherines House priced twice, 28/11/2025 and 18/12/2025. Redditch Library priced 28/07/2026, not yet issued - held by Mary.",
+      "value": null,
+      "value_source": "CRM only - no figure stated in the draft, deliberately",
+      "must_not_say": "Do not give a return date for Redditch Library. It is priced but not issued and it is still Mary's.",
+      "status": "awaiting a human"
+    }
+  ],
+  "not_drafted": [
+    {
+      "what": "Churchdown School Academy, Gloucester - the five bidders",
+      "why_not": "Fenster priced this one scheme for five different main contractors: Kemdoc and Mobius Group at GBP 746,616, and Glazing Consultancy Services, Roof Estimating Services and Southern Projects at GBP 729,116. All five have been silent for eight to nine months. Five near-identical emails is how a company starts looking like a mailing list, and the useful question is not addressed to any of them individually - it is who won the main contract, which decides which one of the five is worth a call. I could not answer that from the free feeds: Contracts Finder's OCDS search endpoint ignores keyword, searchTerm, text and q, and returns the latest hundred notices whatever you ask it. It needs a different approach before this becomes an action.",
+      "next": "Adam picks whichever of the five he knows best and asks outright who won Churchdown. One call settles five rows."
+    },
+    {
+      "what": "The other 200-odd AdminBase rows",
+      "why_not": "212 of the 264 rows qualify as chaseable, which means the CRM closes nothing rather than that Fenster has 212 live opportunities. Drafting into that would be volume, not business development. The five above are the ones where there is a named person, a recent enough date, and a reason for them to reply.",
+      "next": "The chase list on the board is ranked by value. Work down it, do not mail it."
+    }
+  ]
+}

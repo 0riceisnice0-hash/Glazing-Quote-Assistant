@@ -392,7 +392,15 @@ const JACOB_PAGES = [
   { key: "overview", label: "Today", group: "Work", sub: () => `${jActions().length} things to do, most urgent first` },
   // Chasing sits second on purpose. A quote already out is money Fenster has
   // spent and can still lose; an enquiry is money it has not spent yet.
-  { key: "chasing", label: "Chasing", group: "Work", sub: () => `${quotesWaiting().length} quotes past their return date, ${JACOB?.totals.quietBuyers || 0} enquiries gone quiet` },
+  { key: "chasing", label: "Chasing", group: "Work", sub: () => JACOB?.handover
+      ? `${JACOB.totals.handoverIssued} quotes issued and with a client, ${JACOB.totals.handoverDue} chaseable today`
+      : `${quotesWaiting().length} quotes past their return date, ${JACOB?.totals.quietBuyers || 0} enquiries gone quiet` },
+  // Drafts sit directly under Chasing because they are the same work one step
+  // further on: the chase, written. The only thing left is a human sending it.
+  { key: "drafts", label: "Ready to send", group: "Work", sub: () => `${jdrafts().length} drafts written, waiting for a human to send them` },
+  { key: "chaselist", label: "Chase list", group: "Work", sub: () => crm()
+      ? `${crm().totals.due} quoted jobs nobody has been back to, out of ${crm().totals.rows} in AdminBase`
+      : "AdminBase has not been read yet" },
   { key: "enquiries", label: "Enquiries", group: "Work", sub: () => `${JACOB?.totals.buyers || 0} live conversations with a buyer, out of ${JACOB?.totals.signals || 0} raw messages` },
   { key: "tenders", label: "Out to bid", group: "Work", sub: () => `${JACOB?.totals.tenders || 0} contracts still open, ${JACOB?.totals.tendersClosing || 0} closing inside a week` },
   { key: "leads", label: "Leads", group: "Work", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} winners Fenster knows, ${JACOB?.totals.cold || 0} it does not` },
@@ -473,10 +481,44 @@ const ownerTag = (r) => {
   return o === "-" ? `<span class="who-tag none">nobody</span>` : `<span class="who-tag">${esc(o)}</span>`;
 };
 
-/* Mary's board, read only. Fenster's second handover - the quote has gone
-   out and it comes back to Jacob to chase - is the one nobody currently
-   does, and her job records are the only place the issued quotes exist.
-   Everything here is defensive: her file is hers and its shape can change. */
+/* ---------------- The handover register ----------------
+   Adam's rule, 28/07/2026: a job is Mary's while it is being priced and
+   Jacob's the moment the quote goes out. These rows are that boundary, and
+   every issue date on them was read out of the message that actually left
+   estimating@ rather than inferred from a job record.
+
+   That distinction is the whole point. quotesOut() below derives its chase
+   state from the tender *return* date, which is a different date on a
+   different clock, and it got three of the seven wrong: Gordon Court showed
+   as "not due until 16 September" while a GBP 368k quote sat unanswered for
+   eighteen days, and Chester Thomas showed as never issued when it had gone
+   out on the 27th. Verified rows win; unverified ones still show, marked. */
+/* ---------------- AdminBase and the drafts ----------------
+   Adam exported the CRM to Jacob on 28/07. It sees 264 quoted leads back to
+   May 2025 - most of them older than any window this board reads, and
+   therefore invisible to it until now.
+
+   Two things to keep straight when reading anything below. Its VALUE column
+   is inclusive of VAT and every quote Fenster issues is exclusive of it, so
+   these figures are de-VATed and will not match the CSV. And "Live - Quoted"
+   is what the CRM says, not what the client says: 212 of the 264 rows qualify
+   as chaseable, which is a statement about a system that closes nothing
+   rather than about 212 live opportunities. */
+const crm = () => JACOB?.adminbase || null;
+const jdrafts = () => (JACOB?.drafts?.drafts || []).filter((d) => !jShut({ key: "draft:" + d.id }));
+
+const hand = () => JACOB?.handover || null;
+const handIssued = () => (hand()?.issued || []).filter((r) => !jShut(r));
+const handHeld = () => (hand()?.held || []).filter((r) => !jShut(r));
+const handKeys = () => new Set([...(hand()?.issued || []), ...(hand()?.held || [])].map((r) => r.key));
+/* Chaseable today: out, not blocked by something the client cannot control,
+   and nothing back from them for a week. */
+const handDue = () => handIssued().filter(
+  (r) => !r.blocked && (r.daysSinceClient === null || r.daysSinceClient >= 7) && (r.daysOut || 0) >= 7);
+
+/* Mary's board, read only. Her job records are the only place jobs that have
+   NOT reached the register still exist. Everything here is defensive: her
+   file is hers and its shape can change. */
 function quotesOut() {
   // Priced and approved is not the same as sent, and "not yet priced" is
   // neither. Both tests are anchored on the stage rather than the value, so a
@@ -485,7 +527,10 @@ function quotesOut() {
   // issue" jobs carry a quoted value and have still not gone anywhere.
   const isUnsent = (j) => /approved to issue|awaiting send|drafted|priced -/i.test(j.stage || "");
   const isOut = (j) => /submitted/i.test(j.stage || "") || /\b(quoted|tendered)\b/i.test(j.value || "");
-  const jobs = (DATA?.jobs || []).filter((j) => isUnsent(j) || isOut(j));
+  const known = handKeys();
+  const jobs = (DATA?.jobs || []).filter((j) => isUnsent(j) || isOut(j))
+    // Anything the register has verified is shown from there, once.
+    .filter((j) => !known.has(`job:${String(j.job).toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 50)}`));
   return jobs.map((j) => {
     const days = /^\d{4}-\d{2}-\d{2}$/.test(j.deadline || "") ? -daysUntil(j.deadline) : null;
     const key = `job:${String(j.job).toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 50)}`;
@@ -570,11 +615,13 @@ const JACOB_RENDER = {
     const t = JACOB.totals;
     const acts = jActions();
     const mine = (o) => acts.filter((a) => jOwner(a) === o).length;
-    const outValue = quotesWaiting().reduce((n, q) => n + poundsOf(q.value), 0);
+    // Verified sends where we have them; the old return-date guess only as a
+    // fallback, because a headline number ought to be the sourced one.
+    const outValue = t.handoverValue || quotesWaiting().reduce((n, q) => n + poundsOf(q.value), 0);
     return `
       <div class="stats">
         <div class="stat ${mine("Adam") ? "red" : "green"}"><div class="n">${mine("Adam")}</div><div class="l">Waiting on Adam - a call or a decision</div></div>
-        <div class="stat amber" data-go="chasing"><div class="n">${gbpShort(outValue)}</div><div class="l">Quoted and waiting on an answer</div></div>
+        <div class="stat amber" data-go="chasing"><div class="n">${gbpShort(outValue)}</div><div class="l">Issued and waiting on an answer, ${t.handoverDue ?? "?"} chaseable today</div></div>
         <div class="stat amber" data-go="enquiries"><div class="n">${t.liveBuyers}</div><div class="l">Buyers mid-conversation right now</div></div>
         <div class="stat ${t.tendersClosing ? "red" : ""}" data-go="tenders"><div class="n">${t.tenders || 0}</div><div class="l">Contracts still out to bid, ${t.tendersClosing || 0} closing this week</div></div>
         <div class="stat" data-go="outcomes"><div class="n">${t.winRate ?? "-"}%</div><div class="l">Win rate, and nothing won over ${gbpShort(t.noWinAbove)}</div></div>
@@ -590,9 +637,13 @@ const JACOB_RENDER = {
           <p><strong>Whether anyone has already replied.</strong> Mailbox intake reads
           received mail only, so an enquiry Gintare answered an hour ago looks exactly like
           one nobody has touched. Every "check for a reply, then call" above exists because
-          of that gap. <a data-go="decisions">JAC-5</a> asks for sent items. Mary confirmed
-          the same problem from her side on 28/07: two quotes on the Chasing page were dated
-          ten and seven days too early, because a return date was being read as a send date.</p>
+          of that gap. <a data-go="decisions">JAC-5</a> asks for sent items.</p>
+          <p><strong>Ten quotes are now the exception.</strong> Mary read estimating@ sent
+          items on 28/07 and dated every one of them against the message that actually left
+          the building, so the <a data-go="chasing">Chasing</a> page is sourced rather than
+          inferred. It found three errors, including a quote this board was calling "not yet
+          issued" that had gone out the day before. Everything not on that register is still
+          dated off a return date and should be read as a guess.</p>
           ${(t.mailExcluded || []).length ? `<p><strong>info@ is off the list.</strong>
           ${(t.mailExcluded || []).map((m) => `${esc(m.mailbox)} - ${esc(m.why)}`).join("; ")}.
           That is Adam's instruction of 28/07 and it removes about three quarters of the raw
@@ -683,25 +734,85 @@ const JACOB_RENDER = {
 
   /* ------------------------------------------------ chasing */
   chasing() {
+    const h = hand();
     const out = quotesOut().filter((q) => !jShut(q));
     const quiet = (JACOB.threads || []).filter(
       (t) => t.kind === "buyer" && ["gone quiet", "stale"].includes(t.state) && !jShut(t));
     const total = quotesWaiting().reduce((n, q) => n + poundsOf(q.value), 0);
+    const t = h?.totals || {};
+
+    /* One row of the register. The day count and the next action are
+       deliberately not the same thing: Gordon Court is the longest silence on
+       the board and the one row nobody should ring about yet, because the
+       client is waiting on jLiving and physically cannot answer. A board that
+       cannot say that just tells Adam to make a call that wastes a
+       relationship. */
+    const hrow = (r) => `<tr data-jkey="${esc(r.key)}">
+      <td class="job-cell"><strong>${esc(r.job)}</strong>
+        <small>${esc(r.client)}${r.contact && r.contact !== r.client ? ` &middot; ${esc(r.contact)}` : ""}</small></td>
+      <td class="money">${gbp(r.value)}</td>
+      <td class="num"><strong>${esc(niceDate(r.issued))}</strong>
+        <small class="dim">${r.daysOut === 0 ? "today" : `${r.daysOut}d ago`}</small></td>
+      <td class="num">${r.lastClientContact
+        ? `${esc(niceDate(r.lastClientContact))}<small class="dim">${r.daysSinceClient}d</small>`
+        : `<small class="dim">nothing back</small>`}</td>
+      <td>${stateChip(r)}${r.blocked ? ` <span class="chip">cannot answer yet</span>` : ""}</td>
+      <td style="max-width:340px">${inline(jNext(r))}
+        ${r.blockedReason ? `<small class="dim">${esc(r.blockedReason)}</small>` : ""}
+        ${r.retender ? `<small class="dim">Re-tender: ${esc(r.retender.note)}</small>` : ""}</td>
+      <td>${ownerTag(r)}</td></tr>`;
+
     return `
-      <div class="section"><div class="section-head"><h3>The handover nobody does</h3></div>
+      ${h ? `<div class="stats">
+        <div class="stat" data-go="chasing"><div class="n">${gbpShort(t.issuedValue)}</div><div class="l">Issued and with a client - ${t.issued} quotes</div></div>
+        <div class="stat ${t.due ? "red" : "green"}"><div class="n">${t.due}</div><div class="l">Chaseable today, ${gbpShort(t.dueValue)}</div></div>
+        <div class="stat"><div class="n">${t.oldest}d</div><div class="l">Longest a quote has been out</div></div>
+        <div class="stat amber"><div class="n">${gbpShort(t.heldValue)}</div><div class="l">Priced but never issued - not chaseable</div></div>
+      </div>` : ""}
+
+      <div class="section"><div class="section-head"><h3>The handover, now somebody's job</h3></div>
         <div class="planned-note">
-          <p>Fenster finds it, Mary prices it, the quote goes out - and then nothing happens.
-          That second handover, back to business development to chase, is not a job anyone
-          currently holds, which is why quotes go quiet and nobody notices.</p>
-          <p><strong>${gbp(total)}</strong> is past its return date with no answer recorded.
-          Rows still inside their return date, and rows priced but not yet issued, are listed
-          too but carry no chase - calling about a quote that never left the building is worse
-          than not calling. All of this is read from Mary's job records: she owns them, Jacob
-          only looks.</p>
+          ${h ? `<p><strong>Adam's rule, ${esc(niceDate(h.rule?.date))}:</strong> ${esc(h.rule?.text)}
+          The seven below have gone out, so they are Jacob's. The three under them have not,
+          so they are not - and calling a client about a quote that never left the building is
+          worse than not calling.</p>
+          <p><strong>Every issue date here was read out of the sent message, not inferred.</strong>
+          ${esc(h.verification?.source)}. That matters because the page used to date these off the
+          tender return date, which is a different date on a different clock, and it got three of
+          the seven wrong. ${esc(h.verification?.timezone)}</p>`
+          : `<p>The verified register has not been built.
+             <code>data/jacob/handover.json</code></p>`}
         </div></div>
 
-      <div class="section"><div class="section-head"><h3>Quotes out, no answer recorded</h3></div>
-        ${out.length ? `<table class="tbl"><thead><tr>
+      ${h ? `<div class="section"><div class="section-head"><h3>Issued - these are Jacob's</h3>
+        <span class="page-sub">Longest silence first. A day count is not on its own an instruction.</span></div>
+        <table class="tbl"><thead><tr>
+          <th>Job</th><th>Value</th><th>Issued</th><th>Last heard</th><th>State</th>
+          <th>Next action</th><th>Owner</th></tr></thead><tbody>
+        ${handIssued().map(hrow).join("")}
+        </tbody></table></div>
+
+      <div class="section"><div class="section-head"><h3>Not issued - not Jacob's, and not chaseable</h3></div>
+        <table class="tbl"><thead><tr>
+          <th>Job</th><th>Value</th><th>Held by</th><th>Why it is not out</th></tr></thead><tbody>
+        ${handHeld().map((r) => `<tr data-jkey="${esc(r.key)}">
+          <td class="job-cell"><strong>${esc(r.job)}</strong><small>${esc(r.client)}</small></td>
+          <td class="money">${r.value ? gbp(r.value) : "not published"}</td>
+          <td>${ownerTag(r)}</td>
+          <td style="max-width:420px">${inline(jNext(r))}
+            ${r.caveat ? `<small class="dim">${esc(r.caveat)}</small>` : ""}</td></tr>`).join("")}
+        </tbody></table></div>
+
+      ${(h.corrections || []).length ? `<div class="section"><div class="section-head">
+        <h3>What this board had wrong until 28/07</h3></div>
+        <table class="tbl"><thead><tr><th>It said</th><th>It is</th><th>Why it happened</th></tr></thead><tbody>
+        ${h.corrections.map((c) => `<tr><td>${esc(c.was)}</td><td><strong>${esc(c.now)}</strong></td>
+          <td class="dim">${esc(c.why)}</td></tr>`).join("")}
+        </tbody></table></div>` : ""}` : ""}
+
+      ${out.length ? `<div class="section"><div class="section-head"><h3>Priced jobs not yet in the register</h3>
+        <span class="page-sub">Dated off a return date, not a send. Treat the day counts as a guess until verified.</span></div>
+        <table class="tbl"><thead><tr>
           <th>Job</th><th>Value</th><th>Return date</th><th>State</th><th>Next action</th><th>Owner</th></tr></thead><tbody>
         ${out.map((q) => `<tr data-jkey="${esc(q.key)}">
           <td class="job-cell"><strong>${esc(q.job)}</strong><small>${esc(q.client)}</small></td>
@@ -710,7 +821,7 @@ const JACOB_RENDER = {
           <td>${stateChip(q)}</td>
           <td style="max-width:320px">${inline(jNext(q))}</td>
           <td>${ownerTag(q)}</td></tr>`).join("")}
-        </tbody></table>` : `<div class="empty"><strong>Nothing issued and waiting</strong>Either every quote has had an answer, or Mary's board has not been rebuilt.</div>`}</div>
+        </tbody></table></div>` : ""}
 
       <div class="section"><div class="section-head"><h3>Enquiries that went quiet</h3></div>
         ${quiet.length ? this._threadRows(quiet)
@@ -1018,6 +1129,183 @@ const JACOB_RENDER = {
         </tbody></table></div>`;
   },
 
+  /* What JAC-1's answer produced. Zac chose "decide later - drafts only", so
+     the drafting half is live and the sending half is not: every one of these
+     is addressed to a named person and waiting for a named human to send it
+     from their own mailbox, under their own name.
+
+     The body is shown in full and is selectable, because the entire workflow
+     is somebody reading it, changing what they want and pasting it into
+     Outlook. A draft you have to click twice to read does not get sent. */
+  drafts() {
+    const d = JACOB?.drafts;
+    const rows = jdrafts();
+    if (!d) {
+      return `<div class="empty"><strong>No drafts</strong>JAC-1 has not been
+        answered, so nothing is being written. <code>data/jacob/drafts.json</code></div>`;
+    }
+    return `
+      <div class="section"><div class="section-head"><h3>What was decided</h3>
+        <span class="pill strong">${esc(d.decision.ref)}</span></div>
+        <div class="planned-note">
+          <p><strong>${esc(d.decision.question)}</strong> &mdash; ${esc(d.decision.by)},
+          ${esc(niceDate(d.decision.date))}: <em>&ldquo;${esc(d.decision.answer)}&rdquo;</em></p>
+          <p>${esc(d.decision.effect)} ${esc(d.note)}</p>
+        </div></div>
+
+      <div class="section"><div class="section-head"><h3>The rules these were written under</h3></div>
+        <ul class="plain">${d.rules.map((r) => `<li>${esc(r)}</li>`).join("")}</ul></div>
+
+      ${rows.map((r) => `<div class="section" data-jkey="draft:${esc(r.id)}">
+        <div class="section-head">
+          <h3>${esc(r.job)}</h3>
+          <span class="pill strong">${esc(r.id)}</span>
+          <span class="page-sub">${esc(r.client)}${r.value
+            ? ` &middot; ${gbp(r.value)}` : ""} &middot; send as <strong>${esc(r.send_as)}</strong></span>
+        </div>
+        <div class="planned-note"><p><strong>Why now:</strong> ${esc(r.why_now)}</p></div>
+        <table class="tbl"><tbody>
+          <tr><td style="width:120px" class="dim">To</td>
+            <td><strong>${esc(r.to)}</strong>${r.to_name
+              ? `<small class="dim">${esc(r.to_name)}${r.to_caveat
+                  ? ` &mdash; ${esc(r.to_caveat)}` : ""}</small>` : ""}</td></tr>
+          ${r.cc ? `<tr><td class="dim">Cc</td><td>${esc(r.cc)}</td></tr>` : ""}
+          <tr><td class="dim">Subject</td><td><strong>${esc(r.subject)}</strong></td></tr>
+        </tbody></table>
+        <pre class="draft-body">${esc(r.body)}</pre>
+        <table class="tbl"><tbody>
+          <tr><td style="width:120px" class="dim">Evidence</td><td>${esc(r.evidence)}</td></tr>
+          <tr><td class="dim">Figures</td><td>${esc(r.value_source)}</td></tr>
+          <tr><td class="dim">Must not say</td><td>${esc(r.must_not_say)}</td></tr>
+          ${r.blocked_on ? `<tr><td class="dim">Open</td><td>${esc(r.blocked_on)}</td></tr>` : ""}
+          <tr><td class="dim">State</td><td><span class="chip warn">${esc(r.status)}</span></td></tr>
+        </tbody></table></div>`).join("")}
+
+      ${(d.not_drafted || []).length ? `<div class="section"><div class="section-head">
+        <h3>Deliberately not drafted</h3>
+        <span class="page-sub">Saying why is the point. A silence with no reason behind it is just a gap.</span></div>
+        <table class="tbl"><thead><tr><th>What</th><th>Why not</th><th>What happens instead</th></tr></thead><tbody>
+        ${d.not_drafted.map((n) => `<tr>
+          <td class="job-cell"><strong>${esc(n.what)}</strong></td>
+          <td style="max-width:520px">${esc(n.why_not)}</td>
+          <td>${esc(n.next)}</td></tr>`).join("")}
+        </tbody></table></div>` : ""}`;
+  },
+
+  /* AdminBase. The largest single addition this board has had, and the one
+     most likely to be misread - so the page leads with what the numbers are
+     not before it shows any of them. */
+  chaselist() {
+    const c = crm();
+    if (!c) {
+      return `<div class="empty"><strong>AdminBase has not been read</strong>
+        Run <code>python scripts/jacob_adminbase.py</code>.</div>`;
+    }
+    const t = c.totals;
+    /* The CRM's own key on these rows is the client's email domain, which is
+       right for grouping and wrong for the overlay - twelve Bradford Watts
+       rows would all share one human correction. The board key is per lead. */
+    const due = c.due
+      .map((r) => ({ ...r, key: "ab:" + r.lead }))
+      .filter((r) => !r.outlier && !jShut(r))
+      .slice(0, 60);
+    return `
+      <div class="stats">
+        <div class="stat"><div class="n">${t.rows}</div><div class="l">Quoted leads in the CRM, ${t.clients} clients</div></div>
+        <div class="stat red"><div class="n">${t.due}</div><div class="l">Nobody has been back to, ${gbpShort(t.dueValue)}</div></div>
+        <div class="stat amber"><div class="n">${t.yearSilent}</div><div class="l">Silent for over a year and still open</div></div>
+        <div class="stat amber"><div class="n">${t.noDate}</div><div class="l">No follow-up date ever set</div></div>
+      </div>
+
+      <div class="section"><div class="section-head"><h3>Read this before you read the numbers</h3></div>
+        <div class="planned-note">
+          <p><strong>Where it came from.</strong> ${esc(c.source.from)} sent this to jacob@ at
+          ${esc(c.source.received.slice(11))} on ${esc(niceDate(c.source.received.slice(0, 10)))} -
+          an export from ${esc(c.source.system)}. ${esc(c.source.note)}</p>
+          <p><strong>Every figure on this page is ex VAT and the CSV's are not.</strong>
+          ${esc(c.vat.evidence)} ${esc(c.vat.consequence)}</p>
+          <p><strong>&ldquo;Live - Quoted&rdquo; is what the CRM says, not what the client says.</strong>
+          ${t.due} of ${t.rows} rows qualify as chaseable and ${t.overdue} carry a follow-up date
+          that has already passed, against ${t.future} in the future. That is a system nobody
+          closes anything in - the same pattern as the Opportunity Log's Chased column, which was
+          filled 382 times in 2025 and 7 times in 2026. Treat every row as a question, not
+          as an opportunity.</p>
+          <p><strong>And the size does not match what Fenster wins.</strong> The outcome history
+          says a 24% win rate, a median win of GBP 1,822, and nothing at all won above
+          GBP 50,000. Most of the money below is in jobs larger than anything Fenster
+          has ever converted.</p>
+        </div></div>
+
+      ${(c.schemes || []).length ? `<div class="section"><div class="section-head">
+        <h3>One scheme, several bidders</h3>
+        <span class="page-sub">${gbpShort(t.doubleCounted)} of the pipeline is the same job counted more than once</span></div>
+        <div class="planned-note"><p>Fenster is a subcontractor, so the same scheme arrives once
+        per main contractor on the enquiry list. These were found on the penny-exact quoted
+        figure rather than the site name - the same estimate sent to five bidders carries the
+        same number, while the site gets typed five different ways. They are one job each, and
+        the useful question is who won the main contract, not which of the five to chase.</p></div>
+        <table class="tbl"><thead><tr><th>Scheme</th><th>Quoted</th><th>Bidders</th><th>Silent</th></tr></thead><tbody>
+        ${c.schemes.map((s) => `<tr>
+          <td class="job-cell"><strong>${esc(s.job)}</strong><small>${s.count} bidders${
+            (s.alsoPricedAt || []).length ? ` &middot; the same site also priced at ${
+              s.alsoPricedAt.map(gbp).join(" and ")} - one job, two versions` : ""}</small></td>
+          <td class="money">${gbp(s.value)}</td>
+          <td>${s.bidders.map((b) => `${esc(b.client)}`).join("<br>")}</td>
+          <td class="num">${Math.min(...s.bidders.map((b) => b.days ?? 0))}-${Math.max(...s.bidders.map((b) => b.days ?? 0))}d</td>
+        </tr>`).join("")}
+        </tbody></table></div>` : ""}
+
+      ${(c.conflicts || []).length ? `<div class="section"><div class="section-head">
+        <h3>Where the CRM and the sent items disagree</h3></div>
+        <table class="tbl"><thead><tr><th>Job</th><th>AdminBase says</th><th>It actually is</th></tr></thead><tbody>
+        ${c.conflicts.map((x) => `<tr>
+          <td class="job-cell"><strong>${esc(x.job)}</strong><small>${esc(x.client)} &middot; ${gbp(x.value)}</small></td>
+          <td>${esc(x.crm)}</td><td><strong>${esc(x.truth)}</strong><small class="dim">${esc(x.why)}</small></td>
+        </tr>`).join("")}
+        </tbody></table></div>` : ""}
+
+      ${t.outliers ? `<div class="section"><div class="section-head">
+        <h3>Held out of every total on this page</h3></div>
+        <table class="tbl"><thead><tr><th>Job</th><th>Quoted ex VAT</th><th>Why it is not counted</th></tr></thead><tbody>
+        ${c.rows.filter((r) => r.outlier).map((r) => `<tr>
+          <td class="job-cell"><strong>${esc(r.job)}</strong><small>${esc(r.client)} &middot; ${esc(niceDate(r.leadDate))}</small></td>
+          <td class="money">${gbp(r.value)}</td>
+          <td>An order of magnitude past the GBP 20k-400k package Fenster puts on its own PQQ,
+            and large enough to move the pipeline figure on its own. It is a question for
+            Adam before it is a number.</td></tr>`).join("")}
+        </tbody></table></div>` : ""}
+
+      <div class="section"><div class="section-head"><h3>By client</h3>
+        <span class="page-sub">Where the money actually sits. Companies merged on their email domain, not their name.</span></div>
+        <table class="tbl"><thead><tr>
+          <th>Client</th><th>Open</th><th>Quoted ex VAT</th><th>Oldest</th><th>Who to write to</th></tr></thead><tbody>
+        ${c.clients.filter((x) => x.quoted).slice(0, 25).map((x) => `<tr>
+          <td class="job-cell"><strong>${esc(x.client)}</strong>
+            ${x.onBoard ? `<small>already on the chasing register</small>` : ""}</td>
+          <td class="num">${x.quoted}${x.rows !== x.quoted ? ` <small class="dim">of ${x.rows}</small>` : ""}</td>
+          <td class="money">${gbp(x.value)}</td>
+          <td class="num">${x.oldest}d</td>
+          <td>${x.email ? esc(x.email) : `<small class="dim">no address on any row</small>`}
+            ${x.phone ? `<small class="dim">${esc(x.phone)}</small>` : ""}</td></tr>`).join("")}
+        </tbody></table></div>
+
+      <div class="section"><div class="section-head"><h3>The chase list</h3>
+        <span class="page-sub">Largest first. ${due.length} of ${t.due} shown.</span></div>
+        <table class="tbl"><thead><tr>
+          <th>Job</th><th>Client</th><th>Quoted ex VAT</th><th>Quoted</th><th>Silent</th>
+          <th>State</th><th>Contact</th></tr></thead><tbody>
+        ${due.map((r) => `<tr data-jkey="${esc(r.key)}">
+          <td class="job-cell"><strong>${esc(r.job || "no site recorded")}</strong>
+            ${r.town ? `<small>${esc(r.town)}</small>` : ""}</td>
+          <td>${esc(r.client)}</td>
+          <td class="money">${gbp(r.value)}</td>
+          <td class="num">${r.leadDate ? esc(niceDate(r.leadDate)) : "-"}</td>
+          <td class="num">${r.days === null ? "-" : `${r.days}d`}</td>
+          <td>${stateChip(r)}</td>
+          <td>${r.email ? esc(r.email) : `<small class="dim">no address</small>`}</td></tr>`).join("")}
+        </tbody></table></div>`;
+  },
+
   /* Outreach had a page of its own and nothing on it was wired up. It is a
      paragraph in the honest answer to "where does this come from", not a
      section of the board someone opens looking for work. */
@@ -1132,12 +1420,19 @@ const JACOB_RENDER = {
 
       <div class="section"><div class="section-head"><h3>Standing decisions</h3></div>
         <div class="planned-note">These are not blocking him day to day, but they decide
-        how far he is allowed to go.</div>
+        how far he is allowed to go. An answered one stays on the page with the answer on
+        it - what was decided and what it changed is worth more than a shorter list.</div>
         <div class="cards">
-        ${JACOB.decisions.map((d) => `<div class="card">
-          <div class="card-head"><strong>${esc(d.title)}</strong><span class="pill planned">${esc(d.id)}</span></div>
+        ${JACOB.decisions.map((d) => `<div class="card${d.answer ? " answered" : ""}">
+          <div class="card-head"><strong>${esc(d.title)}</strong>
+            <span class="pill ${d.answer ? "live" : "planned"}">${esc(d.id)}</span></div>
           <p>${esc(d.why)}</p>
-          <div class="req-options">${d.options.map((o) => `<span class="opt" data-jreq="${esc(d.id)}">${esc(o)}</span>`).join("")}</div>
+          ${d.answer ? `<p><strong>${esc(d.answeredBy)} chose &ldquo;${esc(d.answer)}&rdquo;</strong>
+              on ${esc(niceDate(d.answered))}.</p>
+            <p>${esc(d.effect)}</p>
+            <div class="req-options">${d.options.map((o) => `<span class="opt${o === d.answer
+              ? " chosen" : ""}" data-jreq="${esc(d.id)}">${esc(o)}</span>`).join("")}</div>`
+          : `<div class="req-options">${d.options.map((o) => `<span class="opt" data-jreq="${esc(d.id)}">${esc(o)}</span>`).join("")}</div>`}
         </div>`).join("")}
         </div></div>`;
   },

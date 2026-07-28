@@ -30,6 +30,16 @@ INTAKE = os.path.join(REPO, "data", "jacob", "intake.json")
 JAYK = os.path.join(REPO, "data", "jacob", "jayk-recovery.json")
 OUTCOMES = os.path.join(REPO, "data", "jacob", "outcomes.json")
 TENDERS = os.path.join(REPO, "data", "jacob", "tender-notices.json")
+# Adam's rule, 28/07/2026: a job is Mary's while it is priced and Jacob's the
+# moment the quote goes out. This file is that boundary, one row per job, with
+# every issue date checked against the message that actually left estimating@.
+HANDOVER = os.path.join(REPO, "data", "jacob", "handover.json")
+# AdminBase, exported by Adam on 28/07/2026. 264 commercial leads that have
+# been quoted, going back to May 2025 - most of which predate anything else
+# this board can see. Built by scripts/jacob_adminbase.py.
+ADMINBASE = os.path.join(REPO, "data", "jacob", "adminbase.json")
+# What JAC-1's answer produced. Drafts for a human to send, nothing more.
+DRAFTS = os.path.join(REPO, "data", "jacob", "drafts.json")
 JOBS = os.path.join(REPO, "data", "jobs")
 OUT = os.path.join(REPO, "dashboard", "functions", "_data", "jacob-data.js")
 
@@ -685,6 +695,79 @@ def book_action(r):
     return (NOBODY, "Talking to us already - nothing to start.")
 
 
+def build_handover(hand):
+    """The seven issued quotes Adam handed to Jacob, plus the three he has not.
+
+    Everything a chase depends on is the *issue* date. The board used to
+    derive its chase state from the tender return date sitting in Mary's job
+    records, which is a different date on a different clock: it had Gordon
+    Court as "not due until 16 September" when the quote had been with
+    Chigwell and silent for eighteen days, and it had Chester Thomas as never
+    issued when it had gone out on the 27th. So the day count here is measured
+    from the send, and the send is the one Mary read in estimating@.
+
+    A day count is not on its own an instruction. Gordon Court is nineteen
+    days out and should not be chased for a decision, because the client
+    physically cannot give one until jLiving reports in September. That is
+    what `blockedUntil` carries, and why the next action on every row is
+    written by hand rather than generated from a number.
+    """
+    if not hand:
+        return None
+    today = date.fromisoformat(TODAY)
+
+    def days_out(iso):
+        if not iso:
+            return None
+        return (today - date.fromisoformat(iso)).days
+
+    rows = []
+    for r in hand.get("issued", []):
+        row = dict(r)
+        row["daysOut"] = days_out(r.get("issued"))
+        row["daysSinceClient"] = days_out(r.get("lastClientContact"))
+        row["blocked"] = bool(r.get("blockedUntil") and r["blockedUntil"] > TODAY)
+        rows.append(row)
+    # Longest silence first. A row that is blocked is sorted with the rest and
+    # says so on its face rather than being hidden - "cannot answer yet" is a
+    # fact about a GBP 368k quote, not a reason to stop showing it.
+    rows.sort(key=lambda r: -(r.get("daysOut") or 0))
+
+    held = [dict(h) for h in hand.get("held", [])]
+
+    # What is actually chaseable today: issued, not blocked, and nothing back
+    # from the client for a week. Everything else is on the board to be seen,
+    # not to be phoned.
+    def chaseable(r):
+        if r["blocked"]:
+            return False
+        since = r["daysSinceClient"]
+        if since is not None and since < 7:
+            return False
+        return (r.get("daysOut") or 0) >= 7
+
+    due = [r for r in rows if chaseable(r)]
+    return {
+        "updated": hand.get("updated"),
+        "rule": hand.get("rule"),
+        "verification": hand.get("verification"),
+        "issued": rows,
+        "held": held,
+        "corrections": hand.get("corrections", []),
+        "totals": {
+            "issued": len(rows),
+            "issuedValue": sum(r.get("value") or 0 for r in rows),
+            "due": len(due),
+            "dueValue": sum(r.get("value") or 0 for r in due),
+            "blocked": sum(1 for r in rows if r["blocked"]),
+            "live": sum(1 for r in rows if r.get("state") == "live"),
+            "held": len(held),
+            "heldValue": sum(h.get("value") or 0 for h in held),
+            "oldest": max([r.get("daysOut") or 0 for r in rows] or [0]),
+        },
+    }
+
+
 def build_tenders(tenders, outcomes, book):
     """Contracts still out to bid. The only stage at which a subcontractor
     can still get onto an enquiry list, which is why this feed exists at all.
@@ -753,7 +836,8 @@ def build_tenders(tenders, outcomes, book):
     return rows
 
 
-def build_actions(threads, warm, known, book, tenders=None):
+def build_actions(threads, warm, known, book, tenders=None, handover=None,
+                  adminbase=None, drafts=None):
     """The list a Commercial Director reads in ten seconds. Ranked by how
     close it is to a real enquiry from a real buyer, which is the only thing
     Jacob is for."""
@@ -763,6 +847,80 @@ def build_actions(threads, warm, known, book, tenders=None):
         acts.append({"score": score, "key": key, "company": company,
                      "headline": headline, "what": what, "owner": owner,
                      "next": nxt, "state": state, "page": page})
+
+    # Top of the list, above every lead and every notice. A quote already out
+    # is money Fenster has spent and can still lose; a lead is money it has
+    # not spent yet. These rows are also the only ones on the board whose date
+    # was read out of a sent message rather than inferred from anything.
+    # A client with a draft written for them does not also need a "call them"
+    # row. The draft is that call, already written, and showing both is one
+    # thing to do printed twice.
+    drafted_clients = {(d.get("client") or "").lower()
+                       for d in (drafts or {}).get("drafts", [])}
+    # And by domain, because AdminBase keys on the domain and a display name
+    # will not match it - "Alexander James" has a draft; the CRM also carries
+    # "Alexander James Contracts", and they are one company on one domain.
+    drafted_domains = {(d.get("to") or "").split("@")[-1].strip().lower()
+                       for d in (drafts or {}).get("drafts", []) if d.get("to")}
+
+    for r in (handover or {}).get("issued", []):
+        if r.get("owner") in (None, "-"):
+            continue
+        if (r.get("client") or "").lower() in drafted_clients:
+            continue
+        days = r.get("daysOut") or 0
+        score = 130 + min(days, 30)
+        if r.get("blocked"):
+            score = 118          # still worth a call, not worth the top slot
+        add(score, r["key"], r["client"], r.get("contact") or r["client"],
+            "%s - %s issued %s" % (r["job"], gbp(r.get("value")),
+                                   r.get("issued", "")[8:10] + "/" + r.get("issued", "")[5:7]),
+            r.get("owner"), r.get("next"), r.get("state"), "chasing")
+
+    # Above even those. A draft is a chase that has already been written - the
+    # only thing between it and the client is somebody pressing send, which is
+    # the smallest ask on this whole page. It sits at the top because that is
+    # where the cheapest action belongs, not because drafting is important.
+    for d in (drafts or {}).get("drafts", []):
+        add(160 - d.get("priority", 9), "draft:" + d["id"], d["client"],
+            d.get("to_name") or d["client"],
+            "%s - draft ready for %s" % (d["job"], d.get("send_as", "a human")),
+            d.get("send_as", ADAM),
+            "Read it, change what you want, send it from your own mailbox. %s"
+            % d.get("why_now", ""), d.get("status", "awaiting a human"),
+            "drafts")
+
+    # The CRM's own chase list, minus anything already covered above. These are
+    # quotes nobody has looked at in months - they were invisible to this board
+    # until Adam's export arrived, because they predate every mailbox window it
+    # reads.
+    on_board = {(r.get("client") or "").lower()
+                for r in (handover or {}).get("issued", [])}
+    ab_acts = []
+    for r in (adminbase or {}).get("due", []):
+        if r.get("outlier") or not r.get("value"):
+            continue
+        if (r["client"].lower() in drafted_clients
+                or r.get("key") in drafted_domains
+                or r["client"].lower() in on_board):
+            continue
+        if r.get("scheme"):
+            continue        # one scheme, several bidders - handled as a scheme
+        # Value carries this list, because age carries no information here:
+        # nearly every row is overdue, so being overdue distinguishes nothing.
+        base = 68 + min(int((r["value"] or 0) / 50000), 12)
+        ab_acts.append((base, r))
+    ab_acts.sort(key=lambda x: -x[0])
+    for base, r in ab_acts[:6]:
+        add(base, "ab:" + r["lead"], r["client"], r["client"],
+            "%s - %s quoted, %s silent" % (r["job"][:52], gbp(r["value"]),
+                                           "%d days" % r["days"] if r["days"]
+                                           is not None else "no date set"),
+            r.get("owner") or ADAM,
+            "Nobody has been back to them since the quote. Establish whether "
+            "it is still live before anything else - the CRM closes nothing, "
+            "so 'Live - Quoted' here does not mean the job is.",
+            r["state"], "chaselist")
 
     for t in threads:
         if t["owner"] == NOBODY:
@@ -861,7 +1019,12 @@ def build_actions(threads, warm, known, book, tenders=None):
     # finding repeated fourteen times, not fourteen things to do. Adam is a
     # Commercial Director between site visits; he needs the shape of the day,
     # and the full list is one click away on each page.
-    ROOM = {"enquiries": 8, "tenders": 3, "leads": 2, "companies": 2}
+    # Chasing gets its own room and the largest of it. Without a slot of its
+    # own it fell through the default of two, and the two things Adam most
+    # needed to see - a GBP 368k quote he must not chase yet, and a GBP 7,975
+    # one sitting unread in an out-of-office - dropped off the page entirely.
+    ROOM = {"drafts": 5, "chasing": 5, "chaselist": 3, "enquiries": 8,
+            "tenders": 3, "leads": 2, "companies": 2}
     used, out = defaultdict(int), []
     for a in ranked:
         page = a.get("page") or "overview"
@@ -869,7 +1032,7 @@ def build_actions(threads, warm, known, book, tenders=None):
             continue
         used[page] += 1
         out.append(a)
-    return out[:14]
+    return out[:22]
 
 
 def x_key(r):
@@ -946,6 +1109,9 @@ def build():
     jayk = load_json(JAYK)
     outcomes = load_json(OUTCOMES)
     tenderfeed = load_json(TENDERS)
+    handover = build_handover(load_json(HANDOVER))
+    adminbase = load_json(ADMINBASE)
+    drafts = load_json(DRAFTS)
     rel = build_relationships(clients, intake, jayk)
     for r in rel:
         r["key"] = "co:" + x_key(r)
@@ -962,7 +1128,8 @@ def build():
     liveBuyers = [t for t in buyers if t["state"] in ("live", "waiting")]
     quiet = [t for t in buyers if t["state"] in ("gone quiet", "stale")]
     tenders = build_tenders(tenderfeed, outcomes, rel)
-    actions = build_actions(threads, warm, known, rel, tenders)
+    actions = build_actions(threads, warm, known, rel, tenders, handover,
+                            adminbase, drafts)
 
     # Every lead now carries what the outcome history says about a job that
     # size. The point is not to hide the big ones - it is to stop the board
@@ -1006,6 +1173,23 @@ def build():
             # A price already issued and sitting with the client. Nobody at
             # Fenster currently owns chasing these.
             "quotedOut": sum(1 for t in buyers if t["stage"] == "quoted"),
+            # The verified half of that, from Adam's handover rule. These are
+            # not inferred from a mailbox - they are the sends Mary read.
+            "handoverIssued": (handover or {}).get("totals", {}).get("issued", 0),
+            "handoverValue": (handover or {}).get("totals", {}).get("issuedValue", 0),
+            "handoverDue": (handover or {}).get("totals", {}).get("due", 0),
+            "handoverDueValue": (handover or {}).get("totals", {}).get("dueValue", 0),
+            "handoverHeld": (handover or {}).get("totals", {}).get("held", 0),
+            # AdminBase. The value here is ex VAT and the CRM's is not - see
+            # the note on the chase list, and do not compare the two.
+            "crmRows": (adminbase or {}).get("totals", {}).get("rows", 0),
+            "crmValue": (adminbase or {}).get("totals", {}).get("value", 0),
+            "crmDue": (adminbase or {}).get("totals", {}).get("due", 0),
+            "crmDueValue": (adminbase or {}).get("totals", {}).get("dueValue", 0),
+            "crmClients": (adminbase or {}).get("totals", {}).get("clients", 0),
+            "crmYearSilent": (adminbase or {}).get("totals", {}).get("yearSilent", 0),
+            "crmDoubleCounted": (adminbase or {}).get("totals", {}).get("doubleCounted", 0),
+            "drafts": len((drafts or {}).get("drafts", [])),
             "unconfirmed": sum(1 for t in threads if t["stage"] == "unconfirmed"),
             "smallWorks": ((intake or {}).get("counts", {}) or {}).get("small-works", 0),
             # Mailboxes deliberately not read. Adam took info@ off the list on
@@ -1028,6 +1212,7 @@ def build():
             "knownWinnerValue": sum((r.get("total") or 0) for r in warm + known),
         },
         "actions": actions,
+        "handover": handover,
         "threads": threads,
         "warm": warm, "known": known, "cold": cold[:150],
         "tenders": tenders,
@@ -1086,6 +1271,8 @@ def build():
         },
         "outreach": OUTREACH,
         "decisions": DECISIONS,
+        "adminbase": adminbase,
+        "drafts": drafts,
     }
 
 
@@ -1160,12 +1347,15 @@ def SOURCES(rows, winners, intake=None, tenderfeed=None):
 # Placeholders - nothing here is wired yet, and the hub says so rather than
 # showing an empty state that looks like "no work to do".
 OUTREACH = {
-    "status": "planned",
-    "note": ("Jacob drafts, a human approves, only then does anything send. "
-             "No send path exists yet and no mailbox has been created."),
+    "status": "drafting",
+    "note": ("JAC-1 answered on 28/07: drafts only for now. So the drafting "
+             "half of this is live and the sending half is not - there is "
+             "still no send path, no mailbox and no request for one. Five "
+             "drafts are written and waiting for a human to send them from "
+             "their own mailbox, under their own name."),
     "classes": [
         {"name": "Quote follow-up", "why": "We sent a price and heard nothing back",
-         "example": "Gordon Court - GBP 368,376.70 issued 09/07, no recorded reply",
+         "example": "Ninn Lane - GBP 100,730 issued 09/07, nothing back in 19 days",
          "autonomy": "Human approves every send"},
         {"name": "Dormant reactivation", "why": "Quoted before, nothing for 6-18 months",
          "example": "Storm Building - Hammersmith delivered 2025, secondary glazing now live",
@@ -1184,7 +1374,15 @@ DECISIONS = [
      "why": ("Mary never pretends to be human. Outbound BD is a relationship "
              "job, which makes that rule expensive."),
      "options": ["Send under a real person's name", "Openly labelled assistant",
-                 "Decide later - drafts only for now"]},
+                 "Decide later - drafts only for now"],
+     "answer": "Decide later - drafts only for now",
+     "answeredBy": "Zac", "answered": "2026-07-28",
+     "effect": ("Drafting is live; sending is not. Five drafts are on the "
+                "board, each addressed to a named person and each to be sent "
+                "by a named human from their own mailbox. Nothing goes out "
+                "under my name and I have not asked for a mailbox. When this "
+                "is picked up again the question is unchanged - the drafts "
+                "just make it concrete rather than hypothetical.")},
     {"id": "JAC-2", "title": "Cold outreach at all, or warm only?",
      "why": ("Warm-only needs no new domain, no consent register and carries "
              "almost no risk. Cold needs both."),
@@ -1223,6 +1421,11 @@ def main():
     print("  %d with a price already out, %d unconfirmed, %d small-works "
           "repairs not on the board"
           % (t["quotedOut"], t["unconfirmed"], t["smallWorks"]))
+    if t.get("handoverIssued"):
+        print("  handover: %d quotes issued and verified (%s), %d chaseable today "
+              "(%s), %d priced but never issued"
+              % (t["handoverIssued"], gbp(t["handoverValue"]), t["handoverDue"],
+                 gbp(t["handoverDueValue"]), t["handoverHeld"]))
     print("  board window %d days (from %s); %d older signals held back; "
           "mail read from %s%s"
           % (t["boardDays"], t["boardFrom"], t["signalsOlder"], t["mailFrom"],
@@ -1230,6 +1433,12 @@ def main():
              if t["mailTruncated"] else ""))
     print("  %d actions on the Today page, %d dormant clients who have bought"
           % (len(data["actions"]), t["dormantWon"]))
+    if t.get("crmRows"):
+        print("  AdminBase: %d quoted leads, %d clients, GBP %s ex VAT; "
+              "%d chaseable (GBP %s), %d silent over a year"
+              % (t["crmRows"], t["crmClients"], gbp(t["crmValue"])[4:],
+                 t["crmDue"], gbp(t["crmDueValue"])[4:], t["crmYearSilent"]))
+        print("  %d drafts written and waiting for a human" % t["drafts"])
     if t.get("mailExcluded"):
         print("  mailboxes NOT read: %s"
               % "; ".join("%s (%s)" % (m["mailbox"], m["why"]) for m in t["mailExcluded"]))
@@ -1252,17 +1461,42 @@ def main():
         # SPA's HTML and the hub dies on "Unexpected token '<'". It looks like
         # a successful deploy - the giveaway is a missing "Uploading Functions
         # bundle" line in the output.
-        r = subprocess.run(
-            ["npx.cmd", "wrangler", "pages", "deploy", "public",
-             "--project-name", "mary-dashboard", "--branch", "main",
-             "--commit-dirty=true"],
-            cwd=os.path.join(REPO, "dashboard"), capture_output=True, text=True,
-            encoding="utf-8", errors="replace", timeout=600, shell=True)
+        def run(env=None):
+            return subprocess.run(
+                ["npx.cmd", "wrangler", "pages", "deploy", "public",
+                 "--project-name", "mary-dashboard", "--branch", "main",
+                 "--commit-dirty=true"],
+                cwd=os.path.join(REPO, "dashboard"), capture_output=True,
+                text=True, encoding="utf-8", errors="replace", timeout=600,
+                shell=True, env=env)
+
+        r = run()
+        # npx unpacks wrangler into the shared npm cache, and a long-running
+        # `wrangler pages dev` elsewhere on the machine keeps a handle on it -
+        # the deploy then dies on EBUSY renaming miniflare, having built a
+        # perfectly good bundle. It is not a deploy failure and retrying into
+        # the same cache will not fix it, so retry into a private one.
+        if r.returncode != 0 and "EBUSY" in (r.stdout + r.stderr):
+            print("deploy: npm cache is locked by another process - "
+                  "retrying with a private cache")
+            env = dict(os.environ)
+            env["npm_config_cache"] = os.path.join(
+                REPO, "test-results", "npm-cache")
+            r = run(env)
         print("deploy exit", r.returncode)
         # wrangler emits box-drawing characters and this stdout is cp1252 -
         # re-encode rather than let a successful deploy die on its own log.
         enc = sys.stdout.encoding or "utf-8"
-        print((r.stdout + r.stderr)[-500:].encode(enc, "replace").decode(enc, "replace"))
+        out = r.stdout + r.stderr
+        print(out[-500:].encode(enc, "replace").decode(enc, "replace"))
+        # The one check worth making on a "successful" deploy. Without the
+        # functions bundle every /api route serves the SPA's HTML instead and
+        # the hub dies on "Unexpected token '<'" - which looks nothing like a
+        # deploy problem when you are staring at it an hour later.
+        if r.returncode == 0 and "Functions bundle" not in out:
+            print("deploy WARNING: no Functions bundle in the output. The "
+                  "static site shipped without its API. Check the working "
+                  "directory - this must run from inside dashboard/.")
         return r.returncode
 
 
