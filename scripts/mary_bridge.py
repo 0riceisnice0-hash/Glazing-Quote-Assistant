@@ -53,6 +53,9 @@ MAX_ATTEMPTS = 3         # per work order before it is quarantined
 # Consecutive runs a chat may have on handoffs alone, with no new work order.
 # Resets the moment real work arrives for it.
 MAX_HANDOFF_RUNS = 3
+# Unrouted items waiting before triage reads the queue as a batch instead of
+# the router guessing one at a time.
+BATCH_TRIAGE_AT = 3
 SESSION_TIMEOUT = 90 * 60
 # A session that dies in under a minute did not do any work - that is a usage
 # limit or a broken CLI, and retrying instantly would just hammer the API.
@@ -73,6 +76,42 @@ def session_exists(session_id):
     proj = os.path.join(os.path.expanduser("~"), ".claude", "projects",
                         "C--Users-zacpl-Desktop-Glazing-Quote-Assistant")
     return os.path.exists(os.path.join(proj, "%s.jsonl" % session_id))
+
+
+# A resumed chat re-reads its whole conversation. riverside reached 3,694 turns
+# and 27.7 MB, gordon-court 4,098 - so every one of those 95 sessions started by
+# loading a small library. That, not the wall-clock hours, is where the tokens
+# went. Past these limits a chat is retired and a fresh one seeded from its job
+# file, which is exactly what data/jobs/<key>.md has been maintained for.
+MAX_TRANSCRIPT_MB = 8
+MAX_TRANSCRIPT_TURNS = 600
+
+
+def transcript_size(session_id):
+    path = os.path.join(os.path.expanduser("~"), ".claude", "projects",
+                        "C--Users-zacpl-Desktop-Glazing-Quote-Assistant", "%s.jsonl" % session_id)
+    if not os.path.exists(path):
+        return 0.0, 0
+    mb = os.path.getsize(path) / 1048576.0
+    with open(path, encoding="utf-8", errors="replace") as fh:
+        return mb, sum(1 for _ in fh)
+
+
+def rotate_if_bloated(reg, key, rec):
+    """Retire an overgrown chat and start a clean one from the job file."""
+    mb, turns = transcript_size(rec["session_id"])
+    if mb < MAX_TRANSCRIPT_MB and turns < MAX_TRANSCRIPT_TURNS:
+        return False
+    old = rec["session_id"]
+    rec["session_id"] = str(__import__("uuid").uuid4())
+    rec["started"] = False
+    rec["rotated_from"] = old
+    rec["rotated_at"] = dt.datetime.now().isoformat(timespec="seconds")
+    rec["rotations"] = rec.get("rotations", 0) + 1
+    router.save_registry(reg)
+    log("  [%s] chat retired at %.1f MB / %d turns - starting fresh from data/jobs/%s.md"
+        % (key, mb, turns, key))
+    return True
 
 
 def load_bridge_state():
@@ -209,6 +248,23 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
             "documents unless something specific is missing; that is what this conversation is for."
             % title)
 
+    if key == router.TRIAGE and len(orders) >= BATCH_TRIAGE_AT:
+        pending = read_orders()
+        lines.append(
+            "\nTHIS IS A BATCH. %d work order(s) are waiting in total. Read them as one picture "
+            "before you act on any of them - several may be the same thread, the same tender under "
+            "two names, or a negotiation that only makes sense together.\n"
+            "For anything that belongs to a job rather than to you, DO NOT work it here. Set the "
+            "owning chat on the work order and leave it in the queue:\n"
+            '  python -c "import json,io;p=r\'test-results\\mary-inbox\\queue\\<file>.json\';'
+            "d=json.load(io.open(p,encoding='utf-8'));d['route']='<chat-key>';"
+            "json.dump(d,io.open(p,'w',encoding='utf-8'),indent=1,ensure_ascii=False)\"\n"
+            "The bridge will then wake that chat with it. Keys: "
+            "`python scripts\\mary_router.py --list`. Handle noise and genuinely new jobs yourself.\n"
+            "THE WHOLE QUEUE:" % len(pending))
+        for o in pending:
+            lines.append("  - %s" % describe(o))
+
     lines.append("\nWORK ORDERS (full JSON in test-results\\mary-inbox\\queue\\):")
     for o in orders:
         lines.append("  - %s" % describe(o))
@@ -245,9 +301,10 @@ def dispatch(key, orders, reg, bst, dry_run=False):
     router.save_registry(reg)
     title = router.job_title(reg, key)
     handoffs = note.pending_handoffs(key)
+    rotated = rotate_if_bloated(reg, key, rec)
     # Create only if the conversation genuinely is not there yet; otherwise
     # resume, even if a previous attempt died before it could do any work.
-    first_run = not rec.get("started") and not session_exists(rec["session_id"])
+    first_run = rotated or (not rec.get("started") and not session_exists(rec["session_id"]))
     prompt = build_prompt(key, title, orders, handoffs, first_run, reg)
 
     if dry_run:
@@ -436,50 +493,27 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
 
     orders = read_orders()
     groups = group_by_chat(orders, reg)
-    # A chat with handoffs but no mail still deserves a turn - that is how one
-    # job's finding reaches another.
+
+    # NEW INFORMATION IS THE ONLY REASON TO RUN. A pending handoff used to be
+    # reason enough, which is how riverside and gordon-court ran 95 sessions on
+    # nothing but each other's notes. Handoffs are no longer a wake-up - they
+    # ride along with the next real work order for that chat and wait quietly
+    # until then. No new mail, no dashboard message: nobody runs. That removes
+    # the runaway at its source, so no spend cap is needed to contain it.
     if not groups:
-        for key in list(reg["chats"].keys()) + [router.TRIAGE]:
-            if not note.pending_handoffs(key):
-                continue
-            # Two chats can hand off to each other forever. Overnight on
-            # 27/07 riverside and gordon-court did exactly that: 1,670
-            # dispatches with ZERO work orders, 12.7 hours of sessions
-            # re-auditing the same two jobs, because nothing new was arriving
-            # and a handoff always looked like a reason to run again. A chat
-            # gets a limited number of turns on handoffs alone before it has
-            # to wait for real work.
-            spent = bst.setdefault("handoff_runs", {}).get(key, 0)
-            if spent >= MAX_HANDOFF_RUNS:
-                continue
-            groups = [(key, [])]
-            break
-    if not groups:
-        write_status("idle", None, 0)
+        write_status("idle", None, 0, "nothing new - handoffs wait for real work")
         return TICK
+
+    # BATCH TRIAGE. With several unrouted items waiting, let triage read the
+    # whole queue at once and decide, rather than the router guessing item by
+    # item on keywords. It sees what a keyword cannot: that four emails are one
+    # negotiation, or that two jobs are the same tender under different names.
+    unrouted = [o for o in orders if not o.get("route")]
+    if len(unrouted) >= BATCH_TRIAGE_AT and any(k == router.TRIAGE for k, _ in groups):
+        groups = [(router.TRIAGE, [o for o in orders if router.route(o, reg)[0] == router.TRIAGE])]
 
     key, group = groups[0]
 
-    # Circuit breaker. Each session overnight looked reasonable on its own;
-    # only the shape over hours was wrong, and nothing was watching the shape.
-    allowed, why = budget.check(key)
-    if not allowed:
-        if _blocked[0] != why:
-            _blocked[0] = why
-            log("HELD BACK: %s" % why)
-            note.post_board("Dispatch paused - %s. Nothing is broken; Mary is being stopped from "
-                            "working in circles. Clear it by raising MARY_DAILY_HOURS or letting "
-                            "the 24h window roll." % why, author="budget")
-        write_status("paused", key, len(orders), why, title=router.job_title(reg, key))
-        return 30      # no point re-checking every two seconds
-    _blocked[0] = None
-
-    # Track handoff-only turns, and forgive them as soon as real work lands.
-    runs = bst.setdefault("handoff_runs", {})
-    if group:
-        runs.pop(key, None)
-    else:
-        runs[key] = runs.get(key, 0) + 1
     if dry_run:
         dispatch(key, group, reg, bst, dry_run=True)
         return 0

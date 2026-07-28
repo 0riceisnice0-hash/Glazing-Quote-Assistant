@@ -55,3 +55,6 @@ text layer are common (Lower Range's ER was 20 pages of pure image; Gordon Court
 **Render first with PyMuPDF, which IS installed** - `fitz.open(p)`, `page.get_pixmap(dpi=180)`, save PNG,
 then Read the PNG. 180dpi reads body text; 110dpi is enough for a full A1 drawing. No OCR needed and
 none is available - pytesseract and tesseract are both absent.
+
+### 2026-07-28 10:00 - budget
+Dispatch paused - daily session budget spent: 17.1 of 8.0 hours in the last 24h. Nothing is broken; Mary is being stopped from working in circles. Clear it by raising MARY_DAILY_HOURS or letting the 24h window roll.

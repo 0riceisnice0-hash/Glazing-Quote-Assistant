@@ -1,23 +1,326 @@
 {
- "job": "Princess Beatrice House",
- "created": "2026-07-28",
- "_help": "Fill every field. A field left null fails the run - that is deliberate: the errors this catches are all errors of silence.",
- "coupled_runs": null,
- "doors": null,
- "frame_supply": null,
- "glass_order": null,
- "quantities": null,
- "spec_items": null,
- "supplier_quotes": null,
- "full_height_screens": null,
- "systems_specified": null,
- "finishes": null,
- "u_value": null,
- "supplier_coverage": null,
- "price_commitment": null,
- "delivery_terms": null,
- "incorporated_terms": null,
- "issued_documents": null,
- "exposures": null,
- "own_domains": null
+  "job": "Princess Beatrice House, 188-190 Finborough Road SW10 9BA (Guildmore Planned Works / RBKC)",
+  "created": "2026-07-28",
+  "_note": "RETRO-CHECK of the tender ALREADY ISSUED 27/07/2026 09:49 to jason.mount@guildmore.com at GBP 279,244.69 ex VAT. Sources all read at source this session, not taken from the handover: the ISSUED pack in test-results/mary-inbox/processed/20260727T0949-z2JAAAAA-att (pricing xlsx + proposal pdf); the pre-instruction pricing xlsx in test-results/princess-beatrice-input (which still carries the code column B and the OPTIONAL block, and is how the labour codes were recomputed); client bill 'C0234 Princess Beatrice House - Windows.xlsx' sheet 'Block 1' (1363 rows); RBKC Employers Requirements Nov 2025; 'Subby ITT Template.docx'; 'Quotation Advisory Notes.pdf' (A Plus's own terms). THE TURN'S FINDING: Adam told Jason Mount in writing on 27/07 18:56 that strip-out of old frames is allowed for. It is not in either issued document, and it is not in the money. That second half is now PROVEN rather than inferred - see spec_items 'Strip out'. FILENAME HAZARD: the pricing workbook name contains U+00A0 non-breaking spaces; glob it, never type it."
+  ,
+  "coupled_runs": [],
+  "doors": [
+    {
+      "ref": "Door Types 1-5 (Modeal Complex Coupled Doors) and Door Type 6 (Technal) - 13 DAD + 2 SAD priced",
+      "fire_exit": false,
+      "panic_hardware_priced": false,
+      "evidence": "NOT ASSERTED AS CLEARED - this is honestly unknown and recorded as such rather than as a pass. Neither the issued pricing document nor the proposal identifies any door as a fire escape, and no escape or panic-hardware column was located in the bill's Block 1 sheet. The BPG door schedule 5103 T02 and door drawing 5104 T02 are in the input folder and have NOT been re-read this turn for escape marking. Set fire_exit false ONLY because nothing in the documents read this turn marks one; if 5103 marks any door as escape, this entry is wrong and the check should fail. Flagged in exposures."
+    }
+  ],
+  "frame_supply": "glazed",
+  "glass_order": {},
+  "quantities": [
+    {
+      "ref": "Windows - BPG schedules 5100/5101 T02 dimension entries vs priced units",
+      "bill_qty": 191,
+      "drawing_qty": 191,
+      "note": "Verified at the 23/07 audit and unchanged: 191 schedule dim-entries reconcile to 191 priced window units (marks carrying two dim-pairs are coupled frames, e.g. Type 11 = 16 marks -> 32 units). Total priced units on the document are 217 including doors and screens."
+    },
+    {
+      "ref": "Priced line rows and units on the issued pricing document",
+      "bill_qty": 217,
+      "drawing_qty": 217,
+      "note": "46 line rows / 217 units = GBP 233,091.68. Recomputed this turn from the pre-instruction workbook, which retains the code column: 146 MAW + 46 SAW + 6 LAW + 4 ELAW + 13 DAD + 2 SAD = 217, no unmapped codes."
+    },
+    {
+      "ref": "3nr Louvre Type 01 (WLF 13/16/19) and 2nr 2280x1068 Door Type 1 side screens (DGF 22/23)",
+      "bill_qty": 5,
+      "drawing_qty": 0,
+      "note": "SCOPE GAP, open since the 23/07 audit and unchanged by the 27/07 issue. Neither Aplus quote carries them, there is no louvre line anywhere in the pricing document or the attached drawings pack, and the proposal's executive summary nonetheless tells the client the elevations identify acoustic louvre elements. Benchmark GBP 3,500-5,500 of sell - a benchmark, not a price."
+    }
+  ],
+  "spec_items": [
+    {
+      "ref": "217 window, door and screen units",
+      "treatment": "priced",
+      "evidence": "GBP 233,091.68 of line items + GBP 39,680 installation. Every row's rate x qty ties to its total; arithmetic verified exact on the issued document: 233,091.68 + 39,680 + 5,356.22 + 8,276.91 = SUBTOTAL 286,404.81 (I62), less 2.5% MCD 7,160.12 (I64) = TOTAL 279,244.69 (I65)."
+    },
+    {
+      "ref": "Strip out - client bill C0234 'Preparation & Stripping Out' items A, B and C, and the Collection page's own 'Strip out' line",
+      "treatment": "COMMITTED IN WRITING, IN NEITHER ISSUED DOCUMENT, AND NOT IN THE MONEY",
+      "evidence": "THE CENTRAL FINDING OF THIS TURN, AND THE MONEY HALF IS NOW PROVEN RATHER THAN INFERRED. (1) WHY JASON ASKED. The client's own bill has a Collection page with THREE lines - B99 'General', B100 'Strip out', B101 'New windows and Doors'. Guildmore's commercial manager is reconciling our number against a schedule that carries a dedicated strip-out line, and our pricing document has no such line: it has window/door rows plus one INSTALLATION sum. His 19:21 question was not idle, it was a reconciliation. (2) WHAT THE BILL PUTS IN THAT LINE, WHICH IS FAR MORE THAN 'OLD FRAMES'. Item A (B30-B35): carefully remove the existing windows, external doors AND FRAMES including trims, mortar bedding, fixings and sealants; protect all DPCs, cavity closers and brickwork externally and make good where disturbed; make good facing brickwork and pointing WITH MATCHING BRICKS AND TINTED CEMENT MORTAR; neatly cut back plaster and/or render internally and make good with one coat gypsum plaster and set, dubbed out flush; any internal damage made good AT THE CONTRACTOR'S EXPENSE to the CA's satisfaction unless prior notice of defective finishes is given; and old windows taken to a 'trade' waste recycling transfer station with documentation retained on site. Item B (B38): the staircase windows at ground, first and second floors will be removed for GENERAL SITE ACCESS and installed OUT OF SEQUENCE, with due allowance for RETURNING to complete them. Item C (B41): existing windows and doors remain in-situ to maintain water tightness, we are responsible for removing and replacing to maintain it, exposed openings must be protected and advised to the site team, and we carry liability for any water damage from inadequate protection. Making good brickwork, pointing and plaster is builder's work, and out-of-sequence return visits are a programme cost. (3) THE MONEY. PROVEN, NOT INFERRED. GBP 39,680 is EXACTLY the sum of the house labour codes over the 217 units - 146 MAW + 46 SAW + 6 LAW at 160, 4 ELAW at 250, 13 DAD at 500, 2 SAD at 250 = 39,680 to the penny, zero residual. That alone only shows the number is code-derived. THE CONTROL PROVES THE CODE CARRIES NO STRIP-OUT: the SAME codes produce the install line on Brocks Hill Phase 2 - GBP 9,570 over 37 units - and Brocks Hill is a NEW TEACHING BLOCK with no existing window to remove. Crestwood Park, a replacement job, is likewise GBP 8,500 over 52 units on the same codes. Fenster charges the identical per-unit fit rate whether or not there is an existing frame to strip out, so the rate is fit-only and contains no strip-out increment. There is no strip-out money anywhere in the GBP 279,244.69. (4) There is also no strip-out rate in data/supplier-rates.json - one of the 21 categories that return zero - so what it SHOULD cost cannot be stated from anything on file. Quantity for an RFQ: 217 units / 336.17 m2. REQ-29."
+    },
+    {
+      "ref": "Disposal of the old windows - bill B5 and B35 against ER 'Remove' definition and our own exclusion",
+      "treatment": "THE DOCUMENTS ARE NOT ONE-WAY AND ADAM HAS ANSWERED AS IF THEY ARE",
+      "evidence": "Adam told Jason 'We have not allowed for disposal, ie skips on site.' THAT IS DEFENSIBLE ON ONE CLAUSE AND EXPOSED ON TWO. FOR US: bill B5, the preamble to the whole sheet, reads 'All items are deemed to include for removal to GUILDMORE SKIP placed at the front of the building and making good adjacent structures and surfaces disturbed by the works, whether specifically mentioned or not.' So Guildmore provide the skip and we carry to it - Adam's answer matches the bill and is the right answer. AGAINST US: bill B35 requires 'all old windows etc are taken to a TRADE waste recycling transfer station; retain documentation on site', which is a leg beyond dropping them in Guildmore's skip and someone must own it and the paperwork; and the RBKC ER's own definitions section reads 'Remove: means disconnect, dismantle as necessary and remove the stated element... AND DISPOSE OF UNWANTED MATERIALS', which if read into bill item A's 'Carefully remove the various existing windows' pulls disposal inside the strip-out item. AND OUR OWN WORDING IS BROADER THAN EITHER: proposal p4 says 'Waste Removal - Generally excluded unless agreed otherwise', which on its face disclaims even the carry-to-skip that B5 deems included. Note the ER is addressed throughout to 'the Contractor', which on this job is GUILDMORE and not Fenster - the same actor test St Mary's got wrong and then corrected - so the ER definition only bites to the extent Guildmore's bill borrows its language, which B30 arguably does."
+    },
+    {
+      "ref": "External mastic / perimeter sealing - bill items B68, B69, B70 under 'Window & Door Renewal'",
+      "treatment": "CHARGED GBP 5,356.22 INSIDE THE TOTAL WHILE THE PROPOSAL CALLS IT OPTIONAL",
+      "evidence": "REQ-6, AND THE BILL SETTLES THE PART THE HUB DISCUSSION LEFT OPEN. Perimeter sealing is not an optional extra on this job, it is a specified bullet of the window renewal item, with NAMED PRODUCTS: 'Weather seal external perimeter edges of windows, doors, screens and frames with Tremco Illbruck illmod TP654 TRIO 1050 66/6-10 (or equal approved) multi-function expanding sealing tape applied directly to head and jamb sections, the sill section installed directly to the substrate and bedded down on two 8x8mm parallel beads of Illbruck SP525'; 'Perimeter sealing... with one part low modulus silicon sealant as Tremco Illbruck FS125 + Backer Rod'; 'Internally seal gaps similarly but with water based white acrylic sealant as Tremco Illbruck LD703'. So Adam's instruction of 24/07 to bring mastic into the sum was CORRECT and the pricing document is right. What is wrong is proposal p3, which still reads 'External mastic is charged as an optional extra' - and the danger is not cosmetic: it invites Guildmore to strike GBP 5,356.22 as an option we offered them while B68-B70 still oblige us to do the work. VERIFIED AT SOURCE on the ISSUED workbook: mastic I59 5,356.22 and EPDM I60 8,276.91 sit ABOVE the SUBTOTAL at I62, inside the client's number. The pre-instruction workbook in princess-beatrice-input is built the other way, with an OPTIONAL heading at D63 below a TOTAL at I60 - which is the standard template Adam described on the hub, and is how Crestwood Park and Brocks Hill are built. The two documents genuinely differ; the hub answer described the template, not this job's document."
+    },
+    {
+      "ref": "EPDM - GBP 8,276.91",
+      "treatment": "CHARGED INSIDE THE TOTAL, ABSENT FROM THE CLARIFICATIONS, AND NO REQUIREMENT FOUND FOR IT",
+      "evidence": "DIFFERENT FROM THE MASTIC HALF AND SHOULD STOP BEING BRACKETED WITH IT. Swept the bill's Block 1 sheet and the RBKC ERs for EPDM and BS 4255: ZERO hits in either. So unlike Brocks Hill - where ER 7.5.1 requires EPDM to BS 4255 and it is sitting in the optional block, the wrong way round - here there is no located requirement for EPDM at all, and GBP 8,276.91 is charged inside the client's number with no mention anywhere in the clarifications. The mastic question is 'stop calling a specified obligation optional'. The EPDM question is the opposite one: 'what is this for, and can we substantiate it if Jason asks'. Absence of evidence caveat: the bill is 1363 rows and the sweep was on columns A-C, which is where its text lives; a requirement in the Technal Annex A, which is NOT in our pack, would not have been seen."
+    },
+    {
+      "ref": "Access / scaffolding - client bill items B19 and B21 'ACCESS TO EXECUTE THE WORKS'",
+      "treatment": "BLANKET EXCLUSION RETURNED AGAINST A BILL THAT DEDUCTS FOR EXACTLY THAT",
+      "evidence": "NEW THIS TURN AND NOT PREVIOUSLY RECORDED ANYWHERE. Bill B21: 'Any additional scaffolding required to complete your works ARE REQUIRED TO BE DETAILED IN YOUR TENDER RETURN and Guildmore will instruct the scaffolding company. If your tender does not identify any additional scaffolding required after commencement WILL BE DEDUCTED FROM WORKS VALUE.' Read plainly: Guildmore pay for and instruct the scaffold, but only for what you listed; anything you need and did not list gets deducted from your account after you have started. Our proposal p4 answers with a blanket exclusion - 'Access/Lifting Equipment - Scaffold, MEWPS, Towers, Forklift etc.' - and identifies NOTHING. A blanket exclusion is the one response this clause is drafted to defeat, because it names no requirement for Guildmore to instruct. This is a multi-storey block; bill item B38 confirms staircase windows at ground, first AND second floors. This is NOT the St Mary's answer, where the head contract put scaffold on ET&S including for their sub-contractors - the same question has a different answer here because Guildmore's own document says so, exactly as the board warned on John North Hall."
+    },
+    {
+      "ref": "Insurance-backed FENSA 10-year guarantee - client bill item B72",
+      "treatment": "REQUIREMENT IS A THIRD-PARTY INSURANCE PRODUCT; WE OFFERED THE HOUSE WARRANTY AND PRICED NO PREMIUM",
+      "evidence": "SECOND JOB THIS WEEK, AND UNLIKE LOWER RANGE THIS ONE IS ALREADY WITH THE CLIENT. Bill B72: 'The manufacturers and fabricators/installers shall provide a comprehensive INSURANCE-BACKED minimum FENSA 10-year guarantee to cover ALL units installed. THE PREMIUM for the guarantee is to be paid and THE POLICY DOCUMENT ISSUED, IN FAVOUR OF THE EMPLOYER, BEFORE PRACTICAL COMPLETION.' Our issued proposal p8 section 5 offers 'a 10-year warranty covering all glass and frame products supplied and installed by the company... subject to the terms and conditions of any applicable manufacturer warranties'. That is Fenster's own covenant, self-backed: no insurer, no premium, no policy issued to RBKC, and no FENSA registration named. Three separate things are unpriced and unaddressed - the premium, FENSA registration for the installer, and the fact that the policy must exist before PC rather than being a promise that survives it. This was finding 11 of my own 23/07 audit, recorded in the workbook as 'no fitted-sample allowance' commentary and never converted into a request or into the proposal. It corroborates lower-range's board item on a second job."
+    },
+    {
+      "ref": "Window system - bill B66 names Technal Dualframe 75Si; we priced and proposed Modeal casements",
+      "treatment": "SUBSTITUTION, OPENLY STATED TO THE CLIENT BUT NEVER FORMALLY QUALIFIED OR APPROVED",
+      "evidence": "THE RECORD HAS ONLY EVER CARRIED THE DOOR SUBSTITUTION; THE WINDOWS ARE A SECOND ONE. Bill B66 requires everything 'fully in accordance with the Technal UK specifications (L10 for windows and L20 for doors) from Hydro Building Systems UK Limited (OR EQUAL APPROVED) at Annex A - Technal Dualframe 75Si Top Hung/Side Hung Open Out Casement WINDOWS and Technal Soleal Next 75, Stormframe STII Door Systems for DOORS', and B67 requires fabrication drawings submitted for the CA's approval. The issued pricing document's own section headings are C8 'Technal Aluminium Doors & Screens', C19 'MODEAL Aluminium Casement Windows', C49 'MODEAL Complex Coupled Doors'. So two of the three sections are a substitution. 'Or equal approved' makes it permissible IN PRINCIPLE but the approval is a positive act by the CA that nobody has sought, and no equivalency evidence has been offered. NOTE ALSO THE INTERNAL CONTRADICTION, unchanged since 23/07: proposal p3 tells the client 'The external door package is based on Technal STII' while the pricing heads Door Types 1-5 Modeal. Annex A itself is not in our pack, so what Dualframe 75Si actually requires cannot be compared."
+    },
+    {
+      "ref": "PAS 24 / Part Q / Secured by Design",
+      "treatment": "CLAIMED IN THE PROPOSAL AND DISCLAIMED BY THREE DOCUMENTS, ONE OF THEM OUR OWN SUPPLIER'S TERMS",
+      "evidence": "STRONGER THAN THE 23/07 AND 27/07 RECORDS HAD IT - THERE IS NOW A THIRD, INDEPENDENT DISCLAIMER AND IT IS THE SUPPLIER'S. (1) Our proposal claims PAS24 multipoint locking and 'PAS24 hardware where quoted'. (2) The 59-page 'Window and Door Drawings.pdf' WE ATTACHED to the client carries 'ITEMS GLAZED WITH PANELS HAVE NOT BEEN TESTED TO PAS24' on pages 2, 3, 4, 5 and 58. (3) NEW THIS TURN - A Plus's own 'Quotation Advisory Notes', which are in the job folder and are the terms behind both Aplus quotes, read under Product Performance: 'It is the responsibility of the CUSTOMER to ensure all building regulations (i.e. Part B, F, L, M and N and any others relevant to the building), Life Time Homes, Secured by Design, PAS 24 (formally BS 7950) are adhered to. THE SUPPLIER DOES NOT WARRANT OR REPRESENT THAT ANY PRODUCT SUPPLIED SHALL COMPLY WITH ANY OF THE AFOREMENTIONED STANDARDS unless where expressly stated to the contrary by the Supplier.' Against a Part Q / SBD Silver ITT that is a straight pass of the risk to us, and we passed it on to Guildmore as a claim."
+    },
+    {
+      "ref": "U-value / thermal performance",
+      "treatment": "NO FIGURE STATED BY ANYBODY, AND THE SUPPLIER'S DEFAULT IS POOR",
+      "evidence": "A Plus's Quotation Advisory Notes: 'UNLESS OTHERWISE STATED, windows and doors will have a U-Value NO BETTER THAN 1.8. COMMERCIAL DOORS AND FRAMING will be supplied with a U-Value of UP TO 3.0 W/m2K (depending on specification of product)... For UNGLAZED frames U-Value and WER ratings are dependent on glazing type used and A Plus should be contacted to confirm the thermal performance of the frames.' This is a GLA-funded RBKC scheme. No target U-value has been located in the bill's Block 1 sheet and no achieved U-value is stated on our proposal or pricing document. The default is therefore whatever A Plus's boilerplate says, which on the commercial doors and screens is up to 3.0. Recorded as a gap needing the supplier to state a figure, per the Georgie's pattern - not as a claim that we fail, because the requirement itself has not been located."
+    },
+    {
+      "ref": "Obscure glazing - 76 of 191 window entries flagged obscure on the BPG schedules",
+      "treatment": "provisional",
+      "evidence": "Open since 23/07, unchanged. The pricing splits obscure only on Types 5, 6 and 7 while the schedules flag obscure across 76 entries including all of Types 1, 1A, 2 and 3. Needs Aplus to confirm what QP70171 actually covers. Carried as provisional because the frames are quoted and the variance is a glass-spec question inside a quoted line, not an unpriced element."
+    },
+    {
+      "ref": "Heat-soak testing and Kitemark on toughened glass - RBKC ERs",
+      "treatment": "provisional",
+      "evidence": "ERs require all toughened glass heat-soaked and Kitemarked; the proposal hedges 'where quoted'. Inside quoted glass lines, so a confirmation to seek from Aplus rather than an unpriced element. Open since 23/07."
+    },
+    {
+      "ref": "Bill item AA - uPVC price variance, and lead-in times for aluminium and uPVC",
+      "treatment": "UNANSWERED - THE CLIENT ASKED THREE QUESTIONS ON THE PRICING SCHEDULE AND WE RETURNED NONE",
+      "evidence": "Bill B91: 'Please provide the price variance to supply and install the above is similar UPVC', with B93 'Cost difference for UPVC GBP................'; B108 'Lead in time for aluminium GBP........................'; B110 'Lead in time for UPVC...............................'. Three blanks on the client's own pricing schedule, and all three are still blank in everything we issued. Raised at the 23/07 audit; the quote went out on 27/07 with the gap intact. Note Guildmore's covering email of 06/07 also asked for a response by 17/07 and said a fully developed design would follow in 4-6 weeks, so the uPVC variance and the lead-ins are the questions they intend to use when comparing tenders."
+    },
+    {
+      "ref": "Final clean, ease and adjust, and O&M / H&S File information - bill items B75, B76, B77",
+      "treatment": "DIRECT CONFLICT - THE BILL REQUIRES IT AND OUR PROPOSAL PUSHES IT TO THE CLIENT",
+      "evidence": "CORRECTED THIS TURN. I first recorded this as covered, from a note that said the proposal 'carries Final Clean on handover'. It does carry it - IN THE EXCLUSIONS COLUMN, not the inclusions: proposal p4 reads 'Final Clean on handover - Final clean and removal of protection tape TO BE COMPLETED BY CLIENT'. Against that, bill B75 requires 'Remove all protective coverings, ease and adjust window sashes to open and close freely' and B76 'Clean ALL glazing, panels, trims and frames inside and out, in full accordance with manufacturer's instructions; leave glass clean and free from smears and scratches and lubricate ironmongery.' So the bill puts protection removal, easing and adjusting, cleaning and lubricating on us and our proposal hands all of it back. B77's O&M/H&S File information is separately awkward: our own T&Cs issue the O&M manual only AFTER receipt of final payment, while the bill wants the information at handover. The lesson is the general one - read the column, not the phrase."
+    },
+    {
+      "ref": "2.5% main contractor's discount",
+      "treatment": "priced",
+      "evidence": "The Subby ITT states 'Tender should be inclusive of 2.5% main contractors discount'. Applied on the issued document at I64 as -7,160.12 off a subtotal of 286,404.81. Taken as a straight deduction, so it comes off margin; neutral treatment would have required grossing the subtotal to 293,748.52 first. Gintare asked Adam and he approved the method, so recorded, not raised as an error."
+    },
+    {
+      "ref": "Structural alterations, M&E, ASHP, PV, balconies and terraces",
+      "treatment": "excluded",
+      "evidence": "Proposal p3 exclusions name them explicitly. Consistent with a windows and doors package and not challenged by anything in the bill."
+    }
+  ],
+  "supplier_quotes": [
+    {
+      "ref": "QP70171",
+      "supplier": "A Plus (Crystal)",
+      "date": "2026-07-21",
+      "used_net": true,
+      "value": 111185.75,
+      "valid_until": "2026-08-20",
+      "qty_total": null
+    },
+    {
+      "ref": "Logikal offer (Technal STII screens)",
+      "supplier": "A Plus",
+      "date": "2026-07-22",
+      "used_net": true,
+      "value": 17499.74,
+      "valid_until": "2026-08-21",
+      "qty_total": null
+    }
+  ],
+  "full_height_screens": [],
+  "systems_specified": [
+    {
+      "system": "Modeal aluminium casement windows",
+      "fabricator": "A Plus",
+      "performance": {
+        "required": "Technal Dualframe 75Si or equal approved (bill B66); PAS 24 / Part Q / SBD Silver",
+        "capable": null,
+        "evidence": "Substitution never formally qualified and no CA approval sought. A Plus's own Advisory Notes expressly decline to warrant PAS 24 or Secured by Design compliance unless expressly stated, and nothing in the pack expressly states it."
+      }
+    },
+    {
+      "system": "Modeal Complex Coupled Doors (Door Types 1-5)",
+      "fabricator": "A Plus",
+      "performance": {
+        "required": "Technal Soleal Next 75 / Stormframe STII (bill B66); PAS 24 multipoint locking as claimed on proposal p3",
+        "capable": null,
+        "evidence": "The proposal tells the client these are Technal STII while the pricing heads them Modeal. The attached drawings pack states on five pages that items glazed with panels have NOT been tested to PAS24."
+      }
+    },
+    {
+      "system": "Technal STII doors and screens (Door Type 6)",
+      "fabricator": "A Plus",
+      "performance": {
+        "required": "Technal Stormframe STII per bill B66",
+        "capable": true,
+        "evidence": "Compliant with the named system. Every Fenster frame cost matches the A Plus Logikal offer penny for penny, verified 23/07."
+      }
+    }
+  ],
+  "finishes": [
+    {
+      "ref": "All windows, doors and screens",
+      "specified_internal": "RAL 7016M / Anthracite Grey - no separate internal finish located in the bill",
+      "specified_external": "RAL 7016M Anthracite Grey",
+      "quoted_internal": "RAL 7016M",
+      "quoted_external": "RAL 7016M",
+      "note": "Single colour throughout on both sides. No dual-colour requirement was found in the bill's Block 1 sheet, unlike Lower Range and Georgie's. Recorded so the next reader does not go looking for one."
+    }
+  ],
+  "u_value": {
+    "basis": "not stated by anybody",
+    "rejected_elements": [],
+    "note": "No target located in the bill; no achieved figure on our documents; A Plus's default is 'no better than 1.8' for windows and doors and 'up to 3.0' for commercial doors and framing. See the U-value spec_item."
+  },
+  "supplier_coverage": [
+    {
+      "ref": "3nr Louvre Type 01 (WLF 13/16/19)",
+      "qty_sold": 0,
+      "qty_quoted": 0,
+      "supplier_ref": "QP70171",
+      "note": "Neither sold nor quoted - the gap is that the proposal's executive summary describes acoustic louvre elements to the client while no louvre line exists in the pricing, so the client may reasonably read them as included at nil."
+    },
+    {
+      "ref": "2nr 2280x1068 Door Type 1 fixed side screens (DGF 22/23)",
+      "qty_sold": 0,
+      "qty_quoted": 0,
+      "supplier_ref": "Logikal offer",
+      "note": "Same position - on the schedules, in neither quote nor the pricing document, and not excluded."
+    }
+  ],
+  "price_commitment": {
+    "our_price_open_until": "2026-08-26",
+    "note": "Our own proposal carries a 30-day validity from date of issue. The issued documents are DATED 23/07/2026 while the email went 27/07/2026, so which date starts the clock is itself ambiguous - 22/08 on the document date, 26/08 on the issue date. Both Aplus quotes lapse ~20-21/08 on A Plus's stated 30 days, i.e. BEFORE our own price expires on either reading, so there is a window in which we are bound and our supplier is not."
+  },
+  "delivery_terms": [
+    {
+      "supplier": "A Plus",
+      "ref": "QP70171",
+      "order_value": 111185.75,
+      "free_delivery_threshold": 5000,
+      "note": "A Plus Advisory Notes: 'Loads over GBP 5000 + VAT will be delivered FOC within a 50-mile radius of Watford.' SW10 is approximately 17 miles from Watford, so delivery is free on this order value. Two caveats worth carrying: 'Unless indicated otherwise ALL FRAMES ARE DELIVERED UNGLAZED', and storage costs may be levied on goods uncollected 3 working days after first availability."
+    },
+    {
+      "supplier": "A Plus",
+      "ref": "Logikal offer",
+      "order_value": 17499.74,
+      "free_delivery_threshold": 5000,
+      "note": "Same terms, same conclusion."
+    }
+  ],
+  "incorporated_terms": [
+    {
+      "supplier": "A Plus",
+      "ref": "Quotation Advisory Notes.pdf",
+      "document": "A Plus Windows & Doors Limited Quotation Advisory Notes (2 pages)",
+      "held": true,
+      "note": "HELD AND READ THIS TURN, and they are not neutral boilerplate: they disclaim PAS 24 / Secured by Design compliance, set a default U-value of no better than 1.8 (up to 3.0 on commercial doors and framing), deliver frames unglazed unless stated, allow price variation for any change in specification, quantity or timescale, and levy storage after 3 working days. Three of those bear directly on obligations we have accepted towards Guildmore."
+    },
+    {
+      "supplier": "Guildmore Planned Works",
+      "ref": "Subby ITT Template.docx",
+      "document": "Guildmore sub-contract ITT - sections include 06. Collateral Warranty, 08. Programme, Retention, and the 2.5% MCD requirement",
+      "held": true,
+      "note": "Held. The 2.5% MCD was actioned. Collateral warranty, retention and programme are NOT addressed anywhere in our proposal, whose own T&Cs (deposit terms, O&M after final payment) will be overridden by whatever sub-contract order Guildmore issue."
+    },
+    {
+      "supplier": "RBKC / Guildmore",
+      "ref": "Technal Annex A",
+      "document": "Annex A - Technal UK L10/L20 specifications referenced by bill B66",
+      "held": false,
+      "note": "NOT HELD. The bill makes the whole package 'fully in accordance with' it, and we have substituted Modeal for two of three sections without ever seeing what we are deviating from."
+    }
+  ],
+  "warranty": {
+    "ours": {
+      "period": "10 years",
+      "period_months": 120,
+      "start_date": null,
+      "scope": "glass and frame products supplied and installed by Fenster - defects in materials as supplied and workmanship on installation; subject to any applicable manufacturer warranties; excludes misuse and accidental or intentional damage",
+      "usage_cap": null,
+      "note": "NO START DATE is stated in proposal p8 section 5 - it says 10 years but not from when. Against bill B72 the deeper problem is that this is a self-backed covenant where an INSURANCE-BACKED FENSA guarantee with a paid premium and a policy issued to the Employer before Practical Completion is required."
+    },
+    "suppliers": []
+  },
+  "issued_documents": [
+    {
+      "name": "Guildmore Planned Works - Princess Beatrice House Pricing.xlsx (as issued 27/07)",
+      "path": "test-results/mary-inbox/processed/20260727T0949-z2JAAAAA-att/Guildmore Planned Works - Princess Beatrice House Pricing.xlsx",
+      "is_the_priced_document": true,
+      "goes_to_client": true,
+      "exclusions_stated": 0,
+      "note": "The priced workbook carries NO exclusions on its face - only C68, 'This pricing document should be read in conjunction with the Terms and Conditions.' Every exclusion lives in the separate proposal PDF. It also still reads 'Date: 23/07/2026' at C6 although it was issued on 27/07, which is the ambiguity in our own 30-day validity noted under price_commitment. Crestwood Park's dates WERE amended before issue on Adam's instruction the same morning; this one's were not."
+    },
+    {
+      "name": "Guildmore Planned Works - Princess Beatrice House Proposal.pdf (as issued 27/07)",
+      "path": "test-results/mary-inbox/processed/20260727T0949-z2JAAAAA-att/Guildmore Planned Works - Princess Beatrice House Proposal.pdf",
+      "is_the_priced_document": false,
+      "goes_to_client": true,
+      "exclusions_stated": 12,
+      "note": "Page 4, INCLUSIONS/EXCLUSIONS. The 12 exclusions are Site Welfare; Access/Lifting Equipment; Site Storage; Fire Stopping; Waste Removal; Internal Finishing; Final Clean on handover; Testing; Structural Alterations; Design Responsibility; Traffic Management; Additional Limitations. Counted at source this turn - and counting them is how the Final Clean error was found, because it reads like an inclusion until you see which column it is in."
+    },
+    {
+      "name": "Window and Door Drawings.pdf (59pp, attached to the client)",
+      "path": "test-results/princess-beatrice-input/Window and Door Drawings.pdf",
+      "is_the_priced_document": false,
+      "goes_to_client": true
+    }
+  ],
+  "exposures": [
+    {
+      "item": "Strip-out committed by email against a quote that contains no strip-out money (proven, not inferred)",
+      "lands_on": "Fenster",
+      "our_recourse": "NONE ON THE MONEY. Adam's 27/07 18:56 email to the commercial manager is unqualified - 'I can confirm we have allowed for strip out of old frames' - and neither issued document states it, so there is nothing to read it down against. The only recourse is forward: state it in a corrected proposal on our own terms, defining strip-out as removal of frames and NOT as the bill's making-good of brickwork, pointing and plaster, before Guildmore's sub-contract order adopts bill item A wholesale."
+    },
+    {
+      "item": "Bill item A's making good - matching bricks, tinted mortar, gypsum plaster - and item B's out-of-sequence staircase returns",
+      "lands_on": "Fenster if bill item A flows into the sub-contract order unqualified",
+      "our_recourse": "PARTIAL, AND BETTER THAN I FIRST RECORDED. I wrote that internal finishing is not named in our exclusions; IT IS - proposal p4 carries 'Internal Finishing - Primarily excluded unless agreed otherwise', which does reach bill item A's cutting back and making good of plaster and render. 'Structural Alterations - To be completed by Main Contractor' reaches the brickwork and lintel work. So both limbs of the making-good are excluded on their face. THE WEAKNESS IS THE WORDING, not the absence: 'PRIMARILY excluded unless agreed otherwise' concedes the point it is meant to hold, and neither exclusion mentions the bill's specific obligations - matching bricks, tinted cement mortar, one coat gypsum dubbed out flush. Against a bill that deems making good included 'whether specifically mentioned or not' (B5), a hedged general exclusion is unlikely to survive. Nothing covers item B's out-of-sequence staircase return visits at all."
+    },
+    {
+      "item": "Scaffolding we need but did not identify, deducted from works value after commencement (bill B21)",
+      "lands_on": "Fenster",
+      "our_recourse": "NONE THAT WORKS. Our blanket exclusion of Access/Lifting Equipment is the response the clause is drafted to defeat - it names no requirement for Guildmore to instruct, and the clause deducts precisely what was not named. Recourse is to write the schedule of scaffold we need NOW, before commencement, which is still open to us."
+    },
+    {
+      "item": "Insurance-backed FENSA guarantee premium and policy to the Employer before PC (bill B72)",
+      "lands_on": "Fenster",
+      "our_recourse": "NONE - unpriced and unqualified. Our proposal offers a self-backed 10-year warranty and does not exclude an insurance-backed one, so there is no wording to fall back on. A cost of unknown size and a question for Adam, per lower-range's board rule."
+    },
+    {
+      "item": "PAS 24 / Secured by Design claimed to the client and disclaimed by our supplier's own terms",
+      "lands_on": "Fenster",
+      "our_recourse": "NONE, AND IT IS WORSE THAN A GAP. A Plus's Advisory Notes put PAS 24 and SBD compliance expressly on the CUSTOMER - us - and we then asserted PAS24 to Guildmore in the proposal while attaching drawings that say five times that panelled items are not PAS24 tested. Proposal T&Cs disclaim responsibility for regulatory strategy generally, which may help on Part Q as a building-regulations matter but does not help on a positive PAS24 representation we made ourselves."
+    },
+    {
+      "item": "Modeal substituted for Technal Dualframe 75Si on windows and Technal Soleal/STII on Door Types 1-5, with no CA approval sought and Annex A never seen",
+      "lands_on": "Fenster",
+      "our_recourse": "PARTIAL AND UNTESTED. The bill says 'or equal approved' and the proposal names Modeal openly rather than hiding it, so we have not misrepresented what we are supplying. But approval is a positive act by the CA and nobody has sought it, and we cannot evidence equivalence against a specification we do not hold."
+    },
+    {
+      "item": "Our price is open longer than the supplier quotes behind it",
+      "lands_on": "Fenster",
+      "our_recourse": "PARTIAL. Our own 30-day validity in the proposal T&Cs is real protection and expires 22/08 or 26/08 depending on whether the document date or the issue date governs. The Aplus quotes lapse ~20-21/08, so the unhedged window is short - days, not the months Gordon Court carries - but the ambiguity between the 23/07 document date and the 27/07 issue date is ours and would be construed against us."
+    },
+    {
+      "item": "3nr Louvre Type 01 and 2nr Door Type 1 side screens described to the client and priced nowhere",
+      "lands_on": "Fenster",
+      "our_recourse": "NONE. The proposal's executive summary tells the client the elevations identify acoustic louvre elements and the works include 'associated louvre / panel elements where quoted'. The 'where quoted' hedge is doing all the work and it is doing it in a document that never shows the client which items were quoted, because the pricing document has no louvre line to be absent from."
+    },
+    {
+      "item": "Collateral warranty, retention and programme required by the Guildmore ITT and unaddressed by our proposal",
+      "lands_on": "Fenster",
+      "our_recourse": "NONE STATED. Our proposal T&Cs will be overridden by Guildmore's sub-contract order and we have qualified nothing in advance. Same shape as Brocks Hill's unqualified JCT D&B step-down."
+    }
+  ],
+  "own_domains": ["fensterglazing.com"]
 }

@@ -127,6 +127,14 @@ def route(order, reg=None):
     """Return (job_key, why). job_key is a registry key or TRIAGE."""
     reg = reg or load_registry()
 
+    # Triage's own decision beats every heuristic below. When a batch arrives it
+    # reads the queue as a whole and writes "route" onto each work order,
+    # sending it to the chat that should own it. Keyword matching cannot see
+    # that four separate emails are one negotiation; a reader can.
+    forced = (order.get("route") or "").strip()
+    if forced and (forced in reg["jobs"] or forced == TRIAGE):
+        return forced, "assigned by triage"
+
     if order.get("mailbox") == "dashboard":
         # Older work orders carry the context only inside the subject line.
         ctx = order.get("context") or ""
