@@ -38,6 +38,15 @@ import urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import jacob_graph as jg
 
+# Real mail contains emoji, and the Windows console is cp1252. Without this
+# a search for "Lindum" dies partway down the results on someone's smiley,
+# which loses the half of the list that had not printed yet.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except (AttributeError, ValueError):
+        pass
+
 DOMAIN = "fensterglazing.com"
 BOXES = {"commercial": jg.COMMERCIAL, "info": jg.INFO, "jacob": jg.JACOB,
          "jayk": "jayk@" + DOMAIN}

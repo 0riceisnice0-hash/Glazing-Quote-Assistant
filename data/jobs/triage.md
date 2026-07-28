@@ -428,6 +428,58 @@ John North Hall reaching us only because Perry Giffin forwarded it from info@, t
 the same one twice. Corby checked against the archive - the only Corby folder is Prince Build\Lidl Corby,
 unrelated.
 
+### 2026-07-28 16:00 - 33 work orders: 25 routed, one new job, and a bounce nobody would have seen
+**Routed to their own chats (25):** georgies x7 (the Pearce/Mercury/BSW cluster plus dashmsg-40),
+vesuvius x5, princess-beatrice x2, john-north-hall x2, eleanor-trade-centre x3 (new), filwood,
+crestwood-park, grange-hill, stoke-park (dashmsg-37), sm5-wexham (dashmsg-41). **Handled here:** Jacob,
+Manor Lodge x3, MetFab, three pieces of noise.
+
+**THE URGENT ONE - VESUVIUS. BSW NEVER GOT THE RFQ.** Gintare sent the Air Separation Unit enquiry to
+estimations@bsws.co.uk three times (~15:13, 15:17, 15:22) with a 39 MB zip. postmaster bounced it at
+15:14 and 15:18: `550 5.2.3 RESOLVER.RST.RecipSizeLimit`, their cap is 36 MB. **The tender is due
+Thursday 30/07 and BSW hold nothing.** A bounce goes only to the sender, so this would have read as a
+slow supplier. Handed to vesuvius, emailed Adam, board told. Also flagged what the enquiry does: it
+excludes fire-rated leaves and doorsets unless BSW can certify them, which does not close REQ-8 - it
+moves the 60-minute problem out of the enquiry with two days left and no fire specialist yet asked.
+
+**NEW JOB - ELEANOR TRADE CENTRE.** Unit 1, Eleanor Estate, Trust Road, Waltham Cross EN8 7HF, Bradford
+Watts Ltd. **GBP 7,975.85 ex VAT issued today 13:22** (SMA Shopline double door 3,334.65; 4no Sheerline
+Prestige 1000x1000 at 875.30; install 1,140.00). Chat `eleanor-trade-centre` opened and briefed.
+**Checked Adam's "it says liniar upvc window but it's aluminium" rather than assume the fix was real:**
+the issued document says Sheerline Aluminium Window and the drawing is a Sheerline Prestige casement, and
+the RATE confirms it - GBP 875.30 for 1 m2 against register benchmarks of GBP 494.75/m2 Sheerline and
+GBP 193.09/m2 Liniar uPVC. Aluminium price, not a uPVC price relabelled. **Mark Golden auto-replied OUT
+OF OFFICE one minute after the quote landed**, redirecting to David Pitcher and Jay Taylor - so a live
+quote is in an unattended inbox. No client deadline; 27/08 is OUR validity, not theirs.
+
+**MANOR LODGE Q7666 - KEPT HERE, BUT REV A DOES NOT MATCH THE INSTRUCTION.** AFS Rev A, 12:33,
+**GBP 4,075.02 net supply-only delivered**, 900 x 2065 Aluprof MB-78EI EI30, RAL 7021 matt, 600mm cranked
+handle. Three gaps: (1) we asked for a maglock to the head - AFS do not supply them and substituted an
+EFF EFF electric strike; (2) we asked for push-to-exit internally - there is no pad and no exit button in
+the parts list, internal escape is a thumbturn, and the door is still 900mm against the 920mm AFS say a
+push bar needs, so the original panic question is unresolved underneath the new spec; (3) Steve told them
+at 13:52 the door opens OUT hinged right, and Rev A says INWARD opening - it was issued 79 minutes
+earlier, so **a Rev B is owed and nobody should price off Rev A.** Fixing pack GBP 75.21 and delivery
+GBP 250.00 are optional extras outside the net, the same shape as Gordon Court's GBP 506.37. Still Steve's
+negotiation, not a Fenster pricing job - no chat opened.
+
+**JACOB - answered, and his premise was wrong in a way worth naming.** He asked whether anything had come
+back on Princess Beatrice (GBP 279,244.69) and Crestwood Park (GBP 74,158.66), because his Chasing page
+infers send dates from the return dates in my job records. Both had. Princess Beatrice went out 27/07
+10:50, Jason Mount replied the same day 18:21 asking about removal of existing windows, Adam answered
+18:56. Crestwood went out 27/07 11:49 and Adam Lewis acknowledged today 12:01. **His board aged them by
+ten and seven days and was telling Adam to phone two clients who had replied inside a day** - because a
+return date is when we had to submit BY, not when we sent. Same family as the five hub deadlines that
+turned out to be supplier expiries. Offered to date his whole list from estimating@ sent items, and gave
+him Eleanor Trade Centre, which he cannot see and which is a genuine chase.
+
+**MetFab** - Steve to Gintare: cills, jamb and head flashings to nick@met-fab.co.uk. No job named, so
+recorded as a supplier capability, not an enquiry. **Noise (3):** In-Tend bid-writing workshops,
+Saint Global growth consultation, HS Direct business goals.
+
+**One digest email to Adam** carried items 1-3 with the actions named. No new requests raised - 23 were
+already open and none of these needs a decision from him that is not already obvious.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

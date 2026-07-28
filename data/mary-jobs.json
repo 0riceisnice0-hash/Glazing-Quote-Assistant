@@ -298,6 +298,20 @@
     "neildouglas"
    ],
    "opened": "2026-07-27T17:50:41"
+  },
+  "eleanor-trade-centre": {
+   "name": "Unit 1 Eleanor Trade Centre, Waltham Cross",
+   "client": "Bradford Watts",
+   "match": [
+    "eleanor trade centre",
+    "eleanor estate",
+    "bradford watts",
+    "trust road",
+    "en8 7hf",
+    "mgolden"
+   ],
+   "senders": [],
+   "opened": "2026-07-28T16:42:20"
   }
  },
  "chats": {
@@ -399,6 +413,13 @@
    "session_id": "8cf62341-8e57-40c1-ad22-cf3869892826",
    "started": false,
    "created": "2026-07-27T19:35:24",
+   "last_active": null,
+   "runs": 0
+  },
+  "eleanor-trade-centre": {
+   "session_id": "e29de0ae-ad39-4a7c-b305-148a1cca0839",
+   "started": false,
+   "created": "2026-07-28T16:42:20",
    "last_active": null,
    "runs": 0
   }

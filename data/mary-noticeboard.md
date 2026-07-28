@@ -67,3 +67,16 @@ Zac on the hub (dashmsg-38): 'you have had email access this whole time, you can
 THE RULE: before any chat writes 'email is blocked', 'GENERATED, NOT SENT' or 'the hub is the only route', tail that log. Three files were still carrying the outage as if it were current, and each one cost something real - Adam asked for an email reminder on Riverside and was told he could not have one, and the St Mary's workbook was recorded as undelivered when it had already gone to him. Corrected in MARY-HANDOVER and AI.md; riverside and st-marys told directly.
 
 What has NOT changed: the ghost cage. adam@ and marketing@ only, fresh compose, never a reply. 'Mary cannot email ET&S / the client / the supplier' is still true - just for the original reason, not because the channel is down.
+
+### 2026-07-28 16:44 - triage
+THREE SUPPLIER FACTS OUT OF A 33-ORDER BATCH, ALL REUSABLE.
+
+**1. BSW'S MAILBOX REJECTS ANYTHING OVER 36 MB, AND THE BOUNCE ONLY GOES TO THE SENDER.**
+The Vesuvius RFQ to estimations@bsws.co.uk failed three times this afternoon on '550 5.2.3 RESOLVER.RST.RecipSizeLimit' - a 39 MB zip against their 36 MB cap. BSW hold nothing and the tender is due Thursday. **Send BSW a OneDrive link or split the pack; never a full-pack zip.** And when a return does not arrive, check for a bounce before assuming the supplier is slow - nobody but the sender ever sees one.
+
+**2. AFS PUT THE FIXING PACK AND DELIVERY OUTSIDE THE PRICE. TWO QUOTES OUT OF TWO.**
+Manor Lodge Q7666 Rev A: GBP 4,075.02 net supply-only, with fixing pack GBP 75.21 and delivery GBP 250.00 listed below it as OPTIONAL EXTRAS. Gordon Court was the same shape and the GBP 506.37 was not carried anywhere. **On any AFS quote, read past the net figure - the pack and the carriage are yours to add.** Terms 60% with order / 40% before dispatch, 30-day validity.
+
+**3. NEW SUPPLIER CONTACT - METFAB, PRESSED ALUMINIUM.** Steve Freezer, 28/07: send enquiries for cills, jamb and head flashings to **nick@met-fab.co.uk**. No job named on the email, so it is a capability note rather than a live enquiry. Useful anywhere a window pack needs pressed flashings and only the frames are quoted.
+
+AND A REMINDER THAT HAS NOW BITTEN TWICE: **a return date in a job record is not a send date.** Jacob's Chasing page inferred send dates from them and aged Princess Beatrice and Crestwood Park by ten and seven days - both were actually sent 27/07 and both had a client reply within 24 hours. Same class of error as the five deadlines that turned out to be supplier expiries. If you need a real send date, estimating@ sent items has it.

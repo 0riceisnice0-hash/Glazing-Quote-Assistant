@@ -1,0 +1,49 @@
+Three things off this afternoon's mail. The first one needs doing today.
+
+1. VESUVIUS - BSW NEVER RECEIVED THE ENQUIRY. THREE ATTEMPTS, ALL BOUNCED.
+
+The Air Separation Unit RFQ went to estimations@bsws.co.uk three times this afternoon, around 15:13, 15:17 and 15:22, with "Fenster Glazing - Air Separation Unit.zip" attached.
+
+BSW's server rejected it twice, at 15:14 and 15:18:
+
+   550 5.2.3 RESOLVER.RST.RecipSizeLimit - message too large for this recipient
+
+Their limit is 36 MB. The message is 39 MB. The 15:22 attempt will have failed the same way.
+
+So BSW are holding nothing, and the bounce only goes back to the sender - it never reaches whoever is waiting on the return.
+
+The tender is due Thursday 30/07.
+
+It needs re-sending today, either split into two emails or as a OneDrive link instead of the zip.
+
+Separately, worth knowing what that enquiry actually asks for. It prices Senior PURe windows, SF52 fully capped curtain walling and SPD150 doors, and it EXCLUDES all fire-rated door leaves and doorsets unless BSW can supply certified ones.
+
+That does not close the 60-minute problem on this job - it moves it out of the enquiry. The JHA spec requires every external door to be 60 minute fire rated, including the doors inside the screens, and about GBP 49,000 of the budget sits on screens that carry them. Nobody has yet been asked to price that package. Aluminium Fire Systems are already quoting us on Manor Lodge and are the obvious call, with two days left.
+
+A separate steel-door enquiry went out at 15:31 (drawing 2024/055/127 Door Type A, D.04 louvre door) and did not bounce.
+
+
+2. MANOR LODGE Q7666 - THE REVISED QUOTE DOES NOT MATCH WHAT WE ASKED FOR
+
+AFS issued Rev A at 12:33 today. GBP 4,075.02 net, supply only, delivered to Radlett. Single door 900 x 2065, Aluprof MB-78EI, EI30, RAL 7021 matt, 600mm cranked handle as requested.
+
+Three gaps between the instruction and the quote:
+
+   - We asked for a maglock to the head. AFS do not supply maglocks and have substituted an EFF EFF electric strike.
+
+   - We asked for push-to-exit on the inside. There is no push pad and no exit button anywhere in the parts list - internal escape is a thumbturn on an ECO SCHULTE lock. The original panic-bar question is still unresolved underneath this: AFS said a bar needs 920mm minimum, and Rev A is still a 900mm door.
+
+   - Steve told them at 13:52 that the door opens OUT, hinged right. Rev A says single-leaf INWARD opening, right hinged. It was issued 79 minutes before that instruction, so a Rev B is owed - nobody should price off Rev A.
+
+Also note the fixing pack (GBP 75.21) and delivery (GBP 250.00) are listed as OPTIONAL EXTRAS, not in the GBP 4,075.02. That is the second AFS quote where they sit outside the price - on Gordon Court the same two lines came to GBP 506.37 and were not carried anywhere. Their terms are 60% with order, 40% before dispatch, quote valid 30 days to 27/08.
+
+
+3. ELEANOR TRADE CENTRE - THE QUOTE IS SITTING IN AN UNATTENDED INBOX
+
+GBP 7,975.85 ex VAT went to Mark Golden at Bradford Watts today at 13:22.
+
+His out-of-office replied one minute later: away, no access to phone or email, and new enquiries or current projects should go to David Pitcher or Jay Taylor.
+
+Nobody at Fenster will see that unless they look at the thread. If this one matters, the useful action is a call to Pitcher or Taylor rather than a chase to Mark.
+
+On your note that it said Liniar uPVC when it is aluminium - the version that went to the client says Sheerline Aluminium Window and the drawing is a Sheerline Prestige casement, so it was corrected before it left. I checked the rate as well as the label: GBP 875.30 for a 1 m2 unit against benchmarks of about GBP 495/m2 for Sheerline and GBP 193/m2 for Liniar uPVC. It is priced as aluminium, not as uPVC with the name changed.

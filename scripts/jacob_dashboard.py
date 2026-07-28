@@ -22,7 +22,7 @@ import re
 import subprocess
 import sys
 from collections import defaultdict
-from datetime import date, datetime, timezone
+from datetime import date, datetime, timedelta, timezone
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AWARDS = os.path.join(REPO, "data", "jacob", "contracts-finder-awards.json")
@@ -38,6 +38,17 @@ COMPLETED_DIR = os.path.join(PROJECT_DIR, "2. Completed")
 
 TODAY = date.today().isoformat()
 STALE_BEFORE = "2026-01-28"          # 180 days - award notices publish late
+
+# The intake now reads a real 180 days, which is 919 signals. That is a
+# record, not a board: a Commercial Director between site visits cannot read
+# four hundred rows. So the board picks its own window and says which - the
+# one thing the old signals[:200] cap did not do. Anything older still exists
+# in intake.json and is counted on the page, it just is not an action.
+BOARD_DAYS = 60
+
+
+def board_window_start():
+    return (date.fromisoformat(TODAY) - timedelta(days=BOARD_DAYS)).isoformat()
 
 SUFFIXES = {"LIMITED", "LTD", "PLC", "LLP", "LP", "UK", "THE", "CO", "COMPANY",
             "HOLDINGS", "INC", "CIC", "CIO"}
@@ -445,6 +456,11 @@ def thread_action(t):
         return (NOBODY, "None. This is a price coming back to Fenster, not an enquiry.")
     if t["kind"] == "domestic":
         return (GINTARE, "Small works, not BD. Listed so nobody counts it as a lead.")
+    # Already Mary's. The handover has happened, so the only useful thing
+    # Jacob can say is which file it is in.
+    if t.get("job") and t["stage"] != "quoted":
+        return (ADAM, "Already with Mary - job file '%s'. Nothing for BD to start; "
+                      "chase it there if %s is waiting." % (t["job"], at))
     # Buyer. A price already with them is a different job from a new ask:
     # this is the second handover, the one that currently nobody does.
     if t["stage"] == "quoted":
@@ -477,8 +493,13 @@ def thread_unknowns(t):
     """Say what you do not know. A blank is honest; a confident guess is not."""
     out = []
     if t["kind"] == "buyer":
-        out.append("Whether anyone at Fenster has already replied - Jacob reads "
-                   "received mail only (JAC-5).")
+        if not t.get("job"):
+            out.append("Whether anyone at Fenster has already replied - Jacob reads "
+                       "received mail only (JAC-5), and no job file of Mary's names "
+                       "this address.")
+        else:
+            out.append("Whether anyone at Fenster has already replied - Jacob reads "
+                       "received mail only (JAC-5).")
         if t["relationship"] == "unknown":
             out.append("Whether they are a buyer or another supplier. No archive "
                        "folder and no history in any mailbox - worth one look before "
@@ -491,8 +512,11 @@ def thread_unknowns(t):
 def build_threads(intake):
     """Signals -> conversations -> things to do."""
     jobs = load_job_contacts()
+    start = board_window_start()
     by_key = {}
     for s in (intake or {}).get("signals", []):
+        if s["date"] < start:
+            continue
         key = "%s|%s" % (s["company"], thread_key(s["subject"]))
         t = by_key.setdefault(key, {
             "key": "thread:" + re.sub(r"[^a-z0-9]", "-", key.lower())[:60],
@@ -767,6 +791,14 @@ def build():
             "clientsWon": won,
             "warm": len(warm), "known": len(known), "cold": len(cold),
             "signals": len((intake or {}).get("signals", [])),
+            # What the board is showing, against what the mailbox actually
+            # holds. A count that does not say its window is a claim.
+            "boardDays": BOARD_DAYS,
+            "boardFrom": board_window_start(),
+            "signalsOlder": sum(1 for s in (intake or {}).get("signals", [])
+                                if s["date"] < board_window_start()),
+            "mailFrom": (intake or {}).get("covered_from"),
+            "mailTruncated": (intake or {}).get("truncated") or [],
             "mailboxCompanies": len((intake or {}).get("companies", [])),
             "dormant": len(dormant),
             "dormantWon": len(dormantWon),
@@ -939,6 +971,11 @@ def main():
     print("  %d with a price already out, %d unconfirmed, %d small-works "
           "repairs not on the board"
           % (t["quotedOut"], t["unconfirmed"], t["smallWorks"]))
+    print("  board window %d days (from %s); %d older signals held back; "
+          "mail read from %s%s"
+          % (t["boardDays"], t["boardFrom"], t["signalsOlder"], t["mailFrom"],
+             "; TRUNCATED: " + ", ".join(t["mailTruncated"])
+             if t["mailTruncated"] else ""))
     print("  %d actions on the Today page, %d dormant clients who have bought"
           % (len(data["actions"]), t["dormantWon"]))
 

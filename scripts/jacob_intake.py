@@ -304,11 +304,19 @@ def match_client(domain, known):
 
 
 # ---------------------------------------------------------------- fetching
-def fetch(token, mailbox, since_iso, max_pages=20):
+def fetch(token, mailbox, since_iso, max_pages=120):
+    """Every page, not the first twenty.
+
+    This was 20 pages of 50, so 1,000 messages per mailbox - and both busy
+    mailboxes returned exactly 1,000, which is what hitting a cap looks like.
+    Ordered newest-first, that turned a stated 180-day window into 22 real
+    days of commercial@ and 13 of info@, silently. A Lindum invitation to
+    tender from 11 June was not missed by the classifier; the intake never
+    fetched it. The caller is told when this still truncates."""
     qs = urllib.parse.urlencode({
         "$filter": "receivedDateTime ge %s" % since_iso,
         "$orderby": "receivedDateTime desc",
-        "$top": 50,
+        "$top": 100,
         # bodyPreview is the first ~255 characters, returned in the SAME call
         # for free. Without it every judgement was made from a subject line
         # alone, which is how "Fenster Glazing - Quote - Raj" read as a
@@ -324,12 +332,13 @@ def fetch(token, mailbox, since_iso, max_pages=20):
                 break
             time.sleep(5 * (attempt + 1))
         if st != 200:
-            return st, out
+            return st, out, False
         out.extend(res.get("value", []))
         nxt = res.get("@odata.nextLink")
         path = nxt.split("graph.microsoft.com/v1.0", 1)[1] if nxt else None
         pages += 1
-    return 200, out
+    # Still more to come means the window on the board is a claim, not a fact.
+    return 200, out, bool(path)
 
 
 def main():
@@ -347,14 +356,22 @@ def main():
     per_mailbox = {}
     signals = []
 
+    coverage = {}
     for mbx in MAILBOXES:
-        st, msgs = fetch(token, mbx, since)
+        st, msgs, truncated = fetch(token, mbx, since)
         if st != 200:
             per_mailbox[mbx] = "HTTP %s" % st
             print("  %-32s HTTP %s" % (mbx, st))
             continue
         per_mailbox[mbx] = len(msgs)
-        print("  %-32s %d message(s)" % (mbx, len(msgs)))
+        # What was actually read, as opposed to what was asked for.
+        dates = sorted((m.get("receivedDateTime") or "")[:10] for m in msgs if m)
+        coverage[mbx] = {"messages": len(msgs), "truncated": truncated,
+                         "oldest": dates[0] if dates else None,
+                         "newest": dates[-1] if dates else None}
+        print("  %-32s %d message(s)%s  %s -> %s"
+              % (mbx, len(msgs), "  TRUNCATED" if truncated else "",
+                 dates[0] if dates else "-", dates[-1] if dates else "-"))
 
         for m in msgs:
             e = (m.get("from") or {}).get("emailAddress") or {}
@@ -420,9 +437,20 @@ def main():
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "window_days": args.days,
         "per_mailbox": per_mailbox,
+        # The window that was asked for is not necessarily the one that was
+        # read. Anything reporting a count should say which.
+        "coverage": coverage,
+        "truncated": sorted(m for m, c in coverage.items() if c["truncated"]),
+        "covered_from": min((c["oldest"] for c in coverage.values()
+                             if c["oldest"]), default=None),
         "counts": dict(counts),
         "companies": rows,
-        "signals": signals[:200],
+        # All of them. This was signals[:200], which quietly threw away 719
+        # of 919 the moment the mailbox sweep started reaching back a real
+        # 180 days - the same defect as the page cap, one layer down. If the
+        # board wants a shorter window it can choose one and say so.
+        "signal_count": len(signals),
+        "signals": signals,
     }
     json.dump(data, open(OUT, "w", encoding="utf-8"), indent=1)
 

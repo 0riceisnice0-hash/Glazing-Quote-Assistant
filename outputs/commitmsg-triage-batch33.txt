@@ -1,0 +1,25 @@
+BSW never got the Vesuvius enquiry, and only the sender ever sees a bounce
+
+33 work orders read as one picture. 25 routed to their own chats, one new job
+opened, eight handled here.
+
+The find is Vesuvius. The RFQ went to estimations@bsws.co.uk three times this
+afternoon with a 39 MB zip and bounced twice on RecipSizeLimit - their cap is
+36 MB. BSW hold nothing and the tender is due Thursday. A bounce goes back to
+the sender only, so this would have read as a slow supplier. The enquiry also
+excludes fire-rated leaves unless BSW can certify them, which moves REQ-8 out of
+the enquiry rather than closing it.
+
+New job eleanor-trade-centre - GBP 7,975.85 issued today, and Adam's "it says
+liniar upvc but it's aluminium" checked at the rate rather than the label:
+GBP 875.30/m2 against GBP 494.75 Sheerline and GBP 193.09 Liniar, so the
+correction was real. The recipient auto-replied out of office one minute later.
+
+Manor Lodge Rev A does not match the instruction on three counts, including an
+inward-opening door quoted 79 minutes before Steve told them it opens out.
+
+Jacob's Chasing page was aging quotes from return dates - Princess Beatrice and
+Crestwood Park were both sent 27/07 and both had client replies inside a day.
+A return date is when we had to submit by, not when we sent.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
