@@ -68,13 +68,31 @@ def save(path, data):
     json.dump(data, open(path, "w", encoding="utf-8"), indent=1)
 
 
-def env():
-    e = {}
-    for line in open(os.path.join(REPO, ".env.jacob"), encoding="utf-8-sig"):
+def _read_env_file(path):
+    out = {}
+    if not os.path.exists(path):
+        return out
+    for line in open(path, encoding="utf-8-sig"):
         if "=" in line and not line.strip().startswith("#"):
             k, v = line.split("=", 1)
-            e[k.strip()] = v.strip()
-    return e
+            out[k.strip()] = v.strip()
+    return out
+
+
+def _hub_keys(cfg):
+    """The dashboard key and URL are shared infrastructure, not Jacob's own
+    credentials, so they live in .env.mary. Fall back to it for those two
+    values only - never for the Graph secrets, which must stay separate."""
+    if not cfg.get("MARY_API_KEY") or not cfg.get("DASHBOARD_URL"):
+        mary = _read_env_file(os.path.join(REPO, ".env.mary"))
+        for k in ("MARY_API_KEY", "DASHBOARD_URL"):
+            if not cfg.get(k) and mary.get(k):
+                cfg[k] = mary[k]
+    return cfg
+
+
+def env():
+    return _hub_keys(_read_env_file(os.path.join(REPO, ".env.jacob")))
 
 
 def api(cfg, path, method="GET", payload=None):

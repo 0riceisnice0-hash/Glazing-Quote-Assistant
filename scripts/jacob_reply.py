@@ -23,16 +23,35 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ENV = os.path.join(REPO, ".env.jacob")
 
 
+def _read_env_file(path):
+    out = {}
+    if not os.path.exists(path):
+        return out
+    for line in open(path, encoding="utf-8-sig"):
+        if "=" in line and not line.strip().startswith("#"):
+            k, v = line.split("=", 1)
+            out[k.strip()] = v.strip()
+    return out
+
+
+def _hub_keys(cfg):
+    """The dashboard key and URL are shared infrastructure, not Jacob's own
+    credentials, so they live in .env.mary. Fall back to it for those two
+    values only - never for the Graph secrets, which must stay separate."""
+    if not cfg.get("MARY_API_KEY") or not cfg.get("DASHBOARD_URL"):
+        mary = _read_env_file(os.path.join(REPO, ".env.mary"))
+        for k in ("MARY_API_KEY", "DASHBOARD_URL"):
+            if not cfg.get(k) and mary.get(k):
+                cfg[k] = mary[k]
+    return cfg
+
+
 def load_env():
     if not os.path.exists(ENV):
         sys.exit("%s not found" % ENV)
-    env = {}
-    for line in open(ENV, encoding="utf-8-sig"):
-        if "=" in line and not line.strip().startswith("#"):
-            k, v = line.split("=", 1)
-            env[k.strip()] = v.strip()
+    env = _hub_keys(_read_env_file(ENV))
     if not env.get("MARY_API_KEY"):
-        sys.exit("MARY_API_KEY missing from .env.jacob (the hub key is shared)")
+        sys.exit("No MARY_API_KEY in .env.jacob or .env.mary")
     return env
 
 

@@ -256,6 +256,9 @@ let JMSGS = [];
 let JREQS = [];
 let BOTCHAT = [];
 let JACTIVITY = null;
+/* What was on screen last time render() ran. A background refresh must leave
+   the page exactly where you left it; only a deliberate tab change resets it. */
+let LAST_VIEW = { page: null, bot: null };
 const openJacobReqs = () => JREQS.filter((r) => r.status !== "answered");
 
 async function sendToJacob(body, context = "") {
@@ -774,8 +777,18 @@ function render() {
   const active = document.activeElement;
   const focusKey = active?.dataset?.draft || (active?.id === "search" ? "search" : null);
   const caret = focusKey && active.setSelectionRange ? [active.selectionStart, active.selectionEnd] : null;
+  // Scroll state, captured before the page is thrown away and rebuilt.
+  // "Same view" means a background refresh, so everything stays put. A tab
+  // change is deliberate and starts at the top.
+  const sameView = LAST_VIEW.page === page && LAST_VIEW.bot === BOT;
+  const winY = window.scrollY;
+  const atBottom = (el) => !el || el.scrollHeight - el.scrollTop - el.clientHeight < 40;
   const thread = $(".chat-thread");
-  const stickToBottom = !thread || thread.scrollHeight - thread.scrollTop - thread.clientHeight < 40;
+  const stickToBottom = atBottom(thread);
+  const threadTop = thread ? thread.scrollTop : 0;
+  const feedBefore = $("#ev-feed");
+  const feedStick = atBottom(feedBefore);
+  const feedTop = feedBefore ? feedBefore.scrollTop : 0;
 
   const jacob = BOT === "jacob";
   const pages = jacob ? JACOB_PAGES : PAGES;
@@ -814,17 +827,30 @@ function render() {
     }
   }
   // Land on the newest message, and keep following it unless you have
-  // deliberately scrolled up to read something older.
-  // The live feed follows Mary the same way the chat follows a conversation.
+  // deliberately scrolled up to read something older. Scrolling up used to be
+  // pointless on the live feed - it jumped back to the bottom every few
+  // seconds whether you were reading or not.
   const feed = $("#ev-feed");
-  if (feed) feed.scrollTop = feed.scrollHeight;
+  if (feed) {
+    if (!sameView || feedStick) feed.scrollTop = feed.scrollHeight;
+    else feed.scrollTop = feedTop;
+  }
 
   const t = $(".chat-thread");
-  if (t && stickToBottom) {
-    t.style.scrollBehavior = "auto";       // no visible lurch on first paint
-    t.scrollTop = t.scrollHeight;
-    requestAnimationFrame(() => { t.scrollTop = t.scrollHeight; t.style.scrollBehavior = ""; });
+  if (t) {
+    if (!sameView || stickToBottom) {
+      t.style.scrollBehavior = "auto";     // no visible lurch on first paint
+      t.scrollTop = t.scrollHeight;
+      requestAnimationFrame(() => { t.scrollTop = t.scrollHeight; t.style.scrollBehavior = ""; });
+    } else {
+      t.scrollTop = threadTop;
+    }
   }
+
+  // The page itself. Rebuilding #page changes its height, which drops the
+  // window to the top mid-read on every background refresh.
+  window.scrollTo({ top: sameView ? winY : 0, behavior: "auto" });
+  LAST_VIEW = { page, bot: BOT };
 
   const send = $("#chat-send");
   if (send) send.addEventListener("click", async () => {
