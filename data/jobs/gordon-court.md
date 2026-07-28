@@ -3124,6 +3124,81 @@ positions on openings we are glazing.
 
 ---
 
+## 4AJ. THIRTY-EIGHTH TURN (28/07) — I fixed a false absence claim by asking for a document I already held
+
+### 4AJ.1 riverside's uncounted attachment, and mine was the register itself
+
+> **"An uncounted attachment is not a harmless attachment — it is a document you have decided is irrelevant
+> without reading it."**
+
+`Document_Register.pdf` has sat in `scratchpad\gc-zip\` since the third turn. **I extracted it, listed it,
+and never opened it.**
+
+**Last turn I rewrote Chigwell §3.2 to remove a false claim that we lacked 57 drawings — and replaced it
+with a request for the drawing register.** The register was in the pack. **The fix carried the same fault
+as the thing it fixed, one turn later and one paragraph over.**
+
+### 4AJ.2 What the register actually settles — and it makes the letter shorter and stronger
+
+| | |
+|---|---|
+| Sheets on the register | **84** |
+| Sheets in the zip | **84** |
+| On the register but missing from the issue | **none** |
+| In the issue but not on the register | **none** |
+
+**The tender issue is complete, reconciled both directions.** And the register — the client's own document,
+generated 24/06/2026 for package WP15, package lead Luke Baker — **lists three demolition sheets, all of
+them PLANS. There is no demolition elevation on it at all.**
+
+So §3.1 stops being *"we were not sent them"* and becomes *"three drawings require a sheet that is not on
+your register"*:
+
+> *"So the question is not whether we were sent them — it is whether they exist… If they were never
+> produced, please confirm that and we will take the extents from the plans and the existing elevations."*
+
+**§3.2 deleted entirely.** Nothing to ask. Letter is shorter and every remaining item is real.
+
+### 4AJ.3 riverside's entity check, run here — and Chigwell appear nowhere in the tender pack
+
+> **"Put the name on your pricing document beside the name on the planning application, the enquiry email
+> and the signature block. If they are not all the same company, ask which one is ordering."**
+
+| | |
+|---|---|
+| Our issued proposal | **"Chigwell Group"** — no entity suffix, no company number |
+| Our own job folder | **"Chigwell (London) PLC"** |
+| ITT, Contract Data, Form of Tender, Q&As, register, programme | **Chigwell appear nowhere — zero mentions** |
+
+Expected, since the pack is jLiving's and Chigwell are a bidder. **But it means no document anywhere
+establishes which entity will place our order, and we hold two different names for them.**
+
+**It matters for the same reason it did on Riverside: every entitlement catalogued at §4Z runs through our
+standard terms, and those attach to whoever contracts.** Deposit and payment turn on *"receipt of a
+Purchase Order"* from the client; Cancellation and Postponement on *"should the client cancel or postpone"*;
+Additional Limitations on dimensions *"provided by others"*.
+
+**And this job has a sharpener riverside's does not.** jLiving's ITT makes it *"a condition precedent to the
+acceptance of any offer that, **in the event of the Bidder being a subsidiary company**, its ultimate
+holding company executes a Letter of Parent Company Guarantee."* **jLiving have already anticipated the
+group-versus-subsidiary question at main contract level** — which is exactly the ambiguity between
+"Chigwell Group" and "Chigwell (London) PLC".
+
+New **section 7**, worded as the administrative question it is — *"we have no view on the answer, it is
+entirely your structure"* — and offering to re-issue against the correct entity at no charge.
+
+### 4AJ.4 My own smallest-sentence test, applied to my own header
+
+riverside corrected their routing line from *two* to *three*. Mine said *"two are for Edward Pearce"* and
+**there is one**. Replaced with a counted breakdown: **five for Arkon (1, 2, 3.1, 4, 6), one for Edward
+Pearce (3.2), three genuinely Chigwell's (5, 7, 8)** — which is more useful than "most" anyway, because it
+tells Luke Baker how much is his to answer rather than forward.
+
+**Section 8.2 is still the last section and still deletes cleanly** — the new section went in *before* the
+admin block deliberately, because that promise to Adam is now eleven turns old and still live.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

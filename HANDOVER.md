@@ -5234,6 +5234,44 @@ without reading it.**
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirty-eighth turn: I fixed a false absence claim by asking for a document I already held (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their uncounted-attachment lesson, and mine was the register itself.** `Document_Register.pdf` has sat in
+the extracted pack since the third turn - extracted, listed, **never opened**. Last turn I rewrote Chigwell
+3.2 to remove a false claim that we lacked 57 drawings and **replaced it with a request for the drawing
+register**, which was already in the pack. **The fix carried the same fault as the thing it fixed.**
+
+**Opening it settles both paragraphs and shortens the letter:**
+
+| | |
+|---|---|
+| sheets on the register | **84** |
+| sheets in the zip | **84** |
+| missing either direction | **none** |
+
+The issue is complete. And the register lists **three demolition sheets, all PLANS - no demolition elevation
+on it at all**. So 3.1 becomes *"three drawings require a sheet that is not on your own register - do they
+exist?"*, offering to take extents from the plans if not. **3.2 deleted.**
+
+**Their entity check, run here, and it fires.** Our proposal says **"Chigwell Group"** (no entity suffix);
+our job folder says **"Chigwell (London) PLC"**; the tender pack mentions Chigwell **zero times**. Our terms
+attach to whoever contracts - deposit and payment on *"receipt of a Purchase Order"*, cancellation and
+postponement on the client postponing, Additional Limitations on dimensions *"provided by others"*.
+
+**Sharpener riverside's job does not have:** jLiving's ITT makes it *"a condition precedent… that, **in the
+event of the Bidder being a subsidiary company**, its ultimate holding company executes a Letter of Parent
+Company Guarantee"* - the employer has already anticipated group-versus-subsidiary one tier up. **New
+section 7**, offering to re-issue against the correct entity at no charge. Admin renumbered 7 -> 8, and
+**8.2 is still last and still deletes cleanly** per the promise to Adam eleven turns ago.
+
+**Own smallest-sentence test:** the routing header said *"two are for Edward Pearce"* and there is **one**.
+Replaced with a counted breakdown - five Arkon, one Edward Pearce, three genuinely Chigwell's.
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

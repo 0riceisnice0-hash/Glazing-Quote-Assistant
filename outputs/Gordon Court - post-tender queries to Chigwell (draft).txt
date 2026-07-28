@@ -25,12 +25,16 @@ record from the tender stage rather than appearing at order.
 =====================================================================================
 A NOTE ON ROUTE, WHICH MAY SAVE TIME
 =====================================================================================
-Most of these are questions for Arkon Associates (job 5244, drawn GM, checked IJC) rather
-than for Chigwell, and two are for Edward Pearce (job 22/190). We have named the owner and
-the sheet against each so they can be forwarded in one step. We are conscious the ITT
-clarification window closed on approximately 15 July and that the ITT directs all questions
-via the Delta portal, so we are raising them with you rather than approaching anyone
-directly.
+Of the eight sections below, FIVE are for Arkon Associates (job 5244, drawn GM, checked
+IJC) - sections 1, 2, 3.1, 4 and 6. ONE is for Edward Pearce (job 22/190) - section 3.2.
+The remaining THREE are genuinely yours: strip-out allocation at section 5, which company
+places the order at section 7, and two corrections to our own proposal at section 8. We
+have named the owner and the sheet against each so the first six can be forwarded in one
+step.
+
+We are conscious the ITT clarification window closed on approximately 15 July and that
+the ITT directs all questions via the Delta portal, so we are raising them with you rather
+than approaching anyone directly.
 
 =====================================================================================
 1. THE SMOKE VENTILATION - THREE QUESTIONS, ONE PACKAGE   [ARKON, sheets 52003 and 14001-14005]
@@ -89,22 +93,20 @@ marked "AOV" in Corridors 1-1/1-2/1-3, and 4no WL_1 noted "Louvres to smoke shaf
 =====================================================================================
 3. INFORMATION WE STILL NEED FROM THE DESIGN TEAM
 =====================================================================================
-3.1  THE DEMOLITION ELEVATIONS.  [ARKON]
+3.1  THE DEMOLITION ELEVATIONS - REFERRED TO BY THREE DRAWINGS AND NOT ON THE REGISTER.  [ARKON]
      All three demolition plans - 10015 Ground Floor, 10016 First Floor and 10017 Roof -
      state "These notes must be read together with the demolition elevations to confirm
-     heights and vertical extents of demolition." We hold thirty-one elevation drawings in
-     the tender issue and none of them is a demolition elevation; the three demolition
-     sheets are all plans. Vertical extents set head and cill positions on the openings we
-     are glazing, so please issue them if they exist.
+     heights and vertical extents of demolition."
+     We have checked this against your own Document Register rather than against what
+     happened to reach us. The register lists 84 5244-ARK sheets; all 84 are in the issue
+     we hold, so nothing is missing. Of those, three are demolition sheets and all three
+     are PLANS. There is no demolition elevation on the register at all.
+     So the question is not whether we were sent them - it is whether they exist. Vertical
+     extents set head and cill positions on the openings we are glazing. If they were never
+     produced, please confirm that and we will take the extents from the plans and the
+     existing elevations; if they do exist outside the register, please issue them.
 
-3.2  THE DRAWING REGISTER.  [ARKON]
-     We hold 84 distinct 5244-ARK sheets from the tender issue, five of them at two
-     revisions. We are not asking for sheets - what we would like is the register, so we
-     can confirm the set is complete and see whether anything has been revised since the
-     issue we are working from. Sheets 21005 to 21008 each reached us at more than one
-     revision, which is the reason for asking.
-
-3.3  THE SAP CALCULATIONS.  [EDWARD PEARCE, job 22/190]
+3.2  THE SAP CALCULATIONS.  [EDWARD PEARCE, job 22/190]
      NBS L10 clause 330 defers g-value, frame factor and glazing details to "SAP Consultants
      specification". The Energy Statement notes that "Full SAP calculations for each scenario
      and the GLA reporting spreadsheet will be submitted in a separate file". Please issue
@@ -159,9 +161,36 @@ state the figure and to price a compliant obscure unit if it falls short. That o
 ours to resolve and we are not asking you to do anything about it.
 
 =====================================================================================
-7. TWO ADMINISTRATIVE POINTS ON OUR OWN PROPOSAL
+7. WHICH CHIGWELL COMPANY WILL BE PLACING THE ORDER?
 =====================================================================================
-7.1  Our proposal of 09/07 carries two statements that we should correct rather than leave
+An administrative question rather than a commercial one, and we have no view on the answer -
+it is entirely your structure.
+
+Our proposal of 09/07 is addressed to "Chigwell Group". That is how the enquiry reached us
+and we have simply carried it through. It is not, so far as we can tell, a registered
+company name, and our own records for this job are filed under "Chigwell (London) PLC" -
+so we hold two names and no document that settles which one is right.
+
+It matters for one practical reason. Our terms and conditions attach to whoever places the
+order: the deposit and payment terms turn on receipt of a purchase order from the client,
+the cancellation and postponement clause on the client cancelling or postponing, and the
+Additional Limitations clause on dimensions provided by others. If the order arrives from a
+company other than the one we quoted, those provisions have to be read against a party we
+have not addressed.
+
+We also note jLiving's own ITT makes it "a condition precedent to the acceptance of any
+offer that, in the event of the Bidder being a subsidiary company, its ultimate holding
+company executes a Letter of Parent Company Guarantee" - so the group-versus-subsidiary
+question is one jLiving have already anticipated at main contract level.
+
+Please confirm the full registered name of the company that will issue our order, so that
+the order, our terms and our invoices all name the same one. If it is not "Chigwell Group"
+we will re-issue the proposal against the correct entity at no charge.
+
+=====================================================================================
+8. TWO ADMINISTRATIVE POINTS ON OUR OWN PROPOSAL
+=====================================================================================
+8.1  Our proposal of 09/07 carries two statements that we should correct rather than leave
      standing. It says "no doors are included within the schedule drawings", which is wrong -
      schedule 51001 is the External and Communal Door Schedule and we have priced 15 external
      and 44 patio doors from it. And it describes our scope as "limited to the manufacture,
@@ -173,7 +202,7 @@ ours to resolve and we are not asking you to do anything about it.
      pricing spreadsheet carries no exclusions on its face and is not intended to displace
      them. We will re-issue the proposal text if that is helpful.
 
-7.2  Our standard terms carry a 30-day quotation validity, and our proposal is dated 09/07.
+8.2  Our standard terms carry a 30-day quotation validity, and our proposal is dated 09/07.
      We are content to continue to honour the tendered figure and are not seeking to withdraw
      it - Adam has confirmed that. We mention it only so that the position is on record, and
      to ask whether our terms and exclusions were carried into your own tender return under

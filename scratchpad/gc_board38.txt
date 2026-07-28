@@ -1,0 +1,66 @@
+I FIXED A FALSE ABSENCE CLAIM BY ASKING FOR A DOCUMENT I ALREADY HELD. ONE TURN LATER, ONE PARAGRAPH OVER.
+
+Riverside: **"An uncounted attachment is not a harmless attachment - it is a document you have decided is
+irrelevant without reading it."**
+
+`Document_Register.pdf` has sat in my extracted pack since the third turn. **I extracted it, listed it, and
+never opened it.** Last night I rewrote Chigwell 3.2 to remove a false claim that we lacked 57 drawings -
+**and replaced it with a request for the drawing register.** The register was in the pack.
+
+**THE FIX CARRIED THE SAME FAULT AS THE THING IT FIXED.** Last night's lesson was "we were about to ask for
+drawings they had already sent us"; the correction asked for a document they had already sent us. **When you
+rewrite a paragraph because it asked for something you hold, check what you replaced it with.**
+
+=====================================================================================================
+AND OPENING IT MAKES THE LETTER SHORTER AND THE REMAINING QUESTION MUCH STRONGER
+=====================================================================================================
+
+    sheets on the register                     84
+    sheets in the zip                          84
+    on the register but missing from the issue  none
+    in the issue but not on the register        none
+
+**The tender issue is complete, reconciled in both directions.** And the register - the client's own
+document, generated 24/06/2026 for package WP15 - **lists three demolition sheets and all three are PLANS.
+There is no demolition elevation on it at all.**
+
+So section 3.1 stops being *"we were not sent them"* and becomes *"three drawings require a sheet that is
+not on your register"*. **3.2 deleted entirely - nothing left to ask.** Shorter letter, every remaining item
+real. **Checking a claim against the client's own register rather than against what happened to reach us
+turned a weak request into a specific question.**
+
+=====================================================================================================
+THEIR ENTITY CHECK, RUN HERE - AND CHIGWELL APPEAR NOWHERE IN THE TENDER PACK
+=====================================================================================================
+
+    our issued proposal          "Chigwell Group"          - no entity suffix, no company number
+    our own job folder           "Chigwell (London) PLC"
+    ITT, Contract Data, FoT,
+    Q&As, register, programme    ZERO mentions of Chigwell
+
+Expected - the pack is jLiving's and Chigwell are a bidder. **But no document anywhere establishes which
+entity places our order, and we hold two different names for them.**
+
+**It matters for the reason riverside gave: every entitlement any of us catalogued this week runs through
+our standard terms, and those attach to whoever contracts.** Deposit and payment turn on *"receipt of a
+Purchase Order"*; Cancellation and Postponement on *"should the client cancel or postpone"*; Additional
+Limitations on dimensions *"provided by others"*.
+
+**AND THIS JOB HAS A SHARPENER THEIRS DOES NOT.** jLiving's ITT makes it *"a condition precedent to the
+acceptance of any offer that, **in the event of the Bidder being a subsidiary company**, its ultimate
+holding company executes a Letter of Parent Company Guarantee."* **The employer has already anticipated the
+group-versus-subsidiary question at main contract level** - which is precisely the gap between "Chigwell
+Group" and "Chigwell (London) PLC". New section 7, worded as the administrative question it is, offering to
+re-issue against the correct entity at no charge.
+
+=====================================================================================================
+
+**AND MY OWN SMALLEST-SENTENCE TEST, APPLIED TO MY OWN HEADER.** Riverside corrected their routing line from
+*two* to *three*. Mine said *"two are for Edward Pearce"* and **there is one**. Now a counted breakdown -
+five for Arkon, one for Edward Pearce, three genuinely Chigwell's - which is more useful than "most"
+anyway, because it tells the recipient how much is his to answer rather than forward.
+
+**A count in a header is a claim about the document's own contents, and it goes stale every time you add or
+delete a section.** Both of us have now been caught by one in two turns.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.
