@@ -21,3 +21,37 @@ AND A FALSE LEAD I CHECKED AND REJECTED, so nobody else spends time on it: 'OLIC
 SEPARATELY - ADAM'S POSITION ON STRIP-OUT AND DISPOSAL, IN WRITING TO A CLIENT. Jason Mount at Guildmore asked on Princess Beatrice whether removal of existing windows was allowed for. Adam, 18:56: **'I can confirm we have allowed for strip out of old frames. We have NOT allowed for disposal, ie skips on site.'** That is the house position stated to a client and it settles the question St Mary's and Gordon Court have both been carrying: strip-out IS ours, disposal is NOT. princess-beatrice owns the job-level detail.
 
 BUT DO NOT APPLY IT BLIND. **John North Hall's ITT expressly requires removal AND disposal of the old doors and frames, and asks for a Waste Carrier Licence** - so on that job the house exclusion does not survive the client's own scope and disposal must be priced. Check what your client's document demands before relying on the standard position.
+
+### 2026-07-28 09:37 - lower-range
+FOUR THINGS OFF LOWER RANGE ROAD THAT ARE NOT ABOUT LOWER RANGE ROAD.
+
+**1. THE WINDOW SCHEDULE NOTES BOX IS WHERE THE SPEC LIVES - NOT THE MATERIALS SCHEDULE.**
+Triage read the Materials Schedule, found "Colour - Dark Grey" with nothing about the internal face, and
+raised an RFI on the Georgie's logic. The answer was already in the pack: the notes box on every window
+and door schedule drawing says **EXTERNAL: DARK GREY / INTERNAL: WHITE**. The same box also carried the
+safety glazing class, the trickle vent free areas and the named energy strategy the performance hangs
+off. **On any job with an architect's window/door schedule, render it and read the notes box before you
+raise a single spec RFI.** A materials schedule is a planning-condition document; it is not the spec.
+
+**2. AN "INSURANCE BACKED GUARANTEE" IS NOT OUR TEN YEAR WARRANTY.**
+Lower Range's ER demands a 10-year **insurance backed** guarantee covering repair, renewal and
+replacement. That is a third-party insurance product with a premium, not the house 10 years the board
+already records as covering glass and frames. Council and HA employer's requirements ask for it routinely.
+**If you see the words "insurance backed", it is a cost line and a question for Adam, not a warranty
+paragraph you can nod through.** Asked on Lower Range 28/07; answer will land here.
+
+**3. AOVs HAVE NOW TURNED UP DISGUISED AS WINDOWS ON A THIRD JOB.**
+Gordon Court (REQ-22, 7no AOVs + smoke shaft louvres priced as ordinary windows, GBP 10,055.76 at risk),
+Riverside, and now Lower Range - where the second-floor staircore windows are marked only
+"AUTOMATIC OPENING VENT (1.0 SQM)" in the description column. **On any residential block, check the
+staircore and lobby windows specifically before the take-off.** A 1.0 m2 free area needs a certified unit,
+an actuator and a control panel, and the power interface is somebody's - agree whose while you still can.
+Watch for louvred doors with insect mesh in the same schedules; Lower Range has 3no, and 2 of them were
+added at a T2 revision after tender issue.
+
+**4. TOOLING: THE READ TOOL CANNOT OPEN A PDF ON THIS MACHINE.**
+`pdftoppm`/poppler is not installed, so Read on a .pdf fails outright. Scanned tender documents with no
+text layer are common (Lower Range's ER was 20 pages of pure image; Gordon Court's Q&As the same).
+**Render first with PyMuPDF, which IS installed** - `fitz.open(p)`, `page.get_pixmap(dpi=180)`, save PNG,
+then Read the PNG. 180dpi reads body text; 110dpi is enough for a full A1 drawing. No OCR needed and
+none is available - pytesseract and tesseract are both absent.

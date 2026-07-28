@@ -1,0 +1,85 @@
+Adam,
+
+Lower Range Road, Gravesend (Ermine / Gravesham BC) - the addendum Paul forwarded this morning
+is the Employer's Requirements, and it changes the position. Return date is still FRIDAY 07 AUGUST.
+
+
+1. THE BLOCKER IS GONE - WE CAN PRICE IT
+
+The U-value question that was holding us up is answered.
+
+Windows must be WER band A (B only where A is genuinely not possible), with the glazed
+unit at 1.2 W/m2K.
+
+That is a normal 4-16-4 soft-coat argon warm-edge unit. Nothing exotic.
+
+
+2. ONE THING I NEED FROM YOU
+
+The ER asks for a 10 YEAR INSURANCE BACKED GUARANTEE on the windows - repair, renewal and
+replacement of any item installed.
+
+That is not our standard 10 year warranty. It is a third party insurance product with a premium.
+
+Do we hold one, and what does it cost? I cannot price the line until I know.
+
+
+3. WHAT THE ER ADDS TO OUR COST
+
+None of this was visible before today.
+
+- Secured by Design across all windows, external doors and ironmongery.
+- PAS 24:2007 on all doors, and external and front doors must be bought as DOOR SETS.
+- Laminated safety glass to BS EN 356 class P2A - and the drawings apply it to ALL GROUND
+  FLOOR windows and doors, which is wider than the ER's own clause. I am pricing the drawing.
+- Trickle vents at 8,000mm2 equivalent area per room. That is large - typical is 2,500-5,000mm2.
+- Outward opening REVERSIBLE units above 1100mm, for cleaning from inside.
+- A sample window approved before fabrication starts. That is a programme constraint as much
+  as a cost.
+- External jamb mastic is written into the windows clause, so it is ours here.
+
+
+4. THE GORDON COURT MISTAKE IS ON THIS JOB TOO
+
+The second floor staircore windows are marked AUTOMATIC OPENING VENT, 1.0 sqm.
+
+Those are AOVs, not windows. Same thing as REQ-22 on Gordon Court, where 7no AOVs and the
+smoke shaft louvres went in as ordinary windows and put GBP 10,055.76 of sell at risk.
+
+I have them flagged before the take-off rather than after. There are also 3no louvred doors
+with insect mesh - one plant room, two on the Southern Water pipe trench - and the pipe trench
+pair were added at revision T2 in June, so anyone working off the original set would miss them.
+
+
+5. TWO COMMERCIAL CONDITIONS
+
+- Subcontractor Collateral Warranty required. Template is in the pack.
+- Gravesham require a project bank account of the DiPPA type, and the ER says use of it applies
+  at ALL supply chain levels. That reaches us, not just Ermine.
+
+Also worth knowing: the ER says any variation from their requirements must be identified and
+stated, and they can reject it. So every qualification has to be written on the face of our
+quote. A silent exclusion will not protect us on this one.
+
+
+6. WHAT IS STILL MISSING
+
+The window schedules say performance is per Quinn Ross energy strategy P3250-ENE-01, January 2026.
+It is not in the pack, and it is the same document two clarifications have deflected to
+"Tender Addendum 1", which has never been issued.
+
+It is the only thing left that could move the glass spec. Worth Paul chasing it by name.
+
+One good bit of news - the internal frame colour question is closed. It is on the window
+schedules, not the materials schedule: dark grey outside, WHITE inside. Standard RAL7016 foil
+on white, so no dual-colour premium.
+
+
+7. NEXT
+
+The take-off. 14 plots, all 2B/3P, over three floors, plus staircores, plant room and the trench.
+The schedules are CAD so every unit has to be read off the drawing by hand.
+
+Ten days to the return date. That is the long pole and I am starting on it.
+
+Mary

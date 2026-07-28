@@ -1,0 +1,74 @@
+The addendum was the Employer's Requirements, and the colour question had been answered on a drawing all along
+
+Paul forwarded a Once For All addendum notice with no attachment. The zip was in
+the archive folder: ERs Document.pdf, twenty pages of scan with no text layer.
+pdfplumber returned nothing and the Read tool cannot open a PDF on this machine
+because poppler is not installed, so I rendered it with PyMuPDF at 180dpi and read
+the pages. There is no OCR available here and none was needed.
+
+It is pages 32-51 of 51 of Section Nr.5, Project Specific Requirements, by b&m,
+being exactly parts 2.13 and 2.14. I checked whether the missing 31 pages were an
+error before calling it one. They are not: clarification C08 item 7 asked for the
+Employer's Requirements and was answered "refer to Section 5 part 2.13", and this
+is Ermine issuing precisely that. The reissued Document Register confirms nothing
+else changed and the return date is still 07 August.
+
+It unblocks the price. Clause 2.13.4.6.3 requires WER band A, B only where A is
+genuinely not achievable, with the glazed unit at 1.2 W/m2K. That answers C22, the
+question the handover recorded as the biggest cost driver in the package and
+unresolved. It is a standard soft-coat argon warm-edge unit; the A rating is the
+driver, not the make-up.
+
+And the RFI I inherited did not need asking. Triage flagged the internal frame
+face as unstated and was right to be careful after Georgie's, but was reading the
+Materials Schedule, which is a planning-condition document rather than the spec.
+The notes box on window schedules 25.578.27-30 says external dark grey, internal
+white. The ER pins the external to RAL 7016 to match the rainwater goods. So it is
+RAL7016 foil on white, the standard cheaper dual-colour, and the same string BSW
+write as "Grey Foil On White (7016)". One RFI closed, and a rule posted to the
+board: read the schedule notes box before raising any spec RFI.
+
+What the ER adds to our cost was invisible until today. Secured by Design across
+windows, doors and ironmongery. PAS 24 with external and front doors bought as
+door sets. Outward opening reversible units above 1100mm. Child-proof stainless
+friction stays. A sample window approved before fabrication starts, which binds
+programme more than cost. External jamb mastic written into the windows clause
+itself, where Gordon Court carried mastic as an option.
+
+The two documents disagree on safety glass and the drawing is the wider one. The
+ER wants laminated below 800mm; the schedules want BS EN 356 class P2A across all
+ground floor windows and doors. I am pricing the drawing and saying so, because
+2.14.1 makes a silent exclusion an undeclared variation the Employer can reject.
+
+The Gordon Court AOV trap is on this job. The second floor staircore windows carry
+"AUTOMATIC OPENING VENT (1.0 SQM)" in a description column and nowhere else. That
+is REQ-22 again, where seven AOVs and the smoke shaft louvres went in as ordinary
+windows and put GBP 10,055.76 at risk. Caught before the take-off this time. There
+are also three louvred doors with insect mesh, two of which were added at revision
+T2 in June, after tender issue, so anyone working from the original set loses them.
+
+Trickle vents are required at 8,000mm2 equivalent area per room, which is large.
+I checked whether MVHR displaced them rather than assuming either way: C11 confirms
+MVHR is ventilation and heat recovery only, heating is combi and radiators, and the
+vents stand.
+
+REQ-31 raised for Adam. The ER demands a ten year insurance backed guarantee, which
+is a third party product with a premium and not the house ten years the board
+records as covering glass and frames. Behind it sit thirty years against rot, ten
+against manufacturing defects, eight on the decoration and five on ironmongery.
+Also flagged: the collateral warranty, and a DiPPA project bank account whose use
+applies at all supply chain levels, so it reaches us and not just Ermine.
+
+Still missing, but now named rather than referenced. The schedules say performance
+is per Quinn Ross energy strategy P3250-ENE-01, January 2026 - that is the real
+identity of the "Tender Addendum 1" both C22 and C08.1 deflected to, and the only
+document left that could move the glass spec. Nobody has confirmed whether the new
+b&m ER supersedes the Frankham ER Section 48.0 the schedules tell us to read them
+with, and neither Frankham document is in the pack.
+
+Fourteen plots, all 2B/3P, three floors, two staircores per floor, a plant room and
+a pipe trench. Not yet priced. The take-off is the long pole with ten days to go,
+and the schedules are vector CAD so every unit has to be read off a rendered
+drawing by hand.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
