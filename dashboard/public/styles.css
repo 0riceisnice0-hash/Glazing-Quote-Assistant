@@ -53,6 +53,31 @@ button, input, select, textarea { font-family: inherit; }
 .live #mary-state { line-height: 1.35; }
 .live-when { display: block; font-size: var(--t-11); color: #6f948c; margin-top: 2px; }
 
+/* Two bots share this hub: Mary (estimating) and Jacob (business
+   development). The sidebar cards are the switch between them - clicking one
+   swaps the whole board. Only the active one is lit. */
+.nav-bot { width: 100%; text-align: left; cursor: pointer; font: inherit;
+  transition: background .14s, border-color .14s, opacity .14s; opacity: .58; }
+.nav-bot + .nav-bot { margin-top: 6px; }
+.nav-bot:hover { opacity: .85; background: rgba(255,255,255,.08); }
+.nav-bot.active { opacity: 1; border-color: rgba(46,172,102,.5); background: rgba(46,172,102,.12); }
+.nav-bot .role { display: block; font-size: var(--t-11); color: #7ea79d; margin-bottom: 2px; }
+.avatar.jw { background: #3f6f8f; }
+.dot.build { background: #7ea79d; animation: none; }
+
+/* Jacob: a source or section that is not wired up yet. Say so plainly rather
+   than showing an empty state that reads as "nothing to do". */
+.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: var(--t-11);
+  font-weight: 600; letter-spacing: .01em; }
+.pill.live { background: rgba(46,172,102,.15); color: #1f7d4d; }
+.pill.planned { background: rgba(63,111,143,.15); color: #3f6f8f; }
+.pill.notstarted { background: rgba(0,0,0,.07); color: var(--muted); }
+.pill.exact { background: rgba(46,172,102,.15); color: #1f7d4d; }
+.pill.strong { background: rgba(224,163,60,.18); color: #8a6220; }
+.pill.possible { background: rgba(0,0,0,.07); color: var(--muted); }
+.planned-note { border: 1px dashed var(--line); border-radius: var(--r-md); padding: 14px 16px;
+  color: var(--muted); font-size: var(--t-13); background: rgba(0,0,0,.015); }
+
 .nav-items { display: grid; gap: 3px; }
 .nav-item { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border: 0; background: none;
   border-radius: var(--r-sm); color: #a8c4bd; font-size: var(--t-14); cursor: pointer; text-align: left;

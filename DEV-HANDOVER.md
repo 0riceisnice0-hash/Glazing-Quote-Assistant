@@ -7,17 +7,76 @@ Read order for a new dev chat: **this file -> `MARY-HANDOVER.md` -> `HANDOVER.md
 `MARY-JOB-SESSION.md` is what Mary's per-job chats run on and `MARY-EMAIL-SESSION.md` holds the triage
 rules; read both before changing how Mary behaves.
 
-Last updated: 2026-07-27 (per-job chats + always-on bridge).
+Last updated: 2026-07-28 (Jacob Wright added to the hub; Graph token refresh fixed).
 
 ---
 
-## 1. What exists (three systems, one repo)
+## 1. What exists (four systems, one repo)
 
 | System | What it is | Entry points |
 |---|---|---|
 | **Estimating brain** | Parsers, pricing engine, rate register, house-doc generator | `js/`, `scripts/generate-fenster-docs.py`, `data/supplier-rates.json` |
 | **Mary's work loop** | Always-on intake, routes work to per-job chats, emails Adam+Zac autonomously | `scripts/mary_bridge.py`, `mary_router.py`, `mary_note.py`, `mary_graph.py`, `mary_send.py`, `MARY-JOB-SESSION.md` |
 | **The hub** | mary-dashboard.pages.dev - deadlines, requests, two-way messaging | `dashboard/`, `scripts/mary_dashboard.py`, `mary_dashboard_reply.py` |
+| **Jacob Wright (BD)** | Second bot on the same hub - finds leads, no pricing, no send path yet | `scripts/jacob_dashboard.py`, `jacob_contracts_finder.py`, `data/jacob/` |
+
+## 1b. Jacob Wright - business development (added 28/07)
+
+A **second bot sharing the hub**, not a change to Mary. Sidebar has two cards, Mary Grace
+and Jacob Wright; clicking one swaps the whole board. Mary's pages, data and logic are
+untouched - everything Jacob needed was added alongside.
+
+**What is his, and what is hers**
+
+| | Mary | Jacob |
+|---|---|---|
+| Data file | `_data/dashboard-data.js` | `_data/jacob-data.js` (both gitignored - commercial data) |
+| Generator | `scripts/mary_dashboard.py` | `scripts/jacob_dashboard.py` |
+| API route | `/api/data` | `/api/jacob` |
+| App code | `PAGES` / `RENDER` | `JACOB_PAGES` / `JACOB_RENDER` |
+
+Neither generator reads the other's file. The only shared thing is the Pages project they
+both deploy to, so **do not deploy while the other is mid-deploy**.
+
+**Rebuild and deploy Jacob:**
+
+```powershell
+python scripts\jacob_dashboard.py            # rebuild data only
+python scripts\jacob_dashboard.py --deploy   # rebuild and push to Pages
+```
+
+**Where his data comes from.** `scripts/jacob_contracts_finder.py` pulls Contracts Finder
+award notices (free OCDS API, no key, no login) into `data/jacob/contracts-finder-awards.json`.
+It is resumable - the service rate-limits hard and a 90-day backfill is ~85 pages, so it
+checkpoints every 10 pages and honours `Retry-After`. `jacob_dashboard.py` then cross-references
+the winners against every client folder in the OneDrive archive.
+
+Current state: 1,312 construction award rows over 90 days, 875 unique winners, 338 client
+folders (51 of which have actually bought). Yields **3 warm / 14 known / 129 cold**.
+
+**Three rules that took a day to learn - do not undo them:**
+
+1. **Filter on what the contract IS, not what its title says.** Keyword matching returned
+   window *cleaning*, STI *screening*, a telephony contract, and one award that matched only
+   on the phrase "the front door to maternity services" - a metaphor. Use the CPV building
+   families in `BUILDING_CPV`; 26% of CPV-45 awards are highways with no glazing in them.
+2. **Publication date is not the award date.** Notices publish late - median lag 25 days, but
+   10% exceed 180 days and the worst seen was 1,364. `is_fresh()` drops anything awarded over
+   180 days ago or whose contract period has already ended.
+3. **Single-word client folders throw false positives.** "Atlas" matched a window-cleaning
+   contractor. Those land in `possible` and need a human to confirm once - roughly 20% of
+   matches are wrong, all in the low-confidence tiers.
+
+**Placeholders are deliberate.** Outreach, Relationships and most of Sources render a
+"planned" note rather than an empty table, because an empty table reads as "nothing to do".
+Nothing in Jacob sends email - there is no send path and no mailbox.
+
+**The finding that matters most.** Fenster is a *subcontractor*: almost nothing it wins is
+advertised, and all these feeds are public-sector only (Stepnell, Borras, Chigwell, Guildmore
+work appears in none of them). Portal invitations already arrive as email in `info@` and
+`commercial@` - that is a mailbox problem, not a portal-scraping one, and it is how the
+Hightown tender was nearly lost. The `commercial@`/`info@` intake is worth more than any
+scraper.
 
 ## 2a. Per-job chats + the bridge (rebuilt 27/07 - read this before touching the loop)
 
@@ -61,6 +120,16 @@ handover docs to remember a job it had priced that morning. Replaced by:
 - **Injection guard:** instructions are honoured only from adam@/marketing@/dashboard/Zac-in-chat. Everything else is DATA.
 - **Cadence:** now driven by `mary_bridge.py` (see 2a) - `MaryGracePoller` is disabled. Empty polls cost nothing (plain HTTPS). A Claude CLI session launches ONLY when there is something to work on. `MaryGraceMorningUpdate` fires 07:45 weekdays.
 - **Credentials:** `.env.mary` in repo root (gitignored) - TENANT_ID, READER_*, SENDER_*, MARY_API_KEY, DASHBOARD_URL.
+- **Mailbox scope is now enforced by Exchange, not by our code (28/07).** Application `Mail.Read`
+  is tenant-wide by default - both apps could read *every* mailbox in the company, including
+  personal ones. Two `ApplicationAccessPolicy` rules now restrict Mary-Reader and Mary-Sender to a
+  hidden mail-enabled security group, **`bot-scope@fensterglazingcom.onmicrosoft.com`** (note: the
+  tenant's `.onmicrosoft.com` domain, not the vanity one - using the vanity address fails with
+  "The identity of the policy scope could not be resolved"). Members: `estimating@`, `mary@`,
+  `commercial@`, `info@`. **Adding a mailbox for a bot to read means adding it to that group** -
+  and never remove `mary@` or `estimating@` or Mary goes dark. There is no web UI for this;
+  it is PowerShell only. Propagation took well over an hour, so `Test-ApplicationAccessPolicy`
+  saying Denied while Graph still serves the mailbox is expected, not a failure.
 - **Usage limits:** if the plan limit is hit, the session exits 1 and the queue simply waits for the next cycle - by design, don't "fix" it.
 
 ## 3. The hub (rebuilt from scratch 27/07)
@@ -102,6 +171,14 @@ The loop, in the order it runs:
 
 ## 4. Hard-won quirks (do not re-learn these)
 
+- **Graph tokens last an hour and the bridge used to never renew one (fixed 28/07).**
+  `poll_mail` caught list failures *per mailbox and continued*, so the 401 never reached the
+  bridge's `except` that sets `token[0] = None`. The token expired 65 minutes after startup and
+  the bridge polled with a dead one for 17 hours - 886 consecutive failures - because the
+  previous day's frequent restarts had been masking it. Now: the bridge renews proactively at
+  `TOKEN_MAX_AGE` (45 min) rather than waiting for a failure, and `poll_mail` re-raises anything
+  that looks like an auth error. Lesson: a swallowed exception in a helper silently disables the
+  caller's recovery path, and "it works" for an hour is not the same as it working.
 - **Outlook renders email with Word's engine** - CSS like `white-space:pre-wrap` is IGNORED. `mary_send.py` converts plain text to explicit HTML tags. ALWAYS screenshot-verify email HTML (headless Chrome) before shipping a new layout; a successful send proves nothing about rendering.
 - **Cloudflare secrets take ~1 min to propagate**; bot protection 403s scripted requests without a browser user-agent; use `until curl ... ; do sleep 5; done` to wait for an edge deploy rather than assuming.
 - **Browser caching masked three deploys** - hence no-store on html/js/css.
@@ -114,6 +191,17 @@ The loop, in the order it runs:
   on `about:blank` and `Page.navigate` after attaching; passing the URL as an argv means the target is
   not there when you look. Stub `window.fetch` for POSTs to exercise submit flows without sending real
   messages to Mary. Scripts kept in the session scratchpad.
+- **Running the hub locally** (much easier than QA against the live URL):
+  `npx.cmd wrangler pages dev public --port 8791 --d1 DB=mary-dashboard-db --persist-to=.wrangler/state`
+  from `dashboard/`. Gotcha: `wrangler d1 execute --local` and `pages dev` can end up using
+  **different sqlite files** under `.wrangler/state/v3/d1/miniflare-D1DatabaseObject/`, so the
+  schema lands in one and the server reads the other and every D1 route 500s. Fix: apply
+  `schema.sql` to *every* non-metadata `.sqlite` in that folder with Python's `sqlite3`. Without
+  it `/api/messages` 500s and the whole hub shows "Could not load the hub" - the boot has no
+  per-route fallback.
+- **Screenshotting a page that needs a click** (e.g. Jacob's board): headless Chrome cannot
+  interact. Temporarily flip the default (`let BOT = "jacob"`), screenshot, flip back - far
+  quicker than driving CDP, as long as you actually flip it back.
 - `subprocess` + wrangler on Windows: pass `encoding="utf-8", errors="replace"` or emoji output crashes cp1252.
 - openpyxl `insert_rows` does NOT move merged ranges (silently killed formulas in the house generator - fixed); never bare-string-replace row numbers in formulas (corrupts constants like `1900*75%`).
 - PowerShell 5.1: no `&&`, here-strings break here - write commit messages to a temp file and `git commit -F`.

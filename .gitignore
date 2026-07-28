@@ -17,3 +17,5 @@ data/estimates.json
 
 # client tender documents extracted from job-folder zips - do not commit
 scratchpad/gc-zip/
+dashboard/functions/_data/jacob-data.js
+dashboard/.wrangler/
