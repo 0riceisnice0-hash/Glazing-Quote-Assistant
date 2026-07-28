@@ -18,8 +18,10 @@
 
 [CmdletBinding()]
 param(
-    [Parameter(Mandatory = $true)][string] $ReaderAppId,
-    [Parameter(Mandatory = $true)][string] $SenderAppId,
+    # Left blank, both are read from .env.jacob so no GUIDs need pasting.
+    [string] $ReaderAppId,
+    [string] $SenderAppId,
+    [string] $EnvFile    = (Join-Path (Split-Path $PSScriptRoot -Parent) ".env.jacob"),
     [string] $JayAddress = "jayk@fensterglazing.com",
     [string] $Domain     = "fensterglazing.com",
     # Mary's reader - used only to prove the two bots stay separated.
@@ -39,6 +41,32 @@ if (-not (Get-Command Get-DistributionGroup -ErrorAction SilentlyContinue)) {
     throw "Not connected to Exchange Online. Run Connect-ExchangeOnline first, in this same window."
 }
 Ok "Exchange Online session is live"
+
+# App ids come from .env.jacob unless passed explicitly. Only the two CLIENT_ID
+# values are read - the secrets are never touched, printed or logged.
+if (-not $ReaderAppId -or -not $SenderAppId) {
+    if (-not (Test-Path $EnvFile)) {
+        throw "No app ids given and $EnvFile does not exist. Create it first (see the five-line template), or pass -ReaderAppId / -SenderAppId."
+    }
+    $cfg = @{}
+    foreach ($line in Get-Content $EnvFile) {
+        if ($line -match '^\s*([A-Z_]+)\s*=\s*(.+?)\s*$') { $cfg[$Matches[1]] = $Matches[2] }
+    }
+    if (-not $ReaderAppId) { $ReaderAppId = $cfg["READER_CLIENT_ID"] }
+    if (-not $SenderAppId) { $SenderAppId = $cfg["SENDER_CLIENT_ID"] }
+    foreach ($k in @("TENANT_ID", "READER_CLIENT_ID", "READER_CLIENT_SECRET",
+                     "SENDER_CLIENT_ID", "SENDER_CLIENT_SECRET")) {
+        if (-not $cfg[$k]) { throw "$EnvFile is missing a value for $k" }
+    }
+    Ok "read app ids from .env.jacob (secrets untouched)"
+}
+foreach ($pair in @(@($ReaderAppId, "reader"), @($SenderAppId, "sender"))) {
+    $g = [ref]([guid]::Empty)
+    if (-not [guid]::TryParse($pair[0], $g)) { throw "The $($pair[1]) app id is not a valid GUID: '$($pair[0])'" }
+}
+if ($ReaderAppId -eq $SenderAppId) { throw "Reader and sender app ids are identical - check .env.jacob." }
+if ($ReaderAppId -eq $MaryReaderAppId) { throw "That is MARY's reader id. Jacob needs his own app - see Part A." }
+Ok "app ids look sane and are not Mary's"
 
 # Jay: resolve rather than assume. If the given address is wrong, look for a
 # sensible candidate and stop so a human can confirm - never guess silently.

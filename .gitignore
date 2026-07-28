@@ -19,3 +19,4 @@ data/estimates.json
 scratchpad/gc-zip/
 dashboard/functions/_data/jacob-data.js
 dashboard/.wrangler/
+.env.jacob
