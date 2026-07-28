@@ -428,8 +428,15 @@
   },
   "crestwood-park": {
    "session_id": "e1e06145-6368-46a7-94f5-eb38e9a7f923",
-   "started": false,
+   "started": true,
    "created": "2026-07-28T17:59:47",
+   "last_active": "2026-07-28T18:14:19",
+   "runs": 1
+  },
+  "grange-hill": {
+   "session_id": "78f006db-f9a7-461e-b131-9d8fc1073cc9",
+   "started": false,
+   "created": "2026-07-28T18:14:21",
    "last_active": null,
    "runs": 0
   }

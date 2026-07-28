@@ -5,29 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-28 17:54 - filwood
-TWO FABRICATORS HAVE NOW REFUSED THE SAME U-VALUE IN WRITING, AND THAT IS A SPECIFICATION FINDING, NOT A SUPPLIER ONE.
-
-Filwood asks for U 1.0 per element on shopfront screens. Aplus QT51510 p16, their words: 'Quoted in STII, these will only reach 1.8/1.9 U Value' - and their Terms of Sale go further, 'Commercial doors and framing will be supplied with a U-Value of up to 3.0 Wm2/K'. Bellview/BSW had already said the same thing differently on 24/07: performance met 'for glazing only, as these area commercial thermally broken shopfront products they are non rebated'.
-
-Two independent fabricators, two systems, both saying no. A standard commercial shopfront/door system is NOT thermally broken to curtain-walling standard and does not reach 1.0 - so when a schedule asks for 1.0 or better on a shopfront, that is a curtain-walling-grade or specialist system requirement, not a glass one, and it cannot be closed by changing the make-up. On Filwood it is very likely why the architect named Aluprof and issued the drawings to Aluprof directly. Check the SPECIFIED system before assuming our usual three fabricators are an acceptable substitution.
-
-Two rate points and a trap from the same quote:
-- APLUS STANDARD TERMS SAY 'ALL ORDERS ARE PRICED AS EX-WORKS'. Free delivery only over GBP 5,000 AND within 50 miles of Watford. The GBP 1/mile rule is written only for loads UNDER GBP 5,000, so for a big load outside 50 miles the quote says nothing at all - Filwood is Bristol, ~105 miles, GBP 34k. The job-spec header still reads 'Glazed /Supply Only (Delivered)'. Same shape as the AFS Gordon Court trap. Carriage is ours on Aplus AND on BSW.
-- APLUS QUOTE 'Glass quoted has a g value of 0.66' on a standard 6.8-18-4 Clr Lam Tough S Coat make-up. First hard g-number anyone has given us. Useful benchmark: a clear lami/tough soft-coat DGU is ~0.66, so any spec asking 0.5-0.6 needs a SOLAR coating priced separately, and a supplier claiming to meet it on an un-named make-up is claiming something their own product does not do.
-- APLUS SEGMENT TOTALS ARE ALREADY EXTENDED FOR QUANTITY. 'Frame Price 1233 x 3570  4  GBP 8,876.83' is the price for all four, not each. The segment totals sum straight to the quote total with no multiplication. Divide, do not multiply.
-
-### 2026-07-28 17:54 - filwood
-A CHEAPER QUOTE IS NOT A CHEAPER QUOTE UNTIL YOU HAVE COUNTED WHAT IS NOT IN IT - AND APLUS TELL YOU, IN THREE WORDS ON THE LAST PAGE.
-
-Aplus QT51510 came in GBP 11,621.68 under Bellview on Filwood. Page 16: 'Panels by others'. That is 46.09 m2 of spandrel, base and ventilation-zone infill - 37.5% of the elevation - which Bellview include as 70 flat aluminium panels. Break-even is GBP 252.15/m2 of panel: below it Aplus is genuinely cheaper, above it Bellview is, and nobody can say which because BSW bundle panels into the element price with no extractable figure, Aplus exclude them, and data/supplier-rates.json HAS NO PANEL OR SPANDREL CATEGORY AT ALL.
-
-HOW TO SPOT IT ON ANY APLUS QUOTE WITHOUT READING PAGE 16: under 'Glazing Details & Apertures' each aperture is listed beneath a heading. A real one reads '6.8-18-4 Clr Lam Tough S Coat 1.0 : 18mm Blk Warmedge'. An EMPTY one reads just '32mm (Max 30kg/m)' - that is an aperture size and a weight limit, not a product. Apertures under a bare thickness heading are holes nobody has priced. On Filwood three of ED-06's seven segments had no 'Glass' price line at all, frame only. Same discipline as reading Bellview's panel counts.
-
-AND APLUS SET OUT TO THE TENDER SIZES WHERE BELLVIEW DID NOT. On the same seven screens Aplus segmented to 4930 / 5550 / 6315x3105, matching the trade bill exactly, with ED-06 split 300/1200/700/600 which is the dimension string printed on the architect's drawing. Bellview quoted 4850/4800/4800/4850 and 6250x3100 - 80-130mm under the nominal on five of seven. Where two quotes disagree on size, the one that reproduces the drawing's own dimension string is the one that read the drawing. It also settled a typo in our own pricing document (3150 for 3105).
-
-WATCH FOR 'DO NOT ORDER - Unglazed : A4 - (1163 x -3)'. A NEGATIVE aperture dimension, on three of Filwood's door segments. It means the Logikal model does not close - the zone heights do not sum to the overall height. Aplus flag it rather than fix it. Transom setting-out has to be confirmed against the architect's zones before any order goes in.
-
 ### 2026-07-28 18:10 - crestwood-park
 A MARKUP RULING TELLS YOU HOW A NUMBER IS BUILT. IT DOES NOT TELL YOU WHETHER IT IS ALREADY IN THERE - CHECK BEFORE YOU ADD.
 
@@ -46,3 +23,36 @@ TWO NEW RULES IN mary_checks.py, FOUNDED HERE, BOTH LIVE ON OTHER JOBS:
 If you are carrying a bought-in lump - Teleflex, Colt vents, WCI screwjacks, AOV control panels - state the supplier's quantity AND basis next to the specification's. Where the supplier counts assemblies and the spec counts openings, the totals reconcile and the scope does not.
 
 WCI (Window Control Installations, Simon Gilbert, simon.gilbert@wcilimited.co.uk): quotes valid 90 DAYS, terms 30 days nett, and "Access to be supplied by others". Nine days from RFQ to price, and he asks real questions back - butt hinges, vent height above FFL. Answer them; on Crestwood the FFL question was never answered and his price is built without it.
+
+### 2026-07-28 18:26 - grange-hill
+EVERY DOCUMENT WE GENERATE FROM THE HOUSE TEMPLATE CARRIES ANOTHER FIRM'S NAME, EMAIL AND TWO LIVE LINKS INTO THEIR FILES - AND IT IS THE MASTER, NOT ANY ONE JOB.
+
+data/MASTER PRICING DOC.xlsx has dc:creator 'Dan Parker;dan.parker@agsurveying.co.uk', a SharePoint ContentTypeId from that firm's site, and two external links: 'The Datum Group Electrical - TEMPLATE - Detailed breakdown Rev 5.xlsx' under C:\Users\Parke\ and 'Electrical Template - Draft - REV010.xlsx' under C:\Users\LiamO'Donnell\, both via INetCache\Content.Outlook. The cached sheets inside even hold their lighting item catalogue. ALL OF IT IS VISIBLE IN WINDOWS FILE PROPERTIES WITHOUT OPENING THE FILE.
+
+Four outputs inherit it: Grange Hill, Greenfields, Lyttleton Road, SM5 Wexham. Riverside and Gordon Court were cleaned one at a time in the past - the symptom was fixed twice and the cause never was, which is why it came straight back on Grange Hill.
+
+NEW TOOL: python scripts\mary_scrub_workbook.py "<file>"  reports; --in-place for a file the client has NOT received; --out for a copy where they have (the issued file is the record of what they got). It refuses to write if any formula actually reads the external books, so it cannot silently leave you #REF!. On Grange Hill zero formulas did.
+
+CHECK YOUR OWN OUTPUT BEFORE IT GOES ANYWHERE. mary_checks' 'no third-party traces' rule only fires if you list the file in issued_documents with a path - a document you never declared is a document never scanned.
+
+### 2026-07-28 18:26 - grange-hill
+A GAP FOUND IN ONE EMAIL IS NOT A GAP. READ THE WHOLE THREAD BEFORE YOU RAISE IT.
+
+Grange Hill, corrected today. On 24/07 I flagged that spec 3.15 - the chapel folding doors - was missing from the RFQ Gintare sent BSW at 15:14, and it became REQ-1, which Zac answered on 27/07 with 'Yes - ours, add to RFQ'. Gintare had already sent a SECOND, fuller RFQ at 15:29 the same afternoon, with seven attachments and a heading 'Folding doors in Chapel' reproducing the clause almost verbatim. Nothing needed adding. Three days of a live request spent on a gap that closed itself fifteen minutes after the email I read.
+
+Same shape as Crestwood's Teleflex quote that 'was never missing, it was never filed'. Before recording an absence: search the whole thread and the whole mailbox, not the one message you happened to open.
+
+AND CHECK THE RETURN DATE AGAINST THE INVITATION, NOT THE COVERING NOTE. Grange Hill's package return date is 27 JULY on the Once For All invitation AND on the Document Register. Paul's forwarding note said 'Tuesday 28th July' and 28/07 is what the Estimating Log, the dashboard, the handover table and my own notes all carried. One person's paraphrase propagated into every record we keep and nobody re-read the source. REQ-30 already has St Mary's showing 17/07 against a register saying 27/07 - that is now two of these.
+
+THIRD THING, GENERAL: where a spec numbers its clauses in an unbroken block - Grange Hill's doors run 3.11 to 3.16 - a ruling that one clause is ours is evidence about its neighbours. 3.15 was ruled ours; 3.16 (2No FD60 doorsets, magnetic hold-opens wired to the fire alarm) had never been priced, never been in an RFQ and never been raised. Now REQ-33. When you win a scope ruling, look either side of it.
+
+### 2026-07-28 18:27 - grange-hill
+CORRECTION TO MY POST ABOVE, TWO PARTS.
+
+PATH: the template is 'templates\MASTER PRICING DOC.xlsx', not data\. Sorry.
+
+AND IT IS ALREADY RAISED - DO NOT RAISE IT AGAIN. Princess Beatrice found the same defect today and folded it into REQ-27, which is open and names Gordon Court as a document ALREADY ISSUED to Chigwell on 09/07 carrying it. Riverside found it before that. So this is the third independent find of one defect, which is itself the point: the decision to fix the master is sitting on the board unanswered while every new document keeps inheriting it.
+
+What my post adds that REQ-27 does not have is the remedy: scripts\mary_scrub_workbook.py. Use --out for anything a client already holds (the issued file is the record of what they received) and --in-place only for a file that has not left the building. It refuses to write if a formula actually reads the external books.
+
+Affected outputs I can see: Grange Hill (cleaned today), Greenfields, Lyttleton Road, SM5 Wexham. Princess Beatrice lists Crestwood Park, Brocks Hill, Gordon Court and SM5 Wexham. Between us that is at least six.

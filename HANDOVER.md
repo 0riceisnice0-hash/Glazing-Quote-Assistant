@@ -6642,3 +6642,70 @@ Manifest `data/job-checks/princess-beatrice-house.json` returns **6 FAILED**. Jo
 `data/jobs/princess-beatrice.md`. Emailed to Adam 28/07. **No new requests raised** - on the 16:44 board
 instruction that 23 were already open and unanswered, scaffolding and the guarantee went into REQ-29 and the
 template leak into REQ-27. Nothing sent to Guildmore.
+
+### Grange Hill Methodist Church - permanent job chat opened; two records corrected, one new scope gap (2026-07-28)
+
+First turn of the permanent `grange-hill` chat. Work order: Adam's 14:01 email to Luke Baker asking Chigwell
+for an extension ("still awaiting costs back from suppliers"). Trusted sender, but an FYI - the useful work was
+establishing what the extension needs to buy.
+
+**TWO THINGS IN THE RECORD WERE WRONG, AND BOTH CAME FROM READING ONE DOCUMENT INSTEAD OF THE SET.**
+
+1. **The package return date is 27 JULY 2026, not 28/07.** It is printed on the Once For All invitation and
+again on the Document Register (generated 24/07 09:20, package WD001, lead Luke Baker). Paul's covering note on
+24/07 said "deadline is Tuesday 28th July"; that paraphrase propagated into the Estimating Log, the dashboard,
+the MARY-HANDOVER table and my own notes, and nobody went back to the source. The tender was already a day over
+when Adam wrote. Second instance of this shape - REQ-30 already carries St Mary's showing 17/07 against a
+register saying 27/07.
+
+2. **REQ-1's premise was half wrong: spec 3.15 was never missing from the RFQ.** The 24/07 catch was read off
+Gintare's 15:14 email to BSW. She sent a **second, fuller RFQ at 15:29** the same afternoon with seven
+attachments, under the heading **"Folding doors in Chapel"**, reproducing 3.15.1 almost verbatim - 5.8m span,
+folding back to the side walls, dark brown PPC, polyamide breaks, Optitherm S1 plus bronze tinted, top rail
+below the trusses, bottom rail recessed, plus the upper glazed section. Zac's 27/07 answer ("Yes - ours, add to
+RFQ") therefore needs no action against BSW. Only **3.15.2, the privacy film**, never went. Same shape as
+Crestwood's Teleflex quote that "was never missing, it was never filed".
+
+**NEW CATCH - SPEC 3.16, RAISED AS REQ-33.** The spec's door clauses run **3.11 to 3.16 unbroken** and the
+package is called "Windows and Doors". Zac has already ruled 3.15 is ours. 3.16 sits immediately after it and
+has never been priced, never been in any RFQ and never been raised: remove the existing corridor fire check door
+and frame, then supply **2No FD60 doorsets at 1200mm** - vision panes, closers, finger plates, D pulls, mortise
+lock with thumbturn, **magnetic hold-opens wired into the fire detection system** - plus timber infill framing
+and two layers of 12mm plasterboard both sides, taped and skimmed. Part zero-rated for VAT. It is joinery,
+plastering and a fire-alarm connection, so BSW cannot quote it even if it is ours. **General rule worth keeping:
+when a scope ruling lands on one clause of an unbroken numbered block, look either side of it.**
+
+The reason none of this can be settled internally: **the work package description behind "View enquiry" has
+never been opened**, and the Document Register lists only 26 drawings and the main-contract spec - no form of
+tender, no package conditions. REQ-33's fourth option is simply to open it.
+
+**WHAT CANNOT BE MEASURED.** No chapel elevation was ever issued. The folding doors are on plan (GH 006 R5 and
+N/GH 032, chapel 5800mm, confirming the spec's "approx 5.8m") but there is no height anywhere for the doors or
+for the glazed section running to the underside of the pitched ceiling. Any folding-door figure is a guess. The
+2No FD60 doorsets appear on no drawing and in no door schedule at all.
+
+**CHECKS RUN FOR THE FIRST TIME ON THE JOB THAT FOUNDED `check_scope_gaps`.** Manifest
+`data/job-checks/grange-hill-methodist-church.json`: **8 FAILED, 3 ASK** - the honest state of a benchmark with
+zero supplier coverage, not a clearance. `check_scope_gaps` itself named 3.15.1, 3.15.2, 3.16.1 and 3.16.2 as
+neither priced nor excluded. Also fired: fire-exit panic hardware (the Briton 1438/1413 sets, Yale Platinum
+cylinders keyed alike and gate bolts are not separately priced - the CW per-m2 convention does not itemise
+hardware), and the GBP 3,000 auto-operator allowance as a bought-in lump with no supplier and no quantity basis
+behind it.
+
+**THE TEMPLATE LEAK, FOUND A THIRD TIME - AND THIS TIME WITH A TOOL.** `check_no_third_party_traces` fired on
+the Grange Hill workbook: `dan.parker@agsurveying.co.uk` as dc:creator, a SharePoint ContentTypeId, and two live
+external links into other firms' electrical templates under `C:\Users\Parke\` and `C:\Users\LiamO'Donnell\`.
+Traced to `templates/MASTER PRICING DOC.xlsx` - Riverside found it, Princess Beatrice found it again today and
+folded it into **REQ-27**, and it is still inheriting into every new document because the master has never been
+fixed. Wrote **`scripts/mary_scrub_workbook.py`** (report / `--in-place` / `--out`; refuses to write if any
+formula actually reads the external books, so it cannot silently leave `#REF!`). Grange Hill's copy scrubbed in
+place - zero formulas referenced them, and it had only ever gone to Adam and Zac, never to Chigwell. Backup at
+`.pre-scrub`. Deliberately NOT touched: the master itself, which is REQ-27's decision, and the sell-only client
+copy, because the numbers change when BSW returns.
+
+**Position unchanged commercially.** GBP 27,560.07 ex VAT benchmark, covering 3.11-3.14 only, no exclusion
+written for 3.15 or 3.16. BSW silent four days with no bounce recorded against either Grange Hill email (the
+three 28/07 bounces from bsws.co.uk were the 39 MB Vesuvius zip against their 36 MB limit - unrelated, and Adam
+confirmed Vesuvius was re-sent). Expect the benchmark HIGH: the job is nearly all >6 m2 units, the band running
++35% on St Mary's. Emailed Adam. Job file `data/jobs/grange-hill.md`. One request raised, one correction posted
+to the noticeboard against my own earlier post.

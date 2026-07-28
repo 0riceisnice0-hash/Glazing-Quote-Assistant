@@ -1,0 +1,67 @@
+Hello Adam,
+
+You asked Luke Baker for an extension on Grange Hill this afternoon. Here is what that extension needs to buy us, and one correction to something I told you on Friday.
+
+FIRST - THE RETURN DATE WAS THE 27TH, NOT THE 28TH.
+
+It says 27 July 2026 on the invitation from Luke, and again on the Document Register issued with the pack.
+
+Paul's covering note on the 24th said "deadline is Tuesday 28th July", and the 28th is what our log, the dashboard and my own notes have carried ever since. Nobody went back to the invitation.
+
+So we were already a day over when you wrote. It does not change what you asked for, but it changes how the extension gets framed, and the Estimating Log needs correcting.
+
+
+A CORRECTION FROM ME - THE CHAPEL FOLDING DOORS WERE ALREADY IN THE RFQ.
+
+On Friday I flagged that spec 3.15, the chapel folding doors, was missing from the enquiry Gintare sent to BSW. Zac confirmed on Sunday that the doors are ours and said to add them.
+
+They did not need adding. Gintare sent a second, fuller enquiry at 15:29 that same afternoon, and it carries a heading "Folding doors in Chapel" reproducing the clause almost word for word - the 5.8m span, folding back to the side walls, dark brown, polyamide breaks, bronze tinted units, top rail below the trusses, bottom rail recessed.
+
+I had read the 15:14 email and not the 15:29 one. Nothing needs re-issuing to BSW.
+
+The one part of 3.15 that genuinely never went is 3.15.2, the frosted privacy film across the doors.
+
+
+WHAT IS ACTUALLY STILL OPEN - THREE THINGS.
+
+1. SPEC 3.16 IS IN NOBODY'S PRICE AND NOBODY HAS RULED ON IT.
+
+Our package is called Windows and Doors, and the spec's door clauses run 3.11 to 3.16 without a break. Zac has already ruled that 3.15 is ours. 3.16 sits immediately after it.
+
+It asks us to take out the existing fire check door to the corridor and supply 2No FD60 doorsets at 1200mm wide - vision panes, closers, finger plates, D pulls, mortise lock with thumbturn, and magnetic hold-opens wired into the fire detection system - plus timber infill framing and two layers of 12mm plasterboard both sides, taped and skimmed. Part of it is zero-rated.
+
+It has never been priced, never been in any enquiry, and never been raised with anyone. It is joinery, plastering and a fire-alarm connection, so BSW cannot quote it even if it is ours.
+
+I have put it on the dashboard as REQ-33 with 3.15.2 alongside it.
+
+2. BSW HAVE HAD IT FOUR DAYS AND SENT NOTHING BACK.
+
+Enquiry went out Friday 24th at 15:14 and again at 15:29 with the drawings and spec attached. Neither bounced. Nothing has come back.
+
+That is the whole reason for the extension, so it is worth a chase today rather than tomorrow.
+
+3. THERE IS NO CHAPEL ELEVATION IN THE PACK.
+
+The folding doors are on the plans, and the 5800mm chapel width checks out against the spec's "approx 5.8m". But no elevation of the chapel was ever issued, so the door height and the glazed section running up to the underside of the pitched ceiling have no dimension anywhere.
+
+Until that is answered, any folding-door figure is a guess rather than a price. Worth asking Luke for it in the same breath as the extension.
+
+
+THE NUMBER IS UNCHANGED.
+
+GBP 27,560.07 ex VAT, benchmark only, not supplier-backed. Optional below the line: mastic GBP 143.00, EPDM GBP 587.00.
+
+It covers 3.11 to 3.14 only. It does not include the folding doors and it does not include 3.16, and there is no exclusion written for either - so as it stands, a silent gap would read as included.
+
+I would also expect it to sit high. This job is nearly all large units, and that is the size band where my benchmarks have been running about a third over.
+
+
+ONE HOUSEKEEPING ITEM, WORTH KNOWING ABOUT.
+
+Our house pricing template carries another firm's details inside it. Documents generated from it show "Dan Parker, dan.parker@agsurveying.co.uk" as the author in Windows file properties, and hold two live links into someone else's electrical templates under two personal user folders.
+
+That is visible to anyone we send the file to without them opening it. I have cleaned the Grange Hill copy - it had only ever gone to you and Zac, never to Chigwell.
+
+The template itself is still carrying it, so anything generated from it will carry it again. Three other job documents already do. Happy to clean the master if you want me to.
+
+Mary
