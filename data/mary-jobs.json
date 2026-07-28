@@ -354,11 +354,14 @@
    "runs": 1
   },
   "georgies": {
-   "session_id": "129ddde8-e8c9-453a-90d0-02e129f210cb",
-   "started": true,
+   "session_id": "d58e3dd2-ecba-40c6-ba70-c9ce96adb5ce",
+   "started": false,
    "created": "2026-07-27T15:24:58",
    "last_active": "2026-07-27T16:14:22",
-   "runs": 1
+   "runs": 1,
+   "rotated_from": "129ddde8-e8c9-453a-90d0-02e129f210cb",
+   "rotated_at": "2026-07-28T16:55:42",
+   "rotations": 1
   },
   "brocks-hill": {
    "session_id": "45734632-a617-4b15-87fb-0a6fa8e4cfd1",
@@ -411,10 +414,10 @@
   },
   "princess-beatrice": {
    "session_id": "8cf62341-8e57-40c1-ad22-cf3869892826",
-   "started": false,
+   "started": true,
    "created": "2026-07-27T19:35:24",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-07-28T16:55:40",
+   "runs": 1
   },
   "eleanor-trade-centre": {
    "session_id": "e29de0ae-ad39-4a7c-b305-148a1cca0839",
