@@ -3199,6 +3199,80 @@ admin block deliberately, because that promise to Adam is now eleven turns old a
 
 ---
 
+## 4AK. THIRTY-NINTH TURN (28/07) — my "no other job's documents here" was false, and I know exactly why
+
+### 4AK.1 The two subfolders I listed at the twenty-ninth turn and never opened
+
+riverside found three uncounted files one directory over. **I had the same directory** — `3. Client Quote\SS\`
+appeared in my own folder listing ten turns ago and I never opened it. It holds four files:
+
+- `Pricing Doc 28.04.2026.xlsx` — **Cover Letter | Quotation | Drawings | Terms & Conditions**
+- `Pricing Doc  28.05.2026.xlsx` — **Quotation | Drawings | Terms & Conditions**
+- `MASTER COVER LETTER 29.05.2026.docx` — **the 29/05 date riverside asked every chat to check for**
+- `Cover Letter.docx`
+
+### 4AK.2 It refines riverside's timeline — two deletions, not one
+
+They reported the T&Cs tab surviving in April and gone by July. **The May file is the intermediate step:**
+
+| | Cover Letter | Quotation | Drawings | Terms & Conditions |
+|---|---|---|---|---|
+| **28.04.2026** | yes | yes | yes | **yes** |
+| **28.05.2026** | **gone** | yes | yes | **yes** |
+| **10.07.2026** (issued) | — | yes (as *Pricing Document*) | **gone** | **gone** |
+
+**Two separate deletions.** Cover Letter went between April and May; Drawings and T&Cs went between May and
+July. **The T&C removal window narrows to 28 May – 10 July 2026**, and the April and May tabs are
+**byte-identical at 8,203 characters** — unchanged for a month, then dropped wholesale.
+
+### 4AK.3 Gordon Court lost nothing, checked rather than assumed
+
+The deleted tab carries **20 numbered clauses**. Every one of its clause headings **survives onto the issued
+Gordon Court proposal PDF** — none missing. So the workbook lost the tab and the clauses still reached the
+client, because this job issued a proposal alongside the spreadsheet.
+
+*(riverside's post says "nineteen clauses". It is **twenty** — and their own independent verification at my
+eighteenth turn said twenty, so their earlier count is the right one.)*
+
+### 4AK.4 The one that could have overturned everything — clean
+
+Both dated pricing documents sit in **this job's own Client Quote folder**. If either were a Gordon Court
+quotation, *"nothing issued before 09/07"* would have been wrong for six weeks. Probed both for `Gordon`,
+`Chigwell`, `Stonegrove`, `368,376`, `WN_`, `Luke Baker`, `jLiving` and `BSW`: **all absent from both. Blank
+house templates.** The position holds, and it holds because it was checked.
+
+### 4AK.5 And my turn-31 "no other job's documents here" was FALSE
+
+`5. Finance\Payment Applications\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx` —
+**the same file riverside found under RRR.** Three sheets, 244 cells, Shaftesbury School and Borras
+Construction both named, and **81 numeric cells between −3,179.21 and 44,093.16.** Populated, not a shell.
+
+**So it is not a one-off misfile in one job — the same third party's valuation is sitting in at least two
+different clients' folders**, which makes it a folder-skeleton problem rather than somebody's slip.
+
+**Why I missed it, and it is the sharpest thing in this turn.** At the thirty-first turn I ran:
+
+```
+find "$G" -type f \( -iname "*.pdf" -o -iname "*.xlsx" \) | grep -vi "gordon\|5244\|..."
+```
+
+**`find` prints the full path, and the job folder is named "Gordon Court".** So `grep -vi "gordon"`
+excluded **every file in the job**. It returned nothing, and I reported the folder clean — to this file and
+to the board.
+
+> **A filter that excludes everything returns exactly the same output as a folder that contains nothing.**
+> Filter on the basename, or print the count of what you filtered out. `-printf "%f\n"` finds it in one word.
+
+**And a second probe fault in the same check:** my first content test called the file *"looks like a blank
+template"* because the regex only matched comma-formatted text and the figures are stored as numbers.
+**Fifth instance this week of a pattern encoding an assumption the data does not honour — and the first
+where the wrong answer was the reassuring one.**
+
+Flagged, not moved: OneDrive is read-only and how the company files jobs is not mine to reorganise.
+Appended to **REQ-27**, which already covers what travels inside files we send.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

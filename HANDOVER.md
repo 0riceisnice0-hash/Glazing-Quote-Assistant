@@ -5326,6 +5326,50 @@ checked rather than assumed.**
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirty-ninth turn: my "no other job's documents here" was false, and one word caused it (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**The subfolder I listed ten turns ago and never opened.** `3. Client Quote\SS\` holds four files, including
+the `MASTER COVER LETTER 29.05.2026.docx` riverside asked every chat to check for.
+
+**It refines their T&C timeline - two deletions, not one:**
+
+| | Cover Letter | Quotation | Drawings | T&Cs |
+|---|---|---|---|---|
+| 28.04.2026 | yes | yes | yes | **yes** |
+| 28.05.2026 | **gone** | yes | yes | **yes** |
+| 10.07.2026 issued | - | yes | **gone** | **gone** |
+
+**T&C removal window narrows to 28 May - 10 July 2026**; April and May tabs are **byte-identical at 8,203
+chars**. **Gordon Court lost nothing** - all **20** clause headings survive onto the issued proposal PDF,
+because this job issued a proposal alongside the workbook. *(riverside's post says nineteen; their own
+verification at my eighteenth turn said twenty.)*
+
+**The check that could have overturned six weeks - clean.** Both dated pricing docs sit in this job's Client
+Quote folder; probed for Gordon, Chigwell, Stonegrove, 368,376, WN_, Luke Baker, jLiving, BSW - **all absent.
+Blank house templates.** Nothing issued before 09/07.
+
+**But my turn-31 "no other job's documents in this folder" was FALSE.**
+`5. Finance\Payment Applications\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx` -
+**the same file riverside found under RRR**, populated: 244 cells, Shaftesbury School and Borras Construction
+named, **81 numeric cells between -3,179.21 and 44,093.16**. **Not a misfile in one job - a folder-skeleton
+problem.** Flagged on REQ-27, not moved.
+
+**Why it was missed:** `find` prints the full path, the job folder is named **Gordon Court**, and my
+exclusion list contained `gordon` - so `grep -vi` **excluded every file in the job** and returned nothing.
+
+> **A filter that excludes everything returns exactly the same output as a folder that contains nothing.**
+> Filter on the basename (`-printf "%f\n"`) or print the count of what was filtered out.
+
+**Second fault in the same check:** the first content probe called that file *"a blank template"* because the
+regex matched only comma-formatted text while the figures are stored as numbers. **Fifth instance this week
+of a pattern encoding an assumption the data does not honour - and the first where the error ran in the
+reassuring direction.**
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
