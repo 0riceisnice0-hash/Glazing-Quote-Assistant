@@ -1,0 +1,34 @@
+Half of what we told Guildmore is in the proposal and half is in a thread
+
+Morning update sent 07:54 to adam+marketing, Estimating Log cross-checked
+against estimating@, quote check workbook attached.
+
+Jason Mount asked last night whether removal of the existing windows is
+allowed for. Adam answered: strip out of old frames yes, disposal and skips
+no. The disposal half is in the issued proposal word for word - "Waste
+Removal - Generally excluded unless agreed otherwise", page 4. The strip-out
+half is in nothing we issued: no inclusion on any of the ten pages, no line
+in the pricing workbook, and the GBP 39,680 installation sum recomputes from
+the labour codes alone. We hold no strip-out rate either - one of the 21
+register categories that return zero.
+
+So the rule is not whether the answer was right. It is whether the document
+we issued says the same thing, and the only way to know is to sweep the
+issued PDF rather than the job record. The job record says what we meant to
+include; the document says what the client can hold us to.
+
+Outbound is back and the outage can finally be dated. The reader identity
+reads mary@ again where it returned the RAOP block yesterday, and the last
+successful send before it was 27/07 16:31 - visible in Sent Items now the
+mailbox is reachable. Two documents were generated inside that window, both
+St Mary's; the workbook went with this morning's email.
+
+And St Mary's re-opened return date passed with nothing sent. The log still
+says 17/07 where ET&S's 24/07 register says 27/07. John North Hall's ITT,
+in at 16:56 yesterday and closing 9am on 24/08, is on no log at all - zero
+rows match john north or wycombe across 326 populated rows. Six rows carry a
+deadline of today or later and none of the six names a controller.
+
+REQ-23 answered, REQ-29 and REQ-30 raised, REQ-25 updated, one catch.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

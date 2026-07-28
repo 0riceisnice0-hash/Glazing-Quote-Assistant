@@ -76,10 +76,32 @@ A1. WN_7, 3no, quoted on QT252257 as "Qty: 3 Prestige T&T, Location WN 7, GBP 2,
 A2. WL_1, 4no, quoted on QT252257 as "Qty: 4 Prestige Casement, Location WL 1,
     GBP 4,502.40" - with the Glazing line left blank and no reinforcing listed.
     Schedule 52003 heads this block "AOV SMOKE SHAFT LOUVRE" and notes "WL_00 Louvres
-    to smoke shaft". NBS L20 clause 630 specifies an "EN SEEFIRE LOUVRED NATURAL
-    VENTILATOR - size to match shaft dimensions... designed and tested to EN 12101-2...
-    the position of the louvres is controlled by a 24Vdc electric actuator."
-    Same request as A1: price as specified, or confirm out of scope.
+    to smoke shaft". NBS L20 clause 630 specifies, and we quote it in full rather than
+    in extract because the detail is all priceable:
+
+        EN SEEFIRE LOUVRED NATURAL VENTILATOR
+        6.1. Description:
+          - Size to match shaft dimensions.
+          - Clear opening louvred natural ventilator. Dual purpose, for highly
+            efficient natural ventilation and smoke control, and suited either for
+            extraction or inlet. The ventilator is manufactured of tough, corrosion
+            resistant aluminium, alloy, grade 3005 in accordance with EN573-3, with
+            stainless steel fixings. Louvres pivot on double nylon UV-resistant
+            bearings.
+          - Manufactured under the EN 9000 quality standard. The ventilator has been
+            designed and tested to EN 12101-2.
+          - The position of the louvres is controlled by a 24Vdc electric actuator,
+            which is lubricated for life and requires minimum maintenance. Louvres are
+            driven closed by this actuator and opened by a spring. The actuator is
+            installed in the ventilator upstand and does not protrude into the
+            building.
+
+    Beyond the actuator, that clause carries at least four things a Prestige Casement
+    would not ordinarily provide: grade 3005 aluminium to EN573-3 with stainless steel
+    fixings, manufacture under EN 9000, testing to EN 12101-2, and a fail-safe action
+    in which the louvres are spring-opened and actuator-closed.
+    Same request as A1: price as specified, or confirm out of scope. If you can meet
+    part of it and not the rest, please say which part.
     NOTE FOR YOUR INFORMATION, because it may make this academic: the client's fire
     strategy deleted the smoke shafts in October 2025. We have asked the architect
     whether these four units survive that change. Please price them anyway so we hold a
