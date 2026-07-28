@@ -227,6 +227,14 @@ The loop, in the order it runs:
   on `about:blank` and `Page.navigate` after attaching; passing the URL as an argv means the target is
   not there when you look. Stub `window.fetch` for POSTs to exercise submit flows without sending real
   messages to Mary. Scripts kept in the session scratchpad.
+- **Deploying the hub: run wrangler from inside `dashboard/`, never the repo root.**
+  `npx wrangler pages deploy public` with `cwd=dashboard` is correct. Running
+  `npx wrangler pages deploy dashboard/public` from the repo root **looks identical and
+  succeeds**, but wrangler resolves the `functions` directory against the *working*
+  directory, not the assets path - so it ships the static site with no API. Every
+  `/api/*` route then returns the SPA's HTML and the hub dies with
+  `Could not load the hub - Unexpected token '<'`. The tell is the deploy output: a
+  correct deploy prints **"Uploading Functions bundle"**, a broken one does not.
 - **Running the hub locally** (much easier than QA against the live URL):
   `npx.cmd wrangler pages dev public --port 8791 --d1 DB=mary-dashboard-db --persist-to=.wrangler/state`
   from `dashboard/`. Gotcha: `wrangler d1 execute --local` and `pages dev` can end up using

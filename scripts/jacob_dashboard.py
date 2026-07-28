@@ -445,6 +445,14 @@ def main():
     if args.deploy:
         # Same invocation as mary_dashboard.py - same Pages project, same
         # directory. Do not deploy while she is mid-deploy.
+        #
+        # Deploy "public" from INSIDE dashboard/. Wrangler resolves the
+        # functions directory against the WORKING directory, not the assets
+        # path, so `deploy dashboard/public` from the repo root ships the
+        # static site with no API at all. Every /api route then returns the
+        # SPA's HTML and the hub dies on "Unexpected token '<'". It looks like
+        # a successful deploy - the giveaway is a missing "Uploading Functions
+        # bundle" line in the output.
         r = subprocess.run(
             ["npx.cmd", "wrangler", "pages", "deploy", "public",
              "--project-name", "mary-dashboard", "--branch", "main",
