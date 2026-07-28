@@ -1,0 +1,20 @@
+{
+ "job": "FIXTURE - John North Hall, 1-39 Vaughan House. The founding case for check_our_qualifications_survive_signature: a Form of Tender that disapplies our exclusions, signed as the act of submitting.",
+ "created": "2026-07-28",
+ "_note": "Do not edit to make a run pass. This is the real state of the John North Hall ITT at the moment the error was live: Fenster's standard twelve-line exclusions schedule relied on for access plant, waste removal, making good and access control, against ITT section 5.0 clause 4.1 which disapplies all four. Riverside's check_exclusions_reach_the_issued_document returns PASS on this same job, which is the point.",
+ "qualification_regime": {
+  "document": "John North Hall ITT section 5.0 'Form of Tender Acceptance', clause 4.1 (the second of four clauses all numbered 4.1)",
+  "clause": "It is agreed that any other terms and conditions of contract or any caveats, assumptions, reservations or exclusions that may be printed on correspondence emanating from the tender, or any contract resulting from this tender, shall not be applicable to this tender or agreement.",
+  "qualifications_permitted": false,
+  "we_must_sign": true,
+  "evidence": "The clause immediately above it offers to 'perform, provide, execute and complete the entirety of the woks ... For the firm price contained within the pricing summary'. Signing the page is how the tender is submitted - there is no unsigned route."
+ },
+ "spec_items": [
+  {"ref": "3.24 Scaffolding, access towers, boarding, ladders and hoists - Structural Engineer design, NASC erection, Heras enclosure, local authority licences and fees", "treatment": "excluded", "evidence": "Fenster standard exclusions schedule: 'Access / Lifting Equipment'. ITT 3.24.1 puts the cost 'within the Schedule of Works'."},
+  {"ref": "3.16 / 2.2 Removal and disposal of the 5 existing doors and frames, waste carrier licence, skips", "treatment": "excluded", "evidence": "Fenster standard exclusions schedule: 'Waste Removal'. ITT 2.2 puts removal AND disposal expressly in our tender."},
+  {"ref": "2.2 Making good to internal and external areas surrounding all 5 door sets", "treatment": "excluded", "evidence": "Fenster standard exclusions schedule: 'Internal Finishing' / 'Making Good'. ITT 2.2 puts it expressly in our tender."},
+  {"ref": "2.2 Existing door intercoms disconnected from the old door sets, reconnected to the new, and proven working on completion", "treatment": "excluded", "evidence": "Fenster standard exclusions schedule: access control, fire alarm interfaces, wiring, programming, commissioning."},
+  {"ref": "3.11 Temporary power and temporary lighting for the works including sub-contractors, all wiring, meters, fittings, charges and fees", "treatment": "excluded", "evidence": "Not addressed anywhere in the Fenster proposal."},
+  {"ref": "3.14 / 3.15 Toilet, washing and sanitary facilities for the workforce for the duration of the contract, cleaned daily", "treatment": "excluded", "evidence": "Not addressed anywhere in the Fenster proposal. Site facilities are expressly NOT available - ITT 3.14.1."}
+ ]
+}

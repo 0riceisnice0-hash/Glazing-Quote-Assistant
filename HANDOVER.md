@@ -6387,6 +6387,86 @@ Position: **not yet priced, pricing unblocked.** Emailed Adam. Job file `data/jo
 from scratch.
 
 
+### 2026-07-28 - John North Hall, 1-39 Vaughan House, High Wycombe: a tender whose Form of Tender deletes our exclusions, and which nobody can price because it contains no sizes
+
+Adam forwarded the Neil Douglas ITT at 09:20 with *"can you please price this all up"*. Two work orders arrived;
+the second is his reply carrying the same chain with no new instruction and no attachments - diffed, per the
+Georgie's rule that the version sent to the checker may not be the version sent to the client. Here they matched.
+
+**THE ITT CONTAINS NO DOOR SIZES.** All 23 pages read. No door schedule, no elevation, no opening register, no
+drawing; the "Block Plan" is an estate plan of parking spaces and flat stacks. The only visual information is
+five photographs. **A fabricator cannot quote five doorsets without five sizes**, so no RFQ can go out and there
+is no price. Jordan Jones has offered a site meeting - that is the critical path, and it wants taking in the
+first week of August, because survey -> RFQ -> ~1 week for Bellview -> price -> check -> issue runs against a
+**9am** Monday deadline. Clauses **1.4.2 and 3.1.2** both say no claim for extras will be entertained for
+anything a site visit would have revealed, and **3.1.1 deems us to have visited**.
+
+**THE FORM OF TENDER DISAPPLIES EVERY EXCLUSION WE HAVE - A NEW CLASS OF ERROR.** Section 5.0, clause 4.1:
+*"any caveats, assumptions, reservations or exclusions that may be printed on correspondence emanating from the
+tender ... shall not be applicable to this tender or agreement"*, immediately after a clause offering the works
+*"For the firm price contained within the pricing summary"*. **Signing that page is how the tender is
+submitted** - there is no unsigned route. So Fenster's twelve-line exclusions schedule does nothing here:
+access plant, waste removal, making good, access control. Riverside's
+`check_exclusions_reach_the_issued_document` asks whether an exclusion is on the face of the document we issue
+and returns a clean **PASS** on this job - reassurance about exclusions with no legal effect, which is exactly
+what was worth removing. **New rule `check_our_qualifications_survive_signature`**, field
+`qualification_regime: {document, clause, qualifications_permitted, we_must_sign}`, fixture
+`_test-john-north-hall.json`, 22-variant recall suite. **Its own suite caught a real hole before it shipped**: a
+dict in `qualifications_permitted` is truthy, so `{"v": false}` was returning PASS - the reassuring answer. Now
+anything that is not a bool or 0/1 returns UNKNOWN. Selftest passes; all nine founding errors still fire.
+
+**THE INTERCOM CANNOT WORK ON THE HARDWARE THE CLIENT SPECIFIED.** They require the existing intercoms
+reconnected and *"the intercom works with the new door sets on completion"*; their own hardware list is a
+mechanical cylinder with a thumbturn and nothing else - no electric strike, no keep, no rectifier, no power
+transfer. The entry panels are wall-mounted on the brick pier beside each door in **all five photographs**, so
+they are not being moved; the work is inside the new doorset and is a **door-entry specialist's**, which clause
+2.1.4 requires to be **named with the tender**, before award. Second job in a week after St Mary's REQ-19(a).
+**And it corrects a statement in our own records:** `data/jobs/st-marys.md` said Bellview *"price those
+separately when asked"*. They do not - on Filwood 0000000507 pos 005 and Lyttleton 0000000445 pos 008 the
+strike, extension, rectifier and latch are **bundled inside the door element with no extractable figure**. There
+is no unit price for an electric strike anywhere in this business.
+
+**THE ITT NAMES TWO OF THE FIVE BLOCKS WRONGLY, AND THE CLIENT'S OWN ARITHMETIC PROVES IT.** The prose says
+1-6, 7-16, 17-23, 24-31, 32-39, twice. The estate plan lists the flat stacks and the **nameplates in the
+client's own five photographs** list them door by door; both give **1-6, 7-15, 16-23, 24-31, 32-39, with no flat
+13 on the estate**. Their key count closes it: the stated basis is 3 per flat + 3 per doorset, and **38 flats
+gives exactly the 129 keys they ask for, where 39 would give 132**. Flat 16 is served by the third door, not the
+second. Keys are **five differs**, so cutting them off the ITT's block ranges orders 33 and 24 where 27 and 27
+are needed. The reusable point: *when a pack gives you both prose and pictures, reconcile them - and an
+arithmetic basis the client states out loud is a free check on their own document.*
+
+**THE NUMBER, AND WHY IT IS ONLY HALF THE JOB.** Benchmark **GBP 24k-26k** for the five doorsets - frames, glass
+and fit - priced through `mary_pricing` as 5no `SADMAW` at an **ASSUMED** 1600x2100, anchored on Bellview SMA
+Smart Wall Pocket **0000000445 pos 011 (1600x2100 door + fixed field, GBP 2,930.12 net)**, the closest match we
+hold on configuration and size. Sensitivity across plausible sizes and all four Smart Wall rates: **GBP
+21,700-29,600**. On top and unpriced: strip-out **and** disposal, making good inside and out, the intercom work,
+129 keys, and the client's own **Preliminaries** and **Contingency** lines - **not one of which has a rate in
+`data/supplier-rates.json`, 0 of 80 categories, re-verified**. The register has **no Smart Wall category at
+all** and none of our Smart Wall quotes has ever been mined into it, so its nearest entry would hand you roughly
+half the right number; a rate card went on the noticeboard (**872-1,069/m2 net**, smaller units dearer per m2).
+The fit-only install control applies: the labour codes carry no strip-out increment, so the GBP 2,050 of labour
+funds fitting only. Their pricing summary has three lines and our pricing document answers one - the Guildmore
+lesson, second job running.
+
+**Adam's house position does not survive here**, as triage flagged: *strip out yes, disposal no* is the right
+default, but ITT 2.2 puts both in scope by name, 2.5 requires a Waste Carrier Licence enclosed **with the
+tender**, and 3.7.9 allows skips in the compound. **Two pass/fail gates nobody has checked**: PL insurance
+minimum **GBP 10,000,000** (4.3.2) and the waste carrier licence - neither recorded anywhere in the repo, and if
+we are short on either the survey day is wasted. Also open: **no RAL** (*"brown, similar to existing"* cannot be
+ordered against, and their own *"Example of new door"* photograph is an **anthracite grey** door); **no U-value
+in 23 pages** against SMA's published **1.8 W/m2K for Smart Wall doors** on a replacement controlled fitting -
+and since the client specified the system themselves, the conflict is inside their own specification and they
+need telling **before** the Section 20 consultation; and **clause 3.28 opens *"If The subject property is listed
+Grade II\*"*** with a dangling conditional, then bans cement without the Surveyor's written authority, which
+bites directly on making good five door frames. Retention 5% for 90 days, payment 21 days, LADs up to 1% of
+contract value per week set at award, CDM 2015 in full with **Fenster as Principal Contractor**.
+
+Manifest `data/job-checks/john-north-hall.json` returns **3 FAILED, 2 ASK**. Job file
+`data/jobs/john-north-hall.md` written from scratch. **Nothing issued, no RFQ sent, nothing to the client.**
+Emailed to Adam and raised as **REQ-32** - one consolidated request rather than five, on the standing instruction
+that 23 were already open.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

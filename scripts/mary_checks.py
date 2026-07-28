@@ -1738,7 +1738,141 @@ def check_spec_label_matches_evidence(m):
                   "%d spec item label(s) agree with their evidence" % len(m.get("spec_items") or []))
 
 
+_QUALS_VOID = re.compile(
+    r"shall not be applicable|will not be applicable|not be applicable to this tender"
+    r"|no qualification|without qualification|unqualified tender|qualifications will not be"
+    r"|any caveats?, ?assumptions?, ?reservations? or exclusions?"
+    r"|shall be deemed (?:to be )?(?:excluded|of no effect|void)"
+    r"|shall have no effect|deemed not to apply", re.I)
+
+
+def check_our_qualifications_survive_signature(m):
+    """John North Hall, 28/07. The client's Form of Tender DISAPPLIES our
+    exclusions, and signing it is how we submit.
+
+    Three rules already ask whether an exclusion is written down:
+    check_scope_gaps asks whether we addressed the item, and
+    check_exclusions_reach_the_issued_document (riverside) asks whether the
+    exclusion is on the face of the document we hand over. Both take for granted
+    that an exclusion, once written on the right piece of paper, does something.
+
+    John North Hall's ITT section 5.0, clause 4.1 (the second of four clauses
+    all numbered 4.1) reads: "It is agreed that any other terms and conditions of
+    contract or any caveats, assumptions, reservations or exclusions that may be
+    printed on correspondence emanating from the tender, or any contract
+    resulting from this tender, shall not be applicable to this tender or
+    agreement." The clause immediately above offers to complete the works "For
+    the firm price contained within the pricing summary".
+
+    So on this job every one of the twelve lines in Fenster's standard
+    inclusions/exclusions schedule is disapplied by our own signature - access
+    plant, waste removal, making good, access control, the lot - and the tender
+    becomes a firm lump sum for the whole of the works as described. Writing the
+    exclusions more clearly does not help. Riverside's rule would return a clean
+    PASS on a document whose exclusions have no legal effect, which is exactly
+    the reassurance worth removing.
+
+    The only two answers that work are pricing the item or getting the
+    qualification accepted IN WRITING BEFORE the return date, because after
+    signature the clause has already bitten.
+
+    'qualification_regime': {document, clause, qualifications_permitted,
+    we_must_sign} - qualifications_permitted false when the tender documents
+    disapply, prohibit or deem void any caveat, assumption, reservation or
+    exclusion we attach."""
+    reg = m.get("qualification_regime")
+    relied = [i for i in (m.get("spec_items") or [])
+              if "exclud" in str(i.get("treatment", "")).lower()]
+    if reg is None:
+        return result("our qualifications survive signature", UNKNOWN,
+                      "State what the tender documents do to our exclusions: "
+                      "'qualification_regime': {document, clause, qualifications_permitted, "
+                      "we_must_sign}. An exclusion is only worth writing if the contract we sign "
+                      "lets it stand - and a Form of Tender is where that is decided, not the "
+                      "specification.",
+                      "John North Hall",
+                      remedy="Read the Form of Tender / tender acceptance page word for word and "
+                             "record whether it disapplies caveats, assumptions, reservations or "
+                             "exclusions.")
+    if isinstance(reg, (list, tuple)):
+        reg = reg[0] if len(reg) == 1 and isinstance(reg[0], dict) else None
+    if not isinstance(reg, dict):
+        return result("our qualifications survive signature", UNKNOWN,
+                      "'qualification_regime' is %r - it must be a {document, clause, "
+                      "qualifications_permitted, we_must_sign} entry."
+                      % (m.get("qualification_regime"),),
+                      "John North Hall",
+                      remedy="Rewrite the field as one object describing the tender's "
+                             "qualification regime.")
+    permitted = reg.get("qualifications_permitted")
+    clause = str(reg.get("clause") or "")
+    doc = str(reg.get("document") or "the tender documents").strip() or "the tender documents"
+    if permitted is None and clause and _QUALS_VOID.search(clause):
+        permitted = False
+    if permitted is None:
+        return result("our qualifications survive signature", UNKNOWN,
+                      "%s is recorded but 'qualifications_permitted' is unstated. That is the "
+                      "field the whole rule turns on - a tender that voids qualifications and a "
+                      "tender that invites them look identical until someone reads the clause."
+                      % doc, "John North Hall",
+                      remedy="Set qualifications_permitted true or false against the words of the "
+                             "clause, and paste the clause into 'clause'.")
+    if isinstance(permitted, str):
+        v = permitted.strip().lower()
+        if v in ("yes", "true", "y", "permitted", "allowed"):
+            permitted = True
+        elif v in ("no", "false", "n", "void", "disapplied", "prohibited"):
+            permitted = False
+        else:
+            return result("our qualifications survive signature", UNKNOWN,
+                          "'qualifications_permitted' is %r - it must read true or false."
+                          % (permitted,), "John North Hall",
+                          remedy="Answer the question the clause answers: do our qualifications "
+                                 "survive, yes or no?")
+    # A dict, a list or any other container is truthy, and a truthy value here
+    # means "our exclusions stand" - the reassuring answer. Caught by this
+    # rule's own variant suite before it shipped, on {"v": false}.
+    if not isinstance(permitted, bool) and permitted not in (0, 1):
+        return result("our qualifications survive signature", UNKNOWN,
+                      "'qualifications_permitted' is %r - it must read true or false, and a "
+                      "value of any other shape would otherwise be read as the reassuring answer."
+                      % (permitted,), "John North Hall",
+                      remedy="Answer the question the clause answers: do our qualifications "
+                             "survive, yes or no?")
+    if permitted:
+        return result("our qualifications survive signature", PASS,
+                      "%s permits qualifications, so the %d item(s) we carry as excluded stand "
+                      "as written" % (doc, len(relied)))
+    if not relied:
+        return result("our qualifications survive signature", PASS,
+                      "%s disapplies qualifications, and nothing on this job is being carried as "
+                      "excluded - so there is nothing for the clause to strike out" % doc)
+    signing = reg.get("we_must_sign")
+    accepted = [i for i in relied
+                if str(i.get("qualification_accepted_in_writing", "")).lower()
+                in ("true", "yes", "1")]
+    exposed = [i for i in relied if i not in accepted]
+    if not exposed:
+        return result("our qualifications survive signature", PASS,
+                      "%s disapplies qualifications, but all %d excluded item(s) have written "
+                      "acceptance predating the return date" % (doc, len(relied)))
+    return result("our qualifications survive signature", FAIL,
+                  "%s disapplies our qualifications%s, and %d item(s) are being carried as "
+                  "EXCLUDED with no written acceptance: %s. Once the Form of Tender is signed "
+                  "these are not exclusions, they are unpriced work inside a firm lump sum. "
+                  "Writing them more clearly on the proposal changes nothing."
+                  % (doc,
+                     " and signing it is how we submit" if signing else "",
+                     len(exposed),
+                     "; ".join(str(i.get("ref", "?"))[:70] for i in exposed[:8])
+                     + ("; ..." if len(exposed) > 8 else "")),
+                  catch="John North Hall",
+                  remedy="For each one: price it, or get the qualification accepted in writing "
+                         "BEFORE the return date. After signature the clause has already bitten.")
+
+
 RULES = [
+    check_our_qualifications_survive_signature,
     check_system_coupling, check_panic_hardware, check_glass_ownership, check_quantities,
     check_scope_gaps, check_supplier_quote_currency, check_net_pricing,
     check_full_height_screens, check_fabricator_can_make_it, check_uvalue_basis,
@@ -1772,6 +1906,7 @@ def blank_manifest(job):
         "price_commitment": None,
         "delivery_terms": None,
         "incorporated_terms": None,
+        "qualification_regime": None,
         "issued_documents": None,
         "exposures": None,
         "own_domains": None,
@@ -2577,6 +2712,82 @@ def selftest_terms_variants():
     return not bad
 
 
+# John North Hall, 28/07/2026. Recall suite for
+# check_our_qualifications_survive_signature. Two excluded items are held
+# constant so every case turns only on the regime, and the awkward shapes are
+# the ones the terms suite learned to expect: prose in place of a boolean,
+# a dict where a list was meant, a field somebody answered in words.
+_QR_RELIED = [{"ref": "Access plant and scaffolding", "treatment": "excluded"},
+              {"ref": "Waste removal and disposal", "treatment": "Excluded by us"}]
+_JNH_CLAUSE = ("It is agreed that any other terms and conditions of contract or any caveats, "
+               "assumptions, reservations or exclusions that may be printed on correspondence "
+               "emanating from the tender, or any contract resulting from this tender, shall "
+               "not be applicable to this tender or agreement.")
+
+QUALIFICATION_VARIANTS = [
+    ("field absent",            None,                                              UNKNOWN),
+    ("John North Hall as it is", {"document": "ITT section 5.0 Form of Tender", "clause": _JNH_CLAUSE,
+                                  "qualifications_permitted": False, "we_must_sign": True}, FAIL),
+    ("void, inferred from the clause alone",
+                                {"document": "ITT s5.0", "clause": _JNH_CLAUSE},     FAIL),
+    ("void, but nothing relied on", {"document": "ITT s5.0", "clause": _JNH_CLAUSE,
+                                     "qualifications_permitted": False}, PASS),   # relied=[] below
+    ("qualifications permitted", {"document": "JCT tender", "qualifications_permitted": True}, PASS),
+    ("permitted as 'yes'",      {"document": "d", "qualifications_permitted": "yes"},  PASS),
+    ("void as 'no'",            {"document": "d", "qualifications_permitted": "no"},   FAIL),
+    ("void as 'disapplied'",    {"document": "d", "qualifications_permitted": "disapplied"}, FAIL),
+    ("permitted unstated, clause silent",
+                                {"document": "d", "clause": "Tenders must be returned by 9am."}, UNKNOWN),
+    ("permitted unstated, no clause at all", {"document": "d"},                        UNKNOWN),
+    ("permitted is prose",      {"document": "d", "qualifications_permitted": "probably not"}, UNKNOWN),
+    ("permitted is a dict",     {"document": "d", "qualifications_permitted": {"v": False}}, UNKNOWN),
+    ("a bare string",           "no qualifications allowed",                           UNKNOWN),
+    ("a list of one",           [{"document": "d", "qualifications_permitted": False}], FAIL),
+    ("a list of two",           [{"document": "d", "qualifications_permitted": False},
+                                 {"document": "e", "qualifications_permitted": True}],  UNKNOWN),
+    ("an int",                  7,                                                     UNKNOWN),
+    ("empty dict",              {},                                                    UNKNOWN),
+    # The escape hatch, and the shape that must NOT open it by accident.
+    ("void but both accepted in writing",
+                                {"document": "d", "qualifications_permitted": False}, PASS),
+    ("void, one accepted one not",
+                                {"document": "d", "qualifications_permitted": False},  FAIL),
+    # Wordings from other tenders that mean the same thing.
+    ("'shall have no effect'",  {"document": "d",
+                                 "clause": "Any exclusions attached shall have no effect."}, FAIL),
+    ("'unqualified tender'",    {"document": "d",
+                                 "clause": "Only an unqualified tender will be considered."}, FAIL),
+    ("'deemed not to apply'",   {"document": "d",
+                                 "clause": "Contractor's standard terms are deemed not to apply."}, FAIL),
+]
+
+
+def selftest_qualification_variants():
+    """Recall test for check_our_qualifications_survive_signature."""
+    ok = True
+    for name, value, want in QUALIFICATION_VARIANTS:
+        relied = list(_QR_RELIED)
+        if name == "void, but nothing relied on":
+            relied = [{"ref": "Manifestation", "treatment": "priced"}]
+        elif name == "void but both accepted in writing":
+            relied = [dict(i, qualification_accepted_in_writing=True) for i in _QR_RELIED]
+        elif name == "void, one accepted one not":
+            relied = [dict(_QR_RELIED[0], qualification_accepted_in_writing=True), _QR_RELIED[1]]
+        m = {"spec_items": relied}
+        if value is not None or name == "field absent":
+            m["qualification_regime"] = value
+        try:
+            got = check_our_qualifications_survive_signature(m)["status"]
+        except Exception as exc:                      # noqa: BLE001 - a crash is a failure
+            got = "CRASH: %s" % exc
+        if got != want:
+            print("  qualification variant %-42s wanted %s, got %s" % (name, want, got))
+            ok = False
+    print("  qualification regime   %d variant(s) checked%s"
+          % (len(QUALIFICATION_VARIANTS), "" if ok else "  SOME FAILED"))
+    return ok
+
+
 def selftest_one_crash_costs_one_rule():
     """A rule that raises must lose itself, not the rest of the run.
 
@@ -2622,6 +2833,7 @@ def selftest():
         "_test-st-marys.json": {"system can meet the specified performance"},
         "_test-gordon-court.json": {"supplier price held as long as ours"},
         "_test-riverside.json": {"delivery actually included"},
+        "_test-john-north-hall.json": {"our qualifications survive signature"},
     }
     # Rules whose founding error is a QUESTION rather than an outright error.
     # Asserted separately so that widening "fired" to include ASK cannot quietly
@@ -2665,6 +2877,8 @@ def selftest():
     if not selftest_view_variants():
         ok = False
     if not selftest_coverage_variants():
+        ok = False
+    if not selftest_qualification_variants():
         ok = False
     if not selftest_one_crash_costs_one_rule():
         ok = False

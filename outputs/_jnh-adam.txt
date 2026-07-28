@@ -1,0 +1,80 @@
+Adam,
+
+John North Hall, 1-39 Vaughan House - Works Order 701256543, tender back 9am Monday 24 August.
+
+I have read the ITT end to end, the estate plan, the SMA profile and all six images. I can't price it yet, and
+the reason is worth two minutes of your time.
+
+THERE ARE NO DOOR SIZES IN THE PACK
+Not one. No door schedule, no elevation, no opening register, no drawing. The "Block Plan" is an estate plan of
+parking spaces and flat stacks. All we have is five photographs. Bellview cannot quote five doorsets without
+five sizes, so the RFQ can't go out and there is no price.
+
+Jordan Jones has offered to meet us on site and that offer is the answer. It needs taking in the first week of
+August - survey, then RFQ, then about a week for Bellview, then price and check, against a 9am Monday deadline
+leaves less room than 27 days sounds. Worth knowing that clauses 1.4.2 and 3.1.2 both say no claim for extras
+will be entertained for anything a site visit would have revealed, and 3.1.1 deems us to have visited whether
+we did or not.
+
+SIGNING THEIR FORM OF TENDER DELETES OUR EXCLUSIONS
+Section 5.0, clause 4.1: "any caveats, assumptions, reservations or exclusions that may be printed on
+correspondence emanating from the tender ... shall not be applicable to this tender or agreement." The clause
+above it offers the works "for the firm price contained within the pricing summary", and signing that page is
+how you submit - there is no unsigned route.
+
+So our standard exclusions schedule does nothing here: access plant, waste removal, making good, access
+control, all disapplied by our own signature. On this job an item is either priced, or accepted in writing
+before the 24th. There is no third option, and writing the exclusions more clearly doesn't help.
+
+That also settles the strip-out question for this job specifically. Your position to Jason Mount - strip out
+yes, disposal no - is the right house default, but this ITT puts removal AND disposal in our tender by name,
+asks for a Waste Carrier Licence with the submission, and allows skips in the compound. Both are ours here.
+
+THE INTERCOM CAN'T WORK ON THE HARDWARE THEY HAVE SPECIFIED
+They require the intercoms reconnected and proven working on completion. Their own hardware list is a
+mechanical cylinder with a thumbturn and nothing else - no electric strike, no keep, no rectifier, no power
+transfer. The entry panels are on the brickwork beside each door in all five photos, so they aren't moving; the
+work is the electric release inside the new doorset, and it's a door-entry specialist's, not ours. Clause 2.1.4
+wants every subcontractor named with the tender, so one has to be chosen before we submit.
+
+TWO GATES I CAN'T CHECK
+Clause 4.3.2 sets public liability at a minimum of GBP 10,000,000, and 2.5 wants a Waste Carrier Licence
+enclosed with the tender. Neither is recorded anywhere I can see. If we're short on either, the survey day is
+wasted, so it's worth confirming first.
+
+WHAT IT'S WORTH
+Benchmark only, and the size is assumed, so please don't quote it to anyone: GBP 24,000-26,000 for the five
+doorsets - frames, glass and fit. That's anchored on Bellview's own Smart Wall Pocket prices, the closest being
+Lyttleton Road, a 1600 x 2100 door with a fixed side field at GBP 2,930.12 net. Across the plausible range of
+sizes and rates it moves between GBP 21,700 and GBP 29,600.
+
+I'd expect that to be about half the tender. Strip-out and disposal, making good inside and out, the intercom
+work, 129 keys, and the client's own Preliminaries and Contingency lines are all on top - and none of them has
+a rate in our register, so they need real prices rather than an allowance. Their pricing summary has three
+lines and our pricing document answers one of them, which is the same thing that prompted Guildmore's question
+about removal.
+
+ONE THING TO PUT TO JORDAN JONES WHATEVER WE DECIDE
+Their ITT names the blocks 1-6, 7-16, 17-23, 24-31, 32-39. Their own estate plan and the nameplates in their
+own photographs both say 1-6, 7-15, 16-23, 24-31, 32-39, with no flat 13 on the estate. Their key count proves
+it: they ask for 129 keys on a stated basis of 3 per flat plus 3 per doorset, and 38 flats gives exactly 129
+where 39 would give 132. Flat 16 is served by the third door, not the second. It matters because the keys are
+five differs - cutting them off their block ranges orders 33 and 24 where 27 and 27 are needed.
+
+Also worth flagging to them, since they specified the system themselves: SMA's own datasheet, which they sent
+us, publishes 1.8 W/m2K for Smart Wall doors. The ITT sets no U-value at all, and the limiting standard for a
+replacement door under Part L is tighter than that. If there's a conflict it's inside their own specification,
+and they'd want to know before they consult the leaseholders on the price under Section 20, not after.
+
+WHAT I NEED FROM YOU
+1. Whether we're bidding it at all.
+2. If yes, the site survey booked with Jordan Jones - he needs the date and time in advance.
+3. Confirmation of the GBP 10m PL cover and the waste carrier licence.
+4. Your hourly rates for tradesmen and labourers, and the eight-trade daywork schedule at clause 2.6. Those are
+   your numbers rather than mine, and clause 2.1.3 makes them part of the contract and the basis for pricing
+   every variation for the life of the job.
+
+It's on the hub as REQ-32 with the options to click. Nothing has gone to the client and nothing will until you
+say so.
+
+Mary

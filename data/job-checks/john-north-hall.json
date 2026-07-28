@@ -1,0 +1,116 @@
+{
+ "job": "John North Hall (High Wycombe) Management Company Limited - replacement of 5 external communal block entrance door sets, 1-39 Vaughan House, John North Close, High Wycombe HP11 1FF. Works Order 701256543. Tender return 9am Monday 24 August 2026.",
+ "created": "2026-07-28",
+ "updated": "2026-07-28",
+ "_note": "FIRST PASS, NOTHING ISSUED. This manifest is deliberately run before there is a price, because the thing it has to say is that THERE ARE NO DIMENSIONS. All 23 pages of the ITT were read: there is no door schedule, no size, no elevation, no opening register - only five photographs. Nobody can price this job from the documents issued. The doorset figure below is a supplier-anchored BENCHMARK against an assumed size, not a quotation.",
+
+ "qualification_regime": {
+  "document": "John North Hall ITT section 5.0 'Form of Tender Acceptance', clause 4.1 (the second of four clauses all numbered 4.1)",
+  "clause": "It is agreed that any other terms and conditions of contract or any caveats, assumptions, reservations or exclusions that may be printed on correspondence emanating from the tender, or any contract resulting from this tender, shall not be applicable to this tender or agreement.",
+  "qualifications_permitted": false,
+  "we_must_sign": true,
+  "evidence": "The preceding clause offers to 'perform, provide, execute and complete the entirety of the woks ... For the firm price contained within the pricing summary'. Signing this page is how the tender is submitted; there is no unsigned route. Fenster's standard twelve-line inclusions/exclusions schedule is therefore disapplied in its entirety on this job."
+ },
+
+ "doors": [
+  {"ref": "D1 block 1-6 (6 flats, 3 storeys)", "fire_exit": false, "panic_hardware_priced": false},
+  {"ref": "D2 block 7-15 (8 flats, 4 storeys) - ITT calls this block '7-16'", "fire_exit": false, "panic_hardware_priced": false},
+  {"ref": "D3 block 16-23 (8 flats, 4 storeys) - ITT calls this block '17-23'", "fire_exit": false, "panic_hardware_priced": false},
+  {"ref": "D4 block 24-31 (8 flats, 4 storeys)", "fire_exit": false, "panic_hardware_priced": false},
+  {"ref": "D5 block 32-39 (8 flats, 4 storeys)", "fire_exit": false, "panic_hardware_priced": false}
+ ],
+ "_doors_note": "fire_exit recorded false deliberately and not as an oversight. These are final exit doors from the communal stair, but the ITT specifies no panic device and expressly requires 'Lock cylinders with a thumb turner on the inside' - a thumbturn is the escape provision on a block entrance door and is what the client has asked for. Flagging them as fire exits would produce a FAIL that misdescribes the spec. The real question - whether a thumbturn alone satisfies escape from a 4-storey block - is carried as an RFI, not faked here.",
+
+ "frame_supply": "glazed",
+ "glass_order": [],
+ "coupled_runs": [],
+
+ "warranty": {
+  "ours": {
+   "period_months": 120,
+   "scope": "all glass and frame products supplied and installed - defects in materials as supplied and workmanship (installation). Fenster house standard, self-backed.",
+   "start_date": null,
+   "usage_cap": null,
+   "exclusions": ["misuse", "accidental or intentional damage", "vandalism", "inadequate or incorrect maintenance", "external factors including severe weather", "subject to the terms and conditions of any applicable manufacturer warranties"]
+  },
+  "suppliers": []
+ },
+ "_warranty_note": "ITT 2.4 leaves TWO blanks for us to fill - 'Installation warranty/guarantee provided' and 'Manufacture warranty/guarantee provided' - and they are separate lines, so quoting one number for both does not answer the form. Our house clause has no start date, no insurer, no premium and no FENSA registration. This is the third live job carrying the insurance-backed-guarantee question (Princess Beatrice bill B72, Lower Range Road REQ-31) and the first where the client has given us a box to write the answer in. Note also that a FENSA-registered installation is the normal route to Building Regulations compliance on a replacement door, and FENSA does not cover communal or commercial work.",
+
+ "quantities": [
+  {"ref": "external communal block entrance door sets", "bill_qty": 5, "drawing_qty": 5},
+  {"ref": "blocks served", "bill_qty": 5, "drawing_qty": 5},
+  {"ref": "new keys to be supplied and delivered to Neil Douglas before works start", "bill_qty": 129, "drawing_qty": 129}
+ ],
+ "_quantities_note": "129 keys RECONCILED and it proves the ITT's block labels are wrong. The ITT states the basis as 3 per flat + 3 per new door set for the Management Company. 39 dwellings would give 39x3 + 5x3 = 132, not 129. The estate plan (2026-02-19 v5) lists the Vaughan House stacks as G1/F3/S5 + G2/F4/S6, G7/F9/S11/T14 + G8/F10/S12/T15, G16/F18/S20/T22 + G17/F19/S21/T23, G24/F26/S28/T30 + G25/F27/S29/T31, G32/F34/S36/T38 + G33/F35/S37/T39 - 6+8+8+8+8 = 38 dwellings, with no number 13 anywhere. 38x3 + 5x3 = 129 exactly. The nameplates in the client's own five photographs confirm it door by door: '5 6 / 3 4 / 1 2', '14 15 / 11 12 / 9 10 / 7 8', '22 23 / 20 21 / 18 19 / 16 17', '30 31 / 28 29 / 26 27 / 24 25', '38 39 / 36 37 / 34 35 / 32 33'. So the blocks are 1-6, 7-15, 16-23, 24-31, 32-39 - NOT the '7-16' and '17-23' the ITT prose gives twice. Flat 16 is served by the third door, not the second. Anyone cutting keys per cylinder off the ITT's ranges orders 33 and 24 where 27 and 27 are needed, and 132 keys against a stated 129.",
+
+ "spec_items": [
+  {"ref": "2.2 Five SMA Smart-Wall doorsets, aluminium polyamide, brown, pivoted anti-finger-trap, concealed commercial overhead closer, low mobility threshold, brown fixed pad handles both faces, toughened/laminated argon-filled units, thumbturn cylinder, opening leaf outward", "treatment": "provisional", "evidence": "BENCHMARK ONLY at GBP 24k-26k supply+adder+fit for the 5, from Bellview Smart Wall Pocket quotes for the same system and configuration. NOT a quotation and NOT measurable: no dimensions exist in the tender pack."},
+  {"ref": "2.2 Removal and disposal of the 5 existing doors and frames", "treatment": "provisional", "evidence": "Expressly in our tender per ITT 2.2. NO RATE EXISTS - 0 of 80 categories in data/supplier-rates.json cover strip-out, removal or disposal. Adam's house position (strip-out in, disposal out, 27/07 to Guildmore) does NOT survive here: this ITT puts both in scope by name, and ITT 3.7.9 allows skips in the site compound."},
+  {"ref": "2.2 Making good to internal AND external areas surrounding all 5 door sets", "treatment": "provisional", "evidence": "Expressly in our tender per ITT 2.2. No rate anywhere in the register. Extent unknown until the existing frames are seen - the reveals are brick externally with a plastered/painted internal lining on the evidence of the photographs."},
+  {"ref": "2.2 Existing door intercoms disconnected from the old door sets, reconnected to the new, and PROVEN WORKING on completion", "treatment": "provisional", "evidence": "SPECIALIST, NOT GLAZING, AND NOT IN THE PRODUCT SPEC. The entry panels are wall-mounted on the brick pier beside each door in all five photographs, so they are not being moved - the work is the electric release, keeps, power transfer and door loop INSIDE the new doorset. The ITT's own hardware list specifies only a mechanical cylinder with thumbturn: no electric strike, no rectifier, no transfer hinge. The spec as written cannot make the intercom work. Zero cost evidence anywhere in the repo for door-entry work; the only two electric strikes we have ever bought (Filwood 0000000507 pos 005, Lyttleton 0000000445 pos 008) were bundled inside a Bellview door element with no extractable price."},
+  {"ref": "2.2 Supply 129 new keys, delivered to Neil Douglas's office in advance of works starting", "treatment": "provisional", "evidence": "No key-cutting or suiting cost exists anywhere in the repo. Five differs at ~27 keys each; cylinders ship with 3, so roughly 110 additional keys to cut plus an advance delivery."},
+  {"ref": "2.3 Item 0 'Preliminaries (i.e. welfare facilities, if required)' - a line on the client's own pricing summary", "treatment": "provisional", "evidence": "ITT 3.14.1 site facilities are NOT to be used by the workforce; 3.14/3.15 require our own toilet, washing and sanitary facilities cleaned daily for the duration; 3.11 requires temporary power AND temporary lighting including for sub-contractors, with all wiring, meters, fittings, charges and fees; 3.7.2 requires a Heras-fenced dedicated site area. Our pricing document has no preliminaries line at all - the Guildmore lesson, second job running."},
+  {"ref": "2.3 Item 2.0 'Contingency' - a line on the client's own pricing summary", "treatment": "provisional", "evidence": "Our pricing document has no contingency line either. Returning it blank is what prompted Guildmore's commercial manager to ask whether removal was allowed for."},
+  {"ref": "2.1.3 Hourly rates for tradesmen/labourers on a separate itemised sheet, which FORMS PART OF THE CONTRACT and is the basis for pricing all variations", "treatment": "provisional", "evidence": "Plus ITT 2.6, a full daywork schedule: bricklayer, carpenter, plumber, painter, plasterer, floorer, asphalter, general labourer, each per hour and per day. We have never issued either document. These are rates Adam has to set - they are not estimating output and they bind us for the whole contract."},
+  {"ref": "2.1.4 / 3.22.1 Names, addresses and trades of ALL sub-contractors, supplied with the tender; changes need the Surveyor's written approval", "treatment": "provisional", "evidence": "At minimum the door-entry subcontractor has to be named at tender stage, before we have chosen one."},
+  {"ref": "2.5 Documents to enclose: Public Liability Insurance, relevant accreditations or membership, WASTE CARRIER LICENCE", "treatment": "provisional", "evidence": "ITT 4.3.2 sets PL at a minimum of GBP 10,000,000. Both the PL limit and whether Fenster holds a waste carrier licence are pass/fail gates on the submission and neither is recorded anywhere in this repo."},
+  {"ref": "3.24 Scaffolding / access towers designed by a qualified Structural Engineer, erected and inspected by NASC members, enclosed in Heras, all local authority licences and fees, cost to be within the Schedule of Works", "treatment": "provisional", "evidence": "Our standard proposal excludes access and lifting equipment outright - and that exclusion is disapplied by the Form of Tender. Five single-storey ground-floor doorsets should not need designed scaffold, but the clause is unqualified and 3.24.1 puts the cost in our schedule."},
+  {"ref": "2.4 Estimated duration, number of operatives, proposed commencement, installation warranty, manufacturer warranty - four blanks on the client's form", "treatment": "provisional", "evidence": "Guildmore left us three blanks we never filled. These are the same shape. The two warranty blanks are where the insurance-backed-guarantee question lands on this job (open on Princess Beatrice B72 and Lower Range Road, REQ-31)."},
+  {"ref": "3.28 'If The subject property is listed Grade II*' - conservation regime, limited intervention, reversible works, NO CEMENT without the Surveyor's written authority", "treatment": "provisional", "evidence": "Reads as template boilerplate on a late-20th-century brick-and-render estate, and the conditional 'If' is left dangling in the client's own text. But it is unstruck in the issued ITT, and a no-cement rule bites directly on making good around five door frames. Needs one line of confirmation, not an assumption."},
+  {"ref": "3.27 Salvage value of any lead removed to be reimbursed to the Employer", "treatment": "excluded", "evidence": "No lead in scope. Recorded so it is answered rather than silent."},
+  {"ref": "U-value / thermal performance", "treatment": "provisional", "evidence": "The ITT sets NO U-value anywhere in 23 pages. SMA's own datasheet, which the client sent us, publishes 1.8 W/m2K for Smart Wall DOORS. Replacement of a controlled fitting in an existing building engages Approved Document L, and the limiting standard for a replacement door is tighter than 1.8. Whether ADL Volume 1 or Volume 2 governs a communal entrance to a block of flats is the question, and it decides whether the system the client has SPECIFIED BY NAME can lawfully be installed."},
+  {"ref": "3.4 Tenant liaison - advance warning to residents and owners, access to properties where required", "treatment": "provisional", "evidence": "38 dwellings across 5 blocks, one door out of use per block per day, working hours 8-5 Mon-Fri only."}
+ ],
+
+ "supplier_quotes": [],
+ "_supplier_quotes_note": "EMPTY, AND CORRECTLY SO. No RFQ has been sent because no RFQ can be sent - a fabricator cannot quote five doorsets without five sizes. The Georgie's lesson applies in advance: an enquiry that goes out without a schedule comes back with 'I have assumed'. The measured sizes and a door-by-door hardware note must be in the RFQ before it leaves.",
+
+ "supplier_coverage": [
+  {"ref": "5 no Smart-Wall entrance doorsets", "qty_sold": 0, "qty_quoted": 0, "supplier_ref": "none yet - benchmark only, from Bellview 0000000445 (Lyttleton Road) pos 011 and 0000000483 (St Mary's) pos 003/005"}
+ ],
+
+ "full_height_screens": [],
+
+ "systems_specified": [
+  {"system": "SMA Smart-Wall (SPECIFIED BY NAME by the client, with the manufacturer's website and the profile datasheet enclosed)", "fabricator": "Bellview Products Ltd (via BSW) - fabricates Smart Wall Pocket for us on St Mary's, Georgie's, Brocks Hill, Lyttleton Road, Willesden Junction and Home Bargains Basingstoke"}
+ ],
+
+ "finishes": [
+  {"ref": "all 5 doorsets", "specified_internal": "brown - 'similar colour to existing door sets and surrounding window frames', no RAL given", "specified_external": "brown - as above", "quoted_internal": null, "quoted_external": null}
+ ],
+ "_finishes_note": "TWO THINGS. (1) No RAL. 'Similar to existing' is not a specification and a powder-coat batch cannot be ordered against it - the existing is a faded 1980s brown. Get a RAL agreed in writing before order, or price a colour match. (2) The client's own 'Example of new door' photograph is an ANTHRACITE GREY door, not a brown one - so the picture they have sent as the standard contradicts the colour they have written down twice.",
+
+ "u_value": {
+  "required": null,
+  "basis": "not stated - the ITT sets no thermal requirement anywhere",
+  "rejected_elements": []
+ },
+
+ "performance": {
+  "required": "None stated by the client. The governing requirement is therefore statutory: Approved Document L for the replacement of a controlled fitting in an existing building.",
+  "capable": null,
+  "evidence": "SMA Smart Wall Profile.pdf, enclosed with the ITT by the client: 'U Value 1.8 W/m2K for Smart Wall Doors', 'U Value 1.4 W/m2K for Smart Wall Screens', LPS 1175 Level 2, BS EN 1627 Level 3, BS 6375 Pt 1 anti-finger-trap doors, PAS 24:2012. This is the same 1.8 figure that is currently unresolved on St Mary's (REQ-15). Here the client has specified the system themselves, so if 1.8 does not meet ADL the conflict is in their own specification and they need to be told before they consult leaseholders on it under Section 20."
+ },
+
+ "price_commitment": {
+  "source": "John North Hall ITT clause 2.3.1 - 'Due to Section 20 process requirements all quotes should be valid for at least 90 Days.' Tender return 9am Monday 24 August 2026, so our price is committed to at least 22 November 2026.",
+  "our_price_open_until": "2026-11-22"
+ },
+
+ "delivery_terms": [],
+ "incorporated_terms": [],
+
+ "issued_documents": [],
+ "_issued_note": "Nothing issued. When something is, note that our own pricing workbook is a clone of templates/MASTER PRICING DOC.xlsx and inherits dc:creator 'Dan Parker; dan.parker@agsurveying.co.uk' plus two external links to other people's machines - REQ-27, now on its third job. The template has still not been fixed.",
+
+ "exposures": [
+  {"item": "Every exclusion in Fenster's standard schedule, disapplied by ITT clause 4.1 on signature", "lands_on": "Fenster", "our_recourse": "none after signature - the only routes are to price the item or to get the qualification accepted in writing before 9am 24/08"},
+  {"item": "Five doorsets priced without a single measured dimension", "lands_on": "Fenster", "our_recourse": "none - ITT 1.4.2 and 3.1.2 both say no claim for extras will be entertained for anything a site visit would have revealed, and 3.1.1 deems us to have visited"},
+  {"item": "Intercom proven working on completion, against a hardware spec containing no electric release", "lands_on": "Fenster", "our_recourse": "none stated - the obligation is on completion of the works and is ours to discharge"},
+  {"item": "Supplier price held for 30 days against our own price held for 90 (2.3.1), with the works starting October/November 2026", "lands_on": "Fenster", "our_recourse": "none unless a longer hold is agreed with Bellview in writing before the tender goes in"},
+  {"item": "5% retention for a 90-day rectification period, payment 21 days, and liquidated damages of up to 1% of contract value per week to be set at award (4.2.2, 4.2.1, 4.2.3)", "lands_on": "Fenster", "our_recourse": "the LAD rate is 'determined at the time of award' - it can still be negotiated, but only before we accept"}
+ ],
+
+ "own_domains": ["fensterglazing.com"]
+}

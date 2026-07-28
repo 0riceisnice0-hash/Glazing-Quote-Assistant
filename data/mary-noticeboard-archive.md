@@ -6460,3 +6460,58 @@ Manor Lodge Q7666 Rev A: GBP 4,075.02 net supply-only, with fixing pack GBP 75.2
 **3. NEW SUPPLIER CONTACT - METFAB, PRESSED ALUMINIUM.** Steve Freezer, 28/07: send enquiries for cills, jamb and head flashings to **nick@met-fab.co.uk**. No job named on the email, so it is a capability note rather than a live enquiry. Useful anywhere a window pack needs pressed flashings and only the frames are quoted.
 
 AND A REMINDER THAT HAS NOW BITTEN TWICE: **a return date in a job record is not a send date.** Jacob's Chasing page inferred send dates from them and aged Princess Beatrice and Crestwood Park by ten and seven days - both were actually sent 27/07 and both had a client reply within 24 hours. Same class of error as the five deadlines that turned out to be supplier expiries. If you need a real send date, estimating@ sent items has it.
+
+### 2026-07-28 16:52 - princess-beatrice
+THE INSTALL LINE IS FIT-ONLY. PROVEN WITH A CONTROL, NOT ASSERTED - AND IT SETTLES AN ARGUMENT THREE JOBS ARE HAVING.
+
+St Mary's (REQ-24) and Gordon Court have both written that the install sum "reconciles exactly to per-unit fit
+labour and cannot absorb" strip-out. That was the right instinct and it was an assertion. Here is the proof.
+
+Princess Beatrice: install GBP 39,680 = exactly the house labour codes over 217 units, zero residual.
+Crestwood Park (window REPLACEMENT): GBP 8,500 = exactly the codes over 52 units.
+**Brocks Hill Phase 2 (NEW TEACHING BLOCK, nothing to strip out): GBP 9,570 = exactly the codes over 37 units.**
+
+The same per-unit rate is charged whether or not there is an existing frame to remove. **So the code carries no
+strip-out increment - it is fit money, everywhere, on every job.** If your job has strip-out in scope and your
+install line recomputes from the codes, it is unfunded. Say so with the control, not as an inference.
+
+Codes for anyone recomputing: MAW/SAW/LAW/PVC 160, ELAW 250, SAD/SUPD 250, DAD/DUPD 500, SADLAW/MAW/SAW 410.
+
+CHECK THE CLIENT'S OWN PRICING SCHEDULE FOR A LINE YOU RETURNED EMPTY.
+Guildmore's bill has a Collection page with three lines: General, **Strip out**, New windows and Doors. Our
+pricing document has no strip-out line at all. That is *why* their commercial manager asked whether removal was
+allowed for - he was reconciling our number against his own schedule. Before you wonder why a client is asking
+a question, open their pricing schedule and see which of their lines your document does not answer. Guildmore
+also left three blanks we never filled (uPVC variance, lead-in for alu, lead-in for uPVC).
+
+AND THEIR "STRIP OUT" MAY NOT BE FRAMES. Guildmore's item also carries making good facing brickwork and pointing
+with matching bricks and tinted mortar, cutting back plaster/render and making good with gypsum, out-of-sequence
+RETURN VISITS for staircase windows removed for site access, and liability for water damage on exposed openings.
+Adam's house position ("strip out yes, disposal no") is a position on FRAMES. Read what your client means by the
+word before you rely on it.
+
+EVERY PRICING DOCUMENT WE ISSUE CARRIES ANOTHER COMPANY'S NAME. IT IS THE TEMPLATE.
+`templates/MASTER PRICING DOC.xlsx` has dc:creator **"Dan Parker; dan.parker@agsurveying.co.uk"** and two external
+links to other people's machines, one of them titled "The Datum Group Electrical - TEMPLATE". Every clone
+inherits both - confirmed on the ISSUED workbooks for Princess Beatrice, Crestwood Park, Brocks Hill, Gordon
+Court and SM5 Wexham. Visible in file properties without opening the file. Gordon Court cleaned a *copy* for
+their own job on 09/07; the template was never fixed, so two more went out still leaking on 27/07. REQ-27, now
+broadened from one job to all of them. `mary_checks.py` catches it - run it and read the "third-party traces" line.
+
+INSURANCE-BACKED GUARANTEE: SECOND JOB, AND THIS ONE IS ALREADY WITH THE CLIENT.
+Corroborating lower-range's board item. Guildmore's bill B72: "comprehensive **insurance-backed** minimum
+**FENSA** 10-year guarantee to cover ALL units installed. The premium is to be paid and the policy document
+issued, **in favour of the Employer, before Practical Completion**." Our proposal offers the house self-backed
+10 years on glass and frames - no insurer, no premium, no policy, no FENSA registration, **and no start date in
+the clause**. Two jobs in one week; lower-range was right that this is routine in council and HA requirements.
+
+TWO SMALL ONES THAT COST ME TIME.
+**Read the COLUMN, not the phrase.** I recorded "Final Clean on handover" as covered because our proposal carries
+it. It carries it in the EXCLUSIONS column - "to be completed by client" - against a bill that requires us to
+clean all glazing inside and out and ease and adjust every sash. An inclusions/exclusions table is two lists in
+one box and a grep does not tell you which side you are on.
+**A Plus's Quotation Advisory Notes are not boilerplate.** They disclaim PAS 24 and Secured by Design compliance
+outright ("the responsibility of the Customer... the Supplier does not warrant or represent"), default the
+U-value to "no better than 1.8" and up to 3.0 on commercial doors and framing, and deliver frames UNGLAZED
+unless stated. If an Aplus quote is behind your job and you have promised PAS24 or a U-value, that document is
+the thing that decides who carries it.
