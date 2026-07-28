@@ -17,8 +17,9 @@ and reliances, not as defects - we are asking what the design intends so that we
 the right thing, not suggesting anything is wrong. The items that are OURS have gone to
 A Plus in a separate letter.
 
-Two of these need Campbell Ark (job K1653, drawn SC) and one needs HD Planning
-(plan ref HD0-0197-01a), so RRR may wish to forward rather than answer.
+Eight of these need Campbell Ark (job K1653, drawn SC), one needs HD Planning
+(plan ref HD0-0197-01a) and two are for RRR or PHDB, so this may be easier to
+forward in pieces than to answer as one.
 
 --------------------------------------------------------------------------------
 
@@ -80,9 +81,32 @@ FOR CAMPBELL ARK - the author of the smoke vent note
    which we have. Most of it is probably not our scope - we would just rather ask for what
    exists than guess from the numbering.
 
+7. DOES THE 1.6 W/m2K U-VALUE APPLY TO THESE VENTS AT ALL?
+   The key on K1653-10b/11/12 sets a U-value of 1.6 against W1, W2, D1 and D5. The
+   stair vents are the only glazing on those drawings carrying NO W tag at all -
+   every habitable room window has one - so it is genuinely unclear whether 1.6
+   binds them.
+   It matters either way. We have asked A Plus to state the whole-window figure, but
+   their standard notes say windows will be "no better than 1.8 W/m2K" unless
+   otherwise stated, so if 1.6 does apply we may need a different specification. If
+   it does not, please say so and we will stop chasing it.
+
+8. HOW HIGH ABOVE FLOOR LEVEL WILL THE VENTS SIT?
+   A Plus flag two things that depend entirely on cill height and that we cannot
+   answer from the drawings:
+     - below 2.5m from finished floor level, an opening vent is a potential trap
+       hazard to occupants as it closes, under BS EN 60335-2. Preventative measures
+       may be needed.
+     - below 1100mm from finished floor level, Part K anti-fall protection is
+       required. A Plus exclude it and so do we, which means at present nobody is
+       carrying it.
+   Both are in a stairwell, on a life-safety system, so we would rather raise them
+   now than discover them at handover. Please confirm the intended cill height at
+   each vent.
+
 FOR HD PLANNING - HD0-0197-01a
 
-7. IF AN OPENING IS ENLARGED, DOES THAT SIT INSIDE THE APPROVAL?
+9. IF AN OPENING IS ENLARGED, DOES THAT SIT INSIDE THE APPROVAL?
    The drawings are stamped 24/02303/PAPCR, which we take to be a prior approval rather
    than a full planning permission. If that is right, external alterations may be limited.
    Before anyone commits to changing an opening size it would be worth confirming whether
@@ -90,7 +114,7 @@ FOR HD PLANNING - HD0-0197-01a
 
 FOR RRR / PHDB
 
-8. WHO IS CARRYING THE AOV CONTROL SYSTEM?
+10. WHO IS CARRYING THE AOV CONTROL SYSTEM?
    The drawings require the vent to be "operated by the fire brigade at ground floor
    access level", which needs a smoke control panel, a mains and battery-backed supply,
    cabling, containment, the override itself and commissioning. A Plus fix the actuator,
@@ -98,7 +122,7 @@ FOR RRR / PHDB
    where their scope ends, and ours does too. It is not in our price and we do not believe
    it is in theirs. Somebody needs to be carrying it.
 
-9. WHEN WILL THE OPENINGS BE FORMED?
+11. WHEN WILL THE OPENINGS BE FORMED?
    Our terms provide for a site survey only once structural openings are fully formed. So
    the sequence is: openings formed, then we survey, then manufacture. A rough programme
    date would help - it affects how long we can reasonably ask A Plus to hold their price.

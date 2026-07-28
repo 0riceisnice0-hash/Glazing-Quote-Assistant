@@ -640,6 +640,28 @@ def check_free_delivery_threshold(m):
         # null made both read as an unanswered question when AFS's omission is
         # a known, quantified GBP 250 hole. 'never' says so.
         never_free = str(thr).strip().lower() == "never"
+        # Riverside, 28/07. Adversarially tested this rule against 12 variants
+        # after Gordon Court's point that a detector validated on one positive
+        # case has measured precision, not recall. Two real defects fell out.
+        # (1) A numeric field written as a STRING - "5000" - crashed the whole
+        # run on the >= comparison, aborting every later rule. That became more
+        # likely the moment the field legitimately accepted "never", because a
+        # reader who sees one string reasonably writes another. Coerce, and ASK
+        # rather than crash on anything that is neither a number nor "never".
+        if not never_free:
+            try:
+                val = None if val is None else float(val)
+                thr = None if thr is None else float(thr)
+            except (TypeError, ValueError):
+                silent.append("%s (order_value %r / threshold %r is not a number)"
+                              % (ref, t.get("order_value"), t.get("free_delivery_threshold")))
+                continue
+        else:
+            try:
+                val = None if val is None else float(val)
+            except (TypeError, ValueError):
+                silent.append("%s (order_value %r is not a number)" % (ref, t.get("order_value")))
+                continue
         if val is None or (thr is None and not never_free):
             silent.append(ref)
             continue
@@ -661,6 +683,12 @@ def check_free_delivery_threshold(m):
         if str(priced).lower() == "provisional" and t.get("charge_basis"):
             prov.append("%s; carried as provisional on the supplier's stated basis (%s)"
                         % (gap, t["charge_basis"]))
+        # (2) An unrecognised value silently read as "not priced". delivery_priced
+        # "yes" produced "Delivery is not in the price" - an assertion about the
+        # world, from a value the rule simply did not understand. Misreading an
+        # affirmative as a negative is the dangerous direction, so say so instead.
+        elif priced not in (None, False) and str(priced).lower() not in ("false", "no", "0", "provisional"):
+            silent.append("%s (delivery_priced is %r - use true, false, or \"provisional\")" % (ref, priced))
         else:
             short.append("%s and no carriage is priced (%s)"
                          % (gap, t.get("charge_basis") or "basis not stated"))
@@ -827,6 +855,57 @@ def report(results, job=""):
     return 0 if not fails and not unknowns else 1
 
 
+DELIVERY_VARIANTS = [
+    # Riverside, 28/07/2026. Gordon Court's point: a detector validated against one
+    # positive case has measured PRECISION and called it quality. This rule shipped
+    # on 27/07 with exactly one fixture - the one it was built from. Sixteen variants
+    # of the same field found two real defects: a numeric field written as a string
+    # crashed the whole run, and an unrecognised delivery_priced value was silently
+    # read as "not priced", asserting something false about the world.
+    # (name, term-dict overrides, expected status)
+    ("baseline under threshold, not priced",   {},                                              FAIL),
+    ("delivery_priced True",                   {"delivery_priced": True},                       PASS),
+    ("provisional lowercase",                  {"delivery_priced": "provisional"},              UNKNOWN),
+    ("provisional CAPITALISED",                {"delivery_priced": "PROVISIONAL"},              UNKNOWN),
+    ("provisional, no charge_basis",           {"delivery_priced": "provisional",
+                                                "charge_basis": None},                          FAIL),
+    ("order value equals threshold",           {"order_value": 5000.0},                         PASS),
+    ("threshold 0 - always free",              {"free_delivery_threshold": 0},                  PASS),
+    ("threshold 'never'",                      {"free_delivery_threshold": "never"},            FAIL),
+    ("order_value missing",                    {"order_value": None},                           UNKNOWN),
+    ("threshold as string '5000'",             {"free_delivery_threshold": "5000"},             FAIL),
+    ("delivery_priced 'yes'",                  {"delivery_priced": "yes"},                      UNKNOWN),
+    ("delivery_priced None",                   {"delivery_priced": None},                       FAIL),
+    ("order_value as string",                  {"order_value": "4845.22"},                      FAIL),
+    ("threshold gibberish",                    {"free_delivery_threshold": "ask them"},         UNKNOWN),
+    ("delivery_priced 'no'",                   {"delivery_priced": "no"},                       FAIL),
+    ("'never' with string order_value",        {"free_delivery_threshold": "never",
+                                                "order_value": "4845.22"},                      FAIL),
+]
+
+
+def selftest_delivery_variants():
+    """Recall test for check_free_delivery_threshold - see DELIVERY_VARIANTS."""
+    base = {"supplier": "A Plus", "ref": "QT51518", "order_value": 4845.22,
+            "free_delivery_threshold": 5000.0, "charge_basis": "1/mile each way",
+            "delivery_priced": False}
+    bad = []
+    for name, over, expect in DELIVERY_VARIANTS:
+        t = dict(base)
+        t.update(over)
+        t = {k: v for k, v in t.items() if not (k == "charge_basis" and v is None)}
+        try:
+            got = check_free_delivery_threshold({"delivery_terms": [t]})["status"]
+        except Exception as exc:
+            got = "EXCEPTION %s" % type(exc).__name__
+        if got != expect:
+            bad.append("%s: expected %s, got %s" % (name, expect, got))
+    print("  %-22s %d/%d delivery variants behave as intended%s"
+          % ("delivery recall", len(DELIVERY_VARIANTS) - len(bad), len(DELIVERY_VARIANTS),
+             "" if not bad else "  MISSED: " + "; ".join(bad)))
+    return not bad
+
+
 def selftest():
     """Replay three jobs as they actually were and assert the rules still fire.
 
@@ -872,6 +951,8 @@ def selftest():
         print("  %-22s %d rule(s) fired, %d asked%s" % (name, len(failed), len(asked), note))
         if missed or missed_ask:
             ok = False
+    if not selftest_delivery_variants():
+        ok = False
     print("selftest %s" % ("passed - every founding error is still caught" if ok else "FAILED"))
     return 0 if ok else 1
 

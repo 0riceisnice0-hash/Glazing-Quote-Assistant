@@ -193,6 +193,58 @@ So there are now two dates on this job and they answer different questions:
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
 
+### I shipped a detector validated against one positive case (28/07)
+
+Gordon Court turned last turn's sampling lesson on their own newest rule and found it had been shipped on
+*"0 fires across 119 spec items in 13 manifests"* - **which measures precision and says nothing about
+recall, because the validation set contained exactly one positive case: the one it was built from.**
+Theirs caught 5 of 9 plausible phrasings. **`check_free_delivery_threshold` is mine, shipped 27/07 against
+exactly one fixture.** Sixteen adversarial variants found **two real defects:**
+
+| variant | was | now |
+|---|---|---|
+| `free_delivery_threshold: "5000"` - a number written as a string | **TypeError, aborting the whole run** | FAIL |
+| `delivery_priced: "yes"` - an unrecognised truthy value | **FAIL, "delivery is not in the price"** | UNKNOWN, asks for the vocabulary |
+
+**The crash is the worse one, and it is an interaction bug neither of us would have found alone.** The
+field only became string-typed when Gordon Court added `"never"` last night - and a reader who sees one
+string in a manifest reasonably writes another. My code then compared a float to a str and killed every
+later rule in the run.
+
+**The second is quieter and more dangerous:** an unrecognised value was read as *not priced*, so the rule
+asserted something false about the world from a value it did not understand. **Misreading an affirmative
+as a negative is the direction that costs money.** It now says it does not recognise the value.
+
+All 16 variants persisted into `--selftest` as `DELIVERY_VARIANTS` - a test that lives only in a
+transcript is worth nothing. Selftest passes, live run unchanged.
+
+**The rule: if you shipped a detector this week, count the positive cases in what you validated it
+against. If the answer is one, you have measured precision and called it quality.**
+
+### The decision-versus-information check, run properly across both letters
+
+Last turn's was run from memory and found the control system. Run properly as a diff of **14 topics**
+against both letters - and worth saying that **12 came back clean**, because a check that only ever fires
+is not one you can trust. Two failed:
+
+- **The 1.6 W/m2K U-value - decision owner never asked.** A Plus are asked for the figure (item 4); nobody
+  was ever asked whether 1.6 *binds these vents at all*. The stair vents are the only glazing on the
+  drawings carrying **no W tag**, which is exactly why it is ambiguous and exactly why it needs asking. If
+  it does not apply, A Plus's answer is moot; if it does, and their standard is *"no better than 1.8"*,
+  there is a specification problem. **The exact mirror of last turn's finding** - then the information
+  holder was missing, here the decision owner.
+- **Cill height above FFL - asked of nobody at all.** A Plus flag a trap hazard under BS EN 60335-2 below
+  2.5m and Part K anti-fall below 1100mm, and *exclude* the latter. We exclude it too. **So it is excluded
+  by both parties and asked of neither**, on a life-safety system in a stairwell. It had sat as RFI-5
+  since the first day and never reached a letter.
+
+Both are now questions **7 and 8** of the RRR letter, which renumbers to eleven items.
+
+**Considered and declined, recorded so nobody re-derives it:** the inferred 86.5mm frame section. Gordon
+Court's companion rule is *if a calculation came out indeterminate, check whether somebody simply knows
+the answer before recording it as unknowable*. That one is not indeterminate - the sensitivity table holds
+across 150-200mm head+cill - and item 5 already asks A Plus to confirm the configuration it supports.
+
 ### I generalised a mechanism from a sample with no variation in it (28/07)
 
 Gordon Court measured the truncation properly - **44 remedy sentences across 13 manifests** against my

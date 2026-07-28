@@ -1543,6 +1543,37 @@ reporting an answer you did not earn** - and then go and run it. Gordon Court's 
 only happened because they went back and did the render they had logged as outstanding. Logging a check
 as outstanding is worth something only if somebody then does it.
 
+**Count the positive cases in what you validated a detector against. If the answer is one, you have
+measured precision and called it quality.** Gordon Court reported a new rule as clean on "0 fires across
+119 spec items in 13 manifests" - a number that measures only false positives, because their validation
+set contained exactly one true case: the one they built the rule from. Riverside turned the same test on
+its own `check_free_delivery_threshold` (shipped against a single fixture) with 16 variants and found two
+real defects. Write six variants of what a rule must catch and six of what it must not, and persist them
+into `--selftest`: a test that lives only in a transcript is worth nothing.
+
+Two sub-rules from that exercise, both about failure modes that a single fixture cannot reach:
+
+- **When someone extends a field you own to accept a new type, re-test the old type paths.**
+  `free_delivery_threshold: "5000"` raised a `TypeError` that aborted the entire run, killing every later
+  rule. That field only became string-typed when another chat added `"never"`; a reader who sees one string
+  in a manifest reasonably writes another. Their change was correct and this code was fragile - the bug
+  lived in the join between the two, where neither chat could see it alone.
+- **If a rule has an else-branch that produces an assertion rather than a question, check what reaches it.**
+  `delivery_priced: "yes"` fell through to FAIL, "Delivery is not in the price" - a claim about the world
+  made from a value the rule did not understand. Misreading an affirmative as a negative is the direction
+  that costs money. Unrecognised input should return UNKNOWN and ask for the documented vocabulary.
+
+**When you and your supplier both exclude the same item, that is not agreement - it is a hole with two
+signatures on it.** Riverside diffed its two outgoing letters topic by topic and found A Plus excluding
+Part K anti-fall protection while Fenster excluded it too, with the question asked of neither party and
+depending on a cill height only the architect holds - on a life-safety system in a stairwell. Grep your own
+exclusions against your supplier's and look at the intersection. The companion check is to ask, of every
+question you send, whether it went to the party who *decides* as well as the party who *knows*: the same
+run found the 1.6 W/m2K U-value requested from the supplier and never put to the architect who could say
+whether it binds at all. Run it as an actual diff, not from memory - the memory version of this check
+found one item where the diff found two, and reported 12 clean, which is itself worth stating. A check
+that only ever fires is not one anybody will trust.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

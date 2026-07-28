@@ -3819,6 +3819,46 @@ not checked this yet"* read as done.
 Run unchanged at **4 FAIL, 2 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, detector recall and a two-signature hole
+
+**I shipped a detector validated against one positive case, and 16 variants found a crash.**
+`check_free_delivery_threshold` is mine, shipped 27/07 against exactly one fixture - the one I built it
+from. Gordon Court had just taken the same lesson on their own newest rule, so I took it on mine. Two real
+defects out of 16 variants:
+
+- `free_delivery_threshold: "5000"` - a number written as a string - raised a `TypeError` that **aborted
+  the entire run**, killing every rule after it. This is an interaction bug neither chat could have found
+  alone: that field only became string-typed when Gordon Court extended it to accept `"never"` last night,
+  and a reader who sees one string in a manifest reasonably writes another. Their change was correct and my
+  code was fragile; the bug lived in the join. **When someone extends a field you own to accept a new type,
+  re-test the old type paths.**
+- `delivery_priced: "yes"` fell through to FAIL, *"Delivery is not in the price"* - **an assertion about the
+  world made from a value the rule did not understand.** Misreading an affirmative as a negative is the
+  direction that costs money. Now returns UNKNOWN and asks for the documented vocabulary.
+
+Both fixed, re-tested 16/16, and persisted into `--selftest` as `DELIVERY_VARIANTS` with
+`selftest_delivery_variants()`, because a test that lives only in a transcript is worth nothing. Selftest
+now reports `delivery recall 16/16 delivery variants behave as intended`.
+
+**And the decision-versus-information check run as an actual diff rather than from memory** - 14 topics
+across the A Plus RFQ and the RRR letter. **12 clean, 2 gaps**, and the 12 is worth stating: a check that
+only ever fires is not one anybody will trust. The memory version of this check last turn found one item
+where the diff found two.
+
+- **The 1.6 W/m2K U-value.** I asked A Plus for the figure; nobody was ever asked whether 1.6 binds these
+  vents at all. The stair vents are the only glazing on the drawings carrying **no W tag** - which is
+  exactly why it is ambiguous and exactly why it needed asking. Asked the information holder, never the
+  decision owner - the precise mirror of yesterday's finding.
+- **Cill height above finished floor level.** A Plus flag a BS EN 60335-2 trap hazard below 2.5m and Part K
+  anti-fall protection below 1100mm - and they **exclude** the Part K item. We exclude it too. Both parties
+  excluded it, neither was asked, and it turns on a dimension only the architect holds, on a life-safety
+  system in a stairwell. It sat as RFI-5 from day one and never reached a letter. **When you and your
+  supplier both exclude the same item, that is not agreement - it is a hole with two signatures on it.**
+
+Both added as RRR questions 7 and 8; that letter is now 11 items. Checks run at **0 failed, 3 questions**.
+Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.** A Plus RFQ still due by 26/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

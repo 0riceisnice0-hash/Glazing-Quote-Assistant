@@ -51,7 +51,7 @@
    "treatment": "excluded"
   },
   {
-   "ref": "Part K anti-fall protection / balustrading if vent cill below 1100mm FFL",
+   "ref": "Part K anti-fall protection / balustrading if vent cill below 1100mm FFL, and the BS EN 60335-2 trap hazard below 2.5m FFL. 28/07: this was EXCLUDED BY BOTH PARTIES AND ASKED OF NEITHER - A Plus expressly exclude the Part K protection and we exclude it too, on a life-safety system in a stairwell, and it had sat as RFI-5 since the first day without reaching either letter. Both depend on cill height, which only the architect can state. Now question 8 of the RRR letter. Found by running the decision-versus-information diff properly across 14 topics rather than from memory - 12 came back clean.",
    "treatment": "excluded"
   },
   {
@@ -131,7 +131,7 @@
    "performance": {
     "required": "U-value 1.6 W/m2K, per the key on drawings K1653-10b/11/12 (W1, W2 and D1 all carry 1.6)",
     "capable": null,
-    "evidence": "QT51518 states a CENTRE-PANE glass figure only - '4-20-4 Clr Tough S Coat 1.2' - and no whole-window Uw. A Plus's own advisory notes set their default the other way: 'Unless otherwise stated, windows and doors will have a U-Value no better than 1.8.' Whether the 1.6 key value binds the stair AOV (which is called out only by the red smoke-vent note, not lettered W1/W2) is itself unconfirmed. Nobody has asked A Plus for a Uw - RFI-6."
+    "evidence": "QT51518 states a CENTRE-PANE glass figure only - '4-20-4 Clr Tough S Coat 1.2' - and no whole-window Uw. A Plus's own advisory notes set their default the other way: 'Unless otherwise stated, windows and doors will have a U-Value no better than 1.8.' Whether the 1.6 key value binds the stair AOV (which is called out only by the red smoke-vent note, not lettered W1/W2) is itself unconfirmed. Nobody has asked A Plus for a Uw - RFI-6. 28/07 - AND THE DECISION OWNER HAD NEVER BEEN ASKED. We asked A Plus for the figure (RFQ item 4) but nobody was ever asked whether 1.6 BINDS these vents at all. The stair vents are the only glazing on K1653-10b/11/12 carrying no W tag, which is exactly why it is ambiguous. Now question 7 of the RRR letter. Mirror of the control-system finding: there the information holder was missing, here the decision owner."
    }
   }
  ],
