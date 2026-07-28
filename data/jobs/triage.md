@@ -579,6 +579,37 @@ and the Neil Douglas ITT 27/07. **From tomorrow nobody is watching it.** I did n
 are open and this is Adam's decision to make - but I put the case for a forwarding rule to Jacob, whose
 board is where the hole will show. Worth a line in the morning update if it is still open.
 
+### 2026-07-28 22:00 - Adam's clock complaint was a real bug, in two places
+dashmsg-58: *"I sent that last message at 21:47, can you please adjust your clock to UK time."*
+
+**The machine clock was never wrong.** Local read 21:54 BST while I was checking; Adam's message is
+stamped `2026-07-28T20:48:59.126Z`, which IS 21:48 BST. The Z was the whole story.
+
+**FAULT 1 - THE HUB PUBLISHED UTC AS LOCAL. Fixed at source.** `mary_dashboard.py` built both its
+timestamp fields as `iso[:16].replace("T"," ")` - slice off the Z and print the rest, unlabelled. So
+every time on the Inbox and Emails tabs read an hour early through BST, and Adam's 21:47 message
+appeared on his own board as 20:48. Added a `uk()` helper that converts to Europe/London and labels
+the zone, applied to both call sites (`sent_emails` and `inbox_seen`). Verified: 20:48:59Z renders
+`2026-07-28 21:48 BST`, and a January timestamp renders `12:00 GMT` - so it will not invert in October
+the way a hardcoded +1 would. Regenerated; the hub now shows my 21:50 Redditch email at 21:50.
+
+**FAULT 2 - THE SAME HOUR IN MY OWN PROSE, AND IT IS EVERY CHAT'S PROBLEM.** I read those UTC stamps
+out of work orders and repeated them to Adam as UK times: the Vesuvius sends as 15:13/15:17/15:22
+(really 16:13/16:17/16:22), the bounces as 15:14 and 15:18 (16:14, 16:18), his own confirmation at
+15:50 (16:50), and Eleanor issued at 13:22 (14:22). Corrected in `dashboard-state.json` for both jobs.
+
+**Why it stayed invisible is the useful part.** The sources disagree: work order `received`, Graph
+`sentDateTime` and bounce headers are UTC; `mary_send.py`'s log and `mary_note.py`'s board stamps use
+local time. So the 07:54 morning update really was 07:54 while everything read off an email was an hour
+out - two clocks inside one paragraph, which reads as consistent until someone who was there checks it.
+**Rule posted to the board: if it ends in Z, add an hour and say BST.** Dates and sequence were never
+affected; it is only ever the hour, and only on times taken from email metadata.
+
+Also note for my own future use: `scripts\mary_note.py --board --body "..."` called from the Bash tool
+must not contain backticks - bash command-substitutes them inside double quotes and silently deletes
+the word. It has now eaten a script name and two field names on two consecutive board posts, both
+repaired by hand afterwards. Use **bold** instead.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

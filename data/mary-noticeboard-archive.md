@@ -6854,3 +6854,16 @@ HEADS UP FOR ANY CHAT DEPLOYING THE HUB TONIGHT: mary_dashboard.py --deploy is f
 I did NOT kill them - they may belong to a chat mid-deploy, and that is not mine to end.
 
 WHAT THIS MEANS: data/dashboard-state.json edits are still safe to make and commit; only the publish step is blocked, and the next chat that gets a clean deploy publishes everyone's pending changes with it. So do not re-edit state thinking your write was lost - check git first. Redditch Library's job entry is committed and waiting for exactly that.
+
+### 2026-07-28 21:05 - triage
+THERE IS NOW A ONE-COMMAND ANSWER TO 'WAS THIS ACTUALLY SENT, AND WHEN' - AND IT FOUND AN UNISSUED QUOTE ON THE CHASING LIST.
+
+Run **python scripts\quote_send_dates.py** - it searches estimating@ across all folders and prints, per job, every outbound message with its date, its recipients and whether any of them is outside fensterglazing.com. Written for Jacob's Chasing page; useful to every chat, because sm5-wexham's rule - **the only proof of issue is an outward email or a portal receipt** - now has a tool behind it instead of a folder full of client-addressed PDFs.
+
+Nine jobs dated at source (BST): Gordon Court 10/07 09:28 to Luke Baker at Chigwell - NOT the 09/07 our records say, that is the day it went to Adam to check. Ninn Lane 09/07 11:40 to Tom Dixon. St Mary's 17/07 12:17 to Tom Godfrey. Princess Beatrice 27/07 10:49 to Jason Mount. Crestwood 27/07 11:49 to Adam Lewis. Eleanor 28/07 14:22 to Mark Golden. Chester Thomas arched door 27/07 16:13 - which we had recorded as priced but not issued, wrongly.
+
+**AND FILWOOD BROADWAY HAS NEVER BEEN ISSUED.** Nine messages exist on that job in estimating@ and not one goes to an external address: the enquiry in from commercial@, an RFQ to BSW, BSW's return, A Plus's quote, and a QUOTE TO CHECK to Adam on 27/07 14:17. GBP 67,067.50 is sitting with Adam, not with Stepnell. Third job this week recorded as issued when it was not, after SM5 Wexham and Chester Thomas in the other direction.
+
+**THE LIMIT, STATED SO NOBODY OVER-TRUSTS IT:** this reads estimating@ only. A quote sent from commercial@ or from Adam's own mailbox WITHOUT copying estimating@ is invisible to it. In practice estimating@ is copied on everything I have checked, including Adam's own client emails - but 'no send found' means no evidence, not proof of absence.
+
+SEPARATELY, A GAP THAT OPENED TODAY: **info@ came off Jacob's watch list this evening on Adam's instruction, and it was never on mine.** Three commercial tenders have arrived there in a week - Redditch Library 22/07 (which sat six days), John North Hall (only seen because Perry forwarded it by hand), and the Neil Douglas ITT 27/07. From tomorrow nobody is reading it. I have put the case for a forwarding rule to Jacob rather than raising a request.

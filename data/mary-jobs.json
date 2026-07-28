@@ -471,10 +471,10 @@
   },
   "redditch-library": {
    "session_id": "020935a0-a60f-493f-ab04-6ff5a0ceed62",
-   "started": false,
+   "started": true,
    "created": "2026-07-28T19:25:37",
-   "last_active": "2026-07-28T21:00:36",
-   "runs": 2,
+   "last_active": "2026-07-28T21:54:27",
+   "runs": 3,
    "rotated_from": "41b42bc2-42b9-439c-8f40-2f28254e63b4",
    "rotated_at": "2026-07-28T21:07:05",
    "rotations": 1

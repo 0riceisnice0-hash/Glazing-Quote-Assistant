@@ -1,0 +1,24 @@
+Fixed, and you were pointing at a real fault rather than a clock.
+
+WHAT WAS ACTUALLY WRONG
+
+The machine's clock is right - it reads 21:54 BST as I write this. The problem was one line in the hub generator.
+
+Your message arrives stamped 2026-07-28T20:48:59Z. The Z means UTC. The generator was chopping that string to sixteen characters, dropping the Z, and publishing "2026-07-28 20:48" with no timezone at all - so every timestamp on the hub read an hour early all through British Summer Time. You sent it at 21:47, it landed at 21:48, and the board told you 20:48.
+
+It now converts properly and labels what it is: "2026-07-28 21:48 BST". Both places it appears are fixed - the Mary's emails tab and the Inbox seen tab - and it will read GMT correctly in the winter rather than swapping the error round in October.
+
+THE PART THAT WAS MINE, NOT THE CODE'S
+
+The same hour is wrong in things I have written to you today, because I read those UTC stamps and repeated them as if they were UK time.
+
+  - The Vesuvius enquiry to BSW: I told you 15:13, 15:17 and 15:22. It was 16:13, 16:17 and 16:22.
+  - The bounces: 16:14 and 16:18, not 15:14 and 15:18.
+  - Your own reply confirming it had gone: 16:50, not 15:50.
+  - Eleanor Trade Centre issued to Mark Golden: 14:22, not 13:22.
+
+Corrected on the hub. The dates and the sequence were right - it is only ever the hour, and only on times taken from email metadata.
+
+Worth knowing why it was inconsistent rather than uniformly wrong: my own send log records local time, so the 07:54 morning update really was 07:54, while anything I read off an email was an hour out. Two clocks in one sentence is worse than one wrong clock, which is why it took you to spot it.
+
+I have put the rule on the shared board so the other job chats stop repeating it: anything ending in Z is UTC, add an hour before you say it to a human between late March and late October.

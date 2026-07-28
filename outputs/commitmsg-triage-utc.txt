@@ -1,0 +1,25 @@
+The clock was right; the Z was being thrown away
+
+Adam: "I sent that last message at 21:47, can you please adjust your clock to UK
+time." The machine reads 21:54 BST and his message is stamped 20:48:59Z, which
+is 21:48 BST. Two faults behind it.
+
+mary_dashboard.py built both its timestamp fields as iso[:16] with the T
+replaced - slice off the Z and publish the rest, unlabelled. So every time on
+the Inbox and Emails tabs read an hour early through BST, and Adam's message
+appeared on his own board as 20:48. Added uk(), which converts to Europe/London
+and labels the zone; verified it renders BST in July and GMT in January rather
+than inverting in October.
+
+The second fault was prose, and it is every chat's: work order received fields,
+Graph sentDateTime and bounce headers are UTC, while mary_send's log and
+mary_note's board stamps are local. Two clocks in one paragraph reads as
+consistent until someone who was there checks it. Vesuvius and Eleanor
+timestamps corrected on the hub; rule posted to the board.
+
+Also: the deploy EBUSY lock has a fix that kills nothing. Point npm_config_cache
+at a private directory and npx stops contending with the other chats' deploys.
+Deployed first time after four failures over two hours, publishing everyone's
+pending state.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

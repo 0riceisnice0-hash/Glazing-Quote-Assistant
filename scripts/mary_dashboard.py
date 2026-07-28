@@ -28,6 +28,30 @@ OUT = os.path.join(REPO, "dashboard", "functions", "_data", "dashboard-data.js")
 LOG = os.path.join(REPO, "test-results", "mary-inbox", "poller.log")
 
 
+def uk(iso):
+    """Graph hands us UTC ('...Z'). Adam reads the hub in UK time.
+
+    Slicing the string to 16 characters and dropping the Z - which is what this
+    file used to do - published every timestamp an hour early through BST, so a
+    message Adam sent at 21:47 appeared on the board as 20:48. Convert properly,
+    and label it, so nobody has to know which end the hour went missing from.
+    """
+    if not iso:
+        return ""
+    try:
+        t = dt.datetime.fromisoformat(iso.replace("Z", "+00:00"))
+        if t.tzinfo is None:
+            t = t.replace(tzinfo=dt.timezone.utc)
+        try:
+            from zoneinfo import ZoneInfo
+            t = t.astimezone(ZoneInfo("Europe/London"))
+        except Exception:
+            t = t.astimezone()          # fall back to the machine's own zone
+        return t.strftime("%Y-%m-%d %H:%M %Z")
+    except Exception:
+        return iso[:16].replace("T", " ")
+
+
 def sent_emails(token):
     st, res = mg.graph(token, "GET",
         "/users/%s/mailFolders/sentitems/messages?$top=50&$select=subject,toRecipients,sentDateTime,body&$orderby=sentDateTime%%20desc" % mg.MARY)
@@ -36,7 +60,7 @@ def sent_emails(token):
     out = []
     for m in res.get("value", []):
         out.append({
-            "sent": m.get("sentDateTime", "")[:16].replace("T", " "),
+            "sent": uk(m.get("sentDateTime", "")),
             "to": ", ".join(r["emailAddress"]["address"].split("@")[0] for r in m.get("toRecipients", [])),
             "subject": m.get("subject", ""),
             "body": mg.html_to_text(m.get("body", {}).get("content", ""))[:6000],
@@ -57,7 +81,7 @@ def inbox_seen():
             except Exception:
                 continue
             items.append({
-                "received": d.get("received", "")[:16].replace("T", " "),
+                "received": uk(d.get("received", "")),
                 "from": d.get("from", ""),
                 "subject": d.get("subject", ""),
                 "attachments": len(d.get("attachments", [])),
