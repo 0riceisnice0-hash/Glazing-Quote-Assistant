@@ -674,17 +674,28 @@ def check_quote_validity_against_commitment(m):
     Gordon Court: jLiving's Form of Tender says 'This tender remains open for
     consideration for a period of 180 days from the date of receipt of tenders'
     - receipt 22/07/2026, so our GBP 368,376.70 is committed to 18/01/2027. Both
-    supplier quotes behind it run 30 days and lapse in early August. GBP 201,086.70
-    of cost, 55% of the tender, is unfixed for 163 days against a firm lump sum
-    executed as a deed under NEC3 Option A.
+    supplier quotes behind it run 30 days and reach the end of their stated
+    validity in early August. GBP 201,304.36 of cost, 55% of the tender, is unfixed
+    for 163 days against a firm lump sum executed as a deed under NEC3 Option A.
+
+    WORDING FIXED 28/07/2026 after riverside found their own quotation says the
+    price is "open for acceptance for 30 days AND THEREAFTER IS SUBJECT TO
+    CONFIRMATION" - not that it lapses. Checked here too: BSW's four quotes say
+    only "THIS QUOTATION IS ONLY VALID FOR THIRTY DAYS" with zero occurrences of
+    lapse, expire, thereafter or withdraw; AFS say "Quotations are valid for 30
+    days" and their five "expiry" references are all about expiry of the CONTRACT.
+    So "lapses" was never any supplier's word - it was ours, and it is the harder
+    word. This rule now reports the end of a STATED VALIDITY PERIOD, which is what
+    the documents actually say, and leaves the consequence unasserted.
 
     Same shape twice more the same afternoon: John North Hall's ITT demands 90
     days because a Section 20 leasehold consultation takes months, and St Mary's
     reached it from the other side - quote validity against the CONTRACT START
     date, not the tender return date. Three jobs, one rule.
 
-    Compare each supplier quote's expiry against the date our own price stops
-    being withdrawable. A quote that dies first is a repricing risk we own."""
+    Compare the end of each supplier quote's stated validity against the date our
+    own price stops being withdrawable. A quote whose validity ends first is a
+    repricing risk we own."""
     quotes = m.get("supplier_quotes")
     pc = m.get("price_commitment")
     if pc is None:
@@ -717,19 +728,19 @@ def check_quote_validity_against_commitment(m):
             val = q.get("value")
             if isinstance(val, (int, float)):
                 exposed += val
-            gaps.append("%s lapses %s, %d days before our price closes on %s%s"
+            gaps.append("%s validity ends %s, %d days before our price closes on %s%s"
                         % (ref, vu.isoformat(), gap, until.isoformat(),
                            "" if not isinstance(val, (int, float)) else " (GBP %s at risk)" % format(val, ",.2f")))
     if gaps:
         return result("supplier price held as long as ours", FAIL,
-                      "Supplier pricing expires inside our own commitment: %s. Total GBP %s of cost "
+                      "Supplier validity ends inside our own commitment: %s. Total GBP %s of cost "
                       "unfixed against a price we cannot withdraw."
                       % ("; ".join(gaps), format(exposed, ",.2f")), "Gordon Court",
                       remedy="Get a written price hold to %s or carry a stated allowance for the gap."
                              % until.isoformat())
     if silent:
         return result("supplier price held as long as ours", UNKNOWN,
-                      "No expiry date stated for: %s. A quote with no validity period is not a held "
+                      "No validity period stated for: %s. A quote with no stated validity is not a held "
                       "price." % ", ".join(silent), "Gordon Court")
     # Riverside House, 27/07. A quote that dies on the SAME DAY our price closes
     # technically passes the test above and is still no use: it leaves the client
@@ -743,7 +754,7 @@ def check_quote_validity_against_commitment(m):
             continue
         margin = (vu - until).days
         if margin < THIN_MARGIN_DAYS:
-            thin.append("%s %s expires %s, only %d day(s) after our price closes on %s"
+            thin.append("%s %s validity ends %s, only %d day(s) after our price closes on %s"
                         % (q.get("supplier", "?"), q.get("ref", "?"), vu.isoformat(),
                            margin, until.isoformat()))
     if thin:

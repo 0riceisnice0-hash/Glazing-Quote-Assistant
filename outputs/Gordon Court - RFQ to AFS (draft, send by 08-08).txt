@@ -1,14 +1,16 @@
 #####################################################################################
 # IF TODAY IS AFTER 8 AUGUST 2026, DO NOT SEND THIS AS IT STANDS.
 #
-# This letter describes its contents as additions to a live quotation. After 08/08
-# Q7585 has lapsed and that framing is false. The anchor against the GBP 18,298.94
-# already quoted goes with it.
+# This letter describes its contents as additions to a live quotation. After 08/08 the
+# quotation is outside its stated 30-day validity, so that framing is ours rather than
+# AFS's - "lapsed" is our word and Q7585 does not use it.
+# In fact their clause 2.6 cuts BOTH ways and is the more important sentence: a
+# quotation "will not constitute an offer and may be withdrawn or amended at any time".
+# So the 30 days was never a guarantee, and 08/08 is a soft boundary rather than a cliff.
 # The QUESTIONS below remain valid - the intumescent seal, the dual RAL finish, the
 # GBP 506.37 extras, the whole-door Ud and position 003's height all still need
-# answering. Re-head it as a fresh enquiry and delete the "SEND BY" block.
-# Note AFS clause 2.6 in any case: a quotation "may be withdrawn or amended at any
-# time", so the 30 days was never a guarantee even before it ran out.
+# answering. Re-head it, delete the "SEND BY" block, and ask AFS to reconfirm or restate
+# the GBP 18,298.94 alongside their answers.
 #####################################################################################
 
 GORDON COURT, STONEGROVE, EDGWARE HA8 7TQ - CHIGWELL GROUP
@@ -22,9 +24,11 @@ in any case.
 =====================================================================================
 SEND BY 8 AUGUST 2026
 =====================================================================================
-Q7585 states "Quotations are valid for 30 days" and is dated 09/07/2026, so it lapses on
-08/08/2026. Sent before that date these are additions to a live quote; sent after, they
-come back as a fresh enquiry with no anchor against the GBP 18,298.94 already quoted.
+Q7585 states "Quotations are valid for 30 days" and is dated 09/07/2026, so 08/08/2026 is
+the end of that stated period. The quotation does not say what follows, and we are not
+assuming it becomes void - the reason for sending before then is ours: inside the stated
+validity these are additions to a live price, and afterwards we would be asking you to
+reconfirm a figure that has passed its own validity date.
 
 Note their terms are wider than the 30 days suggests - clause 2.6 says a quotation "will
 not constitute an offer and may be withdrawn or amended at any time", and 8.2 reserves the

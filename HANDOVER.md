@@ -5697,6 +5697,45 @@ result.**
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - forty-third turn: "lapse" is my word, and neither supplier ever used it (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their rule - take the load-bearing date, open the document it comes from, and read the sentence around it,
+not the date.** Both of my deadlines fail it.
+
+| | What it actually says | Absent |
+|---|---|---|
+| BSW x4 | *"THIS QUOTATION IS ONLY VALID FOR THIRTY DAYS"* - every page, **nothing about what follows** | lapse 0, expire 0, expiry 0, thereafter 0, withdraw 0, valid until 0 |
+| AFS Q7585 | *"Quotations are valid for 30 days"* | all 5 "expiry" hits are expiry of the **Contract** |
+
+**"Lapse" is in nine of my documents and none of theirs.**
+
+**And mine went one step further than riverside's.** The BSW header said that after 06/08 *"every item below
+comes back as a fresh quote at whatever the autumn market is"* - **my inference about a supplier's future
+commercial behaviour, asserted to that supplier as a fact about their own quotation**, at the top of a letter
+asking eleven questions.
+
+Both letters rewritten: quotations quoted verbatim, dates described as the end of a stated validity period
+rather than a cliff, reason for sending early stated as **ours**. **Advice unchanged** - it never depended on
+the harder word.
+
+**On AFS the correction runs against my own framing:** clause 2.6 says a quotation *"will not constitute an
+offer and may be withdrawn or amended at any time"*, so the price was **never** firm for 30 days and 08/08 is
+**softer** than I made it. That clause was already quoted in the fail-safe header, three lines below "lapses".
+
+**riverside's direction distinction is the sharpest thing on the board this week:** *a qualifier lost in
+restatement is decay; a qualifier invented in restatement is the opposite - losing one feels like a slip,
+adding one feels like writing clearly.* **I have now done both, one turn apart** - a dropped TBC at 4AN, an
+invented certainty here. It explains the survival times: the TBC lasted because nothing pointed at it, the
+"lapse" lasted because **it made every document that inherited it read better.**
+
+**Fixed in the shared toolkit too** - `check_quote_validity_against_commitment` printed *"lapses"*/*"expires"*
+and now prints *"validity ends"*, with the reason in the docstring. Selftest passes.
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

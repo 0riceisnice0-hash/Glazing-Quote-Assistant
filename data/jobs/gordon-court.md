@@ -3485,6 +3485,68 @@ travelled one step, from the ITT cell to my paragraph.
 
 ---
 
+## 4AO. FORTY-THIRD TURN (28/07) — "lapse" is my word. Neither supplier ever used it.
+
+### 4AO.1 riverside's check on my load-bearing deadlines
+
+Their QT51518 says the price is *"open for acceptance for a period of 30 days **and thereafter is subject to
+confirmation**"* — not that it lapses. Their rule: **take the load-bearing date on your job, open the
+document it comes from, and read the sentence around it. Not the date — the sentence.**
+
+**Both of my deadlines fail it.**
+
+| | What the quotation actually says | Words it does NOT contain |
+|---|---|---|
+| **BSW** ×4 | *"THIS QUOTATION IS ONLY VALID FOR THIRTY DAYS"* — on every page, with **no statement of what follows** | lapse **0**, expire **0**, expiry **0**, thereafter **0**, subject to confirmation **0**, withdraw **0**, valid until **0** |
+| **AFS** Q7585 | *"Quotations are valid for 30 days"* | lapse **0** as a quotation term; all **5** "expiry" references are expiry of the **Contract**, not the quote |
+
+**"Lapse" appears in nine of my documents and in none of theirs.**
+
+### 4AO.2 And the BSW header stated BSW's future commercial behaviour to BSW as fact
+
+The header read: *"Sent after, there is nothing to add to and **every item below comes back as a fresh quote
+at whatever the autumn market is**."*
+
+**That is my inference about what BSW would do, asserted to BSW as a fact about their own quotation**, in the
+letter that asks them eleven questions. Exactly the fault riverside found in their own RFQ header an hour
+earlier, and exactly the credibility argument I gave the board at §4AH.
+
+Both letters rewritten: the quotations' own wording quoted verbatim, **06/08 and 08/08 described as the end
+of a stated validity period rather than a cliff**, and the reason for sending early stated as **ours** —
+*"the reason for sending before then is ours rather than yours"*. The advice is unchanged, because it never
+depended on the harder word.
+
+**And on AFS the correction runs against my own framing.** Clause 2.6 — *"any quotations given by AFS will
+not constitute an offer and may be withdrawn or amended at any time"* — means the price was **never** firm
+for 30 days. So 08/08 is **softer** than I made it, not harder. I had that clause in the fail-safe header
+already and still wrote "lapses" three lines above it.
+
+### 4AO.3 The direction, and why this one survived thirty turns
+
+riverside named the distinction and it is the sharpest thing either of us has produced on this:
+
+> **A qualifier lost in restatement is decay. A qualifier invented in restatement is the opposite — and only
+> one of them feels like carelessness while you are doing it. Losing one feels like a slip. Adding one feels
+> like writing clearly.**
+
+**I have now done both, one turn apart.** §4AN dropped a *TBC* that was in the source cell. **This one added
+a certainty the source never had** — *"only valid for thirty days"* → *"lapses"* → *"comes back at whatever
+the autumn market is."* Each step shorter, harder and more useful for building a nine-day deadline on.
+
+**That is why it lasted:** the dropped TBC was invisible because nothing pointed at it; the invented "lapse"
+was invisible because it made the writing better. **REQ-26, three fail-safe headers, the stale-draft tool's
+whole premise and nine days of programme were all built on it, and every one of them read as crisp.**
+
+### 4AO.4 Corrected in the toolkit as well, because other chats read its output
+
+`check_quote_validity_against_commitment` is mine, from §4N. Its output said *"lapses"* and *"expires"* —
+words no quotation on this job uses. Reworded to report **the end of a stated validity period** and leave the
+consequence unasserted: *"validity ends 2026-08-06, 165 days before our price closes"*. Docstring records why.
+**Selftest passes, run unchanged at 5 FAIL / 5 ASK** — the rule's finding was always right; only its
+vocabulary asserted more than the documents do.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

@@ -2,13 +2,18 @@
 # IF TODAY IS AFTER 6 AUGUST 2026, DO NOT SEND THIS AS IT STANDS.
 #
 # This letter argues, in its own words, that it is an addendum to a live quotation.
-# After 06/08 that is no longer true and the document asserts something false to a
-# supplier. What specifically stops being true:
-#   - "Sent BEFORE that date this is an ADDENDUM to a live quote" (below) - it isn't.
-#   - The anchor against the GBP 183,005.42 already quoted - there is nothing to
-#     anchor to once QT252247/48/51/57 have lapsed.
-# The QUESTIONS in Parts A to D remain valid and worth asking. Re-head it as a fresh
-# enquiry, delete the "SEND BY" block, and expect autumn rates rather than July ones.
+# BSW's quotations state only "THIS QUOTATION IS ONLY VALID FOR THIRTY DAYS" - they do
+# not say what happens afterwards, and the word "lapse" is ours rather than theirs.
+# So after 06/08 the position is not that the quotes are void; it is that they are
+# outside their stated validity and BSW are free to reprice. What stops being safe to
+# assert:
+#   - "Sent BEFORE that date this is an ADDENDUM to a live quote" (below) - after 06/08
+#     that is our characterisation, not a fact BSW have agreed to.
+#   - The anchor against the GBP 183,005.42 - still the sum they quoted, but no longer
+#     within its stated validity period.
+# The QUESTIONS in Parts A to D remain valid and worth asking. Re-head it, delete the
+# "SEND BY" block, and add a line asking BSW to reconfirm or restate the GBP 183,005.42
+# alongside their answers.
 #####################################################################################
 
 GORDON COURT, STONEGROVE, EDGWARE HA8 7TQ - CHIGWELL GROUP
@@ -21,14 +26,18 @@ A human must send this. Suggested addressee: the estimator who raised the quotes
 =====================================================================================
 SEND BY 6 AUGUST 2026. THIS IS THE WHOLE POINT OF THE TIMING.
 =====================================================================================
-All four BSW quotes are dated 07/07/2026 and state "THIS QUOTATION IS ONLY VALID FOR
-THIRTY DAYS" - so they lapse on 06/08/2026.
+All four BSW quotes are dated 07/07/2026 and state, on every page, "THIS QUOTATION IS
+ONLY VALID FOR THIRTY DAYS" - so 06/08/2026 is the end of the stated validity period.
+The quotations do not say what happens after that date, and we are not assuming they
+become void; that is why this letter is dated rather than urgent.
 
-Sent BEFORE that date this is an ADDENDUM to a live quote: same job, same schedule,
-same rates, and BSW can simply add lines. Sent after, there is nothing to add to and
-every item below comes back as a fresh quote at whatever the autumn market is, with no
-anchor against the GBP 183,005.42 already quoted - the sum of the four stated Total Nett
-figures on QT252247, QT252248, QT252251 and QT252257.
+Our reason for sending before then is ours rather than yours: while the quotations are
+inside their stated validity, everything below is an addition to a live price - same job,
+same schedule, same rates - and can be answered by adding lines. Afterwards we would be
+asking you to reconfirm or restate a figure that is outside its own validity period,
+which is more work for you and less certain for us. The figure in question is
+GBP 183,005.42, the sum of the four stated Total Nett figures on QT252247, QT252248,
+QT252251 and QT252257.
 
 Nothing here asks BSW to guarantee a price. Adam has decided (REQ-20) that we carry the
 inflation risk on the scope already quoted, and that decision is not reopened by this
