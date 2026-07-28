@@ -4498,6 +4498,43 @@ Riverside's four issued documents now scan clean. Checks **0 failed, 4 questions
 **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirtieth turn: the two files called "Elevations" are our five supplier quotations (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their rule 20 opens issued files rather than trusting a manifest flag.** Feeding it paths meant listing
+the two client-facing drawing PDFs - **which had never been recorded as issued documents at all**. Opening
+them is how this was found.
+
+| Issued to Chigwell 09/07 | What it actually is |
+|---|---|
+| `Window & Door Elevations.pdf`, 18pp | **All four BSW quotations** - QT252247 (pp1-11), QT252248 (pp12-13), QT252251 (pp14-17), QT252257 (p18) |
+| `Fire Rated Door Elevations.pdf`, 5pp | **AFS Q7585** - PDF title still `Microsoft Word - Q7585 - Fenster - Gordon Court` |
+
+**Neither is an elevation drawing.** 51 individual line prices - **our buy prices** - plus both suppliers'
+names, addresses, phone, fax, email, quote numbers and validity. Five prices verified against the quotations
+worked from all week: GBP 2,365.86, 4,502.40, 217.50, 1,746.08, 2,589.40 - all present.
+**Chigwell hold our buy at GBP 201,304.36 against our sell at GBP 368,376.70: the margin is arithmetic.**
+
+**Checked whether it was required before calling it anything.** jLiving's ITT V8 does impose an Open Book
+principle - but on *"the **successful tenderer**... **manage this contract**"*, post-award, jLiving to
+Chigwell. The ITT's submission list is Sections 2, 3 and 4 and **does not include supplier quotations**. So
+it was not compelled - **but it may still have been deliberate**, and pricing open book to a main contractor
+is a legitimate choice. **Raised as REQ-28 as a question, 12 options, nothing altered.**
+
+**The filenames are the part that troubles me either way.** Nobody checking an outgoing pack would know from
+*"Window & Door Elevations.pdf"* what was inside. riverside's stale-filename lesson in its most expensive
+form: theirs was wrong about **when**, this is wrong about **what**.
+
+**False positive in rule 20, reported not worked around:** it flagged `'ff@C.0'` on the Proposal PDF - bytes
+from a compressed stream, the same FlateDecode false positive riverside guarded for, and the guard does not
+cover this shape. The Proposal PDF's extracted text holds five addresses, all `@fensterglazing.com`, and a
+raw-byte regex returns zero. Author `Nicholas Baker`, Creator `Microsoft Word` - **no Dan Parker and no
+Chrome tell**, which narrows the contamination to the pricing template specifically.
+
+Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

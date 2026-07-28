@@ -2596,6 +2596,75 @@ anything is said to Chigwell, to AG Surveying, or to nobody is a judgement about
 
 ---
 
+## 4AB. THIRTIETH TURN (28/07) — the two files called "Elevations" are our five supplier quotations
+
+### 4AB.1 Found while chasing metadata, and far bigger than the metadata
+
+riverside's rule 20 opens issued files rather than trusting a manifest flag. Feeding it the paths of
+everything we issued required listing the two client-facing drawing PDFs, **which had never been recorded
+as issued documents at all**. Opening them is how this was found.
+
+| Issued to Chigwell 09/07/2026 | What it actually is |
+|---|---|
+| `Window & Door Elevations.pdf`, 18pp | **All four BSW quotations** — QT252247 (pp1–11), QT252248 (pp12–13), QT252251 (pp14–17), QT252257 (p18) |
+| `Fire Rated Door Elevations.pdf`, 5pp | **AFS Q7585** — PDF title still `Microsoft Word - Q7585 - Fenster - Gordon Court` |
+
+**Neither is an elevation drawing.** Between them: **51 individual line prices — our buy prices** — both
+suppliers' names, addresses, telephone, fax and email, quote numbers, validity periods, and
+*"To:- FENSTER GLAZING, 97-98 ALSTON DRIVE"*.
+
+**Verified rather than assumed:** five prices checked against the quotations worked from all week —
+£2,365.86, £4,502.40, £217.50, £1,746.08, £2,589.40 — **all present on the issued PDF**.
+
+**Consequence:** Chigwell hold our buy at **£201,304.36** and our sell at **£368,376.70**. The margin is
+not inferable, it is arithmetic. They also know who supplies us and under what reference.
+
+### 4AB.2 Whether it was required — checked before calling it anything
+
+- jLiving's **ITT V8 does impose an Open Book principle** — but precisely: *"The **successful tenderer**
+  shall **manage this contract** under an 'Open Book' principle."* It sits in the paragraph about issuing a
+  letter of acceptance after standstill. **Post-award, about managing the contract, and running jLiving →
+  Chigwell — not Chigwell → us.**
+- The ITT's list of what a bidder submits is **Section 2 caveats and omissions, Section 3 ITT responses,
+  Section 4 the priced activity schedule**. **Supplier quotations are not on it.**
+
+**So it was not compelled by the tender documents — but that does not make it an error.** Pricing open book
+to a main contractor is a legitimate commercial choice and may be exactly what Adam intended. **I cannot
+tell from the documents, so it is raised as a question and not as a fault.**
+
+### 4AB.3 The filenames are the part that troubles me either way
+
+**Nobody checking an outgoing pack would know from *"Window & Door Elevations.pdf"* that four supplier
+quotations and 51 buy prices were inside.** If the disclosure was deliberate the files should say so; if it
+was not, the names are why it went unnoticed for three weeks.
+
+That is riverside's stale-filename lesson — *a plausible name is a hazard, not a record* — arriving in its
+most expensive possible form. Their version was a superseded draft. This is a **misdescribed** one, which
+is worse: a stale draft is wrong about *when*, a misnamed file is wrong about *what*.
+
+### 4AB.4 Raised as REQ-28, not decided, and nothing altered
+
+**Neither file touched** — they are the record of what Chigwell received. **No redacted version produced**,
+because a redacted re-issue would draw more attention than silence if Adam would rather leave it, and that
+is his call. Twelve options, from *"it was deliberate, stop flagging it"* through to *"raise it with BSW and
+AFS, since it is their pricing and their contact details."*
+
+Separate from REQ-27 deliberately: same class — what is actually inside the files we send — but a different
+decision.
+
+### 4AB.5 A false positive in riverside's rule 20, caught before repeating it
+
+The rule reported `'ff@C.0'` as a third-party trace on the **Proposal PDF**. It is not an email address —
+it is bytes from a compressed stream, **the exact false positive riverside caught in their own audit and
+added a printable-character guard for.** The guard does not cover this shape.
+
+Checked properly: the Proposal PDF's extracted text contains **five email addresses, all `@fensterglazing.com`**
+(adam, david, estimating, paul, steven), which belong there, and a raw-byte regex over the whole file
+returns **zero**. **Author `Nicholas Baker`, Creator `Microsoft Word` — no Chrome tell, unlike riverside's
+drawings PDF.** Reported to them rather than worked around.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
