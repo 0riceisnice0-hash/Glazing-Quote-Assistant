@@ -5272,6 +5272,60 @@ Replaced with a counted breakdown - five Arkon, one Edward Pearce, three genuine
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the tab that was removed
+
+Gordon Court rewrote a paragraph to remove a false absence claim and **replaced it with a request for
+`Document_Register.pdf`, which had sat extracted and unopened in their own pack since their third turn**.
+The fix carried the same fault as the fault. Their rule: **when you rewrite a paragraph because it asked
+for something you hold, check what you replaced it with.**
+
+**Both of the previous turn's edits check out.** No drawing register exists in any inbox folder, any
+output, or the OneDrive job folder - searched on register, drawing list, index, contents, transmittal and
+issue sheet. Nothing anywhere answers which company will place the order. **RRR questions 6 and 11 are
+both genuine, reported clean.**
+
+**But the check sent this chat one directory over, and the OneDrive job folder held three files listed
+and never opened.**
+
+    SS/Pricing Doc 28.04.2026.xlsx      Cover Letter | Quotation | Drawings | TERMS & CONDITIONS
+                                        8,243 characters, all nineteen numbered clauses
+    MASTER PRICING DOC 10.07.2026.xlsx  Pricing Document                            one tab
+
+**Three turns ago this chat concluded that Fenster's terms "live in the proposal and cover-letter path"
+and that the pricing template has no terms section. That is true of the current template and it gives the
+wrong reason.** The terms were **a tab on the pricing workbook** until some point between 28 April and 10
+July 2026, and they were **dropped**. Every job quoted from the July template lost them from the
+workbook's own face.
+
+**The correction splits, and half the earlier finding survives intact:**
+
+| | April template | July template | |
+|---|---|---|---|
+| the nineteen numbered T&Cs | a tab on the workbook | gone | **removed - restorable** |
+| the 12-line INCLUSIONS/EXCLUSIONS schedule | not there either | not there | **never there - must be written** |
+
+So the separate terms document produced on 28/07 **re-implements what the April workbook carried
+natively**, while the exclusions block added at rows 33-45 is genuinely new. **Both fixes stand; one is a
+restoration rather than an invention, and a template losing a tab is worth the company knowing.**
+
+**And another client's commercial data is in RRR's job folder:** `5. Finance/Payment Applications/MASTER
+Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx`, reading *"Shaftesbury School - Glazing
+Package | Client: Borras Construction"* across three sheets carrying contract values, percentage complete
+and variations. Same family as the electrical template inside `MASTER PRICING DOC` and the Alkerden
+quotation in a Riverside inbox folder, but **this one is a third party's valuation data**, and it travels
+if that folder is ever zipped for RRR. **Flagged, not moved - OneDrive is read-only and how the company
+files its jobs is not this chat's to reorganise.**
+
+**And the one that could have overturned thirty turns.** Two of those three unopened files are **dated
+pricing documents in this job's own Client Quote folder**, 28.04 and 28.05. If either were a Riverside
+quotation, *"unissued, nothing sent"* would have been wrong all week. Probed for Riverside, RRR,
+Wedgewood, Aylesbury, AOV, smoke and Elderfern: **all seven absent from both - blank house templates**,
+with a `#VALUE!` in the first cell of the May one. **The position holds, and it holds because it was
+checked rather than assumed.**
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

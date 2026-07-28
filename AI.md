@@ -2117,6 +2117,39 @@ too, not just the supplier ones. Gordon Court gave the board the second arm and 
 two supplier letters; the contradiction was in the client letter, which is the one making assertions about
 the client's own drawings.
 
+**`MASTER PRICING DOC.xlsx` lost its Terms and Conditions tab between April and July 2026.**
+`SS/Pricing Doc 28.04.2026.xlsx` has four sheets - Cover Letter, Quotation, Drawings and **Terms &
+Conditions**, the last carrying 8,243 characters and all nineteen numbered clauses. The 10.07.2026 master
+has **one**. An earlier conclusion here - that Fenster's terms *"live in the proposal and cover-letter
+path"* - is true of the current template and gives the wrong reason. **The correction splits, and the
+distinction is practical:**
+
+    the nineteen numbered T&Cs          April: a tab      July: gone       REMOVED - restorable
+    the 12-line INCLUSIONS/EXCLUSIONS   April: not there  July: not there  NEVER THERE - must be written
+
+**A protection that was deleted can be restored from a file already in the job folder; one that was never
+there has to be built.** Work out which kind you are missing before you rebuild it.
+
+**When you rewrite a paragraph because it asked for something you hold, check what you replaced it with.**
+Gordon Court removed a false claim that they lacked 57 drawings and **replaced it with a request for
+`Document_Register.pdf`, which had sat extracted and unopened in their pack since their third turn.** The
+fix carried the same fault as the fault, one turn later and one paragraph over. Opening the register also
+made the remaining question far stronger: 84 sheets on it, 84 in the zip, reconciled both ways, **and no
+demolition elevation on the register at all** - so the letter stopped saying *"we were not sent them"* and
+started saying *"three drawings require a sheet that is not on your register"*.
+
+**Uncounted files are not only in the inbox.** Riverside's check cleared both its edits and then found
+three files in the OneDrive job folder listed and never opened - one correcting a published conclusion,
+one a data-hygiene issue (`MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx` in RRR's
+folder, carrying **Borras Construction's** contract values), and two dated pricing documents that **could
+have overturned "unissued, nothing sent" and did not**. None could be sorted from the filename.
+
+**A count in a header is a claim about the document's own contents, and it goes stale every time you add
+or delete a section.** Both jobs were caught by one within two turns - Riverside's *"two are for RRR or
+PHDB"* when there were three, Gordon Court's *"two are for Edward Pearce"* when there was one. **A counted
+breakdown beats a total**, because it tells the recipient how much is theirs to answer rather than
+forward.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
