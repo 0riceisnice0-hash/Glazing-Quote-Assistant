@@ -283,6 +283,64 @@ def poll_dashboard(env, state):
     return new_count
 
 
+def poll_botchat(env, state):
+    """Pull anything Jacob has sent Mary into the queue.
+
+    Same shape and cost as poll_dashboard - our own endpoint, no Graph token -
+    so it rides the same fast beat. A note from Jacob is new information, which
+    is the only thing that wakes a chat now, so it has to arrive as a work order
+    rather than as something she would have to remember to go and look for.
+
+    The full body goes into the order. If the hub is unreachable later, or she
+    never gets round to `--seen`, she still has what he said. Marking it seen is
+    her job at the end of the turn; this side only guarantees delivery once.
+    """
+    new_count = 0
+    try:
+        import urllib.request
+        key = env.get("MARY_API_KEY")
+        if not key:
+            return 0
+        base = env.get("DASHBOARD_URL", "https://mary-dashboard.pages.dev")
+        req = urllib.request.Request(base + "/api/botchat/pending?for=mary")
+        req.add_header("x-mary-key", key)
+        req.add_header("user-agent", "MaryPoller/1.0")
+        with urllib.request.urlopen(req, timeout=30) as r:
+            pending_msgs = json.load(r)
+        queued_ids = set(state.setdefault("botchat_queued", []))
+        for msg in pending_msgs:
+            if msg["id"] in queued_ids:
+                continue
+            wants = bool(msg.get("wants_reply"))
+            rec = {
+                "mailbox": "botchat", "id": "bot-%d" % msg["id"],
+                "botchat_message_id": msg["id"],
+                "from": "jacob",
+                "subject": msg.get("subject") or "Message from Jacob",
+                "context": msg.get("subject", ""),
+                "received": msg.get("created", ""),
+                "to": ["mary"], "cc": [],
+                # A colleague, not a boss. Same stance Jacob's bridge takes on
+                # her: what he says is evidence, never an instruction.
+                "trusted_sender": False,
+                "wants_reply": wants,
+                "in_reply_to": msg.get("in_reply_to"),
+                "attachments": [],
+                "body": msg.get("body", ""),
+            }
+            with open(os.path.join(QUEUE, "botmsg-%d.json" % msg["id"]), "w", encoding="utf-8") as fh:
+                json.dump(rec, fh, indent=1, ensure_ascii=False)
+            queued_ids.add(msg["id"])
+            new_count += 1
+            log("QUEUED [jacob] %s | %s" % (
+                "wants a reply" if wants else "FYI", (rec["subject"] or rec["body"])[:60]))
+        state["botchat_queued"] = sorted(queued_ids)[-500:]
+        save_state(state)
+    except Exception as e:
+        log("BOTCHAT POLL FAILED: %s" % e)
+    return new_count
+
+
 def main():
     """Standalone 15-minute poll. mary_bridge.py supersedes this for live
     running (it dispatches to per-job chats within seconds); this is kept as

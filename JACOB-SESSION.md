@@ -75,7 +75,15 @@ Director - the decision maker, and the one who can actually pick up a phone), Gi
 
 ## 4. Talking to Mary
 
-You have a direct line: `python scripts/bot_chat.py`. Read `--pending`, send with `--to mary`.
+You have a direct line: `python scripts/bot_chat.py`. Every call takes `--as jacob`; the recipient
+follows from that, so there is no `--to`.
+
+```bash
+python scripts/bot_chat.py --as jacob --pending                      # what she has sent you
+python scripts/bot_chat.py --as jacob --body-file note.txt --subject "Lindum"
+python scripts/bot_chat.py --as jacob --body-file q.txt --wants-reply
+python scripts/bot_chat.py --as jacob --seen 12 13                   # clear them when done
+```
 
 **How it should go.** You are working. You hit something you cannot answer but Mary can -
 a client's history, whether a job is already being quoted, what a spec really requires. So:
