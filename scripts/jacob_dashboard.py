@@ -28,6 +28,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AWARDS = os.path.join(REPO, "data", "jacob", "contracts-finder-awards.json")
 INTAKE = os.path.join(REPO, "data", "jacob", "intake.json")
 JAYK = os.path.join(REPO, "data", "jacob", "jayk-recovery.json")
+JOBS = os.path.join(REPO, "data", "jobs")
 OUT = os.path.join(REPO, "dashboard", "functions", "_data", "jacob-data.js")
 
 ARCHIVE = r"C:\Users\zacpl\OneDrive - Fenster Glazing (1)\Commercial"
@@ -318,6 +319,82 @@ def thread_kind(company, subject, relationship):
     return "buyer"
 
 
+EMAIL = re.compile(r"[a-z0-9][\w.+-]*@[a-z0-9][\w-]*\.[a-z][\w.]*[a-z]", re.I)
+
+
+def load_job_contacts():
+    """Who Mary is already pricing for. Her job files name the estimator the
+    quotation goes to, so an exact address match answers a question Jacob
+    otherwise has to ask her: is this enquiry already in hand?
+
+    Exact addresses only. Company-name matching is what put a window-cleaning
+    contractor on this board under the name Atlas."""
+    out = {}
+    if not os.path.isdir(JOBS):
+        return out
+    for name in sorted(os.listdir(JOBS)):
+        if not name.endswith(".md") or name.lower() == "readme.md":
+            continue
+        try:
+            txt = open(os.path.join(JOBS, name), encoding="utf-8",
+                       errors="replace").read()
+        except OSError:
+            continue
+        for addr in EMAIL.findall(txt):
+            addr = addr.lower()
+            if addr.endswith("@fensterglazing.com"):
+                continue
+            out.setdefault(addr, name[:-3])
+    return out
+
+
+# A date somebody has actually written down. Stepnell asked for a quotation
+# "by 30th July" and the board ranked it thirteenth, because age was the
+# only thing it knew how to sort on and the thread had gone quiet. Quiet is
+# exactly what a tender return does before it closes.
+MONTHS = {m: i + 1 for i, m in enumerate(
+    ("jan", "feb", "mar", "apr", "may", "jun",
+     "jul", "aug", "sep", "oct", "nov", "dec"))}
+
+DEADLINE_NUM = re.compile(
+    r"\b(?:by|before|due (?:by|on)|close[sd]? on|closing on|return(?:ed)? by|"
+    r"return date[^.]{0,30}?)\s*(\d{1,2})[/-](\d{1,2})[/-](\d{2,4})\b", re.I)
+
+DEADLINE_WORD = re.compile(
+    r"\b(?:by|before|due (?:by|on)|close[sd]? on|closing on|return(?:ed)? by)\s+"
+    r"(?:the\s+)?(\d{1,2})(?:st|nd|rd|th)?\s+"
+    r"(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)\w*\b", re.I)
+
+
+def find_deadline(text):
+    """The date a price has to be in by, when someone has stated one. Only
+    explicit dates - "Tuesday afternoon latest" is not one, and a guess here
+    would be worse than the blank."""
+    best = None
+    for m in DEADLINE_NUM.finditer(text or ""):
+        d, mo, y = int(m.group(1)), int(m.group(2)), int(m.group(3))
+        y += 2000 if y < 100 else 0
+        try:
+            iso = date(y, mo, d).isoformat()
+        except ValueError:
+            continue
+        if iso >= TODAY and (best is None or iso < best):
+            best = iso
+    for m in DEADLINE_WORD.finditer(text or ""):
+        d, mo = int(m.group(1)), MONTHS[m.group(2).lower()]
+        year = date.fromisoformat(TODAY).year
+        for y in (year, year + 1):
+            try:
+                iso = date(y, mo, d).isoformat()
+            except ValueError:
+                continue
+            if iso >= TODAY:
+                if best is None or iso < best:
+                    best = iso
+                break
+    return best
+
+
 # "Sales", "Enquiries", "Orders" is a mailbox, not a person. Calling one of
 # those and asking for them by name is how you sound like a robot.
 GENERIC_NAME = re.compile(r"^(sales|enquiries|enquiry|info|orders|accounts|"
@@ -342,6 +419,23 @@ def thread_action(t):
     who = person(t)
     co = t["company"]
     at = ("%s at %s" % (who, co)) if who else co
+    # A date somebody wrote down outranks everything else on the row.
+    due = t.get("daysToDeadline")
+    if due is not None and due <= 21 and not DO_NOT_QUOTE.search(t["subject"] + co):
+        when = ("today" if due == 0 else "tomorrow" if due == 1
+                else "in %d days" % due)
+        # Mary may already have it. Telling Adam to send her a pack she
+        # priced last week is how a board loses the room.
+        if t.get("job"):
+            return (ADAM, "%s wants a price by %s - that is %s. Mary has this one "
+                          "(job file '%s'); the only question left is whether it "
+                          "goes out in time." % (at, t["deadline"], when, t["job"]))
+        if t["kind"] in ("portal", "supplier"):
+            return (JACOB, "Pull the pack and get it to Mary - it closes %s, %s."
+                    % (when, t["deadline"]))
+        return (ADAM, "%s wants a price by %s - that is %s. Nothing in Mary's job "
+                      "files matches this address, so assume nobody has started."
+                % (at, t["deadline"], when))
     if t["kind"] == "portal":
         if DO_NOT_QUOTE.search(t["subject"] + co):
             return (NOBODY, "Nothing. Adam ruled Hightown out on 27/07 - many quotes, "
@@ -357,8 +451,10 @@ def thread_action(t):
         if t["state"] in ("gone quiet", "stale"):
             return (ADAM, "Chase %s for a decision. Fenster's price has been with "
                           "them %d days with nothing back." % (at, t["days"]))
-        return (ADAM, "Fenster has priced this and %s is deciding. %d days in - "
-                      "worth a call before it goes quiet." % (at, t["days"]))
+        return (ADAM, "Fenster has priced this and %s is deciding. They wrote %s - "
+                      "worth a call before it goes quiet."
+                % (at, "today" if t["days"] == 0 else
+                   "yesterday" if t["days"] == 1 else "%d days ago" % t["days"]))
     if t["stage"] == "unconfirmed":
         return (JACOB, "Read the thread from %s before anyone acts. The subject "
                        "looked like an enquiry; the first line did not say either "
@@ -394,6 +490,7 @@ def thread_unknowns(t):
 
 def build_threads(intake):
     """Signals -> conversations -> things to do."""
+    jobs = load_job_contacts()
     by_key = {}
     for s in (intake or {}).get("signals", []):
         key = "%s|%s" % (s["company"], thread_key(s["subject"]))
@@ -408,12 +505,16 @@ def build_threads(intake):
         t["first"] = min(t["first"], s["date"])
         t["last"] = max(t["last"], s["date"])
         t.setdefault("kinds", set()).add(s["kind"])
+        t.setdefault("text", []).append("%s %s" % (s["subject"], s.get("preview") or ""))
         if not t["name"] and s.get("name"):
             t["name"] = s["name"]
 
     out = []
     for t in by_key.values():
         kinds = t.pop("kinds", set())
+        t["job"] = jobs.get((t["contact"] or "").lower())
+        t["deadline"] = find_deadline(" ".join(t.pop("text", [])))
+        t["daysToDeadline"] = -days_since(t["deadline"]) if t["deadline"] else None
         t["days"] = days_since(t["last"])
         t["state"] = state_for(t["days"])
         t["kind"] = "portal" if "portal" in kinds else \
@@ -423,6 +524,10 @@ def build_threads(intake):
         # this board nobody was tracking.
         t["stage"] = ("quoted" if "quote-out" in kinds else
                       "enquiry" if "enquiry" in kinds else "unconfirmed")
+        # A stated return date beats how old the thread is. "Gone quiet" is
+        # what a tender does in the fortnight before it closes.
+        if t["daysToDeadline"] is not None and t["daysToDeadline"] <= 21:
+            t["state"] = "closes %s" % t["deadline"]
         # "3 days old" is not the state of a Hightown notice. The state is that
         # Adam has ruled them out, and a date-based chip hides that.
         if DO_NOT_QUOTE.search(t["company"] + t["subject"]):
@@ -514,6 +619,18 @@ def build_actions(threads, warm, known, book):
             base = 100 if t["relationship"] in ("won", "quoted") else 78
             if t["state"] in ("gone quiet", "stale"):
                 base -= 25
+            # A price already out ranks below a fresh ask, and a thread Jacob
+            # has not read yet ranks below both - it is not a lead until
+            # somebody has confirmed it is one.
+            if t["stage"] == "quoted":
+                base -= 6
+            elif t["stage"] == "unconfirmed":
+                base -= 30
+            # A stated return date is the only hard fact on the row. Nothing
+            # without one should sit above something that closes this week.
+            due = t.get("daysToDeadline")
+            if due is not None and due <= 21:
+                base = max(base, 118 - due)
             # A shared mailbox is not a person. Leading with "sales@..." as
             # though it were a name is how a board starts sounding fake.
             add(base + min(t["messages"], 8), t["key"], t["company"],
@@ -819,6 +936,9 @@ def main():
           "%d supplier, %d domestic, %d portal"
           % (t["signals"], t["threads"], t["buyers"], t["liveBuyers"],
              t["quietBuyers"], t["supplierThreads"], t["domestic"], t["portalThreads"]))
+    print("  %d with a price already out, %d unconfirmed, %d small-works "
+          "repairs not on the board"
+          % (t["quotedOut"], t["unconfirmed"], t["smallWorks"]))
     print("  %d actions on the Today page, %d dormant clients who have bought"
           % (len(data["actions"]), t["dormantWon"]))
 

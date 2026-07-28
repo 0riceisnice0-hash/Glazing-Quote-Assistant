@@ -151,9 +151,17 @@ def budget_spent(state):
     return sum(r["seconds"] for r in state["runs"]) / 3600.0
 
 
+_worker = [None]
+
+
 def dispatch(cfg, state):
     orders = sorted(f for f in os.listdir(QUEUE) if f.endswith(".json"))
     if not orders:
+        return False
+
+    # Already working. Returning here rather than blocking is the whole point:
+    # a message that arrives mid-session still gets queued for the next one.
+    if _worker[0] and _worker[0].is_alive():
         return False
 
     if os.path.exists(MARY_LOCK):
@@ -180,6 +188,7 @@ def dispatch(cfg, state):
     # has to change. Best effort on a daemon thread: this must never be able
     # to interfere with the work itself.
     stop_feed = threading.Event()
+    fails = [0]
 
     def publish_feed():
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -202,8 +211,13 @@ def dispatch(cfg, state):
                         req.add_header("content-type", "application/json")
                         req.add_header("user-agent", "JacobBridge/1.0")
                         urllib.request.urlopen(req, timeout=15).read()
-            except Exception:
-                pass                      # a broken feed must not break the run
+            except Exception as e:
+                # Best effort, but say so. Swallowing this is why a feed that
+                # died mid-session left no trace and the Live tab quietly
+                # showed the previous session's steps for an hour.
+                fails[0] += 1
+                if fails[0] in (1, 5, 20):
+                    log("live feed publish failing (%d): %s" % (fails[0], str(e)[:120]))
             stop_feed.wait(6)
 
     threading.Thread(target=publish_feed, daemon=True).start()
@@ -212,37 +226,47 @@ def dispatch(cfg, state):
               "Handle them, reply on the hub to anyone who wrote to you, then move "
               "each order into %s and rebuild your board."
               % (PROMPT, QUEUE, DONE))
-    try:
-        # Same launch as mary_bridge.py, approved by Zac 28/07. An unattended
-        # session that has to ask for approval cannot run a single command -
-        # the first attempt spent its entire life being refused Bash and got
-        # nothing done. The containment that matters for Jacob is outward and
-        # sits elsewhere: no send path in any script, an Exchange transport
-        # rule rejecting external mail from jacob@, and a read scope of four
-        # mailboxes enforced by access policy.
-        p = subprocess.run(
-            [CLAUDE, "-p", prompt, "--dangerously-skip-permissions"],
-            cwd=REPO, capture_output=True, encoding="utf-8", errors="replace",
-            timeout=3600)
-        took = time.time() - started
-        state.setdefault("runs", []).append({"at": time.time(), "seconds": took})
-        log("session exit %s after %ds" % (p.returncode, took))
-        with open(os.path.join(INBOX, "last-session.txt"), "w", encoding="utf-8") as fh:
-            fh.write((p.stdout or "")[-4000:] + "\n--- stderr ---\n" + (p.stderr or "")[-2000:])
-        # A session that dies in seconds is a usage limit or a broken CLI, not work.
-        if p.returncode != 0 and took < 60:
-            state["fails"] = state.get("fails", 0) + 1
-            log("fast failure #%d" % state["fails"])
-        else:
-            state["fails"] = 0
-    except subprocess.TimeoutExpired:
-        log("session timed out after an hour")
-    finally:
-        stop_feed.set()
+    def run_session():
         try:
-            os.remove(LOCK)
-        except OSError:
-            pass
+            # Same launch as mary_bridge.py, approved by Zac 28/07. An
+            # unattended session that has to ask for approval cannot run a
+            # single command - the first attempt spent its entire life being
+            # refused Bash. The containment that matters for Jacob is outward
+            # and sits elsewhere: no send path in any script, an Exchange
+            # transport rule rejecting external mail from jacob@, and a read
+            # scope of four mailboxes enforced by access policy.
+            p = subprocess.run(
+                [CLAUDE, "-p", prompt, "--dangerously-skip-permissions"],
+                cwd=REPO, capture_output=True, encoding="utf-8",
+                errors="replace", timeout=3600)
+            took = time.time() - started
+            state.setdefault("runs", []).append({"at": time.time(), "seconds": took})
+            log("session exit %s after %ds" % (p.returncode, took))
+            with open(os.path.join(INBOX, "last-session.txt"), "w", encoding="utf-8") as fh:
+                fh.write((p.stdout or "")[-4000:] + "\n--- stderr ---\n"
+                         + (p.stderr or "")[-2000:])
+            # A session that dies in seconds is a usage limit or a broken CLI.
+            if p.returncode != 0 and took < 60:
+                state["fails"] = state.get("fails", 0) + 1
+                log("fast failure #%d" % state["fails"])
+            else:
+                state["fails"] = 0
+        except subprocess.TimeoutExpired:
+            log("session timed out after an hour")
+        except Exception as e:
+            log("session failed: %s" % str(e)[:150])
+        finally:
+            stop_feed.set()
+            try:
+                os.remove(LOCK)
+            except OSError:
+                pass
+            # The main loop saves state too, but it is not waiting on this
+            # thread any more, so the run has to record itself.
+            save(STATE, state)
+
+    _worker[0] = threading.Thread(target=run_session, daemon=True)
+    _worker[0].start()
     return True
 
 
