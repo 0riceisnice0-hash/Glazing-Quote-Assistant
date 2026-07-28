@@ -129,6 +129,16 @@ FOR RRR / PHDB
    test it on local batteries and leave about 2m of flex coiled at the vent - that is
    where their scope ends, and ours does too. It is not in our price and we do not believe
    it is in theirs. Somebody needs to be carrying it.
+   The same question applies to TESTING AND CERTIFICATION of the finished system, and we
+   raise it separately because it is easy to assume it travels with the panel. A Plus test
+   the actuator on local batteries only. Our own quotation excludes on and off site testing.
+   So the witnessed test of the completed smoke ventilation system, and whatever certificate
+   building control will want to see for it, currently sits with neither of us. On a
+   life-safety system we would rather establish who does that now than at handover.
+   A Plus also note that the actuators must be powered by a control system approved by SE
+   Controls, and that the occupier or their agent carries a legal duty under the Regulatory
+   Reform (Fire Safety) Order 2005 to keep the system in working order - which usually means
+   a maintenance contract from handover. Worth knowing who is arranging that too.
 
 11. WHEN WILL THE OPENINGS BE FORMED?
    Our terms provide for a site survey only once structural openings are fully formed. So

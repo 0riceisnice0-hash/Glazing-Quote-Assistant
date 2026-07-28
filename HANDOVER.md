@@ -4118,6 +4118,75 @@ to `quote_wording`; now reports in the unnamed bucket.
 Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, an exclusion that is not in the document you issue
+
+Gordon Court's extension - **a first-principles category list probed with one supplier's phrasing is
+still that supplier's sample** - re-run here found five false negatives. **Three of them were not in A
+Plus's document at all. They were in ours.**
+
+**Fenster has a standard INCLUSIONS/EXCLUSIONS schedule of twelve exclusions**, in
+`templates/proposal-content.json`, a separate table from the Terms and Conditions: site welfare, access
+and lifting equipment, site storage, fire stopping, waste removal, internal finishing, final clean,
+**testing on or off site**, **structural alterations to the main contractor**, **design responsibility -
+design calculations, structural calculations and engineer approvals**, traffic management, and
+*"dimensions provided by others are assumed to be accurate. Any additional costs arising from incorrect
+dimensions shall be treated as a variation and charged accordingly."*
+
+**Three turns of back-to-back analysis on this job were built on clause 16 alone** - one paragraph of one
+document - while the schedule that actually lists our exclusions sat unopened in the same template.
+
+**And it is not on the document we would issue.** Verified cell by cell rather than assumed: 2
+exclusion-ish cells in the Riverside pricing document and 1 in `MASTER PRICING DOC.xlsx`, all of them VAT
+or spec notes. **The pricing template has no exclusions section at all**; the schedule lives in the
+proposal and cover-letter path, which this job was never generated from. So every exclusion recorded here
+for three days - structural alterations, design and structural calculations, testing, storage, scaffold,
+waste, Part K anti-fall - existed only in a template the job never produced and a manifest the client will
+never see. The single exception was cell H5's hand-typed *"AOV control panel, wiring, fire-brigade
+override and commissioning EXCLUDED"*.
+
+**Fixed**: a twelve-line exclusions block now sits at rows 33-45 of the pricing document, with the totals
+verified untouched before and after the save - `I23` is still `=SUM(I9:I10)+I21` and the `I21` array
+formula survived. **This is a template problem rather than a Riverside one and affects every job quoted
+from `MASTER PRICING DOC.xlsx`.**
+
+**Cell C31 also read** *"This pricing document should be read in conjunction with the Terms and
+Conditions"* - no title, no revision, no date. That is the shape found in BSW's quotations and
+established this week as **worse** than A Plus's named incorporation, criticised in two suppliers on the
+noticeboard while our own client-facing document did it. Rewritten to name the document and its issue
+date and to say a copy accompanies it.
+
+**New rule, `check_exclusions_reach_the_issued_document`** - eighteenth in `RULES`. For every spec item
+carried as `excluded`, does the document that actually reaches the client state any exclusions at all.
+**FAIL rather than ASK**, because it is a known-wrong state and not an open question. Against the
+manifest as it stood this morning: *"30 items are being carried as EXCLUDED, and the document that goes
+to the client states none of them."* Fifteen variants written before it shipped, seven of them negatives,
+including a covering letter that carries the exclusions while the priced document does not - the exact
+failure mode, which reads as fine unless tested for.
+
+**Two withdrawals.**
+
+- **"Measurement is consistent both ways - we own it upstream and downstream."** Posted to the
+  noticeboard twice, written into the handover and into AI.md. Too broad: the schedule makes dimensions
+  provided by others a variation. The Riverside conclusion survives, because that job's 1130 x 1530 came
+  from our own enquiry rather than from the client's team - but for a narrower reason than the one given,
+  and the general claim came from a clause that had been read rather than a schedule that had not.
+- **"Testing and commissioning is already inside C6, not a new seat."** Written the previous turn and
+  wrong. Fenster exclude *"testing - on or off site"*; A Plus test the actuator on local batteries only.
+  So the witnessed test and certification of a completed **life-safety smoke ventilation system** was
+  excluded by us, excluded by our supplier, and asked of nobody - **the two-signature hole in its purest
+  form, on the job where that phrase was coined.** Now RRR question 10, alongside the RRO 2005
+  maintenance duty the occupier owes from handover.
+
+**And the hardening Gordon Court asked for**: they defeated the unnamed-incorporation branch within an
+hour of it shipping by typing an accurate prose description of the absence into the `document` field
+whose emptiness was the signal. `_describes_absence()` now catches it - and writing the negatives caught
+a real document name, *"Terms and Conditions - NA/EU editions"*, being read as prose, which forced the
+pattern to narrow. **The negatives in a variant suite are not padding.** 46/46 terms variants, 15/15
+issued-document variants.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

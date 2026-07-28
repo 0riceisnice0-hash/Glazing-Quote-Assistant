@@ -725,6 +725,109 @@ _LABEL_STALE = re.compile(
 _LABEL_DONE = re.compile(r"\b(RUN|DONE|resolved|CLEARED|answered|withdrawn|CORRECTED|confirmed|closed)\b")
 
 
+# Riverside, 28/07, at Gordon Court's request and from their own near miss.
+# They wrote "BSW terms and conditions of sale, available on request - no
+# revision, no date, no title" into `document` - a careful, accurate,
+# human-readable description of the fact that the document has no name - and the
+# rule read it as a name. The field whose EMPTINESS was the signal had been
+# filled with prose describing the emptiness. This is the most likely way a
+# conscientious estimator defeats that branch, and it happened within an hour of
+# the branch shipping.
+ABSENCE_WORDS = re.compile(
+    r"available on request|on request|not named|unnamed|no (?:revision|date|title|name|version)"
+    r"|unnamed|unknown|not (?:stated|given|specified|provided)|\bn/a\b|none stated|no document"
+    r"|tbc|unspecified|not held|unable to",
+    re.I)
+
+
+def _describes_absence(doc):
+    """True when a 'document' value describes the absence of a name rather than
+    being one. Deliberately narrow: it must contain one of a short list of
+    phrases that only ever appear when someone is explaining that there is no
+    title. A real document name - "Terms of Sale Revision V.01.2 - 08.01.2018" -
+    matches none of them."""
+    return bool(ABSENCE_WORDS.search(str(doc)))
+
+
+def check_exclusions_reach_the_issued_document(m):
+    """Riverside House, 28/07. An exclusion that is not in the document you
+    issue is not an exclusion.
+
+    This chat spent three turns writing "excluded by us" about the AOV control
+    system, Part K anti-fall protection, structural alterations and the
+    structural design of fixings. All four ARE in Fenster's standard
+    INCLUSIONS/EXCLUSIONS schedule - twelve lines of it - which lives in
+    templates/proposal-content.json, the proposal and cover-letter path.
+    Riverside was generated from MASTER PRICING DOC.xlsx, which has no
+    exclusions block at all, and the only exclusion on its face was the one
+    sentence someone had typed into a spec note.
+
+    So the company had an answer and the job did not carry it. The gap is not
+    in the drafting, it is between the template that holds the exclusions and
+    the template that gets issued.
+
+    'issued_documents': [{name, is_the_priced_document, exclusions_stated}] -
+    exclusions_stated is the count of exclusions written on the face of that
+    document, or a list of them."""
+    docs = m.get("issued_documents")
+    relied = [i for i in (m.get("spec_items") or [])
+              if str(i.get("treatment", "")).lower() == "excluded"]
+    if docs is None:
+        return result("exclusions reach the issued document", UNKNOWN,
+                      "State what we would actually hand the client and how many exclusions are "
+                      "written on its face: 'issued_documents': [{name, is_the_priced_document, "
+                      "exclusions_stated}]. A standard exclusions schedule that lives in a "
+                      "template this job was not generated from protects nobody.",
+                      "Riverside House",
+                      remedy="Open the document you would send and count the exclusions on it.")
+    if not relied:
+        return result("exclusions reach the issued document", NA,
+                      "nothing on this job is being carried as excluded", "Riverside House")
+    if not docs:
+        return result("exclusions reach the issued document", FAIL,
+                      "%d item(s) are being carried as EXCLUDED and no issued document is "
+                      "recorded at all. The exclusions exist only in this manifest."
+                      % len(relied), "Riverside House",
+                      remedy="Name the document that goes to the client, then put the exclusions "
+                             "on it.")
+    bare = []
+    for d in docs:
+        if not isinstance(d, dict):
+            return result("exclusions reach the issued document", UNKNOWN,
+                          "%r is not a {name, is_the_priced_document, exclusions_stated} entry"
+                          % (d,), "Riverside House",
+                          remedy="Rewrite the entry, then re-run.")
+        if not d.get("is_the_priced_document"):
+            continue
+        stated = d.get("exclusions_stated")
+        if stated is None:
+            return result("exclusions reach the issued document", UNKNOWN,
+                          "%s does not say how many exclusions are on its face."
+                          % d.get("name", "the priced document"), "Riverside House",
+                          remedy="Open it and count them.")
+        n = len(stated) if isinstance(stated, (list, tuple)) else stated
+        try:
+            n = int(n)
+        except (TypeError, ValueError):
+            return result("exclusions reach the issued document", UNKNOWN,
+                          "%s states exclusions_stated as %r, which is neither a count nor a list."
+                          % (d.get("name", "the priced document"), stated), "Riverside House",
+                          remedy="Give a number or a list.")
+        if n <= 0:
+            bare.append(d.get("name", "the priced document"))
+    if bare:
+        return result("exclusions reach the issued document", FAIL,
+                      "%d item(s) are being carried as EXCLUDED, and the document that goes to "
+                      "the client states none of them: %s. An exclusion that is not in the "
+                      "document you issue is not an exclusion - a silent gap reads as included."
+                      % (len(relied), ", ".join(bare)), "Riverside House",
+                      remedy="Put the exclusions on the face of the priced document before it "
+                             "is issued. It costs nothing before and is a dispute afterwards.")
+    return result("exclusions reach the issued document", PASS,
+                  "the priced document carries an exclusions schedule covering %d relied-on "
+                  "exclusion(s)" % len(relied), "Riverside House")
+
+
 def check_incorporated_terms_held(m):
     """Riverside House, 28/07. A supplier quote that incorporates its terms BY
     REFERENCE to a document we do not hold.
@@ -776,7 +879,7 @@ def check_incorporated_terms_held(m):
         ref = "%s %s" % (t.get("supplier", "?"), t.get("ref", "?"))
         doc = t.get("document")
         held = t.get("held")
-        named = bool(doc) and bool(str(doc).strip())
+        named = bool(doc) and bool(str(doc).strip()) and not _describes_absence(doc)
         # Gordon Court, 28/07, the first time this rule saw data that was not
         # mine. All four BSW quotations read "Orders are subject to acceptance
         # and terms and conditions of sale, AVAILABLE ON REQUEST" - no title, no
@@ -886,7 +989,7 @@ RULES = [
     check_finish_substitution, check_supplier_covers_quantity,
     check_system_performance, check_quote_validity_against_commitment,
     check_free_delivery_threshold, check_spec_label_matches_evidence,
-    check_incorporated_terms_held,
+    check_incorporated_terms_held, check_exclusions_reach_the_issued_document,
 ]
 
 
@@ -911,6 +1014,7 @@ def blank_manifest(job):
         "price_commitment": None,
         "delivery_terms": None,
         "incorporated_terms": None,
+        "issued_documents": None,
     }
 
 
@@ -1084,6 +1188,51 @@ TERMS_VARIANTS = [
                                [{"supplier": "BSW", "ref": "Q1234", "held": False},
                                 {"supplier": "A Plus", "ref": "QT51518",
                                  "document": "Terms of Sale V.01.2", "held": False}],  UNKNOWN),
+    # Gordon Court defeated the unnamed branch within an hour of it shipping, by
+    # writing an accurate PROSE DESCRIPTION of the absence into the field whose
+    # emptiness was the signal. These eleven test _describes_absence in both
+    # directions, and deliberately use three drafting voices rather than one -
+    # last turn's suite was 29 cases all written against A Plus's phrasing.
+    ("document describes absence (Gordon Court's exact value)",
+                               [{"supplier": "BSW", "ref": "Q1234",
+                                 "document": "BSW terms and conditions of sale, available on "
+                                             "request - no revision, no date, no title",
+                                 "held": False}],                                 UNKNOWN),
+    ("document 'available on request'",
+                               [{"supplier": "BSW", "ref": "Q1234",
+                                 "document": "Terms of Sale, available on request",
+                                 "held": False}],                                 UNKNOWN),
+    ("document 'TBC'",         [{"supplier": "BSW", "ref": "Q1234",
+                                 "document": "TBC", "held": False}],              UNKNOWN),
+    ("document 'unnamed'",     [{"supplier": "BSW", "ref": "Q1234",
+                                 "document": "unnamed - the quote just says conditions apply",
+                                 "held": False}],                                 UNKNOWN),
+    ("document 'not stated'",  [{"supplier": "BSW", "ref": "Q1234",
+                                 "document": "revision not stated", "held": False}], UNKNOWN),
+    ("document 'n/a'",         [{"supplier": "BSW", "ref": "Q1234",
+                                 "document": "Conditions of Sale n/a", "held": False}], UNKNOWN),
+    # ...and the negatives. A real document name must NOT be read as prose,
+    # including names that contain risky-looking substrings.
+    ("real name with a revision and date",
+                               [{"supplier": "A Plus", "ref": "QT51518",
+                                 "document": "A Plus Windows & Doors Limited Terms of Sale "
+                                             "Revision V.01.2 - 08.01.2018",
+                                 "held": True}],                                  PASS),
+    ("real name, AFS voice",   [{"supplier": "AFS", "ref": "Q7585",
+                                 "document": "AFS Conditions of Contract Q7585 "
+                                             "(16pp, printed in full)", "held": True}],  PASS),
+    ("real name containing 'NA/EU'",
+                               [{"supplier": "X", "ref": "Q1",
+                                 "document": "Terms and Conditions - NA/EU editions",
+                                 "held": True}],                                  PASS),
+    ("real name containing 'National'",
+                               [{"supplier": "X", "ref": "Q1",
+                                 "document": "Conditions of Sale - National Association of "
+                                             "Glazing Contractors form", "held": True}],  PASS),
+    ("real name, edition not revision",
+                               [{"supplier": "BSW", "ref": "Q1",
+                                 "document": "BSW Standard Conditions of Sale, edition 4, "
+                                             "March 2024", "held": True}],        PASS),
 ]
 
 
@@ -1134,6 +1283,73 @@ def selftest_delivery_variants():
             bad.append("%s: expected %s, got %s" % (name, expect, got))
     print("  %-22s %d/%d delivery variants behave as intended%s"
           % ("delivery recall", len(DELIVERY_VARIANTS) - len(bad), len(DELIVERY_VARIANTS),
+             "" if not bad else "  MISSED: " + "; ".join(bad)))
+    return not bad
+
+
+# Riverside, 28/07. Written before check_exclusions_reach_the_issued_document
+# shipped, and split evenly: eight that must FAIL or ASK, seven that must not.
+ISSUED_VARIANTS = [
+    # (name, spec_items, issued_documents, expected)
+    ("field absent",            [{"ref": "x", "treatment": "excluded"}], None,          UNKNOWN),
+    ("nothing excluded",        [{"ref": "x", "treatment": "priced"}],   [],            NA),
+    ("no issued doc recorded",  [{"ref": "x", "treatment": "excluded"}], [],            FAIL),
+    ("priced doc states none",  [{"ref": "x", "treatment": "excluded"}],
+                                [{"name": "Pricing Document", "is_the_priced_document": True,
+                                  "exclusions_stated": 0}],                             FAIL),
+    ("priced doc states some",  [{"ref": "x", "treatment": "excluded"}],
+                                [{"name": "Pricing Document", "is_the_priced_document": True,
+                                  "exclusions_stated": 12}],                            PASS),
+    ("stated as a list",        [{"ref": "x", "treatment": "excluded"}],
+                                [{"name": "Pricing Document", "is_the_priced_document": True,
+                                  "exclusions_stated": ["testing", "scaffold"]}],       PASS),
+    ("empty list is none",      [{"ref": "x", "treatment": "excluded"}],
+                                [{"name": "Pricing Document", "is_the_priced_document": True,
+                                  "exclusions_stated": []}],                            FAIL),
+    ("count unstated",          [{"ref": "x", "treatment": "excluded"}],
+                                [{"name": "Pricing Document",
+                                  "is_the_priced_document": True}],                     UNKNOWN),
+    ("count is prose",          [{"ref": "x", "treatment": "excluded"}],
+                                [{"name": "Pricing Document", "is_the_priced_document": True,
+                                  "exclusions_stated": "a few"}],                       UNKNOWN),
+    ("count as a numeric string", [{"ref": "x", "treatment": "excluded"}],
+                                [{"name": "Pricing Document", "is_the_priced_document": True,
+                                  "exclusions_stated": "12"}],                          PASS),
+    ("only a non-priced doc",   [{"ref": "x", "treatment": "excluded"}],
+                                [{"name": "Covering letter", "is_the_priced_document": False,
+                                  "exclusions_stated": 12}],                            PASS),
+    ("covering letter carries them, priced doc does not",
+                                [{"ref": "x", "treatment": "excluded"}],
+                                [{"name": "Covering letter", "is_the_priced_document": False,
+                                  "exclusions_stated": 12},
+                                 {"name": "Pricing Document", "is_the_priced_document": True,
+                                  "exclusions_stated": 0}],                             FAIL),
+    ("entry is not a dict",     [{"ref": "x", "treatment": "excluded"}], ["Pricing Document"],
+                                                                                        UNKNOWN),
+    ("no spec items at all",    None,
+                                [{"name": "Pricing Document", "is_the_priced_document": True,
+                                  "exclusions_stated": 0}],                             NA),
+    ("provisional is not excluded", [{"ref": "x", "treatment": "provisional"}],
+                                [{"name": "Pricing Document", "is_the_priced_document": True,
+                                  "exclusions_stated": 0}],                             NA),
+]
+
+
+def selftest_issued_variants():
+    """Recall test for check_exclusions_reach_the_issued_document."""
+    bad = []
+    for name, items, docs, expect in ISSUED_VARIANTS:
+        m = {"spec_items": items}
+        if docs is not None:
+            m["issued_documents"] = docs
+        try:
+            got = check_exclusions_reach_the_issued_document(m)["status"]
+        except Exception as exc:
+            got = "EXCEPTION %s: %s" % (type(exc).__name__, exc)
+        if got != expect:
+            bad.append("%s: expected %s, got %s" % (name, expect, got))
+    print("  %-22s %d/%d issued-document variants behave as intended%s"
+          % ("exclusions issued", len(ISSUED_VARIANTS) - len(bad), len(ISSUED_VARIANTS),
              "" if not bad else "  MISSED: " + "; ".join(bad)))
     return not bad
 
@@ -1235,6 +1451,8 @@ def selftest():
     if not selftest_delivery_variants():
         ok = False
     if not selftest_terms_variants():
+        ok = False
+    if not selftest_issued_variants():
         ok = False
     if not selftest_one_crash_costs_one_rule():
         ok = False

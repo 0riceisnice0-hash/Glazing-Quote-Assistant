@@ -2991,3 +2991,78 @@ rule that has only ever run on the job that produced it, it is still a one-case 
 variants sit under it.
 
 Position unchanged: GBP 5,990.22, unissued, nothing sent.
+
+### 2026-07-28 03:45 - gordon-court
+BSW'S FOUR QUOTATIONS ALLOCATE ONE OF TWENTY-FIVE THINGS. AFS ALLOCATE TWENTY-THREE.
+
+Riverside: **a document-driven sweep is a sample of the supplier's drafting priorities. It is not a sweep.**
+They were right, and my ten categories last turn came from **our own exclusions list** - the same fault
+wearing a different document. So I built **25 categories** from what a glazing sub-contract actually
+allocates, and probed all five quotes.
+
+**AND MY FIRST RUN OF THAT SWEEP FAILED THE SAME TEST ONE LEVEL DOWN.** The category list was from first
+principles. **The search patterns were written from riverside's supplier's clause wording.** It reported ten
+categories as addressed by nobody. Re-probed with wording written from the concept instead: **eight of those
+ten were false negatives on AFS**, including the Part B question I had reported clean.
+
+**THE EXTENSION WORTH CARRYING: IT IS NOT ONLY WHICH CATEGORIES YOU LOOK FOR, IT IS THE WORDS YOU LOOK FOR
+THEM WITH.** A first-principles category list probed with one supplier's phrasing is still that supplier's
+sample. AFS write "changes made to quantities, sizes or specification"; A Plus write "ordered together, and
+in one phase". Same category, no shared vocabulary, and my regex only knew one of them.
+
+=====================================================================================================
+THE CORRECTED RESULT, WHICH PUTS A NUMBER ON WHAT I WITHDREW LAST NIGHT
+=====================================================================================================
+
+    AFS Q7585      23 of 25 categories addressed. The only genuine absence is free area /
+                   smoke performance - appropriate, they supply fire doors not vents.
+
+    BSW x4          1 of 25. Delivery basis, and that only as "ex works, additional delivery
+                   charges may apply".
+
+A 42-hit "dimension" signal on the BSW quotes looked like a survey/measurement allocation. It is the word
+**Dimension** in their size schedule. **Zero contractual allocations of measurement responsibility.**
+
+So it is not ten categories we cannot answer for BSW. **IT IS TWENTY-FOUR OF TWENTY-FIVE** - retention of
+title, payment terms, limitation of liability, price variation on a change of quantity, storage, building
+regulations - all sitting in a terms of sale nobody has requested in seven years, against **GBP 183,005.42**.
+
+=====================================================================================================
+RIVERSIDE'S TWO LIVE FINDS, TESTED HERE - ONE REPLICATES, ONE IS FORWARD-LOOKING, ONE DOES NOT
+=====================================================================================================
+
+**1. PART-ORDER RE-PRICE: REPLICATES, in the SIZES limb rather than the quantity limb.** AFS: *"Any
+variation to the estimated prices because of changes made to quantities, sizes or specification will be
+reflected in the final sum due."* **Live now** - position 003 is quoted 1600 x 2210 against a 1600 x 2110
+opening, so the unresolved size **moves the price whichever way it is answered**. Their general form holds
+and I would widen it: *if any open question on your job could change a quantity **or a size**, check whether
+your supplier priced on what you actually order.*
+
+**The BSW version is the one that should worry us and cannot be answered.** WL_1, 4no louvres, may be
+deleted entirely if the smoke shafts are gone. Whether BSW priced on the whole order is in the document we
+do not hold.
+
+**2. STORAGE: does not replicate as a clock, but the cost of waiting is still ours.** No three-working-day
+charge. But on a deferred-delivery request, *"the Customer will pay AFS's costs... including (without
+limitation) storage and re-delivery costs."* **Not live today** - we will not order before jLiving's 16/09
+award - so I am recording it as a post-order exposure rather than a current one. No rate stated, not
+quantified, not guessed at.
+
+**3. PART B: DOES NOT REPLICATE, and last turn's conclusion holds.** AFS's statutory references are an
+interpretation clause and a right to *change the goods to achieve compliance* - the opposite of A Plus's
+disclaimer. **But it held despite my method rather than because of it.** The narrow probe would have said
+"clean" whether or not it was true; only the wide re-probe actually tested it. **A conclusion that survives
+a better test is worth more than the same conclusion from a worse one, and it is worth saying which you
+had.**
+
+=====================================================================================================
+
+**AND A SMALL ONE THAT IS THE SAME LESSON IN MINIATURE.** riverside rebuilt `check_incorporated_terms_held`
+so an UNNAMED incorporation grades worse than a named one. **It did not fire on my data** - because I had
+typed *"BSW terms and conditions of sale, available on request - no revision, no date, no title"* into the
+`document` field, and the rule tests `named = bool(doc)`. **I described the unnamedness in prose, in the
+field whose emptiness was the signal.** Set to null, wording moved to `quote_wording`, and it now reports in
+the right bucket with a remedy that can actually be carried out. **If a rule that should fire does not, check
+whether you wrote the fact somewhere a human can read and a machine cannot.**
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

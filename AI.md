@@ -1595,9 +1595,14 @@ Four things that make this check pay:
   rather than a quotation entry, and the clause turns on what the Supplier expressly states. **Ask for
   performance figures ON the revised quotation, not in a reply.** Pre-order it is a line; post-order it
   is a variation.
-- **Report the categories that come back clean.** Measurement was consistent both ways on Riverside
-  (clause 16 expressly retains measurement verification) and so was the RRO 2005 maintenance duty.
-  **Overclaiming a contractual conflict is worse than missing one.**
+- **Report the categories that come back clean.** The RRO 2005 maintenance duty was consistent both
+  ways on Riverside. **Overclaiming a contractual conflict is worse than missing one.**
+  **CORRECTED 28/07:** measurement was also reported clean here on the strength of clause 16 retaining
+  measurement verification. That was too broad. Fenster's standard exclusions schedule - a different
+  table in the same template - says *"dimensions provided by others are assumed to be accurate. Any
+  additional costs arising from incorrect dimensions shall be treated as a variation and charged
+  accordingly."* We do not unconditionally own dimensions. The Riverside conclusion survived only
+  because that job's sizes came from our own enquiry rather than from the client's team.
 - **A supplier quote with no exclusions schedule at all is an UNDEFINED result, not a clean one.**
   Gordon Court recorded BSW's silence on all ten categories that way rather than as a pass.
 
@@ -1669,6 +1674,49 @@ manifest fields early rather than at the end.
 letter item from D3 to D4 and left the letter's own header describing the wrong item. Riverside added two
 RFQ items and left the covering note to Adam saying "Twelve items". After any renumbering or insertion,
 grep the whole document set for "item N", "question N" and the written-out counts.
+
+**An exclusion that is not in the document you issue is not an exclusion.** Fenster's standard
+INCLUSIONS/EXCLUSIONS schedule - twelve exclusions covering site welfare, access and lifting equipment,
+site storage, fire stopping, waste, internal finishing, final clean, testing on or off site, structural
+alterations, design and structural calculations, traffic management, and dimensions provided by others -
+lives in `templates/proposal-content.json`, the proposal and cover-letter path. **`MASTER PRICING
+DOC.xlsx` has no exclusions section at all.** Riverside was quoted from the pricing template, so for
+three days every exclusion that chat recorded existed only in a template the job had never produced and
+in a manifest the client would never see. Verified cell by cell rather than assumed: 2 exclusion-ish
+cells in the job file, 1 in the template, all of them VAT or spec notes. **If you are quoting from the
+pricing document, open the file you would send and count the exclusions on its face.** Now enforced by
+`check_exclusions_reach_the_issued_document` - FAIL rather than ASK, because it is a known-wrong state
+rather than an open question. Its variant suite includes the shape that reads as fine and is not: a
+covering letter that carries the exclusions while the priced document does not.
+
+**Read the whole of your own paperwork before you diff it against anybody's.** Riverside built three
+turns of back-to-back analysis on clause 16 alone - one paragraph of one document - while a separate
+table in the same template held the actual exclusions. Gordon Court's fault was a category list drawn
+from a document; this was the same fault one level down, on the side of the comparison that was supposed
+to be the known quantity.
+
+**A first-principles category list probed with one supplier's phrasing is still that supplier's sample.**
+Gordon Court re-probed 25 categories with concept-derived wording rather than A Plus's and found **eight
+false negatives out of ten** on AFS - AFS write *"changes made to quantities, sizes or specification"*
+where A Plus write *"ordered together, and in one phase"*: same category, no shared vocabulary. The same
+re-probe on Riverside found five. **It is not only which categories you look for, it is the words you
+look for them with** - give each category several vocabularies, including one neither party drafted.
+Gordon Court's widening of the part-order rule belongs with it: **if any open question could change a
+quantity OR A SIZE, check whether the supplier priced on what you will actually order.**
+
+**We incorporate terms by reference to our own clients, unnamed and undated.** The Riverside pricing
+document's footnote read *"This pricing document should be read in conjunction with the Terms and
+Conditions"* - no title, no revision, no date. That is the shape found in BSW's quotations and
+established as **worse** than A Plus's named incorporation, and it was criticised in two suppliers on the
+noticeboard the same week our own client-facing document was doing it. Name the document and send a copy
+with it.
+
+**If a rule that should fire does not, check whether the fact was written somewhere a human can read and
+a machine cannot.** Gordon Court defeated `check_incorporated_terms_held`'s unnamed branch within an hour
+of it shipping by typing an accurate prose description of the absence into the `document` field whose
+emptiness was the signal. `_describes_absence()` now catches that - and writing its negatives caught a
+real document name, "Terms and Conditions - NA/EU editions", being read as prose, which forced the
+pattern to narrow. **The negatives in a variant suite are not padding.**
 
 ## Development Rules For Future Agents
 
