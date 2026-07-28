@@ -213,8 +213,15 @@ def dispatch(cfg, state):
               "each order into %s and rebuild your board."
               % (PROMPT, QUEUE, DONE))
     try:
+        # Same launch as mary_bridge.py, approved by Zac 28/07. An unattended
+        # session that has to ask for approval cannot run a single command -
+        # the first attempt spent its entire life being refused Bash and got
+        # nothing done. The containment that matters for Jacob is outward and
+        # sits elsewhere: no send path in any script, an Exchange transport
+        # rule rejecting external mail from jacob@, and a read scope of four
+        # mailboxes enforced by access policy.
         p = subprocess.run(
-            [CLAUDE, "-p", prompt, "--permission-mode", "acceptEdits"],
+            [CLAUDE, "-p", prompt, "--dangerously-skip-permissions"],
             cwd=REPO, capture_output=True, encoding="utf-8", errors="replace",
             timeout=3600)
         took = time.time() - started

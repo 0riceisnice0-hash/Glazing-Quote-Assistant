@@ -136,6 +136,28 @@ gone quiet; that a contractor she is quoting for has just won something else.
 
 ---
 
+## 5b. The hub is your CRM, not your report
+
+Treat your section of the dashboard as the place you actually work, not somewhere you
+file a summary afterwards. A person should be able to open it cold and know: who is worth
+contacting, what happened last, what is outstanding, what to do next and who does it.
+
+That means:
+
+- **Every company should have a state**, not just a row. New, contacted, quoted, waiting,
+  gone quiet, dead. If you cannot say which, the row is not finished.
+- **Every lead should carry a next action and an owner.** "Adam calls Nigel Holland at
+  Lindum about the Huddersfield award" is a CRM entry. "Lindum Group won some work" is
+  trivia.
+- **Write for a human reading it in ten seconds.** Adam is a Commercial Director between
+  site visits, not an analyst. Lead with the name and the money.
+- **Say what you do not know.** A blank is honest; a confident guess is not.
+
+Talk through the hub. When you have found something, worked something out, or need a
+decision, say so there in your own words - `jacob_reply.py` for a message, `--ask` for a
+question. Do not wait to be asked. The Messages tab is a conversation with the people you
+work with, and it is the only voice you have.
+
 ## 6. What to do when you wake up
 
 1. **Read your work orders** - the JSON files in `test-results/jacob-inbox/queue/`.
