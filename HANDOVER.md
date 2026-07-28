@@ -3672,6 +3672,52 @@ to relitigate.
 Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Gordon Court - twenty-second turn: the truncation was biased, and it hid the one question I never asked BSW (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**They measured their own truncation** and found all three cuts removed the remedy and none removed the
+finding, attributing it to rules written statement-first and action-last. **Tested across all 13 manifests,
+44 remedy sentences - directionally right, mechanism different, and worse:**
+
+| Detail length | n | Median remedy position | Beyond the 200-char cut |
+|---|---|---|---|
+| <= 400 chars | 35 | **0%** | 3 of 35 |
+| > 400 chars | 9 | **84%** | **9 of 9** |
+
+Most rules put the remedy *first*. **The remedy is displaced by the list of faults, that list grows with how
+much is wrong, and the truncation is triggered by the same length.** One rule proves it - `delivery actually
+included`, identical code: 332 chars / remedy at 0% / visible on ten one-supplier jobs; 447, 557 and 776
+chars / remedy at 78-89% / cut on Riverside, St Mary's and Gordon Court. **The instruction disappeared in
+proportion to how much had gone wrong.**
+
+**Fixed in the rules, not just the reporter.** `result()` now takes a `remedy` field, eight sites lifted out
+of the prose, `report()` prints it on its own `->` line where no future abridgement can displace it. 18 of
+116 FAIL/ASK findings carry one. Two of the eight were missed by reading rather than measuring. Six remain
+buried - identical fixed-length manifest prompts that cannot grow, and stated as such rather than claimed as
+zero.
+
+**riverside's honesty test, run here, with a different answer.** They said the truncation cost them nothing
+because they had derived the same ground by hand. Of four remedies hidden on Gordon Court, three were
+complied with anyway (quantities stated explicitly in the RFQ, performance figures asked for in writing,
+carriage raised in D1). The fourth - *"Get a written price hold to 2027-01-18 or carry a stated allowance"* -
+was not, **and it exposed an inconsistency between two letters written in the same hour:**
+
+| | | |
+|---|---|---|
+| AFS Q7585 | GBP 18,298.94 | whole section asking how long they can hold |
+| BSW QT252247/48/51/57 | GBP 183,005.42 | *"Nothing here asks BSW to hold a price"* |
+
+**The 18k supplier was asked and the 183k one deliberately was not** - ten times the exposure, 91% of the
+total, in a letter due in nine days. The reasoning conflated two things: Adam's REQ-20 decision is about
+whether **we** hold **our** price to jLiving, not about whether we gather information from a supplier.
+Fixed with a new **D3 HOW LONG CAN YOU HOLD?** matching AFS section 6, and a header stating it asks for
+information rather than a commitment and does not reopen REQ-20.
+
+Selftest passes, run unchanged at **4 FAIL, 2 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08
+and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

@@ -55,8 +55,24 @@ def depth_of(system):
     return None, ""
 
 
-def result(rule, status, detail, catch=""):
-    return {"rule": rule, "status": status, "detail": detail, "from_catch": catch}
+def result(rule, status, detail, catch="", remedy=""):
+    """A finding, and separately what to do about it.
+
+    `remedy` is its own field because of a measurement riverside prompted on
+    28/07/2026. The remedy used to be the last sentence of `detail`, after the
+    list of offending items - so it was displaced further the more items there
+    were, while the truncation that hid it was triggered by that same length.
+    Across 13 manifests: 9 of 9 details over 400 characters had the remedy past
+    the cut, against 3 of 35 under it. The same rule, "delivery actually
+    included", showed the remedy at 0% and visible on ten one-supplier jobs and
+    at 78-89% and cut on the three multi-supplier ones.
+
+    So the sentence telling you what to do vanished exactly on the jobs where
+    most was wrong. Keeping it in its own field means no future abridgement -
+    a summary, a dashboard excerpt, a --brief mode - can displace it again.
+    """
+    return {"rule": rule, "status": status, "detail": detail,
+            "from_catch": catch, "remedy": remedy}
 
 
 # ---------------------------------------------------------------- the rules
@@ -138,9 +154,10 @@ def check_glass_ownership(m):
                       "Give panes_required (from the FINAL sizes list) and panes_ordered.", "Stoke Park")
     if ordered < req:
         return result("unglazed frames need a glass order", FAIL,
-                      "Glass order is %d panes short: %d ordered against %d required. Check for a "
-                      "systematic gap - at Stoke Park one toplight per bay was missing on every type."
-                      % (req - ordered, ordered, req), "Stoke Park")
+                      "Glass order is %d panes short: %d ordered against %d required."
+                      % (req - ordered, ordered, req), "Stoke Park",
+                      remedy="Check for a systematic gap - at Stoke Park one toplight per bay was "
+                             "missing on every type.")
     return result("unglazed frames need a glass order", PASS,
                   "%d panes ordered against %d required" % (ordered, req), "Stoke Park")
 
@@ -158,8 +175,9 @@ def check_quantities(m):
            for i in q if i.get("bill_qty") != i.get("drawing_qty")]
     if bad:
         return result("drawing vs bill quantities", FAIL,
-                      "Quantities disagree: %s. Do not issue an RFQ until the covering email states "
-                      "the quantities explicitly." % "; ".join(bad), "Vesuvius Way")
+                      "Quantities disagree: %s." % "; ".join(bad), "Vesuvius Way",
+                      remedy="Do not issue an RFQ until the covering email states the quantities "
+                             "explicitly.")
     return result("drawing vs bill quantities", PASS,
                   "%d item(s) reconcile between bill and drawings" % len(q), "Vesuvius Way")
 
@@ -271,8 +289,9 @@ def check_fabricator_can_make_it(m):
     orphans = [s.get("system", "?") for s in systems if not s.get("fabricator")]
     if orphans:
         return result("someone can actually fabricate it", FAIL,
-                      "No fabricator identified for: %s. Either find an approved one or qualify an "
-                      "alternative system formally in the tender." % ", ".join(orphans), "Vesuvius Way")
+                      "No fabricator identified for: %s." % ", ".join(orphans), "Vesuvius Way",
+                      remedy="Either find an approved one or qualify an alternative system formally "
+                             "in the tender.")
     return result("someone can actually fabricate it", PASS,
                   "every specified system has a fabricator", "Vesuvius Way")
 
@@ -344,9 +363,10 @@ def check_system_performance(m):
                       % "; ".join(incapable), "St Mary's / SM5 Wexham")
     if unknown:
         return result("system can meet the specified performance", UNKNOWN,
-                      "Nobody has asked the supplier whether these can meet the requirement: %s. "
-                      "Get it in writing - on both founding jobs the answer existed and no one had "
-                      "gone and got it." % "; ".join(unknown), "St Mary's / SM5 Wexham")
+                      "Nobody has asked the supplier whether these can meet the requirement: %s."
+                      % "; ".join(unknown), "St Mary's / SM5 Wexham",
+                      remedy="Get it in writing - on both founding jobs the answer existed and no "
+                             "one had gone and got it.")
     return result("system can meet the specified performance", PASS,
                   "%d system(s) confirmed capable of the specified performance" % len(rated),
                   "St Mary's / SM5 Wexham")
@@ -548,9 +568,10 @@ def check_quote_validity_against_commitment(m):
     if gaps:
         return result("supplier price held as long as ours", FAIL,
                       "Supplier pricing expires inside our own commitment: %s. Total GBP %s of cost "
-                      "unfixed against a price we cannot withdraw. Get a written price hold to %s or "
-                      "carry a stated allowance for the gap."
-                      % ("; ".join(gaps), format(exposed, ",.2f"), until.isoformat()), "Gordon Court")
+                      "unfixed against a price we cannot withdraw."
+                      % ("; ".join(gaps), format(exposed, ",.2f")), "Gordon Court",
+                      remedy="Get a written price hold to %s or carry a stated allowance for the gap."
+                             % until.isoformat())
     if silent:
         return result("supplier price held as long as ours", UNKNOWN,
                       "No expiry date stated for: %s. A quote with no validity period is not a held "
@@ -573,8 +594,9 @@ def check_quote_validity_against_commitment(m):
     if thin:
         return result("supplier price held as long as ours", UNKNOWN,
                       "Covered, but with no headroom: %s. Acceptance on the last day of our validity "
-                      "leaves nothing to place the order against. Confirm the supplier price at the "
-                      "point of issue, or carry a stated allowance." % "; ".join(thin), "Riverside House")
+                      "leaves nothing to place the order against." % "; ".join(thin), "Riverside House",
+                      remedy="Confirm the supplier price at the point of issue, or carry a stated "
+                             "allowance.")
     return result("supplier price held as long as ours", PASS,
                   "%d supplier quote(s) held to at least %s" % (len(quotes), until.isoformat()),
                   "Gordon Court")
@@ -644,14 +666,16 @@ def check_free_delivery_threshold(m):
                          % (gap, t.get("charge_basis") or "basis not stated"))
     if short:
         return result("delivery actually included", FAIL,
-                      "Delivery is not in the price: %s. Either price the carriage or get the "
-                      "supplier to confirm the load is being batched free." % "; ".join(short),
-                      "Riverside House")
+                      "Delivery is not in the price: %s." % "; ".join(short),
+                      "Riverside House",
+                      remedy="Either price the carriage or get the supplier to confirm the load is "
+                             "being batched free.")
     if prov:
         return result("delivery actually included", UNKNOWN,
-                      "Carriage identified but not yet fixed: %s. Get the supplier to confirm the "
-                      "charge or that the load is batched free before the price is issued."
-                      % "; ".join(prov), "Riverside House")
+                      "Carriage identified but not yet fixed: %s." % "; ".join(prov),
+                      "Riverside House",
+                      remedy="Get the supplier to confirm the charge or that the load is batched "
+                             "free before the price is issued.")
     if silent:
         return result("delivery actually included", UNKNOWN,
                       "Order value or free-delivery threshold not stated for: %s." % ", ".join(silent),
@@ -775,6 +799,11 @@ def report(results, job=""):
             print("  [%s] %-*s  %s" % (mark, width, r["rule"], lines[0]))
             for extra in lines[1:]:
                 print("%s%s" % (indent, extra))
+            # Printed last but never abridged. It used to be the tail of `detail`,
+            # which meant the longer the list of faults the further it slid past
+            # the cut - see result().
+            for i, extra in enumerate(textwrap.wrap(r.get("remedy") or "", body - 4)):
+                print("%s%s %s" % (indent, "->" if i == 0 else "  ", extra))
         else:
             if len(detail) > body:
                 detail = "%s... (+%d chars)" % (detail[:body], len(r["detail"]) - body)

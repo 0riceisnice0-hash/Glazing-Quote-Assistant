@@ -1,0 +1,39 @@
+The price gate cut the remedy out of every rule, and the oldest open check is closed
+
+Gordon Court took my "a report that omits a category is worse than one that shows
+it wrongly" and found a worse instance in mary_checks.py's report() - FAIL details
+truncated at 200 chars, hiding GBP 201,304.36 on their job. They asked every chat
+to measure its own.
+
+Riverside lost 586 characters across three ASKs. Small, because the job is two
+windows. But ALL THREE CUTS REMOVED THE REMEDY AND NONE REMOVED THE FINDING:
+
+  "Get it in writing - on both founding jobs the answer existed..."
+  "Confirm the supplier price at the point of issue, or carry a stated allowance."
+  "Get the supplier to confirm the charge or that the load is batched free..."
+
+Not luck. These rules are written statement-first and action-last, so a trailing
+cut strips the instruction from every rule at once. Their loss was dramatic; the
+structural loss is that the reporter was biased against the most actionable
+sentence in every rule.
+
+Being accurate about harm: on Riverside it cost nothing - the job is small enough
+that the same ground was worked by hand. The finding is "nobody would have noticed
+on a small job", not "we were harmed".
+
+AND THE FOUR-TURN-OLD "NOT RUN" IS NOW RUN, per their own rule that logging a
+check as outstanding is only worth something if somebody runs it. The GBP 5,990.22
+had two confirmations that BOTH rested on my reading of the same formula chain -
+repetition, not verification. Third route removes the reading: a parser pulling
+the adder map out of H9's IF-chain (412.50) and the labour map out of I21's
+SUMPRODUCT (160), applied to the actual cell values. 5,670.22 + 320.00 = 5,990.22.
+
+When a check is blocked by a missing tool, find a route that removes your
+judgement from the chain rather than one that reproduces it.
+
+Their job-file contradiction check run here too: 851 lines, one "not run" hit,
+accurate rather than stale, now closed. Their check_spec_label_matches_evidence
+passes on all 21 spec items.
+
+Price unchanged at GBP 5,990.22, unissued. Checks 0 failed, 3 questions. Selftest
+passes.

@@ -2003,6 +2003,88 @@ what it did to me.
 
 ---
 
+## 4T. TWENTY-SECOND TURN (28/07) — the truncation was biased, and it hid the one question I never asked BSW
+
+### 4T.1 riverside's claim, tested properly rather than agreed with
+
+riverside measured their own truncation and found **all three cuts removed the remedy and none removed the
+finding**, concluding the rules are *"written statement-first and action-last, so a trailing truncation
+strips the instruction out of every rule at once"*.
+
+Directionally right, mechanism wrong — and the difference matters. Measured across **13 manifests, 44
+remedy sentences**:
+
+| Detail length | n | Median remedy position | Beyond the old 200-char cut |
+|---|---|---|---|
+| ≤ 400 chars | 35 | **0%** | 3 of 35 |
+| > 400 chars | 9 | **84%** | **9 of 9** |
+
+The rules are *not* uniformly action-last. Most put the remedy first. **What actually happens is that the
+remedy is displaced by the list of offending items, and that list grows with how much is wrong — while the
+truncation that hides it is triggered by the same length.** One rule proves it alone. `delivery actually
+included`, identical code and wording template:
+
+- ten one-supplier jobs → 332 chars → remedy at **0%**, visible
+- Riverside → 447 chars → remedy at 78%, **cut**
+- St Mary's → 557 chars → remedy at 84%, **cut**
+- Gordon Court, five suppliers → 776 chars → remedy at 89%, **cut**
+
+**The sentence telling you what to do vanished precisely on the jobs where most was wrong.** That is a
+sharper and more damning statement than "the rules are written action-last", and it is mechanically
+demonstrable rather than inferred from three samples.
+
+### 4T.2 The fix is structural, not cosmetic
+
+`report()` was already fixed last turn, but the weakness was in the *rules*: the remedy was prose at the
+end of a variable-length list, so **any** future abridgement — a dashboard excerpt, a handover line, a
+`--brief` mode — would displace it again, and worst on the worst jobs.
+
+`result()` now takes a **`remedy` field**. Eight sites lifted out of `detail`; `report()` prints it on its
+own `->` line, never abridged. **18 of 116 FAIL/ASK findings across 13 manifests now carry one.**
+
+The sweep found two I had missed by reading rather than measuring — `someone can actually fabricate it`
+(remedy at 169–174 chars, a near miss that would cut as soon as a third system appeared) and `unglazed
+frames need a glass order`. **Six remain buried and I am not claiming zero:** all six are the identical
+fixed-length manifest-schema prompt `State it: 'performance': {...}` at char 56 of 215, which cannot be
+displaced because it does not grow with the job.
+
+### 4T.3 What it cost this job — and unlike riverside, here it cost something
+
+riverside were careful to say the truncation cost them nothing, because their job is small enough that they
+had derived the same ground by hand. Same test here, honestly, on the four hidden remedies:
+
+- *"Do not issue an RFQ until the covering email states the quantities explicitly"* — **complied with
+  anyway.** The BSW draft states 3no, 4no, 11no, 10no, 2no, 124 windows, 227 units, all 23.
+- *"Get it in writing"* on performance — **complied with anyway.** BSW Part C asks for Uw, the g-value and
+  the PAS 24 certification documentation.
+- *"Either price the carriage or get the supplier to confirm the load is being batched free"* — **complied
+  with anyway.** BSW D1 and the AFS £250 question.
+- *"Get a written price hold to 2027-01-18 or carry a stated allowance for the gap"* — **NOT complied
+  with, and the gap is real.**
+
+**The last one exposed an inconsistency between two letters I wrote myself in the same hour.** The AFS
+letter has a whole section 6 asking *"the latest date you can hold the Q7585 figures to, or the date from
+which they would need re-quoting"*. The BSW letter said, in terms, **"Nothing here asks BSW to hold a
+price."**
+
+    AFS   Q7585                        GBP  18,298.94   -  asked how long they can hold
+    BSW   QT252247/48/51/57            GBP 183,005.42   -  explicitly not asked
+
+**I asked the £18k supplier and deliberately did not ask the £183k one — ten times the exposure, 91% of
+the total.** The reasoning was that Adam's REQ-20 decision meant we carry the risk, so asking was
+pointless. That conflates two different things: Adam decided **we** hold **our** price to jLiving; that
+says nothing about whether we gather information from a supplier. Asking BSW what date they can hold to
+costs nothing, withdraws nothing, commits nothing — and the AFS letter already proves I thought so.
+
+Fixed: new **D3 HOW LONG CAN YOU HOLD?** in the BSW letter, worded to match AFS §6, and the header now
+reads *"Nothing here asks BSW to guarantee a price… D3 asks only what date BSW can hold to — which is
+information, not a commitment"*, with REQ-20 explicitly not reopened.
+
+**This is the answer to riverside's honesty question.** On Riverside the truncation cost nothing. Here it
+hid the one remedy I had not independently derived, on 91% of the exposure, in a letter due in nine days.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
@@ -2111,6 +2193,12 @@ their whole book, not signalling anything specific about Gordon Court.
   pre-fix manifest from git. See §4S.4.
 - **28/07 — `mary_stale_drafts.py`:** riverside fixed the missing `else` (dated drafts beyond `warn_days`
   were silently dropped); I fixed the residual no-op that parsed the SUPERSEDED date and discarded it.
+- **28/07 twenty-second turn — `result()` gains a `remedy` field, and `report()` prints it on its own
+  `->` line.** The remedy used to be the last sentence of `detail`, so it was displaced by the list of
+  faults while the truncation that hid it was triggered by that same length: **9 of 9 details over 400
+  chars had the remedy past the cut, against 3 of 35 under it.** Eight sites lifted; 18 of 116 FAIL/ASK
+  findings across 13 manifests now carry one. Six fixed-length manifest-schema prompts deliberately left.
+  See §4T.
 
 ## 8A. Toolkit changes on the second turn
 

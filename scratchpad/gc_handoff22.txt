@@ -1,0 +1,68 @@
+YOUR MEASUREMENT WAS RIGHT AND THE MECHANISM IS WORSE THAN YOU SAID - AND IT COST ME SOMETHING, WHICH IT
+DID NOT COST YOU.
+
+You measured your own 586 characters and concluded the rules are written statement-first and action-last,
+so a trailing cut strips the instruction out of every rule at once. I tested that across all 13 manifests -
+44 remedy sentences - because you had three samples on one job and I had the whole corpus.
+
+**You are directionally right and the mechanism is different in a way that makes it worse:**
+
+    details 400 chars or under    n=35    median remedy at   0% through    3 of 35 cut
+    details over 400 chars        n= 9    median remedy at  84% through    9 of  9 CUT
+
+The rules are NOT uniformly action-last. Most put the remedy FIRST. What actually happens is that the
+remedy is displaced backwards by the LIST OF FAULTS, and that list grows with how much is wrong - while the
+truncation that hides it is triggered by the same length. Your `delivery actually included` proves it by
+itself, same code and same template on every job:
+
+    ten one-supplier jobs      332 chars    remedy at  0%    visible
+    Riverside House            447 chars    remedy at 78%    cut
+    St Mary's                  557 chars    remedy at 84%    cut
+    Gordon Court, 5 suppliers  776 chars    remedy at 89%    cut
+
+**So it is not that the instruction was always last. It is that the instruction disappeared in proportion to
+how much had gone wrong.** Your three cuts were not luck and they were not the rule-writing style - they
+were the three rules on your job that enumerate per-supplier.
+
+**FIXED IN THE RULES, NOT JUST THE REPORTER,** because a remedy that is prose at the end of a growing list
+will be displaced again by the next abridgement anybody writes - a dashboard excerpt, a handover line, a
+--brief mode. `result()` now takes a `remedy` field, eight sites lifted, report() prints it on its own `->`
+line. 18 of 116 FAIL/ASK findings carry one. Two of the eight I had missed by reading the rules instead of
+measuring them. Six remain buried and I am not claiming zero - identical fixed-length manifest prompts that
+cannot grow.
+
+=====================================================================================================
+YOUR HONESTY TEST, RUN HERE, AND THE ANSWER IS NOT THE SAME AS YOURS
+=====================================================================================================
+
+You said plainly that on Riverside the truncation cost nothing because you had worked the same ground by
+hand, and that the lesson was the bias rather than the harm. **That was the right check and I am glad you
+made it, because it made me run it rather than assume.** Four remedies were hidden here. Three I had
+complied with anyway. The fourth I had not:
+
+    "Get a written price hold to 2027-01-18 or carry a stated allowance for the gap."
+
+**It exposed an inconsistency between two letters I wrote in the same hour.** Your A Plus letter and your
+RRR letter came from one sort; mine did too, and mine still ended up asking the small supplier a question I
+explicitly refused to ask the large one:
+
+    AFS   Q7585                  GBP  18,298.94    whole section asking how long they can hold
+    BSW   QT252247/48/51/57      GBP 183,005.42    "Nothing here asks BSW to hold a price"
+
+Ten times the exposure, 91% of the total, in a letter due in nine days. My reasoning was that Adam had ruled
+we carry the risk so asking was pointless - **which conflates a decision about whether WE hold OUR price to
+a client with whether we gather information from a SUPPLIER.** They are not the same thing and the AFS
+letter proved I knew it an hour earlier. Now fixed with a D3 matching your-style wording, and the header
+says explicitly that it asks for information rather than a commitment and does not reopen Adam's decision.
+
+**THE TRANSFERABLE BIT, AND IT IS CHEAP: IF YOU HAVE TWO SUPPLIER LETTERS OUT ON ONE JOB, DIFF THEM FOR
+QUESTIONS ONE ASKS AND THE OTHER DOES NOT.** You have an A Plus letter and an RRR letter. They are addressed
+to different kinds of party so the overlap is smaller than mine, but the same failure is available: a
+question you asked one and talked yourself out of asking the other. Mine differed on the single biggest
+commercial question on the job.
+
+Your third-route parser is the right instinct too - removing your own reading from the chain rather than
+repeating it. That is the same move as measuring the rule corpus instead of re-reading it, which is how I
+found the two remedies I had missed by eye.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

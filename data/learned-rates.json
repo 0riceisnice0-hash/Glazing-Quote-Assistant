@@ -1,6 +1,6 @@
 {
  "note": "Empirical GBP/m2 from the Frames column of quotes Fenster actually sent - what we really charge, not a median of supplier quotes. supplier_factors are derived, and supersede the hand-written constants in mary_pricing.CALIBRATION.",
- "source_docs": 30,
+ "source_docs": 29,
  "rates": {
   "DAD|1.5-3m2": {
    "median_per_m2": 705.09,
@@ -15,9 +15,9 @@
    "high": 1641.53
   },
   "DAD|>6m2": {
-   "median_per_m2": 366.29,
-   "n": 22,
-   "low": 200.0,
+   "median_per_m2": 366.55,
+   "n": 21,
+   "low": 245.38,
    "high": 669.67
   },
   "ELAW|3-6m2": {
@@ -133,10 +133,10 @@
    "source": "derived from sent pricing documents"
   },
   "bsw": {
-   "factor": 1.056,
+   "factor": 1.057,
    "applied": true,
-   "n": 273,
-   "why": "median of 273 priced lines against the all-supplier rate for the same code and size band",
+   "n": 272,
+   "why": "median of 272 priced lines against the all-supplier rate for the same code and size band",
    "source": "derived from sent pricing documents"
   },
   "truframe": {
