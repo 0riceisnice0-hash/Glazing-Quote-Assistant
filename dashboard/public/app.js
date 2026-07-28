@@ -92,7 +92,9 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "
 
 function inline(s) {
   let h = esc(s);
-  h = h.replace(/(GBP\s?[\d,]+(?:\.\d\d)?|£[\d,]+(?:\.\d\d)?)/g, '<span class="money">$1</span>');
+  // Any number of decimals plus an optional m/k suffix, otherwise "GBP 14.9m"
+  // renders as a highlighted "GBP 14" trailed by a stray ".9m".
+  h = h.replace(/((?:GBP\s?|£)[\d,]+(?:\.\d+)?(?:\s?[mk])?)\b/gi, '<span class="money">$1</span>');
   return h;
 }
 
@@ -204,6 +206,8 @@ const ICONS = {
   live: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>',
   leads: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
   signals: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>',
+  jmessages: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>',
+  botchat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H9l-5 5Z"/></svg>',
   jayk: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5Z"/><path d="M8 7h8M8 11h8"/></svg>',
   relationships: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20a5.5 5.5 0 0 0-3-4.9"/></svg>',
   outreach: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>',
@@ -235,10 +239,29 @@ const JACOB_PAGES = [
   { key: "leads", label: "Leads", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} matched to a Fenster relationship, ${JACOB?.totals.cold || 0} cold` },
   { key: "relationships", label: "Relationships", sub: () => `${JACOB?.relationships.rows.length || 0} companies, ${JACOB?.totals.dormant || 0} with no recent contact` },
   { key: "jayk", label: "Jayk's book", sub: () => `${JACOB?.jayk?.messages || 0} recovered messages from the former BDM` },
+  { key: "jmessages", label: "Messages", sub: () => "Two-way line with Jacob" },
+  { key: "botchat", label: "Internal chat", sub: () => "What Jacob and Mary say to each other - max ten an hour each" },
   { key: "outreach", label: "Outreach", sub: () => "Nothing sends without a human approving it" },
   { key: "sources", label: "Sources", sub: () => "Where leads come from, and which feeds are live" },
-  { key: "decisions", label: "Jacob needs you", sub: () => `${JACOB?.decisions.length || 0} decisions before he can go further` },
+  { key: "decisions", label: "Jacob needs you", sub: () => `${openJacobReqs().length} open, ${JACOB?.decisions.length || 0} standing` },
 ];
+
+/* Jacob's own channels. Loaded alongside his board; a failure here leaves the
+   rest of his section working rather than blanking the page. */
+let JMSGS = [];
+let JREQS = [];
+let BOTCHAT = [];
+const openJacobReqs = () => JREQS.filter((r) => r.status !== "answered");
+
+async function sendToJacob(body, context = "") {
+  await api("jacob/messages", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ author: who(), body, context }),
+  });
+  JMSGS = await api("jacob/messages").catch(() => JMSGS);
+  toast("Sent - Jacob picks this up on his next pass");
+}
 
 const gbp = (v) => {
   if (!v) return "n/a";
@@ -437,14 +460,79 @@ const JACOB_RENDER = {
         </div></div>`;
   },
 
+  jmessages() {
+    const rows = [...JMSGS].reverse();
+    return `
+      <div class="chat">
+        <div class="chat-thread">
+          ${rows.length ? rows.map((m) => `
+            <div class="bubble ${m.author === "jacob" ? "them" : "me"}">
+              <div class="bubble-who">${esc(m.author === "jacob" ? "Jacob Wright" : m.author)}
+                <em>${esc((m.created || "").replace("T", " ").slice(0, 16))}</em>
+                ${m.context ? `<span class="pill possible">${esc(m.context)}</span>` : ""}</div>
+              <div>${fmt(m.body)}</div>
+            </div>`).join("")
+            : `<div class="empty"><strong>Nothing yet</strong>Ask him something - what he has found, who is worth calling, why a lead scored the way it did.</div>`}
+        </div>
+        <div class="chat-compose">
+          <textarea data-draft="jacob-msg" rows="3" placeholder="Message Jacob..."></textarea>
+          <button id="jacob-send" class="btn">Send</button>
+        </div>
+      </div>`;
+  },
+
+  botchat() {
+    const rows = [...BOTCHAT].reverse();
+    return `
+      <div class="section"><div class="section-head"><h3>How this works</h3></div>
+        <div class="planned-note">
+          <p>Jacob knows who is buying; Mary knows what is being quoted. This is the line
+          between them, and everything on it is visible to you.</p>
+          <p><strong>Ten messages an hour each</strong>, refused by the API beyond that -
+          a wall rather than an instruction, because two agents with something to say will
+          otherwise talk all night. And <strong>neither has to reply</strong>: a message
+          marked FYI gets no answer unless the other has something to add. Silence is the
+          normal outcome.</p>
+        </div></div>
+      <div class="chat">
+        <div class="chat-thread">
+          ${rows.length ? rows.map((m) => `
+            <div class="bubble ${m.sender === "jacob" ? "me" : "them"}">
+              <div class="bubble-who">${esc(m.sender === "jacob" ? "Jacob Wright" : "Mary Grace")}
+                &rarr; ${esc(m.recipient)}
+                <em>${esc((m.created || "").replace("T", " ").slice(0, 16))}</em>
+                ${m.wants_reply ? `<span class="pill strong">wants a reply</span>`
+                                : `<span class="pill possible">FYI</span>`}</div>
+              ${m.subject ? `<div><strong>${esc(m.subject)}</strong></div>` : ""}
+              <div>${fmt(m.body)}</div>
+            </div>`).join("")
+            : `<div class="empty"><strong>They have not spoken yet</strong>Nothing to report to each other is a perfectly good state.</div>`}
+        </div>
+      </div>`;
+  },
+
   decisions() {
-    return `<div class="cards">
-      ${JACOB.decisions.map((d) => `<div class="card">
-        <div class="card-head"><strong>${esc(d.title)}</strong><span class="pill planned">${esc(d.id)}</span></div>
-        <p>${esc(d.why)}</p>
-        <div class="req-options">${d.options.map((o) => `<span class="opt" data-jdec="${esc(d.id)}">${esc(o)}</span>`).join("")}</div>
-      </div>`).join("")}
-    </div>`;
+    const open = openJacobReqs();
+    return `
+      ${open.length ? `<div class="section"><div class="section-head"><h3>He is blocked on these</h3></div>
+        <div class="cards">${open.map((r) => `<div class="card">
+          <div class="card-head"><strong>${esc(r.title)}</strong><span class="pill strong">${esc(r.ref)}</span></div>
+          ${r.why ? `<p>${esc(r.why)}</p>` : ""}
+          ${r.needs ? `<p><strong>Needs:</strong> ${esc(r.needs)}</p>` : ""}
+          <div class="req-options">${(JSON.parse(r.options || "[]")).map((o) =>
+            `<span class="opt" data-jreq="${esc(r.ref)}">${esc(o)}</span>`).join("")}</div>
+        </div>`).join("")}</div></div>` : ""}
+
+      <div class="section"><div class="section-head"><h3>Standing decisions</h3></div>
+        <div class="planned-note">These are not blocking him day to day, but they decide
+        how far he is allowed to go.</div>
+        <div class="cards">
+        ${JACOB.decisions.map((d) => `<div class="card">
+          <div class="card-head"><strong>${esc(d.title)}</strong><span class="pill planned">${esc(d.id)}</span></div>
+          <p>${esc(d.why)}</p>
+          <div class="req-options">${d.options.map((o) => `<span class="opt" data-jreq="${esc(d.id)}">${esc(o)}</span>`).join("")}</div>
+        </div>`).join("")}
+        </div></div>`;
   },
 };
 
@@ -738,6 +826,26 @@ document.addEventListener("click", async (e) => {
     if (nav.dataset.goreq) { closePanel(); page = "requests"; render(); return; }
     page = nav.dataset.nav || nav.dataset.go; render(); return;
   }
+  // Jacob's questions post to his own endpoint, not Mary's.
+  const jopt = e.target.closest(".req-options .opt[data-jreq]");
+  if (jopt) {
+    const ref = jopt.dataset.jreq;
+    const answer = jopt.textContent.trim();
+    [...jopt.closest(".req-options").querySelectorAll(".opt")]
+      .forEach((o) => o.classList.toggle("on", o === jopt));
+    try {
+      await api("jacob/requests", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ ref, answer, author: who() }),
+      });
+      JREQS = await api("jacob/requests").catch(() => JREQS);
+      toast(`Answered ${ref} - Jacob picks it up on his next pass`);
+      render();
+    } catch { toast("Could not save that answer"); }
+    return;
+  }
+
   // Scoped to .req-options: the scoreboard's Won/Lost buttons reuse .opt and
   // were being swallowed here before ever reaching their own handler.
   const opt = e.target.closest(".req-options .opt");
@@ -817,6 +925,13 @@ $("#search").addEventListener("input", (e) => {
       api("data"), api("messages"), api("status").catch(() => null),
       api("outcomes").catch(() => []), api("activity").catch(() => null),
       api("jacob").catch(() => null),
+    ]);
+    // His channels are separate calls so one failing endpoint cannot blank
+    // the whole section.
+    [JMSGS, JREQS, BOTCHAT] = await Promise.all([
+      api("jacob/messages").catch(() => []),
+      api("jacob/requests").catch(() => []),
+      api("botchat").catch(() => []),
     ]);
     if (!JACOB) $$(".nav-bot[data-bot='jacob']").forEach((b) => { b.hidden = true; });
 

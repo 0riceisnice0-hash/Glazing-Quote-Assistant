@@ -94,9 +94,150 @@ export async function onRequest(context) {
       return json({ ok: true });
     }
 
-    // ---- Mary-only routes ----
+    // ---- Jacob: humans <-> Jacob, his own table ----
+    if (route === "jacob/messages" && request.method === "GET") {
+      const { results } = await db.prepare(
+        "SELECT id, created, author, body, context, in_reply_to, seen_by_jacob " +
+        "FROM jacob_messages ORDER BY id DESC LIMIT 200").all();
+      return json(results);
+    }
+
+    if (route === "jacob/messages" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      const author = ["zac", "adam"].includes(String(b.author || "").toLowerCase())
+        ? b.author.toLowerCase() : "team";
+      const body = String(b.body || "").slice(0, 4000).trim();
+      if (!body) return json({ error: "Empty message" }, 400);
+      await db.prepare(
+        "INSERT INTO jacob_messages (created, author, body, context) VALUES (?, ?, ?, ?)")
+        .bind(now(), author, body, String(b.context || "").slice(0, 300)).run();
+      return json({ ok: true });
+    }
+
+    if (route === "jacob/requests" && request.method === "GET") {
+      const { results } = await db.prepare(
+        "SELECT * FROM jacob_requests ORDER BY status = 'answered', id DESC").all();
+      return json(results);
+    }
+
+    // Answering one of Jacob's questions from the hub.
+    if (route === "jacob/requests" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      const ref = String(b.ref || "").slice(0, 20);
+      const answer = String(b.answer || "").slice(0, 2000).trim();
+      if (!ref || !answer) return json({ error: "ref and answer required" }, 400);
+      await db.prepare(
+        "UPDATE jacob_requests SET status='answered', answer=?, answered_by=?, answered_at=? WHERE ref=?")
+        .bind(answer, String(b.author || "team").slice(0, 20), now(), ref).run();
+      // The answer is also a message, so it reaches him through one channel.
+      await db.prepare(
+        "INSERT INTO jacob_messages (created, author, body, context) VALUES (?, ?, ?, ?)")
+        .bind(now(), String(b.author || "team").slice(0, 20), answer, ref).run();
+      return json({ ok: true });
+    }
+
+    // ---- Bot to bot. Readable by anyone; writing is bot-only (below). ----
+    if (route === "botchat" && request.method === "GET") {
+      const { results } = await db.prepare(
+        "SELECT id, created, sender, recipient, subject, body, in_reply_to, wants_reply, seen " +
+        "FROM bot_chat ORDER BY id DESC LIMIT 100").all();
+      return json(results);
+    }
+
+    // ---- Bot-only routes (Mary and Jacob share the key) ----
     if (!env.MARY_API_KEY || request.headers.get("x-mary-key") !== env.MARY_API_KEY) {
       return json({ error: "Not found" }, 404);
+    }
+
+    // Ten messages per sender per hour, enforced HERE rather than in a prompt.
+    // Enough for a real exchange - Jacob asks, Mary answers, he asks a
+    // follow-up if her answer needs one - but a hard ceiling on two agents
+    // talking each other in circles. A wall, not an instruction they can
+    // reason their way around.
+    if (route === "botchat" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      const sender = String(b.sender || "").toLowerCase();
+      const recipient = sender === "mary" ? "jacob" : "mary";
+      const body = String(b.body || "").slice(0, 4000).trim();
+      if (!["mary", "jacob"].includes(sender)) return json({ error: "Unknown sender" }, 400);
+      if (!body) return json({ error: "Empty message" }, 400);
+
+      const HOURLY_LIMIT = 10;
+      const since = new Date(Date.now() - 3600000).toISOString();
+      const row = await db.prepare(
+        "SELECT COUNT(*) AS n FROM bot_chat WHERE sender = ? AND created > ?")
+        .bind(sender, since).first();
+      if ((row?.n || 0) >= HOURLY_LIMIT) {
+        return json({ error: "rate limited", limit: HOURLY_LIMIT,
+                      sentThisHour: row.n,
+                      hint: "You have said enough this hour. Carry on with your own work." }, 429);
+      }
+      await db.prepare(
+        "INSERT INTO bot_chat (created, sender, recipient, subject, body, in_reply_to, wants_reply) " +
+        "VALUES (?, ?, ?, ?, ?, ?, ?)")
+        .bind(now(), sender, recipient, String(b.subject || "").slice(0, 140), body,
+              b.in_reply_to || null, b.wants_reply ? 1 : 0).run();
+      return json({ ok: true });
+    }
+
+    // Unseen messages addressed to me. Marking them seen is a separate call,
+    // so a crashed session does not silently lose the message.
+    if (route === "botchat/pending") {
+      const who = new URL(request.url).searchParams.get("for") || "jacob";
+      const { results } = await db.prepare(
+        "SELECT id, created, sender, subject, body, in_reply_to, wants_reply " +
+        "FROM bot_chat WHERE recipient = ? AND seen = 0 ORDER BY id").bind(who).all();
+      return json(results);
+    }
+
+    if (route === "botchat/seen" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      for (const id of (b.ids || [])) {
+        await db.prepare("UPDATE bot_chat SET seen = 1 WHERE id = ?").bind(parseInt(id, 10) || 0).run();
+      }
+      return json({ ok: true });
+    }
+
+    // ---- Jacob's own bot-side routes ----
+    if (route === "jacob/pending") {
+      const { results } = await db.prepare(
+        "SELECT id, created, author, body, context FROM jacob_messages " +
+        "WHERE seen_by_jacob = 0 AND author != 'jacob' ORDER BY id").all();
+      return json(results);
+    }
+
+    if (route === "jacob/reply" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      if (b.body) {
+        await db.prepare(
+          "INSERT INTO jacob_messages (created, author, body, context, in_reply_to, seen_by_jacob) " +
+          "VALUES (?, 'jacob', ?, ?, ?, 1)")
+          .bind(now(), String(b.body).slice(0, 8000), String(b.context || "").slice(0, 300),
+                b.in_reply_to || null).run();
+      }
+      if (b.in_reply_to) {
+        await db.prepare("UPDATE jacob_messages SET seen_by_jacob = 1 WHERE id = ?")
+          .bind(b.in_reply_to).run();
+      }
+      for (const id of (b.mark_seen || [])) {
+        await db.prepare("UPDATE jacob_messages SET seen_by_jacob = 1 WHERE id = ?")
+          .bind(parseInt(id, 10) || 0).run();
+      }
+      return json({ ok: true });
+    }
+
+    // Jacob raising a question he cannot answer himself.
+    if (route === "jacob/ask" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      const ref = String(b.ref || "").slice(0, 20);
+      if (!ref || !b.title) return json({ error: "ref and title required" }, 400);
+      await db.prepare(
+        "INSERT INTO jacob_requests (created, ref, title, why, needs, options) " +
+        "VALUES (?, ?, ?, ?, ?, ?) ON CONFLICT(ref) DO UPDATE SET " +
+        "title=excluded.title, why=excluded.why, needs=excluded.needs, options=excluded.options")
+        .bind(now(), ref, String(b.title).slice(0, 300), String(b.why || "").slice(0, 2000),
+              String(b.needs || "").slice(0, 2000), JSON.stringify(b.options || [])).run();
+      return json({ ok: true });
     }
 
     if (route === "mary/pending") {
