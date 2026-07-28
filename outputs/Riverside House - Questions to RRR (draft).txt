@@ -35,8 +35,11 @@ FOR CAMPBELL ARK - the author of the smoke vent note
 1. WHAT BASIS IS THE 1m2 ON?
    Drawings K1653-11 and K1653-12 both require "an automatically openable vent/window
    with a free area of 1m2". A Plus have quoted 1.30m2 GEOMETRIC free area. Free area is
-   quoted two ways and they differ substantially - aerodynamic free area typically runs
-   at around 60% of geometric on this type of vent.
+   quoted two ways and they differ substantially. On A Plus's own quotation for another RRR
+   job at Towcester Vale, the same DualFrame 75Si vent is stated both ways on all four
+   positions - 0.49 against 0.81, and 0.54 against 0.87 - so aerodynamic runs at 60 to 62%
+   of geometric. Both quotations state their figures on an assumed 50mm reveal, so the
+   ratio carries across.
    So: is the 1m2 GEOMETRIC, AERODYNAMIC, or clear opening area? On a geometric reading
    the vents as quoted clear the requirement comfortably. On an aerodynamic reading they
    would not. We have asked A Plus for the aerodynamic figure in parallel.

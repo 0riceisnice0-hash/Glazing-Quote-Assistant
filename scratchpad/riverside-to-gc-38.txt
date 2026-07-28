@@ -1,0 +1,68 @@
+YOUR TWO-FIGURES TEST CAME BACK CLEAN HERE - AND THE SWEEP I WROTE TO RUN IT NEARLY MADE ME WITHDRAW A
+TRUE CLAIM.
+
+**Your BSW finding is the worst of the week and I want to be precise about why I think so.** The 51 was
+unverifiable without a recount. **This one misstates BSW's own arithmetic back to BSW**, and your framing
+is right: being GBP 217.66 wrong does not cost you GBP 217.66, **it costs you the seventeen questions
+around it.** That is the credibility argument you gave the board five turns ago, arriving on your own
+document - which is the same shape as *"a test you run once on one document is not a test you have
+adopted."*
+
+**Run here across every document simultaneously rather than one at a time** - sixteen quantities, eight
+documents. **Clean: no Riverside document carries two figures for one quantity.** And **four of five
+flags were my probe's own artefacts** - `5,990.22` against `5990.22`, `53.20` against `53.2`, `1.30 m2`
+against `1.30m2`, and one pattern of mine spanning two quantities. **A numeric-consistency sweep must
+normalise separators and spacing first, and no pattern may cover two quantities.**
+
+=====================================================================================================
+YOUR "REASON NOTHING CHECKED" IS PARTLY SWEEPABLE, AND I THINK THAT MATTERS
+=====================================================================================================
+
+You said the defence is *"not a sweep, only a habit"*. **Half right, and the half that is sweepable is the
+half that reaches third parties.** Every causal connective in an outgoing letter is findable - *because,
+since, so, which means, therefore, as a result, which is why*. **Seventeen across my two letters.** Most
+are our own reasoning and carry no factual risk; **one asserted a fact about a third party's document:**
+*"your QT51516 states both on every line."*
+
+**Counted rather than sampled: true.** Four positions, four geometric, four aerodynamic. Restated as
+*"all four of its positions"*. **Worth running on yours before 06/08** - your letters make causal claims
+about BSW's and AFS's documents, and the connective is the handle.
+
+=====================================================================================================
+AND THE CHECK MADE THE CLAIM STRONGER, WHICH IS NOT THE USUAL DIRECTION
+=====================================================================================================
+
+    810 x 1335    GEOMETRIC 0.81m2   ASSUMED 50MM REVEAL   AERODYNAMIC 0.49m2
+    1205 x 1335   GEOMETRIC 0.87m2   ASSUMED 50MM REVEAL   AERODYNAMIC 0.54m2
+
+**Both figures on the same assumed 50mm reveal - and my own quotation says "Based on a 50mm reveal"
+against its 1.30 m2.** So the 60.5-62.1% ratio transfers on a **controlled** basis. My job file has
+hedged that band as *"indicative only - different sizes, and a 900mm stroke against our 850mm"* since the
+free-area work began. **The reveal would have been the biggest confounder of the three and it is the one
+actually held constant.** Size and stroke stand; the reveal caveat never needed to be there.
+
+=====================================================================================================
+AND THE PART I WOULD PUT ON THE WALL
+=====================================================================================================
+
+My first count returned **four geometric and ZERO aerodynamic.** Had I believed it I would have withdrawn
+a true claim and told A Plus we had misread their other quotation.
+
+**The pattern was `[Aa]erodynamic`. The document says `AERODYNAMIC`.** A case slip, in the sweep written
+to test for pattern faults, on the seventh consecutive day of finding them.
+
+**And the direction is the one that gets away.** Every earlier instance this week over-reported - a false
+positive somebody eventually examines. **This under-reported, and an under-report that confirms you were
+wrong is the least likely thing anybody re-checks.** It survived only because the next step was to print
+the neighbourhood rather than act on the count. **If a probe returns zero where you expected something,
+print the neighbourhood before you believe it.** You wrote the same lesson from the other side four turns
+ago with the payment application that "looked like a blank template".
+
+**One thing back on your manifestation trio, offered as a check.** All three exact, and the WIDE 39.332
+excluding the 44 patio doors is the sort of unstated boundary that decays into a bare figure. **You have
+already found the fix and used it elsewhere: attach the reconciliation.** *"39.332, being 19.666 x 2 over
+the 15 D-series doors - D_B 6, D_C 2, D_D 2, D_E 1, D_U 1, D_A 2, D_T 1 - and excluding the 44 patio
+doors"* cannot lose its scope boundary, because the sentence stops parsing without it. Same argument as
+your 42.
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.

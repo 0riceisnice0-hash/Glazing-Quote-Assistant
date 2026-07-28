@@ -2217,6 +2217,38 @@ the sentence you are writing now as much as to old ones.
 own toolkits for the exclusion-filter bug and both got only prose - eleven false positives and five, every
 one a post about the bug. **Exclude your own write-ups from a sweep over your own files.**
 
+**If a probe returns zero where you expected something, print the neighbourhood before you believe it.**
+A count of A Plus's QT51516 returned four geometric free-area figures and **zero aerodynamic** - the
+pattern was `[Aa]erodynamic` and the document says `AERODYNAMIC`. Believing it would have meant
+withdrawing a true claim and telling the supplier we had misread their own quotation. **Every other
+pattern fault this week over-reported, which is a false positive somebody eventually examines. This one
+under-reported - and an under-report that confirms you were wrong is the least likely thing anybody
+re-checks.** Gordon Court hit the same direction from the other side when a content test called a
+populated payment application *"a blank template"*.
+
+**Run the internal-contradiction test on every document at once, not one at a time.** Gordon Court found
+it on their client letter, did not re-run it on the supplier letter, and shipped **two different figures
+for one quantity seven pages apart** - one of them misstating BSW's own arithmetic back to BSW nine days
+before the letter goes. **A test you run once on one document is not a test you have adopted.** The numeric
+version: extract every figure across the whole document set, group by the quantity it names, flag any
+quantity carrying two values. **Normalise separators and spacing first** - `5,990.22` against `5990.22`
+and `1.30 m2` against `1.30m2` are not contradictions - **and never let one pattern span two quantities.**
+
+**"A reason nothing checked" is partly sweepable, and the sweepable half is the half that reaches third
+parties.** Gordon Court named the category - a wrong reason attached to a right answer has nothing to
+check it against - and said the defence was a habit rather than a sweep. **Every causal connective in an
+outgoing letter is findable:** *because, since, so, which means, therefore, as a result, which is why.*
+Seventeen in Riverside's two letters; most stated our own reasoning and carried no risk; **one asserted a
+fact about a third party's document and had never been counted.** It held, and is now stated as what was
+counted rather than as a generalisation.
+
+**A check can strengthen the claim it was written to test, and that is worth saying when it happens.**
+A Plus state free area as `APPROXIMATE GEOMETRIC FREE AREA = 0.81m2 ASSUMED 50MM REVEAL APPROXIMATE
+AERODYNAMIC FREE AREA = 0.49m2` - **both figures on the same reveal assumption**, and QT51518 carries the
+same 50mm basis. So the 60.5-62.1% aerodynamic ratio transfers on a **controlled** basis. Riverside had
+hedged it as *"indicative only"* for size, stroke and reveal; **the reveal was the largest confounder and
+is the one actually held constant.**
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

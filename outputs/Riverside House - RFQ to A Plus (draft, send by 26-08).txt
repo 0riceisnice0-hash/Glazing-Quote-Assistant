@@ -46,8 +46,9 @@ this further, plus one item we would like added.
 1. AERODYNAMIC FREE AREA - the one we most need, and please put it ON the quotation
    QT51518 states "Geometric free area = 1.30m2" and gives no aerodynamic figure. Please
    state the APPROXIMATE AERODYNAMIC FREE AREA for the vent as quoted - 1130 x 1530,
-   style FF, 850mm stroke single chain. Your QT51516 for Towcester Vale states both on
-   every line, so we assume the figure is available in the same way.
+   style FF, 850mm stroke single chain. Your QT51516 for Towcester Vale states both on all
+   four of its positions, in those words, and on the same assumed 50mm reveal - so we take
+   it the figure is available in the same way here.
 
    One request about WHERE it is stated. Your Product Performance note says the Supplier
    "does not warrant or represent that any Product supplied shall comply with" the

@@ -5561,6 +5561,54 @@ it against, and the correct conclusion validates the explanation by association.
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the probe that under-reported
+
+Gordon Court's BSW letter stated **GBP 182,787.76 twice** as the total already quoted - the workbook's
+figure, which they had established six turns earlier is **GBP 217.66 light** - while the same letter used
+the correct **183,005.42** seven pages later. **Both figures for one quantity, in one document**, and the
+wrong one misstates BSW's own arithmetic back to BSW. Their diagnosis: **a test you run once on one
+document is not a test you have adopted** - they had found the internal-contradiction fault on their
+client letter four turns earlier and never re-ran it on the supplier letter.
+
+**Run here across all eight Riverside documents simultaneously**, sixteen quantities. **No document
+carries two figures for one quantity.** And **four of the five flags were the probe's own artefacts** -
+`5,990.22` against `5990.22` because Excel stores the raw number, `53.20` against `53.2`, `1.30 m2`
+against `1.30m2`, and one pattern spanning two quantities. **A numeric-consistency sweep must normalise
+separators and spacing before it compares, and no pattern may span two quantities.**
+
+**And their "a reason nothing checked" turns out to be partly sweepable.** They said the defence was a
+habit rather than a sweep; the half that reaches third parties is findable, because **every causal
+connective in an outgoing letter is** - *because, since, so, which means, therefore*. Seventeen claims
+across the two letters. Most state our own reasoning and carry no factual risk. **One asserted a fact
+about a third party's document and had never been counted:** *"Your QT51516 for Towcester Vale states both
+on every line."* **Counted at source rather than sampled - it is true**: four positions, four geometric,
+four aerodynamic. Restated as *"all four of its positions"*.
+
+**And the check strengthened the derivation it was written to test.** QT51516 reads `APPROXIMATE GEOMETRIC
+FREE AREA = 0.81m2 ASSUMED 50MM REVEAL APPROXIMATE AERODYNAMIC FREE AREA = 0.49m2`, and the same for
+0.87/0.54 - **both figures on the same reveal assumption** - while QT51518 says *"Based on a 50mm reveal"*
+against its 1.30 m2. So the **60.5-62.1% ratio transfers on a controlled basis.** The job file had hedged
+that band as *"indicative only - different sizes, and a 900mm stroke against our 850mm"* since the
+free-area work began: **the reveal would have been the largest confounder of the three and it is the one
+actually held constant.** Size and stroke stand; the reveal caveat never needed to be there. The RRR letter
+now cites the four figures and the shared basis instead of *"typically runs at around 60%"* - **the low
+end of a 60.5-62.1% band stated as the whole of it**, another qualifier lost between a computation and a
+sentence.
+
+**And the part worth carrying furthest.** The first count returned four geometric figures and **zero
+aerodynamic**. Had it been believed, a true claim would have been withdrawn and A Plus told we had misread
+their other quotation. **The pattern was `[Aa]erodynamic`; the document says `AERODYNAMIC`** - a case slip,
+in the sweep written to test for pattern faults, on the seventh consecutive day of finding them.
+
+**And the direction is the dangerous one.** Every earlier instance this week **over**-reported, which is a
+false positive somebody eventually examines. This one **under**-reported, **and an under-report that
+confirms you were wrong is the least likely thing anybody re-checks.** It survived only because the next
+step was to print the surrounding text rather than act on the count. **If a probe returns zero where you
+expected something, print the neighbourhood before you believe it.**
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
