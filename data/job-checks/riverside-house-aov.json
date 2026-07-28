@@ -189,6 +189,22 @@
     {
       "ref": "TIGHTENED: last night's 'the storage clock is recoverable, not absorbed' was stated more flatly than the clause supports, and it was wrong IN OUR FAVOUR - one turn after this chat posted a warning about exactly that direction. Cancellation and Postponement requires the client to cancel or postpone THE CONTRACT following PROCUREMENT OF MATERIALS and lets us retain THE DEPOSIT: three preconditions, none of which exist here, and RRR may yet contract on their own terms and displace the clause. Gordon Court tightened the identical shape on their position 003 in the same hour - 'the letter said it conditionally; the job file said it as settled. That is the worse way round.'  ->  CORRECTED to a two-phase reading everywhere including Adam's covering note. PRE-CONTRACT, where we are: the delay is ADAM'S decision to wait for PHDB rather than RRR postponing anything, and it costs nothing, because nothing is procured and A Plus's clock starts at manufacture, which follows an order we would not place without one from RRR - the sequencing protects us, not the clause. POST-CONTRACT: a client-driven slip after we have ordered IS recoverable, provided the order is on our standard terms and the terms document goes out with the price.",
       "treatment": "excluded"
+    },
+    {
+      "ref": "THE PRICING DOCUMENT NAMES A PERSON AT ANOTHER COMPANY, WITH HIS WORK EMAIL, AS ITS AUTHOR. docProps/core.xml: dc:creator = 'Dan Parker;dan.parker@agsurveying.co.uk', on the Riverside file and on MASTER PRICING DOC.xlsx, whose dcterms:created is 2018-12-07T08:13:03Z. It shows in Windows file properties and Excel's Info pane WITHOUT OPENING THE WORKBOOK, so every quotation Fenster has built from that template for seven and a half years has carried it. Found by Gordon Court running the two lines this chat posted last night, on a file already issued to Chigwell on 09/07. MY OWN LESSON CAUGHT ME ONE LEVEL SHORT OF WHERE IT LED - I wrote 'state where you looked', then looked in cells, moved to external links, and stopped. docProps is a third store.  ->  FIXED IN PLACE, because Riverside is UNISSUED. Verified before/after: total formula, I21 array formula, H5 spec note, all 13 exclusion rows and all 139 populated cells identical; parts holding a third-party name or path 1 -> none. The drawings PDF cleaned too - it announced /Title 'riverside-drawings.html' and /Creator 'Mozilla/5.0... AppleWebKit', i.e. a client-facing drawing printed from a browser. THE TEMPLATE IS DELIBERATELY UNTOUCHED (shared, other chats quoting from it) AND WHAT TO SAY TO AG SURVEYING OR TO CLIENTS ALREADY HOLDING SEVEN YEARS OF QUOTATIONS IS FLAGGED, NOT DECIDED - Gordon Court's restraint and it is right: an estimating tool can find this and should not decide it.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "CORRECTION: I UNDER-REPORTED THE EXTERNAL LINKS LAST NIGHT - THERE ARE TWO, NOT ONE. externalLink1 -> C:/Users/LiamO'Donnell/.../INetCache/Content.Outlook/.../Electrical Template - Draft - REV010.xlsx; externalLink2 -> C:/Users/Parke/... (Gordon Court read the target as 'The Datum Group Electrical - TEMPLATE - Rev 5.xlsx'). WHY I SAW ONE: my probe printed only the parts whose CONTENTS matched my probe words. externalLink1 contained 'Testing and Commissioning' and matched; externalLink2 is structural steel and matched nothing, so it never appeared in the output at all. I counted the links by what they contained rather than by what they were - inside the very audit that was correcting the same fault one layer up.  ->  Both were removed by last night's clean, which dropped everything under xl/externalLinks/, so THE FIX WAS RIGHT AND THE REPORT WAS WRONG. Corrected on the board and in the handover.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "FALSE POSITIVE IN MY OWN AUDIT, CAUGHT BEFORE PUBLISHING. The first metadata pass reported six personal-data traces in the drawings PDF. THERE ARE NONE - the email pattern was matching COMPRESSED BINARY, 14 FlateDecode streams that decode into strings satisfying a naive address regex. The extracted text of both sheets contains no email address and no file path. 'A generic-word hit is not evidence of a structure' - Gordon Court's phrase from two turns ago, arriving in my own output an hour after I quoted it at them.  ->  A printable-character guard is now inside check_no_third_party_traces_in_issued_files, so the same false positive cannot be reported by anybody, and it is one of the fifteen persisted variants.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "New rule check_no_third_party_traces_in_issued_files (20th). It OPENS THE FILES rather than reading a manifest flag, because the whole point of the finding is that nobody knew the traces were there to declare. Scans every part of an OOXML package and the raw bytes of anything else for an email address, a Windows or Mac user path, and the two folder names that only ever appear in an Outlook attachment cache; 'own_domains' whitelists ours. FAIL, not ASK - a third party's email on a client-facing document is a known-wrong state. THREE DESIGN POINTS FROM THIS WEEK: 'not scanned' and 'clean' never render the same, so a missing path or unreadable file returns UNKNOWN saying exactly that; the printable guard above; and a remedy that names both cases - clean a COPY where the file has been issued, IN PLACE where it has not, which is Gordon Court's distinction.  ->  Fifteen variants written before shipping, built on SYNTHETIC FILES in a temp directory rather than repo paths so the suite survives the template it was founded on being cleaned. Riverside's four issued documents scan clean.",
+      "treatment": "excluded"
     }
   ],
   "supplier_quotes": [
@@ -310,19 +326,29 @@
         "dimensions provided by others assumed accurate - errors are a variation",
         "free area stated is GEOMETRIC; no aerodynamic figure warranted"
       ],
-      "note": "Added 28/07. The block did not exist before tonight - MASTER PRICING DOC.xlsx has no exclusions section, and Fenster's standard twelve-line INCLUSIONS/EXCLUSIONS schedule lives in the proposal/cover-letter template, which this job was never generated from."
+      "note": "Added 28/07. The block did not exist before tonight - MASTER PRICING DOC.xlsx has no exclusions section, and Fenster's standard twelve-line INCLUSIONS/EXCLUSIONS schedule lives in the proposal/cover-letter template, which this job was never generated from.",
+      "path": "outputs/Riverside House - Fenster Pricing Document (house format).xlsx"
     },
     {
       "name": "Riverside House - Fenster Standard Terms and Conditions (to accompany the pricing document).txt",
       "is_the_priced_document": false,
       "exclusions_stated": 16,
-      "note": "Created 28/07 to make cell C31's 'a copy of which accompanies this document' true. Twelve standard exclusions plus this job's four. MUST be sent with the xlsx."
+      "note": "Created 28/07 to make cell C31's 'a copy of which accompanies this document' true. Twelve standard exclusions plus this job's four. MUST be sent with the xlsx.",
+      "path": "outputs/Riverside House - Fenster Standard Terms and Conditions (to accompany the pricing document).txt"
     },
     {
       "name": "Riverside House - Covering note to Adam (draft).txt",
       "is_the_priced_document": false,
       "exclusions_stated": 0,
-      "note": "internal, to Adam - not a client-facing document"
+      "note": "internal, to Adam - not a client-facing document",
+      "path": "outputs/Riverside House - Covering note to Adam (draft).txt"
+    },
+    {
+      "name": "Riverside House - AOV Smoke Vent Drawings.pdf",
+      "path": "outputs/Riverside House - AOV Smoke Vent Drawings.pdf",
+      "is_the_priced_document": false,
+      "exclusions_stated": 0,
+      "note": "2 sheets Rev A. Metadata cleaned 28/07 - it announced /Title 'riverside-drawings.html' and /Creator 'Mozilla/5.0... AppleWebKit', i.e. an HTML file printed from Chrome, on a client-facing drawing."
     }
   ],
   "exposures": [
@@ -371,5 +397,8 @@
       "lands_on": "us",
       "our_recourse": "NONE ON THIS JOB, and the reason matters. Our Additional Limitations - 'dimensions provided by others are assumed to be accurate; any additional costs arising from incorrect dimensions shall be treated as a variation' - would back us if the sizes had come from the client's team. They came from us. So the clause that rescued Gordon Court's position 003 does not rescue this one, and clause 2's 'subject to final site survey and measurement verification' makes it fixable rather than somebody else's. Recorded as none rather than stretched."
     }
+  ],
+  "own_domains": [
+    "fensterglazing.com"
   ]
 }

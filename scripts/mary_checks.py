@@ -749,6 +749,143 @@ def _describes_absence(doc):
     return bool(ABSENCE_WORDS.search(str(doc)))
 
 
+# Riverside, 28/07, from Gordon Court's docProps finding. Kept deliberately
+# narrow - an email address, a Windows or Mac user path, and the two folder
+# names that only ever appear in an Outlook attachment cache. Anything looser
+# fires on ordinary prose, which is the fault this week's noticeboard has been
+# full of.
+THIRD_PARTY_TRACE = re.compile(
+    rb"[\w.+-]+@[\w-]+\.[\w.]+"
+    rb"|C:\\+Users\\+[^\\\"<>]+"
+    rb"|/Users/[^/\"<>]+"
+    rb"|INetCache|Content\.Outlook", re.I)
+
+# Parts of an OOXML package that are text stores rather than content. The
+# founding case lived in the first of these, and last night's external-link
+# clean missed it because it dropped xl/externalLinks/ and nothing else.
+METADATA_PARTS = ("docProps/", "externalLink")
+
+
+def scan_file_for_traces(path, allow=()):
+    """Return the traces a file would carry to whoever opens it.
+
+    Reads the raw bytes of every part of an OOXML package, and the whole file
+    for anything else. `allow` is a tuple of substrings that are legitimately
+    ours - our own domain, for instance.
+
+    Returns (list of (part, trace), error string or None). A file that cannot
+    be read returns an error rather than an empty list, because "no traces
+    found" and "could not look" must never render the same.
+    """
+    import os
+    import zipfile
+    if not os.path.exists(path):
+        return [], "file not found"
+    hits = []
+    try:
+        if zipfile.is_zipfile(path):
+            z = zipfile.ZipFile(path)
+            for n in z.namelist():
+                try:
+                    raw = z.read(n)
+                except Exception:
+                    continue
+                for m in set(THIRD_PARTY_TRACE.findall(raw)):
+                    s = m.decode("utf-8", "ignore")
+                    if any(a.lower() in s.lower() for a in allow):
+                        continue
+                    hits.append((n, s[:90]))
+        else:
+            with open(path, "rb") as fh:
+                raw = fh.read()
+            # A compressed or binary file decoded as bytes throws up matches
+            # that are not text at all - the Riverside drawings PDF produced
+            # six "email addresses" out of 14 FlateDecode streams. Only accept
+            # a trace that is printable.
+            for m in set(THIRD_PARTY_TRACE.findall(raw)):
+                s = m.decode("utf-8", "ignore")
+                if not s or not all(32 <= ord(c) < 127 for c in s):
+                    continue
+                if any(a.lower() in s.lower() for a in allow):
+                    continue
+                hits.append((os.path.basename(path), s[:90]))
+    except Exception as exc:
+        return [], "%s: %s" % (type(exc).__name__, exc)
+    return hits, None
+
+
+def check_no_third_party_traces_in_issued_files(m):
+    """Riverside House, 28/07, from Gordon Court's finding on an already-issued
+    document.
+
+    `dc:creator` on their pricing document read "Dan Parker;
+    dan.parker@agsurveying.co.uk" - a named person at another company, with his
+    work email, recorded as the author of a quotation that went to a client. It
+    shows in Windows file properties and Excel's Info pane without opening the
+    workbook. Both jobs inherited it from MASTER PRICING DOC.xlsx, created
+    2018-12-07.
+
+    This rule opens the files rather than reading a manifest flag, because the
+    entire point is that nobody knew the traces were there to declare. It also
+    distinguishes "scanned and clean" from "could not be scanned" - a file that
+    cannot be opened must never report the same as one that is clean.
+
+    Uses 'issued_documents': [{name, path, is_the_priced_document}] - path
+    relative to the repo root."""
+    docs = m.get("issued_documents")
+    if docs is None:
+        return result("no third-party traces in issued files", UNKNOWN,
+                      "State the documents that go to the client and where they are: "
+                      "'issued_documents': [{name, path, is_the_priced_document}].",
+                      "Riverside House",
+                      remedy="Add a 'path' to each issued document so it can be opened and read.")
+    if isinstance(docs, dict):
+        docs = [docs]
+    if isinstance(docs, str) or not isinstance(docs, (list, tuple)):
+        return result("no third-party traces in issued files", UNKNOWN,
+                      "'issued_documents' is %r - it must be a list." % (docs,),
+                      "Riverside House", remedy="Rewrite the field as a list.")
+    if not docs:
+        return result("no third-party traces in issued files", NA,
+                      "no issued documents on this job", "Riverside House")
+    allow = tuple(m.get("own_domains") or ("fensterglazing.com",))
+    dirty, unreadable, scanned = [], [], 0
+    for doc in docs:
+        if not isinstance(doc, dict):
+            unreadable.append("%r is not a document entry" % (doc,))
+            continue
+        path = doc.get("path")
+        name = doc.get("name", path or "?")
+        if not path:
+            unreadable.append("%s has no path, so it cannot be opened" % name)
+            continue
+        hits, err = scan_file_for_traces(path, allow)
+        if err:
+            unreadable.append("%s could not be read (%s)" % (name, err))
+            continue
+        scanned += 1
+        for part, trace in hits:
+            dirty.append("%s carries %r in %s" % (name, trace, part))
+    if dirty:
+        return result("no third-party traces in issued files", FAIL,
+                      "A document that would go to the client carries somebody else's name, "
+                      "email or file path: " + "; ".join(dirty)
+                      + ". This is visible in file properties without opening the document.",
+                      "Riverside House",
+                      remedy="Rewrite docProps and strip external links on a COPY where the file "
+                             "has already been issued - the issued file is the record of what the "
+                             "client received - and in place where it has not.")
+    if unreadable:
+        return result("no third-party traces in issued files", UNKNOWN,
+                      "Could not scan every issued document: " + "; ".join(unreadable)
+                      + ". Not scanned is not the same as clean.",
+                      "Riverside House",
+                      remedy="Fix the path or the entry, then re-run.")
+    return result("no third-party traces in issued files", PASS,
+                  "%d issued document(s) scanned, no third-party name, email or path in any of "
+                  "them" % scanned, "Riverside House")
+
+
 def check_exposures_state_our_recourse(m):
     """Riverside House, 28/07, from Gordon Court's withdrawal that ran in their
     own favour.
@@ -1054,7 +1191,7 @@ RULES = [
     check_system_performance, check_quote_validity_against_commitment,
     check_free_delivery_threshold, check_spec_label_matches_evidence,
     check_incorporated_terms_held, check_exclusions_reach_the_issued_document,
-    check_exposures_state_our_recourse,
+    check_exposures_state_our_recourse, check_no_third_party_traces_in_issued_files,
 ]
 
 
@@ -1081,6 +1218,7 @@ def blank_manifest(job):
         "incorporated_terms": None,
         "issued_documents": None,
         "exposures": None,
+        "own_domains": None,
     }
 
 
@@ -1435,6 +1573,82 @@ EXPOSURE_VARIANTS = [
 ]
 
 
+def selftest_trace_variants():
+    """Recall test for check_no_third_party_traces_in_issued_files.
+
+    Synthetic files, built and destroyed here, so the suite survives the
+    template it was founded on being cleaned.
+    """
+    import shutil
+    import tempfile
+    import zipfile
+    d = tempfile.mkdtemp(prefix="mary-trace-")
+    try:
+        def ooxml(name, core):
+            p = os.path.join(d, name)
+            with zipfile.ZipFile(p, "w") as z:
+                z.writestr("docProps/core.xml", core)
+                z.writestr("xl/worksheets/sheet1.xml", "<sheet><v>5990.22</v></sheet>")
+            return p
+
+        def flat(name, body):
+            p = os.path.join(d, name)
+            with open(p, "wb") as fh:
+                fh.write(body)
+            return p
+
+        dirty = ooxml("dirty.xlsx", "<cp><dc:creator>Dan Parker;"
+                                    "dan.parker@agsurveying.co.uk</dc:creator></cp>")
+        clean = ooxml("clean.xlsx", "<cp><dc:creator>Fenster Glazing &amp; Locks Ltd"
+                                    "</dc:creator></cp>")
+        ours = ooxml("ours.xlsx", "<cp><dc:creator>adam@fensterglazing.com</dc:creator></cp>")
+        path = ooxml("path.xlsx", "<cp><x>C:\\Users\\LiamO'Donnell\\AppData\\Local"
+                                  "\\Microsoft\\Windows\\INetCache</x></cp>")
+        plain = flat("plain.txt", b"Riverside House - nothing personal in here at all.")
+        email = flat("email.txt", b"contact hayley@hdplanning.co.uk about the approval")
+        # binary that is NOT text - the shape that produced six false "emails"
+        # out of the drawings PDF before the printable guard went in
+        binary = flat("binary.pdf", bytes(range(256)) * 40)
+
+        VARIANTS = [
+            ("field absent",            None,                                       UNKNOWN),
+            ("empty list",              [],                                         NA),
+            ("clean ooxml",             [{"name": "c", "path": clean}],             PASS),
+            ("our own domain allowed",  [{"name": "o", "path": ours}],              PASS),
+            ("plain text, nothing",     [{"name": "p", "path": plain}],             PASS),
+            ("binary, no real text",    [{"name": "b", "path": binary}],            PASS),
+            ("third-party email in docProps",
+                                        [{"name": "d", "path": dirty}],             FAIL),
+            ("windows user path",       [{"name": "w", "path": path}],              FAIL),
+            ("third-party email in a txt",
+                                        [{"name": "e", "path": email}],             FAIL),
+            ("one clean one dirty",     [{"name": "c", "path": clean},
+                                         {"name": "d", "path": dirty}],             FAIL),
+            ("no path given",           [{"name": "x"}],                            UNKNOWN),
+            ("path does not exist",     [{"name": "x", "path": os.path.join(d, "nope.xlsx")}],
+                                                                                    UNKNOWN),
+            ("entry is not a dict",     ["clean.xlsx"],                             UNKNOWN),
+            ("a dict, not a list",      {"name": "c", "path": clean},               PASS),
+            ("a bare string",           "clean.xlsx",                               UNKNOWN),
+        ]
+
+        bad = []
+        for name, value, expect in VARIANTS:
+            m = {} if value is None else {"issued_documents": value}
+            try:
+                got = check_no_third_party_traces_in_issued_files(m)["status"]
+            except Exception as exc:
+                got = "EXCEPTION %s: %s" % (type(exc).__name__, exc)
+            if got != expect:
+                bad.append("%s: expected %s, got %s" % (name, expect, got))
+        print("  %-22s %d/%d trace variants behave as intended%s"
+              % ("third-party traces", len(VARIANTS) - len(bad), len(VARIANTS),
+                 "" if not bad else "  MISSED: " + "; ".join(bad)))
+        return not bad
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 def selftest_exposure_variants():
     """Recall test for check_exposures_state_our_recourse."""
     bad = []
@@ -1572,6 +1786,8 @@ def selftest():
     if not selftest_issued_variants():
         ok = False
     if not selftest_exposure_variants():
+        ok = False
+    if not selftest_trace_variants():
         ok = False
     if not selftest_one_crash_costs_one_rule():
         ok = False

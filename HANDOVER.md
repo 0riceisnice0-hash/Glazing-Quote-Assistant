@@ -4438,6 +4438,66 @@ to nobody is **Adam's judgement**. Twelve options.
 Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the pricing document names somebody else
+
+Gordon Court ran the two lines Riverside posted to the board, found the Outlook cache external link on a
+pricing document **already issued to Chigwell on 09/07**, and then found something worse in a store
+neither job had opened:
+
+    dc:creator = Dan Parker;dan.parker@agsurveying.co.uk        docProps/core.xml
+
+**A named person at another company, with his work email address, recorded as the author of a quotation
+that went to a client.** It shows in Windows file properties and Excel's Info pane **without opening the
+workbook**. Verified here at source on both files - the Riverside document and `MASTER PRICING
+DOC.xlsx`, whose `dcterms:created` is **2018-12-07T08:13:03Z**. **Every quotation Fenster has built from
+that template for seven and a half years has carried it.**
+
+**Riverside's own lesson caught it one level short of where it led.** The previous turn published *"when
+you prove something is absent from a document, state where you looked"* - and then looked in cells, moved
+to external links, and stopped. **`docProps` is a third store.**
+
+**And the external links were under-reported: there are two, not one.** `externalLink1` held the string
+*"Testing and Commissioning"* and matched the probe words; `externalLink2` is structural steel and matched
+nothing, **so it never appeared in the output at all**. The probe printed only the parts whose *contents*
+matched - **counting the links by what they contained rather than by what they were**, inside the very
+audit that was correcting the same fault one layer up. Both were removed by the clean, so the fix was
+right and the report was wrong.
+
+**Both Riverside deliverables cleaned, in place, because this job is unissued.** Verified before and
+after: total formula `=SUM(I9:I10)+I21`, the `I21` array formula, the 386-character `H5` spec note, all
+13 exclusion rows and all 139 populated cells identical; parts holding a third-party name or path 1 to
+none. The drawings PDF too - it announced `/Title "riverside-drawings.html"` and a Chrome user-agent as
+`/Creator`, telling anyone who opened the properties that a client-facing drawing had been produced by
+printing a scratchpad HTML file out of a browser.
+
+**Gordon Court's two restraints, both adopted.** *"Fix a copy, never the artefact"* - their file went to
+a client, so cleaning it in place would destroy the record of what was actually received; Riverside is
+unissued, so in-place is correct, and **the right action depends entirely on whether the thing has been
+sent**. And *"I can find this; I should not be the one deciding what to do about somebody else's personal
+data"* - nothing of Riverside's has been sent, so there is no disclosure question here, but **the
+template is everybody's**, and what is said to AG Surveying or to clients already holding seven years of
+quotations is **flagged for Adam, not decided**. The template itself is deliberately untouched.
+
+**One false positive caught in the audit before it was published.** The first pass reported six
+personal-data traces in the drawings PDF. There are none - the email pattern was matching **compressed
+binary**, fourteen FlateDecode streams that decode into strings satisfying a naive address regex. *A
+generic-word hit is not evidence of a structure* - Gordon Court's phrase from two turns earlier, arriving
+in Riverside's own output an hour after quoting it at them.
+
+**New rule, `check_no_third_party_traces_in_issued_files`** - twentieth in `RULES`. It **opens the files**
+rather than reading a manifest flag, because the whole point is that nobody knew the traces were there to
+declare. Email addresses, Windows and Mac user paths, and the two folder names that only appear in an
+Outlook attachment cache; `own_domains` whitelists ours. **FAIL, not ASK.** Three design points straight
+out of this week: *not scanned* and *clean* never render the same; a printable-character guard so the
+false positive above cannot be reported by anybody; and a remedy naming **both** cases - clean a copy
+where the file has been issued, in place where it has not. Fifteen variants written before it shipped, on
+**synthetic files in a temp directory** so the suite survives the template it was founded on being
+cleaned.
+
+Riverside's four issued documents now scan clean. Checks **0 failed, 4 questions**. Position unchanged:
+**GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

@@ -1803,6 +1803,48 @@ none of which existed. **Knowing the failure mode does not prevent it**; Riversi
 corrections that run in your favour one turn before committing one. What caught both was the other chat
 tightening its own claim and saying so.
 
+**`MASTER PRICING DOC.xlsx` names a person at another company, with his work email, as its author.**
+`docProps/core.xml` reads `dc:creator = Dan Parker;dan.parker@agsurveying.co.uk`, and the template's
+`dcterms:created` is **2018-12-07** - so every quotation built from it for seven and a half years has
+carried it, and it shows in Windows file properties and Excel's Info pane **without opening the
+workbook**. The template also carries **two** external links to Outlook attachment cache paths on two
+different people's machines. Run before issuing any workbook:
+
+    import zipfile
+    z = zipfile.ZipFile(YOUR_FILE)
+    print([n for n in z.namelist() if 'externalLink' in n])
+    print(z.read('docProps/core.xml').decode('utf8'))
+
+Enforced by `check_no_third_party_traces_in_issued_files`, which **opens the files** rather than reading
+a manifest flag - the whole point being that nobody knew the traces were there to declare.
+
+**Fix a copy where a document has been issued; fix it in place where it has not.** Gordon Court's
+restraint, and it is the difference between correcting a draft and destroying the only record of what a
+client actually received. **And whether anything is said to the third party, or to clients already
+holding years of documents naming them, is not a question an estimating tool should answer** - find it,
+flag it, leave the decision.
+
+**A store you have not opened is not a store you have cleared.** Riverside published "state where you
+looked" and then looked in cells, moved to external links, and stopped - one level short of `docProps`,
+which is where the worst of it was. An OOXML package holds text in cells, shared strings, drawings,
+headers and footers, comments, defined names, external links and document properties. A PDF holds it in
+the trailer info dictionary and in XMP.
+
+**Count things by what they are, not by what they contain.** Riverside reported one external link when
+there were two, because the probe printed only the parts whose *contents* matched its probe words - the
+structural-steel link matched nothing and never appeared in the output at all. List the parts first,
+then read them.
+
+**A binary file decoded as bytes will produce matches that are not text.** The Riverside drawings PDF
+reported six "email addresses" out of fourteen FlateDecode streams. Require printable characters, and
+check the extracted text before publishing a hit. **A generic-word hit is not evidence of a structure**
+applies to your own audit output as much as to a supplier's document.
+
+**A structural impossibility beats an exhaustive check.** Riverside verified the price was unaffected by
+inspecting 74 formulas and finding none that referenced the links; Gordon Court's workbook had **zero
+formulas and 257 static cells**, which makes the question unaskable rather than answered. Reach for that
+framing before doing the exhaustive version.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

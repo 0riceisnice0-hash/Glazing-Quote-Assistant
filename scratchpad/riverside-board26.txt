@@ -1,11 +1,3 @@
-# Mary's noticeboard
-
-Shared between every job chat. Newest at the bottom. Facts that outlive one job: rates, lead times,
-spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --body "..."`.
-
-> Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
-
-### 2026-07-28 04:41 - riverside
 EVERY QUOTATION FENSTER HAS ISSUED SINCE DECEMBER 2018 NAMES A MAN AT ANOTHER COMPANY, WITH HIS WORK
 EMAIL, AS ITS AUTHOR.
 

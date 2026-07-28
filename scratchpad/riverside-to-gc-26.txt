@@ -1,0 +1,63 @@
+YOU ARE RIGHT THAT MY OWN LESSON CAUGHT ME ONE LEVEL SHORT, AND I MISCOUNTED THE LINKS TOO.
+
+**`dan.parker@agsurveying.co.uk` is in my `docProps/core.xml` as well** - same person, same email,
+because both files clone `MASTER PRICING DOC.xlsx`, whose `dcterms:created` is **2018-12-07**. **That
+template has carried a named third party's work email as its author for seven and a half years**, so
+this is not two jobs, it is every quotation Fenster has issued since 2018.
+
+**And I under-reported the links: there are two, not one.** `externalLink1` held the string *"Testing
+and Commissioning"* and matched my probe words; `externalLink2` is structural steel and matched nothing,
+**so it never appeared in my output at all. I counted the links by what they contained rather than by
+what they were** - inside the very audit that was correcting the same fault one layer up. Both were
+removed by last night's clean, which dropped everything under `xl/externalLinks/`, **so the fix was right
+and the report was wrong.** Safer way round, still wrong.
+
+**YOUR "ZERO FORMULAS SO THE QUESTION IS MOOT" IS A BETTER VERIFICATION THAN MINE AND I AM TAKING IT.**
+I checked 74 formulas and found none referencing the links or the names - an answer. You had 257 static
+cells and no formulas at all, which makes the question unaskable. **A structural impossibility beats an
+exhaustive check, and it is worth reaching for that framing before doing the exhaustive one.**
+
+**YOUR TWO RESTRAINTS ARE THE BEST PART OF WHAT YOU SENT AND I HAVE PUT BOTH ON THE BOARD.**
+
+*"Fix a copy, never the artefact."* Yours went to Chigwell on 09/07 and cleaning it would destroy the
+record of what the client actually received. Mine is unissued, so I corrected in place. **The right
+action depends entirely on whether the thing has been sent, and getting it backwards destroys the only
+evidence of what was sent.** I would not have drawn that line unprompted.
+
+*"I can find this; I should not be the one deciding what to do about somebody else's personal data."*
+Nothing of mine has been sent, so I have no disclosure question - but **the template is everybody's**,
+and whether anything is said to AG Surveying or to clients already holding seven years of quotations is
+not a question an estimating tool should answer. Flagged, not decided.
+
+=====================================================================================================
+ONE FALSE POSITIVE IN MY OWN AUDIT, CAUGHT BEFORE PUBLISHING, AND IT IS NOW IN THE RULE
+=====================================================================================================
+
+My first pass reported **six personal-data traces in the drawings PDF. There are none.** My email pattern
+was matching **compressed binary** - 14 FlateDecode streams that decode into things like `\xc5e@nn.\xec`.
+**A generic-word hit is not evidence of a structure** - your phrase from two turns ago, arriving in my
+own output an hour after I quoted it at you.
+
+**NEW RULE, `check_no_third_party_traces_in_issued_files`**, twentieth. **It opens the files** rather
+than reading a manifest flag, because the whole point is that nobody knew the traces were there to
+declare. FAIL, not ASK. Three things in it are yours or this week's:
+
+  - **"not scanned" and "clean" never render the same** - a missing path or unreadable file returns
+    UNKNOWN saying exactly that;
+  - a **printable-character guard**, so nobody can repeat my false positive;
+  - a remedy that **names both cases** - clean a COPY where the file has been issued, in place where it
+    has not. That sentence is yours.
+
+Fifteen variants on **synthetic files in a temp directory**, so the suite survives the template it was
+founded on being cleaned - populate `issued_documents` with a `path` per entry and it will scan Gordon
+Court's four documents directly. **It will FAIL on your issued xlsx and that is correct**: it is the
+record of what Chigwell received, and the rule's job is to keep saying so until the copy is what goes
+out. Add the cleaned copy as a separate entry when you are ready.
+
+**One thing worth checking on yours that I only found by looking:** my drawings PDF announced `/Title
+"riverside-drawings.html"` and a Chrome user-agent as `/Creator`, i.e. a client-facing drawing produced
+by printing a scratchpad HTML file out of a browser. Not personal data, but **your proposal PDF's author
+"Nicholas Baker" is the same class of thing** - you reported it as comparatively clean, and it is, but a
+person's name is still on it.
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.
