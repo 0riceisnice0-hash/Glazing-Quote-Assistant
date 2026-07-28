@@ -3619,6 +3619,79 @@ a letter, but in the tool the letters quote.**
 
 ---
 
+## 4AQ. FORTY-FIFTH TURN (28/07) — an ellipsis hid a Part K requirement on the unit I was asking BSW to price
+
+### 4AQ.1 riverside sharpened the check, and the sharpening is what found it
+
+Their mirror case: a connective of theirs replaced *"any of the aforementioned standards"* with *"the
+Building Regulations"*, narrowing A Plus's disclaimer so it no longer covered Secured by Design or PAS 24.
+**Theirs dropped breadth from a protection against us; mine at §4AP dropped an obligation owed to us.** Their
+sharpened rule:
+
+> **A connective does not only join; it stands in for whatever it skipped, and nobody reading the letter can
+> see what that was. Check what your connective REPLACED.**
+
+**Applied to ellipses rather than connectives, because an ellipsis is a connective that admits it skipped
+something without saying how much.** Two in my letters.
+
+### 4AQ.2 A2 — two ellipses removed four priceable requirements
+
+My quotation of NBS L20 clause 630 read: *"EN SEEFIRE LOUVRED NATURAL VENTILATOR - size to match shaft
+dimensions**…** designed and tested to EN 12101-2**…** the position of the louvres is controlled by a 24Vdc
+electric actuator."*
+
+**What the two ellipses skipped:**
+
+- `Clear opening louvred natural ventilator. Dual purpose… suited either for extraction or inlet`
+- `manufactured of tough, corrosion resistant aluminium, alloy, **grade 3005 in accordance with EN573-3**, with **stainless steel fixings**`
+- `Louvres pivot on double nylon UV-resistant bearings`
+- `Manufactured under the **EN 9000** quality standard`
+
+**And my closing quotation mark cut off:** `Louvres are driven closed by this actuator and **opened by a
+spring**. The actuator is installed in the **ventilator upstand and does not protrude into the building.`
+
+A2 now quotes the clause in full and names four things a Prestige Casement would not ordinarily provide —
+**grade 3005 aluminium to EN573-3 with stainless fixings, EN 9000 manufacture, EN 12101-2 testing, and a
+fail-safe action where the louvres are spring-opened and actuator-closed** — with *"if you can meet part of
+it and not the rest, please say which part."*
+
+### 4AQ.3 A1 — and this one is a requirement, not a specification detail
+
+Checking A1's Coltite quotation the same way. **My quotation ended at the 24V motor line. The clause does
+not:**
+
+> *"Drive open/drive close using a 24V motor mounted to the rear. Polyester powder paint finish.*
+> ***Note: Any part of the ventilator opening within 1.1m of floor level will require guarding for compliance
+> with Approved Document K."***
+
+**WN_7 is scheduled as a wall unit at 910 × 2100.** On any normal cill height, part of that opening sits
+below 1.1m from finished floor — so **guarding is a requirement of this clause**, attached to the very unit
+I am asking BSW to price, and **it was neither priced by us nor quoted by them nor asked of anybody.**
+
+Added as the second limb of A1, worded to accept *"outside a glazing package"* as an answer provided it is
+in writing. Recorded as spec item 34.
+
+**And it is riverside's Part K finding arriving from the other direction.** On Riverside House they found
+Part K anti-fall protection **excluded by both parties and asked of neither** — a two-signature hole. **Here
+it is written into the specification clause for the unit itself, and I removed it with a closing quotation
+mark.** Same regulation, same silence, opposite mechanism.
+
+### 4AQ.4 The other ellipsis is benign, and saying so is the discipline
+
+The Chigwell letter quotes fire strategy revision 02 as *"Updated to suit fire officers comments**…** Smoke
+shaft omitted."* The full note reads: *"Updated to suit fire officers comments. **Entrance to flat 28, 29 to
+allow for travel distance.** Smoke shaft omitted."*
+
+**The skipped clause is an unrelated change in the same revision** — flat entrance repositioning for travel
+distance. It does not qualify the smoke-shaft omission and changes nothing a reader would do. **Benign, left
+alone.** If anything it mildly strengthens §1.1: the fire officer's comments produced several substantive
+changes, so the revision was not a tidy-up.
+
+**Three checks, two real, one benign, and the benign one reported as benign** — which is the half of
+riverside's second step that stops this becoming a machine for generating findings.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

@@ -62,16 +62,31 @@ PART A - SUPPLY: HAVE WE QUOTED THE SPECIFIED PRODUCT?
 A1. WN_7, 3no, quoted on QT252257 as "Qty: 3 Prestige T&T, Location WN 7, GBP 2,365.86"
     The architect's window schedule 5244-ARK-52003 marks these three positions "AOV"
     and sites them in Corridors 1-1, 1-2 and 1-3. NBS specification 5244-ARK-9001,
-    section L20 clause 630, specifies for that duty a "COLTITE GLAZED LOBBY VENTILATOR
-    (STAIR C) - mounted into prepared openings in the external wall, Type CLT, double
-    glazed with thermally broken glazing and outer frames, nominal size 1000mm wide x
-    2000mm high or equivalent, drive open/drive close using a 24V motor mounted to the
-    rear."
+    section L20 clause 630, specifies for that duty, quoted in full:
+
+        COLTITE GLAZED LOBBY VENTILATOR (STAIR C)
+        5.1. Description:
+          - Mounted into prepared openings in the external wall.
+          - Type CLT, double glazed with thermally broken glazing and outer frames.
+          - Nominal size 1000mm wide x 2000mm high or equivalent.
+          - Drive open/drive close using a 24V motor mounted to the rear.
+            Polyester powder paint finish.
+          Note: Any part of the ventilator opening within 1.1m of floor level will
+          require guarding for compliance with Approved Document K.
+
     QT252257 contains no reference to an AOV, actuator, motor, chain, stroke, 24V
     supply or fire-alarm interface.
     PLEASE EITHER (a) price these three positions as the specified motorised ventilator,
     or (b) confirm in writing that motorised smoke ventilators are outside your scope so
     we can place them elsewhere.
+
+    AND SEPARATELY, THE GUARDING NOTE, WHICH WE HAD NOT PUT TO YOU BEFORE. WN_7 is
+    scheduled as a wall unit at 910 x 2100. On any cill height that leaves part of the
+    opening below 1.1m from finished floor, that note makes guarding a requirement of
+    this clause rather than a separate trade's item. Please tell us whether the units as
+    quoted include any guarding, and if not, price it for the three positions - or
+    confirm you regard it as outside a glazing package, which is an answer we can work
+    with provided it is in writing.
 
 A2. WL_1, 4no, quoted on QT252257 as "Qty: 4 Prestige Casement, Location WL 1,
     GBP 4,502.40" - with the Glazing line left blank and no reinforcing listed.

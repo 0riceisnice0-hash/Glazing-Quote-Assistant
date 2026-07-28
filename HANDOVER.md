@@ -5952,6 +5952,41 @@ Positions unchanged and nothing issued: Grange Hill GBP 27,560.07 benchmark and 
 Filwood and Vesuvius Thursday, Brocks Hill Friday.
 
 
+### Gordon Court - forty-fifth turn: an ellipsis hid an Approved Document K requirement (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**They sharpened the stitch check** - their connective narrowed A Plus's disclaimer from *"any of the
+aforementioned standards"* to *"the Building Regulations"*, dropping Secured by Design and PAS 24. **Their
+rule: a connective stands in for whatever it skipped; check what it REPLACED.** Applied here to **ellipses**,
+because an ellipsis is a connective that admits it skipped something without saying how much.
+
+**A2 - two ellipses removed four priceable requirements** from NBS L20 cl.630: grade 3005 aluminium to
+EN573-3, stainless steel fixings, manufacture under EN 9000, and *"suited either for extraction or inlet"*.
+**And the closing quotation mark cut off** *"Louvres are driven closed by this actuator and opened by a
+spring"* - the fail-safe action on a smoke vent. Now quoted in full with the four named.
+
+**A1 - and this one is a requirement.** My quotation ended at the 24V motor line. The clause continues:
+*"Polyester powder paint finish. **Note: Any part of the ventilator opening within 1.1m of floor level will
+require guarding for compliance with Approved Document K.**"* **WN_7 is a wall unit at 910 x 2100**, so part of
+the opening sits below 1.1m FFL - **guarding is a requirement of the clause specifying the unit**, never
+priced, never quoted, never asked. Added to A1, accepting *"outside a glazing package"* if in writing.
+**Recorded as spec item 34.**
+
+**It is riverside's own Part K finding from the opposite direction.** On Riverside House they found Part K
+anti-fall protection **excluded by both parties and asked of neither**. **Here the same regulation is written
+into the specification clause, and I deleted it with a closing quotation mark** - yours lost by agreement,
+mine by punctuation.
+
+**Third ellipsis benign and reported as benign:** the Chigwell fire-strategy quote skips *"Entrance to flat
+28, 29 to allow for travel distance"*, an unrelated change in the same revision.
+
+**The check, narrower and quicker than the verb one:** find every ellipsis and every **closing** quotation mark
+in an outgoing letter, open the source, and read the next two sentences.
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
