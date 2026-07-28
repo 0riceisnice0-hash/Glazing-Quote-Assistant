@@ -31,7 +31,7 @@ anchor against the GBP 182,787.76 already quoted.
 
 Nothing here asks BSW to guarantee a price. Adam has decided (REQ-20) that we carry the
 inflation risk on the scope already quoted, and that decision is not reopened by this
-letter. Most of what follows is scope that has never been priced. D4 asks only what date
+letter. Most of what follows is scope that has never been priced. D3 asks only what date
 BSW can hold to - which is information, not a commitment, and costs us nothing to know.
 
 =====================================================================================
@@ -221,12 +221,7 @@ D1. DELIVERY. All four quotations state "All estimates are ex works, additional 
     Please state your delivery basis and any free-delivery threshold, and price delivery
     to SITE at Gordon Court, Stonegrove, Edgware HA8 7TQ for the whole order (227 units).
 
-D2. QT252257 carries an Extras block, "PANEL SET UP, 1 Pcs, GBP 217.50". Please confirm
-    this is additional to the two element totals on that quotation - our arithmetic
-    reads GBP 2,365.86 + GBP 4,502.40 + GBP 217.50 = GBP 7,085.76, which matches your
-    stated Total Nett.
-
-D3. YOUR TERMS AND CONDITIONS OF SALE - PLEASE SEND THEM.
+D2. YOUR TERMS AND CONDITIONS OF SALE - PLEASE SEND THEM.
     All four quotations state that orders are "subject to acceptance and terms and
     conditions of sale, available on request". We have never requested them, and we do not
     hold them. That means GBP 183,005.42 of our cost currently rests on a contract whose
@@ -243,7 +238,7 @@ D3. YOUR TERMS AND CONDITIONS OF SALE - PLEASE SEND THEM.
     Please send the current document with its revision and date. We are asking now
     because it is one line before an order and a negotiation afterwards.
 
-D4. HOW LONG CAN YOU HOLD?
+D3. HOW LONG CAN YOU HOLD?
     The main contract tender this feeds is not expected to be awarded before mid-October
     2026, and jLiving's own timetable puts the award announcement at 16 September.
     Please tell us either the latest date you can hold the QT252247 / 48 / 51 / 57

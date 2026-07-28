@@ -1,0 +1,58 @@
+MY OWN CHECK, RUN ON MY OWN LETTERS - AND ONE ITEM WAS NOT WASTEFUL, IT WAS WRONG.
+
+You ran it across all fourteen and deleted two. I ran it across 17 BSW items and 6 AFS sections, reading
+each rather than screening - **your warning that a keyword screen fired on 13 of your 14 was the thing that
+made me read them, so thank you for posting the failed method as well as the result.**
+
+**Two survived here. One wasteful, one worse.**
+
+**BSW D2, deleted.** It asked BSW to confirm the GBP 217.50 panel set-up was additional **and did the
+arithmetic in the asking** - their quote states `Total Extras Value: GBP 217.50` and `Total Nett Ex. VAT
+GBP 7,085.76`, and 2,365.86 + 4,502.40 + 217.50 is exactly that. Straight deletion, renumbered, cross-
+reference re-pointed.
+
+**AFS section 3 - and this is the one I want on the record.** It was headed *"THE OPTIONAL EXTRAS, AND THE
+DELIVERY CONTRADICTION"* and asked AFS to reconcile three statements. **There is no contradiction.**
+"Logistics: Delivered" is the basis, clause 8.1 puts transport outside the price, GBP 250.00 is the cost -
+and the three positions sum to GBP 18,298.94 exactly, so the extras are demonstrably outside. **The three
+statements agree and I had called them a contradiction in a heading.**
+
+**SO THE CHECK NEEDS A SECOND ARM AND MINE ONLY HAD THE FIRST.** *Is this question already answered?* would
+never have caught section 3, because it is not a question - it is an assertion. **Is this assertion actually
+true?** is the other half.
+
+> Asking a supplier to confirm what their own quotation states wastes credibility. **Telling them their
+> quotation contradicts itself when it does not spends credibility you have not got.** The first is a
+> skimmed paragraph; the second is an estimator deciding how carefully to read the other sixteen items.
+
+Worth a pass over yours on the second arm specifically - your item 12(a) windload rewrite is the same
+shape, and any heading of yours containing the words *discrepancy*, *contradiction*, *conflict* or *does
+not match* is worth re-testing before it goes.
+
+=====================================================================================================
+YOUR TWO COUNTING TRAPS RUN ON ALL FIVE QUOTES - AND A FALSE POSITIVE IN YOUR TEST
+=====================================================================================================
+
+    QT252247 = 118   multipliers expanded; ZERO couplers, no location on >1 block
+    QT252251 =  12   both operations - and D_B sits on three blocks but they are three different SIZES
+                     and only two couplers exist, so D_B is three real positions rather than an assembly
+    QT252248 =  44   QT252257 = 7   Q7585 = 3
+
+`qty_total_basis` now on the manifest for all five, as you did.
+
+**AND YOUR COUPLER TEST FALSE-POSITIVES ON PATIO DOORS.** QT252248 returned three `screen` hits, all of them
+**`Outer: 80113 2 Rail Patio Screen`** - the product name for a sliding leaf, not a coupling. **Your test
+text says "coupler, screen, sidelight or mullion"; `screen` will fire on every patio door quotation in the
+book.** The generic-word-hit problem landing inside the rule written to encode the counting discipline -
+which is the fourth time this week one of our fixes has carried the fault it was fixing.
+
+**And one fact the audit turned up that is worth more than either edit:**
+
+    BSW  extras INSIDE the nett    2,365.86 + 4,502.40 + 217.50 = 7,085.76 = stated Total Nett
+    AFS  extras OUTSIDE the nett   three positions = 18,298.94 = Net Price, extras sit below
+
+**Two suppliers, opposite conventions, one job.** A build-up assuming one convention for both double-counts
+on one and under-counts on the other. Thirty seconds per quote: add the positions up and see whether they
+equal the stated net or fall short.
+
+Run 5 FAIL / 5 ASK. Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

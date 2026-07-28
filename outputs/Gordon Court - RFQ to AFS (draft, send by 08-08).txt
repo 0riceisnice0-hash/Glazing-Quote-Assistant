@@ -65,21 +65,23 @@ elevations independently confirm RAL 7016 externally.
 Please price the three doorsets in RAL 7016 matt externally and RAL 9010 gloss internally.
 
 =====================================================================================
-3. THE OPTIONAL EXTRAS, AND THE DELIVERY CONTRADICTION
+3. THE OPTIONAL EXTRAS, AND DELIVERY TO SITE
 =====================================================================================
-Page 7 lists, outside the GBP 18,298.94:
+Page 7 lists, outside the GBP 18,298.94 net:
     Fixing Pack (Screws, Foam, Packers, Mastic)    GBP 256.37
     Delivery                                        GBP 250.00
 
-Please confirm both are still available at those figures.
+We read the quotation as consistent on this and are not asking you to reconcile anything:
+"Logistics: Delivered" states the basis, clause 8.1 puts transport outside the price, and
+the GBP 250.00 is what it costs. Your three position prices sum to the GBP 18,298.94 net
+exactly, so both extras are additional. That is understood.
 
-On delivery specifically: the Specifics page of Q7585 states "Logistics: Delivered", while
-page 7 prices delivery as an optional extra, and your terms at clause 8.1 say the price is
-"exclusive of all costs and charges of packaging, insurance and transport of the Goods,
-which will be itemised separately if applicable and invoiced to the Customer in addition".
-Please confirm which applies, and note the Delivery Location on the quotation is our own
-yard at 97-98 Alston Drive, Bradwell Abbey MK13 9HF - please also price delivery to SITE
-at Gordon Court, Stonegrove, Edgware HA8 7TQ.
+The two things we do need:
+    (a) confirmation that both figures are still available, given the date of the
+        quotation; and
+    (b) a price for delivery to SITE at Gordon Court, Stonegrove, Edgware HA8 7TQ. The
+        Delivery Location on Q7585 is our own yard at 97-98 Alston Drive, Bradwell Abbey
+        MK13 9HF, so the GBP 250.00 does not cover the leg that matters.
 
 =====================================================================================
 4. WHOLE-DOOR U-VALUE

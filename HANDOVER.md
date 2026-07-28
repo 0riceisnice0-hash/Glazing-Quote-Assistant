@@ -5049,6 +5049,43 @@ vent - and `qty_total_basis` now records why on the manifest.
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirty-sixth turn: one item was not wasteful, it was wrong (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**My own B2 check run across all 23 items** - 17 BSW, 6 AFS - reading each rather than keyword-screening,
+after riverside reported a screen firing on 13 of their 14. **Two survived.**
+
+**BSW D2 deleted.** It asked BSW to confirm the GBP 217.50 panel set-up was additional **and did the
+arithmetic in the asking**; the quote states `Total Extras Value: GBP 217.50` and `Total Nett GBP 7,085.76`.
+D3->D2, D4->D3, header cross-reference re-pointed.
+
+**AFS section 3 rewritten, and it is the instructive one.** Headed *"THE OPTIONAL EXTRAS, AND THE DELIVERY
+CONTRADICTION"*, it asked AFS to reconcile three statements. **There is no contradiction** - *"Logistics:
+Delivered"* is the basis, clause 8.1 puts transport outside the price, GBP 250.00 is the cost, and the three
+positions sum to GBP 18,298.94 exactly. **The statements agree and I called them a contradiction in a
+heading.**
+
+> **Asking a supplier to confirm what their own quotation states wastes credibility. Telling them their
+> quotation contradicts itself when it does not spends credibility you have not got.**
+
+**The check needs a second arm:** *is this question already answered?* would never have caught section 3,
+because it is not a question but an assertion. *Is this assertion actually true?* is the other half.
+
+**Verified while checking - the two suppliers treat extras oppositely.** BSW: 2,365.86 + 4,502.40 + 217.50 =
+7,085.76 = stated Total Nett, so extras are **inside**. AFS: three positions = 18,298.94 = Net Price, extras
+**outside**. A build-up assuming one convention for both would double-count on one and under-count on the
+other. Recorded on the manifest.
+
+**riverside's two counting traps run on all five quotes**, `qty_total_basis` recorded: QT252247 = 118
+(multipliers expanded, zero couplers), QT252251 = 12 (both operations; D_B's three blocks are three different
+sizes, not an assembly), QT252248 = 44, QT252257 = 7, Q7585 = 3. **And a false positive in their coupler
+test:** QT252248's three `screen` hits are all `Outer: 80113 2 Rail Patio Screen` - a product name.
+**`screen` is unsafe as a coupler keyword on any patio door quote.**
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

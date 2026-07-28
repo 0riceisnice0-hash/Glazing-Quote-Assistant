@@ -234,7 +234,8 @@
       "value": 53543.9,
       "note": "Liniar 70 uPVC windows. 'Total Nett Ex. VAT GBP 53,543.90', 'Net Price Includes Discounts'. Footer is BSW Window Solutions; the 'Bellview will not be held responsible' line is shared T&C boilerplate, so this is BSW and our records are right.",
       "qty_total": 118,
-      "qty_total_note": "27 position blocks totalling 118 units. Counted from the quote, not the manifest."
+      "qty_total_note": "27 position blocks totalling 118 units. Counted from the quote, not the manifest.",
+      "qty_total_basis": "118. Multipliers EXPANDED (BSW put a count on the Qty: line). Checked for the opposite trap: ZERO coupler/sidelight lines and no location on more than one block, so nothing to collapse."
     },
     {
       "supplier": "BSW Window Solutions",
@@ -244,7 +245,8 @@
       "used_net": true,
       "value": 108275.95,
       "note": "Alunet ESS47 2-rail and 3-rail sliding patio doors, 44 units. The single largest element on the job - 54% of BSW's cost and GBP 174,275.79 of sell.",
-      "qty_total": 44
+      "qty_total": 44,
+      "qty_total_basis": "44. Same basis. Three 'screen' hits are the PRODUCT NAME '2 Rail Patio Screen', not a coupling - a generic-word false positive on riverside's own coupler test."
     },
     {
       "supplier": "BSW Window Solutions",
@@ -255,7 +257,8 @@
       "value": 14099.81,
       "note": "Sheerline external and communal doors D_B, D_C, D_D, D_E, D_U.",
       "qty_total": 12,
-      "qty_total_note": "CORRECTED 28/07 thirty-fifth turn. Was 14, which was a count of POSITION BLOCKS. D_E and D_U are each quoted as TWO blocks - 'Qty: 1 Prestige Casement' plus 'Qty: 1 Prestige Open Out Door' - joined by a 'Std Coupler (72mm)' line that proves they are one coupled assembly. So the quotation CONTAINS 12 sellable door units delivered as 14 elements. riverside's new arm reported a 2-unit surplus off the block count; it was my count, not a surplus."
+      "qty_total_note": "CORRECTED 28/07 thirty-fifth turn. Was 14, which was a count of POSITION BLOCKS. D_E and D_U are each quoted as TWO blocks - 'Qty: 1 Prestige Casement' plus 'Qty: 1 Prestige Open Out Door' - joined by a 'Std Coupler (72mm)' line that proves they are one coupled assembly. So the quotation CONTAINS 12 sellable door units delivered as 14 elements. riverside's new arm reported a 2-unit surplus off the block count; it was my count, not a surplus.",
+      "qty_total_basis": "12. Multipliers expanded AND coupled elements COLLAPSED: D_E and D_U are each 'Qty: 1 Prestige Casement' + 'Qty: 1 Prestige Open Out Door' joined by 'Std Coupler (72mm)'. D_B is on three blocks but they are three different sizes and there are only two couplers, so D_B is three genuine positions. 14 elements, 12 sellable units."
     },
     {
       "supplier": "BSW Window Solutions",
@@ -265,7 +268,8 @@
       "used_net": true,
       "value": 7085.76,
       "note": "GBP 217.50 OF THIS WAS NEVER CARRIED. The quote is WN_7 GBP 2,365.86 + WL_1 GBP 4,502.40 = GBP 6,868.26, plus an Extras block 'PANEL SET UP 1no GBP 217.50 / Total Extras Value GBP 217.50' = GBP 7,085.76. The workbook carries only the two element figures. Same class as the AFS extras below and as Princess Beatrice's GBP 668.41.",
-      "qty_total": 7
+      "qty_total": 7,
+      "qty_total_basis": "7. Multipliers expanded, no couplers."
     },
     {
       "supplier": "Aluminium Fire Systems",
@@ -276,7 +280,8 @@
       "value": 18298.94,
       "note": "Aluprof MB-78EI, EI30, standard RAL, EI30 Clear DGU U=1.0, supply only, 3 positions - GBP 6,468.03 + GBP 6,026.47 + GBP 5,804.44 = GBP 18,298.94, adds up exactly and all three carried into the tender at cost + the GBP 1,500 house DAD adder. GBP 506.37 SITS OUTSIDE IT: p7 'Not included in quote above, can be added as optional extras' - Fixing Pack (screws, foam, packers, mastic) GBP 256.37 and Delivery GBP 250.00. Neither is anywhere in the workbook. The quote contradicts itself - the Specifics page says 'Logistics: Delivered' - but T&C 8.1 settles it AGAINST us: 'That price will be exclusive of all costs and charges of packaging, insurance and transport of the Goods, which will be itemised separately if applicable and invoiced to the Customer IN ADDITION to the price of the Goods.' So the GBP 250 is real. Lead time 8 weeks from order signature AND receipt of the 60% first payment; terms 60% with order / 40% before dispatch. ELEVENTH TURN - THE FIXING PACK MAY NOT SATISFY THE SPEC EVEN IF WE BUY IT. NBS L10 clause 790 'Fire-resisting frames' - in the WINDOWS section, so ours - requires 'Gap between back of frame and reveal: Completely fill with INTUMESCENT mastic or tape.' AFS describe the omitted GBP 256.37 fixing pack as 'screws, foam, packers, mastic' - ordinary mastic, not intumescent. Intumescent mastic or tape is a different product at a different price and it is a fire-rating requirement on the three EI30 doors, not a finish. So the GBP 506.37 omission is worse than a missing line item: the line item as described may not comply. Added to RFQ-2.",
       "qty_total": 3,
-      "qty_total_note": "Three EI30 door positions, 001/002/003, one unit each. Counted off the quote."
+      "qty_total_note": "Three EI30 door positions, 001/002/003, one unit each. Counted off the quote.",
+      "qty_total_basis": "3. Three EI30 door positions, one unit each, no couplers or multipliers."
     }
   ],
   "full_height_screens": [],
@@ -799,5 +804,6 @@
       "our_recourse": "none identified. Whether BSW priced on the whole order is in the terms we do not hold, so a scope reduction could carry a re-price on the units that remain. Cannot be quantified until D3 is answered."
     }
   ],
-  "supplier_coverage_completeness": "CHECKED 28/07 thirty-third turn, on riverside's 'does every entry earn the list's name' rule. The issued pricing document carries 43 priced line items across 40 distinct references; supplier_coverage holds 43 entries. Matched properly: ALL 40 sold references appear, and NO coverage entry is an orphan. The 43-vs-40 gap is the split lines established at turn 17 - D_E and D_U are each quoted by BSW as two elements. MY FIRST PROBE REPORTED 9 SOLD LINES MISSING. It was comparing bare refs ('LW_1') against the descriptive refs the list actually holds ('LW_1 louvre'). Caught before publishing. The list earns its name."
+  "supplier_coverage_completeness": "CHECKED 28/07 thirty-third turn, on riverside's 'does every entry earn the list's name' rule. The issued pricing document carries 43 priced line items across 40 distinct references; supplier_coverage holds 43 entries. Matched properly: ALL 40 sold references appear, and NO coverage entry is an orphan. The 43-vs-40 gap is the split lines established at turn 17 - D_E and D_U are each quoted by BSW as two elements. MY FIRST PROBE REPORTED 9 SOLD LINES MISSING. It was comparing bare refs ('LW_1') against the descriptive refs the list actually holds ('LW_1 louvre'). Caught before publishing. The list earns its name.",
+  "extras_treatment_differs_by_supplier": "VERIFIED 28/07 thirty-sixth turn, and the two suppliers are OPPOSITE. BSW QT252257: 'Total Extras Value: GBP 217.50' is INSIDE the Total Nett - 2,365.86 + 4,502.40 + 217.50 = 7,085.76 exactly. AFS Q7585: the three position prices 6,468.03 + 6,026.47 + 5,804.44 = 18,298.94 = Net Price exactly, so the GBP 256.37 fixing pack and GBP 250.00 delivery are OUTSIDE it. A build-up that assumes one convention for both would double-count on one supplier and under-count on the other."
 }

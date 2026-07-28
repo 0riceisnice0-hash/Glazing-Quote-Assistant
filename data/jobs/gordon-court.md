@@ -3001,6 +3001,63 @@ Run **5 FAIL, 5 ASK**.
 
 ---
 
+## 4AH. THIRTY-SIXTH TURN (28/07) — my own check run on my own letters, and one item was worse than wasteful
+
+### 4AH.1 The B2 check, run across all 23 items rather than caught by accident
+
+I gave this check to the board after stumbling on B2 by luck. riverside ran it across all fourteen of their
+items and deleted two. Run here across **17 BSW items and 6 AFS sections**, reading each rather than
+keyword-screening — riverside's warning that a screen fired on 13 of their 14 applies exactly.
+
+**Two survived. One was wasteful; the other was wrong.**
+
+**BSW D2 — deleted.** It asked BSW to confirm the £217.50 panel set-up is additional to the two element
+totals, *and then did the arithmetic in the asking*: `2,365.86 + 4,502.40 + 217.50 = 7,085.76`. The quote
+states **`Total Extras Value: £217.50`** as its own line and a **`Total Nett Ex. VAT £7,085.76`**. There was
+nothing to confirm. D3→D2, D4→D3, and the header cross-reference re-pointed with them.
+
+**AFS §3 — rewritten, and this one is the more instructive.** It was headed *"THE OPTIONAL EXTRAS, AND THE
+DELIVERY CONTRADICTION"* and asked AFS to reconcile three statements. **There is no contradiction.**
+*"Logistics: Delivered"* states the basis, clause 8.1 puts transport outside the price, and £250 is what it
+costs — and the three position prices sum to **£18,298.94 exactly**, so the extras are demonstrably
+outside. The three statements agree.
+
+> **Asking a supplier to confirm what their own quotation states wastes credibility. Telling them their
+> quotation contradicts itself when it does not spends credibility you have not got.** The first is a
+> skimmed paragraph; the second is an estimator on the other end deciding how carefully to read the rest.
+
+Now asks only the two open things: whether the figures still stand given the quote's date, and **a price to
+site** — the £250 delivers to our own Milton Keynes yard, not to Edgware.
+
+### 4AH.2 Verified while checking: the two suppliers treat extras oppositely
+
+| | extras | evidence |
+|---|---|---|
+| **BSW** QT252257 | **INSIDE** the nett | 2,365.86 + 4,502.40 + **217.50** = 7,085.76 = stated Total Nett |
+| **AFS** Q7585 | **OUTSIDE** the nett | 6,468.03 + 6,026.47 + 5,804.44 = 18,298.94 = Net Price, extras sit below it |
+
+**A build-up that assumes one convention for both would double-count on one supplier and under-count on the
+other.** Recorded on the manifest rather than left in a letter.
+
+### 4AH.3 riverside's two counting traps, run against all five quotes
+
+They found the traps are opposite ways round: **A Plus put a multiplier on one block (expand it); BSW put
+one line per element joined by a coupler (collapse them).** Checked every quote for both, and recorded
+`qty_total_basis` so the reasoning is on the manifest instead of in my head:
+
+- **QT252247 = 118** — multipliers expanded; **zero couplers and no location on more than one block**, so
+  nothing to collapse. The number I reported last turn survives the test.
+- **QT252251 = 12** — both operations: multipliers expanded, D_E and D_U collapsed. D_B sits on three
+  blocks but they are three different sizes and there are only two couplers, so D_B is three real positions.
+- **QT252248 = 44, QT252257 = 7, Q7585 = 3** — multipliers only.
+
+**And a false positive in their own coupler test, worth them knowing:** QT252248 returned three `screen`
+hits. All three are **`Outer: 80113 2 Rail Patio Screen`** — the *product name* for a sliding patio leaf,
+not a coupling. **`screen` is unsafe as a coupler keyword on any patio door quote**, which is the
+generic-word-hit lesson landing inside the rule written to encode the counting discipline.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
