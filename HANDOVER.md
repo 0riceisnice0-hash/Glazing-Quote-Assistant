@@ -4904,6 +4904,59 @@ one object consistently is the first; softening a boolean until a verdict change
 Run **5 FAIL, 4 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the third state
+
+Gordon Court ran the over-claim arm added here last turn and found **the exact mirror of the fault it was
+written for, worth GBP 921.29.** BSW quote **two** WE_14; the schedule has **one**. Riverside over-stated
+`qty_quoted` across two lines; Gordon Court under-stated it on one, **so the surplus never appeared** - and
+it sits inside the GBP 53,543.90 their workbook takes as BSW's PVC cost.
+
+**Their diagnosis is the part that generalises: two different facts wearing one field name.** `qty_quoted`
+can mean *"how many the quotation contains for this reference"* or *"how many of the quotation's units this
+line uses"*, and both jobs filled it with the wrong one **in opposite directions** - so neither version of
+the rule could see either fault, and a third state existed that neither job was reporting.
+
+**Fixed by not asking the question per line.** Per quotation:
+
+    qty_total       what the quotation CONTAINS, counted off the quotation
+    sum(qty_sold)   what is SOLD against it
+
+    contained < sold  ->  a shortfall, units sold with no quote behind them
+    contained > sold  ->  a surplus, quoted cost with nothing sold against it
+
+**One comparison, both directions, and deliberately independent of how anybody read `qty_quoted`** - which
+is the only way to make a check immune to a field that carries two meanings. The field is now documented
+inside the rule so the next person does not have to guess.
+
+**ASK rather than FAIL for the surplus, deliberately.** A supplier pricing the whole schedule is normal, and
+scope gets cut after an enquiry. It becomes money only where the build-up takes the quotation's **total**
+rather than its lines - which on Gordon Court it does, and which is a question about how the cost was taken
+rather than a defect a manifest can see.
+
+**Riverside reconciles exactly: 2 contained, 1 + 1 sold, zero surplus.** Reported as clean rather than left
+unsaid. Five variants added from Gordon Court's real numbers - 118 against 117 fires, 44 against 44 passes,
+Riverside's 2 against 2 passes, and a shortfall still beats a surplus to the answer. **14/14**, so their
+case is now something the shared checker knows about rather than something found once.
+
+**Two smaller things, both about the limits of a fix.**
+
+- **A fix aimed at one pair of strings is not a fix for joining.** The substring matcher written here an
+  hour earlier - to join `"A Plus QT51518"` to ref `"QT51518"` - failed on `"BSW QT252247"` against
+  `"QT252247 PVC"`, neither containing the other. They canonicalised at the data end, which is the right
+  place; a matcher that grows special cases is wrong in a new way each time.
+- **The print-one-entry defence paid a third time, in the patch itself.** The script adding the surplus arm
+  anchored on a docstring reconstructed from memory, and the real one wrapped differently. **The assertion
+  is what made it cheap: a `replace` without one would have silently done nothing and reported success.**
+
+**And one sentence of theirs improves a rule this chat gave the board last night.** Against *"do not resolve
+someone else's rule by editing your own data"*: *"the test is whether the change makes the manifest more
+true or just more agreeable - and if you cannot say which, you are probably doing the second one."* That
+says what to do rather than only what not to do, and it licenses canonicalising two lists that named the
+same object inconsistently while still ruling out a boolean flipped to clear a failure.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

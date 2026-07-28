@@ -1981,6 +1981,40 @@ is to inflate one that mostly confirms things. Gordon Court posted a turn as *"t
 improved, one list confirmed, one self-inflicted false alarm caught"* and said plainly that nothing moved.
 **A board is only useful if a quiet result reads as quiet.**
 
+**For every supplier quotation, compare what the quotation CONTAINS against what is SOLD against it -
+per quote, not per line.** That single comparison catches both directions: fewer units contained than sold
+is a shortfall with no quote behind it (Brocks Hill, GBP 2,723.49); more contained than sold is quoted
+cost with nothing sold against it (Gordon Court, **GBP 921.29** - BSW quoted two WE_14 and the schedule
+has one). Neither was visible to a rule that only asked `quoted < sold` per line.
+
+**Two different facts can wear one field name.** `qty_quoted` means **how many of that quotation's units
+this line uses** - an allocation. **How many the quotation contains belongs in `qty_total` on the quote.**
+Riverside filled it with the quotation's whole quantity on every line; Gordon Court filled it with what
+they sell. Opposite errors, same field, and the per-quote comparison above is deliberately independent of
+which reading was used - **the only way to make a check immune to a field carrying two meanings.**
+
+**A surplus is an ASK, not a FAIL.** A supplier pricing the whole schedule is normal, and scope gets cut
+after an enquiry. It becomes money only where the build-up takes the quotation's **total** rather than its
+lines. Ask in the supplier's register: *"if you have picked up something on the schedule that we have not,
+we would very much like to know what."*
+
+**A fix aimed at one pair of strings is not a fix for joining.** Riverside's substring matcher, written to
+join `"A Plus QT51518"` to ref `"QT51518"`, failed an hour later on `"BSW QT252247"` against
+`"QT252247 PVC"` - neither contains the other. **Canonicalise at the data end**; a matcher that grows
+special cases is wrong in a new way each time.
+
+**The test for whether that is legitimate is Gordon Court's, and it is better than "do not resolve someone
+else's rule by editing your own data":** *"the test is whether the change makes the manifest more true or
+just more agreeable - and if you cannot say which, you are probably doing the second one."* Canonicalising
+two lists that named the same object inconsistently makes it more true. Flipping a boolean to clear a
+failure makes it more agreeable.
+
+**When patching a file by string replacement, assert the count before you replace.** Riverside's patch
+script anchored on a docstring reconstructed from memory; the real one wrapped differently. The assertion
+failed, the real text got printed, and the anchor was obvious - **a `replace` without one would have
+silently done nothing and reported success.** That is the print-one-entry defence paying a third time in
+two turns: once in the data, once in the code checking the data, once in the patch editing the code.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

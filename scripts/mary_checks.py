@@ -479,7 +479,19 @@ def check_supplier_covers_quantity(m):
     GBP 2,723.49 each. Bellview 0000000503 quoted ONE. The rate was simply
     applied twice, so the arithmetic looked perfect and GBP 2,723.49 of cost
     had no quote behind it. Reconciling a quote TOTAL is not the same as
-    reconciling its QUANTITIES - the total ties either way."""
+    reconciling its QUANTITIES - the total ties either way.
+
+    WHAT `qty_quoted` MEANS, because Gordon Court found on 28/07 that it had been
+    carrying two different facts on two jobs. It is HOW MANY OF THAT QUOTATION'S
+    UNITS THIS LINE USES - an allocation. It is NOT "how many the quotation
+    contains for this reference"; that belongs in `qty_total` on the quote. Both
+    jobs filled it with the wrong one, in opposite directions: Riverside credited
+    every line with the quotation's whole quantity, and Gordon Court recorded
+    what they SELL, which hid a surplus.
+
+    The surplus arm below deliberately does not depend on which reading was used
+    - it compares `qty_total` against the sum of `qty_sold`, which is the same
+    question asked in a way that cannot be answered two ways."""
     cov = m.get("supplier_coverage")
     if cov is None:
         return result("supplier quote covers every unit sold", UNKNOWN,
@@ -554,6 +566,41 @@ def check_supplier_covers_quantity(m):
                       "Brocks Hill",
                       remedy="Split the quoted quantity across the lines it actually covers, or "
                              "get the missing units quoted.")
+    # Gordon Court, 28/07 - the mirror of the over-claim above, and the third
+    # state neither version of this rule reported. BSW quote two WE_14 and the
+    # schedule has one, so GBP 921.29 of quoted cost had nothing sold against it
+    # and sat inside the quotation total their workbook takes as cost. The
+    # comparison below is deliberately independent of how `qty_quoted` was
+    # read: what the quotation CONTAINS, against what is SOLD against it.
+    sold_per_quote = {}
+    for c in cov:
+        key, sold = c.get("supplier_ref"), c.get("qty_sold")
+        if key and isinstance(sold, (int, float)):
+            sold_per_quote.setdefault(str(key).strip(), []).append(sold)
+    surplus = []
+    for key, sold_list in sold_per_quote.items():
+        total = total_for(key)
+        if total is None:
+            continue
+        try:
+            gap = float(total) - float(sum(sold_list))
+        except (TypeError, ValueError):
+            continue
+        if gap > 0:
+            surplus.append("%s contains %s unit(s) and only %s are sold against it - %s quoted "
+                           "unit(s) with nothing sold behind them"
+                           % (key, total, sum(sold_list), int(gap) if gap == int(gap) else gap))
+    if surplus and not short and not silent and not over:
+        return result("supplier quote covers every unit sold", UNKNOWN,
+                      "A supplier quotation contains more units than this job sells against it: "
+                      + "; ".join(surplus)
+                      + ". That is often right - a supplier prices the whole schedule, or scope "
+                        "was cut after the enquiry. It becomes money only where the build-up "
+                        "takes the quotation's TOTAL rather than its lines.",
+                      "Brocks Hill",
+                      remedy="Check how the cost was taken. If the build-up uses the quotation "
+                             "total, the surplus units are in your cost with nothing sold against "
+                             "them - ask the supplier what they picked up that you did not.")
     if unbounded and not short and not silent:
         return result("supplier quote covers every unit sold", UNKNOWN,
                       "One supplier quotation is credited on several lines and nothing records "
@@ -1863,6 +1910,28 @@ COVERAGE_VARIANTS = [
      [{"ref": "A", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"},
       {"ref": "B", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"}],
      [{"ref": "QT99", "qty_total": 2}], UNKNOWN),
+    # Gordon Court, 28/07 - the surplus arm, from their real numbers. BSW quote
+    # two WE_14 and the schedule has one, so 118 units are on QT252247 and 117
+    # are sold against it: GBP 921.29 of quoted cost with nothing sold behind
+    # it, invisible to every earlier version of this rule.
+    ("Gordon Court QT252247 - 118 contained, 117 sold",
+     [{"ref": "WE_%d" % i, "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252247"}
+      for i in range(117)],
+     [{"supplier": "BSW", "ref": "QT252247", "qty_total": 118}], UNKNOWN),
+    ("their reconciling quote - 44 contained, 44 sold",
+     [{"ref": "P%d" % i, "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT252248"}
+      for i in range(44)],
+     [{"supplier": "BSW", "ref": "QT252248", "qty_total": 44}], PASS),
+    ("Riverside - 2 contained, 1 + 1 sold, balanced",
+     [{"ref": "AOV.01", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "A Plus QT51518"},
+      {"ref": "AOV.02", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "A Plus QT51518"}],
+     [{"supplier": "A Plus Windows & Doors", "ref": "QT51518", "qty_total": 2}], PASS),
+    ("a shortfall still beats a surplus to the answer",
+     [{"ref": "E.04", "qty_sold": 2, "qty_quoted": 1, "supplier_ref": "0000000503"}],
+     [{"ref": "0000000503", "qty_total": 1}], FAIL),
+    ("surplus on one line only, no second line - still caught",
+     [{"ref": "A", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "QT9"}],
+     [{"ref": "QT9", "qty_total": 3}], UNKNOWN),
 ]
 
 
