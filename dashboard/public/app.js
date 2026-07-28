@@ -67,6 +67,12 @@ function renderStatus() {
   } else if (s.state === "backoff") {
     text = "Paused - retrying shortly";
     tone = "stalled";
+  } else if (s.state === "held") {
+    // Budget spent. Without its own branch this fell through to "N queued" in
+    // the busy tone, which reads as "about to be worked" - the opposite of the
+    // truth. The queue is safe; it just is not moving until the window turns.
+    text = s.queue_depth > 0 ? `Holding ${s.queue_depth} until 07:00` : "Holding until 07:00";
+    tone = "stalled";
   } else if (s.queue_depth > 0) {
     text = `${s.queue_depth} queued`;
     tone = "busy";
@@ -148,7 +154,9 @@ const unseenMsgs = () => MESSAGES.filter((m) => m.author !== "mary" && !m.seen_b
    been seen. So a poll patches #ev-feed in place and touches nothing else. */
 const EV_ICON = { say: "&#9679;", think: "&#8230;", tool: "&#9656;", result: "&#8629;" };
 const maryChip = () => (STATUS?.state === "working"
-  ? { tone: "warn", text: "working" } : { tone: "ok", text: "idle" });
+  ? { tone: "warn", text: "working" }
+  : STATUS?.state === "held" ? { tone: "stalled", text: "held - budget" }
+  : { tone: "ok", text: "idle" });
 
 const feedRows = (events) => (events || []).map((e) => `
   <div class="ev ev-${esc(e.kind)}">

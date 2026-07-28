@@ -52,6 +52,9 @@ MAIL_EVERY = 120         # seconds - Microsoft Graph
 BOTCHAT_EVERY = 60       # seconds
 TOKEN_MAX_AGE = 45 * 60  # seconds - Graph tokens last an hour; renew before that
 TICK = 2
+# While held back there is nothing to dispatch, so stop spinning the loop every
+# two seconds - but keep taking intake in, so the queue is accurate at 07:00.
+HELD_TICK = 30
 MAX_ATTEMPTS = 3         # per work order before it is quarantined
 # Consecutive runs a chat may have on handoffs alone, with no new work order.
 # Resets the moment real work arrives for it.
@@ -528,10 +531,25 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
     # nothing but each other's notes. Handoffs are no longer a wake-up - they
     # ride along with the next real work order for that chat and wait quietly
     # until then. No new mail, no dashboard message: nobody runs. That removes
-    # the runaway at its source, so no spend cap is needed to contain it.
+    # the runaway at its source.
     if not groups:
         write_status("idle", None, 0, "nothing new - handoffs wait for real work")
         return TICK
+
+    # THE BACKSTOP, and it assumes the line above has a hole in it. Budgets are
+    # scoped to the window they belong to - a night's overspend must not block
+    # the following morning, which is what the old rolling-24h cap did. Night is
+    # deliberately tight: nobody is reading email at 03:00 and the queue keeps.
+    ok, why = budget.check(groups[0][0])
+    if not ok:
+        write_status("held", None, len(orders), why)
+        if bst.get("_last_held") != why:
+            log("HELD BACK: %s" % why)
+            bst["_last_held"] = why
+            save_bridge_state(bst)
+        return HELD_TICK
+    if bst.pop("_last_held", None) is not None:
+        save_bridge_state(bst)
 
     # BATCH TRIAGE. With several unrouted items waiting, let triage read the
     # whole queue at once and decide, rather than the router guessing item by

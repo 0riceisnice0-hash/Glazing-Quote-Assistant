@@ -1,24 +1,32 @@
 # -*- coding: utf-8 -*-
-"""Notice when Mary is working hard on nothing, and stop her.
+"""A ceiling on how much Mary can spend, tightest while nobody is watching.
 
 Overnight on 27/07 two chats ran 95 sessions and 12.7 hours between them
 without a single new work order. The findings were real, but the loop had no
 reason to end: they were handing each other AUDIT METHODS rather than facts, so
-every session generated its own next input.
+every session generated its own next input. Priced as API calls that night was
+most of a ~GBP 2,400 bill, and the cost was not the hours - it was that every
+resumed session re-read a chat that had grown to 27 MB before it did anything.
 
-Nothing in the system could see it happening. Each individual session looked
-reasonable - a handoff arrived, it was acted on, something was found. Only the
-shape over hours was wrong, and nothing was looking at the shape.
+Two defences, and they are not the same thing:
 
-Three limits, all measured from the poller log so they survive a restart:
+  THE CAUSE is handled in mary_bridge: new information is the only reason to
+  run, so a chat with nothing new never wakes. That is the fix.
 
-  CIRCLING   - a chat that keeps running without consuming new work
-  DAILY TIME - total session hours across all chats in a rolling day
-  UNANSWERED - requests piling up faster than a human can possibly answer
+  THIS FILE IS THE BACKSTOP. It assumes the fix has a hole in it. Its whole job
+  is to bound the damage of a loop nobody has thought of yet, in the hours when
+  nobody will notice for eight of them.
 
-The first two stop dispatch. The third does not stop anything - it is fed into
-the kick prompt so a chat knows the queue it is adding to, because a 29th
-request for Adam is worth less than nothing while 28 sit unanswered.
+NIGHT IS BUDGETED SEPARATELY AND TIGHTLY. Between 22:00 and 07:00 there is
+nobody to answer a request, no supplier reading email, and no reason to spend
+like a working day. Mail that arrives at 03:00 keeps until 07:00; the queue is
+durable and nothing is lost by waiting.
+
+BUDGETS ARE SCOPED TO THE WINDOW THEY BELONG TO, not to a rolling 24 hours.
+The old rolling window meant one bad night poisoned the following day: at 10:00
+on 28/07 she was held back on "17.1 of 8.0 hours" that had all been spent before
+07:00. A night's overspend must not be able to block the morning. Each window
+starts at zero.
 
   python scripts/mary_budget.py            # what the limits say right now
 """
@@ -33,46 +41,89 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG = os.path.join(REPO, "test-results", "mary-inbox", "poller.log")
 STATE = os.path.join(REPO, "data", "dashboard-state.json")
 
+# 22:00 to 07:00. Nobody is reading, nobody is replying, nothing is urgent
+# enough to be worth an unattended loop.
+NIGHT_FROM, NIGHT_TO = 22, 7
+
+# Session-hours allowed within one window. Night is deliberately small: enough
+# for a couple of genuine pieces of work, nowhere near enough for a runaway.
+NIGHT_HOURS = float(os.environ.get("MARY_NIGHT_HOURS", "1.5"))
+DAY_HOURS = float(os.environ.get("MARY_DAY_HOURS", "8"))
+
+# Hours alone is a poor proxy for cost. The 27/07 bill was driven by SESSION
+# COUNT against bloated chats - each one re-read the whole conversation before
+# doing anything - so cap the count as well. Twenty in a working day is already
+# far more than a normal one.
+NIGHT_SESSIONS = int(os.environ.get("MARY_NIGHT_SESSIONS", "6"))
+DAY_SESSIONS = int(os.environ.get("MARY_DAY_SESSIONS", "40"))
+
 # A chat may run this many times in the window without consuming a work order.
 CIRCLING_RUNS = 5
 CIRCLING_HOURS = 6
-# Total session time across everything, per rolling day. A normal working day
-# has been 2-4 hours; the 27/07 runaway spent 17. Eight leaves real work room
-# and still catches a loop long before it costs a night. Override with
-# MARY_DAILY_HOURS when a genuinely heavy day is expected.
-DAILY_HOURS = float(os.environ.get("MARY_DAILY_HOURS", "8"))
 # Above this many open requests, raising more is not the constraint.
 REQUEST_BACKLOG = 12
 
 
-def _since(hours):
-    return (dt.datetime.now() - dt.timedelta(hours=hours)).strftime("[%Y-%m-%d %H:%M")
+def is_night(now=None):
+    h = (now or dt.datetime.now()).hour
+    return h >= NIGHT_FROM or h < NIGHT_TO
 
 
-def read_log(hours):
+def window(now=None):
+    """(label, started_at, hours_budget, session_budget) for the window we are in.
+
+    The night window spans midnight, so before 07:00 it started at 22:00
+    YESTERDAY. Getting that wrong would reset the budget at midnight and hand a
+    runaway a fresh allowance exactly when nobody is watching.
+    """
+    now = now or dt.datetime.now()
+    if is_night(now):
+        start = now.replace(hour=NIGHT_FROM, minute=0, second=0, microsecond=0)
+        if now.hour < NIGHT_TO:
+            start -= dt.timedelta(days=1)
+        return "night", start, NIGHT_HOURS, NIGHT_SESSIONS
+    start = now.replace(hour=NIGHT_TO, minute=0, second=0, microsecond=0)
+    return "day", start, DAY_HOURS, DAY_SESSIONS
+
+
+def read_log(since):
+    """Log lines at or after a datetime. The log is timestamp-prefixed and
+    written in order, so a string compare is enough and costs nothing."""
     if not os.path.exists(LOG):
         return []
-    cutoff = _since(hours)
+    cutoff = since.strftime("[%Y-%m-%d %H:%M")
     with open(LOG, encoding="utf-8", errors="replace") as fh:
         return [l.rstrip("\n") for l in fh if l >= cutoff]
 
 
-def usage(hours=24):
-    """Session count and total seconds per chat over the window."""
+def usage(since):
+    """Session count and total seconds per chat since a datetime.
+
+    The pricing lab does not appear here: it logs its own completion line
+    rather than a session exit, and it is bounded by its own 03:00 hard stop.
+    Counting it would let one ordinary lab night consume the whole allowance
+    and block the 07:00 mail run.
+    """
+    lines = read_log(since)
     per = {}
-    for line in read_log(hours):
+    for line in lines:
         m = re.search(r"\[([a-z0-9-]+)\] session exit \d+ after (\d+)s", line)
         if m:
             rec = per.setdefault(m.group(1), {"runs": 0, "seconds": 0, "with_work": 0})
             rec["runs"] += 1
             rec["seconds"] += int(m.group(2))
-    # A dispatch line says how many work orders came with it.
-    for line in read_log(hours):
+    for line in lines:
         m = re.search(r"dispatch -> \[([a-z0-9-]+)\][^:]*: (\d+) order", line)
         if m and int(m.group(2)) > 0:
             per.setdefault(m.group(1), {"runs": 0, "seconds": 0, "with_work": 0})
             per[m.group(1)]["with_work"] += 1
     return per
+
+
+def spent(since):
+    per = usage(since)
+    return (sum(r["seconds"] for r in per.values()) / 3600.0,
+            sum(r["runs"] for r in per.values()))
 
 
 def open_requests():
@@ -85,7 +136,7 @@ def open_requests():
 
 def circling(chat):
     """Is this chat running repeatedly without new work coming in?"""
-    rec = usage(CIRCLING_HOURS).get(chat)
+    rec = usage(dt.datetime.now() - dt.timedelta(hours=CIRCLING_HOURS)).get(chat)
     if not rec:
         return False, ""
     if rec["runs"] >= CIRCLING_RUNS and rec["with_work"] == 0:
@@ -95,17 +146,19 @@ def circling(chat):
     return False, ""
 
 
-def day_spend():
-    per = usage(24)
-    return sum(r["seconds"] for r in per.values()) / 3600.0
-
-
 def check(chat=None):
-    """Returns (ok_to_dispatch, reason)."""
-    spent = day_spend()
-    if spent >= DAILY_HOURS:
-        return False, ("daily session budget spent: %.1f of %.1f hours in the last 24h"
-                       % (spent, DAILY_HOURS))
+    """Returns (ok_to_dispatch, reason). Reason is shown on the hub."""
+    label, start, hour_cap, session_cap = window()
+    hours, runs = spent(start)
+    since = start.strftime("%H:%M")
+    if hours >= hour_cap:
+        return False, ("%s budget spent: %.1f of %.1f session-hours since %s. Work stays queued "
+                       "and goes out %s." % (label, hours, hour_cap, since,
+                                             "at 07:00" if label == "night" else "tomorrow"))
+    if runs >= session_cap:
+        return False, ("%s budget spent: %d of %d sessions since %s. Work stays queued and goes "
+                       "out %s." % (label, runs, session_cap, since,
+                                    "at 07:00" if label == "night" else "tomorrow"))
     if chat:
         looping, why = circling(chat)
         if looping:
@@ -115,26 +168,40 @@ def check(chat=None):
 
 def prompt_note():
     """A line for the kick prompt so a chat can see what it is adding to."""
+    parts = []
+    label, start, hour_cap, session_cap = window()
+    if label == "night":
+        hours, runs = spent(start)
+        parts.append(
+            "\nIT IS THE MIDDLE OF THE NIGHT and you are on a reduced budget: %.1f of %.1f "
+            "session-hours and %d of %d sessions are gone since %s. Nobody is reading email, "
+            "nobody can answer a request, and no supplier will reply before morning. Do what "
+            "this work order actually needs and stop. Anything that can wait until 07:00 should."
+            % (hours, hour_cap, runs, session_cap, start.strftime("%H:%M")))
     n = open_requests()
-    if n < REQUEST_BACKLOG:
-        return ""
-    return ("\nBEFORE YOU RAISE ANYTHING: %d requests are already open and unanswered. Adam cannot "
+    if n >= REQUEST_BACKLOG:
+        parts.append(
+            "\nBEFORE YOU RAISE ANYTHING: %d requests are already open and unanswered. Adam cannot "
             "clear that in a day, so a new one is worth less than nothing unless it is more urgent "
             "than what is already waiting. Prefer answering, consolidating or closing an existing "
             "request over adding to the pile - and if this turn has nothing better to offer than "
             "another observation, say so and stop. A clean result IS a result." % n)
+    return "".join(parts)
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--chat")
     args = ap.parse_args()
-    per = usage(24)
-    print("SESSION USE, LAST 24H")
+    label, start, hour_cap, session_cap = window()
+    per = usage(start)
+    hours, runs = spent(start)
+    print("WINDOW: %s, since %s" % (label.upper(), start.strftime("%a %H:%M")))
     print("  %-22s %6s %8s %10s" % ("chat", "runs", "hours", "with work"))
     for k, r in sorted(per.items(), key=lambda kv: -kv[1]["seconds"]):
         print("  %-22s %6d %8.1f %10d" % (k, r["runs"], r["seconds"] / 3600, r["with_work"]))
-    print("  %-22s %6s %8.1f" % ("TOTAL", "", day_spend()))
+    print("  %-22s %6d %8.1f" % ("TOTAL", runs, hours))
+    print("  %-22s %6d %8.1f   <- ceiling" % ("BUDGET", session_cap, hour_cap))
     print("\nopen requests waiting on a human: %d" % open_requests())
     ok, why = check(args.chat)
     print("\ndispatch allowed: %s%s" % (ok, "" if ok else "  <- " + why))
