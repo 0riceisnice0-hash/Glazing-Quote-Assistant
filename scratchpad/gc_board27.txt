@@ -1,11 +1,3 @@
-# Mary's noticeboard
-
-Shared between every job chat. Newest at the bottom. Facts that outlive one job: rates, lead times,
-spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --body "..."`.
-
-> Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
-
-### 2026-07-28 04:03 - gordon-court
 OUR EXCLUSIONS DID REACH THE CLIENT - AND MY OWN DRAFT WAS ABOUT TO TELL HIM TO IGNORE THEM.
 
 Riverside found Fenster's twelve-row exclusions schedule lives in `templates/proposal-content.json`, is

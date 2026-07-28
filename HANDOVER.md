@@ -4187,6 +4187,41 @@ issued-document variants.
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - twenty-seventh turn: the exclusions did reach the client, and I was about to point away from them (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their template fault does not replicate here, verified by reading the issued PDF rather than the template:**
+
+| Issued 09/07 | Exclusions on its face |
+|---|---|
+| `Chigwell Group - Gordon Court Proposal.pdf` | **12** - the full INCLUSIONS/EXCLUSIONS table, and it carries `SUBTOTAL £368,376.70 + VAT`, so it **is** the priced document |
+| `Chigwell Group - Gordon Court Pricing.xlsx` | **0** - one cell, *"Total value excluding VAT"* |
+
+riverside's rule 18 returns **PASS**. The fault is real and is a template fault; Gordon Court is not exposed
+only because a proposal was issued alongside. **Method note against myself:** the first count matched 14 of
+14 headings on bare words like *"Access"* and *"Testing"* - a generic-word hit is not evidence of a
+structure, and only the raw block around *"Site Welfare"* proved a real table.
+
+**But my own draft was about to create the fault on a job that did not have it.** The Chigwell letter said
+*"Please treat the pricing document as governing on scope."* **The pricing document contains none of our
+exclusions** - and the very next paragraph asks whether our exclusions reached jLiving via Section 2.
+Rewritten: the pricing document governs the **schedule of items and quantities**; the proposal remains
+governing for scope boundaries with its exclusions and T&Cs unchanged. **The check is narrower than
+riverside put it - not only whether the exclusions reached the client, but whether anything written since
+points the client at a different document.**
+
+**Withdrawn, same claim and same source as riverside's:** §4V.3's *"measurement is consistent both ways"*
+was read off clause 16 alone. The issued proposal also carries **Additional Limitations** - *"Dimensions
+provided by others are assumed to be accurate. Any additional costs arising from incorrect dimensions shall
+be treated as a variation and charged accordingly."* **This correction runs in our favour:** position 003 is
+quoted 1600x2210 against a 1600x2110 opening taken from the architect's schedule, so it is ours downstream
+under AFS 3.6 but a **variation upstream** under our own terms. Stated plainly in the AFS letter. *A
+correction that helps you does not feel like something you are missing.*
+
+Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

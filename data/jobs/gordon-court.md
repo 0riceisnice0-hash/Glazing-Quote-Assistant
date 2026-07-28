@@ -2221,8 +2221,15 @@ missing one:**
 
 | | Upstream (our clause 16, to Chigwell) | Downstream (AFS 3.6, from us) | |
 |---|---|---|---|
-| **Measurement** | ours — "measurement verification" | ours | **consistent** |
+| **Measurement** | ~~ours — "measurement verification"~~ **see 4Y.2** | ours | ~~consistent~~ **corrected** |
 | **Plans, drawings, designs — fitness for purpose** | **disclaimed**, we rely on their team | **warranted by us** | **NOT back to back** |
+
+> **CORRECTED 28/07, twenty-seventh turn — see §4Y.2.** The measurement row was read from **clause 16
+> alone**, the same fault riverside had to withdraw for. Our issued proposal also carries an
+> **Additional Limitations** exclusion: *"Dimensions provided by others are assumed to be accurate. Any
+> additional costs arising from incorrect dimensions shall be treated as a variation and charged
+> accordingly."* So we do **not** unconditionally own dimensions upstream — and the correction runs in our
+> favour, which is why I had not gone looking for it.
 
 So on the one thing we expressly refuse to underwrite for the client, we have underwritten it for the
 supplier. And it bites on a live item: **position 003 is quoted 1600 x 2210 against a structural opening of
@@ -2372,6 +2379,73 @@ on request' — no revision, no date, no title"* into the `document` field, and 
 `document` set to `null`, wording moved to `quote_wording`; the rule now reports it in the unnamed bucket
 with the remedy that can actually be carried out. Same family as §4S.3 — the human-readable field said one
 thing and the machine-readable one another.
+
+---
+
+## 4Y. TWENTY-SEVENTH TURN (28/07) — the exclusions did reach the client, and I was about to point away from them
+
+### 4Y.1 riverside's template fault does NOT replicate here, verified rather than assumed
+
+> **An exclusion that is not in the document you issue is not an exclusion.**
+
+They found Fenster's twelve-row exclusions schedule lives in `templates/proposal-content.json`, is absent
+from `MASTER PRICING DOC.xlsx`, and never reached their client. Checked here by reading **the issued PDF**,
+not the template:
+
+| Document issued 09/07 | Exclusions on its face |
+|---|---|
+| `Chigwell Group - Gordon Court Proposal.pdf` | **12** — the full two-column INCLUSIONS/EXCLUSIONS table |
+| `Chigwell Group - Gordon Court Pricing.xlsx` | **0** — one exclusion-ish cell, B70 *"Total value excluding VAT"* |
+
+**The proposal carries the schedule and also carries `SUBTOTAL: £368,376.70 + VAT`, so it is the priced
+document.** riverside's rule 18 returns **PASS** on this job. Their fault is real and it is a template
+fault — Gordon Court simply is not exposed to it, because a proposal was issued alongside the spreadsheet.
+
+**One methodological note against myself:** my first count matched 14 of 14 headings using bare words like
+*"Access"*, *"Testing"* and *"Final Clean"*, which prove nothing. Only pulling the raw block around
+*"Site Welfare"* showed a real table. **A generic-word hit is not evidence of a structure.**
+
+### 4Y.2 But my own draft was about to create riverside's fault on a job that did not have it
+
+The Chigwell letter §7.1 said, in terms:
+
+> *"Please treat the pricing document as governing on scope."*
+
+**The pricing document contains none of our exclusions.** I would have directed the client, in writing, to
+treat as governing the one of our two issued documents that carries no structural-alterations carve-out, no
+design-calculations exclusion, no testing exclusion, no storage, scaffold or waste exclusion, and none of
+the Additional Limitations.
+
+And **§7.2 of the same letter** asks whether our *"terms and exclusions"* were carried into Chigwell's
+Section 2 caveats. One paragraph asked whether our exclusions reached jLiving; the paragraph above it
+pointed at the document that has none.
+
+Rewritten: the pricing document governs the **schedule of items and quantities**; the proposal remains
+governing for scope boundaries and its Inclusions/Exclusions schedule and T&Cs continue to apply unchanged.
+That is what the paragraph was always for — the proposal's *narrative* understates the package — but
+"governing on scope" unqualified swept the exclusions away with it.
+
+### 4Y.3 Withdrawing the measurement row from §4V.3 — and the correction is in our favour
+
+riverside withdrew *"measurement is consistent both ways"* because they had read clause 16 and not the
+exclusions schedule. **I made the identical claim at the twenty-fourth turn, from the identical source.**
+
+Our issued proposal carries **Additional Limitations**: *"Dimensions provided by others are assumed to be
+accurate. Any additional costs arising from incorrect dimensions shall be treated as a variation and
+charged accordingly."*
+
+So clause 16's retained *"measurement verification"* is **qualified**: we do not unconditionally own
+dimensions upstream. §4V.3's table is corrected.
+
+**The reason this one is worth flagging separately is that it runs the other way from every other
+correction this week — it makes our position better, not worse.** Position 003 is quoted 1600 x 2210
+against a 1600 x 2110 opening sourced from the client's schedule 51001. Under AFS 3.6 that is ours
+downstream; under our own Additional Limitations it is **a variation upstream**. I had been treating the
+downstream exposure as unbacked and it is partly backed. **I did not find it because a correction that
+helps you does not feel like something you are missing.**
+
+Added to the AFS letter §5, stated plainly rather than implied: *"if 2210 traces back to the architect's
+schedule we have a route for it; if it does not, it is ours."*
 
 ---
 

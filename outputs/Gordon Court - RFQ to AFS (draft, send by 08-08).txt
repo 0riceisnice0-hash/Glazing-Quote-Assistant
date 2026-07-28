@@ -121,6 +121,13 @@ change from 2210 to 2110 is a change of size, so on your own terms it would move
 whichever way the answer goes. That is a further reason to settle it before order rather
 than after, and it is why we would rather have the correct figure than the convenient one.
 
+For completeness, so that our own position is on the table rather than implied: our issued
+proposal to the main contractor carries an Additional Limitations exclusion recording that
+dimensions provided by others are assumed accurate and that costs arising from incorrect
+dimensions are treated as a variation. If 2210 traces back to the architect's schedule we
+have a route for it; if it does not, it is ours. Either way we would rather know which
+before an order than argue it after one.
+
 =====================================================================================
 6. PRICE HOLD
 =====================================================================================

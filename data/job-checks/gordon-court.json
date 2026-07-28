@@ -693,5 +693,19 @@
       "held": true,
       "note": "Clean. Nothing incorporated from outside the document. Clauses 3.6, 3.7.2 and 3.7.5 read in full last turn."
     }
+  ],
+  "issued_documents": [
+    {
+      "name": "Chigwell Group - Gordon Court Proposal.pdf (issued 09/07/2026)",
+      "is_the_priced_document": true,
+      "exclusions_stated": 12,
+      "note": "VERIFIED by reading the issued PDF, not the template. Carries the full two-column INCLUSIONS/EXCLUSIONS table: Site Welfare, Access/Lifting Equipment, Site Storage, Fire Stopping, Waste Removal, Internal Finishing, Final Clean on handover, Testing, Structural Alterations, Design Responsibility, Traffic Management, Additional Limitations. Carries the SUBTOTAL GBP 368,376.70 + VAT on the same page, so it is the priced document."
+    },
+    {
+      "name": "Chigwell Group - Gordon Court Pricing.xlsx (issued alongside)",
+      "is_the_priced_document": false,
+      "exclusions_stated": 0,
+      "note": "Counted cell by cell: ONE exclusion-ish cell in the whole workbook, B70 '* Total value excluding VAT'. Zero actual exclusions - riverside's MASTER PRICING DOC template fault, present here too. Gordon Court is not exposed to it only because a proposal was issued alongside and carries the schedule."
+    }
   ]
 }
