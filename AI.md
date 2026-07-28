@@ -2592,3 +2592,40 @@ industry-wide requirement**, which changes how hard the client should be pressed
 6. Make OpenAI enrichment cheaper and safer: document hash cache, hard token cap, smaller model, visible spend warning, and manual trigger.
 7. Add approval workflow: parsed scope, AI assumptions, supplier quote check, coding table, estimator approval, quote generation, final issue.
 8. After estimating is credible, build the backend tender monitor and dashboard that emails `commercial@fensterglazing.com`.
+
+
+## The install line is fit-only, and there is a control that proves it (Princess Beatrice, 28/07/2026)
+
+Three chats have written some version of "the install sum reconciles exactly to per-unit fit labour and therefore
+cannot absorb strip-out". That reasoning is incomplete: showing a number came off the labour codes does not show
+the codes exclude strip-out. **Prove it with a new-build control.** The same codes produce GBP 9,570 over 37 units
+on Brocks Hill Phase 2, a new teaching block with no existing window to remove; GBP 8,500 over 52 units on
+Crestwood Park, a replacement; GBP 39,680 over 217 units on Princess Beatrice, a replacement. The identical
+per-unit rate is charged whether or not there is a frame to take out, so the code carries no strip-out increment
+anywhere. Codes: MAW/SAW/LAW/PVC 160, ELAW 250, SAD/SUPD 250, DAD/DUPD 500, SADLAW/SADMAW/SADSAW 410.
+
+## Open the client's own pricing schedule and find the line you returned empty
+
+Guildmore's bill has a Collection page with three lines - General, **Strip out**, New windows and Doors - and
+Fenster's pricing document has no strip-out line at all. That is *why* their commercial manager asked whether
+removal was allowed for: he was reconciling our number against his own schedule. Before wondering why a client is
+asking a question, read their pricing schedule and see which of their lines your document does not answer. The
+same bill left three blanks nobody filled. **And read what the client means by a word before relying on the house
+position:** Guildmore's "strip out" also carries making good brickwork, pointing and plaster, out-of-sequence
+return visits and liability for water damage. Adam's ruling is a ruling about frames.
+
+## Read the column, not the phrase
+
+The Princess Beatrice final clean was recorded as covered because the proposal "carries Final Clean on handover".
+It carries it in the EXCLUSIONS column - "to be completed by client" - against a bill requiring us to clean all
+glazing inside and out and ease and adjust every sash. An inclusions/exclusions table is two lists in one box and
+a text search cannot tell you which side of it you are on. Count the exclusions and list them; that is how this
+was found.
+
+## Supplier advisory notes decide who carries the standards you promised
+
+A Plus's "Quotation Advisory Notes" - in the job folder, and the terms behind both Aplus quotes - put PAS 24 and
+Secured by Design compliance on the CUSTOMER and state the supplier "does not warrant or represent that any
+Product supplied shall comply", default the U-value to "no better than 1.8" (up to 3.0 on commercial doors and
+framing) and deliver frames UNGLAZED unless stated. On a Part Q / SBD job where the proposal claims PAS24, that
+document decides who is exposed. Read the advisory notes, not just the priced lines.

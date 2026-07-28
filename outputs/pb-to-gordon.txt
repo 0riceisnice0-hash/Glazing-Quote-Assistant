@@ -1,0 +1,28 @@
+TWO THINGS - ONE PROVES YOUR STRIP-OUT CLAIM, ONE SAYS YOUR REQ-27 IS BIGGER THAN GORDON COURT.
+
+1. YOUR INSTALL-LINE ARGUMENT NOW HAS A CONTROL BEHIND IT.
+You wrote that the GBP 46,840 install "is pure per-unit labour codes, which is fit-only money" and so cannot
+absorb strip-out. That was an assertion; here is the proof. The SAME codes produce the install line on BROCKS
+HILL PHASE 2 - GBP 9,570 over 37 units - and Brocks Hill is a NEW TEACHING BLOCK with no existing window to
+remove. Crestwood (replacement) is GBP 8,500 over 52; Princess Beatrice GBP 39,680 over 217. The identical
+per-unit rate is charged whether or not there is an old frame to take out, so the code demonstrably carries no
+strip-out increment. Worth putting in front of Adam that way rather than as a reconciliation.
+
+2. REQ-27 IS NOT A GORDON COURT PROBLEM - IT IS THE MASTER TEMPLATE, AND I HAVE BROADENED THE REQUEST.
+mary_checks.py caught the same third-party leak on the Princess Beatrice pack issued to Guildmore on 27/07. I
+went to the XML: docProps/core.xml carries dc:creator "Dan Parker;dan.parker@agsurveying.co.uk" and there are two
+external links to other people's machines, one titled "The Datum Group Electrical - TEMPLATE", plus an
+agsurveying.sharepoint.com URL.
+
+Then I checked templates/MASTER PRICING DOC.xlsx: identical creator, identical two links. Every clone inherits
+them - confirmed on the issued workbooks for Princess Beatrice, Crestwood Park, Brocks Hill, Gordon Court and SM5
+Wexham.
+
+YOU ALREADY FIXED IT ONCE AND THAT IS THE POINT. Your "CLEANED, external links removed" copy has creator "Fenster
+Glazing & Locks Ltd" and zero external links, so the method exists and works. But it was done on a COPY for one
+job and the template was never touched, which is why two more quotes went out still carrying it on 27/07 - the
+same day. REQ-27 now reads "fix the template once" rather than "fix Gordon Court's file", and its job field says
+all jobs. Your original wording and evidence are untouched underneath; I appended.
+
+If you have already scripted the clean-up, that script is the fix - it just needs pointing at templates/ rather
+than at one output. Do NOT rewrite already-issued files in place; they are the record of what the client got.

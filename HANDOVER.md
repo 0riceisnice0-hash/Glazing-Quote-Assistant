@@ -6368,3 +6368,72 @@ from scratch.
 5. Make OpenAI enrichment cheap and controlled: manual trigger, cache by document hash, token cap, small model, visible spend warning.
 6. Add approval workflow: extracted scope, assumptions, supplier quote check, coding table, estimator approval, quote generation.
 7. Later, build the backend tender monitor/dashboard that emails `commercial@fensterglazing.com` when a good live opportunity appears.
+
+
+### Princess Beatrice House - the strip-out commitment, proven unfunded (2026-07-28)
+
+Two work orders landed in the job chat: Jason Mount's 27/07 19:21 question (does the quote allow for removal of
+the existing windows, and if not what is the extra) and Adam's 19:56 answer to him ("I can confirm we have
+allowed for strip out of old frames. We have not allowed for disposal, ie skips on site."). The client question
+was already answered by Adam direct, so the work was to establish whether the answer is true of the documents and
+of the money.
+
+**It is true of neither, and the money half is now proven rather than inferred.** GBP 39,680 is exactly the sum
+of the house labour codes over the 217 units, zero residual. On its own that only shows the number is
+code-derived. The control settles it: the same codes produce GBP 9,570 over 37 units on **Brocks Hill Phase 2, a
+new teaching block with no existing window to remove**, and GBP 8,500 over 52 units on Crestwood Park, a
+replacement job. Fenster charges the identical per-unit fit rate whether or not there is a frame to strip out, so
+the code carries no strip-out increment - on this job or any other. That converts St Mary's REQ-24 and Gordon
+Court's equivalent finding from assertions into facts, and both chats were told.
+
+**Why Jason asked, which nobody had established.** Bill C0234 Block 1 has a Collection page carrying three lines:
+General, **Strip out**, New windows and Doors. Our pricing document has no strip-out line - window and door rows
+plus one installation sum. He was reconciling our number against his own schedule and finding a line with nothing
+against it. The same bill leaves three blanks we never filled: the uPVC price variance (B91/B93) and lead-in
+times for aluminium (B108) and uPVC (B110).
+
+**And their "strip out" is not frames.** Item A also requires making good facing brickwork and pointing with
+matching bricks and tinted cement mortar, cutting back plaster and render internally and making good with one
+coat gypsum dubbed out flush, and internal damage made good at the Contractor's expense. Item B has the staircase
+windows at three levels removed for general site access and installed out of sequence, with allowance for
+returning. Item C makes us liable for water damage on openings left exposed. Adam's position is a position on
+frames; the bill's line is builder's work and a programme cost.
+
+Disposal is not one-way either. B5 deems all items to include removal to a **Guildmore** skip at the front of the
+building, which supports Adam exactly - but B35 requires the old windows taken to a trade waste recycling
+transfer station with documentation retained, and the RBKC ER defines "Remove" as including "dispose of unwanted
+materials". Our own proposal excludes waste removal generally, disclaiming even the carry-to-skip B5 deems
+included.
+
+**Four more findings off the same bill, all on the issued quote.** Scaffolding: B21 requires additional scaffold
+to be *detailed in the tender return*, has Guildmore instruct it, and deducts from works value anything not
+identified after commencement - we returned a blanket exclusion and identified nothing, which is precisely the
+answer that clause defeats. (Not the St Mary's answer, where the head contract put scaffold on ET&S: same
+question, different answer, because the client's own document says so.) Guarantee: B72 requires a comprehensive
+**insurance-backed** minimum **FENSA** 10-year guarantee, premium paid and policy issued to the Employer before
+PC, against our self-backed 10 years with no insurer, no premium, no policy and no start date - the second job in
+a week after Lower Range Road, and this one already with the client. Mastic: B68/B69/B70 name Tremco Illbruck
+products as bullets of the window renewal item, so perimeter sealing is **specified** - Adam's instruction to
+charge it was right and only proposal p3's "optional extra" is wrong, and leaving it invites Guildmore to strike
+GBP 5,356.22 while the obligation stands. EPDM is the opposite question: zero hits for EPDM or BS 4255 in the
+bill *and* the ERs, so GBP 8,276.91 is charged with no located requirement.
+
+Also: the **windows** are a Modeal-for-Technal substitution as well as the doors (B66 names Dualframe 75Si), and
+only the door one was ever recorded; A Plus's own Quotation Advisory Notes disclaim PAS 24 and Secured by Design
+compliance outright and default the U-value to "no better than 1.8"; and proposal p4 excludes the final clean
+that B75/B76 require.
+
+**A template defect found by the checks, not by me.** `mary_checks.py` flagged third-party traces in the issued
+workbook: creator `Dan Parker;dan.parker@agsurveying.co.uk` and two external links to other companies' files, one
+titled "The Datum Group Electrical - TEMPLATE". Verified in the XML, then traced to `templates/MASTER PRICING
+DOC.xlsx` itself - so every clone carries it, confirmed on Princess Beatrice, Crestwood Park, Brocks Hill, Gordon
+Court and SM5 Wexham. Gordon Court cleaned a *copy* on 09/07 and the template was never fixed, which is why two
+more quotes went out leaking on 27/07. Folded into REQ-27, broadened from one job to all.
+
+**One correction to my own work.** I first recorded the final clean as covered because the proposal "carries
+Final Clean on handover". It carries it in the exclusions column. Read the column, not the phrase.
+
+Manifest `data/job-checks/princess-beatrice-house.json` returns **6 FAILED**. Job file
+`data/jobs/princess-beatrice.md`. Emailed to Adam 28/07. **No new requests raised** - on the 16:44 board
+instruction that 23 were already open and unanswered, scaffolding and the guarantee went into REQ-29 and the
+template leak into REQ-27. Nothing sent to Guildmore.

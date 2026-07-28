@@ -1,0 +1,45 @@
+Adam,
+
+Princess Beatrice — following your reply to Jason Mount last night. Four things, and the first one is the one that matters.
+
+STRIP-OUT IS NOT IN THE PRICE, AND I CAN NOW PROVE IT RATHER THAN INFER IT
+
+You told Jason we have allowed for strip out of old frames. It is in neither document we issued, and there is no money in the quote for it.
+
+The installation line is GBP 39,680. That is exactly the sum of the house labour codes over the 217 units — 146 MAW + 46 SAW + 6 LAW at 160, 4 ELAW at 250, 13 DAD at 500, 2 SAD at 250 — with nothing left over. On its own that only tells you the number came off the codes. What settles it is the comparison: the same codes produce the GBP 9,570 install on Brocks Hill, which is a NEW teaching block with no existing window to remove, and GBP 8,500 on Crestwood Park, which is a replacement job. We charge the identical per-unit fit rate whether or not there is an old frame to take out. So the rate is fit-only and there is no strip-out allowance anywhere in the GBP 279,244.69.
+
+WHY JASON ASKED, WHICH IS WORTH KNOWING
+
+Guildmore's own bill has a Collection page with three lines on it: General, Strip out, and New windows and Doors. Our pricing document has no strip-out line — just the window and door rows and one installation sum. He was reconciling our number against his own schedule and finding a line with nothing against it. It was not a fishing question.
+
+AND THEIR "STRIP OUT" IS A LOT MORE THAN OLD FRAMES
+
+The bill's Preparation & Stripping Out section also requires us to make good facing brickwork and pointing with matching bricks and tinted cement mortar, cut back plaster and render internally and make good with one coat gypsum dubbed out flush, and make good any internal damage at our own expense. It also says the staircase windows at ground, first and second floors get removed for general site access and installed OUT OF SEQUENCE, with allowance for returning to complete them. And it makes us liable for water damage where an opening is left exposed.
+
+Making good brickwork and plaster is builder's work, and return visits are a programme cost. Neither is fit labour. I would want strip-out written into a corrected proposal on OUR definition — removal of frames — before their sub-contract order picks up that whole section on the strength of your email.
+
+On disposal you are right on their main clause and it is worth knowing it is not one-way. Their preamble deems everything to include removal to a Guildmore skip at the front of the building, which is exactly what you said. But a later note requires the old windows to go to a trade waste recycling transfer station with the paperwork retained, and RBKC's ERs define "remove" as including disposing of unwanted materials. Meanwhile our own proposal excludes waste removal generally, which disclaims even the carry-to-skip they deem included.
+
+I cannot put a number on strip-out. There is no strip-out rate anywhere in our data — it is one of the categories that returns nothing — and I am not going to invent one. The quantity for an RFQ is 217 units / 336.17 m2.
+
+THREE MORE OFF THE SAME BILL, ALL ON THE ISSUED QUOTE
+
+1. Scaffolding. Their bill says any additional scaffolding required must be DETAILED IN YOUR TENDER RETURN, that Guildmore will instruct the scaffolding company, and that anything not identified "after commencement will be deducted from works value". We returned a blanket exclusion of Access/Lifting Equipment and identified nothing. A blanket exclusion is the one answer that clause is written to defeat, because it gives them nothing to instruct. This is still fixable if we send them a schedule before we start. Worth saying this is NOT the St Mary's answer, where the head contract put scaffold on ET&S including for their subcontractors — same question, different answer, because Guildmore's own document says so.
+
+2. The guarantee. Their bill wants a comprehensive INSURANCE-BACKED minimum FENSA 10-year guarantee covering all units, with the premium paid and the policy issued in favour of the Employer BEFORE practical completion. Our proposal offers our own 10-year warranty on glass and frames — self-backed, no insurer, no premium, no policy, no FENSA registration named, and no start date in the clause. That is a cost line nobody has priced. It is the second job this week — Lower Range Road wants the same thing — but this one is already with the client.
+
+3. Mastic — REQ-6. Their bill answers the question the hub discussion left open, and it answers it in your favour on the pricing. Perimeter sealing is not optional on this job: it is a specified bullet of the window renewal item with named products, Tremco Illbruck illmod TP654 tape to head and jambs, the sill bedded on two beads of SP525, FS125 and backer rod outside, LD703 inside. So bringing mastic into the sum was right and the pricing document is correct. The only thing wrong is proposal page 3 still calling it an optional extra — and that is worth correcting, because as it stands it invites Jason to strike GBP 5,356.22 as an option we offered him while we are still obliged to do the work.
+
+EPDM is a different question and I have stopped bracketing the two together. I searched their bill and RBKC's ERs for EPDM and BS 4255 and found nothing in either — so unlike Brocks Hill, where the ERs do require it, I cannot find anything on this job that asks for it. It is GBP 8,276.91 inside the client's number with no mention in the clarifications. If Jason queries it I would rather we had an answer ready.
+
+WHAT I HAVE NOT DONE
+
+I have not raised any new requests. There are 23 open and unanswered already, so the scaffolding and the guarantee have gone into REQ-29 — which is already the "do we reissue" question — rather than becoming two more things waiting on you. REQ-6 and REQ-29 are both on the hub with one-click options.
+
+Nothing has gone to Guildmore from me.
+
+One more, separate from this job: our pricing workbook carries somebody else's identity in its file properties. The creator is "Dan Parker, dan.parker@agsurveying.co.uk" and there are two links to other people's files, including one called "The Datum Group Electrical - TEMPLATE". It is not a Princess Beatrice slip — it is templates/MASTER PRICING DOC.xlsx itself, so every quote cloned from it carries it. I checked Crestwood Park, Brocks Hill, Gordon Court and SM5 Wexham and they all do. Gordon Court cleaned a copy for their own job back on the 9th but the template was never fixed, which is why two more went out carrying it on the 27th. Fixing the template once fixes it forever — that is REQ-27, now broadened.
+
+Timing on all of it: Guildmore said on 6th July they would issue a fully developed design in 4-6 weeks for a full and final offer. That lands mid-August, so there is a natural moment to put a corrected proposal in front of them rather than reissuing cold.
+
+Mary
