@@ -68,32 +68,33 @@ if ($ReaderAppId -eq $SenderAppId) { throw "Reader and sender app ids are identi
 if ($ReaderAppId -eq $MaryReaderAppId) { throw "That is MARY's reader id. Jacob needs his own app - see Part A." }
 Ok "app ids look sane and are not Mary's"
 
-# Jay: resolve rather than assume. If the given address is wrong, look for a
-# sensible candidate and stop so a human can confirm - never guess silently.
+# Jay: resolve rather than assume. He is optional - the access policies are the
+# security-critical part of this script, and refusing to create them because an
+# unrelated mailbox is missing would leave the tenant MORE exposed, not less.
+# So a missing or mailbox-less Jay warns and is skipped, loudly, twice.
+$jaySkipped = $null
 $jay = $null
 try { $jay = Get-Recipient $JayAddress -ErrorAction Stop } catch { }
 if ($null -eq $jay) {
-    Warn "$JayAddress did not resolve. Candidates:"
-    Get-Recipient -ResultSize Unlimited |
-        Where-Object { $_.PrimarySmtpAddress -like "*jay*" -or $_.DisplayName -like "*Jay*" } |
-        Format-Table DisplayName, PrimarySmtpAddress, RecipientTypeDetails | Out-Host
-    throw "Re-run with -JayAddress <the correct address> once you have picked one from the list above."
+    $jaySkipped = "$JayAddress does not resolve at all"
+    Warn $jaySkipped
+    Warn "Continuing without Jay - everything else still gets locked down."
 }
-Ok ("Jay resolves: {0} <{1}> [{2}]" -f $jay.DisplayName, $jay.PrimarySmtpAddress, $jay.RecipientTypeDetails)
+else {
+    Ok ("Jay resolves: {0} <{1}> [{2}]" -f $jay.DisplayName, $jay.PrimarySmtpAddress, $jay.RecipientTypeDetails)
 
-# Get-Recipient happily returns distribution groups, mail users and contacts -
-# none of which have a mailbox Graph can read. Adding one to the scope group
-# succeeds and then fails later with MailboxNotEnabledForRESTAPI, which is
-# exactly what happened on the first run.
-if ($jay.RecipientTypeDetails -notmatch "UserMailbox|SharedMailbox") {
-    throw ("{0} is a {1}, not a mailbox - Graph cannot read it (MailboxNotEnabledForRESTAPI). " -f
-           $jay.PrimarySmtpAddress, $jay.RecipientTypeDetails) +
-          "Find Jay's real mailbox with: Get-Recipient -ResultSize Unlimited | " +
-          "Where-Object { `$_.RecipientTypeDetails -match 'Mailbox' -and `$_.DisplayName -like '*Jay*' } " +
-          "then re-run with -JayAddress <that address>."
-}
-if ($jay.RecipientTypeDetails -like "*UserMailbox*") {
-    Warn "This is a personal mailbox, not a shared one. Jacob will be able to read all of it."
+    # Get-Recipient happily returns users with no mailbox, distribution groups,
+    # mail users and contacts - none of which Graph can read. Adding one to the
+    # scope group succeeds and then fails later with MailboxNotEnabledForRESTAPI.
+    if ($jay.RecipientTypeDetails -notmatch "UserMailbox|SharedMailbox") {
+        $jaySkipped = ("{0} is a {1}, not a mailbox - Graph cannot read it" -f
+                       $JayAddress, $jay.RecipientTypeDetails)
+        Warn $jaySkipped
+        Warn "Usually means no Exchange Online licence. Assign one, then re-run this script."
+        $jay = $null
+    } elseif ($jay.RecipientTypeDetails -like "*UserMailbox*") {
+        Warn "This is a personal mailbox, not a shared one. Jacob will read all of it."
+    }
 }
 
 foreach ($m in @("commercial@$Domain", "info@$Domain")) {
@@ -123,7 +124,8 @@ if (Get-Recipient $jacobAddr -ErrorAction SilentlyContinue) {
 
 # ---------------------------------------------------------------- scope group
 Step "Read-scope group"
-$members = @("commercial@$Domain", "info@$Domain", $jacobAddr, $jay.PrimarySmtpAddress)
+$members = @("commercial@$Domain", "info@$Domain", $jacobAddr)
+if ($null -ne $jay) { $members += $jay.PrimarySmtpAddress }
 $group = Get-DistributionGroup -Identity jacob-scope -ErrorAction SilentlyContinue
 if ($null -eq $group) {
     New-DistributionGroup -Name "Jacob Mailbox Scope" -Alias jacob-scope `
@@ -181,13 +183,19 @@ function Check ($mailbox, $appId, $expect, $why) {
         else                { Warn ("{0,-34} {1,-8} EXPECTED {2} - {3}" -f $mailbox, $r, $expect, $why) }
     } catch { Warn "$mailbox - could not test: $($_.Exception.Message)" }
 }
-Check $jay.PrimarySmtpAddress $ReaderAppId "Granted" "Jacob reads Jay"
+if ($null -ne $jay) { Check $jay.PrimarySmtpAddress $ReaderAppId "Granted" "Jacob reads Jay" }
 Check "commercial@$Domain"    $ReaderAppId "Granted" "Jacob reads commercial"
 Check "info@$Domain"          $ReaderAppId "Granted" "Jacob reads info"
 Check "paul@$Domain"          $ReaderAppId "Denied"  "Jacob cannot read personal mailboxes"
 Check $jacobAddr              $MaryReaderAppId "Denied" "Mary cannot read Jacob"
 Check "estimating@$Domain"    $ReaderAppId "Denied"  "Jacob cannot read estimating (Mary's)"
 
+if ($jaySkipped) {
+    Write-Host "`nJAY WAS SKIPPED" -ForegroundColor Yellow
+    Say $jaySkipped
+    Say "Everything else is locked down. Add him with:"
+    Say "  Add-DistributionGroupMember -Identity jacob-scope -Member <address>"
+}
 Write-Host "`nDone. Two things that look wrong and are not:" -ForegroundColor Cyan
 Say "Policies take well over an hour to actually bite, so Graph may keep serving"
 Say "mailboxes that Test- already reports as Denied."
