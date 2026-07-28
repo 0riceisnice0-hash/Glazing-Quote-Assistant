@@ -2722,3 +2722,39 @@ Secured by Design compliance on the CUSTOMER and state the supplier "does not wa
 Product supplied shall comply", default the U-value to "no better than 1.8" (up to 3.0 on commercial doors and
 framing) and deliver frames UNGLAZED unless stated. On a Part Q / SBD job where the proposal claims PAS24, that
 document decides who is exposed. Read the advisory notes, not just the priced lines.
+
+
+## Adam on how to write to him, and the finding it cost (28/07/2026)
+
+**"Can you be more concise. It seems at the moment you are 'thinking out loud'. It makes what you say hard to
+digest, we need the information presented in a readable concise manner. I am but mere flesh and blood."**
+Repeated on a second request the same evening: "please email me and be concise in your wording."
+
+This is not a style preference, it is a report that the output is not usable. A ~40-line Princess Beatrice email
+led with a proof, and the two live money items inside it - a scaffold clause that deducts from works value and an
+unpriced guarantee premium - sat far enough down that he answered the headline and never reached them. **Conclusion
+first. Then only the evidence that changes what he does.** The working belongs in the job file and the manifest,
+where it is retrievable, not in his inbox.
+
+## A missing number is not automatically a mistake
+
+Princess Beatrice: GBP 39,680 of install is exactly the house labour codes over 217 units, and the same codes give
+GBP 9,570 on Brocks Hill, a new-build block with no window to remove - so the rate is demonstrably fit-only and
+there is no strip-out money in the quote. All correct. The conclusion drawn from it was wrong. Adam: *"we had a lot
+across this job compared to the material costs. Therefore I decided I would include the strip out (effectively FOC)
+in order to remain competitive."*
+
+**A deliberate commercial concession is indistinguishable from an omission when you are looking only at the
+workbook.** Arithmetic tells you what is there and cannot tell you why. Where a scope item has no money against it,
+report that it cannot be found and ask whether it was priced deliberately - do not report a gap. The residual that
+survives either way is worth stating: giving away frame removal is not the same decision as giving away whatever
+the client's bill means by the word, which at Guildmore includes making good brickwork, pointing and plaster and
+out-of-sequence return visits.
+
+## The optional-mastic line comes out where the pricing charges for it
+
+Adam, closing REQ-6: *"We made a mistake on this one. We need to ensure we will have mastic exclusions removed when
+sending pricing."* Found on three jobs in one day - Princess Beatrice (bill B68-B70 name the Tremco Illbruck
+sealants as bullets of the window renewal item), Crestwood Park (REQ-7, the same shape with Teleflex) and Georgie's
+(spec 2.33.12). Treat the template's optional-mastic line as wrong by default and go looking for the clause. The
+fix is forward, on the template; nothing goes back to clients already holding one.

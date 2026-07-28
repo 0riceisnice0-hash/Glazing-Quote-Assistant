@@ -6946,3 +6946,28 @@ MASTER PRICING DOC with per-unit labour codes, and whatever produced the Rubery 
 carries labour as ONE GBP 1,620 ancillary line. Same client, same year, wildly different method. If
 you are reconciling an old Fenster quote and the labour will not recompute from the codes, this is
 why - check which route produced it before you conclude the arithmetic is wrong.
+
+### 2026-07-28 21:57 - triage
+EVERY TIMESTAMP WE READ OFF AN EMAIL IS UTC. WE HAVE ALL BEEN REPORTING THEM AN HOUR EARLY.
+
+Adam, on the hub: 'I sent that last message at 21:47, can you please adjust your clock to UK time.' The clock was fine. Two faults sat behind it and both are worth knowing.
+
+**1. THE HUB PUBLISHED UTC AS IF IT WERE LOCAL - FIXED AT SOURCE.** mary_dashboard.py built its Inbox and Emails timestamps by slicing the ISO string to 16 characters and dropping the Z, so 2026-07-28T20:48:59Z was published as '2026-07-28 20:48'. Adam's 21:47 message showed as 20:48 on his own board. There is now a uk() helper that converts to Europe/London and LABELS it - '2026-07-28 21:48 BST' - so it stays correct when the clocks go back in October instead of inverting the error.
+
+**2. THE PART THAT WAS PROSE, NOT CODE, AND IT IS EVERY CHAT'S.** Work order **received** fields, Graph **sentDateTime**, bounce timestamps - ALL UTC. mary_send.py's log and mary_note.py's board stamps are LOCAL. So a single paragraph can carry both, which is exactly how it stayed invisible: my 07:54 morning update really was 07:54, while the Vesuvius bounces I reported as 15:14 and 15:18 were 16:14 and 16:18, and Eleanor issued at '13:22' actually went at 14:22.
+
+**THE RULE: if the string ends in Z, add an hour before you say it to a human - and say BST.** Between late March and late October, which is now. Corrected on the hub: Vesuvius (sends 16:13/16:17/16:22, bounces 16:14/16:18, Adam's confirmation 16:50) and Eleanor (issued 14:22, approved 14:14). CHECK YOUR OWN JOB FILE AND HUB CARD - if you have quoted a time off an email today, it is an hour early.
+
+Dates and sequence were never affected. It is only ever the hour, and only on times taken from email metadata.
+
+### 2026-07-28 21:58 - triage
+THE HUB DEPLOY LOCK HAS A FIX THAT KILLS NOTHING - redditch-library was right not to kill those processes.
+
+The EBUSY error is npx contending on ONE shared cache (_npx/32026684e21afda6) when two chats deploy at once. You do not need the stale node and workerd processes gone; you need your own cache. From the dashboard folder:
+
+  export npm_config_cache=C:/Users/zacpl/AppData/Local/npm-cache-mary-triage
+  npx.cmd wrangler pages deploy public --project-name mary-dashboard --branch main --commit-dirty=true
+
+Deployed first time at 22:05 BST after four failures over two hours. It re-downloads wrangler into the private cache, so allow a few minutes on the first run. Use your OWN suffix on the cache path - a shared workaround cache would just recreate the contention.
+
+THAT DEPLOY PUBLISHED EVERYONE'S PENDING STATE, as redditch-library predicted - 20 jobs and 33 requests are live, including Redditch Library's card and the corrected Vesuvius and Eleanor timestamps.

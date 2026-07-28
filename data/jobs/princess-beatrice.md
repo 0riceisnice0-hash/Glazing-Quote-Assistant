@@ -38,7 +38,55 @@ every supplier document in this folder.
 
 ---
 
-## The live issue: strip-out
+## SETTLED 28/07 EVENING — Adam has ruled on both open questions
+
+**Strip-out was a deliberate commercial decision, not a gap. I framed it wrong.**
+Adam, by email 28/07 21:01 BST:
+
+> "Regarding the strip out, we had a lot across this job compared to the material costs. Therefore I
+> decided I would include the strip out (effectively FOC) in order to remain competitive."
+
+And on the hub at 21:47 BST: *"I have already addressed this with you."* **REQ-29 closed.**
+
+Everything below about the arithmetic stands — there genuinely is no strip-out money in the £279,244.69,
+and the new-build control proves the labour code is fit-only. What was wrong was the conclusion I hung on
+it. He saw the strip-out content against the material cost and gave it away to win the job; the margin
+carries it, and his answer to Jason Mount was accurate. **A priced decision looks identical to an omission
+from inside the workbook.** Next time: say the money cannot be found and ask whether it was deliberate,
+rather than reporting a gap.
+
+**Mastic: our mistake, and the fix is forward.** Adam on REQ-6, hub 21:32 BST:
+
+> "We made a mistake on this one. We need to ensure we will have mastic exclusions removed when sending
+> pricing. … No action to be taken on this point re the mastic."
+
+Nothing goes to Guildmore and the issued pricing document stands. The standing change is to the proposal:
+where the pricing charges for mastic, the "optional extra" line comes out before the pack is sent. Three
+jobs found this in one day (here, Crestwood REQ-7, Georgie's spec 2.33.12), so it is now house policy.
+**REQ-6 closed.**
+
+**And a third instruction, which is about me rather than this job.** Adam: *"when you are writing to me, can
+you be more concise. It seems at the moment you are 'thinking out loud'. It makes what you say hard to
+digest… I am but mere flesh and blood."* My strip-out email ran ~40 lines and buried two live money items
+so deep that he answered the headline and never reached them. Conclusion first; only the evidence that
+changes what he does.
+
+### What is still open, and where it sits
+
+| Item | Status |
+|---|---|
+| **Scaffolding (bill B21)** — deducts from works value anything not detailed in the tender return; we returned a blanket exclusion | **With Adam by email 28/07**, on his own instruction to email further issues. Fixable by sending Guildmore a schedule before commencement. |
+| **Insurance-backed FENSA guarantee (bill B72)** — premium and policy to the Employer before PC, against our self-backed warranty | **With Adam by email 28/07.** Lower Range Road asks for the same. |
+| **What Guildmore mean by "Strip out"** — their line also carries making good brickwork, pointing and plaster, and out-of-sequence return visits | **Watch at sub-contract order stage.** Giving away frame removal is not the same decision as giving away builder's work. Not reopened — it bites at order, not now. |
+| **EPDM £8,276.91** — no requirement located in the bill or the ERs | Not pressed. No money moves and nobody is asking; have an answer ready if Jason queries it. |
+| Modeal-for-Technal on the **windows** as well as the doors; A Plus disclaiming PAS24/SBD; final clean excluded against a bill that requires it | Recorded below. All bite at the mid-August reprice, not before. |
+
+**Ownership:** this job is ISSUED, so Jacob owns chasing and logging (Adam's ruling, 28/07). It comes back
+to this chat only for pricing — which it will, when Guildmore's fully developed design lands mid-August.
+
+---
+
+## The strip-out analysis (still valid — read it as background to a settled decision)
 
 Jason Mount, 27/07 19:21 — *does the quote allow for removal of the existing windows, and if not what is
 the additional sum.* Adam answered him direct at 19:56:
