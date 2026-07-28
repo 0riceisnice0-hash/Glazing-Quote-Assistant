@@ -1,0 +1,82 @@
+Adam,
+
+Unit 1 Eleanor Trade Centre. Your Liniar point is answered and closed, but the quote that went
+out at 13:22 has landed in an empty inbox and it is missing a document it refers to.
+
+TWO THINGS THAT NEED A PERSON, AND ONE SEND FIXES BOTH.
+
+1. MARK GOLDEN IS OUT OF OFFICE. His auto-reply came back at 13:23, one minute after Gintare's
+   quote went to him. It has no return date. It says: new enquiries and current projects to
+   DAVID PITCHER and JAY TAYLOR, admin and payments to info@bradfordwatts.co.uk, or the office
+   on 01992 657555. The quote went to mgolden@ only, copied to you - so nobody at Bradford Watts
+   knows it exists. They are on the Priority Customer list, and JLL want this finished by the end
+   of September.
+
+2. THE QUOTATION SAYS TO READ IT WITH TERMS AND CONDITIONS THAT ARE NOT IN IT.
+   The last line of the pricing document reads "This pricing document should be read in
+   conjunction with the Terms and Conditions." The workbook has one sheet. There are no terms in
+   it, and the email carried nothing else except the drawings.
+
+   This is not a Gintare slip, it is the template. The old one - "Pricing Doc 23.03.2026.xlsx" -
+   had four sheets: Cover Letter, Quotation, Drawings, Terms & Conditions. The current
+   MASTER PRICING DOC has one sheet, "Pricing Document", and it still carries that sentence on
+   its face. I searched the whole Commercial archive for a standalone Fenster T&Cs file to attach
+   instead - there isn't one. Every "terms and conditions" document in there belongs to a supplier
+   or a main contractor. So the terms exist only inside the old template.
+
+   On this job that is not academic. Mark wrote "IF YOU ALLOW the following measurements". Nothing
+   has been measured, and we have never seen the JLL ground floor plans the new fenestration is
+   supposed to match. The one sentence that protects us is T&C clause 2 - "All quotations are
+   subject to final site survey and measurement verification" - and it is in the document the
+   client does not have. Same for the 30-day validity, the 50% deposit, and retention of title.
+
+   Bradford Watts did get our terms in April, on this same project, because the April quote used
+   the old template. But the July quote is a new offer.
+
+   So: when the quote is re-sent to Pitcher or Taylor, send the terms with it. That is one action
+   that fixes both problems.
+
+YOUR LINIAR POINT - ANSWERED, NOTHING TO DO.
+You were reading BSW's own quote. QT252983 dated 20/07 is headed "LINIAR PVCu" and the item under
+it is a SHEERLINE Prestige Casement. Their template header, not the product. The price settles it:
+GBP 462.80 a window against a Liniar uPVC benchmark of about GBP 193/m2 and a Sheerline benchmark
+of about GBP 495/m2. That is an aluminium buy. Gintare's document was corrected before it went and
+reads "Sheerline Aluminium Window". I also checked the drawing pack we sent the client, text and
+raw file both - no "LINIAR", no supplier name, no prices, nothing of BSW's or Bellview's in it.
+Clean.
+
+THE QUESTION THAT IS COMING BACK, WORTH HAVING READY.
+April: GBP 4,252.16 for six uPVC windows, ground and first floor, the whole elevation.
+July:  GBP 7,975.85 for four aluminium windows and a door, ground floor only.
+They asked for a REDUCED package and the number nearly doubled. It is right, but somebody will ask.
+The reason in one line: the windows changed from uPVC to aluminium, GBP 244/m2 to GBP 875/m2, and
+the GBP 3,334.65 entrance door did not exist in April at all. Strip the door out and the window
+money is GBP 3,501.20 against GBP 1,833.09 for the three ground-floor uPVC windows it replaces.
+
+EIGHT DAYS OF UNCOVERED PRICE. Both supplier quotes are dated 20/07 and both hold for thirty days,
+so BSW QT252983 and Bellview 0000000491 expire on 19/08. Our own validity runs thirty days from
+issue, to 27/08. That is eight days where we are committed and GBP 3,685.85 of buy is not. Worth a
+price hold from BSW if this drags, and it will drag, because the man who has to accept it is away.
+
+REQ-27 - THIS ONE IS STILL HAPPENING, NOT HISTORY. The pricing document that went to Bradford Watts
+five hours ago carries dan.parker@agsurveying.co.uk as its author, both external links to the
+Outlook caches on Liam O'Donnell's and Parke's machines, 50 defined names from electrical and
+structural steel, and 202 cached values from those workbooks. So does the April quote to the same
+client. That is the seventh and eighth affected documents, and the seventh is today's. I have added
+it to REQ-27 rather than raising anything new - it is the same file and the same five minutes of
+work, and the missing Terms & Conditions sheet is a second defect in that same template, so both
+get fixed in one pass.
+
+SMALLER, FOR WHOEVER PLACES THE ORDER, NOT FOR NOW.
+- BSW state the EXTERNAL colour only, "7016M Anthracite Grey - M". The internal face is nowhere on
+  the quote. Bellview describe the door only as "Anthracite Grey" with no RAL number and no gloss
+  level. Four matt 7016M windows beside a door of unstated shade, on the same elevation, is the
+  sort of thing that gets noticed after it is installed.
+- JLL also asked Bradford Watts for cladding over the first floor windows. Mark never passed that
+  to us and our quote says nothing about it either way - it reads as neither in nor out. Those are
+  the three first-floor windows we quoted in April, so it is worth knowing whether it is coming.
+- Nobody has given Bradford Watts a lead time. JLL asked them to shorten theirs and to finish by
+  the end of September. Our quotation does not mention one.
+
+The estimating log still shows this as "Sent to ADAM" and carries no deadline, which is correct -
+the client has never given one. The 27/08 on the board is our own validity, not theirs.

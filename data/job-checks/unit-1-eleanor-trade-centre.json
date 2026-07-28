@@ -1,0 +1,281 @@
+{
+ "job": "Unit 1 Eleanor Trade Centre (as issued to Bradford Watts 28/07/2026 13:22)",
+ "created": "2026-07-28",
+ "coupled_runs": [],
+ "doors": [
+  {
+   "ref": "Double entrance door 1800 x 2200",
+   "fire_exit": false,
+   "panic_hardware_priced": false
+  }
+ ],
+ "frame_supply": "glazed",
+ "glass_order": {
+  "placed": false
+ },
+ "quantities": [
+  {
+   "ref": "Windows 1000 x 1000",
+   "bill_qty": 4,
+   "drawing_qty": 4
+  },
+  {
+   "ref": "Double door 1800 x 2200",
+   "bill_qty": 1,
+   "drawing_qty": 1
+  }
+ ],
+ "spec_items": [
+  {
+   "ref": "4no opening windows, ground floor",
+   "treatment": "priced"
+  },
+  {
+   "ref": "1no double entrance door",
+   "treatment": "priced"
+  },
+  {
+   "ref": "Cladding over the first floor windows",
+   "treatment": "excluded - JLL asked Bradford Watts for this on 13/07; Bradford Watts never passed it to Fenster and our document says nothing about it"
+  }
+ ],
+ "supplier_quotes": [
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT252983",
+   "date": "2026-07-20",
+   "used_net": true,
+   "valid_until": "2026-08-19",
+   "value": 1851.2
+  },
+  {
+   "supplier": "Bellview Products Ltd",
+   "ref": "0000000491",
+   "date": "2026-07-20",
+   "used_net": true,
+   "valid_until": "2026-08-19",
+   "value": 1834.65
+  }
+ ],
+ "full_height_screens": [],
+ "systems_specified": [
+  {
+   "system": "Sheerline Prestige",
+   "fabricator": "BSW"
+  },
+  {
+   "system": "SMA Shopline",
+   "fabricator": "Bellview"
+  }
+ ],
+ "finishes": [
+  {
+   "ref": "Windows 1000 x 1000 (BSW QT252983)",
+   "specified_internal": "RAL 7016",
+   "specified_external": "RAL 7016",
+   "quoted_internal": null,
+   "quoted_external": "7016M Anthracite Grey - M"
+  },
+  {
+   "ref": "Double door 1800 x 2200 (Bellview 0000000491)",
+   "specified_internal": "RAL 7016",
+   "specified_external": "RAL 7016",
+   "quoted_internal": "Anthracite Grey",
+   "quoted_external": "Anthracite Grey"
+  }
+ ],
+ "u_value": {
+  "required": null,
+  "basis": "none stated - the client asked for 'standard double-glazed units' and set no U-value",
+  "rejected_elements": []
+ },
+ "supplier_coverage": [
+  {
+   "ref": "Windows 1000 x 1000",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "BSW QT252983"
+  },
+  {
+   "ref": "Double door 1800 x 2200",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "Bellview 0000000491"
+  }
+ ],
+ "price_commitment": {
+  "source": "Fenster T&Cs clause 2 - 30 days from issue; issued 28/07/2026. NOTE the client has not been given those T&Cs, and the pricing document is dated 23/07 not 28/07, so which date the 30 days runs from is genuinely ambiguous.",
+  "our_price_open_until": "2026-08-27"
+ },
+ "delivery_terms": [
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT252983",
+   "order_value": 1851.2,
+   "free_delivery_threshold": null,
+   "charge_basis": "'All estimates are ex works, additional delivery charges may apply' - printed on the face of the quote",
+   "delivery_priced": false
+  },
+  {
+   "supplier": "Bellview Products Ltd",
+   "ref": "0000000491",
+   "order_value": 1834.65,
+   "free_delivery_threshold": null,
+   "charge_basis": "the quotation states no delivery basis at all",
+   "delivery_priced": false
+  }
+ ],
+ "incorporated_terms": [
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT252983",
+   "document": "'Orders are subject to acceptance and terms and conditions of sale, available on request' - we have not requested them",
+   "held": false
+  },
+  {
+   "supplier": "Bellview Products Ltd",
+   "ref": "0000000491",
+   "document": "no terms referenced anywhere on the quotation",
+   "held": false
+  }
+ ],
+ "qualification_regime": {
+  "document": "none - this is a direct email enquiry from Mark Golden 14/07/2026, not an ITT. No Form of Tender, no tender return form, nothing to sign at quotation stage.",
+  "clause": null,
+  "qualifications_permitted": true,
+  "we_must_sign": false
+ },
+ "priced_lines": [
+  {
+   "ref": "SMA Shopline double door 1800 x 2200",
+   "amount": 3334.65,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "Sheerline Prestige windows 1000 x 1000 x4",
+   "amount": 3501.2,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "Installation",
+   "amount": 1140.0,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "External mastic (optional, below the total)",
+   "amount": 120.0,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "EPDM (optional, below the total)",
+   "amount": 199.0,
+   "covered_by_our_exclusions": false
+  }
+ ],
+ "bought_in_lines": [
+  {
+   "ref": "SMA Shopline double door 1800 x 2200",
+   "amount": 3334.65,
+   "supplier_ref": "Bellview 0000000491",
+   "supplier_qty": 1,
+   "supplier_qty_basis": "per door",
+   "spec_required_qty": 1,
+   "spec_qty_basis": "per door"
+  },
+  {
+   "ref": "Sheerline Prestige windows 1000 x 1000 x4",
+   "amount": 3501.2,
+   "supplier_ref": "BSW QT252983",
+   "supplier_qty": 4,
+   "supplier_qty_basis": "per window",
+   "spec_required_qty": 4,
+   "spec_qty_basis": "per window"
+  }
+ ],
+ "issued_documents": [
+  {
+   "name": "Quotation - Unit 1 Eleanor Trade Centre.xlsx",
+   "path": "test-results/mary-inbox/queue/20260728T1322-zQFgAAAA-att/Quotation - Unit 1 Eleanor Trade Centre.xlsx",
+   "is_the_priced_document": true,
+   "exclusions_stated": false
+  },
+  {
+   "name": "Window and Door Drawings.pdf",
+   "path": "test-results/mary-inbox/queue/20260728T1322-zQFgAAAA-att/Window and Door Drawings.pdf",
+   "is_the_priced_document": false,
+   "exclusions_stated": false
+  }
+ ],
+ "exposures": [
+  {
+   "item": "Every dimension in the quote is a client allowance. Mark Golden wrote 'If you allow the following measurements' - nothing has been measured, and JLL's ground floor plans have never been seen by Fenster.",
+   "lands_on": "Fenster",
+   "our_recourse": "Fenster T&Cs clause 2 - 'All quotations are subject to final site survey and measurement verification' - WHICH WAS NOT SUPPLIED WITH THE QUOTATION"
+  },
+  {
+   "item": "Both supplier prices expire 19/08/2026; our quote stays open to 27/08/2026. Eight days where we are committed and our suppliers are not, on GBP 3,685.85 of buy.",
+   "lands_on": "Fenster",
+   "our_recourse": "none - re-quote BSW and Bellview if acceptance lands after 19/08"
+  },
+  {
+   "item": "BSW quote is ex works, delivery not in the price; Bellview states no delivery basis at all. The GBP 1,140 installation line does not say whether it carries carriage.",
+   "lands_on": "Fenster",
+   "our_recourse": "none recorded"
+  },
+  {
+   "item": "BSW state the external colour only. The internal face colour of the four windows is nowhere on the quotation.",
+   "lands_on": "Fenster",
+   "our_recourse": "none - confirm with BSW before any order is placed"
+  },
+  {
+   "item": "Windows are Sheerline (BSW) and the door is SMA Shopline (Bellview). Nobody has seen a ground floor elevation showing whether they sit in one coupled run - if they do, this is the SM5 Wexham coupling all over again.",
+   "lands_on": "Fenster",
+   "our_recourse": "none - the JLL plan has never reached us"
+  }
+ ],
+ "performance": {
+  "required": {},
+  "capable": true,
+  "evidence": "The enquiry sets no thermal, acoustic or security performance at all. Mark Golden asked for 'standard double-glazed units' and nothing else; there is no ITT, no specification and no Building Regulations submission in front of us. BSW have quoted 4/20/4 ECOPlus Clear Tuff Black warm edge, a 28mm unit. If this is a change of use or the fenestration is being altered under Building Regulations Part L, a U-value WILL be required and nobody has asked - but that question belongs to Bradford Watts, not to us."
+ },
+ "warranty": {
+  "ours": {
+   "period_months": 120,
+   "scope": "all glass and frame products supplied and installed - defects in materials as supplied and workmanship in installation",
+   "start_date": null,
+   "usage_cap": null,
+   "exclusions": [
+    "misuse",
+    "accidental or intentional damage",
+    "vandalism",
+    "inadequate or incorrect maintenance",
+    "severe weather and other external factors"
+   ]
+  },
+  "suppliers": [
+   {
+    "supplier": "BSW Window Solutions",
+    "ref": "QT252983",
+    "covers": null,
+    "period_months": null,
+    "start_date": null,
+    "usage_cap": null,
+    "exclusions": [],
+    "exclusions_complete": false
+   },
+   {
+    "supplier": "Bellview Products Ltd",
+    "ref": "0000000491",
+    "covers": null,
+    "period_months": null,
+    "start_date": null,
+    "usage_cap": null,
+    "exclusions": [],
+    "exclusions_complete": false
+   }
+  ]
+ },
+ "own_domains": [
+  "fensterglazing.com"
+ ]
+}

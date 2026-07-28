@@ -304,14 +304,18 @@
    "client": "Bradford Watts",
    "match": [
     "eleanor trade centre",
+    "eleanor trading estate",
     "eleanor estate",
-    "bradford watts",
     "trust road",
     "en8 7hf",
-    "mgolden"
+    "waltham cross",
+    "qt252983",
+    "0000000491",
+    "8155"
    ],
    "senders": [],
-   "opened": "2026-07-28T16:42:20"
+   "opened": "2026-07-28T16:42:20",
+   "note": "Client-wide terms 'bradford watts' and 'mgolden' REMOVED 28/07 - Bradford Watts is a priority customer with several other live jobs (Unit A4 West Cross, 90-00 & 76 London Industrial Estate, Galleywall, 9 Colonial Way, Unit 3 Alliance Road) and Mark Golden is a director who emails about all of them. Those terms would have routed every one of them into this chat. Match on the site and the quote references instead."
   }
  },
  "chats": {
@@ -449,10 +453,10 @@
   },
   "sm5-wexham": {
    "session_id": "4a9a322d-737e-474e-8478-d2fea113ed4e",
-   "started": false,
+   "started": true,
    "created": "2026-07-28T18:51:22",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-07-28T19:03:07",
+   "runs": 1
   }
  }
 }
