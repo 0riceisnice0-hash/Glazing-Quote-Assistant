@@ -3408,6 +3408,83 @@ know that is why?"** — which is not a check you can run over a document, only 
 
 ---
 
+## 4AN. FORTY-SECOND TURN (28/07) — the letter's "NOT URGENT" rested on a date the ITT marks TBC
+
+### 4AN.1 riverside's case slip, run on my strongest absence claim — it holds
+
+Their `[Aa]erodynamic` missed `AERODYNAMIC` in capitals and returned **zero where the answer was four**, in
+the sweep written to test for pattern faults. Their rule: **if a probe returns zero where you expected
+something, print the neighbourhood before you believe it.**
+
+**BSW letter C7 asserts "the word aerodynamic appears nowhere in the 186-page NBS."** That is the load-
+bearing claim under the whole geometric-versus-aerodynamic question. Re-run case-insensitively over all
+**186 pages, 356,855 characters**: `aerodynamic`, `Aerodynamic`, `AERODYNAMIC` and a case-insensitive sweep
+all return **0**. `Cv` and *coefficient of discharge* also 0. **The claim holds.**
+
+**One refinement the recount produced:** `geometric` appears **7** times, but **only 2 are the free-area
+specifications** — the AXS140 stairwell and lobby ventilators. The other five are *geometrical tolerances*
+to BS EN 13670 and *geometric shapes* on signage to BS ISO 7001. **So "the pack is written geometric" rests
+on two lines, not seven** — true, and thinner than a raw count suggests.
+
+### 4AN.2 My own two-figures sweep reported clean because three of its patterns could never match
+
+riverside ran the two-figures test across all eight documents **simultaneously** and found four of five
+flags were their own artefacts. Ran mine across all three letters at once — and it returned **"0 issues"**
+with **three patterns matching nothing at all**.
+
+**The cause was in the sweep, not the letters.** I normalised the text *and the pattern* with the same
+operation:
+
+```
+pat.replace(',', '')     →     {4,7}  becomes  {47}
+```
+
+**A quantifier demanding forty-seven consecutive digits.** `1[78][\d,]{4,7}\.\d\d` could never match
+183005.42 or anything else. **A sweep written to catch inconsistency reported the letters clean because it
+was incapable of matching them.**
+
+Re-run with patterns written comma-free by construction: **14 quantities, every one carrying exactly one
+value, across all three letters.** Genuinely clean this time — the BSW correction from §4AM held, no
+residual £182,787.76, and the AFS extras trace (256.37 + 250.00 = 506.37).
+
+**Both of us wrote a pattern-fault sweep this hour and both sweeps contained pattern faults.** Theirs
+under-reported and nearly cost a true claim; **mine over-reported clean, which nobody would ever have
+re-checked.**
+
+### 4AN.3 Their connective sweep — 29 claims, and two needed changing
+
+*because, since, so, therefore, which means, as a result, which is why, given that, on the basis that* —
+**29 across the three letters, 18 asserting a fact about somebody else's document.** Most were verified at
+source earlier this week. Two were not:
+
+**(a) "approximately 15 July" was a hedge concealing a computable fact.** The ITT states *"Bidders may raise
+questions relating to this tender up to 5 working days prior to the tender return deadline"* and gives the
+return as **22 July 2026 @ 1400**, a Wednesday. Five working days back is **Wednesday 15 July 2026** —
+exactly. Now stated with its derivation instead of an "approximately".
+
+**(b) And the bigger one — the letter's own "NOT URGENT" rested on a provisional date.** It said *"jLiving's
+own timetable puts the award announcement at 16 September 2026, so there is no need to press for answers
+before then."* The ITT's timetable actually reads:
+
+| Stage | ITT entry |
+|---|---|
+| Tender Return | 22 July 2026 @ 1400 |
+| Bidder Presentations | **TBC** 02 September 2026 |
+| Tender Award Announcement | **TBC** 16 September 2026 |
+| Standstill Period | **TBC** 30 September 2026 |
+| Award | **TBC** Mid October 2026 |
+| Go Live | **TBC** 30 October 2026 |
+
+**Every stage after the 22 July return is marked TBC.** The qualifier was in the source document, in the
+same cell as the date, and never reached my letter — while the sentence built on it justifies the entire
+document's lack of urgency. Rewritten to quote the TBCs and say *"16 September is indicative rather than
+fixed… we are not treating the date as certain."*
+
+**That is the qualifier-decay failure on the load-bearing sentence rather than on a detail** — and it
+travelled one step, from the ITT cell to my paragraph.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

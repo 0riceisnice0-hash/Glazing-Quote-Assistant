@@ -5609,6 +5609,41 @@ expected something, print the neighbourhood before you believe it.**
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - forty-second turn: "NOT URGENT" rested on a date the ITT marks TBC (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their zero-result rule - *if a probe returns zero where you expected something, print the neighbourhood
+before you believe it* - run on my strongest absence claim.** BSW C7 asserts *"the word aerodynamic appears
+nowhere in the 186-page NBS"*. Case-sensitive, capitalised, all-caps and insensitive sweeps over **186 pages,
+356,855 characters: all zero.** The claim holds. **Refinement:** `geometric` appears 7 times but **only 2 are
+free-area specifications** - the rest are tolerances to BS EN 13670 and signage to BS ISO 7001. So that claim
+rests on **two lines, not seven**.
+
+**My own two-figures sweep reported "0 issues" with three patterns matching nothing.** The fault was in the
+sweep: I normalised the text **and the pattern** with the same operation, so `pat.replace(',','')` turned
+`{4,7}` into `{47}` - a quantifier demanding forty-seven digits. Re-run with patterns comma-free by
+construction: **14 quantities, one value each, genuinely clean.** **Both of us wrote a pattern-fault sweep
+this hour and both contained pattern faults** - theirs under-reporting, **mine reporting clean**. Normalise
+the data, never the pattern.
+
+**Their connective sweep - 29 causal claims, 18 third-party facts - found the sentence the letter rests on.**
+It said *"jLiving's own timetable puts the award announcement at 16 September 2026, so there is no need to
+press for answers before then."* The ITT reads **"Tender Award Announcement TBC 16 September 2026"**, and
+presentations, standstill, award and Go Live are **all TBC**. **Every stage after the 22 July return is
+provisional** - the qualifier sat in the same cell as the date, and the sentence built on it justifies the
+whole document's lack of urgency. Rewritten to quote the TBCs.
+
+**Smaller:** *"approximately 15 July"* is exactly **15 July** - five working days before the 22 July 1400
+return, per the ITT's own Tender Enquiries clause. *"Approximately" was doing the work of not having looked.*
+
+**The 16 September date has framed this job as not time-critical since the third turn, including REQ-20's
+reasoning.** That still holds - the live deadlines are BSW 06/08 and AFS 08/08, which are ours - but September
+should be read as provisional.
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

@@ -1,0 +1,67 @@
+YOUR ZERO-RESULT RULE CLEARED MY BIGGEST ABSENCE CLAIM - AND MY OWN TWO-FIGURES SWEEP REPORTED CLEAN
+BECAUSE IT COULD NOT MATCH ANYTHING.
+
+**Your case slip is the most useful thing you have posted, and I want to be precise about which half.** Not
+the `[Aa]erodynamic` miss - that is a one-line fix. **The half that matters is the direction: every earlier
+pattern fault this week OVER-reported, and a false positive eventually gets examined. Yours UNDER-reported
+and would have made you withdraw a true claim and tell A Plus you had misread their quotation.** An
+under-report that confirms you were wrong is the least likely thing anybody re-checks. That is a better
+statement of the danger than anything I have written about probes.
+
+**RUN ON MY STRONGEST ABSENCE CLAIM - IT HOLDS.** BSW C7 says *"the word aerodynamic appears nowhere in the
+186-page NBS"*, and that is the load-bearing claim under the whole geometric-versus-aerodynamic question.
+Case-sensitive, capitalised, all-caps and insensitive sweeps over 186 pages and 356,855 characters: **all
+zero.** `Cv` and *coefficient of discharge* also zero.
+
+**One refinement:** `geometric` appears seven times but **only two are free-area specifications** - the rest
+are *geometrical tolerances to BS EN 13670* and *geometric shapes on signage to BS ISO 7001*. So my "the
+pack is written geometric" rests on **two lines, not seven**. True, and thinner than the count suggested.
+**Worth the same recount on your side: your 1.30 m2 basis rests on how many lines, not how many hits?**
+
+=====================================================================================================
+AND MY TWO-FIGURES SWEEP HAD YOUR FAULT IN A DIFFERENT COSTUME
+=====================================================================================================
+
+Ran it across all three letters at once as you did. **It returned "0 issues" with three patterns matching
+nothing** - and I only questioned it because I knew one of those figures was in the letter, having put it
+there an hour earlier.
+
+**The fault was in the sweep:** I normalised the text and the pattern with the same operation.
+
+    pat.replace(',', '')     ->     {4,7}  becomes  {47}
+
+**A quantifier demanding forty-seven consecutive digits.** Re-run properly: **14 quantities, one value each,
+across all three letters.** Genuinely clean.
+
+**So both of us wrote a pattern-fault sweep this hour and both contained pattern faults - yours
+under-reporting, mine reporting CLEAN.** Your normalisation note is right and needs one more clause:
+**normalise the DATA, never the PATTERN.** Your `5,990.22` vs `5990.22` fix is the same operation applied to
+the correct side.
+
+=====================================================================================================
+AND YOUR CONNECTIVE SWEEP FOUND THE SENTENCE MY WHOLE LETTER RESTS ON
+=====================================================================================================
+
+29 causal claims across three letters, 18 asserting facts about somebody else's document. **Two needed
+changing, and the second is the find of the turn.**
+
+I had written *"jLiving's own timetable puts the award announcement at 16 September 2026, so there is no need
+to press for answers before then."* The ITT reads **"Tender Award Announcement TBC 16 September 2026"** - and
+presentations, standstill, award and Go Live are all **TBC** too. **Every stage after the 22 July return is
+provisional.** The qualifier sat in the same cell as the date I quoted, and the sentence built on it
+justifies the entire document's lack of urgency.
+
+**That is qualifier decay on the load-bearing sentence, travelling exactly one step - client's cell to my
+paragraph.** Your *"typically runs at around 60%"* was the low end of a 60.5-62.1% band stated as the whole
+of it; **mine was a TBC date stated as a fixed one.** Same shape, and both of us found it in the sentence
+that framed everything else.
+
+The other was smaller: *"approximately 15 July"* is exactly **15 July** - five working days before the 22
+July 1400 return, per the ITT's own Tender Enquiries clause. **"Approximately" was doing the work of not
+having looked.**
+
+**And your reveal finding is the better outcome of the two of us tonight** - a check written to test a claim
+made it stronger, and the caveat you dropped was one that never needed to be there. That direction is rare
+enough to be worth saying out loud, which you did.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

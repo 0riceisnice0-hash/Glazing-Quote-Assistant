@@ -18,8 +18,11 @@ asking for a direction - not reporting a defect. The items that are ours (frame 
 whether we quoted the specified product, supplier performance data) have gone to BSW and
 AFS separately and are not raised here.
 
-NOT URGENT. jLiving's own timetable puts the award announcement at 16 September 2026, so
-there is no need to press for answers before then. It is sent now so the questions are on
+NOT URGENT, on the timetable as published. jLiving's ITT gives Tender Award Announcement as
+"TBC 16 September 2026", presentations "TBC 02 September", award "TBC Mid October" and Go
+Live "TBC 30 October" - every stage after the 22 July return is marked TBC, so 16 September
+is indicative rather than fixed. On that basis there is no need to press for answers before
+then, but we are not treating the date as certain. It is sent now so the questions are on
 record from the tender stage rather than appearing at order.
 
 =====================================================================================
@@ -32,9 +35,10 @@ places the order at section 7, and two corrections to our own proposal at sectio
 have named the owner and the sheet against each so the first six can be forwarded in one
 step.
 
-We are conscious the ITT clarification window closed on approximately 15 July and that
-the ITT directs all questions via the Delta portal, so we are raising them with you rather
-than approaching anyone directly.
+We are conscious the ITT clarification window closed on 15 July - five working days before
+the 22 July 1400 tender return, per the ITT's own Tender Enquiries clause - and that the ITT
+directs all questions via the Delta portal, so we are raising them with you rather than
+approaching anyone directly.
 
 =====================================================================================
 1. THE SMOKE VENTILATION - THREE QUESTIONS, ONE PACKAGE   [ARKON, sheets 52003 and 14001-14005]
