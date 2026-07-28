@@ -2665,6 +2665,72 @@ drawings PDF.** Reported to them rather than worked around.
 
 ---
 
+## 4AC. THIRTY-FIRST TURN (28/07) — I broke the same protection riverside did, and found where Adam's figure came from
+
+### 4AC.1 riverside's print-area fault, replicated here exactly
+
+They found the house template's print area **deliberately stops before the buy-price columns**, and that
+their external-link clean had destroyed it — because a print area is stored as a defined name,
+`_xlnm.Print_Area`, inside the same `<definedNames>` block as the 50 foreign ones.
+
+**I used the identical `re.sub` and made the identical mistake.**
+
+| | print area |
+|---|---|
+| Issued to Chigwell | `'Pricing Document '!$B$1:$H$71` |
+| **My cleaned copy** | **NONE** |
+
+**And there were two of ours, not one.** riverside restored `_xlnm.Print_Area`; this workbook also carries
+**`_xlnm.Print_Titles` = `$2:$7`**, the repeating header rows. I destroyed both.
+
+Rebuilt **selectively** — filtering name by name and keeping anything `_xlnm.*` — rather than restoring the
+range by hand, so the code now embodies their lesson instead of just recovering from it: **50 foreign names
+removed and named, 2 ours kept, 257 cells identical, £368,376.70 intact, 0 external links, 0 leaks.**
+
+### 4AC.2 Their buy-price exposure does NOT replicate on the issued file — and the reason is worth keeping
+
+**Zero cells outside the print area on the issued document.** No supplier names, no buy split, nothing to
+the right of column H.
+
+But that is not because of the print area. It is because **this job keeps a separate working file**:
+
+| File | cells | what is in it |
+|---|---|---|
+| `…Gordon Court Pricing.xlsx` (issued) | **257** | sell only |
+| `…Gordon Court Pricing DO NOT SEND.xlsx` | **504** | cost codes, and **258 cells right of column H** — `K3 "Supplier used:"`, `L3 "BSW"`, `M3 182787.76`, `L4 "Aluminium Fire System"`, `M4 18298.94`, `M5 201086.70` |
+
+**So the control that worked here is the filename, not the print area** — and note the DO NOT SEND file's
+own print area is `$C$1:$I$71`, which **would not have protected columns K, L and M** had anyone sent it.
+Two different controls: riverside's protects a print of one file; this protects by keeping two. **Mine is
+the more robust of the two, and only because somebody remembered to make a second file.**
+
+### 4AC.3 Where Adam's £201,086.70 actually came from — correcting turn 21
+
+At the twenty-first turn I told Adam the exposure figure in REQ-20 was wrong by £217.66 and explained it as
+*"REQ-20 used 6,868.26 for QT252257"* — phrased as though I had chosen that figure.
+
+**I had not. It is cell M5 of the working pricing document**: `182,787.76 + 18,298.94 = 201,086.70`, and
+`M3 = 182,787.76` is the same BSW figure the BSW draft letter quotes. The correct BSW total is
+**£183,005.42**, so **the workbook itself is £217.66 light** — the £217.50 panel set-up plus 16p.
+
+**The arithmetic in that correction was right and the attribution was wrong.** The discrepancy is in the
+source workbook, not in my transcription of it — which matters, because it means the same £217.66 will
+recur on anything else built from that sheet, and fixing my note would not have fixed it.
+
+### 4AC.4 Two mirror checks, both clean, both reported as clean
+
+- **riverside's foreign-document check** — their processed inbox mixes another job's supplier quotation
+  with theirs. **No other job's documents anywhere in the Gordon Court folder.**
+- **The DO NOT SEND discipline held.** The issued file is the 257-cell sell-only version; the 504-cell
+  working file was not what went. The two differ in **596 cells**, so they are genuinely different
+  documents and not a stale duplicate.
+
+**Neither of these makes the margin safe on this job.** Chigwell have it anyway, from the five supplier
+quotations attached as "Elevations" — §4AB. **A control that works on one document is worth nothing if the
+same information travels in another**, and that is the sharper version of both findings.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

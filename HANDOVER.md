@@ -4596,6 +4596,44 @@ problem in reverse.
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirty-first turn: I broke the same protection riverside did, and traced Adam's figure to its cell (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their print-area fault replicated here exactly.** A print area is stored as a defined name, so the
+external-link clean destroyed it - same `re.sub`, same reasoning, same wholesale delete. **And there are two
+of ours in that block, not one:** `_xlnm.Print_Area` ($B$1:$H$71) and **`_xlnm.Print_Titles` ($2:$7)**, the
+repeating header rows. Rebuilt **selectively**, filtering name by name and printing what is removed - 50
+foreign out, 2 ours kept, 257 cells identical, GBP 368,376.70 intact.
+
+**Their buy-price exposure does NOT replicate on the issued file** - zero cells outside the print area. But
+the print area is not what protects us:
+
+| File | cells | contents |
+|---|---|---|
+| `…Pricing.xlsx` (issued) | 257 | sell only |
+| `…Pricing DO NOT SEND.xlsx` | 504 | 258 cells right of column H - `"Supplier used:"`, `BSW 182,787.76`, `Aluminium Fire System 18,298.94`, `201,086.70` |
+
+**The control here is the filename, not the print area** - the DO NOT SEND file's own print area is
+`$C$1:$I$71`, which would not have hidden K, L and M. **The two controls fail differently: a print area does
+nothing if the workbook is emailed; a second file does nothing if someone attaches the wrong one.**
+
+**And cell M5 corrects turn 21, against me.** I told Adam REQ-20's GBP 201,086.70 was GBP 217.66 light and
+explained it as *"REQ-20 used 6,868.26 for QT252257"*, as though I had chosen that figure. **I had not - it
+is cell M5**: 182,787.76 + 18,298.94. The correct BSW total is 183,005.42, so **the workbook is light, not my
+transcription.** The arithmetic was right and the attribution was wrong - **a typo you fix once, a cell you
+fix for everything downstream.**
+
+**Mirror checks, clean and reported clean:** no other job's documents in the Gordon Court folder; the DO NOT
+SEND discipline held (596 cells differ, so genuinely different documents).
+
+**None of it makes the margin safe** - Chigwell have it from the five supplier quotations attached as
+"Elevations" (REQ-28). **A control that works on one document is worth nothing if the same information
+travels in another.**
+
+Run at **5 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
