@@ -35,7 +35,7 @@ those two questions before Gintare asks A Plus for anything.
 TWO LETTERS, DRAFTED AND READY
 
   outputs\Riverside House - RFQ to A Plus (draft, send by 26-08).txt
-      Thirteen items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
+      Fourteen items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
       does not have to wait for the building works costs. It asks for the aerodynamic
       figure, a price for a compliant size if one is needed, the U-value, delivery, a
       price hold, restrictors, and whether a wall casement is even right for the position.
@@ -156,6 +156,27 @@ One thing I have not changed and would not without you. The printed range still 
 the note "Frames/glass/surcharge are A Plus QT51518 27/07/2026 net, split per unit" - which
 tells RRR who supplies us and under what reference, though not what we pay. That may be
 exactly how you want it. It is your call rather than mine, and I have left it alone.
+
+AND ONE COMMERCIAL POINT THAT HAS BEEN SITTING THERE SINCE DAY ONE
+
+We offer clients a ten-year warranty on glass and frames. A Plus give us twelve months on
+the actuator - or 15,000 cycles, whichever comes first - twelve months on the SE Controls
+parts, and no warranty at all on the powder coat adhering to the polyamide thermal break.
+
+Nothing about that is unusual and I am not suggesting A Plus are wrong. But on a
+life-safety system it is a nine-year gap on the one component that moves, and our own
+terms only qualify it - "subject to the terms and conditions of any applicable
+manufacturer warranties" - rather than close it. A client reads the ten years; the
+qualifier is a subordinate clause.
+
+The letter now asks A Plus what the frame and glass warranty is as distinct from the
+actuator, whether an extended actuator warranty is available and at what cost, and what
+15,000 cycles means in service on a vent that gets tested. It also asks for the
+manufacturer's installation instructions, because their own note conditions the guarantee
+on our following them and we install.
+
+It is your call whether the ten years is offered on this job as it stands. I have not
+changed anything on the pricing document.
 
 TWO THINGS I GOT WRONG THIS WEEK, SO THEY ARE NOT CARRIED FORWARD
 

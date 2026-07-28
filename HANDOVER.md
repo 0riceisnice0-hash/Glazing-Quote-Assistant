@@ -6078,6 +6078,66 @@ you have.**
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, ten years against twelve months
+
+Gordon Court took the read-what-comes-next check to **the supplier's paper rather than the client's** and
+found a five-year glass warranty gap in **clause 6 of a clause set they had quoted from five times**:
+*"mining a document is not reading it, and the more often you mine one the more certain you become that
+you have read it."*
+
+**Run here, and the back-to-back had never been run on this job in thirty turns.**
+
+    we offer RRR     "a 10-year warranty covering all glass and frame products supplied and
+                      installed by the company... defects in materials (as supplied) and
+                      workmanship (installation)"
+
+    A Plus give us    twelve months on SE Controls products from delivery completion;
+                      15,000 CYCLES OR 12 MONTHS, WHICHEVER IS SOONER on the actuator;
+                      "NO WARRANTY IS EXTENDED on the adhesion of the powder coat to the
+                      polyamide"
+
+**A nine-year gap on the one component that moves**, on a life-safety system - plus **an outright
+exclusion on a finish our own warranty covers** as *"defects in materials (as supplied)"*, and **a cycle
+cap our warranty has no equivalent of.** Checked before claiming it was new: the two manifest exposures
+matching *warrant* are the Part B and windload **disclaimers**, not the warranty **term**, and the
+comparison appears nowhere.
+
+**And one half of it is ours to discharge, costs nothing, and had never been done.** *"...and must be
+installed in accordance with the manufacturers instructions."* **We install. We do not hold the
+instructions.** Gordon Court found the identical condition in AFS clause 6.4, on doorsets they install and
+AFS do not. Here it is one clause of a sentence this chat has quoted repeatedly for its cycle count and
+never once read for its condition.
+
+**Our own saving clause does less than it looks.** *"Subject to the terms and conditions of any applicable
+manufacturer warranties"* is real and is in the terms document now issued with the price - but **it
+qualifies the ten years rather than closing the gap: a client reads the headline and the qualifier is a
+subordinate clause.** RFQ item 14 now asks A Plus for the frame and glass warranty as distinct from the
+actuator, whether an extended actuator warranty exists and at what cost, what 15,000 cycles means in
+service on a routinely tested vent, and the installation instructions. **The covering note puts the choice
+to Adam and says plainly that nothing on the pricing document has changed.** Letter now 14 items.
+
+**And the mechanism is a third one, which scales worst with effort:**
+
+    a gap BETWEEN documents             diff two exclusion schedules      Riverside, Part K
+    a gap INSIDE a sentence             read past your own quotation      Gordon Court, AD K
+    a gap INSIDE a document you know    read the clause set THROUGH       Gordon Court, clause 6
+
+**None of the three finds either of the others.** The third is protected by familiarity - **every visit
+that finds what you came for is evidence you know the document.** Five visits to A Plus's advisory notes
+here produced the delivery threshold, the storage clock, the one-phase clause, the windload note and the
+Part B disclaimer; the warranty paragraph sat two bullets from the last of them.
+
+**Two smaller things from their post.** Their AFS clause 6.3.1 sets a **24-hour defect-notification
+window** from delivery to their own yard; **A Plus's equivalent is not on the quotation at all**, which
+means it is in the Terms of Sale nobody has requested - **the fourth distinct reason to send that one-line
+request**, and the first that could start running the moment goods arrive. And their **WER sweep came back
+clean** across the NBS spec, Energy Statement, ITT and Q&As - **so A Plus's "minimum window energy rating
+of C" is a supplier house rule rather than an industry-wide requirement**, which changes how hard RRR
+should be pressed on it. **A finding that does not replicate is still a result.**
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

@@ -12,7 +12,7 @@ After that date these two sentences below are no longer accurate:
   - "Anything we put to A Plus before then is an addendum to a live quote"
   - item 6's "QT51518 is open for 30 days, to 26/08/2026" written as a future event
 
-THE THIRTEEN QUESTIONS REMAIN VALID and the letter can still go. Add one line asking
+THE FOURTEEN QUESTIONS REMAIN VALID and the letter can still go. Add one line asking
 A Plus to reconfirm the GBP 4,845.22 alongside their answers, and treat item 2's
 resize as priced against a figure that may move rather than one that is fixed.
 
@@ -220,5 +220,26 @@ this further, plus one item we would like added.
    (a) roughly how long after manufacture would the 3 working days start to run?
    (b) is there a normal arrangement for holding goods for a short period, and at what cost?
    We would rather build that into the programme than discover it.
+
+14. THE WARRANTY, AND THE INSTALLATION INSTRUCTIONS THAT CONDITION IT
+   We offer our clients a ten-year warranty on glass and frames, covering defects in
+   materials as supplied and in workmanship. Reading your notes back:
+     - "Products manufactured and sold by SE Controls are guaranteed against faults due to
+       defective materials or workmanship for twelve months from the date of delivery
+       completion."
+     - "All actuators are guaranteed for 15,000 cycles or 12 months, whichever is sooner,
+       and must be installed in accordance with the manufacturers instructions."
+     - "No warranty is extended on the adhesion of the powder coat to the polyamide."
+   We are not asking you to match ten years and we are not suggesting anything is wrong -
+   twelve months on an actuator is normal. But we would like to know exactly where we
+   stand before we quote a ten-year figure to a client on a life-safety system:
+   (a) what is the warranty period on the frame, the glass and the finish, as distinct
+       from the actuator?
+   (b) is there an extended warranty available on the actuator, and at what cost?
+   (c) the 15,000-cycle limit - on a smoke vent subject to routine testing, roughly what
+       service life does that represent in your experience?
+   (d) please send the manufacturer's installation instructions for the actuator. We
+       install, your note conditions the guarantee on following them, and we would rather
+       read them before we start than be told about them afterwards.
 
 Many thanks,

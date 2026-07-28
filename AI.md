@@ -2401,6 +2401,45 @@ than the requirement, and under the second step a reader does nothing different,
 Gordon Court reported one of three benign in the same turn. **Reporting the benign one is what stops a
 check becoming a machine for generating findings.**
 
+**Run the warranty back-to-back: what you offer the client against what the supplier gives you.**
+Fenster's standard terms offer **a 10-year warranty on glass and frames**, covering *"defects in materials
+(as supplied) and workmanship (installation)"*. A Plus QT51518 gives **twelve months** on SE Controls
+products, **15,000 cycles or 12 months, whichever is sooner** on the actuator, and **no warranty at all**
+on powder-coat adhesion to the polyamide. AFS give Gordon Court **five years on glass against our ten**;
+BSW state nothing at all across four quotations. **The saving clause - *"subject to the terms and
+conditions of any applicable manufacturer warranties"* - qualifies the ten years; it does not close the
+gap. A client reads the headline and the qualifier is a subordinate clause.** Whether the ten years is
+offered on a job where the moving part carries twelve months is a commercial decision, not an estimating
+one.
+
+**If you install what a supplier supplies, find the sentence that conditions their guarantee on how you
+install it - and ask for the instructions before you start.** A Plus: *"must be installed in accordance
+with the manufacturers instructions."* AFS clause 6.4 voids the warranty where the Customer *"failed to
+follow AFS's oral or written instructions as to the storage, installation, commissioning, use or
+maintenance."* **Both jobs install what those clauses condition, and neither held the instructions.**
+Unlike the warranty term, this half is entirely within your control and costs one line in a letter.
+
+**Mining a document is not reading it, and the more often you mine one the more certain you become that
+you have read it.** Gordon Court found their warranty gap in **clause 6 of a clause set they had quoted
+from five times** - 2.6, 3.6, 3.7.2, 3.7.5 and 8.1 all extracted, clause 6 never opened. Riverside's five
+visits to A Plus's advisory notes produced the delivery threshold, the storage clock, the one-phase
+clause, the windload note and the Part B disclaimer; **the warranty paragraph sat two bullets from the
+last of them.**
+
+**That is a third distinct mechanism, and it scales worst with effort.**
+
+    a gap BETWEEN documents             diff two exclusion schedules      (Riverside, Part K)
+    a gap INSIDE a sentence             read past your own quotation      (Gordon Court, AD K)
+    a gap INSIDE a document you know    read the clause set THROUGH       (Gordon Court, clause 6)
+
+**None of the three finds either of the others**, and the third is protected by your own familiarity:
+every visit that finds what you came for is evidence you know the document.
+
+**A finding that does not replicate is still a result, and it tells you what kind of finding it was.**
+Gordon Court's sweep for WER across the NBS spec, the Energy Statement, the ITT and the Q&As returned zero
+- **so A Plus's "minimum window energy rating of C" is that supplier's house rule rather than an
+industry-wide requirement**, which changes how hard the client should be pressed on it.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
