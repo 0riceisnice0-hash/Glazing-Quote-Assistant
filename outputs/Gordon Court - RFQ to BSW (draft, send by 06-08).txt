@@ -158,14 +158,29 @@ C3. ACOUSTIC TRICKLE VENTS. Schedule 52002 carries an "Acoustic Trickle Vents" c
     Please price Passivent AL-dB 450 or equal to the marked positions. We will confirm
     the count on the new-window schedule separately.
 
-C4. PAS 24 AND THIRD-PARTY CERTIFICATION. NBS L10 clause 330 requires the windows to
-    comply "To BS6375-1, BS6375-2, BS6375-3, EN 14351-1 and Pas24", and clause 205
-    requires "Independent, 3rd Party Certification Schemes" with "documentation
-    confirming Certifications claimed". None of these standards is referenced on any of
-    the four quotations.
-    Please confirm compliance and supply the certification documentation. If any of the
-    quoted configurations is not PAS 24 rated, please tell us which and price the
-    difference.
+C4. PAS 24 AND THIRD-PARTY CERTIFICATION. Two clauses of NBS specification
+    5244-ARK-9001, quoted in full so that we are not paraphrasing the specification at
+    you:
+
+        330 Windows & Roof Windows
+          1. Standard: To BS6375-1, BS6375-2, BS6375-3, EN 14351-1 and Pas24.
+
+        205 Window materials specification (newer)
+          1. Third-party certification: Submit proposals
+          2. Verification: Independent, 3rd Party Certification Schemes
+             2.1. Submittals: Submit documentation confirming Certifications claimed
+             2.2. Timing: Before completion of detailed design
+
+    None of those standards is referenced on any of the four quotations.
+
+    Note that 205 carries a submission and a deadline as well as a standard - proposals
+    and compliance documentation are due BEFORE COMPLETION OF DETAILED DESIGN, not at
+    delivery. So:
+    (a) please confirm the quoted configurations comply with clause 330, and tell us
+        which if any are not PAS 24 rated, with the price difference to make them so; and
+    (b) please supply, or tell us you can supply, the third-party certification
+        documentation clause 205 calls for, so we can meet its timing rather than
+        discover it at design freeze.
 
 C5. MANIFESTATION. NBS L20 clause 280 requires manifestation to the communal main
     entrance doors. Please price two bands to the glazed communal doors, which we

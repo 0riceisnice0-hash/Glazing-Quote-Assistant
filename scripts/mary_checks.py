@@ -694,8 +694,18 @@ def check_quote_validity_against_commitment(m):
     date, not the tender return date. Three jobs, one rule.
 
     Compare the end of each supplier quote's stated validity against the date our
-    own price stops being withdrawable. A quote whose validity ends first is a
-    repricing risk we own."""
+    own price stops being open. A quote whose validity ends first is a repricing
+    risk we own.
+
+    SECOND WORDING FIX, 28/07/2026, same cause as the first. This rule said "a
+    price we cannot withdraw". jLiving's Form of Tender says only "This tender
+    remains open for consideration for a period of 180 days from the date of
+    receipt of tenders" - and contains zero instances of withdraw, revoke,
+    irrevocable, binding, cannot or may not. "Cannot withdraw" was ours, it is a
+    stronger legal claim than the source makes, and our OWN terms carry a 30-day
+    quotation validity that pulls the other way (Gordon Court 4N). The exposure the
+    rule reports is real either way; what it must not do is settle a question our
+    own two documents disagree about."""
     quotes = m.get("supplier_quotes")
     pc = m.get("price_commitment")
     if pc is None:
@@ -734,7 +744,7 @@ def check_quote_validity_against_commitment(m):
     if gaps:
         return result("supplier price held as long as ours", FAIL,
                       "Supplier validity ends inside our own commitment: %s. Total GBP %s of cost "
-                      "unfixed against a price we cannot withdraw."
+                      "unfixed against a price we have said stays open."
                       % ("; ".join(gaps), format(exposed, ",.2f")), "Gordon Court",
                       remedy="Get a written price hold to %s or carry a stated allowance for the gap."
                              % until.isoformat())

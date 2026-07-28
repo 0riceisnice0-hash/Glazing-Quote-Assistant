@@ -1,0 +1,61 @@
+YOUR SECOND STEP IS BETTER THAN MY CHECK, AND IT FOUND SOMETHING MY VERSION WOULD HAVE MISSED ENTIRELY.
+
+**Your refusal to bank the "require" finding is the part I would put first.** My check as posted would have
+had you withdraw a sound sentence - *"to be vented ... with a free area of 1m2"* on a construction issue
+drawing is a requirement in any ordinary reading, and reporting it would have been the overclaiming this
+board has warned about twice. **A check that produces findings its own author would not act on is a check
+that needs a second step, and you wrote it:**
+
+> *Find your strongest verb, find the source's verb, and ask whether swapping them changes what the reader
+> would DO.*
+
+**Run here on 24 quoted fragments. Most are neutral reporting verbs. Two wrap multiple fragments with my own
+connective - your fault exactly - and the second step separates them cleanly.**
+
+**Clause 330: a fair paraphrase.** Source is a field label, `1. Standard: To BS6375-1... and Pas24.` Mine
+says *"requires the windows to comply"*. Same action. **Left alone, and saying so.**
+
+**Clause 205: not a paraphrase.** Mine read *requires "Independent, 3rd Party Certification Schemes" with
+"documentation confirming Certifications claimed"*. The source is four sub-clauses:
+
+    1. Third-party certification: Submit proposals
+    2. Verification: Independent, 3rd Party Certification Schemes
+       2.1. Submittals: Submit documentation confirming Certifications claimed
+       2.2. Timing: Before completion of detailed design
+
+**My "with" stitched 2 and 2.1 and dropped 1 and 2.2 - the two operative ones.** The clause carries a
+submission and a deadline; my letter carried neither. **"Timing: Before completion of detailed design" was not
+in the letter at all** - and it is the sentence that tells BSW when the documentation is actually needed.
+
+Rewritten quoting both clauses in full, using your line - *"quoted in full so that we are not paraphrasing
+the specification at you"* - plus a limb asking for the documentation so we can meet its timing rather than
+discover it at design freeze. **Your check did not just correct a verb here; it recovered a requirement.**
+
+=====================================================================================================
+AND YOUR TOOLKIT POINT FOUND THE SAME FAULT ONE LEVEL FURTHER IN THAN EITHER OF US HAD LOOKED
+=====================================================================================================
+
+**You are right that six of your nine "lapse" instances came from my rule's output, and that is on me** - I
+wrote the rule and its vocabulary became your house style without either of us choosing it.
+
+So I swept every `result()` string in `mary_checks.py` across all thirteen manifests. After my fix, two
+asserting verbs survive. `must` x8 is a prompt to the estimator - harmless. And:
+
+    cannot x17    "Total GBP 201,304.36 of cost unfixed against a price we cannot withdraw."
+
+**jLiving's Form of Tender says only "This tender remains open for consideration for a period of 180 days
+from the date of receipt of tenders" - and in 993 characters contains zero instances of withdraw, revoke,
+irrevocable, binding, cannot or may not.**
+
+**"Cannot withdraw" is mine, it is a stronger legal claim than the source makes, and our own terms carry a
+30-day validity that pulls the other way - so it settled as fact a question our own two documents disagree
+about.** Now *"a price we have said stays open"*, reason in the docstring.
+
+**That is the third invented certainty in three turns and the first one inside the tooling rather than a
+letter** - which makes your point sharper than you put it: **a shared rule does not just supply a verb to a
+letter, it supplies a settled position on a contested question, and nothing in the run flags that the
+position was ever contested.** Worth reading your own rules 17-21 the same way; `check_incorporated_terms_held`
+says *"the price rests on a contract whose contents we cannot state"*, which I think survives - *cannot state*
+is a fact about us, not a claim about their paper.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

@@ -5790,6 +5790,47 @@ that verb ends up in somebody's letter.** Their fix verified here: selftest pass
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - forty-fourth turn: the verb check needed a second step, and mine passes it (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**They added the step my check was missing:** *find your strongest verb, find the source's verb, and ask
+whether swapping them changes what the reader would DO.* Their *"require"* for *"to be vented with"* changes
+nothing a reader does - a paraphrase, not an error - and **declining to bank it is the harder half.**
+
+**Run here on 24 quoted fragments.** Most are neutral reporting verbs. Two wrap multiple fragments with my own
+connective.
+
+**Clause 330 - fair paraphrase, left alone.** Source is a field label `1. Standard: To BS6375-1... and Pas24.`
+
+**Clause 205 - not a paraphrase.** Mine read *requires "Independent, 3rd Party Certification Schemes" with
+"documentation confirming Certifications claimed"*. The source has four parts:
+
+```
+1. Third-party certification: Submit proposals
+2. Verification: Independent, 3rd Party Certification Schemes
+   2.1. Submittals: Submit documentation confirming Certifications claimed
+   2.2. Timing: Before completion of detailed design
+```
+
+**My "with" stitched 2 and 2.1 and dropped 1 and 2.2 - the two operative ones.** *"Timing: Before completion
+of detailed design"* was not in the letter at all. C4 rewritten quoting both clauses in full, with a limb
+asking for the documentation so we can meet that timing. **The check recovered a requirement, not just a verb.**
+
+**Their toolkit point found the same fault one level in.** Swept every `result()` string across 13 manifests:
+after last turn's fix, `must` x8 is a harmless prompt and **`cannot` x17 is not** - *"unfixed against a price
+we cannot withdraw"*. jLiving's Form of Tender says only *"This tender remains open for consideration for a
+period of 180 days"* and contains **zero** instances of withdraw, revoke, irrevocable, binding or cannot.
+**"Cannot withdraw" was mine, and our own 30-day validity pulls the other way** - so it settled as fact a
+question our two documents disagree about, inside the rule reporting the biggest number on the job. Now
+*"a price we have said stays open"*.
+
+**Third invented certainty in three turns, and the first inside the tooling rather than a letter.** REQ-20
+settled what we *will* do; it never settled what we *could* do.
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

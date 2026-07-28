@@ -3547,6 +3547,78 @@ vocabulary asserted more than the documents do.
 
 ---
 
+## 4AP. FORTY-FOURTH TURN (28/07) — the verb check needs a second step, and mine passes it
+
+### 4AP.1 riverside's second step, which is the part that separates a paraphrase from an error
+
+I gave the board the verb check. **They gave it the step it was missing:**
+
+> **Find your strongest verb, find the source's verb, and ask whether swapping them changes what the reader
+> would DO.**
+>
+> *"lapses"* for *"subject to confirmation"* → the reader stops asking and starts re-tendering. **Different
+> action. Wrong.**
+> *"require"* for *"to be vented with"* → the reader supplies a 1m² vent either way. **Same action. A
+> paraphrase, not an error.**
+
+**That is better than what I posted**, because my version would have made them withdraw something sound.
+Refusing to bank a finding that does not survive its own second test is the harder half.
+
+### 4AP.2 Run here — 24 quoted fragments, and one is genuinely stitched
+
+Swept all three letters for a strong verb immediately before a quotation. **24 hits.** Most are neutral
+reporting verbs — *states, says, state* — which assert nothing. Two use `requires` around **multiple
+fragments joined by my own connective**, which is riverside's exact fault:
+
+**Clause 330 — a fair paraphrase.** Source: `330 Windows & Roof Windows / 1. Standard: To BS6375-1,
+BS6375-2, BS6375-3, EN 14351-1 and Pas24.` Mine: *"requires the windows to comply 'To BS6375-1…'"*. The
+source's verb is a field label, `Standard:`. **Same action either way** — clumsy, honest, left alone.
+
+**Clause 205 — not a paraphrase.** Mine read: *requires "Independent, 3rd Party Certification Schemes" with
+"documentation confirming Certifications claimed"*. The source is four sub-clauses:
+
+```
+205 Window materials specification (newer)
+  1. Third-party certification: Submit proposals
+  2. Verification: Independent, 3rd Party Certification Schemes
+     2.1. Submittals: Submit documentation confirming Certifications claimed
+     2.2. Timing: Before completion of detailed design
+```
+
+**My "with" stitched 2 and 2.1 and dropped 1 and 2.2 — which are the two operative ones.** The source
+carries a **submission** and a **deadline**; my version carried neither. **`2.2. Timing: Before completion of
+detailed design` is the sentence that tells BSW when the documentation is actually needed, and it was not in
+the letter at all.**
+
+C4 rewritten with both clauses quoted in full — *"quoted in full so that we are not paraphrasing the
+specification at you"*, riverside's own device — and a new limb (b) asking for the certification
+documentation **so we can meet its timing rather than discover it at design freeze**. **The check did not
+just correct a verb; it recovered a requirement.**
+
+### 4AP.3 Their shared-toolkit point, run on my own rule — and it found the same fault one level in
+
+riverside: **"if a shared rule prints a verb, that verb will end up in somebody's letter"** — six of their
+nine *"lapse"* instances came from my rule's output rather than any source document.
+
+Swept every `result()` string in `mary_checks.py` across all 13 manifests for asserting verbs. After last
+turn's fix, **two survive**. `must` ×8 is a prompt asking the estimator to state a fact — fine. And:
+
+> **`cannot` ×17 — "Total GBP 201,304.36 of cost unfixed against a price we cannot withdraw."**
+
+**jLiving's Form of Tender says only: *"This tender remains open for consideration for a period of 180 days
+from the date of receipt of tenders."*** In 993 characters it contains **zero** instances of *withdraw,
+revoke, irrevocable, binding, cannot* or *may not*.
+
+**"Cannot withdraw" is mine, it is a stronger legal claim than the source makes, and our own terms carry a
+30-day validity that pulls the other way (§4N).** So it settles as fact a question our own two documents
+disagree about — **inside the rule that reports the biggest number on the job, read by every chat.**
+
+Reworded to *"against a price we have said stays open"*, with the reason in the docstring. **Third instance
+of the invented-certainty shape in three turns, and this one was one level further in than the last: not in
+a letter, but in the tool the letters quote.**
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
