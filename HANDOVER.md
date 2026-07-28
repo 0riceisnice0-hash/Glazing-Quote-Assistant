@@ -6133,6 +6133,63 @@ level smaller than the unit you have decided you finished.**
 Run **5 FAIL, 5 ASK**, 40 spec items. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Gordon Court - forty-eighth turn: our ten years covers glass and frames, and the escape gear is neither (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their withdrawal was worth more than their headline.** They had called it a nine-year actuator gap, then read
+our scope clause - *"all glass and frame products"* - and noticed **an actuator is neither.** Checked here
+against what the suppliers actually quoted: **thirteen named classes of operating gear.**
+
+| | named on the quotation |
+|---|---|
+| 124 windows | Yale Shootbolt locks · **Egress Hinges** · Signature handles · **eleven** Re*-Loc **restrictor** variants · internal and external **Linkvent** trickle vents |
+| 44 patio doors | Inline patio locks · Prolinea handles · 35x35mm security cylinders · trickle vents |
+| 15 external/communal | Standard Resi locks · Standard French locks · **Panic Bar** · 2D hinges · levers · thresholds |
+| 3 EI30 doorsets | **GEZE TS 5000 closer** · **FUHR 833 3-point automatic lock** · **WILKA panic shootbolt guides** · DR HAHN roller hinges · ECO SCHULTE handles |
+
+**Not one is a glass product or a frame product**, and among them the **egress hinges, the panic bar, eleven
+restrictor variants and a fire door's closer and automatic lock** are life-safety and fall-protection items on
+escape routes, with the **Linkvents** being the Part F trickle ventilation. **We warrant the frame around the
+escape mechanism for ten years and the mechanism for nothing.** Adam's call, on the dashboard.
+
+**And the inverse is free.** AFS cl.6.1 gives us **10 years on "mechanical aspects"** - longer than on their
+glass, and longer than our own clause gives on gear. **On the three doorsets we hold supplier cover we have
+never passed on.** Asked at 6(f) whether it reaches ironmongery branded to five other manufacturers. On the
+183 BSW units the gear is uncovered both ways; D2(a) now asks for the period **by class of gear**.
+
+**The start date replicates exactly.** Grepped every *"from the date of"* in the issued proposal: **one hit,
+the thirty days on quotation validity.** riverside got the identical result on the standing terms document, a
+different job, the same night. Only FAIL condition on our side of rule 22; this job now reads **6 FAILED**.
+
+**BSW never wrote an exclusion clause, so I assembled one** - riverside's rule: *where the supplier has no
+exclusion clause, the answer is not "no exclusions", it is "go and assemble one."* Eight sentences from the
+nine-line block at the foot of **every page of all four quotations**, six of which shift responsibility. Two
+live: **"Please check all items thoroughly. Bellview will not be held responsible for any items missing from
+quotes"** - **completeness of the quotation put on the purchaser**, which is exactly the boundary Parts A and B
+are about (no actuator on the AOVs, no Part K guarding priced, the £217.50 PANEL SET UP found late), and
+*"Bellview"* appears nowhere else on any of them; and **"All items viewed from the outside"**, which governs
+**handing** on a schedule with egress hinges and a panic bar. Raised as D4(a) and D4(b).
+
+**And the measurement.** riverside's second rule - *quoting a sentence for one purpose certifies it as read for
+all purposes.* Probed all nine sentences of that block against my four outputs, the job file and the manifest:
+**four had been quoted (the whole 06/08 validity argument, D1's ex-works, D2's terms of sale, the non-binding
+line) and five never had.** **Four sentences mined out of one six-line paragraph across four documents and
+twenty turns, and the first two lines of it never read.** Document, then clause, then sub-clause, now
+**paragraph**.
+
+**One thing handed back about rule 22.** It returned on `fails` alone, so **one line printed and seven ASKs did
+not** - the five-year glass gap, five orphan AFS exclusions, six orphan BSW ones, a supplier stating no period.
+Their FAIL/ASK ruling is right and stays; the fails now lead and **the queued asks are counted and named after
+them.** Same fault as the truncated `report()` and the displaced remedy field - **a correct ranking that
+silently drops everything it outranks.** And their cycle-cap arithmetic is accepted: 52 operations a year
+against 15,000 is ~288 years, so my BSW ask is reframed as disclosure rather than as a limit that bites.
+
+Spec items **41, 42, 43**, plus a structured `warranty` diff block.
+
+Run **6 FAIL, 5 ASK**, 43 spec items. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ### Riverside House AOV smoke vents (RRR Group) - 28/07, ten years against twelve months
 
 Gordon Court took the read-what-comes-next check to **the supplier's paper rather than the client's** and

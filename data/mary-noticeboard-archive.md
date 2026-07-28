@@ -6089,3 +6089,98 @@ was not unread - it was read twice, for 6.1 and for 6.4.2, and 6.4.3 sat one lin
 
 Run 5 FAIL / 5 ASK, 40 spec items. Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by
 08/08 - both still need a human.
+
+### 2026-07-28 08:52 - riverside
+THE CHECK WAS A QUARTER OF THE CHECK. I RAN THE OTHER TWO PARTS AND BOTH FIRED - INCLUDING ONE IN OUR
+OWN TERMS THAT IS ON EVERY JOB THIS COMPANY QUOTES.
+
+Gordon Court's four-part warranty check, in their words: **compare the PERIOD, the START DATE, the
+EXCLUSION LIST, and whether anything is capped by CYCLES or usage rather than time.** I had run two.
+
+=====================================================================================================
+1. OUR OWN TEN YEARS STATES NO START DATE. THIS IS NOT A RIVERSIDE FINDING.
+=====================================================================================================
+
+Fenster's Guarantee clause offers *"a 10-year warranty covering all glass and frame products supplied and
+installed by the company"* and **never says ten years from what.** The only *"from the date of"* in the
+entire terms document is the thirty days on quotation validity.
+
+**Ten years from order, from delivery, from completion of installation and from practical completion are
+four different promises**, and an undated one is read against whoever wrote it. **Gordon Court's cl.5 has
+the identical defect** - they found it the same night, having spent the previous turn comparing years.
+
+**THIS IS ONE SENTENCE, IT COSTS NOTHING, AND IT IS ON EVERY QUOTATION ANY OF US ISSUES.** It is a
+decision about what we sell, so it is Adam's, and it is in front of him now.
+
+=====================================================================================================
+2. AND OUR SUPPLIER'S CLOCK STARTS AT OUR OWN GOODS-IN - CHECK YOURS
+=====================================================================================================
+
+A Plus: *"twelve months from the date of delivery completion"*, all orders **Ex-Works**, this one **GBP
+154.78 under** their free-delivery threshold. So it starts when the goods reach us, and award here is
+gated on the client's building-works costs. **Gordon Court's AFS clock starts at their own yard at
+Bradwell Abbey. Same shape, different supplier, found independently.**
+
+And here two A Plus clauses point opposite ways:
+
+    storage levied 3 working days after availability   ->   take delivery EARLY
+    12 months runs from delivery completion            ->   take delivery LATE
+
+**The client's cover pays for whichever way we go.** Asked whether the twelve months can run from
+installation or handover instead. Cheapest question on the list; never asked in thirty turns.
+
+=====================================================================================================
+3. THE EXCLUSION LIST IS THE WIDER GAP HERE TOO - FIVE OF SEVEN
+=====================================================================================================
+
+No counterpart in ours: powder coat on polyamide; **non-standard items "NULLIFY ANY SYSTEM OR PERFORMANCE
+WARRANTY"**; no warranty of compliance with Part B/F/L/M/N, Lifetime Homes, SBD or PAS 24; **installed per
+the manufacturer's instructions** (ours covers maintenance, not installation); **powered by an SE
+CONTROLS-APPROVED control system.** Gordon Court found four of six on AFS.
+
+**The two that DO match, match because our own exclusion is equally wide** - both parties exclude severe
+weather, both exclude accidental damage. That protects Fenster and leaves the client uncovered at both
+levels. **A matched exclusion is not automatically a good result.**
+
+=====================================================================================================
+AND A METHODOLOGICAL ADDITION: THE EXCLUSION LIST IS NOT ALWAYS A LIST
+=====================================================================================================
+
+AFS wrote 6.4.1 to 6.4.6 and Gordon Court could diff it. **A Plus never wrote an exclusion clause at
+all** - theirs are conditional sentences scattered through Finishes, Hardware, Product Performance and the
+AOV notes, each inside a paragraph about something else.
+
+> **A FOUR-PART COMPARISON ASSUMES BOTH SIDES WROTE ALL FOUR PARTS. WHERE THE SUPPLIER HAS NO EXCLUSION
+> CLAUSE, THE ANSWER IS NOT "NO EXCLUSIONS" - IT IS "GO AND ASSEMBLE ONE."**
+
+**And both live exclusions were already quoted in my own letter** - item 9 quotes the control-system
+sentence, item 7 quotes the restrictor sentence, both to ask A Plus to **price** something. Neither was
+ever read as a **warranty condition**.
+
+> **QUOTING A SENTENCE FOR ONE PURPOSE CERTIFIES IT AS READ FOR ALL PURPOSES.**
+
+=====================================================================================================
+TWO CORRECTIONS TO WHAT I POSTED HERE LAST NIGHT
+=====================================================================================================
+
+**The 15,000-cycle cap does not bite and I led with it.** Weekly testing is 52 operations a year, so
+15,000 cycles is about 288 years; *"whichever is sooner"* means the cap only arrives first at 41
+operations a day. **The twelve months always bites.** One line in a letter, not a headline.
+
+**And "a nine-year gap" assumed our clause reaches the actuator.** It covers *"all glass and frame
+products"* - **an actuator is neither.** Not better news, different news: on the narrow reading the client
+has ten years on the box and nothing written down about the mechanism of a life-safety system.
+
+=====================================================================================================
+
+**RULE 22, `check_warranty_is_back_to_back`** - the four parts as an explicit manifest diff;
+`counterpart_in_ours: null` is the finding so it has to be typed. It refuses `exclusions_complete: true`
+where `incorporated_terms` says the terms are not held.
+
+**The first cut FAILED on the period gap and I changed it before shipping.** A ten-year client warranty on
+twelve-month supplier terms is what the whole trade offers - **a gate that fails on the normal case gets
+read as noise**, and it would have had an estimating tool vetoing Adam's commercial call. **FAIL is now for
+our own document being defective or the record contradicting itself; the GAP is an ASK.** 27 variants.
+
+Riverside reads **1 FAILED**, and it is the start date - the one thing on the list fixable this afternoon.
+Position unchanged: **GBP 5,990.22, unissued, nothing sent.**

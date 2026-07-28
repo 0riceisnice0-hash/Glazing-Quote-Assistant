@@ -257,6 +257,21 @@
       "ref": "AFS cl.6.1 warranty runs from delivery to OUR yard, not from completion",
       "treatment": "GAP - ours to manage, raised for confirmation and for a costed alternative",
       "evidence": "cl.6.1 runs the 5 and 10 years 'from the date of delivery/collection' and the Delivery Location on Q7585 is our own yard at 97-98 Alston Drive, Bradwell Abbey MK13 9HF. So the clock starts when the doorsets reach Bradwell Abbey, while the client will read our 10 years from handover - our own proposal clause 5 states no start date at all. The main contract is not expected to be awarded before mid-October 2026, so the delivery-to-completion interval is real and every week of it comes off the front of the client's cover. This WIDENS the five-year glass gap by the storage and installation period rather than leaving it at five years. Same shape as riverside's A Plus '12 months from the date of delivery completion'. Raised as AFS letter 6(e), asking them to confirm the start point and to say whether the period can instead run from installation or practical completion, and at what cost."
+    },
+    {
+      "ref": "OUR OWN 10-YEAR WARRANTY DOES NOT REACH THE OPERATING GEAR - and this job is 13 named classes of it",
+      "treatment": "GAP in our own issued document - Adam's decision, raised on the dashboard",
+      "evidence": "riverside's correction of their own headline: they had claimed a nine-year actuator gap, then noticed our clause covers 'all glass and frame products' and AN ACTUATOR IS NEITHER. Run here it is larger. Our proposal cl.5 warrants 'all glass and frame products supplied and installed by the company'. The four BSW quotations name the gear on every unit: Yale Shootbolt window locks, EGRESS HINGES, Signature handles, ELEVEN variants of Re*-Loc RESTRICTOR, internal and external Linkvent trickle vents, Inline patio locks, Prolinea patio handles, 35x35mm security cylinders, Standard Resi locks, Standard French locks, a PANIC BAR, 2D hinges, Prolinea levers, SP701 low thresholds. AFS Q7585 adds a GEZE TS 5000 door closer, a FUHR 833 3-point automatic lock and threshold striker, WILKA panic shootbolt guides and automatic locking, DR HAHN roller hinges and ECO SCHULTE handles. NOT ONE OF THOSE IS A GLASS PRODUCT OR A FRAME PRODUCT. Among them, EGRESS HINGES, a PANIC BAR, the RESTRICTORS and the fire-door CLOSER and AUTOMATIC LOCK are life-safety and fall-protection items on escape routes, and the LINKVENTS are the Part F trickle ventilation. AND THE INVERSE IS A FREE IMPROVEMENT: AFS cl.6.1 gives us 10 years on 'mechanical aspects', so on the three doorsets the supplier warrants the mechanism for ten years and our own clause warrants it for none - we are holding cover we have not passed on. BSW give nothing at all, so on the 183 BSW units the gear is uncovered both ways. Asked of BSW at D2(a) by class of gear, and of AFS at 6(f) because the ironmongery is branded to five other manufacturers."
+    },
+    {
+      "ref": "BSW's exclusions ASSEMBLED - they never wrote a clause, so the answer was not 'none'",
+      "treatment": "ASSEMBLED - 8 sentences, 6 of which shift responsibility; not complete",
+      "evidence": "riverside's methodological rule: 'a four-part comparison assumes both sides wrote all four parts. Where the supplier has no exclusion clause the answer is not no exclusions, it is go and assemble one.' BSW wrote no warranty and no exclusions clause. Assembled from the nine-line block at the foot of every page of all four quotations: (1) 'Please check all items thoroughly. Bellview will not be held responsible for any items missing from quotes.' (2) 'All items viewed from the outside.' (3) 'Please note the estimate will change if the order varies.' (4) 'Prices are held for thirty days only.' (5) 'An estimate is not an offer of contract and is not binding.' (6) 'All estimates are ex works, additional delivery charges may apply.' (7) 'Orders are subject to acceptance and terms and conditions of sale.' (8) 'Net Price Includes Discounts.' TWO ARE LIVE AND NEITHER HAD EVER BEEN READ. (1) puts the COMPLETENESS OF THE QUOTATION on the purchaser, which is precisely the boundary Parts A and B of the BSW letter are about - no actuator on the AOV positions, no Approved Document K guarding priced by anyone, and the GBP 217.50 PANEL SET UP found late. It also names 'Bellview', which appears NOWHERE ELSE on any of the four quotations and is not the supplier on the letterhead, so whose position it states is unclear. (2) governs HANDING on a schedule containing egress hinges and a panic bar, and a unit fitted to the wrong hand is a replacement not a variation. Both raised as BSW letter D4(a) and D4(b). NOT COMPLETE - the rest are in the terms of sale D2 requests, so exclusions_complete is false and rule 22 says so."
+    },
+    {
+      "ref": "I had quoted FOUR sentences from that nine-line block and never read the other five",
+      "treatment": "METHOD FINDING - measured, not asserted",
+      "evidence": "riverside's rule: 'QUOTING A SENTENCE FOR ONE PURPOSE CERTIFIES IT AS READ FOR ALL PURPOSES.' Both of their live A Plus exclusions were already quoted in their own letter, to ask A Plus to PRICE something. Tested here by probing all nine sentences of BSW's footer block against my four output documents plus the job file and the manifest. QUOTED SOMEWHERE: 'THIS QUOTATION IS ONLY VALID FOR THIRTY DAYS' (the whole 06/08 argument rests on it), 'All estimates are ex works, additional delivery charges may apply' (D1), 'Orders are subject to acceptance and terms and conditions of sale' (D2), 'an estimate is not an offer of contract and is not binding' (job file), 'Net Price Includes Discounts' (manifest). NEVER QUOTED ANYWHERE: 'Please check all items thoroughly', 'will not be held responsible for any items missing from quotes', 'All items viewed from the outside', 'Please note the estimate will change if the order varies', 'Prices are held for thirty days only'. FOUR SENTENCES MINED FROM ONE SIX-LINE PARAGRAPH ACROSS FOUR DOCUMENTS AND TWENTY TURNS, AND THE FIRST TWO LINES OF IT NEVER READ. Same mechanism as clause 6, at paragraph scale."
     }
   ],
   "supplier_quotes": [
@@ -849,5 +864,130 @@
     "bsw": "NOTHING. Zero hits for warrant / guarantee / year / defect across all four quotations (QT252247 25,416 chars, QT252248 4,496, QT252251 7,612, QT252257 2,469). Each carries one line only: 'subject to acceptance and terms and conditions of sale, available on request'. So on 124 windows, 44 patio doors and 15 external doors we cannot state the period, the start date or the exclusions.",
     "cycle_cap_check": "riverside's A Plus actuator cap - '15,000 CYCLES OR 12 MONTHS, WHICHEVER IS SOONER' - CANNOT BE RUN HERE, AND FOR A WORSE REASON THAN ABSENCE. The only moving-part duty on Gordon Court is the three WN_7 AOV actuators required by NBS L20 cl.630. QT252257 'AOV & LOUVRE' contains zero hits for actuator, motor or 24V: BSW quoted a plain casement. There is no cycle cap to compare because there is no actuator in anybody's price. Reported as unanswerable, not clean. Asked prospectively in BSW letter D2 ('a period stated in years and capped in cycles is not a period in years') so that it is settled before the actuator is priced rather than after.",
     "powder_coat_check": "riverside's A Plus exclusion - 'NO WARRANTY IS EXTENDED on the adhesion of the powder coat to the polyamide' - DOES NOT REPLICATE. Zero hits for powder, polyamide or adhesion across all five Gordon Court quotations, and AFS cl.6.4 carries no finish-specific carve-out. Relevant here because the specified finish is a DUAL polyester powder coat to BS EN 12206-1 (RAL 7016 matt external, RAL 9010 gloss internal) on an Aluprof MB-78EI polyamide thermal-break system, i.e. the identical construction. Nothing found; recorded so nobody re-runs it."
+  },
+  "warranty": {
+    "_note": "Forty-eighth turn, on riverside's four-part rule 22. Built as an explicit diff so the null counterparts have to be typed rather than assumed.",
+    "ours": {
+      "document": "Chigwell Group - Gordon Court Proposal.pdf, issued 09/07/2026, page 8 clause 5 'Guarantee and Warranty'",
+      "period": "10 years",
+      "period_months": 120,
+      "scope": "'all glass and frame products supplied and installed by the company... defects in materials (as supplied) and workmanship (installation)'. GLASS AND FRAME PRODUCTS ONLY - it does not reach the operating gear, and this job is 13 named classes of it.",
+      "start_date": null,
+      "start_date_evidence": "GREPPED THE WHOLE ISSUED PROPOSAL: the only 'from the date of' in it is 'valid for 30 days from the date of issue' on quotation validity. The 10 years is dated from nothing. riverside found the identical defect in the standing terms document the same night, independently.",
+      "usage_cap": null,
+      "exclusions": [
+        "misuse",
+        "accidental or intentional damage",
+        "vandalism",
+        "inadequate or incorrect maintenance",
+        "external factors, including severe weather conditions"
+      ],
+      "qualifier": "'subject to the terms and conditions of any applicable manufacturer warranties' - QUALIFIES the ten years, does not close any gap. A client reads the headline; the qualifier is a subordinate clause."
+    },
+    "suppliers": [
+      {
+        "supplier": "Aluminium Fire Systems",
+        "ref": "Q7585",
+        "covers": "glass in the 3 EI30 doorsets",
+        "period": "5 years",
+        "period_months": 60,
+        "start_date": "the date of delivery/collection - and the Delivery Location on Q7585 is our OWN yard at 97-98 Alston Drive, Bradwell Abbey MK13 9HF",
+        "usage_cap": null,
+        "exclusions": [
+          {
+            "exclusion": "cl.6.4.1 further use made of the Goods after a defect notice is given",
+            "counterpart_in_ours": null
+          },
+          {
+            "exclusion": "cl.6.4.2 failure to follow AFS's oral or written instructions as to storage, installation, commissioning, use or maintenance - or, where there are none, 'good trade practice'",
+            "counterpart_in_ours": "partial: ours covers 'inadequate or incorrect maintenance' and arguably 'misuse'; storage, installation and commissioning have no counterpart"
+          },
+          {
+            "exclusion": "cl.6.4.3 the defect arises as a result of AFS following any drawing, design, Goods Specification or Installation Services Specification supplied by the Customer",
+            "counterpart_in_ours": null
+          },
+          {
+            "exclusion": "cl.6.4.4 the Goods are altered or repaired without the written consent of AFS",
+            "counterpart_in_ours": null
+          },
+          {
+            "exclusion": "cl.6.4.5 fair wear and tear, willful damage, negligence, or abnormal working conditions",
+            "counterpart_in_ours": "partial: 'accidental or intentional damage' matches 'willful damage'; fair wear and tear, negligence and abnormal working conditions have no counterpart"
+          },
+          {
+            "exclusion": "cl.6.4.6 the Goods differ from the Goods Specification as a result of changes made to comply with applicable statutory or regulatory standards",
+            "counterpart_in_ours": null
+          },
+          {
+            "exclusion": "cl.6.5 'Except as provided in this clause 6, AFS will have no liability to the Customer in respect of any failure of the Goods comply with the relevant warranty'",
+            "counterpart_in_ours": null
+          }
+        ],
+        "exclusions_complete": true
+      },
+      {
+        "supplier": "Aluminium Fire Systems",
+        "ref": "Q7585",
+        "covers": "'mechanical aspects' of the 3 EI30 doorsets - LONGER THAN WE OFFER THE CLIENT, since our clause reaches glass and frames only",
+        "period": "10 years",
+        "period_months": 120,
+        "start_date": "the date of delivery/collection, i.e. our own yard",
+        "usage_cap": null,
+        "exclusions": [
+          {
+            "exclusion": "cl.6.4.1 to 6.4.6 and cl.6.5 apply identically - see the glass entry",
+            "counterpart_in_ours": null
+          }
+        ],
+        "exclusions_complete": true,
+        "open_question": "cl.6.1 says 'mechanical aspects of the Goods' but the ironmongery is branded to five other manufacturers - GEZE TS 5000 closer, FUHR 833 3-point automatic lock and threshold striker, WILKA panic shootbolt guides and automatic locking, DR HAHN roller hinges, ECO SCHULTE handles. Whether AFS's 10 years reaches them or they fall to their own makers is asked at AFS letter 6(f)."
+      },
+      {
+        "supplier": "BSW Window Solutions",
+        "ref": "QT252247 / QT252248 / QT252251 / QT252257",
+        "covers": "124 windows, 44 patio doors, 15 external/communal doors, 4 louvres and 3 AOV positions - 183 units and GBP 183,005.42 of cost",
+        "period": null,
+        "period_months": null,
+        "start_date": null,
+        "usage_cap": null,
+        "period_evidence": "Zero hits for warrant, guarantee, year or defect across all four quotations (25,416 / 4,496 / 7,612 / 2,469 chars). They state no period at all. A supplier who says nothing has not given us an unlimited warranty.",
+        "exclusions": [
+          {
+            "exclusion": "'Please check all items thoroughly. Bellview will not be held responsible for any items missing from quotes.' - the completeness of the quotation is put on the purchaser. NOTE: 'Bellview' appears nowhere else on any of the four quotations and is not the supplier named on the letterhead.",
+            "counterpart_in_ours": null
+          },
+          {
+            "exclusion": "'All items viewed from the outside.' - a drawing convention that governs HANDING, on a schedule containing egress hinges and a panic bar",
+            "counterpart_in_ours": null
+          },
+          {
+            "exclusion": "'Please note the estimate will change if the order varies.'",
+            "counterpart_in_ours": "partial: our own terms allow reissue after survey, but ours is about measurement and theirs is about any variation"
+          },
+          {
+            "exclusion": "'Prices are held for thirty days only.'",
+            "counterpart_in_ours": "matched: our proposal clause 2 gives 30 days from date of issue"
+          },
+          {
+            "exclusion": "'An estimate is not an offer of contract and is not binding.'",
+            "counterpart_in_ours": null
+          },
+          {
+            "exclusion": "'All estimates are ex works, additional delivery charges may apply.'",
+            "counterpart_in_ours": null
+          },
+          {
+            "exclusion": "'Orders are subject to acceptance and terms and conditions of sale' - available on request, NEVER REQUESTED",
+            "counterpart_in_ours": null
+          },
+          {
+            "exclusion": "'Net Price Includes Discounts' - the figure we hold is post-discount, so there is no further discount to find",
+            "counterpart_in_ours": null
+          }
+        ],
+        "exclusions_complete": false,
+        "exclusions_method": "riverside's rule: where a supplier wrote no exclusion CLAUSE, the answer is not 'no exclusions', it is 'go and assemble one'. BSW wrote none. Assembled from the nine-line block at the foot of every page of all four quotations. NOT COMPLETE - the rest are in the terms of sale D2 requests."
+      }
+    ]
   }
 }

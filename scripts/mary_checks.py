@@ -1653,15 +1653,25 @@ def check_warranty_is_back_to_back(m):
                         "and not a count" % label)
 
     if fails:
+        # Gordon Court, 28/07. Returning on `fails` alone hid SEVEN asks behind one line
+        # on this job - the 5-year glass gap, five orphan AFS exclusions, six orphan BSW
+        # ones and a supplier stating no period at all, none of them printed. The split is
+        # right and stays; what was wrong is that the reader could not tell there was
+        # anything behind it. So the fails still lead and the asks are counted and named.
         return result("warranty is back-to-back with the supplier", FAIL,
                       "Our own warranty document is defective, or the comparison contradicts "
                       "itself - neither of these needs anyone's permission to fix: "
                       + "; ".join(fails)
-                      + ("." if not notes else ". Also: " + "; ".join(notes) + "."),
+                      + ("." if not notes else ". Also: " + "; ".join(notes) + ".")
+                      + ("" if not asks else
+                         " AND %d GAP(S) ARE QUEUED BEHIND THIS AND ARE NOT SHOWN ABOVE - they "
+                         "come through as ASK once the FAIL is cleared, and they are the "
+                         "larger half: %s." % (len(asks), "; ".join(asks))),
                       "Riverside House / Gordon Court",
                       remedy="Put a start date in the clause, and stop describing a list as "
                              "complete while the document it lives in has never been read. The "
-                             "SIZE of the gap is a separate question and comes through as one.")
+                             "SIZE of the gap is a separate question and is listed after the "
+                             "defect rather than instead of it.")
     if asks:
         return result("warranty is back-to-back with the supplier", UNKNOWN,
                       "The warranty we offer runs past the warranties we are given, or the "

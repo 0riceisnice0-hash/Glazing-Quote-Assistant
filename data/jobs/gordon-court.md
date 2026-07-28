@@ -3850,6 +3850,115 @@ one line below the second of them.
 
 Spec items 38, 39, 40, and a new `warranty_back_to_back` block in the manifest.
 
+### 4AT.1 Both of us found the same defect in our own paper on the same night
+
+riverside grepped the standing terms document: **the only *"from the date of"* in it is the thirty days on
+quotation validity.** I ran it on the issued proposal and got the identical result — one hit, *"valid for 30
+days from the date of issue"*, and **the ten years is dated from nothing.**
+
+Ten years from order, from delivery, from completion of installation and from practical completion are four
+different promises, and an undated one is read against whoever wrote it. **Two documents, two jobs, two
+chats, same night, found independently by two people who had spent the previous turn counting years.** It is
+now `check_warranty_is_back_to_back`'s only FAIL condition on our side, and this job reads **6 FAILED**
+because of it.
+
+### 4AT.2 Their bigger correction lands harder here: our ten years does not reach anything that moves
+
+riverside withdrew their own headline. They had called it a nine-year actuator gap; then they read our scope
+clause and noticed it covers *"all glass and frame products"* — **and an actuator is neither.**
+
+On Gordon Court that is not a footnote. **Thirteen named classes of operating gear**, from the suppliers' own
+quotations:
+
+| | named on the quotation |
+|---|---|
+| 124 windows (QT252247) | Yale Shootbolt locks · **Egress Hinges** · Signature handles · **eleven** Re*-Loc **restrictor** variants · internal and external **Linkvent** trickle vents |
+| 44 patio doors (QT252248) | Inline patio locks · Prolinea patio handles · 35×35mm security cylinders · trickle vents |
+| 15 external/communal (QT252251) | Standard Resi locks · Standard French locks · **Panic Bar** · 2D hinges · Prolinea levers · SP701 low thresholds |
+| 3 EI30 doorsets (Q7585) | **GEZE TS 5000 closer** · **FUHR 833 3-point automatic lock** + threshold striker · **WILKA panic shootbolt guides** and automatic locking · DR HAHN roller hinges · ECO SCHULTE handles |
+
+**Not one of those is a glass product or a frame product.** And the list is not convenience hardware: **egress
+hinges, a panic bar, eleven restrictor variants and a fire door's closer and automatic lock** are life-safety
+and fall-protection items on escape routes, and the **Linkvents are the Part F trickle ventilation** the
+8000mm² requirement turns on.
+
+**We warrant the frame around the escape mechanism for ten years and the mechanism for nothing.**
+
+### 4AT.3 And the inverse is free money in the client's favour
+
+**AFS cl.6.1 gives us 10 years on *"mechanical aspects"*** — longer than they give on glass, and longer than
+our own clause gives on the gear, which is nothing. **On the three doorsets we are holding supplier cover we
+have never passed on.** Costs a sentence.
+
+The open question, asked at **6(f)**: cl.6.1 says *"mechanical aspects of the Goods"* but the ironmongery is
+branded to **five other manufacturers**. On a fire doorset the closer and the automatic lock are the parts
+that keep it a fire doorset, so that is the part of the warranty that matters most and currently the part
+least clearly allocated.
+
+On the **183 BSW units** the gear is uncovered in both directions — they state nothing, we reach only glass
+and frames. D2(a) now asks for the period **by class of gear**, not by unit.
+
+### 4AT.4 BSW never wrote an exclusion clause, so I assembled one — and it was on every page
+
+riverside's methodological addition, and it is the useful half of their handoff:
+
+> **A four-part comparison assumes both sides wrote all four parts. Where the supplier has no exclusion
+> clause, the answer is not "no exclusions" — it is "go and assemble one."**
+
+AFS wrote 6.4.1–6.4.6 and I could diff it. **BSW wrote nothing.** Assembled from the nine-line block at the
+foot of **every page of all four quotations** — eight sentences, **six of which shift responsibility.** Two
+are live:
+
+**(a)** *"Please check all items thoroughly. Bellview will not be held responsible for any items missing from
+quotes."* — **the completeness of the quotation is put on the purchaser.** That is exactly the boundary Parts
+A and B of my letter are about: **no actuator, motor or control interface on the AOV positions; the Approved
+Document K guarding note priced by nobody; and the £217.50 "PANEL SET UP" found late.** The sentence
+allocating all of it to us has been at the bottom of all four quotations since 07/07.
+
+And *"Bellview"* **appears nowhere else on any of the four quotations** and is not the supplier on the
+letterhead, so whose position it states is unclear. Asked at D4(a) — flatly, as a question, not as a point.
+
+**(b)** *"All items viewed from the outside."* — a drawing convention that **governs handing**, on a schedule
+containing **egress hinges and a panic bar**. A unit fitted to the wrong hand is not a variation, it is a
+replacement. Asked at D4(b): one line covers all 227 units.
+
+### 4AT.5 And the measurement that hurts — I had quoted four sentences out of that paragraph
+
+riverside's second rule: **"quoting a sentence for one purpose certifies it as read for all purposes."** Both
+of their live exclusions were already quoted in their own letter, to ask A Plus to *price* something.
+
+Probed all nine sentences of BSW's footer block against my four outputs, the job file and the manifest:
+
+| quoted somewhere | never quoted anywhere |
+|---|---|
+| *"THIS QUOTATION IS ONLY VALID FOR THIRTY DAYS"* — the entire 06/08 argument | *"Please check all items thoroughly"* |
+| *"All estimates are ex works…"* — D1 | *"…will not be held responsible for any items missing from quotes"* |
+| *"Orders are subject to… terms and conditions of sale"* — D2 | *"All items viewed from the outside"* |
+| *"an estimate is not an offer of contract and is not binding"* | *"the estimate will change if the order varies"* |
+| *"Net Price Includes Discounts"* | *"Prices are held for thirty days only"* |
+
+**Five sentences mined out of one six-line paragraph, across four documents and twenty turns, and the first
+two lines of it never read.** Last night's fault was a document, then a clause. **This is a paragraph.**
+
+### 4AT.6 One thing handed back about their own rule
+
+Rule 22 returns on `fails` alone, so on this job **one line printed and seven ASKs did not** — the five-year
+glass gap, five orphan AFS exclusions, six orphan BSW ones and a supplier stating no period at all. Their
+FAIL/ASK split is right and stays; what was wrong is that a reader could not tell anything was behind it.
+The fails now lead and **the queued asks are counted and named after them**, which is the same fault I fixed
+in `report()` at turn 20 and in the remedy field at turn 21 — **a correct ranking that silently drops
+everything it outranks.**
+
+Spec items **41, 42, 43**, and the manifest's prose `warranty_back_to_back` block is now also a structured
+`warranty` diff so the null counterparts have to be typed.
+
+### 4AT.7 The shape
+
+Document → clause → sub-clause → **paragraph**. The scale keeps shrinking and the mechanism does not change.
+
+> **The fix is always applied at the scale where the fault was found, and the next fault is at the next scale
+> down. There is no scale at which "I have read this" is safe — only scales at which it has not failed yet.**
+
 ---
 
 ## 5. Things checked and CLEARED — do not re-raise

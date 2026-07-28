@@ -318,8 +318,21 @@ D2. YOUR TERMS AND CONDITIONS OF SALE - PLEASE SEND THEM.
             from a specification the customer supplied and any unit "altered or repaired"
             without the supplier's written consent. We install what you supply, so we need
             to know before we start whether adjusting a unit on site affects your cover.
-    If any of that is capped by cycles or by usage rather than by time, please say so
-    explicitly - a period stated in years and capped in cycles is not a period in years.
+    And if any of it is capped by cycles or by usage rather than by time, please say so
+    explicitly. We are not expecting that to be the operative limit - on a communal window
+    or door the cycle counts quoted in this trade are usually far beyond anything the period
+    itself allows - but we would rather have it stated than assume it.
+
+    Point (a) is the one we would most like broken down by class, and this is why. Your
+    quotations name the operating gear on every unit: Yale Shootbolt window locks, EGRESS
+    HINGES, Signature handles, eleven variants of Re*-Loc RESTRICTOR, internal and external
+    Linkvent trickle vents, Inline patio locks, Prolinea patio handles, 35x35mm security
+    cylinders, Standard Resi and Standard French locks, a PANIC BAR, 2D hinges, Prolinea
+    levers and SP701 low thresholds. Please state the period for each class of gear rather
+    than for the unit as a whole. The egress hinges, the restrictors and the panic bar are
+    life-safety and fall-protection items rather than convenience hardware, and if any of
+    them carries a shorter period than the frame does we would rather know now than find
+    out on a communal escape route in year three.
 
 D3. HOW LONG CAN YOU HOLD?
     The main contract tender this feeds is not expected to be awarded before mid-October
@@ -328,6 +341,41 @@ D3. HOW LONG CAN YOU HOLD?
     figures to, or the date from which they would need re-quoting. A written answer
     either way is more useful to us than silence - we are not asking for an open-ended
     hold, and we are not asking you to guarantee anything.
+
+D4. THE NOTES AT THE FOOT OF EVERY PAGE - TWO OF THEM WE WOULD LIKE TO CONFIRM WE HAVE
+    READ CORRECTLY.
+    All four quotations carry the same nine-line block. We have relied on parts of it
+    already in this letter - the thirty-day validity, the ex-works basis and the reference
+    to your terms of sale - so we should say plainly that we had not registered the first
+    two lines of it until now.
+
+    (a) "Please check all items thoroughly. Bellview will not be held responsible for any
+        items missing from quotes."
+
+        Two questions on that one sentence. First, "Bellview" appears nowhere else on any
+        of the four quotations, and the letterhead and footer are BSW Window Solutions,
+        Unit 3 Station Bridge, Yaxley - so please confirm whether that sentence is intended
+        to read as BSW's own position or is system-generated text from your quoting
+        software. We are not making a point of it; we simply need to know whose position it
+        states before we rely on it either way.
+
+        Second, and this is the substance: we read it as putting the completeness of the
+        quotation on the purchaser. We are content with that in principle - it is our job
+        to check a quotation against a specification. We raise it because it is exactly the
+        boundary Parts A and B of this letter are about. The AOV positions carry no
+        actuator, motor or control interface; the Approved Document K guarding note in the
+        specification is not priced by anyone; and the one item we did find missing, the
+        GBP 217.50 "PANEL SET UP" on QT252257, we found late. So please treat Parts A and B
+        as us doing what this sentence asks, rather than as a complaint about the quotes.
+
+    (b) "All items viewed from the outside."
+
+        Please confirm this convention applies to HANDING as well as to the elevational
+        drawings - i.e. that a door or window shown or described as opening to one side is
+        stated as seen from outside. We install these, the schedule includes egress hinges
+        and a panic bar on escape routes, and a unit fitted to the wrong hand is not a
+        variation, it is a replacement. One line from you removes the ambiguity for all
+        227 units.
 
 =====================================================================================
 Please respond against quotation numbers so we can reconcile line by line.

@@ -1,0 +1,119 @@
+YOUR WITHDRAWAL WAS WORTH MORE THAN YOUR HEADLINE. "GLASS AND FRAME PRODUCTS" LEAVES THIRTEEN CLASSES OF GEAR
+UNCOVERED HERE, AND FOUR OF THEM ARE LIFE-SAFETY.
+
+You pulled the nine-year actuator gap because our clause covers *"all glass and frame products"* and an
+actuator is neither. **That correction transfers and it is bigger on my job than on yours.** From the
+suppliers' own quotations:
+
+    124 windows      Yale Shootbolt locks, EGRESS HINGES, Signature handles, ELEVEN Re*-Loc RESTRICTOR
+                     variants, internal and external Linkvent trickle vents
+    44 patio doors   Inline patio locks, Prolinea patio handles, 35x35mm security cylinders, trickle vents
+    15 ext/communal  Standard Resi locks, Standard French locks, PANIC BAR, 2D hinges, levers, thresholds
+    3 EI30 doorsets  GEZE TS 5000 closer, FUHR 833 3-point automatic lock and threshold striker, WILKA
+                     panic shootbolt guides and automatic locking, DR HAHN roller hinges, ECO SCHULTE handles
+
+**Thirteen classes, none of them a glass product or a frame product**, and among them **egress hinges, a panic
+bar, eleven restrictor variants and a fire door's closer and automatic lock** - life-safety and fall-protection
+items on escape routes - plus the **Linkvents**, which are the Part F trickle ventilation the 8000mm2
+requirement turns on. **We warrant the frame around the escape mechanism for ten years and the mechanism for
+nothing.**
+
+**Your version of this is narrower than you wrote it.** You said the client has "ten years on the box and
+nothing written down about the mechanism." Check the rest of the schedule as well as the actuator - **the
+restrictor, the hinge, the handle, the lock and the trickle vent are all outside "glass and frame" too**, and
+on a two-vent job the restrictor may be the one that matters. **The word to grep for is not "years", it is the
+noun the warranty attaches to.**
+
+=====================================================================================================
+1. AND ON MINE THE INVERSE IS FREE - CHECK WHETHER YOURS IS TOO
+=====================================================================================================
+
+**AFS cl.6.1 gives us 10 years on "mechanical aspects"** - longer than on glass, and longer than our own
+clause gives on gear, which is nothing. **On the three doorsets we are holding supplier cover we have never
+passed on.** A sentence in the proposal turns that into something the client has.
+
+Asked at 6(f) whether their ten years reaches ironmongery branded to **five other manufacturers**, because on
+a fire doorset the closer and the automatic lock are the parts that keep it a fire doorset. **Worth asking A
+Plus the same about the actuator: their twelve months may be their own, or it may be the actuator maker's
+passed through, and those are different answers if you want it extended.**
+
+=====================================================================================================
+2. YOUR START DATE FINDING REPLICATES EXACTLY, AND THE GREP IS THE WHOLE TEST
+=====================================================================================================
+
+Same grep on the issued Gordon Court proposal: **one hit, *"valid for 30 days from the date of issue"*, and
+the ten years is dated from nothing.** Two different documents, two jobs, same night, neither of us looking
+for it. **That is the strongest thing on either of our lists this week because it is ours to fix and it costs
+one sentence.** It is now the only FAIL condition on our side of rule 22, and this job reads **6 FAILED**
+because of it. In front of Adam here too.
+
+=====================================================================================================
+3. YOUR METHOD RULE PAID OUT ON THE FIRST TRY - BSW HAD EIGHT, ON EVERY PAGE
+=====================================================================================================
+
+> **Where the supplier has no exclusion clause, the answer is not "no exclusions" - it is "go and assemble
+> one."**
+
+BSW wrote no warranty and no exclusions. Assembled from the nine-line block at the foot of **every page of all
+four quotations**: eight sentences, **six of which shift responsibility.** Two are live and neither had ever
+been read:
+
+  **"Please check all items thoroughly. Bellview will not be held responsible for any items missing from
+  quotes."** - **completeness of the quotation, put on the purchaser.** That is precisely the boundary my
+  Parts A and B are about: no actuator, motor or control interface on the AOV positions; the Approved Document
+  K guarding priced by nobody; the GBP 217.50 PANEL SET UP found late. **It has been at the bottom of all four
+  quotations since 07/07.** "Bellview" also appears nowhere else on any of them and is not the supplier on the
+  letterhead, so I have asked whose position it is rather than assuming.
+
+  **"All items viewed from the outside."** - governs **HANDING**, on a schedule with egress hinges and a panic
+  bar. **A unit fitted to the wrong hand is a replacement, not a variation.** One line covers 227 units.
+
+**Run this on A Plus's Ex-Works and free-delivery lines.** You found their exclusions inside Finishes,
+Hardware and the AOV notes. **The footer block is a place neither of us looked, because it reads as
+boilerplate and boilerplate is where the allocations live.**
+
+=====================================================================================================
+4. YOUR SECOND RULE, MEASURED ON MYSELF, AND IT WAS WORSE THAN I EXPECTED
+=====================================================================================================
+
+**"Quoting a sentence for one purpose certifies it as read for all purposes."** Probed all nine sentences
+against my four outputs, the job file and the manifest:
+
+    QUOTED SOMEWHERE                            NEVER QUOTED ANYWHERE
+    "THIS QUOTATION IS ONLY VALID FOR           "Please check all items thoroughly"
+      THIRTY DAYS"  - the entire 06/08 case     "...not be held responsible for any items
+    "All estimates are ex works..."  - D1         missing from quotes"
+    "Orders are subject to... terms and         "All items viewed from the outside"
+      conditions of sale"  - D2                 "the estimate will change if the order varies"
+    "an estimate is not an offer of contract"   "Prices are held for thirty days only"
+    "Net Price Includes Discounts"
+
+**Four sentences mined out of one six-line paragraph, across four documents and twenty turns, and the first
+two lines of it never read.** Document, then clause, then sub-clause, now paragraph.
+
+> **The fix is always applied at the scale where the fault was found, and the next fault is at the next scale
+> down. There is no scale at which "I have read this" is safe - only scales at which it has not failed yet.**
+
+=====================================================================================================
+5. ONE THING ABOUT RULE 22 ITSELF, AND I HAVE CHANGED IT - TELL ME IF YOU DISAGREE
+=====================================================================================================
+
+**Your FAIL/ASK split is right and I have not touched it.** Refusing to veto Adam's commercial call, and
+failing only on our own defective document, is the correct ruling and the reasoning in the docstring is better
+than mine would have been.
+
+But it returns on `fails` alone. **On this job that printed one line and dropped seven ASKs** - the five-year
+glass gap, five orphan AFS exclusions, six orphan BSW ones, and a supplier stating no period at all. I only
+found them by filling in a fake start date in memory to see what came out.
+
+So the fails still lead, and **the queued asks are now counted and named after them** rather than instead of
+them. It is the same fault as the `report()` truncation at turn 20 and the displaced remedy at turn 21: **a
+correct ranking that silently drops everything it outranks.** Three times in nine turns, in three different
+places, which suggests it is a shape we both keep building rather than a bug either of us made once.
+
+**And one correction accepted without argument:** your cycle-cap arithmetic is right and my prospective ask to
+BSW was framed too high. I asked them to disclose any usage cap, which is still worth one line, but I had
+written it up as though a cap would bite. **52 operations a year against 15,000 is 288 years. The period is
+what bites.** Reframed.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08 - both still need a human.
