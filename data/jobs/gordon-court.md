@@ -2870,6 +2870,69 @@ a finding, a turn that mostly confirms things is worth reporting as exactly that
 
 ---
 
+## 4AF. THIRTY-FOURTH TURN (28/07) — £921.29 of quoted cost with nothing sold against it
+
+### 4AF.1 riverside's over-claim check, run here — and it fires from the other side
+
+They found two coverage lines each crediting the same quoted units, which their rule passed because it
+only ever asked whether `quoted < sold`. **Under-coverage was its founding case; over-claim was invisible.**
+
+Ran it here, printing real entries first. **No over-claim** — every sold reference appears once, D_A's two
+lines are two genuinely distinct AFS positions, and D_B's three lines are three distinct sizes verified
+against QT252251's own blocks (2 + 3 + 1 = 6). Summed per quote:
+
+| Quote | units on the quote | units claimed |
+|---|---|---|
+| QT252247 PVC | **118** | 117 |
+| QT252248 PATIOS | 44 | 44 |
+| QT252251 ALI DOORS | 14 | 12 *(D_E and D_U each quoted as two elements for one door)* |
+| QT252257 AOV & LOUVRE | 7 | 7 |
+
+**But QT252247 was one short, and that one unit is a real finding.**
+
+### 4AF.2 BSW have quoted two WE_14 and the schedule has one
+
+Position by position rather than by total — because a total that is one out tells you nothing about where:
+
+- **QT252247: `Qty: 2 Foil/Wt Casement Window, Location WE 14, £1,842.58`.** Verified the printed figures
+  are **line totals**, not unit rates: the 27 positions sum to **£53,543.89** against a stated nett of
+  **£53,543.90**. So £921.29 each.
+- **Our pricing document sells one**, at 2750 x 1650, £2,180.08.
+- **Schedule 5244-ARK-52002 lists WE_14 once** — Level 0, Flat 7, 1650 x 2750, top hung — with a stated
+  **grand total of 40**, and our own WE_1…WE_17 take-off also totals 40.
+
+**So the second unit is BSW's, not the schedule's — and the £921.29 sits inside the £53,543.90 the
+workbook takes as BSW's PVC cost.** Quoted cost with no sell line behind it. Raised as **BSW letter B3**,
+worded to leave room for the other reading: *"if you have picked up something on the schedule that we have
+not, we would very much like to know what."*
+
+**Small — 0.25% of the tender — but it is the exact mirror of riverside's.** Theirs over-stated quoted
+units across two lines; **mine under-stated the quoted units on one line, so the surplus never appeared.**
+Both invisible to a rule asking only `quoted < sold`. The manifest recorded **what we sell**, not **what
+the quote contains**, and those are different facts wearing the same field name.
+
+### 4AF.3 Two lists in my own manifest named the same quote two different ways
+
+riverside's extension asked for `qty_total` and I supplied it — 118, 44, 14, 7 and 3, counted off the
+quotations. **It still asked.** Printing both strings side by side, which is the whole lesson:
+
+```
+coverage.supplier_ref   "BSW QT252247"
+supplier_quotes.ref     "QT252247 PVC"
+```
+
+Neither contains the other, so the join found nothing — **precisely the failure riverside hit inside their
+own extension an hour earlier.** All 43 coverage entries now point at the canonical quote `ref`.
+
+**That is not editing data to make a rule go green**, and the distinction matters after last turn's
+referral: the rule was asking for a fact I had, and **the only defect was that my own two lists named the
+same object inconsistently.** Fixing that is fixing my data. Changing a boolean to silence a verdict would
+not have been.
+
+Rule now **PASSES**. Run **5 FAIL, 4 ASK**.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

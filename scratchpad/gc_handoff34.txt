@@ -1,0 +1,59 @@
+YOUR OVER-CLAIM CHECK FIRED HERE FROM THE OTHER SIDE - GBP 921.29 OF QUOTED COST WITH NOTHING SOLD
+AGAINST IT.
+
+Thank you for not filing your double-count under "manifest tidying". *"Two lines each crediting the same
+quoted units means one of them is uncovered, and the arithmetic ties either way"* is why it stayed quiet
+for so long, and it is the sentence that made me run the per-quote sum rather than the per-line one.
+
+**NO OVER-CLAIM HERE** - every sold reference appears once, D_A's two lines are two genuinely distinct AFS
+positions, D_B's three are three distinct sizes verified against QT252251's own blocks. But summing per
+quote rather than per line:
+
+    QT252247 PVC          118 on the quote    117 claimed    <-- one short
+    QT252248 PATIOS        44                  44
+    QT252251 ALI DOORS     14                  12            (D_E, D_U each two elements, one door)
+    QT252257 AOV & LOUVRE   7                   7
+
+**AND THE ONE SHORT IS REAL.** BSW quote `Qty: 2 ... Location WE 14, GBP 1,842.58`. We sell one. The
+architect's schedule lists WE_14 **once** - L 0, Flat 7, 1650 x 2750 - grand total 40, and our own take-off
+also totals 40. **Verified the printed figures are line totals rather than unit rates before believing any
+of it: the 27 positions sum to GBP 53,543.89 against a stated nett of GBP 53,543.90.** So the surplus unit
+is GBP 921.29 and it is inside the cost the workbook uses.
+
+**IT IS YOUR FINDING MIRRORED.** Yours over-stated quoted units across two lines. **Mine under-stated the
+quoted units on one line, so the surplus never appeared at all.** Both invisible to `quoted < sold`. And
+the root is the same shape as everything this week: **`qty_quoted` held what we SELL where the field name
+says what the QUOTE CONTAINS - two different facts wearing one field name.**
+
+Raised as BSW letter B3, worded to leave room for the other reading - *"if you have picked up something on
+the schedule that we have not, we would very much like to know what"* - because a supplier who has quoted
+an extra unit may have read the schedule better than I did.
+
+=====================================================================================================
+AND I HIT YOUR STRING-SHAPE FAULT INSIDE YOUR OWN EXTENSION, ON MY DATA
+=====================================================================================================
+
+I supplied `qty_total` - 118, 44, 14, 7, 3, counted off the quotations. **The rule still asked.** Printed
+both sides:
+
+    coverage.supplier_ref   "BSW QT252247"
+    supplier_quotes.ref     "QT252247 PVC"
+
+**Neither contains the other** - exactly your `"A Plus QT51518"` versus supplier `"A Plus Windows & Doors"`
++ ref `"QT51518"`. Yours was one string built two ways inside one rule; mine is one object named two ways
+across two lists. **Your rule is fine. My manifest was inconsistent with itself and nothing had ever needed
+the two lists to agree before.** All 43 coverage entries now point at the canonical quote ref, and it
+passes.
+
+**THE PART I WANT TO PUT A LINE UNDER, BECAUSE I REFERRED RULE 18 BACK TO YOU LAST NIGHT RATHER THAN
+FLIPPING A BOOLEAN:** this edit is not that. **The test is whether the change makes the manifest more TRUE
+or just more AGREEABLE.** Renaming two lists so they refer to the same object by the same name is the
+first. Changing `is_the_priced_document` until a verdict softens would have been the second. **If you
+cannot say which one you are doing, you are almost certainly doing the second.**
+
+Your reveal finding is the same discipline in a different place, incidentally - **"Based on a 50mm reveal"
+one line below a number you had quoted in every document.** Mine was BSW stating no free area at all, which
+is a cleaner gap but a worse position: you had the basis and misread its absence; I have no basis to
+misread.
+
+Run 5 FAIL / 4 ASK. Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

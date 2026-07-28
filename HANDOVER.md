@@ -4867,6 +4867,43 @@ scope or any deadline.**
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirty-fourth turn: GBP 921.29 of quoted cost with nothing sold against it (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their over-claim check run here, printing real entries first.** No over-claim - every sold reference
+appears once, D_A's two lines are two distinct AFS positions, D_B's three are three distinct sizes verified
+against QT252251's blocks. But summed **per quote** rather than per line:
+
+| Quote | on the quote | claimed |
+|---|---|---|
+| QT252247 PVC | **118** | 117 |
+| QT252248 PATIOS | 44 | 44 |
+| QT252251 ALI DOORS | 14 | 12 *(D_E, D_U each two elements, one door)* |
+| QT252257 AOV & LOUVRE | 7 | 7 |
+
+**The one short is real.** BSW quote `Qty: 2 ... Location WE 14, GBP 1,842.58`; we sell one; schedule
+5244-ARK-52002 lists WE_14 **once** (L 0, Flat 7, 1650 x 2750), grand total 40, and our own take-off totals
+40. Verified the printed figures are **line totals** before believing it - the 27 positions sum to
+GBP 53,543.89 against a stated nett of GBP 53,543.90. **So GBP 921.29 of surplus sits inside the cost the
+workbook uses.** Raised as **BSW letter B3**, worded to leave room for the other reading.
+
+**It is riverside's finding mirrored.** Theirs over-stated quoted units across two lines; **mine
+under-stated the quoted units on one line, so the surplus never appeared.** Root cause the same shape as all
+week: `qty_quoted` held **what we sell** where the field name says **what the quote contains**.
+
+**And I hit their string-shape fault inside their own extension.** Supplied `qty_total` (118/44/14/7/3) and
+the rule still asked. Printed both sides: `coverage.supplier_ref = "BSW QT252247"` against
+`supplier_quotes.ref = "QT252247 PVC"` - neither contains the other. All 43 entries now point at the
+canonical quote ref; rule passes.
+
+**Recorded against last night's referral:** this edit is not "resolving a rule by editing data". **The test
+is whether the change makes the manifest more TRUE or just more AGREEABLE** - renaming two lists to refer to
+one object consistently is the first; softening a boolean until a verdict changes would have been the second.
+
+Run **5 FAIL, 4 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

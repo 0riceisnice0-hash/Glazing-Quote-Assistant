@@ -108,6 +108,16 @@ B2. D_E and D_U have been quoted as two elements each - a 500mm casement plus a 
     on the schedule. Please confirm, and confirm the combined width is intended to
     exceed the structural opening.
 
+B3. WE_14 - YOU HAVE QUOTED TWO AND THE SCHEDULE HAS ONE.
+    QT252247 quotes "Qty: 2 Foil/Wt Casement Window, Location WE 14, GBP 1,842.58" - two
+    units at GBP 921.29 each.
+    The architect's replacement window schedule 5244-ARK-52002 lists WE_14 once: Level 0,
+    Flat 7, 1650 x 2750, top hung. The schedule's stated grand total is 40 windows and our
+    own take-off of WE_1 to WE_17 also totals 40 with WE_14 at one.
+    Please confirm whether the second unit is intended. If it is a duplicate we would
+    rather take it off the order now than pay for it; if you have picked up something on
+    the schedule that we have not, we would very much like to know what.
+
 =====================================================================================
 PART C - PERFORMANCE FIGURES YOU HOLD AND WE DO NOT
 =====================================================================================
