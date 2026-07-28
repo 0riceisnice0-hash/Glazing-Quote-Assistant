@@ -6867,3 +6867,49 @@ Nine jobs dated at source (BST): Gordon Court 10/07 09:28 to Luke Baker at Chigw
 **THE LIMIT, STATED SO NOBODY OVER-TRUSTS IT:** this reads estimating@ only. A quote sent from commercial@ or from Adam's own mailbox WITHOUT copying estimating@ is invisible to it. In practice estimating@ is copied on everything I have checked, including Adam's own client emails - but 'no send found' means no evidence, not proof of absence.
 
 SEPARATELY, A GAP THAT OPENED TODAY: **info@ came off Jacob's watch list this evening on Adam's instruction, and it was never on mine.** Three commercial tenders have arrived there in a week - Redditch Library 22/07 (which sat six days), John North Hall (only seen because Perry forwarded it by hand), and the Neil Douglas ITT 27/07. From tomorrow nobody is reading it. I have put the case for a forwarding rule to Jacob rather than raising a request.
+
+### 2026-07-28 21:28 - redditch-library
+REDDITCH LIBRARY: A PRINT AREA PROTECTS A PRINT, NOT THE FILE - AND TWO HOUSE-TEMPLATE FAULTS THAT ARE ON EVERY QUOTE WE SEND.
+
+Adam asked for the take-off to go into the house pricing document, to undercut Joedan, to sell our
+ten year warranty, and to carry "the same inclusions/exclusions as Joedan". Built and sent to him,
+nothing to Pride. GBP 89,218.65 gross of 2.5% MCD, 1.62% under Joedan. Five findings that outlive it.
+
+1. THE .XLSX YOU EMAIL IS NOT THE .PDF YOU PRINT. mary_checks found 290 populated cells outside the
+MASTER PRICING DOC's print area on my client document: the product code in column B, the frame COST
+in J to O, and "Supplier used:" in K3/L3. All invisible on the printed page, all one scroll away in
+the file. ANY JOB THAT HAS EMAILED THE WORKBOOK RATHER THAN A PDF HAS SENT ITS BUY AND ITS MARGIN.
+The fix is a separate CLIENT COPY with formulas resolved to values and those columns emptied -
+scripts/redditch_pricing_doc.py make_client_copy() does it and is worth lifting.
+
+2. TWO BUGS IN generate-fenster-docs.py, BOTH FIXED AT SOURCE TONIGHT, BOTH AFFECTING EVERY JOB.
+(a) The template's print area is $C$1:$I$31, sized for its twelve example rows, and the generator
+never moved it - SO ANY DOCUMENT WITH MORE THAN 12 ITEMS PRINTED A PDF THAT STOPPED MID-SCHEDULE.
+(b) The template merges C:D across its own twelve rows only, so every cloned row lost the merge and
+clipped its description. Now merged, wrapped, row heights set. Re-generate anything built earlier.
+
+3. OUR OWN STANDARD TERMS CONTRADICT A JCT TENDER AT TWO POINTS, AND THEY ARE ON THE BACK OF EVERY
+PROPOSAL. (i) "All quotations are valid for 30 days" - Redditch's Form of Tender holds the sum open
+10 weeks and the prelims say not less than 3 months, so our own terms expire inside the client's
+validity period and the return is non-compliant on its face. (ii) "a deposit of 50% of the total
+quotation value prior to commencement" - against a JCT Minor Works with 5% retention. No main
+contractor pays a 50% deposit under JCT. NOT edited here: fixing one tender and leaving the template
+wrong is the Gordon Court/REQ-27 mistake. Put to Adam to fix once, at source.
+
+4. MASTIC MUST NEVER BE AN OPTIONAL EXTRA WHERE THE BILL REQUIRES IT. Redditch p70 cl.11 requires
+external waterproof mastic; Joedan include it (their cl.15); our template offers it as an OPTIONAL
+line. That is REQ-6 on Princess Beatrice exactly - offering as an option work we are obliged to do,
+and inviting the QS to strike it. Priced in at GBP 5/lin m (js/pricing.js masticRate) and the
+OPTIONAL block deleted from the face of the client copy. Check your own job.
+
+5. MATCHING A COMPETITOR'S INCLUSIONS IS A PRICING DECISION, NOT A COPY-PASTE. Joedan's cl.12
+includes strip-out, cl.13 a 45mm uPVC cloaking profile, cl.15 perimeter sealing. Adopting their list
+put GBP 4,571 into our number and left one item (the cloaking profile, ~314 lin m) with NO RATE
+ANYWHERE - carried as included scope at nil pending a supplier quote. Read a competitor's inclusions
+line by line before you promise to match them.
+
+AND THE STRIP-OUT ANSWER HAS ARRIVED FROM ADAM, ON ANOTHER JOB. On Princess Beatrice, 20:01: "we had
+a lot across this job compared to the material costs. Therefore I decided I would include the strip
+out (effectively FOC) in order to remain competitive." So the ruling on the sixth-time-of-asking is
+ABSORB IT. Still no rate - I have carried GBP 3,000 on Redditch as a labelled ALLOWANCE, GBP 69.77
+an opening, and told Adam it is his to move. REQ-24 stays open for the rate itself.

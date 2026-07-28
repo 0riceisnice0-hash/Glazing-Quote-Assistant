@@ -1,99 +1,293 @@
 {
- "job": "Georgie's (formerly Rosebank) - Pearce Construction - position at 28/07/2026, QUOTE ALREADY ISSUED to Pearce 13:01 at GBP 89,229.61 ex VAT",
+ "job": "Georgie's (formerly Rosebank) - Pearce Construction - position at 28/07/2026 22:30 BST. Issued to Pearce 14:01 BST at GBP 89,229.61; Adam caught RRR Group's name and logo on the cover at 20:57 BST and the rebranded, de-traced pack is built and waiting for Gintare to send.",
  "created": "2026-07-27",
  "updated": "2026-07-28",
- "_note": "POST-ISSUE AUDIT. Gintare issued the tender to Neil Macilwaine (Pearce) at 13:01 on 28/07, 91 minutes after sending it to Adam for checking. Every failure below is now a live exposure on a document the client holds, not a gate before issue. Doors/patio/CW are now supplier-backed (Bellview 0000000513 + BSW QT253508); the gaps that remain are hardware, finish, U-value evidence, strip-out and asbestos.",
-
+ "_note": "POST-ISSUE AUDIT. Gintare issued the tender to Neil Macilwaine (Pearce) at 14:01 BST on 28/07, 99 minutes after sending it to Adam for checking. Every failure below is now a live exposure on a document the client holds, not a gate before issue. Doors/patio/CW are now supplier-backed (Bellview 0000000513 + BSW QT253508); the gaps that remain are hardware, finish, U-value evidence, strip-out and asbestos.",
  "coupled_runs": [
   {
    "name": "GD.0008 curtain walling run CW01 + D03 + CW02 (7770mm wide x 2089mm high)",
    "elements": [
-    {"ref": "CW01", "system": "SMA MC600 Plus Standard"},
-    {"ref": "D03", "system": "SMA Smart Wall Pocket"},
-    {"ref": "CW02", "system": "SMA MC600 Plus Standard"}
+    {
+     "ref": "CW01",
+     "system": "SMA MC600 Plus Standard"
+    },
+    {
+     "ref": "D03",
+     "system": "SMA Smart Wall Pocket"
+    },
+    {
+     "ref": "CW02",
+     "system": "SMA MC600 Plus Standard"
+    }
    ]
   }
  ],
-
  "doors": [
-  {"ref": "D01", "fire_exit": true,  "panic_hardware_priced": false},
-  {"ref": "D02", "fire_exit": true,  "panic_hardware_priced": false},
-  {"ref": "D03", "fire_exit": true,  "panic_hardware_priced": false},
-  {"ref": "D04", "fire_exit": true,  "panic_hardware_priced": false},
-  {"ref": "D05", "fire_exit": true,  "panic_hardware_priced": true},
-  {"ref": "D06", "fire_exit": false, "panic_hardware_priced": true},
-  {"ref": "D07", "fire_exit": false, "panic_hardware_priced": true},
-  {"ref": "D08", "fire_exit": true,  "panic_hardware_priced": true}
+  {
+   "ref": "D01",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  },
+  {
+   "ref": "D02",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  },
+  {
+   "ref": "D03",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  },
+  {
+   "ref": "D04",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  },
+  {
+   "ref": "D05",
+   "fire_exit": true,
+   "panic_hardware_priced": true
+  },
+  {
+   "ref": "D06",
+   "fire_exit": false,
+   "panic_hardware_priced": true
+  },
+  {
+   "ref": "D07",
+   "fire_exit": false,
+   "panic_hardware_priced": true
+  },
+  {
+   "ref": "D08",
+   "fire_exit": true,
+   "panic_hardware_priced": true
+  }
  ],
-
  "frame_supply": "glazed",
  "glass_order": [],
-
  "quantities": [
-  {"ref": "windows W01-W23", "bill_qty": 23, "drawing_qty": 23},
-  {"ref": "external doorsets D01-D08", "bill_qty": 8, "drawing_qty": 8},
-  {"ref": "curtain walling / screen sections CW01+CW02", "bill_qty": 2, "drawing_qty": 2},
-  {"ref": "windows quoted by Mercury QL004741", "bill_qty": 23, "drawing_qty": 23}
+  {
+   "ref": "windows W01-W23",
+   "bill_qty": 23,
+   "drawing_qty": 23
+  },
+  {
+   "ref": "external doorsets D01-D08",
+   "bill_qty": 8,
+   "drawing_qty": 8
+  },
+  {
+   "ref": "curtain walling / screen sections CW01+CW02",
+   "bill_qty": 2,
+   "drawing_qty": 2
+  },
+  {
+   "ref": "windows quoted by Mercury QL004741",
+   "bill_qty": 23,
+   "drawing_qty": 23
+  }
  ],
-
  "supplier_coverage": [
-  {"ref": "W01-W23 sliding sash", "qty_sold": 23, "qty_quoted": 23, "supplier_ref": "Mercury QL004741"},
-  {"ref": "D02 patio door 2650x2089", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "BSW QT253508"},
-  {"ref": "CW01+D03+CW02 run 7770x2089", "qty_sold": 1, "qty_quoted": 1, "supplier_ref": "Bellview 0000000513 pos 002"},
-  {"ref": "D01, D04 doubles 1800x2089", "qty_sold": 2, "qty_quoted": 2, "supplier_ref": "Bellview 0000000513 pos 001 + 003"},
-  {"ref": "D05, D06, D07, D08 singles 950x2089", "qty_sold": 4, "qty_quoted": 4, "supplier_ref": "Bellview 0000000513 pos 004-007"},
-  {"ref": "Kingspan cavity closers", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "NONE - GBP 2,400 lump sum added at 13:01 with no supplier quote behind it"}
+  {
+   "ref": "W01-W23 sliding sash",
+   "qty_sold": 23,
+   "qty_quoted": 23,
+   "supplier_ref": "Mercury QL004741"
+  },
+  {
+   "ref": "D02 patio door 2650x2089",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253508"
+  },
+  {
+   "ref": "CW01+D03+CW02 run 7770x2089",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "Bellview 0000000513 pos 002"
+  },
+  {
+   "ref": "D01, D04 doubles 1800x2089",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "Bellview 0000000513 pos 001 + 003"
+  },
+  {
+   "ref": "D05, D06, D07, D08 singles 950x2089",
+   "qty_sold": 4,
+   "qty_quoted": 4,
+   "supplier_ref": "Bellview 0000000513 pos 004-007"
+  },
+  {
+   "ref": "Kingspan cavity closers",
+   "qty_sold": 1,
+   "qty_quoted": 0,
+   "supplier_ref": "NONE - GBP 2,400 lump sum added at 14:01 BST with no supplier quote behind it"
+  }
  ],
-
  "spec_items": [
-  {"ref": "W01-W23 vertical sliding sash windows (spec 2.28)", "treatment": "priced"},
-  {"ref": "2.28 dual colour - white aluminium internally / dark brown externally (WINDOWS)", "treatment": "excluded - Mercury confirmed 28/07 aluminium VS is single colour only; disclosed to Pearce in the covering email and on proposal p3"},
-  {"ref": "2.38.6 colours to doors/CW - match existing scheme (D02 PATIO)", "treatment": "NOT ADDRESSED - BSW QT253508 quotes Ext Colour RAL 7016 Grey, no internal colour; our proposal states white internal / brown external for doors"},
-  {"ref": "2.33 finish contradiction - 2.33 says standard Sapa finish WHITE, 2.28 says white in / dark brown out", "treatment": "NOT ADDRESSED - RFI to CA"},
-  {"ref": "2.28 / 2.33.5 U-value max 1.6 W/m2K plus documentary evidence of energy rating", "treatment": "NOT ADDRESSED - Mercury state no U-value; proposal recites the requirement but never confirms compliance and offers no evidence"},
-  {"ref": "2.33.1 obscure glazing to all bathroom, shower and WC areas", "treatment": "NOT ADDRESSED - all 23 Mercury lines Clear Lam Tgh; proposal silent"},
-  {"ref": "2.33.1 safety glass toughened/laminated to BS6262", "treatment": "priced"},
-  {"ref": "2.33.1 security fixings where external beads are used", "treatment": "NOT ADDRESSED"},
-  {"ref": "2.33.4 trickle vents - Delta vent + grille, WHITE PVCu, external canopy, 4000mm2 per 15m2 of floor area", "treatment": "NOT ADDRESSED - Mercury quote 1 x mill finish 5000 per window regardless of room area; proposal spec table leaves the trickle vent line blank"},
-  {"ref": "2.33.2 cills sized to extend past external brickwork", "treatment": "NOT ADDRESSED"},
-  {"ref": "D01-D08 external doorsets (spec 2.38.3)", "treatment": "priced"},
-  {"ref": "CW01/CW02 full height curtain walling / screens (spec 2.2, 2.38.3)", "treatment": "priced"},
-  {"ref": "2.38.5 panic exit devices BS EN 1125 - required D01, D02, D03, D04, D05, D08", "treatment": "NOT ADDRESSED - Bellview supply concealed panic bars on the four 950 singles only (D05-D08). D01, D04 doubles and D03 CW door have handles/locks and no panic bar; D02 is a 2-rail sliding patio with an inline patio lock. Four of six missing."},
-  {"ref": "2.38.5 contrasting EXTERNAL tubular pull / pad handle to fire exit doors", "treatment": "NOT ADDRESSED - not listed against Bellview pos 004-007"},
-  {"ref": "2.38.4 5-lever mortice lock, external cylinder, internal thumbturn classroom function, 316 SS escutcheon, suited to existing master key (D06, D07)", "treatment": "NOT ADDRESSED - D06 and D07 are quoted with concealed PANIC BARS instead; no master-key suiting anywhere. BSW wrote 'no hardware schedule, so I have assumed single doors to be fire escapes based on the floor plans' - schedule 2.39 exists and was never sent to them."},
-  {"ref": "2.38.3 pivot hinges, concealed closers, 90-deg hold open, anti-finger trap stiles, flush drained threshold", "treatment": "priced"},
-  {"ref": "2.38.3 door/glazing area weighted U-value 1.6 + evidence", "treatment": "NOT ADDRESSED - Bellview state Ug 1.0 / 1.1 which is centre-pane glass only, not the area-weighted whole-element Uw the spec requires"},
-  {"ref": "2.43.1 asbestos internal cill boards throughout - removal expressly required within the tender submission", "treatment": "NOT ADDRESSED - not priced and not excluded on the issued document"},
-  {"ref": "strip-out and removal of 23 existing windows and 8 existing doorsets", "treatment": "NOT ADDRESSED - install line recomputes to the penny from the fit-only labour codes with zero residual, and no exclusion covers removal"},
-  {"ref": "2.43.2 main entrance door security / egress system isolate, remove, reinstall, recommission", "treatment": "excluded - proposal excludes access control"},
-  {"ref": "2.34.2 window winding gear where handle is above 1800mm FFL, guaranteed 10 years", "treatment": "NOT ADDRESSED - needs cill heights off the elevations"},
-  {"ref": "2.34.1 internal tower scaffold to high level windows", "treatment": "excluded - proposal excludes access/lifting equipment incl. towers"},
-  {"ref": "2.34.4 leadwork - code 4/5 flashings to window openings and abutments", "treatment": "NOT ADDRESSED"},
-  {"ref": "2.34.6 / 2.41 internal decorations - whole walls and ceilings, Dulux Trade", "treatment": "excluded - proposal excludes decoration and internal finishing"},
-  {"ref": "2.33.13-2.33.16 / 2.40 making good externally, plaster, floors, suspended ceilings", "treatment": "excluded - proposal excludes making good and internal works"},
-  {"ref": "2.46 provisional sums 500 + 2500 + 2500 + 2500", "treatment": "provisional"},
-  {"ref": "2.47 contingency sum 5000", "treatment": "provisional"},
-  {"ref": "2.45 dayworks rates - craftsman, painter, labourer, electrician", "treatment": "NOT ADDRESSED - the tender expressly requires them and the issued document carries none"}
+  {
+   "ref": "W01-W23 vertical sliding sash windows (spec 2.28)",
+   "treatment": "priced"
+  },
+  {
+   "ref": "2.28 dual colour - white aluminium internally / dark brown externally (WINDOWS)",
+   "treatment": "excluded - Mercury confirmed 28/07 aluminium VS is single colour only; disclosed to Pearce in the covering email and on proposal p3"
+  },
+  {
+   "ref": "2.38.6 colours to doors/CW - match existing scheme (D02 PATIO)",
+   "treatment": "NOT ADDRESSED - BSW QT253508 quotes Ext Colour RAL 7016 Grey, no internal colour; our proposal states white internal / brown external for doors"
+  },
+  {
+   "ref": "2.33 finish contradiction - 2.33 says standard Sapa finish WHITE, 2.28 says white in / dark brown out",
+   "treatment": "NOT ADDRESSED - RFI to CA"
+  },
+  {
+   "ref": "2.28 / 2.33.5 U-value max 1.6 W/m2K plus documentary evidence of energy rating",
+   "treatment": "NOT ADDRESSED - Mercury state no U-value; proposal recites the requirement but never confirms compliance and offers no evidence"
+  },
+  {
+   "ref": "2.33.1 obscure glazing to all bathroom, shower and WC areas",
+   "treatment": "NOT ADDRESSED - all 23 Mercury lines Clear Lam Tgh; proposal silent"
+  },
+  {
+   "ref": "2.33.1 safety glass toughened/laminated to BS6262",
+   "treatment": "priced"
+  },
+  {
+   "ref": "2.33.1 security fixings where external beads are used",
+   "treatment": "NOT ADDRESSED"
+  },
+  {
+   "ref": "2.33.4 trickle vents - Delta vent + grille, WHITE PVCu, external canopy, 4000mm2 per 15m2 of floor area",
+   "treatment": "NOT ADDRESSED - Mercury quote 1 x mill finish 5000 per window regardless of room area; proposal spec table leaves the trickle vent line blank"
+  },
+  {
+   "ref": "2.33.2 cills sized to extend past external brickwork",
+   "treatment": "NOT ADDRESSED"
+  },
+  {
+   "ref": "D01-D08 external doorsets (spec 2.38.3)",
+   "treatment": "priced"
+  },
+  {
+   "ref": "CW01/CW02 full height curtain walling / screens (spec 2.2, 2.38.3)",
+   "treatment": "priced"
+  },
+  {
+   "ref": "2.38.5 panic exit devices BS EN 1125 - required D01, D02, D03, D04, D05, D08",
+   "treatment": "NOT ADDRESSED - Bellview supply concealed panic bars on the four 950 singles only (D05-D08). D01, D04 doubles and D03 CW door have handles/locks and no panic bar; D02 is a 2-rail sliding patio with an inline patio lock. Four of six missing."
+  },
+  {
+   "ref": "2.38.5 contrasting EXTERNAL tubular pull / pad handle to fire exit doors",
+   "treatment": "NOT ADDRESSED - not listed against Bellview pos 004-007"
+  },
+  {
+   "ref": "2.38.4 5-lever mortice lock, external cylinder, internal thumbturn classroom function, 316 SS escutcheon, suited to existing master key (D06, D07)",
+   "treatment": "NOT ADDRESSED - D06 and D07 are quoted with concealed PANIC BARS instead; no master-key suiting anywhere. BSW wrote 'no hardware schedule, so I have assumed single doors to be fire escapes based on the floor plans' - schedule 2.39 exists and was never sent to them."
+  },
+  {
+   "ref": "2.38.3 pivot hinges, concealed closers, 90-deg hold open, anti-finger trap stiles, flush drained threshold",
+   "treatment": "priced"
+  },
+  {
+   "ref": "2.38.3 door/glazing area weighted U-value 1.6 + evidence",
+   "treatment": "NOT ADDRESSED - Bellview state Ug 1.0 / 1.1 which is centre-pane glass only, not the area-weighted whole-element Uw the spec requires"
+  },
+  {
+   "ref": "2.43.1 asbestos internal cill boards throughout - removal expressly required within the tender submission",
+   "treatment": "NOT ADDRESSED - not priced and not excluded on the issued document"
+  },
+  {
+   "ref": "strip-out and removal of 23 existing windows and 8 existing doorsets",
+   "treatment": "NOT ADDRESSED - install line recomputes to the penny from the fit-only labour codes with zero residual, and no exclusion covers removal"
+  },
+  {
+   "ref": "2.43.2 main entrance door security / egress system isolate, remove, reinstall, recommission",
+   "treatment": "excluded - proposal excludes access control"
+  },
+  {
+   "ref": "2.34.2 window winding gear where handle is above 1800mm FFL, guaranteed 10 years",
+   "treatment": "NOT ADDRESSED - needs cill heights off the elevations"
+  },
+  {
+   "ref": "2.34.1 internal tower scaffold to high level windows",
+   "treatment": "excluded - proposal excludes access/lifting equipment incl. towers"
+  },
+  {
+   "ref": "2.34.4 leadwork - code 4/5 flashings to window openings and abutments",
+   "treatment": "NOT ADDRESSED"
+  },
+  {
+   "ref": "2.34.6 / 2.41 internal decorations - whole walls and ceilings, Dulux Trade",
+   "treatment": "excluded - proposal excludes decoration and internal finishing"
+  },
+  {
+   "ref": "2.33.13-2.33.16 / 2.40 making good externally, plaster, floors, suspended ceilings",
+   "treatment": "excluded - proposal excludes making good and internal works"
+  },
+  {
+   "ref": "2.46 provisional sums 500 + 2500 + 2500 + 2500",
+   "treatment": "provisional"
+  },
+  {
+   "ref": "2.47 contingency sum 5000",
+   "treatment": "provisional"
+  },
+  {
+   "ref": "2.45 dayworks rates - craftsman, painter, labourer, electrician",
+   "treatment": "NOT ADDRESSED - the tender expressly requires them and the issued document carries none"
+  }
  ],
-
  "supplier_quotes": [
-  {"supplier": "Mercury Glazing Supplies", "ref": "QL004741", "date": "2026-07-27", "used_net": true},
-  {"supplier": "Bellview Products Ltd (via BSW)", "ref": "0000000513", "date": "2026-07-27", "used_net": true},
-  {"supplier": "BSW Window Solutions", "ref": "QT253508", "date": "2026-07-28", "used_net": true}
+  {
+   "supplier": "Mercury Glazing Supplies",
+   "ref": "QL004741",
+   "date": "2026-07-27",
+   "used_net": true
+  },
+  {
+   "supplier": "Bellview Products Ltd (via BSW)",
+   "ref": "0000000513",
+   "date": "2026-07-27",
+   "used_net": true
+  },
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT253508",
+   "date": "2026-07-28",
+   "used_net": true
+  }
  ],
-
  "full_height_screens": [
-  {"ref": "CW01", "priced_as": "curtain walling"},
-  {"ref": "CW02", "priced_as": "curtain walling"}
+  {
+   "ref": "CW01",
+   "priced_as": "curtain walling"
+  },
+  {
+   "ref": "CW02",
+   "priced_as": "curtain walling"
+  }
  ],
-
  "systems_specified": [
-  {"system": "Sapa Dualframe 75Si vertical sliding sash (SPECIFIED, spec 2.33)", "fabricator": null},
-  {"system": "SMA VS600 (Mercury's or-equal-approved alternative, quoted and issued)", "fabricator": "Mercury Glazing Supplies"},
-  {"system": "Technal Stormframe STII commercial door and framing (SPECIFIED, spec 2.38.3)", "fabricator": null},
-  {"system": "SMA Smart Wall Pocket / SMA MC600 Plus / Alunet ESS47 (or-equal-approved alternatives, quoted and issued)", "fabricator": "Bellview Products Ltd / BSW Window Solutions"}
+  {
+   "system": "Sapa Dualframe 75Si vertical sliding sash (SPECIFIED, spec 2.33)",
+   "fabricator": null
+  },
+  {
+   "system": "SMA VS600 (Mercury's or-equal-approved alternative, quoted and issued)",
+   "fabricator": "Mercury Glazing Supplies"
+  },
+  {
+   "system": "Technal Stormframe STII commercial door and framing (SPECIFIED, spec 2.38.3)",
+   "fabricator": null
+  },
+  {
+   "system": "SMA Smart Wall Pocket / SMA MC600 Plus / Alunet ESS47 (or-equal-approved alternatives, quoted and issued)",
+   "fabricator": "Bellview Products Ltd / BSW Window Solutions"
+  }
  ],
-
  "finishes": [
   {
    "ref": "W01-W23 vertical sliding sash",
@@ -117,77 +311,183 @@
    "quoted_external": "RAL 7016 grey"
   }
  ],
-
  "u_value": {
   "required": 1.6,
   "basis": "per element",
   "rejected_elements": []
  },
-
  "performance": {
   "required": "Area-weighted U-value 1.6 W/m2K maximum to windows, doors and screens, with documentary evidence of the energy efficiency rating (spec 2.28, 2.33.5, 2.38.3). PSDS4 decarbonisation scheme - the U-value is the purpose of the job.",
   "capable": false,
   "evidence": "None held. Mercury QL004741 states no U-value at all and quotes 'Clear Lam Tgh' with no low-E or soft coat named. Bellview 0000000513 states Ug 1.0 and Ug 1.1, which is centre-pane glass, not a whole-element area-weighted Uw. BSW QT253508 states EcoPlus 1.0, again glass only. No supplier has certified an element Uw and the issued proposal makes no compliance statement."
  },
-
  "price_commitment": {
   "source": "Fenster proposal Terms and Conditions clause 2 - 'All quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from the date of issue'. Issued 28/07/2026.",
   "our_price_open_until": "2026-08-27"
  },
-
  "delivery_terms": [
-  {"supplier": "Mercury Glazing Supplies", "ref": "QL004741", "order_value": 27319.03, "free_delivery_threshold": null, "charge_basis": "not stated anywhere on the quote", "delivery_priced": false},
-  {"supplier": "Bellview Products Ltd", "ref": "0000000513", "order_value": 20861.92, "free_delivery_threshold": null, "charge_basis": "not stated on the quote", "delivery_priced": false},
-  {"supplier": "BSW Window Solutions", "ref": "QT253508", "order_value": 2381.70, "free_delivery_threshold": null, "charge_basis": "'All estimates are ex works, additional delivery charges may apply' - carriage expressly outside the price", "delivery_priced": false}
+  {
+   "supplier": "Mercury Glazing Supplies",
+   "ref": "QL004741",
+   "order_value": 27319.03,
+   "free_delivery_threshold": null,
+   "charge_basis": "not stated anywhere on the quote",
+   "delivery_priced": false
+  },
+  {
+   "supplier": "Bellview Products Ltd",
+   "ref": "0000000513",
+   "order_value": 20861.92,
+   "free_delivery_threshold": null,
+   "charge_basis": "not stated on the quote",
+   "delivery_priced": false
+  },
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT253508",
+   "order_value": 2381.7,
+   "free_delivery_threshold": null,
+   "charge_basis": "'All estimates are ex works, additional delivery charges may apply' - carriage expressly outside the price",
+   "delivery_priced": false
+  }
  ],
-
  "incorporated_terms": [
-  {"supplier": "Mercury Glazing Supplies", "ref": "QL004741", "document": "Mercury Glazing Supplies Ltd standard terms and conditions (named in the email footer: 'any contract is subject to Mercury Glazing Supplies Ltd's standard terms and conditions')", "held": false},
-  {"supplier": "BSW Window Solutions", "ref": "QT253508", "document": "BSW terms and conditions of sale ('Orders are subject to acceptance and terms and conditions of sale, available on request')", "held": false},
-  {"supplier": "Bellview Products Ltd", "ref": "0000000513", "document": "none named on the quote", "held": true}
+  {
+   "supplier": "Mercury Glazing Supplies",
+   "ref": "QL004741",
+   "document": "Mercury Glazing Supplies Ltd standard terms and conditions (named in the email footer: 'any contract is subject to Mercury Glazing Supplies Ltd's standard terms and conditions')",
+   "held": false
+  },
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT253508",
+   "document": "BSW terms and conditions of sale ('Orders are subject to acceptance and terms and conditions of sale, available on request')",
+   "held": false
+  },
+  {
+   "supplier": "Bellview Products Ltd",
+   "ref": "0000000513",
+   "document": "none named on the quote",
+   "held": true
+  }
  ],
-
  "issued_documents": [
   {
-   "name": "Pearce Construction - Georgie's (formerly Rosebank) Pricing.xlsx",
-   "path": "test-results/mary-inbox/queue/20260728T1301-zQFQAAAA-att/Pearce Construction - Georgie's (formerly Rosebank) Pricing.xlsx",
+   "name": "Pearce Construction - Georgie's (formerly Rosebank) Pricing.xlsx (AMENDED, ready to send)",
+   "path": "outputs/georgies-reissue/Pearce Construction - Georgie's (formerly Rosebank) Pricing.xlsx",
    "is_the_priced_document": true,
    "exclusions_stated": 0
   },
   {
-   "name": "Pearce Construction - Georgie's (formerly Rosebank) Proposal.pdf",
-   "path": "test-results/mary-inbox/queue/20260728T1301-zQFQAAAA-att/Pearce Construction - Georgie's (formerly Rosebank) Proposal.pdf",
+   "name": "Pearce Construction - Georgie's (formerly Rosebank) Proposal.pdf (AMENDED, ready to send)",
+   "path": "outputs/georgies-reissue/Pearce Construction - Georgie's (formerly Rosebank) Proposal.pdf",
    "is_the_priced_document": false,
    "exclusions_stated": 16
   }
  ],
-
  "exposures": [
-  {"item": "Strip-out and removal of 23 existing windows and 8 existing doorsets", "lands_on": "Fenster", "our_recourse": "none - the install sum is fit-only and no exclusion covers removal"},
-  {"item": "Asbestos internal cill boards throughout the building (spec 2.43.1, expressly required within the tender submission)", "lands_on": "unresolved between Fenster and Pearce", "our_recourse": "none stated - our exclusions do not mention asbestos, and Pearce carry a separate Asbestos Removal element and a GBP 5,000 defined provisional sum"},
-  {"item": "BS EN 1125 panic devices missing on D01, D02, D03, D04", "lands_on": "Fenster", "our_recourse": "none - hardware is inside our package and the schedule was never sent to the fabricator"},
-  {"item": "D06/D07 supplied with panic bars instead of master-suited thumbturn locksets", "lands_on": "Fenster", "our_recourse": "none"},
-  {"item": "Area-weighted U-value 1.6 with documentary evidence", "lands_on": "Fenster", "our_recourse": "none - no supplier has certified an element Uw; a reglaze would be ours"},
-  {"item": "Obscure glazing to bathroom/shower/WC", "lands_on": "Fenster", "our_recourse": "none - not priced, not excluded"},
-  {"item": "Delta white PVCu trickle vents with external canopy at 4000mm2 per 15m2", "lands_on": "Fenster", "our_recourse": "none - wrong product and finish quoted, quantity never checked against room areas"},
-  {"item": "Delivery of 31 units to Barnstaple from Peterborough and Gloucester", "lands_on": "Fenster", "our_recourse": "none - BSW are expressly ex-works, Mercury and Bellview state nothing, and no carriage is in our number"},
-  {"item": "Mercury's price holding until a Devon CC scheme is awarded", "lands_on": "Fenster", "our_recourse": "none - QL004741 states no validity period at all, while our price is open to 27/08"},
-  {"item": "D04 priced as an 1800mm double against a schedule that says 950mm", "lands_on": "Fenster", "our_recourse": "none - the assumption is not qualified on the issued document"},
-  {"item": "Third-party identity in the issued workbook", "lands_on": "Fenster", "our_recourse": "none - already with the client"}
+  {
+   "item": "Strip-out and removal of 23 existing windows and 8 existing doorsets",
+   "lands_on": "Fenster",
+   "our_recourse": "none - the install sum is fit-only and no exclusion covers removal"
+  },
+  {
+   "item": "Asbestos internal cill boards throughout the building (spec 2.43.1, expressly required within the tender submission)",
+   "lands_on": "unresolved between Fenster and Pearce",
+   "our_recourse": "none stated - our exclusions do not mention asbestos, and Pearce carry a separate Asbestos Removal element and a GBP 5,000 defined provisional sum"
+  },
+  {
+   "item": "BS EN 1125 panic devices missing on D01, D02, D03, D04",
+   "lands_on": "Fenster",
+   "our_recourse": "none - hardware is inside our package and the schedule was never sent to the fabricator"
+  },
+  {
+   "item": "D06/D07 supplied with panic bars instead of master-suited thumbturn locksets",
+   "lands_on": "Fenster",
+   "our_recourse": "none"
+  },
+  {
+   "item": "Area-weighted U-value 1.6 with documentary evidence",
+   "lands_on": "Fenster",
+   "our_recourse": "none - no supplier has certified an element Uw; a reglaze would be ours"
+  },
+  {
+   "item": "Obscure glazing to bathroom/shower/WC",
+   "lands_on": "Fenster",
+   "our_recourse": "none - not priced, not excluded"
+  },
+  {
+   "item": "Delta white PVCu trickle vents with external canopy at 4000mm2 per 15m2",
+   "lands_on": "Fenster",
+   "our_recourse": "none - wrong product and finish quoted, quantity never checked against room areas"
+  },
+  {
+   "item": "Delivery of 31 units to Barnstaple from Peterborough and Gloucester",
+   "lands_on": "Fenster",
+   "our_recourse": "none - BSW are expressly ex-works, Mercury and Bellview state nothing, and no carriage is in our number"
+  },
+  {
+   "item": "Mercury's price holding until a Devon CC scheme is awarded",
+   "lands_on": "Fenster",
+   "our_recourse": "none - QL004741 states no validity period at all, while our price is open to 27/08"
+  },
+  {
+   "item": "D04 priced as an 1800mm double against a schedule that says 950mm",
+   "lands_on": "Fenster",
+   "our_recourse": "none - the assumption is not qualified on the issued document"
+  },
+  {
+   "item": "Third-party identity in the issued workbook",
+   "lands_on": "Fenster",
+   "our_recourse": "none - already with the client"
+  }
  ],
-
  "warranty": {
   "ours": {
    "period_months": 120,
    "scope": "all glass and frame products supplied and installed - defects in materials as supplied and workmanship (installation)",
    "start_date": null,
    "usage_cap": null,
-   "exclusions": ["misuse", "accidental or intentional damage", "vandalism", "inadequate or incorrect maintenance", "external factors including severe weather", "subject to the terms and conditions of any applicable manufacturer warranties"]
+   "exclusions": [
+    "misuse",
+    "accidental or intentional damage",
+    "vandalism",
+    "inadequate or incorrect maintenance",
+    "external factors including severe weather",
+    "subject to the terms and conditions of any applicable manufacturer warranties"
+   ]
   },
   "suppliers": [
-   {"supplier": "Mercury Glazing Supplies", "ref": "QL004741", "covers": "not stated on the quote", "period_months": null, "start_date": null, "usage_cap": null, "exclusions": [], "exclusions_complete": false},
-   {"supplier": "Bellview Products Ltd", "ref": "0000000513", "covers": "not stated on the quote", "period_months": null, "start_date": null, "usage_cap": null, "exclusions": [], "exclusions_complete": false},
-   {"supplier": "BSW Window Solutions", "ref": "QT253508", "covers": "not stated on the quote", "period_months": null, "start_date": null, "usage_cap": null, "exclusions": [], "exclusions_complete": false}
+   {
+    "supplier": "Mercury Glazing Supplies",
+    "ref": "QL004741",
+    "covers": "not stated on the quote",
+    "period_months": null,
+    "start_date": null,
+    "usage_cap": null,
+    "exclusions": [],
+    "exclusions_complete": false
+   },
+   {
+    "supplier": "Bellview Products Ltd",
+    "ref": "0000000513",
+    "covers": "not stated on the quote",
+    "period_months": null,
+    "start_date": null,
+    "usage_cap": null,
+    "exclusions": [],
+    "exclusions_complete": false
+   },
+   {
+    "supplier": "BSW Window Solutions",
+    "ref": "QT253508",
+    "covers": "not stated on the quote",
+    "period_months": null,
+    "start_date": null,
+    "usage_cap": null,
+    "exclusions": [],
+    "exclusions_complete": false
+   }
   ]
  }
 }

@@ -27,11 +27,11 @@ sections of full height curtain walling / screens (CW01, CW02, with door D03 in 
 
 ## WHERE IT STANDS (28/07/2026) - THE TENDER HAS BEEN ISSUED
 
-**Gintare issued it to Neil Macilwaine at 13:01 on 28/07, cc adam@, at GBP 89,229.61 ex VAT.**
+**Gintare issued it to Neil Macilwaine at 14:01 BST on 28/07, cc adam@, at GBP 89,229.61 ex VAT.**
 Attachments: the Pricing.xlsx, the Proposal as PDF, and Window & Door Drawings.pdf.
 
-**The quote Adam was asked to check is not the quote Pearce hold.** Gintare sent it to Adam at 11:22
-and to Pearce at 13:01. Adam's copy totals **GBP 83,104.61**; Pearce's totals **GBP 89,229.61**.
+**The quote Adam was asked to check is not the quote Pearce hold.** Gintare sent it to Adam at 12:22
+BST and to Pearce at 14:01 BST. Adam's copy totals **GBP 83,104.61**; Pearce's totals **GBP 89,229.61**.
 The GBP 6,125.00 difference reconciles exactly to three uplifts added in between:
 
 | change | amount |
@@ -42,7 +42,12 @@ The GBP 6,125.00 difference reconciles exactly to three uplifts added in between
 | | **+6,125.00** |
 
 The uplifts were typed over the template formulas, so the issued workbook no longer recomputes.
-Adam's dashboard request (dashmsg-40, 11:30) was against the GBP 83,104.61 version.
+Adam's dashboard request (dashmsg-40, 12:30 BST) was against the GBP 83,104.61 version.
+
+> **All times in this file are BST.** Work-order `received` fields are UTC and were an hour early in
+> the first version of this record - corrected 28/07. Times quoted inside an email body ("Sent: 28
+> July 2026 11:52") are already local and were NOT shifted. Adam's own email corroborates: the tender
+> went at "2:01 PM".
 
 ### The issued price
 
@@ -98,7 +103,9 @@ either.
 
 ## The seven things wrong with the issued tender
 
-`scripts/mary_checks.py data/job-checks/georgies.json` returns **7 FAILED**.
+`scripts/mary_checks.py data/job-checks/georgies.json` returned **7 FAILED** against the issued pack.
+Against the **amended pack** (below) it returns **6 FAILED** - the third-party-traces failure is cleared.
+Nothing else has moved, because nothing else has been decided.
 
 1. **FOUR OF THE SIX PANIC DEVICES ARE NOT IN THE PRICE; TWO DOORS HAVE ONE THEY MUST NOT HAVE.**
    Spec 2.39 schedules internal push-bar panic exit devices to BS EN 1125 on **D01, D02, D03, D04,
@@ -117,7 +124,18 @@ either.
    Spec 2.38.5 also wants a contrasting **external** pull/pad handle on every fire-exit door; not
    listed against Bellview 004-007.
 
-2. **STRIP-OUT UNFUNDED AND UNEXCLUDED** - see the install control above.
+2. **STRIP-OUT UNFUNDED AND UNEXCLUDED** - see the install control above. **ANSWERED 28/07 EVENING,
+   ON ANOTHER JOB.** Adam on Princess Beatrice at 21:01 BST: *"we had a lot across this job compared
+   to the material costs. Therefore I decided I would include the strip out (effectively FOC) in order
+   to remain competitive."* And on Redditch at 21:09: *"We will include strip out to remain
+   competitive."* So the house position is **absorb it**, and Fenster has already said so to a client
+   in writing - Rubery Library (Pride, 21/10/2025, WON): *"All prices include installation and removal
+   of old frames."* On Georgie's that converts the finding from *a gap to be priced* into *a margin hit
+   already taken*: the GBP 89,229.61 stands, and the strip-out of 23 windows and 8 doorsets comes out
+   of the 54.7% mark-up. **What is still wrong is that the document does not SAY so** - it is silent,
+   not inclusive, so we get no credit for it against a competitor who states it. One line in the
+   INCLUSIONS list fixes that and costs nothing. **This does NOT extend to the asbestos cill boards** -
+   Adam's ruling is about frames.
 
 3. **ASBESTOS NEITHER PRICED NOR EXCLUDED.** Spec 2.43.1: internal cill boards throughout the building
    are asbestos containing and the contractor *"shall allow to include within the tender submission for
@@ -139,6 +157,10 @@ either.
    `C:\Users\LiamO'Donnell\...` and `C:\Users\Parke\...` - REQ-27, third job this week, visible in file
    properties without opening it. The proposal went as PDF so its own trace (`Nicholas Baker`) did not
    travel; the .xlsx did.
+   **AND THERE WAS A LOGO, NOT JUST A NAME.** Adam spotted it at 20:57 BST: *"This has RRR Group's logo
+   and name on it. Can you please amend and send back to Neil ASAP!"* RRR GROUP LIMITED's black-and-gold
+   roundel sat on the cover next to Fenster's own (`word/media/image4.png`, 255x221). **FIXED - see
+   below.**
 
 6. **THE PATIO DOOR IS QUOTED GREY.** BSW QT253508: *"Ext Colour: (7016) Grey"*, no internal colour
    stated. Our proposal's colour table promises *"Doors/CW - White internally / Brown externally"* -
@@ -174,6 +196,67 @@ either.
   they are alternatives requiring CA approval. **Aplus fabricate both specified systems for us** -
   Dualframe 75Si on Riverside QT51518 and Stoke Park, Technal STII on Princess Beatrice (Logikal
   GBP 17,499.74).
+
+---
+
+## THE AMENDED PACK - BUILT 28/07 EVENING, READY FOR GINTARE TO SEND
+
+Adam's instruction (20:57 BST, to Gintare, cc'd into estimating@): amend the RRR Group branding and
+send back to Neil ASAP. Built and verified. **`outputs\georgies-reissue\`**
+
+| file | what changed |
+|---|---|
+| `...Proposal.docx` | editable source, rebuilt |
+| `...Proposal.pdf` | what goes to Neil |
+| `...Pricing.xlsx` | rebranded and de-traced |
+
+**What was changed, and nothing else:**
+
+- Cover: *"Prepared For RRR GROUP"* -> **"PEARCE CONSTRUCTION (BARNSTAPLE) LTD"**.
+- Cover: **RRR Group Limited's logo removed** (replaced with a transparent PNG of identical
+  dimensions, so the layout does not move). The space is now blank - Pearce's own logo can be dropped
+  in if wanted, but I will not source another company's logo without being asked.
+- Page 2: *"Client: RRR Group"* -> **"Client: Pearce Construction (Barnstaple) Ltd"**.
+- Page 2: *"FAO: Fraser Butters"* -> **"FAO: Neil Macilwaine"**. Butters issued the ITT; Macilwaine
+  chased it and is who Adam said to send to.
+- Workbook B3 likewise, and **every third-party trace stripped** - `dc:creator`, both `externalLinks`
+  parts, their relationships and the `<externalReferences>` element. `mary_checks` third-party rule
+  now **PASSES**.
+
+**THE PRICE IS UNTOUCHED AT GBP 89,229.61.** Every figure, line and total is identical.
+
+### The trap in doing this, and how it was caught
+
+**The only .docx we hold is Adam's 12:22 BST copy, and it is not the document that was issued.** The
+14:01 version went out as a PDF. Rebuilding from the .docx and rebranding it would have handed Neil a
+proposal reading **SUBTOTAL: GBP 83,104.61** - quietly GBP 6,125 under the tender he already has. It
+would also have reverted four other changes Gintare made between 12:22 and 14:01:
+
+- the **dual-colour disclosure** (the "single-colour finish only" paragraph and its clarification
+  bullet) did not exist at 12:22 - the 14:01 version is the honest one;
+- the colour table read a flat *"White internally / Brown externally"*, which is **false for the
+  windows**; 14:01 splits it into *"Doors/CW - White internally / Brown externally"* and
+  *"Windows - Brown"*;
+- the 12:22 draft described the site as **"a care residential setting"**. It is a youth centre;
+- the 12:22 draft mentioned obscure glazing to WC/bathroom, which the issued one dropped.
+
+So the amended pack was reconstructed to the **14:01 issued text**, then rebranded, and verified by
+diffing the regenerated PDF against the issued PDF line by line: **289 lines vs 288, and the only
+differences are the four branding lines** (plus one stray empty bullet the issued document carried and
+this one does not).
+
+`scripts\clean_issued_pack.py` does the rebrand-and-de-trace and has a `--selftest` that replays this
+job: 11 traces before, 0 after, total unchanged. It is job-agnostic and worth using anywhere REQ-27
+bites.
+
+### What Adam still has to decide (none of it changed without him)
+
+| | change | price effect |
+|---|---|---|
+| a | **Mastic inside the price.** Spec **2.33.12** requires all joints between aluminium and structure pointed with a triangular fillet of white low-modulus silicone over a polyethylene backer rod, 6-10mm joint depth. Our document offers **EXTERNAL MASTIC as an OPTIONAL EXTRA** - REQ-6 / Redditch exactly: offering as an option work we are obliged to do, and inviting the QS to strike it. | +GBP 856.38 -> **90,086.00** |
+| b | **State that strip-out is included**, per Adam's own ruling tonight and the Rubery precedent. | nil |
+| c | **The four missing panic devices and the D06/D07 master-suited locksets.** | supplier re-quote |
+| d | Qualify the **D04 950 vs 1800** assumption and the **D02 grey**. | nil / TBC |
 
 ## Still open with Pearce / the CA
 
@@ -227,16 +310,24 @@ Analysis shows GBP 5,000 defined + GBP 24,000 undefined provisional sums against
 - **24/07/2026 14:36** - Gintare RFQs BSW (CW + doors only), asking for return by Monday 27th.
 - **27/07/2026 15:20** - Mercury QL004741 arrives. Windows only. Job chat opened, quote reconciled,
   spec read at source, five gaps found, checks manifest built and failing, REQ-12 raised.
-- **28/07/2026 08:51** - Gintare chases BSW.
-- **28/07/2026 09:45** - BSW return Bellview 0000000513 + QT253508, with the "no hardware schedule"
+- **28/07/2026 09:51 BST** - Gintare chases BSW.
+- **28/07/2026 10:45 BST** - BSW return Bellview 0000000513 + QT253508, with the "no hardware schedule"
   caveat. The 35.45 m2 is priced for the first time.
-- **28/07/2026 11:22** - Gintare sends the quote to Adam for checking. GBP 83,104.61.
-- **28/07/2026 11:27** - Gintare asks Mercury about dual colour. **11:34 Mercury: "the aluminium
+- **28/07/2026 12:22 BST** - Gintare sends the quote to Adam for checking. GBP 83,104.61.
+- **28/07/2026 12:27 BST** - Gintare asks Mercury about dual colour. **11:34 Mercury: "the aluminium
   vertical sliders are single colour only."** Definitive - the dual-colour gap cannot be closed in
   aluminium VS.
-- **28/07/2026 11:30** - Adam asks Mary on the dashboard (dashmsg-40) to check the quote.
+- **28/07/2026 12:30 BST** - Adam asks Mary on the dashboard (dashmsg-40) to check the quote.
 - **28/07/2026 11:52** - Neil Macilwaine chases via Once For All.
-- **28/07/2026 13:01** - **Gintare issues the tender to Pearce at GBP 89,229.61**, disclosing the
+- **28/07/2026 14:01 BST** - **Gintare issues the tender to Pearce at GBP 89,229.61**, disclosing the
   single-colour sash limitation and recommending uPVC vertical sliders instead.
 - **28/07/2026** - post-issue audit. Seven check failures, REQ-12 rewritten to the post-issue decision,
   calibration entry 6 added, Adam answered on the dashboard and by email.
+- **28/07/2026 20:57 BST** - **Adam to Gintare: *"This has RRR Group's logo and name on it. Can you
+  please amend and send back to Neil ASAP!"*** He found finding 5 independently, and found more of it
+  than I had - I had the name, he had the logo too.
+- **28/07/2026 evening** - amended pack built, verified against the issued PDF and left in
+  `outputs\georgies-reissue\` for Gintare to send. `scripts\clean_issued_pack.py` written and
+  selftested. All times in this file corrected UTC -> BST. Strip-out ruling recorded from Adam's
+  Princess Beatrice / Redditch decisions. Mastic identified as spec-required (2.33.12) and therefore
+  wrongly carried as an optional extra.
