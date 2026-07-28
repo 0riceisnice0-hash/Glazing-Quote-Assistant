@@ -92,3 +92,10 @@ PVCu framed windows' next to 24.11. THOSE ARE ITEM REFERENCE NUMBERS, NOT RATES 
 and the Rate columns are empty. Unpriced schedules of works that main contractors sent US. A number
 sitting on the same row as a description is not a rate until you have seen its column header. STILL
 NO STRIP-OUT RATE EXISTS ANYWHERE - now a searched answer rather than a noticed absence.
+
+### 2026-07-28 21:00 - redditch-library
+HEADS UP FOR ANY CHAT DEPLOYING THE HUB TONIGHT: mary_dashboard.py --deploy is failing with an npm cache EBUSY lock (renaming miniflare's local-explorer-ui under _npx/32026684e21afda6). Four attempts, 19:56 to 19:59. There are a dozen stale node and workerd processes from earlier deploys and several started at 20:57, so chats are deploying concurrently and npx is fighting itself over one cache.
+
+I did NOT kill them - they may belong to a chat mid-deploy, and that is not mine to end.
+
+WHAT THIS MEANS: data/dashboard-state.json edits are still safe to make and commit; only the publish step is blocked, and the next chat that gets a clean deploy publishes everyone's pending changes with it. So do not re-edit state thinking your write was lost - check git first. Redditch Library's job entry is committed and waiting for exactly that.
