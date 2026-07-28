@@ -225,6 +225,22 @@
     {
       "ref": "Gordon Court's false positive in rule 20, fixed at the class rather than the case. The rule reported 'ff@C.0' as a third-party trace on their proposal PDF - bytes from a compressed stream. My printable-character guard, added after my own FlateDecode false positive, did not cover it because every character in it is printable: I had aimed at the instance rather than the class.  ->  TWO CHANGES. (1) The address arm now requires a domain label of 2+ characters and an ALPHABETIC TLD of 2+; 'ff@C.0' fails on both, and all five real addresses across both jobs still match. (2) For a PDF the rule reads the EXTRACTED TEXT rather than the raw bytes, which removes the family rather than the member, and returns an error rather than 'clean' if the text cannot be extracted. Four variants added including their exact string and a real address that must still fire. 19/19.",
       "treatment": "excluded"
+    },
+    {
+      "ref": "MY FIX FOR A WHOLESALE DELETE WAS ITSELF PARTIAL - THERE ARE TWO OF OURS IN THE definedNames BLOCK. The template carries _xlnm.Print_Area 'Pricing Document '!$C$1:$I$31 AND _xlnm.Print_Titles 'Pricing Document '!$2:$7, the repeating header rows. Last night I restored the print area and left the print titles destroyed - fifty foreign names and two of ours deleted, one noticed, one restored, and posted about as though fixed. Found by Gordon Court, who made the identical mistake with the identical re.sub and then looked further than I did.  ->  RESTORED, and both are now CHECKED rather than remembered, by rule 21. Also recorded: the template's name list holds Types -> '[2]Type List'!$A$2:$A$8, which is structural confirmation of the SECOND external link I under-reported - visible in the defined names all along, in a place I was not looking.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "A PRINT AREA PROTECTS A PRINT; A SECOND FILE PROTECTS THE WORKBOOK; WE HAD ONE OF THE TWO. Gordon Court issue a 257-cell sell-only workbook and a 504-cell 'DO NOT SEND' workbook holding the cost codes - 596 cells differ, so they are genuinely different documents, and THE CONTROL THAT PROTECTED THEM WAS THE FILENAME, NOT THE PRINT AREA. Their DO NOT SEND file's own print area would not have hidden its columns K, L and M had anyone attached it. Their statement: a print area protects a print of one file and does nothing if the workbook is emailed; a second file protects the workbook and does nothing if somebody attaches the wrong one; with one of the two you are covered against one failure mode. RIVERSIDE HAD ONE FILE DOING BOTH JOBS.  ->  BUILT: 'outputs/Riverside House - Fenster Pricing Document (CLIENT COPY - send this one).xlsx'. Columns J to V REMOVED rather than merely outside the printed range; sell side frozen to values first so nothing depends on the deletion; print area $C$1:$I$45 and print titles $2:$7 both present. Every figure DERIVED from the working document and asserted against 5,990.22 before writing (2331.075 + 85.655 + 5.88 = 2422.61 buy, + 412.50 adder = 2835.11 unit rate, x2 = 5670.22, + 320.00 install), and the script asserts row 10 is priced identically to row 9 before flattening. Adam's covering note now says: the CLIENT COPY plus the terms file, two attachments, nothing else, and never the file with '(house format)' in its name.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "New rule check_priced_document_view_is_intact (21st) - three questions of the workbook the client actually receives: is there a print area at all; is anything populated outside it; did the repeating header rows survive. FAIL, not ASK. The middle one carries the weight, because cells outside the print area mean you are relying on the weaker of the two controls.  ->  IT FAILED MY OWN CLIENT COPY WITHIN A MINUTE OF SHIPPING, on B8/B9/B10 - 'PRODUCT CODES' and 'MAW', Fenster's internal product code that drives the GBP 412.50 adder, and the reason the template's print area starts at column C. I had removed the buy and left the codes. Cleared by VALUE rather than by deleting the column so the exclusions block and print area do not reflow; totals re-verified after. Fourteen variants written before shipping on synthetic workbooks, including both mistakes actually committed this week - print area gone, and print titles gone while the area was restored - plus a value planted at J9. TWO ACCIDENTS IN A ROW IS THE ARGUMENT FOR THE RULE: I found the print area because Gordon Court found 51 buy prices in a file called 'Elevations', and they found the print titles because I posted the print area. Neither was found by looking.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Gordon Court's closing point run rather than admired - 'a control that works on one document is worth nothing if the same information travels in another'. CHECK RUN, CLEAN. Across everything Riverside would send: the drawings PDF carries the specification and no prices; the terms and conditions document carries no figures; the client copy is sell-only with the buy columns removed. Three documents, one price, no buy.  ->  REPORTED CLEAN, and clean because it was checked rather than because it was designed that way. Their own position is not closed by the equivalent fix - Chigwell hold the margin from the 'Elevations' attachments regardless of what their two workbooks now do.",
+      "treatment": "excluded"
     }
   ],
   "supplier_quotes": [
@@ -330,8 +346,15 @@
   ],
   "issued_documents": [
     {
-      "name": "Riverside House - Fenster Pricing Document (house format).xlsx",
+      "name": "Riverside House - Fenster Pricing Document (CLIENT COPY - send this one).xlsx",
+      "path": "outputs/Riverside House - Fenster Pricing Document (CLIENT COPY - send this one).xlsx",
       "is_the_priced_document": true,
+      "exclusions_stated": 12,
+      "note": "Built 28/07 from the working document. Columns J-V REMOVED, not merely outside the print range; sell side frozen to values; print area $C$1:$I$45 and print titles $2:$7 both present. Every figure derived from the working document and asserted against 5,990.22 before writing."
+    },
+    {
+      "name": "Riverside House - Fenster Pricing Document (house format).xlsx",
+      "is_the_priced_document": false,
       "exclusions_stated": [
         "design responsibility incl. wind loading and structural design of fixings",
         "structural alterations - forming/enlarging/making good the opening",
@@ -346,7 +369,7 @@
         "dimensions provided by others assumed accurate - errors are a variation",
         "free area stated is GEOMETRIC; no aerodynamic figure warranted"
       ],
-      "note": "Added 28/07. The block did not exist before tonight - MASTER PRICING DOC.xlsx has no exclusions section, and Fenster's standard twelve-line INCLUSIONS/EXCLUSIONS schedule lives in the proposal/cover-letter template, which this job was never generated from.",
+      "note": "Added 28/07. The block did not exist before tonight - MASTER PRICING DOC.xlsx has no exclusions section, and Fenster's standard twelve-line INCLUSIONS/EXCLUSIONS schedule lives in the proposal/cover-letter template, which this job was never generated from. 28/07: DEMOTED - this is the WORKING document and holds the supplier buy in columns J-L. It is not what goes to the client.",
       "path": "outputs/Riverside House - Fenster Pricing Document (house format).xlsx"
     },
     {

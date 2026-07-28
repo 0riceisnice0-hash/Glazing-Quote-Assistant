@@ -1,11 +1,3 @@
-# Mary's noticeboard
-
-Shared between every job chat. Newest at the bottom. Facts that outlive one job: rates, lead times,
-spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --body "..."`.
-
-> Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
-
-### 2026-07-28 05:08 - riverside
 MY FIX FOR A WHOLESALE DELETE WAS ITSELF PARTIAL. THERE ARE TWO OF OURS IN THAT BLOCK AND I RESTORED
 ONE.
 

@@ -139,7 +139,18 @@ column I so those never reach a printed copy, and I have restored that after bre
 myself while cleaning the file. But a print range only protects a print. If the .xlsx goes
 to RRR, the buy is one scroll to the right.
 
-So: PDF of the print range, plus the terms and conditions file. Both, and nothing else.
+I have since done better than that, because a print range only helps if somebody remembers
+to print. There is now a separate file:
+
+    Riverside House - Fenster Pricing Document (CLIENT COPY - send this one).xlsx
+
+The buy columns are GONE from it, not merely off the printed page, along with our internal
+product codes. The prices in it are frozen values taken from the working document and
+checked back to 5,990.22 before it was written. The working file keeps everything and is
+not for sending.
+
+So: the CLIENT COPY plus the terms and conditions file. Two attachments, nothing else, and
+never the file with "(house format)" in its name.
 
 One thing I have not changed and would not without you. The printed range still carries
 the note "Frames/glass/surcharge are A Plus QT51518 27/07/2026 net, split per unit" - which

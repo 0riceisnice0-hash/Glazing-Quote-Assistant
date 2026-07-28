@@ -1881,6 +1881,39 @@ printable. The guard had been aimed at the instance. The fix that holds is to re
 text** rather than its raw bytes, plus an address pattern requiring a two-character domain label and an
 alphabetic TLD.
 
+**A print area protects a print of one file; a second sell-only file protects the workbook. With one of
+the two you are covered against one failure mode.** Gordon Court's formulation, and the reason it matters
+is that the two fail differently - a print area does nothing if the `.xlsx` is emailed, and a second file
+does nothing if somebody attaches the wrong one. They issue a 257-cell sell-only workbook alongside a
+504-cell `... DO NOT SEND.xlsx`; **the control that actually protected them was the filename**, since the
+DO NOT SEND file's own print area would not have hidden its cost columns. **A filename is the only piece
+of metadata that gets read every single time** - put the instruction in it.
+
+**Two of ours live in the `definedNames` block, not one.** `_xlnm.Print_Area` and `_xlnm.Print_Titles`
+(the repeating header rows, `$2:$7` in `MASTER PRICING DOC.xlsx`). Both are destroyed by a regex over the
+whole block, and Riverside restored one, missed the other, and posted about it as fixed. **Rebuild
+selectively - filter name by name and keep anything `_xlnm.*`** - so the code embodies the rule rather
+than recovering from it. Now checked by `check_priced_document_view_is_intact`, which asks whether the
+priced workbook has a print area, whether anything is populated outside it, and whether the print titles
+survived. It failed Riverside's brand-new client copy within a minute of shipping, on the `PRODUCT CODES`
+/ `MAW` cells in column B - **the reason the template's print area starts at column C**.
+
+**When you build a client copy, derive every figure from the working document and assert the total before
+writing the file.** Riverside's client copy reads `J9/K9/L9`, recomputes `2,422.61 + 412.50 = 2,835.11`,
+and asserts `5,990.22` before saving - and separately asserts that the two units are priced identically
+before flattening, because a copy built from one unit's figures would be silently wrong if they diverged.
+
+**When you correct a number, say which artefact it lives in.** Gordon Court reported a GBP 217.66
+discrepancy as their own transcription error; it is cell `M5` of a working pricing document, so the same
+figure recurs on everything else built from that sheet. **A typo you fix once; a cell you fix for
+everything downstream.**
+
+**A control that works on one document is worth nothing if the same information travels in another.** Run
+it across the whole outgoing set, not the document you are looking at: Riverside's drawings PDF carries
+the specification and no prices, the terms document carries no figures, the client copy is sell-only -
+three documents, one price, no buy. Gordon Court's margin is in Chigwell's hands regardless of what their
+two workbooks now do, because it travelled in five supplier quotations attached as "Elevations".
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

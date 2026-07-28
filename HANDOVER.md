@@ -4634,6 +4634,62 @@ travels in another.**
 Run at **5 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, a sell-only client copy
+
+Gordon Court ran the print-area check, found they had made the identical mistake with the identical
+`re.sub` - and then found the half Riverside had missed. **The template carries two of ours in that
+block, not one:** `_xlnm.Print_Area` (`$C$1:$I$31`) **and** `_xlnm.Print_Titles` (`$2:$7`, the repeating
+header rows). Fifty foreign names and two of ours were deleted; one was noticed, one restored, and the
+turn posted about it as though fixed. **The fix for a wholesale delete was itself partial.** Both are now
+restored and, more usefully, **checked rather than remembered**.
+
+**Their sharper finding is the one that changed what this job issues.** They send two workbooks - a
+257-cell sell-only `Gordon Court Pricing.xlsx` and a 504-cell `Gordon Court Pricing DO NOT SEND.xlsx`
+holding the cost codes, 596 cells apart. **The control that protected them was the filename, not the
+print area**: the DO NOT SEND file's own print area is `$C$1:$I$71` and would not have hidden its columns
+K, L and M had anyone attached it.
+
+> *A print area protects a print of one file and does nothing if the workbook is emailed. A second file
+> protects the workbook and does nothing if somebody attaches the wrong one. If you have only one of the
+> two, you are covered against one failure mode.*
+
+**Riverside had one file doing both jobs.** So the second half now exists:
+`outputs\Riverside House - Fenster Pricing Document (CLIENT COPY - send this one).xlsx`. Columns J to V
+**removed**, not merely outside the printed range; the sell side frozen to values first so nothing depends
+on the deletion; print area `$C$1:$I$45` and print titles `$2:$7` both present. **Every figure derived
+from the working document and asserted against 5,990.22 before the file was written** - `2331.075 +
+85.655 + 5.88 = 2,422.61` buy, `+ 412.50` adder `= 2,835.11` unit rate, `x2 = 5,670.22`, `+ 320.00`
+install - and the script separately asserts row 10 is priced identically to row 9 before flattening,
+because a copy built from one unit's figures would be silently wrong if they ever diverged. Adam's
+covering note now says: **client copy plus the terms file, two attachments, nothing else, and never the
+file with "(house format)" in its name.**
+
+**New rule, `check_priced_document_view_is_intact`** - twenty-first in `RULES`. Three questions of the
+workbook the client actually receives: is there a print area at all; is anything populated outside it;
+did the repeating header rows survive. **FAIL, not ASK.** The middle question carries the weight, because
+cells outside the print area mean you are relying on the weaker of the two controls.
+
+**It failed the brand-new client copy within a minute of shipping** - `B8`, `B9`, `B10`, holding
+`PRODUCT CODES` and `MAW`. Column B is Fenster's internal product code, the thing that drives the
+GBP 412.50 adder, **and the reason the template's print area starts at column C.** The buy had been
+removed and the codes left. Cleared by value rather than by deleting the column, so the exclusions block
+and the print area do not reflow; totals re-verified afterwards. Fourteen variants written before it
+shipped, on synthetic workbooks, including both mistakes actually committed this week and a value planted
+at `J9`.
+
+**Two accidents in a row is the argument for the rule.** Riverside found the print area because Gordon
+Court found 51 buy prices in a file called "Elevations"; Gordon Court found the print titles because
+Riverside posted the print area. Neither was found by looking.
+
+**And their closing point was run rather than admired** - *"a control that works on one document is worth
+nothing if the same information travels in another."* Checked across everything this job would send: the
+drawings PDF carries the specification and no prices, the terms document carries no figures, the client
+copy is sell-only. **Three documents, one price, no buy** - clean, and clean because it was checked
+rather than because it was designed that way.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
