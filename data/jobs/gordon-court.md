@@ -3762,6 +3762,94 @@ riverside put it best and it is worth keeping verbatim:
 documents, not inside a sentence — **inside a clause set I had mined for the clauses I was looking for and
 never read through.** Spec items 35, 36 and 37.
 
+### 4AS.1 riverside ran my own clause 6 on their job and found nine years — so I read mine through
+
+riverside took last turn's back-to-back onto A Plus and found **twelve months** against our ten years on
+**the only component that moves**, plus an outright exclusion on powder-coat adhesion to polyamide and a
+**15,000-cycle cap**. Three things in one paragraph, where I had found one.
+
+That is because I compared **periods** and stopped. **They compared the whole clause.** So this turn I read
+AFS clause 6 through, sub-clause by sub-clause, having quoted from it twice in the same letter the day
+before.
+
+### 4AS.2 The exclusion lists are the wider gap, and I had never opened either one
+
+| | ours (proposal cl.5) | AFS (cl.6.4) |
+|---|---|---|
+| headings | **5** | **6**, plus cl.6.5 barring any other remedy |
+| further use after notice | — | 6.4.1 |
+| failure to follow the supplier's storage / installation / commissioning instructions | maintenance only | 6.4.2 |
+| **defect arising from a specification WE supplied** | **—** | **6.4.3** |
+| **goods "altered or repaired" without written consent** | **—** | **6.4.4** |
+| fair wear and tear · negligence · abnormal working conditions | **—** (only "intentional damage" matches "willful") | 6.4.5 |
+| difference caused by a change made to comply with a statutory standard | — | 6.4.6 |
+| external factors / severe weather | ours only | — |
+
+**Four of AFS's six have no counterpart in ours at all**, and three of the four limbs of 6.4.5 do not
+either. Two of them are not commentary, they are operational:
+
+- **6.4.4.** We install. Packing, shimming and adjusting a doorset on site is arguably "altering" it.
+  Asked as 6(c)(i) — *what counts as an alteration, so that we do not void the warranty by hanging the door.*
+- **6.4.5 "abnormal working conditions".** These are the **communal main entrance doorsets to a residential
+  building**, so a high duty cycle is the design intent, not an abnormality. Asked as 6(c)(ii).
+
+### 4AS.3 6.4.3 is the one that matters, and it turns section 5 of my own letter into a warranty question
+
+> **"the defect arises as a result of AFS following any drawing, design, Goods Specification or
+> Installation Services Specification supplied by the Customer"**
+
+Read with **cl.3.6** — already in the letter at §5, making it *our* responsibility that the measurements,
+plans and drawings are accurate, complete and fit for purpose — specification risk sits with us **before
+manufacture and after it**.
+
+And it is live. **Position 003 is quoted 1600 × 2210 against a 1600 × 2110 structural opening on schedule
+5244-ARK-51001**, and my section 5(a) already asks whether 2210 came from information we supplied. I had
+framed the answer as a **repricing** risk under 3.7. It is not only that: **if 2210 came from us, the
+doorset built to it is outside cl.6.1 altogether.**
+
+**I wrote section 5 about clause 3.6 and section 6 about clause 6.4.2, in the same letter, on the same day,
+and did not read 6.4.3 — the sentence that joins them.** One turn after naming the mechanism.
+
+### 4AS.4 And the clock starts at our own yard
+
+cl.6.1 runs the 5 and 10 years *"from the date of delivery/collection"*, and the Delivery Location on Q7585
+is **our own yard at Bradwell Abbey**. Award is not expected before mid-October 2026, so the
+delivery-to-completion interval is real, and **every week of it comes off the front of the client's cover**.
+Our own cl.5 states **no start date at all**.
+
+So the five-year glass gap is a floor, not the figure. Same shape as riverside's *"12 months from the date
+of delivery completion"*. Asked as 6(e), including whether they can run it from installation or practical
+completion and at what cost.
+
+### 4AS.5 Their other two findings: one does not replicate, one cannot be run
+
+- **Powder coat on polyamide — does not replicate.** Zero hits for *powder*, *polyamide* or *adhesion*
+  across all five quotations, and no finish carve-out in cl.6.4. Worth having checked: the specified finish
+  is a **dual polyester powder coat to BS EN 12206-1 on an Aluprof MB-78EI polyamide thermal break** — the
+  identical construction to riverside's. Recorded so nobody re-runs it.
+- **The 15,000-cycle cap — unanswerable, and for a worse reason than absence.** The only moving-part duty
+  here is the three WN_7 AOV actuators required by NBS L20 cl.630. **QT252257 "AOV & LOUVRE" has zero hits
+  for actuator, motor or 24V.** There is no cycle cap to compare **because there is no actuator in anybody's
+  price.** Asked prospectively in BSW D2 — *a period stated in years and capped in cycles is not a period in
+  years* — so it is settled before the actuator is priced rather than after.
+
+### 4AS.6 BSW: still nothing, and now asked for in the body and not only in the document
+
+Zero hits for *warrant*, *guarantee*, *year* or *defect* across all four quotations. Last turn I recorded
+that this was a third reason to send D2 — **but I did not actually edit D2, which asks for the terms of sale
+as a whole and never names the warranty.** Now it does, and asks for three things separately: the **period**
+(glass / frames / opening gear, which are commonly different), the **start date**, and the **exclusions**.
+
+### 4AS.7 The shape
+
+**Last turn's mechanism was mining a document instead of reading it. This turn is the same fault one level
+down: I mined a CLAUSE.** Clause 6 was not unread — it was read twice, for 6.1 and for 6.4.2, and 6.4.3 sat
+one line below the second of them.
+
+> **The unit you failed to read is always one level smaller than the unit you have decided you finished.**
+
+Spec items 38, 39, 40, and a new `warranty_back_to_back` block in the manifest.
+
 ---
 
 ## 5. Things checked and CLEARED — do not re-raise

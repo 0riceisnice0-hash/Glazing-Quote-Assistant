@@ -127,6 +127,14 @@ change from 2210 to 2110 is a change of size, so on your own terms it would move
 whichever way the answer goes. That is a further reason to settle it before order rather
 than after, and it is why we would rather have the correct figure than the convenient one.
 
+And the price is not the whole of it. Your clause 6.4.3 removes the warranty where a defect
+"arises as a result of AFS following any drawing, design, Goods Specification or
+Installation Services Specification supplied by the Customer". So if 2210 came from us,
+the consequence is not only that the doorset is repriced under 3.7 - it is that the
+doorset it produces is outside clause 6.1 altogether. That is dealt with at 6(d) below,
+and it is the reason question (a) is the first question in this letter rather than a
+tidying-up point.
+
 For completeness, so that our own position is on the table rather than implied: our issued
 proposal to the main contractor carries an Additional Limitations exclusion recording that
 dimensions provided by others are assumed accurate and that costs arising from incorrect
@@ -135,11 +143,24 @@ have a route for it; if it does not, it is ours. Either way we would rather know
 before an order than argue it after one.
 
 =====================================================================================
-6. THE WARRANTY, AND TWO THINGS IN CLAUSE 6 WE HAD NOT REGISTERED
+6. CLAUSE 6 IN FULL - THE WARRANTY, WHAT IT EXCLUDES, AND WHEN IT STARTS
 =====================================================================================
-Your Conditions clause 6.1 gives, from delivery or collection, "5 years in relation to
-glass and ... 10 years in relation to mechanical aspects of the Goods". We are not
-disputing either period - we had simply not read that far, and it raises three things.
+Your Conditions clause 6.1 reads, in full: "AFS warrants that on delivery/collection, and
+for a period of (i) 5 years in relation to glass and (ii) 10 years in relation to
+mechanical aspects of the Goods, from the date of delivery/collection, the Goods will:
+6.1.1 conform in all material respects with the Goods Specification; and 6.1.2 be free
+from material defects in design, material, and workmanship."
+
+We are not disputing any of it. We had read clause 6 for the two things we went looking
+for and not through it, and reading it through raises five, of which (d) is the one that
+matters commercially.
+
+One drafting point so that our references land on the sentences we mean rather than the
+numbers we cite: in the copy attached to Q7585 the paragraph numbered 6.4 begins with what
+reads as 6.3.3 ("the Customer (if asked to do so by AFS) returns such Goods to AFS's place
+of business"), and the exclusions lead-in then runs on inside the same paragraph. We have
+therefore quoted the words as well as the numbers throughout. If your current numbering
+differs from the copy we hold, please answer against the words.
 
 (a) THE 24-HOUR NOTIFICATION. Clause 6.3.1 requires notice in writing "within 24 hours
     of delivery/collection in respect of Goods, if the alleged defect is apparent on
@@ -149,9 +170,14 @@ disputing either period - we had simply not read that far, and it raises three t
     Delivery Location, rather than from arrival on site?
 
 (b) THE INSTALLATION INSTRUCTIONS, WHICH WE DO NOT HAVE. All three positions are priced
-    "Without Installation", so the installation is ours - and clause 6.4 excludes the
-    warranty where the Customer "failed to follow AFS's oral or written instructions as
-    to the storage, installation, commissioning, use or maintenance of the Goods".
+    "Without Installation", so the installation is ours - and clause 6.4.2 excludes the
+    warranty where the defect "arises because the Customer (or its customer) failed to
+    follow AFS's oral or written instructions as to the storage, installation,
+    commissioning, use or maintenance of the Goods or components/parts utilised by AFS as
+    part of the Installation Services or (if there are none) good trade practice".
+    Note the closing limb: where there are no written instructions the test becomes "good
+    trade practice", which is a standard nobody has defined for an EI30 doorset. We would
+    rather have your instructions than argue about that.
     On an EI30 doorset the installation detail is the difference between a certified
     assembly and an uncertified one. Please send the written storage and installation
     instructions you rely on for that clause, so that we can follow them and so that our
@@ -162,6 +188,60 @@ disputing either period - we had simply not read that far, and it raises three t
     applicable manufacturer warranties". So the two are not in conflict. But if you are
     able to offer 10 years on the glass in these three doorsets, or to tell us what that
     would cost, it would let us give the client one period rather than two.
+
+    The same applies to what the warranty excludes, and there the difference is wider than
+    the difference in period. Our clause 5 excludes "misuse, accidental or intentional
+    damage, vandalism, inadequate or incorrect maintenance, or external factors, including
+    severe weather conditions" - five headings. Your 6.4 has six, and four of them have no
+    counterpart in ours at all: 6.4.1 further use after notice; 6.4.3 a defect arising from
+    a specification we supplied; 6.4.4 goods "altered or repaired without the written
+    consent of AFS"; and 6.4.6 a difference from the Goods Specification caused by a change
+    made to comply with a statutory or regulatory standard. Within 6.4.5 our list matches
+    "willful damage" but not "fair wear and tear", "negligence" or "abnormal working
+    conditions".
+
+    Two of those need a practical answer rather than a comment:
+        (i)  6.4.4 - we install. Site work on a doorset routinely involves packing,
+             shimming and adjusting. Please tell us what counts as an alteration for the
+             purposes of 6.4.4, and what does not, so that we do not void the warranty by
+             hanging the door.
+        (ii) 6.4.5 - these are the communal main entrance doorsets to a residential
+             building, so the duty cycle is high by design. Please confirm that normal
+             high-frequency communal use is not an "abnormal working condition".
+
+(d) 6.4.3 - THE SPECIFICATION EXCLUSION, WHICH IS WHY SECTION 5 MATTERS MORE THAN ITS
+    PRICE. Clause 6.4.3 removes the warranty where "the defect arises as a result of AFS
+    following any drawing, design, Goods Specification or Installation Services
+    Specification supplied by the Customer". Read with clause 3.6, which makes it our
+    responsibility that the measurements, plans and drawings forming the specification are
+    accurate, complete and fit for purpose, the two clauses together mean that
+    specification risk sits with us both before manufacture and after it.
+
+    We are not asking you to change either clause. We are asking one question, and it is
+    the same question as section 5(a): where did the 2210 height on position 003 come
+    from? If it came from us, then on your own terms the doorset built to it is outside
+    clause 6.1 - so establishing the source now is worth more than the price difference
+    between 2210 and 2110.
+
+    More generally: sections 1, 2 and 4 of this letter ask you to build to the architect's
+    NBS specification - intumescent perimeter seal, RAL 7016 matt external and RAL 9010
+    gloss internal, and a whole-door Ud of 1.2 W/m2K or better. If you can meet those, we
+    would like to know it in the ordinary way. If any of them cannot be met in the Aluprof
+    MB-78EI system with the specified glass, please tell us that instead of building to it
+    and relying on 6.4.3 afterwards. A "no" now is more useful to us than a warranty we
+    later find does not apply.
+
+(e) WHEN THE CLOCK STARTS, WHICH IS NOT WHEN THE CLIENT WILL THINK IT DOES. Clause 6.1
+    runs the 5 and 10 years "from the date of delivery/collection", and the Delivery
+    Location on Q7585 is our own yard. So the periods begin when the doorsets reach
+    Bradwell Abbey, not when the building is handed over.
+
+    This is our problem rather than yours, and we raise it only to confirm we have read it
+    correctly. The main contract is not expected to be awarded before mid-October 2026, so
+    there is a real interval between delivery and completion, and every week of it is a
+    week off the front of the client's cover. Please confirm that the period runs from
+    delivery to the Delivery Location, and tell us whether you are able to run it instead
+    from the date of installation or of practical completion, and at what cost if any.
 
 =====================================================================================
 7. PRICE HOLD

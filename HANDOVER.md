@@ -6078,6 +6078,61 @@ you have.**
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Gordon Court - forty-seventh turn: I compared the periods and stopped; the exclusion list is the wider gap (2026-07-28)
+
+riverside's handoff. No queue items.
+
+They took last turn's back-to-back onto A Plus and came back with **three** findings where I had one - a
+**twelve-month** period on the only component that moves, an outright exclusion on **powder-coat adhesion to
+polyamide**, and a **15,000-cycle** cap. **The difference is that I compared PERIODS and they compared the
+CLAUSE.** So AFS clause 6 read through, sub-clause by sub-clause, having quoted from it twice in the same
+letter the day before.
+
+**Four of AFS's six exclusions have no counterpart in ours.** Our proposal cl.5 excludes five things (misuse,
+accidental or intentional damage, vandalism, inadequate or incorrect maintenance, external factors including
+severe weather). AFS cl.6.4 has six. Unmatched: **6.4.1** further use after notice; **6.4.3** a defect arising
+from a specification *we* supplied; **6.4.4** goods *"altered or repaired without the written consent of
+AFS"*; **6.4.6** a change made to comply with a statutory standard. Inside **6.4.5** our *"intentional
+damage"* matches *"willful damage"* and we have no equivalent of *"fair wear and tear"*, *"negligence"* or
+*"abnormal working conditions"*. **cl.6.5** then bars any other remedy.
+
+Two are operational rather than academic, both asked at 6(c): **6.4.4** - we install, and packing, shimming
+and adjusting a doorset is arguably altering it; **6.4.5** - these are the **communal main entrance doorsets
+to a residential building**, so a high duty cycle is the design intent, not an abnormality.
+
+**6.4.3 turns an open dimensional query of mine into a warranty question.** Read with **cl.3.6**, already in
+the letter, specification risk sits with us before manufacture *and* after it. And it is live: **position 003
+is quoted 1600 x 2210 against a 1600 x 2110 structural opening**, and my section 5(a) already asks where 2210
+came from. I had that filed as a **repricing** risk under 3.7. **If 2210 came from us, the doorset built to it
+is outside cl.6.1 altogether.** I wrote section 5 about cl.3.6 and section 6 about cl.6.4.2 in the same letter
+on the same day and did not read 6.4.3, the sentence that joins them.
+
+**And the clock starts at our own yard.** cl.6.1 runs the 5 and 10 years *"from the date of
+delivery/collection"* and the Delivery Location is Bradwell Abbey - so **every week between delivery and
+completion comes off the front of the client's cover, and five years is a floor rather than the figure.** Our
+own cl.5 states **no start date at all**, which is Adam's to settle and is on our paper, not a supplier's.
+Raised at 6(e).
+
+**Their other two, reported either way.** The powder coat exclusion **does not replicate** - zero for powder,
+polyamide, adhesion across all five quotations - though the specified finish is a **dual powder coat to BS EN
+12206-1 on an Aluprof MB-78EI polyamide thermal break**, the identical construction. The cycle cap is
+**unanswerable, for a worse reason than absence**: the only moving part here is the three AOV actuators and
+**QT252257 "AOV & LOUVRE" has zero hits for actuator, motor or 24V. There is no cycle cap to compare because
+there is no actuator in anybody's price.** Asked prospectively in BSW D2.
+
+**A correction to my own last entry:** I recorded the BSW warranty silence as a third reason to send D2 but
+**never edited D2**, which asked for the terms of sale as a whole and never named the warranty. It now asks
+separately for the period by component, the start date and the exclusions.
+
+Spec items **38, 39, 40**, plus a `warranty_back_to_back` block in the manifest.
+
+**The mechanism, one level down from last night's.** Clause 6 was not unread - it was read **twice**, for 6.1
+and for 6.4.2, and 6.4.3 sat one line below the second of them. **The unit you failed to read is always one
+level smaller than the unit you have decided you finished.**
+
+Run **5 FAIL, 5 ASK**, 40 spec items. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ### Riverside House AOV smoke vents (RRR Group) - 28/07, ten years against twelve months
 
 Gordon Court took the read-what-comes-next check to **the supplier's paper rather than the client's** and

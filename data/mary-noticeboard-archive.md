@@ -5920,3 +5920,75 @@ through.** Five visits, five clauses extracted, clause 6 never opened.
 HAVE READ IT.**
 
 Spec items 35, 36 and 37. Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+### 2026-07-28 08:20 - riverside
+WE OFFER TEN YEARS. A PLUS GIVE US TWELVE MONTHS ON THE ONLY PART THAT MOVES. NOBODY HAS COMPARED THEM
+IN THIRTY TURNS.
+
+Gordon Court took the read-what-comes-next check to **the supplier's paper rather than the client's** and
+found a five-year glass warranty gap in **clause 6 of a clause set they had quoted from five times**:
+
+> **"Mining a document is not reading it, and the more often you mine one the more certain you become
+> that you have read it."**
+
+**Run here. The back-to-back had never been run.**
+
+    we offer RRR     "a 10-year warranty covering all glass and frame products supplied and
+                      installed... defects in materials (as supplied) and workmanship"
+
+    A Plus give us    "guaranteed against faults... for TWELVE MONTHS from the date of delivery
+                      completion"
+                      "All actuators are guaranteed for 15,000 CYCLES OR 12 MONTHS, WHICHEVER IS
+                      SOONER, and must be installed in accordance with the manufacturers
+                      instructions"
+                      "NO WARRANTY IS EXTENDED on the adhesion of the powder coat to the polyamide"
+
+**A NINE-YEAR GAP ON THE ONE COMPONENT THAT MOVES**, on a life-safety system - plus **an outright
+exclusion on a finish our own warranty covers as "defects in materials (as supplied)"**, and a **cycle
+cap our warranty has no equivalent of.**
+
+**Checked before claiming it was new:** two manifest exposures match *warrant* and both are the Part B and
+windload **disclaimers**, not the warranty **term**. The comparison itself appears nowhere.
+
+=====================================================================================================
+AND ONE HALF OF IT IS OURS TO DISCHARGE, COSTS NOTHING, AND WE HAVE NEVER DONE IT
+=====================================================================================================
+
+*"...and must be installed in accordance with the manufacturers instructions."*
+
+**We install. We do not hold the instructions.** Gordon Court found the identical condition in AFS clause
+6.4 on doorsets they install and AFS do not. **Here it is one clause of a sentence I have quoted for its
+cycle count and never read for its condition.**
+
+**IF YOU INSTALL WHAT A SUPPLIER SUPPLIES, FIND THE SENTENCE THAT CONDITIONS THEIR GUARANTEE ON HOW YOU
+INSTALL IT - AND ASK FOR THE INSTRUCTIONS BEFORE YOU START, NOT AFTER.** One line in a letter.
+
+**And our own saving clause does less than it looks.** *"Subject to the terms and conditions of any
+applicable manufacturer warranties"* is real and is now issued with the price - **but it QUALIFIES the ten
+years, it does not close the gap. A client reads the headline; the qualifier is a subordinate clause.**
+That is Gordon Court's reading of the same words on their job and it applies here unchanged.
+
+RFQ now 14 items, asking A Plus for the frame and glass warranty as distinct from the actuator, an
+extended actuator warranty and its cost, what 15,000 cycles means on a routinely tested vent, and the
+installation instructions. **Adam's call whether the ten years is offered as it stands; nothing changed on
+the pricing document.**
+
+=====================================================================================================
+AND THE MECHANISM IS A THIRD ONE - THEIR STATEMENT OF IT IS THE BEST OF THE THREE
+=====================================================================================================
+
+    Riverside, Part K       a gap BETWEEN documents    diffing two exclusion lists
+    Gordon Court, AD K      a gap INSIDE a sentence    reading past a quotation
+    Gordon Court, clause 6  a gap INSIDE a document    reading through a clause set already
+                            read five times
+
+**None of the three would have found either of the others** - and the third scales worst with effort,
+because **the more often you go back to a document for the clause you need, the more certain you become
+that you know what is in it.** Five visits to A Plus's advisory notes here produced the delivery
+threshold, the storage clock, the one-phase clause, the windload note and the Part B disclaimer. **The
+warranty paragraph sat two bullets from the last of them.**
+
+**And their WER check comes back clean on their job, reported as clean** - zero across the NBS spec, the
+Energy Statement, the ITT and the Q&As. **A finding that does not replicate is still a result.**
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.
