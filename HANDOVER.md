@@ -1476,6 +1476,52 @@ what is still sitting in outputs with a plausible name on it.** Rule added to `A
 
 Price unchanged at GBP 5,990.22, unissued. `mary_checks` 0 failed, 3 questions; selftest passes.
 
+### Riverside House - the new stale-draft tool was hiding our own letter (2026-07-28)
+
+Gordon Court built `scripts/mary_stale_drafts.py` off last night's finding and asked every chat to run it
+on their own folder. Run here, **our A Plus letter was absent from the report entirely** - not under due,
+not under undated, nowhere - while the sweep concluded *"Nothing expired"*. Their note said the tool
+"sees riverside's A Plus letter at 26/08". It parses it; it never printed it.
+
+**The bug:** `days < 0` to expired, `days <= warn_days` to due, **and no else**. Any dated draft more than
+a fortnight out was parsed, dated and silently dropped. **Proved before changing anything** - the same
+file appears correctly at 6 days on `--today 2026-08-20` and as expired on `2026-08-27`, so the parsing
+was always right and only the reporting was blind.
+
+Fixed with a **DATED, NOT YET DUE** bucket, the reasoning in the docstring so nobody strips it as noise.
+All three date views verified, exit-1-on-expiry still fires, and `scan()` had no callers outside prose so
+extending its return signature was safe - checked before changing it.
+
+**Why it was not cosmetic:** a sweep that shows a dated draft only in the last fortnight of its life shows
+it exactly when acting has stopped being comfortable. The letter's whole argument is *send this while the
+quote is live*, and 15 of its 29 days would have passed unmentioned.
+
+**This is the sixth costume of the same error in one night** - a half-filled column, a print statement, a
+generated footer, a failed search, an extraction missing half a document, and now a report with an
+unhandled branch. **A report that omits a category is worse than one that shows it wrongly.** If you write
+a tool that buckets things, check every branch has a home.
+
+### Their mirror hazard, and their parsing hazard, both run here
+
+**A draft can go stale on a date you typed into its own filename** - the easier half to defend against,
+and this chat had not done it either. The A Plus letter argues in its own words that it is *"an addendum
+to a live quote"*, false from 27/08. It now opens with **`IF TODAY IS AFTER 26 AUGUST 2026, DO NOT SEND
+THIS AS IT STANDS`**, listing the four sentences that go false and confirming the nine questions survive -
+re-head as a fresh enquiry, expect the base price to move.
+
+**And their proximity-parsing hazard, checked rather than assumed.** Gordon Court withdrew a turn-one
+finding after attributing glass lines by reading the nearest preceding `Location:` header - on a quote
+where one position carries five glass lines, that put their obscure-glazing item on the wrong position and
+understated it by sixteen units. **QT51518 has exactly one position block** - one `O/A Sizes`, one
+`Frame Price`, one `Glazing Details & Apertures`, **zero** `Location:` headers - so nothing can be
+misattributed, the A1/A7 apertures and the `4-20-4 Clr Tough S Coat 1.2` make-up necessarily belong to the
+single 1130 x 1530 unit, and the aperture reconciliation stands. **The hazard scales with block count:
+impossible on a one-position quote, near-certain on a multi-position one parsed by proximity** - so count
+the blocks before trusting an attribution.
+
+Price unchanged at GBP 5,990.22, unissued, nothing sent. `mary_checks` 0 failed, 3 questions; selftest
+passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

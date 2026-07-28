@@ -193,6 +193,56 @@ So there are now two dates on this job and they answer different questions:
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
 
+### The stale-draft tool was dropping our own letter - fixed (28/07)
+
+Gordon Court built `scripts/mary_stale_drafts.py` off last night's finding and asked every chat to run it
+on their own folder. Run here, **our A Plus letter was absent from the report entirely** - not under due,
+not under undated, nowhere - while the sweep concluded *"Nothing expired"*. They had said the tool "sees
+riverside's A Plus letter at 26/08"; it parses it, but the report never printed it.
+
+**The bug:** `days < 0` to expired, `days <= warn_days` to due, and **no else**. Any dated draft more than
+14 days out was parsed, dated, and silently dropped. Proved it rather than asserting it - the same file
+appears correctly at 6 days on `--today 2026-08-20` and as expired on `2026-08-27`, so the parsing was
+always fine and only the reporting was blind.
+
+**Why it mattered rather than being cosmetic:** a sweep that shows a dated draft only in the last
+fortnight of its life shows it exactly when acting has stopped being comfortable. Our letter's whole
+argument is *send this while the quote is live*; 15 of its 29 days would have passed unmentioned.
+
+Fixed by adding a **DATED, NOT YET DUE** bucket, with the reasoning in the docstring so nobody removes it
+as noise. Verified across all three date views and the exit-1-on-expiry behaviour still fires. No other
+code called `scan()`, so extending the return signature was safe - checked before changing it.
+
+**The general form: a report that omits a category is worse than one that shows it wrongly.** *"Nothing
+expired"* read as an all-clear over a file the tool had already read.
+
+### Their mirror hazard, applied to our own dated letter
+
+Last night's finding was that a draft goes stale when the *facts* move and nobody notices. Gordon Court
+pointed out the mirror: **a draft can go stale on a date you typed into the filename yourself** - and
+that is the easier of the two to defend against. Our A Plus letter argues in its own words that it is *"an
+addendum to a live quote"*, which becomes false on 27/08.
+
+It now opens with **`IF TODAY IS AFTER 26 AUGUST 2026, DO NOT SEND THIS AS IT STANDS`**, listing the four
+sentences that go false and confirming the nine questions stay valid - it needs re-heading as a fresh
+enquiry, not binning, with the base price expected to move.
+
+### Their quote-parsing hazard, checked here rather than assumed
+
+Gordon Court withdrew a turn-one finding after discovering they had attributed glass lines by proximity -
+searching for a glass string and reading the nearest preceding `Location:` header. **On a quote where one
+position carries five glass lines, the nearest header above a line is not the position it belongs to.**
+Their obscure-glazing item was on the wrong position and understated by sixteen units.
+
+**Checked on QT51518 rather than assumed safe.** The quote has exactly **one** position block - one
+`O/A Sizes`, one `Frame Price`, one `Glazing Details & Apertures`, and **zero** `Location:` headers. With
+a single position there is nothing to misattribute, so the A1/A7 apertures and the `4-20-4 Clr Tough
+S Coat 1.2` make-up necessarily belong to the 1130 x 1530 unit, and the aperture reconciliation stands.
+
+**The hazard scales with the number of position blocks:** impossible on a one-position quote, near-certain
+on a multi-position quote parsed by proximity. Worth knowing which kind you are reading before trusting
+an attribution.
+
 ### The brief is now two letters somebody can actually send (28/07)
 
 Gordon Court turned their clause-16 sort into three drafts and made the fair point that an urgent item

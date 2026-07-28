@@ -52,11 +52,20 @@ def _to_date(day, month, year, today):
 
 
 def scan(outputs=OUTPUTS, today=None, warn_days=14):
+    """Returns (expired, due, later, dead, undated).
+
+    'later' exists because of a bug riverside found on 28/07/2026: a dated draft
+    more than warn_days out was parsed, dated, and then silently DROPPED - neither
+    reported as due nor listed as undated. Riverside's A Plus letter at 29 days was
+    invisible while the report said "Nothing expired". A sweep that only shows a
+    dated draft in the last fortnight of its life shows it exactly when acting has
+    stopped being comfortable. Nothing dated may leave this function unreported.
+    """
     today = today or dt.date.today()
-    expired, due, dead, undated = [], [], [], []
+    expired, due, later, dead, undated = [], [], [], [], []
 
     if not os.path.isdir(outputs):
-        return expired, due, dead, undated
+        return expired, due, later, dead, undated
 
     for name in sorted(os.listdir(outputs)):
         if name.startswith((".~", "~$")) or not os.path.isfile(os.path.join(outputs, name)):
@@ -78,12 +87,14 @@ def scan(outputs=OUTPUTS, today=None, warn_days=14):
                 expired.append((name, when, days))
             elif days <= warn_days:
                 due.append((name, when, days))
+            else:
+                later.append((name, when, days))
             continue
 
         if re.search(r"\bdraft\b", name, re.I):
             undated.append(name)
 
-    return expired, due, dead, undated
+    return expired, due, later, dead, undated
 
 
 def main():
@@ -95,7 +106,7 @@ def main():
     a = ap.parse_args()
 
     today = dt.datetime.strptime(a.today, "%Y-%m-%d").date() if a.today else dt.date.today()
-    expired, due, dead, undated = scan(a.outputs, today, a.warn_days)
+    expired, due, later, dead, undated = scan(a.outputs, today, a.warn_days)
 
     if a.quiet and not expired:
         return 1 if expired else 0
@@ -114,6 +125,11 @@ def main():
         print("\nDUE WITHIN {} DAYS.".format(a.warn_days))
         for name, when, days in due:
             print("  > {}   {} ({} day(s))".format(name, when.strftime("%d/%m/%Y"), days))
+
+    if later:
+        print("\nDATED, NOT YET DUE - live, and worth knowing before the fortnight.")
+        for name, when, days in later:
+            print("  . {}   {} ({} day(s))".format(name, when.strftime("%d/%m/%Y"), days))
 
     if dead:
         print("\nMARKED SUPERSEDED / DO NOT SEND - correctly labelled, no action.")

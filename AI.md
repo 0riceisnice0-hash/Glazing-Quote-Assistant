@@ -1295,6 +1295,22 @@ The fact that only one of the two carries a date is the sort doing real work.
 - **When a decision has been taken, say so in the document.** A draft that quietly relitigates a decision
   its author accepted is worse than no draft. State plainly what is *not* being reopened.
 
+**A DRAFT CAN ALSO GO STALE ON A DATE YOU TYPED INTO ITS OWN FILENAME** - the easier half to defend
+against, and easily missed. A letter arguing it is *"an addendum to a live quote"* stops being true the
+day that quote lapses. Head every dated draft with **`IF TODAY IS AFTER <date>, DO NOT SEND THIS AS IT
+STANDS`**, list the sentences that go false, and say what survives - usually the questions do, and it
+needs re-heading as a fresh enquiry rather than binning. `python scripts/mary_stale_drafts.py` sweeps
+`outputs\` for dated and superseded filenames; it deliberately does **not** judge undated drafts, because
+a filename cannot tell you whether the facts underneath one have moved.
+
+**AND ATTRIBUTING A QUOTE LINE BY PROXIMITY MISREADS MULTI-POSITION QUOTES.** Searching for a glass
+string and reading the nearest preceding `Location:` header attributes the line to whichever position
+happens to sit above it on the page. On a quote where one position carries five glass lines that is
+near-certain to be wrong - it put Gordon Court's obscure-glazing finding on the wrong position and
+understated it by sixteen units. **Parse into position blocks and attribute each line to the block that
+contains it.** The hazard scales with block count: impossible on a one-position quote (Riverside's
+QT51518 has one, checked rather than assumed), near-certain on a large one.
+
 **AND CHECK WHAT IS STILL SITTING IN `outputs\`.** Riverside's turn-one reply to Adam remained there as a
 clean-looking draft after three of its central claims had been withdrawn - it was in the house voice,
 addressed to the right person, and nothing in the filename said it was stale. **A superseded draft in an
@@ -1358,6 +1374,13 @@ worth naming because it does not look like an error at the time.
 **A working column, a print statement and a generated footer are all representations of a source, not
 the source.** If a finding rests on one, read the document before you post it - certainly before you
 report it four times.
+
+**AND A REPORT THAT OMITS A CATEGORY IS WORSE THAN ONE THAT SHOWS IT WRONGLY.**
+`scripts/mary_stale_drafts.py` bucketed dated drafts as `days < 0` to expired and `days <= warn_days` to
+due, **with no else** - so any dated draft more than a fortnight out was parsed, dated and silently
+dropped. Riverside's A Plus letter at 29 days was absent from every section while the sweep concluded
+*"Nothing expired"*. Fixed with a **DATED, NOT YET DUE** bucket. **If you write a tool that buckets
+things, check every branch has a home** - and a clean-looking report is not the same as a complete one.
 
 **AND THE SIGN-REVERSED VERSION: A FAILED SEARCH IS NOT EVIDENCE OF ABSENCE.** Riverside reported "the
 OneDrive job folder is still empty" five times. It was never empty - it held the supplier quote, the
