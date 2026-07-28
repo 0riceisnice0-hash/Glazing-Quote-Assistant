@@ -5468,6 +5468,61 @@ same way.
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, a number nothing had computed
+
+Gordon Court found they had published **"51 individual line prices"** across four documents for ten
+turns. Their own script printed 53; the defensible figure is 42; 51 is the count of distinct money
+values, which they had not derived from anything. **A misread number can be caught by re-reading the
+output; a number that was never computed has no output to check it against.**
+
+> *"If you cannot point at the line that produced a number, you have not measured it - you have estimated
+> it and filed it with the things you measured."*
+
+**Run on every number that reaches a client-facing Riverside document** - the letters and the client copy,
+not the job file, because those are what a third party acts on. Nineteen numbers:
+
+- **Seventeen machine-verified.** `5,990.22 = 2,835.11 x 2 + 160 x 2`; `2,835.11 = 2,422.61 + 412.50`;
+  `2,422.61 = J9 2331.075 + K9 85.655 + L9 5.88`; `154.78 = 5000 - 4845.22`; `53.20 = 10.64 x 5`;
+  `10.64 = 2 x (1.130 + 1.530) x 2`; `30% = 1.30/1.00`; `2,995.11 = 2,835.11 + 160`; `412.50 = 550 x
+  75%`; `1,401.24 = 2,422.61 / (1.130 x 1.530)`; and 4,845.22, 1.30, 50mm, 5,000, 1200Pa, 1.8 and the
+  3 working days each matched verbatim on the quotation.
+- **One pointable but not machine-checkable** - the 1.6 U-value, from the key on K1653-10b/11/12, an
+  image-only PDF read by eye. **Recorded as a different status rather than folded in with the verified
+  ones.**
+- **One wrong.**
+
+**0.78 should be 0.79.** Recomputed from the two QT51516 lines rather than eyeballed: 810 x 1335 gives
+0.49/0.81 = 60.49%, and 1205 x 1335 gives 0.54/0.87 = 62.07%. So `1.30 x 0.6049 = 0.786` and
+`1.30 x 0.6207 = 0.807` - **the band is 0.79 - 0.81 and this chat published 0.78 - 0.81.** 0.786 truncated
+rather than rounded. One digit at the second decimal, changing nothing: the figure is explicitly
+indicative and about 20% short of 1 m2 either way, and both direction and conclusion stand. **But it is
+exactly Gordon Court's category - a published number the computation does not produce - and it reached
+thirteen live places by being stated once and then copied.** All thirteen corrected across the job file,
+the manifest and the hub; the superseded 27/07 draft left alone, because **fix a copy, never the
+artefact**. The other claim in the same sentence checks out: 1.5 m2 at the band gives 0.907-0.931 against
+the *"~0.9 m2"* published.
+
+**And two corrections from Gordon Court.**
+
+- **The 81-versus-136 gap was not what this chat said.** It was put down to `data_only=True` picking up
+  cached formula results; they had used `data_only=True` too, and the cause was their own
+  `abs(value) > 100` filter - 136 numeric cells, 81 above 100 and 55 at or below. **The conclusion was
+  right and the reason for it was invented**, which is the 51 in a quieter form: not a number nothing
+  computed, but a **reason nothing checked**. Worth naming separately, because **a wrong reason attached
+  to a right answer is invisible - the answer keeps validating it.**
+- **Their qualifier died in one step.** Their script printed `numeric cells over 100: 81`; their post said
+  *"81 numeric cells"* - screen to sentence, same minute. Four turns earlier the same chat described a
+  qualifier taking six turns and four documents to erode, and this chat wrote that up as a chain effect.
+  **Two mechanisms, one outcome, so chain length was never the variable.** *"Go back to the sentence that
+  first recorded the fact"* is a defence against **restatement**, not against length.
+
+**And both chats audited for the exclusion-filter fault and both got only prose** - eleven false positives
+here and five there, every one a document in which the fault had been described. **An audit for a fault
+matches every document in which you wrote about the fault.**
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

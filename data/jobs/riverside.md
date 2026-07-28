@@ -193,6 +193,75 @@ So there are now two dates on this job and they answer different questions:
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
 
+### EVERY CLIENT-FACING NUMBER TRACED TO THE LINE THAT PRODUCED IT - AND ONE WAS A DIGIT OUT (28/07)
+
+Gordon Court found they had published **"51 individual line prices"** across four documents for ten
+turns. Their own script printed 53; the defensible figure is 42; 51 is the count of distinct money
+values, which they had not derived from anything. Their rule:
+
+> **"If you cannot point at the line that produced a number, you have not measured it - you have
+> estimated it and filed it with the things you measured."**
+>
+> **"A misread number can be caught by re-reading the output. A number that was never computed has no
+> output to check it against."**
+
+**Run on every number that reaches a client-facing Riverside document** - not the job file, the letters
+and the client copy, because those are the ones a third party acts on. Nineteen numbers, each with the
+computation or the source line stated and checked:
+
+    5,990.22   2,835.11 x 2 + 160 x 2                          TRACED
+    2,835.11   2,422.61 + 412.50 MAW adder                     TRACED
+    2,422.61   J9 2331.075 + K9 85.655 + L9 5.88               TRACED
+    4,845.22 / 1.30 / 50mm / 5,000 / 1200Pa / 1.8 / 3 days     ON THE QUOTATION, each matched
+    154.78     5000 - 4845.22                                  TRACED
+    53.20      10.64 lm x GBP 5                                TRACED
+    10.64      2 x (1.130 + 1.530) x 2 vents                    TRACED
+    30%        1.30 / 1.00                                      TRACED
+    2,995.11   2,835.11 + 160                                   TRACED
+    412.50     550 x 75%, parsed from the workbook formula      TRACED
+    1,401.24   2,422.61 / (1.130 x 1.530)                       TRACED
+    1.6        the key on K1653-10b/11/12                       POINTABLE, not machine-checkable
+                                                                (image-only PDF, read visually)
+
+**Seventeen machine-verified, one pointable to a named sheet and readable only by eye - and one wrong.**
+
+### 0.78 SHOULD BE 0.79 (28/07)
+
+The aerodynamic band. Recomputed from the two QT51516 lines rather than eyeballed:
+
+    810 x 1335    geometric 0.81   aerodynamic 0.49   ratio 60.49%
+    1205 x 1335   geometric 0.87   aerodynamic 0.54   ratio 62.07%
+
+    1.30 x 0.6049 = 0.786     1.30 x 0.6207 = 0.807
+    the band is 0.79 - 0.81. I published 0.78 - 0.81.
+
+**0.786 truncated rather than rounded.** It is one digit at the second decimal and it changes nothing -
+the figure is explicitly indicative, it is about 20% short of 1 m2 either way, and both the direction and
+the conclusion stand. **But it is exactly the category Gordon Court named: a published number the
+computation does not produce.** Mine is smaller than theirs and reached the same way - **stated once,
+then copied**, into thirteen live places across the job file, the manifest and the hub.
+
+**Corrected in all thirteen.** The superseded 27/07 draft is left alone: it is the record of what was
+written that day, and this week's rule is that you fix a copy and never the artefact.
+
+**The other claim in the same sentence checks out** - A Plus's proposed 1235 x 1583 at 1.5 m2 geometric
+gives 0.907 to 0.931 aerodynamic against the *"~0.9 m2"* published. Right, and right for the stated
+reason.
+
+### And their two corrections to me (28/07)
+
+**The 81-versus-136 gap was not what I said it was.** I put it down to `data_only=True` picking up cached
+formula results. **They used `data_only=True` as well.** The real cause is their own `abs(value) > 100`
+filter: the file holds 136 numeric cells, **81 above 100 and 55 at or below** - percentages, quantities,
+line numbers. **My conclusion was right and my reason for it was invented**, which is a quieter version
+of the same fault as the 0.78: I produced an explanation rather than checking one.
+
+**And their observation about how a qualifier decays is a real refinement.** Their script printed
+`numeric cells over 100: 81` and their post said *"81 numeric cells"* - **the qualifier died in one step,
+from screen to sentence, in the same minute.** Four turns ago the same chat described a qualifier taking
+six turns and four documents to erode. **Two mechanisms, one outcome, and the chain length is not the
+variable.** A restatement can lose a qualifier immediately; length only multiplies the chances.
+
 ### TWO CORRECTIONS TO LAST NIGHT, AND I PRINTED THE EVIDENCE FOR ONE OF THEM MYSELF (28/07)
 
 Gordon Court opened their own `3. Client Quote\SS\` after reading mine and came back with two
@@ -1578,7 +1647,7 @@ The exposure lives only in the space between them, which is why five readings of
 surface it.
 
 **AND IT BITES ON THE ONE QUESTION THAT IS STILL OPEN.** If the 1m2 is aerodynamic, 1.30m2 geometric
-delivers roughly 0.78-0.81m2 and does not satisfy the drawing. Under A Plus's Product Performance
+delivers roughly 0.79-0.81m2 and does not satisfy the drawing. Under A Plus's Product Performance
 clause that shortfall is ours, because they never warranted it. Under clause 16 we told the client we
 rely on their team for regulatory strategy. **C0/C1 was already the most important open item; it is
 now also the item where the contractual gap sits.**
@@ -2263,7 +2332,7 @@ both on every line - verified at source, not inherited:
 | 810 x 1335 | 900mm | 0.81 m2 | 0.49 m2 | 60.5% |
 | 1205 x 1335 | 900mm | 0.87 m2 | 0.54 m2 | 62.1% |
 
-On that ratio our 1.30 m2 geometric is roughly **0.78-0.81 m2 aerodynamic - about 20% short of 1 m2**,
+On that ratio our 1.30 m2 geometric is roughly **0.79-0.81 m2 aerodynamic - about 20% short of 1 m2**,
 and A Plus's proposed 1235 x 1583 would be ~0.9 m2 aerodynamic and would **also** miss. Indicative
 only: different sizes, and a 900mm stroke against our 850mm. **A Plus must state the aerodynamic
 figure for the actual Riverside sizes** (RFI-1) and the fire strategy must confirm which basis

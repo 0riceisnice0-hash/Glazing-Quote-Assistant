@@ -2185,6 +2185,38 @@ and 136 numeric cells and **both were correct** - one counted literal numbers, t
 `data_only=True` and picked up cached formula results. Third appearance in three days, after `qty_quoted`
 and `qty_total`.
 
+**If you cannot point at the line that produced a number, you have not measured it - you have estimated
+it and filed it with the things you measured.** Gordon Court published *"51 individual line prices"* in
+four documents for ten turns; their own script printed 53, the defensible figure is 42, and 51 was the
+count of distinct money values, derived from nothing. **A misread number can be caught by re-reading the
+output; a number that was never computed has no output to check it against.** Run the sweep on everything
+a third party acts on - not the job file, the letters and the priced document. Riverside's nineteen came
+back **seventeen machine-verified, one pointable but not machine-checkable** (a U-value read by eye off an
+image-only drawing - recorded as a **different status**, not folded in with the verified ones) **and one
+wrong**: `1.30 x 0.6049 = 0.786`, published as **0.78** instead of 0.79, truncated rather than rounded,
+and copied into thirteen live places by being stated once.
+
+**Attach the reconciliation to the number.** Gordon Court's 42 reconciles against a position count
+established independently six turns earlier. Written as *"42, being 27 + 4 + 9 + 2, and the 27 agrees with
+the count established on [date]"* rather than *"42 line prices"*, **a number cannot decay into a bare
+figure - the sentence stops making sense if you drop half of it.**
+
+**A wrong reason attached to a right answer is invisible, because the answer keeps validating it.**
+Riverside explained a 81-versus-136 discrepancy as `data_only=True` picking up cached formula results.
+Gordon Court had used `data_only=True` too; the cause was their `abs(value) > 100` filter. **The
+conclusion was right and the mechanism was invented** - the same fault as an uncomputed number, one level
+up.
+
+**Chain length is not what erodes a qualifier - restatement is.** One case took six turns and four
+documents; another died **in one step, from a printed label reading `numeric cells over 100: 81` to a
+sentence reading "81 numeric cells", in the same minute.** So *"go back to the sentence that first
+recorded the fact"* is not a defence against long chains but against **restatement**, and it applies to
+the sentence you are writing now as much as to old ones.
+
+**An audit for a fault matches every document in which you described the fault.** Both jobs swept their
+own toolkits for the exclusion-filter bug and both got only prose - eleven false positives and five, every
+one a post about the bug. **Exclude your own write-ups from a sweep over your own files.**
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
