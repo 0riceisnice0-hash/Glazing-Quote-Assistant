@@ -707,5 +707,67 @@
       "exclusions_stated": 0,
       "note": "Counted cell by cell: ONE exclusion-ish cell in the whole workbook, B70 '* Total value excluding VAT'. Zero actual exclusions - riverside's MASTER PRICING DOC template fault, present here too. Gordon Court is not exposed to it only because a proposal was issued alongside and carries the schedule."
     }
+  ],
+  "exposures": [
+    {
+      "item": "GBP 201,304.36 of supplier cost unfixed against our price held to 18/01/2027",
+      "lands_on": "Fenster",
+      "our_recourse": "none. Adam decided on REQ-20 to carry it and not seek a price hold. Our 30-day validity is not being relied on. Recorded as none deliberately rather than stretched."
+    },
+    {
+      "item": "Strip-out and disposal of 40 replacement windows, not priced by us",
+      "lands_on": "unresolved - asked of Chigwell",
+      "our_recourse": "BACKED. Issued proposal excludes 'Waste Removal - Generally excluded unless agreed otherwise' and 'Structural Alterations - To be completed by Main Contractor', and jLiving's Works Information puts waste removal on the Main (Principal) Contractor."
+    },
+    {
+      "item": "Scaffold and access to a four-storey elevation",
+      "lands_on": "Chigwell",
+      "our_recourse": "BACKED twice. Issued proposal excludes 'Access/Lifting Equipment - Scaffold, MEWPS, Towers, Forklift etc.', and jLiving's Works Information puts all scaffolding including the external and roof weather-protection scaffold on the Main Contractor."
+    },
+    {
+      "item": "Design calculations, structural calculations and engineer approvals",
+      "lands_on": "client's professional team",
+      "our_recourse": "BACKED. Issued proposal excludes them by name under Design Responsibility, and T&C cl.16 disclaims overall design intent, architectural suitability and regulatory strategy."
+    },
+    {
+      "item": "Position 003 quoted 1600x2210 against a 1600x2110 structural opening",
+      "lands_on": "Fenster under AFS cl.3.6, which makes the Customer responsible for the accuracy of measurements",
+      "our_recourse": "CONDITIONAL, and only if the 2210 came from others. Issued proposal's Additional Limitations makes costs from incorrect dimensions provided by others a variation. The 2110 is the architect's from schedule 51001; THE 2210'S ORIGIN IS UNKNOWN and is the first question the AFS letter asks. If AFS derived it, it is their error; if we supplied it, it is ours with no recourse."
+    },
+    {
+      "item": "Post-order storage and re-delivery if Chigwell's programme slips after we order",
+      "lands_on": "Fenster under AFS terms - deferred delivery puts storage and re-delivery costs on the Customer, uncapped",
+      "our_recourse": "BACKED, and I had not looked. Issued proposal T&C 'Cancellation and Postponement': should the client cancel or POSTPONE following procurement of materials, Fenster may recover any additional costs incurred. Also 'Installation ... Any delay outside of Fenster's control may incur additional costs', and 'Supplier Delays and Liability' removes our liability for third-party supplier delay. Not live today - we will not order before the 16/09 award."
+    },
+    {
+      "item": "BSW terms of sale never requested - 24 of 25 sub-contract categories unanswerable",
+      "lands_on": "Fenster, GBP 183,005.42",
+      "our_recourse": "none until the document is produced. Requested as BSW letter D3. Cannot be assessed either way, and recording it as backed OR unbacked would both be inventions."
+    },
+    {
+      "item": "NBS cl.205 third-party certification documentation",
+      "lands_on": "unclear",
+      "our_recourse": "none. Our 'Testing - On or off site testing' exclusion reads as if it covers this and does not - certification is documentation the maker already holds, not a test. A stretched exclusion is worse than an honest gap, so this is recorded as unbacked. Asked of BSW as C4."
+    },
+    {
+      "item": "AOV free area - supplying a vent that misses the required duty",
+      "lands_on": "Fenster for the supply, the design team for the duty",
+      "our_recourse": "QUALIFIED, NOT ELIMINATED. Clause 16 disclaims regulatory strategy and the duty is the design team's to set, but supplying a non-compliant vent remains our problem. Both halves now asked - Chigwell 1.2 for the duty, BSW C7 for the figure."
+    },
+    {
+      "item": "Manifestation extent unknown, priced at 15.002 lm against a range of 8.152-39.332 lm",
+      "lands_on": "Fenster",
+      "our_recourse": "none. It is our supply and no exclusion touches it. Asked of Chigwell as section 4."
+    },
+    {
+      "item": "Trickle vents quoted at 4000mm2 against a schedule note requiring 8000mm2 on 124 windows",
+      "lands_on": "Fenster",
+      "our_recourse": "none. We under-specified the enquiry; BSW quoted what we asked for. Priced as BSW C2."
+    },
+    {
+      "item": "WL_1 4no louvres possibly deleted with the smoke shafts, and BSW's part-order position unknown",
+      "lands_on": "Fenster",
+      "our_recourse": "none identified. Whether BSW priced on the whole order is in the terms we do not hold, so a scope reduction could carry a re-price on the units that remain. Cannot be quantified until D3 is answered."
+    }
   ]
 }

@@ -1,11 +1,3 @@
-# Mary's noticeboard
-
-Shared between every job chat. Newest at the bottom. Facts that outlive one job: rates, lead times,
-spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --body "..."`.
-
-> Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
-
-### 2026-07-28 04:18 - gordon-court
 FOUR OF MY TWELVE EXPOSURES TURN OUT TO BE BACKED BY OUR OWN ISSUED TERMS, AND I HAD RECORDED NONE OF THEM.
 
 Riverside took the "a correction that helps you does not feel like something you are missing" point, found

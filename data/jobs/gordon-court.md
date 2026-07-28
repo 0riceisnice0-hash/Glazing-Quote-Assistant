@@ -2365,6 +2365,16 @@ including (without limitation) storage and re-delivery costs."* **Not live today
 order before jLiving's 16/09 award. It prices any post-order slip in Chigwell's programme, uncapped, with no
 rate stated. **Recorded, not quantified, and not presented as a current exposure.**
 
+> **CORRECTED 28/07, twenty-eighth turn — I wrote that paragraph having read AFS's terms and not our own.**
+> It is **recoverable, not absorbed**. Our issued proposal carries **"Cancellation and Postponement — should
+> the client cancel or POSTPONE the contract following procurement of materials or commencement of works,
+> Fenster… reserves the right to retain the deposit and recover any additional costs incurred"**, plus
+> **"Installation… Any delay outside of Fenster's control may incur additional costs"** and a **Supplier
+> Delays and Liability** clause removing our liability for third-party supplier delay. A supplier's storage
+> charge after a client-driven slip is an additional cost incurred following procurement. **riverside found
+> exactly this on their own storage finding an hour later, from the same cause: reading the supplier's
+> terms to write up an exposure and never reading ours.**
+
 **Part B: does NOT replicate, and the conclusion from last turn holds.** AFS's statutory references are an
 interpretation clause and a right to *change the goods to achieve compliance* — the opposite of A Plus's
 disclaimer. **But it held despite my method rather than because of it**: the narrow probe would have
@@ -2439,13 +2449,93 @@ dimensions upstream. §4V.3's table is corrected.
 
 **The reason this one is worth flagging separately is that it runs the other way from every other
 correction this week — it makes our position better, not worse.** Position 003 is quoted 1600 x 2210
-against a 1600 x 2110 opening sourced from the client's schedule 51001. Under AFS 3.6 that is ours
-downstream; under our own Additional Limitations it is **a variation upstream**. I had been treating the
-downstream exposure as unbacked and it is partly backed. **I did not find it because a correction that
-helps you does not feel like something you are missing.**
+against a 1600 x 2110 opening. Under AFS 3.6 that is ours downstream; under our own Additional Limitations
+it **may be** a variation upstream. **I did not find it because a correction that helps you does not feel
+like something you are missing.**
 
-Added to the AFS letter §5, stated plainly rather than implied: *"if 2210 traces back to the architect's
-schedule we have a route for it; if it does not, it is ours."*
+> **TIGHTENED 28/07, twenty-eighth turn, and the original wording was an overclaim.** This paragraph said
+> flatly *"it is a variation upstream"*. **That is only true if the 2210 came from others.** The **2110**
+> is the architect's, from schedule 51001. **The 2210's origin is unknown** — it is the first question the
+> AFS letter asks. If AFS derived it themselves it is their error and no upstream route is needed; if it
+> came off our own take-off it is ours with no recourse at all. riverside made exactly this point tonight:
+> their dimensions clause does **not** rescue their 1130 x 1530 because that size came from their own
+> enquiry. **A correction in your favour has to survive the same test as one against you** — and the AFS
+> letter stated it conditionally while this file, the record the next turn actually reads, stated it as
+> settled. **The durable record overclaimed where the outgoing letter did not, which is the worse way
+> round.**
+
+The AFS letter §5 has it right: *"if 2210 traces back to the architect's schedule we have a route for it;
+if it does not, it is ours."*
+
+---
+
+## 4Z. TWENTY-EIGHTH TURN (28/07) — twelve exposures read both ways, and my own record was the overclaim
+
+### 4Z.1 The overclaim was in the durable record, not the outgoing letter
+
+riverside's caution — *"a correction in your favour has to survive the same test as one against you"* —
+lands on what I wrote last turn. §4Y.3 said flatly that position 003 **is** *"a variation upstream"*.
+
+**That is only true if the 2210 came from others.** The **2110** is the architect's, from schedule 51001.
+**The 2210's origin is unknown** — it is the first question the AFS letter asks. If AFS derived it, it is
+their error; if it came off our own take-off, it is ours with no recourse at all. riverside made the point
+against themselves the same night: their dimensions clause does **not** rescue their 1130 x 1530, because
+that size came from their own enquiry.
+
+**The AFS letter stated it conditionally. The job file stated it as settled.** That is the worse way round —
+the letter gets read once by a supplier, the job file gets read by every turn that follows. Tightened in
+place.
+
+### 4Z.2 Two false negatives in one probe, from two different bad assumptions
+
+Probing the issued proposal for recourse clauses returned *"NOT PRESENT"* on both the Site Survey revisit
+fee and the Installation delay clause. **Both are there.** I had seen the Installation text myself at the
+twenty-seventh turn.
+
+| Miss | Cause |
+|---|---|
+| `revisits may be subject to a fee` | pattern required a trailing `.` — the interleaved two-column table has **no sentence terminators** |
+| `delay outside of Fenster's control` | apostrophe encoding — the source uses a form my normalisation did not cover |
+
+**Same root as the wording lesson two turns ago, one layer lower: the pattern encoded an assumption about
+the document that the document does not honour.** First it was one supplier's vocabulary; now it is
+sentence structure and character encoding. Re-probed with all apostrophe forms normalised and no
+terminator assumed.
+
+### 4Z.3 riverside's rule 19 populated — twelve exposures, read in both directions
+
+| | count |
+|---|---|
+| **BACKED** by a term in our issued proposal | **4** |
+| **`none`, recorded deliberately** | **5** |
+| **Conditional or qualified** | **2** |
+| **Unassessable** until BSW produce their terms | **1** |
+
+The four backed are strip-out (Waste Removal + Structural Alterations, plus jLiving's Works Information),
+scaffold and access (excluded, and on the Main Contractor under the head contract), design and structural
+calculations (excluded by name), and **post-order storage**.
+
+**That last one is the same correction riverside made tonight, on my job, and I had written the
+one-sided version at the twenty-fourth turn.** §4X.3 recorded the AFS deferred-delivery storage as
+*"uncapped, with no rate stated"* — **I had read AFS's terms to write it and never read ours.** Our issued
+proposal carries *"Cancellation and Postponement… should the client cancel or **postpone** the contract
+following procurement of materials… Fenster reserves the right to… recover any additional costs incurred"*,
+plus *"Any delay outside of Fenster's control may incur additional costs"* and a Supplier Delays clause.
+**A supplier's storage charge after a client-driven slip is an additional cost incurred following
+procurement. Recoverable, not absorbed.** §4X.3 corrected.
+
+**And the five `none` entries are deliberate, because a stretched clause is worse than an honest gap.** The
+sharpest is NBS cl.205 third-party certification: our *"Testing — on or off site testing"* exclusion **reads
+as though it covers it and does not** — certification is documentation the maker already holds, not a test.
+Recorded as unbacked rather than argued into cover.
+
+### 4Z.4 Checked and clean, reported as clean
+
+- **riverside's 29/05 vs 31/05 master-letter date flag does not bite here.** Our issued proposal prints the
+  T&Cs **in full** — no incorporation by reference, and the only date on the document is 09/07/2026. We did
+  not do to Chigwell what BSW did to us.
+- **Their precedence check** was run here last turn and *did* fire; theirs was clean only because Riverside
+  issues a single document. Already fixed.
 
 ---
 

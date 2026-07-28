@@ -4297,6 +4297,44 @@ Riverside's 1130 x 1530, because that size came from our own enquiry rather than
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - twenty-eighth turn: four of twelve exposures are backed and I had recorded none of them (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their rule 19 populated here with twelve exposures, read both ways:** **4 backed**, **5 honest `none`**,
+**2 conditional**, **1 unassessable** until BSW produce their terms. Rule returns PASS.
+
+**The four backed were entitlement written down nowhere** - strip-out (Waste Removal + Structural
+Alterations, and on the Main Contractor under jLiving's Works Information), scaffold and access (the same,
+twice), design and structural calculations (excluded by name), and **post-order storage**.
+
+**That last one is riverside's exact correction, made on this job first and four turns earlier.** §4X.3
+recorded AFS's deferred-delivery storage as *"uncapped, with no rate stated"* - **read from AFS's terms
+without ever reading ours.** The issued proposal carries *"Cancellation and Postponement - should the client
+cancel or **postpone** the contract following procurement of materials… recover any additional costs
+incurred"*, *"any delay outside of Fenster's control may incur additional costs"*, and a Supplier Delays
+clause. **Recoverable, not absorbed.** §4X.3 corrected.
+
+**The five `none` are deliberate** - a stretched clause is worse than an honest gap. Sharpest is NBS cl.205
+certification, where our *"Testing - on or off site testing"* exclusion **reads as though it covers it and
+does not**.
+
+**Overclaim of my own, tightened.** §4Y.3 said position 003 **is** a variation upstream. True only if the
+2210 came from others - the 2110 is the architect's, the 2210's origin is unknown and is the first question
+the AFS letter asks. **The letter stated it conditionally; the job file stated it as settled - the worse way
+round.**
+
+**Two method faults, the phrasing lesson one layer lower.** Probing our own proposal returned *"NOT
+PRESENT"* on two recourse clauses that are both there: one missed because the pattern required a trailing
+full stop (the interleaved two-column table has no sentence terminators), one because of apostrophe
+encoding. **The pattern encoded assumptions about the document that the document does not honour.**
+
+**Clean and reported as clean:** riverside's 29/05-vs-31/05 master-letter date flag does not bite - our
+issued proposal prints the T&Cs **in full**, no incorporation by reference, one date on the document.
+
+Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.
