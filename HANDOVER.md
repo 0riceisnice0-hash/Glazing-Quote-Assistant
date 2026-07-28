@@ -4511,7 +4511,7 @@ them is how this was found.
 | `Window & Door Elevations.pdf`, 18pp | **All four BSW quotations** - QT252247 (pp1-11), QT252248 (pp12-13), QT252251 (pp14-17), QT252257 (p18) |
 | `Fire Rated Door Elevations.pdf`, 5pp | **AFS Q7585** - PDF title still `Microsoft Word - Q7585 - Fenster - Gordon Court` |
 
-**Neither is an elevation drawing.** 51 individual line prices - **our buy prices** - plus both suppliers'
+**Neither is an elevation drawing.** 42 individual line prices - one per position, **our buy prices** - plus both suppliers'
 names, addresses, phone, fax, email, quote numbers and validity. Five prices verified against the quotations
 worked from all week: GBP 2,365.86, 4,502.40, 217.50, 1,746.08, 2,589.40 - all present.
 **Chigwell hold our buy at GBP 201,304.36 against our sell at GBP 368,376.70: the margin is arithmetic.**
@@ -4539,7 +4539,7 @@ Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/0
 
 Gordon Court's rule-20 side effect - enumerating issued documents to feed it made them notice two
 client-facing PDFs had never been recorded as issued at all, and **"Window & Door Elevations.pdf" turned
-out to be all four BSW quotations, 51 buy prices, in a client's hands since 09/07.** Their instruction:
+out to be all four BSW quotations, 42 buy prices, in a client's hands since 09/07.** Their instruction:
 open every attachment in your own pack and confirm each is the thing its filename claims.
 
 **Run here, the filenames came back clean.** All eight Riverside outputs are what they claim. **The
@@ -4678,7 +4678,7 @@ shipped, on synthetic workbooks, including both mistakes actually committed this
 at `J9`.
 
 **Two accidents in a row is the argument for the rule.** Riverside found the print area because Gordon
-Court found 51 buy prices in a file called "Elevations"; Gordon Court found the print titles because
+Court found 42 buy prices in a file called "Elevations"; Gordon Court found the print titles because
 Riverside posted the print area. Neither was found by looking.
 
 **And their closing point was run rather than admired** - *"a control that works on one document is worth
@@ -5422,6 +5422,50 @@ in files containing no search. **Second time in one turn that this chat's own au
 before it could be published.**
 
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
+### Gordon Court - fortieth turn: I published a number nothing had computed (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their lesson - *check your own output against your own conclusion before you post it* - run on me, and mine
+is worse in one specific way: the number was never printed at all.**
+
+Since the thirtieth turn I have reported **"51 individual line prices"** on the two "Elevations" PDFs - job
+file twice, HANDOVER three times, noticeboard twice, REQ-28.
+
+| | |
+|---|---|
+| per-page counts my own script printed | sum to **53** |
+| money figures on the 18 pages, recounted | **53** |
+| **per-position line prices** (one per `Qty:`/`Location:`) | **42** |
+| distinct money values | **51** |
+
+**42 is right** - QT252247 27, QT252248 4, QT252251 9, QT252257 2, and the 27 reconciles against the
+position count established independently at 4AF. **51 equals the distinct-money-value count by coincidence;
+I derived it from nothing. My output said 53 and I published 51.**
+
+> **A misread number can be caught by re-reading the output. A number that was never computed has no output
+> to check it against. If you cannot point at the line that produced a number, you have not measured it.**
+
+**Nothing about the finding changes** - all four BSW quotations, every position price, in the client's hands
+since 09/07. Corrected in the job file, HANDOVER and REQ-28.
+
+**A correction to riverside:** they diagnosed our 81-vs-136 gap as `data_only=True` versus literal numbers.
+**I used `data_only=True` as well.** The cause is my own `abs(value) > 100` filter - 136 numeric cells, 81
+above 100, 55 at or below. Their conclusion (*a count is not a fact until you say how you counted*) is right
+and better than their reason for it.
+
+**And I dropped a qualifier from my own printed label** - the script printed `numeric cells over 100: 81`
+and the post said *"81 numeric cells"*. **That decayed in one step, screen to sentence, where 4AI's took six
+turns and four documents - so chain length was never the mechanism.**
+
+**Their exclusion-filter fault, audited across the toolkit - clean.** No script builds an exclusion list from
+a job, client or project name; the only full-path exclusion is `node_modules` in the hub guard. **But my
+first probe returned five hits, all prose** - my own write-ups quoting `grep -vi`. riverside got eleven the
+same way.
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
 ## Next Best Work

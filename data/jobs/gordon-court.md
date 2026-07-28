@@ -2609,7 +2609,7 @@ as issued documents at all**. Opening them is how this was found.
 | `Window & Door Elevations.pdf`, 18pp | **All four BSW quotations** — QT252247 (pp1–11), QT252248 (pp12–13), QT252251 (pp14–17), QT252257 (p18) |
 | `Fire Rated Door Elevations.pdf`, 5pp | **AFS Q7585** — PDF title still `Microsoft Word - Q7585 - Fenster - Gordon Court` |
 
-**Neither is an elevation drawing.** Between them: **51 individual line prices — our buy prices** — both
+**Neither is an elevation drawing.** Between them: **42 individual line prices — one per position, our buy prices** — both
 suppliers' names, addresses, telephone, fax and email, quote numbers, validity periods, and
 *"To:- FENSTER GLAZING, 97-98 ALSTON DRIVE"*.
 
@@ -2635,7 +2635,7 @@ tell from the documents, so it is raised as a question and not as a fault.**
 ### 4AB.3 The filenames are the part that troubles me either way
 
 **Nobody checking an outgoing pack would know from *"Window & Door Elevations.pdf"* that four supplier
-quotations and 51 buy prices were inside.** If the disclosure was deliberate the files should say so; if it
+quotations and 42 buy prices were inside.** If the disclosure was deliberate the files should say so; if it
 was not, the names are why it went unnoticed for three weeks.
 
 That is riverside's stale-filename lesson — *a plausible name is a hazard, not a record* — arriving in its
@@ -3270,6 +3270,75 @@ where the wrong answer was the reassuring one.**
 
 Flagged, not moved: OneDrive is read-only and how the company files jobs is not mine to reorganise.
 Appended to **REQ-27**, which already covers what travels inside files we send.
+
+---
+
+## 4AL. FORTIETH TURN (28/07) — I published a number nothing had computed, in four documents
+
+### 4AL.1 riverside's lesson, run on myself, and it found the worst kind
+
+> **"Check your own output against your own conclusion before you post it. The most expensive thing on my
+> screen this week has twice been something I printed and did not read."**
+
+Theirs was printing the May sheet list and reporting a single deletion window three lines below it. **Mine
+is worse in one specific way: my number was never printed at all.**
+
+At the thirtieth turn I reported *"51 individual line prices"* on the two "Elevations" PDFs — the finding
+that Chigwell hold our buy prices. **It went into the job file twice, HANDOVER three times, the noticeboard
+twice and REQ-28.**
+
+| | |
+|---|---|
+| Per-page counts my own script printed | sum to **53** |
+| Money figures on the 18 pages, recounted | **53** |
+| **Per-position line prices** — one per `Qty:`/`Location:` block | **42** |
+| Distinct money values | **51** |
+
+**42 is the defensible figure** — QT252247 **27**, QT252248 **4**, QT252251 **9**, QT252257 **2**, and the
+27 reconciles against the position count established independently at §4AF.
+
+**51 is the count of distinct money values, which is a coincidence.** I did not derive it from that or from
+anything else. **My own output said 53 and I published 51.**
+
+### 4AL.2 Why this one is worse than a misread
+
+riverside read past a printed result. **I produced a specific-looking figure that no computation produced.**
+A misread number can be caught by re-reading the output; **a number that was never computed has no output to
+check it against** — the only defence is noticing that you cannot say where it came from.
+
+> **If you cannot point at the line that produced a number, you have not measured it — you have estimated
+> it and written it in the register of things you measured.** Every other number on this job is traceable to
+> a printed line. This one was not, and it took ten turns and another chat's discipline to notice.
+
+**Nothing about the finding changes.** All four BSW quotations, every position price, in the client's hands
+since 09/07. **The severity is identical and the arithmetic was decoration** — which is the uncomfortable
+part, because it means the wrong number did no visible harm and would have survived indefinitely.
+
+Corrected in the job file, HANDOVER, and REQ-28 with a note recording what it was and where it came from.
+
+### 4AL.3 Two smaller corrections, one of them to riverside
+
+**The 81-versus-136 discrepancy is not what riverside diagnosed.** They put it down to *"they counted
+literal numbers, I read with `data_only=True` and picked up cached formula results."* **I used
+`data_only=True` as well.** The real cause: I filtered `abs(value) > 100`. The file holds **136 numeric
+cells, 81 above 100 and 55 at or below** — percentages, quantities and line numbers. Their conclusion —
+*"a count is not a fact until you say how you counted"* — is right, and it is righter than their reason for it.
+
+**And I dropped a qualifier that was in my own printed label.** The script printed `numeric cells over 100:
+81`; the board post said *"81 numeric cells"*. **The qualifier decayed in a single step, from my screen to
+my sentence, in the same minute** — where §4AI's took six turns and four documents to erode. Same failure,
+no intermediate stages at all.
+
+### 4AL.4 Their exclusion-filter fault, audited across my toolkit — clean
+
+No script in `scripts\` builds an exclusion list from a job, client or project name. The only full-path
+exclusion is `mary_hub_guard.py:74` — `"node_modules" in root or ".wrangler" in root` — which is intentional
+and cannot eat a search root. `mary_stale_drafts.py` filters a **basename** from `os.listdir()`.
+**The fault was in an ad-hoc shell command in a turn, not in committed code.**
+
+**And my first probe for it returned five hits, all five prose** — my own board post and handoffs quoting
+`grep -vi`. riverside got eleven the same way. **An audit for a fault matches every document in which you
+described the fault**, and both of us hit it within an hour of each other.
 
 ---
 
