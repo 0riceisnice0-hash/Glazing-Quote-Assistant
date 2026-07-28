@@ -6,10 +6,11 @@ that chat's memory.
 ## What the job is
 
 **Rosebank Georgies Youth Centre, Derby Road, Barnstaple, Devon EX32 7EZ.**
+(The tender portal and our own issued documents both use **57 Derby Rd, EX32 7EA**.)
 Devon County Council **PSDS4 Energy Improvement Scheme** (decarbonisation). Employer's agent /
 contract administrator: **South West Norse Ltd** (Venture House, Capital Court, Sowton, Exeter).
 SWN project number **08-02-119364**. Main contractor tendering: **Pearce Construction (Barnstaple)**;
-Fenster is pricing the glazing package to Pearce.
+Fenster is pricing the glazing package to Pearce. Estimating Log number **8741**.
 
 Fenster's package is element **1.1 Replacement Windows and Doors** of Pearce's Tender Sum Analysis.
 Scaffolding (1.2), asbestos removal (1.3), cavity wall and roof insulation, M&E and PV are separate
@@ -19,175 +20,223 @@ spec, which addresses everything to "the Contractor".
 **Scope (spec 2.2):** 23 no. external windows (W01-W23), 8 no. external doorsets (D01-D08), 2 no.
 sections of full height curtain walling / screens (CW01, CW02, with door D03 in the run).
 
-**Deadline: 28/07/2026, MORNING.** Gintare's RFQ to Mercury said "our deadline is 28th Morning".
+**Contacts at Pearce:** Fraser Butters `buttersf@pearceb.co.uk` issued the ITT 21/07 via Once For All;
+**Neil Macilwaine `macilwainen@pearceb.co.uk`** chased on 28/07 and is who the tender was sent to.
 
-## Where it stands (27/07/2026)
+---
 
-**Fenster has NO price for this job.** One supplier return is in hand and it covers the windows only.
-`scripts/mary_checks.py data/job-checks/georgies.json` returns **5 FAILED - do not issue this quote.**
+## WHERE IT STANDS (28/07/2026) - THE TENDER HAS BEEN ISSUED
 
-### In hand: Mercury Glazing Supplies QL004741, 27/07/2026 - windows only
+**Gintare issued it to Neil Macilwaine at 13:01 on 28/07, cc adam@, at GBP 89,229.61 ex VAT.**
+Attachments: the Pricing.xlsx, the Proposal as PDF, and Window & Door Drawings.pdf.
 
-| | |
+**The quote Adam was asked to check is not the quote Pearce hold.** Gintare sent it to Adam at 11:22
+and to Pearce at 13:01. Adam's copy totals **GBP 83,104.61**; Pearce's totals **GBP 89,229.61**.
+The GBP 6,125.00 difference reconciles exactly to three uplifts added in between:
+
+| change | amount |
 |---|---|
-| Net total | GBP 30,354.48 |
-| Discount 1 | -10.00% = -GBP 3,035.45 |
-| **Grand Total Net** | **GBP 27,319.03 ex VAT** |
-| Total inc VAT | GBP 32,782.84 |
+| +GBP 75.00 on each of the 23 windows | +1,725.00 |
+| +GBP 2,000.00 on the curtain walling run (13,796.80 -> 15,796.80) | +2,000.00 |
+| new line: KINGSPAN CAVITY CLOSERS (no supplier quote behind it) | +2,400.00 |
+| | **+6,125.00** |
 
-23 positions + position 024 "PAINT CHARGE" GBP 165.00. SMA **VS600** vertical sliding sash, RAL 8000 M
-(green brown), 2 x 2x6mm 6.8/16/6 Clear Lam Tgh, 1 x trickle vent mill finish 5000, chrome handles.
-**Supply only** - no installation, no delivery terms stated, no validity period stated on the quote.
+The uplifts were typed over the template formulas, so the issued workbook no longer recomputes.
+Adam's dashboard request (dashmsg-40, 11:30) was against the GBP 83,104.61 version.
 
-Sent by Michal Hagner, quotes@mercuryspecialistframes.co.uk / michal@mercuryglazing.co.uk,
-01452 383344 opt 2. Unit E1 Goodridge Business Park, Gloucester GL2 5EB. The quote PDF has no text
-layer - 12 scanned page images; render with PyMuPDF at 170dpi and read the images.
+### The issued price
 
-**Reconciliation is exact and was checked line by line.** 23 quoted = 23 scheduled, and every size
-matches the South West Norse schedule:
+| line | detail | GBP |
+|---|---|---|
+| Aluminium sliding sash windows W01-W23 | 23 no. | 38,231.61 |
+| Alunet aluminium sliding door D02 | 2650 x 2089 | 3,881.70 |
+| Smart aluminium CW & doors CW01+D03+CW02 | 7770 x 2089 | 15,796.80 |
+| D1, D4 | 1800 x 2089, 2 no. | 8,219.53 |
+| D5, D6, D7, D8 | 950 x 2089, 4 no. | 12,085.24 |
+| INSTALLATION | | 8,614.73 |
+| KINGSPAN CAVITY CLOSERS | | 2,400.00 |
+| **TOTAL ex VAT** | | **89,229.61** |
+| *OPTIONAL* external mastic | outside the total | 856.38 |
+| *OPTIONAL* EPDM | outside the total | 1,600.93 |
 
-| Size (W x H mm) | Schedule | Mercury | Each |
-|---|---|---|---|
-| 1455 x 855 (W1, W20, W21) | 3 | 3 | GBP 1,313.77 |
-| 635 x 1159 (W2) | 1 | 1 | GBP 1,143.22 |
-| 855 x 1455 (W3-W18) | 16 | 16 | GBP 1,348.80 |
-| 850 x 1155 (W19, W22) | 2 | 2 | GBP 1,253.46 |
-| 554 x 858 (W23) | 1 | 1 | GBP 1,017.23 |
+**Supplier cost behind it: GBP 50,562.65.** Frames sell (total less install and closers) is
+GBP 78,214.88, a 54.7% mark-up on supply.
 
-Items + paint charge = GBP 30,354.48 to the penny; less 10% = GBP 27,319.03; VAT and total both
-recompute exactly. Nothing dropped, nothing double-counted.
+**The issued workbook is values-only** - the working columns (frames cost, glass, CW rate, install
+array) were stripped before sending, so **no supplier cost or margin column reached Pearce.**
 
-**Rate: GBP 1,013.40/m2 net supply only** over 26.81 m2 (windows only, paint charge stripped out).
-Average GBP 1,181.33 per window on an average unit of 1.17 m2. There is **no vertical-slider category
-in `data/supplier-rates.json`** - 68 categories, none of them sash - so this cannot be benchmarked.
-For scale only, BSW's aluminium casement glazed [<1.5m2] median is GBP 445.71/m2 (max GBP 1,041.47).
-Mercury is 2.3x that median. A vertical slider is genuinely dearer than a casement - twice the sashes,
-balances, interlocks - and small units always carry a high rate per m2, so this is not evidence of an
-overcharge. It is a **single source with no competing quote.**
+### Supplier returns - all three now in hand
 
-## The five things wrong with the Mercury quote
+| supplier | ref | date | scope | Grand Total Net |
+|---|---|---|---|---|
+| Mercury Glazing Supplies | QL004741 | 27/07 | 23 windows, SMA VS600 | **27,319.03** |
+| Bellview Products Ltd (via BSW) | 0000000513 | 27/07 | CW run + D01 + D04 + D05-D08 | **20,861.92** |
+| BSW Window Solutions | QT253508 | 28/07 | D02 patio, Alunet ESS47 | **2,381.70** |
 
-All five are things the quote does not say, not things it says wrongly.
+Mercury: net 30,354.48 less 10%. Bellview: net 24,543.44 less 15% ("Discount 2"). BSW: net of
+discounts, GBP 2,381.70. Every figure in the workbook is taken net and ties to the frame column -
+Mercury unit prices x 0.9, Bellview x 0.85. Checked line by line, all correct.
 
-1. **DUAL COLOUR IS NOT IN THE PRICE.** Spec 2.28: *"New aluminium windows and screens to be
-   manufactured in white Aluminium internally and dark brown aluminium externally."* Mercury's quote
-   says, on all 23 lines, **"BROWN RAL TBC (SINGLE COLOUR ONLY)"** and prices RAL 8000 M. The
-   specified white internal face is simply absent. The GBP 165 paint charge is a single non-standard
-   RAL, not a dual-colour uplift. *(Now caught automatically - see the new rule below.)*
-   Note also the RAL is unresolved: 8000 is "green brown", not a dark brown, and the quote itself
-   says TBC.
+**All 31 units are covered on count.** Nothing is missing from the schedule. Bellview positions map:
+001 = D01, 002 = CW01+D03+CW02, 003 = D04, 004-007 = D05/D06/D07/D08.
 
-2. **NO U-VALUE, AND THE GLASS AS QUOTED LOOKS UNABLE TO REACH IT.** Spec 2.28 and 2.33.5: max
-   **1.6 W/m2K**, and *"The Contractor must provide evidence of the energy efficiency rating."*
-   Mercury state no U-value anywhere, and the make-up is **"Clear Lam Tgh"** with no low-E / soft coat
-   named. Compare how other suppliers write it - Aplus "4-20-4 Clr Tough **S Coat** 1.2", BSW
-   "Coolite SKN175ii". Either the coating is there and unstated, or it is not there. On a job whose
-   entire purpose is energy improvement, a U-value failure is fatal, and the reglaze would be ours.
+### The install line is fit-only, and it is proved not asserted
 
-3. **OBSCURE GLAZING MISSING.** Spec 2.33.1: *"clear throughout, with exception of obscure glass to
-   all bathroom, shower and WC areas."* All 23 Mercury lines are clear. Either no WC window is in the
-   23 or the obscure is not priced - the elevations will settle it.
+GBP 8,614.7295 recomputes to the penny from the house labour codes with **zero residual**:
 
-4. **WRONG TRICKLE VENTS, AND POSSIBLY TOO FEW.** Spec 2.33.4 requires **Delta vent and grille in
-   white PVCu with an external canopy**, at **4000mm2 per 15m2 of floor area**, with additional
-   ventilators one per further 15m2. Mercury quote one **mill finish** (raw aluminium) 5000 unit per
-   window regardless of room size. Wrong product, wrong finish on a brown/white window, and the
-   quantity is unchecked against room areas.
+- CW run 16.2315 m2 x GBP 150 = 2,434.7295
+- 23 windows (MAW/SAW) x GBP 160 = 3,680.00
+- D02 (DAD) = 500.00
+- D01, D04 (DAD) 2 x 500 = 1,000.00
+- D05-D08 (SAD) 4 x 250 = 1,000.00
 
-5. **THE SYSTEM IS A SUBSTITUTION.** Spec 2.33 names **Sapa Building Systems Dualframe 75Si**
-   (Tewkesbury) *"or equal and approved"*. Mercury offer **SMA VS600**. That is a legitimate route but
-   it has to be declared and approved by the CA, not slipped through. Worth knowing:
-   **Aplus already fabricate Dualframe 75Si for Fenster** - Riverside QT51518 (27/07/2026) and Stoke
-   Park Rev1B - so the specified system is obtainable through an existing supplier if we ask.
+Same control as Princess Beatrice, Crestwood Park and Brocks Hill. **So strip-out of 23 existing
+windows and 8 existing doorsets is not funded**, and the exclusions schedule does not exclude removal
+either.
 
-## What is still completely unpriced - 35.45 m2
+---
 
-No supplier has quoted any of this. Spec 2.38.3 names **Technal Building Systems Stormframe STII**
-commercial door and framing system (or equal approved) - and **Aplus quote Technal STII** (Princess
-Beatrice, Aplus Logikal 22/07/2026, GBP 17,499.74), so again the specified system is reachable.
+## The seven things wrong with the issued tender
 
-| Ref | Type | Size | Area |
-|---|---|---|---|
-| D01 | Double doorset | 1.80 x 2.089 | 3.76 m2 |
-| D02 | Patio door | 2.65 x 2.089 | 5.54 m2 |
-| CW01 + D03 + CW02 | Curtain walling run | 7.77 x 2.089 | 16.23 m2 |
-| D04 | "Double" doorset | 0.95 x 2.089 | 1.98 m2 |
-| D05, D06, D07, D08 | Single doorsets | 0.95 x 2.089 | 1.98 m2 each |
-| | | **Total** | **35.45 m2** |
+`scripts/mary_checks.py data/job-checks/georgies.json` returns **7 FAILED**.
 
-Requirements on those doors: pivot hinges, concealed closers, 90-degree hold-open, anti-finger-trap
-stiles, wheelchair-accessible flush drained thresholds, 28mm clear DGUs, internal beads, area-weighted
-U-value 1.6 with evidence. Ironmongery per the 2.39 schedule: **internal push-bar panic devices to
-BS EN 1125 on D01, D02, D03, D04, D05 and D08** (six of them); **thumbturn with classroom function,
-5-lever mortice lock, suited to the building's existing master key, on D06 and D07.**
+1. **FOUR OF THE SIX PANIC DEVICES ARE NOT IN THE PRICE; TWO DOORS HAVE ONE THEY MUST NOT HAVE.**
+   Spec 2.39 schedules internal push-bar panic exit devices to BS EN 1125 on **D01, D02, D03, D04,
+   D05, D08**, and (spec 2.38.4) thumbturn with **classroom function, 5-lever mortice, external
+   cylinder, 316 stainless escutcheon, suited to the building's existing master key** on **D06, D07**.
+   Bellview fitted `ACIM453 CONCEALED PANIC BAR` to the four 950mm singles only - D05, D06, D07, D08.
+   So **D05 and D08 are correct; D06 and D07 carry hardware the spec forbids; D01, D03 and D04 have
+   none** (handles, hold-open closers, high-security locks, cylinders keyed alike). **D02 is a 2-rail
+   sliding patio with an inline patio lock and cannot physically take a BS EN 1125 push-bar** - that
+   is a conflict for the CA, not a price.
+   BSW said so in writing on 28/07: *"there is also no hardware schedule, so I have assumed single
+   doors to be fire escapes based on the floor plans."* **Schedule 2.39 exists and was never sent to
+   them.** The concealed bar needs a different leaf build (IMP041 76mm stile + IMP037N anti-finger-trap
+   push-bar profile), so this is four rebuilt leaves, not a bolt-on part. **No master-key suiting is
+   bought anywhere** - "cylinders keyed alike" means alike to each other, not to the building's suite.
+   Spec 2.38.5 also wants a contrasting **external** pull/pad handle on every fire-exit door; not
+   listed against Bellview 004-007.
 
-**Indicative envelope for the missing scope - BENCHMARK ONLY, NOT SUPPLIER-BACKED, and a floor not a
-price:** BSW glazed-door medians (GBP 411.96/m2 for 3-6m2, GBP 422.99/m2 for 1.5-3m2) give
-GBP 8,021 for the seven doors; the house curtain-walling template at GBP 850/m2 supply gives
-GBP 13,795 for the 16.23 m2 run. **~GBP 21,800 supply.** Those medians carry **no** panic hardware,
-no pivot/concealed-closer set, no anti-finger-trap stile and no master-key suiting, so the real number
-is above it. With Mercury's windows that is a supply sub-total around **GBP 49,100 on a mixed basis** -
-useful for scale, not a quotable figure.
+2. **STRIP-OUT UNFUNDED AND UNEXCLUDED** - see the install control above.
 
-## Open questions for Pearce / the CA
+3. **ASBESTOS NEITHER PRICED NOR EXCLUDED.** Spec 2.43.1: internal cill boards throughout the building
+   are asbestos containing and the contractor *"shall allow to include within the tender submission for
+   the removals"* - express, non-provisional, inside the window scope. Our exclusions never mention
+   asbestos. Pearce carry a separate Asbestos Removal element and a GBP 5,000 defined provisional sum,
+   so it may be theirs, but nothing on our document says so and our installers cannot lift those
+   windows without disturbing the boards.
 
-- **D04 is called a "Double Doorset" at 950mm wide.** D01, the other double, is 1800mm. 950mm split
-  into two leaves is not a door. Either the description or the width is wrong, and it is roughly a
-  2x price difference.
-- **The client's own spec contradicts itself on colour.** 2.28 says white inside / dark brown outside;
-  2.33 says *"standard Sapa finish (WHITE in colour)"*. One of them is wrong.
-- **Asbestos.** Spec 2.43.1 states internal cill boards **throughout the building** are asbestos
-  containing and *"shall allow to include within the tender submission for the removals"* - that is an
-  express, non-provisional requirement sitting inside the window scope, while Pearce's own breakdown
-  carries a separate Asbestos Removal element (1.3) and a GBP 5,000 defined provisional sum. Whose
-  line is it? Our installers cannot lift those windows without disturbing them.
-- **Builder's work the spec puts on "the Contractor" and Fenster normally excludes:** internal tower
-  scaffold to high-level windows (2.34.1), code 4/5 leadwork to all openings and abutments (2.34.4),
-  redecoration of whole walls and ceilings in Dulux Trade (2.34.6, 2.41), making good plaster, floors,
-  suspended ceilings and external masonry (2.33.13-16, 2.40), isolation and reinstatement of the
-  entrance security/egress system (2.43.2), and M&E disconnection/reinstatement. Confirm these sit
-  with Pearce.
-- **Window winding gear** (2.34.2) for any window whose handle is above 1800mm FFL - needs cill
-  heights off the elevations. Remember Crestwood: GBP 17,779 of Teleflex was in our price while our
+4. **THE U-VALUE IS THE POINT OF THE JOB AND WE NEVER CLAIMED IT.** Spec 2.28, 2.33.5 and 2.38.3
+   require max **1.6 W/m2K area-weighted** with **documentary evidence of the energy efficiency
+   rating**. The proposal recites the requirement and never confirms compliance. Mercury state no
+   U-value at all and quote "Clear Lam Tgh" with no low-E or soft coat named. Bellview state **Ug 1.0
+   / Ug 1.1** and BSW **EcoPlus 1.0** - all centre-pane glass, not the whole-element Uw the spec asks
+   for. **No supplier has certified an element U-value.** The reglaze would be ours.
+
+5. **THE DOCUMENT PEARCE HOLD NAMES ANOTHER CLIENT.** Proposal title page: *"Prepared For RRR GROUP"*;
+   page 2: *"Client: RRR Group"*. Sent to Pearce Construction. And the **Pricing.xlsx carries
+   `dan.parker@agsurveying.co.uk`** as `dc:creator` plus two external links to
+   `C:\Users\LiamO'Donnell\...` and `C:\Users\Parke\...` - REQ-27, third job this week, visible in file
+   properties without opening it. The proposal went as PDF so its own trace (`Nicholas Baker`) did not
+   travel; the .xlsx did.
+
+6. **THE PATIO DOOR IS QUOTED GREY.** BSW QT253508: *"Ext Colour: (7016) Grey"*, no internal colour
+   stated. Our proposal's colour table promises *"Doors/CW - White internally / Brown externally"* -
+   true of the Bellview items (`inside:WP, outside:Brown`), **not true of D02**. The colour disclosure
+   Gintare made to Pearce covers the sash windows only.
+
+7. **D04 PRICED AS AN 1800mm DOUBLE AGAINST A SCHEDULE THAT SAYS 950mm.** Gintare took the "Double
+   Doorset" description over the scheduled width and BSW priced two 1800 doubles to match. That is the
+   expensive reading - GBP 4,109.76 vs GBP 3,021.31, about **GBP 1,100** - and it is **not qualified
+   anywhere on the issued document**.
+
+### Smaller, still live
+
+- **Obscure glazing** to bathroom/shower/WC (spec 2.33.1) neither priced nor excluded; all 23 window
+  lines are clear.
+- **Trickle vents wrong, and the proposal's own spec table leaves the trickle vent line blank.** Spec
+  2.33.4 wants **Delta vent and grille, white PVCu, external canopy, 4000mm2 per 15m2 of floor area**
+  plus one more per further 15m2; Mercury quote one **mill finish** 5000 per window regardless of room
+  size.
+- **Delivery is in nobody's price.** BSW are expressly *"ex works, additional delivery charges may
+  apply"*; Mercury and Bellview state nothing. 31 units to Barnstaple from Peterborough and Gloucester.
+- **Mercury's QL004741 states no validity period anywhere**, while our price is open 30 days to
+  **27/08/2026** (proposal T&Cs clause 2). A Devon CC scheme will not be awarded inside that.
+- **Dayworks rates** (spec 2.45: craftsman, painter, labourer, electrician) are expressly required and
+  the issued document carries none.
+- **Warranty is not back-to-back.** We offer 10 years on glass and frames with **no start date** in the
+  clause and "subject to any applicable manufacturer warranties"; none of the three suppliers state a
+  warranty period at all. Spec 2.38.4/2.38.5 require ironmongery with a minimum 5-year warranty and
+  2.34.2 winding gear guaranteed 10 years.
+- **System substitutions are named but never declared as substitutions.** Spec 2.33 names Sapa
+  Dualframe 75Si, 2.38.3 names Technal Stormframe STII, both "or equal approved". We offer SMA VS600,
+  SMA Smart Wall Pocket, SMA MC600 Plus and Alunet ESS47. The proposal lists them without ever saying
+  they are alternatives requiring CA approval. **Aplus fabricate both specified systems for us** -
+  Dualframe 75Si on Riverside QT51518 and Stoke Park, Technal STII on Princess Beatrice (Logikal
+  GBP 17,499.74).
+
+## Still open with Pearce / the CA
+
+- Whose line are the asbestos cill boards, the internal tower scaffold (2.34.1), code 4/5 leadwork
+  (2.34.4), redecoration (2.34.6, 2.41) and making good (2.33.13-16, 2.40)? Our proposal excludes
+  scaffold, decoration, making good and internal finishing - asbestos and strip-out it does not.
+- **D04: is it 950mm or a double?** Roughly a 2x price difference.
+- **The client's own spec contradicts itself on colour** - 2.28 says white inside / dark brown outside;
+  2.33 says *"standard Sapa finish (WHITE in colour)"*.
+- **D02 cannot take a panic bar.** Spec 2.39 requires one.
+- **Window winding gear** (2.34.2) for any window whose handle is above 1800mm FFL - needs cill heights
+  off the elevations. Remember Crestwood: GBP 17,779 of Teleflex sat in our price while our
   clarifications excluded the controls.
-- **Dayworks rates** (2.45) are required: craftsman, painter, labourer, electrician.
 
 ## Provisional and contingency sums the tender fixes
 
 GBP 500 entrance access control; GBP 2,500 unforeseen asbestos above the cill removals; GBP 2,500
-vertical blinds to all windows and doors; GBP 2,500 new entrance security system; GBP 5,000
-contingency. Pearce's Tender Sum Analysis shows GBP 5,000 defined + GBP 24,000 undefined provisional
-sums against the whole scheme.
+vertical blinds; GBP 2,500 new entrance security system; GBP 5,000 contingency. Pearce's Tender Sum
+Analysis shows GBP 5,000 defined + GBP 24,000 undefined provisional sums against the whole scheme.
 
 ## Where the documents are
 
 - Job folder: `Commercial\1. Tender Documents\Pearce Construction (Barnstaple)\Georgies\1. Estimating`
-  There is **no `2. Supplier Quotes` folder** - Mercury QL004741 is the first return and is not filed.
-  `3. Client Quote` holds only MASTER templates and leftovers from another job (SS / Shaftesbury);
-  no pricing document has been started for Georgie's.
 - The real tender pack is inside `1. Tender Documents\Georgie's (formerly Rosebank) Doors and
-  windows.zip` - the six loose PDFs alongside it are only the elevations, plans and sizes.
+  windows.zip` - the six loose PDFs alongside it are only elevations, plans and sizes.
   Extracted to `test-results\georgies-input\pack\zip`; spec text at
   `test-results\georgies-input\wed-spec.txt`; Mercury quote pages at
   `test-results\georgies-input\pages\p01-p12.png`.
-- Gintare's RFQ to Mercury, 24/07/2026 12:47, is reproduced on page 11 of Mercury's own PDF. It asked
-  for "Sapa / Senior Dualframe 75SI, or equal approved", U-value 1.6 max, white internally / dark
-  brown externally, obscure to WC, BS6262 safety glass, trickle vents. Mercury answered on the system,
-  the safety glass and the trickle vents, and did not answer on colour, U-value or obscure.
+- Issued documents: `test-results\mary-inbox\processed\20260728T1301-zQFQAAAA-att\`.
+  Adam's check copy (the GBP 83,104.61 version, with the working columns intact):
+  `test-results\mary-inbox\processed\20260728T1122-zQEwAAAA-att\`.
+- BSW/Bellview returns: `test-results\mary-inbox\processed\20260728T0945-QnPOdAAA-att\`.
+- Gintare's RFQ to Mercury, 24/07 12:47, is reproduced on page 11 of Mercury's own PDF. Her RFQ to
+  BSW went 24/07 14:36 for **CW and doors only** ("please exclude all other windows, as these are
+  required to be sliding sash") - it listed the pivot hinges, closers, anti-finger-trap stiles,
+  thresholds, U-value and the words "Push-bar doors to include panic exit device to BS EN 1125" and
+  "Thumbturn doors to include lock / thumbturn arrangement" **but never said which doors were which.**
+  That is the root of finding 1.
 
-## New check rule added from this job
+## Check rules from this job
 
-`check_finish_substitution` in `scripts/mary_checks.py`, fixture `data/job-checks/_test-georgies.json`.
-It compares the specified internal and external finish against what the supplier actually quoted, and
-fails when dual colour is specified but a single colour is quoted. Selftest passes and every earlier
-founding error still fires.
+- `check_finish_substitution` in `scripts/mary_checks.py`, fixture `data/job-checks/_test-georgies.json`
+  (added 27/07). Compares specified internal/external finish against what the supplier quoted; fails
+  when dual colour is specified and a single colour is quoted, fails on a per-side mismatch, ASKs when
+  the supplier states no finish. It now also catches the D02 grey.
 
 ## History
 
-- **21/07/2026** - enquiry logged (Estimating Log), still marked "to log" on 27/07.
-- **24/07/2026 12:47** - Gintare Vanagaite issued the RFQ to Mercury Specialist Frames with six
-  drawings (Elevation, Elevation 1, Elevation 2, Plan 1, Plan 2, Sizes).
-- **27/07/2026 14:20** - Mercury return QL004741 arrives at estimating@. First supplier price on the
-  job. Windows only.
-- **27/07/2026** - job chat opened, quote reconciled, spec read at source, five gaps found, checks
-  manifest built and failing, REQ-12 raised.
+- **21/07/2026 09:21** - Fraser Butters (Pearce) issues the ITT via Once For All. Return date 28/07.
+- **24/07/2026 12:47** - Gintare RFQs Mercury Specialist Frames (windows).
+- **24/07/2026 14:36** - Gintare RFQs BSW (CW + doors only), asking for return by Monday 27th.
+- **27/07/2026 15:20** - Mercury QL004741 arrives. Windows only. Job chat opened, quote reconciled,
+  spec read at source, five gaps found, checks manifest built and failing, REQ-12 raised.
+- **28/07/2026 08:51** - Gintare chases BSW.
+- **28/07/2026 09:45** - BSW return Bellview 0000000513 + QT253508, with the "no hardware schedule"
+  caveat. The 35.45 m2 is priced for the first time.
+- **28/07/2026 11:22** - Gintare sends the quote to Adam for checking. GBP 83,104.61.
+- **28/07/2026 11:27** - Gintare asks Mercury about dual colour. **11:34 Mercury: "the aluminium
+  vertical sliders are single colour only."** Definitive - the dual-colour gap cannot be closed in
+  aluminium VS.
+- **28/07/2026 11:30** - Adam asks Mary on the dashboard (dashmsg-40) to check the quote.
+- **28/07/2026 11:52** - Neil Macilwaine chases via Once For All.
+- **28/07/2026 13:01** - **Gintare issues the tender to Pearce at GBP 89,229.61**, disclosing the
+  single-colour sash limitation and recommending uPVC vertical sliders instead.
+- **28/07/2026** - post-issue audit. Seven check failures, REQ-12 rewritten to the post-issue decision,
+  calibration entry 6 added, Adam answered on the dashboard and by email.

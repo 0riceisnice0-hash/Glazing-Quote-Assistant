@@ -5,31 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-28 10:00 - budget
-Dispatch paused - daily session budget spent: 17.1 of 8.0 hours in the last 24h. Nothing is broken; Mary is being stopped from working in circles. Clear it by raising MARY_DAILY_HOURS or letting the 24h window roll.
-
-### 2026-07-28 10:16 - triage
-EMAIL WORKS. STOP SAYING IT DOES NOT, AND CHECK THE LOG BEFORE YOU DO.
-
-Zac on the hub (dashmsg-38): 'you have had email access this whole time, you can send stuff. you sent the morning update.' He is right. mary@ is back inside the tenant app policy and REQ-23 was closed on evidence at 07:54. data/mary-send-log.jsonl is the check that takes five seconds - it shows ok:true for the 07:54 morning update to adam+marketing (with the St Mary's workbook attached) and a 09:36 send to Adam on Lower Range.
-
-THE RULE: before any chat writes 'email is blocked', 'GENERATED, NOT SENT' or 'the hub is the only route', tail that log. Three files were still carrying the outage as if it were current, and each one cost something real - Adam asked for an email reminder on Riverside and was told he could not have one, and the St Mary's workbook was recorded as undelivered when it had already gone to him. Corrected in MARY-HANDOVER and AI.md; riverside and st-marys told directly.
-
-What has NOT changed: the ghost cage. adam@ and marketing@ only, fresh compose, never a reply. 'Mary cannot email ET&S / the client / the supplier' is still true - just for the original reason, not because the channel is down.
-
-### 2026-07-28 16:44 - triage
-THREE SUPPLIER FACTS OUT OF A 33-ORDER BATCH, ALL REUSABLE.
-
-**1. BSW'S MAILBOX REJECTS ANYTHING OVER 36 MB, AND THE BOUNCE ONLY GOES TO THE SENDER.**
-The Vesuvius RFQ to estimations@bsws.co.uk failed three times this afternoon on '550 5.2.3 RESOLVER.RST.RecipSizeLimit' - a 39 MB zip against their 36 MB cap. BSW hold nothing and the tender is due Thursday. **Send BSW a OneDrive link or split the pack; never a full-pack zip.** And when a return does not arrive, check for a bounce before assuming the supplier is slow - nobody but the sender ever sees one.
-
-**2. AFS PUT THE FIXING PACK AND DELIVERY OUTSIDE THE PRICE. TWO QUOTES OUT OF TWO.**
-Manor Lodge Q7666 Rev A: GBP 4,075.02 net supply-only, with fixing pack GBP 75.21 and delivery GBP 250.00 listed below it as OPTIONAL EXTRAS. Gordon Court was the same shape and the GBP 506.37 was not carried anywhere. **On any AFS quote, read past the net figure - the pack and the carriage are yours to add.** Terms 60% with order / 40% before dispatch, 30-day validity.
-
-**3. NEW SUPPLIER CONTACT - METFAB, PRESSED ALUMINIUM.** Steve Freezer, 28/07: send enquiries for cills, jamb and head flashings to **nick@met-fab.co.uk**. No job named on the email, so it is a capability note rather than a live enquiry. Useful anywhere a window pack needs pressed flashings and only the frames are quoted.
-
-AND A REMINDER THAT HAS NOW BITTEN TWICE: **a return date in a job record is not a send date.** Jacob's Chasing page inferred send dates from them and aged Princess Beatrice and Crestwood Park by ten and seven days - both were actually sent 27/07 and both had a client reply within 24 hours. Same class of error as the five deadlines that turned out to be supplier expiries. If you need a real send date, estimating@ sent items has it.
-
 ### 2026-07-28 16:52 - princess-beatrice
 THE INSTALL LINE IS FIT-ONLY. PROVEN WITH A CONTROL, NOT ASSERTED - AND IT SETTLES AN ARGUMENT THREE JOBS ARE HAVING.
 
@@ -84,3 +59,49 @@ outright ("the responsibility of the Customer... the Supplier does not warrant o
 U-value to "no better than 1.8" and up to 3.0 on commercial doors and framing, and deliver frames UNGLAZED
 unless stated. If an Aplus quote is behind your job and you have promised PAS24 or a U-value, that document is
 the thing that decides who carries it.
+
+### 2026-07-28 17:07 - georgies
+FIVE THINGS OUT OF THE GEORGIE'S POST-ISSUE AUDIT. ALL REUSABLE, AND THE FIRST TWO ARE NEW CLASSES OF ERROR.
+
+**1. AN RFQ THAT LISTS HARDWARE WITHOUT SAYING WHICH DOOR GETS WHICH IS AN RFQ THAT WILL COME BACK WRONG.**
+Gintare's BSW enquiry said "Push-bar doors to include panic exit device to BS EN 1125" and "Thumbturn
+doors to include lock / thumbturn arrangement" - correct products, no mapping. BSW answered: *"there is
+also no hardware schedule, so I have assumed single doors to be fire escapes based on the floor plans."*
+They guessed by door size. Result on a tender already with the client: panic bars on the four 950mm
+singles, when the spec wants them on D01/D02/D03/D04/D05/D08 and master-suited thumbturn locksets on
+D06/D07. Four required devices absent, two doors carrying hardware the spec forbids, no master-key
+suiting bought at all. And the concealed bar needs a different leaf build, so it is four rebuilt leaves,
+not a part we add later. **Send the door schedule itself. A list of hardware types is not a schedule.**
+When a supplier writes "I have assumed", that sentence is the finding - read it before the total.
+
+**2. THE VERSION SENT TO THE CHECKER MAY NOT BE THE VERSION SENT TO THE CLIENT. DIFF THEM.**
+Adam was asked at 11:22 to check GBP 83,104.61. Pearce were sent GBP 89,229.61 at 13:01. The GBP 6,125
+is +GBP 75 on each of 23 windows, +GBP 2,000 on the CW run and a new GBP 2,400 cavity-closer line with
+no supplier quote behind it - typed over the template formulas, so the issued workbook no longer
+recomputes. Nothing dishonest, but auditing the wrong file wastes the whole check. **If both files are
+in the queue, open both.**
+
+**3. Ug IS NOT Uw, AND A SUPPLIER QUOTING Ug 1.0 HAS NOT ANSWERED A 1.6 AREA-WEIGHTED REQUIREMENT.**
+Bellview state Ug 1.0/1.1, BSW state EcoPlus 1.0. Those are centre-pane glass figures. Every one of
+spec 2.28, 2.33.5 and 2.38.3 asks for a max 1.6 W/m2K *area-weighted* whole-element value **plus
+documentary evidence of the energy rating**. Frame and edge-spacer losses live in the gap. On any job
+with a Uw target, a glass Ug on the quote is not compliance - and if the scheme is PSDS/decarbonisation
+the U-value is the entire point of the job, so the reglaze lands on us.
+
+**4. BELLVIEW/BSW TERMS, CONFIRMED AGAIN.** Bellview take **15% ("Discount 2")** - Georgie's
+0000000513 GBP 24,543.44 net of 15% = GBP 20,861.92, same shape as Brocks Hill. **BSW quotes are
+EX WORKS**: "All estimates are ex works, additional delivery charges may apply", 30-day validity, and
+terms of sale incorporated but not named. Carriage is ours. Mercury state **no validity period at all**
+- so on a tender that will not be awarded for months, their price is not held.
+
+**5. REQ-27, THIRD JOB THIS WEEK, AND THIS ONE NAMES THE WRONG CLIENT TOO.** Georgie's went to Pearce
+Construction with "Prepared For RRR GROUP" on the proposal title page and "Client: RRR Group" on page 2,
+and the Pricing.xlsx carrying dan.parker@agsurveying.co.uk plus external links to
+C:\Users\LiamO'Donnell\ and C:\Users\Parke\. The proposal was converted to PDF so its own author trace
+did not travel - **the .xlsx did**. Converting the proposal is not enough while the workbook goes as a
+workbook. Run mary_checks and read the "third-party traces" line before anything is attached.
+
+AND THE FIT-ONLY INSTALL CONTROL HOLDS ON A FOURTH JOB: Georgie's install GBP 8,614.7295 recomputes to
+the penny from the labour codes with zero residual (CW 16.2315 m2 x 150, 23 windows x 160, three DAD at
+500, four SAD at 250) on a full replacement job with 23 windows and 8 doorsets to strip out. Unfunded,
+and the exclusions schedule does not exclude removal either.

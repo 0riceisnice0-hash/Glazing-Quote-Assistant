@@ -49,6 +49,16 @@
    "basis": "Register medians via mary_pricing.find_rate for the 31 Sheerline Prestige casement types (98 units, 160.36 m2), against BSW QT252799's own frame prices for exactly the same units. The engine applied the MEASURED bsw factor 1.056 from learned-rates.json, not the CALIBRATION Sheerline 1.10 - derived_factors() supersedes CALIBRATION, so on a BSW Sheerline job the Sheerline correction never fires. Uncorrected the register would have given GBP 63,011.59 (+4.4%); with the Sheerline 1.10 instead it would have been GBP 69,312.75 (+14.8%).",
    "lesson": "THE AGGREGATE IS AN ACCIDENT OF MIX. Whole-job error is only +4.4% uncorrected because large band errors cancel: <1.5m2 is -35.5% (register UNDER-prices small units - actual GBP 697/m2 against a median of GBP 450), 1.5-3m2 is -1.2% (excellent), 3-6m2 is +37.5% and >6m2 is +35.2% (register OVER-prices large units). Per type the spread is -43.6% to +46.9% and only 15 of 31 land within +/-20%. So the register is a good whole-package predictor ONLY where the unit mix is broad, and a poor per-element one outside the 1.5-3m2 band. Both available corrections make this job worse, not better - the raw median was closest. One job is not enough to move a factor built on 273 lines, so nothing in the engine was changed; the band structure, not the supplier factor, is what looks wrong.",
    "basis_type": "benchmark cost vs supplier cost"
+  },
+  {
+   "job": "Georgie's (formerly Rosebank)",
+   "client": "Pearce Construction (Barnstaple)",
+   "date": "2026-07-28",
+   "mary_estimate": 21816.0,
+   "actual": 23243.62,
+   "basis_type": "benchmark COST vs supplier COST",
+   "basis": "Mary's 27/07 register benchmark for the scope no supplier had quoted - 7 doors on BSW glazed-door medians (GBP 8,021) plus the 16.23 m2 CW01+D03+CW02 run on the house GBP 850/m2 curtain-walling template (GBP 13,795) - against the supplier returns that landed 28/07: Bellview 0000000513 GBP 20,861.92 net of 15% (CW run + D01 + D04 + D05-D08) plus BSW QT253508 GBP 2,381.70 (D02 patio). Identical scope both sides.",
+   "lesson": "The benchmark was labelled 'a floor and not a price' and it was one, by 6.1% - the first entry where the stated direction held. But the margin is flattered: the benchmark was called low because it carried no panic hardware, pivot/concealed-closer set or master-key suiting, and the actual return turned out to carry almost none of that either (4 of 6 required BS EN 1125 devices absent, no suiting at all). So -6.1% is the gap between two prices that BOTH omit the hardware, not the gap to a compliant one. When you flag a benchmark as a floor because of missing content, check the supplier return actually contains that content before treating the comparison as closed."
   }
  ]
 }
