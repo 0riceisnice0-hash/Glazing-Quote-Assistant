@@ -2731,6 +2731,73 @@ same information travels in another**, and that is the sharper version of both f
 
 ---
 
+## 4AD. THIRTY-SECOND TURN (28/07) — a whole check was silently skipped because I flagged one document
+
+### 4AD.1 riverside's rule 21 returned n/a here, and the n/a was wrong
+
+Their new `check_priced_document_view_is_intact` asks three questions of the workbook the client is
+actually sent: is there a print area, is anything populated outside it, did the repeating header rows
+survive. On this job it returned:
+
+> `[ - ] the client's view of the priced workbook — no priced workbook on this job — nothing to hide behind a print area`
+
+**There is a priced workbook.** It went to Chigwell on 09/07. The rule never opened it, because at the
+twenty-seventh turn I flagged `is_the_priced_document: true` on the **proposal PDF** — it carries the
+subtotal and the exclusions — and `false` on the spreadsheet.
+
+**The boolean models a singular priced document, and this job issued two.** Both are priced: the proposal
+carries `SUBTOTAL £368,376.70 + VAT`, the workbook carries the same total plus the full line-item schedule.
+One flag, two documents, and **a whole check disappeared into an `n/a` that reads exactly like a pass.**
+
+Same family as everything this week — but note the mechanism is new: not a probe that looked in the wrong
+place, not a report that dropped a category, but **a rule that correctly declined to run on a fact I had
+entered wrongly.** The rule behaved properly. The manifest lied to it.
+
+### 4AD.2 With the flag corrected, riverside's column-B fault does NOT replicate
+
+Rule 21 now runs and **passes**: *"1 priced workbook: print area set, print titles intact, nothing
+populated outside the printed range."*
+
+Their client copy failed on `PRODUCT CODES` and `MAW` in column B, because the template's print area starts
+at **C** precisely to exclude the internal product codes. Ours starts at **B** — which looked like the same
+fault and is not:
+
+| | column B holds | print area |
+|---|---|---|
+| **Issued** `…Pricing.xlsx` | `LW_1`, `WN_7`, `WN_1`…, `Sheerline Aluminium Louvre`, `Liniar uPVC windows` — **window references and system descriptions** | `$B$1:$H$71` |
+| `…Pricing DO NOT SEND.xlsx` | `LAW`, `MAW`, `SPVC`, `LPVC`, `MPVC` — **internal product codes** | `$C$1:$I$71` |
+
+**Column B was repurposed on the issued file and the print area was widened to match.** The client sees the
+architect's own window tags, which is exactly what they should see. Deliberate, not accidental — and I only
+know that because the two files could be compared.
+
+### 4AD.3 And rule 18 now FAILS — I am recording it as contested rather than resolving it
+
+Flagging the workbook as priced also fed it to `check_exclusions_reach_the_issued_document`, which now
+fails: *"7 items are being carried as EXCLUDED, and the document that goes to the client states none of
+them."*
+
+**Both readings are defensible and I am not going to settle it by editing a flag until it goes green:**
+
+- **The FAIL is right in principle.** riverside built a negative variant for exactly this — *a covering
+  letter that carries the exclusions while the priced document does not* — and made it fail deliberately.
+- **The FAIL may be wrong on these facts.** This is not a covering letter. The proposal is **itself priced**,
+  carries the subtotal, and was issued in the same pack. That is stronger than the case riverside designed
+  against.
+
+**The honest position is that our defence rests on a sentence in a letter that has not been sent** — the
+Chigwell §7.1 rewrite from the twenty-seventh turn, which states the proposal governs scope boundaries and
+its exclusions continue to apply. Until that goes, rule 18 is pointing at something real.
+
+**Left failing, reported to riverside as a design question about their rule rather than patched around
+here.** The question is whether "the priced document" should be ANY issued priced document carrying the
+exclusions, or ALL of them. They chose ALL. On a two-document issue that may be too strict — but it is
+their rule and their call.
+
+Run is now **6 FAIL, 3 ASK** — up one, and the extra FAIL is honest.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

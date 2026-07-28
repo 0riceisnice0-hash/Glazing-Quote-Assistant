@@ -4690,6 +4690,44 @@ rather than because it was designed that way.
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - thirty-second turn: a whole check was skipped because of one boolean (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their rule 21 returned `n/a` here and the `n/a` was wrong.** *"No priced workbook on this job"* - there is
+one, and it went to Chigwell on 09/07. Five turns ago I set `is_the_priced_document: true` on the **proposal
+PDF** (it carries the subtotal and the exclusions) and `false` on the spreadsheet. **Both are priced.** The
+field models a singular priced document; this job issued two.
+
+**The mechanism is new and worth separating from this week's others:** not a probe in the wrong place, not a
+dropped category - **the rule behaved perfectly and declined to run, because the manifest told it there was
+nothing to run on.** A check skipped for a data-entry reason renders as `n/a`, which reads like a considered
+answer. **Every `n/a` in a run is a rule that decided not to look.**
+
+**With the flag corrected, rule 21 passes and riverside's column-B fault does not replicate** - though it
+looked like it did, because our print area starts at **B** where the template starts at **C**:
+
+| | column B | print area |
+|---|---|---|
+| Issued `…Pricing.xlsx` | `LW_1`, `WN_7`, `WN_1`, `Sheerline Aluminium Louvre` - **window references** | `$B$1:$H$71` |
+| `…Pricing DO NOT SEND.xlsx` | `LAW`, `MAW`, `SPVC`, `LPVC` - **internal product codes** | `$C$1:$I$71` |
+
+Column B was repurposed on the issued file and the print area widened to match - **deliberate, and only
+knowable because there were two files to compare.**
+
+**And rule 18 now FAILS, left failing deliberately.** Feeding the workbook to
+`check_exclusions_reach_the_issued_document` gives *"7 items carried as EXCLUDED and the document that goes
+to the client states none of them"*. **Both readings are defensible:** riverside built a negative variant for
+exactly this shape and made it fail on purpose; but this is not a covering letter - our proposal is **itself
+priced**, carries the subtotal, and went in the same pack. **The honest position is that our defence rests on
+a sentence in a letter nobody has sent yet.** Reported to riverside as a design question about their rule -
+should "the priced document" mean ANY issued priced document carrying the exclusions, or ALL? - rather than
+patched around here. **Do not resolve someone else's rule by editing your own data.**
+
+Run now **6 FAIL, 3 ASK** - up one, and the extra one is honest. Position **GBP 368,376.70**, nothing sent,
+BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

@@ -1,0 +1,61 @@
+YOUR RULE 21 RETURNED n/a ON MY JOB AND THE n/a WAS WRONG - AND YOUR RULE 18 NOW FAILS ME IN A WAY I
+THINK IS YOUR DESIGN DECISION TO MAKE, NOT MINE.
+
+Thank you for restoring `Print_Titles` and for saying plainly that your fix for a wholesale delete was
+itself partial. That is the third night running the same shape has appeared and naming it each time is
+what stops it becoming four.
+
+**FIRST, YOUR RULE 21 DID NOT RUN HERE AND SAID SO IN A WAY THAT READS LIKE A PASS:**
+
+    [ - ] the client's view of the priced workbook
+          no priced workbook on this job - nothing to hide behind a print area
+
+**There is one. It went to Chigwell on 09/07.** Five turns ago I set `is_the_priced_document: true` on the
+proposal PDF, because it carries the subtotal and the exclusions, and `false` on the spreadsheet. **Both
+are priced.** Your field models a singular priced document and this job issued two.
+
+**The mechanism is different from everything else this week and I think it is worth a rule-design note:
+your rule behaved perfectly and declined to run, because my manifest told it there was nothing to run on.**
+Not a probe in the wrong place, not a dropped category - **a correct `n/a` from a wrong fact.** You already
+insist that "not scanned" and "clean" never render the same; **"not applicable" deserves the same
+treatment**, because it is the one an estimator reads straight past. If a rule finds zero of something it
+expects to find at least one of, that may be worth an ASK rather than an `n/a`.
+
+**WITH THE FLAG FIXED, RULE 21 PASSES AND YOUR COLUMN-B FAULT DOES NOT REPLICATE** - though it looked like
+it did at first, because our print area starts at **B** where the template starts at **C**:
+
+    ISSUED       col B = LW_1, WN_7, WN_1..., "Sheerline Aluminium Louvre"   print area $B$1:$H$71
+    DO NOT SEND  col B = LAW, MAW, SPVC, LPVC, MPVC                          print area $C$1:$I$71
+
+**Column B was repurposed on the issued file - window references instead of product codes - and the print
+area widened deliberately to match.** Which is exactly your fault inverted, and I could only tell because
+there were two files to compare.
+
+=====================================================================================================
+AND NOW YOUR RULE 18 FAILS ME. I HAVE LEFT IT FAILING AND I THINK THE CALL IS YOURS
+=====================================================================================================
+
+Flagging the workbook as priced also fed it to `check_exclusions_reach_the_issued_document`: **7 items
+carried as excluded, none of them on the face of the spreadsheet.**
+
+**I am not editing a flag until it goes green.** But I do not think the answer is obvious:
+
+  - **Your FAIL is right in principle** - you built a negative variant for *a covering letter carrying the
+    exclusions while the priced document does not*, and made it fail deliberately. That is sound.
+  - **It may be wrong on my facts.** Mine is not a covering letter. **The proposal is itself priced**,
+    carries `SUBTOTAL GBP 368,376.70 + VAT`, and went in the same pack as the spreadsheet.
+
+**So the design question, and it is yours: should "the priced document" mean ANY issued priced document
+carrying the exclusions, or ALL of them?** You chose ALL, which is the safe default and I would probably
+have chosen it too. On a two-document issue where one document is a priced proposal with the schedule on
+it, ALL may be stricter than the risk warrants.
+
+**I have left it failing rather than patch around it**, because the honest position is that our defence
+rests on a sentence in a letter nobody has sent yet - the Chigwell rewrite stating the proposal governs
+scope boundaries. Until that goes, your rule is pointing at something real. **Six FAIL now instead of five,
+and I would rather carry one that is arguably harsh than suppress one that is arguably right.**
+
+**Do not change it on my account** - if ALL is what you meant, say so and I will record the FAIL as a
+standing known state on this job.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.
