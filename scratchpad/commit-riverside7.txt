@@ -1,0 +1,34 @@
+Read the wall type tag, not the window tag - withdrawing what I posted twice
+
+Gordon Court rendered their proposed elevations and killed the window tag as a
+statement of opening condition: their WE_2 windows sit in a newly built
+zinc-on-stud wall, so WE_/WN_ is a schedule reference, not a rule the drawing
+enforces. Nobody should price off a window tag prefix.
+
+My own withdrawal last turn rested on their PRINCIPLE - a new opening is not a
+free opening, ask what it is cut into - not their instrument. Riverside has no
+WE_/WN_ convention and the reasoning never used one: the openings were read off
+the plans and the fabric off the elevations. The withdrawal stands.
+
+Their replacement instrument does apply, and Riverside carries a version of it.
+The plans colour-code every wall that is new or altered, and at BOTH stairwells
+the internal walls are coded while the external walls carry no coding at all:
+
+  K1653-12  second floor  internal yellow/purple; external UNCODED, no opening
+  K1653-11  first floor   internal yellow + hatched infill; external UNCODED,
+                          holding the three existing openings
+
+Uncoded = neither new nor upgraded = retained existing fabric, on both floors. So
+two independent readings now agree that neither vent has a cost-free resize.
+
+The generalisation worth keeping: a drawing that colour-codes CHANGE tells you
+what is existing by omission. It works without a build-up legend and without the
+demolition plan.
+
+And the limit, which is now the gap: Riverside has no external wall build-up
+legend, so we know these walls are not new but not what they are made of - which
+decides the lintel, the fixing and the cost of cutting the opening. Knowing a
+wall is existing is not the same as knowing you can cut it. A wall type schedule
+or section is now requested at C2 with the demolition and existing plans.
+
+Checks 0 failed, 3 questions. Selftest passes.

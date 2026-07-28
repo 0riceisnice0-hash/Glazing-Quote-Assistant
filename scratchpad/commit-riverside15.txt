@@ -1,0 +1,36 @@
+Clause 16 splits every finding into ours-to-fix and ours-to-ask
+
+Gordon Court found the clause both jobs had been sitting on. Verified here by
+enumerating the T&C headings in our own MASTER COVER LETTER rather than taking
+the number on trust: twenty clauses, clause 2 Quotation Validity, clause 16
+Design Responsibility - "not responsible for overall design intent, architectural
+suitability, or REGULATORY STRATEGY... responsibility is limited to MEASUREMENT
+VERIFICATION, SUPPLY, AND INSTALLATION".
+
+A third sort over a findings list, and it answers what the other two do not.
+Priced/benchmark/unpriceable asks what you can cost; rate-versus-quantity asks who
+you ask; clause 16 asks whose responsibility it is, and therefore how to RAISE it.
+
+  THEIRS  the free-area basis, whether a roof vent is required, planning, sheet
+          currency, who carries the control system - reliance, not defect
+  OURS    whether we quoted the right PRODUCT for the position, the aerodynamic
+          figure itself, whether A Plus stated a Uw at all, the leaf
+          configuration, delivery, restrictors, and every dimension
+
+The split runs through this job's biggest question. "Is a roof vent required" is
+theirs; "have we quoted a wall casement for a position the drawing puts on the
+roof" is supply and ours. C4 was mixing them - now split, with the supply half
+added as Part One item 9 asking A Plus about product suitability directly.
+
+AND IT CORRECTS MY OWN FRAMING FROM LAST NIGHT, against us: I said the
+site-survey clause qualifies our dimensional risk. Half right. Clause 16 says our
+responsibility IS measurement verification, so the survey makes a dimensional
+discrepancy FIXABLE, not somebody else's. The 1130 x 1530 came from an enquiry
+rather than a survey and both clauses point at us.
+
+Practical effect now built into the brief: ours-to-fix goes in a supplier RFQ,
+theirs goes in a client qualification framed as reliance. Two documents, two
+tones, with the reasoning printed at the foot of the brief.
+
+Price unchanged at GBP 5,990.22, unissued. Checks 0 failed, 3 questions. Selftest
+passes.

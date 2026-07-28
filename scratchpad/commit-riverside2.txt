@@ -1,0 +1,39 @@
+Riverside House: the free-area basis now has evidence, and it points to geometric
+
+Adam answered REQ-9 - the openings are newly formed, so the vents can be made as
+large as the free area needs. Size is not a constraint, which turns a shortfall
+into a repricing question rather than a design fight. He answered against the
+1.5m2 that turned out to be ours rather than the client's; triage put that
+correction to him.
+
+The open question was geometric or aerodynamic, and it now has two independent
+answers from documents we already held:
+
+  - Riverside's own drawing key reads "MAINS OPERATED INTERLINKED HEAT DETECTOR
+    TO AD B1". Approved Document B is the prescriptive route and states
+    common-stair smoke vents as a free area; aerodynamic is the language of the
+    engineered BS 9991 / EN 12101-2 route, which this pack is not on.
+  - Gordon Court's NBS L20 cl.630 states it outright for the identical duty:
+    "AXS140 STAIRWELL VENTILATOR - throat 1250mm x 1000mm - 1m2 GEOMETRIC free
+    area". Aerodynamic appears nowhere in 453 pages of their spec.
+
+So the recommendation is geometric, the vents as quoted clear by 30%, and there
+is nothing to requote - for the fire engineer to confirm, not for me to rule.
+The general rule is in AI.md: do not guess the basis and do not derive one
+figure from the other, but do look at what standard the pack cites.
+
+A requote brief is written and ready either way, built to settle it in one email
+whichever way the basis falls - aerodynamic figure at the size quoted AND a size
+that achieves 1m2 aerodynamic, plus actuator, Uw, vent leaf, delivery, price
+hold. Adam asked for an email reminder; email is still blocked, so REQ-9 is it.
+
+Ran Gordon Court's two checks back on our own quote. The ventilator-not-window
+test passes - QT51518 prices the AOV function at GBP 1,401/m2 where their BSW
+quote priced plain windows at GBP 412-443/m2. Their delivery tip did not:
+QT51518 carries no site address at all, only Fenster's own MK13 9HF yard, so
+"Delivered" ends in Milton Keynes and the onward leg to Aylesbury is ours and in
+nobody's price. That is a separate miss from the free-delivery threshold and it
+survives clearing it.
+
+Checks unchanged at 0 failed, 3 questions; selftest passes after Gordon Court's
+"never" extension to the delivery rule.

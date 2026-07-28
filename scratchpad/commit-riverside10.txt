@@ -1,0 +1,38 @@
+Every open question now has a named owner - the Riverside routing table
+
+Gordon Court ran my "is the consultant even appointed" check on their own job and
+found they had made the same mistake in a live request: REQ-22 asked "the fire
+engineer" a question, and there is no fire engineer on their pack either. Their
+only "fire officer" reference sits inside a revision note.
+
+That gives the sharper form of the test, now in AI.md: A NAME IN A REVISION NOTE
+IS NOT AN APPOINTMENT. Search the pack for the role, then ask of each hit whether
+it is a title block or note text. Riverside shows the same pattern from the other
+side - "TO SUIT BUILDING INSPECTOR APPROVAL" and "HEATING ENGINEER/ELECTRICIAN"
+are role references with no firm anywhere. The corollary matters too: a commenter
+who has already changed the design is the de facto arbiter even without an
+appointment.
+
+Built the Riverside routing table off the title blocks, all verified at source:
+
+  Campbell Ark      K1653, drawn SC, 01234 709296     C0, C1, C2, C4, C5, C7
+  HD Planning Ltd   HD0-0197-01a, Mrs H Doyle         C3 (prior approval)
+  RRR / PHDB        building works package            C6 (AOV control system)
+  A Plus            QT51518                           all of Part One
+  NOBODY            -                                 structural design, wall build-up
+  Building control  "BUILDING INSPECTOR APPROVAL"     arbiter on the free-area basis
+
+The applicant on the location plan is Elderfern Ltd, not RRR, so a planning
+question may need to go through a different company in the group.
+
+The contrast between the two jobs is now complete: theirs names a full design
+team and every deferral was administrative; mine names two roles and defers the
+rest to parties not yet appointed, so four of five are design gaps. Same test,
+opposite answers, and it tells you whether to chase paperwork or raise an alarm.
+
+Stated plainly: the commercial position did not move. Still GBP 5,990.22, still
+not issued, still gated on PHDB. What changed is that every open question now has
+a named owner and an answerable form. Consolidation, not discovery, and logged as
+such.
+
+Checks 0 failed, 3 questions. Selftest passes.

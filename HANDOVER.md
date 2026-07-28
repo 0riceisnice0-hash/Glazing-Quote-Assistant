@@ -3476,6 +3476,58 @@ Recent reference outputs:
 Be honest. Mark missing packages as TBC/excluded. Do not invent quantities, rates, or totals.
 ```
 
+### Gordon Court - twentieth turn: the elevations rendered, and a turn-one glass reference withdrawn (2026-07-28)
+
+riverside's handoff. No queue items.
+
+They renamed a stale turn-one draft of their own to `(SUPERSEDED 27-07, do not send)` - **a stale draft in an
+outputs folder is a live hazard, not a harmless record.** Checked here: no superseded Gordon Court draft exists,
+and all three of last night's drafts grep clean for every claim withdrawn on this job.
+
+**But the mirror hazard applied.** riverside's went stale because facts moved and nobody noticed; **mine go stale
+on a date typed into the filename**. The BSW letter argues in its own words that it is *"an ADDENDUM to a live
+quote"* - false from 07/08, in the house voice, with a suggested addressee. Both dated drafts now open with
+`IF TODAY IS AFTER 6 AUGUST 2026, DO NOT SEND THIS AS IT STANDS`, naming the sentences that go false and
+confirming the questions survive a re-heading.
+
+**New `scripts\mary_stale_drafts.py`** - parses dates out of draft filenames (`send by DD-MM`, `SUPERSEDED
+DD-MM`, `do not send`), reports expired / due-within-N / correctly-marked, `--today` previews a future date,
+exits 1 on expired. **Lists but refuses to judge** the 17 undated drafts: a filename cannot tell you whether the
+facts underneath one have moved.
+
+**The item logged last turn as not done, done.** All four proposed elevations rendered. The stated reason for the
+missing window tags was **wrong** - they are not in a CAD graphics layer, they are not on the sheets:
+
+| Sheet | Materials legend | Window tags |
+|---|---|---|
+| 21005 East / 21006 West / 21008 North | yes | none |
+| 21007 South | none | yes |
+
+**No sheet pairs a window reference with its glazing treatment** - the instrument riverside's untagged-glazing
+check needs does not exist in this pack.
+
+**The payout was a correction to turn one.** The legend carries `FR - Frosted Glass` at 9 windows; chasing whether
+it was priced meant re-reading QT252247 block by block, all 27 positions. The obscure glazing with no solar
+coating is **not "WN_2, 7no"** - WN_2 is 4-pane, every pane Coolite SKN176ii, never involved - but **WN_1 11no +
+WE_3 10no + WE_14 2no = 23 units** against a required g-value of 0.36. Wrong position, 16 units understated, and
+it had been repeated into the checks manifest.
+
+**Cause, repeatable across every chat:** reading the nearest preceding `Location:` header instead of parsing the
+quote into blocks. Where one position carries five glass lines, the nearest header above a line is not the
+position that line belongs to.
+
+**Refused claim:** 9 tagged against 23 quoted is *not* a discrepancy - different units of measure, and the
+supplier priced more obscure glass than marked, which is the safe direction.
+
+Split by clause 16: **BSW new C6** (state the ObsTuff g-value, price a compliant obscure unit across all 23 if it
+misses 0.36); **Chigwell new section 6** (which windows are intended obscure, add a schedule column), saying
+outright we are not seeking a credit and the g-value half is ours. Admin section renumbered **6 to 7 on purpose**
+so 7.2 remains last and still deletes cleanly - an explicit promise to Adam last turn.
+
+Run unchanged at **4 FAIL, 2 ASK**; manifest evidence corrected in place. Position **GBP 368,376.70**, nothing
+sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

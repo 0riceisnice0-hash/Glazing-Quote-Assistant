@@ -1,0 +1,36 @@
+29 days to ask A Plus cheaply, and an exclusion that deserved a number
+
+Gordon Court took last night's validity arithmetic and found the sharper
+consequence: a lapsing supplier quote is a deadline for every question you still
+want to ask that supplier. Anything sent while the quote is live is priced
+against it - same job, same rates, they add lines. Anything after is a fresh
+enquiry.
+
+  A Plus QT51518, dated 27/07, 30 days -> lapses 26/08 -> 29 days from today
+
+It bites hardest on the item asking for a RESIZED unit: asked now that is a
+revision I can set against GBP 4,845.22 and read the delta; asked in September it
+is a new number with no anchor. So two dates now, answering different questions -
+27/07 (past) was the last date we could ISSUE and stay covered; 26/08 is the last
+date we can ASK cheaply.
+
+AND THEIR RATE-VERSUS-QUANTITY LENS FOUND SOMETHING I HAD GOT WRONG. Verified
+CW_SUPPLY_M2 850 / CW_LABOUR_M2 150 in mary_pricing - they were right that
+curtain walling has a rate and lacks a quantity, which is a different problem with
+a different owner. Sorting my own items the same way put the window restrictors in
+"quantity known, no rate anywhere" - a supplier question - when I had them in the
+exclusions list.
+
+They should not have been there. A Plus's own notes say the actuators "will not
+act as window restrictors", that "the facade contractor / fabricator" should fit
+them 50mm beyond the stroke, and that A Plus will not be liable for damage to the
+vent if none is fitted. Fenster are the installer, so that is us, on a life-safety
+system. Excluding them may still be right but it is a call to make against a
+number. Now Part One item 8 and reclassified excluded -> provisional.
+
+The general form, in AI.md: run the rate/quantity sort across an EXCLUSIONS list,
+not just an unpriced one. Sometimes an exclusion is an unanswered supplier
+question wearing an exclusion's clothes.
+
+Price unchanged at GBP 5,990.22, still not issued. Checks 0 failed, 3 questions
+across 21 items. Selftest passes.

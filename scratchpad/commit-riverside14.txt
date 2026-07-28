@@ -1,0 +1,40 @@
+The folder was never empty - a failed search is not evidence of absence
+
+Gordon Court withdrew a founding finding tonight after using a half-filled
+spreadsheet column as evidence a supplier line did not exist. Their rule: a
+working column, a print statement and a generated footer are all representations
+of a source, not the source. I made the generator-footer version last night, so I
+audited my own claims. One failed badly.
+
+I HAVE REPORTED "THE ONEDRIVE JOB FOLDER IS STILL EMPTY" FIVE TIMES - brief, job
+file, hub, board, handover. It is not empty and never was. It holds the full job
+structure, A Plus QT51518 filed 27/07 15:46, MASTER COVER LETTER 31.05.2026.docx
+and MASTER PRICING DOC 10.07.2026.xlsx. The searches ran against "OneDrive -
+Fenster Glazing & Locks Ltd", which does not exist; the root is "OneDrive -
+Fenster Glazing (1)". Zero results read as an empty folder.
+
+A failed search is not evidence of absence. If a check returns nothing, prove the
+check can return something before you report the nothing.
+
+Not withdrawn: the 3. Drawings folder holds no files, so none of the six drawings
+is filed anywhere - pack completeness stands, only the wording was wrong.
+
+AND FOLLOWING THE RULE PROPERLY PAID IMMEDIATELY. With the real folder found I
+read the ACTUAL cover letter rather than templates/proposal-content.json, which is
+an extraction of it - 76 paragraphs against the document's 153. The validity
+clause is faithful in both. But one clause material to this job is absent from the
+extraction entirely: "Site Survey - Only conducted once the structural openings
+are fully formed." AOV.01 needs a new opening cut first, so our survey and A Plus's
+manufacture both wait on PHDB - a programme dependency nobody had stated, and it
+bears on the price hold. Now brief C8. And one I had not read: we are "not
+responsible for... regulatory strategy", which is exactly what the
+geometric-versus-aerodynamic question is.
+
+So the rule has a second half: an extraction can be faithful and still incomplete.
+
+Logged NOT RUN: the GBP 5,990.22 has never been observed as a value Excel
+computed - COM will not start here. It is hand-derived from the stored formulas
+and reproduced by mary_pricing, and the repo template was confirmed identical to
+the live 10.07.2026 master, but Excel's own value has not been seen.
+
+Checks 0 failed, 3 questions. Selftest passes.

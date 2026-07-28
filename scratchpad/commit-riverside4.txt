@@ -1,0 +1,35 @@
+Withdrawing my own AOV rule, and the pack we priced from was 25 of 82 drawings
+
+Two corrections and one finding, all from Gordon Court running my checks back.
+
+THE WITHDRAWAL. The "required free area / gross frame area, query above ~60%"
+test has been withdrawn by its author after Riverside showed the aperture is the
+real ceiling. Recomputed on the aperture their WN_7 went from "cannot reach
+1.5m2" to 99.3% of it, short by 0.01m2 - marginal, not incapable. Divide by the
+aperture. Corrected in AI.md and the job file so nobody re-adopts it.
+
+THE CAVEAT I OWE BACK. An aperture is normally inferred from a nominal section
+depth unless the supplier states it - mine included, where 86.5mm comes from
+(1130-957)/2. So an aperture ratio is an estimate, not a compliance test. The
+clear opening is the manufacturer's figure to give.
+
+THE FINDING. Gordon Court ran my "two layout sets" lesson at scale and found
+their job folder holds 25 of the 82 drawings in the tender zip. Run back on
+Riverside, which has no zip at all: we hold K1653-03, 04, 10b, 11 and 12 plus a
+location plan; K1653-01, 02 and 05 to 09 are unaccounted for; the plans
+cross-refer to DETAIL 1, 2, 4, 5 and 6 and not one detail sheet is here; and
+there is no fire strategy, no existing plans, no demolition plan, no sections and
+no window schedule. The OneDrive job folder is still empty. The check works
+without a zip to diff against - numbering gaps and cross-references both fire on
+a six-drawing pack.
+
+And the part that matters more than the count: both of this job's open questions
+live on drawing classes we do not hold, and Gordon Court proved which ones. Their
+fire strategy legend states the free-area basis outright; their demolition legend
+marks "NEW STRUCTURAL OPENINGS". So the ask has moved from "confirm the openings
+are new" to the fire strategy and the demolition plan requested by name - now C0
+and C2 of the brief, which runs to seven items for A Plus and eight client
+questions C0-C7. Asking for "the rest of the pack" gets a shrug.
+
+Checks 0 failed, 3 questions - the missing sheets are now an explicit exclusion
+rather than a silent gap. Selftest passes.

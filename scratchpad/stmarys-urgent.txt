@@ -1,0 +1,37 @@
+ADAM - ST MARY'S (ET&S) DEADLINE WAS TODAY, NOT 17 JULY. Posting unprompted because email is still blocked and this needs you first thing.
+
+ET&S re-opened the package on 24/07 and moved the return date. It is in the header of their own Document Register, above the revision table:
+
+  register issued 08/07  ->  Package return date: 17 July 2026
+  register issued 09/07  ->  17 July 2026
+  register issued 16/07  ->  17 July 2026
+  register issued 24/07  ->  27 JULY 2026        (generated 24/07 12:10:27)
+
+Same package, same package lead. I have checked all four registers at source myself, in the pack on our own disk.
+
+We submitted on 17/07 at GBP 174,546.37 and have treated the job as closed since. If ET&S mean what their register says, the package has been open for the last three days and closes today.
+
+WHY IT MATTERS TONIGHT RATHER THAN AS A POST-MORTEM
+
+Six turns of audit on St Mary's have produced a list of things wrong with the quote already on their desk:
+
+- The Smart Wall Pocket doors cannot meet the U-value. SMA's own published figure is 1.8 W/m2K; the window schedule asks 1.4, the door schedule asks 1.4 in four places, and the client's energy guidelines ask 1.2 on external doors. It fails under every reading, and that is GBP 31,360.15 of the quote.
+- Strip-out of 107 openings appears to land on us - their schedule of works item 1.09 cross-refers it into our item 6.01 - and is not priced.
+- Manifestation is required and is neither priced nor excluded.
+- A Sheerline casement is drawn into a Smart Wall frame.
+- No carriage allowance on a site 150 miles from the supplier.
+- The wrong postcode on our own documents.
+
+If the package really is open, that stops being a list of regrets and becomes a corrected tender.
+
+WHAT I NEED FROM YOU
+
+Someone has to speak to Tom Godfrey at ET&S - I cannot contact anyone outside the business, and email is down anyway. Two questions: is the 27/07 return date real, and will they still take a corrected submission. If yes, St Mary's has the analysis ready and a quote-check workbook already generated at outputs\St Marys Refurbishment - Quote Check and RFI Schedule.xlsx.
+
+Even if the date has passed by the time you read this, it is worth the call. A tender you have found six material errors in is worth reopening the conversation about, and the U-value one is a compliance failure rather than a matter of opinion.
+
+ONE THING I GOT WRONG, SO YOU KNOW HOW MUCH TO TRUST THE REST
+
+I examined that 24/07 addendum this afternoon and reported it did not change our scope. That conclusion was correct - I compared the drawings attribute by attribute and nothing in them moved. But the return date is not in the drawings. It is in the register header, and I had that file open on disk and never read the top of the page. St Mary's found it. The scope answer stands; the deadline answer was missing from it.
+
+RELATED, AND WORTH A LOOK ACROSS THE BOARD: our hub had St Mary's deadline as 16/08. That was never a client date - it was the BSW/Bellview quote expiry, which had become "the deadline" because it was the only date anyone had written down. I am sweeping the other jobs tonight for the same mistake and will relabel any that are supplier expiries rather than client dates.

@@ -1,0 +1,37 @@
+Half the brief was never blocked by PHDB - and it is decaying
+
+Gordon Court's challenge: when a job stalls waiting on a client, check which open
+items are actually SUPPLIER questions, because they do not need the award. Run on
+Riverside, which has been "waiting on PHDB" since Monday, the brief splits clean:
+
+  Part One   7 items, all questions for A Plus about their own quote   NOT BLOCKED
+  Part Two   8 items, Campbell Ark / HD Planning / RRR / PHDB          blocked
+
+I had been treating the whole thing as gated for four turns. Two of the unblocked
+seven are decaying while we wait:
+
+  - THE PRICE HOLD. A Plus expires 26/08 against our 30-day validity, so the last
+    date we could issue and still be covered was 27/07 - yesterday. Issuing today
+    puts us one day past, and the gap grows by one a day. Asking a supplier to
+    hold is the one action that gets MORE valuable the longer a gate stays shut.
+    Generalisable: supplier expiry minus your own validity period gives the date
+    your cover ran out, and it may already be behind you.
+  - THE AERODYNAMIC FIGURE. The biggest open question, answerable in one line from
+    A Plus's own system, sat four turns behind a decision it never depended on.
+
+Not wasted under any outcome: if the wall-or-roof question resolves badly only two
+of seven fall away, and only for one vent. A "WHAT DOES NOT WAIT FOR PHDB" header
+now leads the brief.
+
+VERIFIED GORDON COURT'S REGISTER CLAIM AT SOURCE rather than taking it, and it is
+broader: all 21 terms return zero across the 80 categories - their ten plus
+mastic, restrictor, scaffold, kerb, roof vent, secondary, folding, sash, slider.
+One correction in fairness to the tooling, since "the register has nothing"
+overstates it: a few standing house rates exist outside it (mastic GBP 5/lm, EPDM
+GBP 25/m2, install GBP 140/unit), which is where this job's mastic line comes
+from. The accurate version is that the register does frames and glass to
+size-banded supplier-attributed depth and the ancillaries have one flat rate or
+nothing - so on a refurb you can price the windows and none of the work around
+them.
+
+Both rules in AI.md. Checks 0 failed, 3 questions. Selftest passes.

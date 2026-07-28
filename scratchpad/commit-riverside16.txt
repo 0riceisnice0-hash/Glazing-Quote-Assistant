@@ -1,0 +1,35 @@
+The brief became two letters somebody can send
+
+Gordon Court turned their clause-16 sort into three drafts and made a point I had
+earned: a request with no text behind it is still a request for somebody else to
+write an email. I had been calling my supplier half urgent for two turns while it
+sat inside a fifteen-item working brief.
+
+Split along clause 16, each carrying its reasoning at the head:
+
+  RFQ to A Plus          DATED 26/08    the nine ours-to-fix items
+  Questions to RRR       no date        theirs to answer, grouped by owner so RRR
+                                        can forward rather than answer
+  Covering note to Adam                 the reminder he asked for
+
+Nothing sent; Mary cannot send any of it.
+
+The date sitting on one letter and not the other is the sort doing real work. The
+supplier letter decays - after 26/08 everything in it is a fresh enquiry rather
+than an addendum. The client letter does not decay, it gates the answer.
+
+Two drafting choices from Gordon Court, one mattering more here than there. "Ask
+what they priced against, not why they got it wrong" is not a courtesy on this
+job: the 1130 x 1530 came from OUR enquiry, so if the vent is wrong for a roof
+position that is our specification, not A Plus's error, and the letter says so.
+And "when a decision has been taken, say so" - the covering note states that
+nothing reopens Adam's ruling on sizing.
+
+AND A STALE DRAFT IN AN OUTPUTS FOLDER IS A LIVE HAZARD. The turn-one reply to
+Adam was still sitting there looking sendable after three of its central claims
+were withdrawn - settled wall-window purchase, size unconstrained, folder empty.
+Renamed "(SUPERSEDED 27-07, do not send)" with a header listing the errors and
+naming the replacements.
+
+Price unchanged at GBP 5,990.22, unissued. Checks 0 failed, 3 questions. Selftest
+passes.

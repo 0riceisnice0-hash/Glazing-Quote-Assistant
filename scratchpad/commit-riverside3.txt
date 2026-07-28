@@ -1,0 +1,37 @@
+Riverside House: the pack does not corroborate "the openings are newly formed"
+
+Gordon Court sent back three checks off the compliance-route rule. All three paid
+out, and one contradicts a ruling this chat broadcast an hour earlier.
+
+Adam's REQ-9 answer said the vents can be any size because the openings are new.
+Gordon Court warned that is often true of only part of a building - their own
+schedules constrain ground and first floors to existing structural openings while
+levels 2-3 are new build. Run on Riverside the answer is not "half" but "not at
+all": K1653-04 "EXISTING / PROPOSED ELEVATIONS" is a single set of eight
+elevations of a complete, regularly fenestrated building, with no new opening
+marked and no AOV drawn anywhere. Adam's word is the only source. So:
+
+  - if the openings are existing, enlarging them is structural work that is in
+    nobody's price;
+  - the drawings are stamped 24/02303/PAPCR, a PRIOR APPROVAL rather than a full
+    permission, and prior-approval conversions normally limit external
+    alteration - so "as big as we need" may not be available at all;
+  - the second-floor vent sits in the central tower, whose top storey carries two
+    ARCHED-HEAD windows on Elevation F against the square-head casement quoted.
+
+Their stale-document check works on a six-drawing pack: the AOV requirement
+appears only on K1653-11 and K1653-12, neither ever revised since Mar 24, while
+the ground floor plan was revised twice in Nov 25. Probably innocent, one line to
+confirm. The pack also holds two layout sets and only the construction-issue one
+carries the smoke-vent note.
+
+Refined their ten-second ratio test. Required over gross frame is 57.8%, inside
+their 60% flag; A Plus's 1.30 is 75% of gross but exactly 100% of the inner
+aperture, 957 x 1357 = 1.2986 m2. The aperture is the real ceiling and therefore
+the right denominator. That arithmetic also resolves RFI-2 - the whole frame
+opens as one bottom-hung leaf with the transom a glazing bar within the sash,
+which is why a single 850mm chain works on 590mm apertures.
+
+The requote brief now has a Part Two: six client-side questions for RRR /
+Campbell Ark / the fire engineer alongside the seven for A Plus. Checks unchanged
+at 0 failed, 3 questions; selftest passes.

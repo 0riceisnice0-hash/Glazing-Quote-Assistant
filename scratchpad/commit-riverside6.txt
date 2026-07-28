@@ -1,0 +1,33 @@
+"A new opening" is not "a free opening" - correcting my own answer, and the vent may not be a window
+
+Gordon Court caught an error I had made an hour earlier and stated it better than I
+could: the tag says the opening is NEW, it does not say what the opening is CUT
+INTO. Their level-1 unit is a new opening in retained fabric - lintels, cutting,
+making good - while their levels 2 and 3 sit in two added storeys and are free.
+
+I had said Riverside's AOV.01 was "genuinely free" because the second floor
+stairwell has no existing opening. Withdrawn. Riverside has no new-build half at
+all: K1653-04 is a single existing/proposed elevation set of eight, no added
+storey shown, no new construction annotated, cornice and pediment continuous
+through all three storeys. So AOV.01's new opening is cut into retained masonry
+and AOV.02 reuses one of three existing openings. NEITHER vent has a cost-free
+resize, so Adam's "as big as we need" carries structural cost on both.
+
+Labelled as inference from the elevations rather than proof - the existing and
+demolition plans settle it and we hold neither.
+
+The question is now three deep, each layer having caught the one above:
+  1. is the opening new or existing        (tag prefix, or read the plans)
+  2. if new, what fabric is it cut into    (demolition plan)
+  3. is it a WALL opening at all           (or a roof vent)
+
+And layer 3 is now the biggest item on the job. Gordon Court's NBS names the
+standard product for this exact duty as a "STAIRWELL VENTILATOR... ROOF MOUNTED
+ONTO HORIZONTAL KERB... 1m2 geometric free area", with a different model where a
+wall unit is wanted. That is a third independent pointer alongside the note's own
+"vented at the top storey ROOF" and the stairwell having no wall opening. If
+AOV.01 is a roof vent then A Plus's casement on a 155mm subcill is the wrong
+product and none of Part One of the brief applies to it - roughly half the quote.
+Neither job can settle it from a supplier.
+
+Checks 0 failed, 3 questions. Selftest passes.

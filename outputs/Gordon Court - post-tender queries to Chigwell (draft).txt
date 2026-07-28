@@ -126,9 +126,35 @@ is expected within our package. If it is ours we will price it; we would simply 
 it now than discover it at order.
 
 =====================================================================================
-6. TWO ADMINISTRATIVE POINTS ON OUR OWN PROPOSAL
+6. WHICH WINDOWS ARE OBSCURE-GLAZED?   [ARKON, sheets 21005-21008 and 52002/52003]
 =====================================================================================
-6.1  Our proposal of 09/07 carries two statements that we should correct rather than leave
+The proposed elevations carry a materials legend including "FR - Frosted Glass", and FR
+is marked against 9 individual windows - 7 on the East elevation (21005 rev 03) and 2 on
+the West (21006 rev 03). The North elevation (21008 rev 04) carries the legend but marks
+no FR at all, and the South elevation (21007 rev 03) carries no materials legend.
+
+We cannot reconcile that against the window schedules, and we would like to flag why
+rather than guess: the three elevations that mark frosted glass carry no window
+references, and the one elevation that carries window references carries no materials
+legend. There is no sheet in the pack on which a window type and its glazing treatment
+appear together.
+
+Our supplier has priced obscure glazing on 23 units - WN_1 11no, WE_3 10no and WE_14 2no
+- which is more than the elevations mark. We are content with that as a commercial
+position and are not asking for a credit. But somebody has decided which windows are
+obscure and it was not the elevations, so please confirm the intended extent, and add an
+obscure-glazing column to the window schedules if one is intended. Bathroom and en-suite
+privacy is not something we want to resolve by inference.
+
+Related and worth one line: the ObsTuff make-up quoted to us carries no solar coating,
+while the schedules require a g-value of 0.36 or better. We have asked our supplier to
+state the figure and to price a compliant obscure unit if it falls short. That one is
+ours to resolve and we are not asking you to do anything about it.
+
+=====================================================================================
+7. TWO ADMINISTRATIVE POINTS ON OUR OWN PROPOSAL
+=====================================================================================
+7.1  Our proposal of 09/07 carries two statements that we should correct rather than leave
      standing. It says "no doors are included within the schedule drawings", which is wrong -
      schedule 51001 is the External and Communal Door Schedule and we have priced 15 external
      and 44 patio doors from it. And it describes our scope as "limited to the manufacture,
@@ -136,7 +162,7 @@ it now than discover it at order.
      that includes uPVC windows, patio doors and fire doors. Please treat the pricing document
      as governing on scope. We will re-issue the proposal text if that is helpful.
 
-6.2  Our standard terms carry a 30-day quotation validity, and our proposal is dated 09/07.
+7.2  Our standard terms carry a 30-day quotation validity, and our proposal is dated 09/07.
      We are content to continue to honour the tendered figure and are not seeking to withdraw
      it - Adam has confirmed that. We mention it only so that the position is on record, and
      to ask whether our terms and exclusions were carried into your own tender return under

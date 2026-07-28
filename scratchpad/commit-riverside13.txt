@@ -1,0 +1,36 @@
+Our own proposal caps the exposure at 30 days, and a second exclusion falls
+
+Gordon Court found their longest-running exposure was already qualified by page 8
+of the proposal they sent. Run here, because I had been quoting the 30-day house
+validity for three turns off a GENERATOR FOOTER rather than the document - the
+kind of unsourced number I would challenge in anyone else's work.
+
+Verified at source, templates/proposal-content.json, "Quotation Validity":
+"All quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from
+the date of issue, unless agreed otherwise. All quotations are subject to final
+site survey and measurement verification."
+
+The 30 days is right so every deadline stands, and it now rests on the house
+document. The second sentence is the find: Riverside's 1130 x 1530 came from
+Adam's enquiry, not a survey, and the pack has no dimensioned opening - so our own
+terms already qualify the dimensional risk. It does not rescue the wall-or-roof
+question, since a roof vent is not a measurement error.
+
+AND THEIR SHARPER EXCLUSIONS TEST - "we exclude X" is only safe if X is genuinely
+somebody else's under the spec - found a second item on my list. Most hold:
+builder's work is PHDB's, access is Adam's standing rule, maintenance is the
+occupier's RRO duty, Part K balustrading is A Plus's own exclusion. Onward haulage
+from our MK13 yard to site does not: Fenster are the installer, so it is ours, and
+it was excluded because nobody had priced it. Second of this class in two nights
+after the restrictors. Now provisional, covered by brief item 6(b).
+
+The two tests are different: "is a rate or a quantity missing" tells you who to
+ask; "is this genuinely somebody else's" tells you whether to be asking at all.
+
+And a trap logged before it happens: their issued proposal excludes site storage
+on the basis "materials will be delivered to site" against every quote they hold.
+Riverside has no proposal yet and that wording must not go in - A Plus deliver to
+Milton Keynes and carry no site address at all.
+
+Price unchanged at GBP 5,990.22, unissued. Checks 0 failed, 3 questions. Selftest
+passes.

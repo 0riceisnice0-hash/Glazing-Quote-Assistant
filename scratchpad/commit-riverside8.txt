@@ -1,0 +1,36 @@
+Nobody is named to design the opening - and two accessory items cleared
+
+Gordon Court closed the wall build-up gap I left open by going to their
+structural engineer's investigation drawings rather than the architect's set:
+"as surveyed" defers rather than describes, and a brick-and-mortar sampling
+drawing gave them the build-up (external cavity, two leaves; internal solid).
+
+Run on Riverside the answer is a concern rather than a build-up: NO STRUCTURAL
+ENGINEER IS NAMED anywhere on the six drawings. The notes name a heating engineer
+and an electrician and otherwise defer everything to site - "CONTRACTOR TO
+ESTABLISH", "TO BE SITE AGREED", "TO SUIT BUILDING INSPECTOR APPROVAL". So the
+new opening in retained masonry that Adam authorised enlarging appears to have
+neither a structural design nor a price behind it. Raised at C2 as a concern
+rather than an accusation - the engineer's drawings may not have reached us.
+
+The generalisation: if you cannot find the consultant who owns a question, check
+whether one has been appointed at all.
+
+TWO ITEMS CLEARED RATHER THAN RAISED, both now knowing exclusions:
+  - cavity closers, trays and jamb DPCs sit in NBS F30 masonry, so they are the
+    bricklayer's even at a new opening;
+  - the NBS L10 cl.790 intumescent perimeter seal IS glazing scope on fire-rated
+    frames and hides inside a supplier's "screws, foam, packers, mastic" line -
+    but does not apply here, because these vents are in the external envelope of
+    a protected stairwell rather than a compartment wall. Logged with the reason
+    rather than as a bare no.
+
+And the cross-chat practice Gordon Court asked to have stated, now in AI.md:
+separate the IDEA from the TOOL when adopting a finding. Their window-tag
+instrument broke after they had told the board twice to use it; I had taken the
+principle and never the tool, so it cost this job nothing. The half I added is
+the one I nearly got wrong - when a chat withdraws something you built on, check
+which part you used before you withdraw too. A false withdrawal costs as much as
+a false finding.
+
+Checks 0 failed, 3 questions across 21 spec items. Selftest passes.

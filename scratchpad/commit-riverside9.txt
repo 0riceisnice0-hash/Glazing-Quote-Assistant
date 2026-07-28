@@ -1,0 +1,38 @@
+We were asking for a fire strategy that does not exist - ask the author instead
+
+Gordon Court closed their longest-running deferral by reading a title block: their
+Energy Statement's project number matches every M&E document in their pack, so
+the architect's deferral pointed at a document they already held. Their rule out
+of the pair of jobs:
+
+  deferral to a NAMED, APPOINTED consultant   = ADMINISTRATIVE gap, ask for it
+  deferral to NOBODY, all "site agreed"       = DESIGN gap, nothing to ask for
+
+Run on Riverside's five deferrals, only the DETAIL sheets are administrative -
+Campbell Ark's own K1653 series. Drainage defers to a contractor not yet
+appointed, boiler to an unnamed heating engineer, electrical to the client, and
+the wall build-up to a structural engineer who does not exist on this pack.
+
+THE PART THAT CHANGED THE WORK: I have spent three turns asking RRR for "the fire
+strategy". There probably is not one. No fire engineer is named on any of the six
+drawings and the smoke-vent note is CAMPBELL ARK's own, written in Approved
+Document B language on a sheet keyed "TO AD B1". Requesting a document that does
+not exist returns nothing and costs a week.
+
+C0 now asks the author, by name off their own title block: Campbell Ark, job
+K1653, 01234 709296, drawingoffice@aol.com - is the 1m2 geometric, aerodynamic or
+clear opening area; is the vent wall or roof; and did a fire engineer or building
+control officer advise the note. If nobody independent set the figure then
+building control is the arbiter, and these drawings defer to the building
+inspector repeatedly. K1653 is also the handle for the missing sheets.
+
+Ask the author of a note, not a consultant who may not exist.
+
+And adopted "say what you are NOT withdrawing", applied to myself: withdrawn are
+the arched-head risk and the "genuinely free" claim; NOT withdrawn are the 1m2
+correction, the per-stairwell basis, geometric-only quoting, the unowned AOV
+control system, delivery ending at our own yard, the sub-threshold carriage, the
+zero validity headroom and the wall-or-roof question.
+
+Both rules in AI.md. Checks 0 failed, 3 questions across 21 spec items. Selftest
+passes.

@@ -312,11 +312,30 @@ asked"***.
 - AFS fire doors: `2 Pcs. 6+15mm GLASSPROF EI30 Clear DGU **U=1.0**` — the **only** stated
   U-value on the whole job, Certifire accredited
 
-**The one g-value gap:** WN_2 (7no) is `6.8 Lam/18/4mm ObsTuff EcoPlus 1.0 Satin 4mm Black
-Warm Edge Sp 18mm Argon` — obscure, no Coolite, no SKN. **No solar coating, so it cannot
-meet the 0.36 we promised.** (Searched for Obs/Stippolyte/Satin/Pattern per the St Mary's
-tip — the obscure glazing is genuinely there, 3 references; it is the *coating* that is
-absent, not the obscurity.)
+**The g-value gap — CORRECTED 28/07, and it is bigger than I said.** Three positions on
+QT252247 are glazed `6.8 Lam/18/4mm ObsTuff EcoPlus 1.0 Satin 4mm Black Warm Edge Sp 18mm`
+— obscure, no Coolite, no SKN, **no solar coating, so they cannot meet the 0.36 we
+promised**:
+
+| Position | Qty | New / replacement |
+|---|---|---|
+| **WN_1** | **11** | new |
+| **WE_3** | **10** | replacement |
+| **WE_14** | **2** | replacement |
+| **TOTAL** | **23** | |
+
+~~WN_2 (7no)~~ — **wrong, withdrawn.** I carried that reference from turn one and repeated
+it into the checks manifest. WN_2 is a **4-pane** unit and every pane is
+`4Tuf/18/6.8 LAM Coolite SKN176ii Argon`; it was never the problem. The block-by-block
+re-read of all 27 positions on QT252247 shows the obscure glass is on WN_1, WE_3 and
+WE_14, each a **single-pane** unit that is obscure in its entirety. **Wrong position
+reference, and the quantity understated by 16 units.**
+
+*How the error happened, because it is a repeatable one:* I searched for the glass string
+and read the nearest preceding `Location:` header, rather than parsing the quote into
+blocks and attributing each glass line to the block that contains it. On a quote where a
+position can carry five glass lines, "the nearest header above" is not the same as "the
+position this line belongs to". The manifest evidence has been corrected in place.
 
 **Weakest thermal element by far is the patio doors** — 44 units, £108,275.95 of cost,
 £174,275.79 of sell, in a 2-rail Alunet sliding frame with a 16mm cavity, **no gas fill and
@@ -1813,6 +1832,84 @@ Mary cannot issue supplier or client mail — ghost protocol limits outbound to 
 
 ---
 
+## 4R. TWENTIETH TURN (28/07) — the elevations were rendered, and a turn-one glass reference was wrong
+
+### 4R.1 riverside's stale-draft warning, and the mirror version of it
+
+riverside found their turn-one reply to Adam still sitting in `outputs\` under a clean-looking name,
+three corrections out of date, and renamed it `(SUPERSEDED 27-07, do not send)`. Their lesson: **a stale
+draft in an outputs folder is a live hazard, not a harmless record.**
+
+Checked here. No superseded Gordon Court draft exists — the only three are last night's, and a grep for
+every claim I have withdrawn (`5,597`, `60%`, `cannot reach`, `528.83`, `BSEC`, `Engdesign`,
+`no supplier quote`, `unpriceable`, `WE_`, `median`) returns **clean on all three**.
+
+But the mirror hazard applies and I had not defended against it. **riverside's draft went stale because
+facts moved and nobody noticed. Mine go stale on a date I wrote into the filename myself.** The BSW letter
+argues, in its own words, that it is *"an ADDENDUM to a live quote"*. On 07/08 that sentence is false, and
+the file still sits there in the house voice with a suggested addressee on it. A predictable expiry is the
+easier of the two to defend against, and I had done nothing about it.
+
+Both dated drafts now open with a fail-safe header — `IF TODAY IS AFTER 6 AUGUST 2026, DO NOT SEND THIS AS
+IT STANDS` — naming the specific sentences that stop being true, and confirming the *questions* remain
+valid so nobody bins the work.
+
+**New: `scripts\mary_stale_drafts.py`.** Reads the date out of a draft's own filename and reports expired,
+due-within-N-days, and correctly-marked-superseded. Today: 2 due (BSW 9 days, AFS 11). Run with
+`--today 2026-08-07` it flags the BSW letter expired. It also **lists** the 17 undated drafts across all
+jobs without judging them — a filename cannot tell you whether the facts underneath one have moved, and
+pretending otherwise would be the overclaiming both handoffs are about.
+
+### 4R.2 The four proposed elevations, rendered — my last-turn hypothesis was wrong
+
+Logged last turn as outstanding: riverside's untagged-glazing check needed the elevations **rendered and
+read visually**, because only `21007 rev 03` yields window tags to text extraction. I said *"the tags live
+in the CAD graphics layer"*. **They do not. They are simply not on those sheets.** The extraction was
+right; my explanation for it was wrong.
+
+What the renders show is better than a graphics-layer problem — the set is drawn in **two incompatible
+annotation conventions**:
+
+| Sheet | Materials legend | Window/door tags |
+|---|---|---|
+| 21005 rev 03 East | **yes** (19 tags) | none |
+| 21006 rev 03 West | **yes** (17 tags) | none |
+| 21008 rev 04 North | **yes** (15 tags) | none |
+| 21007 rev 03 South | **none** | **yes** — WE_1/2, WN_3/5, plus the WT wall-type legend |
+
+**There is no sheet in the pack on which a window reference and its glazing treatment appear together.**
+That is the reconciliation instrument riverside's check needs, and it does not exist here.
+
+### 4R.3 What that turned up: frosted glass, and a corrected glass reference
+
+The materials legend carries **`FR – Frosted Glass`**, marked against **9 individual windows** — 7 East,
+2 West, 0 North, 0 South. Verified by excluding the legend line itself from the count (each sheet's legend
+entry sits at the identical x=477.9, y=481.2). The FR labels sit *inside* small portrait windows, not on
+leader lines — bathroom/WC units.
+
+Chasing whether that was priced re-read QT252247 **block by block, all 27 positions**, and corrected a
+turn-one error — see the g-value paragraph above. The obscure glazing is **WN_1 11no + WE_3 10no +
+WE_14 2no = 23 units**, not "WN_2, 7no". WN_2 is 4-pane Coolite throughout and was never involved.
+
+**Do NOT report 9 against 23 as a discrepancy.** They are different units of measure: an elevation marks
+visible instances on one face, a schedule counts instances building-wide. The honest finding is that they
+**cannot be reconciled from the pack**, per 4R.2 — and that the supplier has priced *more* obscure glass
+than the elevations mark, which is the safe direction commercially. Somebody decided which windows are
+obscure and it was not the elevations.
+
+### 4R.4 Where it went, split by clause 16
+
+- **BSW, new C6** — state the g-value of the ObsTuff make-up, and price a compliant obscure unit across
+  all 23 if it falls short of 0.36. Ours: a figure the supplier holds and a product we buy.
+- **Chigwell, new section 6** — confirm the intended extent of obscure glazing and add a column to the
+  schedules; flags that no sheet pairs a window reference with a glazing treatment. Theirs: design intent.
+  Explicitly says we are *not* seeking a credit on the 23, and that the g-value half is ours to resolve.
+- The admin section renumbered **6 → 7**, deliberately, so that **7.2 is still the last section and still
+  deletes cleanly** — that was an explicit promise to Adam last turn and inserting after it would have
+  broken it.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
@@ -1907,6 +2004,11 @@ their whole book, not signalling anything specific about Gordon Court.
   Selftest still passes and Georgie's Mercury case still fires.
 - Current run on this job: **4 FAIL, 2 ASK**, all genuine —
   `python scripts\mary_checks.py data\job-checks\gordon-court.json`.
+- **NEW 28/07 — `scripts\mary_stale_drafts.py`** (twentieth turn). Sweeps `outputs\` for drafts whose
+  filename carries a date — `send by DD-MM`, `SUPERSEDED DD-MM`, `do not send` — and reports expired,
+  due-within-N-days, and correctly-marked. Exits 1 on anything expired, so it can gate a routine.
+  `--today YYYY-MM-DD` shows a future date's report. Undated drafts are **listed, not judged**.
+  Not a pricing rule and deliberately not wired into `mary_checks.py`: it tests the folder, not the job.
 
 ## 8A. Toolkit changes on the second turn
 

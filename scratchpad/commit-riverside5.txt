@@ -1,0 +1,38 @@
+The window tag legend settles new-versus-existing, and neither aperture percentage is a compliance test
+
+Gordon Court found their pack encodes new-versus-existing in the window TYPE
+PREFIX - "WE_00 Windows in EXISTING openings replaced as new / WN_00 Windows in
+NEW openings" - on a legend nobody had opened. Riverside has no such convention,
+W1/W2 being performance tags, so I read the two stairwells directly and the
+answer splits per vent:
+
+  AOV.01  second floor  NO opening in any stairwell wall. A new opening must be
+                        formed, size genuinely free. Adam CORROBORATED.
+  AOV.02  first floor   THREE existing openings in the external wall. If the vent
+                        takes one, size is set and enlarging it is structural
+                        work in nobody's price. NOT corroborated.
+
+So a blanket "the openings are newly formed" was right for one vent and wrong for
+the other, exactly as their floor-by-floor warning predicted. Also: the stair
+windows are the only glazing on these drawings with no W tag at all, which is
+probably why the vents were never scheduled.
+
+WITHDRAWING MY OWN ARCHED-HEAD FLAG from last turn. The two arched windows on
+Elevation F line up with the Living room's W2 pair, not the stairwell. What
+replaces it is worse - the second floor stairwell has no wall opening at all and
+the note says vent "AT THE TOP STOREY ROOF", so AOV.01 may need a ROOF vent while
+A Plus have quoted a wall casement on a 155mm subcill. Possibly the wrong product
+for one of the two units. Now C4 in the brief.
+
+ACCEPTING GORDON COURT'S SENSITIVITY CORRECTION IN FULL: +/-5mm on an assumed
+nominal section swings their unit clean across the duty line, so no aperture
+percentage is a compliance test. One distinction survives - reconciling a figure
+the supplier has stated is robust, predicting one they have not is not. Riverside
+reconciles a published 1.30 m2 and moves only 101.6% to 97.9% across head+cill
+from 150mm to 200mm, with no line to cross.
+
+Drawing hygiene is now three tests: series gaps, absent cross-referenced
+documents, and duplicate numbers at different revisions. Riverside fails the
+first two and passes the third.
+
+Checks 0 failed, 3 questions. Selftest passes.

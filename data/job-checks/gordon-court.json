@@ -1,645 +1,645 @@
 {
- "job": "Gordon Court, Stonegrove Edgware (Chigwell Group)",
- "created": "2026-07-27",
- "_note": "RETRO-CHECK of the tender ALREADY ISSUED 09/07/2026 at GBP 368,376.70 ex VAT. Sources, all read this session: internal workbook 'Chigwell Group - Gordon Court Pricing DO NOT SEND.xlsx'; client twin '...Pricing.xlsx'; 'Chigwell Group - Gordon Court Proposal.pdf'; AFS Q7585 (16pp); BSW QT252247 PVC / QT252248 PATIIOS / QT252251 ALI DOORS / QT252257 AOV & LOUVRE; architect's schedules 5244-ARK-51001, 51002, 52001, 52002, 52003; and the tender pack inside 'Gordon Court Windows, Rooflights & Curtain Walling.zip' - jLiving ITT V8, Form of Tender, Energy Statement, NBS spec 9001 (186pp). Nothing below is estimated; where a figure could not be sourced it is stated as unknown. SECOND TURN 27/07 evening, prompted by riverside's AOV free-area handoff: added the NBS specification's own requirements (L10 cl.330 Windows, L10 cl.205 certification, L20 cl.280 Communal Main Entrance Door, L20 cl.630 Colt smoke ventilation) and delivery_terms per riverside's new rule. THIRD TURN 27/07 late: Adam answered REQ-20 (hold the price, carry the risk). Rendered the scanned 'Q&As' file - it is a Delta portal screenshot with one item, no clarifications, so the clarification window closed ~15/07 and every open RFI is now post-tender. Applied Adam's REQ-17 rulings (access / strip-out / manifestation) to this job. FIFTH TURN 27/07 late: checked the waste clauses per st-marys' Prelims C warning - Gordon Court has no named landfill, no SWMP-with-tender, no waste carrier licence and no discounted-from-consideration penalty, so strip-out here is purely commercial. Sharpened the actor test: NEC3 Contract Data names the Employer as jLiving and leaves 'The Contractor is Name: ____' blank for the tenderer, so both 'Main (Principal) Contractor' and bare 'The Contractor' in the Works Information mean Chigwell. SIXTH TURN 27/07 late, from riverside's compliance-route rule: read the fire strategy revision tables and found the SMOKE SHAFTS WERE OMITTED 09.10.2025 per fire officer comments, replaced by a mechanical extract duct. The window schedules that sell us the 4no smoke-shaft louvres are dated 08.09.2025 and have NEVER been revised; the fire strategy is at rev 04-06 dated 17.02.2026. Also fixed the hub deadline field, which carried AFS's quote expiry rather than a client date. SEVENTH TURN 27/07 late, from riverside's aperture refinement: CORRECTED my own clear-opening arithmetic - the gross frame is the wrong denominator, and on the aperture WN_7 is MARGINAL (glass 1.3055 m2 = 87% of the 1.5 m2 duty; frame aperture ~1.49 m2 = 99.3%) rather than clearly incapable. Also found we priced from 25 of the 82 architect's drawings - the 57 missing include all three demolition plans, all existing plans and all existing/proposed elevations. EIGHTH TURN 27/07 late: accepted riverside's caveat that an inferred aperture is an estimate - quantified it, a +/-5mm change in assumed section swings WN_7 from 103.0% to 94.0% of the duty, so the inferred aperture cannot distinguish pass from fail and only BSW can state the clear opening. Then read the 13 elevation sheets we never held: the Windows Tags legend on 21007 rev 03 reads 'WE_00 Windows in EXISTING openings replaced as new / WN_00 Windows in NEW openings / WL_00 Louvres to smoke shaft', which answers the new-vs-existing question at type level and means WN_7 (the AOVs) sits in NEW openings. NINTH TURN 27/07 late, from riverside's per-vent split: re-checked the three AOVs individually rather than resting on the type prefix. All three are WN_ (new opening) but WN_7 @ level 1 is a new opening cut into RETAINED fabric (10016 rev 02: 'Retained wall to be assessed on site', new brick slips to facade) while levels 2-3 are in the two added storeys. So Adam's ruling applies cleanly to 2 of 3. Also: whether WN_7 discharges the 1.5m2 AOV duty, the 0.4m2 NSHEV duty or none (mechanical extract) is NOT resolvable from the documents - the NBS's 1.5m2 unit is ROOF-mounted. TENTH TURN 27/07 late: rendered the proposed elevations (the job I had logged as outstanding) and WITHDREW the basis of my own last two answers. The South elevation's WALL TYPE LEGEND distinguishes 'EXT - Existing wall types as surveyed' from new build-ups (WT-A1 Brickwork/Insulation/Stud, WT-A2 Zinc standing seam/Insulation/Stud), and the top two storeys are called up WT-A2 and WT-A1 - new construction - yet the windows on them are tagged WE_2. So the WE_/WN_ prefix is NOT a reliable opening-condition statement, it is a schedule reference (52002 Replacement vs 52003 New). READ THE WALL TYPE TAG INSTEAD - it answers new-vs-existing AND the fabric in one read. Three of the four proposed elevations carry no window tags at all. ELEVENTH TURN 27/07 late, from riverside's limit ('knowing a wall is existing is not the same as knowing you can cut it'): the existing build-up IS in the pack, in the STRUCTURAL folder not the architect's - 'Brick & mortar sampling in the internal SOLID wall... in CAVITY wall. Take samples from both the inner and outer leaves' (Elite Designers sk01/sk02, 12/05/2025). Also established that cavity closers/trays/jamb DPCs sit in NBS F30 masonry, NOT our scope - cleared; and that NBS L10 cl.790 requires INTUMESCENT mastic or tape to the fire-door frame/reveal gap, which AFS's omitted 'foam, packers, mastic' fixing pack may not satisfy. TWELFTH TURN 27/07 late, from riverside's 'is the consultant even appointed' check: RFI-3 IS CLOSED. The Energy Statement's title block reads 'Edward Pearce, Old School House, 35 Ewell Road, Surbiton... Project No. 22/190' - the same project number as every M&E document in the pack (22190-M/E/PH drawings, 140pp mech spec, 127pp electrical spec). So the architect's deferral 'MIN. THERMAL RATING: To Edward Pearce Consulting Engineers specification' points at a document I have held since turn one. Governing figures: GLAZING 1.10 W/m2K (Edward Pearce, tighter than the NBS's 1.2) and g-value 0.36 (the architect's, stated directly, tighter than Edward Pearce's 0.40). THIRTEENTH TURN 28/07, from riverside's 'ask the author, not a consultant who may not exist': THERE IS NO FIRE ENGINEER on this job - across all five fire strategy drawings there is no fire engineer, fire consultant, approved inspector or building control body named, only 'Arkon' x5 per sheet and 'fire officer' x1 inside a revision note. So the fire strategy is the ARCHITECT'S own work, as is the NBS specifying the Colt units, and the AOV wall-or-roof question goes to ARKON (job 5244) with the fire officer as arbiter. REQ-22's 'ask the fire engineer' option corrected. Built an RFI routing table off the title blocks: Arkon 5244 own D_T, D_X, manifestation, the AOV question and the rooflight/Colt boundary; Edward Pearce 22/190 own the SAP calcs; Elite Designers Ltd 2025-059 own the wall build-up; Chigwell own strip-out allocation and the Section 2 caveats. FOURTEENTH TURN 28/07: ran riverside's title-block-versus-note test on my own routing table and TWO ENTRIES FAILED - BSEC (electrical) and Engdesign (heating) appear only in architect's schedule NOTES and authored nothing; both the mech and electrical specs carry EDWARD PEARCE LLP title blocks with zero BSEC/Engdesign hits. Likeliest reading: they were superseded by Edward Pearce and the never-revised 08.09.2025 schedules were not updated - a second independent symptom of the staleness that hid the smoke-shaft omission. Also classified all 12 money findings: GBP 723.87 hard, one possible GBP 6,452.40 credit, two single-point benchmarks, and EIGHT unpriceable because 0 of the register's 80 categories cover them. REQ-26 raised for two consolidated supplier RFQs, which do not need to wait for jLiving. FIFTEENTH TURN 28/07, from riverside's decaying-window arithmetic: REQ-26's two supplier RFQs have NINE DAYS - BSW's quotes lapse 06/08 and AFS's 08/08, and an RFQ landing before then is an addendum to a live quote while one landing after is a fresh enquiry at autumn rates. Does NOT reopen Adam's REQ-20 decision, which was taken on scope that already has a price. ALSO CORRECTED MYSELF: curtain walling is NOT unpriceable - mary_pricing.py carries CW_SUPPLY_M2 850.0 / CW_LABOUR_M2 150.0 - it has a RATE but no QUANTITY, so it needs an AREA from Arkon rather than a price from BSW. Seven items remain genuinely unpriceable. SIXTEENTH TURN 28/07: OUR OWN PROPOSAL CARRIES A 30-DAY VALIDITY - page 8, '2. Quotation Validity - All quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from the date of issue, unless agreed otherwise.' So the GBP 368,376.70 expired on our terms 08/08/2026 while jLiving's Form of Tender holds the TENDER to 18/01/2027 - and we are NOT a party to that Form of Tender. The 163-day exposure is QUALIFIED, not absolute. Does not reopen REQ-20. Also ran riverside's rate-vs-quantity sort over the EXCLUSIONS list and found three doing work they should not: Fire Stopping conflicts with NBS L10 cl.790's intumescent seal, Testing does not cover cl.205 certification submittals, and Site Storage asserts site delivery no quote supports. SEVENTEENTH TURN 28/07 - WITHDRAWING A TURN-ONE FINDING. I reported GBP 5,597.89 of cost across 7 lines as having 'no supplier quote behind it'. ALL SEVEN ARE QUOTED, at exactly the workbook costs. My test was the workbook's R column, a partially-filled working column, rather than the quotes themselves. WN_4, WN_6, WN_8 and WN_9 are all priced lines on QT252247; D_B 1055 is on QT252251 at 1720 rather than 1750 high; and D_E and D_U are each SPLIT ACROSS TWO BSW LINES (casement + door) summing to the workbook figure to the penny. What is real, and what I found while checking, is SIX DIMENSIONAL DISCREPANCIES between quotes and schedules. EIGHTEENTH TURN 28/07: found T&C clause 16 in our own issued proposal, never quoted in eighteen turns - 'Fenster Glazing & Locks Ltd is not responsible for overall design intent, architectural suitability, or REGULATORY STRATEGY and relies on information, drawings, and specifications provided by the client or their professional team. Responsibility is limited to MEASUREMENT VERIFICATION, SUPPLY, and INSTALLATION of the agreed glazing systems.' It sorts the findings a third way - regulatory questions are theirs and we rely; measurement and supply are expressly OURS. So the AOV splits: which duty applies is theirs, whether we quoted the specified product is ours. And it TIGHTENS the six dimensional discrepancies rather than excusing them. Also checked the proposal docx against the issued pdf - they match, no faithful-but-incomplete problem.",
- "coupled_runs": [],
- "doors": [
-  {
-   "ref": "D_A 2326 x 2085 (1no, AFS Q7585 pos 001)",
-   "fire_exit": true,
-   "panic_hardware_priced": true,
-   "evidence": "Q7585 pos 001 hardware: WILKA Panic door shootbolt guide - top AND bottom, WILKA Rod latch/Top rod/Round rod, FUHR 3-point automatic lock 833, GEZE TS 5000 + TS 4000 closers. Schedule 51001 gives D_A no ironmongery code, so the panic set is AFS's own default - but it IS priced."
-  },
-  {
-   "ref": "D_A 1750 x 2238 GR316 Entrance (1no, AFS Q7585 pos 002)",
-   "fire_exit": true,
-   "panic_hardware_priced": true,
-   "evidence": "Same hardware schedule as pos 001. This is the one D_A row the architect gives a room to: GR316 Entrance."
-  },
-  {
-   "ref": "D_T 1600 x 2210 as quoted (1no, AFS Q7585 pos 003)",
-   "fire_exit": true,
-   "panic_hardware_priced": true,
-   "evidence": "Same hardware schedule. SEE quantities/spec_items - this door's SIZE, LEAF COUNT and whether it is external at all are all unresolved against schedule 51001."
-  },
-  {
-   "ref": "D_B (6no), D_C (2no), D_D (2no), D_E (1no), D_U (1no) - BSW QT252251 ALI DOORS, Sheerline",
-   "fire_exit": false,
-   "panic_hardware_priced": true,
-   "evidence": "Not marked fire escape on schedule 51001 (D_B/D_C/D_E/D_U carry no fire rating; D_D carries FD30 on the interleaved read but no escape marking). Balcony, plant room and stair external doors. No panic hardware requirement identified in the schedule and none quoted."
-  }
- ],
- "frame_supply": "glazed",
- "glass_order": {},
- "quantities": [
-  {
-   "ref": "Patio and green roof doors, schedule 5244-ARK-51002",
-   "bill_qty": 44,
-   "drawing_qty": 44,
-   "note": "Workbook PD_A 3 + PD_B 1 + PD_C 38 + PD_I 2 = 44. Schedule states 'Grand total: 44'. Exact."
-  },
-  {
-   "ref": "Replacement windows, schedule 5244-ARK-52002",
-   "bill_qty": 40,
-   "drawing_qty": 40,
-   "note": "Workbook WE_1..WE_17 = 40. Schedule states 'Grand total: 40'. Exact."
-  },
-  {
-   "ref": "New windows / louvre / AOV, schedule 5244-ARK-52003",
-   "bill_qty": 84,
-   "drawing_qty": 84,
-   "note": "Workbook LW_1 4 + WN_7 3 + WN_1 11 + WN_2 7 + WN_3 34 + WN_4 1 + WN_5 6 + WN_6 1 + WN_8 1 + WN_9 1 + WN_10 12 + WN_11 3 = 84. Schedule states 'Grand total: 84'. Exact."
-  },
-  {
-   "ref": "External and communal doors, schedule 5244-ARK-51001 - D_X 2no NOT PRICED",
-   "bill_qty": 17,
-   "drawing_qty": 15,
-   "note": "SCOPE GAP. Schedule 51001's own per-type count cells are D_A 2, D_B 6, D_C 2, D_D 2, D_E 1, D_G 24, D_H 42, D_I 21, D_J 4, D_L 1, D_O 1, D_P 2, D_Q 1, D_R 3, D_T 1, D_U 1, D_X 2 - which sums to exactly the 116 the drawing states as its Grand total, so the counts are the drawing's own and not an extraction artefact. Stripping the 99 internal doors (D_G, D_H, D_I, D_J, D_L, D_O, D_P, D_Q, D_R - correctly left to the joinery package) leaves 17 non-internal doors. We priced 15: D_A 2, D_B 6, D_C 2, D_D 2, D_E 1, D_U 1, D_T 1. D_X - 2no, Level 0, structural 2100 high x 1800 wide - is on the External and Communal Door Schedule and is priced NOWHERE in the workbook. Every descriptive cell on both D_X rows is blank: no leaf count, no internal/external, no fire rating, no ironmongery, no room number. It is the last type on the sheet, which is consistent with an unfinished architect's entry, but it is 1800mm wide and it is in the external door schedule. Nearest priced comparator is D_E (1500 x 2100, DAD) at GBP 2,779.70 sell each, so the order of magnitude is roughly GBP 5,600 of sell plus GBP 1,000 of install - BENCHMARK ONLY, there is no supplier price for D_X and no RFI has been raised on it."
-  }
- ],
- "spec_items": [
-  {
-   "ref": "40no replacement windows, 84no new windows/louvre/AOV, 44no patio-green roof doors, 15no external/communal doors",
-   "treatment": "priced",
-   "evidence": "Workbook rows 10-59, GBP 368,376.70 including GBP 46,840 install."
-  },
-  {
-   "ref": "Installation of the 3 FD30 doors within the global GBP 46,840",
-   "treatment": "priced",
-   "evidence": "CHECKED AND CLEARED. I61 is =SUMPRODUCT(F*N)+SUMPRODUCT(F*code value) with DAD=500, SAD=250, PVC/LAW/MAW=160. Rows 57-59 are all coded DAD, so they contribute 3 x GBP 500 = GBP 1,500. Recomputed the whole formula independently: GBP 46,840 exactly, matching I61. Triage's open question 4 is answered - install does cover them."
-  },
-  {
-   "ref": "Trickle ventilation - 8000mm2 minimum (general note on all five schedules 51001, 51002, 52001, 52002, 52003)",
-   "treatment": "GAP - priced at half the required area",
-   "evidence": "BSW quote '4000 External Linkvent Grey RAL 7016 / 4000 Internal Linkvent White' throughout QT252247 and QT252248. The note reads '8000mm2 min trickle vents UNLESS OTHERWISE SPECIFIED IN WINDOW SCHEDULE' - checked 52002 and 52003 and neither specifies a different AREA; what they specify is an Acoustic Trickle Vents yes/no column. So the 8000mm2 minimum stands and 4000mm2 is half of it."
-  },
-  {
-   "ref": "WN_7 (3no) marked 'AOV' and WL_1 (4no) 'Louvres to smoke shaft' on schedule 52003 - the smoke ventilation function itself",
-   "treatment": "GAP - quoted as ordinary windows, no AOV mechanism priced at all",
-   "evidence": "THE WHOLE OF QT252257 (GBP 7,085.76 cost, GBP 10,055.76 sell) IS THIS PACKAGE, AND NONE OF IT IS PRICED AS SMOKE-CONTROL EQUIPMENT. Schedule 5244-ARK-52003 carries the heading 'AOV SMOKE SHAFT LOUVRE' and the note 'WL_00 Louvres to smoke shaft'. WN_7 x3 sit at Corridor 1-1, 1-2 and 1-3 (levels 1-3), 2100 high x 910 wide, with 'AOV' in the additional-information column. WL_1 x4 sit at levels 0-3, 2100 x 1210. NBS 9001 L20 clause 630 specifies these as COLT PROPRIETARY SMOKE-CONTROL PRODUCTS, every one motorised: 'COLTITE GLAZED LOBBY VENTILATOR (STAIR C) - mounted into prepared openings in the external wall, Type CLT, double glazed with thermally broken glazing and outer frames, nominal size 1000mm wide x 2000mm high or equivalent, DRIVE OPEN/DRIVE CLOSE USING A 24V MOTOR MOUNTED TO THE REAR' (WN_7 at 910 x 2100 is that item's 'or equivalent'); and 'EN SEEFIRE LOUVRED NATURAL VENTILATOR - size to match shaft dimensions, clear opening louvred natural ventilator... DESIGNED AND TESTED TO EN 12101-2... the position of the louvres is controlled by a 24Vdc ELECTRIC ACTUATOR, driven closed by this actuator and opened by a spring'. BSW QUOTED NEITHER. QT252257 quotes 'Qty: 3 Prestige T&T' and 'Qty: 4 Prestige Casement' - ordinary Sheerline windows - and the quote contains ZERO occurrences of AOV, louvre, actuator, chain, stroke, motor, 24V or smoke. WL_1's Glazing line is BLANK and it carries no reinforcing. There is no actuator, no 24V motor, no fire-alarm interface, no control gear and no EN 12101-2 certification anywhere in the price. THE RATES CONFIRM IT: WN_7 is GBP 412.67/m2 over 5.733 m2 and WL_1 is GBP 442.98/m2 over 10.164 m2 - plain-window money. Riverside's only AOV data point (A Plus DualFrame 75Si bottom-hung glazed AOV, 850mm stroke single chain) is GBP 1,401.24/m2 supply, of which the actuator and AOV sash carry roughly GBP 870/m2. On that one point the 3no WN_7 alone are GBP 4,988 to GBP 5,667 of supply cost short. ONE QUOTE, A DIFFERENT SYSTEM, ORDER OF MAGNITUDE ONLY - riverside also confirmed there is no AOV or smoke-vent category anywhere in the rate register, so the 4no louvres cannot be benchmarked at all. Either these 7 units are ours and materially under-priced, or they belong to the smoke-vent specialist and GBP 10,055.76 of sell should come out - our proposal p3 names 'AOV windows, smoke shaft louvres' as part of the tender information and neither prices the function nor excludes it. SIXTH TURN - THE SHAPE OF THIS HAS CHANGED AND THE LOUVRE HALF MAY BE A CREDIT. Fire strategy 5244-ARK-14003 and 14004 rev 02 (09.10.2025) read 'Updated to suit fire officers comments... SMOKE SHAFT OMITTED', and 14005 rev 01 (09.10.2025) reads 'SMOKE SHAFTS OMITTED. MECHANICAL EXTRACT VENT ADDED'. Those sheets were revised three or four more times to rev 04-06 dated 17.02.2026 and the omission was never reversed - the current sheets note a 'Mechanical extract duct through lower ground floor ceiling void' and the only remaining 'Shaft' labels are 1.1-6.2 m2 service and cylinder risers. THE DATES SETTLE IT: window schedules 52001/52002/52003 are dated 08.09.2025 with revision '-' and have NEVER BEEN REVISED; the NBS is 23-08-2025; the shafts went 09.10.2025; the door schedule and fire strategy were updated 17.02.2026. So both documents that put the louvres in our scope predate the omission and neither was updated, while the documents that were updated show the shafts gone. 4no WL_1 at GBP 4,502.40 cost / GBP 6,452.40 sell are scheduled against a shaft deleted five months before the tender was issued - either redundant, or serving the replacement mechanical extract and nobody has said so. AND A SECOND, INDEPENDENT PROBLEM WITH THE 3 AOVs: the current fire strategy legend states the duty as 'AOV. 1.5m2 CLEAR OPENING AREA' (and separately 'SV. NSHEV. 0.4m2 clear opening area minimum'). WN_7 is 910 x 2100 = 1.911 m2 GROSS FRAME, so a 1.5 m2 clear opening would have to be 78.5% of gross - unachievable on the Sheerline 'SP104 70mm Large Outer' T&T that BSW quoted. On the NSHEV reading 0.4 m2 is 20.9% of gross and is fine. Which duty they serve changes the answer and the schedule says 'AOV'. I have NOT computed a clear opening from assumed profile dimensions - BSW must state it. BASIS QUESTION CLOSED: 'clear opening area' is geometric-side language and agrees with the NBS's explicit '1m2 geometric'; 'aerodynamic' appears nowhere in the NBS, mech or electrical specs. SEVENTH TURN CORRECTION: the 78.5%-of-gross figure above overstated the case. riverside established that the APERTURE is the right denominator because the sections eat a fixed share of the gross. From BSW's own stated figures: glass 700 x 1865 = 1.3055 m2 = 87.0% of the 1.5 m2 duty (short 0.1945 m2); frame-internal aperture 770 x 1935 = 1.4900 m2 = 99.3% (short 0.0100 m2, and that takes the 'SP104 70mm Large Outer' section nominally - inferred, not stated). So WN_7 is MARGINAL against 1.5 m2, not clearly incapable. The actuator/motor/fire-alarm-interface absence is unaffected and remains the substantive point; on the NSHEV reading the glass alone is 3.3x the 0.4 m2 duty. My '60% of gross' rule of thumb is WITHDRAWN - it would have condemned a borderline unit."
-  },
-  {
-   "ref": "Free area - GEOMETRIC vs AERODYNAMIC (riverside's question, answered)",
-   "treatment": "GAP - the pack states geometric, the quote states neither",
-   "evidence": "THE GOOD NEWS: THIS PACK IS WRITTEN GEOMETRIC, so riverside's ~40% aerodynamic trap does not bite here. NBS L20 clause 630 states 'AXS140 STAIRWELL VENTILATOR - throat dimensions 1250mm x 1000mm - 1m2 GEOMETRIC free area' and 'AXS140 LOBBY VENTILATOR - throat dimensions 1250mm x 1500mm - 1.5m2 GEOMETRIC free area', both '24V electric actuator'. The word aerodynamic appears NOWHERE in the 186-page NBS, and the only aerodynamic reference in the 140-page mech spec (22190_Mech Spec_00 p80) is about attenuator fairings - nothing to do with vents. The 127-page electrical spec has none. THE BAD NEWS: BSW STATE NO FREE AREA OF EITHER KIND on QT252257, so there is nothing to compare against the requirement. And the Seefire louvre requirement is relative rather than absolute - 'size to match shaft dimensions' against an 'AOV SHAFT' the same clause says 'should have a minimum cross sectional area of 1.5m2' - so the 4no smoke shaft louvres have to deliver against a 1.5m2 shaft and nobody has shown that they do. Per riverside: do NOT derive one figure from the other or from frame area - Towcester's geometric/frame ratios were 75% and 54%, it does not scale. Make the supplier state it."
-  },
-  {
-   "ref": "Acoustic trickle vents - 'Passivent AL-dB 450 or better' where the schedule's Acoustic Trickle Vents column is ticked",
-   "treatment": "GAP - neither priced nor excluded",
-   "evidence": "Verified positionally on schedule 52002: the Acoustic Trickle Vents header sits at x=-210.9 and 26 of the 40 replacement-window rows carry a Yes at x=-218 in that column. Schedule 52003 (84 units) carries the same column in three table blocks and needs the same count - not done. BSW QT252247/48/51/57 contain ZERO occurrences of Passivent, AL-dB or acoustic. An acoustic trickle vent is a different, dearer product than the Linkvent quoted."
-  },
-  {
-   "ref": "PAS 24 - required by NBS L10 clause 330 on ALL windows, plus the schedules' PAS24 SBD note and 51001's PAS 24 2016 column",
-   "treatment": "GAP - neither priced nor excluded",
-   "evidence": "MUCH STRONGER THAN A SCHEDULE NOTE - IT IS A SPECIFICATION STANDARD CLAUSE. NBS 9001 L10 clause 330 'Windows & Roof Windows' reads '1. Standard: To BS6375-1, BS6375-2, BS6375-3, EN 14351-1 and Pas24.' So PAS 24 applies to EVERY window, not only the amenity-deck ones the schedule note names. Clause 205 adds 'Third-party certification: Submit proposals / Verification: Independent, 3rd Party Certification Schemes / Submittals: Submit documentation confirming Certifications claimed'. NBS L20 clause 280 independently requires the communal entrance doors 'To BS 4873 and PAS24' with 'Third-party certification: Tested to PAS24'. AGAINST THAT: ZERO occurrences of 'PAS 24' or 'PAS24' across all four BSW quotes, and none of BS 6375-1/2/3 or EN 14351-1 is mentioned either. Yale Shootbolt locks, Egress Hinges and 35x35mm security cylinders are quoted, but no certification and no submittals."
-  },
-  {
-   "ref": "G-value 0.36 or better (general note on all five schedules; and promised on our own proposal p3 'G-value - 0.36')",
-   "treatment": "GAP on the obscure units only",
-   "evidence": "Main glazing DOES carry solar control - '4Tuf/18/6.8 LAM Coolite SKN176ii Argon' on the Liniar windows, '6.Lam/16/6mmTuff Coolite SKN175ii' on the Alunet patios, 'Skn 176 6.8 Lami / 4 / 4mm Low E Tuff Black Warm Edge Sp 12mm' on the Sheerline AOV. The St Mary's 'no coating named' failure does NOT apply to BSW here. BUT WN_2 (7no) is '6.8 Lam/18/4mm ObsTuff EcoPlus 1.0 Satin 4mm Black Warm Edge Sp 18mm Argon' with no Coolite and no SKN - an obscure unit with no solar coating cannot meet 0.36."
-  },
-  {
-   "ref": "Restrictors - '100mm restrictor where noted', plus Restrictors and Removable Restrictor columns on 52002/52003",
-   "treatment": "priced",
-   "evidence": "QT252247 carries 21 restrictor references ('11.5 mm Studs For Re1s1-Loc Restrictor' etc)."
-  },
-  {
-   "ref": "Colt AXS 140 Combined AOV Smoke Ventilator and Roof Access Hatch (NBS 9001 section L10, p85: roof-mounted, 1000 x 1250mm ventilator, aluminium lid, RAL 7016, U-value 1.2 W/m2K or better, Re 50, WL 1500, B300)",
-   "treatment": "GAP - neither priced nor excluded",
-   "evidence": "The enquiry zip is titled 'Gordon Court Windows, ROOFLIGHTS & Curtain Walling' and the NBS section that governs our package is L10 'Windows/ rooflights/ screens/ louvres'. We priced 3no Sheerline T&T AOV WINDOWS (WN_7, wall-mounted) and 4no louvres - not the roof-mounted Colt unit, and no rooflights or curtain walling at all. The proposal's exclusion list does not name rooflights, roof AOVs or curtain walling. NOTE THE OTHER SIDE: the wider Colt package on NBS pp89-93 (AOV shaft, OPV Heart module, OPV display panel, electrical wiring, ductwork) is plainly a specialist smoke-ventilation contractor's scope, not ours - so the question is specifically the AXS 140 unit and any rooflights, not the Colt control system."
-  },
-  {
-   "ref": "PVC-U versus aluminium frame material conflict",
-   "treatment": "excluded",
-   "evidence": "ALREADY QUALIFIED BY US - no new finding. Proposal p3: 'The schedules and specification include conflicting references to PVC-U and aluminium window systems, so the final system/material basis should be confirmed prior to order.' The schedules' notes panel says 'FRAME: PVC-U white internally. Dark Grey externally to RAL XXX (TBC)' on all five sheets while we priced 44 patio doors as Alunet ALUMINIUM (GBP 108,275.95 cost, GBP 174,275.79 sell) and the external doors as Sheerline aluminium. Checked before raising it and Gintare had got there first."
-  },
-  {
-   "ref": "Waste removal / strip-out of the existing windows on a refurbishment",
-   "treatment": "excluded",
-   "evidence": "Proposal p4: 'Waste Removal - Generally excluded unless agreed otherwise'. Ran the John North Hall replacement-job check: no cross-reference into our item was found in this pack, unlike St Mary's SOW 1.09. But the jLiving ITT is an NEC3 activity-schedule contract with no SOW item numbers, so the strip-out allocation will sit in Chigwell's subcontract order rather than the tender pack - flag it at order stage, not now."
-  },
-  {
-   "ref": "Access / lifting equipment - scaffold, MEWPs, towers",
-   "treatment": "excluded",
-   "evidence": "Proposal p4 excludes it. RISK, same shape as St Mary's: this is a building gaining two new storeys with windows to third floor, and jLiving's ITT requires the main contractor to carry a Construction Logistics Plan. Check the exclusion survives Chigwell's subcontract prelims before order. SIXTEENTH TURN - ran riverside's rate-vs-quantity sort over the whole EXCLUSIONS list, not just the findings. THREE OF TWELVE ARE DOING WORK THEY SHOULD NOT. (1) 'Fire Stopping - To be done by others, if required' CONFLICTS WITH NBS L10 cl.790, which puts the intumescent frame-to-reveal seal in the WINDOWS section - our package. Cavity barriers are the main contractor's; that perimeter seal is not. 3 fire doors, no rate, owner AFS - a supplier question wearing an exclusion's clothes, exactly riverside's restrictors. (2) 'Testing - On or off site testing' DOES NOT COVER NBS cl.205's 'Independent, 3rd Party Certification Schemes' and 'documentation confirming Certifications claimed' - certification is documentation the maker already holds, not a test, so the exclusion reads as if it covers the obligation and does not. Owner BSW, probably free if they hold the certificates. (3) 'Site Storage - Materials will be delivered to site' ASSERTS A FACT NO QUOTE WE HOLD SUPPORTS - all five deliver to our own MK13 9HF yard, so we have told the client materials arrive at site while every supplier says Milton Keynes. AND A DISTINCTION: 'Design Responsibility - design calculations excluded' fairly covers us PRODUCING a Uw calculation but does not get us the FIGURE, which BSW should state as a matter of course - excluding the work is not the same as not needing the number. 'Structural Alterations - to be completed by Main Contractor' is consistent with the head contract and is a genuine exclusion, cleared."
-  },
-  {
-   "ref": "Carriage from Fenster's Milton Keynes yard to site at Edgware HA8 on 227 units",
-   "treatment": "GAP - neither priced nor excluded",
-   "evidence": "Both suppliers deliver to 98 Alston Drive, MK13 9HF - our own yard - and BSW are ex works. The workbook has no carriage line; install is pure per-unit labour codes. The proposal's exclusions cover Site Storage on the basis that 'Materials will be delivered to site', which is the opposite assumption. Cannot be costed from anything on file, so it is an open item rather than a number."
-  },
-  {
-   "ref": "NBS L10 clause 120 - pre-construction survey of All New and Replacement Windows before fabrication",
-   "treatment": "priced",
-   "evidence": "Proposal inclusions carry 'Site Survey - Only conducted once the structural openings are fully formed. Any revisits may be subject to a fee', which matches clause 120's 'Timing: Before fabrication'. Consistent - no action."
-  },
-  {
-   "ref": "Manifestation to the communal main entrance doors - NBS L20 clause 280, 'Manifestation: As drawing'",
-   "treatment": "GAP - neither priced nor excluded, and the drawing it refers to does not exist",
-   "evidence": "NBS 9001 L20 clause 280 'Communal Main Entrance Door Type B' states '14. Glazing/ Infill details: Clear double glazing / 14.1. Manifestation: As drawing'. (The adjacent internal door clause says 'Manifestation: Not required', so the distinction is deliberate - the drafter turned it ON for the communal entrance doors.) BUT: manifestation appears ZERO times across all five architect's schedules (51001, 51002, 52001, 52002, 52003), ZERO times in 'Window & Door Elevations.pdf', ZERO times in 'Fire Rated Door Elevations.pdf' and ZERO times in our own proposal - and no drawing in the pack shows any. So the requirement exists, its extent is undefined, it is not priced and it is not excluded. THIS IS THE ST MARY'S FINDING REPEATING (spec clause 2.24 manifestation, recited without being either priced or excluded) AND ADAM HAS NOW RULED ON IT - hub message 31 on REQ-17: 'We can allow the manifestation for a job of this size, however we should be putting this in our inclusions or on our description.' Gordon Court is GBP 368,376.70, more than twice St Mary's, so on his own test it should be allowed AND stated. Our proposal does neither."
-  },
-  {
-   "ref": "Strip-out and disposal of the existing windows and doors on a refurbishment (40no replacement windows)",
-   "treatment": "GAP - 'effectively left unanswered', and Adam's rule says we would include it at this size",
-   "evidence": "SUPERSEDES THE EARLIER ENTRY, WHICH SAID TO FLAG IT AT ORDER STAGE. The pack itself is silent - zero hits for strip out, remove existing or disposal across all five schedules, and the jLiving contract is an NEC3 activity schedule with no SOW item numbers, so there is no cross-reference into our item of the kind St Mary's SOW 1.09 had. Our proposal excludes 'Waste Removal - Generally excluded unless agreed otherwise' and never names removal of the existing windows. The GBP 46,840 install cannot absorb it: it is pure per-unit labour codes (GBP 160 PVC/LAW/MAW, GBP 250 SAD, GBP 500 DAD), which is fit-only money. ADAM'S RULING, hub message 31 on REQ-17: 'Strip out is something we need to clarify in future tenders. We have effectively left it unanswered however we would include it for a job of this size, but if they assume it's not included and do it for us then happy days.' Gordon Court is twice the size of the job he said that about and it strips out 40 existing windows plus external doors in an occupied building. So on his own test strip-out should be allowed here, and it is not. Cannot be costed from anything on file - there is no strip-out rate in the register - so it is an open item rather than a number."
-  },
-  {
-   "ref": "Access / lifting equipment - proposal wording (Adam's REQ-17 ruling)",
-   "treatment": "excluded",
-   "evidence": "CHECKED AND CLEARED ON THE PROPOSAL WORDING. Adam, hub message 31: 'Our proposal document should state that we have not allowed for any access.' Gordon Court's proposal already does - the exclusions name 'Access/Lifting Equipment - Scaffold, MEWPS, Towers, Forklift etc.' (7 access references, 1 scaffold). So this job already complies with the rule he set. The separate COMMERCIAL risk stands and is recorded elsewhere: this building gains two storeys, and the exclusion still has to survive Chigwell's subcontract prelims. SIXTEENTH TURN - ran riverside's rate-vs-quantity sort over the whole EXCLUSIONS list, not just the findings. THREE OF TWELVE ARE DOING WORK THEY SHOULD NOT. (1) 'Fire Stopping - To be done by others, if required' CONFLICTS WITH NBS L10 cl.790, which puts the intumescent frame-to-reveal seal in the WINDOWS section - our package. Cavity barriers are the main contractor's; that perimeter seal is not. 3 fire doors, no rate, owner AFS - a supplier question wearing an exclusion's clothes, exactly riverside's restrictors. (2) 'Testing - On or off site testing' DOES NOT COVER NBS cl.205's 'Independent, 3rd Party Certification Schemes' and 'documentation confirming Certifications claimed' - certification is documentation the maker already holds, not a test, so the exclusion reads as if it covers the obligation and does not. Owner BSW, probably free if they hold the certificates. (3) 'Site Storage - Materials will be delivered to site' ASSERTS A FACT NO QUOTE WE HOLD SUPPORTS - all five deliver to our own MK13 9HF yard, so we have told the client materials arrive at site while every supplier says Milton Keynes. AND A DISTINCTION: 'Design Responsibility - design calculations excluded' fairly covers us PRODUCING a Uw calculation but does not get us the FIGURE, which BSW should state as a matter of course - excluding the work is not the same as not needing the number. 'Structural Alterations - to be completed by Main Contractor' is consistent with the head contract and is a genuine exclusion, cleared."
-  },
-  {
-   "ref": "Tender clarification route - closed before we could use it",
-   "treatment": "excluded",
-   "evidence": "NOT A PRICING ITEM BUT IT GOVERNS EVERY OPEN QUESTION ON THIS JOB, SO IT IS RECORDED HERE. The pack's '1. Q&As 02.06.26.pdf' has no text layer; rendered at 200dpi it is a screenshot of the Delta eSourcing Message Centre for topic 'Gordon Ct: ITT', logged in as 'Antony Berry, Supplier Administrator', showing 'One item found' - a single 02/06/2026 13:04 message from darien.jay@vixus.co.uk to All Suppliers announcing the ITT had gone live with a 22 July 2026 @ 1400 return. So it is not a clarification log at all and it answers nothing; RFI-3 (whose specification governs the U-value) is still open. The ITT is explicit about the route and the deadline: 'Bidders may raise questions relating to this tender up to 5 working days prior to the tender return deadline', 'All questions during the tender should be directed via the Delta portal', and 'Please DO NOT contact jLiving directly.' Five working days before 22/07/2026 is ~15/07/2026, and our own tender went to Chigwell on 09/07 - so the window was open when we priced and nobody used it. It is now shut. CONSEQUENCE: all seven open RFIs are POST-TENDER queries via Chigwell, which makes them variation or qualification territory rather than clarification. Worth someone establishing whether 'Antony Berry' is ours or Chigwell's - if Fenster holds a live Delta account on this tender we may be receiving jLiving award and standstill notices that nobody reads, which is the same shape as the known info@ and commercial@ blind spots."
-  },
-  {
-   "ref": "Waste removal, disposal and gypsum separation - jLiving Works Information p12 and PCI p8",
-   "treatment": "excluded",
-   "evidence": "CHECKED AGAINST ST MARY'S PRELIMS C WARNING AND GORDON COURT IS THE LIGHTER PACK. Absent here, all verified by searching the ITT, PCI (31pp), Works Information (29pp), Contract Data and Form of Tender: NO named licensed landfill (St Mary's names 'Tredegar Skip Hire'), NO Site Waste Management Plan required with the tender (zero hits for SWMP or 'site waste management' in any of the five documents), NO waste carrier licence (unlike John North Hall), and NO 'discounted from consideration' penalty. The tender return structure confirms it - six sections, none of them a waste plan. The only waste item in the ITT is scored quality question D1 ('manage waste responsibly', 500 words, 5 points). WHAT IT DOES SAY: Works Information p12 'Waste Removal' - 'The Contractor shall keep his Working Area clean & tidy at all times and remove his waste to skips at the end of each shift... shall dispose of waste in accordance with the requirements of the Environment Agency', with jL entitled to remove it and recover the cost; PCI p8 requires gypsum/plasterboard separated before removal and bans burning on site; PCI p10 leaves 'Restrictions on Deliveries, Waste Collection, Storage' to be agreed 'at tender stage', which has passed with nothing agreed. THE ACTOR IS CHIGWELL, and the Contract Data proves it directly: 'The Employer is Name: Jewish Community Housing Association Ltd' while 'The Contractor is Name: ____' is BLANK for the tenderer to complete - so 'the Contractor' is whoever signs, i.e. Chigwell, and Fenster is not a party. The Works Information uses 'Main (Principal) Contractor' 28 times and bare 'The Contractor' 25 times, split by SCOPE of duty (site-wide vs own-works) not by TIER; both are the same legal person. So our proposal's 'Waste Removal - Generally excluded' is consistent with the head contract. BUT DO NOT OVERCORRECT: the duty is drafted in 'his works' / 'his Working Area' language, which is exactly what a main contractor lifts into a subcontract order to push waste onto each trade. RFI-9 stays live because this is the clause most likely to flow down verbatim, and if it does the gypsum separation and Environment Agency compliance come with it."
-  },
-  {
-   "ref": "ITT 'Section 2: Any Caveats and Omissions relating to your proposal'",
-   "treatment": "GAP - unknown whether our qualifications were carried into it",
-   "evidence": "The ITT's required tender return structure includes 'Section 2: Any Caveats and Omissions relating to your proposal'. That is the ONE mechanism by which our exclusions - access, waste removal, internal finishing, the PVC-U vs aluminium qualification - could acquire standing at head-contract level. Our proposal went to Chigwell 09/07 and Chigwell returned to jLiving 22/07; whether ours were carried into their Section 2 is unknown and only Chigwell can say. It matters more than usual because the clarification window had already shut (~15/07), so Section 2 was the last route by which anything we excluded could reach the employer. RFI-11."
-  },
-  {
-   "ref": "Free area / clear opening achievable at levels 0 and 1 - existing structural openings",
-   "treatment": "GAP - opening condition NOT established; read the wall type at each AOV",
-   "evidence": "Adam ruled on Riverside (REQ-9) that 'we can make the windows as big as we need to in order to achieve the free area, because the openings are being newly formed'. That transfers only PARTLY here, and the schedules say which part: 'WINDOW INSTALLATION NOTE - GROUND AND FIRST FLOOR. WINDOWS TO GROUND AND FIRST FLOORS ARE TO BE INSTALLED TO MATCH THE EXISTING STRUCTURAL OPENING SIZES.' So levels 0 and 1 are constrained to existing openings while levels 2 and 3 are new build and are not. WL_1 sits at levels 0/1/2/3 (two constrained) and WN_7 at levels 1/2/3 (one constrained). If a clear-opening shortfall is confirmed it can be designed out at levels 2-3 but not at 0-1 without structural work. Recorded so nobody assumes the Riverside answer transfers wholesale. EIGHTH TURN - ANSWERED, AND IN OUR FAVOUR. The Windows Tags legend on Proposed South Elevation 21007 rev 03 (a sheet never in the job folder) reads 'WE_00 Windows in EXISTING openings replaced as new / WN_00 Windows in NEW openings / WL_00 Louvres to smoke shaft'. So the TYPE PREFIX encodes it: 40 WE_ units are in existing openings, 80 WN_ units in new openings, 4 WL_ are the smoke-shaft louvres. WN_7 - the three AOVs - is a WN_ type, so its openings are NEWLY FORMED and Adam's Riverside ruling applies here WITH pack corroboration, which is more than riverside could establish on their own job. A clear-opening shortfall on the AOVs is therefore remediable by enlarging the opening - design coordination, not a dead end. The actuator/motor/fire-alarm absence is untouched and remains the real cost. RESIDUAL TENSION for Arkon, not for us to resolve: the schedules say 'WINDOWS TO GROUND AND FIRST FLOORS ARE TO BE INSTALLED TO MATCH THE EXISTING STRUCTURAL OPENING SIZES' while WN_ types do appear at those levels; the consistent reading is that the note is a survey caution about retained fabric and that a WN_ opening low down is being cut new, which is why the demolition plans mark 'NEW STRUCTURAL OPENINGS'. A reading, not a ruling. NINTH TURN - REFINED, AND MY EIGHTH-TURN ANSWER WAS TOO COARSE TO PRICE FROM. riverside found the question splits PER VENT on their own two-vent job, so I checked mine per unit. All three WN_7 carry the WN_ prefix so all three openings ARE new - but THE TAG SAYS THE OPENING IS NEW, NOT WHAT IT IS CUT INTO. WN_7 @ level 1 (Corridor 1-1) is a new opening cut into RETAINED FABRIC: first floor demolition plan 10016 rev 02 states 'Retained wall to be assessed on site', 'Only the existing windows and hanging tiles within this area are to be removed carefully to avoid damage to adjacent retained elements' and 'Following demolition, new brick slips are to be installed as part of the facade works'. So enlarging that one means lintels, cutting masonry and making good - in nobody's price. WN_7 @ levels 2 and 3 are new openings in the two ADDED STOREYS, i.e. new construction, where size is genuinely free. Adam's ruling therefore applies cleanly to TWO of the three AOVs and only with structural cost to the third. TENTH TURN - THE TAG-BASED ANSWER IS WITHDRAWN. Rendered the proposed elevations. The South elevation's WALL TYPE LEGEND reads 'EXT - Existing wall types as surveyed' as its first entry, distinct from the new build-ups 'WT-A1 Brickwork / Insulation / Stud' and 'WT-A2 Zinc standing seam / Insulation / Stud'. The top storey is called up WT-A2 and the one below WT-A1 - both STUD build-ups, i.e. new construction, matching the ITT's two added storeys. AND THE WINDOWS ON THOSE NEW STOREYS ARE TAGGED 'WE_2'. A window 'in an existing opening replaced as new' cannot sit in a new zinc-standing-seam-on-stud wall, and WE_2 also appears on the retained lower storeys - so the WE_/WN_ prefix is a SCHEDULE reference (52002 Replacement Windows carries WE_; 52003 New Windows carries WN_/WL_), not an opening-condition statement. The legend's wording is the architect's gloss and the drawing does not police it. CONSEQUENCE: my eighth-turn claim that WN_ asserts a new opening is withdrawn, and the ninth-turn 2-of-3 split no longer rests on the tag. THE BETTER INSTRUMENT IS THE WALL TYPE TAG - 'EXT' versus 'WT-*' is the architect's own distinction, called up on the elevation beside the window, and it answers both whether the opening is new AND what fabric it is cut into in a single read, without the demolition plan. FOR THE THREE AOVs THE CONDITION IS NOW SIMPLY NOT ESTABLISHED: no elevation in the pack tags WN_7, and the East, West and North proposed elevations carry NO window tags at all (479 words each vs the South's 975, confirmed on both pdfplumber and PyMuPDF). Someone must identify which facade each corridor vent sits on and read the wall type there - ten minutes, and a prerequisite to pricing the AOV openings."
-  },
-  {
-   "ref": "The drawings we priced from - 25 of the 82 in the tender pack",
-   "treatment": "GAP - the strip-out and new-opening scope is defined on drawings nobody priced from",
-   "evidence": "The loose job folder holds 25 of the 82 5244-ARK PDFs in the zip. The 57 never in front of us include EVERY floor Layout plan (10001 rev 07, 10002-10004 rev 06 - the most-revised drawings in the pack), EVERY Existing plan (10010-10012), ALL THREE DEMOLITION PLANS (10015 rev 05, 10016 rev 02, 10017 rev 01), all four Existing Elevations (21001-21004) and the Proposed Elevations (21005-21008). We held the SETTING OUT plans (11000-11003) and SETTING OUT elevations (21100-21110) instead - a different series. WHAT THE DEMOLITION PLANS SAY, AND IT BEARS ON THREE OPEN ITEMS: 'ALL WINDOWS TO BE REMOVED.' in the notes block of all three (so the RFI-9 strip-out scope is defined at last, against my 40-window / 62.457 m2 quantity); a demolition legend including 'NEW STRUCTURAL OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE.' (so which openings are new vs existing is marked here - the question left open about whether Adam's 'openings are newly formed' ruling transfers floor by floor); ground floor 'Section of the external wall is to be carefully demolished to allow for the installation of 2 NO. NEW DOUBLE DOORS' (very likely the unpriced 2no D_X pair at 2100 x 1800, giving them a location and a reason); first floor 'Curtain walling system (frames, glazing, and fixings) to be removed in sections' at terrace level, against an enquiry titled 'Windows, Rooflights & CURTAIN WALLING' and no curtain walling priced at all; and 'Demolish bay windows and associated brickwork' where no bay window type appears in our schedule. FAIRNESS ON SCOPE: these are demolition / main-contractor drawings - they also say 'Demolish entire external stair structure' and the roofs are to be fully demolished - so most of the content is not ours and I am not claiming it. The finding is that the window and curtain-wall removal scope and the new-opening marking live on drawings nobody who priced this job ever saw. EIGHTH TURN - READ THE ELEVATION CLASS AND IT PAID OUT FOUR TIMES. All 13 elevation sheets were absent from the job folder. On them: (1) the Windows Tags legend answering new-vs-existing at type level; (2) 'Door and Windows Note - All external doors, windows and curtain wall mullions in PPC Anthracite Grey RAL 7016', which ANSWERS RFI-4 and vindicates BSW's 7016 assumption; (3) 'CURTAIN WALL MULLIONS' named on the Proposed East and North elevations - a third independent pointer, alongside the enquiry title and the first-floor demolition plan's curtain-wall removal, to curtain walling being in the design and absent from our price; (4) independent confirmation that strip-out scopes to the WE_ types, i.e. exactly the 40 units / 62.457 m2 measured for RFI-9. AND A HAZARD IN THE ZIP: it holds SUPERSEDED revisions beside current ones - 21005/21006/21007 each at rev 02 AND rev 03, 21008 at rev 03, rev 03 (1) and rev 04 - and the new-vs-existing annotation exists ONLY on 21007 rev 03 (5,751 chars vs rev 02's 2,487). Reading the wrong revision would have hidden it."
-  },
-  {
-   "ref": "Demolition elevations - referenced by all three demolition plans, absent from the pack",
-   "treatment": "GAP - referenced document does not exist in the 82-drawing set",
-   "evidence": "All three demolition plans state 'THESE NOTES MUST BE READ TOGETHER WITH THE DEMOLITION ELEVATIONS TO CONFIRM HEIGHTS AND VERTICAL EXTENTS OF DEMOLITION.' No demolition elevation exists anywhere in the zip's 82 drawings - only the three plans (and their .dwg twins). So it is the FOURTH document this pack requires and does not contain, after the SAP Consultant's specification (NBS cl.330), the Edward Pearce Consulting Engineers specification (the schedules' thermal rating) and any tender addendum. Vertical extents of demolition matter to us because they determine head and cill positions on the openings we are glazing."
-  },
-  {
-   "ref": "Curtain walling - named on the Proposed East and North elevations, removed on the first floor demolition plan, in the enquiry title, priced nowhere",
-   "treatment": "GAP - neither priced nor excluded",
-   "evidence": "THREE INDEPENDENT POINTERS AND NO PRICE. (1) The enquiry zip is titled 'Gordon Court Windows, Rooflights & CURTAIN WALLING'. (2) First floor demolition plan 10016: 'Curtain walling system (frames, glazing, and fixings) to be removed in sections, ensuring controlled handling of glass' at the terrace level - so there is existing curtain walling coming out. (3) Proposed East elevation 21005 rev 03 and Proposed North elevation 21008 rev 04 both carry 'All external doors, windows and CURTAIN WALL MULLIONS in PPC Anthracite Grey RAL 7016' - so curtain walling is in the PROPOSED design too, not just the demolition. Our workbook has no CW line at all (the CW columns exist in the template but no row is coded CW), our proposal neither prices nor excludes it, and none of the three pointers was visible from the 25 drawings in the job folder - two of them are on sheets we never held. Quantity unknown: the elevations are at 1:100 and no curtain walling schedule exists in the pack."
-  },
-  {
-   "ref": "Whether the corridor AOVs are WALL vents or the ROOF-mounted AXS140 units - and whether the mechanical extract has taken the duty",
-   "treatment": "GAP - not resolvable from the documents, and it decides whether the clear-opening question exists at all",
-   "evidence": "riverside's question, live here. They found their AOV.01 may need a ROOF vent while A Plus had quoted a WALL casement on a subcill - the wrong product entirely. On Gordon Court: the NBS specifies TWO ROOF-MOUNTED units ('AXS140 STAIRWELL VENTILATOR... Roof mounted onto horizontal kerb... 1m2 geometric free area' and 'AXS140 LOBBY VENTILATOR... Roof mounted... 1.5m2 geometric free area') plus ONE WALL-MOUNTED unit ('COLTITE GLAZED LOBBY VENTILATOR (STAIR C)... mounted into prepared openings in the external wall'). The fire strategy legend states 'AOV. 1.5m2 clear opening area', which matches the ROOF-mounted lobby ventilator's figure. The roof plan carries two AOV plan annotations and the first floor one (a third instance sits at identical coordinates on both sheets, so that is the legend block). The smoke shafts that would have connected lower-level lobbies to a roof vent were OMITTED Oct 2025 and replaced by a mechanical extract duct. And our 3no WN_7 are WALL units, 910 x 2100, in corridors 1-1/1-2/1-3, tagged 'AOV' on the window schedule. WHICH DUTY WN_7 DISCHARGES IS THEREFORE UNKNOWN and it decides everything: against 0.4 m2 the units are comfortable (glass alone is 3.3x); against 1.5 m2 they are marginal at best and unprovably so; and if the mechanical extract has taken the duty they may be redundant like the 4no louvres. Needs the architect or fire engineer, not a supplier. THIS IS NOW THE MOST IMPORTANT OPEN QUESTION ON THE AOV PACKAGE."
-  },
-  {
-   "ref": "Untagged glazing on the elevations - riverside's check, NOT RUN",
-   "treatment": "GAP - run, and the answer is broader than untagged glazing",
-   "evidence": "riverside found their stair windows were the only glazing carrying no performance tag, which is probably why their vents were never scheduled, and suggested checking for untagged glazing that may not be in the schedule at all. On this pack the check is NOT executable by text extraction: only 21007 rev 03 yields any window tags (WE_1, WE_2, WN_3, WN_5 plus the WE_00/WN_00/WL_00 legend entries) and the other three proposed elevations return NONE, so the tags live in the CAD graphics layer rather than the text layer. It would need the four elevations rendered at high dpi and read visually. Cheap and worth doing - recorded as not done rather than reported as reconciled. TENTH TURN - RUN. Rendered the elevations at 110-260 dpi. The answer is broader than riverside's check anticipated: THREE OF THE FOUR PROPOSED ELEVATIONS CARRY NO WINDOW TAGS AT ALL. Only 21007 rev 03 (South) is annotated, with 975 words against 479 on each of East, West and North - and its 16 window-tag instances are WE_1, WE_2, WN_3, WN_5 plus the WE_00/WN_00/WL_00 legend entries. So the elevation set does not locate the window types: on three of four faces you cannot verify which opening is which, and no elevation anywhere tags WN_7 (the AOVs), WL_1 (the louvres) or the D_X doors."
-  },
-  {
-   "ref": "Existing wall build-up where openings are formed - cavity external walls, solid internal",
-   "treatment": "priced",
-   "evidence": "ANSWERED, and it was riverside's open limit on their own job. My architect's wall type legend defers - its first entry is 'EXT - Existing wall types as surveyed', which is not a build-up. The answer is in the STRUCTURAL engineer's folder: 'Gordon Court_2025-059_sk01&02 Brick & mortar sampling locations.pdf' (Elite Designers, 12/05/2025, ground and first floor) states 'Brick & mortar sampling in the internal SOLID wall. Brick & mortar sampling in CAVITY wall. Take samples from both the inner and outer leaves of the cavity wall. Restore sample points using matching materials.' So existing external walls are CAVITY with two leaves and internal walls are SOLID - which is what decides the lintel type, the fixing leaf and the cost of forming a new opening. The same folder holds GPR location drawings (sk05), a resin injection methodology (Teretek, referencing 'load for the new columns to be taken onto existing masonry at second floor level') and an Engineering & Workmanship Specification with 5.3 Cavity walls and 5.7 Lintels. TRANSFERABLE: when the architect's legend says 'as surveyed', the answer is usually in the structural engineer's investigation drawings, not the architect's set. Our own obligation is covered - the schedules require 'a FULL SITE MEASUREMENT SURVEY PRIOR TO PRODUCTION AND INSTALLATION' and the proposal includes Site Survey."
-  },
-  {
-   "ref": "Cavity closers, cavity trays and jamb DPCs at openings - NBS section F30",
-   "treatment": "excluded",
-   "evidence": "CHECKED AND CLEARED - NOT OUR SCOPE, recorded so nobody raises it later. On a cavity-wall refurbishment it is easy to assume the window supplier carries the closer. These are specified in NBS section F30 'Accessories/ sundry items for brick/block/stone walling' - a MASONRY section, so the bricklayer's: '180 Fire rated Cavity Closer (P) EWS-901' (ROCKWOOL, Euroclass A1, U-value 0.14 W/m2K); '370 Fire rated Cavity Trays (P) EWS-901' (METZ Non-Combustible EaZi-Fit A1, BBA 22/5997, soft zinc alloy, to fit cavity width 195 mm, 300mm high); '570 Installation of jamb dpcs at openings'; '485 Installation of cavity trays over openings' extending not less than 150 mm beyond lintel ends; and wall ties 'within 225 mm of reveals of unbonded openings'. ZERO mentions of cavity closers across all four BSW quotes, correctly so. Useful datum that falls out: the cavity is 195 mm wide."
-  },
-  {
-   "ref": "Who owns each open question - the design team from the title blocks",
-   "treatment": "priced",
-   "evidence": "NOT A PRICING ITEM BUT IT DECIDES WHETHER ANY OF THE OTHERS GET ANSWERED, so it is recorded here. Read off the title blocks: ARCHITECT Arkon Associates Ltd, job 5244, Luminous House, 300 South Row, Milton Keynes MK9 2FR, T +44 (1438) 359816, enquiries@arkonassociates.co.uk, drawn GM checked IJC/AB - author of the schedules, elevations, fire strategy AND the NBS. SERVICES/ENERGY/SAP Edward Pearce, project 22/190, Old School House, 35 Ewell Road, Surbiton KT6 6AF, 020 8390 6244. STRUCTURAL Elite Designers Ltd, job 2025-059, 'providing structural engineering consultancy services for the proposed building'. ELECTRICAL BSEC. HEATING Engdesign. EMPLOYER'S ADVISOR Vixus Property Advisory (darien.jay@vixus.co.uk, Delta portal). EMPLOYER jLiving - and the ITT says 'Please DO NOT contact jLiving directly'. SPECIFIED MANUFACTURER Colt International / Colt Group. AND THE GAP: NO FIRE ENGINEER, FIRE CONSULTANT, APPROVED INSPECTOR OR BUILDING CONTROL BODY IS NAMED ANYWHERE on the five fire strategy drawings - only 'Arkon' x5 per sheet and 'fire officer' x1, inside the revision note 'Updated to suit fire officers comments' (09.10.2025). So the fire strategy is the architect's own and the AOV question goes to Arkon with the fire officer as arbiter, since their comments deleted the smoke shafts. ROUTING, because most of my RFIs were addressed to 'Chigwell' when they are DESIGN questions: Arkon own D_T, D_X, manifestation extent, the AOV wall-or-roof question and the rooflight/Colt scope boundary; Edward Pearce own the SAP calculations; Elite Designers own the wall build-up; Chigwell own strip-out allocation, the Section 2 caveats and the GBP 723.87 addendum. We cannot approach Arkon directly - the route is via Chigwell - but naming the author, job number and sheet lets Chigwell forward each question in one step instead of working out who owns it. FOURTEENTH TURN CORRECTION, from riverside's sharpened test (is each hit a TITLE BLOCK or a NOTE?): TWO ENTRIES IN THIS TABLE WERE WRONG. BSEC and Engdesign appear ONLY in architect's schedule note text ('REFER TO BSEC ELECTRICAL LAYOUTS FOR DETAILED DESIGN', 'REFER TO ENGDESIGN DRAWINGS FOR DETAILED HEATING LAYOUTS') and authored NOTHING in the pack. Both the 140-page mech spec and the 127-page electrical spec carry EDWARD PEARCE / EDWARD PEARCE LLP title blocks (Old School House, 35 Ewell Road, Surbiton KT6 6AF, Tel 020 8390 6244, Fax 020 8390 1329) with ZERO hits for BSEC or Engdesign. So the architect's schedules refer the reader to two firms whose work is nowhere in the pack while the actual M&E design is by a third. Likeliest reading: BSEC and Engdesign were superseded by Edward Pearce and the schedule notes were never updated - and those schedules are the 08.09.2025 revision '-' sheets that have never been revised, so this is a SECOND INDEPENDENT SYMPTOM of the staleness that hid the smoke-shaft omission. Anyone chasing 'BSEC electrical layouts' is chasing a firm that may not be on the job."
-  },
-  {
-   "ref": "What the 18 standing findings are worth - priced, benchmark, or unpriceable",
-   "treatment": "GAP - 8 of 12 money items have no rate anywhere in the system",
-   "evidence": "TWELVE of the 18 standing findings carry money and only TWO can be totalled. HARD: AFS extras GBP 506.37 + BSW 'PANEL SET UP' GBP 217.50 = GBP 723.87. POSSIBLE CREDIT: 4no WL_1 louvres to a deleted smoke shaft, -GBP 6,452.40 sell / -GBP 4,502.40 cost. BENCHMARK ONLY, one data point each: D_X x2 ~GBP 5,600 sell + ~GBP 1,000 install; AOV actuators ~GBP 4,988-5,667 supply. QUANTIFIED BUT UNPRICEABLE: manifestation 15.002 linear m; strip-out 62.457 m2 over 40 units; trickle vent upgrade 4000->8000mm2 on 124 windows; acoustic trickle vents on 26 of 40 replacement windows (new-window count not done); intumescent perimeter seal on 3 fire doors; PAS 24 on 124 windows; curtain walling quantity unknown; carriage on 227 units. THE REASON IS STRUCTURAL: verified at source that of data/supplier-rates.json's 80 categories, ZERO carry acoustic, trickle vent, Linkvent, Passivent, curtain walling, actuator, AOV, strip-out, disposal, manifestation or intumescent. Eight of the twelve sit in categories the register does not have, so there is nothing to benchmark and inventing a rate would turn a TBC into an indefensible number. BUT EIGHT ARE ANSWERABLE IN ONE ROUND AND DO NOT WAIT FOR jLIVING, because they are SUPPLIER questions: one RFQ to BSW (8000mm2 trickle vents, Passivent AL-dB 450 acoustic vents, PAS 24 with cl.205 submittals, manifestation 15.002 lin m, curtain walling price or confirmation, delivery basis, plus the whole-window Uw against Edward Pearce's 1.10) and one RFQ to AFS (intumescent seal per NBS L10 cl.790, and the RAL 7016 matt / RAL 9010 gloss dual finish). Raised as REQ-26. Mary cannot send them - ghost protocol plus the 403 on mary_send - so a human must issue both. FIFTEENTH TURN - TWO UPDATES. (1) CORRECTION: curtain walling is NOT unpriceable. scripts/mary_pricing.py carries a standing house convention, CW_SUPPLY_M2 = 850.0 and CW_LABOUR_M2 = 150.0 ('curtain walling convention: GBP850/m2 supply + GBP150/m2 labour [Greenfields, 22/07/2026]'). It has a RATE but no QUANTITY - the elevations are 1:100 and no curtain walling schedule exists - which is the opposite problem from the other seven and changes who to ask: an AREA from Arkon, not a price from BSW. Corrected shape: 2 hard, 1 possible credit, 2 benchmark-only, 1 rate-but-no-quantity, 7 unpriceable. Note also that external mastic DOES have a house rate (workbook template, GBP 5/linear m, already carried as the GBP 5,622.81 optional) but that is WEATHER mastic and does not help the intumescent seal, which is a different and dearer product. (2) THE RFQs HAVE A DEADLINE OF NINE DAYS: BSW's four quotes lapse 06/08/2026 and AFS's 08/08/2026. An RFQ landing before then is an addendum to a live quote - same job, same schedule, same rates, they add lines. After, both come back as fresh quotes at autumn rates with no anchor. This does NOT reopen Adam's REQ-20 decision: he accepted inflation risk on the GBP 201,086.70 that already has a price, not on eight items that do not."
-  },
-  {
-   "ref": "Dimensional discrepancies between supplier quotes and the architect's schedules - six of them",
-   "treatment": "GAP - survey items, qualified by our own T&Cs but not eliminated",
-   "evidence": "FOUND WHILE WITHDRAWING THE 'NO SUPPLIER QUOTE' FINDING, and this is what is actually there. Comparing every BSW and AFS overall size against the schedule's structural opening: WN_4 - workbook and schedule 1360 x 1656, BSW quote 1360 x 1935: +279mm HEIGHT. WL_1 (x4) - schedule 1210 x 2100, BSW 1307 x 2197: +97mm in BOTH directions, which a cill does not explain because a cill only adds height. A frame 97mm bigger than the hole does not go in. D_B 1055 - schedule 1055 x 1750, BSW 1055 x 1720: -30mm height. D_E - schedule 1500 x 2100 single door, BSW split into 500 x 2100 casement + 1055 x 2085 door = 1555 combined: +55mm width. D_U - schedule 1405 x 2170, BSW split into 500 x 2100 + 1000 x 2085 = 1500 x 2100 combined: +95mm width and -70mm height. D_T - schedule 1600 x 2110, AFS Q7585 1600 x 2210: +100mm height (already recorded). SIX DISCREPANCIES ACROSS TWO SUPPLIERS. riverside's find qualifies them but does not remove them: our own Terms and Conditions say 'All quotations are subject to final site survey and measurement verification', and the architect's schedules independently require 'A FULL SITE MEASUREMENT SURVEY PRIOR TO PRODUCTION AND INSTALLATION' and state 'NO FABRICATION SHALL PROCEED BASED SOLELY ON DRAWING DIMENSIONS'. So these are survey items rather than pricing errors PROVIDED the survey happens before fabrication - and our proposal does include Site Survey. But +279mm and +97mm in both axes are larger than a survey tolerance; they look like different units, not re-measures. Worth putting to BSW in the same RFQ as everything else. NOTE THE SPLIT-UNIT POINT SEPARATELY: BSW read D_E and D_U as door-plus-sidelight assemblies, which is a sensible reading of a schedule that marks sidelights - but nobody checked the combined width against the opening, and both are over."
-  },
-  {
-   "ref": "Proposal T&C clause 16 'Design Responsibility' - who owns each finding under our own terms",
-   "treatment": "priced",
-   "evidence": "NOT A PRICING ITEM BUT IT DECIDES HOW EVERY OTHER FINDING SHOULD BE RAISED. Verbatim from the issued proposal, Terms and Conditions clause 16: 'Fenster Glazing & Locks Ltd is not responsible for overall design intent, architectural suitability, or REGULATORY STRATEGY and relies on information, drawings, and specifications provided by the client or their professional team. RESPONSIBILITY IS LIMITED TO MEASUREMENT VERIFICATION, SUPPLY, AND INSTALLATION OF THE AGREED GLAZING SYSTEMS.' Present in both the .docx and the issued .pdf, which match at 15,708 and 15,893 characters - so no faithful-but-incomplete extraction problem of the kind riverside found on their cover letter. THE SORT IT PRODUCES: REGULATORY STRATEGY IS THEIRS AND WE RELY - which duty the AOVs serve (1.5m2 vs 0.4m2), whether the smoke-shaft omission removes the louvres, the 1.10 W/m2K and 0.36 g-value targets, PAS 24, the 8000mm2 trickle vent requirement, acoustic vents, and manifestation extent under Approved Doc K. EXPRESSLY OURS AND RETAINED BY THE SAME CLAUSE - measurement verification, which is every one of the six dimensional discrepancies, and supply of the agreed glazing systems, which is whether we quoted the specified product. IT IS NOT A GET-OUT, AND THE AOV SHOWS WHY IT SPLITS: 'is 1.5m2 the right duty and is the vent in a wall or a roof' is regulatory strategy and theirs, so the exposure is 'we relied and we asked'; but 'did we quote the specified product' is SUPPLY and ours, and BSW quoted a plain Prestige T&T and a plain casement where the NBS names a Colt motorised ventilator with a 24V actuator. Clause 16 does not touch that. Same split on thermal: the 1.10 target is theirs, obtaining a whole-window Uw from our supplier is ours. AND IT TIGHTENS THE DIMENSIONS RATHER THAN EXCUSING THEM: clause 2 makes the price 'subject to final site survey and measurement verification' and clause 16 says responsibility IS measurement verification - so the six discrepancies are ours twice over. The survey makes them FIXABLE, not somebody else's. PRACTICAL EFFECT: ours-to-fix items belong in the BSW and AFS RFQs (REQ-26); theirs items belong in the post-tender qualification to Chigwell, framed as reliance rather than as defects. Two documents, two tones."
-  }
- ],
- "supplier_quotes": [
-  {
-   "supplier": "BSW Window Solutions",
-   "ref": "QT252247 PVC",
-   "date": "2026-07-07",
-   "valid_until": "2026-08-06",
-   "used_net": true,
-   "value": 53543.9,
-   "note": "Liniar 70 uPVC windows. 'Total Nett Ex. VAT GBP 53,543.90', 'Net Price Includes Discounts'. Footer is BSW Window Solutions; the 'Bellview will not be held responsible' line is shared T&C boilerplate, so this is BSW and our records are right."
-  },
-  {
-   "supplier": "BSW Window Solutions",
-   "ref": "QT252248 PATIIOS",
-   "date": "2026-07-07",
-   "valid_until": "2026-08-06",
-   "used_net": true,
-   "value": 108275.95,
-   "note": "Alunet ESS47 2-rail and 3-rail sliding patio doors, 44 units. The single largest element on the job - 54% of BSW's cost and GBP 174,275.79 of sell."
-  },
-  {
-   "supplier": "BSW Window Solutions",
-   "ref": "QT252251 ALI DOORS",
-   "date": "2026-07-07",
-   "valid_until": "2026-08-06",
-   "used_net": true,
-   "value": 14099.81,
-   "note": "Sheerline external and communal doors D_B, D_C, D_D, D_E, D_U."
-  },
-  {
-   "supplier": "BSW Window Solutions",
-   "ref": "QT252257 AOV & LOUVRE",
-   "date": "2026-07-07",
-   "valid_until": "2026-08-06",
-   "used_net": true,
-   "value": 7085.76,
-   "note": "GBP 217.50 OF THIS WAS NEVER CARRIED. The quote is WN_7 GBP 2,365.86 + WL_1 GBP 4,502.40 = GBP 6,868.26, plus an Extras block 'PANEL SET UP 1no GBP 217.50 / Total Extras Value GBP 217.50' = GBP 7,085.76. The workbook carries only the two element figures. Same class as the AFS extras below and as Princess Beatrice's GBP 668.41."
-  },
-  {
-   "supplier": "Aluminium Fire Systems",
-   "ref": "Q7585",
-   "date": "2026-07-09",
-   "valid_until": "2026-08-08",
-   "used_net": true,
-   "value": 18298.94,
-   "note": "Aluprof MB-78EI, EI30, standard RAL, EI30 Clear DGU U=1.0, supply only, 3 positions - GBP 6,468.03 + GBP 6,026.47 + GBP 5,804.44 = GBP 18,298.94, adds up exactly and all three carried into the tender at cost + the GBP 1,500 house DAD adder. GBP 506.37 SITS OUTSIDE IT: p7 'Not included in quote above, can be added as optional extras' - Fixing Pack (screws, foam, packers, mastic) GBP 256.37 and Delivery GBP 250.00. Neither is anywhere in the workbook. The quote contradicts itself - the Specifics page says 'Logistics: Delivered' - but T&C 8.1 settles it AGAINST us: 'That price will be exclusive of all costs and charges of packaging, insurance and transport of the Goods, which will be itemised separately if applicable and invoiced to the Customer IN ADDITION to the price of the Goods.' So the GBP 250 is real. Lead time 8 weeks from order signature AND receipt of the 60% first payment; terms 60% with order / 40% before dispatch. ELEVENTH TURN - THE FIXING PACK MAY NOT SATISFY THE SPEC EVEN IF WE BUY IT. NBS L10 clause 790 'Fire-resisting frames' - in the WINDOWS section, so ours - requires 'Gap between back of frame and reveal: Completely fill with INTUMESCENT mastic or tape.' AFS describe the omitted GBP 256.37 fixing pack as 'screws, foam, packers, mastic' - ordinary mastic, not intumescent. Intumescent mastic or tape is a different product at a different price and it is a fire-rating requirement on the three EI30 doors, not a finish. So the GBP 506.37 omission is worse than a missing line item: the line item as described may not comply. Added to RFQ-2."
-  }
- ],
- "full_height_screens": [],
- "systems_specified": [
-  {
-   "system": "Liniar 70 uPVC",
-   "fabricator": "BSW Window Solutions (QT252247)",
-   "performance": {
-    "required": "Energy Statement: replacement external glazing to achieve 1.1 W/m2K. Schedules: g-value 0.36 or better; 8000mm2 trickle vents; PAS24 SBD.",
-    "capable": null,
-    "evidence": "NO WHOLE-WINDOW Uw IS STATED ANYWHERE ON THE QUOTE. The only thermal figure is a centre-pane glass Ug inside the make-up string - 'EcoPlus 1.0'. St Mary's rule: a centre-pane Ug is not a Uw. In a Liniar 70 frame a 1.0 centre pane will not by itself demonstrate 1.1 whole-window, but I cannot compute Uw from what is on file and have not invented one. Nobody has asked BSW for a Uw. Note the engine's Liniar -10% correction applies to this system."
-   }
-  },
-  {
-   "system": "Alunet ESS47 sliding patio (aluminium)",
-   "fabricator": "BSW Window Solutions (QT252248)",
-   "performance": {
-    "required": "Energy Statement 1.1 W/m2K external glazing; g-value 0.36; schedules' notes panel says PVC-U, which we have qualified",
-    "capable": null,
-    "evidence": "No U-value stated. Glass is '6.Lam / 16/ 6mmTuff Coolite SKN175ii' - solar control named, but a 16mm cavity with no gas fill and no warm edge named, in a 2-rail sliding patio frame, is the weakest thermal element on the job and it is 44 units. Sliding patio doors are a known thermal weak point. GBP 174,275.79 of sell rests on it."
-   }
-  },
-  {
-   "system": "Sheerline Prestige (aluminium windows, louvre, AOV, external doors)",
-   "fabricator": "BSW Window Solutions (QT252251, QT252257)",
-   "performance": {
-    "required": "Energy Statement 1.1 W/m2K; g-value 0.36; louvre free area per M&E",
-    "capable": null,
-    "evidence": "AOV WN_7 names 'Skn 176 6.8 Lami / 4 / 4mm Low E Tuff Black Warm Edge Sp 12mm' - solar, low-E and warm edge all named, the best-specified glass on the job - but still no Uw. Louvre LW_1 has no glazing line and no free area. Note the engine's Sheerline +10% correction applies."
-   }
-  },
-  {
-   "system": "Aluprof MB-78EI (EI30 fire doors)",
-   "fabricator": "Aluminium Fire Systems (Q7585)",
-   "performance": {
-    "required": "FD30S / EI30 per schedule 51001; Energy Statement 1.1 W/m2K on external glazing",
-    "capable": true,
-    "evidence": "THE ONLY ELEMENT ON THE JOB WITH A STATED U-VALUE. Q7585 specifies '2 Pcs. 6+15mm GLASSPROF EI30 Clear DGU U=1.0' and the Specifics page confirms EI30 with Certifire accreditation, Aluprof-tested glass. A fire-rated aluminium door reaching a stated 1.0 on the glass is the strongest performance evidence in the pack. Fire rating is satisfied: schedule requires FD30S, AFS supply EI30 which is the equivalent European classification."
-   }
-  }
- ],
- "finishes": [
-  {
-   "ref": "Liniar 70 uPVC windows - all 84 new + 40 replacement",
-   "specified_internal": "PVC-U white",
-   "specified_external": "dark grey to RAL XXX (TBC)",
-   "quoted_internal": "White",
-   "quoted_external": "Grey Foil On White (7016)",
-   "note": "PASSES the Georgie's rule. BSW quote 'Ext Colour: Grey Foil On White (7016)' plus 'Outer: 77mm Outer Frame Foil/Wt', '180mm Drop Nose Cill Foil/Whit', '28mm Sculptured Bead White' and separate internal and external Linkvents ('4000 External Linkvent Grey RAL 7016 / 4000 Internal Linkvent White'). Dual colour is genuinely in the price on both faces. ONE RESIDUAL: the architect left the external RAL as 'RAL XXX (TBC)' and BSW have chosen 7016 Anthracite. 7016 is a standard dark grey and a reasonable read, but it is the supplier's choice, not the architect's - confirm before order."
-  },
-  {
-   "ref": "Alunet patio doors - all 44",
-   "specified_internal": "PVC-U white",
-   "specified_external": "dark grey to RAL XXX (TBC)",
-   "quoted_internal": "(9016) White",
-   "quoted_external": "(7016) Grey",
-   "note": "PASSES on colour. 'Ext Colour: (7016) Grey / Int Colour: (9016) White' - dual colour priced. Material is aluminium not PVC-U, which is the conflict already qualified on the proposal."
-  },
-  {
-   "ref": "Sheerline aluminium - louvre LW_1, AOV WN_7, external doors D_B/D_C/D_D/D_E/D_U",
-   "specified_internal": "white internally",
-   "specified_external": "dark grey to RAL XXX (TBC)",
-   "quoted_internal": "9910HG Hipca White - G",
-   "quoted_external": "7016M Anthracite Grey - M",
-   "note": "PASSES. Both faces named explicitly on QT252257 and QT252251. Note the finish grades differ by face - M (matt) externally, HG (high gloss) internally - which is normal but worth confirming nobody expects matt both sides. SECOND TURN: NBS L20 clause 280 fixes the entrance-door finish as RAL 7016 MATT external / RAL 9010 GLOSS internal. BSW's '7016M Anthracite Grey - M' matches the external face exactly, including the matt. The internal face is quoted as Sheerline's own '9910HG Hipca White' where the NBS asks for RAL 9010 gloss - probably equivalent and the gloss level is right, but it is a different reference and worth confirming rather than assuming."
-  },
-  {
-   "ref": "Aluprof MB-78EI fire doors - 3no (AFS Q7585)",
-   "specified_internal": "RAL 9010 GLOSS (NBS L20 clause 280)",
-   "specified_external": "RAL 7016 MATT (NBS L20 clause 280)",
-   "quoted_internal": null,
-   "quoted_external": null,
-   "note": "STRONGER THAN LAST TURN - THE RAL IS NOT 'TBC', THE NBS FIXES IT. L20 clause 280 'Communal Main Entrance Door Type B' states 'Finish as delivered: Polyester powder-coated to BS EN 12206-1, colour RAL7016 MATT (EXTERNAL) & RAL9010 GLOSS (INTERNAL)'. So a dual finish with both RAL numbers and both gloss levels is specified outright. AFS state only 'Colour: Standard RAL' and 'Colours: Profiles: mat standard' - no RAL number, neither face. Dual colour on a fire door is a real cost and it is not in the GBP 18,298.94. The Georgie's Mercury failure exactly, now against an explicit specification rather than a TBC."
-  }
- ],
- "u_value": {
-  "required": "RESOLVED ON THE TWELFTH TURN. The chain is: the architect's schedules set no U-value and defer - 'MIN. THERMAL RATING: To Edward Pearce Consulting Engineers specification' - and EDWARD PEARCE WROTE THE ENERGY STATEMENT (title block: 'Edward Pearce, Old School House, 35 Ewell Road, Surbiton, Surrey KT6 6AF, Project No. 22/190, February 2025, Revision 02'). Project 22/190 is the same number as every M&E document in the pack - the 22190-M01..M32 and 22190-E01..E25 drawings, the 140-page mech spec, the 127-page electrical spec and the drainage spec - so Edward Pearce are the appointed services and energy consultant and the deferral points at a document we already hold. GOVERNING FIGURES: GLAZING 1.10 W/m2K. Edward Pearce's headline is 'The external glazing will be replaced or improved to achieve a U-value of 1.1 W/m2K' and their existing-to-proposed comparison tables show glazing 1.60 -> 1.10 in both scenarios, with the proposed new flats at 1.10 and Opaque Door 1.00. (An intermediate retained-flats specification table shows 1.40 with vision-element g-value 0.40; the headline and the comparison tables agree on 1.10, so 1.10 is the figure.) 1.10 is TIGHTER than NBS L10 cl.330's 'U-value maximum 1.2 W/m2K' and it governs because the schedules expressly defer thermal rating to Edward Pearce. G-VALUE 0.36. The architect's schedules state 'G-Value of 0.36 or better' DIRECTLY, against Edward Pearce's 0.40. A directly stated requirement beats a deferred one, so 0.36 governs the g-value while 1.10 governs the U-value. DOORS: NBS L20 cl.280's 1.2 W/m2K remains the door-specific figure. Edward Pearce's 'Opaque Door 1.00' does NOT apply to our three FD30 doors, because in SAP an opaque door is a solid door and ours are glazed (EI30 Clear DGU) - glazed doors sit under glazing at 1.10. Not claiming a 1.00 door requirement. STILL OUTSTANDING (RFI-7, narrowed): NBS cl.330 also defers g-value, frame factor and glazing details to a 'SAP Consultants specification'. Edward Pearce ARE the SAP consultant ('Design SAP 10 and IES VE', 'Baseline SAP and SBEM calculations', 'the SAP 10 methodology') but their own document says 'Full SAP calculations for each scenario and the GLA reporting spreadsheet will be submitted in a separate file' - so the calculations are expressly held separately and are not in the pack. That is a request to a named party for a document known to exist, not an unowned question.",
-  "basis": "per element",
-  "rejected_elements": [],
-  "note": "SM5 WEXHAM RULE APPLIED AND NOTHING IS REJECTED - deliberately. The Energy Statement's 1.1 is written as a general target for 'the external glazing' with no per-element or area-weighted wording, and there is no Uw stated on ANY of the four BSW quotes to test against it. I cannot compute the package average either, because a whole-window Uw exists for exactly one element on the job (the AFS fire doors' EI30 DGU at U=1.0, and that is a glass Ug too). St Mary's rule cuts both ways - do the arithmetic before you raise a finding OR drop it - and here the arithmetic cannot be done from what is on file. So the honest finding is not 'we fail 1.1', it is 'nothing on file demonstrates 1.1 and nobody has asked'. The open item is an RFI to BSW for whole-window Uw figures on the Liniar, Alunet and Sheerline elements, and confirmation of whose specification governs - the Energy Statement or Edward Pearce Consulting Engineers, whose spec the schedules defer to and which is NOT in the tender pack. SECOND TURN UPDATE - THE NBS NUMBERS CHANGE THE SHAPE OF THIS. Last turn the honest position was 'the schedules set no U-value at all', which made it look as though only the sustainability annex asked for anything - the exact escape route St Mary's warned about, where a client says the energy appendix does not apply to our package. It does not hold here: the NBS specification itself sets 1.2 W/m2K maximum on windows AND on communal entrance doors, so a thermal requirement exists in the governing technical document and does not depend on the Energy Statement at all. That is the St Mary's door-schedule lesson repeating - the requirement was in a third place nobody had opened. Still nothing to compute with: no BSW quote states a whole-window Uw, so nothing is rejected here either. The AFS fire doors are the only element with any stated figure (glass Ug 1.0) and even they carry no whole-door Ud against clause 280's 1.2. TWELFTH TURN: the deferral is resolved and the numbers are settled - 1.10 W/m2K glazing (Edward Pearce) and g-value 0.36 (architect). What has NOT changed is that no BSW quote states a whole-window Uw, so there is still nothing to test the 1.10 against; the requirement is now certain while our compliance remains unevidenced. RIVERSIDE'S DISTINCTION, WORTH KEEPING: a deferral to a NAMED, APPOINTED consultant whose other work is in the pack is an ADMINISTRATIVE gap - ask for the document. A deferral to nobody (their job names no structural engineer at all) is a DESIGN gap. Same wording on the drawing, entirely different problem, and only the second should stop you pricing."
- },
- "supplier_coverage": [
-  {
-   "ref": "LW_1 louvre",
-   "qty_sold": 4,
-   "qty_quoted": 4,
-   "supplier_ref": "BSW QT252257"
-  },
-  {
-   "ref": "WN_7 AOV",
-   "qty_sold": 3,
-   "qty_quoted": 3,
-   "supplier_ref": "BSW QT252257"
-  },
-  {
-   "ref": "WN_1",
-   "qty_sold": 11,
-   "qty_quoted": 11,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WN_2",
-   "qty_sold": 7,
-   "qty_quoted": 7,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WN_3",
-   "qty_sold": 34,
-   "qty_quoted": 34,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WN_4",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247",
-   "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 1360 x 1935, Qty 1, Foil/Wt Casement, Location WN 4, GBP 521.69"
-  },
-  {
-   "ref": "WN_5",
-   "qty_sold": 6,
-   "qty_quoted": 6,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WN_6",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247",
-   "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 2710 x 1650, Qty 1, Foil/Wt Casement, Location WN6, GBP 911.25"
-  },
-  {
-   "ref": "WN_8",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247",
-   "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 910 x 1350, Qty 1, Foil/Wt Casement, Location WN 8, GBP 297.26"
-  },
-  {
-   "ref": "WN_9",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247",
-   "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 1136 x 1350, Qty 1, Foil/Wt Casement, Location WN 9, GBP 472.89"
-  },
-  {
-   "ref": "WN_10",
-   "qty_sold": 12,
-   "qty_quoted": 12,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WN_11",
-   "qty_sold": 3,
-   "qty_quoted": 3,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_1",
-   "qty_sold": 3,
-   "qty_quoted": 3,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_2",
-   "qty_sold": 7,
-   "qty_quoted": 7,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_3",
-   "qty_sold": 10,
-   "qty_quoted": 10,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_4",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_5",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_6",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_7",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_8",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_9",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_10",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_11",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_12",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_13",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_14",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_15",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_16",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "WE_17",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252247"
-  },
-  {
-   "ref": "PD_A",
-   "qty_sold": 3,
-   "qty_quoted": 3,
-   "supplier_ref": "BSW QT252248"
-  },
-  {
-   "ref": "PD_B",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252248"
-  },
-  {
-   "ref": "PD_C",
-   "qty_sold": 38,
-   "qty_quoted": 38,
-   "supplier_ref": "BSW QT252248"
-  },
-  {
-   "ref": "PD_I",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252248"
-  },
-  {
-   "ref": "D_B 1040 x 1720",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252251"
-  },
-  {
-   "ref": "D_B 970 x 1760",
-   "qty_sold": 3,
-   "qty_quoted": 3,
-   "supplier_ref": "BSW QT252251"
-  },
-  {
-   "ref": "D_B 1055 x 1750",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252251",
-   "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 1055 x 1720, Qty 1, Prestige Open In Door, GBP 843.71"
-  },
-  {
-   "ref": "D_C 1510 x 2110",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252251"
-  },
-  {
-   "ref": "D_D 1010 x 2110",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT252251"
-  },
-  {
-   "ref": "D_E 1500 x 2100",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252251",
-   "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. SPLIT ACROSS TWO LINES: 500 x 2100 Prestige Casement GBP 401.12 + 1055 x 2085 Prestige Open Out Door GBP 878.58 = GBP 1,279.70 exactly"
-  },
-  {
-   "ref": "D_U 1405 x 2170",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT252251",
-   "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. SPLIT ACROSS TWO LINES: 500 x 2100 Prestige Casement GBP 401.12 + 1000 x 2085 Prestige Open Out Door GBP 870.27 = GBP 1,271.39 exactly"
-  },
-  {
-   "ref": "D_A 2326 x 2085",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "AFS Q7585 pos 001"
-  },
-  {
-   "ref": "D_A 1750 x 2238",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "AFS Q7585 pos 002"
-  },
-  {
-   "ref": "D_T 1600 x 2210",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "AFS Q7585 pos 003"
-  }
- ],
- "price_commitment": {
-  "source": "jLiving Form of Tender 2025_jL_GCourt_FoT_V1, inside the tender zip: 'This tender remains open for consideration for a period of 180 days from the date of receipt of tenders.' Tender receipt was 22/07/2026 @ 1400 per the ITT 2025_jL_GCourt_ITT_V8 timetable. The contract is NEC3 ECC April 2013 Option A, priced contract with activity schedule, executed as a DEED, and the ITT invites a 'lump sum, firm priced tender'. The same Form of Tender commits to 'commence the works within 4 weeks following signing of the contract'.",
-  "our_price_open_until": "2027-01-18",
-  "note": "jLiving's full timetable: ITT issued 02/06/2026, tender return 22/07/2026 @ 1400, bidder presentations 02/09/2026, tender award announcement 16/09/2026, standstill (min 10 days) 30/09/2026, contract award mid-October 2026, Go Live 30/10/2026. So the earliest realistic order date is ~11 weeks after every supplier quote behind our number has lapsed, and AFS's 8-week lead time runs from order signature AND receipt of their 60% payment, putting the fire doors on site around January 2027. SIXTEENTH TURN - QUALIFIED BY OUR OWN TERMS. Page 8 of the issued proposal: '2. Quotation Validity - All quotations provided by Fenster Glazing & Locks Ltd are VALID FOR 30 DAYS FROM THE DATE OF ISSUE, unless agreed otherwise.' Issued 09/07, so on our own terms the price expired 08/08/2026. WE ARE NOT A PARTY TO jLIVING'S FORM OF TENDER - Chigwell signed it; our contract is with Chigwell and our document says 30 days. Commercially Chigwell priced our number into a bid committed for 180 days and will expect us to honour it, and a subcontractor's validity clause is routinely overridden by an order, so this is a negotiating position rather than a shield - but the 163-day exposure is QUALIFIED rather than absolute, and Adam did not have that when he decided REQ-20. It also makes RFI-11 sharper: if our terms went up with Chigwell's Section 2 caveats the clause is visible to jLiving; if not, Chigwell absorbed it silently. AND THE THREE DATES: 07/07/2026 was the last date we could have issued and still been covered by BSW (their 06/08 minus our 30 days) - we issued 09/07, so WE WERE NEVER COVERED; 06/08 and 08/08 are the dates we can no longer ask either supplier cheaply; 08/08 is when our own price expires. After 08/08 nothing on this job is held by anybody."
- },
- "delivery_terms": [
-  {
-   "supplier": "BSW Window Solutions",
-   "ref": "QT252247 / QT252248 / QT252251 / QT252257",
-   "order_value": 183005.42,
-   "free_delivery_threshold": "never",
-   "delivery_priced": false,
-   "note": "EVERY BSW QUOTE SAYS EX WORKS: 'All estimates are ex works, additional delivery charges may apply.' No threshold and no distance rule is stated, so unlike A Plus on Riverside there is no figure to test GBP 183,005.42 against - carriage is simply unpriced. Note also the Delivery Address on all four quotes is FENSTER'S OWN YARD (98 Alston Drive, Bradwell Abbey, Milton Keynes MK13 9HF), not the site, so carriage from Milton Keynes to Edgware HA8 on 227 units is ours as well. The workbook carries no carriage line at all - install (GBP 46,840) is pure per-unit labour codes. Ask BSW for their delivery basis and threshold in writing.",
-   "charge_basis": "'All estimates are ex works, additional delivery charges may apply' - no rate, no threshold and no distance rule stated on any of the four quotes"
-  },
-  {
-   "supplier": "Aluminium Fire Systems",
-   "ref": "Q7585",
-   "order_value": 18298.94,
-   "free_delivery_threshold": "never",
-   "delivery_priced": false,
-   "note": "DELIVERY IS A PRICED EXTRA OF GBP 250.00 ON p7 AND IS NOT IN THE TENDER - already recorded under supplier_quotes. The quote contradicts itself: its Specifics page says 'Logistics: Delivered' while p7 prices delivery as an optional extra. T&C 8.1 settles it against us - price is 'exclusive of all costs and charges of packaging, insurance and transport of the Goods, which will be itemised separately if applicable and invoiced to the Customer in addition'. Delivery Location is again Fenster's own MK13 9HF yard, not site.",
-   "charge_basis": "Q7585 p7 optional extra 'Delivery 1 Pcs GBP 250.00'; T&C 8.1 puts packaging, insurance and transport on the Customer 'in addition'"
-  }
- ]
+  "job": "Gordon Court, Stonegrove Edgware (Chigwell Group)",
+  "created": "2026-07-27",
+  "_note": "RETRO-CHECK of the tender ALREADY ISSUED 09/07/2026 at GBP 368,376.70 ex VAT. Sources, all read this session: internal workbook 'Chigwell Group - Gordon Court Pricing DO NOT SEND.xlsx'; client twin '...Pricing.xlsx'; 'Chigwell Group - Gordon Court Proposal.pdf'; AFS Q7585 (16pp); BSW QT252247 PVC / QT252248 PATIIOS / QT252251 ALI DOORS / QT252257 AOV & LOUVRE; architect's schedules 5244-ARK-51001, 51002, 52001, 52002, 52003; and the tender pack inside 'Gordon Court Windows, Rooflights & Curtain Walling.zip' - jLiving ITT V8, Form of Tender, Energy Statement, NBS spec 9001 (186pp). Nothing below is estimated; where a figure could not be sourced it is stated as unknown. SECOND TURN 27/07 evening, prompted by riverside's AOV free-area handoff: added the NBS specification's own requirements (L10 cl.330 Windows, L10 cl.205 certification, L20 cl.280 Communal Main Entrance Door, L20 cl.630 Colt smoke ventilation) and delivery_terms per riverside's new rule. THIRD TURN 27/07 late: Adam answered REQ-20 (hold the price, carry the risk). Rendered the scanned 'Q&As' file - it is a Delta portal screenshot with one item, no clarifications, so the clarification window closed ~15/07 and every open RFI is now post-tender. Applied Adam's REQ-17 rulings (access / strip-out / manifestation) to this job. FIFTH TURN 27/07 late: checked the waste clauses per st-marys' Prelims C warning - Gordon Court has no named landfill, no SWMP-with-tender, no waste carrier licence and no discounted-from-consideration penalty, so strip-out here is purely commercial. Sharpened the actor test: NEC3 Contract Data names the Employer as jLiving and leaves 'The Contractor is Name: ____' blank for the tenderer, so both 'Main (Principal) Contractor' and bare 'The Contractor' in the Works Information mean Chigwell. SIXTH TURN 27/07 late, from riverside's compliance-route rule: read the fire strategy revision tables and found the SMOKE SHAFTS WERE OMITTED 09.10.2025 per fire officer comments, replaced by a mechanical extract duct. The window schedules that sell us the 4no smoke-shaft louvres are dated 08.09.2025 and have NEVER been revised; the fire strategy is at rev 04-06 dated 17.02.2026. Also fixed the hub deadline field, which carried AFS's quote expiry rather than a client date. SEVENTH TURN 27/07 late, from riverside's aperture refinement: CORRECTED my own clear-opening arithmetic - the gross frame is the wrong denominator, and on the aperture WN_7 is MARGINAL (glass 1.3055 m2 = 87% of the 1.5 m2 duty; frame aperture ~1.49 m2 = 99.3%) rather than clearly incapable. Also found we priced from 25 of the 82 architect's drawings - the 57 missing include all three demolition plans, all existing plans and all existing/proposed elevations. EIGHTH TURN 27/07 late: accepted riverside's caveat that an inferred aperture is an estimate - quantified it, a +/-5mm change in assumed section swings WN_7 from 103.0% to 94.0% of the duty, so the inferred aperture cannot distinguish pass from fail and only BSW can state the clear opening. Then read the 13 elevation sheets we never held: the Windows Tags legend on 21007 rev 03 reads 'WE_00 Windows in EXISTING openings replaced as new / WN_00 Windows in NEW openings / WL_00 Louvres to smoke shaft', which answers the new-vs-existing question at type level and means WN_7 (the AOVs) sits in NEW openings. NINTH TURN 27/07 late, from riverside's per-vent split: re-checked the three AOVs individually rather than resting on the type prefix. All three are WN_ (new opening) but WN_7 @ level 1 is a new opening cut into RETAINED fabric (10016 rev 02: 'Retained wall to be assessed on site', new brick slips to facade) while levels 2-3 are in the two added storeys. So Adam's ruling applies cleanly to 2 of 3. Also: whether WN_7 discharges the 1.5m2 AOV duty, the 0.4m2 NSHEV duty or none (mechanical extract) is NOT resolvable from the documents - the NBS's 1.5m2 unit is ROOF-mounted. TENTH TURN 27/07 late: rendered the proposed elevations (the job I had logged as outstanding) and WITHDREW the basis of my own last two answers. The South elevation's WALL TYPE LEGEND distinguishes 'EXT - Existing wall types as surveyed' from new build-ups (WT-A1 Brickwork/Insulation/Stud, WT-A2 Zinc standing seam/Insulation/Stud), and the top two storeys are called up WT-A2 and WT-A1 - new construction - yet the windows on them are tagged WE_2. So the WE_/WN_ prefix is NOT a reliable opening-condition statement, it is a schedule reference (52002 Replacement vs 52003 New). READ THE WALL TYPE TAG INSTEAD - it answers new-vs-existing AND the fabric in one read. Three of the four proposed elevations carry no window tags at all. ELEVENTH TURN 27/07 late, from riverside's limit ('knowing a wall is existing is not the same as knowing you can cut it'): the existing build-up IS in the pack, in the STRUCTURAL folder not the architect's - 'Brick & mortar sampling in the internal SOLID wall... in CAVITY wall. Take samples from both the inner and outer leaves' (Elite Designers sk01/sk02, 12/05/2025). Also established that cavity closers/trays/jamb DPCs sit in NBS F30 masonry, NOT our scope - cleared; and that NBS L10 cl.790 requires INTUMESCENT mastic or tape to the fire-door frame/reveal gap, which AFS's omitted 'foam, packers, mastic' fixing pack may not satisfy. TWELFTH TURN 27/07 late, from riverside's 'is the consultant even appointed' check: RFI-3 IS CLOSED. The Energy Statement's title block reads 'Edward Pearce, Old School House, 35 Ewell Road, Surbiton... Project No. 22/190' - the same project number as every M&E document in the pack (22190-M/E/PH drawings, 140pp mech spec, 127pp electrical spec). So the architect's deferral 'MIN. THERMAL RATING: To Edward Pearce Consulting Engineers specification' points at a document I have held since turn one. Governing figures: GLAZING 1.10 W/m2K (Edward Pearce, tighter than the NBS's 1.2) and g-value 0.36 (the architect's, stated directly, tighter than Edward Pearce's 0.40). THIRTEENTH TURN 28/07, from riverside's 'ask the author, not a consultant who may not exist': THERE IS NO FIRE ENGINEER on this job - across all five fire strategy drawings there is no fire engineer, fire consultant, approved inspector or building control body named, only 'Arkon' x5 per sheet and 'fire officer' x1 inside a revision note. So the fire strategy is the ARCHITECT'S own work, as is the NBS specifying the Colt units, and the AOV wall-or-roof question goes to ARKON (job 5244) with the fire officer as arbiter. REQ-22's 'ask the fire engineer' option corrected. Built an RFI routing table off the title blocks: Arkon 5244 own D_T, D_X, manifestation, the AOV question and the rooflight/Colt boundary; Edward Pearce 22/190 own the SAP calcs; Elite Designers Ltd 2025-059 own the wall build-up; Chigwell own strip-out allocation and the Section 2 caveats. FOURTEENTH TURN 28/07: ran riverside's title-block-versus-note test on my own routing table and TWO ENTRIES FAILED - BSEC (electrical) and Engdesign (heating) appear only in architect's schedule NOTES and authored nothing; both the mech and electrical specs carry EDWARD PEARCE LLP title blocks with zero BSEC/Engdesign hits. Likeliest reading: they were superseded by Edward Pearce and the never-revised 08.09.2025 schedules were not updated - a second independent symptom of the staleness that hid the smoke-shaft omission. Also classified all 12 money findings: GBP 723.87 hard, one possible GBP 6,452.40 credit, two single-point benchmarks, and EIGHT unpriceable because 0 of the register's 80 categories cover them. REQ-26 raised for two consolidated supplier RFQs, which do not need to wait for jLiving. FIFTEENTH TURN 28/07, from riverside's decaying-window arithmetic: REQ-26's two supplier RFQs have NINE DAYS - BSW's quotes lapse 06/08 and AFS's 08/08, and an RFQ landing before then is an addendum to a live quote while one landing after is a fresh enquiry at autumn rates. Does NOT reopen Adam's REQ-20 decision, which was taken on scope that already has a price. ALSO CORRECTED MYSELF: curtain walling is NOT unpriceable - mary_pricing.py carries CW_SUPPLY_M2 850.0 / CW_LABOUR_M2 150.0 - it has a RATE but no QUANTITY, so it needs an AREA from Arkon rather than a price from BSW. Seven items remain genuinely unpriceable. SIXTEENTH TURN 28/07: OUR OWN PROPOSAL CARRIES A 30-DAY VALIDITY - page 8, '2. Quotation Validity - All quotations provided by Fenster Glazing & Locks Ltd are valid for 30 days from the date of issue, unless agreed otherwise.' So the GBP 368,376.70 expired on our terms 08/08/2026 while jLiving's Form of Tender holds the TENDER to 18/01/2027 - and we are NOT a party to that Form of Tender. The 163-day exposure is QUALIFIED, not absolute. Does not reopen REQ-20. Also ran riverside's rate-vs-quantity sort over the EXCLUSIONS list and found three doing work they should not: Fire Stopping conflicts with NBS L10 cl.790's intumescent seal, Testing does not cover cl.205 certification submittals, and Site Storage asserts site delivery no quote supports. SEVENTEENTH TURN 28/07 - WITHDRAWING A TURN-ONE FINDING. I reported GBP 5,597.89 of cost across 7 lines as having 'no supplier quote behind it'. ALL SEVEN ARE QUOTED, at exactly the workbook costs. My test was the workbook's R column, a partially-filled working column, rather than the quotes themselves. WN_4, WN_6, WN_8 and WN_9 are all priced lines on QT252247; D_B 1055 is on QT252251 at 1720 rather than 1750 high; and D_E and D_U are each SPLIT ACROSS TWO BSW LINES (casement + door) summing to the workbook figure to the penny. What is real, and what I found while checking, is SIX DIMENSIONAL DISCREPANCIES between quotes and schedules. EIGHTEENTH TURN 28/07: found T&C clause 16 in our own issued proposal, never quoted in eighteen turns - 'Fenster Glazing & Locks Ltd is not responsible for overall design intent, architectural suitability, or REGULATORY STRATEGY and relies on information, drawings, and specifications provided by the client or their professional team. Responsibility is limited to MEASUREMENT VERIFICATION, SUPPLY, and INSTALLATION of the agreed glazing systems.' It sorts the findings a third way - regulatory questions are theirs and we rely; measurement and supply are expressly OURS. So the AOV splits: which duty applies is theirs, whether we quoted the specified product is ours. And it TIGHTENS the six dimensional discrepancies rather than excusing them. Also checked the proposal docx against the issued pdf - they match, no faithful-but-incomplete problem.",
+  "coupled_runs": [],
+  "doors": [
+    {
+      "ref": "D_A 2326 x 2085 (1no, AFS Q7585 pos 001)",
+      "fire_exit": true,
+      "panic_hardware_priced": true,
+      "evidence": "Q7585 pos 001 hardware: WILKA Panic door shootbolt guide - top AND bottom, WILKA Rod latch/Top rod/Round rod, FUHR 3-point automatic lock 833, GEZE TS 5000 + TS 4000 closers. Schedule 51001 gives D_A no ironmongery code, so the panic set is AFS's own default - but it IS priced."
+    },
+    {
+      "ref": "D_A 1750 x 2238 GR316 Entrance (1no, AFS Q7585 pos 002)",
+      "fire_exit": true,
+      "panic_hardware_priced": true,
+      "evidence": "Same hardware schedule as pos 001. This is the one D_A row the architect gives a room to: GR316 Entrance."
+    },
+    {
+      "ref": "D_T 1600 x 2210 as quoted (1no, AFS Q7585 pos 003)",
+      "fire_exit": true,
+      "panic_hardware_priced": true,
+      "evidence": "Same hardware schedule. SEE quantities/spec_items - this door's SIZE, LEAF COUNT and whether it is external at all are all unresolved against schedule 51001."
+    },
+    {
+      "ref": "D_B (6no), D_C (2no), D_D (2no), D_E (1no), D_U (1no) - BSW QT252251 ALI DOORS, Sheerline",
+      "fire_exit": false,
+      "panic_hardware_priced": true,
+      "evidence": "Not marked fire escape on schedule 51001 (D_B/D_C/D_E/D_U carry no fire rating; D_D carries FD30 on the interleaved read but no escape marking). Balcony, plant room and stair external doors. No panic hardware requirement identified in the schedule and none quoted."
+    }
+  ],
+  "frame_supply": "glazed",
+  "glass_order": {},
+  "quantities": [
+    {
+      "ref": "Patio and green roof doors, schedule 5244-ARK-51002",
+      "bill_qty": 44,
+      "drawing_qty": 44,
+      "note": "Workbook PD_A 3 + PD_B 1 + PD_C 38 + PD_I 2 = 44. Schedule states 'Grand total: 44'. Exact."
+    },
+    {
+      "ref": "Replacement windows, schedule 5244-ARK-52002",
+      "bill_qty": 40,
+      "drawing_qty": 40,
+      "note": "Workbook WE_1..WE_17 = 40. Schedule states 'Grand total: 40'. Exact."
+    },
+    {
+      "ref": "New windows / louvre / AOV, schedule 5244-ARK-52003",
+      "bill_qty": 84,
+      "drawing_qty": 84,
+      "note": "Workbook LW_1 4 + WN_7 3 + WN_1 11 + WN_2 7 + WN_3 34 + WN_4 1 + WN_5 6 + WN_6 1 + WN_8 1 + WN_9 1 + WN_10 12 + WN_11 3 = 84. Schedule states 'Grand total: 84'. Exact."
+    },
+    {
+      "ref": "External and communal doors, schedule 5244-ARK-51001 - D_X 2no NOT PRICED",
+      "bill_qty": 17,
+      "drawing_qty": 15,
+      "note": "SCOPE GAP. Schedule 51001's own per-type count cells are D_A 2, D_B 6, D_C 2, D_D 2, D_E 1, D_G 24, D_H 42, D_I 21, D_J 4, D_L 1, D_O 1, D_P 2, D_Q 1, D_R 3, D_T 1, D_U 1, D_X 2 - which sums to exactly the 116 the drawing states as its Grand total, so the counts are the drawing's own and not an extraction artefact. Stripping the 99 internal doors (D_G, D_H, D_I, D_J, D_L, D_O, D_P, D_Q, D_R - correctly left to the joinery package) leaves 17 non-internal doors. We priced 15: D_A 2, D_B 6, D_C 2, D_D 2, D_E 1, D_U 1, D_T 1. D_X - 2no, Level 0, structural 2100 high x 1800 wide - is on the External and Communal Door Schedule and is priced NOWHERE in the workbook. Every descriptive cell on both D_X rows is blank: no leaf count, no internal/external, no fire rating, no ironmongery, no room number. It is the last type on the sheet, which is consistent with an unfinished architect's entry, but it is 1800mm wide and it is in the external door schedule. Nearest priced comparator is D_E (1500 x 2100, DAD) at GBP 2,779.70 sell each, so the order of magnitude is roughly GBP 5,600 of sell plus GBP 1,000 of install - BENCHMARK ONLY, there is no supplier price for D_X and no RFI has been raised on it."
+    }
+  ],
+  "spec_items": [
+    {
+      "ref": "40no replacement windows, 84no new windows/louvre/AOV, 44no patio-green roof doors, 15no external/communal doors",
+      "treatment": "priced",
+      "evidence": "Workbook rows 10-59, GBP 368,376.70 including GBP 46,840 install."
+    },
+    {
+      "ref": "Installation of the 3 FD30 doors within the global GBP 46,840",
+      "treatment": "priced",
+      "evidence": "CHECKED AND CLEARED. I61 is =SUMPRODUCT(F*N)+SUMPRODUCT(F*code value) with DAD=500, SAD=250, PVC/LAW/MAW=160. Rows 57-59 are all coded DAD, so they contribute 3 x GBP 500 = GBP 1,500. Recomputed the whole formula independently: GBP 46,840 exactly, matching I61. Triage's open question 4 is answered - install does cover them."
+    },
+    {
+      "ref": "Trickle ventilation - 8000mm2 minimum (general note on all five schedules 51001, 51002, 52001, 52002, 52003)",
+      "treatment": "GAP - priced at half the required area",
+      "evidence": "BSW quote '4000 External Linkvent Grey RAL 7016 / 4000 Internal Linkvent White' throughout QT252247 and QT252248. The note reads '8000mm2 min trickle vents UNLESS OTHERWISE SPECIFIED IN WINDOW SCHEDULE' - checked 52002 and 52003 and neither specifies a different AREA; what they specify is an Acoustic Trickle Vents yes/no column. So the 8000mm2 minimum stands and 4000mm2 is half of it."
+    },
+    {
+      "ref": "WN_7 (3no) marked 'AOV' and WL_1 (4no) 'Louvres to smoke shaft' on schedule 52003 - the smoke ventilation function itself",
+      "treatment": "GAP - quoted as ordinary windows, no AOV mechanism priced at all",
+      "evidence": "THE WHOLE OF QT252257 (GBP 7,085.76 cost, GBP 10,055.76 sell) IS THIS PACKAGE, AND NONE OF IT IS PRICED AS SMOKE-CONTROL EQUIPMENT. Schedule 5244-ARK-52003 carries the heading 'AOV SMOKE SHAFT LOUVRE' and the note 'WL_00 Louvres to smoke shaft'. WN_7 x3 sit at Corridor 1-1, 1-2 and 1-3 (levels 1-3), 2100 high x 910 wide, with 'AOV' in the additional-information column. WL_1 x4 sit at levels 0-3, 2100 x 1210. NBS 9001 L20 clause 630 specifies these as COLT PROPRIETARY SMOKE-CONTROL PRODUCTS, every one motorised: 'COLTITE GLAZED LOBBY VENTILATOR (STAIR C) - mounted into prepared openings in the external wall, Type CLT, double glazed with thermally broken glazing and outer frames, nominal size 1000mm wide x 2000mm high or equivalent, DRIVE OPEN/DRIVE CLOSE USING A 24V MOTOR MOUNTED TO THE REAR' (WN_7 at 910 x 2100 is that item's 'or equivalent'); and 'EN SEEFIRE LOUVRED NATURAL VENTILATOR - size to match shaft dimensions, clear opening louvred natural ventilator... DESIGNED AND TESTED TO EN 12101-2... the position of the louvres is controlled by a 24Vdc ELECTRIC ACTUATOR, driven closed by this actuator and opened by a spring'. BSW QUOTED NEITHER. QT252257 quotes 'Qty: 3 Prestige T&T' and 'Qty: 4 Prestige Casement' - ordinary Sheerline windows - and the quote contains ZERO occurrences of AOV, louvre, actuator, chain, stroke, motor, 24V or smoke. WL_1's Glazing line is BLANK and it carries no reinforcing. There is no actuator, no 24V motor, no fire-alarm interface, no control gear and no EN 12101-2 certification anywhere in the price. THE RATES CONFIRM IT: WN_7 is GBP 412.67/m2 over 5.733 m2 and WL_1 is GBP 442.98/m2 over 10.164 m2 - plain-window money. Riverside's only AOV data point (A Plus DualFrame 75Si bottom-hung glazed AOV, 850mm stroke single chain) is GBP 1,401.24/m2 supply, of which the actuator and AOV sash carry roughly GBP 870/m2. On that one point the 3no WN_7 alone are GBP 4,988 to GBP 5,667 of supply cost short. ONE QUOTE, A DIFFERENT SYSTEM, ORDER OF MAGNITUDE ONLY - riverside also confirmed there is no AOV or smoke-vent category anywhere in the rate register, so the 4no louvres cannot be benchmarked at all. Either these 7 units are ours and materially under-priced, or they belong to the smoke-vent specialist and GBP 10,055.76 of sell should come out - our proposal p3 names 'AOV windows, smoke shaft louvres' as part of the tender information and neither prices the function nor excludes it. SIXTH TURN - THE SHAPE OF THIS HAS CHANGED AND THE LOUVRE HALF MAY BE A CREDIT. Fire strategy 5244-ARK-14003 and 14004 rev 02 (09.10.2025) read 'Updated to suit fire officers comments... SMOKE SHAFT OMITTED', and 14005 rev 01 (09.10.2025) reads 'SMOKE SHAFTS OMITTED. MECHANICAL EXTRACT VENT ADDED'. Those sheets were revised three or four more times to rev 04-06 dated 17.02.2026 and the omission was never reversed - the current sheets note a 'Mechanical extract duct through lower ground floor ceiling void' and the only remaining 'Shaft' labels are 1.1-6.2 m2 service and cylinder risers. THE DATES SETTLE IT: window schedules 52001/52002/52003 are dated 08.09.2025 with revision '-' and have NEVER BEEN REVISED; the NBS is 23-08-2025; the shafts went 09.10.2025; the door schedule and fire strategy were updated 17.02.2026. So both documents that put the louvres in our scope predate the omission and neither was updated, while the documents that were updated show the shafts gone. 4no WL_1 at GBP 4,502.40 cost / GBP 6,452.40 sell are scheduled against a shaft deleted five months before the tender was issued - either redundant, or serving the replacement mechanical extract and nobody has said so. AND A SECOND, INDEPENDENT PROBLEM WITH THE 3 AOVs: the current fire strategy legend states the duty as 'AOV. 1.5m2 CLEAR OPENING AREA' (and separately 'SV. NSHEV. 0.4m2 clear opening area minimum'). WN_7 is 910 x 2100 = 1.911 m2 GROSS FRAME, so a 1.5 m2 clear opening would have to be 78.5% of gross - unachievable on the Sheerline 'SP104 70mm Large Outer' T&T that BSW quoted. On the NSHEV reading 0.4 m2 is 20.9% of gross and is fine. Which duty they serve changes the answer and the schedule says 'AOV'. I have NOT computed a clear opening from assumed profile dimensions - BSW must state it. BASIS QUESTION CLOSED: 'clear opening area' is geometric-side language and agrees with the NBS's explicit '1m2 geometric'; 'aerodynamic' appears nowhere in the NBS, mech or electrical specs. SEVENTH TURN CORRECTION: the 78.5%-of-gross figure above overstated the case. riverside established that the APERTURE is the right denominator because the sections eat a fixed share of the gross. From BSW's own stated figures: glass 700 x 1865 = 1.3055 m2 = 87.0% of the 1.5 m2 duty (short 0.1945 m2); frame-internal aperture 770 x 1935 = 1.4900 m2 = 99.3% (short 0.0100 m2, and that takes the 'SP104 70mm Large Outer' section nominally - inferred, not stated). So WN_7 is MARGINAL against 1.5 m2, not clearly incapable. The actuator/motor/fire-alarm-interface absence is unaffected and remains the substantive point; on the NSHEV reading the glass alone is 3.3x the 0.4 m2 duty. My '60% of gross' rule of thumb is WITHDRAWN - it would have condemned a borderline unit."
+    },
+    {
+      "ref": "Free area - GEOMETRIC vs AERODYNAMIC (riverside's question, answered)",
+      "treatment": "GAP - the pack states geometric, the quote states neither",
+      "evidence": "THE GOOD NEWS: THIS PACK IS WRITTEN GEOMETRIC, so riverside's ~40% aerodynamic trap does not bite here. NBS L20 clause 630 states 'AXS140 STAIRWELL VENTILATOR - throat dimensions 1250mm x 1000mm - 1m2 GEOMETRIC free area' and 'AXS140 LOBBY VENTILATOR - throat dimensions 1250mm x 1500mm - 1.5m2 GEOMETRIC free area', both '24V electric actuator'. The word aerodynamic appears NOWHERE in the 186-page NBS, and the only aerodynamic reference in the 140-page mech spec (22190_Mech Spec_00 p80) is about attenuator fairings - nothing to do with vents. The 127-page electrical spec has none. THE BAD NEWS: BSW STATE NO FREE AREA OF EITHER KIND on QT252257, so there is nothing to compare against the requirement. And the Seefire louvre requirement is relative rather than absolute - 'size to match shaft dimensions' against an 'AOV SHAFT' the same clause says 'should have a minimum cross sectional area of 1.5m2' - so the 4no smoke shaft louvres have to deliver against a 1.5m2 shaft and nobody has shown that they do. Per riverside: do NOT derive one figure from the other or from frame area - Towcester's geometric/frame ratios were 75% and 54%, it does not scale. Make the supplier state it."
+    },
+    {
+      "ref": "Acoustic trickle vents - 'Passivent AL-dB 450 or better' where the schedule's Acoustic Trickle Vents column is ticked",
+      "treatment": "GAP - neither priced nor excluded",
+      "evidence": "Verified positionally on schedule 52002: the Acoustic Trickle Vents header sits at x=-210.9 and 26 of the 40 replacement-window rows carry a Yes at x=-218 in that column. Schedule 52003 (84 units) carries the same column in three table blocks and needs the same count - not done. BSW QT252247/48/51/57 contain ZERO occurrences of Passivent, AL-dB or acoustic. An acoustic trickle vent is a different, dearer product than the Linkvent quoted."
+    },
+    {
+      "ref": "PAS 24 - required by NBS L10 clause 330 on ALL windows, plus the schedules' PAS24 SBD note and 51001's PAS 24 2016 column",
+      "treatment": "GAP - neither priced nor excluded",
+      "evidence": "MUCH STRONGER THAN A SCHEDULE NOTE - IT IS A SPECIFICATION STANDARD CLAUSE. NBS 9001 L10 clause 330 'Windows & Roof Windows' reads '1. Standard: To BS6375-1, BS6375-2, BS6375-3, EN 14351-1 and Pas24.' So PAS 24 applies to EVERY window, not only the amenity-deck ones the schedule note names. Clause 205 adds 'Third-party certification: Submit proposals / Verification: Independent, 3rd Party Certification Schemes / Submittals: Submit documentation confirming Certifications claimed'. NBS L20 clause 280 independently requires the communal entrance doors 'To BS 4873 and PAS24' with 'Third-party certification: Tested to PAS24'. AGAINST THAT: ZERO occurrences of 'PAS 24' or 'PAS24' across all four BSW quotes, and none of BS 6375-1/2/3 or EN 14351-1 is mentioned either. Yale Shootbolt locks, Egress Hinges and 35x35mm security cylinders are quoted, but no certification and no submittals."
+    },
+    {
+      "ref": "G-value 0.36 or better (general note on all five schedules; and promised on our own proposal p3 'G-value - 0.36')",
+      "treatment": "GAP on the obscure units - 23 of them, not 7",
+      "evidence": "Main glazing DOES carry solar control - '4Tuf/18/6.8 LAM Coolite SKN176ii Argon' on the Liniar windows, '6.Lam/16/6mmTuff Coolite SKN175ii' on the Alunet patios, 'Skn 176 6.8 Lami / 4 / 4mm Low E Tuff Black Warm Edge Sp 12mm' on the Sheerline AOV. The St Mary's 'no coating named' failure does NOT apply to BSW here. BUT three positions on QT252247 are quoted '6.8 Lam/18/4mm ObsTuff EcoPlus 1.0 Satin 4mm Black Warm Edge Sp 18mm' with no Coolite and no SKN: WN_1 11no, WE_3 10no, WE_14 2no = 23 UNITS. Each is a single-pane unit and the whole unit is obscure. An obscure unit with no solar coating cannot meet 0.36. CORRECTED 28/07/2026: this was recorded as 'WN_2 (7no)' from turn one until the block-by-block re-read. WN_2 is a 4-pane unit and every pane is Coolite SKN176ii - it was never the problem. Wrong position reference, and the quantity understated by 16 units."
+    },
+    {
+      "ref": "Restrictors - '100mm restrictor where noted', plus Restrictors and Removable Restrictor columns on 52002/52003",
+      "treatment": "priced",
+      "evidence": "QT252247 carries 21 restrictor references ('11.5 mm Studs For Re1s1-Loc Restrictor' etc)."
+    },
+    {
+      "ref": "Colt AXS 140 Combined AOV Smoke Ventilator and Roof Access Hatch (NBS 9001 section L10, p85: roof-mounted, 1000 x 1250mm ventilator, aluminium lid, RAL 7016, U-value 1.2 W/m2K or better, Re 50, WL 1500, B300)",
+      "treatment": "GAP - neither priced nor excluded",
+      "evidence": "The enquiry zip is titled 'Gordon Court Windows, ROOFLIGHTS & Curtain Walling' and the NBS section that governs our package is L10 'Windows/ rooflights/ screens/ louvres'. We priced 3no Sheerline T&T AOV WINDOWS (WN_7, wall-mounted) and 4no louvres - not the roof-mounted Colt unit, and no rooflights or curtain walling at all. The proposal's exclusion list does not name rooflights, roof AOVs or curtain walling. NOTE THE OTHER SIDE: the wider Colt package on NBS pp89-93 (AOV shaft, OPV Heart module, OPV display panel, electrical wiring, ductwork) is plainly a specialist smoke-ventilation contractor's scope, not ours - so the question is specifically the AXS 140 unit and any rooflights, not the Colt control system."
+    },
+    {
+      "ref": "PVC-U versus aluminium frame material conflict",
+      "treatment": "excluded",
+      "evidence": "ALREADY QUALIFIED BY US - no new finding. Proposal p3: 'The schedules and specification include conflicting references to PVC-U and aluminium window systems, so the final system/material basis should be confirmed prior to order.' The schedules' notes panel says 'FRAME: PVC-U white internally. Dark Grey externally to RAL XXX (TBC)' on all five sheets while we priced 44 patio doors as Alunet ALUMINIUM (GBP 108,275.95 cost, GBP 174,275.79 sell) and the external doors as Sheerline aluminium. Checked before raising it and Gintare had got there first."
+    },
+    {
+      "ref": "Waste removal / strip-out of the existing windows on a refurbishment",
+      "treatment": "excluded",
+      "evidence": "Proposal p4: 'Waste Removal - Generally excluded unless agreed otherwise'. Ran the John North Hall replacement-job check: no cross-reference into our item was found in this pack, unlike St Mary's SOW 1.09. But the jLiving ITT is an NEC3 activity-schedule contract with no SOW item numbers, so the strip-out allocation will sit in Chigwell's subcontract order rather than the tender pack - flag it at order stage, not now."
+    },
+    {
+      "ref": "Access / lifting equipment - scaffold, MEWPs, towers",
+      "treatment": "excluded",
+      "evidence": "Proposal p4 excludes it. RISK, same shape as St Mary's: this is a building gaining two new storeys with windows to third floor, and jLiving's ITT requires the main contractor to carry a Construction Logistics Plan. Check the exclusion survives Chigwell's subcontract prelims before order. SIXTEENTH TURN - ran riverside's rate-vs-quantity sort over the whole EXCLUSIONS list, not just the findings. THREE OF TWELVE ARE DOING WORK THEY SHOULD NOT. (1) 'Fire Stopping - To be done by others, if required' CONFLICTS WITH NBS L10 cl.790, which puts the intumescent frame-to-reveal seal in the WINDOWS section - our package. Cavity barriers are the main contractor's; that perimeter seal is not. 3 fire doors, no rate, owner AFS - a supplier question wearing an exclusion's clothes, exactly riverside's restrictors. (2) 'Testing - On or off site testing' DOES NOT COVER NBS cl.205's 'Independent, 3rd Party Certification Schemes' and 'documentation confirming Certifications claimed' - certification is documentation the maker already holds, not a test, so the exclusion reads as if it covers the obligation and does not. Owner BSW, probably free if they hold the certificates. (3) 'Site Storage - Materials will be delivered to site' ASSERTS A FACT NO QUOTE WE HOLD SUPPORTS - all five deliver to our own MK13 9HF yard, so we have told the client materials arrive at site while every supplier says Milton Keynes. AND A DISTINCTION: 'Design Responsibility - design calculations excluded' fairly covers us PRODUCING a Uw calculation but does not get us the FIGURE, which BSW should state as a matter of course - excluding the work is not the same as not needing the number. 'Structural Alterations - to be completed by Main Contractor' is consistent with the head contract and is a genuine exclusion, cleared."
+    },
+    {
+      "ref": "Carriage from Fenster's Milton Keynes yard to site at Edgware HA8 on 227 units",
+      "treatment": "GAP - neither priced nor excluded",
+      "evidence": "Both suppliers deliver to 98 Alston Drive, MK13 9HF - our own yard - and BSW are ex works. The workbook has no carriage line; install is pure per-unit labour codes. The proposal's exclusions cover Site Storage on the basis that 'Materials will be delivered to site', which is the opposite assumption. Cannot be costed from anything on file, so it is an open item rather than a number."
+    },
+    {
+      "ref": "NBS L10 clause 120 - pre-construction survey of All New and Replacement Windows before fabrication",
+      "treatment": "priced",
+      "evidence": "Proposal inclusions carry 'Site Survey - Only conducted once the structural openings are fully formed. Any revisits may be subject to a fee', which matches clause 120's 'Timing: Before fabrication'. Consistent - no action."
+    },
+    {
+      "ref": "Manifestation to the communal main entrance doors - NBS L20 clause 280, 'Manifestation: As drawing'",
+      "treatment": "GAP - neither priced nor excluded, and the drawing it refers to does not exist",
+      "evidence": "NBS 9001 L20 clause 280 'Communal Main Entrance Door Type B' states '14. Glazing/ Infill details: Clear double glazing / 14.1. Manifestation: As drawing'. (The adjacent internal door clause says 'Manifestation: Not required', so the distinction is deliberate - the drafter turned it ON for the communal entrance doors.) BUT: manifestation appears ZERO times across all five architect's schedules (51001, 51002, 52001, 52002, 52003), ZERO times in 'Window & Door Elevations.pdf', ZERO times in 'Fire Rated Door Elevations.pdf' and ZERO times in our own proposal - and no drawing in the pack shows any. So the requirement exists, its extent is undefined, it is not priced and it is not excluded. THIS IS THE ST MARY'S FINDING REPEATING (spec clause 2.24 manifestation, recited without being either priced or excluded) AND ADAM HAS NOW RULED ON IT - hub message 31 on REQ-17: 'We can allow the manifestation for a job of this size, however we should be putting this in our inclusions or on our description.' Gordon Court is GBP 368,376.70, more than twice St Mary's, so on his own test it should be allowed AND stated. Our proposal does neither."
+    },
+    {
+      "ref": "Strip-out and disposal of the existing windows and doors on a refurbishment (40no replacement windows)",
+      "treatment": "GAP - 'effectively left unanswered', and Adam's rule says we would include it at this size",
+      "evidence": "SUPERSEDES THE EARLIER ENTRY, WHICH SAID TO FLAG IT AT ORDER STAGE. The pack itself is silent - zero hits for strip out, remove existing or disposal across all five schedules, and the jLiving contract is an NEC3 activity schedule with no SOW item numbers, so there is no cross-reference into our item of the kind St Mary's SOW 1.09 had. Our proposal excludes 'Waste Removal - Generally excluded unless agreed otherwise' and never names removal of the existing windows. The GBP 46,840 install cannot absorb it: it is pure per-unit labour codes (GBP 160 PVC/LAW/MAW, GBP 250 SAD, GBP 500 DAD), which is fit-only money. ADAM'S RULING, hub message 31 on REQ-17: 'Strip out is something we need to clarify in future tenders. We have effectively left it unanswered however we would include it for a job of this size, but if they assume it's not included and do it for us then happy days.' Gordon Court is twice the size of the job he said that about and it strips out 40 existing windows plus external doors in an occupied building. So on his own test strip-out should be allowed here, and it is not. Cannot be costed from anything on file - there is no strip-out rate in the register - so it is an open item rather than a number."
+    },
+    {
+      "ref": "Access / lifting equipment - proposal wording (Adam's REQ-17 ruling)",
+      "treatment": "excluded",
+      "evidence": "CHECKED AND CLEARED ON THE PROPOSAL WORDING. Adam, hub message 31: 'Our proposal document should state that we have not allowed for any access.' Gordon Court's proposal already does - the exclusions name 'Access/Lifting Equipment - Scaffold, MEWPS, Towers, Forklift etc.' (7 access references, 1 scaffold). So this job already complies with the rule he set. The separate COMMERCIAL risk stands and is recorded elsewhere: this building gains two storeys, and the exclusion still has to survive Chigwell's subcontract prelims. SIXTEENTH TURN - ran riverside's rate-vs-quantity sort over the whole EXCLUSIONS list, not just the findings. THREE OF TWELVE ARE DOING WORK THEY SHOULD NOT. (1) 'Fire Stopping - To be done by others, if required' CONFLICTS WITH NBS L10 cl.790, which puts the intumescent frame-to-reveal seal in the WINDOWS section - our package. Cavity barriers are the main contractor's; that perimeter seal is not. 3 fire doors, no rate, owner AFS - a supplier question wearing an exclusion's clothes, exactly riverside's restrictors. (2) 'Testing - On or off site testing' DOES NOT COVER NBS cl.205's 'Independent, 3rd Party Certification Schemes' and 'documentation confirming Certifications claimed' - certification is documentation the maker already holds, not a test, so the exclusion reads as if it covers the obligation and does not. Owner BSW, probably free if they hold the certificates. (3) 'Site Storage - Materials will be delivered to site' ASSERTS A FACT NO QUOTE WE HOLD SUPPORTS - all five deliver to our own MK13 9HF yard, so we have told the client materials arrive at site while every supplier says Milton Keynes. AND A DISTINCTION: 'Design Responsibility - design calculations excluded' fairly covers us PRODUCING a Uw calculation but does not get us the FIGURE, which BSW should state as a matter of course - excluding the work is not the same as not needing the number. 'Structural Alterations - to be completed by Main Contractor' is consistent with the head contract and is a genuine exclusion, cleared."
+    },
+    {
+      "ref": "Tender clarification route - closed before we could use it",
+      "treatment": "excluded",
+      "evidence": "NOT A PRICING ITEM BUT IT GOVERNS EVERY OPEN QUESTION ON THIS JOB, SO IT IS RECORDED HERE. The pack's '1. Q&As 02.06.26.pdf' has no text layer; rendered at 200dpi it is a screenshot of the Delta eSourcing Message Centre for topic 'Gordon Ct: ITT', logged in as 'Antony Berry, Supplier Administrator', showing 'One item found' - a single 02/06/2026 13:04 message from darien.jay@vixus.co.uk to All Suppliers announcing the ITT had gone live with a 22 July 2026 @ 1400 return. So it is not a clarification log at all and it answers nothing; RFI-3 (whose specification governs the U-value) is still open. The ITT is explicit about the route and the deadline: 'Bidders may raise questions relating to this tender up to 5 working days prior to the tender return deadline', 'All questions during the tender should be directed via the Delta portal', and 'Please DO NOT contact jLiving directly.' Five working days before 22/07/2026 is ~15/07/2026, and our own tender went to Chigwell on 09/07 - so the window was open when we priced and nobody used it. It is now shut. CONSEQUENCE: all seven open RFIs are POST-TENDER queries via Chigwell, which makes them variation or qualification territory rather than clarification. Worth someone establishing whether 'Antony Berry' is ours or Chigwell's - if Fenster holds a live Delta account on this tender we may be receiving jLiving award and standstill notices that nobody reads, which is the same shape as the known info@ and commercial@ blind spots."
+    },
+    {
+      "ref": "Waste removal, disposal and gypsum separation - jLiving Works Information p12 and PCI p8",
+      "treatment": "excluded",
+      "evidence": "CHECKED AGAINST ST MARY'S PRELIMS C WARNING AND GORDON COURT IS THE LIGHTER PACK. Absent here, all verified by searching the ITT, PCI (31pp), Works Information (29pp), Contract Data and Form of Tender: NO named licensed landfill (St Mary's names 'Tredegar Skip Hire'), NO Site Waste Management Plan required with the tender (zero hits for SWMP or 'site waste management' in any of the five documents), NO waste carrier licence (unlike John North Hall), and NO 'discounted from consideration' penalty. The tender return structure confirms it - six sections, none of them a waste plan. The only waste item in the ITT is scored quality question D1 ('manage waste responsibly', 500 words, 5 points). WHAT IT DOES SAY: Works Information p12 'Waste Removal' - 'The Contractor shall keep his Working Area clean & tidy at all times and remove his waste to skips at the end of each shift... shall dispose of waste in accordance with the requirements of the Environment Agency', with jL entitled to remove it and recover the cost; PCI p8 requires gypsum/plasterboard separated before removal and bans burning on site; PCI p10 leaves 'Restrictions on Deliveries, Waste Collection, Storage' to be agreed 'at tender stage', which has passed with nothing agreed. THE ACTOR IS CHIGWELL, and the Contract Data proves it directly: 'The Employer is Name: Jewish Community Housing Association Ltd' while 'The Contractor is Name: ____' is BLANK for the tenderer to complete - so 'the Contractor' is whoever signs, i.e. Chigwell, and Fenster is not a party. The Works Information uses 'Main (Principal) Contractor' 28 times and bare 'The Contractor' 25 times, split by SCOPE of duty (site-wide vs own-works) not by TIER; both are the same legal person. So our proposal's 'Waste Removal - Generally excluded' is consistent with the head contract. BUT DO NOT OVERCORRECT: the duty is drafted in 'his works' / 'his Working Area' language, which is exactly what a main contractor lifts into a subcontract order to push waste onto each trade. RFI-9 stays live because this is the clause most likely to flow down verbatim, and if it does the gypsum separation and Environment Agency compliance come with it."
+    },
+    {
+      "ref": "ITT 'Section 2: Any Caveats and Omissions relating to your proposal'",
+      "treatment": "GAP - unknown whether our qualifications were carried into it",
+      "evidence": "The ITT's required tender return structure includes 'Section 2: Any Caveats and Omissions relating to your proposal'. That is the ONE mechanism by which our exclusions - access, waste removal, internal finishing, the PVC-U vs aluminium qualification - could acquire standing at head-contract level. Our proposal went to Chigwell 09/07 and Chigwell returned to jLiving 22/07; whether ours were carried into their Section 2 is unknown and only Chigwell can say. It matters more than usual because the clarification window had already shut (~15/07), so Section 2 was the last route by which anything we excluded could reach the employer. RFI-11."
+    },
+    {
+      "ref": "Free area / clear opening achievable at levels 0 and 1 - existing structural openings",
+      "treatment": "GAP - opening condition NOT established; read the wall type at each AOV",
+      "evidence": "Adam ruled on Riverside (REQ-9) that 'we can make the windows as big as we need to in order to achieve the free area, because the openings are being newly formed'. That transfers only PARTLY here, and the schedules say which part: 'WINDOW INSTALLATION NOTE - GROUND AND FIRST FLOOR. WINDOWS TO GROUND AND FIRST FLOORS ARE TO BE INSTALLED TO MATCH THE EXISTING STRUCTURAL OPENING SIZES.' So levels 0 and 1 are constrained to existing openings while levels 2 and 3 are new build and are not. WL_1 sits at levels 0/1/2/3 (two constrained) and WN_7 at levels 1/2/3 (one constrained). If a clear-opening shortfall is confirmed it can be designed out at levels 2-3 but not at 0-1 without structural work. Recorded so nobody assumes the Riverside answer transfers wholesale. EIGHTH TURN - ANSWERED, AND IN OUR FAVOUR. The Windows Tags legend on Proposed South Elevation 21007 rev 03 (a sheet never in the job folder) reads 'WE_00 Windows in EXISTING openings replaced as new / WN_00 Windows in NEW openings / WL_00 Louvres to smoke shaft'. So the TYPE PREFIX encodes it: 40 WE_ units are in existing openings, 80 WN_ units in new openings, 4 WL_ are the smoke-shaft louvres. WN_7 - the three AOVs - is a WN_ type, so its openings are NEWLY FORMED and Adam's Riverside ruling applies here WITH pack corroboration, which is more than riverside could establish on their own job. A clear-opening shortfall on the AOVs is therefore remediable by enlarging the opening - design coordination, not a dead end. The actuator/motor/fire-alarm absence is untouched and remains the real cost. RESIDUAL TENSION for Arkon, not for us to resolve: the schedules say 'WINDOWS TO GROUND AND FIRST FLOORS ARE TO BE INSTALLED TO MATCH THE EXISTING STRUCTURAL OPENING SIZES' while WN_ types do appear at those levels; the consistent reading is that the note is a survey caution about retained fabric and that a WN_ opening low down is being cut new, which is why the demolition plans mark 'NEW STRUCTURAL OPENINGS'. A reading, not a ruling. NINTH TURN - REFINED, AND MY EIGHTH-TURN ANSWER WAS TOO COARSE TO PRICE FROM. riverside found the question splits PER VENT on their own two-vent job, so I checked mine per unit. All three WN_7 carry the WN_ prefix so all three openings ARE new - but THE TAG SAYS THE OPENING IS NEW, NOT WHAT IT IS CUT INTO. WN_7 @ level 1 (Corridor 1-1) is a new opening cut into RETAINED FABRIC: first floor demolition plan 10016 rev 02 states 'Retained wall to be assessed on site', 'Only the existing windows and hanging tiles within this area are to be removed carefully to avoid damage to adjacent retained elements' and 'Following demolition, new brick slips are to be installed as part of the facade works'. So enlarging that one means lintels, cutting masonry and making good - in nobody's price. WN_7 @ levels 2 and 3 are new openings in the two ADDED STOREYS, i.e. new construction, where size is genuinely free. Adam's ruling therefore applies cleanly to TWO of the three AOVs and only with structural cost to the third. TENTH TURN - THE TAG-BASED ANSWER IS WITHDRAWN. Rendered the proposed elevations. The South elevation's WALL TYPE LEGEND reads 'EXT - Existing wall types as surveyed' as its first entry, distinct from the new build-ups 'WT-A1 Brickwork / Insulation / Stud' and 'WT-A2 Zinc standing seam / Insulation / Stud'. The top storey is called up WT-A2 and the one below WT-A1 - both STUD build-ups, i.e. new construction, matching the ITT's two added storeys. AND THE WINDOWS ON THOSE NEW STOREYS ARE TAGGED 'WE_2'. A window 'in an existing opening replaced as new' cannot sit in a new zinc-standing-seam-on-stud wall, and WE_2 also appears on the retained lower storeys - so the WE_/WN_ prefix is a SCHEDULE reference (52002 Replacement Windows carries WE_; 52003 New Windows carries WN_/WL_), not an opening-condition statement. The legend's wording is the architect's gloss and the drawing does not police it. CONSEQUENCE: my eighth-turn claim that WN_ asserts a new opening is withdrawn, and the ninth-turn 2-of-3 split no longer rests on the tag. THE BETTER INSTRUMENT IS THE WALL TYPE TAG - 'EXT' versus 'WT-*' is the architect's own distinction, called up on the elevation beside the window, and it answers both whether the opening is new AND what fabric it is cut into in a single read, without the demolition plan. FOR THE THREE AOVs THE CONDITION IS NOW SIMPLY NOT ESTABLISHED: no elevation in the pack tags WN_7, and the East, West and North proposed elevations carry NO window tags at all (479 words each vs the South's 975, confirmed on both pdfplumber and PyMuPDF). Someone must identify which facade each corridor vent sits on and read the wall type there - ten minutes, and a prerequisite to pricing the AOV openings."
+    },
+    {
+      "ref": "The drawings we priced from - 25 of the 82 in the tender pack",
+      "treatment": "GAP - the strip-out and new-opening scope is defined on drawings nobody priced from",
+      "evidence": "The loose job folder holds 25 of the 82 5244-ARK PDFs in the zip. The 57 never in front of us include EVERY floor Layout plan (10001 rev 07, 10002-10004 rev 06 - the most-revised drawings in the pack), EVERY Existing plan (10010-10012), ALL THREE DEMOLITION PLANS (10015 rev 05, 10016 rev 02, 10017 rev 01), all four Existing Elevations (21001-21004) and the Proposed Elevations (21005-21008). We held the SETTING OUT plans (11000-11003) and SETTING OUT elevations (21100-21110) instead - a different series. WHAT THE DEMOLITION PLANS SAY, AND IT BEARS ON THREE OPEN ITEMS: 'ALL WINDOWS TO BE REMOVED.' in the notes block of all three (so the RFI-9 strip-out scope is defined at last, against my 40-window / 62.457 m2 quantity); a demolition legend including 'NEW STRUCTURAL OPENINGS. HEIGHTS TO BE CONFIRMED ON SITE.' (so which openings are new vs existing is marked here - the question left open about whether Adam's 'openings are newly formed' ruling transfers floor by floor); ground floor 'Section of the external wall is to be carefully demolished to allow for the installation of 2 NO. NEW DOUBLE DOORS' (very likely the unpriced 2no D_X pair at 2100 x 1800, giving them a location and a reason); first floor 'Curtain walling system (frames, glazing, and fixings) to be removed in sections' at terrace level, against an enquiry titled 'Windows, Rooflights & CURTAIN WALLING' and no curtain walling priced at all; and 'Demolish bay windows and associated brickwork' where no bay window type appears in our schedule. FAIRNESS ON SCOPE: these are demolition / main-contractor drawings - they also say 'Demolish entire external stair structure' and the roofs are to be fully demolished - so most of the content is not ours and I am not claiming it. The finding is that the window and curtain-wall removal scope and the new-opening marking live on drawings nobody who priced this job ever saw. EIGHTH TURN - READ THE ELEVATION CLASS AND IT PAID OUT FOUR TIMES. All 13 elevation sheets were absent from the job folder. On them: (1) the Windows Tags legend answering new-vs-existing at type level; (2) 'Door and Windows Note - All external doors, windows and curtain wall mullions in PPC Anthracite Grey RAL 7016', which ANSWERS RFI-4 and vindicates BSW's 7016 assumption; (3) 'CURTAIN WALL MULLIONS' named on the Proposed East and North elevations - a third independent pointer, alongside the enquiry title and the first-floor demolition plan's curtain-wall removal, to curtain walling being in the design and absent from our price; (4) independent confirmation that strip-out scopes to the WE_ types, i.e. exactly the 40 units / 62.457 m2 measured for RFI-9. AND A HAZARD IN THE ZIP: it holds SUPERSEDED revisions beside current ones - 21005/21006/21007 each at rev 02 AND rev 03, 21008 at rev 03, rev 03 (1) and rev 04 - and the new-vs-existing annotation exists ONLY on 21007 rev 03 (5,751 chars vs rev 02's 2,487). Reading the wrong revision would have hidden it."
+    },
+    {
+      "ref": "Demolition elevations - referenced by all three demolition plans, absent from the pack",
+      "treatment": "GAP - referenced document does not exist in the 82-drawing set",
+      "evidence": "All three demolition plans state 'THESE NOTES MUST BE READ TOGETHER WITH THE DEMOLITION ELEVATIONS TO CONFIRM HEIGHTS AND VERTICAL EXTENTS OF DEMOLITION.' No demolition elevation exists anywhere in the zip's 82 drawings - only the three plans (and their .dwg twins). So it is the FOURTH document this pack requires and does not contain, after the SAP Consultant's specification (NBS cl.330), the Edward Pearce Consulting Engineers specification (the schedules' thermal rating) and any tender addendum. Vertical extents of demolition matter to us because they determine head and cill positions on the openings we are glazing."
+    },
+    {
+      "ref": "Curtain walling - named on the Proposed East and North elevations, removed on the first floor demolition plan, in the enquiry title, priced nowhere",
+      "treatment": "GAP - neither priced nor excluded",
+      "evidence": "THREE INDEPENDENT POINTERS AND NO PRICE. (1) The enquiry zip is titled 'Gordon Court Windows, Rooflights & CURTAIN WALLING'. (2) First floor demolition plan 10016: 'Curtain walling system (frames, glazing, and fixings) to be removed in sections, ensuring controlled handling of glass' at the terrace level - so there is existing curtain walling coming out. (3) Proposed East elevation 21005 rev 03 and Proposed North elevation 21008 rev 04 both carry 'All external doors, windows and CURTAIN WALL MULLIONS in PPC Anthracite Grey RAL 7016' - so curtain walling is in the PROPOSED design too, not just the demolition. Our workbook has no CW line at all (the CW columns exist in the template but no row is coded CW), our proposal neither prices nor excludes it, and none of the three pointers was visible from the 25 drawings in the job folder - two of them are on sheets we never held. Quantity unknown: the elevations are at 1:100 and no curtain walling schedule exists in the pack."
+    },
+    {
+      "ref": "Whether the corridor AOVs are WALL vents or the ROOF-mounted AXS140 units - and whether the mechanical extract has taken the duty",
+      "treatment": "GAP - not resolvable from the documents, and it decides whether the clear-opening question exists at all",
+      "evidence": "riverside's question, live here. They found their AOV.01 may need a ROOF vent while A Plus had quoted a WALL casement on a subcill - the wrong product entirely. On Gordon Court: the NBS specifies TWO ROOF-MOUNTED units ('AXS140 STAIRWELL VENTILATOR... Roof mounted onto horizontal kerb... 1m2 geometric free area' and 'AXS140 LOBBY VENTILATOR... Roof mounted... 1.5m2 geometric free area') plus ONE WALL-MOUNTED unit ('COLTITE GLAZED LOBBY VENTILATOR (STAIR C)... mounted into prepared openings in the external wall'). The fire strategy legend states 'AOV. 1.5m2 clear opening area', which matches the ROOF-mounted lobby ventilator's figure. The roof plan carries two AOV plan annotations and the first floor one (a third instance sits at identical coordinates on both sheets, so that is the legend block). The smoke shafts that would have connected lower-level lobbies to a roof vent were OMITTED Oct 2025 and replaced by a mechanical extract duct. And our 3no WN_7 are WALL units, 910 x 2100, in corridors 1-1/1-2/1-3, tagged 'AOV' on the window schedule. WHICH DUTY WN_7 DISCHARGES IS THEREFORE UNKNOWN and it decides everything: against 0.4 m2 the units are comfortable (glass alone is 3.3x); against 1.5 m2 they are marginal at best and unprovably so; and if the mechanical extract has taken the duty they may be redundant like the 4no louvres. Needs the architect or fire engineer, not a supplier. THIS IS NOW THE MOST IMPORTANT OPEN QUESTION ON THE AOV PACKAGE."
+    },
+    {
+      "ref": "Untagged glazing on the elevations - riverside's check, NOT RUN",
+      "treatment": "GAP - run, and the answer is broader than untagged glazing",
+      "evidence": "riverside found their stair windows were the only glazing carrying no performance tag, which is probably why their vents were never scheduled, and suggested checking for untagged glazing that may not be in the schedule at all. On this pack the check is NOT executable by text extraction: only 21007 rev 03 yields any window tags (WE_1, WE_2, WN_3, WN_5 plus the WE_00/WN_00/WL_00 legend entries) and the other three proposed elevations return NONE, so the tags live in the CAD graphics layer rather than the text layer. It would need the four elevations rendered at high dpi and read visually. Cheap and worth doing - recorded as not done rather than reported as reconciled. TENTH TURN - RUN. Rendered the elevations at 110-260 dpi. The answer is broader than riverside's check anticipated: THREE OF THE FOUR PROPOSED ELEVATIONS CARRY NO WINDOW TAGS AT ALL. Only 21007 rev 03 (South) is annotated, with 975 words against 479 on each of East, West and North - and its 16 window-tag instances are WE_1, WE_2, WN_3, WN_5 plus the WE_00/WN_00/WL_00 legend entries. So the elevation set does not locate the window types: on three of four faces you cannot verify which opening is which, and no elevation anywhere tags WN_7 (the AOVs), WL_1 (the louvres) or the D_X doors."
+    },
+    {
+      "ref": "Existing wall build-up where openings are formed - cavity external walls, solid internal",
+      "treatment": "priced",
+      "evidence": "ANSWERED, and it was riverside's open limit on their own job. My architect's wall type legend defers - its first entry is 'EXT - Existing wall types as surveyed', which is not a build-up. The answer is in the STRUCTURAL engineer's folder: 'Gordon Court_2025-059_sk01&02 Brick & mortar sampling locations.pdf' (Elite Designers, 12/05/2025, ground and first floor) states 'Brick & mortar sampling in the internal SOLID wall. Brick & mortar sampling in CAVITY wall. Take samples from both the inner and outer leaves of the cavity wall. Restore sample points using matching materials.' So existing external walls are CAVITY with two leaves and internal walls are SOLID - which is what decides the lintel type, the fixing leaf and the cost of forming a new opening. The same folder holds GPR location drawings (sk05), a resin injection methodology (Teretek, referencing 'load for the new columns to be taken onto existing masonry at second floor level') and an Engineering & Workmanship Specification with 5.3 Cavity walls and 5.7 Lintels. TRANSFERABLE: when the architect's legend says 'as surveyed', the answer is usually in the structural engineer's investigation drawings, not the architect's set. Our own obligation is covered - the schedules require 'a FULL SITE MEASUREMENT SURVEY PRIOR TO PRODUCTION AND INSTALLATION' and the proposal includes Site Survey."
+    },
+    {
+      "ref": "Cavity closers, cavity trays and jamb DPCs at openings - NBS section F30",
+      "treatment": "excluded",
+      "evidence": "CHECKED AND CLEARED - NOT OUR SCOPE, recorded so nobody raises it later. On a cavity-wall refurbishment it is easy to assume the window supplier carries the closer. These are specified in NBS section F30 'Accessories/ sundry items for brick/block/stone walling' - a MASONRY section, so the bricklayer's: '180 Fire rated Cavity Closer (P) EWS-901' (ROCKWOOL, Euroclass A1, U-value 0.14 W/m2K); '370 Fire rated Cavity Trays (P) EWS-901' (METZ Non-Combustible EaZi-Fit A1, BBA 22/5997, soft zinc alloy, to fit cavity width 195 mm, 300mm high); '570 Installation of jamb dpcs at openings'; '485 Installation of cavity trays over openings' extending not less than 150 mm beyond lintel ends; and wall ties 'within 225 mm of reveals of unbonded openings'. ZERO mentions of cavity closers across all four BSW quotes, correctly so. Useful datum that falls out: the cavity is 195 mm wide."
+    },
+    {
+      "ref": "Who owns each open question - the design team from the title blocks",
+      "treatment": "priced",
+      "evidence": "NOT A PRICING ITEM BUT IT DECIDES WHETHER ANY OF THE OTHERS GET ANSWERED, so it is recorded here. Read off the title blocks: ARCHITECT Arkon Associates Ltd, job 5244, Luminous House, 300 South Row, Milton Keynes MK9 2FR, T +44 (1438) 359816, enquiries@arkonassociates.co.uk, drawn GM checked IJC/AB - author of the schedules, elevations, fire strategy AND the NBS. SERVICES/ENERGY/SAP Edward Pearce, project 22/190, Old School House, 35 Ewell Road, Surbiton KT6 6AF, 020 8390 6244. STRUCTURAL Elite Designers Ltd, job 2025-059, 'providing structural engineering consultancy services for the proposed building'. ELECTRICAL BSEC. HEATING Engdesign. EMPLOYER'S ADVISOR Vixus Property Advisory (darien.jay@vixus.co.uk, Delta portal). EMPLOYER jLiving - and the ITT says 'Please DO NOT contact jLiving directly'. SPECIFIED MANUFACTURER Colt International / Colt Group. AND THE GAP: NO FIRE ENGINEER, FIRE CONSULTANT, APPROVED INSPECTOR OR BUILDING CONTROL BODY IS NAMED ANYWHERE on the five fire strategy drawings - only 'Arkon' x5 per sheet and 'fire officer' x1, inside the revision note 'Updated to suit fire officers comments' (09.10.2025). So the fire strategy is the architect's own and the AOV question goes to Arkon with the fire officer as arbiter, since their comments deleted the smoke shafts. ROUTING, because most of my RFIs were addressed to 'Chigwell' when they are DESIGN questions: Arkon own D_T, D_X, manifestation extent, the AOV wall-or-roof question and the rooflight/Colt scope boundary; Edward Pearce own the SAP calculations; Elite Designers own the wall build-up; Chigwell own strip-out allocation, the Section 2 caveats and the GBP 723.87 addendum. We cannot approach Arkon directly - the route is via Chigwell - but naming the author, job number and sheet lets Chigwell forward each question in one step instead of working out who owns it. FOURTEENTH TURN CORRECTION, from riverside's sharpened test (is each hit a TITLE BLOCK or a NOTE?): TWO ENTRIES IN THIS TABLE WERE WRONG. BSEC and Engdesign appear ONLY in architect's schedule note text ('REFER TO BSEC ELECTRICAL LAYOUTS FOR DETAILED DESIGN', 'REFER TO ENGDESIGN DRAWINGS FOR DETAILED HEATING LAYOUTS') and authored NOTHING in the pack. Both the 140-page mech spec and the 127-page electrical spec carry EDWARD PEARCE / EDWARD PEARCE LLP title blocks (Old School House, 35 Ewell Road, Surbiton KT6 6AF, Tel 020 8390 6244, Fax 020 8390 1329) with ZERO hits for BSEC or Engdesign. So the architect's schedules refer the reader to two firms whose work is nowhere in the pack while the actual M&E design is by a third. Likeliest reading: BSEC and Engdesign were superseded by Edward Pearce and the schedule notes were never updated - and those schedules are the 08.09.2025 revision '-' sheets that have never been revised, so this is a SECOND INDEPENDENT SYMPTOM of the staleness that hid the smoke-shaft omission. Anyone chasing 'BSEC electrical layouts' is chasing a firm that may not be on the job."
+    },
+    {
+      "ref": "What the 18 standing findings are worth - priced, benchmark, or unpriceable",
+      "treatment": "GAP - 8 of 12 money items have no rate anywhere in the system",
+      "evidence": "TWELVE of the 18 standing findings carry money and only TWO can be totalled. HARD: AFS extras GBP 506.37 + BSW 'PANEL SET UP' GBP 217.50 = GBP 723.87. POSSIBLE CREDIT: 4no WL_1 louvres to a deleted smoke shaft, -GBP 6,452.40 sell / -GBP 4,502.40 cost. BENCHMARK ONLY, one data point each: D_X x2 ~GBP 5,600 sell + ~GBP 1,000 install; AOV actuators ~GBP 4,988-5,667 supply. QUANTIFIED BUT UNPRICEABLE: manifestation 15.002 linear m; strip-out 62.457 m2 over 40 units; trickle vent upgrade 4000->8000mm2 on 124 windows; acoustic trickle vents on 26 of 40 replacement windows (new-window count not done); intumescent perimeter seal on 3 fire doors; PAS 24 on 124 windows; curtain walling quantity unknown; carriage on 227 units. THE REASON IS STRUCTURAL: verified at source that of data/supplier-rates.json's 80 categories, ZERO carry acoustic, trickle vent, Linkvent, Passivent, curtain walling, actuator, AOV, strip-out, disposal, manifestation or intumescent. Eight of the twelve sit in categories the register does not have, so there is nothing to benchmark and inventing a rate would turn a TBC into an indefensible number. BUT EIGHT ARE ANSWERABLE IN ONE ROUND AND DO NOT WAIT FOR jLIVING, because they are SUPPLIER questions: one RFQ to BSW (8000mm2 trickle vents, Passivent AL-dB 450 acoustic vents, PAS 24 with cl.205 submittals, manifestation 15.002 lin m, curtain walling price or confirmation, delivery basis, plus the whole-window Uw against Edward Pearce's 1.10) and one RFQ to AFS (intumescent seal per NBS L10 cl.790, and the RAL 7016 matt / RAL 9010 gloss dual finish). Raised as REQ-26. Mary cannot send them - ghost protocol plus the 403 on mary_send - so a human must issue both. FIFTEENTH TURN - TWO UPDATES. (1) CORRECTION: curtain walling is NOT unpriceable. scripts/mary_pricing.py carries a standing house convention, CW_SUPPLY_M2 = 850.0 and CW_LABOUR_M2 = 150.0 ('curtain walling convention: GBP850/m2 supply + GBP150/m2 labour [Greenfields, 22/07/2026]'). It has a RATE but no QUANTITY - the elevations are 1:100 and no curtain walling schedule exists - which is the opposite problem from the other seven and changes who to ask: an AREA from Arkon, not a price from BSW. Corrected shape: 2 hard, 1 possible credit, 2 benchmark-only, 1 rate-but-no-quantity, 7 unpriceable. Note also that external mastic DOES have a house rate (workbook template, GBP 5/linear m, already carried as the GBP 5,622.81 optional) but that is WEATHER mastic and does not help the intumescent seal, which is a different and dearer product. (2) THE RFQs HAVE A DEADLINE OF NINE DAYS: BSW's four quotes lapse 06/08/2026 and AFS's 08/08/2026. An RFQ landing before then is an addendum to a live quote - same job, same schedule, same rates, they add lines. After, both come back as fresh quotes at autumn rates with no anchor. This does NOT reopen Adam's REQ-20 decision: he accepted inflation risk on the GBP 201,086.70 that already has a price, not on eight items that do not."
+    },
+    {
+      "ref": "Dimensional discrepancies between supplier quotes and the architect's schedules - six of them",
+      "treatment": "GAP - survey items, qualified by our own T&Cs but not eliminated",
+      "evidence": "FOUND WHILE WITHDRAWING THE 'NO SUPPLIER QUOTE' FINDING, and this is what is actually there. Comparing every BSW and AFS overall size against the schedule's structural opening: WN_4 - workbook and schedule 1360 x 1656, BSW quote 1360 x 1935: +279mm HEIGHT. WL_1 (x4) - schedule 1210 x 2100, BSW 1307 x 2197: +97mm in BOTH directions, which a cill does not explain because a cill only adds height. A frame 97mm bigger than the hole does not go in. D_B 1055 - schedule 1055 x 1750, BSW 1055 x 1720: -30mm height. D_E - schedule 1500 x 2100 single door, BSW split into 500 x 2100 casement + 1055 x 2085 door = 1555 combined: +55mm width. D_U - schedule 1405 x 2170, BSW split into 500 x 2100 + 1000 x 2085 = 1500 x 2100 combined: +95mm width and -70mm height. D_T - schedule 1600 x 2110, AFS Q7585 1600 x 2210: +100mm height (already recorded). SIX DISCREPANCIES ACROSS TWO SUPPLIERS. riverside's find qualifies them but does not remove them: our own Terms and Conditions say 'All quotations are subject to final site survey and measurement verification', and the architect's schedules independently require 'A FULL SITE MEASUREMENT SURVEY PRIOR TO PRODUCTION AND INSTALLATION' and state 'NO FABRICATION SHALL PROCEED BASED SOLELY ON DRAWING DIMENSIONS'. So these are survey items rather than pricing errors PROVIDED the survey happens before fabrication - and our proposal does include Site Survey. But +279mm and +97mm in both axes are larger than a survey tolerance; they look like different units, not re-measures. Worth putting to BSW in the same RFQ as everything else. NOTE THE SPLIT-UNIT POINT SEPARATELY: BSW read D_E and D_U as door-plus-sidelight assemblies, which is a sensible reading of a schedule that marks sidelights - but nobody checked the combined width against the opening, and both are over."
+    },
+    {
+      "ref": "Proposal T&C clause 16 'Design Responsibility' - who owns each finding under our own terms",
+      "treatment": "priced",
+      "evidence": "NOT A PRICING ITEM BUT IT DECIDES HOW EVERY OTHER FINDING SHOULD BE RAISED. Verbatim from the issued proposal, Terms and Conditions clause 16: 'Fenster Glazing & Locks Ltd is not responsible for overall design intent, architectural suitability, or REGULATORY STRATEGY and relies on information, drawings, and specifications provided by the client or their professional team. RESPONSIBILITY IS LIMITED TO MEASUREMENT VERIFICATION, SUPPLY, AND INSTALLATION OF THE AGREED GLAZING SYSTEMS.' Present in both the .docx and the issued .pdf, which match at 15,708 and 15,893 characters - so no faithful-but-incomplete extraction problem of the kind riverside found on their cover letter. THE SORT IT PRODUCES: REGULATORY STRATEGY IS THEIRS AND WE RELY - which duty the AOVs serve (1.5m2 vs 0.4m2), whether the smoke-shaft omission removes the louvres, the 1.10 W/m2K and 0.36 g-value targets, PAS 24, the 8000mm2 trickle vent requirement, acoustic vents, and manifestation extent under Approved Doc K. EXPRESSLY OURS AND RETAINED BY THE SAME CLAUSE - measurement verification, which is every one of the six dimensional discrepancies, and supply of the agreed glazing systems, which is whether we quoted the specified product. IT IS NOT A GET-OUT, AND THE AOV SHOWS WHY IT SPLITS: 'is 1.5m2 the right duty and is the vent in a wall or a roof' is regulatory strategy and theirs, so the exposure is 'we relied and we asked'; but 'did we quote the specified product' is SUPPLY and ours, and BSW quoted a plain Prestige T&T and a plain casement where the NBS names a Colt motorised ventilator with a 24V actuator. Clause 16 does not touch that. Same split on thermal: the 1.10 target is theirs, obtaining a whole-window Uw from our supplier is ours. AND IT TIGHTENS THE DIMENSIONS RATHER THAN EXCUSING THEM: clause 2 makes the price 'subject to final site survey and measurement verification' and clause 16 says responsibility IS measurement verification - so the six discrepancies are ours twice over. The survey makes them FIXABLE, not somebody else's. PRACTICAL EFFECT: ours-to-fix items belong in the BSW and AFS RFQs (REQ-26); theirs items belong in the post-tender qualification to Chigwell, framed as reliance rather than as defects. Two documents, two tones."
+    }
+  ],
+  "supplier_quotes": [
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT252247 PVC",
+      "date": "2026-07-07",
+      "valid_until": "2026-08-06",
+      "used_net": true,
+      "value": 53543.9,
+      "note": "Liniar 70 uPVC windows. 'Total Nett Ex. VAT GBP 53,543.90', 'Net Price Includes Discounts'. Footer is BSW Window Solutions; the 'Bellview will not be held responsible' line is shared T&C boilerplate, so this is BSW and our records are right."
+    },
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT252248 PATIIOS",
+      "date": "2026-07-07",
+      "valid_until": "2026-08-06",
+      "used_net": true,
+      "value": 108275.95,
+      "note": "Alunet ESS47 2-rail and 3-rail sliding patio doors, 44 units. The single largest element on the job - 54% of BSW's cost and GBP 174,275.79 of sell."
+    },
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT252251 ALI DOORS",
+      "date": "2026-07-07",
+      "valid_until": "2026-08-06",
+      "used_net": true,
+      "value": 14099.81,
+      "note": "Sheerline external and communal doors D_B, D_C, D_D, D_E, D_U."
+    },
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT252257 AOV & LOUVRE",
+      "date": "2026-07-07",
+      "valid_until": "2026-08-06",
+      "used_net": true,
+      "value": 7085.76,
+      "note": "GBP 217.50 OF THIS WAS NEVER CARRIED. The quote is WN_7 GBP 2,365.86 + WL_1 GBP 4,502.40 = GBP 6,868.26, plus an Extras block 'PANEL SET UP 1no GBP 217.50 / Total Extras Value GBP 217.50' = GBP 7,085.76. The workbook carries only the two element figures. Same class as the AFS extras below and as Princess Beatrice's GBP 668.41."
+    },
+    {
+      "supplier": "Aluminium Fire Systems",
+      "ref": "Q7585",
+      "date": "2026-07-09",
+      "valid_until": "2026-08-08",
+      "used_net": true,
+      "value": 18298.94,
+      "note": "Aluprof MB-78EI, EI30, standard RAL, EI30 Clear DGU U=1.0, supply only, 3 positions - GBP 6,468.03 + GBP 6,026.47 + GBP 5,804.44 = GBP 18,298.94, adds up exactly and all three carried into the tender at cost + the GBP 1,500 house DAD adder. GBP 506.37 SITS OUTSIDE IT: p7 'Not included in quote above, can be added as optional extras' - Fixing Pack (screws, foam, packers, mastic) GBP 256.37 and Delivery GBP 250.00. Neither is anywhere in the workbook. The quote contradicts itself - the Specifics page says 'Logistics: Delivered' - but T&C 8.1 settles it AGAINST us: 'That price will be exclusive of all costs and charges of packaging, insurance and transport of the Goods, which will be itemised separately if applicable and invoiced to the Customer IN ADDITION to the price of the Goods.' So the GBP 250 is real. Lead time 8 weeks from order signature AND receipt of the 60% first payment; terms 60% with order / 40% before dispatch. ELEVENTH TURN - THE FIXING PACK MAY NOT SATISFY THE SPEC EVEN IF WE BUY IT. NBS L10 clause 790 'Fire-resisting frames' - in the WINDOWS section, so ours - requires 'Gap between back of frame and reveal: Completely fill with INTUMESCENT mastic or tape.' AFS describe the omitted GBP 256.37 fixing pack as 'screws, foam, packers, mastic' - ordinary mastic, not intumescent. Intumescent mastic or tape is a different product at a different price and it is a fire-rating requirement on the three EI30 doors, not a finish. So the GBP 506.37 omission is worse than a missing line item: the line item as described may not comply. Added to RFQ-2."
+    }
+  ],
+  "full_height_screens": [],
+  "systems_specified": [
+    {
+      "system": "Liniar 70 uPVC",
+      "fabricator": "BSW Window Solutions (QT252247)",
+      "performance": {
+        "required": "Energy Statement: replacement external glazing to achieve 1.1 W/m2K. Schedules: g-value 0.36 or better; 8000mm2 trickle vents; PAS24 SBD.",
+        "capable": null,
+        "evidence": "NO WHOLE-WINDOW Uw IS STATED ANYWHERE ON THE QUOTE. The only thermal figure is a centre-pane glass Ug inside the make-up string - 'EcoPlus 1.0'. St Mary's rule: a centre-pane Ug is not a Uw. In a Liniar 70 frame a 1.0 centre pane will not by itself demonstrate 1.1 whole-window, but I cannot compute Uw from what is on file and have not invented one. Nobody has asked BSW for a Uw. Note the engine's Liniar -10% correction applies to this system."
+      }
+    },
+    {
+      "system": "Alunet ESS47 sliding patio (aluminium)",
+      "fabricator": "BSW Window Solutions (QT252248)",
+      "performance": {
+        "required": "Energy Statement 1.1 W/m2K external glazing; g-value 0.36; schedules' notes panel says PVC-U, which we have qualified",
+        "capable": null,
+        "evidence": "No U-value stated. Glass is '6.Lam / 16/ 6mmTuff Coolite SKN175ii' - solar control named, but a 16mm cavity with no gas fill and no warm edge named, in a 2-rail sliding patio frame, is the weakest thermal element on the job and it is 44 units. Sliding patio doors are a known thermal weak point. GBP 174,275.79 of sell rests on it."
+      }
+    },
+    {
+      "system": "Sheerline Prestige (aluminium windows, louvre, AOV, external doors)",
+      "fabricator": "BSW Window Solutions (QT252251, QT252257)",
+      "performance": {
+        "required": "Energy Statement 1.1 W/m2K; g-value 0.36; louvre free area per M&E",
+        "capable": null,
+        "evidence": "AOV WN_7 names 'Skn 176 6.8 Lami / 4 / 4mm Low E Tuff Black Warm Edge Sp 12mm' - solar, low-E and warm edge all named, the best-specified glass on the job - but still no Uw. Louvre LW_1 has no glazing line and no free area. Note the engine's Sheerline +10% correction applies."
+      }
+    },
+    {
+      "system": "Aluprof MB-78EI (EI30 fire doors)",
+      "fabricator": "Aluminium Fire Systems (Q7585)",
+      "performance": {
+        "required": "FD30S / EI30 per schedule 51001; Energy Statement 1.1 W/m2K on external glazing",
+        "capable": true,
+        "evidence": "THE ONLY ELEMENT ON THE JOB WITH A STATED U-VALUE. Q7585 specifies '2 Pcs. 6+15mm GLASSPROF EI30 Clear DGU U=1.0' and the Specifics page confirms EI30 with Certifire accreditation, Aluprof-tested glass. A fire-rated aluminium door reaching a stated 1.0 on the glass is the strongest performance evidence in the pack. Fire rating is satisfied: schedule requires FD30S, AFS supply EI30 which is the equivalent European classification."
+      }
+    }
+  ],
+  "finishes": [
+    {
+      "ref": "Liniar 70 uPVC windows - all 84 new + 40 replacement",
+      "specified_internal": "PVC-U white",
+      "specified_external": "dark grey to RAL XXX (TBC)",
+      "quoted_internal": "White",
+      "quoted_external": "Grey Foil On White (7016)",
+      "note": "PASSES the Georgie's rule. BSW quote 'Ext Colour: Grey Foil On White (7016)' plus 'Outer: 77mm Outer Frame Foil/Wt', '180mm Drop Nose Cill Foil/Whit', '28mm Sculptured Bead White' and separate internal and external Linkvents ('4000 External Linkvent Grey RAL 7016 / 4000 Internal Linkvent White'). Dual colour is genuinely in the price on both faces. ONE RESIDUAL: the architect left the external RAL as 'RAL XXX (TBC)' and BSW have chosen 7016 Anthracite. 7016 is a standard dark grey and a reasonable read, but it is the supplier's choice, not the architect's - confirm before order."
+    },
+    {
+      "ref": "Alunet patio doors - all 44",
+      "specified_internal": "PVC-U white",
+      "specified_external": "dark grey to RAL XXX (TBC)",
+      "quoted_internal": "(9016) White",
+      "quoted_external": "(7016) Grey",
+      "note": "PASSES on colour. 'Ext Colour: (7016) Grey / Int Colour: (9016) White' - dual colour priced. Material is aluminium not PVC-U, which is the conflict already qualified on the proposal."
+    },
+    {
+      "ref": "Sheerline aluminium - louvre LW_1, AOV WN_7, external doors D_B/D_C/D_D/D_E/D_U",
+      "specified_internal": "white internally",
+      "specified_external": "dark grey to RAL XXX (TBC)",
+      "quoted_internal": "9910HG Hipca White - G",
+      "quoted_external": "7016M Anthracite Grey - M",
+      "note": "PASSES. Both faces named explicitly on QT252257 and QT252251. Note the finish grades differ by face - M (matt) externally, HG (high gloss) internally - which is normal but worth confirming nobody expects matt both sides. SECOND TURN: NBS L20 clause 280 fixes the entrance-door finish as RAL 7016 MATT external / RAL 9010 GLOSS internal. BSW's '7016M Anthracite Grey - M' matches the external face exactly, including the matt. The internal face is quoted as Sheerline's own '9910HG Hipca White' where the NBS asks for RAL 9010 gloss - probably equivalent and the gloss level is right, but it is a different reference and worth confirming rather than assuming."
+    },
+    {
+      "ref": "Aluprof MB-78EI fire doors - 3no (AFS Q7585)",
+      "specified_internal": "RAL 9010 GLOSS (NBS L20 clause 280)",
+      "specified_external": "RAL 7016 MATT (NBS L20 clause 280)",
+      "quoted_internal": null,
+      "quoted_external": null,
+      "note": "STRONGER THAN LAST TURN - THE RAL IS NOT 'TBC', THE NBS FIXES IT. L20 clause 280 'Communal Main Entrance Door Type B' states 'Finish as delivered: Polyester powder-coated to BS EN 12206-1, colour RAL7016 MATT (EXTERNAL) & RAL9010 GLOSS (INTERNAL)'. So a dual finish with both RAL numbers and both gloss levels is specified outright. AFS state only 'Colour: Standard RAL' and 'Colours: Profiles: mat standard' - no RAL number, neither face. Dual colour on a fire door is a real cost and it is not in the GBP 18,298.94. The Georgie's Mercury failure exactly, now against an explicit specification rather than a TBC."
+    }
+  ],
+  "u_value": {
+    "required": "RESOLVED ON THE TWELFTH TURN. The chain is: the architect's schedules set no U-value and defer - 'MIN. THERMAL RATING: To Edward Pearce Consulting Engineers specification' - and EDWARD PEARCE WROTE THE ENERGY STATEMENT (title block: 'Edward Pearce, Old School House, 35 Ewell Road, Surbiton, Surrey KT6 6AF, Project No. 22/190, February 2025, Revision 02'). Project 22/190 is the same number as every M&E document in the pack - the 22190-M01..M32 and 22190-E01..E25 drawings, the 140-page mech spec, the 127-page electrical spec and the drainage spec - so Edward Pearce are the appointed services and energy consultant and the deferral points at a document we already hold. GOVERNING FIGURES: GLAZING 1.10 W/m2K. Edward Pearce's headline is 'The external glazing will be replaced or improved to achieve a U-value of 1.1 W/m2K' and their existing-to-proposed comparison tables show glazing 1.60 -> 1.10 in both scenarios, with the proposed new flats at 1.10 and Opaque Door 1.00. (An intermediate retained-flats specification table shows 1.40 with vision-element g-value 0.40; the headline and the comparison tables agree on 1.10, so 1.10 is the figure.) 1.10 is TIGHTER than NBS L10 cl.330's 'U-value maximum 1.2 W/m2K' and it governs because the schedules expressly defer thermal rating to Edward Pearce. G-VALUE 0.36. The architect's schedules state 'G-Value of 0.36 or better' DIRECTLY, against Edward Pearce's 0.40. A directly stated requirement beats a deferred one, so 0.36 governs the g-value while 1.10 governs the U-value. DOORS: NBS L20 cl.280's 1.2 W/m2K remains the door-specific figure. Edward Pearce's 'Opaque Door 1.00' does NOT apply to our three FD30 doors, because in SAP an opaque door is a solid door and ours are glazed (EI30 Clear DGU) - glazed doors sit under glazing at 1.10. Not claiming a 1.00 door requirement. STILL OUTSTANDING (RFI-7, narrowed): NBS cl.330 also defers g-value, frame factor and glazing details to a 'SAP Consultants specification'. Edward Pearce ARE the SAP consultant ('Design SAP 10 and IES VE', 'Baseline SAP and SBEM calculations', 'the SAP 10 methodology') but their own document says 'Full SAP calculations for each scenario and the GLA reporting spreadsheet will be submitted in a separate file' - so the calculations are expressly held separately and are not in the pack. That is a request to a named party for a document known to exist, not an unowned question.",
+    "basis": "per element",
+    "rejected_elements": [],
+    "note": "SM5 WEXHAM RULE APPLIED AND NOTHING IS REJECTED - deliberately. The Energy Statement's 1.1 is written as a general target for 'the external glazing' with no per-element or area-weighted wording, and there is no Uw stated on ANY of the four BSW quotes to test against it. I cannot compute the package average either, because a whole-window Uw exists for exactly one element on the job (the AFS fire doors' EI30 DGU at U=1.0, and that is a glass Ug too). St Mary's rule cuts both ways - do the arithmetic before you raise a finding OR drop it - and here the arithmetic cannot be done from what is on file. So the honest finding is not 'we fail 1.1', it is 'nothing on file demonstrates 1.1 and nobody has asked'. The open item is an RFI to BSW for whole-window Uw figures on the Liniar, Alunet and Sheerline elements, and confirmation of whose specification governs - the Energy Statement or Edward Pearce Consulting Engineers, whose spec the schedules defer to and which is NOT in the tender pack. SECOND TURN UPDATE - THE NBS NUMBERS CHANGE THE SHAPE OF THIS. Last turn the honest position was 'the schedules set no U-value at all', which made it look as though only the sustainability annex asked for anything - the exact escape route St Mary's warned about, where a client says the energy appendix does not apply to our package. It does not hold here: the NBS specification itself sets 1.2 W/m2K maximum on windows AND on communal entrance doors, so a thermal requirement exists in the governing technical document and does not depend on the Energy Statement at all. That is the St Mary's door-schedule lesson repeating - the requirement was in a third place nobody had opened. Still nothing to compute with: no BSW quote states a whole-window Uw, so nothing is rejected here either. The AFS fire doors are the only element with any stated figure (glass Ug 1.0) and even they carry no whole-door Ud against clause 280's 1.2. TWELFTH TURN: the deferral is resolved and the numbers are settled - 1.10 W/m2K glazing (Edward Pearce) and g-value 0.36 (architect). What has NOT changed is that no BSW quote states a whole-window Uw, so there is still nothing to test the 1.10 against; the requirement is now certain while our compliance remains unevidenced. RIVERSIDE'S DISTINCTION, WORTH KEEPING: a deferral to a NAMED, APPOINTED consultant whose other work is in the pack is an ADMINISTRATIVE gap - ask for the document. A deferral to nobody (their job names no structural engineer at all) is a DESIGN gap. Same wording on the drawing, entirely different problem, and only the second should stop you pricing."
+  },
+  "supplier_coverage": [
+    {
+      "ref": "LW_1 louvre",
+      "qty_sold": 4,
+      "qty_quoted": 4,
+      "supplier_ref": "BSW QT252257"
+    },
+    {
+      "ref": "WN_7 AOV",
+      "qty_sold": 3,
+      "qty_quoted": 3,
+      "supplier_ref": "BSW QT252257"
+    },
+    {
+      "ref": "WN_1",
+      "qty_sold": 11,
+      "qty_quoted": 11,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WN_2",
+      "qty_sold": 7,
+      "qty_quoted": 7,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WN_3",
+      "qty_sold": 34,
+      "qty_quoted": 34,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WN_4",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247",
+      "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 1360 x 1935, Qty 1, Foil/Wt Casement, Location WN 4, GBP 521.69"
+    },
+    {
+      "ref": "WN_5",
+      "qty_sold": 6,
+      "qty_quoted": 6,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WN_6",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247",
+      "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 2710 x 1650, Qty 1, Foil/Wt Casement, Location WN6, GBP 911.25"
+    },
+    {
+      "ref": "WN_8",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247",
+      "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 910 x 1350, Qty 1, Foil/Wt Casement, Location WN 8, GBP 297.26"
+    },
+    {
+      "ref": "WN_9",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247",
+      "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 1136 x 1350, Qty 1, Foil/Wt Casement, Location WN 9, GBP 472.89"
+    },
+    {
+      "ref": "WN_10",
+      "qty_sold": 12,
+      "qty_quoted": 12,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WN_11",
+      "qty_sold": 3,
+      "qty_quoted": 3,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_1",
+      "qty_sold": 3,
+      "qty_quoted": 3,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_2",
+      "qty_sold": 7,
+      "qty_quoted": 7,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_3",
+      "qty_sold": 10,
+      "qty_quoted": 10,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_4",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_5",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_6",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_7",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_8",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_9",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_10",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_11",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_12",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_13",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_14",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_15",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_16",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "WE_17",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252247"
+    },
+    {
+      "ref": "PD_A",
+      "qty_sold": 3,
+      "qty_quoted": 3,
+      "supplier_ref": "BSW QT252248"
+    },
+    {
+      "ref": "PD_B",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252248"
+    },
+    {
+      "ref": "PD_C",
+      "qty_sold": 38,
+      "qty_quoted": 38,
+      "supplier_ref": "BSW QT252248"
+    },
+    {
+      "ref": "PD_I",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252248"
+    },
+    {
+      "ref": "D_B 1040 x 1720",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252251"
+    },
+    {
+      "ref": "D_B 970 x 1760",
+      "qty_sold": 3,
+      "qty_quoted": 3,
+      "supplier_ref": "BSW QT252251"
+    },
+    {
+      "ref": "D_B 1055 x 1750",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252251",
+      "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. Overall Size 1055 x 1720, Qty 1, Prestige Open In Door, GBP 843.71"
+    },
+    {
+      "ref": "D_C 1510 x 2110",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252251"
+    },
+    {
+      "ref": "D_D 1010 x 2110",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT252251"
+    },
+    {
+      "ref": "D_E 1500 x 2100",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252251",
+      "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. SPLIT ACROSS TWO LINES: 500 x 2100 Prestige Casement GBP 401.12 + 1055 x 2085 Prestige Open Out Door GBP 878.58 = GBP 1,279.70 exactly"
+    },
+    {
+      "ref": "D_U 1405 x 2170",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT252251",
+      "note": "CORRECTED 28/07 - this WAS quoted; my turn-one reconciliation was wrong. SPLIT ACROSS TWO LINES: 500 x 2100 Prestige Casement GBP 401.12 + 1000 x 2085 Prestige Open Out Door GBP 870.27 = GBP 1,271.39 exactly"
+    },
+    {
+      "ref": "D_A 2326 x 2085",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "AFS Q7585 pos 001"
+    },
+    {
+      "ref": "D_A 1750 x 2238",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "AFS Q7585 pos 002"
+    },
+    {
+      "ref": "D_T 1600 x 2210",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "AFS Q7585 pos 003"
+    }
+  ],
+  "price_commitment": {
+    "source": "jLiving Form of Tender 2025_jL_GCourt_FoT_V1, inside the tender zip: 'This tender remains open for consideration for a period of 180 days from the date of receipt of tenders.' Tender receipt was 22/07/2026 @ 1400 per the ITT 2025_jL_GCourt_ITT_V8 timetable. The contract is NEC3 ECC April 2013 Option A, priced contract with activity schedule, executed as a DEED, and the ITT invites a 'lump sum, firm priced tender'. The same Form of Tender commits to 'commence the works within 4 weeks following signing of the contract'.",
+    "our_price_open_until": "2027-01-18",
+    "note": "jLiving's full timetable: ITT issued 02/06/2026, tender return 22/07/2026 @ 1400, bidder presentations 02/09/2026, tender award announcement 16/09/2026, standstill (min 10 days) 30/09/2026, contract award mid-October 2026, Go Live 30/10/2026. So the earliest realistic order date is ~11 weeks after every supplier quote behind our number has lapsed, and AFS's 8-week lead time runs from order signature AND receipt of their 60% payment, putting the fire doors on site around January 2027. SIXTEENTH TURN - QUALIFIED BY OUR OWN TERMS. Page 8 of the issued proposal: '2. Quotation Validity - All quotations provided by Fenster Glazing & Locks Ltd are VALID FOR 30 DAYS FROM THE DATE OF ISSUE, unless agreed otherwise.' Issued 09/07, so on our own terms the price expired 08/08/2026. WE ARE NOT A PARTY TO jLIVING'S FORM OF TENDER - Chigwell signed it; our contract is with Chigwell and our document says 30 days. Commercially Chigwell priced our number into a bid committed for 180 days and will expect us to honour it, and a subcontractor's validity clause is routinely overridden by an order, so this is a negotiating position rather than a shield - but the 163-day exposure is QUALIFIED rather than absolute, and Adam did not have that when he decided REQ-20. It also makes RFI-11 sharper: if our terms went up with Chigwell's Section 2 caveats the clause is visible to jLiving; if not, Chigwell absorbed it silently. AND THE THREE DATES: 07/07/2026 was the last date we could have issued and still been covered by BSW (their 06/08 minus our 30 days) - we issued 09/07, so WE WERE NEVER COVERED; 06/08 and 08/08 are the dates we can no longer ask either supplier cheaply; 08/08 is when our own price expires. After 08/08 nothing on this job is held by anybody."
+  },
+  "delivery_terms": [
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT252247 / QT252248 / QT252251 / QT252257",
+      "order_value": 183005.42,
+      "free_delivery_threshold": "never",
+      "delivery_priced": false,
+      "note": "EVERY BSW QUOTE SAYS EX WORKS: 'All estimates are ex works, additional delivery charges may apply.' No threshold and no distance rule is stated, so unlike A Plus on Riverside there is no figure to test GBP 183,005.42 against - carriage is simply unpriced. Note also the Delivery Address on all four quotes is FENSTER'S OWN YARD (98 Alston Drive, Bradwell Abbey, Milton Keynes MK13 9HF), not the site, so carriage from Milton Keynes to Edgware HA8 on 227 units is ours as well. The workbook carries no carriage line at all - install (GBP 46,840) is pure per-unit labour codes. Ask BSW for their delivery basis and threshold in writing.",
+      "charge_basis": "'All estimates are ex works, additional delivery charges may apply' - no rate, no threshold and no distance rule stated on any of the four quotes"
+    },
+    {
+      "supplier": "Aluminium Fire Systems",
+      "ref": "Q7585",
+      "order_value": 18298.94,
+      "free_delivery_threshold": "never",
+      "delivery_priced": false,
+      "note": "DELIVERY IS A PRICED EXTRA OF GBP 250.00 ON p7 AND IS NOT IN THE TENDER - already recorded under supplier_quotes. The quote contradicts itself: its Specifics page says 'Logistics: Delivered' while p7 prices delivery as an optional extra. T&C 8.1 settles it against us - price is 'exclusive of all costs and charges of packaging, insurance and transport of the Goods, which will be itemised separately if applicable and invoiced to the Customer in addition'. Delivery Location is again Fenster's own MK13 9HF yard, not site.",
+      "charge_basis": "Q7585 p7 optional extra 'Delivery 1 Pcs GBP 250.00'; T&C 8.1 puts packaging, insurance and transport on the Customer 'in addition'"
+    }
+  ]
 }
