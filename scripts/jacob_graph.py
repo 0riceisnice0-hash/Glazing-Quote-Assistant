@@ -74,12 +74,31 @@ def graph(token, method, path, body=None):
         return e.code, {"error": e.read().decode("utf-8", "replace")[:400]}
 
 
+class GraphError(RuntimeError):
+    """Carries the HTTP status so callers can tell 'Exchange refused this'
+    (403) from 'our request was malformed'. Without that distinction a
+    permission test passes whenever the code is broken, which is how the
+    first run of jacob_verify reported three mailboxes as safely blocked
+    when it had never actually asked for them."""
+
+    def __init__(self, status, mailbox, body):
+        super(GraphError, self).__init__("%s on %s: %s" % (status, mailbox, body))
+        self.status = status
+        self.mailbox = mailbox
+
+
 def list_messages(token, mailbox, top=3):
-    st, res = graph(token, "GET",
-                    "/users/%s/messages?$top=%d&$select=subject,from,receivedDateTime"
-                    "&$orderby=receivedDateTime desc" % (urllib.parse.quote(mailbox), top))
+    # urlencode the query - $orderby contains a space, which urllib rejects
+    # outright as a control character rather than escaping for you.
+    qs = urllib.parse.urlencode({
+        "$top": top,
+        "$select": "subject,from,receivedDateTime",
+        "$orderby": "receivedDateTime desc",
+    })
+    st, res = graph(token, "GET", "/users/%s/messages?%s"
+                    % (urllib.parse.quote(mailbox), qs))
     if st != 200:
-        raise RuntimeError("list %s failed: %s %s" % (mailbox, st, res))
+        raise GraphError(st, mailbox, res)
     return res.get("value", [])
 
 

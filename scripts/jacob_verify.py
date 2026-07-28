@@ -70,8 +70,17 @@ def main():
             jg.list_messages(tokens["READER"], mbx, top=1)
             print("  LEAK    %s is still readable" % mbx)
             failures.append("leak/%s" % mbx)
-        except Exception:
-            print("  OK      %s refused" % mbx)
+        except jg.GraphError as e:
+            # Only Exchange actually refusing counts. Any other status means
+            # the request never got that far, so this proves nothing.
+            if e.status in (403, 404):
+                print("  OK      %-32s refused by Exchange (%s)" % (mbx, e.status))
+            else:
+                print("  UNKNOWN %-32s HTTP %s - not a refusal, proves nothing" % (mbx, e.status))
+                failures.append("inconclusive/%s" % mbx)
+        except Exception as e:
+            print("  UNKNOWN %-32s %s - proves nothing" % (mbx, str(e)[:70]))
+            failures.append("inconclusive/%s" % mbx)
 
     if args.send and "SENDER" in tokens:
         print("\n" + "=" * 62)

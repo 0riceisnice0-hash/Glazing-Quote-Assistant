@@ -80,6 +80,18 @@ if ($null -eq $jay) {
     throw "Re-run with -JayAddress <the correct address> once you have picked one from the list above."
 }
 Ok ("Jay resolves: {0} <{1}> [{2}]" -f $jay.DisplayName, $jay.PrimarySmtpAddress, $jay.RecipientTypeDetails)
+
+# Get-Recipient happily returns distribution groups, mail users and contacts -
+# none of which have a mailbox Graph can read. Adding one to the scope group
+# succeeds and then fails later with MailboxNotEnabledForRESTAPI, which is
+# exactly what happened on the first run.
+if ($jay.RecipientTypeDetails -notmatch "UserMailbox|SharedMailbox") {
+    throw ("{0} is a {1}, not a mailbox - Graph cannot read it (MailboxNotEnabledForRESTAPI). " -f
+           $jay.PrimarySmtpAddress, $jay.RecipientTypeDetails) +
+          "Find Jay's real mailbox with: Get-Recipient -ResultSize Unlimited | " +
+          "Where-Object { `$_.RecipientTypeDetails -match 'Mailbox' -and `$_.DisplayName -like '*Jay*' } " +
+          "then re-run with -JayAddress <that address>."
+}
 if ($jay.RecipientTypeDetails -like "*UserMailbox*") {
     Warn "This is a personal mailbox, not a shared one. Jacob will be able to read all of it."
 }
