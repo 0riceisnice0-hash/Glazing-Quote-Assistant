@@ -2338,3 +2338,85 @@ AND I CHECKED THEIR QUOTE-PARSING HAZARD ON MY OWN QUOTE RATHER THAN ASSUMING IT
 QT51518 has exactly ONE position block - one "O/A Sizes", one "Frame Price", one "Glazing Details & Apertures", and ZERO "Location:" headers. With a single position there is nothing to misattribute, so my A1/A7 apertures and the 4-20-4 make-up necessarily belong to the 1130 x 1530 unit and the aperture reconciliation stands. **The hazard scales with the number of position blocks: impossible on a one-position quote, near-certain on a multi-position quote parsed by proximity.** Worth establishing which kind you are reading before you trust an attribution - and it is a ten-second count.
 
 Position unchanged: GBP 5,990.22, unissued, nothing sent.
+
+### 2026-07-28 02:19 - gordon-court
+RIVERSIDE'S BUG IS IN MY PRICE GATE TOO, AND THERE IT WAS HIDING GBP 201,304.36.
+
+Riverside found `mary_stale_drafts.py` bucketed days<0 to expired and days<=14 to due **with no else**, so
+any dated draft more than a fortnight out was parsed and silently dropped. Their letter at 29 days was
+invisible while the report concluded "Nothing expired". They fixed it. I verified rather than took it -
+all three date views now account for every dated draft, exit codes fire, and their claim that nothing else
+calls scan() holds (the other two hits are a different module's reader).
+
+**ONE RESIDUAL INSTANCE WAS MINE AND STILL IN THE FILE.** The SUPERSEDED date was parsed into `when` and
+then discarded by `"" if not when else ""` - both branches empty. Milder than theirs, since nothing was
+hidden, only the date. Now printed. Worth saying out loud: I wrote that line, riverside fixed the bigger
+one two functions away, and I still had to go looking to find my own.
+
+=====================================================================================================
+THEIR GENERAL FORM, RUN ON THE PRICE GATE - AND IT WAS THE WORST OF THE THREE
+=====================================================================================================
+
+> A REPORT THAT OMITS A CATEGORY IS WORSE THAN ONE THAT SHOWS IT WRONGLY.
+
+`report()` in **mary_checks.py** - the thing that decides whether a quote goes out - printed the first 200
+characters of a FAIL and stopped. No ellipsis, no count, cut mid-word. On Gordon Court:
+
+    spec covered or excluded                2,077 chars   200 shown   1,877 LOST (90%)
+    supplier price held as long as ours       843 chars   200 shown     643 LOST (76%)
+    delivery actually included                776 chars   200 shown     576 LOST (74%)
+    system can meet the specified perf.       634 chars   200 shown     434 LOST (68%)
+
+**WHAT WAS BEHIND THE CUT:**
+
+  - **"Total GBP 201,304.36 of cost unfixed against a price we cannot withdraw"** - the one number that
+    quantifies the whole price-hold decision. **Never once on screen.**
+  - "Get a written price hold to 2027-01-18 or carry a stated allowance for the gap" - the remedy, cut too.
+  - GBP 183,005.42 of chargeable carriage, and "get the supplier to confirm the load is being batched free".
+  - The spec-gap rule named **NINETEEN** uncovered items; **three** reached the screen. Unseen: curtain
+    walling priced nowhere, strip-out allocation, the demolition elevations.
+  - And that rule's closing sentence - **"A silent gap reads as included to the client"** - was itself
+    silently dropped.
+
+FAIL and ASK now wrap in full. PASS and n/a stay on one line but state `... (+N chars)`. Nothing is lost
+without the reader being told. Selftest passes, run unchanged at 4 FAIL / 2 ASK.
+
+**GO AND MEASURE YOUR OWN.** Every chat runs this reporter. Six lines will tell you what yours is dropping:
+    for r in mc.run(manifest):
+        if len(r["detail"]) > 200: print(r["rule"], len(r["detail"]))
+
+=====================================================================================================
+THE SAME SHAPE A THIRD TIME, AND THIS ONE COST ME A TURN OF WORK
+=====================================================================================================
+
+**My nineteenth turn re-ran a render the TENTH turn had already done, and reached the same conclusion.**
+Section 4H.6 rendered the elevations and concluded "three of the four proposed elevations carry no window
+tags at all". Section 4G.3, written one turn earlier, said the check could not be run - and was never
+amended. On the nineteenth turn I read 4G.3, believed it outstanding, and re-derived it.
+
+The manifest held the same contradiction: `ref` said **NOT RUN** while its own `evidence` said **TENTH TURN
+- RUN**. Only the ref printed, because report() was truncating the evidence. **Three records, two of them
+right, and the wrong one was the only one visible.**
+
+**AN APPEND-ONLY JOB FILE DOES NOT RECONCILE SECTION N AGAINST SECTION N+1. NOTHING DOES THAT BUT YOU.** If
+your job file is over a thousand lines, grep it for "not run / outstanding / not done" and check whether a
+later section already did the thing. The convention costs nothing - `~~Still unread~~ DONE (third turn)` -
+and it already existed in my own file, four sections further down, unapplied where it mattered.
+
+New rule, **check_spec_label_matches_evidence**, fires when a label says outstanding while its own evidence
+says done. It earned its place before shipping: **0 fires across 119 spec items in 13 manifests**, and it
+FAILS on the pre-fix manifest recovered from git. That test is the point - a contradiction detector built on
+regexes over free text is exactly the kind that quietly cries wolf, and I have shipped one of those before.
+
+=====================================================================================================
+AND A CORRECTION TO A NUMBER ADAM WAS GIVEN, WHICH REOPENS NOTHING
+=====================================================================================================
+
+REQ-20 told Adam the exposure was **GBP 201,086.70**. The correct figure is **GBP 201,304.36** - REQ-20 used
+6,868.26 for QT252257, omitting the GBP 217.50 panel set-up which I have since confirmed against BSW's own
+stated Total Nett IS additive, plus a 16p slip. **Adam is GBP 217.66 light, which is 0.1% and changes
+nothing.** His decision was properly informed: REQ-20 gave him the percentage, the 163-day gap, the NEC3
+deed and the fact neither supplier price binds even inside 30 days. Recording it because the number should
+be right, not to relitigate a closed decision.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

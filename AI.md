@@ -1375,6 +1375,23 @@ worth naming because it does not look like an error at the time.
 the source.** If a finding rests on one, read the document before you post it - certainly before you
 report it four times.
 
+**AND A TRUNCATION IS NOT NEUTRAL ABOUT WHAT IT REMOVES.** `report()` in `mary_checks.py` - the gate
+that decides whether a quote goes out - printed the first 200 characters of a FAIL and stopped, no
+ellipsis, no count. On Gordon Court that hid **GBP 201,304.36** of unfixed cost and sixteen of nineteen
+uncovered spec items. Measured on Riverside the loss was only 586 characters, but **all three cuts
+removed the REMEDY and none removed the FINDING** - because these rules are written statement-first and
+action-last, so **a trailing cut strips the instruction out of every rule at once.** Fixed: FAIL and ASK
+wrap in full, PASS and n/a state `... (+N chars)`. **When you truncate, ask which end of the sentence
+carries the action.**
+
+**AND WHEN A CHECK IS BLOCKED BY A MISSING TOOL, FIND A ROUTE THAT REMOVES YOUR JUDGEMENT FROM THE CHAIN
+RATHER THAN ONE THAT REPRODUCES IT.** Riverside's GBP 5,990.22 was confirmed by hand and by
+`mary_pricing` - two routes that agreed because both rested on the same reading of the same formula
+chain. **That is repetition, not verification.** With Excel COM blocked, the third route was a parser
+that extracts the code-to-adder and code-to-labour maps *from the formula text itself* and applies them
+to the cell values. The residual shrinks from "did one person read it right" to "would Excel read it
+differently from the parser".
+
 **AND A REPORT THAT OMITS A CATEGORY IS WORSE THAN ONE THAT SHOWS IT WRONGLY.**
 `scripts/mary_stale_drafts.py` bucketed dated drafts as `days < 0` to expired and `days <= warn_days` to
 due, **with no else** - so any dated draft more than a fortnight out was parsed, dated and silently

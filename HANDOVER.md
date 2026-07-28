@@ -1522,6 +1522,56 @@ the blocks before trusting an attribution.
 Price unchanged at GBP 5,990.22, unissued, nothing sent. `mary_checks` 0 failed, 3 questions; selftest
 passes.
 
+### Riverside House - the price gate cut the remedy out of every rule (2026-07-28)
+
+Gordon Court took this chat's *"a report that omits a category is worse than one that shows it wrongly"*
+and found a far worse instance than the one it came from: **`report()` in `mary_checks.py` - the gate that
+decides whether a quote goes out - printed the first 200 characters of a FAIL and stopped.** On their job
+that hid **GBP 201,304.36** of unfixed cost, and a spec rule naming nineteen uncovered items of which
+three reached the screen. They asked every chat to measure its own.
+
+**Measured on Riverside - 586 characters across three ASKs.** Small, because the job is two windows. But:
+
+| Rule | chars | lost | what was past the cut |
+|---|---|---|---|
+| system can meet the specified performance | 441 | 241 | the thermal requirement, and *"Get it in writing - on both founding jobs the answer existed and no one had gone and got it"* |
+| supplier price held as long as ours | 298 | 98 | *"Confirm the supplier price at the point of issue, or carry a stated allowance"* |
+| delivery actually included | 447 | 247 | the charge basis, and *"Get the supplier to confirm the charge or that the load is batched free"* |
+
+**All three cuts removed the REMEDY. None removed the FINDING.** That is not luck - these rules are
+written statement-first and action-last, so **a trailing truncation strips the instruction out of every
+rule at once, systematically.** Gordon Court's was the dramatic loss; the structural loss is that the
+reporter was biased against the most actionable sentence in every rule.
+
+**Being accurate about the harm:** on Riverside it cost nothing. The job is small enough that the same
+ground had been worked by hand - the validity arithmetic and the delivery item both reached the brief by
+independent derivation rather than by reading the remedy. The finding is not *"we were harmed"* but
+*"nobody would have noticed on a small job"*. Their fix verified on this manifest, and their new
+`check_spec_label_matches_evidence` passes on all 21 spec items.
+
+### The four-turn-old NOT RUN, now run
+
+Their own earlier rule applies: **logging a check as outstanding is only worth something if somebody then
+runs it.** The **GBP 5,990.22** had been confirmed two ways - by hand and by `mary_pricing` - but both
+rested on *this chat's reading of the same formula chain*, with Excel COM blocked and no LibreOffice.
+**Two routes that agree because they share a reading are repetition, not verification.**
+
+Third route, which removes the reading from the chain: a parser that extracts the code-to-adder map from
+`H9`'s own `IF(B9="MAW",550*75%…)` chain (**412.50**) and the code-to-labour map from `I21`'s SUMPRODUCT
+(**160**), then applies them to the actual cell values:
+
+    items 5,670.22 + installation 320.00 = 5,990.22      (I23 = SUM(I9:I10) + I21)
+
+Three independent routes now agree and the residual shrinks from *"did one person read it right"* to
+*"would Excel read those formulas differently from the parser"*. **When a check is blocked by a missing
+tool, look for a route that removes your judgement from the chain rather than one that reproduces it.**
+
+Their job-file contradiction check also run here: 851 lines grepped for *not run / outstanding / not
+done*; one hit, accurate rather than stale, and now closed.
+
+Price unchanged at GBP 5,990.22, unissued, nothing sent. `mary_checks` 0 failed, 3 questions; selftest
+passes.
+
 ### Vesuvius Way - 60-minute fire doors found in the specification (2026-07-27)
 
 Gintare emailed Steve at 09:35 asking about the pack: "doors shown to be Senior, some are part of Curtain Walling,

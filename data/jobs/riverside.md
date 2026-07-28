@@ -193,6 +193,37 @@ So there are now two dates on this job and they answer different questions:
 | **27/07 (past)** | the last date we could ISSUE and still be covered by A Plus. Gap grows by a day, daily. |
 | **26/08 (29 days)** | the last date we can ASK A Plus anything as an addendum rather than a new enquiry. |
 
+### The price gate was truncating every remedy (28/07)
+
+Gordon Court took the *"a report that omits a category is worse than one that shows it wrongly"* form and
+found a far worse instance than the one it came from: **`report()` in `mary_checks.py` - the thing that
+decides whether a quote goes out - printed the first 200 characters of a FAIL and stopped.** On their job
+that hid **GBP 201,304.36** of unfixed cost and a spec rule naming nineteen uncovered items of which three
+reached the screen.
+
+**Measured here, as they asked.** Riverside is a small job so the absolute loss is small - **586
+characters across three ASKs** - but the pattern is sharper than a random cut:
+
+| Rule | chars | lost | what was past the cut |
+|---|---|---|---|
+| system can meet the specified performance | 441 | 241 | the thermal requirement, and *"Get it in writing - on both founding jobs the answer existed and no one had gone and got it"* |
+| supplier price held as long as ours | 298 | 98 | *"Confirm the supplier price at the point of issue, or carry a stated allowance"* |
+| delivery actually included | 447 | 247 | the charge basis, and *"Get the supplier to confirm the charge or that the load is batched free before the price is issued"* |
+
+**All three cuts removed the REMEDY, not the finding.** That is not luck - these rules are written
+statement-first and action-last, so **a trailing truncation strips the instruction from every rule at
+once.** For a week the screen showed what was wrong and never the sentence saying what to do about it.
+
+**Being accurate about the harm on this job:** it cost nothing here, because the job is small enough that
+the same ground had been worked by hand - the validity arithmetic and the delivery question both reached
+the brief by independent derivation rather than by reading the remedy. On a job the size of Gordon
+Court's it would have cost a great deal. The fix is theirs; the verification that it works on this
+manifest is mine, and their new `check_spec_label_matches_evidence` passes on all 21 spec items.
+
+**And their job-file contradiction check, run here:** 851 lines grepped for *not run / outstanding / not
+done / cannot be run*. **One hit, and it is accurate** - the Excel recalculation, which is dealt with
+immediately below rather than left sitting.
+
 ### The stale-draft tool was dropping our own letter - fixed (28/07)
 
 Gordon Court built `scripts/mary_stale_drafts.py` off last night's finding and asked every chat to run it
@@ -358,16 +389,30 @@ clauses matter here and one is absent from the extraction entirely:
   optional - asking is still right, and C0/C1 stand - but it changes the character of the exposure from
   "we may be liable for a non-compliant vent" to "we rely on the client's team, and we asked".
 
-### One check logged as NOT RUN
+### The NOT RUN check, now run (28/07)
 
-The **GBP 5,990.22** has never been observed as a value computed by Excel. It is derived from the
-formulas stored in the workbook, hand-evaluated, and independently reproduced by `mary_pricing` - two
-routes that agree, but both from this chat's reading of the same formula chain. A live recalculation was
-attempted via Excel COM and **failed - COM automation will not start in this environment**. Logged as
-outstanding rather than claimed. Mitigating: the template's code values are corroborated independently by
-Adam's table in `MARY-HANDOVER.md` section 6, and the repo template's formulas were confirmed **identical**
-to the live `MASTER PRICING DOC 10.07.2026.xlsx` in the job folder, so the document is at least built on
-the current master.
+Logged four turns ago: **the GBP 5,990.22 had never been observed as a value computed by Excel.** It was
+hand-derived from the workbook's stored formulas and reproduced by `mary_pricing` - two routes that agree,
+but both resting on *this chat's reading of the same formula chain*. A live recalculation via Excel COM
+would not start in this environment, and LibreOffice is not installed.
+
+Gordon Court's own rule applies: **logging a check as outstanding is only worth something if somebody then
+runs it.** So it is now run by a third route that removes the reading as the single point of failure - a
+parser that extracts the maps **from the formula text itself** rather than being told them:
+
+- the code-to-adder map read out of `H9`'s `IF(B9="MAW",550*75%...)` chain, giving **412.50**;
+- the code-to-labour map read out of `I21`'s SUMPRODUCT, giving **160**;
+- applied to the actual `B/F/J/K/L` cell values in the file.
+
+    items          5,670.22
+    installation     320.00
+    TOTAL          5,990.22      (I23 = SUM(I9:I10) + I21)
+
+**Three independent routes now agree.** The residual is genuinely smaller: what remains unverified is
+only whether Excel would interpret those formulas differently from the parser, rather than whether one
+person read them correctly. The template was separately confirmed identical to the live
+`MASTER PRICING DOC 10.07.2026.xlsx`, and the code values are corroborated by Adam's table in
+`MARY-HANDOVER.md` s6.
 
 ### Our own validity clause, verified at source - and its second half matters (28/07)
 
