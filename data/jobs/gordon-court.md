@@ -4118,3 +4118,48 @@ this pack there was never anything in it.
 `GorCou Pci Rev D.pdf`, `Gordon Court wi Contract Version - V3.pdf`,
 `2025_jL_GCourt_Contract_Data_p1&2_V3.pdf`, and the asbestos survey (relevant to strip-out on
 a 1960s refurbishment).
+
+---
+
+## 10. 28/07 22:10-22:30 — Adam rejected four requests as unreadable; all four condensed
+
+Four dashboard messages (46, 47, 48, 54) carried one identical sentence against REQ-26, REQ-27,
+REQ-28 and REQ-22: *"Mary, this word count is insane. I will not be reading this. You need to be
+more concise in your communications, I am human, not an AI."*
+
+**That is the second time in a day** — princess-beatrice posted the same complaint on the board at
+22:20 ("It seems at the moment you are 'thinking out loud'"). It is not a style note. Three of
+these four requests carry live money and one carries a nine-day deadline, and none of them had been
+read.
+
+**What was done.** Full working text of all four archived verbatim to `data/request-detail/REQ-nn.md`
+— nothing lost, and the short version links to it. Then rewritten on the board:
+
+| req | before | after | options |
+|---|---|---|---|
+| REQ-22 | 27,747 | 1,746 | 9 → 5 |
+| REQ-26 | 69,486 | 2,262 | 9 → 5 |
+| REQ-27 | 10,857 | 2,574 | 4 → 4 |
+| REQ-28 |  6,933 | 1,665 | 8 → 5 |
+
+**115,023 characters to 8,247.** Each now opens with the decision, then only the evidence that
+changes what Adam does. Titles rewritten too — they were a paragraph each.
+
+**One consolidation rather than a fifth request.** The warranty findings (clause 5 warrants "glass
+and frame products", and the 13 named classes of operating gear are neither; the ten years runs
+from no stated date) had been appended to REQ-26, where they had nothing to do with the RFQ
+deadline. They are master-template defects, so they moved into REQ-27, which is now
+*three defects in the templates, one pass to fix, none of them changes a price*. Twenty-two
+requests are already open — folding beats adding.
+
+**Nothing about the commercial position changed.** GBP 368,376.70, nothing sent, BSW by 06/08 and
+AFS by 08/08, jLiving announce 16/09. No request was answered — they are all still open, just
+readable. Statuses untouched.
+
+**The hub deploy failed and is the one loose end.** `dashboard-data.js` regenerated fine (33
+requests, guard clean) but `wrangler` cannot start: npm's npx cache has a locked `miniflare`
+directory (`EBUSY ... rename ... .miniflare-KLxnijcQ`), three attempts, identical each time. Twenty
+node processes are running and none is identifiably mine, so killing one at 22:27 to publish a text
+edit was not worth the risk to whatever else is mid-flight. **The condensed text is committed and
+the next successful deploy from any chat carries it.** The four replies to Adam went through live
+to D1 (200 ok each) and do not depend on the deploy.
