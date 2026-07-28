@@ -6,17 +6,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
 ### 2026-07-28 18:26 - grange-hill
-EVERY DOCUMENT WE GENERATE FROM THE HOUSE TEMPLATE CARRIES ANOTHER FIRM'S NAME, EMAIL AND TWO LIVE LINKS INTO THEIR FILES - AND IT IS THE MASTER, NOT ANY ONE JOB.
-
-data/MASTER PRICING DOC.xlsx has dc:creator 'Dan Parker;dan.parker@agsurveying.co.uk', a SharePoint ContentTypeId from that firm's site, and two external links: 'The Datum Group Electrical - TEMPLATE - Detailed breakdown Rev 5.xlsx' under C:\Users\Parke\ and 'Electrical Template - Draft - REV010.xlsx' under C:\Users\LiamO'Donnell\, both via INetCache\Content.Outlook. The cached sheets inside even hold their lighting item catalogue. ALL OF IT IS VISIBLE IN WINDOWS FILE PROPERTIES WITHOUT OPENING THE FILE.
-
-Four outputs inherit it: Grange Hill, Greenfields, Lyttleton Road, SM5 Wexham. Riverside and Gordon Court were cleaned one at a time in the past - the symptom was fixed twice and the cause never was, which is why it came straight back on Grange Hill.
-
-NEW TOOL: python scripts\mary_scrub_workbook.py "<file>"  reports; --in-place for a file the client has NOT received; --out for a copy where they have (the issued file is the record of what they got). It refuses to write if any formula actually reads the external books, so it cannot silently leave you #REF!. On Grange Hill zero formulas did.
-
-CHECK YOUR OWN OUTPUT BEFORE IT GOES ANYWHERE. mary_checks' 'no third-party traces' rule only fires if you list the file in issued_documents with a path - a document you never declared is a document never scanned.
-
-### 2026-07-28 18:26 - grange-hill
 A GAP FOUND IN ONE EMAIL IS NOT A GAP. READ THE WHOLE THREAD BEFORE YOU RAISE IT.
 
 Grange Hill, corrected today. On 24/07 I flagged that spec 3.15 - the chapel folding doors - was missing from the RFQ Gintare sent BSW at 15:14, and it became REQ-1, which Zac answered on 27/07 with 'Yes - ours, add to RFQ'. Gintare had already sent a SECOND, fuller RFQ at 15:29 the same afternoon, with seven attachments and a heading 'Folding doors in Chapel' reproducing the clause almost verbatim. Nothing needed adding. Three days of a live request spent on a gap that closed itself fifteen minutes after the email I read.
@@ -52,3 +41,9 @@ GENERAL FORM, now three for three: an absence proved from one document is not an
 AFS TURNAROUND, worth having on the board rather than in one chat: Aluminium Fire Systems quoted Gordon Court Q7585 in TWO DAYS - enquired 07/07, query back 09/07 07:55, full quote 09/07 11:02. Chris Wall chris@aluminiumfiresystems.com, Charlie Skipp charlie@ prices, 0121 277 4870. If you are inside a week and need a fire screen or fire doorset price, they can still make it.
 
 AND CHECK WHICH SPECIALIST. A '60 minute door package' is usually two packages: aluminium fire screens and doors within curtain walling go to AFS, but 60 min INSULATED STEEL-CORE doorsets are a steel supplier's scope and AFS may not make them. Splitting it wrong loses you the days you were trying to save.
+
+### 2026-07-28 18:47 - stoke-park
+FOURTH INSTANCE THIS WEEK - BUT THIS ONE HAS A CONCRETE REMEDY, NOT JUST 'SEARCH HARDER'. On Stoke Park I raised REQ-11 saying the glass and louvre buys were dimensioned to a superseded schedule. Zac's answer: the correct sizes went to commercial@fensterglazing.com on 27/07. TWO STRUCTURAL BLIND SPOTS, both now confirmed. (1) MAILBOX: I poll estimating@ and mary@ ONLY - mary_graph.py lines 23-24. commercial@ is not in the list, and it is where production documents for WON jobs land. (2) FOLDER: ordering happens in '<job>\4. Orders\', which I had never opened on any job. Stoke Park's held the placed glass, louvre and panel orders, all dated 27.07.26 - they simply had not existed when I looked two days earlier. SO, ON ANY LIVE PROJECT, BEFORE SAYING A BUY IS WRONG OR MISSING: open '4. Orders' in the job folder, and remember that anything routed to commercial@ is invisible to you - absence of evidence there is not evidence of absence. This is different from the Crestwood / Grange Hill / Vesuvius lesson: those were 'read the whole thread'. This is 'there are places you structurally cannot see, and they are exactly where live-project procurement lives'.
+
+### 2026-07-28 18:47 - stoke-park
+NEW RATE POINTS FROM PLACED ORDERS (not quotes) - Stoke Park School, all 27.07.26, prepared and signed by Steve Freezer, in 'Commercial\2. Projects\Borras\Coventry - Stoke Park School\4. Orders'. CN GLASS, supply only, sealed units: Spec A 6.8 lami / 16 argon warm edge / 4 tough Low-E face 3 = GBP 55.00/m2. Spec B 8.8 lami / 16 / 4 = GBP 60.00/m2. Spec C 8.8 lami / 20 / 4 (the 32mm unit) = GBP 60.00/m2. 124 units, 106.946 m2, GBP 6,185.09. That converts the old CN Glass VERBAL rate into a real ordered rate, and it beat Vetroseal's GBP 110/m2 goods + GBP 4.15/m2 energy for the same 8.8/16/4 make-up by roughly half. IKON LOUVRES: IKL332 28mm glazed-in modules with insulated blanking panels, RAL 7012 30% gloss = GBP 367.00/m2 - 44 modules, 20.674 m2, GBP 7,587.30. METFAB insulated panels: 1.5mm PPC alu / 25mm Rockwool core / 1.5mm PPC alu, RAL 7012 - rate not yet on the order. ALSO A HOUSE FORMAT WORTH KNOWING: 'Glazing Schedules.xlsx' generates three matching order sheets (Glass / Panel / Louvre) with a Spec A-B-C pricing block at the top and per-item lines below. If you need to raise a glazing order, that is the template.

@@ -3571,6 +3571,56 @@ Outputs: workbook rebuilt to **18 findings** with a new "Aplus QT51510" sheet (l
 
 Lessons: (1) **a cheaper quote is not cheaper until you have counted what is not in it**, and on an Aplus quote the tell is an aperture listed under a bare thickness heading rather than a glass make-up; (2) **when two independent fabricators refuse the same performance requirement, the finding is against the specification, not the suppliers** - and the answer is to go to the specified manufacturer, which nobody had done; (3) supplier segment totals may already be extended for quantity - reconcile to the quote total before multiplying (caught here only because the first build came out at GBP 102,036.76 against a stated GBP 34,445.91); (4) **point `mary_checks` at real file paths.** Described documents produce an ASK; real paths produced two FAILs, one of which was the defect that had already reached a client on another job that week.
 
+### Stoke Park School (Borras) - REQ-11 closed: the orders were already right (2026-07-28)
+
+Work order `dashmsg-37.json`, Zac on the dashboard answering REQ-11: *"The correct glass sizes were all sent to
+commercial@fensterglazing.com to which you do not have access, which we received on 27/07"*.
+
+He is right, and REQ-11 is closed. Rather than take it on trust, checked it against the orders themselves - which
+turned out to be on file in a folder this chat had never opened, **`4. Orders\`**, created 27-28/07:
+
+| Order | Supplier | Qty | m2 | Value |
+|---|---|---|---|---|
+| `Glass Order\Stoke Park - Glass Order.pdf` | **CN Glass** | 124 units | 106.946 | **GBP 6,185.09** |
+| `Louvre Order\Stoke Park - Louvre Order.pdf` | **IKON** | 44 modules | 20.674 | **GBP 7,587.30** |
+| `Panel Order\Stoke Park - Panel Order.pdf` | **Metfab** | 2 panels | 3.171 | **unpriced** |
+
+All three dated **27.07.26**, prepared and approved by **Steve Freezer**, generated from `4. Orders\Glazing
+Schedules.xlsx` - a three-sheet house template (Glass / Panel / Louvre) with a Spec A-B-C pricing block.
+
+**Every size on the glass and louvre orders matches the signed-off 02/07 apertures.** Type A 933x448 and 1041x1191,
+Type C 941x448 and 1049x1191, door leaves at 2059, D05 head 1933x733; louvres at **391mm**, not the 476 IKON quoted.
+The 85mm mismatch and the 0-of-124 pane mismatch are both gone. 170 items / 130.79 m2 is Aplus's final list exactly.
+
+Two things the orders settled that no quote had. **The 32mm make-up** - Spec C is 8.8 lami / 20mm argon / 4mm
+toughened at GBP 60/m2, covering the D01 screen and the D05 head. And **the 44 v 46 split**: D03's two door leaves are
+**insulated aluminium panels from Metfab** (1.5mm PPC alu / 25mm Rockwool / 1.5mm PPC alu), not louvres. The 46
+non-glass positions were right; the supplier split was inference and is now 44 louvres + 2 panels.
+
+**The commercial position improved and the 27/07 overrun never happened.** The build-up carries Vetroseal
+GBP 9,309.22 and IKON GBP 7,490.64; the actual buy is GBP 6,185.09 and GBP 7,587.30 - about **GBP 3,027 UNDER** the
+sold price rather than GBP 5,338.93 over. The CN Glass switch is what did it, and CN Glass is now a **placed-order
+rate rather than the verbal one** flagged repeatedly: Spec A 6.8/16/4 GBP 55/m2, Spec B 8.8/16/4 GBP 60/m2,
+Spec C 8.8/20/4 GBP 60/m2. IKON louvres GBP 367/m2.
+
+Noted for Steve, deliberately **not raised** given 25 requests already open: the Metfab order carries no rate, and
+Spec A is 26.8mm on 73 panes Aplus nominate as 28mm (Spec B at 28.8mm is the like-for-like) - probably a deliberate
+choice of 6.8 lami on the smaller high panes, but cheap to confirm before 03/08. Not mentioned at all: the orders
+consolidate Aplus's 1mm width variations (1048/1049, 940/941) to the larger, which is within glazing clearance.
+
+**The lesson, and it is structural rather than another instance of carelessness.** This is the fourth time this week
+Mary has reported something already in hand (Crestwood's Teleflex quote, Grange Hill's chapel doors, Vesuvius's BSW
+zip, now this). The other three were "read the whole thread". This one is different and has a concrete remedy: there
+are two places Mary **structurally cannot see**, and they are exactly where live-project procurement happens.
+
+- **`commercial@fensterglazing.com`** receives production documents for won jobs. `mary_graph.py` lines 23-24 poll
+  **`estimating@` and `mary@` only** - confirmed against the 161 queue/processed files, which carry no other mailbox.
+- **`<job>\4. Orders\`** holds the placed orders. Never opened on any job before today.
+
+Both written into `data\jobs\stoke-park.md` as a banner at the top of the file and posted to the noticeboard. On any
+LIVE project the estimating trail is history, not the current position - check `4. Orders\` before saying a buy is
+wrong, and treat absence of evidence in a mailbox you cannot read as no evidence at all.
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.

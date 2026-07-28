@@ -1,0 +1,39 @@
+REQ-11 closed: the orders were already placed, and placed correctly
+
+Zac answered REQ-11 - the corrected glass sizes went to
+commercial@fensterglazing.com on 27/07, which Mary does not poll. Verified
+against the orders rather than taken on trust, and they were on file in a folder
+this chat had never opened: "4. Orders", all three dated 27.07.26 and signed by
+Steve Freezer.
+
+  glass   CN Glass  124 units / 106.946 m2 / GBP 6,185.09
+  louvres IKON       44 modules / 20.674 m2 / GBP 7,587.30
+  panels  Metfab      2 panels /  3.171 m2 / unpriced
+
+Every size matches the signed-off 02/07 apertures - louvres at 391mm, not the
+476 IKON quoted. 170 items / 130.79 m2 is Aplus's final list exactly. Two things
+the orders settled that no quote had: the 32mm make-up (Spec C, 8.8/20/4 at
+GBP 60/m2) and the 44-v-46 split - D03's two door leaves are insulated aluminium
+panels from Metfab, not louvres.
+
+The 27/07 overrun never happened. The build-up carries Vetroseal GBP 9,309.22
+and IKON GBP 7,490.64 against an actual buy of GBP 6,185.09 and GBP 7,587.30, so
+about GBP 3,027 UNDER the sold price. CN Glass is now a placed-order rate rather
+than a verbal one.
+
+Nothing raised - 25 requests are already open. Left with Steve and noted only:
+the Metfab order carries no rate, and Spec A is 26.8mm on 73 panes Aplus
+nominate as 28mm.
+
+The durable point is structural, not another instance of carelessness. Both
+alarms on this job were raised against records already superseded by work
+happening where Mary cannot see it:
+
+- commercial@fensterglazing.com receives production documents for won jobs;
+  mary_graph.py polls estimating@ and mary@ only.
+- <job>\4. Orders\ holds the placed orders and had never been opened on any job.
+
+Written into AI.md, the job file banner and the noticeboard: on a live project
+the estimating trail is history, not the position.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

@@ -1,0 +1,22 @@
+Checked and closed. You're right, and the orders are on file - "4. Orders" in the job folder, all three dated 27.07.26 and signed off by Steve. That folder did not exist when I raised REQ-11 and I had never looked for it.
+
+I did not just take it on trust - here is what actually went out, checked against the signed-off 02/07 apertures:
+
+GLASS - CN Glass, 124 units, 106.946 m2, GBP 6,185.09. Every pane matches the sign-off: Type A 933x448 and 1041x1191, Type C 941x448 and 1049x1191, the door leaves at 2059, the D05 head at 1933x733. The sizes I flagged as superseded are all correct on the order.
+
+LOUVRES - IKON, 44 modules, 20.674 m2, GBP 7,587.30, at 391mm high rather than the 476 they quoted. The 85mm problem is gone.
+
+PANELS - Metfab, 2no 770x2059, 1.5mm PPC alu / 25mm Rockwool core / 1.5mm PPC alu, RAL 7012. Those are D03's two door leaves, which is why the louvre order is 44 and not the 46 I had. My split between suppliers was inference; the orders settle it.
+
+170 items, 130.79 m2 - Aplus's final list exactly. The 32mm question is answered too: Spec C on the glass order is 8.8 lami / 20mm argon / 4mm toughened at GBP 60/m2.
+
+THE MONEY MOVED THE RIGHT WAY. The build-up carries Vetroseal GBP 9,309.22 and IKON GBP 7,490.64. The actual buy is GBP 6,185.09 and GBP 7,587.30 - so GBP 3,027 BETTER than the sold price, not the GBP 5,339 worse I reported. The CN Glass switch did that. Metfab's panels are the one thing still to land; that order has no rate on it.
+
+Two things worth a glance, neither of them a request:
+
+- Spec A on the glass order is 6.8 / 16 / 4, so 26.8mm, on 73 panes that Aplus nominate as 28mm (Spec B, 8.8 / 16 / 4, is 28.8mm). D02's two leaves are on Spec C at 32.8mm where Aplus's sheet says 28mm. Almost certainly deliberate - 6.8 lami on the smaller high panes is the obvious call - but worth Steve confirming the beads suit before the frames land on 03/08.
+- The Metfab order is unpriced.
+
+On my side, and I would rather say it than not: this is the fourth time this week I have reported something missing that was already in hand. The reason here is structural rather than carelessness - the correct sizes went to commercial@fensterglazing.com and I poll estimating@ and mary@ only, and the ordering itself happens in "4. Orders", which I had never opened. Both are now written into the job file and the noticeboard, so on any live project I check "4. Orders" before saying a buy is wrong.
+
+REQ-11 closed. Nothing raised.

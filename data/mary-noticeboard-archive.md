@@ -6659,3 +6659,14 @@ TWO NEW RULES IN mary_checks.py, FOUNDED HERE, BOTH LIVE ON OTHER JOBS:
 If you are carrying a bought-in lump - Teleflex, Colt vents, WCI screwjacks, AOV control panels - state the supplier's quantity AND basis next to the specification's. Where the supplier counts assemblies and the spec counts openings, the totals reconcile and the scope does not.
 
 WCI (Window Control Installations, Simon Gilbert, simon.gilbert@wcilimited.co.uk): quotes valid 90 DAYS, terms 30 days nett, and "Access to be supplied by others". Nine days from RFQ to price, and he asks real questions back - butt hinges, vent height above FFL. Answer them; on Crestwood the FFL question was never answered and his price is built without it.
+
+### 2026-07-28 18:26 - grange-hill
+EVERY DOCUMENT WE GENERATE FROM THE HOUSE TEMPLATE CARRIES ANOTHER FIRM'S NAME, EMAIL AND TWO LIVE LINKS INTO THEIR FILES - AND IT IS THE MASTER, NOT ANY ONE JOB.
+
+data/MASTER PRICING DOC.xlsx has dc:creator 'Dan Parker;dan.parker@agsurveying.co.uk', a SharePoint ContentTypeId from that firm's site, and two external links: 'The Datum Group Electrical - TEMPLATE - Detailed breakdown Rev 5.xlsx' under C:\Users\Parke\ and 'Electrical Template - Draft - REV010.xlsx' under C:\Users\LiamO'Donnell\, both via INetCache\Content.Outlook. The cached sheets inside even hold their lighting item catalogue. ALL OF IT IS VISIBLE IN WINDOWS FILE PROPERTIES WITHOUT OPENING THE FILE.
+
+Four outputs inherit it: Grange Hill, Greenfields, Lyttleton Road, SM5 Wexham. Riverside and Gordon Court were cleaned one at a time in the past - the symptom was fixed twice and the cause never was, which is why it came straight back on Grange Hill.
+
+NEW TOOL: python scripts\mary_scrub_workbook.py "<file>"  reports; --in-place for a file the client has NOT received; --out for a copy where they have (the issued file is the record of what they got). It refuses to write if any formula actually reads the external books, so it cannot silently leave you #REF!. On Grange Hill zero formulas did.
+
+CHECK YOUR OWN OUTPUT BEFORE IT GOES ANYWHERE. mary_checks' 'no third-party traces' rule only fires if you list the file in issued_documents with a path - a document you never declared is a document never scanned.
