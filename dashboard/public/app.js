@@ -207,6 +207,7 @@ const ICONS = {
   leads: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
   signals: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>',
   jmessages: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>',
+  jlive: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>',
   botchat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H9l-5 5Z"/></svg>',
   jayk: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5Z"/><path d="M8 7h8M8 11h8"/></svg>',
   relationships: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20a5.5 5.5 0 0 0-3-4.9"/></svg>',
@@ -216,14 +217,14 @@ const ICONS = {
 };
 
 const PAGES = [
-  { key: "overview", label: "Overview", sub: () => "Everything Mary is holding, at a glance" },
-  { key: "pipeline", label: "Pipeline", sub: () => "Every live tender, most urgent first" },
-  { key: "requests", label: "Mary needs you", sub: () => `${awaitingReqs().length} decision${awaitingReqs().length === 1 ? "" : "s"} she cannot make without a human` },
-  { key: "messages", label: "Messages", sub: () => "Two-way line - she picks up what you write within seconds" },
-  { key: "comms", label: "Comms log", sub: () => "Everything sent and everything read" },
-  { key: "catches", label: "Catches", sub: () => "Errors found and money saved" },
-  { key: "scoreboard", label: "Scoreboard", sub: () => "How close Mary is getting, and whether we won" },
-  { key: "live", label: "Live", sub: () => ACTIVITY?.title ? `Working on ${ACTIVITY.title}` : "What Mary is doing right now" },
+  { key: "overview", label: "Overview", group: "Work", sub: () => "Everything Mary is holding, at a glance" },
+  { key: "pipeline", label: "Pipeline", group: "Work", sub: () => "Every live tender, most urgent first" },
+  { key: "requests", label: "Mary needs you", group: "Work", sub: () => `${awaitingReqs().length} decision${awaitingReqs().length === 1 ? "" : "s"} she cannot make without a human` },
+  { key: "messages", label: "Messages", group: "Talk", sub: () => "Two-way line - she picks up what you write within seconds" },
+  { key: "comms", label: "Comms log", group: "Talk", sub: () => "Everything sent and everything read" },
+  { key: "catches", label: "Catches", group: "Record", sub: () => "Errors found and money saved" },
+  { key: "scoreboard", label: "Scoreboard", group: "Record", sub: () => "How close Mary is getting, and whether we won" },
+  { key: "live", label: "Live", group: "Record", sub: () => ACTIVITY?.title ? `Working on ${ACTIVITY.title}` : "What Mary is doing right now" },
 ];
 
 /* ---------------- Jacob Wright - business development ----------------
@@ -234,16 +235,19 @@ const PAGES = [
    Sections that are not built yet render a "planned" note rather than an
    empty table - an empty table reads as "nothing to do", which is a lie. */
 const JACOB_PAGES = [
-  { key: "overview", label: "Overview", sub: () => "What Jacob has found, and what is still to build" },
-  { key: "signals", label: "Signals", sub: () => `${JACOB?.totals.signals || 0} enquiries and portal notices found in the mailboxes` },
-  { key: "leads", label: "Leads", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} matched to a Fenster relationship, ${JACOB?.totals.cold || 0} cold` },
-  { key: "relationships", label: "Relationships", sub: () => `${JACOB?.relationships.rows.length || 0} companies, ${JACOB?.totals.dormant || 0} with no recent contact` },
-  { key: "jayk", label: "Jayk's book", sub: () => `${JACOB?.jayk?.messages || 0} recovered messages from the former BDM` },
-  { key: "jmessages", label: "Messages", sub: () => "Two-way line with Jacob" },
-  { key: "botchat", label: "Internal chat", sub: () => "What Jacob and Mary say to each other - max ten an hour each" },
-  { key: "outreach", label: "Outreach", sub: () => "Nothing sends without a human approving it" },
-  { key: "sources", label: "Sources", sub: () => "Where leads come from, and which feeds are live" },
-  { key: "decisions", label: "Jacob needs you", sub: () => `${openJacobReqs().length} open, ${JACOB?.decisions.length || 0} standing` },
+  // Order matters: the group heading is emitted when the group changes,
+  // so pages in the same group have to sit together or the heading repeats.
+  { key: "overview", label: "Overview", group: "Find", sub: () => "What Jacob has found, and what is still to build" },
+  { key: "signals", label: "Signals", group: "Find", sub: () => `${JACOB?.totals.signals || 0} enquiries and portal notices found in the mailboxes` },
+  { key: "leads", label: "Leads", group: "Find", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} matched to a Fenster relationship, ${JACOB?.totals.cold || 0} cold` },
+  { key: "relationships", label: "Relationships", group: "People", sub: () => `${JACOB?.relationships.rows.length || 0} companies, ${JACOB?.totals.dormant || 0} with no recent contact` },
+  { key: "jayk", label: "Jayk's book", group: "People", sub: () => `${JACOB?.jayk?.messages || 0} recovered messages from the former BDM` },
+  { key: "jmessages", label: "Messages", group: "Talk", sub: () => "Two-way line with Jacob" },
+  { key: "botchat", label: "Internal chat", group: "Talk", sub: () => "What Jacob and Mary say to each other - max ten an hour each" },
+  { key: "decisions", label: "Jacob needs you", group: "Talk", sub: () => `${openJacobReqs().length} open, ${JACOB?.decisions.length || 0} standing` },
+  { key: "outreach", label: "Outreach", group: "Build", sub: () => "Nothing sends without a human approving it" },
+  { key: "sources", label: "Sources", group: "Build", sub: () => "Where leads come from, and which feeds are live" },
+  { key: "jlive", label: "Live", group: "Build", sub: () => "What Jacob is doing right now" },
 ];
 
 /* Jacob's own channels. Loaded alongside his board; a failure here leaves the
@@ -251,6 +255,7 @@ const JACOB_PAGES = [
 let JMSGS = [];
 let JREQS = [];
 let BOTCHAT = [];
+let JACTIVITY = null;
 const openJacobReqs = () => JREQS.filter((r) => r.status !== "answered");
 
 async function sendToJacob(body, context = "") {
@@ -511,6 +516,29 @@ const JACOB_RENDER = {
       </div>`;
   },
 
+  jlive() {
+    const a = JACTIVITY || {};
+    const events = a.events || [];
+    if (!events.length) {
+      return `<div class="empty"><strong>Nothing running</strong>When Jacob picks up
+        a message or a lead, every step he takes appears here as it happens.</div>`;
+    }
+    const icon = { say: "&#9679;", think: "&#8230;", tool: "&#9656;", result: "&#8629;" };
+    const when = a.updated ? new Date(a.updated).toLocaleTimeString("en-GB",
+      { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "";
+    return `
+      <div class="live-head">
+        <span class="chip warn">working</span>
+        <strong>${esc(a.title || "Business development")}</strong>
+        <span class="live-when">last step ${esc(when)}</span>
+      </div>
+      <div class="ev-feed" id="ev-feed">${events.map((e) => `
+        <div class="ev ev-${esc(e.kind)}">
+          <span class="ev-mark">${icon[e.kind] || "&#9679;"}</span>
+          <div class="ev-body">${esc(e.text)}</div>
+        </div>`).join("")}</div>`;
+  },
+
   decisions() {
     const open = openJacobReqs();
     return `
@@ -755,9 +783,15 @@ function render() {
   const badges = jacob ? {} : { requests: awaitingReqs().length, messages: unseenMsgs() };
   $$(".nav-bot").forEach((b) => b.classList.toggle("active", b.dataset.bot === BOT));
 
-  $("#nav-items").innerHTML = pages.map((p) => `
-    <button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.key]}${p.label}
-    ${badges[p.key] ? `<span class="badge${p.key === "requests" ? " hot" : ""}">${badges[p.key]}</span>` : ""}</button>`).join("");
+  // Group headings break an 11-item list into something scannable. Only
+  // emitted when the group changes, so ungrouped pages still render flat.
+  let lastGroup = null;
+  $("#nav-items").innerHTML = pages.map((p) => {
+    const head = p.group && p.group !== lastGroup
+      ? `<div class="nav-group">${esc((lastGroup = p.group))}</div>` : "";
+    return `${head}<button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.key]}${p.label}
+    ${badges[p.key] ? `<span class="badge${p.key === "requests" ? " hot" : ""}">${badges[p.key]}</span>` : ""}</button>`;
+  }).join("");
   // Switching bots can leave `page` pointing at a section the other one does
   // not have ("catches" -> Jacob). Fall back rather than render a blank board.
   const meta = pages.find((p) => p.key === page) || pages[0];
@@ -933,10 +967,22 @@ $("#search").addEventListener("input", (e) => {
       api("jacob/requests").catch(() => []),
       api("botchat").catch(() => []),
     ]);
+    JACTIVITY = await api("jacob-activity").catch(() => null);
     if (!JACOB) $$(".nav-bot[data-bot='jacob']").forEach((b) => { b.hidden = true; });
 
     // The live feed needs a faster beat than the rest of the hub, but only
     // while somebody is actually watching it.
+    // Jacob's live feed, same beat as Mary's and only while somebody is watching.
+    setInterval(async () => {
+      if (!(BOT === "jacob" && page === "jlive")) return;
+      try {
+        const fresh = await api("jacob-activity");
+        if (JSON.stringify(fresh) === JSON.stringify(JACTIVITY)) return;
+        JACTIVITY = fresh;
+        render();
+      } catch {}
+    }, 3000);
+
     setInterval(async () => {
       if (page !== "live") return;
       try {

@@ -25,6 +25,7 @@ import os
 import subprocess
 import sys
 import time
+import threading
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -132,7 +133,7 @@ def budget_spent(state):
     return sum(r["seconds"] for r in state["runs"]) / 3600.0
 
 
-def dispatch(state):
+def dispatch(cfg, state):
     orders = sorted(f for f in os.listdir(QUEUE) if f.endswith(".json"))
     if not orders:
         return False
@@ -154,6 +155,40 @@ def dispatch(state):
         fh.write(str(os.getpid()))
     started = time.time()
     log("dispatch -> %d order(s)" % len(orders))
+
+    # Publish what he is doing to the hub's Live tab while he works. Reuses
+    # Mary's transcript tailer read-only - Claude Code already writes every
+    # session to a .jsonl as it happens, so nothing about how the session runs
+    # has to change. Best effort on a daemon thread: this must never be able
+    # to interfere with the work itself.
+    stop_feed = threading.Event()
+
+    def publish_feed():
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        try:
+            import mary_activity as act
+        except ImportError:
+            return
+        while not stop_feed.is_set():
+            try:
+                sid = act.newest_session(max_age=900)
+                if sid:
+                    events = act.feed(sid)
+                    if events:
+                        payload = json.dumps({"chat": "jacob", "title": "Business development",
+                                              "events": events}).encode()
+                        req = urllib.request.Request(
+                            cfg.get("DASHBOARD_URL", "https://mary-dashboard.pages.dev")
+                            + "/api/jacob/activity", data=payload, method="POST")
+                        req.add_header("x-mary-key", cfg["MARY_API_KEY"])
+                        req.add_header("content-type", "application/json")
+                        req.add_header("user-agent", "JacobBridge/1.0")
+                        urllib.request.urlopen(req, timeout=15).read()
+            except Exception:
+                pass                      # a broken feed must not break the run
+            stop_feed.wait(6)
+
+    threading.Thread(target=publish_feed, daemon=True).start()
 
     prompt = ("Read %s and follow it. Your work orders are the JSON files in %s. "
               "Handle them, reply on the hub to anyone who wrote to you, then move "
@@ -178,6 +213,7 @@ def dispatch(state):
     except subprocess.TimeoutExpired:
         log("session timed out after an hour")
     finally:
+        stop_feed.set()
         try:
             os.remove(LOCK)
         except OSError:
@@ -211,7 +247,7 @@ def main():
     while True:
         try:
             queue_work(cfg, state)
-            dispatch(state)
+            dispatch(cfg, state)
             save(STATE, state)
         except Exception as e:                       # never die on one bad pass
             log("pass failed: %s" % str(e)[:200])

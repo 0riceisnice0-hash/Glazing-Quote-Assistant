@@ -94,6 +94,17 @@ export async function onRequest(context) {
       return json({ ok: true });
     }
 
+    // Jacob's live feed - same shape as Mary's, its own state key.
+    if (route === "jacob-activity" && request.method === "GET") {
+      try {
+        const row = await db.prepare("SELECT v, updated FROM state WHERE k = 'jacob_activity'").first();
+        if (!row) return json({ events: [] });
+        return json({ ...JSON.parse(row.v), updated: row.updated });
+      } catch {
+        return json({ events: [] });
+      }
+    }
+
     // ---- Jacob: humans <-> Jacob, his own table ----
     if (route === "jacob/messages" && request.method === "GET") {
       const { results } = await db.prepare(
@@ -195,6 +206,15 @@ export async function onRequest(context) {
       for (const id of (b.ids || [])) {
         await db.prepare("UPDATE bot_chat SET seen = 1 WHERE id = ?").bind(parseInt(id, 10) || 0).run();
       }
+      return json({ ok: true });
+    }
+
+    if (route === "jacob/activity" && request.method === "POST") {
+      const b = await request.json().catch(() => ({}));
+      await db.prepare(
+        "INSERT INTO state (k, v, updated) VALUES ('jacob_activity', ?, ?) " +
+        "ON CONFLICT(k) DO UPDATE SET v = excluded.v, updated = excluded.updated")
+        .bind(JSON.stringify(b).slice(0, 20000), now()).run();
       return json({ ok: true });
     }
 
