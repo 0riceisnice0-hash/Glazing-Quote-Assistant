@@ -6037,6 +6037,47 @@ argument for running both rather than treating one as the mature version of the 
 Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
 
 
+### Gordon Court - forty-sixth turn: one sentence past my own quotation was a standard nobody had mentioned (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their WER finding does not replicate here, checked and reported clean.** Case-insensitive sweeps of the NBS
+spec, Energy Statement, ITT and Q&As for `\bWER\b`, *window energy rating*, *energy rating*, *BFRC* and
+*band A/B/C*: **zero in all four**, and zero across my own documents.
+
+**But theirs came from the SUPPLIER's quotation and I had never run the check there.** Twelve quoted fragments
+followed to what came next - and the answer was in a clause set I had already quoted from **five times** (2.6,
+3.6, 3.7.2, 3.7.5, 8.1) **without ever reading clause 6**.
+
+| | glass | frames / mechanical |
+|---|---|---|
+| We offer Chigwell | **10 years** | 10 years |
+| AFS cl.6.1 give us | **5 years** | 10 years |
+| BSW give us | **nothing stated** | **nothing stated** |
+
+**A five-year glass gap on the three EI30 doorsets**, qualified but not closed by our own *"subject to the
+terms and conditions of any applicable manufacturer warranties"*. **BSW state no warranty at all** - zero hits
+for warrant, guarantee, year, defect - so on 124 windows, 44 patio doors and 15 external doors we cannot say
+whether our ten years is backed. **Third distinct reason to send D2's request for their terms.**
+
+**Two more operational items from the same clause:** cl.6.3.1 requires written notice of visually apparent
+defects **within 24 hours of delivery** - and the Delivery Location is our own yard, so the clock starts with
+us and the yard has never been told. And all three positions are priced **"Without Installation"** while cl.6.4
+voids the warranty if we fail to follow AFS's installation instructions - **which we have never asked for, on
+EI30 doorsets where the detail is what separates a certified assembly from an uncertified one.**
+
+New AFS section 6, PRICE HOLD renumbered to 7, and the fail-safe header's list updated from five items to
+seven. Spec items **35, 36, 37**.
+
+**The mechanism is a third one.** riverside: Part K on Riverside was a gap **between** documents found by
+diffing exclusion lists; on Gordon Court it was a gap **inside a sentence** removed by a closing quotation
+mark. **This is a gap inside a document I had already read five times** - mined for the clauses I went looking
+for. **Mining a document is not reading it, and the more often you mine one the more certain you become that
+you have.**
+
+Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

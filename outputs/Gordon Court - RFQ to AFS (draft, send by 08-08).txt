@@ -7,10 +7,10 @@
 # In fact their clause 2.6 cuts BOTH ways and is the more important sentence: a
 # quotation "will not constitute an offer and may be withdrawn or amended at any time".
 # So the 30 days was never a guarantee, and 08/08 is a soft boundary rather than a cliff.
-# The QUESTIONS below remain valid - the intumescent seal, the dual RAL finish, the
-# GBP 506.37 extras, the whole-door Ud and position 003's height all still need
-# answering. Re-head it, delete the "SEND BY" block, and ask AFS to reconfirm or restate
-# the GBP 18,298.94 alongside their answers.
+# The SEVEN sections below all remain valid - the intumescent seal, the dual RAL finish,
+# the GBP 506.37 extras and delivery to site, the whole-door Ud, position 003's height,
+# the clause 6 warranty items, and the price hold. Re-head it, delete the "SEND BY"
+# block, and ask AFS to reconfirm or restate the GBP 18,298.94 alongside their answers.
 #####################################################################################
 
 GORDON COURT, STONEGROVE, EDGWARE HA8 7TQ - CHIGWELL GROUP
@@ -135,7 +135,36 @@ have a route for it; if it does not, it is ours. Either way we would rather know
 before an order than argue it after one.
 
 =====================================================================================
-6. PRICE HOLD
+6. THE WARRANTY, AND TWO THINGS IN CLAUSE 6 WE HAD NOT REGISTERED
+=====================================================================================
+Your Conditions clause 6.1 gives, from delivery or collection, "5 years in relation to
+glass and ... 10 years in relation to mechanical aspects of the Goods". We are not
+disputing either period - we had simply not read that far, and it raises three things.
+
+(a) THE 24-HOUR NOTIFICATION. Clause 6.3.1 requires notice in writing "within 24 hours
+    of delivery/collection in respect of Goods, if the alleged defect is apparent on
+    visual inspection". The Delivery Location on Q7585 is our own yard at Bradwell
+    Abbey, so that clock starts with us and we will make sure the yard knows. We mention
+    it only to confirm we have read it correctly: is 24 hours from arrival at the
+    Delivery Location, rather than from arrival on site?
+
+(b) THE INSTALLATION INSTRUCTIONS, WHICH WE DO NOT HAVE. All three positions are priced
+    "Without Installation", so the installation is ours - and clause 6.4 excludes the
+    warranty where the Customer "failed to follow AFS's oral or written instructions as
+    to the storage, installation, commissioning, use or maintenance of the Goods".
+    On an EI30 doorset the installation detail is the difference between a certified
+    assembly and an uncertified one. Please send the written storage and installation
+    instructions you rely on for that clause, so that we can follow them and so that our
+    fixing detail can be checked against them before we start rather than after.
+
+(c) FIVE YEARS ON GLASS AGAINST OUR TEN. Our own proposal offers the client a 10-year
+    warranty on glass and frames, expressly "subject to the terms and conditions of any
+    applicable manufacturer warranties". So the two are not in conflict. But if you are
+    able to offer 10 years on the glass in these three doorsets, or to tell us what that
+    would cost, it would let us give the client one period rather than two.
+
+=====================================================================================
+7. PRICE HOLD
 =====================================================================================
 The main contract tender this feeds is not expected to be awarded before mid-October 2026.
 Please tell us either the latest date you can hold the Q7585 figures to, or the date from

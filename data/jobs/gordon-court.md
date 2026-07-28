@@ -3692,6 +3692,78 @@ riverside's second step that stops this becoming a machine for generating findin
 
 ---
 
+## 4AR. FORTY-SIXTH TURN (28/07) — one sentence past my own quotation was a standard nobody had mentioned
+
+### 4AR.1 riverside's WER does not replicate here — checked, and reported as clean
+
+They found *"All residential windows to have a minimum window energy rating of C"* **two sentences past
+their own quotation** of A Plus's U-value line, on a residential conversion, after thirty turns on thermal
+performance.
+
+**Checked here across the NBS spec, the Energy Statement, the ITT and the Q&As, case-insensitively, for
+`\bWER\b`, `window energy rating`, `energy rating`, `BFRC` and `band A/B/C`: zero, in all four.** And zero
+mentions across every document of mine. **Their finding does not replicate — but theirs came from the
+supplier's quotation, not the client's pack, and I had never run the check there.**
+
+### 4AR.2 So I ran it on the supplier quotations — 12 fragments followed to what came next
+
+And the answer was in a clause set I had already quoted from **five times** — 2.6, 3.6, 3.7.2, 3.7.5 and 8.1
+— **without ever reading clause 6.**
+
+> **AFS cl.6.1: "5 years in relation to glass and … 10 years in relation to mechanical aspects of the
+> Goods."**
+
+**Our own issued proposal offers Chigwell:** *"a 10-year warranty covering all glass and frame products
+supplied and installed by the company."*
+
+| | glass | frames / mechanical |
+|---|---|---|
+| **We offer Chigwell** | **10 years** | 10 years |
+| **AFS give us** | **5 years** | 10 years |
+| **BSW give us** | **unknown** | **unknown** |
+
+**A five-year glass gap on the three EI30 doorsets** — qualified, not closed, by our own saving clause
+*"subject to the terms and conditions of any applicable manufacturer warranties"*.
+
+**And BSW's four quotations state no warranty at all** — zero hits for *warrant, guarantee, year, defect*. So
+across **124 windows, 44 patio doors and 15 external doors** we cannot say whether our 10-year offer is
+backed. **It would be in the "terms and conditions of sale, available on request" that D2 asks for** — which
+is now the third distinct reason to send that request.
+
+### 4AR.3 Two more from the same clause, both operational
+
+**(a) A 24-hour clock nobody has been told about.** Clause 6.3.1 requires notice in writing *"within 24 hours
+of delivery/collection in respect of Goods, if the alleged defect is apparent on visual inspection."* **The
+Delivery Location on Q7585 is our own Bradwell Abbey yard**, so the clock starts with us and the yard has
+never been told. Asked as AFS 6(a), which also asks whether the 24 hours runs from the Delivery Location or
+from site.
+
+**(b) A warranty condition on doorsets we install and they do not.** All three positions are priced
+**"Without Installation"**, and cl.6.4 voids the warranty where the Customer *"failed to follow AFS's oral or
+written instructions as to the storage, installation, commissioning, use or maintenance of the Goods."*
+**On an EI30 doorset the installation detail is the difference between a certified assembly and an
+uncertified one, and we have never asked for those instructions.** Asked as AFS 6(b), requesting them **so
+our fixing detail can be checked against them before we start rather than after.**
+
+New AFS section 6; PRICE HOLD renumbered to 7; **and the fail-safe header's list of what still needs
+answering updated with it** — it named five items and there are now seven, which is the stale-count fault I
+have now caught in four documents.
+
+### 4AR.4 The shape, and why both checks were needed
+
+riverside put it best and it is worth keeping verbatim:
+
+> **On Riverside, Part K was excluded by A Plus, excluded by us, and asked of neither — a gap BETWEEN
+> documents, found by diffing two exclusion lists. On Gordon Court the same regulation was written into the
+> specification clause and removed by a closing quotation mark — a gap INSIDE a sentence. Neither check would
+> have found the other's.**
+
+**This turn is the third mechanism: a gap inside a document I had already read five times.** Not between
+documents, not inside a sentence — **inside a clause set I had mined for the clauses I was looking for and
+never read through.** Spec items 35, 36 and 37.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
