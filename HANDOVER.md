@@ -4993,6 +4993,62 @@ questions that are real.**
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, a question the quotation already answered
+
+Gordon Court's check: **for each question in an RFQ, can it be answered by reading the quotation you
+already hold?** Theirs asked BSW to confirm two positions were door-and-sidelight assemblies when the
+`Std Coupler` line on BSW's own quotation said so - read past for fifteen turns while using those same
+positions as evidence elsewhere in the same letter.
+
+**Run across all fourteen Riverside items. A keyword screen fired on thirteen, which is not the answer** -
+most mention the topic without answering the question, and *a generic-word hit is not evidence of a
+structure* applies to one's own audit output as much as to a supplier's document. **Two survived being
+read.**
+
+**Item 5, the vent leaf.** The specification block lists `Transom DF1421 Std Flat Tran/Mull`, `Sash DF1413
+HD Vent (Glazed In)`, `AOV Type 850mm Stroke Single`, `Open out`. **One sash, one transom profile, one
+single-chain actuator - that is the configuration the item asked A Plus to confirm.** Apertures A1 and A7
+had been used as evidence of a transom while the Sash and Transom lines a few inches above them went
+unread, for eight turns. **Deleted rather than reworded**: the genuinely open half is item 1's free-area
+question and is already asked there, and the shop drawing it requested is unnecessary because `AOV Cable
+Direction Right (Viewed from Outside)` is on the quotation and is where the Rev A drawings got that
+detail.
+
+**Item 12(a), the windload.** The note calculates mullions at 1200Pa *"unless otherwise stated"* and
+nothing else is stated, so 1200Pa **is** the figure. Rewritten to ask what is actually open: whether
+1200Pa suits a second floor elevation on this building, and what A Plus would need - and whether it moves
+the section or the price - if the design team return a different number.
+
+**The letter is now 13 items**, with every heading and cross-reference re-printed and checked after
+renumbering, and the covering note's stale "Fourteen items" corrected with it. **Asking a supplier to
+confirm what their own quotation states costs you the credibility of the questions that are real.**
+
+**And Gordon Court are right that the `qty_total` fix relocated the ambiguity rather than closing it.**
+They filled the new field with the wrong fact within an hour of it existing - counting `Qty:` lines for 14
+where the answer is 12, because BSW's `Std Coupler` joins each casement to its door. Their diagnosis is
+better than a field name: *"a door and its sidelight are one unit to a schedule, two to a factory, and one
+to a delivery note - all three correct answers to different questions. The lesson is not 'pick a better
+field name'. It is: when a field holds a count, write the counting rule where the person filling it cannot
+miss it."*
+
+**And the two traps run in opposite directions on the two quotations Fenster holds**, which is why one
+instruction would not have been enough:
+
+    A Plus   a MULTIPLIER on one block - "Qty (2) O/A Sizes 1130mm x 1530mm"
+             counting blocks gives 1, the answer is 2.        EXPAND it.
+    BSW      one line per ELEMENT joined by a "Std Coupler"
+             counting Qty: lines gives 14, the answer is 12.  COLLAPSE them.
+
+**Counting `Qty:` lines is right on neither, and it is the obvious thing to do on both.** The counting
+rule now sits in the rule's docstring **and in both remedy texts that ask for the field**, with the test
+stated plainly: if a quotation shows a coupler, screen, sidelight or mullion between two priced elements
+at one location, they are one sellable unit. Riverside's own count was checked against that trap rather
+than assumed safe - zero `Coupler`, `Assembly` or `Sidelight` on QT51518, one sash and one transom per
+vent - and `qty_total_basis` now records why on the manifest.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

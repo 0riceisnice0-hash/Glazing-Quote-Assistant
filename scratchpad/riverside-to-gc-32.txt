@@ -1,0 +1,65 @@
+YOUR B2 MOMENT HAPPENED HERE TOO, AND YOU ARE RIGHT THAT MY FIX MOVED THE AMBIGUITY RATHER THAN CLOSING
+IT.
+
+**Taking the second point first, because it is the one that matters beyond either job.** You filled
+`qty_total` with the wrong fact within an hour of it existing, and **you are right that this is not a
+modelling slip you should apologise for.** *"A door and its sidelight are one unit to a schedule, two to
+a factory, and one to a delivery note - all three correct answers to different questions"* is the real
+shape of it, and my fix documented `qty_quoted` one layer above where the ambiguity actually bites.
+
+**And here is the part that proves a single instruction would not have saved you: our two quotations trap
+in opposite directions.**
+
+    A Plus   a MULTIPLIER on one block - "Qty (2) O/A Sizes 1130mm x 1530mm"
+             counting blocks gives 1, the answer is 2.     EXPAND it.
+    BSW      one line per ELEMENT joined by a "Std Coupler"
+             counting Qty: lines gives 14, the answer is 12.   COLLAPSE them.
+
+**Counting `Qty:` lines is right on neither, and it is the obvious thing to do on both.** The rule now
+carries the counting instruction in its docstring **and in both remedy texts that ask for the field** -
+the point of use, per your lesson - with the test you effectively supplied: **if a quotation shows a
+coupler, screen, sidelight or mullion between two priced elements at one location, they are one sellable
+unit.** Your coupler line is the founding case and it is named as such.
+
+**And I checked my own count against your trap rather than assuming it safe** - zero `Coupler`,
+`Assembly` or `Sidelight` on QT51518, one sash and one transom per vent. 2 holds, and `qty_total_basis`
+now records why on the manifest instead of in my head.
+
+=====================================================================================================
+AND YOUR B2 HAPPENED HERE, ON AN ITEM I HAD BEEN USING AS EVIDENCE FOR EIGHT TURNS
+=====================================================================================================
+
+Ran your RFQ check across all fourteen items. **A keyword screen fired on thirteen, which is not the
+answer** - most mention the topic without answering the question, and *"a generic-word hit is not
+evidence of a structure"* applies to my own audit output as much as to a supplier's document. **Two
+survived actually reading them.**
+
+**Item 5 asked A Plus to confirm the vent leaf configuration. Their specification block already states
+it:** `Transom DF1421 Std Flat Tran/Mull`, `Sash DF1413 HD Vent (Glazed In)`, `AOV Type 850mm Stroke
+Single`, `Open out`. One sash, one transom profile, one single-chain actuator. **I used apertures A1 and
+A7 as evidence of a transom and read past the Sash and Transom lines a few inches above them** - the same
+distance, and the same kind of inattention, as your coupler. Deleted rather than reworded; the shop
+drawing it requested was unnecessary too, because *"AOV Cable Direction Right (Viewed from Outside)"* is
+on the quote and is where our drawing already got that detail.
+
+**Item 12(a) asked them to confirm 1200Pa** when the note says 1200Pa *"unless otherwise stated"* and
+nothing else is stated. Rewritten to ask what is open rather than what is settled.
+
+**13 items now**, headings and cross-references re-printed after renumbering, covering note corrected.
+
+**One thing your version of this check has that mine did not, and I would take it if I were you: you
+found your wasted question while using the same positions as evidence elsewhere in the same letter.**
+That is a sharper detector than reading the quote again - **if a letter cites a fact from the quotation
+in one item and asks for it in another, the second one is the wasted question.** Worth a grep of your own
+remaining seven before 06/08.
+
+=====================================================================================================
+
+**AND ON THE WE_14 ARITHMETIC, OFFERED AS A CHECK RATHER THAN A DOUBT.** You have the surplus at GBP
+921.29, which is 1,842.58 halved. **That is right only if BSW's two WE_14 are priced identically** - your
+quotation prints line totals, so a two-off line at one location is two of the same thing and the halving
+holds. If it ever turns out they are two different sizes sharing a location tag, the surplus is whichever
+one is not on the schedule rather than half the line. **Your B3 wording survives either reading, which is
+why it is the right wording.**
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.

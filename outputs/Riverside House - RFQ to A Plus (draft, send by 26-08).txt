@@ -4,12 +4,12 @@ QT51518 lapses 26/08/2026. After that date these sentences in this letter are fa
 
   - "Anything we put to A Plus before then is an addendum to a live quote"
   - "QT51518 lapses 26/08/2026" written as a future event
-  - item 7's "QT51518 is open for 30 days, to 26/08/2026"
+  - item 6's "QT51518 is open for 30 days, to 26/08/2026"
   - item 2's premise that a resize can be set against the GBP 4,845.22 already quoted
 
-THE FOURTEEN QUESTIONS REMAIN VALID. This needs re-heading as a fresh enquiry, not
+THE THIRTEEN QUESTIONS REMAIN VALID. This needs re-heading as a fresh enquiry, not
 binning - A Plus would be quoting from scratch rather than adding lines, so ask for
-a new quotation covering all fourteen points and expect the base price to move.
+a new quotation covering all thirteen points and expect the base price to move.
 
 DRAFT - FOR GINTARE TO SEND TO A PLUS. Nothing has been sent.
 Send by 26/08/2026 - see "why the date" below.
@@ -28,11 +28,11 @@ client, and two parts of it decay if we hold on:
 
   Our own document carries 30 days' validity, so the last date we could issue and
   still be covered by A Plus was 27/07. That is behind us and the gap widens daily,
-  which makes item 7 worth asking now rather than at order.
+  which makes item 6 worth asking now rather than at order.
 
 A note on tone, because it matters here: the 1130 x 1530 came from OUR enquiry of
 24/07, not from A Plus. They quoted what we asked for. Nothing below is a complaint
-about their quotation - items 5 and 9 in particular ask what they priced against, not
+about their quotation - item 8 in particular asks what they priced against, not
 why anything is wrong.
 
 --------------------------------------------------------------------------------
@@ -92,15 +92,7 @@ this further, plus one item we would like added.
    clear on all orders what performance is required, and we would rather do that against
    a figure you have stated than against one we have inferred.
 
-5. THE VENT LEAF - please confirm what we think we are reading
-   The quote lists apertures A1 (957 x 590) and A7 (957 x 591), so the frame is transom
-   divided, but a single 850mm stroke actuator is quoted. We read the stated 1.30m2 as the
-   full inner frame aperture (957 x 1357), which would mean the whole frame opens as one
-   bottom-hung leaf with the transom acting as a glazing bar within the sash. Is that
-   right? A shop drawing showing the leaf, the transom and the actuator position would
-   settle it.
-
-6. DELIVERY
+5. DELIVERY
    (a) The quotation is addressed to our Bradwell Abbey yard, MK13 9HF, and carries no
        site address. Please confirm delivery is to MK13 9HF rather than to site.
    (b) The order is GBP 4,845.22, which is GBP 154.78 below the GBP 5,000 threshold for
@@ -109,21 +101,21 @@ this further, plus one item we would like added.
        the order over GBP 5,000, please confirm delivery is then FOC.
    (c) Please also price delivery direct to site at HP19 7HL as an alternative.
 
-7. PRICE HOLD
+6. PRICE HOLD
    QT51518 is open for 30 days, to 26/08/2026. The client is waiting on their building
    works costs before this is submitted, so the submission date is not yet known. Please
    confirm how long A Plus can hold the price, or what notice we would have of a change.
    Related: the vents sit at the top storey and one requires a new opening to be formed
    by others first, so the installation date may be some way out.
 
-8. WINDOW RESTRICTORS - please price 2no
+7. WINDOW RESTRICTORS - please price 2no
    Your AOV notes say the actuators will not act as window restrictors, that the facade
    contractor should fit suitable restrictors set 50mm beyond the stroke, and that A Plus
    are not liable for replacement actuators or damage to the vent if none is fitted. We
    are the installer here, so that is us. Please price 2no suitable restrictors for the
    850mm stroke so we can carry them properly rather than exclude them.
 
-9. IS THIS THE RIGHT PRODUCT FOR THE POSITION?
+8. IS THIS THE RIGHT PRODUCT FOR THE POSITION?
    The architect's drawings say the stair is to be vented "at the top storey roof", and
    the second floor stairwell has no opening in any of its walls. We asked you for a
    window, so a window is what you quoted - but before we go further, please confirm
@@ -132,7 +124,7 @@ this further, plus one item we would like added.
    on a kerb instead. We are checking the intent with the architect separately; we would
    rather hear now if you think the wall unit is the wrong answer.
 
-10. THE CONTROL SYSTEM - what would you recommend, and can you price it?
+9. THE CONTROL SYSTEM - what would you recommend, and can you price it?
 
    Your AOV notes say the actuators "must be powered by a compatible control system
    which is approved by SE Controls to provide suitable power management and where
@@ -152,7 +144,7 @@ this further, plus one item we would like added.
    We are asking the client separately who is carrying this. We would rather come to
    that conversation with a number than without one.
 
-11. COULD WE HAVE A COPY OF YOUR TERMS OF SALE?
+10. COULD WE HAVE A COPY OF YOUR TERMS OF SALE?
    Your advisory notes say the "A Plus Windows & Doors Limited Terms of Sale Revision
    V.01.2 - 08.01.2018" apply to this quotation and to any subsequent contract, and that
    the definitions come from "Revision V.01 - 03.11.2017". We do not hold either
@@ -160,14 +152,17 @@ this further, plus one item we would like added.
    would rather read the definitions than work from the summary. A copy of both, or a
    link, would be appreciated.
 
-12. THE DESIGN WINDLOAD, AND THE FIXINGS
+11. THE DESIGN WINDLOAD, AND THE FIXINGS
    Your notes say mullion selection is calculated to BS 6399 Part 2 "with a design
    windload of 1200Pa unless otherwise stated", that the calculations are not to be
    relied on for design purposes, and that the Customer should carry out their own wind
    loading check and the structural calculations on any brackets or spigots. Two things
    follow that we would like to get right before an order:
-   (a) please confirm that 1200Pa is the figure used for these two vents, so that whoever
-       carries out the check is checking against the right number;
+   (a) we read your note as meaning 1200Pa has been used here, since nothing else is
+       stated on the quotation. What we do not know is whether 1200Pa is right for a
+       second floor elevation on this building. If the design team come back with a
+       different figure, what would you need from us, and would it change the section or
+       the price?
    (b) your price excludes fixing lugs, bolts and brackets to suit structural
        attachments. Please confirm what, if any, fixing components are included, so we
        know exactly where your supply stops.
@@ -175,7 +170,7 @@ this further, plus one item we would like added.
    the design team as much as for you - but we would rather ask you what you assumed than
    guess at it.
 
-13. ORDERING ONE VENT RATHER THAN TWO - WHAT HAPPENS TO THE PRICE?
+12. ORDERING ONE VENT RATHER THAN TWO - WHAT HAPPENS TO THE PRICE?
    Your terms say the price "is based on the materials quoted being ordered together, and in
    one phase", that orders "for only part of the quote, or fabrication over multiple phases,
    may incur additional charges for paint surcharges, rolling set up charges, reduced
@@ -183,13 +178,13 @@ this further, plus one item we would like added.
    should be requested in that case.
    That is live for us rather than hypothetical. We are still establishing with the
    architect whether the second floor vent is a wall unit at all - the note says the stair
-   is vented at the top storey roof, and that stairwell has no wall opening (item 9). If the
+   is vented at the top storey roof, and that stairwell has no wall opening (item 8). If the
    answer is a roof unit, we would be ordering ONE of the two vents from this quotation.
    So please tell us what the supply price for a SINGLE 1130 x 1530 vent to this
    specification would be. We would rather know now than assume the quoted total simply
    halves.
 
-14. STORAGE, AND WHAT HAPPENS IF SITE IS NOT READY
+13. STORAGE, AND WHAT HAPPENS IF SITE IS NOT READY
    Two of your terms bear on this and we would like to understand them before an order
    rather than during one:
      - you reserve the right to levy storage costs for goods uncollected more than 3 working

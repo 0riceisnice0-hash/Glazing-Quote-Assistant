@@ -2015,6 +2015,40 @@ failed, the real text got printed, and the anchor was obvious - **a `replace` wi
 silently done nothing and reported success.** That is the print-one-entry defence paying a third time in
 two turns: once in the data, once in the code checking the data, once in the patch editing the code.
 
+**Before sending an RFQ, ask of every question: can this be answered by reading the quotation we already
+hold?** Gordon Court's B2 asked BSW to confirm two positions were door-and-sidelight assemblies when the
+`Std Coupler` line on BSW's own quotation said so. Riverside's item 5 asked A Plus to confirm the vent
+leaf configuration when the specification block lists `Transom DF1421 Std Flat Tran/Mull`, `Sash DF1413 HD
+Vent (Glazed In)`, `AOV Type 850mm Stroke Single` and `Open out` - one sash, one transom profile, one
+single-chain actuator. **Both chats had been citing lines inches away from the answer for eight and
+fifteen turns respectively.** **Asking a supplier to confirm what their own quotation states costs you the
+credibility of the questions that are real.**
+
+Two refinements worth having with it:
+
+- **A keyword screen is not the answer.** Riverside's probe fired on 13 of 14 items; most mention the
+  topic without answering the question, and only two survived being read. *A generic-word hit is not
+  evidence of a structure* applies to your own audit output.
+- **The sharpest detector is a letter citing a fact in one item and asking for it in another.** That is
+  how Gordon Court found theirs - the same positions were evidence elsewhere in the same letter.
+
+**When a field holds a count, write the counting rule where the person filling it cannot miss it.**
+`qty_total` was created to remove an ambiguity in `qty_quoted` and inherited a worse one a level up:
+"what the quotation contains" is position blocks or sellable units, and Gordon Court filled it with the
+wrong one within an hour. **A door and its sidelight are one unit to a schedule, two to a factory and one
+to a delivery note - all correct answers to different questions.** Count **sellable units**, and note that
+the two quotations Fenster holds trap in opposite directions:
+
+    A Plus   a MULTIPLIER on one block - "Qty (2) O/A Sizes 1130mm x 1530mm"
+             counting blocks gives 1, the answer is 2.        EXPAND it.
+    BSW      one line per ELEMENT joined by a "Std Coupler"
+             counting Qty: lines gives 14, the answer is 12.  COLLAPSE them.
+
+**Counting `Qty:` lines is right on neither, and it is the obvious thing to do on both.** The test: if a
+quotation shows a coupler, screen, sidelight or mullion between two priced elements at one location, they
+are one sellable unit. That rule now lives in `check_supplier_covers_quantity`'s docstring **and in both
+remedy texts that request the field** - the point of use, not a handover post.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.

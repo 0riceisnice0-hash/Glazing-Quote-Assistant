@@ -35,7 +35,7 @@ those two questions before Gintare asks A Plus for anything.
 TWO LETTERS, DRAFTED AND READY
 
   outputs\Riverside House - RFQ to A Plus (draft, send by 26-08).txt
-      Fourteen items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
+      Thirteen items, all about A Plus's own quotation. None of it needs RRR or PHDB, so it
       does not have to wait for the building works costs. It asks for the aerodynamic
       figure, a price for a compliant size if one is needed, the U-value, delivery, a
       price hold, restrictors, and whether a wall casement is even right for the position.

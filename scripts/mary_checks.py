@@ -491,7 +491,28 @@ def check_supplier_covers_quantity(m):
 
     The surplus arm below deliberately does not depend on which reading was used
     - it compares `qty_total` against the sum of `qty_sold`, which is the same
-    question asked in a way that cannot be answered two ways."""
+    question asked in a way that cannot be answered two ways.
+
+    HOW TO COUNT `qty_total`, because Gordon Court filled it with the wrong fact
+    within an hour of it being created and were right that the ambiguity moved
+    up a level rather than going away. "What the quotation contains" is not one
+    number: a door and its sidelight are ONE unit to a schedule, TWO to a
+    factory and ONE to a delivery note, and all three answers are correct to
+    different questions.
+
+    COUNT SELLABLE UNITS - what you would sell the client - and the two traps
+    are opposite ways round on the two quotations we hold:
+
+      A Plus put a MULTIPLIER on one block: "Qty (2) O/A Sizes 1130mm x 1530mm".
+      Counting blocks gives 1; the answer is 2. EXPAND the multiplier.
+
+      BSW put one line per ELEMENT: "Qty: 1 Prestige Casement, Location D_E" and
+      "Qty: 1 Prestige Open Out Door, Location D_E", joined by a "Std Coupler"
+      line. Counting Qty: lines gives 14; the answer is 12. COLLAPSE coupled
+      assemblies - the coupler line is the proof they are one unit.
+
+    If a quotation shows a coupler, a screen, a sidelight or a mullion between
+    two priced elements at one location, they are one sellable unit."""
     cov = m.get("supplier_coverage")
     if cov is None:
         return result("supplier quote covers every unit sold", UNKNOWN,
@@ -598,17 +619,22 @@ def check_supplier_covers_quantity(m):
                         "was cut after the enquiry. It becomes money only where the build-up "
                         "takes the quotation's TOTAL rather than its lines.",
                       "Brocks Hill",
-                      remedy="Check how the cost was taken. If the build-up uses the quotation "
-                             "total, the surplus units are in your cost with nothing sold against "
-                             "them - ask the supplier what they picked up that you did not.")
+                      remedy="First re-count qty_total in SELLABLE UNITS - elements joined by a "
+                             "coupler at one location are one unit, and a Qty multiplier on a "
+                             "block is several. If the count holds, check how the cost was taken: "
+                             "where the build-up uses the quotation total, the surplus units are "
+                             "in your cost with nothing sold against them, so ask the supplier "
+                             "what they picked up that you did not.")
     if unbounded and not short and not silent:
         return result("supplier quote covers every unit sold", UNKNOWN,
                       "One supplier quotation is credited on several lines and nothing records "
                       "how many units it actually contains: " + "; ".join(unbounded)
                       + ". Without that, double-counting cannot be ruled out.",
                       "Brocks Hill",
-                      remedy="Add 'qty_total' to that entry in 'supplier_quotes', counted off the "
-                             "quotation rather than inferred.")
+                      remedy="Add 'qty_total' to that entry in 'supplier_quotes', counting "
+                             "SELLABLE UNITS off the quotation - expand any Qty multiplier on a "
+                             "position block, and collapse elements joined by a coupler, screen "
+                             "or sidelight at one location into the single unit they are.")
     if short:
         return result("supplier quote covers every unit sold", FAIL,
                       "Units sold with no supplier quote behind them: %s. Extend the quote before "
