@@ -797,7 +797,34 @@ def blank_manifest(job):
 
 
 def run(manifest):
-    return [rule(manifest) for rule in RULES]
+    """Run every rule. A rule that raises loses itself, not the rest of the run.
+
+    Hardened 28/07/2026 after riverside found that a `free_delivery_threshold`
+    written as the string "5000" raised a TypeError inside
+    check_free_delivery_threshold. This was a list comprehension, so that one
+    exception aborted the WHOLE run - and because rules execute in list order,
+    what you lost depended on where the crash sat. That rule is second from
+    last, so the crash was silently taking check_spec_label_matches_evidence
+    with it every single time.
+
+    The specific TypeError was riverside's to fix and they have. This is the
+    other half: no single rule should be able to decide how many of the other
+    fifteen you get to see. A crash is now a FAIL on that rule alone, named,
+    and the run continues - because a checker whose failure mode is "print
+    nothing at all" is the worst version of every reporting bug found tonight.
+    """
+    out = []
+    for rule in RULES:
+        try:
+            out.append(rule(manifest))
+        except Exception as exc:
+            out.append(result(getattr(rule, "__name__", "unknown rule"), FAIL,
+                              "This rule CRASHED and checked nothing: %s: %s. The finding it "
+                              "exists to catch has NOT been ruled out - treat it as unchecked, "
+                              "not as passed." % (type(exc).__name__, exc),
+                              remedy="Fix the rule or the manifest value that broke it, then "
+                                     "re-run before issuing anything."))
+    return out
 
 
 def report(results, job=""):
@@ -906,6 +933,34 @@ def selftest_delivery_variants():
     return not bad
 
 
+def selftest_one_crash_costs_one_rule():
+    """A rule that raises must lose itself, not the rest of the run.
+
+    riverside's TypeError on 28/07 aborted the whole list comprehension, so a
+    single bad manifest value silently took every later rule with it - and
+    check_spec_label_matches_evidence is last, so it was being skipped every
+    time. Persisted here rather than left in a transcript.
+    """
+    def exploding_rule(_manifest):
+        raise TypeError("'<' not supported between instances of 'float' and 'str'")
+
+    original = list(RULES)
+    try:
+        RULES.insert(4, exploding_rule)
+        res = run({})
+        got, want = len(res), len(original) + 1
+        crashed = [r for r in res if "CRASHED" in r["detail"]]
+        survived = any(r["rule"] == "spec item labels match their evidence" for r in res)
+    finally:
+        RULES[:] = original
+
+    ok = got == want and len(crashed) == 1 and crashed[0]["status"] == FAIL and survived
+    print("  %-22s one crash costs one rule: %d/%d results, crash reported as FAIL=%s, "
+          "last rule survived=%s" % ("crash isolation", got, want,
+                                     bool(crashed) and crashed[0]["status"] == FAIL, survived))
+    return ok
+
+
 def selftest():
     """Replay three jobs as they actually were and assert the rules still fire.
 
@@ -952,6 +1007,8 @@ def selftest():
         if missed or missed_ask:
             ok = False
     if not selftest_delivery_variants():
+        ok = False
+    if not selftest_one_crash_costs_one_rule():
         ok = False
     print("selftest %s" % ("passed - every founding error is still caught" if ok else "FAILED"))
     return 0 if ok else 1

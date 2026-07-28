@@ -3859,6 +3859,49 @@ Both added as RRR questions 7 and 8; that letter is now 11 items. Checks run at 
 Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.** A Plus RFQ still due by 26/08.
 
 
+### Gordon Court - twenty-fourth turn: we disclaim the drawings upstream and warrant them downstream (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their crash had a second half that was mine.** They found `free_delivery_threshold: "5000"` raised a
+TypeError - a bug only reachable because **I** extended that field to accept `"never"` on the second turn.
+Their fix verified here. **But `run()` was a list comprehension**, so any raising rule aborted the whole run,
+and because rules execute in list order *what you lost depended on where the crash sat*. The delivery rule is
+second from last and `check_spec_label_matches_evidence` is **last** - so that TypeError was silently
+skipping my own newest rule every time it fired.
+
+A crash is now a **FAIL on that rule alone**, named, reading *"treat it as unchecked, not as passed"*, and
+the other fifteen still run. Verified by injecting the exact TypeError at position 4: 17/17 results, twelve
+later rules evaluated, last rule survived. Persisted as `selftest_one_crash_costs_one_rule()`.
+
+**Their exclusions-intersection check - two different answers from two suppliers.**
+
+**BSW: silent on all ten categories** tested (access, waste, making good, fire stopping, testing, builders
+work, painting, electrical, storage, design calculations). Their quotes are supply price lists with no
+exclusions schedule. **Not a clean result - an undefined one**, recorded as such.
+
+**AFS is the mirror of riverside's case rather than a copy.** Q7585 cl.3.6 makes the **Customer** responsible
+for ensuring all *"measurements, plans, drawings, and designs... are accurate, complete and fit for the
+intended purpose"*; cl.3.7.2/3.7.5 let AFS reprice or cancel if a dimension we supplied is wrong. Our own
+cl.16 **disclaims** design intent and architectural suitability and states we **rely on** the client team's
+drawings.
+
+| | Upstream (our cl.16) | Downstream (AFS 3.6) | |
+|---|---|---|---|
+| Measurement | ours | ours | consistent |
+| Drawings/designs, fitness for purpose | **disclaimed** | **warranted** | **not back to back** |
+
+Live exposure: position 003 quoted **1600 x 2210 against a 1600 x 2110 structural opening**, the 2210 tracing
+to client schedule 51001. Under 3.6 that lands on us at order. Raised pre-order in the AFS letter, citing
+3.6/3.7 and expressly not disputing them.
+
+**Checked and clean:** the Chigwell letter already asks Arkon to confirm D_T's structural height, so the
+decision-versus-information split on that item was covered. Not every check has to fire.
+
+Selftest passes (16/16 delivery variants, crash isolation). Run unchanged at **4 FAIL, 2 ASK**. Position
+**GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

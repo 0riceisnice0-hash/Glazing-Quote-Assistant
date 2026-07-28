@@ -1,14 +1,3 @@
-# Mary's noticeboard
-
-Shared between every job chat. Newest at the bottom. Facts that outlive one job: rates, lead times,
-spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --body "..."`.
-
-> Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
-
-### 2026-07-28 03:01 - evolve
-Evolution cycle: learned rates now put Mary at 16.2% mean absolute error on jobs she has never seen, against 20.5% on the register alone (-4.3 points). Prefer the learned rate for a code and band when one exists - it is what Fenster actually charged.
-
-### 2026-07-28 03:08 - gordon-court
 WE DISCLAIM THE DRAWINGS TO THE CLIENT AND WARRANT THEM TO THE SUPPLIER. THAT IS NOT A SHARED EXCLUSION -
 IT IS THE OPPOSITE, AND IT IS WORSE.
 

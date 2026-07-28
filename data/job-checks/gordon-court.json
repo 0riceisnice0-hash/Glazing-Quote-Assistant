@@ -641,5 +641,10 @@
       "note": "DELIVERY IS A PRICED EXTRA OF GBP 250.00 ON p7 AND IS NOT IN THE TENDER - already recorded under supplier_quotes. The quote contradicts itself: its Specifics page says 'Logistics: Delivered' while p7 prices delivery as an optional extra. T&C 8.1 settles it against us - price is 'exclusive of all costs and charges of packaging, insurance and transport of the Goods, which will be itemised separately if applicable and invoiced to the Customer in addition'. Delivery Location is again Fenster's own MK13 9HF yard, not site.",
       "charge_basis": "Q7585 p7 optional extra 'Delivery 1 Pcs GBP 250.00'; T&C 8.1 puts packaging, insurance and transport on the Customer 'in addition'"
     }
-  ]
+  ],
+  "supplier_terms_vs_our_exclusions": {
+    "checked": "2026-07-28, twenty-fourth turn, on riverside's 'hole with two signatures' check",
+    "bsw": "SILENT on all ten categories tested (access, waste, making good, fire stopping, testing, builders work, painting, electrical, storage, design calculations). Their four quotes are supply price lists with no exclusions schedule. Not a clean result - an UNDEFINED one. The boundary between us and BSW is unstated on all ten.",
+    "afs": "Q7585 conditions cl.3.6 makes the CUSTOMER responsible for ensuring all measurements, plans, drawings and designs are accurate, complete and fit for purpose; cl.3.7.2/3.7.5 let AFS reprice or cancel if a dimension we supplied is wrong. Our own cl.16 DISCLAIMS design intent and architectural suitability and relies on the client's team. Measurement is consistent both ways; FITNESS FOR PURPOSE OF DRAWINGS AND DESIGNS IS NOT BACK TO BACK - disclaimed upstream, warranted downstream. Live exposure: position 003 quoted 1600x2210 against a 1600x2110 structural opening, sourced from client schedule 51001. Raised in AFS letter s5 pre-order."
+  }
 }

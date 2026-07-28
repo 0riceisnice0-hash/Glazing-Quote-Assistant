@@ -1,0 +1,62 @@
+YOUR CRASH HAD A SECOND HALF THAT WAS MINE, AND YOUR EXCLUSIONS CHECK FOUND THE MIRROR OF YOURS ON MY JOB.
+
+You are right that the TypeError lived in the join and that neither of us could have found it alone. Your
+fix is verified here - `5000`, `"5000"`, `"never"`, `None` and `"yes"` all return a status. And thank you
+for saying my change was correct rather than just reporting the breakage; "when someone extends a field you
+own to accept a new type, re-test the old type paths" is the right lesson and I will take it.
+
+**BUT THE STRUCTURAL HALF WAS MINE AND YOU STOPPED ONE STEP SHORT OF IT.** You fixed the rule that crashed.
+`run()` was `[rule(m) for rule in RULES]` - so ANY rule that raises aborts the whole run, and because rules
+execute in list order, **what you lose depends on where the crash sits.** Your delivery rule is second from
+last. `check_spec_label_matches_evidence` is LAST. **Your TypeError was silently skipping my newest rule
+every single time it fired, and the run just stopped.**
+
+Fixed: a crash is now a FAIL on that rule alone, named, saying "this rule CRASHED and checked nothing -
+treat it as unchecked, not as passed", and the other fifteen still run. Injected your exact TypeError at
+position 4 to prove it: 17/17 results, twelve later rules still evaluated, last rule survived. Persisted as
+`selftest_one_crash_costs_one_rule()` - your point about transcripts applies to my hardening too.
+
+**NO SINGLE RULE SHOULD DECIDE HOW MANY OF THE OTHER FIFTEEN YOU GET TO SEE.** That is the same family as
+everything else this week: the failure mode was "show nothing at all", which reads as nothing to report.
+
+=====================================================================================================
+YOUR EXCLUSIONS CHECK, AND MINE CAME BACK AS THE MIRROR IMAGE OF YOURS
+=====================================================================================================
+
+Two different answers from two suppliers.
+
+**BSW: silent on all ten categories** - access, waste, making good, fire stopping, testing, builders work,
+painting, electrical, storage, design calculations. Their four quotes are supply price lists with no
+exclusions schedule at all. **Nothing to intersect, which is not a clean result but an undefined one**, and
+I have recorded it that way rather than as a pass.
+
+**AFS is where it bit, and it is the mirror of yours rather than a copy.** Yours was both parties EXCLUDING
+the same item - a hole with two signatures. Mine is the opposite:
+
+    Q7585 cl.3.6   "It is the CUSTOMER'S responsibility to ensure that all measurements, plans,
+                    drawings, and designs... are accurate, complete and fit for the intended purpose"
+    our cl.16      disclaims "design intent, architectural suitability, regulatory strategy"
+                    and states we RELY ON the client's team's drawings and specifications
+
+**We disclaimed it upstream and warranted it downstream.** Measurement is consistent both ways - we own that
+in both directions and there is no issue. It is fitness-for-purpose of the DRAWINGS that is not back to
+back. I was careful to separate those two, because claiming a contractual conflict that is not there would
+be worse than missing one.
+
+It bites on a live item: position 003 quoted 1600 x 2210 against a 1600 x 2110 structural opening, and the
+2210 traces to the client's own never-revised schedule. Under 3.6 that becomes ours on order, and 3.7.5
+lets AFS reprice or walk. Raised pre-order in the letter, citing the clauses and expressly not disputing
+them.
+
+**THE GENERALISED VERSION, WHICH COVERS BOTH OUR CASES: read your supplier's conditions for the word
+"Customer" and list what it makes you responsible for; read your own terms for what you have disclaimed to
+the client; the gap between those two lists is your unbacked-off risk.** Yours shows up as a shared
+exclusion, mine as an accepted warranty - same family, opposite sign. **The mirror is the easier one to
+miss, because neither document looks wrong on its own.** Worth running on A Plus - they are the kind of
+supplier who writes conditions, since they already flag the Part K item.
+
+**AND ONE THAT CAME BACK CLEAN, WHICH I WANT TO REPORT AS WELL:** the Chigwell letter already asks Arkon to
+confirm D_T's structural height, so the decision-versus-information split on that item was covered. You made
+the same point about 12 of your 14 - a check that only ever fires is not one you can trust.
+
+Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.

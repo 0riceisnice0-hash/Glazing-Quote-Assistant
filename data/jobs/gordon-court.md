@@ -2162,6 +2162,83 @@ positives on the rule that is supposed to catch labels contradicting their evide
 
 ---
 
+## 4V. TWENTY-FOURTH TURN (28/07) — we disclaim the drawings upstream and warrant them downstream
+
+### 4V.1 riverside's crash was in the join, and the other half of it was mine
+
+They found `free_delivery_threshold: "5000"` raised a TypeError — a bug that only became reachable when **I**
+extended that field to accept the string `"never"` on the second turn. A reader who sees one string in a
+manifest reasonably writes another. **Their code was fragile, my change was correct, and the bug lived in
+the join.** Their fix is verified here: `5000`, `"5000"`, `"never"`, `None` and `"yes"` all now return a
+status instead of raising.
+
+**The structural half was mine and I had not seen it.** `run()` was `[rule(manifest) for rule in RULES]` —
+one exception aborted **the whole run**, and because rules execute in list order, *what you lost depended on
+where the crash sat*. `check_free_delivery_threshold` is **second from last** and
+`check_spec_label_matches_evidence` is **last**, so that TypeError was silently taking my own newest rule
+with it every single time.
+
+`run()` now catches per rule: a crash becomes a **FAIL on that rule alone**, named, saying *"This rule
+CRASHED and checked nothing — treat it as unchecked, not as passed"*, and the other fifteen still run.
+Proven by injecting the exact TypeError at position 4: **17 of 17 results, crash reported as its own FAIL,
+twelve later rules still evaluated, last rule survived.**
+
+**No single rule should decide how many of the other fifteen you get to see.** A checker whose failure mode
+is "print nothing at all" is the worst version of every reporting bug found tonight.
+
+Persisted as `selftest_one_crash_costs_one_rule()` — riverside are right that a test living only in a
+transcript is worth nothing. Selftest now reports **16/16 delivery variants** and **crash isolation** as
+standing lines.
+
+### 4V.2 Their exclusions-intersection check, run here — and BSW have no exclusions at all
+
+> **When you and your supplier both exclude the same item, that is not agreement — it is a hole with two
+> signatures on it.**
+
+Ran our twelve exclusions against all four BSW quotes across ten categories — access, waste, making good,
+fire stopping, testing, builders work, painting, electrical, storage, design calculations. **BSW are silent
+on every one.** Their quotes are supply price lists with no exclusions schedule, so there is nothing to
+intersect. **That is not a clean result, it is an undefined one:** for all ten the boundary between us and
+BSW is simply unstated. Recorded as such rather than as a pass.
+
+### 4V.3 AFS is where it bit, and it is sharper than a shared exclusion
+
+Q7585's conditions are 16 pages. Three clauses matter:
+
+> **3.6** *"It is the **Customer's** responsibility to ensure that all measurements, plans, drawings, and
+> designs forming part of the Goods Specification are **accurate, complete and fit for the intended
+> purpose**."*
+> **3.7.2 / 3.7.5** — if a problem appears *"with the dimensions or measurements provided by the Customer"*,
+> **AFS may increase the price**; if we decline, they **may cancel without liability** and we pay for work
+> in progress.
+
+Against our own **clause 16**, which disclaims *"overall design intent, architectural suitability, or
+regulatory strategy"* and states we **rely on** the information, drawings and specifications provided by the
+client's professional team.
+
+**Be precise about where these actually conflict, because overclaiming a contractual gap would be worse than
+missing one:**
+
+| | Upstream (our clause 16, to Chigwell) | Downstream (AFS 3.6, from us) | |
+|---|---|---|---|
+| **Measurement** | ours — "measurement verification" | ours | **consistent** |
+| **Plans, drawings, designs — fitness for purpose** | **disclaimed**, we rely on their team | **warranted by us** | **NOT back to back** |
+
+So on the one thing we expressly refuse to underwrite for the client, we have underwritten it for the
+supplier. And it bites on a live item: **position 003 is quoted 1600 x 2210 against a structural opening of
+1600 x 2110** — 100mm taller than the hole — and the source of the 2210 is the never-revised schedule 51001,
+a **client** document. Under 3.6 that lands on us the moment we order.
+
+The AFS letter §5 already asked the right two questions. It now also says **why it matters now**: 3.6 and
+3.7 cited, expressly not disputed, and *"we would rather establish where 2210 came from while it is a
+question, instead of after an order has been placed against it."* Asking pre-order costs nothing; asking
+post-order is a variation.
+
+**Checked and clean:** the Chigwell letter §2.1 already asks Arkon to confirm D_T's structural height, so
+the decision-versus-information split on this item was covered. **Not every check has to fire.**
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
@@ -2276,6 +2353,10 @@ their whole book, not signalling anything specific about Gordon Court.
   chars had the remedy past the cut, against 3 of 35 under it.** Eight sites lifted; 18 of 116 FAIL/ASK
   findings across 13 manifests now carry one. Six fixed-length manifest-schema prompts deliberately left.
   See §4T.
+- **28/07 twenty-fourth turn — `run()` no longer lets one rule kill the run.** It was a list comprehension,
+  so riverside's TypeError aborted everything after it — and because rules run in list order, that silently
+  skipped `check_spec_label_matches_evidence` (last) every time. A crash is now a FAIL on that rule alone,
+  named, and the run continues. Persisted as `selftest_one_crash_costs_one_rule()`. See §4V.1.
 
 ## 8A. Toolkit changes on the second turn
 

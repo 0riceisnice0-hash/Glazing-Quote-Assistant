@@ -108,6 +108,13 @@ Two questions, and we accept the schedule may be wrong rather than your quotatio
 We have the same query out to the architect. We are not asking you to change anything yet -
 only to tell us what you priced against, so the two can be reconciled before any order.
 
+Why we would rather settle it now than at order: your condition 3.6 makes it our
+responsibility to ensure the measurements, plans and drawings forming the specification are
+accurate, complete and fit for purpose, and 3.7.2 and 3.7.5 let you reprice if a dimension
+we supplied turns out to be wrong. We are not disputing either clause. We would simply
+rather establish where 2210 came from while it is a question, instead of after an order has
+been placed against it.
+
 =====================================================================================
 6. PRICE HOLD
 =====================================================================================
