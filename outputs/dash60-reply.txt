@@ -1,0 +1,52 @@
+You were right again, and it was a second copy of the same bug in a place I had not looked. Deployed - refresh the page and this message should read 22:2x, not 21:2x.
+
+THE CLOCK, PROPERLY THIS TIME
+
+I fixed the hub's GENERATOR earlier - the Emails and Inbox tabs. But the Message Mary thread you are reading does not come from there. It is fetched live from the database by the page itself, and app.js was slicing the raw timestamp string in five separate places. Your message stamped 21:07:41Z was printed as "21:07" when it was 22:07.
+
+All five now go through one helper pinned to Europe/London, so it reads the same wherever it is opened and it will not need touching again in October. Checked the edge case too: a message sent at 00:30 was being filed under the previous day, and now is not.
+
+Your 21:07:41Z renders 22:07. Mine will read correctly from here.
+
+1. INFO@ - THAT ANSWERS IT, AND I WILL STOP RAISING IT
+
+Understood: info@ to commercial@, vetted, then to me at estimating@. That is a better arrangement than me watching a residential mailbox, and I withdraw the point I put to Jacob.
+
+One thing worth your eye, because it is about the vetting step rather than the routing. Redditch Library did travel that path - it landed at info@ on 22 July and Kerry forwarded it to Commercial@ and to you the same afternoon. It then sat for six days until you asked me about it tonight, and it is a 254-page tender with a competitor's priced quote inside it. So the pipe works; nothing pushed it on at the far end. Not a request, just worth knowing where the delay actually was.
+
+2. A CHAT PER JOB - THE STRUCTURE IS NOT WHAT COSTS YOU, TWO CHATS ARE
+
+Fair challenge, and the numbers do not say what I expected.
+
+There are 25 chats. NINE have never run at all - they were opened and nothing arrived, so they cost nothing. Of the 133 sessions in total, NINETY are two chats: Gordon Court has run 47 times and Riverside 43. Everything else runs once or twice and stops.
+
+So the per-job structure is cheap. Two chats looping on settled jobs is expensive - and both of those are jobs where the work is finished. Gordon Court went out on 10 July. Riverside is priced and sitting with you waiting on PHDB. Neither should have been waking up at all this week.
+
+Which is really your point 3 arriving from the other direction. The reason they kept running is that nothing ever told them they were done. Your handover rule fixes exactly that, so I would apply it as the retirement rule too: a chat exists while a job is being priced, and closes when the quote goes out. That plus not opening one for a job that needs no memory - a single door, one price, no follow-up - would have cut tonight's usage by about two thirds.
+
+The bridge that wakes these chats is Zac's to change, so the enforcement is his. I will stop opening chats that do not need memory from now, and I will close mine at handover.
+
+3. HANDOVER TO JACOB AT THE POINT OF ISSUE - ADOPTED
+
+Clear rule and an easy one to follow: mine while it is being priced, his the moment it is sent.
+
+Applying it now to what is on my books, using the send dates I verified from the sent items today rather than what our records claimed:
+
+  HIS - issued, so chasing and logging are his
+    Gordon Court        sent 10/07 to Luke Baker
+    Ninn Lane           sent 09/07 to Tom Dixon
+    St Mary's Merthyr   sent 17/07 to Tom Godfrey
+    Princess Beatrice   sent 27/07 to Jason Mount
+    Crestwood Park      sent 27/07 to Adam Lewis
+    Chester Thomas      sent 27/07 to Chester Thomas Developments
+    Eleanor Trade Ctr   sent 28/07 to Mark Golden
+
+  STILL MINE - not issued
+    Filwood Broadway    with you since 27/07, never sent to Stepnell
+    Redditch Library    priced tonight, nothing to Pride
+    Riverside House     priced, you are holding it for PHDB
+    Vesuvius, Georgie's, John North Hall, Lower Range, Brocks Hill - all still pricing
+
+One boundary question I will not guess at: if a client comes back on an issued quote with a technical change - a revised schedule, a different system, a requote - that is estimating work arriving on a job that is now Jacob's. I will assume it comes back to me for the pricing and goes straight back to him after, unless you tell me otherwise.
+
+I am sending Jacob the same list so he can pick them up.

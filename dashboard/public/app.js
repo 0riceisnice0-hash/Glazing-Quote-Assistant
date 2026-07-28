@@ -138,6 +138,16 @@ function rag(job) {
   return ["ok", `${d} days left`];
 }
 const niceDate = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+/* Every `created` in D1 is new Date().toISOString() - i.e. UTC with a Z. Slicing
+   the string (which this file used to do in five places) published UK times an
+   hour early all through BST: Adam sent a message at 22:07 and the thread said
+   21:07. Always go through these. Europe/London is pinned rather than left to
+   the browser so the board reads the same from anywhere. */
+const UK = "Europe/London";
+const ukTime = (iso) => iso ? new Date(iso).toLocaleTimeString("en-GB", { timeZone: UK, hour: "2-digit", minute: "2-digit" }) : "";
+const ukDay = (iso) => iso ? new Date(iso).toLocaleDateString("en-GB", { timeZone: UK, weekday: "long", day: "numeric", month: "long" }) : "";
+const ukShortDay = (iso) => iso ? new Date(iso).toLocaleDateString("en-GB", { timeZone: UK, day: "2-digit", month: "short" }) : "";
+const ukStamp = (iso) => iso ? `${ukShortDay(iso)} ${ukTime(iso)}` : "";
 const openReqs = () => (DATA.requests || []).filter((r) => r.status === "open");
 /* Still needing a human - one you have already answered is with Mary, not you. */
 const awaitingReqs = () => openReqs().filter((r) => !SENT_ANSWERS[r.id]);
@@ -860,7 +870,7 @@ const JACOB_RENDER = {
       <div class="section"><div class="section-head"><h3>Where this comes from</h3></div>
         <div class="planned-note">${esc(o.source)}. Read-only: the workbook is copied into
         <code>test-results\\jacob-bd\\</code> and opened from the copy, because Gintare, Adam
-        and Steve are working in that drive. Last read ${esc((o.updated || "").slice(0, 16))}.</div></div>`;
+        and Steve are working in that drive. Last read ${esc(ukStamp(o.updated))}.</div></div>`;
   },
 
   /* ------------------------------------------------ leads */
@@ -1050,7 +1060,7 @@ const JACOB_RENDER = {
           ${rows.length ? rows.map((m) => `
             <div class="bubble ${m.author === "jacob" ? "them" : "me"}">
               <div class="bubble-who">${esc(m.author === "jacob" ? "Jacob Wright" : m.author)}
-                <em>${esc((m.created || "").replace("T", " ").slice(0, 16))}</em>
+                <em>${esc(ukStamp(m.created))}</em>
                 ${m.context ? `<span class="pill possible">${esc(m.context)}</span>` : ""}</div>
               <div>${fmt(m.body)}</div>
             </div>`).join("")
@@ -1082,7 +1092,7 @@ const JACOB_RENDER = {
             <div class="bubble ${m.sender === "jacob" ? "me" : "them"}">
               <div class="bubble-who">${esc(m.sender === "jacob" ? "Jacob Wright" : "Mary Grace")}
                 &rarr; ${esc(m.recipient)}
-                <em>${esc((m.created || "").replace("T", " ").slice(0, 16))}</em>
+                <em>${esc(ukStamp(m.created))}</em>
                 ${m.wants_reply ? `<span class="pill strong">wants a reply</span>`
                                 : `<span class="pill possible">FYI</span>`}</div>
               ${m.subject ? `<div><strong>${esc(m.subject)}</strong></div>` : ""}
@@ -1205,11 +1215,13 @@ const RENDER = {
     let lastDay = "";
     const parts = [];
     for (const m of thread) {
-      const day = m.created.slice(0, 10);
-      if (day !== lastDay) { parts.push(`<div class="chat-day">${new Date(day).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}</div>`); lastDay = day; }
+      /* Group by the UK day, not the UTC one - a message sent at 00:30 BST
+         lands at 23:30Z the day before and would file under yesterday. */
+      const day = ukDay(m.created);
+      if (day !== lastDay) { parts.push(`<div class="chat-day">${esc(day)}</div>`); lastDay = day; }
       const mine = m.author !== "mary";
       parts.push(`<div class="bubble ${mine ? "human" : "mary"}${mine && !m.seen_by_mary ? " pending" : ""}">
-        <div class="who">${esc(m.author === "mary" ? "MARY GRACE" : m.author.toUpperCase())} <time>${esc(m.created.slice(11, 16))}</time>
+        <div class="who">${esc(m.author === "mary" ? "MARY GRACE" : m.author.toUpperCase())} <time>${esc(ukTime(m.created))}</time>
         ${mine && !m.seen_by_mary ? '<span class="wait-note">waiting for Mary</span>' : ""}</div>
         ${m.context ? `<span class="ctx">${esc(m.context)}</span>` : ""}${fmt(m.body)}</div>`);
     }
@@ -1303,7 +1315,7 @@ const RENDER = {
         <div class="mail-list">${OUTCOMES.map((o) => `
           <div class="mail-row" style="cursor:default"><div class="mail-ico ${o.result === "won" ? "out" : "in"}">${o.result === "won" ? "&#10003;" : o.result === "lost" ? "&times;" : "&ndash;"}</div>
           <div><strong>${esc(o.job)}</strong><small>${esc(o.result)}${o.note ? " &middot; " + esc(o.note) : ""}</small></div>
-          <span class="mail-when">${esc((o.created || "").slice(0, 10))}</span></div>`).join("")}</div></div>` : ""}`;
+          <span class="mail-when">${esc(ukShortDay(o.created))}</span></div>`).join("")}</div></div>` : ""}`;
   },
   catches() {
     return `<div class="catch-grid">${DATA.catches.map((c) => `

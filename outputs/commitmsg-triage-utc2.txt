@@ -1,0 +1,23 @@
+The same hour, in a file I had not thought to look at
+
+Adam: "Your message just then was also an hour out." He was right, and my "fixed"
+forty minutes earlier was half a fix. mary_dashboard.py generates the Emails and
+Inbox tabs, but the Message Mary thread he actually reads is fetched live from D1
+and rendered by dashboard/public/app.js, which sliced the raw ISO string in five
+places. His 21:07:41Z printed as 21:07 when it was 22:07.
+
+All five now go through one Europe/London helper - pinned rather than
+browser-local so the board reads the same from anywhere - and the chat-day
+divider was grouping by the UTC date, so a 00:30 BST message filed under the
+previous day. Verified across BST, GMT and the midnight boundary. Deployed.
+
+If you fix a display bug, check whether the same value is rendered by a second
+path before you say it is fixed.
+
+Three rulings from Adam recorded and applied: handover to Jacob at the point of
+issue (seven quotes handed over with verified send dates), info@ is settled and
+withdrawn, and the chat-per-job question answered with the numbers - nine of 25
+chats have never run, and 90 of 133 sessions are two chats still waking up on
+jobs that finished weeks ago.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
