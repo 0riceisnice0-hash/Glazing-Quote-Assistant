@@ -45,9 +45,13 @@ FOR CAMPBELL ARK - the author of the smoke vent note
    rely on our reading.
 
 2. IS THE VENT IN THE WALL OR THE ROOF?
-   The note says the stair is to be vented "at the top storey roof". The second floor
-   stairwell has no window opening in any of its walls. A Plus have quoted a wall
-   casement on a subcill, because that is what we asked them for.
+   The note says the stair is to be vented "at the top storey roof". Reading K1653-12 we
+   cannot find a window opening in any wall of the second floor stairwell, and the wall
+   type coding there marks the internal walls as new or upgraded while the external walls
+   carry no coding at all. We may be misreading it - it is your drawing and one line from
+   you settles it either way - but on that reading there is nowhere in the wall for a vent
+   to go. A Plus have quoted a wall casement on a subcill, because that is what we asked
+   them for.
    Please confirm whether a wall vent or a roof-mounted unit is intended. If it is a roof
    vent we are pricing the wrong product and would like to know before, rather than after.
 

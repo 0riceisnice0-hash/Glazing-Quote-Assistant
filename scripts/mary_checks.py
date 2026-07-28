@@ -511,8 +511,23 @@ def check_supplier_covers_quantity(m):
       line. Counting Qty: lines gives 14; the answer is 12. COLLAPSE coupled
       assemblies - the coupler line is the proof they are one unit.
 
-    If a quotation shows a coupler, a screen, a sidelight or a mullion between
-    two priced elements at one location, they are one sellable unit."""
+    AND THE TEST IS STRUCTURAL, NOT LEXICAL. An earlier version of this note
+    said "if a quotation shows a coupler, a screen, a sidelight or a mullion
+    between two priced elements". Gordon Court found `screen` false-positive on
+    "Outer: 80113 2 Rail Patio Screen" - a product name for a sliding leaf - and
+    the same list run against QT51518 fires three more times, every one of them
+    wrong: `screen` on a boilerplate note about curtain wall screens, `mullion`
+    on a BS 6399 calculation note and on a cable-routing note, and `mull` on
+    "Transom DF1421 Std Flat Tran/Mull", which is a PROFILE NAME. Three of the
+    four keywords are unsafe and none of the hits on that quotation is a
+    coupling. A keyword cannot establish a coupling.
+
+    THE TEST: TWO OR MORE PRICED ELEMENTS CARRYING THE SAME LOCATION REFERENCE
+    are candidates for one sellable unit. Gordon Court's real evidence was
+    "Location: D_E" on two priced blocks; the coupler line only corroborated it.
+    Confirm from the specification - a coupler line, a shared outerframe, one
+    actuator - and never from a word alone. Where a location appears on several
+    blocks at DIFFERENT SIZES, as their D_B does, they are separate positions."""
     cov = m.get("supplier_coverage")
     if cov is None:
         return result("supplier quote covers every unit sold", UNKNOWN,
@@ -619,9 +634,10 @@ def check_supplier_covers_quantity(m):
                         "was cut after the enquiry. It becomes money only where the build-up "
                         "takes the quotation's TOTAL rather than its lines.",
                       "Brocks Hill",
-                      remedy="First re-count qty_total in SELLABLE UNITS - elements joined by a "
-                             "coupler at one location are one unit, and a Qty multiplier on a "
-                             "block is several. If the count holds, check how the cost was taken: "
+                      remedy="First re-count qty_total in SELLABLE UNITS - two priced elements "
+                             "carrying the same LOCATION reference are usually one unit, and a "
+                             "Qty multiplier on a block is several. If the count holds, check how "
+                             "the cost was taken: "
                              "where the build-up uses the quotation total, the surplus units are "
                              "in your cost with nothing sold against them, so ask the supplier "
                              "what they picked up that you did not.")
@@ -633,8 +649,9 @@ def check_supplier_covers_quantity(m):
                       "Brocks Hill",
                       remedy="Add 'qty_total' to that entry in 'supplier_quotes', counting "
                              "SELLABLE UNITS off the quotation - expand any Qty multiplier on a "
-                             "position block, and collapse elements joined by a coupler, screen "
-                             "or sidelight at one location into the single unit they are.")
+                             "position block, and collapse two or more priced elements carrying "
+                             "the SAME LOCATION reference into the single unit they are, "
+                             "confirming from the specification rather than from a keyword.")
     if short:
         return result("supplier quote covers every unit sold", FAIL,
                       "Units sold with no supplier quote behind them: %s. Extend the quote before "

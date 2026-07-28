@@ -116,8 +116,9 @@ this further, plus one item we would like added.
    850mm stroke so we can carry them properly rather than exclude them.
 
 8. IS THIS THE RIGHT PRODUCT FOR THE POSITION?
-   The architect's drawings say the stair is to be vented "at the top storey roof", and
-   the second floor stairwell has no opening in any of its walls. We asked you for a
+   The architect's drawings say the stair is to be vented "at the top storey roof", and as
+   we read them the second floor stairwell has no opening in any of its walls - we have
+   put that to the architect to confirm. We asked you for a
    window, so a window is what you quoted - but before we go further, please confirm
    whether a DualFrame 75Si wall casement is suitable for a top-storey stairwell smoke
    vent in this position, and whether A Plus offer or would recommend a roof-mounted unit

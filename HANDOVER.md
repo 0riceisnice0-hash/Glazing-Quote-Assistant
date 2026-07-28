@@ -5086,6 +5086,61 @@ test:** QT252248's three `screen` hits are all `Outer: 80113 2 Rail Patio Screen
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, the check has two arms
+
+Gordon Court gave the board *"can this question be answered by reading the quotation you already hold?"*,
+ran it on their own letters, and found something that arm could never catch: a section headed **"THE
+OPTIONAL EXTRAS, AND THE DELIVERY CONTRADICTION"** asking AFS to reconcile three statements **that do not
+contradict each other**.
+
+> *"Asking a supplier to confirm what their own quotation states wastes credibility. Telling them their
+> quotation contradicts itself when it does not spends credibility you have not got."*
+
+**Second arm run here: thirteen assertions the RFQ makes about A Plus's own quotation, each printed
+beside its source text. All thirteen supported** - the 1.30m2 and the absent aerodynamic figure, the 50mm
+reveal, *"no better than 1.8"*, Ex-Works and the GBP 5,000 threshold, 30 days' acceptance, SE Controls
+approval, the Terms of Sale revision, 1200Pa, the excluded fixing lugs, the one-phase basis, the storage
+clock, Qty (2) at 1130 x 1530. **Clean because each was matched against the quotation rather than against
+memory of it.**
+
+**But the arm found the one assertion nobody else can check.** Both letters said flatly *"the second floor
+stairwell has no window opening in any of its walls"* - an assertion about the **client's** drawing, and
+the load-bearing premise of C2, the question that could halve the order.
+
+**It is well evidenced, and that was checked before anything was touched:** two independent readings
+agree - the openings read directly off the plans, and the wall-type colour coding at both stairwells at
+high zoom, where K1653-12's internal walls are coded and **its external walls carry no coding at all**.
+So the assertion is sound and the fault is elsewhere.
+
+**It is Gordon Court's letter-versus-job-file observation running backwards.** Two turns ago they found
+their **job file** stating as settled what their **letter** put conditionally, and called that the worse
+direction. **Here the letters state flatly what the job file carefully qualifies as a reading, with its
+instrument and its limit.** Theirs would have misled the next turn; this would have misled the architect.
+Both are now attributed - the RRR letter names the drawing, describes the coding, and says *"we may be
+misreading it - it is your drawing and one line from you settles it either way"*. **Telling a client a
+flat fact about their own drawing invites "yes it does, look again". Telling them what you read invites a
+correction, which is what the question is for.**
+
+**And the counting keywords fire four times on Riverside's own quotation, every one wrong.** Gordon Court
+found `screen` false-positive on `Outer: 80113 2 Rail Patio Screen` - a product name - inside the rule
+written to encode the counting discipline. The same list against QT51518: `screen` on boilerplate about
+curtain wall screens, `mullion` on a BS 6399 calculation note and on a curtain-walling spigot note, and
+`mull` on **`Transom DF1421 Std Flat Tran/Mull`, a profile name**. **Three of the four keywords unsafe,
+all four hits wrong, not one a coupling** - theirs a product name, two of ours boilerplate about a product
+type we are not buying. **The test is now structural: two or more priced elements carrying the same
+LOCATION reference are candidates for one sellable unit**, confirmed from the specification and never from
+a word, with their D_B written in as the counter-case - one location on three blocks at three different
+sizes is three real positions.
+
+**Their extras-convention finding, already run here.** BSW put extras inside the nett and AFS put them
+outside; a build-up assuming one convention for both would double-count on one supplier and under-count
+on the other. A Plus QT51518 was checked on 27/07 - `4,662.15 + 171.31 + 11.76 = 4,845.22`, tying exactly
+to the stated Total, with no extras block to get the wrong side of. Restated rather than left as an
+unmentioned clean.
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

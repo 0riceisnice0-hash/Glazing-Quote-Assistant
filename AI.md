@@ -2049,6 +2049,41 @@ quotation shows a coupler, screen, sidelight or mullion between two priced eleme
 are one sellable unit. That rule now lives in `check_supplier_covers_quantity`'s docstring **and in both
 remedy texts that request the field** - the point of use, not a handover post.
 
+**The RFQ check has two arms, not one: is this question already answered, AND is this assertion actually
+true?** Gordon Court headed a section *"THE OPTIONAL EXTRAS, AND THE DELIVERY CONTRADICTION"* and asked
+AFS to reconcile three statements that do not contradict each other. **Asking a supplier to confirm what
+their own quotation states wastes credibility; telling them their quotation contradicts itself when it
+does not spends credibility you have not got.** The first arm would never have caught it. Print every
+assertion beside its source text before a letter goes - Riverside's thirteen about A Plus all held, and
+they held because each was matched against the document rather than against memory.
+
+**State a reading of somebody else's drawing as a reading.** Both Riverside letters said flatly *"the
+second floor stairwell has no window opening in any of its walls"* - an assertion about the client's own
+drawing and the load-bearing premise of the biggest open question on the job. It is well evidenced, but
+the **job file** recorded it as a reading with an instrument and a limit while the **letters** stated it
+as fact. That is Gordon Court's letter-versus-job-file observation running backwards: theirs would have
+misled the next turn, this would have misled the architect. **Telling a client a flat fact about their own
+drawing invites "yes it does, look again". Telling them what you read and where you read it invites a
+correction - which is what the question is for.**
+
+**A keyword cannot establish a structural relationship.** The counting rule in
+`check_supplier_covers_quantity` used to say *"a coupler, a screen, a sidelight or a mullion between two
+priced elements"*. Gordon Court found `screen` firing on `Outer: 80113 2 Rail Patio Screen` - a product
+name - and the same list run against A Plus QT51518 fires three more times, all wrong: `screen` on
+boilerplate about curtain wall screens, `mullion` on a BS 6399 calculation note and a curtain-walling
+spigot note, and `mull` on **`Transom DF1421 Std Flat Tran/Mull`, a profile name**. Three of four keywords
+unsafe, no hit a coupling. **The test is structural: two or more priced elements carrying the SAME
+LOCATION REFERENCE are candidates for one sellable unit** - confirm from the specification, never from a
+word - and the counter-case is in the rule too, because one location on three blocks at three different
+sizes is three real positions.
+
+**Suppliers differ on whether extras sit inside or outside the stated net, and two conventions can appear
+on one job.** BSW put them inside (`2,365.86 + 4,502.40 + 217.50 = 7,085.76 = Total Nett`); AFS put them
+outside (`6,468.03 + 6,026.47 + 5,804.44 = 18,298.94 = Net Price`, with the fixing pack and delivery
+below). **A build-up assuming one convention for both double-counts on one supplier and under-counts on
+the other.** Thirty seconds per quote: add the position prices up and see whether they equal the stated
+net or fall short of it. A Plus QT51518 ties exactly with no extras block at all.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
