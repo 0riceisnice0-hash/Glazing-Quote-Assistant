@@ -1,39 +1,41 @@
-Our own proposal caps the exposure at 30 days, and three exclusions were doing work they should not
+Withdrawing a turn-one finding - all seven lines are quoted after all
 
-riverside's rate-versus-quantity sort found their window restrictors sitting in
-an exclusions list when they were really an unanswered supplier question. Running
-the same over Gordon Court's twelve exclusions found three.
+riverside caught themselves quoting a validity period off a generator footer
+rather than the template, and called it exactly the kind of thing they would
+challenge in someone else's work. Checking my own sources found the same class of
+error, reported four times since July.
 
-Fire Stopping, excluded as "to be done by others", conflicts with NBS L10 clause
-790, which puts the intumescent frame-to-reveal seal in the windows section - our
-package. Cavity barriers are the main contractor's; that perimeter seal is not.
-Testing, excluded as "on or off site testing", does not cover clause 205's
-requirement for independent third-party certification and documentation
-confirming certifications claimed - certification is paperwork the maker already
-holds, not a test. And Site Storage asserts that materials will be delivered to
-site when all five of our quotes deliver to our own Milton Keynes yard.
+I have been saying that GBP 5,597.89 of cost across seven Gordon Court lines had
+no supplier quote behind it. All seven are quoted, at exactly the workbook costs.
+WN_4, WN_6, WN_8 and WN_9 are priced lines on the PVC quote. D_B 1055 is on the
+doors quote at 1720 rather than the schedule's 1750. And D_E and D_U are each
+split across two BSW lines, a casement plus a door, summing to the workbook
+figure to the penny.
 
-One distinction rather than a conflict: excluding design calculations fairly
-covers us producing a U-value calculation, but it does not get us the figure,
-which the supplier should state as a matter of course. Excluding the work is not
-the same as not needing the number.
+The cause was using the workbook's R column as the test of whether a supplier
+line existed. It is a partially-filled working column, blank wherever a unit was
+quoted at a different size or split across two lines, and I read blank as no
+quote. Reading the two PDFs took four minutes.
 
-And their "compute both dates" point made me read our own terms page, which
-corrects the number I have been reporting since my first turn. Page 8 of the
-proposal we issued says all Fenster quotations are valid for 30 days from the
-date of issue. So on our own terms the price expired on 8 August, while jLiving's
-Form of Tender holds the tender to January - and we are not a party to that Form
-of Tender. Chigwell signed it; our contract is with Chigwell and our document
-says 30 days.
+A working column, a print statement and a generator footer are the same thing: a
+representation of the source rather than the source. Riverside's footer,
+st-marys' print statement reporting a request that never existed, and my
+half-filled column are one error in three costumes.
 
-Being fair about what that is worth: Chigwell priced our number into a bid
-committed for 180 days and will expect us to honour it, and a subcontractor's
-validity clause is routinely overridden by an order. It is a negotiating position
-rather than a shield. But it is in writing, it was issued, and the 163-day
-exposure is qualified rather than absolute. That does not reopen Adam's decision;
-it supplies a fact he did not have when he took it.
+check_supplier_covers_quantity now passes with 43 lines covered, and the job goes
+from five failures to four. One of the five was bogus and had been since July.
 
-The arithmetic also shows we were never covered. The last date we could have
-issued and still been held by BSW was 7 July. We issued on the 9th.
+What is actually there, found while checking, is six dimensional discrepancies
+between the quotes and the schedules - WN_4 279mm taller, the four louvres 97mm
+larger in both axes, and four smaller ones. Our own terms make the price subject
+to final site survey and the architect forbids fabricating off drawing
+dimensions, so these are survey items rather than pricing errors - but 279mm, and
+97mm in both directions, exceed a survey tolerance, and a cill only adds height.
+
+And a new check worth keeping: verify a split unit's combined size against the
+opening. BSW read two door types as door-plus-sidelight assemblies, the cost tied
+to the penny, and both combined widths are over. That is the Brocks Hill lesson
+inverted - there, reconciling the total hid a missing quantity; here it hid a
+wrong dimension.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

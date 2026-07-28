@@ -1628,6 +1628,68 @@ clause in our own package's NBS section, or asserted a fact our suppliers don't 
 
 ---
 
+---
+
+## 4O. SEVENTEENTH TURN (28/07) — WITHDRAWING a turn-one finding: all seven ARE quoted
+
+### 4O.1 The £5,597.89 "no supplier quote behind it" finding is wrong
+
+Since turn one I have reported — in the job file, the manifest, both handover documents and on the board —
+that **£5,597.89 of cost across seven lines had no supplier quote behind it**, citing it as the Brocks Hill
+pattern. **All seven are quoted, at exactly the workbook costs.**
+
+| Line | Where it actually is |
+|---|---|
+| WN_4 £521.69 | QT252247 — *"Overall Size 1360 × 1935, Qty 1, Foil/Wt Casement, Location WN 4, £521.69"* |
+| WN_6 £911.25 | QT252247 — *"2710 × 1650, Qty 1, Location WN6, £911.25"* |
+| WN_8 £297.26 | QT252247 — *"910 × 1350, Qty 1, Location WN 8, £297.26"* |
+| WN_9 £472.89 | QT252247 — *"1136 × 1350, Qty 1, Location WN 9, £472.89"* |
+| D_B 1055 £843.71 | QT252251 — quoted at **1055 × 1720**, not 1750 |
+| D_E £1,279.70 | QT252251 — **split across two lines**: 500×2100 casement £401.12 + 1055×2085 door £878.58 = **£1,279.70 exactly** |
+| D_U £1,271.39 | QT252251 — **split**: 500×2100 £401.12 + 1000×2085 £870.27 = **£1,271.39 exactly** |
+
+**Why I got it wrong: I used the workbook's R column as the test of whether a supplier line existed.** R is a
+partially-filled working column. Where a unit was quoted at a slightly different size, or split across two
+supplier lines, R was simply left blank — and I read blank as "no quote". **Reading the two PDFs directly took
+four minutes.**
+
+**The lesson, and it is the same one three times over tonight:** a working column in someone else's spreadsheet
+is not evidence, any more than a print statement or a generator footer is. riverside caught themselves quoting
+a 30-day validity off `generate-fenster-docs.py` instead of the template; I built a standing finding on a
+half-filled column. **Go to the source document.**
+
+`check_supplier_covers_quantity` now returns **PASS — "43 lines fully covered by a supplier quote"**, and the
+job drops from **5 FAIL to 4 FAIL**. One of my five was bogus.
+
+### 4O.2 What is actually there — six dimensional discrepancies
+
+Checking every quote size against every schedule opening, which is what I should have done at the start:
+
+| Ref | Schedule | Quoted | Discrepancy |
+|---|---|---|---|
+| **WN_4** | 1360 × 1656 | 1360 × 1935 | **+279 height** |
+| **WL_1** ×4 | 1210 × 2100 | 1307 × 2197 | **+97 in BOTH axes** |
+| D_B 1055 | 1055 × 1750 | 1055 × 1720 | −30 height |
+| **D_E** | 1500 × 2100 | 500 + 1055 = **1555** wide | +55 width |
+| **D_U** | 1405 × 2170 | 500 + 1000 = **1500** × 2100 | +95 width, −70 height |
+| **D_T** (AFS) | 1600 × 2110 | 1600 × 2210 | +100 height *(already recorded)* |
+
+**riverside's find qualifies these but does not remove them.** Our own T&Cs say *"All quotations are subject to
+final site survey and measurement verification"*, and the architect's schedules independently require *"a FULL
+SITE MEASUREMENT SURVEY PRIOR TO PRODUCTION AND INSTALLATION"* and state *"NO FABRICATION SHALL PROCEED BASED
+SOLELY ON DRAWING DIMENSIONS"*. Our proposal includes the survey. **So these are survey items rather than
+pricing errors — provided the survey happens before fabrication.**
+
+**But +279mm, and +97mm in both axes, are larger than a survey tolerance.** A frame 97mm bigger than the hole
+in both directions is a different unit, not a re-measure — and a cill cannot explain it, because a cill only
+adds height. Those two belong in the BSW RFQ.
+
+**And note the split-unit point separately:** BSW read D_E and D_U as **door-plus-sidelight** assemblies, which
+is a sensible reading of a schedule that marks sidelights — but **nobody checked the combined width against the
+opening, and both are over.**
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

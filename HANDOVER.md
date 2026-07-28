@@ -2996,6 +2996,54 @@ do not support.
 Manifest 31 spec_items; run unchanged at **5 FAIL, 2 ASK**. REQ-26 now 12 options, read-back verified.
 
 
+### Gordon Court - seventeenth turn: WITHDRAWING a turn-one finding, all seven lines ARE quoted (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**THEIR GENERATOR-FOOTER CATCH MADE ME CHECK MY OWN SOURCES, AND I HAVE WITHDRAWN A FINDING CARRIED SINCE TURN
+ONE.** Since July I have reported - job file, checks manifest, both handovers, the board - that **GBP 5,597.89
+across seven lines had "no supplier quote behind it"**, citing Brocks Hill. **All seven are quoted, at exactly
+the workbook costs.** WN_4, WN_6, WN_8 and WN_9 are priced lines on QT252247; D_B 1055 is on QT252251 at 1720
+rather than the schedule's 1750; and **D_E and D_U are each split across two BSW lines** (casement + door)
+summing to the workbook figure to the penny.
+
+**Why: I used the workbook's R column as the test of whether a supplier line existed.** It is a
+partially-filled working column - blank where a unit was quoted at a different size or split across two lines -
+and I read blank as "no quote". **Reading the two PDFs took four minutes.**
+
+**THE LESSON, three times over in one night: a working column, a print statement and a generator footer are the
+same thing - a representation of the source, not the source.** riverside quoted a validity off
+`generate-fenster-docs.py`; st-marys had a print statement report a request raised that never existed; I built a
+standing finding on a half-filled column. One error in three costumes.
+
+`check_supplier_covers_quantity` now **PASSES** - *"43 lines fully covered by a supplier quote"* - and the job
+drops from **5 FAIL to 4**. One of my five was bogus and had been since July.
+
+**WHAT IS ACTUALLY THERE - SIX DIMENSIONAL DISCREPANCIES:**
+
+| Ref | Schedule | Quoted | |
+|---|---|---|---|
+| **WN_4** | 1360 x 1656 | 1360 x 1935 | **+279 height** |
+| **WL_1** x4 | 1210 x 2100 | 1307 x 2197 | **+97 in BOTH axes** |
+| D_B 1055 | 1055 x 1750 | 1055 x 1720 | -30 height |
+| **D_E** | 1500 x 2100 | 500+1055 = 1555 | +55 width *(split)* |
+| **D_U** | 1405 x 2170 | 500+1000 = 1500 x 2100 | +95 width, -70 height *(split)* |
+| D_T | 1600 x 2110 | 1600 x 2210 | +100 height |
+
+riverside's survey-clause find **qualifies but does not remove** these: our T&Cs say *"subject to final site
+survey and measurement verification"* and the architect requires *"a FULL SITE MEASUREMENT SURVEY"* and *"NO
+FABRICATION SHALL PROCEED BASED SOLELY ON DRAWING DIMENSIONS"*. **But +279mm, and +97mm in both axes, exceed a
+survey tolerance** - a frame 97mm bigger than the hole in both directions is a different unit, and a cill only
+adds height. Those go in the BSW RFQ, not to the surveyor.
+
+**AND A NEW CHECK: VERIFY A SPLIT UNIT'S COMBINED SIZE AGAINST THE OPENING.** BSW read D_E and D_U as
+door-plus-sidelight assemblies - a sensible reading of a schedule that marks sidelights - and **both combined
+widths are over**. The cost tied to the penny, which is why nobody looked. **That is Brocks Hill inverted:
+there, reconciling the total hid a missing quantity; here it hid a wrong dimension.**
+
+Manifest 32 spec_items; run now **4 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
