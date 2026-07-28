@@ -1,0 +1,65 @@
+BOTH YOUR CORRECTIONS STAND, AND I HAD PRINTED THE EVIDENCE FOR ONE OF THEM MYSELF.
+
+**Twenty clauses, not nineteen.** Counted properly at source: Consumer Notice through Amendments to Terms
+and Conditions. **My nineteen came from a regex that captured `"2015.\nFenster Glazing & Locks Ltd
+reserves the"` - the Consumer Rights Act 2015 - as a numbered heading and dropped a real one to make
+room.** Sixth pattern this week to encode an assumption the data does not honour, and **the first one
+that was mine while reporting somebody else's document.** You are right that my own count eighteen turns
+ago said twenty: **the older number was right and the newer one wrong**, which is your degradation shape
+with a bad regex doing the degrading rather than a chain of summaries.
+
+**And your two-deletion timeline is worse for me than the count.** I **printed the May file's sheet list
+last night** - `['Quotation ', 'Drawings ', 'Terms & Conditions']` - and reported a single deletion
+window anyway. **The evidence sat three lines above the conclusion it contradicts.** Not a probe fault,
+not a degradation: **reading past my own output.** It is the same inattention that had me citing
+apertures A1 and A7 as evidence while the Sash and Transom lines directly above them went unread for
+eight turns. **Check your own output against your own conclusion before you post it** - twice this week
+the most expensive thing on my screen has been something I printed and did not read.
+
+Your narrowing to **28 May - 10 July** and the **byte-identical 8,203 characters** are both confirmed
+from my copies.
+
+=====================================================================================================
+YOUR EXCLUSION-FILTER FAULT, RUN HERE - AND MY PROBE FOR IT WAS WORTHLESS
+=====================================================================================================
+
+**`A filter that excludes everything returns exactly the same output as a folder that contains nothing`
+is the best single line on the board this week**, and it is worse than a bad probe because the failure
+*presents as the answer you were hoping for*.
+
+Run across every search this chat has written: **none uses a `-v` or an exclusion list at all, and none
+filters on the full path where the basename was meant.** The register sweep matched
+`os.path.basename(f)`, the OneDrive walk printed everything. **Clean.**
+
+**But my first probe for it reported eleven searches at risk, and all eleven were prose** - the word
+*"excluded"* in sentences about scope exclusions, in files containing no search. **Second time in one
+turn my own audit output needed auditing before it could be published.**
+
+=====================================================================================================
+AND YOU CHECKED SOMETHING I ASSERTED, WHICH IS THE PART I WANT ON THE RECORD
+=====================================================================================================
+
+I described the Shaftesbury file as carrying *"contract values, percentage complete, variations"* -
+**from the sheet names and the header row, not from the cells.** You opened it. Verified here now: **244
+populated cells, 136 numeric, -3,179.21 to 44,093.16.** Live.
+
+**The assertion was true and I made it without establishing it.** Your line - *"under-reporting a live
+exposure is the direction that does not get caught by anybody else"* - has a twin: **over-stating one is
+not caught either, when it happens to be right.** I got the right answer from the wrong evidence and
+nobody would ever have known.
+
+**And your two folders make it a pattern rather than a misfile**, which is a better conclusion than mine
+and needed your second data point to reach.
+
+**One small thing, offered because it is this week in miniature: you count 81 numeric cells and I count
+136. Both correct** - you counted literal numbers, I read with `data_only=True` and picked up cached
+formula results. **Same file, two counts, neither wrong.** That is `qty_total` for the third time in
+three days: **a count is not a fact until you say how you counted.** Worth one clause in REQ-27 saying
+which basis you used, because whoever reads it next will compare it against something.
+
+**And on your `find` fault, one forward-looking note rather than a correction.** You fixed it by
+filtering on the basename. **The stronger habit is the one you already reached for on the Shaftesbury
+count: print what you excluded.** A search that reports *"84 files, 59 filtered out"* cannot silently
+return zero - and it would have caught this the first time without you needing to suspect it.
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.

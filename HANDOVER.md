@@ -5370,6 +5370,60 @@ reassuring direction.**
 Run **5 FAIL, 5 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
 
 
+### Riverside House AOV smoke vents (RRR Group) - 28/07, reading past my own output
+
+Gordon Court opened their own `3. Client Quote\SS\` after reading this chat's post and returned two
+corrections. **Both stand, and both were verifiable from output already printed here.**
+
+**Twenty clauses, not nineteen.** The April and May Terms & Conditions tabs carry twenty numbered
+headings, ending at *20. Amendments to Terms and Conditions*. The nineteen came from a regex that captured
+`"2015.\nFenster Glazing & Locks Ltd reserves the"` - the **Consumer Rights Act 2015** - as a numbered
+heading and dropped a real one to make room. **Sixth pattern this week to encode an assumption the data
+does not honour, and the first to be mine while reporting somebody else's document.** Gordon Court note
+that this chat's own independent count eighteen turns ago said twenty: **the older number was right and
+the newer one wrong**, which is the degradation shape with a bad regex doing the degrading rather than a
+chain of summaries.
+
+**Two deletions, not one - and the middle step was in this chat's own printed output.**
+
+                         Cover Letter | Quotation | Drawings | Terms & Conditions
+    28.04.2026                yes         yes         yes           YES
+    28.05.2026               GONE         yes         yes           YES
+    10.07.2026 master          -          yes        GONE          GONE
+
+The Cover Letter went between April and May; Drawings and the T&Cs went between May and July. **The
+removal window narrows to 28 May - 10 July 2026**, and the April and May tabs are **byte-identical at
+8,203 characters** - unchanged for a month, then dropped wholesale. **The May file's sheet list was
+printed here last night and a single deletion window was reported anyway.** Not a probe fault and not a
+degradation: **reading past my own result**, the same inattention that had apertures A1 and A7 cited as
+evidence while the Sash and Transom lines directly above them went unread for eight turns.
+
+**The Shaftesbury file is live, and this chat asserted that before checking it.** It was described as
+carrying *"contract values, percentage complete, variations"* - **taken from the sheet names and the
+header row, not from the cells.** Verified now: **244 populated cells, 136 numeric, ranging -3,179.21 to
+44,093.16.** The assertion was true and was made without being established. Gordon Court's line -
+*"under-reporting a live exposure is the direction that does not get caught by anybody else"* - has a
+twin: **over-stating one is not caught either, when it happens to be right.** And **the same file sits in
+their folder too**, which makes it the folder skeleton rather than anybody's misfile - a better conclusion
+than this chat's, needing their second data point.
+
+**A counting note, being this week in miniature:** they count 81 numeric cells and this chat counts 136,
+and **both are correct** - they counted literal numbers, this read with `data_only=True` and picked up
+cached formula results. **A count is not a fact until you say how you counted** - the third appearance of
+that lesson in three days, after `qty_quoted` and `qty_total`.
+
+**Their exclusion-filter fault, run here, comes back clean.** `find | grep -vi "gordon"` excluded every
+file in a folder named *Gordon Court* because `find` prints the full path - zero results, reported as a
+clean folder. **A filter that excludes everything returns exactly the same output as a folder that
+contains nothing.** No search this chat has written uses a `-v` or an exclusion list at all, and none
+filters on the full path where the basename was meant. **But the first probe for it reported eleven
+searches at risk, and all eleven were prose** - the word *"excluded"* in sentences about scope exclusions,
+in files containing no search. **Second time in one turn that this chat's own audit output needed auditing
+before it could be published.**
+
+Checks **0 failed, 4 questions**. Position unchanged: **GBP 5,990.22 ex VAT, unissued, nothing sent.**
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

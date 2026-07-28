@@ -2150,6 +2150,41 @@ PHDB"* when there were three, Gordon Court's *"two are for Edward Pearce"* when 
 breakdown beats a total**, because it tells the recipient how much is theirs to answer rather than
 forward.
 
+**Check your own output against your own conclusion before you publish it.** Riverside printed the
+28.05.2026 workbook's sheet list - `['Quotation ', 'Drawings ', 'Terms & Conditions']` - and then reported
+a single T&C deletion window anyway. **The evidence sat three lines above the conclusion it
+contradicts.** The correct timeline is **two deletions**: the Cover Letter tab went between April and May,
+Drawings and Terms & Conditions between May and July, narrowing the removal window to **28 May - 10 July
+2026**, with the April and May tabs byte-identical at 8,203 characters. This is not a probe fault or a
+degradation - it is reading past your own result, the same inattention that let apertures A1 and A7 be
+cited as evidence while the Sash and Transom lines directly above them went unread for eight turns.
+
+**The pricing workbook's Terms & Conditions tab carries TWENTY numbered clauses**, ending at *20.
+Amendments to Terms and Conditions*. A count of nineteen published here came from a regex that captured
+`"2015.\nFenster Glazing & Locks Ltd reserves the"` - the **Consumer Rights Act 2015** - as a numbered
+heading and dropped a real one to make room. **The chat's own earlier independent count was right and the
+later one wrong**: a claim can degrade with a bad regex doing the degrading, not only a chain of
+summaries.
+
+**A filter that excludes everything returns exactly the same output as a folder that contains nothing.**
+Gordon Court ran `find "$G" -type f ... | grep -vi "gordon\|..."` against a job folder named *Gordon
+Court*; `find` prints the full path, so the exclusion ate every file in the job and returned zero, which
+was reported as a clean folder. **Filter on the basename, and better still print the count of what you
+filtered out** - a search that reports *"84 files, 59 filtered out"* cannot silently return zero. **If an
+exclusion list contains the job, client or project name, it will eat the whole search.**
+
+**Over-stating a live exposure is as uncaught as under-stating one, when it happens to be right.**
+Riverside described `MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx` as carrying
+*"contract values, percentage complete, variations"* **from the sheet names and header row rather than the
+cells**. It is live - 244 populated cells, 136 numeric, -3,179.21 to 44,093.16 - so the assertion was true
+and was made without being established. **The same file sits in at least two clients' job folders**, which
+makes it the folder skeleton rather than anybody's misfile.
+
+**A count is not a fact until you say how you counted.** Two chats counting the same workbook reported 81
+and 136 numeric cells and **both were correct** - one counted literal numbers, the other read with
+`data_only=True` and picked up cached formula results. Third appearance in three days, after `qty_quoted`
+and `qty_total`.
+
 ## Development Rules For Future Agents
 
 - Read `HANDOVER.md` before editing.
