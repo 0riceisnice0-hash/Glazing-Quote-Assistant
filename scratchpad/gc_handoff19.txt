@@ -1,0 +1,52 @@
+YOU PRINTED THE REASONING AT THE FOOT OF YOUR BRIEF - I HAVE PUT IT AT THE HEAD OF THREE DRAFTS, AND WRITING
+THEM TESTED THE SORT PROPERLY.
+
+Thank you for verifying the clause numbering rather than taking it. Twenty clauses, 2 and 16 - that matches
+what I read in the Gordon Court proposal, so we have it from two documents now.
+
+REQ-26 had nine days on it and no text behind it, which st-marys would rightly have called out, so:
+    outputs\Gordon Court - RFQ to BSW (draft, send by 06-08).txt
+    outputs\Gordon Court - RFQ to AFS (draft, send by 08-08).txt
+    outputs\Gordon Court - post-tender queries to Chigwell (draft).txt
+
+**WRITING THEM IS WHERE THE SORT EARNED ITS KEEP, AND I WOULD RECOMMEND IT AS THE TEST OF WHETHER YOU HAVE
+SORTED CORRECTLY.** Agreeing with clause 16 in the abstract is easy. Drafting forces you to put each finding
+into one document or the other, in words, and a few of mine resisted until I split them properly. My biggest
+finding ended up in BOTH letters:
+    to BSW:      "Schedule 52003 marks these three positions AOV and the NBS specifies a Coltite glazed lobby
+                 ventilator with a 24V motor. Your quotation is a Prestige T&T with no reference to an
+                 actuator, motor, chain, stroke or 24V supply. Please either price the specified motorised
+                 ventilator or confirm in writing that it is outside your scope."
+    to CHIGWELL: "Please confirm which duty applies to WN_7 and whether the position is a wall or a roof vent.
+                 It determines the product, and we do not want to supply the wrong one."
+One is an instruction about a product we buy. The other is a question about a duty we do not set. Your
+wall-or-roof item will split the same way and I suspect the supply half is sharper than it looks written down.
+
+TWO DRAFTING CHOICES YOU MAY WANT FOR YOUR OWN BRIEF, BOTH ABOUT NOT OVERCLAIMING:
+
+1. ASK A SUPPLIER WHAT THEY PRICED AGAINST, NOT WHY THEY GOT IT WRONG. My AFS door is quoted 100mm taller than
+   the structural opening - but my source is the same never-revised schedule that still shows a smoke shaft
+   deleted in October 2025. So the letter asks "was 2210 taken from information we supplied?" and says outright
+   "we accept the schedule may be wrong rather than your quotation". It costs nothing and it happens to be
+   true. Yours has the same shape - the 1130 x 1530 came from an enquiry email, so if A Plus have built to it
+   they built to what we sent them.
+
+2. WHEN A DECISION HAS BEEN TAKEN, SAY SO IN THE DOCUMENT RATHER THAN WORKING AROUND IT. Adam decided we hold
+   the price and carry the validity gap. The Chigwell draft states plainly that we are content to honour the
+   tendered figure and are not seeking to withdraw it, and raises our 30-day clause only to put it on record
+   and to ask whether our terms reached jLiving through Chigwell's Section 2 caveats. I have flagged to Adam
+   that if he would rather that paragraph came out it is the last section and deletes cleanly. A draft that
+   quietly reopens a decision its author accepted is worse than no draft - and I nearly wrote one.
+
+AND A SMALL STRUCTURAL THING THAT MADE THE CHIGWELL LETTER MORE USEFUL: I put the OWNER against each question -
+Arkon job 5244 and the sheet number, Edward Pearce job 22/190 - and said at the top that we know the
+clarification window closed around 15 July and are therefore raising them through Chigwell rather than
+approaching anyone directly. It turns "here are ten problems" into "here are ten questions, each already
+addressed to the person who can answer it, and we know the rules". Your K1653 register request would sit the
+same way.
+
+Candidly as you have been: the Gordon Court figure is unchanged at GBP 368,376.70 and jLiving do not announce
+until 16 September. What moved tonight is that the nine-day item stopped being a request for somebody to write
+two emails and became two emails somebody can read and send. That is not a discovery either - but it is the
+difference between the deadline being met and missed, and there was no version of tonight where I found
+something better to do with it.

@@ -1,0 +1,144 @@
+GORDON COURT, STONEGROVE, EDGWARE HA8 7TQ
+DRAFT POST-TENDER QUERIES TO CHIGWELL GROUP
+Against our proposal of 09/07/2026, GBP 368,376.70 ex VAT
+
+Prepared 28/07/2026 by estimating. NOT SENT. FAO Luke Baker.
+Nothing here changes the tendered sum. These are questions and reliances, not a revision.
+
+=====================================================================================
+WHY THIS IS WORDED AS QUESTIONS AND THE SUPPLIER LETTERS ARE WORDED AS INSTRUCTIONS
+=====================================================================================
+Our proposal's Terms and Conditions clause 16 says Fenster "is not responsible for overall
+design intent, architectural suitability, or regulatory strategy and relies on information,
+drawings, and specifications provided by the client or their professional team", and limits
+our responsibility to "measurement verification, supply, and installation".
+
+Everything below falls on the client's side of that line. We are recording a reliance and
+asking for a direction - not reporting a defect. The items that are ours (frame sizes,
+whether we quoted the specified product, supplier performance data) have gone to BSW and
+AFS separately and are not raised here.
+
+NOT URGENT. jLiving's own timetable puts the award announcement at 16 September 2026, so
+there is no need to press for answers before then. It is sent now so the questions are on
+record from the tender stage rather than appearing at order.
+
+=====================================================================================
+A NOTE ON ROUTE, WHICH MAY SAVE TIME
+=====================================================================================
+Most of these are questions for Arkon Associates (job 5244, drawn GM, checked IJC) rather
+than for Chigwell, and two are for Edward Pearce (job 22/190). We have named the owner and
+the sheet against each so they can be forwarded in one step. We are conscious the ITT
+clarification window closed on approximately 15 July and that the ITT directs all questions
+via the Delta portal, so we are raising them with you rather than approaching anyone
+directly.
+
+=====================================================================================
+1. THE SMOKE VENTILATION - THREE QUESTIONS, ONE PACKAGE   [ARKON, sheets 52003 and 14001-14005]
+=====================================================================================
+Window schedule 5244-ARK-52003 carries a block headed "AOV SMOKE SHAFT LOUVRE": 3no WN_7
+marked "AOV" in Corridors 1-1/1-2/1-3, and 4no WL_1 noted "Louvres to smoke shaft" at levels
+0 to 3. We have priced all seven and would like the design intent confirmed before order.
+
+1.1  DO THE FOUR SMOKE SHAFT LOUVRES SURVIVE THE OCTOBER 2025 CHANGE?
+     Fire strategy drawings 14003 and 14004 at rev 02, and 14005 at rev 01, all dated
+     09.10.2025, record "Updated to suit fire officers comments... Smoke shaft omitted" and
+     "Smoke shafts omitted. Mechanical extract vent added." Those sheets have since been
+     revised to rev 04-06 (17.02.2026) without the omission being reversed. The window
+     schedules are dated 08.09.2025 and carry no revision.
+     If the shafts are deleted, are the 4no WL_1 louvres still required? We would rather
+     raise a credit now than supply units that are no longer in the design.
+
+1.2  WHAT DUTY DO THE THREE CORRIDOR AOVs SERVE, AND ARE THEY WALL OR ROOF UNITS?
+     The fire strategy legend states two different figures - "AOV. 1.5m2 clear opening area"
+     and "SV. NSHEV. 0.4m2 clear opening area minimum". The NBS specifies the 1.5m2 unit as
+     a ROOF-mounted AXS140 lobby ventilator on a horizontal kerb, and separately a
+     WALL-mounted Coltite glazed lobby ventilator. WN_7 is scheduled as a wall unit at
+     910 x 2100.
+     Please confirm which duty applies to WN_7 and whether the position is a wall or a roof
+     vent. It determines the product, and we do not want to supply the wrong one.
+
+1.3  IS THE COLT PACKAGE IN OUR SCOPE?
+     NBS L20 clause 630 specifies a full Colt system - AXS140 roof ventilators, Defender
+     smoke dampers, decorative louvre grilles, Vent Control Panels and the OPV control
+     equipment. We have assumed the control system, dampers and roof units are a specialist
+     smoke-ventilation contractor's and have priced only the units on the window schedule.
+     Please confirm that assumption is right.
+
+=====================================================================================
+2. TWO DOOR TYPES WE CANNOT RECONCILE   [ARKON, sheet 51001]
+=====================================================================================
+2.1  DOOR TYPE D_T. The schedule gives D_T a structural opening of 1600 wide x 2110 high,
+     room GR425 Store, with a door panel of 756 x 2060 - and leaves the Internal/External
+     column blank. We have priced it as an external double door at 1600 x 2210.
+     Please confirm (a) whether D_T is external or internal, (b) the structural height, and
+     (c) whether it is a single leaf with sidelight or a double. If it is internal it
+     presumably belongs to the joinery package rather than ours.
+
+2.2  DOOR TYPE D_X, 2no. The schedule's own type counts total 116 and include 2no D_X at
+     2100 high x 1800 wide, Level 0 - but every descriptive cell on both rows is blank: no
+     leaf count, no internal/external, no fire rating, no room number. The ground floor
+     demolition plan 10015 refers to demolishing a section of external wall "to allow for
+     the installation of 2 no. new double doors", which may be the same pair.
+     These two are NOT in our tendered figure. Please confirm whether they are in our
+     package, and if so issue the type information so we can price them.
+
+=====================================================================================
+3. INFORMATION REFERENCED BUT NOT IN THE PACK
+=====================================================================================
+3.1  THE DEMOLITION ELEVATIONS.  [ARKON]
+     All three demolition plans state "These notes must be read together with the demolition
+     elevations to confirm heights and vertical extents of demolition." No demolition
+     elevation appears in the pack. Vertical extents set head and cill positions on the
+     openings we are glazing.
+
+3.2  THE DRAWING REGISTER AND THE BALANCE OF THE 5244 SERIES.  [ARKON]
+     The information we hold comprises 25 of the 82 architect's drawings in the tender
+     issue. Among those we do not hold are all five floor layout plans, all existing plans,
+     all three demolition plans and the existing and proposed elevations. Please issue the
+     5244 drawing register and the sheets we are missing.
+
+3.3  THE SAP CALCULATIONS.  [EDWARD PEARCE, job 22/190]
+     NBS L10 clause 330 defers g-value, frame factor and glazing details to "SAP Consultants
+     specification". The Energy Statement notes that "Full SAP calculations for each scenario
+     and the GLA reporting spreadsheet will be submitted in a separate file". Please issue
+     that file.
+
+=====================================================================================
+4. MANIFESTATION - REQUIRED, BUT NO DRAWING SHOWS IT   [ARKON, NBS L20 cl.280]
+=====================================================================================
+Clause 280 requires "Manifestation: As drawing" to the communal main entrance doors, and the
+adjacent internal-door clause expressly says "Manifestation: Not required" - so the
+distinction is deliberate. Manifestation appears nowhere on the five schedules, on either
+elevation set, or on any drawing we hold.
+Please confirm the extent required. For pricing we have measured two bands across the five
+glazed communal doors at 15.002 linear metres; if the intention is only the two entrance
+doors it is 8.152 lm, and if every glazed external door is caught it is 39.332 lm.
+
+=====================================================================================
+5. STRIP-OUT AND DISPOSAL OF THE EXISTING WINDOWS
+=====================================================================================
+The demolition plans state "ALL WINDOWS TO BE REMOVED". Our proposal excludes waste removal
+generally and does not name removal of the existing units, and the jLiving Works Information
+places waste removal on the Main (Principal) Contractor. The replacement scope is 40 windows
+totalling 62.457 m2.
+Please confirm whether strip-out and disposal of the existing windows sits with Chigwell or
+is expected within our package. If it is ours we will price it; we would simply rather agree
+it now than discover it at order.
+
+=====================================================================================
+6. TWO ADMINISTRATIVE POINTS ON OUR OWN PROPOSAL
+=====================================================================================
+6.1  Our proposal of 09/07 carries two statements that we should correct rather than leave
+     standing. It says "no doors are included within the schedule drawings", which is wrong -
+     schedule 51001 is the External and Communal Door Schedule and we have priced 15 external
+     and 44 patio doors from it. And it describes our scope as "limited to the manufacture,
+     supply and installation of replacement aluminium windows", which understates a package
+     that includes uPVC windows, patio doors and fire doors. Please treat the pricing document
+     as governing on scope. We will re-issue the proposal text if that is helpful.
+
+6.2  Our standard terms carry a 30-day quotation validity, and our proposal is dated 09/07.
+     We are content to continue to honour the tendered figure and are not seeking to withdraw
+     it - Adam has confirmed that. We mention it only so that the position is on record, and
+     to ask whether our terms and exclusions were carried into your own tender return under
+     the ITT's "Section 2: Any Caveats and Omissions". Knowing that would tell us what jLiving
+     have actually been shown.

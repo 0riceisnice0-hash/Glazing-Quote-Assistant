@@ -1,0 +1,155 @@
+GORDON COURT, STONEGROVE, EDGWARE HA8 7TQ - CHIGWELL GROUP
+DRAFT RFQ / ADDENDUM REQUEST TO BSW WINDOW SOLUTIONS
+Against quotations QT252247 (PVC), QT252248 (PATIOS), QT252251 (ALI DOORS), QT252257 (AOV & LOUVRE)
+
+Prepared 28/07/2026 by estimating. NOT SENT - Mary cannot issue supplier mail.
+A human must send this. Suggested addressee: the estimator who raised the quotes (Jack / Robin).
+
+=====================================================================================
+SEND BY 6 AUGUST 2026. THIS IS THE WHOLE POINT OF THE TIMING.
+=====================================================================================
+All four BSW quotes are dated 07/07/2026 and state "THIS QUOTATION IS ONLY VALID FOR
+THIRTY DAYS" - so they lapse on 06/08/2026.
+
+Sent BEFORE that date this is an ADDENDUM to a live quote: same job, same schedule,
+same rates, and BSW can simply add lines. Sent after, there is nothing to add to and
+every item below comes back as a fresh quote at whatever the autumn market is, with no
+anchor against the GBP 182,787.76 already quoted.
+
+Nothing here asks BSW to hold a price. Adam has decided (REQ-20) that we carry the
+inflation risk on the scope already quoted. This is only about scope that has never
+been priced.
+
+=====================================================================================
+WHY THESE ITEMS AND NOT OTHERS
+=====================================================================================
+Our own proposal, Terms and Conditions clause 16, limits our responsibility to
+"measurement verification, supply, and installation of the agreed glazing systems"
+and disclaims "regulatory strategy", on which we rely on the client's professional
+team. Every item below is therefore OURS - it is either a measurement, a supply
+question, or a figure our supplier should state as a matter of course. The questions
+that are the client's (which duty applies, whether a target is right) go to Chigwell
+in a separate document and are deliberately not asked here.
+
+=====================================================================================
+PART A - SUPPLY: HAVE WE QUOTED THE SPECIFIED PRODUCT?
+=====================================================================================
+
+A1. WN_7, 3no, quoted on QT252257 as "Qty: 3 Prestige T&T, Location WN 7, GBP 2,365.86"
+    The architect's window schedule 5244-ARK-52003 marks these three positions "AOV"
+    and sites them in Corridors 1-1, 1-2 and 1-3. NBS specification 5244-ARK-9001,
+    section L20 clause 630, specifies for that duty a "COLTITE GLAZED LOBBY VENTILATOR
+    (STAIR C) - mounted into prepared openings in the external wall, Type CLT, double
+    glazed with thermally broken glazing and outer frames, nominal size 1000mm wide x
+    2000mm high or equivalent, drive open/drive close using a 24V motor mounted to the
+    rear."
+    QT252257 contains no reference to an AOV, actuator, motor, chain, stroke, 24V
+    supply or fire-alarm interface.
+    PLEASE EITHER (a) price these three positions as the specified motorised ventilator,
+    or (b) confirm in writing that motorised smoke ventilators are outside your scope so
+    we can place them elsewhere.
+
+A2. WL_1, 4no, quoted on QT252257 as "Qty: 4 Prestige Casement, Location WL 1,
+    GBP 4,502.40" - with the Glazing line left blank and no reinforcing listed.
+    Schedule 52003 heads this block "AOV SMOKE SHAFT LOUVRE" and notes "WL_00 Louvres
+    to smoke shaft". NBS L20 clause 630 specifies an "EN SEEFIRE LOUVRED NATURAL
+    VENTILATOR - size to match shaft dimensions... designed and tested to EN 12101-2...
+    the position of the louvres is controlled by a 24Vdc electric actuator."
+    Same request as A1: price as specified, or confirm out of scope.
+    NOTE FOR YOUR INFORMATION, because it may make this academic: the client's fire
+    strategy deleted the smoke shafts in October 2025. We have asked the architect
+    whether these four units survive that change. Please price them anyway so we hold a
+    figure either way.
+
+A3. CURTAIN WALLING. The enquiry pack is titled "Gordon Court Windows, Rooflights &
+    Curtain Walling". The Proposed East and North elevations both carry "All external
+    doors, windows and curtain wall mullions in PPC Anthracite Grey RAL 7016", and the
+    first floor demolition plan removes an existing "Curtain walling system (frames,
+    glazing, and fixings)". No curtain walling appears on any of your four quotes or in
+    our pricing.
+    PLEASE CONFIRM whether curtain walling was intended to be within your quotation. If
+    it is in scope we will need an area and a price; if not, please say so in writing.
+
+=====================================================================================
+PART B - MEASUREMENT: FRAME SIZES AGAINST THE ARCHITECT'S OPENINGS
+=====================================================================================
+Comparing your stated Overall Sizes against the structural openings on schedules
+5244-ARK-51001 and 52002/52003. We are not suggesting these are errors - several may
+be deliberate allowances - but we need them reconciled before any order, and under our
+own terms measurement verification is expressly our responsibility.
+
+    Ref        Architect's opening      Your Overall Size      Difference
+    WN_4       1360 x 1656              1360 x 1935            +279 HEIGHT
+    WL_1 (x4)  1210 x 2100              1307 x 2197            +97 BOTH AXES
+    D_B        1055 x 1750              1055 x 1720            -30 height
+    D_E        1500 x 2100              500x2100 + 1055x2085   +55 combined width
+    D_U        1405 x 2170              500x2100 + 1000x2085   +95 width, -70 height
+
+B1. WN_4 and WL_1 are the two that concern us most. A 97mm oversize in BOTH directions
+    cannot be a cill allowance, since a cill adds height only. Please confirm the basis
+    of the sizes you have used.
+
+B2. D_E and D_U have been quoted as two elements each - a 500mm casement plus a door.
+    We read that as a door-and-sidelight assembly, which matches the sidelight columns
+    on the schedule. Please confirm, and confirm the combined width is intended to
+    exceed the structural opening.
+
+=====================================================================================
+PART C - PERFORMANCE FIGURES YOU HOLD AND WE DO NOT
+=====================================================================================
+The client's targets are the design team's business, not ours. These are simply figures
+we need from you in order to demonstrate compliance to them.
+
+C1. WHOLE-WINDOW Uw. None of the four quotations states a whole-window U-value. The only
+    thermal figures present are centre-pane glass values inside the make-up strings
+    ("EcoPlus 1.0"). The client's energy consultant requires 1.10 W/m2K on the external
+    glazing and the NBS requires a maximum of 1.2 W/m2K.
+    Please state Uw for the Liniar 70 casements, the Alunet ESS47 patio doors and the
+    Sheerline Prestige units.
+
+C2. TRICKLE VENTILATION. You have quoted "4000 External Linkvent / 4000 Internal
+    Linkvent" throughout. All five architect's schedules carry the note "VENTILATION:
+    8000mm2 min trickle vents unless otherwise specified in window schedule", and the
+    schedules do not specify a different area.
+    Please price the upgrade to 8000mm2 equivalent area across the 124 windows.
+
+C3. ACOUSTIC TRICKLE VENTS. Schedule 52002 carries an "Acoustic Trickle Vents" column
+    with 26 of the 40 replacement windows ticked, and the note "If acoustic trickle
+    vents required, to be Passivent AL-dB 450 or better, or similar approved". No
+    acoustic vent appears on any quotation.
+    Please price Passivent AL-dB 450 or equal to the marked positions. We will confirm
+    the count on the new-window schedule separately.
+
+C4. PAS 24 AND THIRD-PARTY CERTIFICATION. NBS L10 clause 330 requires the windows to
+    comply "To BS6375-1, BS6375-2, BS6375-3, EN 14351-1 and Pas24", and clause 205
+    requires "Independent, 3rd Party Certification Schemes" with "documentation
+    confirming Certifications claimed". None of these standards is referenced on any of
+    the four quotations.
+    Please confirm compliance and supply the certification documentation. If any of the
+    quoted configurations is not PAS 24 rated, please tell us which and price the
+    difference.
+
+C5. MANIFESTATION. NBS L20 clause 280 requires manifestation to the communal main
+    entrance doors. Please price two bands to the glazed communal doors, which we
+    measure as 15.002 linear metres over 5 units. For reference the range is 8.152 lm if
+    only the two entrance doors are caught and 39.332 lm if every glazed external door
+    is.
+
+=====================================================================================
+PART D - COMMERCIAL
+=====================================================================================
+
+D1. DELIVERY. All four quotations state "All estimates are ex works, additional delivery
+    charges may apply", with no rate, threshold or distance rule, and the Delivery
+    Address given is our own yard at 98 Alston Drive, Bradwell Abbey, Milton Keynes
+    MK13 9HF.
+    Please state your delivery basis and any free-delivery threshold, and price delivery
+    to SITE at Gordon Court, Stonegrove, Edgware HA8 7TQ for the whole order (227 units).
+
+D2. QT252257 carries an Extras block, "PANEL SET UP, 1 Pcs, GBP 217.50". Please confirm
+    this is additional to the two element totals on that quotation - our arithmetic
+    reads GBP 2,365.86 + GBP 4,502.40 + GBP 217.50 = GBP 7,085.76, which matches your
+    stated Total Nett.
+
+=====================================================================================
+Please respond against quotation numbers so we can reconcile line by line.

@@ -1,0 +1,107 @@
+GORDON COURT, STONEGROVE, EDGWARE HA8 7TQ - CHIGWELL GROUP
+DRAFT RFQ / ADDENDUM REQUEST TO ALUMINIUM FIRE SYSTEMS
+Against quotation Q7585 dated 09/07/2026 (Aluprof MB-78EI, EI30, 3 positions, GBP 18,298.94)
+
+Prepared 28/07/2026 by estimating. NOT SENT - Mary cannot issue supplier mail.
+A human must send this. Chris Wall has chased this quote twice, so there is a reply owed
+in any case.
+
+=====================================================================================
+SEND BY 8 AUGUST 2026
+=====================================================================================
+Q7585 states "Quotations are valid for 30 days" and is dated 09/07/2026, so it lapses on
+08/08/2026. Sent before that date these are additions to a live quote; sent after, they
+come back as a fresh enquiry with no anchor against the GBP 18,298.94 already quoted.
+
+Note their terms are wider than the 30 days suggests - clause 2.6 says a quotation "will
+not constitute an offer and may be withdrawn or amended at any time", and 8.2 reserves the
+right to increase price before delivery. So the 30 days is a ceiling, not a promise, which
+is a further reason to ask now.
+
+=====================================================================================
+WHY THESE ITEMS
+=====================================================================================
+Our proposal's Terms and Conditions clause 16 limits our responsibility to "measurement
+verification, supply, and installation of the agreed glazing systems". Everything below is
+therefore ours to resolve with the supplier. The question of whether the client's targets
+are correct goes to Chigwell separately and is not asked here.
+
+=====================================================================================
+1. INTUMESCENT PERIMETER SEAL - NOT THE SAME AS THE MASTIC IN YOUR FIXING PACK
+=====================================================================================
+NBS specification 5244-ARK-9001, section L10 clause 790 "Fire-resisting frames", requires:
+"Gap between back of frame and reveal: Completely fill with INTUMESCENT mastic or tape."
+
+Your optional fixing pack on page 7 of Q7585 is described as "Fixing Pack (Screws, Foam,
+Packers, Mastic)" at GBP 256.37. Ordinary mastic does not satisfy that clause.
+
+Please price the intumescent perimeter seal specifically, for all three doorsets, and
+confirm whether it is included in, or additional to, the fixing pack.
+
+=====================================================================================
+2. FINISH - A DUAL COLOUR IS SPECIFIED AND HAS NOT BEEN PRICED
+=====================================================================================
+Q7585 states only "Colour: Standard RAL" on the Specifics page and "Colours: Profiles: mat
+standard" against each position - no RAL number, and no distinction between the internal
+and external faces.
+
+NBS L20 clause 280 requires: "Finish as delivered: Polyester powder-coated to BS EN
+12206-1, colour RAL7016 MATT (EXTERNAL) & RAL9010 GLOSS (INTERNAL)". The architect's
+elevations independently confirm RAL 7016 externally.
+
+Please price the three doorsets in RAL 7016 matt externally and RAL 9010 gloss internally.
+
+=====================================================================================
+3. THE OPTIONAL EXTRAS, AND THE DELIVERY CONTRADICTION
+=====================================================================================
+Page 7 lists, outside the GBP 18,298.94:
+    Fixing Pack (Screws, Foam, Packers, Mastic)    GBP 256.37
+    Delivery                                        GBP 250.00
+
+Please confirm both are still available at those figures.
+
+On delivery specifically: the Specifics page of Q7585 states "Logistics: Delivered", while
+page 7 prices delivery as an optional extra, and your terms at clause 8.1 say the price is
+"exclusive of all costs and charges of packaging, insurance and transport of the Goods,
+which will be itemised separately if applicable and invoiced to the Customer in addition".
+Please confirm which applies, and note the Delivery Location on the quotation is our own
+yard at 97-98 Alston Drive, Bradwell Abbey MK13 9HF - please also price delivery to SITE
+at Gordon Court, Stonegrove, Edgware HA8 7TQ.
+
+=====================================================================================
+4. WHOLE-DOOR U-VALUE
+=====================================================================================
+Q7585 states the glass as "6+15mm GLASSPROF EI30 Clear DGU U=1.0", which is a centre-pane
+glass figure. NBS L20 clause 280 requires the communal main entrance doors to achieve
+"U-value maximum: 1.2 W/m2K or better" as a whole doorset.
+
+Please state the whole-door Ud for each of the three positions in the Aluprof MB-78EI
+system with the specified glass.
+
+=====================================================================================
+5. POSITION 003 - SIZE AND LEAF CONFIGURATION
+=====================================================================================
+Position 003 is quoted as "1 Pcs. Double Door 1600 mm x 2210 mm".
+
+The architect's External and Communal Door Schedule 5244-ARK-51001 gives the corresponding
+door type (D_T) a structural opening of 1600 wide x 2110 HIGH, with a door panel of 756 x
+2060 - i.e. a single leaf within a 1600 opening, not a double.
+
+Two questions, and we accept the schedule may be wrong rather than your quotation:
+    (a) Was 2210 taken from information we supplied? The structural opening we can find is
+        2110, so the quoted unit is 100mm taller than the hole.
+    (b) Was the double-leaf configuration your interpretation, or was it instructed?
+
+We have the same query out to the architect. We are not asking you to change anything yet -
+only to tell us what you priced against, so the two can be reconciled before any order.
+
+=====================================================================================
+6. PRICE HOLD
+=====================================================================================
+The main contract tender this feeds is not expected to be awarded before mid-October 2026.
+Please tell us either the latest date you can hold the Q7585 figures to, or the date from
+which they would need re-quoting. A written answer either way is more useful to us than
+silence - we are not asking for an open-ended hold.
+
+=====================================================================================
+Please respond against position numbers so we can reconcile line by line.

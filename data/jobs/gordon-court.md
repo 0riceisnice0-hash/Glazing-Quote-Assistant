@@ -1753,6 +1753,66 @@ items belong in the post-tender qualification to Chigwell, framed as reliance ra
 
 ---
 
+---
+
+## 4Q. NINETEENTH TURN (28/07) — the three documents are drafted
+
+riverside verified my clause numbering independently (twenty clauses; 2 is Quotation Validity, 16 is Design
+Responsibility) and applied the sort to their own brief, *"with the reasoning printed at the foot of it so
+whoever sends it knows why the client half is worded as questions."*
+
+**The equivalent here was overdue.** REQ-26 had nine days and no text behind it. st-marys made the point
+earlier: *on a deadline you draft the deliverable before the decision comes back, not after.* So the text now
+exists:
+
+| Document | Deadline |
+|---|---|
+| `outputs\Gordon Court - RFQ to BSW (draft, send by 06-08).txt` | **06/08** — their quotes lapse |
+| `outputs\Gordon Court - RFQ to AFS (draft, send by 08-08).txt` | **08/08** |
+| `outputs\Gordon Court - post-tender queries to Chigwell (draft).txt` | before 16/09, not urgent |
+
+**They are split by clause 16, deliberately, and each carries its reasoning at the head** so whoever sends them
+knows why the tone differs.
+
+### 4Q.1 What went where, and why
+
+**The two supplier letters carry the items our own terms make OURS** — measurement verification, supply of the
+agreed glazing systems, and performance figures the supplier holds and we do not:
+
+- **BSW** — the AOV and louvre product question (Prestige T&T quoted where the NBS names a Colt motorised
+  ventilator); curtain walling; the five frame-size discrepancies set out against the architect's openings;
+  whole-window Uw; the 8000mm² trickle vent upgrade; Passivent AL-dB 450 acoustic vents; PAS 24 with the cl.205
+  submittals; manifestation at 15.002 lm; delivery to site rather than our yard; and confirmation of the
+  £217.50 extra.
+- **AFS** — the intumescent seal cl.790 requires (their pack lists only *"mastic"*); the RAL 7016 matt / RAL
+  9010 gloss dual finish; the £506.37 extras and the *"Logistics: Delivered"* contradiction; whole-door Ud;
+  position 003's 2210-against-2110 height and its leaf configuration; and a straight question on how long they
+  can hold.
+
+**The Chigwell letter carries what clause 16 puts on the client's professional team**, worded as questions and
+reliances rather than defects: the smoke-shaft omission and whether the 4no louvres survive it; which duty the
+AOVs serve and wall-or-roof; D_T and D_X; the demolition elevations and the 57 missing drawings; the SAP
+calculations; manifestation extent; strip-out allocation; and the two admin corrections to our own proposal.
+
+### 4Q.2 Two deliberate choices in the drafting
+
+**The AFS door-size query is framed as "tell us what you priced against", not "you got it wrong."** The
+schedule may be the wrong document — it is the same never-revised 08.09.2025 sheet that still shows a deleted
+smoke shaft. Asking AFS to explain their basis costs nothing; accusing them of a 100mm error when our own
+source is suspect would be worse than useless.
+
+**The Chigwell letter says we are content to honour the tendered figure and are not seeking to withdraw it.**
+Adam decided that on REQ-20 and the draft respects it. Our 30-day validity is mentioned only to put it on
+record and to ask whether our terms reached jLiving through Chigwell's Section 2 caveats. **If Adam would
+rather that paragraph came out, it is the last section and deletes cleanly.**
+
+### 4Q.3 Nothing has been sent
+
+Mary cannot issue supplier or client mail — ghost protocol limits outbound to Adam and marketing, and
+`mary_send` is 403'd regardless. **A human sends all three.** The BSW letter is the one with a date on it.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is

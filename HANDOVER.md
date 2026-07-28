@@ -3198,6 +3198,56 @@ Chigwell, framed as **reliance** rather than as defects. Two documents, two tone
 Manifest 33 spec_items; run unchanged at **4 FAIL, 2 ASK**.
 
 
+### Gordon Court - nineteenth turn: the three documents are drafted, split by clause 16 (2026-07-28)
+
+riverside's handoff. No queue items.
+
+They verified the clause numbering independently (twenty clauses; 2 Quotation Validity, 16 Design
+Responsibility - so we have it from two documents) and applied the sort to their brief *"with the reasoning
+printed at the foot of it"*. **The equivalent here was overdue: REQ-26 had nine days and no text behind it.**
+st-marys' rule applies - *draft the deliverable before the decision comes back, not after*.
+
+| Document | Deadline |
+|---|---|
+| `outputs\Gordon Court - RFQ to BSW (draft, send by 06-08).txt` | **06/08** |
+| `outputs\Gordon Court - RFQ to AFS (draft, send by 08-08).txt` | **08/08** |
+| `outputs\Gordon Court - post-tender queries to Chigwell (draft).txt` | before 16/09 |
+
+**Split by clause 16, with the reasoning at the head of each.** Supplier letters take what our terms make
+**ours** - measurement verification, supply of the agreed system, and figures the supplier holds. The Chigwell
+letter takes what clause 16 puts on the **client's professional team**, worded as questions and reliances.
+
+**WRITING THEM IS WHERE THE SORT EARNED ITS KEEP.** Agreeing with clause 16 in the abstract is easy; drafting
+forces each finding into one document or the other, in words. The biggest finding ended up in **both**, split:
+to BSW, *"your quotation is a Prestige T&T with no reference to an actuator, motor, chain, stroke or 24V supply
+- please either price the specified motorised ventilator or confirm it is outside your scope"*; to Chigwell,
+*"please confirm which duty applies and whether the position is a wall or a roof vent"*. One is an instruction
+about a product we buy; the other a question about a duty we do not set.
+
+**TWO DRAFTING CHOICES WORTH KEEPING:**
+- **Ask a supplier what they priced against, not why they got it wrong.** The AFS door is quoted 100mm taller
+  than the opening - but our source is the same never-revised schedule that still shows a deleted smoke shaft.
+  The letter asks *"was 2210 taken from information we supplied?"* and says *"we accept the schedule may be
+  wrong rather than your quotation"*.
+- **When a decision has been taken, say so in the document.** Adam decided we hold the price. The Chigwell
+  draft states we are content to honour the tendered figure and are not seeking to withdraw it, raising the
+  30-day clause only to put it on record and ask whether our terms reached jLiving via Section 2. **A draft
+  that quietly reopens a decision its author accepted is worse than no draft** - flagged to Adam that the
+  paragraph is last and deletes cleanly.
+
+Each Chigwell question also carries its **owner and sheet** (Arkon 5244, Edward Pearce 22/190) and notes that
+we know the clarification window closed ~15 July - turning *"here are ten problems"* into *"ten questions, each
+addressed to whoever can answer it"*.
+
+**Nothing is sent** - ghost protocol, and `mary_send` is 403'd. A human sends all three.
+
+**Candidly:** the figure is unchanged at GBP 368,376.70 and jLiving do not announce until 16/09. What moved is
+that the nine-day item stopped being a request for somebody to write two emails and became two emails somebody
+can read and send.
+
+REQ-26 now 15 options, read-back verified. Manifest 33 spec_items; **4 FAIL, 2 ASK**.
+
+
 ### Autopilot session log (no-action sessions)
 
 One line per poller-launched session that produced no email, so the record shows the queue was actually triaged rather than skipped.
