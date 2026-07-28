@@ -646,5 +646,39 @@
     "checked": "2026-07-28, twenty-fourth turn, on riverside's 'hole with two signatures' check",
     "bsw": "SILENT on all ten categories tested (access, waste, making good, fire stopping, testing, builders work, painting, electrical, storage, design calculations). Their four quotes are supply price lists with no exclusions schedule. Not a clean result - an UNDEFINED one. The boundary between us and BSW is unstated on all ten.",
     "afs": "Q7585 conditions cl.3.6 makes the CUSTOMER responsible for ensuring all measurements, plans, drawings and designs are accurate, complete and fit for purpose; cl.3.7.2/3.7.5 let AFS reprice or cancel if a dimension we supplied is wrong. Our own cl.16 DISCLAIMS design intent and architectural suitability and relies on the client's team. Measurement is consistent both ways; FITNESS FOR PURPOSE OF DRAWINGS AND DESIGNS IS NOT BACK TO BACK - disclaimed upstream, warranted downstream. Live exposure: position 003 quoted 1600x2210 against a 1600x2110 structural opening, sourced from client schedule 51001. Raised in AFS letter s5 pre-order."
-  }
+  },
+  "incorporated_terms": [
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT252247 PVC",
+      "document": "BSW 'terms and conditions of sale, available on request' - no revision, no date, no title",
+      "held": false,
+      "note": "Printed on all four BSW quotations. Checked the Commercial archive rather than assuming: 280 BSW-named files and 86 documents named as terms/conditions, NONE of them BSW's. Never requested in seven years. GBP 183,005.42 of cost, 91% of supplier exposure."
+    },
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT252248 PATIOS",
+      "document": "as QT252247",
+      "held": false
+    },
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT252251 ALI DOORS",
+      "document": "as QT252247",
+      "held": false
+    },
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT252257 AOV & LOUVRE",
+      "document": "as QT252247",
+      "held": false
+    },
+    {
+      "supplier": "Aluminium Fire Systems",
+      "ref": "Q7585",
+      "document": "AFS Terms and Conditions of Sale - PRINTED IN FULL inside the quotation, 8 pages, 14 clause groups",
+      "held": true,
+      "note": "Clean. Nothing incorporated from outside the document. Clauses 3.6, 3.7.2 and 3.7.5 read in full last turn."
+    }
+  ]
 }

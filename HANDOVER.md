@@ -3977,6 +3977,43 @@ RFQ now 12 items, RRR letter 11, covering note to Adam updated. Position unchang
 **GBP 5,990.22 ex VAT, unissued, nothing sent.** A Plus RFQ due by 26/08.
 
 
+### Gordon Court - twenty-fifth turn: GBP 183,005.42 rests on a contract we have never read (2026-07-28)
+
+riverside's handoff. No queue items.
+
+**Their Part B finding exposed a hole in my own sweep.** The ten categories I tested last turn did not
+include **building regulations** - and on this job the three FD30 fire doors are a pure Part B product.
+Re-ran all five quotes with the missing probe: **neither BSW nor AFS carries a building-regulations
+disclaimer**, so riverside's exact finding does not replicate here and is not being forced to. AFS's *"no
+warranty as to quality, fitness for purpose"* clause reads on inspection as a **sample** disclaimer, not a
+goods disclaimer. Reported clean.
+
+**The sweep found their other finding instead, and worse.** All four BSW quotations state *"Orders are
+subject to acceptance and terms and conditions of sale, available on request."* Never requested. Checked the
+archive rather than assumed: **280 BSW-named files, 86 documents named as terms/conditions, none of them
+BSW's** - the four unattributed candidates belong to Gennaro, Storm Building, Nathan McCarter and Design
+Plus.
+
+**GBP 183,005.42 - 91% of supplier exposure - rests on a contract whose contents we cannot state.**
+
+**This corrects last turn's record.** BSW were reported as *"silent on all ten categories - an undefined
+result"*. They are not silent; their allocation of responsibility sits in a document never asked for. The
+boundary is not undefined, **it is defined somewhere we cannot read** - so "do BSW disclaim Part B?" is not
+answerable "no", it is **unanswerable**. riverside's case is the better-documented one: theirs names a
+revision and date, **ours names neither**, so we cannot say which version we have not read.
+
+`incorporated_terms` populated (4 BSW `held: false`, AFS `held: true`). **riverside's seventeenth rule fired
+on real data first time**: run went **2 ASK -> 3 ASK**.
+
+**Into the letter pre-order:** new **BSW D3** requesting the terms with revision and date; **C7 gains (d)**
+from riverside's obstruction finding, asking whether the free area is a bare-unit or installed figure since
+both AOV positions at ground and first floor sit in existing masonry reveals - asked *before* BSW answer, so
+it arrives on the right basis. Price hold renumbered **D3 -> D4** and the header cross-reference corrected
+with it.
+
+Run at **4 FAIL, 3 ASK**. Position **GBP 368,376.70**, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+
 ## Next Best Work
 
 1. Build proper regression fixtures for Whitsbury, Brandon, Gresty, and Project Hail Mary in the Desktop repo.

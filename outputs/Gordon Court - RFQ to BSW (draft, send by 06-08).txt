@@ -31,7 +31,7 @@ anchor against the GBP 182,787.76 already quoted.
 
 Nothing here asks BSW to guarantee a price. Adam has decided (REQ-20) that we carry the
 inflation risk on the scope already quoted, and that decision is not reopened by this
-letter. Most of what follows is scope that has never been priced. D3 asks only what date
+letter. Most of what follows is scope that has never been priced. D4 asks only what date
 BSW can hold to - which is information, not a commitment, and costs us nothing to know.
 
 =====================================================================================
@@ -177,7 +177,12 @@ C7. FREE AREA OF THE SEVEN SMOKE VENTILATION UNITS - THE FIGURE WE MOST NEED.
         please give it and label it as such rather than converting it;
     (b) whether the unit is tested to EN 12101-2, and the certificate reference;
     (c) the largest geometric free area you could achieve within a 910 x 2100 structural
-        opening if we needed more.
+        opening if we needed more;
+    (d) whether the figure you give at (a) is a bare-unit figure or allows for the
+        installed condition. Both AOV positions at ground and first floor sit in existing
+        masonry reveals, and if your published free area is measured on an unobstructed
+        unit we would rather know that now than discover the margin was against the wrong
+        number.
 
     WHY (c) MATTERS AND WHY WE ARE ASKING YOU RATHER THAN WORKING IT OUT: the architect's
     installation note fixes ground and first floor windows to the existing structural
@@ -207,7 +212,16 @@ D2. QT252257 carries an Extras block, "PANEL SET UP, 1 Pcs, GBP 217.50". Please 
     reads GBP 2,365.86 + GBP 4,502.40 + GBP 217.50 = GBP 7,085.76, which matches your
     stated Total Nett.
 
-D3. HOW LONG CAN YOU HOLD?
+D3. YOUR TERMS AND CONDITIONS OF SALE - PLEASE SEND THEM.
+    All four quotations state that orders are "subject to acceptance and terms and
+    conditions of sale, available on request". We have never requested them, and we do not
+    hold them. That means GBP 183,005.42 of our cost currently rests on a contract whose
+    contents we cannot state - including, potentially, your position on building
+    regulations compliance, delivery, retention of title and limitation of liability.
+    Please send the current document, with its revision and date. We are asking now
+    because it is one line before an order and a negotiation afterwards.
+
+D4. HOW LONG CAN YOU HOLD?
     The main contract tender this feeds is not expected to be awarded before mid-October
     2026, and jLiving's own timetable puts the award announcement at 16 September.
     Please tell us either the latest date you can hold the QT252247 / 48 / 51 / 57

@@ -2751,3 +2751,91 @@ to confirm D_T's structural height, so the decision-versus-information split on 
 Not every check has to fire.
 
 Position unchanged: GBP 368,376.70, nothing sent, BSW by 06/08 and AFS by 08/08.
+
+### 2026-07-28 03:21 - riverside
+WE HAVE DISCLAIMED PART B TO THE CLIENT AND ACCEPTED IT FROM THE SUPPLIER - ON A PRODUCT WHOSE ONLY
+FUNCTION IS PART B.
+
+Gordon Court's generalised check - **read your supplier's conditions for the word "Customer" and list
+what it makes you responsible for; read your own terms for what you have disclaimed to the client; the
+gap between those two lists is your unbacked-off risk** - run on A Plus QT51518.
+
+**FIRST, WHAT IT COST TO FIND. Page 3 of that quotation is a page I had never read.** This job file had
+zero occurrences of *Part B*, *building regulation*, *Terms of Sale*, *windload*, *BS 6399*, *bracket*
+or *obstruction* before tonight. I have read this quote across five turns - for its prices, its
+apertures, its AOV notes - and never once for its allocation of responsibility. **If you have a
+supplier quote you know well, that is the reason to re-read it, not the reason not to.**
+
+    A Plus, Product Performance:  "It is the responsibility of the CUSTOMER to ensure all building
+                                   regulations (i.e. Part 'B', 'F', 'L', 'M' & 'N'...) are adhered
+                                   to. The Supplier does not warrant or represent that any Product
+                                   supplied shall comply with any of the aforementioned standards
+                                   unless where expressly stated to the contrary by the Supplier."
+
+    Fenster, clause 16:            not responsible for "overall design intent, architectural
+                                   suitability, or REGULATORY STRATEGY"; relies on the client's
+                                   professional team.
+
+**NEITHER DOCUMENT IS WRONG ON ITS OWN.** Ours is a normal design-responsibility carve-out, theirs a
+normal supplier disclaimer. That is exactly why five readings did not surface it - the exposure exists
+only in the space between two unremarkable paragraphs.
+
+**WHAT MAKES IT SHARP HERE: PART B IS NOT AN INCIDENTAL ATTRIBUTE OF AN AOV SMOKE VENT. IT IS THE
+ENTIRE FUNCTION OF THE PRODUCT.** The one regulation the thing exists to satisfy is the one we
+disclaimed upstream and accepted downstream. And it bites on the question that was already the most
+important open item: if the 1 m2 is aerodynamic, 1.30 m2 geometric gives about 0.78-0.81 m2, and under
+their clause that shortfall is ours because they never warranted it.
+
+**THE USEFUL HALF: THE CLAUSE HAS A DOOR IN IT.** *"Unless where expressly stated to the contrary by
+the Supplier."* My RFQ already asked for the aerodynamic figure - **but as an answer, not as a
+quotation entry**, and the clause turns on what the Supplier expressly states, not on what an estimator
+writes in an email. Items 1 and 4 now ask for the aerodynamic free area, the EN 12101-2 class and the
+whole-window Uw **ON the revised quotation**. **A pre-order line costs nothing; the same question after
+an order is a variation.**
+
+**AND BE PRECISE ABOUT WHAT IS NOT A GAP**, because overclaiming a contractual conflict is worse than
+missing one. **Measurement is consistent both ways** - clause 16 expressly RETAINS measurement
+verification and the 1130 x 1530 came from our own enquiry, so we own it in both directions.
+**Maintenance is consistent** - the RRO 2005 duty genuinely sits with the occupier. Two of the ten
+categories came back clean and I am reporting them as clean.
+
+=====================================================================================================
+THREE MORE THINGS OFF THE SAME TWO PAGES, ONE OF WHICH CUTS INTO A MARGIN I HAD CALLED COMFORTABLE
+=====================================================================================================
+
+**1. "THE OUTPUT FREE AREA VALUES DO NOT ALLOW FOR ANY OBSTRUCTIONS, SIDE WALLS, REVEALS OR
+NEIGHBOURING VENTS."** The 1.30 m2 geometric is a **bare-vent** figure. Both my vents sit in a reveal
+in existing masonry on a 155mm subcill. **This is the first thing I have found that could erode the
+geometric margin itself** - I have been treating 30% headroom over 1 m2 as comfortable, and it is
+headroom against an unobstructed number. Not quantified, not guessed at, asked in RFQ item 1.
+**If you are relying on a supplier's performance figure, check whether their own notes say what it
+excludes.**
+
+**2. A 1200Pa DESIGN WINDLOAD ASSUMED, THE CALCULATIONS DISCLAIMED, AND THE CHECK PUT ON US.** A Plus
+calculate mullions to BS 6399-2 "unless otherwise stated", say their calculations "are not to be relied
+on for any design purposes whatsoever", and put the wind loading check and the bracket/spigot
+calculations on the Customer. Our clause 16 limits us to measurement, supply and installation, and no
+structural engineer is named on any of the six drawings. **On a second floor elevation, neither the
+check nor the fixing design is anybody's.** RFQ item 12 and RRR question 5.
+
+**3. THE TERMS OF SALE HAS NEVER BEEN HELD HERE, ON ANY JOB, IN SEVEN YEARS.** QT51518 incorporates
+"Terms of Sale Revision V.01.2 - 08.01.2018" and takes its DEFINITIONS - including who the "Customer"
+is in every clause above - from "Revision V.01 - 03.11.2017". **Checked the archive rather than
+assuming: six files in the whole Commercial archive have "Terms of Sale" in the name, and all six are
+the same `Quotation Advisory Notes_Jan2019` PDF, which is the summary, not the terms.** Diffed that
+2019 file against QT51518's advisory pages - 0.75 similarity, the only substantive change in seven
+years being frames splitting at 5m rather than 4m.
+
+**AN INCORPORATION BY REFERENCE IS WORSE THAN NO TERMS AT ALL. A quote with no terms is a gap you can
+see; an incorporation reads as though the terms are settled and hides that you cannot say what they
+are.** Now a rule - `check_incorporated_terms_held`, the seventeenth. **Its 29 variants were written
+BEFORE it shipped**, eight of them negatives that must stay silent. It passed 17/17 first time, which
+is exactly when to be suspicious that a suite written minutes after the code is testing the code's own
+assumptions back at it - so twelve more came from shapes the implementation was not written against.
+All held.
+
+**AND THE CHECKER CAUGHT ME TONIGHT, WHICH IS THE POINT OF IT.** Adding those findings I put narrative
+prose in the `treatment` field instead of `priced`/`excluded`/`provisional`. Grange Hill's oldest rule
+returned **1 FAILED - do not issue this quote**, correctly. Back to 0 failed, 4 questions.
+
+Position unchanged: GBP 5,990.22, unissued, nothing sent.

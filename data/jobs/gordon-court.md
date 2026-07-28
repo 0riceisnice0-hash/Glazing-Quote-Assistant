@@ -2239,6 +2239,69 @@ the decision-versus-information split on this item was covered. **Not every chec
 
 ---
 
+## 4W. TWENTY-FIFTH TURN (28/07) — £183,005.42 rests on a contract we have never read
+
+### 4W.1 riverside's Part B finding, and the category my own sweep did not contain
+
+They ran my "Customer" check on A Plus and found the supplier disclaims Part B/F/L/M/N compliance while our
+clause 16 disclaims *regulatory strategy* — **on a product whose only function is Part B.**
+
+**Their finding exposed a hole in my sweep.** Last turn I tested ten categories: access, waste, making good,
+fire stopping, testing, builders work, painting, electrical, storage, design calculations. **Building
+regulations was not one of them** — and on this job the three FD30 doors are a pure Part B product.
+
+Re-run across all five quotes with the missing probe:
+
+| | BSW ×4 | AFS Q7585 |
+|---|---|---|
+| Building regs / Part B disclaimer | **silent** | **silent** |
+| Windload / structural | silent | silent |
+| Free-area caveats | silent | n/a |
+| **Terms incorporated by reference** | **YES — and we do not hold them** | no, printed in full |
+
+**riverside's exact finding does not replicate here and I am not forcing it to.** Neither supplier carries
+A Plus's building-regulations disclaimer. AFS's *"no warranty… as to quality, fitness for purpose"* clause
+turned out on reading to be about **samples**, not the goods — a normal sample disclaimer, not a gap.
+
+### 4W.2 But I cannot actually answer riverside's question for BSW, and that is the finding
+
+All four BSW quotations carry:
+
+> *"Orders are subject to acceptance and **terms and conditions of sale, available on request**."*
+
+**We have never requested them.** Checked the archive rather than assuming, as riverside did: **280
+BSW-named files** and **86 documents named as terms/conditions** across the whole Commercial archive, and
+**not one of them is BSW's**. The four unattributed candidates (`General Conditions of Sale - Jan 18`,
+`T&Cs`, `T&C's 2025`, `GENERAL TERMS AND CONDITIONS`) belong to Gennaro, Storm Building, Nathan McCarter
+and Design Plus.
+
+**£183,005.42 of cost — 91% of our supplier exposure — rests on a contract whose contents we cannot state.**
+
+**And this corrects my own finding from last turn.** I reported *"BSW silent on all ten categories — an
+undefined result"*. **They are not silent.** Their allocation of responsibility exists in a document we have
+never asked for. The boundary is not undefined; **it is defined somewhere we cannot read** — which is
+riverside's point exactly: *an incorporation reads as though the terms are settled and hides that you cannot
+say what they are.* So the honest answer to "do BSW disclaim Part B?" is **not "no" but "unanswerable"**.
+
+`incorporated_terms` now populated — 4 BSW entries `held: false`, AFS `held: true`. riverside's seventeenth
+rule fired on real data the first time it ran: **run went 2 ASK → 3 ASK**, *"The price rests on a contract
+whose contents we cannot state."* A rule written on their job, catching a live gap on mine, same night.
+
+### 4W.3 Into the letter, pre-order
+
+- **New BSW D3** — send the terms of sale with revision and date, naming why: *"potentially your position on
+  building regulations compliance, delivery, retention of title and limitation of liability… one line before
+  an order and a negotiation afterwards."*
+- **C7 gains (d)**, from riverside's obstruction finding applied prospectively: is the free area a bare-unit
+  figure or the installed condition? **Both AOV positions at ground and first floor sit in existing masonry
+  reveals**, and their point stands here — headroom measured against an unobstructed number is not headroom.
+  Asked before BSW answer, so the answer arrives on the right basis.
+- Price-hold renumbered **D3 → D4**, and the header cross-reference corrected with it. That pointer would
+  otherwise have said "D3 asks only what date BSW can hold to" while D3 asked for their terms — the same
+  stale-cross-reference class as §4G.3.
+
+---
+
 ## 5. Things checked and CLEARED — do not re-raise
 
 - **Install DOES cover the 3 FD30 doors.** Triage's open question 4. `I61` is
@@ -2357,6 +2420,9 @@ their whole book, not signalling anything specific about Gordon Court.
   so riverside's TypeError aborted everything after it — and because rules run in list order, that silently
   skipped `check_spec_label_matches_evidence` (last) every time. A crash is now a FAIL on that rule alone,
   named, and the run continues. Persisted as `selftest_one_crash_costs_one_rule()`. See §4V.1.
+- **28/07 twenty-fifth turn — adopted riverside's seventeenth rule `check_incorporated_terms_held` by
+  populating `incorporated_terms` on this job.** 4 BSW entries `held: false`, AFS `held: true`. It fired
+  first time on real data: run **2 ASK → 3 ASK**. Their rule, my gap, same night. See §4W.2.
 
 ## 8A. Toolkit changes on the second turn
 
