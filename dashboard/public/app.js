@@ -80,6 +80,10 @@ function renderStatus() {
   el.textContent = text;
   el.title = [s.title, s.detail].filter(Boolean).join(" - ");
   if (dot) dot.className = `dot ${tone}`;
+  // The sidebar is a drawer on a phone, so her state has to live in the top bar
+  // too - otherwise "is she working right now" costs you a tap.
+  const dotM = $("#mary-dot-m");
+  if (dotM) { dotM.className = `dot ${tone}`; dotM.title = text; }
 }
 
 function toast(text) {
@@ -1701,7 +1705,29 @@ function render() {
   page = meta.key;
   $("#page-title").textContent = meta.label;
   $("#page-sub").textContent = meta.sub();
+  // The phone layout keys off this: Messages becomes a full-height flex column
+  // rather than a fixed-offset box. CSS cannot ask "which page is this", so the
+  // page has to say.
+  $("#page").dataset.page = page;
   $("#page").innerHTML = renderer[page] ? renderer[page].call(renderer) : "";
+  // Twenty-six tables are written as bare <table class="tbl"> across both
+  // boards. A table cannot scroll itself, so on a phone each one widens the
+  // whole page and every OTHER screen inherits a sideways wobble. Wrapping them
+  // here is one place instead of twenty-six template strings.
+  $$("#page table.tbl").forEach((t) => {
+    if (t.parentElement?.classList.contains("tbl-wrap")) return;
+    const wrap = document.createElement("div");
+    wrap.className = "tbl-wrap";
+    t.replaceWith(wrap);
+    wrap.appendChild(t);
+  });
+  // The drawer hides the section name, so the top bar carries it.
+  const mt = $("#mobile-title");
+  if (mt) mt.textContent = meta.label;
+  // One dot on the burger for "there is something for you behind this menu" -
+  // otherwise a closed drawer hides the only signal that anything needs you.
+  const dot = $("#nav-dot");
+  if (dot) dot.hidden = !(badges.requests || badges.messages);
   // This label lives inside Mary's sidebar card, so it always shows HER board's
   // timestamp regardless of which bot is on screen. Jacob's is on his overview.
   $("#updated-at").textContent = "Board updated " + new Date(DATA.updated).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
@@ -1778,7 +1804,26 @@ document.addEventListener("input", (e) => {
   if (key) DRAFTS[key] = e.target.value;
 });
 
+/* ---------------- the phone drawer ----------------
+   Below 900px the sidebar is off-screen until asked for. Three ways out, because
+   a drawer you cannot dismiss is worse than no drawer: the backdrop, Escape, and
+   picking anything inside it. The body lock stops the page behind scrolling
+   under your finger while the drawer is open. */
+function setNav(open) {
+  const nav = $("#nav"), veil = $("#nav-veil"), btn = $("#nav-toggle");
+  if (!nav) return;
+  nav.classList.toggle("open", open);
+  if (veil) veil.hidden = !open;
+  if (btn) btn.setAttribute("aria-expanded", String(open));
+  document.body.classList.toggle("nav-open", open);
+}
+$("#nav-toggle")?.addEventListener("click", () => setNav(!$("#nav").classList.contains("open")));
+$("#nav-veil")?.addEventListener("click", () => setNav(false));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") setNav(false); });
+
 document.addEventListener("click", async (e) => {
+  // Anything chosen inside the drawer has served its purpose - get out of the way.
+  if (e.target.closest("#nav [data-nav], #nav [data-bot]")) setNav(false);
   // Swap the whole board between Mary and Jacob.
   const bot = e.target.closest("[data-bot]");
   if (bot) {

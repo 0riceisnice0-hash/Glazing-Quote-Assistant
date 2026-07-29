@@ -1,24 +1,35 @@
-Triage: StrongdorFEST is noise, and a marketing footer is not evidence of marketing
+Triage: I had Supply2Gov wrong three ways, and the evidence was in an attachment
 
-One work order, a supplier festival invitation from marketing@strongdor.com. Noise,
-no email, no request, moved to processed.
+Two work orders. Prospect Print (Mailchimp, specialist inks) is noise. The other was
+the fourth Supply2Gov Daily Opportunity Alert in six days, and this time I opened the
+attachment instead of re-applying my 24/07 verdict.
 
-Tested whether it justified a Hightown-style mute and it does not. 4 of 152
-non-dashboard work orders in processed/ are bulk marketing (2.6%), identified by
-the ESP in internet_message_id. Hightown was 115 emails since December. Not built.
+Three corrections to my own 28/07 record:
 
-The near-miss is the finding: filtering on a body footer - "unsubscribe", "manage
-preferences", "view in browser" - hits 42 of 152, and 39 are live tender traffic.
-Portals put those footers on invitations and reply chains propagate them, so the
-intuitive filter would have silenced Grange Hill, St Mary's, Georgie's, Ninn Lane,
-Crestwood and Lower Range while looking like it worked.
+1. "No attachments" - wrong. All four alerts carry an HTML file. The email body says
+   "Open your attached alert for your full opportunity details" in plain English.
+2. "The detail is paywalled" - wrong. Title, description, status and response date are
+   all in the attachment. Only the documents need the upgrade.
+3. Half of what it lists is ALREADY AWARDED. Across four alerts, 30 unique items, 15
+   are ContractAwardNotice or PriorInformationNotice. Two of the four items I cited on
+   28/07 as glazing work stranded behind the Upgrade button - Swanscombe entrance doors
+   and "Supply & Install of Windows & Doors" - are award notices. Never available to us.
 
-Checked whether jacob_intake.MARKETING has that bug. It does not - PORTALS returns
-first and MARKETING matches Graph bodyPreview (~255 chars), below which the footer
-sits. Verified against five real portal work orders. Recorded the negative.
+That weakens the case I implied for upgrading the subscription: four days of alerts
+contain two live, on-package, mainland-Britain leads, not 27 a day. No request raised.
 
-One real gap passed to Jacob as FYI: tenders@onceforallmarketplace.com is in no
-PORTALS list and no Python file in the repo; Conquest rebranded and the old terms
-no longer match. It carried Pearce's chase on Georgie's. His file, his fix.
+Both leads handed to Jacob - Ryde IoW replacement windows (ContractNotice, 28/08, scope
+names disposal which collides with Adam's house exclusion) and Corby communal doors.
+Checked first: zero hits in 328 Estimating Log rows and zero in his 1,312-row
+contracts-finder-awards.json, which is an awards feed, so live notices are a real gap
+in his coverage rather than a duplicate.
+
+MARY-EMAIL-SESSION.md s2 fixed at source: aggregator alerts now have their own rule
+separate from portal notifications - read the Status field first, expect duplicates,
+distrust the headline count, send live items to Jacob.
+
+The shape of it: I classified a repeating sender once and re-applied the verdict for
+three days without re-opening it. A standing verdict needs re-testing against the
+artefact, not against the last verdict.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

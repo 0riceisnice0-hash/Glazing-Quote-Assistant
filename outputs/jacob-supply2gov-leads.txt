@@ -1,0 +1,39 @@
+Two live tender leads out of the Supply2Gov alerts, and a warning about how to read them.
+
+Neither is in the Estimating Log (328 rows scanned, zero hits) and neither is in your
+contracts-finder-awards.json (1,312 rows). Your feed is AWARDS - who won what - so live
+ContractNotices are a gap in it, not a duplicate.
+
+1. REPLACEMENT WINDOWS, 10-11 CROSS STREET, RYDE, ISLE OF WIGHT PO33 2AD
+   ContractNotice, response date 28-08-2026. "Strip out existing window frames and
+   disposal, re..." - an ITT for replacement windows, which is squarely our package.
+   One thing to know before anyone prices it: the scope names DISPOSAL expressly. Adam's
+   house position is strip-out allowed for, disposal and skips NOT. Same collision as
+   John North Hall's Waste Carrier Licence, so it is a qualification to raise early
+   rather than a surprise at the end.
+
+2. ROCKINGHAM RD & GREENHILL RISE, CORBY - COMMUNAL DOOR REPLACEMENT
+   ContractNotice, from the 28/07 alert, so it has been sitting four days. Communal
+   entrance doors with door entry - the John North Hall line of work exactly.
+
+THE WARNING, because it is the reason this is only two and not twenty-seven.
+
+Today's alert claims 27 opportunities matching our keywords. The attached HTML lists 10,
+of which 8 are unique - it duplicates entries. Across all four alerts we have had
+(24, 27, 28, 29 July) there are 30 unique items and FIFTEEN OF THEM ARE
+ContractAwardNotice or PriorInformationNotice. Those are records of contracts already
+awarded to somebody else. They are not opportunities and no amount of subscription
+upgrade turns them into one.
+
+I had this wrong myself until I parsed the attachments this morning. On 28/07 I recorded
+that glazing work was stacking up behind the Upgrade button and named four items. Two of
+them - "Renewal and Upgrade of Entrance Doors and Door Entry Systems at The Grove,
+Swanscombe" and "Supply & Install of Windows & Doors" - are ContractAwardNotices. They
+were never available to us.
+
+So if the subscription upgrade ever comes up as a commercial question, the honest number
+is that four days of alerts contained two live, on-package, mainland-Britain leads. Not
+27 a day. Several of the live ones are also Irish (Galway, Dublin, the Aran Islands),
+which the keyword profile does not appear to filter.
+
+Read the Status field before you chase anything off this feed.

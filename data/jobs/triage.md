@@ -728,6 +728,56 @@ I did not edit it. Note at `outputs\jacob-onceforall-note.txt`.
 
 **Nothing raised for Adam.** 15 requests are open and this turn produced no decision only he can make.
 
+### 2026-07-29 10:05 - I HAD SUPPLY2GOV WRONG IN THREE WAYS AND THE ATTACHMENT WAS SITTING THERE
+Two work orders. **Prospect Print** (will@prospectprint.co.uk, Mailchimp, "Someth-ink Different..." -
+silver and white ink for business cards) is noise; one line, no email, moved to `processed\`. The other
+was the fourth **Supply2Gov Daily Opportunity Alert** in six days, and this time I opened it.
+
+**CORRECTION 1 - "no attachments" was wrong.** My 28/07 entry says these carry none. **All four alerts
+carry an HTML attachment** - 24/07, 27/07, 28/07 and today's 38 KB `Supply2Gov Alert-29-07-2026.html`.
+The work orders record them and the `-att` folders exist. I wrote that sentence having read the email
+body, which says *"Open your attached alert for your full opportunity details"* in plain English.
+
+**CORRECTION 2 - "the detail is paywalled" was wrong.** The attachment holds title, description, status
+and response date for every item. Only the full documents need the upgrade. Four days of leads were
+readable the whole time.
+
+**CORRECTION 3, AND THE ONE THAT MATTERS - HALF OF WHAT IT LISTS IS ALREADY AWARDED.** Parsed all four:
+**30 unique items, 15 of them `ContractAwardNotice` or `PriorInformationNotice`** - contracts someone
+else has already won. On 28/07 I wrote that the alert was "listing the work we do" behind an Upgrade
+button and named four items as evidence. **Two of the four were award notices**: "Renewal and Upgrade of
+Entrance Doors and Door Entry Systems at The Grove, Swanscombe" (24/07) and "Supply & Install of Windows
+& Doors" (27/07). They were never available to us. Corby and Smithfield, the other two, were genuinely
+live - so the note was half right, which is how it survived.
+
+**That materially weakens the case I implied for upgrading the subscription.** The honest arithmetic:
+four days of alerts, 27 claimed today, 8 unique after de-duplication, and across all four days **two
+live, on-package, mainland-Britain leads.** Several of the live ones are Irish (Galway, Dublin, Inis
+Meain) which the keyword profile does not filter. It is a decision for Adam if he ever asks; not worth a
+request, and I have not raised one.
+
+**THE TWO REAL LEADS, both handed to Jacob (BD is his by Adam's 28/07 ruling), neither raised with Adam:**
+- **Replacement Windows, 10-11 Cross Street, Ryde, Isle of Wight PO33 2AD** - `ContractNotice`, response
+  **28-08-2026**. Scope names strip-out AND **disposal**, which collides with Adam's house exclusion
+  (strip-out allowed, skips not) - the John North Hall problem again, flagged to Jacob up front.
+- **Rockingham Rd & Greenhill Rise, Corby - communal door replacement** - `ContractNotice`, from the
+  28/07 alert, so four days old.
+
+Checked both before sending: **zero hits across 328 Estimating Log rows**, and zero in Jacob's
+`data/jacob/contracts-finder-awards.json` (1,312 rows) - which is an AWARDS feed, so live notices are a
+genuine gap in his coverage rather than a duplicate. That check is why the handoff was worth making.
+
+**Playbook fixed at source.** `MARY-EMAIL-SESSION.md` s2 had one rule for portal notifications asserting
+they "never carry attachments" - true of In-Tend, false of aggregators. Added a separate bullet for
+aggregator alerts: read the `Status:` field first, expect duplicates, distrust the headline count, and
+send live items to Jacob. The next triage chat may be a cold rotation like this morning's, and that rule
+is what it will read.
+
+**The shape of the mistake, for my own use:** I classified a recurring email once, on 24/07, and then
+re-applied the classification for three days without re-opening it. The correcting evidence was inside
+an attachment the email told me to open. **A standing verdict on a repeating sender needs re-testing
+against the artefact, not against the last verdict.**
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

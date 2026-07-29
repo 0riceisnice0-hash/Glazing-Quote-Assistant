@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mary-hub",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["wrangler", "pages", "dev", "dashboard/public", "--port", "8788", "--local"],
+      "port": 8788
+    }
+  ]
+}

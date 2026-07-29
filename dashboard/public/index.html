@@ -8,8 +8,20 @@
     <link rel="stylesheet" href="/styles.css">
   </head>
   <body>
+    <!-- Phone only. The sidebar becomes a drawer below 900px, so there has to be
+         something on screen that opens it and says where you are. -->
+    <div class="mobile-bar">
+      <button id="nav-toggle" class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <i id="nav-dot" class="nav-toggle-dot" hidden></i>
+      </button>
+      <span id="mobile-title" class="mobile-title"></span>
+      <span class="mobile-state"><i class="dot" id="mary-dot-m"></i></span>
+    </div>
+    <div id="nav-veil" class="nav-veil" hidden></div>
+
     <div class="shell">
-      <aside class="nav">
+      <aside class="nav" id="nav">
         <div class="nav-brand">
           <img src="/logo-dark.png" alt="Fenster Glazing">
         </div>

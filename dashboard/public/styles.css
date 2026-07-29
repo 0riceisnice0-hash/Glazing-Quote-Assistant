@@ -391,14 +391,110 @@ button, input, select, textarea { font-family: inherit; }
 ul.plain { margin: 0; padding-left: 20px; font-size: var(--t-13); color: var(--body); }
 ul.plain li { margin-bottom: 8px; }
 
+/* ---------------------------------------------------------------- mobile
+   The old rule here was `.nav { position: static; height: auto }`, which put
+   the whole eight-item sidebar ABOVE the content: on a phone you scrolled past
+   a screen and a half of navigation to reach the thing you opened the hub for.
+   It is a drawer now.
+
+   Heights use dvh, not vh. On iOS Safari `100vh` is the height with the URL bar
+   HIDDEN, so a `100vh` column is taller than the visible screen and the bottom
+   of it - which on the Messages tab is the box you type into - sits underneath
+   the browser chrome until you scroll. dvh tracks the real viewport. */
+.mobile-bar { display: none; }
+.nav-veil { display: none; }
+
 @media (max-width: 900px) {
+  .mobile-bar {
+    display: flex; align-items: center; gap: 12px;
+    position: sticky; top: 0; z-index: 40;
+    background: var(--navy); color: #fff;
+    padding: calc(8px + env(safe-area-inset-top)) 14px 8px;
+    padding-left: calc(10px + env(safe-area-inset-left));
+    padding-right: calc(14px + env(safe-area-inset-right));
+    box-shadow: 0 1px 0 rgba(255,255,255,.08);
+  }
+  .nav-toggle {
+    position: relative; flex: 0 0 auto;
+    width: 44px; height: 44px;              /* 44px is the smallest reliable tap target */
+    display: grid; place-items: center;
+    background: rgba(255,255,255,.08); border: 0; border-radius: var(--r-md);
+    color: #fff; cursor: pointer; padding: 0;
+  }
+  .nav-toggle svg { width: 22px; height: 22px; }
+  .nav-toggle-dot { position: absolute; top: 9px; right: 9px; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--amber); box-shadow: 0 0 0 2px var(--navy); }
+  .mobile-title { font-weight: 600; font-size: var(--t-15); flex: 1; min-width: 0;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .mobile-state .dot { width: 9px; height: 9px; }
+
+  .shell { grid-template-columns: 1fr; min-height: 0; }
+
+  .nav {
+    position: fixed; top: 0; left: 0; bottom: 0;
+    width: min(86vw, 310px); height: 100dvh; z-index: 60;
+    transform: translateX(-100%); transition: transform .22s ease;
+    overflow-y: auto; padding-top: calc(22px + env(safe-area-inset-top));
+    padding-bottom: calc(18px + env(safe-area-inset-bottom));
+  }
+  .nav.open { transform: none; }
+  .nav-veil { display: block; position: fixed; inset: 0; z-index: 50;
+    background: rgba(0,20,26,.55); backdrop-filter: blur(2px); }
+  body.nav-open { overflow: hidden; }
+
+  /* Everything on a phone is a tap target, not a click target. */
+  .nav-item, .nav-bot, .btn, .opt, .tab { min-height: 44px; }
+
+  .page-head { flex-direction: column; align-items: stretch; padding: 16px 16px 10px; gap: 10px; }
+  .page { padding: 0 16px calc(48px + env(safe-area-inset-bottom)); }
+  .page-tools input { width: 100%; }
+  /* iOS zooms the whole page in when it focuses an input under 16px. */
+  input, select, textarea { font-size: 16px; }
+
   .act { grid-template-columns: 1fr; }
   .act-side { justify-items: start; text-align: left; }
-  .shell { grid-template-columns: 1fr; }
-  .nav { position: static; height: auto; }
-  .page-head { flex-direction: column; align-items: stretch; padding: 20px 18px 12px; }
-  .page { padding: 0 18px 60px; }
-  .page-tools input { width: 100%; }
+
+  /* A wide table must scroll inside its own box. If it widens the page instead,
+     every other screen gets a sideways wobble to reach a column on one of them. */
+  .tbl-wrap, .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tbl { min-width: 560px; }
+
+  .bubble { max-width: 92%; }
+
+  /* MESSAGES FILLS THE SCREEN.
+     The desktop rule is `height: calc(100vh - 205px)` - a fixed offset for
+     desktop chrome that is simply wrong on a phone, where the header is a
+     different height and the URL bar moves. Instead the column flexes: the
+     shell is exactly one viewport, the thread takes whatever is left, and the
+     composer sits on the bottom edge where a thumb already is. */
+  .shell:has(#page[data-page="messages"]),
+  .shell:has(#page[data-page="jmessages"]) { height: 100dvh; overflow: hidden; }
+
+  #page[data-page="messages"], #page[data-page="jmessages"] {
+    display: flex; flex-direction: column; min-height: 0; flex: 1;
+    padding-bottom: 0; overflow: hidden;
+  }
+  #page[data-page="messages"] .chat,
+  #page[data-page="jmessages"] .chat {
+    max-width: none; height: auto; min-height: 0; flex: 1;
+  }
+  #page[data-page="messages"] .chat-thread,
+  #page[data-page="jmessages"] .chat-thread { min-height: 0; }
+  #page[data-page="messages"] .chat-compose,
+  #page[data-page="jmessages"] .chat-compose {
+    margin-top: 12px; margin-bottom: 0;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
+    border-bottom-left-radius: 0; border-bottom-right-radius: 0;
+  }
+  /* The subtitle is a sentence explaining what the tab is. On a phone that is
+     a line of screen the conversation needs more. */
+  #page[data-page="messages"] ~ * .page-sub { display: none; }
+}
+
+/* The messages column is a flex chain; .main has to pass the height down or
+   the chat cannot know what "the rest of the screen" means. */
+@media (max-width: 900px) {
+  .main { display: flex; flex-direction: column; min-height: 0; min-width: 0; }
 }
 
 /* Free-text answer under a request. The buttons only cover what Jacob thought
