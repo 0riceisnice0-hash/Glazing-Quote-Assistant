@@ -566,3 +566,50 @@ note said "nobody ever adds twenty-five lines, they add eleven twice" and promis
 next session would be different. It was not. Every line is load-bearing and merged into an existing
 entry, which is exactly why the cap is not holding. **JAC-16 needs answering before I add anything
 else.** Compressed the banner from 18 lines to 9 as the only cut I can make on my own authority.
+
+## 30/07/2026 - hub-87: JAC-4 answered "Either", and the two things "either" does not mean
+
+**Order:** one item, hub-87 from Zac - the single word "Either" against JAC-4, *"Who approves
+outbound? Adam / Zac / Either."*
+
+**Read the *why* before the answer, and it changes what the answer is.** JAC-4's stated reason was
+narrow: *"decides whether the approval queue lives on the hub or in email."* One approver could keep
+that queue in his own sent items; two cannot. So "Either" answers WHERE as much as WHO - it has to be
+somewhere both men and both bots can see. Recorded on the decision, and Ready to Send now carries a
+**"Who can clear a row"** block plus `approvedBy`/`approvedAt` per row, so an approval stops living in
+somebody's mailbox. `drafts.json.approvalRoute`.
+
+**Checked the author first.** hub 57/60/61/62 filed Adam's instructions under Zac's name because the
+sign-in select defaulted to Zac. That is fixed - `ME` starts null and `requireMe()` blocks the first
+write on a per-device pick - so "zac" here is a claim, not a default. And JAC-4 is in his half anyway
+under hub-68's split.
+
+**Said the two limits out loud rather than banking the win.** (1) **Approval and sending are different
+fields and only the first was asked about** - all six drafts carry `send_as: Adam Butcher` because all
+six are client-facing commercial chases, so Zac clearing one takes the *reading* off Adam and leaves
+the *send* with him. Honest version: the queue no longer waits on one man's attention, not "the queue
+is cleared". (2) **Approving an ITEM is not authorising a SEND PATH.** He answered JAC-4 while leaving
+JAC-15 open in front of him, which is the clearest evidence one word was not meant to settle both. The
+shape matters: hub-76 was "override your other boss because I say so" as an order and I refused it;
+the same move can arrive as a *settled decision* - "Adam is an approver now, Adam approved it,
+therefore Jacob may send" - and it fails the same way. Told him plainly he can widen it by answering
+JAC-15, and that I will not get there by addition.
+
+**Raised no new request.** The six drafts are not blocked on a decision, they are blocked on somebody
+opening the hub. `send_as` already fixes a wrong sender at row level, so JAC-18 would be asking for a
+rule nobody needs yet.
+
+**The side finding is the urgent one.** D-1 - E T & S Construction, St Mary's Merthyr Tydfil,
+**GBP 174,546.37**, the biggest number in the queue - was written on the register E T & S re-issued on
+24/07 giving a **27 July return** for a package we submitted on 17 July. It is now the 30th, so the
+draft is either wrong or urgent and nothing in commercial@, info@ or jacob@ can say which: "ets-wales"
+returns zero hits and jayk@ is a 404. The quote left from estimating@ - the RSR/DRH1 lesson exactly,
+**absence of a thread in my half is not absence of a thread**. Asked Mary (`--wants-reply`) whether
+anything went to or from ets-wales.com after 17/07; **no answer yet, and it is outstanding.** Told Zac
+not to approve D-1 as it stands and that the other five are as written.
+
+**bd.md is still 230 lines.** JAC-4 is folded into the two-bosses standing decision and that entry
+compressed to absorb it, so **net zero** - last night I promised not to grow that file before JAC-16 is
+answered, and a promise kept by rationalising two more lines is not kept. The full account went to
+`bd-lessons.md`. Deployed through `--deploy`, so the shared lock was taken; the Functions bundle line
+is in the output, so the API shipped.

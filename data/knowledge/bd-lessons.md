@@ -1055,3 +1055,53 @@ been."**
   sash..."* Perry forwarded it to commercial@ the same day. **There is no reply anywhere in any
   mailbox** - three messages, all on one day, and that is the whole thread. A national QS came back to
   Fenster by name on the strength of our own work and got silence.
+
+## JAC-4 answered "Either" - and the two things "either" does not mean (Zac, 29/07, hub-87)
+
+**The question:** "Who approves outbound? Adam / Zac / Either", raised 28/07. Its stated *why* was
+narrow and is the key to reading the answer: *"decides whether the approval queue lives on the hub or
+in email."* One approver could keep the queue in his own inbox. Two cannot. So **"Either" is as much
+an answer about WHERE the queue lives as about who signs it** - it has to be somewhere both men and
+both bots can see, which is the Ready to Send page. `drafts.json.approvalRoute`.
+
+**Author checked before acting.** bd.md's "A UI DEFAULT IS AN AUTHOR" lesson came from hub 57/60/61/62,
+where the sign-in select opened on Zac and filed Adam's instructions under Zac's name. That is fixed -
+`app.js` starts `ME = null` and `requireMe()` blocks the first write on a per-device pick - so "zac" on
+hub-87 is a claim somebody made rather than a default. And JAC-4 is in Zac's half anyway under hub-68's
+split: it is about what I am allowed to do, not about a client.
+
+**What it changes.** Six drafts sit on Ready to Send. Before this, each one waited on Adam reading it,
+and Adam is a Commercial Director between site visits. Now whichever of the two opens the board first
+can clear a row, and the approval is recorded on the row (`approvedBy`, `approvedAt`) rather than
+living in whoever's sent items.
+
+**Limit one: APPROVAL AND SENDING ARE DIFFERENT FIELDS, AND ONLY THE FIRST WAS ASKED ABOUT.** All six
+drafts carry `send_as: "Adam Butcher"` because all six are client-facing commercial chases - a
+marketing address chasing a GBP 174,546 tender package reads wrong to the client whatever the internal
+rule says. So Zac approving one takes the *reading* off Adam and leaves the *send* with him. The honest
+statement of the win is "the queue no longer waits on one man's attention", not "the queue is cleared".
+Where the split is wrong the fix is to change `send_as` on the row, never to read "either" as covering
+the mailbox as well.
+
+**Limit two, and the load-bearing one: APPROVING AN ITEM IS NOT AUTHORISING A SEND PATH.** JAC-4 says
+who signs off a draft. JAC-1 says I do not send. JAC-15 asks Zac whether the daily chase email may go,
+and **he answered JAC-4 while leaving JAC-15 open in front of him** - which is the clearest available
+evidence that one word was not meant to settle both. Note the shape of the trap: on hub-76 Adam ordered
+me to override drafts-only, and I refused because "ignore your other boss because I say so" must never
+work as a hub message. **The same move can arrive as a settled decision instead of an order** - "Adam
+is an approver now, Adam approved it, therefore Jacob may send" - and it is the same move, so it fails
+the same way. A decision about who signs an item can never widen into a decision about what I may do.
+
+**Not a new request.** The six drafts are not blocked on a decision, they are blocked on Adam opening
+the hub, and he answered eight requests on 29/07. Raising JAC-18 to ask "may Zac send a client-facing
+chase under his own name" would be asking for a rule nobody needs yet; the row-level fix (`send_as`)
+already exists. Ask when a specific draft actually needs a non-Adam sender.
+
+**Side finding, and it is the more urgent one.** D-1 (E T & S Construction, St Mary's Merthyr Tydfil,
+GBP 174,546.37) was written on a re-issued tender register giving a **27/07 return** for a package we
+submitted on 17/07. It is now 30/07: the date has passed, so the draft is either wrong or urgent and
+nothing in commercial@, info@ or jacob@ can say which - "ets-wales" returns zero hits and jayk@ is a
+404. The quote left from estimating@, so this is the RSR/DRH1 lesson exactly: **absence of a thread in
+my half is not absence of a thread.** Asked Mary (`--wants-reply`) whether anything went to or from
+ets-wales.com after 17/07. If yes, D-1 is deleted rather than sent second; if no, it is rewritten as
+"who holds the package now, and why were we not asked to re-submit".

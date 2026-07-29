@@ -2592,6 +2592,24 @@ const JACOB_RENDER = {
           <p>${esc(d.decision.effect)} ${esc(d.note)}</p>
         </div></div>
 
+      <!-- JAC-4, Zac, 29/07: "Either". Two approvers is why this queue is on the
+           hub rather than in somebody's inbox, so the page has to say who can
+           clear a row - and has to say the three things "either" does NOT mean,
+           because none of them are visible in the word. -->
+      ${d.approvalRoute ? `<div class="section"><div class="section-head">
+        <h3>Who can clear a row</h3>
+        <span class="pill strong">${esc(d.approvalRoute.ref)}</span>
+        <span class="page-sub">${esc(d.approvalRoute.approvers.join(" or "))} &mdash;
+          either of them, whichever opens this first</span></div>
+        <div class="planned-note">
+          <p><strong>${esc(d.approvalRoute.question)}</strong> &mdash;
+          ${esc(d.approvalRoute.by)}, ${esc(niceDate(d.approvalRoute.date))}:
+          <em>&ldquo;${esc(d.approvalRoute.answer)}&rdquo;</em></p>
+          <p>${esc(d.approvalRoute.where)}</p>
+          <p>${esc(d.approvalRoute.senderIsSeparate)}</p>
+          <p><strong>${esc(d.approvalRoute.notASendPath)}</strong></p>
+        </div></div>` : ""}
+
       <div class="section"><div class="section-head"><h3>The rules these were written under</h3></div>
         <ul class="plain">${d.rules.map((r) => `<li>${esc(r)}</li>`).join("")}</ul></div>
 
@@ -2639,7 +2657,12 @@ const JACOB_RENDER = {
           <tr><td class="dim">Figures</td><td>${esc(r.value_source)}</td></tr>
           <tr><td class="dim">Wording to avoid</td><td>${esc(r.must_not_say)}</td></tr>
           ${r.blocked_on ? `<tr><td class="dim">Open</td><td>${esc(r.blocked_on)}</td></tr>` : ""}
-          <tr><td class="dim">Approval status</td><td><span class="chip warn">${esc(r.approval || r.status)}</span>
+          <tr><td class="dim">Approval status</td><td><span class="chip ${r.approvedBy
+            ? "ok" : "warn"}">${esc(r.approval || r.status)}</span>
+            ${r.approvedBy ? `<small class="dim">Approved by
+              <strong>${esc(r.approvedBy)}</strong>${r.approvedAt
+                ? ` on ${esc(niceDate(r.approvedAt))}` : ""} &mdash; wording cleared.
+              ${esc(r.send_as)} still sends it.</small>` : ""}
             <small class="dim">Jacob does not send these. A named human reads it, changes what they want and sends it.</small></td></tr>
         </tbody></table></div>`).join("")}
 

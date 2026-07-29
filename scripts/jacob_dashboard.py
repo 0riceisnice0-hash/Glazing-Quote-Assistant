@@ -1893,7 +1893,33 @@ DECISIONS = [
                  "shows the buyer", "Trial Barbour ABI", "Trial Glenigan"]},
     {"id": "JAC-4", "title": "Who approves outbound?",
      "why": "Decides whether the approval queue lives on the hub or in email.",
-     "options": ["Adam", "Zac", "Either"]},
+     "options": ["Adam", "Zac", "Either"],
+     "answer": "Either",
+     # Author checked before acting on it. bd.md's "a UI default is an author"
+     # lesson came from hub 57/60/61/62, where the sign-in select opened on Zac
+     # and filed Adam's instructions under his name. That is fixed: ME starts
+     # null and the first write blocks on a per-device pick. So "zac" on hub-87
+     # is a claim somebody made, not a default - and this is a question in his
+     # own half anyway, since it is about what I am allowed to do.
+     "answeredBy": "Zac", "answered": "2026-07-29",
+     "effect": ("Either Adam or Zac can clear an item, so the approval queue "
+                "is the HUB rather than one man's inbox - which was the whole "
+                "point of asking. Ready to Send is that queue: six drafts are "
+                "on it and whichever of them opens the board first can approve "
+                "one, instead of every draft waiting on Adam's site day. Two "
+                "limits, said out loud because neither is obvious from the "
+                "word 'either'. Approval and SENDING are different fields: all "
+                "six drafts are written to go from Adam Butcher's mailbox "
+                "because they are client-facing commercial chases, so Zac "
+                "clearing the wording takes the reading off Adam and leaves "
+                "the send with him. And approving an ITEM is not authorising a "
+                "SEND PATH - JAC-4 says who signs off a draft, JAC-1 says I do "
+                "not send, JAC-15 asks Zac whether the daily chase email may "
+                "go. He answered this one while leaving JAC-15 open, which is "
+                "the clearest evidence he did not mean one word to settle "
+                "both. So this is not a route around drafts-only and must not "
+                "become one: 'Adam approved it, therefore Jacob may send' is "
+                "the hub-76 move wearing a settled decision.")},
 ]
 
 
