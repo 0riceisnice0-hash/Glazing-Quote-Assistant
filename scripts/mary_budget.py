@@ -50,12 +50,23 @@ NIGHT_FROM, NIGHT_TO = 22, 7
 NIGHT_HOURS = float(os.environ.get("MARY_NIGHT_HOURS", "1.5"))
 DAY_HOURS = float(os.environ.get("MARY_DAY_HOURS", "8"))
 
-# Hours alone is a poor proxy for cost. The 27/07 bill was driven by SESSION
-# COUNT against bloated chats - each one re-read the whole conversation before
-# doing anything - so cap the count as well. Twenty in a working day is already
-# far more than a normal one.
+# Session count was a stand-in for cost back when tokens were invisible: the
+# 27/07 bill came from re-reading bloated chats, and counting sessions was the
+# closest thing to counting that. Both halves of that reasoning have since gone
+# - rotation keeps transcripts small, and log_tokens() measures the spend for
+# real - so the count is now the LOOSEST of the three limits, not the tightest.
+#
+# It was 40, and on 29/07 it tripped at 17:03 with hours at 60% and tokens at
+# 21%. All forty sessions had consumed a real work order; none were circling.
+# What it actually held was a quote Adam asked her to check on a tender closing
+# THAT DAY, parked until 07:00 the next morning. A proxy outranking the two
+# measures it was standing in for is a bug, and this is what it cost.
+#
+# 120 is a circuit breaker rather than a budget: three times a real working day
+# (40 sessions, 4.8h, 2.5M tokens observed), so tripping it means something is
+# looping and the tokens or the hours will almost certainly say so first.
 NIGHT_SESSIONS = int(os.environ.get("MARY_NIGHT_SESSIONS", "6"))
-DAY_SESSIONS = int(os.environ.get("MARY_DAY_SESSIONS", "40"))
+DAY_SESSIONS = int(os.environ.get("MARY_DAY_SESSIONS", "120"))
 
 # A chat may run this many times in the window without consuming a work order.
 CIRCLING_RUNS = 5
