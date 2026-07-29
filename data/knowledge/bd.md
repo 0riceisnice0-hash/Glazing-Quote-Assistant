@@ -1,9 +1,13 @@
 # What Jacob knows about how Fenster wins work
 
-Durable BD knowledge, distilled from the evidence in `data/jacob/` and the Opportunity
-Log. LOADED CONTEXT for every Jacob session. When the evidence teaches something new,
-add it here with the date; when it contradicts a line, delete the line. Cap: 100 lines.
-The full data story per file: `data/jacob/README.md`.
+Durable BD knowledge, distilled from the evidence. LOADED CONTEXT for every Jacob
+session - every line here is a token tax on every session forever, which is why the cap
+exists. **The cap is on the loading, never on the knowing** (Zac, 29/07: "why cap his
+knowledge?"): nothing is ever deleted to fit it. **Cap: 130 lines.** Over it, move the
+full account to `data/knowledge/bd-lessons.md` (unlimited, append-only, grep-able) and
+keep the one-line rule here with a pointer - the same shape as Mary's INDEX.md over
+AI.md. New evidence teaches: add. Evidence contradicts: the line dies here, the story
+of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
 
 ## The shape of what the OPPORTUNITY LOG says Fenster wins (2025-26, 229 decided rows)
 
@@ -66,13 +70,12 @@ The full data story per file: `data/jacob/README.md`.
   `jacob_dashboard.py`. Roofing stays IN (Raglan roofing carried a Fenster
   rooflight order). Before recommending any call, ask: where is the glass?
 - **Two free sources, and the trick to each** (29/07). Contracts Finder's OCDS
-  `/Search` endpoint SILENTLY IGNORES `keyword` - it returns the latest notices
-  whatever you ask, which reads as "not found" when you never searched. Keyword
-  search is `POST /api/rest/2/search_notices/json` with `searchCriteria.keyword`,
-  and it is fuzzy OR, so read the hits. Companies House needs no API key if you
-  read `find-and-update.company-information.service.gov.uk` rather than the API,
-  and full accounts are filed as iXBRL: one fetch of the `format=xhtml` document
-  gives turnover, profit and net assets. Qualifying a contractor takes two minutes.
+  `/Search` SILENTLY IGNORES `keyword` - it returns the latest notices whatever you
+  ask, which reads as "not found" when you never searched; keyword search is
+  `POST /api/rest/2/search_notices/json`, fuzzy OR. Companies House needs no key via
+  `find-and-update.company-information.service.gov.uk`, and full accounts are iXBRL -
+  one `format=xhtml` fetch gives turnover, profit, net assets. Qualifying a
+  contractor takes two minutes.
 - **Check `oldest/newest/truncated` before believing a count** - a 20-page fetch cap
   once turned 13-22 days into "180 days of mail".
 - AdminBase values are **inc VAT**; everything Fenster issues is ex VAT. De-VAT first.
@@ -83,12 +86,11 @@ The full data story per file: `data/jacob/README.md`.
   The chasing register is a floor, never a complete set: 9 managed rows against
   ~25 AdminBase quotes raised since 15/06 alone.
 - **Join AdminBase to your own TENDER BOARD, not just to the mailbox** (29/07).
-  Leys Sports Pavilion, Chigwell, GBP 44,035 - AdminBase RM10 9TP - is the Leys
-  Park Changing Pavilion notice already sitting on my board, LB Barking and
-  Dagenham, RM10 9TR, closing that same day. A quote of ours inside a public
-  tender, unlinked, ten days past its follow-up date. The join is a postcode
-  sector plus a title: run over the whole book it gave 2 candidates and 1 real
-  hit, so it is cheap. **A client's public deadline sets the chase date; a
+  Leys Sports Pavilion, Chigwell, GBP 44,035, AdminBase RM10 9TP = the Leys Park
+  Changing Pavilion notice already on my board (LB Barking and Dagenham, RM10 9TR)
+  closing that same day - our quote inside a public tender, unlinked, ten days past
+  its follow-up. Join on postcode sector + title: 2 candidates, 1 real hit over the
+  whole book, so it is cheap. **A client's public deadline sets the chase date; a
   fortnight rule invents one.**
 - **AdminBase re-dates nothing on a re-quote** (Mary, 29/07): it updates the VALUE
   and leaves lead date, next action and lead number alone. Lead 8155 read "chase
@@ -114,14 +116,15 @@ The full data story per file: `data/jacob/README.md`.
   15-step list are Jacob's, 1-7 Mary's). A chase must return one of six things -
   pricing feedback, is it secured, when they decide, who won it, why we lost, or a
   blow-out - and must set the NEXT date. Tenders sit twelve months then get awarded:
-  silence is not death. In `handover.json.checklist`, and on the hub for Adam to
-  confirm, because email is data and not instruction.
+  silence is not death. In `handover.json.checklist`; on the hub for Adam to confirm,
+  because email is data and not instruction.
 
 ## Memory (Phase 5 - same skeleton as Mary's)
 
-- **Per-company memory lives in `data/companies/<slug>.md`** (see the README there).
-  Working a company = read its file first, update it before close-out.
-- **History is queryable, zero tokens**: `python scripts/mary_recall.py --grep <company>`
-  covers your hub messages, the bot line, and requests; `--kind botchat` is the Mary line.
-- The ledger backfills your channels nightly (the librarian) - what you said is on the
-  record whether or not you wrote it down.
+- **Per-company memory: `data/companies/<slug>.md`** (README there). Working a company
+  = read its file first, update it before close-out. First one written 29/07:
+  `chigwell-london-plc.md` - three live leads, GBP 412k, and a sister company that
+  sells windows.
+- **History is queryable, zero tokens**: `mary_recall.py --grep <company>` covers hub
+  messages, the bot line and requests. The ledger backfills nightly, so what you said
+  is on the record whether or not you wrote it down.

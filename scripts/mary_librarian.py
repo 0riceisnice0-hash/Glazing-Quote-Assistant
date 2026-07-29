@@ -58,11 +58,13 @@ def check_index_pointers():
         n = int(m.group(1))
         if not any(abs(n - h) <= 5 for h in heads):
             problems.append("INDEX.md points at AI.md L%d but no heading is within 5 lines" % n)
-    for path, cap in ((idx, INDEX_CAP), (os.path.join(KNOWLEDGE, "adam.md"), ADAM_CAP)):
+    for path, cap in ((idx, INDEX_CAP), (os.path.join(KNOWLEDGE, "adam.md"), ADAM_CAP),
+                      (os.path.join(KNOWLEDGE, "bd.md"), 130)):
         if os.path.exists(path):
             n = sum(1 for _ in io.open(path, encoding="utf-8"))
             if n > cap:
-                problems.append("%s is %d lines (cap %d) - prune it" %
+                problems.append("%s is %d lines (cap %d) - move full accounts to the "
+                                "archive file, never delete the knowledge" %
                                 (os.path.relpath(path, REPO), n, cap))
     return problems
 
