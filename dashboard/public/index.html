@@ -16,6 +16,10 @@
         <i id="nav-dot" class="nav-toggle-dot" hidden></i>
       </button>
       <span id="mobile-title" class="mobile-title"></span>
+      <!-- The name lives behind the drawer on a phone, which is exactly where
+           it got missed. On this bar it is always on screen and tapping it
+           switches. -->
+      <button id="who-chip" class="who-chip" type="button" hidden></button>
       <span class="mobile-state"><i class="dot" id="mary-dot-m"></i></span>
     </div>
     <div id="nav-veil" class="nav-veil" hidden></div>
@@ -29,13 +33,12 @@
              BOTS registry - adding a bot must never mean editing this file. -->
         <div id="bot-cards"></div>
         <nav id="nav-items" class="nav-items" aria-label="Sections"></nav>
+        <!-- Not a dropdown any more. A dropdown has a first option, and the
+             first option is what everyone sends as - see the sign-in card
+             below. -->
         <div class="nav-foot">
-          <label>Signed in as
-            <select id="who">
-              <option value="zac">Zac</option>
-              <option value="adam">Adam</option>
-            </select>
-          </label>
+          <span class="nav-me">Signed in as <strong id="who-name">nobody</strong></span>
+          <button id="who-switch" class="who-switch" type="button">Not you?</button>
         </div>
       </aside>
 
@@ -58,6 +61,30 @@
       <button id="panel-close" class="panel-close" aria-label="Close">&times;</button>
       <div id="panel-body"></div>
     </aside>
+
+    <!-- Who is at the keyboard. Adam, 29/07: the old dropdown defaulted to Zac
+         and he kept forgetting to change it, so his instructions went onto the
+         record under someone else's name. There is no login here and the hub
+         cannot tell whose phone it is, so the honest version is to ASK on a
+         device that has not answered, and remember the answer after that.
+         Covers the whole page and cannot be dismissed until it is answered. -->
+    <div id="signin" class="signin" hidden>
+      <div class="signin-card">
+        <!-- The mark, not logo-dark.png: that one is the white-on-navy variant
+             and its wordmark disappears on a white card. -->
+        <img src="/fenster-logo.png" alt="Fenster Glazing" class="signin-logo">
+        <h2>Who is this?</h2>
+        <p>Everything sent from here reaches Mary and Jacob under this name, and
+          they act on it. This browser will remember your answer.</p>
+        <div class="signin-picks">
+          <button class="signin-pick" type="button" data-me="adam">
+            <strong>Adam</strong><span>Commercial Director</span></button>
+          <button class="signin-pick" type="button" data-me="zac">
+            <strong>Zac</strong><span>Marketing, and builds this</span></button>
+        </div>
+        <button id="signin-cancel" class="signin-cancel" type="button" hidden>Cancel</button>
+      </div>
+    </div>
 
     <div id="toast" class="toast" hidden></div>
 

@@ -517,3 +517,85 @@ own arithmetic.
 
 Verified with `mary_hub_shot.py`: all thirteen Jacob pages render, and all seven key types
 open their panel. Neither was visible in a diff.
+
+## 29/07/2026 - A UI default is an author, and it rewrote four of Adam's instructions
+
+The rule in `bd.md`: *a UI default is an author. Treat "Zac" on a hub message as unverified
+unless its body says it is a relay.*
+
+**What happened.** The hub sidebar carried `Signed in as [Zac v]` - a two-option `<select>`
+with Zac first. A select has a first option, and the first option is what everything posts
+as. Adam, hub-66, 29/07: *"Sorry I keep forgetting to change the settings of who is logged
+in as it defaults to Zac. It's been Adam the whole time."* He had already caught it once, in
+hub-58 at 16:26, thirty-two seconds after sending hub-57: *"That last message was from Adam,
+not Zac!"* - and then it happened three more times the same evening.
+
+**What it cost.** Not the message, the AUTHORITY on it. Adam is the Commercial Director and
+the only person who can decide what Fenster does about a client; Zac is the operator and
+decides what the system does. Reading one as the other is not a typo, it is applying the
+wrong person's remit. JAC-14 - *"nothing on the AdminBase backlog closes on silence, treat
+all as live until updated"* - was recorded in bd.md, on the Leads page and in the code
+comments as **Zac, 29/07**. It was Adam. That is the director refusing to let me close 209
+of his live quotes on my own arithmetic, which is a considerably heavier instruction than
+the operator saying the same words.
+
+**What is corrected, and on what evidence.** Four hub messages, all 29/07 evening, all in
+Adam's voice and inside the thread hub-58 identifies as his:
+
+| id | what it settled | filed as | is |
+|---|---|---|---|
+| 57 | build a real Leads dashboard, "chase list isn't very user friendly" | zac | Adam |
+| 60 | break down the Work tab; show the year on out-of-year quote dates | zac | Adam |
+| 61 | JAC-14 - nothing closes on silence | zac | **Adam** |
+| 62 | JAC-13 - "I will chase Luke up" | zac | Adam |
+
+Corrected in `bd.md`, `dashboard/public/app.js` (the year-on-dates note and the JAC-14
+paragraph the Leads page actually prints).
+
+**What is NOT corrected, and why.** "The whole time" cannot be literally true: hub 1, 2, 6,
+7, 8 and 10 are the builder's voice - *"the 20-page cap was mine, the `signals[:200]` slice
+was mine"* - and hub 29 and 34 say **"from Zac via the dev session"** in their own first
+line. Those stay Zac. **The reliable tell is the body, not the label:** a relay announces
+itself. The genuinely open one is **JAC-1** (hub 23/24/25, 28/07 22:17, *"Decide later -
+drafts only for now"*) - the no-send rule I operate under every session, currently recorded
+as Zac's. Asked on the hub rather than guessed: getting that one wrong changes whose
+permission I would need to ever send under my own name.
+
+**The fix, and the part that could not be built.** Adam asked: *"Can you fix it so we have
+to assign who is logged in when we first open the hub? Unless it can know it's coming from
+my phone or laptop?"* The second half is not available - the hub has no login (auth is off,
+per Zac 27/07) and a browser cannot see a person, only a device. So: a full-screen card on
+any device that has not answered, no Escape and no backdrop dismiss, answer stored in
+`localStorage` and remembered after that. Same effect as knowing it is his phone, from the
+second visit on. The name is now in the phone top bar as well as the sidebar, because on a
+phone the sidebar is a drawer and the drawer is where it went unread. `ME` is null until
+answered and `requireMe()` gates every write, so nothing can post unattributed.
+
+**The general lesson, worth more than this bug.** Any field with a default is a claim the
+software makes on the user's behalf, and it will be believed by everything downstream. If
+the value matters - who said it, which client, which mailbox - the honest default is
+nothing, and the cost is one question.
+
+## 29/07/2026 - The hub ate 4,000 characters of an instruction and said ok
+
+Found while replying to hub-66. Adam posted a full rewrite of Jacob's Work section (order of
+pages, what Today pulls, Chasing folding into Leads, what a Ready-to-Send row must carry) and
+it arrived ending **mid-word**: *"## Daily Email Rule / Jacob must send one daily u"*.
+
+`clip(b.body, 4000)` in the messages POST route. No error, no flag, `ok: true` to the sender
+and a message in the thread that looks complete unless you happen to read the last four words.
+The remainder never reached D1, so it is not recoverable - it has to be re-sent.
+
+**Why this is the dangerous class of bug.** Neither end knows. Adam believes he has issued a
+spec; I believe I have received one; and the part that went missing was a rule about **me
+sending email**, which is the one subject I am not allowed to act on without a decision. A bot
+acting confidently on three quarters of an instruction is worse than one that refuses.
+
+Fixed: 20,000, and the route returns `{truncated, sent, limit}` when it does cut, with the
+client toasting *"N characters were cut - send the rest as a second message"*. The bot-side
+reply route was already 8,000; the humans had the smallest allowance of anyone on the system.
+
+**The rule: any cap on data you did not set yourself is a lie you will tell later.** Same
+shape as the 20-page mail-fetch cap that turned 13 days into "180 days of mail", and the
+`signals[:200]` slice that dropped 719 of 919 rows. If code truncates, it must say so at the
+point of truncation - to the sender, not in a comment.

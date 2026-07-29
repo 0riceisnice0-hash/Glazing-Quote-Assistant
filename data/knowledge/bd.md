@@ -68,8 +68,7 @@ value on each. This is the win history; everything else is a funnel.**
   Companies House needs no key via the public site; full accounts are iXBRL, so one
   fetch qualifies a contractor. Both tricks: `bd-lessons.md`, 29/07.
 - **Check `oldest/newest/truncated` before believing a count** - a 20-page fetch cap once turned 13-22 days into "180 days of mail".
-- **Once For All is Conquest renamed** (`tenders@onceforallmarketplace.com`, in `jacob_intake.PORTALS`
-  29/07); without it a portal CHASE reads as a fresh enquiry.
+- **Once For All is Conquest renamed** (`tenders@onceforallmarketplace.com`, in `jacob_intake.PORTALS`); else a portal CHASE reads as a fresh enquiry.
 - **A job can be live and chased with no Mary chat at all** - Trafalgar House was, so it was on
   no list of mine. The register is a floor, never a complete set: 9 managed rows against ~25
   AdminBase quotes raised since 15/06 alone.
@@ -84,9 +83,8 @@ value on each. This is the win history; everything else is a funnel.**
   EVENT, not a typo: RFQ OUT IS NOT QUOTE OUT.** Brandon 8324 read 15/05, the day a
   BCC-only RFQ went to four fabricators; the price reached Elkins 15/06, and Mary found
   seven such RFQs. Expect the slip, do not patch one row.
-- **Read the Status field on any alert feed.** Of 30 unique Supply2Gov items over four days,
-  15 were award or prior-information notices - already gone. Four days of alerts held two
-  live, on-package, mainland leads, not "27 a day".
+- **Read the Status field on any alert feed.** Of 30 unique Supply2Gov items over four days, 15
+  were award or prior-information notices - already gone. Four days held two live leads, not "27 a day".
 - **COVERAGE IS ENGLAND AND WALES, NATIONWIDE** - Adam, 29/07, closing JAC-10. Out:
   Scotland, NI, Crown Dependencies, ML. The PQQ's 78 postcode areas are a marketing claim
   that was enforced as a rule and parked all of Wales while a GBP 174,546 quote was live
@@ -95,8 +93,10 @@ value on each. This is the win history; everything else is a funnel.**
   corrections still open on the client's copy, drawings at thirteen windows against twelve
   priced. **Diff the pack that went against the pack that was checked**, and check the
   SUPPLIER expiry not just ours - both die 28/08. `expires`; `bd-lessons.md`.
-- **A date with no year is read as this year** - 90 of the 209 AdminBase rows on Leads are
-  2025 quotes showing as "12 May". `ukShortDay`/`niceDate` carry it outside this year. 29/07.
+- **A date with no year reads as this year** - 90 of 209 AdminBase Leads rows are 2025 quotes shown as "12 May". `ukShortDay`/`niceDate`. 29/07.
+- **A UI DEFAULT IS AN AUTHOR.** The hub's sign-in select opened on Zac, so ADAM's instructions
+  filed as Zac's - hub 57/60/61/62 at least, and JAC-14 with them (Adam, hub-66, 29/07; now a
+  blocking per-device ask). Treat "Zac" on a HUB message as unverified unless its body says relay.
 - **A board nobody can EDIT is a report, and "not user friendly" can mean BROKEN** - the
   panel opened 3 of 7 key types, so the whole CRM held one edit. **Check a quiet feature
   works before redesigning it**, and **mark a DERIVED date**: a human's promise outranks a
@@ -112,7 +112,7 @@ value on each. This is the win history; everything else is a funnel.**
 - Drafts only, no sending (JAC-1, Zac, 28/07): every draft is for a named human to send
   from their own mailbox, and no price appears in one unless we watched it leave.
 - Hightown: do not quote unless instructed. Neil Douglas: live tender, do not approach.
-- **JAC-14 (Zac, 29/07): nothing on the AdminBase backlog closes on silence.** All 209 stay
+- **JAC-14 (ADAM, 29/07): nothing on the AdminBase backlog closes on silence.** All 209 stay
   live until the client updates them, each carrying one ask - live or gone and to whom,
   feedback on our price, what else they have coming. Register rows win: two say do not chase.
 - **Chasing is a checklist, not a nudge** (Adam, 29/07; steps 8-15 of his 15-step list are

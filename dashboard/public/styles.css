@@ -111,9 +111,36 @@ button, input, select, textarea { font-family: inherit; }
 .nav-item.active .badge { background: rgba(0,0,0,.22); }
 .nav-item .badge.hot { background: var(--red); color: #fff; }
 
-.nav-foot { margin-top: auto; border-top: 1px solid rgba(255,255,255,.09); padding-top: 16px; font-size: var(--t-12); color: #8fb6ab; }
-.nav-foot select { margin-left: 8px; background: rgba(255,255,255,.08); color: #fff; border: 1px solid rgba(255,255,255,.16);
-  border-radius: var(--r-sm); padding: 6px 10px; font-size: var(--t-13); }
+.nav-foot { margin-top: auto; border-top: 1px solid rgba(255,255,255,.09); padding-top: 16px; font-size: var(--t-12); color: #8fb6ab;
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.nav-foot strong { color: #fff; font-size: var(--t-13); }
+.who-switch { margin-left: auto; background: rgba(255,255,255,.08); color: #cfe3dc; border: 1px solid rgba(255,255,255,.16);
+  border-radius: 99px; padding: 5px 12px; font-size: var(--t-12); cursor: pointer; transition: background .13s, color .13s; }
+.who-switch:hover { background: rgba(255,255,255,.16); color: #fff; }
+
+/* ---------- who is at the keyboard ---------- */
+.who-chip { margin-left: auto; background: var(--navy-100); color: var(--navy); border: 1px solid var(--line-strong);
+  border-radius: 99px; padding: 5px 13px; font-size: var(--t-12); font-weight: 600; cursor: pointer; }
+.signin { position: fixed; inset: 0; z-index: 90; background: rgba(0,45,58,.72); backdrop-filter: blur(4px);
+  display: grid; place-items: center; padding: 24px; animation: fade .18s ease; }
+/* A class that sets `display` beats the UA stylesheet's [hidden] rule, so the
+   card stayed on screen after you answered it - el.hidden read true and the
+   thing was still there. Every other overlay here (.panel-veil, .toast) gets
+   away without this only because none of them set display. */
+.signin[hidden] { display: none; }
+.signin-card { background: var(--card); border-radius: var(--r-lg); box-shadow: var(--sh-2);
+  padding: 34px 34px 28px; width: min(440px, 100%); text-align: center; animation: rise .25s ease; }
+.signin-logo { height: 42px; margin-bottom: 18px; }
+.signin-card h2 { font-size: var(--t-22); }
+.signin-card p { margin: 8px 0 22px; color: var(--muted); font-size: var(--t-13); font-weight: 300; }
+.signin-picks { display: grid; gap: 10px; }
+.signin-pick { display: grid; gap: 2px; text-align: left; background: #fff; border: 1.5px solid var(--line-strong);
+  border-radius: var(--r-md); padding: 14px 18px; cursor: pointer; transition: border .13s, box-shadow .13s; }
+.signin-pick:hover { border-color: var(--green); box-shadow: var(--sh-1); }
+.signin-pick strong { font-size: var(--t-17); }
+.signin-pick span { color: var(--muted); font-size: var(--t-12); }
+.signin-cancel { margin-top: 18px; background: none; border: 0; color: var(--muted); font-size: var(--t-13); cursor: pointer; }
+.signin-cancel:hover { color: var(--ink); }
 
 /* ---------- main ---------- */
 .main { min-width: 0; }

@@ -145,7 +145,8 @@ wall. Newest last. Detail belongs in the files named on the line, never here.
 
 ## 2026-07-29 (evening) - hub-57/58: the Leads register
 
-**Order:** Adam (message 57, which 58 corrected from Zac to Adam) - one dashboard holding
+**Order:** Adam (message 57, which 58 corrected from Zac to Adam - the first sighting of the
+sign-in default that hub-66 finally fixed) - one dashboard holding
 every live quoted job, with a next-action date, notes he can update after a call, and a
 current status; the new page to be called **Leads** and the old Leads **Opportunities**.
 
@@ -175,7 +176,9 @@ first.
 
 ## 2026-07-29 (evening) - hub-60/61/62: what the Work tabs are for, and JAC-13/14 answered
 
-**Order:** three from Zac. (60) Break down every option under Work and what it does, before
+**Order:** three from Zac **[CORRECTED 29/07 18:xx - all three were ADAM. The hub's sign-in
+defaulted to Zac; Adam said so in hub-66. Read every "Zac" in this section as Adam.]** (60)
+Break down every option under Work and what it does, before
 changing anything - he wants Opportunities to be the new-leads-to-contact page and to sit
 second. (61) answering JAC-14. (62) answering JAC-13.
 
@@ -196,7 +199,8 @@ purpose is knowing when to go back to something. Anything outside the current ye
 carries it, board-wide; anything inside it stays short.
 
 **JAC-14 answered (61) - the opposite of what I asked for, and better.** I had offered four
-rules for CLOSING the 146 rows over 400 days silent. Zac: *"They all need chasing up, and a
+rules for CLOSING the 146 rows over 400 days silent. **Adam** (recorded as Zac, corrected
+29/07): *"They all need chasing up, and a
 final word from the client ... Treat all as live until updated."* So **205 of the 209
 chaseable rows now carry a next action instead of an empty cell** - `next_for()` in
 `jacob_adminbase.py`, one three-part ask on each: live or gone and to whom, feedback on our
@@ -205,9 +209,77 @@ to a verified send**, which keep the next action written for them, because two o
 say DO NOT CHASE - Brandon Estate and Gordon Court. A blanket rule that overwrote those
 would have spent two relationships on calls the clients have already answered.
 
-**JAC-13 answered (62).** Zac is chasing Luke Baker himself. Grange Hill's owner is now Zac
+**JAC-13 answered (62).** **ADAM** is chasing Luke Baker himself - recorded as Zac at the
+time and corrected on 29/07 evening. Grange Hill's owner is now Adam
 on both Leads and Chasing, and the row carries his answer, the date, and what it does and
 does not settle: he replied with a chaser rather than a ruling, so the six items still open
 on the pack Chigwell holds stay on the row as material for the call, not as an instruction
 to send anything. Nothing drafted, no number moved. Register rows now render a `decision`
 block so an answer lives on the row it was about.
+
+## 2026-07-29 (evening) - hub-66: the hub now asks who you are, and four instructions change owner
+
+**Order:** Adam, hub-66. *"Sorry I keep forgetting to change the settings of who is logged in
+as it defaults to Zac. It's been Adam the whole time. Can you fix it so we have to assign who
+is logged in when we first open the hub? Unless it can know it's coming from my phone or
+laptop?"*
+
+**The fix.** The sidebar was a two-option `<select>` opening on Zac, and a select's first
+option is what everything posts as. Replaced with a full-screen card on any device that has
+not answered - no Escape, no backdrop dismiss, `requireMe()` on every write path so nothing
+can post unattributed. Answer stored in `localStorage`, so it asks once per device and never
+again. The name is now in the phone's top bar as well as the sidebar, because on a phone the
+sidebar is a drawer and that is precisely where it went unread. **The second half of his
+question is a no:** there is no login (auth off, Zac 27/07) and a browser can see a device,
+not a person - remembering the answer is the closest honest thing and I said so.
+
+**One bug the diff could not show, caught by `mary_hub_shot.py`.** `.signin { display: grid }`
+outranks the UA stylesheet's `[hidden]` rule, so the card stayed on screen after you answered
+it while `el.hidden` read `true`. The check now asserts computed `display`, not the property.
+Same family as the navy-on-navy text and the swallowed Won/Lost buttons.
+
+**What the default had already cost - the part that matters.** Four of Adam's instructions on
+29/07 were on the record as Zac's: hub-57 (the Leads dashboard), 60 (Work tabs, years on
+dates), **61 (JAC-14 - nothing closes on silence)** and 62 (JAC-13). Corrected in `bd.md`, in
+`app.js` where the Leads page prints JAC-14 in his words, and in `handover.json` - **Grange
+Hill's chase was assigned to Zac and is Adam's**, which was not a citation error but a phone
+call to Luke Baker filed against marketing. `data/companies/chigwell-london-plc.md` had it
+right all along ("Adam calls Luke Baker today"); the register had drifted off it.
+
+**What I did NOT change.** "The whole time" cannot be literal - hub 1/2/6/7/8/10 are the
+builder's voice and hub 29/34 say "from Zac via the dev session" in their own first line.
+**The reliable tell is the body, not the label: a relay announces itself.** The open one is
+**JAC-1** (hub 23/24/25, 28/07) - the drafts-only rule I operate under every session, recorded
+as Zac's. Flagged `unverified` in `drafts.json` and in the request record, and asked Adam
+outright rather than guessing: it decides whose call it is to ever loosen it. The rule holds
+either way. Full account in `bd-lessons.md`; the one-line rule in `bd.md` is *a UI default is
+an author*.
+
+## 2026-07-29 (evening) - hub-68/69: the roles, and 4,000 characters that never arrived
+
+**68 (Adam).** Zac is marketing and created me; Adam is Commercial Director and the one
+chasing the leads. That closed my own open question in the same breath: **JAC-1 is Zac's** -
+whether I send under my own name is a decision about what I am allowed to do, not about a
+client. Settled on his reasoning, marked as such in `drafts.json` and the request record, and
+he was told he can overturn it in a line. The `unverified` flag I raised an hour earlier is
+gone.
+
+**69 (Adam) - a full rewrite of the Work section, and it was cut off in transit.** Work
+becomes Today / Opportunities / Leads / Ready to Send; Today is the only action list and
+pulls rather than duplicates; **Chasing and Chase List stop being working pages** and fold
+their stages, chase dates and history into Leads; the raw AdminBase list survives as a source
+under System. The message ends mid-word at *"Jacob must send one daily u"* - `clip(b.body,
+4000)` on the messages route, silent, `ok: true` to the sender. The rest is not in D1 and
+cannot be recovered. Raised the cap to **20,000** and made the route report what it drops so
+the sender is told on screen; asked Adam to re-send from "Daily Email Rule" onward. Did not
+start the rebuild on three quarters of a spec, and flagged that a rule requiring me to *send*
+a daily email is JAC-1 being re-opened - his or Zac's call, deliberately, not something I read
+off a spec. Full account in `bd-lessons.md`.
+
+**70 (Adam), a minute later - he had spotted it himself.** *"It seems you have limited the
+amount of characters I can send you? Fix this immediately and just message me 'Done'."* It
+was already fixed and deployed; what was missing was proof, so I posted one 4,466-character
+message and read it back whole before answering - the old cap would have stopped it 466
+characters short. That test message doubles as the receipt: it lists every point I took from
+69, so he can see whether I read it his way before he retypes the tail. 69 is closed as
+superseded; the rebuild starts when the full spec lands.

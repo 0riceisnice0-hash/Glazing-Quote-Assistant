@@ -83,14 +83,25 @@ export async function onRequest(context) {
       return json(results);
     }
 
+    /* 20,000, not 4,000, and it says so when it cuts. Adam pasted a 4,000+
+       character rewrite of Jacob's whole Work section on 29/07 and it arrived
+       ending mid-word - "Jacob must send one daily u" - with an ok:true and no
+       sign anything was missing, at either end. A cap that silently eats an
+       instruction is worse than a refusal: the bot acts on a spec it cannot
+       know is incomplete. The count goes back to the sender so the UI can say
+       so; the bot side already allows 8,000. */
     if (ch && action === "messages" && POST) {
       const b = await request.json().catch(() => ({}));
-      const body = clip(b.body, 4000).trim();
+      const MAX = 20000;
+      const whole = String(b.body || "").trim();
+      const body = whole.slice(0, MAX);
       if (!body) return json({ error: "Empty message" }, 400);
       await db.prepare(
         `INSERT INTO ${ch.messages} (created, author, body, context) VALUES (?, ?, ?, ?)`)
         .bind(now(), person(b.author), body, clip(b.context, 300)).run();
-      return json({ ok: true });
+      return json(whole.length > MAX
+        ? { ok: true, truncated: whole.length - MAX, sent: MAX, limit: MAX }
+        : { ok: true });
     }
 
     // What the bot is doing right now, written by its bridge. Public: it is

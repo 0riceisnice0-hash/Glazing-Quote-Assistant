@@ -43,17 +43,98 @@ async function api(route, options) {
   if (!res.ok) throw Object.assign(new Error("api"), { status: res.status });
   return res.json();
 }
-const who = () => $("#who").value;
+/* ---------------- who is at the keyboard ----------------
+   Adam, 29/07 (hub-66): "it defaults to Zac... it's been Adam the whole time."
+   The sidebar was a two-option <select>, and a select has a first option -
+   which is what every message posted as unless somebody remembered to change
+   it. Four of his instructions on 29/07 alone reached Jacob under Zac's name,
+   and one of them (hub-58) was him saying so.
+
+   There is no login on this hub and no way for it to know whose phone it is -
+   a browser cannot see the person, only the device. So the honest version of
+   what he asked for is: ASK on any device that has not answered yet, block the
+   page until it has, then remember the answer on that device forever. Same
+   effect as knowing it is his phone, after the first time.
+
+   ME is null until answered, and null never posts: an instruction filed under
+   the wrong name is worse than an interruption. */
+const ME_KEY = "fenster-hub-who";
+const PEOPLE = { adam: "Adam", zac: "Zac" };
+let ME = null;
+try {
+  const saved = localStorage.getItem(ME_KEY);
+  if (PEOPLE[saved]) ME = saved;
+} catch { /* private mode, no storage - it just asks every time */ }
+const who = () => ME || "";
+const meName = () => PEOPLE[ME] || "nobody";
+
+/* Kept in memory as well as in storage, so a browser that refuses to persist
+   still gets one question per session rather than one per message. */
+function setMe(key) {
+  if (!PEOPLE[key]) return;
+  ME = key;
+  try { localStorage.setItem(ME_KEY, key); } catch {}
+  closeSignIn();
+  paintMe();
+  // Answered before the board finished loading is the normal case on a cold
+  // open. Boot's own render() covers that one; this only repaints a page that
+  // is already up, so "Sending as" is right the moment you switch.
+  if (DATA) render();
+}
+
+function paintMe() {
+  const name = $("#who-name");
+  if (name) name.textContent = meName();
+  const chip = $("#who-chip");
+  if (chip) { chip.hidden = !ME; chip.textContent = meName(); }
+}
+
+/* `optional` is a switch mid-session - you are already signed in and changing
+   your mind, so it can be dismissed. The first ask cannot: there is nothing to
+   fall back to. */
+function askWho(optional = false) {
+  const gate = $("#signin");
+  if (!gate) return;
+  gate.hidden = false;
+  const cancel = $("#signin-cancel");
+  if (cancel) cancel.hidden = !optional;
+}
+function closeSignIn() {
+  const gate = $("#signin");
+  if (gate) gate.hidden = true;
+}
+
+/* Every write to either bot goes through here. The gate makes this close to
+   unreachable, but "close to" is not the same as a check. */
+function requireMe(what = "This") {
+  if (ME) return true;
+  askWho(false);
+  toast(`${what} goes on the record under your name - say who you are first`);
+  return false;
+}
 
 async function sendToMary(body, context = "") {
-  await api("messages", {
+  if (!requireMe("A message to Mary")) return;
+  const res = await api("messages", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ author: who(), body, context }),
   });
   MESSAGES = await api("messages");
   msgSig = signature(MESSAGES);
+  if (cutOff(res)) return;
   toast(STATUS?.state === "working" ? "Sent - queued, Mary is mid-job right now" : "Sent - Mary picks this up in seconds");
+}
+
+/* A long paste that arrives half-eaten is the worst outcome here - the bot acts
+   on a spec neither end knows is incomplete. It happened once (Adam, 29/07, a
+   4,000-character rewrite that stopped mid-word). The cap is now 20,000 and the
+   API returns how much it dropped; this makes sure somebody is told. */
+function cutOff(res) {
+  if (!res || !res.truncated) return false;
+  toast(`Sent, but ${res.truncated.toLocaleString()} characters were cut - the limit is `
+        + `${res.limit.toLocaleString()}. Send the rest as a second message.`);
+  return true;
 }
 
 /* The live pill on a bot's sidebar card: what its bridge is doing this
@@ -211,7 +292,8 @@ const ukDay = (iso) => iso ? new Date(iso).toLocaleDateString("en-GB", { timeZon
 /* A date with no year on it is read as this year, and on the Leads page that
    is wrong for a large share of the rows: AdminBase carries quoted leads back
    to May 2025, so "12 May" is a fourteen-month-old quote presented as one from
-   this spring. Zac, 29/07. Anything outside the current year now carries it;
+   this spring. Adam, 29/07 (hub-60; filed under Zac's name by the old sidebar
+   default, corrected by him in hub-66). Anything outside the current year now carries it;
    anything inside it stays short, because a year on every row is noise. */
 const ukYearOf = (d) => d.toLocaleDateString("en-GB", { timeZone: UK, year: "numeric" });
 const ukShortDay = (iso) => {
@@ -303,7 +385,7 @@ function chatPage(bot) {
     <div class="chat-thread">${parts.length ? parts.join("") : `<div class="empty"><strong>No messages yet</strong>${c.empty}</div>`}</div>
     <div class="chat-compose">
       <textarea data-draft="${c.draft}" placeholder="${c.placeholder}"></textarea>
-      <div class="chat-actions"><span class="chat-hint">Sending as <strong>${esc(who())}</strong> &middot; ${c.hint()}</span>
+      <div class="chat-actions"><span class="chat-hint">Sending as <strong>${esc(meName())}</strong> &middot; ${c.hint()}</span>
       <button class="btn" data-chatsend="${bot.key}">Send</button></div>
     </div></div>`;
 }
@@ -603,6 +685,7 @@ function crmPanel(key) {
   });
 
   const save = async (state, dropNote) => {
+    if (!requireMe("This edit")) return;
     const btn = $("#jsave");
     if (btn) { btn.disabled = true; btn.textContent = "Saving..."; }
     try {
@@ -770,12 +853,14 @@ let LAST_VIEW = { page: null, bot: null };
 const openJacobReqs = () => JREQS.filter((r) => r.status !== "answered");
 
 async function sendToJacob(body, context = "") {
-  await api("jacob/messages", {
+  if (!requireMe("A message to Jacob")) return;
+  const res = await api("jacob/messages", {
     method: "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify({ author: who(), body, context }),
   });
   JMSGS = await api("jacob/messages").catch(() => JMSGS);
+  if (cutOff(res)) return;
   toast("Sent - Jacob picks this up on his next pass");
 }
 
@@ -1769,7 +1854,9 @@ const JACOB_RENDER = {
         </tbody></table></div>`;
   },
 
-  /* What JAC-1's answer produced. Zac chose "decide later - drafts only", so
+  /* What JAC-1's answer produced. Zac chose "decide later - drafts only" - his
+     call, on Adam's own split of the roles (hub-68): Zac built me and owns what
+     I am allowed to do, Adam owns the pipeline. So
      the drafting half is live and the sending half is not: every one of these
      is addressed to a named person and waiting for a named human to send it
      from their own mailbox, under their own name.
@@ -1889,10 +1976,13 @@ const JACOB_RENDER = {
           closes anything in - the same pattern as the Opportunity Log's Chased column, which was
           filled 382 times in 2025 and 7 times in 2026. Treat every row as a question, not
           as an opportunity.</p>
-          <!-- JAC-14, answered by Zac 29/07. I asked for a rule that CLOSED this
-               backlog and got the opposite, which is the right answer: a row I
-               close on my own arithmetic is a job nobody ever rings again. -->
-          <p><strong>Nothing here gets closed on silence.</strong> Zac, 29/07, answering
+          <!-- JAC-14, answered by ADAM 29/07 - it went on the record as Zac
+               because the sidebar defaulted to him, and Adam corrected it in
+               hub-66. It matters here: this is the Commercial Director telling
+               me not to close his backlog, not the operator. I asked for a rule
+               that CLOSED it and got the opposite, which is the right answer: a
+               row I close on my own arithmetic is a job nobody ever rings again. -->
+          <p><strong>Nothing here gets closed on silence.</strong> Adam, 29/07, answering
           JAC-14: <em>&ldquo;They all need chasing up, and a final word from the client which is
           also a good opportunity to get any feedback and tout more opportunities. Treat all as
           live until updated.&rdquo;</em> So every chaseable row now carries the same three-part
@@ -2552,6 +2642,21 @@ $("#nav-toggle")?.addEventListener("click", () => setNav(!$("#nav").classList.co
 $("#nav-veil")?.addEventListener("click", () => setNav(false));
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") setNav(false); });
 
+/* ---------------- the sign-in card ----------------
+   Deliberately outside the render loop: it must be answerable before any board
+   data has loaded, and it must survive a render() that throws the page away.
+   No Escape handler and no backdrop click - the first ask is the one thing on
+   this hub you are not allowed to skip. */
+$$("#signin .signin-pick").forEach((b) =>
+  b.addEventListener("click", () => setMe(b.dataset.me)));
+$("#signin-cancel")?.addEventListener("click", closeSignIn);
+$("#who-switch")?.addEventListener("click", () => askWho(Boolean(ME)));
+$("#who-chip")?.addEventListener("click", () => askWho(Boolean(ME)));
+// Synchronous, so the question is on screen before the first board request
+// comes back rather than after it.
+paintMe();
+if (!ME) askWho(false);
+
 document.addEventListener("click", async (e) => {
   // Anything chosen inside the drawer has served its purpose - get out of the way.
   if (e.target.closest("#nav [data-nav], #nav [data-bot]")) setNav(false);
@@ -2630,6 +2735,7 @@ document.addEventListener("click", async (e) => {
     const extra = (ta?.value || "").trim();
     const answer = [chosen && `Decision: ${chosen}`, extra].filter(Boolean).join("\n\n");
     if (!answer) { toast("Pick an option or type an answer first"); return; }
+    if (!requireMe("An answer to a decision")) return;
     jrs.disabled = true;
     try {
       await api("jacob/requests", {
@@ -2652,6 +2758,7 @@ document.addEventListener("click", async (e) => {
   if (jopt) {
     const ref = jopt.dataset.jreq;
     const answer = jopt.textContent.trim();
+    if (!requireMe("An answer to a decision")) return;
     [...jopt.closest(".req-options").querySelectorAll(".opt")]
       .forEach((o) => o.classList.toggle("on", o === jopt));
     try {
@@ -2705,6 +2812,7 @@ document.addEventListener("click", async (e) => {
   if (outcome) {
     const job = outcome.dataset.job;
     const result = outcome.dataset.outcome;
+    if (!requireMe("A won/lost result")) return;
     outcome.closest(".outcome-btns").querySelectorAll("button").forEach((b) => { b.disabled = true; });
     outcome.textContent = "Saving...";
     try {

@@ -206,7 +206,12 @@ def state_for(result, days, has_value):
 
 
 def next_for(state, client, job, value, days, matched):
-    """The next action on a chaseable row - JAC-14, answered by Zac 29/07/2026.
+    """The next action on a chaseable row - JAC-14, answered by ADAM 29/07/2026.
+
+    (It went on the record as Zac: the hub sign-in defaulted to him and Adam
+    corrected that in hub-66. It matters on this page more than anywhere - the
+    person refusing to let 209 of his live quotes be closed on my arithmetic is
+    the Commercial Director whose backlog it is, not the operator.)
 
     I had asked for a rule that CLOSES this backlog: 146 of these are over 400
     days silent and GBP 17.9m of it reads as open because nothing at Fenster
@@ -240,7 +245,7 @@ def next_for(state, client, job, value, days, matched):
     return ("Chase %s for a final answer on %s - %s, %s. Three things back, "
             "not one: is it still live or did it go elsewhere and to whom; "
             "how our price looked; and what else they have coming. "
-            "Zac, 29/07 (JAC-14): every row here stays live until the client "
+            "Adam, 29/07 (JAC-14): every row here stays live until the client "
             "updates it - nothing is closed on silence."
             % (client, job or "this job", money, silence))
 

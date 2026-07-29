@@ -1778,13 +1778,22 @@ DECISIONS = [
      "options": ["Send under a real person's name", "Openly labelled assistant",
                  "Decide later - drafts only for now"],
      "answer": "Decide later - drafts only for now",
+     # The author was in doubt for an hour on 29/07: hub 23/24/25 were posted
+     # while the sign-in defaulted to Zac, and Adam (hub-66) said his messages
+     # had been filing under that name. Settled as Zac's on Adam's own division
+     # of roles (hub-68) - Zac built me and owns what I am allowed to do, Adam
+     # owns the pipeline. Whether I send under my own name is the first kind.
      "answeredBy": "Zac", "answered": "2026-07-28",
      "effect": ("Drafting is live; sending is not. The drafts are on the "
                 "board, each addressed to a named person and each to be sent "
                 "by a named human from their own mailbox. Nothing goes out "
                 "under my name and I have not asked for a mailbox. When this "
                 "is picked up again the question is unchanged - the drafts "
-                "just make it concrete rather than hypothetical.")},
+                "just make it concrete rather than hypothetical. On the author: "
+                "this was posted while the hub's sign-in defaulted to Zac, so "
+                "it was queried with Adam and settled as Zac's on his own "
+                "answer - Zac built me and owns what I am allowed to do, Adam "
+                "owns the pipeline. Loosening this is Zac's call.")},
     {"id": "JAC-2", "title": "Cold outreach at all, or warm only?",
      "why": ("Warm-only needs no new domain, no consent register and carries "
              "almost no risk. Cold needs both."),
