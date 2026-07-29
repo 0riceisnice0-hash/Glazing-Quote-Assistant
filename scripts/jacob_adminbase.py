@@ -66,6 +66,31 @@ CHASE_AFTER = 7
 # magnitude past that is a data question before it is a lead.
 OUTLIER_ABOVE = 1_000_000
 
+# Win rate by value, from 224 priced decided rows in the Opportunity Log. This
+# corrected a standing fact in the manual on 28/07 that had it backwards - the
+# GBP 20k-400k band the PQQ advertises is the band Fenster *loses* in. Nothing
+# over GBP 50,000 has ever been won: 52 priced, 52 lost.
+#
+# It is carried on every row here because this list is ranked by value, and
+# ranking by value points straight at the half of the business that does not
+# convert. The ranking is Adam's call to change; showing him what each row is
+# worth converting is not.
+BANDS = [
+    (10_000, "under GBP 10k", 38, "the only band Fenster reliably wins"),
+    (50_000, "GBP 10k-50k", 13, "wins occasionally - 7 of 52"),
+    (200_000, "GBP 50k-200k", 0, "0 won of 37 priced"),
+    (None, "over GBP 200k", 0, "0 won of 15 priced"),
+]
+
+
+def band_for(value):
+    if not value:
+        return None
+    for ceiling, label, rate, note in BANDS:
+        if ceiling is None or value < ceiling:
+            return {"band": label, "winRate": rate, "note": note}
+    return None
+
 
 def parse_date(s):
     s = (s or "").strip()
@@ -206,6 +231,7 @@ def build():
             "postcode": clean(r.get("SITEPOSTCODE")) or clean(r.get("POSTCODE")),
             "source": clean(r.get("LEADSOURCE")),
             "takenBy": clean(r.get("TAKENBY")),
+            "fit": band_for(ex),
             "outlier": bool(inc and inc >= OUTLIER_ABOVE),
             "onBoard": matched["key"] if matched else None,
             "boardState": matched["state"] if matched else None,
@@ -370,6 +396,16 @@ def build():
             "schemes": len(schemes),
             "schemeRows": sum(s["count"] for s in schemes),
             "doubleCounted": round(sum(s["counted"] for s in schemes), 2),
+            # How much of the chase list is in the band Fenster actually
+            # converts. This is the number that decides whether working down
+            # the list by value is worth anyone's afternoon.
+            "winnable": sum(1 for r in due
+                            if (r.get("fit") or {}).get("winRate", 0) >= 13),
+            "winnableValue": round(sum(
+                r["value"] or 0 for r in due
+                if (r.get("fit") or {}).get("winRate", 0) >= 13), 2),
+            "neverWonBand": sum(1 for r in due
+                                if (r.get("fit") or {}).get("winRate") == 0),
         },
     }
 
@@ -396,6 +432,10 @@ def main():
     print("  %d outlier(s) held out of every total: GBP %s"
           % (t["outliers"], format(int(t["outlierValue"]), ",")))
     print("  %d rows with no email address" % t["noEmail"])
+    print("  of the %d chaseable: %d (GBP %s) are in a band Fenster has ever "
+          "won in, %d are in one it never has"
+          % (t["due"], t["winnable"], format(int(t["winnableValue"]), ","),
+             t["neverWonBand"]))
 
 
 if __name__ == "__main__":

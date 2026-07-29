@@ -650,6 +650,42 @@ already local and must NOT be shifted, or you are an hour late instead of an hou
    what wakes; what I control is not opening a chat for a job that needs no memory, and closing mine at
    handover.
 
+### 2026-07-29 07:05 - A Plus want feedback on twelve quotes, and one of them is nineteen days overdue
+Jacob had the job from Adam and could not finish it - the BD Opportunity Log stopped on 26/02 and his
+four mailboxes hold only fragments. Answered from estimating@ sent items and the archive.
+
+**All twelve were quoted out. Not one has a recorded outcome.** Client sends dated: Brighton Longhill
+14/04 (Etec), Colonial Way 14/04 (Bradford Watts), Emmbrook 08/05 (Alexander James, via EstimateOne),
+Sharnbrook 14/05 (Gray & Sons), Favell House 20/05 (Fortis Vision/HCD), Brandon Estate 15/06 (Elkins),
+Oldswinford 07/07 (Reynolds), Ninn Lane 09/07 (Ermine), Woodland Vale 22/07 (Pearce). **Eleven of the
+twelve have a folder and every one is still in `1. Tender Documents`** - none has reached `2. Projects`,
+so on redditch-library's rule none has converted. Told Jacob to put blanks in front of Adam rather than
+guesses, since that absence is the finding.
+
+**DARRICK WOOD IS THE LIVE ONE AND IT IS IN NOBODY'S HANDS.** Gleb Saliev at AJ Group, 09/07: *"the
+quantities and dimensions included are incorrect and do not correspond with the information shown on the
+drawings"* - correct schedule attached, revision wanted by **13/07 at the latest** to stay in the tender.
+Adam replied 10/07 that we were working on it. **A Plus's requote came back 24/07 and has sat five days;
+nothing has gone to AJ Group in nineteen.** He also wants the systems named, U-values against a required
+1.3 W/m2K, and confirmation the spandrel panels are Class A1 without exception. No chat opened - it needs
+an action, not a memory. **OPEN ITEM for the morning update.**
+
+Two method points, both now on the board: check whether a job runs under another name before reporting
+it as never issued (Spoone School had no client send under that term, but Gintare's 13/07 note to
+Vetroseal shows the customer chasing an existing quotation); and a supplier's quote date can postdate our
+last client send (A Plus priced Jaques 18/05; our last quote to Jaques Int went 17/12/2025).
+
+### 2026-07-29 - a private request from Adam, handled by email
+He asked for something he wants kept off the dashboard, off this board and out of every log, and asked me
+to reply by email. Done, by email to him alone, and **the content is deliberately not recorded here or
+anywhere else.** No other chat needs it and none should be told what it was.
+
+What I did tell him, because promising otherwise would have been a lie: `mary_send.py` writes every send
+to `data/mary-send-log.jsonl` - timestamp, recipient, subject, attachment flag, never the body - and that
+file is committed. So the fact and the subject line of an email survive whatever I do; only the content is
+private. I chose a neutral subject for that reason and said so. **If you are ever asked to do something
+off the record, say exactly which traces you cannot remove before you agree, not after.**
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target
@@ -668,4 +704,9 @@ already local and must NOT be shifted, or you are an hour late instead of an hou
 
 ## Open items
 
-None held here - the Gordon Court work sits with its own chat.
+- **DARRICK WOOD (AJ Group, ref QT50911) - overdue and nobody owns it.** Client rejected our quantities
+  and dimensions on 09/07 and wanted a revised submission by 13/07 to stay in the tender. A Plus's Rev1
+  requote landed 24/07 and has not been used. Nineteen days of silence to Gleb Saliev, whose last word
+  from us is Adam's 10/07 holding reply. Needs: the revision priced off Rev1, the systems named, U-values
+  against 1.3 W/m2K overall, and Class A1 spandrel confirmation. **Raise in the morning update** - it is
+  an action for a human, not a request, and the tender may already have gone.

@@ -1214,7 +1214,7 @@ const JACOB_RENDER = {
         <div class="stat"><div class="n">${t.rows}</div><div class="l">Quoted leads in the CRM, ${t.clients} clients</div></div>
         <div class="stat red"><div class="n">${t.due}</div><div class="l">Nobody has been back to, ${gbpShort(t.dueValue)}</div></div>
         <div class="stat amber"><div class="n">${t.yearSilent}</div><div class="l">Silent for over a year and still open</div></div>
-        <div class="stat amber"><div class="n">${t.noDate}</div><div class="l">No follow-up date ever set</div></div>
+        <div class="stat ${t.winnable ? "green" : "amber"}"><div class="n">${gbpShort(t.winnableValue)}</div><div class="l">Of that, in a band Fenster has ever won in - ${t.winnable} jobs</div></div>
       </div>
 
       <div class="section"><div class="section-head"><h3>Read this before you read the numbers</h3></div>
@@ -1230,10 +1230,16 @@ const JACOB_RENDER = {
           closes anything in - the same pattern as the Opportunity Log's Chased column, which was
           filled 382 times in 2025 and 7 times in 2026. Treat every row as a question, not
           as an opportunity.</p>
-          <p><strong>And the size does not match what Fenster wins.</strong> The outcome history
-          says a 24% win rate, a median win of GBP 1,822, and nothing at all won above
-          GBP 50,000. Most of the money below is in jobs larger than anything Fenster
-          has ever converted.</p>
+          <p><strong>And the size does not match what Fenster wins.</strong> The Opportunity
+          Log's 224 decided rows say: under GBP 10k it wins 38% of the time, GBP 10k-50k 13%,
+          and above GBP 50,000 it has never won at all - 52 priced, 52 lost. Median win
+          GBP 1,822; largest win ever GBP 40,850.</p>
+          <p><strong>So of the ${gbpShort(t.dueValue)} sitting on this list, ${gbpShort(t.winnableValue)}
+          is in a band Fenster has ever converted</strong> - ${t.winnable} jobs out of ${t.due}.
+          The other ${t.neverWonBand} are in bands with a nil record. The list below is still
+          ranked by value, because re-ranking a Commercial Director's chase list on my own
+          reading of the history is his call and not mine - but every row says which band it
+          is in, and the top of the list is mostly the half that does not convert.</p>
         </div></div>
 
       ${(c.schemes || []).length ? `<div class="section"><div class="section-head">
@@ -1292,13 +1298,19 @@ const JACOB_RENDER = {
       <div class="section"><div class="section-head"><h3>The chase list</h3>
         <span class="page-sub">Largest first. ${due.length} of ${t.due} shown.</span></div>
         <table class="tbl"><thead><tr>
-          <th>Job</th><th>Client</th><th>Quoted ex VAT</th><th>Quoted</th><th>Silent</th>
-          <th>State</th><th>Contact</th></tr></thead><tbody>
+          <th>Job</th><th>Client</th><th>Quoted ex VAT</th><th>Ever won at this size?</th>
+          <th>Quoted</th><th>Silent</th><th>State</th><th>Contact</th></tr></thead><tbody>
         ${due.map((r) => `<tr data-jkey="${esc(r.key)}">
           <td class="job-cell"><strong>${esc(r.job || "no site recorded")}</strong>
-            ${r.town ? `<small>${esc(r.town)}</small>` : ""}</td>
-          <td>${esc(r.client)}</td>
+            ${r.postcode ? `<small>${esc(r.postcode)}</small>` : ""}</td>
+          <!-- TOWN in the export is the client's own town, not the site's -
+               Kemdoc is in Bristol and its Churchdown job is in Gloucester.
+               It belongs against the company, not against the job. -->
+          <td>${esc(r.client)}${r.town ? `<small class="dim">${esc(r.town)}</small>` : ""}</td>
           <td class="money">${gbp(r.value)}</td>
+          <td>${r.fit ? `<span class="chip ${r.fit.winRate >= 38 ? "ok"
+            : r.fit.winRate > 0 ? "warn" : "danger"}">${r.fit.winRate}%</span>
+            <small class="dim">${esc(r.fit.note)}</small>` : `<small class="dim">no value</small>`}</td>
           <td class="num">${r.leadDate ? esc(niceDate(r.leadDate)) : "-"}</td>
           <td class="num">${r.days === null ? "-" : `${r.days}d`}</td>
           <td>${stateChip(r)}</td>
