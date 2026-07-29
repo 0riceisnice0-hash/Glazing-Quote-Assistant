@@ -30,6 +30,11 @@ INTAKE = os.path.join(REPO, "data", "jacob", "intake.json")
 JAYK = os.path.join(REPO, "data", "jacob", "jayk-recovery.json")
 OUTCOMES = os.path.join(REPO, "data", "jacob", "outcomes.json")
 TENDERS = os.path.join(REPO, "data", "jacob", "tender-notices.json")
+# Live leads that arrived by email rather than through a public feed. Fenster
+# is a subcontractor: most of what it can still bid never reaches Contracts
+# Finder at all, so a board built only on feeds is missing the half that
+# matters. Hand-entered, provenance on every row.
+MANUAL_LEADS = os.path.join(REPO, "data", "jacob", "leads-manual.json")
 # Adam's rule, 28/07/2026: a job is Mary's while it is priced and Jacob's the
 # moment the quote goes out. This file is that boundary, one row per job, with
 # every issue date checked against the message that actually left estimating@.
@@ -818,12 +823,19 @@ def build_handover(hand):
             return None
         return (today - date.fromisoformat(iso)).days
 
+    steps = {s["n"]: s["action"] for s in
+             (hand.get("checklist") or {}).get("steps", [])}
     rows = []
     for r in hand.get("issued", []):
         row = dict(r)
         row["daysOut"] = days_out(r.get("issued"))
         row["daysSinceClient"] = days_out(r.get("lastClientContact"))
         row["blocked"] = bool(r.get("blockedUntil") and r["blockedUntil"] > TODAY)
+        # Adam's own checklist numbering, so the register and the CRM call the
+        # same thing by the same name. A row with a date in the past is not a
+        # reminder, it is an overdue action, and the board says which.
+        row["stageName"] = steps.get(r.get("stage"))
+        row["chaseDue"] = bool(r.get("nextChase") and r["nextChase"] <= TODAY)
         rows.append(row)
     # Longest silence first. A row that is blocked is sorted with the rest and
     # says so on its face rather than being hidden - "cannot answer yet" is a
@@ -847,11 +859,15 @@ def build_handover(hand):
     return {
         "updated": hand.get("updated"),
         "rule": hand.get("rule"),
+        "checklist": hand.get("checklist"),
         "verification": hand.get("verification"),
         "issued": rows,
         "held": held,
         "corrections": hand.get("corrections", []),
         "totals": {
+            "chaseDue": sum(1 for r in rows if r["chaseDue"]),
+            "noChaseDate": sum(1 for r in rows
+                               if not r.get("nextChase") and not r["blocked"]),
             "issued": len(rows),
             "issuedValue": sum(r.get("value") or 0 for r in rows),
             "due": len(due),
@@ -865,7 +881,23 @@ def build_handover(hand):
     }
 
 
-def build_tenders(tenders, outcomes, book):
+def merge_manual(tenders, manual):
+    """Feed notices plus the hand-entered ones, on one list and one clock.
+
+    A lead that came in as email is not a lesser lead - it is the normal way
+    Fenster hears about work, and keeping it on a page of its own would put
+    it where nobody looks. The feed rows already carry daysLeft; these do not,
+    so it is computed here from the closing date."""
+    out = list((tenders or {}).get("notices", []))
+    for n in (manual or {}).get("notices", []):
+        row = dict(n)
+        row["manual"] = True
+        row["daysLeft"] = (-days_since(n["closes"]) if n.get("closes") else None)
+        out.append(row)
+    return out
+
+
+def build_tenders(notices, outcomes, book):
     """Contracts still out to bid. The only stage at which a subcontractor
     can still get onto an enquiry list, which is why this feed exists at all.
 
@@ -879,7 +911,7 @@ def build_tenders(tenders, outcomes, book):
     known_names = {" ".join(tokens(r["company"])) for r in book}
     idx = outcome_index(outcomes)
     rows = []
-    for n in (tenders or {}).get("notices", []):
+    for n in notices:
         left = n.get("daysLeft")
         buyer_key = " ".join(tokens(n.get("buyer") or ""))
         rec = record_for(n.get("buyer"), idx)
@@ -892,11 +924,23 @@ def build_tenders(tenders, outcomes, book):
                         else "open" if left is not None else "no closing date")
 
         if n.get("coverage") == "outside coverage":
-            # Fenster's own PQQ names 78 postcode areas. This is not one.
+            # Fenster's own PQQ names 78 postcode areas and this is not one -
+            # but the PQQ says where Fenster advertises that it works, not
+            # where it will. Two quotes are live outside that list as this is
+            # written: St Mary's, Merthyr Tydfil (CF47, GBP 174,546, issued
+            # 17/07) and Trafalgar House, Portchester (PO6, GBP 71,566, issued
+            # 22/07). So the row still gets nobody's afternoon by default -
+            # there is no point ringing about Inverness - but it no longer
+            # tells a human the answer is settled when it is JAC-10.
             row["owner"] = NOBODY
-            row["next"] = ("None - %s is outside the postcode coverage Fenster "
-                           "puts on its own PQQs." % (n.get("where") or "this area"))
-            row["state"] = "outside coverage"
+            row["next"] = ("Parked, not refused. %s is outside the 78 postcode "
+                           "areas Fenster's own PQQ names - but Fenster has two "
+                           "live quotes outside that list right now (Merthyr "
+                           "Tydfil and Portchester), so the list is a claim "
+                           "about where it advertises, not a rule. JAC-10 asks "
+                           "Adam where the real line is."
+                           % (n.get("where") or "This area"))
+            row["state"] = "outside the PQQ list"
         elif not n.get("confident"):
             row["owner"] = JACOB
             spray = (n.get("cpvCount") or 0) > 12
@@ -909,9 +953,12 @@ def build_tenders(tenders, outcomes, book):
             row["state"] = "needs reading"
         elif n["tier"] == "direct":
             row["owner"] = GINTARE
-            row["next"] = ("Decide whether to price. %s want glazing work and it "
-                           "closes %s." % (n["buyer"] or "The buyer",
-                                           n.get("closes") or "with no date given"))
+            row["next"] = ("Decide whether to price. %s, and it closes %s."
+                           % ("%s want glazing work" % n["buyer"] if n.get("buyer")
+                              else "This is glazing work and the buyer is not "
+                                   "named on what we have - finding out who is "
+                                   "asking is the first job",
+                              n.get("closes") or "on no date we can see"))
             if rec and rec["won"]:
                 row["owner"] = ADAM
                 row["next"] = ("Call %s - they have bought from Fenster %d time%s "
@@ -927,6 +974,11 @@ def build_tenders(tenders, outcomes, book):
             row["owner"] = JACOB
             row["next"] = ("Read the notice before anyone acts - it matched on "
                            "words, not on a CPV code, and words lie.")
+        # A hand-entered lead carries the thing that will bite whoever picks
+        # it up. It goes in the next action rather than a footnote, because a
+        # qualification raised at the end of a tender is not a qualification.
+        if n.get("warning"):
+            row["next"] += " " + n["warning"]
         rows.append(row)
     rows.sort(key=lambda r: (r["closes"] or "9999",
                              {"direct": 0, "main-contract": 1}.get(r["tier"], 2)))
@@ -995,7 +1047,11 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
                 for r in (handover or {}).get("issued", [])}
     ab_acts = []
     for r in (adminbase or {}).get("due", []):
-        if r.get("outlier") or not r.get("value"):
+        # An outlier is held back because nobody had confirmed it, not because
+        # of its size. Adam confirmed Brandon Estate on 29/07 - "that is a
+        # legit tender and should be treated as such" - so a confirmed row
+        # belongs on this list like any other.
+        if (r.get("outlier") and not r.get("confirmed")) or not r.get("value"):
             continue
         if (r["client"].lower() in drafted_clients
                 or r.get("key") in drafted_domains
@@ -1016,7 +1072,13 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
             r.get("owner") or ADAM,
             "Nobody has been back to them since the quote. Establish whether "
             "it is still live before anything else - the CRM closes nothing, "
-            "so 'Live - Quoted' here does not mean the job is.",
+            "so 'Live - Quoted' here does not mean the job is."
+            + (" %s" % r["confirmed"] if r.get("confirmed") else "")
+            + (" The CRM dates this %s; the quote actually went out %s, so "
+               "the silence is %d days and not %d."
+               % (r["staleDate"]["crmDate"], r["staleDate"]["issued"],
+                  r["days"] or 0, r["staleDate"]["crmDays"] or 0)
+               if r.get("staleDate") else ""),
             r["state"], "chaselist")
 
     for t in threads:
@@ -1066,7 +1128,12 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
         if left is None or left < 0:
             continue
         if n.get("coverage") == "outside coverage":
-            continue                 # Fenster's own PQQ says it will not work there
+            # Kept off the action list, not off the board. The PQQ's 78 areas
+            # are where Fenster says it works, and two live quotes are outside
+            # them (Merthyr Tydfil, Portchester) - so the row still shows on
+            # the tenders page saying exactly that, and JAC-10 asks Adam where
+            # the real line is. Nobody's afternoon goes on Inverness meanwhile.
+            continue
         if not n.get("confident"):
             continue                 # broad CPV, no glazing word - read it first
         base = {"direct": 62, "main-contract": 45}.get(n["tier"])
@@ -1224,7 +1291,8 @@ def build():
     buyers = [t for t in threads if t["kind"] == "buyer"]
     liveBuyers = [t for t in buyers if t["state"] in ("live", "waiting")]
     quiet = [t for t in buyers if t["state"] in ("gone quiet", "stale")]
-    tenders = build_tenders(tenderfeed, outcomes, rel)
+    tenders = build_tenders(merge_manual(tenderfeed, load_json(MANUAL_LEADS)),
+                            outcomes, rel)
     actions = build_actions(threads, warm, known, rel, tenders, handover,
                             adminbase, drafts)
 
@@ -1453,9 +1521,9 @@ OUTREACH = {
     "status": "drafting",
     "note": ("JAC-1 answered on 28/07: drafts only for now. So the drafting "
              "half of this is live and the sending half is not - there is "
-             "still no send path, no mailbox and no request for one. Five "
-             "drafts are written and waiting for a human to send them from "
-             "their own mailbox, under their own name."),
+             "still no send path, no mailbox and no request for one. Every "
+             "draft on the board is written and waiting for a human to send "
+             "it from their own mailbox, under their own name."),
     "classes": [
         {"name": "Quote follow-up", "why": "We sent a price and heard nothing back",
          "example": "Ninn Lane - GBP 100,730 issued 09/07, nothing back in 19 days",
@@ -1480,7 +1548,7 @@ DECISIONS = [
                  "Decide later - drafts only for now"],
      "answer": "Decide later - drafts only for now",
      "answeredBy": "Zac", "answered": "2026-07-28",
-     "effect": ("Drafting is live; sending is not. Five drafts are on the "
+     "effect": ("Drafting is live; sending is not. The drafts are on the "
                 "board, each addressed to a named person and each to be sent "
                 "by a named human from their own mailbox. Nothing goes out "
                 "under my name and I have not asked for a mailbox. When this "
@@ -1492,8 +1560,18 @@ DECISIONS = [
      "options": ["Warm only", "Warm now, cold later", "Both"]},
     {"id": "JAC-3", "title": "Budget for paid project intelligence?",
      "why": ("Free feeds are public sector only. Stepnell, Borras, Chigwell "
-             "and Guildmore work never appears in them."),
-     "options": ["Free sources only", "Trial Barbour ABI", "Trial Glenigan"]},
+             "and Guildmore work never appears in them. First hard evidence, "
+             "29/07: the two live leads off the Supply2Gov alerts - Ryde "
+             "windows, closing 28 August, and Corby communal doors - are in "
+             "neither free feed. 353 tender-stage releases swept across "
+             "Contracts Finder and Find a Tender over 21 days, no match, on a "
+             "sweep proved good by finding a notice already on this board. "
+             "The honest size of the prize is that four days of those alerts "
+             "produced two live on-package mainland leads, not the 27 a day "
+             "the alert header claims - half of what it sends is already "
+             "awarded, and several of the live ones are Irish."),
+     "options": ["Free sources only", "Pay for the Supply2Gov level that "
+                 "shows the buyer", "Trial Barbour ABI", "Trial Glenigan"]},
     {"id": "JAC-4", "title": "Who approves outbound?",
      "why": "Decides whether the approval queue lives on the hub or in email.",
      "options": ["Adam", "Zac", "Either"]},
@@ -1565,13 +1643,17 @@ def main():
         # a successful deploy - the giveaway is a missing "Uploading Functions
         # bundle" line in the output.
         def run(env=None):
-            return subprocess.run(
-                ["npx.cmd", "wrangler", "pages", "deploy", "public",
-                 "--project-name", "mary-dashboard", "--branch", "main",
-                 "--commit-dirty=true"],
-                cwd=os.path.join(REPO, "dashboard"), capture_output=True,
-                text=True, encoding="utf-8", errors="replace", timeout=600,
-                shell=True, env=env)
+            # One deploy at a time across Mary, Jacob and dev sessions - see
+            # scripts/deploy_lock.py for the 29/07 race that made this exist.
+            import deploy_lock
+            with deploy_lock.held():
+                return subprocess.run(
+                    ["npx.cmd", "wrangler", "pages", "deploy", "public",
+                     "--project-name", "mary-dashboard", "--branch", "main",
+                     "--commit-dirty=true"],
+                    cwd=os.path.join(REPO, "dashboard"), capture_output=True,
+                    text=True, encoding="utf-8", errors="replace", timeout=600,
+                    shell=True, env=env)
 
         r = run()
         # npx unpacks wrangler into the shared npm cache, and a long-running

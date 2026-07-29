@@ -245,10 +245,14 @@ def main():
         import mary_hub_guard
         if not mary_hub_guard.run():
             raise SystemExit(3)
-        r = subprocess.run(["npx.cmd", "wrangler", "pages", "deploy", "public", "--project-name", "mary-dashboard",
-                            "--branch", "main", "--commit-dirty=true"],
-                           cwd=os.path.join(REPO, "dashboard"), capture_output=True, text=True,
-                           encoding="utf-8", errors="replace", timeout=600, shell=True)
+        # One deploy at a time, whoever is deploying - on 29/07 this raced a
+        # dev-session deploy and last-write shipped the older bundle.
+        import deploy_lock
+        with deploy_lock.held():
+            r = subprocess.run(["npx.cmd", "wrangler", "pages", "deploy", "public", "--project-name", "mary-dashboard",
+                                "--branch", "main", "--commit-dirty=true"],
+                               cwd=os.path.join(REPO, "dashboard"), capture_output=True, text=True,
+                               encoding="utf-8", errors="replace", timeout=600, shell=True)
         tail = (r.stdout + r.stderr)[-600:]
         print("deploy exit", r.returncode)
         # wrangler emits box-drawing characters; stdout here is cp1252, so re-encode

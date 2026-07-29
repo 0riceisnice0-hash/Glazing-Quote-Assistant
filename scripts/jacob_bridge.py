@@ -265,23 +265,14 @@ def dispatch(cfg, state):
     if _worker[0] and _worker[0].is_alive():
         return False
 
-    # Mary first - but not Mary FOREVER. On 29/07 she worked continuously
-    # from 08:00 and Jacob never got a turn all morning; the yield is a
-    # courtesy at dispatch time, not a vow of idleness. After an hour of
-    # waiting with real work queued, he runs alongside her - in write-only
-    # mode (no git, no deploys), because the repo and the hub are the two
-    # things they genuinely share.
-    concurrent = False
-    if os.path.exists(MARY_LOCK):
-        state.setdefault("blocked_since", time.time())
-        waited = time.time() - state["blocked_since"]
-        if waited < 3600:
-            log("Mary is working - waiting (%dm). Her deadlines beat his leads." % (waited // 60))
-            return False
-        concurrent = True
-        log("Mary has held the lock %dm - running alongside her, write-only mode" % (waited // 60))
-    else:
-        state.pop("blocked_since", None)
+    # No yield to Mary any more (Zac, 29/07: "mary and jacob should be free
+    # to work, ignoring what the other one is currently doing"). The yield
+    # existed to protect two genuinely shared things - the git index and the
+    # Pages deploy - and serialising whole bots to protect two files was the
+    # wrong tool. Deploys now take a cross-process lock in the deploy scripts
+    # themselves, and commits follow the "only the files you touched, retry
+    # on index.lock" rule in both manuals. The bots are colleagues with their
+    # own desks, not a queue for one chair.
 
     spent = budget_spent(state)
     if spent >= DAILY_BUDGET_HOURS:
@@ -300,8 +291,7 @@ def dispatch(cfg, state):
     # tailed "the newest one" - which, whenever Mary was also working, was
     # hers. Jacob's Live tab showed Mary's steps (Zac spotted it, 29/07).
     session_id = str(uuid.uuid4())
-    log("dispatch -> %d order(s)%s (session %s)" % (
-        len(orders), " CONCURRENT with Mary, write-only" if concurrent else "", session_id[:8]))
+    log("dispatch -> %d order(s) (session %s)" % (len(orders), session_id[:8]))
     # What kicked this session off - order summaries plus the actual prompt.
     heads = []
     for f in orders[:12]:
@@ -358,11 +348,11 @@ def dispatch(cfg, state):
               "Handle them, reply on the hub to anyone who wrote to you, then move "
               "each order into %s and rebuild your board."
               % (PROMPT, QUEUE, DONE))
-    if concurrent:
-        prompt += ("\n\nWRITE-ONLY MODE: Mary is mid-session in this same repo. Do NOT run "
-                   "git commit and do NOT deploy the hub this session - write your files "
-                   "and data, and your next solo session commits and publishes. The git "
-                   "index and the Pages project are the two things you share with her.")
+    prompt += ("\n\nYou and Mary work independently and may be running at the same time. "
+               "Two rules that make that safe: git-commit ONLY the files you touched "
+               "(never `git add -A`; if the index is locked, wait a few seconds and "
+               "retry), and deploy the hub only through the deploy scripts - they take "
+               "the shared deploy lock for you.")
     state["last_kick"]["prompt"] = prompt[:8000]
     publish_queue(cfg, state)
     def run_session():

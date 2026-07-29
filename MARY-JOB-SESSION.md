@@ -297,4 +297,8 @@ gets better on its own: a mistake can only cost Fenster once.
    to `HANDOVER.md`. Durable rules go in `AI.md`. Routine turns do not need this - the chat remembers.
 6. Refresh the hub if deadlines, requests or catches moved:
    edit `data\dashboard-state.json`, then `python scripts\mary_dashboard.py --deploy`.
-7. Commit and push (`git commit -F` a message file - PowerShell here-strings break in this harness).
+7. Commit and push (`git commit -F` a message file - PowerShell here-strings break in this
+   harness). **Commit ONLY the files you touched, by path - never `git add -A`.** Jacob and
+   dev sessions work in this repo at the same time as you; `-A` sweeps their in-flight work
+   into your commit (it happened to the hub restructure on 29/07, twice). If the index is
+   locked, wait a few seconds and retry. Deploys already take the shared lock for you.

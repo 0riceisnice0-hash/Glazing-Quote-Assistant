@@ -88,15 +88,15 @@ on Filwood already knows everything about Filwood.
 **Jacob wakes** on a hub message or a message from Mary. His daily data pull
 (`jacob_daily.py`) is deterministic and spends no session at all.
 
-**Jacob yields to Mary at dispatch - for up to an hour.** If her lock is held his bridge
-waits, because her work has deadlines. But the yield is a courtesy, not a vow: on 29/07 she
-worked continuously from 08:00 and he never got a turn, so after an hour blocked with real
-work queued he now runs alongside her in **write-only mode** (no git commits, no hub
-deploys - the two things they genuinely share; his next solo session publishes). Sessions
-already overlap naturally once his starts, and each of his sessions now carries its own
-`--session-id`, so his Live tab can never show her transcript again. When his queue is
-empty and there is budget to spare, a **standing agenda** runs every four quiet hours -
-an empty inbox is not an empty day.
+**They work fully independently** (Zac, 29/07: "mary and jacob should be free to work,
+ignoring what the other one is currently doing"). The old yield-to-Mary rule starved Jacob
+for a whole morning to protect two shared things, so the two things got their own guards
+instead: **deploys take a cross-process lock** (`scripts/deploy_lock.py`, born from a real
+29/07 race that shipped a stale bundle), and **commits name only the files the committer
+touched** - never `git add -A`, retry briefly on a locked index. Each of his sessions
+carries its own `--session-id`, so his Live tab shows his steps and hers shows hers. When
+his queue is empty and there is budget to spare, a **standing agenda** runs every four
+quiet hours - an empty inbox is not an empty day.
 
 **Both have spend limits, and they are shaped differently for a reason.** Mary's are
 *windowed* - 8 hours by day, 1.5 overnight - and cap session **count** as well as hours
