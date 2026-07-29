@@ -260,7 +260,30 @@ def is_fresh(a):
     return not (end and end < TODAY)
 
 
+# Work a glazing company cannot be in, even when the winner is a known
+# client and the CPV family reads "building". These sailed onto the LEADS
+# call list on 29/07 (Zac: "he knows we are a glazing company right?")
+# because warm/known only checked freshness: a scaffolding framework, a
+# cleaning contract (Atlas - the canonical false positive, a second time),
+# a junction improvement and a kitchen-and-bathroom programme, each with a
+# "call them" next action. A relationship makes a company warm; it does not
+# put windows in a scaffolding job. Deliberately NOT on this list: roofing
+# (the Raglan roofing project carried a real Fenster order - rooflights).
+NO_GLAZING = ("scaffold", "cleaning", "demolition", "asbestos", "landscap",
+              "resurfac", "highway", "junction", "carriageway", "drainage",
+              "survey works", "kitchen and bathroom", "lift replacement",
+              "lift maintenance", "lift refurb")
+
+
+def no_glazing(a):
+    hay = " ".join([a.get("title") or "", a.get("description") or "",
+                    a.get("cpv_desc") or ""]).lower()
+    return any(t in hay for t in NO_GLAZING)
+
+
 def is_building(a):
+    if no_glazing(a):
+        return False
     codes = a.get("cpv_all") or ([a["cpv"]] if a.get("cpv") else [])
     if any(str(c).startswith(INFRA_CPV) for c in codes):
         return False
@@ -1021,9 +1044,12 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
         score = 130 + min(days, 30)
         if r.get("blocked"):
             score = 118          # still worth a call, not worth the top slot
+        # .get's default does not cover an EXPLICIT null - a register row with
+        # "issued": null crashed the whole board rebuild here on 29/07.
+        iss = r.get("issued") or ""
         add(score, r["key"], r["client"], r.get("contact") or r["client"],
             "%s - %s issued %s" % (r["job"], gbp(r.get("value")),
-                                   r.get("issued", "")[8:10] + "/" + r.get("issued", "")[5:7]),
+                                   (iss[8:10] + "/" + iss[5:7]) if len(iss) >= 10 else "date unknown"),
             r.get("owner"), r.get("next"), r.get("state"), "chasing")
 
     # Above even those. A draft is a chase that has already been written - the
@@ -1225,7 +1251,9 @@ def build():
     warm, known, seen = [], [], set()
     for sup, rows in by_supplier.items():
         st = tokens(sup)
-        live = [r for r in rows if is_fresh(r)]
+        # The same work-type screen as cold. Warm/known used to skip it, so a
+        # known company's scaffolding or cleaning win became a "call them".
+        live = [r for r in rows if is_fresh(r) and is_building(r)]
         if not live:
             continue
         for cli, ct in cli_tok.items():
