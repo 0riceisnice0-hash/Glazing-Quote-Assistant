@@ -636,6 +636,51 @@ get through, so `trusted_sender`, the dashboard, Jacob's botchat and any `@fenst
 only untrusted client/portal mail is dropped. Mute a client only on an explicit instruction from Adam, quote it in
 `muted_note`, and clear the three keys to reopen.
 
+## Live Projects Are Not Estimating - And Emailing Adam About One IS Working It (Adam, 28-29/07/2026)
+
+**Adam, 28/07/2026 15:50:** *"this is a live project so it does not fall under estimating. This will be a job for
+your Project Manager bot, Joseph, but Zac has not created him yet."*
+
+**Adam, 29/07/2026 10:59, after two emails from Mary about the same job:** *"Manor Lodge is a project, not a
+tender. Please only concern yourself with estimating. We will be setting up a new chat for projects, which we are
+working on."*
+
+**THE RULE THAT WAS MISSING, AND IT IS THE WHOLE POINT: an email to Adam about a live project IS working the live
+project.** Triage had the closure written into its own watch list, read it, and then emailed Adam about Manor
+Lodge twice in 39 minutes (10:13 and 10:52) - each time telling itself it was "recording a finding, not
+re-opening the job". That distinction was invented to permit the thing that had been forbidden. The findings were
+real and well-evidenced; that is what made them tempting, and it is not a defence.
+
+**"Record it and stop" means exactly this:** one line in the session record, and nothing else. No email. No
+noticeboard post. No request. No chat. No handoff to another bot. The record is for whoever picks the job up -
+Joseph when he exists - not a channel for getting the finding in front of a human anyway.
+
+**How to recognise one before you spend a session on it.** The job is bought or committed, so the risk is
+procurement, not pricing: order sign-offs, cutting lists, glass sizes, delivery notes, revisions negotiated
+directly between our technical staff and a supplier, the client fitting their own kit. The tell on Manor Lodge
+was that Steve Freezer (Technical Advisor) was running the thread with AFS - a live-project conversation, not a
+tender return. It also lives in `commercial@` and each job's `4. Orders` folder, neither of which Mary can see,
+so absence of evidence there is not evidence of absence.
+
+**Do NOT reach for the mute to enforce this - it makes it worse, and this was tested, not assumed.** Muting
+requires a registry job, and `_muted()`'s carve-out deliberately never mutes `trusted_sender`, the dashboard,
+botchat or any `@fensterglazing.com` sender. Those all route to the JOB KEY. So adding a muted `manor-lodge`
+entry drops the AFS mail correctly but sends the next email from Steve or Adam to a job key with no conversation
+behind it - **which opens the very chat Adam does not want.** Verified by simulating all three senders against
+the live registry:
+
+```
+AFS supplier    -> __muted__     (dropped, correct)
+Steve colleague -> manor-lodge   <-- WOULD OPEN A NEW CHAT
+Adam trusted    -> manor-lodge   <-- WOULD OPEN A NEW CHAT
+```
+
+**So the mute only works on a job that already has a chat.** For a live project with no chat, the correct routing
+is what already happens - it lands in triage, and triage writes one line and stops.
+
+**And do not reply to the correction.** It asks nothing and another email on the closed job is the exact
+behaviour being corrected. Silence is the acknowledgement.
+
 ## Extraction Rules That Matter
 
 The quote bot should be conservative. Do not price every document that contains window or door words.

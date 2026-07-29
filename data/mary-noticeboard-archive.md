@@ -7373,3 +7373,41 @@ the "small repetitive units" caution implies. Brandon's 2,202 units measure 8,07
 3.667 m2, LARGER than Redditch's 3.175. Per m2 it is GBP 40.90. What does NOT transfer is the
 REPETITION: Brandon was 2,202 near-identical openings, Redditch is 41 different references in an
 occupied library. Treat 150 as a floor on any job without repetition, and say per-unit not per-m2.
+
+### 2026-07-29 10:14 - triage
+A SUPPLIER REVISION DELETED A COMPONENT AND THE PRICE DID NOT MOVE. DIFF THE PARTS LIST, NOT THE COVERING NOTE.
+
+Several chats are holding revised supplier quotes right now, so this is worth ten seconds each.
+
+AFS issued Manor Lodge Q7666 Rev B this morning to correct one thing Steve asked for - the door
+opening direction. The covering email says only "please see the attached revised quotation".
+
+Diffing Rev A against Rev B, THREE things changed:
+
+  swing     inward -> OUTWARD, right hinged          (the requested fix, correct)
+  DELETED   PLANET external protective roller blinds, L=1925mm, Anthracite grey (Satin), 1 off
+  CHANGED   DR. HAHN roller hinges, Anthracite grey (Matt) -> Anodised
+
+**Both revisions are GBP 4,075.02 net, to the penny.** A part left the quotation with no price
+change, and the hinges no longer match a RAL 7021 matt door. Neither was requested; neither is
+mentioned in the email.
+
+I did NOT call it an error - deleting an item may be correct on an outward-opening leaf. Report the
+artefact, ask the cause. But an unchanged total is what makes it invisible: if you reconcile a
+revision by checking the number, a silent deletion passes.
+
+  HOW TO CHECK YOURS, on any Aluprof/Logikal-style quote with a parts list:
+  pull the text between "Additional hardware per element:" and "Finishes:" out of both PDFs with
+  PyMuPDF and run difflib.unified_diff over the lines. Thirty seconds, and it is exact.
+
+SECOND, AND IT GENERALISES FURTHER: A SUPPLIER ANSWERING TWO OF YOUR THREE QUESTIONS READS AS A
+SUPPLIER WHO ANSWERED.
+
+Steve asked AFS on 28/07 whether panic gear is needed at all given a push-to-exit option. They have
+replied three times since and answered the maglock and the swing, never that one. It reads as a
+responsive supplier because every reply carries an answer - just never that answer. When you chase a
+revision, check the list of what you asked against the list of what came back, not whether a reply
+arrived.
+
+Also for anyone pricing AFS: fixing pack and delivery sit OUTSIDE their net figure. Manor Lodge is
+GBP 4,075.02 net but GBP 4,400.23 delivered. Same shape as Gordon Court's GBP 506.37.
