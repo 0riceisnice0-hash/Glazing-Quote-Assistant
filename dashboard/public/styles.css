@@ -467,8 +467,29 @@ ul.plain li { margin-bottom: 8px; }
      different height and the URL bar moves. Instead the column flexes: the
      shell is exactly one viewport, the thread takes whatever is left, and the
      composer sits on the bottom edge where a thumb already is. */
+  /* grid-template-rows matters as much as the height. A grid row defaults to
+     `auto`, so .main sizes to its CONTENT and the 100dvh cap just clips the
+     bottom off - which put the composer 60px below the fold, invisible and
+     unreachable. minmax(0, 1fr) makes the row the viewport and lets the flex
+     chain inside divide it. */
+  /* The top bar is a sibling of .shell, not inside it, so `.shell { height:
+     100dvh }` overflows the screen by exactly the bar's height and pushes the
+     composer under the fold. Make BODY the full-height column instead and let
+     the bar take what it needs - no magic number to drift when the safe-area
+     inset changes on a notched phone. */
+  body:has(#page[data-page="messages"]),
+  body:has(#page[data-page="jmessages"]) {
+    display: flex; flex-direction: column; height: 100dvh; overflow: hidden;
+  }
   .shell:has(#page[data-page="messages"]),
-  .shell:has(#page[data-page="jmessages"]) { height: 100dvh; overflow: hidden; }
+  .shell:has(#page[data-page="jmessages"]) {
+    flex: 1; min-height: 0; overflow: hidden; grid-template-rows: minmax(0, 1fr);
+  }
+  /* The subtitle explains what the tab is for; the conversation needs the line
+     more. (.page-head precedes #page, so this has to be asked from an ancestor
+     - a sibling combinator cannot look backwards.) */
+  body:has(#page[data-page="messages"]) .page-sub,
+  body:has(#page[data-page="jmessages"]) .page-sub { display: none; }
 
   #page[data-page="messages"], #page[data-page="jmessages"] {
     display: flex; flex-direction: column; min-height: 0; flex: 1;
@@ -486,9 +507,6 @@ ul.plain li { margin-bottom: 8px; }
     padding-bottom: calc(10px + env(safe-area-inset-bottom));
     border-bottom-left-radius: 0; border-bottom-right-radius: 0;
   }
-  /* The subtitle is a sentence explaining what the tab is. On a phone that is
-     a line of screen the conversation needs more. */
-  #page[data-page="messages"] ~ * .page-sub { display: none; }
 }
 
 /* The messages column is a flex chain; .main has to pass the height down or
