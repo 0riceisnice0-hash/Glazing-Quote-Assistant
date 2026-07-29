@@ -876,6 +876,13 @@ def build_handover(hand):
         since = r["daysSinceClient"]
         if since is not None and since < 7:
             return False
+        # An explicit chase date that has arrived outranks the arithmetic. A row
+        # can be genuinely due today with NO issue date at all - Leys Park, 29/07,
+        # where AdminBase said "quoted" and the send was never visible in a mailbox
+        # I can read. Falling back to daysOut dropped the most urgent row on the
+        # board off the due list, because an unknown issue date scores zero.
+        if r.get("nextChase") and r["nextChase"] <= TODAY:
+            return True
         return (r.get("daysOut") or 0) >= 7
 
     due = [r for r in rows if chaseable(r)]
@@ -1631,10 +1638,17 @@ def main():
           "repairs not on the board"
           % (t["quotedOut"], t["unconfirmed"], t["smallWorks"]))
     if t.get("handoverIssued"):
-        print("  handover: %d quotes issued and verified (%s), %d chaseable today "
+        # "verified" means somebody read the message leaving the building. Once a
+        # row can get here on AdminBase's word alone, saying all of them are
+        # verified is a lie the size of the unverified ones.
+        unver = sum(1 for r in (data.get("handover") or {}).get("issued", [])
+                    if not r.get("verified"))
+        print("  handover: %d quotes issued (%s)%s, %d chaseable today "
               "(%s), %d priced but never issued"
-              % (t["handoverIssued"], gbp(t["handoverValue"]), t["handoverDue"],
-                 gbp(t["handoverDueValue"]), t["handoverHeld"]))
+              % (t["handoverIssued"], gbp(t["handoverValue"]),
+                 ", %d NOT verified against a send" % unver if unver
+                 else " and all verified",
+                 t["handoverDue"], gbp(t["handoverDueValue"]), t["handoverHeld"]))
     print("  board window %d days (from %s); %d older signals held back; "
           "mail read from %s%s"
           % (t["boardDays"], t["boardFrom"], t["signalsOlder"], t["mailFrom"],

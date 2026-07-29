@@ -48,11 +48,10 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
   Hightown, do-not-quote) - see JAC-7 before assuming that is safe forever.
 - An award notice is the WEAKEST signal: by publication the subcontractors are chosen.
   Median publication lag 25 days; 10% exceed 180; worst seen 1,364. `is_fresh()` guards.
-- **The tender-portal logins have not worked since Jayk left** - Paul Taylor to Adam
-  and Zac, 27/07: only Constructionline Marketplace still opens. JAC-11. Below the
+- **The tender-portal logins have not worked since Jayk left** (Paul, 27/07) - only
+  Constructionline opens. **A dead login is a switched-off source**, because under the
   GBP 100k Find a Tender threshold a buyer publishes on its OWN portal and nowhere
-  else (North Northamptonshire: ProContract/Due North), which is precisely where a
-  subcontractor's local work lives. A dead login is a switched-off source.
+  else - which is exactly Fenster's size of work. JAC-11; `bd-lessons.md`.
 - A warm name beats a perfect-fit stranger. In this trade a relationship buys one
   thing: being asked to price.
 
@@ -69,13 +68,10 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
   kitchen-and-bathroom, lifts, surveys - whoever won them. `NO_GLAZING` in
   `jacob_dashboard.py`. Roofing stays IN (Raglan roofing carried a Fenster
   rooflight order). Before recommending any call, ask: where is the glass?
-- **Two free sources, and the trick to each** (29/07). Contracts Finder's OCDS
-  `/Search` SILENTLY IGNORES `keyword` - it returns the latest notices whatever you
-  ask, which reads as "not found" when you never searched; keyword search is
-  `POST /api/rest/2/search_notices/json`, fuzzy OR. Companies House needs no key via
-  `find-and-update.company-information.service.gov.uk`, and full accounts are iXBRL -
-  one `format=xhtml` fetch gives turnover, profit, net assets. Qualifying a
-  contractor takes two minutes.
+- **Contracts Finder's OCDS `/Search` SILENTLY IGNORES `keyword`** - reads as "not
+  found" when you never searched. Use `POST /api/rest/2/search_notices/json`. And
+  Companies House needs no key via the public site; full accounts are iXBRL, so one
+  fetch qualifies a contractor. Both tricks: `bd-lessons.md`, 29/07.
 - **Check `oldest/newest/truncated` before believing a count** - a 20-page fetch cap
   once turned 13-22 days into "180 days of mail".
 - AdminBase values are **inc VAT**; everything Fenster issues is ex VAT. De-VAT first.
@@ -85,13 +81,9 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
   enquired, priced, issued and chased without one, so it was on no list of mine.
   The chasing register is a floor, never a complete set: 9 managed rows against
   ~25 AdminBase quotes raised since 15/06 alone.
-- **Join AdminBase to your own TENDER BOARD, not just to the mailbox** (29/07).
-  Leys Sports Pavilion, Chigwell, GBP 44,035, AdminBase RM10 9TP = the Leys Park
-  Changing Pavilion notice already on my board (LB Barking and Dagenham, RM10 9TR)
-  closing that same day - our quote inside a public tender, unlinked, ten days past
-  its follow-up. Join on postcode sector + title: 2 candidates, 1 real hit over the
-  whole book, so it is cheap. **A client's public deadline sets the chase date; a
-  fortnight rule invents one.**
+- **Join AdminBase to your own TENDER BOARD, not just to the mailbox** - on postcode
+  SECTOR plus title. **A client's public deadline sets the chase date; a fortnight
+  rule invents one.** Leys Park, 29/07: `bd-lessons.md`.
 - **AdminBase re-dates nothing on a re-quote** (Mary, 29/07): it updates the VALUE
   and leaves lead date, next action and lead number alone. Lead 8155 read "chase
   due, 98 days" on a quote sent the previous afternoon. Any row whose value joins

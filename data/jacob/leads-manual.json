@@ -1,0 +1,83 @@
+{
+ "note": "Live tender leads that reached Fenster by a route the public feeds do not cover, entered by hand and merged into the tender board by jacob_dashboard.py. Everything else on that board comes out of jacob_tenders.py, which reads Contracts Finder and Find a Tender; these are the ones that came in as EMAIL, which is where a subcontractor's work actually arrives.",
+ "rules": [
+  "Every row says where it came from and who read it. A hand-entered row with no provenance is a rumour.",
+  "checkedAgainstFeeds records whether the notice could be found in the public feeds. Both rows below could not be, and that is a fact about the feeds rather than a doubt about the lead.",
+  "Values are only carried if the notice states one. Nothing here is priced, ever - that is Mary's.",
+  "A reference is worth more than a summary. Both rows now carry the Supply2Gov opportunity id, which is what somebody quotes on the phone - the link itself lands on an upgrade prompt, because these are the rows above Fenster's subscription level."
+ ],
+ "notices": [
+  {
+   "ocid": "manual-s2g-ryde-cross-street",
+   "title": "Replacement windows, 10-11 Cross Street, Ryde, Isle of Wight PO33 2AD",
+   "buyer": null,
+   "where": "PO33",
+   "closes": "2026-08-28",
+   "value": null,
+   "tier": "direct",
+   "confident": true,
+   "cpv": "-",
+   "cpvCount": 0,
+   "coverage": "outside the PQQ list",
+   "source": "supply2gov",
+   "sourceNote": "Supply2Gov alert to estimating@, parsed by Mary 29/07/2026 (bot message 12). Status on the alert is ContractNotice - live, not an award. Jacob cannot read estimating@, so the alert itself has not been seen by him.",
+   "checkedAgainstFeeds": "Not found. Swept 21 days of Contracts Finder and Find a Tender tender-stage releases on 29/07 for ryde / cross street / isle of wight - 353 releases, no match. The sweep is known good: it found the Renfrewshire windows notice that is already on this board. So this lead exists outside the two feeds Fenster reads for free, which is the argument for the alert service, not against the lead.",
+   "unknowns": [
+    "Who the Authority is - inferred as Isle of Wight Council from the address, never stated",
+    "No value stated",
+    "The full record sits behind the subscription level Fenster does not have"
+   ],
+   "warning": "The scope names DISPOSAL expressly. Adam's house position is that strip-out is allowed for and disposal and skips are not - the same collision as the Waste Carrier Licence on John North Hall. It is a qualification to raise when the ITT is answered, not a discovery to make at the end.",
+   "buyerNote": "The alert row carries NO buying-organisation field at all - Mary checked the whole item block, not just the text. The description opens 'The Authority invites response to this Invitation to Tender (ITT) from suitably qualified suppliers' and the feed truncates it before any name. Isle of Wight Council is the obvious first call because the property is in Ryde, but that is an inference from the address and nobody should put it in front of a client or Adam as fact. The link resolves the buyer and will land on a subscription upgrade prompt - the opportunity id is the hard reference to quote if anyone rings.",
+   "ref": "Supply2Gov opportunity 116642060",
+   "link": "https://www.supply2govtenders.co.uk/business/viewOpportunityDetailsSupplier.html?id=116642060&origin=alert"
+  },
+  {
+   "ocid": "manual-s2g-corby-communal-doors",
+   "title": "Rockingham Rd & Greenhill Rise, Corby - communal door replacement with door entry",
+   "buyer": null,
+   "where": "NN17 + NN18",
+   "closes": null,
+   "value": null,
+   "tier": "direct",
+   "confident": true,
+   "cpv": "-",
+   "cpvCount": 0,
+   "coverage": null,
+   "source": "supply2gov",
+   "sourceNote": "Supply2Gov alert of 28/07/2026 to estimating@, parsed by Mary 29/07 (bot message 12). ContractNotice - live. It had been sitting four days when she read it.",
+   "checkedAgainstFeeds": "Not found in 21 days of Contracts Finder or Find a Tender tender-stage releases, swept 29/07 for corby / rockingham / greenhill.",
+   "unknowns": [
+    "The closing date field reads 'Not available' - that is the feed's own value, not a gap in the reading. It cannot be answered from the alert",
+    "Who the buyer is",
+    "No value stated"
+   ],
+   "warning": "Communal entrance doors with door entry is the John North Hall line of work exactly - a job Fenster has done and can deliver. Corby is NN17, inside the postcode coverage Fenster puts on its own PQQs.",
+   "buyerNote": "No buying organisation on the row.",
+   "ref": "Supply2Gov opportunity 116597180",
+   "link": "https://www.supply2govtenders.co.uk/business/viewOpportunityDetailsSupplier.html?id=116597180&origin=alert",
+   "scope": "Replace the front and rear communal door entrances and door entry with new Bamford doors and a CAM KMS system.",
+   "closesNote": "No closing date exists on the alert. The strongest true statement: it was on the 28/07 feed as a ContractNotice rather than an award, so it was open as at 28 July. Whether it is still catchable needs the portal or a phone call.",
+   "whereNote": "Corrected 29/07. The row said NN17. Rockingham Road, Corby is NN17; Greenhill Rise, Corby is NN18 0LR. The job spans two postcode districts, and both are inside the coverage Fenster puts on its own PQQs, so nothing about the lead changes - but a single postcode on a two-site job is the kind of tidy answer that is wrong.",
+   "buyerResearch": {
+    "done": "29/07/2026, Jacob, from public sources only",
+    "mostLikely": "North Northamptonshire Council",
+    "why": "NNC is the council-housing landlord in Corby - it took the former Corby Borough Council stock when it was created, and its own site advertises council housing in the Corby and Kettering areas. Communal entrance doors with door entry across two Corby estates is council or social-landlord work by its nature.",
+    "confidence": "probable, NOT confirmed",
+    "notConfirmedBecause": "No public notice for this job exists. It is not on Contracts Finder - I searched the CF REST keyword API as well as the date sweep Mary ran, on Greenhill Rise, Rockingham Road, Corby and communal doors, and nothing matches. It is not on Find a Tender. So there is no document naming the buyer, and 'North Northamptonshire Council' remains an inference from who owns that kind of housing in that town. Housing associations also hold stock in Corby. Do not put the name in front of a client as fact.",
+    "howItGetsSettled": "One phone call, or the Supply2Gov record behind the subscription. Not more desk research - I have taken it as far as free sources go."
+   },
+   "routeIn": {
+    "note": "If NNC is the buyer, we already know why we never saw this. NNC advertises contracts of GBP 100,000 or more on Find a Tender, and everything below that on its e-procurement portal, ProContract (Due North, procontract.due-north.com). A communal door package on two estates is very likely below GBP 100k, which puts it on the portal and nowhere else. Fenster is not on that portal as far as I can tell - and per Paul Taylor, 27/07, the logins for the tender sites no longer work at all.",
+    "alsoWorthKnowing": "Efficiency East Midlands (EEM) runs framework EEM0063, Communal Entrance Doors 2025-2029, for East Midlands social landlords - Corby is in that patch. Work of exactly this description is commonly called off such a framework rather than tendered openly. Whether Fenster is on EEM0063 is unknown to me and is worth a single question to Adam, because if it is not, this class of work cannot reach us at all.",
+    "nnc": {
+     "contractsRegister": "https://www.northnorthants.gov.uk/finance/contracts-register",
+     "opportunities": "https://www.northnorthants.gov.uk/finance/contract-opportunities",
+     "portal": "https://procontract.due-north.com/Login"
+    }
+   },
+   "nextAction": "Not a desk job any more. Somebody rings North Northamptonshire Council's housing or procurement team, quotes Supply2Gov opportunity 116597180, and asks two things: is this theirs, and is it still open. Owner: Adam or Paul. If it is theirs and it is live, the second question is how work of this size is let - straight to the ProContract portal, or off the EEM communal doors framework - because that answer is worth far more than this one job."
+  }
+ ],
+ "updated": "2026-07-29"
+}
