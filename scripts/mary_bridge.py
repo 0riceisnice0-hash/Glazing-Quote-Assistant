@@ -376,7 +376,10 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
             % (warn, key, jobfile.MAX_LINES, key))
 
     lines.append(
-        "\nFollow MARY-JOB-SESSION.md exactly, including the close-out: answer on the dashboard if a work "
+        "\nBefore ANY email to Adam that is not a direct reply: apply data/knowledge/adam.md (how he reads, "
+        "what is settled) and run python scripts\\mary_send.py --check --subject \"...\" first - it shows what "
+        "already went today and whether the topic is settled.\n"
+        "Follow MARY-JOB-SESSION.md exactly, including the close-out: answer on the dashboard if a work "
         "order came from there, move handled queue files to processed\\, update data/jobs/%s.md, post anything "
         "other chats need with scripts/mary_note.py, and commit." % key)
     return "\n".join(lines)

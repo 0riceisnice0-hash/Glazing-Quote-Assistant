@@ -138,6 +138,68 @@ def check_request_options(state):
         raise SystemExit(2)
 
 
+def _words(s):
+    return set(re.findall(r"[a-zA-Z][a-zA-Z-]{5,}", str(s).lower()))
+
+
+def check_reraise(state):
+    """The re-raise guard (Phase 2, AGENT-AUDIT.md).
+
+    'I have already addressed this with you' (Adam, 28/07, REQ-29) is a memory
+    failure arriving as a manners failure. Two tiers here:
+
+    REFUSED: an OPEN request on the same job sharing MOST of its title words
+    with an ANSWERED one - the near-duplicate shape (REQ-14 was a duplicate of
+    REQ-2 and Adam answered it "I have addressed this above"). Tuned loose on
+    purpose: REQ-24 legitimately follows REQ-17 with two shared words and a
+    title that says what is new, and blocking that would block real work -
+    that shape gets the warning, not the refusal.
+
+    WARNED: an open request whose words appear in settled ledger events. That
+    is often legitimate (a follow-up moves a settled topic forward), so it
+    prints the evidence and lets the session judge - but now it judges with
+    the evidence in front of it."""
+    reqs = state.get("requests", [])
+    answered = [r for r in reqs if r.get("status") == "answered"]
+    hard = []
+    for r in reqs:
+        if r.get("status") != "open":
+            continue
+        tw = _words(r.get("title", ""))
+        for a in answered:
+            if a.get("job") != r.get("job") or not tw:
+                continue
+            overlap = tw & _words(a.get("title", ""))
+            if len(overlap) >= max(3, len(tw) // 2):
+                hard.append((r.get("id", "?"), a.get("id", "?"), ", ".join(sorted(overlap))))
+    if hard:
+        print("REFUSING TO PUBLISH - open request(s) shadow an ANSWERED one:")
+        for rid, aid, ov in hard:
+            print("  %s re-asks %s (shared: %s)" % (rid, aid, ov))
+        print("\nRead the answer first (python scripts\\mary_recall.py --settled), then either\n"
+              "delete the request or rewrite its title to state what is NEW since the answer.")
+        raise SystemExit(2)
+
+    try:
+        import mary_ledger
+        settled = [e for e in mary_ledger.iter_events()
+                   if e.get("kind") == "request_answered"
+                   or (e.get("kind") == "hub_msg" and e.get("actor") in ("adam", "zac"))]
+    except Exception:
+        return
+    for r in reqs:
+        if r.get("status") != "open":
+            continue
+        tw = _words(r.get("title", ""))
+        for e in settled:
+            hay = _words(e.get("summary", "")) | _words(e.get("body", ""))
+            common = tw & hay
+            if len(common) >= 3:
+                print("WARNING %s touches settled ground (%s - shared: %s). If it only re-asks, pull it."
+                      % (r.get("id", "?"), e.get("ref", "?"), ", ".join(sorted(common)[:4])))
+                break
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--deploy", action="store_true")
@@ -145,6 +207,7 @@ def main():
 
     state = json.load(open(STATE, encoding="utf-8"))
     check_request_options(state)
+    check_reraise(state)
     env = mg.load_env()
     token = mg.get_token(env, "READER")
     emails = sent_emails(token)

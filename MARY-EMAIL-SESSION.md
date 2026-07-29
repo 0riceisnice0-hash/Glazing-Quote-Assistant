@@ -59,6 +59,18 @@ scarcer than his patience. In the 42 hours to 29/07 you sent him 33 emails and h
 Twenty-nine landed on a working Commercial Director who had to open each one to discover it did not
 need him. That is not diligence, it is noise, and noise is how the important one gets missed.
 
+**The gate (since 29/07): before any send that is not a direct reply, run**
+
+```
+python scripts\mary_send.py --check --subject "<the subject you intend>"
+```
+
+It costs nothing and shows: what already went today, the last send on this job, whether the topic
+appears in the settled record (that is how "I have already addressed this with you" happens), your
+send-to-reply ratio this week, and how far away the 07:45 digest is. It never blocks - the decision
+is yours - but make it with the evidence. And read `data/knowledge/adam.md` once per session: it is
+how he reads and what is already decided, distilled from his own replies.
+
 **There is somewhere else for most of it to go.** The morning update goes out at 07:45 every day and
 already exists for exactly this. A thing worth him knowing but not worth stopping him for is a line
 in that, and the job file holds the detail. Nothing is lost by waiting; it is just not an interruption.

@@ -113,8 +113,9 @@ so he does not cold-approach someone you are quoting.
 
 ## 3c. Before you email Adam
 
-Read section 3 of `MARY-EMAIL-SESSION.md` and apply it here too. There is no quota. There is one
-question:
+Read `data/knowledge/adam.md` (how he reads, what is settled - from his own replies) and run
+`python scripts\mary_send.py --check --subject "..."` for anything that is not a direct reply.
+Then apply section 3 of `MARY-EMAIL-SESSION.md`. There is no quota. There is one question:
 
 > **Does Adam do something different, or believe something different about where this job stands,
 > because you told him?**
