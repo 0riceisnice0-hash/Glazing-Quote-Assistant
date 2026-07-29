@@ -3,11 +3,11 @@
 This file is for the SESSION THAT BUILDS MARY (Zac at the keyboard in Claude Code),
 not for Mary's own autonomous email sessions - those follow `MARY-EMAIL-SESSION.md`.
 
-Read order for a new dev chat: **this file -> `MARY-HANDOVER.md` -> `HANDOVER.md` -> `AI.md`**.
+Read order for a new dev chat: **`BOTS.md` (both bots, one page) -> this file -> `MARY-HANDOVER.md` -> `HANDOVER.md` -> `AI.md`**. Jacob's own manual is `JACOB-SESSION.md`.
 `MARY-JOB-SESSION.md` is what Mary's per-job chats run on and `MARY-EMAIL-SESSION.md` holds the triage
 rules; read both before changing how Mary behaves.
 
-Last updated: 2026-07-28 (Jacob Wright added to the hub; Graph token refresh fixed).
+Last updated: 2026-07-29 (Jacob running autonomously; **BOTS.md** is the whole-system view).
 
 ---
 
@@ -18,7 +18,7 @@ Last updated: 2026-07-28 (Jacob Wright added to the hub; Graph token refresh fix
 | **Estimating brain** | Parsers, pricing engine, rate register, house-doc generator | `js/`, `scripts/generate-fenster-docs.py`, `data/supplier-rates.json` |
 | **Mary's work loop** | Always-on intake, routes work to per-job chats, emails Adam+Zac autonomously | `scripts/mary_bridge.py`, `mary_router.py`, `mary_note.py`, `mary_graph.py`, `mary_send.py`, `MARY-JOB-SESSION.md` |
 | **The hub** | mary-dashboard.pages.dev - deadlines, requests, two-way messaging | `dashboard/`, `scripts/mary_dashboard.py`, `mary_dashboard_reply.py` |
-| **Jacob Wright (BD)** | Second bot on the same hub - finds leads, no pricing, no send path yet | `scripts/jacob_dashboard.py`, `jacob_contracts_finder.py`, `data/jacob/` |
+| **Jacob Wright (BD)** | Second bot on the same hub - finds leads and chases quotes. Never prices, never sends | `scripts/jacob_bridge.py`, `jacob_intake.py`, `jacob_dashboard.py`, `JACOB-SESSION.md`, `data/jacob/` |
 
 ## 1b. Jacob Wright - business development (added 28/07)
 
@@ -57,13 +57,36 @@ Contracts Finder rate-limit must never stop the mailbox intake reaching the boar
 | Script | Does |
 |---|---|
 | `jacob_graph.py` | Graph helpers. Separate from `mary_graph.py` - own apps, own `.env.jacob` |
-| `jacob_intake.py` | Reads commercial@/info@/jacob@, classifies every message, finds signals |
-| `jacob_contracts_finder.py` | Pulls award notices (resumable; the API rate-limits hard) |
-| `jacob_jayk_recovery.py` | One-off: recovers the former BDM's contacts from role mailboxes |
+| `jacob_bridge.py` | His loop. Gives him a session when something needs judgement |
+| `jacob_intake.py` | Sweeps his mailboxes, classifies every message, finds signals |
+| `jacob_mail.py` | **Ad hoc** mail: search, read a full message, follow a thread, open attachments |
+| `jacob_contracts_finder.py` | Public **award** notices (resumable; the API rate-limits hard) |
+| `jacob_tenders.py` | Public **tender** notices - still out to bid. Contracts Finder + FTS |
+| `jacob_outcomes.py` | The Opportunity Log - what Fenster actually wins and loses |
+| `jacob_adminbase.py` | Adam's AdminBase export. De-VATs it; the raw values are inc-VAT |
+| `jacob_jayk_recovery.py` | One-off: the former BDM's contacts, from role mailboxes |
 | `jacob_dashboard.py` | Merges all of the above into `jacob-data.js` |
-| `jacob_daily.py` | The daily run |
+| `jacob_daily.py` | The daily run - intake, awards, rebuild. No Claude session spent |
+| `jacob_reply.py` | His voice on the hub: replies, and questions he cannot answer alone |
+| `bot_chat.py` | The Mary line. Shared by both bots (`--as jacob` / `--as mary`) |
 | `jacob_verify.py` | Proves the credential chain and the read scope |
 | `setup-jacob-exchange.ps1` | Mailbox, scope group, access policies, transport rule |
+
+**D1 tables.** Mary owns `messages`, `state`, `outcomes`. Jacob owns `jacob_messages`,
+`jacob_requests`, `jacob_pipeline` (the human override on his derived state). `bot_chat` is
+shared. Adding a table is additive - `schema.sql` is all `CREATE TABLE IF NOT EXISTS`, so
+applying it to production never touches existing data.
+
+**Four things Jacob found that were wrong in his own inputs.** Worth knowing because each
+one produced confident numbers that were false:
+
+1. `jacob_intake.py` capped at 20 pages of 50, so a "180-day" sweep covered 13-22 days.
+   It now records `oldest`/`newest`/`truncated` per mailbox so a count cannot claim a
+   window it did not cover.
+2. `intake.json` ended with `signals[:200]`, dropping 719 of 919 silently.
+3. The classifier read direction from the subject line, so Fenster's own RFQs to
+   fabricators counted as customer demand. It reads the first sentence now.
+4. `\bwindow\b` never matched "windows", so every "Windows & Doors Enquiry" was demoted.
 
 **Where his data comes from.** `scripts/jacob_contracts_finder.py` pulls Contracts Finder
 award notices (free OCDS API, no key, no login) into `data/jacob/contracts-finder-awards.json`.
@@ -73,6 +96,12 @@ the winners against every client folder in the OneDrive archive.
 
 Current state: 1,312 construction award rows over 90 days, 875 unique winners, 338 client
 folders (51 of which have actually bought). Yields **3 warm / 14 known / 129 cold**.
+
+**Weigh that against the outcome data before acting on it.** The Opportunity Log says
+Fenster has never won a job over GBP 50,000 - 52 priced, 52 lost - and wins 38% under
+GBP 10k. Most of the cold list is main-contract work in the band Fenster loses in. A big
+contract is still worth chasing if the *glazing package* inside it is small; contract value
+and package value are different numbers.
 
 **Three rules that took a day to learn - do not undo them:**
 
@@ -87,10 +116,15 @@ folders (51 of which have actually bought). Yields **3 warm / 14 known / 129 col
    contractor. Those land in `possible` and need a human to confirm once - roughly 20% of
    matches are wrong, all in the low-confidence tiers.
 
-**The mailbox intake is the important half.** 180 days of `commercial@` + `info@` is 2,000
-messages, which classify as ~265 noise, 143 supplier, 549 correspondence, 45 possible
-enquiries and **61 real enquiries plus 5 portal notices**. Those 66 are the Signals page,
-and they are live work arriving as ordinary email - the thing no scraper would ever find.
+**The mailbox intake is the important half.** A real 180 days of `commercial@` + `info@` is
+~17,600 messages and yields **479 enquiries, 128 quotes waiting on an answer, 89 portal
+notices and 1,310 small-works repair requests**. That is live work arriving as ordinary
+email - the thing no scraper would ever find.
+
+Those numbers were once 61 and 66. The difference was not the classifier: the fetch was
+capped at 20 pages, so the sweep covered 13-22 days and presented it as six months. If a
+count here ever looks small, check `oldest`/`newest`/`truncated` in `intake.json` before
+believing it.
 Classification is regex over sender and subject; deliberately deterministic so it is free
 and reviewable. Consumer domains are matched on the first label (`is_freemail`) so
 `outlook.in` and `yahoo.de` are caught, not just the `.com`/`.co.uk` pair - otherwise 31
