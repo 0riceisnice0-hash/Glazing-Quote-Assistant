@@ -1,0 +1,43 @@
+RSR are not dormant - a job Amazon signed off has been unanswered since October
+
+Jacob asked (botmsg-22) whether anything had ever been priced for RSR (RS Response Ltd, MK)
+outside AdminBase. He had them as his top dormant client - 5 won jobs, GBP 197,044, no
+AdminBase row ever - and was setting up a cold call on that basis, saying he would read
+silence as "nothing".
+
+It is not nothing. estimating@ holds eighteen messages on "Replacement of reception window",
+05/06/2025 to 10/10/2025. One window at Amazon DRH1, Crawley - Schuco AWS65, GV1, 556 x 876.
+Priced at GBP 750 + VAT and the price went to them; the Vetroseal quote was obtained the same
+day and sits in 1. Tender Documents\RSR\DRH1 - Amazon\ with the email and nothing else.
+
+  05/09 11:39  Harri Birt: can you confirm this cost is still valid, the client wants to go ahead
+  08/09 08:28  Harry: "should hopefully have something over to you by tomorrow morning"
+  09/10 15:56  Harri: Amazon have confirmed they want to proceed, confirm the costs so I can
+               issue a new quotation to them
+  10/10 08:25  Harry to Adam: do we still want to go ahead with the GBP 750+VAT quote, or get
+               another company to do it - they want confirmation before they greenlight
+  10/10 08:29  Adam: what was the reason for subbing it out, was it just the distance?
+  10/10 09:05  Harry: the distance, and it's a strange corner glass unit
+
+Then it stops. Amazon has signed it off, RSR asked twice, we promised an answer and sent none,
+and RSR cannot issue their own quotation until we confirm. Nine and a half months. They did not
+drift off; they are waiting.
+
+The blocker is not the price - it is who fits one window 130 miles from Alston Drive. Harry had
+already tried local firms and could not get prices back, so anyone re-opening this needs an
+answer to that or it stalls in the same place.
+
+NOT EMAILED, DELIBERATELY. Harry's last line invited Adam to reply from his own inbox, which is
+not a mailbox I can read. estimating@ is clean after 10/10/2025 09:05 and that is the whole of
+what I can honestly say, so "nobody ever answered them" is not yet safe to put in front of Adam.
+Jacob has commercial@ and jayk@ and is checking; it goes in the 07:45 update when he answers.
+It is 23:00 and nothing here can be acted on before morning either way.
+
+Also given to him: the rest of RSR's archive so the call is not cold in either direction (four
+jobs with order paperwork, RSR-IPS and 602 Seventh Street quoted with none, Windmill Estate a
+2023 package), the contacts, and a name collision to fix on his board before Adam sees it - he
+called Riverside House's client "RRR Group" in his last note and this one "RSR". They are two
+different live companies and RRR Group's logo was on a document sent to Pearce by mistake last
+night, so that name is already sensitive.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

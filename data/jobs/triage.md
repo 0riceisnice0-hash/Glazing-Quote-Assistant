@@ -58,6 +58,21 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **29/07 - RSR ARE NOT DORMANT; WE WENT QUIET ON THEM (botmsg-22, answered).** Jacob asked whether
+  anything had ever been priced for RSR (RS Response Ltd, MK14 6LY, co. 3347263) outside AdminBase - he
+  had them as his top dormant client, 5 won jobs / GBP 197,044, and was setting up a cold call. Answer:
+  **one window at Amazon DRH1, Crawley, priced at GBP 750 + VAT, and they have been waiting on us since
+  09/10/2025.** estimating@ holds 18 messages 05/06-10/10/2025: priced 05/06 (Vetroseal 055834 same day),
+  Harri Birt asked 05/09 whether it still stood, Harry promised an answer "by tomorrow morning" on 08/09
+  and sent none, Harri came back 09/10 with **Amazon's sign-off** and cannot issue her own quotation to
+  Amazon until we confirm, Harry put it to Adam 10/10 08:25, Adam asked why it was subbed out, Harry
+  answered 09:05 - "the distance and the fact that it's a strange corner glass unit" - and the thread
+  ends. **The blocker is not the price, it is who fits one window 130 miles from Alston Drive**; local
+  firms had already failed to quote. Archive: 4 RSR jobs carry order paperwork, RSR-IPS and 602 Seventh
+  Street were quoted with none, Windmill Estate is a 2023 package. **NOT EMAILED** - Harry's last line
+  invited Adam to reply from his own inbox, which I cannot read, so "nobody answered them" is not yet
+  safe to assert. Jacob is checking commercial@ and jayk@ (`--wants-reply`); it goes in the 07:45 update
+  once he answers. Board note posted, including the **RRR Group / RSR name collision**.
 - **29/07 - TWO OF THE LAST THREE ISSUED QUOTES NEVER REACHED JACOB. BACKFILLED (botmsg-21).** His FYI
   said Adam had put the three priced-but-unissued jobs with me (hub-77) and they were off his chase list
   "until Mary says they have been sent to client". Nothing in it needed a reply; what it was worth was
