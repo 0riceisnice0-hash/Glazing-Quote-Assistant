@@ -7219,3 +7219,50 @@ Jacob's export (264 leads, VALUE column is INC VAT - divide by 1.2) put Unit 1 E
 SO: never date a price from AdminBase leadDate, and do not trust its 'days'. Eleanor shows 'quoted - chase due, 98 days' for a quote that went out yesterday afternoon. Seven rows overlap jobs read out of estimating@ - Gordon Court, Ninn Lane, St Mary's, Princess Beatrice, Crestwood Park, the Chester Thomas arched door and Eleanor. If an AdminBase figure reaches you as a comparison, check it against the file in '3. Client Quote' before you accept it.
 
 Also: an AdminBase email/phone is the CLIENT ACCOUNT contact, identical across every row for that client - not the sender of your enquiry. Bradford Watts' five 2026 rows all read hpaxton@bradfordwatts.co.uk / 07736 990919, while the Eleanor enquiry came from mgolden@ direct to Adam.
+
+### 2026-07-29 08:16 - hightown-olds0056
+A STANDING 'IGNORE THIS CLIENT' RULE STILL COSTS A SESSION PER EMAIL. CLOSED CLIENTS CAN NOW BE MUTED IN THE ROUTER.
+
+Adam closed Hightown Housing on 27/07 ('disregard their quotes unless instructed otherwise') and the rule went into AI.md as 'triage them as noise'. But noise still has to be READ: boot the chat, read the handover, reach a foregone conclusion. Meanwhile their In-Tend portal does not know it has been closed - 115 emails since Dec 2025, 37 in April alone, and one more this morning (FURL0005 cladding, closing 30/07).
+
+SO CLOSURE IS NOW A FLAG, NOT A HABIT: set jobs.<key>.muted = true in data/mary-jobs.json with muted_note quoting who said so. mary_router._muted() returns a MUTED sentinel and mary_bridge.drop_muted() files the work order to processed/ with a log line, waking nobody.
+
+THE CARVE-OUT IS THE DESIGN, AND IT IS THE BIT WORTH COPYING. Every one of these instructions ends 'unless instructed otherwise', so the channel carrying the reversal must never be the channel you silence. trusted_sender, the dashboard, Jacob's botchat and any @fensterglazing.com sender are never muted - only untrusted client/portal mail is dropped. Eight routing cases tested before it went in. Mute only on an explicit instruction from Adam; clear three keys to reopen.
+
+Also, for anyone who meets Hightown: Adam's 'we don't win any works' is not literally true - jayk logged a WIN at Invicta House 03/10/2025. It changes nothing, the instruction stands, and it is written into data/jobs/hightown-olds0056.md precisely so nobody re-derives it as a finding and spends a request on it.
+
+### 2026-07-29 09:07 - georgies
+CONVERTING TO PDF DOES NOT STRIP THE AUTHOR. I SAID IT DID. IT DOES NOT.
+
+Correcting myself, because two board notes now rest on this and Filwood's Dan Parker item is live.
+
+I recorded on Georgie's that the proposal "was converted to PDF so its own author trace did not
+travel - the .xlsx did". Wrong. **Word's ExportAsFixedFormat carries dc:creator straight into the
+PDF's /Author.** The proposal Pearce hold reads author `Nicholas Baker`. So BOTH documents we sent
+that client name a third party, not just the spreadsheet.
+
+  python -c "import fitz,sys;print(fitz.open(sys.argv[1]).metadata)" "<file.pdf>"
+
+**So 'just send a PDF' is NOT a workaround for the master-template author problem.** Filwood's fix -
+clean the master once - is the real one. If you are cleaning a pack by hand, rewrite docProps on the
+source BEFORE converting; my amended Georgie's PDF reads author empty because that was done first.
+
+MY OWN AUDIT TOOL WAS BLIND TO EXACTLY THIS. `scripts\clean_issued_pack.py --audit` opened files as
+zips, so it CRASHED on a PDF - and a PDF is usually what actually reaches the client. It now falls
+back to a raw-byte scan for non-zip files, which is how this was caught. If you lift that script,
+take today's version.
+
+AND A SECOND ONE FROM THE SAME MORNING: AN EMPTY `attachments: []` IS EVIDENCE, AND IT IS CHECKABLE.
+Gintare re-sent the Georgie's quote to Pearce at 09:03 with no attachments and no covering text - the
+body opens at character 0 with yesterday's quoted email. Before reporting that, I checked the control:
+6 of 12 Georgie's work orders captured attachments, including yesterday's send to the same address
+with 3 and its `-att` folder. So the capture works and the absence means something.
+
+  Same shape as the retraction I was pulled up on yesterday: REPORT THE ARTEFACT, ASK THE CAUSE. I
+  told Adam what the record shows and that she may have sent it separately - not that she forgot.
+
+AND A RE-SEND WITH THE RIGHT FILES ON IT STILL WOULD NOT HAVE BEEN ENOUGH. A silent resend of an
+identical-looking email does not tell the recipient to discard the earlier attachments. If you are
+reissuing a corrected document, the covering note IS the fix - "these supersede the documents issued
+on 28 July, please disregard the previous attachments, the price is unchanged". Written into
+outputs\georgies-reissue for whoever sends it.

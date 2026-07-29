@@ -7298,3 +7298,76 @@ an edit, never evidence of an unauthorised one. The uplift was a decision. What 
 
 Positions unchanged, nothing issued: Filwood and Vesuvius close 30/07, Brocks Hill 31/07 with seven external
 doors still outside the tender, Darrick Wood nineteen days with A Plus's requote sitting five days unsent.
+
+### Redditch Library - the strip-out rate arrives, the undercut dies, and the template cannot do its own arithmetic (2026-07-29)
+
+**Chat `redditch-library`.** Work order was Adam 08:51 forwarding Leonard White's original 22/07
+enquiry to `estimating@`/Gintare, *"Can we look at this one urgently please, it got missed and has
+been with us for 6 days!"* - no new information, the same chain this chat already held.
+
+**REPORTED, NOT ASSUMED: the pack was pushed to Gintare as unpriced while the priced documents had
+been with Adam since 21:20 and 22:10 the night before.** Told Adam what the record showed *and how
+old the reading was* - the Georgie's 09:20 rule - rather than asserting he had forgotten, and offered
+the fix (forward the three attachments). If she had started from the pack she would have rebuilt a
+day's work.
+
+**THE STRIP-OUT RATE LANDED, VIA REQ-24 AND THE ST MARY'S CHAT, AND IT TOOK THE UNDERCUT WITH IT.**
+Fenster's own Brandon Estate tender to Elkins prices *"Removal of existing frames"* at **GBP 330,300
+over 2,202 units** in REV 2 and **GBP 198,750 over 1,325** in the earlier revision - **GBP 150.00 per
+unit to the penny in both**, so a per-unit rate that held as the job nearly doubled. A **SELL** rate,
+so not marked up. Taken from `mary_pricing.strip_out()` rather than retyped.
+
+**43 x 150 = GBP 6,450 against the GBP 3,000 guessed on 28/07. TENDER SUM GBP 89,218.65 ->
+GBP 93,526.34**, which is **GBP 2,839.17 ABOVE Joedan's GBP 90,687.17 (+3.13%)** where the night
+before it was 1.62% under. To get back under, frames must fall **5.22%** - and that is *on top of* a
+price that already assumes moving off BSW to Aplus/4Ali. **On BSW's own quoted curve the sum is
+GBP 97,565.72 and the cut needed is 11.77%.** So no evidence Fenster holds can undercut Joedan on
+this scope; only a real supplier quotation can, and **the RFQ is still unsent**.
+
+**THE RATE WAS CHECKED FOR TRANSFERABILITY RATHER THAN ASSUMED.** Read Brandon REV 2 at source:
+**2,202 units, 8,075.8 m2, mean 3.667 m2** against Redditch's **3.175**. It is *not* a small-domestic
+rate stretched over commercial units - ours are the smaller. Per m2 it is **GBP 40.90** (GBP 5,584.08
+over 136.53 m2); the per-unit basis is dearer and is what was carried, consistent with St Mary's.
+**What does not transfer is the repetition** - 2,202 near-identical openings against 41 different
+references in an occupied library - so **GBP 150 is a floor here, not a ceiling**.
+
+**THE HOUSE TEMPLATE CANNOT EXPRESS ITS OWN NEW RULE, AND IT FAILS SILENTLY AND DOWNWARDS.** Commit
+`de7bd93` established the adder is the code value at **125% above 6 m2**, not 75%. The MASTER PRICING
+DOC's unit-rate formula hardcodes `code value x 75%` and **has no area term in it**, so engine and
+spreadsheet now disagree on exactly the units carrying the most money - and the spreadsheet is what
+the client reads. On Redditch that was **GBP 750 on two units (refs 19 and 20)**, with the sheet
+coming out **UNDER**. Caught only because the client copy's line sum would not reconcile to the
+build-up. **Patched per row** by carrying `line["adder"] - CODE_VALUE[code] * ADDER_FACTOR` into the
+template's **Additional (L)** column, since the formula is `J+K+L+code*75%`. **The real fix is the
+template, once** - the same shape as the Dan Parker docProps problem, and a formula with no area term
+cannot be patched job by job forever. Posted to the board with the detection recipe.
+
+**BRANDON IS THE REFERENCE STRUCTURE FOR A FENSTER COMMERCIAL PRICING DOCUMENT, AND MOST OF OURS ARE
+MISSING HALF OF IT.** Below its item schedule Brandon REV 2 carries an **INSTALLATION ALLOWANCES**
+block - bay posts, removal of frames, **installation fixings and ancillaries GBP 49,725 (GBP 22.58 a
+unit)**, **PHASED INSTALLATION GBP 572,750** - and a **PRELIMS** block: Site Survey 6,375, Project
+Management 101,700, Commercial Management 26,250, Technical Coordination 35,250, Site Supervision
+111,150, QA Certification & Handover 9,525. **GBP 290,250 on GBP 6,906,445.63 of works = 4.203%.**
+
+**Redditch carries none of it** - no survey, no supervision, no project management, no QA handover,
+no phasing - on an **occupied public library, 10 weeks, LDs of GBP 1,000 a calendar week**, windows
+that cannot be left out over a shift, and a public-highway frontage. That is **GBP 3,832.27** plus
+**GBP 971.01** of fixings, absent. **Not added** - it would push us further above Joedan and it is a
+commercial call - but put to Adam rather than left silent. **Any job built off the MASTER PRICING DOC
+almost certainly has the same hole.**
+
+**A mary_checks FAIL that was correct.** The vesuvius chat widened `check_fabricator_can_make_it` so
+that a fabricator string *saying nobody can make it* now fails. This manifest recorded *"Joedan
+Manufacturing (UK) Ltd - their own system, not available to Fenster"* against both specified systems
+and had been passing. `systems_specified` now records **what Fenster is actually quoting** - a
+thermally broken 75mm system as the Contractor's Designed Portion alternative Gleeds 3.5.3 cl.3
+permits, with BSW/Aplus/4Ali/SBM as fabricators - because the rule asks whether the thing we are
+selling can be built. The unbuyable specified systems stay in `exposures` with their CDP and PI
+consequences. **All checks pass.**
+
+**Two smaller things off the forward:** Leonard White's enquiry directs us to *"page 147 Appendix 2"*
+- **Pride have pointed us at the competitor's priced quotation as the scope document** - and it is
+addressed **FAO Mr Paul Taylor**, not to estimating.
+
+**The hub deployed cleanly this time**, clearing the npm-cache EBUSY lock that had blocked publishing
+since 19:56 on 28/07, so every chat's pending dashboard state went up with it.

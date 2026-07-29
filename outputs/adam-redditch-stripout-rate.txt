@@ -1,0 +1,117 @@
+Adam,
+
+Two things first, because one of them is time-critical.
+
+THE PACK WENT TO GINTARE THIS MORNING AND THIS JOB IS ALREADY PRICED
+
+Your 08:51 forward to estimating@ asks for the Redditch pack to be looked at urgently because it has
+been with us six days. As at 09:05 that is what the record shows, and I may simply be reading a
+forward you sent for a different reason.
+
+But if Gintare starts from the tender pack she will spend a day rebuilding work that exists. The
+full take-off, the pricing document, the client copy and the proposal all went to you last night at
+21:20 and 22:10. Nothing needs redoing - it needs a decision. Forward those three attachments to her
+and she has everything.
+
+THE STRIP-OUT RATE HAS LANDED, AND IT TAKES THE UNDERCUT AWAY
+
+Yesterday I put GBP 3,000 against strip-out and told you it was a guess because no rate existed.
+There is a rate. It came out of REQ-24 and it is our own: the Brandon Estate tender to Elkins prices
+"Removal of existing frames" at GBP 330,300 over 2,202 units in REV 2 and GBP 198,750 over 1,325 in
+the earlier revision. GBP 150.00 per unit to the penny in both, so it held as the job nearly doubled
+- a rate, not a lump someone eyeballed. It is a SELL rate, off client-facing documents, so it goes
+straight in without a mark-up.
+
+43 units x GBP 150.00 = GBP 6,450. That is GBP 3,450 more than I allowed.
+
+I checked it transfers before I used it, rather than assuming. Brandon's 2,202 units measure
+8,075.8 m2 - an average of 3.667 m2 against Redditch's 3.175 - so this is not a small domestic
+window rate being stretched over commercial units. If anything ours are the smaller. On a per-m2
+basis it is GBP 40.90, which over our 136.53 m2 would give GBP 5,584 instead; I have carried the
+per-unit figure because it is the dearer of the two, because it is how the rate was actually struck,
+and because St Mary's used it the same way this morning.
+
+One caution the other way. Brandon was 2,202 near-identical openings on one estate. Redditch is 41
+different references in an occupied public library with no repetition at all. GBP 150 is a floor
+here, not a ceiling.
+
+WHERE THAT LEAVES THE NUMBER
+
+    TENDER SUM  GBP 93,526.34   gross of 2.5% MCD    (was GBP 89,218.65)
+
+Joedan are GBP 90,687.17 on the same basis. So we are now GBP 2,839.17 ABOVE them, 3.13%, where
+last night we were 1.62% under. The undercut is gone, and it went for a reason I would rather find
+now than after we had won on it.
+
+WHAT IT WOULD TAKE TO GET BACK UNDER THEM
+
+The frame line would have to fall GBP 2,768.19, which is 5.22%. And that is 5.22% on top of a frame
+price that ALREADY assumes we move off BSW to Aplus or 4Ali - the measured supplier spread I applied
+yesterday. Against BSW's own quoted curve the cut needed is 11.77%, and on BSW rates the tender sum
+would be GBP 97,565.72, nearly GBP 6,900 above Joedan.
+
+So the honest position is that we cannot undercut Joedan on this scope with any evidence we hold.
+The only thing that can change it is a real supplier quotation that beats the assumed Aplus position
+by another 5%. The RFQ is written, it is price-free, and it is still sitting with you. SBM would be
+worth adding to it for exactly this reason.
+
+Your three options, plainly: bid at GBP 93,526.34 and be 3.1% above the competitor on a 70/30
+price-quality award; get the RFQ out and see whether a real quote closes a 5.22% gap; or take the
+view that this one is not winnable and put the time into Rubery-type work where we are strong.
+
+AND A GAP THAT IS BIGGER THAN ANY OF THAT
+
+Reading Brandon properly for the strip-out rate showed me what a full Fenster commercial pricing
+document actually carries, and Redditch's carries none of it. Brandon has an Installation Allowances
+block - fixings and ancillaries at GBP 22.58 a unit, and a separate phased installation line - and
+then a Prelims block: site survey, project management, commercial management, technical
+coordination, site supervision, QA certification and handover. GBP 290,250 against GBP 6,906,446 of
+works. 4.20%.
+
+Redditch has no survey line, no supervision line, no project management, no QA handover and no
+phasing allowance. On our net that 4.20% is about GBP 3,830, and the fixings line another GBP 971.
+
+This is an occupied public library, ten weeks, liquidated damages of GBP 1,000 a calendar week,
+windows that cannot be left out over a shift, and a frontage onto a public highway. That is the job
+that most needs a supervision line, and it is the job that has none. I have NOT added them - it
+would take us further above Joedan and it is your call, not mine - but I am not comfortable leaving
+it unsaid.
+
+A CORRECTION IN OUR OWN FAVOUR, AND A TEMPLATE FAULT UNDERNEATH IT
+
+The code adders on this job went up GBP 750 overnight and it was not my doing. Another job measured
+the estimator's own rule across thirty sent quotes: above 6 m2 the adder is the code value at 125%,
+not 75%, because a unit that big is a coupled screen with mullions, transoms and sealing the per-unit
+code was never sized for. Redditch has two such units, refs 19 and 20, and they had been under-earning.
+
+The fault underneath it matters more. The MASTER PRICING DOC's unit rate formula hardcodes "code
+value x 75%" and has no area term in it, so the template CANNOT express that rule. Left alone, the
+spreadsheet's own arithmetic came out GBP 750 below the engine - on the face of a document we would
+have sent. I have carried the difference in the Additional column so the sheet now reconciles to
+GBP 93,526.34 exactly, but that is a patch on this job. Any job with a unit over 6 m2 has the same
+problem, and the template needs the fix once.
+
+TWO SMALLER THINGS FROM THIS MORNING'S FORWARD
+
+Leonard White's original enquiry tells us to "scroll to page 147 Appendix 2" - which is Joedan's
+priced quotation. Pride have handed us the competitor's rates and pointed us at them as the scope
+document. Worth knowing that our number is being read against a document they gave us.
+
+His enquiry is addressed FAO Paul Taylor, not to estimating.
+
+CHECKS
+
+mary_checks passes on all rules - after failing one this morning that it used to pass, correctly.
+Another job widened the fabricator rule, and it caught that our manifest recorded "Joedan
+Manufacturing - their own system, not available to Fenster" against both specified systems. That is
+a statement that nobody can build what we are selling. The manifest now records what we are actually
+quoting - a thermally broken 75mm system as the contractor's designed alternative - and the fact
+that the specified systems are the competitor's own stays where it belongs, in the exposures.
+
+STILL WITH YOU, UNCHANGED FROM LAST NIGHT
+
+  1. Send the RFQ, and to whom. It is now the only thing that can move the price.
+  2. Pride's real deadline from Leonard White.
+  3. Whether Fenster or Pride carries the contractor's design portion and its PI.
+  4. The two house T&C clauses - 30-day validity against a 10-week tender, and a 50% deposit
+     against a JCT with retention.

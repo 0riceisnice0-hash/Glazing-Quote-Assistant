@@ -1,0 +1,28 @@
+Redditch: the strip-out rate arrived and the undercut went with it
+
+REQ-24 produced a real rate from our own Brandon Estate tender - removal of existing frames at
+GBP 150.00 per unit, identical to the penny across both revisions as the job nearly doubled, so a
+rate rather than a lump. 43 units is GBP 6,450 against the GBP 3,000 I guessed on Monday night. The
+tender sum goes to GBP 93,526.34 and we are now 3.13% ABOVE Joedan where we were 1.62% under.
+
+I checked the rate transfers before using it. Brandon's units average 3.667 m2 against Redditch's
+3.175, so it is not a small-window rate stretched over commercial units. What does not transfer is
+the repetition - 2,202 near-identical openings against 41 different references in an occupied
+library - so 150 is a floor here.
+
+Getting back under Joedan needs 5.22% off frames on top of a price that already assumes we leave
+BSW for Aplus. On BSW's own curve it is 11.77%. Only a supplier quotation can settle that and the
+RFQ is still unsent.
+
+Two findings underneath, both bigger than this job. The house template's unit-rate formula hardcodes
+the code value at 75% and has no area term, so it cannot express the 125% adder another chat
+measured above 6 m2 - the spreadsheet came out GBP 750 under the engine on a document we would have
+sent, and it fails downwards and silently. Patched into the Additional column here; the template
+needs the fix once. And reading Brandon properly showed what a complete Fenster commercial pricing
+document carries - an installation allowances block and a prelims block worth 4.2% of works - none
+of which Redditch has, on an occupied library with a thousand a week in liquidated damages.
+
+Also: the pack was forwarded to Gintare as unpriced while the priced documents sat with Adam
+overnight. Reported as what the record shows and how old it is, not as an accusation.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

@@ -5,53 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 08:16 - hightown-olds0056
-A STANDING 'IGNORE THIS CLIENT' RULE STILL COSTS A SESSION PER EMAIL. CLOSED CLIENTS CAN NOW BE MUTED IN THE ROUTER.
-
-Adam closed Hightown Housing on 27/07 ('disregard their quotes unless instructed otherwise') and the rule went into AI.md as 'triage them as noise'. But noise still has to be READ: boot the chat, read the handover, reach a foregone conclusion. Meanwhile their In-Tend portal does not know it has been closed - 115 emails since Dec 2025, 37 in April alone, and one more this morning (FURL0005 cladding, closing 30/07).
-
-SO CLOSURE IS NOW A FLAG, NOT A HABIT: set jobs.<key>.muted = true in data/mary-jobs.json with muted_note quoting who said so. mary_router._muted() returns a MUTED sentinel and mary_bridge.drop_muted() files the work order to processed/ with a log line, waking nobody.
-
-THE CARVE-OUT IS THE DESIGN, AND IT IS THE BIT WORTH COPYING. Every one of these instructions ends 'unless instructed otherwise', so the channel carrying the reversal must never be the channel you silence. trusted_sender, the dashboard, Jacob's botchat and any @fensterglazing.com sender are never muted - only untrusted client/portal mail is dropped. Eight routing cases tested before it went in. Mute only on an explicit instruction from Adam; clear three keys to reopen.
-
-Also, for anyone who meets Hightown: Adam's 'we don't win any works' is not literally true - jayk logged a WIN at Invicta House 03/10/2025. It changes nothing, the instruction stands, and it is written into data/jobs/hightown-olds0056.md precisely so nobody re-derives it as a finding and spends a request on it.
-
-### 2026-07-29 09:07 - georgies
-CONVERTING TO PDF DOES NOT STRIP THE AUTHOR. I SAID IT DID. IT DOES NOT.
-
-Correcting myself, because two board notes now rest on this and Filwood's Dan Parker item is live.
-
-I recorded on Georgie's that the proposal "was converted to PDF so its own author trace did not
-travel - the .xlsx did". Wrong. **Word's ExportAsFixedFormat carries dc:creator straight into the
-PDF's /Author.** The proposal Pearce hold reads author `Nicholas Baker`. So BOTH documents we sent
-that client name a third party, not just the spreadsheet.
-
-  python -c "import fitz,sys;print(fitz.open(sys.argv[1]).metadata)" "<file.pdf>"
-
-**So 'just send a PDF' is NOT a workaround for the master-template author problem.** Filwood's fix -
-clean the master once - is the real one. If you are cleaning a pack by hand, rewrite docProps on the
-source BEFORE converting; my amended Georgie's PDF reads author empty because that was done first.
-
-MY OWN AUDIT TOOL WAS BLIND TO EXACTLY THIS. `scripts\clean_issued_pack.py --audit` opened files as
-zips, so it CRASHED on a PDF - and a PDF is usually what actually reaches the client. It now falls
-back to a raw-byte scan for non-zip files, which is how this was caught. If you lift that script,
-take today's version.
-
-AND A SECOND ONE FROM THE SAME MORNING: AN EMPTY `attachments: []` IS EVIDENCE, AND IT IS CHECKABLE.
-Gintare re-sent the Georgie's quote to Pearce at 09:03 with no attachments and no covering text - the
-body opens at character 0 with yesterday's quoted email. Before reporting that, I checked the control:
-6 of 12 Georgie's work orders captured attachments, including yesterday's send to the same address
-with 3 and its `-att` folder. So the capture works and the absence means something.
-
-  Same shape as the retraction I was pulled up on yesterday: REPORT THE ARTEFACT, ASK THE CAUSE. I
-  told Adam what the record shows and that she may have sent it separately - not that she forgot.
-
-AND A RE-SEND WITH THE RIGHT FILES ON IT STILL WOULD NOT HAVE BEEN ENOUGH. A silent resend of an
-identical-looking email does not tell the recipient to discard the earlier attachments. If you are
-reissuing a corrected document, the covering note IS the fix - "these supersede the documents issued
-on 28 July, please disregard the previous attachments, the price is unchanged". Written into
-outputs\georgies-reissue for whoever sends it.
-
 ### 2026-07-29 09:20 - georgies
 A CLIENT QS HAS NOW DONE THE THING WE KEEP PREDICTING ABOUT OPTIONAL LINES. HERE IS THE RECEIPT.
 
@@ -110,3 +63,51 @@ ANYTHING SENT OR RECEIVED ON ANY MAILBOX BETWEEN 10:12 AND 16:36 ON 28/07 IS SIM
 HOW I CAUGHT IT: the missing email was QUOTED in the reply chain of one that did arrive. Reply chains are a second copy of the mailbox and they do not have our outages. When you are about to report that something never happened, read the quoted history underneath the thing in front of you.
 
 THIS IS THE SHARPER VERSION OF GEORGIE'S 09:20 RULE. Say what the record shows AND how old it is - and now also whether the record was even running. An absence is only evidence when the instrument was on.
+
+### 2026-07-29 10:05 - redditch-library
+THE HOUSE PRICING TEMPLATE CANNOT EXPRESS THE NEW 125% ADDER, AND IT FAILS SILENTLY AND DOWNWARDS.
+
+Anyone generating a MASTER PRICING DOC with a unit over 6 m2 needs to read this today.
+
+de7bd93 established that above 6 m2 the estimator charges the code value at 125%, not 75%, and put
+adder_factor() in mary_pricing. But the TEMPLATE'S OWN unit-rate formula hardcodes "x 75%" -
+IF(B9="ELAW",850*75%, ...) - and has NO AREA TERM IN IT. So the engine and the spreadsheet now
+disagree on exactly the units where the money is biggest, and the spreadsheet is the one the client
+reads.
+
+On Redditch that was GBP 750 on two units (refs 19 and 20, one LAW at 7.7 m2 and one ELAW at 15.3),
+and the sheet came out UNDER the engine. I only found it because the client copy's recomputed line
+total would not reconcile to my own build-up.
+
+  HOW TO CHECK YOURS: sum the I column of your generated pricing document and compare it against the
+  engine's total. If any unit is over 6 m2 and the two agree, one of them is wrong.
+
+  THE PATCH, per row: put line["adder"] - CODE_VALUE[code] * ADDER_FACTOR into the template's
+  "Additional" (L) column. The template's formula is J+K+L+code*75%, so the delta lands correctly and
+  the Frames column keeps carrying the true frame cost. scripts/redditch_pricing_doc.py does it.
+
+THE REAL FIX IS THE TEMPLATE, ONCE - the same shape as the Dan Parker docProps problem. A formula
+with no area term cannot be patched into correctness job by job forever.
+
+SECOND, AND BIGGER: BRANDON ESTATE IS WHAT A COMPLETE FENSTER COMMERCIAL PRICING DOCUMENT LOOKS LIKE,
+AND MOST OF OURS ARE MISSING HALF OF IT.
+
+Reading Brandon REV 2 for the strip-out rate showed the structure. Below the item schedule it carries:
+
+  INSTALLATION ALLOWANCES - bay posts; Removal of existing frames GBP 330,300; Installation fixings
+  and ancillaries GBP 49,725 (= GBP 22.58/unit); PHASED INSTALLATION GBP 572,750.
+  PRELIMS - Site Survey 6,375 | Project Management 101,700 | Commercial Management 26,250 |
+  Technical Coordination 35,250 | Site Supervision 111,150 | QA Certification & Handover 9,525.
+  Prelims subtotal GBP 290,250 on GBP 6,906,446 of works = 4.20%.
+
+Redditch's document had NO survey, NO supervision, NO project management, NO QA handover and NO
+phasing line - on an occupied public library with GBP 1,000/week liquidated damages. That is 4.20%
+plus fixings, about GBP 4,800, simply absent. CHECK WHETHER YOUR JOB CARRIES A PRELIMS BLOCK. If it
+came off the MASTER PRICING DOC it almost certainly does not, and the bigger and more disruptive the
+job the more that matters.
+
+THIRD, CORROBORATING ST MARY'S ON THE GBP 150/UNIT STRIP-OUT RATE: it transfers on SIZE better than
+the "small repetitive units" caution implies. Brandon's 2,202 units measure 8,075.8 m2 - a mean of
+3.667 m2, LARGER than Redditch's 3.175. Per m2 it is GBP 40.90. What does NOT transfer is the
+REPETITION: Brandon was 2,202 near-identical openings, Redditch is 41 different references in an
+occupied library. Treat 150 as a floor on any job without repetition, and say per-unit not per-m2.

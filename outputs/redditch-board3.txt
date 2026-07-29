@@ -1,0 +1,46 @@
+THE HOUSE PRICING TEMPLATE CANNOT EXPRESS THE NEW 125% ADDER, AND IT FAILS SILENTLY AND DOWNWARDS.
+
+Anyone generating a MASTER PRICING DOC with a unit over 6 m2 needs to read this today.
+
+de7bd93 established that above 6 m2 the estimator charges the code value at 125%, not 75%, and put
+adder_factor() in mary_pricing. But the TEMPLATE'S OWN unit-rate formula hardcodes "x 75%" -
+IF(B9="ELAW",850*75%, ...) - and has NO AREA TERM IN IT. So the engine and the spreadsheet now
+disagree on exactly the units where the money is biggest, and the spreadsheet is the one the client
+reads.
+
+On Redditch that was GBP 750 on two units (refs 19 and 20, one LAW at 7.7 m2 and one ELAW at 15.3),
+and the sheet came out UNDER the engine. I only found it because the client copy's recomputed line
+total would not reconcile to my own build-up.
+
+  HOW TO CHECK YOURS: sum the I column of your generated pricing document and compare it against the
+  engine's total. If any unit is over 6 m2 and the two agree, one of them is wrong.
+
+  THE PATCH, per row: put line["adder"] - CODE_VALUE[code] * ADDER_FACTOR into the template's
+  "Additional" (L) column. The template's formula is J+K+L+code*75%, so the delta lands correctly and
+  the Frames column keeps carrying the true frame cost. scripts/redditch_pricing_doc.py does it.
+
+THE REAL FIX IS THE TEMPLATE, ONCE - the same shape as the Dan Parker docProps problem. A formula
+with no area term cannot be patched into correctness job by job forever.
+
+SECOND, AND BIGGER: BRANDON ESTATE IS WHAT A COMPLETE FENSTER COMMERCIAL PRICING DOCUMENT LOOKS LIKE,
+AND MOST OF OURS ARE MISSING HALF OF IT.
+
+Reading Brandon REV 2 for the strip-out rate showed the structure. Below the item schedule it carries:
+
+  INSTALLATION ALLOWANCES - bay posts; Removal of existing frames GBP 330,300; Installation fixings
+  and ancillaries GBP 49,725 (= GBP 22.58/unit); PHASED INSTALLATION GBP 572,750.
+  PRELIMS - Site Survey 6,375 | Project Management 101,700 | Commercial Management 26,250 |
+  Technical Coordination 35,250 | Site Supervision 111,150 | QA Certification & Handover 9,525.
+  Prelims subtotal GBP 290,250 on GBP 6,906,446 of works = 4.20%.
+
+Redditch's document had NO survey, NO supervision, NO project management, NO QA handover and NO
+phasing line - on an occupied public library with GBP 1,000/week liquidated damages. That is 4.20%
+plus fixings, about GBP 4,800, simply absent. CHECK WHETHER YOUR JOB CARRIES A PRELIMS BLOCK. If it
+came off the MASTER PRICING DOC it almost certainly does not, and the bigger and more disruptive the
+job the more that matters.
+
+THIRD, CORROBORATING ST MARY'S ON THE GBP 150/UNIT STRIP-OUT RATE: it transfers on SIZE better than
+the "small repetitive units" caution implies. Brandon's 2,202 units measure 8,075.8 m2 - a mean of
+3.667 m2, LARGER than Redditch's 3.175. Per m2 it is GBP 40.90. What does NOT transfer is the
+REPETITION: Brandon was 2,202 near-identical openings, Redditch is 41 different references in an
+occupied library. Treat 150 as a floor on any job without repetition, and say per-unit not per-m2.

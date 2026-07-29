@@ -48,10 +48,25 @@ SECOND_SUPPLIER = APLUS_FACTOR / BSW_FACTOR      # 0.9309
 
 MASTIC_RATE = 5.0                # GBP/linear metre - js/pricing.js masticRate
 MCD = 0.025                      # to mirror Joedan's commercial terms
-STRIP_OUT_ALLOWANCE = 3000.00    # ALLOWANCE, NOT A RATE. No strip-out rate
-                                 # exists anywhere in Fenster's records - 362
-                                 # archive workbooks searched 28/07. Adam's to
-                                 # confirm or move (REQ-24).
+
+# STRIP-OUT. This was a GBP 3,000 guess on 28/07 because no rate existed. It is
+# now a rate, and it came off REQ-24: Fenster's own client pricing document for
+# Brandon Estate (Elkins) carries "Removal of existing frames" at GBP 330,300
+# over 2,202 units in REV 2, and GBP 198,750 over 1,325 in the earlier revision
+# - GBP 150.00 per unit to the penny in both, so a per-unit rate held as the job
+# doubled, not a lump. It is a SELL rate: both figures are off client-facing
+# documents. Applied per unit for consistency with St Mary's, which used the
+# same rate the same morning.
+#
+# It transfers well, which had to be checked rather than assumed. Brandon's
+# 2,202 units measure 8,075.8 m2, a mean of 3.667 m2 - LARGER than Redditch's
+# 3.175 - so this is not a small-domestic-window rate being stretched over
+# commercial units. Per m2 it is GBP 40.90, which over Redditch's 136.53 m2
+# would give GBP 5,584.07 instead; the per-unit basis is the dearer of the two
+# and is the one carried.
+# The rate lives in the engine as of 29/07 (mary_pricing.strip_out), so take it
+# from there rather than retyping it - that is the whole point of one engine.
+STRIP_OUT_PER_UNIT = engine.STRIP_OUT_PER_UNIT
 
 JOEDAN_GROSS = 90687.17          # Appendix 2, JCQ.9727, gross of 2.5% MCD
 JOEDAN_NET = JOEDAN_GROSS * (1 - MCD)
@@ -102,6 +117,15 @@ def build():
             "qty": 1,
             "unit": "nr",
             "frames": round(line["supply"], 2),
+            # The MASTER PRICING DOC's unit-rate formula hardcodes "code value
+            # x 75%". The engine now charges 125% above 6 m2 (mary_pricing
+            # adder_factor, measured 29/07 across 30 sent quotes), and the
+            # template CANNOT express that - its formula has no area term. So
+            # the difference is carried in the "Additional" column, which is
+            # what that column is for. Without this the sheet's own arithmetic
+            # comes out GBP 750 under the engine on this job, and silently.
+            "additional": round(line["adder"]
+                                - engine.CODE_VALUE.get(code, 0) * engine.ADDER_FACTOR, 2),
         })
 
     area_total = sum(w * h for _, w, h, *_r in SCHEDULE) / 1e6
@@ -134,13 +158,16 @@ def build():
                             "bronze anti-sun toughened throughout, per specification cl.8.",
         "size": "%.2f m2" % area_total, "qty": 1, "unit": "item",
         "unitRateOverride": round(solar, 2)})
+    so = engine.strip_out(len(SCHEDULE))
+    strip_out = so["total"]
     rows.append({
         "code": "", "desc": "Strip out of the existing metal framed windows and doorsets, "
                             "set down on site for disposal by the main contractor.",
-        "size": "43 openings", "qty": 1, "unit": "item",
-        "unitRateOverride": round(STRIP_OUT_ALLOWANCE, 2)})
+        "size": "%d nr @ GBP %.2f" % (len(SCHEDULE), STRIP_OUT_PER_UNIT),
+        "qty": 1, "unit": "item",
+        "unitRateOverride": round(strip_out, 2)})
 
-    net_subtotal = frames + adders + installation + solar + mastic + STRIP_OUT_ALLOWANCE
+    net_subtotal = frames + adders + installation + solar + mastic + strip_out
     mcd_uplift = net_subtotal * (1 / (1 - MCD) - 1)
     gross = net_subtotal + mcd_uplift
 
@@ -149,14 +176,15 @@ def build():
     # across the rates pro rata, into the template's "Additional" column so the
     # "Frames" column keeps carrying the true frame cost. Installation is a
     # template formula and cannot be grossed, so its share rides on the rows.
-    line_net = [r.get("frames", 0) + engine.CODE_VALUE.get(r["code"], 0) * engine.ADDER_FACTOR
+    line_net = [r.get("frames", 0) + r.get("additional", 0)
+                + engine.CODE_VALUE.get(r["code"], 0) * engine.ADDER_FACTOR
                 if r.get("code") else r["unitRateOverride"] for r in rows]
     base = sum(line_net)
     shares = [round(mcd_uplift * v / base, 2) for v in line_net]
     shares[-1] = round(shares[-1] + (mcd_uplift - sum(shares)), 2)  # penny residual
     for r, share in zip(rows, shares):
         if r.get("code"):
-            r["additional"] = share
+            r["additional"] = round(r.get("additional", 0) + share, 2)
         else:
             r["unitRateOverride"] = round(r["unitRateOverride"] + share, 2)
 
@@ -164,7 +192,8 @@ def build():
         "rows": rows, "lines": lines, "area_m2": area_total,
         "perimeter_m": perimeter_m, "frames": frames, "adders": adders,
         "installation": installation, "solar": solar, "mastic": mastic,
-        "strip_out": STRIP_OUT_ALLOWANCE, "net_subtotal": net_subtotal,
+        "strip_out": strip_out, "strip_out_source": so["provenance"],
+        "net_subtotal": net_subtotal,
         "mcd_uplift": mcd_uplift, "gross": gross,
     }
 
@@ -233,8 +262,8 @@ def main():
     print("  solar control glazing                  %12s" % "{:,.2f}".format(b["solar"]))
     print("  perimeter sealing (%.0f lin m x %.2f)  %12s"
           % (b["perimeter_m"], MASTIC_RATE, "{:,.2f}".format(b["mastic"])))
-    print("  strip out ALLOWANCE (not a rate)       %12s   = GBP %.2f per opening"
-          % ("{:,.2f}".format(b["strip_out"]), b["strip_out"] / 43))
+    print("  strip out (%d nr x GBP %.2f)            %12s"
+          % (len(SCHEDULE), STRIP_OUT_PER_UNIT, "{:,.2f}".format(b["strip_out"])))
     print("  " + "-" * 40)
     print("  net                                    %12s" % "{:,.2f}".format(b["net_subtotal"]))
     print("  add 2.5%% Main Contractor's Discount    %12s" % "{:,.2f}".format(b["mcd_uplift"]))

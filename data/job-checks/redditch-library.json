@@ -397,21 +397,21 @@
  "_full_height_screens_note": "Empty after checking the three candidates on the elevations, not by default. Ref 19 (17000x900) and ref 20 (7000x1100) are the two big ones, and both are high-level ribbons - 900mm and 1100mm tall - so they are window bands in a wall, not floor-to-ceiling screens, and the Greenfields curtain-walling convention does not reach them. Refs 16, 17 and 18 are the stair glazing at 2250x2304 and they are the closest call: stair screens are exactly what Greenfields was about. Rendered Elevation A at 200dpi to settle it - each is a discrete glazed band with solid wall above the head and below the cill, not glazing from floor to soffit. Priced as MAW windows. If they were treated as curtain walling instead, GBP850+150/m2 over 15.55 m2 gives GBP 15,552 against the GBP 8,509 carried here, so this judgement is worth about GBP 7,000 and is the single line most worth a second opinion.",
  "systems_specified": [
   {
-   "system": "EL75mm Squareline",
-   "fabricator": "Joedan Manufacturing (UK) Ltd - their own system, not available to Fenster",
+   "system": "Thermally broken 75mm aluminium casement system - Sheerline Prestige or equivalent, tendered as the Contractor's Designed Portion alternative under Gleeds 3.5.3 cl.3",
+   "fabricator": "BSW Systems Ltd fabricate Sheerline Prestige and have quoted it to Fenster within the last six weeks; A Plus, 4Ali and SBM Glazing all fabricate an equivalent thermally broken 75mm system. RFQ written and not yet sent.",
    "performance": {
     "required": "1.4 W/m2K area-weighted average across the windows (Gleeds 3.5.3 cl.7)",
     "capable": true,
-    "evidence": "Joedan state it in their own quotation JCQ.9727 cl.7 and Gleeds have adopted the sentence verbatim into the specification. Not our route to market: Fenster would tender an alternative under the Contractor's Designed Portion, which Gleeds expressly permit at 3.5.3 cl.3 subject to a compliance specification with the tender return and CA/Client written approval. 1.4 area-weighted is an undemanding target for any thermally broken 70-75mm system - Sheerline Prestige and Smart Alitherm 400 both clear it - so this is a commercial and PI question, not a technical one."
+    "evidence": "BSW QT250834, 15/06/2026 - a live Sheerline Prestige quotation to Fenster for Pride Developments' Severn Trent job, six lines reconciling to GBP 34,902.35. It is a current, buyable product and the whole Redditch frame price is built off its rate curve. 1.4 W/m2K area-weighted is an undemanding target for any thermally broken 70-75mm system. THIS IS THE SYSTEM FENSTER IS SELLING; it is not what the tender names, and that gap is recorded in exposures."
    }
   },
   {
-   "system": "AC100 Commercial",
-   "fabricator": "Joedan Manufacturing (UK) Ltd - their own system, not available to Fenster",
+   "system": "Commercial aluminium doorsets in the SAME thermally broken 75mm system as the windows (refs 32.2, 34.2, 37, 39, 41)",
+   "fabricator": "Whoever fabricates the window system above - the doorsets must come from the same fabricator in the same depth, because refs 32 and 34 couple a window frame directly to a door frame.",
    "performance": {
     "required": "3.0 W/m2K area-weighted average across the doors (Gleeds 3.5.3 cl.7)",
     "capable": true,
-    "evidence": "Explicitly a NON-THERMAL high-traffic aluminium door, and 3.0 W/m2K is the number a non-thermal door gives. Worth knowing which way this one points: our usual SMA Smart Wall is 1.8 W/m2K on SMA's own datasheet, so for once the house system comfortably BEATS the specified performance rather than failing it. This is the opposite of SM5 Wexham and St Mary's."
+    "evidence": "3.0 W/m2K is the figure a NON-thermal commercial door gives, which is what the tender specifies. Taking the doors in a thermally broken system instead - which the coupling at refs 32 and 34 forces - beats that requirement rather than risking it. For scale, SMA Smart Wall is 1.8 W/m2K on SMA's own datasheet. This is the opposite of SM5 Wexham and St Mary's, where the house system fell short of the spec."
    }
   }
  ],
@@ -466,26 +466,26 @@
  "priced_lines": [
   {
    "ref": "43 window and door lines, supply and fit (refs 1-41, with 32 and 34 split)",
-   "amount": 82653.2,
+   "amount": 83414.98,
    "covered_by_our_exclusions": false
   },
   {
    "ref": "Perimeter sealing - external low modulus mastic to all frame/structure joints, 314.29 lin m, INCLUDING the 45mm white cellular uPVC cloaking profile to the internal perimeter",
-   "amount": 1615.64,
+   "amount": 1615.44,
    "covered_by_our_exclusions": false
   },
   {
    "ref": "Solar-control glazing - 4mm bronze anti-sun toughened outer pane, 136.53 m2 x GBP 13.29/m2",
-   "amount": 1865.53,
+   "amount": 1865.31,
    "covered_by_our_exclusions": false
   },
   {
-   "ref": "Strip out of the existing metal framed windows and doorsets, set down for disposal by the main contractor - ALLOWANCE, NOT A RATE",
-   "amount": 3084.28,
+   "ref": "Strip out of the existing metal framed windows and doorsets, set down for disposal by the main contractor - 43 nr at GBP 150.00/unit, Fenster's own Brandon Estate rate (REQ-24)",
+   "amount": 6630.61,
    "covered_by_our_exclusions": false
   }
  ],
- "_priced_lines_note": "Rewritten 28/07 evening for the CLIENT-FACING pricing document, which is a different animal from the internal take-off it replaces. Adam's instruction of 19:43 was to match Joedan's inclusions and exclusions, and Joedan's clause 12 INCLUDES removal of the existing elements - so strip-out has moved from excluded to priced, and it is the only line in the document that is not evidence-backed. GBP 3,000 net is an ALLOWANCE Adam must confirm (REQ-24); no strip-out rate exists in Fenster's records and 362 archive workbooks were searched for one. Amounts shown are gross of the 2.5% MCD spread pro rata across the rates, which is why they differ from the net build-up in outputs/redditch-pricing.json. Read the exclusions against the priced lines one by one and none collides. The two checked hardest: 'making good internally' stays EXCLUDED but the exclusion is now qualified on the face of the proposal as 'beyond the cloaking profile described above', because Joedan's cl.13 cloaking profile is their answer to the same clause and we now carry it too. And perimeter mastic is PRICED and INSIDE the total, not offered as an optional extra - that is the Princess Beatrice REQ-6 error, and pack p70 cl.11 requires it, so it must never be optional here.",
+ "_priced_lines_note": "Rewritten 28/07 evening for the CLIENT-FACING pricing document, which is a different animal from the internal take-off it replaces. Adam's instruction of 19:43 was to match Joedan's inclusions and exclusions, and Joedan's clause 12 INCLUDES removal of the existing elements - so strip-out has moved from excluded to priced, and it is the only line in the document that is not evidence-backed. STRIP-OUT NOW HAS A RATE AND IS NO LONGER AN ALLOWANCE: GBP 150.00 per unit, 43 units, GBP 6,450 net. It came off REQ-24 - Fenster's own client pricing document for Brandon Estate (Elkins) carries 'Removal of existing frames' at GBP 330,300 over 2,202 units in REV 2 and GBP 198,750 over 1,325 in the earlier revision, GBP 150.00 to the penny in both, so a per-unit rate held as the job doubled. It is a SELL rate off client-facing documents, so it is not marked up. Checked for transferability rather than assumed: Brandon's 2,202 units average 3.667 m2 against Redditch's 3.175, so it is not a small-window rate stretched over commercial units - though Brandon had 2,202 near-identical openings and Redditch has 41 different references in an occupied library, so 150 is a floor here. Amounts shown are gross of the 2.5% MCD spread pro rata across the rates, which is why they differ from the net build-up in outputs/redditch-pricing.json. Read the exclusions against the priced lines one by one and none collides. The two checked hardest: 'making good internally' stays EXCLUDED but the exclusion is now qualified on the face of the proposal as 'beyond the cloaking profile described above', because Joedan's cl.13 cloaking profile is their answer to the same clause and we now carry it too. And perimeter mastic is PRICED and INSIDE the total, not offered as an optional extra - that is the Princess Beatrice REQ-6 error, and pack p70 cl.11 requires it, so it must never be optional here.",
  "bought_in_lines": [],
  "warranty": {
   "ours": {
@@ -574,5 +574,6 @@
  ],
  "own_domains": [
   "fensterglazing.com"
- ]
+ ],
+ "_systems_specified_note": "REWRITTEN 29/07 after the vesuvius chat widened check_fabricator_can_make_it. This field previously listed the TENDER's two systems - EL75mm Squareline and AC100 Commercial - with the fabricator recorded as 'Joedan Manufacturing (UK) Ltd - their own system, not available to Fenster'. That is a statement that NOBODY CAN MAKE WHAT WE ARE SELLING, and it was passing a check that exists to catch precisely that, because the old rule only tested whether the field was non-empty. The widened rule is right and the failure was real. The field now records what FENSTER IS ACTUALLY QUOTING - a thermally broken 75mm system tendered as the Contractor's Designed Portion alternative that Gleeds 3.5.3 cl.3 expressly permits - because the check asks whether the thing we are selling can be built, not whether the thing the client wrote down can be. That the specified systems are the competitor's own and cannot be bought by us remains recorded, with its CDP and PI consequences, in 'exposures'."
 }

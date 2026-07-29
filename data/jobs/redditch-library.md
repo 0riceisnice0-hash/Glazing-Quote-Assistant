@@ -11,7 +11,7 @@
 | **Our position** | Window and door **sub-contractor to Pride**, who are bidding to Gleeds as main contractor. Our offer goes to Pride, not to Gleeds. |
 | **Tender pack** | BLBS0956 v01, May 2026, 254 pages. `Commercial\1. Tender Documents\Pride Developments\Redditch Library` and in the work-order attachment folder. |
 | **Deadline** | **NOT SET - do not invent one.** Leonard White, 22/07: acknowledge and "submit your tender back asap", no date. The pack's 12 noon Friday **26 June 2026** is GLEEDS' date to the main contractors and it has passed. Adam has been asked to get Pride's real date. |
-| **Live number** | **TENDER SUM GBP 89,218.65, gross of 2.5% MCD, ex VAT** - the client-facing pricing document, built 28/07 21:30 on Adam's instruction. Net to Pride GBP 86,988.18. Undercuts Joedan's GBP 90,687.17 by **GBP 1,468.52 (1.62%)**. INCLUDES strip-out at a GBP 3,000 allowance. **BENCHMARK, and nothing issued to anyone.** |
+| **Live number** | **TENDER SUM GBP 93,526.34, gross of 2.5% MCD, ex VAT** (net GBP 91,188.18) - revised 29/07 when the strip-out rate landed. **GBP 2,839.17 ABOVE Joedan's GBP 90,687.17, +3.13%. THE UNDERCUT IS GONE.** Strip-out now priced at the real rate, 43 nr x GBP 150.00 = GBP 6,450, against the GBP 3,000 allowance guessed on 28/07. **BENCHMARK, and nothing issued to anyone.** |
 
 ## Where it stands
 
@@ -392,3 +392,109 @@ Three points, all evidenced: (1) replace the band median with a fitted curve per
 what collapses margin from 50.7% to 12.2% as units grow; (3) Fenster has **two pricing routes that
 do not agree** - the MASTER PRICING DOC with per-unit labour codes, and whatever produced the Rubery
 quotation, which carries labour as a single **GBP 1,620 ancillary line**. Same client, same year.
+
+
+## 29/07 09:10 - the strip-out rate landed and took the undercut with it
+
+Work order: Adam 08:51 forwarded Leonard White's original 22/07 enquiry to **estimating@ / Gintare**,
+cc commercial@, *"Can we look at this one urgently please, it got missed and has been with us for 6
+days!"* No new information in it - it is the same chain that reached this chat on 28/07.
+
+**FLAGGED TO ADAM, CAREFULLY.** As at 09:05 the record shows the pack being pushed to Gintare as
+unpriced, while a full take-off, pricing document, client copy and proposal have been sitting with
+Adam since 21:20 and 22:10 last night. Reported as *what the record shows and how old it is* - the
+Georgie's 09:20 rule - not as "Adam forgot". Offered the fix: forward the three attachments to her.
+
+### The number moved, twice, and only one movement was mine
+
+| | GBP |
+|---|---|
+| frames (second-supplier basis) | 53,057.22 |
+| house code adders | **20,625.00** (was 19,875.00) |
+| installation (fit only) | 7,670.00 |
+| solar-control glazing | 1,814.51 |
+| perimeter sealing | 1,571.45 |
+| **strip out - 43 nr x GBP 150.00** | **6,450.00** (was a 3,000 guess) |
+| net | 91,188.18 |
+| add 2.5% MCD | 2,338.16 |
+| **TENDER SUM** | **93,526.34** |
+
+**STRIP-OUT NOW HAS A RATE, FROM REQ-24 VIA THE ST MARY'S CHAT.** Fenster's own Brandon Estate
+tender to Elkins: *"Removal of existing frames"* **GBP 330,300 / 2,202 units** in REV 2 and
+**GBP 198,750 / 1,325** in the earlier revision - **GBP 150.00 per unit to the penny in both**, so a
+per-unit rate held as the job nearly doubled. A **SELL** rate off client-facing documents, so not
+marked up. Taken from `mary_pricing.strip_out()` rather than retyped.
+
+**TRANSFERABILITY CHECKED, NOT ASSUMED.** Read Brandon REV 2 at source: **2,202 units, 8,075.8 m2,
+mean 3.667 m2** against Redditch's **3.175**. So it is *not* a small-domestic-window rate stretched
+over commercial units - ours are the smaller. Per m2 it is **GBP 40.90**, which over 136.53 m2 gives
+GBP 5,584.08; the per-unit basis is the dearer and is what is carried, consistent with St Mary's.
+**What does not transfer is the repetition** - Brandon was 2,202 near-identical openings, Redditch is
+41 different references in an occupied library. **GBP 150 is a floor here.**
+
+**THE ADDERS ROSE GBP 750 AND IT WAS NOT MY DOING.** Commit `de7bd93` from another chat measured the
+estimator's own rule across 30 sent quotes: **above 6 m2 the adder is the code value at 125%, not
+75%.** Redditch has exactly two such units - ref 20 at 7.7 m2 (LAW 650) and ref 19 at 15.3 m2
+(ELAW 850) - and 650x0.5 + 850x0.5 = **750.00 exactly**. Fully accounted for; nothing unexplained.
+
+### THE UNDERCUT IS GONE, AND WHAT IT WOULD TAKE TO GET IT BACK
+
+**GBP 93,526.34 against Joedan's GBP 90,687.17 = GBP 2,839.17 ABOVE, +3.13%.** Last night we were
+1.62% under, on a GBP 3,000 strip-out guess.
+
+- Frames would have to fall **GBP 2,768.19 = 5.22%** - and that is *on top of* a frame price that
+  already assumes we move off BSW to Aplus/4Ali.
+- **On BSW's own quoted curve** the tender sum is **GBP 97,565.72**, GBP 6,878.55 above Joedan, and
+  the cut needed is **11.77%**.
+- So **no evidence we hold can undercut Joedan on this scope.** Only a real supplier quotation
+  beating the assumed Aplus position by another 5% can. **The RFQ is still with Adam, unsent.**
+
+### THE GAP THAT IS BIGGER THAN THE UNDERCUT - WE CARRY NO PRELIMS AT ALL
+
+Reading Brandon for the strip-out rate exposed what a complete Fenster commercial pricing document
+carries. Below the item schedule, Brandon REV 2 has:
+
+- **INSTALLATION ALLOWANCES** - bay posts 50,400; Removal of existing frames 330,300; **Installation
+  fixings and ancillaries 49,725 (= GBP 22.58/unit)**; **PHASED INSTALLATION 572,750**.
+- **PRELIMS** - Site Survey 6,375 | Project Management 101,700 | Commercial Management 26,250 |
+  Technical Coordination 35,250 | Site Supervision 111,150 | QA Certification & Handover 9,525.
+  **Subtotal GBP 290,250 on GBP 6,906,445.63 of works = 4.203%.**
+
+**Redditch has none of it.** No survey, no supervision, no project management, no QA handover, no
+phasing allowance - on an **occupied public library, 10 weeks, LDs of GBP 1,000 a calendar week**,
+windows that cannot be left out over a shift, and a public-highway frontage. On our net, 4.203% is
+**GBP 3,832.27**, and the fixings line another **GBP 971.01**. **NOT ADDED** - it would take us
+further above Joedan and it is Adam's commercial call - but stated to him rather than left silent.
+
+### A TEMPLATE FAULT THAT WOULD HAVE SHIPPED SILENTLY
+
+The MASTER PRICING DOC's unit-rate formula hardcodes `code value x 75%` and **has no area term**, so
+it **cannot express** the new 125% rule. Left alone, the spreadsheet's own arithmetic came out
+**GBP 750 BELOW the engine on the face of a document we would have sent**. Caught only because the
+client copy's line sum would not reconcile to the build-up.
+
+**Patched here** by carrying `line["adder"] - CODE_VALUE[code] * ADDER_FACTOR` in the template's
+**Additional (L)** column - the formula is `J+K+L+code*75%`, so the delta lands correctly and Frames
+keeps the true frame cost. Sheet now reconciles to GBP 93,526.34 exactly. **The real fix is the
+template, once** - a formula with no area term cannot be patched job by job forever. On the board.
+
+### mary_checks: a FAIL that was correct, and the fix
+
+The vesuvius chat widened `check_fabricator_can_make_it`: a fabricator string that *says nobody can
+make it* now fails. Our manifest recorded **"Joedan Manufacturing (UK) Ltd - their own system, not
+available to Fenster"** against both specified systems - a statement that nobody can build what we
+are selling, passing a check that exists to catch precisely that.
+
+**Fixed honestly.** `systems_specified` now records **what Fenster is actually quoting** - a
+thermally broken 75mm system (Sheerline Prestige or equivalent) tendered as the Contractor's Designed
+Portion alternative that Gleeds 3.5.3 cl.3 expressly permits, with BSW/Aplus/4Ali/SBM as fabricators
+- because the rule asks whether *the thing we are selling* can be built. That the specified systems
+are the competitor's own and unbuyable stays in `exposures`, with its CDP and PI consequences.
+**All checks pass.**
+
+### Two smaller things off this morning's forward
+
+- Leonard White's enquiry says *"please scroll to page 147 Appendix 2"* - **Pride have pointed us at
+  the competitor's priced quotation as the scope document.** Our number is being read against a
+  document they handed us.
+- The enquiry is addressed **FAO Mr Paul Taylor**, not to estimating.
