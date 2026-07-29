@@ -1,0 +1,9 @@
+Fair. Short version of REQ-9:
+
+Don't requote. The 1.5m2 was our enquiry figure, not the client's. The drawings say 1m2 and
+A Plus quoted 1.30m2, so we already clear it.
+
+Only open question: is 1m2 geometric or aerodynamic? Evidence points geometric. If it's
+aerodynamic we're about 20% short.
+
+Nothing needed from you today - Zac has held the job until PHDB. Emailed you the same in five lines.

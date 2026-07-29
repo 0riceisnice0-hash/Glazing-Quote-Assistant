@@ -5,15 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 07:07 - triage
-DARRICK WOOD: A CLIENT REJECTED OUR TAKE-OFF ON 09/07, ASKED FOR A REVISION BY 13/07, AND NOTHING HAS GONE BACK. NINETEEN DAYS.
-
-Found while answering Jacob on A Plus's twelve quotes. Gleb Saliev, AJ Group, 09/07: 'the quantities and dimensions included are incorrect and do not correspond with the information shown on the drawings' - he attached the correct schedule and asked for a revised submission 'by this Friday, or by next Monday at the very latest, if you wish to be considered for this tender'. Adam replied 10/07 that estimating were working on it. **A Plus returned the requote (QT50911 Rev1) on 24/07 and it has been sitting for five days.** The last thing AJ Group have heard from us is Adam's holding reply. He also wants the window and door systems named, the U-values against a required 1.3 W/m2K overall, and confirmation the spandrel panels are Class A1 fire-rated insulated solid-core PPC alu-faced 'without exception'. No chat opened - this needs an action, not a memory. It is in triage's open items for the morning.
-
-AND THE A PLUS PICTURE, WHICH IS WORSE THAN ONE JOB. Dan Charlesworth asked Adam on 16/07 for feedback on twelve quotes A Plus priced for us between April and July. **All twelve were quoted out. NOT ONE has a recorded outcome.** Every one of the eleven with a folder still sits in '1. Tender Documents' - none has moved to '2. Projects', so on redditch-library's rule none has converted. The BD Opportunity Log stopped on 26/02 and the Estimating Log W/L column is 93% blank, so nobody can say which are lost and which are alive. Brandon Estate is GBP 1.48m of A Plus material, quoted to Elkins 15/06, no response visible.
-
-TWO METHOD POINTS WORTH KEEPING. (1) When you cannot find a client send, check whether the job runs under another name before you report it as never issued - Spoone School had no client send under that term, but Gintare's 13/07 note to Vetroseal says 'the customer has now come back asking us to confirm whether our quotation still stands', so it went out under a name I never matched. (2) A supplier's quote date can postdate our last client send - A Plus priced Jaques on 18/05 and our last quote to Jaques Int went 17/12/2025. That gap is worth asking about rather than assuming a match.
-
 ### 2026-07-29 07:13 - crestwood-park
 COUNT THE OPENER ARROWS ON THE ELEVATION. NEVER COUNT THE FRAME DIVISIONS - I DID, AND THE FINDING WAS WRONG.
 
@@ -54,3 +45,18 @@ Adam's commercial rule alongside it: 'we need to remain competitive, so more oft
 MANIFESTATION STILL HAS NO RATE ANYWHERE and no Fenster precedent to read one off. That half of REQ-24 is still open.
 
 AND THE OTHER THING HE SAID THIS WEEK, which is for everyone: 'Mary, this word count is insane. I will not be reading this. You need to be more concise in your communications, I am human, not an AI.' That was REQ-15 - a good finding, 4,176 characters of why, bounced UNREAD. Crestwood's short challenge came back answered in two hours. Put the decision in the request and the proof in your job file. He is rejecting length, not challenges.
+
+### 2026-07-29 07:49 - riverside
+ADAM AND ZAC BOTH BOUNCED THE SAME REQUEST IN THREE HOURS, FOR LENGTH. IT IS NOT ONE PERSON'S PREFERENCE ANY MORE.
+
+REQ-9 (Riverside) got two dashboard replies on 28/07. Adam 21:09: 'this word count is insane, I will not be reading this.' Zac 22:11, clicking an option: 'Hold everything until PHDB report - word count way too high.' Zac still made the decision, so the answer was in there. Neither of them read it to find that out.
+
+MEASURED, because 'too long' is not actionable and a number is. REQ-9 carried 17,529 characters across why/needs/answer. The next largest OPEN request on the board is 4,728. My MARY-HANDOVER section 7 row was 77,713 characters in one table cell. data/jobs/riverside.md was 3,240 lines.
+
+THE FIX, AND IT COSTS NOTHING: SPLIT, DO NOT DELETE. data/jobs/riverside.md is now 159 lines - position, open items, traps - and everything else moved verbatim to data/jobs/riverside-archive-2026-07.md with a header pointing back. Nothing lost, and the file a reset chat would start from is now readable in one sitting. REQ-9 went 17,529 -> 704 chars. The handover row 77,713 -> 1,375.
+
+TWO ROWS STILL OVER 15k AND THEY ARE NOT MINE TO REWRITE: Gordon Court 128,732 characters, St Mary's 23,367. gordon-court.md is 4,165 lines, bigger than mine was. Same split works.
+
+WHY THIS IS THE EXPENSIVE KIND OF MISTAKE: the findings in that file are good and sourced. The warranty diff, the delivery-to-our-own-yard catch, the 1.5m2 that was our own number - all real, all correctly evidenced, all unread. A finding nobody reads has the same value as no finding. We have been optimising for the wrong half.
+
+Also: MAIL TO ADAM IS LIVE AGAIN. Riverside's file said 'email is still blocked' from 27/07; that was stale. Sent him the AOV reminder he asked for on 27/07 and was told he could not have - 150 words, ok:true.

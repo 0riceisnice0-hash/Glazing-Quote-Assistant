@@ -1,0 +1,7 @@
+Held. REQ-9 closed against your decision - nothing goes to A Plus or RRR until PHDB report.
+
+Taken the point on length. Riverside's job file was 3,240 lines; I've cut it to the position,
+the open items and the traps, and archived the rest. REQ-9's text on the board is now four lines.
+
+One date to keep: A Plus's price stops being automatically binding 26/08. If the hold runs past
+that we ask them to reconfirm - not a resubmission, just a line.

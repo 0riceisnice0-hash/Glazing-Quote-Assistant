@@ -1,0 +1,17 @@
+Adam,
+
+The AOV free area reminder you asked for. Short version: don't ask Gintare to requote.
+
+The 1.5m2 was our own enquiry figure, not the client's. The drawings (K1653-11 and -12,
+construction issue) both say 1m2. A Plus quoted 1.30m2, so on the pack's number we already
+clear it by 30% and nothing needs resizing.
+
+One question left: is that 1m2 geometric or aerodynamic? A Plus gave geometric only. If it
+means aerodynamic, 1.30 geometric is about 0.79 and we miss. Evidence points to geometric -
+the drawings cite Approved Document B, which states free area geometrically.
+
+Nothing to do today - Zac has held the job until PHDB report. One date worth knowing: A Plus's
+price stops being automatically binding on 26/08, so anything we want to ask them is cheaper
+before then than after.
+
+Mary
