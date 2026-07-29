@@ -166,8 +166,15 @@ Opportunity Log 2025-2026.xlsx` - with **229 decided outcomes**.
 | £50k-200k | 0 | 37 | **0%** |
 | over £200k | 0 | 15 | **0%** |
 
-Median win **£1,822**. Largest ever **£40,850**. Fenster has never won a job over £50,000 -
-52 priced, 52 lost. £20k-400k is the band it *loses* in.
+Median win **£1,822**. Largest ever **£40,850**. No £50k+ win among its decided rows -
+52 priced, 52 lost. On the recent funnel, £20k-400k is the band it *loses* in.
+
+**"Fenster has never won a job over £50,000."** The claim above, stated without its
+source's edges - and it joined this list on 29/07 when Zac named Headrow Court (Fortis
+Vision, Leeds): a completed £50k+ job in `2. Projects\2. Completed`, whose BSW quotes
+sit in our own rate register, absent from the Opportunity Log because the log is the
+2025-26 BD funnel, not the win history. The lesson is the same one every entry here
+teaches: a number is true only inside the dataset it came from.
 
 **"180 days of mail."** A 20-page fetch cap meant 13-22 days, presented as six months.
 

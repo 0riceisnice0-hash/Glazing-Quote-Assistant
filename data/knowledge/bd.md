@@ -5,15 +5,21 @@ Log. LOADED CONTEXT for every Jacob session. When the evidence teaches something
 add it here with the date; when it contradicts a line, delete the line. Cap: 100 lines.
 The full data story per file: `data/jacob/README.md`.
 
-## The shape of what Fenster actually wins (Opportunity Log, 229 decided outcomes)
+## The shape of what the OPPORTUNITY LOG says Fenster wins (2025-26, 229 decided rows)
 
-- Median win **GBP 1,822**. Largest ever **GBP 40,850**. Win rate 38% under GBP 10k,
-  13% at GBP 10k-50k, **0% above GBP 50k - 52 priced, 52 lost**.
-- So value buys a row a WARNING, not a place at the top. A big contract is worth
-  chasing only if the *glazing package inside it* is small - contract value and
-  package value are different numbers.
+- On the log: median win GBP 1,822, largest GBP 40,850, 38% under GBP 10k, 13% at
+  GBP 10k-50k, 0/52 above GBP 50k. **These numbers describe the log, not the company.**
+- **The log is the BD funnel for two years, NOT the win history** (corrected by Zac,
+  29/07/2026). `2. Projects\2. Completed` holds 43 finished jobs, most of which never
+  entered any log - **Headrow Court (Fortis Vision, Leeds) among them, a completed
+  job over GBP 50k** whose BSW quotes sit in our own rate register. The evidence was
+  in our own archive while the board said "never".
+- So: the log still says smaller jobs CONVERT BETTER on the recent funnel, and value
+  still buys a row a warning - but say "no £50k+ win on the log's decided rows",
+  never "Fenster has never won one". A claim must carry its source's edges.
 - "Fenster records no outcomes" is false: the BD log is
-  `4. Business Development\Just in Case\Opportunity Log 2025-2026.xlsx`.
+  `4. Business Development\Just in Case\Opportunity Log 2025-2026.xlsx`. What it
+  records is decisions on ITS rows; won work is filed in `2. Projects`.
 
 ## Where work really comes from
 

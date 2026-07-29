@@ -1058,10 +1058,12 @@ const JACOB_RENDER = {
 
       <div class="section"><div class="section-head"><h3>The one number that should change what we chase</h3></div>
         <div class="planned-note">
-          <p>Fenster has never won a job over <strong>${gbp(s.noWinAbove)}</strong>.
-          ${s.lostAboveThat} were priced and ${s.lostAboveThat} were lost. The biggest job it
-          has won in two years is <strong>${gbp(s.biggestWon)}</strong>, and the median win is
-          <strong>${gbp(s.wonMedian)}</strong>.</p>
+          <p>No win over <strong>${gbp(s.noWinAbove)}</strong> appears on the Opportunity Log's
+          decided rows: ${s.lostAboveThat} priced, ${s.lostAboveThat} lost. The biggest win ON
+          THE LOG is <strong>${gbp(s.biggestWon)}</strong>, median <strong>${gbp(s.wonMedian)}</strong>.
+          <strong>The log is the 2025-26 BD funnel, not the win history</strong> - completed jobs
+          like Headrow Court (Fortis Vision, Leeds, over GBP 50k) never entered it (Zac, 29/07).
+          These numbers say how the recent funnel converts, not what Fenster can win.</p>
           <p>That is the opposite of how this board used to rank things, and the opposite of
           most of what has been pointed at it - GBP 20m academies, national frameworks. Value
           now buys a row a warning, not a place at the top.</p>
@@ -1375,10 +1377,11 @@ const JACOB_RENDER = {
           closes anything in - the same pattern as the Opportunity Log's Chased column, which was
           filled 382 times in 2025 and 7 times in 2026. Treat every row as a question, not
           as an opportunity.</p>
-          <p><strong>And the size does not match what Fenster wins.</strong> The Opportunity
-          Log's 224 decided rows say: under GBP 10k it wins 38% of the time, GBP 10k-50k 13%,
-          and above GBP 50,000 it has never won at all - 52 priced, 52 lost. Median win
-          GBP 1,822; largest win ever GBP 40,850.</p>
+          <p><strong>And the size does not match what the recent funnel converts.</strong> The
+          Opportunity Log's decided rows (2025-26) say: under GBP 10k it wins 38% of the time,
+          GBP 10k-50k 13%, and above GBP 50,000 no win on the log - 52 priced, 52 lost; median
+          log win GBP 1,822. The log is not the whole win history (Headrow Court, GBP 50k+,
+          completed, never entered it) - but as a guide to how THIS list will convert, it stands.</p>
           <p><strong>So of the ${gbpShort(t.dueValue)} sitting on this list, ${gbpShort(t.winnableValue)}
           is in a band Fenster has ever converted</strong> - ${t.winnable} jobs out of ${t.due}.
           The other ${t.neverWonBand} are in bands with a nil record. The list below is still

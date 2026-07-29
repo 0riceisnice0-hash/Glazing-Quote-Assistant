@@ -226,7 +226,10 @@ def fit_for(value, outcomes):
         if value >= b["from"] and (b["to"] is None or value < b["to"]):
             note = ""
             if b["decided"] and not b["won"]:
-                note = ("Fenster has never won one this size - %d tried, %d won"
+                # "On the log", never "never" - Headrow Court (£50k+, completed,
+                # in 2. Projects) is absent from the log entirely (Zac, 29/07).
+                note = ("no win this size on the BD log - %d tried, %d won (log = "
+                        "2025-26 funnel, not the win history)"
                         % (b["decided"], b["won"]))
             elif b["winRate"] is not None:
                 note = "%d%% of these are won (%d of %d)" % (
@@ -548,8 +551,8 @@ def thread_action(t):
         return (ADAM, "Call %s. They have bought from Fenster before and they are asking "
                       "again - that is the best call on this board." % at)
     if t["relationship"] == "quoted":
-        return (ADAM, "Call %s. Fenster has priced for them before and never won. "
-                      "This is the second chance." % at)
+        return (ADAM, "Call %s. Fenster has priced for them before without a recorded "
+                      "win. This is the second chance." % at)
     return (ADAM, "Check commercial@ for a reply to %s, then call them. %d message%s in "
                   "and no history with them at all." % (at, t["messages"],
                                                         "" if t["messages"] == 1 else "s"))
@@ -1445,7 +1448,7 @@ def main():
     print("  %d contracts out to bid (%d Adam's CPV list, %d closing inside a week)"
           % (t["tenders"], t["tendersDirect"], t["tendersClosing"]))
     if t.get("winRate") is not None:
-        print("  outcome history: %.0f%% win rate, median win GBP %s, nothing won over GBP %s"
+        print("  BD-log history: %.0f%% win rate, median win GBP %s, no log win over GBP %s"
               % (t["winRate"], format(t["wonMedian"] or 0, ","),
                  format(t["noWinAbove"] or 0, ",")))
         print("  %d rows still open on the current BD sheet" % t["openThisYear"])

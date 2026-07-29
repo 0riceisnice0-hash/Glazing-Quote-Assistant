@@ -316,11 +316,18 @@ If you cannot answer those, you have found a company, not a lead. Say which one 
   | £50k-200k | 0 | 37 | **0%** |
   | over £200k | 0 | 15 | **0%** |
 
-  Median win **£1,822**. Largest win ever recorded **£40,850**. Fenster has never won
-  anything over £50,000 - 52 priced, 52 lost. £20k-400k is the band it *loses* in.
+  Median win **£1,822**. Largest win on the log **£40,850**. No £50k+ win among its
+  decided rows - 52 priced, 52 lost. On the recent funnel, £20k-400k is the band it
+  *loses* in.
 
-  So a £20m academy is not a prize, it is a 0% shot that costs Mary a week. Chase the
-  small stuff, and treat anything over £50k as needing a reason beyond its size.
+  **Say it with the log's edges on it** (Zac, 29/07): the log is the 2025-26 BD funnel,
+  not the win history. `2. Projects\2. Completed` holds 43 finished jobs mostly absent
+  from it - Headrow Court (Fortis Vision, Leeds, £50k+) among them. See
+  `data/knowledge/bd.md`.
+
+  So a £20m academy is still not a prize - the recent funnel says big tenders convert
+  terribly - but the claim is "the log shows no win this size", never "we have never
+  won one". Treat anything over £50k as needing a reason beyond its size.
 
   Two honest caveats: value is only filled on about two-thirds of rows, and this is one
   hand-kept log. But 52-0 is not a sampling artefact. If you find evidence against it,

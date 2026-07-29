@@ -97,11 +97,13 @@ the winners against every client folder in the OneDrive archive.
 Current state: 1,312 construction award rows over 90 days, 875 unique winners, 338 client
 folders (51 of which have actually bought). Yields **3 warm / 14 known / 129 cold**.
 
-**Weigh that against the outcome data before acting on it.** The Opportunity Log says
-Fenster has never won a job over GBP 50,000 - 52 priced, 52 lost - and wins 38% under
-GBP 10k. Most of the cold list is main-contract work in the band Fenster loses in. A big
-contract is still worth chasing if the *glazing package* inside it is small; contract value
-and package value are different numbers.
+**Weigh that against the outcome data before acting on it - and mind the log's edges.**
+The Opportunity Log's decided rows (2025-26) hold no win over GBP 50,000 - 52 priced, 52
+lost - and a 38% win rate under GBP 10k. But the log is the BD funnel, not the win
+history: completed jobs like Headrow Court (Fortis Vision, Leeds, £50k+) never entered
+it (Zac, 29/07). Most of the cold list is main-contract work in the band the recent
+funnel loses in. A big contract is still worth chasing if the *glazing package* inside
+it is small; contract value and package value are different numbers.
 
 **Three rules that took a day to learn - do not undo them:**
 
