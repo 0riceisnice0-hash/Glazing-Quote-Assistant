@@ -208,7 +208,7 @@ nothing in this plan changes that.
 | Phase | Builds | Done when |
 |---|---|---|
 | 0 **DONE 29/07** | Backfill ledger from send log, D1, sent items, HANDOVER; token baseline per chat | `mary_recall.py` answers "what did I tell Adam about X" for any live job |
-| 1 | Job-file contract + rotation in the bridge | No transcript over threshold; every close-out updates file + ledger; a reset chat picks up a live job without loss |
+| 1 **DONE 29/07** | Job-file contract + rotation in the bridge | No transcript over threshold; every close-out updates file + ledger; a reset chat picks up a live job without loss |
 | 2 | `adam.md` mined + send gate + re-raise guard | Interruption yield > 1/2 for 14 days; zero "already addressed" |
 | 3 | Knowledge distillation + librarian | Boot context ≤ index + job file; essays deleted from playbooks |
 | 4 | Token-true budgets; caps → circuit breakers | Cost per work order down, catches steady |
@@ -243,3 +243,34 @@ not to read".
 
 **Next: Phase 1** - the job-file contract (300-line cap, fixed sections, bridge-enforced
 at close-out) and transcript rotation seeded from it.
+
+---
+
+## 7. Phase 1 - shipped 29/07
+
+The audit's surprise: **rotation already existed** (`rotate_if_bloated`, 8 MB / 600
+turns, eight chats retired by the 29th) - and it proved the diagnosis rather than
+fixing it, because the bloat *moved*: gordon-court's chat shrank to 0.3 MB while its
+"distilled" job file grew to 265 KB / 4,165 lines, which every fresh seed then re-read.
+Rotation without a bounded seed is a token relocation scheme. So:
+
+- **`scripts/mary_jobfile.py`** - the contract: 300 lines max, `## Position` near the
+  top, history in `<key>-archive-YYYY-MM.md` (`--archive` does the mechanical move and
+  leaves a rebuild template; the rebuild itself is the session's judgement, never the
+  script's). On day one, 16 of 18 live files fail - each chat repairs its own on its
+  next run, because only it knows position from history.
+- **The bridge enforces it where it cannot be ignored.** After every clean session the
+  contract is checked; a failure becomes the FIRST line of that chat's next kick
+  prompt, and stays there until the file is fixed.
+- **Rotation seeds lean.** A fresh chat for a job with a file reads MARY-JOB-SESSION,
+  the job file, and `mary_recall --job <key> --days 14` - and is told NOT to re-read
+  HANDOVER.md/AI.md ("if the job file leaves a gap, fix the file so the next chat is
+  not missing it too"). A job with no file must create one to the contract before
+  touching work. The 10,000-line boot is gone from every seeded path.
+- **The ledger stays current for free** - the bridge runs the idempotent local
+  backfill after every session, so recall reflects the session that just ended.
+- MARY-JOB-SESSION.md §4 rewritten as the contract, with the Gordon Court number as
+  the reason.
+
+**Next: Phase 2** - `data/knowledge/adam.md` mined from his replies, the send gate
+(`mary_send.py --check` with interruption-yield evidence), and the re-raise guard.
