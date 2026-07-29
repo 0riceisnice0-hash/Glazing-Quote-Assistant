@@ -1,0 +1,42 @@
+Done - it is live now. Open the hub on your phone and it will ask you once.
+
+**What it does.** A full-screen card on first open: "Who is this?" with Adam and
+Zac. It cannot be dismissed - no Escape, no tapping the background - and nothing
+can be sent until it is answered. After that the browser remembers you and never
+asks again. Your name now sits in the phone's top bar as well as the sidebar,
+because on a phone the sidebar is a drawer and that is exactly where it went
+unread. Tap it to switch if you ever hand the phone to someone.
+
+**On "can it know it's coming from my phone or laptop" - no, and I would rather
+say so than fake it.** There is no login on the hub (we turned auth off) and a
+browser cannot see a person, only a device. What it can do is remember the answer
+on that device, which gets you the same thing from the second visit onward: your
+phone knows it is you because you told it once. If you clear your browsing data
+or open it on a new device it will ask again - that is the honest behaviour, not
+a fault.
+
+**The part that matters more than the fix.** Four of your instructions on 29/07
+went onto the record under Zac's name, and one of them was load-bearing:
+
+- 16:26 - the Leads dashboard, "the chase list isn't very user friendly"
+- 17:28 - break down the Work tab; show the year on out-of-year quote dates
+- **17:29 - JAC-14: nothing closes on silence, treat all 209 as live until updated**
+- 17:30 - JAC-13, "I will chase Luke up"
+
+JAC-14 is the one I care about. I had it written down as Zac's, and it is not the
+same instruction from him as from you - you are the one whose backlog it is and
+the only person who can tell me not to close 209 live quotes on my own arithmetic.
+I have corrected it to you in my knowledge file, in the code, and on the Leads
+page itself, which now prints your words with your name on them.
+
+**One I have NOT changed, and want you to settle.** "The whole time" cannot be
+literally true - a few of the early ones are Zac's, and two of them say "from Zac
+via the dev session" in their own first line, so those are safe. The open one is
+**JAC-1** (28/07, 22:17): "Decide later - drafts only for now". That is the rule I
+operate under every session - I draft, a human sends, I never send under my own
+name. It is currently recorded as Zac's decision. **Was that you or him?** If it
+was you, tell me and I will re-file it; it changes whose call it is to ever loosen
+it. If you are not sure, leave it - I will keep drafting either way.
+
+From here on the name on a message is the name of whoever typed it, because the
+hub will not let anyone past the question.

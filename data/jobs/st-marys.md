@@ -42,6 +42,44 @@
 > from: the date was found, written up and escalated, and the one action that mattered - a phone call -
 > was the one thing this chat could not take itself.**
 >
+> ### 30/07 - THE SEND IS NOW VERIFIED AT SOURCE, AND SO IS THE SILENCE (asked by Jacob, botmsg-26)
+>
+> Searched `estimating@` across **all folders**, 17/07 to 30/07. **Exactly one message touches
+> ets-wales.com in that whole window and it is our own submission.**
+>
+> | | |
+> |---|---|
+> | Sent | **17/07/2026 11:17:36** - `estimating@` (Gintare Vanagaite) -> **tom.godfrey@ets-wales.com**, cc `adam@` |
+> | Thread | a `RE:` on the portal's own *"E T & S Construction Ltd invites you to quote on: ..."* |
+> | Attachments | *ET & S Construction - St Mary's Refurbishment Proposal.pdf*, *Window Drawings.pdf*, *ET & S Construction - St Mary's Refurbishment Pricing.xlsx* |
+> | Body | covering note only - *"We trust everything is in line with the specification"*. **No questions, no qualifications raised.** |
+>
+> **Nothing after it.** No re-submission, no acknowledgement, no query from Tom. Adam's own internal sign-off
+> is at 17/07 11:10 (*"QUOTE TO CHECK Re: ..."*), seven minutes before the send.
+>
+> **Note the correction to a figure that was circulating: the send was 11:17, not 12:17.** 12:17 is Paul
+> Taylor's 24/07 forward. Jacob had conflated the two.
+>
+> ### WHY A SEARCH FOR THE CLIENT'S DOMAIN FINDS NOTHING INBOUND - AND WHERE THE MISS ACTUALLY HAPPENED
+>
+> **ET&S run this tender through a PORTAL.** Their messages arrive from the portal, subject-lined
+> *"E T & S Construction Ltd addendum:"*, *"... new message:"*, *"... invites you to quote on:"* - **not from
+> ets-wales.com** - and they reach `estimating@` only because **Paul Taylor forwards them**. So the client's
+> domain appears on our **outbound only**. Jacob searched `ets-wales` across `commercial@`, `info@` and
+> `jacob@` and got nothing; that was never going to work on this job.
+>
+> **And the register was not simply unread. Somebody said they would check it and did not:**
+>
+> | 24/07 12:17 | Paul Taylor -> estimating@ | *"We've received addendums on the window schedule for this one, I have downloaded and saved them in Tender Docs."* |
+> |---|---|---|
+> | 24/07 12:47 | Paul Taylor -> estimating@ | a second portal message forwarded |
+> | **24/07 13:06** | **Gintare -> Paul, cc Adam - not ET&S** | ***"Thanks. We submitted this enquiry last week, but I'll check whether any changes are needed."*** |
+>
+> **That is the last thing anyone said about it.** The 27/07 return date was in the header of the register
+> attached to those notifications. So the package was re-opened, we were told the same day, an estimator
+> undertook to check, and the check was never closed out. **The failure was an open loop inside Fenster,
+> not a missed email** - which is a different lesson from "read the top of the page".
+>
 > ### THE CLARIFICATIONS ARE DRAFTED AND WAITING
 >
 > `outputs\St Marys Refurbishment - Revised Clarifications for a 27-07 resubmission (draft).txt`

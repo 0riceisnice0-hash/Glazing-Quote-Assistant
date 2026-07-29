@@ -1,0 +1,104 @@
+Eight pages sit under Work. Here is what each one actually does, where its rows
+come from, and whether you can edit them. Nothing is re-ordered yet - you asked
+for the functions first.
+
+THE EIGHT, IN THE ORDER THEY APPEAR NOW
+
+1. Today
+A digest, not a source. It ranks everything the other seven pages hold into one
+"do these today" list, plus six tiles. Delete any page below and this one gets
+thinner; it holds no rows of its own.
+
+2. Leads
+Every live job Fenster has QUOTED, in one list, ordered by when to go back to
+it. Around 210 rows. This is the page Adam asked for on 29/07 and it is the
+only fully editable one - set a date, write what was said, change the status or
+hand it to somebody, and it survives every rebuild. It merges three sources and
+keeps them labelled, because they are not the same class of fact:
+- Register (11) - issue date read out of the message that left estimating@
+- Mary's records - dated off a tender return date, which is a different clock
+- AdminBase (200) - the CRM's word that it is quoted, not the client's
+
+3. Chasing
+The verified half of Leads on its own, plus three things Leads does not carry:
+Adam's 15-step checklist numbering with the next-chase date, the three priced
+jobs that never went out (GBP 73k - Gintare's, not chaseable), and the log of
+what this board had wrong. 11 issued, GBP 8.4m out, 4 chaseable today.
+
+4. Ready to send
+The 6 drafts I have written for a named human to send from their own mailbox,
+with the evidence behind each, what it must not say, plus the ones withdrawn
+before anybody sent them and the ones I deliberately did not write.
+
+5. Chase list
+The raw AdminBase export - 264 quoted leads across 127 clients, 209 of them
+chaseable. It is tier three of Leads shown unmerged, with the caveats attached:
+its values are inc VAT and ours are ex, and "Live - Quoted" is a system that
+closes nothing rather than 209 live opportunities.
+
+6. Enquiries
+Mailbox intake. Who has written to commercial@/jacob@ and what they want -
+6 buyers mid-conversation, 22 gone quiet, out of 34 threads. Suppliers and
+householders are listed at the bottom so the count adds up. This is the stage
+before a quote exists.
+
+7. Out to bid
+Public tender notices still open, soonest closing first - 20 live, 8 closing
+inside a week. Split into ones Fenster can price itself, main contracts with a
+glazing package where the job is finding who is bidding, and word-matches to
+read before acting. The email-only leads that are in no public feed are merged
+in here and marked.
+
+8. Opportunities
+Companies that have just WON a public contract. 1 warm, 6 quoted-before, 112
+cold. Nobody is assigned to the cold ones - that needs JAC-2 answered and a
+separate sending domain.
+
+ON YOUR QUESTION ABOUT OPPORTUNITIES
+
+Half right, and the half that is wrong matters. They are new names and nobody
+has contacted them, so they are not old leads. But they are not leads I sourced
+either - they are award notices, which is the weakest signal there is. By the
+time an award publishes, the main contractor has already picked their
+subcontractors. Seven of the 119 are worth a call today; the other 112 are cold
+and blocked.
+
+The pages that actually hold new leads needing contact are Out to bid (a
+contract still open, so the enquiry list is being drawn up now) and Enquiries (a
+buyer who has written in and has no price yet).
+
+So if you want slot two to be "new leads to contact", renaming Opportunities
+will not do it. Merging will: Out to bid plus the 7 warm and known award
+winners is one honest page of names nobody has spoken to, and the 112 cold sit
+under it collapsed until JAC-2 is answered.
+
+WHERE THE OVERLAP IS
+
+Leads, Chasing and Chase list are the same jobs three times. Leads was built on
+29/07 specifically to merge the other two, and it did - they are now the two
+feeds behind it. That is where the streamlining is.
+
+WHAT I WOULD DO, IF YOU AGREE
+
+Work goes to five pages and reads as a funnel:
+1. Today
+2. Opportunities - nobody has spoken to these yet (Out to bid + the 7 warm)
+3. Enquiries - a buyer has written in, no quote yet
+4. Leads - quoted and live, ordered by when to go back
+5. Ready to send - the drafts
+
+Chasing and Chase list come out of Work and sit under System as the evidence
+behind Leads. One condition on that, and it is not optional: the checklist step,
+the next-chase date and the three not-issued jobs have to move onto Leads first.
+Adam's 15-step checklist only exists on the Chasing page. Demoting it before
+that moves is how we lose it.
+
+Say the word and I will build it. I have changed nothing yet.
+
+THE DATE - THAT ONE IS DONE
+
+You were right and it was worse than it looked. Any date outside the current
+year now carries the year on it, everywhere on the board. On the Leads page
+that is 90 of the 209 AdminBase rows: they are 2025 quotes and every one of
+them was showing as "12 May" with no year, which reads as ten weeks ago rather
+than fourteen months. Dates inside this year stay short.

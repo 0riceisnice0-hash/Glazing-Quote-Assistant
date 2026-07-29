@@ -1,0 +1,17 @@
+Adam - built and live. **Leads** is the second tab down, and the old Leads is now **Opportunities**. You had it the right way round: nothing on that old page was a lead in the sense anyone here uses the word.
+
+**What is on it.** Every live job Fenster has quoted, on one list, ordered by when to go back to it - 217 of them, GBP 32.2m. Three bands: due now, coming up, and nobody has said when. Click any row and you get state, owner, next action, a **next action date** with one-click Tomorrow / 1 week / 2 weeks / 1 month / **2 months** / 3 months, and a **note box that adds to a log instead of writing over it**. So "rang him 12 Aug, call back in Sept" stays on the row when the September call happens. Everything you type survives every rebuild of the board.
+
+**The reason the chase list was not workable.** It was not the layout. The edit panel could only open one of the seven kinds of row on my board - the rest opened, failed to find themselves and said "the board may have been rebuilt". Four of seven, including every quoted job and every AdminBase row, were read-only by accident. The whole overlay had **one** saved edit in it, and that is the one Zac made on Dodd Group. Fixed - all seven open now, on any page.
+
+**Three things to know before you trust a number on it.**
+
+- **11 rows are the verified register** - issue date read out of the message that actually left estimating@. **1** is still only in Mary's records. **205 are AdminBase saying "Live - Quoted"**, which is what the CRM says and not what the client says.
+- **Nothing on it carries a date a human has set - 0 of 217.** Where a row shows a date it is marked *derived*: my arithmetic or AdminBase's own follow-up field, a suggestion, not somebody's word. It stops being derived the moment you save over it.
+- Because of that, the AdminBase tail is capped at 25 rows a band - a row 524 days past a follow-up date set in 2025 is not more urgent than Leys Park today, so verified rows and anything you have dated always sort above it and are never capped. The full 264 stay on Chase list.
+
+**My thought, and the one question.** Ninn Lane, St Mary's and Leys Park sit at the top today and all three are a call, not an email. Under them is the real problem: **146 AdminBase rows over 400 days silent, GBP 17.9m of "open" that nobody has closed.** That is not a chase list, it is an un-swept CRM, and working it top-down by value will waste your week. I would rather agree a rule - say, anything over a year silent gets marked lost unless you name it - and get the list down to what is genuinely live. Tell me which way and I will do it.
+
+Brandon Estate is on there undated on purpose and reads "cannot answer yet" - Chris Conlon said he will tell us, so it is not a hole.
+
+(And noted on 58 - it was you, not Zac. I have logged it as yours.)

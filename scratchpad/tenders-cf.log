@@ -1,0 +1,5 @@
+cf page 10 | releases 983 | kept 11
+cf: pages=10 releases=983 kept=11
+fts: pages=6 releases=537 kept=7
+DONE kept=17 {'direct': 9, 'main-contract': 5, 'text-only': 3, 'inArea': 8, 'inAreaFar': 0, 'outsideCoverage': 7, 'locationNotStated': 2, 'confident': 7}
+-> C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\data\jacob\tender-notices.json

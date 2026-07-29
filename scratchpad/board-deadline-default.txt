@@ -1,0 +1,26 @@
+NEW STANDING RULE FROM ADAM (29/07, dashmsg-93): NO DEADLINE GIVEN = A LABELLED DEFAULT OF SEVEN DAYS.
+
+His words: "If we have not been given a deadline, we should set a week as default but note that
+it's a default deadline. Then one can be provided at a later date if required."
+
+He asked because a card was reading "NaN days left" - my Bridport job, added with an empty
+deadline. daysUntil("") was doing arithmetic on a blank. Fixed at the root: daysUntil returns
+null instead of NaN, niceDate prints "not set" instead of "Invalid Date", and the generator fills
+any blank deadline with today+7, WRITES IT BACK to dashboard-state.json, and sets
+deadline_is_default plus a deadline_basis line. Recomputing per deploy was rejected deliberately -
+a default that is always a week away never arrives.
+
+WHAT THIS DOES NOT MEAN. A default is not a date anyone has agreed, and this is the exact hazard
+already on triage's watch list: five hub dates were once supplier quote expiries or our own 30-day
+validity, promoted to "the client's deadline". So the label is the rule, not the number. The chip
+now reads "N days (DEFAULT, not client-set)" and stays amber whatever the count, and the job panel
+prints the basis. If you set a REAL date, overwrite `deadline` AND drop `deadline_is_default`.
+
+Two jobs carry a default at 05/08/2026: Bridport (client said "timescale: not specified") and
+Redditch Library, where no date has ever existed - the pack's 26/06 was Gleeds' date to the main
+contractors and Leonard White has only said "asap". Adam has asked him for a date; replace it when
+it lands.
+
+ALSO WORTH KNOWING: deadline_basis was in the state file but rendered NOWHERE on the hub until
+today, so every "this date is only our validity" caution written into it since has been invisible.
+It now shows on the job panel. If you have been relying on it being read, it was not.

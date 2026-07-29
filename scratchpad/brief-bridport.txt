@@ -1,0 +1,61 @@
+NEW JOB, AND IT IS A DIRECT INSTRUCTION FROM ADAM (trusted, 29/07 15:44 to mary@). Price it.
+
+WHAT ADAM ASKED FOR, in his words:
+  "Can you please quote this in Smartwall and option for Shopline.
+   Can you attempt to make drawings of the shopfront as well? It's okay if this isn't within
+   your capabilities.
+   It's 8m wide and 2.5m tall but there is a 1m return on the bay left side and 600mm on the
+   right side.
+   Do it in standard white. All laminated glass (will likely need thicker glass for the size
+   of the units)."
+
+THE CLIENT AND THE PREMISES
+  Lydia Wilson, Waste Not Want Not Bridport Ltd, wnwnbridport@protonmail.com, +441308424411.
+  10 South Street, Bridport DT6 3NR - currently trading as RKL Tools & Hardware.
+  Website enquiry via info@ 15:23, to commercial@ and Adam 15:24, to me 15:44. Timescale: not
+  specified. No prior folder anywhere in the Commercial archive - I looked. New client.
+
+THE CLIENT'S OWN SCOPE, which is WIDER than Adam's line and must not get lost:
+  1. Frontage ~7-8m: two separate doors and a bay window, "replacement of all the framework
+     and glazing, like for like".
+  2. A SEPARATE quotation for "combining the two doors to provide a double door entrance".
+  3. At the rear, "a single standard external door we would like to replace with a glazed door".
+
+  Adam named only the frontage. Items 2 and 3 are the client's words and each needs its own
+  number or an explicit exclusion. Item 3 in particular has no dimensions, no photograph and
+  no location - it is an RFI, not a guess.
+
+TWO PHOTOGRAPHS, both usable, in
+test-results\mary-inbox\processed\20260729T1544-DBhZDAAA-att\
+  - 10-South-Street.jpg - the client's own, close and slightly oblique.
+  - image.png - a much better wide elevation. USE THIS ONE. Left to right it shows: a door at
+    the far left set in the bay return, the bay window, a second (central) doorway standing
+    open, then a large fixed window to the right. A solid stallriser runs under the glazing and
+    a deep signage fascia runs the full width above it.
+
+WHAT I WOULD NOT PRICE WITHOUT ASKING - carry these as qualifications so a number can still go out:
+  - THE FASCIA. A deep sign fascia spans the whole frontage above the glazing. "All the
+    framework like for like" may or may not include it, and on a shopfront it is usually the
+    same job. State what you have allowed.
+  - THE RIGHT-HAND BOUNDARY. There is a panelled timber door immediately right of the shopfront
+    in image.png. It reads as a separate entrance to the property above, not part of this
+    demise. Do not include it, and say so in writing.
+  - THE STALLRISER. Like-for-like implies replicating it. Say whether your rate covers it.
+  - 8m x 2.5m with a 1m and a 600mm return are ADAM'S figures, not measured. Nothing here is
+    surveyed - label every quantity as such on the face of the document.
+  - CONSERVATION. Bridport town centre, South Street. I have NOT established whether the
+    property is listed or in a conservation area and it should not be asserted either way, but
+    a full shopfront and fascia replacement is exactly where that bites. Worth one question to
+    the client rather than a discovery later.
+
+SYSTEM AND SUPPLY
+  Smart Wall and Shopline are both Smart Architectural Aluminium - Bellview fabricate Smart, so
+  one RFQ covers both options. Watch the calibration: SMA Smart Wall doorsets carry a +45%
+  correction in mary_pricing.CALIBRATION, and today's Brocks Hill note is a reminder that a
+  supplier who answers one question and stays silent on the rest has not priced the rest.
+  Laminated throughout per Adam; he expects thicker units at this size, so put the make-up to
+  Bellview as a question rather than assuming 6.4mm.
+
+BEFORE ANYTHING LEAVES: mary_checks.py must pass, and this is a REPEAT-CLIENT-FREE, benchmark-led
+job, so the register's size-band bias applies - a shopfront is weighted to large units (>6m2),
+where the register runs about +35%. Say so on the face of the document.

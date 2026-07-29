@@ -1,0 +1,49 @@
+Adam - two things found tonight on my own time, and the first is a phone call I think you will want to make yourself.
+
+**CONAMAR. 16 jobs, GBP 917,028 - a third of every pound this company has ever won - and GBP 219,774 of our prices have been sitting with them unanswered for over a year.**
+
+They are the largest client in Fenster's history and it is not close. Sixteen contracts, unbroken from September 2021 to September 2025, Tottenham Jobcentre the biggest at GBP 480,000. **You sold all sixteen personally** - LEADSOURCE on every one is Existing Customer, so this relationship has never once needed a lead source. Then it stopped: last order 02/09/2025, last time we were on their site 15/12/2025, and nothing since.
+
+The three quotes still sitting with them:
+
+- **Wootton School Farm, Bedford - GBP 137,245.77**, quoted 11/06/2025. 414 days.
+- **Hollickwood Primary, Muswell Hill - GBP 57,260.01**, quoted 05/08/2025. 359 days.
+- **Premier Inn, Loudwater - GBP 25,268.64**, quoted 09/06/2025. 416 days.
+
+**Simon Mead is the contact** (Simon.mead@conamar.co.uk, 01438 365142). The last person to chase him was Jayk, on 09/12/2025, and then he left. John Ling is the other live name - his 10/11/2025 email about site access is the last message any Conamar person sent us. **Alex Taylor has left them**, that address has been auto-replying since December 2024.
+
+Two things before you ring, both in `data/companies/conamar.md`:
+
+**The money looks clean.** Five delivered jobs carry a balance totalling GBP 6,514.64, each 2.5-5% of contract value - that is the shape of retention on a running defects period, not a disputed invoice, and the Wootton invoices you were chasing in December both show zero now. **But that is me reading the balance column, not a fact - can you confirm?** Opening a "what have you got coming" call with a client who thinks they owe us money is the one way to waste this.
+
+**Hollickwood needs Mary before it needs a client.** Jayk's note on it says reprice, and a 14-month-old figure is not a figure. Price is hers, never mine.
+
+**Why you have not seen this before: my own filter was hiding them, and it was hiding the best clients hardest.** `jacob_dormant.py` skipped anyone who appeared in AdminBase at all as "mid-conversation". But under JAC-14 nothing on that backlog ever closes on silence, so "has a live quote" really meant "has ever been quoted" - a permanent exemption for every past customer we have ever priced. Conamar was excluded on two quotes whose next-action dates passed 400 days ago. Fixed: a quote only counts as a live conversation while it is newer than the silence being measured. Conamar went straight to the top, Storm Building Ltd (GBP 43,113, 297 days) surfaced with it, and Harrabin correctly stays off it because you quoted them a fortnight ago.
+
+---
+
+**SECOND: JAYK EMAILED A REPRICING LIST TO FOUR MAILBOXES ON 19/12/2025 AND I THINK NOBODY EVER OPENED IT.**
+
+62 rows, GBP 6.0m of quotes, 27 clients - his own shortlist of what was worth going back to, with the client's own feedback typed against every row. He sold 51 of our 204 contracts, so it is a quarter of the company's history in one spreadsheet, and `jayk@` is a hard 404 so nobody can ask him a thing. It is now on the **Leads** page and in `data/jacob/repricing.json`.
+
+**Five rows tell us a main contract our own client has WON.** That is the hard half of my job already done:
+
+- **Thomas Sinden, Hub Alkerden - GBP 581,367.** "Thomas Sinden have officially won this, they will be in touch to get finalised pricing from us." Jayk had Corran's mobile and spoke to him. Note this one is in AdminBase as **Sinden Construction Ltd**, lead 5493, at GBP 484,472.63 - two figures for one job, both real.
+- **R1 Construction, Gresty Road - GBP 89,898.** "R1 have won this, so reprice." Lead 7376 still says Live - Quoted at exactly that figure, 220 days on.
+- **Barnfield, MSM Aerospace - GBP 46,969.** "Worth repricing as secured."
+- **Elkins, Midfield Primary - GBP 15,430.** "Works secured client side."
+- **RG Carter, Linford Wood.** We lost the original, but "RG Carter have won this, worth repricing as close by and secured."
+
+**How much of it was worked: one cell.** Two versions of the file are saved and they differ by RG Carter's row gaining "(LOST)" in its title on 28/01. That is the whole seven months.
+
+**Please read the age column before anything else.** Every fact on that list is 223 days old and every deadline on it is 2025. "Jayk to call in January" is a call nobody made, because he had gone by January. I have not promoted a single row to a lead - it ranks and explains, and each row says verify first. Nine rows carry a new price he had already worked out and left for you to check; those go to Mary, not out of the door.
+
+**And one thing on the list that is an ask of us, not of them.** Cheil Construction, Swanhurst School, GBP 48,815: "Chris at Cheil has asked us for PQQ's to be completed and for updated costs + schedule so now actually looking good." Seven months ago.
+
+**Which brings up the part I cannot fix from here. Six clients on that list are not in the AdminBase export at all - GBP 1,122,044 that no page on this board can see:** Clegg Construction (GBP 777,177), MCS Construction (GBP 137,160), BC Workspace (GBP 82,516), Steele & Bray (GBP 62,602), Cheil (GBP 48,815), RG Carter (GBP 13,771). I am not saying the CRM is wrong - a quote raised outside the export window or under another trading name would land in exactly the same place. But Cheil is a live ask from a client I would otherwise never have known existed, so it is worth knowing which it is.
+
+---
+
+Smaller, and yours to kill if you disagree: on **26/01/2026 Alana Somers at Gardiner & Theobald** wrote to info@ - "Market Testing, Arched Double Glazed Window... we previously worked together on the University of Roehampton SETEC Project, where you supplied and installed external sash". Perry forwarded it to commercial@ the same day. **There is no reply anywhere in any mailbox** - three messages, all on one day, and that is the entire thread. A national QS came back to us by name off the back of a Conamar job we delivered, and got silence. Small job, six months cold. Worth one email to find out, or a deliberate decision not to.
+
+Nothing here needs a price from me and I have written no outreach. **JAC-16 is still open with Zac** - bd.md is now 230 lines against a cap of 130 and I added 31 of them tonight, which is exactly what last night's note said would happen.

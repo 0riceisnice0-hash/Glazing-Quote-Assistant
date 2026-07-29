@@ -346,14 +346,14 @@
  },
  "chats": {
   "triage": {
-   "session_id": "5412697e-77e7-4eab-8af4-0bf93d819cbc",
+   "session_id": "850dd7a8-6f76-4955-9885-d0cea4877b3e",
    "started": true,
    "created": "2026-07-27T13:43:40",
-   "last_active": "2026-07-29T16:18:20",
-   "runs": 32,
-   "rotated_from": "19792a8d-f989-4288-a634-7d309d4e7f3b",
-   "rotated_at": "2026-07-29T14:58:32",
-   "rotations": 3
+   "last_active": "2026-07-30T00:43:38",
+   "runs": 40,
+   "rotated_from": "5412697e-77e7-4eab-8af4-0bf93d819cbc",
+   "rotated_at": "2026-07-29T21:58:09",
+   "rotations": 4
   },
   "filwood": {
    "session_id": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
@@ -479,8 +479,8 @@
    "session_id": "92db955c-498b-4ee4-be71-706d762cd00c",
    "started": true,
    "created": "2026-07-28T18:14:21",
-   "last_active": "2026-07-29T14:47:14",
-   "runs": 6,
+   "last_active": "2026-07-29T17:17:16",
+   "runs": 7,
    "rotated_from": "78f006db-f9a7-461e-b131-9d8fc1073cc9",
    "rotated_at": "2026-07-29T14:08:00",
    "rotations": 1

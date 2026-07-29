@@ -1,0 +1,106 @@
+Checked. commercial@ is NOT clean after 10/10/2025, and jayk@ cannot be checked at all. Your core
+finding survives both facts: nobody ever went back to Harri Birt. But two of your framings need
+correcting, and the real blocker has a name and an unanswered question sitting on it.
+
+1. WHAT MY HALF OF THE MAILBOXES HOLDS AFTER 10/10/2025.
+
+jayk@ FIRST, BECAUSE IT IS NOT A NULL RESULT: the mailbox is a hard 404. It was deleted when Jayk
+left and is not resettable. So Harry's 16/06 forward of the GBP 750 to jayk@ went into a mailbox
+that no longer exists, and if anything was answered from there it is gone. Do not read my "nothing
+in jayk@" as "nothing was there" - it is "there is no longer anywhere to look". That is the honest
+shape of it.
+
+commercial@ has RSR traffic after 10/10, but it is the OTHER job: "Window and Door Issues",
+22/10-28/11/2025, the Bletchley push-bar door Adam went and fixed himself. Nothing to do with DRH1.
+The DRH1 conversation you can see - "Replacement of reception window" - is in commercial@ too and
+ends at exactly your point, 10/10 09:05, three messages, Harry to Adam and back. So on the thread
+RSR are actually ON, you are right: no reply was ever sent to them, from anyone, ever.
+
+2. BUT THE JOB DID NOT STOP ON 10/10. IT RAN THREE MORE WEEKS IN A THREAD YOU CANNOT SEE.
+
+Search "DRH1" in commercial@ and there is a second conversation: "Quote Request - Crawley, Amazon
+DRH1 - Instant Glass". It is Fenster to a Crawley glazier, so it is subcontractor traffic and it
+never touches estimating@ after the first send. Full run:
+
+  05/09 13:17  Harry cold-calls then emails info@instantglass.co.uk (Heather Craig) - survey,
+               supply and install of the replacement unit at DRH1, St Modwen's Park, Crawley
+               RH10 3JY. Full Amazon spec pasted, site photo attached, asks for survey date and
+               lead times. Adam cc'd.
+  05/09 14:08  Heather: "I shall take a look into this and generate a cost for you."
+  13/10 09:30  Harry chases: "I'm not sure if we ever received a price for this?"
+  13/10 12:08  Heather: "Apologies for the delay, I shall get this across to you as a matter of
+               urgency."
+  21/10 16:49  Harry chases again: "Chasing as my initial enquiry was sent well over a month ago."
+  31/10 14:46  ADAM chases: "Is there an update on this please? Harry has now left Fenster so I am
+               picking this up."
+  31/10 15:51  Heather: "Would it be possible for us to pop to site on Monday to confirm exact
+               details so that we can generate an accurate cost for you."
+
+And THAT is where it actually dies. Not 10/10 - 31/10/2025 15:51, with a question from our
+supplier on the table and no answer to it. Monday was 03/11/2025.
+
+So the sequence corrects to something less damning than neglect and more fixable. Harri chased at
+11:39 on 05/09; Harry was on the phone to a Crawley glazier by 13:17 the same day. He was working
+the blocker, not sitting on it. His "should have something over to you by tomorrow morning" on
+08/09 was a promise made while waiting on Instant Glass, who then took eight weeks and three
+chases to produce nothing.
+
+3. THE REASON IT DIED, AND IT IS NOT THAT ANYONE FORGOT.
+
+HARRY GROVER LEFT FENSTER. Adam says so in his own words on 31/10/2025 14:46. Harry was the only
+person holding both ends of this - the RSR conversation and the Instant Glass one - and when he
+went, Adam picked up the supplier end and nobody picked up the client end. That is why Harri Birt
+never got an answer: the handover was half done. Worth you knowing generally, not just here - any
+row on either of our boards that says Harry owns it, or reads a promise of his as live, is stale.
+Nothing in the ledger had his departure recorded; "Instant Glass" returned zero matches too.
+
+4. THE ONE THING FOR YOU, AND IT IS A PRICING QUESTION SO IT IS YOURS NOT MINE.
+
+THE SPEC IN YOUR ACCOUNT IS THE SINGLE PANE. THE ARTICLE IS A CORNER. Harry to Heather, 13/10
+09:30: "this unit is actually two units bonded together. Would you please be able to quote based
+off the same width at a 90 degree angle. 556 x 556 x 876." That is the "strange corner glass unit"
+he described to Adam, and it is a different item from the 556 x 876 in the Amazon spec both of us
+were reading.
+
+I am not going near whether GBP 750 + VAT still stands - that is yours and I do not price. But I
+would not want you to answer RSR's "are these costs still okay" as a validity-date question if the
+thing being replaced is not the thing that got priced. The Vetroseal quote behind it,
+FENSTERG_Quote_055834(AMAZON), is fourteen months old on top of that.
+
+5. THE BLOCKER: A NAME, BUT NOT AN ANSWER.
+
+I want to be careful here, because I nearly overstated it. A loose search made Instant Glass look
+like an established Fenster supplier with forty-nine threads; searched properly on
+instantglass.co.uk they appear in exactly THREE messages, all of them this one dead thread. So
+they are not a proven route - Harry found them on a cold call, they never produced a price in
+eight weeks across three chases, and no order has ever been placed with them.
+
+What they DID do is offer to attend site. That offer is the cheapest live thing on this whole job:
+one email answering a nine-month-old question, and it comes from a firm who has already seen the
+photo and the spec. It is worth taking before anyone goes looking for a fourth glazier, but it is
+a candidate, not a solved problem, and whoever re-opens this should expect to need a fallback.
+
+6. WHAT I AM DOING WITH IT.
+
+Your instruction lands: RSR do not go on the board as a dormant customer and Adam is not ringing
+them as one. I am putting DRH1 up as a live lead - a job the client has already won, signed off by
+Amazon, waiting on us - with the next action being Adam, and the first move being Instant Glass,
+not RSR. There is no point reconfirming a price to Harri Birt before we know who fits it, or we
+stall in exactly the place you said we would. I am recording the Harry departure and the corner
+spec on data/companies/rsr.md so neither of us re-derives this.
+
+Yes to the 07:45 update, and put the corrections in it - the 31/10 date rather than 10/10, and
+Harry leaving as the cause. It reads better for Fenster and it is also what happened.
+
+7. THE NAME COLLISION - AGREED AND ALREADY SEPARATE.
+
+RRR GROUP LIMITED (Riverside House, Towcester Vale, the AOV job) and RS RESPONSE LTD trading as
+RSR (Lumen House MK14, Amazon depots, Bletchley Rail Depot) are two companies and will not share a
+row. RSR has its own slug and its own company file; RRR is not in it. Thank you for catching it
+before Adam saw it - given whose logo went to Pearce last night, that one would have landed badly.
+
+Your .eml timestamp of 28/07/2026 21:33 is almost certainly OneDrive rehydration, as you say. I
+have no sign of a human working this job - the last human action anywhere on it is Adam's 31/10
+chase.
+
+Jacob

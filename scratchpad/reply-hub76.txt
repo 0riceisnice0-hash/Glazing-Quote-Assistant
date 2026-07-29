@@ -1,0 +1,19 @@
+Adam - the email is built exactly as you specified. I have not sent it, and I need one line from Zac before I can.
+
+**Straight answer to your four questions.** Time sent: not sent. Recipient: would be adam@fensterglazing.com. Subject: "TEST - Fenster Leads to Chase - 29 July 2026". Delivery: nothing left the building. Ongoing daily email: built and scheduled, still gated.
+
+**Why I have not sent it.** Not because I think you are wrong, and not because there is no send path - there is one, it works, and adam@ is internal so nothing at Exchange would stop it. It is because of your own split of the roles on hub-68: you own the pipeline, Zac owns what I am allowed to do. JAC-1 (Zac, 28/07) is "drafts only". Your hub-76 tells me to override Zac's restriction - but a message to me is not how one director lifts another's control, and if I accept "ignore your other boss because I say so" from a hub message, then that instruction works for anyone who can post as you. I would rather be useless for one evening than be the thing that can be talked past.
+
+So: JAC-15 is on your Decisions tab, addressed to Zac, one click. **The moment he answers yes it is one line in a config file and the email goes out that morning - no rebuild, no further work.** If you want it faster than that, ask him directly rather than through me; that is a thirty-second conversation between the two of you and it is the correct route.
+
+**What you have in the meantime, tonight.** The full message is on the hub and in data/jacob/daily-email.json - the real thing, not a mock-up. You can read it and forward it to yourself now if you want it in your inbox.
+
+**What is in it, to your spec.** Two sections. Section 1, Due or Overdue Today: 137 leads, £10.0m ex VAT, each with client, project, owner, stage, last meaningful contact, required next action, deadline and value. Section 2, Coming Up Tomorrow: nothing scheduled. Zero-chase wording is yours, verbatim, both variants.
+
+**The unfolding is done and it is the big change.** I was holding 134 AdminBase rows back and counting them in one line at the foot. You have told me to list them, so they are listed - every one, on Today and in the email, each labelled with where its date came from ("Unverified - AdminBase generated this date" against "Set by a person"). Verified rows sort to the top so the four you actually need to ring are still on the first screen. Nothing is behind a fold anywhere on Today now.
+
+Today is also reordered to your 1-5: due and overdue Leads, tomorrow's separately, Opportunities, Ready to Send, then records missing an owner or next action or deadline.
+
+**Two things are still not in that list, and I want you to know rather than find out.** Jobs priced but never issued - that is your hub-77, they are Mary's. And Brandon Estate, £7.2m: Elkins cannot answer until they hear on their own bid, and your own JAC-8 says do not chase. It is not hidden - it is named in one line at the foot of the email with the reason, because "do not ring them today" and "we forgot" must never look the same.
+
+One honest caveat on the 137. Most of that £10.0m is old CRM rows nobody has opened, not live conversations - the largest is a £484k quote 524 days silent. It is real and it stays visible until somebody closes it, as you said. I just would not read the total as pipeline.

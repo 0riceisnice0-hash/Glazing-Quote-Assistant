@@ -1,0 +1,49 @@
+re-filtered in place: 66 -> 66
+enriching 44 from the councils' own registers...
+   1/44 Rochdale             - council portal is not Idox - applicant is on https://account.rochdale.gov.uk/pr/s/detail/a0rSl00000hPQQUIA4
+   2/44 Windsor              Amazon MGM Studios
+   3/44 Telford              - council portal is not Idox - applicant is on https://secure.telford.gov.uk/planning/pa-applicationsummary.aspx?applicationnumber=TWC/2026/0495
+   4/44 Huntingdonshire      - council portal did not answer (URLError)
+   5/44 Colchester           - council portal is not Idox - applicant is on https://www.colchester.gov.uk/wampd/?id=261331
+   6/44 Bolton               - the register says 'C/o Agent', which is not a company
+   7/44 Wigan                Bolton Council
+   8/44 Southwark            - council portal did not answer (URLError)
+   9/44 City                 - council portal did not answer (URLError)
+  10/44 Westminster          - council portal did not answer (URLError)
+  11/44 South Downs          Chichester District Council
+  12/44 Southwark            - council portal did not answer (URLError)
+  13/44 West Lancashire      - the register says '-', which is not a company
+  14/44 Lichfield            BDW Trading Limited (care Of Barratt Homes West Midlands)
+  15/44 Stroud               - council portal did not answer (URLError)
+  16/44 Swindon              - council portal is not Idox - applicant is on https://pa.swindon.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=TI00VBPTKUP00
+  17/44 Durham               Emily Brown
+  18/44 Huntingdonshire      - council portal did not answer (URLError)
+  19/44 Basildon             Owens
+  20/44 Lincoln              - the register says 'Not Available', which is not a company
+  21/44 Mid Kent             - council portal did not answer (URLError)
+  22/44 Tandridge            - council portal is not Idox - applicant is on the register
+  23/44 BCP                  - council portal is not Idox - applicant is on https://planning.bcpcouncil.gov.uk/Planning/Display/P/26/03053/FUL
+  24/44 West Lindsey         - council portal is not Idox - applicant is on https://westlindsey-publicportal.statmap.co.uk/horizoNext/publicportal/planningapplications/151115
+  25/44 Slough               - council portal is not Idox - applicant is on https://planning.agileapplications.co.uk/slough/application-details/56673
+  26/44 Swindon              - council portal is not Idox - applicant is on https://pa.swindon.gov.uk/publicaccess/applicationDetails.do?activeTab=summary&keyVal=THYVM6PTKUI00
+  27/44 Tandridge            - council portal is not Idox - applicant is on the register
+  28/44 Mid Kent             - council portal did not answer (URLError)
+  29/44 Tandridge            - council portal is not Idox - applicant is on the register
+  30/44 Basingstoke          - council portal did not answer (URLError)
+  31/44 Tonbridge            - the register says 'Not Available', which is not a company
+  32/44 Milton Keynes        - council portal is not Idox - applicant is on https://www.be.milton-keynes.gov.uk/pr/s/detail/a0lWS000004przGYAQ
+  33/44 Westmorland and Furn - council portal is not Idox - applicant is on https://planningregister.westmorlandandfurness.gov.uk/Planning/Display/2026/1347/FPA
+  34/44 Test Valley          Mr S Mitchell
+  35/44 West Berkshire       Catesby Strategic Land Limited
+  36/44 Havering             - council portal is not Idox - applicant is on https://development.havering.gov.uk/OcellaWeb/planningDetails?from=planningSearch&reference=J0013.26
+  37/44 Southampton          Mr S and Mr N Poswall
+  38/44 Sheffield            - council portal did not answer (URLError)
+  39/44 Canterbury           - council portal did not answer (URLError)
+  40/44 South Holland        - council portal is not Idox - applicant is on https://planning.sholland.gov.uk/OcellaWeb/planningDetails?reference=H16-0662-26&from=planningSearch
+  41/44 Dover                Mr Patrick Broadhurst
+  42/44 Ashfield             - council portal is not Idox - applicant is on https://planning.ashfield.gov.uk/planning-applications/planning-application/?RefType=GFPlanning&KeyNo=244528
+  43/44 South Gloucestershir Bromford Flagship LiveWest Limited
+  44/44 Ashfield             - council portal is not Idox - applicant is on https://planning.ashfield.gov.uk/planning-applications/planning-application/?RefType=GFPlanning&KeyNo=244759
+
+DONE kept=66 (2 direct, 11 named, 0 warm)
+-> C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\data\jacob\planning.json

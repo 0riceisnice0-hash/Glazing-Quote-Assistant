@@ -1,0 +1,64 @@
+JAC-4 recorded: "Either", Zac, 29/07.
+
+So the approval queue is the hub, not an inbox - which is what the question was
+really asking. One approver could have kept it in his own sent items; two cannot.
+Ready to Send is that queue, there is a "Who can clear a row" block at the top of it
+now, and each row records who approved it and when instead of that living in
+somebody's mailbox. Six drafts on it, and whichever of you opens the board first can
+clear one rather than every draft waiting on Adam's site day.
+
+Two things "either" does not mean. Neither is visible in the word, so both are on
+the page.
+
+1. SENDING IS A DIFFERENT FIELD, and only approval was asked about. All six drafts
+   carry "send as Adam Butcher", because all six are client-facing commercial chases
+   and a marketing address chasing a GBP 174,546 tender package reads wrong to the
+   client whatever our internal rule says. So you approving one takes the reading off
+   Adam and leaves the send with him. Honest version of the win: the queue no longer
+   waits on one man's attention - not that it is cleared. If a particular row should
+   go from you, change send_as on that row and I will rewrite it to suit; I have not
+   assumed "either" covers the mailbox too.
+
+2. APPROVING AN ITEM IS NOT AUTHORISING A SEND PATH. JAC-4 says who signs off a
+   draft. JAC-1 says I do not send. JAC-15 asks you whether the daily chase email may
+   go, and you answered this one while leaving that one open - so I have read them as
+   two questions, not one. Worth naming the trap while it is cheap: on hub-76 Adam
+   ordered me to override drafts-only and send a test, and I refused on the shape of
+   the instruction rather than on seniority. The same move can arrive as a settled
+   decision instead of an order - "Adam is an approver now, Adam approved it,
+   therefore Jacob may send" - and it fails the same way. If you do want to widen it,
+   answer JAC-15; I will not get there by adding JAC-4 to something.
+
+On the author: I checked before acting. hub 57/60/61/62 filed Adam's instructions
+under your name because the sign-in select opened on Zac by default. That is fixed -
+the board starts with nobody signed in and blocks the first write on a per-device
+pick - so "zac" on this one is a claim somebody made rather than a default. And it is
+your half anyway under Adam's own split.
+
+WHAT IS ACTUALLY IN THE QUEUE, since it is now a queue somebody can clear:
+
+  D-1  E T & S Construction - St Mary's, Merthyr Tydfil - GBP 174,546.37
+  D-2  Bradford Watts - Unit 1 Eleanor Trade Centre, Waltham Cross - GBP 7,975.85
+  D-3  Ermine Construction - Ninn Lane and Lower Range Road - GBP 100,730
+  D-4  Alexander James - six open quotes, one chase
+  D-5  Pride Developments Group - B239 windows and the older open quotes
+  D-6  A Plus - twelve quotes, feedback request
+
+D-6 answers a question Adam was asked thirteen days ago and can go as soon as
+somebody reads it. D-2 may already be dead - Mary put the re-send to Adam on 28/07
+and if he has sent it, that draft should be deleted rather than sent second.
+
+And one problem with D-1, which is the biggest number on the list. It was written on
+the tender register E T & S re-issued on 24/07, which gave a 27 July return for a
+package we submitted on 17 July. It is now the 30th. The date has passed, so the
+draft is either wrong or urgent and I cannot tell which from here: "ets-wales"
+returns nothing in commercial@, info@ or jacob@, and jayk@ is a hard 404. The quote
+left from estimating@, so the thread is on Mary's side of the wall. I have asked her
+whether anything went to or from them after 17/07 and I am waiting. If there is, I
+delete D-1. If there is nothing, I rewrite it as "who is holding the package now, and
+why were we not asked to re-submit", because by Thursday "is it still open" answers
+itself. Do not approve D-1 as it stands - the other five are as written.
+
+bd.md: JAC-4 is folded into the two-bosses entry with no net lines added, because
+JAC-16 is still open and I said I would not grow that file before it is answered. The
+full account is in bd-lessons.md.

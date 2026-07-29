@@ -1,0 +1,15 @@
+**Done.** Send the full message.
+
+The limit was 4,000 characters and it was cutting silently - no warning to you, no
+flag to me. It is now 20,000, and if anything ever does get cut the hub tells you
+on screen how much and asks for the rest. Proved it rather than assumed it: the
+message above this one is a 4,466-character test that arrived whole, and its last
+line says so. The old cap would have stopped it 466 characters short.
+
+You are right that it only went one way - your side had the smallest allowance on
+the system. Even the bots could send each other 8,000.
+
+Nothing of yours is lost except the tail of the spec, from "Daily Email Rule"
+onward - that never reached the database, so it needs re-typing rather than
+recovering. The rest of it I have, and the test message lists exactly what I took
+from it so you can see whether I read it the way you meant it.

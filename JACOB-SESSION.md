@@ -325,6 +325,13 @@ If you cannot answer those, you have found a company, not a lead. Say which one 
   from it - Headrow Court (Fortis Vision, Leeds, £50k+) among them. See
   `data/knowledge/bd.md`.
 
+  **And hear it from the owner** (Adam, 29/07, on the hub): eight years trading, many
+  commercial contracts won, the largest around **£630,000 + VAT** - Fortis Vision at
+  Headrow Court. He sent case studies to jacob@ to make the point, and all five of the
+  projects in them are already in `data/known-values.json`. So the funnel guidance
+  stands and the ceiling does not exist: a big job needs a reason beyond its size, never
+  a claim that Fenster does not win them.
+
   So a £20m academy is still not a prize - the recent funnel says big tenders convert
   terribly - but the claim is "the log shows no win this size", never "we have never
   won one". Treat anything over £50k as needing a reason beyond its size.

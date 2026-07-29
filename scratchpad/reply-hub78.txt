@@ -1,0 +1,63 @@
+Adam - I found where Barbour get it. It is planning applications, and it is free.
+
+## 1. The Barbour question, answered
+
+They are not pulling it out of thin air and they are not buying a secret feed. Barbour ABI and Glenigan do two things: they harvest **every local authority planning register in the country, continuously**, and then they pay researchers to ring the applicant and ask who is building it and when.
+
+Step one is free. **PlanIt** (planit.org.uk) already aggregates all 485 GB councils behind a public API - no key, no login, no subscription. I have built `jacob_planit.py` against it tonight.
+
+The scale is the point. Contracts Finder and Find a Tender between them gave me **fifteen** live notices worth a second look in **ninety** days. Planning gave me **454 large live applications in thirty** days, of which **66 have a real glazing package in them** once the tree works, solar farms, telecoms masts, householder extensions and condition-discharge paperwork are stripped out. Same country, shorter window.
+
+There is one catch and it is worth knowing because it is exactly what they sell: PlanIt returns the applicant's name as the literal words **"See source"** on every row. That redaction *is* the product. It is not a wall though - every row carries the council's own portal link, and the applicant is on the public register there because the law puts it there. So I use PlanIt to find and filter cheaply and nationwide, then read the council's own page for the shortlist only.
+
+**That works.** Down Place House in Windsor - a restoration with thermal upgrades and new glazing - is **Amazon MGM Studios**. Two thirds of the 66 sit on a portal system I can read directly and I am working through them at one polite request a second as I write this; the board fills in as each council answers. The other third are on portals I cannot parse, and those ship with the name blank and **a direct link to the register page** so it is one click rather than a guess. Names that turn out to be "C/o Agent" are thrown away rather than put on your call list as a company.
+
+**What planning gets you that no tender feed can: it reaches a scheme before the enquiry list exists.** A tender notice means the main contractor is already picking subbies. An award notice means they have picked. A planning consent is nine to eighteen months ahead of the glazing order - it is the only source where "get Fenster on the list" is still an open question.
+
+## 2. The CPV review - I found a habit, not a missing code
+
+I took the 21 notices in our feed files whose title is unmistakably glazing work and checked them against your hub-13 list. **It catches ten of the twenty-one.**
+
+Six of the eleven misses carry only **45000000 "Construction work"**:
+
+- Garforth External Window and Door Replacement
+- 2026-2027 Door and Window Replacement
+- North Tyneside - Window and External Door replacement, Norham High
+- Valley Primary School - Fire Door Replacement
+- Fire Door Replacement Scheme & Passive Fire Works
+- Window servicing to 4 high rise blocks
+
+**No addition to your list fixes that.** Adding 45000000 would import every highway scheme in the country and 26% of construction awards are highways. The buyers simply have not coded their notices properly - and a filter that trusts the buyer's coding loses half its market. So I have changed the rule instead: a product word next to a work word **in the title** now counts as glazing whatever the CPV says. "Window Replacement" is a description of the work, not a keyword that happens to appear in it. **Coverage went from 10/21 to 18/21.**
+
+That test threw three false positives on the first pass and all three are now blocked: "door entry" and "intercom" are an access control system, and "cubicle tracking" is a curtain rail. None has a pane of glass in it - and access control is one of the seven you deliberately cut on hub-13, so the two rules now agree.
+
+**Five codes are genuinely absent from your list.** I have not added them, because the list is yours: **44221220 Fire doors**, **45343000 Fire-prevention installation works**, **45420000 Joinery and carpentry installation work**, **45421000 Joinery work** (those two are the parents of the 45421xxx codes you already have, so a buyer coding at parent level is currently missed), and **50000000 Repair and maintenance services** (you have the child 50700000). Fire doors is the one I would press on - we have a fire door supplier and two fire door schemes went past us this quarter. Say the word and they go in.
+
+## 3. The uncomfortable bit, and then the best lead in the building
+
+I have to tell you what the evidence says, because you will make a better decision with it than without it. Your own won-contract export has a LEADSOURCE column on all 204 rows:
+
+- **existing customer - 118 of 201 (59%)**
+- Jayk, by name - 51 (25%)
+- Google - 22
+- **a tender portal - 3. In the company's entire history.**
+
+So a night on tender portals is a night on 1.5% of the funnel. I have done that work and it is built, but I would be doing you a disservice if I did not say where the other 59% is - **sitting in a file nobody queries.**
+
+So I wrote `jacob_dormant.py`: every past customer, joined to the live pipeline, filtered to the ones with no quote out, no work on site, and a long silence. **Top of that list:**
+
+**RSR - five jobs, £197,044 of delivered work, 378 days silent, nothing quoted to them at all.** That is a top-four client by lifetime value who has stopped ringing and nobody noticed. Last job Woodside Road, Swindon. One phone call.
+
+Then: **TSL UK / Topek Southern** (£15,344, 301 days), **Merchant Taylors'** (£15,087, 548 days), **FK Restoration** (£15,860, but 1,426 days - probably gone), **Avenir Works** (£8,664, 348 days), **Dunbia Cardington**, **Mazda Motors UK**, **Sovereign FM**, **Shutlanger Village Hall**. Nine in total, all on the board with a next action and your name on it.
+
+Hightown ranked on the first run of that list and I have hard-coded them out of it, per your 27/07 instruction.
+
+## 4. Where it all is
+
+Opportunities now has three sections: **the dormant customers first**, then the open tenders, then the 66 planning schemes. Every planning row carries the council, the postcode, the scheme, the size in homes where published, and the applicant where I could read it - and it says on its face where each fact came from and where it did not.
+
+Two honest notes on how the night went, so you know what you are looking at. PlanIt rate-limited me partway through and I could not finish a second, wider sweep - so this is the *large* applications only, thirty days, and there is more available when it lets me back in. And my first pass kept 101 rather than 66, because 35 of them turned out to be condition-discharge paperwork on schemes consented years ago - "details of landscape management plan pursuant to condition 51" and the like. Those are stripped now. A developer discharging conditions is actually a *good* timing signal, since it means they are mobilising, but the row as published says nothing about a glazing package, so I have taken them out rather than pad the list.
+
+Two honest limits. **There is no contract value on a planning application** - dwelling count is the only scale number published and it is often blank, so I have not invented one. And a planning application is not a job: it is a scheme that will need glazing in nine to eighteen months. The action on those rows is to get Fenster in front of the developer before the contractor draws a list up, which is a call, not a quote.
+
+I have not stopped and I am not complacent. But the honest read after tonight is that the leads are not hiding behind a paywall - they are in the planning registers, which are free, and in your own customer list, which is free. RSR is the one I would ring first.

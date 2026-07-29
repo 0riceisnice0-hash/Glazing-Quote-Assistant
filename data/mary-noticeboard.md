@@ -5,29 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 22:44 - triage
-IF YOU DO NOT RECORD quote_issued, THE QUOTE IS NEVER CHASED. TWO OF THE LAST THREE ISSUES WERE MISSED.
-
-Checked tonight off a Jacob FYI. Three quotes have left the building in two days and only ONE produced a
-ledger event: Grange Hill 29/07. Georgie's (GBP 89,229.61 to Pearce, 28/07 14:01) and SM5 Wexham
-(GBP 20,563.57 to SM5 Developments, 29/07 12:22) had none - and Jacob's bridge state confirms it, he has
-only ever received two handovers in his life. So both of those sat issued and unchased, invisible to the
-only bot whose job is chasing them.
-
-Backfilled both refs (issued:georgies:2026-07-28, issued:sm5-wexham:2026-07-29). They are his now.
-
-WHY THIS IS EASY TO MISS AND WORTH A HABIT: the handover is structural, so there is no bounced message,
-no unanswered question, nothing that fails - a forgotten event looks exactly like a job with nothing to
-chase. Adam has just reinforced the same division on Jacob's side (hub-77): the priced-but-unissued jobs
-are OURS and off his list 'until Mary says they have been sent to client'. That promise is only kept by
-the one command:
-
-  python scripts\mary_ledger.py --add --kind quote_issued --job <key> --ref issued:<key>:<date> --summary "..."
-
-At close-out, on the day. Put the CONTACT and the decision date in the summary - a chaser needs a person
-to ring, and on Wexham the honest answer is that the 14 July return date had already passed, which is a
-different chase entirely.
-
 ### 2026-07-29 23:19 - triage
 FOR THE 07:45 UPDATE: RSR HAVE BEEN WAITING ON US SINCE 09/10/2025 ON A JOB AMAZON HAS ALREADY SIGNED OFF.
 
@@ -121,3 +98,22 @@ measured against a corpus that counts some jobs three times.
 ONE RULE THE LAB IS NOW UNDER, worth knowing generally: an error in OUR quote and an error in the ENGINE
 are opposite findings. If a quote turns out to be wrong, it comes OUT of the calibration set. Never tune
 the engine to reproduce a defect.
+
+### 2026-07-30 00:49 - st-marys
+A PORTAL CLIENT'S INBOUND MAIL DOES NOT CARRY THEIR DOMAIN. SEARCHING FOR IT PROVES NOTHING.
+
+Jacob asked whether anything had gone to or from ets-wales.com on St Mary's after our 17/07 submission - he had searched commercial@, info@ and jacob@ for 'ets-wales' and found nothing, and could not tell whether that meant silence or a blind spot. It was a blind spot.
+
+E T & S run the tender through a PORTAL. Their messages arrive FROM THE PORTAL, subject-lined 'E T & S Construction Ltd addendum:' / '... new message:' / '... invites you to quote on:', and they only reach estimating@ because PAUL TAYLOR forwards them. The client's own domain therefore appears on our OUTBOUND ONLY. Same family as triage's Spoone School finding (a job running under another name) and the Once For All invitation on Vesuvius.
+
+SO: before reporting 'nothing from this client', search the PORTAL'S SUBJECT PHRASING and check whether an internal PM is the actual route in. A domain search is a clean negative only for clients who email us directly.
+
+THE RECIPE, which is reusable - list_messages caps at  and returns NEWEST first, so a since-filter alone silently truncates. Mine gave 250 messages whose oldest was 21/07 when I had asked for 17/07 onward, and the submission itself was in the missing four days. Bound BOTH ends and check the range you got back:
+
+  import mary_graph as g; t=g.get_token(g.load_env(),'READER')
+  # then a direct g.graph() GET with: receivedDateTime ge <from> and receivedDateTime lt <to>
+  # whole_mailbox / all folders, or you miss our own sent quotes
+
+WHAT IT ANSWERED: exactly ONE ets-wales.com message exists in estimating@ from 17/07 to 30/07 and it is our own submission - 17/07 11:17:36, Gintare to tom.godfrey@ets-wales.com, cc Adam, three attachments. No acknowledgement, no query, no re-submission. The 27/07 re-opened return date lapsed at our end.
+
+AND THE PART WORTH GENERALISING: the register was not unread. Paul forwarded it 24/07 12:17, and at 13:06 Gintare replied TO PAUL - 'We submitted this enquiry last week, but I'll check whether any changes are needed.' That is the last thing anyone said. An estimator undertook the check and it was never closed out. WHEN YOU FIND A MISSED DEADLINE, LOOK FOR THE INTERNAL PROMISE BEFORE BLAMING THE DOCUMENT - an open loop inside Fenster is a different fix from 'nobody read the header'.

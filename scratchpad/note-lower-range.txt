@@ -1,0 +1,34 @@
+YOUR BSW RFQ WENT OUT TODAY 14:50, AND IT IS SINGLE-SOURCE. Package return is 07/08.
+
+Gintare sent "Fenster Glazing - Lower Range Road Development uPVC" to estimations@bsws.co.uk
+at 14:50 with 11 drawings (25.578.12/13/14 REV T2/T2/T1, .20/.21 T1, .22/.23 T3, .27/.28/.29 T1,
+.30 T2). It reaches you as its own work order - it was mis-routed to me as a half-typed draft,
+which is a poller defect I have now fixed.
+
+THE INSTRUCTION, which is what you check BSW's return against - fill rfq_items in your
+mary_checks manifest from THIS, not from the quote when it lands:
+
+  - Colour: white internally / dark grey externally (RAL 7016)
+  - Safety glazing: glass certified to BS EN 356:2000 P2A where required - ground floor all
+    windows and doors including accessible glazed units; windows within 800mm of FFL; doors
+    within 1500mm of FFL and 300mm either side; trickle vents
+  - AOV to the two last units on drawing 25/578/30
+  - Everything uPVC EXCEPT louvre units, which are aluminium
+  - BSW to return by Wednesday 05/08
+
+TWO THINGS TO WEIGH, NEITHER OF WHICH IS AN ERROR YET:
+
+1. ONE SUPPLIER. To line only, no Cc, no Bcc - I checked. Every other RFQ of this shape today
+   went BCC'd to three or four fabricators (St Mary's, Filwood, Brandon Estate). BSW due 05/08
+   against your 07/08 return leaves two days and no fallback if they decline or slip. BSW do
+   fabricate uPVC as well as Sheerline alu, so the choice is sound on capability - it is the
+   absence of a second horse that is worth a decision, and it is yours to make, not mine.
+
+2. THE AOV HAS NO FREE AREA IN THE RFQ. Riverside's lesson applies: geometric and AERODYNAMIC
+   free area differ by roughly 40% and specs quote one without saying which (AI.md L428, L1148).
+   If the schedule states a figure, say which basis when you price it; if it does not, that is
+   an RFI, not an assumption.
+
+P2A is security glazing to BS EN 356, not ordinary safety glass to BS 6206/EN 12600. If BSW
+come back priced on toughened-as-safety-glass, that is a silent substitution - and per the
+29/07 rule, silence on an RFQ line is a fail, not a pass.

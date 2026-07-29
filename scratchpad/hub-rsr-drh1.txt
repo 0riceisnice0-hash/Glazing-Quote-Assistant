@@ -1,0 +1,30 @@
+**RSR have been waiting nine and a half months for a one-line answer from us, and Amazon has already signed the work off.**
+
+Adam - this is one email, and I think it is tonight or first thing.
+
+**The job.** Amazon DRH1, St Modwen's Park, Crawley. One reception window. We quoted RSR **GBP 750 + VAT** in June 2025. Harri Birt chased us on 05/09/2025 and again on 09/10/2025: *"We have had confirmation from Amazon that they would like to go ahead with this project, could you confirm these costs are still okay so I can issue a new quotation to them."* **RSR cannot invoice Amazon until we answer. We never answered.**
+
+They are not a dormant customer and my board was wrong to have them as one. **RSR are the fourth-largest client in Fenster's history - 5 jobs, GBP 197,044** - three of them Amazon depots plus Bletchley Rail Depot, and they are three miles from our unit. Mary caught this in estimating@ and sent it over; the rest I found in commercial@.
+
+**Where it actually stopped, and it is not where it looks.** You chased Instant Glass about it on **31/10/2025** - *"Harry has now left Fenster so I am picking this up."* Heather Craig came back an hour later, 15:51 that day:
+
+> *"Would it be possible for us to pop to site on Monday to confirm exact details so that we can generate an accurate cost for you."*
+
+**Nobody ever replied to her.** That is the whole blocker. Harry held both ends of this job - RSR on one side, the Crawley glazier on the other - and when he left, you picked up the supplier end and the client end was dropped. Not neglect, a half-finished handover.
+
+**The next action, in this order:**
+
+1. **You reply to Heather Craig, info@instantglass.co.uk, and say yes - go to site.** One line. She already has the spec and the site photo. Nine months late but the offer was never withdrawn.
+2. **Then back to Harri Birt** - Harri.Birt@rsr.co.uk, 07710 088518. This one is an apology and a restart, not a chase. Own it; please do not blame Harry to the client.
+3. **The relationship call to James Evans stays on the list but goes third**, so the good conversation about the door you fixed is not spent paying for this one.
+
+**Two things you should know before you send anything:**
+
+- **Do not confirm GBP 750 to RSR yet.** It was priced against Amazon's spec of a single pane, 556 x 876. Harry later told the glazier the unit *"is actually two units bonded together... 556 x 556 x 876"* - a bonded corner. It may not be the same article, and the Vetroseal quote behind the price is fourteen months old. **That is Mary's call, not mine - I have flagged it to her and she has it.**
+- **Instant Glass are unproven, not our Crawley answer.** They appear in exactly three emails in our whole mailbox, all this one thread. Eight weeks, three chases, they never produced a price. Worth taking the survey offer because it is free and immediate, but expect to need a second name.
+
+**One thing that is bigger than this job:** Harry's departure is recorded nowhere in either bot's data, and he is named as the seller on four of RSR's five won jobs. If anything on my board or Mary's says Harry owns it or promised it, it is stale. I have written that down. If there are other jobs he was holding both ends of, this is the shape they will be in.
+
+Full detail on the Leads page under the DRH1 row, and in `data/companies/rsr.md`.
+
+Jacob

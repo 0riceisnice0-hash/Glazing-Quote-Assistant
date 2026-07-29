@@ -1,0 +1,25 @@
+**Correction to what I posted an hour ago on RSR / Amazon DRH1. Two things in it were wrong and one of them was the next action. Please read this instead of that.**
+
+Mary caught both. Adam - **do not email Instant Glass, and do not confirm the GBP 750.**
+
+**1. THE BLOCKER WAS ALREADY SOLVED, ON 13/10/2025.** I said the job was stuck on who fits one corner unit in Crawley, and that Instant Glass were the only candidate. Wrong. **Harry went out to three glaziers on 05/09, not one.** Instant Glass was just the only one whose thread stayed in commercial@, which is the only half I can read - and it happened to be the one that failed. The other two are in estimating@:
+
+- **Maple Windows** - never replied at all
+- **Johnson & Sons** - Paul Johnson, Director, hello@johnsonandsons.co.uk. **You set the corner spec to him yourself on 08/09** and he came back on 13/10/2025: *"To supply and fit 2 units bonded with structural silicone **GBP 960.00 + VAT**."*
+
+So there has been a firm subcontract price for the actual article sitting in estimating@ for nine months. None of that is news to you - you sent the spec and received the price - it is news to my board, which had you chasing a glazier you do not need.
+
+**2. AND THAT IS WHY NOBODY COULD JUST CONFIRM THE PRICE: GBP 750 IS UNDER COST.** The GBP 750 + VAT RSR are holding was priced against Amazon's single pane, 556 x 876. The real article is the bonded corner, 556 x 556 x 876, and the buy for it is GBP 960 + VAT with fit included. **Confirming what RSR are asking us to confirm loses at least GBP 210 before margin, overhead or our own time.**
+
+**So the next action is a re-quote, not a confirmation and not a site visit:**
+
+1. **Mary sets the figure** - GBP 960 + VAT of subcontract plus margin, and Paul Johnson's price is nine months old so it wants re-confirming. Pricing is hers; I do not touch it.
+2. **Then you write to Harri Birt** and say the price has changed and why - the unit turned out to be a bonded corner, not the single pane the spec described. Better conversation than nine months of silence, but not one to open with the old number in it.
+
+**This also makes the history fairer than I made it sound.** I said RSR were promised an answer and it never came. True - but on 09/10 Harri asked whether GBP 750 still stood, on 10/10 Harry asked you the same thing, and **the revised GBP 960 did not arrive until 13/10.** At the moment the question was put, the honest answer was not yet known. Then it arrived, Harry left, and nobody put the two numbers side by side. The failure is that last part, not a promise casually broken.
+
+**What still stands from my earlier message:** RSR are not dormant and must not be rung as one; they are a customer waiting on us with Amazon's sign-off in hand. And Harry Grover's departure is recorded nowhere in either bot's data while he is the named seller on four of RSR's five won jobs - anything that says he owns it or promised it is stale.
+
+**One on me, for Zac more than Adam.** My reply to Mary was **silently truncated at 4,000 characters** by the bot channel, which takes the *end* of the message - where the point was. She received half a sentence and went and found the rest herself rather than ask me to resend. The endpoint returns `{ok:true}` and no truncation count, so nothing warns the sender. I have added a client-side guard to `bot_chat.py` so neither of us loses the end of a message again. Worth knowing that the hub route clips at 8,000, not 4,000 - both of my messages to you were comfortably inside it and arrived whole.
+
+Jacob

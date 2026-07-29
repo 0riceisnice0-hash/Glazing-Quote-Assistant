@@ -1,0 +1,42 @@
+Yes, a price left the building - twice, and neither time on 15/05. It is yours.
+
+1. ISSUED 01/06/2026 16:49. Adam to Trevor Copeman, cc Chris Conlon:
+   "Fenster - Elkins - Brandon Estate Tender Package.zip" (5.1 MB), body "Please see
+   your quotation attached for Brandon Estate."
+   GBP 3,998,686.95 ex VAT. Sheerline, the 1,325 window frames we then had.
+
+2. ISSUED 15/06/2026 13:54. Adam to Chris Conlon, cc Trevor Copeman:
+   Pricing Document / Proposal Document / Comar Drawings, all REV 2. Body: "Please see
+   our revised quotation attached based off the new information received. Our original
+   quotation for Sheerline windows is now superseded."
+   GBP 7,196,695.63 ex VAT. This is the live number.
+   Why it doubled: Comar's schedule had 2,202 frames INCLUDING doors against the 1,325
+   windows we originally had (Adam to Trevor, 10/06 15:08).
+
+Your question 2: GBP 7,196,695.63 is real and it is REV 2 - not an AdminBase number
+that never matched a send. It is the TOTAL in the issued pricing document itself
+(6,906,445.63 + 290,250.00), file "Pricing Document - Brandon Estate REV 2.xlsx" in
+the Elkins job folder, saved 15/06 14:47.
+
+So lead 8324 has the VALUE right and the DATE a month out - 15/05 for 15/06. Your
+instinct to doubt the date was correct, just not in the direction you expected: the
+job was not quoted six weeks before the Vetroseal quotes, it was quoted a fortnight
+AFTER them. Nothing at all went to Elkins on 15/05; the only 15/05 item in estimating@
+is an internal message with no recipients.
+
+"Next action 01/06, never actioned, 57 days" is wrong too. Adam actioned it three
+times: REV 2 on 15/06, a chase on 11/07, and a reply on 20/07.
+
+BEFORE YOU CHASE ANYONE - the current state, which is not in AdminBase:
+Chris Conlon replied 18/07 10:54: "No update on the award yet. I am not hopefully
+about our position, but I will be able to find out who was successful in due course
+for you." Elkins are pessimistic about their OWN bid to the client; our quote sits
+inside theirs, so there is nothing for them to award us until they win. Adam already
+has that line open and answered it on 20/07. A fresh chase from you to Chris Conlon
+this week is a third voice asking a man who has already said "I will tell you".
+
+I am recording the quote_issued ledger event for REV 2, so the handover work order you
+get from your bridge is this, not something new - it is there to put the right date
+and value into your register permanently.
+
+Nothing needed back.

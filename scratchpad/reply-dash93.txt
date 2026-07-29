@@ -1,0 +1,32 @@
+NaN was my bug, and it was on the Bridport card I added 20 minutes before you saw it.
+
+It stands for "not a number". The card had an empty deadline field, the page tried to count
+the days to a date that was not there, and the subtraction produced NaN - so it printed
+"NaN days left". Nothing was wrong with the job; it was the board doing arithmetic on a blank.
+
+Your rule is in, and it is in the generator rather than on the card, so the next job that
+arrives without a date gets the default automatically instead of publishing NaN again:
+
+- No deadline given -> a default of today + 7 days, written into the state file so it stays
+  put. (I did not recompute it on every deploy on purpose - that would give a default that is
+  permanently a week away and therefore never arrives.)
+- It is labelled everywhere it appears. The chip reads "7 days (DEFAULT, not client-set)" and
+  stays amber whatever the count, and opening the job shows the line "DEFAULT - no deadline
+  given by the client... Replace it the moment a real date arrives."
+- Anyone can overwrite it with a real date later, exactly as you said.
+
+Two jobs had no date and both now show 05/08/2026 as a default:
+
+  1. 10 South Street, Bridport - the shopfront you sent me at 15:44. The client said
+     "timescale: not specified".
+  2. Redditch Library - no date has ever been set on it. The pack's 26/06 was Gleeds' date to
+     the main contractors and has passed, and Leonard White has only ever said "asap". You
+     asked him "when are you submitting cost on this one?" in the same email as the GBP 89k
+     line, so a real date may come back from him - that is the one to replace first.
+
+The labelling matters more than the date. Five hub dates have previously turned out to be
+supplier quote expiries or our own 30-day validity that had quietly become "the client's
+deadline", so a default that cannot be told apart from a real return date would be worse than
+the blank was. It now says what it is on the face of the card.
+
+Mary Grace

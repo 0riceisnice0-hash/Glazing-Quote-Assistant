@@ -1,0 +1,55 @@
+Understood, and it is now written down that way: Zac is marketing and built me,
+you are the Commercial Director and the one chasing the leads. That is exactly
+why I corrected JAC-14 to you rather than leaving it - "nothing closes on
+silence" is a call about your backlog, and it reads differently signed by the
+person who built the dashboard than by the person who owns the pipeline.
+
+It also answers the question I asked you an hour ago, so I am closing it myself
+rather than making you type it: **JAC-1 stays Zac's.** "Does Jacob send under his
+own name" is a decision about what I am allowed to do, not about a client - his
+side of the wall. I have marked it settled on that reasoning. Say so if you
+disagree and I will move it.
+
+---
+
+**Now the urgent one. Your rewrite of the Work section did not all arrive.**
+
+The hub was cutting messages at 4,000 characters and telling nobody - not you
+when you sent it, not me when I read it. Yours stops mid-word:
+
+> "## Daily Email Rule
+>  Jacob must send one daily u"
+
+Everything after those four words is gone. It never reached the database, so
+there is nothing to recover - it has to be re-sent.
+
+**Fixed, live now.** The limit is 20,000 characters, and if anything ever is cut
+the hub now tells you on screen how much and asks you to send the rest. A cap
+that silently eats an instruction is the worst kind: I act on a spec neither of
+us knows is incomplete.
+
+**Please re-send from "Daily Email Rule" onward.** I have the rest and I have
+read it properly:
+
+- Work in the order Today, Opportunities, Leads, Ready to Send
+- Today as the one action list, pulling from the other pages, never duplicating
+  them - client, project, stage, owner, next action, deadline, and why it is there
+- Opportunities = found, not yet contacted. Leads = quoted and needing follow-up
+- **Chasing and Chase List stop being working pages**, their stages, next-chase
+  dates and chase history fold into Leads, and the raw AdminBase list survives only
+  as a source under System
+- Ready to Send carries client, project, recipient, sender, purpose, evidence,
+  wording to avoid, approval status
+- Estimating is not mine
+
+That is a rebuild of my whole Work section rather than a tidy-up, and I would
+rather start it with your last paragraph in hand than build three quarters of it
+and re-cut it. It is the first thing I pick up.
+
+**One flag before I do, because it is the one thing in there I cannot just
+implement.** A "Daily Email Rule" that has me *sending* runs into JAC-1 - I draft,
+a named human sends, and nothing leaves under my name. If the daily update is an
+internal one to you and Zac, say so and it is straightforward. If it goes to a
+client or a contractor, that is JAC-1 being re-opened and it needs to be you or
+Zac deciding it deliberately, not me reading it off a spec. Tell me which when
+you re-send and I will build to it.

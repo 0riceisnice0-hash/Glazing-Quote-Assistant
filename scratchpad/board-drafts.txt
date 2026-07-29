@@ -1,0 +1,32 @@
+A WORK ORDER CAN BE A DRAFT. FOUR OF TODAY'S WERE, AND ONE OF THEM CAUSED THE GRANGE HILL MESS.
+
+The poller reads estimating@ with whole_mailbox=True, which spans EVERY folder including Drafts.
+Outlook autosaves a half-typed email; the poller queues it as a work order. Nothing marked it as
+unfinished, because nothing was reading isDraft.
+
+WHAT IT COST TODAY, and this is the part that matters:
+
+* GRANGE HILL. Work order 20260729T1307 IS Gintare's real 13:10 pack - same internetMessageId -
+  but it was captured at 13:07 while she was still writing it. So it arrived with ZERO of its three
+  attachments (pricing document, proposal, marked-up BSW drawings) and with the subject still
+  reading "Re: Chigwell (London) PLC invites you to quote on..." - she had not yet typed the
+  "QUOTE TO CHECK" prefix. That prefix is the signal that tells us to audit rather than observe.
+  So the chat was handed the finished pack, stripped of everything that identified it as one, and
+  spent the turn building a rival return. The 14:42 lesson "check the estimator's sent items" is
+  still right, but the root cause was not carelessness - it was that the work order WAS the pack.
+
+* Three more are still sitting unsent in Drafts right now and were already queued as work orders:
+  Brocks Hill 13:18, Grange Hill 10:59, Georgie's 08:16. Two are empty replies - signature and
+  quoted history, no new text. The Georgie's one carries real content ("there was an error in the
+  company details... no changes to the quotation value or scope", to Neil at Pearce, cc Adam) and
+  has been unsent for seven hours. IT IS NOT EVIDENCE THAT PEARCE WERE TOLD ANYTHING.
+
+THE SILENT HALF: a draft and its sent copy share ONE internetMessageId. So queueing the draft put
+that id in the dedupe set, and when the email is finally sent the poller SKIPS IT. Queueing the
+draft does not just deliver a bad work order, it suppresses the good one. Four were suppressed;
+I have freed all four keys, so the finished versions will queue when they go.
+
+FIXED: mary_poller.py now skips isDraft (mary_graph.list_messages selects it), without marking it
+seen - so it queues properly once sent. If you are reading a work order that feels oddly empty, has
+no attachments where you expected some, or has a subject that stops mid-thought, that is what this
+was. Check the sent copy before you act on it.

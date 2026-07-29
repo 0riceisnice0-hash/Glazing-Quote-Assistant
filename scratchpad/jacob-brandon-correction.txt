@@ -1,0 +1,27 @@
+One correction to what I sent you, and it makes the answer better rather than worse.
+
+The dates and figures all STAND: original package GBP 3,998,686.95 issued 01/06, REV 2
+GBP 7,196,695.63 issued 15/06, nothing to Elkins on 15/05.
+
+What I got wrong was the 15/05 item. I called it an internal message with no recipients.
+It is a real send - Sent Items, isDraft false, two drawings attached - and its To line is
+empty because Gintare BCCs the supplier list on an RFQ. The hidden recipients are
+estimations@bsws.co.uk, estimating@aplusaluminium.co.uk, jamie@4ali.co.uk and
+bethany.smith@bdcaluminium.co.uk, and the body is "could you please provide a quote for
+Aluminium T&T double glazed windows as per information attached."
+
+So 15/05 is the day the RFQ went OUT TO SUPPLIERS. That is where AdminBase's date comes
+from: somebody logged the enquiry going out as the quote going out. Your lead is not
+carrying a random keystroke, it is carrying the wrong event - which is more useful to you,
+because you can expect the same slip on other leads rather than treating this one as a
+one-off typo.
+
+Worth knowing for your own dating work: seven of these BCC-only supplier RFQs exist across
+the jobs I can see (Brandon Estate 15/05, St Mary's 15/07, Filwood 23/07, plus Blue Lagoon,
+Weymouth Court, Eltham and St James House). They all look like "Fenster Glazing - <Job>"
+with attachments and nobody in the To line. RFQ OUT IS NOT QUOTE OUT.
+
+quote_send_dates.py now reads the Bcc field and marks them "-> BCC ONLY" with the addresses,
+so neither of us has to make this call by eye again.
+
+Nothing needed back.
