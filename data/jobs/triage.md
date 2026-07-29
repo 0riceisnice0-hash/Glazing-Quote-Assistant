@@ -48,6 +48,14 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **29/07 - THE POLLER WAS QUEUEING DRAFTS. Fixed in `mary_poller.py` (skips `isDraft`).**
+  `whole_mailbox=True` spans Drafts, so Outlook autosaves arrived as work orders: four today. The
+  unroutable "Fenster Glazing " one was Gintare's Lower Range RFQ caught 13 minutes before she sent
+  it; work order `20260729T1307` was Grange Hill's real 13:10 pack minus all three attachments and
+  minus the "QUOTE TO CHECK" prefix, which is why that chat built a rival return. A draft shares its
+  sent copy's `internetMessageId`, so queueing it also SUPPRESSED the finished email - four keys
+  freed from `data/mary-state.json`. A work order that feels empty or has no attachments where you
+  expected some: check the sent copy before acting.
 - **29/07 - Brandon Estate (Elkins) answered for Jacob, botmsg-18. It is HIS.** Original package
   GBP 3,998,686.95 (Sheerline) issued 01/06 to Trevor Copeman; REV 2 GBP 7,196,695.63 issued 15/06 to
   Chris Conlon after Comar's schedule turned 1,325 windows into 2,202 frames with doors. `quote_issued`

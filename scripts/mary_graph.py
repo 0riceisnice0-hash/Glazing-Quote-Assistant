@@ -78,7 +78,7 @@ def list_messages(token, mailbox, since_iso=None, top=25, whole_mailbox=False):
     filt = "&$filter=receivedDateTime%%20gt%%20%s" % since_iso if since_iso else ""
     scope = "/users/%s/messages" % mailbox if whole_mailbox else "/users/%s/mailFolders/inbox/messages" % mailbox
     path = (scope + "?$top=%d"
-            "&$select=id,internetMessageId,subject,from,toRecipients,ccRecipients,receivedDateTime,hasAttachments,bodyPreview"
+            "&$select=id,internetMessageId,subject,from,toRecipients,ccRecipients,receivedDateTime,hasAttachments,bodyPreview,isDraft"
             "&$orderby=receivedDateTime%%20desc" % top) + filt
     st, res = graph(token, "GET", path)
     if st != 200:

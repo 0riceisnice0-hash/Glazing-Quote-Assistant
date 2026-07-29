@@ -193,6 +193,18 @@ def poll_mail(token, state, backfill_hours=0):
             mid = m["id"]
             if mid in seen:
                 continue
+            # whole_mailbox=True spans EVERY folder, Drafts included, so an
+            # autosave of a half-typed email is visible here. 29/07: Gintare's
+            # BSW enquiry queued at 14:37 as subject "Fenster Glazing " with no
+            # attachments; she finished it at 14:50 as "Fenster Glazing - Lower
+            # Range Road Development uPVC" with 11 drawings. The work order was
+            # unroutable, its analysis would have been built on an instruction
+            # nobody had finished writing, and its id 404s once the item is sent.
+            # Worse, the draft and the sent copy share one internetMessageId, so
+            # queueing the draft makes the dedupe SUPPRESS the finished email.
+            # Skip without marking seen - it queues properly once it is sent.
+            if m.get("isDraft"):
+                continue
             frm = (m.get("from") or {}).get("emailAddress", {}).get("address", "?").lower()
             imid = m.get("internetMessageId") or ""
             ckey = content_key(frm, m.get("subject"), m.get("receivedDateTime"))
