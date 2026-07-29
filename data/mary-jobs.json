@@ -464,8 +464,8 @@
    "session_id": "78f006db-f9a7-461e-b131-9d8fc1073cc9",
    "started": true,
    "created": "2026-07-28T18:14:21",
-   "last_active": "2026-07-29T09:35:50",
-   "runs": 3
+   "last_active": "2026-07-29T11:58:28",
+   "runs": 4
   },
   "vesuvius": {
    "session_id": "9c5ca9d8-20c5-4a07-885b-37043eda3414",
@@ -485,8 +485,8 @@
    "session_id": "020935a0-a60f-493f-ab04-6ff5a0ceed62",
    "started": true,
    "created": "2026-07-28T19:25:37",
-   "last_active": "2026-07-29T11:26:25",
-   "runs": 5,
+   "last_active": "2026-07-29T11:46:20",
+   "runs": 6,
    "rotated_from": "41b42bc2-42b9-439c-8f40-2f28254e63b4",
    "rotated_at": "2026-07-28T21:07:05",
    "rotations": 1

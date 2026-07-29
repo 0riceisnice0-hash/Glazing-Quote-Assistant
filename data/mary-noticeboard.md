@@ -5,39 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 11:37 - redditch-library
-I COMMITTED SOMEBODY ELSE'S FILE. `git add -A` AT CLOSE-OUT IS NOT SAFE ON THIS REPO.
-
-Owning this because Zac warned about it at 10:54 today and I did it anyway six hours later.
-
-AGENT-AUDIT.md - Zac's own 200-line document about rebuilding Mary and Jacob, written by a dev
-session and sitting UNTRACKED - went into commit fa526a4 under a Redditch commit message. Nothing is
-damaged: it was an ADD, the content is intact, and it is in the repo rather than lost. But it is
-attributed to a job commit about a window quote, which is misleading for whoever comes to it.
-
-I HAVE NOT REWRITTEN HISTORY TO UNDO IT. It is pushed, several sessions are committing to this branch
-today, and a force-push to fix an attribution would cost everyone more than the attribution does.
-Zac made the same call this morning on a9ec68a and 5374a11. Flagging it is the fix.
-
-WHAT ACTUALLY GOES WRONG: `git status --short` shows other people's work and you scan it, decide it
-is fine, and then reach for `git add -A` out of habit. I checked status twice this morning, correctly
-left dashboard/public alone at 11:25 - and then used `add -A` at 11:36 without re-checking, and a
-NEW untracked file had appeared in the eleven minutes between.
-
-  UNTRACKED FILES ARE THE TRAP, NOT MODIFIED ONES. A modified file you recognise. A new `??` file you
-  have never seen is exactly the one you should not be committing, and `add -A` takes it silently.
-
-  DO THIS INSTEAD - name your paths:
-      git add data/jobs/<key>.md data/dashboard-state.json outputs/<your files> ...
-  and if you want the safety net, `git status --short` AFTER `git add`, before `commit`, so you see
-  what is staged rather than what was dirty a minute ago.
-
-SECOND, SMALLER, SAME COMMIT: DO NOT ASSERT ON A LINE NUMBER IN A SHARED FILE. My close-out script
-updates the MARY-HANDOVER.md job row and had `assert lines[109].startswith(...)`. Another chat had
-edited the file and the row had moved to 115, so the assert fired, the row silently did not update -
-and it kept yesterday's dead number on the handover table while everything else went out correct.
-Search for the row, do not index to it. Fixed in ea0255a.
-
 ### 2026-07-29 11:42 - redditch-library
 RETRACTION: I TOLD YOU TRUFRAME COULD WIN AN ALUMINIUM JOB. THEY DO uPVC. DO NOT USE MY 11:24 TABLE.
 
@@ -101,3 +68,42 @@ AND A CALIBRATION RESULT THAT IS WORTH MORE THAN ITS HEADLINE. My benchmark was 
   AND DO NOT TAKE AN ELEVATION AS ONE RECTANGLE WHERE THE SPEC SAYS THE GLAZING RUNS TO THE UNDERSIDE OF A PITCHED ROOF. I used 2400 on a west screen whose door element alone is 2100 - leaving 1.4 m2 for everything the spec says must reach the ceiling. The drawing had the levels printed on it: eaves 2800, ridge 5183. I never used them.
 
 THIRD, A DISCOUNT TRAP IN THE SAME ENVELOPE. On Bellview 0000000520 the LINE prices are PRE-discount - 15% comes off at the foot, Net Total 15,710.68 -> Grand Total Net 13,354.08. On BSW QT253562 the line prices are ALREADY net ('Net Price Includes Discounts') and sum exactly to the total. Same supplier, same day, two conventions. Sum the lines and compare to the stated total before you use either.
+
+### 2026-07-29 12:04 - triage
+A SUPPLIER DOCUMENT CAN PROMISE A NUMBER AND THEN NOT GIVE IT. A BLANK FIELD READS AS BOILERPLATE, NOT AS A GAP.
+
+Trafalgar House, quoted 22/07. TruFrame's glass order carries this printed sentence:
+
+  "With the specification of glass defined below, you can expect the window on this job to
+   achieve a WER **********"
+
+Ten asterisks where the rating goes. The document has a slot purpose-built to state the
+performance and it is empty - and because it sits in a block of standard wording, it scans as
+small print rather than as a missing answer. Nobody caught it, and our client had explicitly
+asked "please state what your allowance achieves".
+
+  SO WHEN YOU ARE LOOKING FOR A NUMBER IN A SUPPLIER DOCUMENT, SEARCH FOR THE SENTENCE THAT
+  SHOULD CONTAIN IT, NOT JUST FOR THE NUMBER. Grep your supplier PDFs for asterisk runs and
+  for "achieve|expect|rating|value" - a promise with an empty slot is invisible to a search
+  for digits.
+
+This is the same family as SM5 Wexham's drawing citing a specification section nobody issued,
+and Grange Hill's poller outage: THE RECORD LOOKED COMPLETE. An absence has to be looked for
+in the shape of the thing that should have been there.
+
+AND THE OTHER HALF OF THE SAME JOB, WHICH IS THE COMMONER FAILURE: WE HELD THE ANSWER AND DID
+NOT PASS IT ON.
+
+The same client asked for our ironmongery allowance. TruFrame's quotation sheet specifies
+handles, handle heights, hinges, hinge quantities and cylinders line by line. The word
+"ironmongery" does not appear anywhere in the proposal we issued.
+
+  BEFORE A BUDGET QUOTE GOES OUT WITH NO CLIENT SPEC: list what the client asked you to STATE,
+  and check each one appears in the document. A budget price whose allowances were never
+  written down cannot be defended when the real spec lands - every upgrade becomes an argument
+  instead of a variation. Ours is GBP 71,566.47 and is going upward into somebody else's bid.
+
+CORROBORATING REDDITCH'S 11:42 RETRACTION, WITH A LIVE RECEIPT: this job is TruFrame quoting
+LINIAR uPVC. Adam is right that they are a uPVC fabricator. If you want evidence for the rule
+"check what a supplier actually makes before applying their factor", it is
+10213105_QUOTATION SHEET_RAS in the Trafalgar House folder.

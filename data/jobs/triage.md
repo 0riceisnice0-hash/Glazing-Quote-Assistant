@@ -887,6 +887,57 @@ and every chat can meet a live-project thread. Board told.
 Checked `git status` before staging this turn - clean apart from the bridge's own
 `data/mary-jobs.json`. Doing that check first from now on.
 
+### 2026-07-29 12:10 - Trafalgar House: the client asked two questions and the quote answers neither
+Paul Taylor chased Michael Beyer (Topek Southern) at **11:54 BST** on a quotation issued 22/07. A
+chase is Jacob's by Adam's 28/07 ruling - but the QUOTE is estimating, and auditing an issued quote
+is explicitly in the triage playbook, so I audited it and handed the chasing on.
+
+**Trafalgar House, 223 Southampton Road, Portchester, Portsmouth PO6 4PY.** TSL - Topek Southern Ltd.
+Estimating Log **8697**, enquiry 14/07, controller Paul. Issued 22/07 11:29 by Gintare at
+**GBP 71,566.47 + VAT**, Liniar uPVC via TruFrame. **Zero events in the ledger** - no chat has ever
+touched it.
+
+**MICHAEL BEYER ASKED TWO EXPLICIT THINGS ON 14/07 AND NEITHER IS IN THE DOCUMENT.** He was pricing a
+budget cost for a tender he is preparing, so our allowances were going upward into his own bid:
+
+1. *"please can you state what your allowance achieves"* (glass). The proposal gives the make-up -
+   4/20/4 clear toughened soft coat, argon, black warm edge - and **no performance figure at all**.
+   Zero occurrences of U-value, W/m2K or any rating.
+2. *"please allow for standard ironmongery etc and provide info on your allowance"*. **The word
+   "ironmongery" does not appear in the proposal.** The only hardware line is "shootbolt locking,
+   panic hardware where required" in the executive summary, which is a locking note.
+
+**THE TWO GAPS HAVE DIFFERENT CAUSES, WHICH IS THE USEFUL PART.** On ironmongery **we held the answer
+and did not pass it on** - TruFrame's quotation sheet 10213105 specifies handles, handle heights,
+hinges, hinge quantities and cylinders line by line. On glass **nobody ever had it**: TruFrame's glass
+order prints *"you can expect the window on this job to achieve a WER **********"* - ten asterisks
+where the rating goes. Reported the artefact, not the cause: whether that was never calculated or is a
+print artefact is TruFrame's to answer. Either way no figure exists, so that one needs a call before
+Michael can be answered.
+
+**Checked before raising:** `mary_recall.py --settled --grep` on u-value, ironmongery and budget
+returned nothing that rules on this, and the job had no prior events. Zac's ledger did in seconds what
+would otherwise have been guesswork.
+
+**Document traces reached a THIRD client** - proposal PDF authored "Nicholas Baker", pricing xlsx
+carrying "Dan Parker"/"agsurveying" plus external links into other people's Outlook cache. Same as
+Filwood and Georgie's. **Deliberately not raised as new** - Filwood owns the master-template fix and a
+third instance does not change their action; it went in the email as one line of supporting argument
+for doing it sooner. Confirmed `clean_issued_pack.py` already strips all of it, including the
+externalLinks parts, so the tool is not the gap - these files were never run through it. Note the
+`--audit` flag takes a FILE, not a directory; a directory raises PermissionError.
+
+**Handed to Jacob** with the chase, the value, and a warning that the reply may be awkward. Also told
+him the general shape: **a job can be issued, live and chased without ever having had a chat**, so the
+nine sends I dated for him on 28/07 were never the full list.
+
+**Corroborated redditch-library's 11:42 retraction with a live receipt:** this job is TruFrame quoting
+Liniar uPVC. Adam's correction is right and there is now evidence in a job folder.
+
+Also spotted in passing, not actioned: `5. Finance\Payment Applications\MASTER Fenster Glazing Payment
+Application - Shaftesbury (Nr. 2).xlsx` is filed inside the Trafalgar House folder. Wrong job. The
+archive is read-only so it is recorded, not moved.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

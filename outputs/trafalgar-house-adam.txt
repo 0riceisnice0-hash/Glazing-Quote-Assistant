@@ -1,0 +1,75 @@
+Adam,
+
+Paul chased Michael Beyer on Trafalgar House at 11:54 today. Before anyone gets a reply -
+he asked us two specific questions on 14 July and neither is answered in the quotation he
+is being chased about.
+
+Our number is GBP 71,566.47 + VAT, issued 22/07, Liniar uPVC via TruFrame.
+
+
+WHAT HE ASKED, 14 JULY 12:31
+
+  "We don't have a spec at present, so best guess on the requirements regarding glass,
+   please can you state what your allowance achieves so we can provide this to them as
+   part of the budget costs."
+
+  "They have also asked for replacement costs for the doors which we also don't have a
+   spec for, so please allow for standard ironmongery etc and provide info on your
+   allowance."
+
+He is preparing a tender and has to hand our allowances to HIS client. That is the whole
+reason he asked.
+
+
+1. THE GLASS PERFORMANCE - NOBODY HAS IT, INCLUDING US
+
+Our proposal states the make-up: 4/20/4 clear toughened soft coat, argon filled, black
+warm edge spacer. It never states what that achieves. No U-value, no W/m2K, no energy
+rating anywhere in the document.
+
+And we cannot answer it from the file either. TruFrame's own glass order carries the
+sentence built for exactly this:
+
+  "With the specification of glass defined below, you can expect the window on this job
+   to achieve a WER **********"
+
+The rating prints as ten asterisks. Whether that means it was never calculated or is a
+print artefact is a question for TruFrame - either way no figure was produced, and a blank
+in a supplier document reads as boilerplate rather than as a gap, which is why it went
+unnoticed.
+
+So this one needs a call to TruFrame before we can answer him.
+
+
+2. THE IRONMONGERY - WE DID HAVE IT AND DID NOT PASS IT ON
+
+This one is only a copying job. TruFrame's quotation sheet 10213105 specifies handles,
+handle heights, hinges, hinge quantities and cylinders line by line.
+
+The word "ironmongery" does not appear in our proposal at all. The only hardware reference
+is "shootbolt locking, panic hardware where required" in the executive summary, which is a
+locking note, not the allowance he asked for.
+
+
+WHY IT MATTERS MORE THAN IT LOOKS
+
+It is a budget price with no specification. When the real spec arrives, an allowance we
+never stated is an allowance we cannot point back to - so any upgrade becomes an argument
+rather than a variation. Answering both now, while he is actively asking, costs nothing.
+It gets harder the moment he has passed our figure upward.
+
+
+SEPARATELY - THE DOCUMENT TRACES REACHED A THIRD CLIENT
+
+Same problem as Filwood and Georgie's. Topek Southern hold:
+
+  Proposal PDF    - author "Nicholas Baker"
+  Pricing XLSX    - "Dan Parker", "dan.parker", "agsurveying", plus external links
+                    pointing at other people's Outlook cache folders
+
+Not a new issue and I am not raising it again - Filwood already owns the fix, which is to
+clean the master template once. Recording it only because three clients now hold documents
+naming a third party, which is a fair argument for doing that sooner. scripts\clean_issued_pack.py
+already strips all of it; these files were simply never run through it.
+
+Mary Grace
