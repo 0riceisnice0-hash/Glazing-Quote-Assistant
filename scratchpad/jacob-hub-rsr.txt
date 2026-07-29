@@ -1,0 +1,44 @@
+RSR - GBP 197k of won work three miles away, never once asked what is coming. And the number on my own board that said they were cold was wrong.
+
+**One call for Adam: James Evans at RSR, 07938 483016.**
+
+RSR (R S Response Ltd, Lumen House, Linford Wood) is the fourth-biggest client in Fenster's history - **5 won jobs, GBP 197,044**, one of them **Bletchley Rail Depot at GBP 188,135**, which Adam sold himself. Three of the other four are **Amazon distribution sites** - DCR3 Croydon, DWR1 Droitwich, and Swindon. They are a design-build-maintain contractor with a warehouse portfolio, registered **MK14, three miles from our MK13**, and they have bought from us five times.
+
+**Nothing has ever been quoted to them in AdminBase. Not one row, ever.** Neither Mary nor I had ever said their name until tonight.
+
+**The last thing that happened is the reason to ring, and it is a good reason.** October-November last year they had a door operating wrongly on the push bar. Adam went and fixed it. 27/11, Adam: *"Works completed today. The door is now operating correctly."* 28/11, their QS James Evans: *"Thank you, Adam."* The snags and the follow-up inspection on Bletchley closed out the same month. **The account did not sour - it finished, and then nobody rang.**
+
+So the opener is not "you have been quiet". It is *"has that door behaved since I fixed it"* - and then the programme rather than the project: what is coming on the depots and fit-outs, and whether their **maintenance** contracts carry reactive window and door work. That last one is the small-works band we win 38% of.
+
+Their contacts were all sitting in signatures in commercial@, in a mailbox nobody had opened for a phone number: **James Evans, Assistant QS, 07938 483016**; Matthew Troiano; Stephen Read; Sean Carroll; and accounts@rsr.co.uk, which is where invoices go - learned the hard way in August 2025. My board had `phone: null` against them.
+
+Full file with the five jobs, the contacts and what to say: `data/companies/rsr.md`.
+
+---
+
+**The correction, because I would rather you heard it from me.**
+
+My dormant list said RSR had been silent **378 days, nothing since 16/07/2025**. Both halves were wrong, and either one said down the phone would have been an embarrassment in front of a client who was thanking us in November.
+
+**It aged the silence off the date they placed the order and ignored the "fitted" column on the same row.** Bletchley was ordered 15/10/2024 and **fitted 02/09/2025** - so eleven months during which we were physically installing their windows got counted as the client going quiet. Fixed: it now ages from the later of the two and says which one it used. **Every row on the list moved:**
+
+| | was | now |
+|---|---|---|
+| RSR | 378d | **330d** |
+| FK Restoration | 1426d | **1265d** |
+| Merchant Taylors' | 548d | **380d** |
+| Avenir Works | 348d | **230d** |
+| Mazda Motors | 350d | **223d** |
+| TSL UK | 301d | **224d** |
+| Shutlanger Village Hall | 229d | **152d** |
+
+Nobody dropped off - all nine are still above the 150-day floor - so this changed the numbers, not the list. That is not a let-off: **the number is the thing somebody says out loud on a call.**
+
+**And the remaining 330 days is time since we did WORK, not since anyone spoke.** RSR's mailbox runs to 28/11/2025 commercially and 05/05/2026 on accounts. Real silence is eight months, not twelve and a half. I did **not** try to fix that by joining to the mailbox intake, because intake only covers thirty days - every dormant client would come back "absent", and absence would read as never-contacted. That is the same bug shape as the planning feed that dropped all 454 rows and looked like a quiet market. So the field now states what it measures and tells you to search the mailbox before ringing anyone on it.
+
+**Two smaller things checked and settled while I was in there:**
+
+- **Conamar's absence from the dormant list is correct.** Biggest client in company history, was six months silent - exactly what a filter bug looks like. It is not one: three quotes are still out with them (Wooton School Farm GBP 137,246, Hollickwood School GBP 57,260, Premier Inn Loudwater GBP 25,269), all already carrying chase actions. I checked the name-matching too, since that exclusion joins on exact names and a variant would have produced a false dormant row - across all 82 won clients, none would be caught only by a loose match. Left it strict.
+- **"RSR" in the Contracts Finder feed is a Crown Commercial Service framework for Reservoir Panel Engineers**, not this company. Single-word-name false positive, settled - search on `rsr.co.uk`, never the three letters.
+
+**Nothing here needs a decision from you.** The one thing I cannot answer myself is whether anything was ever priced for RSR outside AdminBase - there is a "Replacement of reception window" thread with estimating@ from October last year that produced no CRM row. Asked Mary; if she says nothing was priced, the call is clean.

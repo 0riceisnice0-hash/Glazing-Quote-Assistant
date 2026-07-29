@@ -6,12 +6,16 @@ to fit it. **Cap: 130 lines.** Over it, the full account moves to `data/knowledg
 append-only, grep-able) and the one-line rule stays here with a pointer - Mary's INDEX.md over AI.md. New evidence
 teaches: add. Evidence contradicts: the line dies here, the WHY goes to bd-lessons. Files: `data/jacob/README.md`.
 
-> **OVER CAP: 155 lines against 130, as of 29/07/2026 evening.** Said out loud rather than fixed by
-> deleting something load-bearing. Tonight added five durable rules (planning as the Barbour source,
-> the dormant-customer list, a buyer's CPV is not the work, `app_type`, and Adam's override refused);
-> two older entries were merged into them and the full accounts are all in `bd-lessons.md`. The next
-> honest move is either Zac raising the cap or a proper compression pass over the whole file - not
-> another quiet 25 lines. Flagged to Zac on the hub.
+> **OVER CAP: 175 lines against 130, as of 29/07/2026 late evening** - and the count in this note
+> had itself drifted, claiming 155 when the file was already 162, which is its own small argument
+> for the compression pass. Said out loud rather than fixed by deleting something load-bearing.
+> Earlier tonight: five durable rules (planning as the
+> Barbour source, the dormant-customer list, a buyer's CPV is not the work, `app_type`, and Adam's
+> override refused); two older entries merged into them. Since then the RSR silence-clock lesson
+> was **merged into the existing wrong-event date rule rather than added as its own entry** - seven
+> lines, and the only growth this session. Full accounts all in `bd-lessons.md`. The next honest
+> move is either Zac raising the cap or a proper compression pass over the whole file - not another
+> quiet 25 lines. Flagged to Zac on the hub.
 
 ## What Fenster HAS WON - `contracts-won.json`, the file that settles arguments
 
@@ -59,7 +63,10 @@ value on each. This is the win history; everything else is a funnel.**
   ~60% of England). Only source reaching a scheme before an enquiry list exists. `jacob_planit.py`.
 - **THE 59% NOBODY QUERIES.** 118 of 201 wins were existing customers; 3 ever came from a portal.
   `jacob_dormant.py`: bought before, nothing quoted now, not on site now, silent. **RSR - 5 jobs,
-  GBP 197k, 378 days, nothing out.** Do-not-approach enforced in code (Hightown ranked on run one).
+  GBP 197k, 330 days no work, nothing ever quoted in AdminBase, MK14 to our MK13.** Three of the
+  five are Amazon depots; Adam fixed their door himself 27/11/25 and they thanked him. Call him on
+  that, not on the silence: `data/companies/rsr.md`. Do-not-approach enforced in code (Hightown
+  ranked on run one).
 
 ## Classification rules that cost a day each to learn
 
@@ -99,6 +106,12 @@ value on each. This is the win history; everything else is a funnel.**
 - **AdminBase re-dates nothing on a re-quote**; rows joining penny-exact to a NEWER verified send
   are aged from the send. **And the lead date can be the wrong EVENT, not a typo: RFQ OUT IS NOT
   QUOTE OUT** (Brandon 8324; seven such). Expect the slip, do not patch one row. Mary, 29/07.
+  Same family, 29/07 late: **`dormant.json` aged silence off the ORDER date, ignoring `fitted` on
+  the same row** - RSR's Bletchley was ordered 15/10/24 and fitted 02/09/25, so eleven months on
+  site read as silence (378d -> 330d; every row moved). And **"no work since" is not "nobody has
+  spoken since"** - RSR's mailbox runs to 05/05/26. Do NOT join to `intake.json` to fix it: it
+  covers 30 days, so absence would read as never-contacted. **Search the mailbox before ringing
+  anyone dormant.** `bd-lessons.md`, `data/companies/rsr.md`.
 - **Read the Status field on any alert feed** - 15 of 30 Supply2Gov items over four days were award
   or prior-information notices, already gone. Four days held two live leads, not "27 a day".
 - **COVERAGE IS ENGLAND AND WALES, NATIONWIDE** (Adam, 29/07, closing JAC-10). Out: Scotland, NI,

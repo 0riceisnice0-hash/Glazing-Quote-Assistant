@@ -2,7 +2,8 @@
  "updated": "2026-07-29",
  "source": "contracts-won.json (Adam's 204 won contracts) joined to adminbase.json (the live quoted pipeline)",
  "why": "59% of everything Fenster has ever won came from an existing customer and 3 contracts in the company's history came from a tender portal. This is the 59%, filtered to the ones nobody is currently talking to.",
- "rule": "Dormant = has bought before, no quote out now, no work on site now, silent for 150 days, lifetime value over GBP 2,500.",
+ "rule": "Dormant = has bought before, no quote out now, no work on site now, no work for 150 days, lifetime value over GBP 2,500.",
+ "quietMeans": "quietDays is days since Fenster last had WORK with them - the later of the order date and the date it was fitted, which quietBasis names. It is NOT days since anyone spoke to them and must never be said on a call as if it were. RSR read 378 days here while commercial@ held a thank-you from their QS at 28/11/2025 and accounts traffic to 05/05/2026. intake.json covers thirty days, so it cannot supply the contact date and joining to it would invent silence rather than measure it. Run `jacob_mail.py --search \"<client>\" --days 0` before ringing anyone on this list.",
  "caveat": "A long silence is a question, not a verdict. An outcome that arrives by email never reaches the CRM, so some of these went quiet for a reason somebody at Fenster already knows.",
  "counts": {
   "clients": 82,
@@ -21,8 +22,11 @@
    "client": "RSR",
    "jobs": 5,
    "value": 197044.44,
-   "quietDays": 378,
+   "quietDays": 330,
+   "quietFrom": "2025-09-02",
+   "quietBasis": "last fitted",
    "lastContract": "2025-07-16",
+   "lastFitted": "2025-09-02",
    "lastSite": "WOODSIDE ROAD SWINDON SN3 4WA",
    "area": "SN",
    "phone": null,
@@ -30,14 +34,17 @@
    "leadSource": "Existing Customer",
    "wasJayks": false,
    "owner": "Adam",
-   "next": "Adam calls RSR. 5 jobs worth GBP 197,044 and nothing since 2025-07-16 - ask what they have coming, not whether they are well."
+   "next": "Adam calls RSR. 5 jobs worth GBP 197,044 and no work since 2025-09-02 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "FK RESTORATION LTD",
    "jobs": 1,
    "value": 15860.0,
-   "quietDays": 1426,
+   "quietDays": 1265,
+   "quietFrom": "2023-02-10",
+   "quietBasis": "last fitted",
    "lastContract": "2022-09-02",
+   "lastFitted": "2023-02-10",
    "lastSite": "SUNRISE CARE HOME 10 AMEN PLACE LITTLE ADDINGTON NORTHANTS NN14 4AU",
    "area": "NN",
    "phone": "01234630200 07494008319",
@@ -45,14 +52,17 @@
    "leadSource": "Google",
    "wasJayks": false,
    "owner": "Adam",
-   "next": "Adam calls FK RESTORATION LTD. 1 job worth GBP 15,860 and nothing since 2022-09-02 - ask what they have coming, not whether they are well."
+   "next": "Adam calls FK RESTORATION LTD. 1 job worth GBP 15,860 and no work since 2023-02-10 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "TSL UK - TOPEK SOUTHERN LTD",
    "jobs": 1,
    "value": 15344.68,
-   "quietDays": 301,
+   "quietDays": 224,
+   "quietFrom": "2025-12-17",
+   "quietBasis": "last fitted",
    "lastContract": "2025-10-01",
+   "lastFitted": "2025-12-17",
    "lastSite": "LAWFORD HOUSE 4 ALBERT PLACE FINCHLEY N3 1QA",
    "area": "N",
    "phone": "07514670795 08454508080",
@@ -60,14 +70,17 @@
    "leadSource": "Jayk",
    "wasJayks": false,
    "owner": "Adam",
-   "next": "Adam calls TSL UK - TOPEK SOUTHERN LTD. 1 job worth GBP 15,344 and nothing since 2025-10-01 - ask what they have coming, not whether they are well."
+   "next": "Adam calls TSL UK - TOPEK SOUTHERN LTD. 1 job worth GBP 15,344 and no work since 2025-12-17 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "MERCHANT TAYLORS’",
    "jobs": 1,
    "value": 15087.07,
-   "quietDays": 548,
+   "quietDays": 380,
+   "quietFrom": "2025-07-14",
+   "quietBasis": "last fitted",
    "lastContract": "2025-01-27",
+   "lastFitted": "2025-07-14",
    "lastSite": "SANDY LODGE  NORTHWOOD MIDDLESEX HA6 2HT",
    "area": "HA",
    "phone": null,
@@ -75,14 +88,17 @@
    "leadSource": "Existing Customer",
    "wasJayks": false,
    "owner": "Adam",
-   "next": "Adam calls MERCHANT TAYLORS’. 1 job worth GBP 15,087 and nothing since 2025-01-27 - ask what they have coming, not whether they are well."
+   "next": "Adam calls MERCHANT TAYLORS’. 1 job worth GBP 15,087 and no work since 2025-07-14 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "AVENIR WORKS LTD",
    "jobs": 1,
    "value": 8664.0,
-   "quietDays": 348,
+   "quietDays": 230,
+   "quietFrom": "2025-12-11",
+   "quietBasis": "last fitted",
    "lastContract": "2025-08-15",
+   "lastFitted": "2025-12-11",
    "lastSite": "APARTMENT 2 16 - 17 EAST PARADE LEEDS WEST YORKSHIRE LS1 2BH",
    "area": "LS",
    "phone": null,
@@ -90,14 +106,17 @@
    "leadSource": "Existing Commercial",
    "wasJayks": false,
    "owner": "Adam",
-   "next": "Adam calls AVENIR WORKS LTD. 1 job worth GBP 8,664 and nothing since 2025-08-15 - ask what they have coming, not whether they are well."
+   "next": "Adam calls AVENIR WORKS LTD. 1 job worth GBP 8,664 and no work since 2025-12-11 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "DUNBIA CARDINGTON",
    "jobs": 1,
    "value": 6266.73,
-   "quietDays": 401,
+   "quietDays": 299,
+   "quietFrom": "2025-10-03",
+   "quietBasis": "last fitted",
    "lastContract": "2025-06-23",
+   "lastFitted": "2025-10-03",
    "lastSite": "3 MEADOW LANE BEDFORD MK44 3SB",
    "area": "MK",
    "phone": null,
@@ -105,14 +124,17 @@
    "leadSource": "Existing Commercial",
    "wasJayks": false,
    "owner": "Adam",
-   "next": "Adam calls DUNBIA CARDINGTON. 1 job worth GBP 6,266 and nothing since 2025-06-23 - ask what they have coming, not whether they are well."
+   "next": "Adam calls DUNBIA CARDINGTON. 1 job worth GBP 6,266 and no work since 2025-10-03 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "SOVEREIGN FM LTD",
    "jobs": 2,
    "value": 2627.53,
-   "quietDays": 345,
+   "quietDays": 335,
+   "quietFrom": "2025-08-28",
+   "quietBasis": "last fitted",
    "lastContract": "2025-08-18",
+   "lastFitted": "2025-08-28",
    "lastSite": "B2 BEAR BROOK OFFICE PARK WALTON STREET AYLESBURY HP21 7QW",
    "area": "HP",
    "phone": "7825633235",
@@ -120,14 +142,17 @@
    "leadSource": "Existing Customer",
    "wasJayks": false,
    "owner": "Adam",
-   "next": "Adam calls SOVEREIGN FM LTD. 2 jobs worth GBP 2,627 and nothing since 2025-08-18 - ask what they have coming, not whether they are well."
+   "next": "Adam calls SOVEREIGN FM LTD. 2 jobs worth GBP 2,627 and no work since 2025-08-28 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "MAZDA MOTORS UK",
    "jobs": 1,
    "value": 4935.0,
-   "quietDays": 350,
+   "quietDays": 223,
+   "quietFrom": "2025-12-18",
+   "quietBasis": "last fitted",
    "lastContract": "2025-08-13",
+   "lastFitted": "2025-12-18",
    "lastSite": "MAZDA VICTORY WAY CROSSWAYS BUSINESS PARK DARTFORD KENT DA2 6DT",
    "area": "DA",
    "phone": null,
@@ -135,14 +160,17 @@
    "leadSource": "Google",
    "wasJayks": false,
    "owner": "Adam",
-   "next": "Adam calls MAZDA MOTORS UK. 1 job worth GBP 4,935 and nothing since 2025-08-13 - ask what they have coming, not whether they are well."
+   "next": "Adam calls MAZDA MOTORS UK. 1 job worth GBP 4,935 and no work since 2025-12-18 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "SHUTLANGER VILLAGE HALL",
    "jobs": 1,
    "value": 2589.3,
-   "quietDays": 229,
+   "quietDays": 152,
+   "quietFrom": "2026-02-27",
+   "quietBasis": "last fitted",
    "lastContract": "2025-12-12",
+   "lastFitted": "2026-02-27",
    "lastSite": "SHUTLANGER VILLAGE HALL MAIN ROAD TOWCESTER NORTHAMPTON NN12 7RU",
    "area": "NN",
    "phone": "7770275727",
@@ -150,7 +178,7 @@
    "leadSource": "Google",
    "wasJayks": false,
    "owner": "Adam",
-   "next": "Adam calls SHUTLANGER VILLAGE HALL. 1 job worth GBP 2,589 and nothing since 2025-12-12 - ask what they have coming, not whether they are well."
+   "next": "Adam calls SHUTLANGER VILLAGE HALL. 1 job worth GBP 2,589 and no work since 2026-02-27 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   }
  ]
 }

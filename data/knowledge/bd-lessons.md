@@ -741,3 +741,70 @@ Filwood/Stepnell GBP 67,068, Riverside House/RRR GBP 5,990, Redditch Library/Pri
 on Leads so the money is not lost, carry Mary's name, and are off the chase list and out of the
 daily email until she says each has gone to the client. The rule was changed rather than the three
 rows, so the next priced-not-issued job lands with her automatically.
+
+---
+
+## 29/07/2026 (late) - A SILENCE CLOCK THAT MEASURED THE WRONG EVENT (RSR)
+
+`dormant.json` exists to answer "who bought from us, stopped, and nobody noticed" - the 59% of
+the win history that comes from existing customers. Its whole product is one number per client:
+how long they have been quiet. **That number was wrong on every row, and wrong in the direction
+that makes Fenster look neglected and the client look cold.**
+
+**Two separate faults, only one of them fixable in the file.**
+
+**Fault one - it aged the silence off the ORDER date and ignored the `fitted` column sitting on
+the same row.** `contractDate` is when the client placed the work; `fitted` is when Fenster was
+last on their site, and on real jobs the two are routinely a year apart. RSR's GBP 188,135
+Bletchley Rail Depot was ordered **15/10/2024** and fitted **02/09/2025** - so eleven months
+during which Fenster was physically installing their windows was counted as the client going
+quiet. Fixed: `quietDays` now runs from the later of the two, `quietBasis` names which, and
+`lastFitted` is on the row. Every row moved and none moved a little:
+
+| Client | was | now |
+|---|---|---|
+| RSR | 378d | **330d** |
+| FK Restoration | 1426d | **1265d** |
+| Merchant Taylors' | 548d | **380d** |
+| Avenir Works | 348d | **230d** |
+| TSL UK - Topek Southern | 301d | **224d** |
+| Mazda Motors UK | 350d | **223d** |
+| Shutlanger Village Hall | 229d | **152d** |
+
+Membership did not change - all nine stayed above the 150-day floor - so this was a correction of
+magnitude, not of the list. **A wrong number that picks the right rows is still wrong, because the
+number is what somebody says out loud on the phone.**
+
+**Fault two - "no work since" is not "nobody has spoken to them since", and the file cannot close
+that gap.** RSR read 378 days while `commercial@` held their Assistant QS thanking Adam on
+**28/11/2025** and `info@` held accounts traffic to **05/05/2026**. Real commercial silence: eight
+months, not twelve and a half. The tempting fix - join to `intake.json` for a last-contact date -
+is a trap: **intake covers thirty days**, so every dormant client would come back absent, and
+absence would read as "never contacted". That is the same shape as the PlanIt bug where an empty
+window read as a quiet market. So the join was NOT made; instead `quietMeans` on the output states
+what the number measures and tells the reader to run `jacob_mail.py --search "<client>" --days 0`
+before ringing. **Label the limit, do not fabricate the fact.**
+
+**And the reason it mattered here.** RSR is the top row of the list: five won jobs, GBP 197,044,
+three of them Amazon distribution sites plus Bletchley Rail Depot, registered three miles from
+Fenster's own unit, **nothing ever quoted to them in AdminBase and zero mentions by either bot in
+the ledger.** The last commercial thread was a door defect that **Adam went and fixed himself** on
+27/11/2025, answered with "Thank you, Adam" the next day. The account did not sour, it finished -
+and then nobody rang. Opening that call with "you have been quiet for 378 days" would have been
+false to the client's face; opening it with "has that door behaved since I fixed it" is the same
+call with a warm start. Full file: `data/companies/rsr.md`.
+
+**Two smaller findings from the same pass, both recorded so nobody spends the hour again:**
+
+- **Conamar's absence from the dormant list is correct, not a filter bug.** They are the biggest
+  client in company history (16 jobs, GBP 917,028) and were six months silent, so their absence
+  looked exactly like the failure mode. It is the `live quote already out` exclusion doing its job:
+  three quotes are still out - Wooton School Farm GBP 137,245.77, Hollickwood School GBP 57,260.01,
+  Premier Inn Loudwater GBP 25,268.64 - all already carrying chase actions and owners. Checked
+  further, because exact-name matching after `norm()` is how that exclusion works and a name
+  variant would silently produce a false dormant row: **across all 82 won clients, zero would be
+  caught only by substring containment.** Exact matching is currently sufficient; loosening it
+  would risk merging distinct companies for no measured gain.
+- **"RSR" in `contracts-finder-awards.json` (row 1152) is a Crown Commercial Service framework for
+  Reservoir Panel Engineers, not RS Response Ltd.** Textbook single-word-name false positive.
+  Settled - search the mailbox on `rsr.co.uk`, never on the three letters.

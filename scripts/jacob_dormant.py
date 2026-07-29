@@ -50,6 +50,29 @@ And it says nothing about WHY they went quiet, because this file cannot know.
 An outcome that arrives by email never reaches the CRM - Darren Trigg's two CIF
 schools lost funding and killed six "Live - Quoted" rows - so a long silence
 here is a question, never a verdict.
+
+WHAT `quietDays` MEASURES, AND WHAT IT DOES NOT
+----------------------------------------------
+It measures days since Fenster last had WORK with them. It is NOT days since
+anyone spoke to them, and it must never be read out on a phone call as though
+it were - RSR, 29/07/2026: this file said "378 days, nothing since 2025-07-16",
+and commercial@ has James Evans thanking Adam on 28/11/2025 with the accounts
+traffic running to 05/05/2026. Nine months of the silence was an artefact.
+
+Two thirds of that gap was a bug and is now fixed. `contractDate` is the date
+the ORDER was placed; `fitted` is the date Fenster was last on their site, and
+the two are routinely a year apart - RSR's GBP 188,135 Bletchley Rail Depot was
+ordered 2024-10-15 and fitted 2025-09-02. Ageing from the order alone counted
+eleven months of live work as silence. `quietDays` now runs from the LATER of
+the two and `quietBasis` says which one it was.
+
+The rest is not fixable here. `intake.json` covers thirty days, so a client
+absent from it looks identical to a client nobody has ever emailed, and joining
+to it would manufacture silence rather than measure it - the same shape as the
+bug that once read an empty 30-day window as a quiet market. So the mailbox
+stays the authority on contact, this file stays the authority on work, and
+`quietMeans` on the output says so on its face. Check `jacob_mail.py --search`
+before ringing anyone on this list.
 """
 import argparse
 import json
@@ -133,12 +156,18 @@ def main():
             continue
         a = agg.setdefault(key, {
             "client": (r.get("client") or "").strip(), "jobs": 0, "value": 0.0,
-            "last": "", "lastSite": "", "phone": "", "area": "",
+            "last": "", "lastFitted": "", "lastSite": "", "phone": "", "area": "",
             "soldBy": "", "leadSource": "", "inProgress": False})
         a["jobs"] += 1
         a["value"] += r.get("value") or 0
         if r.get("inProgress"):
             a["inProgress"] = True
+        # The last time Fenster was on their site, which is a different date
+        # from the order and usually a later one. A fitted date in the future
+        # is a plan, not a visit, so it does not count as contact.
+        f = str(r.get("fitted") or "")[:10]
+        if f and f <= TODAY.isoformat() and f > a["lastFitted"]:
+            a["lastFitted"] = f
         d = r.get("contractDate") or ""
         if d > a["last"]:
             a.update(last=d, lastSite=r.get("site") or "",
@@ -154,7 +183,11 @@ def main():
         if key in DO_NOT_APPROACH:
             skipped["on a do-not-approach instruction"] += 1
             continue
-        quiet = days_since(a["last"])
+        # Age from the later of "they ordered" and "we were on their site".
+        quiet_from = max(a["last"] or "", a["lastFitted"] or "") or ""
+        quiet_basis = ("last fitted" if quiet_from and quiet_from == a["lastFitted"]
+                       and quiet_from != a["last"] else "last contract")
+        quiet = days_since(quiet_from)
         if quiet is None:
             skipped["no date"] += 1
             continue
@@ -175,7 +208,9 @@ def main():
         rows.append({
             "client": a["client"], "jobs": a["jobs"],
             "value": round(a["value"], 2), "quietDays": quiet,
-            "lastContract": a["last"], "lastSite": a["lastSite"],
+            "quietFrom": quiet_from, "quietBasis": quiet_basis,
+            "lastContract": a["last"], "lastFitted": a["lastFitted"] or None,
+            "lastSite": a["lastSite"],
             "area": a["area"], "phone": a["phone"] or None,
             "soldBy": a["soldBy"] or None,
             "leadSource": a["leadSource"] or None,
@@ -184,10 +219,12 @@ def main():
             # reason nobody has addressed.
             "wasJayks": "jayk" in (a["soldBy"] or "").lower(),
             "owner": "Adam",
-            "next": ("Adam calls %s. %d job%s worth GBP %s and nothing since %s "
-                     "- ask what they have coming, not whether they are well."
+            "next": ("Adam calls %s. %d job%s worth GBP %s and no work since %s "
+                     "(%s) - ask what they have coming, not whether they are "
+                     "well. Check the mailbox for the last conversation first."
                      % (a["client"], a["jobs"], "" if a["jobs"] == 1 else "s",
-                        format(int(a["value"]), ","), a["last"] or "unknown")),
+                        format(int(a["value"]), ","), quiet_from or "unknown",
+                        quiet_basis)),
         })
 
     # Repeat buyers first. One large contract is not a relationship, so weight
@@ -204,8 +241,19 @@ def main():
                "tender portal. This is the 59%, filtered to the ones nobody is "
                "currently talking to.",
         "rule": "Dormant = has bought before, no quote out now, no work on site "
-                "now, silent for %d days, lifetime value over GBP %s."
+                "now, no work for %d days, lifetime value over GBP %s."
                 % (args.quiet_days, format(int(args.min_value), ",")),
+        "quietMeans": "quietDays is days since Fenster last had WORK with them - "
+                      "the later of the order date and the date it was fitted, "
+                      "which quietBasis names. It is NOT days since anyone spoke "
+                      "to them and must never be said on a call as if it were. "
+                      "RSR read 378 days here while commercial@ held a thank-you "
+                      "from their QS at 28/11/2025 and accounts traffic to "
+                      "05/05/2026. intake.json covers thirty days, so it cannot "
+                      "supply the contact date and joining to it would invent "
+                      "silence rather than measure it. Run "
+                      "`jacob_mail.py --search \"<client>\" --days 0` before "
+                      "ringing anyone on this list.",
         "caveat": "A long silence is a question, not a verdict. An outcome that "
                   "arrives by email never reaches the CRM, so some of these "
                   "went quiet for a reason somebody at Fenster already knows.",

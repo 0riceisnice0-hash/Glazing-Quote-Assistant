@@ -346,3 +346,69 @@ excluded in code rather than by the reader.
 
 `bd.md` is 25 lines over its 130 cap and says so on its face rather than quietly dropping
 something load-bearing. Flagged to Zac.
+
+---
+
+## 29/07/2026, late - standing agenda (own time): RSR, and a silence clock that measured the wrong event
+
+Order: Zac's standing agenda - empty inbox, advance one or two things properly. Nobody had
+written to me on the hub and Mary had nothing pending, so no reply was owed.
+
+**Took the top row of my own dormant list and worked it properly. It was the top row for a
+good reason and the number next to it was wrong.**
+
+RSR - R S Response Ltd, Companies House 03347263, active since 1997, Lumen House, Linford
+Wood, **three miles from our unit**. Five won jobs, **GBP 197,044**, of which **Bletchley
+Rail Depot GBP 188,135 that Adam sold himself**; three of the other four are Amazon
+distribution sites (DCR3 Croydon, DWR1 Droitwich, Swindon). Design-build-maintain
+contractor, warehouse and office portfolio. **Nothing ever quoted to them in AdminBase -
+not one row - and zero mentions by either bot in the ledger before tonight.**
+
+The last thing that happened is the reason to ring: Oct-Nov 2025 they had a door operating
+wrongly on the push bar, **Adam went and fixed it in person**, and their QS James Evans
+replied "Thank you, Adam" on 28/11. The Bletchley snags and follow-up inspection closed out
+the same month. **The account did not sour, it finished, and then nobody rang.** So the
+opener is the door, then the programme - what is coming on the depots, and whether their
+maintenance contracts carry reactive window and door work, which is the band we win 38% of.
+Contacts recovered from signatures in commercial@, a mailbox nobody had opened for a phone
+number: **James Evans, Assistant QS, 07938 483016**, plus Matthew Troiano, Stephen Read,
+Sean Carroll and accounts@rsr.co.uk. My board had `phone: null`. `data/companies/rsr.md`.
+
+**The correction.** `dormant.json` said RSR were silent 378 days, nothing since 16/07/2025.
+Both halves wrong. It aged the silence off the ORDER date and ignored the `fitted` column on
+the same row - Bletchley was ordered 15/10/2024 and **fitted 02/09/2025**, so eleven months
+of us installing their windows counted as the client going quiet. Now ages from the later of
+the two, with `quietBasis`/`lastFitted` on the row. **Every row moved:** RSR 378->330, FK
+Restoration 1426->1265, Merchant Taylors' 548->380, Avenir 348->230, Mazda 350->223, TSL
+301->224, Shutlanger 229->152. Nobody dropped below the 150-day floor, so the membership was
+right and only the numbers were wrong - which still matters, because the number is what
+somebody says out loud on a call.
+
+The residue is not fixable in that file and is now labelled instead: **"no work since" is not
+"nobody has spoken since"** - RSR's mailbox runs to 28/11/2025 commercially and 05/05/2026 on
+accounts, so real silence is eight months not twelve and a half. **Deliberately did NOT join
+to `intake.json`** to close it: intake covers thirty days, so every dormant client would come
+back absent and absence would read as never-contacted - the same shape as the planning filter
+that dropped all 454 rows and looked like a quiet market. `quietMeans` says what the number
+is and tells the reader to search the mailbox first.
+
+**Two things checked and settled rather than left as suspicions:**
+
+- **Conamar's absence from the dormant list is correct, not a filter bug** - and it looked
+  exactly like one, being the biggest client in company history and six months quiet. Three
+  quotes are still out (Wooton School Farm GBP 137,246, Hollickwood GBP 57,260, Premier Inn
+  Loudwater GBP 25,269), all already carrying chase actions and owners. Also checked the
+  exclusion's exact-name join, since a name variant would silently produce a false dormant
+  row: across all 82 won clients, **none** would be caught only by substring containment.
+  Left strict - loosening it would risk merging real companies for no measured gain.
+- **"RSR" in `contracts-finder-awards.json` is a Crown Commercial Service framework for
+  Reservoir Panel Engineers**, not this company. Single-word-name false positive, settled.
+
+Asked Mary one question, `--wants-reply`: whether anything was ever priced for RSR outside
+AdminBase, since there is a "Replacement of reception window" thread with estimating@ from
+10/10/2025 that produced no CRM row. Told her that silence reads as "nothing priced".
+
+Board rebuilt and deployed. `bd.md` grew seven lines, merged into the existing wrong-event
+date rule rather than added as its own entry, with the full account in `bd-lessons.md`. Its
+over-cap note was itself stale - it claimed 155 lines when the file was 162; now says 175 and
+says why the drift is an argument for the compression pass.
