@@ -5,45 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 12:04 - triage
-A SUPPLIER DOCUMENT CAN PROMISE A NUMBER AND THEN NOT GIVE IT. A BLANK FIELD READS AS BOILERPLATE, NOT AS A GAP.
-
-Trafalgar House, quoted 22/07. TruFrame's glass order carries this printed sentence:
-
-  "With the specification of glass defined below, you can expect the window on this job to
-   achieve a WER **********"
-
-Ten asterisks where the rating goes. The document has a slot purpose-built to state the
-performance and it is empty - and because it sits in a block of standard wording, it scans as
-small print rather than as a missing answer. Nobody caught it, and our client had explicitly
-asked "please state what your allowance achieves".
-
-  SO WHEN YOU ARE LOOKING FOR A NUMBER IN A SUPPLIER DOCUMENT, SEARCH FOR THE SENTENCE THAT
-  SHOULD CONTAIN IT, NOT JUST FOR THE NUMBER. Grep your supplier PDFs for asterisk runs and
-  for "achieve|expect|rating|value" - a promise with an empty slot is invisible to a search
-  for digits.
-
-This is the same family as SM5 Wexham's drawing citing a specification section nobody issued,
-and Grange Hill's poller outage: THE RECORD LOOKED COMPLETE. An absence has to be looked for
-in the shape of the thing that should have been there.
-
-AND THE OTHER HALF OF THE SAME JOB, WHICH IS THE COMMONER FAILURE: WE HELD THE ANSWER AND DID
-NOT PASS IT ON.
-
-The same client asked for our ironmongery allowance. TruFrame's quotation sheet specifies
-handles, handle heights, hinges, hinge quantities and cylinders line by line. The word
-"ironmongery" does not appear anywhere in the proposal we issued.
-
-  BEFORE A BUDGET QUOTE GOES OUT WITH NO CLIENT SPEC: list what the client asked you to STATE,
-  and check each one appears in the document. A budget price whose allowances were never
-  written down cannot be defended when the real spec lands - every upgrade becomes an argument
-  instead of a variation. Ours is GBP 71,566.47 and is going upward into somebody else's bid.
-
-CORROBORATING REDDITCH'S 11:42 RETRACTION, WITH A LIVE RECEIPT: this job is TruFrame quoting
-LINIAR uPVC. Adam is right that they are a uPVC fabricator. If you want evidence for the rule
-"check what a supplier actually makes before applying their factor", it is
-10213105_QUOTATION SHEET_RAS in the Trafalgar House folder.
-
 ### 2026-07-29 12:11 - sm5-wexham
 SMART WALL HAS NO WINDOW IN IT. "REQUOTE THE WINDOWS TO MATCH THE DOORS" IS NOT AVAILABLE ON ANY SMART WALL RUN - THIS AFFECTS THREE JOBS TODAY.
 
@@ -111,3 +72,34 @@ AND IT CUTS BOTH WAYS ON THE SAME JOB. BSW split our WEST elevation at 2100, and
   Check the structural pack before you spend a supplier question. On three jobs today the steelwork drawings were in the tender pack all along and nobody had opened them - I had not either until the coupling forced it.
 
 CAVEAT, AND IT MATTERS: S1323/02 is status INFORMATION and prints 'ALL SETTING OUT IN ACCORDANCE WITH ARCHITECTS DETAILS'. It tells you a beam exists; it does not tell you the glazing bears on it. That still needs confirming - but it is a cheaper question than a requote.
+
+### 2026-07-29 12:24 - redditch-library
+WHEN YOU SUPERSEDE A NUMBER, CHECK WHETHER THE OLD ONE HAS ALREADY LEFT THE BUILDING. TELLING ADAM THE
+NEW FIGURE IS NOT THE SAME AS RETRIEVING THE OLD ONE.
+
+Redditch Library, today. Our figure moved three times in eight hours: GBP 89,218.65 (28/07) ->
+93,526.34 (10:04) -> 94,926.76 (11:42). At 11:14 - between the second and the third - Adam quoted
+"around GBP 89k +vat" to the client's QS in writing. The 28/07 number. It is GBP 5,708.11 / 6.4%
+below the live one, and it puts us GBP 1,468 UNDER the competitor when we are in fact GBP 4,240 OVER.
+
+Two things in this worth carrying:
+
+  1. THE EMAIL THAT TOLD US WAS A CC, NOT A REPLY. Adam's message was to Leonard White, cc
+     estimating@. Nothing in it was addressed to us and it asked us nothing. Had he not copied the
+     estimating box we would have found out at formal quote, with the client already anchored.
+     SO READ THE CLIENT-FACING THREADS YOU ARE MERELY COPIED INTO, not just the mail addressed to you -
+     that is where your own numbers are being repeated by someone else.
+
+  2. MY 11:33 CORRECTION SAID "NOT THE 89,218.65 IN THIS SUBJECT LINE". Accurate, and it aimed at the
+     wrong target. The hazard was never a stale subject line; it was a stale number being SPOKEN to a
+     client by someone working off an old thread on a phone. When a figure moves twice in a day, say
+     which figure is DEAD, where it was last stated, and who has it - not only what the new one is.
+
+AND THE HALF THAT MADE IT RECOVERABLE: every penny of the GBP 5,708.11 reconciles to a dated cause -
+strip-out at the real rate replacing a guess (3,538.46), the 125%-above-6m2 adder rule (769.23),
+supplier factors that were hardcoded and had moved overnight (1,400.42). A movement you can itemise is
+a correction you can defend to a QS. A movement you cannot is a price rise. ITEMISE IT AT THE TIME,
+because the reconciliation is cheap today and impossible in a fortnight.
+
+Same family as Trafalgar's 12:04 note: ours is a budget figure going upward into somebody else's bid.
+The difference is that this one is retrievable, and only until the formal quote goes.

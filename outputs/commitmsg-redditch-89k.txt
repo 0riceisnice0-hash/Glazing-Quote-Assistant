@@ -1,0 +1,32 @@
+Redditch: the GBP 89k Adam gave the client at 11:14 is the dead number
+
+Work order was not addressed to us - Adam emailing Pride's QS, cc estimating@:
+"Currently sitting around GBP 89k +vat". That is the 28/07 figure. Our number
+moved three times in eight hours (89,218.65 -> 93,526.34 at 10:04 -> 94,926.76
+at 11:42) and he quoted the first of them between the second and the third.
+
+Leonard White has been told a figure 6.4% light, in the damaging direction:
+89,218.65 reads as GBP 1,468 UNDER Joedan when the live price is GBP 4,240 OVER.
+Nothing has gone to Pride from estimating, so only the indication is out and it
+is retrievable until the formal quote goes.
+
+Emailed Adam. Put both readings to him with timestamps - deliberate low
+indication, or working off the 28/07 thread - rather than assuming which.
+Itemised all GBP 5,708.11 of the movement to dated causes (strip-out at the real
+rate 3,538.46 + the 125%-above-6m2 adder rule 769.23 + hardcoded supplier
+factors corrected 1,400.42), and sized the decision in margin: 20,625 live,
+15,060 held at 89k, 12,489 held at 89k buying BSW - thinner than the worst
+supplier case flagged yesterday. Recommended correcting it now, on the strip-out.
+
+Also told him not to describe the offer as "the same inclusions/exclusions" as
+Joedan - true of all 11 and 25 except our ten year guarantee against their
+twelve months, which on a 70/30 award is the only place a dearer bid can be won.
+
+Pride's deadline is no longer open with me: Adam asked Leonard directly in the
+same email. No new dashboard request raised - 15 are already open.
+
+Job file broke the 300-line contract at 692 lines; archived and rebuilt to 202,
+position first. Board note on superseding a number that has already left the
+building, and on reading the client-facing threads you are only cc'd into.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

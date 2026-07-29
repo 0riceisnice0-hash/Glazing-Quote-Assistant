@@ -1,0 +1,93 @@
+Adam,
+
+The "around GBP 89k" you gave Leonard White at 11:14 today is the 28/07 figure. The live
+tender sum is GBP 94,926.76 - GBP 5,708.11 higher, and it is the number in the documents
+sitting with you now.
+
+Nothing has gone to Pride from me, so the only thing Leonard holds is your indication. It
+is still cheap to correct. It stops being cheap when the formal quote lands.
+
+
+FIRST, WHICH WAS IT
+
+  GBP 89k matches our 28/07 pricing document exactly - GBP 89,218.65.
+  I sent you GBP 93,526.34 at 10:04 this morning, and GBP 94,926.76 at 11:42.
+  Your 11:30 reply came off the 28/07 thread, whose subject line still carries 89,218.65.
+
+If you indicated low on purpose to hold Pride's interest, then the question is only how we
+fund it and the rest of this email is the price list. If you were working off the old
+thread, it needs correcting today. I cannot tell from here which it was, so I am not
+assuming.
+
+
+WHERE THE GBP 5,708.11 WENT - ALL OF IT, AND NONE OF IT A RE-PRICE
+
+  strip-out at the real rate, 43 nr x GBP 150.00,
+    replacing the GBP 3,000 allowance we guessed on 28/07      3,538.46
+  code adders - the 125% rule above 6 m2, refs 19 and 20         769.23
+  frames - the supplier factors were hardcoded in my script
+    and had moved overnight; they now read live from source    1,400.42
+                                                             ----------
+                                                               5,708.11
+
+All gross of the 2.5% MCD, same basis as everything else on this job. Two of those three
+are corrections I made and told you about; the third is a guess replaced by Fenster's own
+Brandon Estate rate. Nothing in it is a change of mind about the scope.
+
+
+THE PART THAT COSTS MORE THAN THE MONEY
+
+  GBP 89,218.65 is GBP 1,468.52 UNDER Joedan's GBP 90,687.17.
+  GBP 94,926.76 is GBP 4,239.59 OVER it.
+
+Leonard has now been told in writing that we are the cheaper bid, and asked to say how it
+compares against the other returns. The formal quote moves us from 1.6% under to 4.7%
+over on a number he is actively benchmarking. That swing is what does the damage, more
+than the GBP 5,708 does.
+
+
+IF YOU DECIDE TO HOLD THE GBP 89k
+
+Sell fixes on submission, so what moves is margin:
+
+                                    margin        % of net
+  live, GBP 94,926.76               20,625.00       22.3%
+  held at GBP 89,218.65             15,059.59       17.3%
+  held at 89,218.65, buying BSW     12,488.87       14.4%
+
+BSW is the only supplier anybody has actually asked. So the realistic version of honouring
+that indication is GBP 12,489 - thinner than the worst supplier case I sized for you
+yesterday (GBP 16,689, 18.3%), and still gross of prelims we do not charge at all and a
+fitting cost that is recorded nowhere.
+
+
+WHAT I WOULD DO
+
+Correct it to Leonard now, before the formal quote, on the strip-out. It is true, it is
+GBP 3,538 of the GBP 5,708, it is a rate replacing an allowance rather than a price rise,
+and today it costs nothing. A QS mid-comparison who gets a 6.4% increase without warning
+discounts both numbers, not just the second one.
+
+Your call, not mine - if you would rather absorb it and hold GBP 89k, the table above is
+what that buys.
+
+
+ONE THING IN THE EMAIL ITSELF
+
+"The same inclusions/exclusions as the other subcontractor's quote details" is right on
+all 11 inclusions and 25 exclusions - I lifted them verbatim from Joedan's own lists at
+pack p151-153. There is one deliberate difference: our TEN YEAR guarantee against their
+twelve months.
+
+On a 70/30 price/quality award where we are now the dearer bid, that guarantee is the only
+place this bid can be won. I would not describe our offer to Leonard as the same as
+Joedan's. It is already on the face of the proposal, in the summary and in the inclusions.
+
+
+THE DEADLINE - YOU HAVE ASKED IT
+
+"When are you submitting cost on this one?" is the question that has been open on this job
+since 28/07, and you have now put it to the person who can answer it. Nothing further from
+me on that; I will pick his answer up when it lands and I am not raising it again.
+
+Mary Grace

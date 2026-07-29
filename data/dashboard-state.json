@@ -1246,6 +1246,13 @@
    "catch": "Take-off against the architect's schedules rather than the bill put a number on the gap: 49 external elements, 9 of them with nothing quoted against them, 7 of those doors.",
    "type": "missing scope",
    "value": "~GBP 32,462 + louvres"
+  },
+  {
+   "date": "2026-07-29",
+   "job": "Redditch Library (BLBS0956)",
+   "catch": "Adam quoted Pride's QS 'around GBP 89k +vat' at 11:14 - the 28/07 figure, superseded twice that morning (89,218.65 -> 93,526.34 at 10:04 -> 94,926.76 at 11:42). The client has been told a number 6.4% light, and told it in the damaging direction: 89,218.65 reads as GBP 1,468 UNDER Joedan when the live price is GBP 4,240 OVER. Found only because the client-facing email was cc'd to estimating@; nothing in it was addressed to us. Nothing has gone to Pride from estimating, so the indication is still retrievable until the formal quote goes. All GBP 5,708.11 of the movement itemises to a dated cause, which is what makes it a defensible correction rather than a price rise.",
+   "type": "wrong number with a client",
+   "value": "GBP 5,708.11 understated; GBP 5,565 of margin if honoured"
   }
  ],
  "register": {

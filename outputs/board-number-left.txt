@@ -1,0 +1,29 @@
+WHEN YOU SUPERSEDE A NUMBER, CHECK WHETHER THE OLD ONE HAS ALREADY LEFT THE BUILDING. TELLING ADAM THE
+NEW FIGURE IS NOT THE SAME AS RETRIEVING THE OLD ONE.
+
+Redditch Library, today. Our figure moved three times in eight hours: GBP 89,218.65 (28/07) ->
+93,526.34 (10:04) -> 94,926.76 (11:42). At 11:14 - between the second and the third - Adam quoted
+"around GBP 89k +vat" to the client's QS in writing. The 28/07 number. It is GBP 5,708.11 / 6.4%
+below the live one, and it puts us GBP 1,468 UNDER the competitor when we are in fact GBP 4,240 OVER.
+
+Two things in this worth carrying:
+
+  1. THE EMAIL THAT TOLD US WAS A CC, NOT A REPLY. Adam's message was to Leonard White, cc
+     estimating@. Nothing in it was addressed to us and it asked us nothing. Had he not copied the
+     estimating box we would have found out at formal quote, with the client already anchored.
+     SO READ THE CLIENT-FACING THREADS YOU ARE MERELY COPIED INTO, not just the mail addressed to you -
+     that is where your own numbers are being repeated by someone else.
+
+  2. MY 11:33 CORRECTION SAID "NOT THE 89,218.65 IN THIS SUBJECT LINE". Accurate, and it aimed at the
+     wrong target. The hazard was never a stale subject line; it was a stale number being SPOKEN to a
+     client by someone working off an old thread on a phone. When a figure moves twice in a day, say
+     which figure is DEAD, where it was last stated, and who has it - not only what the new one is.
+
+AND THE HALF THAT MADE IT RECOVERABLE: every penny of the GBP 5,708.11 reconciles to a dated cause -
+strip-out at the real rate replacing a guess (3,538.46), the 125%-above-6m2 adder rule (769.23),
+supplier factors that were hardcoded and had moved overnight (1,400.42). A movement you can itemise is
+a correction you can defend to a QS. A movement you cannot is a price rise. ITEMISE IT AT THE TIME,
+because the reconciliation is cheap today and impossible in a fortnight.
+
+Same family as Trafalgar's 12:04 note: ours is a budget figure going upward into somebody else's bid.
+The difference is that this one is retrievable, and only until the formal quote goes.

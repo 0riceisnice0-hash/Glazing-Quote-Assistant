@@ -7470,3 +7470,69 @@ genuine unknown** - Cortizo aluminium, no factor exists for them at all.
 systems, key contacts. Accepted and **deliberately not rushed**: the error he just corrected was
 asserting a supplier capability without verifying it, and a fast capability matrix would be that same
 mistake forty rows wide. Every line will carry its source, and gaps will say so.
+
+### Redditch Library - a superseded price left the building while we were correcting it (2026-07-29, 11:14)
+
+**Chat `redditch-library`.** The work order was not addressed to us. It was Adam emailing the client's
+QS - Leonard White at Pride - **cc estimating@**: *"Currently sitting around GBP 89k +vat with the same
+inclusions/exclusions as the other subcontractor's quote details... Let me know how that sounds compared
+with other quotes received."*
+
+**GBP 89k IS THE 28/07 NUMBER.** Our figure moved three times in eight hours: **89,218.65 (28/07 21:30)
+-> 93,526.34 (10:04) -> 94,926.76 (11:42)**. Adam quoted the first of the three at **11:14** - between
+the second and the third. So the client's QS has been told a figure **GBP 5,708.11 / 6.4% below** our
+live tender sum, and told it in the one form that does commercial damage: **GBP 89,218.65 is GBP 1,468
+UNDER Joedan's GBP 90,687.17, while GBP 94,926.76 is GBP 4,240 OVER it.** Leonard has been given, in
+writing, the belief that we are the cheaper bid, and invited to benchmark it against the other returns.
+
+**THE THING TO GENERALISE: TELLING ADAM THE NEW NUMBER IS NOT THE SAME AS RETRIEVING THE OLD ONE.** Both
+corrections went to him - 10:04 and 11:42 - and both were correct and both were in time by the clock.
+Neither reached the place the dead number actually went. The 11:33 email even said *"NOT the 89,218.65
+in this subject line"*, which was accurate and aimed at the wrong target: **the hazard was never a stale
+subject line, it was a stale number being repeated to a client by someone working off an old thread on a
+phone.** When a figure moves twice in a day, state which figure is DEAD, where it was last stated, and
+who is holding it - not only what the new one is.
+
+**AND WE ONLY FOUND OUT BECAUSE OF A CC.** Nothing in the email was addressed to estimating@ and it asked
+us nothing; it arrived as a copy on a client-facing thread. Without that cc this surfaces at formal
+quote, with the client already anchored. **Read the threads you are merely copied into - that is where
+your own numbers are being repeated by someone else.**
+
+**WHAT MADE IT RECOVERABLE, AND IT IS THE REUSABLE HALF.** Every penny of the GBP 5,708.11 reconciles to
+a dated cause, gross of the 2.5% MCD: **strip-out at the real Brandon rate replacing the GBP 3,000 guess
+3,538.46 + code adders on the 125%-above-6m2 rule (refs 19, 20) 769.23 + supplier factors that were
+hardcoded and had moved overnight 1,400.42.** Two of the three are our own corrections and the third is
+a rate replacing an allowance. **A movement you can itemise is a correction you can defend to a QS; a
+movement you cannot itemise is a price rise.** Itemise at the time - the reconciliation is cheap on the
+day and impossible a fortnight later.
+
+**SIZED THE DECISION RATHER THAN JUST REPORTING IT.** Sell fixes on submission, so what moves is margin:
+live GBP 20,625 (22.3% of net); held at 89,218.65 **GBP 15,060 (17.3%)**; held at 89,218.65 while buying
+from **BSW, the only supplier anybody has actually asked, GBP 12,489 (14.4%)**. That last is thinner than
+the worst-case supplier outcome sized for Adam the day before (GBP 16,689 / 18.3%) - so honouring the
+indication costs more than the risk we had already flagged as the downside. All of it gross of prelims
+Fenster does not charge at all (Brandon carries 4.203% of works for survey, PM, commercial, technical,
+supervision and QA) and of a fitting cost recorded nowhere. **Recommended correcting it to Leonard now,
+on the strip-out, before the formal quote.**
+
+**PUT AS A QUESTION, NOT AN ACCUSATION.** Adam had been sent 93,526.34 at 10:04, so "he was told" is
+true; but his 11:30 reply came off the 28/07 thread, and a deliberate low indication to hold a client's
+interest is equally consistent with the record. Both readings were put to him with the timestamps, and
+the choice of which was left to him. **Georgie's 09:20 rule - report what the record shows and how old it
+is, never "Adam forgot".**
+
+**ONE MORE THING IN HIS WORDING.** *"The same inclusions/exclusions as the other subcontractor"* is right
+on all 11 inclusions and 25 exclusions, lifted verbatim from Joedan's own lists at pack p151-153 - with
+**one deliberate divergence, our TEN YEAR guarantee against Joedan's twelve months.** On a **70/30
+price/quality** award where we are now the dearer bid, that guarantee is the only place this bid can be
+won, and describing the offer as identical to the competitor's gives it away for nothing. It is on the
+face of the proposal already, in the summary and the inclusions.
+
+**AND A GENUINE CLOSE.** The same email asks Leonard *"When are you submitting cost on this one?"* -
+Pride's real deadline has been open since 28/07 and is now with the only person who can answer it.
+Nothing further raised; watch for the reply. **No new dashboard request was raised this turn** - 15 are
+already open and unanswered, and this needed an email to the man already standing in the thread, not a
+sixteenth card on the board.
+
+**The job file broke the 300-line contract at 692 lines and was archived and rebuilt** to
+`data/jobs/redditch-library-archive-2026-07.md`; the live file is 202 lines, position first.
