@@ -140,6 +140,26 @@ button, input, select, textarea { font-family: inherit; }
 .stat .l { font-size: var(--t-12); color: var(--muted); margin-top: 5px; }
 @keyframes rise { from { opacity: 0; transform: translateY(9px); } to { opacity: 1; } }
 
+/* ---------- Team view: decision clusters ----------
+   Twenty open decisions is a normal morning, so the unit is the job. One
+   compact card per cluster, titles clamped to a line each - the detail lives
+   on the requests page the card clicks through to, already filtered. */
+.needs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.need { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--amber);
+  border-radius: var(--r-md); padding: 14px 16px; cursor: pointer; min-width: 0;
+  transition: border-color .13s, box-shadow .13s, transform .13s; animation: rise .3s ease both; }
+.need:hover { border-color: var(--green); box-shadow: var(--sh-1); transform: translateY(-1px); }
+.need-top { display: flex; align-items: center; gap: 9px; margin-bottom: 7px; min-width: 0; }
+.need-top strong { font-size: var(--t-14); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.need-bot { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 10px; font-weight: 700; color: #fff; background: var(--green); letter-spacing: .03em; }
+.need-bot.jw { background: #3f6f8f; }
+.need-titles { display: grid; gap: 3px; margin-bottom: 9px; }
+.need-titles span { font-size: var(--t-12); color: var(--body); overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap; }
+.need-titles span::before { content: "\2022\00a0\00a0"; color: var(--amber); }
+.need-meta { font-size: var(--t-11); color: var(--muted); }
+
 /* ---------- section blocks ---------- */
 .section { margin-bottom: 30px; }
 .section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
@@ -159,6 +179,13 @@ button, input, select, textarea { font-family: inherit; }
 .tbl .job-cell strong { display: block; font-size: var(--t-14); }
 .tbl .job-cell small { color: var(--muted); font-size: var(--t-12); font-weight: 300; }
 .tbl .num { white-space: nowrap; font-size: var(--t-13); color: var(--body); }
+/* A status is a paragraph in Mary's voice; the table gets three lines of it
+   and the row's panel gets the rest. Without this one shouty status makes
+   one row five times the height of its neighbours. (On a DIV inside the td,
+   never the td itself - -webkit-box replaces table-cell display and the
+   column widths collapse.) */
+.tbl .clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden; }
 
 .chip { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-11); font-weight: 600;
   padding: 4px 11px; border-radius: 99px; white-space: nowrap; }
@@ -169,6 +196,10 @@ button, input, select, textarea { font-family: inherit; }
 
 /* ---------- request cards ---------- */
 .req-grid { display: grid; gap: 16px; }
+/* Job headers between clusters of request cards. The first one needs no
+   extra air; the rest separate one job's questions from the next. */
+.req-job-head { margin: 6px 0 -6px; }
+.req-job-head:first-child { margin-top: 0; }
 .req { background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--amber);
   border-radius: var(--r-lg); box-shadow: var(--sh-1); padding: 22px 24px; animation: rise .35s ease both; }
 .req.resolved { border-left-color: var(--green); opacity: .85; }
@@ -476,11 +507,18 @@ ul.plain li { margin-bottom: 8px; }
   .tbl-wrap, .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .tbl { min-width: 560px; }
 
+  /* The scoreboard's Won/Lost rows: job text and three buttons cannot share
+     375px, so the buttons drop underneath and split the width between them. */
+  .outcome-row { flex-wrap: wrap; }
+  .outcome-row > div:first-child { min-width: 0; }
+  .outcome-btns { width: 100%; }
+  .outcome-btns .opt { flex: 1; text-align: center; }
+
   .bubble { max-width: 92%; }
 
 }
 
-/* ------------------------------------------------- MESSAGES FILLS THE SCREEN
+/* ------------------------------------------------- CHAT PAGES FILL THE SCREEN
    At every width, not just on a phone. The old rule was
    `height: calc(100vh - 205px)` with `max-width: 760px` - a fixed offset for
    desktop chrome plus a reading-width cap, which left the conversation as a
@@ -489,53 +527,53 @@ ul.plain li { margin-bottom: 8px; }
    Instead the whole column flexes: the shell is exactly one viewport tall, the
    thread takes whatever is left over, and the composer sits on the bottom edge.
 
+   Which pages count as "chat" is declared in the registry - a page def with
+   `layout: "chat"` gets `data-layout="chat"` stamped on #page by render().
+   This used to name two page keys here and the Internal chat page silently
+   missed out - a hard-coded list in a stylesheet is where that always ends.
+
    grid-template-rows matters as much as the height. A grid row defaults to
    `auto`, so .main sizes to its CONTENT and a 100dvh cap merely CLIPS the
    bottom off rather than constraining it - that is what put the composer 60px
    below the fold. minmax(0, 1fr) makes the row the viewport and lets the flex
    chain inside divide it. */
-.shell:has(#page[data-page="messages"]),
-.shell:has(#page[data-page="jmessages"]) {
+.shell:has(#page[data-layout="chat"]) {
   height: 100dvh; min-height: 0; overflow: hidden; grid-template-rows: minmax(0, 1fr);
 }
-.shell:has(#page[data-page="messages"]) .main,
-.shell:has(#page[data-page="jmessages"]) .main {
+.shell:has(#page[data-layout="chat"]) .main {
   display: flex; flex-direction: column; min-height: 0; min-width: 0;
 }
-#page[data-page="messages"], #page[data-page="jmessages"] {
+#page[data-layout="chat"] {
   display: flex; flex-direction: column; min-height: 0; flex: 1;
   padding-bottom: 0; overflow: hidden;
 }
-#page[data-page="messages"] .chat,
-#page[data-page="jmessages"] .chat {
+#page[data-layout="chat"] .chat {
   max-width: none; height: auto; min-height: 0; flex: 1;
 }
-#page[data-page="messages"] .chat-thread,
-#page[data-page="jmessages"] .chat-thread { min-height: 0; }
-#page[data-page="messages"] .chat-compose,
-#page[data-page="jmessages"] .chat-compose {
+#page[data-layout="chat"] .chat-thread { min-height: 0; }
+#page[data-layout="chat"] .chat-compose {
   margin-top: 14px; margin-bottom: 0;
   padding-bottom: calc(14px + env(safe-area-inset-bottom));
 }
+/* Anything above the thread (the Internal chat's "how this works") must not
+   grow - the thread owns the leftover height. */
+#page[data-layout="chat"] > .section,
+#page[data-layout="chat"] > details { flex-shrink: 0; }
 /* The subtitle explains what the tab is for; the conversation needs the line
    more. (.page-head precedes #page, so this has to be asked from an ancestor -
    a sibling combinator cannot look backwards.) */
-body:has(#page[data-page="messages"]) .page-sub,
-body:has(#page[data-page="jmessages"]) .page-sub { display: none; }
+body:has(#page[data-layout="chat"]) .page-sub { display: none; }
 
 @media (max-width: 900px) {
   /* On a phone the sticky top bar is a SIBLING of .shell, not inside it, so
      `.shell { height: 100dvh }` overflows the screen by exactly the bar's
      height. Body becomes the full-height column and the bar takes what it
      needs - no magic number to drift when the safe-area inset changes. */
-  body:has(#page[data-page="messages"]),
-  body:has(#page[data-page="jmessages"]) {
+  body:has(#page[data-layout="chat"]) {
     display: flex; flex-direction: column; height: 100dvh; overflow: hidden;
   }
-  .shell:has(#page[data-page="messages"]),
-  .shell:has(#page[data-page="jmessages"]) { height: auto; flex: 1; }
-  #page[data-page="messages"] .chat-compose,
-  #page[data-page="jmessages"] .chat-compose {
+  .shell:has(#page[data-layout="chat"]) { height: auto; flex: 1; }
+  #page[data-layout="chat"] .chat-compose {
     margin-top: 12px; padding-bottom: calc(10px + env(safe-area-inset-bottom));
     border-bottom-left-radius: 0; border-bottom-right-radius: 0;
   }

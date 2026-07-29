@@ -126,6 +126,9 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "
 
 function inline(s) {
   let h = esc(s);
+  // Mary writes **emphasis** constantly - job statuses, request bodies. It
+  // used to reach the page as literal asterisks, which reads as a glitch.
+  h = h.replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>");
   // Any number of decimals plus an optional m/k suffix, otherwise "GBP 14.9m"
   // renders as a highlighted "GBP 14" trailed by a stray ".9m".
   h = h.replace(/((?:GBP\s?|£)[\d,]+(?:\.\d+)?(?:\s?[mk])?)\b/gi, '<span class="money">$1</span>');
@@ -289,7 +292,7 @@ function chatPage(bot) {
 function botchatPage() {
   const rows = [...BOTCHAT].reverse();
   return `
-    <div class="section"><div class="section-head"><h3>How this works</h3></div>
+    <details class="req-detail"><summary>How this works</summary>
       <div class="planned-note">
         <p>Jacob knows who is buying; Mary knows what is being quoted. This is the line
         between them, and everything on it is visible to you.</p>
@@ -298,7 +301,7 @@ function botchatPage() {
         otherwise talk all night. And <strong>neither has to reply</strong>: a message
         marked FYI gets no answer unless the other has something to add. Silence is the
         normal outcome.</p>
-      </div></div>
+      </div></details>
     <div class="chat">
       <div class="chat-thread">
         ${rows.length ? rows.map((m) => `
@@ -502,7 +505,7 @@ const PAGES = [
   { key: "overview", label: "Overview", group: "Work", sub: () => "Everything Mary is holding, at a glance" },
   { key: "pipeline", label: "Pipeline", group: "Work", sub: () => "Every live tender, most urgent first" },
   { key: "requests", label: "Mary needs you", group: "Work", sub: () => `${awaitingReqs().length} decision${awaitingReqs().length === 1 ? "" : "s"} she cannot make without a human` },
-  { key: "messages", label: "Messages", group: "Talk", sub: () => "Two-way line - she picks up what you write within seconds" },
+  { key: "messages", label: "Messages", group: "Talk", layout: "chat", sub: () => "Two-way line - she picks up what you write within seconds" },
   { key: "comms", label: "Comms log", group: "Talk", sub: () => "Everything sent and everything read" },
   { key: "catches", label: "Catches", group: "Record", sub: () => "Errors found and money saved" },
   { key: "scoreboard", label: "Scoreboard", group: "Record", sub: () => "How close Mary is getting, and whether we won" },
@@ -544,7 +547,7 @@ const JACOB_PAGES = [
   { key: "outcomes", label: "What we win", group: "Know", sub: () => JACOB?.outcomes ? `${JACOB.outcomes.summary.won} won, ${JACOB.outcomes.summary.lost} lost - a ${JACOB.outcomes.summary.winRate}% win rate over two years` : "The Opportunity Log has not been read yet" },
   { key: "companies", label: "Companies", group: "Know", sub: () => `${JACOB?.relationships.total || 0} companies, ${JACOB?.totals.dormantWon || 0} who have paid us and gone silent` },
   { key: "jayk", label: "Jayk's book", group: "Know", icon: "jayk", sub: () => `${JACOB?.totals.jaykContacts || 0} contacts recovered from the former BDM` },
-  { key: "jmessages", label: "Messages", group: "Talk", icon: "messages", sub: () => "Two-way line - he picks up what you write on his next pass" },
+  { key: "jmessages", label: "Messages", group: "Talk", icon: "messages", layout: "chat", sub: () => "Two-way line - he picks up what you write on his next pass" },
   { key: "decisions", label: "Jacob needs you", group: "Talk", icon: "requests", sub: () => `${openJacobReqs().length} open, ${JACOB?.decisions.length || 0} standing` },
   { key: "sources", label: "How this works", group: "System", sub: () => "Where leads come from, what is wired up, and what still is not" },
   { key: "jlive", label: "Live", group: "System", icon: "live", sub: () => "What Jacob is doing right now" },
@@ -1567,7 +1570,7 @@ const RENDER = {
         const [tone, badge] = rag(j);
         return `<tr data-job="${esc(j.job)}">
           <td class="job-cell"><strong>${esc(j.job)}</strong><small>${esc(j.client)}</small></td>
-          <td style="max-width:380px">${esc(j.status.split(". ")[0])}.</td>
+          <td style="max-width:380px"><div class="clamp">${inline(j.status.split(". ")[0])}.</div></td>
           <td class="num">${niceDate(j.deadline)}</td>
           <td class="num">${esc(j.value)}</td>
           <td><span class="chip ${tone}">${esc(badge)}</span></td></tr>`;
@@ -1603,7 +1606,21 @@ const RENDER = {
         <div class="req-top"><div><h3>${esc(r.title)}</h3><div class="meta">${esc(r.job)} &middot; answered ${esc(r.answered_at || "")} by ${esc(r.answered_by || "team")}</div></div><span class="chip ok">resolved</span></div>
         <div class="answered"><h5>The answer</h5>${fmt(r.answer || "")}</div>
       </article>`;
-    return `<div class="req-grid">${open.map(card).join("")}${done.length ? `<div class="section-head" style="margin-top:14px"><h3>Resolved</h3></div>` + done.map(card).join("") : ""}</div>`;
+    /* Fifteen open cards is a normal morning, and a flat scroll of them hides
+       the shape of the day. Grouped by job, biggest cluster first, the page
+       reads as "St Mary's has four questions" before a single card is read. */
+    const byJob = new Map();
+    for (const r of open) {
+      const k = r.job || "General";
+      if (!byJob.has(k)) byJob.set(k, []);
+      byJob.get(k).push(r);
+    }
+    const groups = [...byJob.entries()].sort((a, b) => b[1].length - a[1].length);
+    const openHtml = groups.map(([job, rs]) => `
+      ${groups.length > 1 ? `<div class="section-head req-job-head"><h3>${esc(job)}</h3>
+        <span class="page-sub">${rs.length === 1 ? "one decision" : `${rs.length} decisions`}</span></div>` : ""}
+      ${rs.map(card).join("")}`).join("");
+    return `<div class="req-grid">${openHtml}${done.length ? `<div class="section-head" style="margin-top:14px"><h3>Resolved</h3></div>` + done.map(card).join("") : ""}</div>`;
   },
   messages() { return chatPage(BOTS.mary); },
   comms() {
@@ -1694,7 +1711,7 @@ const RENDER = {
    Built entirely from data the app has already fetched. */
 const TEAM_PAGES = [
   { key: "home", label: "Today", group: "Team", icon: "home", sub: () => "Everything that needs a human, across every bot" },
-  { key: "botchat", label: "Internal chat", group: "Team", icon: "botchat", sub: () => "What the bots say to each other - max ten an hour each" },
+  { key: "botchat", label: "Internal chat", group: "Team", icon: "botchat", layout: "chat", sub: () => "What the bots say to each other - max ten an hour each" },
 ];
 
 const TEAM_RENDER = {
@@ -1709,13 +1726,47 @@ const TEAM_RENDER = {
     const unseen = unseenMsgs() + unseenJacobMsgs();
     const decisions = mReqs.length + jReqs.length;
 
-    /* One decision row shape for every bot - who is asking is a column, not a
-       separate page. */
-    const decisionRow = (bot, title, meta, go) => `
-      <div class="mail-row" data-bot-go="${go}">
-        <div class="mail-ico in">${esc(BOTS[bot].initials)}</div>
-        <div><strong>${esc(title)}</strong><small>${esc(meta)}</small></div>
-        <span class="mail-when">${esc(BOTS[bot].name)}</span>
+    /* Twenty open decisions is a normal morning here, so the unit on this
+       page is the JOB, not the request: one compact card per cluster, each
+       title clamped to a line, and the click lands on the right board with
+       the page search already filtered to that cluster. The flat one-row-
+       per-decision list this replaced put the fold at decision four. */
+    const byJob = new Map();
+    for (const r of mReqs) {
+      const k = r.job || "General";
+      if (!byJob.has(k)) byJob.set(k, []);
+      byJob.get(k).push(r);
+    }
+    const clusters = [...byJob.entries()].sort((a, b) => b[1].length - a[1].length);
+    // Titles mostly open with the job's own name ("Filwood: install line...") -
+    // inside a card already headed by the job, that prefix is noise.
+    const strip = (t, job) => {
+      const i = t.indexOf(":");
+      if (i > 0 && i < 34 && job.toLowerCase().includes(t.slice(0, i).toLowerCase().split(/[\s,(]/)[0])) {
+        return t.slice(i + 1).trim();
+      }
+      return t;
+    };
+    // Owners arrive as "Adam" on one request and "adam" on the next -
+    // dedupe case-blind or the card says "needs Adam, adam".
+    const owners = (rs) => {
+      const seen = new Map();
+      for (const o of rs.map((r) => String(r.owner || "").trim()).filter(Boolean)) {
+        const k = o.toLowerCase();
+        if (!seen.has(k)) seen.set(k, o[0].toUpperCase() + o.slice(1));
+      }
+      return [...seen.values()].join(", ") || "a human";
+    };
+    const cluster = ([job, rs]) => `
+      <div class="need" data-bot-go="mary:requests" data-filter="${esc(job.slice(0, 40))}">
+        <div class="need-top"><span class="need-bot">MG</span><strong title="${esc(job)}">${esc(job)}</strong></div>
+        <div class="need-titles">${rs.map((r) => `<span title="${esc(r.title)}">${esc(strip(r.title, job))}</span>`).join("")}</div>
+        <div class="need-meta">${rs.length === 1 ? "1 decision" : `${rs.length} decisions`} &middot; needs ${esc(owners(rs))}</div>
+      </div>`;
+    const jcluster = (r) => `
+      <div class="need" data-bot-go="jacob:decisions" data-filter="${esc(r.ref)}">
+        <div class="need-top"><span class="need-bot jw">JW</span><strong title="${esc(r.title)}">${esc(r.title)}</strong></div>
+        <div class="need-meta">${esc(r.ref)} &middot; he carries on with everything this does not block</div>
       </div>`;
 
     return `
@@ -1728,10 +1779,10 @@ const TEAM_RENDER = {
       </div>
 
       <div class="section"><div class="section-head"><h3>Needs you</h3>
-        <span class="page-sub">Every open decision, whoever raised it</span></div>
-        ${decisions ? `<div class="mail-list">
-          ${mReqs.map((r) => decisionRow("mary", r.title, `${r.job} - needs ${r.owner}`, "mary:requests")).join("")}
-          ${jReqs.map((r) => decisionRow("jacob", r.title, r.ref, "jacob:decisions")).join("")}
+        <span class="page-sub">${decisions ? `${decisions} open decision${decisions === 1 ? "" : "s"} across ${clusters.length + jReqs.length} job${clusters.length + jReqs.length === 1 ? "" : "s"} - click one to answer` : "Every open decision, whoever raised it"}</span></div>
+        ${decisions ? `<div class="needs-grid">
+          ${clusters.map(cluster).join("")}
+          ${jReqs.map(jcluster).join("")}
         </div>` : `<div class="empty"><strong>Nothing waiting</strong>Every question either bot has raised is answered.</div>`}</div>
 
       <div class="section"><div class="section-head"><h3>Mary - most urgent</h3><a data-bot-go="mary:pipeline">Full pipeline &rarr;</a></div>
@@ -1813,7 +1864,7 @@ function restoreDrafts() {
 
 function applyFilter() {
   const q = searchTerm.toLowerCase();
-  $$("#page tr[data-job], #page tr[data-jkey], #page .act, #page .req, #page .mail-row, #page .catch, #page .bubble").forEach((el) => {
+  $$("#page tr[data-job], #page tr[data-jkey], #page .act, #page .req, #page .mail-row, #page .catch, #page .bubble, #page .card, #page .need").forEach((el) => {
     el.style.display = !q || el.textContent.toLowerCase().includes(q) ? "" : "none";
   });
 }
@@ -1857,10 +1908,12 @@ function render() {
   page = meta.key;
   $("#page-title").textContent = meta.label;
   $("#page-sub").textContent = meta.sub();
-  // The phone layout keys off this: Messages becomes a full-height flex column
-  // rather than a fixed-offset box. CSS cannot ask "which page is this", so the
-  // page has to say.
+  // The layout keys off this: a page declared `layout: "chat"` becomes a
+  // full-height flex column rather than a fixed-offset box. CSS cannot ask
+  // "which page is this", so the page has to say - via the registry, never a
+  // list of page names in the stylesheet (that is how Internal chat missed out).
   $("#page").dataset.page = page;
+  $("#page").dataset.layout = meta.layout || "";
   $("#page").innerHTML = renderer[page] ? renderer[page].call(renderer) : "";
   // Twenty-six tables are written as bare <table class="tbl"> across both
   // boards. A table cannot scroll itself, so on a phone each one widens the
@@ -1957,11 +2010,13 @@ document.addEventListener("click", async (e) => {
     return;
   }
   // Cross-board link: "bot:page", used by the Team view to land on the exact
-  // page a row belongs to, whichever board it lives on.
+  // page a row belongs to, whichever board it lives on. A data-filter riding
+  // along pre-fills that page's search, so a click on the St Mary's cluster
+  // lands on the requests page showing only St Mary's.
   const bg = e.target.closest("[data-bot-go]");
   if (bg) {
     const [b, p] = bg.dataset.botGo.split(":");
-    if (BOTS[b]) { BOT = b; page = p; searchTerm = ""; closePanel(); render(); }
+    if (BOTS[b]) { BOT = b; page = p; searchTerm = bg.dataset.filter || ""; closePanel(); render(); }
     return;
   }
   const nav = e.target.closest("[data-nav],[data-go],[data-goreq]");
