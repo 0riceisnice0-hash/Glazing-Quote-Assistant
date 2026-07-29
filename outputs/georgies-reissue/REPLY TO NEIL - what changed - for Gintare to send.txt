@@ -1,0 +1,76 @@
+Neil Macilwaine asked at 09:14 on 29/07: "There appears to be no change in the monetary
+value of your quotes submitted yesterday and below i.e. GBP 89,229.61 + external mastic and
+EPDM; Please advise what changes have occurred in your 'corrected quotation'".
+
+Two versions below. Send A on its own if nothing else is being changed. Send A + B together
+if Adam wants the outstanding clarifications to go in on the same reply - see the note at the
+bottom for why this is the cheap moment to do it.
+
+
+=== A. THE PLAIN ANSWER - true, complete, sendable as it stands ===
+
+Hi Neil,
+
+Thanks for coming back, and you are quite right - the value has not moved.
+
+The revision was presentational only. The previous documents carried another client's name
+and logo on the cover and in the header, and the corrected set simply replaces those with
+Pearce Construction (Barnstaple) Ltd.
+
+There is no change to the price, the scope, the quantities, the products, the clarifications
+or the exclusions. The sum remains GBP 89,229.61 excluding VAT, and external mastic and EPDM
+are shown separately exactly as before.
+
+Apologies again for the confusion caused.
+
+Many thanks,
+
+Gintare Vanagaite
+Estimator
+01908 429200
+97-98 Alston Drive
+Bradwell Abbey, MK13 9HF
+www.fensterglazing.com
+
+
+=== B. OPTIONAL ADD-ON - only if Adam wants the clarifications in now ===
+
+Insert before "Apologies again". Each line is independent - take any subset.
+
+  While I have your attention, there are a few points on the tender I should put on record:
+
+  - External mastic. Our pricing shows this as a separate line. Specification clause 2.33.12
+    requires all joints between the aluminium and the structure to be pointed, so if you would
+    prefer it carried within the tender sum rather than alongside it, the figure becomes
+    GBP 90,086.00 excluding VAT.
+
+  - Removal of existing frames. Installation and removal of the existing frames is included
+    within our costs.
+
+  - Door ironmongery. Our current allowance follows the door sizes rather than schedule 2.39.
+    We are re-confirming the ironmongery against that schedule with our fabricator and will
+    revert - in particular the push-bar and thumbturn split across D01 to D08, and the
+    requirement for keys to be suited to the building's existing master key.
+
+  - D02. This is quoted as a sliding patio door, which cannot accept a BS EN 1125 push-bar
+    panic device. Please confirm how you would like this door treated.
+
+  - D04. The schedule describes a double doorset at 950mm wide. We have allowed an 1800mm
+    double leaf set in line with the description; please confirm which is correct.
+
+  - Asbestos. Clause 2.43.1 places removal of the internal asbestos cill boards within the
+    tender submission, while your own breakdown carries a separate asbestos element. Please
+    confirm whether that removal sits with Pearce or within our package.
+
+
+=== WHY B IS WORTH CONSIDERING NOW ===
+
+Neil has read our document as "GBP 89,229.61 + external mastic and EPDM". He is treating the
+optional lines as additions he can decline - which is precisely what listing spec-required work
+as an optional extra invites. He is now anchored on 89,229.61.
+
+That anchor hardens with time. Moving mastic inside next week reads as a price rise on a job
+he has already tabulated; moving it now reads as an answer to the question he has just asked.
+
+The same applies to the ironmongery. If we come back on it after a third document, we are
+correcting a correction. Raising it inside a reply he invited costs far less.

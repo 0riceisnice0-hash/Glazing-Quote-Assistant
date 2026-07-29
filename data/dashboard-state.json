@@ -376,14 +376,14 @@
    "raised": "2026-07-27",
    "job": "Georgie's (formerly Rosebank) - Pearce Construction",
    "owner": "Adam",
-   "title": "Georgie's: four of six panic bars are not in the tender Pearce hold",
-   "why": "Tender issued to Pearce 28/07 at GBP 89,229.61. Spec 2.39 needs BS EN 1125 push-bars on D01, D02, D03, D04, D05 and D08; we bought them on D05-D08 only, so four are missing and D06/D07 carry bars where the spec wants master-suited classroom locksets. Schedule 2.39 was never sent to BSW. Asbestos cill boards (2.43.1) are neither priced nor excluded, and no supplier has certified the 1.6 W/m2K area-weighted U-value the spec makes us evidence. RRR branding is fixed IN OUR FOLDER ONLY - the amended pack is in outputs\\georgies-reissue with a covering note ready to paste, but the 29/07 09:03 re-send to Neil carried no attachments and no message, so on our record Pearce still hold the RRR-branded set. The proposal PDF they hold also reads author 'Nicholas Baker' - converting to PDF does not strip it. Full evidence and the other 12 findings: data/jobs/georgies.md, and the bullets emailed 29/07.",
-   "needs": "A decision on whether a revision goes back to Neil Macilwaine, and Gintare to send it - Mary cannot email Pearce or BSW. Mastic inside the price makes it GBP 90,086.00; stating strip-out as included is free.",
+   "title": "Georgie's: schedule 2.39 has never reached BSW, so four of six panic bars are unpriced",
+   "why": "Tender issued to Pearce 28/07 at GBP 89,229.61. Spec 2.39 needs BS EN 1125 push-bars on D01, D02, D03, D04, D05 and D08; we bought them on D05-D08 only, so four are missing and D06/D07 carry bars where the spec wants master-suited classroom locksets. Schedule 2.39 was never sent to BSW. Asbestos cill boards (2.43.1) are neither priced nor excluded, and no supplier has certified the 1.6 W/m2K area-weighted U-value the spec makes us evidence. RRR IS CLOSED AT THE CLIENT: Gintare sent the corrected pack to Neil at 09:07 on 29/07 with an apology and 'kindly disregard the documents sent previously'. NEIL HAS NOW ASKED WHAT CHANGED, and quoted our number back as 'GBP 89,229.61 + external mastic and EPDM' - he is reading the optional lines as extras he can decline, which is what listing spec-required work (2.33.12) as optional invites. A drafted reply is in outputs\\georgies-reissue: part A answers him plainly (presentational only), part B folds in mastic at GBP 90,086.00, strip-out as included, and the D02, D04, asbestos and schedule 2.39 clarifications. OVERTAKEN AT 09:19: Gintare answered him herself - 'There was an error in the company details within the documents, which has now been corrected. There have been no changes to the quotation value or scope.' Correct, and it closes his question - but we have now told Pearce twice that the tender stands as issued, so the clarifications are a fresh approach rather than a reply, and mastic inside the sum would read as a price rise.",
+   "needs": "Get schedule 2.39 to BSW and find out what the four missing BS EN 1125 devices and the D06/D07 master-suited locksets cost - until we know, we cannot tell whether that is a clarification or a variation. The three free ones can go to Neil at the next contact: D02 cannot take a push-bar, D04 is 950 or 1800, and whose line are the asbestos cill boards (2.43.1). Mary cannot email Pearce or BSW.",
    "options": [
-    "Send hardware schedule 2.39 to BSW and re-quote the doors",
-    "Reissue with mastic inside the price (GBP 90,086.00) and strip-out stated as included",
-    "Reissue the branding fix only at GBP 89,229.61 and carry the hardware as a variation if we win",
-    "Put the asbestos, D04 width and D02 colour to Neil as clarifications and leave the price standing"
+    "Send hardware schedule 2.39 to BSW today and re-quote the doors",
+    "Put D02, D04 and the asbestos to Neil as clarifications - no price change",
+    "Leave the price at GBP 89,229.61 and carry the hardware as a variation if we win",
+    "Reopen the price with mastic inside at GBP 90,086.00 despite having said scope is unchanged"
    ],
    "status": "open",
    "updated": "2026-07-29",

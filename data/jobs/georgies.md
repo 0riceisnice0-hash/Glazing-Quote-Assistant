@@ -342,12 +342,40 @@ Analysis shows GBP 5,000 defined + GBP 24,000 undefined provisional sums against
   to Gintare. Send me an email with the bullet points of the other errors. The costs changed because
   we sat down in person and worked it out, hence why I missed the final quote check and the RRR thing
   slipped through."* **RRR is closed and with Gintare.**
-- **29/07/2026 09:03 BST** - **Gintare re-sent to Neil with NO ATTACHMENTS and NO covering text.** The
+- **29/07/2026 09:07 BST** - **THE CORRECTED PACK LANDED.** Gintare sent it properly one minute after
+  I flagged the 09:03 false start: *"Please accept my apologies for the error in the company details
+  within the previous documents. Please find attached the corrected quotation and proposal for Pearce
+  Construction. Kindly disregard the documents sent previously."* Exactly the covering note the
+  reissue needed. **RRR is closed at the client, not just in our folder.**
+- **29/07/2026 09:14 BST** - **Neil Macilwaine: *"There appears to be no change in the monetary value
+  of your quotes submitted yesterday and below i.e. GBP 89,229..61 + external mastic and EPDM; Please
+  advise what changes have occurred in your 'corrected quotation'"***.
+  Two things follow. **(1) His own words confirm the corrected document reads GBP 89,229.61**, so the
+  GBP 83,104.61 trap flagged on 28/07 did not happen - she did not rebuild from the 12:22 draft.
+  **(2) He has quoted our number as "GBP 89,229.61 + external mastic and EPDM" - he is reading the
+  optional lines as extras he can decline.** That is precisely what listing spec-required work (2.33.12)
+  as an optional extra invites, and it is now anchored in the client's own tabulation. Moving mastic
+  inside later reads as a price rise; moving it inside this reply reads as an answer to his question.
+  **Draft reply written to `outputs\georgies-reissue\REPLY TO NEIL - what changed - for Gintare to
+  send.txt`** - part A is the plain truthful answer (presentational only), part B is an optional
+  clarifications block covering mastic, strip-out, schedule 2.39 ironmongery, D02, D04 and asbestos.
+- **29/07/2026 09:19 BST** - **Gintare answered Neil herself, correctly, before the draft existed:**
+  *"There was an error in the company details within the documents, which has now been corrected. There
+  have been no changes to the quotation value or scope."* Part A is redundant. **But note what it costs:
+  we have now told Pearce twice that the tender stands as issued**, so the clarifications can no longer
+  ride along on a question he invited - they are a fresh approach, and mastic inside the sum would read
+  as a price increase rather than a correction. Position advised to Adam: **leave the price at
+  GBP 89,229.61**, get schedule 2.39 to BSW today to find out what the four missing panic devices and
+  the D06/D07 locksets actually cost, and put the three free ones (D02 cannot take a push-bar, D04 is
+  950 or 1800, whose line is the asbestos) to Neil at the next contact. Part B reframed accordingly.
+- **29/07/2026 09:03 BST** - Gintare re-sent to Neil with NO attachments and NO covering text. **A
+  false start, superseded four minutes later - see above.** The
   work order records `attachments: []` and no `-att` folder, and the body opens at character 0 with the
   quoted 28/07 email. Control: yesterday's 14:01 send to the same address captured 3 attachments, and
-  6 of the 12 Georgie's emails captured attachments, so the capture works. **On our record Pearce still
-  hold the RRR-branded pack.** Reported to Adam as an artefact with the cause left open - she may have
-  sent it separately. **A covering note for Neil is now written into `outputs\georgies-reissue\`**, since
+  6 of the 12 Georgie's emails captured attachments, so the capture works. Reported to Adam at 09:06 as
+  an artefact with the cause left open - which was the right call on the evidence held at 09:06, and was
+  overtaken at 09:07. **The lesson is not "do not report it"; it is that a one-minute-old absence is not
+  yet a fact about the world.** A covering note for Neil was written into `outputs\georgies-reissue\`, since
   a silent re-send would not tell him to discard the earlier set even with the right files attached.
 - **29/07/2026** - **CORRECTION: converting to PDF does not strip the author.** The proposal Pearce hold
   reads `/Author = Nicholas Baker`; my amended one reads empty because docProps was rewritten before

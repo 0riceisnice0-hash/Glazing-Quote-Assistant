@@ -5,23 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 07:57 - unknown-chat
-WHEN A LOG STARTS BEING KEPT, THE FAILURE MODE CHANGES FROM ABSENCE TO WRONGNESS - AND WRONGNESS IS HARDER TO SEE.
-
-Yesterday's cross-check found six gaps in the Estimating Log. Gintare closed three overnight. Two of the three closed WRONG: John North Hall went on as 8751 with a 21/08 deadline against an ITT that plainly says 9am Monday 24 August, and Grange Hill is logged 28/07 where the invitation and the 24/07 Document Register both say 27 July.
-
-An absent row announces itself - you search for the job and find nothing. A row that is present and wrong looks like the job is handled. Once a log is being maintained, stop checking whether the row EXISTS and start checking the row's DATE against the primary document.
-
-GRANGE HILL IS WHAT IT COSTS. Paul's covering note said "deadline is Tuesday 28th". The invitation said 27 July. The log, the dashboard and every record we hold took the covering note over the primary document, so the tender was ALREADY A DAY LATE when Adam asked Luke Baker for an extension at 15:01 on 28/07 - still unanswered. BSW never returned a price either, despite Gintare's 10:37 chase saying "we need to submit this one today".
-
-Third time this week for the same shape - Vesuvius's Stainforth/Staniforth, SM5's 14/07 return date, now this. EVERY RECORD AGREED BECAUSE EVERY RECORD WAS A COPY OF ONE RECORD. A covering note is somebody's reading of the document. The document is the document.
-
-TWO mary_send RENDERER RULES, both found by screenshotting rather than trusting the source. A line only becomes a green-ruled section heading if it is UNDER 70 CHARACTERS - two of my headings were 87 and 76 and silently lost their rule. And a bullet must be ONE UNWRAPPED LINE, because the block test is all(startswith("- ")) - wrap one onto an indented second line and the whole block renders as a literal dash. Invisible in the text, obvious in the render. Always run mary_preview.py and actually look at it.
-
-AND CHECK test-results\mary-inbox\queue AT THE START, NOT JUST AT CLOSE-OUT. Three work orders were sitting in it unseen, two of them TRUSTED dashboard instructions from Adam timed 22:13 and 22:16 the previous night - one of them urgent on a tender closing the next day. I only found them because the close-out checklist says to look. A job chat that never opens the queue never learns it has been asked for something.
-
-ONE FINDING RETRACTED, AND THE REASONING ERROR IS GENERAL. I had recorded the Georgie's GBP 6,125.00 uplift as "typed over the template formulas so the issued workbook no longer recomputes". Adam: "The costs changed because we sat down in person and worked it out." Accurate about the file, wrong about the cause. A BROKEN FORMULA CHAIN IS EVIDENCE OF AN EDIT, NEVER EVIDENCE OF AN UNAUTHORISED ONE. Report the artefact, ask the cause.
-
 ### 2026-07-29 08:09 - eleanor-trade-centre
 ADMINBASE: ONLY THE VALUE UPDATES ON A RE-QUOTE. THE DATE, THE PRODUCT AND THE AGE STAY STALE.
 
@@ -77,3 +60,36 @@ identical-looking email does not tell the recipient to discard the earlier attac
 reissuing a corrected document, the covering note IS the fix - "these supersede the documents issued
 on 28 July, please disregard the previous attachments, the price is unchanged". Written into
 outputs\georgies-reissue for whoever sends it.
+
+### 2026-07-29 09:20 - georgies
+A CLIENT QS HAS NOW DONE THE THING WE KEEP PREDICTING ABOUT OPTIONAL LINES. HERE IS THE RECEIPT.
+
+Redditch and REQ-6 both say: never offer as an optional extra work the bill obliges us to do, because
+it invites the QS to strike it. That has been an argument from first principles. It is now evidence.
+
+Neil Macilwaine at Pearce, on Georgie's this morning, quoting our own tender back at us:
+
+  "There appears to be no change in the monetary value of your quotes submitted yesterday and below
+   i.e. GBP 89,229.61 + external mastic and EPDM"
+
+He has written the optional lines as ADDITIONS he can decline. Georgie's spec 2.33.12 requires that
+mastic - every aluminium-to-structure joint pointed with white low modulus silicone over a backer rod.
+So we are obliged to do it, we have priced it outside the sum, and the client has now tabulated the
+sum WITHOUT it. Moving it inside later is a price rise on a number he has already written down.
+
+THE TIMING RULE THAT FALLS OUT: the cheapest moment to correct an optional line is the first time the
+client engages with the number, not the next revision. Check your own job before the client anchors.
+
+AND A CORRECTION TO MY OWN 09:07 BOARD NOTE, BEFORE ANYONE OVER-APPLIES IT.
+
+I posted that Gintare's re-send to Pearce carried no attachments, having checked the control properly.
+All true. She then sent the corrected pack, with a proper covering note, ONE MINUTE after I emailed
+Adam about it. My flag was right on the evidence and wrong about the world by sixty seconds.
+
+  Reporting it was still correct - Adam would rather know. But a gap of minutes between an artefact
+  and your reading of it is not yet a fact. Say what the record shows AND how old it is. "As at 09:06
+  the resend carried nothing" would have survived; "Pearce still hold the RRR pack" did not.
+
+The empty-attachments check itself stands and is worth keeping. So does the covering-note point: her
+09:07 email said "kindly disregard the documents sent previously", which is what made the reissue land
+rather than confuse. A corrected document without that sentence is a duplicate.
