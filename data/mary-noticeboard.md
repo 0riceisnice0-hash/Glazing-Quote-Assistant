@@ -5,50 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 11:34 - redditch-library
-WHEN YOUR COMPETITOR MANUFACTURES AND YOU BUY, THE GAP IS YOUR FRAME MARGIN AND SHARPENING WILL NOT CLOSE IT.
-
-Adam on Redditch this morning: "We are cautious because Joedan are a manufacturer so may be more
-competitive." He is right, and it is worth putting a number on because it decides whether a job is
-worth chasing at all.
-
-EL75mm Squareline and AC100 Commercial are Joedan's OWN products. They buy no frame from anybody. Our
-frame buy is GBP 53,057 and our margin is GBP 20,625, so 22.6% OF OUR SELL IS MARGIN SITTING ON A
-FRAME OUR COMPETITOR FABRICATES HIMSELF. That is the whole 3.13% we are above him and then some.
-
-  SO: if the competitor named in the pack is a fabricator rather than an installer, work out your
-  frame margin as a share of sell BEFORE you promise anyone an undercut. On Redditch we were asked to
-  undercut twice, and the honest answer was always arithmetic rather than effort.
-
-SECOND, A FRAMING CORRECTION I OWE MY OWN JOB FILE. SIZE THE RISK IN MARGIN, NOT IN EXPOSURE.
-
-Yesterday I told Adam that submitting before the supplier quote lands risked "about GBP 3,900". True,
-and alarmist, because the sell fixes on submission and the only thing that actually moves is what we
-keep:
-
-    if the quote comes back at    frame buy    margin left    % of net
-    BSW (the only one asked)      56,993.38     16,688.84      18.3%
-    Aplus (what the price assumes) 53,057.22    20,625.00      22.6%
-    TruFrame                      44,268.27     29,413.95      32.3%
-
-Worst realistic case is a THINNER MARGIN, NOT A LOSS - and that is a risk worth taking to hit a
-deadline. Say it that way round. "GBP 3,900 of exposure" reads as danger; "we earn 16.7k instead of
-20.6k" is the sentence a commercial director can actually decide on. Caveat it as GROSS margin
-carrying no prelims and no recorded fitting cost, and it is honest as well as useful.
-
-THIRD, AND THE ONE I DID NOT EXPECT: OUR 30-DAY VALIDITY CLAUSE IS A HEDGE, NOT ONLY A DEFECT.
-
-I posted yesterday that the house T&Cs holding a quotation for 30 days are a COMPLIANCE PROBLEM
-against a tender wanting the sum open 10 weeks to 3 months. Still true. But if you are submitting a
-BENCHMARK price because the client will not wait for your supplier, that same clause is the only
-thing capping how long you are exposed on it.
-
-  It is a live choice, not a fault: fully compliant and exposed for the whole tender period, or
-  qualified at 30 days and protected. On a price with no supplier quote behind it, take the 30 days.
-
-Which also means DO NOT let anyone "fix" that clause in the template without deciding this first. I
-nearly recommended exactly that yesterday.
-
 ### 2026-07-29 11:37 - redditch-library
 I COMMITTED SOMEBODY ELSE'S FILE. `git add -A` AT CLOSE-OUT IS NOT SAFE ON THIS REPO.
 
@@ -124,3 +80,24 @@ AND THE HONEST CONSEQUENCE FOR REDDITCH, since I posted the optimistic version: 
 the factors current, there is NO supplier we can measure that gets near Joedan. BSW +6,876, Aplus
 +4,240, 4Ali +4,464. We are the dearer quote on every aluminium supplier we can actually buy from,
 and the decision is now whether to bid above him rather than how to get under him.
+
+### 2026-07-29 11:50 - zac
+New tool, zero tokens: python scripts/mary_recall.py queries the ledger of everything you have ever sent, been told, raised and caught (backfilled 29/07, 635 events). Before emailing Adam or raising a request: --settled --grep <topic> shows what is already decided; --kind email_sent --days 1 shows what you already sent today; --adam --job <key> shows everything he has said on the job. Refresh it any time with: python scripts/mary_ledger.py --backfill. This is Phase 0 of AGENT-AUDIT.md.
+
+### 2026-07-29 11:56 - grange-hill
+BSW HAVE COUPLED SHEERLINE 70mm TO SMART WALL 100mm AGAIN - THE SM5 WEXHAM MISTAKE, SAME SUPPLIER, DIFFERENT JOB.
+
+Grange Hill return, 29/07. Windows QT253562 are Sheerline Prestige (SP104 70mm). Doors 0000000520 are SMA Smart Wall Pocket (100mm). On BOTH elevations the windows sit directly above the door element - west door element is 4588 wide, exactly the full screen width, and south is 5900 with two 2900 shaped units over it. check_system_coupling failed on both runs the moment I entered them.
+
+  If your quote comes back split across TWO documents from BSW - a Bellview 'Products' one for doors and a BSW one for windows - check the systems against each other. Split paperwork is how the coupling gets missed; nobody reads two PDFs as one screen.
+
+AND A CALIBRATION RESULT THAT IS WORTH MORE THAN ITS HEADLINE. My benchmark was GBP 27,560.07, supplier-backed came in at GBP 37,278.59, so -26.1%. That number is nearly meaningless because it is two big errors cancelling:
+
+  rate:  CW convention 850+150 = ~GBP 1,000/m2 sell   vs BSW actual GBP 598/m2   - DOUBLE
+  area:  my 23.49 m2                                   vs BSW 62.33 m2            - A THIRD
+
+  BEFORE APPLYING THE CW CONVENTION, ASK HOW THE THING WILL BE MADE. A gabled domestic-scale screen that the supplier builds as coupled casements over a door element is not curtain walling, and 850/150 roughly doubles it.
+
+  AND DO NOT TAKE AN ELEVATION AS ONE RECTANGLE WHERE THE SPEC SAYS THE GLAZING RUNS TO THE UNDERSIDE OF A PITCHED ROOF. I used 2400 on a west screen whose door element alone is 2100 - leaving 1.4 m2 for everything the spec says must reach the ceiling. The drawing had the levels printed on it: eaves 2800, ridge 5183. I never used them.
+
+THIRD, A DISCOUNT TRAP IN THE SAME ENVELOPE. On Bellview 0000000520 the LINE prices are PRE-discount - 15% comes off at the foot, Net Total 15,710.68 -> Grand Total Net 13,354.08. On BSW QT253562 the line prices are ALREADY net ('Net Price Includes Discounts') and sum exactly to the total. Same supplier, same day, two conventions. Sum the lines and compare to the stated total before you use either.

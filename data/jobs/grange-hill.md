@@ -4,6 +4,66 @@
 (luke.baker@chigwellgroupplc.co.uk) | **Enquiry route:** Once For All Marketplace -> Paul 24/07 08:08
 **Stage:** tender, not yet returned. **Est. whole-project value (client's own figure):** GBP 100k-250k.
 
+## 29/07 10:48 - BSW ARE IN. The number is GBP 40,528.59, not GBP 27,560.07
+
+Two quotes, both dated 29/07, both valid **30 days only** (expire 28/08 - works run Nov 2026-Jul 2027):
+
+| quote | scope | system | net |
+|---|---|---|---|
+| Bellview Products **0000000520** | 3 door elements | SMA Smart Wall Pocket | **GBP 13,354.08** |
+| BSW **QT253562** | 13 windows | Sheerline Prestige | **GBP 9,477.01** |
+| | | **buy** | **GBP 22,831.09** |
+
+**Watch the discount conventions - they differ between the two.** On 0000000520 the LINE prices are
+PRE-discount: Net Total 15,710.68, less 15%, Grand Total Net 13,354.08. On QT253562 the line prices
+are ALREADY net ("Net Price Includes Discounts") and sum exactly to 9,477.01. Applying 15% twice, or
+not at all, is a GBP 2,356.60 error either way.
+
+Priced line by line through `mary_pricing`: **supplier-backed sell GBP 37,278.59**. Plus the two
+allowances still ours - GBP 3,000 operator, GBP 250 manifestations - **GBP 40,528.59**.
+
+### Why the 24/07 benchmark was GBP 13,000 out
+
+It was wrong in both directions at once and the errors cancelled:
+
+| | benchmark | BSW |
+|---|---|---|
+| rate | ~GBP 1,000/m2 sell (CW convention 850+150) | GBP 598/m2 sell, GBP 366/m2 buy |
+| area | 23.49 m2 | 62.33 m2 |
+| total | GBP 27,560.07 | GBP 37,278.59 |
+
+The CW convention roughly doubled the rate on a gabled domestic-scale screen the supplier actually
+builds as coupled casements over a door element. And I took each elevation as one rectangle at
+door-plus-a-bit height - 2400 west, 2747 south - where the spec says the glazing runs to the underside
+of the pitched roof and GH007 prints eaves 2800, ridge 5183. BSW's west door element alone is 2100
+high, so my take-off left 1.4 m2 for everything above it. Logged in `data/calibration.json`.
+
+**The area is NOT agreed.** BSW say "I have rescaled the south elevation as take off provided was
+incorrect" and sent no setting-out drawing. Their south width of 5900 is within 100mm of the chapel's
+5800 - the element they explicitly excluded. Reconcile before ordering.
+
+### What BSW will not or did not do
+
+- **THEY REFUSE THE CHAPEL FOLDING DOORS (3.15).** Their words: "I have not included the internal
+  bifold as there is no drawing of this. We do not supply this product with a level or recessed, and
+  it cannot support toplights." The recessed threshold and the fixed glazed section over are both
+  things 3.15.1 requires. **This is a specification finding, not a supplier one** - same shape as
+  Filwood. It needs a specialist folding-door supplier, and no amount of chasing BSW will fix it.
+- **THE GLASS IS NOT THE SPECIFIED GLASS.** Spec 3.11.1 and our own RFQ ask for Pilkington Optitherm
+  S1 solar Arctic Blue outer / S1 plus inner. Quoted: `6 SKN 176 Tuff/16/6 HP Neutral` in the windows,
+  and `4mm Coolite SKN176II` plus `8.8 Lami / 6mm Tuff Anti Sun Grey` in the doors - **two different
+  tints in the same elevations.** Spec requires samples before order, so this will surface.
+- **NO THUMBTURNS.** Spec 3.12.1/3.14.1 name "Yale Platinum 3-star euro with thumbturn", all keyed
+  alike. BSW: "these would not include internal thumb turns as these are unnecessary". They quote
+  ACIM071 lever + screw-in cylinder and ACIM453 concealed panic bar - not the Briton 1438/1413 the
+  spec names either. The spec allows "or similar approved", so these need approving, not assuming.
+- **SYSTEMS THAT CANNOT BE COUPLED.** Windows Sheerline **70mm**, doors Smart Wall **100mm**, windows
+  directly above doors on both elevations. `check_system_coupling` - the SM5 Wexham rule - fails on
+  both runs. Settle with BSW before any order; it may move the price.
+- **EX WORKS.** QT253562: "All estimates are ex works, additional delivery charges may apply."
+  0000000520 states no delivery terms at all. Carriage Peterborough to Chigwell is ours and unpriced.
+- Not included: the operator (3.13.1), manifestations (3.11.2), privacy film (3.15.2), 3.16.
+
 ## 29/07 08:22 - Luke Baker did NOT grant the extension
 
 His whole reply: **"Are you able to provide the costs today?"** That moves us from the 27th to

@@ -7578,3 +7578,47 @@ long enough to conclude anything.
   IF YOU ARE COMPARING A STORE TIMESTAMP AGAINST THE CLOCK, CHECK THE ZONE. poller.log is BST, work
   order 'received' is UTC. An hour of imaginary staleness is exactly the difference between "worth a
   glance" and an accusation.
+
+### 2026-07-29 11:34 - redditch-library
+WHEN YOUR COMPETITOR MANUFACTURES AND YOU BUY, THE GAP IS YOUR FRAME MARGIN AND SHARPENING WILL NOT CLOSE IT.
+
+Adam on Redditch this morning: "We are cautious because Joedan are a manufacturer so may be more
+competitive." He is right, and it is worth putting a number on because it decides whether a job is
+worth chasing at all.
+
+EL75mm Squareline and AC100 Commercial are Joedan's OWN products. They buy no frame from anybody. Our
+frame buy is GBP 53,057 and our margin is GBP 20,625, so 22.6% OF OUR SELL IS MARGIN SITTING ON A
+FRAME OUR COMPETITOR FABRICATES HIMSELF. That is the whole 3.13% we are above him and then some.
+
+  SO: if the competitor named in the pack is a fabricator rather than an installer, work out your
+  frame margin as a share of sell BEFORE you promise anyone an undercut. On Redditch we were asked to
+  undercut twice, and the honest answer was always arithmetic rather than effort.
+
+SECOND, A FRAMING CORRECTION I OWE MY OWN JOB FILE. SIZE THE RISK IN MARGIN, NOT IN EXPOSURE.
+
+Yesterday I told Adam that submitting before the supplier quote lands risked "about GBP 3,900". True,
+and alarmist, because the sell fixes on submission and the only thing that actually moves is what we
+keep:
+
+    if the quote comes back at    frame buy    margin left    % of net
+    BSW (the only one asked)      56,993.38     16,688.84      18.3%
+    Aplus (what the price assumes) 53,057.22    20,625.00      22.6%
+    TruFrame                      44,268.27     29,413.95      32.3%
+
+Worst realistic case is a THINNER MARGIN, NOT A LOSS - and that is a risk worth taking to hit a
+deadline. Say it that way round. "GBP 3,900 of exposure" reads as danger; "we earn 16.7k instead of
+20.6k" is the sentence a commercial director can actually decide on. Caveat it as GROSS margin
+carrying no prelims and no recorded fitting cost, and it is honest as well as useful.
+
+THIRD, AND THE ONE I DID NOT EXPECT: OUR 30-DAY VALIDITY CLAUSE IS A HEDGE, NOT ONLY A DEFECT.
+
+I posted yesterday that the house T&Cs holding a quotation for 30 days are a COMPLIANCE PROBLEM
+against a tender wanting the sum open 10 weeks to 3 months. Still true. But if you are submitting a
+BENCHMARK price because the client will not wait for your supplier, that same clause is the only
+thing capping how long you are exposed on it.
+
+  It is a live choice, not a fault: fully compliant and exposed for the whole tender period, or
+  qualified at 30 days and protected. On a price with no supplier quote behind it, take the 30 days.
+
+Which also means DO NOT let anyone "fix" that clause in the template without deciding this first. I
+nearly recommended exactly that yesterday.

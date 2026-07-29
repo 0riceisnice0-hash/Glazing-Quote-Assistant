@@ -1,150 +1,311 @@
 {
  "job": "Grange Hill Methodist Church (Chigwell (London) PLC) - package WD001 Windows and Doors",
  "created": "2026-07-28",
- "_state": "Benchmark GBP 27,560.07 ex VAT (internal, 24/07, resent 25/07). NO supplier return has landed. Adam asked Luke Baker for an extension at 14:01 on 28/07. This run is a readiness check against the extension, not a pre-issue clearance.",
-
- "coupled_runs": [],
-
- "doors": [
-  {"ref": "3.12.1/3.13.1 West elevation DDA door 1200mm, outward opening",
-   "fire_exit": true,
-   "panic_hardware_priced": false},
-  {"ref": "3.14.1 South elevation door A, 1200mm to ~2300mm (3-point lock, Briton 1438 pad + 1413 knob)",
-   "fire_exit": true,
-   "panic_hardware_priced": false},
-  {"ref": "3.14.1 South elevation door B, 1200mm to ~2300mm (gate bolts top and bottom)",
-   "fire_exit": false,
-   "panic_hardware_priced": false},
-  {"ref": "3.15.1 Chapel folding doors, full chapel width approx 5800mm",
-   "fire_exit": false,
-   "panic_hardware_priced": false},
-  {"ref": "3.16.2 Internal FD60 fire check doorsets, 2No at 1200mm wide",
-   "fire_exit": true,
-   "panic_hardware_priced": false}
+ "_state": "BSW returned 29/07 10:48 - two quotes. Bellview 0000000520 doors GBP 13,354.08 Grand Total Net (15% discount applied at the foot; LINE prices are pre-discount). BSW QT253562 windows GBP 9,477.01, line prices already net. Supplier buy GBP 22,831.09. Engine sell on those rates GBP 37,278.59.",
+ "coupled_runs": [
+  {
+   "name": "West elevation - door element with windows above to the pitched ceiling",
+   "elements": [
+    {
+     "ref": "Bellview 002 door element 4588x2100",
+     "system": "SMA Smart Wall"
+    },
+    {
+     "ref": "QT253562 windows above",
+     "system": "Sheerline"
+    }
+   ]
+  },
+  {
+   "name": "South elevation - door element with shaped gable units above",
+   "elements": [
+    {
+     "ref": "Bellview 003 door element 5900x2300",
+     "system": "SMA Smart Wall"
+    },
+    {
+     "ref": "QT253562 items 12/13 shaped units 2900 wide",
+     "system": "Sheerline"
+    }
+   ]
+  }
  ],
-
+ "doors": [
+  {
+   "ref": "Bellview 001 west single door 1200x2100",
+   "fire_exit": true,
+   "panic_hardware_priced": true
+  },
+  {
+   "ref": "Bellview 002 west element 4588x2100 incl single door",
+   "fire_exit": true,
+   "panic_hardware_priced": true
+  },
+  {
+   "ref": "Bellview 003 south element 5900x2300 incl double door",
+   "fire_exit": true,
+   "panic_hardware_priced": true
+  },
+  {
+   "ref": "3.15.1 chapel folding doors",
+   "fire_exit": false,
+   "panic_hardware_priced": false
+  },
+  {
+   "ref": "3.16.2 FD60 internal fire check doorsets 2No",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  }
+ ],
  "frame_supply": "glazed",
  "glass_order": [],
-
  "quantities": [
-  {"ref": "3.14.1 south elevation doorsets", "bill_qty": 2, "drawing_qty": 2},
-  {"ref": "3.12.1 west elevation DDA doorset", "bill_qty": 1, "drawing_qty": 1},
-  {"ref": "3.13.1 automatic door operator to west door", "bill_qty": 1, "drawing_qty": 1},
-  {"ref": "3.15.1 chapel folding door run (approx 5.8m) + fixed glazed section over", "bill_qty": 1, "drawing_qty": 1},
-  {"ref": "3.16.2 FD60 internal fire check doorsets", "bill_qty": 2, "drawing_qty": 0}
+  {
+   "ref": "3.14.1 south elevation doorsets",
+   "bill_qty": 2,
+   "drawing_qty": 2
+  },
+  {
+   "ref": "3.12.1 west elevation DDA doorset",
+   "bill_qty": 1,
+   "drawing_qty": 1
+  },
+  {
+   "ref": "3.13.1 automatic door operator to west door",
+   "bill_qty": 1,
+   "drawing_qty": 1
+  },
+  {
+   "ref": "3.15.1 chapel folding door run (approx 5.8m) + fixed glazed section over",
+   "bill_qty": 1,
+   "drawing_qty": 1
+  },
+  {
+   "ref": "3.16.2 FD60 internal fire check doorsets",
+   "bill_qty": 2,
+   "drawing_qty": 0
+  }
  ],
-
  "spec_items": [
-  {"ref": "3.11.1 Alu windows and doors, white PPC, polyamide breaks, Optitherm S1 solar Arctic Blue outer / S1 plus inner", "treatment": "priced"},
-  {"ref": "3.11.2 Fish symbol manifestations to all new south and west glazing (client supplies pdf artwork)", "treatment": "priced"},
-  {"ref": "3.12.1 West elevation full-storey screen + 1200mm door, level threshold, 3-point lock, Yale Platinum keyed alike", "treatment": "priced"},
-  {"ref": "3.13.1 Disabled access west door - operator, strengthening, mounting plates, electrical supplies, push pads both sides, emergency release, keyed isolating switch", "treatment": "priced"},
-  {"ref": "3.14.1 South elevation full-storey screen + 2No 1200mm doors to approx 2300mm", "treatment": "priced"},
-  {"ref": "3.15.1 Chapel aluminium folding doors approx 5.8m + fixed glazed section over, dark brown PPC, bronze tinted DGU", "treatment": "unresolved"},
-  {"ref": "3.15.2 Horizontal frosted strip patterned privacy film to folding door glass, full width x 1.2m high", "treatment": "unresolved"},
-  {"ref": "3.16.1 Remove existing fire check door to corridor incl framing, clear from site, set aside timber", "treatment": "unresolved"},
-  {"ref": "3.16.2 Supply 2No FD60 doorsets 1200mm wide - vision panes, closers, finger plates, D pulls, mortise lock with thumbturn, magnetic hold-opens wired to fire detection, timber infill framing, 2 layers 12mm plasterboard both sides taped and skimmed", "treatment": "unresolved"}
+  {
+   "ref": "3.11.1 Alu windows and doors, white PPC, polyamide breaks, Optitherm S1 solar Arctic Blue outer / S1 plus inner",
+   "treatment": "priced"
+  },
+  {
+   "ref": "3.11.2 Fish symbol manifestations to all new south and west glazing (client supplies pdf artwork)",
+   "treatment": "priced"
+  },
+  {
+   "ref": "3.12.1 West elevation full-storey screen + 1200mm door, level threshold, 3-point lock, Yale Platinum keyed alike",
+   "treatment": "priced"
+  },
+  {
+   "ref": "3.13.1 Disabled access west door - operator, strengthening, mounting plates, electrical supplies, push pads both sides, emergency release, keyed isolating switch",
+   "treatment": "priced"
+  },
+  {
+   "ref": "3.14.1 South elevation full-storey screen + 2No 1200mm doors to approx 2300mm",
+   "treatment": "priced"
+  },
+  {
+   "ref": "3.15.1 Chapel aluminium folding doors approx 5.8m + fixed glazed section over, dark brown PPC, bronze tinted DGU",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "3.15.2 Horizontal frosted strip patterned privacy film to folding door glass, full width x 1.2m high",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "3.16.1 Remove existing fire check door to corridor incl framing, clear from site, set aside timber",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "3.16.2 Supply 2No FD60 doorsets 1200mm wide - vision panes, closers, finger plates, D pulls, mortise lock with thumbturn, magnetic hold-opens wired to fire detection, timber infill framing, 2 layers 12mm plasterboard both sides taped and skimmed",
+   "treatment": "unresolved"
+  }
  ],
-
- "supplier_quotes": [],
-
+ "supplier_quotes": [
+  {
+   "supplier": "Bellview Products / BSW Window Solutions",
+   "ref": "0000000520",
+   "date": "2026-07-29",
+   "used_net": true
+  },
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT253562",
+   "date": "2026-07-29",
+   "used_net": true
+  }
+ ],
  "full_height_screens": [
-  {"ref": "3.14.1 south elevation glazed entrance screen 4542 x 2747", "priced_as": "curtain walling"},
-  {"ref": "3.12.1 west elevation glazed screen 4588 x 2400", "priced_as": "curtain walling"}
+  {
+   "ref": "3.14.1 south elevation glazed entrance screen 4542 x 2747",
+   "priced_as": "curtain walling"
+  },
+  {
+   "ref": "3.12.1 west elevation glazed screen 4588 x 2400",
+   "priced_as": "curtain walling"
+  }
  ],
-
  "systems_specified": [
-  {"system": "No system named - spec 3.11.1/3.15.1 ask only for aluminium with polyamide thermal breaks", "fabricator": "BSW (RFQ issued 24/07 15:14 and 15:29, no return)"}
+  {
+   "system": "No system named - spec 3.11.1/3.15.1 ask only for aluminium with polyamide thermal breaks",
+   "fabricator": "BSW (RFQ issued 24/07 15:14 and 15:29, no return)"
+  }
  ],
-
  "finishes": [
-  {"ref": "3.11.1 south and west screens, windows and doors",
+  {
+   "ref": "3.11.1 south and west screens, windows and doors",
    "specified_internal": "white powder coated",
    "specified_external": "white powder coated",
-   "quoted_internal": "not quoted - no supplier return",
-   "quoted_external": "not quoted - no supplier return"},
-  {"ref": "3.15.1 chapel folding doors and glazed section over",
+   "quoted_internal": "9910HG Hipca White / WP",
+   "quoted_external": "9910HG Hipca White / WP"
+  },
+  {
+   "ref": "3.15.1 chapel folding doors",
    "specified_internal": "dark brown powder coated",
    "specified_external": "dark brown powder coated",
-   "quoted_internal": "not quoted - no supplier return",
-   "quoted_external": "not quoted - no supplier return"}
+   "quoted_internal": "not quoted - BSW decline the product",
+   "quoted_external": "not quoted - BSW decline the product"
+  }
  ],
-
  "u_value": {
   "required": null,
   "basis": "not stated",
   "rejected_elements": []
  },
-
  "supplier_coverage": [
-  {"ref": "South elevation glazed entrance screen 4542 x 2747", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "none - BSW have not returned"},
-  {"ref": "West elevation glazed screen 4588 x 2400", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "none - BSW have not returned"},
-  {"ref": "Automatic door operator package to west door", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "none - no specialist approached"},
-  {"ref": "Solar control glazing uplift", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "none - BSW have not returned"},
-  {"ref": "Fish symbol manifestations", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "none - no manifestation supplier approached"}
+  {
+   "ref": "West elevation glazing and doors",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "0000000520 + QT253562"
+  },
+  {
+   "ref": "South elevation glazing and doors",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "0000000520 + QT253562"
+  },
+  {
+   "ref": "Automatic door operator package to west door",
+   "qty_sold": 1,
+   "qty_quoted": 0,
+   "supplier_ref": "none - not in either BSW quote"
+  },
+  {
+   "ref": "Fish symbol manifestations",
+   "qty_sold": 1,
+   "qty_quoted": 0,
+   "supplier_ref": "none"
+  }
  ],
-
  "price_commitment": {
   "source": "Not held. The Once For All enquiry WD001 work package description was never opened; the Document Register issued 24/07 lists only drawings and the main-contract specification, so no validity clause is in our possession. Spec 1.2 puts the works Nov 2026 - Jul 2027.",
   "our_price_open_until": null
  },
-
- "delivery_terms": [],
-
- "incorporated_terms": [],
-
+ "delivery_terms": [
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT253562",
+   "order_value": 9477.01,
+   "free_delivery_threshold": null,
+   "charge_basis": "'All estimates are ex works, additional delivery charges may apply' - printed on the quote",
+   "delivery_priced": false
+  },
+  {
+   "supplier": "Bellview Products",
+   "ref": "0000000520",
+   "order_value": 13354.08,
+   "free_delivery_threshold": null,
+   "charge_basis": "no delivery terms stated on the quote at all",
+   "delivery_priced": false
+  }
+ ],
+ "incorporated_terms": [
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT253562",
+   "document": "terms and conditions of sale, available on request",
+   "held": false
+  }
+ ],
  "qualification_regime": {
   "document": "Once For All portal enquiry - Chigwell (London) PLC package WD001 Windows and Doors",
   "clause": "Not held - the work package description behind 'View enquiry' has never been opened. The Document Register (generated 24/07 09:20) lists 26 drawings plus the specification and no form of tender or package conditions.",
   "qualifications_permitted": null,
   "we_must_sign": null
  },
-
  "priced_lines": [
-  {"ref": "South elevation glazed entrance screen incl 2No 1200mm doors", "amount": null, "covered_by_our_exclusions": false},
-  {"ref": "West elevation glazed screen incl 1200mm DDA door", "amount": null, "covered_by_our_exclusions": false},
-  {"ref": "ALLOW - Automatic door operator package to west door", "amount": 3000.0, "covered_by_our_exclusions": false},
-  {"ref": "ALLOW - Solar control glazing uplift Optitherm S1 Arctic Blue / S1 plus", "amount": 822.0, "covered_by_our_exclusions": false},
-  {"ref": "ALLOW - Fish symbol manifestations", "amount": 250.0, "covered_by_our_exclusions": false}
+  {
+   "ref": "West + south glazing and doors (supplier backed)",
+   "amount": 37278.59,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "ALLOW - Automatic door operator package",
+   "amount": 3000.0,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "ALLOW - Fish symbol manifestations",
+   "amount": 250.0,
+   "covered_by_our_exclusions": false
+  }
  ],
-
  "bought_in_lines": [
-  {"ref": "ALLOW - Automatic door operator package to west door (spec 3.13.1)",
+  {
+   "ref": "ALLOW - Automatic door operator package to west door (spec 3.13.1)",
    "amount": 3000.0,
    "supplier_ref": null,
    "supplier_qty": null,
    "supplier_qty_basis": "no supplier has been approached - this is a house allowance, not a bought-in price",
    "spec_required_qty": 1,
-   "spec_qty_basis": "one operator to the single west DDA door, plus strengthening, mounting plates, electrical supplies and equipment, push pads internal and external, internal emergency release and a keyed isolating switch"}
+   "spec_qty_basis": "one operator to the single west DDA door, plus strengthening, mounting plates, electrical supplies and equipment, push pads internal and external, internal emergency release and a keyed isolating switch"
+  }
  ],
-
  "issued_documents": [
-  {"name": "Grange Hill Methodist Church - Fenster Pricing Document (house format).xlsx",
+  {
+   "name": "Grange Hill Methodist Church - Fenster Pricing Document (house format).xlsx",
    "path": "outputs\\Grange Hill Methodist Church - Fenster Pricing Document (house format).xlsx",
    "is_the_priced_document": true,
-   "exclusions_stated": 0}
+   "exclusions_stated": 0
+  }
  ],
-
  "exposures": [
-  {"item": "Spec 3.15 chapel folding doors - confirmed ours by Zac 27/07, in the BSW RFQ of 24/07 15:29, but not in the benchmark and no exclusion written",
+  {
+   "item": "Spec 3.15 chapel folding doors - confirmed ours by Zac 27/07, in the BSW RFQ of 24/07 15:29, but not in the benchmark and no exclusion written",
    "lands_on": "Fenster",
-   "our_recourse": "none"},
-  {"item": "Spec 3.16 internal FD60 fire check doorsets - never priced, never in any RFQ, never ruled on",
+   "our_recourse": "none"
+  },
+  {
+   "item": "Spec 3.16 internal FD60 fire check doorsets - never priced, never in any RFQ, never ruled on",
    "lands_on": "Fenster",
-   "our_recourse": "none"},
-  {"item": "The folding doors are on plan (GH 006 R5 and N/GH 032, chapel 5800mm wide) but no ELEVATION of the chapel was issued, so the door height and the fixed glazed section up to the underside of the pitched ceiling have no dimension anywhere in the pack",
+   "our_recourse": "none"
+  },
+  {
+   "item": "The folding doors are on plan (GH 006 R5 and N/GH 032, chapel 5800mm wide) but no ELEVATION of the chapel was issued, so the door height and the fixed glazed section up to the underside of the pitched ceiling have no dimension anywhere in the pack",
    "lands_on": "Fenster",
-   "our_recourse": "none"},
-  {"item": "The 2No FD60 doorsets appear on no drawing and in no door schedule - spec 3.16.2 words only, 1200mm wide",
+   "our_recourse": "none"
+  },
+  {
+   "item": "The 2No FD60 doorsets appear on no drawing and in no door schedule - spec 3.16.2 words only, 1200mm wide",
    "lands_on": "Fenster",
-   "our_recourse": "none"},
-  {"item": "Price validity - works run Nov 2026 to Jul 2027 and no supplier quote yet exists to hold behind our figure",
+   "our_recourse": "none"
+  },
+  {
+   "item": "Price validity - works run Nov 2026 to Jul 2027 and no supplier quote yet exists to hold behind our figure",
    "lands_on": "Fenster",
-   "our_recourse": "none"},
-  {"item": "Package return date is 27 July 2026 on both the invitation and the Document Register; Fenster has carried 28 July throughout",
+   "our_recourse": "none"
+  },
+  {
+   "item": "Package return date is 27 July 2026 on both the invitation and the Document Register; Fenster has carried 28 July throughout",
    "lands_on": "Fenster",
-   "our_recourse": "Adam requested an extension from Luke Baker 28/07 14:01 - unanswered"}
+   "our_recourse": "Adam requested an extension from Luke Baker 28/07 14:01 - unanswered"
+  }
  ],
-
- "own_domains": ["fensterglazing.com"]
+ "own_domains": [
+  "fensterglazing.com"
+ ]
 }
