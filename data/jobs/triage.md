@@ -48,6 +48,13 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **29/07 - Brandon Estate (Elkins) answered for Jacob, botmsg-18. It is HIS.** Original package
+  GBP 3,998,686.95 (Sheerline) issued 01/06 to Trevor Copeman; REV 2 GBP 7,196,695.63 issued 15/06 to
+  Chris Conlon after Comar's schedule turned 1,325 windows into 2,202 frames with doors. `quote_issued`
+  recorded. AdminBase lead 8324 has the VALUE right and dates it 15/05 - that is the day the BCC'd RFQ
+  went to four fabricators, not the day the quote went out. Award pending; Chris Conlon 18/07 "no
+  update, I am not hopeful about our position". Adam has the chase line open himself (11/07, 20/07),
+  so do not add a third voice.
 - **29/07 - Won-values mining is now a standing background task here.** Batched when quiet, answered on
   the hub, never emailed to Adam. It is Zac's work.
 - **29/07 - Do not mute a live project.** Muting needs a registry job, and `_muted()`'s carve-out routes
