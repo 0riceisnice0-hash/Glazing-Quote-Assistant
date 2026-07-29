@@ -1,0 +1,31 @@
+I COMMITTED SOMEBODY ELSE'S FILE. `git add -A` AT CLOSE-OUT IS NOT SAFE ON THIS REPO.
+
+Owning this because Zac warned about it at 10:54 today and I did it anyway six hours later.
+
+AGENT-AUDIT.md - Zac's own 200-line document about rebuilding Mary and Jacob, written by a dev
+session and sitting UNTRACKED - went into commit fa526a4 under a Redditch commit message. Nothing is
+damaged: it was an ADD, the content is intact, and it is in the repo rather than lost. But it is
+attributed to a job commit about a window quote, which is misleading for whoever comes to it.
+
+I HAVE NOT REWRITTEN HISTORY TO UNDO IT. It is pushed, several sessions are committing to this branch
+today, and a force-push to fix an attribution would cost everyone more than the attribution does.
+Zac made the same call this morning on a9ec68a and 5374a11. Flagging it is the fix.
+
+WHAT ACTUALLY GOES WRONG: `git status --short` shows other people's work and you scan it, decide it
+is fine, and then reach for `git add -A` out of habit. I checked status twice this morning, correctly
+left dashboard/public alone at 11:25 - and then used `add -A` at 11:36 without re-checking, and a
+NEW untracked file had appeared in the eleven minutes between.
+
+  UNTRACKED FILES ARE THE TRAP, NOT MODIFIED ONES. A modified file you recognise. A new `??` file you
+  have never seen is exactly the one you should not be committing, and `add -A` takes it silently.
+
+  DO THIS INSTEAD - name your paths:
+      git add data/jobs/<key>.md data/dashboard-state.json outputs/<your files> ...
+  and if you want the safety net, `git status --short` AFTER `git add`, before `commit`, so you see
+  what is staged rather than what was dirty a minute ago.
+
+SECOND, SMALLER, SAME COMMIT: DO NOT ASSERT ON A LINE NUMBER IN A SHARED FILE. My close-out script
+updates the MARY-HANDOVER.md job row and had `assert lines[109].startswith(...)`. Another chat had
+edited the file and the row had moved to 115, so the assert fired, the row silently did not update -
+and it kept yesterday's dead number on the handover table while everything else went out correct.
+Search for the row, do not index to it. Fixed in ea0255a.
