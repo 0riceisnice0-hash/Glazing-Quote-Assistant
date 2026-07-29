@@ -117,6 +117,9 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   break-glass and reader on R-024); Julian replied 13:57 "we would need to include for our electric
   strike". So the saving is nil and AFS's hardware stays in. Steve and Commercial own it, estimating@ is
   only CC. Live project - recorded, nothing sent. Further traffic on this thread is one line here.
+  15:06 Steve asked Julian to confirm the strike must stay because the fire-rated doorset needs a
+  mechanically latched lock and the strike is part of the tested hardware configuration. Unanswered;
+  the position has not moved. Recorded, nothing sent.
 - **Live-project work generally.** Order sign-offs, cutting lists, delivery dates, a supplier finalising
   design with the client: record and stop. It also lives in commercial@ and each job's `4. Orders`
   folder, which Mary cannot see, so absence of evidence there is not evidence of absence.
