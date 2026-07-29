@@ -5,21 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 07:49 - riverside
-ADAM AND ZAC BOTH BOUNCED THE SAME REQUEST IN THREE HOURS, FOR LENGTH. IT IS NOT ONE PERSON'S PREFERENCE ANY MORE.
-
-REQ-9 (Riverside) got two dashboard replies on 28/07. Adam 21:09: 'this word count is insane, I will not be reading this.' Zac 22:11, clicking an option: 'Hold everything until PHDB report - word count way too high.' Zac still made the decision, so the answer was in there. Neither of them read it to find that out.
-
-MEASURED, because 'too long' is not actionable and a number is. REQ-9 carried 17,529 characters across why/needs/answer. The next largest OPEN request on the board is 4,728. My MARY-HANDOVER section 7 row was 77,713 characters in one table cell. data/jobs/riverside.md was 3,240 lines.
-
-THE FIX, AND IT COSTS NOTHING: SPLIT, DO NOT DELETE. data/jobs/riverside.md is now 159 lines - position, open items, traps - and everything else moved verbatim to data/jobs/riverside-archive-2026-07.md with a header pointing back. Nothing lost, and the file a reset chat would start from is now readable in one sitting. REQ-9 went 17,529 -> 704 chars. The handover row 77,713 -> 1,375.
-
-TWO ROWS STILL OVER 15k AND THEY ARE NOT MINE TO REWRITE: Gordon Court 128,732 characters, St Mary's 23,367. gordon-court.md is 4,165 lines, bigger than mine was. Same split works.
-
-WHY THIS IS THE EXPENSIVE KIND OF MISTAKE: the findings in that file are good and sourced. The warranty diff, the delivery-to-our-own-yard catch, the 1.5m2 that was our own number - all real, all correctly evidenced, all unread. A finding nobody reads has the same value as no finding. We have been optimising for the wrong half.
-
-Also: MAIL TO ADAM IS LIVE AGAIN. Riverside's file said 'email is still blocked' from 27/07; that was stale. Sent him the AOV reminder he asked for on 27/07 and was told he could not have - 150 words, ok:true.
-
 ### 2026-07-29 07:56 - filwood
 OUR MASTER PRICING TEMPLATE IS AUTHORED BY SOMEONE ELSE'S SURVEYOR. 1,151 WORKBOOKS CARRY HIM.
 
@@ -59,3 +44,14 @@ Jacob's export (264 leads, VALUE column is INC VAT - divide by 1.2) put Unit 1 E
 SO: never date a price from AdminBase leadDate, and do not trust its 'days'. Eleanor shows 'quoted - chase due, 98 days' for a quote that went out yesterday afternoon. Seven rows overlap jobs read out of estimating@ - Gordon Court, Ninn Lane, St Mary's, Princess Beatrice, Crestwood Park, the Chester Thomas arched door and Eleanor. If an AdminBase figure reaches you as a comparison, check it against the file in '3. Client Quote' before you accept it.
 
 Also: an AdminBase email/phone is the CLIENT ACCOUNT contact, identical across every row for that client - not the sender of your enquiry. Bradford Watts' five 2026 rows all read hpaxton@bradfordwatts.co.uk / 07736 990919, while the Eleanor enquiry came from mgolden@ direct to Adam.
+
+### 2026-07-29 08:16 - hightown-olds0056
+A STANDING 'IGNORE THIS CLIENT' RULE STILL COSTS A SESSION PER EMAIL. CLOSED CLIENTS CAN NOW BE MUTED IN THE ROUTER.
+
+Adam closed Hightown Housing on 27/07 ('disregard their quotes unless instructed otherwise') and the rule went into AI.md as 'triage them as noise'. But noise still has to be READ: boot the chat, read the handover, reach a foregone conclusion. Meanwhile their In-Tend portal does not know it has been closed - 115 emails since Dec 2025, 37 in April alone, and one more this morning (FURL0005 cladding, closing 30/07).
+
+SO CLOSURE IS NOW A FLAG, NOT A HABIT: set jobs.<key>.muted = true in data/mary-jobs.json with muted_note quoting who said so. mary_router._muted() returns a MUTED sentinel and mary_bridge.drop_muted() files the work order to processed/ with a log line, waking nobody.
+
+THE CARVE-OUT IS THE DESIGN, AND IT IS THE BIT WORTH COPYING. Every one of these instructions ends 'unless instructed otherwise', so the channel carrying the reversal must never be the channel you silence. trusted_sender, the dashboard, Jacob's botchat and any @fensterglazing.com sender are never muted - only untrusted client/portal mail is dropped. Eight routing cases tested before it went in. Mute only on an explicit instruction from Adam; clear three keys to reopen.
+
+Also, for anyone who meets Hightown: Adam's 'we don't win any works' is not literally true - jayk logged a WIN at Invicta House 03/10/2025. It changes nothing, the instruction stands, and it is written into data/jobs/hightown-olds0056.md precisely so nobody re-derives it as a finding and spends a request on it.

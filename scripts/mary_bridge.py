@@ -40,6 +40,7 @@ REPO = mg.REPO
 QUEUE = mp.QUEUE
 LOCK = mp.LOCK
 FAILED = os.path.join(REPO, "test-results", "mary-inbox", "failed")
+PROCESSED = os.path.join(REPO, "test-results", "mary-inbox", "processed")
 BRIDGE_STATE = os.path.join(REPO, "data", "mary-bridge-state.json")
 STATUS = os.path.join(REPO, "data", "mary-bridge-status.json")
 PIDFILE = os.path.join(REPO, "test-results", "mary-inbox", "bridge.pid")
@@ -207,6 +208,38 @@ def read_orders():
         out.append(rec)
     out.sort(key=lambda r: r["_mtime"])
     return out
+
+
+def drop_muted(orders, reg):
+    """File work orders for a closed client straight to processed\\.
+
+    Returns the orders that still deserve a chat. A muted job is one Adam has
+    told us to stop quoting; its client's portal carries on sending regardless,
+    and every one of those emails used to wake a session to conclude "noise".
+    Dropping them here is the same decision, made for nothing.
+
+    Logged, never silent, and never applied to a trusted sender - see
+    mary_router._muted for the carve-out that keeps "unless instructed
+    otherwise" reachable.
+    """
+    keep = []
+    for order in orders:
+        key, why = router.route(order, reg)
+        if key != router.MUTED:
+            keep.append(order)
+            continue
+        dest = os.path.join(PROCESSED, order["_file"])
+        try:
+            os.makedirs(PROCESSED, exist_ok=True)
+            att = order["_path"][:-5] + "-att"
+            if os.path.isdir(att):
+                os.replace(att, dest[:-5] + "-att")
+            os.replace(order["_path"], dest)
+            log("  MUTED %s - %s" % (describe(order), why))
+        except OSError as e:
+            log("  could not file muted work order %s: %s" % (order["_file"], e))
+            keep.append(order)
+    return keep
 
 
 def group_by_chat(orders, reg):
@@ -523,7 +556,7 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
                               activity.feed(sid))
         return TICK
 
-    orders = read_orders()
+    orders = drop_muted(read_orders(), reg)
     groups = group_by_chat(orders, reg)
 
     # NEW INFORMATION IS THE ONLY REASON TO RUN. A pending handoff used to be

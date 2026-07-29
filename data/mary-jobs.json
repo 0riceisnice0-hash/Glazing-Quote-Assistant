@@ -78,7 +78,10 @@
     "in-tendorganiser",
     "in-tend"
    ],
-   "opened": "2026-07-27"
+   "opened": "2026-07-27",
+   "muted": true,
+   "muted_note": "Hightown Housing closed by Adam 27/07/2026 - 'disregard their quotes unless instructed otherwise'. Inbound client/portal mail is filed to processed unread; trusted senders, the dashboard and Jacob still route here. Clear this flag if Adam reopens them.",
+   "muted_on": "2026-07-29"
   },
   "princess-beatrice": {
    "name": "Princess Beatrice House",
@@ -495,6 +498,13 @@
    "session_id": "92016def-e875-468d-a341-0543061ba384",
    "started": false,
    "created": "2026-07-29T01:00:02",
+   "last_active": null,
+   "runs": 0
+  },
+  "hightown-olds0056": {
+   "session_id": "8dcb160e-9b51-4a11-bed6-d473c6deb49e",
+   "started": false,
+   "created": "2026-07-29T08:10:24",
    "last_active": null,
    "runs": 0
   }

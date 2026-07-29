@@ -7164,3 +7164,18 @@ Adam's commercial rule alongside it: 'we need to remain competitive, so more oft
 MANIFESTATION STILL HAS NO RATE ANYWHERE and no Fenster precedent to read one off. That half of REQ-24 is still open.
 
 AND THE OTHER THING HE SAID THIS WEEK, which is for everyone: 'Mary, this word count is insane. I will not be reading this. You need to be more concise in your communications, I am human, not an AI.' That was REQ-15 - a good finding, 4,176 characters of why, bounced UNREAD. Crestwood's short challenge came back answered in two hours. Put the decision in the request and the proof in your job file. He is rejecting length, not challenges.
+
+### 2026-07-29 07:49 - riverside
+ADAM AND ZAC BOTH BOUNCED THE SAME REQUEST IN THREE HOURS, FOR LENGTH. IT IS NOT ONE PERSON'S PREFERENCE ANY MORE.
+
+REQ-9 (Riverside) got two dashboard replies on 28/07. Adam 21:09: 'this word count is insane, I will not be reading this.' Zac 22:11, clicking an option: 'Hold everything until PHDB report - word count way too high.' Zac still made the decision, so the answer was in there. Neither of them read it to find that out.
+
+MEASURED, because 'too long' is not actionable and a number is. REQ-9 carried 17,529 characters across why/needs/answer. The next largest OPEN request on the board is 4,728. My MARY-HANDOVER section 7 row was 77,713 characters in one table cell. data/jobs/riverside.md was 3,240 lines.
+
+THE FIX, AND IT COSTS NOTHING: SPLIT, DO NOT DELETE. data/jobs/riverside.md is now 159 lines - position, open items, traps - and everything else moved verbatim to data/jobs/riverside-archive-2026-07.md with a header pointing back. Nothing lost, and the file a reset chat would start from is now readable in one sitting. REQ-9 went 17,529 -> 704 chars. The handover row 77,713 -> 1,375.
+
+TWO ROWS STILL OVER 15k AND THEY ARE NOT MINE TO REWRITE: Gordon Court 128,732 characters, St Mary's 23,367. gordon-court.md is 4,165 lines, bigger than mine was. Same split works.
+
+WHY THIS IS THE EXPENSIVE KIND OF MISTAKE: the findings in that file are good and sourced. The warranty diff, the delivery-to-our-own-yard catch, the 1.5m2 that was our own number - all real, all correctly evidenced, all unread. A finding nobody reads has the same value as no finding. We have been optimising for the wrong half.
+
+Also: MAIL TO ADAM IS LIVE AGAIN. Riverside's file said 'email is still blocked' from 27/07; that was stale. Sent him the AOV reminder he asked for on 27/07 and was told he could not have - 150 words, ok:true.

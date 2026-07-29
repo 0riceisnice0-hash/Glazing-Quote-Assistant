@@ -620,7 +620,21 @@ a file changes what the NEXT process does, not what the running one is doing.
 
 - **Hightown Housing** - Adam, 27/07/2026: "We have quoted them many times and don't win any works, so please disregard
   their quotes unless instructed otherwise." Triage their RFQs and In-Tend reminders as noise: one line in the session
-  record, no email, no request raised.
+  record, no email, no request raised. **Now enforced in code and no longer costs a session** - see below.
+
+**A closed client is a routing problem, not a triage problem.** "Triage it as noise" still means booting a chat, reading
+the handover, and reasoning to a foregone conclusion - and the client's portal does not know it has been closed.
+Hightown's In-Tend has sent 115 emails since Dec 2025 (Apr 37, May 40, Jun 25). So closure is now a flag:
+
+```
+data\mary-jobs.json   jobs.<key>.muted = true, muted_note = "<who said so, when, verbatim>", muted_on
+```
+
+`mary_router._muted()` returns the `MUTED` sentinel and `mary_bridge.drop_muted()` files the work order straight to
+`processed\` with a log line, waking nobody. **The carve-out is the whole design:** an instruction to reopen must still
+get through, so `trusted_sender`, the dashboard, Jacob's botchat and any `@fensterglazing.com` sender are never muted -
+only untrusted client/portal mail is dropped. Mute a client only on an explicit instruction from Adam, quote it in
+`muted_note`, and clear the three keys to reopen.
 
 ## Extraction Rules That Matter
 

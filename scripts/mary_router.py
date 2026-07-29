@@ -36,6 +36,9 @@ STATE = os.path.join(REPO, "data", "dashboard-state.json")
 JOB_DIR = os.path.join(REPO, "data", "jobs")
 
 TRIAGE = "triage"
+# Work that belongs to a job Adam has closed, from the client's own side. Not a
+# chat key - the bridge files these straight to processed\ without waking anyone.
+MUTED = "__muted__"
 # A single strong hit (subject or sender) is enough; body-only chatter is not.
 MIN_SCORE = 3
 
@@ -123,8 +126,36 @@ def _match_job_name(reg, text):
     return best
 
 
+def _muted(reg, key, order):
+    """Should this order be dropped instead of waking `key`'s chat?
+
+    Only when Adam has closed the client AND the work is the client's own
+    automated traffic. Hightown Housing is the case that forced this: Adam,
+    27/07/2026, "please disregard their quotes unless instructed otherwise" -
+    but their In-Tend portal has sent 115 emails since December and does not
+    know it has been closed, so the standing "triage it as noise" rule still
+    cost a whole session per email, forever.
+
+    THE CARVE-OUT IS THE POINT. Adam's instruction ends "unless instructed
+    otherwise", so the channel that carries the reversal must never be muted:
+    anything trusted, anything off the dashboard, anything from Jacob, and
+    anything from a colleague still routes and still wakes the chat. What gets
+    dropped is strictly inbound client/portal mail.
+    """
+    job = reg["jobs"].get(key) or {}
+    if not job.get("muted"):
+        return False
+    if order.get("mailbox") in ("dashboard", "botchat"):
+        return False
+    if order.get("trusted_sender"):
+        return False
+    if "fensterglazing.com" in (order.get("from") or "").lower():
+        return False
+    return True
+
+
 def route(order, reg=None):
-    """Return (job_key, why). job_key is a registry key or TRIAGE."""
+    """Return (job_key, why). job_key is a registry key, TRIAGE or MUTED."""
     reg = reg or load_registry()
 
     # Triage's own decision beats every heuristic below. When a batch arrives it
@@ -188,6 +219,9 @@ def route(order, reg=None):
         return TRIAGE, "weak match only (%s)" % ", ".join(hits[:3])
     if len(scored) > 1 and scored[1][0] == top:
         return TRIAGE, "ambiguous - %s and %s scored equally" % (key, scored[1][1])
+    if _muted(reg, key, order):
+        return MUTED, "%s is muted (%s)" % (
+            key, (reg["jobs"][key].get("muted_note") or "closed on instruction"))
     return key, ", ".join(hits[:4])
 
 
