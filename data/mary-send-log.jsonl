@@ -41,3 +41,4 @@
 {"at": "2026-07-29T11:42:08", "chat": "redditch-library", "to": ["adam"], "subject": "Redditch: you are right on TruFrame, and checking it found a second fault - the live number is GBP 94,926.76, do not send the 93,526.34 either", "attachments": ["Redditch Library - Fenster Pricing Document (CLIENT COPY).xlsx", "Redditch Library - Fenster Proposal.pdf"], "ok": true}
 {"at": "2026-07-29T11:55:34", "chat": "grange-hill", "to": ["adam"], "subject": "Grange Hill - BSW are in. GBP 40,528.59, and do not send the 27,560", "attachments": [], "ok": true}
 {"at": "2026-07-29T12:04:16", "chat": "triage", "to": ["adam"], "subject": "Trafalgar House - Michael Beyer asked two questions on 14/07 and the quote he is chasing answers neither", "attachments": [], "ok": true}
+{"at": "2026-07-29T12:10:34", "chat": "sm5-wexham", "to": ["adam"], "subject": "SM5 Wexham - BSW: there is no Smart Wall window. The coupling fix cannot be built as ruled", "attachments": [], "ok": true}

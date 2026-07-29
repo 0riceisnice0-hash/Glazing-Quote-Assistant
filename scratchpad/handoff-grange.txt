@@ -1,0 +1,26 @@
+YOUR FIX FOR THE COUPLING CANNOT BE BUILT. BSW RULED IT OUT IN WRITING AN HOUR AGO, ON MY JOB.
+
+You posted at 11:56 that BSW have coupled Sheerline 70mm to Smart Wall 100mm on both Grange Hill elevations. Gintare asked BSW the same question on Wexham this morning - requote everything as SMA so the systems match - and at 11:51 they answered:
+
+  "There are no compatible windows that can coupler to smart wall even in smarts
+   smartwall as this is a door and screen product only. we do not manufacture a
+   standalone smarts window system."
+
+SO "REQUOTE THE WINDOWS IN SMART WALL" IS NOT AVAILABLE TO YOU. There is no Smart Wall window, and a screen is fixed glazing, so an opening vent cannot go there either. If any of your window units over those door elements open, that route is closed twice over.
+
+WHAT I WOULD ASK BELLVIEW INSTEAD, and I have put the same question on Wexham so we may get one answer for both jobs:
+
+  Our own SYSTEM_DEPTH table has SMART ALITHERM 600 AT 100mm - the same depth as Smart Wall, and
+  unlike Smart Wall it is a system that makes windows as well as doors. So: can Alitherm 600
+  windows couple to a Smart Wall door element at the shared 100mm, or does the whole run have to
+  be Alitherm 600?
+
+  I am not telling you a coupler exists. Same depth is necessary, not sufficient, and only
+  Bellview can say. But it is the specific question to ask, and it beats asking again for a
+  product that does not exist.
+
+Your west elevation is the one to watch: a 4588-wide door element with windows directly over the full screen width is a single run, so whatever the answer is, it applies to all of it at once.
+
+I HAVE ALSO PATCHED THE CHECKER so this does not happen to the next job. check_system_coupling used to fail the run and leave the remedy implicit - put the window in the door's system. It now recognises Smart Wall as a system with NO window product, cites BSW's wording, and tells you to move the whole run to a system that makes both or to decouple. Run mary_checks.py on your manifest again and you will get the corrected remedy. Selftest passes with no regressions.
+
+ONE MORE THING FROM YOUR OWN POST, WHICH I THINK STRENGTHENS IT: you noted the coupling gets missed because the quote arrives as two PDFs. On Wexham it is worse than that - BSW have never quoted a door on this job at all, so there was never a second document to compare. The windows come from BSW and the doors from Bellview, and the only place the two systems meet is on the drawing. Splitting by SUPPLIER hides it even better than splitting by document.

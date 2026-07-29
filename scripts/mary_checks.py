@@ -61,6 +61,36 @@ def depth_of(system):
     return None, ""
 
 
+# Systems that have NO window product at all, so "quote the window in the door's
+# system" - the remedy this file has carried since 24/07 - cannot be done.
+#
+# SM5 Wexham, 29/07/2026. BSW, in writing, asked directly whether the coupled
+# windows could be requoted to match the doors: "There are no compatible windows
+# that can coupler to smart wall even in smarts smartwall as this is a door and
+# screen product only. we do not manufacture a standalone smarts window system."
+#
+# That matters beyond one job. Adam's coupling ruling says move the window into
+# the door's system; for Smart Wall there is nothing to move it into, and a screen
+# is fixed glazing, so an opening vent cannot live there either. Grange Hill hit
+# the identical coupling the same morning and would have been sent down the same
+# dead end. The real remedy is to move the WHOLE run to a system that makes both,
+# or to decouple the window from the door.
+NO_WINDOW_SYSTEM = {
+    "smart wall": "BSW 29/07/2026: 'a door and screen product only... we do not "
+                  "manufacture a standalone smarts window system'",
+    "sma smart wall": "BSW 29/07/2026: 'a door and screen product only... we do not "
+                      "manufacture a standalone smarts window system'",
+}
+
+
+def no_window_system(system):
+    s = str(system or "").strip().lower()
+    for name, why in NO_WINDOW_SYSTEM.items():
+        if name in s:
+            return name, why
+    return None, ""
+
+
 def result(rule, status, detail, catch="", remedy=""):
     """A finding, and separately what to do about it.
 
@@ -95,7 +125,7 @@ def check_system_coupling(m):
                       "SM5 Wexham")
     if not runs:
         return result("system-depth coupling", NA, "nothing coupled on this job", "SM5 Wexham")
-    bad = []
+    bad, blocked = [], {}
     for run in runs:
         depths = {}
         for el in run.get("elements", []):
@@ -110,10 +140,23 @@ def check_system_coupling(m):
             bad.append("%s couples %s" % (run.get("name", "a run"),
                                           " to ".join("%dmm: %s" % (d, ", ".join(v))
                                                       for d, v in sorted(depths.items()))))
+            for el in run.get("elements", []):
+                name, why = no_window_system(el.get("system"))
+                if name and "%s on %s" % (name, run.get("name", "a run")) not in blocked:
+                    blocked["%s on %s" % (name, run.get("name", "a run"))] = why
     if bad:
+        remedy = ("Requote every element in the run in the same system as the door, and reprice - "
+                  "the coupled system is usually the dearer one.")
+        if blocked:
+            remedy = ("DO NOT simply requote the windows in the door's system - it has no window "
+                      "product: " + "; ".join("%s (%s)" % (k, v) for k, v in sorted(blocked.items()))
+                      + ". A screen is fixed glazing, so an opening vent cannot go there either. "
+                      "Either move the WHOLE run to a system that makes both windows and doors at "
+                      "one depth, or separate the window from the door so nothing is coupled. Both "
+                      "change the price - get it requoted, do not adjust the existing one.")
         return result("system-depth coupling", FAIL,
                       "Frames of different depths are coupled - they cannot be joined. " + "; ".join(bad),
-                      "SM5 Wexham")
+                      "SM5 Wexham", remedy=remedy)
     return result("system-depth coupling", PASS, "every coupled run is one system depth", "SM5 Wexham")
 
 
@@ -2379,6 +2422,33 @@ DELIVERY_VARIANTS = [
 ]
 
 
+def selftest_coupling_remedy():
+    """SM5 Wexham, 29/07/2026. The coupling rule used to imply one remedy - put
+    the window in the door's system. BSW then ruled in writing that Smart Wall
+    has no window in it at all, so on a Smart Wall run that remedy is a dead end.
+    Assert both arms: a blocked system says so, an ordinary depth mismatch does
+    not, and the mismatch itself still FAILs either way."""
+    smartwall = {"coupled_runs": [{"name": "East run W.01 + ED.01", "elements": [
+        {"ref": "W.01", "system": "Sheerline Prestige"},
+        {"ref": "ED.01", "system": "SMA Smart Wall"}]}]}
+    ordinary = {"coupled_runs": [{"name": "refs 32/34", "elements": [
+        {"ref": "W32", "system": "EL75mm Squareline"},
+        {"ref": "D34", "system": "AC100 Commercial"}]}]}
+    a, b = check_system_coupling(smartwall), check_system_coupling(ordinary)
+    checks = [
+        ("smart wall run FAILs", a["status"] == FAIL),
+        ("smart wall remedy warns off the dead end", "no window product" in a["remedy"]),
+        ("smart wall remedy cites BSW", "BSW 29/07/2026" in a["remedy"]),
+        ("ordinary run FAILs", b["status"] == FAIL),
+        ("ordinary remedy does NOT warn", "no window product" not in b["remedy"]),
+    ]
+    bad = [n for n, got in checks if not got]
+    print("  %-22s %d/%d coupling remedies behave as intended%s"
+          % ("coupling remedy", len(checks) - len(bad), len(checks),
+             "" if not bad else "  MISSED: " + "; ".join(bad)))
+    return not bad
+
+
 def selftest_delivery_variants():
     """Recall test for check_free_delivery_threshold - see DELIVERY_VARIANTS."""
     base = {"supplier": "A Plus", "ref": "QT51518", "order_value": 4845.22,
@@ -3139,6 +3209,8 @@ def selftest():
         print("  %-22s %d rule(s) fired, %d asked%s" % (name, len(failed), len(asked), note))
         if missed or missed_ask:
             ok = False
+    if not selftest_coupling_remedy():
+        ok = False
     if not selftest_delivery_variants():
         ok = False
     if not selftest_terms_variants():

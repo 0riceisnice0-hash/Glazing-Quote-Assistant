@@ -168,6 +168,55 @@ Pearce Construction on Georgie's this morning** (08:03Z and 08:16Z, the second t
 had replied). Handed to the `georgies` chat - REQ-12 has that tender already issued at GBP 89,229.61.
 Posted to the noticeboard.
 
+**CORRECTED 29/07 12:0x - THE CHASE DID GO, TWO MINUTES AFTER THE BLANK ONE.** Gintare sent BSW a
+substantive message at 09:56Z / 10:56 BST: *"the windows still are shearline, some of them would need
+to be couple together with the doors which are SMA. Therefore, I have asked to requote everything to be
+the same product - SMA."* **It is not in our store** - the poller ran at 10:51, 10:56 and 10:59 and
+never picked it up (not the 28/07 outage; a single outbound message missed with the instrument up). It
+survives only in BSW's reply chain. So my statement to Adam that "none of the four open points were
+chased" was wrong: the systems question - the most important of the four - was put properly. **The blank
+10:54 email is still real; it was simply followed.** Second time in two days our sent-mail record has
+been incomplete, and both times the missing message was quoted underneath one that did arrive.
+
+### 29/07 11:51 - BSW'S RULING: THERE IS NO SMART WALL WINDOW
+
+BSW, in writing, answering the systems question directly:
+
+> *"There are no compatible windows that can coupler to smart wall even in smarts smartwall as this is a
+> door and screen product only. we do not manufacture a standalone smarts window system."*
+
+**Adam's 24/07 coupling ruling stands, but the fix as written cannot be built.** There is no Smart Wall
+window to move W.01, W.04 and W.05 into, and a screen is fixed glazing so the opening vents cannot go
+there either - which bites here, because **all three of those windows open**: BSW's own revised
+QT253300 puts restrictor stays on every one, four of them on W.01 alone.
+
+**Three routes, not equal:**
+
+1. **Move the whole run to a system that makes both.** Our own `SYSTEM_DEPTH` table has **Smart Alitherm
+   600 at 100mm - the same depth as Smart Wall** - and unlike Smart Wall it makes windows as well as
+   doors. It is also the system named on 24/07 as the thermally broken alternative for the door U-value,
+   so it answers two problems at once. **The question for Bellview: can Alitherm 600 windows couple to a
+   Smart Wall door element at the shared 100mm, or should the East and West runs be Alitherm 600
+   throughout?** Same depth is necessary, not sufficient - no coupler is asserted; Bellview must say.
+2. **Decouple** - structure between window and door so nothing is joined. Architect's question, changes
+   the elevations.
+3. Leave it and qualify it - not recommended on runs where the coupling makes the elevation.
+
+All three change the price; none is an adjustment to the existing document.
+
+**BEYOND THIS JOB.** Handed to `grange-hill`, who found the identical Sheerline/Smart Wall coupling on
+both elevations this morning and were about to request a Smart Wall requote. **Added to REQ-16** (St
+Mary's Type G, open since 27/07, which asks for exactly this written fabrication answer) - its option 2,
+"have Bellview quote the top-hung vent within the Smart Wall element", is now dead, GBP 8,499.66 of sell.
+Bellview's own half is still outstanding; BSW speak for BSW, though their wording covers "smarts
+smartwall" generally. Posted to the noticeboard. **No new request raised.**
+
+**THE CHECKER NOW CARRIES IT.** `check_system_coupling` used to FAIL the run and leave the remedy
+implicit - put the window in the door's system - which would have sent Grange Hill down the dead end
+this morning. It now recognises Smart Wall via a new `NO_WINDOW_SYSTEM` table, cites BSW's wording, and
+gives the real remedy. New `selftest_coupling_remedy` asserts both arms (blocked system warns; an
+ordinary EL75/AC100 depth mismatch does not) and the full suite passes with no regressions.
+
 **Both outstanding enquiries are now drafted and sent to Adam ready to go** ("SM5 Wexham - the reply to
 BSW went out empty; both enquiries drafted below"): a four-point one to BSW (restriction dimension,
 whether the stays are wanted at all, trickle vents, SAA handles, plus the systems question) and a

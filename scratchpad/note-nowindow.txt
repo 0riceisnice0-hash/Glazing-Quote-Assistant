@@ -1,0 +1,48 @@
+SMART WALL HAS NO WINDOW IN IT. "REQUOTE THE WINDOWS TO MATCH THE DOORS" IS NOT AVAILABLE ON ANY SMART WALL RUN - THIS AFFECTS THREE JOBS TODAY.
+
+BSW, in writing, 29/07 11:51, answering Gintare's direct question on SM5 Wexham:
+
+  "There are no compatible windows that can coupler to smart wall even in smarts smartwall as this
+   is a door and screen product only. we do not manufacture a standalone smarts window system."
+
+Adam's 24/07 coupling ruling stands - Sheerline 70mm cannot join Smart Wall 100mm. But the remedy we
+have all been carrying since, PUT THE WINDOW IN THE DOOR'S SYSTEM, is a dead end when the door is
+Smart Wall. There is nothing to put it in. And a screen is fixed glazing, so an OPENING vent cannot
+go there either - twice closed if your windows open.
+
+LIVE ON THREE JOBS RIGHT NOW: SM5 Wexham (W.01, W.04, W.05, all with restrictor stays so all
+opening); GRANGE HILL, where BSW coupled the same two systems on both elevations this morning and
+were about to be asked to requote in Smart Wall; and ST MARY'S REQ-16 Type G, whose option 2 was
+"have Bellview quote the top-hung vent within the Smart Wall element" - now dead, GBP 8,499.66 of
+sell. I have put the wording on REQ-16 rather than raising anything.
+
+THE QUESTION TO ASK INSTEAD, and it is one question for all three:
+
+  Our own SYSTEM_DEPTH table has SMART ALITHERM 600 at 100mm - the same depth as Smart Wall - and
+  unlike Smart Wall it makes windows as well as doors. So ask Bellview: can Alitherm 600 windows
+  couple to a Smart Wall door element at the shared 100mm, or does the whole run have to be
+  Alitherm 600?
+
+  SAME DEPTH IS NECESSARY, NOT SUFFICIENT. I am not telling you a coupler exists between two Smart
+  systems - only Bellview can. But it beats asking again for a product that does not exist, and on
+  St Mary's it would bear on REQ-15 too, because Alitherm 600 is thermally broken and Smart Wall
+  Pocket is not.
+
+THE CHECKER NOW KNOWS. check_system_coupling used to FAIL the run and leave the remedy implicit. It
+now recognises Smart Wall as a system with no window product, quotes BSW, and tells you to move the
+WHOLE run to a system that makes both or to decouple. New selftest asserts both arms - blocked system
+warns, ordinary depth mismatch does not - and the whole suite passes with no regressions. Re-run
+mary_checks.py on any manifest with a Smart Wall coupled run and you will get the corrected remedy.
+
+AND A SHARPER VERSION OF GRANGE HILL'S "SPLIT PAPERWORK HIDES IT": on Wexham BSW HAVE NEVER QUOTED A
+DOOR AT ALL. Windows from BSW, doors from Bellview, and the only place the two systems meet is the
+drawing. There was never a second PDF to compare. Splitting by SUPPLIER hides a coupling better than
+splitting by document does.
+
+SEPARATELY, AND IT IS MY OWN ERROR: I told Adam an hour ago that none of our four questions had been
+chased, because our store showed only a blank reply to BSW. Gintare sent the real chase two minutes
+after the blank one, at 10:56. IT IS NOT IN THE STORE - the poller ran at 10:51, 10:56 and 10:59 and
+never picked it up. Not the 28/07 outage; a single outbound message missed while the poller was up.
+That is the second time in two days our sent-mail record has been incomplete, and both times the
+missing message was sitting in the reply chain of one that did arrive. Grange Hill said it this
+morning and I did it anyway: READ THE QUOTED HISTORY UNDER THE MESSAGE IN FRONT OF YOU.

@@ -1,0 +1,31 @@
+There is no Smart Wall window, so the coupling fix cannot be built
+
+BSW, in writing: "There are no compatible windows that can coupler to smart wall
+even in smarts smartwall as this is a door and screen product only. we do not
+manufacture a standalone smarts window system."
+
+Adam's 24/07 ruling stands - Sheerline 70mm cannot join Smart Wall 100mm - but
+there is nothing to move W.01, W.04 and W.05 into, and a screen is fixed glazing so
+the opening vents cannot go there either. All three of those windows open; BSW's
+own revised quote puts restrictor stays on every one.
+
+The route to ask about is in our own system table: Smart Alitherm 600 is 100mm, the
+same depth as Smart Wall, and unlike Smart Wall it makes windows as well as doors.
+Same depth is necessary, not sufficient - Bellview have to confirm a coupler
+exists - but it beats asking again for a product that does not exist, and it is the
+system already named as the thermally broken door fix.
+
+This is three jobs. Handed to Grange Hill, who found the identical coupling on both
+elevations this morning and were about to ask for a Smart Wall requote. Added to
+REQ-16 on St Mary's, whose option 2 is now dead. No new request raised.
+
+check_system_coupling used to fail the run and leave the remedy implicit - put the
+window in the door's system - which would have sent Grange Hill down the same dead
+end. It now carries a NO_WINDOW_SYSTEM table, cites BSW, and gives the real remedy.
+New selftest asserts both arms; suite passes with no regressions.
+
+And a correction: I told Adam none of the four points had been chased. Gintare sent
+the real chase two minutes after the blank one. It is not in our store - the poller
+ran either side of it and missed it - and survives only in BSW's reply chain.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

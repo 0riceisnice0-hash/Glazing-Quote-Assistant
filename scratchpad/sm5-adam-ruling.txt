@@ -1,0 +1,58 @@
+Adam,
+
+Two things: I got something wrong an hour ago, and BSW have now answered the question that matters.
+
+FIRST, THE CORRECTION
+
+I told you "none of the four open points were chased". That was wrong. The blank email at 10:54 was real, but Gintare followed it two minutes later, at 10:56, with the substantive one:
+
+  "the windows still are shearline, some of them would need to be couple together
+   with the doors which are SMA. Therefore, I have asked to requote everything to
+   be the same product - SMA."
+
+That is the systems question, put properly. It is not in my records - the poller ran at 10:51, 10:56 and 10:59 and never picked it up - and I only have it because BSW quoted it back underneath their reply. I reported the gap in my store as a gap in the world, which is the exact thing I have been telling everyone else not to do this week.
+
+
+SECOND, AND THIS IS THE ONE THAT CHANGES THE JOB
+
+BSW, 11:51, in writing:
+
+  "There are no compatible windows that can coupler to smart wall even in smarts
+   smartwall as this is a door and screen product only. we do not manufacture a
+   standalone smarts window system."
+
+So your 24/07 ruling stands - Sheerline 70mm cannot join Smart Wall 100mm - but THE FIX AS WRITTEN CANNOT BE BUILT. There is no Smart Wall window to move W.01, W.04 and W.05 into. And a screen is fixed glazing, so the opening vents cannot go there either - which matters, because all three of those windows open. BSW's own revised quote puts restrictor stays on every one of them, four of them on W.01 alone.
+
+That leaves three routes, and they are not equal:
+
+  1. MOVE THE WHOLE RUN TO A SYSTEM THAT MAKES BOTH. Our own system table already
+     has Smart Alitherm 600 at 100mm - the same depth as Smart Wall - and it is a
+     system that does windows as well as doors. It is also the system I flagged on
+     24/07 as the thermally broken alternative for the door U-value, so it solves
+     two things at once. THIS IS THE QUESTION FOR BELLVIEW: can Alitherm 600
+     windows couple to a Smart Wall door element at the shared 100mm, or should
+     the East and West runs be Alitherm 600 throughout?
+     I am not asserting a coupler exists between two Smart systems. Same depth is
+     necessary, not sufficient. It needs Bellview in writing.
+
+  2. DECOUPLE. Separate the windows from the doors with structure between them so
+     nothing is joined. That is an architect's question, not a supplier's, and it
+     changes the elevations.
+
+  3. Leave it as it is and qualify it. I do not recommend this on a run where the
+     coupling is what makes the elevation.
+
+All three change the price. None of them is an adjustment to the existing document.
+
+I have added the Bellview question to the enquiry I drafted you earlier, so that one email now covers the panic bar, the hook lock conflict, the ED.01 handles and closer, and the system route. It is the only thing standing between us and a corrected quote.
+
+
+THIS IS BIGGER THAN WEXHAM
+
+Grange Hill came back this morning with the identical coupling - Sheerline SP104 windows sitting directly over SMA Smart Wall Pocket door elements on both elevations. That job was about to be fixed by requoting the windows in Smart Wall, which we now know is not a thing. I have passed BSW's answer over.
+
+It also settles half of REQ-16 on St Mary's, which has been open since 27/07 asking for exactly this: a written fabrication answer on whether a Sheerline casement can live inside a Smart Wall frame. One of its three options was "have Bellview quote the top-hung vent within the Smart Wall element" - that option is now dead. I have put BSW's wording on the request rather than raising anything new.
+
+And I have taught it to the checks: the coupling rule used to say "requote the window in the door's system", which would have sent Grange Hill down the same dead end this morning. It now names Smart Wall as a system with no window in it and gives the real remedy. Selftest passes, no regressions.
+
+Mary
