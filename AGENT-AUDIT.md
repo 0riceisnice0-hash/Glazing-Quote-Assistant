@@ -209,7 +209,7 @@ nothing in this plan changes that.
 |---|---|---|
 | 0 **DONE 29/07** | Backfill ledger from send log, D1, sent items, HANDOVER; token baseline per chat | `mary_recall.py` answers "what did I tell Adam about X" for any live job |
 | 1 **DONE 29/07** | Job-file contract + rotation in the bridge | No transcript over threshold; every close-out updates file + ledger; a reset chat picks up a live job without loss |
-| 2 | `adam.md` mined + send gate + re-raise guard | Interruption yield > 1/2 for 14 days; zero "already addressed" |
+| 2 **SHIPPED 29/07** (metric window open) | `adam.md` mined + send gate + re-raise guard | Interruption yield > 1/2 for 14 days; zero "already addressed" |
 | 3 | Knowledge distillation + librarian | Boot context ≤ index + job file; essays deleted from playbooks |
 | 4 | Token-true budgets; caps → circuit breakers | Cost per work order down, catches steady |
 | 5 | Jacob parity (companies, bd.md, ledger feeds) | His Today actions cite his own history unprompted |
@@ -274,3 +274,31 @@ Rotation without a bounded seed is a token relocation scheme. So:
 
 **Next: Phase 2** - `data/knowledge/adam.md` mined from his replies, the send gate
 (`mary_send.py --check` with interruption-yield evidence), and the re-raise guard.
+
+---
+
+## 8. Phase 2 - shipped 29/07 (the 14-day metric window runs from here)
+
+- **`data/knowledge/adam.md`** - the Adam model, written from his corpus, not
+  impressions: how he reads (phone, one screen, "It still says uPVC..." as a complete
+  reply), how he decides (precedent - Brandon Estate; deadlines outrank everything;
+  2.5% MCD pragmatism), and the standing decisions that must never be re-raised.
+  Loaded by every session: the kick prompt names it, both playbooks open with it.
+  Contract on itself: under 120 lines, updated at close-out when he teaches, pruned
+  when he contradicts.
+- **The send gate** - `mary_send.py --check --subject "..."`: sends today (it showed
+  20 when first run), last send on this job, settled-topic matches against the ledger,
+  the deduped weekly send-to-reply ratio, hours to the 07:45 digest. Never blocks;
+  the philosophy is judgment with evidence, not another wall.
+- **The re-raise guard** - `mary_dashboard.py` now refuses to publish an open request
+  that near-duplicates an answered one (the REQ-14/REQ-2 shape) and warns when one
+  touches settled ground. Tuned against the live board: REQ-24 legitimately follows
+  answered REQ-17 and stays publishable; the first run also surfaced five open
+  requests Adam had already answered on the hub that nobody closed - the guard is
+  finding real debt on day one.
+- Honest limits: "yield" counts his instructions as well as replies (labelled so),
+  and the guard is judgement-support plus one narrow wall, not yet "structurally
+  impossible". Both sharpen as the ledger grows.
+
+**Next: Phase 3** - knowledge distillation (the expert shelf out of AI.md/HANDOVER
+prose) and the librarian run.
