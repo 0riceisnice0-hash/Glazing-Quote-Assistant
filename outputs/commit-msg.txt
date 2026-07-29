@@ -1,44 +1,39 @@
-Won-values mining: six confirmed into known-values.json, three traps declined
+Triage job file rebuilt to contract (1013 -> 114 lines), and Jacob's Ryde/Corby answered
 
-Zac's standing batch work (dashmsg-91), no deadline. known-values.json 5 -> 11 values,
-GBP 51,094.65 added, every one basis "document" with its source path and the reasoning
-in its note.
+JOB FILE FIRST, as instructed. triage.md was 1013 lines against a 300 contract with no
+"## Position" heading. Archived with mary_jobfile.py --archive triage and rebuilt lean
+from the archive's durable sections; --check now passes.
 
-  conamar|bromley wellbeing centre    6,970.00   PN03 - gross valuation and projected
-                                                 final account agree
-  tsl|lawford house                  15,344.68   quote sub-total, corroborated exactly
-                                                 by TSL payment notice 002
-  denton hope|roseford court         15,490.47   PO DHLT-00024 item cost without tax
-  fortis vision|thetford              8,419.50   PO "Sub-Contract Sum of 8,419.50
-                                                 (excluding VAT)"
-  krypton|waitrose @ storrington      3,190.00   SC2435 order value
-  capital services|ghpc flat 14       1,680.00   PO P-001133 sub total
+The rebuild keeps STATE and drops narrative: Position, the one standing numeric task
+(won-values, 11 of 206 confirmed), Deadlines with the deadline_basis caution, two open
+RFIs (Darrick Wood, Trafalgar), six Decisions, What Adam said, Watch list, and how work
+is handed on. Everything else is in data/jobs/triage-archive-2026-07.md.
 
-The value of this task is in the ones NOT recorded. Elkins Midfield's mined amount is a
-Strongdor order - our buy price, not the job value. Lawford House's mined 4,344.24 is
-labelled "Contract Balance" and is actually the door line price; recording it would have
-understated the job by 71%. Thetford's PO and a payment certificate in the same folder
-disagree, so the contract sum was recorded WITH the discrepancy written into the note
-rather than buried or the job omitted.
+JACOB (botmsg-14, wants_reply) asked two precise questions, both answerable from the
+Supply2Gov HTML we already hold. He had swept 353 tender-stage releases across Contracts
+Finder and Find a Tender over 21 days and matched neither, so our alert is the only copy
+of the primary record.
 
-Bromley is the argument for "latest wins": PN01 projected 6,476.00, PN02 grossed 6,682.00,
-PN03 grossed 6,970.00 and states that as the projected final account. Either earlier
-figure would have looked defensible and been wrong.
+  Ryde   ContractNotice, response 28-08-2026, opportunity id 116642060
+  Corby  ContractNotice, response "Not available" (the feed's own value), id 116597180
 
-Two tooling faults reported to Zac on the hub, both verified:
- - mine_won_values.py fails on paths over ~260 chars (Windows MAX_PATH). The only read
-   errors in the whole 203-job index are RSR Bletchley's valuations at ~270 chars; a
-   duplicate set exists at a short path, so preferring the shortest path per duplicate
-   filename fixes it.
- - A one-hyphen key mismatch: known-values has "rsr|rsr bletchley rail depot", the
-   evidence index has "rsr|rsr - bletchley rail depot". That job carries a 191k brochure
-   value and will still read as unvalued when the hub joins them.
+The buyer answer is a "no" with the reason attached: there is no buying-organisation
+field on a Supply2Gov row at all - checked the whole item block, not just the text I had
+quoted him. The description opens "The Authority invites response to this ITT" and the
+feed truncates before any name. Offered Isle of Wight Council as the obvious first call,
+explicitly labelled as my inference from the address, with a warning not to put it to
+Adam as fact.
 
-Also corrected yesterday's own note: the MASTER Shaftesbury payment application in the
-Trafalgar House folder is not misfiled, it is a blank template copied across the archive -
-15 won-job folders index it as evidence.
+HIS SWEEP CHANGED MY OWN POSITION AND I RECORDED IT AS SUCH. My 10:05 note argued the
+Supply2Gov upgrade case was weak. That neither lead appears in 353 free-feed releases is
+real evidence the other way. Written into the live file as UNSETTLED carrying both halves,
+so a fresh chat cannot re-derive only the sceptical one.
 
-195 candidates remain, 40 with mined amounts. Staged by name; dashboard/public/app.js,
-scripts/jacob_dashboard.py and data/jacob/bridge-state.json are other sessions' work.
+Noted Zac's 13:34 rule: issued quotes now go to Jacob structurally via mary_ledger, not
+botchat. This reply qualifies as a question answered; his two FYIs needed no response and
+got none.
+
+Staged by name. Jacob's session has BOTS.md, JACOB-SESSION.md, data/jacob/*, data/knowledge,
+data/ledger and four scripts/jacob_* in flight - all left alone.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

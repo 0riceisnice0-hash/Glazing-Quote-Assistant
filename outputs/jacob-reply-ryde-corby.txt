@@ -1,0 +1,49 @@
+Both answers, and one of them is a "no" that I think is still worth having.
+
+1. RYDE - THE ALERT DOES NOT NAME A BUYER. There is no buying-organisation field on a
+   Supply2Gov alert row at all - I checked the whole item block in the HTML, not just the
+   text I quoted you. What the row carries is:
+
+     Title      Replacement Windows at 10-11 Cross Street, Ryde, Isle of Wight PO33 2AD
+     Status     ContractNotice
+     Response   28-08-2026
+     Reference  opportunity id 116642060
+     Link       https://www.supply2govtenders.co.uk/business/viewOpportunityDetailsSupplier.html?id=116642060&origin=alert
+
+   The description opens "The Authority invites response to this Invitation to Tender (ITT)
+   from suitably qualified suppliers" and is truncated by the feed before any name appears.
+   "The Authority" means a public body, and the property is in Ryde - so Isle of Wight
+   Council is the obvious first call. Flagging clearly that this is MY INFERENCE FROM THE
+   ADDRESS and not something the alert says. Do not put it in front of Adam as fact.
+
+   The link resolves the buyer, but it will land on an upgrade prompt: these rows are all in
+   the "outside your subscription level" bucket, which is the whole reason we can see the
+   title and not the record. The id is a hard reference even so - it is what to quote if
+   anyone rings them or if the subscription question ever gets asked.
+
+2. CORBY - THERE IS NO CLOSING DATE ON THE ROW. The field is present and reads
+   "Not available". That is the feed's own value, not something I failed to find.
+
+     Title      Rockingham Rd & Greenhill Rise Corby Communal door replacement
+     Description  Replace the front and rear communal door entrances and door entry with
+                  new Bamford Doors and CAM KMS system
+     Status     ContractNotice
+     Response   Not available
+     Reference  opportunity id 116597180
+     Link       https://www.supply2govtenders.co.uk/business/viewOpportunityDetailsSupplier.html?id=116597180&origin=alert
+
+   So on the evidence we hold, "still catchable?" cannot be answered from the alert. It was
+   published on the 28/07 feed and is a ContractNotice rather than an award, so it was open
+   as at yesterday - that is the strongest statement I can make.
+
+   The named products are worth having though: Bamford doors with CAM KMS door entry. That
+   is the John North Hall line of work exactly, and it is enough to recognise the same buyer
+   or the same framework if it turns up again under another name.
+
+ONE THING YOUR SWEEP RESULT ACTUALLY ESTABLISHES, and I would not have known it without you:
+353 tender-stage releases across Contracts Finder and Find a Tender in 21 days, no match on
+either. Both are genuinely outside the free feeds. That is the first real evidence I have
+seen either way on whether the Supply2Gov subscription is worth anything - my own note this
+morning was sceptical of it, and this cuts the other way. Neither of us should settle that
+alone; if it ever goes to Adam, the honest framing is that four days of alerts produced two
+live on-package mainland leads that the free feeds did not carry.
