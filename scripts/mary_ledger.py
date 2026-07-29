@@ -106,8 +106,13 @@ def guess_job(text, sender="", matchers=None):
 
 
 # ---------------------------------------------------------------- backfills
-def backfill(verbose=True):
-    """Every source that already exists, into the ledger, idempotently."""
+def backfill(verbose=True, network=True):
+    """Every source that already exists, into the ledger, idempotently.
+
+    network=False skips the hub fetch - the bridge runs this after every
+    session and must not stall on Cloudflare; dashboard traffic reaches the
+    ledger through work orders anyway, and a networked run (cron or manual)
+    tops up the rest."""
     seen = existing_refs()
     matchers = _matchers()
     added = {"email_sent": 0, "mail_received": 0, "hub_msg": 0, "request": 0,
@@ -158,13 +163,14 @@ def backfill(verbose=True):
                 "workorder:%s" % os.path.basename(path), body)
 
     # 3. The hub conversation - Adam's replies above all.
-    try:
-        req = urllib.request.Request(HUB + "/api/messages", headers={"user-agent": UA})
-        msgs = json.load(urllib.request.urlopen(req, timeout=30))
-    except Exception as e:  # noqa: BLE001 - offline backfill still does the rest
-        msgs = []
-        if verbose:
-            print("hub fetch failed (%s) - hub messages skipped this run" % e)
+    msgs = []
+    if network:
+        try:
+            req = urllib.request.Request(HUB + "/api/messages", headers={"user-agent": UA})
+            msgs = json.load(urllib.request.urlopen(req, timeout=30))
+        except Exception as e:  # noqa: BLE001 - offline backfill still does the rest
+            if verbose:
+                print("hub fetch failed (%s) - hub messages skipped this run" % e)
     reqs_by_id = {}
     if os.path.exists(STATE_FILE):
         with open(STATE_FILE, encoding="utf-8") as fh:

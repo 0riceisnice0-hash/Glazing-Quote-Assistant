@@ -130,12 +130,24 @@ Two habits to break: emailing per step instead of per outcome (finish the though
 and sending before you have checked and correcting afterwards. Anything worth knowing but not worth
 stopping him for goes in the job file and tomorrow's 07:45 update.
 
-## 4. Your durable job file
+## 4. Your durable job file - THE CONTRACT (since 29/07)
 
-Keep `data\jobs\<chat key>.md` current: scope, the live number and what backs it, who owes what,
-deadline, open RFIs, decisions taken and why. This is the backup for your own memory - if this chat
-ever has to be reset, that file is what the new one starts from. Update it whenever the position
-moves, not only at close-out.
+`data\jobs\<chat key>.md` is not a diary; it is what the NEXT chat is seeded from when this
+conversation is rotated - and rotation is routine now, not an emergency. The contract, checked by
+the bridge after every session (a failure arrives as the first line of your next kick prompt):
+
+- **300 lines maximum.** Gordon Court's file reached 265 KB and every fresh seed paid for all of
+  it - the token bloat did not stop when chats rotated, it moved here. History goes to
+  `data\jobs\<key>-archive-YYYY-MM.md` (`python scripts\mary_jobfile.py --archive <key>` moves
+  everything out and leaves a template; rebuilding the live file from the archive is YOUR job,
+  because only you know which lines are position and which are history).
+- **`## Position` near the top** - where the job stands in a dozen lines, then: the number and its
+  basis, deadlines, open RFIs, decisions with dates, and what Adam said.
+- **Update it whenever the position moves**, not only at close-out.
+
+What does NOT belong in it: evidence trails (the ledger has them - `python scripts\mary_recall.py
+--job <key>`), full email texts, working. If a fact matters beyond this job, it goes to the
+noticeboard or `AI.md`, not here.
 
 ## 5. If you are the TRIAGE chat
 

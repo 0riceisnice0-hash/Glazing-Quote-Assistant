@@ -35,6 +35,8 @@ import mary_router as router
 import mary_note as note
 import mary_activity as activity
 import mary_budget as budget
+import mary_jobfile as jobfile
+import mary_ledger as ledger
 
 REPO = mg.REPO
 QUEUE = mp.QUEUE
@@ -276,15 +278,28 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
                 "for the triage rules, then MARY-HANDOVER.md for the standing rules and live job table.")
         else:
             job = reg["jobs"].get(key, {})
-            lines.append(
-                "You are Mary Grace, Fenster Glazing's estimating AI. This conversation is the PERMANENT chat "
-                "for ONE job: %s%s. It will be resumed for every future piece of work on this job, so what you "
-                "learn here you keep - you will not have to rebuild it from the handover docs again.\n\n"
-                "One-off setup, do it now: read MARY-JOB-SESSION.md, then find this job's row in "
-                "MARY-HANDOVER.md section 7 and its record in HANDOVER.md, and read data/jobs/%s.md if it "
-                "exists. Build a complete picture of where this job stands - scope, price, who owes what, the "
-                "deadline - before you touch the work below."
-                % (title, (" for " + job.get("client", "")) if job.get("client") else "", key))
+            intro = ("You are Mary Grace, Fenster Glazing's estimating AI. This conversation is the PERMANENT chat "
+                     "for ONE job: %s%s. It will be resumed for every future piece of work on this job, so what you "
+                     "learn here you keep - you will not have to rebuild it from the handover docs again.\n\n"
+                     % (title, (" for " + job.get("client", "")) if job.get("client") else ""))
+            if os.path.exists(jobfile.path_for(key)):
+                # A job with history: the job file IS the handover. Re-reading
+                # HANDOVER.md/AI.md here is how a "fresh" seed used to cost as
+                # much as the transcript it replaced.
+                lines.append(intro +
+                    "One-off setup, do it now: read MARY-JOB-SESSION.md (how these chats work), then "
+                    "data/jobs/%s.md - that file is the distilled position and it REPLACES the handover "
+                    "documents for this job. For recent history run: "
+                    "python scripts\\mary_recall.py --job %s --days 14. "
+                    "Do NOT read HANDOVER.md or AI.md unless the job file leaves a specific gap, and if it "
+                    "does, fix the job file so the next chat is not missing it too." % (key, key))
+            else:
+                lines.append(intro +
+                    "One-off setup, do it now: read MARY-JOB-SESSION.md, then find this job's row in "
+                    "MARY-HANDOVER.md section 7 and its record in HANDOVER.md if one exists. Build a complete "
+                    "picture of where this job stands - scope, price, who owes what, the deadline - then CREATE "
+                    "data/jobs/%s.md to the contract in MARY-JOB-SESSION.md section 4 before you touch the work "
+                    "below, so no future chat has to do this again." % key)
     else:
         lines.append(
             "New work for %s. This chat already holds this job's history - use it. Do NOT re-read the handover "
@@ -346,6 +361,19 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
     backlog = budget.prompt_note()
     if backlog:
         lines.append(backlog)
+
+    # The contract check from the LAST session, delivered where it cannot be
+    # missed. The bridge cannot stop a session mid-close-out; what it can do is
+    # make the very next turn start with the debt.
+    warn = (reg.get("chats", {}).get(key) or {}).get("jobfile_warn")
+    if warn:
+        lines.append(
+            "\nJOB FILE CONTRACT - fix this FIRST, before the work orders: %s. "
+            "Keep data/jobs/%s.md under %d lines with a '## Position' heading up top; move history to "
+            "the archive (python scripts\\mary_jobfile.py --archive %s moves everything and leaves a "
+            "rebuild template - then rebuild the live file from the archive plus mary_recall). The next "
+            "chat for this job is seeded from that file alone; every line of bloat is a tax on it."
+            % (warn, key, jobfile.MAX_LINES, key))
 
     lines.append(
         "\nFollow MARY-JOB-SESSION.md exactly, including the close-out: answer on the dashboard if a work "
@@ -430,6 +458,15 @@ def dispatch(key, orders, reg, bst, dry_run=False):
             rec["last_active"] = dt.datetime.now().isoformat(timespec="seconds")
             note.mark_delivered(handoffs)
             bst["fails"] = 0
+            # The job-file contract, checked while the session's work is fresh.
+            # A failure is not fatal - it becomes the FIRST thing the next kick
+            # prompt says, and it stays there until the file is fixed.
+            problems = jobfile.check(key)
+            if problems:
+                rec["jobfile_warn"] = "; ".join(problems)
+                log("  [%s] job file out of contract: %s" % (key, rec["jobfile_warn"]))
+            else:
+                rec.pop("jobfile_warn", None)
         else:
             # A new chat that failed never really started - do not resume a
             # conversation that may not exist.
@@ -485,6 +522,12 @@ def dispatch(key, orders, reg, bst, dry_run=False):
                             "test-results\\mary-inbox\\failed\\. It needs a human look."
                             % (o["_file"], n), author="bridge")
     save_bridge_state(bst)
+    # Keep the ledger current for free: idempotent, local sources only, and a
+    # failure here must never cost a session anything.
+    try:
+        ledger.backfill(verbose=False, network=False)
+    except Exception as e:
+        log("  ledger refresh failed (harmless): %s" % e)
     return ok
 
 
