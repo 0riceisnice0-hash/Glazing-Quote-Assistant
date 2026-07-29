@@ -47,6 +47,20 @@ CODE_VALUE = {
     "LPVC": 450, "SUPD": 1000, "DUPD": 1500,
 }
 ADDER_FACTOR = 0.75
+# ...but not on large units. Measured across 30 sent quotes: below 6m2 the extra
+# money over Frames is the code value x 75% almost exactly (median x1.00 against
+# the template adder, n=453). Above 6m2 it is the code value x 125% (median
+# x1.250, n=60, across 9 different jobs, and x1.67 against the 75% adder whether
+# or not the three Brandon Estate documents are included). The commercial reason
+# is that a unit over 6m2 is a coupled screen rather than a single leaf - extra
+# mullions, transoms, sealing and glass that the per-unit code value was never
+# sized for. This is the estimator's own rule, read back off what they charged.
+LARGE_UNIT_M2 = 6.0
+ADDER_FACTOR_LARGE = 1.25
+
+
+def adder_factor(area_m2):
+    return ADDER_FACTOR_LARGE if area_m2 > LARGE_UNIT_M2 else ADDER_FACTOR
 # Curtain walling is priced by area, not by code - Greenfields calibration.
 CW_SUPPLY_M2, CW_LABOUR_M2 = 850.0, 150.0
 
@@ -224,7 +238,7 @@ def price_line(code, width_mm, height_mm, qty=1, supply_rate=None, family=None,
         else:
             prov = "supplier quote (SUPPLIER BACKED)"
         supply = area * supply_rate
-        adder = CODE_VALUE.get(code, 0) * ADDER_FACTOR
+        adder = CODE_VALUE.get(code, 0) * adder_factor(area)
         labour = LABOUR.get(code, 0)
     unit = supply + adder
     return {

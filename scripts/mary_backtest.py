@@ -120,7 +120,7 @@ def engine_price(line, supplier=None, system="", learned=None):
         r = None
     if r is not None:
         supply = line["area"] * r.rate
-        adder = engine.CODE_VALUE.get(line["code"], 0) * engine.ADDER_FACTOR
+        adder = engine.CODE_VALUE.get(line["code"], 0) * engine.adder_factor(line["area"])
         return {"unit_rate": supply + adder, "supply": supply, "rate_per_m2": r.rate}
 
     family = "aluminium door, glazed" if line["code"] in ("SAD", "DAD", "SUPD", "DUPD") \
@@ -132,7 +132,7 @@ def engine_price(line, supplier=None, system="", learned=None):
     if r is None:
         return None
     supply = line["area"] * r.rate
-    adder = engine.CODE_VALUE.get(line["code"], 0) * engine.ADDER_FACTOR
+    adder = engine.CODE_VALUE.get(line["code"], 0) * engine.adder_factor(line["area"])
     return {"unit_rate": supply + adder, "supply": supply, "rate_per_m2": r.rate}
 
 
