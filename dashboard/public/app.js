@@ -769,7 +769,7 @@ const JACOB_RENDER = {
         <div class="stat amber" data-go="chasing"><div class="n">${gbpShort(outValue)}</div><div class="l">Issued and waiting on an answer, ${t.handoverDue ?? "?"} chaseable today</div></div>
         <div class="stat amber" data-go="enquiries"><div class="n">${t.liveBuyers}</div><div class="l">Buyers mid-conversation right now</div></div>
         <div class="stat ${t.tendersClosing ? "red" : ""}" data-go="tenders"><div class="n">${t.tenders || 0}</div><div class="l">Contracts still out to bid, ${t.tendersClosing || 0} closing this week</div></div>
-        <div class="stat" data-go="outcomes"><div class="n">${t.winRate ?? "-"}%</div><div class="l">Win rate, and nothing won over ${gbpShort(t.noWinAbove)}</div></div>
+        <div class="stat" data-go="outcomes"><div class="n">${t.winRate ?? "-"}%</div><div class="l">BD-log win rate - no log win over ${gbpShort(t.noWinAbove)}</div></div>
         <div class="stat amber" data-go="companies"><div class="n">${t.dormantWon}</div><div class="l">Have paid Fenster, silent 180 days</div></div>
       </div>
 
@@ -1052,18 +1052,32 @@ const JACOB_RENDER = {
         <div class="stat green"><div class="n">${s.winRate}%</div><div class="l">Win rate over ${s.decided} decided outcomes</div></div>
         <div class="stat"><div class="n">${gbpShort(s.wonMedian)}</div><div class="l">Median job Fenster wins</div></div>
         <div class="stat red"><div class="n">${gbpShort(s.lostMedian)}</div><div class="l">Median job Fenster loses</div></div>
-        <div class="stat red"><div class="n">${s.lostAboveThat}</div><div class="l">Tried and lost above ${gbpShort(s.noWinAbove)} - none won</div></div>
+        <div class="stat red"><div class="n">${s.lostAboveThat}</div><div class="l">Priced above ${gbpShort(s.noWinAbove)} on the log - all lost</div></div>
         <div class="stat amber"><div class="n">${open.length}</div><div class="l">Still open on this year's sheet</div></div>
       </div>
 
-      <div class="section"><div class="section-head"><h3>The one number that should change what we chase</h3></div>
+      ${JACOB.archive ? `<div class="section"><div class="section-head"><h3>What Fenster has ACTUALLY won - the archive</h3>
+        <span class="page-sub">From Fenster's own filing, not the BD log</span></div>
+        <div class="stats">
+          <div class="stat green"><div class="n">${JACOB.archive.won}</div><div class="l">Jobs won on record (folder under 2. Projects = won)</div></div>
+          <div class="stat"><div class="n">${JACOB.archive.total}</div><div class="l">Jobs in the archive back to 2023</div></div>
+          <div class="stat amber"><div class="n">${JACOB.archive.unmarked}</div><div class="l">With no recorded outcome either way</div></div>
+        </div>
+        <div class="planned-note">
+          <p><strong>This section exists because a claim about the BD log once shipped as if it
+          covered all history - while Headrow Court (Fortis Vision, Leeds, GBP 50k+) sat in this
+          very dataset marked won at high confidence.</strong> ${esc(JACOB.archive.note)}</p>
+          <p><strong>Who Fenster actually wins with:</strong>
+          ${JACOB.archive.topWonClients.map((c) => `${esc(c.client)} (${c.won})`).join(", ")}.</p>
+        </div></div>` : ""}
+
+      <div class="section"><div class="section-head"><h3>How the recent funnel converts - the BD log</h3></div>
         <div class="planned-note">
           <p>No win over <strong>${gbp(s.noWinAbove)}</strong> appears on the Opportunity Log's
           decided rows: ${s.lostAboveThat} priced, ${s.lostAboveThat} lost. The biggest win ON
           THE LOG is <strong>${gbp(s.biggestWon)}</strong>, median <strong>${gbp(s.wonMedian)}</strong>.
-          <strong>The log is the 2025-26 BD funnel, not the win history</strong> - completed jobs
-          like Headrow Court (Fortis Vision, Leeds, over GBP 50k) never entered it (Zac, 29/07).
-          These numbers say how the recent funnel converts, not what Fenster can win.</p>
+          The log is the 2025-26 BD funnel - use it for how THIS pipeline will convert, and the
+          archive above for what Fenster has actually won.</p>
           <p>That is the opposite of how this board used to rank things, and the opposite of
           most of what has been pointed at it - GBP 20m academies, national frameworks. Value
           now buys a row a warning, not a place at the top.</p>
@@ -1075,7 +1089,7 @@ const JACOB_RENDER = {
           <td><strong>${esc(b.label)}</strong></td>
           <td class="num">${b.won}</td><td class="num">${b.lost}</td>
           <td class="num">${b.winRate === null ? "-" : `${Math.round(b.winRate)}%`}
-            ${b.decided && !b.won ? ` <span class="pill planned">never</span>` : ""}</td>
+            ${b.decided && !b.won ? ` <span class="pill planned">0 on log</span>` : ""}</td>
         </tr>`).join("")}
         </tbody></table></div>
 
@@ -1158,7 +1172,7 @@ const JACOB_RENDER = {
         In this trade a relationship buys one thing: being asked to price.</div>
         ${this._leadTable(warm, true)}</div>
 
-      <div class="section"><div class="section-head"><h3>Quoted before, never won - and building again</h3></div>
+      <div class="section"><div class="section-head"><h3>Quoted before, no recorded win - and building again</h3></div>
         ${this._leadTable(known, true)}</div>
 
       <div class="section"><div class="section-head"><h3>Cold - no relationship at all</h3>
@@ -1361,7 +1375,7 @@ const JACOB_RENDER = {
         <div class="stat"><div class="n">${t.rows}</div><div class="l">Quoted leads in the CRM, ${t.clients} clients</div></div>
         <div class="stat red"><div class="n">${t.due}</div><div class="l">Nobody has been back to, ${gbpShort(t.dueValue)}</div></div>
         <div class="stat amber"><div class="n">${t.yearSilent}</div><div class="l">Silent for over a year and still open</div></div>
-        <div class="stat ${t.winnable ? "green" : "amber"}"><div class="n">${gbpShort(t.winnableValue)}</div><div class="l">Of that, in a band Fenster has ever won in - ${t.winnable} jobs</div></div>
+        <div class="stat ${t.winnable ? "green" : "amber"}"><div class="n">${gbpShort(t.winnableValue)}</div><div class="l">Of that, in a band the BD log converts in - ${t.winnable} jobs</div></div>
       </div>
 
       <div class="section"><div class="section-head"><h3>Read this before you read the numbers</h3></div>

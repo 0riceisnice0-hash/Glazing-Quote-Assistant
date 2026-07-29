@@ -10,10 +10,12 @@ The full data story per file: `data/jacob/README.md`.
 - On the log: median win GBP 1,822, largest GBP 40,850, 38% under GBP 10k, 13% at
   GBP 10k-50k, 0/52 above GBP 50k. **These numbers describe the log, not the company.**
 - **The log is the BD funnel for two years, NOT the win history** (corrected by Zac,
-  29/07/2026). `2. Projects\2. Completed` holds 43 finished jobs, most of which never
-  entered any log - **Headrow Court (Fortis Vision, Leeds) among them, a completed
-  job over GBP 50k** whose BSW quotes sit in our own rate register. The evidence was
-  in our own archive while the board said "never".
+  29/07/2026). The real record is `data/job-history.json` (1,040 jobs to 2023):
+  **134 recorded wins**, led by Cranfield (11), Borras (9), Aspire Federation (9),
+  SDevs, MHA, Stewarts, Fortis Vision, Conamar. **Headrow Court (Fortis Vision,
+  Leeds, GBP 50k+) is in it, marked won at high confidence** - the evidence sat in
+  our own dataset while the board said "never". Values are not machine-readable
+  anywhere yet; mining them from the won folders is OPEN WORK worth proposing.
 - So: the log still says smaller jobs CONVERT BETTER on the recent funnel, and value
   still buys a row a warning - but say "no £50k+ win on the log's decided rows",
   never "Fenster has never won one". A claim must carry its source's edges.

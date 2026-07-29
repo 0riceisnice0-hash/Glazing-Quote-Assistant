@@ -59,6 +59,41 @@ STALE_BEFORE = "2026-01-28"          # 180 days - award notices publish late
 BOARD_DAYS = 60
 
 
+def _archive_wins():
+    """The real win history from data/job-history.json (mary_backfill_jobs.py:
+    a job folder under 2. Projects means won). No values yet - the archive
+    files them per job folder and nobody has mined them; say so rather than
+    invent a number."""
+    path = os.path.join(REPO, "data", "job-history.json")
+    if not os.path.exists(path):
+        return None
+    try:
+        with open(path, encoding="utf-8") as fh:
+            hist = json.load(fh)
+    except Exception:
+        return None
+    entries = hist.get("entries", [])
+    won = [e for e in entries
+           if e.get("derived") == "won" or str(e.get("log_wl", "")).upper().startswith("W")]
+    lost = [e for e in entries
+            if e.get("derived") == "lost" or str(e.get("log_wl", "")).upper().startswith("L")]
+    from collections import Counter
+    top = Counter(e.get("client", "?") for e in won).most_common(12)
+    return {
+        "generated": hist.get("generated"),
+        "total": len(entries),
+        "won": len(won),
+        "lost": len(lost),
+        "unmarked": len(entries) - len(won) - len(lost),
+        "topWonClients": [{"client": c, "won": n} for c, n in top],
+        "examples": sorted({("%s - %s" % (e.get("client", "?"), e.get("job", "?")))
+                            for e in won if e.get("confidence") == "high"})[:12],
+        "note": ("Outcome derived from Fenster's own filing: a job folder under "
+                 "2. Projects means won. Values are not machine-readable anywhere "
+                 "yet - mining them from the won folders is open work."),
+    }
+
+
 def board_window_start():
     return (date.fromisoformat(TODAY) - timedelta(days=BOARD_DAYS)).isoformat()
 
@@ -648,8 +683,8 @@ def lead_action(row, tier):
         return (ADAM, "Call %s. They have bought from Fenster and they have just won "
                       "%s - get on the enquiry list before it is drawn up." % (co, row["title"][:60]))
     if tier == "known":
-        return (JACOB, "Draft an intro for Adam to send to %s - quoted before, never "
-                       "won, and they are building again." % co)
+        return (JACOB, "Draft an intro for Adam to send to %s - quoted before, no "
+                       "recorded win, and they are building again." % co)
     return (NOBODY, "Blocked. Cold contact needs JAC-2 answered and a sending domain.")
 
 
@@ -1234,6 +1269,12 @@ def build():
             "openThisYear": (outcomes or {}).get("openThisYear", []),
             "rows": (outcomes or {}).get("rows"),
         } if outcomes else None,
+        # The ACTUAL win history, from Fenster's own filing (data/job-history.json,
+        # built by mary_backfill_jobs.py: a folder under 2. Projects means won).
+        # Added 29/07 after "never won over 50k" shipped as a universal while
+        # Headrow Court sat in this file marked won at high confidence. The log
+        # says how the recent funnel converts; THIS says what Fenster has won.
+        "archive": _archive_wins(),
         "tenderFeed": {
             "updated": (tenderfeed or {}).get("updated"),
             "sources": (tenderfeed or {}).get("sources"),
