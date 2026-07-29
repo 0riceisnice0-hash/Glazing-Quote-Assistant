@@ -747,13 +747,21 @@ def thread_unknowns(t):
     """Say what you do not know. A blank is honest; a confident guess is not."""
     out = []
     if t["kind"] == "buyer":
-        if not t.get("job"):
-            out.append("Whether anyone at Fenster has already replied - Jacob reads "
-                       "received mail only (JAC-5), and no job file of Mary's names "
-                       "this address.")
+        if t.get("weReplied"):
+            # JAC-5 answered - this used to be an unknown on every single row.
+            if not t.get("answered"):
+                out.append("Fenster last wrote to this domain on %s, which is BEFORE "
+                           "their latest message - so their %s email looks unanswered."
+                           % (t["weReplied"], t["last"]))
+        elif not t.get("job"):
+            out.append("Nothing has gone OUT to this domain from commercial@ or jacob@ "
+                       "inside the window, and no job file of Mary's names this "
+                       "address. Estimating@ is Mary's and cannot be read from here, "
+                       "so she may have answered it.")
         else:
-            out.append("Whether anyone at Fenster has already replied - Jacob reads "
-                       "received mail only (JAC-5).")
+            out.append("Nothing has gone out to this domain from the mailboxes Jacob "
+                       "reads, but Mary has a job file on it - so it is likely "
+                       "answered from estimating@, which is hers.")
         if t["relationship"] == "unknown":
             out.append("Whether they are a buyer or another supplier. No archive "
                        "folder and no history in any mailbox - worth one look before "
@@ -787,9 +795,25 @@ def build_threads(intake):
         if not t["name"] and s.get("name"):
             t["name"] = s["name"]
 
+    # JAC-5, answered 29/07/2026. `intake.sentTo` is keyed on the recipient's
+    # domain and says when Fenster last wrote to them. Before this, every
+    # thread on the board carried "whether anyone has already replied - Jacob
+    # reads received mail only", which was true of the code and never true of
+    # the permission: SentItems always returned 200, nothing had asked it.
+    sent_by_domain = {e["domain"]: e for e in (intake or {}).get("sentTo", [])}
+
     out = []
     for t in by_key.values():
         kinds = t.pop("kinds", set())
+        dom = (t.get("contact") or "").lower().split("@")[-1]
+        hit = sent_by_domain.get(dom)
+        if hit:
+            t["weReplied"] = hit["last"]
+            t["weRepliedSubject"] = hit["lastSubject"]
+            t["weRepliedFrom"] = hit["fromMailbox"]
+            # Answered AFTER their last message, or only before it? The second
+            # is not an answer, it is the thing they were replying to.
+            t["answered"] = hit["last"] >= t["last"]
         t["job"] = jobs.get((t["contact"] or "").lower())
         t["deadline"] = find_deadline(" ".join(t.pop("text", [])))
         t["daysToDeadline"] = -days_since(t["deadline"]) if t["deadline"] else None
@@ -916,7 +940,25 @@ def build_handover(hand):
         row = dict(r)
         row["daysOut"] = days_out(r.get("issued"))
         row["daysSinceClient"] = days_out(r.get("lastClientContact"))
-        row["blocked"] = bool(r.get("blockedUntil") and r["blockedUntil"] > TODAY)
+        # Blocked by a DATE, or blocked by an EVENT that has no date.
+        #
+        # Brandon Estate, 29/07/2026, forced the second case. Elkins cannot
+        # award us anything until they win their own bid, and nobody knows
+        # when that is - Chris Conlon has simply undertaken to tell us. There
+        # is no `blockedUntil` to write, and writing a fortnight from today
+        # would be inventing exactly the date the register exists to avoid.
+        # So `blockedPending` says what has to HAPPEN, and the row is off the
+        # chase-today list without being off the board.
+        #
+        # `reviewOn` is the safety net and is NOT a chase date: it is the day
+        # to check whether the event has happened, not the day to ring anyone.
+        # Without it an undated block is a way to lose a GBP 7.2m quote quietly.
+        row["blocked"] = bool(
+            (r.get("blockedUntil") and r["blockedUntil"] > TODAY)
+            or r.get("blockedPending"))
+        row["blockedByEvent"] = bool(r.get("blockedPending")
+                                     and not r.get("blockedUntil"))
+        row["reviewDue"] = bool(r.get("reviewOn") and r["reviewOn"] <= TODAY)
         # Adam's own checklist numbering, so the register and the CRM call the
         # same thing by the same name. A row with a date in the past is not a
         # reminder, it is an overdue action, and the board says which.

@@ -329,6 +329,35 @@
     }
    ],
    "verifiedHow": "Mary, 29/07/2026, read at source in estimating@'s sent items: 20/07 12:32 QUOTE TO CHECK to Adam, 15:46 Adam replies, 15:50 issued to luke.baker@chigwellgroupplc.co.uk cc Adam with the quote attached, then Adam chases 22/07 13:47 and 23/07 09:57. It was absent from the nine sends she dated on 28/07 only because 'Leys' was not one of the jobs scripts/quote_send_dates.py searches; she has added Leys Sports Pavilion and Grange Hill to that list, so the next person gets it from the tool."
+  },
+  {
+   "key": "job:brandon-estate",
+   "job": "Brandon Estate EWI Remediation, SE5 0XF",
+   "client": "Elkins Construction",
+   "contact": "Chris Conlon",
+   "email": "chris.conlon@elkinsconstruction.co.uk",
+   "cc": "Trevor Copeman",
+   "value": 7196695.63,
+   "issued": "2026-06-15",
+   "issuedTime": "13:54",
+   "revision": "REV 2. Supersedes the GBP 3,998,686.95 Sheerline package issued 01/06/2026 16:49. It nearly doubled because Comar's schedule carried 2,202 frames INCLUDING doors against the 1,325 windows the first package was priced on (Adam to Trevor Copeman, 10/06).",
+   "lastClientContact": "2026-07-18",
+   "state": "waiting",
+   "blockedUntil": null,
+   "blockedReason": "Elkins cannot award what they have not won. Chris Conlon, 18/07 10:54: \"No update on the award yet. I am not hopefully about our position, but I will be able to find out who was successful in due course for you.\" Our quote sits inside their bid. Adam answered him on 20/07, so the line is open and a fresh chase from Jacob this week would be a third voice asking a man who has already said he will tell us.",
+   "owner": "Adam",
+   "next": "DO NOT CHASE CHRIS CONLON. He has answered, Adam has replied, and there is nothing he can tell us until Elkins hear. The useful work is finding out when the CLIENT decides, not asking Elkins again - the landlord at Brandon Estate is the London Borough of Southwark. I swept Contracts Finder on 29/07 for the remediation scheme and did not find it, so that date is not public as far as I can see and the honest position is that we do not have it. If Adam wants one call, it is to ask Chris who the CLIENT is bidding to and when they expect to hear - a different question from the two already asked.",
+   "history": "Elkins are a real client, not a stranger: three won contracts, GBP 22,893, and in the mailbox on 27/07. This is much the largest thing we have ever quoted them.",
+   "verified": true,
+   "verifiedBy": "Mary, bot messages 19 and 20, 29/07/2026, from estimating@ Sent Items - which Jacob cannot read. Both sends confirmed with attachments; the value is the TOTAL in the issued pricing document itself (6,906,445.63 + 290,250.00).",
+   "stage": 9,
+   "nextChase": null,
+   "chaseNote": "No date set on purpose. A fortnight rule would invent one; the real trigger is Elkins hearing about their own bid, and Chris has undertaken to tell us. Adam actioned this three times already - REV 2 on 15/06, a chase on 11/07 and a reply on 20/07.",
+   "adminbaseLead": "8324",
+   "adminbaseDateWrong": "AdminBase dates this lead 15/05/2026. That is the day the supplier RFQ went out - a BCC-only enquiry to BSW, A Plus, 4ALI and BDC Aluminium - not the day a price went to Elkins. RFQ OUT IS NOT QUOTE OUT, and Mary has found seven of these BCC-only RFQs across the jobs she can see. The lead is a month out and it is carrying the wrong EVENT, not a typo, so expect the same slip on other rows.",
+   "blockedPending": "Elkins hearing the outcome of their OWN bid to the client. Chris Conlon has undertaken to tell us who was successful. There is no date for this and nobody at Fenster has one - writing a fortnight from today would be inventing it.",
+   "reviewOn": "2026-08-26",
+   "reviewNote": "A REVIEW date, not a chase date. On this day check whether Elkins have heard - do not ring Chris Conlon just because the date has arrived. Four weeks after his 18/07 message, chosen so a GBP 7.2m quote cannot go quiet unnoticed, and for no other reason."
   }
  ],
  "held": [

@@ -52,7 +52,14 @@ PORTALS = re.compile(
     r"(in-tendorganiser|in-tendhost|intend\.|proactis|due-north|delta-esourcing|"
     r"jaggaer|bravosolution|sell2wales|publiccontractsscotland|etendersni|"
     r"multiquote|constructionline|supply2gov|procontract|conquestenquiries|"
-    r"conquestsoftware|builderstorm|tendersdirect)", re.I)
+    r"conquestsoftware|onceforall|builderstorm|tendersdirect)", re.I)
+# `onceforall` added 29/07/2026 on Mary's evidence: Conquest rebranded to Once
+# For All and now sends from tenders@onceforallmarketplace.com, which the old
+# conquest* terms no longer match. The failure was not a missed message - it
+# was the opposite. A portal chase on a job already quoted ("please advise when
+# we may receive your priced proposal") fell through to the direction rules and
+# presented as a fresh enquiry. Georgie's, quoted to Pearce and mid-negotiation,
+# was exactly that.
 
 # Everyone who sells TO Fenster. Fabricators, glass, film, panels, hardware,
 # systems houses. A price arriving from one of these is a cost, not demand -
@@ -392,9 +399,81 @@ def fetch(token, mailbox, since_iso, max_pages=120):
     return 200, out, bool(path)
 
 
+def fetch_sent(token, mailbox, since_iso, max_pages=40):
+    """JAC-5. Who has Fenster actually WRITTEN to, and when.
+
+    Adam asked on 29/07/2026 whether this was fixed. It turned out the access
+    had been there the whole time and nothing was using it: `SentItems` on
+    commercial@ returns HTTP 200 to the reader app, and always did. The board
+    was telling people "Jacob reads received mail only" because no code had
+    ever asked the folder, which is a different failure from a permission -
+    and a worse one, because it looks like a wall instead of a gap.
+
+    Deliberately thin. This does not classify, thread or summarise anything.
+    It answers exactly one question - has anyone here replied to that company,
+    and when - which is the honest first question on any inbound enquiry and
+    the one the board could not answer."""
+    qs = urllib.parse.urlencode({
+        "$filter": "sentDateTime ge %s" % since_iso,
+        "$orderby": "sentDateTime desc",
+        "$top": 100,
+        "$select": "subject,toRecipients,ccRecipients,sentDateTime,from",
+    })
+    path = ("/users/%s/mailFolders/SentItems/messages?%s"
+            % (urllib.parse.quote(mailbox), qs))
+    out, pages = [], 0
+    while path and pages < max_pages:
+        st, res = jg.graph(token, "GET", path)
+        if st != 200:
+            return st, out
+        out.extend(res.get("value", []))
+        path = res.get("@odata.nextLink")
+        if path and path.startswith("https://graph.microsoft.com/v1.0"):
+            path = path[len("https://graph.microsoft.com/v1.0"):]
+        pages += 1
+    return 200, out
+
+
+def sent_index(token, since_iso):
+    """domain -> {last sent date, how many, the last subject, from which box}."""
+    idx, per_box = {}, {}
+    for mbx in MAILBOXES:
+        st, msgs = fetch_sent(token, mbx, since_iso)
+        per_box[mbx] = ("HTTP %s" % st) if st != 200 else len(msgs)
+        if st != 200:
+            continue
+        for m in msgs:
+            when = (m.get("sentDateTime") or "")[:10]
+            subj = (m.get("subject") or "")[:120]
+            people = (m.get("toRecipients") or []) + (m.get("ccRecipients") or [])
+            for r in people:
+                addr = ((r.get("emailAddress") or {}).get("address") or "").lower()
+                if "@" not in addr:
+                    continue
+                dom = addr.split("@", 1)[1]
+                # Internal mail is not a reply to a customer. Fenster forwards
+                # a lot of things to itself and counting those as contact
+                # would make every company look answered.
+                if dom.endswith("fensterglazing.com"):
+                    continue
+                e = idx.setdefault(dom, {"domain": dom, "messages": 0,
+                                         "last": "", "lastSubject": "",
+                                         "fromMailbox": "", "addresses": []})
+                e["messages"] += 1
+                if addr not in e["addresses"] and len(e["addresses"]) < 6:
+                    e["addresses"].append(addr)
+                if when > e["last"]:
+                    e["last"] = when
+                    e["lastSubject"] = subj
+                    e["fromMailbox"] = mbx.split("@")[0]
+    return idx, per_box
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=90)
+    ap.add_argument("--no-sent", action="store_true",
+                    help="skip the SentItems pass (JAC-5)")
     args = ap.parse_args()
 
     since = (datetime.now(timezone.utc) - timedelta(days=args.days)) \
@@ -485,6 +564,17 @@ def main():
     rows.sort(key=lambda r: (r["last"], r["messages"]), reverse=True)
     signals.sort(key=lambda s: s["date"], reverse=True)
 
+    # JAC-5: what has actually gone OUT, so a thread nobody answered can be
+    # told apart from one Gintare replied to an hour ago.
+    sent, sent_boxes = ({}, {}) if args.no_sent else sent_index(token, since)
+    for c in rows:
+        hit = sent.get((c.get("domain") or "").lower())
+        if hit:
+            c["weSent"] = hit["messages"]
+            c["weSentLast"] = hit["last"]
+            c["weSentSubject"] = hit["lastSubject"]
+            c["weSentFrom"] = hit["fromMailbox"]
+
     data = {
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "window_days": args.days,
@@ -506,6 +596,13 @@ def main():
         # board wants a shorter window it can choose one and say so.
         "signal_count": len(signals),
         "signals": signals,
+        # JAC-5, answered 29/07/2026. The access was always there; nothing
+        # was using it. `sentTo` is keyed on the recipient's domain and holds
+        # only what is needed to say "we replied on <date>" - internal mail
+        # is excluded, because Fenster forwarding something to itself is not
+        # an answer to a customer.
+        "sentTo": sorted(sent.values(), key=lambda e: e["last"], reverse=True),
+        "sentPerMailbox": sent_boxes,
     }
     json.dump(data, open(OUT, "w", encoding="utf-8"), indent=1)
 

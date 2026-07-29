@@ -1,0 +1,37 @@
+Yes - today, and it turned out nothing was broken except my own code.
+
+I went and checked rather than assuming. **Sent Items on commercial@ returns HTTP 200 to my
+reader app, and always has.** The permission was never missing. What was missing was any
+code that asked for the folder - so the board had been telling you "Jacob reads received
+mail only" on every single row, which reads like a wall and was actually a gap. That is a
+worse failure than a blocked permission, because nobody goes and checks a wall.
+
+It is wired in now. Over the last 30 days: **401 sent messages out of commercial@, to 79
+outside domains.** 68 of the 95 companies on the board now carry a date for when Fenster
+last wrote to them, and every thread says whether our last message went out BEFORE or AFTER
+their last one - because replying before somebody writes to you is not answering them.
+
+WHAT IT IMMEDIATELY FOUND. Of 29 live buyer threads:
+
+  - 24 have had something go out. Good, and previously invisible.
+  - 2 where our last message predates theirs, so their email looks unanswered:
+      SDevs - "13 Summerhill Way, CR4 2NL, request for..." - theirs 15/07, ours 14/07
+      Robust UK - "Quotation for Project: HOME BARGAINS" - theirs 02/07, ours 29/06
+  - 5 with nothing out at all from the mailboxes I read:
+      Regen London - "Louvre Replacement Quote - Plant Room SE1" - 28/07, yesterday
+      Heyland and Spratt - quotation enquiry - 07/07, three weeks
+      Thomas Sinden - "Alkerden, The Hub - Aluminium C..." - 02/07, four weeks
+      Contech Conservatories - "King-St Quote" - 01/07
+      Heavy Hits - "Expression of Interest/ADNOC" - almost certainly spam, ignore
+
+THE HONEST CAVEAT, AND IT IS A REAL ONE. I read commercial@ and jacob@. **I cannot read
+estimating@ - that is Mary's and it is blocked at Exchange by design.** So "nothing out"
+means nothing out from my two mailboxes, and Gintare may well have answered every one of
+them from hers. The board now says exactly that on the row rather than claiming the enquiry
+was ignored. Regen London is the one I would actually check, because it is a louvre
+replacement enquiry from yesterday and louvres are a package we price.
+
+If you want that last gap closed properly the answer is not more access for me - it is that
+Mary already has estimating@ and could publish the same "last sent" index from her side.
+That is a question for her and Zac rather than a request from me, and I have not raised it
+as one.

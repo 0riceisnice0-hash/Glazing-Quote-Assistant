@@ -1,0 +1,72 @@
+The portal list, in the order I would do it. And no, I cannot do it myself - here is why.
+
+WHY NOT ME. Registering means ticking Terms and Conditions on Fenster's behalf. That is
+committing the company to something, which is the one thing I am not allowed to do - same
+rule that stops me giving anyone a price. It is not a technical limit and I am not being
+coy about it: I could fill the form. I should not be the one accepting the terms. Every
+row below is written so it is a few minutes of your time or Paul's, not an afternoon.
+
+Priority order is by what it costs us to not have it, not by how easy it is.
+
+1. PROCONTRACT (Due North) - DO THIS ONE FIRST, TODAY
+   https://procontract.due-north.com/Register
+   Starts with two fields only: Organisation name, Email address. Then a short company
+   details form, then THEIR team reviews it before the account opens - so it is not
+   instant, and that matters because BCP DN820023 closes Friday at 14:00.
+   Register as:  Fenster Glazing & Locks Ltd  /  commercial@fensterglazing.com
+   Why first: this is where councils and housing associations advertise work under the
+   GBP 100,000 Find a Tender threshold - which is Fenster's size of work, and invisible to
+   every free national feed. We currently have no account at all. I can already READ the
+   adverts without one (that is where this morning's three leads came from); we just
+   cannot bid.
+
+2. PROACTIS SUPPLIER NETWORK - THIS ONE IS NOT A NEW ACCOUNT, IT IS A CHANGE OF ADDRESS
+   https://supplierlive.proactisp2p.com
+   The account already exists and the username on it is **Adam@fensterglazing.com** - from
+   Jayk's email of 01/05/2025 to you and Harry. So do not register again; ask them to move
+   the registered address to commercial@. There is no forgotten-password link on their
+   supplier login page that I can find, so this one probably needs their support desk
+   either way. While you are in there, that password is sitting in plain text in a
+   fifteen-month-old email in a shared mailbox and should be changed on principle.
+
+3. CONSTRUCTIONLINE MARKETPLACE - WORKING, WRONG OWNER
+   Paul has the only login that still opens (his email to you and Zac, 27/07). Nothing is
+   broken, so this is not urgent - but it is currently one person's login rather than the
+   company's, which is exactly how we lost the others. Worth moving to commercial@ at the
+   same time as the rest.
+
+4. MULTIQUOTE - self-service, quick win
+   https://suppliers.multiquote.com
+   The login page has its own Reset Password and Register buttons, so this is a five-minute
+   job with no support desk in the way. Buyers do use it - one of the academy canopy jobs
+   in my award data ran through MultiQuote.
+
+5. THE-CHEST - we are not registered and it is free
+   https://www.the-chest.org.uk
+   Not on your list because nobody here has ever mentioned it. It came up today: Be One
+   Homes put their entire Windows Supply & Fit tender pack on it, unrestricted and free of
+   charge. It is the North West's shared portal. Register on commercial@ and it costs
+   nothing.
+
+6. TENDERDEPOT - already correct, no action
+   Registered to commercial@ and demonstrably working: Paul did a password reset on it on
+   05/06/2026 and the link arrived fine. Listed so nobody re-registers it by accident.
+
+7. IN-TEND (per-buyer instances) - deprioritised on your instruction
+   All 79 of the In-Tend notices in the last six months were Hightown, into info@. You have
+   just told me info@ and the residential side are not our concern, so I am leaving these
+   alone rather than tidying them. If a commercial buyer turns up on an In-Tend instance I
+   will register that one specifically and tell you.
+
+ONE THING WORTH KNOWING BEFORE YOU DO ANY OF IT. On some of these a supplier account is
+keyed to the COMPANY rather than the person, so a second registration can bounce as a
+duplicate. If that happens, do not create a variant name to get round it - that splits our
+PQQ and accreditation history across two records. The route is their support desk changing
+the registered email on the account we already have.
+
+AND THE REASON THIS IS WORTH YOUR TIME, WHICH IS NOT THE PORTALS. Your contracts export
+says three tender-portal wins in the entire history of the company, against 118 from
+existing customers and 51 from Jayk personally. So this list is housekeeping, not strategy.
+It stops us being locked out of the one source that matches our size of work. It does not
+fix the actual hole, which is that a quarter of everything Fenster ever won came through
+one man who has left.

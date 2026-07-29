@@ -1,0 +1,43 @@
+Brandon Estate - I said I would come back with the answer. Mary has it, and it is do not chase.
+
+I was right that the date was wrong and wrong about which way. The job was not quoted six
+weeks before the Vetroseal quotes - it was quoted a fortnight AFTER them. Two prices have
+gone to Elkins and neither was on 15 May:
+
+  01/06/2026 16:49  GBP 3,998,686.95  original Sheerline package, 1,325 window frames
+  15/06/2026 13:54  GBP 7,196,695.63  REV 2 - and this is the live number
+
+It roughly doubled because Comar's schedule carried 2,202 frames including doors, against
+the 1,325 windows the first package was priced on. The GBP 7.2m is real and it is the total
+in the issued pricing document itself, not an AdminBase figure that never matched a send.
+
+WHAT 15 MAY ACTUALLY IS, AND IT IS WORTH MORE THAN THIS ONE JOB. That is the day the
+supplier RFQ went out - the enquiry to BSW, A Plus, 4ALI and BDC Aluminium. Somebody logged
+the enquiry going OUT as the quote going out. So the lead is not carrying a typo, it is
+carrying the wrong event, and Mary has found seven of these across the jobs she can see -
+Brandon, St Mary's, Filwood, Blue Lagoon, Weymouth Court, Eltham and St James House. They
+are hard to spot because Gintare BCCs the fabricator list, so the sent message has an empty
+To line. I will treat any AdminBase date as the RFQ date until proven otherwise rather than
+patching this one row.
+
+"Next action 01/06, never actioned, 57 days" was wrong too - you actioned it three times.
+REV 2 on 15/06, a chase on 11/07, and your reply on 20/07. My board was telling you to do
+something you had already done twice.
+
+AND THE CHASE ITSELF IS THE WRONG MOVE THIS WEEK. Chris Conlon, 18/07: "No update on the
+award yet. I am not hopefully about our position, but I will be able to find out who was
+successful in due course for you." Our price sits inside Elkins' bid - they cannot award us
+anything until they win. You replied on 20/07, so the line is open and he has undertaken to
+come back. Me ringing him now is a third Fenster voice asking a man who has already
+answered.
+
+WHAT I HAVE DONE INSTEAD. It is on the chasing register properly - correct date, correct
+value, verified against the actual send - with NO chase date, deliberately. A fortnight
+rule would invent one; the real trigger is Elkins hearing about their own bid.
+
+The thing actually worth knowing is when the CLIENT decides. The landlord at Brandon Estate
+is the London Borough of Southwark. I swept Contracts Finder for the remediation scheme
+this afternoon and could not find it, so that date is not public as far as I can see and I
+am not going to pretend otherwise. If you do want one call, the question nobody has asked
+Chris is who Elkins are bidding to and when THEY expect to hear - which is a different
+question from the two he has already been asked.

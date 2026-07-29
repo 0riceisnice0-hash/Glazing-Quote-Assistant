@@ -30,11 +30,10 @@ value on each. This is the win history; everything else is a funnel.**
   26/01/2026) when this was found.** Contract volume is accelerating: 72 in 2025,
   89 by July 2026. CONTNET is ex VAT - the LEAD export is inc VAT, do not de-VAT twice.
 - "Fenster records no outcomes" is false. BD log = `Opportunity Log 2025-2026.xlsx`.
-- **Brandon Estate (Elkins, GBP 7.2m ex VAT) is real** - Adam, JAC-8, twice:
-  "not a mistake ... a legit tender", then "Yes, it's real. Deal with it."
-  Out of the medians, on the chase list. But commercial@ shows it still being
-  priced on 11/06 against an AdminBase quote date of 15/05 - asked Mary 29/07
-  whether a price has actually left estimating@ before anyone chases it.
+- **Brandon Estate (Elkins, GBP 7.2m ex VAT) is real** - Adam, JAC-8, twice.
+  Mary verified 29/07: REV 2 issued **15/06** 13:54 (not 15/05), superseding
+  GBP 3,998,686.95 of 01/06. **DO NOT CHASE**: Chris Conlon said 18/07 he will
+  tell us when Elkins hear, and Adam replied 20/07. `handover.json`.
 
 ## Where work really comes from
 
@@ -86,10 +85,11 @@ value on each. This is the win history; everything else is a funnel.**
 - **Join AdminBase to your own TENDER BOARD, not just to the mailbox** - on postcode
   SECTOR plus title. **A client's public deadline sets the chase date; a fortnight
   rule invents one.** Leys Park, 29/07: `bd-lessons.md`.
-- **AdminBase re-dates nothing on a re-quote** (Mary, 29/07): it updates the VALUE
-  and leaves lead date, next action and lead number alone. Lead 8155 read "chase
-  due, 98 days" on a quote sent the previous afternoon. Any row whose value joins
-  penny-exact to a verified send that is NEWER is aged from the send instead.
+- **AdminBase re-dates nothing on a re-quote** (Mary, 29/07); rows joining
+  penny-exact to a NEWER verified send are aged from the send. **And the lead date
+  can be the wrong EVENT, not a typo: RFQ OUT IS NOT QUOTE OUT.** Brandon 8324 read
+  15/05 - the day a BCC-only RFQ went to four fabricators; the price reached Elkins
+  15/06. Mary found seven such BCC-only RFQs. Expect the slip, do not patch one row.
 - **Read the Status field on any alert feed.** Of 30 unique Supply2Gov items over
   four days, 15 were ContractAwardNotice or PriorInformationNotice - already gone.
   Four days of alerts held two live, on-package, mainland leads, not "27 a day".

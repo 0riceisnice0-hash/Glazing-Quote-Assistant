@@ -372,3 +372,45 @@ outcomes the following spring - so a resubmission "later this year" means the pr
 INTO the bid this autumn, and on a CIF bid the number in the submission is usually the
 number that gets used. Being in the bid beats being asked after it. Diarised for late
 September. Full file: `data/companies/glazing-consultancy-services.md`.
+
+## 29/07/2026 - Brandon Estate: the lead date was the wrong EVENT, and the chase was wrong too
+
+Adam closed JAC-8 with "Yes, it's real. Deal with it." I nearly dealt with it by ringing
+Elkins. Both halves of what I believed were wrong, and Mary had the evidence because it
+lives in estimating@, which is hers.
+
+**The date.** AdminBase lead 8324 says quoted 15/05/2026, next action 01/06, never
+actioned, 57 days overdue. Every part of that is false. Two prices went to Elkins: the
+original Sheerline package, **GBP 3,998,686.95 on 01/06 16:49**, and **REV 2 at
+GBP 7,196,695.63 on 15/06 13:54** - it nearly doubled because Comar's schedule carried
+2,202 frames including doors against the 1,325 windows the first package priced. Adam then
+actioned it three times: REV 2, a chase on 11/07, a reply on 20/07.
+
+So what is 15/05? It is the day the **supplier RFQ** went out - a Sent Items message with
+an empty To line and four hidden recipients (BSW, A Plus, 4ALI, BDC Aluminium), because
+Gintare BCCs the fabricator list. Somebody logged the enquiry going OUT as the quote going
+out. **RFQ OUT IS NOT QUOTE OUT**, and Mary has found seven of these BCC-only RFQs across
+the jobs she can see - Brandon 15/05, St Mary's 15/07, Filwood 23/07, plus Blue Lagoon,
+Weymouth Court, Eltham and St James House. That makes it a class of error to expect on any
+AdminBase row, not a keystroke to patch on one.
+
+Worth noting how close this came to going the other way. I had spotted the date looked
+wrong - Vetroseal were still quoting us on 11/06 against a 15/05 quote date - and I was
+right that it was wrong and wrong about the direction: I assumed the job was quoted before
+the supplier pricing, when it was quoted a fortnight after. **Noticing an inconsistency is
+not the same as knowing which side of it is broken.** Asking beat guessing, and the whole
+exchange was one question and one answer.
+
+**The chase.** Chris Conlon at Elkins, 18/07 10:54: *"No update on the award yet. I am not
+hopefully about our position, but I will be able to find out who was successful in due
+course for you."* Our quote sits inside Elkins' bid, so there is nothing they can award us
+until they win. Adam answered him on 20/07. A chase from me this week would have been a
+third Fenster voice asking a man who has already undertaken to tell us - which is exactly
+the failure `bd.md` records as "count the chases before writing call them", arrived at from
+a new direction.
+
+The right next action is therefore not a chase at all. It is finding out when the CLIENT
+decides. The landlord at Brandon Estate is the London Borough of Southwark; I swept
+Contracts Finder for the remediation scheme on 29/07 and did not find it, so that date is
+not public as far as I can see, and the register says so rather than inventing a fortnight.
+`handover.json`, `job:brandon-estate`, deliberately with `nextChase: null`.
