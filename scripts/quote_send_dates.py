@@ -36,6 +36,7 @@ JOBS = [
     # the work this script exists to stop anyone repeating.
     ("Leys Sports Pavilion", ["Leys Sports Pavilion", "Leys Park"]),
     ("Grange Hill Methodist", ["Grange Hill"]),
+    ("Brocks Hill Phase 2", ["Brocks Hill", "SMDT0173"]),
 ]
 
 INTERNAL = "fensterglazing.com"

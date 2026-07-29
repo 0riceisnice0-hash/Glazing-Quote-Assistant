@@ -2158,7 +2158,51 @@ def check_bought_in_lump_has_a_quantity_basis(m):
                   "Crestwood Park")
 
 
+def check_rfq_answered(m):
+    """Brocks Hill Phase 2, 29/07 - and the third time this month after Filwood
+    and Georgie's. Gintare's RFQ to BSW asked for six things including SOLAR
+    CONTROL GLAZING and OBSCURE GLAZING WHERE REQUIRED. BSW answered on colour,
+    triple glazing and panic gear, quoted 'Clr' on every line, and said nothing
+    about the other two either way. The tender was then built on the quote
+    instead of the instruction, and the omission read as the estimator's.
+
+    Silence is not compliance. Every line of the RFQ has to be ticked off
+    against the return, and a supplier who does not mention an item has not
+    priced it."""
+    items = m.get("rfq_items")
+    if items is None:
+        return result("the RFQ was answered line by line", UNKNOWN,
+                      "Tick every item the RFQ asked for against the quote that came back: "
+                      "'rfq_items': [{item, requested, quoted_response}]. Use null for "
+                      "quoted_response where the supplier said nothing.", "Brocks Hill")
+    if not items:
+        return result("the RFQ was answered line by line", NA,
+                      "no RFQ to reconcile on this job", "Brocks Hill")
+    silent, refused = [], []
+    for i in items:
+        name = i.get("item", "?")
+        if not i.get("requested"):
+            continue
+        resp = i.get("quoted_response")
+        if resp is None or str(resp).strip() == "":
+            silent.append(name)
+        elif str(resp).strip().lower() in ("no", "not available", "not quoted", "excluded"):
+            refused.append("%s (%s)" % (name, resp))
+    if silent:
+        return result("the RFQ was answered line by line", FAIL,
+                      "Asked for and never answered: %s. A supplier who does not mention an item "
+                      "has not priced it - do not let the quote overwrite the instruction."
+                      % ", ".join(silent), "Brocks Hill")
+    if refused:
+        return result("the RFQ was answered line by line", FAIL,
+                      "Supplier declined and the tender must say so: %s." % "; ".join(refused),
+                      "Brocks Hill")
+    return result("the RFQ was answered line by line", PASS,
+                  "all %d RFQ item(s) answered by the supplier" % len(items), "Brocks Hill")
+
+
 RULES = [
+    check_rfq_answered,
     check_our_qualifications_survive_signature,
     check_priced_scope_is_not_excluded, check_bought_in_lump_has_a_quantity_basis,
     check_system_coupling, check_panic_hardware, check_glass_ownership, check_quantities,
@@ -2191,6 +2235,7 @@ def blank_manifest(job):
         "finishes": None,
         "u_value": None,
         "supplier_coverage": None,
+        "rfq_items": None,
         "price_commitment": None,
         "delivery_terms": None,
         "incorporated_terms": None,
@@ -3241,7 +3286,8 @@ def selftest():
         "_test-vesuvius.json": {"drawing vs bill quantities", "spec covered or excluded",
                                 "someone can actually fabricate it"},
         "_test-georgies.json": {"finish quoted is the finish specified"},
-        "_test-brocks-hill.json": {"supplier quote covers every unit sold"},
+        "_test-brocks-hill.json": {"supplier quote covers every unit sold",
+                                  "the RFQ was answered line by line"},
         "_test-st-marys.json": {"system can meet the specified performance"},
         "_test-gordon-court.json": {"supplier price held as long as ours"},
         "_test-riverside.json": {"delivery actually included"},

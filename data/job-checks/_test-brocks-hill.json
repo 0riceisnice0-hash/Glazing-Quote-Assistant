@@ -1,5 +1,5 @@
 {
- "job": "Brocks Hill Phase 2 - fixture (Bellview 0000000503 covered 1no Door Type E.04, the tender sold 2)",
+ "job": "Brocks Hill Phase 2 - fixture. Bellview covered 1no Door Type E.04 where the tender sold 2; and Gintare's 22/07 RFQ asked BSW for solar control, obscure glazing and window U-values, all three of which came back unmentioned.",
  "supplier_coverage": [
   {
    "ref": "Door Type E.02 1010x2110",
@@ -42,6 +42,43 @@
    "qty_sold": 1,
    "qty_quoted": 1,
    "supplier_ref": "BSW QT253232 e.06"
+  }
+ ],
+ "rfq_items": [
+  {
+   "item": "RAL 7016 Anthracite",
+   "requested": true,
+   "quoted_response": "7016M Anthracite Grey - M"
+  },
+  {
+   "item": "Triple glazing throughout",
+   "requested": true,
+   "quoted_response": "windows triple; doors NOT AVAILABLE in triple (BSW 22/07 15:39)"
+  },
+  {
+   "item": "Windows U-value 1.1 W/m2K",
+   "requested": true,
+   "quoted_response": null
+  },
+  {
+   "item": "Doors U-value 1.2 W/m2K",
+   "requested": true,
+   "quoted_response": "Ug 1.0 stated by Bellview"
+  },
+  {
+   "item": "Solar control glazing",
+   "requested": true,
+   "quoted_response": null
+  },
+  {
+   "item": "Obscure glazing where required",
+   "requested": true,
+   "quoted_response": null
+  },
+  {
+   "item": "Panic escape gear for Door E.02",
+   "requested": true,
+   "quoted_response": "ACIM453 concealed panic bar on all E.02 positions"
   }
  ]
 }

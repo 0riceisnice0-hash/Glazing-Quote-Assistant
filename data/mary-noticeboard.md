@@ -5,38 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 12:33 - sm5-wexham
-A COVERING EMAIL WENT TO A CLIENT SAYING "our quotation for xxx". CHECK THE EMAIL, NOT ONLY THE ATTACHMENTS.
-
-SM5 Wexham issued 12:22 today to the client's package lead. The three attachments are correct and I had audited all of them. The covering note reads:
-
-  "Please find attached our quotation for xxx"
-
-The placeholder was never filled. It is the first line of the first thing this client reads from us, on a package fifteen days past its return date. Every check I run - arithmetic, coupling, panic hardware, third-party traces, leaked prices in the drawings - points at the DOCUMENTS. Nobody, me included, had a check pointing at the sentence that carries them.
-
-  IF YOU AUDIT AN ISSUE, READ THE EMAIL BODY TOO. Grep your own outgoing covering notes for xxx,
-  TBC, [ ], lorem, "Dear ,", and the previous job's name. It is the cheapest check on this list and
-  the only one the client reads first.
-
-SECOND, AND THIS ONE HAS A NUMBER ON IT: A SUPPLIER REVISION THAT LANDS BEFORE YOU SEND IS STILL A REVISION YOU HAVE TO CARRY.
-
-BSW reissued QT253300 at 11:41 adding the restrictors - GBP 7,683.49 to GBP 7,826.50. We sent at 12:22. Forty-one minutes, and the pricing document was still built on the old figure. GBP 143.01 of supply is now unfunded and comes straight off margin, because the house template passes supply through pound for pound.
-
-  BEFORE ANY QUOTE LEAVES, RE-CHECK THE DATE OF EVERY SUPPLIER QUOTE BEHIND IT AGAINST TODAY. Not
-  "is it still valid" - we all check that - but "is it still the LATEST". A quote that was current
-  when you built the document can be superseded by lunchtime, and a revision that arrives the same
-  morning is the easiest one in the world to miss precisely because it is not stale.
-
-  Same family as Redditch's 12:24 note - there the number moved and the client had the old one; here
-  the supplier's number moved and OUR document had the old one. Both are a figure that stopped being
-  true between being written and being read.
-
-THIRD, THE COST OF AN UNANSWERED REQUEST, MEASURED. Yesterday I posted that SM5 Wexham's pricing workbook was the only one of the six carrying REQ-27's Dan Parker creator string and external links that had NOT reached a client - so it could be cleaned in place, free. It went to the client today with the defect intact; I checked the sent attachment. Its remedy is now a cleaned reissue to someone who already holds the dirty copy.
-
-  Nobody did anything wrong: Adam had a fifteen-day-overdue package and made a judgement. But when
-  you find a defect on an UNSENT document, that is a clock, and it is worth saying so on the face of
-  the finding - "free to fix until this goes out" is more actionable than "affected documents include".
-
 ### 2026-07-29 13:24 - brocks-hill
 ADAM'S FOLLOW-UP QUESTION IS ALWAYS 'WAS THIS ACTIONED?', NOT 'WHAT IS THE PROBLEM?'. SHIP THE ARTEFACT, NOT THE FINDING.
 
@@ -94,3 +62,16 @@ TWO OTHER THINGS THAT ARE NOT ABOUT THIS JOB:
    error - it put the rate near GBP 1,000/m2 sell where BSW quote GBP 598/m2, GBP 13,000 of a
    GBP 27,560 benchmark. The rule now accepts "supplier quotation" as a pass and still fires on
    Greenfields. Eight variants in the selftest.
+
+### 2026-07-29 14:53 - brocks-hill
+READ THE ESTIMATOR'S ORIGINAL RFQ BEFORE YOU CALL SOMETHING AN OMISSION. IT MAY BE THE SUPPLIER WHO DIDN'T ANSWER.
+
+I have twice written up Brocks Hill as 'no solar control glass allowed for'. Gintare's 22/07 RFQ to BSW surfaced today and it asks, in terms, for 'Solar control glazing' and 'Obscure glazing where required'. BSW quoted 'Clr' on every line and said nothing about either. So the tender was built on the QUOTE instead of the INSTRUCTION, and from inside the pricing document that is indistinguishable from the estimator forgetting. Different owner, different fix: chase the supplier, do not re-price.
+
+THIRD TIME THIS MONTH - Filwood (BSW silent on SR2, mill finish, thresholds, M4(2)), Georgie's (Mercury silent on colour, U-value, obscure), now Brocks Hill. The RFQ was right all three times.
+
+THE TELL THAT MAKES IT WORSE, AND IT IS COUNTER-INTUITIVE: BSW's covering line was 'please note smart wall products are not available in triple glazing.' They volunteered ONE exception. A supplier who flags one exception has trained you to read silence on everything else as compliance. It is not - it means they did not price it.
+
+NEW RULE check_rfq_answered in mary_checks.py, fixture _test-brocks-hill.json extended with the real seven-line RFQ. Manifest field 'rfq_items': [{item, requested, quoted_response}], null response = silence. It FAILS on silence and on a stated refusal, so a supplier saying 'not available' also has to reach the tender. Selftest passes, every founding error still fires. Fill it from the RFQ EMAIL, not from the quote - the whole point is that the two differ.
+
+PRACTICAL: pull the RFQ out of estimating@'s sent folder before you audit any quote. scripts/quote_send_dates.py finds it - Brocks Hill is now in its job list, add yours.
