@@ -30,18 +30,19 @@ sections of full height curtain walling / screens (CW01, CW02, with door D03 in 
 **Gintare issued it to Neil Macilwaine at 14:01 BST on 28/07, cc adam@, at GBP 89,229.61 ex VAT.**
 Attachments: the Pricing.xlsx, the Proposal as PDF, and Window & Door Drawings.pdf.
 
-**The quote Adam was asked to check is not the quote Pearce hold.** Gintare sent it to Adam at 12:22
-BST and to Pearce at 14:01 BST. Adam's copy totals **GBP 83,104.61**; Pearce's totals **GBP 89,229.61**.
-The GBP 6,125.00 difference reconciles exactly to three uplifts added in between:
+**The quote Adam was asked to check is not the quote Pearce hold - and Adam has explained why.**
+Gintare sent it to Adam at 12:22 BST and to Pearce at 14:01 BST. Adam's copy totals **GBP 83,104.61**;
+Pearce's totals **GBP 89,229.61**. He and Gintare re-worked the costs in person in between, which is
+why the final version never went back past him. The GBP 6,125.00 reconciles exactly to three uplifts:
 
 | change | amount |
 |---|---|
 | +GBP 75.00 on each of the 23 windows | +1,725.00 |
 | +GBP 2,000.00 on the curtain walling run (13,796.80 -> 15,796.80) | +2,000.00 |
-| new line: KINGSPAN CAVITY CLOSERS (no supplier quote behind it) | +2,400.00 |
+| new line: KINGSPAN CAVITY CLOSERS (no supplier quote on file) | +2,400.00 |
 | | **+6,125.00** |
 
-The uplifts were typed over the template formulas, so the issued workbook no longer recomputes.
+The uplifts were hard-typed as values rather than left on the template formulas. **CAUSE CONFIRMED BY ADAM 29/07:** *"The costs changed because we sat down in person and worked it out, hence why I missed the final quote check and the RRR thing slipped through."* So the GBP 6,125 is a deliberate in-person re-work, not an unauthorised edit - **a broken formula chain is evidence of an edit, never of who made it.** The original note here drew the wrong inference from a correct observation and is retracted.
 Adam's dashboard request (dashmsg-40, 12:30 BST) was against the GBP 83,104.61 version.
 
 > **All times in this file are BST.** Work-order `received` fields are UTC and were an hour early in
@@ -136,6 +137,13 @@ Nothing else has moved, because nothing else has been decided.
    not inclusive, so we get no credit for it against a competitor who states it. One line in the
    INCLUSIONS list fixes that and costs nothing. **This does NOT extend to the asbestos cill boards** -
    Adam's ruling is about frames.
+   **AND IT NOW HAS A RATE (29/07, off St Mary's REQ-24).** Adam named Brandon Estate as the precedent
+   and it reads exactly: `Removal of existing frames` GBP 330,300 / 2,202 units = **GBP 150.00 per
+   opening**, identical to the penny in the earlier revision at 1,325 units, so it is a per-unit sell
+   rate and is not marked up. On Georgie's: `p.strip_out(31)` = **GBP 4,650.00** over 23 windows and
+   8 doorsets - 5.2% of the tender, absorbed silently. The CW screen run is a further opening on top
+   and is not in that 31. Brandon's drop-in wording: *"Installation and removal of old frames is
+   included within our costs."*
 
 3. **ASBESTOS NEITHER PRICED NOR EXCLUDED.** Spec 2.43.1: internal cill boards throughout the building
    are asbestos containing and the contractor *"shall allow to include within the tender submission for
@@ -331,3 +339,11 @@ Analysis shows GBP 5,000 defined + GBP 24,000 undefined provisional sums against
   selftested. All times in this file corrected UTC -> BST. Strip-out ruling recorded from Adam's
   Princess Beatrice / Redditch decisions. Mastic identified as spec-required (2.33.12) and therefore
   wrongly carried as an optional extra.
+- **28/07/2026 22:16 BST** - Adam on the dashboard (dashmsg-63): *"I have noted the RRR thing and sent
+  to Gintare. Send me an email with the bullet points of the other errors. The costs changed because
+  we sat down in person and worked it out, hence why I missed the final quote check and the RRR thing
+  slipped through."* **RRR is closed and with Gintare.**
+- **29/07/2026** - the other 16 findings sent to Adam as bullets (2,683 characters, three groups,
+  render-checked). **The GBP 6,125 inference retracted** across this file and both handovers. Strip-out
+  priced at the new GBP 150/unit rate = GBP 4,650. **REQ-12 cut from 5,118 characters to 1,404** - it
+  was the largest open request on the board and Adam has bounced two requests this week for length.

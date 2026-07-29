@@ -1,42 +1,33 @@
-We do offer secondary glazing, and the archive had a price after all
+Morning update 29/07 - three log gaps closed overnight, two of them closed wrong
 
-Adam called Storm and came back: there is secondary glazing on the job, and
-"please bear in mind we do offer secondary glazing". So it is a capability rather
-than something to refer out, and there is scope on Hammersmith as well as the
-Maternity Assessment Unit.
+Sent 07:53 to adam+marketing, ok:true, no attachment. Estimating Log (327 rows,
+saved 28/07 17:00) cross-checked against estimating@.
 
-I said yesterday there was nothing to benchmark it against. The rate register is
-still empty on it - 80 categories, none - but the archive is not. Cranborne House
-in Potters Bar, October 2025, holds a competitor's quote for the same work: five
-windows at 2500 x 3600, 45.00 m2, GBP 17,420 ex VAT, which is GBP 387.11/m2 supply
-and fit. Recorded with the caveats that matter more than the number - it is a
-competitor's sell rather than our cost, the spec is timber subframes with magnetic
-removable panels and no acoustic or thermal rating, the sizes came off a video
-call, painting is excluded and weekend working is included. A hospital unit will
-want aluminium-framed acoustic panels, so it is a floor for the cheapest solution
-and not a rate.
+The log is being kept now, so the failure mode has changed from absence to
+wrongness. John North Hall went on as 8751 with a 21/08 deadline against an ITT
+that says 9am 24/08. Grange Hill is logged 28/07 where the invitation and the
+24/07 Document Register both say 27 July - so that tender was already a day late
+when Adam asked Luke Baker for an extension, and BSW never returned a price at
+all. Third instance this week of every record agreeing because every record was
+a copy of one record.
 
-Also checked and rejected the obvious false lead, because the filename will come up
-in any future search: "OLICAT - St Thomas Secondary Glazing Quotation.pdf" is not
-secondary glazing. Secondary is the school. The document contains no occurrence of
-the phrase and prices replacement work including removal of old frames.
+Filwood: A Plus QT51510 (GBP 34,445.91, not like-for-like) makes it two
+fabricators refusing the 1.0 U-value in writing. Specification problem, not a
+supplier one, and it closes tomorrow with REQ-10 open since Monday.
 
-Steve has put the full Manor Lodge door spec to AFS - RAL 7021 30% gloss, external
-half-cylinder linked to internal panic hardware, 600mm cranked handle, soft-touch
-panic pad, 30 minute rating, fob entry and push to exit - and asked whether panic
-gear is needed at all given the push-to-exit. That supersedes the 900 against
-920mm push-bar problem, since a pad needs less leaf width than a bar. Handover row
-updated; still watched rather than priced.
+Three work orders were sitting unseen in the queue, two of them trusted
+dashboard instructions from Adam timed 22:13 and 22:16 the previous night. Both
+answered on the dashboard; both actions still outstanding, queue files left in
+place deliberately.
 
-One thing picked up in passing that was not mine to handle but was worth
-broadcasting. Adam's reply to Guildmore states the house position to a client:
-strip out of old frames is allowed for, disposal and skips are not. That settles a
-question St Mary's and Gordon Court have both been carrying. But John North Hall's
-ITT expressly requires disposal and a waste carrier licence, so the standard
-exclusion would contradict the client's own document there - flagged to that chat
-rather than left to be applied blind.
+Georgie's GBP 6,125.00 uplift retracted as a finding - Adam worked those costs
+out in person. A broken formula chain is evidence of an edit, never evidence of
+an unauthorised one.
 
-The Autodesk mailer is noise. The other three queue items belong to Princess
-Beatrice and Lower Range, route correctly, and were left in place.
+Two mary_send renderer rules recorded: a section heading must be under 70
+characters to get its rule, and a bullet must be one unwrapped line.
+
+Dashboard deploy still blocked by the concurrent npx/miniflare EBUSY lock
+(third chat to hit it today); dashboard-state.json is committed and correct.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
