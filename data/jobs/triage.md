@@ -40,6 +40,16 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   Rev1, systems named, U-values against 1.3 W/m2K, Class A1 spandrel confirmation. An action for a
   human, not a request. Raise in a morning update while it is still live.
 
+- **HILL SUPPLY BASE - FOR THE 30/07 MORNING UPDATE, with the table.** Tradex notice 29/07 19:46 is
+  the fifth since Aug 2024. Across all five, SSIP has never moved off **01 Sep 2024** - 22 months
+  stale - and it did NOT roll when EL/PL were refreshed to **19 Aug 2026**, so somebody IS maintaining
+  the Constructionline profile and the gap is specifically the SSIP accreditation. **PI and Product
+  Liability went BACKWARDS**: dated 15 Aug 2024 in the 2025 notices, BLANK tonight, and blank reads as
+  "not held", which is a routine supply-base disqualifier. EL/PL expire 19 Aug 2026, so that renewal
+  is the moment to fix both. **This is Hill's record of us, not our position** - the certificates may
+  be current and simply never uploaded, so do not report "our SSIP expired". Owner is whoever holds
+  the certificates (notice is addressed to Harry); not estimating, and nothing in the portal was
+  touched. Full table on the noticeboard, 21:00.
 - **Trafalgar House (TSL - Topek Southern, GBP 71,566.47 + VAT, issued 22/07).** Michael Beyer asked on
   14/07 what our glass allowance ACHIEVES and what the ironmongery allowance is; the issued proposal
   answers neither. Ironmongery is a copying job - TruFrame's quotation sheet 10213105 has it. The glass
