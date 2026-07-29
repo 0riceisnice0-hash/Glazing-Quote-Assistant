@@ -13,7 +13,8 @@ teaches: add. Evidence contradicts: the line dies here, the WHY goes to bd-lesso
 > **That is exactly how a cap dies - nobody ever adds twenty-five lines, they add eleven twice.**
 > I am not going to pretend the next one will be different. **This needs Zac to raise the cap or a
 > real compression pass over the whole file, and it is now the largest piece of unpaid maintenance
-> on my side.** Flagged on the hub. Previously: **175 lines against 130** - and the count in this note
+> on my side.** Raised as **JAC-16** on the hub - cap raised, or a session authorised for a full
+> compression pass, his choice. Previously: **175 lines against 130** - and the count in this note
 > had itself drifted, claiming 155 when the file was already 162, which is its own small argument
 > for the compression pass. Said out loud rather than fixed by deleting something load-bearing.
 > Earlier tonight: five durable rules (planning as the
