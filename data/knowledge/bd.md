@@ -143,25 +143,25 @@ value on each. This is the win history; everything else is a funnel.**
   covers 30 days, so absence would read as never-contacted. **Search the mailbox before ringing
   anyone dormant.** `bd-lessons.md`, `data/companies/rsr.md`.
 - **A JOB STRADDLES THE MAILBOX WALL AND EACH BOT CALLS ITS OWN HALF THE WHOLE STORY.** RSR/Amazon
-  DRH1: client end in estimating@ (dies 10/10/25), supplier end in commercial@ (runs to 31/10/25,
-  glazier offers a site visit, nobody answers). Both bots right, answer still wrong - and most of
-  Fenster's work is subcontracted, so it sits on BOTH sides at once. **Ask the other bot before
-  calling a job dead.** GBP 750+VAT quoted, Amazon signed it off, RSR chased US twice and cannot
-  quote Amazon until we confirm: **count who chased whom before writing "gone quiet".** Cause was a
-  LEAVER, not neglect - **HARRY GROVER HAS LEFT FENSTER** (Adam, 31/10/25), he held both ends, and
-  he is on four of RSR's five won jobs: any row where he owns it or promised something is STALE.
+  DRH1: client end in estimating@ (dies 10/10/25), supplier end in commercial@ (to 31/10/25, glazier
+  offers a visit, nobody answers). Both right, answer still wrong - most of Fenster's work is
+  subcontracted, so it sits on BOTH sides. **Ask the other bot before calling a job dead.** GBP 750
+  +VAT quoted, Amazon signed it off, RSR chased US twice and cannot quote Amazon until we confirm:
+  **count who chased whom before writing "gone quiet".** Cause was a LEAVER - **HARRY GROVER HAS LEFT**
+  (Adam, 31/10/25), on four of RSR's five won jobs: any row he owns or promised on is STALE.
   **`jayk@` is a hard 404 - "nothing in jayk@" means nowhere left to look, not nothing was there.**
-  And **search the DOMAIN**: "Instant Glass" = 49 hits and looks like our Crawley glazier;
-  `instantglass.co.uk` = 3, one dead thread, never quoted. `bd-lessons.md`, `handover.json`.
-- **AND THE SEQUEL, WHICH IS THE SHARPER LESSON: DO NOT READ A FAN-OUT THROUGH ONE MAILBOX.** I
-  reported DRH1's blocker as "who fits one window in Crawley, and Instant Glass are the only
-  candidate". Harry had gone out to **THREE** glaziers on 05/09; Instant Glass was just the only one
-  whose thread stayed in commercial@, **and it was the only one that failed**. Johnson & Sons priced
-  the actual bonded corner at **GBP 960 + VAT on 13/10/2025** in estimating@ - a spec ADAM set them
-  himself. **So the GBP 750 RSR keep asking us to confirm is UNDER COST by GBP 210 before margin,
-  which is why no one could just say yes** (Mary, msg 25). Absence of a price in YOUR half is not
-  absence of a price. And the timeline is fairer than neglect: the GBP 960 landed 13/10, three days
-  AFTER the question was put - at the time it was asked, nobody yet knew the answer.
+- **SEARCH THE DOMAIN - THEN DISTRUST A ZERO.** "Instant Glass" = 49 hits and reads like our Crawley
+  glazier; `instantglass.co.uk` = 3, one dead thread, never quoted. **But a PORTAL client's domain is
+  on our OUTBOUND ONLY** - E T & S's notices arrive subject-lined "<client> addendum:" / "new message:"
+  / "invites you to quote on:" and reach estimating@ only because **PAUL TAYLOR forwards them**, so
+  "ets-wales" = 0 read as "no traffic" on a GBP 174,546 tender we were told about twice and let lapse.
+  **Search the portal's PHRASING; ask who forwards it.** A colleague on it is the login Jayk's 404 hides.
+- **AND THE SHARPER ONE: DO NOT READ A FAN-OUT THROUGH ONE MAILBOX.** I called DRH1's blocker "Instant
+  Glass are the only candidate". Harry went to **THREE** glaziers on 05/09; theirs was just the thread
+  that stayed in commercial@, **and the only one that failed**. Johnson & Sons priced the bonded corner
+  at **GBP 960+VAT on 13/10/25** in estimating@, to a spec ADAM set: **so the GBP 750 RSR keep asking us
+  to confirm is UNDER COST by GBP 210 before margin** (Mary, msg 25). Absence of a price in YOUR half is
+  not absence of a price - and fairer than neglect: the GBP 960 landed three days AFTER the ask.
 - **THE BOT LINE SILENTLY EATS THE END OF A LONG MESSAGE.** `/api/botchat` does `clip(body, 4000)`
   and returns `{ok:true}` regardless - my 6,918-char RSR reply reached Mary cut mid-sentence in its
   fourth section and only she noticed. **The END is where the point goes.** `bot_chat.py` now

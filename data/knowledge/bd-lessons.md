@@ -1105,3 +1105,81 @@ nothing in commercial@, info@ or jacob@ can say which - "ets-wales" returns zero
 my half is not absence of a thread.** Asked Mary (`--wants-reply`) whether anything went to or from
 ets-wales.com after 17/07. If yes, D-1 is deleted rather than sent second; if no, it is rewritten as
 "who holds the package now, and why were we not asked to re-submit".
+
+
+---
+
+## 30/07/2026 - A PORTAL CLIENT'S DOMAIN IS ON OUR OUTBOUND ONLY, AND A ZERO-HIT SEARCH SAID SO
+
+**The short rule (bd.md):** search the domain - then distrust a zero. If a client runs the tender
+through a portal, their traffic never carries their domain at all, and the only reason any of it is
+in a Fenster mailbox is that a colleague forwards it.
+
+**What I did.** Draft D-1 was E T & S Construction, St Mary's Refurbishment, Merthyr Tydfil -
+GBP 174,546.37, the biggest number in the Ready to Send queue. It was written on a tender register
+E T & S re-issued on 24/07 giving a **27 July return** for a package we submitted on 17 July. By the
+30th that date had passed, so the draft was either wrong or urgent, and I could not tell which:
+"ets-wales" returned **zero hits** across commercial@, info@ and jacob@, and jayk@ is a hard 404. I
+asked Mary whether anything went to or from ets-wales.com after 17/07, and said out loud that if the
+answer was "nothing" the draft would be **rewritten** as "who holds the package now, and why were we
+not asked to re-submit".
+
+**Her answer (bot-27, 29/07 23:47) killed both versions.** Every folder of estimating@, 17/07 to now:
+exactly ONE message touches ets-wales.com, and it is our own submission - 17/07 **11:17:36**, Gintare
+to tom.godfrey@, cc adam@, three attachments, sent as a RE: on the portal's own "invites you to quote"
+thread. Nothing after it. No acknowledgement, no query from Tom.
+
+**But we WERE asked to re-submit. Twice, on 24/07:**
+
+- **12:17** Paul Taylor forwards "E T & S Construction Ltd addendum: St Mary's..." - "We've received
+  addendums on the window schedule for this one, I have downloaded and saved them in Tender Docs."
+- **12:47** Paul forwards a second, "E T & S Construction Ltd new message: ..."
+- **13:06** Gintare replies **to Paul, not to ET&S**: "Thanks. We submitted this enquiry last week,
+  but I'll check whether any changes are needed."
+
+That check was never closed out. The 27/07 return was in the header of the register attached to those
+notifications. Mary checked the revision on 29/07 and emailed Adam that there was no scope change -
+but nothing ever went back to E T & S. **The package was re-opened, we were told on the day it was
+re-issued, and it lapsed at our end.** Sending "why were we not asked to re-submit" to Tom Godfrey
+would have told a client we are mid-tender with that we do not read what they send us.
+
+**Why the search returned nothing, and this is the part worth keeping.** E T & S run this tender
+through a portal. Their notifications come **from the portal**, subject-lined "E T & S Construction
+Ltd addendum:" / "... new message:" / "... invites you to quote on:", and they reach estimating@ only
+because **Paul Taylor forwards them**. So the client's domain appears on our **outbound** only.
+Searching `ets-wales.com` will never find their inbound traffic on this job, and the same is true of
+any portal client.
+
+Three separate errors stacked to make a zero look like a fact:
+
+1. **Wrong mailbox.** The submission is in estimating@, which I cannot read - the RSR/DRH1 lesson,
+   already written down, and I made it again on the very next job.
+2. **Wrong search key.** Even in the right mailbox, the domain finds our half and not theirs.
+3. **Wrong clock.** I had our send at 12:17. **12:17 is Paul's 24/07 forward.** The send was 11:17 on
+   the 17th. Two events, one timestamp, read onto the wrong one - and it went into `handover.json`
+   and into D-1's evidence line as a fact.
+
+**The fix, and it is a search habit not a script.** Search the **portal's subject phrasing** -
+"<client> addendum:", "new message:", "invites you to quote on:" - not the client's domain. Then ask
+**who forwards it**. And note what that does to JAC-11: "the tender-portal logins died with Jayk" is
+true of Jayk's accounts and irrelevant here, because **a colleague is already receiving from this
+portal**. A live colleague on a portal is the login the dead one hides. Same shape as ProContract -
+check what a block actually blocks.
+
+**What replaced the draft.** Nothing goes to E T & S by email. The only honest question is whether
+our 17/07 submission is still under consideration or the package has been let, and whether they would
+take a clarification schedule against it - and it goes back through the portal, which means Paul.
+That is **JAC-18**, Adam's decision, because re-opening a package we let lapse is a relationship call
+on a first-ever quote to this client, not a chase.
+
+**And it must not be asked in a hurry.** Mary's closing warning: if the answer is "still open" we are
+**not ready to re-submit by return**. Strip-out is settled and priced at GBP 16,050; **carriage to
+Merthyr is still an open decision with Adam on REQ-24**, and a revised submission cannot go without
+it. So the sequence is REQ-24, then JAC-18, then the portal - and nobody promises E T & S a
+turnaround in the meantime. Asking a question you cannot afford the answer to is its own mistake.
+
+**The wider one.** I asked Mary a narrow question - "anything to or from this domain after 17/07" -
+and she answered a wider one, which is the only reason the draft died instead of going out reworded.
+A "no" to a narrow question is not the same as "nothing happened", and the second version of D-1 was
+about to be built on exactly that confusion. `data/companies/ets-construction.md`, `drafts.json`
+(D-1 withdrawn, correction logged), `handover.json`.

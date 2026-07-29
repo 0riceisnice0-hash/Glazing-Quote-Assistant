@@ -613,3 +613,57 @@ compressed to absorb it, so **net zero** - last night I promised not to grow tha
 answered, and a promise kept by rationalising two more lines is not kept. The full account went to
 `bd-lessons.md`. Deployed through `--deploy`, so the shared lock was taken; the Functions bundle line
 is in the output, so the API shipped.
+
+## 2026-07-30 - bot-27 (Mary): the ET&S draft was wrong, and the rewrite would have been worse
+
+**Order:** one work order, Mary's answer to the question I left open last night - had anything
+gone to or from ets-wales.com after our 17/07 submission on St Mary's, Merthyr Tydfil
+(GBP 174,546.37, D-1, the biggest number in the Ready to Send queue).
+
+**She answered a wider question than I asked, and that is the only reason the draft died
+instead of going out reworded.** Every folder of estimating@, 17/07 to today: exactly ONE
+message touches ets-wales.com and it is our own submission - 17/07 11:17:36, Gintare to Tom
+Godfrey, three attachments, on the portal's own "invites you to quote" thread. Nothing after
+it. But we WERE asked to re-submit, twice, on 24/07: Paul Taylor forwarded the ET&S addendum at
+12:17 and a second notification at 12:47, and Gintare replied **to Paul** at 13:06 - "we
+submitted this last week, but I'll check whether any changes are needed". That check was never
+closed out, and the 27/07 return date in the header of the attached register passed with
+nothing going back. **The package was re-opened, we were told on the day, and it lapsed at our
+end.**
+
+**Deleted D-1 rather than rewriting it.** My planned rewrite was "who holds the package now,
+and why were we not asked to re-submit" - false, and a bad look to send a client we are
+mid-tender with on our first ever quote to them. Withdrawn to `not_drafted` with the full
+reason, and a `corrections` entry against D-1. Five drafts left, unchanged.
+
+**Two facts of mine were wrong and both are fixed on the board.** Our send was 11:17, not 12:17
+- **12:17 was Paul's forward**, and I had read one event's clock onto the other, into
+`handover.json` and into D-1's evidence line. And "ets-wales returns zero hits" was evidence of
+nothing.
+
+**The lesson, and it is the keeper: a PORTAL client's domain is on our OUTBOUND only.** ET&S's
+notices come from the portal, subject-lined "E T & S Construction Ltd addendum:" / "new
+message:" / "invites you to quote on:", and reach estimating@ only because Paul forwards them.
+Searching the domain will never find their inbound traffic, and the same is true of any portal
+client - search the portal's **phrasing**, and ask who forwards it. Three errors stacked to
+make a zero look like a fact: wrong mailbox (the RSR/DRH1 lesson, made again on the next job),
+wrong search key, wrong clock. It also puts a dent in JAC-11: **Paul is already receiving from
+that portal**, so a live colleague is the login Jayk's 404 hides.
+
+**bd.md is still 230 lines** - the portal rule went in by compressing the RSR/DRH1 pair it
+qualifies, net zero, full account in `bd-lessons.md`. I promised not to grow that file before
+JAC-16 is answered and it has not grown. New company file:
+`data/companies/ets-construction.md`.
+
+**Raised JAC-18 for Adam** - do we go back to ET&S at all, and does Paul put it through the
+portal. Three options including "let it go". Said plainly in the request and on the hub that
+**the sequence matters**: if the answer is "still open" we cannot re-submit by return, because
+strip-out is settled at GBP 16,050 but **carriage to Merthyr is still open with Adam on
+REQ-24**. Nobody promises them a turnaround until that lands. St Mary's is off the chase list
+with `blockedPending` naming REQ-24 and a 06/08 review date - it is not a client who has gone
+quiet, so treating it as a chase would have been the third wrong frame in a row.
+
+**Said nothing back to Mary.** Her message answered what I needed and asked nothing of me, so
+silence was the ending - marked seen, nothing sent. Replied on the hub instead, since Zac is
+the one I told last night not to approve D-1. Deployed through `--deploy`, so the shared lock
+was taken; Functions bundle line is in the output.

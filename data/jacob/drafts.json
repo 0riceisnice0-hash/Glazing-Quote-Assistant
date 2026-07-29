@@ -29,23 +29,25 @@
  ],
  "drafts": [
   {
-   "id": "D-1",
+   "id": "D-6",
    "priority": 1,
-   "why_now": "The register E T & S re-issued on 24/07 moved the package return date to 27 July - a package we submitted on 17 July and have treated as closed for eleven days. If it is open, this is not a chase, it is a live tender we are not working on. It is the only draft here where a day's delay can lose the job outright.",
-   "job": "St Mary's Refurbishment, Merthyr Tydfil",
-   "client": "E T & S Construction",
-   "to": "tom.godfrey@ets-wales.com",
-   "to_name": "Tom Godfrey",
+   "why_now": "Dan Charlesworth at A Plus asked Adam for feedback on twelve quotes on 16/07, and Adam passed it to me. Mary has now read every one of them out of estimating@'s sent items. The honest answer is uncomfortable and it is still the answer: all twelve were issued and not one has a recorded outcome anywhere. A fabricator who has priced GBP 1.48m of material on a single job is entitled to know that, and the alternative - another fortnight of silence - is how a supplier stops prioritising your enquiries.",
+   "job": "Twelve A Plus quotes - feedback request",
+   "client": "A Plus (aluminium fabricator - a supplier, not a customer)",
+   "to": "dan@aplusw.co.uk",
+   "to_name": "Dan Charlesworth",
+   "to_caveat": "The address is not verified by me - Dan's mail to Adam sits in a mailbox I cannot read. Check it before sending.",
    "cc": "estimating@fensterglazing.com",
    "send_as": "Adam Butcher",
-   "subject": "St Mary's, Merthyr Tydfil - is the glazing package still open?",
-   "body": "Tom,\n\nWe sent our price for the windows and doors at St Mary's on 17 July and had understood the package to be closed at that point.\n\nThe register you re-issued on 24 July gives a return date of 27 July for that package, which is after our submission. Before I read anything into that, two questions:\n\n1. Is the package still open?\n2. Is our 17 July submission the one you are considering, or do you need it re-submitted against the re-issued register?\n\nIf anything in the register has moved since we priced it, tell me what and we will turn a revision round quickly - our estimating team has the drawings open.\n\n",
-   "evidence": "Quote issued 17/07/2026 12:17 from estimating@, GBP 174,546.37. Re-issued tender register dated 24/07 gives a 27/07 return for the glazing package. AdminBase lead 16/07, next action 17/07, never actioned.",
-   "value": 174546.37,
-   "value_source": "verified send",
-   "must_not_say": "Do not offer a revised price, a discount or a delivery date. If the package is open it goes back to Mary to re-price properly.",
+   "subject": "The twelve quotes - where each of them actually sits",
+   "body": "Dan,\n\nYou asked for feedback on twelve quotes. Here it is, and I would rather give you the honest version than a tidy one.\n\nNine went to the client and have had no answer:\n\n  QT50295  Brighton Longhill      issued 14/04  Etec Group\n  QT42006  Colonial Way           issued 14/04  Bradford Watts\n  QT50628  Emmbrook School        issued 08/05  Alexander James\n  QP70107  Sharnbrook             issued 14/05  Gray & Sons\n  QT50589  Favell House           issued 20/05  Fortis Vision / HCD\n  QT50821  Brandon Estate         issued 15/06  Elkins Construction\n  QT51271  Oldswinford Primary    issued 07/07  Reynolds Conservation\n  QT51269  Ninn Lane              issued 09/07  Ermine\n  QT51226  Woodland Vale          issued 22/07  Pearce Construction\n\nThree need a sentence each:\n\n  QT50911 Darrick Wood is live and being revised, not silent. AJ Group came back on 09/07 saying our quantities and dimensions did not comply, we agreed to revise, and your Rev1 came in on 24/07.\n\n  QT50789 Jaques - our last quote to Jaques went out in December 2025 and yours is dated 18/05/2026. Can you tell me what that one was for? It does not match anything we have sent.\n\n  QT42159 Spoone School - I cannot find our send under that name, but it did go out: Gintare told Vetroseal on 13/07 that the customer had come back asking whether our quotation still stood. It exists under a name we have not matched yet.\n\nOn outcomes, the honest position is that we do not have any. None of the twelve is recorded won or lost, and none of the folders has moved into our projects tree, which is normally how we would know. Brandon Estate is the one I would single out for you: ninety-odd messages on the thread, quoted to Elkins on 15 June, and nothing back since. It is not dead. It is unanswered, which is a different thing, and it is being chased by phone rather than by email.\n\nWe are fixing the recording end of this. Until it is fixed I am not going to send you hit rates I cannot evidence.\n\n",
+   "evidence": "Mary, 29/07/2026, from estimating@ sent items - every issue date above is a message that left the building. Folder states from OneDrive: eleven of the twelve have a folder and all eleven are still in 1. Tender Documents, none in 2. Projects. Darrick Wood: Gleb Saliev 09/07, Adam's reply 10/07, A Plus asked 17/07, Rev1 returned 24/07. Brandon Estate: 93-message thread, quoted to Elkins 15/06, confirmed a legitimate tender by Adam on 29/07.",
+   "value": null,
+   "value_source": "No figure in this draft is a price to a client. The GBP 1.48m is A Plus's own material figure on their own quote, which Dan already has.",
+   "must_not_say": "Do not tell him anything was won or lost - nothing is recorded either way, and inventing a kind 'still in with a chance' is exactly what makes a supplier stop believing us. Do not promise a hit rate by a date.",
    "status": "awaiting a human",
-   "purpose": "Establish whether the St Mary's glazing package is still open after the register was re-issued, and whether our 17 July submission is the one being considered.",
+   "blocked_on": "Nothing. It answers a question Adam was asked thirteen days ago and can go as soon as he has read it.",
+   "purpose": "Ask a fabricator for feedback on twelve quotes so Fenster learns why they did not convert - a supplier, so no selling.",
    "approval": "awaiting approval - Adam or Zac"
   },
   {
@@ -130,31 +132,14 @@
    "status": "awaiting a human",
    "purpose": "Get a decision on the B239 windows quote and tidy up the older open quotes with the same client.",
    "approval": "awaiting approval - Adam or Zac"
-  },
-  {
-   "id": "D-6",
-   "priority": 1,
-   "why_now": "Dan Charlesworth at A Plus asked Adam for feedback on twelve quotes on 16/07, and Adam passed it to me. Mary has now read every one of them out of estimating@'s sent items. The honest answer is uncomfortable and it is still the answer: all twelve were issued and not one has a recorded outcome anywhere. A fabricator who has priced GBP 1.48m of material on a single job is entitled to know that, and the alternative - another fortnight of silence - is how a supplier stops prioritising your enquiries.",
-   "job": "Twelve A Plus quotes - feedback request",
-   "client": "A Plus (aluminium fabricator - a supplier, not a customer)",
-   "to": "dan@aplusw.co.uk",
-   "to_name": "Dan Charlesworth",
-   "to_caveat": "The address is not verified by me - Dan's mail to Adam sits in a mailbox I cannot read. Check it before sending.",
-   "cc": "estimating@fensterglazing.com",
-   "send_as": "Adam Butcher",
-   "subject": "The twelve quotes - where each of them actually sits",
-   "body": "Dan,\n\nYou asked for feedback on twelve quotes. Here it is, and I would rather give you the honest version than a tidy one.\n\nNine went to the client and have had no answer:\n\n  QT50295  Brighton Longhill      issued 14/04  Etec Group\n  QT42006  Colonial Way           issued 14/04  Bradford Watts\n  QT50628  Emmbrook School        issued 08/05  Alexander James\n  QP70107  Sharnbrook             issued 14/05  Gray & Sons\n  QT50589  Favell House           issued 20/05  Fortis Vision / HCD\n  QT50821  Brandon Estate         issued 15/06  Elkins Construction\n  QT51271  Oldswinford Primary    issued 07/07  Reynolds Conservation\n  QT51269  Ninn Lane              issued 09/07  Ermine\n  QT51226  Woodland Vale          issued 22/07  Pearce Construction\n\nThree need a sentence each:\n\n  QT50911 Darrick Wood is live and being revised, not silent. AJ Group came back on 09/07 saying our quantities and dimensions did not comply, we agreed to revise, and your Rev1 came in on 24/07.\n\n  QT50789 Jaques - our last quote to Jaques went out in December 2025 and yours is dated 18/05/2026. Can you tell me what that one was for? It does not match anything we have sent.\n\n  QT42159 Spoone School - I cannot find our send under that name, but it did go out: Gintare told Vetroseal on 13/07 that the customer had come back asking whether our quotation still stood. It exists under a name we have not matched yet.\n\nOn outcomes, the honest position is that we do not have any. None of the twelve is recorded won or lost, and none of the folders has moved into our projects tree, which is normally how we would know. Brandon Estate is the one I would single out for you: ninety-odd messages on the thread, quoted to Elkins on 15 June, and nothing back since. It is not dead. It is unanswered, which is a different thing, and it is being chased by phone rather than by email.\n\nWe are fixing the recording end of this. Until it is fixed I am not going to send you hit rates I cannot evidence.\n\n",
-   "evidence": "Mary, 29/07/2026, from estimating@ sent items - every issue date above is a message that left the building. Folder states from OneDrive: eleven of the twelve have a folder and all eleven are still in 1. Tender Documents, none in 2. Projects. Darrick Wood: Gleb Saliev 09/07, Adam's reply 10/07, A Plus asked 17/07, Rev1 returned 24/07. Brandon Estate: 93-message thread, quoted to Elkins 15/06, confirmed a legitimate tender by Adam on 29/07.",
-   "value": null,
-   "value_source": "No figure in this draft is a price to a client. The GBP 1.48m is A Plus's own material figure on their own quote, which Dan already has.",
-   "must_not_say": "Do not tell him anything was won or lost - nothing is recorded either way, and inventing a kind 'still in with a chance' is exactly what makes a supplier stop believing us. Do not promise a hit rate by a date.",
-   "status": "awaiting a human",
-   "blocked_on": "Nothing. It answers a question Adam was asked thirteen days ago and can go as soon as he has read it.",
-   "purpose": "Ask a fabricator for feedback on twelve quotes so Fenster learns why they did not convert - a supplier, so no selling.",
-   "approval": "awaiting approval - Adam or Zac"
   }
  ],
  "not_drafted": [
+  {
+   "what": "D-1 WITHDRAWN - E T & S Construction, St Mary's Refurbishment Merthyr Tydfil, GBP 174,546.37",
+   "why_not": "The draft asked Tom Godfrey whether the package was still open, and the rewrite I had lined up was going to ask why we were not asked to re-submit. Both are wrong, and the second one would have been a bad look: WE WERE TOLD, twice, on the day the register was re-issued. Mary read estimating@ across every folder from 17/07 to now (bot-27, 29/07 23:47). On 24/07 Paul Taylor forwarded the ET&S addendum at 12:17 and a second notification at 12:47; at 13:06 Gintare replied TO PAUL - 'we submitted this enquiry last week, but I'll check whether any changes are needed'. That check was never closed out, and the 27/07 return in the header of the attached register passed at our end. So there is nothing to ask ET&S about the notice, and asking would tell them we do not read what they send us. Nothing else touches ets-wales.com in that window at all: one message in thirteen days, our own 17/07 submission, and no acknowledgement or query back from Tom.",
+   "next": "Not an email. The only honest question left is whether our 17/07 submission is still under consideration or the package has been let, and whether they would take a clarification schedule against it - and it almost certainly goes back through the ET&S PORTAL, not to tom.godfrey@. That is Adam's call and it is JAC-18. It must not be opened before REQ-24 is answered: strip-out is settled and priced at GBP 16,050, but carriage to Merthyr is still an open decision with Adam, and a revised submission cannot go without it. Nobody promises ET&S a turnaround until that lands."
+  },
   {
    "what": "Churchdown School Academy, Gloucester - the five bidders",
    "why_not": "Fenster priced this one scheme for five different main contractors: Kemdoc and Mobius Group at GBP 746,616, and Glazing Consultancy Services, Roof Estimating Services and Southern Projects at GBP 729,116. All five have been silent for eight to nine months. Five near-identical emails is how a company starts looking like a mailing list, and the useful question is not addressed to any of them individually - it is who won the main contract, which decides which one of the five is worth a call. I could not answer that from the free feeds: Contracts Finder's OCDS search endpoint ignores keyword, searchTerm, text and q, and returns the latest hundred notices whatever you ask it. It needs a different approach before this becomes an action.",
@@ -167,6 +152,14 @@
   }
  ],
  "corrections": [
+  {
+   "draft": "D-1",
+   "date": "2026-07-30",
+   "was": "'The register E T & S re-issued on 24/07 moved the return date to 27 July - a package we submitted on 17 July and have treated as closed for eleven days', with our send timed at 12:17 and the implication that the re-issue reached nobody here.",
+   "now": "The send was 17/07 11:17:36, Gintare to tom.godfrey@ets-wales.com cc adam@, three attachments, as a RE: on the portal's own 'invites you to quote' thread. 12:17 is the timestamp of PAUL TAYLOR'S 24/07 FORWARD of the addendum, not of our submission - I had read one event's clock onto the other. And the re-issue did reach us: twice on 24/07, acknowledged by Gintare at 13:06.",
+   "why": "I searched my own four mailboxes for 'ets-wales', got zero hits, and let that stand as 'no traffic'. Both halves of that were wrong. The submission is in estimating@, which I cannot read - the RSR/DRH1 lesson again - and the client's INBOUND never carries their domain at all, because ET&S run this tender through a portal (see bd.md).",
+   "cost_if_sent": "An email to a client we are mid-tender with, asking why they had not told us something they told us twice, on a package we let lapse ourselves. On the biggest number in the queue."
+  },
   {
    "draft": "D-2",
    "date": "2026-07-29",
