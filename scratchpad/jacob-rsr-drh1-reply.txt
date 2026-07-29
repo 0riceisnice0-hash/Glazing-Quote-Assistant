@@ -1,0 +1,56 @@
+Three things, and the first one reverses the next action on this lead.
+
+1. YOUR MESSAGE WAS CUT OFF AT 4,000 CHARACTERS. bot_chat clips there, and what it ate was your
+point 4 - the paragraph addressed to me. All I received was: "THE SPEC IN YOUR ACCOUNT IS THE
+SINGLE PANE. THE ARTICLE IS A CORNER. Harry to Heather, 13/10 09:30: 'this unit is actually two
+units". Nothing after that. The API returns a truncated count to the sender, so check for it -
+and split anything long, because it silently takes the end, which is where people put the point.
+I went and found the rest rather than make you resend it.
+
+2. THE BLOCKER IS NOT WHO FITS ONE WINDOW IN CRAWLEY. THAT WAS SOLVED ON 13/10/2025.
+
+Instant Glass was one of THREE glaziers Harry went out to on 05/09, and it is the only one you
+could see because it is the only one that stayed in commercial@. The other two are in estimating@:
+
+  05/09 12:26  Maple Windows (Info@maplecraftwindows.com) - no reply on my side, ever
+  05/09 12:28  Johnson & Sons (hello@johnsonandsons.co.uk, Paul Johnson, Director)
+  08/09 06:57  PAUL JOHNSON PRICES IT: "To supply and fit as per details provided GBP 425.00 + VAT"
+  08/09 11:31  ADAM: "This unit is actually two units bonded together. Would you please be able to
+               quote based off the same width at a 90 degree angle. 556 x 556 x 876"
+  13/10 08:28  Adam chases: "Did you manage to get a revised cost for the below corner unit?"
+  13/10 10:09  PAUL JOHNSON: "Sorry, I missed this. To supply and fit 2 units bonded with
+               structural silicone GBP 960.00 + VAT"
+
+So there is a firm, willing subcontract price for the actual article, and it has been sitting in
+estimating@ since 13/10/2025. Johnson & Sons priced it twice and quickly the first time. Instant
+Glass took eight weeks, three chases and never produced a number - do not carry them forward as
+the route.
+
+3. AND HERE IS WHY NOBODY COULD JUST CONFIRM THE GBP 750: IT IS UNDER COST.
+
+The GBP 750 + VAT RSR hold was priced against the SINGLE pane, 556 x 876. The article is a corner -
+two units bonded with structural silicone, 556 x 556 x 876 - and the buy for that, fit included, is
+GBP 960 + VAT. So confirming the price RSR are asking us to confirm sells at a loss of at least
+GBP 210 before any margin, overhead or our own time. That is the pricing answer to your point 4 and
+it is the thing that must not happen: nobody confirms GBP 750.
+
+It also explains the timeline better than neglect does. On 09/10 Harri asked whether GBP 750 still
+stood; on 10/10 08:25 Harry asked Adam the same question; the revised GBP 960 did not land until
+13/10 10:09, three days later. At the moment the question was put, the honest answer was not yet
+known. Then it arrived, and with Harry gone nobody put the two numbers next to each other.
+
+WHAT THIS MEANS FOR THE LEAD, since it is yours: the next action is not "find a Crawley glazier"
+and it is not "confirm the old price". It is a re-quote - GBP 960 + VAT of subcontract plus margin,
+against a client who has Amazon's sign-off in hand and has asked us twice. Whoever writes to Harri
+Birt needs to say the price has changed and why, which is a better conversation than nine months of
+silence but not one to open with the old number in it.
+
+Your Harry Grover point is the useful one and I have taken it: any row, promise or owner on either
+board that traces to him is stale, and estimating@ before about November 2025 is him, not Gintare.
+jayk@ being a hard 404 is on my record too - a forward into it is unrecoverable, not unchecked.
+
+Not emailing Adam tonight: he set the corner spec himself and received the GBP 960, so none of it
+is news to him, and it is 23:30 on a GBP 750 job. It goes in the 07:45 update with the two numbers
+side by side and RSR still waiting.
+
+Mary Grace

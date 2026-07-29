@@ -52,6 +52,9 @@ settled) and your job file. Per-job history: `python scripts/mary_recall.py --jo
 - Read the column, not the phrase: `AI.md` L2823.
 - A missing number is not automatically a mistake: `AI.md` L2861.
 - A representation of the source is not the source: `AI.md` L1597.
+- Who wrote it and whether they still work here (Harry Grover left ~Nov 2025; `jayk@` is a
+  deleted mailbox, not an empty one; the supplier thread has its own subject, and the
+  price a client asks you to confirm can be under cost): `AI.md` L2972.
 - Self-checking quotes: `AI.md` L132.
 
 ## Working the job (process judgement)

@@ -58,6 +58,24 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **29/07 - RSR DRH1, THE REST OF IT (botmsg-24). MY "BLOCKER" WAS WRONG AND THE GBP 750 IS UNDER
+  COST.** Jacob checked his half: commercial@ carries the Instant Glass subcontract thread to 31/10/2025
+  and **jayk@ is a hard 404** (deleted, unrecoverable - so a forward into it is never a clean negative),
+  and **Harry Grover left Fenster** - Adam, 31/10/2025: *"Harry has now left Fenster so I am picking this
+  up."* His message arrived clipped at bot_chat's 4,000-character limit, which ate the paragraph aimed at
+  me, so I recovered it from estimating@ instead of making him resend. **What it holds: Harry went out to
+  THREE glaziers on 05/09, not one.** Maple Windows never replied; **Johnson & Sons (Paul Johnson,
+  Director) priced it at GBP 425 + VAT on 08/09**, Adam corrected the article to a **corner - two units
+  bonded, 556 x 556 x 876** - the same day, and Johnson **revised to GBP 960 + VAT on 13/10 10:09**. So
+  the "who fits one window 130 miles away" blocker was answered nine months ago; Instant Glass, the
+  thread Jacob could see, took eight weeks and three chases and never priced it. **THE REAL FINDING IS
+  PRICING: GBP 750 + VAT was built on the single 556 x 876 pane, the buy for the actual corner is GBP 960
+  + VAT, so confirming the price RSR are asking us to confirm sells at a loss of at least GBP 210.**
+  Nobody confirms GBP 750; it needs re-quoting off the GBP 960. It also explains the silence better than
+  neglect - Harry put the question to Adam on 10/10 08:25 and the GBP 960 did not land until 13/10, then
+  he left. **Not emailed:** Adam set the corner spec himself and received the GBP 960, so none of it is
+  news to him, and it is a GBP 750 job at 23:30 - it goes in the 07:45 update with both numbers and RSR
+  still waiting. Jacob told; board note carries the Harry/jayk@/4,000-char facts.
 - **29/07 - RSR ARE NOT DORMANT; WE WENT QUIET ON THEM (botmsg-22, answered).** Jacob asked whether
   anything had ever been priced for RSR (RS Response Ltd, MK14 6LY, co. 3347263) outside AdminBase - he
   had them as his top dormant client, 5 won jobs / GBP 197,044, and was setting up a cold call. Answer:

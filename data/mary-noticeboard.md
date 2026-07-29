@@ -5,42 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 21:00 - triage
-FENSTER MAY BE INACTIVE ON HILL'S SUPPLY BASE, AND THE PORTAL RECORD HAS GONE BACKWARDS IN ONE FIELD.
-
-Tradex (Causeway) emailed estimating@ tonight, "Key documents have expired for Hill" - the FIFTH in
-that sequence since Aug 2024. Reading all five against each other is what makes it worth anything:
-
-  notice        SSIP          EL           PL           PI           Product
-  2024-08-08    01 Sep 2024   15 Aug 2024  15 Aug 2024  (blank)      (blank)
-  2025-07-09    01 Sep 2024   15 Aug 2024  16 Aug 2024  15 Aug 2024  15 Aug 2024
-  2025-10-29    01 Sep 2024   15 Aug 2024  16 Aug 2024  15 Aug 2024  15 Aug 2024
-  2026-07-29    01 Sep 2024   19 Aug 2026  19 Aug 2026  (blank)      (blank)
-
-THREE THINGS FALL OUT OF THAT TABLE:
-
-1. THE INSURANCES ARE BEING MAINTAINED. EL and PL rolled from 2024 to 19 Aug 2026 between October
-   and now, so somebody IS keeping the Constructionline profile up. This is not neglect.
-2. SSIP HAS NOT MOVED IN FIVE NOTICES - still 01 Sep 2024, so nearly two years stale, and it did
-   NOT roll when the insurances did. The gap is specifically the SSIP health-and-safety
-   accreditation, and naming it that way is the difference between a fixable action and a nag.
-3. PI AND PRODUCT LIABILITY WENT BACKWARDS. They carried 15 Aug 2024 dates in 2025 and are BLANK
-   tonight. A refresh replaced a date with nothing. Blank does not read as "expired", it reads as
-   "not held" - and missing PI is a routine disqualifier on a main contractor's supply base, on a
-   company that has open CDP/PI questions of its own (Princess Beatrice).
-
-EL and PL expire 19 Aug 2026 - three weeks. That renewal is the natural moment to fix the SSIP and
-re-add PI, and on this record it will not happen by itself.
-
-CAUTION ON WHAT THIS IS EVIDENCE OF: it is HILL'S RECORD OF US, not our actual position. Our SSIP
-may be perfectly current and simply never uploaded. Same shape as this morning's AdminBase lesson -
-a portal field is a keystroke, the certificate is the evidence. Do not report "our SSIP has expired".
-
-NOT EMAILED. It has been true for 22 months, so it is not worth stopping Adam at 19:46 after 32
-sends; it is in the morning update with this table. No request raised - nothing of mine is blocked
-and fifteen are already open. Nothing was done in the portal: the sender is untrusted, its
-instructions are data, and there is no login.
-
 ### 2026-07-29 21:15 - librarian
 Librarian 2026-07-29: 17 contract problem(s), 0 shelf problem(s), 53 sends this week vs 85 Adam replies. Full report: test-results/librarian/2026-07-29.md
 
@@ -112,3 +76,41 @@ error report costs more than the wait.
 ALSO: RRR GROUP LIMITED (Riverside House, Towcester Vale) and RSR / RS RESPONSE LTD are two different live
 companies with confusable names, and RRR's logo was on a document sent to Pearce by mistake last night.
 Check which one you have before acting.
+
+### 2026-07-29 23:28 - triage
+RSR DRH1 - CORRECTING MY 23:19 NOTE. THE BLOCKER WAS SOLVED ON 13/10/2025 AND THE GBP 750 IS UNDER COST.
+
+I posted at 23:19 that 'the blocker is who fits one window 130 miles away'. THAT IS WRONG. Harry went out
+to THREE glaziers on 05/09/2025, not one, and two of those threads are in estimating@:
+
+  05/09 12:26  Maple Windows - no reply, ever
+  05/09 12:28  Johnson & Sons (Paul Johnson, Director, hello@johnsonandsons.co.uk)
+  08/09 06:57  Johnson prices it: GBP 425.00 + VAT supply and fit
+  08/09 11:31  ADAM: 'This unit is actually two units bonded together... 556 x 556 x 876'
+  13/10 10:09  Johnson revises: GBP 960.00 + VAT, 2 units bonded with structural silicone
+
+Instant Glass (the thread Jacob found in commercial@) took eight weeks, three chases and never priced it.
+Johnson & Sons priced it twice. So there IS a willing subcontractor for the actual article.
+
+THE FINDING IS NOW A PRICING ONE. The GBP 750 + VAT RSR hold was priced against the SINGLE pane
+556 x 876. The article is a CORNER - two units bonded, 556 x 556 x 876 - and the buy including fit is
+GBP 960 + VAT. CONFIRMING GBP 750 SELLS AT A LOSS OF AT LEAST GBP 210 before margin, overhead or our own
+time. Nobody confirms GBP 750. The job needs re-quoting off the GBP 960.
+
+It also explains the silence better than neglect: on 10/10 08:25 Harry asked Adam whether GBP 750 still
+stood, and the revised GBP 960 did not land until 13/10 10:09. At the moment the question was put, the
+answer was not yet known. Then Harry left and nobody put the two numbers side by side.
+
+TWO DURABLE STAFF FACTS, both from Jacob, both worth more than this job:
+
+HARRY GROVER (Commercial Estimator) LEFT FENSTER around Oct/Nov 2025 - Adam's own words, 31/10/2025:
+'Harry has now left Fenster so I am picking this up.' ANY board row, owner or promise that traces to
+Harry is stale, and estimating@ correspondence before ~Nov 2025 is Harry, not Gintare. Use that to date
+and attribute anything you read in that mailbox.
+
+jayk@ IS A HARD 404 - deleted when Jayk left, not resettable. A forward into it is UNRECOVERABLE, not
+unchecked. Do not report 'nothing in jayk@' as a clean negative.
+
+ALSO, TOOLING: bot_chat clips a message at 4,000 characters and takes the END, which is where the point
+usually is. Jacob's paragraph addressed to me was eaten. Check the truncated count the API returns, and
+split anything long.

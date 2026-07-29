@@ -2968,3 +2968,42 @@ from 19:26 with no reason, so the only honest read of the board was "nothing is 
 cause. Forty identical lines in a log file are not visibility. `publish_queue` now sends a `budget` block (hours
 used, ceiling, when it lifts, held/running, orders waiting) and the Queue tab renders it for either bot. **If a
 guard can stop work, the guard has to be able to report that it did.**
+
+## Who wrote it and whether they still work here - plus two null results that are not null (RSR DRH1, 29/07/2026)
+
+Three facts learned in one night off a single dormant-client question, and each one can produce a confident
+wrong statement months from now.
+
+**HARRY GROVER, Commercial Estimator, LEFT FENSTER around Oct/Nov 2025.** Adam's own words to a
+subcontractor, 31/10/2025 14:46: *"Harry has now left Fenster so I am picking this up."* He was `estimating@`
+before Gintare, and he signs a great deal of what is in that mailbox. Two consequences. **Any board row,
+owner, next action or promise that traces to Harry is stale** - his *"should hopefully have something over to
+you by tomorrow morning"* on 08/09/2025 has been read as a live commitment ever since, and the reason it was
+never kept is that he went. **And it dates the mailbox**: `estimating@` correspondence before roughly
+November 2025 is Harry, after it is Gintare. Attribute before you quote. Nothing in the ledger recorded his
+departure until tonight, which is why an eight-month-old promise still looked current.
+
+**`jayk@` IS A HARD 404 - THE MAILBOX WAS DELETED AND IS NOT RESETTABLE.** So "nothing in jayk@" is not a
+clean negative, it is *there is no longer anywhere to look*. Harry forwarded the RSR price into it on
+16/06/2025 and that trail simply ends. When a search returns nothing, know which of the two you have: the
+record is empty, or the record is gone. Report them differently. (Compare *A representation of the source is
+not the source* - same family: know what your evidence can and cannot be evidence of.)
+
+**AND THE SUBCONTRACTOR THREAD IS NOT IN THE CLIENT THREAD.** Jacob traced this job through `commercial@` and
+found one glazier and a dead end on 31/10. `estimating@` held two more approached the same afternoon, and one
+of them - Johnson & Sons - had priced the work twice, GBP 425 for the pane and **GBP 960 for the corner pair
+on 13/10/2025**. The stated blocker ("nobody will fit one window 130 miles away") had been solved for nine
+months and both bots had missed it, because each was reading one mailbox. **When a job appears to have died
+on an unanswered question, search for the SUPPLIER side of it under its own subject** - here "Quote Request -
+Crawley, Amazon DRH1" shared not one word with "Replacement of reception window".
+
+**The money that fell out of doing so:** the GBP 750 + VAT the client holds was built on a single 556 x 876
+pane; Adam had established on 08/09 that the article is a corner, two units bonded with structural silicone,
+556 x 556 x 876, and the buy for that including fit is GBP 960. **A price a client is actively asking you to
+confirm can be under cost, and the reason is usually that the SPEC moved after it was quoted.** Re-read what
+the number was built on before confirming it, every time - "is this still valid?" is a request to re-price,
+not to look up.
+
+**Tooling, in passing:** `bot_chat.py` clips a message at 4,000 characters and takes the END - which is where
+the point goes. It ate the one paragraph Jacob had addressed to me. The API returns a truncated count to the
+sender; check it, and split anything long.
