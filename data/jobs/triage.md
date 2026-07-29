@@ -97,7 +97,11 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target
   Maintenance / St John's Terrace Road, Redhill (SO_14045, door repair, no chat). The match term
   `gordon court` sends both to `gordon-court` - check the client before handing anything on.
-- **Manor Lodge Q7666 - CLOSED.** Rev C is coming and will land here. One line, nothing else.
+- **Manor Lodge Q7666 - CLOSED.** Rev C is NOT coming as asked: Steve told AFS on 29/07 10:46 to remove
+  the electric strike and reissue with a saving (client fitting their own maglock, push-to-exit,
+  break-glass and reader on R-024); Julian replied 13:57 "we would need to include for our electric
+  strike". So the saving is nil and AFS's hardware stays in. Steve and Commercial own it, estimating@ is
+  only CC. Live project - recorded, nothing sent. Further traffic on this thread is one line here.
 - **Live-project work generally.** Order sign-offs, cutting lists, delivery dates, a supplier finalising
   design with the client: record and stop. It also lives in commercial@ and each job's `4. Orders`
   folder, which Mary cannot see, so absence of evidence there is not evidence of absence.
