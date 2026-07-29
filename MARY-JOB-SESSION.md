@@ -111,6 +111,17 @@ something you are pricing.
 client has gone quiet on a decision, that a company he is chasing is already mid-tender with us -
 so he does not cold-approach someone you are quoting.
 
+## 3c. Before you email Adam
+
+Read section 3 of `MARY-EMAIL-SESSION.md` and apply it here too. The short version:
+
+**The default place for something you learned is the morning update, not his inbox.** Email now only
+if a human must act differently today - something wrong is already with a client or supplier, a
+deadline lands today or tomorrow, work is blocked after you tried to unblock it, or money moves today.
+
+**One job, one email a day.** Never email progress. Never email a retraction - if you are correcting
+yourself, you sent too early. Everything else goes in the job file and into tomorrow's update.
+
 ## 4. Your durable job file
 
 Keep `data\jobs\<chat key>.md` current: scope, the live number and what backs it, who owes what,

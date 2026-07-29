@@ -126,6 +126,32 @@ def spent(since):
             sum(r["runs"] for r in per.values()))
 
 
+SEND_LOG = os.path.join(REPO, "data", "mary-send-log.jsonl")
+# Emails to Adam in a day before the next one has to justify itself. He replied
+# to 4 of 33 over 42 hours on 28-29/07; the other 29 were opened, read, and
+# found not to need him. This is the number that made the request rewrite stick,
+# applied to the channel that actually reaches a person.
+EMAILS_PER_DAY = 6
+
+
+def emails_today():
+    """(count, [subjects]) sent since midnight. Attention spent, not tokens."""
+    today = dt.date.today().isoformat()
+    out = []
+    try:
+        with open(SEND_LOG, encoding="utf-8") as fh:
+            for line in fh:
+                try:
+                    d = json.loads(line)
+                except Exception:
+                    continue
+                if (d.get("at") or "").startswith(today) and d.get("ok"):
+                    out.append(d.get("subject") or "(no subject)")
+    except Exception:
+        pass
+    return len(out), out
+
+
 def open_requests():
     try:
         with open(STATE, encoding="utf-8") as fh:
@@ -178,6 +204,23 @@ def prompt_note():
             "nobody can answer a request, and no supplier will reply before morning. Do what "
             "this work order actually needs and stop. Anything that can wait until 07:00 should."
             % (hours, hour_cap, runs, session_cap, start.strftime("%H:%M")))
+    sent, subjects = emails_today()
+    if sent:
+        jobs = sorted({s.split(" - ")[0].split(" (")[0][:24] for s in subjects})
+        line = ("\nYOU HAVE EMAILED ADAM %d TIME(S) TODAY, about: %s."
+                % (sent, "; ".join(jobs)))
+        if sent >= EMAILS_PER_DAY:
+            line += (" THAT IS ENOUGH - though answering a question he actually asked is always "
+                     "allowed and does not count. Anything else has to be something he must act on TODAY - "
+                     "something wrong already sitting with a client or supplier, a deadline landing "
+                     "today or tomorrow, or work that stays blocked until he answers. Anything else "
+                     "goes in the job file and into tomorrow's 07:45 update.")
+        else:
+            line += (" Before adding another, check it is not progress, not a retraction, and not a "
+                     "second email on a job you have already written about today. If it is any of "
+                     "those, it belongs in tomorrow's update.")
+        parts.append(line)
+
     n = open_requests()
     if n >= REQUEST_BACKLOG:
         parts.append(
