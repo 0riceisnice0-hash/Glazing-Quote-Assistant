@@ -285,7 +285,7 @@ def main():
         "fao": "Leonard White, Senior Quantity Surveyor",
         "projectRef": "Redditch Library - BLBS0956 - window and door replacement",
         "siteAddress": "Redditch Library, 15 Market Place, Redditch, B98 8AR",
-        "date": "28/07/2026",
+        "date": "29/07/2026",
         "supplier": "TBC - see clarifications",
         "note": "All figures exclusive of VAT and gross of 2.5% Main Contractor's Discount.",
         "rows": b["rows"],

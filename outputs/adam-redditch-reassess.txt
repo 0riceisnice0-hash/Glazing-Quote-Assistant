@@ -1,0 +1,91 @@
+Adam,
+
+Reassessed. Attached are the pricing document and proposal, rebuilt and dated today, ready to go.
+
+FIRST - THE NUMBER IN YOUR SUBJECT LINE IS DEAD. DO NOT SUBMIT GBP 89,218.65.
+
+That figure was superseded at 09:12 this morning. The live number is:
+
+    TENDER SUM  GBP 93,526.34   gross of 2.5% MCD, excluding VAT
+
+The change was the strip-out line. On Monday night it was a GBP 3,000 guess because no rate existed.
+REQ-24 then produced a real one - our own Brandon Estate tender to Elkins prices removal of existing
+frames at GBP 150.00 per unit, identical to the penny across both revisions as that job nearly
+doubled in size. 43 units is GBP 6,450. The rest of the rise is GBP 750 of code adders after another
+job measured that we charge 125% above 6 m2, not 75%, which affects refs 19 and 20 here.
+
+I have re-run everything against the current engine this morning as you asked. Nothing has moved
+since 09:12 - that reassessment is the one you are asking for, and it is already in the attached.
+
+SECOND - WE ARE NOT SENDING OUT A CHEAPER QUOTE
+
+You wrote that we have nothing to lose sending out a cheaper quote. I would agree if we were, but we
+are not. At GBP 93,526.34 we are GBP 2,839.17 ABOVE Joedan's GBP 90,687.17 - 3.13% above, on the
+same basis, both gross of the same 2.5% discount.
+
+I would rather you knew that before you pressed send than after Gleeds tabulated it.
+
+YOUR INSTINCT ABOUT JOEDAN IS RIGHT AND IT IS MEASURABLE
+
+They are a manufacturer, and that is exactly the gap. EL75mm Squareline and AC100 Commercial are
+Joedan's own products - they are not buying a frame from anybody. We are. Our frame buy on this job
+is GBP 53,057 and our margin is GBP 20,625, so 22.6% of our sell is the margin sitting on top of a
+frame that our competitor fabricates in his own factory.
+
+That is a structural difference and no amount of sharpening our end closes it. It is why we came out
+above them even when the strip-out line was still a guess.
+
+THIRD - WHAT SUBMITTING BEFORE THE SUPPLIER QUOTE ACTUALLY COSTS
+
+You are right that we cannot wait, and I want to give you the size of that risk rather than just
+flag it. It is smaller than I made it sound yesterday.
+
+The sell is fixed the moment we submit. What moves is our margin when the real frame price lands:
+
+    if the quote comes back at...     frame buy      margin left     % of net
+    BSW - the only one asked          56,993.38       16,688.84        18.3%
+    Aplus - what the price assumes    53,057.22       20,625.00        22.6%
+    4Ali                              53,111.14       20,571.08        22.6%
+    TruFrame                          44,268.27       29,413.95        32.3%
+
+So the worst realistic case is that we earn GBP 16,689 instead of GBP 20,625. Thinner, not a loss.
+That is a risk worth taking to hit a deadline.
+
+The honest caveat on those figures: that is GROSS margin. It carries no prelims, no site supervision,
+no survey and no project management - Brandon's document charges 4.2% of works for exactly those and
+ours charges nothing - and what fitting actually costs Fenster is recorded nowhere I can see.
+
+AND THE ONE CLAUSE THAT NOW WORKS IN OUR FAVOUR
+
+Yesterday I flagged that our standard terms hold a quotation for 30 days while this tender wants the
+sum open 10 weeks, and called it a compliance problem. Today it is the opposite. If we submit a
+benchmark price before the supplier quotes land, that 30-day clause is the only thing capping how
+long we are exposed on it.
+
+So it is a live choice rather than a fault: hold to the tender's 10 weeks to 3 months and be fully
+compliant but exposed for all of it, or submit on our 30 days and be qualified but protected. You
+cannot have both, and I would take the 30 days on a price built this way.
+
+WHAT I WOULD DO
+
+Submit at GBP 93,526.34 on 30-day validity. Then get the RFQ to Aplus, 4Ali and TruFrame today, not
+just BSW - I sent you that schedule separately and it is the only thing that can bring the number
+down. On the measured factors TruFrame is the only one of the four that clears Joedan, and if their
+quote lands inside 30 days your retroactive sense check arrives while we can still act on it rather
+than after we are committed.
+
+And on the 70/30 award: if we cannot win on price, the 30% is where this bid has to work. Our ten
+year guarantee against Joedan's twelve months is on the face of the proposal, in the summary and in
+the inclusions, because it is the one thing we are clearly better at here.
+
+WHAT YOU WOULD BE UNDERWRITING, STATED PLAINLY
+
+Since this is the first Mary-only quote, you should know exactly which parts are evidence and which
+are not. Quantities, configurations and areas are from the client's own schedule, checked line by
+line against the elevations. Strip-out, the code adders, installation and the solar glass are house
+rates. The frame supply is a BENCHMARK - a curve fitted to BSW's real quote for Pride's Severn Trent
+job, adjusted to a second supplier. No supplier has quoted this job. mary_checks passes on every
+rule, and the client copy carries no cost columns and no third-party file properties.
+
+Nothing has gone to Pride. Still no deadline from Leonard White, which is the other thing worth
+chasing while this goes out.

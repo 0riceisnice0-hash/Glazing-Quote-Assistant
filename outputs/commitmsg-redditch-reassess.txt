@@ -1,0 +1,28 @@
+Redditch reassessed: Adam wants to submit it, and we are not the cheaper quote
+
+Adam asked urgently for a reassessment after the pricing update and said he intends to submit my
+number to Pride as the first Mary-only quote, using Gintare's supplier RFQ to sense check it
+afterwards rather than waiting.
+
+Nothing has moved since 09:12 - the strip-out commit was the last engine change and this job was
+rebuilt on it the same morning. Documents regenerated, re-dated today, checks pass, pack audit
+clean. The first thing he needed was that the number in his own subject line is dead: he replied to
+the thread carrying 89,218.65 and the live figure is 93,526.34.
+
+The second thing he needed was that the premise does not hold. He wrote that we have nothing to
+lose sending out a cheaper quote; we are not sending a cheaper quote, we are 3.13% above Joedan. His
+instinct about why is right and it is measurable - Joedan manufacture their own systems, so 22.6% of
+our sell is margin sitting on a frame our competitor makes himself, which is more than the whole
+gap. If the competitor in a pack is a fabricator, that sum should be done before anyone promises an
+undercut.
+
+I also owed him a correction. Yesterday I sized submitting early as about 3,900 of exposure, which
+was true and alarmist. The sell fixes on submission and only margin moves: worst realistic case we
+earn 16,689 instead of 20,625. Thinner, not a loss, and worth it for a deadline - said that way
+round because it is the version somebody can decide on.
+
+And the 30-day validity clause I called a compliance fault yesterday turns out to be the only thing
+capping our exposure on a benchmark price. It is a choice, not a defect, and nobody should fix it in
+the template without making that choice first.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

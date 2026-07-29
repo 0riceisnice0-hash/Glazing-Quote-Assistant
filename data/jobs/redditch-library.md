@@ -552,3 +552,71 @@ the job before they quote it to us. REQ-28's shape, opposite direction.
 
 **Position unchanged:** GBP 93,526.34 gross of 2.5% MCD, benchmark, nothing issued to Pride, no
 deadline from Leonard White.
+
+
+## 29/07 11:35 - Adam: reassess, and we intend to SUBMIT this as the first Mary-only quote
+
+Adam 11:30, marked **URGENT**, replying to the 28/07 22:10 email (subject still carries the dead
+GBP 89,218.65): *"Please can you reassess this since you've recently had a pricing update... We are
+keen to submit your costs, as a first test of a Mary only quote. We are cautious because Joedan are a
+manufacturer so may be more competitive. That being said, we've nothing to lose sending out a cheaper
+quote. Gintare is getting this priced from suppliers, but we do not have time to wait given the 6 day
+lag on this, so that will be used to sense check retroactively."*
+
+**REASSESSED: NOTHING HAS MOVED SINCE 09:12.** `fcffe20` (strip-out rate) was the last engine change
+and this job was rebuilt on it the same morning. Documents regenerated and **re-dated 29/07/2026**,
+`mary_checks` all pass, `clean_issued_pack --audit` clean, PDF author empty. **Issue-ready and sent
+to Adam.** Nothing to Pride.
+
+**THE NUMBER IN HIS SUBJECT LINE IS DEAD** - GBP 89,218.65 was superseded at 09:12. Told him first
+and in capitals, because he is about to submit and that is the figure in front of him.
+
+### The premise of his instruction does not hold, and that was the thing to say
+
+*"We've nothing to lose sending out a cheaper quote."* **We are not sending a cheaper quote.** At
+GBP 93,526.34 we are **GBP 2,839.17 / 3.13% ABOVE** Joedan's GBP 90,687.17, on the same basis, both
+gross of the same 2.5% MCD.
+
+**His instinct about why is right and it is measurable.** EL75mm Squareline and AC100 Commercial are
+Joedan's OWN products - they buy no frame from anybody. Our frame buy is GBP 53,057 and our margin is
+GBP 20,625, so **22.6% of our sell is margin sitting on a frame our competitor fabricates himself**.
+Structural; sharpening our end does not close it.
+
+### What submitting before the supplier quote actually costs - smaller than I said yesterday
+
+The sell fixes on submission; what moves is margin when the real frame price lands.
+
+| if the quote is... | frame buy | margin left | % of net |
+|---|---|---|---|
+| **BSW - the only one asked** | 56,993.38 | **16,688.84** | **18.3%** |
+| Aplus - what the price assumes | 53,057.22 | 20,625.00 | 22.6% |
+| 4Ali | 53,111.14 | 20,571.08 | 22.6% |
+| TruFrame | 44,268.27 | 29,413.95 | 32.3% |
+
+**Worst realistic case is GBP 16,689 instead of GBP 20,625 - thinner, not a loss.** Yesterday's
+framing of this as a GBP 4,037 exposure was true but alarmist; margin is the right unit. Caveat
+stated to him: that is GROSS margin, carrying no prelims, no supervision, no survey, no project
+management (Brandon charges 4.2% of works for those and we charge nothing) and an unrecorded fitting
+cost.
+
+### The 30-day validity clause has flipped from fault to protection
+
+Flagged 28/07 as a compliance problem - our terms hold 30 days against a tender wanting 10 weeks to
+3 months. **On a benchmark price submitted before the quotes land, that same clause is the only thing
+capping how long we are exposed.** Put to Adam as a live choice, not a defect: compliant and exposed
+for 10 weeks, or qualified and protected at 30 days. Recommended the 30 days on a price built this
+way.
+
+### Recommendation given
+
+Submit at **GBP 93,526.34 on 30-day validity**; get the RFQ to **Aplus, 4Ali and TruFrame today**, not
+just BSW, so the retroactive sense check lands *inside* the window while we can still act on it. And
+on a **70/30 price/quality** award, if we cannot win on price the 30% is where this bid has to work -
+the **ten year guarantee against Joedan's twelve months** is on the face of the proposal in the
+summary and the inclusions for exactly that reason.
+
+**Stated plainly what he would be underwriting**, since it is the first Mary-only quote: quantities,
+configurations and areas are the client's own schedule checked against the elevations; strip-out,
+code adders, installation and solar glass are house rates; **the frame supply is a BENCHMARK** - a
+curve fitted to BSW's real Severn Trent quote, adjusted to a second supplier - and **no supplier has
+quoted this job**.

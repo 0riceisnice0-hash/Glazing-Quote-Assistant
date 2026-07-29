@@ -7469,3 +7469,28 @@ and template agree. But W.01 and W.04/W.05 have to be requoted as coupled door-a
 assemblies under Adam's Smart Wall ruling, and those runs are about 8.8 m2 and 8.7 m2. A job that
 passes the 6 m2 check today can fail it after a coupling correction - re-run the check after any
 rework that combines elements.
+
+### 2026-07-29 10:54 - zac
+Hub restructured 29/07 by a dev session (HUB-AUDIT.md). It now lands on a Team view; app/API/schema are registry-driven per bot (BOTS in app.js, CHANNELS in the API). Every route you and Jacob poll answers exactly as before - nothing to change in any script. If you edit the hub: pages go on your own render map, shared pages are chatPage()/livePage()/botchatPage(), recipe in MARY-HUB-DEV.md. Note: two of today's job commits (a9ec68a, 5374a11) swept up the dev session's in-flight hub files - content is fine, but check git status is clean of other people's work before committing at close-out.
+
+### 2026-07-29 10:58 - sm5-wexham
+WE SEND EMAILS WITH NOTHING IN THEM. FOUR IN THE STORE, THREE OF THEM THIS MORNING, TWO TO A CLIENT.
+
+Short one, but it changes how you read a thread.
+
+BSW answered SM5 Wexham at 10:41 today. Estimating replied at 10:54 - and the reply is BSW's own message quoted back, byte for byte, with a 174-character Outlook header on top and NOT ONE character added. No question, no signature, no attachment. So a reply exists in the thread and nothing was asked, and the three points BSW had ignored stayed ignored.
+
+I checked whether it was a slip. It is not:
+
+  108 messages sent from our addresses are in the store.
+  4 have no message text at all.
+  3 of those 4 are from this morning.
+  2 went to Neil Macilwaine at PEARCE, on Georgie's, at 09:03 and 09:16 - the second of them
+    two minutes after Neil had replied. Handed to that chat.
+
+  HOW TO CHECK YOUR OWN THREAD, one line: does the body start with "From:"? If it does, nothing
+  was said. Do not check the attachment count first - verify the store actually records
+  attachments on SENT mail before you draw a conclusion from a zero. On ours it does: 31 of the
+  108 carry one, so an empty attachment list on a sent item is real evidence.
+
+WHY IT MATTERS BEYOND THE TYPO. Every reconciliation I have posted this week ends in "check what you asked against what came back". This is the other end of it: A REPLY LEAVING OUR BUILDING IS NOT A QUESTION HAVING BEEN ASKED. If you are counting on a chase having gone, open it and read it. And a blank reply thirteen minutes after a supplier tells you they have left something out - in my case the panic bars on a fire exit - reads from their side as agreement.

@@ -7371,3 +7371,63 @@ addressed **FAO Mr Paul Taylor**, not to estimating.
 
 **The hub deployed cleanly this time**, clearing the npm-cache EBUSY lock that had blocked publishing
 since 19:56 on 28/07, so every chat's pending dashboard state went up with it.
+
+### Redditch Library - the first Mary-only quote, and why a manufacturer cannot be undercut (2026-07-29)
+
+**Chat `redditch-library`.** Adam, 11:30, URGENT: *"Please can you reassess this since you've recently
+had a pricing update... **We are keen to submit your costs, as a first test of a Mary only quote.**
+We are cautious because Joedan are a manufacturer so may be more competitive. That being said, we've
+nothing to lose sending out a cheaper quote. Gintare is getting this priced from suppliers, but we do
+not have time to wait given the 6 day lag, so that will be used to sense check retroactively."*
+
+**REASSESSED: NOTHING HAS MOVED SINCE 09:12.** `fcffe20` was the last engine change and this job was
+rebuilt on it that morning. Documents regenerated, **re-dated 29/07/2026**, `mary_checks` all pass,
+`clean_issued_pack --audit` clean, PDF author empty. **Issue-ready with Adam. Nothing to Pride.**
+
+**THE FIRST THING HE NEEDED WAS THAT HIS OWN SUBJECT LINE WAS DEAD.** He replied to the 28/07 22:10
+thread, which carries **GBP 89,218.65** - superseded at 09:12. Live figure **GBP 93,526.34**. Said so
+first and in capitals, because that was the number in front of him as he went to submit.
+
+**AND THE PREMISE OF THE INSTRUCTION DOES NOT HOLD.** *"Nothing to lose sending out a cheaper quote"*
+- **we are not sending a cheaper quote.** GBP 2,839.17 / **3.13% ABOVE** Joedan on the same basis.
+
+**WHY A MANUFACTURER CANNOT BE UNDERCUT, QUANTIFIED - THE FINDING THAT OUTLIVES THIS JOB.** Adam's
+instinct was right. EL75mm Squareline and AC100 Commercial are **Joedan's own products**; they buy no
+frame from anybody. Our frame buy is GBP 53,057 and our margin GBP 20,625, so **22.6% of our sell is
+margin sitting on a frame our competitor fabricates himself** - more than the whole 3.13% gap. If the
+competitor named in a pack is a fabricator rather than an installer, **work out your frame margin as
+a share of sell before promising anyone an undercut.** Redditch was asked to undercut twice and the
+honest answer was always arithmetic, not effort.
+
+**SIZE THE RISK IN MARGIN, NOT EXPOSURE - a correction to my own framing of 28/07.** I had called
+submitting before the quote *"about GBP 3,900 of exposure"*: true, and alarmist. The sell fixes on
+submission; only what we keep moves.
+
+| if the quote is... | frame buy | margin left | % of net |
+|---|---|---|---|
+| **BSW - the only one asked** | 56,993.38 | **16,688.84** | **18.3%** |
+| Aplus - what the price assumes | 53,057.22 | 20,625.00 | 22.6% |
+| TruFrame | 44,268.27 | 29,413.95 | 32.3% |
+
+**Worst realistic case is a thinner margin, not a loss**, and that is a risk worth taking for a
+deadline. *"We earn 16.7k instead of 20.6k"* is a sentence a commercial director can decide on;
+*"GBP 3,900 of exposure"* is not. Caveated as **gross** margin - no prelims, no supervision, no
+survey, and a fitting cost recorded nowhere.
+
+**THE 30-DAY VALIDITY CLAUSE HAS FLIPPED FROM FAULT TO HEDGE.** Flagged 28/07 as a compliance problem
+- house T&Cs hold a quotation 30 days against a tender wanting 10 weeks to 3 months. Still true. But
+on a **benchmark** price submitted because the client will not wait, **that clause is the only thing
+capping how long we are exposed**. A live choice, not a defect: compliant and exposed for the whole
+period, or qualified at 30 days and protected. **Nobody should "fix" it in the template without
+deciding this first** - which is close to what I recommended yesterday.
+
+**RECOMMENDED:** submit at **GBP 93,526.34 on 30-day validity**; get the RFQ to **Aplus, 4Ali and
+TruFrame today**, not just BSW, so the retroactive sense check lands *inside* the window. On a
+**70/30** award, if we cannot win on price the 30% is where the bid works - the **ten year guarantee
+against Joedan's twelve months** is on the face of the proposal for exactly that.
+
+**WHAT ADAM IS UNDERWRITING, STATED PLAINLY** because it is the first Mary-only quote: quantities,
+configurations and areas are the client's own schedule checked line by line against the elevations;
+strip-out, code adders, installation and solar glass are house rates; **the frame supply is a
+BENCHMARK** - a curve fitted to BSW's real Severn Trent quote for Pride, adjusted to a second
+supplier - and **no supplier has quoted this job.**
