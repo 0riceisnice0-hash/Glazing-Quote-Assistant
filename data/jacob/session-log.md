@@ -76,3 +76,47 @@ wall. Newest last. Detail belongs in the files named on the line, never here.
   reader, no doorset, no glass), and the POST field is `SearchTypeValue` with `Search=Go`,
   or the portal returns HTTP 200 and "no data available" - Contracts Finder's ignored
   `keyword` wearing a new hat.
+- **2026-07-29, hub-38/40/41/42/43/44/45/46 (Adam), plus bot-19/20 (Mary).** Eight work
+  orders arrived while the first was being worked. **JAC-10 closed: England and Wales,
+  nationwide.** The PQQ's 78 postcode areas were a marketing document I had been enforcing
+  as a rule - they parked all of Wales while a GBP 174,546 quote was live in Merthyr
+  Tydfil, plus Cornwall, Devon, Cumbria and the North East. Two quieter bugs fell out:
+  an unrecognised NUTS code (UKC) and a named English region ("East of England") both read
+  as "location not stated", because there was an out-of-area matcher and no in-area one.
+- **The contracts export is the session's real find.** Adam mailed 204 won commercial
+  contracts to jacob@ at 13:33 - `jacob_contracts.py`, `contracts-won.json`, on the board.
+  GBP 2,835,812, median GBP 1,924, largest **GBP 631,248** (Headrow Court). Eight wins over
+  GBP 50k, so the Opportunity Log's 0-in-52 is settled as a fact about the funnel. The
+  column nobody had read is `LEADSOURCE`: **59% of wins came from an existing customer, 25%
+  from Jayk by name, and three in company history from a tender portal.** The portal logins
+  I spent the morning on are a footnote next to a quarter of the win history walking out of
+  the door. Concentration: top four clients are 72% of all value, and **Conamar - 16 jobs,
+  GBP 917,028, the largest customer Fenster has - had not been emailed since 26/01**.
+- **And the mistake I nearly shipped.** Joining that export set `relationship = "won"`, and
+  "dormant clients who have bought" went 33 -> 55. All twenty-two new ones were false: an
+  empty `lastContact` means a row failed to JOIN, not that nobody emailed. Checked three by
+  hand against full mailbox history - St Albans School had emailed that day, Storm Building
+  six days before, Cranfield twelve. Reverted. **Attach the money, never the state**, and
+  when a new source improves a count by two thirds, go and check three rows.
+- **JAC-5 answered by looking rather than assuming**: SentItems returns HTTP 200 and always
+  did; no code had asked. Intake now indexes 401 sent messages to 79 domains, and every
+  buyer thread says whether we answered before or after their last mail. Five threads have
+  nothing out at all, Regen London's louvre enquiry of 28/07 among them - with the honest
+  caveat on the row that estimating@ is Mary's and Gintare may have answered.
+- **JAC-12 (BCP DN820023): Adam said go.** Wrote him a runbook rather than doing it -
+  registering means accepting terms on Fenster's behalf, which is committing the company.
+  Flagged the real risk, that ProContract review registrations by hand and the EOI closes
+  Friday 14:00, and gave the fallback of ringing BCP today. **JAC-7:** the portal list, in
+  priority order, all to commercial@ and not to a person - two people have now left holding
+  company accounts. **JAC-9:** Darren Trigg's CIF bids lost funding, which kills six
+  "Live - Quoted" rows and not two, because Churchdown was priced for five contractors;
+  an outcome that arrives by email never reaches the CRM. **JAC-6:** info@ and Fixflo off,
+  with one note on the record about the three commercial tenders that arrived there.
+- **JAC-8, Brandon Estate, corrected twice.** I flagged the AdminBase date as suspect and
+  had the direction backwards; Mary verified REV 2 issued **15/06** at GBP 7,196,695.63,
+  and 15/05 is the day a **BCC-only supplier RFQ** went out. RFQ OUT IS NOT QUOTE OUT, and
+  seven such rows exist. Then the chase itself was wrong: Chris Conlon said on 18/07 he
+  would tell us when Elkins hear, and Adam replied 20/07. On the register with **no chase
+  date on purpose** - which needed a change, because a row can be blocked by an EVENT that
+  has no date, and inventing a `blockedUntil` is the sin the register exists to avoid.
+  `blockedPending` plus a `reviewOn` that is explicitly not a chase date.
