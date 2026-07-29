@@ -58,3 +58,8 @@ gone today, the last send on this job, whether the topic is settled, and his rep
 rate. Then apply his own test: does he DO something different because this arrived?
 Errors and moved deadlines: always. A direct answer to his question: always, once,
 complete. Everything else: the morning update.
+
+**A moving number is one email when it settles** (29/07: Redditch got five as each
+supplier answer landed; two Grange Hill sends eight minutes apart, the second reversing
+the first). If inputs are still inbound, either wait, or send one line: "number moving,
+do not act on any figure until I confirm." A chain of corrections is worse than either.

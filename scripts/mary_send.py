@@ -176,6 +176,17 @@ def send_check(subject):
     hours = (digest - now).total_seconds() / 3600
     print("  the 07:45 digest is %.0fh away - anything he does not act on TODAY goes there" % hours)
     print("  the test (his, not ours): does Adam DO something different because this arrived?")
+    print("  and if the number is still MOVING: one email when it settles, never a chain.")
+    # The gate leaves a trace, so adherence is measurable instead of hoped -
+    # an un-instrumented instruction decays (the librarian reports the ratio).
+    try:
+        import mary_ledger
+        mary_ledger.append(_dt.datetime.now().isoformat(timespec="seconds"),
+                           "mary", "gate_check", mary_ledger.guess_job(subject),
+                           "checked before sending: %s" % subject[:120],
+                           "gatecheck:%s" % _dt.datetime.now().strftime("%Y%m%dT%H%M%S"))
+    except Exception:
+        pass
 
 
 def main():

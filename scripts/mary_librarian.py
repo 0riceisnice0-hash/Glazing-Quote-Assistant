@@ -119,6 +119,11 @@ def main():
         top = sorted(per.items(), key=lambda kv: -kv[1])[:3]
         lines.append("tokens today: ~%s estimated (%s)" % (
             "{:,}".format(tok), ", ".join("%s ~%s" % (k, "{:,}".format(v)) for k, v in top)))
+    day = dt.date.today().isoformat()
+    checks = sum(1 for e in events if e.get("kind") == "gate_check"
+                 and str(e.get("ts", "")).startswith(day))
+    lines.append("send gate: %d check(s) run against %d sends today - the gap is the "
+                 "measure of the habit" % (checks, today_n))
     lines.append("")
     lines.append("## Job-file contract (%d problem%s)" % (len(contract), "" if len(contract) == 1 else "s"))
     lines += ["- " + p for p in contract] or ["- all compliant"]

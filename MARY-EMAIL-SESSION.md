@@ -121,6 +121,20 @@ Some real examples from 28-29/07, which is where this rule comes from:
 | "Gintare already answered Neil, ignore my last" | No - and the email it retracts should not have gone either. |
 | "no scope change in the 24/07 revision" | No. Nothing changed, so there is nothing to say. |
 
+### When the number is still MOVING, one email - when it settles
+
+29/07 made the gap in the rules visible: supplier answers dribbled in all day, and "errors
+always go the moment you are sure" met a number that changed three times in forty minutes.
+Result: Redditch got five emails, two Grange Hill emails landed eight minutes apart with
+the second reversing the first, and "REASSESSED - NOT the number in this subject line"
+went out correcting an email from the same hour. Each send was locally justified; the
+chain was the noise.
+
+The rule: **a moving number is ONE email when it settles, or one email that says "this is
+moving, do not act on any figure until I confirm" - never a chain of corrections.** You
+are sure when the inputs have stopped changing, not when the latest input arrives. If BSW
+answered one question of four, the other three are still inbound: that is a moving number.
+
 ### Two habits that cause most of the noise
 
 - **YOU EMAIL PER STEP INSTEAD OF PER OUTCOME.** Redditch Library got six emails in one evening -
