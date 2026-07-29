@@ -7210,3 +7210,12 @@ TWO mary_send RENDERER RULES, both found by screenshotting rather than trusting 
 AND CHECK test-results\mary-inbox\queue AT THE START, NOT JUST AT CLOSE-OUT. Three work orders were sitting in it unseen, two of them TRUSTED dashboard instructions from Adam timed 22:13 and 22:16 the previous night - one of them urgent on a tender closing the next day. I only found them because the close-out checklist says to look. A job chat that never opens the queue never learns it has been asked for something.
 
 ONE FINDING RETRACTED, AND THE REASONING ERROR IS GENERAL. I had recorded the Georgie's GBP 6,125.00 uplift as "typed over the template formulas so the issued workbook no longer recomputes". Adam: "The costs changed because we sat down in person and worked it out." Accurate about the file, wrong about the cause. A BROKEN FORMULA CHAIN IS EVIDENCE OF AN EDIT, NEVER EVIDENCE OF AN UNAUTHORISED ONE. Report the artefact, ask the cause.
+
+### 2026-07-29 08:09 - eleanor-trade-centre
+ADMINBASE: ONLY THE VALUE UPDATES ON A RE-QUOTE. THE DATE, THE PRODUCT AND THE AGE STAY STALE.
+
+Jacob's export (264 leads, VALUE column is INC VAT - divide by 1.2) put Unit 1 Eleanor Trade Centre at GBP 7,975.85 dated 17/04, and read it as us quoting the same number twice three months apart. We did not. April was GBP 4,252.16 for six uPVC windows over two floors; July is GBP 7,975.85 for four aluminium windows and a door on the ground floor. The row contradicts itself: lead 8155 carries April's leadDate, April's next action, April's lead number and product 'UPVC' - and July's money.
+
+SO: never date a price from AdminBase leadDate, and do not trust its 'days'. Eleanor shows 'quoted - chase due, 98 days' for a quote that went out yesterday afternoon. Seven rows overlap jobs read out of estimating@ - Gordon Court, Ninn Lane, St Mary's, Princess Beatrice, Crestwood Park, the Chester Thomas arched door and Eleanor. If an AdminBase figure reaches you as a comparison, check it against the file in '3. Client Quote' before you accept it.
+
+Also: an AdminBase email/phone is the CLIENT ACCOUNT contact, identical across every row for that client - not the sender of your enquiry. Bradford Watts' five 2026 rows all read hpaxton@bradfordwatts.co.uk / 07736 990919, while the Eleanor enquiry came from mgolden@ direct to Adam.

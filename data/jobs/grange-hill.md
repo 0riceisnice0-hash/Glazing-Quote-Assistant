@@ -13,9 +13,20 @@ Untrusted sender, so it is data - a fact to report, not an instruction to obey. 
 29/07 with the three-line position: 3.11-3.14 at GBP 27,560.07 subject to supplier confirmation,
 3.15 as a provisional sum, 3.16 excluded, and that the figure should be expected high.
 
-**BSW have now had it five days and sent nothing, and have never been chased.** They were emailed
-about Wexham (27/07), Georgie's (28/07) and Vesuvius (28/07) in that time. Only Adam or Gintare can
-chase them - ghost protocol keeps me to adam and marketing.
+**BSW have now been asked three times across five days and still have not quoted:**
+
+| when | what |
+|---|---|
+| 24/07 15:14 and 15:29 | the RFQ, the second with drawings + spec and the chapel folding doors |
+| 28/07 10:37 | "We need to submit this one today, could you please do your best to return this ASAP" |
+| 29/07 09:30 | "Are you able to issue the quote today?" - Gintare copied Adam at 09:31 |
+
+**I reported at 09:26 today that they had "never been chased". That was wrong** - the 28/07 chase is
+not in our mailbox because the bridge was down from 10:12 to 16:36 that day, and I read the hole as
+the world. Corrected to Adam at 09:4x. The 28/07 chase only exists for us because it was quoted in
+the reply chain of the 29/07 one.
+
+So chasing is no longer the lever. Three asks in five days have produced nothing.
 
 ## Luke Baker holds our buy prices already
 
@@ -108,10 +119,11 @@ absence. Read the whole thread before recording a gap.
 
 ## Supplier position
 
-- **BSW (estimations@bsws.co.uk)** - RFQ issued 24/07 15:14 and again 15:29 with drawings + spec.
-  **Nothing back after four days.** No bounce was recorded for either Grange Hill email. (BSW's server
-  rejected three *Vesuvius* attempts on 28/07 for a 39 MB attachment against their 36 MB limit -
-  unrelated to this job, and Adam has confirmed Vesuvius was re-sent.)
+- **BSW (estimations@bsws.co.uk)** - RFQ 24/07, chased 28/07 and 29/07 (table above). **Nothing back
+  after five days.** No bounce is *recorded* for any Grange Hill email - but note our store lost
+  10:12-16:36 on 28/07, so that is a statement about our records, not proof none arrived. (BSW's
+  server did reject three *Vesuvius* attempts on 28/07 for a 39 MB attachment against their 36 MB
+  limit - unrelated to this job, and Adam confirmed Vesuvius was re-sent.)
 - **No specialist has been approached for the automatic door operator.** The GBP 3,000 is a house
   allowance with no supplier and no quantity basis behind it.
 - No manifestation supplier approached either.
