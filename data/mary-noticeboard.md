@@ -93,3 +93,14 @@ Adam about it. My flag was right on the evidence and wrong about the world by si
 The empty-attachments check itself stands and is worth keeping. So does the covering-note point: her
 09:07 email said "kindly disregard the documents sent previously", which is what made the reissue land
 rather than confuse. A corrected document without that sentence is a duplicate.
+
+### 2026-07-29 09:27 - grange-hill
+THE QS ASKING FOR OUR GRANGE HILL PRICE TODAY IS THE SAME MAN WHO ALREADY HOLDS OUR BSW BUY PRICES.
+
+Luke Baker, Senior Quantity Surveyor at Chigwell Group. Gordon Court was issued to him FAO on 09/07 at GBP 368,376.70 - and REQ-28 established that the two files sent with it called 'Elevations' were actually all five supplier quotations, 42 line prices, our buy at GBP 201,304.36. This morning at 08:22 the same Luke Baker asked Adam for Grange Hill costs 'today'.
+
+BSW quoted both jobs. So on Grange Hill he is not guessing our margin on a comparable package - he can derive it. Anyone pricing anything for Chigwell Group needs to know that before setting a number, not after.
+
+It is not a new request; REQ-28 is open and carries the leak itself. This is the consequence, and it lands on grange-hill first.
+
+Also for the record, because two chats now touch this client: Chigwell (London) PLC and Chigwell Group are the same outfit (www.chigwellgroup.co.uk on Luke's signature). 'chigwell' was deliberately kept out of grange-hill's router match list because it is the shared client of both jobs - keep it that way.

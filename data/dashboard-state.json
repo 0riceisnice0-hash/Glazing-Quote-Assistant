@@ -1,11 +1,11 @@
 {
- "updated": "2026-07-29T08:20:00",
+ "updated": "2026-07-29",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
    "client": "Chigwell (London) PLC",
-   "deadline": "2026-07-27",
-   "status": "RETURN DATE WAS 27/07, NOT 28/07 - it says so on the invitation and on the Document Register. Paul's covering note said Tuesday 28th and that is what everything has carried since. Adam asked Luke Baker for an extension at 14:01 on 28/07; unanswered. REQ-1 needs no further action: the chapel folding doors (3.15.1) were NOT missing from the RFQ - Gintare sent a second, fuller RFQ at 15:29 on 24/07 under the heading 'Folding doors in Chapel', reproducing the clause almost verbatim. Only 3.15.2, the privacy film, never went. NEW (REQ-33): spec 3.16, remove the existing fire check door and supply 2No FD60 doorsets 1200mm wide with magnetic hold-opens wired to the fire alarm, sits inside the same 3.11-3.16 door block and has never been priced, never been in any RFQ and never been ruled on. BSW have had the enquiry four days with nothing back. No chapel elevation exists, so the folding door height cannot be measured. Benchmark GBP 27,560.07 covers 3.11-3.14 only.",
+   "deadline": "2026-07-29",
+   "status": "29/07 08:22 - Luke Baker replied 'Are you able to provide the costs today?'. That is NOT an extension: we are moved from the 27th to today, no further. BSW have had the enquiry five days, sent nothing, and have never been chased (they were emailed about Wexham, Georgie's and Vesuvius in that time). Only number we hold is the GBP 27,560.07 benchmark - not supplier-backed, covers spec 3.11-3.14 only, expected HIGH (job is nearly all large units). Folding doors (3.15) and FD60 fire doors (3.16) are in it and excluded from it nowhere - both would read as included. REQ-33 still open. Note: Luke Baker is the same QS the Gordon Court tender went to FAO, and per REQ-28 he already holds our BSW buy prices from that job.",
    "value": "GBP 27,560 benchmark (3.11-3.14 only)",
    "stage": "tender"
   },
@@ -755,9 +755,9 @@
    "raised": "2026-07-28",
    "job": "Grange Hill Methodist Church",
    "owner": "Adam",
-   "title": "Two more door items in the spec are in nobody's price - are they ours?",
-   "why": "Our package is called WD001 Windows and Doors, and the specification's door clauses run 3.11 to 3.16 without a break. Zac ruled on 27/07 that 3.15, the chapel folding doors, is ours. 3.16 sits immediately after it and has never been priced, never been in any RFQ and never been raised with anyone: remove the existing fire check door to the corridor including its frame, then supply 2No FD60 doorsets 1200mm wide with vision panes, overhead closers, finger plates, D pulls, a mortise lock with thumbturn, and magnetic hold-opens wired into the fire detection system, plus timber infill framing and two layers of 12mm plasterboard both sides taped and skimmed. Part of it is zero-rated for VAT. Separately, 3.15.2 - the frosted privacy film across the folding doors, full width and 1.2m high - is the one part of 3.15 that never reached BSW. Neither item is priced and neither is excluded, and a silent gap reads as included to the client. We cannot settle this from what we hold: the work package description behind 'View enquiry' on the Once For All portal has never been opened, and the Document Register lists only drawings and the main-contract spec.",
-   "needs": "A yes or no on each. If 3.16 is ours it needs pricing from scratch - it is joinery, plasterwork and a fire-alarm connection, not glazing, so BSW cannot quote it. If it is not ours it needs excluding in writing on the return.",
+   "title": "Are the 2No FD60 fire doors ours?",
+   "why": "Our package is called Windows and Doors. The spec's door clauses run 3.11-3.16 unbroken and Zac already ruled 3.15 is ours.\n\n3.16 is priced by nobody and excluded by nobody: strip out the corridor fire door, supply 2No FD60 doorsets 1200mm with magnetic hold-opens wired to the fire alarm. Part zero-rated.\n\nIt is joinery and a fire-alarm connection, so BSW cannot quote it either way.\n\nSame question for 3.15.2, the privacy film to the folding doors - the one part of 3.15 that never reached BSW.\n\nDetail: data/request-detail/REQ-33.md",
+   "needs": "Yes or no on each. If ours, it needs a different supplier and it will not be quick.",
    "options": [
     "Both ours - add 3.16 and 3.15.2 to the RFQ",
     "3.15.2 ours, 3.16 is the main contractor's - exclude 3.16 in writing on the return",

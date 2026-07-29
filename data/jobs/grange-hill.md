@@ -4,6 +4,32 @@
 (luke.baker@chigwellgroupplc.co.uk) | **Enquiry route:** Once For All Marketplace -> Paul 24/07 08:08
 **Stage:** tender, not yet returned. **Est. whole-project value (client's own figure):** GBP 100k-250k.
 
+## 29/07 08:22 - Luke Baker did NOT grant the extension
+
+His whole reply: **"Are you able to provide the costs today?"** That moves us from the 27th to
+today and no further. Nothing should be planned on Adam's "will have it ready this week".
+
+Untrusted sender, so it is data - a fact to report, not an instruction to obey. Reported to Adam
+29/07 with the three-line position: 3.11-3.14 at GBP 27,560.07 subject to supplier confirmation,
+3.15 as a provisional sum, 3.16 excluded, and that the figure should be expected high.
+
+**BSW have now had it five days and sent nothing, and have never been chased.** They were emailed
+about Wexham (27/07), Georgie's (28/07) and Vesuvius (28/07) in that time. Only Adam or Gintare can
+chase them - ghost protocol keeps me to adam and marketing.
+
+## Luke Baker holds our buy prices already
+
+Luke Baker, **Senior Quantity Surveyor**, luke.baker@chigwellgroupplc.co.uk, 020 8500 4100,
+07547 184089, Aaron House Unit 8 Hainault Business Park, Forest Road, Hainault IG6 3JP.
+
+He is the same person the **Gordon Court** tender was addressed to FAO on 09/07 at GBP 368,376.70 -
+and REQ-28 established that the two files issued with it under the name "Elevations" were in fact all
+five supplier quotations: 42 line prices, our buy at GBP 201,304.36, both suppliers named.
+
+**BSW quoted Gordon Court and have been asked to quote this job.** So Luke can derive our markup on a
+comparable package from the same supplier rather than guess it. That has to be known before a Grange
+Hill number is set, not after. Chigwell (London) PLC and Chigwell Group are one outfit.
+
 ## Deadline - the record was wrong
 
 **The package return date is 27 JULY 2026.** It says so on the invitation email *and* on the
@@ -113,7 +139,10 @@ backup at `.pre-scrub`). The file had only ever gone to Adam and Zac, never to C
 
 ## Open
 
-- **REQ-33 (raised 28/07)** - is 3.16 ours, and is 3.15.2 ours? Both unpriced and unexcluded.
+- **REQ-33 (raised 28/07, cut down 29/07)** - is 3.16 ours, and is 3.15.2 ours? Both unpriced and
+  unexcluded. Shortened from 1,702 to 906 characters after Adam bounced four other requests unread
+  ("this word count is insane... I am human, not an AI"). Full text preserved at
+  `data/request-detail/REQ-33.md`. Still open.
 - **REQ-1 - answered.** No action outstanding against BSW; see above.
 - Extension request to Luke Baker, 28/07 14:01 - unanswered.
 - BSW return - four days out.
