@@ -5,32 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 07:13 - crestwood-park
-COUNT THE OPENER ARROWS ON THE ELEVATION. NEVER COUNT THE FRAME DIVISIONS - I DID, AND THE FINDING WAS WRONG.
-
-I raised on Crestwood that WCI had under-counted Teleflex: they quoted 22 sets "each to operate 2 top hung vents" where A007 says one control PER OPENING LIGHT, and the windows are split into 2, 3, 5 and 6 parts. Adam checked it himself and closed it - "look at the images, there are arrows on the window sections which depict an opener. No further action on this one, learn from it."
-
-He is right. The dashed triangle drawn on a pane is the top-hung opener. Read those and it reconciles exactly: EVERY window has precisely two openers however many parts it is split into. W17 and W18 are split into 5 and open on panes 2 and 4. W23 is split into 6 and opens on 1, 2, 5 and 6. W16/W20/W21/W22/W24-W26 are split into 3 and open on 1 and 3. 13 midi sets + 9 maxi = the 22 WCI quoted.
-
-"Split into N equal parts" is a FABRICATION instruction - how the frame is mullioned. It says nothing about how many lights open. If you are checking a controls, actuator, restrictor, trickle-vent or AOV quantity against a drawing, open the PDF as an image and count symbols. The text extraction does not carry them: I read A007 twice as text and the arrows are simply not in it. `python -c "import fitz"` works - render the page at 5x and crop.
-
-A RULE FIRING IS NOT THE SAME AS AN ERROR. check_bought_in_lump_has_a_quantity_basis (new yesterday) did exactly its job - it refused to let a GBP 17,779 lump sit with no quantity behind it and forced the question. The question got asked, the answer was "the supplier was right", and it now PASSES. That is the rule working, not the rule being wrong. Do not delete a check because its first firing turned out benign.
-
-AND THE ONE HE VOLUNTEERED, WHICH IS WORTH READING ALONGSIDE THE FOUR REQUESTS HE BINNED THIS WEEK: "thank you for being vigilant, we need that so keep it up and don't be afraid to challenge things." He is not rejecting challenges. He is rejecting length. Short and specific gets read and gets answered - this one came back inside two hours.
-
-### 2026-07-29 07:28 - vesuvius
-A CHECK THAT ASKS 'IS THE FIELD FILLED IN' IS DEFEATED BY FILLING IT IN HONESTLY.
-
-check_fabricator_can_make_it was founded on Vesuvius (nobody makes Senior) and only ever tested the 'fabricator' field for truthiness. So when I wrote the true answer into it - 'NONE APPROACHED CAN MAKE IT' - the rule PASSED. Redditch Library was passing at the same moment on 'Joedan Manufacturing (UK) Ltd - their own system, not available to Fenster'. Two live jobs whose own manifests said they failed, both green.
-
-FIXED TODAY: a fabricator string that denies capability (none / nobody / no-one / no fabricator / cannot / unable / not available / not approached / does not fabricate) now FAILS, and an explicit 'can_make_it': false fails whatever the prose says. 11 selftest variants including the four real strings; every existing fixture still behaves. Both jobs now fail correctly.
-
-THE GENERAL FORM, AND IT IS WORTH AUDITING YOUR OWN MANIFEST FOR IT: a rule that tests PRESENCE cannot test TRUTH. Any field where you have written a caveat, an apology or an explanation instead of an answer is a field that is passing a check it should be failing. Look for 'none', 'not held', 'TBC', 'no supplier approached' sitting in a slot the rule only counts. If you find one, widen the rule rather than just fixing your own file - a mistake can only cost Fenster once.
-
-ALSO, AND THIS IS THE SECOND TIME THIS WEEK A NAME PROPAGATED WRONG: the Vesuvius client is STAINFORTH Construction LLP, not Staniforth. Primary sources all agree - the Once For All invitation, AdminBase lead 8742, and Joe Mayer's own domain stainforthcon.co.uk. Only our derived records said otherwise, and AI.md had already recorded the correct spelling on 27/07 while every downstream record kept the wrong one. I then made it worse by 'correcting' the dashboard to the wrong spelling. Same shape as Grange Hill's return date. WHEN A NAME OR A DATE LOOKS SETTLED BECAUSE EVERY RECORD AGREES, CHECK WHETHER EVERY RECORD IS A COPY OF ONE RECORD. The email domain is the cheapest primary source you have and it cannot be paraphrased.
-
-Note: the hub deploy is failing on an npx/miniflare EBUSY lock (three attempts, 06:26-06:27) - looks like concurrent deploys from other chats. dashboard-state.json is committed and correct, dashboard replies still post fine (200). Next chat to deploy successfully will publish my corrections with theirs.
-
 ### 2026-07-29 07:41 - st-marys
 STRIP-OUT NOW HAS A RATE: GBP 150.00 PER UNIT, AND IT IS FENSTER'S OWN.
 
@@ -60,3 +34,34 @@ TWO ROWS STILL OVER 15k AND THEY ARE NOT MINE TO REWRITE: Gordon Court 128,732 c
 WHY THIS IS THE EXPENSIVE KIND OF MISTAKE: the findings in that file are good and sourced. The warranty diff, the delivery-to-our-own-yard catch, the 1.5m2 that was our own number - all real, all correctly evidenced, all unread. A finding nobody reads has the same value as no finding. We have been optimising for the wrong half.
 
 Also: MAIL TO ADAM IS LIVE AGAIN. Riverside's file said 'email is still blocked' from 27/07; that was stale. Sent him the AOV reminder he asked for on 27/07 and was told he could not have - 150 words, ok:true.
+
+### 2026-07-29 07:56 - filwood
+OUR MASTER PRICING TEMPLATE IS AUTHORED BY SOMEONE ELSE'S SURVEYOR. 1,151 WORKBOOKS CARRY HIM.
+
+MASTER PRICING DOC 10.07.2026.xlsx has <dc:creator>Dan Parker; dan.parker@agsurveying.co.uk</dc:creator> in docProps/core.xml. Every pricing document cloned from it inherits that. I scanned the tender archive: 1,151 of 1,668 .xlsx files carry his name, including issued ones. A client sees it by right-clicking the file and opening Properties - the spreadsheet never gets opened.
+
+So this was never a Georgie's problem or a Filwood problem. Fix the master once and every future job is clean. Told Adam this morning; he asked for it in writing because he did not understand the earlier flag.
+
+Scan any file in one line:
+python -c "import zipfile,sys;print(zipfile.ZipFile(sys.argv[1]).read('docProps/core.xml').decode('utf8','ignore'))" "<file.xlsx>"
+
+External LINKS are separate and job-specific - they come from pulling numbers out of another firm's workbook, and they name that firm's machine (Filwood carries LiamO'Donnell and Parke via an Outlook INetCache path). Those you strip per job. The author you fix once.
+
+ALUPROF, FOR ANYONE WHO MEETS IT: their approved-fabricator list is behind a trade login, so no third party can name one reliably - ask Aluprof UK, living@aluprof.com, 0161 941 4005, Altrincham. Aluminium Fire Systems ARE an Aluprof fabricator - their own Q7585 to us is Aluprof MB-78EI - so we already have one on account (Chris Wall, 0121 277 4870). And MB-SR50N HI is Uf 0.85-0.94 W/m2K: where a shopfront system tops out at 1.8/1.9, the Aluprof CW system is in a different thermal class. If a spec names a manufacturer AND sets a U-value our usual three cannot reach, the manufacturer is probably named because of the U-value.
+
+### 2026-07-29 07:57 - unknown-chat
+WHEN A LOG STARTS BEING KEPT, THE FAILURE MODE CHANGES FROM ABSENCE TO WRONGNESS - AND WRONGNESS IS HARDER TO SEE.
+
+Yesterday's cross-check found six gaps in the Estimating Log. Gintare closed three overnight. Two of the three closed WRONG: John North Hall went on as 8751 with a 21/08 deadline against an ITT that plainly says 9am Monday 24 August, and Grange Hill is logged 28/07 where the invitation and the 24/07 Document Register both say 27 July.
+
+An absent row announces itself - you search for the job and find nothing. A row that is present and wrong looks like the job is handled. Once a log is being maintained, stop checking whether the row EXISTS and start checking the row's DATE against the primary document.
+
+GRANGE HILL IS WHAT IT COSTS. Paul's covering note said "deadline is Tuesday 28th". The invitation said 27 July. The log, the dashboard and every record we hold took the covering note over the primary document, so the tender was ALREADY A DAY LATE when Adam asked Luke Baker for an extension at 15:01 on 28/07 - still unanswered. BSW never returned a price either, despite Gintare's 10:37 chase saying "we need to submit this one today".
+
+Third time this week for the same shape - Vesuvius's Stainforth/Staniforth, SM5's 14/07 return date, now this. EVERY RECORD AGREED BECAUSE EVERY RECORD WAS A COPY OF ONE RECORD. A covering note is somebody's reading of the document. The document is the document.
+
+TWO mary_send RENDERER RULES, both found by screenshotting rather than trusting the source. A line only becomes a green-ruled section heading if it is UNDER 70 CHARACTERS - two of my headings were 87 and 76 and silently lost their rule. And a bullet must be ONE UNWRAPPED LINE, because the block test is all(startswith("- ")) - wrap one onto an indented second line and the whole block renders as a literal dash. Invisible in the text, obvious in the render. Always run mary_preview.py and actually look at it.
+
+AND CHECK test-results\mary-inbox\queue AT THE START, NOT JUST AT CLOSE-OUT. Three work orders were sitting in it unseen, two of them TRUSTED dashboard instructions from Adam timed 22:13 and 22:16 the previous night - one of them urgent on a tender closing the next day. I only found them because the close-out checklist says to look. A job chat that never opens the queue never learns it has been asked for something.
+
+ONE FINDING RETRACTED, AND THE REASONING ERROR IS GENERAL. I had recorded the Georgie's GBP 6,125.00 uplift as "typed over the template formulas so the issued workbook no longer recomputes". Adam: "The costs changed because we sat down in person and worked it out." Accurate about the file, wrong about the cause. A BROKEN FORMULA CHAIN IS EVIDENCE OF AN EDIT, NEVER EVIDENCE OF AN UNAUTHORISED ONE. Report the artefact, ask the cause.

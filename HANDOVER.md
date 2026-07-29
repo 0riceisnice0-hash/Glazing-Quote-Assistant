@@ -7221,3 +7221,62 @@ the decision; the job file carries the proof.**
 19, 24 narrowed; 25 answered). Nothing new raised - the board already holds 17 open, and the noticeboard rule is to
 fold rather than add. Rate and the concision lesson posted to the noticeboard; the GBP 150 handed directly to
 `redditch-library`, which has strip-out as a numbered blank on the client's own tender form.
+
+
+### Morning update 29/07 - three of yesterday's six log gaps closed, and two of them closed wrong (2026-07-29)
+
+Sent 07:53 to adam@ + marketing@, subject *"Morning update 29/07 - Filwood and Vesuvius close tomorrow with
+decisions open, and Pearce still hold our quote with RRR Group's logo on it"*, no attachment. Body kept at
+`scratchpad\morning-29-07.txt`; layout screenshot-verified through `mary_preview.py` before sending.
+`data/mary-send-log.jsonl` records `ok: true`.
+
+**TWO RENDERER RULES WORTH KNOWING BEFORE YOU WRITE A BODY FILE**, both found by reading the screenshot rather
+than trusting the text. `mary_send.text_to_html` only promotes a line to a green-ruled section heading if it is
+**under 70 characters** - my headings 2 and 4 were 87 and 76, so they silently fell through to the plain
+numbered-item branch and lost their rule while the other five kept theirs. And a bullet must be **one unwrapped
+line**: the block test is `all(l.startswith("- "))`, so a bullet manually wrapped onto an indented second line
+takes the whole block into the paragraph branch and renders as a literal "- " dash. Both are invisible in the
+source and obvious in the render. Screenshot every body file.
+
+**THE LOG IS BEING KEPT NOW, WHICH IS WHY THE FAILURE MODE HAS CHANGED FROM ABSENCE TO WRONGNESS.** 327 rows,
+last saved 28/07 17:00. Gintare cleared three of the six gaps raised yesterday - John North Hall is on as 8751,
+Lower Range Road has its number 8750, Riverside has 8749. But:
+
+    John North Hall   logged 21/08   ITT says 9am Monday 24 August    WRONG BY 3 DAYS
+    Grange Hill       logged 28/07   invitation says 27 July          WRONG, AND WE MISSED IT
+
+**Grange Hill is the one that already cost us.** The invitation and the 24/07 Document Register both say 27
+July; Paul's covering note said "Tuesday 28th", and the log, the dashboard and our own records all took the
+covering note over the primary document. So the tender was **already a day late** when Adam asked Luke Baker
+for an extension at 15:01 on 28/07 - still unanswered. BSW never returned a price either despite Gintare's
+10:37 chase saying "we need to submit this one today", so all we hold is the GBP 27,560.07 benchmark. Same
+shape as the Vesuvius client-name error the day before: **every record agreed because every record was a copy
+of one record, and the primary source said something else.**
+
+Still unfixed from yesterday: St Mary's shows 17/07 against the re-opened 27/07; Riverside has a number but no
+enquiry date, no deadline and no controller against a live GBP 5,990.22; the Storm secondary-glazing enquiry is
+on no log at all; Crestwood still reads "Waiting on Teleflex" though the quote issued 27/07, Adam Lewis
+acknowledged it 28/07 13:01 and Adam closed Teleflex himself. **Five rows carry a forward deadline and not one
+names a controller** - REQ-30, unchanged.
+
+**FILWOOD: A SECOND FABRICATOR REFUSED THE U-VALUE IN WRITING, AND IT CLOSES TOMORROW.** A Plus QT51510 landed
+28/07 12:14 - GBP 34,445.91, GBP 11,621.68 under BSW but not like-for-like ("Panels by others"), and page 16
+says *"Quoted in STII, these will only reach 1.8/1.9 U Value"* against a specified 1.0. The filwood chat had
+already worked this; the point for the morning was that REQ-10 has been open since Monday with four decisions
+on it and the install line is still GBP 3,500 against GBP 18,446.32.
+
+**THREE WORK ORDERS WERE SITTING IN THE QUEUE UNSEEN, TWO OF THEM TRUSTED INSTRUCTIONS FROM ADAM FROM 22:13 AND
+22:16 THE NIGHT BEFORE** (`dashmsg-62`, `dashmsg-63`) - found only because the close-out checklist says to look
+at the queue. Both answered on the dashboard this morning; **both actions are still outstanding and the queue
+files are deliberately left in place.** REQ-10: *"Find us a local Aluprof fabricator or two, urgently. Can you
+email me on this dan.parker thing I do not understand."* REQ-12: *"I have noted the RRR thing and sent to
+Gintare. Send me an email with the bullet points of the other errors."*
+
+**AND ONE FINDING RETRACTED ON ADAM'S OWN EVIDENCE.** REQ-12 recorded the Georgie's GBP 6,125.00 uplift as
+having been "typed over the template formulas so the issued workbook no longer recomputes". Adam: *"The costs
+changed because we sat down in person and worked it out, hence why I missed the final quote check and the RRR
+thing slipped through."* Accurate about the file, wrong about the cause - a broken formula chain is evidence of
+an edit, never evidence of an unauthorised one. The uplift was a decision. What survives is the missed check.
+
+Positions unchanged, nothing issued: Filwood and Vesuvius close 30/07, Brocks Hill 31/07 with seven external
+doors still outside the tender, Darrick Wood nineteen days with A Plus's requote sitting five days unsent.

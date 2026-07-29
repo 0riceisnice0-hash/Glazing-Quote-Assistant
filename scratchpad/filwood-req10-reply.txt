@@ -1,0 +1,22 @@
+Aluprof keep their approved-fabricator list behind a trade login, so nobody outside can name one
+reliably. Two routes, both real:
+
+1. ALUMINIUM FIRE SYSTEMS - we already trade with them and they already fabricate Aluprof. Their own
+quote to us, Q7585 on Gordon Court, is Aluprof MB-78EI. Chris Wall, chris@aluminiumfiresystems.com,
+0121 277 4870. Ask whether they do the shopfront and curtain-wall ranges as well as the fire doors -
+that is the only unknown.
+
+2. ALUPROF UK DIRECT - living@aluprof.com, 0161 941 4005, Altrincham. That email is printed in
+Stepnell's own trade bill. They will name approved fabricators near Bristol, and it is one call rather
+than a guess.
+
+Worth having in front of you when you ring: Aluprof's MB-SR50N HI curtain wall is Uf 0.85-0.94 W/m2K.
+So the specified 1.0 IS achievable in the specified system - it is the shopfront systems that cannot do
+it (Technal STII 1.8/1.9 stated, SMA Shopline non-rebated). That reframes the tender from "our supplier
+missed the U-value" to "we quoted the wrong class of system".
+
+Being straight about the clock: nobody will price 123 m2 of shopfront by tomorrow. This gets you the
+fabricator names and the U-value answer for the qualification, not a third price.
+
+STILL UNDECIDED ON THIS REQUEST, and the tender goes tomorrow: the install line (GBP 3,500 against
+GBP 18,446.32), and firm price or provisional sum. I have left it open rather than raise a new one.

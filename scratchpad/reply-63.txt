@@ -1,0 +1,19 @@
+Received - same as the other one, this reached me this morning, so you have been waiting since 22:16.
+
+Two things back.
+
+1. The GBP 6,125.00 is now explained and I am closing it as a finding. You sat down and worked the costs out in person - that makes the uplift a decision, not an unexplained edit. I had it recorded as "typed over the template formulas so the issued workbook no longer recomputes", which was accurate about the file but wrong about the cause. Corrected in the job record.
+
+2. The bullet-point email on the other errors - that is next on my list, and I will keep it to bullets.
+
+For now, the four that will be in it:
+
+- Schedule 2.39 was never sent to BSW, so four of six BS EN 1125 panic devices are not in the price - D01, D03, D04, and D02 which physically cannot take one. D06/D07 carry panic bars where the spec wants master-suited classroom locksets.
+
+- The BSW quote behind the price (0000000513) says in writing "no elevations showing the frame I have quoted so designs have been assumed" and "no hardware schedule, so I have assumed single doors to be fire escapes". That is inside the GBP 89,229.61 Pearce hold.
+
+- Strip-out and asbestos are both unfunded. Strip-out now has a rate - GBP 150.00/unit off our own Brandon Estate tender.
+
+- Mercury have confirmed the aluminium vertical sliders are single colour only, so the specified white internal / brown external cannot be done in aluminium at all. Gintare has recommended uPVC VS to Neil, which is also cheaper - that is a live commercial question with Pearce, not just a spec note.
+
+Noted that the RRR re-issue is with Gintare. As of 07:53 this morning nothing had left estimating@, so Pearce were still holding the branded copy.

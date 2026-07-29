@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-29",
+ "updated": "2026-07-29T08:20:00",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -341,18 +341,17 @@
    "owner": "Adam",
    "title": "Filwood: install line, firm-or-provisional, and now a system question that outranks both",
    "why": "The tender goes to Stepnell on Thursday 30/07 at GBP 67,067.58 ex VAT. The installation inside it is GBP 3,500 for 122.98 m2 of shopfront 3.5 metres tall - GBP 28.46 a square metre - because the template INSTALLATION formula read the DAD door code and gave GBP 500 per screen. Our own CW labour rate of GBP 150/m2 makes it GBP 18,446.32. The proposal also excludes scaffold, MEWPs and towers while including installation of 3,570mm elements, so there is no access plant in the price either. Separately, Stepnell's bill item A instructs tenderers to carry the shopfronts as Contractor's Provisional Sums under Work Section A54 and not to price them twice - Mary's 17/07 submission was a provisional sum, Gintare's is a firm lump sum, and item A is currently unanswered. Since raising this, Mary found the BSW correspondence: Gintare's RFQ of 23/07 asked for all of it correctly - mill finish, RAL 7035 to the doors only, U 1.0, g 0.5-0.6, Rw 32 dB, LPS 1175 SR2, thresholds, M4(2) - and BSW's reply answered only on u/g/acoustic values and panels, limiting even that to \"glazing only ... non rebated\". So the RFQ was right and the quote did not answer it. UPDATE 28/07, two days before the return: a SECOND quote arrived - Aplus QT51510, Technal STII, GBP 34,445.91 against BSW's GBP 46,067.59. It is not a like-for-like: Aplus state 'Panels by others' and leave 46.09 m2 of infill out, 37.5% of the elevation, which BSW include. Break-even is GBP 252.15/m2 of panel and neither quote yields a panel rate, so the comparison cannot be settled from anything we hold. More important: Aplus state 'Quoted in STII, these will only reach 1.8/1.9 U Value' against a specified 1.0, and 'STII doors have no formal acoustic test data' against ED-06's Rw 32 dB. BSW had already limited their compliance to 'glazing only ... non rebated'. Two independent fabricators, two systems, both saying no - which points at the Aluprof specification being the only route to the performance, and we have approached no Aluprof fabricator at all.",
-   "needs": "Now four things, and the third is new and outranks the rest: (1) correct the install to GBP 18,446.32 or give a figure; (2) firm price or provisional sum; (3) do we go to an Aluprof-approved fabricator before Thursday, or submit on a substituted system with the U-value non-compliance stated on the face of the tender; (4) who gets a panel price so the two quotes can actually be compared. Also, before anything is attached: the pricing workbook carries dan.parker@agsurveying.co.uk and external links to two other firms' machines - the Georgie's defect, caught this time before issue.",
+   "needs": "TWO DECISIONS LEFT AND THE TENDER GOES TODAY: (1) the install line - GBP 3,500 as drafted against GBP 18,446.32 at our own CW labour rate; (2) firm price, or Contractor's Provisional Sum as bill item A instructs. The Aluprof half is answered - fabricator contacts are in the reply, and MB-SR50N HI at Uf 0.85-0.94 confirms the 1.0 target is achievable in the specified system. Kept open rather than raising a new request.",
    "options": [
-    "Correct install and submit firm on BSW, with the U-value non-compliance stated",
+    "Correct install to GBP 18,446.32 and submit firm",
     "Correct install and submit as a Contractor's Provisional Sum per bill item A",
-    "Get an Aluprof fabricator to price it before Thursday",
-    "Ask Stepnell for an extension and price it properly",
-    "Get a panel price first, then choose between BSW and Aplus"
+    "Submit as drafted at GBP 67,067.58",
+    "Ask Stepnell for an extension and get Aluprof priced properly"
    ],
    "status": "open",
-   "answer": null,
-   "answered_by": null,
-   "answered_at": null
+   "answer": "Adam, 28/07 21:13: \"Find us a local Aluprof fabricator or two, urgently. Can you email me on this dan.parker thing I do not understand.\" ANSWERED 29/07. Fabricators: (1) Aluminium Fire Systems already fabricate Aluprof - their own Q7585 to us on Gordon Court is Aluprof MB-78EI - Chris Wall, chris@aluminiumfiresystems.com, 0121 277 4870, to be asked whether they do the shopfront/CW ranges as well as fire doors; (2) Aluprof UK direct, living@aluprof.com, 0161 941 4005, which is the email printed in Stepnell's own trade bill - their approved-fabricator list is behind a trade login so nobody outside can name one reliably. Also established: Aluprof MB-SR50N HI is Uf 0.85-0.94 W/m2K, so the specified 1.0 IS achievable in the specified system - the shopfront systems are the problem, not the suppliers. dan.parker: emailed separately - it is the document author embedded in MASTER PRICING DOC 10.07.2026.xlsx itself, so 1,151 of 1,668 workbooks in the tender archive carry it, not a Filwood problem.",
+   "answered_by": "Adam (instruction) / Mary (answered back)",
+   "answered_at": "2026-07-29"
   },
   {
    "id": "REQ-11",
@@ -387,7 +386,10 @@
     "Reissue the branding fix now and follow with the panic hardware as a priced clarification"
    ],
    "status": "open",
-   "updated": "2026-07-28"
+   "updated": "2026-07-28",
+   "answer": "Adam on the dashboard 28/07 22:16: 'I have noted the RRR thing and sent to Gintare. Send me an email with the bullet points of the other errors. The costs changed because we sat down in person and worked it out, hence why I missed the final quote check and the RRR thing slipped through.' So the GBP 6,125.00 uplift was DELIBERATE and agreed in person - it is not an unexplained edit - and the missed check is accounted for. The RRR re-issue is with Gintare. Outstanding: the bullet-point email on the remaining errors (panic bars, strip-out, asbestos). ACTION OUTSTANDING as at 29/07 07:53.",
+   "answered_by": "Adam (dashboard, awaiting Mary action)",
+   "answered_at": "2026-07-28T22:16:27+01:00"
   },
   {
    "id": "REQ-13",
@@ -698,8 +700,8 @@
    "job": "Estimating Log housekeeping",
    "owner": "Adam / Gintare",
    "title": "A live ITT is on nobody's log, and no forward job on the log names a controller",
-   "why": "This morning's cross-check of the Estimating Log (326 populated rows, last saved 27/07 16:51) against estimating@. John North Hall, 1-39 Vaughan House, High Wycombe - ITT from Jordan Jones at Neil Douglas, in at 16:56 on 27/07 via info@, tender due 9am Monday 24 August, five communal entrance door sets - is not on the log at all: zero rows match 'john north' or 'wycombe', and the only 'vaughan' is an unrelated 2025 job. The Maternity Assessment Unit secondary-glazing enquiry Adam chased with Storm on 27/07 is not on it either. Riverside reads 'to log' with no number, no enquiry date, no deadline and no controller against a live priced job at GBP 5,990.22. Lower Range Road has its 07/08 deadline but no log number. St Mary's still shows 17/07 where ET&S's 24/07 register says 27/07. Six rows carry a deadline of today or later and none of the six names a controller. Grange Hill 8740, Georgie's 8741 and Vesuvius 8742 - Saturday's three 'to log' entries - have all been cleared, so the log is being kept; these are the gaps left.",
-   "needs": "Someone to log John North Hall and give it an owner - there is a month to the close so nothing is at risk yet, and Jordan Jones has offered a site meeting, which is the part with a shorter fuse. Plus a controller named against the six forward rows, and the St Mary's deadline corrected to 27/07.",
+   "why": "This morning's cross-check of the Estimating Log (326 populated rows, last saved 27/07 16:51) against estimating@. John North Hall, 1-39 Vaughan House, High Wycombe - ITT from Jordan Jones at Neil Douglas, in at 16:56 on 27/07 via info@, tender due 9am Monday 24 August, five communal entrance door sets - is not on the log at all: zero rows match 'john north' or 'wycombe', and the only 'vaughan' is an unrelated 2025 job. The Maternity Assessment Unit secondary-glazing enquiry Adam chased with Storm on 27/07 is not on it either. Riverside reads 'to log' with no number, no enquiry date, no deadline and no controller against a live priced job at GBP 5,990.22. Lower Range Road has its 07/08 deadline but no log number. St Mary's still shows 17/07 where ET&S's 24/07 register says 27/07. Six rows carry a deadline of today or later and none of the six names a controller. Grange Hill 8740, Georgie's 8741 and Vesuvius 8742 - Saturday's three 'to log' entries - have all been cleared, so the log is being kept; these are the gaps left.\n\n29/07 CROSS-CHECK (log now 327 rows, last saved 28/07 17:00). Three of the six are cleared: John North Hall is on as 8751, Lower Range Road has its number 8750, Riverside has 8749. But John North Hall went on with the WRONG DEADLINE - logged 21/08 against an ITT that says 9am Monday 24 August. A second date defect surfaced the same way: Grange Hill is logged 28/07 where the invitation and the 24/07 Document Register both say 27 July, so the log helped carry a deadline we then missed. Still unfixed from yesterday: St Mary's shows 17/07 against the re-opened 27/07; Riverside has a number but still no enquiry date, no deadline and no controller against a live GBP 5,990.22; the Storm secondary-glazing enquiry is on no log at all; and Crestwood still reads 'Waiting on Teleflex' although the quote issued 27/07, Adam Lewis acknowledged it 28/07 13:01 and Adam closed Teleflex. Five rows now carry a forward deadline and not one names a controller.",
+   "needs": "Unchanged plus two date corrections that matter more than the gaps: John North Hall 21/08 -> 9am 24/08, and Grange Hill 28/07 -> 27/07 (already missed). Then a controller against the five forward rows, St Mary's to 27/07, Crestwood's note closed out, and the Storm enquiry logged.",
    "options": [
     "Gintare picks all of it up",
     "Mary drafts the log rows and Gintare pastes them in",
@@ -769,6 +771,13 @@
   }
  ],
  "catches": [
+  {
+   "date": "2026-07-29",
+   "job": "All jobs (found on Filwood)",
+   "catch": "MASTER PRICING DOC 10.07.2026.xlsx names its author as Dan Parker, dan.parker@agsurveying.co.uk - a surveyor at another firm - so every pricing document cloned from it inherits the name. 1,151 of the 1,668 workbooks in the tender archive carry it, including ones already issued to clients. A client sees it by right-clicking the file and opening Properties, without ever opening the spreadsheet. Fixing the master fixes every future job in about a minute.",
+   "type": "third-party traces",
+   "value": "1,151 of 1,668 workbooks"
+  },
   {
    "date": "2026-07-28",
    "job": "BCC Filwood Broadway",

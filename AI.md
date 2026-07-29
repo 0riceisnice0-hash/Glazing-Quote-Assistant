@@ -294,6 +294,60 @@ Two more things from the same comparison worth reusing:
   on the quote before using it - this was caught only because the first build produced GBP 102,036.76
   against a stated GBP 34,445.91.
 
+## Fix The Defect At The Template, Not At The Job (learned 29/07/2026, Filwood)
+
+Georgie's, then Filwood: pricing workbooks carrying `dan.parker@agsurveying.co.uk` as the document
+author. Both were logged as job defects. Neither was.
+
+**`MASTER PRICING DOC 10.07.2026.xlsx` itself carries
+`<dc:creator>Dan Parker;dan.parker@agsurveying.co.uk</dc:creator>`**, so every pricing document cloned
+from the master inherits it. A scan of `Commercial\1. Tender Documents` found it in **1,151 of 1,668
+`.xlsx` files**, including issued ones. Fixing the master takes a minute and fixes every future job;
+fixing them one at a time never finishes.
+
+The general rule: **when the same defect appears on a second job, stop fixing the job and go and look at
+the thing both jobs were made from.** Templates, house documents and boilerplate propagate silently, and
+the count is usually the argument that gets it fixed - "1,151 of 1,668" moves a Commercial Director in a
+way that "another job has this too" does not.
+
+Two things worth separating when you find traces, because they have different fixes:
+
+- **Document properties** (`docProps/core.xml` - `dc:creator`, `cp:lastModifiedBy`) come from the
+  template. Fix at source, once.
+- **External links** (`xl/externalLinks/_rels/*.rels`) come from pulling numbers out of somebody else's
+  workbook and name that firm's machine - Filwood carries `C:\Users\LiamO'Donnell` and `C:\Users\Parke`
+  via an Outlook `INetCache` path. Job-specific. Strip per job.
+
+One line to check any file:
+`python -c "import zipfile,sys;print(zipfile.ZipFile(sys.argv[1]).read('docProps/core.xml').decode('utf8','ignore'))" "<file.xlsx>"`
+
+## When A Spec Names A Manufacturer AND A Number Our Fabricators Cannot Reach (learned 29/07/2026, Filwood)
+
+Filwood's follow-on to the two-fabricators rule above. Having established that neither Bellview (SMA
+Shopline) nor Aplus (Technal STII) could reach the specified U 1.0, the question was whether the
+requirement was unreasonable or whether we were quoting the wrong product. **The manufacturer's own
+published data settles it in minutes:** Aluprof **MB-SR50N HI is Uf 0.85-0.94 W/m2K**, against Technal
+STII at a stated 1.8/1.9.
+
+So the named system was in a different thermal class, and the specification was not unreasonable - our
+substitution was. **If a spec names a manufacturer AND sets a performance figure our usual fabricators
+cannot reach, the manufacturer is probably named because of that figure.** Check the named system's
+published performance before assuming the requirement is negotiable.
+
+Practical notes when chasing a specified manufacturer:
+
+- **Aluprof's approved-fabricator list sits behind a trade login** (`strefa.aluprof.com`), so no third
+  party can name one reliably and a web search will hand you shopfitters who merely mention the brand.
+  Ask the manufacturer: `living@aluprof.com`, 0161 941 4005, Altrincham.
+- **Check the tender documents first - they often print the manufacturer's contact.** Stepnell's trade
+  bill item header carried Aluprof's address, website and email. The route to the answer arrived with
+  the enquiry.
+- **Check the archive before searching the web.** Aluminium Fire Systems turned out to be an Aluprof
+  fabricator already on account - their own Q7585 reads "Aluprof MB-78EI" - which no search would have
+  told us. Ask whether they cover the other ranges as well as the one they quoted.
+- Distinguish **Uf** (frame) from **Uw/Ucw** (whole element) when reporting it. Uf 0.85-0.94 proves the
+  class of system, not that the finished screen hits 1.0. Say which one you have.
+
 ## Point mary_checks At Real File Paths (learned 28/07/2026, Filwood)
 
 `check_no_third_party_traces_in_issued_files` returns **ASK** when `issued_documents` entries have no

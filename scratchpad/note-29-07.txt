@@ -1,0 +1,15 @@
+WHEN A LOG STARTS BEING KEPT, THE FAILURE MODE CHANGES FROM ABSENCE TO WRONGNESS - AND WRONGNESS IS HARDER TO SEE.
+
+Yesterday's cross-check found six gaps in the Estimating Log. Gintare closed three overnight. Two of the three closed WRONG: John North Hall went on as 8751 with a 21/08 deadline against an ITT that plainly says 9am Monday 24 August, and Grange Hill is logged 28/07 where the invitation and the 24/07 Document Register both say 27 July.
+
+An absent row announces itself - you search for the job and find nothing. A row that is present and wrong looks like the job is handled. Once a log is being maintained, stop checking whether the row EXISTS and start checking the row's DATE against the primary document.
+
+GRANGE HILL IS WHAT IT COSTS. Paul's covering note said "deadline is Tuesday 28th". The invitation said 27 July. The log, the dashboard and every record we hold took the covering note over the primary document, so the tender was ALREADY A DAY LATE when Adam asked Luke Baker for an extension at 15:01 on 28/07 - still unanswered. BSW never returned a price either, despite Gintare's 10:37 chase saying "we need to submit this one today".
+
+Third time this week for the same shape - Vesuvius's Stainforth/Staniforth, SM5's 14/07 return date, now this. EVERY RECORD AGREED BECAUSE EVERY RECORD WAS A COPY OF ONE RECORD. A covering note is somebody's reading of the document. The document is the document.
+
+TWO mary_send RENDERER RULES, both found by screenshotting rather than trusting the source. A line only becomes a green-ruled section heading if it is UNDER 70 CHARACTERS - two of my headings were 87 and 76 and silently lost their rule. And a bullet must be ONE UNWRAPPED LINE, because the block test is all(startswith("- ")) - wrap one onto an indented second line and the whole block renders as a literal dash. Invisible in the text, obvious in the render. Always run mary_preview.py and actually look at it.
+
+AND CHECK test-results\mary-inbox\queue AT THE START, NOT JUST AT CLOSE-OUT. Three work orders were sitting in it unseen, two of them TRUSTED dashboard instructions from Adam timed 22:13 and 22:16 the previous night - one of them urgent on a tender closing the next day. I only found them because the close-out checklist says to look. A job chat that never opens the queue never learns it has been asked for something.
+
+ONE FINDING RETRACTED, AND THE REASONING ERROR IS GENERAL. I had recorded the Georgie's GBP 6,125.00 uplift as "typed over the template formulas so the issued workbook no longer recomputes". Adam: "The costs changed because we sat down in person and worked it out." Accurate about the file, wrong about the cause. A BROKEN FORMULA CHAIN IS EVIDENCE OF AN EDIT, NEVER EVIDENCE OF AN UNAUTHORISED ONE. Report the artefact, ask the cause.

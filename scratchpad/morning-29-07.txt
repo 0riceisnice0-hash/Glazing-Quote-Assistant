@@ -1,0 +1,93 @@
+Two tenders close tomorrow, both waiting on you. And a quote with another company's logo on it
+is still sitting with Pearce. Times are BST.
+
+
+1. GEORGIE'S - PEARCE STILL HOLD THE QUOTE WITH RRR GROUP'S BRANDING
+
+You asked at 20:57 last night for it to be amended and sent back to Neil ASAP.
+
+Corrected pack was built and confirmed to you at 22:09. Nothing has left estimating@ since 20:57.
+
+It has not gone. Neil chased for it at 11:52 yesterday, so he is watching his inbox.
+
+
+2. FILWOOD - CLOSES TOMORROW, U-VALUE REFUSED BY A SECOND FABRICATOR
+
+A Plus quoted QT51510 at 12:14 yesterday: GBP 34,445.91.
+
+GBP 11,621.68 under BSW, but NOT like-for-like - their page 16 says "Panels by others".
+
+Their words: "Quoted in STII, these will only reach 1.8/1.9 U Value." The spec asks 1.0.
+
+That is two fabricators refusing it in writing. It is now a specification problem, not a
+supplier one.
+
+REQ-10 open since Monday, four decisions on it. Install is still GBP 3,500 against GBP 18,446.32
+at our own CW labour rate - GBP 14,946.32 short.
+
+
+3. VESUVIUS - CLOSES TOMORROW, THE 45% ENQUIRY IS STILL UNSENT
+
+REQ-8, open since Monday. GBP 49,377.50 of the GBP 110,551.98 budget sits on SF52 screens with
+60-minute doors in them, and SF52 is not a fire-rated system.
+
+Written and ready: outputs\Vesuvius Way - RFQ to Aluminium Fire Systems (draft, send today).txt
+
+AFS turned Gordon Court round in two days, so today is still worth it.
+
+
+4. GRANGE HILL - THE DEADLINE WAS MONDAY, NOT TUESDAY
+
+The invitation and the 24/07 Document Register both say 27 July. The log, the dashboard and our
+records all carried 28/07 - that came from Paul's covering note.
+
+So it was already a day late when you asked Luke Baker for an extension at 15:01. No reply yet.
+
+BSW never returned a price either; Gintare chased at 10:37. We hold only my GBP 27,560.07
+benchmark.
+
+REQ-33 also open: spec 3.16 (2no FD60 doorsets) and 3.15.2 are in nobody's price and nobody's
+exclusions.
+
+
+5. THE ESTIMATING LOG AGAINST THE INBOX
+
+Gintare cleared three of yesterday's six. Log now 327 rows, last saved 17:00.
+
+On now: John North Hall (8751), Lower Range Road (8750), Riverside (8749).
+
+Still wrong:
+
+- John North Hall logged 21/08. The ITT says 9am Monday 24 August.
+
+- Grange Hill logged 28/07. The invitation says 27 July.
+
+- St Mary's still 17/07. The re-opened return date was 27/07 and it passed.
+
+- Crestwood still reads "Waiting on Teleflex" - the quote went 27/07, Adam Lewis acknowledged it at 13:01 yesterday, and you closed Teleflex.
+
+- Riverside has no enquiry date, no deadline, no controller against a live GBP 5,990.22.
+
+- The Storm secondary-glazing enquiry is on no log at all.
+
+Five rows carry a forward deadline. Not one names a controller. REQ-30, unchanged.
+
+
+6. DARRICK WOOD - NINETEEN DAYS
+
+AJ Group rejected our take-off on 09/07 and asked for a revision by 13/07. A Plus returned the
+requote on 24/07 and it has sat for five days.
+
+The last thing Gleb Saliev has heard from us is your holding reply of 10/07.
+
+
+7. THREE SHORT ONES
+
+Mercury confirmed aluminium vertical sliders are single colour only, so Georgie's white-in /
+brown-out cannot be done in aluminium. Gintare has recommended uPVC VS to Neil, which is also
+cheaper - a live commercial question with Pearce.
+
+The BSW quote behind the Georgie's price (0000000513) says "designs have been assumed" and "I
+have assumed single doors to be fire escapes". That is in the number we issued.
+
+Brocks Hill closes Friday with seven external doors still outside the tender.

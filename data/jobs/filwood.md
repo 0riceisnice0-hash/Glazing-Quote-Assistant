@@ -252,20 +252,70 @@ reach 1.0 in a shopfront, that is an RFI to RCKa through Stepnell - not a silent
   instruction is to consolidate rather than add. Everything went into REQ-10, which was already the
   Filwood decision, with the options rewritten.
 
+## 7a. Aluprof - answered 29/07 (Adam asked on REQ-10)
+
+**Aluprof's approved-fabricator list is behind a trade login** (`strefa.aluprof.com`), so no third party
+can name one reliably. Two real routes:
+
+1. **Aluminium Fire Systems already fabricate Aluprof.** Their own quote to us - **Q7585, Gordon
+   Court** - is *Aluprof MB-78EI, Certifire accredited*. Live account, quoted Fenster twice this month.
+   **Chris Wall, chris@aluminiumfiresystems.com, 0121 277 4870** (also Julian Ward julian@, Charlie
+   Skipp charlie@). **Unknown to resolve:** MB-78EI is the fire-door system - ask whether they fabricate
+   the shopfront and curtain-wall ranges too.
+2. **Aluprof UK direct - `living@aluprof.com`, 0161 941 4005**, Unit 5 Altrincham Business Park, Stuart
+   Road, Altrincham WA14 5GJ. **That email is printed in Stepnell's own trade bill item header**, so it
+   came with the tender. One call gets approved names near Bristol *and* the U-value answer.
+
+**The U-value question is now settled in Aluprof's favour: MB-SR50N HI is Uf 0.85-0.94 W/m2K**
+(manufacturer's own product data). Uf is the frame figure, not whole-element Ucw, so it is not proof the
+finished screen hits 1.0 - but it puts the specified system in a completely different thermal class from
+Technal STII at 1.8/1.9. **So the 1.0 target is achievable in the specified system.** That converts
+findings 17-18 from "our suppliers missed it" to **"we quoted the wrong class of system"**, and it is
+very likely why RCKa named Aluprof and issued the drawings to Aluprof directly.
+
+Honest about the clock: **nobody prices 123 m2 of shopfront overnight.** This gets the fabricator names
+and the compliance answer for a qualification - not a third price before the return.
+
+## 7b. The dan.parker trace is a company-wide defect, not a Filwood one (29/07)
+
+Adam asked for this in writing because he did not follow the earlier flag. Emailed 29/07.
+
+**`MASTER PRICING DOC 10.07.2026.xlsx` itself carries
+`<dc:creator>Dan Parker;dan.parker@agsurveying.co.uk</dc:creator>` in `docProps/core.xml`.** Every
+pricing document cloned from the master inherits it. Scan of the tender archive: **1,151 of 1,668 .xlsx
+files carry his name**, including issued ones. A client sees it by right-clicking the file and opening
+Properties - the spreadsheet never has to be opened. **Fix the master once and every future job is
+clean.**
+
+The **external links** are the separate, job-specific half: Filwood's workbook links to
+`C:\Users\LiamO'Donnell` and `C:\Users\Parke` through an Outlook `INetCache` path, from wherever the
+numbers were pulled in. Those get stripped per job.
+
+Check any file in one line:
+`python -c "import zipfile,sys;print(zipfile.ZipFile(sys.argv[1]).read('docProps/core.xml').decode('utf8','ignore'))" "<file.xlsx>"`
+
 ## 8. Status
 
-**Checked 27/07, rechecked 28/07 against the second quote, and reported to Adam + Zac by email each time
-with the workbook attached.** Nothing has been sent to Stepnell.
+**Checked 27/07, rechecked 28/07 against the second quote, Adam's 28/07 instruction answered 29/07.**
+Nothing has been sent to Stepnell.
 
-**Deadline THURSDAY 30/07 - two days.** REQ-10 on the hub carries all four open decisions:
+**Deadline THURSDAY 30/07 - TOMORROW.** Two decisions still open on REQ-10, and only two:
 
-1. Correct the install line to GBP 18,446.32, or give a figure.
-2. Firm price, or Contractor's Provisional Sum per bill item A.
-3. **New and outranking both:** go to an Aluprof-approved fabricator before Thursday, or submit on a
-   substituted system with the U-value non-compliance stated on the face of the tender. Two fabricators
-   have now refused 1.0 in writing.
-4. Who gets a panel price, so BSW and Aplus can actually be compared.
+1. **The install line** - GBP 3,500 as drafted, against GBP 18,446.32 at our own CW labour rate.
+2. **Firm price, or Contractor's Provisional Sum** as bill item A instructs.
 
-And before anything is attached to anything: strip the third-party traces out of the pricing workbook,
-and issue a sell-only copy with the working columns removed. Re-run
+Answered and closed out of the request: the Aluprof fabricator question (7a) and the dan.parker
+question (7b). The panel-price question stands but is not decidable before the return and is not worth
+holding the tender for - the break-even is GBP 252.15/m2 whenever a price appears.
+
+Deliberately **no new request raised** - 15 were already open and unanswered, and REQ-10 was already the
+Filwood decision. Adam's own words this week: "don't be afraid to challenge things", but "this word
+count is insane". Decisions on the request, proof in this file.
+
+Before anything is attached to anything: strip the third-party traces out of the pricing workbook, and
+issue a sell-only copy with the working columns removed. Re-run
 `python scripts\mary_checks.py data/job-checks/filwood.json` after.
+
+**Hub note 29/07:** `mary_dashboard.py --deploy` fails on the npx/miniflare EBUSY lock that vesuvius
+reported at 06:26 - concurrent deploys from other chats. Two attempts. `dashboard-state.json` is correct
+and committed, and the dashboard reply to Adam posted fine (200). The next chat to deploy publishes it.

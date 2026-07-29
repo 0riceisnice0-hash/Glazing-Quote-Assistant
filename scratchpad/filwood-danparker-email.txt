@@ -1,0 +1,23 @@
+Adam,
+
+Every Excel file carries hidden properties recording who created it. Ours name the author as Dan Parker,
+dan.parker@agsurveying.co.uk - a surveyor at another firm.
+
+It is not a Filwood problem. It is in MASTER PRICING DOC 10.07.2026.xlsx itself, so every pricing
+document cloned from the master inherits it. I scanned the tender archive this morning: 1,151 of 1,668
+workbooks carry his name, including ones already sent to clients.
+
+A client sees it by right-clicking the file and opening Properties. They never have to open the
+spreadsheet.
+
+Two fixes:
+
+1. Change the author on the master template. One minute, and every future job is clean.
+
+2. Send PDFs rather than workbooks. That also closes the separate problem that our pricing files show
+   the supplier cost columns to anyone who scrolls right.
+
+Filwood has a second version of this that is job-only: links to two other companies' computers, from
+wherever the numbers were pulled in. I can strip those before it goes out.
+
+Nothing has gone to Stepnell.

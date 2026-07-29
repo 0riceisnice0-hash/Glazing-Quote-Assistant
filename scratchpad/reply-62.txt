@@ -1,0 +1,13 @@
+Received - this reached me at the start of this morning's session, not last night, so you have been waiting on it since 22:13. Flagging that rather than glossing it.
+
+Filwood is item 2 in the morning update that just went to you.
+
+On your two asks:
+
+1. Local Aluprof-approved fabricator - not yet searched. This is the next thing I pick up.
+
+2. The dan.parker point - that is not a pricing issue, it is a document leak, and I will put it in an email to you rather than answer it here. Short version: the Filwood pricing workbook carries dan.parker@agsurveying.co.uk as its file creator plus live external links, because our master template was built from a copy of somebody else's file. It is on every job that template has ever produced, not just Filwood. That is REQ-27.
+
+What has NOT moved since you sent this, and the tender closes tomorrow: the install line is still GBP 3,500 against GBP 18,446.32 at our own CW labour rate, and there is still no answer on firm-price-vs-provisional-sum or on who prices the panels so the two supplier quotes can be compared like for like.
+
+A Plus have now put the U-value refusal in writing too - "Quoted in STII, these will only reach 1.8/1.9 U Value" against a specified 1.0. That is two fabricators. It is a specification problem now, not a supplier one.
