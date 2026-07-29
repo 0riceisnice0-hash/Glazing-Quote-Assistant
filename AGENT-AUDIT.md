@@ -73,7 +73,27 @@ injection guard, ghost protocol, the botchat 429 and the hub deploy guard are *s
 walls* and stay walls forever. The plan removes judgment-rules only, one at a time, when
 the faculty that replaces each is measurably working.
 
-### 1d. What is already right (build on, not over)
+### 1d. The attachment question (Zac, 29/07: "she can't see email attachments")
+
+Checked empirically against the live mailbox rather than the code's word:
+
+- **Ordinary file attachments DO reach her.** All 54 work-order attachment folders on
+  disk contain their files, and the exact endpoint the poller calls returns inline
+  bytes even for the 13.7 MB Redditch tender pack and a 29.9 MB Vesuvius zip.
+- **Three things were invisible, silently:** attached emails (`itemAttachment`),
+  OneDrive/SharePoint links (`referenceAttachment`), and any file whose bytes Graph
+  chose not to inline. The downloader dropped them with no trace, so a skipped pack
+  looked identical to a mail with none. **Fixed 29/07:** every skip is now written to
+  `_NOT-FETCHED.txt` in the attachment folder, so the session knows something existed
+  and can chase it or say so. (Takes effect on the bridge's next restart.)
+- **Jacob genuinely cannot see attachments.** His daily intake is deliberately
+  metadata-only (sender + subject, no session spent); only ad-hoc `jacob_mail.py` opens
+  content. That is a design choice, not a bug - but it belongs in his ledger-feed plan
+  (§4), because "a buyer sent drawings" is exactly the signal his board wants.
+- **Humans on the hub cannot see what she read.** The Comms log shows "2 attachment(s)"
+  as text with no way to open them. Worth a hub work order if it matters.
+
+### 1e. What is already right (build on, not over)
 
 The pricing engine with provenance and earned calibrations; `mary_checks.py` where every
 rule is a real past mistake and new mistakes become new rules; the calibration log with

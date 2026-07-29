@@ -102,18 +102,41 @@ def html_to_text(html):
 
 
 def download_attachments(token, mailbox, msg_id, dest_dir):
+    """Save a message's attachments. Ordinary fileAttachments carry their bytes
+    inline (verified 29/07 up to a 29.9MB zip). What CANNOT be saved this way -
+    an attached email (itemAttachment), a OneDrive/SharePoint link
+    (referenceAttachment), or a fileAttachment whose bytes were omitted - used
+    to be dropped with no trace, so a skipped tender pack looked identical to a
+    mail with no real attachments. Now every skip is written to _NOT-FETCHED.txt
+    in the same folder, so the session can see something existed and go after
+    it (or say so) instead of pricing blind."""
     st, res = graph(token, "GET", "/users/%s/messages/%s/attachments" % (mailbox, urllib.parse.quote(msg_id, safe="")))
     if st != 200:
         raise RuntimeError("attachments failed: %s %s" % (st, res))
-    saved = []
+    saved, skipped = [], []
     os.makedirs(dest_dir, exist_ok=True)
     for att in res.get("value", []):
-        if att.get("@odata.type") == "#microsoft.graph.fileAttachment" and att.get("contentBytes"):
+        typ = att.get("@odata.type", "")
+        if typ == "#microsoft.graph.fileAttachment" and att.get("contentBytes"):
             name = re.sub(r'[\\/:*?"<>|]', "_", att.get("name", "attachment"))
             p = os.path.join(dest_dir, name)
             with open(p, "wb") as fh:
                 fh.write(base64.b64decode(att["contentBytes"]))
             saved.append(p)
+        elif att.get("isInline"):
+            continue
+        else:
+            what = {"#microsoft.graph.itemAttachment": "an attached email",
+                    "#microsoft.graph.referenceAttachment": "a OneDrive/SharePoint link"}.get(
+                        typ, "a file whose bytes Graph did not include")
+            skipped.append("%s (%s, %s bytes)" % (att.get("name", "unnamed"), what, att.get("size", "?")))
+    if skipped:
+        p = os.path.join(dest_dir, "_NOT-FETCHED.txt")
+        with open(p, "w", encoding="utf-8") as fh:
+            fh.write("These attachments exist on the message but could not be saved here.\n"
+                     "Do not treat this mail as attachment-free - fetch them another way or say so:\n\n"
+                     + "\n".join("- " + s for s in skipped) + "\n")
+        saved.append(p)
     return saved
 
 
