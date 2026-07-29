@@ -5,12 +5,13 @@
  "systems_specified": [
   {
    "system": "Aluprof aluminium framed shopfront system",
-   "fabricator": null,
+   "fabricator": "NONE APPROACHED - Aluminium Fire Systems fabricate Aluprof MB-78EI (their Q7585 to us) but have not been asked about the shopfront/CW ranges",
    "performance": {
     "required": "U 1.0 per element, g 0.5-0.6, ED-06 >= Rw 32 dB and LPS 1175 SR2",
-    "capable": null,
-    "evidence": "Named as Manufacturer in the trade bill item header (with address and website) and in the External Materials Schedule s.N p41. Drawing 31551's own revision history reads 'Issued to Aluprof 2025.10.22' and 'Updated Issue to Aluprof 2025.10.29' - RCKa developed the design with Aluprof directly. Fenster have approached NO Aluprof fabricator. Nobody has asked Aluprof whether their system meets the schedule."
-   }
+    "capable": true,
+    "evidence": "SETTLED 29/07 from Aluprof's own product data: MB-SR50N HI is Uf 0.85-0.94 W/m2K, against Technal STII's stated 1.8/1.9. Uf is the frame figure not whole-element Ucw, so it is not proof the finished screen reaches 1.0 - but it puts the specified system in a different thermal class and makes the 1.0 target achievable in the specified system. Aluprof UK: living@aluprof.com, 0161 941 4005, Altrincham - the email printed in Stepnell's own trade bill. Their approved-fabricator list is behind a trade login (strefa.aluprof.com), so nobody outside can name one; ask them. NOBODY HAS PRICED IT."
+   },
+   "can_make_it": false
   },
   {
    "system": "SMA Shopline Double (offered as an unstated alternative)",
@@ -371,5 +372,65 @@
     "note": "The quote has no terms page at all, so there is no warranty on the document to be back-to-back with."
    }
   ]
- }
+ },
+ "priced_lines": [
+  {
+   "ref": "ED-04 x4 shopfront screens",
+   "amount": 35703.25,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "ED-05 x2 shopfront screens",
+   "amount": 17841.97,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "ED-06 core entrance and retail screen",
+   "amount": 10022.36,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "Installation, GBP 3,500 lump",
+   "amount": 3500.0,
+   "covered_by_our_exclusions": "Access/Lifting Equipment - Scaffold, MEWPS, Towers, Forklift etc.",
+   "note": "PART of it is. We include installation of elements 3,570 mm tall and exclude the plant needed to reach them, so the priced line and the exclusion contradict each other."
+  },
+  {
+   "ref": "Electric strike, electric latch and rectifier on ED-06 (bundled inside BSW pos 005)",
+   "amount": null,
+   "covered_by_our_exclusions": "access control ... excluded unless specifically agreed",
+   "note": "WE ARE CHARGING FOR PART OF WHAT WE EXCLUDE. BSW bundled the strike, latch and rectifier into the element price with no extractable figure, and the proposal excludes access control outright. Either the exclusion is narrowed to the reader/wiring/power, or the hardware comes out."
+  },
+  {
+   "ref": "External mastic (offered as an optional extra)",
+   "amount": 605.05,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "EPDM (offered as an optional extra)",
+   "amount": 3081.49,
+   "covered_by_our_exclusions": false,
+   "note": "Priced as an option and described nowhere in the proposal clarifications - the Princess Beatrice shape."
+  }
+ ],
+ "bought_in_lines": [
+  {
+   "ref": "Spandrel / base / ventilation-zone infill panels, BSW",
+   "amount": null,
+   "supplier_ref": "Bellview 0000000507",
+   "supplier_qty": 70,
+   "supplier_qty_basis": "'Flat Aluminium Panel' counts inside each element - 11 per ED-04, 7 per ED-05, 12 on ED-06 - bundled into the element price with NO extractable figure. BSW's own words: 'I have used flat aluminium panels everywhere glass was not indicated.'",
+   "spec_required_qty": 46.09,
+   "spec_qty_basis": "m2 of infill measured off Aplus QT51510's unfilled apertures, 37.5% of the elevation. The drawing wants Q2 Cadisch expanded MESH with a free area in the ventilation band, not solid sheet, so the counts match while the product does not. Aplus exclude the same scope outright - 'Panels by others' - so no panel rate exists on either quote and the register has no panel category."
+  },
+  {
+   "ref": "'Additional' loading, GBP 1,000 on every one of the seven pricing rows",
+   "amount": 7000.0,
+   "supplier_ref": "none - this is our own money, not a bought-in cost",
+   "supplier_qty": null,
+   "supplier_qty_basis": "Undocumented. Column L of the pricing workbook carries a flat GBP 1,000 per row with nothing stating what it covers.",
+   "spec_required_qty": null,
+   "spec_qty_basis": "Adam ruled on 24/07 that estimators may load discretionary money into a unit rate and that it is not an error - so this is recorded, not challenged. But it sits in a checkable document with no basis written down."
+  }
+ ]
 }
