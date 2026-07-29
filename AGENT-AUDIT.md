@@ -210,7 +210,7 @@ nothing in this plan changes that.
 | 0 **DONE 29/07** | Backfill ledger from send log, D1, sent items, HANDOVER; token baseline per chat | `mary_recall.py` answers "what did I tell Adam about X" for any live job |
 | 1 **DONE 29/07** | Job-file contract + rotation in the bridge | No transcript over threshold; every close-out updates file + ledger; a reset chat picks up a live job without loss |
 | 2 **SHIPPED 29/07** (metric window open) | `adam.md` mined + send gate + re-raise guard | Interruption yield > 1/2 for 14 days; zero "already addressed" |
-| 3 | Knowledge distillation + librarian | Boot context ≤ index + job file; essays deleted from playbooks |
+| 3 **SHIPPED 29/07** | Knowledge distillation + librarian | Boot context ≤ index + job file; essays deleted from playbooks |
 | 4 | Token-true budgets; caps → circuit breakers | Cost per work order down, catches steady |
 | 5 | Jacob parity (companies, bd.md, ledger feeds) | His Today actions cite his own history unprompted |
 
@@ -302,3 +302,31 @@ Rotation without a bounded seed is a token relocation scheme. So:
 
 **Next: Phase 3** - knowledge distillation (the expert shelf out of AI.md/HANDOVER
 prose) and the librarian run.
+
+---
+
+## 9. Phase 3 - shipped 29/07
+
+- **`data/knowledge/INDEX.md` - the shelf.** Deliberately an INDEX, not a rewrite:
+  every entry is the rule in one line plus a pointer into `AI.md` / the playbooks, so
+  there is exactly one source of truth and nothing can drift. AI.md's own section
+  titles turned out to already be one-line rules ("A cheaper quote is not cheaper
+  until you count what is not in it") - the shelf groups them by topic (pricing, spec,
+  auditing, process, Adam, clients, tooling) and makes 2,924 lines random-access.
+  Boot now reads MARY-HANDOVER + the shelf + adam.md instead of ~10,000 lines;
+  `HANDOVER.md` is reached through the ledger's record index, not read.
+- **`scripts/mary_librarian.py` - the daily metabolism.** Deterministic, zero tokens,
+  runs 21:15 nightly (task `MaryLibrarian`): refreshes the ledger (networked), scores
+  the job-file contract, verifies every shelf pointer still lands on a heading,
+  reports send discipline and the next rotation candidates, writes
+  `test-results/librarian/<date>.md` and posts one line to the noticeboard. It keeps
+  score; it never edits knowledge - compaction stays with the chat that owns the file.
+  First run: 644 ledger events, 22 contract problems across 16 files (the migration
+  backlog the chats will clear), shelf pointers all valid, 3 chats over 4 MB queued
+  for rotation.
+- The boot-path essays are cut at the source: MARY-EMAIL-SESSION §0 now forbids the
+  end-to-end read it used to require.
+
+**Next: Phase 4** (token-true budgets; caps become circuit breakers) and **Phase 5**
+(Jacob parity). Also still open: the one bridge restart that brings the Phase 1-3
+prompt/bridge changes live - armed, waiting for a gap between her sessions.

@@ -275,7 +275,9 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
                 "TRIAGE chat - the front desk. It is resumed for every piece of work that does not belong to "
                 "an existing job chat, so treat it as a running log of what is arriving.\n\n"
                 "Read MARY-JOB-SESSION.md now (it explains how the chats work), then MARY-EMAIL-SESSION.md "
-                "for the triage rules, then MARY-HANDOVER.md for the standing rules and live job table.")
+                "for the triage rules, then MARY-HANDOVER.md for the standing rules and live job table, then "
+                "data/knowledge/INDEX.md - the shelf that indexes AI.md and HANDOVER.md so you never read "
+                "either end to end.")
         else:
             job = reg["jobs"].get(key, {})
             intro = ("You are Mary Grace, Fenster Glazing's estimating AI. This conversation is the PERMANENT chat "

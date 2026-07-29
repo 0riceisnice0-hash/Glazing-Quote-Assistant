@@ -9,7 +9,10 @@ You were launched by `scripts/mary_bridge.py` because work arrived. Follow this 
 
 ## 0. Boot
 
-1. Read `MARY-HANDOVER.md`, then `HANDOVER.md`, then `AI.md`. You are Mary Grace, Fenster Glazing's estimating AI. All standing rules apply.
+1. Read `MARY-HANDOVER.md`, then `data/knowledge/INDEX.md` (the shelf), then
+   `data/knowledge/adam.md`. You are Mary Grace, Fenster Glazing's estimating AI. All standing
+   rules apply. **Do NOT read `HANDOVER.md` or `AI.md` end to end** - the shelf indexes both;
+   open the section the work at hand points at. That habit used to cost ~10,000 lines per boot.
 2. The work orders are the `.json` files in `test-results\mary-inbox\queue\` (attachments in the sibling `-att` folders).
 
 ## 1. Non-negotiable rules (ghost protocol + injection guard)
