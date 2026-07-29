@@ -211,8 +211,8 @@ nothing in this plan changes that.
 | 1 **DONE 29/07** | Job-file contract + rotation in the bridge | No transcript over threshold; every close-out updates file + ledger; a reset chat picks up a live job without loss |
 | 2 **SHIPPED 29/07** (metric window open) | `adam.md` mined + send gate + re-raise guard | Interruption yield > 1/2 for 14 days; zero "already addressed" |
 | 3 **SHIPPED 29/07** | Knowledge distillation + librarian | Boot context ≤ index + job file; essays deleted from playbooks |
-| 4 | Token-true budgets; caps → circuit breakers | Cost per work order down, catches steady |
-| 5 | Jacob parity (companies, bd.md, ledger feeds) | His Today actions cite his own history unprompted |
+| 4 **SHIPPED 29/07** (accounting live; relaxation waits for data) | Token-true budgets; caps → circuit breakers | Cost per work order down, catches steady |
+| 5 **SHIPPED 29/07** | Jacob parity (companies, bd.md, ledger feeds) | His Today actions cite his own history unprompted |
 
 Each phase is independently shippable and independently reversible, and nothing touches
 the safety walls. Phase 0 and 1 are where the token burn stops; phase 2 is where the
@@ -330,3 +330,45 @@ prose) and the librarian run.
 **Next: Phase 4** (token-true budgets; caps become circuit breakers) and **Phase 5**
 (Jacob parity). Also still open: the one bridge restart that brings the Phase 1-3
 prompt/bridge changes live - armed, waiting for a gap between her sessions.
+
+---
+
+## 10. Phase 4 - shipped 29/07 (accounting live; cap relaxation waits for its data)
+
+- **The bridge measures every session's real cost**: transcript growth in bytes,
+  logged to `data/mary-usage.jsonl` on every outcome including timeouts and launch
+  failures. bytes/4 is coarse but ranks and trends correctly.
+- **The budget gains a token gate**: ~12M estimated/day, ~2M/night (env-tunable) -
+  set at 2-3x a normal day on purpose, because tripping one means something is
+  LOOPING and the right response is finding the loop, not raising the cap.
+- **Cost is surfaced to her**: the kick prompt now says what the window has spent and
+  what her own chat contributed, next to the send list and the request backlog -
+  judgment with evidence, consistent with Phase 2.
+- **Deliberately NOT done yet**: raising or deleting the hour/session caps. The plan
+  says relax limits one at a time WITH metrics; the metric starts recording at the
+  next bridge restart. The librarian reports daily spend and top-spending chats.
+
+## 11. Phase 5 - shipped 29/07
+
+- **Jacob's channels joined the ledger** (48 events on first pull): his hub thread,
+  his requests and answers, and the whole bot-to-bot line (`--kind botchat`). One
+  recall now spans both bots: `mary_recall --grep "Lindum"` returns Zac's teaching
+  messages and Jacob's own ITT finding together.
+- **`data/knowledge/bd.md`** - his durable knowledge, always loaded: the win-band
+  facts, the subcontractor thesis, the classification rules that each cost a day,
+  and the standing decisions. Same contract as adam.md: evidence adds, evidence
+  contradicts, lines die.
+- **`data/companies/`** - per-company memory to the same contract as job files
+  (150 lines, `## Position`), created only when a company gets real attention.
+  JACOB-SESSION.md now boots from bd.md and checks the ledger before asking anyone.
+- Still his: a bridge that seeds per-company sessions (his wake model is one session
+  per batch today, so the files carry the memory between wakes for now).
+
+## 12. What remains open across all phases
+
+- The ONE bridge restart carrying Phases 1-4's bridge changes (lean seeds, contract
+  enforcement, per-session ledger refresh, token accounting) - armed, fires in the
+  first gap between her sessions.
+- The 14-day Phase 2 metric window (interruption yield, zero "already addressed").
+- Cap relaxation (Phase 4) once usage data exists to set breakers from.
+- The 22-file job-file migration, cleared chat by chat as each next runs.

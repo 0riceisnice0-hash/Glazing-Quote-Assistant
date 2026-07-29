@@ -358,9 +358,10 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
     if board.strip():
         lines.append("\nNOTICEBOARD (latest shared facts across all chats):\n### " + board.strip())
 
-    # What is already waiting on a human. Raising a 29th request while 28 sit
-    # unanswered is worth less than nothing, and nothing used to tell her that.
-    backlog = budget.prompt_note()
+    # What is already waiting on a human, and what this window has cost.
+    # Raising a 29th request while 28 sit unanswered is worth less than
+    # nothing, and nothing used to tell her that - same for tokens.
+    backlog = budget.prompt_note(key)
     if backlog:
         lines.append(backlog)
 
@@ -432,6 +433,8 @@ def dispatch(key, orders, reg, bst, dry_run=False):
     log("dispatch -> [%s] %s : %d order(s), %s"
         % (key, title, len(orders), "NEW chat" if first_run else "resuming chat"))
     started = time.time()
+    # What the transcript weighs going in - the growth is the session's cost.
+    size_before = transcript_size(rec["session_id"])[0]
     ok = False
     fast_fail = False
     try:
@@ -504,6 +507,15 @@ def dispatch(key, orders, reg, bst, dry_run=False):
         write_status("backoff", key, len(orders), "launch failed - retrying in %ds" % wait,
                      title=title)
     finally:
+        # Token accounting (Phase 4): every outcome - clean, timeout, launch
+        # failure - records what it actually cost. bytes/4 is coarse but it
+        # ranks and trends correctly, which is what a budget needs.
+        try:
+            mb_after = transcript_size(rec["session_id"])[0]
+            budget.log_tokens(key, time.time() - started,
+                              (mb_after - size_before) * 1048576.0, mb_after)
+        except Exception:
+            pass
         if os.path.exists(LOCK):
             os.remove(LOCK)
         router.save_registry(reg)

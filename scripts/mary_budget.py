@@ -128,6 +128,50 @@ def spent(since):
 
 SEND_LOG = os.path.join(REPO, "data", "mary-send-log.jsonl")
 
+# ---------------------------------------------------------------- tokens
+# Phase 4 (AGENT-AUDIT.md): hours and session counts were only ever PROXIES
+# for cost, kept because tokens were invisible. The bridge now measures what a
+# session actually grew the transcript by, so the spend is real. The caps stay
+# as circuit breakers - trip one and something is LOOPING, which is a bug to
+# find, not a budget to raise.
+TOKENS_LOG = os.path.join(REPO, "data", "mary-usage.jsonl")
+DAY_TOKENS = int(os.environ.get("MARY_DAY_TOKENS", "12000000"))     # ~2-3x a normal day
+NIGHT_TOKENS = int(os.environ.get("MARY_NIGHT_TOKENS", "2000000"))
+
+
+def log_tokens(chat, seconds, delta_bytes, size_after_mb):
+    """One line per session: what it cost. Called by the bridge; never fatal."""
+    rec = {"at": dt.datetime.now().isoformat(timespec="seconds"), "chat": chat,
+           "seconds": int(seconds), "delta_bytes": int(delta_bytes),
+           "est_tokens": int(max(0, delta_bytes) // 4),
+           "size_after_mb": round(size_after_mb, 2)}
+    try:
+        os.makedirs(os.path.dirname(TOKENS_LOG), exist_ok=True)
+        with open(TOKENS_LOG, "a", encoding="utf-8") as fh:
+            fh.write(json.dumps(rec) + "\n")
+    except Exception:
+        pass
+
+
+def tokens_spent(since):
+    """(total est tokens, {chat: est tokens}) since a datetime."""
+    cutoff = since.isoformat(timespec="seconds")
+    total, per = 0, {}
+    try:
+        with open(TOKENS_LOG, encoding="utf-8") as fh:
+            for line in fh:
+                try:
+                    d = json.loads(line)
+                except Exception:
+                    continue
+                if (d.get("at") or "") >= cutoff:
+                    t = int(d.get("est_tokens") or 0)
+                    total += t
+                    per[d.get("chat", "?")] = per.get(d.get("chat", "?"), 0) + t
+    except Exception:
+        pass
+    return total, per
+
 
 def emails_today():
     """(count, [subjects]) sent since midnight. Attention spent, not tokens."""
@@ -180,6 +224,13 @@ def check(chat=None):
         return False, ("%s budget spent: %d of %d sessions since %s. Work stays queued and goes "
                        "out %s." % (label, runs, session_cap, since,
                                     "at 07:00" if label == "night" else "tomorrow"))
+    tok, _ = tokens_spent(start)
+    tok_cap = NIGHT_TOKENS if label == "night" else DAY_TOKENS
+    if tok >= tok_cap:
+        return False, ("%s token breaker tripped: ~%s of %s estimated tokens since %s. The cap is "
+                       "2-3x a normal day, so something is looping - find it in "
+                       "data/mary-usage.jsonl before anything else runs."
+                       % (label, "{:,}".format(tok), "{:,}".format(tok_cap), since))
     if chat:
         looping, why = circling(chat)
         if looping:
@@ -187,10 +238,19 @@ def check(chat=None):
     return True, ""
 
 
-def prompt_note():
+def prompt_note(chat=None):
     """A line for the kick prompt so a chat can see what it is adding to."""
     parts = []
     label, start, hour_cap, session_cap = window()
+    tok, per = tokens_spent(start)
+    if tok:
+        mine = per.get(chat, 0) if chat else 0
+        tok_cap = NIGHT_TOKENS if label == "night" else DAY_TOKENS
+        parts.append(
+            "\nTOKEN COST this %s window: ~%s of %s estimated%s. Cost follows context: a lean job "
+            "file and a focused turn are what keep this number small."
+            % (label, "{:,}".format(tok), "{:,}".format(tok_cap),
+               (", of which this chat ~%s" % "{:,}".format(mine)) if mine else ""))
     if label == "night":
         hours, runs = spent(start)
         parts.append(

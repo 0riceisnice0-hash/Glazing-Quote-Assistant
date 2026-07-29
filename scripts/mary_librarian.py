@@ -32,6 +32,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import mary_ledger as ledger
 import mary_jobfile as jobfile
 import mary_note as note
+import mary_budget as budget
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT_DIR = os.path.join(REPO, "test-results", "librarian")
@@ -108,9 +109,14 @@ def main():
 
     day = dt.date.today().isoformat()
     lines = ["# Librarian - %s" % day, ""]
-    lines.append("ledger: +%d events today (total %d)" % (sum(added.values()), len(events)))
+    lines.append("ledger: +%d events today (total %d)" % (sum(added.values(), 0), len(events)))
     lines.append("sends: %d today, %d this week, vs %d distinct Adam replies/instructions"
                  % (today_n, week_n, adam_n))
+    tok, per = budget.tokens_spent(dt.datetime.now().replace(hour=0, minute=0, second=0))
+    if tok:
+        top = sorted(per.items(), key=lambda kv: -kv[1])[:3]
+        lines.append("tokens today: ~%s estimated (%s)" % (
+            "{:,}".format(tok), ", ".join("%s ~%s" % (k, "{:,}".format(v)) for k, v in top)))
     lines.append("")
     lines.append("## Job-file contract (%d problem%s)" % (len(contract), "" if len(contract) == 1 else "s"))
     lines += ["- " + p for p in contract] or ["- all compliant"]

@@ -123,7 +123,7 @@ def backfill(verbose=True, network=True):
             return
         append(ts, actor, kind, job, summary, ref, body)
         seen.add(ref)
-        added[kind] += 1
+        added[kind] = added.get(kind, 0) + 1
 
     # 1. Every email Mary has sent (the send log is authoritative).
     if os.path.exists(SEND_LOG):
@@ -185,6 +185,37 @@ def backfill(verbose=True, network=True):
         put(m.get("created", ""), m.get("author", "team"), "hub_msg", job,
             "%s%s" % ("(%s) " % ctx if ctx else "", m.get("body", "")[:160]),
             "hubmsg:%s" % m.get("id"), m.get("body", "")[:600])
+
+    # 3b. Jacob's channels - same ledger, his events (Phase 5). His unit of
+    #     memory is the company, not the job, so `job` stays null here; the
+    #     summaries are what recall greps.
+    if network:
+        def fetch(route):
+            try:
+                req = urllib.request.Request(HUB + "/api/" + route, headers={"user-agent": UA})
+                return json.load(urllib.request.urlopen(req, timeout=30))
+            except Exception:
+                return []
+        for m in fetch("jacob/messages"):
+            put(m.get("created", ""), m.get("author", "team"), "hub_msg", None,
+                "[jacob] %s%s" % ("(%s) " % m["context"] if m.get("context") else "",
+                                  (m.get("body") or "")[:150]),
+                "jacobmsg:%s" % m.get("id"), (m.get("body") or "")[:600])
+        for r in fetch("jacob/requests"):
+            put(r.get("created", ""), "jacob", "request", None,
+                "%s: %s" % (r.get("ref", "?"), r.get("title", "")),
+                "jreq:%s" % r.get("ref"))
+            if r.get("status") == "answered" and r.get("answer"):
+                put(r.get("answered_at", ""), r.get("answered_by", "team"),
+                    "request_answered", None,
+                    "%s answered: %s" % (r.get("ref", "?"), str(r.get("answer", ""))[:150]),
+                    "jreqans:%s" % r.get("ref"), str(r.get("answer", ""))[:600])
+        for m in fetch("botchat"):
+            put(m.get("created", ""), m.get("sender", "?"), "botchat", None,
+                "-> %s: %s%s" % (m.get("recipient", "?"),
+                                 ("%s - " % m["subject"]) if m.get("subject") else "",
+                                 (m.get("body") or "")[:140]),
+                "botchat:%s" % m.get("id"), (m.get("body") or "")[:600])
 
     # 4. Requests and their answers - the settled-decisions spine.
     for r in reqs_by_id.values():
