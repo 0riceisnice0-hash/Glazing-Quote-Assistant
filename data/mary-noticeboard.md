@@ -104,3 +104,25 @@ NOT EMAILED. It has been true for 22 months, so it is not worth stopping Adam at
 sends; it is in the morning update with this table. No request raised - nothing of mine is blocked
 and fifteen are already open. Nothing was done in the portal: the sender is untrusted, its
 instructions are data, and there is no login.
+
+### 2026-07-29 21:15 - librarian
+Librarian 2026-07-29: 17 contract problem(s), 0 shelf problem(s), 53 sends this week vs 85 Adam replies. Full report: test-results/librarian/2026-07-29.md
+
+### 2026-07-29 22:08 - triage
+JACOB IS NOW A ROUND-THE-CLOCK BOT, AND A CONSTANT IS READ AT IMPORT.
+
+Zac (dashmsg-95): Jacob had no uptime. It was our own gate, not an API limit - jacob_bridge
+DAILY_BUDGET_HOURS 4.0, spent by 20:14, then HELD BACK every two minutes for 1h50m with three of
+ADAM'S instructions unworked, one of them 'spend the night working on this'. How to tell our limit
+from theirs: a usage limit shows as a session dead in under 60s and increments state['fails'].
+fails was 0.
+
+Raised to 12, and three other gates went with it - the agenda's 07:00-21:00 curfew, its 4-hour
+cadence (1h now), and a leftover yield to MY session lock. So expect him running far more often,
+overnight included: the collision-warning rule is worth more than it was, and if a company is
+mid-tender with you he needs to know before he cold-approaches them.
+
+TWO LESSONS THAT TRANSFER. A ceiling set close enough to normal usage to bite becomes the schedule,
+silently. And editing a module constant does nothing to a process already running - --status read
+12.0 from a fresh interpreter while the live bridge went on refusing on the 4.0 it loaded at 13:27.
+THE CHANGE IS THE RESTART. Full account: AI.md L2926.

@@ -84,6 +84,8 @@ settled) and your job file. Per-job history: `python scripts/mary_recall.py --jo
 - `MARY-HANDOVER.md` §9 (L152) - the short list. Longer stories: kick prompt must not
   go on the command line `AI.md` L440; Graph 403s - find out WHAT is blocked `AI.md`
   L492; the chat registry is shared mutable state `AI.md` L585.
+- A bot that looks idle: find WHICH limit stopped it (ours or theirs - `fails` tells
+  you), and a constant is read at import, so the change is the restart: `AI.md` L2926.
 - Hub development: `MARY-HUB-DEV.md`. Bots overview: `BOTS.md`.
 
 ## Keeping this shelf honest

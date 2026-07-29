@@ -58,6 +58,20 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **29/07 - JACOB'S UPTIME: FOUR GATES, NOT ONE (Zac, dashmsg-95 - "he's hit some kind of hard limit,
+  can you increase it").** It was his own bridge, not an API limit: `DAILY_BUDGET_HOURS` 4.0, spent by
+  20:14, then "HELD BACK" every two minutes for 1h50m into `bridge.log` and nowhere else - with three
+  of ADAM'S instructions unworked since 19:21, one of them "spend the night working on this if you
+  have to, I want a full list in the morning". `fails` was 0 and the 19:50 session exited clean, which
+  is how you tell our limit from theirs. Raised to 12.0 - **the budget is a runaway backstop, not a
+  work schedule** - but the number alone would have changed nothing tonight: the standing agenda also
+  had a **07:00-21:00 curfew** (it was 22:00, so he would have gone silent till 07:00 whatever the
+  budget said), a **4-hour cadence** (~25 min of work per 240), and a **leftover yield to Mary's
+  session lock** that you removed from `dispatch()` on 29/07 but not from `maybe_self_agenda`. All
+  four fixed. **The value is read at import** - editing the file did nothing until the JacobBridge
+  scheduled task was restarted (pid 12160 -> 5724, still parented to Task Scheduler so it survives a
+  session). A held-back bridge now publishes that to the hub's Queue tab. Residual risk named to Zac:
+  his 12 plus my 8 on one account, with Filwood and Vesuvius closing 30/07.
 - **29/07 - A BLANK DEADLINE IS NOW A LABELLED 7-DAY DEFAULT (Adam, dashmsg-93).** He saw "NaN days
   left" on the Bridport card I had just added with an empty deadline. Fixed at the root, not on the
   card: `daysUntil` returns null instead of NaN, `niceDate` prints "not set", and

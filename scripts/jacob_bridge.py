@@ -42,7 +42,15 @@ LOCK = os.path.join(INBOX, "session.lock")
 PROMPT = os.path.join(REPO, "JACOB-SESSION.md")
 
 POLL_SECONDS = 120
-DAILY_BUDGET_HOURS = float(os.environ.get("JACOB_DAY_HOURS", "4.0"))  # less than Mary's 8; raised from 3 on 29/07 when the standing agenda gave him a real workload
+# 3 -> 4 -> 12 on 29/07. The budget is a RUNAWAY BACKSTOP, not a work schedule,
+# and at 4.0 it had become the schedule: he spent it by 20:14 and then logged
+# "HELD BACK" every two minutes for the rest of the evening with three of
+# ADAM'S OWN instructions sitting unworked in the queue - including "spend the
+# night working on this if you have to, I want a full list in the morning"
+# (hub-78, 19:36). Zac, dashmsg-95: "he's hit some kind of hard limit, can you
+# increase it? He doesn't have enough up time!" Twelve hours is high enough
+# that it never becomes the schedule again and still stops a loop dead.
+DAILY_BUDGET_HOURS = float(os.environ.get("JACOB_DAY_HOURS", "12.0"))
 MARY_LOCK = os.path.join(REPO, "test-results", "mary-inbox", "session.lock")
 CLAUDE = os.path.join(os.path.expanduser("~"), ".local", "bin", "claude.exe")
 
@@ -193,11 +201,28 @@ def publish_queue(cfg, state):
                       "route": "jacob", "why": w.get("kind", ""),
                       "body": (w.get("body") or "")[:1500],
                       "received": w.get("created", "")})
-    sig = (tuple(i["file"] for i in items), (state.get("last_kick") or {}).get("at"))
+    # WHY NOTHING IS RUNNING, on the page where somebody asks that. Until now a
+    # held-back bot said so only in bridge.log: 40 identical lines to a file
+    # nobody reads, while the hub showed three orders waiting and a last_kick
+    # from 19:26 and no reason. Zac had to guess - "think he's hit some hit of
+    # hard limit" (dashmsg-95). A stalled bot must say that it is stalled.
+    used = budget_spent(state)
+    running = os.path.exists(LOCK)
+    held = bool(items) and not running and used >= DAILY_BUDGET_HOURS
+    budget = {"used_hours": round(used, 2), "of_hours": DAILY_BUDGET_HOURS,
+              "resets": "07:00", "session_running": running, "held": held,
+              "note": ("Held back by the bridge's own session budget - not an "
+                       "external limit. It lifts at 07:00, or raise "
+                       "DAILY_BUDGET_HOURS in scripts/jacob_bridge.py and "
+                       "restart the bridge (the value is read at import)."
+                       if held else "")}
+    sig = (tuple(i["file"] for i in items), (state.get("last_kick") or {}).get("at"),
+           held, running, round(used, 1))
     if sig == _qsig[0]:
         return
     if api(cfg, "/api/jacob/queue", "POST",
-           {"items": items, "last_kick": state.get("last_kick")}) is not None:
+           {"items": items, "last_kick": state.get("last_kick"),
+            "budget": budget}) is not None:
         _qsig[0] = sig
 
 
@@ -221,7 +246,12 @@ def budget_spent(state):
 # mail still has a job: work the board. Every few quiet hours, if there is
 # budget to spare and Mary is not working, the bridge hands him his own
 # standing agenda as a work order.
-AGENDA_EVERY = 4 * 3600
+# Every hour, not every four (29/07). Four hours between wakes meant that
+# "there is budget and nothing in the queue" produced ~25 minutes of work in
+# every four - which is not a working day, it is a bot that is allowed to work
+# and mostly does not. The budget above is what bounds the total; this only
+# decides how often he gets the chance.
+AGENDA_EVERY = 3600
 AGENDA_BUDGET_HEADROOM = 0.7    # keep the last 30% of budget for real messages
 AGENDA = (
     "STANDING AGENDA from Zac (29/07): an empty inbox is not an empty day. Read "
@@ -238,11 +268,18 @@ AGENDA = (
 
 def maybe_self_agenda(state):
     orders = [f for f in os.listdir(QUEUE) if f.endswith(".json")]
-    if orders or (_worker[0] and _worker[0].is_alive()) or os.path.exists(MARY_LOCK):
+    # The MARY_LOCK test came out on 29/07 with the rest of the yield-to-Mary
+    # rule (Zac: "mary and jacob should be free to work, ignoring what the
+    # other one is currently doing"). dispatch() lost its copy and said so;
+    # this one survived, so every agenda window that happened to land while
+    # Mary held her lock was skipped - and she is an eight-hour bot.
+    if orders or (_worker[0] and _worker[0].is_alive()):
         return
-    hour = time.localtime().tm_hour
-    if not 7 <= hour < 21:
-        return
+    # No night curfew. It used to be 07:00-21:00, which meant the one thing
+    # Adam explicitly asked for on 29/07 - "spend the night working on this if
+    # you have to... I want a full list in the morning" (hub-78) - was the one
+    # thing the bridge structurally could not do. Raising the budget alone
+    # would not have touched it: at 21:00 he stopped whatever the number said.
     if budget_spent(state) >= DAILY_BUDGET_HOURS * AGENDA_BUDGET_HEADROOM:
         return
     if time.time() - state.get("last_agenda", 0) < AGENDA_EVERY:
@@ -278,7 +315,13 @@ def dispatch(cfg, state):
 
     spent = budget_spent(state)
     if spent >= DAILY_BUDGET_HOURS:
-        log("HELD BACK: %.1f of %.1f session-hours used in 24h" % (spent, DAILY_BUDGET_HOURS))
+        # "in 24h" was wrong and it cost real confusion: the window is 07:00 to
+        # 07:00 (see budget_spent), and reading "24h" is what made this look
+        # like an external usage limit rather than our own number. Say which
+        # limit it is and when it lifts.
+        log("HELD BACK by jacob_bridge's OWN budget: %.2f of %.1f session-hours "
+            "used since 07:00; resets 07:00. %d order(s) waiting."
+            % (spent, DAILY_BUDGET_HOURS, len(orders)))
         return False
 
     if not os.path.exists(CLAUDE):

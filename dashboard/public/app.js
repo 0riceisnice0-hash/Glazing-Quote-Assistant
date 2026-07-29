@@ -459,7 +459,21 @@ function livePage(a, chip, fallbackTitle, empty, kick, queueKey) {
 function queuePage(q) {
   const items = q?.items || [];
   const k = q?.last_kick;
-  return `
+  // Why nothing is running. A bot held back by its own session budget used to
+  // say so only in bridge.log, so the hub showed a queue with orders in it, an
+  // old last_kick, and no explanation - Zac had to guess that Jacob had "hit
+  // some hard limit" (dashmsg-95, 29/07). Absent on a bridge that does not
+  // publish it, which is not an error.
+  const b = q?.budget;
+  const budgetLine = !b ? "" : `
+    <div class="planned-note" style="margin-bottom:12px">
+      <span class="chip ${b.held ? "warn" : b.session_running ? "ok" : "navy"}">${
+        b.held ? "HELD BACK" : b.session_running ? "RUNNING" : "IDLE"}</span>
+      ${esc(String(b.used_hours))} of ${esc(String(b.of_hours))} session-hours used this window,
+      resets ${esc(b.resets || "07:00")}${items.length && b.held ? ` &middot; <strong>${items.length} order(s) waiting on this</strong>` : ""}
+      ${b.note ? `<div style="margin-top:6px"><small>${esc(b.note)}</small></div>` : ""}
+    </div>`;
+  return `${budgetLine}
     ${k ? `<div class="section"><div class="section-head"><h3>What kicked the last session off</h3>
       <span class="page-sub">${esc(k.title || k.chat || "")} &middot; ${esc(ukStamp(k.at))}</span></div>
       <div class="mail-list">${(k.orders || []).map((o) => `

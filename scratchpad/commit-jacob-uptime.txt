@@ -1,0 +1,47 @@
+Jacob had four gates on his uptime, and the change was the restart
+
+Zac, dashmsg-95: "Jacob ain't working. Think he's hit some kind of hard limit, can you
+increase it? He doesn't have enough up time!" Right that a limit had fired, wrong about
+whose - and the named one was not the only one.
+
+It was jacob_bridge's own DAILY_BUDGET_HOURS, 4.0, spent by 20:14. After that it logged
+HELD BACK every two minutes for 1h50m, to bridge.log and nowhere else, while three of
+ADAM'S instructions sat unworked from 19:21 - one of them "spend the night working on this
+if you have to... I want a full list in the morning of DECENT leads."
+
+How to tell our limit from theirs, since the bridge already records it: a usage limit or a
+broken CLI shows up as a session dead in under 60 seconds incrementing state["fails"].
+fails was 0 and the 19:50 session exited 0 after 24 minutes. Sessions were fine; something
+local was refusing to start one.
+
+Raising the named number alone would not have fixed it. Four gates, all in jacob_bridge.py:
+
+ 1. DAILY_BUDGET_HOURS 4.0 -> 12.0. The budget is a runaway backstop, not a work schedule,
+    and at 4.0 it had become the schedule. On today's real pattern 12 stops him never.
+ 2. The standing agenda's 07:00-21:00 curfew. It was 22:00, so once he cleared the queue he
+    would have gone silent until 07:00 whatever the budget said - the exact hours Adam had
+    just asked him to work. Removed.
+ 3. AGENDA_EVERY 4h -> 1h. On a quiet queue, four hours between wakes is about 25 minutes
+    of work in every 240.
+ 4. A leftover yield to Mary's session lock in maybe_self_agenda. The yield-to-Mary rule
+    came out on 29/07; dispatch() lost its copy and says so in a comment, this one survived.
+
+The bit that actually unblocked him: the constant is read at import, so editing the file
+changed nothing for pid 12160 - it held 4.0 in memory from 13:27 and --status reported 12.0
+from a fresh interpreter at the same moment. Restarted the JacobBridge scheduled task (stop
+then start, MultipleInstances: IgnoreNew), new pid 5724 still parented to Task Scheduler so
+it is detached. He dispatched at 22:05:22 on all three orders, took a transient 529 at
+22:08, and the loop retried itself at 22:09:22 without help.
+
+And a guard that can stop work now reports that it did. publish_queue sends a budget block
+(hours used, ceiling, when it lifts, held/running, orders waiting) and the Queue tab renders
+it for either bot, because forty identical lines in a log file are why Zac had to guess.
+
+Residual risk stated on the dashboard rather than hidden: 12 hours for him plus 8 for me on
+one account, with Filwood and Vesuvius closing 30/07. If I start dying in seconds in the
+morning, this is the first thing to look at.
+
+Answered on the dashboard. Durable lesson in AI.md with a shelf pointer; BOTS.md's budget
+section was two revisions out of date (it still said "a simple rolling 3 hours").
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

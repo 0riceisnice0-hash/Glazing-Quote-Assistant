@@ -1,0 +1,63 @@
+Done - he is running now. Session started 22:05:22 on all three orders that were stuck.
+
+WHAT THE LIMIT ACTUALLY WAS
+
+Not an API or usage limit. It was his own bridge: DAILY_BUDGET_HOURS in
+scripts/jacob_bridge.py, set to 4.0. He spent it by 20:14 and then logged
+
+  HELD BACK: 4.0 of 4.0 session-hours used in 24h
+
+every two minutes for the next hour and fifty minutes, to bridge.log, and nowhere else.
+Nothing external was throttling him: fails counter 0, and his 19:50 session exited 0
+normally after 24 minutes. Good instinct, wrong culprit.
+
+What was sitting in the queue while it did that: three instructions from ADAM, unworked
+since 19:21 - including hub-78 at 19:36, "spend the night working on this if you have to
+... I want a full list in the morning of DECENT leads."
+
+RAISING THE NUMBER ALONE WOULD NOT HAVE FIXED IT
+
+There were three separate gates, and the budget was only the loudest. All four changes are
+in scripts/jacob_bridge.py:
+
+ 1. DAILY_BUDGET_HOURS 4.0 -> 12.0. The budget is a runaway backstop, not a work
+    schedule, and at 4.0 it had become the schedule. On today's actual pattern 12 would
+    not have stopped him once.
+
+ 2. THE NIGHT CURFEW - the real one. His standing agenda only ran between 07:00 and
+    21:00. It is 22:00. So once he cleared those three orders he would have gone silent
+    until 07:00 whatever the budget said - the exact hours Adam just told him to work.
+    Removed.
+
+ 3. AGENDA CADENCE 4 hours -> 1 hour. When his queue is empty he only got a chance to
+    work every four hours, so a quiet stretch produced about 25 minutes of work in every
+    240. That is not uptime either.
+
+ 4. A leftover yield to Mary. maybe_self_agenda still skipped whenever my session lock
+    existed. You took that rule out on 29/07 ("free to work, ignoring what the other one
+    is currently doing"); dispatch() lost its copy, this one survived, and I am an
+    eight-hour bot - so it fired often. Removed.
+
+THE BIT THAT ACTUALLY UNBLOCKED HIM
+
+The value is read at import. Editing the file changed nothing for the process that was
+already running - it had 4.0 in memory and would have kept refusing all night. Restarted
+the JacobBridge scheduled task: old pid 12160 stopped, new pid 5724 up at 22:05:21, still
+parented to Task Scheduler so it is detached and survives me. If you change the number
+again, restart the task or nothing happens.
+
+AND SO YOU NEVER HAVE TO GUESS AGAIN
+
+A held-back bridge now publishes the fact to the hub's Queue tab - a HELD BACK chip, hours
+used against the ceiling, when it lifts, and how many orders are waiting on it. Forty
+identical lines in a log file told nobody anything, which is why you had to ask.
+
+ONE RESIDUAL RISK, NAMED
+
+12 hours for him plus 8 for me is 20 session-hours a day on one Claude account. Two
+tenders close tomorrow (Filwood and Vesuvius, both 30/07). If I start dying in seconds in
+the morning, this change is the first thing to look at - drop JACOB_DAY_HOURS or the
+constant and restart the task. I have not tried to pre-solve it; you can see the token
+numbers and I cannot.
+
+Mary Grace

@@ -95,16 +95,27 @@ instead: **deploys take a cross-process lock** (`scripts/deploy_lock.py`, born f
 29/07 race that shipped a stale bundle), and **commits name only the files the committer
 touched** - never `git add -A`, retry briefly on a locked index. Each of his sessions
 carries its own `--session-id`, so his Live tab shows his steps and hers shows hers. When
-his queue is empty and there is budget to spare, a **standing agenda** runs every four
-quiet hours - an empty inbox is not an empty day.
+his queue is empty and there is budget to spare, a **standing agenda** runs every quiet
+hour, around the clock - an empty inbox is not an empty day.
 
 **Both have spend limits, and they are shaped differently for a reason.** Mary's are
 *windowed* - 8 hours by day, 1.5 overnight - and cap session **count** as well as hours
 (40 day / 6 night). Hours alone proved a poor proxy for cost: one overnight ran 95 sessions
 against bloated chats, each re-reading the whole conversation before doing anything. A
 rolling 24-hour budget also punishes the morning for the previous evening, which is why
-Mary's resets with the window. Jacob's is a simple rolling 3 hours - he has no deadlines,
-so being held back until the afternoon costs nothing. See `scripts/mary_budget.py`.
+Mary's resets with the window. See `scripts/mary_budget.py`.
+
+Jacob's is a single number of session-hours in the same 07:00-07:00 window, and it is
+**12 hours** (`DAILY_BUDGET_HOURS` in `jacob_bridge.py`, `JACOB_DAY_HOURS` to override).
+It was 3, then 4, and **the number is a runaway backstop, not a work schedule** - which is
+the lesson of the evening of 29/07. At 4.0 he spent it by 20:14 and then logged HELD BACK
+every two minutes until midnight with three of Adam's own instructions unworked in the
+queue, one of them "spend the night working on this if you have to". Two other gates went
+with it: the agenda's 07:00-21:00 curfew (which made overnight work structurally
+impossible whatever the budget said) and a leftover yield to Mary's session lock. **The
+value is read at import, so changing it does nothing until the bridge is restarted** - and
+a held-back bridge now publishes the fact to the hub's Queue tab, because 40 identical
+lines in `bridge.log` told nobody anything.
 
 > **Jacob has no per-company memory yet.** Every session starts cold and re-derives context
 > from files. Mary's per-job chats are the pattern that fixes it and the single highest-value

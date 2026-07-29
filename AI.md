@@ -2922,3 +2922,49 @@ detriment. Brandon's drop-in wording is *"Installation and removal of old frames
 That sits alongside, and does not contradict, *A missing number is not automatically a mistake* above - Princess
 Beatrice gave frame removal away deliberately. **The decision to include it is Adam's; what it costs is now
 knowable, which is the part that was missing.**
+
+## When a bot looks idle, find out WHICH limit stopped it - and remember a constant is read at import (Jacob's uptime, 29/07/2026)
+
+Zac, dashmsg-95: *"Jacob ain't working. Think he's hit some kind of hard limit, can you increase it? He doesn't
+have enough up time!"* He was right that a limit had fired and wrong about whose it was, and both halves matter.
+
+**It was our own number, not the API's.** `jacob_bridge.DAILY_BUDGET_HOURS` was 4.0; he spent it by 20:14 and
+then logged `HELD BACK` every two minutes for 1h50m - to `bridge.log`, and nowhere else. **How to tell our limit
+from theirs in ten seconds:** the bridge already records it. A usage limit or a broken CLI shows up as a session
+that dies in under 60 seconds and increments `state["fails"]`; `fails` was 0 and the 19:50 session had exited 0
+after 24 minutes. So the sessions were fine and something local was refusing to start one. Check `--status` and
+the `fails` counter before you go looking at anybody's API.
+
+**RAISING THE NAMED NUMBER WOULD NOT HAVE FIXED IT, AND THIS IS THE GENERAL POINT.** "He has no uptime" had four
+independent causes and the budget was only the one with a log line:
+
+1. `DAILY_BUDGET_HOURS` 4.0 - the hard stop that was live at that moment.
+2. The standing agenda's **07:00-21:00 curfew**. It was 22:00. Once he cleared his queue he would have gone
+   silent until 07:00 whatever the budget said - and Adam had just told him, in an order sitting unworked in that
+   queue, to *"spend the night working on this if you have to."*
+3. `AGENDA_EVERY = 4 * 3600` - on a quiet queue that is about 25 minutes of work in every 240.
+4. A **leftover yield to Mary's session lock** in `maybe_self_agenda`. Zac removed the yield-to-Mary rule on
+   29/07; `dispatch()` lost its copy and carries a comment saying so, and this one survived unnoticed.
+
+Fix the gate the complaint names, then ask what else has to be true for the behaviour to change. A partial fix
+here would have produced exactly the symptom that was reported, and looked like the change had not worked.
+
+**THE BUDGET IS A RUNAWAY BACKSTOP, NOT A WORK SCHEDULE.** That is the sentence to keep. A ceiling set close
+enough to normal usage to bite becomes the schedule, silently - and then a trusted instruction from the
+Commercial Director sits in a queue all evening because a number picked to stop a loop is also stopping the work.
+Set it where a loop dies and ordinary days never touch it (4 -> 12 here; on that day's real pattern, 12 would not
+have held him back once).
+
+**A MODULE CONSTANT IS READ AT IMPORT, SO EDITING THE FILE CHANGES NOTHING FOR A PROCESS ALREADY RUNNING.** Both
+bridges are long-lived `pythonw.exe` loops started by Task Scheduler (`JacobBridge`, `MaryGraceBridge`, parented
+to `svchost.exe`). The edit made `--status` report 12.0 immediately - a fresh interpreter - while pid 12160 went
+on refusing on the 4.0 it had loaded at 13:27. **The change is the restart**: `Stop-ScheduledTask` then
+`Start-ScheduledTask`, which also keeps the new process detached from the session that started it (`MultipleInstances:
+IgnoreNew`, so stop before you start). Same shape as the 29/07 template lesson - ask which copy is the one
+actually in use, and here the copy in use was in memory.
+
+**AND A STALLED BOT MUST SAY SO WHERE SOMEBODY LOOKS.** The hub showed three orders waiting and a `last_kick`
+from 19:26 with no reason, so the only honest read of the board was "nothing is happening" - Zac had to guess the
+cause. Forty identical lines in a log file are not visibility. `publish_queue` now sends a `budget` block (hours
+used, ceiling, when it lifts, held/running, orders waiting) and the Queue tab renders it for either bot. **If a
+guard can stop work, the guard has to be able to report that it did.**
