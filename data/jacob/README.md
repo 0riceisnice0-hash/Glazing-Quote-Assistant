@@ -11,7 +11,8 @@ where each file comes from and what it can and cannot tell you.
 | `tender-notices.json` | `jacob_tenders.py` | Public **tender** notices - still out to bid, with real closing dates |
 | `procontract.json` | `jacob_procontract.py` | ProContract (Due North) adverts. Where a buyer puts work **under the GBP 100k Find a Tender threshold** - so it is in no national feed, and it is Fenster's size of work. Read with **no login**; only bidding needs the account Fenster has not had since Jayk left (JAC-11) |
 | `leads-manual.json` | his session, by hand | Live leads that arrived as EMAIL and are in no public feed. Merged onto the tender board. Every row carries where it came from, who read it, and which feeds were swept without finding it |
-| `outcomes.json` | `jacob_outcomes.py` | The Opportunity Log - what Fenster has actually won and lost |
+| `contracts-won.json` | `jacob_contracts.py` | **The 204 WON commercial contracts**, net value on every row - Adam's hand export of 29/07/2026. The only file here built from delivered work rather than hope. Settles the GBP 50k question (8 wins over it, largest GBP 631,248) and carries `LEADSOURCE`, which says 59% of wins are repeat business and 25% were Jayk personally |
+| `outcomes.json` | `jacob_outcomes.py` | The Opportunity Log - the 2025-26 BD FUNNEL with its decided rows. Not the win history; `contracts-won.json` is |
 | `adminbase.json` | `jacob_adminbase.py` | Adam's AdminBase export - quoted leads with dates and values |
 | `jayk-recovery.json` | `jacob_jayk_recovery.py` | The former BDM's contacts, recovered from role mailboxes. One-off |
 | `drafts.json` | his session | Outreach he has written, and what he deliberately did **not** draft |
@@ -78,6 +79,7 @@ python scripts/jacob_outcomes.py
 python scripts/jacob_adminbase.py
 python scripts/jacob_tenders.py
 python scripts/jacob_procontract.py
+python scripts/jacob_contracts.py
 ```
 
 `jayk-recovery.json` is deliberately not in the daily run. It was a one-off excavation of a

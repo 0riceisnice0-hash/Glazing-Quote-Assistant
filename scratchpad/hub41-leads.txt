@@ -1,0 +1,79 @@
+Yes - and the contracts export you sent at 13:33 changes what I thought I knew.
+
+TAKING THE QUESTION LITERALLY FIRST. Two things have come from you and here is the state of
+each.
+
+1. Live_Commercial_Leads28072026.csv, 28/07 22:02. **All 264 rows are on the board.** 264
+   in the file, 264 on the dashboard, nothing dropped, nothing sampled. 127 clients,
+   GBP 18.4m ex VAT, 209 chaseable.
+
+2. commercial_contracts_export29072026.csv, today 13:33. **That one had NOT been loaded -
+   it arrived while I was working on the portal logins.** It is loaded now: 204 contracts,
+   201 with a value, on the board as its own panel.
+
+THE NOTES YOU WANT RETAINED ARE NOT IN THE EXPORT. This is the honest answer rather than a
+complaint. The leads CSV has 33 columns - lead number, date, name, address, phones,
+salesperson, source, result, next action, product, value, postcode, taken by, quote type -
+and not one of them is a notes or comments field. AdminBase holds notes against a lead;
+this export does not carry them. So I am not losing your notes, I have never been sent
+them. If the live feed you are building can include the notes/comments column, they will be
+retained from that day. Until then the board can show everything except the one thing you
+asked about, which is worth you knowing.
+
+NOW THE CONTRACTS EXPORT, AND THANK YOU - IT SETTLES AN ARGUMENT I HAVE BEEN HAVING WITH
+MYSELF ALL WEEK.
+
+  204 won commercial contracts, GBP 2,835,812 net in total.
+  Median GBP 1,924. Largest GBP 631,248 - Headrow Court, Fortis Vision. Exactly what you
+  told me on the hub this morning, now with a document behind it.
+  Under GBP 10k:   164 jobs, GBP 342,317
+  GBP 10k-50k:      29 jobs, GBP 604,820
+  GBP 50k-200k:      6 jobs, GBP 777,428
+  Over GBP 200k:     2 jobs, GBP 1,111,248
+
+The Opportunity Log says Fenster has won nothing over GBP 50k in 52 priced attempts. That
+number has been trying to become "Fenster cannot win big work" all week and I have been
+holding it off with a caveat. It is now dead: there are eight wins over GBP 50k in your
+export and two over GBP 200k. The log describes the 2025-26 funnel. This describes the
+company. I have rewritten my standing notes accordingly, and no lead will be killed on size
+again.
+
+THE COLUMN THAT MATTERS MOST IS LEADSOURCE, AND I DO NOT THINK ANYONE HAS READ IT.
+
+  Existing Customer / Existing Commercial   118 of 201   59%
+  Jayk                                       51          25%
+  Google                                     22          11%
+  Constructionline                            3
+  Recommendation                              1
+
+Three quarters of everything Fenster has ever won came from a client it already had, or
+from one man. Jayk personally sourced 51 won contracts and he has gone, and nothing has
+replaced them. Three came from a tender portal in the entire history of the company. That
+is the real cost of him leaving - the portal logins I spent this morning on are a footnote
+next to it, and it is a fair statement of what my job is.
+
+THE ONE CALL I WOULD MAKE THIS WEEK: CONAMAR.
+
+Sixteen contracts, GBP 917,028 - the biggest customer in the history of the company by
+value, more than Fortis Vision. Tottenham Jobcentre GBP 480,000, Franklin House GBP
+180,055, Roehampton GBP 75,000, Brace Street GBP 59,238.
+
+I searched every mailbox, all history, not just the board window: the last thing from
+Conamar is 26/01/2026 in info@, and the last real exchange in commercial@ is 19/12/2025
+with you. That is six months of silence from a client who has paid Fenster nearly a
+million pounds. I am not claiming a reason - people go quiet for good reasons - but nobody
+should have to discover that from a spreadsheet, and it is a warmer call than any tender
+on my board.
+
+Second name on the same basis, much smaller: MPS Contracts, 2 jobs, GBP 24,752, nothing
+since 19/06.
+
+A CORRECTION I NEED TO MAKE BEFORE YOU READ THE BOARD. When I first joined the contracts
+export to the company list, the "dormant clients who have bought" count jumped from 33 to
+55 and I nearly sent you that as twenty-two new leads. It was wrong. A company shows no
+recent contact when its name fails to join to a mailbox row, which is not the same as
+nobody emailing them - I checked by hand and St Albans School had emailed TODAY, Storm
+Building six days ago, Cranfield twelve, and all three were sitting in that list marked
+dormant. I have taken the change out. The count is back to 33 and it means what it says.
+The money still attaches to the rows, which is the useful half - it is what puts Conamar's
+GBP 917,028 above a nine-hundred-pound customer instead of level with it.

@@ -1,0 +1,34 @@
+England and Wales, nationwide - done, and it was costing us more than I expected.
+
+JAC-10 is closed. The board now treats England and Wales as in area, everywhere, and only
+Scotland, Northern Ireland, the Isle of Man and the Channel Islands as out. "Closer the
+better" is carried as a note on the row for whoever picks it up, never as a filter - it is
+a weighting for a human, not a rule for a script.
+
+WHAT WAS ACTUALLY HAPPENING. I had been enforcing the 78 postcode areas from Fenster's own
+PQQ pack as if it were a rule about where the company works. It is not - it is a marketing
+document saying where Fenster advertises. Enforcing it parked, silently:
+
+  - the whole of Wales - while Fenster had a GBP 174,546 quote live at St Mary's, Merthyr
+    Tydfil, issued 17 July
+  - Cornwall, Devon, Cumbria, Northumberland, Tyne and Wear, Durham and Teesside
+  - anything the notice tagged with a region name rather than a postcode: Broadland
+    Housing Association came back as "location not stated" when its region field literally
+    said "East of England", and Plumpton Parish Council read as unknown when its code was
+    UKC, the North East
+
+Three of those were parked rows on a board you were reading. The count of leads outside
+coverage went from 7 of 16 to 6 of 16, and every one of the six left is genuinely Scottish
+or Northern Irish - Renfrewshire, Albyn Housing, North Lanarkshire, Scottish Power, Newry
+Mourne and Down, the National Trust in NI. Those are the only ones I now hold back.
+
+ONE THING I HAVE CHANGED THAT YOU MIGHT WANT TO CHANGE BACK. The PQQ's 78 areas included
+ML - North Lanarkshire - and I had a special case carving it back in on that basis. ML is
+Scotland, and you said England and Wales, so it is now out. If you do want Scotland, or
+want it for particular clients, say so and it is one line. I would rather flag it than
+quietly keep an exception your instruction did not cover.
+
+The Isle of Wight job I sent you earlier is inside coverage on your rule. My reasons for
+recommending against it were the ferry, the fact that scaffolding is in their scope and
+excluded from our standard proposal, and its size band - not the postcode. Those still
+stand, but they are arguments and not a filter, so it stays on the board for you.

@@ -88,7 +88,12 @@ def main():
     #    awards it must never be able to stop the board updating.
     run("procontract", ["scripts/jacob_procontract.py"])
 
-    # 4. Rebuild the board from whatever succeeded.
+    # 4. The won-contracts export. A local CSV, so it cannot fail on the
+    #    network - but it is a hand export from Adam and will be stale until he
+    #    sends another, so it is re-parsed rather than re-fetched.
+    run("won contracts", ["scripts/jacob_contracts.py"])
+
+    # 5. Rebuild the board from whatever succeeded.
     board = ["scripts/jacob_dashboard.py"] + (["--deploy"] if args.deploy else [])
     ok_board = run("rebuild board", board, required=True)
 

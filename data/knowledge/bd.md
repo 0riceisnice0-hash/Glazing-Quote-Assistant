@@ -9,31 +9,32 @@ keep the one-line rule here with a pointer - the same shape as Mary's INDEX.md o
 AI.md. New evidence teaches: add. Evidence contradicts: the line dies here, the story
 of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
 
-## The shape of what the OPPORTUNITY LOG says Fenster wins (2025-26, 229 decided rows)
+## What Fenster HAS WON - `contracts-won.json`, the file that settles arguments
 
-- On the log: median win GBP 1,822, largest GBP 40,850, 38% under GBP 10k, 13% at
-  GBP 10k-50k, 0/52 above GBP 50k. **These numbers describe the log, not the company.**
-- **The log is the BD funnel for two years, NOT the win history** (corrected by Zac,
-  29/07/2026). The real record is `data/job-history.json` (1,040 jobs to 2023):
-  **134 recorded wins**, led by Cranfield (11), Borras (9), Aspire Federation (9),
-  SDevs, MHA, Stewarts, Fortis Vision, Conamar. **Adam, 29/07:** eight years
-  trading, largest ~GBP 630k + VAT - Headrow Court, Fortis Vision - fifteen times
-  the biggest win on the BD log and absent from it. Values: `data/known-values.json`
-  (11, five from the brochure Adam re-confirmed 29/07, six document-verified).
-  `scripts/mine_won_values.py` queues candidates into `won-values-evidence.json`;
-  a candidate becomes a value only after review (invoices are interim, POs carry
-  GBP 5m insurance lines). That queue is OPEN WORK. **"0 on log" at a size NEVER
-  means "Fenster cannot win that size"** - Headrow is the proof.
-- So: the log still says smaller jobs CONVERT BETTER on the recent funnel, and value
-  still buys a row a warning - but say "no £50k+ win on the log's decided rows",
-  never "Fenster has never won one". A claim must carry its source's edges.
-- "Fenster records no outcomes" is false: the BD log is
-  `4. Business Development\Just in Case\Opportunity Log 2025-2026.xlsx`. What it
-  records is decisions on ITS rows; won work is filed in `2. Projects`.
-- **Brandon Estate (Elkins, GBP 7.2m ex VAT) is real** - Adam, 29/07, closing
-  JAC-8: "not a mistake. That is a legit tender and should be treated as such."
-  Size alone is not evidence of a data error. It stays out of the medians and
-  is back on the chase list (`CONFIRMED` in `jacob_adminbase.py`).
+**Adam's own AdminBase export, 29/07/2026, 204 won commercial contracts with a NET
+value on each. This is the win history; everything else is a funnel.**
+
+- **GBP 2,835,812 total. Median GBP 1,924. Largest GBP 631,248 - Headrow Court,
+  Fortis Vision.** Bands: 164 under GBP 10k, 29 at 10-50k, **6 at 50-200k, 2 over
+  200k**. So small work is the volume AND the big win exists. `jacob_contracts.py`.
+- **The GBP 50k ceiling is dead.** The Opportunity Log's "0 wins in 52 above
+  GBP 50k" was always a fact about the 2025-26 BD funnel. Say "the log shows none
+  that size"; NEVER "Fenster has not won one". Size alone never kills a lead.
+- **WHERE WORK COMES FROM, from the LEADSOURCE column on won rows: existing
+  customer 118 of 201 (59%), Jayk by name 51 (25%), Google 22, a tender portal
+  THREE in the company's history.** Three quarters of everything is repeat
+  business or one departed BDM. That is the job, stated in one line.
+- Concentration: Conamar 16 jobs GBP 917,028, Fortis Vision 8/GBP 670,262, Borras
+  19/GBP 260,817, RSR 5/GBP 197,044 - top four are 72% of all value. **Conamar is
+  the biggest client in company history and had gone six months silent (last mail
+  26/01/2026) when this was found.** Contract volume is accelerating: 72 in 2025,
+  89 by July 2026. CONTNET is ex VAT - the LEAD export is inc VAT, do not de-VAT twice.
+- "Fenster records no outcomes" is false. BD log = `Opportunity Log 2025-2026.xlsx`.
+- **Brandon Estate (Elkins, GBP 7.2m ex VAT) is real** - Adam, JAC-8, twice:
+  "not a mistake ... a legit tender", then "Yes, it's real. Deal with it."
+  Out of the medians, on the chase list. But commercial@ shows it still being
+  priced on 11/06 against an AdminBase quote date of 15/05 - asked Mary 29/07
+  whether a price has actually left estimating@ before anyone chases it.
 
 ## Where work really comes from
 
@@ -46,14 +47,12 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
   Hightown, do-not-quote) - see JAC-7 before assuming that is safe forever.
 - An award notice is the WEAKEST signal: by publication the subcontractors are chosen.
   Median publication lag 25 days; 10% exceed 180; worst seen 1,364. `is_fresh()` guards.
-- **The tender-portal logins died with Jayk** (Paul, 27/07) and `jayk@` is now a hard
-  404, so an account registered to him can never be reset by anyone. **But a dead
-  login only stops us BIDDING, never LOOKING** - corrected 29/07, and this file used
-  to say the opposite. ProContract's advert search and every advert page are PUBLIC
-  (`jacob_procontract.py`), and that is where a buyer puts work under the GBP 100k
-  Find a Tender threshold - Fenster's size. Nobody looked for four months. JAC-11/12.
-- A warm name beats a perfect-fit stranger. In this trade a relationship buys one
-  thing: being asked to price.
+- **The tender-portal logins died with Jayk** and `jayk@` is a hard 404, so an
+  account registered to him can never be reset. **But a dead login stops us
+  BIDDING, never LOOKING** - ProContract's advert search and every advert page are
+  PUBLIC (`jacob_procontract.py`), and that is where a buyer puts work under the
+  GBP 100k threshold. Nobody looked for four months. JAC-11/12.
+- A warm name beats a perfect-fit stranger: a relationship buys being asked to price.
 
 ## Classification rules that cost a day each to learn
 
@@ -74,7 +73,6 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
   fetch qualifies a contractor. Both tricks: `bd-lessons.md`, 29/07.
 - **Check `oldest/newest/truncated` before believing a count** - a 20-page fetch cap
   once turned 13-22 days into "180 days of mail".
-- AdminBase values are **inc VAT**; everything Fenster issues is ex VAT. De-VAT first.
 - **Once For All is Conquest renamed** - `tenders@onceforallmarketplace.com`, added to
   `jacob_intake.PORTALS` 29/07. Without it a portal CHASE reads as a fresh enquiry.
 - **A job can be live and chased with no Mary chat at all** - Trafalgar House was, so
@@ -95,10 +93,12 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
 - **Read the Status field on any alert feed.** Of 30 unique Supply2Gov items over
   four days, 15 were ContractAwardNotice or PriorInformationNotice - already gone.
   Four days of alerts held two live, on-package, mainland leads, not "27 a day".
-- **The 78-postcode PQQ coverage list is a claim, not a rule.** Two quotes are live
-  outside it right now: St Mary's, Merthyr Tydfil (CF47, GBP 174,546, 17/07) and
-  Trafalgar House, Portchester (PO6, GBP 71,566, 22/07). Do not kill a lead on
-  postcode alone - JAC-10 asks Adam where the real line is.
+- **COVERAGE IS ENGLAND AND WALES, NATIONWIDE** - Adam, 29/07, closing JAC-10:
+  "we do work nationwide ... obviously closer the better". Out: Scotland, NI,
+  Crown Dependencies, and ML despite the PQQ listing it. The PQQ's 78 postcode
+  areas were being enforced as a rule and are a marketing claim - they parked
+  all of Wales while a GBP 174,546 quote was live in Merthyr Tydfil. Distance is
+  now a NOTE on the row, never a filter.
 
 ## Standing decisions (Adam/Zac - do not re-open; full list `mary_recall --settled`)
 
@@ -121,10 +121,10 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
 
 ## Memory (Phase 5 - same skeleton as Mary's)
 
-- **Per-company memory: `data/companies/<slug>.md`** (README there). Working a company
-  = read its file first, update it before close-out. First one written 29/07:
-  `chigwell-london-plc.md` - three live leads, GBP 412k, and a sister company that
-  sells windows.
+- **Per-company memory: `data/companies/<slug>.md`** (README there). Read it first,
+  update before close-out. Written 29/07: `chigwell-london-plc` (3 leads, GBP 412k),
+  `glazing-consultancy-services` (Darren Trigg; both his schools were CIF bids that
+  lost funding, killing SIX "Live - Quoted" rows because Churchdown went to five
+  contractors - **an outcome that arrives by email never reaches the CRM**).
 - **History is queryable, zero tokens**: `mary_recall.py --grep <company>` covers hub
-  messages, the bot line and requests. The ledger backfills nightly, so what you said
-  is on the record whether or not you wrote it down.
+  messages, the bot line and requests, and backfills nightly.

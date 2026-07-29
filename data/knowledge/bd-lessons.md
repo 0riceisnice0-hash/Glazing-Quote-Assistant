@@ -266,3 +266,109 @@ as the accidental hero of the info@ gap - John North Hall and Redditch Library b
 Commercial only because he forwarded them by hand within minutes. That made him look like
 the fix. He is not available as one, so JAC-7 needs an actual forwarding rule rather than a
 person's good habits.
+
+## 29/07/2026 - The won-contracts export, and the column nobody had read
+
+Adam mailed jacob@ at 13:33 with `commercial_contracts_export29072026.csv`, pulled by hand
+from AdminBase: *"all of our commercial jobs to date ... these are all won jobs and either
+completed or in progress. This took me a long time to put together, hope you appreciate
+it."* 204 contracts, 201 with a net value. `scripts/jacob_contracts.py`.
+
+**It ends the GBP 50k argument for good.** The Opportunity Log has 0 wins in 52 priced
+attempts over GBP 50,000, and that number spent a week trying to become "Fenster cannot win
+big work". This export has 8 over GBP 50k and 2 over GBP 200k - Headrow Court for Fortis
+Vision at **GBP 631,248** and Tottenham Jobcentre for Conamar at **GBP 480,000**. Both are
+absent from the log. The log is the 2025-26 BD funnel; this is the company. The correct
+sentence has always been "the log shows no win that size", never "Fenster has never won
+one", and now there is a document rather than a caveat behind it.
+
+**But the most valuable thing in the file is not the money, it is `LEADSOURCE`:**
+
+    Existing Customer / Existing Commercial   118 of 201   59%
+    Jayk                                       51          25%
+    Google                                     22          11%
+    Constructionline                            3
+    Recommendation                              1
+
+Three quarters of every contract Fenster has ever won came from a client it already had or
+from one named business development manager, and that manager has left with nothing put in
+his place. **Three** came from a tender portal in the company's history. I spent the first
+half of this session on the tender-portal logins (JAC-11) as though they were the wound.
+They are a scratch. The wound is 51 contracts a year that used to arrive because one person
+knew people, and a customer base that generates most of the revenue and gets rung when
+somebody remembers.
+
+Concentration says the same thing from the other side: Conamar 16 jobs / GBP 917,028,
+Fortis Vision 8 / GBP 670,262, Borras 19 / GBP 260,817, RSR 5 / GBP 197,044. **The top four
+clients are 72% of everything.** And Conamar - the largest customer in the history of the
+business - had not been emailed since 26/01/2026, six months, which I only found because I
+went and checked the whole mailbox rather than trusting the board.
+
+**The mistake I nearly shipped, which is the real lesson.** Joining the export to the
+company book, I set `relationship = "won"` on every matched row. The "dormant clients who
+have bought" count went from 33 to 55 and I was one paragraph from sending Adam twenty-two
+new leads. Every one of the new ones was false. A company row shows no `lastContact` when
+it fails to JOIN to a mailbox row - not when nobody has emailed them - and forcing the
+relationship fed the state machine an absence it read as silence. Checked by hand against
+full mailbox history: **St Albans School had emailed that same day, Storm Building six days
+before, Cranfield twelve.** All three sat in the list marked dormant.
+
+So: **attach the money, never the state.** The money is what makes Conamar's GBP 917,028
+outrank a nine-hundred-pound customer instead of sitting level with it, and that was the
+whole point. The state has to keep the evidence that earned it. And more generally - when a
+new source suddenly improves a count by two thirds, that is the moment to go and check
+three rows by hand, not the moment to write it up.
+
+**Two smaller facts worth keeping.** `CONTNET` is NET, ex VAT - the opposite of AdminBase's
+LEAD export, which is inc VAT, so de-VATting this one is a 20% error in the other
+direction. And `DATEFITTED` is blank on 28 rows because the work is in progress, so
+CONTRACTDATE is the only date every row carries: 2021 (1), 2022 (4), 2023 (12), 2024 (23),
+2025 (72), 2026 (89 by July). The business is roughly doubling year on year.
+
+## 29/07/2026 - Coverage: a marketing document enforced as a rule
+
+Adam, closing JAC-10: *"We basically work nationwide (wales and england). It will depend on
+job size, but please do send opportunities for all of wales and england. Obviously closer
+the better, but we do work nationwide."*
+
+What had been happening: `PQQ Info\Postcode Coverage.odt` names 78 postcode areas, England
+plus ML. I read that as where Fenster works. It is where Fenster *advertises* that it
+works, and enforcing it silently parked the whole of Wales - while a GBP 174,546 quote was
+live at St Mary's, Merthyr Tydfil - plus Cornwall, Devon, Cumbria, Northumberland, Tyne and
+Wear, Durham and Teesside.
+
+Two quieter bugs fell out of the same fix. `nuts_verdict` returned None for any UK NUTS
+code it did not recognise, so Plumpton Parish Council tagged **UKC** - the North East of
+England, perfectly decidable - came back as "location not stated". And a notice whose
+region field literally read **"East of England"** (Broadland Housing Association) did the
+same, because there was an out-of-area region matcher and no in-area one. A filter that
+only knows how to say no will say "I don't know" to everything else.
+
+Out is now Scotland, Northern Ireland, the Isle of Man and the Channel Islands. **ML is now
+out too** - it was on the PQQ's 78 and carved back in as a special case, and it is
+Scotland. Flagged to Adam rather than kept quietly, because keeping an exception his
+instruction did not cover is how a rule rots.
+
+Distance did not disappear, it changed job: `in area - far` annotates a row for the human
+reading it. "Obviously closer the better" is a weighting and a script must not enforce it
+as a veto.
+
+## 29/07/2026 - Glazing Consultancy Services: an outcome that never reached the CRM
+
+Darren Trigg told us Aylesbury High School and Churchdown School Academy were CIF bids that
+failed to secure funding. Both still read "Live - Quoted" on AdminBase, and it is not two
+rows - it is **six**, because Churchdown was priced for five different main contractors
+(GCS, Kemdoc, Mobius, Roof Estimating Services, Southern Projects) at GBP 729k-747k each,
+plus Aylesbury at GBP 321,274. Anyone working the chase list would have rung five
+contractors about a job none of them has, and looked inattentive to five customers at once.
+
+**The general rule: an outcome that arrives by email does not reach the CRM.** The client
+told us; the system never heard. That is the same failure as the Estimating Log's 93% empty
+W/L column, arriving from the other direction, and it is worth checking for on any row
+whose "live" status is older than the last email from that client.
+
+The timing point is the useful one. CIF runs on a fixed annual cycle - bids in autumn,
+outcomes the following spring - so a resubmission "later this year" means the price goes
+INTO the bid this autumn, and on a CIF bid the number in the submission is usually the
+number that gets used. Being in the bid beats being asked after it. Diarised for late
+September. Full file: `data/companies/glazing-consultancy-services.md`.

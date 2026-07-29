@@ -1,0 +1,49 @@
+Darren's note kills six live rows on AdminBase, and they are worth GBP 3.3m between them.
+
+WHAT I FOUND WHEN I WENT LOOKING. GCS is Glazing Consultancy Services, Darren Trigg,
+darren@glazingconsultancyservices.co.uk. The two schools he names are not two rows on our
+system - they are six, because Churchdown went out to five different main contractors:
+
+  7009  Glazing Consultancy Services   Aylesbury High School        20/10/2025  GBP 321,274
+  7098  Glazing Consultancy Services   Churchdown School            05/11/2025  GBP 729,117
+  7139  Kemdoc                         Churchdown School            12/11/2025  GBP 746,617
+  7159  Mobius Group                   Churchdown School            14/11/2025  GBP 746,617
+  7267  Roof Estimating Services       Churchdown School Academy    02/12/2025  GBP 729,117
+  7268  Southern Projects              Churchdown School Academy    02/12/2025  GBP 729,117
+
+Every one of them still reads "Live - Quoted" on AdminBase and every one is chase-due. They
+are not live. The funding failed. Anyone working that chase list this week would have spent
+the afternoon ringing five contractors about a job none of them has, and would have looked
+like we were not paying attention - to five separate customers at once.
+
+That is the first practical thing to come out of this: **an outcome that arrives by email
+does not reach the CRM.** Darren told us the funding failed; AdminBase has never heard.
+
+WHAT CIF ACTUALLY MEANS FOR THE TIMING. Condition Improvement Fund is the annual capital
+pot academies and sixth-form colleges bid into, and it runs on a fixed cycle - bids in the
+autumn, outcomes announced the following spring. So Darren's "likely to be resubmitted
+later this year" means the bid goes in around this autumn and the answer comes in spring
+2027, with any work after that. I want to be clear that the cycle is my reading of how CIF
+works and not something Darren said - what he said is "later this year" and "we will be in
+touch in due course".
+
+WHAT I THINK WE SHOULD DO WITH IT, AND IT IS NOT NOTHING
+  - Mark all six rows on the board as held rather than live, with Darren's reason and the
+    date. They stop generating chases and stop inflating the pipeline. Doing that now.
+  - Diary Darren for late September - before the autumn bid goes in, not after. The point
+    of that call is not "any news"; it is to be the glazing number already in the bid when
+    the bid is written. That is the whole game with CIF: the price in the submission is
+    usually the price that gets used.
+  - Keep the Churchdown pricing to hand exactly as he asks. It is the reason we will be
+    quick when it comes back, and we have already done the work five times.
+
+ONE THING TO NOTE ABOUT HIM, WHICH IS THE REAL VALUE HERE. "Currently we are a bit quiet at
+present but please be assured that we will be sure to contact you when we are working on
+any new projects that we believe may be of interest to Fenster." That is a consultant who
+puts us on lists without being asked. Your own contracts export says three quarters of
+everything Fenster has ever won came from an existing relationship or from Jayk personally
+- so a man who volunteers to think of us is worth more than any tender portal I fixed
+today. He should get a call every couple of months whether or not there is a job on.
+
+Nothing has gone to Darren. If you want a note back to him thanking him and asking to be
+kept in for the resubmission, say so and I will draft it for you to send.

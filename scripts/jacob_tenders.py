@@ -90,47 +90,80 @@ UNAMBIGUOUS_CPV = ("44221", "45421", "45441000")
 # so the notice has to say window, door or glazing in words to count.
 CPV_SPRAY = 12
 
-# Fenster's own declared postcode coverage, taken from the PQQ pack it sends
-# out (4. Business Development\Just in Case\PQQ Info\Postcode Coverage.odt).
-# 78 areas, England plus ML. No Wales, no Northern Ireland, effectively no
-# Scotland, nothing west of Bristol or north of York. This is the company
-# saying in writing where it will work, so it beats any guess about region.
-COVERAGE = set("""AL B BB BD BH BL BN BR BS CB CH CM CO CR CV CW DA DE DL DN
-DY E EC EN GL GU HA HD HG HP HR HU HX IG IP KT LA LE LN LS LU M ME MK ML N NG
+# COVERAGE IS ENGLAND AND WALES, NATIONWIDE - Adam, 29/07/2026, closing JAC-10:
+# "We basically work nationwide (wales and england) ... please do send
+# opportunities for all of wales and england. Obviously closer the better, but
+# we do work nationwide."
+#
+# What this replaced, and why the old answer was wrong. Fenster's own PQQ pack
+# (`4. Business Development\Just in Case\PQQ Info\Postcode Coverage.odt`) names
+# 78 postcode areas: England plus ML, no Wales, nothing west of Bristol or
+# north of York. That document was read as a rule and it is not one - it says
+# where Fenster ADVERTISES that it works. Two quotes were live outside it while
+# it was being enforced: St Mary's, Merthyr Tydfil (CF47, GBP 174,546) and
+# Trafalgar House, Portchester (PO6, GBP 71,566). The board was parking real
+# leads on the strength of a marketing document. JAC-10 asked; this is the
+# answer, and it comes from the man who decides.
+#
+# So the list below is now the exclusion, not the inclusion - and it is small.
+# ML deserves a note: it was on the PQQ's 78 and it is Scotland, so Adam's rule
+# puts it OUT. That is a real change and not an oversight. If he wants Scotland
+# he can say so and it is one line.
+OUT_OF_AREA_POSTCODE = set("""AB DD DG EH FK G HS IV KA KW KY ML PA PH TD ZE
+BT IM GY JE""".split())
+
+# Kept for the one thing it is still good for: telling a human that a lead is
+# a long way from Milton Keynes. Adam's "obviously closer the better" is a
+# weighting, never a veto, so this now annotates a row instead of parking it.
+NEAR_HOME = set("""AL B BB BD BH BL BN BR BS CB CH CM CO CR CV CW DA DE DL DN
+DY E EC EN GL GU HA HD HG HP HR HU HX IG IP KT LA LE LN LS LU M ME MK N NG
 NN NR NW OL OX PE PR RG RH RM S SE SG SK SL SM SN SS ST SW TN TW UB W WA WC WD
 WF WR WS WV YO""".split())
 
 # Notices often carry a region name instead of a postcode. These are the ones
 # that are decidable from the name alone; anything else stays unknown rather
 # than being guessed at.
+# Cut back hard on 29/07/2026 when Adam closed JAC-10. Wales, Cornwall, Devon,
+# Cumbria, Northumberland, Tyne and Wear, Durham and Teesside were all on this
+# list and every one of them is England or Wales, so every one of them was
+# parking leads Fenster would have travelled for. What is left is Scotland,
+# Northern Ireland and the Crown Dependencies.
+IN_AREA_REGION = re.compile(
+    r"(england|wales|cymru|east of england|east midlands|west midlands|"
+    r"north west|north east|south east|south west|yorkshire|humber|"
+    r"greater london|london|cornwall|devon|plymouth|truro|cumbria|carlisle|"
+    r"northumberland|tyne and wear|newcastle|durham|teesside|cardiff|"
+    r"swansea|newport|wrexham|bangor|merthyr|isle of wight)", re.I)
+
 OUT_OF_AREA_REGION = re.compile(
-    r"(scotland|wales|cymru|northern ireland|highland|grampian|tayside|"
-    r"lothian|strathclyde|dumfries|aberdeen|inverness|glasgow|edinburgh|"
-    r"cornwall|devon|plymouth|truro|cumbria|carlisle|northumberland|"
-    r"tyne and wear|newcastle|durham|teesside|isle of man|channel islands)", re.I)
+    r"(scotland|northern ireland|highland|grampian|tayside|lothian|"
+    r"strathclyde|dumfries|aberdeen|inverness|glasgow|edinburgh|dundee|"
+    r"isle of man|channel islands|guernsey|jersey)", re.I)
 
 # Half the notices carry a NUTS code rather than a place name. UKM is
-# Scotland, UKL Wales, UKN Northern Ireland, UKC the North East, UKK4 the
-# South West peninsula, UKD1 Cumbria - all outside the 78 areas Fenster
-# declares. UKM84 is the exception: that is North Lanarkshire, which is the
-# ML postcodes, and ML is on Fenster's own list.
-NUTS_OUT = ("UKM", "UKL", "UKN", "UKC", "UKK4", "UKD1")
-NUTS_IN = ("UKM84",)
-NUTS_NAME = {"UKM": "Scotland", "UKL": "Wales", "UKN": "Northern Ireland",
-             "UKC": "North East England", "UKK4": "Devon and Cornwall",
-             "UKD1": "Cumbria"}
+# Scotland and UKN is Northern Ireland - those are out. UKL (Wales), UKC (the
+# North East), UKK4 (Devon and Cornwall) and UKD1 (Cumbria) came OFF this list
+# on 29/07/2026: they are England and Wales, and Adam works England and Wales.
+# UKM84 - North Lanarkshire, the ML postcodes - used to be carved back in
+# because ML is on the PQQ's 78. It is still Scotland, so it is out now too.
+NUTS_OUT = ("UKM", "UKN")
+NUTS_IN = ()
+NUTS_NAME = {"UKM": "Scotland", "UKN": "Northern Ireland"}
 
 
 def nuts_verdict(code):
+    """Every UK NUTS code that is not Scotland or Northern Ireland is England
+    or Wales, so it is IN. Before 29/07/2026 this returned None for anything
+    it did not recognise and the row fell through to "not stated" - which is
+    how Plumpton Parish Council, tagged UKC, came back as an unknown location
+    when UKC is the North East of England and perfectly decidable."""
     c = (code or "").strip().upper()
     if not c.startswith("UK"):
         return None, None
-    if c.startswith(NUTS_IN):
-        return "in area", "North Lanarkshire (ML)"
     for pre in NUTS_OUT:
         if c.startswith(pre):
             return "outside coverage", NUTS_NAME.get(pre, c)
-    return None, None
+    return "in area", c
 
 # The main contract a glazing package hides inside. Buildings only - the
 # highways and utilities families are deliberately absent, because 26% of
@@ -157,9 +190,12 @@ NOT_GLAZING = re.compile(
     r"gully|street light|door[- ]to[- ]door (survey|canvass)|"
     r"front door to |window of opportunity|glazing (bar )?pottery|ceramic)", re.I)
 
-# The size Fenster can actually service as a subcontractor. Below this a main
-# contract has no glazing package worth a trip; above it Fenster has not won
-# one yet - see the Opportunity Log, 0 wins in 52 attempts over GBP 50k.
+# The size of MAIN CONTRACT worth reading for a glazing package. Below this
+# there is rarely a package worth a trip. The ceiling is a practical one, not
+# a verdict on the company: the BD log records no win over GBP 50k, but the
+# log is the 2025-26 funnel and Headrow Court (Fortis Vision, ~GBP 630k + VAT,
+# Adam's own largest job) never appears on it. Contract value and package
+# value are different numbers and only one of them is the one Fenster bids.
 MIN_VALUE, MAX_VALUE = 400_000, 40_000_000
 
 
@@ -210,17 +246,25 @@ def places(t):
 
 
 def coverage_of(pcs, regions, buyer):
-    """In Fenster's declared working area, outside it, or not stated.
+    """In Fenster's working area, outside it, or not stated.
 
-    Deliberately three answers and not two. A notice with no location on it
-    is not evidence of anything, and dropping it silently would be the same
-    mistake as the 1,000-message page cap: a filter that looks like a fact."""
+    Since Adam settled JAC-10 on 29/07/2026 the area is England and Wales,
+    nationwide, so "outside coverage" now means Scotland, Northern Ireland or
+    the Crown Dependencies and almost nothing else. The third answer stays:
+    a notice with no location on it is not evidence of anything, and dropping
+    it silently would be the same mistake as the 1,000-message page cap - a
+    filter that looks like a fact.
+
+    "in area - far" is not a rejection. Adam's "obviously closer the better"
+    is a weighting for a human, so distance is shown and never enforced."""
     areas = {m.group(1) for m in
              (re.match(r"^([A-Z]{1,2})\d", (p or "").replace(" ", "").upper())
               for p in pcs or []) if m}
     if areas:
-        return ("in area" if areas & COVERAGE else "outside coverage",
-                ",".join(sorted(areas)[:3]))
+        where = ",".join(sorted(areas)[:3])
+        if areas & OUT_OF_AREA_POSTCODE:
+            return "outside coverage", where
+        return ("in area" if areas & NEAR_HOME else "in area - far"), where
     for r in (regions or []):
         verdict, name = nuts_verdict(r)
         if verdict:
@@ -228,6 +272,11 @@ def coverage_of(pcs, regions, buyer):
     text = " ".join(list(regions or []) + [buyer or ""])
     if OUT_OF_AREA_REGION.search(text):
         return "outside coverage", (regions or ["from the buyer's name"])[0]
+    # A named English or Welsh region is a decidable location and used to come
+    # back as "not stated" - Broadland Housing Association, region "East of
+    # England", read as an unknown. Adam works England and Wales, so it is IN.
+    if IN_AREA_REGION.search(text):
+        return "in area", (regions or ["from the buyer's name"])[0]
     if regions:
         return "not stated", regions[0]
     return "not stated", ""
@@ -394,13 +443,17 @@ def main():
         "publishedFrom": frm, "publishedTo": today,
         "cpvList": list(ADAM_CPV),
         "cpvListFrom": "Adam Butcher, hub message 13, 28/07/2026",
-        "coverageFrom": "PQQ Info\\Postcode Coverage.odt - Fenster's own "
-                        "declared working area, 78 postcode areas",
+        "coverageFrom": "Adam Butcher, hub message 38, 29/07/2026, closing "
+                        "JAC-10: England and Wales, nationwide. This replaced "
+                        "PQQ Info\\Postcode Coverage.odt, whose 78 postcode "
+                        "areas describe where Fenster advertises and were "
+                        "being enforced as if they were a rule.",
         "counts": {
             "direct": sum(1 for r in dedup if r["tier"] == "direct"),
             "main-contract": sum(1 for r in dedup if r["tier"] == "main-contract"),
             "text-only": sum(1 for r in dedup if r["tier"] == "text-only"),
             "inArea": sum(1 for r in dedup if r["coverage"] == "in area"),
+            "inAreaFar": sum(1 for r in dedup if r["coverage"] == "in area - far"),
             "outsideCoverage": sum(1 for r in dedup if r["coverage"] == "outside coverage"),
             "locationNotStated": sum(1 for r in dedup if r["coverage"] == "not stated"),
             "confident": sum(1 for r in dedup if r["confident"]),

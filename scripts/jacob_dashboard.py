@@ -35,6 +35,10 @@ TENDERS = os.path.join(REPO, "data", "jacob", "tender-notices.json")
 # Finder at all, so a board built only on feeds is missing the half that
 # matters. Hand-entered, provenance on every row.
 MANUAL_LEADS = os.path.join(REPO, "data", "jacob", "leads-manual.json")
+# The won commercial contracts, with a net value on every row - Adam's hand
+# export of 29/07/2026. The only file here that says what Fenster HAS done
+# rather than what it might get. 204 contracts, GBP 2.84m, 8 over GBP 50k.
+CONTRACTS_WON = os.path.join(REPO, "data", "jacob", "contracts-won.json")
 # ProContract (Due North) public adverts. Under the GBP 100k Find a Tender
 # threshold a buyer advertises on its own portal and nowhere else, and that is
 # Fenster's size of work. The adverts are public; only bidding needs the login
@@ -479,6 +483,60 @@ def build_relationships(clients, intake, jayk):
     # Most recently active first, then the ones we have most history with.
     out.sort(key=lambda r: (r["lastContact"], len(r["contacts"])), reverse=True)
     return out
+
+
+def attach_won(rel, won):
+    """Put the money Fenster has actually taken from a company onto its row.
+
+    Until Adam's 29/07/2026 export there was no honest way to do this: the
+    archive said a company had bought, and nothing said how much. It matters
+    because "dormant - has bought" is the cheapest lead in the business and
+    it was ranking a GBP 900-a-year customer level with Conamar, who have paid
+    for sixteen contracts worth GBP 917,028. Those are not the same phone call.
+
+    Matched on the same token normalisation the rest of the board uses, so
+    "CONAMAR BUILDING SERVICES LTD." finds "Conamar". Anything that does not
+    match is left alone rather than guessed at - a wrong merge here puts real
+    money against the wrong company."""
+    if not won:
+        return rel
+    idx = {}
+    for c in won.get("clients", []):
+        k = " ".join(tokens(c["client"]))
+        if k:
+            idx[k] = c
+    for r in rel:
+        k = " ".join(tokens(r["company"]))
+        hit = idx.get(k)
+        if not hit:
+            # A won client whose name is a superset of the board's name, or
+            # the other way round - "conamar" against "conamar building
+            # services". Only accept it when one contains the other whole.
+            for wk, c in idx.items():
+                if len(k) >= 5 and (k in wk or wk in k):
+                    hit = c
+                    break
+        if hit:
+            r["wonJobs"] = hit["jobs"]
+            r["wonValue"] = hit["value"]
+            r["biggestWin"] = hit["biggest"]
+            r["wonYears"] = "%s-%s" % (hit["firstYear"], hit["lastYear"])
+            # DELIBERATELY NOT SET: r["relationship"] = "won".
+            #
+            # It was, for about ten minutes on 29/07/2026, and it took the
+            # "dormant clients who have bought" count from 33 to 55 - which
+            # looked like twenty-two new leads and was twenty-two false ones.
+            # `lastContact` is empty when a company row did not JOIN to a
+            # mailbox row, not when nobody has emailed them, so forcing the
+            # relationship to "won" fed the state machine an absence it had
+            # no business reading as silence. Checked by hand against the full
+            # mailbox: St Albans School had emailed TODAY, Storm Building six
+            # days before, Cranfield twelve. All three read "dormant".
+            #
+            # The money still attaches - that is the useful half, and it is
+            # what ranks Conamar's GBP 917,028 above a GBP 900 customer. The
+            # state stays with the evidence that earned it.
+    return rel
 
 
 # ------------------------------------------------------- threads and states
@@ -1026,23 +1084,19 @@ def build_tenders(notices, outcomes, book):
                         else "open" if left is not None else "no closing date")
 
         if n.get("coverage") == "outside coverage":
-            # Fenster's own PQQ names 78 postcode areas and this is not one -
-            # but the PQQ says where Fenster advertises that it works, not
-            # where it will. Two quotes are live outside that list as this is
-            # written: St Mary's, Merthyr Tydfil (CF47, GBP 174,546, issued
-            # 17/07) and Trafalgar House, Portchester (PO6, GBP 71,566, issued
-            # 22/07). So the row still gets nobody's afternoon by default -
-            # there is no point ringing about Inverness - but it no longer
-            # tells a human the answer is settled when it is JAC-10.
+            # JAC-10 CLOSED, Adam, 29/07/2026: "We basically work nationwide
+            # (wales and england) ... please do send opportunities for all of
+            # wales and england." So this branch is now Scotland, Northern
+            # Ireland and the Crown Dependencies, and nothing else. It used to
+            # catch Wales, Cornwall, Devon, Cumbria and the whole North East on
+            # the strength of a PQQ marketing document, while Fenster had a
+            # GBP 174,546 quote live in Merthyr Tydfil.
             row["owner"] = NOBODY
-            row["next"] = ("Parked, not refused. %s is outside the 78 postcode "
-                           "areas Fenster's own PQQ names - but Fenster has two "
-                           "live quotes outside that list right now (Merthyr "
-                           "Tydfil and Portchester), so the list is a claim "
-                           "about where it advertises, not a rule. JAC-10 asks "
-                           "Adam where the real line is."
+            row["next"] = ("Parked. %s is outside England and Wales, which is "
+                           "where Adam says Fenster works (29/07/2026, JAC-10). "
+                           "Not a judgement about the job."
                            % (n.get("where") or "This area"))
-            row["state"] = "outside the PQQ list"
+            row["state"] = "outside England and Wales"
         elif not n.get("confident"):
             row["owner"] = JACOB
             spray = (n.get("cpvCount") or 0) > 12
@@ -1233,11 +1287,9 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
         if left is None or left < 0:
             continue
         if n.get("coverage") == "outside coverage":
-            # Kept off the action list, not off the board. The PQQ's 78 areas
-            # are where Fenster says it works, and two live quotes are outside
-            # them (Merthyr Tydfil, Portchester) - so the row still shows on
-            # the tenders page saying exactly that, and JAC-10 asks Adam where
-            # the real line is. Nobody's afternoon goes on Inverness meanwhile.
+            # Scotland, Northern Ireland or the Crown Dependencies - off the
+            # action list, still on the board. England and Wales are IN as of
+            # 29/07/2026 (Adam, JAC-10), so this no longer swallows Cardiff.
             continue
         if not n.get("confident"):
             continue                 # broad CPV, no glazing word - read it first
@@ -1383,7 +1435,8 @@ def build():
     handover = build_handover(load_json(HANDOVER))
     adminbase = load_json(ADMINBASE)
     drafts = load_json(DRAFTS)
-    rel = build_relationships(clients, intake, jayk)
+    wonContracts = load_json(CONTRACTS_WON)
+    rel = attach_won(build_relationships(clients, intake, jayk), wonContracts)
     for r in rel:
         r["key"] = "co:" + x_key(r)
         r["state"] = book_state(r)
@@ -1554,6 +1607,11 @@ def build():
         "decisions": DECISIONS,
         "adminbase": adminbase,
         "drafts": drafts,
+        # What Fenster has actually won, with a value on every row. This is the
+        # only panel on the board built from delivered work rather than from
+        # hope, and it is the one that settles whether a big lead is worth
+        # anyone's afternoon. Adam, 29/07/2026.
+        "wonContracts": wonContracts,
     }
 
 
