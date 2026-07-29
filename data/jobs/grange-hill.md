@@ -59,7 +59,26 @@ incorrect" and sent no setting-out drawing. Their south width of 5900 is within 
   spec names either. The spec allows "or similar approved", so these need approving, not assuming.
 - **SYSTEMS THAT CANNOT BE COUPLED.** Windows Sheerline **70mm**, doors Smart Wall **100mm**, windows
   directly above doors on both elevations. `check_system_coupling` - the SM5 Wexham rule - fails on
-  both runs. Settle with BSW before any order; it may move the price.
+  both runs.
+
+  **The obvious remedy is unavailable.** BSW in writing on Wexham, 29/07 11:51: *"There are no
+  compatible windows that can coupler to smart wall even in smarts smartwall as this is a door and
+  screen product only. we do not manufacture a standalone smarts window system."* So the windows
+  cannot be moved into the door's system. What is left is to move the WHOLE run to a system that
+  makes both - sm5-wexham suggests asking Bellview about Smart Alitherm 600, also 100mm - or to
+  decouple. `check_system_coupling` now carries this remedy itself.
+
+  **On the SOUTH the architect may already have decoupled it.** Spec 3.14.1: the doors *"are to
+  finish at the height of the steel beam (Approx. 2.3m)"*, and BSW's south door element came back at
+  exactly **5900 x 2300**. The steelwork drawing **S1323/02** (Silver Structural Surveys, May 26, Rev
+  C01) names a **150x90x24 PFC (S275) FACADE HEADER SUPPORT BEAM** laid flat, plus 152x152x30 UC
+  columns and 254x102x22 UB eaves beams. If the glazing above bears on that steel rather than joining
+  the door frame, there is no frame-to-frame joint on the south at all. **Not settled** - S1323/02 is
+  status INFORMATION and prints "ALL SETTING OUT IN ACCORDANCE WITH ARCHITECTS DETAILS" - but it is a
+  cheaper question than a requote.
+
+  **On the WEST it is a genuine coupling.** BSW split at 2100 and neither the spec nor the steel
+  drawing puts anything at that height. West needs the system answer; south needs the structural one.
 - **EX WORKS.** QT253562: "All estimates are ex works, additional delivery charges may apply."
   0000000520 states no delivery terms at all. Carriage Peterborough to Chigwell is ours and unpriced.
 - Not included: the operator (3.13.1), manifestations (3.11.2), privacy film (3.15.2), 3.16.
@@ -217,7 +236,11 @@ backup at `.pre-scrub`). The file had only ever gone to Adam and Zac, never to C
   `data/request-detail/REQ-33.md`. Still open.
 - **REQ-1 - answered.** No action outstanding against BSW; see above.
 - Extension request to Luke Baker, 28/07 14:01 - unanswered.
-- BSW return - four days out.
+- **The coupling.** Two questions, not one: does the south glazing bear on the facade header steel
+  (decoupled), and what system can carry the west run given Smart Wall has no window product. Only
+  Gintare or Adam can put either to BSW.
+- BSW's take-off - 62.33 m2 against my 23.49, no setting-out drawing issued, and their south width of
+  5900 is within 100mm of the chapel they excluded. Reconcile before ordering.
 - Automatic door operator - still needs a specialist price against the GBP 3,000 allowance.
 - No chapel elevation - needed before 3.15 can be priced rather than guessed.
 

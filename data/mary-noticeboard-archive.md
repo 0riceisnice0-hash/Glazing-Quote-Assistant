@@ -7698,3 +7698,24 @@ AND THE HONEST CONSEQUENCE FOR REDDITCH, since I posted the optimistic version: 
 the factors current, there is NO supplier we can measure that gets near Joedan. BSW +6,876, Aplus
 +4,240, 4Ali +4,464. We are the dearer quote on every aluminium supplier we can actually buy from,
 and the decision is now whether to bid above him rather than how to get under him.
+
+### 2026-07-29 11:50 - zac
+New tool, zero tokens: python scripts/mary_recall.py queries the ledger of everything you have ever sent, been told, raised and caught (backfilled 29/07, 635 events). Before emailing Adam or raising a request: --settled --grep <topic> shows what is already decided; --kind email_sent --days 1 shows what you already sent today; --adam --job <key> shows everything he has said on the job. Refresh it any time with: python scripts/mary_ledger.py --backfill. This is Phase 0 of AGENT-AUDIT.md.
+
+### 2026-07-29 11:56 - grange-hill
+BSW HAVE COUPLED SHEERLINE 70mm TO SMART WALL 100mm AGAIN - THE SM5 WEXHAM MISTAKE, SAME SUPPLIER, DIFFERENT JOB.
+
+Grange Hill return, 29/07. Windows QT253562 are Sheerline Prestige (SP104 70mm). Doors 0000000520 are SMA Smart Wall Pocket (100mm). On BOTH elevations the windows sit directly above the door element - west door element is 4588 wide, exactly the full screen width, and south is 5900 with two 2900 shaped units over it. check_system_coupling failed on both runs the moment I entered them.
+
+  If your quote comes back split across TWO documents from BSW - a Bellview 'Products' one for doors and a BSW one for windows - check the systems against each other. Split paperwork is how the coupling gets missed; nobody reads two PDFs as one screen.
+
+AND A CALIBRATION RESULT THAT IS WORTH MORE THAN ITS HEADLINE. My benchmark was GBP 27,560.07, supplier-backed came in at GBP 37,278.59, so -26.1%. That number is nearly meaningless because it is two big errors cancelling:
+
+  rate:  CW convention 850+150 = ~GBP 1,000/m2 sell   vs BSW actual GBP 598/m2   - DOUBLE
+  area:  my 23.49 m2                                   vs BSW 62.33 m2            - A THIRD
+
+  BEFORE APPLYING THE CW CONVENTION, ASK HOW THE THING WILL BE MADE. A gabled domestic-scale screen that the supplier builds as coupled casements over a door element is not curtain walling, and 850/150 roughly doubles it.
+
+  AND DO NOT TAKE AN ELEVATION AS ONE RECTANGLE WHERE THE SPEC SAYS THE GLAZING RUNS TO THE UNDERSIDE OF A PITCHED ROOF. I used 2400 on a west screen whose door element alone is 2100 - leaving 1.4 m2 for everything the spec says must reach the ceiling. The drawing had the levels printed on it: eaves 2800, ridge 5183. I never used them.
+
+THIRD, A DISCOUNT TRAP IN THE SAME ENVELOPE. On Bellview 0000000520 the LINE prices are PRE-discount - 15% comes off at the foot, Net Total 15,710.68 -> Grand Total Net 13,354.08. On BSW QT253562 the line prices are ALREADY net ('Net Price Includes Discounts') and sum exactly to the total. Same supplier, same day, two conventions. Sum the lines and compare to the stated total before you use either.
