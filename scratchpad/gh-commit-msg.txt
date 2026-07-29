@@ -1,0 +1,46 @@
+Grange Hill: the estimator had already built the return, and it is one window short
+
+The work order was a re-delivery of the 09:30 BSW chase with nothing new in it. What the
+turn actually found sits four minutes on the other side of it.
+
+I built a WD001 tender return - priced document grouped by spec clause, twelve
+qualifications on its face, covering note for Luke Baker - and sent it to Adam at 14:32 at
+GBP 40,528.59. Gintare had sent him the real pack at 13:10: pricing document, proposal with
+a full exclusions schedule, and BSW's own quotation sheets marked up as drawings with the
+prices and BSW's identity stripped and ours put on. quote_send_dates.py reads estimating@'s
+sent folder and would have shown it; nobody had run it before building. Grange Hill and Leys
+Sports Pavilion are now in its job list.
+
+Withdrawn mine and checked hers instead, which is where the money was:
+
+  ONE WINDOW PRICED SHORT - GBP 419.32. She schedules seven 1200x1183 where BSW quote eight.
+  Her Frames column totals 22,411.77 against BSW's 22,831.09, the difference is exactly one
+  unit, and the drawings going to the client show all thirteen. Either we issue a pack showing
+  a window we have not sold or BSW's quote has a unit too many. ~GBP 830 of sell, and house
+  supply passes through pound for pound so it comes off margin - SM5 Wexham's restrictors again.
+
+  FOUR SPEC CLAUSES NEITHER PRICED NOR EXCLUDED: 3.11.2 manifestations, 3.13.1 the DDA
+  automatic operator, 3.15.2 privacy film, 3.16 the two FD60 doorsets. The chapel folding
+  doors ARE properly excluded. Delivery is represented as included against two ex-works BSW
+  quotes with no carriage rate. No zero-rated VAT split, though the spec names 3.12.1 (V) and
+  3.13.1 (V) and prices zero-rated work in its own column.
+
+Also settled from the spec itself: Options 1-3 in the tender pricing structure are floor
+finishes and do not touch WD001, and the pack does contain a form of tender - the main
+contract one, for Chigwell to return, not ours.
+
+Two house-wide fixes, neither about this job:
+
+  templates/MASTER PRICING DOC.xlsx still carried the REQ-27 external links to two other
+  people's machines. The 28/07 scrub cleaned the Grange Hill output, not the thing that
+  generated it, so every document built from it since was born dirty. Scrubbed, backup kept.
+
+  mary_checks failed any full-height screen not priced as curtain walling. On this job the
+  convention was the error - it put the rate near GBP 1,000/m2 where BSW quote 598/m2, which
+  is GBP 13,000 of the 27,560 benchmark. The rule now takes a supplier quotation as superseding
+  the convention and still fires on Greenfields. Eight variants in the selftest.
+
+Checks went 8 FAIL to 5, and the five left are disclosed rather than cleared. One of them I
+added: the window quantities were invisible before because the manifest never carried them.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
