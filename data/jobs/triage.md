@@ -936,7 +936,52 @@ Liniar uPVC. Adam's correction is right and there is now evidence in a job folde
 
 Also spotted in passing, not actioned: `5. Finance\Payment Applications\MASTER Fenster Glazing Payment
 Application - Shaftesbury (Nr. 2).xlsx` is filed inside the Trafalgar House folder. Wrong job. The
-archive is read-only so it is recorded, not moved.
+archive is read-only so it is recorded, not moved. **[Corrected 12:45 - it is not misfiled. It is a
+blank master template copied into folders all over the archive, including 15 won-job folders. See the
+next entry.]**
+
+### 2026-07-29 12:45 - dashmsg-91: six won-job values confirmed, and three traps declined
+Zac's standing batch work, no deadline, "a few jobs per quiet session". Took six.
+`data/known-values.json` 5 -> 11 values, **GBP 51,094.65 added**, every one basis `document` with its
+source path and its reasoning in the note field. Replied on the hub.
+
+| job | value ex VAT | evidence |
+|---|---|---|
+| conamar\|bromley wellbeing centre | 6,970.00 | PN03 - gross valuation AND projected final account agree |
+| tsl\|lawford house | 15,344.68 | quote sub-total, corroborated exactly by TSL payment notice 002 |
+| denton hope\|roseford court | 15,490.47 | PO DHLT-00024, item cost without tax |
+| fortis vision\|thetford | 8,419.50 | PO: "Sub-Contract Sum of 8,419.50 (excluding VAT)" |
+| krypton\|waitrose @ storrington | 3,190.00 | SC2435 order value |
+| capital services\|ghpc flat 14 | 1,680.00 | PO P-001133 sub total |
+
+**THE VALUE OF THIS TASK IS IN THE ONES YOU DO NOT RECORD.** Three candidates were wrong in three
+different ways:
+- **elkins\|midfield school** - the mined figure is a **Strongdor order**. That is our BUY price, not
+  the job value. Any candidate whose top document is a supplier order confirmation is a cost.
+- **tsl\|lawford house** - the mined candidate `4,344.24` is labelled "Contract Balance" and is
+  actually the **door line price**. Recording it would have understated the job by 71%. It only came
+  apart because the quote's five lines sum exactly to 15,344.68.
+- **fortis vision\|thetford** - PO says 8,419.50; a payment certificate in the same folder shows
+  4,258.19 gross across three invoice refs. Not stated as cumulative or final, so it does not displace
+  the contract sum - **recorded the contract sum and wrote the discrepancy into the note** rather than
+  bury it or omit the job.
+
+**Bromley is the argument for "latest wins":** PN01 projected a final account of 6,476.00, PN02 grossed
+6,682.00, PN03 grossed 6,970.00 and states that as the projected final account. Any of the first two
+would have been defensible-looking and wrong.
+
+**Two tooling faults found and reported to Zac, both verified rather than suspected:**
+1. `mine_won_values.py` fails on paths over ~260 chars (Windows MAX_PATH). The **only** read errors in
+   the entire 203-job index are RSR Bletchley's two valuations, buried under
+   `Finance\Hartstone Legal\FGL-SE-2601 -  Requested Documentation\...` at ~270 chars. A duplicate set
+   of the same files exists at a short path, so preferring the shortest path per duplicate filename
+   fixes it.
+2. **A one-hyphen key mismatch**: `known-values` has `rsr|rsr bletchley rail depot`, the evidence index
+   has `rsr|rsr - bletchley rail depot`. The job carries a GBP 191k brochure value and will still read
+   as unvalued when the hub joins them.
+
+195 candidates remain, 40 with mined amounts. No email to Adam - this is Zac's work and the hub is
+where it was asked and answered.
 
 ## Watch list
 

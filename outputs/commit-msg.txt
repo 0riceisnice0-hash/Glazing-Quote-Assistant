@@ -1,42 +1,44 @@
-Trafalgar House: the client asked two questions and the quote he is chasing answers neither
+Won-values mining: six confirmed into known-values.json, three traps declined
 
-Paul chased Michael Beyer (Topek Southern) at 11:54 on a quotation issued 22/07 at
-GBP 71,566.47 + VAT, Liniar uPVC via TruFrame. The chase is Jacob's by Adam's 28/07
-ruling and went to him; the quote is estimating, so I audited it.
+Zac's standing batch work (dashmsg-91), no deadline. known-values.json 5 -> 11 values,
+GBP 51,094.65 added, every one basis "document" with its source path and the reasoning
+in its note.
 
-Michael asked two explicit things on 14/07, pricing a budget cost for a tender he is
-preparing - so our allowances were going upward into his own bid:
+  conamar|bromley wellbeing centre    6,970.00   PN03 - gross valuation and projected
+                                                 final account agree
+  tsl|lawford house                  15,344.68   quote sub-total, corroborated exactly
+                                                 by TSL payment notice 002
+  denton hope|roseford court         15,490.47   PO DHLT-00024 item cost without tax
+  fortis vision|thetford              8,419.50   PO "Sub-Contract Sum of 8,419.50
+                                                 (excluding VAT)"
+  krypton|waitrose @ storrington      3,190.00   SC2435 order value
+  capital services|ghpc flat 14       1,680.00   PO P-001133 sub total
 
-  "state what your allowance achieves" (glass)  - the proposal gives the make-up and NO
-  performance figure at all. Zero occurrences of U-value, W/m2K or any rating.
+The value of this task is in the ones NOT recorded. Elkins Midfield's mined amount is a
+Strongdor order - our buy price, not the job value. Lawford House's mined 4,344.24 is
+labelled "Contract Balance" and is actually the door line price; recording it would have
+understated the job by 71%. Thetford's PO and a payment certificate in the same folder
+disagree, so the contract sum was recorded WITH the discrepancy written into the note
+rather than buried or the job omitted.
 
-  "provide info on your allowance" (ironmongery) - the word "ironmongery" does not appear
-  in the proposal.
+Bromley is the argument for "latest wins": PN01 projected 6,476.00, PN02 grossed 6,682.00,
+PN03 grossed 6,970.00 and states that as the projected final account. Either earlier
+figure would have looked defensible and been wrong.
 
-The two gaps have different causes, which is the useful part. On ironmongery we HELD the
-answer and did not pass it on: TruFrame's quotation sheet 10213105 specifies handles,
-handle heights, hinges, hinge quantities and cylinders line by line. On glass NOBODY ever
-had it: TruFrame's glass order prints "you can expect the window on this job to achieve a
-WER **********" - ten asterisks where the rating goes. Reported the artefact not the
-cause; whether it was never calculated or is a print artefact is TruFrame's to answer.
+Two tooling faults reported to Zac on the hub, both verified:
+ - mine_won_values.py fails on paths over ~260 chars (Windows MAX_PATH). The only read
+   errors in the whole 203-job index are RSR Bletchley's valuations at ~270 chars; a
+   duplicate set exists at a short path, so preferring the shortest path per duplicate
+   filename fixes it.
+ - A one-hyphen key mismatch: known-values has "rsr|rsr bletchley rail depot", the
+   evidence index has "rsr|rsr - bletchley rail depot". That job carries a 191k brochure
+   value and will still read as unvalued when the hub joins them.
 
-Board note posted on the general rule: a supplier document can promise a number and then
-not give it, and a blank field reads as boilerplate rather than as a gap - so search for
-the sentence that should contain the number, not for digits.
+Also corrected yesterday's own note: the MASTER Shaftesbury payment application in the
+Trafalgar House folder is not misfiled, it is a blank template copied across the archive -
+15 won-job folders index it as evidence.
 
-Checked mary_recall before raising: no standing ruling on either question, and zero prior
-events on the job. Zac's ledger did in seconds what would have been guesswork.
-
-Document traces reached a third client (proposal author "Nicholas Baker", pricing xlsx
-"Dan Parker"/"agsurveying" plus external links into other people's Outlook cache).
-Deliberately NOT raised as new - Filwood owns the master-template fix and a third instance
-does not change their action. Confirmed clean_issued_pack.py already strips all of it
-including externalLinks, so the tool is not the gap.
-
-Corroborated redditch-library's 11:42 TruFrame retraction with a live receipt: this job is
-TruFrame quoting Liniar uPVC.
-
-Staged by name, not add -A. data/knowledge/ appeared untracked during this turn and is
-someone else's in-flight work - left alone, per redditch-library's 11:37 warning.
+195 candidates remain, 40 with mined amounts. Staged by name; dashboard/public/app.js,
+scripts/jacob_dashboard.py and data/jacob/bridge-state.json are other sessions' work.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

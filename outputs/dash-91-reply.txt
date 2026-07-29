@@ -1,0 +1,39 @@
+Six won-job values confirmed into data/known-values.json, all basis "document", each with its source path. File went 5 -> 11 values.
+
+  conamar|bromley wellbeing centre      GBP  6,970.00
+  tsl|lawford house                     GBP 15,344.68
+  denton hope|roseford court            GBP 15,490.47
+  fortis vision|thetford                GBP  8,419.50
+  krypton|waitrose @ storrington        GBP  3,190.00
+  capital services|ghpc flat 14         GBP  1,680.00
+                                        --------------
+                                        GBP 51,094.65
+
+HOW EACH WAS DECIDED
+
+Bromley is the cleanest. PN03 (10/02/2026, the last of three) shows Gross Valuation to Date 6,970.00 AND "Projected Final Account 6,970.00" - the two agree, so the account is closed at that figure. Retention 2.5% and the 0.00 VAT line are payment mechanics, not value. Worth knowing that the earlier notices would each have given a different wrong answer: PN01 projected 6,476.00, PN02 gross 6,682.00. Latest wins, and only because it says so on its face.
+
+Lawford House is the best evidenced - two independent documents agree exactly. The Fenster quote states "Sub-total value 15,344.68" with VAT shown separately, and TSL's Payment Notice 002 carries the same cumulative figure as 11,000.44 previously paid + 4,344.24 this valuation. The line items sum to it exactly.
+
+Thetford, Roseford Court, Waitrose and GHPC Flat 14 are order values from the PO, all stated or computable ex VAT.
+
+THREE TRAPS I DID NOT WALK INTO, in case they help the miner
+
+1. elkins|midfield school - the mined amount (2,633.03 exc VAT) is a STRONGDOR order. That is what we PAY a supplier, not what the job is worth. Not recorded. Any candidate whose top document is a supplier order confirmation is a buy price.
+
+2. tsl|lawford house - the mined candidate 4,344.24 reads as a total ("Contract Balance") and is actually the door LINE PRICE, which happens to equal valuation 2. It would have understated the job by 71%.
+
+3. fortis vision|thetford - the PO says "Sub-Contract Sum of 8,419.50 (excluding VAT)" but a payment certificate in the same folder shows Total Gross 4,258.19 across three invoice refs. It is not stated as cumulative or final so it does not displace the contract sum, and I recorded 8,419.50 - but the gap is unexplained and the note in the file says so. Flagging rather than burying it.
+
+TWO THINGS IN THE TOOLING, both verified
+
+A. mine_won_values.py FAILS ON PATHS OVER ~260 CHARACTERS. The only read errors in the whole index are RSR Bletchley Rail Depot's two valuations, both inside
+   ...\Finance\Hartstone Legal\FGL-SE-2601 -  Requested Documentation\2. All related invoices\Outgoing invoices\...
+   which runs to about 270 chars - the Windows MAX_PATH limit. Annoying because Bletchley is a job we already hold a brochure value for (191k) and could therefore document-verify. Same folder also holds a duplicate set of the same valuations at a short path under Finance\Outgoing Invoices, so preferring the shortest path for a duplicate filename would fix it without touching the limit.
+
+B. A KEY MISMATCH WILL STOP BLETCHLEY JOINING UP EVEN IF YOU FIX A. known-values has
+   "rsr|rsr bletchley rail depot" and the evidence index has "rsr|rsr - bletchley rail depot". One hyphen. Worth normalising punctuation on both sides before the hub joins them, or that job reads as unvalued while carrying a value.
+
+C. Minor: "MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx" is indexed as "application" evidence against 15 different jobs. It is a blank master template copied into folders all over the archive - it is even sitting in the Trafalgar House TENDER folder. It contributes no amounts so it poisons nothing, but it sends a reviewer to a dead end. Skipping filenames beginning "MASTER " would tidy the index.
+
+195 candidates still unvalued, 40 of which have mined amounts. No deadline understood - I will keep taking a few per quiet session.

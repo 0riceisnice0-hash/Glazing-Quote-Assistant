@@ -30,6 +30,42 @@
    "basis": "brochure",
    "source": "Fenster Glazing Commercial Projects brochure, 2026",
    "note": "65 windows, 6 doors and 1 curtain wall per the brochure. Valuation invoices in the folder."
+  },
+  "conamar|bromley wellbeing centre": {
+   "value": 6970.0,
+   "basis": "document",
+   "source": "2. Projects\\2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Notice\\5009-WP04-PN03- Payless Notice & Valuation 03.pdf",
+   "note": "PN03, 10/02/2026, the latest of three. Gross Valuation to Date 6,970.00 AND 'Projected Final Account 6,970.00' - the two agree, so the account is closed at that figure. VAT shown as 0.00 (reverse charge); the 2.5% retention (174.25) is a payment deduction, not a reduction in job value. Earlier notices would all have been wrong: PN01 projected 6,476.00, PN02 gross 6,682.00."
+  },
+  "tsl|lawford house": {
+   "value": 15344.68,
+   "basis": "document",
+   "source": "2. Projects\\2. Completed\\TSL\\Lawford House\\PO\\TSL - Lawford House - Fenster Glazing Quote (2).pdf",
+   "note": "Quote 15/08/2025 'Sub-total value 15,344.68' with VAT (20%) shown separately, so ex VAT. Independently corroborated: TSL Payment Notice 002 (June 2026) carries the same cumulative 15,344.68 = 11,000.44 previously paid + 4,344.24 this valuation. Lines sum exactly: Titan S1 roof lantern 4,608.44 + Ventec Ostro AOV 5,272.00 + Senior alu door 4,344.24 + mastic 120.00 + labour 1,000.00. NB the mined candidate 4,344.24 is the DOOR LINE, not a total."
+  },
+  "denton hope|roseford court": {
+   "value": 15490.47,
+   "basis": "document",
+   "source": "2. Projects\\Denton Hope\\Roseford Court\\1. PO\\DHLT-00024.pdf",
+   "note": "PO 17/07/2026, '23 Louvre Units Supply & Install': item cost without tax 15,490.47, tax 3,098.09, estimated cost 18,588.56. Job state is LIVE and the PO states it is 'only an intention to pay, up to the sum indicated' - so this is the order value, not a final account."
+  },
+  "fortis vision|thetford": {
+   "value": 8419.5,
+   "basis": "document",
+   "source": "2. Projects\\2. Completed\\Fortis Vision\\Thetford\\PO\\FVAP855 SC12393 FENSTER.pdf",
+   "note": "Subcontract order: 'Sub-Contract Sum of 8,419.50 (excluding VAT)' - explicit. CHECK IF REVISITED: the payment certificate SP_2026-03-13 in Finance\\Payment Notices shows Total Gross 4,258.19 / Net Certified 4,123.56 across three invoice refs (3073, 3072, 3036). It is not stated as cumulative or final, so it does not displace the contract sum - but the gap is unexplained and worth resolving if a final account ever surfaces."
+  },
+  "capital services|ghpc flat 14": {
+   "value": 1680.0,
+   "basis": "document",
+   "source": "2. Projects\\2. Completed\\Capital Services\\GHPC Flat 14\\1. PO\\PurchaseOrder - 2026-07-02T102432.840.pdf",
+   "note": "PO P-001133, 02/07/2026, Capital Services/CSKL: Sub Total 1,680.00, Vat 336.00, Total 2,016.00. Single line 'CIS Labour'. Small works - Flat 14, 22-24 Powell, Hackney E5 8DJ."
+  },
+  "krypton|waitrose @ storrington": {
+   "value": 3190.0,
+   "basis": "document",
+   "source": "2. Projects\\Krypton\\Waitrose @ Storrington\\1. PO\\SC2435 Fenster .pdf",
+   "note": "Krypton subcontract order SC.2435/J1172, 23/07/2026: 'Order Value: 3190.00' for one Aluprof FR30 fire-rated window, supply/deliver/install. THE DOCUMENT DOES NOT STATE A VAT BASIS - taken as ex VAT because subcontract order values are quoted net and 3,190.00 is a round net figure (inc-VAT would imply 2,658.33 ex). Job state LIVE."
   }
  }
 }
