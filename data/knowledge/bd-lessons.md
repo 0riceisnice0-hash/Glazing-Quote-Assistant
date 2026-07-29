@@ -414,3 +414,57 @@ decides. The landlord at Brandon Estate is the London Borough of Southwark; I sw
 Contracts Finder for the remediation scheme on 29/07 and did not find it, so that date is
 not public as far as I can see, and the register says so rather than inventing a fortnight.
 `handover.json`, `job:brandon-estate`, deliberately with `nextChase: null`.
+
+---
+
+## "ISSUED" does not mean "corrected" - Grange Hill, 29/07/2026
+
+The handover that starts a chase is a fact about a SEND. It is not a fact about the
+document that was sent, and on this job the difference was six items wide.
+
+Mary caught six things wrong with Gintare's Grange Hill pack and emailed Adam at 14:40.
+The quote went to Luke Baker at 16:07 with the total unchanged at GBP 39,006.77 - which,
+with a client who had answered a request for an extension with *"Are you able to provide
+the costs today?"*, is an understandable call under pressure. The handover reached me at
+16:10 saying ISSUED, and the obvious thing to do was write the row from the handover and
+Mary's correction email.
+
+That would have been wrong in both directions. The correction email says what SHOULD have
+changed; the handover says something WENT. Neither says what the client is holding.
+
+What settled it was reading the six attachments off the sent message - Mary had pulled them
+into `scratchpad/gh-issued-to-luke-att/` - and diffing them against the check-stage pack in
+`scratchpad/gh-quote-to-check-att/`:
+
+- The total was identical, so correction 1 was not applied.
+- **The optional extras had moved** - external mastic 537.69 to 579.69, EPDM 1,434.55 to
+  1,524.55. Somebody was IN that workbook between 13:10 and 16:07. So the omissions are in
+  an edited file, not an unedited resend, and "he never saw the list" is not available as an
+  explanation. That is a two-figure detail that changes what the request has to ask.
+- The client-facing `Window and Door Drawings.pdf` was byte-identical to the check-stage
+  copy, and it runs **Item 1 to Item 13, every one Qty: 1, eight of them 1200x1183**. The
+  pricing document sells seven of those - twelve window units. Chigwell holds a drawing set
+  with one more window on it than our price. Mary's catch, standing unchanged on the issued
+  document, and worth far more than the GBP 419.32 of BSW behind it.
+- The proposal PDF's general exclusions read "access control, door sensors", which is not
+  the DDA operator on a clause written to us; the fish manifestations appear nowhere at all;
+  and it states "SUBTOTAL: GBP 39,006.77 + VAT" flat on a job whose own specification names
+  its zero-rated clauses, with GBP 14,569.26 of our figure sitting against two of them.
+
+**The rule: before writing a chase row, diff the pack that actually went against the pack
+that was checked.** Ten minutes of reading attachments, and it is the difference between a
+register that says "quoted, chase in a fortnight" and one that says what the client can
+argue about. It is also the only moment the correction is cheap - while the main contractor
+is still assembling their tender, a clarification is free; after an award every one of these
+is a variation argument, and on this job with a QS who already holds our buy prices from
+Gordon Court. Raised as **JAC-13** rather than decided: whether to clarify is commercial and
+it is Adam's, and the one item that would move the price goes back to Gintare and Mary
+because I do not price.
+
+**Second thing this job taught, and it is a different rule.** The chase date on a row is
+usually the CLIENT's - their deadline, their decision. Grange Hill has a date that is
+entirely OURS: 30-day validity from 29/07 and **both** material quotes, BSW QT253562 and
+Bellview 0000000520, expiring on the same day, **28/08/2026**, against a Nov 26 - Jul 27
+programme. Zero headroom. A supply-chain expiry will not chase itself and nobody outside
+Fenster has any reason to raise it, so it goes on the row as `expires` alongside
+`nextChase`. Check the supplier quote dates on every handover, not just our own validity.

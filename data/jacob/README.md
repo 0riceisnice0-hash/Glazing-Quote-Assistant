@@ -60,6 +60,17 @@ jobs, one closing in two days. The login controls whether Fenster can BID. It ne
 controlled whether Fenster could LOOK, and for four months nobody did. Before writing off
 any source as blocked, check what it actually blocks.
 
+**"Issued" is a fact about the send, not about the document.** `handover.json` rows now
+carry `openOnTheIssuedDocument` - what is still wrong with the pack the client is actually
+holding, read from the attachments on the sent message rather than from the correction email
+that preceded it. Grange Hill, 29/07: six corrections went to Adam at 14:40, the quote left
+at 16:07 with the total unchanged, and the marked-up drawings sent to the client run to
+thirteen windows against twelve priced. A register that records only "quoted, chase in a
+fortnight" cannot tell the person who chases it what the client can argue about. Rows also
+carry `expires` where our validity and the supplier quotes behind it die on a date of their
+own - Grange Hill's is 28/08 and it belongs to nobody outside Fenster, so nothing else on
+the board would ever raise it.
+
 **Two rows can be one job.** `leads-manual.json` rows now carry `supersededBy`. The Ryde
 lead arrived as a paid Supply2Gov alert with the buying organisation stripped out and no
 value; the same job on ProContract named Isle of Wight Council, a contact, a phone number

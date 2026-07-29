@@ -120,3 +120,25 @@ wall. Newest last. Detail belongs in the files named on the line, never here.
   date on purpose** - which needed a change, because a row can be blocked by an EVENT that
   has no date, and inventing a `blockedUntil` is the sin the register exists to avoid.
   `blockedPending` plus a `reviewOn` that is explicitly not a chase date.
+- **2026-07-29 17:10, one order: `handover-issued_grange-hill_2026-07-29.json` (mary-ledger).**
+  Grange Hill Methodist Church Ext, WD001, **GBP 39,006.77 ex VAT to Chigwell (London) PLC
+  FAO Luke Baker, issued by Gintare 16:07** against a return date of 27 July. On the
+  register as the eleventh row, step 8, chase **Monday 3 August** - a date argued from the
+  fact that Luke wanted the costs the same day, so the two dates we lack (when Chigwell
+  submits, when the Methodist Circuit decides) only become answerable once he has had the
+  pack over a weekend, not from a fortnight rule. Second date on the row, and it is
+  **ours**: `expires` 28/08, because our 30-day validity and BOTH material quotes - BSW
+  QT253562 and Bellview 0000000520 - die the same day against a Nov-26 start.
+  **The real work was checking what actually went, not what was meant to.** Mary sent Adam
+  six corrections at 14:40; the quote left at 16:07 with the total unchanged, so all six
+  are still open on the copy Luke holds. Read from the issued attachments rather than her
+  email: the client-facing drawings run **Item 1 to Item 13, eight of them 1200x1183, and
+  the pricing document sells seven** - Chigwell holds a drawing set with one more window
+  on it than our price. The optional mastic and EPDM figures moved between the check-stage
+  pack and the issued one, so somebody was in that workbook; "he never saw the list" is not
+  available. Raised **JAC-13** for Adam - clarify now while their tender is still being
+  assembled, or leave it - and did not decide it, did not touch the number, and did not
+  reply to Mary, because a handover is not a conversation. `bd.md` gains the one-line rule
+  ("ISSUED is a fact about a SEND, never about the document"), full account in
+  `bd-lessons.md`; `chigwell-london-plc.md` rewritten on the Grange Hill leg, which until
+  today told a human to give Luke no number. Board rebuilt and deployed.

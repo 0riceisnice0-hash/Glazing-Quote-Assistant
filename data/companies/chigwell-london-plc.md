@@ -1,14 +1,16 @@
 # Chigwell (London) PLC
 
-Slug: `chigwell-london-plc`. Written 29/07/2026. Trades as "Chigwell Group" in AdminBase;
-all three of our leads are filed under that name.
+Slug: `chigwell-london-plc`. Written 29/07/2026, updated 29/07 17:xx when Grange Hill was
+issued. Trades as "Chigwell Group" in AdminBase; all three of our leads are filed under
+that name.
 
 ## Position
 
 A five-week-old relationship that is already our biggest live client by value, and it has
 no history at all behind it - **no rows in the Opportunity Log under Chigwell, ever**.
-First lead 25/06/2026. Three leads since, **GBP 412,411.92 ex VAT** across them, nothing
-decided yet. Everything comes through one man, **Luke Baker**, and he answers.
+First lead 25/06/2026. Three leads since, and with Grange Hill priced and issued at 16:07
+on 29/07 the three now carry **GBP 451,418.69 ex VAT** between them, nothing decided yet.
+Everything comes through one man, **Luke Baker**, and he answers.
 
 They are a real business, not a hopeful one. Companies House 09812304, active PLC,
 incorporated 6 October 2015, registered at Aaron House, Unit 8 Hainault Business Park,
@@ -72,12 +74,29 @@ Two unanswered chases is not the same as a dead client: Luke was emailing us at 
 morning asking for Grange Hill costs. He is mid-tender on a bid that closes today. Read
 the silence as busy, and read it on the phone rather than in a fourth email.
 
-**8740 Grange Hill Methodist Church Ext, IG7 4HQ - being priced, and NOT issued.** Luke
-asked for costs on 29/07 and wanted them the same day; BSW came back at GBP 40,528.59 at
-10:48. As of 13:10 on 29/07 Gintare's quote is with Adam for checking and Mary has sent
-Adam the corrections it needs. **There is no settled number, so nobody gives Luke one** -
-including on today's call about the other two jobs. Mary's until it goes out, mine the
-moment it does.
+**8740 Grange Hill Methodist Church Ext, IG7 4HQ - GBP 39,006.77 ex VAT, ISSUED 29/07
+16:07.** Gintare sent it to Luke, cc Adam, against a return date of **27 July** - two days
+late, and only because Luke's answer to Adam's request for an extension on 28/07 was
+*"Are you able to provide the costs today?"*. It came to me the moment it left; on the
+chasing register at step 8, chase **Monday 3 August**.
+
+The earlier line here - "there is no settled number, so nobody gives Luke one" - is spent.
+He has the number.
+
+**Two dates govern this one and only one of them is his.** Chigwell's tender to the
+Barking, Dagenham & Ilford Methodist Circuit has not been dated to us, and neither has the
+Circuit's decision; those are what the 3 August call is for. Ours is **28 August**: our
+validity is 30 days and BSW QT253562 and Bellview 0000000520 both expire the same day,
+against a Nov 26 - Jul 27 programme. No headroom whatsoever.
+
+**All six of Mary's 14:40 corrections are still open on the copy Luke holds** - checked
+against the issued attachments, not against her email. The one with teeth: the marked-up
+drawings we sent him run Item 1 to Item 13 while the pricing document sells twelve windows.
+The rest - DDA operator, fish manifestations, 3.15.2 film, the FD60s, delivery against two
+ex-works quotes, and no zero-rated VAT split on a church job whose spec names its own
+zero-rated clauses - are in `data/jacob/handover.json` under
+`openOnTheIssuedDocument`. **JAC-13** asks Adam whether we clarify any of it while
+Chigwell's tender is still being assembled, which is the only cheap moment there will be.
 
 ## The contact
 
@@ -122,9 +141,11 @@ returned nothing.**
    on it.
 2. **Gordon Court** - nothing to decide, but confirm our GBP 368,376.70 went into their
    jLiving bid unchanged. Then diary week of 14 September.
-3. **Grange Hill** - tell him where the costs are, **and give him no number.** As of 13:10
-   today the quote is with Adam for checking with corrections outstanding from Mary. "With
-   our estimator, you will have it shortly" is the whole answer.
+3. **Grange Hill - REWRITTEN 17:xx, because it went out at 16:07 and this leg said "give
+   him no number".** He has the number. Two questions instead: did our GBP 39,006.77 land
+   in time to go into Chigwell's tender to the Circuit, and when does the Circuit decide.
+   The second one is the next chase date. Say nothing unprompted about the qualifications
+   until JAC-13 is answered.
 
 What to say if we need a reference: **Headrow Court for Fortis Vision, ~GBP 630k + VAT**,
 Fenster's largest, and Adam has already told Luke we supplied tested AOV windows from
@@ -147,3 +168,10 @@ pricing ruling. Adam owns all three rows in AdminBase.
   says no; the Log is the 2025-26 funnel, not the whole history.
 - Whether the Window Centre relationship has ever come up in a conversation with Luke, or
   whether nobody on either side has mentioned it.
+- **Whether Grange Hill going out with the six corrections unapplied was a decision or a
+  casualty of the 87 minutes between Mary's list and the send.** The workbook was edited in
+  that window - the optional mastic and EPDM figures both moved - so somebody was in the
+  file. That is JAC-13's question and I am not answering it for him.
+- When Chigwell's own tender to the Methodist Circuit goes in, and when the Circuit decides.
+  Neither date exists anywhere in what we hold, and the second one is the only thing that
+  tells us when to pick Grange Hill up again.
