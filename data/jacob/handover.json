@@ -120,12 +120,15 @@
    "blockedUntil": "2026-09-16",
    "blockedReason": "Chigwell has not gone quiet - Chigwell cannot answer. Our number fed their bid to jLiving, returned 22/07 at 14:00. jLiving does not decide before 16 September. The ITT also says in terms: do not contact jLiving directly.",
    "owner": "Adam",
-   "next": "One short call to Luke Baker now, and it is not about the decision - it is to confirm our GBP 368,376.70 went into Chigwell's bid unchanged, and to ask what Chigwell's own position on the tender is. Then diary the real chase for the week of 14 September. Grange Hill Methodist Church is the same client and still at tender, so it is one call, not two.",
+   "next": "One short call to Luke Baker now - mobile 07547 184089, office 020 8500 4100 - and it is not about the decision - it is to confirm our GBP 368,376.70 went into Chigwell's bid unchanged, and to ask what Chigwell's own position on the tender is. Then diary the real chase for the week of 14 September. Grange Hill Methodist Church is the same client and still at tender, so it is one call, not two.",
    "history": "No rows in the Opportunity Log under Chigwell at all. Two live jobs with them and no recorded history is a relationship being built right now.",
    "verified": true,
    "stage": 8,
    "nextChase": "2026-09-14",
-   "chaseNote": "Chigwell cannot answer before jLiving decides on 16 September. The call now is step 8 and it is about our number going in unchanged, not about the decision."
+   "chaseNote": "Chigwell cannot answer before jLiving decides on 16 September. The call now is step 8 and it is about our number going in unchanged, not about the decision.",
+   "contactRole": "Senior Quantity Surveyor",
+   "contactPhone": "020 8500 4100",
+   "contactMobile": "07547 184089"
   },
   {
    "key": "job:ninn-lane-re-development",
@@ -293,22 +296,39 @@
    "contact": "Luke Baker",
    "email": "luke.baker@chigwellgroupplc.co.uk",
    "value": 44035.22,
-   "issued": null,
-   "issuedTime": null,
+   "issued": "2026-07-20",
+   "issuedTime": "15:50",
    "lastClientContact": null,
    "state": "quoted",
    "blockedUntil": null,
    "blockedReason": null,
    "owner": "Adam",
-   "next": "Adam calls Luke Baker TODAY. Chigwell's own tender to the London Borough of Barking and Dagenham closes today, 29/07, and our GBP 44,035.22 is inside it. Two questions: has our number gone in unchanged, and when does the council decide. The council's decision date becomes the next chase date - do not set a fortnight. Gordon Court and Grange Hill are the same client and the same call.",
-   "history": "AdminBase lead 8642, dated 09/07, follow-up date 19/07 which nobody worked. Chigwell Group has no rows in the Opportunity Log at all - three live leads, GBP 412,411.92 ex VAT, no decided history. Full picture in data/companies/chigwell-london-plc.md.",
-   "verified": false,
+   "next": "Adam calls Luke Baker today, and it is a call - not a fourth email. Mobile 07547 184089, office 020 8500 4100. Our GBP 44,035.22 left estimating@ at 15:50 on 20 July and Adam has already chased it twice, 22/07 and 23/07, with nothing back either time - so 'did you get it' is a question that has failed twice already. Ask the one thing we do not have: Chigwell's bid to the London Borough of Barking and Dagenham closes today, so when does the council decide? That date is the next chase date. Gordon Court is the same call. And say nothing about a Grange Hill number - Gintare's quote is with Adam for checking and there is no settled figure to give.",
+   "history": "AdminBase lead 8642, dated 09/07, follow-up date 19/07 which nobody worked; the quote actually went the next day, 20/07 at 15:50. Chigwell Group has no rows in the Opportunity Log at all - three live leads, GBP 412,411.92 ex VAT, no decided history. Luke Baker is their Senior Quantity Surveyor; the direct numbers came out of his own signature on the 02/07 clarification in commercial@, where nobody had looked for them. Full picture in data/companies/chigwell-london-plc.md.",
+   "verified": true,
    "stage": 8,
    "nextChase": "2026-07-29",
-   "chaseNote": "Ten days past the CRM follow-up date and the client's own bid closes today. Step 8, and it is today or it is worthless.",
+   "chaseNote": "Nine days out and two unanswered chases behind it. Step 8 is overdue, not pending, and it has been tried twice by email - this one is the phone.",
    "howFound": "Not from a mailbox. AdminBase lead 8642 'Leys Sports Pavilion Refurbishment', RM10 9TP, joined to the Contracts Finder tender notice already on my own tender board - 'Leys Park Changing Pavilion Dagenham, Refurbishment', London Borough of Barking and Dagenham, RM10 9TR, published 20/06, closes 29/07, open below-threshold procedure. Same title, same site, adjacent postcode unit, and the lead was raised 09/07 inside the tender window. The notice was sitting on my board classified 'main-contract' with nothing linking it to a quote we already had out.",
    "noticeUrl": "https://www.contractsfinder.service.gov.uk/Notice/c468ff00-848d-471b-ae83-6bf211ade3b6",
-   "unverifiedWhy": "Every other row here carries an issue date Mary read out of estimating@'s sent items. This one is not among the nine she dated on 28/07, so I have AdminBase saying 'Live - Quoted' with a value and no message I have seen leave. Asked her 29/07. Until she answers, treat the quote as out but undated - and if it never left, this stops being a chase and goes back to her."
+   "contactRole": "Senior Quantity Surveyor",
+   "contactPhone": "020 8500 4100",
+   "contactMobile": "07547 184089",
+   "chases": [
+    {
+     "by": "Adam",
+     "date": "2026-07-22",
+     "time": "13:47",
+     "reply": null
+    },
+    {
+     "by": "Adam",
+     "date": "2026-07-23",
+     "time": "09:57",
+     "reply": null
+    }
+   ],
+   "verifiedHow": "Mary, 29/07/2026, read at source in estimating@'s sent items: 20/07 12:32 QUOTE TO CHECK to Adam, 15:46 Adam replies, 15:50 issued to luke.baker@chigwellgroupplc.co.uk cc Adam with the quote attached, then Adam chases 22/07 13:47 and 23/07 09:57. It was absent from the nine sends she dated on 28/07 only because 'Leys' was not one of the jobs scripts/quote_send_dates.py searches; she has added Leys Sports Pavilion and Grange Hill to that list, so the next person gets it from the tool."
   }
  ],
  "held": [
@@ -387,6 +407,11 @@
    "was": "Eight issued quotes on the chasing register, and a note that a job can be priced and issued without ever generating a Mary chat - 'assume there are others'",
    "now": "There was one. Leys Sports Pavilion, Chigwell, GBP 44,035.22, quoted 09/07 with a CRM follow-up date of 19/07 that nobody worked. Ninth row, added 29/07.",
    "why": "It was found by joining AdminBase to my own tender board rather than to a mailbox - the public notice for the scheme Chigwell is bidding was already on the board, unlinked. The register is built from what Mary can see leave; AdminBase knows about quotes she never touched. Cross-check the two, not just the mail."
+  },
+  {
+   "was": "Leys Sports Pavilion was on the register as issued but undated and unverified, with a note that if the quote had never left the building it went back to Mary.",
+   "now": "It left. 20/07/2026 at 15:50, estimating@ to Luke Baker, cc Adam, quote attached - and Adam then chased it on 22/07 and 23/07 with no reply to either. The row is verified, dated, and the call today is the third touch, not the first.",
+   "why": "Mary read it at source on 29/07. It was missing from her 28/07 dating run because the script that dates sends carries a hard-coded list of nine jobs and 'Leys' was not on it. A job absent from a tool's job list reads exactly like a job that was never sent. The list is now longer; the lesson is that it is a list at all."
   }
  ]
 }

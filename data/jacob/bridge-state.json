@@ -22,7 +22,11 @@
   "bot-11",
   "bot-12",
   "hub-28",
-  "bot-13"
+  "bot-13",
+  "hub-29",
+  "bot-15",
+  "hub-34",
+  "bot-17"
  ],
  "runs": [
   {
@@ -48,7 +52,26 @@
   {
    "at": 1785278694.465157,
    "seconds": 1580.4335663318634
+  },
+  {
+   "at": 1785330252.6523564,
+   "seconds": 2199.139437675476
+  },
+  {
+   "at": 1785331789.6967037,
+   "seconds": 1529.3782715797424
   }
  ],
- "fails": 0
+ "fails": 0,
+ "last_agenda": 1785330260.3150218,
+ "last_kick": {
+  "chat": "jacob",
+  "title": "Business development",
+  "at": "2026-07-29T14:42:21",
+  "orders": [
+   "bot-message: mary - Leys Pavilion 8642: issued 20/07/2026 15:50 to Luke Baker, and Adam has chased twice"
+  ],
+  "session_id": "7c16f640-b823-451f-b2a0-d5ab6da27507",
+  "prompt": "Read C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\JACOB-SESSION.md and follow it. Your work orders are the JSON files in C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\test-results\\jacob-inbox\\queue. Handle them, reply on the hub to anyone who wrote to you, then move each order into C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\test-results\\jacob-inbox\\processed and rebuild your board.\n\nYou and Mary work independently and may be running at the same time. Two rules that make that safe: git-commit ONLY the files you touched (never `git add -A`; if the index is locked, wait a few seconds and retry), and deploy the hub only through the deploy scripts - they take the shared deploy lock for you."
+ }
 }

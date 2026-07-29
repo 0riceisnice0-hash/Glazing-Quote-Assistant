@@ -38,9 +38,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -67,9 +69,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -96,9 +100,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -125,9 +131,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -154,9 +162,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -183,9 +193,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -212,9 +224,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -241,9 +255,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -270,9 +286,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -299,9 +317,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -328,9 +348,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -357,9 +379,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -386,9 +410,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -415,9 +441,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -444,9 +472,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -473,9 +503,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -502,9 +534,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -531,9 +565,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -560,9 +596,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -589,9 +627,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -618,9 +658,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -647,9 +689,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -676,9 +720,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -705,9 +751,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -734,9 +782,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -763,9 +813,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -792,9 +844,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -821,9 +875,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -850,9 +906,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -879,9 +937,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -908,9 +968,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -937,9 +999,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -966,9 +1030,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -995,9 +1061,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1024,9 +1092,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1053,9 +1123,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1082,9 +1154,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1111,9 +1185,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1140,9 +1216,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1169,9 +1247,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1198,9 +1278,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1227,9 +1309,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1256,9 +1340,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1285,9 +1371,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1314,9 +1402,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1343,9 +1433,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1372,9 +1464,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1401,9 +1495,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1429,6 +1525,8 @@
    "takenBy": "JAYKS",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1455,9 +1553,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1484,9 +1584,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1513,9 +1615,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1542,9 +1646,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1571,9 +1677,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1600,9 +1708,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1629,9 +1739,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1658,9 +1770,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1687,9 +1801,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1716,9 +1832,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 729116.85
@@ -1746,9 +1864,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1775,9 +1895,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1804,9 +1926,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1833,9 +1957,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 746616.85
@@ -1862,6 +1988,8 @@
    "takenBy": "ADAMB",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1888,9 +2016,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1917,9 +2047,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1946,9 +2078,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -1975,9 +2109,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 746616.85
@@ -2005,9 +2141,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2034,9 +2172,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2063,9 +2203,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2092,9 +2234,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2121,9 +2265,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2150,9 +2296,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2178,6 +2326,8 @@
    "takenBy": "ADAMB",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2204,9 +2354,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2233,9 +2385,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2262,9 +2416,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2291,9 +2447,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2320,9 +2478,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2349,9 +2509,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2378,9 +2540,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2407,9 +2571,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2436,9 +2602,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2465,9 +2633,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 729116.85
@@ -2495,9 +2665,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 729116.85
@@ -2525,9 +2697,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2554,9 +2728,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2583,9 +2759,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2612,9 +2790,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2641,9 +2821,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2670,9 +2852,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2699,9 +2883,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2728,9 +2914,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2757,9 +2945,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2786,9 +2976,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2815,9 +3007,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2844,9 +3038,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2873,9 +3069,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2901,6 +3099,8 @@
    "takenBy": "JAYKS",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2926,6 +3126,8 @@
    "takenBy": "JAYKS",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2952,9 +3154,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -2981,9 +3185,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3010,9 +3216,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3039,9 +3247,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3068,9 +3278,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3097,9 +3309,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3126,9 +3340,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3155,9 +3371,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3184,9 +3402,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3213,9 +3433,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3242,9 +3464,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3271,9 +3495,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3300,9 +3526,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3329,9 +3557,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 58069.5
@@ -3359,9 +3589,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 58069.5
@@ -3389,9 +3621,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3418,9 +3652,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3447,9 +3683,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3476,9 +3714,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3505,9 +3745,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3534,9 +3776,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3563,9 +3807,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3592,9 +3838,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3621,9 +3869,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3650,9 +3900,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3679,9 +3931,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3708,9 +3962,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3737,9 +3993,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3766,9 +4024,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3795,9 +4055,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": true,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3824,9 +4086,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3853,9 +4117,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3882,9 +4148,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3911,9 +4179,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3940,9 +4210,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3969,9 +4241,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -3998,9 +4272,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4027,9 +4303,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4056,9 +4334,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4085,9 +4365,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4114,9 +4396,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4143,9 +4427,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4171,6 +4457,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4197,9 +4485,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4226,9 +4516,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4255,9 +4547,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4284,9 +4578,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4313,9 +4609,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4342,9 +4640,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4371,9 +4671,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4400,9 +4702,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4429,9 +4733,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 91456.95
@@ -4458,6 +4764,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4484,9 +4792,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4513,9 +4823,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4542,9 +4854,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4571,9 +4885,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4600,9 +4916,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4629,9 +4947,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4658,9 +4978,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4687,9 +5009,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4716,9 +5040,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4745,9 +5071,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4774,9 +5102,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4803,9 +5133,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4832,9 +5164,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4861,9 +5195,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4890,9 +5226,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4919,9 +5257,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -4948,9 +5288,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 91456.95
@@ -4978,9 +5320,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5007,9 +5351,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5036,9 +5382,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5065,9 +5413,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5094,9 +5444,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5123,9 +5475,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5152,9 +5506,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5165,12 +5521,12 @@
    "job": "Unit 1 Eleanor Trade Centre",
    "leadDate": "2026-04-17",
    "nextAction": "2026-04-21",
-   "days": 98,
+   "days": 0,
    "incVat": 9571.02,
    "value": 7975.85,
    "result": "Live - Quoted",
-   "state": "quoted - chase due",
-   "owner": "Adam",
+   "state": "quoted - recent",
+   "owner": "-",
    "email": "hpaxton@bradfordwatts.co.uk",
    "phone": "07736 990919",
    "product": "UPVC",
@@ -5181,9 +5537,17 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": {
+    "crmDate": "2026-04-21",
+    "issued": "2026-07-28",
+    "crmDays": 98,
+    "reQuote": true,
+    "why": "Aged from the send, not the CRM. The row is dated 2026-04-21 and the quote left the building on 2026-07-28 - 98 days later. That gap is a re-quote: AdminBase updates the value and leaves the dates, so the row is the old enquiry wearing the new price."
+   },
    "onBoard": "job:unit-1-eleanor-trade-centre-waltham-cross-bradford",
    "boardState": "quoted"
   },
@@ -5210,9 +5574,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5239,9 +5605,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5268,9 +5636,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5296,6 +5666,8 @@
    "takenBy": "PAULT",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5322,9 +5694,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5351,9 +5725,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5380,9 +5756,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5409,9 +5787,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5438,9 +5818,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5467,9 +5849,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5496,9 +5880,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5525,9 +5911,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5554,9 +5942,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5583,9 +5973,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5612,9 +6004,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5641,9 +6035,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5670,9 +6066,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": true,
+   "confirmed": "Adam Butcher, 29/07/2026: 'the brandon estate job is not a mistake. That is a legit tender and should be treated as such.'",
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5699,9 +6097,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5728,9 +6128,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5757,9 +6159,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5786,9 +6190,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5814,6 +6220,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5840,9 +6248,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5869,9 +6279,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5898,9 +6310,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5926,6 +6340,8 @@
    "takenBy": "",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5952,9 +6368,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -5981,9 +6399,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6010,9 +6430,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6039,9 +6461,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6068,9 +6492,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6097,9 +6523,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6126,9 +6554,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6155,9 +6585,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6184,9 +6616,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6213,9 +6647,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6242,9 +6678,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6271,9 +6709,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6300,9 +6740,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6329,9 +6771,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6358,9 +6802,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6387,9 +6833,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6416,9 +6864,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6445,9 +6895,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6474,9 +6926,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6503,9 +6957,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6516,7 +6972,7 @@
    "job": "Gordon Court",
    "leadDate": "2026-06-25",
    "nextAction": "2026-07-09",
-   "days": 19,
+   "days": 18,
    "incVat": 442052.04,
    "value": 368376.7,
    "result": "Live - Quoted",
@@ -6532,9 +6988,17 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": {
+    "crmDate": "2026-07-09",
+    "issued": "2026-07-10",
+    "crmDays": 19,
+    "reQuote": false,
+    "why": "Aged from the send, not the CRM. The row is dated 2026-07-09 and the quote left the building on 2026-07-10 - 1 days later. Ordinary lag between the follow-up date somebody set and the day it went."
+   },
    "onBoard": "job:gordon-court-stonegrove-edgware",
    "boardState": "waiting"
   },
@@ -6561,9 +7025,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6590,9 +7056,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": "job:ninn-lane-re-development",
    "boardState": "gone quiet"
   },
@@ -6619,9 +7087,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6648,9 +7118,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6676,6 +7148,8 @@
    "takenBy": "",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6702,9 +7176,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6731,9 +7207,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6760,9 +7238,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6773,12 +7253,12 @@
    "job": "Arched Door",
    "leadDate": "2026-07-08",
    "nextAction": "2026-07-10",
-   "days": 18,
+   "days": 1,
    "incVat": 5347.19,
    "value": 4455.99,
    "result": "Live - Quoted",
-   "state": "quoted - chase due",
-   "owner": "Adam",
+   "state": "quoted - recent",
+   "owner": "-",
    "email": "",
    "phone": "",
    "product": "UPVC",
@@ -6789,9 +7269,17 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": {
+    "crmDate": "2026-07-10",
+    "issued": "2026-07-27",
+    "crmDays": 18,
+    "reQuote": false,
+    "why": "Aged from the send, not the CRM. The row is dated 2026-07-10 and the quote left the building on 2026-07-27 - 17 days later. Ordinary lag between the follow-up date somebody set and the day it went."
+   },
    "onBoard": "job:chester-thomas-developments-arched-front-door",
    "boardState": "live"
   },
@@ -6817,6 +7305,8 @@
    "takenBy": "",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6843,9 +7333,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6872,9 +7364,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6900,6 +7394,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6926,9 +7422,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6954,6 +7452,8 @@
    "takenBy": "",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6979,6 +7479,8 @@
    "takenBy": "",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -6989,7 +7491,7 @@
    "job": "Leys Sports Pavilion Refurbishment",
    "leadDate": "2026-07-09",
    "nextAction": "2026-07-19",
-   "days": 9,
+   "days": 8,
    "incVat": 52842.26,
    "value": 44035.22,
    "result": "Live - Quoted",
@@ -7005,11 +7507,19 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
-   "onBoard": null,
-   "boardState": null
+   "confirmed": null,
+   "staleDate": {
+    "crmDate": "2026-07-19",
+    "issued": "2026-07-20",
+    "crmDays": 9,
+    "reQuote": false,
+    "why": "Aged from the send, not the CRM. The row is dated 2026-07-19 and the quote left the building on 2026-07-20 - 1 days later. Ordinary lag between the follow-up date somebody set and the day it went."
+   },
+   "onBoard": "job:leys-park-changing-pavilion-dagenham",
+   "boardState": "quoted"
   },
   {
    "lead": "8660",
@@ -7034,9 +7544,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7047,7 +7559,7 @@
    "job": "Princess Beatrice House",
    "leadDate": "2026-07-13",
    "nextAction": "2026-07-17",
-   "days": 11,
+   "days": 1,
    "incVat": 335093.63,
    "value": 279244.69,
    "result": "Live - Quote being prepared",
@@ -7063,9 +7575,17 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": {
+    "crmDate": "2026-07-17",
+    "issued": "2026-07-27",
+    "crmDays": 11,
+    "reQuote": false,
+    "why": "Aged from the send, not the CRM. The row is dated 2026-07-17 and the quote left the building on 2026-07-27 - 10 days later. Ordinary lag between the follow-up date somebody set and the day it went."
+   },
    "onBoard": "job:princess-beatrice-house",
    "boardState": "live"
   },
@@ -7092,9 +7612,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7121,9 +7643,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7134,12 +7658,12 @@
    "job": "Crestwood Park Primary School",
    "leadDate": "2026-07-16",
    "nextAction": "2026-07-20",
-   "days": 8,
+   "days": 1,
    "incVat": 88990.39,
    "value": 74158.66,
    "result": "Live - Quoted",
-   "state": "quoted - chase due",
-   "owner": "Adam",
+   "state": "quoted - recent",
+   "owner": "-",
    "email": "",
    "phone": "",
    "product": "Aluminium",
@@ -7150,9 +7674,17 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": {
+    "crmDate": "2026-07-20",
+    "issued": "2026-07-27",
+    "crmDays": 8,
+    "reQuote": false,
+    "why": "Aged from the send, not the CRM. The row is dated 2026-07-20 and the quote left the building on 2026-07-27 - 7 days later. Ordinary lag between the follow-up date somebody set and the day it went."
+   },
    "onBoard": "job:crestwood-park-primary-school",
    "boardState": "live"
   },
@@ -7178,6 +7710,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7204,11 +7738,13 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
-   "onBoard": null,
-   "boardState": null
+   "confirmed": null,
+   "staleDate": null,
+   "onBoard": "job:trafalgar-house-portchester",
+   "boardState": "quoted"
   },
   {
    "lead": "8701",
@@ -7233,9 +7769,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7261,6 +7799,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7286,6 +7826,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7311,6 +7853,8 @@
    "takenBy": "",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7337,9 +7881,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7366,9 +7912,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7395,9 +7943,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7424,9 +7974,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7452,6 +8004,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7477,6 +8031,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7502,6 +8058,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7528,9 +8086,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7556,6 +8116,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -7581,6 +8143,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   }
@@ -7725,7 +8289,7 @@
    "quoted": 2,
    "value": 412411.92,
    "outlierValue": 0,
-   "oldest": 19,
+   "oldest": 18,
    "email": "",
    "phone": "",
    "onBoard": true
@@ -9045,7 +9609,7 @@
    "quoted": 0,
    "value": 0,
    "outlierValue": 0,
-   "oldest": 11,
+   "oldest": 1,
    "email": "juan.aristizabal@guildmore.com",
    "phone": "7584998747",
    "onBoard": true
@@ -9060,7 +9624,7 @@
    "oldest": 6,
    "email": "michael.beyer@tsl.uk",
    "phone": "7514670795",
-   "onBoard": false
+   "onBoard": true
   },
   {
    "key": "smd-ltd.com",
@@ -9135,9 +9699,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": true,
+   "confirmed": "Adam Butcher, 29/07/2026: 'the brandon estate job is not a mistake. That is a legit tender and should be treated as such.'",
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9164,9 +9730,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": true,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9193,9 +9761,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 746616.85
@@ -9223,9 +9793,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 746616.85
@@ -9253,9 +9825,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 729116.85
@@ -9283,9 +9857,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 729116.85
@@ -9313,9 +9889,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 729116.85
@@ -9343,9 +9921,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9372,9 +9952,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9401,9 +9983,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9430,9 +10014,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9443,7 +10029,7 @@
    "job": "Gordon Court",
    "leadDate": "2026-06-25",
    "nextAction": "2026-07-09",
-   "days": 19,
+   "days": 18,
    "incVat": 442052.04,
    "value": 368376.7,
    "result": "Live - Quoted",
@@ -9459,9 +10045,17 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": {
+    "crmDate": "2026-07-09",
+    "issued": "2026-07-10",
+    "crmDays": 19,
+    "reQuote": false,
+    "why": "Aged from the send, not the CRM. The row is dated 2026-07-09 and the quote left the building on 2026-07-10 - 1 days later. Ordinary lag between the follow-up date somebody set and the day it went."
+   },
    "onBoard": "job:gordon-court-stonegrove-edgware",
    "boardState": "waiting"
   },
@@ -9488,9 +10082,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9517,9 +10113,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9546,9 +10144,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9575,9 +10175,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9604,9 +10206,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9633,9 +10237,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9662,9 +10268,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9691,9 +10299,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9720,9 +10330,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9749,9 +10361,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9778,9 +10392,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9807,9 +10423,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9836,9 +10454,11 @@
    "fit": {
     "band": "over GBP 200k",
     "winRate": 0,
-    "note": "0 won of 15 priced"
+    "note": "no win this size on the BD log - 0 of 15"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9865,9 +10485,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9894,9 +10516,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9923,9 +10547,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9952,9 +10578,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -9981,9 +10609,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10010,9 +10640,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10039,9 +10671,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10068,9 +10702,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10097,9 +10733,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10126,9 +10764,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10155,9 +10795,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10184,9 +10826,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10213,9 +10857,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10242,9 +10888,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10271,9 +10919,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10300,9 +10950,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10329,9 +10981,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10358,9 +11012,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10387,9 +11043,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10416,9 +11074,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10445,9 +11105,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10474,9 +11136,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10503,9 +11167,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10532,9 +11198,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10561,9 +11229,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10590,9 +11260,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": "job:ninn-lane-re-development",
    "boardState": "gone quiet"
   },
@@ -10619,9 +11291,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10648,9 +11322,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10677,9 +11353,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 91456.95
@@ -10707,9 +11385,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 91456.95
@@ -10737,9 +11417,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10766,9 +11448,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10795,9 +11479,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10824,9 +11510,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10853,9 +11541,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10882,9 +11572,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10911,9 +11603,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10940,9 +11634,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10969,9 +11665,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -10998,9 +11696,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11027,40 +11727,13 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
-  },
-  {
-   "lead": "8682",
-   "client": "Reynolds Conservation",
-   "key": "REYNOLDS CONSERVATION",
-   "job": "Crestwood Park Primary School",
-   "leadDate": "2026-07-16",
-   "nextAction": "2026-07-20",
-   "days": 8,
-   "incVat": 88990.39,
-   "value": 74158.66,
-   "result": "Live - Quoted",
-   "state": "quoted - chase due",
-   "owner": "Adam",
-   "email": "",
-   "phone": "",
-   "product": "Aluminium",
-   "town": "Craven Arms",
-   "postcode": "DY6 8RP",
-   "source": "",
-   "takenBy": "GINTAREV",
-   "fit": {
-    "band": "GBP 50k-200k",
-    "winRate": 0,
-    "note": "0 won of 37 priced"
-   },
-   "outlier": false,
-   "onBoard": "job:crestwood-park-primary-school",
-   "boardState": "live"
   },
   {
    "lead": "6401",
@@ -11085,9 +11758,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11114,9 +11789,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11143,9 +11820,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11172,9 +11851,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11201,9 +11882,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 58069.5
@@ -11231,9 +11914,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null,
    "scheme": 58069.5
@@ -11261,9 +11946,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11290,9 +11977,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11319,9 +12008,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11348,9 +12039,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11377,9 +12070,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11406,9 +12101,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11435,9 +12132,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11464,9 +12163,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11493,9 +12194,11 @@
    "fit": {
     "band": "GBP 50k-200k",
     "winRate": 0,
-    "note": "0 won of 37 priced"
+    "note": "no win this size on the BD log - 0 of 37"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11522,9 +12225,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11551,9 +12256,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11580,9 +12287,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11609,9 +12318,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11638,9 +12349,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11651,7 +12364,7 @@
    "job": "Leys Sports Pavilion Refurbishment",
    "leadDate": "2026-07-09",
    "nextAction": "2026-07-19",
-   "days": 9,
+   "days": 8,
    "incVat": 52842.26,
    "value": 44035.22,
    "result": "Live - Quoted",
@@ -11667,11 +12380,19 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
-   "onBoard": null,
-   "boardState": null
+   "confirmed": null,
+   "staleDate": {
+    "crmDate": "2026-07-19",
+    "issued": "2026-07-20",
+    "crmDays": 9,
+    "reQuote": false,
+    "why": "Aged from the send, not the CRM. The row is dated 2026-07-19 and the quote left the building on 2026-07-20 - 1 days later. Ordinary lag between the follow-up date somebody set and the day it went."
+   },
+   "onBoard": "job:leys-park-changing-pavilion-dagenham",
+   "boardState": "quoted"
   },
   {
    "lead": "8313",
@@ -11696,9 +12417,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11725,9 +12448,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11754,9 +12479,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11783,9 +12510,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11812,9 +12541,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11841,9 +12572,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11870,9 +12603,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11899,9 +12634,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11928,9 +12665,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11957,9 +12696,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -11986,9 +12727,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12015,9 +12758,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12044,9 +12789,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12073,9 +12820,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12102,9 +12851,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12131,9 +12882,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12160,9 +12913,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12189,9 +12944,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12218,9 +12975,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12247,9 +13006,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12276,9 +13037,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12305,9 +13068,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12334,9 +13099,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12363,9 +13130,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12392,9 +13161,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12421,9 +13192,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12450,9 +13223,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12479,9 +13254,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12508,9 +13285,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12537,9 +13316,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12566,9 +13347,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12595,9 +13378,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12624,9 +13409,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12653,9 +13440,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12682,9 +13471,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12711,9 +13502,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12740,9 +13533,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12769,9 +13564,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12798,9 +13595,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12827,9 +13626,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12856,9 +13657,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12885,9 +13688,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12914,9 +13719,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12943,9 +13750,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -12972,9 +13781,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13001,9 +13812,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13030,9 +13843,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13059,9 +13874,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13088,9 +13905,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13117,9 +13936,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13146,9 +13967,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13175,9 +13998,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13204,9 +14029,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13233,9 +14060,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13262,9 +14091,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13291,9 +14122,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13320,9 +14153,11 @@
    "fit": {
     "band": "GBP 10k-50k",
     "winRate": 13,
-    "note": "wins occasionally - 7 of 52"
+    "note": "wins occasionally - 7 of 52 on the log"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13349,9 +14184,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13378,9 +14215,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13407,40 +14246,13 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
-  },
-  {
-   "lead": "8155",
-   "client": "Bradford Watts Ltd",
-   "key": "bradfordwatts.co.uk",
-   "job": "Unit 1 Eleanor Trade Centre",
-   "leadDate": "2026-04-17",
-   "nextAction": "2026-04-21",
-   "days": 98,
-   "incVat": 9571.02,
-   "value": 7975.85,
-   "result": "Live - Quoted",
-   "state": "quoted - chase due",
-   "owner": "Adam",
-   "email": "hpaxton@bradfordwatts.co.uk",
-   "phone": "07736 990919",
-   "product": "UPVC",
-   "town": "Waltham Abbey",
-   "postcode": "EN8 7HF",
-   "source": "Existing Customer",
-   "takenBy": "GINTAREV",
-   "fit": {
-    "band": "under GBP 10k",
-    "winRate": 38,
-    "note": "the only band Fenster reliably wins"
-   },
-   "outlier": false,
-   "onBoard": "job:unit-1-eleanor-trade-centre-waltham-cross-bradford",
-   "boardState": "quoted"
   },
   {
    "lead": "8315",
@@ -13465,9 +14277,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13494,9 +14308,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13523,9 +14339,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13552,9 +14370,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13581,9 +14401,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13610,9 +14432,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13639,9 +14463,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13668,9 +14494,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13697,9 +14525,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13726,9 +14556,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13755,9 +14587,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13784,9 +14618,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13813,9 +14649,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13842,9 +14680,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13871,9 +14711,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13900,9 +14742,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13929,9 +14773,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13958,9 +14804,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -13987,9 +14835,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14016,9 +14866,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14045,9 +14897,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14074,9 +14928,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14103,9 +14959,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14132,40 +14990,13 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
-  },
-  {
-   "lead": "8625",
-   "client": "Chester Thomas Developments",
-   "key": "CHESTER THOMAS DEVELOPMENTS",
-   "job": "Arched Door",
-   "leadDate": "2026-07-08",
-   "nextAction": "2026-07-10",
-   "days": 18,
-   "incVat": 5347.19,
-   "value": 4455.99,
-   "result": "Live - Quoted",
-   "state": "quoted - chase due",
-   "owner": "Adam",
-   "email": "",
-   "phone": "",
-   "product": "UPVC",
-   "town": "Rushden",
-   "postcode": "NN10 9TB",
-   "source": "",
-   "takenBy": "GINTAREV",
-   "fit": {
-    "band": "under GBP 10k",
-    "winRate": 38,
-    "note": "the only band Fenster reliably wins"
-   },
-   "outlier": false,
-   "onBoard": "job:chester-thomas-developments-arched-front-door",
-   "boardState": "live"
   },
   {
    "lead": "8639",
@@ -14190,9 +15021,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14219,9 +15052,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14248,9 +15083,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14277,9 +15114,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14306,9 +15145,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14335,9 +15176,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14364,9 +15207,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14393,9 +15238,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14422,9 +15269,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14451,9 +15300,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14480,9 +15331,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14509,9 +15362,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14538,9 +15393,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14567,9 +15424,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14596,9 +15455,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14625,9 +15486,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14654,9 +15517,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14683,9 +15548,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14712,9 +15579,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14741,9 +15610,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14770,9 +15641,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14799,9 +15672,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14828,9 +15703,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14857,9 +15734,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14886,9 +15765,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14915,9 +15796,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14944,9 +15827,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -14973,9 +15858,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15002,9 +15889,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15031,9 +15920,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15060,9 +15951,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15089,9 +15982,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15118,9 +16013,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15147,9 +16044,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15176,9 +16075,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15205,9 +16106,11 @@
    "fit": {
     "band": "under GBP 10k",
     "winRate": 38,
-    "note": "the only band Fenster reliably wins"
+    "note": "the band the recent funnel converts best"
    },
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15233,6 +16136,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   },
@@ -15258,6 +16163,8 @@
    "takenBy": "GINTAREV",
    "fit": null,
    "outlier": false,
+   "confirmed": null,
+   "staleDate": null,
    "onBoard": null,
    "boardState": null
   }
@@ -15269,6 +16176,14 @@
    "value": 279244.69,
    "crm": "Live - Quote being prepared",
    "truth": "live",
+   "why": "AdminBase has this as still being priced. The quote is in estimating@'s sent items, so it has gone."
+  },
+  {
+   "job": "Trafalgar House",
+   "client": "Tsl Uk - Topek Southern Ltd",
+   "value": 71566.47,
+   "crm": "Live - Quote being prepared",
+   "truth": "quoted",
    "why": "AdminBase has this as still being priced. The quote is in estimating@'s sent items, so it has gone."
   }
  ],
@@ -15380,8 +16295,8 @@
   "clients": 127,
   "value": 18402525.62,
   "incVat": 22083030.66,
-  "due": 212,
-  "dueValue": 17202743.88,
+  "due": 209,
+  "dueValue": 17116153.38,
   "beingPriced": 23,
   "yearSilent": 17,
   "noDate": 80,
@@ -15390,14 +16305,16 @@
   "noEmail": 43,
   "outliers": 2,
   "outlierValue": 8030304.94,
+  "confirmed": 1,
+  "staleDates": 6,
   "median": 21130.41,
-  "onBoard": 6,
-  "conflicts": 1,
+  "onBoard": 8,
+  "conflicts": 2,
   "schemes": 4,
   "schemeRows": 9,
   "doubleCounted": 2354377.0,
-  "winnable": 128,
-  "winnableValue": 1789515.89,
-  "neverWonBand": 82
+  "winnable": 126,
+  "winnableValue": 1777084.05,
+  "neverWonBand": 81
  }
 }

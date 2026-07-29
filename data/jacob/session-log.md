@@ -24,3 +24,19 @@ wall. Newest last. Detail belongs in the files named on the line, never here.
   accounts into `data/knowledge/bd-lessons.md` and left one-line rules with pointers;
   `bd.md` back to 122 lines, and a line I had compressed away before his message arrived
   (Adam's "just some" on the case studies) restored there rather than lost.
+- **2026-07-29, bot-17 (Mary), late afternoon.** She answered the question I asked her this
+  morning: **Leys Park left the building on 20/07 at 15:50**, estimating@ to Luke Baker,
+  cc Adam, attached - and Adam had already chased it on 22/07 and 23/07 with nothing back
+  either time. Three things changed. The register row is verified and dated, and now
+  carries a `chases` list, so the board can tell a first call from a third; AdminBase 8642
+  joins to it and is re-dated off the send. The call brief was rewritten - stop asking
+  whether the quote arrived, ask **when Barking and Dagenham decide**, because that date is
+  the next chase date and it is the only thing on this job nobody has. And I found **Luke
+  Baker's mobile, 07547 184089**, in his own signature on the 02/07 clarification sitting
+  in commercial@, hours after writing "no phone number on file for him" in his company
+  file - which matters because email has now failed twice and today has to be a call.
+  Grange Hill stays Mary's: quote with Adam for checking at 13:10, corrections outstanding,
+  **no number goes to Luke**. Posted the brief to Adam on the hub; did not reply to Mary,
+  who asked nothing. Three lessons to `bd-lessons.md`, the rules to `bd.md`: a tool's
+  hard-coded job list is not the world, count the chases before writing "call them", and a
+  contact's numbers are usually in their own signature.

@@ -130,3 +130,65 @@ compression cost nothing. On the five brochure values (Headrow 630k, Tottenham J
 the case studies are "just some" of them** - so the brochure is a floor on what Fenster has
 won at size, never a list of it. The same entry's point stands and is sharper for it: "0 on
 the log" at a given size never means "Fenster cannot win that size".
+
+---
+
+## 29/07/2026 - A tool's job list is not the world, and the third chase is not the first
+
+Three lessons out of one message, all from the same job: Leys Sports Pavilion, Chigwell
+(London) PLC, GBP 44,035.22, AdminBase lead 8642.
+
+**1. "It is not in the sends I dated" meant "it is not in the list that script searches."**
+
+On 28/07 Mary dated nine issued quotes for me out of estimating@'s sent items. Leys was
+not among them, so my chasing register carried it as *issued but undated and unverified*,
+with a note saying that if the quote had never left the building the job went back to her.
+I wrote that note carefully and it was still the wrong shape, because it treated absence
+from her list as evidence about the world.
+
+It was not. `scripts/quote_send_dates.py` carries a hard-coded `JOBS` list of nine jobs and
+their search terms, and "Leys" was not one of them. The quote had left at **15:50 on
+20/07**, to Luke Baker, cc Adam, with the file attached - it had simply never been asked
+for. The fix is at source: Mary added Leys Sports Pavilion and Grange Hill to `JOBS`, so
+the next person to ask gets the answer from the tool instead of digging it out by hand.
+
+The general rule: **any answer that comes out of a tool inherits that tool's scope, and a
+tool built from a fixed list of names will say "nothing found" about everything not on the
+list.** Before believing a negative, ask what the thing actually searched. This is the same
+failure as the 20-page mailbox cap that turned 13 days of mail into "180 days" - a bounded
+instrument reporting its bound as a fact about the world.
+
+**2. Count the chases before you write "call them".**
+
+My register said: call Luke today, ask whether our number went in and when the council
+decides. Reasonable, until Mary supplied the rest of the sequence - **Adam had already
+chased on 22/07 at 13:47 and again on 23/07 at 09:57, with nothing back either time.**
+"Has our quote arrived" is a question that has now failed twice, and a third asking of it
+is not a chase, it is noise from a supplier who is not paying attention.
+
+So the brief changed shape: do not re-ask what two emails already failed to get. Ask the
+one thing nobody at Fenster has - **the council's own decision date** - because under
+Adam's checklist a chase must return a date, and that date is the only thing that makes
+the next contact land at the right time rather than a fortnight from now.
+
+A chase register that knows the send date but not the chase history will keep writing the
+first call over and over. **Every row wants both: when it went, and every time somebody has
+already asked.** The Leys row now carries a `chases` list for exactly that.
+
+**3. "No phone number on file" usually means nobody opened the signature.**
+
+This company file said, in my own words two hours earlier, *"No phone number on file for
+him. Worth getting."* Luke Baker's office and mobile numbers were sitting in his own email
+signature on the 02/07 Gordon Court clarification, in commercial@ - a mailbox I read every
+session. One `--read` and a grep for a phone pattern produced both.
+
+That matters here beyond tidiness: email has now failed twice on this job, so the entire
+value of today's contact depends on it being a phone call. **Before recording that we lack
+a contact detail, read one message from the person.** Signatures are where the contact
+details are, by construction.
+
+**And the thing that did not change.** Grange Hill Methodist Church, same client, same call
+- Gintare's quote was with Adam for checking at 13:10 and Mary had sent the corrections it
+needed, so there was no settled number. A quote being priced is Mary's, and the boundary is
+not a formality: a figure given on a friendly call before it is checked becomes the price
+the client remembers. The brief says tell Luke where it is and give him nothing else.

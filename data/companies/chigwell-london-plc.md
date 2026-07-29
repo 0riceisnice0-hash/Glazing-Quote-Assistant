@@ -60,19 +60,41 @@ AdminBase's RM10 9TP, same title, same window. Chigwell is bidding it today with
 number in it.
 Notice: https://www.contractsfinder.service.gov.uk/Notice/c468ff00-848d-471b-ae83-6bf211ade3b6
 
-**8740 Grange Hill Methodist Church Ext, IG7 4HQ - being priced.** Luke asked for costs
-on 29/07 and wanted them the same day; BSW came back at GBP 40,528.59 at 10:48. Mary's
-until it goes out, mine the moment it does.
+**It went out on 20/07 at 15:50, and it has been chased twice already.** Mary read the
+sequence at source in estimating@ on 29/07: quote to Adam for checking 20/07 12:32, Adam
+replies 15:46, issued to Luke 15:50 with the quote attached - then **Adam chases on 22/07
+at 13:47 and again on 23/07 at 09:57, and gets nothing back either time.** So the call
+today is the third touch on this job, not the first, and asking whether it arrived is a
+question that has already failed twice. The one thing we do not have is the council's
+decision date.
+
+Two unanswered chases is not the same as a dead client: Luke was emailing us at 08:22 this
+morning asking for Grange Hill costs. He is mid-tender on a bid that closes today. Read
+the silence as busy, and read it on the phone rather than in a fourth email.
+
+**8740 Grange Hill Methodist Church Ext, IG7 4HQ - being priced, and NOT issued.** Luke
+asked for costs on 29/07 and wanted them the same day; BSW came back at GBP 40,528.59 at
+10:48. As of 13:10 on 29/07 Gintare's quote is with Adam for checking and Mary has sent
+Adam the corrections it needs. **There is no settled number, so nobody gives Luke one** -
+including on today's call about the other two jobs. Mary's until it goes out, mine the
+moment it does.
 
 ## The contact
 
-**Luke Baker** - luke.baker@chigwellgroupplc.co.uk. Sends the enquiries, issues the
+**Luke Baker, Senior Quantity Surveyor** - luke.baker@chigwellgroupplc.co.uk,
+**office 020 8500 4100, mobile 07547 184089**. Both numbers were sitting in his own
+signature on the 02/07 clarification email in commercial@, which is a mailbox I can read
+and nobody had looked in for a phone number. Sends the enquiries, issues the
 clarifications, and replies. On 02/07 he sent Steve Freezer the clarification extract on
 the Gordon Court NBS spec vs the architectural drawings after we asked. On 29/07 08:22 he
 was the one chasing *us* for Grange Hill costs. He is not a gatekeeper, he is a working
 estimator who answers email - which is the most useful kind of contact there is.
 
-No phone number on file for him. Worth getting.
+With one qualification, learned 29/07: he has let two chases on Leys go unanswered
+(22/07, 23/07) while emailing us about Grange Hill in the same week. A working estimator
+answers what is in front of him this week, not what is behind it. That is an argument for
+the phone, not for writing him off - and this file used to say "no phone number on file
+for him, worth getting", which was true only because nobody had opened his own signature.
 
 Directors, if a name is ever needed above Luke: Dean Anthony Floyd (director since
 incorporation, and the 75%+ owner until the 2023 group restructure), Pushwinder Singh
@@ -88,15 +110,21 @@ one, because a client with three quotes and no wins is still a stranger.
 
 ## Next action and owner
 
-**Adam calls Luke Baker today, and it is one call for all three jobs.**
+**Adam calls Luke Baker today - 07547 184089 mobile, 020 8500 4100 office - and it is one
+call for all three jobs. A call, because email has now been tried twice on Leys and
+returned nothing.**
 
-1. **Leys Park first.** Their bid to Barking and Dagenham closes today. Ask outright: has
-   our GBP 44,035.22 gone in unchanged, and when does the council decide? **That date is
-   the next chase date** - not a fortnight from now. (Adam's checklist rule: a chase must
-   return a date.)
+1. **Leys Park first.** Their bid to Barking and Dagenham closes today, and our quote of
+   20 July has been sitting with him through two unanswered chases. Do not re-ask whether
+   it arrived. Ask: **when does the council decide?** That date is the next chase date -
+   not a fortnight from now. (Adam's checklist rule: a chase must return a date.) If he
+   volunteers that our GBP 44,035.22 went in unchanged, take it; do not spend the call
+   on it.
 2. **Gordon Court** - nothing to decide, but confirm our GBP 368,376.70 went into their
    jLiving bid unchanged. Then diary week of 14 September.
-3. **Grange Hill** - tell him where the costs are. He asked this morning.
+3. **Grange Hill** - tell him where the costs are, **and give him no number.** As of 13:10
+   today the quote is with Adam for checking with corrections outstanding from Mary. "With
+   our estimator, you will have it shortly" is the whole answer.
 
 What to say if we need a reference: **Headrow Court for Fortis Vision, ~GBP 630k + VAT**,
 Fenster's largest, and Adam has already told Luke we supplied tested AOV windows from
@@ -109,9 +137,12 @@ pricing ruling. Adam owns all three rows in AdminBase.
 
 ## What I do not know
 
-- Whether the Leys Park quote actually left the building and on what date. It is not among
-  the nine sends Mary dated from estimating@ on 28/07, and I cannot read that mailbox.
-  Asked her 29/07.
+- ~~Whether the Leys Park quote actually left the building and on what date.~~ **Answered
+  29/07 by Mary, from estimating@'s sent items: 20/07 at 15:50 to Luke, cc Adam, attached.**
+- Why Luke has not replied to either of Adam's chases. Busy finishing the bid is the
+  likely reading and it is a guess; the call is what settles it.
+- What the council's own decision date is. Nothing in the notice gives it, and it is the
+  single number that decides when we next pick this up.
 - Whether Chigwell has ever bought from us before under another name. The Opportunity Log
   says no; the Log is the 2025-26 funnel, not the whole history.
 - Whether the Window Centre relationship has ever come up in a conversation with Luke, or

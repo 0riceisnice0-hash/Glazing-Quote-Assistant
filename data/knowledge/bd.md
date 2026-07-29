@@ -81,6 +81,14 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
   enquired, priced, issued and chased without one, so it was on no list of mine.
   The chasing register is a floor, never a complete set: 9 managed rows against
   ~25 AdminBase quotes raised since 15/06 alone.
+- **"Not in the sends I have dated" means "not in the list that script searches"** -
+  Leys, 29/07: absent only because "Leys" was not one of nine hard-coded jobs, when it
+  had gone out 20/07 15:50 and been chased twice. Absence from a tool reads exactly
+  like never sent. **Count the chases before writing "call them"**: the third touch is
+  a different call from the first - ask what nobody has (the client's own decision
+  date), not what two emails already failed to get. And **a contact's direct numbers
+  are usually in their own signature** - "no phone on file" meant nobody had opened
+  one. `bd-lessons.md`.
 - **Join AdminBase to your own TENDER BOARD, not just to the mailbox** - on postcode
   SECTOR plus title. **A client's public deadline sets the chase date; a fortnight
   rule invents one.** Leys Park, 29/07: `bd-lessons.md`.
