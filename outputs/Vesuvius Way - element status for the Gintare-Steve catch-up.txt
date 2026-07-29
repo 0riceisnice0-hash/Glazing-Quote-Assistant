@@ -1,0 +1,116 @@
+VESUVIUS WAY, WORKSOP - AIR SEPARATION UNIT
+Element status, one line per element, for the catch-up with Gintare and Steve.
+Prepared 29/07/2026. Tender returns to Stainforth TOMORROW, 30/07.
+
+Client is STAINFORTH Construction LLP (Joe Mayer, joemayer@stainforthcon.co.uk).
+Not "Staniforth" - that spelling is in our records only, and I put it on the
+dashboard myself yesterday. The Once For All invitation, AdminBase lead 8742 and
+the client's own email domain all say Stainforth. Corrected everywhere it feeds a
+document. The OneDrive folder is genuinely spelled the other way; left alone.
+
+Benchmark GBP 110,666.70 ex VAT. NOTHING ISSUED. No supplier return held.
+(GBP 110,551.98 on 27/07 - the GBP 114.72 is the register being re-mined since,
+both are benchmarks, neither is a price.)
+
+================================================================================
+PRICED - and nothing is wrong with these
+================================================================================
+ref    element                                          system          GBP
+B1-B   Welfare Ele 1 screen 2000x2450 raked head        Senior SF52     4,900.00
+B1-F   Welfare Ele 4, 4no windows 750x950               Senior PURe     3,464.12
+B2-A   Office Ele 01 screen 6900x6000 raked             Senior SF52    35,788.75
+B2-D   Office Ele 01, 2no windows 1350x1450             Senior PURe     2,781.54
+B2-H   Office Ele 03, 4no windows 1350x1450             Senior PURe     5,563.08
+B2-I   Office Ele 04, 2no windows 1350x1450             Senior PURe     2,781.54
+                                                                      ----------
+                                                                       55,279.03
+
+================================================================================
+PRICED BUT WRONG - the 60 minute problem, 48.9% of the number
+================================================================================
+ref    element                                          priced as       GBP
+B1-D   Welfare Ele 2 screen 2950x2450 WITH a door       SF52, door not
+       in it                                            fire rated      8,377.50
+B1-E   Welfare Ele 2, 2no doors 1000x2450 + 350         Senior SPD150
+       toplight                                         aluminium       4,683.56
+B2-E   Office Ele 02 screen 6500x6000 WITH a double     SF52, doors not
+       entrance door in it                              fire rated     41,000.00
+                                                                      ----------
+                                                                       54,061.06
+
+NBS L20 requires every external door to be 60 minute fire rated, including the
+ones inside the curtain walling. Door schedule 221P agrees on every external type.
+Senior SF52 is not a fire rated system, so those two screens cannot carry those
+doors as priced. Nobody has quoted any of it.
+
+================================================================================
+PRICED BY NOBODY - carried as TBC, no rate, no supplier
+================================================================================
+ref    element                                          why
+B1-A   Access hatch 1450x1200, PURe SLIDE               Logikal dwg 001 was never
+                                                        attached to any RFQ
+B1-C   Welfare Ele 1 window 1500x1255-1150              NO DRAWING EXISTS in the
+       (priced at GBP 1,326.61 on the bill alone)       55-file pack
+B1-G   Louvred double door 1450x2110, 60 min steel      steel enquiry sent 28/07
+       core, NOVA acoustic                              15:31 - see below
+B2i-E  Internal fire screen 2400x1500 PyroStop          PyroStop is EI glass in a
+B2i-F  Internal fire screen 3100x1500 PyroStop          system that is not rated
+B2-C   E/O panels obscured with reflective material     nil carried
+
+================================================================================
+NOT OURS - name these in the exclusions when anything is issued
+================================================================================
+221P roller shutter, Building 02 switch room, 3500x5900, SilentRoll 31, 3-phase
+308B Building 03 doors D1-D5, acoustic steel Rw 33dB, + 2no roller shutters
+221P internal Howdens doors - leaf & half, unisex WC, accessible WC
+
+================================================================================
+THE THREE THINGS THE CATCH-UP HAS TO SETTLE
+================================================================================
+1. WHO IS PRICING THE 60 MINUTE DOORS, AND HAS ANYTHING GONE OUT?
+   The AFS enquiry has been written since yesterday and is still unsent. Nothing
+   from Aluminium Fire Systems on this job exists anywhere in estimating@.
+   The steel-door enquiry Gintare sent 28/07 15:31 shows NO RECIPIENT on our copy
+   and nothing has come back - so the steel-core half may not have been asked for
+   at all. That is the first thing to check, and it takes one look at her Sent
+   folder.
+
+2. CAN A 60 MINUTE DOORSET ACTUALLY HIT U 1.2 W/m2K?
+   L20 and schedule 221P demand both, of the same doors. If it cannot be done,
+   that is a conflict inside JHA's own specification and it goes back to them
+   through Stainforth - we should not quietly price around it.
+
+3. WHICH DOORS ARE 60 MINUTE, AND WHERE?
+   L20 says "refer to all fire plans and fire consultants comments prior to any
+   order being placed" and names drawing 2024-055-114 Building 01 Fire Plan.
+   That drawing is not in the 55-file tender pack at all.
+
+================================================================================
+WHAT THE PRE-ISSUE CHECKS SAY (scripts/mary_checks.py, run today)
+================================================================================
+6 rules fail. None of them is a false alarm:
+
+  fire-exit panic hardware        221P specifies pushpad nightlatch with snib
+                                  lock back, external cylinder access and
+                                  emergency exit hardware internally on the
+                                  steel-core doors. Our B1-E price is a glazed
+                                  door median plus a code adder - there is no
+                                  panic hardware in it at all.
+  drawing vs bill quantities      the Logikal drawings in the BSW enquiry ask for
+                                  6 fewer units than the bill (dwg 008 says 6 vs
+                                  8, dwg 005 says 1 vs 4, dwg 004 says 1 vs 2).
+                                  Schedule 222P is in the pack this time, but a
+                                  fabricator prices from the drawing in front of
+                                  them - CHECK BSW'S COUNTS LINE BY LINE.
+  spec covered or excluded        nine spec items are neither priced nor
+                                  excluded, and four of them are the L20 fire
+                                  door clauses.
+  someone can fabricate it        no fabricator on our supply chain makes Senior.
+  finish quoted vs specified      colour is TBC on every element and no supplier
+                                  has quoted a finish.
+  supplier covers every unit      nothing on this job has a supplier price
+                                  behind it. It is all benchmark.
+
+Expect the benchmark HIGH if it is ever used as a sense-check: the calibration
+log runs +10.4% mean bias, and the >6 m2 band ran +35% on St Mary's. This job is
+mostly large curtain wall, which is that band.

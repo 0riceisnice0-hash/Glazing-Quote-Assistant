@@ -283,21 +283,58 @@ def check_full_height_screens(m):
                   "%d screen(s) on the curtain-walling convention" % len(screens), "Greenfields")
 
 
+# A 'fabricator' that is actually a statement that nobody can make it. The rule
+# below used to test the field for truthiness alone, so "NONE APPROACHED CAN MAKE
+# IT" and "their own system, not available to Fenster" both counted as a
+# fabricator and passed. Vesuvius Way and Redditch Library were both sitting on
+# that when it was found (29/07).
+_NO_FABRICATOR = re.compile(
+    r"\bnone\b|\bnobody\b|\bno[- ]one\b|\bno fabricator\b|\bno approved\b"
+    r"|\bcannot\b|\bcan't\b|\bunable\b|\bnot available\b|\bnot approached\b"
+    r"|\bnever approached\b|\bdoes not fabricate\b|\bdo not fabricate\b",
+    re.I)
+
+
 def check_fabricator_can_make_it(m):
     """Vesuvius Way, 27/07. The whole pack was Senior, and none of BSW
     (Sheerline), Aplus (Technal) or Bellview (SMA) fabricate Senior. A tender
-    priced on a system nobody can make is not a tender."""
+    priced on a system nobody can make is not a tender.
+
+    Widened 29/07, on Vesuvius again. The rule only asked whether the
+    'fabricator' field was non-empty, so the honest answer - writing "NONE
+    APPROACHED CAN MAKE IT" into it - PASSED the very check that exists to catch
+    that. Redditch Library was passing on "their own system, not available to
+    Fenster" at the same time. Naming the problem in the field is not the same as
+    having a fabricator, so a denial now fails, and an explicit
+    'can_make_it': false fails whatever the prose says.
+    """
     systems = m.get("systems_specified")
     if systems is None:
         return result("someone can actually fabricate it", UNKNOWN,
-                      "'systems_specified': [{system, fabricator}] - who is making each system?",
+                      "'systems_specified': [{system, fabricator}] - who is making each system? "
+                      "Set 'can_make_it': false where the answer is that nobody on our supply "
+                      "chain can.",
                       "Vesuvius Way")
-    orphans = [s.get("system", "?") for s in systems if not s.get("fabricator")]
-    if orphans:
+    orphans, denied = [], []
+    for s in systems:
+        name = s.get("system", "?")
+        fab = s.get("fabricator")
+        if not fab:
+            orphans.append(name)
+        elif s.get("can_make_it") is False or _NO_FABRICATOR.search(str(fab)):
+            denied.append("%s (recorded as: %s)" % (name, str(fab)[:90]))
+    if orphans or denied:
+        parts = []
+        if orphans:
+            parts.append("No fabricator identified for: %s." % ", ".join(orphans))
+        if denied:
+            parts.append("The 'fabricator' field itself says nobody can make it: %s."
+                         % "; ".join(denied))
         return result("someone can actually fabricate it", FAIL,
-                      "No fabricator identified for: %s." % ", ".join(orphans), "Vesuvius Way",
+                      " ".join(parts), "Vesuvius Way",
                       remedy="Either find an approved one or qualify an alternative system formally "
-                             "in the tender.")
+                             "in the tender. Writing the problem into the manifest is not the same "
+                             "as solving it - the client reads the price, not the manifest.")
     return result("someone can actually fabricate it", PASS,
                   "every specified system has a fabricator", "Vesuvius Way")
 
@@ -2970,6 +3007,62 @@ def selftest_qualification_variants():
     return ok
 
 
+FABRICATOR_VARIANTS = [
+    # (name, systems_specified, want)
+    ("field absent", None, UNKNOWN),
+    ("named fabricator", [{"system": "Sheerline S1", "fabricator": "BSW"}], PASS),
+    ("named, RFQ out, no return yet",
+     [{"system": "Alu windows", "fabricator": "BSW (RFQ issued 24/07 15:14 and 15:29, no return)"}],
+     PASS),
+    ("named with quote ref",
+     [{"system": "Smart Wall", "fabricator": "Bellview Products (0000000483 pos 007)"}], PASS),
+    ("or-similar-approved basis",
+     [{"system": "Senior PURe", "fabricator": "as above - BSW RFQ 28/07 15:22 'or similar approved'"}],
+     PASS),
+    ("empty field", [{"system": "Senior SF52", "fabricator": None}], FAIL),
+    # The founding widening - all four were live text in real manifests on 29/07.
+    ("prose says NONE APPROACHED",
+     [{"system": "Senior SF52", "fabricator": "NONE APPROACHED CAN MAKE IT - BSW fabricate "
+                                              "Sheerline, Aplus Technal, Bellview SMA Smart Wall."}],
+     FAIL),
+    ("prose says none - never asked",
+     [{"system": "Senior PURe SLIDE", "fabricator": "none - dwg 001 was never attached to any RFQ"}],
+     FAIL),
+    ("prose says not available to us",
+     [{"system": "Joedan casement", "fabricator": "Joedan Manufacturing (UK) Ltd - their own "
+                                                  "system, not available to Fenster"}], FAIL),
+    ("explicit can_make_it false beats the prose",
+     [{"system": "Senior SF52", "fabricator": "BSW Window Solutions", "can_make_it": False}], FAIL),
+    ("one good, one denied",
+     [{"system": "Sheerline S1", "fabricator": "BSW"},
+      {"system": "Senior SF52", "fabricator": "nobody on our supply chain"}], FAIL),
+]
+
+
+def selftest_fabricator_variants():
+    """Recall test for check_fabricator_can_make_it.
+
+    The rule was founded on Vesuvius and widened on Vesuvius: writing the honest
+    answer into the 'fabricator' field used to satisfy the rule that exists to
+    catch exactly that answer.
+    """
+    ok = True
+    for name, value, want in FABRICATOR_VARIANTS:
+        m = {}
+        if value is not None:
+            m["systems_specified"] = value
+        try:
+            got = check_fabricator_can_make_it(m)["status"]
+        except Exception as exc:                      # noqa: BLE001 - a crash is a failure
+            got = "CRASH: %s" % exc
+        if got != want:
+            print("  fabricator variant %-45s wanted %s, got %s" % (name, want, got))
+            ok = False
+    print("  %-22s %d variant(s) checked%s"
+          % ("fabricator", len(FABRICATOR_VARIANTS), "" if ok else "  SOME FAILED"))
+    return ok
+
+
 def selftest_one_crash_costs_one_rule():
     """A rule that raises must lose itself, not the rest of the run.
 
@@ -3063,6 +3156,8 @@ def selftest():
     if not selftest_coverage_variants():
         ok = False
     if not selftest_qualification_variants():
+        ok = False
+    if not selftest_fabricator_variants():
         ok = False
     if not selftest_one_crash_costs_one_rule():
         ok = False

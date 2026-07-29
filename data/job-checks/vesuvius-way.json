@@ -1,0 +1,357 @@
+{
+ "job": "Air Separation Unit, Vesuvius Way Worksop (Stainforth Construction LLP / BUSE Gas Solutions) - trade bill L_SC Aluminium Doors & Windows",
+ "created": "2026-07-29",
+ "_state": "Benchmark GBP 110,551.98 ex VAT (27/07, emailed to Adam + Zac; recomputes at GBP 110,666.70 on today's re-mined register). NOTHING ISSUED to Stainforth. NO supplier return held - BSW RFQ landed with them 28/07 15:22, tender return is 30/07. This run is a readiness check the day before the deadline, not a pre-issue clearance.",
+ "coupled_runs": [],
+ "doors": [
+  {
+   "ref": "221P Fire Escape Door / Single Door with Vision Panel - bill B1-E, 2no 1000 x 2450 incl 350 toplight, welfare Elevation 2",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  },
+  {
+   "ref": "221P Proposed Main Entrance Door - 60 Min DOUBLE door in curtain wall, 1570 (785+785) x 2175, inside bill B2-E office Elevation 02 screen 6500 x 6000",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  },
+  {
+   "ref": "221P single AFT door in curtain wall - inside bill B1-D welfare Elevation 2 screen 2950 x 2450",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  },
+  {
+   "ref": "221P Proposed Louvred Double Door - bill B1-G, 1450 (724+724) x 2110, 60 min steel-core louvred to NOVA acoustic report",
+   "fire_exit": true,
+   "panic_hardware_priced": false
+  }
+ ],
+ "frame_supply": "glazed",
+ "glass_order": [],
+ "quantities": [
+  {
+   "ref": "Office windows W05-W12 1350 x 1450 (schedule 222P vs Logikal dwg 008)",
+   "bill_qty": 8,
+   "drawing_qty": 6
+  },
+  {
+   "ref": "Welfare Elevation 4 windows 750 x 950 (bill B1-F vs Logikal dwg 005)",
+   "bill_qty": 4,
+   "drawing_qty": 1
+  },
+  {
+   "ref": "Welfare Elevation 2 doors 1000 x 2450 (bill B1-E vs Logikal dwg 004)",
+   "bill_qty": 2,
+   "drawing_qty": 1
+  },
+  {
+   "ref": "Welfare Elevation 1 window 1500 x 1255-1150 (bill B1-C) - NO DRAWING EXISTS ANYWHERE IN THE 55-FILE PACK",
+   "bill_qty": 1,
+   "drawing_qty": 0
+  },
+  {
+   "ref": "Access hatch 1450 x 1200 (bill B1-A) - Logikal dwg 001 not attached to any RFQ",
+   "bill_qty": 1,
+   "drawing_qty": 0
+  },
+  {
+   "ref": "Curtain wall screens, 4no totalling 86.92 m2",
+   "bill_qty": 4,
+   "drawing_qty": 4
+  }
+ ],
+ "spec_items": [
+  {
+   "ref": "NBS L20 cl.60 External Doors - 60 Min insulated steel-core external open-out single-leaf, PPC galvanised double-skinned leaf, PPC galvanised 90mm enclosed frame, DG vision panel 572 x 572, U 1.2 W/m2K",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "NBS L20 cl.60 External Doors Curtain Walling - 60 Min Door installed in curtain wall to manufacturers design, DG window unit panels, U 1.2 W/m2K",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "NBS L20 cl.60 External Doors Louvered - 60 Min insulated steel-core louvred leaf, louvres into door unit, to NOVA acoustic specification and report",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "NBS L20 cl.45 Door leaves (Internal) - carries the IDENTICAL 60 min external steel-core wording but names Howdens non-fire-rated leaves. Reads as a JHA copy-paste error",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "NBS L20 - 'Refer to all fire plans and fire consultants comments prior to any order being placed', naming dwg 2024-055-114 Building 01 Fire Plan",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "NBS L20 - 'Submit Fire Door Schedule to Building Control and Principle Designer prior to order'",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "Curtain walling Senior SF52 Zone Drained fully capped 52mm, U 1.2 W/m2K, obscured spandrel panels where shown, 86.92 m2",
+   "treatment": "priced"
+  },
+  {
+   "ref": "Windows Senior PURe No Profile Groove, U 1.2 W/m2K, DGU, 4000mm2 trickle vents, thermally broken",
+   "treatment": "priced"
+  },
+  {
+   "ref": "Doors Senior SPD150 High Usage Door Standard - bar pull handles, SS lever handles split follower, slow-release closers, maglock / fob release preparation",
+   "treatment": "priced"
+  },
+  {
+   "ref": "Bill B1-A access hatch, horizontal slider with EPS foam infill, Senior PURe SLIDE 1450 x 1200",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "Bill B2i-E/F first floor partition windows 2400 x 1500 and 3100 x 1500, Pilkington PyroStop Active Sun Cool 70/40 - EI fire-resisting glass specified in Senior PURe, which is not a fire-rated system",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "Bill B2-B/F extra over for obscured spandrel panels, Elevations 01 and 02",
+   "treatment": "priced"
+  },
+  {
+   "ref": "Bill B2-C extra over for panels obscured with reflective material",
+   "treatment": "unresolved"
+  },
+  {
+   "ref": "221P roller shutter, Building 02 switch room, 3500 x 5900 SilentRoll 31 Rw 31dB, 3-phase - NOT in our trade bill",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "308B Building 03 doors D1-D5 acoustic steel-core Rw 33dB and 2no SilentRoll 31 roller shutters 4000 x 2200 / 4000 x 6650 - NOT in our trade bill",
+   "treatment": "excluded"
+  },
+  {
+   "ref": "221P internal Howdens doors - leaf & half, unisex WC, accessible WC, non-fire-rated, MDF architraves and SW casings",
+   "treatment": "excluded"
+  }
+ ],
+ "supplier_quotes": [],
+ "full_height_screens": [
+  {
+   "ref": "B2-A office Elevation 01, 6900 x 6000 raked, 5 bays at 1380",
+   "priced_as": "curtain walling"
+  },
+  {
+   "ref": "B2-E office Elevation 02, 6500 x 6000 incl 60 min double AFT entrance door",
+   "priced_as": "curtain walling"
+  },
+  {
+   "ref": "B1-B welfare Elevation 1, 2000 x 2450 raked head, 2 bays",
+   "priced_as": "curtain walling"
+  },
+  {
+   "ref": "B1-D welfare Elevation 2, 2950 x 2450 incl 60 min single AFT door and toplight",
+   "priced_as": "curtain walling"
+  }
+ ],
+ "systems_specified": [
+  {
+   "system": "Senior SF52 (Zone Drained) Fully Capped 52mm curtain walling",
+   "fabricator": "NONE APPROACHED CAN MAKE IT - BSW fabricate Sheerline, Aplus Technal, Bellview SMA Smart Wall. No Senior-approved fabricator is on our supply chain. RFQ with BSW 28/07 15:22 on a 'or similar approved' basis."
+  },
+  {
+   "system": "Senior PURe / PURe No Profile Groove windows",
+   "fabricator": "as above - BSW RFQ 28/07 15:22 'or similar approved'"
+  },
+  {
+   "system": "Senior SPD150 High Usage Door Standard",
+   "fabricator": "as above - BSW RFQ 28/07 15:22 'or similar approved'"
+  },
+  {
+   "system": "Senior PURe SLIDE Inline / Lift & Slide Square (access hatch B1-A)",
+   "fabricator": "none - dwg 001 was never attached to any RFQ"
+  },
+  {
+   "system": "60 minute fire-rated doorsets and fire screens (L20) - system not named by JHA",
+   "fabricator": "NONE APPROACHED. Aluminium Fire Systems enquiry drafted 28/07 and still unsent as at 29/07. Steel doorset enquiry sent by Gintare 28/07 15:31 with no recipient recorded on our copy."
+  }
+ ],
+ "finishes": [
+  {
+   "ref": "All aluminium windows, doors and curtain walling",
+   "specified_internal": "Colour TBC - the RFQ to BSW states 'Colour TBC' and JHA name no RAL for the aluminium",
+   "specified_external": "Colour TBC",
+   "quoted_internal": "not quoted - no supplier return",
+   "quoted_external": "not quoted - no supplier return"
+  },
+  {
+   "ref": "60 min steel-core external doors (L20 cl.60, schedule 221P)",
+   "specified_internal": "PPC galvanised double-skinned leaf, PPC galvanised 90mm enclosed frame",
+   "specified_external": "PPC galvanised double-skinned leaf, PPC galvanised 90mm enclosed frame",
+   "quoted_internal": "not quoted - no fire-door supplier has been asked",
+   "quoted_external": "not quoted - no fire-door supplier has been asked"
+  }
+ ],
+ "u_value": {
+  "required": 1.2,
+  "basis": "JHA NBS Section 2 and door schedule 221P both state 'Windows and doors to achieve U-value of 1.2 W/m2/k'. The RFQ to BSW repeats 1.2 for windows and for curtain walling.",
+  "rejected_elements": []
+ },
+ "supplier_coverage": [
+  {
+   "ref": "Curtain walling 86.92 m2 in 4 screens",
+   "qty_sold": 4,
+   "qty_quoted": 0,
+   "supplier_ref": "none - BSW have not returned (enquiry received 28/07 15:22, return asked for 30/07)"
+  },
+  {
+   "ref": "Windows 1350 x 1450 office W05-W12",
+   "qty_sold": 8,
+   "qty_quoted": 0,
+   "supplier_ref": "none - and the Logikal drawing in the enquiry states 6, not 8"
+  },
+  {
+   "ref": "Windows 750 x 950 welfare Elevation 4",
+   "qty_sold": 4,
+   "qty_quoted": 0,
+   "supplier_ref": "none - and the Logikal drawing in the enquiry states 1, not 4"
+  },
+  {
+   "ref": "Doors 1000 x 2450 welfare Elevation 2",
+   "qty_sold": 2,
+   "qty_quoted": 0,
+   "supplier_ref": "none - and the Logikal drawing in the enquiry states 1, not 2"
+  },
+  {
+   "ref": "60 minute door package - 2no steel-core singles, 1no CW double, 1no CW single, 1no louvred double",
+   "qty_sold": 5,
+   "qty_quoted": 0,
+   "supplier_ref": "none - AFS enquiry drafted and unsent; steel enquiry sent 28/07 15:31 with no recipient on our copy"
+  },
+  {
+   "ref": "Internal PyroStop fire screens 2400 x 1500 and 3100 x 1500",
+   "qty_sold": 2,
+   "qty_quoted": 0,
+   "supplier_ref": "none - no fire-screen supplier approached"
+  },
+  {
+   "ref": "Access hatch 1450 x 1200 Senior PURe SLIDE",
+   "qty_sold": 1,
+   "qty_quoted": 0,
+   "supplier_ref": "none - dwg 001 never attached to an RFQ"
+  }
+ ],
+ "price_commitment": {
+  "source": "Once For All invitation from Joe Mayer, Stainforth Construction LLP, 22/07/2026 09:53, Return Date 30 July 2026. The work package description behind 'View enquiry' has never been opened, so no validity period, no payment terms and no form of tender are in our possession.",
+  "our_price_open_until": null
+ },
+ "delivery_terms": [],
+ "incorporated_terms": [],
+ "qualification_regime": {
+  "document": "Once For All portal enquiry - Stainforth Construction LLP, package L_SC Aluminium Doors Windows",
+  "clause": "Not held - the work package description behind 'View enquiry' has never been opened. Nothing in our possession states whether qualifications are permitted or what we would be asked to sign.",
+  "qualifications_permitted": null,
+  "we_must_sign": null
+ },
+ "priced_lines": [
+  {
+   "ref": "B1-B welfare Elevation 1 curtain wall screen 2000 x 2450",
+   "amount": 4900.0,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "B1-C welfare Elevation 1 window 1500 x 1255-1150 (no drawing exists)",
+   "amount": 1326.61,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "B1-D welfare Elevation 2 curtain wall screen 2950 x 2450 incl single AFT door - THE DOOR MUST BE 60 MIN",
+   "amount": 8377.5,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "B1-E welfare Elevation 2, 2no doors 1000 x 2450 priced as standard Senior SPD150 aluminium - L20 REQUIRES 60 MIN STEEL-CORE",
+   "amount": 4683.56,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "B1-F welfare Elevation 4, 4no windows 750 x 950",
+   "amount": 3464.12,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "B2-A office Elevation 01 curtain wall screen 6900 x 6000 raked",
+   "amount": 35788.75,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "B2-D office Elevation 01, 2no windows 1350 x 1450",
+   "amount": 2781.54,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "B2-E office Elevation 02 curtain wall screen 6500 x 6000 incl double AFT entrance door - THE DOOR MUST BE 60 MIN",
+   "amount": 41000.0,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "B2-H office Elevation 03, 4no windows 1350 x 1450",
+   "amount": 5563.08,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "B2-I office Elevation 04, 2no windows 1350 x 1450",
+   "amount": 2781.54,
+   "covered_by_our_exclusions": false
+  }
+ ],
+ "bought_in_lines": [],
+ "issued_documents": [
+  {
+   "name": "Vesuvius Way Worksop - Fenster Pricing Document and Review.xlsx",
+   "path": "outputs\\Vesuvius Way Worksop - Fenster Pricing Document and Review.xlsx",
+   "is_the_priced_document": true,
+   "exclusions_stated": 3
+  }
+ ],
+ "exposures": [
+  {
+   "item": "NBS L20 requires every external door to be 60 minute fire rated, including the doors inside the curtain walling. B1-D + B1-E + B2-E = GBP 54,061.06, 48.9% of the benchmark, is priced on non-fire-rated product. No fire-door supplier has quoted anything, and the tender returns tomorrow.",
+   "lands_on": "Fenster",
+   "our_recourse": "none"
+  },
+  {
+   "item": "The BSW enquiry that landed 28/07 15:22 EXCLUDES all fire-rated door leaves and doorsets unless BSW can certify them, so their return will not close the gap above - it will arrive with a hole in exactly that place.",
+   "lands_on": "Fenster",
+   "our_recourse": "none"
+  },
+  {
+   "item": "The whole pack is Senior Architectural Systems and no fabricator on our supply chain makes Senior. Every rate in the benchmark comes from non-Senior quotes plus a hand-applied +15% judgement premium.",
+   "lands_on": "Fenster",
+   "our_recourse": "none"
+  },
+  {
+   "item": "The Logikal element drawings issued with the BSW enquiry state quantities 6 units short of the trade bill (dwg 008 says 6 against 8, dwg 005 says 1 against 4, dwg 004 says 1 against 2). Schedule 222P is in the pack this time, but a fabricator prices from the element drawing in front of them.",
+   "lands_on": "Fenster",
+   "our_recourse": "none"
+  },
+  {
+   "item": "L20 demands U 1.2 W/m2K on the same doors it requires to be 60 minute fire rated. Nobody has confirmed that combination is achievable, so we may be pricing to a specification that cannot be built.",
+   "lands_on": "Fenster",
+   "our_recourse": "ask JHA through Stainforth - a conflict inside the architect's own specification"
+  },
+  {
+   "item": "L20 instructs the reader to refer to dwg 2024-055-114 Building 01 Fire Plan and the fire consultant's comments before any order is placed. That drawing is not in the 55-file tender pack at all, so which doors are 60 minute and where is not established from the documents we hold.",
+   "lands_on": "Fenster",
+   "our_recourse": "ask Stainforth for the fire plan"
+  },
+  {
+   "item": "Bill B1-C, a window 1500 x 1255-1150, has no drawing anywhere in the pack, and bill B1-A, the access hatch, has a drawing (Logikal 001) that was never attached to any RFQ. Both are priced or carried without a supplier having seen them.",
+   "lands_on": "Fenster",
+   "our_recourse": "none"
+  },
+  {
+   "item": "Gintare's steel-door enquiry of 28/07 15:31 shows no recipient on our copy and nothing has come back. If it went nowhere, the steel-core half of the 60 minute package has not been asked for at all.",
+   "lands_on": "Fenster",
+   "our_recourse": "none"
+  },
+  {
+   "item": "The work package description behind the Once For All 'View enquiry' link has never been opened, so we do not know what qualifications are permitted, what we would sign, or what price validity is demanded.",
+   "lands_on": "Fenster",
+   "our_recourse": "none"
+  }
+ ],
+ "own_domains": [
+  "fensterglazing.com"
+ ]
+}

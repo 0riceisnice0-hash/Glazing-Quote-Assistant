@@ -27,7 +27,7 @@
   },
   {
    "job": "Air Separation Unit, Vesuvius Way",
-   "client": "Staniforth Construction LLP",
+   "client": "Stainforth Construction LLP",
    "deadline": "2026-07-30",
    "status": "DEADLINE THURSDAY 30/07. CORRECTION TO YESTERDAY'S ENTRY: BSW DO HOLD THE ENQUIRY. Gintare sent it three times (~16:13, 16:17, 16:22 BST) and only the FIRST TWO bounced on 550 5.2.3 RESOLVER.RST.RecipSizeLimit - both were the same 28.5 MiB zip, which encodes to the 39 MB in the bounce against BSW's 36 MB cap. The 16:22 attempt was a DIFFERENT, REBUILT zip of 19.9 MiB (~27 MB encoded), it did not bounce, and Adam confirmed at 16:50 BST that it went 'after documents were removed'. Verified by diffing the two attachments: the four files dropped are 106B site context, 201O ground floor plan, 202O first floor plan and 209O orthographic imaging - all general background, NO glazing information. BSW hold all 19 glazing documents including the window schedule 222P, door schedule 221P and the NBS specification, which is BETTER than the 27/07 enquiry that carried 10 of 55 files and was missing all three. Nothing to re-send. WHAT IS STILL LIVE IS REQ-8. The BSW enquiry EXCLUDES fire-rated leaves and doorsets unless BSW can certify them, so their return will come back with a hole exactly where the money is. JHA NBS clause L20 requires every external door to be 60 MINUTE fire rated, including a '60 Min Door installed in curtain wall'. The 2no doors are priced at GBP 4,683.56 as standard Senior SPD150 - wrong product family - and the welfare screen (GBP 8,377.50) plus office entrance screen (GBP 41,000.00) carry doors within them: GBP 49,377.50, about 45% of the budget, sits on SF52 screens whose doors must be fire rated, which a standard SF52 cannot do. The AFS enquiry is now WRITTEN and ready to send. Compounds the open Senior-fabricator problem: nobody we buy from fabricates Senior.",
    "value": "GBP 110,551.98 budget - understated, expect it HIGH (large-unit mix)",
@@ -305,12 +305,15 @@
    "options": [
     "Send the AFS enquiry today as drafted - it is written and dated for Thursday",
     "Send the AFS enquiry AND have Gintare confirm who the 15:31 steel-door enquiry went to",
-    "Ask Staniforth for drawing 2024-055-114 Building 01 Fire Plan before anyone prices it",
+    "Ask Stainforth for drawing 2024-055-114 Building 01 Fire Plan before anyone prices it",
     "Qualify the return - exclude all 60 minute doorsets in writing and price them as a variation",
     "Carry the 60 minute door package as a provisional sum and issue on Thursday"
    ],
    "status": "open",
-   "updated": "2026-07-28"
+   "updated": "2026-07-29",
+   "answer": "Adam, hub message 53, 28/07 20:40: \"Gintare has been going through this one with Steve (our Technical Advisor). I need to have a catch up with them and see where we are at.\" RECORDED BUT NOT CLOSED - it tells us who is on it, not what was decided, and the tender returns 30/07. The only written record of Gintare and Steve on this job is one email (27/07 09:35, Gintare to Steve cc Adam, asking exactly the right question about the 60 minute doors) and NOTHING in estimating@ answers it. So whatever they have concluded is not written down. Still true as at 29/07: no AFS traffic exists on this job, the drafted AFS enquiry is unsent, and the 28/07 15:31 steel-door enquiry shows no recipient on our copy with nothing back. Element status list for the catch-up emailed to Adam and saved at outputs\\Vesuvius Way - element status for the Gintare-Steve catch-up.txt.",
+   "answered_by": "Adam (who is on it) - the decision itself is still outstanding",
+   "answered_at": "2026-07-28"
   },
   {
    "id": "REQ-9",

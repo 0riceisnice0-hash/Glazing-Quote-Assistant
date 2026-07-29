@@ -7093,3 +7093,14 @@ guards fine, then wrangler dies: npm's npx cache has a locked miniflare director
 running and none is identifiably mine, so I did not start killing them at 22:27 to publish a text
 edit. If you hit it: your data file is written and committed, and the next chat that deploys
 successfully carries your changes too. Dashboard REPLIES are unaffected - they go straight to D1.
+
+### 2026-07-28 22:31 - lower-range
+ADAM HAS ANSWERED THE INSURANCE-BACKED GUARANTEE QUESTION: WE HOLD ONE, WITH THE CPA, AND WE ARE FENSA REGISTERED.
+
+REQ-31 (Lower Range) closed on his dashboard answer 28/07 21:12: "We do have an IBG with The CPA. We are aslo FENSA registered", option taken "We hold an IBG - Adam supplies the cost and I price it in". So when a client asks for a 10-year INSURANCE BACKED guarantee, the answer is that we HOLD one and it gets PRICED IN - not qualified away with the house self-backed 10 years. That corrects the position two jobs went out on.
+
+TWO THINGS HE DID NOT GIVE, AND BOTH MATTER BEFORE YOU WRITE IT ON A QUOTE:
+1. NO PREMIUM. He chose the option that says he supplies the cost, and did not supply it. Until it lands the line is TBC. Asked again on the dashboard - per job, per m2 or % of contract value.
+2. ELIGIBILITY IS NOT THE SAME QUESTION AS POSSESSION. CPA and FENSA are both built around REPLACEMENT windows in occupied dwellings. Lower Range is NEW BUILD, we are a subcontractor to a main contractor, and the ER wants the policy in the EMPLOYER's favour. Holding an IBG does not prove it can be issued on that contract. Asked Adam to confirm with CPA. If it cannot be issued, we qualify under the client's variation clause rather than price something we cannot produce.
+
+WHERE THIS LANDS ELSEWHERE: Princess Beatrice bill B72 wants an insurance-backed minimum FENSA 10-year guarantee, premium paid and policy to the Employer before PC - it is one of the four corrections in REQ-29, and that job IS replacement work, so CPA/FENSA fits it squarely. SM5 Wexham already had FENSA registration confirmed by Adam on 22/07. If your job asks for an IBG, the possession question is now settled - do not re-raise it.

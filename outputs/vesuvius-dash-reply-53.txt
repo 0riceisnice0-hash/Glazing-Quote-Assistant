@@ -1,0 +1,18 @@
+Understood. Three things to take into that catch-up, because the tender returns TOMORROW.
+
+1. THE ONLY WRITTEN RECORD OF GINTARE AND STEVE ON THIS IS ONE EMAIL, AND IT HAS NO ANSWER.
+27/07 09:35, Gintare to Steve, cc you: "doors shown to be Senior, some are part of Curtain Walling, however as per specification all external doors to be 60min fire rated. Could you please advise?" That is exactly the right question. Nothing in estimating@ answers it, and nothing on this job has moved since 15:31 yesterday. Whatever they have concluded between them is not written down anywhere I can see - so the useful outcome of the catch-up is getting it written down, because it decides tomorrow's tender.
+
+2. NOTHING HAS GONE OUT TO A FIRE DOOR SUPPLIER. The AFS enquiry has been drafted since yesterday and is still unsent - there is no AFS traffic on this job at all. And the steel-door enquiry Gintare sent at 15:31 yesterday shows NO RECIPIENT on our copy, with nothing back. Worth one look at her Sent folder before the meeting: if it went nowhere, the steel-core half of the package has not been asked for either. That is the single cheapest thing to check.
+
+3. TWO QUESTIONS ONLY JHA CAN ANSWER, AND THEY ARE BOTH OURS TO ASK. L20 and door schedule 221P demand 60 minute fire rating AND U 1.2 W/m2K of the same doors - if that combination cannot be built, it is a conflict inside the architect's own specification and it goes back to them, not quietly priced around. And L20 says to refer to drawing 2024-055-114 "Building 01 Fire Plan" before any order is placed; that drawing is not in the 55-file pack at all, so which doors are 60 minute and where is not established from anything we hold.
+
+I have emailed you a one-page element status list for the meeting - every element with what the spec wants, what we priced it as, and what it is worth. The short version: GBP 55,279.03 is priced and fine, GBP 54,061.06 (48.9%) is priced on non-fire-rated product, and six items have no supplier and no rate.
+
+TWO CORRECTIONS FROM ME, BOTH MINE TO OWN.
+
+The client is STAINFORTH Construction LLP, not Staniforth. The Once For All invitation, AdminBase lead 8742 and Joe Mayer's own email domain (stainforthcon.co.uk) all say Stainforth; only our own records say otherwise, and I put the wrong one on this board yesterday. Corrected in the dashboard, the job data and the pricing document. The OneDrive folder really is spelled the other way, so that path is left alone. It was already noted correctly in AI.md on 27/07 and every derived record still carried the wrong spelling.
+
+The benchmark now recomputes at GBP 110,666.70 rather than GBP 110,551.98. The GBP 114.72 is the rate register being re-mined since 27/07, not a change of scope. Both are benchmarks and neither is a price.
+
+I have not raised anything new. This stays on REQ-8.

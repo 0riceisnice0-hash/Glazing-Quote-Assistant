@@ -1,0 +1,42 @@
+Adam,
+
+For the catch-up with Gintare and Steve - attached is one page, every element with
+what the spec wants, what we priced it as and what it is worth. Tender returns
+tomorrow.
+
+The short version: GBP 55,279.03 is priced and fine. GBP 54,061.06 - 48.9% - is
+priced on non-fire-rated product where L20 requires 60 minutes. Six items have no
+supplier and no rate at all.
+
+Three things worth taking in:
+
+The only written record of Gintare and Steve on this job is her email to him on
+27/07 at 09:35, cc you, asking exactly the right question about the 60-minute
+doors. Nothing in estimating@ answers it, and nothing has moved since 15:31
+yesterday. Whatever they have settled between them is not written down.
+
+Nothing has gone to a fire door supplier. The AFS enquiry has been drafted since
+yesterday and is unsent - there is no AFS traffic on this job at all. And
+Gintare's steel-door enquiry of 15:31 yesterday shows no recipient on our copy
+with nothing back, so the steel-core half may not have been asked for either.
+One look at her Sent folder settles that, and it is the cheapest check on the list.
+
+Two questions belong to JHA, not to us. L20 and schedule 221P demand 60-minute
+fire rating AND U 1.2 W/m2K of the same doors - if that cannot be built it is a
+conflict in the architect's own specification. And L20 says to refer to drawing
+2024-055-114 "Building 01 Fire Plan" before any order; that drawing is not in the
+55-file pack at all.
+
+Two corrections of mine.
+
+The client is STAINFORTH Construction LLP, not Staniforth. The Once For All
+invitation, AdminBase lead 8742 and Joe Mayer's own email domain all say
+Stainforth - only our own records say otherwise, and I put the wrong spelling on
+the dashboard yesterday. Now corrected in the dashboard, the job data and the
+pricing document. The OneDrive folder genuinely is spelled the other way, so that
+path is untouched.
+
+The benchmark recomputes at GBP 110,666.70 rather than GBP 110,551.98. The
+GBP 114.72 is the rate register being re-mined since 27/07, not a change of scope.
+
+Nothing new raised - this all stays on REQ-8.

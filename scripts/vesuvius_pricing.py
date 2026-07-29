@@ -1,6 +1,6 @@
 """Vesuvius Way (Worksop) - benchmark pricing review workbook.
 
-Staniforth Construction LLP / BUSE Gas Solutions - Proposed New Gas Plant,
+Stainforth Construction LLP / BUSE Gas Solutions - Proposed New Gas Plant,
 Plot 8 Vesuvius Way, Worksop S80 3NE. Trade bill L_SC Aluminium Doors & Windows.
 
 No supplier quote exists yet (RFQ issued 27/07/2026), so every supply rate here is
@@ -154,7 +154,7 @@ ws.title = 'Summary'
 ws['A1'] = 'FENSTER GLAZING - PRICING REVIEW (BUDGET / BENCHMARK)'
 ws['A1'].font = Font(bold=True, size=14)
 meta = [
-    ('Client', 'Staniforth Construction LLP (Joe Mayer)'),
+    ('Client', 'Stainforth Construction LLP (Joe Mayer)'),
     ('End client', 'BUSE Gas Solutions'),
     ('Project', 'Proposed New Gas Plant, Plot 8 Vesuvius Way, Worksop S80 3NE'),
     ('Trade bill', 'L_SC Aluminium Doors & Windows'),
@@ -289,7 +289,7 @@ for n, t in rfis:
 
 # --- Sheet 4: Quantity check
 ws = wb.create_sheet('Quantity Check')
-head(ws, ['Item', 'Trade bill (Staniforth)', 'Logikal drawing issued with RFQ',
+head(ws, ['Item', 'Trade bill (Stainforth)', 'Logikal drawing issued with RFQ',
           'JHA schedule / elevation', 'Priced here', 'Comment'],
      [40, 24, 30, 30, 12, 54])
 qc = [
@@ -324,7 +324,7 @@ for t in qc:
 ws = wb.create_sheet('Source Notes')
 head(ws, ['Topic', 'Detail'], [30, 130])
 notes = [
-    ('Scope source', 'Trade bill "Aluminium Doors - Windows Bill.xls" (Staniforth, L_SC Aluminium Doors & Windows), '
+    ('Scope source', 'Trade bill "Aluminium Doors - Windows Bill.xls" (Stainforth, L_SC Aluminium Doors & Windows), '
                      'cross-read against Logikal drawings 001-008 and JHA drawings 2024-055-221P (door schedule), '
                      '222P (window schedule), 127 (door details) and 108D (welfare elevations).'),
     ('Pack location', 'OneDrive: Commercial\\1. Tender Documents\\Staniforth Construction LLP\\Worksop\\1. Estimating\\'
@@ -359,6 +359,21 @@ for k, v in notes:
     c.alignment = WRAP
     ws.row_dimensions[r].height = 44
     r += 1
+
+# ---------------------------------------------------------------- print setup
+# mary_checks 'the client's view of the priced workbook' caught this on 29/07:
+# with no print area the whole sheet prints, working columns and all, and the
+# reader's view is not the one we think we are showing them. Every sheet gets an
+# explicit area, a repeating header row and a fit-to-width page.
+for sheet in wb.worksheets:
+    last_col = sheet.max_column
+    last_row = sheet.max_row
+    sheet.print_area = 'A1:%s%d' % (sheet.cell(row=1, column=last_col).column_letter, last_row)
+    sheet.page_setup.orientation = 'landscape'
+    sheet.page_setup.fitToWidth = 1
+    sheet.page_setup.fitToHeight = 0
+    sheet.sheet_properties.pageSetUpPr.fitToPage = True
+    sheet.print_title_rows = '1:1'              # header repeats on every printed page
 
 out = 'outputs/Vesuvius Way Worksop - Fenster Pricing Document and Review.xlsx'
 wb.save(out)
