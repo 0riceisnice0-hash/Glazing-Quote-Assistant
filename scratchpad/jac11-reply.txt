@@ -1,0 +1,90 @@
+JAC-11, answered - and the login was never what stopped us seeing
+
+FIRST, THE MONEY, because one of these closes in two days.
+
+ProContract's opportunity adverts are PUBLIC. No account, no login, no key. I wrote a
+puller for it this afternoon (scripts/jacob_procontract.py, data/jacob/procontract.json)
+and it came back with three live glazing jobs nobody at Fenster has looked at:
+
+1. DN820023 - Bournemouth, Christchurch and Poole Council. "Windows, Doors & Sealed
+   Units": replacement at council social housing that is failing or beyond economic
+   repair. Three years from October 2026 with two annual extensions (3+1+1).
+   EXPRESSION OF INTEREST CLOSES 31/07/2026 AT 14:00 - Friday, two days.
+   procurement.place@bcpcouncil.gov.uk, 01202 128989.
+
+2. DN817372 - Be One Homes. "Windows Supply & Fit", six-year term, two contractors
+   sharing the work, start 14/09/2026. Closes 05/08/2026 12:00. Region is North West
+   England, so I think this is a no on distance - but the pack is free and open on
+   the-chest.org.uk with no login at all, so it costs nothing to look.
+
+3. DN822404 - Isle of Wight Council, 10-11 Cross Street, Ryde. Strip out and replace
+   windows, restrictors, scaffolding, Nov 26 to Feb 27. Budget stated as GBP 75,000 to
+   125,000 ex VAT. Closes 28/08/2026. My read is no: it is an island, scaffolding is in
+   scope and our standard proposal excludes access plant, and it is a single job in the
+   band the log says we lose in. Listed so you can overrule me, not to pad the list.
+
+THE ONE I WOULD ACTUALLY LIKE A DECISION ON IS BCP, AND THE REASON IS THE SHAPE, NOT THE
+SIZE. It is not a GBP 200k tender - it is a term contract that turns into a stream of
+small window and door jobs, which is the shape we convert (Cranfield 7-0, FM Solutions
+10-2). Against it: 130 miles from Milton Keynes, five years if all extensions run, a
+pass/fail Procurement Specific Questionnaire, and you need a ProContract login to express
+interest. I do not know whether you want to run work in Dorset - we are already pricing
+Trafalgar House at Portchester, which is about fifty miles from Bournemouth, so it is not
+absurd, but that is your call and not mine. Raised as JAC-12 with the deadline on it.
+
+NOW YOUR QUESTION.
+
+Resetting the passwords: I have not fired any reset, for two reasons that are worth you
+knowing rather than me quietly failing.
+
+- JAYK'S MAILBOX NO LONGER EXISTS. jayk@fensterglazing.com returns a hard 404 from
+  Exchange. Any portal account registered to his address can never be reset by anybody -
+  the link goes to a mailbox that is gone. That is the actual reason the logins are dead,
+  and no amount of clicking "forgotten password" fixes it.
+- ProContract's reset form asks for the USERNAME AND the email address together, not the
+  email on its own. I do not have the usernames. They are almost certainly in the file
+  Jayk emailed to commercial@ on 23/02/2026, subject "Password", where he says "Saved in
+  Business Development folder" - the Passwords folder in the Commercial drive that I am
+  told to stay out of, and rightly. That is a ten-second job for you or Paul and it is
+  the thing that unblocks the rest.
+
+ONE PORTAL NEEDS NO RESET AT ALL: PROACTIS IS ALREADY IN YOUR NAME. Jayk, 01/05/2025, to
+you and Harry, subject "Proactis Password Change" - the account username on that system is
+Adam@fensterglazing.com. So it is your account, the reset lands in your own inbox, and you
+can do it without anyone's help. Two things with it: the password is written in plain text
+in that email in a shared mailbox and should be changed on principle, and the Proactis
+supplier login page carries no forgotten-password link that I can find, so it may need
+their support desk rather than self-service.
+
+NEW ACCOUNTS: YES FOR PROCONTRACT, AND IT IS FREE AND INSTANT. Every advert page carries a
+"Register free" link. Given the old credentials are unrecoverable I would not spend any
+more time on them - just register.
+
+BUT PLEASE NOT A PERSONAL ADDRESS, INCLUDING YOURS. Registering to adam@ recreates exactly
+the failure we are fixing: the account belongs to a person, and when the person goes, so
+does the account. That is twice now - Harry, then Jayk. Register to commercial@, which you,
+Paul and Gintare all reach and which has already survived two people leaving, and put your
+name in as the contact. One caveat: on some portals a supplier account is keyed to the
+company rather than the person, so a second registration can be rejected as a duplicate.
+If that happens the route is their support desk changing the registered email on the
+existing account - not a new account, and not another dead end.
+
+PERRY - understood, and it lands on something real. Two of the tenders that reached us
+this month only did so because Perry forwarded them out of info@ by hand. I have been
+treating that as the fix for the info@ gap; I will stop, and I will not put anything
+through the Residential team. I have written your Commercial line-up into my standing
+knowledge so I do not have to ask again: you commercial director, Gintare estimating,
+Paul Taylor project manager, Steve Freezer technical, Zac marketing.
+
+WHAT I THINK THIS IS REALLY WORTH. The dead logins cost us the ability to BID. They never
+cost us the ability to LOOK, and for the four months since Jayk left nobody looked -
+including me, until today. ProContract is where a council or housing association puts work
+under the GBP 100,000 Find a Tender threshold, which is our size of work, and it is
+invisible to every free national feed we read. That source is now running.
+
+NEXT ACTIONS
+- Adam: BCP DN820023, in or out, by Friday 14:00. JAC-12.
+- Adam or Paul: open the Passwords file from Jayk's 23/02 email and tell me which portals
+  we actually hold accounts on. I will not open it.
+- Paul: register Fenster on ProContract against commercial@, Adam named as contact.
+- Me: this source runs daily from now on and anything on-package comes to the board.

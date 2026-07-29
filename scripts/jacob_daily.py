@@ -82,7 +82,13 @@ def main():
     if not args.skip_awards:
         run("contracts finder", ["scripts/jacob_contracts_finder.py"])
 
-    # 3. Rebuild the board from whatever succeeded.
+    # 3. ProContract adverts. This is where a council or housing association
+    #    puts work under the GBP 100k Find a Tender threshold - Fenster's size
+    #    of work, and invisible to steps 1 and 2. Public, no login. Like the
+    #    awards it must never be able to stop the board updating.
+    run("procontract", ["scripts/jacob_procontract.py"])
+
+    # 4. Rebuild the board from whatever succeeded.
     board = ["scripts/jacob_dashboard.py"] + (["--deploy"] if args.deploy else [])
     ok_board = run("rebuild board", board, required=True)
 

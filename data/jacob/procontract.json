@@ -1,0 +1,163 @@
+{
+ "updated": "2026-07-29T15:18:44",
+ "source": "ProContract (Due North) public opportunity adverts",
+ "loginUsed": false,
+ "note": "Public, no account. A login is needed to express interest and to download the pack, never to see the advert. JAC-11.",
+ "terms": [
+  "windows",
+  "doors",
+  "glazing",
+  "curtain walling",
+  "shopfront",
+  "fenestration",
+  "double glazing",
+  "sealed units",
+  "communal door",
+  "window replacement",
+  "louvre",
+  "curtain wall"
+ ],
+ "counts": {
+  "adverts": 4,
+  "glazing": 3,
+  "screened_out": 1
+ },
+ "notices": [
+  {
+   "advertId": "fcb17685-4775-f111-813c-005056b64545",
+   "ref": "DN820023",
+   "title": "Windows, Doors & Sealed Units",
+   "buyer": "Bournemouth Christchurch and Poole Council",
+   "region": "Bournemouth, Christchurch and Poole",
+   "opens": "01/07/2026 15:00",
+   "closes": "31/07/2026 14:00",
+   "startDate": "14/10/2026",
+   "endDate": "30/09/2029",
+   "estimatedValue": "N/A",
+   "keywords": "Fire Doors, Sealed Units, Windows, Doors, Installation",
+   "cpv": [
+    "44221000-5",
+    "45421100-5",
+    "45421130-4",
+    "45421132-8",
+    "45421140-7"
+   ],
+   "contact": "Mr Strategic Procurement",
+   "email": "procurement.place@bcpcouncil.gov.uk",
+   "telephone": "01202128989",
+   "description": "Replacement of windows, doors and sealed units at Council owned social housing properties in the Bournemouth and Poole area that are failing or beyond economic repair. The anticipated start date of the contract is October 2026. The contract will be for three years with the option to extend annually for a further two years (3+1+1). Therefore, if all extensions were taken the full length of the contract would be for five years.",
+   "url": "https://procontract.due-north.com/Advert?advertId=fcb17685-4775-f111-813c-005056b64545",
+   "matchedTerms": [
+    "windows",
+    "doors",
+    "sealed units"
+   ],
+   "tier": "glazing",
+   "why": "windows/doors package",
+   "daysLeft": 2,
+   "budgetFromText": [],
+   "needsLoginToBid": true,
+   "packElsewhere": false,
+   "termYears": 3.0,
+   "boardWarning": "Expressing interest needs a ProContract login and Fenster has no working account - JAC-11. This is a 3.0-year term contract, not a single job - judge it on the stream of small works it becomes, not on a headline value. Region of supply is Bournemouth, Christchurch and Poole - check that against where Fenster will actually travel before anyone spends a day on it."
+  },
+  {
+   "advertId": "996d6646-a07b-f111-813c-005056b64545",
+   "ref": "DN817372",
+   "title": "Windows Supply & Fit",
+   "buyer": "Be One Homes",
+   "region": "North West (England)",
+   "opens": "10/07/2026 12:00",
+   "closes": "05/08/2026 12:00",
+   "startDate": "14/09/2026",
+   "endDate": "13/09/2032",
+   "estimatedValue": "N/A",
+   "keywords": "UPVC, Windows",
+   "cpv": [],
+   "contact": "Mr Procurement Hub",
+   "email": "procurementhub@beonehomes.com",
+   "telephone": null,
+   "description": "Be One Homes would like to invite tenders for the provision of Supply and Fit Windows. Be One Homes is seeking to award a contract to two contractors to share the workload over the term of the contract. Tender documents can be found on the chest portal (www.the-chest.org.uk) reference DN817372  unrestricted, full direct access free of charge. The contract will be awarded based on the most economically advantageous tender (MAT) and the evaluation criteria is as follows:- Procurement Specific Questionnaire - Pass/Fail Quality including Social Value – 40% Pricing – 60% It is anticipated the start date will commence on 14th September 2026.",
+   "url": "https://procontract.due-north.com/Advert?advertId=996d6646-a07b-f111-813c-005056b64545",
+   "matchedTerms": [
+    "windows"
+   ],
+   "tier": "glazing",
+   "why": "windows/doors package",
+   "daysLeft": 7,
+   "budgetFromText": [],
+   "needsLoginToBid": true,
+   "packElsewhere": true,
+   "termYears": 6.0,
+   "boardWarning": "Expressing interest needs a ProContract login and Fenster has no working account - JAC-11. The documents themselves are free and unrestricted elsewhere (the advert says so), so the pack can be read without one. This is a 6.0-year term contract, not a single job - judge it on the stream of small works it becomes, not on a headline value. Region of supply is North West (England) - check that against where Fenster will actually travel before anyone spends a day on it."
+  },
+  {
+   "advertId": "2d7bfdfe-ea81-f111-813c-005056b64545",
+   "ref": "DN822782",
+   "title": "Powered Doors, Gates and Automatic Barriers",
+   "buyer": "Herefordshire Council",
+   "region": "Herefordshire, County of",
+   "opens": "21/07/2026 12:00",
+   "closes": "10/08/2026 12:00",
+   "startDate": "01/09/2026",
+   "endDate": "31/08/2029",
+   "estimatedValue": "N/A",
+   "keywords": "Doors",
+   "cpv": [
+    "50700000-2",
+    "50800000-3"
+   ],
+   "contact": "Marc Holmes",
+   "email": "marc.holmes@hoopleltd.co.uk",
+   "telephone": "01432 383151",
+   "description": "Herefordshire Council are looking to appoint a single provider for the the inspection, testing, planned preventative maintenance and other associated services for powered pedestrian doors, powered gates, automatic barriers, roller shutters and associated safety systems across their property portfolio. For full details of the requirements, including specifications, please register an interest in the opportunity to access the full tender pack. Please note only submissions made via the portal will be accepted.",
+   "url": "https://procontract.due-north.com/Advert?advertId=2d7bfdfe-ea81-f111-813c-005056b64545",
+   "matchedTerms": [
+    "doors"
+   ],
+   "tier": "wrong-door",
+   "why": "powered/automatic door - automation specialist, not glazing",
+   "daysLeft": 12,
+   "budgetFromText": [],
+   "needsLoginToBid": true,
+   "packElsewhere": false,
+   "termYears": 3.0,
+   "boardWarning": "Expressing interest needs a ProContract login and Fenster has no working account - JAC-11. This is a 3.0-year term contract, not a single job - judge it on the stream of small works it becomes, not on a headline value. Region of supply is Herefordshire, County of - check that against where Fenster will actually travel before anyone spends a day on it."
+  },
+  {
+   "advertId": "df2c5692-868a-f111-813c-005056b64545",
+   "ref": "DN822404",
+   "title": "Replacement Windows at 10-11 Cross Street,  Ryde, Isle of Wight PO33 2AD",
+   "buyer": "Isle of Wight Council",
+   "region": "Isle of Wight",
+   "opens": "28/07/2026 16:00",
+   "closes": "28/08/2026 14:00",
+   "startDate": "02/11/2026",
+   "endDate": "01/02/2027",
+   "estimatedValue": "N/A",
+   "keywords": "replacement, scaffolding, windows, works, window frames",
+   "cpv": [
+    "45000000-7"
+   ],
+   "contact": "James Burnett",
+   "email": "james.burnett@iow.gov.uk",
+   "telephone": "01983821000",
+   "description": "The Authority invites response to this Invitation to Tender (ITT) from suitably qualified suppliers (“Suppliers”) for the provision of Replacement Windows at 10-11 Cross Street Ryde, Isle of Wight PO33 2AD Strip out existing window frames and disposal, replacement of windows as scheduled. All opening windows to be fitted with window restrictors, allow for the erecting of scaffolding, temporary weather proofing as necessary while replacement takes place. For full details of the specification requirements can be found in the Design Scope of Works 10-11 Cross Street. The contract period is expected to be for three months  from 2nd November 2026 to 1st February 2027 The estimated overall budget for this Tender is £75,000 to £125,000 (exc. VAT ).",
+   "url": "https://procontract.due-north.com/Advert?advertId=df2c5692-868a-f111-813c-005056b64545",
+   "matchedTerms": [
+    "windows"
+   ],
+   "tier": "glazing",
+   "why": "windows/doors package",
+   "daysLeft": 30,
+   "budgetFromText": [
+    75000.0,
+    125000.0
+   ],
+   "needsLoginToBid": true,
+   "packElsewhere": false,
+   "termYears": 0.2,
+   "boardWarning": "Expressing interest needs a ProContract login and Fenster has no working account - JAC-11. Region of supply is Isle of Wight - check that against where Fenster will actually travel before anyone spends a day on it."
+  }
+ ]
+}

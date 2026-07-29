@@ -35,6 +35,11 @@ TENDERS = os.path.join(REPO, "data", "jacob", "tender-notices.json")
 # Finder at all, so a board built only on feeds is missing the half that
 # matters. Hand-entered, provenance on every row.
 MANUAL_LEADS = os.path.join(REPO, "data", "jacob", "leads-manual.json")
+# ProContract (Due North) public adverts. Under the GBP 100k Find a Tender
+# threshold a buyer advertises on its own portal and nowhere else, and that is
+# Fenster's size of work. The adverts are public; only bidding needs the login
+# Fenster has not had since Jayk left. JAC-11, 29/07/2026.
+PROCONTRACT = os.path.join(REPO, "data", "jacob", "procontract.json")
 # Adam's rule, 28/07/2026: a job is Mary's while it is priced and Jacob's the
 # moment the quote goes out. This file is that boundary, one row per job, with
 # every issue date checked against the message that actually left estimating@.
@@ -920,9 +925,76 @@ def merge_manual(tenders, manual):
     so it is computed here from the closing date."""
     out = list((tenders or {}).get("notices", []))
     for n in (manual or {}).get("notices", []):
+        # A superseded row stays in the file and comes off the board. The Ryde
+        # lead reached us as a Supply2Gov alert with the buying organisation
+        # stripped out and no value; the same job on ProContract carries the
+        # buyer, a named officer, a phone number and the budget. One job, one
+        # row - but the file keeps how it first arrived, because that is the
+        # thing leads-manual.json exists to record.
+        if n.get("supersededBy"):
+            continue
         row = dict(n)
         row["manual"] = True
         row["daysLeft"] = (-days_since(n["closes"]) if n.get("closes") else None)
+        out.append(row)
+    return out
+
+
+def merge_procontract(tenders, pc):
+    """ProContract (Due North) adverts, onto the same list and the same clock.
+
+    These are neither feed rows nor hand-entered ones. They come from a public
+    source Fenster could have read since Jayk left and did not, because "the
+    portal logins are dead" was allowed to mean "the source is dark". It never
+    did: the adverts are public and only BIDDING needs an account. JAC-11.
+
+    Everything here is `direct` and `confident` on purpose - a ProContract
+    advert states its own scope in prose, so there is no CPV guessing and no
+    keyword-metaphor problem. What it does NOT state is a value: `Estimated
+    value` reads N/A on almost every row and the real budget, when there is
+    one, is a sentence in the description. `budgetFromText` carries the top of
+    the stated range so the fit warning has something honest to work on, and
+    `valueNote` says it was a range so nobody quotes the number as the number.
+    """
+    out = list(tenders or [])
+    for n in (pc or {}).get("notices", []):
+        if n.get("tier") != "glazing":
+            continue
+        closes = None
+        m = re.match(r"(\d{2})/(\d{2})/(\d{4})", n.get("closes") or "")
+        if m:
+            closes = "%s-%s-%s" % (m.group(3), m.group(2), m.group(1))
+        budget = n.get("budgetFromText") or []
+        row = {
+            "ocid": "procontract-" + (n.get("ref") or n.get("advertId", ""))[:24],
+            "title": n.get("title"),
+            "buyer": n.get("buyer"),
+            "where": n.get("region"),
+            "closes": closes,
+            "daysLeft": (-days_since(closes) if closes else None),
+            "value": (max(budget) if budget else None),
+            "valueNote": ("Stated in the description as a range, GBP %s. The board "
+                          "carries the top of it." % " to ".join(gbp(b) for b in budget)
+                          if len(budget) > 1 else None),
+            "tier": "direct",
+            "confident": True,
+            "cpv": (n.get("cpv") or ["-"])[0],
+            "cpvCount": len(n.get("cpv") or []),
+            "coverage": None,
+            "procontract": True,
+            "manual": False,
+            "ref": n.get("ref"),
+            "url": n.get("url"),
+            "contact": n.get("contact"),
+            "email": n.get("email"),
+            "telephone": n.get("telephone"),
+            "source": "procontract",
+            "sourceNote": ("ProContract (Due North) public advert, read by Jacob on "
+                           "%s with no login. Fenster has no ProContract account - "
+                           "JAC-11 - so seeing it is free and bidding it is not."
+                           % (pc.get("updated") or "")[:10]),
+            "warning": n.get("boardWarning"),
+        }
         out.append(row)
     return out
 
@@ -1326,8 +1398,10 @@ def build():
     buyers = [t for t in threads if t["kind"] == "buyer"]
     liveBuyers = [t for t in buyers if t["state"] in ("live", "waiting")]
     quiet = [t for t in buyers if t["state"] in ("gone quiet", "stale")]
-    tenders = build_tenders(merge_manual(tenderfeed, load_json(MANUAL_LEADS)),
-                            outcomes, rel)
+    tenders = build_tenders(
+        merge_procontract(merge_manual(tenderfeed, load_json(MANUAL_LEADS)),
+                          load_json(PROCONTRACT)),
+        outcomes, rel)
     actions = build_actions(threads, warm, known, rel, tenders, handover,
                             adminbase, drafts)
 
@@ -1445,7 +1519,8 @@ def build():
             "cpvListFrom": (tenderfeed or {}).get("cpvListFrom"),
             "counts": (tenderfeed or {}).get("counts", {}),
         } if tenderfeed else None,
-        "sources": SOURCES(len(awards), len(by_supplier), intake, tenderfeed),
+        "sources": SOURCES(len(awards), len(by_supplier), intake, tenderfeed,
+                           load_json(PROCONTRACT)),
         "intake": {
             "updated": (intake or {}).get("updated"),
             "windowDays": (intake or {}).get("window_days"),
@@ -1489,10 +1564,11 @@ BOOK_ORDER = {"dormant - has bought": 0, "gone quiet": 1, "stale": 2,
               "no contact on record": 6, "supplier": 7, "do not quote": 8}
 
 
-def SOURCES(rows, winners, intake=None, tenderfeed=None):
+def SOURCES(rows, winners, intake=None, tenderfeed=None, procontract=None):
     tf = tenderfeed or {}
     tcounts = tf.get("counts") or {}
     per = tf.get("sources") or {}
+    pcounts = (procontract or {}).get("counts")
     return [
         {"name": "The Opportunity Log", "status": "live",
          "kind": "What Fenster actually wins",
@@ -1524,6 +1600,21 @@ def SOURCES(rows, winners, intake=None, tenderfeed=None):
                    "The weakest signal of the three - by the time it publishes, "
                    "the enquiry list was drawn up months ago." % (rows, winners),
          "cost": "Free, no key"},
+        {"name": "ProContract (Due North) adverts", "status": "live",
+         "kind": "Sub-GBP 100k public work - Fenster's size",
+         "detail": "%s. Under the GBP 100k Find a Tender threshold a council or "
+                   "housing association advertises on its OWN portal and nowhere "
+                   "else, which is why none of these show on the feeds above. "
+                   "The adverts are PUBLIC - no account. Only expressing interest "
+                   "and downloading the pack need the login Fenster has not had "
+                   "since Jayk left, which is JAC-11. Nobody read this source for "
+                   "four months because the dead login was taken to mean the "
+                   "source was dark. It never did."
+                   % (("%d advert(s) read on the last run, %d on-package"
+                       % ((pcounts or {}).get("adverts", 0),
+                          (pcounts or {}).get("glazing", 0)))
+                      if pcounts else "Not reached on the last run"),
+         "cost": "Free to READ, no key. An account is needed to bid - JAC-11"},
         {"name": "PlanIt planning applications", "status": "planned",
          "kind": "Schemes 6-18 months out",
          "detail": "Gets Fenster onto the enquiry list before the list exists.",
@@ -1535,8 +1626,13 @@ def SOURCES(rows, winners, intake=None, tenderfeed=None):
                    "Adam's instruction. All 79 were Hightown, who are do-not-"
                    "quote, so nothing is being lost today - but the portal "
                    "registrations point at info@, so the next non-Hightown "
-                   "notice will land somewhere Jacob cannot see. JAC-7.",
-         "cost": "Free - needs the registrations re-pointed at commercial@"},
+                   "notice will land somewhere Jacob cannot see. JAC-7. And the "
+                   "credentials themselves are gone: jayk@fensterglazing.com "
+                   "returns a hard 404, so any account registered to him can "
+                   "never be password-reset by anybody. Proactis is the "
+                   "exception - its username is adam@, so that one is already "
+                   "Adam's. JAC-11.",
+         "cost": "Free - needs re-registering against commercial@, not a person"},
         {"name": "Companies House", "status": "planned",
          "kind": "Enrichment",
          "detail": "Company type decides whether cold contact is lawful at all "

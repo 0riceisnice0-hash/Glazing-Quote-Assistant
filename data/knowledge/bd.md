@@ -39,19 +39,19 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
 
 - **Fenster is a subcontractor.** Almost nothing it wins is publicly advertised, so
   the mailbox intake (`commercial@`) is worth more than every scraper combined. But
-  **the SCHEME our client is bidding often is advertised, even when our client is
-  not** - corrected 29/07: this file used to say Stepnell, Borras, Chigwell and
-  Guildmore "appear in no public feed", and then Chigwell's Leys Park job turned up
-  on Contracts Finder with a closing date we did not have. Search the site, not the
-  subcontractor.
+  **the SCHEME our client is bidding often IS advertised even when our client is
+  not** - Chigwell's Leys Park turned up on Contracts Finder with a closing date we
+  did not have (29/07). Search the site, not the subcontractor.
 - Portal invitations arrive as EMAIL. 79 of 88 portal notices went to info@ (all
   Hightown, do-not-quote) - see JAC-7 before assuming that is safe forever.
 - An award notice is the WEAKEST signal: by publication the subcontractors are chosen.
   Median publication lag 25 days; 10% exceed 180; worst seen 1,364. `is_fresh()` guards.
-- **The tender-portal logins have not worked since Jayk left** (Paul, 27/07) - only
-  Constructionline opens. **A dead login is a switched-off source**, because under the
-  GBP 100k Find a Tender threshold a buyer publishes on its OWN portal and nowhere
-  else - which is exactly Fenster's size of work. JAC-11; `bd-lessons.md`.
+- **The tender-portal logins died with Jayk** (Paul, 27/07) and `jayk@` is now a hard
+  404, so an account registered to him can never be reset by anyone. **But a dead
+  login only stops us BIDDING, never LOOKING** - corrected 29/07, and this file used
+  to say the opposite. ProContract's advert search and every advert page are PUBLIC
+  (`jacob_procontract.py`), and that is where a buyer puts work under the GBP 100k
+  Find a Tender threshold - Fenster's size. Nobody looked for four months. JAC-11/12.
 - A warm name beats a perfect-fit stranger. In this trade a relationship buys one
   thing: being asked to price.
 
@@ -77,18 +77,14 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
 - AdminBase values are **inc VAT**; everything Fenster issues is ex VAT. De-VAT first.
 - **Once For All is Conquest renamed** - `tenders@onceforallmarketplace.com`, added to
   `jacob_intake.PORTALS` 29/07. Without it a portal CHASE reads as a fresh enquiry.
-- **A job can be live and chased with no Mary chat at all** - Trafalgar House was
-  enquired, priced, issued and chased without one, so it was on no list of mine.
-  The chasing register is a floor, never a complete set: 9 managed rows against
-  ~25 AdminBase quotes raised since 15/06 alone.
+- **A job can be live and chased with no Mary chat at all** - Trafalgar House was, so
+  it was on no list of mine. The chasing register is a floor, never a complete set:
+  9 managed rows against ~25 AdminBase quotes raised since 15/06 alone.
 - **"Not in the sends I have dated" means "not in the list that script searches"** -
-  Leys, 29/07: absent only because "Leys" was not one of nine hard-coded jobs, when it
-  had gone out 20/07 15:50 and been chased twice. Absence from a tool reads exactly
-  like never sent. **Count the chases before writing "call them"**: the third touch is
-  a different call from the first - ask what nobody has (the client's own decision
-  date), not what two emails already failed to get. And **a contact's direct numbers
-  are usually in their own signature** - "no phone on file" meant nobody had opened
-  one. `bd-lessons.md`.
+  Leys, 29/07: absent only because it was not one of nine hard-coded jobs. Absence
+  from a tool reads exactly like never sent. **Count the chases before writing "call
+  them"** - the third touch asks what nobody has (their decision date), not what two
+  emails already failed to get. **Direct numbers are in the signature.** `bd-lessons`.
 - **Join AdminBase to your own TENDER BOARD, not just to the mailbox** - on postcode
   SECTOR plus title. **A client's public deadline sets the chase date; a fortnight
   rule invents one.** Leys Park, 29/07: `bd-lessons.md`.
@@ -106,6 +102,10 @@ of WHY it died goes to bd-lessons. Data story per file: `data/jacob/README.md`.
 
 ## Standing decisions (Adam/Zac - do not re-open; full list `mary_recall --settled`)
 
+- **The Commercial team is Adam (director), Gintare (estimating), Paul Taylor (PM),
+  Steve Freezer (technical), Zac (marketing)** - Adam, 29/07. **Perry Giffin is
+  Residential: do not route commercial work through him**, which kills "Perry
+  forwards it out of info@ by hand" as a fix for the info@ gap. JAC-7 still open.
 - info@ is off the intake list (Adam, 28/07) - commercial mail gets forwarded.
 - The handover rule (Adam, 28/07): Mary's while priced; Jacob's once the quote goes out.
 - Drafts only, no sending (JAC-1, Zac, 28/07): every draft is written for a named

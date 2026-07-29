@@ -4,16 +4,17 @@
   "Every row says where it came from and who read it. A hand-entered row with no provenance is a rumour.",
   "checkedAgainstFeeds records whether the notice could be found in the public feeds. Both rows below could not be, and that is a fact about the feeds rather than a doubt about the lead.",
   "Values are only carried if the notice states one. Nothing here is priced, ever - that is Mary's.",
-  "A reference is worth more than a summary. Both rows now carry the Supply2Gov opportunity id, which is what somebody quotes on the phone - the link itself lands on an upgrade prompt, because these are the rows above Fenster's subscription level."
+  "A reference is worth more than a summary. Both rows now carry the Supply2Gov opportunity id, which is what somebody quotes on the phone - the link itself lands on an upgrade prompt, because these are the rows above Fenster's subscription level.",
+  "A row can be SUPERSEDED. When the same job turns up on a source that carries more of it, the better row goes on the board and this one keeps the history - `supersededBy` plus why. Deleting it would lose how the lead first reached Fenster, which is the thing this file exists to record."
  ],
  "notices": [
   {
    "ocid": "manual-s2g-ryde-cross-street",
    "title": "Replacement windows, 10-11 Cross Street, Ryde, Isle of Wight PO33 2AD",
-   "buyer": null,
+   "buyer": "Isle of Wight Council",
    "where": "PO33",
    "closes": "2026-08-28",
-   "value": null,
+   "value": 125000.0,
    "tier": "direct",
    "confident": true,
    "cpv": "-",
@@ -23,14 +24,22 @@
    "sourceNote": "Supply2Gov alert to estimating@, parsed by Mary 29/07/2026 (bot message 12). Status on the alert is ContractNotice - live, not an award. Jacob cannot read estimating@, so the alert itself has not been seen by him.",
    "checkedAgainstFeeds": "Not found. Swept 21 days of Contracts Finder and Find a Tender tender-stage releases on 29/07 for ryde / cross street / isle of wight - 353 releases, no match. The sweep is known good: it found the Renfrewshire windows notice that is already on this board. So this lead exists outside the two feeds Fenster reads for free, which is the argument for the alert service, not against the lead.",
    "unknowns": [
-    "Who the Authority is - inferred as Isle of Wight Council from the address, never stated",
-    "No value stated",
-    "The full record sits behind the subscription level Fenster does not have"
+    "Nothing outstanding. All three unknowns on this row were answered on 29/07/2026 from a free public source - see resolved."
    ],
    "warning": "The scope names DISPOSAL expressly. Adam's house position is that strip-out is allowed for and disposal and skips are not - the same collision as the Waste Carrier Licence on John North Hall. It is a qualification to raise when the ITT is answered, not a discovery to make at the end.",
    "buyerNote": "The alert row carries NO buying-organisation field at all - Mary checked the whole item block, not just the text. The description opens 'The Authority invites response to this Invitation to Tender (ITT) from suitably qualified suppliers' and the feed truncates it before any name. Isle of Wight Council is the obvious first call because the property is in Ryde, but that is an inference from the address and nobody should put it in front of a client or Adam as fact. The link resolves the buyer and will land on a subscription upgrade prompt - the opportunity id is the hard reference to quote if anyone rings.",
    "ref": "Supply2Gov opportunity 116642060",
-   "link": "https://www.supply2govtenders.co.uk/business/viewOpportunityDetailsSupplier.html?id=116642060&origin=alert"
+   "link": "https://www.supply2govtenders.co.uk/business/viewOpportunityDetailsSupplier.html?id=116642060&origin=alert",
+   "resolved": {
+    "when": "2026-07-29",
+    "how": "Found on ProContract (Due North) as advert DN822404 and read with no login at all - scripts/jacob_procontract.py.",
+    "buyer": "Isle of Wight Council, stated on the advert as the buyer. It had been an INFERENCE from the Ryde address and this row was right to refuse to state it as fact; it is now fact. Named contact James Burnett, james.burnett@iow.gov.uk, 01983 821000, County Hall, Newport PO30 1UD.",
+    "value": "GBP 75,000 to 125,000 ex VAT, stated in the advert prose. ProContract's own `Estimated value` field reads N/A - the number is in the description, which is where it usually is.",
+    "closes": "28/08/2026 14:00, an expression-of-interest window, not a return date.",
+    "lesson": "The paid Supply2Gov alert arrived with the buying organisation STRIPPED OUT and no value. The free portal the buyer actually publishes on carried both, plus a named officer and a phone number. That is an argument about which source to read first, not only about the subscription."
+   },
+   "supersededBy": "procontract-DN822404",
+   "supersededWhy": "Same job, and the ProContract row is the better one - it names the buyer, the officer, the phone number and the budget. Kept here as the record of how it first reached us and of the disposal qualification, but off the board so one job is not two rows."
   },
   {
    "ocid": "manual-s2g-corby-communal-doors",
@@ -46,7 +55,7 @@
    "coverage": null,
    "source": "supply2gov",
    "sourceNote": "Supply2Gov alert of 28/07/2026 to estimating@, parsed by Mary 29/07 (bot message 12). ContractNotice - live. It had been sitting four days when she read it.",
-   "checkedAgainstFeeds": "Not found in 21 days of Contracts Finder or Find a Tender tender-stage releases, swept 29/07 for corby / rockingham / greenhill.",
+   "checkedAgainstFeeds": "Not found in 21 days of Contracts Finder or Find a Tender tender-stage releases, swept 29/07 for corby / rockingham / greenhill. ALSO SWEPT PROCONTRACT 29/07/2026 (public advert search, no login) for corby / rockingham / greenhill / communal / door entry / north northamptonshire - NOT FOUND. North Northamptonshire Council IS a ProContract buyer, so the portal is the right one; the advert is either already closed, worded differently, or the job is being called off a framework (EEM0063 Communal Entrance Doors 2025-2029) rather than advertised. That narrows it to a phone call, which is the next action.",
    "unknowns": [
     "The closing date field reads 'Not available' - that is the feed's own value, not a gap in the reading. It cannot be answered from the alert",
     "Who the buyer is",
