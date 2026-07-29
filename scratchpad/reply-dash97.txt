@@ -1,0 +1,64 @@
+Done - the lab is off the 1am-3am leash and starts at 00:05 tonight. Baseline below, and one
+defect in how we measure that needs fixing before any "1 to 1" number means anything.
+
+THE 1AM-3AM WINDOW WAS TWO GATES, NOT ONE
+
+scripts/mary_night_pricing.py had WINDOW = (1, 3), and the MaryGracePricingLab scheduled task
+carried a SINGLE 01:00 trigger with no repetition. Changing only the code would have left you with
+exactly the same behaviour - the same shape as Jacob two hours ago. Both moved:
+
+ - Window is now 22:00-07:00, spanning midnight.
+ - Two daily triggers, 22:00 and 00:05, each repeating every 30 minutes. The 00:05 one fires in a
+   few minutes, so tonight is covered rather than starting tomorrow.
+
+WHAT REPLACES THE TWO-HOUR STOP, BECAUSE SOMETHING HAD TO
+
+The narrow window WAS the safety - it is what 27/07 (95 sessions, 12.7 hours, most of a ~GBP 2,400
+bill) bought. So the lab now carries its own governor instead:
+
+ - 6.0 lab-hours per night, counted off its own log lines (MARY_LAB_NIGHT_HOURS to change).
+ - It still yields to real work - a mail session always outranks it.
+ - NEW: it will not start a session it cannot FINISH before 07:00. A 115-minute session kicked off
+   at 06:50 would have held the session lock until 08:45 and blocked the 07:45 morning update. The
+   last session of the night is cut to fit, or skipped under 20 minutes.
+ - python scripts\mary_night_pricing.py --status shows all of it.
+
+The lab's brief now carries BOTH of your instructions, and it is told to keep them apart: an error
+in OUR quote and an error in the ENGINE are opposite findings, and tuning the engine to reproduce a
+defect in a document would be the worst possible outcome. Quotes found wrong get excluded from the
+calibration set and reported as catches; anything already with a client goes to Adam.
+
+WHERE THE ENGINE ACTUALLY IS TONIGHT (mary_backtest.py --scan, just run)
+
+  31 documents  mean signed -5.9%   mean absolute 12.3%   median absolute 7.2%
+                within 10%: 17/31   within 25%: 25/31
+
+So slightly LOW on average, not high, and the median job is 7.2% out. Last night's lab run had
+already taken the mean absolute from 14.0% to 12.7%, so this is real movement rather than a
+starting point. Worst: Target Maintenance Tenbury Close -47.3%, Stewarts CC -38.0%, CB
+Refrigeration -37.0%, Georgie's -32.6%, ASHE CDC +31.7%, Fortis Vision +26.4%.
+
+One number to treat carefully: data/calibration.json says +10.4% HIGH off five entries. That is not
+a contradiction, it is a different exercise - calibration is me estimating a job from scratch
+against what we issued, the backtest is the engine re-pricing the lines of a document we already
+wrote. Do not quote one as the other.
+
+AND THE DEFECT, WHICH IS THE FIRST THING THE LAB WILL FIX
+
+THE CORPUS COUNTS THE SAME JOB MORE THAN ONCE. Zelltec Crownhill appears four times in that scan,
+three of them identical (8 lines, GBP 36,051, -0.9%). collect() walks the tender archive and every
+copy of a pricing file - including "- Copy.xlsx" - becomes another "job". So 31 is not 31 distinct
+jobs, the mean is weighted by how many copies of a file happen to sit in a folder, and worse, the
+learned rates are trained on those duplicated lines too. That biases the engine itself, not just
+the scoreboard. You cannot measure 1-to-1 against a corpus that counts some jobs three times, so
+that is item one tonight.
+
+What the lab already has queued from its own 29/07 report: the ASHE-CDC section-header problem
+(secondary glazing being priced as medium aluminium windows), the <2m2 band still running -11.1%
+low, three starved learned-rate cells just under the n=6 threshold, and the two single-line jobs
+that are probably scope priced elsewhere rather than rate error. Plus your audit pass now.
+
+You will have its report in last-session-pricing-lab.txt by morning, and anything it finds wrong in
+a quote we sent goes into the catches with the document, the line and the money.
+
+Mary Grace

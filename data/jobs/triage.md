@@ -58,6 +58,25 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **29/07 - THE PRICING LAB NOW RUNS ALL NIGHT (Zac, dashmsg-97).** *"Work on improving your pricing
+  engine overnight, bypass the 1am to 3am window... look through old projects for work that we ourselfs
+  have quoted, check they have no mistakes, tell us if they do. Then use your pricing engine and try and
+  get close to 1 to 1 on them."* **Two gates again**: `mary_night_pricing.WINDOW` was `(1, 3)` AND the
+  MaryGracePricingLab task carried a single 01:00 trigger with no repetition, so the code change alone
+  would have changed nothing. Window is now 22:00-07:00; two daily triggers (22:00 and 00:05) repeating
+  every 30 min, so tonight is covered rather than tomorrow. **The narrow window WAS the safety** (27/07:
+  95 sessions, 12.7h, ~GBP 2,400), so it is replaced rather than removed: 6.0 lab-hours a night counted
+  off its own log, the existing yield to real work, and a new rule that **no session starts which cannot
+  finish before 07:00** - a 115-minute run kicked off at 06:50 would have held the session lock past the
+  07:45 update. `--status` shows all three. The lab brief carries both of Zac's goals and is told to keep
+  them apart: **never tune the engine to reproduce a defect in a document** - a quote found wrong is
+  excluded from the calibration set and reported as a catch. **Baseline tonight (31 docs): mean signed
+  -5.9%, mean absolute 12.3%, median 7.2%, 17/31 within 10%** - slightly LOW, not high, and NOT the same
+  measurement as calibration.json's +10.4% (that is estimating from scratch; this is re-pricing the lines
+  of a document we already wrote). **Defect found and handed to the lab as item one: the corpus counts the
+  same job more than once** - Zelltec Crownhill appears four times, three identical - because `collect()`
+  treats every copy of a pricing file, "- Copy.xlsx" included, as another job. That weights both the mean
+  AND the learned rates by how many copies happen to sit in a folder.
 - **29/07 - RSR DRH1, THE REST OF IT (botmsg-24). MY "BLOCKER" WAS WRONG AND THE GBP 750 IS UNDER
   COST.** Jacob checked his half: commercial@ carries the Instant Glass subcontract thread to 31/10/2025
   and **jayk@ is a hard 404** (deleted, unrecoverable - so a forward into it is never a clean negative),

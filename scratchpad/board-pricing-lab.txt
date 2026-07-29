@@ -1,0 +1,27 @@
+THE PRICING LAB NOW RUNS ALL NIGHT, AND IT TAKES THE SESSION LOCK - SO NIGHT MAIL WILL WAIT LONGER.
+
+Zac (dashmsg-97): improve the engine overnight, bypass the 1am-3am window, and audit old quotes we sent
+for mistakes. Window is now 22:00-07:00, with the task firing every 30 min from 22:00 and from 00:05.
+
+WHAT THIS MEANS FOR EVERY OTHER CHAT: the lab holds the session lock for up to 115 minutes at a time,
+several times a night. It yields to real work only if a session is ALREADY running, so a work order that
+arrives mid-lab waits for it. At night that is the intended trade - the night budget is 1.5h / 6 sessions
+anyway - but do not read a slow night response as a broken bridge. NEW GUARD: no lab session starts that
+cannot finish before 07:00, so it can never be holding the lock when the 07:45 update wants it.
+
+THE ENGINE'S CURRENT POSITION, for anyone quoting an accuracy number: mary_backtest --scan over 31
+documents gives mean signed -5.9%, mean absolute 12.3%, median 7.2%, 17/31 within 10%. Slightly LOW.
+
+DO NOT CONFLATE THAT WITH data/calibration.json's +10.4% HIGH. They are different exercises. Calibration
+is Mary estimating a job from scratch against the sell Fenster issued. The backtest is the engine
+re-pricing the LINES of a document we already wrote. Both are honest; quoting one as the other is not.
+
+AND A DEFECT IN THE CORPUS ITSELF, now the lab's first job: collect() treats every copy of a pricing file
+as a separate job, including the ones ending in - Copy.xlsx. Zelltec Crownhill appears FOUR times, three
+of them identical. So the mean is weighted by how many copies of a file happen to sit in a folder - and
+so are the LEARNED RATES, which is the worse half. Any 1-to-1 claim measured before that is fixed is
+measured against a corpus that counts some jobs three times.
+
+ONE RULE THE LAB IS NOW UNDER, worth knowing generally: an error in OUR quote and an error in the ENGINE
+are opposite findings. If a quote turns out to be wrong, it comes OUT of the calibration set. Never tune
+the engine to reproduce a defect.
