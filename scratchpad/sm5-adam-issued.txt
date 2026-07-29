@@ -1,0 +1,61 @@
+Adam,
+
+It went to Ryan Steadman at 12:22. Understood on submitting as it stands - you have the findings and it is your call, and fifteen days over the return date is a good reason.
+
+Two things are still fixable today. The rest is for the record.
+
+
+1. THE COVERING EMAIL SAYS "xxx"
+
+  "Please find attached our quotation for xxx"
+
+The placeholder was never filled in. That is the first line of the first thing this client reads from us, on a package we are already two weeks late on.
+
+It is worth a short note from Gintare in the next few minutes - "apologies, the reference should read Wexham Primary SEND Facility" - rather than leaving it. It costs nothing now and it is awkward to raise in a fortnight.
+
+
+2. WE HAVE SOLD THE WINDOWS AT THIS MORNING'S OLD PRICE
+
+BSW revised QT253300 at 11:41 to add the restrictors: GBP 7,683.49 to GBP 7,826.50. The quote went at 12:22, 41 minutes later, still built on GBP 7,683.49.
+
+So GBP 143.01 of supply is now unfunded. It comes straight off margin, because the house template passes supply through pound for pound.
+
+Two honest ways out and both are cheap right now: absorb it, or add the restrictors as a variation while the thread is warm. What you cannot do is leave it and discover it at order.
+
+
+WHAT ACTUALLY WENT, VERIFIED
+
+I diffed both documents against the 24/07 versions I hold. Exactly one cell changed in each - the date, 24/07 to 29/07. Nothing else moved.
+
+  Value              GBP 20,563.57 ex VAT
+  Attachments        pricing xlsx, proposal pdf, window and door drawings pdf
+  Drawings pack      checked for leaked supplier prices - clean
+
+So the quotation now with the client carries, knowingly:
+
+  - No panic bar on ED.02. The door supply figures are still Bellview's originals to the penny.
+  - W.01, W.04 and W.05 in Sheerline, coupled to Smart Wall doors. BSW ruled at 11:51 - 31
+    minutes before we sent - that there is no Smart Wall window to move them into. That is no
+    longer an uncorrected item; it is a priced arrangement the supplier has said in writing
+    cannot be built.
+  - 1.4 W/m2K promised on page 3, against SMA's published 1.8 for Smart Wall doors.
+  - White handles against a schedule asking SAA, on all seven windows and both doors.
+  - No trickle vents, where the uPVC quote carried one on every frame.
+  - The restrictor supplied as a stay where the drawing asks for an on-site hinge screw to
+    250mm, and the dimension still unconfirmed.
+
+
+ONE THING THAT HAS CHANGED CATEGORY
+
+The pricing workbook carries the REQ-27 defect - author "Dan Parker;dan.parker@agsurveying.co.uk" and two external links to other firms' Outlook caches. I wrote yesterday that SM5 Wexham was the only one of the six that had not reached a client and so could be cleaned in place. That is no longer true as of 12:22.
+
+It is now the seventh issued document carrying it, and the remedy changes: a cleaned copy issued to the client, not an edit to the file. I have updated REQ-27 to say so. Nothing else about that request has moved - it is still waiting on a decision that is not mine.
+
+
+AND AN ANSWER I OWE GRANGE HILL
+
+They suggested checking the structural drawings before spending a supplier question, because on their job the architect may have decoupled the elements with a steel beam. Good method. It does not run here: there is no structural pack in the Wexham tender at all - nine documents, all Kendall Kingscott architectural, plus the spec, the product literature and the register. The only structural reference in the whole tender is a builders-works line, "Temporary propping to structural openings, 1 item", which is not ours and says nothing about where the glazing head sits. And 5201 states the sizes were taken by measuring the existing openings, so the coupled runs are simply how the building is.
+
+The Alitherm 600 question to Bellview therefore still stands for Wexham - but for a variation now, not for this tender.
+
+Mary

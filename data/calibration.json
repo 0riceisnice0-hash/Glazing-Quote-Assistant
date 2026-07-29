@@ -17,9 +17,9 @@
    "date": "2026-07-24",
    "mary_estimate": 18611.95,
    "actual": 20563.57,
-   "basis": "Mary's benchmark aluminium estimate (BSW register medians) vs Gintare's pricing document of 24/07, built off BSW Sheerline requote QT253300 with Bellview 0000000475 doors at 15%. CORRECTED 28/07: that document was never issued. Adam approved it at 13:37 then pulled it at 14:19 for the restrictor / panic bar / handle queries, and it has not gone to the client. So the 20,563.57 is a Fenster-priced sell for the same scope but NOT a tendered figure, and it will move up when W.01/W.04/W.05 are repriced as Smart Wall under Adam's coupling ruling. Treat this point as provisional and re-measure it when the corrected quote issues.",
-   "lesson": "Live Sheerline Prestige runs ~10% above register alu medians. Mary's number also predated the system-depth coupling correction, which pushes the actual further up - so the true gap is wider than -9.5%. SEPARATE LESSON, on the log itself: an 'actual' must be sourced to a send, not to a finished-looking document in the client-quote folder. This entry was logged as issued on the strength of a file, and the file had never left.",
-   "basis_type": "benchmark SELL vs Fenster SELL (priced, NOT issued)"
+   "basis": "Mary's benchmark aluminium estimate (BSW register medians) against the pricing document Fenster ISSUED to SM5 Developments on 29/07/2026 12:22, FAO Ryan Steadman - GBP 20,563.57 ex VAT, built off BSW Sheerline QT253300 with Bellview 0000000475 doors at 15%. History of this entry: logged 24/07 as issued, corrected 28/07 to 'priced but never sent' when Adam said so, and now genuinely issued - verified against the sent attachment, which differs from the 24/07 version by exactly one cell, the date. So this is at last a clean benchmark-vs-issued point.",
+   "lesson": "Live Sheerline Prestige runs ~10% above register alu medians, and this benchmark predated the system-depth coupling correction, so the gap on a correctly-built job would be wider than -9.5%. NOTE THE ISSUED FIGURE IS ITSELF SHORT: BSW added GBP 143.01 of restrictors 41 minutes before the send and it never reached the document, so the sell rests on a supply cost we no longer have. When you compare against an issued number, check the supplier quote behind it is still the current one.",
+   "basis_type": "benchmark SELL vs Fenster SELL (ISSUED)"
   },
   {
    "job": "Filwood Broadway",

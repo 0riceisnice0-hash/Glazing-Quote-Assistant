@@ -8,7 +8,61 @@
 
 ---
 
-## Where this stands (28/07/2026)
+## ISSUED 29/07/2026 12:22 - GBP 20,563.57 ex VAT
+
+**Sent to `ryan.Steadman@sm5developments.co.uk`** with the pricing xlsx, the proposal PDF and the window
+and door drawings PDF. **Fifteen days after the 14 July return date.**
+
+Adam's instruction, 12:19, to Gintare: *"We'll submit it as it is, especially as it's so over due.
+Please can you send this one out."* His call, made with every finding in front of him. The three days
+of "not submitted" are over.
+
+**VERIFIED WHAT ACTUALLY WENT** - diffed both documents against the immutable 24/07 copies in
+`test-results\sm5-challenge\` (the OneDrive copies were overwritten again at 10:xxZ, second time on this
+job, so they cannot answer this): **exactly one cell changed in each document - the date, 24/07 ->
+29/07.** Nothing else moved. Drawings pack swept for leaked supplier prices - clean.
+
+**TWO THINGS RECOVERABLE, both emailed to Adam at once:**
+
+1. **The covering email reads *"Please find attached our quotation for xxx"*.** The placeholder was
+   never filled. First line of the first thing this client reads from us. Worth a one-line correction
+   from Gintare immediately, not in a fortnight.
+2. **GBP 143.01 of supply is unfunded.** BSW reissued QT253300 at 11:41 adding the restrictors
+   (7,683.49 -> 7,826.50); we sent at 12:22 still built on the old figure. It comes straight off margin
+   because the template passes supply through pound for pound. Absorb, or raise as a variation while
+   the thread is warm.
+
+**WHAT THE ISSUED QUOTE CARRIES, KNOWINGLY** (all previously reported, none corrected):
+
+- No panic bar on ED.02 - the door supply figures are still Bellview's originals to the penny.
+- W.01 / W.04 / W.05 in Sheerline coupled to Smart Wall doors - **BSW ruled at 11:51, thirty-one
+  minutes before we sent, that there is no Smart Wall window to move them into.** This is no longer an
+  uncorrected item; it is a priced arrangement the supplier has said in writing cannot be built.
+- 1.4 W/m2K promised on proposal p3, against SMA's published 1.8 for Smart Wall doors.
+- White handles against a schedule asking SAA, on all seven windows and both doors.
+- No trickle vents, where the uPVC quote carried one on every frame.
+- A restrictor stay where the drawing asks for an on-site hinge screw to 250mm, dimension unconfirmed.
+- **The REQ-27 defect** - `dc:creator` "Dan Parker;dan.parker@agsurveying.co.uk" and two external links
+  - **verified present in the file the client now holds.** Yesterday this was the only one of the six
+  that could be cleaned in place for nothing. Its remedy is now a cleaned reissue. Appended to REQ-27
+  as the measurable cost of that decision waiting; nothing else on that request has moved.
+
+**GRANGE HILL'S STRUCTURAL ROUTE DOES NOT RUN HERE** (their 12:15 handoff - check whether the architect
+already decoupled the elements with steel before spending a supplier question). Checked: **there is no
+structural pack in the Wexham tender at all** - nine documents excluding site photos, every drawing
+Kendall Kingscott architectural (1600, 2000, 2400, 5200, 5201), plus the spec, product literature and
+register. The only structural reference anywhere is one builders-works line, *"Temporary propping to
+structural openings, 1 item"*, which is not our scope. And 5201 states *"the structural openings have
+been measured to give an indication of the required window / door sizes"* - the runs are coupled because
+that is how the building is. Answered back to them, with the caveat that their method has a
+precondition: the engineer's drawings must have been issued with the tender, and on a refurbishment let
+off architectural drawings they often are not.
+
+**The Alitherm 600 question to Bellview still stands - but as a variation question now, not a tender
+one.** Calibration entry updated: this is at last a clean benchmark-vs-issued point (18,611.95 vs
+20,563.57), with the caveat that the issued figure is itself GBP 143.01 short of its own supply.
+
+## Where this stood before issue (28/07/2026)
 
 **NOT SUBMITTED.** Adam confirmed it on the dashboard on 28/07: *"this has not been submitted... I did
 approve it, but later noticed some changes before it went out, so it's not gone to client."*

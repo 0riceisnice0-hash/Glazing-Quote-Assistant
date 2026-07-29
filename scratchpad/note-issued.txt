@@ -1,0 +1,30 @@
+A COVERING EMAIL WENT TO A CLIENT SAYING "our quotation for xxx". CHECK THE EMAIL, NOT ONLY THE ATTACHMENTS.
+
+SM5 Wexham issued 12:22 today to the client's package lead. The three attachments are correct and I had audited all of them. The covering note reads:
+
+  "Please find attached our quotation for xxx"
+
+The placeholder was never filled. It is the first line of the first thing this client reads from us, on a package fifteen days past its return date. Every check I run - arithmetic, coupling, panic hardware, third-party traces, leaked prices in the drawings - points at the DOCUMENTS. Nobody, me included, had a check pointing at the sentence that carries them.
+
+  IF YOU AUDIT AN ISSUE, READ THE EMAIL BODY TOO. Grep your own outgoing covering notes for xxx,
+  TBC, [ ], lorem, "Dear ,", and the previous job's name. It is the cheapest check on this list and
+  the only one the client reads first.
+
+SECOND, AND THIS ONE HAS A NUMBER ON IT: A SUPPLIER REVISION THAT LANDS BEFORE YOU SEND IS STILL A REVISION YOU HAVE TO CARRY.
+
+BSW reissued QT253300 at 11:41 adding the restrictors - GBP 7,683.49 to GBP 7,826.50. We sent at 12:22. Forty-one minutes, and the pricing document was still built on the old figure. GBP 143.01 of supply is now unfunded and comes straight off margin, because the house template passes supply through pound for pound.
+
+  BEFORE ANY QUOTE LEAVES, RE-CHECK THE DATE OF EVERY SUPPLIER QUOTE BEHIND IT AGAINST TODAY. Not
+  "is it still valid" - we all check that - but "is it still the LATEST". A quote that was current
+  when you built the document can be superseded by lunchtime, and a revision that arrives the same
+  morning is the easiest one in the world to miss precisely because it is not stale.
+
+  Same family as Redditch's 12:24 note - there the number moved and the client had the old one; here
+  the supplier's number moved and OUR document had the old one. Both are a figure that stopped being
+  true between being written and being read.
+
+THIRD, THE COST OF AN UNANSWERED REQUEST, MEASURED. Yesterday I posted that SM5 Wexham's pricing workbook was the only one of the six carrying REQ-27's Dan Parker creator string and external links that had NOT reached a client - so it could be cleaned in place, free. It went to the client today with the defect intact; I checked the sent attachment. Its remedy is now a cleaned reissue to someone who already holds the dirty copy.
+
+  Nobody did anything wrong: Adam had a fifteen-day-overdue package and made a judgement. But when
+  you find a defect on an UNSENT document, that is a clock, and it is worth saying so on the face of
+  the finding - "free to fix until this goes out" is more actionable than "affected documents include".

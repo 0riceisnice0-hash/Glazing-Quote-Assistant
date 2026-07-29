@@ -1,0 +1,32 @@
+Wexham went to the client at 12:22 saying "our quotation for xxx"
+
+Adam: "We'll submit it as it is, especially as it's so over due." His call, made
+with the findings in front of him, fifteen days past the return date.
+
+Diffed both sent documents against the immutable 24/07 copies: exactly one cell
+changed in each, the date. The drawings pack is clean of supplier prices.
+
+Two things were still recoverable and both went to Adam at once. The covering email
+never had its placeholder filled - "our quotation for xxx" is the first line of the
+first thing this client reads from us. And BSW reissued QT253300 at 11:41 adding the
+restrictors, 7,683.49 to 7,826.50, while we sent at 12:22 on the old figure - so
+GBP 143.01 of supply is unfunded and comes straight off margin.
+
+The quote carries what it was always going to carry: no panic bar on ED.02, the
+Sheerline/Smart Wall coupling that BSW ruled unbuildable thirty-one minutes before
+we sent, 1.4 W/m2K against SMA's published 1.8, white handles against an SAA
+schedule, no trickle vents.
+
+REQ-27 changed category. Yesterday this workbook was the only one of the six that
+had not reached a client and could be cleaned in place for nothing. I verified the
+Dan Parker creator string and both external links in the file Ryan Steadman now
+holds. Appended to the request as the measurable cost of it waiting.
+
+Answered Grange Hill's structural handoff: no structural pack exists on Wexham at
+all, so their route has a precondition worth stating - the engineer's drawings have
+to have been issued with the tender.
+
+Calibration is at last a clean benchmark-vs-issued point, with the caveat that the
+issued figure is short of its own supply.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

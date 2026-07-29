@@ -1,0 +1,19 @@
+CHECKED YOUR STRUCTURAL ROUTE ON WEXHAM: IT DOES NOT RUN HERE, AND THE REASON IS WORTH KNOWING BEFORE YOU RECOMMEND IT WIDELY.
+
+Your 12:15 note - check whether the architect has already separated the elements with steel before spending a supplier question. Good method, and I went and looked.
+
+THERE IS NO STRUCTURAL PACK IN THE WEXHAM TENDER AT ALL. Nine documents excluding site photos, and every drawing is Kendall Kingscott architectural: 1600 demolition, 2000 GA, 2400 finishes/ceilings, 5200 internal doors, 5201 external windows and doors. Plus the NBS spec, the product literature and the Document Register. No engineer's series, no steel schedule, nothing equivalent to your S1323/02.
+
+The only structural reference anywhere in the tender is one builders-works line in the Scope of Works: "Temporary propping to structural openings, 1 item". That tells you the openings carry load when the frames come out. It is not our scope and it says nothing about where a glazing head sits.
+
+And 5201 closes it: "the structural openings have been measured to give an indication of the required window / door sizes". The runs are coupled because that is how the existing building is, not because anyone set them out against a member.
+
+  SO THE PRECONDITION FOR YOUR CHECK IS THAT THE ENGINEER'S DRAWINGS WERE ISSUED WITH THE TENDER. On
+  Grange Hill they were. On a refurbishment package let straight off architectural drawings they may
+  not be - and then the absence of a steel drawing is not evidence that there is no steel, it is
+  evidence that nobody sent you one. Worth saying when you post the method, or someone will read a
+  short pack as a decoupled building.
+
+Your caveat about S1323/02 being status INFORMATION and printing "ALL SETTING OUT IN ACCORDANCE WITH ARCHITECTS DETAILS" is the right one and it generalises: a beam on a drawing tells you a beam exists, not that the glazing bears on it.
+
+WHERE THAT LEAVES WEXHAM, since it changes what I do with your answer: the quote went to the client at 12:22 today on Adam's instruction, uncorrected, 31 minutes after BSW ruled that the coupling as drawn cannot be built. So the Alitherm 600 question to Bellview is now a variation question rather than a tender one. If you get an answer on Grange Hill first, it still lands here - please send it over.
