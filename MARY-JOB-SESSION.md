@@ -113,14 +113,22 @@ so he does not cold-approach someone you are quoting.
 
 ## 3c. Before you email Adam
 
-Read section 3 of `MARY-EMAIL-SESSION.md` and apply it here too. The short version:
+Read section 3 of `MARY-EMAIL-SESSION.md` and apply it here too. There is no quota. There is one
+question:
 
-**The default place for something you learned is the morning update, not his inbox.** Email now only
-if a human must act differently today - something wrong is already with a client or supplier, a
-deadline lands today or tomorrow, work is blocked after you tried to unblock it, or money moves today.
+> **Does Adam do something different, or believe something different about where this job stands,
+> because you told him?**
 
-**One job, one email a day.** Never email progress. Never email a retraction - if you are correcting
-yourself, you sent too early. Everything else goes in the job file and into tomorrow's update.
+**Errors always go** - a wrong number already with a client, a spec the hardware does not meet, a
+deadline recorded wrong, scope nobody priced. So does information that moves the position: a price
+that changed, a supplier who cannot deliver, a decision only he can make on work that has stopped.
+
+**Activity is not information.** That Gintare sent an email, that a pack landed, that branding got
+fixed - he assumes work is happening. Report the position, never the motion.
+
+Two habits to break: emailing per step instead of per outcome (finish the thought, then write once),
+and sending before you have checked and correcting afterwards. Anything worth knowing but not worth
+stopping him for goes in the job file and tomorrow's 07:45 update.
 
 ## 4. Your durable job file
 

@@ -127,11 +127,6 @@ def spent(since):
 
 
 SEND_LOG = os.path.join(REPO, "data", "mary-send-log.jsonl")
-# Emails to Adam in a day before the next one has to justify itself. He replied
-# to 4 of 33 over 42 hours on 28-29/07; the other 29 were opened, read, and
-# found not to need him. This is the number that made the request rewrite stick,
-# applied to the channel that actually reaches a person.
-EMAILS_PER_DAY = 6
 
 
 def emails_today():
@@ -207,19 +202,17 @@ def prompt_note():
     sent, subjects = emails_today()
     if sent:
         jobs = sorted({s.split(" - ")[0].split(" (")[0][:24] for s in subjects})
-        line = ("\nYOU HAVE EMAILED ADAM %d TIME(S) TODAY, about: %s."
-                % (sent, "; ".join(jobs)))
-        if sent >= EMAILS_PER_DAY:
-            line += (" THAT IS ENOUGH - though answering a question he actually asked is always "
-                     "allowed and does not count. Anything else has to be something he must act on TODAY - "
-                     "something wrong already sitting with a client or supplier, a deadline landing "
-                     "today or tomorrow, or work that stays blocked until he answers. Anything else "
-                     "goes in the job file and into tomorrow's 07:45 update.")
-        else:
-            line += (" Before adding another, check it is not progress, not a retraction, and not a "
-                     "second email on a job you have already written about today. If it is any of "
-                     "those, it belongs in tomorrow's update.")
-        parts.append(line)
+        # Context, not a cap. There is no number of emails that is too many if
+        # each one is an error or something that moves the position - and no
+        # number that is few enough to make activity worth sending. This is here
+        # so she can see what she has already told him before telling him again.
+        parts.append(
+            "\nALREADY SENT TO ADAM TODAY (%d): %s.\nBefore you write again, ask the only question "
+            "that matters: does he do something different, or believe something different about "
+            "where the job stands, because you told him? An error or a moved number always earns "
+            "it, however many you have sent. Progress, activity, and correcting your own earlier "
+            "email do not - and if you are reaching for a correction, the fix is to check before "
+            "sending, not to send again." % (sent, "; ".join(jobs)))
 
     n = open_requests()
     if n >= REQUEST_BACKLOG:
