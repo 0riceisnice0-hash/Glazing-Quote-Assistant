@@ -203,6 +203,9 @@ const ukTime = (iso) => iso ? new Date(iso).toLocaleTimeString("en-GB", { timeZo
 const ukDay = (iso) => iso ? new Date(iso).toLocaleDateString("en-GB", { timeZone: UK, weekday: "long", day: "numeric", month: "long" }) : "";
 const ukShortDay = (iso) => iso ? new Date(iso).toLocaleDateString("en-GB", { timeZone: UK, day: "2-digit", month: "short" }) : "";
 const ukStamp = (iso) => iso ? `${ukShortDay(iso)} ${ukTime(iso)}` : "";
+/* Generator data carries dates as raw ISO strings ("2026-07-14"). Show them
+   like every other date on the board; pass anything else through untouched. */
+const fdate = (v) => /^\d{4}-\d{2}-\d{2}/.test(String(v || "")) ? ukShortDay(String(v).slice(0, 10)) : String(v || "");
 const openReqs = () => (DATA.requests || []).filter((r) => r.status === "open");
 /* Still needing a human - one you have already answered is with Mary, not you. */
 const awaitingReqs = () => openReqs().filter((r) => !SENT_ANSWERS[r.id]);
@@ -384,7 +387,7 @@ function findJacobRow(key) {
   if (!JACOB) return null;
   const pools = [
     [JACOB.threads, (t) => ({ title: t.person || t.contact, sub: `${t.company} - ${t.mailbox}@`,
-      evidence: `<p><strong>${esc(t.subject)}</strong></p><p>${t.messages} message${t.messages === 1 ? "" : "s"} between ${esc(t.first)} and ${esc(t.last)}, from ${esc(t.contact)}. Fenster history: ${esc(t.relationship)}.</p>`,
+      evidence: `<p><strong>${esc(t.subject)}</strong></p><p>${t.messages} message${t.messages === 1 ? "" : "s"} between ${esc(fdate(t.first))} and ${esc(fdate(t.last))}, from ${esc(t.contact)}. Fenster history: ${esc(t.relationship)}.</p>`,
       unknowns: t.unknowns })],
     [JACOB.warm.concat(JACOB.known, JACOB.cold), (r) => ({ title: r.supplier,
       sub: `${r.client ? r.client + " - " : ""}${gbp(r.total || r.value)}`,
@@ -806,13 +809,13 @@ const JACOB_RENDER = {
         const job = maryHas(t.subject);
         return `<tr data-jkey="${esc(t.key)}">
         <td class="job-cell"><strong>${esc(t.person || t.company)}</strong>
-          <small>${esc(t.person ? t.company : t.contact)} &middot; ${t.messages} msg${t.messages === 1 ? "" : "s"} &middot; last ${esc(t.last)}</small></td>
+          <small>${esc(t.person ? t.company : t.contact)} &middot; ${t.messages} msg${t.messages === 1 ? "" : "s"} &middot; last ${esc(fdate(t.last))}</small></td>
         <td>${esc(t.subject)}
           ${t.stage === "decided" ? ` <span class="pill exact">they have answered</span>` : ""}
           ${t.relationship !== "unknown" ? ` <span class="pill ${t.relationship === "won" ? "exact" : "strong"}">${esc(t.relationship)}</span>` : ""}
           ${job ? ` <span class="pill live">Mary has this</span>` : ""}</td>
         <td>${stateChip(t)}<small class="dim">${t.days}d</small></td>
-        <td style="max-width:340px">${inline(jNext(t))}</td>
+        <td style="max-width:340px"><div class="clamp4">${inline(jNext(t))}</div></td>
         <td>${ownerTag(t)}</td></tr>`;
       }).join("")}
     </tbody></table>`;
@@ -899,7 +902,7 @@ const JACOB_RENDER = {
         ? `${esc(niceDate(r.lastClientContact))}<small class="dim">${r.daysSinceClient}d</small>`
         : `<small class="dim">nothing back</small>`}</td>
       <td>${stateChip(r)}${r.blocked ? ` <span class="chip">cannot answer yet</span>` : ""}</td>
-      <td style="max-width:340px">${inline(jNext(r))}
+      <td style="max-width:340px"><div class="clamp4">${inline(jNext(r))}</div>
         ${r.blockedReason ? `<small class="dim">${esc(r.blockedReason)}</small>` : ""}
         ${r.retender ? `<small class="dim">Re-tender: ${esc(r.retender.note)}</small>` : ""}</td>
       <td>${ownerTag(r)}</td></tr>`;
@@ -941,7 +944,7 @@ const JACOB_RENDER = {
           <td class="job-cell"><strong>${esc(r.job)}</strong><small>${esc(r.client)}</small></td>
           <td class="money">${r.value ? gbp(r.value) : "not published"}</td>
           <td>${ownerTag(r)}</td>
-          <td style="max-width:420px">${inline(jNext(r))}
+          <td style="max-width:420px"><div class="clamp4">${inline(jNext(r))}</div>
             ${r.caveat ? `<small class="dim">${esc(r.caveat)}</small>` : ""}</td></tr>`).join("")}
         </tbody></table></div>
 
@@ -959,9 +962,9 @@ const JACOB_RENDER = {
         ${out.map((q) => `<tr data-jkey="${esc(q.key)}">
           <td class="job-cell"><strong>${esc(q.job)}</strong><small>${esc(q.client)}</small></td>
           <td class="money">${esc(q.value)}</td>
-          <td class="num">${esc(q.due)}${q.days > 0 && !q.unsent ? ` <small class="dim">${q.days}d ago</small>` : ""}</td>
+          <td class="num">${esc(fdate(q.due))}${q.days > 0 && !q.unsent ? ` <small class="dim">${q.days}d ago</small>` : ""}</td>
           <td>${stateChip(q)}</td>
-          <td style="max-width:320px">${inline(jNext(q))}</td>
+          <td style="max-width:320px"><div class="clamp4">${inline(jNext(q))}</div></td>
           <td>${ownerTag(q)}</td></tr>`).join("")}
         </tbody></table></div>` : ""}
 
@@ -989,7 +992,7 @@ const JACOB_RENDER = {
         <th>Closes</th><th>What it is</th><th>Buyer</th><th>Value</th>
         <th>Next action</th><th>Owner</th></tr></thead><tbody>
       ${list.map((t) => `<tr data-jkey="${esc(t.key)}">
-        <td class="num"><strong>${esc(t.closes) || "no date"}</strong>
+        <td class="num"><strong>${esc(fdate(t.closes)) || "no date"}</strong>
           ${t.daysLeft !== null && t.daysLeft !== undefined
             ? `<small class="dim">${t.daysLeft}d left</small>` : ""}</td>
         <td class="job-cell"><strong>${t.url ? `<a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.title)}</a>` : esc(t.title)}</strong>
@@ -997,7 +1000,7 @@ const JACOB_RENDER = {
         <td>${esc(t.buyer)}${t.record ? ` <span class="pill ${t.record.won ? "exact" : "strong"}">${t.record.won}W ${t.record.lost}L with us</span>` : ""}</td>
         <td class="money">${gbp(t.value)}
           ${t.fit?.note ? `<small class="dim">${esc(t.fit.note)}</small>` : ""}</td>
-        <td style="max-width:320px">${inline(jNext(t))}</td>
+        <td style="max-width:320px"><div class="clamp4">${inline(jNext(t))}</div></td>
         <td>${ownerTag(t)}</td></tr>`).join("")}
       </tbody></table>` : `<div class="empty"><strong>${empty}</strong></div>`;
 
@@ -1133,14 +1136,14 @@ const JACOB_RENDER = {
         <th>Winner</th>${showClient ? "<th>Fenster history</th>" : ""}
         <th>What they won</th><th>Value</th><th>Where</th>${showClient ? "<th>Next action</th><th>Owner</th>" : "<th>Awarded</th>"}</tr></thead><tbody>
       ${rows.map((r) => `<tr data-jkey="${esc(r.key)}">
-        <td class="job-cell"><strong>${esc(r.supplier)}</strong><small>awarded ${esc(r.awarded) || "date not published"}</small></td>
+        <td class="job-cell"><strong>${esc(r.supplier)}</strong><small>awarded ${esc(fdate(r.awarded)) || "date not published"}</small></td>
         ${showClient ? `<td>${esc(r.client)} <span class="pill ${r.confidence}">${r.confidence}</span></td>` : ""}
         <td>${esc(r.title)}</td>
         <td class="money">${gbp(r.total || r.value)}
           ${r.fit?.note ? `<small class="dim">${esc(r.fit.note)}</small>` : ""}</td>
         <td>${esc(r.area) || "-"}</td>
-        ${showClient ? `<td style="max-width:300px">${inline(jNext(r))}</td><td>${ownerTag(r)}</td>`
-                     : `<td>${esc(r.awarded) || "-"}</td>`}</tr>`).join("")}
+        ${showClient ? `<td style="max-width:300px"><div class="clamp4">${inline(jNext(r))}</div></td><td>${ownerTag(r)}</td>`
+                     : `<td>${esc(fdate(r.awarded)) || "-"}</td>`}</tr>`).join("")}
     </tbody></table>`;
   },
 
@@ -1197,8 +1200,8 @@ const JACOB_RENDER = {
         <td>${x.relationship === "unknown" ? "-" :
              `<span class="pill ${x.relationship === "won" ? "exact"
                : x.relationship === "quoted" ? "strong" : "possible"}">${esc(x.relationship)}</span>`}</td>
-        <td>${stateChip(x)}<small class="dim">${esc(x.lastContact) || "no email"}</small></td>
-        <td style="max-width:300px">${inline(jNext(x))}</td>
+        <td>${stateChip(x)}<small class="dim">${esc(fdate(x.lastContact)) || "no email"}</small></td>
+        <td style="max-width:300px"><div class="clamp4">${inline(jNext(x))}</div></td>
         <td>${ownerTag(x)}</td>
         <td>${x.sources.map((s) => `<span class="pill possible">${esc(s)}</span>`).join(" ")}</td>
       </tr>`).join("")}
@@ -1503,23 +1506,37 @@ const JACOB_RENDER = {
 
   decisions() {
     const open = openJacobReqs();
+    const answered = JREQS.filter((r) => r.status === "answered");
+    /* The same card Mary's requests use, deliberately - a decision is a
+       decision whichever bot raised it, and two designs for one concept is
+       how the hub got chaotic in the first place. Buttons first and the
+       essay folded; an option SELECTS (Answer sends), because a button that
+       posts on first touch turns a mis-click into an instruction. */
+    const card = (r) => {
+      const opts = JSON.parse(r.options || "[]");
+      return `<article class="req" data-req="${esc(r.ref)}">
+        <div class="req-top"><div><h3>${esc(r.title)}</h3>
+          <div class="meta">${esc(r.ref)} &middot; raised ${esc(ukShortDay(r.created))} &middot; he carries on with everything this does not block</div></div>
+        <span class="chip warn">waiting</span></div>
+        <div class="req-answer">
+          ${opts.length ? `<div class="req-options">${opts.map((o) => `<button class="opt">${esc(o)}</button>`).join("")}</div>` : ""}
+          <div class="req-compose"><textarea data-draft="jreq-${esc(r.ref)}" placeholder="Your answer (or pick an option above and add the reason - he acts on the why)..."></textarea>
+          <button class="btn" data-jreqsend="${esc(r.ref)}">Answer</button></div>
+        </div>
+        ${reqDetail("What he needs from you", r.needs, 400)}
+        ${reqDetail("Why he is blocked", r.why, 0)}
+      </article>`;
+    };
     return `
-      ${open.length ? `<div class="section"><div class="section-head"><h3>He is blocked on these</h3></div>
-        <div class="cards">${open.map((r) => `<div class="card">
-          <div class="card-head"><strong>${esc(r.title)}</strong><span class="pill strong">${esc(r.ref)}</span></div>
-          ${r.why ? `<p>${esc(r.why)}</p>` : ""}
-          ${r.needs ? `<p><strong>Needs:</strong> ${esc(r.needs)}</p>` : ""}
-          <div class="req-options">${(JSON.parse(r.options || "[]")).map((o) =>
-            `<span class="opt" data-jreq="${esc(r.ref)}">${esc(o)}</span>`).join("")}</div>
-          <!-- Buttons only cover what he thought to ask. The interesting answer
-               is usually the one he did not anticipate, and the reason matters
-               more than the choice - he acts on the why. -->
-          <div class="req-reply">
-            <textarea data-draft="jreq-${esc(r.ref)}" rows="2"
-              placeholder="Or answer in your own words - the reason matters more than the choice"></textarea>
-            <button class="btn ghost" data-jreqsend="${esc(r.ref)}">Reply</button>
-          </div>
-        </div>`).join("")}</div></div>` : ""}
+      ${open.length ? `<div class="req-grid">${open.map(card).join("")}</div>` : ""}
+
+      ${answered.length ? `<div class="section" style="margin-top:26px"><div class="section-head"><h3>Resolved</h3></div>
+        <div class="req-grid">${answered.map((r) => `<article class="req resolved">
+          <div class="req-top"><div><h3>${esc(r.title)}</h3>
+            <div class="meta">${esc(r.ref)} &middot; answered ${esc(ukShortDay(r.answered_at))} by ${esc(r.answered_by || "team")}</div></div>
+          <span class="chip ok">resolved</span></div>
+          <div class="answered"><h5>The answer</h5>${fmt(r.answer || "")}</div>
+        </article>`).join("")}</div></div>` : ""}
 
       <div class="section"><div class="section-head"><h3>Standing decisions</h3></div>
         <div class="planned-note">These are not blocking him day to day, but they decide
@@ -2055,13 +2072,16 @@ document.addEventListener("click", async (e) => {
   // Any row on Jacob's board with a key: open it and correct it.
   const jrow = e.target.closest("[data-jkey]");
   if (jrow) { crmPanel(jrow.dataset.jkey); return; }
-  // Free-text answer to one of his questions.
+  // Answering one of Jacob's open questions: the chosen option (if any) plus
+  // whatever was typed - the same composition Mary's Answer button makes.
   const jrs = e.target.closest("[data-jreqsend]");
   if (jrs) {
     const ref = jrs.dataset.jreqsend;
     const ta = document.querySelector(`[data-draft="jreq-${ref}"]`);
-    const answer = (ta?.value || "").trim();
-    if (!answer) { toast("Nothing typed"); return; }
+    const chosen = jrs.closest(".req")?.querySelector(".opt.sel")?.textContent.trim() || "";
+    const extra = (ta?.value || "").trim();
+    const answer = [chosen && `Decision: ${chosen}`, extra].filter(Boolean).join("\n\n");
+    if (!answer) { toast("Pick an option or type an answer first"); return; }
     jrs.disabled = true;
     try {
       await api("jacob/requests", {
@@ -2070,9 +2090,10 @@ document.addEventListener("click", async (e) => {
         body: JSON.stringify({ ref, answer, author: who() }),
       });
       delete DRAFTS[`jreq-${ref}`];
+      delete DRAFTS[`opt:${ref}`];
       JREQS = await api("jacob/requests").catch(() => JREQS);
       JMSGS = await api("jacob/messages").catch(() => JMSGS);
-      toast(`Answered ${ref}`);
+      toast(`Answered ${ref} - Jacob picks it up on his next pass`);
       render();
     } catch { toast("Could not save that"); jrs.disabled = false; }
     return;
