@@ -163,8 +163,7 @@ Nothing else has moved, because nothing else has been decided.
    page 2: *"Client: RRR Group"*. Sent to Pearce Construction. And the **Pricing.xlsx carries
    `dan.parker@agsurveying.co.uk`** as `dc:creator` plus two external links to
    `C:\Users\LiamO'Donnell\...` and `C:\Users\Parke\...` - REQ-27, third job this week, visible in file
-   properties without opening it. The proposal went as PDF so its own trace (`Nicholas Baker`) did not
-   travel; the .xlsx did.
+   properties without opening it. **CORRECTED 29/07: converting to PDF does NOT strip the author.** I had recorded that the proposal went as a PDF so its own trace did not travel. Word carries `dc:creator` straight into the PDF's `/Author`, and the proposal Pearce hold reads **author `Nicholas Baker`**. So BOTH documents with the client name a third party, not just the workbook - and "send a PDF instead" is not a fix for the master-template author problem either. The amended pack is clean on both because docProps was rewritten before conversion.
    **AND THERE WAS A LOGO, NOT JUST A NAME.** Adam spotted it at 20:57 BST: *"This has RRR Group's logo
    and name on it. Can you please amend and send back to Neil ASAP!"* RRR GROUP LIMITED's black-and-gold
    roundel sat on the cover next to Fenster's own (`word/media/image4.png`, 255x221). **FIXED - see
@@ -343,6 +342,17 @@ Analysis shows GBP 5,000 defined + GBP 24,000 undefined provisional sums against
   to Gintare. Send me an email with the bullet points of the other errors. The costs changed because
   we sat down in person and worked it out, hence why I missed the final quote check and the RRR thing
   slipped through."* **RRR is closed and with Gintare.**
+- **29/07/2026 09:03 BST** - **Gintare re-sent to Neil with NO ATTACHMENTS and NO covering text.** The
+  work order records `attachments: []` and no `-att` folder, and the body opens at character 0 with the
+  quoted 28/07 email. Control: yesterday's 14:01 send to the same address captured 3 attachments, and
+  6 of the 12 Georgie's emails captured attachments, so the capture works. **On our record Pearce still
+  hold the RRR-branded pack.** Reported to Adam as an artefact with the cause left open - she may have
+  sent it separately. **A covering note for Neil is now written into `outputs\georgies-reissue\`**, since
+  a silent re-send would not tell him to discard the earlier set even with the right files attached.
+- **29/07/2026** - **CORRECTION: converting to PDF does not strip the author.** The proposal Pearce hold
+  reads `/Author = Nicholas Baker`; my amended one reads empty because docProps was rewritten before
+  conversion. `clean_issued_pack.py --audit` crashed on PDFs (zip-only) and now scans raw bytes, which
+  is how this was caught.
 - **29/07/2026** - the other 16 findings sent to Adam as bullets (2,683 characters, three groups,
   render-checked). **The GBP 6,125 inference retracted** across this file and both handovers. Strip-out
   priced at the new GBP 150/unit rate = GBP 4,650. **REQ-12 cut from 5,118 characters to 1,404** - it

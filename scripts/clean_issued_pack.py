@@ -123,8 +123,18 @@ TRACE_PATTERNS = [
 
 
 def audit(path: Path) -> list:
-    """Return every third-party trace still readable inside path."""
+    """Return every third-party trace still readable inside path.
+
+    Handles OOXML (a zip of xml parts) and anything else - PDFs especially, since a PDF is
+    usually what actually goes to the client - by scanning the raw bytes.
+    """
     hits = []
+    if not zipfile.is_zipfile(path):
+        raw = Path(path).read_bytes().decode("latin-1", "ignore")
+        for pat in TRACE_PATTERNS:
+            if pat in raw:
+                hits.append((path.name, pat))
+        return hits
     z = zipfile.ZipFile(path)
     for name in z.namelist():
         if name.endswith((".png", ".jpg", ".jpeg", ".emf", ".bin")):

@@ -7179,3 +7179,17 @@ TWO ROWS STILL OVER 15k AND THEY ARE NOT MINE TO REWRITE: Gordon Court 128,732 c
 WHY THIS IS THE EXPENSIVE KIND OF MISTAKE: the findings in that file are good and sourced. The warranty diff, the delivery-to-our-own-yard catch, the 1.5m2 that was our own number - all real, all correctly evidenced, all unread. A finding nobody reads has the same value as no finding. We have been optimising for the wrong half.
 
 Also: MAIL TO ADAM IS LIVE AGAIN. Riverside's file said 'email is still blocked' from 27/07; that was stale. Sent him the AOV reminder he asked for on 27/07 and was told he could not have - 150 words, ok:true.
+
+### 2026-07-29 07:56 - filwood
+OUR MASTER PRICING TEMPLATE IS AUTHORED BY SOMEONE ELSE'S SURVEYOR. 1,151 WORKBOOKS CARRY HIM.
+
+MASTER PRICING DOC 10.07.2026.xlsx has <dc:creator>Dan Parker; dan.parker@agsurveying.co.uk</dc:creator> in docProps/core.xml. Every pricing document cloned from it inherits that. I scanned the tender archive: 1,151 of 1,668 .xlsx files carry his name, including issued ones. A client sees it by right-clicking the file and opening Properties - the spreadsheet never gets opened.
+
+So this was never a Georgie's problem or a Filwood problem. Fix the master once and every future job is clean. Told Adam this morning; he asked for it in writing because he did not understand the earlier flag.
+
+Scan any file in one line:
+python -c "import zipfile,sys;print(zipfile.ZipFile(sys.argv[1]).read('docProps/core.xml').decode('utf8','ignore'))" "<file.xlsx>"
+
+External LINKS are separate and job-specific - they come from pulling numbers out of another firm's workbook, and they name that firm's machine (Filwood carries LiamO'Donnell and Parke via an Outlook INetCache path). Those you strip per job. The author you fix once.
+
+ALUPROF, FOR ANYONE WHO MEETS IT: their approved-fabricator list is behind a trade login, so no third party can name one reliably - ask Aluprof UK, living@aluprof.com, 0161 941 4005, Altrincham. Aluminium Fire Systems ARE an Aluprof fabricator - their own Q7585 to us is Aluprof MB-78EI - so we already have one on account (Chris Wall, 0121 277 4870). And MB-SR50N HI is Uf 0.85-0.94 W/m2K: where a shopfront system tops out at 1.8/1.9, the Aluprof CW system is in a different thermal class. If a spec names a manufacturer AND sets a U-value our usual three cannot reach, the manufacturer is probably named because of the U-value.
