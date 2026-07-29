@@ -1,7 +1,7 @@
 {
  "job": "Grange Hill Methodist Church (Chigwell (London) PLC) - package WD001 Windows and Doors",
  "created": "2026-07-28",
- "_state": "29/07 14:xx - tender return pack BUILT at the BSW-backed number. Bellview 0000000520 doors GBP 13,354.08 Grand Total Net (15% at the foot; LINE prices are pre-discount). BSW QT253562 windows GBP 9,477.01, line prices already net. Supplier buy GBP 22,831.09, engine sell GBP 37,278.59, plus GBP 3,250 of house allowances = GBP 40,528.59. Twelve qualifications now written on the face of the priced document. The residual FAILs below are DISCLOSED, not cleared - each one is covered by a numbered qualification the client reads.",
+ "_state": "ISSUED 29/07/2026 16:07 to Luke Baker, Chigwell (London) PLC, GBP 39,006.77 ex VAT, five attachments, cc Adam. Adam approved 16:02 with my corrections in front of him. This manifest now describes the ISSUED pack, not the return I built and withdrew. Buy behind it is still Bellview 0000000520 GBP 13,354.08 Grand Total Net and BSW QT253562 GBP 9,477.01 already net, GBP 22,831.09 - but the issued schedule prices twelve units against BSW's thirteen, so GBP 419.32 of that buy is unsold. A cleaned reissue pack is built and verified at outputs\\grange-hill-reissue\\.",
  "coupled_runs": [
   {
    "name": "West elevation - door element with glazing above to the pitched ceiling",
@@ -66,9 +66,9 @@
    "drawing_qty": 1
   },
   {
-   "ref": "3.11.1 plain rectangular windows priced by BSW (2No 1200x3000, 8No 1200x1183, 1No 2000x2100) - DISCLOSED as qualification 1: no window schedule exists, no setting-out drawing has been issued, and clauses 3.11-3.14 describe the two screens and their doors only",
-   "bill_qty": 11,
-   "drawing_qty": 0
+   "ref": "3.11.1 windows - the ISSUED schedule prices 12 units (seven 1200x1183) against BSW's 13 (eight 1200x1183), and the marked-up drawings issued with it show all 13. GBP 419.32 of supply unsold",
+   "bill_qty": 12,
+   "drawing_qty": 13
   }
  ],
  "spec_items": [
@@ -78,7 +78,7 @@
   },
   {
    "ref": "3.11.2 Fish symbol manifestations to all new south and west glazing (client supplies pdf artwork)",
-   "treatment": "priced"
+   "treatment": "unresolved"
   },
   {
    "ref": "3.12.1 West elevation full-storey screen + 1200mm door, level threshold, 3-point lock, Yale Platinum keyed alike",
@@ -86,7 +86,7 @@
   },
   {
    "ref": "3.13.1 Disabled access west door - operator, strengthening, mounting plates, electrical supplies, push pads both sides, emergency release, keyed isolating switch",
-   "treatment": "priced"
+   "treatment": "unresolved"
   },
   {
    "ref": "3.14.1 South elevation full-storey screen + 2No 1200mm doors to approx 2300mm",
@@ -98,15 +98,15 @@
   },
   {
    "ref": "3.15.2 Horizontal frosted strip patterned privacy film to folding door glass, full width x 1.2m high",
-   "treatment": "excluded"
+   "treatment": "unresolved"
   },
   {
    "ref": "3.16.1 Remove existing fire check door to corridor incl framing, clear from site, set aside timber",
-   "treatment": "excluded"
+   "treatment": "unresolved"
   },
   {
    "ref": "3.16.2 Supply 2No FD60 doorsets 1200mm wide - vision panes, closers, finger plates, D pulls, mortise lock with thumbturn, magnetic hold-opens wired to fire detection, timber infill framing, 2 layers 12mm plasterboard both sides taped and skimmed",
-   "treatment": "excluded"
+   "treatment": "unresolved"
   }
  ],
  "supplier_quotes": [
@@ -263,28 +263,18 @@
  },
  "priced_lines": [
   {
-   "ref": "South elevation - 3.14.1 (supplier backed)",
-   "amount": 14215.97,
+   "ref": "Sheerline aluminium windows W1-W12 as issued",
+   "amount": 17132.69,
    "covered_by_our_exclusions": false
   },
   {
-   "ref": "West elevation - 3.12.1 (supplier backed)",
-   "amount": 11569.26,
+   "ref": "SMA aluminium doors D1-D3 as issued",
+   "amount": 18254.08,
    "covered_by_our_exclusions": false
   },
   {
-   "ref": "Windows - 3.11.1, 11 units (supplier backed, quantities not agreed - qualification 1)",
-   "amount": 11493.36,
-   "covered_by_our_exclusions": false
-  },
-  {
-   "ref": "ALLOW - Automatic door operator package - 3.13.1",
-   "amount": 3000.0,
-   "covered_by_our_exclusions": false
-  },
-  {
-   "ref": "ALLOW - Fish symbol manifestations - 3.11.2",
-   "amount": 250.0,
+   "ref": "Installation as issued",
+   "amount": 3620.0,
    "covered_by_our_exclusions": false
   }
  ],
@@ -301,13 +291,25 @@
  ],
  "issued_documents": [
   {
-   "name": "Grange Hill Methodist Church - WD001 Pricing Document (29-07-2026).xlsx",
-   "path": "outputs\\Grange Hill Methodist Church - WD001 Pricing Document (29-07-2026).xlsx",
+   "name": "Chigwell - Grange Hill Methodist Church Ext Pricing.xlsx (AS ISSUED 16:07)",
+   "path": "scratchpad\\gh-issued-to-luke-att\\Chigwell - Grange Hill Methodist Church Ext Pricing.xlsx",
    "is_the_priced_document": true,
-   "exclusions_stated": 12
+   "exclusions_stated": 0
+  },
+  {
+   "name": "Chigwell - Grange Hill Methodist Church Ext Proposal.pdf (AS ISSUED 16:07)",
+   "path": "scratchpad\\gh-issued-to-luke-att\\Chigwell - Grange Hill Methodist Church Ext Proposal.pdf",
+   "is_the_priced_document": false,
+   "exclusions_stated": 20
+  },
+  {
+   "name": "Window and Door Drawings.pdf (AS ISSUED 16:07)",
+   "path": "scratchpad\\gh-issued-to-luke-att\\Window and Door Drawings.pdf",
+   "is_the_priced_document": false,
+   "exclusions_stated": 0
   }
  ],
- "_not_issued": "A proposal HTML was generated alongside the pricing document and is NOT in issued_documents: the placeholder scan caught three photo frames reading 'insert site/product photo' on its cover. No site photography exists for this job, so it cannot go to a client. Kept as a draft at outputs\\Grange Hill Methodist Church - WD001 Proposal (29-07-2026).html.",
+ "_not_issued": "outputs\\Grange Hill Methodist Church - WD001 Pricing Document (29-07-2026).xlsx and its proposal HTML were built by Mary and WITHDRAWN at 14:40 once Gintare's pack was found. Not issued, never to be quoted - the live number is GBP 39,006.77, not GBP 40,528.59. The HTML also failed the placeholder scan with three 'insert site/product photo' frames.",
  "exposures": [
   {
    "item": "Eleven plain rectangular windows (22.76 m2, GBP 6,020.86 buy, GBP 11,493.36 of our sell) that BSW scheduled from their own re-scale. The new entrance building's own glazing is the three door elements plus the two raking gable units; clauses 3.11-3.14 describe nothing else, and no window schedule or setting-out drawing exists",
@@ -347,5 +349,42 @@
  ],
  "own_domains": [
   "fensterglazing.com"
+ ],
+ "rfq_items": [
+  {
+   "item": "Chapel folding doors, spec 3.15.1 - 5.8m span, fold back to side walls, dark brown PPC, polyamide breaks, top rail below the trusses, bottom rail recessed into the floor",
+   "requested": "RFQ 24/07 15:29, heading 'Folding doors in Chapel', reproducing 3.15.1 almost verbatim",
+   "quoted_response": "REFUSED in writing 29/07: 'I have not included the internal bifold as there is no drawing of this. We do not supply this product with a level or recessed, and it cannot support toplights.' Reached the tender - excluded in the issued proposal as 'internal bifold doors have not been allowed'."
+  },
+  {
+   "item": "Upper glazed section over the folding doors, spec 3.15.1 - up to the underside of the pitched ceiling, frames to match the door fenestration",
+   "requested": "RFQ 24/07 15:29",
+   "quoted_response": null
+  },
+  {
+   "item": "Glazing, spec 3.11.1 - Pilkington Optitherm S1 with solar control, Arctic Blue outer / Optitherm S1 plus inner",
+   "requested": "RFQ 24/07 15:29",
+   "quoted_response": "Substituted without comment: '6 SKN 176 Tuff/16/6 HP Neutral' in the windows and '4mm Coolite SKN176II' plus '8.8 Lami / 6mm Tuff Anti Sun Grey' in the doors - two different tints in the same elevations. NOT flagged by BSW and NOT qualified in the issued proposal, which says only '6mm toughened / 6mm toughened Solar glazing'."
+  },
+  {
+   "item": "Ironmongery, spec 3.12.1 / 3.14.1 - Briton 1438 fire escape push pad with Briton 1413 access locking knob, Yale Platinum 3-star euro cylinders WITH THUMBTURN, all keyed alike",
+   "requested": "RFQ 24/07 15:29",
+   "quoted_response": "Partly refused: 'these would not include internal thumb turns as these are unnecessary'. Quoted ACIM071 lever + screw-in cylinder and ACIM453 concealed panic bar, not the Briton sets. The refusal did NOT reach the tender - the issued proposal says only 'panic hardware where quoted'."
+  },
+  {
+   "item": "Privacy film, spec 3.15.2 - horizontal frosted strip to the folding door glass, full width x 1.2m high",
+   "requested": null,
+   "quoted_response": null
+  },
+  {
+   "item": "Automatic door operator package, spec 3.13.1 - operator, safety sensor, strengthening, mounting plates, electrical supplies, push pads both sides, emergency release, keyed isolating switch",
+   "requested": null,
+   "quoted_response": null
+  },
+  {
+   "item": "Delivery to site - Peterborough to Chigwell",
+   "requested": null,
+   "quoted_response": "Not asked, and BSW stated their own terms unprompted: 'All estimates are ex works, additional delivery charges may apply' on QT253562, and no delivery terms at all on 0000000520. The issued proposal nonetheless says 'materials will be delivered to site'."
+  }
  ]
 }

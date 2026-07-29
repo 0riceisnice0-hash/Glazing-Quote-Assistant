@@ -5,37 +5,82 @@
 Once For All Marketplace -> Paul 24/07 08:08. **Est. whole-project value (client's own figure):**
 GBP 100k-250k. Works Nov 2026 - Jul 2027.
 
-## Position (29/07, end of turn)
+## Position - ISSUED 29/07/2026 16:07
 
-**GINTARE'S QUOTE IS THE ONE THAT GOES. GBP 39,006.77 ex VAT, with Adam for checking since 13:10.**
-Nothing has been issued to Chigwell.
+**GBP 39,006.77 ex VAT to Chigwell (London) PLC, FAO Luke Baker.** Sent by Gintare from
+estimating@, cc Adam, five attachments. Adam approved at 16:02 - *"Good to go, there are some
+queries but let's get this one sent out!"* - with my corrections in front of him. His call, made
+on a package two days past its return date. Ledger `issued:grange-hill:2026-07-29` recorded, which
+is the handover to Jacob. **The job is Jacob's now** (Adam's rule, 28/07).
 
-Her pack: `Chigwell - Grange Hill Methodist Church Ext Pricing.xlsx`, a proposal docx with a full
-exclusions schedule, and **BSW's own quotation sheets marked up as "Window and Door Drawings"** with
-prices and BSW's identity removed and Fenster's logo on - which is how it should be done, and is
-the opposite of Gordon Court. Copies in `scratchpad\gh-quote-to-check-att\`.
+Our quotation validity is 30 days and the BSW material costs behind it expire **28/08/2026**,
+against works programmed Nov 2026 - Jul 2027. Return date had been 27/07.
 
-**I built a rival return before I knew hers existed** and sent it to Adam at 14:32 (GBP 40,528.59,
-`outputs\...WD001 Pricing Document (29-07-2026).xlsx`). Withdrawn at 15:xx - two live numbers on one
-package is the Redditch failure. That document is now only a source of wording; its twelve
-qualifications are the ones her pack is missing. **Do not quote GBP 40,528.59 to anyone.**
+### ONE THING IS OUTSTANDING AND IT IS FIXABLE
 
-Corrections her pack needs before issue, sent to Adam 15:xx:
+**The pricing workbook Chigwell now holds names another firm as its author.** REQ-27 for the third
+time - Georgie's to Pearce 28/07, SM5 Wexham 12:22 today, now this.
 
-1. **One window priced short - GBP 419.32 of BSW bought and not sold.** She schedules seven
-   1200x1183 where BSW quote eight. Her Frames column totals 22,411.77 against BSW's 22,831.09;
-   the difference is exactly one unit at 419.32. **The marked-up drawings going to the client show
-   all thirteen window items.** Either the pack shows a window we have not sold, or BSW's quote has
-   a unit too many and must be corrected before order. ~GBP 830 of sell.
+- `dc:creator` = **Dan Parker;dan.parker@agsurveying.co.uk**
+- two live external links Excel offers to update on open: `agsurveying.sharepoint.com`,
+  `C:\Users\LiamO'Donnell\...Electrical Template - Draft - REV010.xlsx`, and
+  `C:\Users\Parke\...The Datum Group Electrical - TEMPLATE - Detailed breakdown Rev 5.xlsx`
+- the proposal PDF's `/Author` and XMP creator both read **Nicholas Baker**
+
+**A cleaned pack is already built and verified:** `outputs\grange-hill-reissue\` - all five files,
+zero traces, total asserted unchanged at GBP 39,006.77. Built by `scratchpad\gh_clean_reissue.py`
+from the issued copies, which are kept untouched in `scratchpad\gh-issued-to-luke-att\` because
+they are the record of what the client received. **Adam was told at 16:1x; the pack was finished
+after that email and was deliberately NOT sent as a second one (Zac's 14:57 rule - one email when
+it settles, never a chain). It goes in the 07:45 update with the files attached.**
+
+**WHY IT WILL KEEP HAPPENING, and this corrects my own noticeboard post from this afternoon.**
+Scrubbing `templates\MASTER PRICING DOC.xlsx` protects documents THIS system generates and nothing
+else. Gintare builds from her own copy - her proposal carries a link field to
+`C:\Users\fenst\Downloads\Pricing Doc Template.xlsx` - so the infected template is the one that
+reaches clients and the clean one is the one that does not. Her file needs cleaning once, by a
+human, and then it stops.
+
+### What was done RIGHT, and it is the thing that has burned us before
+
+The issued workbook was **properly cut to sell-only**: no Frames column, no buy prices, no BSW
+name, no product codes. The drawings issued with it are BSW's own sheets with prices and supplier
+identity removed and Fenster's logo on. Gordon Court sent this same QS five supplier quotations
+with 42 line prices. That did not repeat.
+
+### What went out unfixed - all raised to Adam 14:40, before approval
+
+None of these were changed between the 13:10 check pack and the 16:07 issue. They are now
+questions about a document the client HOLDS, not defects to fix before sending.
+
+1. **One window priced short - GBP 419.32 of BSW bought and not sold.** Twelve units priced,
+   thirteen in BSW's quote and thirteen on the drawings that went with it: seven 1200x1183 where
+   BSW quote eight. ~GBP 830 of sell. **This one is between us and BSW, not us and Chigwell, and
+   it must be settled before we order** - either BSW's quote drops a unit or the schedule gains one.
 2. **Automatic door operator (3.13.1) neither priced nor excluded.** The proposal's general list
    excludes "access control, door sensors", which no QS will read as the DDA operator on a clause
-   written to us. Needs an allowance or a plain exclusion.
+   written to us.
 3. **Fish manifestations (3.11.2) neither priced nor excluded.**
-4. **3.15.2 privacy film and 3.16 the FD60 doorsets still silent.** The chapel folding doors ARE
-   properly excluded ("internal bifold doors have not been allowed").
+4. **3.15.2 privacy film and 3.16 the FD60 doorsets silent.** The chapel folding DOORS are properly
+   excluded ("internal bifold doors have not been allowed") - but 3.15.1 is two things, and the
+   **upper glazed section over them**, running to the underside of the pitched ceiling with frames
+   matching the door fenestration, is excluded by nothing. Gintare's 24/07 15:29 RFQ asked for it;
+   BSW refused the bifold and said nothing at all about the glazing over. Surfaced by brocks-hill's
+   new `check_rfq_answered`, which now fires on this job. Not in the 14:40 list - found after issue.
 5. **Delivery.** The proposal says "materials will be delivered to site" against two ex-works BSW
    quotes with no carriage rate anywhere.
-6. No VAT split, and the glass substitution is unqualified (see both below).
+6. **No zero-rated VAT split** - "GBP 39,006.77 + VAT" flat, though the spec names 3.12.1 (V) and
+   3.13.1 (V) and prices zero-rated work in its own column.
+7. **The glass substitution is unqualified.** Optitherm appears nowhere in the issued proposal.
+
+**And the covering email says "We trust that everything is as per specification."** With those four
+clauses unpriced and the glass substituted, that sentence claims more than the quote behind it. If
+Luke comes back on scope, it is the line he will quote.
+
+**MY WITHDRAWN DOCUMENT.** I built a rival return before I knew Gintare's existed and sent it to
+Adam at 14:32 (GBP 40,528.59, `outputs\...WD001 Pricing Document (29-07-2026).xlsx`), withdrawn at
+14:40. **Do not quote GBP 40,528.59 to anyone.** Its twelve qualifications are the wording the
+issued pack lacks and are the starting point for any revision.
 
 **Return date was 27 JULY.** Adam asked Luke for an extension 28/07 15:01; the whole reply, 29/07
 09:22, was *"Are you able to provide the costs today?"* That is not an extension. Untrusted sender -
@@ -182,11 +227,15 @@ error of silence:
 
 ## Open
 
-- **The six corrections to Gintare's pack**, above. The GBP 419.32 window is the one with a number
-  on it and it has to be settled with BSW either way.
-- **Nobody has run `quote_send_dates.py` before building on this job before today.** It reads
-  estimating@'s sent folder and would have shown the 13:10 QUOTE TO CHECK four minutes after the
-  work order arrived. Grange Hill is now in its job list. Run it first, every time.
+- **The cleaned reissue.** `outputs\grange-hill-reissue\` is built and verified. Attach it to the
+  07:45 update. Adam decides whether it goes to Luke.
+- **Gintare's own template copy is still infected** and is the one clients receive. Only a human
+  can clean it.
+- **The GBP 419.32 window** - settle with BSW before any order.
+- Nothing else on this job needs Mary until Chigwell replies or an order lands. **It is Jacob's
+  to chase from here.**
+- **Run `quote_send_dates.py` before building anything on this job.** It reads estimating@'s sent
+  folder and would have shown the 13:10 QUOTE TO CHECK. Grange Hill is in its job list now.
 - **REQ-33** - is 3.16 ours, and is 3.15.2 ours? Both now excluded on the quotation, so the tender
   is no longer blocked on it, but the answer still decides whether we price them. Full text at
   `data/request-detail/REQ-33.md`.

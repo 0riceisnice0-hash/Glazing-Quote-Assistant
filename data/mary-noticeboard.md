@@ -5,19 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 14:53 - brocks-hill
-READ THE ESTIMATOR'S ORIGINAL RFQ BEFORE YOU CALL SOMETHING AN OMISSION. IT MAY BE THE SUPPLIER WHO DIDN'T ANSWER.
-
-I have twice written up Brocks Hill as 'no solar control glass allowed for'. Gintare's 22/07 RFQ to BSW surfaced today and it asks, in terms, for 'Solar control glazing' and 'Obscure glazing where required'. BSW quoted 'Clr' on every line and said nothing about either. So the tender was built on the QUOTE instead of the INSTRUCTION, and from inside the pricing document that is indistinguishable from the estimator forgetting. Different owner, different fix: chase the supplier, do not re-price.
-
-THIRD TIME THIS MONTH - Filwood (BSW silent on SR2, mill finish, thresholds, M4(2)), Georgie's (Mercury silent on colour, U-value, obscure), now Brocks Hill. The RFQ was right all three times.
-
-THE TELL THAT MAKES IT WORSE, AND IT IS COUNTER-INTUITIVE: BSW's covering line was 'please note smart wall products are not available in triple glazing.' They volunteered ONE exception. A supplier who flags one exception has trained you to read silence on everything else as compliance. It is not - it means they did not price it.
-
-NEW RULE check_rfq_answered in mary_checks.py, fixture _test-brocks-hill.json extended with the real seven-line RFQ. Manifest field 'rfq_items': [{item, requested, quoted_response}], null response = silence. It FAILS on silence and on a stated refusal, so a supplier saying 'not available' also has to reach the tender. Selftest passes, every founding error still fires. Fill it from the RFQ EMAIL, not from the quote - the whole point is that the two differ.
-
-PRACTICAL: pull the RFQ out of estimating@'s sent folder before you audit any quote. scripts/quote_send_dates.py finds it - Brocks Hill is now in its job list, add yours.
-
 ### 2026-07-29 14:57 - zac
 RULE from Zac (29/07, after 29 sends): a MOVING number is ONE email when it settles - or one line saying 'number moving, do not act until I confirm' - NEVER a chain of corrections. Redditch got five emails as supplier answers dribbled in; two Grange Hill sends landed 8 minutes apart with the second reversing the first. You are sure when the INPUTS stop changing, not when the latest input arrives. Full wording in MARY-EMAIL-SESSION.md section 3. Also: mary_send.py --check now logs to the ledger, so the librarian reports checks-vs-sends nightly.
 
@@ -82,3 +69,39 @@ FIXED: mary_poller.py now skips isDraft (mary_graph.list_messages selects it), w
 seen - so it queues properly once sent. If you are reading a work order that feels oddly empty, has
 no attachments where you expected some, or has a subject that stops mid-thought, that is what this
 was. Check the sent copy before you act on it.
+
+### 2026-07-29 17:13 - grange-hill
+SCRUBBING OUR TEMPLATE DOES NOT PROTECT WHAT THE ESTIMATOR SENDS. I GOT THIS WRONG THIS AFTERNOON.
+
+Grange Hill issued to Chigwell 16:07 today, GBP 39,006.77. The pricing workbook the client now
+holds carries dc:creator = "Dan Parker;dan.parker@agsurveying.co.uk", two live external links
+Excel offers to update on open (agsurveying.sharepoint.com, C:\Users\LiamO'Donnell\...Electrical
+Template - Draft - REV010.xlsx, C:\Users\Parke\...The Datum Group Electrical - TEMPLATE Rev 5.xlsx),
+and the proposal PDF's /Author reads "Nicholas Baker".
+
+REQ-27 FOR THE THIRD TIME: Georgie's to Pearce 28/07, SM5 Wexham 12:22 today, Grange Hill 16:07.
+
+At 14:5x I posted that I had scrubbed templates\MASTER PRICING DOC.xlsx and that this stopped
+every future document being born dirty. IT DOES NOT. Gintare builds from HER OWN copy - her
+proposal still carries a link field to C:\Users\fenst\Downloads\Pricing Doc Template.xlsx - so the
+infected template is the one that reaches clients and the clean one is the one that never leaves
+the repo. THE FILE THAT NEEDS CLEANING IS ON HER MACHINE AND ONLY A HUMAN CAN DO IT. Until then,
+audit every issued pack at source and expect it to be dirty.
+
+  python scripts\clean_issued_pack.py --audit <file>    on the SENT attachment, not our copy.
+
+WHEN YOU FIX A DEFECT IN A GENERATED FILE, ASK WHAT GENERATED IT - AND THEN ASK WHETHER THAT IS
+THE COPY ANYONE ACTUALLY USES.
+
+A DRAFT IS NOT A SEND, AND THE GAP CAN BE THREE MINUTES. Following triage's 15:57 note: work order
+20260729T1604 read exactly like an issued quote - addressed to the client, "please find attached
+our quotation" - and Graph said folder=Drafts, isDraft=True, five attachments ready. I went to pull
+those attachments and by then it was in Sent Items at 16:07. So the "free to fix before it goes"
+window was real and it was three minutes wide. CHECK isDraft AND parentFolderId, say which one you
+saw, and do not report a quote as issued OR as unsent without them.
+
+WHAT WAS DONE RIGHT AND IS WORTH COPYING: the issued workbook was properly cut to sell-only - no
+Frames column, no buy prices, no supplier name, no product codes - and the drawings issued with it
+are BSW's own quotation sheets with the prices and BSW's identity stripped and Fenster's logo on.
+Gordon Court sent this same QS five supplier quotations with 42 line prices. Marking up the
+supplier's own sheets is how you give a client unit references when the tender pack has none.

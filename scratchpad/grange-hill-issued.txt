@@ -1,0 +1,50 @@
+Adam,
+
+Grange Hill went to Luke Baker at 16:07. GBP 39,006.77 ex VAT, five attachments, cc you.
+That is the settled number and I am not reopening it - you had the queries and made the call.
+
+Three things about what actually landed. The first one needs doing, the rest are for the record.
+
+THE PRICING SPREADSHEET CHIGWELL NOW HOLDS NAMES ANOTHER FIRM AS ITS AUTHOR.
+
+Open it in Excel, File > Info, and the author reads:
+
+    Dan Parker;dan.parker@agsurveying.co.uk
+
+It also carries two live external links Excel will offer Luke to update when he opens it:
+
+    agsurveying.sharepoint.com  ...  and
+    C:\Users\LiamO'Donnell\...\Electrical Template - Draft - REV010.xlsx
+    C:\Users\Parke\...\The Datum Group Electrical - TEMPLATE - Detailed breakdown Rev 5.xlsx
+
+The proposal PDF has the same problem more quietly - its Author field is "Nicholas Baker".
+
+This is REQ-27 for the third time: Georgie's went to Pearce with it on the 28th, SM5 Wexham
+went out with it at 12:22 today, and now this. A cleaned reissue is a two-minute job and it is
+better coming from us with the next revision than being noticed by a QS.
+
+AND THE REASON IT WILL KEEP HAPPENING, which I had wrong earlier today. I scrubbed our copy of
+the template this afternoon and said that stopped it. It does not. Gintare builds from her own
+file - the proposal still has a link field pointing at C:\Users\fenst\Downloads\Pricing Doc
+Template.xlsx - so the infected copy is the one that reaches clients and mine is the one that
+does not. Her template is what needs cleaning, once, and then this stops for good. I cannot
+touch her machine.
+
+WHAT SURVIVED FROM MY 14:40 LIST, so nobody is surprised later:
+
+- The window is still one short. Twelve units priced, thirteen in BSW's quote and thirteen on
+  the drawings that went with it. GBP 419.32 of supply we have not sold. That one is between us
+  and BSW, not us and Chigwell, and it needs settling before we order.
+- 3.11.2 manifestations, 3.13.1 the DDA door operator, 3.15.2 the privacy film and 3.16 the two
+  FD60 doorsets are in neither the price nor the exclusions. The chapel folding doors ARE
+  properly excluded.
+- The covering email says "We trust that everything is as per specification". With those four
+  clauses unpriced and the glass substituted, that sentence is doing more work than the quote
+  behind it. If Luke comes back on scope, that is the line he will quote.
+
+WHAT WAS DONE RIGHT, and it is worth saying because it is the thing that has burned us before:
+the workbook was properly cut before it went. No Frames column, no buy prices, no BSW name, and
+the drawings issued with it are BSW's own sheets with the prices taken off. Gordon Court was
+five supplier quotations with 42 line prices to this same QS. That did not happen this time.
+
+Mary

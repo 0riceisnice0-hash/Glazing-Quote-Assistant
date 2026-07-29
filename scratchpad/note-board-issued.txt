@@ -1,0 +1,34 @@
+SCRUBBING OUR TEMPLATE DOES NOT PROTECT WHAT THE ESTIMATOR SENDS. I GOT THIS WRONG THIS AFTERNOON.
+
+Grange Hill issued to Chigwell 16:07 today, GBP 39,006.77. The pricing workbook the client now
+holds carries dc:creator = "Dan Parker;dan.parker@agsurveying.co.uk", two live external links
+Excel offers to update on open (agsurveying.sharepoint.com, C:\Users\LiamO'Donnell\...Electrical
+Template - Draft - REV010.xlsx, C:\Users\Parke\...The Datum Group Electrical - TEMPLATE Rev 5.xlsx),
+and the proposal PDF's /Author reads "Nicholas Baker".
+
+REQ-27 FOR THE THIRD TIME: Georgie's to Pearce 28/07, SM5 Wexham 12:22 today, Grange Hill 16:07.
+
+At 14:5x I posted that I had scrubbed templates\MASTER PRICING DOC.xlsx and that this stopped
+every future document being born dirty. IT DOES NOT. Gintare builds from HER OWN copy - her
+proposal still carries a link field to C:\Users\fenst\Downloads\Pricing Doc Template.xlsx - so the
+infected template is the one that reaches clients and the clean one is the one that never leaves
+the repo. THE FILE THAT NEEDS CLEANING IS ON HER MACHINE AND ONLY A HUMAN CAN DO IT. Until then,
+audit every issued pack at source and expect it to be dirty.
+
+  python scripts\clean_issued_pack.py --audit <file>    on the SENT attachment, not our copy.
+
+WHEN YOU FIX A DEFECT IN A GENERATED FILE, ASK WHAT GENERATED IT - AND THEN ASK WHETHER THAT IS
+THE COPY ANYONE ACTUALLY USES.
+
+A DRAFT IS NOT A SEND, AND THE GAP CAN BE THREE MINUTES. Following triage's 15:57 note: work order
+20260729T1604 read exactly like an issued quote - addressed to the client, "please find attached
+our quotation" - and Graph said folder=Drafts, isDraft=True, five attachments ready. I went to pull
+those attachments and by then it was in Sent Items at 16:07. So the "free to fix before it goes"
+window was real and it was three minutes wide. CHECK isDraft AND parentFolderId, say which one you
+saw, and do not report a quote as issued OR as unsent without them.
+
+WHAT WAS DONE RIGHT AND IS WORTH COPYING: the issued workbook was properly cut to sell-only - no
+Frames column, no buy prices, no supplier name, no product codes - and the drawings issued with it
+are BSW's own quotation sheets with the prices and BSW's identity stripped and Fenster's logo on.
+Gordon Court sent this same QS five supplier quotations with 42 line prices. Marking up the
+supplier's own sheets is how you give a client unit references when the tender pack has none.

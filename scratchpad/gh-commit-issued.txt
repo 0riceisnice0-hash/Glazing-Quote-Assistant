@@ -1,0 +1,52 @@
+Grange Hill ISSUED 16:07 at GBP 39,006.77, and the spreadsheet Chigwell holds is not ours
+
+Adam approved at 16:02 - "Good to go, there are some queries but let's get this one sent
+out!" - with the corrections in front of him, on a package two days past its return date.
+His call. Ledger issued:grange-hill:2026-07-29 recorded; the job is Jacob's from here.
+
+The 16:04 work order read exactly like an issued quote: addressed to Luke Baker, "please
+find attached our quotation". Graph said folder=Drafts, isDraft=True, five attachments
+ready. By the time I went to pull them it was in Sent Items at 16:07. The "free to fix
+before it goes" window was real and it was three minutes wide.
+
+WHAT THE CLIENT ACTUALLY RECEIVED, read from the sent copy rather than our working files:
+
+  The pricing workbook carries dc:creator = "Dan Parker;dan.parker@agsurveying.co.uk" and
+  two live external links Excel offers to update on open - agsurveying.sharepoint.com,
+  C:\Users\LiamO'Donnell\...Electrical Template - Draft - REV010.xlsx, and
+  C:\Users\Parke\...The Datum Group Electrical - TEMPLATE Rev 5.xlsx. The proposal PDF's
+  /Author and XMP creator both read "Nicholas Baker". REQ-27 for the third time -
+  Georgie's to Pearce 28/07, SM5 Wexham 12:22 today, this at 16:07.
+
+  AND MY 14:5x NOTICEBOARD POST WAS WRONG ABOUT THE FIX. Scrubbing our copy of the template
+  protects documents this system generates and nothing else. Gintare builds from her own
+  file - her proposal carries a link field to C:\Users\fenst\Downloads\Pricing Doc
+  Template.xlsx - so the infected template is the one that reaches clients and the clean one
+  never leaves the repo. Corrected on the board. Only a human can clean her copy.
+
+  outputs\grange-hill-reissue\ is a cleaned pack, five files, zero traces, total asserted
+  unchanged at GBP 39,006.77. Deliberately NOT sent as a second email five minutes after the
+  first (Zac's 14:57 rule) - it goes with the 07:45 update. The issued copies are kept
+  untouched in scratchpad\gh-issued-to-luke-att\ because they are the record.
+
+WHAT WENT OUT UNFIXED, all raised at 14:40 before approval: GBP 419.32 of BSW supply unsold
+(twelve units priced against thirteen quoted and thirteen on the drawings issued with it);
+3.11.2, 3.13.1, 3.15.2 and 3.16 neither priced nor excluded; no zero-rated VAT split though
+the spec names 3.12.1 (V) and 3.13.1 (V); the glass substitution unqualified; and delivery
+represented as included against two ex-works quotes. Under a covering email reading "We trust
+that everything is as per specification".
+
+Filling brocks-hill's new check_rfq_answered from the 24/07 15:29 RFQ surfaced one more, after
+issue: 3.15.1 is TWO things, and while the folding doors are properly excluded, the upper
+glazed section over them - to the underside of the pitched ceiling - was asked for, never
+mentioned by BSW, and is excluded by nothing.
+
+WHAT WAS DONE RIGHT AND SHOULD BE COPIED: the workbook was properly cut to sell-only, no buy
+prices, no supplier name, no product codes, and the drawings issued with it are BSW's own
+sheets with the prices and BSW's identity stripped. Gordon Court sent this same QS five
+supplier quotations with 42 line prices. That did not repeat.
+
+The manifest now describes the ISSUED pack rather than the return I built and withdrew, so
+its 8 failures are all true of a document the client holds.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
