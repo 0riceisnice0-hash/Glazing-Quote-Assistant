@@ -192,7 +192,14 @@ function rag(job) {
   if (d <= 5) return ["warn", `${d} days left`];
   return ["ok", `${d} days left`];
 }
-const niceDate = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+/* Same rule as ukShortDay below - a date outside the current year says so.
+   This one is the Chasing page's issue dates, where an out-of-year quote is
+   exactly the one somebody needs to notice. */
+const niceDate = (iso) => {
+  const d = new Date(iso + "T12:00:00");
+  const short = d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+  return d.getFullYear() === new Date().getFullYear() ? short : `${short} ${d.getFullYear()}`;
+};
 /* Every `created` in D1 is new Date().toISOString() - i.e. UTC with a Z. Slicing
    the string (which this file used to do in five places) published UK times an
    hour early all through BST: Adam sent a message at 22:07 and the thread said
@@ -201,7 +208,19 @@ const niceDate = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("en-GB"
 const UK = "Europe/London";
 const ukTime = (iso) => iso ? new Date(iso).toLocaleTimeString("en-GB", { timeZone: UK, hour: "2-digit", minute: "2-digit" }) : "";
 const ukDay = (iso) => iso ? new Date(iso).toLocaleDateString("en-GB", { timeZone: UK, weekday: "long", day: "numeric", month: "long" }) : "";
-const ukShortDay = (iso) => iso ? new Date(iso).toLocaleDateString("en-GB", { timeZone: UK, day: "2-digit", month: "short" }) : "";
+/* A date with no year on it is read as this year, and on the Leads page that
+   is wrong for a large share of the rows: AdminBase carries quoted leads back
+   to May 2025, so "12 May" is a fourteen-month-old quote presented as one from
+   this spring. Zac, 29/07. Anything outside the current year now carries it;
+   anything inside it stays short, because a year on every row is noise. */
+const ukYearOf = (d) => d.toLocaleDateString("en-GB", { timeZone: UK, year: "numeric" });
+const ukShortDay = (iso) => {
+  if (!iso) return "";
+  const d = new Date(iso);
+  const short = d.toLocaleDateString("en-GB", { timeZone: UK, day: "2-digit", month: "short" });
+  const y = ukYearOf(d);
+  return y === ukYearOf(new Date()) ? short : `${short} ${y}`;
+};
 const ukStamp = (iso) => iso ? `${ukShortDay(iso)} ${ukTime(iso)}` : "";
 /* Generator data carries dates as raw ISO strings ("2026-07-14"). Show them
    like every other date on the board; pass anything else through untouched. */
@@ -1327,6 +1346,13 @@ const JACOB_RENDER = {
       <td style="max-width:340px"><div class="clamp4">${inline(jNext(r))}</div>
         ${r.blockedReason ? `<small class="dim">${esc(r.blockedReason)}</small>` : ""}
         ${r.chaseNote ? `<small class="dim">${esc(r.chaseNote)}</small>` : ""}
+        <!-- A human's answer to a request, on the row it was about. Grange
+             Hill, 29/07: JAC-13 asked whether to clarify six open items and
+             the answer was "I will chase Luke up" - which changes the owner
+             and not the six. The row has to say both. -->
+        ${r.decision ? `<small class="dim"><strong>${esc(r.decision.ref)} &middot; ${esc(r.decision.by)},
+          ${esc(r.decision.at || "")}:</strong> &ldquo;${esc(r.decision.answer)}&rdquo;
+          ${esc(r.decision.effect || "")}</small>` : ""}
         ${r.retender ? `<small class="dim">Re-tender: ${esc(r.retender.note)}</small>` : ""}
         ${r.routing ? `<small class="dim">Routing: ${esc(r.routing.note)}</small>` : ""}</td>
       <td>${ownerTag(r)}</td></tr>`;
@@ -1863,6 +1889,17 @@ const JACOB_RENDER = {
           closes anything in - the same pattern as the Opportunity Log's Chased column, which was
           filled 382 times in 2025 and 7 times in 2026. Treat every row as a question, not
           as an opportunity.</p>
+          <!-- JAC-14, answered by Zac 29/07. I asked for a rule that CLOSED this
+               backlog and got the opposite, which is the right answer: a row I
+               close on my own arithmetic is a job nobody ever rings again. -->
+          <p><strong>Nothing here gets closed on silence.</strong> Zac, 29/07, answering
+          JAC-14: <em>&ldquo;They all need chasing up, and a final word from the client which is
+          also a good opportunity to get any feedback and tout more opportunities. Treat all as
+          live until updated.&rdquo;</em> So every chaseable row now carries the same three-part
+          ask instead of an empty cell - is it live or gone and to whom, how our price looked,
+          and what else they have coming. The four rows that join a verified send are the
+          exception: those keep the next action written for them on the register, because two
+          of the four say do not chase.</p>
           <p><strong>And the size does not match what the recent funnel converts.</strong> The
           Opportunity Log's decided rows (2025-26) say: under GBP 10k it wins 38% of the time,
           GBP 10k-50k 13%, and above GBP 50,000 no win on the log - 52 priced, 52 lost; median

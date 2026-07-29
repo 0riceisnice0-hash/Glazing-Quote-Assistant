@@ -372,8 +372,8 @@
    "state": "live",
    "blockedUntil": null,
    "blockedReason": null,
-   "owner": "Adam",
-   "next": "One call to Luke Baker early next week - mobile 07547 184089, office 020 8500 4100 - and it is the same call as Leys Park and Gordon Court, not a third one. Three things, in this order. (1) It went out at 16:07 on the 29th against a return date of 27 July, so ask outright whether it landed in time to go into Chigwell's own tender to the Methodist Circuit, and when that tender goes in. (2) Then the date we actually need: when does the Circuit decide - that becomes the next chase date. (3) Our price and both material quotes all die on 28 August against a November start, so tell him the 28th is real and get his programme against it. Do not offer to revisit the number and do not walk him through the qualifications unprompted - see openOnTheIssuedDocument for what he is holding, and JAC-13 for the one decision that is Adam's.",
+   "owner": "Zac",
+   "next": "ZAC IS CHASING LUKE BAKER - his call, JAC-13, 29/07 17:30. Mobile 07547 184089, office 020 8500 4100. It is the same call as Leys Park and Gordon Court, not a third one. Four things to come back with. (1) It went out at 16:07 on the 29th against a return date of 27 July - did it land in time to go into Chigwell's own tender to the Methodist Circuit, and when does that tender go in. (2) When does the Circuit decide - that date becomes the next chase date and nothing else on this board can supply it. (3) Our price and both material quotes die on 28 August against a November start: tell him the 28th is real and get his programme against it. (4) The six items still open on the pack he is holding are listed under openOnTheIssuedDocument - the one with teeth is that his drawing set runs to thirteen windows and our price sells twelve. Whether any of them is raised on the call is Zac's judgement; if the thirteenth window is, it becomes a price and goes to Gintare and Mary, never to me. Whatever is said, put it on this row so whoever picks this up in August knows what was decided.",
    "history": "Third quote to Chigwell in five weeks and the first one with a same-day deadline on it. Enquiry arrived through Once For All Marketplace to Paul Taylor 24/07 08:08; Luke chased us for costs at 08:22 on 29/07 and again at 09:22 - 'Are you able to provide the costs today?' - which was his answer to Adam's 28/07 request for an extension. Gintare priced it, the quote was with Adam for checking from 13:10 and went at 16:07. No rows in the Opportunity Log under Chigwell at all: three live leads, now GBP 451,418.69 ex VAT, nothing decided. Full picture in data/companies/chigwell-london-plc.md and the pricing story in data/jobs/grange-hill.md.",
    "verified": true,
    "verifiedHow": "Mary, 29/07/2026, at source in estimating@ - handover ledger ref issued:grange-hill:2026-07-29 plus her 17:10 gate check, and she pulled the six attachments off the sent message into scratchpad/gh-issued-to-luke-att/. I read those copies rather than the mailbox; the wall holds.",
@@ -402,7 +402,14 @@
    "contactRole": "Senior Quantity Surveyor",
    "contactPhone": "020 8500 4100",
    "contactMobile": "07547 184089",
-   "request": "JAC-13"
+   "request": "JAC-13",
+   "decision": {
+    "ref": "JAC-13",
+    "by": "Zac",
+    "at": "2026-07-29T17:30",
+    "answer": "I will chase Luke up, just need to make sure this is reflected on the leads tracker.",
+    "effect": "The chase is Zac's, not Adam's, and this row says so. I asked for a decision on whether to clarify the six open items before Chigwell submits and got a chaser instead of a ruling - so the six stay on the row as material for the call rather than as an instruction to send anything. Nothing has been drafted and no number has moved."
+   }
   }
  ],
  "held": [

@@ -28,11 +28,17 @@ Three things this script does that a plain CSV read would not:
    what tells us the CRM is behind: Princess Beatrice House still reads "quote
    being prepared" here and went out on the 27th.
 
-3. **It refuses to average an outlier away.** One Elkins row reads GBP 8.6m
-   inc VAT for Brandon Estate. That is a hundred times Fenster's average won
-   job and it moves the whole pipeline figure on its own. It is flagged, not
-   included in the medians, and it is a question for Adam rather than a number
-   to report.
+3. **It refuses to average an outlier away, and it stops asking once a human
+   has answered.** One Elkins row reads GBP 8.6m inc VAT for Brandon Estate.
+   That is a hundred times Fenster's average won job and it moves the whole
+   pipeline figure on its own, so it stays out of the medians. But "too big to
+   average" and "probably a typo" are different claims, and this file used to
+   make the second one. Adam answered it on 29/07/2026: *"the brandon estate
+   job is not a mistake. That is a legit tender and should be treated as
+   such."* Confirmed rows carry `confirmed` with who said so and when; they
+   are still excluded from the medians, because the arithmetic reason has not
+   changed, and they are no longer excluded from the chase list, because the
+   doubt has gone. See CONFIRMED below.
 
 Read-only. The CSV came out of the mailbox into test-results/ and is never
 written back.
@@ -63,23 +69,36 @@ VAT = 1.2
 CHASE_AFTER = 7
 
 # Fenster's own PQQ puts its packages at GBP 20k-400k. Anything an order of
-# magnitude past that is a data question before it is a lead.
+# magnitude past that is kept out of the medians, because one row at a hundred
+# times the median is arithmetic noise wherever it came from.
 OUTLIER_ABOVE = 1_000_000
 
-# Win rate by value, from 224 priced decided rows in the Opportunity Log. This
-# corrected a standing fact in the manual on 28/07 that had it backwards - the
-# GBP 20k-400k band the PQQ advertises is the band Fenster *loses* in. Nothing
-# over GBP 50,000 has ever been won: 52 priced, 52 lost.
+# Rows a human has looked at and confirmed are real, keyed on the AdminBase
+# lead number. This exists so a question only gets asked once. Being large is
+# not being wrong, and the board should stop implying it is the moment
+# somebody who knows says otherwise.
+CONFIRMED = {
+    "8324": "Adam Butcher, 29/07/2026: 'the brandon estate job is not a "
+            "mistake. That is a legit tender and should be treated as such.'",
+}
+
+# Win rate by value, from 224 priced decided rows in the Opportunity Log.
+#
+# READ THE EDGES. This is the 2025-26 BD funnel, not Fenster's win history
+# (Zac and Adam, 29/07/2026). Eight years of trading sit outside it, including
+# Headrow Court for Fortis Vision at roughly GBP 630k + VAT, which is Adam's
+# own largest job and appears on no row below. So these notes say what the log
+# says - "no win this size on the log" - and never "Fenster cannot win this".
 #
 # It is carried on every row here because this list is ranked by value, and
-# ranking by value points straight at the half of the business that does not
-# convert. The ranking is Adam's call to change; showing him what each row is
-# worth converting is not.
+# ranking by value points straight at the half of the recent funnel that does
+# not convert. The ranking is Adam's call to change; showing him what each row
+# is worth converting is not.
 BANDS = [
-    (10_000, "under GBP 10k", 38, "the only band Fenster reliably wins"),
-    (50_000, "GBP 10k-50k", 13, "wins occasionally - 7 of 52"),
-    (200_000, "GBP 50k-200k", 0, "0 won of 37 priced"),
-    (None, "over GBP 200k", 0, "0 won of 15 priced"),
+    (10_000, "under GBP 10k", 38, "the band the recent funnel converts best"),
+    (50_000, "GBP 10k-50k", 13, "wins occasionally - 7 of 52 on the log"),
+    (200_000, "GBP 50k-200k", 0, "no win this size on the BD log - 0 of 37"),
+    (None, "over GBP 200k", 0, "no win this size on the BD log - 0 of 15"),
 ]
 
 
@@ -98,6 +117,15 @@ def parse_date(s):
         return None
     try:
         return datetime.strptime(s, "%d/%m/%Y").date()
+    except ValueError:
+        return None
+
+
+def parse_date_iso(s):
+    """The handover file writes ISO dates; the CRM export writes dd/mm/yyyy.
+    Two formats, two parsers, no guessing which one a string is."""
+    try:
+        return date.fromisoformat((s or "").strip())
     except ValueError:
         return None
 
@@ -177,6 +205,46 @@ def state_for(result, days, has_value):
     return "quoted - chase due", "Adam"
 
 
+def next_for(state, client, job, value, days, matched):
+    """The next action on a chaseable row - JAC-14, answered by Zac 29/07/2026.
+
+    I had asked for a rule that CLOSES this backlog: 146 of these are over 400
+    days silent and GBP 17.9m of it reads as open because nothing at Fenster
+    ever closes a row. The answer was the other way round - *"They all need
+    chasing up, and a final word from the client which is also a good
+    opportunity to get any feedback and tout more opportunities. Treat all as
+    live until updated."*
+
+    So no row is closed on silence and none is closed on my arithmetic. What
+    changes is that every one of them now carries the same three-part ask
+    rather than an empty cell: the final answer, the feedback on our price, and
+    what else they have coming. That last part is why this is worth doing at
+    all - a call that only asks "did we get it" spends a relationship and
+    brings back one bit of information.
+    """
+    if not state.startswith("quoted"):
+        return ""
+    # A row that joins penny-exact to a verified send is already on the
+    # register with a next action somebody reasoned about, and two of the four
+    # say DO NOT CHASE - Brandon Estate, where Chris Conlon has undertaken to
+    # tell us and Adam has already replied, and Gordon Court, where Chigwell
+    # physically cannot answer before jLiving decides on 16 September. A blanket
+    # "chase them all" rule that overwrites those is how a relationship gets
+    # spent on a call the client has already answered. The register wins.
+    if matched:
+        return ""
+    silence = ("%d days silent" % days if days is not None
+               else "no date on the row at all")
+    money = "GBP %s ex VAT" % format(int(round(value)), ",") if value else \
+            "no value on the row"
+    return ("Chase %s for a final answer on %s - %s, %s. Three things back, "
+            "not one: is it still live or did it go elsewhere and to whom; "
+            "how our price looked; and what else they have coming. "
+            "Zac, 29/07 (JAC-14): every row here stays live until the client "
+            "updates it - nothing is closed on silence."
+            % (client, job or "this job", money, silence))
+
+
 def build():
     with open(SRC, encoding="utf-8-sig") as fh:
         raw = list(csv.DictReader(fh))
@@ -204,6 +272,48 @@ def build():
         state, owner = state_for(result, days, bool(inc))
 
         matched = hand.get(ex) if ex else None
+
+        # THE RE-QUOTE TRAP (Mary, 29/07/2026, on lead 8155). When a job is
+        # priced a second time, AdminBase updates the VALUE and leaves the
+        # dates alone. Lead 8155 carries April's lead date, April's next
+        # action and April's lead number with July's money on it - so the row
+        # read "chase due, 98 days" on a quote that had gone out the previous
+        # afternoon. Chasing a client the day after we priced them is worse
+        # than not chasing at all, which is exactly the mistake the Filwood
+        # correction was about.
+        #
+        # It is detectable: if the value joins penny-exact to a send we
+        # watched leave the building, and that send is newer than the date
+        # this row is aged from, then the row's clock is wrong and the send's
+        # date is the true one. Age from the send, and say the row was
+        # re-dated so nobody has to wonder why it disagrees with the CRM.
+        stale = None
+        if matched and matched.get("issued") and anchor:
+            issued = parse_date_iso(matched["issued"])
+            if issued and issued > anchor:
+                # Five rows come out of this and only one is a re-quote. The
+                # rest are the ordinary lag between the CRM's follow-up date
+                # and the day the quote actually went. Both are worth
+                # re-dating and they are not the same fault, so the row says
+                # which rather than accusing every one of being 8155.
+                gap = (issued - anchor).days
+                stale = {"crmDate": anchor.isoformat(),
+                         "issued": matched["issued"],
+                         "crmDays": days,
+                         "reQuote": gap > 45,
+                         "why": ("Aged from the send, not the CRM. The row is "
+                                 "dated %s and the quote left the building on "
+                                 "%s - %d days later. %s"
+                                 % (anchor.isoformat(), matched["issued"], gap,
+                                    "That gap is a re-quote: AdminBase updates "
+                                    "the value and leaves the dates, so the row "
+                                    "is the old enquiry wearing the new price."
+                                    if gap > 45 else
+                                    "Ordinary lag between the follow-up date "
+                                    "somebody set and the day it went."))}
+                days = (today - issued).days
+                state, owner = state_for(result, days, bool(inc))
+
         job = clean(r.get("OFFICEREF")) or clean(r.get("SITEADDRESS"))
         email = clean(r.get("EMAIL")).rstrip(">")
         # One row carries the postcode welded onto the address with no space.
@@ -223,6 +333,10 @@ def build():
             "result": result,
             "state": state,
             "owner": owner,
+            # JAC-14. Every chaseable row carries the ask; a human's edit on
+            # the board still wins over it.
+            "next": next_for(state, title_case(r.get("LEADNAME")), job, ex,
+                             days, matched),
             "email": email,
             "phone": (clean(r.get("WORKTELEPHONE")) or clean(r.get("MOBILE"))
                       or clean(r.get("HOMETELEPHONE"))),
@@ -233,6 +347,8 @@ def build():
             "takenBy": clean(r.get("TAKENBY")),
             "fit": band_for(ex),
             "outlier": bool(inc and inc >= OUTLIER_ABOVE),
+            "confirmed": CONFIRMED.get(clean(r.get("LEADNUMBER"))),
+            "staleDate": stale,
             "onBoard": matched["key"] if matched else None,
             "boardState": matched["state"] if matched else None,
         })
@@ -390,6 +506,8 @@ def build():
             "outliers": sum(1 for r in rows if r["outlier"]),
             "outlierValue": round(sum(r["value"] or 0 for r in rows
                                       if r["outlier"]), 2),
+            "confirmed": sum(1 for r in rows if r.get("confirmed")),
+            "staleDates": sum(1 for r in rows if r.get("staleDate")),
             "median": vals[len(vals) // 2] if vals else 0,
             "onBoard": sum(1 for r in rows if r["onBoard"]),
             "conflicts": len(conflicts),
@@ -432,10 +550,17 @@ def main():
     print("  %d outlier(s) held out of every total: GBP %s"
           % (t["outliers"], format(int(t["outlierValue"]), ",")))
     print("  %d rows with no email address" % t["noEmail"])
-    print("  of the %d chaseable: %d (GBP %s) are in a band Fenster has ever "
-          "won in, %d are in one it never has"
+    print("  of the %d chaseable: %d (GBP %s) are in a band the BD log records "
+          "a win in, %d are in one it does not - which is a fact about the log, "
+          "not about the company"
           % (t["due"], t["winnable"], format(int(t["winnableValue"]), ","),
              t["neverWonBand"]))
+    if t.get("confirmed"):
+        print("  %d outlier(s) confirmed real by a human and back on the chase "
+              "list" % t["confirmed"])
+    if t.get("staleDates"):
+        print("  %d row(s) re-dated off a verified send - the CRM's own date "
+              "was older" % t["staleDates"])
 
 
 if __name__ == "__main__":

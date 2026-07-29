@@ -172,3 +172,42 @@ silent, GBP 17.9m of pipeline nobody has ever closed. Four concrete rules offere
 not mark anything lost on my own arithmetic. Told Adam on the hub, and told him plainly
 that 0 of 217 rows carry a date a human has set - which is the number that should move
 first.
+
+## 2026-07-29 (evening) - hub-60/61/62: what the Work tabs are for, and JAC-13/14 answered
+
+**Order:** three from Zac. (60) Break down every option under Work and what it does, before
+changing anything - he wants Opportunities to be the new-leads-to-contact page and to sit
+second. (61) answering JAC-14. (62) answering JAC-13.
+
+**60 - answered, nothing re-ordered.** Wrote out all eight pages, where each one's rows
+come from and whether they are editable. The correction he needed: Opportunities is not
+leads I sourced, it is public **award** notices - 1 warm, 6 quoted-before, 112 cold and
+blocked on JAC-2. The pages that hold new leads needing contact are Out to bid and
+Enquiries, so renaming will not do it and merging will. Proposed Work as a five-page funnel
+(Today, Opportunities = Out to bid + the 7 warm, Enquiries, Leads, Ready to send) with
+Chasing and Chase list demoted to System as the two feeds behind Leads - **conditional on
+moving Adam's 15-step checklist, the next-chase date and the three not-issued jobs onto
+Leads first**, because they exist only on the Chasing page. Awaiting his word.
+
+**The date, which he was right about and which was worse than it looked.** `ukShortDay` and
+`niceDate` showed no year, so **90 of the 209 AdminBase rows on Leads are 2025 quotes
+reading as "12 May"** - fourteen months presented as ten weeks, on the page whose whole
+purpose is knowing when to go back to something. Anything outside the current year now
+carries it, board-wide; anything inside it stays short.
+
+**JAC-14 answered (61) - the opposite of what I asked for, and better.** I had offered four
+rules for CLOSING the 146 rows over 400 days silent. Zac: *"They all need chasing up, and a
+final word from the client ... Treat all as live until updated."* So **205 of the 209
+chaseable rows now carry a next action instead of an empty cell** - `next_for()` in
+`jacob_adminbase.py`, one three-part ask on each: live or gone and to whom, feedback on our
+price, what else they have coming. The **four exceptions are the rows that join penny-exact
+to a verified send**, which keep the next action written for them, because two of the four
+say DO NOT CHASE - Brandon Estate and Gordon Court. A blanket rule that overwrote those
+would have spent two relationships on calls the clients have already answered.
+
+**JAC-13 answered (62).** Zac is chasing Luke Baker himself. Grange Hill's owner is now Zac
+on both Leads and Chasing, and the row carries his answer, the date, and what it does and
+does not settle: he replied with a chaser rather than a ruling, so the six items still open
+on the pack Chigwell holds stay on the row as material for the call, not as an instruction
+to send anything. Nothing drafted, no number moved. Register rows now render a `decision`
+block so an answer lives on the row it was about.

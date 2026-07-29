@@ -73,11 +73,9 @@ value on each. This is the win history; everything else is a funnel.**
 - **A job can be live and chased with no Mary chat at all** - Trafalgar House was, so it was on
   no list of mine. The register is a floor, never a complete set: 9 managed rows against ~25
   AdminBase quotes raised since 15/06 alone.
-- **"Not in the sends I have dated" means "not in the list that script searches"** - Leys,
-  29/07: absent only because it was not one of nine hard-coded jobs, and absence from a
-  tool reads exactly like never sent. **Count the chases before writing "call them"** - the
-  third touch asks what nobody has (their decision date), not what two emails already
-  failed to get. **Direct numbers are in the signature.** `bd-lessons`.
+- **"Not in the sends I have dated" means "not in the list that script searches"** - absence
+  from a tool reads exactly like never sent. **Count the chases before writing "call
+  them"**; the third touch asks what nobody has. Numbers are in the signature. `bd-lessons`.
 - **Join AdminBase to your own TENDER BOARD, not just to the mailbox** - on postcode SECTOR
   plus title. **A client's public deadline sets the chase date; a fortnight rule invents
   one.** Leys Park, 29/07: `bd-lessons.md`.
@@ -93,18 +91,16 @@ value on each. This is the win history; everything else is a funnel.**
   Scotland, NI, Crown Dependencies, ML. The PQQ's 78 postcode areas are a marketing claim
   that was enforced as a rule and parked all of Wales while a GBP 174,546 quote was live
   in Merthyr Tydfil. Distance is a NOTE on the row, never a filter. `bd-lessons.md`.
-- **"ISSUED" is a fact about a SEND, never about the document.** Grange Hill, 29/07: six
-  corrections to Adam at 14:40, quote out at 16:07 with the total unchanged, all six
-  still open on the client's copy - and the drawings we sent run to thirteen windows
-  against twelve priced. **Diff the pack that went against the pack that was checked**
-  before writing the chase row; a clarification is only cheap while the contractor is
-  still assembling their tender. **And check the SUPPLIER expiry, not just our
-  validity** - ours and both fabricators' die 28/08 on a Nov-26 start. Ours will not
-  chase itself. `expires` on the row; `bd-lessons.md`.
+- **"ISSUED" is a fact about a SEND, never about the document.** Grange Hill, 29/07: all six
+  corrections still open on the client's copy, drawings at thirteen windows against twelve
+  priced. **Diff the pack that went against the pack that was checked**, and check the
+  SUPPLIER expiry not just ours - both die 28/08. `expires`; `bd-lessons.md`.
+- **A date with no year is read as this year** - 90 of the 209 AdminBase rows on Leads are
+  2025 quotes showing as "12 May". `ukShortDay`/`niceDate` carry it outside this year. 29/07.
 - **A board nobody can EDIT is a report, and "not user friendly" can mean BROKEN** - the
   panel opened 3 of 7 key types, so the whole CRM held one edit. **Check a quiet feature
-  works before redesigning it**, and **mark a DERIVED date**: rank a human's promise above
-  one or a 524-day-stale CRM row outranks a quote due today. 29/07, `bd-lessons.md`.
+  works before redesigning it**, and **mark a DERIVED date**: a human's promise outranks a
+  524-day-stale CRM row. 29/07, `bd-lessons.md`.
 
 ## Standing decisions (Adam/Zac - do not re-open; full list `mary_recall --settled`)
 
@@ -116,6 +112,9 @@ value on each. This is the win history; everything else is a funnel.**
 - Drafts only, no sending (JAC-1, Zac, 28/07): every draft is for a named human to send
   from their own mailbox, and no price appears in one unless we watched it leave.
 - Hightown: do not quote unless instructed. Neil Douglas: live tender, do not approach.
+- **JAC-14 (Zac, 29/07): nothing on the AdminBase backlog closes on silence.** All 209 stay
+  live until the client updates them, each carrying one ask - live or gone and to whom,
+  feedback on our price, what else they have coming. Register rows win: two say do not chase.
 - **Chasing is a checklist, not a nudge** (Adam, 29/07; steps 8-15 of his 15-step list are
   Jacob's, 1-7 Mary's). A chase must return one of six things - pricing feedback, is it
   secured, when they decide, who won it, why we lost, a blow-out - and must set the NEXT
