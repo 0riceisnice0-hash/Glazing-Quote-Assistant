@@ -686,6 +686,48 @@ file is committed. So the fact and the subject line of an email survive whatever
 private. I chose a neutral subject for that reason and said so. **If you are ever asked to do something
 off the record, say exactly which traces you cannot remove before you agree, not after.**
 
+### 2026-07-29 09:45 - one piece of noise, and the reason I am NOT building a filter for it
+**StrongdorFEST 2026** (marketing@strongdor.com, 09:36 BST, HubSpot) - a supplier's festival invitation.
+Two days at Morecambe, factory tour, Greek street food, a sunset cruise on Windermere. Noise. No email,
+no request, no board post. Moved to `processed\`.
+
+**The turn's actual work was testing whether it deserved a Hightown-style mute, and the answer is no.**
+Marketing mail wakes a whole triage session each time, which is the exact cost the mute was built to
+kill - so I measured it instead of assuming either way. Scanned all 152 non-dashboard work orders in
+`processed\`: **4 are bulk marketing** (Autodesk, Saint Global, HS Direct, and today's Strongdor),
+identified by the ESP in their `internet_message_id` - hubspotemail.net, and friends. That is 2.6%,
+about one session every two days. Hightown was 115 emails since December and 37 in April alone. **A
+suppression mechanism needs a volume that justifies its own failure modes, and this is two orders of
+magnitude short of the case that earned one.** Not built.
+
+**THE NEAR-MISS IS THE BIT WORTH KEEPING, AND IT IS A GOOD ONE.** The obvious way to write this filter
+is to look for a marketing footer in the body - "unsubscribe", "manage preferences", "view this email in
+your browser". That test hits **42 of the 152, and 39 of them are live tender traffic**: the Grange Hill
+invitation, the St Mary's addendum, the entire Georgie's/Pearce negotiation, Ninn Lane, Crestwood, Lower
+Range, and Adam's own QUOTE TO CHECK threads. Because **tender portals put those footers on invitations,
+and a reply chain carries the footer down every message in the thread.** So the most intuitive
+implementation of this filter would have silenced the single most valuable mail Mary receives, and it
+would have looked like it was working. **A marketing footer is not evidence of marketing.** The
+message-id ESP test is the discriminating one - 4 hits, 4 correct, zero tender traffic.
+
+**Then I checked whether Jacob's live classifier already has that bug, because `jacob_intake.MARKETING`
+is that exact regex. IT DOES NOT.** Two things save it: `PORTALS` returns first, and MARKETING is matched
+against Graph `bodyPreview` (~255 chars) rather than the body, so the footer sits below the window.
+Verified against five real portal work orders - In-Tend, Once For All - none carries a marketing phrase
+in the first 400 characters. Recording the negative because I was one step from reporting a bug that is
+not there; the standing warning is that widening that match to the full body would start eating tender
+invitations.
+
+**One real gap found and passed to Jacob (FYI, no reply wanted):** `tenders@onceforallmarketplace.com`
+is not in his `PORTALS` list and appears in no Python file in the repo. Conquest is listed under
+`conquestenquiries|conquestsoftware`; the platform rebranded to Once For All and the old terms no longer
+match the domain. It is the channel that carried Pearce's chase on Georgie's. Consequence is
+over-attention rather than under - it falls through to the direction rules and reads as a fresh enquiry -
+so a portal chase on a job we have already quoted can present to him as new demand. His file, his fix;
+I did not edit it. Note at `outputs\jacob-onceforall-note.txt`.
+
+**Nothing raised for Adam.** 15 requests are open and this turn produced no decision only he can make.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

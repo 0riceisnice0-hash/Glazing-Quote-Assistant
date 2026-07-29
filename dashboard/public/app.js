@@ -350,6 +350,10 @@ const ICONS = {
   scoreboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>',
   live: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>',
   leads: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+  drafts: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"/><path d="M14.5 5.5 18.5 9.5"/></svg>',
+  chaselist: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 7v5l3 2"/><path d="M3.5 12a8.5 8.5 0 1 0 2.2-5.7"/><path d="M3 4v4h4"/></svg>',
+  tenders: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h4"/></svg>',
+  outcomes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16"/><rect x="6" y="11" width="3" height="6"/><rect x="11" y="7" width="3" height="10"/><rect x="16" y="13" width="3" height="4"/></svg>',
   signals: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>',
   jmessages: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>',
   jlive: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>',
@@ -1428,6 +1432,14 @@ const JACOB_RENDER = {
           ${r.needs ? `<p><strong>Needs:</strong> ${esc(r.needs)}</p>` : ""}
           <div class="req-options">${(JSON.parse(r.options || "[]")).map((o) =>
             `<span class="opt" data-jreq="${esc(r.ref)}">${esc(o)}</span>`).join("")}</div>
+          <!-- Buttons only cover what he thought to ask. The interesting answer
+               is usually the one he did not anticipate, and the reason matters
+               more than the choice - he acts on the why. -->
+          <div class="req-reply">
+            <textarea data-draft="jreq-${esc(r.ref)}" rows="2"
+              placeholder="Or answer in your own words - the reason matters more than the choice"></textarea>
+            <button class="btn ghost" data-jreqsend="${esc(r.ref)}">Reply</button>
+          </div>
         </div>`).join("")}</div></div>` : ""}
 
       <div class="section"><div class="section-head"><h3>Standing decisions</h3></div>
@@ -1680,7 +1692,7 @@ function render() {
   $("#nav-items").innerHTML = pages.map((p) => {
     const head = p.group && p.group !== lastGroup
       ? `<div class="nav-group">${esc((lastGroup = p.group))}</div>` : "";
-    return `${head}<button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.key]}${p.label}
+    return `${head}<button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.key] || ""}${p.label}
     ${badges[p.key] ? `<span class="badge${p.key === "requests" ? " hot" : ""}">${badges[p.key]}</span>` : ""}</button>`;
   }).join("");
   // Switching bots can leave `page` pointing at a section the other one does
@@ -1796,6 +1808,29 @@ document.addEventListener("click", async (e) => {
   // Any row on Jacob's board with a key: open it and correct it.
   const jrow = e.target.closest("[data-jkey]");
   if (jrow) { crmPanel(jrow.dataset.jkey); return; }
+  // Free-text answer to one of his questions.
+  const jrs = e.target.closest("[data-jreqsend]");
+  if (jrs) {
+    const ref = jrs.dataset.jreqsend;
+    const ta = document.querySelector(`[data-draft="jreq-${ref}"]`);
+    const answer = (ta?.value || "").trim();
+    if (!answer) { toast("Nothing typed"); return; }
+    jrs.disabled = true;
+    try {
+      await api("jacob/requests", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ ref, answer, author: who() }),
+      });
+      delete DRAFTS[`jreq-${ref}`];
+      JREQS = await api("jacob/requests").catch(() => JREQS);
+      JMSGS = await api("jacob/messages").catch(() => JMSGS);
+      toast(`Answered ${ref}`);
+      render();
+    } catch { toast("Could not save that"); jrs.disabled = false; }
+    return;
+  }
+
   // Jacob's questions post to his own endpoint, not Mary's.
   const jopt = e.target.closest(".req-options .opt[data-jreq]");
   if (jopt) {

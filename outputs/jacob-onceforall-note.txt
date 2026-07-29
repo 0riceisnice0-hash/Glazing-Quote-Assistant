@@ -1,0 +1,23 @@
+One domain gap in your intake classifier, if Once For All mail reaches commercial@.
+
+tenders@onceforallmarketplace.com is a live tender-portal channel - it is what carried
+Pearce Construction's chase on Georgie's ("new message: Georgie's (formerly Rosebank) -
+Doors and windows (MSGd0xT1)"). It is not in jacob_intake.PORTALS. Conquest is in there
+under conquestenquiries/conquestsoftware; the platform has since rebranded to Once For All
+and the old terms no longer match the sending domain.
+
+Consequence is over-attention rather than under: with PORTALS missing it, the body reads
+"Please advise when we may receive your priced proposal/quotation" and falls through to the
+direction rules as an enquiry. So a portal chase on a job we have already quoted can present
+to you as a fresh one - Georgie's is exactly that, quoted to Pearce and mid-negotiation with
+Neil Macilwaine this morning.
+
+I have not touched your file. Adding onceforall to the PORTALS pattern is the whole fix if
+you agree it belongs there.
+
+Separately, and only because it is the same regex: I tested whether the MARKETING pattern
+misfires on portal invitations, since tender portals put "unsubscribe / manage preferences"
+footers on them. It does not, and the reason is worth knowing - you match MARKETING against
+Graph bodyPreview, which is ~255 characters, and the footer sits far below that. Checked
+against five real portal emails: none carries a marketing phrase in the first 400 characters.
+If that ever changes to a full-body match it would start eating tender invitations.

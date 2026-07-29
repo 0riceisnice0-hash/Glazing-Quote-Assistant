@@ -331,14 +331,14 @@
  },
  "chats": {
   "triage": {
-   "session_id": "8c8412c3-75b0-471e-b7ed-316ea918af08",
-   "started": true,
+   "session_id": "19792a8d-f989-4288-a634-7d309d4e7f3b",
+   "started": false,
    "created": "2026-07-27T13:43:40",
    "last_active": "2026-07-29T07:08:52",
    "runs": 18,
-   "rotated_from": "51342bb1-aee9-45a9-b58e-3845af9b9bf8",
-   "rotated_at": "2026-07-28T10:12:00",
-   "rotations": 1
+   "rotated_from": "8c8412c3-75b0-471e-b7ed-316ea918af08",
+   "rotated_at": "2026-07-29T09:37:33",
+   "rotations": 2
   },
   "filwood": {
    "session_id": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
@@ -464,8 +464,8 @@
    "session_id": "78f006db-f9a7-461e-b131-9d8fc1073cc9",
    "started": true,
    "created": "2026-07-28T18:14:21",
-   "last_active": "2026-07-29T09:29:08",
-   "runs": 2
+   "last_active": "2026-07-29T09:35:50",
+   "runs": 3
   },
   "vesuvius": {
    "session_id": "9c5ca9d8-20c5-4a07-885b-37043eda3414",

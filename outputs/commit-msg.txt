@@ -1,0 +1,24 @@
+Triage: StrongdorFEST is noise, and a marketing footer is not evidence of marketing
+
+One work order, a supplier festival invitation from marketing@strongdor.com. Noise,
+no email, no request, moved to processed.
+
+Tested whether it justified a Hightown-style mute and it does not. 4 of 152
+non-dashboard work orders in processed/ are bulk marketing (2.6%), identified by
+the ESP in internet_message_id. Hightown was 115 emails since December. Not built.
+
+The near-miss is the finding: filtering on a body footer - "unsubscribe", "manage
+preferences", "view in browser" - hits 42 of 152, and 39 are live tender traffic.
+Portals put those footers on invitations and reply chains propagate them, so the
+intuitive filter would have silenced Grange Hill, St Mary's, Georgie's, Ninn Lane,
+Crestwood and Lower Range while looking like it worked.
+
+Checked whether jacob_intake.MARKETING has that bug. It does not - PORTALS returns
+first and MARKETING matches Graph bodyPreview (~255 chars), below which the footer
+sits. Verified against five real portal work orders. Recorded the negative.
+
+One real gap passed to Jacob as FYI: tenders@onceforallmarketplace.com is in no
+PORTALS list and no Python file in the repo; Conquest rebranded and the old terms
+no longer match. It carried Pearce's chase on Georgie's. His file, his fix.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

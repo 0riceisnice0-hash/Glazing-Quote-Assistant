@@ -400,3 +400,12 @@ ul.plain li { margin-bottom: 8px; }
   .page { padding: 0 18px 60px; }
   .page-tools input { width: 100%; }
 }
+
+/* Free-text answer under a request. The buttons only cover what Jacob thought
+   to ask; this is for the answer he did not anticipate. */
+.req-reply { display: flex; gap: 8px; margin-top: 10px; align-items: flex-start; }
+.req-reply textarea { flex: 1; padding: 8px 10px; border: 1px solid var(--line);
+  border-radius: var(--r-sm); font-size: var(--t-13); resize: vertical; color: var(--body); }
+.req-reply textarea:focus { outline: none; border-color: var(--green); }
+.btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line-strong); }
+.btn.ghost:hover { border-color: var(--green); color: var(--green-600); }
