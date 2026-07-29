@@ -1,11 +1,35 @@
 {
- "note": "Owner-stated or document-verified values for ARCHIVE wins (data/job-history.json keys). The archive records THAT a job was won, not what it was worth - this file holds the values as they become known. The eventual folder-mining job (mary_quote_reader over the won folders) writes here too, with basis 'document'. Never guess a value into this file.",
+ "note": "Owner-stated, brochure-published or document-verified values for ARCHIVE wins (data/job-history.json keys). The archive records THAT a job was won, not what it was worth - this file holds values as they become known, each with its basis. Candidates come from scripts/mine_won_values.py (data/won-values-evidence.json); a candidate becomes a value here only after review, because invoice amounts are interim/net/gross and a PO can carry a GBP 5m insurance line. Never guess a value into this file.",
  "values": {
   "fortis vision|headrow court": {
-   "value": 600000,
-   "basis": "owner-stated",
-   "source": "Zac, dev chat, 2026-07-29",
-   "note": "approximate - Zac: 'headrow 600k job'. Document verification pending the folder mining."
+   "value": 630000,
+   "basis": "brochure",
+   "source": "Fenster Glazing Commercial Projects brochure, 2026; first flagged by Zac (dev chat 29/07, 'headrow 600k job')",
+   "note": "Published project value. Final-account docs exist in the folder for document verification."
+  },
+  "bedfordshire council|franklin house": {
+   "value": 180000,
+   "basis": "brochure",
+   "source": "Fenster Glazing Commercial Projects brochure, 2026",
+   "note": "NO archive entry found - predates the archive window or filed under an unrecognised contractor. A real Fenster win per the brochure; the archive itself has a gap here."
+  },
+  "conamar|uor": {
+   "value": 118000,
+   "basis": "brochure",
+   "source": "Fenster Glazing Commercial Projects brochure, 2026 (University of Roehampton)",
+   "note": "Final Account Statement Rev A exists in 2. Completed/Conamar/UoR/Finance - verify against it."
+  },
+  "conamar|conamar dwp tottenham 2025": {
+   "value": 550000,
+   "basis": "brochure",
+   "source": "Fenster Glazing Commercial Projects brochure, 2026",
+   "note": "Brochure name 'Tottenham Job Centre' (end client Haringey Council); archive key is the contractor's: Conamar DWP Tottenham 2025."
+  },
+  "rsr|rsr bletchley rail depot": {
+   "value": 191000,
+   "basis": "brochure",
+   "source": "Fenster Glazing Commercial Projects brochure, 2026",
+   "note": "65 windows, 6 doors and 1 curtain wall per the brochure. Valuation invoices in the folder."
   }
  }
 }

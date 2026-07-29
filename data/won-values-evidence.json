@@ -1,0 +1,3715 @@
+{
+ "generated": "2026-07-29T13:06:45",
+ "note": "Evidence index + candidate amounts for won-job values. Candidates are NOT values - gross/net/cumulative/VAT need judgement. Confirmed values go to data/known-values.json with basis 'document'.",
+ "jobs": {
+  "aspire federation|kents hill replacement blue doors": {
+   "client": "Aspire Federation",
+   "job": "Kents Hill Replacement Blue Doors",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Aspire Federation\\Kents Hill Replacement Blue Doors",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Aspire Federation\\Kents Hill Replacement Blue Doors\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Aspire Federation\\Kents Hill Replacement Blue Doors\\1. PO\\PO 7026015864 Fenster.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Aspire Federation\\Kents Hill Replacement Blue Doors\\4. Orders\\kents hills - Door Order.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Aspire Federation\\Kents Hill Replacement Blue Doors\\1. PO\\PO 7026015864 Fenster.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "aspire federation|kents hill survey": {
+   "client": "Aspire Federation",
+   "job": "Kents Hill Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Aspire Federation\\Kents Hill Survey",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Aspire Federation\\Kents Hill Survey\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Aspire Federation\\Kents Hill Survey\\1. PO\\PO 7026015605 Fenster.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Aspire Federation\\Kents Hill Survey\\1. PO\\PO 7026015605 Fenster.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "aspire federation|slated row repairs": {
+   "client": "Aspire Federation",
+   "job": "Slated Row Repairs",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Aspire Federation\\Slated Row Repairs",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "Aspire Federation\\Slated Row Repairs\\1. PO\\PO Fenster Replacement Rim Mechs adjustments 7026015527.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Aspire Federation\\Slated Row Repairs\\1. PO\\PO Fenster Replacement Rim Mechs adjustments 7026015527.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "aspire federation|slated row replacement anthractie doors": {
+   "client": "Aspire Federation",
+   "job": "Slated Row Replacement Anthractie Doors",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Aspire Federation\\Slated Row Replacement Anthractie Doors",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Aspire Federation\\Slated Row Replacement Anthractie Doors\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Aspire Federation\\Slated Row Replacement Anthractie Doors\\1. PO\\PO 7026015864 Fenster.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Aspire Federation\\Slated Row Replacement Anthractie Doors\\4. Orders\\Wolverton - Door Order.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Aspire Federation\\Slated Row Replacement Anthractie Doors\\1. PO\\PO 7026015864 Fenster.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "aspire federation|slated row replacement blue doors": {
+   "client": "Aspire Federation",
+   "job": "Slated Row Replacement Blue Doors",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Aspire Federation\\Slated Row Replacement Blue Doors",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "Aspire Federation\\Slated Row Replacement Blue Doors\\1. PO\\PO Fenster recpt doors OW 7026015526.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Aspire Federation\\Slated Row Replacement Blue Doors\\1. PO\\PO Fenster recpt doors OW 7026015526.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "aspire federation|slated row survey": {
+   "client": "Aspire Federation",
+   "job": "Slated Row Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Aspire Federation\\Slated Row Survey",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Aspire Federation\\Slated Row Survey\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Aspire Federation\\Slated Row Survey\\1. PO\\PO 7026015605 Fenster.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Aspire Federation\\Slated Row Survey\\1. PO\\PO 7026015605 Fenster.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "aspire federation|slated row velux repair & door adjustment": {
+   "client": "Aspire Federation",
+   "job": "Slated Row Velux Repair & Door Adjustment",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Aspire Federation\\Slated Row Velux Repair & Door Adjustment",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Aspire Federation\\Slated Row Velux Repair & Door Adjustment\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Aspire Federation\\Slated Row Velux Repair & Door Adjustment\\1. PO\\PO 726015826 Fenster.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Aspire Federation\\Slated Row Velux Repair & Door Adjustment\\1. PO\\PO 726015826 Fenster.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "borras|coventry - stoke park school": {
+   "client": "Borras",
+   "job": "Coventry - Stoke Park School",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Borras\\Coventry - Stoke Park School",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Borras\\Coventry - Stoke Park School\\5. Finance\\Payment Applications\\Fenster Glazing Payment Application - Stoke Park (Nr. 1).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Coventry - Stoke Park School\\1. Estimating\\2. Supplier Quotes\\Aplus\\APlus - Order Signoff\\Order Sign Off_17644.PDF"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Coventry - Stoke Park School\\1. PO\\3191 - FENSTER GLAZING LTD SUB-CONTRACT ORDER.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Coventry - Stoke Park School\\4. Orders\\Glass Order\\Stoke Park - Glass Order.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Coventry - Stoke Park School\\4. Orders\\Louvre Order\\Sales Order 20614 - Signed Louvre Order.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Coventry - Stoke Park School\\4. Orders\\Louvre Order\\Stoke Park - Louvre Order.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Coventry - Stoke Park School\\4. Orders\\Order Sign Off_17644.PDF"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Coventry - Stoke Park School\\4. Orders\\Panel Order\\Stoke Park - Panel Order.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Coventry - Stoke Park School\\4. Orders\\Stoke Park School - Order Sign Off_17644.PDF"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Borras\\Coventry - Stoke Park School\\1. Estimating\\2. Supplier Quotes\\Aplus\\APlus - Order Signoff\\Order Sign Off_17644.PDF",
+     "amounts": []
+    }
+   ]
+  },
+  "borras|manor lodge school": {
+   "client": "Borras",
+   "job": "Manor Lodge School",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Borras\\Manor Lodge School",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Borras\\Manor Lodge School\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Manor Lodge School\\1. PO\\3195 Manor House - Fenster Contract Sum Analysis.xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Manor Lodge School\\1. PO\\3195 Manor House - Fenster Order Frontsheet.pdf"
+    }
+   ],
+   "candidates": []
+  },
+  "borras|raglan school": {
+   "client": "Borras",
+   "job": "Raglan School",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Borras\\Raglan School",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "valuation",
+     "file": "Borras\\Raglan School\\1. PO\\5933 - Raglan Roofing Project - Fenster Glazing Order\\5933 - Raglan Roofing Project - Valuation Schedule.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Raglan School\\1. PO\\5933 - Raglan Roofing Project - Fenster Glazing Order\\Borras - Raglan School Pricing REV 2.xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Raglan School\\1. PO\\5933 - Raglan Roofing Project - Fenster Glazing Order\\SC51516 - Raglan Roofing Project - Fenster Glazing Order Front Sheet.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Borras\\Raglan School\\1. PO\\5933 - Raglan Roofing Project - Fenster Glazing Order\\Subcontract Terms & Conditons .pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Borras\\Raglan School\\1. PO\\5933 - Raglan Roofing Project - Fenster Glazing Order\\5933 - Raglan Roofing Project - Valuation Schedule.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "bradford watts|units 6 pincents kiln": {
+   "client": "Bradford Watts",
+   "job": "Units 6 Pincents Kiln",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Bradford Watts\\Units 6 Pincents Kiln",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "Bradford Watts\\Units 6 Pincents Kiln\\PO\\Order Agreement- Sub Contractor -  FENSTER GLAZING & LOCKS LTD.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Bradford Watts\\Units 6 Pincents Kiln\\PO\\Order Agreement- Sub Contractor -  FENSTER GLAZING & LOCKS LTD.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "capital services|flat 22 austin house": {
+   "client": "Capital Services",
+   "job": "Flat 22 Austin House",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Capital Services\\Flat 22 Austin House",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Capital Services\\Flat 22 Austin House\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Capital Services\\Flat 22 Austin House\\1. Estimating\\2. Supplier Quotes\\Tru Frame\\10212271_GLASS ORDER (CUSTOMER QUOTE)-2026-7-1-15-34-59.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Capital Services\\Flat 22 Austin House\\1. PO\\PurchaseOrder - 2026-07-15T164704.909.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Capital Services\\Flat 22 Austin House\\4. Orders\\90915243_GLASS ORDER (CUSTOMER)-2026-7-21-11-42-5.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Capital Services\\Flat 22 Austin House\\4. Orders\\90915243_ORDER ACK_RA-2026-7-21-11-42-3 - Signed Order.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Capital Services\\Flat 22 Austin House\\4. Orders\\Capital Services - Austin House Order.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Capital Services\\Flat 22 Austin House\\1. Estimating\\2. Supplier Quotes\\Tru Frame\\10212271_GLASS ORDER (CUSTOMER QUOTE)-2026-7-1-15-34-59.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "denton hope|roseford court": {
+   "client": "Denton Hope",
+   "job": "Roseford Court",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Denton Hope\\Roseford Court",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "Denton Hope\\Roseford Court\\1. PO\\DHLT-00024.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Denton Hope\\Roseford Court\\1. PO\\DHLT-00024.pdf",
+     "amounts": [
+      {
+       "amount": 18588.56,
+       "line": "£ 18,588.564"
+      },
+      {
+       "amount": 15490.47,
+       "line": "£ 15,490.47"
+      },
+      {
+       "amount": 3098.09,
+       "line": "£ 3,098.094"
+      }
+     ]
+    }
+   ]
+  },
+  "dhanekula|1. estimating": {
+   "client": "Dhanekula",
+   "job": "1. Estimating",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Dhanekula\\1. Estimating",
+   "state": "live",
+   "evidence": []
+  },
+  "dhanekula|1. po": {
+   "client": "Dhanekula",
+   "job": "1. PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Dhanekula\\1. PO",
+   "state": "live",
+   "evidence": []
+  },
+  "dhanekula|2. site survey": {
+   "client": "Dhanekula",
+   "job": "2. Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Dhanekula\\2. Site Survey",
+   "state": "live",
+   "evidence": []
+  },
+  "dhanekula|3. drawings": {
+   "client": "Dhanekula",
+   "job": "3. Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Dhanekula\\3. Drawings",
+   "state": "live",
+   "evidence": []
+  },
+  "dhanekula|4. orders": {
+   "client": "Dhanekula",
+   "job": "4. Orders",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Dhanekula\\4. Orders",
+   "state": "live",
+   "evidence": []
+  },
+  "dhanekula|5. finance": {
+   "client": "Dhanekula",
+   "job": "5. Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Dhanekula\\5. Finance",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Dhanekula\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    }
+   ],
+   "candidates": []
+  },
+  "dhanekula|6. h&s": {
+   "client": "Dhanekula",
+   "job": "6. H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Dhanekula\\6. H&S",
+   "state": "live",
+   "evidence": []
+  },
+  "dhanekula|7. aftersales": {
+   "client": "Dhanekula",
+   "job": "7. Aftersales",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Dhanekula\\7. Aftersales",
+   "state": "live",
+   "evidence": []
+  },
+  "elkins|blenheim court": {
+   "client": "Elkins",
+   "job": "Blenheim Court",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Elkins\\Blenheim Court",
+   "state": "live",
+   "evidence": []
+  },
+  "elkins|midfield school": {
+   "client": "Elkins",
+   "job": "Midfield School",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Elkins\\Midfield School",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "Elkins\\Midfield School\\Ordered\\SS\\Elkins - Midfield Primary - Strongdor Order _SQ183125_Rev6.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Elkins\\Midfield School\\Ordered\\TruFrame\\90914747_GLASS ORDER (CUSTOMER)-2026-7-21-11-32-42.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Elkins\\Midfield School\\Ordered\\TruFrame\\90914747_ORDER ACK_RA-2026-7-21-11-32-39 - Signed Order.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Elkins\\Midfield School\\PO\\Complete_with_Docusign_FORM0802-_Fenster_Gl (1).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Elkins\\Midfield School\\Ordered\\SS\\Elkins - Midfield Primary - Strongdor Order _SQ183125_Rev6.pdf",
+     "amounts": [
+      {
+       "amount": 3159.64,
+       "line": "Total GBP (inc. VAT) £3,159.64"
+      },
+      {
+       "amount": 2633.03,
+       "line": "Order Total (exc. VAT) £2,633.03"
+      },
+      {
+       "amount": 2475.03,
+       "line": "Unglazed option  Steeldor Double RAL9010 1923 3600 1 £2,475.03 £2,475.03"
+      }
+     ]
+    },
+    {
+     "file": "Elkins\\Midfield School\\Ordered\\TruFrame\\90914747_GLASS ORDER (CUSTOMER)-2026-7-21-11-32-42.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "fortis vision|cambridge": {
+   "client": "Fortis Vision",
+   "job": "Cambridge",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Fortis Vision\\Cambridge",
+   "state": "live",
+   "evidence": []
+  },
+  "fortis vision|london road 2": {
+   "client": "Fortis Vision",
+   "job": "London Road 2",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Fortis Vision\\London Road 2",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "Fortis Vision\\London Road 2\\1. PO\\FVAP931 SC13099 FENSTER.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Fortis Vision\\London Road 2\\1. PO\\Fortis Vision.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Fortis Vision\\London Road 2\\4. Orders\\Fenster Glazing (247791) - Lathams - Signed Order.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Fortis Vision\\London Road 2\\1. PO\\FVAP931 SC13099 FENSTER.pdf",
+     "amounts": [
+      {
+       "amount": 3785.54,
+       "line": "Anthracite Door  1.00 £3,785.54£3,785.54"
+      }
+     ]
+    },
+    {
+     "file": "Fortis Vision\\London Road 2\\1. PO\\Fortis Vision.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "krypton|waitrose @ storrington": {
+   "client": "Krypton",
+   "job": "Waitrose @ Storrington",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Krypton\\Waitrose @ Storrington",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Krypton\\Waitrose @ Storrington\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "Krypton\\Waitrose @ Storrington\\1. PO\\SC2435 Fenster .pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Krypton\\Waitrose @ Storrington\\1. PO\\SC2435 Fenster .pdf",
+     "amounts": [
+      {
+       "amount": 3190.0,
+       "line": "Order Value: £3190.00"
+      }
+     ]
+    }
+   ]
+  },
+  "lynch brother homes|oxford university press": {
+   "client": "Lynch Brother Homes",
+   "job": "Oxford University Press",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Lynch Brother Homes\\Oxford University Press",
+   "state": "live",
+   "evidence": []
+  },
+  "porthaven|lavender oaks": {
+   "client": "Porthaven",
+   "job": "Lavender Oaks",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Porthaven\\Lavender Oaks",
+   "state": "live",
+   "evidence": []
+  },
+  "pride developments|raf mildenhall": {
+   "client": "Pride Developments",
+   "job": "RAF Mildenhall",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Pride Developments\\RAF Mildenhall",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "Pride Developments\\RAF Mildenhall\\1. PO\\PD7810-Fenster_PO1540.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Pride Developments\\RAF Mildenhall\\1. PO\\PD7810-Fenster_PO1540.pdf",
+     "amounts": [
+      {
+       "amount": 4937.98,
+       "line": "Total GBP 4,937.98"
+      }
+     ]
+    }
+   ]
+  },
+  "rrr-group|towcester vale local centre": {
+   "client": "RRR-Group",
+   "job": "Towcester Vale Local Centre",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\RRR-Group\\Towcester Vale Local Centre",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Fenster contract.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Fenster_RRR_Towcester_Vale_Subcontract_Agreement_3557_REV2.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Towcester Vale Local Centre – Contract Pack – Fenster Ref 3557\\Drawings\\DATA SHEET_Smart_Wall.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Towcester Vale Local Centre – Contract Pack – Fenster Ref 3557\\Drawings\\Legacy uPVC Sliding Sash Window Brochure June 2026 UNBRANDED.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Towcester Vale Local Centre – Contract Pack – Fenster Ref 3557\\Drawings\\QS Legacy Tech Info.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Towcester Vale Local Centre – Contract Pack – Fenster Ref 3557\\Drawings\\Record STA20 Automation.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Towcester Vale Local Centre – Contract Pack – Fenster Ref 3557\\Drawings\\Unit 1 - Loading Fire Escape Door.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Towcester Vale Local Centre – Contract Pack – Fenster Ref 3557\\Drawings\\Unit 1 - SMA Smart Wall Aluminium Shopfront, Doors & Screens'.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Towcester Vale Local Centre – Contract Pack – Fenster Ref 3557\\Drawings\\Unit 3 - 7 Aluminium AOV casement windows.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Towcester Vale Local Centre – Contract Pack – Fenster Ref 3557\\Drawings\\Unit 3 - 7 DFE1 & DFE2 Doors.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Fenster contract.pdf",
+     "amounts": []
+    },
+    {
+     "file": "RRR-Group\\Towcester Vale Local Centre\\1. PO\\Fenster_RRR_Towcester_Vale_Subcontract_Agreement_3557_REV2.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "sdevs|41 kings street": {
+   "client": "SDevs",
+   "job": "41 Kings Street",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\SDevs\\41 Kings Street",
+   "state": "live",
+   "evidence": []
+  },
+  "st albans school|1. estimating": {
+   "client": "St Albans School",
+   "job": "1. Estimating",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\St Albans School\\1. Estimating",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "St Albans School\\1. Estimating\\3. Client Quote\\st albans school - Signed Order.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "St Albans School\\1. Estimating\\3. Client Quote\\st albans school - Signed Order.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "st albans school|1. po": {
+   "client": "St Albans School",
+   "job": "1. PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\St Albans School\\1. PO",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "St Albans School\\1. PO\\0637.GD.Fenster.2026signed.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "St Albans School\\1. PO\\Purchase Order Form.xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "St Albans School\\1. PO\\St Albans - Glazing Film PO01.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "St Albans School\\1. PO\\0637.GD.Fenster.2026signed.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "st albans school|2. site survey": {
+   "client": "St Albans School",
+   "job": "2. Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\St Albans School\\2. Site Survey",
+   "state": "live",
+   "evidence": []
+  },
+  "st albans school|3. drawings": {
+   "client": "St Albans School",
+   "job": "3. Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\St Albans School\\3. Drawings",
+   "state": "live",
+   "evidence": []
+  },
+  "st albans school|4. orders": {
+   "client": "St Albans School",
+   "job": "4. Orders",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\St Albans School\\4. Orders",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "St Albans School\\4. Orders\\Curtain Wall\\FENSTER ORDER ACK.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "St Albans School\\4. Orders\\Curtain Wall\\st albans school - Signed Order.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "St Albans School\\4. Orders\\Curtain Wall\\FENSTER ORDER ACK.pdf",
+     "amounts": [
+      {
+       "amount": 16047.02,
+       "line": "TOTAL INC. VAT £16,047.02"
+      },
+      {
+       "amount": 13372.52,
+       "line": "£13,372.52Total Extras Value:"
+      },
+      {
+       "amount": 2674.5,
+       "line": "VAT @ £2,674.50"
+      }
+     ]
+    },
+    {
+     "file": "St Albans School\\4. Orders\\Curtain Wall\\st albans school - Signed Order.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "st albans school|5. finance": {
+   "client": "St Albans School",
+   "job": "5. Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\St Albans School\\5. Finance",
+   "state": "live",
+   "evidence": []
+  },
+  "st albans school|6. h&s": {
+   "client": "St Albans School",
+   "job": "6. H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\St Albans School\\6. H&S",
+   "state": "live",
+   "evidence": []
+  },
+  "st albans school|7. aftersales": {
+   "client": "St Albans School",
+   "job": "7. Aftersales",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\St Albans School\\7. Aftersales",
+   "state": "live",
+   "evidence": []
+  },
+  "stewarts|dhl milton keynes digital centre": {
+   "client": "Stewarts",
+   "job": "DHL Milton Keynes Digital Centre",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Stewarts\\DHL Milton Keynes Digital Centre",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "Stewarts\\DHL Milton Keynes Digital Centre\\4. Orders\\Dualseal\\Purchase Order - Dual Seal Glass.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Stewarts\\DHL Milton Keynes Digital Centre\\4. Orders\\Dualseal\\Purchase Order - Dual Seal Glass.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "stewarts|dhl milton keynes digital centre 2": {
+   "client": "Stewarts",
+   "job": "DHL Milton Keynes Digital Centre 2",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Stewarts\\DHL Milton Keynes Digital Centre 2",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "Stewarts\\DHL Milton Keynes Digital Centre 2\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    }
+   ],
+   "candidates": []
+  },
+  "target maintenance|all saints view": {
+   "client": "Target Maintenance",
+   "job": "All Saints View",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\Target Maintenance\\All Saints View",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "Target Maintenance\\All Saints View\\1. PO\\PurchaseorderPO00016173.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "Target Maintenance\\All Saints View\\1. PO\\SS\\PurchaseorderPO_00015839.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "Target Maintenance\\All Saints View\\1. PO\\PurchaseorderPO00016173.pdf",
+     "amounts": [
+      {
+       "amount": 4419.62,
+       "line": "£4,419.62"
+      },
+      {
+       "amount": 3683.02,
+       "line": "£3,683.02"
+      }
+     ]
+    },
+    {
+     "file": "Target Maintenance\\All Saints View\\1. PO\\SS\\PurchaseorderPO_00015839.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "west bletchley council|melrose avenue": {
+   "client": "West Bletchley Council",
+   "job": "Melrose Avenue",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\West Bletchley Council\\Melrose Avenue",
+   "state": "live",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "West Bletchley Council\\Melrose Avenue\\1. PO\\WO2627053 - Fenster Glazing.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "West Bletchley Council\\Melrose Avenue\\4. Orders\\Purchase Order Form.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "West Bletchley Council\\Melrose Avenue\\4. Orders\\Purchase Order Form.xlsx"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "West Bletchley Council\\Melrose Avenue\\1. PO\\WO2627053 - Fenster Glazing.pdf",
+     "amounts": [
+      {
+       "amount": 2755.2,
+       "line": "Total £2755.20"
+      }
+     ]
+    },
+    {
+     "file": "West Bletchley Council\\Melrose Avenue\\4. Orders\\Purchase Order Form.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "aspire|slated row 3": {
+   "client": "Aspire",
+   "job": "Slated Row 3",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Aspire\\Slated Row 3",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Aspire\\Slated Row 3\\1. PO\\PO Number 7026015110 SLated Row School.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Aspire\\Slated Row 3\\4. Ordered\\Order Ack.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Aspire\\Slated Row 3\\5. Finance\\Outgoing Invoices\\Aspire Federation  - Slated Row Invoice Order 7026015110 (3199).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Aspire\\Slated Row 3\\1. PO\\PO Number 7026015110 SLated Row School.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Aspire\\Slated Row 3\\4. Ordered\\Order Ack.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "aspley guise golf club|1. estimating": {
+   "client": "Aspley Guise Golf Club",
+   "job": "1. Estimating",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Aspley Guise Golf Club\\1. Estimating",
+   "state": "completed",
+   "evidence": []
+  },
+  "aspley guise golf club|1. po": {
+   "client": "Aspley Guise Golf Club",
+   "job": "1. PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Aspley Guise Golf Club\\1. PO",
+   "state": "completed",
+   "evidence": []
+  },
+  "aspley guise golf club|2. site survey": {
+   "client": "Aspley Guise Golf Club",
+   "job": "2. Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Aspley Guise Golf Club\\2. Site Survey",
+   "state": "completed",
+   "evidence": []
+  },
+  "aspley guise golf club|3. drawings": {
+   "client": "Aspley Guise Golf Club",
+   "job": "3. Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Aspley Guise Golf Club\\3. Drawings",
+   "state": "completed",
+   "evidence": []
+  },
+  "aspley guise golf club|4. orders": {
+   "client": "Aspley Guise Golf Club",
+   "job": "4. Orders",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Aspley Guise Golf Club\\4. Orders",
+   "state": "completed",
+   "evidence": []
+  },
+  "aspley guise golf club|5. finance": {
+   "client": "Aspley Guise Golf Club",
+   "job": "5. Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Aspley Guise Golf Club\\5. Finance",
+   "state": "completed",
+   "evidence": []
+  },
+  "aspley guise golf club|6. h&s": {
+   "client": "Aspley Guise Golf Club",
+   "job": "6. H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Aspley Guise Golf Club\\6. H&S",
+   "state": "completed",
+   "evidence": []
+  },
+  "aspley guise golf club|7. aftersales": {
+   "client": "Aspley Guise Golf Club",
+   "job": "7. Aftersales",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Aspley Guise Golf Club\\7. Aftersales",
+   "state": "completed",
+   "evidence": []
+  },
+  "avenir works|147 headrow secondary": {
+   "client": "Avenir Works",
+   "job": "147 Headrow Secondary",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Avenir Works\\147 Headrow Secondary",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Avenir Works\\147 Headrow Secondary\\1. Estimating\\2. Supplier Quotes\\10203315_GLASS ORDER (CUSTOMER QUOTE)-2025-12-15-12-44-31.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Avenir Works\\147 Headrow Secondary\\1. Estimating\\2. Supplier Quotes\\10203315_GLASS ORDER (CUSTOMER QUOTE)-2025-12-15-12-44-31.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "avenir works|leeds": {
+   "client": "Avenir Works",
+   "job": "Leeds",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Avenir Works\\Leeds",
+   "state": "completed",
+   "evidence": []
+  },
+  "borras|borras - 950 capability green": {
+   "client": "Borras",
+   "job": "Borras - 950 Capability Green",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Borras\\Borras - 950 Capability Green",
+   "state": "completed",
+   "evidence": []
+  },
+  "borras|borras - ashtree school": {
+   "client": "Borras",
+   "job": "Borras - Ashtree School",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Borras\\Borras - Ashtree School",
+   "state": "completed",
+   "evidence": []
+  },
+  "borras|borras - charville": {
+   "client": "Borras",
+   "job": "Borras - Charville",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Borras\\Borras - Charville",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Charville\\Glazing Order[274935].pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Borras\\Borras - Charville\\Glazing Order[274935].pdf",
+     "amounts": [
+      {
+       "amount": 4084.0,
+       "line": "ORDER VALUE £4,084.00 EXCLUDING VAT"
+      },
+      {
+       "amount": 2364.46,
+       "line": "£2,364.46 PER"
+      }
+     ]
+    }
+   ]
+  },
+  "borras|borras - leagrave": {
+   "client": "Borras",
+   "job": "Borras - Leagrave",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Borras\\Borras - Leagrave",
+   "state": "completed",
+   "evidence": []
+  },
+  "borras|borras - lister hospital": {
+   "client": "Borras",
+   "job": "Borras - Lister Hospital",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Borras\\Borras - Lister Hospital",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\1. Estimating\\2. Supplier Quotes\\Truframe\\10204555_GLASS ORDER (CUSTOMER QUOTE)-2026-1-26-16-16-33.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\1. Estimating\\2. Supplier Quotes\\Truframe\\10204555_PANEL ORDER (CUSTOMER QUOTE)-2026-1-26-16-16-35.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\1. PO\\5906 Section 136 - SC51022 - Fenster Glazing.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\1. PO\\Borras Construction - Lister Hospital Quotation.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\1. PO\\SS\\5906 Section 136 - SC51022 - Fenster Glazing.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\1. PO\\Subcontract Terms & Conditons .pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\4. Ordered\\Truframe\\90880736 Order Ack.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\4. Ordered\\Truframe\\90880736_GLASS ORDER (CUSTOMER)-2026-2-3-15-26-15.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\4. Ordered\\Truframe\\90880736_PANEL ORDER (CUSTOMER)-2026-2-3-15-26-16.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\4. Ordered\\Truframe\\SS\\90880736_GLASS ORDER (CUSTOMER)-2026-2-3-11-5-35.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\1. Estimating\\2. Supplier Quotes\\Truframe\\10204555_GLASS ORDER (CUSTOMER QUOTE)-2026-1-26-16-16-33.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Borras\\Borras - Lister Hospital\\1. Estimating\\2. Supplier Quotes\\Truframe\\10204555_PANEL ORDER (CUSTOMER QUOTE)-2026-1-26-16-16-35.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "borras|borras - witchford village": {
+   "client": "Borras",
+   "job": "Borras - Witchford Village",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Borras\\Borras - Witchford Village",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "2. Completed\\Borras\\Borras - Witchford Village\\Finance\\Fenster Glazing Payment Application - Witchford (Nr. 1).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Witchford Village\\Order Confirmations\\223668 (BSW).pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Witchford Village\\Order Confirmations\\FENSTERG_OrderAckwithPrice_662313(WITCHFORD).pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Borras\\Borras - Witchford Village\\Order\\3178 Fenster Glazing Order Frontsheet.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Borras\\Borras - Witchford Village\\Order Confirmations\\223668 (BSW).pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "burge hughes walsh|unit 6 allerton road": {
+   "client": "Burge Hughes Walsh",
+   "job": "Unit 6 Allerton Road",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Burge Hughes Walsh\\Unit 6 Allerton Road",
+   "state": "completed",
+   "evidence": []
+  },
+  "capital services|ghpc flat 14": {
+   "client": "Capital Services",
+   "job": "GHPC Flat 14",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Capital Services\\GHPC Flat 14",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "2. Completed\\Capital Services\\GHPC Flat 14\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Capital Services\\GHPC Flat 14\\1. PO\\PurchaseOrder - 2026-07-02T102432.840.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Capital Services\\GHPC Flat 14\\1. PO\\PurchaseOrder - 2026-07-02T102432.840.pdf",
+     "amounts": [
+      {
+       "amount": 2016.0,
+       "line": "£2,016.00"
+      },
+      {
+       "amount": 1680.0,
+       "line": "£1,680.00"
+      }
+     ]
+    }
+   ]
+  },
+  "conamar|airbus": {
+   "client": "Conamar",
+   "job": "Airbus",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Conamar\\Airbus",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Conamar\\Airbus\\Finance\\Outgoing invoices\\Conamar Building Services - Airbus Invoice (Valuation Nr.1).pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Conamar\\Airbus\\Finance\\Outgoing invoices\\Conamar Building Services - Airbus Invoice (Valuation Nr.2).pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Conamar\\Airbus\\Finance\\Payment Notice\\Payment Assessment 1 - Airbus HPTF - Fenster.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Conamar\\Airbus\\Finance\\Payment Notice\\SC006908.pdf"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\Airbus\\Finance\\Applications\\Fenster Glazing Payment Application - Airbus (Nr. 1).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\Airbus\\Finance\\Applications\\Fenster Glazing Payment Application - Airbus (Nr. 2).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Conamar\\Airbus\\Ordered\\Sales Order 19218.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Conamar\\Airbus\\Finance\\Outgoing invoices\\Conamar Building Services - Airbus Invoice (Valuation Nr.1).pdf",
+     "amounts": [
+      {
+       "amount": 9975.0,
+       "line": "1409 £9,975.000Contract Balance"
+      },
+      {
+       "amount": 1200.0,
+       "line": "ORDER NO. AD4896/24Project: AirbusGunnels Wood Rd, Stevenage SG1 2ASInstallation of aluminium doors.Labour: £1200REVERSE VAT -CONTRACTOR TO "
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Conamar\\Airbus\\Finance\\Outgoing invoices\\Conamar Building Services - Airbus Invoice (Valuation Nr.2).pdf",
+     "amounts": [
+      {
+       "amount": 13841.5,
+       "line": "1409 £13,841.500Contract Balance"
+      },
+      {
+       "amount": 1500.0,
+       "line": "ORDER NO. AD4896/24Val Nr. 2Project: AirbusGunnels Wood Rd, Stevenage SG1 2ASInstallation of fire rated aluminium doors.Labour: £1500REVERSE"
+      }
+     ]
+    }
+   ]
+  },
+  "conamar|bromley wellbeing centre": {
+   "client": "Conamar",
+   "job": "Bromley Wellbeing Centre",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Conamar\\Bromley Wellbeing Centre",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Notice\\5009-WP04-PN01- Payment Notice & Valuation 01.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Notice\\5009-WP04-PN02- Payless Notice & Valuation 02.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Notice\\5009-WP04-PN03- Payless Notice & Valuation 03.pdf"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Application\\Fenster Glazing Payment Application - Bromley (Nr. 1).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Application\\Fenster Glazing Payment Application - Bromley (Nr. 2).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Application\\Fenster Glazing Payment Application - Bromley (Nr. 3).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Application\\Fenster Glazing Payment Application - Bromley (Nr. 4).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Application\\Fenster Glazing Payment Application - Bromley (Nr. 5).xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Outgoing Invoices\\Fenster Glazing - Bromley Invoice ORDER NO. S-5009-0004.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Outgoing Invoices\\Fenster Glazing 2957 - Bromley Invoice ORDER NO. S-5009-0004 (VAL NR 2).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Notice\\5009-WP04-PN01- Payment Notice & Valuation 01.pdf",
+     "amounts": [
+      {
+       "amount": 6476.0,
+       "line": "Projected Final Account £6,476.00"
+      },
+      {
+       "amount": 5411.5,
+       "line": "Gross Valuation to Date £5,411.50"
+      },
+      {
+       "amount": 5140.92,
+       "line": "We consider that the sum due on the Final Date for Payment is £5,140.92"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Conamar\\Bromley Wellbeing Centre\\Finance\\Payment Notice\\5009-WP04-PN02- Payless Notice & Valuation 02.pdf",
+     "amounts": [
+      {
+       "amount": 6682.0,
+       "line": "Gross Valuation to Date £6,682.00"
+      },
+      {
+       "amount": 6347.9,
+       "line": "Amount Certified £6,347.90"
+      },
+      {
+       "amount": 5140.92,
+       "line": "Less: Amount Previously Paid £5,140.92"
+      },
+      {
+       "amount": 3161.13,
+       "line": "Your payment application brings out the sum of £3,161.13 being payable to you."
+      },
+      {
+       "amount": 1206.98,
+       "line": "We now consider that the sum due to you as at the date of this Pay Less Notice is £1,206.98."
+      }
+     ]
+    }
+   ]
+  },
+  "conamar|lister hospital": {
+   "client": "Conamar",
+   "job": "Lister Hospital",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Conamar\\Lister Hospital",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\Lister Hospital\\Lister Hospital - Payment Application Nr.1.xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Conamar\\Lister Hospital\\Outgoing Invoices\\Conamar Building Services - Lister Hospital Invoice 2 (ORDER NO. 0326SB-23).pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Conamar\\Lister Hospital\\Outgoing Invoices\\Conamar Building Services - Lister Hospital Invoice 5 (ORDER NO. 0326SB-23).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Conamar\\Lister Hospital\\Outgoing Invoices\\Conamar Building Services - Lister Hospital Invoice 2 (ORDER NO. 0326SB-23).pdf",
+     "amounts": [
+      {
+       "amount": 1968.0,
+       "line": "£1,968.00"
+      },
+      {
+       "amount": 1638.0,
+       "line": "2136 £1,638.000Contract Balance"
+      }
+     ]
+    }
+   ]
+  },
+  "conamar|uor": {
+   "client": "Conamar",
+   "job": "UoR",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Conamar\\UoR",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "final-account",
+     "file": "2. Completed\\Conamar\\UoR\\Finance\\Payment Notices\\S-UR5001-0013 - Fenster Glazing - Final Account Statement Rev A.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Conamar\\UoR\\Finance\\Payment Notices\\5001 - UoR - Fenster - PN2.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Conamar\\UoR\\Finance\\Payment Notices\\Fenster App1 - CBS Pay Less Notice.xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\UoR\\Finance\\Payment Applications\\Fenster Glazing Payment Application - UoR (Nr. 1).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\UoR\\Finance\\Payment Applications\\Fenster Glazing Payment Application - UoR (Nr. 2).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\Conamar\\UoR\\Finance\\Payment Applications\\ORDERED.xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Conamar\\UoR\\FA Back up - Fenster UoR\\S-UR5001-0013 - Fenster Glazing (JCT Order).pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Conamar\\UoR\\Ordered\\Sykes\\Purchase Order Document FGL0804 Sykes.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Conamar\\UoR\\Ordered\\Sykes\\Purchase Order Document FGL0805 Sykes.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Conamar\\UoR\\PO\\S-UR5001-0013 - Fenster Glazing (JCT Order).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Conamar\\UoR\\Finance\\Payment Notices\\S-UR5001-0013 - Fenster Glazing - Final Account Statement Rev A.pdf",
+     "amounts": [
+      {
+       "amount": 118103.74,
+       "line": "Sub-Contract Order Value £118,103.74"
+      },
+      {
+       "amount": 75000.0,
+       "line": "Sub Total £75,000.00"
+      },
+      {
+       "amount": 24407.23,
+       "line": "Contra Charges -£24,407.23"
+      },
+      {
+       "amount": 18696.51,
+       "line": "Variations -£18,696.51"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Conamar\\UoR\\Finance\\Payment Notices\\5001 - UoR - Fenster - PN2.pdf",
+     "amounts": [
+      {
+       "amount": 16749.51,
+       "line": "Removal of Entrance Screen Package 1.00 Item -£16,749.51 16,749.51-£         100% 16,749.51-£         100% 16,749.51-£"
+      },
+      {
+       "amount": 10000.0,
+       "line": "Adjustment for DEFINED PROV SUM -Missing Scope 1.00 Item -£10,000.00 10,000.00 -£         100% 10,000.00 -£         100% 10,000.00-£"
+      },
+      {
+       "amount": 7547.0,
+       "line": "WDG02 1.00 Item £7,547.00 7,547.00£            -£                     100% 7,547.00£"
+      },
+      {
+       "amount": 5000.0,
+       "line": "Removal of DEFINED PROV SUM - Sliding Door Pocket Screen 1.00 Item -£5,000.00 5,000.00 -£            100% 5,000.00 -£            100% 5,000."
+      },
+      {
+       "amount": 3400.0,
+       "line": "SDG01 1.00 Item £3,400.00 3,400.00£            100% 3,400.00£            100% 3,400.00£"
+      }
+     ]
+    }
+   ]
+  },
+  "conamar|wooton lower school 2025": {
+   "client": "Conamar",
+   "job": "Wooton Lower School 2025",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Conamar\\Wooton Lower School 2025",
+   "state": "completed",
+   "evidence": []
+  },
+  "cranfield|airc": {
+   "client": "Cranfield",
+   "job": "AIRC",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\AIRC",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\AIRC\\PO\\9809007 AIRC Blown window.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\AIRC\\PO\\9809007 AIRC Blown window.pdf",
+     "amounts": [
+      {
+       "amount": 3556.73,
+       "line": "TOTAL GBP 3,556.73"
+      }
+     ]
+    }
+   ]
+  },
+  "cranfield|b111": {
+   "client": "Cranfield",
+   "job": "B111",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\B111",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B111\\1. PO\\SS\\9809866 B111 F40.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B111\\1. PO\\po03a_76118.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B111\\5. Finance\\Outgoing Invoices\\Cranfield - Invoice 3137 Order 9809866.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\B111\\1. PO\\SS\\9809866 B111 F40.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Cranfield\\B111\\1. PO\\po03a_76118.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "cranfield|b111 (2)": {
+   "client": "Cranfield",
+   "job": "B111 (2)",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\B111 (2)",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B111 (2)\\1. PO\\9810510 B111 S5.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B111 (2)\\5. Finance\\Outgoing Invoices\\Cranfield - Invoice 3456 Order 9810510.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\B111 (2)\\1. PO\\9810510 B111 S5.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Cranfield\\B111 (2)\\5. Finance\\Outgoing Invoices\\Cranfield - Invoice 3456 Order 9810510.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "cranfield|b121": {
+   "client": "Cranfield",
+   "job": "B121",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\B121",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B121\\1. PO\\SS\\9810413 B121 Blown Window.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B121\\1. PO\\po03a_77580.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B121\\5. Finance\\Outgoing Invoices\\Cranfield - Invoice 3555 Order 9810413.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\B121\\1. PO\\SS\\9810413 B121 Blown Window.pdf",
+     "amounts": [
+      {
+       "amount": 1160.0,
+       "line": "TOTAL GBP 1,160.00"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Cranfield\\B121\\1. PO\\po03a_77580.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "cranfield|b33": {
+   "client": "Cranfield",
+   "job": "B33",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\B33",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Cranfield\\B33\\2. Project\\5. Finance\\Payment Notices\\su11xa_375_4606.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B33\\2. Project\\1. PO\\9809825 B33 Hinges.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B33\\2. Project\\5. Finance\\Outgoing Invoices\\Fenster Glazing 3050 - Cranfield B33 Invoice PO 9809825.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\B33\\2. Project\\5. Finance\\Payment Notices\\su11xa_375_4606.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Cranfield\\B33\\2. Project\\1. PO\\9809825 B33 Hinges.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "cranfield|b36 unit 1 2 & 3": {
+   "client": "Cranfield",
+   "job": "B36 Unit 1 2 & 3",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\B36 Unit 1 2 & 3",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B36 Unit 1 2 & 3\\1. PO\\9809844 B36 Units 1, 2 & 3 Door Set.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B36 Unit 1 2 & 3\\4. Ordered\\SS\\90879312_GLASS ORDER (CUSTOMER)-2026-1-27-10-45-39.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B36 Unit 1 2 & 3\\4. Ordered\\SS\\90879312_PANEL ORDER (CUSTOMER)-2026-1-27-10-45-41.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B36 Unit 1 2 & 3\\4. Ordered\\Tru Frame\\90879312_GLASS ORDER (CUSTOMER)-2026-1-28-15-47-35.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B36 Unit 1 2 & 3\\4. Ordered\\Tru Frame\\90879312_PANEL ORDER (CUSTOMER)-2026-1-28-15-47-37.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B36 Unit 1 2 & 3\\Fitter Pack\\90879312_PANEL ORDER (CUSTOMER)-2026-1-28-15-47-37.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\B36 Unit 1 2 & 3\\1. PO\\9809844 B36 Units 1, 2 & 3 Door Set.pdf",
+     "amounts": [
+      {
+       "amount": 3877.7,
+       "line": "TOTAL GBP 3,877.70"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Cranfield\\B36 Unit 1 2 & 3\\4. Ordered\\SS\\90879312_GLASS ORDER (CUSTOMER)-2026-1-27-10-45-39.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "cranfield|b84": {
+   "client": "Cranfield",
+   "job": "B84",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\B84",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B84\\1. PO\\po03a_77193.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\B84\\5. Finance\\Outgoing Invoices\\Fenster Glazing 3382 - Cranfield Invoice PO 9810324.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\B84\\1. PO\\po03a_77193.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Cranfield\\B84\\5. Finance\\Outgoing Invoices\\Fenster Glazing 3382 - Cranfield Invoice PO 9810324.pdf",
+     "amounts": [
+      {
+       "amount": 1832.4,
+       "line": "Invoice Total £1,832.40"
+      },
+      {
+       "amount": 1527.0,
+       "line": "3378 £1,527.0020Contract Balance"
+      }
+     ]
+    }
+   ]
+  },
+  "cranfield|dartec": {
+   "client": "Cranfield",
+   "job": "DARTEC",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\DARTEC",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\DARTEC\\PO\\9809003 B105 DARTEC Window.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\DARTEC\\PO\\9809003 B105 DARTEC Window.pdf",
+     "amounts": [
+      {
+       "amount": 2689.35,
+       "line": "TOTAL GBP 2,689.35"
+      }
+     ]
+    }
+   ]
+  },
+  "cranfield|imec building": {
+   "client": "Cranfield",
+   "job": "IMEC Building",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\IMEC Building",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\IMEC Building\\1. PO\\9809989 IMEC Swing Door.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\IMEC Building\\1. PO\\9809989 IMEC Swing Door.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "cranfield|martell house": {
+   "client": "Cranfield",
+   "job": "Martell House",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\Martell House",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\Martell House\\1. PO\\B300 Martell Glass.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\Martell House\\1. PO\\B300 Martell Glass.pdf",
+     "amounts": [
+      {
+       "amount": 2665.02,
+       "line": "TOTAL GBP 2,665.02"
+      }
+     ]
+    }
+   ]
+  },
+  "cranfield|stringfellow blk 2": {
+   "client": "Cranfield",
+   "job": "Stringfellow Blk 2",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cranfield\\Stringfellow Blk 2",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\Stringfellow Blk 2\\Ordered\\Nationwide Hire Solutions\\Order EN098350 v.1.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\Stringfellow Blk 2\\PO\\9809451 Stringfellow Blk 2 Emergency Works.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Cranfield\\Stringfellow Blk 2\\PO\\9809488 Stringfellow Blk 2.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Cranfield\\Stringfellow Blk 2\\Ordered\\Nationwide Hire Solutions\\Order EN098350 v.1.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Cranfield\\Stringfellow Blk 2\\PO\\9809451 Stringfellow Blk 2 Emergency Works.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "cytra ltd|1. estimating": {
+   "client": "Cytra Ltd",
+   "job": "1. Estimating",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cytra Ltd\\1. Estimating",
+   "state": "completed",
+   "evidence": []
+  },
+  "cytra ltd|1. po": {
+   "client": "Cytra Ltd",
+   "job": "1. PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cytra Ltd\\1. PO",
+   "state": "completed",
+   "evidence": []
+  },
+  "cytra ltd|2. site survey": {
+   "client": "Cytra Ltd",
+   "job": "2. Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cytra Ltd\\2. Site Survey",
+   "state": "completed",
+   "evidence": []
+  },
+  "cytra ltd|3. drawings": {
+   "client": "Cytra Ltd",
+   "job": "3. Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cytra Ltd\\3. Drawings",
+   "state": "completed",
+   "evidence": []
+  },
+  "cytra ltd|4. orders": {
+   "client": "Cytra Ltd",
+   "job": "4. Orders",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cytra Ltd\\4. Orders",
+   "state": "completed",
+   "evidence": []
+  },
+  "cytra ltd|5. finance": {
+   "client": "Cytra Ltd",
+   "job": "5. Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cytra Ltd\\5. Finance",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "2. Completed\\Cytra Ltd\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    }
+   ],
+   "candidates": []
+  },
+  "cytra ltd|6. h&s": {
+   "client": "Cytra Ltd",
+   "job": "6. H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cytra Ltd\\6. H&S",
+   "state": "completed",
+   "evidence": []
+  },
+  "cytra ltd|7. aftersales": {
+   "client": "Cytra Ltd",
+   "job": "7. Aftersales",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Cytra Ltd\\7. Aftersales",
+   "state": "completed",
+   "evidence": []
+  },
+  "dan jones (resi contract)|dan's neighbour": {
+   "client": "Dan Jones (resi contract)",
+   "job": "Dan's Neighbour",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Dan Jones (resi contract)\\Dan's Neighbour",
+   "state": "completed",
+   "evidence": []
+  },
+  "dan jones resi|dan's house": {
+   "client": "Dan Jones Resi",
+   "job": "Dan's House",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Dan Jones Resi\\Dan's House",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Dan Jones Resi\\Dan's House\\4. Orders\\Truframe\\90874337_GLASS ORDER (CUSTOMER)-2025-12-16-14-13-25.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Dan Jones Resi\\Dan's House\\4. Orders\\Truframe\\90874337_PANEL ORDER (CUSTOMER)-2025-12-16-14-13-27.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Dan Jones Resi\\Dan's House\\4. Orders\\Truframe\\90874337_GLASS ORDER (CUSTOMER)-2025-12-16-14-13-25.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Dan Jones Resi\\Dan's House\\4. Orders\\Truframe\\90874337_PANEL ORDER (CUSTOMER)-2025-12-16-14-13-27.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "elkins|eltham lc - cancelled": {
+   "client": "Elkins",
+   "job": "Eltham LC - Cancelled",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Elkins\\Eltham LC - Cancelled",
+   "state": "completed",
+   "evidence": []
+  },
+  "elkins|the brooks": {
+   "client": "Elkins",
+   "job": "The Brooks",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Elkins\\The Brooks",
+   "state": "completed",
+   "evidence": []
+  },
+  "ellen group|1. estimating": {
+   "client": "Ellen Group",
+   "job": "1. Estimating",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Ellen Group\\1. Estimating",
+   "state": "completed",
+   "evidence": []
+  },
+  "ellen group|1. po": {
+   "client": "Ellen Group",
+   "job": "1. PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Ellen Group\\1. PO",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Ellen Group\\1. PO\\PurchaseOrder - PO00018316 (2).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Ellen Group\\1. PO\\PurchaseOrder - PO00018316 (2).pdf",
+     "amounts": [
+      {
+       "amount": 5000000.0,
+       "line": "•Public Liability Insurance – minimum £5,000,000"
+      }
+     ]
+    }
+   ]
+  },
+  "ellen group|2. site survey": {
+   "client": "Ellen Group",
+   "job": "2. Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Ellen Group\\2. Site Survey",
+   "state": "completed",
+   "evidence": []
+  },
+  "ellen group|3. drawings": {
+   "client": "Ellen Group",
+   "job": "3. Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Ellen Group\\3. Drawings",
+   "state": "completed",
+   "evidence": []
+  },
+  "ellen group|4. orders": {
+   "client": "Ellen Group",
+   "job": "4. Orders",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Ellen Group\\4. Orders",
+   "state": "completed",
+   "evidence": []
+  },
+  "ellen group|5. finance": {
+   "client": "Ellen Group",
+   "job": "5. Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Ellen Group\\5. Finance",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Ellen Group\\5. Finance\\Outgoing Invoices\\Ellen Group Invoice No 3473 - PO No PO00018316 Peveral Drive.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Ellen Group\\5. Finance\\Outgoing Invoices\\Ellen Group Invoice No 3473 - PO No PO00018316 Peveral Drive.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "ellen group|6. h&s": {
+   "client": "Ellen Group",
+   "job": "6. H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Ellen Group\\6. H&S",
+   "state": "completed",
+   "evidence": []
+  },
+  "ellen group|7. aftersales": {
+   "client": "Ellen Group",
+   "job": "7. Aftersales",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Ellen Group\\7. Aftersales",
+   "state": "completed",
+   "evidence": []
+  },
+  "farrans|1. estimating": {
+   "client": "Farrans",
+   "job": "1. Estimating",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Farrans\\1. Estimating",
+   "state": "completed",
+   "evidence": []
+  },
+  "farrans|1. po": {
+   "client": "Farrans",
+   "job": "1. PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Farrans\\1. PO",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Farrans\\1. PO\\12015 - 0091 - Purchase Order - Fenster Glazing & Locks Ltd.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Farrans\\1. PO\\CECA Sub-Contract Payment Dates 2025 - 2028.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Farrans\\1. PO\\Health & Safety Pack\\Farrans Plant Standard Summary REV4 UPDATED.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Farrans\\1. PO\\Health & Safety Pack\\Sub Contractor Health & Safety Rules.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Farrans\\1. PO\\12015 - 0091 - Purchase Order - Fenster Glazing & Locks Ltd.pdf",
+     "amounts": [
+      {
+       "amount": 1850.0,
+       "line": "installation. £1,850.00"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Farrans\\1. PO\\CECA Sub-Contract Payment Dates 2025 - 2028.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "farrans|2. site survey": {
+   "client": "Farrans",
+   "job": "2. Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Farrans\\2. Site Survey",
+   "state": "completed",
+   "evidence": []
+  },
+  "farrans|3. drawings": {
+   "client": "Farrans",
+   "job": "3. Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Farrans\\3. Drawings",
+   "state": "completed",
+   "evidence": []
+  },
+  "farrans|4. orders": {
+   "client": "Farrans",
+   "job": "4. Orders",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Farrans\\4. Orders",
+   "state": "completed",
+   "evidence": []
+  },
+  "farrans|5. finance": {
+   "client": "Farrans",
+   "job": "5. Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Farrans\\5. Finance",
+   "state": "completed",
+   "evidence": []
+  },
+  "farrans|6. h&s": {
+   "client": "Farrans",
+   "job": "6. H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Farrans\\6. H&S",
+   "state": "completed",
+   "evidence": []
+  },
+  "farrans|7. aftersales": {
+   "client": "Farrans",
+   "job": "7. Aftersales",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Farrans\\7. Aftersales",
+   "state": "completed",
+   "evidence": []
+  },
+  "first facilities|ds smith": {
+   "client": "First Facilities",
+   "job": "DS Smith",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\First Facilities\\DS Smith",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\First Facilities\\DS Smith\\Finance\\Outgoing Invoices\\First Facilities - DS Smith Invoice PO 9890 (3461).pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\First Facilities\\DS Smith\\PO\\WorkOrder_No_9890.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\First Facilities\\DS Smith\\Site Survey\\DS Smith Order.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\First Facilities\\DS Smith\\Finance\\Outgoing Invoices\\First Facilities - DS Smith Invoice PO 9890 (3461).pdf",
+     "amounts": [
+      {
+       "amount": 2958.24,
+       "line": "Invoice Total £2,958.24"
+      },
+      {
+       "amount": 2465.2,
+       "line": "3425 £2,465.2020Contract Balance"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\First Facilities\\DS Smith\\PO\\WorkOrder_No_9890.pdf",
+     "amounts": [
+      {
+       "amount": 2958.24,
+       "line": "Total £2,958.24"
+      },
+      {
+       "amount": 2465.2,
+       "line": "Labour £2,465.20"
+      }
+     ]
+    }
+   ]
+  },
+  "first facilities|madison cycles": {
+   "client": "First Facilities",
+   "job": "Madison Cycles",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\First Facilities\\Madison Cycles",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\First Facilities\\Madison Cycles\\1. PO\\WorkOrder_No_9917.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\First Facilities\\Madison Cycles\\1. PO\\WorkOrder_No_9917.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "first facilities|madison dc": {
+   "client": "First Facilities",
+   "job": "Madison DC",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\First Facilities\\Madison DC",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\First Facilities\\Madison DC\\1. PO\\WorkOrder_No_9783.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\First Facilities\\Madison DC\\5. Finance\\Outgoing Invoices\\First FM - Madison Invoice PO 9783 (3281).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\First Facilities\\Madison DC\\1. PO\\WorkOrder_No_9783.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\First Facilities\\Madison DC\\5. Finance\\Outgoing Invoices\\First FM - Madison Invoice PO 9783 (3281).pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "first facilities|mercedes bedford": {
+   "client": "First Facilities",
+   "job": "Mercedes Bedford",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\First Facilities\\Mercedes Bedford",
+   "state": "completed",
+   "evidence": []
+  },
+  "first facilities|sobell house": {
+   "client": "First Facilities",
+   "job": "Sobell House",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\First Facilities\\Sobell House",
+   "state": "completed",
+   "evidence": []
+  },
+  "fm solutions|holiday inn cmk": {
+   "client": "FM Solutions",
+   "job": "Holiday Inn CMK",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\FM Solutions\\Holiday Inn CMK",
+   "state": "completed",
+   "evidence": []
+  },
+  "fm solutions|holiday inn cmk 2": {
+   "client": "FM Solutions",
+   "job": "Holiday Inn CMK 2",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\FM Solutions\\Holiday Inn CMK 2",
+   "state": "completed",
+   "evidence": []
+  },
+  "fm solutions|milton keynes community foundation": {
+   "client": "FM Solutions",
+   "job": "Milton Keynes Community Foundation",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\FM Solutions\\Milton Keynes Community Foundation",
+   "state": "completed",
+   "evidence": []
+  },
+  "fm solutions|slated row": {
+   "client": "FM Solutions",
+   "job": "Slated Row",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\FM Solutions\\Slated Row",
+   "state": "completed",
+   "evidence": []
+  },
+  "fortis vision|headrow court": {
+   "client": "Fortis Vision",
+   "job": "Headrow Court",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Fortis Vision\\Headrow Court",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "final-account",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\FA Evidence 23.09.25\\Fenster Glazing – Response to Contra Charges and Final Account Deductions.pdf"
+    },
+    {
+     "kind": "final-account",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Outgoing Invoices\\Fortis Vision - Headrow Court Invoice Final Account - FVAP682-SC10981.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Payless Notice - Aaron.xlsx"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Payment Certs\\Payment Notices\\HC Dec 24'.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Payment Certs\\Payment Notices\\HC Feb 25'.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Payment Certs\\Payment Notices\\HC Jan 25'.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Payment Certs\\Payment Notices\\HC July 25'.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Payment Certs\\Payment Notices\\HC March 25'.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Payment Certs\\Payment Notices\\HC Nov 24'.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Payment Certs\\Payment Notices\\HC Oct 24'.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\FA Evidence 23.09.25\\Fenster Glazing – Response to Contra Charges and Final Account Deductions.pdf",
+     "amounts": [
+      {
+       "amount": 4884.0,
+       "line": "FV’s refusal to pay the previously approved £4,884 variation is rejected. EPDM was originally"
+      },
+      {
+       "amount": 3500.0,
+       "line": "assisting on the tools. We therefore reject the £3,500 deduction in full."
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Fortis Vision\\Headrow Court\\Headrow New 13.06.2024\\Payment Applications\\Outgoing Invoices\\Fortis Vision - Headrow Court Invoice Final Account - FVAP682-SC10981.pdf",
+     "amounts": [
+      {
+       "amount": 46619.9,
+       "line": "£46,619.90"
+      },
+      {
+       "amount": 32982.92,
+       "line": "2379 £32,982.920Contract Balance"
+      },
+      {
+       "amount": 13636.98,
+       "line": "2379 £13,636.980Retention"
+      }
+     ]
+    }
+   ]
+  },
+  "fortis vision|southampton": {
+   "client": "Fortis Vision",
+   "job": "Southampton",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Fortis Vision\\Southampton",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Fortis Vision\\Southampton\\Drawings\\Q6209 - Positions Order.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Fortis Vision\\Southampton\\Ordered\\Order Acknowledgement_16671.PDF"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Fortis Vision\\Southampton\\Ordered\\Order Sign Off_16671.PDF.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Fortis Vision\\Southampton\\PO\\FVAP845 SC12408 FENSTER.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Fortis Vision\\Southampton\\PO\\Fortis Vision.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Fortis Vision\\Southampton\\Drawings\\Q6209 - Positions Order.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Fortis Vision\\Southampton\\Ordered\\Order Acknowledgement_16671.PDF",
+     "amounts": [
+      {
+       "amount": 5000.0,
+       "line": "• Loads over £5000  + VAT will be delivered FOC within a 50-mile radius of Watford"
+      },
+      {
+       "amount": 3780.64,
+       "line": "£3,780.64 Total"
+      },
+      {
+       "amount": 2338.15,
+       "line": "£2,338.15Total (Incl. VAT)"
+      },
+      {
+       "amount": 1994.41,
+       "line": "£1,994.41Total"
+      },
+      {
+       "amount": 1948.46,
+       "line": "£1,948.46 Balance"
+      }
+     ]
+    }
+   ]
+  },
+  "fortis vision|thetford": {
+   "client": "Fortis Vision",
+   "job": "Thetford",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Fortis Vision\\Thetford",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\Fortis Vision\\Thetford\\Finance\\Payment Notices\\SP_2026-03-13_00008353.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Fortis Vision\\Thetford\\PO\\FVAP855 SC12393 FENSTER.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Fortis Vision\\Thetford\\PO\\Fortis Vision.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Fortis Vision\\Thetford\\Finance\\Payment Notices\\SP_2026-03-13_00008353.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Fortis Vision\\Thetford\\PO\\FVAP855 SC12393 FENSTER.pdf",
+     "amounts": [
+      {
+       "amount": 8419.5,
+       "line": "Supply and fit UPVC doors and windows including site survey  1.00 £8,419.50£8,419.50"
+      }
+     ]
+    }
+   ]
+  },
+  "hightown housing|23 invicta house": {
+   "client": "Hightown Housing",
+   "job": "23 Invicta House",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Hightown Housing\\23 Invicta House",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Hightown Housing\\23 Invicta House\\Ordered\\Nationwide Hire\\Order EN098811 v.2.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Hightown Housing\\23 Invicta House\\Ordered\\Nationwide Hire\\Order EN098811 v.2.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "hough gold|unit 7 iquarter": {
+   "client": "Hough Gold",
+   "job": "Unit 7 iQuarter",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Hough Gold\\Unit 7 iQuarter",
+   "state": "completed",
+   "evidence": []
+  },
+  "james cook|replacement glass in warranty": {
+   "client": "James Cook",
+   "job": "Replacement Glass in Warranty",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\James Cook\\Replacement Glass in Warranty",
+   "state": "completed",
+   "evidence": []
+  },
+  "katie clark": {
+   "client": "Katie Clark",
+   "job": "Katie Clark",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Katie Clark",
+   "state": "completed",
+   "evidence": []
+  },
+  "krypton|griffin pub": {
+   "client": "Krypton",
+   "job": "Griffin Pub",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Krypton\\Griffin Pub",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Krypton\\Griffin Pub\\1. PO\\SC2320 Fenster.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Krypton\\Griffin Pub\\1. PO\\SS\\Krypton Building Services - Griffin Quotation.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Krypton\\Griffin Pub\\1. PO\\SS\\Krypton Building Services - The Griffin Concept.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Krypton\\Griffin Pub\\1. PO\\SS\\SC2320 Fenster.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Krypton\\Griffin Pub\\1. PO\\SC2320 Fenster.pdf",
+     "amounts": [
+      {
+       "amount": 15371.93,
+       "line": "Order Value: Frames (£13631.93) + Ancillaries (£1500.00) + Lead Strips (£240.00) = £15,371.93"
+      },
+      {
+       "amount": 13631.93,
+       "line": "Order Value: Frames (£13631.93) + Ancillaries (£1500.00) + Lead Strips (£240.00) = £15,371.93"
+      },
+      {
+       "amount": 1508.68,
+       "line": "• 1nr Front 2 x £1508.68"
+      },
+      {
+       "amount": 1500.0,
+       "line": "• 1nr Installation x £1500.00"
+      },
+      {
+       "amount": 1253.82,
+       "line": "• 3nr Rear Elevation Windows x £1253.82"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Krypton\\Griffin Pub\\1. PO\\SS\\Krypton Building Services - Griffin Quotation.pdf",
+     "amounts": [
+      {
+       "amount": 1508.68,
+       "line": "Total £1508.68"
+      },
+      {
+       "amount": 1253.82,
+       "line": "Total £1253.82"
+      },
+      {
+       "amount": 1226.88,
+       "line": "Total £1226.88"
+      }
+     ]
+    }
+   ]
+  },
+  "krypton|the swan": {
+   "client": "Krypton",
+   "job": "The Swan",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Krypton\\The Swan",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Krypton\\The Swan\\1. Estimating\\2. Supplier Quotes\\Truframe\\10208269_GLASS ORDER (CUSTOMER QUOTE)-2026-4-8-10-20-19.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Krypton\\The Swan\\1. PO\\SC2331 Fenster.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Krypton\\The Swan\\1. PO\\SS\\SC2331 Fenster.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Krypton\\The Swan\\4. Orders\\TruFrame\\90893914_GLASS ORDER (CUSTOMER)-2026-4-9-13-59-31.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Krypton\\The Swan\\1. Estimating\\2. Supplier Quotes\\Truframe\\10208269_GLASS ORDER (CUSTOMER QUOTE)-2026-4-8-10-20-19.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Krypton\\The Swan\\1. PO\\SC2331 Fenster.pdf",
+     "amounts": [
+      {
+       "amount": 1550.0,
+       "line": "Order Value: £1550.00"
+      }
+     ]
+    }
+   ]
+  },
+  "mazda|client quote": {
+   "client": "Mazda",
+   "job": "Client Quote",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mazda\\Client Quote",
+   "state": "completed",
+   "evidence": []
+  },
+  "mazda|drawings": {
+   "client": "Mazda",
+   "job": "Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mazda\\Drawings",
+   "state": "completed",
+   "evidence": []
+  },
+  "mazda|finance": {
+   "client": "Mazda",
+   "job": "Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mazda\\Finance",
+   "state": "completed",
+   "evidence": []
+  },
+  "mazda|h&s": {
+   "client": "Mazda",
+   "job": "H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mazda\\H&S",
+   "state": "completed",
+   "evidence": []
+  },
+  "mazda|ordered": {
+   "client": "Mazda",
+   "job": "Ordered",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mazda\\Ordered",
+   "state": "completed",
+   "evidence": []
+  },
+  "mazda|po": {
+   "client": "Mazda",
+   "job": "PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mazda\\PO",
+   "state": "completed",
+   "evidence": []
+  },
+  "mazda|site survey": {
+   "client": "Mazda",
+   "job": "Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mazda\\Site Survey",
+   "state": "completed",
+   "evidence": []
+  },
+  "mazda|supplier quotes": {
+   "client": "Mazda",
+   "job": "Supplier Quotes",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mazda\\Supplier Quotes",
+   "state": "completed",
+   "evidence": []
+  },
+  "mazda|tender documents": {
+   "client": "Mazda",
+   "job": "Tender Documents",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mazda\\Tender Documents",
+   "state": "completed",
+   "evidence": []
+  },
+  "mha|aldersgate": {
+   "client": "MHA",
+   "job": "Aldersgate",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\MHA\\Aldersgate",
+   "state": "completed",
+   "evidence": []
+  },
+  "mha|aldersgate 2": {
+   "client": "MHA",
+   "job": "Aldersgate 2",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\MHA\\Aldersgate 2",
+   "state": "completed",
+   "evidence": []
+  },
+  "mha|aldersgate 3": {
+   "client": "MHA",
+   "job": "Aldersgate 3",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\MHA\\Aldersgate 3",
+   "state": "completed",
+   "evidence": []
+  },
+  "mha|welland place": {
+   "client": "MHA",
+   "job": "Welland Place",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\MHA\\Welland Place",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\MHA\\Welland Place\\2. Project\\1. PO\\629549871.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MHA\\Welland Place\\2. Project\\1. PO\\MHA - Welland Place - Fenster Glazing Quote.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\MHA\\Welland Place\\2. Project\\1. PO\\629549871.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\MHA\\Welland Place\\2. Project\\1. PO\\MHA - Welland Place - Fenster Glazing Quote.pdf",
+     "amounts": [
+      {
+       "amount": 1008.0,
+       "line": "£1,008.00"
+      }
+     ]
+    }
+   ]
+  },
+  "mha|welland place 2": {
+   "client": "MHA",
+   "job": "Welland Place 2",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\MHA\\Welland Place 2",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\MHA\\Welland Place 2\\1. PO\\215167821.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MHA\\Welland Place 2\\5. Finance\\Outgoing Invoices\\MHA Welland Place Invoice 3487 - PO ESTS91759.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\MHA\\Welland Place 2\\1. PO\\215167821.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\MHA\\Welland Place 2\\5. Finance\\Outgoing Invoices\\MHA Welland Place Invoice 3487 - PO ESTS91759.pdf",
+     "amounts": [
+      {
+       "amount": 2128.66,
+       "line": "Invoice Total £2,128.66"
+      },
+      {
+       "amount": 1773.88,
+       "line": "3345 £1,773.8820Contract Balance"
+      }
+     ]
+    }
+   ]
+  },
+  "mha|welland place 3": {
+   "client": "MHA",
+   "job": "Welland Place 3",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\MHA\\Welland Place 3",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\MHA\\Welland Place 3\\1. PO\\304435811.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MHA\\Welland Place 3\\5. Finance\\Outgoing Invoices\\MHA Welland Place Invoice 3488 - PO ESTS92891.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\MHA\\Welland Place 3\\1. PO\\304435811.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\MHA\\Welland Place 3\\5. Finance\\Outgoing Invoices\\MHA Welland Place Invoice 3488 - PO ESTS92891.pdf",
+     "amounts": [
+      {
+       "amount": 1008.0,
+       "line": "Invoice Total £1,008.00"
+      }
+     ]
+    }
+   ]
+  },
+  "mps contracts|holiday inn - stoke": {
+   "client": "MPS Contracts",
+   "job": "Holiday Inn - Stoke",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\MPS Contracts\\Holiday Inn - Stoke",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\MPS Contracts\\Holiday Inn - Stoke\\4. Ordered\\Sales Order 20321.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MPS Contracts\\Holiday Inn - Stoke\\5. Finance\\Outgoing Invoices\\MPS - Fenster Invoice MPS-PO-HIStoke-Louvres (3353).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\MPS Contracts\\Holiday Inn - Stoke\\4. Ordered\\Sales Order 20321.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\MPS Contracts\\Holiday Inn - Stoke\\5. Finance\\Outgoing Invoices\\MPS - Fenster Invoice MPS-PO-HIStoke-Louvres (3353).pdf",
+     "amounts": [
+      {
+       "amount": 11378.4,
+       "line": "Invoice Total £11,378.40"
+      },
+      {
+       "amount": 9482.0,
+       "line": "£9,482.00"
+      },
+      {
+       "amount": 9232.0,
+       "line": "3258 £9,232.0020Contract Balance"
+      },
+      {
+       "amount": 1896.4,
+       "line": "£1,896.40"
+      }
+     ]
+    }
+   ]
+  },
+  "mps contracts|holiday inn mk": {
+   "client": "MPS Contracts",
+   "job": "Holiday Inn MK",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\MPS Contracts\\Holiday Inn MK",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\MPS Contracts\\Holiday Inn MK\\4. Ordered\\Quickslide\\Order Confirmation.PDF"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MPS Contracts\\Holiday Inn MK\\5. Finance\\Outgoing Invoices\\Fenster Glazing - Deposit Invoice - MPS-PO-HIMKWindows.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MPS Contracts\\Holiday Inn MK\\5. Finance\\Outgoing Invoices\\Fenster Glazing - Final Invoice - MPS-PO-HIMKWindows (3203).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\MPS Contracts\\Holiday Inn MK\\4. Ordered\\Quickslide\\Order Confirmation.PDF",
+     "amounts": [
+      {
+       "amount": 6240.0,
+       "line": "£6,240.00"
+      },
+      {
+       "amount": 5200.0,
+       "line": "£5,200.00"
+      },
+      {
+       "amount": 1040.0,
+       "line": "£1,040.00"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\MPS Contracts\\Holiday Inn MK\\5. Finance\\Outgoing Invoices\\Fenster Glazing - Deposit Invoice - MPS-PO-HIMKWindows.pdf",
+     "amounts": [
+      {
+       "amount": 13920.0,
+       "line": "MPS/PO/HIMKWindows50% Proforma (Total job value £13,920+vat)Supply and install 13nr uPVC Sliding Sash windowsSite address: Holiday Inn Milto"
+      },
+      {
+       "amount": 8352.0,
+       "line": "Invoice Total £8,352.00"
+      },
+      {
+       "amount": 6960.0,
+       "line": "3161 £6,960.0020Deposit Charge"
+      },
+      {
+       "amount": 1392.0,
+       "line": "£1,392.00"
+      }
+     ]
+    }
+   ]
+  },
+  "msn partnership|frome college windows": {
+   "client": "MSN Partnership",
+   "job": "Frome College Windows",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\MSN Partnership\\Frome College Windows",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "2. Completed\\MSN Partnership\\Frome College Windows\\5. Finance\\Payment Applications\\Fenster Glazing Payment Application - Frome College 56610.xlsx"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MSN Partnership\\Frome College Windows\\1. PO\\PORD-56610.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MSN Partnership\\Frome College Windows\\4. Ordered\\A Plus\\ORDER BOOK_16599.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MSN Partnership\\Frome College Windows\\4. Ordered\\A Plus\\Order Acknowledgement_16599.PDF"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\MSN Partnership\\Frome College Windows\\4. Ordered\\Order Acknowledgement.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\MSN Partnership\\Frome College Windows\\1. PO\\PORD-56610.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "mursley sports pavillion|1. estimating": {
+   "client": "Mursley Sports Pavillion",
+   "job": "1. Estimating",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mursley Sports Pavillion\\1. Estimating",
+   "state": "completed",
+   "evidence": []
+  },
+  "mursley sports pavillion|1. po": {
+   "client": "Mursley Sports Pavillion",
+   "job": "1. PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mursley Sports Pavillion\\1. PO",
+   "state": "completed",
+   "evidence": []
+  },
+  "mursley sports pavillion|2. site survey": {
+   "client": "Mursley Sports Pavillion",
+   "job": "2. Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mursley Sports Pavillion\\2. Site Survey",
+   "state": "completed",
+   "evidence": []
+  },
+  "mursley sports pavillion|3. drawings": {
+   "client": "Mursley Sports Pavillion",
+   "job": "3. Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mursley Sports Pavillion\\3. Drawings",
+   "state": "completed",
+   "evidence": []
+  },
+  "mursley sports pavillion|4. orders": {
+   "client": "Mursley Sports Pavillion",
+   "job": "4. Orders",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mursley Sports Pavillion\\4. Orders",
+   "state": "completed",
+   "evidence": []
+  },
+  "mursley sports pavillion|5. finance": {
+   "client": "Mursley Sports Pavillion",
+   "job": "5. Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mursley Sports Pavillion\\5. Finance",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "2. Completed\\Mursley Sports Pavillion\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    }
+   ],
+   "candidates": []
+  },
+  "mursley sports pavillion|6. h&s": {
+   "client": "Mursley Sports Pavillion",
+   "job": "6. H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mursley Sports Pavillion\\6. H&S",
+   "state": "completed",
+   "evidence": []
+  },
+  "mursley sports pavillion|7. aftersales": {
+   "client": "Mursley Sports Pavillion",
+   "job": "7. Aftersales",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Mursley Sports Pavillion\\7. Aftersales",
+   "state": "completed",
+   "evidence": []
+  },
+  "olicat|st thomas becket primary": {
+   "client": "OLICAT",
+   "job": "St Thomas Becket Primary",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\OLICAT\\St Thomas Becket Primary",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\OLICAT\\St Thomas Becket Primary\\5. Finance\\Outgoing Invoices\\Fenster Glazing Invoice 3414  - OLICAT St Thomas Becket Catholic School PO 8427.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\OLICAT\\St Thomas Becket Primary\\5. Finance\\Outgoing Invoices\\Fenster Glazing Invoice 3414  - OLICAT St Thomas Becket Catholic School PO 8427.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "porthaven|savernake view": {
+   "client": "Porthaven",
+   "job": "Savernake View",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Porthaven\\Savernake View",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Porthaven\\Savernake View\\5. Finance\\Outgoing Invoices\\Fenster Glazing Invoice 3340  - Porthaven Care Savernake View PO 65182.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Porthaven\\Savernake View\\5. Finance\\Outgoing Invoices\\Fenster Glazing Invoice 3340  - Porthaven Care Savernake View PO 65182.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "porthaven|tonbridge house": {
+   "client": "Porthaven",
+   "job": "Tonbridge House",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Porthaven\\Tonbridge House",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Porthaven\\Tonbridge House\\5. Finance\\Outgoing Invoices\\Fenster Glazing Invoice 3413  - Porthaven Care Tonbridge House PO 65018.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Porthaven\\Tonbridge House\\5. Finance\\Outgoing Invoices\\Fenster Glazing Invoice 3413  - Porthaven Care Tonbridge House PO 65018.pdf",
+     "amounts": [
+      {
+       "amount": 2308.79,
+       "line": "Invoice Total £2,308.79"
+      },
+      {
+       "amount": 1923.99,
+       "line": "3312 £1,923.9920Contract Balance"
+      }
+     ]
+    }
+   ]
+  },
+  "pride developments|92-94 high street (barcode)": {
+   "client": "Pride Developments",
+   "job": "92-94 High Street (BARCODE)",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Pride Developments\\92-94 High Street (BARCODE)",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Pride Developments\\92-94 High Street (BARCODE)\\Ordered\\BDC\\577 - PRIDE HIGH ST DISCOUNT ORDER CONFIRMATION.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Pride Developments\\92-94 High Street (BARCODE)\\Ordered\\Quickslide\\Order Confirmation.PDF"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Pride Developments\\92-94 High Street (BARCODE)\\Ordered\\BDC\\577 - PRIDE HIGH ST DISCOUNT ORDER CONFIRMATION.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\Pride Developments\\92-94 High Street (BARCODE)\\Ordered\\Quickslide\\Order Confirmation.PDF",
+     "amounts": [
+      {
+       "amount": 7095.6,
+       "line": "£7,095.60"
+      },
+      {
+       "amount": 5913.0,
+       "line": "£5,913.00"
+      },
+      {
+       "amount": 1182.6,
+       "line": "£1,182.60"
+      }
+     ]
+    }
+   ]
+  },
+  "pride developments|catherine's house, plymouth 2026": {
+   "client": "Pride Developments",
+   "job": "Catherine's House, Plymouth 2026",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Pride Developments\\Catherine's House, Plymouth 2026",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Pride Developments\\Catherine's House, Plymouth 2026\\1. Estimating\\2. Supplier Quotes\\Order Confirmation MSF St Catherines from 03_06_2026.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Pride Developments\\Catherine's House, Plymouth 2026\\1. PO\\Purchase_Order_PO1526.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Pride Developments\\Catherine's House, Plymouth 2026\\4. Orders\\SS\\Order Confirmation MSF St Catherines - 03_06_2026.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Pride Developments\\Catherine's House, Plymouth 2026\\1. Estimating\\2. Supplier Quotes\\Order Confirmation MSF St Catherines from 03_06_2026.pdf",
+     "amounts": [
+      {
+       "amount": 4820.48,
+       "line": "Slider 1090 mm x 1739 mm, Consisting of a Double Sliding Window.SMA VS600Colours:RAL 5012 M (Light blue)Glazing:2 x 6+4mm 6.4/18/4 Clear Lam"
+      },
+      {
+       "amount": 4463.41,
+       "line": "Slider 1090 mm x 1739 mm, Consisting of a Double Sliding Window.SMA VS600Colours:RAL 5012 M (Light blue)Glazing:2 x 6+4mm 6.4/18/4 Clear Lam"
+      },
+      {
+       "amount": 4017.07,
+       "line": "Slider 1090 mm x 1739 mm, Consisting of a Double Sliding Window.SMA VS600Colours:RAL 5012 M (Light blue)Glazing:2 x 6+4mm 6.4/18/4 Clear Lam"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Pride Developments\\Catherine's House, Plymouth 2026\\1. PO\\Purchase_Order_PO1526.pdf",
+     "amounts": [
+      {
+       "amount": 7366.62,
+       "line": "Total GBP 7,366.62"
+      }
+     ]
+    }
+   ]
+  },
+  "pride developments|rubery library": {
+   "client": "Pride Developments",
+   "job": "Rubery Library",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Pride Developments\\Rubery Library",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Pride Developments\\Rubery Library\\Ordered\\BSW\\revised order BSW Aluminium.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Pride Developments\\Rubery Library\\PO\\Purchase_Order_PO1376.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Pride Developments\\Rubery Library\\Ordered\\BSW\\revised order BSW Aluminium.pdf",
+     "amounts": [
+      {
+       "amount": 6616.67,
+       "line": "TOTAL INC. VAT £6,616.67"
+      },
+      {
+       "amount": 5513.89,
+       "line": "£5,513.89Total Nett Ex. VAT"
+      },
+      {
+       "amount": 1123.72,
+       "line": "£1,123.727Location:Prestige CasementQty: 1"
+      },
+      {
+       "amount": 1102.78,
+       "line": "VAT @ 20 % £1,102.78"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Pride Developments\\Rubery Library\\PO\\Purchase_Order_PO1376.pdf",
+     "amounts": [
+      {
+       "amount": 28916.06,
+       "line": "Total GBP 28,916.06"
+      }
+     ]
+    }
+   ]
+  },
+  "primrose property|selkirk drive": {
+   "client": "Primrose Property",
+   "job": "Selkirk Drive",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Primrose Property\\Selkirk Drive",
+   "state": "completed",
+   "evidence": []
+  },
+  "primrose property|wedgewood street": {
+   "client": "Primrose Property",
+   "job": "Wedgewood Street",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Primrose Property\\Wedgewood Street",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Primrose Property\\Wedgewood Street\\4. Orders\\Truframe\\90898038_GLASS ORDER (CUSTOMER)-2026-4-28-14-55-34.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Primrose Property\\Wedgewood Street\\4. Orders\\Truframe\\90898038_GLASS ORDER (CUSTOMER)-2026-4-28-14-55-34.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "prince build|knights court": {
+   "client": "Prince Build",
+   "job": "Knights Court",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Prince Build\\Knights Court",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Prince Build\\Knights Court\\4. Ordered\\TruFrame\\90892948_GLASS ORDER (CUSTOMER)-2026-4-9-8-45-42.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Prince Build\\Knights Court\\4. Ordered\\TruFrame\\90892948_GLASS ORDER (CUSTOMER)-2026-4-9-8-45-42.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "prince build|willow way": {
+   "client": "Prince Build",
+   "job": "Willow Way",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Prince Build\\Willow Way",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Prince Build\\Willow Way\\1. PO\\1125-L01 - SDS - Fenster Glazing & Locks Ltd - Outside - 17.11.25.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Prince Build\\Willow Way\\1. PO\\1125-L01 - SDS - Fenster Glazing & Locks Ltd - Outside - 17.11.25.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "ricky simmonds|6 alfred st": {
+   "client": "Ricky Simmonds",
+   "job": "6 Alfred St",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Ricky Simmonds\\6 Alfred St",
+   "state": "completed",
+   "evidence": []
+  },
+  "rsr|rsr - bletchley rail depot": {
+   "client": "RSR",
+   "job": "RSR - Bletchley Rail Depot",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\RSR\\RSR - Bletchley Rail Depot",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Hartstone Legal\\FGL-SE-2601 -  Requested Documentation\\2. All related invoices\\Outgoing invoices\\Bletchley Train Depot - Valuation Nr. 1 (RSR20625-14).pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Hartstone Legal\\FGL-SE-2601 -  Requested Documentation\\2. All related invoices\\Outgoing invoices\\Bletchley Train Depot - Valuation Nr. 2 (RSR20625-14).pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Hartstone Legal\\FGL-SE-2601 -  Requested Documentation\\2. All related invoices\\Outgoing invoices\\Bletchley Train Depot - Valuation Nr. 3 (RSR20625-14).pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Outgoing Invoices\\Bletchley Train Depot - Valuation Nr. 1 (RSR20625-14).pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Outgoing Invoices\\Bletchley Train Depot - Valuation Nr. 2 (RSR20625-14).pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Outgoing Invoices\\Bletchley Train Depot - Valuation Nr. 3 (RSR20625-14).pdf"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Applications\\Fenster Glazing Payment Application - Bletchley Rail (Nr. 1).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Applications\\Fenster Glazing Payment Application - Bletchley Rail (Nr. 2).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Applications\\Fenster Glazing Payment Application - Bletchley Rail (Nr. 3).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Hartstone Legal\\FGL-SE-2601 -  Requested Documentation\\2. All related invoices\\Applications\\Fenster Glazing Payment Application - Bletchley Rail (Nr. 1).xlsx"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Hartstone Legal\\FGL-SE-2601 -  Requested Documentation\\2. All related invoices\\Outgoing invoices\\Bletchley Train Depot - Valuation Nr. 1 (RSR20625-14).pdf",
+     "amounts": [
+      {
+       "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\zacpl\\\\OneDrive - Fenster Glazing (1)\\\\Commercial\\\\2. Projects\\\\2. Comp"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\RSR\\RSR - Bletchley Rail Depot\\Finance\\Hartstone Legal\\FGL-SE-2601 -  Requested Documentation\\2. All related invoices\\Outgoing invoices\\Bletchley Train Depot - Valuation Nr. 2 (RSR20625-14).pdf",
+     "amounts": [
+      {
+       "error": "[Errno 2] No such file or directory: 'C:\\\\Users\\\\zacpl\\\\OneDrive - Fenster Glazing (1)\\\\Commercial\\\\2. Projects\\\\2. Comp"
+      }
+     ]
+    }
+   ]
+  },
+  "sdevs|142 lakenheath": {
+   "client": "SDevs",
+   "job": "142 Lakenheath",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\SDevs\\142 Lakenheath",
+   "state": "completed",
+   "evidence": []
+  },
+  "sdevs|farringdon": {
+   "client": "SDevs",
+   "job": "Farringdon",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\SDevs\\Farringdon",
+   "state": "completed",
+   "evidence": []
+  },
+  "sdevs|lakenheath 2": {
+   "client": "SDevs",
+   "job": "Lakenheath 2",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\SDevs\\Lakenheath 2",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\SDevs\\Lakenheath 2\\2. Site Survey\\Lakenheath Order.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\SDevs\\Lakenheath 2\\2. Site Survey\\Lakenheath Order.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "sdevs|office pod": {
+   "client": "SDevs",
+   "job": "Office Pod",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\SDevs\\Office Pod",
+   "state": "completed",
+   "evidence": []
+  },
+  "sdevs|reading": {
+   "client": "SDevs",
+   "job": "Reading",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\SDevs\\Reading",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\SDevs\\Reading\\Ordered\\Doors\\90886167_PANEL ORDER (CUSTOMER)-2026-3-2-12-18-3.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\SDevs\\Reading\\Ordered\\Windows\\Tru Frame\\90872257_GLASS ORDER (CUSTOMER)-2025-12-3-17-23-51.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\SDevs\\Reading\\Ordered\\Windows\\Vetroseal\\FENSTERG_OrderAckwithPrice_706816(READING-ORDER).pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\SDevs\\Reading\\PO\\SDevs - Sales Contract.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\SDevs\\Reading\\Ordered\\Doors\\90886167_PANEL ORDER (CUSTOMER)-2026-3-2-12-18-3.pdf",
+     "amounts": []
+    },
+    {
+     "file": "2. Completed\\SDevs\\Reading\\Ordered\\Windows\\Tru Frame\\90872257_GLASS ORDER (CUSTOMER)-2025-12-3-17-23-51.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "shutlanger|client quote": {
+   "client": "Shutlanger",
+   "job": "Client Quote",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Shutlanger\\Client Quote",
+   "state": "completed",
+   "evidence": []
+  },
+  "shutlanger|drawings": {
+   "client": "Shutlanger",
+   "job": "Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Shutlanger\\Drawings",
+   "state": "completed",
+   "evidence": []
+  },
+  "shutlanger|finance": {
+   "client": "Shutlanger",
+   "job": "Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Shutlanger\\Finance",
+   "state": "completed",
+   "evidence": []
+  },
+  "shutlanger|h&s": {
+   "client": "Shutlanger",
+   "job": "H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Shutlanger\\H&S",
+   "state": "completed",
+   "evidence": []
+  },
+  "shutlanger|ordered": {
+   "client": "Shutlanger",
+   "job": "Ordered",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Shutlanger\\Ordered",
+   "state": "completed",
+   "evidence": []
+  },
+  "shutlanger|po": {
+   "client": "Shutlanger",
+   "job": "PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Shutlanger\\PO",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Shutlanger\\PO\\Shutlanger Village Hall - Sales Contract.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Shutlanger\\PO\\Shutlanger Village Hall - Sales Contract.pdf",
+     "amounts": [
+      {
+       "amount": 5000000.0,
+       "line": "8.6 The Contractor’s entire liability in respect of a Default shall be limited to the sum of £5,000,000."
+      },
+      {
+       "amount": 3107.16,
+       "line": "Total £3107.16"
+      },
+      {
+       "amount": 2589.3,
+       "line": "Frames £2589.30"
+      }
+     ]
+    }
+   ]
+  },
+  "shutlanger|site survey": {
+   "client": "Shutlanger",
+   "job": "Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Shutlanger\\Site Survey",
+   "state": "completed",
+   "evidence": []
+  },
+  "shutlanger|supplier quotes": {
+   "client": "Shutlanger",
+   "job": "Supplier Quotes",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Shutlanger\\Supplier Quotes",
+   "state": "completed",
+   "evidence": []
+  },
+  "shutlanger|tender documents": {
+   "client": "Shutlanger",
+   "job": "Tender Documents",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Shutlanger\\Tender Documents",
+   "state": "completed",
+   "evidence": []
+  },
+  "stewarts|dhl express cambridge": {
+   "client": "Stewarts",
+   "job": "DHL Express Cambridge",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Stewarts\\DHL Express Cambridge",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "2. Completed\\Stewarts\\DHL Express Cambridge\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    }
+   ],
+   "candidates": []
+  },
+  "stewarts|dhl mars derby": {
+   "client": "Stewarts",
+   "job": "DHL Mars Derby",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Stewarts\\DHL Mars Derby",
+   "state": "completed",
+   "evidence": []
+  },
+  "stewarts|dhl mars derby 2": {
+   "client": "Stewarts",
+   "job": "DHL Mars Derby 2",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Stewarts\\DHL Mars Derby 2",
+   "state": "completed",
+   "evidence": []
+  },
+  "storm building|hammersmith hospital 2025": {
+   "client": "STORM Building",
+   "job": "Hammersmith Hospital 2025",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\STORM Building\\Hammersmith Hospital 2025",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\STORM Building\\Hammersmith Hospital 2025\\Finance\\Payment Notices\\260 - Fenster Glazing no.1 - Building 541.xlsx"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\STORM Building\\Hammersmith Hospital 2025\\Finance\\Payment Notices\\260 - Fenster Glazing no.2 - Building 541.xlsx"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\STORM Building\\Hammersmith Hospital 2025\\Finance\\Payment Notices\\260 - Fenster Glazing no.3 - Building 541.xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\STORM Building\\Hammersmith Hospital 2025\\Finance\\Payment Applications\\Fenster Glazing Payment Application - Hammersmith Hospital (Nr. 1).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\STORM Building\\Hammersmith Hospital 2025\\Finance\\Payment Applications\\Fenster Glazing Payment Application - Hammersmith Hospital (Nr. 2).xlsx"
+    },
+    {
+     "kind": "application",
+     "file": "2. Completed\\STORM Building\\Hammersmith Hospital 2025\\Finance\\Payment Applications\\Fenster Glazing Payment Application - Hammersmith Hospital (Nr. 3).xlsx"
+    }
+   ],
+   "candidates": []
+  },
+  "sunnyside up|1. estimating": {
+   "client": "Sunnyside Up",
+   "job": "1. Estimating",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Sunnyside Up\\1. Estimating",
+   "state": "completed",
+   "evidence": []
+  },
+  "sunnyside up|1. po": {
+   "client": "Sunnyside Up",
+   "job": "1. PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Sunnyside Up\\1. PO",
+   "state": "completed",
+   "evidence": []
+  },
+  "sunnyside up|2. site survey": {
+   "client": "Sunnyside Up",
+   "job": "2. Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Sunnyside Up\\2. Site Survey",
+   "state": "completed",
+   "evidence": []
+  },
+  "sunnyside up|3. drawings": {
+   "client": "Sunnyside Up",
+   "job": "3. Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Sunnyside Up\\3. Drawings",
+   "state": "completed",
+   "evidence": []
+  },
+  "sunnyside up|4. orders": {
+   "client": "Sunnyside Up",
+   "job": "4. Orders",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Sunnyside Up\\4. Orders",
+   "state": "completed",
+   "evidence": []
+  },
+  "sunnyside up|5. finance": {
+   "client": "Sunnyside Up",
+   "job": "5. Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Sunnyside Up\\5. Finance",
+   "state": "completed",
+   "evidence": []
+  },
+  "sunnyside up|6. h&s": {
+   "client": "Sunnyside Up",
+   "job": "6. H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Sunnyside Up\\6. H&S",
+   "state": "completed",
+   "evidence": []
+  },
+  "sunnyside up|7. aftersales": {
+   "client": "Sunnyside Up",
+   "job": "7. Aftersales",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Sunnyside Up\\7. Aftersales",
+   "state": "completed",
+   "evidence": []
+  },
+  "target maintenance|firefly avenue": {
+   "client": "Target Maintenance",
+   "job": "Firefly Avenue",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Target Maintenance\\Firefly Avenue",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Target Maintenance\\Firefly Avenue\\Finance\\Outgoing Invoices\\Target Maintenance - Firefly Invoice PO-00015099 (3210).pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Target Maintenance\\Firefly Avenue\\PO\\PurchaseorderPO00015099.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\Target Maintenance\\Firefly Avenue\\PO\\SS\\PurchaseorderPO00014874.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Target Maintenance\\Firefly Avenue\\Finance\\Outgoing Invoices\\Target Maintenance - Firefly Invoice PO-00015099 (3210).pdf",
+     "amounts": [
+      {
+       "amount": 5784.0,
+       "line": "Invoice Total £5,784.00"
+      },
+      {
+       "amount": 4820.0,
+       "line": "3112 £4,820.0020Contract Balance"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\Target Maintenance\\Firefly Avenue\\PO\\PurchaseorderPO00015099.pdf",
+     "amounts": [
+      {
+       "amount": 5784.0,
+       "line": "£5,784.00"
+      },
+      {
+       "amount": 4820.0,
+       "line": "£4,820.00"
+      }
+     ]
+    }
+   ]
+  },
+  "target maintenance|leybourne grange": {
+   "client": "Target Maintenance",
+   "job": "Leybourne Grange",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Target Maintenance\\Leybourne Grange",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Target Maintenance\\Leybourne Grange\\1. PO\\Purchase order PO00015944.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Target Maintenance\\Leybourne Grange\\1. PO\\Purchase order PO00015944.pdf",
+     "amounts": [
+      {
+       "amount": 3955.24,
+       "line": "£3,955.24"
+      },
+      {
+       "amount": 3296.03,
+       "line": "£3,296.03"
+      }
+     ]
+    }
+   ]
+  },
+  "target maintenance|nightingale apts": {
+   "client": "Target Maintenance",
+   "job": "Nightingale Apts",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Target Maintenance\\Nightingale Apts",
+   "state": "completed",
+   "evidence": []
+  },
+  "tlc group|carlton court": {
+   "client": "TLC Group",
+   "job": "Carlton Court",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\TLC Group\\Carlton Court",
+   "state": "completed",
+   "evidence": []
+  },
+  "tlc group|cherry hinton": {
+   "client": "TLC Group",
+   "job": "Cherry Hinton",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\TLC Group\\Cherry Hinton",
+   "state": "completed",
+   "evidence": []
+  },
+  "tlc group|kailash manor": {
+   "client": "TLC Group",
+   "job": "Kailash Manor",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\TLC Group\\Kailash Manor",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "application",
+     "file": "2. Completed\\TLC Group\\Kailash Manor\\5. Finance\\Payment Applications\\MASTER Fenster Glazing Payment Application - Shaftesbury (Nr. 2).xlsx"
+    }
+   ],
+   "candidates": []
+  },
+  "tsl|lawford house": {
+   "client": "TSL",
+   "job": "Lawford House",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\TSL\\Lawford House",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\TSL\\Lawford House\\Finance\\Outgoing Invoices\\Fenster INV2994 - TSL Lawford House 4601-36934 Valuation Nr.1.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\TSL\\Lawford House\\Finance\\Outgoing Invoices\\Fenster INV3270 - TSL Lawford House 4601-36934 Valuation Nr.2.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\TSL\\Lawford House\\Finance\\Payment Notices\\TSL Payless Notice-4601-Fenster-001-January 2026.pdf"
+    },
+    {
+     "kind": "valuation",
+     "file": "2. Completed\\TSL\\Lawford House\\Finance\\Payment Notices\\TSL Payment Notice-4601-Fenster-002-June 2026.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\TSL\\Lawford House\\Ordered\\Titan\\Order Confirmation - 7337 - Lawford House (1).pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\TSL\\Lawford House\\Ordered\\Titan\\Order Confirmation - 7337 - Lawford House.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\TSL\\Lawford House\\PO\\36934 Fenster 4601.pdf"
+    },
+    {
+     "kind": "order",
+     "file": "2. Completed\\TSL\\Lawford House\\PO\\TSL - Lawford House - Fenster Glazing Quote (2).pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\TSL\\Lawford House\\Finance\\Outgoing Invoices\\Fenster INV2994 - TSL Lawford House 4601-36934 Valuation Nr.1.pdf",
+     "amounts": [
+      {
+       "amount": 11000.44,
+       "line": "2944 £11,000.440Contract Balance"
+      },
+      {
+       "amount": 1000.0,
+       "line": "PO Number 4601/36934Valuation Nr. 1 -part paymentLawford House4 Albert PlLondonN3 1QBTo remove and install replacement door, roof lantern,an"
+      }
+     ]
+    },
+    {
+     "file": "2. Completed\\TSL\\Lawford House\\Finance\\Outgoing Invoices\\Fenster INV3270 - TSL Lawford House 4601-36934 Valuation Nr.2.pdf",
+     "amounts": [
+      {
+       "amount": 4344.24,
+       "line": "2944 £4,344.240Contract Balance"
+      }
+     ]
+    }
+   ]
+  },
+  "wolverton swimming and fitness centre|1. estimating": {
+   "client": "Wolverton Swimming and Fitness Centre",
+   "job": "1. Estimating",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Wolverton Swimming and Fitness Centre\\1. Estimating",
+   "state": "completed",
+   "evidence": []
+  },
+  "wolverton swimming and fitness centre|1. po": {
+   "client": "Wolverton Swimming and Fitness Centre",
+   "job": "1. PO",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Wolverton Swimming and Fitness Centre\\1. PO",
+   "state": "completed",
+   "evidence": []
+  },
+  "wolverton swimming and fitness centre|2. site survey": {
+   "client": "Wolverton Swimming and Fitness Centre",
+   "job": "2. Site Survey",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Wolverton Swimming and Fitness Centre\\2. Site Survey",
+   "state": "completed",
+   "evidence": []
+  },
+  "wolverton swimming and fitness centre|3. drawings": {
+   "client": "Wolverton Swimming and Fitness Centre",
+   "job": "3. Drawings",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Wolverton Swimming and Fitness Centre\\3. Drawings",
+   "state": "completed",
+   "evidence": []
+  },
+  "wolverton swimming and fitness centre|4. orders": {
+   "client": "Wolverton Swimming and Fitness Centre",
+   "job": "4. Orders",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Wolverton Swimming and Fitness Centre\\4. Orders",
+   "state": "completed",
+   "evidence": [
+    {
+     "kind": "order",
+     "file": "2. Completed\\Wolverton Swimming and Fitness Centre\\4. Orders\\Sales Order 20429.pdf"
+    }
+   ],
+   "candidates": [
+    {
+     "file": "2. Completed\\Wolverton Swimming and Fitness Centre\\4. Orders\\Sales Order 20429.pdf",
+     "amounts": []
+    }
+   ]
+  },
+  "wolverton swimming and fitness centre|5. finance": {
+   "client": "Wolverton Swimming and Fitness Centre",
+   "job": "5. Finance",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Wolverton Swimming and Fitness Centre\\5. Finance",
+   "state": "completed",
+   "evidence": []
+  },
+  "wolverton swimming and fitness centre|6. h&s": {
+   "client": "Wolverton Swimming and Fitness Centre",
+   "job": "6. H&S",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Wolverton Swimming and Fitness Centre\\6. H&S",
+   "state": "completed",
+   "evidence": []
+  },
+  "wolverton swimming and fitness centre|7. aftersales": {
+   "client": "Wolverton Swimming and Fitness Centre",
+   "job": "7. Aftersales",
+   "folder": "C:\\Users\\zacpl\\OneDrive - Fenster Glazing (1)\\Commercial\\2. Projects\\2. Completed\\Wolverton Swimming and Fitness Centre\\7. Aftersales",
+   "state": "completed",
+   "evidence": []
+  }
+ }
+}

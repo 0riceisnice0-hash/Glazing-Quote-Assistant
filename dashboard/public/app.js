@@ -1070,7 +1070,17 @@ const JACOB_RENDER = {
           very dataset marked won at high confidence.</strong> ${esc(JACOB.archive.note)}</p>
           <p><strong>Who Fenster actually wins with:</strong>
           ${JACOB.archive.topWonClients.map((c) => `${esc(c.client)} (${c.won})`).join(", ")}.</p>
-        </div></div>` : ""}
+        </div>
+        ${JACOB.archive.knownValues?.length ? `<table class="tbl"><thead><tr>
+          <th>Job</th><th>Client</th><th>Value</th><th>Where the number comes from</th></tr></thead><tbody>
+          ${JACOB.archive.knownValues.map((v) => `<tr>
+            <td class="job-cell"><strong>${esc(v.job)}</strong>
+              ${v.archiveGap ? `<small>no win recorded in the archive - the filing itself has a gap</small>` : ""}</td>
+            <td>${esc(v.client)}</td>
+            <td class="money">${gbp(v.value)}</td>
+            <td><span class="pill ${v.basis === "document" ? "exact" : "strong"}">${esc(v.basis)}</span>
+              <small class="dim">${esc(v.source)}</small></td></tr>`).join("")}
+        </tbody></table>` : ""}</div>` : ""}
 
       <div class="section"><div class="section-head"><h3>How the recent funnel converts - the BD log</h3></div>
         <div class="planned-note">

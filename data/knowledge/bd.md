@@ -16,9 +16,14 @@ The full data story per file: `data/jacob/README.md`.
   Leeds) is in it marked won at high confidence - ~GBP 600k, owner-stated (Zac,
   29/07)** - fifteen times the largest win on the BD log. The evidence sat in our
   own dataset while the board said "never". Known values live in
-  `data/known-values.json` (1 of 134 so far); mining the rest from the won folders
-  is OPEN WORK worth proposing. The log's band table is log-only: "0 on log" at a
-  size NEVER means "Fenster cannot win that size" - Headrow is the proof.
+  `data/known-values.json` - five so far, all from the published brochure: Headrow
+  GBP 630k, DWP Tottenham 550k, Bletchley Rail Depot 191k, Franklin House 180k,
+  UoR 118k. `scripts/mine_won_values.py` indexes every valuation/final-account/PO
+  document per won folder into `data/won-values-evidence.json` and extracts
+  candidate amounts - a candidate becomes a value only after review (invoice
+  amounts are interim; POs carry GBP 5m insurance lines). Working the review queue
+  is OPEN WORK. The log's band table is log-only: "0 on log" at a size NEVER means
+  "Fenster cannot win that size" - Headrow is the proof.
 - So: the log still says smaller jobs CONVERT BETTER on the recent funnel, and value
   still buys a row a warning - but say "no £50k+ win on the log's decided rows",
   never "Fenster has never won one". A claim must carry its source's edges.

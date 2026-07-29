@@ -89,13 +89,23 @@ def _archive_wins():
                 known = json.load(fh).get("values", {})
         except Exception:
             known = {}
-    valued = []
+    valued, consumed = [], set()
     for e in won:
         kv = known.get(e.get("key", ""))
         if kv and kv.get("value"):
+            consumed.add(e.get("key"))
             valued.append({"client": e.get("client"), "job": e.get("job"),
                            "value": kv["value"], "basis": kv.get("basis", "?"),
                            "source": kv.get("source", "")})
+    # A known win the archive has NO entry for (Franklin House) is still a
+    # win - and evidence the archive itself has gaps, which is worth showing.
+    for key, kv in known.items():
+        if key in consumed or not kv.get("value"):
+            continue
+        client, _, job = key.partition("|")
+        valued.append({"client": client.title(), "job": (job or client).title(),
+                       "value": kv["value"], "basis": kv.get("basis", "?"),
+                       "source": kv.get("source", ""), "archiveGap": True})
     valued.sort(key=lambda v: -v["value"])
     return {
         "generated": hist.get("generated"),
