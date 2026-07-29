@@ -170,7 +170,32 @@ def queue_work(cfg, state):
         log("ledger handover scan failed (harmless): %s" % str(e)[:100])
 
     state["seen"] = state["seen"][-500:]
+    publish_queue(cfg, state)
     return added
+
+
+_qsig = [None]
+
+
+def publish_queue(cfg, state):
+    """The queue and the last kick, visible on the hub's Queue tab. Five FYI
+    messages sat here invisibly on 29/07 until Zac asked what they were."""
+    items = []
+    for f in sorted(os.listdir(QUEUE)):
+        if not f.endswith(".json"):
+            continue
+        w = load(os.path.join(QUEUE, f), {})
+        items.append({"file": f, "mailbox": w.get("kind", "?"),
+                      "from": str(w.get("author") or w.get("sender") or "")[:60],
+                      "subject": (w.get("subject") or (w.get("body") or "")[:110])[:130],
+                      "context": (w.get("context") or "")[:60],
+                      "route": "jacob", "why": w.get("kind", "")})
+    sig = (tuple(i["file"] for i in items), (state.get("last_kick") or {}).get("at"))
+    if sig == _qsig[0]:
+        return
+    if api(cfg, "/api/jacob/queue", "POST",
+           {"items": items, "last_kick": state.get("last_kick")}) is not None:
+        _qsig[0] = sig
 
 
 def budget_spent(state):
@@ -256,6 +281,16 @@ def dispatch(cfg, state):
         fh.write(str(os.getpid()))
     started = time.time()
     log("dispatch -> %d order(s)" % len(orders))
+    # What kicked this session off - order summaries plus the actual prompt.
+    heads = []
+    for f in orders[:12]:
+        w = load(os.path.join(QUEUE, f), {})
+        heads.append("%s: %s - %s" % (w.get("kind", "?"),
+                                      w.get("author") or w.get("sender") or "?",
+                                      (w.get("subject") or w.get("body") or "")[:100]))
+    state["last_kick"] = {"chat": "jacob", "title": "Business development",
+                          "at": datetime.now().isoformat(timespec="seconds"),
+                          "orders": heads}
 
     # Publish what he is doing to the hub's Live tab while he works. Reuses
     # Mary's transcript tailer read-only - Claude Code already writes every
@@ -301,6 +336,8 @@ def dispatch(cfg, state):
               "Handle them, reply on the hub to anyone who wrote to you, then move "
               "each order into %s and rebuild your board."
               % (PROMPT, QUEUE, DONE))
+    state["last_kick"]["prompt"] = prompt[:8000]
+    publish_queue(cfg, state)
     def run_session():
         try:
             # Same launch as mary_bridge.py, approved by Zac 28/07. An

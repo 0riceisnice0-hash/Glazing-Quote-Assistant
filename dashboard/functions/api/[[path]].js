@@ -121,6 +121,20 @@ export async function onRequest(context) {
       }
     }
 
+    // What is waiting to run and what kicked the last session off, published
+    // by the bridge. The transparency Zac asked for on 29/07: five FYI
+    // messages queued for Jacob and nothing on the hub showed it.
+    if (ch && action === "queue" && GET) {
+      try {
+        const row = await db.prepare("SELECT v, updated FROM state WHERE k = ?")
+          .bind(ch.statusKey + "_queue").first();
+        if (!row) return json({ items: [] });
+        return json({ ...JSON.parse(row.v), updated: row.updated });
+      } catch {
+        return json({ items: [] });
+      }
+    }
+
     // Decisions the bot cannot make alone. Reading is public; a bot with no
     // D1 requests table reads as "none open" rather than an error.
     if (ch && action === "requests" && GET) {
@@ -321,6 +335,15 @@ export async function onRequest(context) {
         `title=excluded.title, why=excluded.why, needs=excluded.needs, options=excluded.options`)
         .bind(now(), ref, clip(b.title, 300), clip(b.why, 2000),
               clip(b.needs, 2000), JSON.stringify(b.options || [])).run();
+      return json({ ok: true });
+    }
+
+    if (ch && action === "queue" && POST) {
+      const b = await request.json().catch(() => ({}));
+      await db.prepare(
+        "INSERT INTO state (k, v, updated) VALUES (?, ?, ?) " +
+        "ON CONFLICT(k) DO UPDATE SET v = excluded.v, updated = excluded.updated")
+        .bind(ch.statusKey + "_queue", JSON.stringify(b).slice(0, 90000), now()).run();
       return json({ ok: true });
     }
 

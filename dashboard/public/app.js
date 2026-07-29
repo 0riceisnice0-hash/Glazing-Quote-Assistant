@@ -322,18 +322,53 @@ function botchatPage() {
     </div>`;
 }
 
-/* One live feed page for every bot - the markup #ev-feed polling patches. */
-function livePage(a, chip, fallbackTitle, empty) {
+/* One live feed page for every bot - the markup #ev-feed polling patches.
+   The head says what KICKED the session off, because "why is she even
+   running" used to be unanswerable from the hub. */
+function livePage(a, chip, fallbackTitle, empty, kick, queueKey) {
+  const kickLine = kick ? `
+    <div class="planned-note" style="margin-bottom:12px"><strong>Kicked off ${esc(ukStamp(kick.at))} by:</strong>
+      ${esc((kick.orders || [])[0] || kick.title || "?")}${(kick.orders || []).length > 1 ? ` (+${kick.orders.length - 1} more)` : ""}
+      &middot; <a data-nav="${queueKey}">the queue &amp; full starting prompt &rarr;</a></div>` : "";
   if (!((a || {}).events || []).length) {
-    return `<div class="empty"><strong>Nothing running</strong>${empty}</div>`;
+    return `${kickLine}<div class="empty"><strong>Nothing running</strong>${empty}</div>`;
   }
-  return `
+  return `${kickLine}
     <div class="live-head">
       <span class="chip ${chip.tone}">${chip.text}</span>
       <strong>${esc(a.title || a.chat || fallbackTitle)}</strong>
       <span class="live-when">last step ${esc(feedWhen(a))}</span>
     </div>
     <div class="ev-feed" id="ev-feed">${feedRows(a.events)}</div>`;
+}
+
+/* The Queue tab: what is waiting, why it routed where it did, and the last
+   session's kick - starting prompt included, folded. */
+function queuePage(q) {
+  const items = q?.items || [];
+  const k = q?.last_kick;
+  return `
+    ${k ? `<div class="section"><div class="section-head"><h3>What kicked the last session off</h3>
+      <span class="page-sub">${esc(k.title || k.chat || "")} &middot; ${esc(ukStamp(k.at))}</span></div>
+      <div class="mail-list">${(k.orders || []).map((o) => `
+        <div class="mail-row" style="cursor:default"><div class="mail-ico in">&rarr;</div>
+          <div><strong>${esc(o)}</strong></div></div>`).join("")}</div>
+      <details class="req-detail"><summary>The full starting prompt, exactly as sent</summary>
+        <pre class="draft-body">${esc(k.prompt || "(not captured)")}</pre></details></div>`
+      : `<div class="planned-note">No session has been kicked since this view went live - the next dispatch fills it.</div>`}
+
+    <div class="section"><div class="section-head"><h3>Waiting now (${items.length})</h3>
+      <span class="page-sub">Oldest runs first; each row says why it routed where it did</span></div>
+      ${items.length ? `<table class="tbl"><thead><tr>
+        <th>What</th><th>From</th><th>Routed to</th><th>Why</th></tr></thead><tbody>
+        ${items.map((i) => `<tr>
+          <td class="job-cell"><strong>${esc(i.subject || i.file)}</strong>
+            <small>${esc(i.mailbox || "")}${i.context ? ` &middot; ${esc(i.context)}` : ""} &middot; ${esc(i.file || "")}</small></td>
+          <td>${esc(i.from || "")}</td>
+          <td><span class="chip navy">${esc(i.route || "")}</span></td>
+          <td style="max-width:360px"><div class="clamp4">${esc(i.why || "")}</div></td></tr>`).join("")}
+      </tbody></table>` : `<div class="empty"><strong>Queue empty</strong>Nothing waiting to run.</div>`}
+    </div>`;
 }
 
 /* ---------------- panel ---------------- */
@@ -512,6 +547,7 @@ const PAGES = [
   { key: "comms", label: "Comms log", group: "Talk", sub: () => "Everything sent and everything read" },
   { key: "catches", label: "Catches", group: "Record", sub: () => "Errors found and money saved" },
   { key: "scoreboard", label: "Scoreboard", group: "Record", sub: () => "How close Mary is getting, and whether we won" },
+  { key: "queue", label: "Queue", group: "Record", icon: "chaselist", sub: () => `${MQUEUE?.items?.length || 0} waiting, and what kicked the last session off` },
   { key: "live", label: "Live", group: "Record", sub: () => ACTIVITY?.title ? `Working on ${ACTIVITY.title}` : "What Mary is doing right now" },
 ];
 
@@ -555,6 +591,7 @@ const JACOB_PAGES = [
   { key: "jmessages", label: "Messages", group: "Talk", icon: "messages", layout: "chat", sub: () => "Two-way line - he picks up what you write on his next pass" },
   { key: "decisions", label: "Jacob needs you", group: "Talk", icon: "requests", sub: () => `${openJacobReqs().length} open, ${JACOB?.decisions.length || 0} standing` },
   { key: "sources", label: "How this works", group: "System", sub: () => "Where leads come from, what is wired up, and what still is not" },
+  { key: "jqueue", label: "Queue", group: "System", icon: "chaselist", sub: () => `${JQUEUE?.items?.length || 0} waiting, and what kicked the last session off` },
   { key: "jlive", label: "Live", group: "System", icon: "live", sub: () => "What Jacob is doing right now" },
 ];
 
@@ -567,6 +604,11 @@ let JACTIVITY = null;
 /* His bridge can report a status line the same way Mary's does; until it
    starts doing so this stays "unknown" and the card infers from the feed. */
 let JSTATUS = null;
+/* What is waiting to run and what kicked the last session off, per bot -
+   published by the bridges. Zac, 29/07: five messages sat queued for Jacob
+   and nothing on the hub could say what they were. */
+let MQUEUE = null;
+let JQUEUE = null;
 /* The CRM overlay. Jacob derives a state and a next action for everything
    from the evidence; this is a human saying otherwise, keyed by the stable
    key his generator emits. It survives a rebuild of jacob-data.js, which is
@@ -904,9 +946,18 @@ const JACOB_RENDER = {
         ? `${esc(niceDate(r.lastClientContact))}<small class="dim">${r.daysSinceClient}d</small>`
         : `<small class="dim">nothing back</small>`}</td>
       <td>${stateChip(r)}${r.blocked ? ` <span class="chip">cannot answer yet</span>` : ""}</td>
+      <!-- Adam's own checklist numbering, from the screenshot he sent on
+           29/07. Steps 8-15 are the chasing half and they are this page. A
+           row with no date says so rather than showing a blank cell. -->
+      <td class="num">${r.stage ? `<strong>${r.stage}. ${esc(r.stageName || "")}</strong>` : `<small class="dim">no step</small>`}
+        ${r.nextChase
+          ? `<small class="${r.chaseDue ? "" : "dim"}">${r.chaseDue ? "due " : ""}${esc(niceDate(r.nextChase))}</small>`
+          : `<small class="dim">no date set</small>`}</td>
       <td style="max-width:340px"><div class="clamp4">${inline(jNext(r))}</div>
         ${r.blockedReason ? `<small class="dim">${esc(r.blockedReason)}</small>` : ""}
-        ${r.retender ? `<small class="dim">Re-tender: ${esc(r.retender.note)}</small>` : ""}</td>
+        ${r.chaseNote ? `<small class="dim">${esc(r.chaseNote)}</small>` : ""}
+        ${r.retender ? `<small class="dim">Re-tender: ${esc(r.retender.note)}</small>` : ""}
+        ${r.routing ? `<small class="dim">Routing: ${esc(r.routing.note)}</small>` : ""}</td>
       <td>${ownerTag(r)}</td></tr>`;
 
     return `
@@ -914,15 +965,25 @@ const JACOB_RENDER = {
         <div class="stat" data-go="chasing"><div class="n">${gbpShort(t.issuedValue)}</div><div class="l">Issued and with a client - ${t.issued} quotes</div></div>
         <div class="stat ${t.due ? "red" : "green"}"><div class="n">${t.due}</div><div class="l">Chaseable today, ${gbpShort(t.dueValue)}</div></div>
         <div class="stat"><div class="n">${t.oldest}d</div><div class="l">Longest a quote has been out</div></div>
+        <!-- Adam, 29/07: "When we chase a job, we need to then set a date as
+             to when we will get back in touch." A quote with no next date is
+             how one goes quiet without anybody noticing. -->
+        <div class="stat ${t.noChaseDate ? "amber" : "green"}"><div class="n">${t.noChaseDate ?? "?"}</div><div class="l">Issued with no next-chase date set</div></div>
         <div class="stat amber"><div class="n">${gbpShort(t.heldValue)}</div><div class="l">Priced but never issued - not chaseable</div></div>
       </div>` : ""}
 
       <div class="section"><div class="section-head"><h3>The handover, now somebody's job</h3></div>
         <div class="planned-note">
           ${h ? `<p><strong>Adam's rule, ${esc(niceDate(h.rule?.date))}:</strong> ${esc(h.rule?.text)}
-          The seven below have gone out, so they are Jacob's. The three under them have not,
+          The ${t.issued} below have gone out, so they are Jacob's. The ${t.held} under them have not,
           so they are not - and calling a client about a quote that never left the building is
           worse than not calling.</p>
+          ${h.checklist ? `<p><strong>The steps are Adam's, not this board's.</strong>
+          ${esc(h.checklist.why)} ${esc(h.checklist.standing_warning_from_adam)}
+          <em>${esc(h.checklist.unconfirmed)}</em></p>
+          <p><strong>What a chase is for.</strong> Not "any news" - these six answers, and
+          whichever one comes back sets the next date:
+          ${h.checklist.asks_of_a_chase.map((q) => esc(q)).join(" &middot; ")}.</p>` : ""}
           <p><strong>Every issue date here was read out of the sent message, not inferred.</strong>
           ${esc(h.verification?.source)}. That matters because the page used to date these off the
           tender return date, which is a different date on a different clock, and it got three of
@@ -935,7 +996,7 @@ const JACOB_RENDER = {
         <span class="page-sub">Longest silence first. A day count is not on its own an instruction.</span></div>
         <table class="tbl"><thead><tr>
           <th>Job</th><th>Value</th><th>Issued</th><th>Last heard</th><th>State</th>
-          <th>Next action</th><th>Owner</th></tr></thead><tbody>
+          <th>Step / next chase</th><th>Next action</th><th>Owner</th></tr></thead><tbody>
         ${handIssued().map(hrow).join("")}
         </tbody></table></div>
 
@@ -1378,9 +1439,12 @@ const JACOB_RENDER = {
     /* The CRM's own key on these rows is the client's email domain, which is
        right for grouping and wrong for the overlay - twelve Bradford Watts
        rows would all share one human correction. The board key is per lead. */
+    /* An outlier stays out of the arithmetic but comes back into the chase
+       list the moment a human confirms it is real - Adam did that for Brandon
+       Estate on 29/07. Big is not the same as wrong. */
     const due = c.due
       .map((r) => ({ ...r, key: "ab:" + r.lead }))
-      .filter((r) => !r.outlier && !jShut(r))
+      .filter((r) => (!r.outlier || r.confirmed) && !jShut(r))
       .slice(0, 60);
     return `
       <div class="stats">
@@ -1445,14 +1509,19 @@ const JACOB_RENDER = {
         </tbody></table></div>` : ""}
 
       ${t.outliers ? `<div class="section"><div class="section-head">
-        <h3>Held out of every total on this page</h3></div>
+        <h3>Held out of every total on this page</h3>
+        <span class="page-sub">Out of the averages because of their size, not because anyone
+        doubts them. A confirmed row is still on the chase list.</span></div>
         <table class="tbl"><thead><tr><th>Job</th><th>Quoted ex VAT</th><th>Why it is not counted</th></tr></thead><tbody>
         ${c.rows.filter((r) => r.outlier).map((r) => `<tr>
           <td class="job-cell"><strong>${esc(r.job)}</strong><small>${esc(r.client)} &middot; ${esc(niceDate(r.leadDate))}</small></td>
           <td class="money">${gbp(r.value)}</td>
-          <td>An order of magnitude past the GBP 20k-400k package Fenster puts on its own PQQ,
-            and large enough to move the pipeline figure on its own. It is a question for
-            Adam before it is a number.</td></tr>`).join("")}
+          <td>Large enough to move the pipeline figure on its own, so it is kept out of the
+            medians and the totals.
+            ${r.confirmed ? `<small class="dim"><strong>Confirmed real.</strong>
+              ${esc(r.confirmed)} It is on the chase list.</small>`
+            : `<small class="dim">Nobody has confirmed it yet - a question for Adam before
+              it is a number.</small>`}</td></tr>`).join("")}
         </tbody></table></div>` : ""}
 
       <div class="section"><div class="section-head"><h3>By client</h3>
@@ -1485,8 +1554,14 @@ const JACOB_RENDER = {
           <td>${r.fit ? `<span class="chip ${r.fit.winRate >= 38 ? "ok"
             : r.fit.winRate > 0 ? "warn" : "danger"}">${r.fit.winRate}%</span>
             <small class="dim">${esc(r.fit.note)}</small>` : `<small class="dim">no value</small>`}</td>
-          <td class="num">${r.leadDate ? esc(niceDate(r.leadDate)) : "-"}</td>
-          <td class="num">${r.days === null ? "-" : `${r.days}d`}</td>
+          <!-- On a re-quote AdminBase updates the value and leaves the dates,
+               so the row can read months old on a price sent yesterday. Where
+               a verified send says otherwise, the send's date is shown. -->
+          <td class="num">${r.staleDate ? `${esc(niceDate(r.staleDate.issued))}
+            <small class="dim">CRM says ${esc(niceDate(r.staleDate.crmDate))}${r.staleDate.reQuote ? " - re-quote" : ""}</small>`
+            : r.leadDate ? esc(niceDate(r.leadDate)) : "-"}</td>
+          <td class="num">${r.days === null ? "-" : `${r.days}d`}
+            ${r.staleDate ? `<small class="dim">not ${r.staleDate.crmDays}d</small>` : ""}</td>
           <td>${stateChip(r)}</td>
           <td>${r.email ? esc(r.email) : `<small class="dim">no address</small>`}</td></tr>`).join("")}
         </tbody></table></div>`;
@@ -1530,8 +1605,10 @@ const JACOB_RENDER = {
 
   jlive() {
     return livePage(JACTIVITY, { tone: "warn", text: "working" }, "Business development",
-      "When Jacob picks up a message or a lead, every step he takes appears here as it happens.");
+      "When Jacob picks up a message or a lead, every step he takes appears here as it happens.",
+      JQUEUE?.last_kick, "jqueue");
   },
+  jqueue() { return queuePage(JQUEUE); },
 
   decisions() {
     const open = openJacobReqs();
@@ -1688,8 +1765,10 @@ const RENDER = {
   live() {
     return livePage(ACTIVITY, maryChip(), "", STATUS?.state === "working"
       ? "Mary is working - her first step will appear here in a moment."
-      : "When Mary picks up a job, everything she does appears here as it happens.");
+      : "When Mary picks up a job, everything she does appears here as it happens.",
+      MQUEUE?.last_kick, "queue");
   },
+  queue() { return queuePage(MQUEUE); },
   scoreboard() {
     const sb = DATA.scoreboard;
     if (!sb) return `<div class="empty"><strong>No scoreboard yet</strong>Run scripts/mary_scoreboard.py and redeploy.</div>`;
@@ -2239,9 +2318,11 @@ $("#search").addEventListener("input", (e) => {
       api("jacob/pipeline").catch(() => []),
     ]);
     JPIPE = Object.fromEntries(pipe.map((r) => [r.key, r]));
-    [JACTIVITY, JSTATUS] = await Promise.all([
+    [JACTIVITY, JSTATUS, MQUEUE, JQUEUE] = await Promise.all([
       api("jacob-activity").catch(() => null),
       api("jacob/status").catch(() => null),
+      api("mary/queue").catch(() => null),
+      api("jacob/queue").catch(() => null),
     ]);
     // A bot whose board data is missing loses its card but takes nothing
     // else down - the registry entry stays so its data can still be read.
@@ -2280,13 +2361,18 @@ $("#search").addEventListener("input", (e) => {
                     JREQS.filter((r) => r.status !== "answered").length].join(":");
     setInterval(async () => {
       try {
-        const [fresh, status, jmsgs, chat, reqs] = await Promise.all([
+        const [fresh, status, jmsgs, chat, reqs, mq, jq] = await Promise.all([
           api("messages").catch(() => MESSAGES),
           api("status").catch(() => STATUS),
           api("jacob/messages").catch(() => JMSGS),
           api("botchat").catch(() => BOTCHAT),
           api("jacob/requests").catch(() => JREQS),
+          api("mary/queue").catch(() => MQUEUE),
+          api("jacob/queue").catch(() => JQUEUE),
         ]);
+        const queueChanged = (mq?.updated !== MQUEUE?.updated) || (jq?.updated !== JQUEUE?.updated);
+        MQUEUE = mq; JQUEUE = jq;
+        if (queueChanged && ["queue", "jqueue", "live", "jlive"].includes(page)) render();
         const statusChanged = JSON.stringify(status) !== JSON.stringify(STATUS);
         STATUS = status;
         const sig = signature(fresh);

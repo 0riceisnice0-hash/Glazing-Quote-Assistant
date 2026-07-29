@@ -168,25 +168,59 @@ def write_status(state, chat_key=None, depth=0, detail="", title=""):
         pass
 
     fingerprint = (state, chat_key, depth, detail)
-    if fingerprint != _pushed[0]:
+    _push_state(fingerprint, payload, "/api/mary/status", _pushed)
+    return payload
+
+
+def _push_state(fingerprint, payload, route, cache):
+    """POST a state payload to the hub when it CHANGES. Shared by the status
+    pill and the queue view - same dedupe, same failure posture."""
+    if fingerprint != cache[0]:
         try:
             import urllib.request
             key = ENV.get("MARY_API_KEY")
             if key:
                 base = ENV.get("DASHBOARD_URL", "https://mary-dashboard.pages.dev")
                 req = urllib.request.Request(
-                    base + "/api/mary/status",
+                    base + route,
                     data=json.dumps(payload).encode("utf-8"), method="POST")
                 req.add_header("x-mary-key", key)
                 req.add_header("content-type", "application/json")
                 req.add_header("user-agent", "MaryBridge/1.0")
                 urllib.request.urlopen(req, timeout=15).read()
                 # Only now is it really pushed - marking it earlier would mean
-                # a single failure froze the hub's status until the next change.
-                _pushed[0] = fingerprint
+                # a single failure froze the hub's view until the next change.
+                cache[0] = fingerprint
         except Exception as e:
-            log("status push failed: %s" % e)
-    return payload
+            log("state push failed (%s): %s" % (route, e))
+
+
+# The queue, visible. Five FYI messages sat queued for Jacob on 29/07 and
+# nothing on the hub showed what they were - Zac had to ask. The bridge now
+# publishes what is waiting (with routing reasons) and what kicked the last
+# session off, starting prompt included.
+_queue_pushed = [None]
+_last_kick = [None]
+
+
+def queue_items(orders, reg):
+    out = []
+    for o in orders[:40]:
+        key, why = router.route(o, reg)
+        out.append({"file": o.get("_file", ""), "mailbox": o.get("mailbox", "graph"),
+                    "from": str(o.get("from", ""))[:60],
+                    "subject": (o.get("subject") or (o.get("body") or "")[:90])[:120],
+                    "context": (o.get("context") or "")[:60],
+                    "route": key, "why": (why or "")[:200]})
+    return out
+
+
+def push_queue(orders, reg):
+    items = queue_items(orders, reg)
+    payload = {"items": items, "last_kick": _last_kick[0]}
+    fingerprint = (tuple(i["file"] for i in items), bool(_last_kick[0]),
+                   (_last_kick[0] or {}).get("at"))
+    _push_state(fingerprint, payload, "/api/mary/queue", _queue_pushed)
 
 
 def read_orders():
@@ -410,6 +444,14 @@ def dispatch(key, orders, reg, bst, dry_run=False):
             log("        %s  <- %s" % (describe(o), o.get("_route_why")))
         return True
 
+    # What kicked this session off, starting prompt included - published so
+    # the hub's Queue tab can show it instead of anyone asking.
+    _last_kick[0] = {"chat": key, "title": title,
+                     "at": dt.datetime.now().isoformat(timespec="seconds"),
+                     "orders": [describe(o) for o in orders][:12],
+                     "prompt": prompt[:12000]}
+    push_queue(read_orders(), reg)
+
     # The prompt goes down STDIN, not argv. Windows caps a whole command line at
     # 32,767 characters, and the noticeboard alone reached 30,259 on 27/07/2026 -
     # so every NEW chat launch started dying with "[WinError 206] The filename or
@@ -588,6 +630,7 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
     if _worker[0] and _worker[0].is_alive():
         key, title = _current[0]
         write_status("working", key, len(read_orders()), "working - new items queue behind this", title=title)
+        push_queue(read_orders(), reg)
         # Publish what she is doing, tailed from the session transcript. Cheap,
         # and it fails silently rather than ever disturbing the session.
         if now - state.get("_last_activity", 0) >= ACTIVITY_EVERY:
@@ -627,7 +670,9 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
     # the runaway at its source.
     if not groups:
         write_status("idle", None, 0, "nothing new - handoffs wait for real work")
+        push_queue([], reg)
         return TICK
+    push_queue(orders, reg)
 
     # THE BACKSTOP, and it assumes the line above has a hole in it. Budgets are
     # scoped to the window they belong to - a night's overspend must not block
