@@ -393,10 +393,10 @@
   },
   "riverside": {
    "session_id": "87c81798-b54f-423c-8eb0-1f82024ebfbd",
-   "started": false,
+   "started": true,
    "created": "2026-07-27T17:49:32",
-   "last_active": "2026-07-28T08:55:25",
-   "runs": 43,
+   "last_active": "2026-07-29T07:50:49",
+   "runs": 44,
    "rotated_from": "b664294f-b027-4e0e-9f7b-084072d720c9",
    "rotated_at": "2026-07-29T07:45:02",
    "rotations": 1
