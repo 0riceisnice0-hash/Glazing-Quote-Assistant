@@ -9,9 +9,22 @@ martin.moore@smd-ltd.com, 07564 581082
 **Scope:** external windows and doors to a new teaching block (classrooms, hall, toilets,
 ancillary). Fenster is a sub-contractor to SMD, who are main-contract tendering to the Trust.
 
-## Where this stands (28/07/2026)
+## Where this stands (29/07/2026)
 
-**TENDER DRAFTED, NOT ISSUED. Deadline Friday 31/07/2026 - three working days.**
+**TENDER DRAFTED, NOT ISSUED. Deadline Friday 31/07/2026 - TWO DAYS.**
+
+**29/07 12:19 - ADAM WROTE TO GINTARE ON THE TENDER THREAD** (estimating@ copied) asking three
+questions: extra doors on the schedule vs their BoQ, no triple glazing on Smart Wall against a
+triple spec, and "have we allowed for solar control glass where required?" All three are findings
+already sent to him on 27/07 and 28/07 - he was not asking what the problem was, every sentence
+ended **"did you query this with the client?"**. Nothing had been queried with SMD.
+
+**RFI TO SMD DRAFTED AND SENT TO ADAM 29/07** - `outputs/brocks-hill-rfi-to-smd.txt`, addressed to
+Martin Moore, ready to send unedited. Six queries: the seven doors, triple glazing, solar control
+spec/g-value, U-value basis, scope boundaries, access control + manifestations. **Every query states
+what Fenster will assume absent a reply**, so the tender returns on Friday either way - notably
+"we will tender on a double glazed door at your own ER 5.4.1 figure of 1.2 W/m2K and state the
+deviation". Adam's three questions answered in three lines in the covering email.
 
 **TAKE-OFF DELIVERED 28/07** on Adam's dashboard answer to REQ-2 ("email me a take-off in
 the meantime please. Needs to be asap"). `outputs\Brocks Hill Phase 2 - Take-Off.xlsx`,
@@ -20,8 +33,13 @@ Window & Door Schedule / RFIs & Queries. **49 external elements on the architect
 40 quoted, 9 not** - W.1.20, ED.0.01, ED.0.04, ED.0.05, ED.0.06, ED.0.07, ED.0.08, ED.0.09,
 ED.0.14. Emailed to Adam the same evening.
 
-**BLOCKED ON ONE THING:** authority to raise a steel sports-hall doorset enquiry and a louvred
-doorset enquiry. Neither type has a supplier and there are three working days left.
+**BLOCKED ON ONE THING, NOW FOUR DAYS OLD:** authority to raise a steel sports-hall doorset enquiry
+and a louvred doorset enquiry. Neither type has a supplier. Raised on REQ-13 (27/07), repeated in the
+take-off email (28/07) and again 29/07. Those seven doors cannot be priced until someone can put them
+out to a supplier.
+
+**Supplier currency checked 29/07** (sm5-wexham's lesson): no revision has landed since the 22/07
+quotes and nothing new is in the job folder, so the pricing document is still built on the latest.
 
 Gintare's outgoing tender is **GBP 93,673.34 ex VAT**, supplier-backed, dated 28/07/2026.
 Checked 27/07 — full audit at `outputs\Brocks Hill Phase 2 - Quote Check (schedules vs
@@ -194,3 +212,7 @@ doorsets. Neither has a fabricator engaged — `check_fabricator_can_make_it` fa
   emailed the same evening. Mastic/EPDM settled by his separate ruling. Dashboard deploy blocked
   by the npx/miniflare lock the gordon-court chat flagged at 22:27 — the state file is written and
   committed, and the replies went straight to D1, so nothing is lost.
+- **29/07/2026** — Adam queried the same three findings back to Gintare on the tender thread. RFI to
+  Martin Moore drafted ready to send and emailed to Adam with his three questions answered. Lesson
+  posted to the board: his follow-up is always "was this actioned?", so ship the artefact that
+  actions the finding, not the finding again. Supplier quotes re-checked and still current.

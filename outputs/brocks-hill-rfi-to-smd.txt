@@ -1,0 +1,104 @@
+SEND TO:  martin.moore@smd-ltd.com
+SUBJECT:  SMDT0173 Brocks Hill Phase 2 Teaching Block - pre-tender queries (return Fri 31/07)
+
+--------------------------------------------------------------------------------
+
+
+Martin,
+
+Ahead of Friday's return, three queries that affect our price and two that affect
+compliance. Where noted we have said what we will assume if we do not hear back, so
+our tender can be with you on time either way.
+
+
+1. EXTERNAL DOORS - THE SCHEDULE AND THE BILL DISAGREE
+
+Door schedule 23409-S2E-04-00-D-A-31 XX rev P06 shows two external door types that do
+not appear in the Bill of Quantities issued with the enquiry:
+
+  Type E.01   5no   ED.0.04, ED.0.06, ED.0.07, ED.0.08, ED.0.09
+                    1810 x 2110. Steel doors, PPC anthracite, specialist sports hall
+                    door with flush faces and recessed panic furniture to both leaves.
+                    All five are marked Fire Escape.
+
+  Type E.03   2no   ED.0.01, ED.0.05
+                    1810 x 2110. Aluminium frame with aluminium louvres.
+
+Your own Building Works Pricing Schedule carries 48 m2 of External Doors. The bill as
+issued measures 24.96 m2. Adding these seven doors gives 51.70 m2, which suggests the
+schedule quantity is the correct one and the bill is short.
+
+Please confirm whether both types are in our package. If they are, we will price them
+as a separate identified sum so you can move it between packages without disturbing the
+rest of our tender.
+
+
+2. TRIPLE GLAZING TO THE EXTERNAL DOORS
+
+Employer's Requirements 7.5.1 and the door schedule general specification both require
+factory sealed triple glazed units to windows and doors.
+
+The windows are fine - our tender is triple glazed argon filled throughout.
+
+The doors are not. The aluminium door system specified for this type of building is not
+manufactured in triple glazing, and we have that in writing from the manufacturer. It is
+not a glass substitution: no triple glazed unit is available in that frame depth.
+
+Two ways forward and we would like your steer:
+
+  (a) Accept a double glazed external door achieving the 1.2 W/m2K door U-value set out
+      at ER 5.4.1, which the doors do meet; or
+  (b) Confirm the door package is to move to a different system that is available in
+      triple, which will carry a cost and a lead-time consequence.
+
+Absent an instruction we will tender on (a) and state the deviation plainly on the face
+of our quotation.
+
+
+3. SOLAR CONTROL GLASS
+
+Window schedule rev P04 marks every external window "Triple Glazed, Solar Control
+Glazing" and ER 7.5.17 requires solar control glass to reduce overheating. Neither
+document names a product or a g-value.
+
+Please confirm the specification, or a target g-value, so we can price the correct
+coating. Absent a figure we will tender on a named solar control product and state it,
+so you can compare it like for like against the other returns.
+
+
+4. U-VALUE BASIS
+
+The door schedule states the 1.1 W/m2K applies to "all areas of external glazing" as an
+area-weighted average. ER 5.4.1 tabulates it as a per-element maximum, alongside 1.2 for
+doors and 2.2 for rooflights.
+
+Please confirm which basis applies. It changes whether individual elements can be traded
+against each other across the package.
+
+
+5. SCOPE BOUNDARIES
+
+Please confirm the following sit outside the external windows and doors package:
+
+  - Rooflights R.2.01 to R.2.07. ER 7.6.6 requires all roof system components including
+    rooflights to come from one manufacturer for a single-point guarantee, which reads as
+    placing them with the roofing contractor.
+  - Internal screens S.0.01 to S.0.04 and S.1.01 to S.1.04, timber framed.
+  - Internal doors and the two roller shutters.
+
+We will exclude all of the above unless you tell us otherwise.
+
+
+6. TWO SMALLER ITEMS
+
+  - Door access control: the door schedule leaves it to the Client to confirm which
+    doors require it. Please advise, or we will exclude the access control installation
+    and allow only for the door preparation.
+  - Manifestations: pattern is "to be agreed with the Client prior to install". We will
+    carry a provisional allowance unless a pattern is issued.
+
+
+We will return on Friday 31st as requested, with the 2.5% MCD applied and lead-in times
+stated.
+
+Kind regards,

@@ -1,0 +1,32 @@
+Adam,
+
+Your three questions, answered. Nothing has been queried with SMD yet - so the RFI is
+drafted and attached, ready to send to Martin Moore as it stands.
+
+1. EXTRA DOORS - correct, and it is 7 of them.
+   Type E.01, 5no steel sports hall escape doors 1810x2110 (ED.0.04/06/07/08/09), and
+   Type E.03, 2no aluminium louvred plant room doors (ED.0.01/05). On door schedule P06,
+   absent from their BoQ. Their own pricing schedule says 48 m2 of external doors; the
+   bill measures 24.96 m2; adding these seven gives 51.70 m2, so the schedule is right.
+   ~GBP 32,462 of sell at benchmark plus the louvres, which have no rate on file.
+
+2. TRIPLE GLAZING - not queried either. Windows are triple and compliant; the doors are
+   double. Bellview quoted 6.8 Lami / 4mm Tuff on every position. The RFI asks SMD to
+   accept a double glazed door at the 1.2 W/m2K door U-value they set at ER 5.4.1, which
+   it does meet, and says we will tender on that and state the deviation if they do not
+   reply. The proposal currently says "triple glazing throughout" - that line has to come
+   out before anything goes.
+
+3. SOLAR CONTROL - no, not allowed for anywhere. The window schedule marks all 35 windows
+   "Triple Glazed, Solar Control Glazing" and ER 7.5.17 requires it; BSW quoted "Clr" on
+   every line. About GBP 4,177 at GBP 35/m2 over 119 m2. Neither the schedule nor the ERs
+   name a product or a g-value, so the RFI asks for one.
+
+Two days to Friday. The RFI needs to go today to stand any chance of an answer, and it is
+written so our tender goes on time whether or not they reply.
+
+Still outstanding from Monday: nobody has authority to raise the steel sports-hall doorset
+and louvred doorset enquiries. Those seven doors cannot be priced until someone can put
+them out.
+
+Mary
