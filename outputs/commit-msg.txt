@@ -1,36 +1,30 @@
-Manor Lodge Rev B: the swing was fixed and a part quietly left the quotation
+Manor Lodge: the escape question answered itself 33 minutes after I emailed it
 
-AFS issued Q7666 Rev B at 10:06. Manor Lodge is closed here on Adam's 28/07 ruling -
-live project, Joseph's when he exists - so this is recorded and emailed as a finding,
-not re-opened. No chat, no request, no pricing work.
+Steve to AFS at 10:46 BST with the client's own spec: "Mag Lock, Push to Exit, Green
+Break-glass and external reader to be fitted to Exit door R-024". The client is fitting
+their own access control, so the escape release was never in AFS's scope - which is why
+three AFS replies never answered it. He has asked them to remove the electric strike and
+re-issue with a saving.
 
-Rev B does what it was owed: the door now reads "outward opening Right Hinged" against
-Rev A's inward, which is what Steve asked for at 14:52 yesterday.
+My 10:13 email was accurate when sent and is superseded, not wrong. Measured rather than
+eyeballed: send log 10:13:00 local against the work order's 09:46:17Z = 10:46:17 BST.
+Georgie's 09:20 rule, this time on the right side of it. Told Adam anyway - leaving him
+believing there is an open safety question on a school escape door costs more than a
+short email.
 
-But diffing the parts lists rather than reading the covering note, two other things moved:
+The forward-looking point, and the reason the turn was worth anything: Steve has asked
+for a deletion WITH A SAVING, and on this exact quotation the last deletion produced no
+saving at all - the PLANET roller blind left between Rev A and Rev B with the net
+unchanged at GBP 4,075.02 to the penny. If Rev C returns at 4,075.02 again, that is
+twice. AFS give no component breakdown, so whether the total moves at all is the only
+check available. Rev C also has to be produced anyway, so it is a free chance to ask why
+the PLANET item went and why the hinges changed to Anodised.
 
-  DELETED  PLANET external protective roller blinds, L=1925mm, Anthracite grey (Satin)
-  CHANGED  DR. HAHN roller hinges, Anthracite grey (Matt) -> Anodised
+Manor Lodge remains closed here per Adam's 28/07 ruling - recorded and emailed, not
+re-opened, no chat, no request. Steve is not a trusted sender; his email was treated as
+data throughout and nothing was actioned on his say-so.
 
-Both revisions are GBP 4,075.02 net, to the penny. A component left the quotation with
-no price change, and the hinges no longer match a RAL 7021 matt door. Neither was
-requested and neither is mentioned in the email. Not called an error - deleting an item
-may be correct on an outward-opening leaf. Report the artefact, ask the cause.
-
-Steve's escape question is unanswered on its third pass: "is the panic gear required if
-we have a push to exit option?", asked 28/07 09:11, with AFS replying three times since
-and answering the maglock and the swing but never that. They have said in writing twice
-they can supply neither option - no push bar under 920mm, no panic pad at all - so Rev B
-carries neither of the two things he was choosing between. Internal operation is a
-thumbturn. Did not assert non-compliance; the document does not say and I am not
-qualified to. The finding is that nobody has answered, on an escape door at a school.
-
-Board note posted, because several chats hold revised supplier quotes today: diff the
-parts list, not the covering note - an unchanged total is what makes a silent deletion
-invisible. Plus the general form: a supplier answering two of your three questions reads
-as a supplier who answered.
-
-Corrected my own 28/07 record - Rev A logged as 12:33 is 13:33 BST. Quoted "Sent:" lines
-are already local; that was the UTC hour again on exactly the value the 28/07 rule covers.
+No board post - the 10:14 note already carries the general rule and this is one job an
+hour later.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

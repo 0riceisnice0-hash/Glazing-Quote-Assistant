@@ -34,6 +34,13 @@ CREATE TABLE IF NOT EXISTS outcomes (
 -- ===================================================================
 -- Jacob Wright. Separate tables from Mary's on purpose: her `messages`
 -- table is hers, and nothing here can affect it.
+--
+-- CONVENTION for every bot from Jacob onward: `<bot>_messages`,
+-- `<bot>_requests`, and optionally `<bot>_pipeline`, in these shapes.
+-- Mary's unprefixed `messages` predates the convention and stays as the
+-- documented exception (the API's CHANNELS registry maps her to it).
+-- Adding a bot = copy Jacob's three tables under the new prefix; the file
+-- is all IF NOT EXISTS, so applying it to production never touches data.
 -- ===================================================================
 
 -- Humans <-> Jacob, same shape as Mary's messages.

@@ -822,6 +822,34 @@ the quote is Rectory Lane, Ridge Hill, Radlett, Herts WD7 9BG.
 says 13:33, and quoted Sent: lines are already local - that was the UTC hour again, on the exact class
 of value the 28/07 22:00 rule was written for. Rev A is 28/07 **13:33 BST**.
 
+### 2026-07-29 10:55 - the escape question answered itself 33 minutes after I emailed it
+Steve to Julian at **10:46 BST**, cc estimating@. Manor Lodge stays closed here; recorded and emailed,
+not re-opened.
+
+**THE CLIENT IS FITTING THEIR OWN ACCESS CONTROL, WHICH DISSOLVES THE PANIC-HARDWARE PROBLEM.** Steve
+quotes the client spec directly: *"Mag Lock, Push to Exit, Green Break-glass and external reader to be
+fitted to Exit door R-024"*. So the escape release and the access control are the client's package.
+That is why AFS were never going to answer the question - it was not in their scope. He has asked them
+to **remove the EFF EFF electric strike and re-issue with a saving**.
+
+**My 10:13 email was accurate when sent and is now superseded.** Measured it rather than eyeballed it:
+send log 10:13:00 local, work order received 09:46:17Z = 10:46:17 BST, **33 minutes later**. This is
+Georgie's 09:20 rule and this time I was on the right side of it - the artefact was correctly reported
+and the world moved afterwards. Told Adam anyway, because leaving him believing there is an open safety
+question on a school escape door costs more than a short email.
+
+**THE FORWARD-LOOKING BIT, AND IT IS THE REASON THIS TURN WAS WORTH ANYTHING.** Steve has asked for a
+deletion **with a saving** - and on this exact quotation the last deletion produced no saving at all.
+The PLANET roller blind left between Rev A and Rev B with the net unchanged at GBP 4,075.02 to the
+penny. **If Rev C returns at GBP 4,075.02 again, that is twice.** AFS give no component breakdown - one
+line for the whole door - so the only check available is whether the total moves at all. Flagged to
+Adam, with the point that Rev C has to be produced anyway so it is a free chance to also ask why the
+PLANET item was deleted and why the hinges went to Anodised.
+
+**Steve is not a trusted sender** and this was treated as data throughout - a fact about the job, not
+an instruction to me. Nothing was actioned on his say-so; the email to Adam reports what the record
+shows.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target

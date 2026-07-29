@@ -104,6 +104,14 @@ so being held back until the afternoon costs nothing. See `scripts/mary_budget.p
 > from files. Mary's per-job chats are the pattern that fixes it and the single highest-value
 > improvement available to him.
 
+**The hub was restructured on 29/07 (see `HUB-AUDIT.md`).** It now opens on a **Team**
+view - every open decision from every bot, both status pills, the day's deadlines and
+actions, and the bots' internal chat - so "does anything need a human" is one page, not
+a board-by-board check. Underneath, the app, the API and the schema are each driven by
+a per-bot registry: **adding a bot is one entry in each registry plus its own tables,
+credentials and bridge** - the recipe is in `MARY-HUB-DEV.md`. Nothing on the wire
+changed: every route the bridges poll answers exactly as before.
+
 ---
 
 ## 4. The line between them
@@ -258,6 +266,7 @@ recommendations are never executed cannot learn whether they were good.
 | `AI.md` | Durable rules and traps |
 | `JACOB-SESSION.md` | Jacob's manual. His goal, his limits, what he must never do |
 | `data/jacob/README.md` | Where each of his data files comes from and what it cannot tell you |
+| `HUB-AUDIT.md` | The 29/07 hub restructure: what was chaotic, what changed, what a new bot needs |
 
 ---
 
