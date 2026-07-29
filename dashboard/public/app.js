@@ -263,10 +263,20 @@ function fmt(text) {
 }
 
 /* ---------------- helpers ---------------- */
-const daysUntil = (iso) => Math.ceil((new Date(iso + "T12:00:00") - Date.now()) / 86400000);
+/* Returns null - never NaN - when there is no usable date. A blank deadline used
+   to produce new Date("T12:00:00"), and the card then read "NaN days left"
+   (Adam, 29/07: "What does NaN mean?"). Every caller must handle null. */
+const daysUntil = (iso) => {
+  const t = new Date((iso || "") + "T12:00:00").getTime();
+  return Number.isNaN(t) ? null : Math.ceil((t - Date.now()) / 86400000);
+};
 function rag(job) {
   if (job.stage === "submitted") return ["ok", "Submitted"];
   const d = daysUntil(job.deadline);
+  if (d === null) return ["warn", "No deadline set"];
+  /* A default is a placeholder, not a commitment from anyone. It is shown in the
+     amber tone whatever the count, so it can never read like a client date. */
+  if (job.deadline_is_default) return ["warn", d < 0 ? `default date passed (${-d}d)` : `${d} days (DEFAULT, not client-set)`];
   if (d < 0) return ["danger", `${-d} days overdue`];
   if (d === 0) return ["danger", "Due today"];
   if (d <= 2) return ["danger", `${d} day${d > 1 ? "s" : ""} left`];
@@ -277,7 +287,8 @@ function rag(job) {
    This one is the Chasing page's issue dates, where an out-of-year quote is
    exactly the one somebody needs to notice. */
 const niceDate = (iso) => {
-  const d = new Date(iso + "T12:00:00");
+  const d = new Date((iso || "") + "T12:00:00");
+  if (Number.isNaN(d.getTime())) return "not set";   /* never "Invalid Date" */
   const short = d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
   return d.getFullYear() === new Date().getFullYear() ? short : `${short} ${d.getFullYear()}`;
 };
@@ -510,6 +521,7 @@ function jobPanel(j) {
   openPanel(`
     <h2>${esc(j.job)}</h2>
     <p class="sub">${esc(j.client)} &middot; deadline ${niceDate(j.deadline)} &nbsp;<span class="chip ${tone}">${esc(badge)}</span></p>
+    ${j.deadline_basis ? `<p class="page-sub" style="margin-top:-4px">${esc(j.deadline_basis)}</p>` : ""}
     <div class="panel-sec"><h4>Where it stands</h4>${fmt(j.status)}<p style="margin-top:8px"><strong>${esc(j.value)}</strong></p></div>
     <div class="panel-sec"><h4>Open requests on this job</h4>${mini(r.reqs.filter((x) => x.status === "open"), (x) => `<div class="mini-row" data-goreq="${x.id}"><strong>${esc(x.title)}</strong><small>needs ${esc(x.owner)} - raised ${esc(x.raised)}</small></div>`, "None - nothing blocked here.")}</div>
     <div class="panel-sec"><h4>Catches</h4>${mini(r.catches, (c) => `<div class="mini-row static">${esc(c.catch)}<small>${esc(c.date)}</small></div>`, "None on this job.")}</div>

@@ -5,9 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 14:57 - zac
-RULE from Zac (29/07, after 29 sends): a MOVING number is ONE email when it settles - or one line saying 'number moving, do not act until I confirm' - NEVER a chain of corrections. Redditch got five emails as supplier answers dribbled in; two Grange Hill sends landed 8 minutes apart with the second reversing the first. You are sure when the INPUTS stop changing, not when the latest input arrives. Full wording in MARY-EMAIL-SESSION.md section 3. Also: mary_send.py --check now logs to the ledger, so the librarian reports checks-vs-sends nightly.
-
 ### 2026-07-29 15:45 - triage
 DATE AN ISSUED QUOTE FROM THE SENT FOLDER, NEVER FROM A CRM FIELD - AND CHECK THE FOLDER IT CAME BACK FROM.
 
@@ -105,3 +102,31 @@ Frames column, no buy prices, no supplier name, no product codes - and the drawi
 are BSW's own quotation sheets with the prices and BSW's identity stripped and Fenster's logo on.
 Gordon Court sent this same QS five supplier quotations with 42 line prices. Marking up the
 supplier's own sheets is how you give a client unit references when the tender pack has none.
+
+### 2026-07-29 20:43 - triage
+NEW STANDING RULE FROM ADAM (29/07, dashmsg-93): NO DEADLINE GIVEN = A LABELLED DEFAULT OF SEVEN DAYS.
+
+His words: "If we have not been given a deadline, we should set a week as default but note that
+it's a default deadline. Then one can be provided at a later date if required."
+
+He asked because a card was reading "NaN days left" - my Bridport job, added with an empty
+deadline. daysUntil("") was doing arithmetic on a blank. Fixed at the root: daysUntil returns
+null instead of NaN, niceDate prints "not set" instead of "Invalid Date", and the generator fills
+any blank deadline with today+7, WRITES IT BACK to dashboard-state.json, and sets
+deadline_is_default plus a deadline_basis line. Recomputing per deploy was rejected deliberately -
+a default that is always a week away never arrives.
+
+WHAT THIS DOES NOT MEAN. A default is not a date anyone has agreed, and this is the exact hazard
+already on triage's watch list: five hub dates were once supplier quote expiries or our own 30-day
+validity, promoted to "the client's deadline". So the label is the rule, not the number. The chip
+now reads "N days (DEFAULT, not client-set)" and stays amber whatever the count, and the job panel
+prints the basis. If you set a REAL date, overwrite `deadline` AND drop `deadline_is_default`.
+
+Two jobs carry a default at 05/08/2026: Bridport (client said "timescale: not specified") and
+Redditch Library, where no date has ever existed - the pack's 26/06 was Gleeds' date to the main
+contractors and Leonard White has only said "asap". Adam has asked him for a date; replace it when
+it lands.
+
+ALSO WORTH KNOWING: deadline_basis was in the state file but rendered NOWHERE on the hub until
+today, so every "this date is only our validity" caution written into it since has been invisible.
+It now shows on the job panel. If you have been relying on it being read, it was not.

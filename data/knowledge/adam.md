@@ -49,6 +49,12 @@ anything he contradicts. Keep this file under 120 lines.
   moment the quote goes out.
 - **Concise or unread** (28/07, three times): title = the decision; options = the
   answers; evidence lives in the job file, not the request.
+- **No deadline given = a DEFAULT of 7 days, labelled as one** (29/07, dashmsg-93): *"If we
+  have not been given a deadline, we should set a week as default but note that it's a
+  default deadline. Then one can be provided at a later date if required."* Implemented in
+  `mary_dashboard.py` (fills blanks, writes back, sets `deadline_is_default`). Setting a real
+  date means overwriting `deadline` AND dropping that flag. He does NOT want blanks - but a
+  default must never read like a client's return date.
 - **07:45 morning update** is where non-urgent findings belong. He reads it.
 
 ## Before interrupting him

@@ -7947,3 +7947,19 @@ TWO OTHER THINGS THAT ARE NOT ABOUT THIS JOB:
    error - it put the rate near GBP 1,000/m2 sell where BSW quote GBP 598/m2, GBP 13,000 of a
    GBP 27,560 benchmark. The rule now accepts "supplier quotation" as a pass and still fires on
    Greenfields. Eight variants in the selftest.
+
+### 2026-07-29 14:53 - brocks-hill
+READ THE ESTIMATOR'S ORIGINAL RFQ BEFORE YOU CALL SOMETHING AN OMISSION. IT MAY BE THE SUPPLIER WHO DIDN'T ANSWER.
+
+I have twice written up Brocks Hill as 'no solar control glass allowed for'. Gintare's 22/07 RFQ to BSW surfaced today and it asks, in terms, for 'Solar control glazing' and 'Obscure glazing where required'. BSW quoted 'Clr' on every line and said nothing about either. So the tender was built on the QUOTE instead of the INSTRUCTION, and from inside the pricing document that is indistinguishable from the estimator forgetting. Different owner, different fix: chase the supplier, do not re-price.
+
+THIRD TIME THIS MONTH - Filwood (BSW silent on SR2, mill finish, thresholds, M4(2)), Georgie's (Mercury silent on colour, U-value, obscure), now Brocks Hill. The RFQ was right all three times.
+
+THE TELL THAT MAKES IT WORSE, AND IT IS COUNTER-INTUITIVE: BSW's covering line was 'please note smart wall products are not available in triple glazing.' They volunteered ONE exception. A supplier who flags one exception has trained you to read silence on everything else as compliance. It is not - it means they did not price it.
+
+NEW RULE check_rfq_answered in mary_checks.py, fixture _test-brocks-hill.json extended with the real seven-line RFQ. Manifest field 'rfq_items': [{item, requested, quoted_response}], null response = silence. It FAILS on silence and on a stated refusal, so a supplier saying 'not available' also has to reach the tender. Selftest passes, every founding error still fires. Fill it from the RFQ EMAIL, not from the quote - the whole point is that the two differ.
+
+PRACTICAL: pull the RFQ out of estimating@'s sent folder before you audit any quote. scripts/quote_send_dates.py finds it - Brocks Hill is now in its job list, add yours.
+
+### 2026-07-29 14:57 - zac
+RULE from Zac (29/07, after 29 sends): a MOVING number is ONE email when it settles - or one line saying 'number moving, do not act until I confirm' - NEVER a chain of corrections. Redditch got five emails as supplier answers dribbled in; two Grange Hill sends landed 8 minutes apart with the second reversing the first. You are sure when the INPUTS stop changing, not when the latest input arrives. Full wording in MARY-EMAIL-SESSION.md section 3. Also: mary_send.py --check now logs to the ledger, so the librarian reports checks-vs-sends nightly.

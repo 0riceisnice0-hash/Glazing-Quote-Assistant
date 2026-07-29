@@ -200,12 +200,57 @@ def check_reraise(state):
                 break
 
 
+DEFAULT_DEADLINE_DAYS = 7
+
+
+def apply_default_deadlines(state):
+    """Adam, 29/07 (dashmsg-93): "If we have not been given a deadline, we should
+    set a week as default but note that it's a default deadline. Then one can be
+    provided at a later date if required."
+
+    A blank deadline used to reach the page as `daysUntil("")`, which is NaN, and
+    the card read "NaN days left" - which is what he was looking at. Filling it
+    here rather than on the card is deliberate: the next session that adds a job
+    without a date gets the default automatically instead of publishing NaN again.
+
+    The date is WRITTEN BACK to dashboard-state.json so it stays put. Recomputing
+    it from today on every deploy would give a default that is permanently a week
+    away and therefore never arrives, which is worse than no date at all.
+
+    `deadline_is_default` is what the page reads to label it. A default must never
+    be mistakable for a client's return date - that confusion is already on
+    triage's watch list, where five hub dates turned out to be supplier expiries
+    or our own validity promoted to client deadlines. Anyone setting a REAL date
+    should overwrite `deadline` and drop this flag.
+    """
+    changed = []
+    today = dt.date.today()
+    for job in state.get("jobs", []):
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", (job.get("deadline") or "").strip()):
+            continue
+        due = today + dt.timedelta(days=DEFAULT_DEADLINE_DAYS)
+        job["deadline"] = due.isoformat()
+        job["deadline_is_default"] = True
+        job["deadline_basis"] = (
+            "DEFAULT - no deadline given by the client. Set to %d days from %s per Adam's "
+            "standing rule (29/07). Replace it the moment a real date arrives."
+            % (DEFAULT_DEADLINE_DAYS, today.strftime("%d/%m/%Y")))
+        changed.append((job.get("job", "?"), due.isoformat()))
+    if changed:
+        with open(STATE, "w", encoding="utf-8") as fh:
+            json.dump(state, fh, indent=1, ensure_ascii=False)
+        for name, due in changed:
+            print("default deadline %s -> %s (no client date)" % (due, name[:55]))
+    return state
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--deploy", action="store_true")
     args = ap.parse_args()
 
     state = json.load(open(STATE, encoding="utf-8"))
+    apply_default_deadlines(state)
     check_request_options(state)
     check_reraise(state)
     env = mg.load_env()

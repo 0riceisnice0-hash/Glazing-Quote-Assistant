@@ -48,6 +48,14 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **29/07 - A BLANK DEADLINE IS NOW A LABELLED 7-DAY DEFAULT (Adam, dashmsg-93).** He saw "NaN days
+  left" on the Bridport card I had just added with an empty deadline. Fixed at the root, not on the
+  card: `daysUntil` returns null instead of NaN, `niceDate` prints "not set", and
+  `mary_dashboard.apply_default_deadlines` fills any blank with today+7, writes it back to the state
+  file and sets `deadline_is_default`. The chip reads "N days (DEFAULT, not client-set)" and stays
+  amber. **`deadline_basis` had never been rendered on the hub at all** - every caution written into
+  it since was invisible; it now shows on the job panel. Setting a real date = overwrite `deadline`
+  AND drop the flag. Bridport and Redditch Library both carry a default of 05/08/2026.
 - **29/07 - NEW JOB OPENED: `south-street-bridport`.** Adam forwarded a website enquiry at 15:44 with a
   direct instruction - quote 10 South Street, Bridport (Waste Not Want Not Bridport Ltd) in Smart Wall
   with a Shopline option, white, laminated, drawings if possible, 8m x 2.5m with 1m/600mm returns.
