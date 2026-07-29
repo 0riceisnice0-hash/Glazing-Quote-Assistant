@@ -870,3 +870,60 @@ one match and it was an EPC course invitation.
 **And one direction check worth generalising: count who chased whom before writing "gone quiet".**
 RSR chased Fenster twice and Fenster answered neither. `dormant.json` would have had Adam ringing
 them to ask why *they* had been quiet.
+
+### The sequel, an hour later: I read a fan-out through one mailbox and got the blocker backwards
+
+**Mary, bot message 25, correcting the entry above. Both of my conclusions were wrong and the
+correction is more useful than the original finding.**
+
+**Harry went out to THREE glaziers on 05/09/2025, not one.** Instant Glass was simply the only one
+whose thread stayed in `commercial@` - so it was the only one I could see, **and it happened to be
+the one that failed.** In `estimating@`:
+
+- `05/09 12:26` **Maple Windows** (Info@maplecraftwindows.com) - never replied at all
+- `05/09 12:28` **Johnson & Sons** (hello@johnsonandsons.co.uk, Paul Johnson, Director)
+- `08/09 06:57` Paul Johnson prices it: *"To supply and fit as per details provided GBP 425.00 + VAT"*
+- `08/09 11:31` **ADAM** sets the corner spec himself: *"two units bonded together... 556 x 556 x 876"*
+- `13/10 08:28` Adam chases the revised cost
+- `13/10 10:09` Paul Johnson: *"To supply and fit 2 units bonded with structural silicone **GBP 960.00 + VAT**"*
+
+**So the blocker I reported as unsolved had been solved for nine months.** A firm, willing
+subcontract price for the actual article has been sitting in `estimating@` since 13/10/2025.
+
+**THE RULE: ABSENCE OF A PRICE IN YOUR HALF IS NOT ABSENCE OF A PRICE.** When somebody has gone out
+to several suppliers, a partial view of the fan-out reads as the whole fan-out - and the branch you
+can see is not a random sample of it. I had one of three, reported it as one of one, and recommended
+chasing the dead branch. Before naming a supplier blocker, ask whether the enquiry went to more than
+one firm and whether the other replies would have landed somewhere you cannot read.
+
+**And it explains what nine months of silence did not: GBP 750 IS UNDER COST.** GBP 750 + VAT sell
+against a GBP 960 + VAT buy with fit included is a loss of at least GBP 210 before margin, overhead
+or our own time. Nobody could simply confirm the price RSR keep asking us to confirm, because the
+honest answer was "it has gone up". **The next action is a re-quote, not a confirmation.**
+
+**It also makes the history fairer than "we broke a promise".** Harri asked on 09/10 whether GBP 750
+still stood; Harry put the same question to Adam on 10/10 08:25; **the revised GBP 960 did not arrive
+until 13/10 10:09.** At the moment the question was put, the honest answer was not yet known. Then it
+arrived, Harry left, and nobody put the two numbers next to each other. **Do not narrate a delay as
+neglect before checking what was knowable on the day.**
+
+### And the infrastructure lesson: the bot line silently eats the END of a long message
+
+**`/api/botchat` does `clip(b.body, 4000)` and returns `{ok:true}` either way.** My reply to Mary was
+6,918 characters. She received 4,000 of them - cut off mid-sentence in the fourth section, which was
+the paragraph addressed to her. **The endpoint returns no truncated count, so nothing at all warns
+the sender**, and she only knew because she went and found the rest of the story herself rather than
+ask me to resend.
+
+The failure mode is nastier than a plain length limit because **it takes the end, and the end is
+where the point goes.** A truncated message does not look truncated - it looks like a message that
+stopped making its argument.
+
+**Fixed in `scripts/bot_chat.py`: `BODY_LIMIT = 4000`, and it REFUSES rather than warns** - a warning
+printed after a successful send is read as noise, and the message is already wrong by then. It prints
+the characters that would have been lost so the sender can see what they nearly dropped. Splitting is
+left to the sender because only they know where the seam belongs, and the instruction is to **put the
+point in the FIRST part.**
+
+**Two copies of one fact, so note it:** the botchat route clips at 4,000, the hub's own reply route
+at 8,000. Different numbers on the same hub. Do not assume one limit from the other.

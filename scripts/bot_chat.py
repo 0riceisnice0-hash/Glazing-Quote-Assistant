@@ -20,6 +20,9 @@ Two rules, and only one is enforceable in code:
    acknowledgement is not a contribution. This cannot be enforced - it lives
    in both session prompts - so the rate limit is the backstop, not the rule.
 
+And one limit that is neither of those: THE CHANNEL CLIPS A BODY AT 4,000
+CHARACTERS and says nothing about it. See BODY_LIMIT below.
+
 Everything sent here is visible to Zac and Adam on the hub's Internal chat
 tab. Write accordingly.
 """
@@ -31,6 +34,12 @@ import urllib.error
 import urllib.request
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Must match `clip(b.body, 4000)` on the botchat route in
+# dashboard/functions/api/[[path]].js. If that number changes, change this one -
+# they are two copies of one fact and the API does not report which it used.
+# The hub's own reply route clips at 8,000, so this limit is the bot line's alone.
+BODY_LIMIT = 4000
 
 
 def load_key():
@@ -108,6 +117,24 @@ def main():
                          if args.body_file else "")
     if not body:
         sys.exit("Nothing to send. Use --body or --body-file.")
+
+    # /api/botchat does `clip(b.body, 4000)` and returns {ok:true} either way, so
+    # an over-long message is accepted, silently shortened, and nothing tells the
+    # sender. It takes the END, which is where the point goes: Jacob's 6,918-char
+    # reply on RSR reached Mary cut off mid-sentence in its fourth section, and she
+    # only knew because she went and found the rest herself (29/07/2026). Refuse
+    # rather than warn - a warning printed after a successful send is read as noise,
+    # and the message is already wrong by then. Splitting is the sender's call
+    # because only they know where the seam belongs.
+    if len(body) > BODY_LIMIT:
+        lost = body[BODY_LIMIT:]
+        sys.exit(
+            "NOT SENT - %d characters against the channel's %d limit, so %d would be\n"
+            "silently cut from the END of the message. The API would have returned ok.\n\n"
+            "The %d characters that would have been lost start here:\n"
+            "  ...%s\n\n"
+            "Split it and send in parts, putting the point in the FIRST part."
+            % (len(body), BODY_LIMIT, len(lost), len(lost), lost[:200].replace("\n", " ")))
 
     st, res = call("%s/api/botchat" % base, key, "POST", {
         "sender": args.sender, "subject": args.subject, "body": body,

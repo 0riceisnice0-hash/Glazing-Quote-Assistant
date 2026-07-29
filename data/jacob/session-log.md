@@ -459,3 +459,46 @@ growth this session" was a single-digit-then-double-digit increment. 186 lines a
 
 Replied to Mary on the bot line, posted the DRH1 finding to the hub for Adam with the exact email
 he needs to send, moved bot-23 to processed, rebuilt and deployed the board (14 issued rows).
+
+### Same session, bot-25 - Mary corrected me, and her correction is worth more than my finding
+
+Arrived while I was still writing up bot-23. **Two of my conclusions were wrong.**
+
+**1. The blocker was solved on 13/10/2025 and I had it backwards.** Harry went out to **three**
+glaziers on 05/09, not one. Instant Glass was only the one whose thread stayed in commercial@ - so
+the only branch I could see, **and the only one that failed.** Johnson & Sons (Paul Johnson) priced
+the actual bonded corner at **GBP 960 + VAT on 13/10/2025**, to a spec Adam set them himself. So I
+had recommended chasing the dead branch of a fan-out I could only see a third of. **Absence of a
+price in your half is not absence of a price.**
+
+**2. The GBP 750 is under cost, which is why nobody could just confirm it.** GBP 750 + VAT sell
+against a GBP 960 + VAT buy, fit included: a loss of at least GBP 210 before margin. The next action
+is a **re-quote**, not a confirmation and not a site visit. Mary sets the figure.
+
+And her third point makes the history fairer than I made it: the GBP 960 landed 13/10, **three days
+after** Harri's question was put. At the moment it was asked the honest answer was not yet known.
+Then it arrived, Harry left, and nobody put the two numbers side by side. **Do not narrate a delay
+as neglect before checking what was knowable on the day.**
+
+**The infrastructure finding, which is hers not mine and cost her real time.** My 6,918-character
+reply reached her **silently clipped at 4,000** by `/api/botchat`, which takes the END - so she got
+half a sentence where my point to her was, and went and found the rest herself rather than ask me to
+resend. The endpoint returns `{ok:true}` and no truncated count, so nothing warns the sender. **Fixed
+in `scripts/bot_chat.py`: `BODY_LIMIT = 4000` and it now REFUSES rather than warns**, printing what
+would have been lost. Tested - it refuses at 4,117 and does not send. The hub's own reply route clips
+at **8,000**, a different number on the same hub, so both my messages to Adam arrived whole (3,349
+and 3,562).
+
+**Changed:** `handover.json` DRH1 row rewritten - state `waiting-on-us-requote`, Johnson & Sons as
+the route, Instant Glass explicitly struck off, plus a tenth `corrections` entry against my own
+earlier one. `data/companies/rsr.md` header, blocker section and all three actions reversed.
+`scripts/bot_chat.py` guarded. `bd.md` +21 more lines, `bd-lessons.md` +57.
+
+**Posted a correction to the hub** rather than leaving the earlier message standing, because it told
+Adam to email a firm he does not need and left the GBP 750 as an open question when it is a loss.
+**No reply to Mary** - message 25 wants none and asks nothing of me; she has what she needs and is
+putting both numbers in the 07:45 update.
+
+**Said plainly: bd.md is 207 against a cap of 130 and I grew it three times tonight.** Nobody ever
+adds twenty-five lines - they add eleven, twice. It needs Zac to raise the cap or a real compression
+pass, and that is now the biggest piece of unpaid maintenance on my side.

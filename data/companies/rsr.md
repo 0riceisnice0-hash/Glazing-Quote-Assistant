@@ -6,7 +6,12 @@
 > **GBP 750 + VAT**, signed off by Amazon, and RSR cannot issue their own quotation to Amazon until
 > we confirm. They chased us twice and got nothing. **The silence is ours, not theirs.** Full row
 > on the chase register: `handover.json`, `job:drh1-amazon-crawley-reception-window`. Raised by
-> Mary (bot message 23); the supplier half found by Jacob in commercial@ the same night.
+> Mary (bot messages 23 and 25).
+>
+> **AND THE ANSWER IS NOT "YES, GBP 750 STILL STANDS" - THAT PRICE IS UNDER COST.** It was quoted
+> against a single pane; the real article is a bonded corner unit, and the subcontract buy for it is
+> **GBP 960 + VAT**. Confirming what RSR are asking us to confirm loses at least GBP 210 before any
+> margin. **The next action is a RE-QUOTE, and the figure is Mary's.**
 >
 > **And Harry Grover has left Fenster** - Adam, 31/10/2025 14:46. He is named as the seller on four
 > of the five jobs below. Nothing he promised is live and nobody should be told he will call.
@@ -145,8 +150,10 @@ which is why Mary's account had the job dying on 10/10.
 | 31/10 14:46 | **Adam** chases: "Is there an update on this please? **Harry has now left Fenster so I am picking this up**" |
 | 31/10 15:51 | Heather: "**Would it be possible for us to pop to site on Monday** to confirm exact details so that we can generate an accurate cost for you" |
 
-**Nobody ever answered her.** Monday was 03/11/2025. That is where this job actually stops - not
-10/10 - and the open question is Fenster's, not the client's or the supplier's.
+**Nobody ever answered her.** Monday was 03/11/2025. That is the last event on the job in any
+mailbox - not 10/10 - and the unanswered question is Fenster's, not the client's or the supplier's.
+**But it is a loose end, not the blocker** - by then Johnson & Sons had already priced the corner
+unit. See the section below.
 
 **Why it died: a leaver, not neglect.** Harry held both ends. When he went, Adam picked up the
 supplier end and nobody picked up the client end.
@@ -164,16 +171,40 @@ old.
 
 **Whether GBP 750 still stands is Mary's call. Nobody confirms it to RSR before she has answered.**
 
-### The blocker, honestly stated
+### The blocker was already solved on 13/10/2025 - and the GBP 750 is under cost
 
-**Who physically fits one corner unit in Crawley.** Harry had already tried local firms and could
-not get prices back. **Instant Glass is the only named candidate and is unproven** - searched on
-`instantglass.co.uk` they appear in exactly **three** messages across all four of Jacob's mailboxes,
-all of them this one thread. Eight weeks, three chases, no price ever produced, no order ever
-placed. (A loose search on "Instant Glass" returns 49 hits and makes them look like an established
-supplier. They are not - that is the single-word-name trap again.)
+**Corrected by Mary, bot message 25, an hour after the section above was written. Both halves of
+what I first said here were wrong and this is the version to act on.**
 
-Their offer to survey is real and is the cheapest live thing on the job. Expect to need a fallback.
+**Harry went out to THREE glaziers on 05/09/2025, not one.** Instant Glass was simply the only one
+whose thread stayed in `commercial@`, so it was the only one Jacob could see - **and it was the one
+that failed.** The other two are in `estimating@`:
+
+| When | What |
+|---|---|
+| 05/09 12:26 | **Maple Windows** (Info@maplecraftwindows.com) - never replied, ever |
+| 05/09 12:28 | **Johnson & Sons** (hello@johnsonandsons.co.uk, **Paul Johnson**, Director) |
+| 08/09 06:57 | Paul Johnson prices it: *"To supply and fit as per details provided GBP 425.00 + VAT"* |
+| 08/09 11:31 | **ADAM** sets the corner spec himself: *"This unit is actually two units bonded together. Would you please be able to quote based off the same width at a 90 degree angle. 556 x 556 x 876"* |
+| 13/10 08:28 | Adam chases: *"Did you manage to get a revised cost for the below corner unit?"* |
+| 13/10 10:09 | Paul Johnson: *"Sorry, I missed this. To supply and fit 2 units bonded with structural silicone **GBP 960.00 + VAT**"* |
+
+**So a firm, willing subcontract price for the actual article has been sitting in estimating@ since
+13/10/2025.** Johnson & Sons priced it twice and quickly the first time. **Do not carry Instant
+Glass forward as the route** - eight weeks, three chases, never produced a number.
+
+**AND THAT IS WHY NOBODY COULD SIMPLY CONFIRM THE GBP 750: IT IS UNDER COST.** GBP 750 + VAT sell
+against a GBP 960 + VAT buy, fit included, is a loss of at least **GBP 210** before margin, overhead
+or our own time. **Nobody confirms GBP 750.**
+
+**It also makes the timeline fairer than "neglect".** On 09/10 Harri asked whether GBP 750 still
+stood; on 10/10 08:25 Harry asked Adam the same question; the revised GBP 960 did not land until
+13/10 10:09. **At the moment the question was put, the honest answer was not yet known.** Then it
+arrived, Harry left, and nobody put the two numbers next to each other.
+
+*One trap worth keeping even though the conclusion changed: a loose search on "Instant Glass"
+returns 49 hits and makes them look like an established supplier; on `instantglass.co.uk` it is
+three messages, one dead thread. **Search the domain.***
 
 ## What we are trying to make happen
 
@@ -187,16 +218,17 @@ This is not a lead that needs finding - it needs a phone call.
 **REVISED 29/07/2026 LATE. There are now two actions and the order matters. Do not start with the
 relationship call - start with the job we owe them.**
 
-**Action 1, and it is one email: Adam replies to Heather Craig at info@instantglass.co.uk and says
-yes, go to site.** She offered on 31/10/2025 and has been waiting for an answer ever since. She
-already holds the spec and the site photo. This is the blocker, and until it moves there is nothing
-to tell RSR.
+**Action 1: MARY SETS A RE-QUOTE FIGURE.** GBP 960 + VAT of subcontract (Johnson & Sons, worth
+re-confirming with Paul Johnson after nine months) plus margin. Not Jacob's, not Adam's, and not the
+old GBP 750 - that one is under cost. *(An earlier version of this file said action 1 was emailing
+Instant Glass about a site visit. That was wrong - see the section above.)*
 
-**Action 2, once there is an answer on who fits it: Adam goes back to Harri Birt on DRH1** -
-Harri.Birt@rsr.co.uk, 07710 088518. **This is not a chase, it is an apology and a restart.** Amazon
-signed the work off in October 2025 and RSR have been unable to issue their own quotation to Amazon
-ever since, because they are waiting on us. Lead with that, own it, and do not blame the leaver to
-the client. **No number goes to them until Mary has ruled on the corner unit.**
+**Action 2: Adam writes to Harri Birt on DRH1** - Harri.Birt@rsr.co.uk, 07710 088518. **This is not
+a chase, it is an apology and a re-quote.** Amazon signed the work off in October 2025 and RSR have
+been unable to issue their own quotation to Amazon ever since, because they are waiting on us. Say
+the price has changed and why - the article turned out to be a bonded corner unit, not the single
+pane Amazon's spec described. Own the delay; do not blame the leaver to the client. **Do not open
+with the old number in it.**
 
 **Action 3, the relationship call, and it is now the third thing rather than the first: Adam calls
 James Evans - 07938 483016.** Adam specifically, because Adam is the one who turned up and fixed
