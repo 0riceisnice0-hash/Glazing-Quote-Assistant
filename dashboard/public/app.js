@@ -108,6 +108,30 @@ function inline(s) {
   return h;
 }
 
+/* A request is a DECISION, so the buttons are the point of the card and they go
+   first; the reasoning sits underneath, folded.
+
+   The card used to run title -> why -> needs -> buttons. On 29/07 the open
+   requests carried 29,004 characters of why-and-needs between them - REQ-32's
+   "why" alone was 3,969 - which on a phone put the thing Adam has to click
+   about eight hundred words below the fold. That is the same as not shipping it.
+
+   Open when it is short: a two-line "needs" is not worth a click, a
+   seventeen-hundred-character one is.
+
+   And fmt(), not inline(). inline() only escapes and highlights money, so every
+   bullet Mary wrote in a request was being flattened into one grey slab.
+   Messages have always used fmt; requests never did. */
+function reqDetail(label, text, openBelow) {
+  const body = String(text || "").trim();
+  if (!body) return "";
+  const isOpen = openBelow > 0 && body.length < openBelow;
+  return `<details class="req-detail"${isOpen ? " open" : ""}>
+    <summary>${esc(label)}${isOpen ? "" : ` <span class="req-len">${body.length > 900 ? "long" : "detail"}</span>`}</summary>
+    ${fmt(body)}
+  </details>`;
+}
+
 function fmt(text) {
   const blocks = String(text || "").trim().split(/\n\s*\n/);
   const out = [];
@@ -1513,8 +1537,6 @@ const RENDER = {
       <article class="req" data-req="${r.id}">
         <div class="req-top"><div><h3>${esc(r.title)}</h3><div class="meta">${esc(r.job)} &middot; raised ${esc(r.raised)} &middot; needs <strong>${esc(r.owner)}</strong></div></div>
         <span class="chip ${SENT_ANSWERS[r.id] ? "ok" : "warn"}">${SENT_ANSWERS[r.id] ? "sent to Mary" : "waiting"}</span></div>
-        <div class="req-block"><h5>Why Mary is blocked</h5><p>${inline(r.why)}</p></div>
-        <div class="req-block needs"><h5>What she needs from you</h5><p>${inline(r.needs)}</p></div>
         ${SENT_ANSWERS[r.id] ? `
         <div class="req-answer sent">
           <h5>Your answer &middot; sent ${esc(SENT_ANSWERS[r.id].at)}</h5>
@@ -1526,6 +1548,8 @@ const RENDER = {
           <div class="req-compose"><textarea data-draft="req:${r.id}" placeholder="Your answer (or pick an option above and add detail)..."></textarea>
           <button class="btn" data-answer="${r.id}">Answer</button></div>
         </div>`}
+        ${reqDetail("What she needs from you", r.needs, 400)}
+        ${reqDetail("Why she is blocked", r.why, 0)}
       </article>` : `
       <article class="req resolved">
         <div class="req-top"><div><h3>${esc(r.title)}</h3><div class="meta">${esc(r.job)} &middot; answered ${esc(r.answered_at || "")} by ${esc(r.answered_by || "team")}</div></div><span class="chip ok">resolved</span></div>

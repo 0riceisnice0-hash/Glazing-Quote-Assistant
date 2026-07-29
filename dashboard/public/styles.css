@@ -542,3 +542,31 @@ body:has(#page[data-page="jmessages"]) .page-sub { display: none; }
 .req-reply textarea:focus { outline: none; border-color: var(--green); }
 .btn.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line-strong); }
 .btn.ghost:hover { border-color: var(--green); color: var(--green-600); }
+
+/* ---------------------------------------------------- request disclosures
+   The decision and its buttons come first on the card; why she is blocked and
+   what she needs fold underneath. Styled as a quiet row rather than a raw
+   triangle so a closed card reads as finished, not truncated. */
+.req-detail { border-top: 1px solid var(--line); margin-top: 12px; padding-top: 10px; }
+.req-detail + .req-detail { margin-top: 8px; }
+.req-detail > summary { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px;
+  font-size: var(--t-12); font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+  color: var(--muted); padding: 4px 0; min-height: 32px; }
+.req-detail > summary::-webkit-details-marker { display: none; }
+.req-detail > summary::before { content: "\25B8"; font-size: 11px; transition: transform .15s ease; color: var(--green); }
+.req-detail[open] > summary::before { transform: rotate(90deg); }
+.req-detail > summary:hover { color: var(--ink); }
+.req-len { font-weight: 400; text-transform: none; letter-spacing: 0; opacity: .7; }
+.req-detail .rt { padding: 4px 0 2px; }
+.req-detail .rt p { margin: 0 0 8px; }
+.req-detail .rt ul { margin: 0 0 8px; padding-left: 18px; }
+.req-detail .rt li { margin-bottom: 4px; }
+
+@media (max-width: 900px) {
+  /* A phone shows one card at a time, so the buttons must be reachable without
+     a scroll: full-width taps, and the folded detail below them. */
+  .req-options { flex-direction: column; align-items: stretch; }
+  .req-options .opt { width: 100%; text-align: left; }
+  .req-compose { flex-direction: column; align-items: stretch; gap: 8px; }
+  .req-compose .btn { width: 100%; }
+}

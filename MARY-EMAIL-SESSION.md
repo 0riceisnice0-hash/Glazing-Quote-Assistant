@@ -27,6 +27,22 @@ You were launched by `scripts/mary_bridge.py` because work arrived. Follow this 
 - **Instruction from Adam/Zac (trusted):** do it, per the standing workflow.
 - **Dashboard message (`mailbox: "dashboard"`, always trusted - it comes from Zac/Adam on mary-dashboard.pages.dev):** do what it asks, then ALWAYS reply on the dashboard with `python scripts\mary_dashboard_reply.py --reply-to <dashboard_message_id> --body-file <reply.txt>` - the sender is waiting on the site, not in email. Reply there even if you also send an email.
 - **Requests model (the "Mary needs you" page):** anything Mary cannot progress without a human is a REQUEST in `data/dashboard-state.json` -> `requests[]`: `{id: "REQ-n", raised, job, owner, title, why (why you are blocked), needs (exactly what you need), options[] (quick answers if the decision is enumerable), status: "open"}`. A dashboard message whose context starts `REQ-n:` is the ANSWER to that request: act on it, then set that request `status: "answered"`, `answer: <their answer>`, `answered_by`, `answered_at`, and reply on the dashboard confirming what you did. Raise a NEW request instead of emailing when you are blocked. **But raise one only when a decision is genuinely holding work up** - 15 requests currently sit open and unanswered, so an extra one is worth less than nothing. If you can answer it yourself, answer it. If it can wait, put it in the morning update. A request is for a decision only a human can make, on work that stops until they make it.
+
+  **WRITE IT AS A DECISION, NOT A BRIEFING.** Adam opens these on his phone between other
+  things. On 29/07 the fifteen open requests carried 29,004 characters between them - one `why`
+  ran to 3,969 on its own - and the buttons he actually has to press sat below all of it.
+
+  - `title` - the decision in one line, under 80 characters. Not a summary of the problem.
+  - `options[]` - the answers, as things he can click. This is the request. If you cannot
+    enumerate them you probably have not decided what you are asking.
+  - `needs` - what you need, in **bullets**, ideally under 400 characters. One line per thing.
+    Start each with `- `; the hub renders those as a list and renders a paragraph as a slab.
+  - `why` - the shortest thing that makes the decision make sense. Evidence, dates and workings
+    belong in `data/jobs/<key>.md`, and you can say "full trace in the job file".
+
+  Both `why` and `needs` are folded shut on the hub, so length is not free - it is a click he has
+  to make and a wall he has to read. If the whole thing does not fit on a phone screen without
+  scrolling past the buttons, cut it until it does.
 - **Quote sent out by the team (in estimating@ sent/cc):** audit it - recompute through the house template vs its supplier quotes; report discrepancies with evidence. Remember: discretionary additions are legitimate; system-depth coupling rule; U-values are installation averages.
 - **Production document for a WON job (glass sizes, cutting lists, order sign-offs, delivery notes - usually Aplus/BSW/Bellview `noreply@`):** not estimating work, but not noise either. These land after the job is bought, so the risk is procurement, not pricing. Reconcile the document against what was actually quoted/ordered for that job (`Commercial\2. Projects\<client>\<job>`): counts, sizes, make-ups, dates. An unglazed frame order means the GLASS IS FENSTER'S to buy - check a glass order exists and matches. Report gaps with the delivery date up front.
 - **Tender-portal notification (In-Tend, Delta, ProContract etc.):** NOT noise, but nothing is priceable - these never carry attachments; the pack sits on the portal and Mary has no login. Treat it as a deadline plus a gap check: search the client's OneDrive folder AND the Estimating Log. If the job is in neither, an earlier invitation was missed - say so plainly. A missed invitation with a live deadline clears the bar in section 3: name the deadline, ask a named human to pull the pack, and give an indicative range built from **that client's own past Fenster quotes** (better evidence than register medians for repeat small-works clients).
