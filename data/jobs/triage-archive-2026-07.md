@@ -1057,3 +1057,9 @@ one. Neither of us should close it alone.
 `mary_ledger.py --add --kind quote_issued`, not botchat. My Trafalgar handoff this morning would now be
 a ledger entry. Botchat is reserved for questions and collision warnings - this reply qualifies, his two
 FYIs needed no response and got none.
+
+### 2026-07-29 13:51 - Manor Lodge Q7666: one line, as ruled
+Steve chasing Julian at AFS for the Rev C he asked for at 10:46 - *"Any updates on this? Need to get
+back to the client asap"*. No attachment, no Rev C yet, nothing new. **Live project, closed here on
+Adam's 29/07 10:59 ruling. Filed to processed. No email, no board post, no request, no chat, no
+analysis of the quotation.** This is the case the watch list was written for and it cost one read.
