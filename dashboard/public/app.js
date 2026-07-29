@@ -1,19 +1,24 @@
-/* Mary Grace - Fenster Estimating Hub.
-   Single-page app over /api/data (deployed state) + /api/messages (D1)
-   + /api/status (what her bridge is doing right now).
-   Anything written here is picked up by the bridge within seconds and routed
-   to that job's own permanent chat, then answered back into this hub. */
+/* Fenster Hub - every bot on one board.
+   Single-page app over the hub API. Each bot has a board (deployed state), a
+   two-way message line (D1), a decisions queue, and a live feed; the Team view
+   above them shows everything that needs a human, across all of them at once.
+   Anything written here is picked up by that bot's bridge within seconds.
+
+   ADDING A BOT: one entry in the BOTS registry below (pages + render map +
+   channel accessors), one entry in the API's CHANNELS registry, tables in
+   schema.sql. The sidebar, nav, routing, polling and badges all derive from
+   the registry - nothing else in this file should need to know the bot. */
 
 const $ = (s) => document.querySelector(s);
 const $$ = (s) => [...document.querySelectorAll(s)];
 
 let DATA = null;
 let MESSAGES = [];
-let page = "overview";
+let page = "home";
 let commsTab = "sent";
-/* Two bots share this hub. BOT decides which set of pages the board shows;
-   Mary's data lives in DATA, Jacob's in JACOB, and neither reads the other. */
-let BOT = "mary";
+/* BOT decides which board is on screen: "team", or a bot's key. Mary's data
+   lives in DATA, Jacob's in JACOB, and neither reads the other. */
+let BOT = "team";
 let JACOB = null;
 
 /* Anything a human has typed but not yet sent. render() throws the whole page
@@ -51,12 +56,10 @@ async function sendToMary(body, context = "") {
   toast(STATUS?.state === "working" ? "Sent - queued, Mary is mid-job right now" : "Sent - Mary picks this up in seconds");
 }
 
-/* The live pill in the sidebar: what the bridge is doing this second. */
-function renderStatus() {
-  const el = $("#mary-state");
-  const dot = $("#mary-dot");
-  if (!el) return;
-  const s = STATUS || {};
+/* The live pill on a bot's sidebar card: what its bridge is doing this
+   second. Returns {text, tone, title} so the card renderer stays generic. */
+function bridgeStatus(s) {
+  s = s || {};
   let text = "Live", tone = "";
   if (s.state === "working") {
     // Job names get long ("Air Separation Unit, Vesuvius Way Worksop") - trim to
@@ -77,13 +80,34 @@ function renderStatus() {
     text = `${s.queue_depth} queued`;
     tone = "busy";
   }
-  el.textContent = text;
-  el.title = [s.title, s.detail].filter(Boolean).join(" - ");
-  if (dot) dot.className = `dot ${tone}`;
-  // The sidebar is a drawer on a phone, so her state has to live in the top bar
-  // too - otherwise "is she working right now" costs you a tap.
+  return { text, tone, title: [s.title, s.detail].filter(Boolean).join(" - ") };
+}
+
+/* The whole left-hand column of bot cards, generated from the registry.
+   Regenerated whenever a status or badge changes - the cards hold no input
+   state, so a rebuild can never eat anything a human was doing. */
+function renderSidebar() {
+  const host = $("#bot-cards");
+  if (!host) return;
+  host.innerHTML = Object.values(BOTS).filter((b) => !b.hidden).map((b) => {
+    const s = b.status ? b.status() : null;
+    const n = b.needsYou ? b.needsYou() : 0;
+    return `<button class="nav-mary nav-bot" data-bot="${b.key}" type="button">
+      <div class="avatar ${b.accent || ""}">${b.initials}</div>
+      <div>
+        <strong>${b.name}${n ? `<span class="card-badge" title="Waiting on a human">${n}</span>` : ""}</strong>
+        <span class="role">${b.role}</span>
+        ${s ? `<span class="live"><i class="dot ${s.tone}"></i> <span class="bot-state" title="${esc(s.title)}">${esc(s.text)}</span></span>` : ""}
+        ${b.updatedLine ? `<span class="live-when">${esc(b.updatedLine() || "")}</span>` : ""}
+      </div>
+    </button>`;
+  }).join("");
+  $$(".nav-bot").forEach((el) => el.classList.toggle("active", el.dataset.bot === BOT));
+  // The sidebar is a drawer on a phone, so Mary's state has to live in the top
+  // bar too - otherwise "is she working right now" costs you a tap.
+  const m = bridgeStatus(STATUS);
   const dotM = $("#mary-dot-m");
-  if (dotM) { dotM.className = `dot ${tone}`; dotM.title = text; }
+  if (dotM) { dotM.className = `dot ${m.tone}`; dotM.title = m.text; }
 }
 
 function toast(text) {
@@ -180,6 +204,7 @@ const openReqs = () => (DATA.requests || []).filter((r) => r.status === "open");
 /* Still needing a human - one you have already answered is with Mary, not you. */
 const awaitingReqs = () => openReqs().filter((r) => !SENT_ANSWERS[r.id]);
 const unseenMsgs = () => MESSAGES.filter((m) => m.author !== "mary" && !m.seen_by_mary).length;
+const unseenJacobMsgs = () => JMSGS.filter((m) => m.author !== "jacob" && !m.seen_by_jacob).length;
 
 /* ---------------- live feed ----------------
    One feed, two boards: Mary's Live tab and Jacob's render identical event
@@ -223,6 +248,86 @@ function paintFeed(a, chip) {
   const dot = chip && $(".live-head .chip");
   if (dot) { dot.className = `chip ${chip.tone}`; dot.textContent = chip.text; }
   return true;
+}
+
+/* ---------------- shared chat ----------------
+   One renderer for every human <-> bot thread; the per-bot config lives on the
+   BOTS registry. Jacob's thread used to be a diverged copy with bubble classes
+   no stylesheet rule matched, so his messages rendered unstyled - the shared
+   renderer is how that class of drift stops happening.
+   (.bubble.mary is the navy "the bot said this" style; the class name predates
+   the second bot and is not worth a CSS migration.) */
+function chatPage(bot) {
+  const c = bot.chat;
+  const thread = [...c.msgs()].reverse();
+  let lastDay = "";
+  const parts = [];
+  for (const m of thread) {
+    /* Group by the UK day, not the UTC one - a message sent at 00:30 BST
+       lands at 23:30Z the day before and would file under yesterday. */
+    const day = ukDay(m.created);
+    if (day !== lastDay) { parts.push(`<div class="chat-day">${esc(day)}</div>`); lastDay = day; }
+    const mine = m.author !== bot.key;
+    const pending = mine && !m[c.seen];
+    parts.push(`<div class="bubble ${mine ? "human" : "mary"}${pending ? " pending" : ""}">
+      <div class="who">${esc((mine ? m.author : bot.name).toUpperCase())} <time>${esc(ukTime(m.created))}</time>
+      ${pending ? `<span class="wait-note">waiting for ${esc(bot.name.split(" ")[0])}</span>` : ""}</div>
+      ${m.context ? `<span class="ctx">${esc(m.context)}</span>` : ""}${fmt(m.body)}</div>`);
+  }
+  return `<div class="chat">
+    <div class="chat-thread">${parts.length ? parts.join("") : `<div class="empty"><strong>No messages yet</strong>${c.empty}</div>`}</div>
+    <div class="chat-compose">
+      <textarea data-draft="${c.draft}" placeholder="${c.placeholder}"></textarea>
+      <div class="chat-actions"><span class="chat-hint">Sending as <strong>${esc(who())}</strong> &middot; ${c.hint()}</span>
+      <button class="btn" data-chatsend="${bot.key}">Send</button></div>
+    </div></div>`;
+}
+
+/* What the bots say to each other. Lives on the Team board - it is a channel
+   between two of them, not a page of either. Mary reads navy, everyone else
+   white, same vocabulary as the human threads. */
+function botchatPage() {
+  const rows = [...BOTCHAT].reverse();
+  return `
+    <div class="section"><div class="section-head"><h3>How this works</h3></div>
+      <div class="planned-note">
+        <p>Jacob knows who is buying; Mary knows what is being quoted. This is the line
+        between them, and everything on it is visible to you.</p>
+        <p><strong>Ten messages an hour each</strong>, refused by the API beyond that -
+        a wall rather than an instruction, because two agents with something to say will
+        otherwise talk all night. And <strong>neither has to reply</strong>: a message
+        marked FYI gets no answer unless the other has something to add. Silence is the
+        normal outcome.</p>
+      </div></div>
+    <div class="chat">
+      <div class="chat-thread">
+        ${rows.length ? rows.map((m) => `
+          <div class="bubble ${m.sender === "mary" ? "mary" : "human"}">
+            <div class="who">${esc((BOTS[m.sender]?.name || m.sender).toUpperCase())}
+              &rarr; ${esc(BOTS[m.recipient]?.name || m.recipient)}
+              <time>${esc(ukStamp(m.created))}</time>
+              ${m.wants_reply ? `<span class="pill strong">wants a reply</span>`
+                              : `<span class="pill possible">FYI</span>`}</div>
+            ${m.subject ? `<div><strong>${esc(m.subject)}</strong></div>` : ""}
+            ${fmt(m.body)}
+          </div>`).join("")
+          : `<div class="empty"><strong>They have not spoken yet</strong>Nothing to report to each other is a perfectly good state.</div>`}
+      </div>
+    </div>`;
+}
+
+/* One live feed page for every bot - the markup #ev-feed polling patches. */
+function livePage(a, chip, fallbackTitle, empty) {
+  if (!((a || {}).events || []).length) {
+    return `<div class="empty"><strong>Nothing running</strong>${empty}</div>`;
+  }
+  return `
+    <div class="live-head">
+      <span class="chip ${chip.tone}">${chip.text}</span>
+      <strong>${esc(a.title || a.chat || fallbackTitle)}</strong>
+      <span class="live-when">last step ${esc(feedWhen(a))}</span>
+    </div>
+    <div class="ev-feed" id="ev-feed">${feedRows(a.events)}</div>`;
 }
 
 /* ---------------- panel ---------------- */
@@ -382,19 +487,16 @@ const ICONS = {
   chaselist: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 7v5l3 2"/><path d="M3.5 12a8.5 8.5 0 1 0 2.2-5.7"/><path d="M3 4v4h4"/></svg>',
   tenders: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h4"/></svg>',
   outcomes: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16"/><rect x="6" y="11" width="3" height="6"/><rect x="11" y="7" width="3" height="10"/><rect x="16" y="13" width="3" height="4"/></svg>',
-  signals: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>',
-  jmessages: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>',
-  jlive: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>',
   botchat: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 10h8M8 14h5"/><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8A2.5 2.5 0 0 1 17.5 16H9l-5 5Z"/></svg>',
   jayk: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v18H6.5A2.5 2.5 0 0 1 4 18.5Z"/><path d="M8 7h8M8 11h8"/></svg>',
-  relationships: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20a5.5 5.5 0 0 0-3-4.9"/></svg>',
-  outreach: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>',
   sources: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
-  decisions: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>',
   enquiries: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 11a9 9 0 0 1 9-9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1.5"/></svg>',
   chasing: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>',
   companies: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20a5.5 5.5 0 0 0-3-4.9"/></svg>',
+  home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 10 9-7 9 7"/><path d="M5 8.5V21h14V8.5"/><path d="M10 21v-6h4v6"/></svg>',
 };
+/* Pages that share an icon point at it with `icon:` on their nav entry -
+   the SVGs above exist once each. */
 
 const PAGES = [
   { key: "overview", label: "Overview", group: "Work", sub: () => "Everything Mary is holding, at a glance" },
@@ -436,14 +538,16 @@ const JACOB_PAGES = [
   { key: "enquiries", label: "Enquiries", group: "Work", sub: () => `${JACOB?.totals.buyers || 0} live conversations with a buyer, out of ${JACOB?.totals.signals || 0} raw messages` },
   { key: "tenders", label: "Out to bid", group: "Work", sub: () => `${JACOB?.totals.tenders || 0} contracts still open, ${JACOB?.totals.tendersClosing || 0} closing inside a week` },
   { key: "leads", label: "Leads", group: "Work", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} winners Fenster knows, ${JACOB?.totals.cold || 0} it does not` },
-  { key: "outcomes", label: "What we win", group: "Work", sub: () => JACOB?.outcomes ? `${JACOB.outcomes.summary.won} won, ${JACOB.outcomes.summary.lost} lost - a ${JACOB.outcomes.summary.winRate}% win rate over two years` : "The Opportunity Log has not been read yet" },
-  { key: "companies", label: "Companies", group: "People", sub: () => `${JACOB?.relationships.total || 0} companies, ${JACOB?.totals.dormantWon || 0} who have paid us and gone silent` },
-  { key: "jayk", label: "Jayk's book", group: "People", sub: () => `${JACOB?.totals.jaykContacts || 0} contacts recovered from the former BDM` },
-  { key: "jmessages", label: "Messages", group: "Talk", sub: () => "Two-way line with Jacob" },
-  { key: "botchat", label: "Internal chat", group: "Talk", sub: () => "What Jacob and Mary say to each other - max ten an hour each" },
-  { key: "decisions", label: "Jacob needs you", group: "Talk", sub: () => `${openJacobReqs().length} open, ${JACOB?.decisions.length || 0} standing` },
-  { key: "sources", label: "How this works", group: "Build", sub: () => "Where leads come from, what is wired up, and what still is not" },
-  { key: "jlive", label: "Live", group: "Build", sub: () => "What Jacob is doing right now" },
+  // Reference, not work: what the history says, who Fenster knows, and the
+  // book recovered from the last BDM. Grouped apart so the seven pages where
+  // money moves are not visually equal to the three you read once a week.
+  { key: "outcomes", label: "What we win", group: "Know", sub: () => JACOB?.outcomes ? `${JACOB.outcomes.summary.won} won, ${JACOB.outcomes.summary.lost} lost - a ${JACOB.outcomes.summary.winRate}% win rate over two years` : "The Opportunity Log has not been read yet" },
+  { key: "companies", label: "Companies", group: "Know", sub: () => `${JACOB?.relationships.total || 0} companies, ${JACOB?.totals.dormantWon || 0} who have paid us and gone silent` },
+  { key: "jayk", label: "Jayk's book", group: "Know", icon: "jayk", sub: () => `${JACOB?.totals.jaykContacts || 0} contacts recovered from the former BDM` },
+  { key: "jmessages", label: "Messages", group: "Talk", icon: "messages", sub: () => "Two-way line - he picks up what you write on his next pass" },
+  { key: "decisions", label: "Jacob needs you", group: "Talk", icon: "requests", sub: () => `${openJacobReqs().length} open, ${JACOB?.decisions.length || 0} standing` },
+  { key: "sources", label: "How this works", group: "System", sub: () => "Where leads come from, what is wired up, and what still is not" },
+  { key: "jlive", label: "Live", group: "System", icon: "live", sub: () => "What Jacob is doing right now" },
 ];
 
 /* Jacob's own channels. Loaded alongside his board; a failure here leaves the
@@ -452,6 +556,9 @@ let JMSGS = [];
 let JREQS = [];
 let BOTCHAT = [];
 let JACTIVITY = null;
+/* His bridge can report a status line the same way Mary's does; until it
+   starts doing so this stays "unknown" and the card infers from the feed. */
+let JSTATUS = null;
 /* The CRM overlay. Jacob derives a state and a next action for everything
    from the evidence; this is a human saying otherwise, keyed by the stable
    key his generator emits. It survives a rebuild of jacob-data.js, which is
@@ -1384,70 +1491,11 @@ const JACOB_RENDER = {
         </tbody></table></div>`;
   },
 
-  jmessages() {
-    const rows = [...JMSGS].reverse();
-    return `
-      <div class="chat">
-        <div class="chat-thread">
-          ${rows.length ? rows.map((m) => `
-            <div class="bubble ${m.author === "jacob" ? "them" : "me"}">
-              <div class="bubble-who">${esc(m.author === "jacob" ? "Jacob Wright" : m.author)}
-                <em>${esc(ukStamp(m.created))}</em>
-                ${m.context ? `<span class="pill possible">${esc(m.context)}</span>` : ""}</div>
-              <div>${fmt(m.body)}</div>
-            </div>`).join("")
-            : `<div class="empty"><strong>Nothing yet</strong>Ask him something - what he has found, who is worth calling, why a lead scored the way it did.</div>`}
-        </div>
-        <div class="chat-compose">
-          <textarea data-draft="jacob-msg" rows="3" placeholder="Message Jacob..."></textarea>
-          <button id="jacob-send" class="btn">Send</button>
-        </div>
-      </div>`;
-  },
-
-  botchat() {
-    const rows = [...BOTCHAT].reverse();
-    return `
-      <div class="section"><div class="section-head"><h3>How this works</h3></div>
-        <div class="planned-note">
-          <p>Jacob knows who is buying; Mary knows what is being quoted. This is the line
-          between them, and everything on it is visible to you.</p>
-          <p><strong>Ten messages an hour each</strong>, refused by the API beyond that -
-          a wall rather than an instruction, because two agents with something to say will
-          otherwise talk all night. And <strong>neither has to reply</strong>: a message
-          marked FYI gets no answer unless the other has something to add. Silence is the
-          normal outcome.</p>
-        </div></div>
-      <div class="chat">
-        <div class="chat-thread">
-          ${rows.length ? rows.map((m) => `
-            <div class="bubble ${m.sender === "jacob" ? "me" : "them"}">
-              <div class="bubble-who">${esc(m.sender === "jacob" ? "Jacob Wright" : "Mary Grace")}
-                &rarr; ${esc(m.recipient)}
-                <em>${esc(ukStamp(m.created))}</em>
-                ${m.wants_reply ? `<span class="pill strong">wants a reply</span>`
-                                : `<span class="pill possible">FYI</span>`}</div>
-              ${m.subject ? `<div><strong>${esc(m.subject)}</strong></div>` : ""}
-              <div>${fmt(m.body)}</div>
-            </div>`).join("")
-            : `<div class="empty"><strong>They have not spoken yet</strong>Nothing to report to each other is a perfectly good state.</div>`}
-        </div>
-      </div>`;
-  },
+  jmessages() { return chatPage(BOTS.jacob); },
 
   jlive() {
-    const a = JACTIVITY || {};
-    if (!(a.events || []).length) {
-      return `<div class="empty"><strong>Nothing running</strong>When Jacob picks up
-        a message or a lead, every step he takes appears here as it happens.</div>`;
-    }
-    return `
-      <div class="live-head">
-        <span class="chip warn">working</span>
-        <strong>${esc(a.title || "Business development")}</strong>
-        <span class="live-when">last step ${esc(feedWhen(a))}</span>
-      </div>
-      <div class="ev-feed" id="ev-feed">${feedRows(a.events)}</div>`;
+    return livePage(JACTIVITY, { tone: "warn", text: "working" }, "Business development",
+      "When Jacob picks up a message or a lead, every step he takes appears here as it happens.");
   },
 
   decisions() {
@@ -1557,29 +1605,7 @@ const RENDER = {
       </article>`;
     return `<div class="req-grid">${open.map(card).join("")}${done.length ? `<div class="section-head" style="margin-top:14px"><h3>Resolved</h3></div>` + done.map(card).join("") : ""}</div>`;
   },
-  messages() {
-    const thread = [...MESSAGES].reverse();
-    let lastDay = "";
-    const parts = [];
-    for (const m of thread) {
-      /* Group by the UK day, not the UTC one - a message sent at 00:30 BST
-         lands at 23:30Z the day before and would file under yesterday. */
-      const day = ukDay(m.created);
-      if (day !== lastDay) { parts.push(`<div class="chat-day">${esc(day)}</div>`); lastDay = day; }
-      const mine = m.author !== "mary";
-      parts.push(`<div class="bubble ${mine ? "human" : "mary"}${mine && !m.seen_by_mary ? " pending" : ""}">
-        <div class="who">${esc(m.author === "mary" ? "MARY GRACE" : m.author.toUpperCase())} <time>${esc(ukTime(m.created))}</time>
-        ${mine && !m.seen_by_mary ? '<span class="wait-note">waiting for Mary</span>' : ""}</div>
-        ${m.context ? `<span class="ctx">${esc(m.context)}</span>` : ""}${fmt(m.body)}</div>`);
-    }
-    return `<div class="chat">
-      <div class="chat-thread">${parts.length ? parts.join("") : `<div class="empty"><strong>No messages yet</strong>Say hello - Mary replies right here.</div>`}</div>
-      <div class="chat-compose">
-        <textarea id="chat-body" data-draft="chat" placeholder="Ask Mary anything - price a job, chase something, explain a number..."></textarea>
-        <div class="chat-actions"><span class="chat-hint">Sending as <strong>${esc(who())}</strong> &middot; ${STATUS?.state === "working" ? "she is mid-job - this queues behind it" : "picked up within seconds"}</span>
-        <button class="btn" id="chat-send">Send</button></div>
-      </div></div>`;
-  },
+  messages() { return chatPage(BOTS.mary); },
   comms() {
     const sent = DATA.emails.map((e, i) => `
       <div class="mail-row" data-email="${i}"><div class="mail-ico out">&uarr;</div>
@@ -1597,20 +1623,9 @@ const RENDER = {
       <div class="mail-list">${commsTab === "sent" ? (sent || '<div class="empty">Nothing sent yet.</div>') : (seen || '<div class="empty">Nothing captured yet.</div>')}</div>`;
   },
   live() {
-    const a = ACTIVITY || {};
-    if (!(a.events || []).length) {
-      return `<div class="empty"><strong>Nothing running</strong>${STATUS?.state === "working"
-        ? "Mary is working - her first step will appear here in a moment."
-        : "When Mary picks up a job, everything she does appears here as it happens."}</div>`;
-    }
-    const c = maryChip();
-    return `
-      <div class="live-head">
-        <span class="chip ${c.tone}">${c.text}</span>
-        <strong>${esc(a.title || a.chat || "")}</strong>
-        <span class="live-when">last step ${esc(feedWhen(a))}</span>
-      </div>
-      <div class="ev-feed" id="ev-feed">${feedRows(a.events)}</div>`;
+    return livePage(ACTIVITY, maryChip(), "", STATUS?.state === "working"
+      ? "Mary is working - her first step will appear here in a moment."
+      : "When Mary picks up a job, everything she does appears here as it happens.");
   },
   scoreboard() {
     const sb = DATA.scoreboard;
@@ -1673,6 +1688,119 @@ const RENDER = {
   },
 };
 
+/* ---------------- the Team board ----------------
+   The front door. Neither bot's board - the one page that answers "does
+   anything need a human right now" without checking each bot in turn.
+   Built entirely from data the app has already fetched. */
+const TEAM_PAGES = [
+  { key: "home", label: "Today", group: "Team", icon: "home", sub: () => "Everything that needs a human, across every bot" },
+  { key: "botchat", label: "Internal chat", group: "Team", icon: "botchat", sub: () => "What the bots say to each other - max ten an hour each" },
+];
+
+const TEAM_RENDER = {
+  home() {
+    const mReqs = awaitingReqs();
+    const jReqs = openJacobReqs();
+    const overdue = DATA.jobs.filter((j) => j.stage === "overdue");
+    const dueSoon = DATA.jobs.filter((j) => j.stage === "tender" && daysUntil(j.deadline) <= 3);
+    const urgent = [...DATA.jobs].filter((j) => j.stage !== "submitted")
+      .sort((a, b) => new Date(a.deadline) - new Date(b.deadline)).slice(0, 5);
+    const acts = JACOB ? jActions().slice(0, 5) : [];
+    const unseen = unseenMsgs() + unseenJacobMsgs();
+    const decisions = mReqs.length + jReqs.length;
+
+    /* One decision row shape for every bot - who is asking is a column, not a
+       separate page. */
+    const decisionRow = (bot, title, meta, go) => `
+      <div class="mail-row" data-bot-go="${go}">
+        <div class="mail-ico in">${esc(BOTS[bot].initials)}</div>
+        <div><strong>${esc(title)}</strong><small>${esc(meta)}</small></div>
+        <span class="mail-when">${esc(BOTS[bot].name)}</span>
+      </div>`;
+
+    return `
+      <div class="stats">
+        <div class="stat ${decisions ? "amber" : "green"}"><div class="n">${decisions}</div><div class="l">Decisions waiting on a human</div></div>
+        <div class="stat ${unseen ? "amber" : "green"}"><div class="n">${unseen}</div><div class="l">Messages not yet picked up by a bot</div></div>
+        <div class="stat ${overdue.length ? "red" : "green"}" data-bot-go="mary:pipeline"><div class="n">${overdue.length}</div><div class="l">Tenders overdue</div></div>
+        <div class="stat ${dueSoon.length ? "amber" : "green"}" data-bot-go="mary:pipeline"><div class="n">${dueSoon.length}</div><div class="l">Due in the next 3 days</div></div>
+        ${JACOB ? `<div class="stat ${JACOB.totals.handoverDue ? "red" : ""}" data-bot-go="jacob:chasing"><div class="n">${JACOB.totals.handoverDue ?? 0}</div><div class="l">Quotes chaseable today</div></div>` : ""}
+      </div>
+
+      <div class="section"><div class="section-head"><h3>Needs you</h3>
+        <span class="page-sub">Every open decision, whoever raised it</span></div>
+        ${decisions ? `<div class="mail-list">
+          ${mReqs.map((r) => decisionRow("mary", r.title, `${r.job} - needs ${r.owner}`, "mary:requests")).join("")}
+          ${jReqs.map((r) => decisionRow("jacob", r.title, r.ref, "jacob:decisions")).join("")}
+        </div>` : `<div class="empty"><strong>Nothing waiting</strong>Every question either bot has raised is answered.</div>`}</div>
+
+      <div class="section"><div class="section-head"><h3>Mary - most urgent</h3><a data-bot-go="mary:pipeline">Full pipeline &rarr;</a></div>
+        ${RENDER._table(urgent)}</div>
+
+      ${JACOB ? `<div class="section"><div class="section-head"><h3>Jacob - top of the list</h3><a data-bot-go="jacob:overview">His whole day &rarr;</a></div>
+        ${JACOB_RENDER._acts(acts, "Nothing outstanding")}</div>` : ""}
+
+      ${BOTCHAT.length ? `<div class="section"><div class="section-head"><h3>Latest between the bots</h3><a data-nav="botchat">The whole line &rarr;</a></div>
+        <div class="mail-list">${BOTCHAT.slice(0, 2).map((m) => `
+          <div class="mail-row" data-nav="botchat">
+            <div class="mail-ico ${m.sender === "mary" ? "out" : "in"}">${esc(BOTS[m.sender]?.initials || "?")}</div>
+            <div><strong>${esc(m.subject || m.body.slice(0, 80))}</strong><small>${esc(BOTS[m.sender]?.name || m.sender)} &rarr; ${esc(BOTS[m.recipient]?.name || m.recipient)}</small></div>
+            <span class="mail-when">${esc(ukStamp(m.created))}</span>
+          </div>`).join("")}</div></div>` : ""}`;
+  },
+  botchat: botchatPage,
+};
+
+/* ---------------- the registry ----------------
+   Everything the shell needs to know about a board, in one place. The
+   sidebar, nav, routing, polling, badges and chat all read from here;
+   adding a bot is adding an entry, not editing the shell. */
+function jacobStatus() {
+  if (JSTATUS && JSTATUS.state && JSTATUS.state !== "unknown") return bridgeStatus(JSTATUS);
+  // His bridge does not report a status line yet - infer from the live feed:
+  // steps inside the last ten minutes mean a session is running now.
+  const age = JACTIVITY?.updated ? Date.now() - new Date(JACTIVITY.updated).getTime() : Infinity;
+  if (age < 600000) return { text: "Working", tone: "busy", title: JACTIVITY?.title || "" };
+  return { text: "Live", tone: "", title: "" };
+}
+
+const BOTS = {
+  team: {
+    key: "team", name: "Fenster team", role: "The whole picture", initials: "FG", accent: "team",
+    pages: TEAM_PAGES, render: TEAM_RENDER,
+    status: null, needsYou: null, badges: () => ({}),
+  },
+  mary: {
+    key: "mary", name: "Mary Grace", role: "Estimating", initials: "MG", accent: "",
+    pages: PAGES, render: RENDER,
+    status: () => bridgeStatus(STATUS),
+    updatedLine: () => DATA ? "Board updated " + new Date(DATA.updated).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" }) : "",
+    needsYou: () => awaitingReqs().length + unseenMsgs(),
+    badges: () => ({ requests: awaitingReqs().length, messages: unseenMsgs() }),
+    send: sendToMary,
+    chat: {
+      msgs: () => MESSAGES, seen: "seen_by_mary", draft: "chat",
+      placeholder: "Ask Mary anything - price a job, chase something, explain a number...",
+      empty: "Say hello - Mary replies right here.",
+      hint: () => STATUS?.state === "working" ? "she is mid-job - this queues behind it" : "picked up within seconds",
+    },
+  },
+  jacob: {
+    key: "jacob", name: "Jacob Wright", role: "Business development", initials: "JW", accent: "jw",
+    pages: JACOB_PAGES, render: JACOB_RENDER,
+    status: jacobStatus,
+    needsYou: () => openJacobReqs().length + unseenJacobMsgs(),
+    badges: () => ({ decisions: openJacobReqs().length, jmessages: unseenJacobMsgs() }),
+    send: sendToJacob,
+    chat: {
+      msgs: () => JMSGS, seen: "seen_by_jacob", draft: "jacob-msg",
+      placeholder: "Message Jacob - what he has found, who is worth calling, why a lead scored...",
+      empty: "Ask him something - what he has found, who is worth calling, why a lead scored the way it did.",
+      hint: () => "picked up on his next pass",
+    },
+  },
+};
+
 /* ---------------- render / routing ---------------- */
 function restoreDrafts() {
   $$("[data-draft]").forEach((el) => { if (DRAFTS[el.dataset.draft]) el.value = DRAFTS[el.dataset.draft]; });
@@ -1708,11 +1836,11 @@ function render() {
   const feedStick = atBottom(feedBefore);
   const feedTop = feedBefore ? feedBefore.scrollTop : 0;
 
-  const jacob = BOT === "jacob";
-  const pages = jacob ? JACOB_PAGES : PAGES;
-  const renderer = jacob ? JACOB_RENDER : RENDER;
-  const badges = jacob ? {} : { requests: awaitingReqs().length, messages: unseenMsgs() };
-  $$(".nav-bot").forEach((b) => b.classList.toggle("active", b.dataset.bot === BOT));
+  const bot = BOTS[BOT] || BOTS.team;
+  const pages = bot.pages;
+  const renderer = bot.render;
+  const badges = bot.badges ? bot.badges() : {};
+  renderSidebar();
 
   // Group headings break an 11-item list into something scannable. Only
   // emitted when the group changes, so ungrouped pages still render flat.
@@ -1720,8 +1848,8 @@ function render() {
   $("#nav-items").innerHTML = pages.map((p) => {
     const head = p.group && p.group !== lastGroup
       ? `<div class="nav-group">${esc((lastGroup = p.group))}</div>` : "";
-    return `${head}<button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.key] || ""}${p.label}
-    ${badges[p.key] ? `<span class="badge${p.key === "requests" ? " hot" : ""}">${badges[p.key]}</span>` : ""}</button>`;
+    return `${head}<button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.icon || p.key] || ""}${p.label}
+    ${badges[p.key] ? `<span class="badge${["requests", "decisions"].includes(p.key) ? " hot" : ""}">${badges[p.key]}</span>` : ""}</button>`;
   }).join("");
   // Switching bots can leave `page` pointing at a section the other one does
   // not have ("catches" -> Jacob). Fall back rather than render a blank board.
@@ -1750,11 +1878,9 @@ function render() {
   if (mt) mt.textContent = meta.label;
   // One dot on the burger for "there is something for you behind this menu" -
   // otherwise a closed drawer hides the only signal that anything needs you.
+  // Counted across EVERY bot, because the drawer hides all of them.
   const dot = $("#nav-dot");
-  if (dot) dot.hidden = !(badges.requests || badges.messages);
-  // This label lives inside Mary's sidebar card, so it always shows HER board's
-  // timestamp regardless of which bot is on screen. Jacob's is on his overview.
-  $("#updated-at").textContent = "Board updated " + new Date(DATA.updated).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+  if (dot) dot.hidden = !Object.values(BOTS).reduce((n, b) => n + (b.needsYou ? b.needsYou() : 0), 0);
   $("#search").value = searchTerm;
 
   restoreDrafts();
@@ -1791,36 +1917,6 @@ function render() {
   // window to the top mid-read on every background refresh.
   window.scrollTo({ top: sameView ? winY : 0, behavior: "auto" });
   LAST_VIEW = { page, bot: BOT };
-
-  const send = $("#chat-send");
-  if (send) send.addEventListener("click", async () => {
-    const body = $("#chat-body").value.trim();
-    if (!body) return;
-    send.disabled = true;
-    await sendToMary(body);
-    delete DRAFTS.chat;
-    render();
-  });
-
-  // Jacob's Send. This was missing entirely: the button rendered and did
-  // nothing, because the patch that added it anchored on a selector that does
-  // not exist in this file and silently replaced nothing.
-  const jsend = $("#jacob-send");
-  if (jsend) jsend.addEventListener("click", async () => {
-    const ta = $('[data-draft="jacob-msg"]');
-    const text = (ta?.value || "").trim();
-    if (!text) return;
-    jsend.disabled = true;
-    try {
-      await sendToJacob(text);
-      delete DRAFTS["jacob-msg"];
-      if (ta) ta.value = "";
-      render();
-    } catch {
-      toast("Could not send that");
-      jsend.disabled = false;
-    }
-  });
 }
 
 document.addEventListener("input", (e) => {
@@ -1848,22 +1944,49 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape") setNav(fal
 document.addEventListener("click", async (e) => {
   // Anything chosen inside the drawer has served its purpose - get out of the way.
   if (e.target.closest("#nav [data-nav], #nav [data-bot]")) setNav(false);
-  // Swap the whole board between Mary and Jacob.
+  // Swap the whole board between the Team view and a bot's board.
   const bot = e.target.closest("[data-bot]");
   if (bot) {
-    if (bot.dataset.bot !== BOT) {
+    if (bot.dataset.bot !== BOT && BOTS[bot.dataset.bot]) {
       BOT = bot.dataset.bot;
-      page = "overview";
+      page = BOTS[BOT].pages[0].key;
       searchTerm = "";
       closePanel();
       render();
     }
     return;
   }
+  // Cross-board link: "bot:page", used by the Team view to land on the exact
+  // page a row belongs to, whichever board it lives on.
+  const bg = e.target.closest("[data-bot-go]");
+  if (bg) {
+    const [b, p] = bg.dataset.botGo.split(":");
+    if (BOTS[b]) { BOT = b; page = p; searchTerm = ""; closePanel(); render(); }
+    return;
+  }
   const nav = e.target.closest("[data-nav],[data-go],[data-goreq]");
   if (nav) {
     if (nav.dataset.goreq) { closePanel(); page = "requests"; render(); return; }
     page = nav.dataset.nav || nav.dataset.go; render(); return;
+  }
+  // Send on any bot's chat page - the registry says whose thread it is.
+  const cs = e.target.closest("[data-chatsend]");
+  if (cs) {
+    const b = BOTS[cs.dataset.chatsend];
+    const ta = document.querySelector(`[data-draft="${b.chat.draft}"]`);
+    const text = (ta?.value || "").trim();
+    if (!text) return;
+    cs.disabled = true;
+    try {
+      await b.send(text);
+      delete DRAFTS[b.chat.draft];
+      if (ta) ta.value = "";
+      render();
+    } catch {
+      toast("Could not send that");
+      cs.disabled = false;
+    }
+    return;
   }
   // Picking a state or an owner inside Jacob's edit panel. Must come before
   // the generic .req-options handler below, which assumes a .req card around
@@ -2011,70 +2134,70 @@ $("#search").addEventListener("input", (e) => {
       api("jacob/pipeline").catch(() => []),
     ]);
     JPIPE = Object.fromEntries(pipe.map((r) => [r.key, r]));
-    JACTIVITY = await api("jacob-activity").catch(() => null);
-    if (!JACOB) $$(".nav-bot[data-bot='jacob']").forEach((b) => { b.hidden = true; });
+    [JACTIVITY, JSTATUS] = await Promise.all([
+      api("jacob-activity").catch(() => null),
+      api("jacob/status").catch(() => null),
+    ]);
+    // A bot whose board data is missing loses its card but takes nothing
+    // else down - the registry entry stays so its data can still be read.
+    if (!JACOB) BOTS.jacob.hidden = true;
 
-    // The live feed needs a faster beat than the rest of the hub, but only
-    // while somebody is actually watching it.
-    // Jacob's live feed, same beat as Mary's and only while somebody is watching.
-    setInterval(async () => {
-      if (!(BOT === "jacob" && page === "jlive")) return;
-      try {
-        const fresh = await api("jacob-activity");
-        if (JSON.stringify(fresh) === JSON.stringify(JACTIVITY)) return;
-        JACTIVITY = fresh;
-        // Patch the feed if it is on screen; render() only for the first
-        // paint or when coming out of the empty state.
-        if (!paintFeed(fresh)) render();
-      } catch {}
-    }, 3000);
-
-    setInterval(async () => {
-      if (page !== "live") return;
-      try {
-        const fresh = await api("activity");
-        if (JSON.stringify(fresh) === JSON.stringify(ACTIVITY)) return;
-        ACTIVITY = fresh;
-        if (!paintFeed(fresh, maryChip())) render();
-      } catch {}
-    }, 3000);
     msgSig = signature(MESSAGES);
     render();
-    renderStatus();
-    setInterval(async () => {
-      try {
-        const [fresh, status] = await Promise.all([api("messages"), api("status").catch(() => STATUS)]);
-        const statusChanged = JSON.stringify(status) !== JSON.stringify(STATUS);
-        STATUS = status;
-        if (statusChanged) renderStatus();
-        const sig = signature(fresh);
-        if (sig === msgSig) return;   // nothing changed - never redraw over the user
-        MESSAGES = fresh;
-        msgSig = sig;
-        if (BOT === "mary" && (page === "messages" || page === "overview")) render();
-      } catch {}
-    }, 10000);
 
-    // The same beat for Jacob's channels. Without this his replies only
-    // appeared on a page reload, which made the Messages tab look broken:
-    // you sent something and nothing ever came back.
-    let jacobSig = "";
+    // The live feeds need a faster beat than the rest of the hub, but only
+    // while somebody is actually watching one. A poll patches #ev-feed in
+    // place; render() only for the first paint or coming out of empty.
     setInterval(async () => {
-      if (BOT !== "jacob") return;
-      if (!["jmessages", "botchat", "decisions", "overview"].includes(page)) return;
+      const maryLive = BOT === "mary" && page === "live";
+      const jacobLive = BOT === "jacob" && page === "jlive";
+      if (!maryLive && !jacobLive) return;
       try {
-        const [msgs, chat, reqs] = await Promise.all([
+        const fresh = await api(maryLive ? "activity" : "jacob-activity");
+        if (maryLive) {
+          if (JSON.stringify(fresh) === JSON.stringify(ACTIVITY)) return;
+          ACTIVITY = fresh;
+          if (!paintFeed(fresh, maryChip())) render();
+        } else {
+          if (JSON.stringify(fresh) === JSON.stringify(JACTIVITY)) return;
+          JACTIVITY = fresh;
+          if (!paintFeed(fresh)) render();
+        }
+      } catch {}
+    }, 3000);
+
+    // Everything else on one 10-second beat, for every bot at once - the
+    // sidebar badges have to stay honest about the board you are NOT looking
+    // at, or the Team view's whole promise is broken. The page itself only
+    // redraws when its own data changed: never over the user.
+    let jacobSig = [JMSGS.length, BOTCHAT.length, JREQS.length,
+                    JMSGS[0]?.id, BOTCHAT[0]?.id,
+                    JREQS.filter((r) => r.status !== "answered").length].join(":");
+    setInterval(async () => {
+      try {
+        const [fresh, status, jmsgs, chat, reqs] = await Promise.all([
+          api("messages").catch(() => MESSAGES),
+          api("status").catch(() => STATUS),
           api("jacob/messages").catch(() => JMSGS),
           api("botchat").catch(() => BOTCHAT),
           api("jacob/requests").catch(() => JREQS),
         ]);
-        const sig = [msgs.length, chat.length, reqs.length,
-                     msgs[0]?.id, chat[0]?.id,
-                     reqs.filter((r) => r.status !== "answered").length].join(":");
-        if (sig === jacobSig) return;   // nothing new - never redraw over the user
-        jacobSig = sig;
-        JMSGS = msgs; BOTCHAT = chat; JREQS = reqs;
-        render();
+        const statusChanged = JSON.stringify(status) !== JSON.stringify(STATUS);
+        STATUS = status;
+        const sig = signature(fresh);
+        const jsig = [jmsgs.length, chat.length, reqs.length,
+                      jmsgs[0]?.id, chat[0]?.id,
+                      reqs.filter((r) => r.status !== "answered").length].join(":");
+        const maryChanged = sig !== msgSig;
+        const jacobChanged = jsig !== jacobSig;
+        if (maryChanged) { MESSAGES = fresh; msgSig = sig; }
+        if (jacobChanged) { JMSGS = jmsgs; BOTCHAT = chat; JREQS = reqs; jacobSig = jsig; }
+        if (statusChanged || maryChanged || jacobChanged) renderSidebar();
+        const watching =
+          (BOT === "mary" && maryChanged && ["messages", "overview"].includes(page)) ||
+          (BOT === "jacob" && jacobChanged && ["jmessages", "decisions", "overview"].includes(page)) ||
+          (BOT === "team" && (maryChanged || jacobChanged) && ["home", "botchat"].includes(page));
+        if (watching) render();
       } catch {}
     }, 10000);
   } catch (err) {

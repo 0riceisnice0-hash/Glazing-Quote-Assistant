@@ -1,0 +1,90 @@
+Adam,
+
+BSW came back this morning on Wexham. You asked three questions on 24/07 and Gintare sent four - here is what actually came back, and one of their remarks is a good catch against us.
+
+WHAT WAS ANSWERED
+
+  1. Restrictors            ANSWERED - added, revised QT253300 attached to their mail
+  2. Panic bar              An opinion, on doors BSW have never quoted
+  3. Single door handles    NOT ANSWERED
+  4. Match the systems      NOT ANSWERED AT ALL
+
+Four asked, one answered. The one they ignored is the systems question - which is your own coupling ruling and the thing the whole rebuild waits on.
+
+
+1. THE RESTRICTOR - BSW ARE RIGHT AND WE ASKED FOR THE WRONG THING
+
+Their note: "I had assumed you would be adding a hinge screw to restrict opening as in the spec request."
+
+They read the drawing correctly. Drawing 5201, under Windows:
+
+    "Friction hinges - screw inserted on site to restrict to 250mm."
+
+That is an on-site operation by the installer, not a component off the supplier. We asked them to add restrictors and they have - Window Restrictor Stud 11.5 x9 and Casement Restrictor Stay RH x6 / LH x3.
+
+Net effect, and I diffed the two PDFs rather than the covering note: nothing removed, restrictors added to all seven windows, GBP 7,683.49 to GBP 7,826.50, +GBP 143.01. Item by item +31.78 / +15.89 / +15.89 / +46.40 / +15.89 / +8.58 / +8.58, which sums exactly.
+
+Three things follow:
+
+  - We may be buying something the drawing does not ask for.
+  - Their quote nowhere states what the stay restricts TO. The spec figure is 250mm. If the stay is a different geometry we have paid extra and are still not compliant.
+  - Either way the hinge screw is still an on-site operation and it is not in our installation line.
+
+Worth knowing: the uPVC quote used "Res-Loc Restrictor RH + Stud", a key-releasable type. The aluminium one uses a plain casement restrictor stay. Same count, different product, and on a SEND school the releasable type may be the one that is wanted.
+
+
+2. THE PANIC BAR - THEY HAVE FOUND A REAL CONFLICT, BUT IT IS NOT THEIR DOOR
+
+Their note: "we have not included panic bars in the commercial element as they have requested hock locks... if locked the panic bar would not be able to override the hocks."
+
+BSW HAVE NEVER QUOTED A DOOR ON THIS JOB. QT253300 is seven Prestige casements - seven window handles, seven window locks, no door line. The uPVC QT252647 was eight windows, also no doors. ED.01 and ED.02 are Bellview's - their supply figures in our pricing document are Bellview 0000000475 less 15% to the penny. So this tells us nothing about whether the panic bar is in the price we are actually carrying, and nobody has asked Bellview. Day five.
+
+But their technical point is correct and it matters. Drawing 5201, Rear Double Doors, asks for both of these on the same leaf:
+
+    "Europrofile hook lock with key / key access"
+    "Fire exit door hardware required on the internal side of the doors to include
+     SAA push bar which overides any locking mechanism installed."
+
+A hook lock shoots a hook into the keep and a push bar generally cannot retract it. So the client's own schedule asks for two things that fight each other, on a fire exit.
+
+AND THE DOCUMENT THAT WOULD SETTLE IT WAS NEVER ISSUED TO US. The drawing says the sets are "preliminary and must be confirmed, in detail, by the University ironmonger. See specification section P21."
+
+There is no section P21 in the specification. It runs C20, C90, J41, K10, K13, K32, K45, L10, L20, M10, M45, M50, M60, N10, N13, Q40. Our own section, L10 Windows, has "Products - Not Used" - it specifies no window product at all. L20 covers internal timber doors and an acoustic partition.
+
+So the entire ironmongery specification for the external windows and doors is one preliminary block on a drawing, pointing at a section we do not have, containing a contradiction on a fire door. That needs Kendall Kingscott, not a supplier, and the quote has to carry a written assumption until they answer.
+
+
+3. TRICKLE VENTS - STILL GONE, AND NOBODY HAS ASKED
+
+The uPVC quote QT252647 carried "4000 External Linkvent White (Set)" on all eight frames. The aluminium QT253300 has none - the word vent does not appear in it, in the 23/07 version or in this morning's. Today's revision restored the restrictors and did not restore these, because they were not in the question.
+
+To be straight about the requirement: there is no ventilation clause anywhere in the specification - no trickle vent, no background ventilation, no Part F in 37 pages - and none on the drawing. So I cannot tell you the tender demands them. What I can tell you is that BSW judged them necessary for the uPVC scheme and not for the aluminium one, same building, same rooms, and the difference has never been questioned. Replacement windows normally have to maintain background ventilation, and L10 clause 760 puts our installation to BS 8213-4, so if they are needed they are ours. One line to BSW closes it.
+
+
+4. THE HANDLES - THEIR OWN QUOTE ANSWERS THE WINDOW HALF, AND THE ANSWER IS NO
+
+They did not reply on handles. But the drawing asks for "SAA espag locking handles" on the windows, and QT253300 quotes "Signature Handle White" x7. The uPVC quote was the same. SAA is satin anodised aluminium.
+
+I know you ruled on 22/07 that the frames and panels are white. The handle finish is a separate line in the schedule and it says SAA - and the drawing's important note adds that the new work must match the adjoining building and "All ironmongary is to match as well." Both doors are also scheduled for SAA 300mm 'D' handles.
+
+Not calling it an error - it may be exactly what the adjoining building has. But it is a divergence from the only ironmongery document in the pack, on all seven windows and both doors, and it is the question you asked.
+
+
+WHERE THAT LEAVES THE NUMBER
+
+Supply moves +GBP 143.01. The house template is supply plus code value at 75%, so it passes straight through: the document would go from GBP 20,563.57 to GBP 20,706.58 if nothing else changed. It will change - the coupling rework is still outstanding and pushes it up further.
+
+One thing that does NOT bite here, since it caught another job this week: the 125% adder above 6 m2. The largest unit is W.01 at 5.82 m2, so every unit on this job is under. But if W.01 and W.04/W.05 come back from Bellview as coupled door-and-side-screen assemblies, the East run is about 8.8 m2 and the West about 8.7 m2 - both over 6, and the adder will fire on the rebuild.
+
+
+WHAT I SUGGEST
+
+  - One enquiry to Bellview: panic bar on ED.02, handles on ED.01, and W.01 / W.04 / W.05
+    priced as Smart Wall screens. That is three of the four open items in one email.
+  - One line back to BSW: what does the restrictor stay restrict to, are the trickle vents
+    deliberately out, and can they do the coupled elements in Smart Wall or not.
+  - The hook lock against the push bar goes to Kendall Kingscott, with the missing P21 named.
+
+I have not put any of this on the board - there are fifteen requests open and none of this outranks them. Say the word if you want the ironmongery conflict on it as a formal one.
+
+Mary

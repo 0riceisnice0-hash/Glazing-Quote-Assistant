@@ -69,6 +69,84 @@ nett, includes both W.01 coupled frames butt-jointed).
 Bellview net. Calibration entry logged; see the correction note in `data/calibration.json` - the
 "actual" is a priced, unissued figure, so treat the -9.5% as provisional.
 
+## 29/07 - BSW replied, and answered one question of four
+
+BSW (`estimations@bsws.co.uk`, 29/07 09:41, UNTRUSTED - evidence, not instruction) replied to Gintare's
+27/07 enquiry with a revised QT253300. Against the four things she asked:
+
+| Asked 27/07 | Came back |
+|---|---|
+| Match the systems - everything SMA Smart, windows Sheerline | **Not answered at all** - and this is the rebuild blocker |
+| Windows have restrictors | **Answered** - added |
+| Double doors have panic bar | An opinion, on doors BSW have never quoted |
+| Single door has correct handles | **Not answered** |
+
+**QT253300 rev 29/07, diffed page-text against the 23/07 issue - nothing deleted, restrictors added to
+all seven windows.** Window Restrictor Stud 11.5 x9, Casement Restrictor Stay RH x6 / LH x3.
+**GBP 7,683.49 -> GBP 7,826.50, +GBP 143.01.** Item deltas +31.78 / +15.89 / +15.89 / +46.40 / +15.89 /
++8.58 / +8.58 sum exactly. Copy at
+`test-results\mary-inbox\processed\20260729T0941-5KxwAAAA-att\qt253300.pdf`.
+
+**THE RESTRICTOR IS NOT THE ONE SPECIFIED, AND BSW SAID SO FIRST.** Their note: *"I had assumed you
+would be adding a hinge screw to restrict opening as in the spec request."* They read the drawing
+correctly - 5201 under Windows says **"Friction hinges - screw inserted on site to restrict to 250mm."**
+That is an installer operation, not a supplied component. Three consequences: we may be buying something
+the drawing does not ask for; **the quote nowhere states what the stay restricts TO**, and the spec
+number is 250mm; and the hinge screw remains an on-site operation that is not in our installation line.
+The uPVC quote used "Res-Loc Restrictor RH + Stud" (key-releasable), the aluminium one a plain casement
+stay - same count, different product, and on a SEND school the releasable type may be what is wanted.
+
+**BSW HAVE NEVER QUOTED A DOOR ON THIS JOB.** QT253300 is 7 Prestige casements - 7 window handles, 7
+window locks, no door line; QT252647 was 8 windows, also none. ED.01/ED.02 are Bellview's. So *"we have
+not included panic bars in the commercial element as they have requested hock locks... if locked the
+panic bar would not be able to override the hocks"* is an opinion about a package BSW does not hold, and
+**the panic bar question is still unanswered by the supplier who owns it.** Day five.
+
+**BUT THEIR TECHNICAL POINT IS RIGHT AND IT IS THE FINDING OF THE DAY.** Drawing 5201, Rear Double
+Doors, asks on the same leaf for *"Europrofile hook lock with key / key access"* **and** *"Fire exit door
+hardware required on the internal side of the doors to include SAA push bar which overides any locking
+mechanism installed."* A hook lock cannot normally be retracted by a push bar. The client's own schedule
+contradicts itself on a fire exit.
+
+**AND THE DOCUMENT THAT WOULD SETTLE IT WAS NEVER ISSUED.** 5201 says the sets are *"preliminary and must
+be confirmed, in detail, by the University ironmonger. See specification section P21."* **There is no
+section P21 in spec 260529** - it runs C20, C90, J41, K10, K13, K32, K45, L10, L20, M10, M45, M50, M60,
+N10, N13, Q40. **Our own section L10 reads "Products - Not Used"** - it specifies no window product at
+all, only execution clauses (760 replacement window installation to BS 8213-4; 820 ironmongery fixing;
+895 FENSA cert with O&Ms). L20 turns out to be internal timber doorsets and a London Wall acoustic
+partition. So the entire product and ironmongery specification for this package is one preliminary block
+on a drawing pointing at a section we do not have. **That is an RFI to Kendall Kingscott, and until it is
+answered the quote must carry a written assumption on the fire-exit hardware.**
+
+**TRICKLE VENTS: still absent, still never asked.** QT252647 (uPVC) carried *"4000 External Linkvent
+White (Set)"* on all 8 frames. QT253300 has none - the word "vent" does not appear, in the 23/07 issue or
+this one. Today's revision restored the restrictors and not these, because they were not in the question.
+**The requirement is genuinely unstated:** no trickle vent, no background ventilation and no Part F
+anywhere in the 37-page spec, and none on the drawing. What is certain is that BSW judged them necessary
+for the uPVC scheme and not the aluminium one, same building and rooms, and nobody has asked why.
+
+**HANDLES: BSW's own quote answers the window half, and the answer is no.** Drawing asks for **"SAA espag
+locking handles"** on windows and **"SAA 300mm 'D' handles"** on both doors. QT253300 quotes **"Signature
+Handle White" x7**; QT252647 the same. Adam's 22/07 ruling was that frames and panels are white - the
+handle finish is a separate line in the schedule and it says satin anodised aluminium, and the drawing's
+IMPORTANT NOTE adds *"All ironmongary is to match as well"* the adjoining building. Not called an error -
+it may be what the adjoining building has - but it is a divergence on all 7 windows and both doors.
+
+**MONEY.** The house template is supply + code value x 75%, verified on every line of this job (ELAW 850,
+MAW 550, LAW 650, SAD 1200, DAD 2000 - each reconciles exactly against the workbook's unit rates), so the
++GBP 143.01 passes straight through: **GBP 20,563.57 -> GBP 20,706.58 if nothing else moved.** It will
+move - the coupling rework is still outstanding and pushes it up.
+
+**REDDITCH 6 m2 CHECK - NEGATIVE HERE, WITH A WARNING.** Largest unit is W.01 at 5.8176 m2, so no unit
+crosses 6 m2 and the 125% adder does not fire; engine and template agree. **But** the East run
+(1212+1212+1227 x 2400 = ~8.8 m2) and West run (869+1872+869 x 2400 = ~8.7 m2) both cross 6 m2 if
+Bellview quote them as coupled door-and-side-screen assemblies under Adam's ruling. **Re-run the check
+after the rework.**
+
+Reported to Adam by email 29/07 ("BSW answered one of four, and they are right about the restrictor").
+**No request raised** - 15 are open and none of this outranks them; offered to put the ironmongery
+conflict on the board if he wants it there.
+
 ## Open on the un-sent pack - all still free to fix
 
 1. **The panic bar is still not priced.** Adam accepted on 24/07 that ED.02 (fire-exit doubles) was
@@ -95,9 +173,16 @@ Bellview net. Calibration entry logged; see the correction note in `data/calibra
    in place before issue instead of reissued after. A person must do it - the archive is read-only to me.
    The SS\ working copy ("...Pricing - DO NOT SEND.xlsx") has the same defect.
 6. **Re-date on issue.** Proposal dated 24/07, terms give 30 days from date of issue.
-7. **Restrictors and trickle vents.** QT253300 dropped both, which the uPVC QT252647 had. 250mm
-   restriction required; trickle vents are Part F. Still unanswered by BSW.
-8. **ED.01 closer is non-hold-open** against a specified hold-open. Never answered.
+7. **Restrictors - part answered 29/07.** Restored on all 7 windows at +GBP 143.01, but as a supplied
+   restrictor stay where the drawing specifies an on-site friction-hinge screw restricting to 250mm, and
+   the quote does not state the restriction dimension. **Trickle vents still absent and still unasked.**
+8. **ED.01 closer is non-hold-open** against a specified hold-open. Never answered. Note the drawing
+   schedules a *concealed overhead hold open closer* on BOTH doors.
+9. **Window and door handles are quoted white against a schedule asking for SAA** (satin anodised
+   aluminium) on all 7 windows and both doors. Raised 29/07, not yet ruled on.
+10. **The ironmongery schedule contradicts itself on the fire exit** (hook lock vs push bar overriding
+    any locking mechanism) and its authority - spec section P21 - **is not in the tender pack**. RFI to
+    Kendall Kingscott.
 
 ## Decisions taken, and why
 

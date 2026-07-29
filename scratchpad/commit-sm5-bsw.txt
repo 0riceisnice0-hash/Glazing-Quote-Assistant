@@ -1,0 +1,29 @@
+The drawing points at a spec section that was never issued
+
+BSW answered one of Gintare's four questions. Restrictors added to all seven
+windows, GBP 7,683.49 to GBP 7,826.50, nothing deleted - diffed the page text, not
+the covering note. The system-match question, which is the whole rebuild blocker,
+went unanswered, and so did the handles.
+
+They are right twice, though. The drawing says "Friction hinges - screw inserted on
+site to restrict to 250mm" - an installer operation - and we asked them for a
+component instead. Their quote never says what the stay restricts to.
+
+And on the fire exit they found a conflict in the client's own schedule: 5201 asks
+for a Europrofile hook lock and an SAA push bar overriding any locking mechanism,
+on the same leaf. Chasing that down: 5201 cross-refers ironmongery to "specification
+section P21" and there is no section P21. The spec runs C20 to Q40, our own L10
+reads "Products - Not Used", and L20 is internal timber doors and an acoustic
+partition. The entire product and ironmongery specification for a nine-opening
+external package is one preliminary block on a drawing pointing at a section nobody
+issued.
+
+Their panic bar opinion is about doors they have never quoted - QT253300 is seven
+casements with no door line - so that question is still open with Bellview.
+
+Trickle vents still absent and still unasked; the uPVC quote had one on every frame.
+Handles quoted white against a schedule asking SAA.
+
+Emailed Adam. No request raised - fifteen are open.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
