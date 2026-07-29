@@ -1,146 +1,140 @@
 {
  "note": "Empirical GBP/m2 from the Frames column of quotes Fenster actually sent - what we really charge, not a median of supplier quotes. supplier_factors are derived, and supersede the hand-written constants in mary_pricing.CALIBRATION.",
- "source_docs": 29,
+ "source_docs": 30,
  "rates": {
-  "DAD|1.5-3m2": {
-   "median_per_m2": 705.09,
-   "n": 8,
-   "low": 401.79,
-   "high": 766.77
-  },
-  "DAD|3-6m2": {
-   "median_per_m2": 559.86,
-   "n": 54,
-   "low": 135.63,
+  "DAD|2-5m2": {
+   "median_per_m2": 600.38,
+   "n": 55,
+   "low": 323.06,
    "high": 1641.53
   },
-  "DAD|>6m2": {
-   "median_per_m2": 366.55,
-   "n": 21,
-   "low": 245.38,
+  "DAD|>5m2": {
+   "median_per_m2": 363.54,
+   "n": 30,
+   "low": 135.63,
    "high": 669.67
   },
-  "ELAW|3-6m2": {
-   "median_per_m2": 385.19,
-   "n": 13,
+  "ELAW|2-5m2": {
+   "median_per_m2": 372.83,
+   "n": 12,
    "low": 252.56,
    "high": 406.3
   },
-  "ELAW|>6m2": {
+  "ELAW|>5m2": {
    "median_per_m2": 344.0,
-   "n": 15,
+   "n": 16,
    "low": 262.54,
    "high": 538.67
   },
-  "LAW|1.5-3m2": {
-   "median_per_m2": 419.74,
-   "n": 55,
+  "LAW|2-5m2": {
+   "median_per_m2": 417.86,
+   "n": 63,
    "low": 212.09,
    "high": 577.87
   },
-  "LAW|3-6m2": {
-   "median_per_m2": 337.22,
-   "n": 8,
-   "low": 286.49,
-   "high": 443.16
+  "LAW|<2m2": {
+   "median_per_m2": 950.48,
+   "n": 5,
+   "low": 260.12,
+   "high": 975.82
   },
-  "LPVC|1.5-3m2": {
-   "median_per_m2": 231.64,
-   "n": 13,
-   "low": 172.51,
-   "high": 254.09
-  },
-  "LPVC|3-6m2": {
-   "median_per_m2": 171.84,
-   "n": 21,
+  "LPVC|2-5m2": {
+   "median_per_m2": 195.87,
+   "n": 34,
    "low": 61.42,
    "high": 406.08
   },
-  "MAW|1.5-3m2": {
-   "median_per_m2": 347.74,
-   "n": 39,
+  "MAW|2-5m2": {
+   "median_per_m2": 308.99,
+   "n": 10,
+   "low": 232.04,
+   "high": 347.74
+  },
+  "MAW|<2m2": {
+   "median_per_m2": 399.23,
+   "n": 64,
    "low": 218.9,
-   "high": 868.28
+   "high": 1926.17
   },
-  "MAW|<1.5m2": {
-   "median_per_m2": 413.83,
-   "n": 31,
-   "low": 286.03,
-   "high": 708.26
+  "MPVC|2-5m2": {
+   "median_per_m2": 196.8,
+   "n": 4,
+   "low": 183.85,
+   "high": 253.8
   },
-  "MPVC|1.5-3m2": {
-   "median_per_m2": 199.65,
-   "n": 30,
+  "MPVC|<2m2": {
+   "median_per_m2": 200.43,
+   "n": 38,
    "low": 69.83,
-   "high": 312.54
-  },
-  "MPVC|<1.5m2": {
-   "median_per_m2": 175.83,
-   "n": 12,
-   "low": 144.42,
    "high": 332.05
   },
-  "SAD|1.5-3m2": {
-   "median_per_m2": 490.13,
-   "n": 64,
+  "SAD|2-5m2": {
+   "median_per_m2": 387.97,
+   "n": 38,
+   "low": 280.65,
+   "high": 1360.08
+  },
+  "SAD|<2m2": {
+   "median_per_m2": 527.91,
+   "n": 34,
    "low": 218.9,
    "high": 1474.51
   },
-  "SAD|3-6m2": {
-   "median_per_m2": 474.14,
-   "n": 6,
-   "low": 387.97,
-   "high": 780.8
-  },
-  "SAD|>6m2": {
+  "SAD|>5m2": {
    "median_per_m2": 341.97,
    "n": 19,
    "low": 224.62,
    "high": 412.6
   },
-  "SAW|<1.5m2": {
+  "SAW|<2m2": {
    "median_per_m2": 498.05,
    "n": 50,
    "low": 226.68,
    "high": 842.01
   },
-  "SPVC|<1.5m2": {
+  "SPVC|<2m2": {
    "median_per_m2": 243.34,
    "n": 20,
    "low": 166.19,
    "high": 316.75
   },
-  "SUPD|1.5-3m2": {
-   "median_per_m2": 226.83,
-   "n": 10,
-   "low": 214.37,
+  "SUPD|2-5m2": {
+   "median_per_m2": 235.42,
+   "n": 8,
+   "low": 218.24,
    "high": 265.65
+  },
+  "SUPD|<2m2": {
+   "median_per_m2": 214.37,
+   "n": 4,
+   "low": 214.37,
+   "high": 214.37
   }
  },
  "supplier_factors": {
   "4ali": {
-   "factor": 0.985,
+   "factor": 0.999,
    "applied": true,
    "n": 82,
    "why": "median of 82 priced lines against the all-supplier rate for the same code and size band",
    "source": "derived from sent pricing documents"
   },
   "aplus": {
-   "factor": 0.984,
+   "factor": 0.995,
    "applied": true,
-   "n": 83,
-   "why": "median of 83 priced lines against the all-supplier rate for the same code and size band",
+   "n": 84,
+   "why": "median of 84 priced lines against the all-supplier rate for the same code and size band",
    "source": "derived from sent pricing documents"
   },
   "bsw": {
-   "factor": 1.057,
+   "factor": 1.042,
    "applied": true,
-   "n": 272,
-   "why": "median of 272 priced lines against the all-supplier rate for the same code and size band",
+   "n": 286,
+   "why": "median of 286 priced lines against the all-supplier rate for the same code and size band",
    "source": "derived from sent pricing documents"
   },
   "truframe": {
-   "factor": 0.821,
+   "factor": 0.721,
    "applied": true,
    "n": 42,
    "why": "median of 42 priced lines against the all-supplier rate for the same code and size band",

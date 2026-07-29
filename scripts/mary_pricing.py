@@ -148,13 +148,17 @@ def derived_factors(hay):
 
 def learned_rate(code, area_m2):
     rates = load_learned()
-    rec = rates.get("%s|%s" % (code, band_of(area_m2)))
+    key = "%s|%s" % (code, learned_band_of(area_m2))
+    rec = rates.get(key)
     if rec and rec.get("n", 0) >= MIN_LEARNED_N:
-        return LearnedRate("%s|%s" % (code, band_of(area_m2)), rec)
+        return LearnedRate(key, rec)
     return None
 
 
 def band_of(area_m2):
+    """Bands for the REGISTER. These are fixed by the register's own category
+    strings ('aluminium casement window, glazed [1.5-3m2]') and cannot be moved
+    without rebuilding it, so they stay as they are."""
     if area_m2 < 1.5:
         return "<1.5m2"
     if area_m2 < 3:
@@ -162,6 +166,24 @@ def band_of(area_m2):
     if area_m2 <= 6:
         return "3-6m2"
     return ">6m2"
+
+
+# Bands for the LEARNED rates, which are ours to choose because we mine them.
+# Tested by re-learning under each structure and scoring on jobs never seen,
+# three folds, line set held constant. 2/5 beat the register's 1.5/3/6 on all
+# three folds; 1.5/4 beat it on one fold and lost the other two, which is what
+# a single-fold result is worth. Splitting bands FINER made it clearly worse -
+# 513 mined lines will not support more than three buckets before each falls
+# under MIN_LEARNED_N and drops through to the register.
+LEARNED_EDGES = (2.0, 5.0)
+
+
+def learned_band_of(area_m2):
+    if area_m2 < LEARNED_EDGES[0]:
+        return "<2m2"
+    if area_m2 < LEARNED_EDGES[1]:
+        return "2-5m2"
+    return ">5m2"
 
 
 def _years(entry):

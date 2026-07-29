@@ -110,7 +110,7 @@ def engine_price(line, supplier=None, system="", learned=None):
     size band; falls back to the supplier-quote register when there is not
     enough of it. `learned` can be passed in for holdout testing so the rates
     under test are never the ones mined from the same job."""
-    key = "%s|%s" % (line["code"], engine.band_of(line["area"]))
+    key = "%s|%s" % (line["code"], engine.learned_band_of(line["area"]))
     rec = (learned or {}).get(key) if learned is not None else None
     if learned is None:
         r = engine.learned_rate(line["code"], line["area"])
@@ -186,7 +186,7 @@ def learn(docs):
         for l in d["lines"]:
             if not l["frames"] or l["area"] <= 0:
                 continue
-            key = "%s|%s" % (l["code"], engine.band_of(l["area"]))
+            key = "%s|%s" % (l["code"], engine.learned_band_of(l["area"]))
             buckets.setdefault(key, []).append(l["frames"] / l["area"])
     out = {}
     for key, vals in sorted(buckets.items()):
@@ -227,7 +227,7 @@ def learn_supplier_factors(docs, base):
         for l in d["lines"]:
             if not l["frames"] or l["area"] <= 0:
                 continue
-            key = "%s|%s" % (l["code"], engine.band_of(l["area"]))
+            key = "%s|%s" % (l["code"], engine.learned_band_of(l["area"]))
             b = base.get(key)
             if not b or not b["median_per_m2"]:
                 continue
