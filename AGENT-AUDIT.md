@@ -207,7 +207,7 @@ nothing in this plan changes that.
 
 | Phase | Builds | Done when |
 |---|---|---|
-| 0 | Backfill ledger from send log, D1, sent items, HANDOVER; token baseline per chat | `mary_recall.py` answers "what did I tell Adam about X" for any live job |
+| 0 **DONE 29/07** | Backfill ledger from send log, D1, sent items, HANDOVER; token baseline per chat | `mary_recall.py` answers "what did I tell Adam about X" for any live job |
 | 1 | Job-file contract + rotation in the bridge | No transcript over threshold; every close-out updates file + ledger; a reset chat picks up a live job without loss |
 | 2 | `adam.md` mined + send gate + re-raise guard | Interruption yield > 1/2 for 14 days; zero "already addressed" |
 | 3 | Knowledge distillation + librarian | Boot context ≤ index + job file; essays deleted from playbooks |
@@ -218,3 +218,28 @@ Each phase is independently shippable and independently reversible, and nothing 
 the safety walls. Phase 0 and 1 are where the token burn stops; phase 2 is where the
 spam stops; phase 3 is where "expert knowledge" stops meaning "7,000 lines she is told
 not to read".
+
+---
+
+## 6. Phase 0 - shipped 29/07
+
+- **`scripts/mary_ledger.py`** - the event store (`data/ledger/YYYY-MM.jsonl`) and the
+  idempotent backfill. First run: **635 events** - 41 emails sent, 213 mails/messages
+  received (Adam's and Zac's words captured verbatim), 90 hub messages, 33 requests +
+  18 answers, 68 catches, 10 calibration points, 162 HANDOVER records indexed by line.
+  Re-running `--backfill` only adds what is new, so a scheduled run (the bridge, or
+  `jacob_daily`-style) keeps it current without touching any live tool.
+- **`scripts/mary_recall.py`** - the query side. `--settled --grep "strip.?out"`
+  returns REQ-29's answer *and* Adam's "I have already addressed this with you" in one
+  screen; `--job georgies --kind email_sent` shows the six-email spiral of 29/07 at a
+  glance. Zero session tokens either way.
+- **`test-results/token-baseline.md`** - the live chat registry carries ~36 MB / ~9M
+  estimated tokens at rest; crestwood-park (5.9 MB), filwood (5.1 MB) and vesuvius
+  (3.9 MB) are the rotation candidates Phase 1 starts with. The 28 MB transcripts in
+  the 179 MB total belong to already-retired sessions - evidence that resets happen
+  and lose nothing when the job file is good, which is Phase 1's whole bet.
+- Known wart, accepted: a dashboard message appears twice (work order + hub message)
+  under two refs. Harmless for recall; dedupe when the bridge starts writing directly.
+
+**Next: Phase 1** - the job-file contract (300-line cap, fixed sections, bridge-enforced
+at close-out) and transcript rotation seeded from it.
