@@ -1,17 +1,18 @@
 {
- "updated": "2026-07-29",
+ "updated": "2026-07-30",
  "source": "contracts-won.json (Adam's 204 won contracts) joined to adminbase.json (the live quoted pipeline)",
  "why": "59% of everything Fenster has ever won came from an existing customer and 3 contracts in the company's history came from a tender portal. This is the 59%, filtered to the ones nobody is currently talking to.",
- "rule": "Dormant = has bought before, no quote out now, no work on site now, no work for 150 days, lifetime value over GBP 2,500.",
+ "rule": "Dormant = has bought before, no quote raised or chased in the last 150 days, no work on site now, no work for 150 days, lifetime value over GBP 2,500.",
+ "staleQuoteRule": "A quote only counts as a live conversation while it is younger than the silence being measured. It used to be enough for the client to appear in the CRM at all - and because JAC-14 means nothing on that backlog ever closes on silence, that permanently hid every past customer who had ever been quoted. Conamar - 16 jobs, GBP 917,028, the largest client in the company's history - was excluded on two quotes whose next-action dates passed 400 days ago. Where a client is dormant AND holds unanswered quotes, `staleQuotes` carries them, because they are the reason for the call.",
  "quietMeans": "quietDays is days since Fenster last had WORK with them - the later of the order date and the date it was fitted, which quietBasis names. It is NOT days since anyone spoke to them and must never be said on a call as if it were. RSR read 378 days here while commercial@ held a thank-you from their QS at 28/11/2025 and accounts traffic to 05/05/2026. intake.json covers thirty days, so it cannot supply the contact date and joining to it would invent silence rather than measure it. Run `jacob_mail.py --search \"<client>\" --days 0` before ringing anyone on this list.",
  "caveat": "A long silence is a question, not a verdict. An outcome that arrives by email never reaches the CRM, so some of these went quiet for a reason somebody at Fenster already knows.",
  "counts": {
   "clients": 82,
-  "dormant": 9,
+  "dormant": 12,
   "excluded": {
-   "live quote already out": 11,
+   "live quote already out": 4,
    "under the value floor": 42,
-   "still recent": 1,
+   "still recent": 5,
    "work in progress": 18,
    "no date": 0,
    "on a do-not-approach instruction": 1
@@ -19,10 +20,33 @@
  },
  "clients": [
   {
+   "client": "CONAMAR BUILDING SERVICES LTD.",
+   "jobs": 16,
+   "value": 917027.91,
+   "quietDays": 227,
+   "quietFrom": "2025-12-15",
+   "quietBasis": "last fitted",
+   "lastContract": "2025-09-02",
+   "lastFitted": "2025-12-15",
+   "lastSite": "WOOTTON LOWER SCHOOL BEDFORD ROAD WOOTTON MK43 9JT",
+   "area": "MK",
+   "phone": "7986583831",
+   "soldBy": "Adam Butcher",
+   "leadSource": "Existing Customer",
+   "wasJayks": false,
+   "owner": "Adam",
+   "staleQuotes": {
+    "quotes": 2,
+    "value": 162514.40999999997,
+    "oldest": 402
+   },
+   "next": "Adam calls CONAMAR BUILDING SERVICES LTD. 16 jobs worth GBP 917,027 and no work since 2025-12-15 (last fitted) - ask about the 2 quotes worth GBP 162,514 still sitting with them unanswered - the oldest is 402 days old. That is the reason for the call, not the silence. Check the mailbox for the last conversation first."
+  },
+  {
    "client": "RSR",
    "jobs": 5,
    "value": 197044.44,
-   "quietDays": 330,
+   "quietDays": 331,
    "quietFrom": "2025-09-02",
    "quietBasis": "last fitted",
    "lastContract": "2025-07-16",
@@ -34,13 +58,37 @@
    "leadSource": "Existing Customer",
    "wasJayks": false,
    "owner": "Adam",
+   "staleQuotes": null,
    "next": "Adam calls RSR. 5 jobs worth GBP 197,044 and no work since 2025-09-02 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
+  },
+  {
+   "client": "STORM BUILDING LTD.",
+   "jobs": 3,
+   "value": 43113.35,
+   "quietDays": 297,
+   "quietFrom": "2025-10-06",
+   "quietBasis": "last fitted",
+   "lastContract": "2025-04-08",
+   "lastFitted": "2025-10-06",
+   "lastSite": "HAMMERSMITH HOSPITAL 72 DU CANE RD LONDON W12 0HS",
+   "area": "W",
+   "phone": "2037517821",
+   "soldBy": "Harry Grover",
+   "leadSource": "Existing Customer",
+   "wasJayks": false,
+   "owner": "Adam",
+   "staleQuotes": {
+    "quotes": 2,
+    "value": 13591.630000000001,
+    "oldest": 251
+   },
+   "next": "Adam calls STORM BUILDING LTD. 3 jobs worth GBP 43,113 and no work since 2025-10-06 (last fitted) - ask about the 2 quotes worth GBP 13,591 still sitting with them unanswered - the oldest is 251 days old. That is the reason for the call, not the silence. Check the mailbox for the last conversation first."
   },
   {
    "client": "FK RESTORATION LTD",
    "jobs": 1,
    "value": 15860.0,
-   "quietDays": 1265,
+   "quietDays": 1266,
    "quietFrom": "2023-02-10",
    "quietBasis": "last fitted",
    "lastContract": "2022-09-02",
@@ -52,13 +100,14 @@
    "leadSource": "Google",
    "wasJayks": false,
    "owner": "Adam",
+   "staleQuotes": null,
    "next": "Adam calls FK RESTORATION LTD. 1 job worth GBP 15,860 and no work since 2023-02-10 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "TSL UK - TOPEK SOUTHERN LTD",
    "jobs": 1,
    "value": 15344.68,
-   "quietDays": 224,
+   "quietDays": 225,
    "quietFrom": "2025-12-17",
    "quietBasis": "last fitted",
    "lastContract": "2025-10-01",
@@ -70,13 +119,14 @@
    "leadSource": "Jayk",
    "wasJayks": false,
    "owner": "Adam",
+   "staleQuotes": null,
    "next": "Adam calls TSL UK - TOPEK SOUTHERN LTD. 1 job worth GBP 15,344 and no work since 2025-12-17 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "MERCHANT TAYLORS’",
    "jobs": 1,
    "value": 15087.07,
-   "quietDays": 380,
+   "quietDays": 381,
    "quietFrom": "2025-07-14",
    "quietBasis": "last fitted",
    "lastContract": "2025-01-27",
@@ -88,13 +138,14 @@
    "leadSource": "Existing Customer",
    "wasJayks": false,
    "owner": "Adam",
+   "staleQuotes": null,
    "next": "Adam calls MERCHANT TAYLORS’. 1 job worth GBP 15,087 and no work since 2025-07-14 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "AVENIR WORKS LTD",
    "jobs": 1,
    "value": 8664.0,
-   "quietDays": 230,
+   "quietDays": 231,
    "quietFrom": "2025-12-11",
    "quietBasis": "last fitted",
    "lastContract": "2025-08-15",
@@ -106,13 +157,14 @@
    "leadSource": "Existing Commercial",
    "wasJayks": false,
    "owner": "Adam",
+   "staleQuotes": null,
    "next": "Adam calls AVENIR WORKS LTD. 1 job worth GBP 8,664 and no work since 2025-12-11 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "DUNBIA CARDINGTON",
    "jobs": 1,
    "value": 6266.73,
-   "quietDays": 299,
+   "quietDays": 300,
    "quietFrom": "2025-10-03",
    "quietBasis": "last fitted",
    "lastContract": "2025-06-23",
@@ -124,13 +176,14 @@
    "leadSource": "Existing Commercial",
    "wasJayks": false,
    "owner": "Adam",
+   "staleQuotes": null,
    "next": "Adam calls DUNBIA CARDINGTON. 1 job worth GBP 6,266 and no work since 2025-10-03 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "SOVEREIGN FM LTD",
    "jobs": 2,
    "value": 2627.53,
-   "quietDays": 335,
+   "quietDays": 336,
    "quietFrom": "2025-08-28",
    "quietBasis": "last fitted",
    "lastContract": "2025-08-18",
@@ -142,13 +195,14 @@
    "leadSource": "Existing Customer",
    "wasJayks": false,
    "owner": "Adam",
+   "staleQuotes": null,
    "next": "Adam calls SOVEREIGN FM LTD. 2 jobs worth GBP 2,627 and no work since 2025-08-28 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   },
   {
    "client": "MAZDA MOTORS UK",
    "jobs": 1,
    "value": 4935.0,
-   "quietDays": 223,
+   "quietDays": 224,
    "quietFrom": "2025-12-18",
    "quietBasis": "last fitted",
    "lastContract": "2025-08-13",
@@ -160,13 +214,37 @@
    "leadSource": "Google",
    "wasJayks": false,
    "owner": "Adam",
+   "staleQuotes": null,
    "next": "Adam calls MAZDA MOTORS UK. 1 job worth GBP 4,935 and no work since 2025-12-18 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
+  },
+  {
+   "client": "GD CONSTRUCTION",
+   "jobs": 1,
+   "value": 3335.0,
+   "quietDays": 393,
+   "quietFrom": "2025-07-02",
+   "quietBasis": "last fitted",
+   "lastContract": "2025-05-29",
+   "lastFitted": "2025-07-02",
+   "lastSite": "THE AVEBURY AVEBURY BLVD MILTON KEYNES  MK9 1AU",
+   "area": "MK",
+   "phone": "01727811442 07711701971",
+   "soldBy": "Adam Butcher",
+   "leadSource": "Jayk",
+   "wasJayks": false,
+   "owner": "Adam",
+   "staleQuotes": {
+    "quotes": 1,
+    "value": 11837.01,
+    "oldest": 289
+   },
+   "next": "Adam calls GD CONSTRUCTION. 1 job worth GBP 3,335 and no work since 2025-07-02 (last fitted) - ask about the 1 quote worth GBP 11,837 still sitting with them unanswered - the oldest is 289 days old. That is the reason for the call, not the silence. Check the mailbox for the last conversation first."
   },
   {
    "client": "SHUTLANGER VILLAGE HALL",
    "jobs": 1,
    "value": 2589.3,
-   "quietDays": 152,
+   "quietDays": 153,
    "quietFrom": "2026-02-27",
    "quietBasis": "last fitted",
    "lastContract": "2025-12-12",
@@ -178,6 +256,7 @@
    "leadSource": "Google",
    "wasJayks": false,
    "owner": "Adam",
+   "staleQuotes": null,
    "next": "Adam calls SHUTLANGER VILLAGE HALL. 1 job worth GBP 2,589 and no work since 2026-02-27 (last fitted) - ask what they have coming, not whether they are well. Check the mailbox for the last conversation first."
   }
  ]

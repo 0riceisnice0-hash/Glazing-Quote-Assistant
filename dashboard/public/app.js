@@ -1772,6 +1772,8 @@ const JACOB_RENDER = {
         The exception is a row marked <em>cannot answer yet</em>: that one is undated on purpose,
         because the client is waiting on something they do not control.`)}
 
+      ${this._repricing()}
+
       ${decided.length ? `<div class="section"><div class="section-head"><h3>Decided</h3>
         <span class="page-sub">${decided.length} marked won, lost or closed - ${gbpShort(val(decided))}</span></div>
         <div class="planned-note">Off the chase list and off Today, kept here because this is the only
@@ -2251,6 +2253,99 @@ const JACOB_RENDER = {
         <td style="max-width:340px"><div class="clamp4">${inline(jNext(r) || r.next)}</div></td>
         <td>${ownerTag(r)}</td></tr>`).join("")}
       </tbody></table></div>`;
+  },
+
+  /* Jayk's own re-quote shortlist, emailed 19/12/2025 to adam@, commercial@,
+     estimating@ and nick@, and then left behind when he did. He sold 51 of
+     the 204 contracts Fenster has ever won - a quarter of the company - and
+     jayk@ is a hard 404, so this is the last of his reasoning anyone can read.
+
+     It sits on Leads rather than Opportunities because every row has already
+     been priced. And it leads with SECURED: five rows record that our own
+     client won the main contract, which is step two of the entire job (find
+     the scheme, find who won it, get on their list) already done for us.
+
+     The banner is not decoration. Every fact here is seven months old and the
+     deadlines are all 2025 - a reader who takes a row at face value and rings
+     a client about a job that finished in March has been let down by this
+     panel, not by the spreadsheet. */
+  _repricing() {
+    const p = JACOB.repricing;
+    if (!p || !(p.rows || []).length) return "";
+    const rows = p.rows.map((r, i) => ({ ...r, key: "reprice:" + i }))
+      .filter((r) => !jShut(r));
+    if (!rows.length) return "";
+    const c = p.counts || {};
+    const TIER = {
+      secured: ["ok", "Client WON the main contract"],
+      "asked-of-us": ["warn", "They asked us for something"],
+      "price-good": ["ok", "Our price was right"],
+      stalled: ["navy", "Held up by someone else"],
+      "no-feedback": ["", "Never answered"],
+      unclassified: ["", "Notes say nothing"],
+    };
+    const group = (tier) => rows.filter((r) => r.tier === tier);
+    const money = (list) => list.reduce((n, r) => n + (r.value || 0), 0);
+    const table = (list) => `<table class="tbl"><thead><tr>
+        <th>Client</th><th>Project</th><th>Quoted</th><th>Where it stood</th>
+        <th>In the CRM now</th><th>Age</th></tr></thead><tbody>
+      ${list.map((r) => `<tr data-jkey="${esc(r.key)}">
+        <td class="job-cell"><strong>${esc(r.client)}</strong>
+          ${r.crmSpellings && r.crmSpellings.length > 1
+            ? `<small class="dim">CRM also spells this ${esc(r.crmSpellings.join(" / "))}</small>`
+            : r.clientMatch === "none"
+              ? `<small class="chip warn">not in AdminBase at all</small>` : ""}</td>
+        <td style="max-width:240px"><div class="clamp4">${esc(r.project)}</div>
+          ${r.responsible ? `<small class="dim">was ${esc(r.responsible)}'s</small>` : ""}</td>
+        <td class="money">${r.value ? gbp(r.value) : `<small class="dim">${esc(r.valueRaw || "-")}</small>`}
+          ${r.newValue ? `<small class="dim">re-priced ${gbp(r.newValue)}</small>` : ""}</td>
+        <td style="max-width:360px"><div class="clamp4"><small>${esc(
+          [r.chased, r.notes].filter(Boolean).join(" — ").slice(0, 320))}</small></div></td>
+        <td><small>${(r.stillOpenInCrm || []).length
+          ? `<span class="chip navy">still open, same figure</span>
+             ${(r.stillOpenInCrm || []).map((q) => `lead ${esc(q.lead)}`).join(", ")}`
+          : r.crmSince
+            ? `<span class="dim">${r.crmSince} newer quote${r.crmSince === 1 ? "" : "s"}
+               for this client, none for this job</span>`
+            : `<span class="dim">nothing since</span>`}</small></td>
+        <td class="num"><small>${r.noteAgeDays !== null && r.noteAgeDays !== undefined
+          ? `${r.noteAgeDays}d` : "-"}</small></td></tr>`).join("")}
+      </tbody></table>`;
+
+    const block = (tier) => {
+      const list = group(tier);
+      if (!list.length) return "";
+      const [chip, label] = TIER[tier] || ["", tier];
+      const why = (list[0] || {}).why || "";
+      return `<div class="section-head" style="margin-top:18px">
+          <h4><span class="chip ${chip}">${esc(label)}</span>
+          ${list.length} row${list.length === 1 ? "" : "s"}, ${gbpShort(money(list))}</h4></div>
+        <div class="planned-note"><small>${esc(why)}</small></div>
+        ${table(list)}`;
+    };
+
+    return `<div class="section"><div class="section-head">
+      <h3>The list Jayk left behind</h3>
+      <span class="page-sub">${c.rows} quotes, ${gbpShort(c.value)}, ${c.clients} clients
+        - his own shortlist of what to go back to and why</span></div>
+      <div class="planned-note">
+        <p><strong>Read the age column before you read anything else.</strong> ${esc(p.caveat || "")}</p>
+        <p>${esc(p.why || "")}</p>
+        <p><strong>${esc(p.worked || "")}</strong></p>
+        <p><em>${esc(p.notARequote || "")}</em></p>
+      </div>
+      ${["secured", "asked-of-us", "price-good", "stalled", "no-feedback",
+         "unclassified"].map(block).join("")}
+      ${(p.absentFromCrm || []).length ? `<div class="section-head" style="margin-top:18px">
+        <h4><span class="chip warn">Invisible to the rest of this board</span>
+        ${c.clientsAbsentFromCrm} clients, ${gbpShort(c.absentValue)}</h4></div>
+        <div class="planned-note"><small>${esc(p.absentNote || "")}</small></div>
+        <table class="tbl"><thead><tr><th>Client</th><th>Rows here</th>
+          <th>Quoted</th></tr></thead><tbody>
+        ${p.absentFromCrm.map((a) => `<tr><td><strong>${esc(a.client)}</strong></td>
+          <td class="num">${a.rows}</td><td class="money">${gbp(a.value)}</td></tr>`).join("")}
+        </tbody></table>` : ""}
+      </div>`;
   },
 
   /* Planning applications - the only source that reaches a scheme BEFORE an

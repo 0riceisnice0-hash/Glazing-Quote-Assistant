@@ -143,9 +143,47 @@ def main():
     if not contracts:
         sys.exit("no contracts in %s - run jacob_contracts.py first" % WON)
 
-    # Anyone with a quote out is mid-conversation, not dormant.
-    live = {norm(r.get("client")) for r in (crm.get("due") or [])}
-    live.discard("")
+    # Anyone with a RECENT quote out is mid-conversation, not dormant.
+    #
+    # "Recent" is the whole of the fix. This was `{norm(client) for r in due}` -
+    # any client appearing in the CRM at all - and it silently made the largest
+    # client in the company's history invisible to this file.
+    #
+    # CONAMAR: 16 jobs, GBP 917,028, 32% of all value Fenster has ever won,
+    # last on their site 15/12/2025. Excluded as "mid-conversation" on the
+    # strength of two quotes raised in JUNE 2025 whose next-action dates passed
+    # in June 2025 - 400 days ago. Nobody was mid anything.
+    #
+    # The reason the old test could never work is JAC-14 (Adam, 29/07):
+    # **nothing on the AdminBase backlog closes on silence.** All 209 rows stay
+    # "Live - Quoted" until a client updates them, so "has a live quote" was
+    # really "has ever been quoted" - a permanent exemption from this list for
+    # every past customer Fenster has ever priced. The better a client, the
+    # more certain they were to be hidden.
+    #
+    # So a quote only counts as a live conversation while it is younger than
+    # the silence we are measuring. Harrabin Construction stays excluded on
+    # this rule - they were quoted 15 days ago and ringing them about old times
+    # would cut across a real chase, which is what the exclusion is for.
+    live, stale_only = set(), {}
+    for r in (crm.get("due") or []):
+        key = norm(r.get("client"))
+        if not key:
+            continue
+        touched = max(str(r.get("nextAction") or "")[:10],
+                      str(r.get("leadDate") or "")[:10])
+        age = days_since(touched) if touched else None
+        if age is not None and age < args.quiet_days:
+            live.add(key)
+            stale_only.pop(key, None)
+        elif key not in live:
+            # Quoted, then silence. Not a conversation - and the quote itself is
+            # a fact the call needs, so it is carried onto the row rather than
+            # thrown away with the exclusion.
+            s = stale_only.setdefault(key, {"quotes": 0, "value": 0.0, "oldest": None})
+            s["quotes"] += 1
+            s["value"] += r.get("value") or 0
+            s["oldest"] = max(s["oldest"] or 0, age or 0)
 
     agg = {}
     for r in contracts:
@@ -219,12 +257,25 @@ def main():
             # reason nobody has addressed.
             "wasJayks": "jayk" in (a["soldBy"] or "").lower(),
             "owner": "Adam",
+            # Quotes sitting unanswered with this client. A row that has these
+            # is a better call than a row that does not, because there is
+            # something specific to ask about instead of "how have you been".
+            "staleQuotes": stale_only.get(key),
             "next": ("Adam calls %s. %d job%s worth GBP %s and no work since %s "
-                     "(%s) - ask what they have coming, not whether they are "
-                     "well. Check the mailbox for the last conversation first."
-                     % (a["client"], a["jobs"], "" if a["jobs"] == 1 else "s",
+                     "(%s) - %s Check the mailbox for the last conversation first."
+                     % (a["client"].rstrip(". "),
+                        a["jobs"], "" if a["jobs"] == 1 else "s",
                         format(int(a["value"]), ","), quiet_from or "unknown",
-                        quiet_basis)),
+                        quiet_basis,
+                        ("ask about the %d quote%s worth GBP %s still sitting "
+                         "with them unanswered - the oldest is %d days old. "
+                         "That is the reason for the call, not the silence."
+                         % (stale_only[key]["quotes"],
+                            "" if stale_only[key]["quotes"] == 1 else "s",
+                            format(int(stale_only[key]["value"]), ","),
+                            stale_only[key]["oldest"])
+                         if stale_only.get(key) else
+                         "ask what they have coming, not whether they are well."))),
         })
 
     # Repeat buyers first. One large contract is not a relationship, so weight
@@ -240,9 +291,23 @@ def main():
                "customer and 3 contracts in the company's history came from a "
                "tender portal. This is the 59%, filtered to the ones nobody is "
                "currently talking to.",
-        "rule": "Dormant = has bought before, no quote out now, no work on site "
-                "now, no work for %d days, lifetime value over GBP %s."
-                % (args.quiet_days, format(int(args.min_value), ",")),
+        "rule": "Dormant = has bought before, no quote raised or chased in the "
+                "last %d days, no work on site now, no work for %d days, "
+                "lifetime value over GBP %s."
+                % (args.quiet_days, args.quiet_days,
+                   format(int(args.min_value), ",")),
+        "staleQuoteRule": "A quote only counts as a live conversation while it "
+                          "is younger than the silence being measured. It used "
+                          "to be enough for the client to appear in the CRM at "
+                          "all - and because JAC-14 means nothing on that "
+                          "backlog ever closes on silence, that permanently "
+                          "hid every past customer who had ever been quoted. "
+                          "Conamar - 16 jobs, GBP 917,028, the largest client "
+                          "in the company's history - was excluded on two "
+                          "quotes whose next-action dates passed 400 days ago. "
+                          "Where a client is dormant AND holds unanswered "
+                          "quotes, `staleQuotes` carries them, because they are "
+                          "the reason for the call.",
         "quietMeans": "quietDays is days since Fenster last had WORK with them - "
                       "the later of the order date and the date it was fitted, "
                       "which quietBasis names. It is NOT days since anyone spoke "

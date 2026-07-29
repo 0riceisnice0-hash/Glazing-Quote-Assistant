@@ -14,7 +14,8 @@ where each file comes from and what it can and cannot tell you.
 | `planning.json` | `jacob_planit.py` | **Planning applications - the free half of what Barbour ABI sells.** Every GB council's register via PlanIt, no key, filtered to schemes with a glazing package in them. 454 live large applications in 30 days against 17 tender notices in 90. The only source that reaches a scheme BEFORE an enquiry list exists. `applicant` is read from the council's own portal, because PlanIt redacts it to "See source" - that redaction is Barbour's product |
 | `planit-raw.json` | `jacob_planit.py` | The unfiltered pull, cached so the filter can be re-tuned with `--from-cache` without hitting a free public API again. Delete it freely |
 | `planit-areas.json` | `jacob_planit.py` | council -> country, when the areas API can be read at all. Usually it cannot: it pages at ten rows, refuses `pg_sz` and rate-limits hard, so the coverage rule is written down in the script instead. **A cache with under 300 councils in it is IGNORED** - a partial map silently drops every council it has not heard of |
-| `dormant.json` | `jacob_dormant.py` | **Customers who bought, stopped, and nobody noticed.** Won contracts joined to the live pipeline: past buyer, no quote out, no work on site, silent. This is the 59% of wins that came from an existing customer, against the 3 that ever came from a tender portal. Do-not-approach names are excluded in code, not by the reader |
+| `dormant.json` | `jacob_dormant.py` | **Customers who bought, stopped, and nobody noticed.** Won contracts joined to the live pipeline: past buyer, no **recent** quote out, no work on site, silent. This is the 59% of wins that came from an existing customer, against the 3 that ever came from a tender portal. Do-not-approach names are excluded in code, not by the reader. **"No quote out" has to mean recently** - see below |
+| `repricing.json` | `jacob_repricing.py` | **Jayk's own re-quote shortlist, emailed 19/12/2025 and then left behind.** 62 rows, GBP 6.0m of quotes, with the client's own feedback written against each one by the man who sold 25% of everything Fenster has ever won. **Five rows name a main contract OUR CLIENT HAS WON** - step two of the whole job, already done. Every fact in it is 223 days old and the deadlines are 2025, so it ranks and explains and promotes nothing: `verifyFirst` is on every row. Read from a COPY in `test-results/repricing/`; the Commercial drive is never written to |
 | `contracts-won.json` | `jacob_contracts.py` | **The 204 WON commercial contracts**, net value on every row - Adam's hand export of 29/07/2026. The only file here built from delivered work rather than hope. Settles the GBP 50k question (8 wins over it, largest GBP 631,248) and carries `LEADSOURCE`, which says 59% of wins are repeat business and 25% were Jayk personally |
 | `outcomes.json` | `jacob_outcomes.py` | The Opportunity Log - the 2025-26 BD FUNNEL with its decided rows. Not the win history; `contracts-won.json` is |
 | `adminbase.json` | `jacob_adminbase.py` | Adam's AdminBase export - quoted leads with dates and values |
@@ -91,6 +92,24 @@ carry `expires` where our validity and the supplier quotes behind it die on a da
 own - Grange Hill's is 28/08 and it belongs to nobody outside Fenster, so nothing else on
 the board would ever raise it.
 
+**"NO QUOTE OUT" HAS TO MEAN RECENTLY, OR THE BEST CLIENT IS ALWAYS THE MOST HIDDEN.**
+`dormant.json` excluded anyone appearing in the AdminBase pipeline at all as
+"mid-conversation". But JAC-14 means nothing on that backlog ever closes on silence - all 209
+rows read "Live - Quoted" forever - so the test really said "has ever been quoted", which
+permanently exempted every past customer Fenster has ever priced. It hid **Conamar: 16 jobs,
+GBP 917,028, 32% of all value ever won**, on the strength of two quotes whose next-action dates
+passed 400 days ago. A quote now counts as a live conversation only while it is younger than
+the silence being measured, and `staleQuotes` carries the unanswered ones onto the row because
+they are the reason for the call. Harrabin - quoted 15 days ago - is still correctly excluded.
+
+**AN EXACT MATCH IS NOT A COMPLETE MATCH, AND THE CRM SPELLS PEOPLE DIFFERENTLY.** Barnfield is
+filed as both "Barnfield" and "Barnfield Construction", so an exact-key hit that short-circuits
+the sweep loses half the client. Worse, `repricing.json`'s "Thomas Sinden" is **"Sinden
+Construction Ltd"** in AdminBase - a GBP 581k job the client has WON looked absent from the
+pipeline when it is sitting there as lead 5493. Union every spelling, join company names on
+SUBSET rather than overlap (overlap matched "Chester Thomas Developments"), and use
+**penny-exact value** to tell a re-quote from the same quote still open.
+
 **A bulk import is one record, not two hundred.** Adam's completeness rule (hub-74) says any
 row missing a next action, an owner or a deadline appears on Today. Applied literally that put
 64 rows there and 59 of them were the single AdminBase export of 28/07 that nobody has ever
@@ -117,6 +136,7 @@ python scripts/jacob_daily.py            # intake + awards + procontract + rebui
 python scripts/jacob_planit.py           # planning applications (slow - PlanIt rate-limits)
 python scripts/jacob_planit.py --from-cache --no-enrich   # re-filter without re-fetching
 python scripts/jacob_dormant.py          # past customers who have gone quiet (local, instant)
+python scripts/jacob_repricing.py        # Jayk's repricing log (local; --refresh re-copies from OneDrive)
 python scripts/jacob_intake.py --days 180
 python scripts/jacob_outcomes.py
 python scripts/jacob_adminbase.py

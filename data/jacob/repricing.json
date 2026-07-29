@@ -1,0 +1,2707 @@
+{
+ "updated": "2026-07-30",
+ "source": "Repricing Log 22122025.ods - Jayk Sawbridge's own shortlist, emailed to adam@/commercial@/estimating@/nick@ on 19/12/2025 as 'works I believe it is worth us repricing, reviewing, or re-submitting'. Read from a copy in test-results/repricing/; the Commercial drive is never written to.",
+ "why": "Jayk sold 25% of every contract Fenster has ever won (51 of 204, contracts-won.json LEADSOURCE) and this is his reasoning about which quotes to go back to, with the client's own feedback against each one. jayk@ is a hard 404, so nobody can ask him anything - the spreadsheet is all that is left of it.",
+ "caveat": "EVERY ROW IS 223 DAYS OLD AND UNVERIFIED. The deadlines are all 2025 and 'Jayk to call in Jan' is a call nobody made, because he had gone by January. Nothing here is a lead until somebody confirms the job is still live.",
+ "notARequote": "Jayk left NEW values on nine rows for Adam to check. Fenster's price is Mary's and Gintare's, never mine (JACOB-SESSION section 2) - those go to her.",
+ "worked": "The two versions of this file differ by ONE cell in seven months: RG Carter's Linford Wood gained '(LOST)' in its title on 28/01/2026. That is the whole of what was done with it.",
+ "counts": {
+  "rows": 62,
+  "value": 6017468.04,
+  "clients": 27,
+  "secured": 5,
+  "conflicts": 2,
+  "noCrmActivitySince": 20,
+  "noCrmActivityValue": 2154491.94,
+  "clientsAbsentFromCrm": 6,
+  "absentValue": 1122044.09,
+  "byTier": {
+   "secured": 5,
+   "asked-of-us": 7,
+   "price-good": 11,
+   "stalled": 14,
+   "no-feedback": 18
+  }
+ },
+ "absentFromCrm": [
+  {
+   "client": "Clegg Construction",
+   "rows": 1,
+   "value": 777177.66,
+   "inCrm": false,
+   "crmSince": 0
+  },
+  {
+   "client": "MCS Construction",
+   "rows": 2,
+   "value": 137160.38,
+   "inCrm": false,
+   "crmSince": 0
+  },
+  {
+   "client": "BC Workspace",
+   "rows": 3,
+   "value": 82516.64,
+   "inCrm": false,
+   "crmSince": 0
+  },
+  {
+   "client": "Steele & Bray",
+   "rows": 1,
+   "value": 62602.65,
+   "inCrm": false,
+   "crmSince": 0
+  },
+  {
+   "client": "Cheil Construction",
+   "rows": 1,
+   "value": 48814.8,
+   "inCrm": false,
+   "crmSince": 0
+  },
+  {
+   "client": "RG Carter",
+   "rows": 2,
+   "value": 13771.96,
+   "inCrm": false,
+   "crmSince": 0
+  }
+ ],
+ "absentNote": "These clients hold quotes on this log and do NOT appear in Adam's AdminBase export, which is the pipeline every other panel on this board is built from. bd.md already says the register is a FLOOR and never a complete set. This is the first measurement of the gap - and it is not an accusation about the CRM, because a quote raised before the export window or under another trading name would land here too.",
+ "rows": [
+  {
+   "client": "Thomas Sinden",
+   "project": "Hub Alkerden Windows/Doors ect",
+   "enquiry": "2025-01-21",
+   "deadline": "04/02/2025 - Extended 07/02/2025",
+   "value": 581367.16,
+   "valueRaw": "581,367.16",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote submitted on the 10/02/2025",
+   "chased": "02/10/2025 Thomas Sinden have officially won this, they will be in touch to get finalised pricing from us. 18/11/2025 Gained Corrans mobile, spoke to him directly and briefly, he asked for an email but The Hub likely to go ahead next year in terms of repricing and the like. Worth repricing as client will want this anyway",
+   "lastNoteDate": "2025-11-18",
+   "noteAgeDays": 254,
+   "tiers": [
+    "secured"
+   ],
+   "tier": "secured",
+   "why": "Our client has WON the main contract. The enquiry list for the job is being drawn up or has been - this is the one moment a subcontractor gets asked to price.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Sinden Construction Ltd",
+    "Thomas Sinden"
+   ],
+   "crmRows": 2,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "5493",
+     "job": "The Hub Alkerden",
+     "leadDate": "2025-01-21",
+     "result": "Live - Quoted",
+     "value": 484472.63,
+     "matchedOn": "tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-18 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 0
+  },
+  {
+   "client": "R1 Construction",
+   "project": "Gresty Road",
+   "enquiry": "2025-09-30",
+   "deadline": "2025-10-10",
+   "value": 89898.12,
+   "valueRaw": "89898.12",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "",
+   "chased": "22/12/2025 R1 have won this, so reprice",
+   "lastNoteDate": "2025-12-22",
+   "noteAgeDays": 220,
+   "tiers": [
+    "secured"
+   ],
+   "tier": "secured",
+   "why": "Our client has WON the main contract. The enquiry list for the job is being drawn up or has been - this is the one moment a subcontractor gets asked to price.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "R1 Construction"
+   ],
+   "crmRows": 1,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "7376",
+     "job": "Gresty Road",
+     "leadDate": "2025-12-22",
+     "result": "Live - Quoted",
+     "value": 89898.12,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "7376",
+     "result": "Live - Quoted",
+     "leadDate": "2025-12-22"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-22 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 0
+  },
+  {
+   "client": "Barnfield Construction",
+   "project": "MSM Aerospace CW",
+   "enquiry": "2025-10-07",
+   "deadline": "ASAP",
+   "value": 46968.75,
+   "valueRaw": "46,968.75",
+   "newValue": 37827.0,
+   "newValueRaw": "37,827.00",
+   "responsible": "Jayk",
+   "status": "X",
+   "notes": "12/01/2026 revised quote issued",
+   "chased": "10/11/2025 Ben advised that it will likey be February before anything moves construction wise on this one Worth repricing as secured",
+   "lastNoteDate": "2026-01-12",
+   "noteAgeDays": 199,
+   "tiers": [
+    "secured"
+   ],
+   "tier": "secured",
+   "why": "Our client has WON the main contract. The enquiry list for the job is being drawn up or has been - this is the one moment a subcontractor gets asked to price.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Barnfield",
+    "Barnfield Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6781",
+     "job": "MSM AEROSPACE LAND OFF HANSON ROAD MIDDLETON MANCHESTER M24 2",
+     "leadDate": "2025-09-15",
+     "result": "Live - Quoted",
+     "value": 46968.75,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6781",
+     "result": "Live - Quoted",
+     "leadDate": "2025-09-15"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2026-01-12 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 0
+  },
+  {
+   "client": "Elkins Construction",
+   "project": "Midfield Primary School",
+   "enquiry": "2025-08-04",
+   "deadline": "2025-08-11",
+   "value": 15429.85,
+   "valueRaw": "15429.85",
+   "newValue": null,
+   "newValueRaw": "-",
+   "responsible": "Jayk",
+   "status": "",
+   "notes": "",
+   "chased": "19/12/2025 Works secured client side Worth repricing",
+   "lastNoteDate": "2025-12-19",
+   "noteAgeDays": 223,
+   "tiers": [
+    "secured"
+   ],
+   "tier": "secured",
+   "why": "Our client has WON the main contract. The enquiry list for the job is being drawn up or has been - this is the one moment a subcontractor gets asked to price.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Elkins Construction"
+   ],
+   "crmRows": 6,
+   "crmSince": 6,
+   "wonSince": 3,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 0
+  },
+  {
+   "client": "RG Carter",
+   "project": "Linford Wood Curtain Wall (LOST)",
+   "enquiry": "2025-01-14",
+   "deadline": "2025-01-29",
+   "value": null,
+   "valueRaw": "JOB LOST",
+   "newValue": null,
+   "newValueRaw": "JOB LOST",
+   "responsible": "",
+   "status": "",
+   "notes": "JOB LOST",
+   "chased": "16/10/2025 Project appears to have been pushed back but RG Carter have won this. Worth repricing as close by and secured",
+   "lastNoteDate": "2025-10-16",
+   "noteAgeDays": 287,
+   "tiers": [
+    "secured",
+    "stalled"
+   ],
+   "tier": "secured",
+   "why": "Our client has WON the main contract. The enquiry list for the job is being drawn up or has been - this is the one moment a subcontractor gets asked to price.",
+   "jaykSaysWorthIt": true,
+   "saysLost": true,
+   "conflict": true,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-10-16 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 0
+  },
+  {
+   "client": "Logan Construction",
+   "project": "Queen Victoria",
+   "enquiry": "2025-11-12",
+   "deadline": "2025-11-27",
+   "value": 108452.93,
+   "valueRaw": "108,452.93",
+   "newValue": null,
+   "newValueRaw": "Price sent to Adam",
+   "responsible": "Jayk",
+   "status": "",
+   "notes": "Jayk, Gee and Adam to discuss",
+   "chased": "19/12/2025 Simon said we could do with dropping our cost by 18k, Jayk has reviewed and issued to Adam",
+   "lastNoteDate": "2025-12-19",
+   "noteAgeDays": 223,
+   "tiers": [
+    "asked-of-us"
+   ],
+   "tier": "asked-of-us",
+   "why": "The client asked Fenster for something, or a price was prepared and left with a human. Check it went.",
+   "jaykSaysWorthIt": false,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Logan Construction"
+   ],
+   "crmRows": 1,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 1
+  },
+  {
+   "client": "Cheil Construction",
+   "project": "Swanhurst School",
+   "enquiry": "2025-11-13",
+   "deadline": "2025-11-21",
+   "value": 48814.8,
+   "valueRaw": "48,814.80",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Revised costs sent back 21/11/2025",
+   "chased": "19/12/2025 Revised prices sent to Adam by Gee 10/12/2025 we have offered a new cost of 40k and Chris at Cheil has asked us for PQQ's to be completed and for updated costs + schedule so now actually looking good. Gintare has reviewed an issued to Adam",
+   "lastNoteDate": "2025-12-19",
+   "noteAgeDays": 223,
+   "tiers": [
+    "asked-of-us",
+    "price-good"
+   ],
+   "tier": "asked-of-us",
+   "why": "The client asked Fenster for something, or a price was prepared and left with a human. Check it went.",
+   "jaykSaysWorthIt": false,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 1
+  },
+  {
+   "client": "GD Construction",
+   "project": "Westmead Clinic",
+   "enquiry": "2025-10-13",
+   "deadline": "ASAP",
+   "value": 23254.99,
+   "valueRaw": "23,254.99",
+   "newValue": 21899.99,
+   "newValueRaw": "21,899.99",
+   "responsible": "Gintare",
+   "status": "Ready To GO",
+   "notes": "Gave uPVC costs but they want Aliminium. Ali issued 20/10/2025",
+   "chased": "19/11/2025 not likely going ahead until April as its in with CapEX Worth repricing before CapEX and its GD",
+   "lastNoteDate": "2025-11-19",
+   "noteAgeDays": 253,
+   "tiers": [
+    "asked-of-us",
+    "stalled"
+   ],
+   "tier": "asked-of-us",
+   "why": "The client asked Fenster for something, or a price was prepared and left with a human. Check it went.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Gd Construction"
+   ],
+   "crmRows": 1,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6964",
+     "job": "WESTMEAD CLINIC RUISLIP HARROW",
+     "leadDate": "2025-10-14",
+     "result": "Live - Quoted",
+     "value": 11837.01,
+     "matchedOn": "tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 1
+  },
+  {
+   "client": "Bradford Watts",
+   "project": "Unit 16, Goldsworth Park Trading Estate",
+   "enquiry": "2025-05-29",
+   "deadline": "2025-06-06",
+   "value": 18022.28,
+   "valueRaw": "18,022.28",
+   "newValue": 6553.57,
+   "newValueRaw": "6,553.57",
+   "responsible": "Gintare",
+   "status": "Ready to Go",
+   "notes": "30/06/2026 - £8,167.57 Quote issued 06/06/2025",
+   "chased": "26/09/2025 Chased for further updates 15/08/2025 still open - looking good on this one according to Mark Golden, but no client feedback Worth repricing as BW",
+   "lastNoteDate": "2026-06-30",
+   "noteAgeDays": 30,
+   "tiers": [
+    "asked-of-us",
+    "price-good",
+    "stalled",
+    "no-feedback"
+   ],
+   "tier": "asked-of-us",
+   "why": "The client asked Fenster for something, or a price was prepared and left with a human. Check it went.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Bradford Watts",
+    "Bradford Watts Ltd"
+   ],
+   "crmRows": 12,
+   "crmSince": 6,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6055",
+     "job": "UNIT 16 GOLDSWORTH PARK TRADING ESTATE KESTREL WAY WOKING",
+     "leadDate": "2025-05-30",
+     "result": "Live - Quoted",
+     "value": 18022.28,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6055",
+     "result": "Live - Quoted",
+     "leadDate": "2025-05-30"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2026-06-30 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 1
+  },
+  {
+   "client": "Bradford Watts",
+   "project": "Unit 4, Compass West Estate",
+   "enquiry": "2025-05-29",
+   "deadline": "2025-06-17",
+   "value": 10916.77,
+   "valueRaw": "10,916.77",
+   "newValue": 8288.24,
+   "newValueRaw": "8,288.24",
+   "responsible": "Gintare",
+   "status": "Ready to go",
+   "notes": "Quote issued 06/06/2025",
+   "chased": "26/09/2025 Chased for further updates 15/08/2025 In Marks words: Price used. No feedback yet Worth repricing as BW",
+   "lastNoteDate": "2025-09-26",
+   "noteAgeDays": 307,
+   "tiers": [
+    "asked-of-us",
+    "price-good",
+    "no-feedback"
+   ],
+   "tier": "asked-of-us",
+   "why": "The client asked Fenster for something, or a price was prepared and left with a human. Check it went.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Bradford Watts",
+    "Bradford Watts Ltd"
+   ],
+   "crmRows": 12,
+   "crmSince": 6,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6057",
+     "job": "UNIT 4 COMPASS WEST ESTATE WEST ROAD LONDON",
+     "leadDate": "2025-05-30",
+     "result": "Live - Quoted",
+     "value": 9097.31,
+     "matchedOn": "tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-09-26 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 1
+  },
+  {
+   "client": "SDevs",
+   "project": "78-88 Mendip Road",
+   "enquiry": "2025-03-25",
+   "deadline": "ASAP",
+   "value": 8640.41,
+   "valueRaw": "8640.41",
+   "newValue": 39677.84,
+   "newValueRaw": "£39,677.84",
+   "responsible": "Jayk",
+   "status": "X",
+   "notes": "Ali cost is: 12,040.54 Costs based on 1 Unit per style. Requoted - Adam to check 22/12/2025 New Ali price: £66,378.44",
+   "chased": "22/07/2025 Still open,Worth repricing,as SDevs",
+   "lastNoteDate": "2025-12-22",
+   "noteAgeDays": 220,
+   "tiers": [
+    "asked-of-us",
+    "stalled"
+   ],
+   "tier": "asked-of-us",
+   "why": "The client asked Fenster for something, or a price was prepared and left with a human. Check it went.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Sdevs"
+   ],
+   "crmRows": 8,
+   "crmSince": 5,
+   "wonSince": 5,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-22 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 1
+  },
+  {
+   "client": "Lindum Group",
+   "project": "2nr Fire Rated Glass at Howden Fire Station",
+   "enquiry": "2025-07-17",
+   "deadline": "2025-07-30",
+   "value": 4622.42,
+   "valueRaw": "4,622.42",
+   "newValue": 3792.42,
+   "newValueRaw": "3,792.42",
+   "responsible": "Jayk",
+   "status": "X",
+   "notes": "New price developed: 3792.42 Adam to check 22/12/2025",
+   "chased": "20/11/2025 not likely to be onsite until next year now worth repricing due to client and feedback",
+   "lastNoteDate": "2025-12-22",
+   "noteAgeDays": 220,
+   "tiers": [
+    "asked-of-us",
+    "stalled"
+   ],
+   "tier": "asked-of-us",
+   "why": "The client asked Fenster for something, or a price was prepared and left with a human. Check it went.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Lindum Group"
+   ],
+   "crmRows": 3,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6348",
+     "job": "HOWDEN FIRE STATION NEW BUILD HULL ROAD HOWDEN EAST YORKSHIRE",
+     "leadDate": "2025-07-17",
+     "result": "Live - Quoted",
+     "value": 3792.42,
+     "matchedOn": "tokens"
+    },
+    {
+     "lead": "6356",
+     "job": "Howden Fire Station",
+     "leadDate": "2025-07-17",
+     "result": "Live - Quoted",
+     "value": 53576.2,
+     "matchedOn": "tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-22 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 1
+  },
+  {
+   "client": "Bradford Watts",
+   "project": "1-10 Sevenoaks Curtain Walling and Windows",
+   "enquiry": "2025-06-11",
+   "deadline": "2025-06-25",
+   "value": 243341.2,
+   "valueRaw": "243,341.20",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote submitted 25/06/2025",
+   "chased": "26/09/2025 Chased for further updates 15/08/2025 In Marks words: In the running for. Price used Worth repricing as BW",
+   "lastNoteDate": "2025-09-26",
+   "noteAgeDays": 307,
+   "tiers": [
+    "price-good",
+    "no-feedback"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Bradford Watts",
+    "Bradford Watts Ltd"
+   ],
+   "crmRows": 12,
+   "crmSince": 6,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6212",
+     "job": "1-10 SEVENOAKS BUSINESS CENTRE SEVENOAKS KENT",
+     "leadDate": "2025-06-26",
+     "result": "",
+     "value": 243341.2,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6212",
+     "result": "",
+     "leadDate": "2025-06-26"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-09-26 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "MCS Construction",
+   "project": "2-4 Addington Road uPVC Windows",
+   "enquiry": "2025-06-24",
+   "deadline": "2025-07-25",
+   "value": 119800.19,
+   "valueRaw": "119,800.19",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote returned 23/07/2025. Price for triple glazed sent 27/08/2025 at 124,800.19",
+   "chased": "10/11/2025 Client is still delaying this - they have tender queries but haven't released them. Steve reckons they are waiting on budget release before doing anything. Worth repricing as good feedback so far",
+   "lastNoteDate": "2025-11-10",
+   "noteAgeDays": 262,
+   "tiers": [
+    "price-good",
+    "stalled"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-10 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "Bradford Watts",
+   "project": "706-707 Stirling Road",
+   "enquiry": "2025-06-16",
+   "deadline": "2025-06-25",
+   "value": 93405.07,
+   "valueRaw": "93,405.07",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote issued 20/06/2025",
+   "chased": "26/09/2025 Chased for further updates 15/08/2025 in Marks words: Price used. No feedback yet Worth repricing as BW",
+   "lastNoteDate": "2025-09-26",
+   "noteAgeDays": 307,
+   "tiers": [
+    "price-good",
+    "no-feedback"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Bradford Watts",
+    "Bradford Watts Ltd"
+   ],
+   "crmRows": 12,
+   "crmSince": 6,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6156",
+     "job": "706-707 STIRLING ROAD SLOUGH",
+     "leadDate": "2025-06-19",
+     "result": "Live - Quoted",
+     "value": 93405.07,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6156",
+     "result": "Live - Quoted",
+     "leadDate": "2025-06-19"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-09-26 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "7Formation",
+   "project": "Lewsey Community Centre",
+   "enquiry": "2025-10-31",
+   "deadline": "2025-11-14",
+   "value": 76127.22,
+   "valueRaw": "76,127.22",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "17/11/2025 new price sent today with inclusion of internal ali door",
+   "chased": "13/11/2025 pricing seems to be spot on according to Max - they've used our cost for submission. Worth reviewing due to client feedback",
+   "lastNoteDate": "2025-11-17",
+   "noteAgeDays": 255,
+   "tiers": [
+    "price-good"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "7formation"
+   ],
+   "crmRows": 1,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "7088",
+     "job": "LEWSEY COMMUNITY CENTRE LANDRACE ROAD LUTON BEDFORDSHIRE",
+     "leadDate": "2025-11-03",
+     "result": "Live - Quoted",
+     "value": 76127.22,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "7088",
+     "result": "Live - Quoted",
+     "leadDate": "2025-11-03"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-17 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "Steele & Bray",
+   "project": "Daventry Job Centre Ally Windows and Doors",
+   "enquiry": "2025-05-30",
+   "deadline": "2025-06-06",
+   "value": 62602.65,
+   "valueRaw": "62,602.65",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote issued 06/06/2025",
+   "chased": "02/10/2025 Project still delayed by Mace and Council - call in a month Worth repricing as looking good and Steele and Bray are a great company",
+   "lastNoteDate": "2025-10-02",
+   "noteAgeDays": 301,
+   "tiers": [
+    "price-good",
+    "stalled"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-10-02 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "BC Workspace",
+   "project": "25 Peverel Drive Aluminium Windows",
+   "enquiry": "2025-10-08",
+   "deadline": "2025-10-13",
+   "value": 39116.81,
+   "valueRaw": "39,116.81",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "15/10/2025 21590.73 New price issued for just the ground floor",
+   "chased": "21/11/2025 not the lowest tender on BC Workplaces front, but Tim is happy with our quotes - he likes the format",
+   "lastNoteDate": "2025-11-21",
+   "noteAgeDays": 251,
+   "tiers": [
+    "price-good"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": false,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-21 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "Apex Quantity Surveying",
+   "project": "Little Green Farm Aluminium Windows",
+   "enquiry": "2025-07-16",
+   "deadline": "2025-07-22",
+   "value": 30898.45,
+   "valueRaw": "30,898.45",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote returned 22/07/2025",
+   "chased": "25/09/2025 no pick up from David 14/08/2025 David will get some updates. Our price was cheaper than spec, so they have offered this as Value Engineered quote. Worth repricing due to client and works still open",
+   "lastNoteDate": "2025-09-25",
+   "noteAgeDays": 308,
+   "tiers": [
+    "price-good",
+    "stalled",
+    "no-feedback"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Apex Quantity Surveying"
+   ],
+   "crmRows": 1,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6342",
+     "job": "LITTLE GREEN STREET FARM GREEN STREET CHENIES CHORLEYWOOD",
+     "leadDate": "2025-07-16",
+     "result": "Live - Quoted",
+     "value": 30898.45,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6342",
+     "result": "Live - Quoted",
+     "leadDate": "2025-07-16"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-09-25 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "TGC Builders",
+   "project": "Long Crendon Doors and Windows",
+   "enquiry": "2025-06-04",
+   "deadline": "ASAP",
+   "value": 25791.62,
+   "valueRaw": "25,791.62",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote issued to client 17/06/2025",
+   "chased": "02/10/2025 Juliet says our price is good and competitive, the project will be going ahead in January 09/12/2025 Jayk to call in Jan and catch up RE new prices, profile and next steps. Repricing will be required anyway",
+   "lastNoteDate": "2025-12-09",
+   "noteAgeDays": 233,
+   "tiers": [
+    "price-good"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Tgc Builders"
+   ],
+   "crmRows": 1,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6085",
+     "job": "17 THAME ROAD LONG CRENDON",
+     "leadDate": "2025-06-04",
+     "result": "",
+     "value": 21493.02,
+     "matchedOn": "tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-09 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "SDevs",
+   "project": "38-42 Roman Lane",
+   "enquiry": "2025-10-02",
+   "deadline": "ASAP",
+   "value": 17976.37,
+   "valueRaw": "17,976.37",
+   "newValue": null,
+   "newValueRaw": "Same",
+   "responsible": "Gintare",
+   "status": "X",
+   "notes": "",
+   "chased": "21/11/2025 Looking fairly good on this according to Chris Worth repricing as SDevs",
+   "lastNoteDate": "2025-11-21",
+   "noteAgeDays": 251,
+   "tiers": [
+    "price-good"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Sdevs"
+   ],
+   "crmRows": 8,
+   "crmSince": 5,
+   "wonSince": 5,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-21 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "BC Workspace",
+   "project": "Windsor office",
+   "enquiry": "2025-10-31",
+   "deadline": "2025-11-21",
+   "value": 15466.26,
+   "valueRaw": "15,466.26",
+   "newValue": null,
+   "newValueRaw": "Same",
+   "responsible": "Gintare",
+   "status": "",
+   "notes": "15k is Option 1 Price. We have submitted an Option 2 price: 25,602.46",
+   "chased": "08/12/2025 not likely to hear back until the New Year, but happy with our price Worth repricing due to client feedback",
+   "lastNoteDate": "2025-12-08",
+   "noteAgeDays": 234,
+   "tiers": [
+    "price-good",
+    "stalled"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-08 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "RG Carter",
+   "project": "IWM Duxford Fire Engine Shed",
+   "enquiry": "2025-10-20",
+   "deadline": "2025-10-31",
+   "value": 13771.96,
+   "valueRaw": "13,771.96",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "",
+   "chased": "19/11/2025 In the right ballpark with these prices - they are waiting to hear from the client Worth reviewing due to client",
+   "lastNoteDate": "2025-11-19",
+   "noteAgeDays": 253,
+   "tiers": [
+    "price-good",
+    "no-feedback"
+   ],
+   "tier": "price-good",
+   "why": "The client told us the price was right and then went quiet. Nothing about the price needs fixing; somebody needs to ask what happened.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 2
+  },
+  {
+   "client": "Clegg Construction",
+   "project": "Grafton Centre Hotel",
+   "enquiry": "2025-08-27",
+   "deadline": "2025-09-22",
+   "value": 777177.66,
+   "valueRaw": "777,177.66",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Delayed untl 2027",
+   "chased": "09/12/2025 no news on this one, job may be stalled Worth repricing if still open. Jayk to check",
+   "lastNoteDate": "2025-12-09",
+   "noteAgeDays": 233,
+   "tiers": [
+    "stalled",
+    "no-feedback"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-09 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Borras Construction",
+   "project": "T0635 (Yellow) Window and Door Enquiry Longfield",
+   "enquiry": "2025-07-22",
+   "deadline": "2025-08-06",
+   "value": 132317.37,
+   "valueRaw": "132,317.37",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Extended deadline for Friday 08/08",
+   "chased": "24/11/2025 Stuck with Harrow Council Worth repricing as returning/legacy client",
+   "lastNoteDate": "2025-11-24",
+   "noteAgeDays": 248,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Borras",
+    "Borras Construction",
+    "Borras Construction Ltd."
+   ],
+   "crmRows": 12,
+   "crmSince": 5,
+   "wonSince": 6,
+   "crmThisProject": [
+    {
+     "lead": "6398",
+     "job": "LONGFIELD PRIMARY SCHOOL #(YELLOW) 2 DUKES AVENUE HARROW",
+     "leadDate": "2025-07-22",
+     "result": "Live - Quoted",
+     "value": 132317.37,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6398",
+     "result": "Live - Quoted",
+     "leadDate": "2025-07-22"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-24 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Borras Construction",
+   "project": "T0635 (Yellow) Window and Door Enquiry Vaughan",
+   "enquiry": "2025-07-22",
+   "deadline": "2025-08-06",
+   "value": 70110.69,
+   "valueRaw": "70,110.69",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Extended deadline for Friday 08/08",
+   "chased": "24/11/2025 Stuck with Harrow Council Worth repricing as returning/legacy client",
+   "lastNoteDate": "2025-11-24",
+   "noteAgeDays": 248,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Borras",
+    "Borras Construction",
+    "Borras Construction Ltd."
+   ],
+   "crmRows": 12,
+   "crmSince": 5,
+   "wonSince": 6,
+   "crmThisProject": [
+    {
+     "lead": "6401",
+     "job": "VAUGHAN PRIMARY SCHOOL #(YELLOW) THE GARDENS HARROW",
+     "leadDate": "2025-07-22",
+     "result": "Live - Quoted",
+     "value": 70110.69,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6401",
+     "result": "Live - Quoted",
+     "leadDate": "2025-07-22"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-24 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Barnfield Construction",
+   "project": "Moston Cash & Carry",
+   "enquiry": "2025-05-19",
+   "deadline": "2025-05-29",
+   "value": 68800.0,
+   "valueRaw": "68,800.00",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Price submitted 29/05/2025",
+   "chased": "20/11/2025 stuck at planning Worth repricing as still open",
+   "lastNoteDate": "2025-11-20",
+   "noteAgeDays": 252,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Barnfield",
+    "Barnfield Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "5991",
+     "job": "(PROPOSED) CASH & CARRY EBSWORTH STREET MANCHESTER",
+     "leadDate": "2025-05-19",
+     "result": "Live - Quoted",
+     "value": 57333.33,
+     "matchedOn": "tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-20 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Borras Construction",
+   "project": "Roxbourne uPVC Windows and Doors",
+   "enquiry": "2025-06-16",
+   "deadline": "2025-06-27",
+   "value": 62602.33,
+   "valueRaw": "62,602.33",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote submitted 25/06/2025",
+   "chased": "24/11/2025 Stuck with Harrow Council (Negotiated) Worth repricing as its negotiated, and it’s a historic client",
+   "lastNoteDate": "2025-11-24",
+   "noteAgeDays": 248,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Borras",
+    "Borras Construction",
+    "Borras Construction Ltd."
+   ],
+   "crmRows": 12,
+   "crmSince": 5,
+   "wonSince": 6,
+   "crmThisProject": [
+    {
+     "lead": "6146",
+     "job": "ROXBOURNE PRIMARY SCHOOL TORBAY ROAD LONDON",
+     "leadDate": "2025-06-16",
+     "result": "",
+     "value": 62602.33,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6146",
+     "result": "",
+     "leadDate": "2025-06-16"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-24 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Barnfield Construction",
+   "project": "St Johns Refurbishment",
+   "enquiry": "2025-06-19",
+   "deadline": "2025-07-15",
+   "value": 58343.68,
+   "valueRaw": "58,343.68",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "We have an opportunity to retender this anyway",
+   "chased": "20/11/2025 no movement - likely planning Worth repricing as still open",
+   "lastNoteDate": "2025-11-20",
+   "noteAgeDays": 252,
+   "tiers": [
+    "stalled",
+    "no-feedback"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Barnfield",
+    "Barnfield Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-20 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Borras Construction",
+   "project": "T0635 (Yellow) Window and Door Enquiry Grange",
+   "enquiry": "2025-07-22",
+   "deadline": "2025-08-06",
+   "value": 57942.24,
+   "valueRaw": "57,942.24",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Extended deadline for Friday 08/08",
+   "chased": "24/11/2025 Stuck with Harrow Council Worth repricing as returning/legacy client",
+   "lastNoteDate": "2025-11-24",
+   "noteAgeDays": 248,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Borras",
+    "Borras Construction",
+    "Borras Construction Ltd."
+   ],
+   "crmRows": 12,
+   "crmSince": 5,
+   "wonSince": 6,
+   "crmThisProject": [
+    {
+     "lead": "6397",
+     "job": "GRANGE PRIMARY SCHOOL #(YELLOW) WELLBECK ROAD HARROW",
+     "leadDate": "2025-07-22",
+     "result": "Live - Quoted",
+     "value": 57942.24,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6397",
+     "result": "Live - Quoted",
+     "leadDate": "2025-07-22"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-24 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Lindum Group",
+   "project": "External Glazing at Howden Fire Station",
+   "enquiry": "2025-07-17",
+   "deadline": "2025-08-01",
+   "value": 49794.31,
+   "valueRaw": "49,794.31",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote issed 04/08/2025",
+   "chased": "20/11/2025 not likely to be onsite until next year now worth repricing due to client and feedback",
+   "lastNoteDate": "2025-11-20",
+   "noteAgeDays": 252,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Lindum Group"
+   ],
+   "crmRows": 3,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6348",
+     "job": "HOWDEN FIRE STATION NEW BUILD HULL ROAD HOWDEN EAST YORKSHIRE",
+     "leadDate": "2025-07-17",
+     "result": "Live - Quoted",
+     "value": 3792.42,
+     "matchedOn": "tokens"
+    },
+    {
+     "lead": "6356",
+     "job": "Howden Fire Station",
+     "leadDate": "2025-07-17",
+     "result": "Live - Quoted",
+     "value": 53576.2,
+     "matchedOn": "tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-20 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Borras Construction",
+   "project": "Pinnor Wood uPVC Windows and Doors",
+   "enquiry": "2025-06-16",
+   "deadline": "2025-06-27",
+   "value": 44673.26,
+   "valueRaw": "44673.26",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Quote submitted 25/06/2025",
+   "chased": "24/11/2025 Stuck with Harrow Council (Negotiated)Worth repricing as its negotiated, and it’s a historic client",
+   "lastNoteDate": "2025-11-24",
+   "noteAgeDays": 248,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Borras",
+    "Borras Construction",
+    "Borras Construction Ltd."
+   ],
+   "crmRows": 12,
+   "crmSince": 5,
+   "wonSince": 6,
+   "crmThisProject": [
+    {
+     "lead": "6147",
+     "job": "PINNER WOOD SCHOOL LATIMER GARDENS",
+     "leadDate": "2025-06-16",
+     "result": "",
+     "value": 44673.26,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6147",
+     "result": "",
+     "leadDate": "2025-06-16"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-24 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "SDevs",
+   "project": "1 Claremont Park",
+   "enquiry": "2025-07-23",
+   "deadline": "2025-08-01",
+   "value": 27399.51,
+   "valueRaw": "27399.51",
+   "newValue": 24499.19,
+   "newValueRaw": "24499.19",
+   "responsible": "Gintare",
+   "status": "Sent",
+   "notes": "Deadline missed, issued 04/08. Requoted by BSW,",
+   "chased": "18/08/2025 On hold for the moment Worth repricing as SDevs",
+   "lastNoteDate": "2025-08-18",
+   "noteAgeDays": 346,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Sdevs"
+   ],
+   "crmRows": 8,
+   "crmSince": 5,
+   "wonSince": 5,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-08-18 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Zelltec Construction",
+   "project": "Addiscombe Windows and Doors",
+   "enquiry": "2025-04-01",
+   "deadline": "2025-04-24",
+   "value": 26745.26,
+   "valueRaw": "£26,745.26",
+   "newValue": null,
+   "newValueRaw": "Same",
+   "responsible": "Gintare",
+   "status": "X",
+   "notes": "Done with WindowCADQuote issued to client 08/04/2025 - we should be sent a pricing document",
+   "chased": "08/12/2025 chaxed for a new update 06/08/2025 Stuck in planning processes as domestic, Worth repricing as Zelltec",
+   "lastNoteDate": "2025-12-08",
+   "noteAgeDays": 234,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Zelltec",
+    "Zelltec Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 2,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-08 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Borras Construction",
+   "project": "T0635 (Yellow) Window and Door Enquiry Stanburn",
+   "enquiry": "2025-07-22",
+   "deadline": "2025-08-06",
+   "value": 18108.73,
+   "valueRaw": "18,108.73",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Extended deadline for Friday 08/08",
+   "chased": "24/11/2025 Stuck with Harrow Council Worth repricing as returning/legacy client",
+   "lastNoteDate": "2025-11-24",
+   "noteAgeDays": 248,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Borras",
+    "Borras Construction",
+    "Borras Construction Ltd."
+   ],
+   "crmRows": 12,
+   "crmSince": 5,
+   "wonSince": 6,
+   "crmThisProject": [
+    {
+     "lead": "6400",
+     "job": "STANBURN PRIMARY SCHOOL #(YELLOW) ABERCORN ROAD STANMORE",
+     "leadDate": "2025-07-22",
+     "result": "Live - Quoted",
+     "value": 18108.73,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6400",
+     "result": "Live - Quoted",
+     "leadDate": "2025-07-22"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-24 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Barnfield Construction",
+   "project": "Swizzles Factory Extension",
+   "enquiry": "2025-07-16",
+   "deadline": "2025-07-25",
+   "value": 9586.1,
+   "valueRaw": "9,586.10",
+   "newValue": 8106.1,
+   "newValueRaw": "8,106.10",
+   "responsible": "Gintare",
+   "status": "Sent",
+   "notes": "",
+   "chased": "20/11/2025 no movement - likely planning Worth repricing as still open",
+   "lastNoteDate": "2025-11-20",
+   "noteAgeDays": 252,
+   "tiers": [
+    "stalled",
+    "no-feedback"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Barnfield",
+    "Barnfield Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-20 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Borras Construction",
+   "project": "T0635 (Yellow) Window and Door Enquiry Stag Lane",
+   "enquiry": "2025-07-22",
+   "deadline": "2025-08-06",
+   "value": 3097.41,
+   "valueRaw": "3,097.41",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Extended deadline for Friday 08/08",
+   "chased": "24/11/2025 Stuck with Harrow Council Worth repricing as returning/legacy client",
+   "lastNoteDate": "2025-11-24",
+   "noteAgeDays": 248,
+   "tiers": [
+    "stalled"
+   ],
+   "tier": "stalled",
+   "why": "Held up outside the client's control - planning, a council, a capital budget. A date to go back, not a dead job.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Borras",
+    "Borras Construction",
+    "Borras Construction Ltd."
+   ],
+   "crmRows": 12,
+   "crmSince": 5,
+   "wonSince": 6,
+   "crmThisProject": [
+    {
+     "lead": "6399",
+     "job": "STAG LANE JUNIOR SCHOOL #(YELLOW) COLLIER DRIVE EDGWARE",
+     "leadDate": "2025-07-22",
+     "result": "Live - Quoted",
+     "value": 3097.41,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6399",
+     "result": "Live - Quoted",
+     "leadDate": "2025-07-22"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-24 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 3
+  },
+  {
+   "client": "Thomas Sinden",
+   "project": "White Oak Residential Aluminium Windows",
+   "enquiry": "2025-06-26",
+   "deadline": "2025-07-21",
+   "value": 548918.5,
+   "valueRaw": "548,918.50",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Extension granted until 25/07/2025. Quote submitted 30/07/2025",
+   "chased": "18/11/2025 Requested an update Worth repricing due to size and client",
+   "lastNoteDate": "2025-11-18",
+   "noteAgeDays": 254,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Sinden Construction Ltd",
+    "Thomas Sinden"
+   ],
+   "crmRows": 2,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-18 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Elkins Construction",
+   "project": "Little Cattins - Windows and Doors (uPVC)",
+   "enquiry": "2025-08-12",
+   "deadline": "2025-09-02",
+   "value": 296654.56,
+   "valueRaw": "296,654.56",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Please upload to E1",
+   "chased": "09/12/2025 Reece has had clarifications back but no decision Worth repricing due to client and feedback",
+   "lastNoteDate": "2025-12-09",
+   "noteAgeDays": 233,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Elkins Construction"
+   ],
+   "crmRows": 6,
+   "crmSince": 6,
+   "wonSince": 3,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-09 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Neil Douglas",
+   "project": "Alsford Wharf",
+   "enquiry": "2025-10-21",
+   "deadline": "2025-11-19",
+   "value": 187988.07,
+   "valueRaw": "187,988.07",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Extra costs sent on 06/11/2025 for £15500 for scaffolding over the 8 week period.",
+   "chased": "21/11/2025 he is sending the full tender back very soon. Feedback won't be avaiable until likely next year Worth repricing",
+   "lastNoteDate": "2025-11-21",
+   "noteAgeDays": 251,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Neil Douglas",
+    "Neil Douglas Block Management"
+   ],
+   "crmRows": 5,
+   "crmSince": 4,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-21 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Hastoe Housing Association",
+   "project": "Cholesbury Grange",
+   "enquiry": "2025-10-16",
+   "deadline": "2025-11-17",
+   "value": 168764.17,
+   "valueRaw": "168764.17",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "22/10/2025 Jayk surveyed",
+   "chased": "No feedback yet, but might be worth looking into repricing as an exercise to analyse costs - its also in a tender portal",
+   "lastNoteDate": "2025-10-22",
+   "noteAgeDays": 281,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Hastoe Housing Association"
+   ],
+   "crmRows": 1,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "7027",
+     "job": "1-30 CHORLESBURY GRANGE HEADLEY WAY HEADINGTON OXFORD OXFORDSHIRE",
+     "leadDate": "2025-10-22",
+     "result": "Live - Quoted",
+     "value": 168764.17,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "7027",
+     "result": "Live - Quoted",
+     "leadDate": "2025-10-22"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-10-22 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Key Property Solutions",
+   "project": "Newport Aldi Windows and CW, Ext Doors",
+   "enquiry": "2025-09-11",
+   "deadline": "2025-09-29",
+   "value": 119222.45,
+   "valueRaw": "119,222.45",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "16/09/2025 Extension granted from the 22nd to the 29th",
+   "chased": "21/11/2025 Awaiting feedback",
+   "lastNoteDate": "2025-11-21",
+   "noteAgeDays": 251,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": false,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Key Property Solutions"
+   ],
+   "crmRows": 1,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-21 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "R1 Construction",
+   "project": "Wealstone Care Home",
+   "enquiry": "2025-09-12",
+   "deadline": "2025-10-03",
+   "value": 98577.2,
+   "valueRaw": "98,577.20",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "",
+   "chased": "19/12/2025 Chased for an update - One to revise",
+   "lastNoteDate": "2025-12-19",
+   "noteAgeDays": 223,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "R1 Construction"
+   ],
+   "crmRows": 1,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Elkins Construction",
+   "project": "110-125 Hare Street Springs",
+   "enquiry": "2025-09-23",
+   "deadline": "2025-10-03",
+   "value": 92339.39,
+   "valueRaw": "92,339.39",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "",
+   "chased": "09/12/2025 Reece has had clarifications back but no decision Worth repricing due to client and feedback",
+   "lastNoteDate": "2025-12-09",
+   "noteAgeDays": 233,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Elkins Construction"
+   ],
+   "crmRows": 6,
+   "crmSince": 6,
+   "wonSince": 3,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-09 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Elkins Construction",
+   "project": "89-104 & 134-148 Hollyfield Harlow",
+   "enquiry": "2025-09-24",
+   "deadline": "2025-10-03",
+   "value": 83180.21,
+   "valueRaw": "83,180.21",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Ali price also given: 163,921.68",
+   "chased": "09/12/2025 Reece has had clarifications back but no decision Worth repricing due to client and feedback",
+   "lastNoteDate": "2025-12-09",
+   "noteAgeDays": 233,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Elkins Construction"
+   ],
+   "crmRows": 6,
+   "crmSince": 6,
+   "wonSince": 3,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-09 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Elkins Construction",
+   "project": "63-74 Blackbush Spring",
+   "enquiry": "2025-08-20",
+   "deadline": "2025-09-02",
+   "value": 77504.97,
+   "valueRaw": "77,504.97",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Submitted late",
+   "chased": "09/12/2025 Reece has had clarifications back but no decision Worth repricing due to client and feedback",
+   "lastNoteDate": "2025-12-09",
+   "noteAgeDays": 233,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Elkins Construction"
+   ],
+   "crmRows": 6,
+   "crmSince": 6,
+   "wonSince": 3,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-09 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Zelltec Construction",
+   "project": "Units 3 and 5 Cumberland Avenue",
+   "enquiry": "2025-10-27",
+   "deadline": "2025-11-14",
+   "value": 62474.59,
+   "valueRaw": "62,474.59",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "",
+   "chased": "08/12/2025 chased for an update Worth repricing Zelltec",
+   "lastNoteDate": "2025-12-08",
+   "noteAgeDays": 234,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Zelltec",
+    "Zelltec Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 2,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-08 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Elkins Construction",
+   "project": "Spencers Croft - Windows and Doors",
+   "enquiry": "2025-08-12",
+   "deadline": "2025-09-02",
+   "value": 59241.32,
+   "valueRaw": "59,241.32",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Please upload to E1 - we can quote in standard uPVC rather than Fire Rated. Very late return",
+   "chased": "09/12/2025 Reece has had clarifications back but no decisionWorth repricing due to client and feedback",
+   "lastNoteDate": "2025-12-09",
+   "noteAgeDays": 233,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": false,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Elkins Construction"
+   ],
+   "crmRows": 6,
+   "crmSince": 6,
+   "wonSince": 3,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-09 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Conamar",
+   "project": "Hollickwood Primary School",
+   "enquiry": "2025-08-05",
+   "deadline": "2025-09-05",
+   "value": 57260.01,
+   "valueRaw": "57,260.01",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Very late return.",
+   "chased": "09/12/2025 chased Simon for an update Worth repricing as legacy client",
+   "lastNoteDate": "2025-12-09",
+   "noteAgeDays": 233,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Conamar",
+    "Conamar Building Services Ltd."
+   ],
+   "crmRows": 3,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6507",
+     "job": "HOLLICKWOOD SCHOOL SYDNEY ROAD MUSWELL HILL LONDON",
+     "leadDate": "2025-08-05",
+     "result": "Live - Quoted",
+     "value": 57260.01,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6507",
+     "result": "Live - Quoted",
+     "leadDate": "2025-08-05"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-09 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Re-Gen",
+   "project": "59 Cordwell Road",
+   "enquiry": "2025-09-22",
+   "deadline": "2025-09-30",
+   "value": 44972.98,
+   "valueRaw": "44,972.98",
+   "newValue": 40178.94,
+   "newValueRaw": "40,178.94",
+   "responsible": "Jayk",
+   "status": "X",
+   "notes": "Job now LOST",
+   "chased": "21/11/2025 waiting to hear back Worth requoting as I believe Re-Gen are likely to secure this",
+   "lastNoteDate": "2025-11-21",
+   "noteAgeDays": 251,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": true,
+   "conflict": true,
+   "clientMatch": "alias",
+   "crmSpellings": [
+    "Re-gen (uk) Construction"
+   ],
+   "crmRows": 1,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-21 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Zelltec Construction",
+   "project": "Unit 3 Chessington Industrial Estate",
+   "enquiry": "2025-10-13",
+   "deadline": "2025-11-06",
+   "value": 36936.82,
+   "valueRaw": "£36,936.82",
+   "newValue": 34811.64,
+   "newValueRaw": "£34,811.64",
+   "responsible": "Gintare",
+   "status": "X",
+   "notes": "",
+   "chased": "08/12/2025 chased for an update Worth repricing Zelltec",
+   "lastNoteDate": "2025-12-08",
+   "noteAgeDays": 234,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Zelltec",
+    "Zelltec Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 2,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6962",
+     "job": "PARK INDUSTRIAL UNIT 3 LION PARK AVENUE CHESSINGTON LONDON",
+     "leadDate": "2025-10-13",
+     "result": "Live - Quoted",
+     "value": 36936.82,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "6962",
+     "result": "Live - Quoted",
+     "leadDate": "2025-10-13"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-08 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "BC Workspace",
+   "project": "Nimrod Ind. Estate",
+   "enquiry": "2025-10-28",
+   "deadline": "2025-11-06",
+   "value": 27933.57,
+   "valueRaw": "27933.57",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "",
+   "chased": "21/11/2025 no feedback yet Worth repricing",
+   "lastNoteDate": "2025-11-21",
+   "noteAgeDays": 251,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-21 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "MCS Construction",
+   "project": "48 Brighton Road",
+   "enquiry": "2025-09-16",
+   "deadline": "2025-10-07",
+   "value": 17360.19,
+   "valueRaw": "17,360.19",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "",
+   "chased": "10/11/2025 tender only just sumitted so this is with the client",
+   "lastNoteDate": "2025-11-10",
+   "noteAgeDays": 262,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": false,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "none",
+   "crmSpellings": [],
+   "crmRows": 0,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-11-10 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Zelltec Construction",
+   "project": "19 Trident Industrial Estate",
+   "enquiry": "2025-10-13",
+   "deadline": "2025-11-05",
+   "value": 16898.73,
+   "valueRaw": "£16,898.73",
+   "newValue": null,
+   "newValueRaw": "Same",
+   "responsible": "Gintare",
+   "status": "X",
+   "notes": "Done with WindowCAD Jayk will need to survey to ascertain sizes",
+   "chased": "08/12/2025 chased for a new update 13/11/2025 no feedback just yet Worth repricing as Zelltec",
+   "lastNoteDate": "2025-12-08",
+   "noteAgeDays": 234,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Zelltec",
+    "Zelltec Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 2,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-08 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Zelltec Construction",
+   "project": "Unit 3 Ashford Road Windows and Doors",
+   "enquiry": "2025-07-17",
+   "deadline": "2025-07-25",
+   "value": 11150.03,
+   "valueRaw": "11,150.03",
+   "newValue": 11359.19,
+   "newValueRaw": "11,359.19",
+   "responsible": "Gintare",
+   "status": "X",
+   "notes": "With 25% off from Aplus, if still valid. Quote submitted 21/07/2025",
+   "chased": "08/12/2025 chased for a new update 27/08/2025 the unit is currently being used for storage while they work on a site next door. Jordan will chase when the project is done. Worth repricing as Zelltec",
+   "lastNoteDate": "2025-12-08",
+   "noteAgeDays": 234,
+   "tiers": [
+    "no-feedback"
+   ],
+   "tier": "no-feedback",
+   "why": "Priced, chased, never answered. Six of Elkins' seven rows sit here on the same sentence - clarifications answered, no decision - which is a live tender in the client's hands, not a dead one.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Zelltec",
+    "Zelltec Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 2,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-08 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 4
+  },
+  {
+   "client": "Glazing Consultancy Services",
+   "project": "Aylesbury High School",
+   "enquiry": "2025-10-20",
+   "deadline": "2025-11-07",
+   "value": 335026.9,
+   "valueRaw": "335,026.90",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Weeks extension granted on 30/10/2025",
+   "chased": "19/12/2025 worth reviewing due to client",
+   "lastNoteDate": "2025-12-19",
+   "noteAgeDays": 223,
+   "tiers": [],
+   "tier": "unclassified",
+   "why": "Nothing in the notes says where this stands. Read the quote.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Glazing Consultancy Services"
+   ],
+   "crmRows": 2,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "7009",
+     "job": "Aylesbury High School",
+     "leadDate": "2025-10-20",
+     "result": "Live - Quoted",
+     "value": 321273.54,
+     "matchedOn": "tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 9
+  },
+  {
+   "client": "Elkins Construction",
+   "project": "Vigerons Way",
+   "enquiry": "2025-11-17",
+   "deadline": "2025-11-26",
+   "value": 164116.12,
+   "valueRaw": "164,116.12",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Aluminium costs sent 17/12/2025 101,299.59",
+   "chased": "08/12/2025 found out on the 26/11 We are 30% over the composite price, and a lot more over the Aluminium price. 08/12/2025 Asked Adam if we want to do an Ali price Aluminium costs sent 17/12/2025 101,299.59",
+   "lastNoteDate": "2025-12-17",
+   "noteAgeDays": 225,
+   "tiers": [],
+   "tier": "unclassified",
+   "why": "Nothing in the notes says where this stands. Read the quote.",
+   "jaykSaysWorthIt": false,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Elkins Construction"
+   ],
+   "crmRows": 6,
+   "crmSince": 6,
+   "wonSince": 3,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-17 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 9
+  },
+  {
+   "client": "Glazing Consultancy Services",
+   "project": "Shepton Vets",
+   "enquiry": "2025-10-17",
+   "deadline": "2025-10-24",
+   "value": 142000.66,
+   "valueRaw": "142,000.66",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Extension granted until the 28th",
+   "chased": "19/12/2025 worth reviewing due to client",
+   "lastNoteDate": "2025-12-19",
+   "noteAgeDays": 223,
+   "tiers": [],
+   "tier": "unclassified",
+   "why": "Nothing in the notes says where this stands. Read the quote.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Glazing Consultancy Services"
+   ],
+   "crmRows": 2,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 9
+  },
+  {
+   "client": "Bradford Watts",
+   "project": "552 Fairlie Road",
+   "enquiry": "2025-10-30",
+   "deadline": "2025-11-25",
+   "value": 107835.77,
+   "valueRaw": "107,835.77",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "Extension granted until the 28th at 3PM",
+   "chased": "19/12/2025 Worth repricing as BW",
+   "lastNoteDate": "2025-12-19",
+   "noteAgeDays": 223,
+   "tiers": [],
+   "tier": "unclassified",
+   "why": "Nothing in the notes says where this stands. Read the quote.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Bradford Watts",
+    "Bradford Watts Ltd"
+   ],
+   "crmRows": 12,
+   "crmSince": 6,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "7067",
+     "job": "552 FAIRLIE ROAD SLOUGH BUCKINGHAMSHIRE",
+     "leadDate": "2025-10-30",
+     "result": "Live - Quoted",
+     "value": 107835.77,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "7067",
+     "result": "Live - Quoted",
+     "leadDate": "2025-10-30"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 9
+  },
+  {
+   "client": "Glazing Consultancy Services",
+   "project": "Sunny Glen",
+   "enquiry": "2025-10-17",
+   "deadline": "2025-10-30",
+   "value": 83425.71,
+   "valueRaw": "83425.71",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "",
+   "chased": "19/12/2025 worth reviewing due to client",
+   "lastNoteDate": "2025-12-19",
+   "noteAgeDays": 223,
+   "tiers": [],
+   "tier": "unclassified",
+   "why": "Nothing in the notes says where this stands. Read the quote.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Glazing Consultancy Services"
+   ],
+   "crmRows": 2,
+   "crmSince": 0,
+   "wonSince": 0,
+   "crmThisProject": [],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 9
+  },
+  {
+   "client": "Zelltec Construction",
+   "project": "Unit A Daventry Interchange",
+   "enquiry": "2025-09-18",
+   "deadline": "2025-10-08",
+   "value": 46467.32,
+   "valueRaw": "46,467.32",
+   "newValue": 19692.35,
+   "newValueRaw": "19,692.35",
+   "responsible": "Jayk",
+   "status": "X",
+   "notes": "New price for uPVC windows sent 09/01/2026",
+   "chased": "19/12/2025 Revised price already issued by Jayk",
+   "lastNoteDate": "2026-01-09",
+   "noteAgeDays": 202,
+   "tiers": [],
+   "tier": "unclassified",
+   "why": "Nothing in the notes says where this stands. Read the quote.",
+   "jaykSaysWorthIt": false,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Zelltec",
+    "Zelltec Construction"
+   ],
+   "crmRows": 5,
+   "crmSince": 2,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "6810",
+     "job": "UNIT A DAVENTRY INTERCHANGE DAVENTRY NORTHAMPTONSHIRE",
+     "leadDate": "2025-09-18",
+     "result": "Live - Quoted",
+     "value": 19692.35,
+     "matchedOn": "tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [],
+   "verifyFirst": "Every fact on this row was written on or before 2026-01-09 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 9
+  },
+  {
+   "client": "Coulson",
+   "project": "227A Milton Road",
+   "enquiry": "2025-10-22",
+   "deadline": "2025-11-07",
+   "value": 29832.97,
+   "valueRaw": "29,832.97",
+   "newValue": null,
+   "newValueRaw": "",
+   "responsible": "",
+   "status": "",
+   "notes": "29,832.97 is Option A Cost. 30,869.36 is Option B Cost",
+   "chased": "Worth reviewing due to client",
+   "lastNoteDate": "",
+   "noteAgeDays": null,
+   "tiers": [],
+   "tier": "unclassified",
+   "why": "Nothing in the notes says where this stands. Read the quote.",
+   "jaykSaysWorthIt": true,
+   "saysLost": false,
+   "conflict": false,
+   "clientMatch": "exact",
+   "crmSpellings": [
+    "Coulson"
+   ],
+   "crmRows": 2,
+   "crmSince": 1,
+   "wonSince": 0,
+   "crmThisProject": [
+    {
+     "lead": "7024",
+     "job": "227A MILTON ROAD CAMBRIDGE CAMBRIDGESHIRE",
+     "leadDate": "2025-10-22",
+     "result": "Live - Quote being prepared",
+     "value": 29832.97,
+     "matchedOn": "value+tokens"
+    }
+   ],
+   "wonThisProject": [],
+   "stillOpenInCrm": [
+    {
+     "lead": "7024",
+     "result": "Live - Quote being prepared",
+     "leadDate": "2025-10-22"
+    }
+   ],
+   "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
+   "rank": 9
+  }
+ ]
+}

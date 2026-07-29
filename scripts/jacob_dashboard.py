@@ -60,6 +60,7 @@ DRAFTS = os.path.join(REPO, "data", "jacob", "drafts.json")
 # machine where neither script has been run yet.
 PLANNING = os.path.join(REPO, "data", "jacob", "planning.json")
 DORMANT = os.path.join(REPO, "data", "jacob", "dormant.json")
+REPRICING = os.path.join(REPO, "data", "jacob", "repricing.json")
 JOBS = os.path.join(REPO, "data", "jobs")
 OUT = os.path.join(REPO, "dashboard", "functions", "_data", "jacob-data.js")
 
@@ -1721,6 +1722,12 @@ def build():
         "planning": load_json(PLANNING),
         # Customers who bought, stopped, and nobody noticed.
         "dormantClients": load_json(DORMANT),
+        # Jayk's own re-quote shortlist, emailed 19/12/2025 and then left
+        # behind. He sold a quarter of everything Fenster has ever won and
+        # jayk@ is a hard 404, so this spreadsheet is the last of his
+        # reasoning anybody can read. Five rows name a main contract our own
+        # client has WON, which is step two of the whole job already done.
+        "repricing": load_json(REPRICING),
     }
 
 
