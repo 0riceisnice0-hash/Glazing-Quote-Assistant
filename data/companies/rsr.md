@@ -1,5 +1,16 @@
 # RSR - R S Response Ltd
 
+> **READ THIS FIRST, IT OVERRIDES THE NEXT ACTION BELOW (29/07/2026, late).** RSR are **not a
+> dormant customer** and must not be rung as one. **There is a job they have already won sitting
+> unanswered by Fenster since 09/10/2025** - the Amazon DRH1 reception window in Crawley, quoted
+> **GBP 750 + VAT**, signed off by Amazon, and RSR cannot issue their own quotation to Amazon until
+> we confirm. They chased us twice and got nothing. **The silence is ours, not theirs.** Full row
+> on the chase register: `handover.json`, `job:drh1-amazon-crawley-reception-window`. Raised by
+> Mary (bot message 23); the supplier half found by Jacob in commercial@ the same night.
+>
+> **And Harry Grover has left Fenster** - Adam, 31/10/2025 14:46. He is named as the seller on four
+> of the five jobs below. Nothing he promised is live and nobody should be told he will call.
+
 Slug: `rsr`. Written 29/07/2026. Trades as "RSR" everywhere, including their own domain
 and email signatures; **R S RESPONSE LTD** is the registered name and the one on the
 remittances. AdminBase customer number **1042**. Account reference with them: **FEN01**.
@@ -96,6 +107,74 @@ in a mailbox Jacob can read.
 
 Switchboard is on rsr.co.uk; the mobile above is the number that has actually been answered.
 
+## The unanswered job - Amazon DRH1, Crawley
+
+**One window. GBP 750 + VAT. Nine and a half months of our silence. This is the whole reason the
+account looks dormant.**
+
+Site is **Amazon DRH1, 1 St Modwen's Park, Copthorne, Crawley RH10 3JY** - 130 miles from Alston
+Drive, and the distance is the whole story. Contact is **Harri Birt**, Harri.Birt@rsr.co.uk,
+01908 953022 / 07710 088518, who runs RSR's Amazon work.
+
+The job ran in **two separate threads in two different mailboxes**, which is why neither bot saw it
+whole until both halves were put together:
+
+**The client half - estimating@, Mary's (05/06 to 10/10/2025, eighteen messages)**
+
+| When | What |
+|---|---|
+| 05/06/2025 | Harri forwards Amazon's request to replace one window. Vetroseal quote FENSTERG_Quote_055834(AMAZON) obtained the same day |
+| 05-16/06 | **GBP 750 + VAT quoted.** Harry forwards it to jayk@ on 16/06 - a mailbox since deleted |
+| 05/09 11:39 | Harri: "Can you confirm if this cost is still valid as the client would like to go ahead" |
+| 08/09 08:28 | Harry: "Should hopefully have something over to you by tomorrow morning" - **never sent** |
+| 09/10 15:56 | Harri: "We have had confirmation from Amazon that they would like to go ahead... could you confirm these costs are still okay so I can issue a new quotation to them" |
+| 10/10 08:25-09:05 | Harry to Adam internally: proceed at GBP 750, or sub it out? Reason it was subbed: the distance and "it's a strange corner glass unit". **Thread ends. RSR never hear another word.** |
+
+**The supplier half - commercial@, Jacob's (05/09 to 31/10/2025)**
+
+Subject: **"Quote Request - Crawley, Amazon DRH1 - Instant Glass"**. Invisible from estimating@,
+which is why Mary's account had the job dying on 10/10.
+
+| When | What |
+|---|---|
+| 05/09 13:17 | Harry cold-calls then emails **Heather Craig, info@instantglass.co.uk** - survey, supply and install at DRH1, full Amazon spec and site photo. **Ninety-eight minutes after Harri chased him**, so he was working the blocker, not sitting on it |
+| 05/09 14:08 | Heather: "I shall take a look into this and generate a cost for you" |
+| 13/10 09:30 | Harry chases. **And corrects the spec - see below** |
+| 13/10 12:08 | Heather: "Apologies for the delay, I shall get this across to you as a matter of urgency" |
+| 21/10 16:49 | Harry chases again - "my initial enquiry was sent well over a month ago" |
+| 31/10 14:46 | **Adam** chases: "Is there an update on this please? **Harry has now left Fenster so I am picking this up**" |
+| 31/10 15:51 | Heather: "**Would it be possible for us to pop to site on Monday** to confirm exact details so that we can generate an accurate cost for you" |
+
+**Nobody ever answered her.** Monday was 03/11/2025. That is where this job actually stops - not
+10/10 - and the open question is Fenster's, not the client's or the supplier's.
+
+**Why it died: a leaver, not neglect.** Harry held both ends. When he went, Adam picked up the
+supplier end and nobody picked up the client end.
+
+### The spec correction, and it may matter more than the date
+
+Harry to Instant Glass, 13/10/2025: *"this unit is actually two units bonded together. Would you
+please be able to quote based off the same width at a 90 degree angle. **556 x 556 x 876**."*
+
+Amazon's stated spec, which the GBP 750 was priced against, is a **single pane 556 x 876** - Schuco
+AWS65 GV1, 28mm DGU, body tint, 6mm clear toughened inner, 16mm argon black spacer, Antisun Grey
+toughened outer. The real article is a **bonded corner unit**. So RSR's "are these costs still okay"
+is not only a validity-date question, and the Vetroseal quote behind the price is fourteen months
+old.
+
+**Whether GBP 750 still stands is Mary's call. Nobody confirms it to RSR before she has answered.**
+
+### The blocker, honestly stated
+
+**Who physically fits one corner unit in Crawley.** Harry had already tried local firms and could
+not get prices back. **Instant Glass is the only named candidate and is unproven** - searched on
+`instantglass.co.uk` they appear in exactly **three** messages across all four of Jacob's mailboxes,
+all of them this one thread. Eight weeks, three chases, no price ever produced, no order ever
+placed. (A loose search on "Instant Glass" returns 49 hits and makes them look like an established
+supplier. They are not - that is the single-word-name trap again.)
+
+Their offer to survey is real and is the cheapest live thing on the job. Expect to need a fallback.
+
 ## What we are trying to make happen
 
 **Be on RSR's enquiry list for the next Amazon or rail depot, and for their maintenance
@@ -105,8 +184,23 @@ This is not a lead that needs finding - it needs a phone call.
 
 ## Next action and owner
 
-**Adam calls James Evans - 07938 483016. Adam, specifically, because Adam is the one who
-turned up and fixed their door.**
+**REVISED 29/07/2026 LATE. There are now two actions and the order matters. Do not start with the
+relationship call - start with the job we owe them.**
+
+**Action 1, and it is one email: Adam replies to Heather Craig at info@instantglass.co.uk and says
+yes, go to site.** She offered on 31/10/2025 and has been waiting for an answer ever since. She
+already holds the spec and the site photo. This is the blocker, and until it moves there is nothing
+to tell RSR.
+
+**Action 2, once there is an answer on who fits it: Adam goes back to Harri Birt on DRH1** -
+Harri.Birt@rsr.co.uk, 07710 088518. **This is not a chase, it is an apology and a restart.** Amazon
+signed the work off in October 2025 and RSR have been unable to issue their own quotation to Amazon
+ever since, because they are waiting on us. Lead with that, own it, and do not blame the leaver to
+the client. **No number goes to them until Mary has ruled on the corner unit.**
+
+**Action 3, the relationship call, and it is now the third thing rather than the first: Adam calls
+James Evans - 07938 483016.** Adam specifically, because Adam is the one who turned up and fixed
+their door. Worth keeping separate from DRH1 so the good conversation is not spent on the bad one.
 
 1. **Open on the door, not on "how have you been".** He fixed it in November and James
    thanked him. That is the warmest opening available and it is nine months old, so it
@@ -123,7 +217,9 @@ turned up and fixed their door.**
    date has to be made again from scratch.
 
 **No price, no rate, no "roughly" - if he asks for a number it goes to Mary.** There is no
-live quote to RSR anywhere in AdminBase, so there is nothing outstanding to defend.
+live quote to RSR anywhere in AdminBase - **but "nothing in AdminBase" turned out not to mean
+"nothing outstanding". DRH1 was never in the CRM at all and it is the most outstanding thing on
+the account.** An absent CRM row is not an empty account.
 
 Reference if one is needed: **Headrow Court for Fortis Vision, ~GBP 630k + VAT**, Fenster's
 largest. Though Bletchley Rail Depot at GBP 188,135 is their own job and the better one.
@@ -144,14 +240,22 @@ job on the account himself and did the remedial visit personally.
 
 ## What I do not know
 
-- **Why it stopped.** The evidence says it finished cleanly rather than went wrong, but
-  that is a reading of a thread, not a fact from a person. The call settles it.
+- **Why it stopped - PARTLY ANSWERED, and worse than "cleanly".** The Bletchley work did finish
+  cleanly. But DRH1 was live and unanswered the whole time, so "the account finished" was only
+  true of the half that was visible. Whether Harri Birt went elsewhere for the Crawley window, or
+  is still waiting, is not knowable from what Fenster holds. **The call settles it, and it may not
+  be a comfortable one.**
+- **Whether jayk@ held anything.** Harry forwarded the GBP 750 there on 16/06/2025. The mailbox is
+  a hard 404 - deleted when Jayk left, not resettable. That is not "nothing was there", it is
+  "there is nowhere left to look".
 - **What the 05/05/2026 payment certificate was for.** It could be retention released on
   Bletchley, or it could mean work I cannot see. The attachment would say and I have not
   opened it.
-- **Whether the October 2025 "Replacement of reception window" enquiry was ever priced.**
-  Harry in estimating forwarded it and Adam replied the same day; there is no AdminBase row
-  for RSR at all, so if it was quoted it was quoted outside the CRM. Mary would know.
+- ~~Whether the October 2025 "Replacement of reception window" enquiry was ever priced.~~
+  **ANSWERED 29/07/2026, and it was the most important thing on the account.** It was priced -
+  **GBP 750 + VAT** - and the price went to RSR in **June 2025**, not October; October is where the
+  thread ends. Quoted entirely outside the CRM, which is why no AdminBase row exists. Mary read it
+  in estimating@ and raised it unprompted. See the DRH1 section above.
 - Whether the Swindon job is Amazon DSN1. Strongly implied by dates and town, not confirmed.
 - Whether the Bletchley Rail Depot client above RSR (Network Rail, or a TOC) is reachable
   independently. RSR were the main contractor; who they were building for is not in what

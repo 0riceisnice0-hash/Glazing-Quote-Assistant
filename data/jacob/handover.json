@@ -458,6 +458,37 @@
    "nextChase": "2026-08-05",
    "chaseNote": "Wednesday 5 August - a week from issue, and the reason is the same as Georgie's: the date that ought to govern this row is SM5's own submission date to Slough and nobody at Fenster has it. A week is long enough that Ryan can answer whether it has gone in, and short enough that if their deadline is in early August we have not missed it. His answer replaces this date.",
    "crmNote": "AdminBase 8637 is stale - 'being priced', no value, next action 14/07. It needs updating to quoted at GBP 20,563.57; that is a CRM edit, not a chase."
+  },
+  {
+   "key": "job:drh1-amazon-crawley-reception-window",
+   "job": "Amazon DRH1 reception window, 1 St Modwen's Park, Copthorne, Crawley RH10 3JY",
+   "client": "RSR (R S Response Ltd)",
+   "site": "Amazon DRH1, Crawley RH10 3JY - 130 miles from Alston Drive",
+   "contact": "Harri Birt",
+   "contactRole": "runs RSR's Amazon programme",
+   "email": "Harri.Birt@rsr.co.uk",
+   "contactPhone": "01908 953022",
+   "contactMobile": "07710 088518",
+   "value": 750.0,
+   "issued": "2025-06-16",
+   "state": "waiting-on-us",
+   "owner": "Adam",
+   "verified": true,
+   "verifiedBy": "Mary (estimating@, bot message 23) and Jacob (commercial@, 29/07/2026)",
+   "verifiedHow": "Mary read the RSR-facing thread in estimating@, 05/06-10/10/2025, eighteen messages, GBP 750 + VAT quoted. Jacob read the supplier-facing thread in commercial@ - 'Quote Request - Crawley, Amazon DRH1 - Instant Glass' - which runs 05/09 to 31/10/2025 and is invisible from estimating@.",
+   "stage": 8,
+   "lastClientContact": "2025-10-09",
+   "chases": "RSR have chased US twice - 05/09/2025 and 09/10/2025. Fenster has never answered either. Count the direction before writing 'gone quiet': the silence is ours.",
+   "next": "Adam emails Heather Craig at info@instantglass.co.uk and says yes to the site visit she offered on 31/10/2025 - one line, and it is the cheapest live thing on this job. She has already had the spec and the site photo. ONLY THEN go back to Harri Birt at RSR. Reconfirming a price before we know who fits it stalls in exactly the place it stalled last time.",
+   "nextChase": "2026-07-30",
+   "chaseNote": "This is not a chase, it is an apology and a restart. Amazon signed the work off in October 2025 and RSR cannot issue their own quotation to Amazon until Fenster confirms. They are not a dormant customer - they are a customer waiting on us, nine and a half months.",
+   "history": "Fourth-largest client in Fenster's win history: 5 won jobs, GBP 197,044, three of them Amazon depots. Adam sold the biggest (Bletchley Rail Depot, GBP 188,135) himself and fixed their door in person on 27/11/2025. Nothing has ever been quoted to RSR in AdminBase. data/companies/rsr.md.",
+   "why_it_was_missing": "It sat in the gap between two mailboxes and two people. The client end lived in estimating@ (Mary's) and the supplier end in commercial@ (Jacob's), so neither of us could see the whole job. HARRY GROVER, who held both ends, LEFT FENSTER - Adam, 31/10/2025 14:46: 'Harry has now left Fenster so I am picking this up.' Adam picked up the supplier end. Nobody picked up the client end.",
+   "openOnTheIssuedDocument": "THE ARTICLE MAY NOT BE THE THING THAT WAS PRICED. The GBP 750 + VAT was quoted against Amazon's stated spec of a single pane, Schuco AWS65 GV1, 556 x 876, 28mm DGU body tint / Antisun Grey outer. Harry to Instant Glass on 13/10/2025: 'this unit is actually two units bonded together... quote based off the same width at a 90 degree angle. 556 x 556 x 876.' That is the 'strange corner glass unit' he described to Adam. So RSR's question - are these costs still okay - is not only a validity-date question. WHETHER GBP 750 STILL STANDS IS MARY'S CALL AND NOBODY SHOULD CONFIRM IT TO RSR BEFORE SHE HAS ANSWERED.",
+   "expiryNote": "The supplier quote behind the price, Vetroseal FENSTERG_Quote_055834(AMAZON), was obtained 05/06/2025 and is fourteen months old. No live validity date on anything here.",
+   "blockedPending": "Who physically fits one corner unit in Crawley. Harry had already tried local firms and could not get prices back. Instant Glass (Heather Craig, info@instantglass.co.uk) is the only named candidate and is UNPROVEN - three messages in Fenster's mailboxes, all this one thread, eight weeks and three chases with no price ever produced, no order ever placed. Their standing offer to survey is real; expect to need a fallback.",
+   "routing": "No AdminBase lead exists for RSR at all, so this job is in no CRM. It exists only in the two mailboxes and now here.",
+   "howFound": "Mary raised it unprompted on the bot line (message 23) after Jacob's board listed RSR as a dormant customer to be cold-called. It was neither dormant nor cold."
   }
  ],
  "held": [
@@ -547,6 +578,11 @@
    "was": "Leys Sports Pavilion was on the register as issued but undated and unverified, with a note that if the quote had never left the building it went back to Mary.",
    "now": "It left. 20/07/2026 at 15:50, estimating@ to Luke Baker, cc Adam, quote attached - and Adam then chased it on 22/07 and 23/07 with no reply to either. The row is verified, dated, and the call today is the third touch, not the first.",
    "why": "Mary read it at source on 29/07. It was missing from her 28/07 dating run because the script that dates sends carries a hard-coded list of nine jobs and 'Leys' was not on it. A job absent from a tool's job list reads exactly like a job that was never sent. The list is now longer; the lesson is that it is a list at all."
+  },
+  {
+   "was": "Jacob's board carried RSR as the top row of dormant.json - a past customer gone quiet, next action 'Adam rings James Evans about the door he fixed'. And after Mary's correction the story became: RSR asked twice, Harry promised an answer on 08/09/2025 and never sent one, the thread dies on 10/10/2025, nobody answered them.",
+   "now": "RSR are a customer waiting on us, and the job did not die on 10/10/2025 - it ran three more weeks. commercial@ holds a second conversation, Fenster to a Crawley glazier, invisible from estimating@: Harry emailed Instant Glass at 13:17 on 05/09/2025, ninety-eight minutes after Harri Birt chased him. Three chases followed, the last from Adam on 31/10/2025 saying Harry had left Fenster. Instant Glass answered at 15:51 that day offering to attend site on the Monday. Nobody replied. That is where the job actually stops, and the open question belongs to Fenster.",
+   "why": "Two mailboxes, one job. The client end is Mary's and the supplier end is Jacob's, so each of us read a thread that ended and called it the end of the story. Neither of us was wrong about our half. THE HANDOVER RULE ASSUMES A JOB SITS ON ONE SIDE OF THE WALL AT A TIME, AND A SUBCONTRACTED JOB SITS ON BOTH. Also the cause of death was not neglect - it was a leaver whose handover was half done, which no board would have shown either of us."
   }
  ],
  "heldRule": "Adam, hub-77, 29/07/2026 - all three are waiting to be submitted to the client, they sit with Mary, and none of them is mine until Mary says it has gone to the client."

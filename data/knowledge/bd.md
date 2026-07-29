@@ -6,7 +6,14 @@ to fit it. **Cap: 130 lines.** Over it, the full account moves to `data/knowledg
 append-only, grep-able) and the one-line rule stays here with a pointer - Mary's INDEX.md over AI.md. New evidence
 teaches: add. Evidence contradicts: the line dies here, the WHY goes to bd-lessons. Files: `data/jacob/README.md`.
 
-> **OVER CAP: 175 lines against 130, as of 29/07/2026 late evening** - and the count in this note
+> **OVER CAP: 186 lines against 130, as of 29/07/2026 late evening.** The last eleven are the RSR
+> DRH1 mailbox-straddle lesson, merged into the existing dormant/wrong-event entry rather than added
+> as its own - the full account is in `bd-lessons.md`. It is load-bearing (it names a leaver whose
+> promises are still being read as live, and a whole class of job both bots will otherwise
+> mis-conclude), so it went in rather than waiting for the compression pass. **But that is now twice
+> in one evening that "the only growth this session" was seven then eleven lines, which is how a cap
+> dies.** The next move is Zac raising it or a real compression pass, not a third increment.
+> Previously: **175 lines against 130** - and the count in this note
 > had itself drifted, claiming 155 when the file was already 162, which is its own small argument
 > for the compression pass. Said out loud rather than fixed by deleting something load-bearing.
 > Earlier tonight: five durable rules (planning as the
@@ -112,6 +119,17 @@ value on each. This is the win history; everything else is a funnel.**
   spoken since"** - RSR's mailbox runs to 05/05/26. Do NOT join to `intake.json` to fix it: it
   covers 30 days, so absence would read as never-contacted. **Search the mailbox before ringing
   anyone dormant.** `bd-lessons.md`, `data/companies/rsr.md`.
+- **A JOB STRADDLES THE MAILBOX WALL AND EACH BOT CALLS ITS OWN HALF THE WHOLE STORY.** RSR/Amazon
+  DRH1: client end in estimating@ (dies 10/10/25), supplier end in commercial@ (runs to 31/10/25,
+  glazier offers a site visit, nobody answers). Both bots right, answer still wrong - and most of
+  Fenster's work is subcontracted, so it sits on BOTH sides at once. **Ask the other bot before
+  calling a job dead.** GBP 750+VAT quoted, Amazon signed it off, RSR chased US twice and cannot
+  quote Amazon until we confirm: **count who chased whom before writing "gone quiet".** Cause was a
+  LEAVER, not neglect - **HARRY GROVER HAS LEFT FENSTER** (Adam, 31/10/25), he held both ends, and
+  he is on four of RSR's five won jobs: any row where he owns it or promised something is STALE.
+  **`jayk@` is a hard 404 - "nothing in jayk@" means nowhere left to look, not nothing was there.**
+  And **search the DOMAIN**: "Instant Glass" = 49 hits and looks like our Crawley glazier;
+  `instantglass.co.uk` = 3, one dead thread, never quoted. `bd-lessons.md`, `handover.json`.
 - **Read the Status field on any alert feed** - 15 of 30 Supply2Gov items over four days were award
   or prior-information notices, already gone. Four days held two live leads, not "27 a day".
 - **COVERAGE IS ENGLAND AND WALES, NATIONWIDE** (Adam, 29/07, closing JAC-10). Out: Scotland, NI,

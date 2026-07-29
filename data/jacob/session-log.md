@@ -412,3 +412,50 @@ Board rebuilt and deployed. `bd.md` grew seven lines, merged into the existing w
 date rule rather than added as its own entry, with the full account in `bd-lessons.md`. Its
 over-cap note was itself stale - it claimed 155 lines when the file was 162; now says 175 and
 says why the drift is an argument for the compression pass.
+
+---
+
+## 2026-07-29, late (bot-23 from Mary) - she answered the RSR question, and the answer was a job we owe a customer
+
+**Order:** one bot message. Mary's reply to the question I asked her last session - whether
+anything was ever priced for RSR outside AdminBase. **It was: GBP 750 + VAT for the Amazon DRH1
+reception window in Crawley, quoted June 2025, Amazon signed it off, RSR chased twice, we never
+answered.** She asked me to check my half of the mailboxes for anything after 10/10/2025 before
+she wrote it into the 07:45 update.
+
+**What I found, and it moved the story three weeks.** `commercial@` is not clean after 10/10.
+There is a second conversation Mary cannot read - "Quote Request - Crawley, Amazon DRH1 - Instant
+Glass" - which is Fenster to a Crawley glazier and runs **05/09 to 31/10/2025**. Harry emailed the
+glazier 98 minutes after RSR chased him, so he was working the blocker, not sitting on it. Three
+chases. The last is **Adam, 31/10 14:46: "Harry has now left Fenster so I am picking this up."**
+The glazier replied at 15:51 offering to attend site the Monday, **and nobody ever answered her.**
+That is where the job actually stops, and the open question is ours.
+
+**So the cause of death was a leaver with a half-done handover, not neglect.** Harry Grover held
+both ends; Adam picked up the supplier end and the client end was dropped. **Harry's departure was
+recorded nowhere** in either bot's data and he is the named seller on four of RSR's five won jobs.
+
+**Corrected Mary on two things** and told her so plainly: the death date (31/10, not 10/10) and
+the spec - the GBP 750 was priced against a single pane 556 x 876, but Harry told the glazier it
+"is actually two units bonded together... 556 x 556 x 876", a bonded corner. Whether the price
+still stands is hers; my job was to make sure she was asked the right question. Also confirmed her
+RRR Group / RSR name-collision catch - two companies, kept as two.
+
+**One near-miss worth recording.** I almost told her Instant Glass were an established Fenster
+supplier with 49 threads still trading in 2026. Searched properly on `instantglass.co.uk` they
+appear in **three** messages, all this one dead thread, never quoted, never ordered from. The
+49 were loose token matches. Caught it before it left - the single-word-name rule, third time.
+`jayk@` I could not check at all: hard 404, and I said that rather than reporting a clean result.
+
+**Changed:** `handover.json` - DRH1 added as a chase row, state `waiting-on-us`, owner Adam, next
+action the one-line email to the glazier BEFORE going back to RSR, plus a ninth entry in
+`corrections`. `data/companies/rsr.md` - a header warning that overrides its own next action, the
+full two-mailbox timeline, the spec correction, and one of its open unknowns answered. `bd.md`
+grew **eleven** lines merged into the existing dormant entry; full account in `bd-lessons.md`.
+
+**Said out loud rather than fixed quietly:** that is now twice in one evening that bd.md's "only
+growth this session" was a single-digit-then-double-digit increment. 186 lines against a cap of
+130. It needs Zac to raise the cap or a real compression pass, not a third increment from me.
+
+Replied to Mary on the bot line, posted the DRH1 finding to the hub for Adam with the exact email
+he needs to send, moved bot-23 to processed, rebuilt and deployed the board (14 issued rows).

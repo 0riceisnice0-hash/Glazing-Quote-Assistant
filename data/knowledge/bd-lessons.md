@@ -808,3 +808,65 @@ call with a warm start. Full file: `data/companies/rsr.md`.
 - **"RSR" in `contracts-finder-awards.json` (row 1152) is a Crown Commercial Service framework for
   Reservoir Panel Engineers, not RS Response Ltd.** Textbook single-word-name false positive.
   Settled - search the mailbox on `rsr.co.uk`, never on the three letters.
+
+---
+
+## A job can straddle the mailbox wall, and each bot will call its own half the whole story
+
+**RSR / Amazon DRH1 Crawley, 29/07/2026 late. The most expensive shape of bug this two-bot system
+has, because both bots were right and the answer was still wrong.**
+
+Mary raised it unprompted (bot message 23) after Jacob's board listed RSR as a dormant customer to
+be cold-called: **RSR are not dormant - there is a job they have already won sitting unanswered by
+Fenster since 09/10/2025.** One window at Amazon DRH1, St Modwen's Park, Crawley RH10 3JY, quoted
+**GBP 750 + VAT** in June 2025. Amazon signed the work off in October 2025. RSR chased twice, were
+promised an answer "by tomorrow morning" on 08/09/2025, and never received one. They physically
+cannot issue their own quotation to Amazon until Fenster confirms. **Nine and a half months.**
+
+Her account had the job dying on **10/10/2025**, because that is where it dies in `estimating@`.
+It does not. It ran three more weeks in `commercial@`, in a thread she is not permitted to read:
+
+**The client end is in estimating@ (Mary's). The supplier end is in commercial@ (Jacob's).**
+Subject "Quote Request - Crawley, Amazon DRH1 - Instant Glass": Harry emailed a Crawley glazier at
+**13:17 on 05/09/2025, ninety-eight minutes after RSR chased him** - so he was working the blocker,
+not sitting on it. Three chases followed. The last, on **31/10/2025 14:46**, is from Adam. The
+glazier replied at **15:51 the same day offering to attend site on the Monday, and nobody ever
+answered her.** That is where the job actually stops, and **the open question belongs to Fenster** -
+not to the client, not to the supplier.
+
+**The rule.** Neither bot was wrong about its half. Each read a thread that ended and reasonably
+concluded the job had ended. **The handover rule assumes a job sits on one side of the wall at a
+time, and a subcontracted job sits on both sides at once** - which is most of what Fenster does.
+So: before concluding a job is dead, ask whether the *other* bot's mailbox would hold the other
+end, and ask. Mary did exactly the right thing here - she said "estimating@ holds nothing after
+10/10/2025, and that is all I can honestly say. Please check commercial@." That sentence is the fix.
+
+**The cause of death was a leaver, not neglect - and no board would have shown it.** Adam,
+31/10/2025 14:46, in his own words: *"Harry has now left Fenster so I am picking this up."*
+**HARRY GROVER HAS LEFT FENSTER.** He held both ends of this job. Adam picked up the supplier end;
+nobody picked up the client end. Harry is named as the seller on four of RSR's five won jobs and
+appears across both bots' history. **Any row that says Harry owns it, or reads a promise of his as
+live, is stale.** His departure was recorded nowhere - `mary_recall --grep "Harry Grover"` returned
+one match and it was an EPC course invitation.
+
+**Three smaller things from the same pass:**
+
+- **`jayk@` is a hard 404, and that is not a null result.** Harry forwarded the GBP 750 there on
+  16/06/2025. The mailbox was deleted when Jayk left and is not resettable. "Nothing in jayk@"
+  means "there is nowhere left to look", never "nothing was there". Say it the second way.
+- **A price can be right and the ARTICLE still wrong.** GBP 750 was priced against Amazon's stated
+  spec - single pane, Schuco AWS65 GV1, 556 x 876. Harry to the glazier, 13/10/2025: *"this unit is
+  actually two units bonded together... quote based off the same width at a 90 degree angle. 556 x
+  556 x 876."* A bonded corner unit. So "is this cost still valid" is not only a validity-date
+  question, and the Vetroseal quote behind it (FENSTERG_Quote_055834) is fourteen months old.
+  **Pricing is Mary's - the BD job is to make sure she is asked the right question.**
+- **The single-word-name trap again, caught before it reached a recommendation.** Searching
+  "Instant Glass" returns 49 hits in commercial@ and makes them look like an established Fenster
+  supplier still trading in 2026. Searched on `instantglass.co.uk` they appear in exactly **three**
+  messages, all of them this one dead thread - no price ever produced, no order ever placed. The
+  difference between "our Crawley glazier" and "a firm Harry cold-called once who never quoted" is
+  the difference between a solved blocker and an unproven candidate. **Search the domain.**
+
+**And one direction check worth generalising: count who chased whom before writing "gone quiet".**
+RSR chased Fenster twice and Fenster answered neither. `dormant.json` would have had Adam ringing
+them to ask why *they* had been quiet.
