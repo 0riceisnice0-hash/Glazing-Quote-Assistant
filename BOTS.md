@@ -18,7 +18,7 @@ the detail lives in the files named at the end of each section.
 | Sends | Yes - to `adam@` and `marketing@` only | **No.** Drafts only |
 | Prices | Yes. That is the job | **Never.** Not even roughly |
 | Manual | `MARY-HANDOVER.md` | `JACOB-SESSION.md` |
-| Budget | 8h day / 1.5h night, plus session **counts** (40 day / 6 night) | 3 session-hours, rolling 24h |
+| Budget | 8h day / 1.5h night, plus session **counts** (40 day / 6 night), plus a token breaker | 4h windowed 07:00-07:00 (was rolling 3h - it starved his mornings) |
 
 **The division of labour, and it runs both ways:**
 
@@ -88,9 +88,15 @@ on Filwood already knows everything about Filwood.
 **Jacob wakes** on a hub message or a message from Mary. His daily data pull
 (`jacob_daily.py`) is deterministic and spends no session at all.
 
-**Jacob always yields to Mary.** If her session lock is held, his bridge waits. Her work
-has deadlines; his does not. An agent that starves the estimator to go looking for leads is
-a bad trade.
+**Jacob yields to Mary at dispatch - for up to an hour.** If her lock is held his bridge
+waits, because her work has deadlines. But the yield is a courtesy, not a vow: on 29/07 she
+worked continuously from 08:00 and he never got a turn, so after an hour blocked with real
+work queued he now runs alongside her in **write-only mode** (no git commits, no hub
+deploys - the two things they genuinely share; his next solo session publishes). Sessions
+already overlap naturally once his starts, and each of his sessions now carries its own
+`--session-id`, so his Live tab can never show her transcript again. When his queue is
+empty and there is budget to spare, a **standing agenda** runs every four quiet hours -
+an empty inbox is not an empty day.
 
 **Both have spend limits, and they are shaped differently for a reason.** Mary's are
 *windowed* - 8 hours by day, 1.5 overnight - and cap session **count** as well as hours
@@ -176,6 +182,15 @@ sit in our own rate register, absent from the Opportunity Log because the log is
 2025-26 BD funnel, not the win history. The lesson is the same one every entry here
 teaches: a number is true only inside the dataset it came from.
 
+**"£8.6m inc VAT is too big to be real."** Brandon Estate was held out of the chase list
+as a suspected data error. Adam, 29/07: it is a legitimate tender. Being a hundred times
+the median is a reason to keep a row out of an average and no reason at all to doubt it.
+The two decisions had been welded together in one flag.
+
+**"98 days silent."** AdminBase lead 8155 read that on a quote sent the previous
+afternoon. On a re-quote the CRM updates the value and leaves every date alone, so the
+row was April's enquiry wearing July's price. Rows now age from the verified send.
+
 **"180 days of mail."** A 20-page fetch cap meant 13-22 days, presented as six months.
 
 **"61 enquiries."** About ten were buyers. The rest were suppliers replying to Fenster,
@@ -247,8 +262,12 @@ Neither bot can resolve these. They are on the hub under **Jacob needs you**.
 | JAC-5 | Jacob cannot see whether anyone has already replied - so live threads read as stale |
 | JAC-6 | 1,310 Fixflo repair requests in six months, ~7/day. Does anyone quote them? |
 | JAC-7 | Portal registrations point at `info@`; most logins stopped working when Jayk left |
-| JAC-8 | Elkins Brandon Estate reads £7.2m ex VAT. Real, or a data error? |
 | JAC-9 | Churchdown School - who won the main contract? |
+| JAC-10 | Does Fenster work outside the 78 postcode areas its own PQQ names? Two live quotes say yes |
+
+**Answered:** JAC-8 - Elkins Brandon Estate, £7.2m ex VAT. Adam, 29/07/2026: "not a
+mistake. That is a legit tender and should be treated as such." It is back on the chase
+list and still out of the medians, which are two different questions.
 
 And two standing ones:
 

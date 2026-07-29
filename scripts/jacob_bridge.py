@@ -29,6 +29,7 @@ import time
 import threading
 import urllib.error
 import urllib.request
+import uuid
 from datetime import datetime, timezone
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -264,9 +265,23 @@ def dispatch(cfg, state):
     if _worker[0] and _worker[0].is_alive():
         return False
 
+    # Mary first - but not Mary FOREVER. On 29/07 she worked continuously
+    # from 08:00 and Jacob never got a turn all morning; the yield is a
+    # courtesy at dispatch time, not a vow of idleness. After an hour of
+    # waiting with real work queued, he runs alongside her - in write-only
+    # mode (no git, no deploys), because the repo and the hub are the two
+    # things they genuinely share.
+    concurrent = False
     if os.path.exists(MARY_LOCK):
-        log("Mary is working - waiting. Her deadlines beat his leads.")
-        return False
+        state.setdefault("blocked_since", time.time())
+        waited = time.time() - state["blocked_since"]
+        if waited < 3600:
+            log("Mary is working - waiting (%dm). Her deadlines beat his leads." % (waited // 60))
+            return False
+        concurrent = True
+        log("Mary has held the lock %dm - running alongside her, write-only mode" % (waited // 60))
+    else:
+        state.pop("blocked_since", None)
 
     spent = budget_spent(state)
     if spent >= DAILY_BUDGET_HOURS:
@@ -280,7 +295,13 @@ def dispatch(cfg, state):
     with open(LOCK, "w") as fh:
         fh.write(str(os.getpid()))
     started = time.time()
-    log("dispatch -> %d order(s)" % len(orders))
+    # His own session identity. Without --session-id the transcript was an
+    # anonymous file in the folder BOTH bots write to, and the live feed
+    # tailed "the newest one" - which, whenever Mary was also working, was
+    # hers. Jacob's Live tab showed Mary's steps (Zac spotted it, 29/07).
+    session_id = str(uuid.uuid4())
+    log("dispatch -> %d order(s)%s (session %s)" % (
+        len(orders), " CONCURRENT with Mary, write-only" if concurrent else "", session_id[:8]))
     # What kicked this session off - order summaries plus the actual prompt.
     heads = []
     for f in orders[:12]:
@@ -290,7 +311,7 @@ def dispatch(cfg, state):
                                       (w.get("subject") or w.get("body") or "")[:100]))
     state["last_kick"] = {"chat": "jacob", "title": "Business development",
                           "at": datetime.now().isoformat(timespec="seconds"),
-                          "orders": heads}
+                          "orders": heads, "session_id": session_id}
 
     # Publish what he is doing to the hub's Live tab while he works. Reuses
     # Mary's transcript tailer read-only - Claude Code already writes every
@@ -308,9 +329,10 @@ def dispatch(cfg, state):
             return
         while not stop_feed.is_set():
             try:
-                sid = act.newest_session(max_age=900)
-                if sid:
-                    events = act.feed(sid)
+                # HIS transcript by id, never "the newest in the folder" -
+                # the folder is shared with Mary and the newest was often hers.
+                if session_id:
+                    events = act.feed(session_id)
                     if events:
                         payload = json.dumps({"chat": "jacob", "title": "Business development",
                                               "events": events}).encode()
@@ -336,6 +358,11 @@ def dispatch(cfg, state):
               "Handle them, reply on the hub to anyone who wrote to you, then move "
               "each order into %s and rebuild your board."
               % (PROMPT, QUEUE, DONE))
+    if concurrent:
+        prompt += ("\n\nWRITE-ONLY MODE: Mary is mid-session in this same repo. Do NOT run "
+                   "git commit and do NOT deploy the hub this session - write your files "
+                   "and data, and your next solo session commits and publishes. The git "
+                   "index and the Pages project are the two things you share with her.")
     state["last_kick"]["prompt"] = prompt[:8000]
     publish_queue(cfg, state)
     def run_session():
@@ -348,7 +375,8 @@ def dispatch(cfg, state):
             # transport rule rejecting external mail from jacob@, and a read
             # scope of four mailboxes enforced by access policy.
             p = subprocess.run(
-                [CLAUDE, "-p", prompt, "--dangerously-skip-permissions"],
+                [CLAUDE, "-p", prompt, "--dangerously-skip-permissions",
+                 "--session-id", session_id],
                 cwd=REPO, capture_output=True, encoding="utf-8",
                 errors="replace", timeout=3600)
             took = time.time() - started
