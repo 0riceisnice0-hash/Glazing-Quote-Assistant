@@ -1,0 +1,36 @@
+Two of the last three issued quotes never reached the chaser
+
+Jacob's FYI (botmsg-21) said Adam had put the three priced-but-unissued jobs with me
+(hub-77) and they are off his chase list "until Mary says they have been sent to client".
+Nothing in it needed a reply. What it was worth was the check it prompted.
+
+Three quotes have left the building in two days and only ONE produced a quote_issued
+ledger event:
+
+  Grange Hill    GBP 39,006.77   Chigwell        29/07 16:07   recorded
+  Georgie's      GBP 89,229.61   Pearce          28/07 14:01   NOT recorded
+  SM5 Wexham     GBP 20,563.57   SM5 Developments 29/07 12:22  NOT recorded
+
+Confirmed from the other side rather than assumed: his bridge-state.json "seen" list has
+only ever held two handover keys, brandon-estate and grange-hill. So Georgie's and SM5
+Wexham sat issued and unchased, invisible to the one bot whose job is chasing them - while
+Adam was busy reinforcing exactly this division of labour on Jacob's side.
+
+Backfilled issued:georgies:2026-07-28 and issued:sm5-wexham:2026-07-29 with the contact and
+the decision position in each summary, because a chaser needs a person to ring and a reason.
+On Wexham that reason is unusual and worth having in the handover: the package return date
+was 14 JULY, so it went out fifteen days late and there is no future date to wait for - the
+chase is whether SM5 will still consider it at all.
+
+His bridge queued both as work orders on the 22:45:27 pass, verified.
+
+THE FAILURE MODE, which is the part worth keeping: the handover is structural, so a
+forgotten event looks exactly like a job with nothing to chase. No bounce, no unanswered
+question, nothing that fails. The only thing that keeps the promise Adam has now made to
+Jacob twice is one command at close-out, on the day.
+
+No botchat - the ledger event IS the handover, which is the whole point of the 29/07 rule,
+and he needs a work order rather than a message. No email: it is 22:45, nothing here changes
+where a job stands for Adam, and both quotes are now where they should have been all along.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

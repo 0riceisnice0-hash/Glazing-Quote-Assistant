@@ -58,6 +58,18 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **29/07 - TWO OF THE LAST THREE ISSUED QUOTES NEVER REACHED JACOB. BACKFILLED (botmsg-21).** His FYI
+  said Adam had put the three priced-but-unissued jobs with me (hub-77) and they were off his chase list
+  "until Mary says they have been sent to client". Nothing in it needed a reply; what it was worth was
+  the check it prompted. Three quotes left the building in two days and only **one** produced a
+  `quote_issued` ledger event (Grange Hill). **Georgie's** (GBP 89,229.61 to Pearce, 28/07 14:01) and
+  **SM5 Wexham** (GBP 20,563.57 to SM5 Developments, 29/07 12:22) had none - confirmed from the other
+  side, his `bridge-state.json` "seen" list has only ever held two handover keys. So both sat issued and
+  unchased, invisible to the one bot whose job is chasing them. Backfilled `issued:georgies:2026-07-28`
+  and `issued:sm5-wexham:2026-07-29` with the contact and the decision position in each summary. **The
+  failure mode is that a forgotten structural handover looks exactly like a job with nothing to chase** -
+  no bounce, no unanswered question, nothing that fails. No botchat: the ledger event IS the handover,
+  which is the whole point of the 29/07 rule. Board note posted.
 - **29/07 - JACOB'S UPTIME: FOUR GATES, NOT ONE (Zac, dashmsg-95 - "he's hit some kind of hard limit,
   can you increase it").** It was his own bridge, not an API limit: `DAILY_BUDGET_HOURS` 4.0, spent by
   20:14, then "HELD BACK" every two minutes for 1h50m into `bridge.log` and nowhere else - with three
