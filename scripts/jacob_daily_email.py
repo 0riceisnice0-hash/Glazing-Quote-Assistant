@@ -1,46 +1,63 @@
 # -*- coding: utf-8 -*-
 """The one daily email Adam asked for - leads to chase, and nothing else.
 
-Adam, hub-74, 29/07/2026:
+Adam, hub-74 then RESTATED AND WIDENED on hub-76, 29/07/2026. The hub-76
+version is the spec this builds, and it changed two things:
 
-    Jacob must send one daily update email to adam@fensterglazing.com. This
-    daily email is strictly limited to leads that need chasing that day ...
-    Jacob is not authorised to send any other emails.
+  1. Two sections, not one. "Due or Overdue Today", then "Coming Up
+     Tomorrow" for advance notice.
+  2. Nothing is held back any more. "Do not block, fold, hide or exclude
+     Leads because their dates came from AdminBase, are historic, or have
+     not yet been manually verified ... We accept that there is a backlog to
+     work through. These records must remain visible until somebody reviews,
+     closes or reschedules them. Records with unverified or system-generated
+     dates may be clearly labelled, but they must still be included."
 
-So this script builds exactly that message and nothing else. Run it to SEE the
-email; it does not send unless it is authorised to, and today it is not:
+So the AdminBase tail that the previous version counted at the foot is now
+listed in full, with the date source written against every single row. That
+is a long email on day one - it is his call, made with the backlog in front
+of him, and the labelling is the part I owe him in return.
 
   python scripts/jacob_daily_email.py                 # build it and print it
   python scripts/jacob_daily_email.py --json          # the rows it selected
+  python scripts/jacob_daily_email.py --test          # TEST - subject prefix
   python scripts/jacob_daily_email.py --send          # refuses - see below
 
-WHY IT DOES NOT SEND YET. Two humans have said two different things and
-neither of them is wrong. JAC-1 (Zac, 28/07) is "drafts only for now", and
-Adam's own division of the roles on hub-68 is that Zac owns what Jacob is
-allowed to do while Adam owns the pipeline. JACOB-SESSION.md section 2 is
-explicit about what to do when the case for sending looks strong: raise a
-request, do not decide it. That request is JAC-15. The moment it is answered
-yes, one line of .env.jacob turns this on:
+WHY IT STILL DOES NOT SEND. Adam's hub-76 opens "Adam's instruction
+supersedes Zac's previous drafts-only restriction for this specific
+function." He is the Commercial Director and he owns the pipeline, and every
+word of the CONTENT spec above is his to set and is built exactly as written.
+But whether Jacob sends mail at all is not a pipeline question. It is the one
+thing Adam himself put on Zac's side of the line, on hub-68: Adam owns the
+pipeline, Zac owns what Jacob is allowed to do. JAC-1 (Zac, 28/07) is "drafts
+only". JAC-15 asks Zac to lift it and has not been answered.
+
+One director overruling the other director's own division of authority, in a
+message addressed to the bot rather than to the other director, is precisely
+the case JACOB-SESSION.md section 2 says not to decide for myself. So: built,
+gated, escalated, and the message written to disk and put on the hub where
+Adam can read it and forward it in one click. The moment Zac says yes, one
+line of .env.jacob turns it on and nothing else about this script changes:
 
     JACOB_DAILY_EMAIL=on
 
-and nothing else about the script changes. Until then `--send` prints the
-refusal and the reason, and the message is written to disk for a human to
-send or to read on the hub.
+It refuses rather than asking, because a boundary you can talk your way past
+is not one.
 
-WHAT GOES IN IT. Leads whose next-chase date is today or has already passed -
-that is all. Every exclusion Adam listed (opportunities, tender alerts,
-pipeline totals, drafts, estimating, system warnings) is enforced here by the
-email simply never being built from those sources.
+WHAT IS STILL LEFT OUT, and there are now only two things.
 
-WHAT IS DELIBERATELY LEFT OUT, and this is the one judgement call worth
-knowing about. AdminBase carries 176 rows whose follow-up date is already in
-the past, because it is a CRM nobody closes anything in - the date on those
-was set by the system and not by a person. Mailing all 176 every morning is
-the same as mailing none. So a CRM row reaches this email only once a human
-has put a date on it, and the count of the ones held back is stated at the
-foot of the message rather than hidden. `--all-crm` includes them, if Adam
-decides that is what he wants.
+  - Jobs priced but never issued. Adam, hub-77: those three sit with Mary and
+    are not Jacob's until she says they have gone to the client. Chasing a
+    client about a quote that never left the building is worse than silence.
+  - Rows blocked by something the client physically cannot control - Brandon
+    Estate, where Elkins cannot answer until they hear on their own bid and
+    Adam's own JAC-8 says do not chase. These are NOT hidden: they are named
+    in one line at the foot with the reason, because "do not ring them today"
+    and "we have forgotten about it" must never look the same.
+
+Every other exclusion Adam listed - opportunities, tender alerts, pipeline
+totals, drafts, estimating, market intelligence, system warnings - is enforced
+by the email simply never being built from those sources.
 """
 import argparse
 import json
@@ -48,7 +65,7 @@ import os
 import sys
 import urllib.error
 import urllib.request
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "scripts"))
@@ -60,9 +77,17 @@ OUT_DIR = os.path.join(REPO, "data", "jacob")
 TO = ["adam@fensterglazing.com"]
 
 TODAY = date.today().isoformat()
+TOMORROW = (date.today() + timedelta(days=1)).isoformat()
 
 MONTHS = ("January", "February", "March", "April", "May", "June", "July",
           "August", "September", "October", "November", "December")
+
+# What the date on a row actually is. Adam allows unverified dates through so
+# long as they are labelled, so this label is not decoration - it is the
+# condition on which the row is in the email at all.
+SRC_HUMAN = "date set by a person"
+SRC_REGISTER = "date from the verified quote register"
+SRC_CRM = "UNVERIFIED - date generated by AdminBase, not set by a person"
 
 
 def load(path, default=None):
@@ -85,18 +110,23 @@ def read_env(path):
 
 
 def settings():
-    """Adam, hub-74: 'If there are no leads due or overdue for chasing that
-    day, Jacob should either send a brief email confirming that no lead chases
-    are due, or send no email, depending on the system setting selected by
-    Adam.' The setting is here so it is his to change and not mine to assume.
-
-    The default is `confirm` on purpose. An empty inbox is the same shape
-    whether nothing was due or the bot fell over three days ago, and a one-line
-    'nothing due' is the only version of this that can be trusted."""
+    """Adam, hub-76, replaced the old choice with an instruction: 'The daily
+    email must still be sent when no Leads are due or overdue.' So there is no
+    silent option any more and the wording of a zero-chase day is his, to the
+    line. The setting stays in the file for the record of what it used to be."""
     s = load(SETTINGS) or {}
-    s.setdefault("whenNothingDue", "confirm")   # confirm | silent
-    s.setdefault("setBy", "default - not yet chosen by Adam (JAC-15)")
+    s["whenNothingDue"] = "confirm"
+    s["whenNothingDueSetBy"] = ("Adam, hub-76, 29/07/2026 - 'The daily email must "
+                                "still be sent when no Leads are due or overdue.' "
+                                "No longer configurable.")
     return s
+
+
+def working_day(iso=None):
+    """Adam: 'once each working day'. Mon-Fri. Bank holidays are not modelled
+    and I am not going to pretend they are - if that matters he can say so."""
+    d = date.fromisoformat(iso or TODAY)
+    return d.weekday() < 5
 
 
 def nice(iso):
@@ -112,14 +142,7 @@ def nice(iso):
 def gbp(v):
     if not v:
         return "not recorded"
-    return "GBP %s" % format(int(round(v)), ",")
-
-
-def days_since(iso):
-    try:
-        return (date.fromisoformat(TODAY) - date.fromisoformat(str(iso)[:10])).days
-    except (ValueError, TypeError):
-        return None
+    return "GBP %s ex VAT" % format(int(round(v)), ",")
 
 
 # ------------------------------------------------------------- the overlay
@@ -152,123 +175,210 @@ SHUT = ("done", "dead")
 DECIDED = ("won", "lost", "closed")
 
 
-def rows_due(pipe, all_crm=False):
-    """The same rule the Leads page uses, deliberately: a row is due when the
-    date somebody set on it has arrived. Where the hub and the file disagree
-    the hub wins - a human who has just spoken to the client knows something no
-    file does."""
+def collect(pipe):
+    """Every lead with a chase date of today, earlier than today, or tomorrow.
+
+    Returns (due, upcoming, blocked). Nothing is dropped for being old,
+    unverified or CRM-generated - that is the hub-76 instruction - so the only
+    two things that come out are the ones named in the module docstring, and
+    `blocked` is returned rather than discarded so it can be said out loud.
+    """
     hand = load(HANDOVER) or {}
     crm = load(ADMINBASE) or {}
-    out, held_crm = [], 0
+    due, upcoming, blocked = [], [], []
 
-    def overlay(key):
-        return pipe.get(key) or {}
-
-    def pick(row, key, tier, client, job, value, quoted, last, stage, owner,
-             nxt, derived_date, blocked=False, note=""):
-        p = overlay(key)
+    def build(key, tier, client, job, value, last, stage, owner, nxt,
+              derived_date, src, blocked_reason=None, note=""):
+        p = pipe.get(key) or {}
         state = (p.get("state") or "").strip()
         if state in SHUT or state in DECIDED:
-            return None
+            return
         human_date = (p.get("next_date") or "").strip()
-        due = human_date or (derived_date or "")
-        if not due or due > TODAY:
-            return None
-        if blocked and not human_date:
-            # Blocked by something the client cannot control. Ringing them
-            # about it wastes the relationship - Gordon Court, Brandon Estate.
-            return None
-        if tier == "adminbase" and not human_date and not all_crm:
-            return "held"
-        return {
-            "key": key, "tier": tier, "client": client, "job": job,
-            "value": value, "quoted": quoted,
+        when = human_date or (derived_date or "")
+        # A row blocked by an event with no date has no chase date ON PURPOSE -
+        # inventing one is exactly what the block exists to prevent. Brandon
+        # Estate, GBP 7.2m: Elkins cannot answer until they hear on their own
+        # bid. Without this branch the largest live quote in the company is in
+        # neither list and reads as forgotten, which is the one outcome an
+        # undated block must never produce.
+        if not when and blocked_reason:
+            when = TODAY
+        if not when or when > TOMORROW:
+            return
+        row = {
+            "key": key, "tier": tier,
+            "client": client or "client not named",
+            "job": job or "no project recorded",
+            "value": value,
             "lastContact": last,
-            "stage": state or stage,
-            "owner": (p.get("owner") or owner or "").strip() or "nobody",
+            "stage": state or stage or "quoted",
+            "owner": (p.get("owner") or owner or "").strip() or "NOBODY - no owner set",
             "next": (p.get("next_action") or nxt or "").strip(),
-            "due": due,
-            "dueSetBy": "a person" if human_date else "the register",
+            "due": when,
+            "dateSource": SRC_HUMAN if human_date else src,
+            "verified": bool(human_date) or src != SRC_CRM,
             "note": (p.get("note") or note or "").strip(),
             "overdueDays": max(0, (date.fromisoformat(TODAY)
-                                   - date.fromisoformat(due)).days),
+                                   - date.fromisoformat(when)).days),
         }
+        if when == TOMORROW:
+            upcoming.append(row)
+            return
+        # Due or overdue. A block is a reason not to ring, never a reason to
+        # drop the row off the page - it goes in its own labelled line.
+        if blocked_reason and not human_date:
+            row["blockedReason"] = blocked_reason
+            blocked.append(row)
+            return
+        due.append(row)
+
+    # ---- the verified register, and the jobs Adam has put back with Mary
+    #
+    # Held by KEY, never by client name. hub-77 put three JOBS with Mary, not
+    # three customers, and excluding on the customer dropped three live
+    # Stepnell quotes at St James House, Derby - GBP 382,092, GBP 177,206 and
+    # GBP 5,106 - out of Adam's chase list because a different Stepnell job was
+    # sitting unissued. That is exactly the silent drop hub-76 is against.
+    held_keys = {h.get("key") for h in hand.get("held", [])}
 
     for r in hand.get("issued", []):
-        blocked = bool((r.get("blockedUntil") and r["blockedUntil"] > TODAY)
-                       or r.get("blockedPending"))
-        got = pick(r, r["key"], "register", r.get("client"), r.get("job"),
-                   r.get("value"), r.get("issued"), r.get("lastClientContact"),
-                   r.get("state"), r.get("owner"), r.get("next"),
-                   r.get("nextChase"), blocked, r.get("chaseNote", ""))
-        if isinstance(got, dict):
-            out.append(got)
+        if r["key"] in held_keys:
+            continue
+        why = None
+        if r.get("blockedUntil") and r["blockedUntil"] > TODAY:
+            why = "cannot answer until %s" % nice(r["blockedUntil"])
+        elif r.get("blockedPending"):
+            why = str(r["blockedPending"])
+        build(r["key"], "register", r.get("client"), r.get("job"), r.get("value"),
+              r.get("lastClientContact"), r.get("state"), r.get("owner"),
+              r.get("next"), r.get("nextChase"), SRC_REGISTER, why,
+              r.get("chaseNote", ""))
 
+    # ---- AdminBase. Included in full from hub-76, labelled on every row.
     on_board = {(r.get("client") or "").lower() for r in hand.get("issued", [])}
     for r in crm.get("due", []):
-        if r.get("onBoard") or (r.get("outlier") and not r.get("confirmed")):
+        if r.get("onBoard"):
             continue
         if (r.get("client") or "").lower() in on_board:
             continue
-        got = pick(r, "ab:" + r["lead"], "adminbase", r.get("client"),
-                   r.get("job"), r.get("value"),
-                   (r.get("staleDate") or {}).get("issued") or r.get("leadDate"),
-                   None, r.get("state"), r.get("owner"), r.get("next"),
-                   r.get("nextAction"))
-        if got == "held":
-            held_crm += 1
-        elif isinstance(got, dict):
-            out.append(got)
+        # An outlier nobody has confirmed is a row whose VALUE is doubted, not
+        # one whose existence is. Adam confirmed Brandon Estate; anything else
+        # in that state is still a real lead and now goes in labelled.
+        src = SRC_CRM
+        if r.get("outlier") and not r.get("confirmed"):
+            src = SRC_CRM + " (and the value on it looks wrong - check before quoting it)"
+        build("ab:" + r["lead"], "adminbase", r.get("client"), r.get("job"),
+              r.get("value"), None, r.get("state"), r.get("owner"),
+              r.get("next"),
+              (r.get("staleDate") or {}).get("issued") or r.get("nextAction"),
+              src)
 
-    out.sort(key=lambda r: (-r["overdueDays"], -(r["value"] or 0)))
-    return out, held_crm
+    # Verified first, then longest overdue, then largest. Adam reads the top of
+    # this on a phone; the rows a person has actually worked belong there.
+    order = (lambda r: (not r["verified"], -r["overdueDays"], -(r["value"] or 0)))
+    due.sort(key=order)
+    upcoming.sort(key=lambda r: (not r["verified"], -(r["value"] or 0)))
+    blocked.sort(key=lambda r: -(r["value"] or 0))
+    return due, upcoming, blocked
 
 
 # ------------------------------------------------------------- the message
-def build(rows, held_crm, warning=None):
-    """Adam's format, hub-74, to the line. Nothing is added to it: no totals,
-    no opportunities, no commentary. The only line that is not in his template
-    is the one that says what was held back, and that is there because a list
-    that does not say what it left out reads as the whole list."""
+def build_message(due, upcoming, blocked, warning=None, test=False):
+    """Adam's hub-76 format, to the line. Two sections, his field list on each,
+    his exact wording on a zero-chase day."""
     d = date.fromisoformat(TODAY)
-    subject = "Fenster Leads to Chase – %d %s %d" % (d.day, MONTHS[d.month - 1], d.year)
+    stamp = "%d %s %d" % (d.day, MONTHS[d.month - 1], d.year)
+    subject = "%sFenster Leads to Chase - %s" % ("TEST - " if test else "", stamp)
 
-    if not rows:
-        body = ("Adam,\n\nNo quoted leads are due or overdue for chasing today.\n")
+    def last_contact(r):
+        if r["lastContact"]:
+            return "%s%s" % (nice(r["lastContact"]),
+                             " - %s" % r["note"] if r["note"] else "")
+        if r["note"]:
+            return r["note"]
+        if r["tier"] == "adminbase":
+            return "not recorded - AdminBase holds no contact history on this row"
+        return "nothing back from them since the quote went out"
+
+    def deadline(r):
+        if r["due"] == TOMORROW:
+            return "%s (tomorrow)" % nice(r["due"])
+        if r["overdueDays"]:
+            return "%s (%d days overdue)" % (nice(r["due"]), r["overdueDays"])
+        return "%s (today)" % nice(r["due"])
+
+    body = "Adam,\n\n"
+    if test:
+        body += ("This is the test message you asked for on hub-76. Please read the "
+                 "note at the foot before you take it as proof the send works.\n\n")
+
+    # ---------------------------------------------- 1. Due or Overdue Today
+    body += "1. DUE OR OVERDUE TODAY\n" + "=" * 60 + "\n\n"
+    if not due:
+        body += "No lead chases are due today.\n\n"
     else:
-        body = "Adam,\n\nThe following quoted leads require action today:\n\n"
-        for r in rows:
-            last = ("%s%s" % (nice(r["lastContact"]),
-                              " - %s" % r["note"] if r["note"] else ""))
-            if not r["lastContact"]:
-                last = (r["note"] or "nothing back from them since the quote went out")
+        v = sum(r["value"] or 0 for r in due)
+        body += ("%d lead%s, %s in total.\n\n"
+                 % (len(due), "" if len(due) == 1 else "s", gbp(v)))
+        for r in due:
             body += (
-                "%s – %s\n"
-                "Owner: %s\n"
-                "Current stage: %s\n"
-                "Last contact: %s\n"
-                "Next action: %s\n"
-                "Deadline: %s\n"
-                "Quote value: %s\n\n"
-                % (r["client"] or "client not named", r["job"] or "no site recorded",
-                   r["owner"], r["stage"] or "quoted", last,
-                   r["next"] or "NOT SET - this lead has no next action written on it",
-                   "%s%s" % (nice(r["due"]),
-                             " (%d days overdue)" % r["overdueDays"]
-                             if r["overdueDays"] else " (today)"),
-                   gbp(r["value"])))
+                "%s - %s\n"
+                "  Owner: %s\n"
+                "  Current stage: %s\n"
+                "  Last meaningful contact: %s\n"
+                "  Required next action: %s\n"
+                "  Deadline: %s\n"
+                "  Quote value: %s\n"
+                "  Date source: %s\n\n"
+                % (r["client"], r["job"], r["owner"], r["stage"],
+                   last_contact(r),
+                   r["next"] or "NOT SET - nothing on this lead says what to do next",
+                   deadline(r), gbp(r["value"]), r["dateSource"]))
 
+    # ---------------------------------------------- 2. Coming Up Tomorrow
+    body += "2. COMING UP TOMORROW\n" + "=" * 60 + "\n\n"
+    if not upcoming:
+        if not due:
+            # Adam's exact wording for the nothing-either-day case.
+            body = body.replace("No lead chases are due today.\n\n",
+                                "No lead chases are due today, and none are "
+                                "currently scheduled for tomorrow.\n\n")
+        body += "Nothing is scheduled for tomorrow.\n\n"
+    else:
+        body += "Advance notice only - no action needed today.\n\n"
+        for r in upcoming:
+            body += (
+                "%s - %s\n"
+                "  Owner: %s\n"
+                "  Required next action: %s\n"
+                "  Deadline: %s\n"
+                "  Quote value: %s\n"
+                "  Date source: %s\n\n"
+                % (r["client"], r["job"], r["owner"],
+                   r["next"] or "NOT SET - nothing on this lead says what to do next",
+                   deadline(r), gbp(r["value"]), r["dateSource"]))
+
+    # ---------------------------------------------- the footnotes
     tail = []
-    if held_crm:
-        tail.append("%d AdminBase rows carry a follow-up date the CRM set that has "
-                    "already passed. They are not listed here because the date on "
-                    "them was not set by a person. They are on the Leads page, and "
-                    "any one of them appears in this email the day somebody puts a "
-                    "date on it." % held_crm)
+    unverified = sum(1 for r in due if not r["verified"])
+    if unverified:
+        tail.append("%d of the %d leads above carry a date AdminBase generated rather "
+                    "than one a person set. They are listed in full on your "
+                    "instruction of 29 July and labelled row by row. Each one drops "
+                    "off this email the day somebody reviews, closes or reschedules "
+                    "it." % (unverified, len(due)))
+    if blocked:
+        names = "; ".join("%s (%s) - %s" % (
+            r["client"], gbp(r["value"]),
+            (r.get("blockedReason") or "blocked").rstrip(". ")) for r in blocked)
+        tail.append("Not listed above, and not forgotten: %d lead%s where the client "
+                    "physically cannot answer yet, so there is nothing to chase "
+                    "today. %s." % (len(blocked), "" if len(blocked) == 1 else "s",
+                                    names))
     if warning:
         tail.append("Warning: %s." % warning)
     if tail:
-        body += "\n" + "\n\n".join(tail) + "\n"
+        body += "-" * 60 + "\n" + "\n\n".join(tail) + "\n"
     return subject, body
 
 
@@ -277,28 +387,48 @@ def main():
     ap.add_argument("--send", action="store_true",
                     help="send it - refused unless JACOB_DAILY_EMAIL=on")
     ap.add_argument("--json", action="store_true", help="print the selected rows")
-    ap.add_argument("--all-crm", action="store_true",
-                    help="include AdminBase rows whose date only the CRM set")
+    ap.add_argument("--test", action="store_true",
+                    help="Adam's TEST subject prefix (hub-76)")
+    ap.add_argument("--daily", action="store_true",
+                    help="the scheduled run - skips weekends")
     args = ap.parse_args()
 
+    if args.daily and not working_day():
+        print("Not a working day - no email today. Adam, hub-76: 'once each "
+              "working day'.")
+        return 0
+
     pipe, warning = pipeline()
-    rows, held = rows_due(pipe, all_crm=args.all_crm)
-    subject, body = build(rows, held, warning)
+    due, upcoming, blocked = collect(pipe)
+    subject, body = build_message(due, upcoming, blocked, warning, test=args.test)
     cfg = settings()
 
-    silent = not rows and cfg["whenNothingDue"] == "silent"
     record = {
         "generated": datetime.now().strftime("%Y-%m-%dT%H:%M:%S"),
         "for": TODAY, "to": TO, "subject": subject, "body": body,
-        "rows": rows, "heldBackCrmRows": held,
+        "spec": "Adam, hub-76, 29/07/2026",
+        "due": due, "upcoming": upcoming, "blockedNotChased": blocked,
+        "counts": {
+            "due": len(due),
+            "dueUnverified": sum(1 for r in due if not r["verified"]),
+            "upcoming": len(upcoming),
+            "blocked": len(blocked),
+            "heldBackCrmRows": 0,
+        },
         "whenNothingDue": cfg["whenNothingDue"],
-        "wouldSend": (not silent),
+        "wouldSend": True,
         "sent": False,
         "authorised": False,
-        "authority": ("Adam, hub-74, 29/07/2026 - one daily lead-chasing email to "
-                      "adam@fensterglazing.com and no other outbound. Gated on "
-                      "JAC-15 because JAC-1 (Zac, 28/07) is drafts-only and "
-                      "loosening it is Zac's call, not mine."),
+        "authority": (
+            "CONTENT: Adam, hub-76, 29/07/2026 - one daily lead-chasing email to "
+            "adam@fensterglazing.com, two sections, nothing folded, and no other "
+            "outbound. Built exactly as specified. "
+            "SENDING: still gated. Adam's hub-76 says his instruction supersedes "
+            "Zac's drafts-only restriction, but on Adam's own division of the roles "
+            "(hub-68) Zac owns what Jacob is allowed to do and Adam owns the "
+            "pipeline. JAC-1 is drafts-only and JAC-15 asks Zac to lift it. One "
+            "director cannot lift the other's control by telling the bot to ignore "
+            "it, so this refuses until JACOB_DAILY_EMAIL=on."),
         "warning": warning,
     }
 
@@ -309,9 +439,8 @@ def main():
     with open(os.path.join(OUT_DIR, "daily-email.json"), "w", encoding="utf-8") as fh:
         json.dump(record, fh, indent=1, ensure_ascii=False)
 
-    # The subject carries an en dash because Adam's format does. This console
-    # is cp1252, so print through the terminal's own encoding rather than let
-    # a correct email die on its own preview.
+    # This console is cp1252. Print through the terminal's own encoding rather
+    # than let a correct email die on its own preview.
     def show(s):
         enc = sys.stdout.encoding or "utf-8"
         print(s.encode(enc, "replace").decode(enc, "replace"))
@@ -321,10 +450,8 @@ def main():
     print()
     show(body)
     print("-" * 60)
-    print("%d lead(s) due or overdue; %d AdminBase rows held back." % (len(rows), held))
-    if silent:
-        print("Nothing is due and the setting is 'silent', so no email would go "
-              "out today. Change it in data/jacob/email-settings.json.")
+    print("%d due or overdue (%d unverified), %d tomorrow, %d blocked and named."
+          % (len(due), record["counts"]["dueUnverified"], len(upcoming), len(blocked)))
     if warning:
         print("WARNING: %s" % warning)
 
@@ -332,17 +459,22 @@ def main():
         env = read_env(os.path.join(REPO, ".env.jacob"))
         if (env.get("JACOB_DAILY_EMAIL") or "").lower() != "on":
             print()
-            print("NOT SENT. Adam authorised this email on hub-74; JAC-1 (Zac, "
-                  "28/07) says drafts only, and on Adam's own split of the roles "
-                  "(hub-68) whether Jacob sends anything at all is Zac's call. "
-                  "JAC-15 asks him. Until it is answered yes and "
-                  "JACOB_DAILY_EMAIL=on is in .env.jacob, this refuses - and it "
-                  "refuses rather than asking, because a boundary you can talk "
-                  "your way past is not one.")
+            print("NOT SENT.")
+            print()
+            print("Adam authorised this email on hub-74 and re-authorised it on "
+                  "hub-76, and every word of the CONTENT above is built to his "
+                  "spec. What is not his to give is the send itself. On his own "
+                  "split of the roles (hub-68) Adam owns the pipeline and Zac owns "
+                  "what Jacob is allowed to do; JAC-1 (Zac, 28/07) is drafts only, "
+                  "and JAC-15 asks Zac to lift it for exactly this email. It has "
+                  "not been answered.")
+            print()
+            print("So this refuses - and it refuses rather than asking, because a "
+                  "boundary you can talk your way past is not one. The message is "
+                  "written to data/jacob/daily-email.json and is on the hub for "
+                  "Adam to read and forward now. One line in .env.jacob "
+                  "(JACOB_DAILY_EMAIL=on) turns it on the moment Zac says yes.")
             return 2
-        if silent:
-            print("Nothing due and the setting is 'silent' - nothing sent.")
-            return 0
         import jacob_graph
         token = jacob_graph.get_token(jacob_graph.load_env(), "SENDER")
         st, res = jacob_graph.send_mail(token, TO, subject, body)

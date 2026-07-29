@@ -1077,7 +1077,7 @@ function registerRows() {
   }
   for (const q of quotesOut()) {
     // Priced and never issued is a real state and it is not chaseable - it
-    // belongs to Gintare, not to this page.
+    // belongs to Mary until she says it has been sent (Adam, hub-77, 29/07).
     if (q.unsent || jShut(q)) continue;
     out.push({ ...q, tier: "priced", value: poundsOf(q.value) || null,
       valueText: q.value, quotedOn: q.due, silent: q.days });
@@ -1119,8 +1119,10 @@ function quotesOut() {
     const unsent = isUnsent(j);
     let state, next, owner = "Adam";
     if (unsent) {
-      state = "not issued"; owner = "Gintare";
-      next = `Not out yet - priced and waiting to be issued. Nothing to chase until it has gone.`;
+      // Adam, hub-77, 29/07: a priced job that has not been submitted sits with
+      // Mary, and it is not Jacob's until she says it has gone to the client.
+      state = "not issued"; owner = "Mary";
+      next = `Not out yet - priced and waiting to be issued. Mary's until she says it has gone to the client; nothing to chase before that.`;
     } else if (days === null) {
       state = "quoted"; owner = "Jacob";
       next = `No date on this one. Find out when ${j.client} was sent it, then chase.`;
@@ -1336,21 +1338,68 @@ function jToday() {
       out.push(a);
     }
   };
-  // Exceptions first among equals: a record with no owner is not waiting on
-  // anybody, which is worse than one that is overdue.
-  take(jExceptions().own);
+  // The same union, in the same order, as the page renders - so the count in
+  // the sidebar is the number of rows a person will actually find when they
+  // open it. Leads first: Adam, hub-76, puts due and overdue Leads at the top
+  // of Today and nothing is folded out of them any more.
+  take(jLeadsDue().map(jLeadRow));
+  take(jLeadsTomorrow().map(jLeadRow));
   take(jActions());
-  return out.sort((a, b) => (b.score || 0) - (a.score || 0));
+  const ex = jExceptions();
+  take(ex.own);
+  take(ex.crm);
+  return out;
 }
 
-/* Everything on Leads that is genuinely due or overdue today, by the date a
-   human or the register set - not by the CRM's own follow-up column, which is
-   already 176 rows in the past and would put the whole backlog on Today every
-   morning. Shared by the Today page and the daily chase email so the two can
-   never disagree about what is due. */
-const jDueToday = () => registerRows().filter(
-  (r) => !r.blocked && !jShut(r) && jOverdue(r)
-    && (jDateIsHuman(r) || r.tier !== "adminbase"));
+/* Everything on Leads that is due or overdue today, and everything falling due
+   tomorrow. Shared by the Today page and the daily chase email so the two can
+   never disagree about what is due.
+
+   THIS USED TO FILTER OUT THE CRM TAIL and it no longer does. Adam, hub-76,
+   29/07/2026: "Do not block, fold, hide or exclude Leads because their dates
+   came from AdminBase, are historic, or have not yet been manually verified ...
+   We accept that there is a backlog to work through. These records must remain
+   visible until somebody reviews, closes or reschedules them. Records with
+   unverified or system-generated dates may be clearly labelled, but they must
+   still be included."
+
+   The previous version counted those rows in one line at the foot of the page,
+   because 134 of them are a CRM export nobody has opened and listing them
+   pushed the four quotes genuinely due off the first screen. That was a real
+   problem and it was my call to make it that way. It is Adam's backlog and he
+   has looked at it and said list them. So they are listed, and the labelling is
+   the half of the bargain I owe him: every row says where its date came from,
+   and the verified ones sort to the top. */
+const jDateSource = (r) => (jDateIsHuman(r) ? "Set by a person"
+  : r.tier === "adminbase" ? "Unverified - AdminBase generated this date"
+  : "From the verified quote register");
+const jVerified = (r) => jDateIsHuman(r) || r.tier !== "adminbase";
+
+const jLeadsDue = () => registerRows()
+  .filter((r) => !r.blocked && !jShut(r) && !jDecided(r) && jOverdue(r))
+  .sort((a, b) => (jVerified(b) - jVerified(a)) || (jDueIn(a) - jDueIn(b))
+    || ((b.value || 0) - (a.value || 0)));
+
+const jLeadsTomorrow = () => registerRows()
+  .filter((r) => !r.blocked && !jShut(r) && !jDecided(r) && jDueIn(r) === 1)
+  .sort((a, b) => (jVerified(b) - jVerified(a)) || ((b.value || 0) - (a.value || 0)));
+
+/* A Leads row in the shape the Today table renders. `why` is Adam's "reason it
+   appears on Today" column and it carries the date source, because an overdue
+   date a person set and an overdue date a CRM invented call for different
+   phone calls. */
+const jLeadRow = (r) => {
+  const late = -jDueIn(r);
+  return {
+    key: r.key, company: r.client, headline: r.job, project: r.job,
+    what: r.value ? gbp(r.value) : r.valueText || "no value recorded",
+    owner: jOwner(r), next: jNext(r), state: jState(r), page: "leads",
+    deadline: jDate(r), verified: jVerified(r),
+    why: `${late > 0 ? `${late} day${late === 1 ? "" : "s"} overdue`
+      : late === 0 ? "Due today" : "Due tomorrow"}. ${jDateSource(r)}`,
+    score: 100 + Math.min(late, 20),
+  };
+};
 
 const JACOB_RENDER = {
   /* Adam, hub-74: four pages are working pages and the rest are sources. A
@@ -1416,82 +1465,103 @@ const JACOB_RENDER = {
     </tbody></table>`;
   },
 
+  /* Adam, hub-76, 29/07/2026, and the section order below is his:
+       "Today must show: 1. Due and overdue Lead actions. 2. Tomorrow's Lead
+        actions in a separate upcoming section. 3. Opportunity actions requiring
+        attention. 4. Ready-to-Send items. 5. Records missing an owner, next
+        action or deadline."
+     plus "Do not block or fold overdue Leads out of the Today workload" and
+     "Historic or unverified CRM records may be labelled clearly, but they must
+     remain visible until somebody updates, closes or reschedules them."
+
+     So nothing on this page is behind a fold any more. The exceptions block,
+     which used to lead, is now last because that is the order he asked for. */
   overview() {
     const t = JACOB.totals;
-    const all = jToday();
-    const exceptions = all.filter((a) => a.missing);
-    const crmGaps = jExceptions().crm;
-    const acts = all.filter((a) => !a.missing);
-    const mine = (o) => all.filter((a) => jOwner(a) === o).length;
+    const acts = jActions().filter((a) => !jShut(a));
+    const seen = new Set();
+    const fresh = (rows) => rows.filter((a) => !seen.has(a.key) && seen.add(a.key));
+
+    // 1 and 2: every Lead due, overdue or falling due tomorrow - CRM tail and
+    // all, each row labelled with where its date came from.
+    const leadsDue = fresh(jLeadsDue().map(jLeadRow));
+    const leadsTomorrow = fresh(jLeadsTomorrow().map(jLeadRow));
+    const opps = fresh(acts.filter((a) => a.page === "opportunities"));
+    const readyToSend = fresh(acts.filter((a) => a.page === "drafts"));
+    const rest = fresh(acts.filter(
+      (a) => !["leads", "opportunities", "drafts"].includes(a.page)));
+    // 5: the completeness exceptions. `.own` is what somebody has worked and
+    // `.crm` is the untouched import - both listed now, kept apart so the
+    // difference is legible rather than hidden.
+    const ex = jExceptions();
+    const exceptions = ex.own.filter((a) => !seen.has(a.key));
+    const crmGaps = ex.crm.filter((a) => !seen.has(a.key));
+
+    const total = leadsDue.length + leadsTomorrow.length + opps.length
+      + readyToSend.length + rest.length + exceptions.length + crmGaps.length;
+    const unverified = leadsDue.filter((a) => !a.verified).length;
+    const mine = (o) => [...leadsDue, ...opps, ...rest, ...exceptions]
+      .filter((a) => jOwner(a) === o).length;
     // Verified sends where we have them; the old return-date guess only as a
     // fallback, because a headline number ought to be the sourced one.
     const outValue = t.handoverValue || quotesWaiting().reduce((n, q) => n + poundsOf(q.value), 0);
-    const chases = acts.filter((a) => a.page === "leads");
-    const opps = acts.filter((a) => a.page === "opportunities");
-    const readyToSend = acts.filter((a) => a.page === "drafts");
-    const rest = acts.filter((a) => !["leads", "opportunities", "drafts"].includes(a.page));
-    // The CRM's own follow-up column, which is 176 rows in the past. Counted
-    // here as one line rather than listed as 176 - see the note below it.
-    const crmBacklog = registerRows().filter(
-      (r) => r.tier === "adminbase" && !jDateIsHuman(r) && jOverdue(r) && !jShut(r)).length;
     const heldBack = Math.max(...[0, ...(JACOB.actions || []).map((a) => a.heldBack || 0)]);
     return `
       <div class="stats">
-        <div class="stat ${all.length ? "red" : "green"}"><div class="n">${all.length}</div><div class="l">Actions needing attention today</div></div>
-        <div class="stat ${exceptions.length ? "red" : "green"}"><div class="n">${exceptions.length}</div><div class="l">Records missing a next action, owner or deadline${crmGaps.length ? `, plus ${crmGaps.length} untouched CRM rows` : ""}</div></div>
+        <div class="stat ${total ? "red" : "green"}"><div class="n">${total}</div><div class="l">Actions needing attention today</div></div>
+        <div class="stat ${leadsDue.length ? "red" : "green"}"><div class="n">${leadsDue.length}</div><div class="l">Leads due or overdue${unverified ? `, ${unverified} on an unverified date` : ""}</div></div>
         <div class="stat ${mine("Adam") ? "amber" : "green"}"><div class="n">${mine("Adam")}</div><div class="l">Waiting on Adam - a call or a decision</div></div>
         <div class="stat amber" data-go="leads"><div class="n">${gbpShort(outValue)}</div><div class="l">Issued and waiting on an answer, ${t.handoverDue ?? "?"} chaseable today</div></div>
         <div class="stat ${t.tendersClosing ? "red" : ""}" data-go="opportunities"><div class="n">${t.tenders || 0}</div><div class="l">Open opportunities, ${t.tendersClosing || 0} closing this week</div></div>
         <div class="stat" data-go="drafts"><div class="n">${jdrafts().length}</div><div class="l">Drafts written, waiting for a human to send</div></div>
       </div>
 
-      ${exceptions.length ? `<div class="section"><div class="section-head">
-        <h3>Missing a next action, an owner or a deadline</h3>
-        <span class="page-sub">Adam's core rule, ${esc(niceDate("2026-07-29"))} - a record without these three is not finished</span></div>
-        <div class="planned-note">These are not overdue. They are worse: nothing on them says who does
-        what or by when, so they cannot go overdue. Rows blocked by something the client cannot
-        control are deliberately left out - Brandon Estate has no date on purpose.</div>
-        ${this._todayRows(exceptions)}</div>` : ""}
-
-      ${crmGaps.length ? `<details class="req-detail"><summary>${crmGaps.length} AdminBase rows
-        also have no date and nobody against them - but nobody has ever opened them either</summary>
-        <div class="planned-note" style="margin-top:10px">These came in as one CRM export on 28/07 and
-        have not been touched since. That is one fact, not ${crmGaps.length} separate oversights, so it
-        is folded rather than listed - the first version of this page put all of them on Today and
-        pushed the four verified quotes genuinely due today off the first screen. The moment somebody
-        sets a date, writes a note or takes ownership of one, it moves up into the list above.</div>
-        ${this._todayRows(crmGaps.slice(0, 60))}
-        ${crmGaps.length > 60 ? `<p class="page-sub">60 of ${crmGaps.length} shown -
-          <a data-go="leads">Leads</a> has all of them.</p>` : ""}</details>` : ""}
-
-      <div class="section"><div class="section-head"><h3>Leads due to be chased</h3>
+      <div class="section"><div class="section-head"><h3>1. Leads due or overdue today</h3>
         <a data-go="leads">Leads &rarr;</a></div>
-        ${this._todayRows(chases)}</div>
+        ${unverified ? `<div class="planned-note"><strong>Nothing is folded out of this list.</strong>
+        Adam, ${esc(niceDate("2026-07-29"))}: overdue Leads stay on Today, labelled, until somebody
+        reviews, closes or reschedules them. ${unverified} of the ${leadsDue.length} below carry a date
+        AdminBase generated rather than one a person set - the "why it is here" column says which, and
+        the rows a person has worked are at the top. Touch one and it moves up.</div>` : ""}
+        ${this._todayRows(leadsDue)}</div>
 
-      <div class="section"><div class="section-head"><h3>New opportunities to review</h3>
+      <div class="section"><div class="section-head"><h3>2. Coming up tomorrow</h3>
+        <span class="page-sub">Advance notice only - nothing here needs doing today</span></div>
+        ${leadsTomorrow.length ? this._todayRows(leadsTomorrow)
+          : `<div class="empty"><strong>Nothing is scheduled for tomorrow</strong></div>`}</div>
+
+      <div class="section"><div class="section-head"><h3>3. Opportunities needing attention</h3>
         <a data-go="opportunities">Opportunities &rarr;</a></div>
         ${this._todayRows(opps)}</div>
 
-      ${readyToSend.length ? `<div class="section"><div class="section-head"><h3>Drafts ready for review or sending</h3>
+      <div class="section"><div class="section-head"><h3>4. Ready to send</h3>
         <a data-go="drafts">Ready to Send &rarr;</a></div>
-        ${this._todayRows(readyToSend)}</div>` : ""}
+        ${this._todayRows(readyToSend)}</div>
+
+      <div class="section"><div class="section-head">
+        <h3>5. Records missing an owner, a next action or a deadline</h3>
+        <span class="page-sub">Adam's completeness rule - a record without these three is not finished</span></div>
+        <div class="planned-note">These are not overdue. They are worse: nothing on them says who does
+        what or by when, so they cannot go overdue. Rows blocked by something the client cannot
+        control are deliberately left out - Brandon Estate has no date on purpose, and it is named at
+        the foot of the daily email instead.</div>
+        ${this._todayRows(exceptions)}
+        ${crmGaps.length ? `<div class="planned-note" style="margin-top:14px"><strong>The
+        ${crmGaps.length} below are the same problem, on rows nobody has opened yet.</strong> They
+        arrived as one AdminBase export on 28 July and have not been touched since, so they are one
+        fact rather than ${crmGaps.length} separate oversights - kept in their own block for that
+        reason, and listed rather than folded on Adam's instruction of 29 July. The moment somebody
+        sets a date, writes a note or takes ownership of one, it moves into the list above.</div>
+        ${this._todayRows(crmGaps)}` : ""}</div>
 
       ${rest.length ? `<div class="section"><div class="section-head"><h3>Buyers writing in, and companies worth a call</h3>
         <span class="page-sub">Neither an opportunity Jacob found nor a job Fenster has quoted - see JAC-16</span></div>
         ${this._todayRows(rest)}</div>` : ""}
 
-      ${crmBacklog || heldBack ? `<div class="section"><div class="section-head">
+      ${heldBack ? `<div class="section"><div class="section-head">
         <h3>What this page is deliberately not listing</h3></div>
-        <div class="planned-note">
-          ${crmBacklog ? `<p><strong>${crmBacklog} AdminBase rows carry a follow-up date that has already
-          passed.</strong> They are real - Adam's JAC-14 rule is that nothing closes on silence - but
-          the date on them was set by the CRM and not by a person, and putting all ${crmBacklog} on
-          Today every morning would mean nobody reads the page. They are on
-          <a data-go="leads">Leads</a>, largest first, and the moment somebody puts a date on one it
-          appears here. That is the trade, stated rather than hidden.</p>` : ""}
-          ${heldBack ? `<p><strong>${heldBack} further ranked items</strong> did not fit the per-page
-          room on the digest and are on their own pages.</p>` : ""}
-        </div></div>` : ""}
+        <div class="planned-note"><p><strong>${heldBack} further ranked items</strong> did not fit the
+        per-page room on the digest and are on their own pages.</p></div></div>` : ""}
 
       <div class="section"><div class="section-head"><h3>What Jacob cannot see</h3></div>
         <div class="planned-note">
@@ -1710,11 +1780,13 @@ const JACOB_RENDER = {
         ${this._regTable(decided)}</div>` : ""}
 
       ${handHeld().length ? `<div class="section"><div class="section-head">
-        <h3>Priced but never issued - not chaseable</h3>
+        <h3>Priced but never issued - Mary's, not chaseable</h3>
         <span class="page-sub">${gbpShort(handHeld().reduce((n, r) => n + (r.value || 0), 0))} of work that has not left the building</span></div>
-        <div class="planned-note">Adam, hub-74: priced jobs that were prepared but not issued belong on
-        Leads where they have been passed over. They are shown apart from everything above because
-        calling a client about a quote that never left the building is worse than not calling.</div>
+        <div class="planned-note"><strong>Adam, hub-77, 29 July 2026: all three are waiting to be
+        submitted to the client, they sit with Mary, and they are not Jacob's until Mary says they
+        have been sent.</strong> They are listed here so the money is visible and so nobody assumes a
+        priced job went out - not as work on this page. Calling a client about a quote that never left
+        the building is worse than not calling.</div>
         <table class="tbl"><thead><tr>
           <th>Job</th><th>Value</th><th>Held by</th><th>Why it is not out</th></tr></thead><tbody>
         ${handHeld().map((r) => `<tr data-jkey="${esc(r.key)}">
@@ -1878,7 +1950,8 @@ const JACOB_RENDER = {
         ${handIssued().map(hrow).join("")}
         </tbody></table></div>
 
-      <div class="section"><div class="section-head"><h3>Not issued - not Jacob's, and not chaseable</h3></div>
+      <div class="section"><div class="section-head"><h3>Not issued - Mary's, and not chaseable</h3>
+        <span class="page-sub">Adam, hub-77: with Mary until she says they have gone to the client</span></div>
         <table class="tbl"><thead><tr>
           <th>Job</th><th>Value</th><th>Held by</th><th>Why it is not out</th></tr></thead><tbody>
         ${handHeld().map((r) => `<tr data-jkey="${esc(r.key)}">
@@ -2145,6 +2218,75 @@ const JACOB_RENDER = {
       ${rows.map((r) => this._oppRow(r)).join("")}</tbody></table>`;
   },
 
+  /* Customers who bought, stopped, and nobody noticed.
+     Adam, hub-78, asked for decent leads. This is the list the evidence
+     points at: 59% of everything Fenster has ever won came from an existing
+     customer and THREE contracts in the company's history came from a tender
+     portal. It is above the tender tables on purpose. */
+  _dormant() {
+    const d = JACOB.dormantClients;
+    if (!d || !(d.clients || []).length) return "";
+    // Give every row the key the hub overlay is stored under, so an owner or a
+    // next action somebody types on this page actually sticks. Without it
+    // jOwner/jNext fall through to the file every time and the edit vanishes.
+    const rows = d.clients.map((r) => ({ ...r, key: "dormant:" + r.client }))
+      .filter((r) => !jShut(r));
+    if (!rows.length) return "";
+    return `<div class="section"><div class="section-head">
+      <h3>Customers who have stopped ringing</h3>
+      <span class="page-sub">${rows.length} past buyers, nothing quoted to them right now</span></div>
+      <div class="planned-note"><strong>These are the highest-converting leads Fenster has, and
+      they cost a phone call.</strong> ${esc(d.why || "")}
+      <br><br><em>${esc(d.caveat || "")}</em></div>
+      <table class="tbl"><thead><tr><th>Client</th><th>Jobs</th><th>Lifetime</th>
+        <th>Silent</th><th>Last job</th><th>Next action</th><th>Owner</th></tr></thead><tbody>
+      ${rows.map((r) => `<tr data-jkey="${esc(r.key)}">
+        <td class="job-cell"><strong>${esc(r.client)}</strong>
+          ${r.phone ? `<small>${esc(r.phone)}</small>` : `<small class="dim">no number on file</small>`}</td>
+        <td class="num">${r.jobs}</td>
+        <td class="money">${gbp(r.value)}</td>
+        <td class="num"><strong>${r.quietDays}d</strong>${r.wasJayks
+          ? `<small class="dim">was Jayk's</small>` : ""}</td>
+        <td><small>${esc((r.lastSite || "").slice(0, 44))}<br>${esc(fdate(r.lastContract))}</small></td>
+        <td style="max-width:340px"><div class="clamp4">${inline(jNext(r) || r.next)}</div></td>
+        <td>${ownerTag(r)}</td></tr>`).join("")}
+      </tbody></table></div>`;
+  },
+
+  /* Planning applications - the only source that reaches a scheme BEFORE an
+     enquiry list exists, and the free half of what Barbour ABI sells. */
+  _planning() {
+    const p = JACOB.planning;
+    if (!p || !(p.applications || []).length) return "";
+    const rows = p.applications.map((r) => ({ ...r, key: "plan:" + r.id }))
+      .filter((r) => !jShut(r));
+    const named = rows.filter((r) => r.applicant);
+    const show = [...named, ...rows.filter((r) => !r.applicant)].slice(0, 60);
+    return `<div class="section"><div class="section-head">
+      <h3>Schemes at planning stage - before anyone draws up an enquiry list</h3>
+      <span class="page-sub">${rows.length} in ${p.windowDays} days, ${named.length} with the applicant named</span></div>
+      <div class="planned-note"><p><strong>This is where Barbour gets it.</strong> ${esc(p.why || "")}</p>
+        ${(p.limits || []).map((l) => `<p>${esc(l)}</p>`).join("")}</div>
+      <table class="tbl"><thead><tr><th>Applicant</th><th>Scheme</th><th>Where</th>
+        <th>Size</th><th>Registered</th><th>Tier</th></tr></thead><tbody>
+      ${show.map((r) => `<tr data-jkey="${esc(r.key)}">
+        <td class="job-cell">${r.applicant
+          ? `<strong>${esc(r.applicant)}</strong>${r.warm
+              ? `<small class="chip ok">Fenster has worked for them</small>` : ""}`
+          : `<span class="dim">not named</span>`}
+          <small class="dim">${esc(r.applicantWhy || "")}</small></td>
+        <td style="max-width:400px"><div class="clamp4">${esc(r.description.slice(0, 260))}</div>
+          <small class="dim">${esc(r.address.slice(0, 60))}</small></td>
+        <td><small>${esc(r.council)}<br>${esc(r.postcode || "")}</small></td>
+        <td class="num">${r.dwellings ? `${esc(String(r.dwellings))} homes` : `<span class="dim">-</span>`}</td>
+        <td class="num"><small>${esc(fdate(r.registered))}</small></td>
+        <td><span class="chip ${r.tier === "direct" ? "ok" : "navy"}">${esc(r.tier)}</span>
+          <small class="dim">${esc((r.why || "").slice(0, 44))}</small></td></tr>`).join("")}
+      </tbody></table>
+      ${rows.length > show.length ? `<p class="page-sub">${show.length} of ${rows.length} shown.</p>` : ""}
+      </div>`;
+  },
+
   opportunities() {
     if (!JACOB.tenders) {
       return `<div class="planned-note">The tender feed has not run yet.
@@ -2184,9 +2326,13 @@ const JACOB_RENDER = {
           in for, and it is folded away so it cannot be mistaken for one.</p>
         </div></div>
 
+      ${this._dormant()}
+
       <div class="section"><div class="section-head"><h3>Open now - Fenster can price these itself</h3>
         <span class="page-sub">The buyer is asking for glazing work by name. Soonest closing first.</span></div>
         ${this._oppTable(direct, "Nothing open in this tier today")}</div>
+
+      ${this._planning()}
 
       <div class="section"><div class="section-head"><h3>Main contracts with a glazing package in them</h3>
         <span class="page-sub">Fenster cannot bid these - the job is finding who is</span></div>

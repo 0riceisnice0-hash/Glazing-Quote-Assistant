@@ -11,14 +11,18 @@ where each file comes from and what it can and cannot tell you.
 | `tender-notices.json` | `jacob_tenders.py` | Public **tender** notices - still out to bid, with real closing dates |
 | `procontract.json` | `jacob_procontract.py` | ProContract (Due North) adverts. Where a buyer puts work **under the GBP 100k Find a Tender threshold** - so it is in no national feed, and it is Fenster's size of work. Read with **no login**; only bidding needs the account Fenster has not had since Jayk left (JAC-11) |
 | `leads-manual.json` | his session, by hand | Live leads that arrived as EMAIL and are in no public feed. Merged onto the tender board. Every row carries where it came from, who read it, and which feeds were swept without finding it |
+| `planning.json` | `jacob_planit.py` | **Planning applications - the free half of what Barbour ABI sells.** Every GB council's register via PlanIt, no key, filtered to schemes with a glazing package in them. 454 live large applications in 30 days against 17 tender notices in 90. The only source that reaches a scheme BEFORE an enquiry list exists. `applicant` is read from the council's own portal, because PlanIt redacts it to "See source" - that redaction is Barbour's product |
+| `planit-raw.json` | `jacob_planit.py` | The unfiltered pull, cached so the filter can be re-tuned with `--from-cache` without hitting a free public API again. Delete it freely |
+| `planit-areas.json` | `jacob_planit.py` | council -> country, when the areas API can be read at all. Usually it cannot: it pages at ten rows, refuses `pg_sz` and rate-limits hard, so the coverage rule is written down in the script instead. **A cache with under 300 councils in it is IGNORED** - a partial map silently drops every council it has not heard of |
+| `dormant.json` | `jacob_dormant.py` | **Customers who bought, stopped, and nobody noticed.** Won contracts joined to the live pipeline: past buyer, no quote out, no work on site, silent. This is the 59% of wins that came from an existing customer, against the 3 that ever came from a tender portal. Do-not-approach names are excluded in code, not by the reader |
 | `contracts-won.json` | `jacob_contracts.py` | **The 204 WON commercial contracts**, net value on every row - Adam's hand export of 29/07/2026. The only file here built from delivered work rather than hope. Settles the GBP 50k question (8 wins over it, largest GBP 631,248) and carries `LEADSOURCE`, which says 59% of wins are repeat business and 25% were Jayk personally |
 | `outcomes.json` | `jacob_outcomes.py` | The Opportunity Log - the 2025-26 BD FUNNEL with its decided rows. Not the win history; `contracts-won.json` is |
 | `adminbase.json` | `jacob_adminbase.py` | Adam's AdminBase export - quoted leads with dates and values |
 | `jayk-recovery.json` | `jacob_jayk_recovery.py` | The former BDM's contacts, recovered from role mailboxes. One-off |
 | `drafts.json` | his session | Outreach he has written, and what he deliberately did **not** draft |
 | `handover.json` | his session | What he has passed to a human, held, or corrected |
-| `daily-email.json` | `jacob_daily_email.py` | The one email Adam authorised - the chase list for today, in his format, with the rows it selected and the count it deliberately held back. `sent` is false and will stay false until JAC-15 is answered |
-| `email-settings.json` | hand-edited by a human | The only thing about that email that is configurable: whether a day with no chases due gets a one-line "nothing due" or silence. Adam's choice, not mine |
+| `daily-email.json` | `jacob_daily_email.py` | The one email Adam authorised - today's chase list in his hub-76 format: **Due or Overdue Today**, then **Coming Up Tomorrow**. Nothing is held back any more (hub-76), so every row carries `dateSource` saying whether a person or the CRM set its date. `blockedNotChased` holds the rows a client physically cannot answer yet - named, never hidden. **`sent` is false and will stay false until JAC-15 is answered**, and Adam ordering the override on hub-76 did not change that: see the module docstring |
+| `email-settings.json` | hand-edited by a human | Was Adam's choice of what happens on a day with nothing due. hub-76 settled it - the email always goes - so nothing here is configurable now; it is kept as the record of what the setting used to be |
 | `bridge-state.json` | `jacob_bridge.py` | Which work orders he has seen, and session-time used |
 | `session-log.md` | his session, by hand | One line per session - the order, and what actually changed. Mary's `HANDOVER.md` has no Jacob entries in it; this is that record for this side of the wall |
 
@@ -53,6 +57,20 @@ averages.
 **Outcome data exists.** It was believed for a while that Fenster records no outcomes,
 because the Estimating Log's W/L column is 93% empty. The BD log is a different file and
 has 229 decided rows. `outcomes.json` is the one to trust.
+
+**A REDACTED FIELD IS NOT A MISSING FACT.** PlanIt returns `applicant_name` as the literal string
+"See source" on every row of its free API, which reads exactly like "nobody knows who is building
+this". Somebody does: the council's own planning register carries the applicant because the law
+says it must, and PlanIt links straight to it. The redaction is the thing Barbour ABI charges for,
+not a limit on what is knowable. Same lesson as the dead login below - **check what a block
+actually blocks.**
+
+**A feed that returns nothing looks exactly like a quiet market.** `planning.json` dropped all 454
+applications as "outside England and Wales" on its first run, because PlanIt's `parent_name` is not
+a country - it is one step up a tree of arbitrary depth (Adur -> Adur and Worthing -> West Sussex ->
+South East -> England). The board would have reported an empty planning pipeline in perfect good
+faith. Any filter that removes everything is a bug until proven otherwise, and `counts.dropped`
+exists so the reason is on the face of the file.
 
 **A dead login is not a dark source.** `procontract.json` exists because "the tender-portal
 logins stopped working when Jayk left" was allowed to mean "we cannot see what is on those
@@ -96,6 +114,9 @@ frequently arrives mojibaked, which is why the regex accepts U+FFFD. Do not tidy
 
 ```bash
 python scripts/jacob_daily.py            # intake + awards + procontract + rebuild
+python scripts/jacob_planit.py           # planning applications (slow - PlanIt rate-limits)
+python scripts/jacob_planit.py --from-cache --no-enrich   # re-filter without re-fetching
+python scripts/jacob_dormant.py          # past customers who have gone quiet (local, instant)
 python scripts/jacob_intake.py --days 180
 python scripts/jacob_outcomes.py
 python scripts/jacob_adminbase.py

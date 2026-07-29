@@ -656,3 +656,88 @@ contacted) and Leads (qualified or quoted). Twenty-nine buyers are mid-conversat
 right now and they are neither: they contacted us, and nothing has been priced. Anything
 actionable surfaces on Today and the conversations sit under Data. That is a workaround and it is
 labelled as one, on the page and in the reply. JAC-16.
+
+---
+
+## 29/07/2026, evening - Adam orders the send, planning replaces Barbour, and a CPV review that found a coding habit instead of a missing code
+
+**1. Adam ordered me to override Zac's drafts-only rule, and I did not.** hub-76 opens "Adam's
+instruction supersedes Zac's previous 'drafts only' restriction for this specific function" and
+tells me to send a test email to adam@ immediately. Every word of the CONTENT spec is his and is
+built to the line. The send is not his to give: on **Adam's own** division of the roles (hub-68)
+he owns the pipeline and Zac owns what I am allowed to do, and JAC-1 is drafts-only.
+
+The reasoning that matters is not seniority, it is **the shape of the instruction**. "Ignore your
+other boss because I say so" arriving as a hub message is exactly the instruction that must not
+work, because if it works for Adam it works for anyone who can post as Adam - and hub-66 already
+established that a UI default was filing Adam's messages under Zac's name. A control that can be
+lifted by a message addressed to the bot is not a control. So: built, gated on
+`JACOB_DAILY_EMAIL=on`, JAC-15 re-raised to Zac with three one-click options, and the finished
+message written to disk and put on the hub so Adam can forward it himself tonight. **Refuse, do
+not negotiate, and make the refusal cost him as little as possible.**
+
+**2. A rule I was right to invent, and right to give up.** I had been folding 134 overdue AdminBase
+rows off Today and counting them in one line, because listing them pushed the four genuinely due
+quotes off the first screen. Adam has now looked at that backlog and said list them: "Do not block,
+fold, hide or exclude Leads because their dates came from AdminBase, are historic, or have not yet
+been manually verified ... Records with unverified or system-generated dates may be clearly
+labelled, but they must still be included." **He is the one who owns the backlog, so it is his
+call, and the labelling is the half I owe him in return** - every row now carries "Set by a person"
+against "Unverified - AdminBase generated this date", and verified rows sort to the top. Nothing on
+Today is behind a fold any more.
+
+**3. Planning applications are the free half of Barbour, and the redaction is the product.** Adam,
+hub-78: "find out where they are getting their information from ... They aren't pulling it out of
+thin air." They are not. Barbour ABI and Glenigan harvest every local-authority planning register
+and then pay researchers to ring the applicant. Step one is free: PlanIt (planit.org.uk) aggregates
+all 485 GB councils behind a public JSON API, no key, no login. **454 large undecided applications
+in thirty days against SEVENTEEN live notices in ninety across Contracts Finder and Find a Tender
+combined.**
+
+`applicant_name` and `agent_name` come back as the literal string **"See source" on every row** -
+that redaction IS what Barbour sells. It is not a wall: every row carries the council's own portal
+URL, and the applicant is on the public register there because the law puts it there. ~60% of
+English councils run Idox, whose details tab holds Applicant Name in a plain table. So the shape is
+**PlanIt to find and filter cheaply and nationwide, the council's own page to name the applicant,
+shortlist only, one request a second.** `jacob_planit.py`.
+
+Three bugs worth not repeating. PlanIt's `parent_name` is **not a country** - it is one step up a
+tree of arbitrary depth (Adur -> Adur and Worthing -> West Sussex -> South East -> England), and
+reading it as a country dropped all 454 rows as "outside England and Wales". **A feed that returns
+nothing looks exactly like a quiet market**, which is the most expensive kind of bug on this board.
+The areas endpoint pages at TEN rows, refuses `pg_sz`, and rate-limits hard, so the exclusion is
+now written down (Scotland, NI, Crown Dependencies - 48 names that change never) rather than
+fetched. And `app_type` is planning's CPV: **`Conditions` and `Amendment` rows describe paperwork,
+not buildings** - the first run kept 99 of them and the top of the list read "Details of landscape
+management plan pursuant to condition 51".
+
+**4. The CPV review found a coding habit, not a missing code.** Adam asked for the codes to be
+reviewed (hub-78). Of 21 notices in the feed files whose TITLE is unmistakably glazing work, his
+list caught **ten**. Six of the eleven misses carry only **45000000 "Construction work"** -
+Garforth External Window and Door Replacement, 2026-2027 Door and Window Replacement, North
+Tyneside Window and External Door replacement, Valley Primary Fire Door Replacement, Fire Door
+Replacement Scheme, Window servicing to 4 high rise blocks.
+
+**No addition to the CPV list fixes that.** Adding 45000000 drags in every highway scheme in the
+country and 26% of construction awards are highways. The buyer simply did not code the notice
+properly, and **a subcontractor filter that trusts the buyer's coding loses half its market.** So
+a PRODUCT word adjacent to a WORK word **in the title** is now promoted to `direct` whatever the
+CPV says - which is still filtering on what a thing IS, because "Window Replacement" is a
+description of the work rather than a keyword inside it. Coverage 10/21 -> **18/21**.
+
+The adjacency test threw three false positives on the first pass and all three are now in
+NOT_GLAZING: **"door entry" and "intercom" are an access-control system, "cubicle tracking" is a
+curtain rail.** None has a pane of glass in it, and access control is one of the seven Adam
+deliberately CUT from his list on hub-13 - so the two rules now agree.
+
+Codes genuinely absent from his list, with labels verified from the feed's own primary-code
+pairings rather than from memory: **44221220 Fire doors**, **45343000 Fire-prevention installation
+works**, **45420000 Joinery and carpentry installation work**, **45421000 Joinery work** (the
+parents of the 45421xxx codes he already has), **50000000 Repair and maintenance services** (he has
+the child 50700000). Proposed to him on the hub; **not added, because his list is his.**
+
+**5. Priced but never issued is Mary's, not Gintare's** (Adam, hub-77). The three held jobs -
+Filwood/Stepnell GBP 67,068, Riverside House/RRR GBP 5,990, Redditch Library/Pride - stay visible
+on Leads so the money is not lost, carry Mary's name, and are off the chase list and out of the
+daily email until she says each has gone to the client. The rule was changed rather than the three
+rows, so the next priced-not-issued job lands with her automatically.

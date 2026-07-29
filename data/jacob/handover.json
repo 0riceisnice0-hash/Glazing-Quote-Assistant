@@ -410,6 +410,54 @@
     "answer": "I will chase Luke up, just need to make sure this is reflected on the leads tracker.",
     "effect": "The chase is Adam's and this row says so. It was recorded as Zac's until 29/07 - hub-62 posted under Zac's name because the hub's sign-in defaulted to him, and Adam corrected that in hub-66. I asked for a decision on whether to clarify the six open items before Chigwell submits and got a chaser instead of a ruling - so the six stay on the row as material for the call rather than as an instruction to send anything. Nothing has been drafted and no number has moved."
    }
+  },
+  {
+   "key": "job:georgies-youth-centre",
+   "job": "Georgie's (formerly Rosebank) Youth Centre - Element 1.1 Replacement Windows and Doors",
+   "client": "Pearce Construction (Barnstaple)",
+   "contact": "Neil Macilwaine",
+   "email": "macilwainen@pearceb.co.uk",
+   "site": "Derby Road, Barnstaple EX32 7EZ",
+   "value": 89229.61,
+   "issued": "2026-07-28",
+   "issuedTime": "14:01",
+   "lastClientContact": null,
+   "state": "quoted",
+   "blockedUntil": null,
+   "blockedReason": null,
+   "owner": "Adam",
+   "next": "ONE CALL TO NEIL MACILWAINE COVERS THREE JOBS, NOT THIS ONE. Pearce hold GBP 278,907 of our live quotes across three leads and two have gone silent: NDDH Barnstaple Modular Windows, GBP 166,676.11, next action set for 23 March and nothing since - 128 days; Woodland Vale, GBP 23,001.20, due 28 June - 31 days; and now this at GBP 89,229.61. Ringing about Georgie's alone would waste the call. Four things to come back with. (1) WHEN DOES PEARCE SUBMIT - our price is Element 1.1 of their Tender Sum Analysis, so their return date is the only thing that can set the next chase date on this row and nothing on this board can supply it. (2) When does the client decide after that. (3) NDDH and Woodland Vale - live, lost, or gone elsewhere, and to whom. (4) What else they have coming in Devon. Nothing about price: they have the number and it has not been queried.",
+   "history": "Pearce Construction is a repeat commercial client in Barnstaple and this is the third live quote with them at once. AdminBase lead 8741, raised 27/07, carries GBP 89,229.62 against Mary's GBP 89,229.61 - a penny, and the same job. Quote issued by Gintare 28/07 14:01 BST, cc adam@, FAO Neil Macilwaine. The scheme itself is in none of the public feeds: Contracts Finder, Find a Tender and ProContract were all searched for Rosebank, Georgie's, Barnstaple and youth centre and returned nothing, so there is no published return date to read and asking Neil for it is the first chase question rather than a nicety.",
+   "verified": true,
+   "verifiedHow": "Mary's handover ledger, ref issued:georgies:2026-07-28 - a quote-handover work order raised off the message that actually left estimating@. Value cross-checked against AdminBase lead 8741 independently. The wall holds: I have not read estimating@.",
+   "stage": 8,
+   "nextChase": "2026-07-31",
+   "chaseNote": "Friday 31 July, and it is deliberately not a fortnight. Two separate reasons to go early. The date that should govern this row - Pearce's own submission deadline - is unknown and unpublished, so the first call exists to GET it; waiting two weeks to ask when something is due is how a return date passes unnoticed. And two other Pearce quotes are already 128 and 31 days silent, so the call is overdue on its own account regardless of this job. Three days from issue is enough for Neil to have read the pack.",
+   "crmNote": "AdminBase 8741 says 'quoted - recent' with a next action of 28/07, which has passed. The two older Pearce rows are 7855 and 8526."
+  },
+  {
+   "key": "job:sm5-wexham-send-bungalow",
+   "job": "SM5 Wexham SEND Bungalow - Wexham Primary SEND Facility",
+   "client": "SM5 Developments",
+   "contact": "Ryan Steadman",
+   "email": "ryan.Steadman@sm5developments.co.uk",
+   "site": "Church Lane, Slough SL3 6LU",
+   "value": 20563.57,
+   "issued": "2026-07-29",
+   "issuedTime": "12:22",
+   "lastClientContact": null,
+   "state": "quoted",
+   "blockedUntil": null,
+   "blockedReason": null,
+   "owner": "Adam",
+   "next": "Adam calls Ryan Steadman. GBP 20,563.57 went out at 12:22 on 29 July. Three things back. (1) Has it gone into SM5's own submission to Slough Borough Council, and WHEN DOES THAT SUBMISSION GO IN - that date sets the next chase on this row. (2) When does Slough decide after it. (3) Kendall Kingscott are the architect and they specify glazing on other schools: worth asking Ryan for the introduction while the job is warm, because an architect who names a system is worth more than one enquiry. Do not raise price - it has not been queried.",
+   "history": "End client Slough Borough Council; architect Kendall Kingscott. Issued by Gintare 29/07 12:22 on Adam's explicit instruction. AdminBase lead 8637 was raised 09/07 and still reads 'being priced' with NO value on it, so the CRM is three weeks and one issued quote behind this row - anybody reading AdminBase alone would not know a price had gone out. Public feeds hold nothing on the scheme: searched for Wexham, Kendall Kingscott and Slough across Contracts Finder, Find a Tender and ProContract.",
+   "verified": true,
+   "verifiedHow": "Mary's handover ledger, ref issued:sm5-wexham:2026-07-29, raised off the sent message in estimating@. I have not read that mailbox.",
+   "stage": 8,
+   "nextChase": "2026-08-05",
+   "chaseNote": "Wednesday 5 August - a week from issue, and the reason is the same as Georgie's: the date that ought to govern this row is SM5's own submission date to Slough and nobody at Fenster has it. A week is long enough that Ryan can answer whether it has gone in, and short enough that if their deadline is in early August we have not missed it. His answer replaces this date.",
+   "crmNote": "AdminBase 8637 is stale - 'being priced', no value, next action 14/07. It needs updating to quoted at GBP 20,563.57; that is a CRM edit, not a chase."
   }
  ],
  "held": [
@@ -418,26 +466,30 @@
    "job": "BCC Filwood Broadway",
    "client": "Stepnell",
    "value": 67067.5,
-   "heldBy": "Adam",
+   "heldBy": "Mary",
    "since": "2026-07-27",
    "state": "not issued",
-   "owner": "Adam",
-   "next": "Not mine and not chaseable. Priced and sent to Adam on 27/07 at 14:17; there is no outbound message to any external address on this job anywhere in estimating@. It is also still moving - both systems now fail the U-value in writing as of 17:51 on 28/07, so the number may not survive the correction.",
+   "owner": "Mary",
+   "next": "Mary's. Priced and with Adam since 27/07 at 14:17; no outbound message to any external address on this job anywhere in estimating@. The number may still move - both systems fail the U-value in writing as of 17:51 on 28/07. Nothing for me to do and nothing to chase until Mary says it has been issued.",
    "caveat": "This job arrived through commercial@, which Mary cannot read. If it went out from commercial@ without copying estimating@, neither of us would see it. Treat it as not issued unless somebody produces the outward email.",
-   "verified": true
+   "verified": true,
+   "ownerSetBy": "Adam, hub-77, 29/07/2026 - all three are waiting to be submitted to the client, they sit with Mary, and none of them is mine until Mary says it has gone to the client.",
+   "returnsToJacobWhen": "Mary confirms the quote has been issued to the client. Nothing before that, and no chase before that either."
   },
   {
    "key": "job:riverside-house-aov-smoke-vents",
    "job": "Riverside House AOV smoke vents",
    "client": "RRR Group",
    "value": 5990.22,
-   "heldBy": "Adam",
+   "heldBy": "Mary",
    "since": null,
    "state": "not issued",
-   "owner": "Adam",
-   "next": "Nothing to RRR Group anywhere - the only outbound is a supplier query to A Plus on 24/07. Adam is holding it until PHDB return their building-works costs. It becomes mine the day it goes.",
+   "owner": "Mary",
+   "next": "Mary's. Nothing to RRR Group anywhere; the only outbound is a supplier query to A Plus on 24/07. The thing it is actually waiting on is PHDB returning their building-works costs - that is the trigger, and it is outside Fenster. Mine the day Mary says it has gone.",
    "caveat": null,
-   "verified": true
+   "verified": true,
+   "ownerSetBy": "Adam, hub-77, 29/07/2026 - all three are waiting to be submitted to the client, they sit with Mary, and none of them is mine until Mary says it has gone to the client.",
+   "returnsToJacobWhen": "Mary confirms the quote has been issued to the client. Nothing before that, and no chase before that either."
   },
   {
    "key": "job:redditch-library-windows-and-doors-pride-developme",
@@ -448,9 +500,11 @@
    "since": "2026-07-28",
    "state": "not issued",
    "owner": "Mary",
-   "next": "Priced on 28/07, nothing to Pride yet. Still Mary's until it is issued.",
+   "next": "Mary's. Priced on 28/07, nothing to Pride yet. Mine the day Mary says it has been issued.",
    "caveat": "Arrived at info@ on 22 July and took six days to reach estimating@. Adam has settled the routing - info@ to commercial@, vetted, then estimating@ - so a delay on the next one will be at the vetting step, not the routing.",
-   "verified": true
+   "verified": true,
+   "ownerSetBy": "Adam, hub-77, 29/07/2026 - all three are waiting to be submitted to the client, they sit with Mary, and none of them is mine until Mary says it has gone to the client.",
+   "returnsToJacobWhen": "Mary confirms the quote has been issued to the client. Nothing before that, and no chase before that either."
   }
  ],
  "corrections": [
@@ -494,5 +548,6 @@
    "now": "It left. 20/07/2026 at 15:50, estimating@ to Luke Baker, cc Adam, quote attached - and Adam then chased it on 22/07 and 23/07 with no reply to either. The row is verified, dated, and the call today is the third touch, not the first.",
    "why": "Mary read it at source on 29/07. It was missing from her 28/07 dating run because the script that dates sends carries a hard-coded list of nine jobs and 'Leys' was not on it. A job absent from a tool's job list reads exactly like a job that was never sent. The list is now longer; the lesson is that it is a list at all."
   }
- ]
+ ],
+ "heldRule": "Adam, hub-77, 29/07/2026 - all three are waiting to be submitted to the client, they sit with Mary, and none of them is mine until Mary says it has gone to the client."
 }

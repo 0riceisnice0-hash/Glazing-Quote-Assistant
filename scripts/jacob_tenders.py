@@ -188,7 +188,14 @@ NOT_GLAZING = re.compile(
     r"(window cleaning|cleaning of windows|screening (programme|service|test)|"
     r"health screening|sti screening|tree|arboricultur|highway|carriageway|"
     r"gully|street light|door[- ]to[- ]door (survey|canvass)|"
-    r"front door to |window of opportunity|glazing (bar )?pottery|ceramic)", re.I)
+    r"front door to |window of opportunity|glazing (bar )?pottery|ceramic|"
+    # Found by the title-promotion rule below, 29/07. "Door entry" is an
+    # intercom and "cubicle tracking" is a curtain rail - both read as door
+    # and window work to any adjacency test, and neither has a pane of glass
+    # in it. Access control is also one of the seven Adam deliberately CUT
+    # from his CPV list on hub-13, so this keeps the two rules agreeing.
+    r"door entry|intercom|access control|door[- ]?phone|"
+    r"cubicle track|curtain track|window (blind|film|dressing|furnishing))", re.I)
 
 # The size of MAIN CONTRACT worth reading for a glazing package. Below this
 # there is rarely a package worth a trip. The ceiling is a practical one, not
@@ -282,13 +289,52 @@ def coverage_of(pcs, regions, buyer):
     return "not stated", ""
 
 
-def tier_of(codes, blob, value):
+# A TITLE that is unambiguously the work itself, whatever the CPV says.
+#
+# Adam asked for the CPV codes to be reviewed (hub-78, 29/07) and the review
+# found something better than a missing code. Of 21 notices in the feed files
+# whose title is unmistakably glazing work, Adam's list catches TEN. Six of the
+# eleven misses carry only 45000000 "Construction work":
+#
+#   Garforth External Window and Door Replacement          45000000
+#   2026-2027 Door and Window Replacement                  45000000
+#   North Tyneside - Window and External Door replacement  45000000
+#   Window servicing to 4 high rise blocks                 45000000
+#   Valley Primary School - Fire Door Replacement          45000000
+#   Fire Door Replacement Scheme & Passive Fire Works      45000000
+#
+# No addition to the CPV list fixes that, because adding 45000000 would drag in
+# every highway scheme in the country - 26% of construction awards are highways.
+# The buyer simply did not code the notice properly, and a subcontractor filter
+# that trusts the buyer's coding loses half its market.
+#
+# So: a PRODUCT word next to a WORK word, in the TITLE, is the contract. That is
+# still the rule of filtering on what a thing IS - the title "Window Replacement"
+# is a description of the work, not a keyword that happens to appear in it. The
+# adjacency is what keeps "the front door to maternity services" out: a metaphor
+# has no work word beside it. NOT_GLAZING is still checked first.
+PRODUCT = (r"windows?|doors?|glazing|glazed|curtain\s+wall(ing)?|shop\s?fronts?|"
+           r"fenestration|facades?|rooflights?|curtain\s+walling")
+WORK = (r"replacement|replace|renewal|renew|installation|install|"
+        r"supply\s+(and|&)\s+(fit|install)|refurbishment|upgrade|"
+        r"overhaul|servicing|repairs?")
+TITLE_IS_GLAZING = re.compile(
+    r"\b(%s)\b[\s\w,&/-]{0,40}?\b(%s)\b|\b(%s)\b[\s\w,&/-]{0,40}?\b(%s)\b"
+    % (PRODUCT, WORK, WORK, PRODUCT), re.I)
+
+
+def tier_of(codes, blob, value, title=""):
     """Which net caught it, and why. Returns (tier, reason) or (None, why not)."""
     if NOT_GLAZING.search(blob):
         return None, "excluded phrase"
     if any(c in ADAM_CPV for c in codes):
         hit = sorted({c for c in codes if c in ADAM_CPV})
         return "direct", "CPV %s" % ", ".join(hit)
+    m = TITLE_IS_GLAZING.search(title or "")
+    if m:
+        return "direct", ("title is the work itself (%s) - the buyer coded it %s"
+                          % (" ".join(m.group(0).split())[:48],
+                             codes[0] if codes else "not at all"))
     if any(c.startswith(BUILDING_CPV) for c in codes):
         glaz = [w for w in GLAZING_WORDS if w in blob]
         built = [w for w in BUILD_WORDS if w in blob]
@@ -308,7 +354,7 @@ def flatten(rel, today):
     codes = cpvs(t)
     blob = ((t.get("title") or "") + " " + (t.get("description") or "")).lower()
     value = (t.get("value") or {}).get("amount")
-    tier, why = tier_of(codes, blob, value)
+    tier, why = tier_of(codes, blob, value, t.get("title") or "")
     if not tier:
         return None
 

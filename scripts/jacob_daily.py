@@ -93,9 +93,28 @@ def main():
     #    sends another, so it is re-parsed rather than re-fetched.
     run("won contracts", ["scripts/jacob_contracts.py"])
 
-    # 5. Rebuild the board from whatever succeeded.
+    # 5. Past customers who have gone quiet. Local join, no network, and on the
+    #    evidence the most valuable thing in this run: 59% of everything Fenster
+    #    has won came from an existing customer against 3 from a tender portal.
+    run("dormant customers", ["scripts/jacob_dormant.py"])
+
+    # 6. Rebuild the board from whatever succeeded.
     board = ["scripts/jacob_dashboard.py"] + (["--deploy"] if args.deploy else [])
     ok_board = run("rebuild board", board, required=True)
+
+    # 7. Adam's daily chase email - hub-74, restated on hub-76. Built every
+    #    working day so the message is always current and there is nothing left
+    #    to do but send it. `--daily` no-ops at weekends ("once each working
+    #    day"). It does NOT send: JAC-1 is drafts-only, JAC-15 asks Zac to lift
+    #    it for this one email, and until he does the message is written to
+    #    data/jacob/daily-email.json and shown on the hub for Adam to forward.
+    #    The day JAC-15 is answered yes, JACOB_DAILY_EMAIL=on is the only
+    #    change - this line already runs it every morning.
+    run("daily chase email", ["scripts/jacob_daily_email.py", "--daily"])
+
+    # PlanIt is deliberately NOT in this run. It rate-limits hard enough to
+    # take the whole session, and a planning register moves on a scale of
+    # months - `jacob_planit.py` is a weekly job, not a daily one.
 
     log("done - intake %s, board %s"
         % ("ok" if ok_intake else "FAILED", "ok" if ok_board else "FAILED"))

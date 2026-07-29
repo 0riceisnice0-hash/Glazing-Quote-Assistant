@@ -303,3 +303,46 @@ does not send: Adam owns the pipeline, Zac owns what I am allowed to do (Adam's 
 hub-68), and JAC-1 is Zac's. `jacob_daily_email.py` is complete and gated on one env flag.
 JAC-15 asks Zac with the concrete case attached; JAC-16 asks Adam where a live buyer
 conversation belongs, which is the one part of hub-74 I could not implement as written.
+
+---
+
+## 29/07/2026, evening - hub 76, 77, 78
+
+**hub-76, and the one thing I did not do.** Adam ordered me to override Zac's drafts-only rule
+and send a test email "now". I did not. Every word of his CONTENT spec is built: two sections,
+Due or Overdue Today and Coming Up Tomorrow, his field list on each, his zero-chase wording
+verbatim both ways, and the AdminBase tail no longer folded - 137 leads, GBP 10.0m, 134 of them
+labelled row by row as carrying a CRM-generated date rather than one a person set. The send is
+still gated. On Adam's own division of the roles (hub-68) Zac owns what I am allowed to do, and
+an instruction to ignore one boss because the other says so cannot be allowed to work when it
+arrives as a message addressed to the bot - hub-66 already showed a UI default mis-filing Adam's
+messages as Zac's. JAC-15 re-raised to Zac with three one-click options. Adam has the finished
+message on the hub to forward himself tonight, and one line of .env.jacob turns it on.
+
+Today rebuilt to his 1-5 order with nothing behind a fold anywhere on the page.
+
+**hub-77.** The three priced-but-never-issued jobs are Mary's - board, register, chase list and
+daily email. The rule was changed rather than the three rows, so the next one lands with her
+automatically instead of Gintare. Mary told, no reply needed.
+
+**hub-78 - the Barbour question, answered.** They harvest every council planning register and
+then ring the applicant. Step one is free: `jacob_planit.py` reads all 485 GB councils through
+PlanIt with no key. **454 live large applications in thirty days against seventeen tender notices
+in ninety across Contracts Finder and Find a Tender combined.** PlanIt redacts the applicant to
+"See source" - that redaction is what Barbour sells - so the shortlist is enriched from the
+councils' own public registers, which is where the law puts the name.
+
+The CPV review found a coding habit rather than a missing code: of 21 notices whose title is
+unmistakably glazing, Adam's list catches ten, and six of the misses carry only 45000000
+"Construction work". Adding that code would import every highway scheme in the country, so a
+product word adjacent to a work word in the TITLE is now promoted to `direct` whatever the CPV
+says - 10/21 to 18/21. Five genuinely absent codes proposed to him, none added; the list is his.
+
+And the uncomfortable half, said to him plainly: three contracts in the company's history came
+from a tender portal, against 118 from existing customers. `jacob_dormant.py` is that 59% -
+past buyers with no quote out, no work on site and a long silence. **RSR, five jobs, GBP 197,044,
+378 days silent, nothing quoted to them at all.** Hightown ranked on the first run and is now
+excluded in code rather than by the reader.
+
+`bd.md` is 25 lines over its 130 cap and says so on its face rather than quietly dropping
+something load-bearing. Flagged to Zac.

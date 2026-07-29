@@ -41,7 +41,21 @@
   "bot-20",
   "handover-issued:grange-hill:2026-07-29",
   "hub-57",
-  "hub-58"
+  "hub-58",
+  "hub-60",
+  "hub-61",
+  "hub-62",
+  "hub-66",
+  "hub-68",
+  "hub-69",
+  "hub-70",
+  "hub-72",
+  "hub-74",
+  "hub-76",
+  "hub-77",
+  "hub-78",
+  "handover-issued:georgies:2026-07-28",
+  "handover-issued:sm5-wexham:2026-07-29"
  ],
  "runs": [
   {
@@ -87,6 +101,26 @@
   {
    "at": 1785342295.9401133,
    "seconds": 854.6586103439331
+  },
+  {
+   "at": 1785344018.1528056,
+   "seconds": 1614.6155080795288
+  },
+  {
+   "at": 1785346905.3646214,
+   "seconds": 774.9805116653442
+  },
+  {
+   "at": 1785349488.7500236,
+   "seconds": 2035.7176830768585
+  },
+  {
+   "at": 1785351045.222241,
+   "seconds": 1427.3243255615234
+  },
+  {
+   "at": 1785359331.613857,
+   "seconds": 209.4263560771942
   }
  ],
  "fails": 0,
@@ -94,12 +128,13 @@
  "last_kick": {
   "chat": "jacob",
   "title": "Business development",
-  "at": "2026-07-29T17:26:43",
+  "at": "2026-07-29T22:09:22",
   "orders": [
-   "hub-message: zac - Jacob, we need all of our current live leads that need chasing and updating in one clear dashboard w",
-   "hub-message: adam - That last message was from Adam, not Zac!"
+   "hub-message: adam - Please make the following changes immediately.\n\n## Authority and Previous Restriction\n\nAdam\u2019s instru",
+   "hub-message: adam - The Priced but never issued - not chaseable log on Leads has three jobs. These are all waiting to be",
+   "hub-message: adam - Once you have actioned the above, you need to get back to focussing on getting us new tender opportu"
   ],
-  "session_id": "d7e9339d-85ed-4142-950e-c81f7bdac142",
+  "session_id": "016ac2e3-ca66-4207-a244-56806ff07a5e",
   "prompt": "Read C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\JACOB-SESSION.md and follow it. Your work orders are the JSON files in C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\test-results\\jacob-inbox\\queue. Handle them, reply on the hub to anyone who wrote to you, then move each order into C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\test-results\\jacob-inbox\\processed and rebuild your board.\n\nYou and Mary work independently and may be running at the same time. Two rules that make that safe: git-commit ONLY the files you touched (never `git add -A`; if the index is locked, wait a few seconds and retry), and deploy the hub only through the deploy scripts - they take the shared deploy lock for you."
  }
 }

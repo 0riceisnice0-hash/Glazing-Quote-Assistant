@@ -1,18 +1,18 @@
 {
- "updated": "2026-07-29T15:29:05Z",
+ "updated": "2026-07-29T22:32:57Z",
  "sources": {
   "cf": {
-   "pages": 7,
-   "releases": 666,
-   "kept": 11
+   "pages": 10,
+   "releases": 983,
+   "kept": 9
   },
   "fts": {
-   "pages": 4,
-   "releases": 366,
+   "pages": 6,
+   "releases": 537,
    "kept": 6
   }
  },
- "publishedFrom": "2026-05-30",
+ "publishedFrom": "2026-04-30",
  "publishedTo": "2026-07-29",
  "cpvList": [
   "44221000",
@@ -41,12 +41,12 @@
  "counts": {
   "direct": 8,
   "main-contract": 5,
-  "text-only": 3,
-  "inArea": 8,
+  "text-only": 2,
+  "inArea": 7,
   "inAreaFar": 0,
   "outsideCoverage": 6,
   "locationNotStated": 2,
-  "confident": 7
+  "confident": 5
  },
  "notices": [
   {
@@ -206,39 +206,6 @@
    "source": "cf"
   },
   {
-   "ocid": "ocds-b5fd17-6611b4ef-177c-4e50-820d-58596919c55c",
-   "published": "2026-06-25",
-   "closes": "2026-07-31",
-   "daysLeft": 2,
-   "buyer": "Southend City Council",
-   "title": "M2627-15 - REPLACEMENT OF COMPLETE DOOR ENTRY INTERCOM SYSTEM WITH IP GUARD SYSTEM",
-   "description": "Supply, Install & configure IP Door Entry System IPGUARD\r\n\r\nAdditional information: \r\nAll documents are freely available on  https://procontract.due-north.com/",
-   "tier": "text-only",
-   "why": "no useful CPV; matched door",
-   "coverage": "in area",
-   "where": "SS",
-   "confident": true,
-   "glazingWords": [
-    "door"
-   ],
-   "cpvCount": 1,
-   "cpv": "32360000",
-   "cpv_all": [
-    "32360000"
-   ],
-   "cpv_desc": "Intercom equipment",
-   "value": 150000,
-   "status": "active",
-   "method": "Open procedure (above threshold)",
-   "sme": true,
-   "postcodes": [
-    "SS2 6ER"
-   ],
-   "regions": [],
-   "url": "https://www.contractsfinder.service.gov.uk/Notice/2cafbee3-72ca-4e2f-9820-22698dcf526f",
-   "source": "cf"
-  },
-  {
    "ocid": "ocds-b5fd17-fafbec10-9a9f-4cea-af69-322ffdc8dd29",
    "published": "2026-07-11",
    "closes": "2026-07-31",
@@ -339,39 +306,6 @@
    "regions": [],
    "url": "https://www.contractsfinder.service.gov.uk/Notice/68b46c70-3f36-457d-bb47-c98f3bb42b97",
    "source": "cf"
-  },
-  {
-   "ocid": "ocds-h6vhtk-06c479",
-   "published": "2026-07-06",
-   "closes": "2026-08-06",
-   "daysLeft": 8,
-   "buyer": "Renfrewshire Council",
-   "title": "Statutory Maintenance and Reactive Repairs of Powered Pedestrian Access Doors  (including Reactive Repairs to Door Entry and Access Control Systems)",
-   "description": "All powered pedestrian doors have been serviced and maintained in line with BS EN 16005:2023+A1:2024, Supply\nof Machinery (Safety) Regulations 2008 and Machinery Directive 2006/42/EC, for the past 5 years throughout\nRenfrewshire Council. This Contract represents a continuation of these maintenance arrangements",
-   "tier": "direct",
-   "why": "CPV 50700000",
-   "coverage": "outside coverage",
-   "where": "Scotland",
-   "confident": true,
-   "glazingWords": [
-    "door"
-   ],
-   "cpvCount": 1,
-   "cpv": "50700000",
-   "cpv_all": [
-    "50700000"
-   ],
-   "cpv_desc": "Repair and maintenance services of building installations",
-   "value": null,
-   "status": "active",
-   "method": "Open procedure",
-   "sme": false,
-   "postcodes": [],
-   "regions": [
-    "UKM83"
-   ],
-   "url": "https://www.find-tender.service.gov.uk/Notice/063275-2026",
-   "source": "fts"
   },
   {
    "ocid": "ocds-b5fd17-04939c85-ca47-4966-bc26-a628b851aa41",
@@ -648,6 +582,37 @@
     "UKM83"
    ],
    "url": "https://www.find-tender.service.gov.uk/Notice/068653-2026",
+   "source": "fts"
+  },
+  {
+   "ocid": "ocds-h6vhtk-06d6f0",
+   "published": "2026-07-29",
+   "closes": "2026-08-28",
+   "daysLeft": 30,
+   "buyer": "Barrhead Housing Association",
+   "title": "Four Year Contract for Gutter Cleaning, Roof Inspections and Roof Safety System Testing Services",
+   "description": "The Contract will involve gutter cleaning maintenance, roof inspection services and roof safety system testing and inspection services throughout Barrhead, Neilston, Thornliebank and Newton Mearns, East Renfrewshire.  The Contract will principally include;\nGutter cleaning maintenance;\nRoof inspection services and a comprehensive report prepared by the Contractor for each property;\nRoof safety syst",
+   "tier": "direct",
+   "why": "CPV 50700000",
+   "coverage": "outside coverage",
+   "where": "Scotland",
+   "confident": false,
+   "glazingWords": [],
+   "cpvCount": 1,
+   "cpv": "50700000",
+   "cpv_all": [
+    "50700000"
+   ],
+   "cpv_desc": "Repair and maintenance services of building installations",
+   "value": 336000,
+   "status": "active",
+   "method": "Open procedure",
+   "sme": false,
+   "postcodes": [],
+   "regions": [
+    "UKM83"
+   ],
+   "url": "https://www.find-tender.service.gov.uk/Notice/071895-2026",
    "source": "fts"
   },
   {

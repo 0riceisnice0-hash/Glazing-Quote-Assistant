@@ -54,6 +54,12 @@ HANDOVER = os.path.join(REPO, "data", "jacob", "handover.json")
 ADMINBASE = os.path.join(REPO, "data", "jacob", "adminbase.json")
 # What JAC-1's answer produced. Drafts for a human to send, nothing more.
 DRAFTS = os.path.join(REPO, "data", "jacob", "drafts.json")
+# The two sources added on 29/07 for Adam's hub-78. PLANNING is the free half
+# of what Barbour sells; DORMANT is the 59% of wins that came from a customer
+# who had already bought. Both are optional - the board must still build on a
+# machine where neither script has been run yet.
+PLANNING = os.path.join(REPO, "data", "jacob", "planning.json")
+DORMANT = os.path.join(REPO, "data", "jacob", "dormant.json")
 JOBS = os.path.join(REPO, "data", "jobs")
 OUT = os.path.join(REPO, "dashboard", "functions", "_data", "jacob-data.js")
 
@@ -1710,6 +1716,11 @@ def build():
         # hope, and it is the one that settles whether a big lead is worth
         # anyone's afternoon. Adam, 29/07/2026.
         "wonContracts": wonContracts,
+        # Planning applications - the only source that reaches a scheme
+        # BEFORE an enquiry list exists. Adam, hub-78.
+        "planning": load_json(PLANNING),
+        # Customers who bought, stopped, and nobody noticed.
+        "dormantClients": load_json(DORMANT),
     }
 
 
