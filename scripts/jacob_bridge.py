@@ -40,7 +40,7 @@ LOCK = os.path.join(INBOX, "session.lock")
 PROMPT = os.path.join(REPO, "JACOB-SESSION.md")
 
 POLL_SECONDS = 120
-DAILY_BUDGET_HOURS = 3.0        # deliberately less than Mary's
+DAILY_BUDGET_HOURS = float(os.environ.get("JACOB_DAY_HOURS", "4.0"))  # less than Mary's 8; raised from 3 on 29/07 when the standing agenda gave him a real workload
 MARY_LOCK = os.path.join(REPO, "test-results", "mary-inbox", "session.lock")
 CLAUDE = os.path.join(os.path.expanduser("~"), ".local", "bin", "claude.exe")
 
@@ -146,9 +146,56 @@ def queue_work(cfg, state):
 
 
 def budget_spent(state):
-    cutoff = time.time() - 86400
-    state["runs"] = [r for r in state.get("runs", []) if r["at"] > cutoff]
-    return sum(r["seconds"] for r in state["runs"]) / 3600.0
+    """Hours spent THIS WINDOW (07:00 to 07:00), not a rolling 24h.
+
+    The rolling shape is the one Mary's budget abandoned, for the reason that
+    played out on 29/07: Jacob sat all day at "3.0 of 3.0 used in 24h" with
+    seven work orders queued, because the spend was the previous evening's.
+    A night's work must not be able to block the following day."""
+    now = time.localtime()
+    start = time.mktime((now.tm_year, now.tm_mon, now.tm_mday, 7, 0, 0, 0, 0, -1))
+    if time.time() < start:
+        start -= 86400
+    state["runs"] = [r for r in state.get("runs", []) if r["at"] > time.time() - 172800]
+    return sum(r["seconds"] for r in state["runs"] if r["at"] >= start) / 3600.0
+
+
+# An empty queue used to mean an idle bot, and on Mary's busy days he never
+# ran at all - Zac, 29/07: "he's doing nothing rn i swear". A BDM with no
+# mail still has a job: work the board. Every few quiet hours, if there is
+# budget to spare and Mary is not working, the bridge hands him his own
+# standing agenda as a work order.
+AGENDA_EVERY = 4 * 3600
+AGENDA_BUDGET_HEADROOM = 0.7    # keep the last 30% of budget for real messages
+AGENDA = (
+    "STANDING AGENDA from Zac (29/07): an empty inbox is not an empty day. Read "
+    "data/knowledge/bd.md first. Then look at your own board (Today, Chasing, Leads, "
+    "Companies) and ADVANCE one or two of the highest-value items properly rather than "
+    "many badly. Good moves: verify a 'possible' lead so it stops needing a human; "
+    "research a warm company properly into data/companies/<slug>.md (contract, contact, "
+    "what to say); draft the next chase for anything past its date; check "
+    "`python scripts/mary_recall.py --grep <company>` before asking anyone anything. "
+    "If your intake or feeds look stale, run `python scripts/jacob_daily.py --deploy`. "
+    "Close out as always: reply to nobody (this is your own time), update the board if "
+    "it changed, and leave a one-line note on your job in the session record.")
+
+
+def maybe_self_agenda(state):
+    orders = [f for f in os.listdir(QUEUE) if f.endswith(".json")]
+    if orders or (_worker[0] and _worker[0].is_alive()) or os.path.exists(MARY_LOCK):
+        return
+    hour = time.localtime().tm_hour
+    if not 7 <= hour < 21:
+        return
+    if budget_spent(state) >= DAILY_BUDGET_HOURS * AGENDA_BUDGET_HEADROOM:
+        return
+    if time.time() - state.get("last_agenda", 0) < AGENDA_EVERY:
+        return
+    state["last_agenda"] = time.time()
+    save(os.path.join(QUEUE, "agenda-%d.json" % int(time.time())), {
+        "kind": "standing-agenda", "trusted": True, "author": "zac",
+        "body": AGENDA, "created": time.strftime("%Y-%m-%dT%H:%M:%S")})
+    log("QUEUED the standing agenda - quiet queue, budget to spare, Mary free")
 
 
 _worker = [None]
@@ -291,11 +338,28 @@ def main():
         }, indent=1))
         return 0
 
+    # Exactly one bridge - same lesson Mary's learned on 28/07 when two of
+    # hers double-queued every dashboard message.
+    pidfile = os.path.join(INBOX, "bridge.pid")
+    if os.path.exists(pidfile):
+        try:
+            with open(pidfile) as fh:
+                other = int((fh.read() or "0").strip() or 0)
+            if other and other != os.getpid():
+                os.kill(other, 0)
+                log("bridge %d already running - standing down" % other)
+                return 0
+        except (OSError, ValueError):
+            pass
+    with open(pidfile, "w") as fh:
+        fh.write(str(os.getpid()))
+
     cfg = env()
     log("JACOB bridge up (pid %d)" % os.getpid())
     while True:
         try:
             queue_work(cfg, state)
+            maybe_self_agenda(state)
             dispatch(cfg, state)
             save(STATE, state)
         except Exception as e:                       # never die on one bad pass
