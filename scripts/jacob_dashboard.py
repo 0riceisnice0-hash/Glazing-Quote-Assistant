@@ -107,12 +107,40 @@ def _archive_wins():
                        "value": kv["value"], "basis": kv.get("basis", "?"),
                        "source": kv.get("source", ""), "archiveGap": True})
     valued.sort(key=lambda v: -v["value"])
+    # Per-client detail - the real league table, with known value where any.
+    by_client = {}
+    for e in won:
+        c = by_client.setdefault(e.get("client", "?"), {"client": e.get("client", "?"),
+                                                        "won": 0, "jobs": [], "value": 0})
+        c["won"] += 1
+        if len(c["jobs"]) < 4:
+            c["jobs"].append(e.get("job", "?"))
+        kv = known.get(e.get("key", ""))
+        if kv and kv.get("value"):
+            c["value"] += kv["value"]
+    clients_detail = sorted(by_client.values(), key=lambda c: (-c["value"], -c["won"]))
+    # How many wins have value-bearing documents indexed - i.e. the number is
+    # RECOVERABLE, somebody just has to read the doc.
+    covered = 0
+    ev_path = os.path.join(REPO, "data", "won-values-evidence.json")
+    if os.path.exists(ev_path):
+        try:
+            with open(ev_path, encoding="utf-8") as fh:
+                ev = json.load(fh).get("jobs", {})
+            wk = {e.get("key") for e in won}
+            covered = sum(1 for k, r in ev.items() if r.get("evidence") and k in wk)
+        except Exception:
+            covered = 0
     return {
         "generated": hist.get("generated"),
         "total": len(entries),
         "won": len(won),
         "lost": len(lost),
         "unmarked": len(entries) - len(won) - len(lost),
+        "distinctClients": len(by_client),
+        "clientsDetail": clients_detail,
+        "valuedTotal": sum(v["value"] for v in valued),
+        "evidenceCovered": covered,
         "topWonClients": [{"client": c, "won": n} for c, n in top],
         "examples": sorted({("%s - %s" % (e.get("client", "?"), e.get("job", "?")))
                             for e in won if e.get("confidence") == "high"})[:12],

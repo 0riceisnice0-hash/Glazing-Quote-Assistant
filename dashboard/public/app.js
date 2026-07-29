@@ -547,7 +547,9 @@ const JACOB_PAGES = [
   // Reference, not work: what the history says, who Fenster knows, and the
   // book recovered from the last BDM. Grouped apart so the seven pages where
   // money moves are not visually equal to the three you read once a week.
-  { key: "outcomes", label: "What we win", group: "Know", sub: () => JACOB?.outcomes ? `${JACOB.outcomes.summary.won} won, ${JACOB.outcomes.summary.lost} lost - a ${JACOB.outcomes.summary.winRate}% win rate over two years` : "The Opportunity Log has not been read yet" },
+  { key: "outcomes", label: "What we win", group: "Know", sub: () => JACOB?.archive
+      ? `${JACOB.archive.won} jobs won on record across ${JACOB.archive.distinctClients} clients - ${JACOB.archive.valuedCount} valued so far, largest ${gbpShort(JACOB.archive.knownValues?.[0]?.value)}`
+      : JACOB?.outcomes ? `${JACOB.outcomes.summary.won} won on the BD log` : "Nothing read yet" },
   { key: "companies", label: "Companies", group: "Know", sub: () => `${JACOB?.relationships.total || 0} companies, ${JACOB?.totals.dormantWon || 0} who have paid us and gone silent` },
   { key: "jayk", label: "Jayk's book", group: "Know", icon: "jayk", sub: () => `${JACOB?.totals.jaykContacts || 0} contacts recovered from the former BDM` },
   { key: "jmessages", label: "Messages", group: "Talk", icon: "messages", layout: "chat", sub: () => "Two-way line - he picks up what you write on his next pass" },
@@ -1039,125 +1041,120 @@ const JACOB_RENDER = {
 
   /* ------------------------------------------------ what we win */
   outcomes() {
-    if (!JACOB.outcomes) {
-      return `<div class="planned-note">The Opportunity Log has not been read yet.
-        <code>python scripts/jacob_outcomes.py</code></div>`;
-    }
+    const a = JACOB.archive;
     const o = JACOB.outcomes;
-    const s = o.summary;
-    const conv = o.clients.filter((c) => c.decided >= 3);
-    const open = o.openThisYear || [];
+    if (!a && !o) {
+      return `<div class="planned-note">Neither the archive nor the Opportunity Log has been read yet.</div>`;
+    }
+    const s = o?.summary;
+    const conv = o ? o.clients.filter((c) => c.decided >= 3) : [];
+    const open = o?.openThisYear || [];
+    /* The page is led by the ARCHIVE - what Fenster has actually won, from its
+       own filing - because the BD log once shipped a false "no big wins" story
+       as a headline while Headrow Court (GBP 630k) sat in the archive. The log
+       survives folded at the bottom for the one thing it is good for:
+       conversion rates on the CURRENT pipeline. */
     return `
-      <div class="stats">
-        <div class="stat green"><div class="n">${s.winRate}%</div><div class="l">Win rate over ${s.decided} decided outcomes</div></div>
-        <div class="stat"><div class="n">${gbpShort(s.wonMedian)}</div><div class="l">Median job Fenster wins</div></div>
-        <div class="stat red"><div class="n">${gbpShort(s.lostMedian)}</div><div class="l">Median job Fenster loses</div></div>
-        <div class="stat red"><div class="n">${s.lostAboveThat}</div><div class="l">Priced above ${gbpShort(s.noWinAbove)} on the log - all lost</div></div>
-        <div class="stat amber"><div class="n">${open.length}</div><div class="l">Still open on this year's sheet</div></div>
+      ${a ? `<div class="stats">
+        <div class="stat green"><div class="n">${a.won}</div><div class="l">Jobs won on record, across ${a.distinctClients} clients</div></div>
+        <div class="stat green"><div class="n">${gbpShort(a.valuedTotal)}</div><div class="l">Known won value - ${a.valuedCount} of ${a.won} jobs valued so far</div></div>
+        ${a.knownValues?.length ? `<div class="stat"><div class="n">${gbpShort(a.knownValues[0].value)}</div><div class="l">Largest known win - ${esc(a.knownValues[0].job)}</div></div>` : ""}
+        <div class="stat amber"><div class="n">${a.evidenceCovered}</div><div class="l">More wins with value documents indexed, awaiting reading</div></div>
+        <div class="stat"><div class="n">${a.unmarked}</div><div class="l">Archive jobs with no outcome recorded either way</div></div>
       </div>
 
-      ${JACOB.archive ? `<div class="section"><div class="section-head"><h3>What Fenster has ACTUALLY won - the archive</h3>
-        <span class="page-sub">From Fenster's own filing, not the BD log</span></div>
-        <div class="stats">
-          <div class="stat green"><div class="n">${JACOB.archive.won}</div><div class="l">Jobs won on record (folder under 2. Projects = won)</div></div>
-          ${JACOB.archive.knownValues?.length ? `<div class="stat green"><div class="n">${gbpShort(JACOB.archive.knownValues[0].value)}</div><div class="l">Largest known win - ${esc(JACOB.archive.knownValues[0].job)} (${esc(JACOB.archive.knownValues[0].basis)})</div></div>` : ""}
-          <div class="stat"><div class="n">${JACOB.archive.total}</div><div class="l">Jobs in the archive back to 2023</div></div>
-          <div class="stat amber"><div class="n">${JACOB.archive.unmarked}</div><div class="l">With no recorded outcome either way</div></div>
-        </div>
-        <div class="planned-note">
-          <p><strong>This section exists because a claim about the BD log once shipped as if it
-          covered all history - while Headrow Court (Fortis Vision, Leeds, GBP 50k+) sat in this
-          very dataset marked won at high confidence.</strong> ${esc(JACOB.archive.note)}</p>
-          <p><strong>Who Fenster actually wins with:</strong>
-          ${JACOB.archive.topWonClients.map((c) => `${esc(c.client)} (${c.won})`).join(", ")}.</p>
-        </div>
-        ${JACOB.archive.knownValues?.length ? `<table class="tbl"><thead><tr>
+      <div class="section"><div class="section-head"><h3>Known values</h3>
+        <span class="page-sub">Every number carries its source. Mining candidates get promoted only after review.</span></div>
+        <table class="tbl"><thead><tr>
           <th>Job</th><th>Client</th><th>Value</th><th>Where the number comes from</th></tr></thead><tbody>
-          ${JACOB.archive.knownValues.map((v) => `<tr>
+          ${a.knownValues.map((v) => `<tr>
             <td class="job-cell"><strong>${esc(v.job)}</strong>
               ${v.archiveGap ? `<small>no win recorded in the archive - the filing itself has a gap</small>` : ""}</td>
             <td>${esc(v.client)}</td>
             <td class="money">${gbp(v.value)}</td>
             <td><span class="pill ${v.basis === "document" ? "exact" : "strong"}">${esc(v.basis)}</span>
               <small class="dim">${esc(v.source)}</small></td></tr>`).join("")}
-        </tbody></table>` : ""}</div>` : ""}
+        </tbody></table></div>
 
-      <div class="section"><div class="section-head"><h3>How the recent funnel converts - the BD log</h3></div>
+      <div class="section"><div class="section-head"><h3>The wins, client by client</h3>
+        <span class="page-sub">From Fenster's own filing, back to 2023. The filter box finds a name.</span></div>
+        <table class="tbl"><thead><tr>
+          <th>Client</th><th>Wins</th><th>Known value</th><th>The jobs</th></tr></thead><tbody>
+        ${a.clientsDetail.map((c) => `<tr>
+          <td class="job-cell"><strong>${esc(c.client)}</strong></td>
+          <td class="num">${c.won}</td>
+          <td class="money">${c.value ? gbp(c.value) : `<small class="dim">not yet valued</small>`}</td>
+          <td style="max-width:460px"><div class="clamp4">${c.jobs.map(esc).join(" &middot; ")}${c.won > c.jobs.length ? ` &middot; +${c.won - c.jobs.length} more` : ""}</div></td></tr>`).join("")}
+        </tbody></table></div>
+
+      <div class="section"><div class="section-head"><h3>Where the numbers come from, and what is missing</h3></div>
         <div class="planned-note">
-          <p>No win over <strong>${gbp(s.noWinAbove)}</strong> appears on the Opportunity Log's
-          decided rows: ${s.lostAboveThat} priced, ${s.lostAboveThat} lost. The biggest win ON
-          THE LOG is <strong>${gbp(s.biggestWon)}</strong>, median <strong>${gbp(s.wonMedian)}</strong>.
-          The log is the 2025-26 BD funnel - use it for how THIS pipeline will convert, and the
-          archive above for what Fenster has actually won.</p>
-          <p>That is the opposite of how this board used to rank things, and the opposite of
-          most of what has been pointed at it - GBP 20m academies, national frameworks. Value
-          now buys a row a warning, not a place at the top.</p>
-          <p class="dim">Value is filled on ${s.valueFilled} of ${o.rows} rows, so the bands
-          below describe the rows that carry a number, not every enquiry.</p>
-          <p><strong>The table below is LOG-ONLY.</strong> Archive wins cannot appear in it:
-          they carry no banded value yet. "0 on log" at GBP 50k-100k coexists with Headrow
-          Court's ~GBP 600k win because Headrow is in the archive, not the log - the row means
-          "the recent funnel closed none this size", never "Fenster cannot win this size".</p>
+          <p>${esc(a.note)} <strong>${a.evidenceCovered} wins</strong> already have their valuation,
+          final-account or PO documents indexed (scripts/mine_won_values.py); Mary reads them into
+          the table above as she works the queue - invoice amounts are interim and POs carry
+          insurance lines, so a checked number beats an extracted one.</p>
+          <p><strong>${a.unmarked} archive jobs carry no outcome at all</strong>, and the brochure has
+          already proven the filing has gaps - Franklin House (GBP 180k, won, completed) is not in
+          the archive. One click on the Scoreboard when a result lands is what stops this growing.</p>
+        </div></div>` : ""}
+
+      ${o ? `<details class="req-detail"><summary>The 2025-26 BD funnel (the Opportunity Log) - kept for one job: how the CURRENT pipeline converts</summary>
+        <div class="planned-note" style="margin-top:10px">
+          <p>The recent funnel, NOT the win history: its biggest win is ${gbp(s.biggestWon)} against the
+          archive's ${a?.knownValues?.length ? gbp(a.knownValues[0].value) : "larger record"}. Use it to rank
+          live enquiries - a GBP 20m academy is still a bad bet because the recent funnel converts small -
+          and for nothing else. Win rate ${s.winRate}% over ${s.decided} decided rows; median log win
+          ${gbp(s.wonMedian)}. Value filled on ${s.valueFilled} of ${o.rows} rows.</p>
         </div>
-        <table class="tbl"><thead><tr><th>Job size</th><th>Won</th><th>Lost</th><th>Win rate</th></tr></thead><tbody>
+        <table class="tbl"><thead><tr><th>Job size</th><th>Won</th><th>Lost</th><th>Win rate (log-only)</th></tr></thead><tbody>
         ${o.bands.map((b) => `<tr>
           <td><strong>${esc(b.label)}</strong></td>
           <td class="num">${b.won}</td><td class="num">${b.lost}</td>
           <td class="num">${b.winRate === null ? "-" : `${Math.round(b.winRate)}%`}
             ${b.decided && !b.won ? ` <span class="pill planned">0 on log</span>` : ""}</td>
         </tr>`).join("")}
-        </tbody></table></div>
+        </tbody></table>
 
-      <div class="section"><div class="section-head"><h3>Clients Fenster actually converts</h3>
-        <span class="page-sub">Three or more decided outcomes, so it is a pattern and not a coincidence</span></div>
-        <table class="tbl"><thead><tr>
-          <th>Client</th><th>Won</th><th>Lost</th><th>Rate</th><th>Still open</th><th>Last enquiry</th></tr></thead><tbody>
-        ${conv.map((c) => `<tr>
-          <td class="job-cell"><strong>${esc(c.client)}</strong>
-            <small>${esc((c.projects || []).slice(0, 2).join(" &middot; "))}</small></td>
-          <td class="num">${c.won}</td><td class="num">${c.lost}</td>
-          <td class="num"><span class="chip ${c.winRate >= 50 ? "ok" : c.winRate >= 20 ? "warn" : "danger"}">${Math.round(c.winRate)}%</span></td>
-          <td class="num">${c.open || "-"}</td>
-          <td class="num">${esc(c.lastEnquiry) || "-"}</td></tr>`).join("")}
-        </tbody></table></div>
+        <div class="section" style="margin-top:18px"><div class="section-head"><h3>Clients the recent funnel converts</h3>
+          <span class="page-sub">Three or more decided log outcomes</span></div>
+          <table class="tbl"><thead><tr>
+            <th>Client</th><th>Won</th><th>Lost</th><th>Rate</th><th>Still open</th><th>Last enquiry</th></tr></thead><tbody>
+          ${conv.map((c) => `<tr>
+            <td class="job-cell"><strong>${esc(c.client)}</strong>
+              <small>${esc((c.projects || []).slice(0, 2).join(" &middot; "))}</small></td>
+            <td class="num">${c.won}</td><td class="num">${c.lost}</td>
+            <td class="num"><span class="chip ${c.winRate >= 50 ? "ok" : c.winRate >= 20 ? "warn" : "danger"}">${Math.round(c.winRate)}%</span></td>
+            <td class="num">${c.open || "-"}</td>
+            <td class="num">${esc(c.lastEnquiry) || "-"}</td></tr>`).join("")}
+          </tbody></table></div>
 
-      <div class="section"><div class="section-head"><h3>Why we lose</h3>
-        <span class="pill planned">legend unconfirmed</span></div>
-        <div class="planned-note">${esc(o.lostLegend?.note || "")}
-        The legend is ${esc(o.lostLegend?.status || "unknown")}.</div>
-        <table class="tbl"><thead><tr>
-          <th>Code</th><th>Rows</th><th>Share of losses</th><th>What the notes on those rows say</th><th>Confidence</th></tr></thead><tbody>
-        ${o.lostReasons.map((r) => `<tr>
-          <td><strong>${esc(r.code)}</strong></td>
-          <td class="num">${r.count}</td><td class="num">${r.shareOfLosses}%</td>
-          <td style="max-width:420px">${esc(r.reading)}<small class="dim">${esc(r.evidence)}</small></td>
-          <td><span class="chip ${r.confidence === "high" ? "ok" : r.confidence === "low" ? "danger" : "warn"}">${esc(r.confidence)}</span></td>
-        </tr>`).join("")}
-        </tbody></table></div>
+        <div class="section"><div class="section-head"><h3>Why the funnel loses</h3>
+          <span class="pill planned">legend ${esc(o.lostLegend?.status || "unknown")}</span></div>
+          <table class="tbl"><thead><tr>
+            <th>Code</th><th>Rows</th><th>Share of losses</th><th>What the notes say</th><th>Confidence</th></tr></thead><tbody>
+          ${o.lostReasons.map((r) => `<tr>
+            <td><strong>${esc(r.code)}</strong></td>
+            <td class="num">${r.count}</td><td class="num">${r.shareOfLosses}%</td>
+            <td style="max-width:420px">${esc(r.reading)}<small class="dim">${esc(r.evidence)}</small></td>
+            <td><span class="chip ${r.confidence === "high" ? "ok" : r.confidence === "low" ? "danger" : "warn"}">${esc(r.confidence)}</span></td>
+          </tr>`).join("")}
+          </tbody></table></div>
 
-      <div class="section"><div class="section-head"><h3>Still open on this year's sheet</h3>
-        <span class="page-sub">Fenster's own record of quotes with no outcome written against them</span></div>
-        <div class="planned-note">These are not analysis. They are ${open.length} enquiries the
-        BD log says are still live, and
-        <strong>${open.filter((r) => !r.chased).length}</strong> of them have nothing in the
-        Chased column. The same column was filled
-        ${(o.chased || []).map((c) => `${c.pct}% of the time in ${esc(c.sheet)}`).join(", ")} -
-        that is a habit that stopped, not a business that got quieter.</div>
-        <table class="tbl"><thead><tr>
-          <th>Client</th><th>Project</th><th>Value</th><th>Quote returned</th><th>Chased?</th></tr></thead><tbody>
-        ${open.slice(0, 60).map((r) => `<tr>
-          <td><strong>${esc(r.client)}</strong></td>
-          <td>${esc(r.project)}<small class="dim">${esc(r.notes || "")}</small></td>
-          <td class="money">${gbp(r.value)}</td>
-          <td class="num">${esc(r.returned) || "not recorded"}</td>
-          <td>${r.chased ? `<span class="chip ok">yes</span>` : `<span class="chip danger">no</span>`}</td>
-        </tr>`).join("")}
-        </tbody></table></div>
+        <div class="section"><div class="section-head"><h3>Still open on this year's sheet</h3>
+          <span class="page-sub">${open.filter((r) => !r.chased).length} of ${open.length} have nothing in the Chased column</span></div>
+          <table class="tbl"><thead><tr>
+            <th>Client</th><th>Project</th><th>Value</th><th>Quote returned</th><th>Chased?</th></tr></thead><tbody>
+          ${open.slice(0, 60).map((r) => `<tr>
+            <td><strong>${esc(r.client)}</strong></td>
+            <td>${esc(r.project)}<small class="dim">${esc(r.notes || "")}</small></td>
+            <td class="money">${gbp(r.value)}</td>
+            <td class="num">${esc(r.returned) || "not recorded"}</td>
+            <td>${r.chased ? `<span class="chip ok">yes</span>` : `<span class="chip danger">no</span>`}</td>
+          </tr>`).join("")}
+          </tbody></table></div>
 
-      <div class="section"><div class="section-head"><h3>Where this comes from</h3></div>
-        <div class="planned-note">${esc(o.source)}. Read-only: the workbook is copied into
-        <code>test-results\\jacob-bd\\</code> and opened from the copy, because Gintare, Adam
-        and Steve are working in that drive. Last read ${esc(ukStamp(o.updated))}.</div></div>`;
+        <div class="planned-note">${esc(o.source)}. Read-only, from a copy. Last read ${esc(ukStamp(o.updated))}.</div>
+      </details>` : ""}`;
   },
 
   /* ------------------------------------------------ leads */
