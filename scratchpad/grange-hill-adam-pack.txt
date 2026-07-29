@@ -1,0 +1,111 @@
+Adam,
+
+The Grange Hill return is built and attached. It can go to Luke Baker as it stands - the
+covering note is at the bottom of this email, ready to paste. GBP 40,528.59 ex VAT, the same
+figure I gave you at 11:55. Nothing has moved.
+
+ONE THING NEEDS YOUR CALL FIRST
+
+GBP 11,493.36 of that number - 28% of it - is eleven plain rectangular windows: 2no 1200 x
+3000, 8no 1200 x 1183, 1no 2000 x 2100. BSW added them when they "rescaled the south
+elevation". The new building's own glazing is the three door elements plus the two raking
+gable units, and spec 3.11 to 3.14 describe the two screens and their doors and nothing
+else. There is no window schedule in the pack and no setting-out drawing has been issued.
+
+So either my 24/07 take-off missed eleven windows, or BSW have priced eleven that are not
+ours. I have not guessed which. The quotation lists the eleven units with their sizes and
+says: if they do not form part of WD001, deduct GBP 11,493.36. Luke confirms them or he
+strikes the line. Either way we are not silently wrong.
+
+TWO SMALLER ONES, BOTH YOURS TO DECIDE
+
+- DELIVERY IS EXCLUDED. Both BSW quotes are ex works and nobody has a carriage rate
+  Peterborough to Chigwell. I would rather exclude it than invent it. Say the word and I
+  will absorb it instead.
+- I dropped the optional mastic GBP 143 and EPDM GBP 587 from the 24th. Both were sized on
+  the 23.49 m2 take-off that BSW replaced with 62.33 m2. Excluded, not forgotten.
+
+WHAT IS EXCLUDED, WRITTEN ON THE PRICING DOCUMENT ITSELF
+
+3.15.1 chapel folding doors, 3.15.2 privacy film, 3.16.1 and 3.16.2 the FD60 doors. Twelve
+qualifications in all, on the face of the priced sheet rather than only in a covering email -
+glass substitution, the ironmongery, the head support above the doors, the zero-rated VAT
+split, and that BSW's prices die on 28/08 against a Nov 26 to Jul 27 programme.
+
+CHECKS: 5 still fail and I am not pretending otherwise. The difference is that every one is
+now a numbered qualification the client reads instead of something we carry quietly. The two
+with money on them: nobody has ever priced the GBP 3,000 operator allowance, and the glazing
+above the doors cannot be coupled to them.
+
+Do not send the proposal document I also generated - its cover carries three "insert site
+photo" placeholders and we have no site photography for this job.
+
+Mary
+
+------------------------------------------------------------------------------------------
+COVERING NOTE FOR LUKE BAKER - paste as it is, nothing to fill in
+------------------------------------------------------------------------------------------
+
+Hi Luke,
+
+Please find attached our quotation for package WD001, Windows and Doors, at Grange Hill
+Methodist Church, Burrow Road, Chigwell.
+
+Our price is GBP 40,528.59 excluding VAT, made up as follows:
+
+  South elevation entrance screen and doors - spec 3.14.1        GBP 14,215.97
+  West elevation entrance screen and doors - spec 3.12.1         GBP 11,569.26
+  Windows - spec 3.11.1                                          GBP 11,493.36
+  Allowance, automatic door operator - spec 3.13.1               GBP  3,000.00
+  Allowance, fish symbol manifestations - spec 3.11.2            GBP    250.00
+                                                                 -------------
+                                                                 GBP 40,528.59
+
+The quotation carries twelve qualifications on its face and they form part of our offer.
+Four of them need something from you, and I have set them out here so they are not missed:
+
+1. WINDOW QUANTITIES. Our price includes eleven windows - 2no 1200 x 3000, 8no 1200 x 1183
+   and 1no 2000 x 2100 - taken from our fabricator's own measure of the elevations. There
+   is no window schedule in the tender documents and no setting-out drawing has been issued,
+   and clauses 3.11 to 3.14 describe the two screens and their doors only. Please confirm
+   the quantity, size and location of these units. If they do not form part of WD001,
+   deduct GBP 11,493.36.
+
+2. CHAPEL FOLDING DOORS, clause 3.15.1, are excluded. No elevation of the chapel has been
+   issued, so neither the door height nor the fixed glazed section above it has a dimension
+   anywhere in the pack. Please issue a chapel elevation and we will quote this element
+   separately.
+
+3. INTERNAL FIRE CHECK DOORS, clauses 3.16.1 and 3.16.2, are excluded. These are internal
+   timber FD60 doorsets with timber infill framing, plasterboard, taping and skimming and
+   magnetic hold-opens wired to the fire detection system, and they appear on no drawing and
+   in no door schedule. Please confirm whether they form part of WD001 and we will price them.
+
+4. SUPPORT ABOVE THE DOOR ELEMENTS. The door frames are 100mm deep and the glazing above
+   them is 70mm; the two cannot be mechanically coupled to one another. We have assumed the
+   glazing above each door element is independently supported - on the south elevation by the
+   150 x 90 x 24 PFC facade header support beam shown on Silver Structural Surveys drawing
+   S1323/02 Rev C01. Please confirm the supporting structure at the head of the west
+   elevation door element.
+
+Two further points worth flagging now rather than at order:
+
+  GLASS. Clause 3.11.1 names Pilkington Optitherm S1 with solar control, Arctic Blue. We
+  have priced our fabricator's equivalent and samples will be provided before order in
+  accordance with 3.11.1. If the named Pilkington products are required without substitution
+  we will requote.
+
+  VALIDITY. The material costs behind this price are held for thirty days and expire on
+  28 August 2026, against a programme running November 2026 to July 2027. Material costs
+  are to be re-confirmed at the point of order.
+
+The price is exclusive of VAT. The specification identifies 3.12.1 (V) and 3.13.1 (V) as
+zero rated elements and GBP 14,569.26 of the sum above sits against those two clauses; we
+will invoice in accordance with your direction and the appropriate customer certificate.
+
+Delivery to site is excluded, as is external perimeter mastic and EPDM to the reveals. Both
+can be included on request.
+
+If anything above needs discussing please give me a call.
+
+Kind regards,

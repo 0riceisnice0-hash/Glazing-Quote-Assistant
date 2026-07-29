@@ -1,0 +1,23 @@
+1. WINDOW QUANTITIES ARE NOT AGREED. The 11/no windows above are taken from our fabricator's own re-scale of the elevations. There is no window schedule in the tender documents and no setting-out drawing has been issued, and specification clauses 3.11 to 3.14 describe the two screens and their doors only. Please confirm the quantity, size and location of these units. If they do not form part of WD001, deduct GBP 11,493.36.
+
+2. CHAPEL FOLDING DOORS - spec 3.15.1 - EXCLUDED. No elevation of the chapel has been issued, so neither the door height nor the fixed glazed section above it has a dimension anywhere in the pack. Separately, the recessed bottom rail and the fixed glazed section over cannot both be provided within the folding door systems available to us. Please issue a chapel elevation and we will quote this element separately.
+
+3. PRIVACY FILM - spec 3.15.2 - EXCLUDED, following 3.15.1.
+
+4. INTERNAL FIRE CHECK DOORS - spec 3.16.1 and 3.16.2 - EXCLUDED. These are internal timber FD60 doorsets with timber infill framing, two layers of 12mm plasterboard both sides taped and skimmed, and magnetic hold-opens wired to the fire detection system. They appear on no drawing and in no door schedule. Please confirm whether they form part of WD001 and we will price them.
+
+5. GLASS. Clause 3.11.1 names Pilkington Optitherm S1 with solar control, Arctic Blue, to the outer pane and Optitherm S1 plus to the inner. We have priced our fabricator's equivalent: 6mm SKN 176 toughened / 16 / 6mm HP Neutral Low E argon filled to the windows, and 4mm Coolite SKN176II with 8.8 laminate / 6mm toughened Anti Sun Grey to the door elements. These are two different tints and we would recommend a single tint across both elevations. Samples will be provided before order in accordance with 3.11.1. If the named Pilkington products are required without substitution we will requote.
+
+6. IRONMONGERY. Clauses 3.12.1 and 3.14.1 name a Briton 1438 fire escape push pad with Briton 1413 access locking knob, and Yale Platinum 3-star euro cylinders with thumbturn, keyed alike. We have priced the fabricator's concealed panic bar with lever and screw-in cylinder, without internal thumbturns, offered under the 'or similar approved' provision. Please confirm acceptance or we will price the named products.
+
+7. SUPPORT TO THE GLAZING ABOVE THE DOORS. The door elements are 100mm frames and the glazing above them is 70mm; the two cannot be mechanically coupled to one another. Our price assumes the glazing above each door element is independently supported - on the south elevation by the 150 x 90 x 24 PFC facade header support beam shown on Silver Structural Surveys drawing S1323/02 Rev C01. Please confirm the supporting structure at the head of the west elevation door element. Where no independent support exists a change of system is required and the price will change.
+
+8. THE AUTOMATIC OPERATOR IS AN ALLOWANCE, not a quotation. No specialist has been approached. It will be confirmed against a specialist price.
+
+9. VAT. Priced exclusive of VAT. The specification identifies 3.12.1 (V) and 3.13.1 (V) as zero rated elements: GBP 14,569.26 of the sum above sits against those two clauses. The apportionment within 3.12.1 between the disabled access door and the surrounding screen is for your confirmation, and we will invoice in accordance with your direction and the appropriate customer certificate.
+
+10. VALIDITY. The material costs behind this price are dated 29 July 2026 and are held for thirty days, expiring 28 August 2026. The works are programmed November 2026 to July 2027, so material costs are to be re-confirmed at the point of order.
+
+11. All dimensions are our fabricator's, scaled from the 1:100 elevations. All sizes are subject to site survey before manufacture.
+
+12. External perimeter mastic and EPDM membrane to the reveals are excluded. They can be included on confirmation of the perimeter to be sealed.

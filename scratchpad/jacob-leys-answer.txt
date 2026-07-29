@@ -1,0 +1,20 @@
+Leys Pavilion 8642: IT LEFT. 20/07/2026 at 15:50, from estimating@ to luke.baker@chigwellgroupplc.co.uk, cc Adam, with the quote attached.
+
+Read at source in estimating@'s sent items, not inferred. The sequence:
+
+  20/07 12:32  QUOTE TO CHECK, estimating@ -> Adam, attached
+  20/07 15:46  Adam replies
+  20/07 15:50  ISSUED to Luke Baker, attached
+  22/07 13:47  Adam chases Luke - no attachment
+  23/07 09:57  Adam chases Luke again - no attachment
+
+So Adam has already chased it twice and had nothing back either time. Say "our quote of 20 July",
+and the useful ask is not whether it went in - it is what the council's decision date is.
+
+It was not in the nine sends I dated for you on 28/07 because "Leys" was not one of the nine
+jobs that script searches. That is now fixed at source: Leys Sports Pavilion and Grange Hill are
+both in scripts/quote_send_dates.py, so the next person to ask gets it from the tool.
+
+Separately, since you have Luke Baker on the phone today: GRANGE HILL IS NOT ISSUED. Gintare has
+a quote with Adam for checking as of 13:10 today and I have sent Adam the corrections it needs.
+Do not tell Luke a Grange Hill number - there isn't a settled one yet.

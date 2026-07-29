@@ -1,0 +1,80 @@
+{
+ "client": "Chigwell (London) PLC",
+ "fao": "Luke Baker, Senior Quantity Surveyor",
+ "projectRef": "Grange Hill Methodist Church Ext - WD001 Windows and Doors",
+ "siteAddress": "Grange Hill Methodist Church, Burrow Road, Chigwell, Essex, IG7 4HQ",
+ "date": "29/07/2026",
+ "supplier": "",
+ "note": "",
+ "rows": [
+  {
+   "code": "",
+   "size": "5900 x 2300 + 2/no 2900 x 2400",
+   "qty": 1,
+   "unit": "nr",
+   "unitRateOverride": 14215.97,
+   "desc": "SOUTH ELEVATION - spec 3.14.1. Supply and install full storey height glazed entrance screen comprising 1/no 5900 x 2300mm door element with two 1200mm pivoted anti finger-trap door leaves and two fixed fields, level threshold, concealed panic bar, lever and cylinder, gate bolts to the secured leaf; with 2/no shaped units over (2900 x 2400 and 2900 x 2375) raking to the underside of the pitched roof. White polyester powder coated, polyamide thermal breaks, double glazed."
+  },
+  {
+   "code": "",
+   "size": "4588 x 2100 + 1200 x 2100",
+   "qty": 1,
+   "unit": "nr",
+   "unitRateOverride": 11569.26,
+   "desc": "WEST ELEVATION - spec 3.12.1. Supply and install full storey height glazed entrance screen comprising 1/no 4588 x 2100mm door element with a 1200mm pivoted anti finger-trap door leaf and two fixed fields, and 1/no separate 1200 x 2100mm single door element. Level threshold, concealed panic bar, lever and cylinder. White polyester powder coated, polyamide thermal breaks, double glazed.  ZERO RATED VAT ELEMENT - spec 3.12.1 (V)."
+  },
+  {
+   "code": "",
+   "size": "various - see qualification 1",
+   "qty": 1,
+   "unit": "item",
+   "unitRateOverride": 11493.36,
+   "desc": "WINDOWS - spec 3.11.1. Supply and install 11/no aluminium casement windows: 2/no 1200 x 3000, 8/no 1200 x 1183 and 1/no 2000 x 2100. White polyester powder coated, polyamide thermal breaks, double glazed.  QUANTITIES AND LOCATIONS TO BE CONFIRMED - see qualification 1."
+  },
+  {
+   "code": "",
+   "size": "-",
+   "qty": 1,
+   "unit": "item",
+   "unitRateOverride": 3000.0,
+   "desc": "ALLOWANCE - spec 3.13.1. Automatic operator package to the west disabled access door: operator sized to the door, safety sensor, additional door and frame strengthening, mounting plates, electrical supplies and equipment, internal and external push pads, internal emergency release and keyed isolating switch.  ALLOWANCE ONLY - no specialist quotation obtained, see qualification 8.  ZERO RATED VAT ELEMENT - spec 3.13.1 (V)."
+  },
+  {
+   "code": "",
+   "size": "-",
+   "qty": 1,
+   "unit": "item",
+   "unitRateOverride": 250.0,
+   "desc": "ALLOWANCE - spec 3.11.2. Apply fish symbol manifestations to the inner surface of all new glazing to the south and west elevations, approx 150 x 75mm, full width of glass, client to supply the pdf artwork."
+  }
+ ],
+ "mastic": 0,
+ "epdm": 0,
+ "priceText": "GBP 40,528.59",
+ "summary": [
+  "Fenster Glazing is pleased to submit its quotation for package WD001, Windows and Doors, at Grange Hill Methodist Church, Burrow Road, Chigwell.",
+  "Our price covers specification clauses 3.11.1, 3.11.2, 3.12.1, 3.13.1 and 3.14.1. It is based on fabricator's quotations dated 29 July 2026 and is offered subject to the qualifications set out in our covering letter, which form part of this offer."
+ ],
+ "inclusions": [
+  "Supply and installation of the aluminium windows, doors and screens scheduled above",
+  "White polyester powder coated finish, polyamide thermal breaks, double glazed units",
+  "Level thresholds to the south and west entrance doors",
+  "Panic hardware, lever furniture and cylinders to the entrance doors",
+  "Allowance for the automatic operator package to the west disabled access door (see qualification 8)",
+  "Allowance for the fish symbol manifestations, client to supply artwork",
+  "Site survey before manufacture"
+ ],
+ "exclusions": [
+  "Chapel folding doors and the glazed section over - spec 3.15.1 (qualification 2)",
+  "Privacy film to the folding door glass - spec 3.15.2 (qualification 3)",
+  "Removal of the existing internal fire check door - spec 3.16.1 (qualification 4)",
+  "2/no FD60 internal fire check doorsets and associated builders work - spec 3.16.2 (qualification 4)",
+  "Delivery to site - see the covering letter",
+  "Structural support to the glazing above the door elements (qualification 7)",
+  "External perimeter mastic and EPDM membrane to reveals (qualification 12)",
+  "Making good, builders work, scaffolding, temporary works and out of hours working",
+  "VAT"
+ ],
+ "outXlsx": "C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\outputs\\Grange Hill Methodist Church - WD001 Pricing Document (29-07-2026).xlsx",
+ "outHtml": "C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\outputs\\Grange Hill Methodist Church - WD001 Proposal (29-07-2026).html"
+}

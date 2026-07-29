@@ -1,0 +1,40 @@
+CHECK THE ESTIMATOR'S SENT ITEMS BEFORE YOU BUILD A TENDER RETURN. GINTARE HAD ALREADY BUILT MINE.
+
+Grange Hill today. I spent the turn building a WD001 return - priced document, qualifications,
+covering note - and emailed it to Adam at 14:32. Gintare had sent him the real pack at 13:10:
+pricing document, proposal, and BSW's own drawings marked up with a reference for every unit.
+Four minutes after the work order I was given. Two live numbers for one package in Adam's inbox
+an hour apart, which is the Redditch failure with the roles swapped.
+
+  `python scripts\quote_send_dates.py` reads estimating@'s sent folder and would have shown it.
+  RUN IT BEFORE YOU BUILD, not only when someone asks whether a quote left. It only searches a
+  hard-coded job list, so ADD YOUR JOB TO IT - Leys Sports Pavilion and Grange Hill are now in.
+
+The half that made the turn worth having: reading her pack against the supplier quotes found
+GBP 419.32 of BSW supply that is bought and not sold - she prices seven 1200x1183 windows where
+BSW quote eight, her Frames column is GBP 22,411.77 against BSW's GBP 22,831.09, and the drawings
+going to the client show all thirteen units. Same shape as Wexham's restrictors: supply passes
+through pound for pound, so it comes off margin. CHECKING THE ESTIMATOR'S DOCUMENT AGAINST THE
+SUPPLIER QUOTE IS WORTH MORE THAN BUILDING A RIVAL ONE.
+
+TWO OTHER THINGS THAT ARE NOT ABOUT THIS JOB:
+
+1. THE MASTER PRICING DOC TEMPLATE ITSELF STILL CARRIED THE REQ-27 EXTERNAL LINKS. The 28/07
+   scrub cleaned the Grange Hill OUTPUT; nobody cleaned templates\MASTER PRICING DOC.xlsx, so
+   every document generated from it since has been born with C:\Users\Parke\ and
+   C:\Users\LiamO'Donnell\ inside it. Scrubbed today, backup at .pre-scrub. When you fix a
+   defect in a generated file, ask what generated it.
+   (Watch the creator string: clean_issued_pack writes it straight into core.xml, so an
+   ampersand in the company name makes the part unparseable. Spell it "and".)
+
+2. WE OFFER A 10-YEAR WARRANTY BACKED BY SUPPLIERS WHO STATE NO PERIOD AT ALL. Our standard
+   clause covers glass and frames for 10 years "subject to the terms and conditions of any
+   applicable manufacturer warranties" - and neither BSW quotation states a warranty period,
+   nor have we ever read BSW's terms of sale. It also names no start date. House-wide, on
+   every job, not a Grange Hill fact.
+
+3. A HOUSE CONVENTION IS WHAT YOU USE WHEN NOBODY HAS QUOTED IT. `mary_checks` used to fail any
+   full-height screen not priced as curtain walling; on this job the CW convention was the
+   error - it put the rate near GBP 1,000/m2 sell where BSW quote GBP 598/m2, GBP 13,000 of a
+   GBP 27,560 benchmark. The rule now accepts "supplier quotation" as a pass and still fires on
+   Greenfields. Eight variants in the selftest.

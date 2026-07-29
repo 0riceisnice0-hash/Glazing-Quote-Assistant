@@ -1,17 +1,17 @@
 {
  "job": "Grange Hill Methodist Church (Chigwell (London) PLC) - package WD001 Windows and Doors",
  "created": "2026-07-28",
- "_state": "BSW returned 29/07 10:48 - two quotes. Bellview 0000000520 doors GBP 13,354.08 Grand Total Net (15% discount applied at the foot; LINE prices are pre-discount). BSW QT253562 windows GBP 9,477.01, line prices already net. Supplier buy GBP 22,831.09. Engine sell on those rates GBP 37,278.59.",
+ "_state": "29/07 14:xx - tender return pack BUILT at the BSW-backed number. Bellview 0000000520 doors GBP 13,354.08 Grand Total Net (15% at the foot; LINE prices are pre-discount). BSW QT253562 windows GBP 9,477.01, line prices already net. Supplier buy GBP 22,831.09, engine sell GBP 37,278.59, plus GBP 3,250 of house allowances = GBP 40,528.59. Twelve qualifications now written on the face of the priced document. The residual FAILs below are DISCLOSED, not cleared - each one is covered by a numbered qualification the client reads.",
  "coupled_runs": [
   {
-   "name": "West elevation - door element with windows above to the pitched ceiling",
+   "name": "West elevation - door element with glazing above to the pitched ceiling",
    "elements": [
     {
      "ref": "Bellview 002 door element 4588x2100",
      "system": "SMA Smart Wall"
     },
     {
-     "ref": "QT253562 windows above",
+     "ref": "QT253562 glazing above",
      "system": "Sheerline"
     }
    ]
@@ -45,16 +45,6 @@
    "ref": "Bellview 003 south element 5900x2300 incl double door",
    "fire_exit": true,
    "panic_hardware_priced": true
-  },
-  {
-   "ref": "3.15.1 chapel folding doors",
-   "fire_exit": false,
-   "panic_hardware_priced": false
-  },
-  {
-   "ref": "3.16.2 FD60 internal fire check doorsets 2No",
-   "fire_exit": true,
-   "panic_hardware_priced": false
   }
  ],
  "frame_supply": "glazed",
@@ -76,13 +66,8 @@
    "drawing_qty": 1
   },
   {
-   "ref": "3.15.1 chapel folding door run (approx 5.8m) + fixed glazed section over",
-   "bill_qty": 1,
-   "drawing_qty": 1
-  },
-  {
-   "ref": "3.16.2 FD60 internal fire check doorsets",
-   "bill_qty": 2,
+   "ref": "3.11.1 plain rectangular windows priced by BSW (2No 1200x3000, 8No 1200x1183, 1No 2000x2100) - DISCLOSED as qualification 1: no window schedule exists, no setting-out drawing has been issued, and clauses 3.11-3.14 describe the two screens and their doors only",
+   "bill_qty": 11,
    "drawing_qty": 0
   }
  ],
@@ -109,19 +94,19 @@
   },
   {
    "ref": "3.15.1 Chapel aluminium folding doors approx 5.8m + fixed glazed section over, dark brown PPC, bronze tinted DGU",
-   "treatment": "unresolved"
+   "treatment": "excluded"
   },
   {
    "ref": "3.15.2 Horizontal frosted strip patterned privacy film to folding door glass, full width x 1.2m high",
-   "treatment": "unresolved"
+   "treatment": "excluded"
   },
   {
    "ref": "3.16.1 Remove existing fire check door to corridor incl framing, clear from site, set aside timber",
-   "treatment": "unresolved"
+   "treatment": "excluded"
   },
   {
    "ref": "3.16.2 Supply 2No FD60 doorsets 1200mm wide - vision panes, closers, finger plates, D pulls, mortise lock with thumbturn, magnetic hold-opens wired to fire detection, timber infill framing, 2 layers 12mm plasterboard both sides taped and skimmed",
-   "treatment": "unresolved"
+   "treatment": "excluded"
   }
  ],
  "supplier_quotes": [
@@ -129,29 +114,38 @@
    "supplier": "Bellview Products / BSW Window Solutions",
    "ref": "0000000520",
    "date": "2026-07-29",
-   "used_net": true
+   "valid_until": "2026-08-28",
+   "used_net": true,
+   "value": 13354.08
   },
   {
    "supplier": "BSW Window Solutions",
    "ref": "QT253562",
    "date": "2026-07-29",
-   "used_net": true
+   "valid_until": "2026-08-28",
+   "used_net": true,
+   "value": 9477.01
   }
  ],
  "full_height_screens": [
   {
-   "ref": "3.14.1 south elevation glazed entrance screen 4542 x 2747",
-   "priced_as": "curtain walling"
+   "ref": "3.14.1 south elevation - Bellview 003 door element 5900x2300 with QT253562 items 12/13 raking over",
+   "priced_as": "supplier quotation, line by line"
   },
   {
-   "ref": "3.12.1 west elevation glazed screen 4588 x 2400",
-   "priced_as": "curtain walling"
+   "ref": "3.12.1 west elevation - Bellview 002 door element 4588x2100 plus Bellview 001 single door 1200x2100",
+   "priced_as": "supplier quotation, line by line"
   }
  ],
  "systems_specified": [
   {
-   "system": "No system named - spec 3.11.1/3.15.1 ask only for aluminium with polyamide thermal breaks",
-   "fabricator": "BSW (RFQ issued 24/07 15:14 and 15:29, no return)"
+   "system": "No system named - spec 3.11.1/3.15.1 ask only for aluminium with polyamide thermal breaks, and the tender documents set no thermal, acoustic or security performance figure anywhere",
+   "fabricator": "BSW / Bellview - Sheerline Prestige windows, SMA Smart Wall Pocket doors, both quoted 29/07",
+   "performance": {
+    "required": null,
+    "capable": null,
+    "evidence": "The pack sets no numeric performance requirement. Spec 3.11.1 says only 'comply with current building regulations and U values'; no U-value, acoustic or security class is stated in section 3, on any elevation, or on the Document Register. Recorded as an empty requirement rather than left blank."
+   }
   }
  ],
  "finishes": [
@@ -161,18 +155,11 @@
    "specified_external": "white powder coated",
    "quoted_internal": "9910HG Hipca White / WP",
    "quoted_external": "9910HG Hipca White / WP"
-  },
-  {
-   "ref": "3.15.1 chapel folding doors",
-   "specified_internal": "dark brown powder coated",
-   "specified_external": "dark brown powder coated",
-   "quoted_internal": "not quoted - BSW decline the product",
-   "quoted_external": "not quoted - BSW decline the product"
   }
  ],
  "u_value": {
   "required": null,
-  "basis": "not stated",
+  "basis": "not stated - no U-value appears anywhere in the tender documents",
   "rejected_elements": []
  },
  "supplier_coverage": [
@@ -180,30 +167,36 @@
    "ref": "West elevation glazing and doors",
    "qty_sold": 1,
    "qty_quoted": 1,
-   "supplier_ref": "0000000520 + QT253562"
+   "supplier_ref": "0000000520 positions 001 + 002"
   },
   {
    "ref": "South elevation glazing and doors",
    "qty_sold": 1,
    "qty_quoted": 1,
-   "supplier_ref": "0000000520 + QT253562"
+   "supplier_ref": "0000000520 position 003 + QT253562 items 12/13"
+  },
+  {
+   "ref": "Plain rectangular windows",
+   "qty_sold": 11,
+   "qty_quoted": 11,
+   "supplier_ref": "QT253562 items 1-11"
   },
   {
    "ref": "Automatic door operator package to west door",
    "qty_sold": 1,
    "qty_quoted": 0,
-   "supplier_ref": "none - not in either BSW quote"
+   "supplier_ref": "none - declared on the face of the quotation as an ALLOWANCE, qualification 8"
   },
   {
    "ref": "Fish symbol manifestations",
    "qty_sold": 1,
    "qty_quoted": 0,
-   "supplier_ref": "none"
+   "supplier_ref": "none - declared on the face of the quotation as an ALLOWANCE"
   }
  ],
  "price_commitment": {
-  "source": "Not held. The Once For All enquiry WD001 work package description was never opened; the Document Register issued 24/07 lists only drawings and the main-contract specification, so no validity clause is in our possession. Spec 1.2 puts the works Nov 2026 - Jul 2027.",
-  "our_price_open_until": null
+  "source": "Our own quotation, 29/07/2026. The Once For All enquiry WD001 work package description has still never been opened, so no client validity clause is in our possession. Spec 1.2 puts the works Nov 2026 - Jul 2027.",
+  "our_price_open_until": "2026-08-28"
  },
  "delivery_terms": [
   {
@@ -211,7 +204,7 @@
    "ref": "QT253562",
    "order_value": 9477.01,
    "free_delivery_threshold": null,
-   "charge_basis": "'All estimates are ex works, additional delivery charges may apply' - printed on the quote",
+   "charge_basis": "'All estimates are ex works, additional delivery charges may apply' - printed on the quote. No carriage rate has been obtained, so delivery to site is EXCLUDED on the face of our quotation rather than assumed.",
    "delivery_priced": false
   },
   {
@@ -219,7 +212,7 @@
    "ref": "0000000520",
    "order_value": 13354.08,
    "free_delivery_threshold": null,
-   "charge_basis": "no delivery terms stated on the quote at all",
+   "charge_basis": "no delivery terms stated on the quote at all. Delivery to site EXCLUDED on the face of our quotation.",
    "delivery_priced": false
   }
  ],
@@ -231,25 +224,66 @@
    "held": false
   }
  ],
+ "warranty": {
+  "ours": {
+   "period_months": 120,
+   "scope": "Fenster's standard clause, read at source in templates/proposal-content.json: 'a 10-year warranty covering all glass and frame products supplied and installed by the company... defects in materials (as supplied) and workmanship (installation)... subject to the terms and conditions of any applicable manufacturer warranties'. It names no start date, and the manufacturer warranties it defers to are the ones neither fabricator has stated.",
+   "start_date": null,
+   "usage_cap": null,
+   "exclusions": []
+  },
+  "suppliers": [
+   {
+    "supplier": "BSW Window Solutions",
+    "ref": "QT253562",
+    "covers": "not stated on the quotation",
+    "period_months": null,
+    "start_date": null,
+    "usage_cap": null,
+    "exclusions": [],
+    "exclusions_complete": false
+   },
+   {
+    "supplier": "Bellview Products",
+    "ref": "0000000520",
+    "covers": "not stated on the quotation",
+    "period_months": null,
+    "start_date": null,
+    "usage_cap": null,
+    "exclusions": [],
+    "exclusions_complete": false
+   }
+  ]
+ },
  "qualification_regime": {
   "document": "Once For All portal enquiry - Chigwell (London) PLC package WD001 Windows and Doors",
-  "clause": "Not held - the work package description behind 'View enquiry' has never been opened. The Document Register (generated 24/07 09:20) lists 26 drawings plus the specification and no form of tender or package conditions.",
+  "clause": "Still not held. CORRECTED 29/07: the tender workbook DOES contain a form of tender - 'Appendix 1 - tender sheet' - but it is the MAIN CONTRACT form, for Chigwell to return to the church, priced as Works with Option 1/2/3 and Zero VAT works. It sets no terms on a subcontract package. The Document Register lists 26 drawings plus the specification and nothing else, and the work package description behind 'View enquiry' has never been opened - that is where any WD001 qualification clause would sit.",
   "qualifications_permitted": null,
   "we_must_sign": null
  },
  "priced_lines": [
   {
-   "ref": "West + south glazing and doors (supplier backed)",
-   "amount": 37278.59,
+   "ref": "South elevation - 3.14.1 (supplier backed)",
+   "amount": 14215.97,
    "covered_by_our_exclusions": false
   },
   {
-   "ref": "ALLOW - Automatic door operator package",
+   "ref": "West elevation - 3.12.1 (supplier backed)",
+   "amount": 11569.26,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "Windows - 3.11.1, 11 units (supplier backed, quantities not agreed - qualification 1)",
+   "amount": 11493.36,
+   "covered_by_our_exclusions": false
+  },
+  {
+   "ref": "ALLOW - Automatic door operator package - 3.13.1",
    "amount": 3000.0,
    "covered_by_our_exclusions": false
   },
   {
-   "ref": "ALLOW - Fish symbol manifestations",
+   "ref": "ALLOW - Fish symbol manifestations - 3.11.2",
    "amount": 250.0,
    "covered_by_our_exclusions": false
   }
@@ -260,49 +294,55 @@
    "amount": 3000.0,
    "supplier_ref": null,
    "supplier_qty": null,
-   "supplier_qty_basis": "no supplier has been approached - this is a house allowance, not a bought-in price",
+   "supplier_qty_basis": "no supplier has been approached - a house allowance, declared as an allowance and not a quotation on the face of the client document (qualification 8)",
    "spec_required_qty": 1,
    "spec_qty_basis": "one operator to the single west DDA door, plus strengthening, mounting plates, electrical supplies and equipment, push pads internal and external, internal emergency release and a keyed isolating switch"
   }
  ],
  "issued_documents": [
   {
-   "name": "Grange Hill Methodist Church - Fenster Pricing Document (house format).xlsx",
-   "path": "outputs\\Grange Hill Methodist Church - Fenster Pricing Document (house format).xlsx",
+   "name": "Grange Hill Methodist Church - WD001 Pricing Document (29-07-2026).xlsx",
+   "path": "outputs\\Grange Hill Methodist Church - WD001 Pricing Document (29-07-2026).xlsx",
    "is_the_priced_document": true,
-   "exclusions_stated": 0
+   "exclusions_stated": 12
   }
  ],
+ "_not_issued": "A proposal HTML was generated alongside the pricing document and is NOT in issued_documents: the placeholder scan caught three photo frames reading 'insert site/product photo' on its cover. No site photography exists for this job, so it cannot go to a client. Kept as a draft at outputs\\Grange Hill Methodist Church - WD001 Proposal (29-07-2026).html.",
  "exposures": [
   {
-   "item": "Spec 3.15 chapel folding doors - confirmed ours by Zac 27/07, in the BSW RFQ of 24/07 15:29, but not in the benchmark and no exclusion written",
-   "lands_on": "Fenster",
-   "our_recourse": "none"
+   "item": "Eleven plain rectangular windows (22.76 m2, GBP 6,020.86 buy, GBP 11,493.36 of our sell) that BSW scheduled from their own re-scale. The new entrance building's own glazing is the three door elements plus the two raking gable units; clauses 3.11-3.14 describe nothing else, and no window schedule or setting-out drawing exists",
+   "lands_on": "Chigwell, if they confirm; Fenster, if they do not read the qualification",
+   "our_recourse": "Qualification 1 on the face of the priced document states the units, the sum and the deduction if they are not ours"
   },
   {
-   "item": "Spec 3.16 internal FD60 fire check doorsets - never priced, never in any RFQ, never ruled on",
-   "lands_on": "Fenster",
-   "our_recourse": "none"
+   "item": "Spec 3.15 chapel folding doors - confirmed ours by Zac 27/07, refused by BSW 29/07, no chapel elevation anywhere in the pack",
+   "lands_on": "nobody yet - excluded",
+   "our_recourse": "Qualification 2, excluded on the face of the priced document"
   },
   {
-   "item": "The folding doors are on plan (GH 006 R5 and N/GH 032, chapel 5800mm wide) but no ELEVATION of the chapel was issued, so the door height and the fixed glazed section up to the underside of the pitched ceiling have no dimension anywhere in the pack",
-   "lands_on": "Fenster",
-   "our_recourse": "none"
+   "item": "Spec 3.16 internal FD60 fire check doorsets and associated builders work - never priced, never in any RFQ, REQ-33 still unanswered",
+   "lands_on": "nobody yet - excluded",
+   "our_recourse": "Qualification 4, excluded on the face of the priced document"
   },
   {
-   "item": "The 2No FD60 doorsets appear on no drawing and in no door schedule - spec 3.16.2 words only, 1200mm wide",
-   "lands_on": "Fenster",
-   "our_recourse": "none"
+   "item": "Delivery from Peterborough to Chigwell - both fabricator quotations are ex works and no carriage rate has been obtained",
+   "lands_on": "nobody yet - excluded",
+   "our_recourse": "Excluded on the face of the quotation. Adam's commercial call whether to absorb it instead"
   },
   {
-   "item": "Price validity - works run Nov 2026 to Jul 2027 and no supplier quote yet exists to hold behind our figure",
-   "lands_on": "Fenster",
-   "our_recourse": "none"
+   "item": "Price validity - the material costs behind the figure expire 28/08/2026 and the works run Nov 2026 to Jul 2027",
+   "lands_on": "Chigwell",
+   "our_recourse": "Qualification 10 puts re-confirmation at the point of order"
   },
   {
-   "item": "Package return date is 27 July 2026 on both the invitation and the Document Register; Fenster has carried 28 July throughout",
+   "item": "The glazing above each door element cannot be coupled to it - 100mm doors, 70mm windows, and Smart Wall has no window product (BSW in writing, 29/07). South is arguably borne on the 150x90x24 PFC facade header on S1323/02 Rev C01; west has no such evidence",
+   "lands_on": "Fenster if no independent support exists",
+   "our_recourse": "Qualification 7 states the assumption and asks for the west head detail"
+  },
+  {
+   "item": "Package return date was 27 July 2026 on both the invitation and the Document Register; Fenster carried 28 July throughout and the extension request of 28/07 15:01 was never answered - Luke Baker replied only 'Are you able to provide the costs today?'",
    "lands_on": "Fenster",
-   "our_recourse": "Adam requested an extension from Luke Baker 28/07 14:01 - unanswered"
+   "our_recourse": "none - the return is late either way"
   }
  ],
  "own_domains": [

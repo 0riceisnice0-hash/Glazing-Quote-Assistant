@@ -307,23 +307,51 @@ def check_net_pricing(m):
 def check_full_height_screens(m):
     """Greenfields calibration, 22/07. Fenster's own sent quote priced
     full-height stair screens as curtain walling at 850/m2 + 150/m2 labour,
-    NOT as windows. Mary coded them as windows and came out 6.3% high."""
+    NOT as windows. Mary coded them as windows and came out 6.3% high.
+
+    WIDENED on Grange Hill, 29/07/2026, and in the other direction. The rule read
+    'not curtain walling' as 'priced as windows', so it fired on a screen priced
+    off a SUPPLIER QUOTATION - and on that job the convention was the error, not
+    the fix: CW put the rate at ~GBP1,000/m2 sell where BSW quoted GBP598/m2 and
+    build the thing as coupled casements over a door element. That was GBP13,000
+    of a GBP27,560 benchmark, logged in data/calibration.json.
+
+    The convention is what you use when nobody has quoted it. A supplier
+    quotation supersedes it, exactly as the standing rule says - supplier-backed
+    is always preferred, and a benchmark is evidence, never a firm price. So
+    'supplier' is a PASS and says which basis it passed on; anything else is
+    still the Greenfields error."""
     screens = m.get("full_height_screens")
     if screens is None:
         return result("full-height screens as curtain walling", UNKNOWN,
-                      "Any full-height / floor-to-ceiling screens? "
-                      "'full_height_screens': [{ref, priced_as: 'curtain walling'|'window'}].",
+                      "Any full-height / floor-to-ceiling screens? 'full_height_screens': "
+                      "[{ref, priced_as: 'curtain walling'|'supplier quotation'|'window'}].",
                       "Greenfields")
     if not screens:
         return result("full-height screens as curtain walling", NA, "no full-height screens", "Greenfields")
-    wrong = [s.get("ref", "?") for s in screens
-             if "curtain" not in str(s.get("priced_as", "")).lower()]
+    cw, supplied, wrong = [], [], []
+    for s in screens:
+        basis = str(s.get("priced_as", "")).lower()
+        if "curtain" in basis:
+            cw.append(s.get("ref", "?"))
+        elif "supplier" in basis:
+            supplied.append(s.get("ref", "?"))
+        else:
+            wrong.append(s.get("ref", "?"))
     if wrong:
         return result("full-height screens as curtain walling", FAIL,
-                      "Full-height screens priced as windows: %s. House convention is curtain "
-                      "walling - GBP850/m2 supply + GBP150/m2 labour." % ", ".join(wrong), "Greenfields")
+                      "Full-height screens priced as windows: %s. With no supplier quotation the "
+                      "house convention is curtain walling - GBP850/m2 supply + GBP150/m2 labour."
+                      % ", ".join(wrong), "Greenfields",
+                      remedy="Price them on the curtain-walling convention, or get the screen "
+                             "quoted and price it off the quotation.")
+    bits = []
+    if supplied:
+        bits.append("%d off a supplier quotation, which supersedes the convention" % len(supplied))
+    if cw:
+        bits.append("%d on the curtain-walling convention" % len(cw))
     return result("full-height screens as curtain walling", PASS,
-                  "%d screen(s) on the curtain-walling convention" % len(screens), "Greenfields")
+                  "%d screen(s): %s" % (len(screens), "; ".join(bits)), "Greenfields")
 
 
 # A 'fabricator' that is actually a statement that nobody can make it. The rule
@@ -3133,6 +3161,45 @@ def selftest_fabricator_variants():
     return ok
 
 
+SCREEN_VARIANTS = [
+    ("field absent", None, UNKNOWN),
+    ("no screens on the job", [], NA),
+    # Greenfields, the founding error - a full-height screen coded as a window.
+    ("priced as a window", [{"ref": "stair screen", "priced_as": "window"}], FAIL),
+    ("priced blank", [{"ref": "stair screen", "priced_as": ""}], FAIL),
+    ("curtain walling", [{"ref": "stair screen", "priced_as": "curtain walling"}], PASS),
+    # Grange Hill, 29/07 - the convention was the error and the quotation was right.
+    ("supplier quotation", [{"ref": "south screen", "priced_as": "supplier quotation, line by line"}], PASS),
+    ("one of each", [{"ref": "a", "priced_as": "curtain walling"},
+                     {"ref": "b", "priced_as": "supplier quotation"}], PASS),
+    # A quotation for one and a guess for the other is still the founding error.
+    ("supplier quote plus a window", [{"ref": "a", "priced_as": "supplier quotation"},
+                                      {"ref": "b", "priced_as": "window"}], FAIL),
+]
+
+
+def selftest_screen_variants():
+    """Recall test for check_full_height_screens.
+
+    Greenfields must still fire, and the Grange Hill widening must not have
+    turned 'anything that is not curtain walling' into 'anything at all'."""
+    ok = True
+    for name, value, want in SCREEN_VARIANTS:
+        m = {}
+        if value is not None:
+            m["full_height_screens"] = value
+        try:
+            got = check_full_height_screens(m)["status"]
+        except Exception as exc:                      # noqa: BLE001 - a crash is a failure
+            got = "CRASH: %s" % exc
+        if got != want:
+            print("  screen variant %-45s wanted %s, got %s" % (name, want, got))
+            ok = False
+    print("  %-22s %d variant(s) checked%s"
+          % ("full-height screens", len(SCREEN_VARIANTS), "" if ok else "  SOME FAILED"))
+    return ok
+
+
 def selftest_one_crash_costs_one_rule():
     """A rule that raises must lose itself, not the rest of the run.
 
@@ -3230,6 +3297,8 @@ def selftest():
     if not selftest_qualification_variants():
         ok = False
     if not selftest_fabricator_variants():
+        ok = False
+    if not selftest_screen_variants():
         ok = False
     if not selftest_one_crash_costs_one_rule():
         ok = False

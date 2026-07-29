@@ -30,6 +30,12 @@ JOBS = [
     ("Unit 1 Eleanor Trade Centre", ["Eleanor"]),
     ("Riverside House AOV vents", ["Riverside"]),
     ("Chester Thomas arched window", ["Chester Thomas", "Earls Barton"]),
+    # Added 29/07/2026: Jacob asked whether the GBP 44,035.22 had left and when,
+    # with Chigwell's own bid to Barking and Dagenham closing the same day. It was
+    # not in this list, so the answer had to be dug out by hand - which is exactly
+    # the work this script exists to stop anyone repeating.
+    ("Leys Sports Pavilion", ["Leys Sports Pavilion", "Leys Park"]),
+    ("Grange Hill Methodist", ["Grange Hill"]),
 ]
 
 INTERNAL = "fensterglazing.com"

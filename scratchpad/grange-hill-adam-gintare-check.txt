@@ -1,0 +1,56 @@
+Adam,
+
+I did not know Gintare had built this. Her QUOTE TO CHECK at 13:10 is the real tender pack -
+pricing document, proposal and marked-up drawings.
+
+SEND HERS, NOT THE ONE I SENT YOU AT 14:32. Mine was built blind an hour later, and two live
+numbers on one package is exactly how Redditch went wrong this morning. Hers is the house
+document and it is the better pack - her marked-up drawings give every unit a reference, which
+the tender pack itself never did.
+
+Five things to fix in it before it goes.
+
+1. ONE WINDOW IS PRICED SHORT - GBP 419.32 OF BSW WE HAVE NOT SOLD.
+   BSW quote thirteen window units. Her schedule prices twelve: seven of the 1200 x 1183 where
+   BSW quote eight. Her Frames column totals GBP 22,411.77 against BSW's GBP 22,831.09 and the
+   difference is exactly one 1200 x 1183 at GBP 419.32. The drawings going out with the quote
+   show all thirteen. So either we issue a drawing pack showing a window we have not sold, or
+   BSW's quote carries a unit too many and must be corrected before we order. About GBP 830 of
+   sell either way.
+
+2. THE AUTOMATIC DOOR OPERATOR IS NOT IN IT.
+   Spec 3.13.1 - operator, strengthening, mounting plates, electrics, push pads both sides,
+   emergency release, keyed isolator, all on the west DDA door. Neither priced nor excluded.
+   The proposal excludes "access control, door sensors" in the general list, which a QS will
+   not read as the DDA operator on a clause written to us. It needs either an allowance or a
+   plain exclusion. Not silence.
+
+3. NOR THE FISH MANIFESTATIONS. Spec 3.11.2, all new south and west glazing, client supplies
+   the artwork. Neither priced nor excluded.
+
+4. 3.15.2 AND 3.16 ARE STILL SILENT. The chapel folding doors ARE properly excluded ("internal
+   bifold doors have not been allowed"). The privacy film and the two FD60 doorsets - with
+   their timber framing, plasterboard and magnetic hold-opens wired to the fire detection - are
+   in neither the price nor the exclusions. That is the gap I raised on the 28th, still open.
+
+5. DELIVERY. The proposal says "materials will be delivered to site". Both BSW quotes are ex
+   works and nobody has a carriage rate Peterborough to Chigwell. Price it or qualify it.
+
+Two smaller, worth a minute each:
+
+- NO VAT SPLIT. The specification names 3.12.1 (V) and 3.13.1 (V) as zero rated and prices
+  zero-rated work in its own column. The quote reads "GBP 39,006.77 + VAT" flat.
+- GLASS. The proposal says "6mm toughened / 6mm toughened Solar glazing". BSW have actually
+  quoted SKN 176 HP Neutral in the windows and Anti Sun Grey in the doors - two different tints
+  in the same elevations - against a spec naming Pilkington Optitherm S1 Arctic Blue. Samples
+  are required before order so it surfaces either way. One line saying we have offered an
+  equivalent protects us.
+
+Wording for all of it is in the document I sent at 14:32 - lift whatever saves time. I am not
+sending another number on this job.
+
+One thing her pack does that mine did not, worth keeping as the house habit: the drawings issued
+with the quote are BSW's own sheets with the prices and BSW's name taken off and ours put on. On
+Gordon Court we issued five supplier quotations to this same QS with 42 line prices on them.
+
+Mary
