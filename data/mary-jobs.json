@@ -327,18 +327,33 @@
    ],
    "senders": [],
    "opened": "2026-07-28T19:25:37"
+  },
+  "south-street-bridport": {
+   "name": "10 South Street, Bridport - shopfront replacement",
+   "client": "Waste Not Want Not Bridport Ltd (Lydia Wilson)",
+   "match": [
+    "waste not want not",
+    "lydia wilson",
+    "south street",
+    "bridport",
+    "dt6 3nr",
+    "wnwnbridport",
+    "rkl tools"
+   ],
+   "senders": [],
+   "opened": "2026-07-29T16:46:52"
   }
  },
  "chats": {
   "triage": {
-   "session_id": "19792a8d-f989-4288-a634-7d309d4e7f3b",
+   "session_id": "5412697e-77e7-4eab-8af4-0bf93d819cbc",
    "started": true,
    "created": "2026-07-27T13:43:40",
-   "last_active": "2026-07-29T12:06:13",
-   "runs": 24,
-   "rotated_from": "8c8412c3-75b0-471e-b7ed-316ea918af08",
-   "rotated_at": "2026-07-29T09:37:33",
-   "rotations": 2
+   "last_active": "2026-07-29T16:18:20",
+   "runs": 32,
+   "rotated_from": "19792a8d-f989-4288-a634-7d309d4e7f3b",
+   "rotated_at": "2026-07-29T14:58:32",
+   "rotations": 3
   },
   "filwood": {
    "session_id": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
@@ -388,8 +403,8 @@
    "session_id": "45734632-a617-4b15-87fb-0a6fa8e4cfd1",
    "started": true,
    "created": "2026-07-27T16:14:24",
-   "last_active": "2026-07-28T22:38:27",
-   "runs": 2
+   "last_active": "2026-07-29T14:54:53",
+   "runs": 4
   },
   "riverside": {
    "session_id": "87c81798-b54f-423c-8eb0-1f82024ebfbd",
@@ -461,11 +476,14 @@
    "runs": 2
   },
   "grange-hill": {
-   "session_id": "78f006db-f9a7-461e-b131-9d8fc1073cc9",
+   "session_id": "92db955c-498b-4ee4-be71-706d762cd00c",
    "started": true,
    "created": "2026-07-28T18:14:21",
-   "last_active": "2026-07-29T12:17:32",
-   "runs": 5
+   "last_active": "2026-07-29T14:47:14",
+   "runs": 6,
+   "rotated_from": "78f006db-f9a7-461e-b131-9d8fc1073cc9",
+   "rotated_at": "2026-07-29T14:08:00",
+   "rotations": 1
   },
   "vesuvius": {
    "session_id": "9c5ca9d8-20c5-4a07-885b-37043eda3414",
@@ -504,6 +522,13 @@
    "created": "2026-07-29T08:10:24",
    "last_active": "2026-07-29T08:16:58",
    "runs": 1
+  },
+  "south-street-bridport": {
+   "session_id": "961da8eb-86b8-411f-b5c8-f91085ff38e7",
+   "started": false,
+   "created": "2026-07-29T16:46:52",
+   "last_active": null,
+   "runs": 0
   }
  }
 }

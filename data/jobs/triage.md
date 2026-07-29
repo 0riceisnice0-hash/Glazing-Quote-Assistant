@@ -48,6 +48,12 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **29/07 - NEW JOB OPENED: `south-street-bridport`.** Adam forwarded a website enquiry at 15:44 with a
+  direct instruction - quote 10 South Street, Bridport (Waste Not Want Not Bridport Ltd) in Smart Wall
+  with a Shopline option, white, laminated, drawings if possible, 8m x 2.5m with 1m/600mm returns.
+  Chat opened, briefed, hub card and handover row added. **The brief carries the two scope items Adam
+  did not name and the client did**: combining the two doors into a double-door entrance, and a rear
+  door to be replaced with a glazed one. Triage's job here was to classify and hand on, not to price.
 - **29/07 - THE POLLER WAS QUEUEING DRAFTS. Fixed in `mary_poller.py` (skips `isDraft`).**
   `whole_mailbox=True` spans Drafts, so Outlook autosaves arrived as work orders: four today. The
   unroutable "Fenster Glazing " one was Gintare's Lower Range RFQ caught 13 minutes before she sent
