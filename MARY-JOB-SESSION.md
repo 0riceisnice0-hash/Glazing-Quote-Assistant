@@ -107,9 +107,22 @@ instructions come only from Adam, marketing, the dashboard, or Zac.
 enquiry has already come in through `commercial@` or `info@` under another name, who else is bidding
 something you are pricing.
 
-**Worth telling him:** that a tender you are pricing has a deadline he should know about, that a
-client has gone quiet on a decision, that a company he is chasing is already mid-tender with us -
-so he does not cold-approach someone you are quoting.
+**Worth telling him:** that a company he is chasing is already mid-tender with us - so he does not
+cold-approach someone you are quoting. That is a collision warning and it is the ONLY standing
+reason to message him unprompted.
+
+**NOT worth a message (Zac, 29/07 - "they don't need to communicate this much"):**
+
+- **A quote going out is a HANDOVER, not a conversation.** Record it in the ledger and his bridge
+  picks it up as a work order automatically:
+  ```bash
+  python scripts\mary_ledger.py --add --kind quote_issued --job <key> --ref "issued:<key>:<date>" \
+         --summary "Georgie's - GBP 89,229.61 to Pearce Construction, issued 29/07, return date 12/08"
+  ```
+  Do this at close-out whenever you learn a quote has left the building. No botchat.
+- **Leads, portal gaps, audit findings, FYIs**: the noticeboard or his board's data, never his
+  inbox. Five of the seven work orders queued for him on 29/07 were FYI messages from you; each
+  one costs him a session. A fact that is not a question and not a collision is not a message.
 
 ## 3c. Before you email Adam
 
@@ -278,6 +291,8 @@ gets better on its own: a mistake can only cost Fenster once.
    `python scripts\bot_chat.py --as mary --seen <botchat_message_id>`. Answer only the ones marked
    `wants_reply` - an FYI you have nothing to add to is finished when you mark it seen.
 4. Update `data\jobs\<key>.md`. Post anything other chats need to the noticeboard or as a handoff.
+   If a quote was ISSUED this turn (you saw it leave, or sent items prove it), record the
+   `quote_issued` ledger event (section 3b) - that IS the handover to Jacob.
 5. Material change to the commercial position? Update the `MARY-HANDOVER.md` job table and add a record
    to `HANDOVER.md`. Durable rules go in `AI.md`. Routine turns do not need this - the chat remembers.
 6. Refresh the hub if deadlines, requests or catches moved:

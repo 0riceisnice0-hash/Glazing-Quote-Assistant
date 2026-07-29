@@ -22,6 +22,7 @@ agent that starves the estimator to go looking for leads is a bad trade.
 import argparse
 import json
 import os
+import re
 import subprocess
 import sys
 import time
@@ -140,6 +141,33 @@ def queue_work(cfg, state):
         state["seen"].append(key)
         added += 1
         log("QUEUED message from Mary: %s" % (m.get("subject") or m["body"][:50]))
+
+    # The QUOTE HANDOVER, structural (Zac, 29/07: "once mary knows we have
+    # sent out a quote, she should hand it over to jacob" - without the two
+    # of them having a conversation about it). Mary records quote_issued in
+    # the ledger at close-out; it arrives here as a work order. No botchat,
+    # no prose, no session spent on Mary's side.
+    try:
+        import mary_ledger
+        for e in mary_ledger.iter_events():
+            if e.get("kind") != "quote_issued":
+                continue
+            key = "handover-%s" % (e.get("ref") or "")[:80]
+            if not e.get("ref") or key in state["seen"]:
+                continue
+            save(os.path.join(QUEUE, "%s.json" % re.sub(r"[^\w.-]", "_", key)), {
+                "kind": "quote-handover", "trusted": True, "author": "mary-ledger",
+                "body": ("A quote has been ISSUED and is now yours to track: %s. "
+                         "Add it to your chasing register (data/jacob/ + the board), "
+                         "set the chase date, and say nothing to anyone - this is a "
+                         "handover, not a conversation." % e.get("summary", "")),
+                "ledger_ref": e.get("ref"), "job": e.get("job"),
+                "created": e.get("ts", "")})
+            state["seen"].append(key)
+            added += 1
+            log("QUEUED quote handover from the ledger: %s" % e.get("summary", "")[:70])
+    except Exception as e:  # noqa: BLE001 - the ledger must never break intake
+        log("ledger handover scan failed (harmless): %s" % str(e)[:100])
 
     state["seen"] = state["seen"][-500:]
     return added
