@@ -1,0 +1,39 @@
+Adam - done, and it is live now. Four things I have pushed back on, as invited.
+
+WHAT CHANGED
+
+Work is your four pages in your order: Today, Opportunities, Leads, Ready to Send. Nothing else is in Work any more.
+
+Opportunities now holds the open tenders as well as the award notices - they were on two pages ("Out to bid" and "Opportunities") and a job closing on Friday was sitting on a different page from a notice published after the enquiry list was drawn up. Each row carries the ten things you listed: company, project, location, scope, source, deadline, why it is relevant, recommended next action, owner, status. Your rule about cold and weak awards is enforced by a fold: the 7 prospecting rows and the 112 cold ones are behind a summary line and can never appear in the same table as a live tender.
+
+Leads absorbed Chasing and the Chase list. Every row now carries quote value ex VAT, issue date, your checklist step, owner, last meaningful contact, next action, next-action deadline, the chase history as a log rather than one note that the last call overwrote, expected decision date where a client has given one, and a status. I added won, lost, closed and on hold to the status list - they were not there, so there was literally no way to record on the board that we had won something. A row marked won or lost leaves the chase list and keeps its own section, because this board is the only place in the company an outcome gets written down at all.
+
+Ready to Send now shows purpose, linked client and project, intended recipient, intended sender, evidence used, wording to avoid and approval status on every draft.
+
+Chasing, the Chase list, the tender feed and Enquiries are now under a Data group, marked on their own faces as source pages, kept for audit exactly as you said.
+
+Today is rebuilt as the action list: client, project, stage, owner, next action, deadline, and why it is on the page. That last column is the one it did not have - a row could be there because a date arrived, because a quote had gone unanswered for a month, or because nobody had ever been given it, and the page told you what to do without telling you which.
+
+THE DAILY EMAIL - BUILT, NOT SENDING
+
+scripts/jacob_daily_email.py builds it in your exact format. Run today it produces three leads: St Mary's Merthyr Tydfil (GBP 174,546), Ninn Lane (GBP 100,730) and Leys Park (GBP 44,035), each with owner, stage, last contact, next action, deadline and value. Nothing else goes in it.
+
+I am not sending it, and I want to be straight about why rather than quietly not doing it. JAC-1 - whether I send anything at all, under any name - was answered by Zac on 28/07 as "drafts only for now". On your own division of the roles (hub-68), Zac owns what I am allowed to do and you own the pipeline. So you authorising this email is necessary and it is not sufficient; my instructions say raise a request rather than decide it myself, and testing the boundary to see what happens is specifically ruled out. That is JAC-15, open now. It is one line of config - JACOB_DAILY_EMAIL=on - and nothing else about the script changes.
+
+Until then the email is built every time it is asked for, written to disk, and any of you can read it and send it.
+
+One thing I need from you on it: when nothing is due, do you want the one-line "no chases due" email or silence? I have defaulted to sending it, because an empty inbox looks the same whether nothing was due or I fell over three days ago. Say the word and it goes silent.
+
+FOUR PUSHBACKS
+
+1. Your core rule, taken literally, breaks Today. AdminBase holds 209 chaseable rows and 134 of them carry a follow-up date that has already passed - not because anyone forgot, but because it is a CRM that closes nothing and the dates on it were set by the system, not by a person. Same for the missing-field rule: 64 records are missing a next action or a deadline and 59 of them are that same untouched export. I listed all of them once and it pushed the four verified quotes genuinely due today off the first screen. So: rows a person has actually worked are listed individually, and the untouched CRM tail is counted and folded, on Today and in the email both. The moment anybody sets a date, writes a note or takes ownership of one of them, it moves up into the list. If you would rather see all 134 every morning, say so and I will flip it - but I think you would stop reading the email inside a week.
+
+2. Live buyer conversations have no home in the new structure. Twenty-nine buyers are mid-conversation in commercial@ right now. They are not Opportunities - Fenster has already been contacted, by them. They are not Leads - nothing has been quoted. Right now anything actionable on one surfaces on Today and the conversations themselves sit under Data. That is a workaround, not an answer. JAC-16 asks you where they belong.
+
+3. The cold tier is 112 companies nobody can act on. They are on Opportunities because they are genuinely work Fenster has not contacted, but every one of them is blocked on JAC-2 - whether we do cold outreach at all - which has never been answered. Until it is, that section is a list waiting for a decision rather than a list of opportunities.
+
+4. Estimating: agreed, and it already works that way - except for the half that is mine by your own rule. Your 28/07 rule was that a job is Mary's while it is being priced and mine the moment the quote goes out. Leads is that second half. I do not price, I do not choose whether to price, and I do not touch her queue.
+
+One thing that is already true rather than a change: I cannot email a client even if I wanted to. The Exchange transport rule rejects anything from jacob@ addressed outside the company. Your list of what I must not do is right, and most of it is structural rather than policy.
+
+Jacob

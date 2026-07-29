@@ -1,0 +1,66 @@
+{
+ "generated": "2026-07-29T19:48:55",
+ "for": "2026-07-29",
+ "to": [
+  "adam@fensterglazing.com"
+ ],
+ "subject": "Fenster Leads to Chase – 29 July 2026",
+ "body": "Adam,\n\nThe following quoted leads require action today:\n\nE T & S Construction – St Mary's Refurbishment, Merthyr Tydfil\nOwner: Adam\nCurrent stage: gone quiet\nLast contact: Overtaken by the re-issued register - the call is today and it is a question about the package being open, not a follow-up.\nNext action: This is the urgent one and it is not a normal chase. The 24/07 re-issued register moved the package return date to 27 July - yesterday - on a package we submitted on 17 July and have treated as closed ever since. Adam asks Tom Godfrey one question outright: is the package still open, and is our 17/07 submission the one being considered. If it is open, this stops being a chase and becomes a corrected tender, and it goes straight back to Mary.\nDeadline: 29 July 2026 (today)\nQuote value: GBP 174,546\n\nErmine Construction Services – Ninn Lane Re-development\nOwner: Adam\nCurrent stage: gone quiet\nLast contact: Nineteen days out with nothing back. Step 8 is overdue, not pending.\nNext action: Adam calls Tom Dixon. GBP 100,730 has been out 19 days with nothing back, and Ermine also has Lower Range Road sitting with us unpriced against a 07/08 return. One call covers both: where is Ninn Lane, and do they still want Lower Range Road priced.\nDeadline: 29 July 2026 (today)\nQuote value: GBP 100,730\n\nChigwell (London) PLC – Leys Sports Pavilion Refurbishment (Leys Park Changing Pavilion, Dagenham)\nOwner: Adam\nCurrent stage: quoted\nLast contact: Nine days out and two unanswered chases behind it. Step 8 is overdue, not pending, and it has been tried twice by email - this one is the phone.\nNext action: Adam calls Luke Baker today, and it is a call - not a fourth email. Mobile 07547 184089, office 020 8500 4100. Our GBP 44,035.22 left estimating@ at 15:50 on 20 July and Adam has already chased it twice, 22/07 and 23/07, with nothing back either time - so 'did you get it' is a question that has failed twice already. Ask the one thing we do not have: Chigwell's bid to the London Borough of Barking and Dagenham closes today, so when does the council decide? That date is the next chase date. Gordon Court is the same call. And say nothing about a Grange Hill number - Gintare's quote is with Adam for checking and there is no settled figure to give.\nDeadline: 29 July 2026 (today)\nQuote value: GBP 44,035\n\n\n134 AdminBase rows carry a follow-up date the CRM set that has already passed. They are not listed here because the date on them was not set by a person. They are on the Leads page, and any one of them appears in this email the day somebody puts a date on it.\n",
+ "rows": [
+  {
+   "key": "job:st-mary-s-refurbishment-merthyr-tydfil",
+   "tier": "register",
+   "client": "E T & S Construction",
+   "job": "St Mary's Refurbishment, Merthyr Tydfil",
+   "value": 174546.37,
+   "quoted": "2026-07-17",
+   "lastContact": null,
+   "stage": "gone quiet",
+   "owner": "Adam",
+   "next": "This is the urgent one and it is not a normal chase. The 24/07 re-issued register moved the package return date to 27 July - yesterday - on a package we submitted on 17 July and have treated as closed ever since. Adam asks Tom Godfrey one question outright: is the package still open, and is our 17/07 submission the one being considered. If it is open, this stops being a chase and becomes a corrected tender, and it goes straight back to Mary.",
+   "due": "2026-07-29",
+   "dueSetBy": "the register",
+   "note": "Overtaken by the re-issued register - the call is today and it is a question about the package being open, not a follow-up.",
+   "overdueDays": 0
+  },
+  {
+   "key": "job:ninn-lane-re-development",
+   "tier": "register",
+   "client": "Ermine Construction Services",
+   "job": "Ninn Lane Re-development",
+   "value": 100730.0,
+   "quoted": "2026-07-09",
+   "lastContact": null,
+   "stage": "gone quiet",
+   "owner": "Adam",
+   "next": "Adam calls Tom Dixon. GBP 100,730 has been out 19 days with nothing back, and Ermine also has Lower Range Road sitting with us unpriced against a 07/08 return. One call covers both: where is Ninn Lane, and do they still want Lower Range Road priced.",
+   "due": "2026-07-29",
+   "dueSetBy": "the register",
+   "note": "Nineteen days out with nothing back. Step 8 is overdue, not pending.",
+   "overdueDays": 0
+  },
+  {
+   "key": "job:leys-park-changing-pavilion-dagenham",
+   "tier": "register",
+   "client": "Chigwell (London) PLC",
+   "job": "Leys Sports Pavilion Refurbishment (Leys Park Changing Pavilion, Dagenham)",
+   "value": 44035.22,
+   "quoted": "2026-07-20",
+   "lastContact": null,
+   "stage": "quoted",
+   "owner": "Adam",
+   "next": "Adam calls Luke Baker today, and it is a call - not a fourth email. Mobile 07547 184089, office 020 8500 4100. Our GBP 44,035.22 left estimating@ at 15:50 on 20 July and Adam has already chased it twice, 22/07 and 23/07, with nothing back either time - so 'did you get it' is a question that has failed twice already. Ask the one thing we do not have: Chigwell's bid to the London Borough of Barking and Dagenham closes today, so when does the council decide? That date is the next chase date. Gordon Court is the same call. And say nothing about a Grange Hill number - Gintare's quote is with Adam for checking and there is no settled figure to give.",
+   "due": "2026-07-29",
+   "dueSetBy": "the register",
+   "note": "Nine days out and two unanswered chases behind it. Step 8 is overdue, not pending, and it has been tried twice by email - this one is the phone.",
+   "overdueDays": 0
+  }
+ ],
+ "heldBackCrmRows": 134,
+ "whenNothingDue": "confirm",
+ "wouldSend": true,
+ "sent": false,
+ "authorised": false,
+ "authority": "Adam, hub-74, 29/07/2026 - one daily lead-chasing email to adam@fensterglazing.com and no other outbound. Gated on JAC-15 because JAC-1 (Zac, 28/07) is drafts-only and loosening it is Zac's call, not mine.",
+ "warning": null
+}

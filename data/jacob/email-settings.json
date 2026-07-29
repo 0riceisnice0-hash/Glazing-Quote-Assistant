@@ -1,0 +1,11 @@
+{
+ "note": "Adam's setting, hub-74 (29/07/2026): 'If there are no leads due or overdue for chasing that day, Jacob should either send a brief email confirming that no lead chases are due, or send no email, depending on the system setting selected by Adam.' This is that setting. Nothing else about the daily email is configurable here - what goes in it is fixed by his spec.",
+ "whenNothingDue": "confirm",
+ "options": {
+  "confirm": "Send a one-line email saying no lead chases are due. The default, and my recommendation: an empty inbox looks identical whether nothing was due or the bot fell over three days ago.",
+  "silent": "Send nothing on a day with no chases due."
+ },
+ "setBy": "default - not yet chosen by Adam. Asked on the hub, 29/07/2026, in the reply to hub-74.",
+ "sendingAuthorised": false,
+ "sendingGate": "scripts/jacob_daily_email.py --send refuses unless JACOB_DAILY_EMAIL=on is in .env.jacob. That flag is the answer to JAC-15 and it is Zac's to give: Adam owns the pipeline, Zac owns what Jacob is allowed to do (Adam's own split, hub-68), and JAC-1 is 'drafts only for now'."
+}

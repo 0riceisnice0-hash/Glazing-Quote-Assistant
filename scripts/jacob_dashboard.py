@@ -1190,10 +1190,21 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
     Jacob is for."""
     acts = []
 
-    def add(score, key, company, headline, what, owner, nxt, state, page):
+    def add(score, key, company, headline, what, owner, nxt, state, page,
+            project=None, deadline=None, why=None):
+        """Adam, hub-74 (29/07/2026): every item on Today must carry the client,
+        the project, the current stage, the owner, the next action, the action
+        deadline and the reason it is on the page. The first five were already
+        here under other names; `project`, `deadline` and `why` are the three
+        that were being inferred by whoever read the row, which is not the same
+        as being stated. `why` is the one that cannot be derived downstream -
+        "due today" and "no owner set" put a row here for opposite reasons and
+        the page has to say which."""
         acts.append({"score": score, "key": key, "company": company,
                      "headline": headline, "what": what, "owner": owner,
-                     "next": nxt, "state": state, "page": page})
+                     "next": nxt, "state": state, "page": page,
+                     "project": project or headline, "deadline": deadline,
+                     "why": why or ""})
 
     # Top of the list, above every lead and every notice. A quote already out
     # is money Fenster has spent and can still lose; a lead is money it has
@@ -1222,10 +1233,20 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
         # .get's default does not cover an EXPLICIT null - a register row with
         # "issued": null crashed the whole board rebuild here on 29/07.
         iss = r.get("issued") or ""
+        if r.get("chaseDue"):
+            why = "Chase date %s has arrived" % r["nextChase"]
+        elif r.get("blocked"):
+            why = ("Blocked - %s"
+                   % (r.get("blockedPending") or "the client cannot answer yet"))
+        elif not r.get("nextChase"):
+            why = "Issued %d days ago with no next-chase date set" % days
+        else:
+            why = "Quote issued %d days ago and nothing back" % days
         add(score, r["key"], r["client"], r.get("contact") or r["client"],
             "%s - %s issued %s" % (r["job"], gbp(r.get("value")),
                                    (iss[8:10] + "/" + iss[5:7]) if len(iss) >= 10 else "date unknown"),
-            r.get("owner"), r.get("next"), r.get("state"), "chasing")
+            r.get("owner"), r.get("next"), r.get("state"), "leads",
+            project=r["job"], deadline=r.get("nextChase"), why=why)
 
     # Above even those. A draft is a chase that has already been written - the
     # only thing between it and the client is somebody pressing send, which is
@@ -1238,7 +1259,9 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
             d.get("send_as", ADAM),
             "Read it, change what you want, send it from your own mailbox. %s"
             % d.get("why_now", ""), d.get("status", "awaiting a human"),
-            "drafts")
+            "drafts", project=d["job"], deadline=d.get("send_by"),
+            why="Draft written and waiting for %s to review and send it"
+                % d.get("send_as", "a human"))
 
     # The CRM's own chase list, minus anything already covered above. These are
     # quotes nobody has looked at in months - they were invisible to this board
@@ -1280,7 +1303,10 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
                % (r["staleDate"]["crmDate"], r["staleDate"]["issued"],
                   r["days"] or 0, r["staleDate"]["crmDays"] or 0)
                if r.get("staleDate") else ""),
-            r["state"], "chaselist")
+            r["state"], "leads", project=r["job"], deadline=r.get("nextAction"),
+            why=("Quoted %s and nobody has been back to them since"
+                 % ("%d days ago" % r["days"] if r["days"] is not None
+                    else "on a date the CRM does not hold")))
 
     for t in threads:
         if t["owner"] == NOBODY:
@@ -1307,12 +1333,23 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
                 base = max(base, 118 - due)
             # A shared mailbox is not a person. Leading with "sales@..." as
             # though it were a name is how a board starts sounding fake.
+            if due is not None and due <= 21:
+                why = "They have asked for a price by %s" % t["deadline"]
+            elif t["stage"] == "decided":
+                why = "They have written to say what happened - won or lost"
+            elif t["state"] in ("gone quiet", "stale"):
+                why = "%d days since they last wrote and nothing since" % t["days"]
+            else:
+                why = "Live conversation with a buyer, last message %s" % t["last"]
             add(base + min(t["messages"], 8), t["key"], t["company"],
                 t["person"] or t["company"], t["subject"], t["owner"], t["next"],
-                t["state"], "enquiries")
+                t["state"], "enquiries", project=t["subject"],
+                deadline=t.get("deadline"), why=why)
         elif t["kind"] == "portal":
             add(74, t["key"], t["company"], "Portal notice", t["subject"],
-                t["owner"], t["next"], t["state"], "enquiries")
+                t["owner"], t["next"], t["state"], "enquiries",
+                project=t["subject"], deadline=t.get("deadline"),
+                why="Portal notice nobody has pulled the pack for")
 
     # A contract still out to bid beats one already awarded, every time - but
     # it does not beat a buyer who is emailing us. A public notice is a
@@ -1350,22 +1387,30 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
             n["title"][:70],
             "Closes %s - %d days. %s" % (n.get("closes") or "no date", left,
                                          n["fit"].get("note") or ""),
-            n["owner"], n["next"], n["state"], "tenders")
+            n["owner"], n["next"], n["state"], "opportunities",
+            project=n["title"], deadline=n.get("closes"),
+            why=("New opportunity nobody has reviewed - it closes in %d day%s"
+                 % (left, "" if left == 1 else "s")))
 
     for r in warm[:6]:
         add(55, "lead:" + re.sub(r"[^a-z0-9]", "-", r["supplier"].lower())[:50],
             r["client"], r["supplier"], "%s - %s" % (r["title"], gbp(r["total"] or r["value"])),
-            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "opportunities")
+            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "opportunities",
+            project=r["title"],
+            why="They have bought from Fenster and have just won work - no contact yet")
 
     for r in [x for x in book if x["state"] == "dormant - has bought"][:5]:
         add(32, "co:" + x_key(r), r["company"], r["company"],
             "Has bought from Fenster. No email in the 180-day window.",
-            r["owner"], r["next"], r["state"], "companies")
+            r["owner"], r["next"], r["state"], "companies",
+            project="-", why="Has paid Fenster and nobody has emailed them in 180 days")
 
     for r in known[:4]:
         add(22, "lead:" + re.sub(r"[^a-z0-9]", "-", r["supplier"].lower())[:50],
             r["client"], r["supplier"], "%s - %s" % (r["title"], gbp(r["total"] or r["value"])),
-            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "opportunities")
+            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "opportunities",
+            project=r["title"],
+            why="Quoted before with no recorded win, and they are building again")
 
     acts.sort(key=lambda a: -a["score"])
     # Two award notices against the same client collapse to one thing to do.
@@ -1386,16 +1431,27 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
     # own it fell through the default of two, and the two things Adam most
     # needed to see - a GBP 368k quote he must not chase yet, and a GBP 7,975
     # one sitting unread in an out-of-office - dropped off the page entirely.
-    ROOM = {"drafts": 5, "chasing": 5, "chaselist": 3, "enquiries": 8,
-            "tenders": 3, "opportunities": 2, "companies": 2}
-    used, out = defaultdict(int), []
+    # Adam, hub-74: Work is four pages now, so the room is shared out between
+    # four and not seven. Leads absorbs what Chasing and the Chase list held
+    # (5 + 3), Opportunities absorbs what Out to bid held (3 + 2). The totals
+    # are unchanged on purpose - this is the same digest under the new names,
+    # and the Today page builds the full due list from the pages themselves
+    # rather than from this cap.
+    ROOM = {"drafts": 5, "leads": 8, "enquiries": 8,
+            "opportunities": 5, "companies": 2}
+    used, out, held = defaultdict(int), [], defaultdict(int)
     for a in ranked:
         page = a.get("page") or "overview"
         if used[page] >= ROOM.get(page, 2):
+            held[page] += 1
             continue
         used[page] += 1
         out.append(a)
-    return out[:22]
+    out = out[:22]
+    # A cap that does not say what it dropped reads as "that was everything".
+    for a in out:
+        a["heldBack"] = held.get(a.get("page") or "overview", 0)
+    return out
 
 
 def x_key(r):
@@ -1793,7 +1849,12 @@ DECISIONS = [
                 "this was posted while the hub's sign-in defaulted to Zac, so "
                 "it was queried with Adam and settled as Zac's on his own "
                 "answer - Zac built me and owns what I am allowed to do, Adam "
-                "owns the pipeline. Loosening this is Zac's call.")},
+                "owns the pipeline. Loosening this is Zac's call. It now has a "
+                "concrete case: Adam authorised ONE outgoing email on hub-74 "
+                "(29/07) - a daily lead-chase list to adam@ and nothing else. "
+                "It is built and it runs (jacob_daily_email.py); it does not "
+                "send, because his authority over the pipeline is not authority "
+                "over what I am allowed to do. JAC-15 asks Zac.")},
     {"id": "JAC-2", "title": "Cold outreach at all, or warm only?",
      "why": ("Warm-only needs no new domain, no consent register and carries "
              "almost no risk. Cold needs both."),

@@ -17,6 +17,8 @@ where each file comes from and what it can and cannot tell you.
 | `jayk-recovery.json` | `jacob_jayk_recovery.py` | The former BDM's contacts, recovered from role mailboxes. One-off |
 | `drafts.json` | his session | Outreach he has written, and what he deliberately did **not** draft |
 | `handover.json` | his session | What he has passed to a human, held, or corrected |
+| `daily-email.json` | `jacob_daily_email.py` | The one email Adam authorised - the chase list for today, in his format, with the rows it selected and the count it deliberately held back. `sent` is false and will stay false until JAC-15 is answered |
+| `email-settings.json` | hand-edited by a human | The only thing about that email that is configurable: whether a day with no chases due gets a one-line "nothing due" or silence. Adam's choice, not mine |
 | `bridge-state.json` | `jacob_bridge.py` | Which work orders he has seen, and session-time used |
 | `session-log.md` | his session, by hand | One line per session - the order, and what actually changed. Mary's `HANDOVER.md` has no Jacob entries in it; this is that record for this side of the wall |
 
@@ -70,6 +72,15 @@ fortnight" cannot tell the person who chases it what the client can argue about.
 carry `expires` where our validity and the supplier quotes behind it die on a date of their
 own - Grange Hill's is 28/08 and it belongs to nobody outside Fenster, so nothing else on
 the board would ever raise it.
+
+**A bulk import is one record, not two hundred.** Adam's completeness rule (hub-74) says any
+row missing a next action, an owner or a deadline appears on Today. Applied literally that put
+64 rows there and 59 of them were the single AdminBase export of 28/07 that nobody has ever
+opened - one fact printed 59 times, and it pushed the four quotes genuinely due that day off
+the first screen. Same for the 134 rows whose follow-up date has passed: the CRM set those
+dates, not a person. So a row somebody has WORKED - a date they set, a note they wrote, an
+owner or state they chose - is listed; the untouched tail is counted, folded and said out
+loud, on Today and in the daily email both. Touch one and it moves up into the list.
 
 **Two rows can be one job.** `leads-manual.json` rows now carry `supersededBy`. The Ryde
 lead arrived as a paid Supply2Gov alert with the buying organisation stripped out and no

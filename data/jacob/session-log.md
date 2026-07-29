@@ -283,3 +283,23 @@ message and read it back whole before answering - the old cap would have stopped
 characters short. That test message doubles as the receipt: it lists every point I took from
 69, so he can see whether I read it his way before he retypes the tail. 69 is closed as
 superseded; the rebuild starts when the full spec lands.
+
+**74 (Adam) - the Work rebuild, in full this time.** The spec that hub-69 truncated, re-sent
+whole. Work is now his four pages in his order: Today, Opportunities, Leads, Ready to Send.
+Opportunities absorbed the tender feed - an open tender and a fresh award were on separate
+pages, and cold awards are now behind a fold so they can never share a table with something
+closing on Friday. Leads absorbed Chasing and the Chase list and carries all twelve fields he
+listed, including the checklist step, the chase history as a log, and won/lost/closed/on-hold
+statuses that did not exist before - there was no way to record on this board that we had won
+anything. Chasing, AdminBase, the tender feed and Enquiries survive under a Data group, marked
+as sources on their own faces. Today now says WHY each row is on it, which was the one column
+it never had.
+
+Two deviations, both told to him rather than done quietly. His completeness rule put 64
+exceptions on Today, 59 of them the untouched 28/07 CRM import - one fact printed 59 times,
+and it pushed the four quotes genuinely due that day off the screen; so worked rows are listed
+and the import is counted and folded. And the daily email to adam@ is built to his format and
+does not send: Adam owns the pipeline, Zac owns what I am allowed to do (Adam's own split,
+hub-68), and JAC-1 is Zac's. `jacob_daily_email.py` is complete and gated on one env flag.
+JAC-15 asks Zac with the concrete case attached; JAC-16 asks Adam where a live buyer
+conversation belongs, which is the one part of hub-74 I could not implement as written.

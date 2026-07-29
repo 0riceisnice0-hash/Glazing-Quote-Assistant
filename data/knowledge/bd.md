@@ -27,10 +27,8 @@ value on each. This is the win history; everything else is a funnel.**
   26/01/2026) when this was found.** Contract volume is accelerating: 72 in 2025,
   89 by July 2026. CONTNET is ex VAT - the LEAD export is inc VAT, do not de-VAT twice.
 - "Fenster records no outcomes" is false. BD log = `Opportunity Log 2025-2026.xlsx`.
-- **Brandon Estate (Elkins, GBP 7.2m ex VAT) is real** - Adam, JAC-8, twice.
-  Mary verified 29/07: REV 2 issued **15/06** 13:54 (not 15/05), superseding
-  GBP 3,998,686.95 of 01/06. **DO NOT CHASE**: Chris Conlon said 18/07 he will
-  tell us when Elkins hear, and Adam replied 20/07. `handover.json`.
+- **Brandon Estate (Elkins, GBP 7.2m ex VAT) is real** (Adam, JAC-8) - REV 2 issued 15/06, not
+  15/05. **DO NOT CHASE**: Conlon tells us when Elkins hear. `handover.json`, `bd-lessons.md`.
 
 ## Where work really comes from
 
@@ -43,21 +41,17 @@ value on each. This is the win history; everything else is a funnel.**
   Hightown, do-not-quote) - see JAC-7 before assuming that is safe forever.
 - An award notice is the WEAKEST signal: by publication the subcontractors are chosen.
   Median publication lag 25 days; 10% exceed 180; worst seen 1,364. `is_fresh()` guards.
-- **The tender-portal logins died with Jayk** and `jayk@` is a hard 404, so an
-  account registered to him can never be reset. **But a dead login stops us
-  BIDDING, never LOOKING** - ProContract's advert search and every advert page are
-  PUBLIC (`jacob_procontract.py`), and that is where a buyer puts work under the
-  GBP 100k threshold. Nobody looked for four months. JAC-11/12.
+- **The tender-portal logins died with Jayk** (`jayk@` is a hard 404, never resettable). **A dead
+  login stops us BIDDING, never LOOKING** - ProContract adverts are PUBLIC and hold sub-GBP 100k
+  work in no national feed. Nobody looked for four months. `jacob_procontract.py`, JAC-11/12.
 - A warm name beats a perfect-fit stranger: a relationship buys being asked to price.
 
 ## Classification rules that cost a day each to learn
 
-- **Filter on what a contract IS (CPV families), never on words.** Keywords returned
-  window *cleaning*, STI *screening*, and "the front door to maternity services".
-- **Read direction from the first sentence, not the subject.** Fenster's own RFQs to
-  fabricators are not customer demand.
-- **Single-word company names throw ~20% false positives** ("Atlas" matched a
-  window-cleaning contractor). `possible` tier needs a human to confirm once.
+- **Filter on what a contract IS (CPV families), never on words** - keywords returned window
+  *cleaning*, STI *screening*, "the front door to maternity services". **Direction comes from the
+  first sentence, not the subject** (our own RFQs are not demand). **Single-word names throw ~20%
+  false positives** ("Atlas" = a window cleaner); the `possible` tier needs one human confirmation.
 - **A relationship does not put glazing in the job** (Zac, 29/07). Warm/known leads
   must pass the same work-type screen as cold: no scaffolding, cleaning, highways,
   kitchen-and-bathroom, lifts, surveys - whoever won them. `NO_GLAZING` in
@@ -68,39 +62,37 @@ value on each. This is the win history; everything else is a funnel.**
   Companies House needs no key via the public site; full accounts are iXBRL, so one
   fetch qualifies a contractor. Both tricks: `bd-lessons.md`, 29/07.
 - **Check `oldest/newest/truncated` before believing a count** - a 20-page fetch cap once turned 13-22 days into "180 days of mail".
-- **Once For All is Conquest renamed** (`tenders@onceforallmarketplace.com`, in `jacob_intake.PORTALS`); else a portal CHASE reads as a fresh enquiry.
-- **A job can be live and chased with no Mary chat at all** - Trafalgar House was, so it was on
-  no list of mine. The register is a floor, never a complete set: 9 managed rows against ~25
-  AdminBase quotes raised since 15/06 alone.
-- **"Not in the sends I have dated" means "not in the list that script searches"** - absence
-  from a tool reads exactly like never sent. **Count the chases before writing "call
-  them"**; the third touch asks what nobody has. Numbers are in the signature. `bd-lessons`.
+- **Once For All is Conquest renamed** (`jacob_intake.PORTALS`); else a portal CHASE reads as a fresh enquiry. **A date with no year reads as THIS year** - 90 of 209 AdminBase rows are 2025 quotes shown as "12 May".
+- **The register is a FLOOR, never a complete set** - Trafalgar House was live and chased with no
+  Mary chat at all; 9 managed rows against ~25 AdminBase quotes raised since 15/06 alone.
+- **"Not in the sends I have dated" means "not in the list that script searches"** - absence from a
+  tool reads like never sent. **Count the chases before writing "call them"**; numbers are in the
+  signature. `bd-lessons`.
 - **Join AdminBase to your own TENDER BOARD, not just to the mailbox** - on postcode SECTOR
   plus title. **A client's public deadline sets the chase date; a fortnight rule invents
   one.** Leys Park, 29/07: `bd-lessons.md`.
-- **AdminBase re-dates nothing on a re-quote** (Mary, 29/07); rows joining penny-exact
-  to a NEWER verified send are aged from the send. **And the lead date can be the wrong
-  EVENT, not a typo: RFQ OUT IS NOT QUOTE OUT.** Brandon 8324 read 15/05, the day a
-  BCC-only RFQ went to four fabricators; the price reached Elkins 15/06, and Mary found
-  seven such RFQs. Expect the slip, do not patch one row.
-- **Read the Status field on any alert feed.** Of 30 unique Supply2Gov items over four days, 15
-  were award or prior-information notices - already gone. Four days held two live leads, not "27 a day".
-- **COVERAGE IS ENGLAND AND WALES, NATIONWIDE** - Adam, 29/07, closing JAC-10. Out:
-  Scotland, NI, Crown Dependencies, ML. The PQQ's 78 postcode areas are a marketing claim
-  that was enforced as a rule and parked all of Wales while a GBP 174,546 quote was live
-  in Merthyr Tydfil. Distance is a NOTE on the row, never a filter. `bd-lessons.md`.
-- **"ISSUED" is a fact about a SEND, never about the document.** Grange Hill, 29/07: all six
-  corrections still open on the client's copy, drawings at thirteen windows against twelve
-  priced. **Diff the pack that went against the pack that was checked**, and check the
-  SUPPLIER expiry not just ours - both die 28/08. `expires`; `bd-lessons.md`.
-- **A date with no year reads as this year** - 90 of 209 AdminBase Leads rows are 2025 quotes shown as "12 May". `ukShortDay`/`niceDate`. 29/07.
+- **AdminBase re-dates nothing on a re-quote**; rows joining penny-exact to a NEWER verified send
+  are aged from the send. **And the lead date can be the wrong EVENT, not a typo: RFQ OUT IS NOT
+  QUOTE OUT** (Brandon 8324; seven such). Expect the slip, do not patch one row. Mary, 29/07.
+- **Read the Status field on any alert feed** - 15 of 30 Supply2Gov items over four days were award
+  or prior-information notices, already gone. Four days held two live leads, not "27 a day".
+- **COVERAGE IS ENGLAND AND WALES, NATIONWIDE** (Adam, 29/07, closing JAC-10). Out: Scotland, NI,
+  Crown Dependencies. The PQQ's 78 postcode areas were a MARKETING CLAIM enforced as a rule, which
+  parked Wales while a GBP 174,546 quote was live in Merthyr. Distance is a note, never a filter.
+- **"ISSUED" is a fact about a SEND, never about the document.** Grange Hill, 29/07: six
+  corrections still open on the client's copy, drawings at 13 windows against 12 priced. **Diff
+  what went against what was checked**; check the SUPPLIER expiry too. `expires`, `bd-lessons`.
 - **A UI DEFAULT IS AN AUTHOR.** The hub's sign-in select opened on Zac, so ADAM's instructions
   filed as Zac's - hub 57/60/61/62 at least, and JAC-14 with them (Adam, hub-66, 29/07; now a
   blocking per-device ask). Treat "Zac" on a HUB message as unverified unless its body says relay.
-- **A board nobody can EDIT is a report, and "not user friendly" can mean BROKEN** - the
-  panel opened 3 of 7 key types, so the whole CRM held one edit. **Check a quiet feature
-  works before redesigning it**, and **mark a DERIVED date**: a human's promise outranks a
-  524-day-stale CRM row. 29/07, `bd-lessons.md`.
+- **A board nobody can EDIT is a report**; "not user friendly" can mean BROKEN (the panel
+  opened 3 of 7 key types). Check a quiet feature works before redesigning it, and mark a
+  DERIVED date: a human's promise outranks a 524-day-stale CRM row. 29/07, `bd-lessons.md`.
+- **A RULE THAT IS RIGHT CAN STILL BE UNUSABLE AT SCALE.** Adam's "every record missing a next
+  action appears on Today" (hub-74) produced 64 rows, 59 of them one bulk CRM import - one fact
+  printed 59 times, pushing the four quotes genuinely due off the screen. **List what a person
+  has worked; COUNT the import, and say what you counted.** Same for the 134 AdminBase rows
+  whose follow-up date the CRM set, not a person. `bd-lessons.md`, 29/07.
 
 ## Standing decisions (Adam/Zac - do not re-open; full list `mary_recall --settled`)
 
@@ -119,12 +111,20 @@ value on each. This is the win history; everything else is a funnel.**
   Jacob's, 1-7 Mary's). A chase must return one of six things - pricing feedback, is it
   secured, when they decide, who won it, why we lost, a blow-out - and must set the NEXT
   date. Tenders sit twelve months then get awarded: silence is not death. `handover.json`.
+- **WORK IS FOUR PAGES: Today, Opportunities, Leads, Ready to Send** (ADAM, hub-74, 29/07).
+  Opportunities = found, not yet contacted (tenders AND awards, cold ones folded); Leads =
+  qualified or quoted, absorbing Chasing and the Chase list; Chasing/AdminBase/tender feed/
+  Enquiries survive under Data as SOURCES. Every active row needs a next action; every Lead
+  also an owner and a deadline, or it shows on Today as an exception.
+- **TWO BOSSES, AND ONE OF THEM AUTHORISING IS NOT ENOUGH.** Adam owns the pipeline; Zac owns
+  what I am ALLOWED to do (Adam's own split, hub-68). Adam authorised one daily chase email to
+  adam@ on hub-74; JAC-1 still governs whether I send anything at all, so it is built, gated on
+  `JACOB_DAILY_EMAIL=on`, and JAC-15 asks Zac. **Build it, gate it, ask - never test the
+  boundary.** `jacob_daily_email.py`.
 
 ## Memory (Phase 5 - same skeleton as Mary's)
 
-- **Per-company memory: `data/companies/<slug>.md`** (README there). Read first, update
-  before close-out. 29/07: `chigwell-london-plc` (3 live leads, GBP 451k),
-  `glazing-consultancy-services` (Darren Trigg; both his schools were CIF bids that lost
-  funding, killing SIX "Live - Quoted" rows - **an outcome that arrives by email never
-  reaches the CRM**). **History is queryable, zero tokens**: `mary_recall.py --grep
-  <company>` covers hub messages, the bot line and requests, and backfills nightly.
+- **Per-company memory: `data/companies/<slug>.md`** (README there). Read first, update before
+  close-out. **An outcome that arrives by email never reaches the CRM** - Darren Trigg's two CIF
+  schools lost funding and killed six "Live - Quoted" rows. **History is queryable, zero tokens:
+  `mary_recall.py --grep <company>`** - hub, bot line, requests; backfills nightly.

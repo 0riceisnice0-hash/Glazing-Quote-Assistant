@@ -786,35 +786,36 @@ const JACOB_PAGES = [
   // Order matters: the group heading is emitted when the group changes,
   // so pages in the same group have to sit together or the heading repeats.
   //
-  // Ordered the way the job is actually done. "Today" is a list of things to
-  // do, not a summary of what was found; Enquiries and Chasing are the two
-  // places money is either won or quietly lost; everything else is reference.
-  { key: "overview", label: "Today", group: "Work", sub: () => `${jActions().length} things to do, most urgent first` },
-  // Leads sits second - Adam's page, 29/07. Every live quoted job on one list
-  // with a date against it, because the three pages that held them between
-  // them could not see each other and none of them sorted by when to act.
+  // ADAM, hub-74, 29/07/2026 - the Work section is four pages, in this order:
+  // Today, Opportunities, Leads, Ready to Send. That is not cosmetic. It is
+  // the two things he says Jacob is for, with the daily list above them and
+  // the outbox below: find work Fenster has not been asked for yet
+  // (Opportunities), and stay on top of what it has already priced (Leads).
+  //
+  // What moved, and why nothing was lost. Chasing and the Chase list stopped
+  // being working pages - everything on them that a person acts on is now IN
+  // Leads (the verified register, the checklist step, the next-chase date and
+  // the chase history), and the raw pages survive under Data for audit, which
+  // is what he asked for. Out to bid folded into Opportunities: an open tender
+  // and a fresh award are both "work Fenster has found and not yet contacted",
+  // and splitting them across two pages ranked a cold award notice level with
+  // a tender closing on Friday. Enquiries moved to Data as a SOURCE - see the
+  // note on that entry, and JAC-16, which is the open question about it.
+  { key: "overview", label: "Today", group: "Work", sub: () => `${jToday().length} actions need attention today` },
+  { key: "opportunities", label: "Opportunities", group: "Work", icon: "leads", sub: () => {
+      const o = oppRows();
+      const open = o.filter((r) => r.oppClass === "open").length;
+      return `${open} open now, ${o.length - open} prospecting rows behind them`;
+    } },
   { key: "leads", label: "Leads", group: "Work", icon: "register", sub: () => {
       const r = registerRows();
       const late = r.filter((x) => jOverdue(x)).length;
       const none = r.filter((x) => jDueIn(x) === null && !x.blocked).length;
       return `${r.length} live quoted jobs - ${late} due now, ${none} with no date set`;
     } },
-  // Chasing sits under it. A quote already out is money Fenster has
-  // spent and can still lose; an enquiry is money it has not spent yet.
-  { key: "chasing", label: "Chasing", group: "Work", sub: () => JACOB?.handover
-      ? `${JACOB.totals.handoverIssued} quotes issued and with a client, ${JACOB.totals.handoverDue} chaseable today`
-      : `${quotesWaiting().length} quotes past their return date, ${JACOB?.totals.quietBuyers || 0} enquiries gone quiet` },
-  // Drafts sit directly under Chasing because they are the same work one step
-  // further on: the chase, written. The only thing left is a human sending it.
-  { key: "drafts", label: "Ready to send", group: "Work", sub: () => `${jdrafts().length} drafts written, waiting for a human to send them` },
-  { key: "chaselist", label: "Chase list", group: "Work", sub: () => crm()
-      ? `${crm().totals.due} quoted jobs nobody has been back to, out of ${crm().totals.rows} in AdminBase`
-      : "AdminBase has not been read yet" },
-  { key: "enquiries", label: "Enquiries", group: "Work", sub: () => `${JACOB?.totals.buyers || 0} live conversations with a buyer, out of ${JACOB?.totals.signals || 0} raw messages` },
-  { key: "tenders", label: "Out to bid", group: "Work", sub: () => `${JACOB?.totals.tenders || 0} contracts still open, ${JACOB?.totals.tendersClosing || 0} closing inside a week` },
-  { key: "opportunities", label: "Opportunities", group: "Work", icon: "leads", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} winners Fenster knows, ${JACOB?.totals.cold || 0} it does not` },
+  { key: "drafts", label: "Ready to Send", group: "Work", sub: () => `${jdrafts().length} drafts written, waiting for a named human to send them` },
   // Reference, not work: what the history says, who Fenster knows, and the
-  // book recovered from the last BDM. Grouped apart so the seven pages where
+  // book recovered from the last BDM. Grouped apart so the four pages where
   // money moves are not visually equal to the three you read once a week.
   { key: "outcomes", label: "What we win", group: "Know", sub: () => JACOB?.archive
       ? `${JACOB.archive.won} jobs won on record across ${JACOB.archive.distinctClients} clients - ${JACOB.archive.valuedCount} valued so far, largest ${gbpShort(JACOB.archive.knownValues?.[0]?.value)}`
@@ -823,6 +824,20 @@ const JACOB_PAGES = [
   { key: "jayk", label: "Jayk's book", group: "Know", icon: "jayk", sub: () => `${JACOB?.totals.jaykContacts || 0} contacts recovered from the former BDM` },
   { key: "jmessages", label: "Messages", group: "Talk", icon: "messages", layout: "chat", sub: () => "Two-way line - he picks up what you write on his next pass" },
   { key: "decisions", label: "Jacob needs you", group: "Talk", icon: "requests", sub: () => `${openJacobReqs().length} open, ${JACOB?.decisions.length || 0} standing` },
+  // Adam, hub-74: "The separate Chasing and Chase List pages are no longer
+  // working pages ... The raw AdminBase Chase List may remain under System or
+  // Data for audit purposes, but it must only act as a source feeding Leads."
+  // So these four are sources. Nothing here has an action against it that is
+  // not already on Leads, Opportunities or Today; they exist so a number on a
+  // working page can be traced back to the thing it was read out of.
+  { key: "enquiries", label: "Enquiries (mailbox)", group: "Data", sub: () => `Source - ${JACOB?.totals.buyers || 0} buyer conversations out of ${JACOB?.totals.signals || 0} raw messages` },
+  { key: "chasing", label: "Issued register", group: "Data", sub: () => JACOB?.handover
+      ? `Source - ${JACOB.totals.handoverIssued} verified sends, feeding Leads`
+      : "Source - the verified register has not been built" },
+  { key: "chaselist", label: "AdminBase (raw)", group: "Data", icon: "chaselist", sub: () => crm()
+      ? `Source - ${crm().totals.rows} CRM rows, ${crm().totals.due} of them feeding Leads`
+      : "AdminBase has not been read yet" },
+  { key: "tenders", label: "Tender feed (raw)", group: "Data", sub: () => `Source - ${JACOB?.totals.tenders || 0} notices, feeding Opportunities` },
   { key: "sources", label: "How this works", group: "System", sub: () => "Where leads come from, what is wired up, and what still is not" },
   { key: "jqueue", label: "Queue", group: "System", icon: "chaselist", sub: () => `${JQUEUE?.items?.length || 0} waiting, and what kicked the last session off` },
   { key: "jlive", label: "Live", group: "System", icon: "live", sub: () => "What Jacob is doing right now" },
@@ -885,6 +900,11 @@ const jNext = (r) => jp(r.key).next_action || r.next || "";
 const jNote = (r) => jp(r.key).note || "";
 /* Done and dead both mean "stop showing me this", and both are human-set. */
 const jShut = (r) => ["done", "dead"].includes(jState(r));
+/* Won, lost and closed are different: the job is over, but the record is the
+   most valuable one on the board - it is the only place at Fenster an outcome
+   gets written down at all. So a decided row leaves the live bands and the
+   chase list and keeps its own section on Leads. It never disappears. */
+const jDecided = (r) => ["won", "lost", "closed"].includes(jState(r));
 
 /* ---- The two things Adam asked for on 29/07 ----
    A date to do it on, and a log of what was said - not one note that the next
@@ -941,15 +961,21 @@ function dueChip(r) {
     + `<small class="dim">${word}${jDateIsHuman(r) ? "" : " &middot; derived"}</small>`;
 }
 
-const JSTATES = ["live", "waiting", "quoted", "gone quiet", "dormant", "dead", "done"];
+/* Adam, hub-74: a Lead's status is "live, won, lost, on hold or closed". Those
+   five were not in the list, so there was no way to record on the board that a
+   job had been won - the only honest options were "done" and "dead", which say
+   nothing about which. The older words stay because two hundred rows already
+   carry them and deleting a state silently re-labels every row that had it. */
+const JSTATES = ["live", "waiting", "quoted", "gone quiet", "on hold", "won",
+                 "lost", "closed", "dormant", "dead", "done"];
 const JOWNERS = ["Adam", "Jacob", "Gintare", "Mary", "Zac", "-"];
 
 /* One colour vocabulary across every page, so "amber" always means the same
    thing whether it is a company, an enquiry or a quote sitting out. */
 function stateTone(s) {
-  if (["live", "done"].includes(s)) return "ok";
-  if (["waiting", "quoted", "dormant - has bought", "dormant"].includes(s)) return "warn";
-  if (["gone quiet", "stale"].includes(s)) return "danger";
+  if (["live", "done", "won"].includes(s)) return "ok";
+  if (["waiting", "quoted", "dormant - has bought", "dormant", "on hold"].includes(s)) return "warn";
+  if (["gone quiet", "stale", "lost"].includes(s)) return "danger";
   return "navy";
 }
 const stateChip = (r) => `<span class="chip ${stateTone(jState(r))}">${esc(jState(r) || "no state")}</span>`;
@@ -1109,11 +1135,15 @@ function jActions() {
   const out = (JACOB.actions || []).filter((a) => !jShut(a));
   for (const q of quotesOut()) {
     // Not due and not yet issued are both real states and neither is a thing
-    // to do today. They live on Chasing so nothing disappears.
+    // to do today. They live on Leads so nothing disappears.
     if (jShut(q) || q.owner === "-" || q.unsent) continue;
     out.push({
-      key: q.key, company: q.client, headline: q.job, what: `${q.value} - issued, nothing back`,
-      owner: jOwner(q), next: jNext(q), state: jState(q), page: "chasing",
+      key: q.key, company: q.client, headline: q.job, project: q.job,
+      what: `${q.value} - issued, nothing back`,
+      owner: jOwner(q), next: jNext(q), state: jState(q), page: "leads",
+      deadline: q.due,
+      why: q.days === null ? "Issued with no date recorded against it"
+        : `Return date was ${q.days} day${q.days === 1 ? "" : "s"} ago and nothing has come back`,
       score: q.days >= 21 ? 90 : 70,
     });
   }
@@ -1127,17 +1157,187 @@ function jActions() {
     if (already.has(r.key) || !jDateIsHuman(r) || !jOverdue(r)) continue;
     const late = -jDueIn(r);
     out.push({
-      key: r.key, company: r.client, headline: r.job,
+      key: r.key, company: r.client, headline: r.job, project: r.job,
       what: `${r.value ? gbp(r.value) : r.valueText || "no value"} - you said you would go back to them ${
         late === 0 ? "today" : `${late} day${late === 1 ? "" : "s"} ago`}`,
       owner: jOwner(r), next: jNext(r), state: jState(r), page: "leads",
+      deadline: jDate(r),
+      why: late === 0 ? "You set today as the day to go back to them"
+        : `You said you would go back to them ${late} day${late === 1 ? "" : "s"} ago`,
       score: 100 + Math.min(late, 20),
     });
   }
   return out.sort((a, b) => (b.score || 0) - (a.score || 0));
 }
 
+/* ---------------- Opportunities ----------------
+   Adam, hub-74: "Opportunities must contain new commercial glazing work that
+   Jacob has found and that Fenster has not yet contacted", covering open
+   tenders, glazing packages, main contracts whose bidders still have to be
+   found, and awards where there is still a credible contact opportunity.
+
+   That is one page, and it used to be two. "Out to bid" held the tender feed
+   and "Opportunities" held companies that had just won an award - which meant
+   a job closing on Friday and a notice published after the enquiry list was
+   drawn up sat on separate pages, each looking like the whole picture.
+
+   His other instruction here is the one that changes the shape: "Cold or weak
+   award notices must not be presented as equal to genuine open tender
+   opportunities." So an award notice is never in the same table as a live
+   tender - it is behind a fold, marked prospecting, and it says on its face
+   that by the time an award publishes the subcontractors are usually chosen. */
+function oppRows() {
+  if (!JACOB) return [];
+  const out = [];
+  const src = (t) => t.manual ? `Email alert${t.ref ? ` - ${t.ref}` : ""}`
+    : t.procontract ? "ProContract advert (public)"
+    : "Contracts Finder / Find a Tender";
+  for (const t of (JACOB.tenders || [])) {
+    if (jShut(t)) continue;
+    // Confident and still open is an opportunity somebody can act on today.
+    // Everything else on this feed is a reading job first.
+    const open = t.confident && t.tier !== "text-only"
+      && t.coverage !== "outside coverage"
+      && (t.daysLeft === null || t.daysLeft === undefined || t.daysLeft >= 0);
+    out.push({
+      ...t,
+      oppClass: open ? "open" : "read",
+      company: t.buyer || "",
+      project: t.title,
+      location: t.where || t.regions?.[0] || "",
+      scope: t.why || t.scope || t.cpv || "",
+      sourceName: src(t),
+      deadline: t.closes || "",
+      relevance: [
+        t.tier === "direct" ? "The buyer is asking for glazing work by name"
+          : t.tier === "main-contract" ? "A building contract with a glazing package inside it - the job is finding who is bidding"
+          : "Matched on wording, not on a CPV code - read it before acting",
+        t.record ? `Fenster has ${t.record.won}W ${t.record.lost}L with this buyer` : "",
+        t.knownBuyer ? "Fenster knows this buyer" : "",
+        t.fit?.note || "",
+      ].filter(Boolean).join(". "),
+    });
+  }
+  const award = (r, cls, relevance) => ({
+    ...r,
+    oppClass: cls,
+    company: r.supplier,
+    project: r.title,
+    location: r.area || "",
+    scope: r.cpv || "",
+    sourceName: "Contracts Finder award notice",
+    deadline: "",
+    value: r.total || r.value,
+    relevance: [relevance, r.fit?.note || ""].filter(Boolean).join(". "),
+    state: r.state || "not contacted",
+  });
+  for (const r of (JACOB.warm || [])) {
+    if (jShut(r)) continue;
+    out.push(award(r, "prospect", `Has bought from Fenster and has just won ${fdate(r.awarded) || "recent"} work`));
+  }
+  for (const r of (JACOB.known || [])) {
+    if (jShut(r)) continue;
+    out.push(award(r, "prospect", "Quoted before with no recorded win, and building again"));
+  }
+  for (const r of (JACOB.cold || [])) {
+    if (jShut(r)) continue;
+    out.push(award(r, "cold", "No relationship at all - cold approach is blocked on JAC-2"));
+  }
+  return out;
+}
+
+/* Adam's core rule, hub-74: "Every active Opportunity and Lead must have a
+   clearly stated next action. Every active Lead must also have a next-action
+   deadline and a named owner. Where any of these are missing, the record must
+   appear on Today as an exception requiring attention."
+
+   Deliberately NOT counted as exceptions: a row blocked by something the
+   client cannot control (Brandon Estate has no date on purpose, because
+   Elkins cannot answer until they hear on their own bid), and a row whose
+   owner is honestly nobody because Adam has ruled it out. Flagging those
+   every day is how a red number stops meaning anything.
+
+   And the split. The first version of this listed all 64 exceptions on Today
+   and 53 of them were AdminBase rows nobody has ever opened - a CRM export of
+   264 rows that was bulk-loaded on 28/07, not 53 separate oversights. That is
+   one fact printed 53 times, and it pushed the four verified quotes genuinely
+   due today off the first screen. So `.crm` is the untouched CRM tail, kept
+   whole and counted, and `.own` is everything Fenster has actually worked.
+   Both are on the page; only one of them is a list. */
+function jExceptions() {
+  const own = [], crm = [];
+  const flag = (r, page, project, missing) => {
+    const row = {
+      key: r.key, company: r.client || r.company || "", project, page,
+      owner: jOwner(r), next: jNext(r), state: jState(r), deadline: jDate(r),
+      missing, why: `Missing ${missing.join(" and ")}`,
+      what: r.value ? gbp(r.value) : (r.valueText || ""),
+      score: 95,
+    };
+    // Touched by a human in any way - a date, a note, an owner, a state - and
+    // it is Fenster's row rather than a line in an import.
+    const worked = jDateIsHuman(r) || jNotes(r).length || !!jp(r.key).owner
+      || !!jp(r.key).state || !!jp(r.key).next_action;
+    (r.tier === "adminbase" && !worked ? crm : own).push(row);
+  };
+  for (const r of registerRows()) {
+    if (r.blocked || jDecided(r)) continue;
+    const missing = [];
+    if (!jNext(r)) missing.push("a next action");
+    if (jDueIn(r) === null) missing.push("a next-action deadline");
+    if (jOwner(r) === "-") missing.push("an owner");
+    if (missing.length) flag(r, "leads", r.job || "no site recorded", missing);
+  }
+  for (const r of oppRows()) {
+    // Cold rows are unowned by decision, not by omission - JAC-2.
+    if (r.oppClass === "cold") continue;
+    if (!jNext(r)) flag(r, "opportunities", r.project || "", ["a next action"]);
+  }
+  return { own, crm };
+}
+
+/* The Today page itself. Adam: "Today must pull these actions from the
+   relevant individual pages. It must not hold separate duplicate records."
+   So this is a union of the pages' own rows, deduplicated on the key that
+   every board row already carries - not a second list with its own state. */
+function jToday() {
+  const seen = new Set();
+  const out = [];
+  const take = (rows) => {
+    for (const a of rows) {
+      if (!a || seen.has(a.key) || jShut(a)) continue;
+      seen.add(a.key);
+      out.push(a);
+    }
+  };
+  // Exceptions first among equals: a record with no owner is not waiting on
+  // anybody, which is worse than one that is overdue.
+  take(jExceptions().own);
+  take(jActions());
+  return out.sort((a, b) => (b.score || 0) - (a.score || 0));
+}
+
+/* Everything on Leads that is genuinely due or overdue today, by the date a
+   human or the register set - not by the CRM's own follow-up column, which is
+   already 176 rows in the past and would put the whole backlog on Today every
+   morning. Shared by the Today page and the daily chase email so the two can
+   never disagree about what is due. */
+const jDueToday = () => registerRows().filter(
+  (r) => !r.blocked && !jShut(r) && jOverdue(r)
+    && (jDateIsHuman(r) || r.tier !== "adminbase"));
+
 const JACOB_RENDER = {
+  /* Adam, hub-74: four pages are working pages and the rest are sources. A
+     page that used to be one and is now the other has to SAY so at the top,
+     or somebody works it for a fortnight and wonders why nothing they do
+     shows up on Today. */
+  _source(feeds, note) {
+    return `<div class="planned-note"><p><strong>This is a source page, not a working page.</strong>
+      Everything on it that somebody acts on is on <a data-go="${esc(feeds[0])}">${esc(feeds[1])}</a>
+      and on <a data-go="overview">Today</a>. It is kept for audit - so a number on a working page can
+      be traced back to the thing it was read out of. ${note || ""}</p></div>`;
+  },
+
   /* One row shape for everything with a next action against it. Company,
      what happened, what to do, who does it - in that order, because that is
      the order the question gets asked in. */
@@ -1158,26 +1358,114 @@ const JACOB_RENDER = {
       </div>`).join("")}</div>`;
   },
 
+  /* ------------------------------------------------ Today
+     Adam, hub-74: "Today must act as the main daily action list ... Every item
+     shown on Today must include: Client. Project. Current stage. Owner. Next
+     action. Action deadline. Reason it appears on Today."
+
+     That last column is the one the page did not have. A row could be here
+     because a date arrived, because a quote has gone unanswered for a month,
+     or because nobody has ever been given it - and the card told you what to
+     do without ever telling you which of those it was. */
+  _todayRows(list) {
+    if (!list.length) return `<div class="empty"><strong>Nothing outstanding</strong></div>`;
+    return `<table class="tbl"><thead><tr>
+        <th>Client</th><th>Project</th><th>Stage</th><th>Next action</th>
+        <th>Deadline</th><th>Why it is here</th><th>Owner</th></tr></thead><tbody>
+      ${list.map((a) => `<tr data-jkey="${esc(a.key)}">
+        <td class="job-cell"><strong>${esc(a.company || "client not named")}</strong>
+          ${a.what ? `<small>${esc(String(a.what).slice(0, 90))}</small>` : ""}</td>
+        <td>${esc(a.project || a.headline || "-")}</td>
+        <td>${stateChip(a)}</td>
+        <td style="max-width:360px"><div class="clamp4">${inline(jNext(a)) || `<span class="dim">Nothing written - open it and give it one</span>`}</div>
+          ${jNote(a) ? `<span class="lognote">Last note: ${esc(jNote(a).slice(0, 140))}</span>` : ""}</td>
+        <td class="num">${a.deadline
+          ? `<strong>${esc(fdate(a.deadline))}</strong>${/^\d{4}-\d{2}-\d{2}$/.test(a.deadline)
+              ? `<small class="dim">${daysUntil(a.deadline) < 0 ? `${-daysUntil(a.deadline)}d overdue`
+                 : daysUntil(a.deadline) === 0 ? "today" : `in ${daysUntil(a.deadline)}d`}</small>` : ""}`
+          : `<span class="chip danger">none set</span>`}</td>
+        <td style="max-width:240px"><small>${esc(a.why || "")}</small>
+          <small class="dim" data-go="${esc(a.page || "overview")}">${esc(a.page || "")} &rarr;</small></td>
+        <td>${ownerTag(a)}</td></tr>`).join("")}
+    </tbody></table>`;
+  },
+
   overview() {
     const t = JACOB.totals;
-    const acts = jActions();
-    const mine = (o) => acts.filter((a) => jOwner(a) === o).length;
+    const all = jToday();
+    const exceptions = all.filter((a) => a.missing);
+    const crmGaps = jExceptions().crm;
+    const acts = all.filter((a) => !a.missing);
+    const mine = (o) => all.filter((a) => jOwner(a) === o).length;
     // Verified sends where we have them; the old return-date guess only as a
     // fallback, because a headline number ought to be the sourced one.
     const outValue = t.handoverValue || quotesWaiting().reduce((n, q) => n + poundsOf(q.value), 0);
+    const chases = acts.filter((a) => a.page === "leads");
+    const opps = acts.filter((a) => a.page === "opportunities");
+    const readyToSend = acts.filter((a) => a.page === "drafts");
+    const rest = acts.filter((a) => !["leads", "opportunities", "drafts"].includes(a.page));
+    // The CRM's own follow-up column, which is 176 rows in the past. Counted
+    // here as one line rather than listed as 176 - see the note below it.
+    const crmBacklog = registerRows().filter(
+      (r) => r.tier === "adminbase" && !jDateIsHuman(r) && jOverdue(r) && !jShut(r)).length;
+    const heldBack = Math.max(...[0, ...(JACOB.actions || []).map((a) => a.heldBack || 0)]);
     return `
       <div class="stats">
-        <div class="stat ${mine("Adam") ? "red" : "green"}"><div class="n">${mine("Adam")}</div><div class="l">Waiting on Adam - a call or a decision</div></div>
-        <div class="stat amber" data-go="chasing"><div class="n">${gbpShort(outValue)}</div><div class="l">Issued and waiting on an answer, ${t.handoverDue ?? "?"} chaseable today</div></div>
-        <div class="stat amber" data-go="enquiries"><div class="n">${t.liveBuyers}</div><div class="l">Buyers mid-conversation right now</div></div>
-        <div class="stat ${t.tendersClosing ? "red" : ""}" data-go="tenders"><div class="n">${t.tenders || 0}</div><div class="l">Contracts still out to bid, ${t.tendersClosing || 0} closing this week</div></div>
-        <div class="stat" data-go="outcomes"><div class="n">${t.winRate ?? "-"}%</div><div class="l">BD-log win rate - no log win over ${gbpShort(t.noWinAbove)}</div></div>
-        <div class="stat amber" data-go="companies"><div class="n">${t.dormantWon}</div><div class="l">Have paid Fenster, silent 180 days</div></div>
+        <div class="stat ${all.length ? "red" : "green"}"><div class="n">${all.length}</div><div class="l">Actions needing attention today</div></div>
+        <div class="stat ${exceptions.length ? "red" : "green"}"><div class="n">${exceptions.length}</div><div class="l">Records missing a next action, owner or deadline${crmGaps.length ? `, plus ${crmGaps.length} untouched CRM rows` : ""}</div></div>
+        <div class="stat ${mine("Adam") ? "amber" : "green"}"><div class="n">${mine("Adam")}</div><div class="l">Waiting on Adam - a call or a decision</div></div>
+        <div class="stat amber" data-go="leads"><div class="n">${gbpShort(outValue)}</div><div class="l">Issued and waiting on an answer, ${t.handoverDue ?? "?"} chaseable today</div></div>
+        <div class="stat ${t.tendersClosing ? "red" : ""}" data-go="opportunities"><div class="n">${t.tenders || 0}</div><div class="l">Open opportunities, ${t.tendersClosing || 0} closing this week</div></div>
+        <div class="stat" data-go="drafts"><div class="n">${jdrafts().length}</div><div class="l">Drafts written, waiting for a human to send</div></div>
       </div>
 
-      <div class="section"><div class="section-head"><h3>Do these today</h3>
-        <span class="page-sub">Ranked by how close it is to a real enquiry from a real buyer</span></div>
-        ${this._acts(acts, "Nothing outstanding")}</div>
+      ${exceptions.length ? `<div class="section"><div class="section-head">
+        <h3>Missing a next action, an owner or a deadline</h3>
+        <span class="page-sub">Adam's core rule, ${esc(niceDate("2026-07-29"))} - a record without these three is not finished</span></div>
+        <div class="planned-note">These are not overdue. They are worse: nothing on them says who does
+        what or by when, so they cannot go overdue. Rows blocked by something the client cannot
+        control are deliberately left out - Brandon Estate has no date on purpose.</div>
+        ${this._todayRows(exceptions)}</div>` : ""}
+
+      ${crmGaps.length ? `<details class="req-detail"><summary>${crmGaps.length} AdminBase rows
+        also have no date and nobody against them - but nobody has ever opened them either</summary>
+        <div class="planned-note" style="margin-top:10px">These came in as one CRM export on 28/07 and
+        have not been touched since. That is one fact, not ${crmGaps.length} separate oversights, so it
+        is folded rather than listed - the first version of this page put all of them on Today and
+        pushed the four verified quotes genuinely due today off the first screen. The moment somebody
+        sets a date, writes a note or takes ownership of one, it moves up into the list above.</div>
+        ${this._todayRows(crmGaps.slice(0, 60))}
+        ${crmGaps.length > 60 ? `<p class="page-sub">60 of ${crmGaps.length} shown -
+          <a data-go="leads">Leads</a> has all of them.</p>` : ""}</details>` : ""}
+
+      <div class="section"><div class="section-head"><h3>Leads due to be chased</h3>
+        <a data-go="leads">Leads &rarr;</a></div>
+        ${this._todayRows(chases)}</div>
+
+      <div class="section"><div class="section-head"><h3>New opportunities to review</h3>
+        <a data-go="opportunities">Opportunities &rarr;</a></div>
+        ${this._todayRows(opps)}</div>
+
+      ${readyToSend.length ? `<div class="section"><div class="section-head"><h3>Drafts ready for review or sending</h3>
+        <a data-go="drafts">Ready to Send &rarr;</a></div>
+        ${this._todayRows(readyToSend)}</div>` : ""}
+
+      ${rest.length ? `<div class="section"><div class="section-head"><h3>Buyers writing in, and companies worth a call</h3>
+        <span class="page-sub">Neither an opportunity Jacob found nor a job Fenster has quoted - see JAC-16</span></div>
+        ${this._todayRows(rest)}</div>` : ""}
+
+      ${crmBacklog || heldBack ? `<div class="section"><div class="section-head">
+        <h3>What this page is deliberately not listing</h3></div>
+        <div class="planned-note">
+          ${crmBacklog ? `<p><strong>${crmBacklog} AdminBase rows carry a follow-up date that has already
+          passed.</strong> They are real - Adam's JAC-14 rule is that nothing closes on silence - but
+          the date on them was set by the CRM and not by a person, and putting all ${crmBacklog} on
+          Today every morning would mean nobody reads the page. They are on
+          <a data-go="leads">Leads</a>, largest first, and the moment somebody puts a date on one it
+          appears here. That is the trade, stated rather than hidden.</p>` : ""}
+          ${heldBack ? `<p><strong>${heldBack} further ranked items</strong> did not fit the per-page
+          room on the digest and are on their own pages.</p>` : ""}
+        </div></div>` : ""}
 
       <div class="section"><div class="section-head"><h3>What Jacob cannot see</h3></div>
         <div class="planned-note">
@@ -1187,7 +1475,7 @@ const JACOB_RENDER = {
           of that gap. <a data-go="decisions">JAC-5</a> asks for sent items.</p>
           <p><strong>Ten quotes are now the exception.</strong> Mary read estimating@ sent
           items on 28/07 and dated every one of them against the message that actually left
-          the building, so the <a data-go="chasing">Chasing</a> page is sourced rather than
+          the building, so the <a data-go="leads">Leads</a> register is sourced rather than
           inferred. It found three errors, including a quote this board was calling "not yet
           issued" that had gone out the day before. Everything not on that register is still
           dated off a return date and should be read as a guess.</p>
@@ -1237,6 +1525,9 @@ const JACOB_RENDER = {
     const decided = buyers.filter((t) => t.stage === "decided");
     const t = JACOB.totals;
     return `
+      ${this._source(["overview", "Today"], `A live buyer conversation is neither an Opportunity nor a
+        quoted Lead in Adam's structure, so for now anything actionable on it is surfaced on Today and
+        the raw conversations live here. That gap is <a data-go="decisions">JAC-16</a>.`)}
       ${decided.length ? `<div class="section"><div class="section-head"><h3>They have told us the answer</h3>
         <span class="page-sub">Won or lost, somebody has said what happened - nothing else on this board is that certain</span></div>
         <div class="planned-note">These were being filed as ordinary correspondence. A client
@@ -1249,7 +1540,7 @@ const JACOB_RENDER = {
         ${open.length ? this._threadRows(open) : `<div class="empty"><strong>Nothing open</strong></div>`}</div>
 
       ${quiet.length ? `<div class="section"><div class="section-head"><h3>Buyers who have gone quiet</h3>
-        <a data-go="chasing">Chasing &rarr;</a></div>
+        <a data-go="leads">Leads &rarr;</a></div>
         ${this._threadRows(quiet)}</div>` : ""}
 
       ${portal.length ? `<div class="section"><div class="section-head"><h3>Portal notices</h3></div>
@@ -1284,8 +1575,11 @@ const JACOB_RENDER = {
      said they would go back to it - and the rows nobody has said that about
      counted out loud rather than sorted to the bottom and forgotten. */
   leads() {
-    const rows = registerRows();
-    if (!rows.length) {
+    const all = registerRows();
+    const decided = all.filter((r) => jDecided(r));
+    const rows = all.filter((r) => !jDecided(r));
+    const h = hand();
+    if (!all.length) {
       return `<div class="empty"><strong>Nothing quoted and live</strong>
         Either the register has not been built or everything on it is closed.</div>`;
     }
@@ -1319,12 +1613,7 @@ const JACOB_RENDER = {
       return `<div class="section"><div class="section-head"><h3>${title}</h3>
         <span class="page-sub">${list.length} job${list.length === 1 ? "" : "s"}, ${gbpShort(val(list))}</span></div>
         ${blurb ? `<div class="planned-note">${blurb}</div>` : ""}
-        <table class="tbl"><thead><tr>
-          <th>Job</th><th>Value</th><th>Quoted</th><th>Status</th>
-          <th>Next action date</th><th>Next action, and what was said last</th><th>Owner</th>
-        </tr></thead><tbody>
-        ${shown.map((r) => this._regRow(r)).join("")}
-        </tbody></table>
+        ${this._regTable(shown)}
         ${held ? `<p class="page-sub">${held} further AdminBase row${held === 1 ? " is" : "s are"} in this
           band and not shown - <a data-go="chaselist">the AdminBase list</a> has all of them. Nothing on
           the register is ever held back, and neither is anything you have put a date on.</p>` : ""}
@@ -1364,6 +1653,19 @@ const JACOB_RENDER = {
           thing this page exists to stop.</p>
         </div></div>
 
+      ${h?.checklist ? `<div class="section"><div class="section-head"><h3>What a chase is for</h3>
+        <span class="page-sub">Adam's own fifteen-step checklist - steps 8-15 are the ones on this page</span></div>
+        <div class="planned-note">
+          <p><strong>Not "any news".</strong> ${esc(h.checklist.why)} A chase has to come back with
+          one of these six, and whichever one does sets the next date:
+          ${h.checklist.asks_of_a_chase.map((q) => esc(q)).join(" &middot; ")}.</p>
+          <p>${esc(h.checklist.standing_warning_from_adam)}
+          <em>${esc(h.checklist.unconfirmed)}</em></p>
+          <p><strong>${esc(h.rule?.text || "")}</strong> Every issue date on a Register row was read out
+          of the message that actually left estimating@ - ${esc(h.verification?.source || "")}. That is
+          why the tier is on the row: it changes how much the date is worth.</p>
+        </div></div>` : ""}
+
       ${band(overdue, "Due now", `Most overdue first. A day count is not on its own an
         instruction - a row marked <em>cannot answer yet</em> is blocked by something the client
         cannot control, and ringing them about it wastes the relationship.`)}
@@ -1372,14 +1674,67 @@ const JACOB_RENDER = {
         than the ones above - they are the ones no date has ever been set on, which is a different
         and worse problem. Give each one a date and it moves into the bands above.
         The exception is a row marked <em>cannot answer yet</em>: that one is undated on purpose,
-        because the client is waiting on something they do not control.`)}`;
+        because the client is waiting on something they do not control.`)}
+
+      ${decided.length ? `<div class="section"><div class="section-head"><h3>Decided</h3>
+        <span class="page-sub">${decided.length} marked won, lost or closed - ${gbpShort(val(decided))}</span></div>
+        <div class="planned-note">Off the chase list and off Today, kept here because this is the only
+        place in the company an outcome gets written down at all. The Opportunity Log's W/L column and
+        the Estimating Log's are both mostly empty; a row here is worth more than either.</div>
+        ${this._regTable(decided)}</div>` : ""}
+
+      ${handHeld().length ? `<div class="section"><div class="section-head">
+        <h3>Priced but never issued - not chaseable</h3>
+        <span class="page-sub">${gbpShort(handHeld().reduce((n, r) => n + (r.value || 0), 0))} of work that has not left the building</span></div>
+        <div class="planned-note">Adam, hub-74: priced jobs that were prepared but not issued belong on
+        Leads where they have been passed over. They are shown apart from everything above because
+        calling a client about a quote that never left the building is worse than not calling.</div>
+        <table class="tbl"><thead><tr>
+          <th>Job</th><th>Value</th><th>Held by</th><th>Why it is not out</th></tr></thead><tbody>
+        ${handHeld().map((r) => `<tr data-jkey="${esc(r.key)}">
+          <td class="job-cell"><strong>${esc(r.job)}</strong><small>${esc(r.client)}</small></td>
+          <td class="money">${r.value ? gbp(r.value) : "not published"}</td>
+          <td>${ownerTag(r)}</td>
+          <td style="max-width:420px"><div class="clamp4">${inline(jNext(r))}</div>
+            ${r.caveat ? `<small class="dim">${esc(r.caveat)}</small>` : ""}</td></tr>`).join("")}
+        </tbody></table></div>` : ""}
+
+      ${(h?.corrections || []).length ? `<details class="req-detail">
+        <summary>What this register had wrong, and when it stopped being wrong</summary>
+        <table class="tbl" style="margin-top:10px"><thead><tr>
+          <th>It said</th><th>It is</th><th>Why it happened</th></tr></thead><tbody>
+        ${h.corrections.map((c) => `<tr><td>${esc(c.was)}</td><td><strong>${esc(c.now)}</strong></td>
+          <td class="dim">${esc(c.why)}</td></tr>`).join("")}
+        </tbody></table></details>` : ""}`;
   },
 
-  /* One row of the register. Status, when to act, and what was said last - in
-     that order, because that is the order somebody picking up the phone asks. */
+  /* Adam's Lead columns, hub-74: client, project, quote value ex VAT, quote
+     issue date, current stage, owner, last meaningful contact, next action,
+     next-action deadline, chase history, expected decision date and status.
+
+     Three of those were not on the row before and each of them came off the
+     Chasing page, which he has retired: the checklist STEP (his own numbering,
+     8-15 are the chasing half), the LAST HEARD date, and the EXPECTED DECISION
+     date - which is not a chase date and must never be sorted with them.
+     Gordon Court is the case that proves it: jLiving does not decide before
+     16 September, so the expected decision is known, the chase date is the
+     week before it, and the two are ten weeks apart. */
+  _regTable(rows) {
+    return `<table class="tbl"><thead><tr>
+        <th>Job and client</th><th>Value ex VAT</th><th>Quoted / last heard</th>
+        <th>Stage</th><th>Status</th><th>Next action date</th>
+        <th>Next action, and the chase history</th><th>Owner</th>
+      </tr></thead><tbody>
+      ${rows.map((r) => this._regRow(r)).join("")}
+      </tbody></table>`;
+  },
+
   _regRow(r) {
     const note = jNote(r);
     const log = jNotes(r);
+    // "Expected decision" is a fact about the client's own timetable. Only
+    // shown where somebody has actually written one down.
+    const decides = r.blockedUntil || r.expectedDecision || "";
     return `<tr data-jkey="${esc(r.key)}">
       <td class="job-cell"><strong>${esc(r.job || "no site recorded")}</strong>
         <small>${esc(r.client || "client not named")}${
@@ -1388,11 +1743,23 @@ const JACOB_RENDER = {
           r.lead ? ` ${esc(r.lead)}` : ""}${r.blocked ? " &middot; cannot answer yet" : ""}</small></td>
       <td class="money">${r.value ? gbp(r.value) : esc(r.valueText || "not published")}</td>
       <td class="num">${r.quotedOn ? esc(fdate(r.quotedOn)) : `<small class="dim">no date</small>`}
-        ${r.silent === null || r.silent === undefined ? "" : `<small class="dim">${r.silent}d silent</small>`}</td>
-      <td>${stateChip(r)}</td>
+        ${r.silent === null || r.silent === undefined ? "" : `<small class="dim">${r.silent}d silent</small>`}
+        ${r.lastClientContact ? `<small class="dim">last heard ${esc(fdate(r.lastClientContact))}</small>` : ""}</td>
+      <td class="num">${r.stage
+        ? `<strong>${r.stage}</strong><small class="dim">${esc(r.stageName || "")}</small>`
+        : `<small class="dim">no step</small>`}</td>
+      <td>${stateChip(r)}
+        ${decides ? `<small class="dim">decision expected ${esc(fdate(decides))}</small>` : ""}</td>
       <td class="num">${dueChip(r)}</td>
       <td style="max-width:380px"><div class="clamp4">${inline(jNext(r)) || `<span class="dim">Nothing written</span>`}</div>
-        ${note ? `<span class="lognote">Last note${log.length ? ` (${log.length})` : ""}: ${esc(note.slice(0, 180))}${note.length > 180 ? "..." : ""}</span>` : ""}</td>
+        ${r.blockedReason ? `<small class="dim">${esc(r.blockedReason)}</small>` : ""}
+        ${r.chaseNote ? `<small class="dim">${esc(r.chaseNote)}</small>` : ""}
+        ${r.decision ? `<small class="dim"><strong>${esc(r.decision.ref)} &middot; ${esc(r.decision.by)},
+          ${esc(r.decision.at || "")}:</strong> &ldquo;${esc(r.decision.answer)}&rdquo;
+          ${esc(r.decision.effect || "")}</small>` : ""}
+        ${note ? `<span class="lognote">Last note${log.length ? ` of ${log.length}` : ""}: ${esc(note.slice(0, 180))}${note.length > 180 ? "..." : ""}</span>` : ""}
+        ${log.length > 1 ? `<small class="dim">${log.slice(1, 4).map((n) =>
+          `${esc(String(n.at || "").slice(0, 10))} ${esc(n.by || "")}: ${esc(String(n.text || "").slice(0, 90))}`).join(" &middot; ")}</small>` : ""}</td>
       <td>${ownerTag(r)}</td></tr>`;
   },
 
@@ -1443,8 +1810,11 @@ const JACOB_RENDER = {
       <td>${ownerTag(r)}</td></tr>`;
 
     return `
+      ${this._source(["leads", "Leads"], `Adam retired this as a working page on 29/07: the verified
+        register, the checklist step, the next-chase date and the chase history are all on Leads now,
+        on the same row as the AdminBase and Mary's-records tiers of the same job.`)}
       ${h ? `<div class="stats">
-        <div class="stat" data-go="chasing"><div class="n">${gbpShort(t.issuedValue)}</div><div class="l">Issued and with a client - ${t.issued} quotes</div></div>
+        <div class="stat"><div class="n">${gbpShort(t.issuedValue)}</div><div class="l">Issued and with a client - ${t.issued} quotes</div></div>
         <div class="stat ${t.due ? "red" : "green"}"><div class="n">${t.due}</div><div class="l">Chaseable today, ${gbpShort(t.dueValue)}</div></div>
         <div class="stat"><div class="n">${t.oldest}d</div><div class="l">Longest a quote has been out</div></div>
         <!-- Adam, 29/07: "When we chase a job, we need to then set a date as
@@ -1533,6 +1903,9 @@ const JACOB_RENDER = {
     const main = rows.filter((t) => t.tier === "main-contract");
     const loose = rows.filter((t) => t.tier === "text-only");
     const f = JACOB.tenderFeed || {};
+    const src = `${this._source(["opportunities", "Opportunities"], `The raw feed, before the award
+      notices are merged onto it and before the fold that keeps a cold award out of the same table as
+      a tender closing on Friday.`)}`;
     const tbl = (list, empty) => list.length ? `<table class="tbl"><thead><tr>
         <th>Closes</th><th>What it is</th><th>Buyer</th><th>Value</th>
         <th>Next action</th><th>Owner</th></tr></thead><tbody>
@@ -1554,6 +1927,7 @@ const JACOB_RENDER = {
       </tbody></table>` : `<div class="empty"><strong>${empty}</strong></div>`;
 
     return `
+      ${src}
       <div class="section"><div class="section-head"><h3>Fenster can price these itself</h3>
         <span class="page-sub">The buyer is asking for glazing work by name</span></div>
         <div class="planned-note">Matched on the CPV codes Adam gave on 28/07/2026.
@@ -1704,65 +2078,136 @@ const JACOB_RENDER = {
       </details>` : ""}`;
   },
 
-  /* ------------------------------------------------ leads */
-  _leadTable(rows, showClient) {
-    if (!rows.length) return `<div class="empty"><strong>Nothing here yet</strong></div>`;
-    return `<table class="tbl"><thead><tr>
-        <th>Winner</th>${showClient ? "<th>Fenster history</th>" : ""}
-        <th>What they won</th><th>Value</th><th>Where</th>${showClient ? "<th>Next action</th><th>Owner</th>" : "<th>Awarded</th>"}</tr></thead><tbody>
-      ${rows.map((r) => `<tr data-jkey="${esc(r.key)}">
-        <td class="job-cell"><strong>${esc(r.supplier)}</strong><small>awarded ${esc(fdate(r.awarded)) || "date not published"}</small></td>
-        ${showClient ? `<td>${esc(r.client)} <span class="pill ${r.confidence}">${r.confidence}</span></td>` : ""}
-        <td>${esc(r.title)}</td>
-        <td class="money">${gbp(r.total || r.value)}
-          ${r.fit?.note ? `<small class="dim">${esc(r.fit.note)}</small>` : ""}</td>
-        <td>${esc(r.area) || "-"}</td>
-        ${showClient ? `<td style="max-width:300px"><div class="clamp4">${inline(jNext(r))}</div></td><td>${ownerTag(r)}</td>`
-                     : `<td>${esc(fdate(r.awarded)) || "-"}</td>`}</tr>`).join("")}
-    </tbody></table>`;
+  /* ------------------------------------------------ Opportunities
+     Adam's page, hub-74. Work Jacob has found that Fenster has not yet been
+     asked to price - open tenders, main contracts whose bidders still have to
+     be identified, and award notices where there is still somebody worth
+     ringing. One page, with the ten fields he listed on every row.
+
+     The fold is the instruction: "Cold or weak award notices must not be
+     presented as equal to genuine open tender opportunities." */
+  _oppRow(r) {
+    return `<tr data-jkey="${esc(r.key)}">
+      <td class="job-cell"><strong>${esc(r.company || "not named")}</strong>
+        ${r.record ? `<small><span class="pill ${r.record.won ? "exact" : "strong"}">${r.record.won}W ${r.record.lost}L with us</span></small>` : ""}
+        ${r.confidence ? `<small><span class="pill ${r.confidence}">${esc(r.confidence)} match</span></small>` : ""}
+        <small class="dim">${esc(r.sourceName)}</small></td>
+      <td class="job-cell"><strong>${(r.url || r.link)
+        ? `<a href="${esc(r.url || r.link)}" target="_blank" rel="noopener">${esc(r.project)}</a>`
+        : esc(r.project)}</strong>
+        ${r.scope ? `<small>${esc(String(r.scope).slice(0, 120))}</small>` : ""}</td>
+      <td>${esc(r.location) || `<small class="dim">not stated</small>`}</td>
+      <td class="money">${gbp(r.value)}
+        ${r.valueNote ? `<small class="dim">${esc(r.valueNote)}</small>` : ""}</td>
+      <td class="num">${r.deadline
+        ? `<strong>${esc(fdate(r.deadline))}</strong>${r.daysLeft !== null && r.daysLeft !== undefined
+            ? `<small class="dim">${r.daysLeft}d left</small>` : ""}`
+        : r.awarded ? `<small class="dim">awarded ${esc(fdate(r.awarded))}</small>`
+        : `<small class="dim">none</small>`}</td>
+      <td style="max-width:260px"><small>${esc(r.relevance || "")}</small></td>
+      <td style="max-width:320px"><div class="clamp4">${inline(jNext(r)) || `<span class="dim">Nothing written</span>`}</div></td>
+      <td>${stateChip(r)}</td>
+      <td>${ownerTag(r)}</td></tr>`;
   },
 
-  /* Was "Leads" until 29/07. Adam: "Maybe it should be called Leads and the
-     current Leads can be called opportunities??" - and he is right about which
-     way round it goes. Nothing on this page is a lead in the sense anybody at
-     Fenster uses the word: they are companies who have just won something,
-     which is a reason to make a call, not a job we are in for. */
+  _oppTable(rows, empty) {
+    if (!rows.length) return `<div class="empty"><strong>${empty}</strong></div>`;
+    return `<table class="tbl"><thead><tr>
+        <th>Company or authority</th><th>Project and scope</th><th>Location</th><th>Value</th>
+        <th>Deadline</th><th>Why it is relevant</th><th>Recommended next action</th>
+        <th>Status</th><th>Owner</th></tr></thead><tbody>
+      ${rows.map((r) => this._oppRow(r)).join("")}</tbody></table>`;
+  },
+
   opportunities() {
-    const warm = JACOB.warm.filter((r) => !jShut(r));
-    const known = JACOB.known.filter((r) => !jShut(r));
+    if (!JACOB.tenders) {
+      return `<div class="planned-note">The tender feed has not run yet.
+        <code>python scripts/jacob_tenders.py</code></div>`;
+    }
+    const rows = oppRows();
+    const direct = rows.filter((r) => r.oppClass === "open" && r.tier === "direct");
+    const main = rows.filter((r) => r.oppClass === "open" && r.tier === "main-contract");
+    const read = rows.filter((r) => r.oppClass === "read");
+    const prospect = rows.filter((r) => r.oppClass === "prospect");
+    const cold = rows.filter((r) => r.oppClass === "cold");
+    const noAction = rows.filter((r) => r.oppClass !== "cold" && !jNext(r)).length;
+    const closing = rows.filter((r) => (r.daysLeft ?? 99) <= 7 && r.oppClass === "open").length;
+    const f = JACOB.tenderFeed || {};
+    const t = JACOB.totals;
     return `
-      <div class="section"><div class="section-head"><h3>They have bought from Fenster, and they have just won work</h3></div>
-        <div class="planned-note">A warm name beats a perfect-fit stranger nearly every time.
-        In this trade a relationship buys one thing: being asked to price.</div>
-        ${this._leadTable(warm, true)}</div>
+      <div class="stats">
+        <div class="stat ${direct.length ? "green" : ""}"><div class="n">${direct.length}</div>
+          <div class="l">Open now - the buyer wants glazing by name</div></div>
+        <div class="stat ${closing ? "red" : ""}"><div class="n">${closing}</div>
+          <div class="l">Closing inside a week</div></div>
+        <div class="stat ${main.length ? "amber" : ""}"><div class="n">${main.length}</div>
+          <div class="l">Main contracts - find who is bidding</div></div>
+        <div class="stat ${noAction ? "red" : "green"}"><div class="n">${noAction}</div>
+          <div class="l">With no next action written - these are on Today</div></div>
+      </div>
 
-      <div class="section"><div class="section-head"><h3>Quoted before, no recorded win - and building again</h3></div>
-        ${this._leadTable(known, true)}</div>
-
-      <div class="section"><div class="section-head"><h3>Cold - no relationship at all</h3>
-        <span class="pill planned">blocked</span></div>
-        <div class="planned-note">${JACOB.totals.cold} live building contracts whose winner Fenster
-        has never spoken to. Nobody is assigned to any of them: cold approach needs
-        <a data-go="decisions">JAC-2</a> answered and a separate sending domain. They are here so
-        the moment that changes there is a list to work, not so anyone acts on them today.</div>
-        ${this._leadTable(JACOB.cold, false)}</div>
-
-      <div class="section"><div class="section-head"><h3>How a name gets on this page</h3></div>
+      <div class="section"><div class="section-head"><h3>What is on this page</h3></div>
         <div class="planned-note">
-          <p>${JACOB.totals.awardRows.toLocaleString()} construction award rows over
-          ${JACOB.window.days} days, ${JACOB.totals.winners.toLocaleString()} unique winners,
-          cross-referenced against ${JACOB.totals.clients} client folders in the archive
-          (${JACOB.totals.clientsWon} of which actually bought).</p>
-          <p>Leads are scored on what a contract <em>is</em> - CPV building families - not what its
-          title says. Keyword matching returned window <em>cleaning</em>, STI <em>screening</em>, and
-          one award that matched only on the phrase "the front door to maternity services". A notice
-          counts only if the award is recent <em>and</em> the job is still running: one published 469
-          days late described a contract that had already finished. And anything marked
-          <span class="pill possible">possible</span> waits for a human to confirm it once -
-          "Atlas" matched a window-cleaning contractor.</p>
-          <p><strong>An award is the weakest signal there is.</strong> By the time it publishes the
-          main contractor has picked their subcontractors. It is on the board because it is free and
-          it names companies; the stage that matters is tender, and that feed is not built.</p>
+          <p><strong>Work Fenster has not been asked to price yet.</strong> Once somebody at Fenster
+          has decided to pursue it, or a price has gone out, it belongs on
+          <a data-go="leads">Leads</a> and not here.</p>
+          <p><strong>The two tiers below the fold are not the same thing as the two above it.</strong>
+          An open tender has a closing date and an enquiry list still being drawn up. An award notice
+          is published <em>after</em> the main contractor picked their subcontractors - median 25 days
+          after, and 10% of them more than 180. It is a reason to make a call, not a job Fenster is
+          in for, and it is folded away so it cannot be mistaken for one.</p>
+        </div></div>
+
+      <div class="section"><div class="section-head"><h3>Open now - Fenster can price these itself</h3>
+        <span class="page-sub">The buyer is asking for glazing work by name. Soonest closing first.</span></div>
+        ${this._oppTable(direct, "Nothing open in this tier today")}</div>
+
+      <div class="section"><div class="section-head"><h3>Main contracts with a glazing package in them</h3>
+        <span class="page-sub">Fenster cannot bid these - the job is finding who is</span></div>
+        ${this._oppTable(main, "Nothing open in this tier today")}</div>
+
+      ${read.length ? `<details class="req-detail"><summary>${read.length} notice${read.length === 1 ? "" : "s"}
+        that need reading before anyone acts - broad CPV, no glazing word, or outside England and Wales</summary>
+        <div class="planned-note" style="margin-top:10px">Words lie: keyword matching has previously
+        returned window <em>cleaning</em>, STI <em>screening</em>, and one contract that matched only
+        on the phrase "the front door to maternity services".</div>
+        ${this._oppTable(read, "None")}</details>` : ""}
+
+      <details class="req-detail"><summary>Prospecting - ${prospect.length} compan${prospect.length === 1 ? "y" : "ies"}
+        Fenster knows that have just won work (weaker: an award publishes after the enquiry list is drawn up)</summary>
+        <div class="planned-note" style="margin-top:10px">A warm name beats a perfect-fit stranger
+        nearly every time - in this trade a relationship buys one thing, being asked to price. But
+        the signal underneath these rows is the weakest on the board, which is why they are here and
+        not in the tables above. Anything marked <span class="pill possible">possible</span> waits for
+        a human to confirm it once: "Atlas" matched a window-cleaning contractor.</div>
+        ${this._oppTable(prospect, "Nothing warm this window")}</details>
+
+      <details class="req-detail"><summary>Cold - ${cold.length} winners Fenster has never spoken to
+        (blocked on JAC-2, nobody is assigned)</summary>
+        <div class="planned-note" style="margin-top:10px">${t.cold} live building contracts whose
+        winner Fenster has never spoken to. Cold approach needs <a data-go="decisions">JAC-2</a>
+        answered and a separate sending domain. They are here so the moment that changes there is a
+        list to work, not so anyone acts on them today.</div>
+        ${this._oppTable(cold.slice(0, 60), "None")}</details>
+
+      <div class="section"><div class="section-head"><h3>Where these come from, and how thin it really is</h3></div>
+        <div class="planned-note">
+          <p>Contracts Finder publishes roughly <strong>eleven</strong> tender-stage notices a day
+          across every sector, against about <strong>110</strong> award notices. Over
+          ${esc(f.from || "the window")} to today, ${Object.entries(f.sources || {}).map(([k, v]) =>
+            `<strong>${esc(k)}</strong> returned ${v.releases ?? "?"} releases`).join(", ")}, and
+          <strong>${(JACOB.tenders || []).length}</strong> of them survived the filter. The award
+          side is ${t.awardRows.toLocaleString()} rows over ${JACOB.window.days} days,
+          ${t.winners.toLocaleString()} unique winners, cross-referenced against ${t.clients} client
+          folders in the archive (${t.clientsWon} of which actually bought).</p>
+          <p>That is not a bug and it is not a small number for the wrong reason: almost nothing
+          Fenster actually wins is publicly advertised, because it is a subcontractor. These feeds
+          are worth running because the few they find are live, not because it is where the work is.
+          The work is in the mailbox and in who is bidding - which is what
+          <a data-go="decisions">JAC-3</a> is about.</p>
+          <p>Everything is filtered on what a contract <em>is</em> - CPV building families - and never
+          on what its title says. A notice counts only if the award is recent <em>and</em> the job is
+          still running: one published 469 days late described a contract that had already finished.</p>
         </div></div>`;
   },
 
@@ -1906,22 +2351,29 @@ const JACOB_RENDER = {
           <span class="page-sub">${esc(r.client)}${r.value
             ? ` &middot; ${gbp(r.value)}` : ""} &middot; send as <strong>${esc(r.send_as)}</strong></span>
         </div>
-        <div class="planned-note"><p><strong>Why now:</strong> ${esc(r.why_now)}</p></div>
+        <div class="planned-note">
+          ${r.purpose ? `<p><strong>Purpose:</strong> ${esc(r.purpose)}</p>` : ""}
+          <p><strong>Why now:</strong> ${esc(r.why_now)}</p></div>
         <table class="tbl"><tbody>
-          <tr><td style="width:120px" class="dim">To</td>
+          <tr><td style="width:150px" class="dim">Linked client</td><td><strong>${esc(r.client)}</strong></td></tr>
+          <tr><td class="dim">Linked project</td><td>${esc(r.job)}${r.value ? ` &middot; ${gbp(r.value)}` : ""}</td></tr>
+          <tr><td class="dim">Intended recipient</td>
             <td><strong>${esc(r.to)}</strong>${r.to_name
               ? `<small class="dim">${esc(r.to_name)}${r.to_caveat
                   ? ` &mdash; ${esc(r.to_caveat)}` : ""}</small>` : ""}</td></tr>
           ${r.cc ? `<tr><td class="dim">Cc</td><td>${esc(r.cc)}</td></tr>` : ""}
+          <tr><td class="dim">Intended sender</td><td><strong>${esc(r.send_as)}</strong>
+            <small class="dim">from their own mailbox, under their own name</small></td></tr>
           <tr><td class="dim">Subject</td><td><strong>${esc(r.subject)}</strong></td></tr>
         </tbody></table>
         <pre class="draft-body">${esc(r.body)}</pre>
         <table class="tbl"><tbody>
-          <tr><td style="width:120px" class="dim">Evidence</td><td>${esc(r.evidence)}</td></tr>
+          <tr><td style="width:150px" class="dim">Evidence used</td><td>${esc(r.evidence)}</td></tr>
           <tr><td class="dim">Figures</td><td>${esc(r.value_source)}</td></tr>
-          <tr><td class="dim">Must not say</td><td>${esc(r.must_not_say)}</td></tr>
+          <tr><td class="dim">Wording to avoid</td><td>${esc(r.must_not_say)}</td></tr>
           ${r.blocked_on ? `<tr><td class="dim">Open</td><td>${esc(r.blocked_on)}</td></tr>` : ""}
-          <tr><td class="dim">State</td><td><span class="chip warn">${esc(r.status)}</span></td></tr>
+          <tr><td class="dim">Approval status</td><td><span class="chip warn">${esc(r.approval || r.status)}</span>
+            <small class="dim">Jacob does not send these. A named human reads it, changes what they want and sends it.</small></td></tr>
         </tbody></table></div>`).join("")}
 
       ${(d.not_drafted || []).length ? `<div class="section"><div class="section-head">
@@ -1945,6 +2397,11 @@ const JACOB_RENDER = {
         Run <code>python scripts/jacob_adminbase.py</code>.</div>`;
     }
     const t = c.totals;
+    /* Adam, hub-74: "The raw AdminBase Chase List may remain under System or
+       Data for audit purposes, but it must only act as a source feeding
+       Leads." So the rows are here whole, and nothing on this page is a thing
+       to do. The chaseable ones are on Leads, on one clock with everything
+       else Fenster has priced. */
     /* The CRM's own key on these rows is the client's email domain, which is
        right for grouping and wrong for the overlay - twelve Bradford Watts
        rows would all share one human correction. The board key is per lead. */
@@ -1956,6 +2413,9 @@ const JACOB_RENDER = {
       .filter((r) => (!r.outlier || r.confirmed) && !jShut(r))
       .slice(0, 60);
     return `
+      ${this._source(["leads", "Leads"], `The whole CRM export is here for audit. ${t.due} of these
+        ${t.rows} rows feed Leads; the rest are being priced, already on the verified register, or
+        held out of the totals as outliers.`)}
       <div class="stats">
         <div class="stat"><div class="n">${t.rows}</div><div class="l">Quoted leads in the CRM, ${t.clients} clients</div></div>
         <div class="stat red"><div class="n">${t.due}</div><div class="l">Nobody has been back to, ${gbpShort(t.dueValue)}</div></div>
@@ -2423,7 +2883,7 @@ const TEAM_RENDER = {
         <div class="stat ${unseen ? "amber" : "green"}"><div class="n">${unseen}</div><div class="l">Messages not yet picked up by a bot</div></div>
         <div class="stat ${overdue.length ? "red" : "green"}" data-bot-go="mary:pipeline"><div class="n">${overdue.length}</div><div class="l">Tenders overdue</div></div>
         <div class="stat ${dueSoon.length ? "amber" : "green"}" data-bot-go="mary:pipeline"><div class="n">${dueSoon.length}</div><div class="l">Due in the next 3 days</div></div>
-        ${JACOB ? `<div class="stat ${JACOB.totals.handoverDue ? "red" : ""}" data-bot-go="jacob:chasing"><div class="n">${JACOB.totals.handoverDue ?? 0}</div><div class="l">Quotes chaseable today</div></div>` : ""}
+        ${JACOB ? `<div class="stat ${JACOB.totals.handoverDue ? "red" : ""}" data-bot-go="jacob:leads"><div class="n">${JACOB.totals.handoverDue ?? 0}</div><div class="l">Quotes chaseable today</div></div>` : ""}
       </div>
 
       <div class="section"><div class="section-head"><h3>Needs you</h3>

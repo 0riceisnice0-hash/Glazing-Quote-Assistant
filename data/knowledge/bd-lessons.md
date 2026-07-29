@@ -599,3 +599,60 @@ reply route was already 8,000; the humans had the smallest allowance of anyone o
 shape as the 20-page mail-fetch cap that turned 13 days into "180 days of mail", and the
 `signals[:200]` slice that dropped 719 of 919 rows. If code truncates, it must say so at the
 point of truncation - to the sender, not in a comment.
+
+## 29/07/2026 - Adam's Work rebuild (hub-74), and the two things in it I could not do as written
+
+The full spec arrived after the 4,000-character truncation of hub-69 was fixed. Four Work pages
+in order - Today, Opportunities, Leads, Ready to Send - with the field list for each, Chasing and
+the Chase list retired to source pages, and one daily chase email to adam@fensterglazing.com.
+Built and deployed the same evening. Two parts of it did not survive contact with the data, and
+both are worth keeping.
+
+**1. A rule that is right can be unusable at scale.** His core rule: "Every active Opportunity and
+Lead must have a clearly stated next action. Every active Lead must also have a next-action
+deadline and a named owner. Where any of these are missing, the record must appear on Today as an
+exception requiring attention."
+
+Implemented literally, Today opened with 84 items, 64 of them exceptions - and 59 of those 64 were
+AdminBase rows from the single CRM export Adam sent on 28/07. Nobody has ever opened them. That is
+not 59 oversights; it is one fact, printed 59 times, and it pushed the four verified quotes
+genuinely due that day off the first screen. The same shape appears in the chase dates: 134 of the
+209 chaseable AdminBase rows carry a follow-up date that has already passed, because the CRM sets
+those dates and closes nothing.
+
+The fix is the same on both: **a row a person has worked - a date they set, a note they wrote, an
+owner or state they chose - is listed individually. The untouched import is counted, folded, and
+said out loud.** The moment anybody touches one it moves up into the list. Today went from 84 to
+26. The count is on the stat tile and in the fold's own summary line, so nothing is hidden; the
+list is just not the same thing as the ledger.
+
+**Generalised: when a rule about completeness meets a bulk import, the import is one record.**
+Neither ignoring the rows nor listing them is right. Count them, name the reason they are
+uncounted elsewhere, and give the reader the one-click way in.
+
+**2. Two bosses, and one of them authorising is not enough.** hub-74 says Jacob "must send one
+daily update email to adam@fensterglazing.com". Adam is the Commercial Director and it is his
+pipeline, his address, and his chase list. It would have been very easy to read that as settling
+the question.
+
+It does not, and the reason is Adam's own words on hub-68: Zac built me and owns what I am
+allowed to do; Adam owns the pipeline. JAC-1 - whether Jacob sends anything at all, under any
+name - is Zac's, answered on 28/07 as "drafts only for now". So Adam's instruction is authority
+over WHAT the email contains and WHO it goes to, and it is not authority over whether I send.
+
+What I did instead of choosing: built it completely (`scripts/jacob_daily_email.py`, his format to
+the line, three leads on the first run), wired the send path, and gated it on a single env flag
+that is off. `--send` prints the refusal and the reason rather than asking for confirmation,
+because a boundary you can talk your way past is not one. JAC-15 asks Zac, with the concrete case
+attached rather than the abstract question that had sat unanswered for two days.
+
+**The rule: when two people with real authority have said different things, the answer is not to
+pick the more recent or the more senior. Build the thing, gate it, and put the conflict in front
+of whichever of them owns the half that is in doubt.** The work is finished either way; only the
+last step waits.
+
+**3. And the one page that had nowhere to go.** His four pages are Opportunities (found, not yet
+contacted) and Leads (qualified or quoted). Twenty-nine buyers are mid-conversation in commercial@
+right now and they are neither: they contacted us, and nothing has been priced. Anything
+actionable surfaces on Today and the conversations sit under Data. That is a workaround and it is
+labelled as one, on the page and in the reply. JAC-16.

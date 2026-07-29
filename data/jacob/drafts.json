@@ -30,7 +30,9 @@
    "value": 174546.37,
    "value_source": "verified send",
    "must_not_say": "Do not offer a revised price, a discount or a delivery date. If the package is open it goes back to Mary to re-price properly.",
-   "status": "awaiting a human"
+   "status": "awaiting a human",
+   "purpose": "Establish whether the St Mary's glazing package is still open after the register was re-issued, and whether our 17 July submission is the one being considered.",
+   "approval": "awaiting a human"
   },
   {
    "id": "D-2",
@@ -51,7 +53,9 @@
    "must_not_say": "Do not say we quoted the same job twice, and do not set the two figures side by side as though they were comparable - they are different scopes in different systems, and the client will notice faster than we will. Do not offer to re-price or to hold the figure.",
    "status": "awaiting a human",
    "blocked_on": "Adam already has the re-send in hand - Mary put it to him on 28/07, routed via Pitcher or Taylor and carrying our Terms. If he has sent it, this draft is dead and should be deleted rather than sent second.",
-   "supersedes": "The 28/07 version of D-2, addressed to hpaxton@ and claiming an identical April figure. Withdrawn on Mary's evidence, 29/07."
+   "supersedes": "The 28/07 version of D-2, addressed to hpaxton@ and claiming an identical April figure. Withdrawn on Mary's evidence, 29/07.",
+   "purpose": "Find out whether the Eleanor Trade Centre quote is still live, and what happened to the enquiry after April.",
+   "approval": "awaiting a human"
   },
   {
    "id": "D-3",
@@ -69,7 +73,9 @@
    "value": 100730.0,
    "value_source": "verified send",
    "must_not_say": "Do not promise a return date for Lower Range Road. That is Mary's to give and she has not given it.",
-   "status": "awaiting a human"
+   "status": "awaiting a human",
+   "purpose": "Ask where Fenster's Ninn Lane price sits against the others, and open the Lower Range Road enquiry alongside it.",
+   "approval": "awaiting a human"
   },
   {
    "id": "D-4",
@@ -87,7 +93,9 @@
    "value": null,
    "value_source": "CRM only - no figure stated in the draft, deliberately",
    "must_not_say": "No totals. Every figure for this client comes from AdminBase and AdminBase has already been shown to disagree with what was actually sent. Naming a number we cannot source would be the exact mistake this board is supposed to prevent.",
-   "status": "awaiting a human"
+   "status": "awaiting a human",
+   "purpose": "Get a live-or-gone answer on six quotes open with one client, and feedback on how the prices looked.",
+   "approval": "awaiting a human"
   },
   {
    "id": "D-5",
@@ -105,7 +113,9 @@
    "value": null,
    "value_source": "CRM only - no figure stated in the draft, deliberately",
    "must_not_say": "Do not give a return date for Redditch Library. It is priced but not issued and it is still Mary's.",
-   "status": "awaiting a human"
+   "status": "awaiting a human",
+   "purpose": "Get a decision on the B239 windows quote and tidy up the older open quotes with the same client.",
+   "approval": "awaiting a human"
   },
   {
    "id": "D-6",
@@ -125,7 +135,9 @@
    "value_source": "No figure in this draft is a price to a client. The GBP 1.48m is A Plus's own material figure on their own quote, which Dan already has.",
    "must_not_say": "Do not tell him anything was won or lost - nothing is recorded either way, and inventing a kind 'still in with a chance' is exactly what makes a supplier stop believing us. Do not promise a hit rate by a date.",
    "status": "awaiting a human",
-   "blocked_on": "Nothing. It answers a question Adam was asked thirteen days ago and can go as soon as he has read it."
+   "blocked_on": "Nothing. It answers a question Adam was asked thirteen days ago and can go as soon as he has read it.",
+   "purpose": "Ask a fabricator for feedback on twelve quotes so Fenster learns why they did not convert - a supplier, so no selling.",
+   "approval": "awaiting a human"
   }
  ],
  "not_drafted": [
