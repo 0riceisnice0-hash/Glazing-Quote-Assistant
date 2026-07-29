@@ -1,0 +1,22 @@
+The reply to BSW was their own email sent back with nothing added
+
+Thirteen minutes after BSW answered, estimating@ replied. The body is BSW's
+message quoted back byte for byte - 3,973 characters against their 3,799 plus a
+174-character Outlook header, exact. No text, no signature, no attachment. So none
+of the four open points were chased, and BSW hold a blank reply thirteen minutes
+after telling us they had left the panic bars out.
+
+Checked before concluding it, because an absence is only evidence when the
+instrument was on: the poller ran continuously through the window, the extractor
+preserves leading text on this same sender and thread, and the store does record
+attachments on sent mail - 31 of 108.
+
+It is not a one-off. Four of 108 sent messages carry no text and three are from
+this morning. Two of those went to Neil Macilwaine at Pearce on Georgie's, the
+second two minutes after he had replied. Handed to that chat, where the tender is
+already issued.
+
+Both outstanding enquiries are now written out and with Adam ready to send - four
+points to BSW and four to Bellview. The Bellview one is the rebuild.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

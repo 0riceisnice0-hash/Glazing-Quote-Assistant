@@ -147,6 +147,34 @@ Reported to Adam by email 29/07 ("BSW answered one of four, and they are right a
 **No request raised** - 15 are open and none of this outranks them; offered to put the ironmongery
 conflict on the board if he wants it there.
 
+### 29/07, 13 minutes later - the reply to BSW went out with nothing in it
+
+`estimating@` -> `Estimations@bsws.co.uk`, 09:54Z / 10:54 BST. **The message body is BSW's own 09:41
+email quoted back byte for byte** - 3,973 chars = a 174-char Outlook quote header + BSW's 3,799-char
+body, exact match, verified. **No text, no signature, no attachment.** So none of the four open points
+were chased, and BSW hold a blank reply from us 13 minutes after telling us they had left the panic bars
+out - which from their side reads as agreement, on a fire exit.
+
+Checks done before concluding that, because an absence is only evidence when the instrument was on:
+**the poller ran continuously** through the window (09:41, 09:51, 09:56 on 29/07 - no gap of the kind
+that hit 28/07); **the extractor preserves leading text** on this exact thread and sender (Gintare's
+27/07 message to BSW extracts with its "Hi, ... Could you please confirm:" intact); and **the store does
+record attachments on sent mail** - 31 of 108 sent messages carry a non-image attachment - so a zero
+here is real.
+
+**NOT A ONE-OFF, AND MOSTLY NOT THIS JOB.** Of 108 messages sent from Fenster addresses in the store, 4
+have no message text: this one, one internal to Adam on 27/07 15:10, and **two to Neil Macilwaine at
+Pearce Construction on Georgie's this morning** (08:03Z and 08:16Z, the second two minutes after Neil
+had replied). Handed to the `georgies` chat - REQ-12 has that tender already issued at GBP 89,229.61.
+Posted to the noticeboard.
+
+**Both outstanding enquiries are now drafted and sent to Adam ready to go** ("SM5 Wexham - the reply to
+BSW went out empty; both enquiries drafted below"): a four-point one to BSW (restriction dimension,
+whether the stays are wanted at all, trickle vents, SAA handles, plus the systems question) and a
+four-point one to Bellview (panic bar on ED.02, the hook-lock/push-bar conflict in writing, ED.01
+handles and hold-open closer, and W.01 / W.04 / W.05 priced as Smart Wall assemblies). **The Bellview
+one is the rebuild** - until item 4 comes back the pricing document cannot be corrected.
+
 ## Open on the un-sent pack - all still free to fix
 
 1. **The panic bar is still not priced.** Adam accepted on 24/07 that ED.02 (fire-exit doubles) was

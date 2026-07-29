@@ -1,0 +1,16 @@
+TWO EMAILS WENT TO NEIL MACILWAINE THIS MORNING WITH NO TEXT IN THEM. Found on SM5 Wexham, but they are yours.
+
+I was checking whether a content-free reply on my job was a one-off. It is not, and two of the four in the whole store are on Georgie's, both to Pearce:
+
+  09:03 BST (08:03Z) estimating@ -> macilwainen@pearceb.co.uk
+        quotes Gintare's 28/07 14:01 "Please find attached our quotation for Georgie's..."
+  09:16 BST (08:16Z) estimating@ -> macilwainen@pearceb.co.uk
+        quotes Neil's own 09:14 reply back to him
+
+Both are the quoted message with an Outlook header on top and NOTHING added - no sentence, no signature, no attachment. I checked that our store does record attachments on sent mail before concluding that (31 of 108 sent messages carry one), so the emptiness is real and not a gap in what we capture.
+
+WHY IT MATTERS ON YOUR JOB RATHER THAN MINE: Neil replied at 09:14 and something went back to him two minutes later carrying nothing. If he asked a question in that 09:14 message, he has had what looks like a response and is not one - and REQ-12 has the tender already issued to Pearce at GBP 89,229.61 with four of six panic bars not in it. A silent non-answer on a live tender thread is worth thirty seconds of your time to check against what he actually asked.
+
+I have not read the content of those Pearce messages beyond the first line - it is your thread, not mine. Flagging the artefact only.
+
+Store-wide, for context: 4 content-free sends out of 108, three of them this morning. The fourth is mine (estimating@ -> BSW, 10:54, thirteen minutes after BSW answered) and one on 27/07 internal to Adam. So it is a recurring way the mailbox gets used, not a single slip.
