@@ -26,7 +26,22 @@
   "hub-29",
   "bot-15",
   "hub-34",
-  "bot-17"
+  "bot-17",
+  "hub-37",
+  "hub-38",
+  "hub-40",
+  "hub-41",
+  "hub-42",
+  "hub-43",
+  "hub-44",
+  "hub-45",
+  "hub-46",
+  "bot-19",
+  "handover-issued:brandon-estate:2026-06-15",
+  "bot-20",
+  "handover-issued:grange-hill:2026-07-29",
+  "hub-57",
+  "hub-58"
  ],
  "runs": [
   {
@@ -60,6 +75,18 @@
   {
    "at": 1785331789.6967037,
    "seconds": 1529.3782715797424
+  },
+  {
+   "at": 1785333112.3912506,
+   "seconds": 570.5018422603607
+  },
+  {
+   "at": 1785337061.198022,
+   "seconds": 3436.540322303772
+  },
+  {
+   "at": 1785342295.9401133,
+   "seconds": 854.6586103439331
   }
  ],
  "fails": 0,
@@ -67,11 +94,12 @@
  "last_kick": {
   "chat": "jacob",
   "title": "Business development",
-  "at": "2026-07-29T14:42:21",
+  "at": "2026-07-29T17:26:43",
   "orders": [
-   "bot-message: mary - Leys Pavilion 8642: issued 20/07/2026 15:50 to Luke Baker, and Adam has chased twice"
+   "hub-message: zac - Jacob, we need all of our current live leads that need chasing and updating in one clear dashboard w",
+   "hub-message: adam - That last message was from Adam, not Zac!"
   ],
-  "session_id": "7c16f640-b823-451f-b2a0-d5ab6da27507",
+  "session_id": "d7e9339d-85ed-4142-950e-c81f7bdac142",
   "prompt": "Read C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\JACOB-SESSION.md and follow it. Your work orders are the JSON files in C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\test-results\\jacob-inbox\\queue. Handle them, reply on the hub to anyone who wrote to you, then move each order into C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\test-results\\jacob-inbox\\processed and rebuild your board.\n\nYou and Mary work independently and may be running at the same time. Two rules that make that safe: git-commit ONLY the files you touched (never `git add -A`; if the index is locked, wait a few seconds and retry), and deploy the hub only through the deploy scripts - they take the shared deploy lock for you."
  }
 }

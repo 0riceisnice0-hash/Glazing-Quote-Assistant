@@ -81,10 +81,20 @@ CREATE TABLE IF NOT EXISTS jacob_pipeline (
   state TEXT DEFAULT '',            -- overrides the derived state; '' = leave it
   owner TEXT DEFAULT '',            -- who does the next thing
   next_action TEXT DEFAULT '',
-  note TEXT DEFAULT '',             -- what happened last, in a human's words
+  next_date TEXT DEFAULT '',        -- ISO date to do it on. Adam, 29/07: "they
+                                    -- said call back in 2 months" needs a date,
+                                    -- not a sentence, or nothing can sort by it
+  note TEXT DEFAULT '',             -- the LATEST note, denormalised out of `notes`
+  notes TEXT DEFAULT '[]',          -- the call log: [{at, by, text}], newest first,
+                                    -- append-only. Overwriting loses the fact that
+                                    -- we rang twice, which is what a chase needs
   updated TEXT NOT NULL,
   updated_by TEXT DEFAULT 'team'
 );
+-- These two columns arrived after the table was live, so the API adds them with
+-- ALTER on first write and swallows the "duplicate column" error. Applying this
+-- file to a fresh database gets them from the CREATE above; applying it to
+-- production is a no-op, which is the point of the IF NOT EXISTS.
 
 -- Bot to bot. Jacob knows what is being quoted; Mary knows who is buying.
 -- Neither is obliged to reply - a message that needs no answer gets none,

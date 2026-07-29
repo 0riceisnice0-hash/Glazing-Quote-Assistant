@@ -1,11 +1,10 @@
 # What Jacob knows about how Fenster wins work
 
-Durable BD knowledge, distilled from the evidence. LOADED CONTEXT for every Jacob session - every line is a
-token tax on every session forever, which is why the cap exists. **The cap is on the loading, never on the
-knowing** (Zac, 29/07: "why cap his knowledge?"): nothing is ever deleted to fit it. **Cap: 130 lines.** Over
-it the full account moves to `data/knowledge/bd-lessons.md` (unlimited, append-only, grep-able) and the
-one-line rule stays here with a pointer - Mary's INDEX.md over AI.md, same shape. New evidence teaches: add.
-Evidence contradicts: the line dies here, the story of WHY goes to bd-lessons. Files: `data/jacob/README.md`.
+Durable BD knowledge, distilled from the evidence. LOADED CONTEXT for every Jacob session, so every line is a token
+tax forever - hence the cap. **The cap is on the LOADING, never on the knowing** (Zac, 29/07): nothing is ever deleted
+to fit it. **Cap: 130 lines.** Over it, the full account moves to `data/knowledge/bd-lessons.md` (unlimited,
+append-only, grep-able) and the one-line rule stays here with a pointer - Mary's INDEX.md over AI.md. New evidence
+teaches: add. Evidence contradicts: the line dies here, the WHY goes to bd-lessons. Files: `data/jacob/README.md`.
 
 ## What Fenster HAS WON - `contracts-won.json`, the file that settles arguments
 
@@ -69,27 +68,27 @@ value on each. This is the win history; everything else is a funnel.**
   Companies House needs no key via the public site; full accounts are iXBRL, so one
   fetch qualifies a contractor. Both tricks: `bd-lessons.md`, 29/07.
 - **Check `oldest/newest/truncated` before believing a count** - a 20-page fetch cap once turned 13-22 days into "180 days of mail".
-- **Once For All is Conquest renamed** (`tenders@onceforallmarketplace.com`, in
-  `jacob_intake.PORTALS` 29/07); without it a portal CHASE reads as a fresh enquiry.
-- **A job can be live and chased with no Mary chat at all** - Trafalgar House was, so it
-  was on no list of mine. The register is a floor, never a complete set: 9 managed rows
-  against ~25 AdminBase quotes raised since 15/06 alone.
+- **Once For All is Conquest renamed** (`tenders@onceforallmarketplace.com`, in `jacob_intake.PORTALS`
+  29/07); without it a portal CHASE reads as a fresh enquiry.
+- **A job can be live and chased with no Mary chat at all** - Trafalgar House was, so it was on
+  no list of mine. The register is a floor, never a complete set: 9 managed rows against ~25
+  AdminBase quotes raised since 15/06 alone.
 - **"Not in the sends I have dated" means "not in the list that script searches"** - Leys,
   29/07: absent only because it was not one of nine hard-coded jobs, and absence from a
   tool reads exactly like never sent. **Count the chases before writing "call them"** - the
   third touch asks what nobody has (their decision date), not what two emails already
   failed to get. **Direct numbers are in the signature.** `bd-lessons`.
-- **Join AdminBase to your own TENDER BOARD, not just to the mailbox** - on postcode
-  SECTOR plus title. **A client's public deadline sets the chase date; a fortnight
-  rule invents one.** Leys Park, 29/07: `bd-lessons.md`.
+- **Join AdminBase to your own TENDER BOARD, not just to the mailbox** - on postcode SECTOR
+  plus title. **A client's public deadline sets the chase date; a fortnight rule invents
+  one.** Leys Park, 29/07: `bd-lessons.md`.
 - **AdminBase re-dates nothing on a re-quote** (Mary, 29/07); rows joining penny-exact
   to a NEWER verified send are aged from the send. **And the lead date can be the wrong
   EVENT, not a typo: RFQ OUT IS NOT QUOTE OUT.** Brandon 8324 read 15/05, the day a
   BCC-only RFQ went to four fabricators; the price reached Elkins 15/06, and Mary found
   seven such RFQs. Expect the slip, do not patch one row.
-- **Read the Status field on any alert feed.** Of 30 unique Supply2Gov items over four
-  days, 15 were award or prior-information notices - already gone. Four days of alerts
-  held two live, on-package, mainland leads, not "27 a day".
+- **Read the Status field on any alert feed.** Of 30 unique Supply2Gov items over four days,
+  15 were award or prior-information notices - already gone. Four days of alerts held two
+  live, on-package, mainland leads, not "27 a day".
 - **COVERAGE IS ENGLAND AND WALES, NATIONWIDE** - Adam, 29/07, closing JAC-10. Out:
   Scotland, NI, Crown Dependencies, ML. The PQQ's 78 postcode areas are a marketing claim
   that was enforced as a rule and parked all of Wales while a GBP 174,546 quote was live
@@ -102,29 +101,31 @@ value on each. This is the win history; everything else is a funnel.**
   still assembling their tender. **And check the SUPPLIER expiry, not just our
   validity** - ours and both fabricators' die 28/08 on a Nov-26 start. Ours will not
   chase itself. `expires` on the row; `bd-lessons.md`.
+- **A board nobody can EDIT is a report, and "not user friendly" can mean BROKEN** - the
+  panel opened 3 of 7 key types, so the whole CRM held one edit. **Check a quiet feature
+  works before redesigning it**, and **mark a DERIVED date**: rank a human's promise above
+  one or a 524-day-stale CRM row outranks a quote due today. 29/07, `bd-lessons.md`.
 
 ## Standing decisions (Adam/Zac - do not re-open; full list `mary_recall --settled`)
 
-- **Commercial team: Adam (director), Gintare (estimating), Paul Taylor (PM), Steve
-  Freezer (technical), Zac (marketing)** - Adam, 29/07. **Perry Giffin is Residential:
-  never route commercial work through him** - which kills the info@ hand-forward fix. JAC-7 open.
-- info@ is off the intake list (Adam, 28/07) - commercial mail gets forwarded.
-- The handover rule (Adam, 28/07): Mary's while priced; Jacob's once the quote goes out.
+- **Commercial team: Adam (director), Gintare (estimating), Paul Taylor (PM), Steve Freezer
+  (technical), Zac (marketing)** - Adam, 29/07. **Perry Giffin is Residential: never route
+  commercial work through him** - which kills the info@ hand-forward fix. JAC-7 open.
+- info@ is off the intake list (Adam, 28/07) - commercial mail gets forwarded. The handover
+  rule (Adam, 28/07): Mary's while priced; Jacob's once the quote goes out.
 - Drafts only, no sending (JAC-1, Zac, 28/07): every draft is for a named human to send
   from their own mailbox, and no price appears in one unless we watched it leave.
 - Hightown: do not quote unless instructed. Neil Douglas: live tender, do not approach.
-- **Chasing is a checklist, not a nudge** (Adam, 29/07, by email; steps 8-15 of his
-  15-step list are Jacob's, 1-7 Mary's). A chase must return one of six things -
-  pricing feedback, is it secured, when they decide, who won it, why we lost, or a
-  blow-out - and must set the NEXT date. Tenders sit twelve months then get awarded:
-  silence is not death. `handover.json.checklist`; on the hub for Adam to confirm.
+- **Chasing is a checklist, not a nudge** (Adam, 29/07; steps 8-15 of his 15-step list are
+  Jacob's, 1-7 Mary's). A chase must return one of six things - pricing feedback, is it
+  secured, when they decide, who won it, why we lost, a blow-out - and must set the NEXT
+  date. Tenders sit twelve months then get awarded: silence is not death. `handover.json`.
 
 ## Memory (Phase 5 - same skeleton as Mary's)
 
-- **Per-company memory: `data/companies/<slug>.md`** (README there). Read it first,
-  update before close-out. 29/07: `chigwell-london-plc` (3 live leads, GBP 451k),
+- **Per-company memory: `data/companies/<slug>.md`** (README there). Read first, update
+  before close-out. 29/07: `chigwell-london-plc` (3 live leads, GBP 451k),
   `glazing-consultancy-services` (Darren Trigg; both his schools were CIF bids that lost
   funding, killing SIX "Live - Quoted" rows - **an outcome that arrives by email never
-  reaches the CRM**).
-- **History is queryable, zero tokens**: `mary_recall.py --grep <company>` covers hub
-  messages, the bot line and requests, and backfills nightly.
+  reaches the CRM**). **History is queryable, zero tokens**: `mary_recall.py --grep
+  <company>` covers hub messages, the bot line and requests, and backfills nightly.

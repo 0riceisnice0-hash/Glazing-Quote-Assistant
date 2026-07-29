@@ -1355,7 +1355,7 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
     for r in warm[:6]:
         add(55, "lead:" + re.sub(r"[^a-z0-9]", "-", r["supplier"].lower())[:50],
             r["client"], r["supplier"], "%s - %s" % (r["title"], gbp(r["total"] or r["value"])),
-            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "leads")
+            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "opportunities")
 
     for r in [x for x in book if x["state"] == "dormant - has bought"][:5]:
         add(32, "co:" + x_key(r), r["company"], r["company"],
@@ -1365,7 +1365,7 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
     for r in known[:4]:
         add(22, "lead:" + re.sub(r"[^a-z0-9]", "-", r["supplier"].lower())[:50],
             r["client"], r["supplier"], "%s - %s" % (r["title"], gbp(r["total"] or r["value"])),
-            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "leads")
+            r["owner"], r["next"], "award won " + (r["awarded"] or ""), "opportunities")
 
     acts.sort(key=lambda a: -a["score"])
     # Two award notices against the same client collapse to one thing to do.
@@ -1387,7 +1387,7 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
     # needed to see - a GBP 368k quote he must not chase yet, and a GBP 7,975
     # one sitting unread in an out-of-office - dropped off the page entirely.
     ROOM = {"drafts": 5, "chasing": 5, "chaselist": 3, "enquiries": 8,
-            "tenders": 3, "leads": 2, "companies": 2}
+            "tenders": 3, "opportunities": 2, "companies": 2}
     used, out = defaultdict(int), []
     for a in ranked:
         page = a.get("page") or "overview"

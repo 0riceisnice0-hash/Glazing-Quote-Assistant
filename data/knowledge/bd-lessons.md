@@ -468,3 +468,52 @@ Bellview 0000000520, expiring on the same day, **28/08/2026**, against a Nov 26 
 programme. Zero headroom. A supply-chain expiry will not chase itself and nobody outside
 Fenster has any reason to raise it, so it goes on the row as `expires` alongside
 `nextChase`. Check the supplier quote dates on every handover, not just our own validity.
+
+## 29/07/2026 - "The chase list isn't very user friendly" was a bug report
+
+Adam asked for one dashboard holding every live quoted job, with a next-action date and
+notes he could update after a call, and suggested the new page take the name **Leads**
+while the award-derived page became **Opportunities**. He was right about the naming:
+nothing on the old Leads page was a lead in the sense anyone at Fenster uses the word -
+they are companies who have just won something, which is a reason to make a call.
+
+**The important part was not the layout.** `findJacobRow()` in `app.js` resolved the key
+for a row before the CRM panel could open it, and it covered three of the seven key types
+the board emits: `thread:`, `lead:` and `co:`. It did **not** cover `job:` (the verified
+handover register), `ab:` (all 264 AdminBase rows), `tender:` or `draft:`. Those rows all
+carried `data-jkey`, all looked clickable, all opened the panel - and all failed to find
+themselves and toasted *"Cannot find that row - the board may have been rebuilt"*. Every
+quoted job on the board was read-only by accident.
+
+The evidence was sitting in production the whole time: `GET /api/jacob/pipeline` returned
+**one row**, `lead:dodd-group`, the single key type that worked. A feature nobody uses
+looks exactly like a feature nobody wants. **Check it works before redesigning it.**
+
+**What went in.** `jacob_pipeline` gained `next_date` (ISO) and `notes` (append-only JSON
+log, newest first, `note` denormalised to the latest entry). The columns are added by
+`ALTER TABLE` on first write with the duplicate-column error swallowed, and the GET falls
+back to the old column list - so the migration is something the first save does rather
+than something a human must remember before the deploy. `drop_note` removes an entry by
+its own timestamp rather than its index, so a concurrent append cannot delete the wrong
+line. Two POSTs to the same key ~50ms apart can still lose one: it is a read-modify-write
+over D1 with no transaction, which is fine for one person editing one row and is not fine
+for a script in a loop - do those sequentially with a read between.
+
+**The ranking lesson, which cost a screenshot to see.** First build sorted "due now" by
+overdue days alone. The page opened on a Bradford Watts row **524 days** past a follow-up
+date AdminBase set in 2025, and buried Ninn Lane, St Mary's and Leys Park - three verified
+quotes genuinely due that day - forty rows down. **A derived date is not somebody's word.**
+Rows now rank: a date a human set, then the verified register, then Mary's records, then
+AdminBase; the chip says *derived* until somebody saves over it; and the AdminBase tail is
+capped at 25 a band with the held-back count stated, while nothing verified and nothing
+human-dated is ever capped.
+
+**What the page then showed, which is the real finding.** 217 live quoted jobs, GBP 32.2m.
+Eleven are the verified register. **146 are AdminBase rows over 400 days silent, GBP 17.9m
+of "open" that nobody has ever closed** - the same pattern as the Opportunity Log's Chased
+column (382 fills in 2025, 7 in 2026). That is not a chase list, it is an un-swept CRM.
+Raised **JAC-14** for Adam with four concrete rules rather than marking anything lost on my
+own arithmetic.
+
+Verified with `mary_hub_shot.py`: all thirteen Jacob pages render, and all seven key types
+open their panel. Neither was visible in a diff.

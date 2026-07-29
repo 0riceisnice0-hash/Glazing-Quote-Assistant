@@ -142,3 +142,33 @@ wall. Newest last. Detail belongs in the files named on the line, never here.
   ("ISSUED is a fact about a SEND, never about the document"), full account in
   `bd-lessons.md`; `chigwell-london-plc.md` rewritten on the Grange Hill leg, which until
   today told a human to give Luke no number. Board rebuilt and deployed.
+
+## 2026-07-29 (evening) - hub-57/58: the Leads register
+
+**Order:** Adam (message 57, which 58 corrected from Zac to Adam) - one dashboard holding
+every live quoted job, with a next-action date, notes he can update after a call, and a
+current status; the new page to be called **Leads** and the old Leads **Opportunities**.
+
+**Built.** `Leads` is now the second tab: 217 live quoted jobs, GBP 32.2m, in three bands -
+due now, coming up, nobody has said when. Rows come from three places that could not see
+each other before, and the page says which is which because they are not the same class of
+fact: 11 verified register rows (issue date read out of the sent message), 1 still only in
+Mary's records, 205 AdminBase "Live - Quoted". Every row opens a panel with state, owner,
+next action, a **next action date** (one-click Tomorrow / 1 week / 2 weeks / 1 month / 2
+months / 3 months, or a date picker) and a **note that appends to a log** instead of
+overwriting it. `jacob_pipeline` gained `next_date` and `notes`, migrated by ALTER on
+first write; `drop_note` removes an entry by timestamp. Old Leads page and its generator
+`page` values renamed to `opportunities`.
+
+**The bug under the request.** "The chase list isn't very user friendly" was not a layout
+note. `findJacobRow` resolved three of the seven key types the board emits, so `job:`,
+`ab:`, `tender:` and `draft:` rows opened the panel, failed to find themselves and toasted
+"the board may have been rebuilt" - every quoted job was read-only by accident, and the
+production overlay held exactly **one** saved edit. All seven open now, verified in a
+headless browser along with all thirteen pages. Full account in `bd-lessons.md`.
+
+**Left for a human.** **JAC-14**: 146 of the 217 rows are AdminBase quotes over 400 days
+silent, GBP 17.9m of pipeline nobody has ever closed. Four concrete rules offered; I did
+not mark anything lost on my own arithmetic. Told Adam on the hub, and told him plainly
+that 0 of 217 rows carry a date a human has set - which is the number that should move
+first.

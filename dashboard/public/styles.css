@@ -635,3 +635,28 @@ body:has(#page[data-layout="chat"]) .page-sub { display: none; }
   .req-compose { flex-direction: column; align-items: stretch; gap: 8px; }
   .req-compose .btn { width: 100%; }
 }
+
+/* ---------------- The lead register ----------------
+   Adam, 29/07: a place to write down that we rang somebody, and a date to ring
+   them again on. The note log is a history, so it reads top-down newest-first
+   with the date and the person who wrote it above each entry - "we called
+   twice and they still have not decided" is the thing a chase needs to know
+   and the thing one overwritable box cannot hold. */
+.ask-inline input[type="date"] { border: 1px solid var(--line-strong); border-radius: var(--r-md);
+  padding: 10px 13px; font-size: var(--t-13); font-family: inherit; color: var(--ink);
+  background: #fff; }
+.btn.sm { padding: 4px 12px; font-size: var(--t-12); min-height: 0; margin-left: 8px; }
+.notelog { list-style: none; margin: 10px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.notelog li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: var(--t-13); }
+.notelog li .dim { display: block; font-size: var(--t-12); margin-bottom: 3px; }
+.notelog li div { white-space: pre-wrap; }
+
+/* A row on the register says where it came from before it says anything else -
+   a verified send and AdminBase's word are not the same class of fact, and a
+   single table that hides which is which is how the two get confused. */
+.tier { font-size: var(--t-12); font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
+  color: var(--muted); }
+.tbl td .lognote { display: block; font-size: var(--t-12); color: var(--muted); margin-top: 4px;
+  white-space: pre-wrap; }
+.notelog .drop-note { float: right; cursor: pointer; color: var(--muted); font-weight: 600; }
+.notelog .drop-note:hover { color: var(--red); text-decoration: underline; }

@@ -445,6 +445,49 @@ function findJacobRow(key) {
       evidence: `<p>${x.messages || "No"} message${x.messages === 1 ? "" : "s"} in the window${x.lastContact ? `, last on ${esc(x.lastContact)}` : ""}. Known from ${x.sources.join(", ")}.</p><p>${x.contacts.length ? x.contacts.map((c) => esc(c.name || c.address)).join(", ") : "No named contact."}</p>`,
       unknowns: [] })],
   ];
+  /* ---- The quoted work ----
+     These four pools were missing until 29/07 and it was not a cosmetic gap:
+     the overlay had exactly ONE row in it, a `lead:`, because a `lead:` was
+     the only key this function could resolve. Every quote on the register,
+     every AdminBase row, every tender and every draft opened the panel, failed
+     to find itself and toasted "the board may have been rebuilt". Adam's
+     "the chase list isn't very user friendly" is that bug described from the
+     outside: it was not a list you could work, it was a list you could read. */
+  pools.push(
+    [(hand()?.issued || []), (r) => ({ title: r.job, sub: `${r.client} - ${gbp(r.value)}`,
+      evidence: `<p>Issued <strong>${esc(fdate(r.issued))}${r.issuedTime ? ` at ${esc(r.issuedTime)}` : ""}</strong>${
+        r.daysOut ? `, ${r.daysOut} days ago` : ""}${r.verified ? " - read out of the sent message, not inferred" : ""}.
+        ${r.lastClientContact ? `Last heard from them ${esc(fdate(r.lastClientContact))}.` : "Nothing back from them since."}</p>
+        ${r.contact ? `<p><strong>${esc(r.contact)}</strong>${r.contactRole ? `, ${esc(r.contactRole)}` : ""}${
+          r.email ? ` &middot; ${esc(r.email)}` : ""}${r.contactMobile ? ` &middot; ${esc(r.contactMobile)}` : ""}${
+          r.contactPhone ? ` &middot; ${esc(r.contactPhone)}` : ""}</p>` : ""}
+        ${r.history ? `<p>${inline(r.history)}</p>` : ""}
+        ${r.expires ? `<p><strong>Validity dies ${esc(fdate(r.expires))}.</strong> ${esc(r.expiryNote || "")}</p>` : ""}
+        ${r.blockedReason ? `<p><strong>Cannot answer yet:</strong> ${esc(r.blockedReason)}</p>` : ""}`,
+      unknowns: [
+        ...(r.openOnTheIssuedDocument || []).map(
+          (x) => `Still open on the copy the client is holding: ${typeof x === "string" ? x : (x.what || x.note || JSON.stringify(x))}`),
+        ...(r.nextChase ? [] : ["When to go back to them. Nothing has set a date on this row."]),
+      ] })],
+    [(hand()?.held || []), (r) => ({ title: r.job, sub: `${r.client} - ${r.value ? gbp(r.value) : "not published"}`,
+      evidence: `<p>Priced but <strong>never issued</strong>${r.since ? `, since ${esc(fdate(r.since))}` : ""}. Held by ${esc(r.heldBy || "-")}.
+        Calling a client about a quote that never left the building is worse than not calling.</p>
+        ${r.caveat ? `<p>${esc(r.caveat)}</p>` : ""}`,
+      unknowns: ["Whether it is still going out at all."] })],
+    [(crm()?.rows || []).map((r) => ({ ...r, key: "ab:" + r.lead })), (r) => ({
+      title: r.job || "no site recorded", sub: `${r.client} - ${gbp(r.value)} ex VAT`,
+      evidence: `<p>AdminBase lead <strong>${esc(r.lead)}</strong>, ${esc(r.result || "Live - Quoted")}${
+        r.leadDate ? `, dated ${esc(fdate(r.leadDate))}` : ""}${r.days === null || r.days === undefined ? "" : ` - ${r.days} days silent`}.
+        ${r.postcode ? `Site ${esc(r.postcode)}. ` : ""}${r.email ? esc(r.email) : "No address on the row."}</p>
+        ${r.staleDate ? `<p><strong>The CRM date is not the send date.</strong> AdminBase says ${esc(fdate(r.staleDate.crmDate))};
+          the price actually left on ${esc(fdate(r.staleDate.issued))}${r.staleDate.reQuote ? " - this is a re-quote and AdminBase re-dates nothing" : ""}.</p>` : ""}
+        ${r.fit ? `<p>The BD log converts ${r.fit.winRate}% at this size. ${esc(r.fit.note || "")}</p>` : ""}`,
+      unknowns: ['"Live - Quoted" is what the CRM says, not what the client says. Nobody has asked them.'] })],
+    [(JACOB.tenders || []), (t) => ({ title: t.title, sub: `${t.buyer || "buyer not named"}${t.closes ? ` - closes ${fdate(t.closes)}` : ""}`,
+      evidence: `<p>${esc(t.why || t.scope || "")}${t.daysLeft !== null && t.daysLeft !== undefined ? ` <strong>${t.daysLeft} days left.</strong>` : ""}</p>
+        ${t.url || t.link ? `<p><a href="${esc(t.url || t.link)}" target="_blank" rel="noopener">The notice</a></p>` : ""}`,
+      unknowns: t.manual ? ["This one came in by email, not off a feed - the value and the closing date are whatever the sender wrote."] : [] })],
+  );
   for (const [list, shape] of pools) {
     const hit = (list || []).find((r) => r.key === key);
     if (hit) return { ...hit, ...shape(hit) };
@@ -452,8 +495,15 @@ function findJacobRow(key) {
   const q = quotesOut().find((r) => r.key === key);
   if (q) {
     return { ...q, title: q.job, sub: `${q.client} - ${q.value}`,
-      evidence: `<p>Issued against a return date of ${esc(q.sent)}${q.days > 0 ? `, ${q.days} days ago` : ""}. Read from Mary's job records - she owns that row, Jacob only looks at it.</p>`,
+      evidence: `<p>Issued against a return date of ${esc(q.due)}${q.days > 0 ? `, ${q.days} days ago` : ""}. Read from Mary's job records - she owns that row, Jacob only looks at it.</p>`,
       unknowns: ["Whether the client has answered. Nothing records that anywhere yet."] };
+  }
+  const d = (JACOB.drafts?.drafts || []).find((x) => "draft:" + x.id === key);
+  if (d) {
+    return { key, title: d.subject || d.job || "draft",
+      sub: `${d.client || ""} - written for ${d.send_as || "a human"} to send to ${d.to_name || d.to || "them"}`,
+      evidence: `<p>${inline((d.body || "").slice(0, 600))}</p>`,
+      unknowns: ["Whether anybody has sent it. Jacob drafts; a human sends."] };
   }
   return null;
 }
@@ -462,6 +512,11 @@ function crmPanel(key) {
   const item = findJacobRow(key);
   if (!item) { toast("Cannot find that row - the board may have been rebuilt"); return; }
   const o = jp(key);
+  const log = jNotes(item);
+  /* Whatever the row is due on, human or derived - the box opens on it so
+     saving never silently drops a date the board had worked out. */
+  const dv = jDate(item);
+  const dateVal = /^\d{4}-\d{2}-\d{2}$/.test(dv) ? dv : "";
   const pick = (id, list, current) => `<div class="req-options" id="${id}">${list.map((v) =>
     `<span class="opt${current === v ? " sel" : ""}" data-pick="${id}">${esc(v)}</span>`).join("")}</div>`;
   openPanel(`
@@ -476,15 +531,59 @@ function crmPanel(key) {
     <div class="panel-sec"><h4>Who does the next thing</h4>${pick("jowner", JOWNERS, jOwner(item))}</div>
     <div class="panel-sec"><h4>Next action</h4>
       <div class="ask-inline"><textarea id="jnext" rows="3">${esc(jNext(item))}</textarea></div></div>
-    <div class="panel-sec"><h4>What happened last</h4>
-      <div class="ask-inline"><textarea id="jnote" rows="3" placeholder="Rang him - wants a price by Friday...">${esc(o.note || "")}</textarea></div>
+
+    <!-- Adam, 29/07: "they said call back in 2 months". The buttons write the
+         date; the box is there for the ones nobody can round to a month. A
+         date the generator worked out is shown but not treated as somebody's
+         word until a human saves over it. -->
+    <div class="panel-sec"><h4>Next action date</h4>
+      <div class="req-options" id="jwhen">
+        <span class="opt" data-days="1">Tomorrow</span>
+        <span class="opt" data-days="7">1 week</span>
+        <span class="opt" data-days="14">2 weeks</span>
+        <span class="opt" data-days="30">1 month</span>
+        <span class="opt" data-days="61">2 months</span>
+        <span class="opt" data-days="91">3 months</span>
+      </div>
+      <div class="ask-inline"><input type="date" id="jdate" value="${esc(dateVal)}"></div>
+      <p class="page-sub">${dateVal
+        ? (o.next_date
+            ? `Set by ${esc(o.updated_by || "team")}.`
+            : `Nothing human has set a date on this one - ${esc(fdate(dateVal))} is what the board worked out. Saving makes it ours.`)
+        : `Nothing is due on this until somebody says when.`}
+        <button class="btn ghost sm" id="jclear">Clear the date</button></p></div>
+
+    <div class="panel-sec"><h4>Add a note</h4>
+      <div class="ask-inline"><textarea id="jnote" rows="3" placeholder="Rang Chris - said they are still waiting on the main contract, call back in Sept..."></textarea></div>
+      <p class="page-sub">This is added to the log below, not written over it.</p>
+      ${log.length ? `<ul class="notelog">${log.map((n) => `<li>
+        <span class="dim">${esc(fdate((n.at || "").slice(0, 10)))} &middot; ${esc(n.by || "team")}
+          <a class="drop-note" data-at="${esc(n.at)}">remove</a></span>
+        <div>${inline(n.text || "")}</div></li>`).join("")}</ul>`
+        : `<p class="page-sub">${o.note
+            ? `Nothing logged yet. The last note on this row reads: &ldquo;${esc(o.note)}&rdquo;`
+            : `Nobody has written anything against this yet.`}</p>`}
       ${o.updated ? `<p class="page-sub">Last edited by ${esc(o.updated_by || "team")} on ${esc((o.updated || "").slice(0, 10))}.</p>` : ""}</div>
     <div class="panel-sec panel-btns">
       <button class="btn" id="jsave">Save</button>
       <button class="btn ghost" id="jdone">Done - take it off the list</button>
     </div>`);
 
-  const save = async (state) => {
+  /* The quick buttons are a calculator for the date box, not a second field -
+     so what gets saved is always whatever is showing in the box. */
+  $$("#jwhen .opt").forEach((el) => el.addEventListener("click", () => {
+    const d = new Date();
+    d.setDate(d.getDate() + Number(el.dataset.days));
+    $("#jdate").value = d.toISOString().slice(0, 10);
+    $$("#jwhen .opt").forEach((o2) => o2.classList.remove("sel"));
+    el.classList.add("sel");
+  }));
+  $("#jclear").addEventListener("click", () => {
+    $("#jdate").value = "";
+    $$("#jwhen .opt").forEach((o2) => o2.classList.remove("sel"));
+  });
+
+  const save = async (state, dropNote) => {
     const btn = $("#jsave");
     if (btn) { btn.disabled = true; btn.textContent = "Saving..."; }
     try {
@@ -496,7 +595,9 @@ function crmPanel(key) {
           state: state || $("#jstate .opt.sel")?.textContent.trim() || "",
           owner: $("#jowner .opt.sel")?.textContent.trim() || "",
           next_action: $("#jnext").value.trim(),
-          note: $("#jnote").value.trim(),
+          next_date: $("#jdate").value.trim(),
+          add_note: $("#jnote").value.trim(),
+          drop_note: dropNote || "",
         }),
       });
       JPIPE = Object.fromEntries((await api("jacob/pipeline")).map((r) => [r.key, r]));
@@ -510,6 +611,12 @@ function crmPanel(key) {
   };
   $("#jsave").addEventListener("click", () => save());
   $("#jdone").addEventListener("click", () => save("done"));
+  /* Removing a note saves everything else in the panel too, then reopens it -
+     so the log is one entry shorter and nothing you had typed is lost. */
+  $$("#panel .drop-note").forEach((el) => el.addEventListener("click", async () => {
+    await save(null, el.dataset.at);
+    crmPanel(key);
+  }));
 }
 
 function emailPanel(e) {
@@ -537,6 +644,8 @@ const ICONS = {
   scoreboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 15 4-5 3 3 5-7"/></svg>',
   live: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12h4l3-8 4 16 3-8h6"/></svg>',
   leads: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>',
+  /* The register: a list with dates against it, which is what the page is. */
+  register: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="m8.5 14.5 2 2 4-4"/></svg>',
   drafts: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16Z"/><path d="M14.5 5.5 18.5 9.5"/></svg>',
   chaselist: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 7v5l3 2"/><path d="M3.5 12a8.5 8.5 0 1 0 2.2-5.7"/><path d="M3 4v4h4"/></svg>',
   tenders: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h8l4 4v14H6Z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h4"/></svg>',
@@ -579,7 +688,16 @@ const JACOB_PAGES = [
   // do, not a summary of what was found; Enquiries and Chasing are the two
   // places money is either won or quietly lost; everything else is reference.
   { key: "overview", label: "Today", group: "Work", sub: () => `${jActions().length} things to do, most urgent first` },
-  // Chasing sits second on purpose. A quote already out is money Fenster has
+  // Leads sits second - Adam's page, 29/07. Every live quoted job on one list
+  // with a date against it, because the three pages that held them between
+  // them could not see each other and none of them sorted by when to act.
+  { key: "leads", label: "Leads", group: "Work", icon: "register", sub: () => {
+      const r = registerRows();
+      const late = r.filter((x) => jOverdue(x)).length;
+      const none = r.filter((x) => jDueIn(x) === null && !x.blocked).length;
+      return `${r.length} live quoted jobs - ${late} due now, ${none} with no date set`;
+    } },
+  // Chasing sits under it. A quote already out is money Fenster has
   // spent and can still lose; an enquiry is money it has not spent yet.
   { key: "chasing", label: "Chasing", group: "Work", sub: () => JACOB?.handover
       ? `${JACOB.totals.handoverIssued} quotes issued and with a client, ${JACOB.totals.handoverDue} chaseable today`
@@ -592,7 +710,7 @@ const JACOB_PAGES = [
       : "AdminBase has not been read yet" },
   { key: "enquiries", label: "Enquiries", group: "Work", sub: () => `${JACOB?.totals.buyers || 0} live conversations with a buyer, out of ${JACOB?.totals.signals || 0} raw messages` },
   { key: "tenders", label: "Out to bid", group: "Work", sub: () => `${JACOB?.totals.tenders || 0} contracts still open, ${JACOB?.totals.tendersClosing || 0} closing inside a week` },
-  { key: "leads", label: "Leads", group: "Work", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} winners Fenster knows, ${JACOB?.totals.cold || 0} it does not` },
+  { key: "opportunities", label: "Opportunities", group: "Work", icon: "leads", sub: () => `${(JACOB?.totals.warm || 0) + (JACOB?.totals.known || 0)} winners Fenster knows, ${JACOB?.totals.cold || 0} it does not` },
   // Reference, not work: what the history says, who Fenster knows, and the
   // book recovered from the last BDM. Grouped apart so the seven pages where
   // money moves are not visually equal to the three you read once a week.
@@ -664,6 +782,61 @@ const jNote = (r) => jp(r.key).note || "";
 /* Done and dead both mean "stop showing me this", and both are human-set. */
 const jShut = (r) => ["done", "dead"].includes(jState(r));
 
+/* ---- The two things Adam asked for on 29/07 ----
+   A date to do it on, and a log of what was said - not one note that the next
+   call overwrites. A human date always wins over one the generator derived
+   (nextChase on the register, followUp in AdminBase): a person who has just
+   spoken to the client knows something no file does. */
+const jDate = (r) => jp(r.key).next_date || r.nextChase || r.nextAction || "";
+const jDateIsHuman = (r) => !!jp(r.key).next_date;
+const jNotes = (r) => {
+  const raw = jp(r.key).notes;
+  if (!raw) return [];
+  try { const a = JSON.parse(raw); return Array.isArray(a) ? a : []; } catch { return []; }
+};
+/* Sorting a register by when to act on it needs one number per row. Overdue
+   first (most overdue at the top), then dated, then everything nobody has put
+   a date on - which is the pile that matters most and reads as the least
+   urgent, so the page counts it out loud instead of burying it. */
+const jDueIn = (r) => {
+  const d = jDate(r);
+  return /^\d{4}-\d{2}-\d{2}$/.test(d) ? daysUntil(d) : null;
+};
+const jOverdue = (r) => { const n = jDueIn(r); return n !== null && n <= 0; };
+
+/* How much a date is worth, which is not the same as how overdue it is.
+   Sorting the register on overdue days alone opened the page on a Bradford
+   Watts row 524 days past a follow-up date AdminBase set in 2025, and buried
+   Leys Park, Ninn Lane and St Mary's - three verified quotes genuinely due
+   today - forty rows down. A promise a human made outranks a date read out of
+   a sent message, which outranks a date a CRM nobody closes happens to hold. */
+const jRank = (r) => jDateIsHuman(r) ? 0
+  : r.tier === "register" ? 1 : r.tier === "priced" ? 2 : 3;
+const byDue = (a, b) => jRank(a) - jRank(b) || (jDueIn(a) ?? 1e6) - (jDueIn(b) ?? 1e6);
+
+/* One chip that says when, in the words somebody would use out loud. */
+function dueChip(r) {
+  const d = jDate(r);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) {
+    /* A row with no date is usually a hole. Brandon Estate is the exception
+       that proves it has to be checked: GBP 7.2m, deliberately undated,
+       because Elkins cannot answer until they hear on their own bid and Chris
+       Conlon has undertaken to tell us. `reviewOn` is the day to check whether
+       that has happened - it is explicitly NOT a day to ring anyone, so it is
+       shown as a review and never sorted with the chase dates. */
+    if (r.blocked) {
+      return `<span class="chip warn">cannot answer yet</span>`
+        + (r.reviewOn ? `<small class="dim">review ${esc(fdate(r.reviewOn))}</small>` : "");
+    }
+    return `<span class="chip danger">no date set</span>`;
+  }
+  const n = daysUntil(d);
+  const tone = n <= 0 ? "danger" : n <= 7 ? "warn" : "navy";
+  const word = n < 0 ? `${-n}d overdue` : n === 0 ? "today" : `in ${n}d`;
+  return `<span class="chip ${tone}">${esc(fdate(d))}</span>`
+    + `<small class="dim">${word}${jDateIsHuman(r) ? "" : " &middot; derived"}</small>`;
+}
+
 const JSTATES = ["live", "waiting", "quoted", "gone quiet", "dormant", "dead", "done"];
 const JOWNERS = ["Adam", "Jacob", "Gintare", "Mary", "Zac", "-"];
 
@@ -717,6 +890,57 @@ const handKeys = () => new Set([...(hand()?.issued || []), ...(hand()?.held || [
    and nothing back from them for a week. */
 const handDue = () => handIssued().filter(
   (r) => !r.blocked && (r.daysSinceClient === null || r.daysSinceClient >= 7) && (r.daysOut || 0) >= 7);
+
+/* ---------------- The lead register ----------------
+   Adam, 29/07: "we need all of our current live leads that need chasing and
+   updating in one clear dashboard ... a dashboard on which we can manage all
+   live projects we have quoted."
+
+   Everything Fenster has priced and sent lived on three pages that could not
+   see each other: the verified handover register (Chasing), the jobs still
+   only in Mary's records (also Chasing, dated off a different clock), and the
+   264 AdminBase rows (Chase list). Nothing joined them, nothing sorted by when
+   to act, and the CRM overlay could not even open most of them. This is the
+   one list, ordered by the only question that matters on a Monday: what is due.
+
+   The three tiers are kept visible rather than blended. A date read out of a
+   sent message and a date AdminBase happens to hold are not the same class of
+   fact, and a single table that hides which is which is how they get confused. */
+const TIERS = {
+  register: { label: "Register", note: "Issue date read out of the sent message" },
+  priced: { label: "Mary's records", note: "Dated off a return date, not a send - treat the day count as a guess" },
+  adminbase: { label: "AdminBase", note: "The CRM's word that it is quoted, not the client's" },
+};
+
+function registerRows() {
+  const out = [];
+  for (const r of handIssued()) {
+    out.push({ ...r, tier: "register", quotedOn: r.issued,
+      silent: r.daysSinceClient === null || r.daysSinceClient === undefined
+        ? r.daysOut : r.daysSinceClient });
+  }
+  for (const q of quotesOut()) {
+    // Priced and never issued is a real state and it is not chaseable - it
+    // belongs to Gintare, not to this page.
+    if (q.unsent || jShut(q)) continue;
+    out.push({ ...q, tier: "priced", value: poundsOf(q.value) || null,
+      valueText: q.value, quotedOn: q.due, silent: q.days });
+  }
+  for (const r of (crm()?.due || [])) {
+    // `onBoard` is the same job already on the register under its verified
+    // key. Showing it twice would double the money on this page.
+    if (r.onBoard) continue;
+    if (r.outlier && !r.confirmed) continue;
+    const row = { ...r, key: "ab:" + r.lead, tier: "adminbase",
+      // A re-quote leaves the AdminBase date alone, so where a verified send
+      // says otherwise the send wins - that is the only date worth chasing on.
+      quotedOn: r.staleDate ? r.staleDate.issued : r.leadDate,
+      silent: r.days };
+    if (jShut(row)) continue;
+    out.push(row);
+  }
+  return out;
+}
 
 /* Mary's board, read only. Her job records are the only place jobs that have
    NOT reached the register still exist. Everything here is defensive: her
@@ -787,6 +1011,23 @@ function jActions() {
       key: q.key, company: q.client, headline: q.job, what: `${q.value} - issued, nothing back`,
       owner: jOwner(q), next: jNext(q), state: jState(q), page: "chasing",
       score: q.days >= 21 ? 90 : 70,
+    });
+  }
+  /* A date somebody set, that has now arrived. This is the whole point of
+     asking for one: "call back in two months" is worthless if the two months
+     pass and nothing says so. It outranks everything else on the page, because
+     everything else is the board's opinion and this is a promise a human made.
+     Anything already on the list from the generator is left alone. */
+  const already = new Set(out.map((a) => a.key));
+  for (const r of registerRows()) {
+    if (already.has(r.key) || !jDateIsHuman(r) || !jOverdue(r)) continue;
+    const late = -jDueIn(r);
+    out.push({
+      key: r.key, company: r.client, headline: r.job,
+      what: `${r.value ? gbp(r.value) : r.valueText || "no value"} - you said you would go back to them ${
+        late === 0 ? "today" : `${late} day${late === 1 ? "" : "s"} ago`}`,
+      owner: jOwner(r), next: jNext(r), state: jState(r), page: "leads",
+      score: 100 + Math.min(late, 20),
     });
   }
   return out.sort((a, b) => (b.score || 0) - (a.score || 0));
@@ -932,6 +1173,123 @@ const JACOB_RENDER = {
 
       ${other.length ? `<div class="section"><div class="section-head"><h3>Not enquiries - listed so the count adds up</h3></div>
         ${this._threadRows(other)}</div>` : ""}`;
+  },
+
+  /* ------------------------------------------------ the register
+     Adam's page. One table, every live quoted job, ordered by when somebody
+     said they would go back to it - and the rows nobody has said that about
+     counted out loud rather than sorted to the bottom and forgotten. */
+  leads() {
+    const rows = registerRows();
+    if (!rows.length) {
+      return `<div class="empty"><strong>Nothing quoted and live</strong>
+        Either the register has not been built or everything on it is closed.</div>`;
+    }
+    const dated = rows.filter((r) => jDueIn(r) !== null);
+    const overdue = dated.filter((r) => jDueIn(r) <= 0).sort(byDue);
+    const soon = dated.filter((r) => jDueIn(r) > 0).sort(byDue);
+    const undated = rows.filter((r) => jDueIn(r) === null)
+      .sort((a, b) => jRank(a) - jRank(b) || (b.value || 0) - (a.value || 0));
+    // A blocked row has no date on purpose - the client physically cannot
+    // answer. Counting it as a gap turns Brandon Estate into a red number
+    // every day until Elkins hear, which trains people to ignore the number.
+    const gaps = undated.filter((r) => !r.blocked);
+    const val = (list) => list.reduce((n, r) => n + (r.value || 0), 0);
+    const week = soon.filter((r) => jDueIn(r) <= 7);
+    const human = rows.filter((r) => jDateIsHuman(r)).length;
+    const noted = rows.filter((r) => jNotes(r).length).length;
+
+    /* AdminBase is 200-odd rows and the register is eleven. Showing all of it
+       here would bury the eleven, so the tail is capped by value INSIDE each
+       band and the page says how many it is holding back. Anything verified is
+       never capped - a cap that can hide Gordon Court is a bug, not a limit. */
+    const CAP = 25;
+    const band = (list, title, blurb) => {
+      // The cap falls on AdminBase's own rows only, and never on one somebody
+      // has actually put a date against - a human's edit outranks its origin.
+      const kept = [], tail = [];
+      for (const r of list) (r.tier === "adminbase" && !jDateIsHuman(r) ? tail : kept).push(r);
+      const shown = kept.concat(tail.slice(0, CAP));
+      const held = tail.length - Math.min(tail.length, CAP);
+      if (!list.length) return "";
+      return `<div class="section"><div class="section-head"><h3>${title}</h3>
+        <span class="page-sub">${list.length} job${list.length === 1 ? "" : "s"}, ${gbpShort(val(list))}</span></div>
+        ${blurb ? `<div class="planned-note">${blurb}</div>` : ""}
+        <table class="tbl"><thead><tr>
+          <th>Job</th><th>Value</th><th>Quoted</th><th>Status</th>
+          <th>Next action date</th><th>Next action, and what was said last</th><th>Owner</th>
+        </tr></thead><tbody>
+        ${shown.map((r) => this._regRow(r)).join("")}
+        </tbody></table>
+        ${held ? `<p class="page-sub">${held} further AdminBase row${held === 1 ? " is" : "s are"} in this
+          band and not shown - <a data-go="chaselist">the AdminBase list</a> has all of them. Nothing on
+          the register is ever held back, and neither is anything you have put a date on.</p>` : ""}
+      </div>`;
+    };
+
+    return `
+      <div class="stats">
+        <div class="stat ${overdue.length ? "red" : "green"}"><div class="n">${overdue.length}</div>
+          <div class="l">Due today or overdue - ${gbpShort(val(overdue))}</div></div>
+        <div class="stat ${week.length ? "amber" : ""}"><div class="n">${week.length}</div>
+          <div class="l">Due inside a week</div></div>
+        <div class="stat ${gaps.length ? "red" : "green"}"><div class="n">${gaps.length}</div>
+          <div class="l">No next action date on them at all${
+            undated.length - gaps.length ? `, plus ${undated.length - gaps.length} that cannot answer yet` : ""}</div></div>
+        <div class="stat"><div class="n">${gbpShort(val(rows))}</div>
+          <div class="l">Quoted, live and not yet decided - ${rows.length} jobs</div></div>
+      </div>
+
+      <div class="section"><div class="section-head"><h3>What this page is</h3></div>
+        <div class="planned-note">
+          <p><strong>Every live job Fenster has quoted, in one list, ordered by when to go back to it.</strong>
+          Click any row to set a date, write down what was said, change the status or hand it to
+          somebody. What you write survives every rebuild of this board.</p>
+          <p><strong>Where the rows come from, because it changes how much you should trust them.</strong>
+          ${rows.filter((r) => r.tier === "register").length} are on the verified register - the issue date on
+          those was read out of the message that actually left estimating@.
+          ${rows.filter((r) => r.tier === "priced").length} are still only in Mary's job records and are dated
+          off a return date, which is a different date on a different clock.
+          ${rows.filter((r) => r.tier === "adminbase").length} are AdminBase rows saying "Live - Quoted",
+          which is what the CRM says and not what the client says. Every figure here is ex VAT;
+          AdminBase's own are not.</p>
+          <p><strong>${human} of ${rows.length} rows carry a date a human has set.</strong>
+          The rest show either a date the board worked out - marked <em>derived</em>, which is a
+          suggestion, not somebody's word - or nothing at all. ${noted} carry a note.
+          A quote with no next date is how one goes quiet without anybody noticing, which is the
+          thing this page exists to stop.</p>
+        </div></div>
+
+      ${band(overdue, "Due now", `Most overdue first. A day count is not on its own an
+        instruction - a row marked <em>cannot answer yet</em> is blocked by something the client
+        cannot control, and ringing them about it wastes the relationship.`)}
+      ${band(soon, "Coming up", "")}
+      ${band(undated, "Nobody has said when", `Largest first. These are not less urgent
+        than the ones above - they are the ones no date has ever been set on, which is a different
+        and worse problem. Give each one a date and it moves into the bands above.
+        The exception is a row marked <em>cannot answer yet</em>: that one is undated on purpose,
+        because the client is waiting on something they do not control.`)}`;
+  },
+
+  /* One row of the register. Status, when to act, and what was said last - in
+     that order, because that is the order somebody picking up the phone asks. */
+  _regRow(r) {
+    const note = jNote(r);
+    const log = jNotes(r);
+    return `<tr data-jkey="${esc(r.key)}">
+      <td class="job-cell"><strong>${esc(r.job || "no site recorded")}</strong>
+        <small>${esc(r.client || "client not named")}${
+          r.contact && r.contact !== r.client ? ` &middot; ${esc(r.contact)}` : ""}</small>
+        <small class="tier">${esc(TIERS[r.tier].label)}${
+          r.lead ? ` ${esc(r.lead)}` : ""}${r.blocked ? " &middot; cannot answer yet" : ""}</small></td>
+      <td class="money">${r.value ? gbp(r.value) : esc(r.valueText || "not published")}</td>
+      <td class="num">${r.quotedOn ? esc(fdate(r.quotedOn)) : `<small class="dim">no date</small>`}
+        ${r.silent === null || r.silent === undefined ? "" : `<small class="dim">${r.silent}d silent</small>`}</td>
+      <td>${stateChip(r)}</td>
+      <td class="num">${dueChip(r)}</td>
+      <td style="max-width:380px"><div class="clamp4">${inline(jNext(r)) || `<span class="dim">Nothing written</span>`}</div>
+        ${note ? `<span class="lognote">Last note${log.length ? ` (${log.length})` : ""}: ${esc(note.slice(0, 180))}${note.length > 180 ? "..." : ""}</span>` : ""}</td>
+      <td>${ownerTag(r)}</td></tr>`;
   },
 
   /* ------------------------------------------------ chasing */
@@ -1253,7 +1611,12 @@ const JACOB_RENDER = {
     </tbody></table>`;
   },
 
-  leads() {
+  /* Was "Leads" until 29/07. Adam: "Maybe it should be called Leads and the
+     current Leads can be called opportunities??" - and he is right about which
+     way round it goes. Nothing on this page is a lead in the sense anybody at
+     Fenster uses the word: they are companies who have just won something,
+     which is a reason to make a call, not a job we are in for. */
+  opportunities() {
     const warm = JACOB.warm.filter((r) => !jShut(r));
     const known = JACOB.known.filter((r) => !jShut(r));
     return `

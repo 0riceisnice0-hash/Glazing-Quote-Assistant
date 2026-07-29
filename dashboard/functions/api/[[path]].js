@@ -169,11 +169,22 @@ export async function onRequest(context) {
       if (!ch.pipeline) return json([]);
       try {
         const { results } = await db.prepare(
-          `SELECT key, label, state, owner, next_action, note, updated, updated_by ` +
-          `FROM ${ch.pipeline} ORDER BY updated DESC LIMIT 800`).all();
+          `SELECT key, label, state, owner, next_action, next_date, note, notes, ` +
+          `updated, updated_by FROM ${ch.pipeline} ORDER BY updated DESC LIMIT 800`).all();
         return json(results);
       } catch {
-        return json([]);
+        // A database that predates next_date/notes still has a working board:
+        // it just has no dates on it yet. Falling back is what turns the
+        // migration into something the first write does rather than something
+        // a human has to remember to run before the deploy.
+        try {
+          const { results } = await db.prepare(
+            `SELECT key, label, state, owner, next_action, note, updated, updated_by ` +
+            `FROM ${ch.pipeline} ORDER BY updated DESC LIMIT 800`).all();
+          return json(results);
+        } catch {
+          return json([]);
+        }
       }
     }
 
@@ -187,16 +198,64 @@ export async function onRequest(context) {
       await db.prepare(
         `CREATE TABLE IF NOT EXISTS ${ch.pipeline} (key TEXT PRIMARY KEY, label TEXT DEFAULT '', ` +
         `state TEXT DEFAULT '', owner TEXT DEFAULT '', next_action TEXT DEFAULT '', ` +
-        `note TEXT DEFAULT '', updated TEXT NOT NULL, updated_by TEXT DEFAULT 'team')`).run();
+        `next_date TEXT DEFAULT '', note TEXT DEFAULT '', notes TEXT DEFAULT '[]', ` +
+        `updated TEXT NOT NULL, updated_by TEXT DEFAULT 'team')`).run();
+      // The two columns Adam asked for on 29/07 - a real date to call back on,
+      // and a note that does not overwrite the last one. The table already
+      // existed in production, so CREATE TABLE IF NOT EXISTS above will not add
+      // them; ALTER does, and throws once the column is there. Swallowing that
+      // is the migration.
+      for (const [col, def] of [["next_date", "TEXT DEFAULT ''"],
+                                ["notes", "TEXT DEFAULT '[]'"]]) {
+        try {
+          await db.prepare(`ALTER TABLE ${ch.pipeline} ADD COLUMN ${col} ${def}`).run();
+        } catch { /* already there */ }
+      }
+
+      // A date is stored only if it IS one. Adam asking for "call back in two
+      // months" turns into a date on the client; anything else this route is
+      // handed is dropped rather than sorted as a string later.
+      const nextDate = /^\d{4}-\d{2}-\d{2}$/.test(String(b.next_date || "").trim())
+        ? String(b.next_date).trim() : "";
+
+      // Append-only. "When we have called a client" is a history, not a field:
+      // overwriting it loses the fact that we rang twice, which is exactly the
+      // thing a chase needs to know. The newest entry stays in `note` as well,
+      // so anything reading the old column still shows the latest word.
+      const prev = await db.prepare(
+        `SELECT notes, note FROM ${ch.pipeline} WHERE key = ?`).bind(key).first()
+        .catch(() => null);
+      let log = [];
+      try { log = JSON.parse(prev?.notes || "[]"); } catch { log = []; }
+      if (!Array.isArray(log)) log = [];
+      // Typed into the wrong row, or typed twice. An append-only log with no
+      // way back is not a thing to hand a Commercial Director - keyed on the
+      // entry's own timestamp rather than its position, so a concurrent append
+      // cannot make a delete land on the wrong line.
+      if (b.drop_note) log = log.filter((n) => n.at !== b.drop_note);
+      const entry = clip(b.add_note, 2000).trim();
+      if (entry) {
+        log.unshift({ at: now(), by: person(b.author), text: entry });
+        log = log.slice(0, 60);
+      }
+      // `note` is the newest log entry, denormalised so a row can show its last
+      // word without parsing the log. Once the log exists it is the only source
+      // - otherwise deleting the last entry leaves it showing on the row.
+      const latest = log.length ? log[0].text
+        : (b.drop_note ? "" : (clip(b.note, 2000) || prev?.note || ""));
+
       await db.prepare(
-        `INSERT INTO ${ch.pipeline} (key, label, state, owner, next_action, note, updated, updated_by) ` +
-        `VALUES (?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT(key) DO UPDATE SET ` +
+        `INSERT INTO ${ch.pipeline} (key, label, state, owner, next_action, next_date, ` +
+        `note, notes, updated, updated_by) ` +
+        `VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ON CONFLICT(key) DO UPDATE SET ` +
         `label=excluded.label, state=excluded.state, owner=excluded.owner, ` +
-        `next_action=excluded.next_action, note=excluded.note, ` +
+        `next_action=excluded.next_action, next_date=excluded.next_date, ` +
+        `note=excluded.note, notes=excluded.notes, ` +
         `updated=excluded.updated, updated_by=excluded.updated_by`)
         .bind(key, clip(b.label, 200), clip(b.state, 40), clip(b.owner, 40),
-              clip(b.next_action, 600), clip(b.note, 2000), now(), person(b.author)).run();
-      return json({ ok: true });
+              clip(b.next_action, 600), nextDate, clip(latest, 2000),
+              JSON.stringify(log), now(), person(b.author)).run();
+      return json({ ok: true, next_date: nextDate, notes: log.length });
     }
 
     /* ---- Quote outcomes. Business-wide really, but Mary's board owns the
