@@ -361,7 +361,7 @@ function queuePage(q) {
       <span class="page-sub">Oldest runs first; each row says why it routed where it did</span></div>
       ${items.length ? `<table class="tbl"><thead><tr>
         <th>What</th><th>From</th><th>Routed to</th><th>Why</th></tr></thead><tbody>
-        ${items.map((i) => `<tr>
+        ${items.map((i, n) => `<tr data-qitem="${n}">
           <td class="job-cell"><strong>${esc(i.subject || i.file)}</strong>
             <small>${esc(i.mailbox || "")}${i.context ? ` &middot; ${esc(i.context)}` : ""} &middot; ${esc(i.file || "")}</small></td>
           <td>${esc(i.from || "")}</td>
@@ -369,6 +369,19 @@ function queuePage(q) {
           <td style="max-width:360px"><div class="clamp4">${esc(i.why || "")}</div></td></tr>`).join("")}
       </tbody></table>` : `<div class="empty"><strong>Queue empty</strong>Nothing waiting to run.</div>`}
     </div>`;
+}
+
+/* A queued item in full - the row clamps, the panel does not. */
+function queueItemPanel(i) {
+  openPanel(`
+    <h2>${esc(i.subject || i.file)}</h2>
+    <p class="sub">${esc(i.from || "?")} &middot; ${esc(i.mailbox || "")}${i.received ? ` &middot; ${esc(ukStamp(i.received) || i.received)}` : ""}</p>
+    <div class="panel-sec"><h4>Routed to</h4><p><span class="chip navy">${esc(i.route || "?")}</span>
+      <small class="dim" style="display:block;margin-top:6px">${esc(i.why || "")}</small></p></div>
+    ${i.context ? `<div class="panel-sec"><h4>Context</h4><p>${esc(i.context)}</p></div>` : ""}
+    <div class="panel-sec"><h4>What it says</h4>
+      <div class="rt-box">${fmt(i.body || "(this work order carries no body - it is a signal, and the file itself has the detail)")}</div></div>
+    <p class="page-sub" style="margin-top:14px">Full JSON: test-results\\...\\queue\\${esc(i.file || "")}</p>`);
 }
 
 /* ---------------- panel ---------------- */
@@ -1012,7 +1025,7 @@ const JACOB_RENDER = {
         </tbody></table></div>
 
       ${(h.corrections || []).length ? `<div class="section"><div class="section-head">
-        <h3>What this board had wrong until 28/07</h3></div>
+        <h3>What this board had wrong, and when it stopped being wrong</h3></div>
         <table class="tbl"><thead><tr><th>It said</th><th>It is</th><th>Why it happened</th></tr></thead><tbody>
         ${h.corrections.map((c) => `<tr><td>${esc(c.was)}</td><td><strong>${esc(c.now)}</strong></td>
           <td class="dim">${esc(c.why)}</td></tr>`).join("")}
@@ -1058,9 +1071,13 @@ const JACOB_RENDER = {
         <td class="num"><strong>${esc(fdate(t.closes)) || "no date"}</strong>
           ${t.daysLeft !== null && t.daysLeft !== undefined
             ? `<small class="dim">${t.daysLeft}d left</small>` : ""}</td>
-        <td class="job-cell"><strong>${t.url ? `<a href="${esc(t.url)}" target="_blank" rel="noopener">${esc(t.title)}</a>` : esc(t.title)}</strong>
-          <small>${esc(t.why)}${t.regions?.length ? ` &middot; ${esc(t.regions[0])}` : ""}</small></td>
-        <td>${esc(t.buyer)}${t.record ? ` <span class="pill ${t.record.won ? "exact" : "strong"}">${t.record.won}W ${t.record.lost}L with us</span>` : ""}</td>
+        <td class="job-cell"><strong>${(t.url || t.link) ? `<a href="${esc(t.url || t.link)}" target="_blank" rel="noopener">${esc(t.title)}</a>` : esc(t.title)}</strong>
+          <small>${esc(t.why || t.scope || "")}${t.regions?.length ? ` &middot; ${esc(t.regions[0])}` : ""}</small>
+          <!-- A hand-entered lead has to say where it came from on its face,
+               or in a week nobody can tell it from a feed row. -->
+          ${t.manual ? `<small class="dim">By email, not from a feed &middot; ${esc(t.ref || t.source || "")}</small>` : ""}</td>
+        <td>${t.buyer ? esc(t.buyer) : `<small class="dim">not named</small>`}${t.record ? ` <span class="pill ${t.record.won ? "exact" : "strong"}">${t.record.won}W ${t.record.lost}L with us</span>` : ""}
+          ${t.manual && t.buyerNote ? `<small class="dim">${esc(t.buyerNote)}</small>` : ""}</td>
         <td class="money">${gbp(t.value)}
           ${t.fit?.note ? `<small class="dim">${esc(t.fit.note)}</small>` : ""}</td>
         <td style="max-width:320px"><div class="clamp4">${inline(jNext(t))}</div></td>
@@ -1389,6 +1406,22 @@ const JACOB_RENDER = {
 
       <div class="section"><div class="section-head"><h3>The rules these were written under</h3></div>
         <ul class="plain">${d.rules.map((r) => `<li>${esc(r)}</li>`).join("")}</ul></div>
+
+      <!-- A draft that was wrong and got caught is worth more on the page than
+           off it. It is the only evidence that the rule about where a figure
+           came from is doing anything. -->
+      ${(d.corrections || []).length ? `<div class="section"><div class="section-head">
+        <h3>Withdrawn before anybody sent it</h3></div>
+        <table class="tbl"><thead><tr><th>Draft</th><th>It said</th><th>It is</th>
+          <th>Why it happened</th></tr></thead><tbody>
+        ${d.corrections.map((c) => `<tr>
+          <td><strong>${esc(c.draft)}</strong><small class="dim">${esc(niceDate(c.date))}</small></td>
+          <td>${esc(c.was)}</td>
+          <td><strong>${esc(c.now)}</strong></td>
+          <td class="dim">${esc(c.why)}${c.cost_if_sent
+            ? `<small class="dim">Cost if it had gone: ${esc(c.cost_if_sent)}</small>` : ""}</td>
+        </tr>`).join("")}
+        </tbody></table></div>` : ""}
 
       ${rows.map((r) => `<div class="section" data-jkey="draft:${esc(r.id)}">
         <div class="section-head">
@@ -2175,6 +2208,13 @@ document.addEventListener("click", async (e) => {
   if (pick) {
     [...pick.parentElement.querySelectorAll(".opt")]
       .forEach((o) => o.classList.toggle("sel", o === pick));
+    return;
+  }
+  // A queued work order: open the full text - the row only has room to clamp.
+  const qi = e.target.closest("[data-qitem]");
+  if (qi) {
+    const item = ((BOT === "jacob" ? JQUEUE : MQUEUE)?.items || [])[+qi.dataset.qitem];
+    if (item) queueItemPanel(item);
     return;
   }
   // Any row on Jacob's board with a key: open it and correct it.

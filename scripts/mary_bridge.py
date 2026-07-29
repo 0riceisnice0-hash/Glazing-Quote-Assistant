@@ -208,10 +208,14 @@ def queue_items(orders, reg):
     for o in orders[:40]:
         key, why = router.route(o, reg)
         out.append({"file": o.get("_file", ""), "mailbox": o.get("mailbox", "graph"),
-                    "from": str(o.get("from", ""))[:60],
-                    "subject": (o.get("subject") or (o.get("body") or "")[:90])[:120],
+                    "from": str(o.get("from", ""))[:80],
+                    "subject": (o.get("subject") or (o.get("body") or "")[:90])[:160],
                     "context": (o.get("context") or "")[:60],
-                    "route": key, "why": (why or "")[:200]})
+                    "route": key, "why": (why or "")[:300],
+                    # The full text, so a click on the hub can show what the
+                    # item actually says instead of a truncated first line.
+                    "body": (o.get("body") or "")[:1500],
+                    "received": o.get("received", "")})
     return out
 
 

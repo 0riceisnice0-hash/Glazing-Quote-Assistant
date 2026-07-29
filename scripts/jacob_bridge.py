@@ -187,10 +187,12 @@ def publish_queue(cfg, state):
             continue
         w = load(os.path.join(QUEUE, f), {})
         items.append({"file": f, "mailbox": w.get("kind", "?"),
-                      "from": str(w.get("author") or w.get("sender") or "")[:60],
-                      "subject": (w.get("subject") or (w.get("body") or "")[:110])[:130],
+                      "from": str(w.get("author") or w.get("sender") or "")[:80],
+                      "subject": (w.get("subject") or (w.get("body") or "")[:110])[:160],
                       "context": (w.get("context") or "")[:60],
-                      "route": "jacob", "why": w.get("kind", "")})
+                      "route": "jacob", "why": w.get("kind", ""),
+                      "body": (w.get("body") or "")[:1500],
+                      "received": w.get("created", "")})
     sig = (tuple(i["file"] for i in items), (state.get("last_kick") or {}).get("at"))
     if sig == _qsig[0]:
         return
