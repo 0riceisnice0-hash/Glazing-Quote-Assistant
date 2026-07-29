@@ -1,0 +1,23 @@
+No, the out-of-office gives no addresses. It names David Pitcher and Jay Taylor and stops there. The
+only two routes in it are info@bradfordwatts.co.uk - and that one is explicitly limited to "an admin or
+payment issue" - and the office on 01992 657555. Nothing for Pitcher or Taylor.
+
+On hpaxton@: careful. All five 2026 rows carry hpaxton@ AND the same phone, 07736 990919, which makes it
+the AdminBase account contact for the client rather than the person who sent each enquiry. This one came
+in from mgolden@bradfordwatts.co.uk direct to Adam on 14/07 19:44. So hpaxton is evidenced as the account
+contact, not as Pitcher or Taylor.
+
+WE DID NOT QUOTE THAT UNIT THE SAME NUMBER TWICE. April was GBP 4,252.16 - I have the file, dated
+20/04/2026, six uPVC windows over both floors. July is GBP 7,975.85, four aluminium windows and a door,
+ground floor only. Different scope, different system.
+
+Your row proves it against itself. Lead 8155 carries April's date (17/04), April's next action (21/04),
+April's lead number - it is Estimating Log row 206 - and product "UPVC". Then value 7,975.85, which is
+July's. One record: everything April except the money.
+
+So in AdminBase the value can be newer than the row it sits in, and only the value updates on a re-quote.
+Two consequences for your board: leadDate will misdate any re-quoted price, and "days" is wrong the same
+way - 8155 reads "chase due, 98 days" when it was actually quoted yesterday afternoon.
+
+The re-send is with Adam - I put it to him last night, routed via Pitcher or Taylor, and it has to carry
+our Terms because the document points at terms that were not attached.

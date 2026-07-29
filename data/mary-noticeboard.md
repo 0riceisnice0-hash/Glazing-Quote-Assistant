@@ -5,21 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 07:41 - st-marys
-STRIP-OUT NOW HAS A RATE: GBP 150.00 PER UNIT, AND IT IS FENSTER'S OWN.
-
-Adam answered REQ-24 by naming the precedent: the Brandon Estate tender to Elkins 'included a cost for removal of frames'. Read at source and it is exact. 'Pricing Document - Brandon Estate REV 2.xlsx' line 'Removal of existing frames' = GBP 330,300 over 2,202 units = GBP 150.00/unit. The earlier revision = GBP 198,750 over 1,325 units = the same GBP 150.00. Identical to the penny across a revision that added 877 units, so it is a per-unit rate, not a lump. It is a SELL rate off client-facing documents - do not mark it up.
-
-Use it: python -c "import mary_pricing as p; print(p.strip_out(107))" - returns the figure with its provenance. Selftest reproduces both Brandon revisions.
-
-TWO CAVEATS. Brandon was 2,202 near-identical units on one estate, so 150 is a FLOOR on a small job, not a ceiling. And per m2 it is only GBP 40.90 - but Brandon units average 3.67 m2 against St Mary's 1.90 m2, and stripping an opening is mostly fixed per opening. Price it per unit, not per m2.
-
-Adam's commercial rule alongside it: 'we need to remain competitive, so more often than not we can say we have included strip out if it wins us the job and is not a massive detriment.' So the default is STATE IT AS INCLUDED. Brandon's wording, which is drop-in: 'Installation and removal of old frames is included within our costs.' On St Mary's that is 107 units = GBP 16,050, 9.2% of the tender - whether it goes on the sum or is absorbed is his call, not ours.
-
-MANIFESTATION STILL HAS NO RATE ANYWHERE and no Fenster precedent to read one off. That half of REQ-24 is still open.
-
-AND THE OTHER THING HE SAID THIS WEEK, which is for everyone: 'Mary, this word count is insane. I will not be reading this. You need to be more concise in your communications, I am human, not an AI.' That was REQ-15 - a good finding, 4,176 characters of why, bounced UNREAD. Crestwood's short challenge came back answered in two hours. Put the decision in the request and the proof in your job file. He is rejecting length, not challenges.
-
 ### 2026-07-29 07:49 - riverside
 ADAM AND ZAC BOTH BOUNCED THE SAME REQUEST IN THREE HOURS, FOR LENGTH. IT IS NOT ONE PERSON'S PREFERENCE ANY MORE.
 
@@ -65,3 +50,12 @@ TWO mary_send RENDERER RULES, both found by screenshotting rather than trusting 
 AND CHECK test-results\mary-inbox\queue AT THE START, NOT JUST AT CLOSE-OUT. Three work orders were sitting in it unseen, two of them TRUSTED dashboard instructions from Adam timed 22:13 and 22:16 the previous night - one of them urgent on a tender closing the next day. I only found them because the close-out checklist says to look. A job chat that never opens the queue never learns it has been asked for something.
 
 ONE FINDING RETRACTED, AND THE REASONING ERROR IS GENERAL. I had recorded the Georgie's GBP 6,125.00 uplift as "typed over the template formulas so the issued workbook no longer recomputes". Adam: "The costs changed because we sat down in person and worked it out." Accurate about the file, wrong about the cause. A BROKEN FORMULA CHAIN IS EVIDENCE OF AN EDIT, NEVER EVIDENCE OF AN UNAUTHORISED ONE. Report the artefact, ask the cause.
+
+### 2026-07-29 08:09 - eleanor-trade-centre
+ADMINBASE: ONLY THE VALUE UPDATES ON A RE-QUOTE. THE DATE, THE PRODUCT AND THE AGE STAY STALE.
+
+Jacob's export (264 leads, VALUE column is INC VAT - divide by 1.2) put Unit 1 Eleanor Trade Centre at GBP 7,975.85 dated 17/04, and read it as us quoting the same number twice three months apart. We did not. April was GBP 4,252.16 for six uPVC windows over two floors; July is GBP 7,975.85 for four aluminium windows and a door on the ground floor. The row contradicts itself: lead 8155 carries April's leadDate, April's next action, April's lead number and product 'UPVC' - and July's money.
+
+SO: never date a price from AdminBase leadDate, and do not trust its 'days'. Eleanor shows 'quoted - chase due, 98 days' for a quote that went out yesterday afternoon. Seven rows overlap jobs read out of estimating@ - Gordon Court, Ninn Lane, St Mary's, Princess Beatrice, Crestwood Park, the Chester Thomas arched door and Eleanor. If an AdminBase figure reaches you as a comparison, check it against the file in '3. Client Quote' before you accept it.
+
+Also: an AdminBase email/phone is the CLIENT ACCOUNT contact, identical across every row for that client - not the sender of your enquiry. Bradford Watts' five 2026 rows all read hpaxton@bradfordwatts.co.uk / 07736 990919, while the Eleanor enquiry came from mgolden@ direct to Adam.

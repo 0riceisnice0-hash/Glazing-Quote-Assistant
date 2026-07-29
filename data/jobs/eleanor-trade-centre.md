@@ -4,6 +4,7 @@
 01992 657 555. On Fenster's **Priority Customer** list (Estimating Log, "Priority Customer" sheet row 4).
 **End client / PM:** JLL - Luke Clifford, Surveyor, Building Surveying, luke.clifford@jll.com,
 M 07860 685420, 30 Warwick Street, London W1B 5NH.
+**Account contact (AdminBase):** hpaxton@bradfordwatts.co.uk, 07736 990919.
 **Chat opened:** 2026-07-28 (handed over from triage). **Job folder:**
 `OneDrive - Fenster Glazing (1)\Commercial\1. Tender Documents\Bradford Watts\Unit 1 Eleanor Trade Centre`
 
@@ -11,8 +12,8 @@ M 07860 685420, 30 Warwick Street, London W1B 5NH.
 
 ## Position, one paragraph
 
-Quote **ISSUED 28/07/2026 13:22** by Gintare to Mark Golden, cc Adam: **GBP 7,975.85 ex VAT**, supply and
-install. Adam approved it at 13:14. **Mark Golden was out of office** - his auto-reply landed at 13:23,
+Quote **ISSUED 28/07/2026 14:22 BST** by Gintare to Mark Golden, cc Adam: **GBP 7,975.85 ex VAT**, supply and
+install. Adam approved it at 14:14. **Mark Golden was out of office** - his auto-reply landed at 14:23,
 one minute later - so the quote is unread. **This is a chase, not a pricing job.** The price is sound and
 supplier-backed. Two documents were sent: the pricing workbook and a 3-page Window and Door Drawings PDF.
 
@@ -23,7 +24,7 @@ Easy to miss and it changes how the number reads.
 | | April 2026 | July 2026 |
 |---|---|---|
 | Log no. | 8155 (enquiry 15/04, deadline 21/04) | none (enquiry 15/07, no deadline) |
-| Quote date | 20/04/2026 | 23/07/2026 (issued 28/07) |
+| Quote date | 20/04/2026, issued 16:23 BST, revised 16:38 | 23/07/2026 (issued 28/07 14:22) |
 | Scope | 6no **uPVC** windows, ground AND first floor | 4no **aluminium** windows + 1 door, **ground floor only** |
 | Total | **GBP 4,252.16** | **GBP 7,975.85** |
 | Install | 637.50 | 1,140.00 |
@@ -69,7 +70,7 @@ the new 4 windows and door. **Fenster has never seen those JLL plans.**
 
 ## Adam's "Liniar uPVC" catch - CLOSED, nothing to do
 
-Adam, 28/07 13:14: *"It says liniar upvc window but it's aluminium... Price is good to go."*
+Adam, 28/07 14:14: *"It says liniar upvc window but it's aluminium... Price is good to go."*
 
 He was reading **BSW's own quote**. QT252983 is headed **"LINIAR PVCu"** and the item beneath it is a
 **SHEERLINE Prestige Casement**. BSW template header, not the product. Three confirmations:
@@ -89,7 +90,7 @@ BSW before ordering.
 
 ## Open items
 
-1. **THE QUOTE IS UNREAD.** Mark Golden OOO from 28/07 13:23, no return date. Redirects to **David Pitcher
+1. **THE QUOTE IS UNREAD.** Mark Golden OOO from 28/07 14:23, no return date. Redirects to **David Pitcher
    and Jay Taylor**, info@bradfordwatts.co.uk for admin/payments, office 01992 657555. Sent to mgolden@
    only, cc adam@. Raised with Adam 28/07.
 2. **THE QUOTATION POINTS AT TERMS THAT WERE NOT SENT.** Its last line says "should be read in conjunction
@@ -121,7 +122,8 @@ BSW before ordering.
 - **Client deadline: NONE.** Mark said only "get back to me asap". Estimating Log row 320 has the deadline
   column **blank**. Do not invent one.
 - Enquiry 14/07/2026 19:44 (Mark) -> Adam to Gintare 15/07 09:37 "for Mark" -> Gintare to Adam for
-  checking 23/07 11:39 -> Adam approves 28/07 13:14 -> **issued 28/07 13:22**.
+  checking 23/07 11:39 -> Adam approves 28/07 14:14 -> **issued 28/07 14:22**.
+  (All times BST. The work-order JSON records these as 13:14/13:22/13:23 - that is UTC, one hour behind.)
 - **27/08/2026 is OUR OWN 30-day validity from issue, not a client date.** Note the pricing document is
   *dated 23/07* though it was issued 28/07, so which date the 30 days runs from is genuinely ambiguous -
   and the client has not been given the clause anyway.
@@ -134,6 +136,29 @@ BSW before ordering.
 **5 FAILED:** spec gap on the cladding; door finish not stated as RAL 7016; supplier validity 8 days short
 of ours; third-party traces in the issued workbook (REQ-27); warranty with no start date and nothing
 back-to-back. 3 unanswered: performance requirement, delivery basis, supplier terms we do not hold.
+
+## AdminBase - lead 8155, and why its figure cannot be trusted to date a price
+
+From Jacob 28/07 22:27. AdminBase's VALUE column is inc VAT; he de-VATs it.
+
+Lead **8155** "Unit 1 Eleanor Trade Centre": leadDate **17/04**, nextAction **21/04**, product **UPVC**,
+value 7,975.85 / incVat 9,571.02. Jacob read that as "we quoted the same number twice, three months apart".
+**We did not.** The row contradicts itself: the date, the next action, the lead number (= Estimating Log
+row 206, the April round) and the product are all **April**; only the money is **July**. April was
+GBP 4,252.16 in uPVC. Answered him 29/07.
+
+**The general point, which is his to use:** in AdminBase only the value updates on a re-quote. `leadDate`
+misdates any re-quoted price, and `days` inherits the error - 8155 shows "quoted - chase due, 98 days"
+for a quote that went out yesterday. Seven AdminBase rows overlap jobs read out of estimating@.
+
+**Contact, from AdminBase:** hpaxton@bradfordwatts.co.uk / 07736 990919 is the **account contact** for
+Bradford Watts - identical across all five 2026 rows, so it is the client record's owner, not the sender
+of any one enquiry. This enquiry came from mgolden@ direct to Adam. It is NOT evidence of an address for
+Pitcher or Taylor, and the out-of-office gives none.
+
+AdminBase also puts this job in the **under GBP 10k band, 38% win rate - "the only band Fenster reliably
+wins"**, against 0 won of 37 priced at GBP 50k-200k. Their figure, not mine, but it says this one is worth
+the chase.
 
 ## Estimating Log
 
