@@ -7534,3 +7534,47 @@ behind it, OPENING THE VERY CHAT ADAM DOES NOT WANT. Simulated all three senders
 Full rule in AI.md, "Live Projects Are Not Estimating - And Emailing Adam About One IS Working It".
 No reply was sent to Adam: he asked nothing, and another email on the closed job is the exact
 behaviour being corrected.
+
+### 2026-07-29 11:24 - redditch-library
+DECIDE WHO TO ASK BEFORE YOU ASK. A QUOTE FROM THE DEAREST SUPPLIER READS AS A VERDICT ON THE JOB.
+
+Redditch. Gintare sent the RFQ to BSW this morning, which is right in itself - it had to move. But we
+already know from measured data that BSW is the dearest of the four suppliers we can measure, and our
+number already assumed a cheaper one. So the quote that comes back will land ABOVE our own published
+figure and the natural reading will be "this job is not winnable", when what it actually says is
+"we asked the dearest supplier".
+
+Run your own number through the measured factors BEFORE the RFQ goes, not after the quote lands. On
+Redditch it takes one line and it changes the recommendation:
+
+    BSW  +5.7% (n=272)   tender sum 97,563   +6,876 ABOVE the competitor
+    4Ali -1.5% (n=82)               93,582   +2,894 above
+    Aplus -1.6% (n=83)              93,526   +2,839 above
+    TruFrame -17.9% (n=42)          84,512   -6,175 UNDER
+
+Only ONE of the four clears the competitor, and it is not one anybody was going to ask. That is worth
+knowing before the RFQ, because it tells you who to send it to; it is worth much less afterwards.
+
+CAVEAT, STATED SO NOBODY LIFTS THE NUMBER WITHOUT IT: TruFrame's -17.9% is n=42, the thinnest of the
+four, and a supplier factor measured across code and band says nothing about whether that supplier can
+FABRICATE your system - thermally broken, commercial doorsets, panic hardware, your sizes. It tells you
+who is worth an envelope, not who will win. Ask, do not assume.
+
+SECOND, AND IT APPLIES TO EVERY TENDER WITH A COMPETITOR'S PRICE IN THE PACK: SEND THE RFQ SCHEDULE,
+NEVER THE TENDER PACK. Redditch's pack carries Joedan's fully priced quotation at page 147 - the client
+left it in and Pride's own covering email points us at it. Forwarding that pack to a supplier hands
+them the market price for the job before they quote it to us. Same family as REQ-28, opposite
+direction. Build a price-free schedule and send that; there is one on Redditch worth copying the shape
+of - sizes, configurations, hardware, u-values, coupling instructions, and a "your rate" column left
+empty.
+
+THIRD, A CONTROL WORTH REUSING, AND A CORRECTION TO HOW I NEARLY REPORTED IT. The BSW email says "as
+per the attached" and our copy carries no attachment. I checked the control first (31 of 110 sent
+messages in the store do carry attachments, so a zero means something) - and then I checked the CLOCK,
+which is the bit I nearly got wrong. The send was NINETY SECONDS old, not the forty-five minutes I
+first assumed, because poller.log runs in BST and the work order stamps in UTC. Ninety seconds is not
+long enough to conclude anything.
+
+  IF YOU ARE COMPARING A STORE TIMESTAMP AGAINST THE CLOCK, CHECK THE ZONE. poller.log is BST, work
+  order 'received' is UTC. An hour of imaginary staleness is exactly the difference between "worth a
+  glance" and an accusation.

@@ -1,0 +1,28 @@
+Redditch: Adam caught me recommending a uPVC supplier for an aluminium job
+
+He is right. TruFrame do not do aluminium, and they were the only one of four suppliers I had shown
+beating Joedan - a line I had also put on the noticeboard for every other chat. Retracted to him and
+on the board within the hour.
+
+The root cause is worth more than the error. A supplier factor records what we charged on that
+supplier's lines and carries no record at all of what they can make; there is no material field in
+it. And the cheap ones look cheap because they sell a different product - our own learned rates put
+aluminium windows at 399.23 a square metre and uPVC at 198.62, roughly half. TruFrame's 0.721 is not
+a keen supplier, it is a plastic window. I read a discount where the data was telling me a material.
+
+Checking that found a second fault which was about to reach a client. The factors are re-derived as
+new quotes land and mine were hardcoded, so BSW had moved from 1.057 to 1.042 and Aplus from 0.984 to
+0.995 without the script noticing. The number I gave Adam twenty minutes earlier was built on
+yesterday's data and was 1,400 light on a 95k job in a document he was about to send. The same
+mistake as retyping the strip-out rate instead of asking the engine for it; it now reads them from
+source every run.
+
+The corrected position is worse and it changes the question. No supplier we can measure gets near
+Joedan - BSW 6,876 above, Aplus 4,240, 4Ali 4,464. It is no longer how we get under him but whether
+we bid above him, and I have recommended we still bid on the strength of the ten year guarantee and
+four completed Pride jobs.
+
+Adam has asked for a full supply chain list. Accepted, and deliberately not dashed off this
+afternoon: a fast capability matrix would be exactly the error he just corrected, forty rows wide.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

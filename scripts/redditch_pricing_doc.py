@@ -40,11 +40,25 @@ OUT = os.path.join(REPO, "outputs")
 ST_A, ST_B = 721.4685, -0.40934          # rate = a * area^b, R2 0.9934
 ST_REF = "BSW QT250834, 15/06/2026, Pride Developments - Severn Trent"
 
-# Measured supplier factors from Fenster's own sent pricing documents, same
-# code and band. BSW +5.7% (n=272), Aplus -1.6% (n=83), 4Ali -1.5% (n=82).
-# The Severn Trent curve is a BSW curve, so this converts it to an Aplus one.
-BSW_FACTOR, APLUS_FACTOR = 1.057, 0.984
-SECOND_SUPPLIER = APLUS_FACTOR / BSW_FACTOR      # 0.9309
+# Measured supplier factors, READ FROM data/learned-rates.json rather than
+# retyped. They are re-derived as new quotes land: between 28/07 and 29/07 BSW
+# moved 1.057 -> 1.042 and Aplus 0.984 -> 0.995, which is GBP 1,365 of frame buy
+# on this job. Hardcoding them meant quoting Adam a number built on yesterday's
+# data - the same mistake as retyping the strip-out rate instead of asking the
+# engine for it.
+#
+# TRUFRAME IS DELIBERATELY NOT AN OPTION HERE. Their factor is the lowest of the
+# four (0.721) and on 29/07 I recommended them to Adam for this aluminium
+# package. Adam: "Truframe are uPVC windows, they do not do aluminium." A
+# supplier factor measures what we charged on that supplier's lines; it carries
+# NO record of what they can actually make. The cheap ones are cheap because
+# uPVC is roughly half the price of aluminium per m2 (learned-rates medians:
+# 399.23 aluminium against 198.62 uPVC), not because they are keen.
+_SF = json.load(open(os.path.join(REPO, "data", "learned-rates.json"),
+                     encoding="utf-8"))["supplier_factors"]
+BSW_FACTOR = _SF["bsw"]["factor"]
+APLUS_FACTOR = _SF["aplus"]["factor"]
+SECOND_SUPPLIER = APLUS_FACTOR / BSW_FACTOR
 
 MASTIC_RATE = 5.0                # GBP/linear metre - js/pricing.js masticRate
 MCD = 0.025                      # to mirror Joedan's commercial terms

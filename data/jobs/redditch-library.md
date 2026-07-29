@@ -11,7 +11,7 @@
 | **Our position** | Window and door **sub-contractor to Pride**, who are bidding to Gleeds as main contractor. Our offer goes to Pride, not to Gleeds. |
 | **Tender pack** | BLBS0956 v01, May 2026, 254 pages. `Commercial\1. Tender Documents\Pride Developments\Redditch Library` and in the work-order attachment folder. |
 | **Deadline** | **NOT SET - do not invent one.** Leonard White, 22/07: acknowledge and "submit your tender back asap", no date. The pack's 12 noon Friday **26 June 2026** is GLEEDS' date to the main contractors and it has passed. Adam has been asked to get Pride's real date. |
-| **Live number** | **TENDER SUM GBP 93,526.34, gross of 2.5% MCD, ex VAT** (net GBP 91,188.18) - revised 29/07 when the strip-out rate landed. **GBP 2,839.17 ABOVE Joedan's GBP 90,687.17, +3.13%. THE UNDERCUT IS GONE.** Strip-out now priced at the real rate, 43 nr x GBP 150.00 = GBP 6,450, against the GBP 3,000 allowance guessed on 28/07. **BENCHMARK, and nothing issued to anyone.** |
+| **Live number** | **TENDER SUM GBP 94,926.76, gross of 2.5% MCD, ex VAT** (net GBP 92,553.59) - revised twice on 29/07: the strip-out rate landed, then the hardcoded supplier factors were found stale. **GBP 4,239.59 ABOVE Joedan's GBP 90,687.17, +4.67%. THE UNDERCUT IS GONE, AND NO SUPPLIER WE CAN MEASURE GETS NEAR HIM** (BSW +6,876, Aplus +4,240, 4Ali +4,464; TruFrame are uPVC and do not apply). Strip-out now priced at the real rate, 43 nr x GBP 150.00 = GBP 6,450, against the GBP 3,000 allowance guessed on 28/07. **BENCHMARK, and nothing issued to anyone.** |
 
 ## Where it stands
 
@@ -620,3 +620,73 @@ configurations and areas are the client's own schedule checked against the eleva
 code adders, installation and solar glass are house rates; **the frame supply is a BENCHMARK** - a
 curve fitted to BSW's real Severn Trent quote, adjusted to a second supplier - and **no supplier has
 quoted this job**.
+
+
+## 29/07 11:45 - Adam: "Truframe are uPVC" - and checking it found a second fault
+
+Adam 11:36, replying to the RFQ email: *"I just want to note, Truframe are uPVC windows, they do not
+do aluminium. It may be worth you brushing up on what suppliers supply what materials/products. If
+you're unsure, send me a spreadsheet of all suppliers and what you think they offer... a full supply
+chain list for all of our products."*
+
+**HE IS RIGHT AND THE ERROR WAS MINE.** I put an aluminium package in front of him and named TruFrame
+as the supplier who could win it - the ONLY one of four that cleared Joedan. Retracted to Adam and on
+the noticeboard inside the hour, because the 11:24 board post had recommended it to every chat.
+
+### Why it was wrong - the part worth keeping
+
+**A SUPPLIER FACTOR RECORDS WHAT WE CHARGED ON THAT SUPPLIER'S LINES. IT CARRIES NO RECORD OF WHAT
+THEY CAN MAKE.** `data/learned-rates.json` `supplier_factors` has no material field at all - a number,
+an n, and *"median of N priced lines against the all-supplier rate for the same code and size band"*.
+
+And the cheap ones are cheap because they sell a different product. Our own learned rates:
+**aluminium windows GBP 399.23/m2 against uPVC GBP 198.62/m2 - roughly half.** TruFrame's 0.721 is not
+a keen supplier, it is a plastic window. **I read a discount where the data was telling me a
+material.** That is a fault in how I read the table, not just a fact I did not know.
+
+### The second fault, which moved a number Adam was about to send
+
+Checking the first one found it. **My script had the supplier factors HARDCODED.** They are re-derived
+as new quotes land and they moved overnight: **BSW 1.057 -> 1.042, Aplus 0.984 -> 0.995.** So the
+price I sent Adam at 11:35 was built on yesterday's data - **GBP 1,400 light on a GBP 95k job, in a
+document he was about to issue.**
+
+**Exactly the same mistake as retyping the strip-out rate instead of asking the engine for it.**
+`redditch_pricing_doc.py` now reads `supplier_factors` from source on every run.
+
+| | GBP |
+|---|---|
+| frames (Aplus level, factors read live) | 54,422.66 |
+| adders / installation / solar / sealing / strip-out | as before |
+| net | 92,553.59 |
+| add 2.5% MCD | 2,373.17 |
+| **TENDER SUM** | **94,926.76** |
+
+Documents rebuilt, `mary_checks` all pass, pack audit clean, manifest reconciles to the penny.
+
+### The corrected competitive picture - and it is worse
+
+| supplier | frame buy | tender sum | vs Joedan 90,687.17 |
+|---|---|---|---|
+| BSW - the only one asked | 56,993.38 | 97,563.42 | **+6,876** |
+| Aplus | 54,422.66 | **94,926.76** | **+4,240** |
+| 4Ali | 54,641.44 | 95,151.18 | +4,464 |
+| TruFrame | - | - | **N/A - uPVC, not aluminium** |
+
+**There is no supplier we can measure that gets near Joedan.** We are **4.7% to 7.6% above** him on
+every aluminium source we can actually buy from. The question is no longer how to get under him - it
+is whether we bid above him. **Recommended to Adam that we still bid**, knowing we are the dearer
+quote: the ten year guarantee against Joedan's twelve months is real on a 70/30 award, Pride are a
+priority customer we have won four jobs with, and a number on the table keeps us on their list.
+
+**SBM remains the one genuine unknown** - Cortizo aluminium, quotes estimating@ direct, not on the
+suppliers listing, so no factor exists for them at all. A gap rather than a misread number.
+
+### The supply chain list - accepted, and deliberately not rushed
+
+Told Adam I will build it properly: every supplier, materials and product types they actually do,
+systems they fabricate, key contacts, **and the source of every line**, pulled from the OneDrive
+supplier folders, archive quotes and the mailboxes. **Explicitly not dashed off** - the error he just
+corrected was asserting a supplier capability I had not verified, and a fast capability matrix would
+be that same mistake forty rows wide with no way to tell evidence from assumption. **Next thing I
+pick up.**

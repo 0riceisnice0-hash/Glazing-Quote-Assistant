@@ -398,7 +398,7 @@
  "systems_specified": [
   {
    "system": "Thermally broken 75mm aluminium casement system - Sheerline Prestige or equivalent, tendered as the Contractor's Designed Portion alternative under Gleeds 3.5.3 cl.3",
-   "fabricator": "BSW Systems Ltd fabricate Sheerline Prestige and have quoted it to Fenster within the last six weeks; A Plus, 4Ali and SBM Glazing all fabricate an equivalent thermally broken 75mm system. RFQ written and not yet sent.",
+   "fabricator": "BSW Systems Ltd fabricate Sheerline Prestige and have quoted it to Fenster within the last six weeks; A Plus and 4Ali both fabricate an equivalent thermally broken 75mm aluminium system. NOT TruFrame - Adam, 29/07: 'Truframe are uPVC windows, they do not do aluminium.' A measured supplier factor records what we charged on that supplier's lines and carries NO record of what they can make, which is exactly the error this field exists to catch. RFQ has gone to BSW only so far.",
    "performance": {
     "required": "1.4 W/m2K area-weighted average across the windows (Gleeds 3.5.3 cl.7)",
     "capable": true,
@@ -466,22 +466,22 @@
  "priced_lines": [
   {
    "ref": "43 window and door lines, supply and fit (refs 1-41, with 32 and 34 split)",
-   "amount": 83414.98,
+   "amount": 84815.84,
    "covered_by_our_exclusions": false
   },
   {
    "ref": "Perimeter sealing - external low modulus mastic to all frame/structure joints, 314.29 lin m, INCLUDING the 45mm white cellular uPVC cloaking profile to the internal perimeter",
-   "amount": 1615.44,
+   "amount": 1615.38,
    "covered_by_our_exclusions": false
   },
   {
    "ref": "Solar-control glazing - 4mm bronze anti-sun toughened outer pane, 136.53 m2 x GBP 13.29/m2",
-   "amount": 1865.31,
+   "amount": 1865.24,
    "covered_by_our_exclusions": false
   },
   {
    "ref": "Strip out of the existing metal framed windows and doorsets, set down for disposal by the main contractor - 43 nr at GBP 150.00/unit, Fenster's own Brandon Estate rate (REQ-24)",
-   "amount": 6630.61,
+   "amount": 6630.3,
    "covered_by_our_exclusions": false
   }
  ],

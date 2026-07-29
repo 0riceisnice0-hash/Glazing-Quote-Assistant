@@ -1,0 +1,68 @@
+Adam,
+
+You are right and thank you for catching it. TruFrame do uPVC. I put an aluminium package in front of
+you and named them as the supplier who could win it, and that was wrong.
+
+DO NOT SEND THE 93,526.34 EITHER. CHECKING YOUR CORRECTION TURNED UP A SECOND FAULT.
+
+I had the supplier factors hardcoded in my script. They are re-derived from our own sent quotes as
+new ones land, and they moved overnight - BSW from 1.057 to 1.042, Aplus from 0.984 to 0.995. So the
+number I sent you twenty minutes ago was built on yesterday's data.
+
+    TENDER SUM  GBP 94,926.76   gross of 2.5% MCD, excluding VAT
+
+Rebuilt, re-checked, attached. That is GBP 1,400 above what I told you at 11:35, and it is the same
+mistake in a different coat: I copied a number out of the engine instead of asking the engine for it,
+exactly as I had with the strip-out rate. It now reads the factors from source every run.
+
+WHY I GOT TRUFRAME WRONG, BECAUSE THE REASON MATTERS MORE THAN THE ERROR
+
+The supplier factor measures what we charged on that supplier's lines against everyone else's for the
+same code and size band. It carries NO record of what the supplier can actually make. There is no
+material field in it at all.
+
+And the cheap ones look cheap because they are selling a different product. Our own learned rates put
+aluminium windows at GBP 399.23 per m2 and uPVC at GBP 198.62 - roughly half. TruFrame's factor of
+0.721 is not a keen supplier, it is a plastic window. I read a discount where the data was telling me
+a material.
+
+That is a fault in how I was reading the table, not just a fact I did not know, and I have posted it
+to the other job chats because any of them could have made the same call this week.
+
+THE CORRECTED PICTURE, AND IT IS WORSE
+
+    supplier                        frame buy      tender sum      vs Joedan 90,687.17
+    BSW - the only one asked         56,993.38      97,563.42          +6,876  above
+    Aplus                            54,422.66      94,926.76          +4,240  above
+    4Ali                             54,641.44      95,151.18          +4,464  above
+    TruFrame                         not applicable - uPVC, not aluminium
+
+So the question is no longer whether we can undercut Joedan. On every supplier we can actually buy
+aluminium from, we are between 4.7% and 7.6% above him. The question is whether we bid at that, or
+whether we tell Pride we are not competitive on this one and put the time into work where we are.
+
+I would still bid, for what it is worth - the ten year guarantee against Joedan's twelve months is
+real on a 70/30 award, Pride are a priority customer we have won four jobs with, and a number on the
+table keeps us on their list. But I would bid it knowing we are the dearer quote, not hoping we are
+the cheaper one.
+
+SBM is the one unknown left. They fabricate Cortizo aluminium, they quote estimating@ direct, and
+they are not on the suppliers listing, so there is no factor for them at all. That is a genuine gap
+rather than a cheap number I have misread, and it is worth an envelope.
+
+THE SUPPLY CHAIN LIST - YES, AND I WANT TO DO IT PROPERLY
+
+I will build it: every supplier, what materials and product types they actually do, systems they
+fabricate, key contacts, and where the evidence for each line comes from. I will pull it from the
+OneDrive supplier folders, the quotes in the archive and the mailboxes rather than from what I think I
+know.
+
+I am not going to dash it off this afternoon, and I want to be straight about why. The error you just
+corrected was me asserting a supplier capability I had not verified. A capability matrix built fast
+would be that same mistake forty rows wide, and you would have no way of telling which rows were
+evidenced and which were my assumption. Every line will carry its source, and where I cannot find
+evidence it will say so rather than guess.
+
+It is the next thing I pick up.
+
+Nothing has gone to Pride. Still no deadline from Leonard White.

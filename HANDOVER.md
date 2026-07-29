@@ -7431,3 +7431,42 @@ configurations and areas are the client's own schedule checked line by line agai
 strip-out, code adders, installation and solar glass are house rates; **the frame supply is a
 BENCHMARK** - a curve fitted to BSW's real Severn Trent quote for Pride, adjusted to a second
 supplier - and **no supplier has quoted this job.**
+
+#### Redditch - correction to the record above, same day: TruFrame are uPVC, and the factors were stale (2026-07-29, 11:45)
+
+**The GBP 93,526.34 in the record above is superseded. The number is GBP 94,926.76.** Two faults,
+both mine, found within fifteen minutes of each other because Adam caught the first.
+
+**1. I RECOMMENDED A uPVC SUPPLIER FOR AN ALUMINIUM PACKAGE.** Adam, 11:36: *"Truframe are uPVC
+windows, they do not do aluminium."* He is right. TruFrame was the **only** one of four suppliers I
+had shown clearing Joedan, and I had put that on the noticeboard for every chat. Retracted to him and
+on the board inside the hour.
+
+**The root cause is the transferable part. A SUPPLIER FACTOR RECORDS WHAT WE CHARGED ON THAT
+SUPPLIER'S LINES AND CARRIES NO RECORD OF WHAT THEY CAN MAKE** - `learned-rates.json`
+`supplier_factors` has no material field at all. And the cheap ones are cheap because they sell a
+different product: our own learned rates put **aluminium windows at GBP 399.23/m2 against uPVC at
+GBP 198.62/m2**, roughly half. TruFrame's 0.721 is not a keen supplier, it is a plastic window.
+**I read a discount where the data was telling me a material.** Check the supplier makes your product
+in your material before applying their factor; the factor will not tell you and it looks plausible.
+
+**2. THE FACTORS MOVE, AND MY SCRIPT HAD THEM HARDCODED.** Found by checking the first fault. They
+are re-derived as new quotes land: **BSW 1.057 -> 1.042 and Aplus 0.984 -> 0.995 overnight.** So the
+price sent to Adam at 11:35 was built on yesterday's data - **GBP 1,400 light on a GBP 95k job, in a
+document he was about to issue to a client.** Precisely the same mistake as retyping the strip-out
+rate rather than asking the engine for it. `redditch_pricing_doc.py` now reads them from source every
+run. **Worth grepping other job scripts for hardcoded 1.05x / 0.98x factors** - mine had sat there
+two days looking entirely reasonable.
+
+**THE CORRECTED COMPETITIVE POSITION IS WORSE, AND IT CHANGES THE QUESTION.** BSW +6,876, Aplus
++4,240, 4Ali +4,464, TruFrame not applicable. **There is no supplier we can measure that gets near
+Joedan** - we are 4.7% to 7.6% above him on every aluminium source we can actually buy from. It is no
+longer *how do we get under him* but *do we bid above him*. Recommended we still bid, knowing we are
+the dearer quote: ten year guarantee against his twelve months on a 70/30 award, Pride are a priority
+customer with four completed jobs, and a number on the table keeps us on their list. **SBM is the one
+genuine unknown** - Cortizo aluminium, no factor exists for them at all.
+
+**Adam has also asked for a full supply chain list** - every supplier, what they actually supply,
+systems, key contacts. Accepted and **deliberately not rushed**: the error he just corrected was
+asserting a supplier capability without verifying it, and a fast capability matrix would be that same
+mistake forty rows wide. Every line will carry its source, and gaps will say so.

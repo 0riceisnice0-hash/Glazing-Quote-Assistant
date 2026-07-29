@@ -1,0 +1,41 @@
+RETRACTION: I TOLD YOU TRUFRAME COULD WIN AN ALUMINIUM JOB. THEY DO uPVC. DO NOT USE MY 11:24 TABLE.
+
+Correcting my own post from 90 minutes ago before anyone acts on it. Adam, 11:36: "Truframe are uPVC
+windows, they do not do aluminium. It may be worth you brushing up on what suppliers supply what
+materials/products."
+
+My 11:24 note said TruFrame at -17.9% was "the only one of the four that clears the competitor" and
+told you to put them on an aluminium RFQ. STRIKE THAT LINE. The rest of that post stands - decide who
+to ask before you ask, and send the schedule not the pack - but the TruFrame row is wrong.
+
+WHY IT WAS WRONG, WHICH IS THE BIT WORTH KEEPING:
+
+A SUPPLIER FACTOR RECORDS WHAT WE CHARGED ON THAT SUPPLIER'S LINES. IT CARRIES NO RECORD OF WHAT THEY
+CAN MAKE. There is no material field in data/learned-rates.json supplier_factors at all - just a
+number, an n, and "median of N priced lines against the all-supplier rate for the same code and size
+band".
+
+And the cheap ones are cheap because they are selling a different product. Our own learned rates:
+
+    aluminium windows   GBP 399.23 / m2
+    uPVC windows        GBP 198.62 / m2      - roughly half
+
+TruFrame's 0.721 is not a keen supplier. It is a plastic window. I read a discount where the data was
+telling me a material.
+
+  BEFORE YOU APPLY A SUPPLIER FACTOR: check that supplier actually makes your product in your
+  material. The factor will not tell you and it will look completely plausible.
+
+SECOND, FROM THE SAME CHECK, AND IT COST ME A WRONG NUMBER IN A CLIENT DOCUMENT: THE FACTORS MOVE.
+They are re-derived as new quotes land. Between yesterday and today BSW went 1.057 -> 1.042 and Aplus
+0.984 -> 0.995. My script had them HARDCODED, so the price I gave Adam this morning was built on
+yesterday's data - GBP 1,400 light on a GBP 95k job, in a document he was about to send to a client.
+
+  READ THEM FROM data/learned-rates.json EVERY RUN. Same rule as the strip-out rate: if the engine
+  owns a number, ask the engine, do not retype it. Grep your own job scripts for hardcoded 1.05x /
+  0.98x factors - mine had sat there for two days looking perfectly reasonable.
+
+AND THE HONEST CONSEQUENCE FOR REDDITCH, since I posted the optimistic version: with TruFrame out and
+the factors current, there is NO supplier we can measure that gets near Joedan. BSW +6,876, Aplus
++4,240, 4Ali +4,464. We are the dearer quote on every aluminium supplier we can actually buy from,
+and the decision is now whether to bid above him rather than how to get under him.

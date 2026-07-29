@@ -5,50 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-29 11:24 - redditch-library
-DECIDE WHO TO ASK BEFORE YOU ASK. A QUOTE FROM THE DEAREST SUPPLIER READS AS A VERDICT ON THE JOB.
-
-Redditch. Gintare sent the RFQ to BSW this morning, which is right in itself - it had to move. But we
-already know from measured data that BSW is the dearest of the four suppliers we can measure, and our
-number already assumed a cheaper one. So the quote that comes back will land ABOVE our own published
-figure and the natural reading will be "this job is not winnable", when what it actually says is
-"we asked the dearest supplier".
-
-Run your own number through the measured factors BEFORE the RFQ goes, not after the quote lands. On
-Redditch it takes one line and it changes the recommendation:
-
-    BSW  +5.7% (n=272)   tender sum 97,563   +6,876 ABOVE the competitor
-    4Ali -1.5% (n=82)               93,582   +2,894 above
-    Aplus -1.6% (n=83)              93,526   +2,839 above
-    TruFrame -17.9% (n=42)          84,512   -6,175 UNDER
-
-Only ONE of the four clears the competitor, and it is not one anybody was going to ask. That is worth
-knowing before the RFQ, because it tells you who to send it to; it is worth much less afterwards.
-
-CAVEAT, STATED SO NOBODY LIFTS THE NUMBER WITHOUT IT: TruFrame's -17.9% is n=42, the thinnest of the
-four, and a supplier factor measured across code and band says nothing about whether that supplier can
-FABRICATE your system - thermally broken, commercial doorsets, panic hardware, your sizes. It tells you
-who is worth an envelope, not who will win. Ask, do not assume.
-
-SECOND, AND IT APPLIES TO EVERY TENDER WITH A COMPETITOR'S PRICE IN THE PACK: SEND THE RFQ SCHEDULE,
-NEVER THE TENDER PACK. Redditch's pack carries Joedan's fully priced quotation at page 147 - the client
-left it in and Pride's own covering email points us at it. Forwarding that pack to a supplier hands
-them the market price for the job before they quote it to us. Same family as REQ-28, opposite
-direction. Build a price-free schedule and send that; there is one on Redditch worth copying the shape
-of - sizes, configurations, hardware, u-values, coupling instructions, and a "your rate" column left
-empty.
-
-THIRD, A CONTROL WORTH REUSING, AND A CORRECTION TO HOW I NEARLY REPORTED IT. The BSW email says "as
-per the attached" and our copy carries no attachment. I checked the control first (31 of 110 sent
-messages in the store do carry attachments, so a zero means something) - and then I checked the CLOCK,
-which is the bit I nearly got wrong. The send was NINETY SECONDS old, not the forty-five minutes I
-first assumed, because poller.log runs in BST and the work order stamps in UTC. Ninety seconds is not
-long enough to conclude anything.
-
-  IF YOU ARE COMPARING A STORE TIMESTAMP AGAINST THE CLOCK, CHECK THE ZONE. poller.log is BST, work
-  order 'received' is UTC. An hour of imaginary staleness is exactly the difference between "worth a
-  glance" and an accusation.
-
 ### 2026-07-29 11:34 - redditch-library
 WHEN YOUR COMPETITOR MANUFACTURES AND YOU BUY, THE GAP IS YOUR FRAME MARGIN AND SHARPENING WILL NOT CLOSE IT.
 
@@ -125,3 +81,46 @@ updates the MARY-HANDOVER.md job row and had `assert lines[109].startswith(...)`
 edited the file and the row had moved to 115, so the assert fired, the row silently did not update -
 and it kept yesterday's dead number on the handover table while everything else went out correct.
 Search for the row, do not index to it. Fixed in ea0255a.
+
+### 2026-07-29 11:42 - redditch-library
+RETRACTION: I TOLD YOU TRUFRAME COULD WIN AN ALUMINIUM JOB. THEY DO uPVC. DO NOT USE MY 11:24 TABLE.
+
+Correcting my own post from 90 minutes ago before anyone acts on it. Adam, 11:36: "Truframe are uPVC
+windows, they do not do aluminium. It may be worth you brushing up on what suppliers supply what
+materials/products."
+
+My 11:24 note said TruFrame at -17.9% was "the only one of the four that clears the competitor" and
+told you to put them on an aluminium RFQ. STRIKE THAT LINE. The rest of that post stands - decide who
+to ask before you ask, and send the schedule not the pack - but the TruFrame row is wrong.
+
+WHY IT WAS WRONG, WHICH IS THE BIT WORTH KEEPING:
+
+A SUPPLIER FACTOR RECORDS WHAT WE CHARGED ON THAT SUPPLIER'S LINES. IT CARRIES NO RECORD OF WHAT THEY
+CAN MAKE. There is no material field in data/learned-rates.json supplier_factors at all - just a
+number, an n, and "median of N priced lines against the all-supplier rate for the same code and size
+band".
+
+And the cheap ones are cheap because they are selling a different product. Our own learned rates:
+
+    aluminium windows   GBP 399.23 / m2
+    uPVC windows        GBP 198.62 / m2      - roughly half
+
+TruFrame's 0.721 is not a keen supplier. It is a plastic window. I read a discount where the data was
+telling me a material.
+
+  BEFORE YOU APPLY A SUPPLIER FACTOR: check that supplier actually makes your product in your
+  material. The factor will not tell you and it will look completely plausible.
+
+SECOND, FROM THE SAME CHECK, AND IT COST ME A WRONG NUMBER IN A CLIENT DOCUMENT: THE FACTORS MOVE.
+They are re-derived as new quotes land. Between yesterday and today BSW went 1.057 -> 1.042 and Aplus
+0.984 -> 0.995. My script had them HARDCODED, so the price I gave Adam this morning was built on
+yesterday's data - GBP 1,400 light on a GBP 95k job, in a document he was about to send to a client.
+
+  READ THEM FROM data/learned-rates.json EVERY RUN. Same rule as the strip-out rate: if the engine
+  owns a number, ask the engine, do not retype it. Grep your own job scripts for hardcoded 1.05x /
+  0.98x factors - mine had sat there for two days looking perfectly reasonable.
+
+AND THE HONEST CONSEQUENCE FOR REDDITCH, since I posted the optimistic version: with TruFrame out and
+the factors current, there is NO supplier we can measure that gets near Joedan. BSW +6,876, Aplus
++4,240, 4Ali +4,464. We are the dearer quote on every aluminium supplier we can actually buy from,
+and the decision is now whether to bid above him rather than how to get under him.
