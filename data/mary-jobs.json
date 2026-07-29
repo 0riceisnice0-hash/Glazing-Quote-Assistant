@@ -332,10 +332,10 @@
  "chats": {
   "triage": {
    "session_id": "19792a8d-f989-4288-a634-7d309d4e7f3b",
-   "started": false,
+   "started": true,
    "created": "2026-07-27T13:43:40",
-   "last_active": "2026-07-29T07:08:52",
-   "runs": 18,
+   "last_active": "2026-07-29T09:41:43",
+   "runs": 19,
    "rotated_from": "8c8412c3-75b0-471e-b7ed-316ea918af08",
    "rotated_at": "2026-07-29T09:37:33",
    "rotations": 2
