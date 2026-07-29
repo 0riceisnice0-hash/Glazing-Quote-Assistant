@@ -1,0 +1,25 @@
+Adam,
+
+No scope change. I compared the revised schedule 2376-09 rev A against the version we
+priced, attribute by attribute - 209 window refs, 38 types, structural opening sizes,
+opening patterns, restrictor and U-value notes all identical. Only the integral blind
+note dropped out, and we had already excluded blinds. The other two revised drawings do
+not touch glazing.
+
+The date changed, not the scope. The register issued with the 24/07 drawings says return
+27 July; the three earlier registers said 17 July. That passed on Monday, and nothing has
+gone back to Tom Godfrey since 24/07.
+
+Three things sit outside the GBP 174,546.37:
+
+- Strip-out. Brandon Estate carried GBP 150/unit, worded "Installation and removal of old
+  frames is included within our costs". Here that is 107 units = GBP 16,050, 9.2% of the
+  tender. Brandon was 2,202 units, so treat 150 as a floor.
+- Manifestation, 24.10 linear m. No rate in our records.
+- Carriage to Merthyr - both suppliers are ex-works, BSW deliver to our own yard, site is
+  150 miles.
+
+Also both supplier quotes lapse mid-August, before the 14 September start - GBP 91,409 of
+cost, 52% of the sell, unfixed.
+
+Revised clarification wording is drafted and changes no figure.

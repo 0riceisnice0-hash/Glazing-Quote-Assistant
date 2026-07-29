@@ -7161,3 +7161,63 @@ template wrong is the Gordon Court/REQ-27 mistake. Put to Adam to fix once, at s
 
 **Dashboard state updated, NOT deployed** - `mary_dashboard.py --deploy` still failing on the npm
 cache EBUSY lock first reported at 21:00. State is committed; the next clean deploy publishes it.
+
+### St Mary's Refurbishment (E T & S Construction) - eighth turn: the strip-out rate was in our own archive all along (2026-07-29)
+
+Three work orders, all Adam answering open requests from this job. Two produced actions; the third produced a
+correction to how these requests are written.
+
+**REQ-24, STRIP-OUT - ANSWERED, AND IT YIELDED FENSTER'S FIRST RATE FOR IT.** Adam: *"If you look at the large
+tender we did for Brandon Estate (for Elkins I believe) then you will see we included a cost for removal of frames
+there. However bear in mind we need to remain competitive, so more often than not we can say we have included strip
+out if it wins us the job and is not a massive detriment."* Read at source. `Pricing Document - Brandon Estate
+REV 2.xlsx` carries a line **"Removal of existing frames" at GBP 330,300 over 2,202 units = GBP 150.00 per unit**;
+the earlier revision carries **GBP 198,750 over 1,325 units = the same GBP 150.00**. Identical to the penny across
+a revision that added 877 units, so it is a per-unit rate and not a lump. It is a **SELL** rate - both figures are
+on client-facing pricing documents - so it is not marked up. Brandon's proposal worded it *"Installation and
+removal of old frames is included within our costs"*, now adopted in our draft.
+
+**This had been carried as unpriceable across five jobs.** The standing claim was that 0 of the 80 register
+categories cover strip-out, disposal or manifestation - true, and misleading. The register is mined from supplier
+quotes, so it can only price what suppliers quote; strip-out is site labour Fenster sells directly and was never
+going to be in it. **"No rate exists" was a statement about the register, read as a statement about the company.**
+Adam resolved it in one sentence. Before reporting an item unpriceable, search our own issued tenders, and ask him
+which job did it.
+
+**In the engine, not just in a file:** `mary_pricing.STRIP_OUT_PER_UNIT = 150.0` and `strip_out(units)`, returning
+the total with its provenance, plus three selftest assertions reproducing both Brandon revisions and St Mary's own
+107 openings. Selftest passes. **Price per unit, never per m2** - Brandon is GBP 40.90/m2 but its units average
+3.67 m2 against St Mary's 1.90 m2, so a per-m2 basis under-reads by half on smaller units. **And GBP 150 is a floor
+on a small job**: Brandon was 2,202 near-identical units on one estate.
+
+**On St Mary's: 107 units = GBP 16,050, 9.2% of the GBP 174,546.37.** Stated as INCLUDED in the clarifications on
+Adam's rule. Whether that money goes **on** the sum or is **absorbed** is a commercial judgement left with him -
+9.2% is arguably past his own "not a massive detriment" test, and it was put to him with the number attached.
+**The `spec covered or excluded` check still FAILS on SOW 1.09 deliberately**: the GBP 16,050 is not in the sum and
+nothing has been re-issued. Marking it `provisional` would turn the rule green while the money is still absent -
+the Vesuvius failure mode of filling a field to satisfy a rule that tests presence rather than truth.
+
+**REQ-25, THE RE-OPENED PACKAGE - CLOSED, AND THE WINDOW WAS LOST.** The 27/07 return date passed. The inbox was
+swept for Godfrey, ET&S and Merthyr: nothing since 24/07 13:06, in either direction. So the live position is the
+**17/07 submission, unamended**, and the drafted clarifications are now a post-tender schedule rather than a
+resubmission. Adam asked only for a concise note on scope changes; emailed 29/07 - **there are none**, 2376-09 rev A
+is identical to the version priced, checked attribute by attribute, and only the integral blind note dropped out.
+**The date moved; the scope never did.** The one decision REQ-25 still carried, carriage, was folded into REQ-24
+rather than left open in two places. **The loss worth recording: the deadline was found, written up and escalated,
+and the single action that mattered - phoning Tom Godfrey - was the one thing no chat can take itself, because
+`mary_send.py` reaches adam@ and marketing@ only.** That is a cage, not an outage, and this job file had wrongly
+recorded it as the REQ-23 email failure (since fixed and verified).
+
+**REQ-15, THE DOOR U-VALUE - BOUNCED UNREAD ON LENGTH.** *"Mary, this word count is insane. I will not be reading
+this. You need to be more concise in your communications, I am human, not an AI."* A good finding - SMA publish
+1.8 W/m2K against 1.4 promised and 1.2 required, on GBP 31,360.15 of sell - carried in 4,176 characters of `why`.
+He did not disagree with it; he never reached it. Rewritten to 721 characters, REQ-24 to 1,266, and both hub
+replies kept short. Third instance of this feedback in two days, so it is now in AI.md alongside the other two.
+Set against Crestwood Park the same week, where a short challenge came back answered inside two hours and he
+volunteered *"don't be afraid to challenge things"*: **he is rejecting length, not challenge. The request carries
+the decision; the job file carries the proof.**
+
+**Net on the request board: St Mary's open requests go from five to four** (REQ-15 rewritten and still open, 16,
+19, 24 narrowed; 25 answered). Nothing new raised - the board already holds 17 open, and the noticeboard rule is to
+fold rather than add. Rate and the concision lesson posted to the noticeboard; the GBP 150 handed directly to
+`redditch-library`, which has strip-out as a numbered blank on the client's own tender form.

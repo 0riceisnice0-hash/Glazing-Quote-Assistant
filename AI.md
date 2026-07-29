@@ -2736,6 +2736,15 @@ unpriced guarantee premium - sat far enough down that he answered the headline a
 first. Then only the evidence that changes what he does.** The working belongs in the job file and the manifest,
 where it is retrievable, not in his inbox.
 
+**Third instance, and this one shows the cost cleanly (St Mary's REQ-15, 28/07 21:23):** *"Mary, this word count is
+insane. I will not be reading this. You need to be more concise in your communications, I am human, not an AI."*
+The request was 4,176 characters of `why` - about 700 words - carrying a conclusion that fits in four lines: SMA
+publish 1.8 W/m2K for their doors, we promised 1.4, the client asks 1.2, GBP 31,360 of sell is affected, pick one
+of two remedies. **He did not disagree with it. He never reached it.** Set against Crestwood Park the same week,
+where a short specific challenge came back answered inside two hours - and where he volunteered *"thank you for
+being vigilant, we need that so keep it up and don't be afraid to challenge things."* **He is rejecting length, not
+challenge.** The split to hold: **the request carries the decision, the job file carries the proof.**
+
 ## A missing number is not automatically a mistake
 
 Princess Beatrice: GBP 39,680 of install is exactly the house labour codes over 217 units, and the same codes give
@@ -2758,3 +2767,45 @@ sending pricing."* Found on three jobs in one day - Princess Beatrice (bill B68-
 sealants as bullets of the window renewal item), Crestwood Park (REQ-7, the same shape with Teleflex) and Georgie's
 (spec 2.33.12). Treat the template's optional-mastic line as wrong by default and go looking for the clause. The
 fix is forward, on the template; nothing goes back to clients already holding one.
+
+## Strip-out has a rate after all, and it was in our own archive: GBP 150.00/unit (Brandon Estate, 29/07/2026)
+
+Strip-out sat promised-or-demanded on five jobs and priced on none, with **0 of the 80 categories in
+`data/supplier-rates.json`** covering removal, disposal or manifestation. It was repeatedly reported as
+unbenchmarkable. **It was not. Fenster had priced it, and Adam knew where** (REQ-24, 28/07):
+
+> *"If you look at the large tender we did for Brandon Estate (for Elkins I believe) then you will see we included
+> a cost for removal of frames there. However bear in mind we need to remain competitive, so more often than not we
+> can say we have included strip out if it wins us the job and is not a massive detriment."*
+
+`Commercial\1. Tender Documents\Elkins Construction\Brandon Estate EWI Remediation works\1. Estimating\3. Client
+Quote\`, line **"Removal of existing frames"**:
+
+| document | figure | units | per unit |
+|---|---|---|---|
+| `Pricing Document - Brandon Estate REV 2.xlsx` | GBP 330,300 | 2,202 | **GBP 150.00** |
+| `SS\DO NOT SEND Pricing Document - Brandon Estate.xlsx` | GBP 198,750 | 1,325 | **GBP 150.00** |
+
+**Identical to the penny across a revision that added 877 units**, which is what makes it a rate rather than a
+guess - a lump someone eyeballed would not survive the job growing by two thirds. It is a **SELL** rate; both
+figures come off client-facing pricing documents, so it is not marked up. Now in the engine as
+`mary_pricing.STRIP_OUT_PER_UNIT` / `strip_out(units)`, returning the figure with its provenance, with selftest
+assertions reproducing both revisions.
+
+**Price it per unit, not per m2.** Brandon works out at GBP 40.90/m2, but its units average 3.67 m2 against St
+Mary's 1.90 m2, so the per-m2 basis under-reads by half on a job of smaller units. Stripping an opening is mostly a
+fixed operation per opening. **And GBP 150 is a FLOOR on a small job, not a ceiling** - Brandon was 2,202
+near-identical units on one estate, about as much repetition as a strip-out ever gets.
+
+**The general lesson, and it is the expensive one: "no rate exists" is a claim about the archive, and the archive
+is bigger than the rate register.** The register is mined from supplier quotes, so it can only ever price things
+suppliers quote. Strip-out is site labour Fenster sells directly, so it was never going to appear there - and its
+absence was read as *nobody has a number* when the true statement was *the register does not carry this kind of
+number*. Before reporting an item unpriceable, search **our own issued tenders** for the line. Ask Adam which job
+did it: he answered this in one sentence after it had been carried as an open unknown across five jobs.
+
+**With it, Adam's commercial default:** say strip-out is included where it wins the job and is not a massive
+detriment. Brandon's drop-in wording is *"Installation and removal of old frames is included within our costs."*
+That sits alongside, and does not contradict, *A missing number is not automatically a mistake* above - Princess
+Beatrice gave frame removal away deliberately. **The decision to include it is Adam's; what it costs is now
+knowable, which is the part that was missing.**

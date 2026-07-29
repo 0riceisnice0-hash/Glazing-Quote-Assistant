@@ -64,6 +64,41 @@ def adder_factor(area_m2):
 # Curtain walling is priced by area, not by code - Greenfields calibration.
 CW_SUPPLY_M2, CW_LABOUR_M2 = 850.0, 150.0
 
+# Removal of the existing frames on a replacement job. Until 29/07/2026 there was no
+# rate for this anywhere - 0 of the 80 categories in the register cover strip-out,
+# disposal or manifestation - and it sat promised-but-unpriced on five jobs at once.
+# Adam named the precedent (REQ-24, 28/07): "the large tender we did for Brandon Estate
+# (for Elkins I believe)... we included a cost for removal of frames there".
+# Read at source, and it holds across both revisions of that tender:
+#   REV 2       "Removal of existing frames"  GBP 330,300 / 2,202 units = GBP 150.00
+#   earlier rev "Removal of existing frames"  GBP 198,750 / 1,325 units = GBP 150.00
+# Identical to the penny as the job grew by 877 units, so it is a PER-UNIT rate and not
+# a lump someone eyeballed. It is a SELL rate - both figures come off the client-facing
+# pricing document - so do not mark it up. Brandon's proposal worded it "Installation and
+# removal of old frames is included within our costs".
+# CAUTION ON SCALE: Brandon was 2,202 near-identical units on one estate. A small
+# replacement job has none of that repetition, so treat GBP 150 as a FLOOR, not a
+# ceiling. Per m2 it works out at GBP 40.90, but Brandon's units average 3.67 m2 against
+# (for example) St Mary's 1.90 m2, so the per-unit basis travels better than the per-m2
+# one - stripping an opening is mostly a fixed operation per opening.
+STRIP_OUT_PER_UNIT = 150.0
+STRIP_OUT_PROVENANCE = ("GBP 150.00/unit sell - Fenster's own Brandon Estate tender to Elkins "
+                        "(GBP 330,300 / 2,202 units in REV 2; GBP 198,750 / 1,325 units in the "
+                        "earlier revision, identical per unit). Named by Adam, REQ-24, 28/07/2026. "
+                        "A floor on a small job - Brandon was 2,202 repetitive units.")
+
+
+def strip_out(units):
+    """Removal and disposal of the existing frames, priced per opening.
+
+    Returns the figure with its provenance, because this is a house rate read off one
+    real tender rather than a register median - it is evidence, not a firm price."""
+    return {"units": units,
+            "rate": STRIP_OUT_PER_UNIT,
+            "total": round(units * STRIP_OUT_PER_UNIT, 2),
+            "basis": "per unit (per opening stripped)",
+            "provenance": STRIP_OUT_PROVENANCE}
+
 # Corrections to the register medians, each earned on a real job. A median is
 # the middle of history, not the price of the thing in front of you.
 CALIBRATION = [
@@ -310,6 +345,15 @@ def selftest():
     area = 4.542 * 2.747
     check("supply at GBP850/m2", cw["supply"], area * 850)
     check("labour at GBP150/m2", cw["labour"], area * 150)
+
+    print("\nSTRIP-OUT (Brandon Estate, the rate Adam named on REQ-24)")
+    # The rate is proven by holding across two revisions of the same tender.
+    check("Brandon REV 2  330,300 / 2,202 units", strip_out(2202)["total"], 330300.00)
+    check("Brandon earlier 198,750 / 1,325 units", strip_out(1325)["total"], 198750.00)
+    check("St Mary's 107 openings", strip_out(107)["total"], 16050.00)
+    cited = "Brandon Estate" in strip_out(1)["provenance"]
+    print("  [%s] rate cites the tender it was read off" % ("ok  " if cited else "FAIL"))
+    ok = ok and cited
 
     print("\nREGISTER LOOKUP WITH PROVENANCE")
     r = find_rate("aluminium casement window, glazed", 2.0)

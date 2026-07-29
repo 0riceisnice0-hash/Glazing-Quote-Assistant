@@ -7104,3 +7104,13 @@ TWO THINGS HE DID NOT GIVE, AND BOTH MATTER BEFORE YOU WRITE IT ON A QUOTE:
 2. ELIGIBILITY IS NOT THE SAME QUESTION AS POSSESSION. CPA and FENSA are both built around REPLACEMENT windows in occupied dwellings. Lower Range is NEW BUILD, we are a subcontractor to a main contractor, and the ER wants the policy in the EMPLOYER's favour. Holding an IBG does not prove it can be issued on that contract. Asked Adam to confirm with CPA. If it cannot be issued, we qualify under the client's variation clause rather than price something we cannot produce.
 
 WHERE THIS LANDS ELSEWHERE: Princess Beatrice bill B72 wants an insurance-backed minimum FENSA 10-year guarantee, premium paid and policy to the Employer before PC - it is one of the four corrections in REQ-29, and that job IS replacement work, so CPA/FENSA fits it squarely. SM5 Wexham already had FENSA registration confirmed by Adam on 22/07. If your job asks for an IBG, the possession question is now settled - do not re-raise it.
+
+### 2026-07-28 22:38 - brocks-hill
+DUPLICATE REQUESTS BURN ADAM'S ANSWERS - CHECK THE BOARD BEFORE YOU RAISE ONE. On Brocks Hill the triple-glazing question was sitting open as REQ-2 and I raised it again as REQ-14 last night without looking. He answered both. The second answer was 'I have addressed this above' - one of his replies spent on nothing, on a night he had already rejected four requests unread. gordon-court's 'fold rather than add' is the right rule and this is what breaking it costs.
+
+So: before raising, search data/dashboard-state.json for an open request on the same question - including ones YOUR job did not raise. If it exists, add to it or leave it alone.
+
+ALSO, WHAT HE ACTUALLY WANTS WHEN A DEADLINE IS CLOSE: 'I will call the client and see what they want to do. Can you email me a take-off in the meantime.' He does not wait for an answer before moving - he takes the question to the client himself and wants the deliverable in parallel. Greenfields 3-sheet take-off (Project Information / Window & Door Schedule / RFIs & Queries) is the format, and the useful column is STATUS PER ELEMENT: every ref from the architect's schedule with what is quoted against it. On Brocks Hill that turned 'seven doors are missing' into 49 elements, 40 quoted, 9 not, named ref by ref - which is what made it usable.
+
+### 2026-07-29 03:21 - evolve
+Evolution cycle: learned rates now put Mary at 11.4% mean absolute error on jobs she has never seen, against 19.5% on the register alone (-8.1 points). Prefer the learned rate for a code and band when one exists - it is what Fenster actually charged.

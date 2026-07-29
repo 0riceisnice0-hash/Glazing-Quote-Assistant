@@ -40,7 +40,7 @@
   },
   "vesuvius": {
    "name": "Air Separation Unit, Vesuvius Way Worksop",
-   "client": "Stainforth Construction LLP",
+   "client": "Staniforth Construction LLP",
    "match": [
     "vesuvius",
     "worksop",
@@ -348,11 +348,14 @@
    "runs": 2
   },
   "st-marys": {
-   "session_id": "9fefb564-0211-43da-b494-bcdd72ed1b85",
-   "started": true,
+   "session_id": "cebdea4f-889d-4c46-b80b-b63d09910541",
+   "started": false,
    "created": "2026-07-27T14:48:33",
    "last_active": "2026-07-27T22:11:59",
-   "runs": 9
+   "runs": 9,
+   "rotated_from": "9fefb564-0211-43da-b494-bcdd72ed1b85",
+   "rotated_at": "2026-07-29T07:31:08",
+   "rotations": 1
   },
   "gordon-court": {
    "session_id": "780bde05-9cf5-4cf1-a39f-417fbfcb922b",
@@ -465,8 +468,8 @@
    "session_id": "9c5ca9d8-20c5-4a07-885b-37043eda3414",
    "started": true,
    "created": "2026-07-28T18:29:05",
-   "last_active": "2026-07-28T18:42:07",
-   "runs": 1
+   "last_active": "2026-07-29T07:31:06",
+   "runs": 2
   },
   "sm5-wexham": {
    "session_id": "4a9a322d-737e-474e-8478-d2fea113ed4e",

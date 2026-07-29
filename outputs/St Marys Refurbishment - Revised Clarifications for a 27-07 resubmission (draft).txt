@@ -6,11 +6,14 @@ This is qualification wording only - it makes our position explicit on the thing
 submitted proposal left silent or overstated. Drop-in text for the proposal's
 "DESCRIPTION & CLARIFICATIONS" block and the INCLUSIONS / EXCLUSIONS table.
 
+STATUS AT 29/07/2026. The 27/07 return date has PASSED and nothing went back to Tom
+Godfrey. This is therefore no longer a resubmission against an open package - it is the
+schedule of post-tender clarifications to put to ET&S if the 17/07 quote is still live.
+Item 4 (strip-out) was settled by Adam on 28/07 and is now stated as INCLUDED.
+
 DO NOT ISSUE until two things are settled:
-  (a) Tom Godfrey confirms the package is genuinely open - the 24/07 Document Register
-      header says "Package return date: 27 July 2026" where the three earlier registers
-      said 17 July; and
-  (b) Adam decides items 4 and 6 below, which are the two he has not yet ruled on.
+  (a) Tom Godfrey confirms whether our 17/07 submission is still under consideration; and
+  (b) Adam decides item 6 below (carriage), the last one he has not ruled on.
 
 -------------------------------------------------------------------------------------
 FIRST, A CORRECTION TO THE ISSUED DOCUMENTS
@@ -64,25 +67,33 @@ Type H window screens is NOT included; if these are deemed to fall within clause
 further 15.80 linear metres would apply and would be priced as a variation.
 
 -------------------------------------------------------------------------------------
-4. REMOVAL AND DISPOSAL OF THE EXISTING WINDOWS AND DOORS   [ADAM TO DECIDE - see note]
+4. REMOVAL AND DISPOSAL OF THE EXISTING WINDOWS AND DOORS   [SETTLED - INCLUDED,
+   per Adam's ruling of 28/07]
 -------------------------------------------------------------------------------------
-   *** TWO ALTERNATIVE WORDINGS. Adam ruled "we would include it for a job of this
-   *** size, but if they assume it's not included and do it for us then happy days."
-   *** That leans toward staying silent. The risk of silence is that SOW item 1.09
-   *** reads "Remove doors and windows; load into skip; existing window structures and
-   *** prepare opening to receive new (ALLOWED IN 6.01)" - and 6.01 is our supply-and-
-   *** fit item, so the client's own document already reads as though it is ours.
-   *** Recommendation: option A. It costs nothing to say and removes the argument.
+   *** DECIDED. Adam, 28/07: "If you look at the large tender we did for Brandon Estate
+   *** (for Elkins I believe) then you will see we included a cost for removal of frames
+   *** there. However bear in mind we need to remain competitive, so more often than not
+   *** we can say we have included strip out if it wins us the job and is not a massive
+   *** detriment." Option A adopted; Option B deleted.
+   ***
+   *** THE BRANDON RATE, checked at source. "Pricing Document - Brandon Estate REV 2.xlsx"
+   *** carries a line "Removal of existing frames" at GBP 330,300 over 2,202 units =
+   *** GBP 150.00 per unit exactly. The earlier revision is GBP 198,750 over 1,325 units
+   *** = the same GBP 150.00, so it is a per-unit rate held as the job grew, not a lump.
+   *** Brandon's own proposal wording was "Installation and removal of old frames is
+   *** included within our costs", which is the phrasing adopted below.
+   ***
+   *** COST OF THE DECISION: 107 units x GBP 150 = GBP 16,050, which is 9.2% of the
+   *** tendered sum. Brandon was 2,202 repetitive units on one estate, so GBP 150 is a
+   *** floor for a 107-unit refurbishment rather than a ceiling. Whether that GBP 16,050
+   *** is added to the sum or absorbed is a commercial decision still with Adam
+   *** (REQ-24); the wording below is unaffected either way.
 
-OPTION A - state it as included:
+WORDING:
    "Removal of the existing windows and door sets and disposal off site is INCLUDED, in
    accordance with Schedule of Works item 1.09. Disposal will be to a licensed facility
    and we will provide waste transfer documentation. Removal of any asbestos-containing
    material is excluded."
-
-OPTION B - state it as excluded:
-   "Removal and disposal of the existing windows and door sets is EXCLUDED and is assumed
-   to be undertaken by others in advance of our installation."
 
 Either way, note that Preliminaries clause C requires building waste to be taken to a
 NAMED licensed landfill (Tredegar Skip Hire is named in the pack) and a Site Waste
@@ -173,6 +184,10 @@ NOTE ON WHAT IS NOT IN HERE
 -------------------------------------------------------------------------------------
 No figure in the tendered sum has been altered. Items 1, 2, 6 and 7 all describe things
 that are not in the price; if the client requires any of them, each needs a supplier
-figure before a number can be given. In particular there is no rate anywhere in our own
-records for strip-out, disposal, manifestation or haulage, so those four would each need a
-real quotation rather than an estimate.
+figure before a number can be given.
+
+STRIP-OUT NOW HAS A RATE and the others still do not. Brandon Estate gives GBP 150.00 per
+unit for removal of existing frames (see item 4), so item 4 is stated as included and its
+cost is known to be about GBP 16,050. Manifestation (item 3, 24.10 linear m) and haulage
+(item 6) still have no rate anywhere in our records and would each need a real quotation
+rather than an estimate.

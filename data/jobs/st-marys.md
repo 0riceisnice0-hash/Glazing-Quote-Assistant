@@ -1,6 +1,25 @@
 # St Mary's Refurbishment, Merthyr Tydfil - E T & S Construction
 
-> ## THE PACKAGE IS RE-OPENED. RETURN DATE **27 JULY 2026** - TODAY. **REQ-25.**
+> ## 29/07: THE 27 JULY RETURN DATE PASSED AND NOTHING WENT BACK. **REQ-25 CLOSED.**
+>
+> The re-opened window is gone. Nothing has been sent to Tom Godfrey since **24/07**, and no ET&S
+> correspondence has arrived since either - the inbox was swept for Godfrey, ET&S and Merthyr and the
+> last item is 24/07 13:06. So the live position is the **17/07 submission, unamended**, and everything
+> below is a schedule of **post-tender clarifications** to put to ET&S if that quote is still under
+> consideration - not a resubmission against an open package.
+>
+> **Adam answered REQ-25 on 28/07 20:46:** *"We submitted this quote on 17th. Can you email me if there
+> are any changes to scope we should be wary of. Please be concise in your wording."* Emailed 29/07:
+> **no scope change** (see section 7 - 2376-09 rev A is identical attribute by attribute), the date
+> moved and not the scope, and the three things sitting outside the price. REQ-25 is now `answered`; the
+> one live decision it still carried - **carriage** - was folded into REQ-24 rather than left open twice.
+>
+> **Nobody can chase Tom Godfrey from this chat, and the reason is NOT the one this file used to give.**
+> It said outbound email was down under REQ-23. **REQ-23 is fixed** - the tenant policy was corrected and
+> sending was verified on 28/07. The real and permanent reason is the **ghost cage**: `mary_send.py` only
+> ever accepts `adam` and `marketing`. Contacting ET&S is a human action, always was, and always will be.
+>
+> ### THE HISTORY, KEPT BECAUSE THE DATE STILL EXPLAINS THE LOSS
 >
 > ET&S's Document Register issued with the 24/07 revised drawings carries
 > **"Package return date: 27 July 2026"** in its header. The 08/07, 09/07 and 16/07 registers all say
@@ -19,11 +38,11 @@
 > return date is in the **register header**, not the drawings. I read that register three times over six
 > turns without reading the top of the page.
 >
-> **If the package really is open until close of play, everything in this file stops being a post-mortem
-> on a submitted quote and becomes a corrected tender.** Somebody must establish it with Tom Godfrey
-> today - Mary cannot: outbound email is down (REQ-23) and only ever reached adam@/marketing@.
+> Somebody had to establish it with Tom Godfrey on the day, and nobody did. **That is the loss to learn
+> from: the date was found, written up and escalated, and the one action that mattered - a phone call -
+> was the one thing this chat could not take itself.**
 >
-> ### THE RESUBMISSION IS DRAFTED AND WAITING
+> ### THE CLARIFICATIONS ARE DRAFTED AND WAITING
 >
 > `outputs\St Marys Refurbishment - Revised Clarifications for a 27-07 resubmission (draft).txt`
 >
@@ -36,17 +55,14 @@
 > excluded by name; the Type G interface; the 2376-08 vs 2376-09 size conflict; a price validity clause;
 > and the **CF77 -> CF47 postcode correction** on both documents.
 >
-> **TWO DECISIONS ARE ADAM'S AND THE DRAFT DOES NOT PRE-EMPT THEM.**
+> **ONE OF THE TWO DECISIONS IS NOW MADE.**
 >
-> 1. **STRIP-OUT** - both wordings drafted. His ruling leaned toward silence (*"if they assume it's not
->    included and do it for us then happy days"*), but SOW item 1.09 cross-refers it INTO our item 6.01,
->    so the client's own document already reads as though it is ours. **Recommendation: state it as
->    included.**
-> 2. **DELIVERY AND CARRIAGE** - cannot stay silent. Neither supplier includes it, BSW's delivery address
->    is our own Milton Keynes premises, site is ~150 miles away, and there is no carriage line in the
->    pricing document. Either a haulage figure or an explicit exclusion. No rate exists in our records.
->
-> Posted to Adam on the hub and added to REQ-25.
+> 1. **STRIP-OUT - SETTLED 28/07, AND IT NOW HAS A RATE.** See section 3a. Stated as INCLUDED in the
+>    draft; Option B deleted.
+> 2. **DELIVERY AND CARRIAGE - STILL OPEN, now the last thing on REQ-24.** Cannot stay silent. Neither
+>    supplier includes it, BSW's delivery address is our own Milton Keynes premises, site is ~150 miles
+>    away, and there is no carriage line in the pricing document. Either a haulage figure or an explicit
+>    exclusion. No rate exists in our records.
 
 > **And our own recorded deadline was never a client date.** The hub carried 16/08, which is the
 > BSW/Bellview 30-day quote validity - it had become "the deadline" because it was the only date written
@@ -388,6 +404,53 @@ Court reached the identical conclusion on their own install line. **Neither has 
 `data/supplier-rates.json` - 0 of 80 categories cover strip-out, disposal or manifestation** - so
 neither can be benchmarked and both need a real price. **REQ-24 raised** and replied to Adam on the hub.
 
+### 3a. STRIP-OUT IS ANSWERED, AND FENSTER'S OWN RATE IS **GBP 150.00 PER UNIT** (REQ-24, 28/07)
+
+Adam, hub message 55:
+
+> *"If you look at the large tender we did for Brandon Estate (for Elkins I believe) then you will see we
+> included a cost for removal of frames there. However bear in mind we need to remain competitive, so
+> more often than not we can say we have included strip out if it wins us the job and is not a massive
+> detriment."*
+
+**Read at source, and it is exact.** `Commercial\1. Tender Documents\Elkins Construction\Brandon Estate
+EWI Remediation works\1. Estimating\3. Client Quote\`:
+
+| document | line | figure | units | per unit |
+|---|---|---|---|---|
+| `Pricing Document - Brandon Estate REV 2.xlsx` | "Removal of existing frames" | GBP 330,300 | 2,202 | **GBP 150.00** |
+| `SS\DO NOT SEND Pricing Document - Brandon Estate.xlsx` | "Removal of existing frames" | GBP 198,750 | 1,325 | **GBP 150.00** |
+
+**Identical to the penny across a revision that added 877 units, so it is a PER-UNIT rate and not a lump
+somebody eyeballed.** It is a **SELL** rate - both figures come off client-facing pricing documents - so
+it is not marked up. The Brandon proposal worded it: *"Installation and removal of old frames is
+included within our costs."* That is the phrasing now used in our draft.
+
+**ON ST MARY'S: 107 units x GBP 150 = GBP 16,050**, which is **9.2%** of GBP 174,546.37.
+
+Two honest qualifications, and they point opposite ways:
+
+1. **GBP 150 is a FLOOR here, not a ceiling.** Brandon was 2,202 near-identical units on one estate -
+   about as much repetition as a strip-out ever gets. A 107-unit refurbishment has none of it.
+2. **Per m2 the Brandon rate is GBP 40.90**, which over our 202.80 m2 would be only GBP 8,294. But
+   Brandon's units average **3.67 m2** against our **1.90 m2**, and stripping an opening is mostly a
+   fixed operation per opening rather than per m2. **The per-unit basis travels; the per-m2 basis does
+   not.** Recorded that way in the engine.
+
+**IN THE ENGINE, so this never has to be rediscovered:** `mary_pricing.STRIP_OUT_PER_UNIT = 150.0` with
+`strip_out(units)` returning the figure with its provenance, and three selftest assertions that
+reproduce both Brandon revisions and our own 107 units. Section 5a2's rule - the engine gets better, not
+a note in a file nobody reads back.
+
+**WHAT IS STILL NOT DECIDED:** whether the GBP 16,050 goes **on** the sum or gets **absorbed**. Adam's
+test is "not a massive detriment"; 9.2% is arguably past that, but that is a commercial judgement and
+his, not this chat's. Put to him with the number attached. **The wording is unaffected either way.**
+
+**THE CHECK STILL FAILS ON PURPOSE.** `spec covered or excluded` continues to FAIL on SOW 1.09 because
+the GBP 16,050 is not in the GBP 174,546.37 and nothing has been re-issued. Marking it `provisional`
+would turn the rule green while the money is still absent - **exactly the Vesuvius failure mode, a field
+filled in to satisfy a rule that tests presence rather than truth.** It clears when the money moves.
+
 **MANIFESTATION EXTENT, now measurable rather than "undefined"** (clause 2.24: two bands at 850-1000mm
 and 1400-1600mm, contrasting, both faces):
 
@@ -632,10 +695,11 @@ got it. Selftest passes and all six founding errors still fire.
 | **ET&S (Tom Godfrey)** | RFI-1 U-value: does EDG02 govern, or schedule 2376-09? RFI-3 access/scaffold boundary. RFI-4 window strip-out and disposal. RFI-6 the surviving blind note on Type AK. |
 | **BSW + Bellview** | RFI-2: confirm in writing how Type G is built - a Sheerline 70mm casement into a Smart Wall 100mm frame, in a 28mm pocket. **RFI-1a: an SMA U-calculation in writing for the 7 Smart Wall Pocket units**, and whether they can reach 1.2 W/m2K at all. SM5 Wexham asked SMA for the same calculation and never got it - chase it properly this time. |
 | **cfw architects (via ET&S)** | Confirm the RAL and whether the internal face matches. RFI-5 manifestation. **RFI-7: what is a "non-lockable device" on an escape door; and reconcile 2376-08 against 2376-09 rev A, which disagree on the external door opening sizes.** |
-| **Adam** | **REQ-24: a number for strip-out and manifestation, or a decision to state them as inclusions and absorb them - they should not stay promised and unpriced. And whether to put access LIABILITY to ET&S in writing before award.** What was the GBP 1,000/unit "Additional" on Types F and H for? Sight of the JCT MW terms - GBP 500/day damages, 3% retention, 11/12/2026 completion. |
+| **Adam** | **REQ-24, narrowed to what is left: MANIFESTATION (24.10 lin m, still no rate anywhere) and CARRIAGE to Merthyr (a haulage figure or an explicit exclusion - it cannot stay silent).** Strip-out is answered and priced - all he still owes on it is whether the GBP 16,050 goes on the sum or is absorbed. **REQ-15: SMA U-calc for Smart Wall Pocket, or re-quote the doors thermally broken.** What was the GBP 1,000/unit "Additional" on Types F and H for? Sight of the JCT MW terms - GBP 500/day damages, 3% retention, 11/12/2026 completion. |
+| **A human, not this chat** | **Phone Tom Godfrey** and find out whether the 17/07 submission is still live at all. The 27/07 window went by unanswered. `mary_send.py` reaches adam@ and marketing@ only - this was never something the chat could do itself. |
 | **Fenster** | Re-validate both supplier quotes if award slips past mid-August. |
 
-## 8b. The workbook - GENERATED, NOT SENT
+## 8b. The workbook - **SENT TO ADAM 28/07 07:54**
 
 `outputs\St Marys Refurbishment - Quote Check and RFI Schedule.xlsx`, generator
 `scripts\st_marys_quote_check.py`. Five sheets:
@@ -648,13 +712,17 @@ got it. Selftest passes and all six founding errors still fire.
 | **RFIs** | 14 questions **grouped by who can answer them** - ET&S, cfw architects, BSW/Bellview. **This sheet is sendable as it stands.** |
 | **Reconciliation** | the 13 things checked and found correct, recorded so nobody reopens them |
 
-**IT HAS NOT REACHED ADAM.** `scripts\mary_send.py` fails with a Graph **403 - "ErrorAccessDenied ...
-Blocked by tenant configured AppOnly AccessPolicy settings"** - an Exchange ApplicationAccessPolicy
-change at the tenant. Tried twice, identical, not transient. **REQ-23 raised for Zac.** Email worked at
-10:49 today and again this afternoon on other jobs, so it broke during the day and there is no send log
-to say when. Inbound and the hub are both fine, so **the substance went on the hub instead** (reply to
-Adam on message 31, plus REQ-24). Do not let the file sitting in `outputs\` read as though it was
-delivered - **when email is restored, send it.**
+**ADAM HAS IT.** `data/mary-send-log.jsonl` records it going to **adam + marketing at 07:54 on 28/07**,
+`ok: true`, attached to the morning update *"Morning update 28/07 - 2 close today, St Mary's return date
+was yesterday, and our Guildmore proposal does not say what we told them"*. Flagged by the `triage` chat,
+which spotted this heading still saying GENERATED, NOT SENT after the file had gone.
+
+*The history, because it explains the delay:* on 27/07 `mary_send.py` failed twice with a Graph **403 -
+"ErrorAccessDenied ... Blocked by tenant configured AppOnly AccessPolicy settings"**, so the substance
+went on the hub instead (reply to Adam on message 31, plus REQ-24). **REQ-23** was raised for Zac, fixed
+at the tenant, and verified by this very send. **Do not re-report email as down** - and note the thing
+REQ-23 never changed: `mary_send.py` accepts only `adam` and `marketing`, so ET&S, BSW, Bellview and cfw
+architects have always been, and remain, human actions.
 
 ## 8c. Calibration - this job is now a data point, and it says the register runs high
 
@@ -710,18 +778,40 @@ hours.
 Compute the next id at write time, and verify the write landed by reading it back. An idempotency guard
 that silently skips is indistinguishable from a success.
 
+## 8e. REQ-15 CAME BACK UNREAD - HE BOUNCED IT ON LENGTH (28/07 21:23)
+
+Adam, hub message 69, in full:
+
+> *"Mary, this word count is insane. I will not be reading this. You need to be more concise in your
+> communications, I am human, not an AI."*
+
+**He did not disagree with the finding. He never got to it.** REQ-15's `why` was 4,176 characters -
+about 700 words - to carry a conclusion that fits in four lines. The evidence was good and it bought
+nothing, because the request was unreadable.
+
+Read this next to what he volunteered on Crestwood Park the same week: *"thank you for being vigilant,
+we need that so keep it up and don't be afraid to challenge things."* **He is not rejecting challenges.
+He is rejecting length.** Crestwood's short, specific challenge came back answered inside two hours;
+this one came back unread after a day.
+
+**Done about it this turn:** REQ-15 rewritten to 721 characters, REQ-24 to 1,266, and both replies to
+him kept short. The finding itself is unchanged and the full working stays here in RFI-1a - **the long
+version belongs in this file, not in the thing he has to read.** That is the split to keep: the request
+carries the decision, the job file carries the proof.
+
 ## 9. Housekeeping this chat must keep doing
 
-The bridge (`pythonw` pid 31876, started 15:51:24) holds a registry snapshot from before the fix and
-**writes it back on every session start and end**, so re-added jobs keep getting wiped. **REQ-18 is open
-for Zac to restart it.** Confirmed live on 27/07 17:34: triage re-added five jobs at 17:32 and by the
-next session start `riverside`, `chester-thomas`, `manor-house`, `ninn-lane` and `lower-range` were gone
-again and their five briefs orphaned for the second time.
+**THE BRIDGE PROBLEM IS FIXED - REQ-18 is answered.** The old `pythonw` pid 31876 held a registry
+snapshot from before the fix and wrote it back on every session start and end, wiping re-added jobs
+twice. It was replaced by pid 16004 at 17:48:36 on 27/07 and the registry has held since. `--list`
+showed **25 jobs** at the start of this turn, `st-marys` among them.
 
-`st-marys` survives because it existed when the bridge booted. **But if this key ever vanishes, this
-conversation is lost and THIS FILE is the only backup** - which is the whole argument for keeping it
-current mid-turn rather than at close-out. Run `python scripts\mary_router.py --list` every turn.
+**Keep running `python scripts\mary_router.py --list` every turn anyway.** If this key ever vanishes
+this conversation is lost and **THIS FILE is the only backup** - which is the whole argument for keeping
+it current mid-turn rather than at close-out.
 
 ---
-*Last updated 27/07/2026 (seventh turn). Quote GBP 174,546.37 ex VAT unchanged - every item above is an
-open question about what that price covers, not a change to it.*
+*Last updated 29/07/2026 (eighth turn - REQ-15, REQ-24 and REQ-25 all answered by Adam). Quote
+GBP 174,546.37 ex VAT unchanged. What changed this turn: **strip-out has a real Fenster rate for the
+first time, GBP 150.00/unit from Brandon Estate, GBP 16,050 here**; the 27/07 return date passed with
+nothing sent; and the length of these write-ups is now a known problem in its own right - see 8e.*
