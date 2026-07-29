@@ -79,6 +79,24 @@ def _archive_wins():
             if e.get("derived") == "lost" or str(e.get("log_wl", "")).upper().startswith("L")]
     from collections import Counter
     top = Counter(e.get("client", "?") for e in won).most_common(12)
+    # Values arrive one at a time as they are stated or mined - kept in
+    # data/known-values.json with their basis, never guessed.
+    known = {}
+    kv_path = os.path.join(REPO, "data", "known-values.json")
+    if os.path.exists(kv_path):
+        try:
+            with open(kv_path, encoding="utf-8") as fh:
+                known = json.load(fh).get("values", {})
+        except Exception:
+            known = {}
+    valued = []
+    for e in won:
+        kv = known.get(e.get("key", ""))
+        if kv and kv.get("value"):
+            valued.append({"client": e.get("client"), "job": e.get("job"),
+                           "value": kv["value"], "basis": kv.get("basis", "?"),
+                           "source": kv.get("source", "")})
+    valued.sort(key=lambda v: -v["value"])
     return {
         "generated": hist.get("generated"),
         "total": len(entries),
@@ -88,9 +106,12 @@ def _archive_wins():
         "topWonClients": [{"client": c, "won": n} for c, n in top],
         "examples": sorted({("%s - %s" % (e.get("client", "?"), e.get("job", "?")))
                             for e in won if e.get("confidence") == "high"})[:12],
+        "knownValues": valued[:10],
+        "valuedCount": len(valued),
         "note": ("Outcome derived from Fenster's own filing: a job folder under "
-                 "2. Projects means won. Values are not machine-readable anywhere "
-                 "yet - mining them from the won folders is open work."),
+                 "2. Projects means won. Values are known for %d of %d wins "
+                 "(data/known-values.json); mining the rest from the won folders "
+                 "is open work." % (len(valued), len(won))),
     }
 
 

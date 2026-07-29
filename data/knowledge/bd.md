@@ -13,9 +13,12 @@ The full data story per file: `data/jacob/README.md`.
   29/07/2026). The real record is `data/job-history.json` (1,040 jobs to 2023):
   **134 recorded wins**, led by Cranfield (11), Borras (9), Aspire Federation (9),
   SDevs, MHA, Stewarts, Fortis Vision, Conamar. **Headrow Court (Fortis Vision,
-  Leeds, GBP 50k+) is in it, marked won at high confidence** - the evidence sat in
-  our own dataset while the board said "never". Values are not machine-readable
-  anywhere yet; mining them from the won folders is OPEN WORK worth proposing.
+  Leeds) is in it marked won at high confidence - ~GBP 600k, owner-stated (Zac,
+  29/07)** - fifteen times the largest win on the BD log. The evidence sat in our
+  own dataset while the board said "never". Known values live in
+  `data/known-values.json` (1 of 134 so far); mining the rest from the won folders
+  is OPEN WORK worth proposing. The log's band table is log-only: "0 on log" at a
+  size NEVER means "Fenster cannot win that size" - Headrow is the proof.
 - So: the log still says smaller jobs CONVERT BETTER on the recent funnel, and value
   still buys a row a warning - but say "no £50k+ win on the log's decided rows",
   never "Fenster has never won one". A claim must carry its source's edges.

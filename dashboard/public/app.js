@@ -1060,6 +1060,7 @@ const JACOB_RENDER = {
         <span class="page-sub">From Fenster's own filing, not the BD log</span></div>
         <div class="stats">
           <div class="stat green"><div class="n">${JACOB.archive.won}</div><div class="l">Jobs won on record (folder under 2. Projects = won)</div></div>
+          ${JACOB.archive.knownValues?.length ? `<div class="stat green"><div class="n">${gbpShort(JACOB.archive.knownValues[0].value)}</div><div class="l">Largest known win - ${esc(JACOB.archive.knownValues[0].job)} (${esc(JACOB.archive.knownValues[0].basis)})</div></div>` : ""}
           <div class="stat"><div class="n">${JACOB.archive.total}</div><div class="l">Jobs in the archive back to 2023</div></div>
           <div class="stat amber"><div class="n">${JACOB.archive.unmarked}</div><div class="l">With no recorded outcome either way</div></div>
         </div>
@@ -1083,6 +1084,10 @@ const JACOB_RENDER = {
           now buys a row a warning, not a place at the top.</p>
           <p class="dim">Value is filled on ${s.valueFilled} of ${o.rows} rows, so the bands
           below describe the rows that carry a number, not every enquiry.</p>
+          <p><strong>The table below is LOG-ONLY.</strong> Archive wins cannot appear in it:
+          they carry no banded value yet. "0 on log" at GBP 50k-100k coexists with Headrow
+          Court's ~GBP 600k win because Headrow is in the archive, not the log - the row means
+          "the recent funnel closed none this size", never "Fenster cannot win this size".</p>
         </div>
         <table class="tbl"><thead><tr><th>Job size</th><th>Won</th><th>Lost</th><th>Win rate</th></tr></thead><tbody>
         ${o.bands.map((b) => `<tr>

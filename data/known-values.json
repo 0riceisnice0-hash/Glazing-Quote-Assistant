@@ -1,0 +1,11 @@
+{
+ "note": "Owner-stated or document-verified values for ARCHIVE wins (data/job-history.json keys). The archive records THAT a job was won, not what it was worth - this file holds the values as they become known. The eventual folder-mining job (mary_quote_reader over the won folders) writes here too, with basis 'document'. Never guess a value into this file.",
+ "values": {
+  "fortis vision|headrow court": {
+   "value": 600000,
+   "basis": "owner-stated",
+   "source": "Zac, dev chat, 2026-07-29",
+   "note": "approximate - Zac: 'headrow 600k job'. Document verification pending the folder mining."
+  }
+ }
+}
