@@ -1,35 +1,36 @@
-Triage: I had Supply2Gov wrong three ways, and the evidence was in an attachment
+Manor Lodge Rev B: the swing was fixed and a part quietly left the quotation
 
-Two work orders. Prospect Print (Mailchimp, specialist inks) is noise. The other was
-the fourth Supply2Gov Daily Opportunity Alert in six days, and this time I opened the
-attachment instead of re-applying my 24/07 verdict.
+AFS issued Q7666 Rev B at 10:06. Manor Lodge is closed here on Adam's 28/07 ruling -
+live project, Joseph's when he exists - so this is recorded and emailed as a finding,
+not re-opened. No chat, no request, no pricing work.
 
-Three corrections to my own 28/07 record:
+Rev B does what it was owed: the door now reads "outward opening Right Hinged" against
+Rev A's inward, which is what Steve asked for at 14:52 yesterday.
 
-1. "No attachments" - wrong. All four alerts carry an HTML file. The email body says
-   "Open your attached alert for your full opportunity details" in plain English.
-2. "The detail is paywalled" - wrong. Title, description, status and response date are
-   all in the attachment. Only the documents need the upgrade.
-3. Half of what it lists is ALREADY AWARDED. Across four alerts, 30 unique items, 15
-   are ContractAwardNotice or PriorInformationNotice. Two of the four items I cited on
-   28/07 as glazing work stranded behind the Upgrade button - Swanscombe entrance doors
-   and "Supply & Install of Windows & Doors" - are award notices. Never available to us.
+But diffing the parts lists rather than reading the covering note, two other things moved:
 
-That weakens the case I implied for upgrading the subscription: four days of alerts
-contain two live, on-package, mainland-Britain leads, not 27 a day. No request raised.
+  DELETED  PLANET external protective roller blinds, L=1925mm, Anthracite grey (Satin)
+  CHANGED  DR. HAHN roller hinges, Anthracite grey (Matt) -> Anodised
 
-Both leads handed to Jacob - Ryde IoW replacement windows (ContractNotice, 28/08, scope
-names disposal which collides with Adam's house exclusion) and Corby communal doors.
-Checked first: zero hits in 328 Estimating Log rows and zero in his 1,312-row
-contracts-finder-awards.json, which is an awards feed, so live notices are a real gap
-in his coverage rather than a duplicate.
+Both revisions are GBP 4,075.02 net, to the penny. A component left the quotation with
+no price change, and the hinges no longer match a RAL 7021 matt door. Neither was
+requested and neither is mentioned in the email. Not called an error - deleting an item
+may be correct on an outward-opening leaf. Report the artefact, ask the cause.
 
-MARY-EMAIL-SESSION.md s2 fixed at source: aggregator alerts now have their own rule
-separate from portal notifications - read the Status field first, expect duplicates,
-distrust the headline count, send live items to Jacob.
+Steve's escape question is unanswered on its third pass: "is the panic gear required if
+we have a push to exit option?", asked 28/07 09:11, with AFS replying three times since
+and answering the maglock and the swing but never that. They have said in writing twice
+they can supply neither option - no push bar under 920mm, no panic pad at all - so Rev B
+carries neither of the two things he was choosing between. Internal operation is a
+thumbturn. Did not assert non-compliance; the document does not say and I am not
+qualified to. The finding is that nobody has answered, on an escape door at a school.
 
-The shape of it: I classified a repeating sender once and re-applied the verdict for
-three days without re-opening it. A standing verdict needs re-testing against the
-artefact, not against the last verdict.
+Board note posted, because several chats hold revised supplier quotes today: diff the
+parts list, not the covering note - an unchanged total is what makes a silent deletion
+invisible. Plus the general form: a supplier answering two of your three questions reads
+as a supplier who answered.
+
+Corrected my own 28/07 record - Rev A logged as 12:33 is 13:33 BST. Quoted "Sent:" lines
+are already local; that was the UTC hour again on exactly the value the 28/07 rule covers.
 
 Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

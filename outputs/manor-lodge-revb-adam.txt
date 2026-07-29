@@ -1,0 +1,71 @@
+Adam,
+
+AFS issued Manor Lodge Q7666 Rev B this morning at 10:06. It does fix the thing it was
+asked to fix - but two other things changed with it, and the price did not move.
+
+Not re-opening this one. You ruled on 28/07 that Manor Lodge is a live project and
+Joseph's when he exists. This is just what the document says, for whoever places the order.
+
+
+1. WHAT REV B CORRECTLY FIXES
+
+Steve told AFS at 14:52 yesterday that the door opens OUT, hinged right. Rev A said inward.
+
+Rev B now reads "outward opening Right Hinged". Correct.
+
+
+2. TWO CHANGES NOBODY ASKED FOR, AT AN IDENTICAL PRICE
+
+I diffed the Rev A and Rev B parts lists. Beyond the swing, two things moved:
+
+  - DELETED: "PLANET - External protective roller blinds, L=1925 mm, Anthracite grey
+    (Satin)", 1 off. Present in Rev A, absent from Rev B.
+
+  - CHANGED: the DR. HAHN roller hinges go from "Anthracite grey (Matt)" to "Anodised".
+    The door is RAL 7021 matt, so the hinges no longer match the frame colour.
+
+Both revisions are GBP 4,075.02 net, to the penny.
+
+I am not assuming that is an error. Deleting an item may well be correct on an
+outward-opening leaf - but it was not part of what Steve asked for, it is not mentioned in
+Julian's covering email, and a component has left the quotation without the price changing.
+Worth one question to AFS before it is ordered.
+
+
+3. STEVE'S ESCAPE QUESTION IS STILL UNANSWERED - THIRD TIME
+
+He asked on 28/07 at 09:11: "Can you confirm if the panic gear is required if we have a
+push to exit option?"
+
+AFS have replied three times since - 10:40, 13:33 and this morning - and have answered the
+maglock and the swing but never that.
+
+Meanwhile AFS have said in writing, twice, that they cannot supply either option: no push
+bar at 900mm (they need 920mm minimum) and no panic pad at all, it is not in their
+supplier's range.
+
+So Rev B contains neither of the two things Steve was choosing between. Internal operation
+is a thumbturn, with an EFF EFF electric strike for the access control. The lock is an ECO
+SCHULTE GBS70 and the quotation does not state whether it is panic-rated.
+
+He originally asked for the bar on 24/07 because "this door needs to be used for escape
+purpose as well", and this is a school. Whether a thumbturn satisfies that is a question for
+someone qualified to answer it - my point is only that nobody has answered it, and the
+revision in Steve's hands does not resolve it either way.
+
+
+4. NUMBERS, FOR THE ORDER
+
+  Net, supply only, delivered to site   GBP 4,075.02
+  Fixing pack (optional extra)          GBP    75.21
+  Delivery (optional extra)             GBP   250.00
+  True delivered cost                   GBP 4,400.23
+
+The fixing pack and delivery sit OUTSIDE the net figure - the same shape as Gordon Court's
+GBP 506.37. Anyone reading GBP 4,075.02 as the delivered cost is GBP 325.21 light.
+
+Validity is 30 days from 29/07, so 28/08/2026. Lead time 8 weeks from signed order and the
+60% initial payment. Delivery address on the quote is Rectory Lane, Ridge Hill, Radlett,
+Hertfordshire WD7 9BG.
+
+Mary Grace

@@ -778,6 +778,50 @@ re-applied the classification for three days without re-opening it. The correcti
 an attachment the email told me to open. **A standing verdict on a repeating sender needs re-testing
 against the artefact, not against the last verdict.**
 
+### 2026-07-29 10:15 - Manor Lodge Rev B: the swing was fixed and a part quietly left the quotation
+Julian Ward (AFS) issued **Q7666 Rev B at 10:06 today**. Manor Lodge is CLOSED here on Adam's 28/07
+15:50 ruling - live project, Joseph's when he exists - so this is recorded, emailed as a finding, and
+NOT re-opened. No chat, no request, no pricing work.
+
+**Rev B does what it was issued for.** On 28/07 I wrote that Steve had told AFS at 14:52 the door opens
+OUT hinged right, that Rev A said INWARD, and that a Rev B was owed. It has arrived and reads
+"outward opening Right Hinged". That one is closed.
+
+**BUT I DIFFED THE PARTS LISTS INSTEAD OF READING THE COVERING NOTE, AND TWO OTHER THINGS MOVED.**
+Julian's email says only "please see the attached revised quotation". The actual delta, Rev A vs Rev B:
+
+| change | Rev A | Rev B |
+|---|---|---|
+| swing | inward opening, right hinged | **outward** opening, right hinged |
+| PLANET external protective roller blinds, L=1925mm, Anthracite grey (Satin), 1 off | present | **deleted** |
+| DR. HAHN roller hinges | Anthracite grey (Matt) | **Anodised** |
+
+**Both revisions are GBP 4,075.02 net, to the penny.** A component left the quotation and the price did
+not move; and the hinges no longer match a RAL 7021 matt door. Neither was requested and neither is
+mentioned anywhere in the email. **I did not call it an error** - deleting an item may well be correct
+on an outward-opening leaf. Report the artefact, ask the cause: it is one question to AFS before anyone
+orders.
+
+**Steve's escape question is unanswered on its THIRD pass.** He asked on 28/07 09:11 *"Can you confirm
+if the panic gear is required if we have a push to exit option?"* AFS have replied three times since -
+28/07 10:40, 28/07 13:33, 29/07 10:06 - answering the maglock and the swing and never that. They have
+also said in writing twice that they can supply neither option: no push bar at 900mm (920mm minimum),
+no panic pad at all. **So Rev B carries neither of the two things Steve was choosing between.** Internal
+operation is a Thumbturn plus an EFF EFF electric strike; the lock is an ECO SCHULTE GBS70 and the
+quotation does not state whether it is panic-rated. I did not assert that it fails - I am not qualified
+to and the document does not say. The finding is that nobody has answered, on a designated escape door
+at a school.
+
+**Numbers for whoever orders:** net supply-only delivered **GBP 4,075.02**; fixing pack GBP 75.21 and
+delivery GBP 250.00 remain OUTSIDE the net, so true delivered cost is **GBP 4,400.23** - reading the
+headline as delivered is GBP 325.21 light, the Gordon Court shape again. Validity 30 days from 29/07 =
+**28/08/2026**. Lead time 8 weeks from signed order plus the 60% initial payment. Delivery address on
+the quote is Rectory Lane, Ridge Hill, Radlett, Herts WD7 9BG.
+
+**One correction to my own 28/07 record:** I logged Rev A as "12:33". The body's quoted "Sent:" line
+says 13:33, and quoted Sent: lines are already local - that was the UTC hour again, on the exact class
+of value the 28/07 22:00 rule was written for. Rev A is 28/07 **13:33 BST**.
+
 ## Watch list
 
 - **Two different Gordon Courts.** Chigwell Group / Stonegrove Edgware (job `gordon-court`) vs Target
@@ -787,7 +831,9 @@ against the artefact, not against the last verdict.**
 
 - **Manor Lodge Q7666 is CLOSED here, on Adam's ruling of 28/07 15:50** - it is a live project, not
   estimating, and belongs to Joseph when he exists. Do not re-open a pricing workstream on it. The Rev A
-  findings are logged in the 16:00 entry above if anyone needs them.
+  findings are logged in the 16:00 entry above if anyone needs them, and **Rev B is recorded in the
+  29/07 10:15 entry** - swing corrected, two unrequested changes, escape question still unanswered.
+  Emailed to Adam as a finding; the ruling was not re-opened and no chat exists.
 
 - **Live-project work generally.** Same ruling. If a thread turns out to be a job Fenster has already won
   - order sign-offs, cutting lists, delivery dates, a supplier finalising design with the client - record

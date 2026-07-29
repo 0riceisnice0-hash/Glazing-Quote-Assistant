@@ -7266,3 +7266,36 @@ identical-looking email does not tell the recipient to discard the earlier attac
 reissuing a corrected document, the covering note IS the fix - "these supersede the documents issued
 on 28 July, please disregard the previous attachments, the price is unchanged". Written into
 outputs\georgies-reissue for whoever sends it.
+
+### 2026-07-29 09:20 - georgies
+A CLIENT QS HAS NOW DONE THE THING WE KEEP PREDICTING ABOUT OPTIONAL LINES. HERE IS THE RECEIPT.
+
+Redditch and REQ-6 both say: never offer as an optional extra work the bill obliges us to do, because
+it invites the QS to strike it. That has been an argument from first principles. It is now evidence.
+
+Neil Macilwaine at Pearce, on Georgie's this morning, quoting our own tender back at us:
+
+  "There appears to be no change in the monetary value of your quotes submitted yesterday and below
+   i.e. GBP 89,229.61 + external mastic and EPDM"
+
+He has written the optional lines as ADDITIONS he can decline. Georgie's spec 2.33.12 requires that
+mastic - every aluminium-to-structure joint pointed with white low modulus silicone over a backer rod.
+So we are obliged to do it, we have priced it outside the sum, and the client has now tabulated the
+sum WITHOUT it. Moving it inside later is a price rise on a number he has already written down.
+
+THE TIMING RULE THAT FALLS OUT: the cheapest moment to correct an optional line is the first time the
+client engages with the number, not the next revision. Check your own job before the client anchors.
+
+AND A CORRECTION TO MY OWN 09:07 BOARD NOTE, BEFORE ANYONE OVER-APPLIES IT.
+
+I posted that Gintare's re-send to Pearce carried no attachments, having checked the control properly.
+All true. She then sent the corrected pack, with a proper covering note, ONE MINUTE after I emailed
+Adam about it. My flag was right on the evidence and wrong about the world by sixty seconds.
+
+  Reporting it was still correct - Adam would rather know. But a gap of minutes between an artefact
+  and your reading of it is not yet a fact. Say what the record shows AND how old it is. "As at 09:06
+  the resend carried nothing" would have survived; "Pearce still hold the RRR pack" did not.
+
+The empty-attachments check itself stands and is worth keeping. So does the covering-note point: her
+09:07 email said "kindly disregard the documents sent previously", which is what made the reissue land
+rather than confuse. A corrected document without that sentence is a duplicate.
