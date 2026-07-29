@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-28",
+ "updated": "2026-07-29",
  "jobs": [
   {
    "job": "Grange Hill Methodist Church",
@@ -61,7 +61,7 @@
    "job": "Crestwood Park Primary School",
    "client": "Reynolds Conservation",
    "deadline": "2026-07-20",
-   "status": "Quote ISSUED to Reynolds 27/07 10:49 at GBP 74,158.66 ex VAT; Adam Lewis acknowledged receipt 28/07 12:01. 28/07: the missing Teleflex supplier quote WAS FOUND - WCI Ltd WCIL/FEN4215, 24/07, GBP 14,223.25 net, on Simon Gilbert's 14:14 email and never filed. 14,223.25 x 1.25 = 17,779.06 exactly, so Adam's 25% Teleflex markup is ALREADY IN the issued price and must not be applied again. Build otherwise verified: BSW QT252906 net GBP 27,329.60 + GBP 20,550.00 code adders = the GBP 47,879.60 of window lines to the penny. TWO LIVE FINDINGS ON REQ-7: (1) WCI's quote is 'supply and Install' - we bought the installation and charged for it while our proposal excludes 'Teleflex controls / wiring' against A007's 'Include for all installation, core wire, conduit and fittings'; (2) WCI priced 22 sets at 2 vents per window where A007 requires 1 control PER OPENING LIGHT - correct on W1-W8 only, and W17/W18/W19 split into 5 and W23 into 6. Also still open from the 27/07 audit: glass is Coolite SKN175(ii) not the specified Pilkington Suncool Pro T 66/33 with lam/tough reversed; W15 remove-and-infill neither priced nor excluded; W12 insect mesh grill unpriced; asbestos mastic in prose not exclusions.",
+   "status": "Quote ISSUED 27/07 10:49, GBP 74,158.66 ex VAT; Reynolds acknowledged 28/07. REQ-7 CLOSED 28/07 on Adam's ruling - both halves settled. The Teleflex GBP 17,779.06 is WCI WCIL/FEN4215 (GBP 14,223.25) + the 25%, already applied, do not add again. The quantity concern was WRONG and is withdrawn: A007's dashed triangles are the openers, every window has exactly two however many parts it is split into, and WCI's 13 midi + 9 maxi sets reconcile exactly. Teleflex exclusion wording stands as issued on Adam's 'no further action'. STILL OPEN, none raised as requests: glass is Coolite SKN175(ii) not the specified Pilkington Suncool Pro T 66/33 with lam/tough reversed; W15 remove-and-infill neither priced nor excluded; W12 insect mesh grill unpriced; asbestos mastic in prose not in the exclusions column.",
    "value": "GBP 74,158.66 quoted (Teleflex GBP 17,779.06 = WCI GBP 14,223.25 + 25%)",
    "stage": "submitted"
   },
@@ -282,17 +282,17 @@
    "raised": "2026-07-27",
    "job": "Crestwood Park Primary School",
    "owner": "Adam",
-   "title": "Crestwood Teleflex: source quote FOUND, the 25% is already in - the exclusion and the count are what is left",
-   "why": "SETTLED: the supplier quote exists. WCI Ltd WCIL/FEN4215, Simon Gilbert, 24/07/2026, GBP 14,223.25 net, attached to his 14:14 email and never filed to the job folder. 14,223.25 x 1.25 = 17,779.06 - the Teleflex line to the penny, so Adam's 25% was ALREADY APPLIED when Gintare built the quote and must not be added twice (doing so would put the tender at GBP 78,603.43). STILL OPEN, and both are worse than the markup question. (1) WCI's quote is headed 'To supply and Install Teleflex' - we have bought the installation, marked it up and charged GBP 17,779.06 for it, while proposal p3 excludes 'Teleflex controls / wiring' and drawing A007 says 'Include for all installation, core wire, conduit and fittings as required'. Reynolds acknowledged receipt on 28/07, so both documents are with the client. (2) WCI priced 22 sets 'each to operate 2 top hung vents' - one set per window. A007 requires 2No. operators per light and 1No. control PER OPENING LIGHT. Two lights per window is right on W1-W8 only; W16/W20/W21/W22/W24-W27 split into 3, W17/W18/W19 into 5, W23 into 6. The supplier priced a different question from the one the drawing asks, and it was invisible because Teleflex sits on our pricing document as one row with no quantity and no rate.",
-   "needs": "A decision on the exclusion, and whether we re-ask WCI on the drawing's counting basis before Reynolds challenges it. The shortfall cannot be costed yet - A007 does not state how many of each window's parts open, and that is a question for WCI and the CA, not something to guess at on a GBP 17,779 line.",
+   "title": "Crestwood Teleflex - CLOSED, both halves settled",
+   "why": "The 25% was already in the GBP 17,779.06 (WCI WCIL/FEN4215 GBP 14,223.25 x 1.25, exact). The count was mine to get wrong: A007's dashed triangles are the openers, and every window has two of them however many parts it is split into, so WCI's 22 sets are right. Full detail and the verification: data/request-detail/REQ-7.md",
+   "needs": "Nothing. Closed on Adam's hub message 52.",
    "options": [
-    "Withdraw the Teleflex exclusion - we are doing the work and charging for it",
-    "Re-ask WCI to price on the drawing's basis - 1 control per opening light",
-    "Both: withdraw the exclusion and re-ask WCI before anything else moves",
-    "Exclusion stands - reissue with the Teleflex line removed from the price"
+    "Closed - no action"
    ],
-   "status": "open",
-   "updated": "2026-07-28"
+   "status": "answered",
+   "updated": "2026-07-29",
+   "answer": "Adam, hub msg 52, 28/07 20:39: 'We have sent the relevant documents to Simon at WCI and he will have priced it accordingly. I have had a look at the tender documents and deem this to be correct... there are arrows on the window sections which depict an opener. No further action on this one, learn from it.' Verified at source on A007 - 13 midi + 9 maxi sets reconcile exactly. The Teleflex exclusion wording stands as issued on the same ruling.",
+   "answered_by": "Adam",
+   "answered_at": "2026-07-28T20:39:37Z"
   },
   {
    "id": "REQ-8",

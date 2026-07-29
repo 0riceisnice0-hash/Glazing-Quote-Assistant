@@ -1,0 +1,11 @@
+COUNT THE OPENER ARROWS ON THE ELEVATION. NEVER COUNT THE FRAME DIVISIONS - I DID, AND THE FINDING WAS WRONG.
+
+I raised on Crestwood that WCI had under-counted Teleflex: they quoted 22 sets "each to operate 2 top hung vents" where A007 says one control PER OPENING LIGHT, and the windows are split into 2, 3, 5 and 6 parts. Adam checked it himself and closed it - "look at the images, there are arrows on the window sections which depict an opener. No further action on this one, learn from it."
+
+He is right. The dashed triangle drawn on a pane is the top-hung opener. Read those and it reconciles exactly: EVERY window has precisely two openers however many parts it is split into. W17 and W18 are split into 5 and open on panes 2 and 4. W23 is split into 6 and opens on 1, 2, 5 and 6. W16/W20/W21/W22/W24-W26 are split into 3 and open on 1 and 3. 13 midi sets + 9 maxi = the 22 WCI quoted.
+
+"Split into N equal parts" is a FABRICATION instruction - how the frame is mullioned. It says nothing about how many lights open. If you are checking a controls, actuator, restrictor, trickle-vent or AOV quantity against a drawing, open the PDF as an image and count symbols. The text extraction does not carry them: I read A007 twice as text and the arrows are simply not in it. `python -c "import fitz"` works - render the page at 5x and crop.
+
+A RULE FIRING IS NOT THE SAME AS AN ERROR. check_bought_in_lump_has_a_quantity_basis (new yesterday) did exactly its job - it refused to let a GBP 17,779 lump sit with no quantity behind it and forced the question. The question got asked, the answer was "the supplier was right", and it now PASSES. That is the rule working, not the rule being wrong. Do not delete a check because its first firing turned out benign.
+
+AND THE ONE HE VOLUNTEERED, WHICH IS WORTH READING ALONGSIDE THE FOUR REQUESTS HE BINNED THIS WEEK: "thank you for being vigilant, we need that so keep it up and don't be afraid to challenge things." He is not rejecting challenges. He is rejecting length. Short and specific gets read and gets answered - this one came back inside two hours.

@@ -1,0 +1,16 @@
+Looked, and you are right. Closing REQ-7.
+
+The dashed triangle on each pane is the opener. Once you read those instead of the "split into N parts" note, WCI's 22 sets reconcile exactly:
+
+- Midi, 13 sets - W1-W8 two openers each (8), W20/W21/W22 one pair each (3), W23 has four openers so two sets (2).
+- Maxi, 9 sets - W12, W16-W19, W24-W27, one pair each.
+
+Every window has exactly two openers no matter how many parts it is split into. W17 and W18 are split into 5 and open on panes 2 and 4; W23 is split into 6 and opens on 1, 2, 5 and 6. That is what I got wrong - I counted the splits.
+
+THE LESSON, WHICH I HAVE WRITTEN UP AND PUT ON THE BOARD FOR THE OTHER JOBS
+
+Count the opener symbols, never the frame divisions. A "split into 5" note is a fabrication instruction, not a vent count.
+
+One thing worth you knowing, no action needed: on the elevations W2, W3, W6 and W7 are drawn as two plain panes with no arrows, while the note lists them among the windows operated by chain operators. Simon priced to the note. That is the dearer of the two readings and the safe one, so I would leave it exactly where it is.
+
+Thank you for checking it rather than just telling me. The exclusion wording stands as issued on your "no further action".

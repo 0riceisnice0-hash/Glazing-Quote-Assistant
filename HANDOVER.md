@@ -690,6 +690,56 @@ Answered on the hub in reply to message 24. **No new request raised** - both fin
 rewritten rather than duplicated, with 24 requests already open and unanswered. Job file `data/jobs/crestwood-park.md`;
 live manifest `data/job-checks/crestwood-park.json` = 3 FAILED.
 
+### Crestwood Park - I counted the frame divisions; the drawing counts the arrows (2026-07-28, closed)
+
+**REQ-7 is closed and half of it was my error.** Worth recording as the error, not as the catch.
+
+Adam, hub message 52, 20:39: *"We have sent the relevant documents to Simon at WCI and he will have priced it
+accordingly. I have had a look at the tender documents and deem this to be correct. If you look yourself at the windows
+and fascia document in the client's tender docs in onedrive, look at the images, there are arrows on the window sections
+which depict an opener. No further action on this one, learn from it. But thank you for being vigilant, we need that so
+keep it up and don't be afraid to challenge things."*
+
+Verified at source, A007 rendered at 9x. He is right. **The dashed triangle drawn on a pane is the top-hung opener**,
+and every window carries **exactly two** regardless of how many parts it is split into:
+
+| window | split into | openers | on panes |
+|---|---|---|---|
+| W1, W4, W5, W8 | 2 | 2 | 1, 2 |
+| W16, W20, W21, W22, W24, W25, W26 | 3 | 2 | 1, 3 |
+| W17, W18 | 5 | 2 | 2, 4 |
+| W23 | 6 | 4 | 1, 2, 5, 6 |
+
+WCI's 22 sets then reconcile exactly - **13 midi** (W1-W8 = 8, W20/W21/W22 = 3, W23's four openers = 2) plus **9 maxi**
+(W12, W16-W19, W24-W27). The maxi group matching one-for-one was the clue I already had and read the wrong way round.
+
+**THE LESSON. "Split into N equal parts" is a fabrication instruction** - it says how the frame is mullioned and nothing
+about how many lights open. I read it as a vent count and built a GBP-scale finding on it. **And the opener symbols do
+not survive text extraction**: A007 was read as text twice and the arrows are simply not in the output, so the absence
+of evidence looked like evidence. When a quantity depends on a symbol - openers, restrictors, trickle vents, AOVs,
+handing, fire ratings - render the page as an image and count. `fitz` is available; 5x with a crop is enough.
+
+**What did work.** `check_bought_in_lump_has_a_quantity_basis`, written the day before, refused to let a GBP 17,779 lump
+sit with no quantity behind it and forced the question to be asked out loud. The question got asked, the answer was
+"the supplier was right", and the rule now PASSES on the filled manifest. **A rule firing is not the same as an error** -
+that is the rule working, and it should not be deleted because its first firing turned out benign.
+
+**One residual, reported to Adam and deliberately left.** W2, W3, W6 and W7 are drawn as two plain panes with no opener
+arrows, while A007's note lists them among the windows *"operated by 2No. White Teleflex chain operators per light"*.
+The text and the elevation disagree. WCI priced to the note - 8 sets across W1-W8 rather than 4 - which is where 13
+rather than 9 comes from, and is the dearer and safer reading. It makes our price conservative rather than short, so
+there is no exposure and no action.
+
+**The exclusion half is now accepted risk.** Proposal p3 excludes "Teleflex controls / wiring" while the pricing charges
+GBP 17,779.06 and WCI's quote is headed "To supply and Install". Raised in the 27/07 audit and again in the 28/07 hub
+answer, and closed on Adam's "No further action on this one" - so the wording stands exactly as issued. It is recorded
+rather than re-raised. `mary_checks.py` still FAILS on that line deliberately, with a note in the manifest saying why:
+the finding is true, it has been accepted, and silencing a rule to make a run green is the wrong fix.
+
+Full REQ-7 text archived verbatim to `data/request-detail/REQ-7.md` before the request was cut to four lines - the
+board method gordon-court set out on 28/07 after Adam rejected four requests unread. Job file
+`data/jobs/crestwood-park.md`. Open requests down to 17.
+
 ### Riverside - Aplus QT51518 AOV free area (2026-07-27)
 
 Adam asked Gintare on 24/07 for 2nr bottom-hung AOV smoke vents at 1130 x 1530, standard white, 150mm cill, and

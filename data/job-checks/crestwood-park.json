@@ -2,76 +2,157 @@
   "job": "Crestwood Park Primary School (Reynolds Conservation Ltd)",
   "created": "2026-07-28",
   "_help": "Live manifest. The quote was ISSUED on 27/07 before this existed, so this records the state as issued. Nulls are genuine unknowns and are meant to ASK - do not fill them to make the run green.",
-
   "priced_lines": [
-    {"ref": "Sheerline aluminium windows (46 rows, 52 units)", "amount": 47879.60,
-     "covered_by_our_exclusions": false},
-    {"ref": "INSTALLATION", "amount": 8500.00, "covered_by_our_exclusions": false},
-    {"ref": "TELEFLEX", "amount": 17779.06,
-     "covered_by_our_exclusions": "Roofing works, rooflights, rainwater goods, fascias, soffits, insulation, asbestos removal, Teleflex controls / wiring, M&E works, making good and principal design responsibilities are excluded unless specifically agreed"}
+    {
+      "ref": "Sheerline aluminium windows (46 rows, 52 units)",
+      "amount": 47879.6,
+      "covered_by_our_exclusions": false
+    },
+    {
+      "ref": "INSTALLATION",
+      "amount": 8500.0,
+      "covered_by_our_exclusions": false
+    },
+    {
+      "ref": "TELEFLEX",
+      "amount": 17779.06,
+      "covered_by_our_exclusions": "Roofing works, rooflights, rainwater goods, fascias, soffits, insulation, asbestos removal, Teleflex controls / wiring, M&E works, making good and principal design responsibilities are excluded unless specifically agreed"
+    }
   ],
-
   "bought_in_lines": [
-    {"ref": "TELEFLEX",
-     "amount": 17779.06,
-     "supplier_ref": "WCI WCIL/FEN4215 (24/07/2026, GBP 14,223.25 net + 25% = GBP 17,779.06)",
-     "supplier_qty": 22,
-     "supplier_qty_basis": "sets, one per window, each set operating 2 top hung vents (13no + 9no)",
-     "spec_required_qty": null,
-     "spec_qty_basis": "1No. control per opening light, 2No. operators per light (drawing A007)"}
+    {
+      "ref": "TELEFLEX",
+      "amount": 17779.06,
+      "supplier_ref": "WCI WCIL/FEN4215 (24/07/2026, GBP 14,223.25 net + 25% = GBP 17,779.06)",
+      "supplier_qty": 22,
+      "supplier_qty_basis": "sets of 2 top hung openers - 13 midi (W1-W8, W20-W22, W23 x2) + 9 maxi (W12, W16-W19, W24-W27)",
+      "spec_required_qty": 22,
+      "spec_qty_basis": "sets of 2 top hung openers - 13 midi (W1-W8, W20-W22, W23 x2) + 9 maxi (W12, W16-W19, W24-W27)"
+    }
   ],
-
   "spec_items": [
-    {"ref": "High-level aluminium windows W1-W12, W16-W27", "treatment": "priced"},
-    {"ref": "Teleflex operators and controls", "treatment": "priced"},
-    {"ref": "Trickle vents to all opening lights", "treatment": "priced"},
-    {"ref": "Thermally broken cill and perimeter trims", "treatment": "priced"},
-    {"ref": "Insulated infill / corner panels where shown", "treatment": "priced"},
-    {"ref": "W15 - remove window and winders, ladder frame, WBP ply, PIR, uPVC lining", "treatment": "unresolved"},
-    {"ref": "W22 elevation note 'Infill window as per W15'", "treatment": "unresolved"},
-    {"ref": "W12 catering-standard insect mesh grill to inside of opening lights", "treatment": "unresolved"},
-    {"ref": "Remove and dispose of existing windows (A007) vs our waste-removal exclusion", "treatment": "unresolved"},
-    {"ref": "Asbestos (chrysotile) in existing high-level window mastic", "treatment": "unresolved"},
-    {"ref": "Build up window kerb / upstands to min 150mm above new finished roof level", "treatment": "excluded"},
-    {"ref": "Remove and refit existing curtains or blinds", "treatment": "unresolved"},
-    {"ref": "Board up window openings until new windows installed", "treatment": "unresolved"},
-    {"ref": "Fascia cladding works", "treatment": "excluded"},
-    {"ref": "Roofing, rooflights, rainwater goods, insulation, M&E", "treatment": "excluded"}
+    {
+      "ref": "High-level aluminium windows W1-W12, W16-W27",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Teleflex operators and controls",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Trickle vents to all opening lights",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Thermally broken cill and perimeter trims",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Insulated infill / corner panels where shown",
+      "treatment": "priced"
+    },
+    {
+      "ref": "W15 - remove window and winders, ladder frame, WBP ply, PIR, uPVC lining",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "W22 elevation note 'Infill window as per W15'",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "W12 catering-standard insect mesh grill to inside of opening lights",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "Remove and dispose of existing windows (A007) vs our waste-removal exclusion",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "Asbestos (chrysotile) in existing high-level window mastic",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "Build up window kerb / upstands to min 150mm above new finished roof level",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Remove and refit existing curtains or blinds",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "Board up window openings until new windows installed",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "Fascia cladding works",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Roofing, rooflights, rainwater goods, insulation, M&E",
+      "treatment": "excluded"
+    }
   ],
-
   "supplier_quotes": [
-    {"supplier": "BSW", "ref": "QT252906", "date": "2026-07-16",
-     "net_total": 27329.60, "uses_net": true},
-    {"supplier": "Window Control Installations Ltd", "ref": "WCIL/FEN4215", "date": "2026-07-24",
-     "net_total": 14223.25, "uses_net": true}
+    {
+      "supplier": "BSW",
+      "ref": "QT252906",
+      "date": "2026-07-16",
+      "net_total": 27329.6,
+      "uses_net": true
+    },
+    {
+      "supplier": "Window Control Installations Ltd",
+      "ref": "WCIL/FEN4215",
+      "date": "2026-07-24",
+      "net_total": 14223.25,
+      "uses_net": true
+    }
   ],
-
   "price_commitment": {
     "our_validity_days": 30,
     "our_quote_date": "2026-07-27",
     "our_validity_expires": "2026-08-26",
     "supplier_validity": [
-      {"supplier": "Window Control Installations Ltd", "ref": "WCIL/FEN4215",
-       "date": "2026-07-24", "validity_days": 90, "expires": "2026-10-22"},
-      {"supplier": "BSW", "ref": "QT252906", "date": "2026-07-16",
-       "validity_days": null, "expires": null}
+      {
+        "supplier": "Window Control Installations Ltd",
+        "ref": "WCIL/FEN4215",
+        "date": "2026-07-24",
+        "validity_days": 90,
+        "expires": "2026-10-22"
+      },
+      {
+        "supplier": "BSW",
+        "ref": "QT252906",
+        "date": "2026-07-16",
+        "validity_days": null,
+        "expires": null
+      }
     ]
   },
-
   "issued_documents": [
-    {"name": "Reynolds Conservation Ltd - Crestwood Park Primary School Proposal.pdf",
-     "is_the_priced_document": false, "exclusions_stated": 12},
-    {"name": "Reynolds Conservation Ltd - Crestwood Park Primary School Pricing.xlsx",
-     "is_the_priced_document": true, "exclusions_stated": 0}
+    {
+      "name": "Reynolds Conservation Ltd - Crestwood Park Primary School Proposal.pdf",
+      "is_the_priced_document": false,
+      "exclusions_stated": 12
+    },
+    {
+      "name": "Reynolds Conservation Ltd - Crestwood Park Primary School Pricing.xlsx",
+      "is_the_priced_document": true,
+      "exclusions_stated": 0
+    }
   ],
-
   "finishes": [
-    {"ref": "Windows", "specified": "WHITE commercial grade powder coated aluminium (A007)",
-     "quoted": "Hipca White 9910HG (BSW QT252906)"},
-    {"ref": "Teleflex operators and controls", "specified": "White (A007)",
-     "quoted": "Colour: White (WCIL/FEN4215)"}
+    {
+      "ref": "Windows",
+      "specified": "WHITE commercial grade powder coated aluminium (A007)",
+      "quoted": "Hipca White 9910HG (BSW QT252906)"
+    },
+    {
+      "ref": "Teleflex operators and controls",
+      "specified": "White (A007)",
+      "quoted": "Colour: White (WCIL/FEN4215)"
+    }
   ],
-
   "coupled_runs": null,
   "doors": [],
   "frame_supply": null,
@@ -85,5 +166,7 @@
   "incorporated_terms": null,
   "qualification_regime": null,
   "exposures": null,
-  "own_domains": null
+  "own_domains": null,
+  "_note_teleflex_exclusion": "'nothing priced is also excluded' still FAILS on TELEFLEX and that is correct - the wording is unchanged in the issued documents. Adam ruled 'No further action on this one' (hub msg 52, 28/07), so it is ACCEPTED RISK, not an oversight. Do not silence the rule to make the run green; if the quote is ever reissued, fix the wording then.",
+  "_note_teleflex_count": "RESOLVED 28/07. The earlier finding that WCI had under-counted was WRONG and is withdrawn. A007's dashed triangles are the top-hung openers; every window has exactly two however many parts it is split into. 13 midi sets = W1-W8 (8) + W20/W21/W22 (3) + W23, four openers so two sets (2). 9 maxi sets = W12, W16-W19, W24-W27. 22 sets total, which is what WCI quoted. See data/request-detail/REQ-7.md."
 }

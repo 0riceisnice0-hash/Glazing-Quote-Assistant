@@ -73,37 +73,47 @@ installation. Proposal page 3 excludes *"Teleflex controls / wiring"*. Drawing A
 *"Include for all installation, core wire, conduit and fittings as required."*
 
 So we have bought the install, marked it up 25%, charged Reynolds GBP 17,779.06 - 24% of the tender -
-and disclaimed it in the document that went out alongside. Either reading costs us. Recommendation:
-**withdraw the exclusion.** We are doing the work and we are charging for it.
+and disclaimed it in the document that went out alongside.
 
-**2. WCI counted windows; the drawing counts opening lights.** (REQ-7, live)
+**RULED ON 28/07 AND NOW ACCEPTED RISK.** Raised twice - in the 27/07 audit and again in the 28/07 hub
+answer - and closed on Adam's *"No further action on this one"*. **The wording therefore stands exactly
+as issued.** My recommendation was and remains that the exclusion is simply wrong and should have been
+withdrawn, since we are doing the work and charging for it; it is recorded here so that if Reynolds ever
+query it nobody has to rediscover the position. `mary_checks.py` still FAILS on this line deliberately -
+see the note in the manifest. Do not silence it; fix the wording if the quote is ever reissued.
 
-WCI quoted **13no. sets + 9no. sets = 22 sets, "each to operate 2 top hung vents 2pp"**. The 9 with
-Maxi & Screwjacks map exactly onto A007's Maxi list (W12, W16-W19, W24-W27 = 9 windows), so this is
-one set per window.
+**2. WCI's count is CORRECT. My finding was wrong and is withdrawn.** (REQ-7, closed 28/07)
 
-A007 requires *"2No. White Teleflex chain operators per light"* and *"Opening lights to operate with
-1No. new White Teleflex Midi control each"* - **per light, not per window.**
+I raised that WCI had counted windows where A007 counts opening lights. Adam checked it and closed it
+(hub msg 52, 28/07 20:39): *"We have sent the relevant documents to Simon at WCI and he will have priced
+it accordingly. I have had a look at the tender documents and deem this to be correct. If you look
+yourself at the windows and fascia document... there are arrows on the window sections which depict an
+opener. No further action on this one, learn from it."*
 
-Two lights per window is right on **W1-W8 only** (elevations split into 2). Everywhere else:
+Verified at source on A007 at 9x zoom. **The dashed triangle on a pane is the top-hung opener**, and
+every window has **exactly two** however many parts it is split into:
 
-| window | split into | group |
-|---|---|---|
-| W1-W8 | 2 | Midi |
-| W20, W21, W22 | 3 | Midi |
-| W23 | 6 | Midi |
-| W16, W24, W25, W26, W27 | 3 | Maxi |
-| W17, W18, W19 | 5 | Maxi |
-| W12 | as existing (2 frames on our pricing) | Maxi |
+| window | split into | openers | on panes |
+|---|---|---|---|
+| W1, W4, W5, W8 | 2 | 2 | 1, 2 |
+| W2, W3, W6, W7 | 2 | none drawn - see below | - |
+| W16, W20, W21, W22, W24, W25, W26 | 3 | 2 | 1, 3 |
+| W17, W18 | 5 | 2 | 2, 4 |
+| W23 | 6 | 4 | 1, 2, 5, 6 |
 
-**The shortfall is not costed and must not be guessed.** A007 does not state how many of each window's
-parts actually open, so the required control count cannot be established from the drawing alone. That
-is a question for WCI and the CA. What is established is that WCI priced a different basis from the
-one specified.
+So WCI's 22 sets reconcile exactly: **13 midi** = W1-W8 (8) + W20/W21/W22 (3) + W23, four openers so
+two sets (2). **9 maxi** = W12, W16-W19, W24-W27, one pair each.
 
-It went unchallenged because Teleflex is **one row with no quantity and no rate** on our pricing
-document. Nothing to check it against. Two new rules in `mary_checks.py` now catch both halves - see
-below.
+**The lesson, and it is general:** *"split into N equal parts"* is a **fabrication instruction** - how
+the frame is mullioned. It says nothing about how many lights open. Count the opener symbols. They do
+not survive text extraction - I read A007 twice as text and the arrows are not in it. Render the page
+as an image (`fitz`, 5x, cropped) and look.
+
+**One residual, reported and deliberately left alone.** W2, W3, W6 and W7 are drawn as two plain panes
+with **no opener arrows**, while A007's note lists them among the windows *"operated by 2No. White
+Teleflex chain operators per light"*. Text and elevation disagree. WCI priced to the note - 8 sets
+across W1-W8 rather than 4 - which is the dearer and safer reading, and is where 13 rather than 9 comes
+from. It makes our price conservative rather than short, so there is no exposure. Told Adam; no action.
 
 **3. Glass deviation.** A007 requires outer 6mm Pilkington Suncool Pro T 66/33 toughened, inner 6.4mm
 laminated. BSW quoted every line as "6.Lam / 16 / 6mmTuff Coolite SKN175ii" - different product, with
@@ -135,11 +145,15 @@ Client-facing typos in the issued pack: "W23 2/2" should read 2/3; "EDPM" for EP
 
 ## Decisions taken
 
-- **28/07** - the 25% is confirmed already applied; REQ-7's markup half is closed. The exclusion and
-  the counting basis stay open on the same request rather than becoming new ones (24 requests were
-  already unanswered).
-- **28/07** - did not cost the Teleflex quantity gap. A007 does not support a count, and inventing one
-  on a GBP 17,779 line would be exactly the failure mode the house rules forbid.
+- **28/07 evening - REQ-7 CLOSED, both halves.** Adam checked the drawing himself and ruled the count
+  correct; the exclusion stands as issued on the same "no further action". Full detail archived
+  verbatim to `data/request-detail/REQ-7.md` before the request was cut down.
+- **28/07** - the 25% is confirmed already applied. Do not add it again.
+- **28/07** - did not cost the Teleflex quantity gap before raising it. That restraint was right for the
+  wrong reason: the gap did not exist. Had I rendered the elevation instead of reading it as text I
+  would not have raised it at all.
+- **28/07** - the residual on W2/W3/W6/W7 (drawn fixed, listed as operated) was reported to Adam and
+  left alone. It runs in our favour and he has closed the request.
 - **27/07** - quote released and issued by Gintare on Adam's instruction, findings raised after issue.
 
 ## What this job taught the checker
@@ -161,9 +175,9 @@ Live manifest: `data\job-checks\crestwood-park.json`.
 
 | | |
 |---|---|
-| **Adam Butcher** | REQ-7: the exclusion decision, and whether we re-ask WCI on the drawing's basis. Also whether mastic/EPDM stay optional here when they were made non-optional on Princess Beatrice. |
-| **WCI (Simon Gilbert)** | A price on the specification's counting basis - 1 control per opening light. Not yet asked. |
-| **Reynolds / the CA** | How many parts of each window open; the glass deviation; whether W15 (and the W22 note) is in our package. None asked - we have raised nothing with the client since issue. |
+| **Adam Butcher** | Nothing on REQ-7 - closed. Still unanswered: whether mastic/EPDM stay optional here when they were made non-optional on Princess Beatrice. Not raised as a request. |
+| **WCI (Simon Gilbert)** | Nothing. His count is confirmed correct and his price stands. |
+| **Reynolds / the CA** | The glass deviation; whether W15 (and the W22 "infill as per W15" note) is in our package; the W12 insect mesh grill. None asked - we have raised nothing with the client since issue, and nothing is being raised as a request while 17 are open. |
 | **Fenster** | Nothing outstanding to the client. Quote issued and acknowledged. |
 
 ## Dates
@@ -176,5 +190,6 @@ Live manifest: `data\job-checks\crestwood-park.json`.
 - 27/07 19:20 - Adam asks about the WCI email and the 25% (hub msg 24, misrouted to gordon-court).
 - 28/07 12:01 - Reynolds acknowledge receipt.
 - 28/07 - source quote found, 25% confirmed already applied, answered on the hub.
+- 28/07 20:39 - Adam rules the count correct (hub msg 52). **REQ-7 closed.** Verified at source 29/07.
 - **26/08/2026** - our quote validity expires (30 days from issue).
 - **22/10/2026** - WCI's quote expires (90 days).

@@ -1,0 +1,32 @@
+Crestwood: the arrows are the openers - my count was wrong, REQ-7 closed
+
+Adam checked A007 himself and ruled WCI's 22 sets correct: "there are arrows
+on the window sections which depict an opener. No further action on this one,
+learn from it."
+
+Verified at source at 9x zoom and he is right. The dashed triangle on a pane
+is the top-hung opener, and every window carries exactly two however many
+parts it is split into - W17/W18 split into 5 and open on panes 2 and 4, W23
+splits into 6 and opens on 1/2/5/6. 13 midi + 9 maxi reconciles exactly.
+
+"Split into N equal parts" is a fabrication instruction and says nothing about
+how many lights open. I read it as a vent count. The opener symbols also do
+not survive text extraction - A007 was read as text twice and the arrows are
+not in the output, so an absence of evidence looked like evidence. Render the
+page and count symbols when a quantity depends on one.
+
+What did work: check_bought_in_lump_has_a_quantity_basis, written the day
+before, refused to let a GBP 17,779 lump sit with no quantity behind it and
+forced the question. The answer was "the supplier was right" and it now
+passes. A rule firing is not the same as an error.
+
+The exclusion half stands as issued on the same "no further action" - accepted
+risk now, not an oversight, and the check still fails on it deliberately with
+a note in the manifest saying why.
+
+REQ-7 archived verbatim to data/request-detail/REQ-7.md, then cut to four
+lines and closed. Open requests 18 -> 17. Hub deploy blocked by the miniflare
+EBUSY lock gordon-court flagged; the reply posted fine and the state file is
+committed for the next chat that deploys.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
