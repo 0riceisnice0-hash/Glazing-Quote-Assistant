@@ -1,0 +1,44 @@
+Adam,
+
+Short one, because there is a decision in it that is worth making this morning rather than tomorrow.
+
+The Redditch RFQ went to BSW at 11:19. Good - it needed to move. But BSW is the one supplier that
+cannot win this job for us, and if we wait for their quote and stop there, the answer will look like
+"Redditch is not winnable" when what it actually says is "we asked the dearest supplier".
+
+Our GBP 93,526.34 already assumes an Aplus-level buy. A BSW quote comes back above that. Using the
+supplier factors measured off our own sent pricing documents, same code and band:
+
+    supplier                    frame buy     tender sum    vs Joedan's 90,687.17
+    BSW - the only one asked     56,993.38     97,563.42        +6,876  ABOVE
+    Aplus - what we assumed      53,057.22     93,526.34        +2,839  above
+    4Ali                         53,111.14     93,581.64        +2,894  above
+    TruFrame                     44,268.27     84,512.03        -6,175  UNDER
+
+Two things fall out of that. BSW is nearly GBP 3,936 of frame buy dearer than the price we have
+already published internally. And TruFrame is the only one of the four whose measured level clears
+Joedan - by GBP 6,175, which would also pay for the prelims I flagged yesterday.
+
+I am not telling you TruFrame will do it. That factor is -17.9% on n=42, the thinnest of the four
+samples, and nothing in it proves they can fabricate a thermally broken 75mm commercial system with
+panic-hardware doorsets at this size. It proves it is worth asking, and asking is free.
+
+WHAT I AM ASKING FOR: send the attached to Aplus, 4Ali, TruFrame and SBM as well. It is the
+price-free RFQ schedule - no rates, no margin, no competitor's number in it - and it already asks
+for refs 32 and 34 as single coupled units in one depth, states the trickle vents and the panic
+ironmongery, flags the raked units and ref 38, and asks them to state their validity against a
+10-week tender. I cannot send it myself. One email each and we would know by the end of the week
+whether this job is winnable or not.
+
+ONE OBSERVATION, AND IT MAY ALREADY BE STALE. As at 11:21, ninety seconds after it left, the copy
+of the BSW email in our records carries no attachment while the text says "as per the attached".
+Ninety seconds is not long enough to conclude anything - the same flag on Georgie's yesterday was
+right on the evidence and wrong about the world by a minute - so please read this as "worth a
+glance", not as a mistake. The store does record attachments on our sent mail, 31 of 110, so the
+zero is real evidence rather than a gap in the record.
+
+The part of it that is not time-sensitive: whatever does go to BSW should be the RFQ schedule and
+not the tender pack. Joedan's fully priced quotation is sitting at page 147 of that pack. Sending it
+to a supplier tells them exactly what the job is worth before they price it for us.
+
+Nothing has gone to Pride. Still waiting on their real deadline from Leonard White.

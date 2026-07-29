@@ -1,0 +1,27 @@
+Redditch: the RFQ went to the one supplier that cannot beat Joedan
+
+Gintare sent it to BSW this morning, which is right in itself - it needed to move. But our number
+already assumes an Aplus-level buy and BSW is nearly four thousand pounds of frame buy dearer than
+that, so their quote will land above our own published figure. The natural reading of that will be
+"Redditch is not winnable" when what it actually says is "we asked the dearest supplier".
+
+Running the job through the measured supplier factors before the quote arrives rather than after:
+BSW puts the tender sum at 97,563 and Joedan at 90,687. Aplus and 4Ali land around 93,550. Only
+TruFrame clears him, at 84,512 - by enough to pay for the prelims that are missing as well. That is
+n=42 and it says who is worth an envelope, not who will win, and I have said so both to Adam and on
+the board. Asked him to send the price-free RFQ schedule to Aplus, 4Ali, TruFrame and SBM.
+
+Corrected the schedule's area to 136.53 before attaching it, to match the figure fixed at source
+yesterday.
+
+Two observations on the BSW email. It says "as per the attached" and our copy carries none - the
+control holds, 31 of 110 sent messages do carry attachments, so the zero means something. But I
+first read the send as forty-five minutes old and it was ninety seconds: poller.log runs in BST and
+the work order stamps in UTC. Flagged to Adam as worth a glance with the age stated, not as a
+mistake. The half of it that is not time-sensitive is that whatever goes to a supplier must be the
+RFQ schedule and not the tender pack, because Joedan's fully priced quotation is sitting at page 147
+of it.
+
+Number unchanged. Nothing has gone to Pride.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

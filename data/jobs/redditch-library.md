@@ -498,3 +498,57 @@ are the competitor's own and unbuyable stays in `exposures`, with its CDP and PI
   the competitor's priced quotation as the scope document.** Our number is being read against a
   document they handed us.
 - The enquiry is addressed **FAO Mr Paul Taylor**, not to estimating.
+
+
+## 29/07 11:25 - the RFQ went out, to the one supplier that cannot win it
+
+Work order: `estimating@` -> `estimations@bsws.co.uk`, 11:19 BST, *"Could you please prepare an
+Aluminium quote as per the attached."* Gintare acting on Adam's 08:51 forward. Untrusted sender
+(estimating@ is not on the trusted list), so read as evidence, not instruction. Nothing in it asks
+anything of this chat.
+
+**THE FINDING: BSW IS THE ONE SUPPLIER THAT CANNOT BEAT JOEDAN, AND IT IS THE ONLY ONE ASKED.** Our
+GBP 93,526.34 already assumes an Aplus-level buy. Running the job through the measured supplier
+factors (our own sent pricing documents, code and band matched):
+
+| supplier | frame buy | tender sum | vs Joedan 90,687.17 |
+|---|---|---|---|
+| **BSW +5.7% (n=272) - the only one asked** | 56,993.38 | **97,563.42** | **+6,876.25 ABOVE** |
+| Aplus -1.6% (n=83) - assumed today | 53,057.22 | 93,526.34 | +2,839.17 |
+| 4Ali -1.5% (n=82) | 53,111.14 | 93,581.64 | +2,894.47 |
+| **TruFrame -17.9% (n=42)** | 44,268.27 | **84,512.03** | **-6,175.14 UNDER** |
+
+BSW is **GBP 3,936.16** of frame buy dearer than the level already baked into our published number.
+So their quote will land above our own figure and read as *"Redditch is not winnable"* when what it
+says is *"we asked the dearest supplier"*. **Only TruFrame clears Joedan** - by enough to pay for the
+missing prelims too. Caveated to Adam and on the board: n=42 is the thinnest of the four, and a
+supplier factor says nothing about whether that supplier can FABRICATE a thermally broken 75mm
+commercial system with panic-hardware doorsets at these sizes. It says who is worth an envelope.
+
+**Emailed Adam with the price-free RFQ schedule attached**, asking him to send it to Aplus, 4Ali,
+TruFrame and SBM. Ghost protocol - I cannot send it myself.
+
+**RFQ schedule corrected** before sending: area 136.54 -> **136.53 m2**, the figure fixed at source on
+28/07 so one number circulates. Everything else in it stands - trickle vents, panic ironmongery, refs
+32/34 as single coupled units in ONE depth, the raked units, ref 38's 15 panes, refs 29/30/31, and an
+explicit ask for validity against a 10-week tender.
+
+### Two observations, one of which I nearly reported wrongly
+
+**No attachment on the BSW email.** The body says "as per the attached"; our copy carries none.
+Control checked first - **31 of 110** sent messages in the store do carry attachments, so a zero is
+real evidence rather than a hole in the record.
+
+**But the clock nearly caught me.** I first read the send as ~45 minutes old. It was **ninety
+seconds**: `poller.log` runs in **BST** and the work order `received` stamps in **UTC**. Ninety
+seconds is not long enough to conclude anything - the same flag on Georgie's yesterday was right on
+the evidence and wrong about the world by a minute. Reported to Adam as *"worth a glance"*, with the
+age stated, not as a mistake. **If you compare a store timestamp against the clock, check the zone.**
+
+**The part that is NOT time-sensitive: send the RFQ schedule, never the tender pack.** Joedan's fully
+priced quotation sits at **page 147** of the Redditch pack - the client left it in and Leonard White's
+own covering email points us at it. Forwarding that pack to a supplier hands them the market price for
+the job before they quote it to us. REQ-28's shape, opposite direction.
+
+**Position unchanged:** GBP 93,526.34 gross of 2.5% MCD, benchmark, nothing issued to Pride, no
+deadline from Leonard White.

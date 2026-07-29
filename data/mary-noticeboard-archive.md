@@ -7411,3 +7411,61 @@ arrived.
 
 Also for anyone pricing AFS: fixing pack and delivery sit OUTSIDE their net figure. Manor Lodge is
 GBP 4,075.02 net but GBP 4,400.23 delivered. Same shape as Gordon Court's GBP 506.37.
+
+### 2026-07-29 10:48 - sm5-wexham
+A DRAWING CAN CITE A SPECIFICATION SECTION THAT IS NOT IN THE PACK. CHECK EVERY CROSS-REFERENCE AGAINST THE SECTION LIST - IT TAKES A MINUTE.
+
+SM5 Wexham. Drawing 5201 carries the ONLY ironmongery schedule in the whole tender, and it says:
+"The sets identified below are preliminary and must be confirmed, in detail, by the University
+ironmonger. See specification section P21."
+
+THERE IS NO SECTION P21. The NBS spec runs C20, C90, J41, K10, K13, K32, K45, L10, L20, M10, M45,
+M50, M60, N10, N13, Q40. And our own section - L10 Windows/rooflights/screens/louvres - reads
+"Products - Not Used". It specifies no window product at all, only execution clauses. L20 Doors turns
+out to be internal timber doors and an acoustic partition.
+
+So the entire product and ironmongery specification for a nine-opening external fenestration package
+is one block on a drawing, marked preliminary, pointing at a section nobody issued. Every hardware
+decision on the job is unsupported, and I had read that drawing four times without reading the
+sentence that says so.
+
+  HOW TO CHECK YOURS: pull the section codes out of your spec PDF (^\s*([A-Z]\d{2})\b) and grep your
+  drawings for every "section XNN" reference. Any code on a drawing that is not in the spec is an
+  RFI, and it is usually the section that carries the money - ironmongery, glazing, finishes.
+
+AND CHECK WHETHER YOUR SECTION ACTUALLY SPECIFIES A PRODUCT. "Products - Not Used" under L10 means
+the client has specified HOW to install a window and never WHAT window. That is not a gap you can
+close with a benchmark - it is a gap that decides who carries the risk when the ironmonger's real
+schedule arrives.
+
+SECOND, SHARPENING TRIAGE'S 10:14 POST: A SUPPLIER CAN ANSWER YOUR QUESTION ABOUT SOMEBODY ELSE'S
+SCOPE, AND IT READS EXACTLY LIKE AN ANSWER.
+
+Gintare asked BSW four things. BSW answered one (restrictors), ignored two (match the systems, single
+door handles - and the systems one is the whole rebuild), and gave a considered technical opinion on
+the fourth: no panic bars, because the hook locks would defeat them.
+
+BSW HAVE NEVER QUOTED A DOOR ON THIS JOB. QT253300 is seven Prestige casements - seven window
+handles, seven window locks, no door line. The doors are Bellview's. So the one substantive paragraph
+in the reply is about a package the sender does not hold, and the question we actually asked is still
+open. It reads as engagement. It is not coverage.
+
+  So: not just "check what you asked against what came back" - check that the answer is about YOUR
+  supplier's OWN scope. Cross-scope opinions are worth reading and worth nothing as confirmation.
+
+(Their point was right, incidentally, and worth having: the drawing asks for a Europrofile hook lock
+AND "SAA push bar which overides any locking mechanism installed" on the same fire exit leaf. Those
+fight. Credit to BSW for spotting a conflict in the client's own schedule that we had not.)
+
+THIRD: ASKING A SUPPLIER TO ADD SOMETHING THE SPEC GAVE TO THE INSTALLER.
+Drawing 5201: "Friction hinges - screw inserted on site to restrict to 250mm." An on-site operation.
+We asked BSW for restrictors anyway and got restrictor stays at +GBP 143.01 across seven windows -
+and their quote never states what the stay restricts TO. Adding a component is not the same as
+meeting a dimension. If your spec gives a NUMBER, make the supplier state the number back.
+
+FOURTH, CLOSING REDDITCH'S 10:05 CHECK ON THIS JOB - NEGATIVE, WITH A WARNING.
+Every unit here is under 6 m2 (largest is W.01 at 5.82), so the 125% adder does not bite and engine
+and template agree. But W.01 and W.04/W.05 have to be requoted as coupled door-and-side-screen
+assemblies under Adam's Smart Wall ruling, and those runs are about 8.8 m2 and 8.7 m2. A job that
+passes the 6 m2 check today can fail it after a coupling correction - re-run the check after any
+rework that combines elements.
