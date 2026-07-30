@@ -1,0 +1,280 @@
+audited 65 sent pricing document(s)
+
+CB Refrigeration Workshop - Pricing Document - DO NOT SEND.xlsx   [internal]
+   client Knights Construction | 11 rows | supplier BSW
+   [BUILDUP  ]     -2,142.00   row 9 LAW 1800 x 1400: frames 977.77 + cw 2142.00 + adder 487.50 = 3607.27, unit rate says 1465.27
+   [BUILDUP  ]       -918.00   row 10 MAW 900 x 1200: frames 477.57 + cw 918.00 + adder 412.50 = 1808.07, unit rate says 890.07
+   [BUILDUP  ]     -1,224.00   row 11 MAW 1200 x 1200: frames 571.57 + cw 1224.00 + adder 412.50 = 2208.07, unit rate says 984.07
+   [BUILDUP  ]     -2,448.00   row 12 LAW 1800 x 1600: frames 1164.45 + cw 2448.00 + adder 487.50 = 4099.95, unit rate says 1651.95
+   [BUILDUP  ]     -2,720.00   row 13 ELAW 2000 x 1600: frames 1238.92 + cw 2720.00 + adder 637.50 = 4596.42, unit rate says 1876.42
+   [SUPPLIER ]     58,100.93   frames total 62531.21 against 'BSW' buy 4430.28, ratio 14.115
+
+COMAR - DO NOT SEND Pricing Document - Brandon Estate - Copy.xlsx   [internal]
+   client Elkins Construction | 42 rows | supplier 4Ali
+   [BUILDUP  ]     -1,963.50   row 9 LAW 1400 x 1650: frames 935.38 + glass 183.85 + additional 15.12 + cw 1963.50 + adder 487.50 = 3585.35, unit rate says 1621.85
+   [BUILDUP  ]     -6,279.03   row 10 ELAW 4174 x 1650: frames 2841.65 + glass 552.15 + additional 15.12 + cw 5854.03 + adder 1062.50 = 10325.45, unit rate says 4046.42
+   [BUILDUP  ]    -10,999.83   row 11 DAD 7130 x 1650: frames 4617.41 + glass 942.47 + additional 15.12 + cw 9999.83 + adder 2500.00 = 18074.83, unit rate says 7075.00
+   [BUILDUP  ]     -1,332.38   row 12 MAW 950 x 1650: frames 783.97 + glass 117.73 + additional 15.12 + cw 1332.38 + adder 412.50 = 2661.70, unit rate says 1329.32
+   [BUILDUP  ]     -9,498.31   row 13 DAD 4200 x 2200: frames 3356.11 + glass 762.04 + additional 15.12 + cw 7854.00 + adder 2500.00 = 14487.27, unit rate says 4988.96
+   [BUILDUP  ]     -5,426.00   row 14 ELAW 2800 x 2200: frames 2061.41 + glass 527.04 + additional 15.12 + cw 5236.00 + adder 1062.50 = 8902.07, unit rate says 3476.07
+   [BUILDUP  ]       -934.86   row 15 MAW 700 x 2200: frames 337.11 + glass 152.90 + additional 15.12 + cw 1309.00 + adder 412.50 = 2226.63, unit rate says 1291.77
+   [BUILDUP  ]     -1,994.45   row 16 LAW 1400 x 1650: frames 935.38 + glass 183.85 + additional 15.12 + cw 1963.50 + adder 487.50 = 3585.35, unit rate says 1590.90
+   [BUILDUP  ]     -2,211.41   row 17 LAW 1560 x 1650: frames 968.41 + glass 207.36 + additional 15.12 + cw 2187.90 + adder 487.50 = 3866.29, unit rate says 1654.88
+   [BUILDUP  ]     -6,623.83   row 18 ELAW 4174 x 1650: frames 2840.92 + glass 552.15 + additional 15.12 + cw 5854.03 + adder 1062.50 = 10324.73, unit rate says 3700.90
+   [BUILDUP  ]    -11,390.15   row 19 DAD 7130 x 1650: frames 4617.41 + glass 942.47 + additional 15.12 + cw 9999.83 + adder 2500.00 = 18074.83, unit rate says 6684.68
+   [BUILDUP  ]       -507.64   row 20 MAW 950 x 1650: frames 783.97 + glass 117.73 + additional 15.12 + cw 1332.38 + adder 412.50 = 2661.70, unit rate says 2154.06
+   [BUILDUP  ]     -9,498.31   row 21 DAD 4200 x 2200: frames 3356.11 + glass 762.04 + additional 15.12 + cw 7854.00 + adder 2500.00 = 14487.27, unit rate says 4988.96
+   [BUILDUP  ]     -5,426.00   row 22 ELAW 2800 x 2200: frames 2106.54 + glass 527.04 + additional 15.12 + cw 5236.00 + adder 1062.50 = 8947.20, unit rate says 3521.20
+   [BUILDUP  ]       -934.86   row 23 MAW 700 x 2200: frames 337.11 + glass 152.90 + additional 15.12 + cw 1309.00 + adder 412.50 = 2226.63, unit rate says 1291.77
+   [BUILDUP  ]     -1,963.50   row 24 LAW 1400 x 1650: frames 935.37 + glass 183.85 + additional 15.12 + cw 1963.50 + adder 487.50 = 3585.34, unit rate says 1621.84
+   [BUILDUP  ]     -2,187.90   row 25 LAW 1560 x 1650: frames 968.41 + glass 207.36 + additional 15.12 + cw 2187.90 + adder 487.50 = 3866.29, unit rate says 1678.39
+   [BUILDUP  ]     -6,279.03   row 26 ELAW 4174 x 1650: frames 2840.92 + glass 552.15 + additional 15.12 + cw 5854.03 + adder 1062.50 = 10324.73, unit rate says 4045.69
+   [BUILDUP  ]     -1,332.38   row 27 MAW 950 x 1650: frames 783.97 + glass 117.73 + additional 15.12 + cw 1332.38 + adder 412.50 = 2661.70, unit rate says 1329.32
+   [BUILDUP  ]     -8,854.00   row 28 DAD 4200 x 2200: frames 3356.01 + glass 762.04 + additional 15.12 + cw 7854.00 + adder 2500.00 = 14487.17, unit rate says 5633.17
+   [BUILDUP  ]     -5,661.00   row 29 ELAW 2800 x 2200: frames 2105.62 + glass 527.04 + additional 15.12 + cw 5236.00 + adder 1062.50 = 8946.28, unit rate says 3285.28
+   [BUILDUP  ]     -1,309.00   row 30 MAW 700 x 2200: frames 337.11 + glass 152.90 + additional 15.12 + cw 1309.00 + adder 412.50 = 2226.63, unit rate says 917.63
+   [BUILDUP  ]     -5,606.26   row 31 ELAW 2800 x 2177: frames 2096.90 + glass 508.10 + additional 15.12 + cw 5181.26 + adder 1062.50 = 8863.88, unit rate says 3257.62
+   [BUILDUP  ]     -1,942.97   row 32 SAD 1050 x 2177: frames 863.67 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3880.18, unit rate says 1937.21
+   [BUILDUP  ]     -5,606.26   row 33 ELAW 2800 x 2177: frames 2096.90 + glass 508.10 + additional 15.12 + cw 5181.26 + adder 1062.50 = 8863.88, unit rate says 3257.62
+   [BUILDUP  ]     -1,942.97   row 34 SAD 1050 x 2177: frames 863.67 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3880.18, unit rate says 1937.21
+   [BUILDUP  ]     -5,606.26   row 35 ELAW 2800 x 2177: frames 2096.90 + glass 508.10 + additional 15.12 + cw 5181.26 + adder 1062.50 = 8863.88, unit rate says 3257.62
+   [BUILDUP  ]     -1,942.97   row 36 SAD 1050 x 2177: frames 859.56 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3876.07, unit rate says 1933.10
+   [BUILDUP  ]     -4,098.75   row 37 DAD 2215 x 2177: frames 2895.03 + glass 312.53 + additional 15.12 + cw 4098.75 + adder 1500.00 = 8821.43, unit rate says 4722.68
+   [BUILDUP  ]     -3,978.47   row 38 DAD 2150 x 2177: frames 2043.02 + glass 352.91 + additional 15.12 + cw 3978.47 + adder 1500.00 = 7889.52, unit rate says 3911.05
+   [BUILDUP  ]     -3,978.47   row 39 ELAW 2150 x 2177: frames 1815.95 + glass 392.68 + additional 15.12 + cw 3978.47 + adder 637.50 = 6839.72, unit rate says 2861.25
+   [BUILDUP  ]     -4,098.75   row 40 DAD 2215 x 2177: frames 2895.07 + glass 363.97 + additional 15.12 + cw 4098.75 + adder 1500.00 = 8872.91, unit rate says 4774.16
+   [BUILDUP  ]     -3,978.47   row 41 DAD 2150 x 2177: frames 2043.02 + glass 352.88 + additional 15.12 + cw 3978.47 + adder 1500.00 = 7889.49, unit rate says 3911.02
+   [BUILDUP  ]     -3,978.47   row 42 ELAW 2150 x 2177: frames 1815.95 + glass 392.88 + additional 15.12 + cw 3978.47 + adder 637.50 = 6839.92, unit rate says 2861.45
+   [BUILDUP  ]     -4,098.75   row 43 DAD 2215 x 2177: frames 2895.07 + glass 373.97 + additional 15.12 + cw 4098.75 + adder 1500.00 = 8882.91, unit rate says 4784.16
+   [BUILDUP  ]     -3,978.47   row 44 DAD 2150 x 2177: frames 2043.02 + glass 352.88 + additional 15.12 + cw 3978.47 + adder 1500.00 = 7889.49, unit rate says 3911.02
+   [BUILDUP  ]     -3,978.47   row 45 ELAW 2150 x 2177: frames 1815.95 + glass 392.68 + additional 15.12 + cw 3978.47 + adder 637.50 = 6839.72, unit rate says 2861.25
+   [BUILDUP  ]     -8,381.93   row 46 ELAW 4300 x 2177: frames 3072.28 + glass 784.20 + additional 15.12 + cw 7956.94 + adder 1062.50 = 12891.03, unit rate says 4509.10
+   [BUILDUP  ]     -2,405.59   row 47 LAW 1300 x 2177: frames 1038.60 + glass 232.40 + additional 15.12 + cw 2405.59 + adder 487.50 = 4179.20, unit rate says 1773.62
+   [BUILDUP  ]     -1,942.97   row 48 SAD 1050 x 2177: frames 863.67 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3880.18, unit rate says 1937.21
+   [BUILDUP  ]     -2,405.59   row 49 LAW 1300 x 2177: frames 1038.60 + glass 232.40 + additional 15.12 + cw 2405.59 + adder 487.50 = 4179.20, unit rate says 1773.62
+
+Chigwell - Grange Hill Methodist Church Ext Pricing DO NOT SEND.xlsx   [internal]
+   client Chigwell (London) PLC | 11 rows | supplier BSW
+   [BUILDUP  ]       -425.00   row 15 ELAW 2900 x 2400: frames 1788.85 + additional 1000.00 + cw 0.00 + adder 1062.50 = 3851.35, unit rate says 3426.35
+   [BUILDUP  ]       -425.00   row 16 ELAW 2900 x 2400: frames 1667.30 + additional 1000.00 + cw 0.00 + adder 1062.50 = 3729.80, unit rate says 3304.80
+   [BUILDUP  ]     -1,000.00   row 19 DAD 4588 x 2100: frames 4438.61 + cw 0.00 + adder 2500.00 = 6938.61, unit rate says 5938.61
+   [BUILDUP  ]     -1,000.00   row 20 DAD 5900 x 2300: frames 6154.82 + additional 1000.00 + cw 0.00 + adder 2500.00 = 9654.82, unit rate says 8654.82
+   [SUPPLIER ]     12,934.76   frames total 22411.77 against 'BSW' buy 9477.01, ratio 2.365
+
+Chigwell Group - Gordon Court Pricing DO NOT SEND.xlsx   [internal]
+   client Chigwell (London) PLC | 43 rows | supplier BSW
+   [BUILDUP  ]     -2,159.85   row 10 LAW 1210 x 2100: frames 1125.60 + cw 2159.85 + adder 487.50 = 3772.95, unit rate says 1613.10
+   [BUILDUP  ]       -762.13   row 14 SPVC 797 x 1125: frames 235.40 + cw 762.13 + adder 262.50 = 1260.03, unit rate says 497.90
+   [BUILDUP  ]       -762.13   row 15 SPVC 797 x 1125: frames 249.44 + cw 762.13 + adder 262.50 = 1274.07, unit rate says 511.94
+   [BUILDUP  ]     -1,560.60   row 16 MPVC 1360 x 1350: frames 530.08 + cw 1560.60 + adder 300.00 = 2390.68, unit rate says 830.08
+   [BUILDUP  ]     -1,914.34   row 17 LPVC 1360 x 1656: frames 521.69 + cw 1914.34 + adder 337.50 = 2773.53, unit rate says 859.19
+   [BUILDUP  ]     -2,076.97   row 18 LPVC 1810 x 1350: frames 620.86 + cw 2076.97 + adder 337.50 = 3035.34, unit rate says 958.36
+   [BUILDUP  ]     -3,800.77   row 19 LPVC 2710 x 1650: frames 911.25 + cw 3800.77 + adder 337.50 = 5049.52, unit rate says 1248.75
+   [BUILDUP  ]     -1,044.22   row 20 MPVC 910 x 1350: frames 297.26 + cw 1044.22 + adder 300.00 = 1641.48, unit rate says 597.26
+   [BUILDUP  ]     -1,302.41   row 21 MPVC 1135 x 1350: frames 472.89 + cw 1302.41 + adder 300.00 = 2075.30, unit rate says 772.89
+   [BUILDUP  ]     -2,669.30   row 22 LPVC 1810 x 1735: frames 522.70 + cw 2669.30 + adder 337.50 = 3529.50, unit rate says 860.20
+   [BUILDUP  ]     -2,322.65   row 23 LPVC 1996 x 1369: frames 649.24 + cw 2322.65 + adder 337.50 = 3309.39, unit rate says 986.74
+   [BUILDUP  ]     -1,000.00   row 45 DAD 3713 x 2128: frames 3732.64 + adder 2500.00 = 6232.64, unit rate says 5232.64
+   [SUPPLIER ]     18,298.94   frames total 201086.70 against 'BSW' buy 182787.76, ratio 1.100
+
+Chigwell Group - Leys Sports Pavilion Refurbishment Pricing - DO NOT SEND.xlsx   [internal]
+   client Chigwell (London) PLC | 10 rows | supplier BSW
+   [BUILDUP  ]       -425.00   row 16 ELAW 2595 x 2390: frames 3340.84 + additional 1000.00 + cw 0.00 + adder 1062.50 = 5403.34, unit rate says 4978.34
+   [BUILDUP  ]     -1,000.00   row 19 DAD 2560 x 2360: frames 2945.91 + cw 0.00 + adder 2500.00 = 5445.91, unit rate says 4445.91
+   [SUPPLIER ]     11,453.75   frames total 15081.05 against 'BSW' buy 3627.30, ratio 4.158
+
+DO NOT SEND - ASHE - CDC - Pricing Document.xlsx   [internal]
+   client ASHE | 10 rows | supplier BSW
+   [BUILDUP  ]     -4,664.50   row 9 MAW 2810 x 2000: frames 625.70 + cw 4777.00 + adder 412.50 = 5815.20, unit rate says 1150.70
+   [BUILDUP  ]     -6,248.50   row 10 MAW 3580 x 2000: frames 856.36 + cw 6086.00 + adder 687.50 = 7629.86, unit rate says 1381.36
+   [BUILDUP  ]     -8,344.00   row 12 DAD 3600 x 2400: frames 5234.68 + additional 3000.00 + cw 7344.00 + adder 2500.00 = 18078.68, unit rate says 9734.68
+   [BUILDUP  ]     -3,253.71   row 13 DAD 1895 x 2020: frames 2117.47 + additional 70.00 + cw 3253.72 + adder 1500.00 = 6941.18, unit rate says 3687.47
+   [BUILDUP  ]     -3,228.30   row 14 DAD 1800 x 2110: frames 1629.80 + additional 70.00 + cw 3228.30 + adder 1500.00 = 6428.10, unit rate says 3199.80
+   [BUILDUP  ]     -3,228.30   row 15 DAD 1800 x 2110: frames 1629.80 + additional 70.00 + cw 3228.30 + adder 1500.00 = 6428.10, unit rate says 3199.80
+   [BUILDUP  ]     -2,052.11   row 16 DAD 1110 x 2175: frames 970.05 + additional 70.00 + cw 2052.11 + adder 1500.00 = 4592.16, unit rate says 2540.05
+   [BUILDUP  ]     -2,768.53   row 17 DAD 1540 x 2115: frames 2097.12 + additional 70.00 + cw 2768.53 + adder 1500.00 = 6435.65, unit rate says 3667.12
+   [BUILDUP  ]       -425.00   row 19 ELAW 3540 x 1980: frames 2880.00 + adder 1062.50 = 3942.50, unit rate says 3517.50
+   [SUPPLIER ]     -6,946.92   frames total 24388.48 against 'BSW' buy 31335.40, ratio 0.778
+
+DO NOT SEND Elkins - Brandon Estate Pricing Document.xlsx   [internal]
+   client Elkins Construction | 42 rows | supplier 4Ali
+   [BUILDUP  ]     -1,963.50   row 9 SAD 1400 x 1650: frames 935.38 + glass 183.85 + additional 15.12 + cw 1963.50 + adder 900.00 = 3997.85, unit rate says 2034.35
+   [BUILDUP  ]     -6,454.03   row 10 SAD 4174 x 1650: frames 2841.65 + glass 552.15 + additional 15.12 + cw 5854.03 + adder 1500.00 = 10762.95, unit rate says 4308.92
+   [BUILDUP  ]    -10,599.83   row 11 SAD 7130 x 1650: frames 4617.41 + glass 942.47 + additional 15.12 + cw 9999.83 + adder 1500.00 = 17074.83, unit rate says 6475.00
+   [BUILDUP  ]     -1,332.38   row 12 SAD 950 x 1650: frames 783.97 + glass 117.73 + additional 15.12 + cw 1332.38 + adder 900.00 = 3149.20, unit rate says 1816.82
+   [BUILDUP  ]     -8,454.00   row 13 SAD 4200 x 2200: frames 3356.11 + glass 762.04 + additional 515.12 + cw 7854.00 + adder 1500.00 = 13987.27, unit rate says 5533.27
+   [BUILDUP  ]     -5,836.00   row 14 SAD 2800 x 2200: frames 2061.41 + glass 527.04 + additional 15.12 + cw 5236.00 + adder 1500.00 = 9339.57, unit rate says 3503.57
+   [BUILDUP  ]     -1,309.00   row 15 SAD 700 x 2200: frames 337.11 + glass 152.90 + additional 15.12 + cw 1309.00 + adder 900.00 = 2714.13, unit rate says 1405.13
+   [BUILDUP  ]     -1,963.50   row 16 SAD 1400 x 1650: frames 935.38 + glass 183.85 + additional 15.12 + cw 1963.50 + adder 900.00 = 3997.85, unit rate says 2034.35
+   [BUILDUP  ]     -2,187.90   row 17 SAD 1560 x 1650: frames 968.41 + glass 207.36 + additional 15.12 + cw 2187.90 + adder 900.00 = 4278.79, unit rate says 2090.89
+   [BUILDUP  ]     -6,454.03   row 18 SAD 4174 x 1650: frames 2840.92 + glass 552.15 + additional 15.12 + cw 5854.03 + adder 1500.00 = 10762.23, unit rate says 4308.19
+   [BUILDUP  ]    -10,599.83   row 19 SAD 7130 x 1650: frames 4617.41 + glass 942.47 + additional 15.12 + cw 9999.83 + adder 1500.00 = 17074.83, unit rate says 6475.00
+   [BUILDUP  ]     -1,332.38   row 20 SAD 950 x 1650: frames 783.97 + glass 117.73 + additional 15.12 + cw 1332.38 + adder 900.00 = 3149.20, unit rate says 1816.82
+   [BUILDUP  ]     -8,854.00   row 21 DAD 4200 x 2200: frames 3356.11 + glass 762.04 + additional 515.12 + cw 7854.00 + adder 2500.00 = 14987.27, unit rate says 6133.27
+   [BUILDUP  ]     -5,836.00   row 22 SAD 2800 x 2200: frames 2106.54 + glass 527.04 + additional 15.12 + cw 5236.00 + adder 1500.00 = 9384.70, unit rate says 3548.70
+   [BUILDUP  ]     -1,309.00   row 23 SAD 700 x 2200: frames 337.11 + glass 152.90 + additional 15.12 + cw 1309.00 + adder 900.00 = 2714.13, unit rate says 1405.13
+   [BUILDUP  ]     -1,963.50   row 24 SAD 1400 x 1650: frames 935.37 + glass 183.85 + additional 15.12 + cw 1963.50 + adder 900.00 = 3997.84, unit rate says 2034.34
+   [BUILDUP  ]     -2,187.90   row 25 SAD 1560 x 1650: frames 968.41 + glass 207.36 + additional 15.12 + cw 2187.90 + adder 900.00 = 4278.79, unit rate says 2090.89
+   [BUILDUP  ]     -6,454.03   row 26 SAD 4174 x 1650: frames 2840.92 + glass 552.15 + additional 15.12 + cw 5854.03 + adder 1500.00 = 10762.23, unit rate says 4308.19
+   [BUILDUP  ]     -1,332.38   row 27 SAD 950 x 1650: frames 783.97 + glass 117.73 + additional 15.12 + cw 1332.38 + adder 900.00 = 3149.20, unit rate says 1816.82
+   [BUILDUP  ]     -8,854.00   row 28 DAD 4200 x 2200: frames 3356.01 + glass 762.04 + additional 515.12 + cw 7854.00 + adder 2500.00 = 14987.17, unit rate says 6133.17
+   [BUILDUP  ]     -5,836.00   row 29 SAD 2800 x 2200: frames 2105.62 + glass 527.04 + additional 15.12 + cw 5236.00 + adder 1500.00 = 9383.78, unit rate says 3547.78
+   [BUILDUP  ]     -1,309.00   row 30 SAD 700 x 2200: frames 337.11 + glass 152.90 + additional 15.12 + cw 1309.00 + adder 900.00 = 2714.13, unit rate says 1405.13
+   [BUILDUP  ]     -5,781.26   row 31 SAD 2800 x 2177: frames 2096.90 + glass 508.10 + additional 15.12 + cw 5181.26 + adder 1500.00 = 9301.38, unit rate says 3520.12
+   [BUILDUP  ]     -1,942.97   row 32 SAD 1050 x 2177: frames 863.67 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3880.18, unit rate says 1937.21
+   [BUILDUP  ]     -5,781.26   row 33 SAD 2800 x 2177: frames 2096.90 + glass 508.10 + additional 15.12 + cw 5181.26 + adder 1500.00 = 9301.38, unit rate says 3520.12
+   [BUILDUP  ]     -1,942.97   row 34 SAD 1050 x 2177: frames 863.67 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3880.18, unit rate says 1937.21
+   [BUILDUP  ]     -5,781.26   row 35 SAD 2800 x 2177: frames 2096.90 + glass 508.10 + additional 15.12 + cw 5181.26 + adder 1500.00 = 9301.38, unit rate says 3520.12
+   [BUILDUP  ]     -1,942.97   row 36 SAD 1050 x 2177: frames 859.56 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3876.07, unit rate says 1933.10
+   [BUILDUP  ]     -4,098.75   row 37 DAD 2215 x 2177: frames 2895.03 + glass 312.53 + additional 15.12 + cw 4098.75 + adder 1500.00 = 8821.43, unit rate says 4722.68
+   [BUILDUP  ]     -3,978.47   row 38 DAD 2150 x 2177: frames 2043.02 + glass 352.91 + additional 15.12 + cw 3978.47 + adder 1500.00 = 7889.52, unit rate says 3911.05
+   [BUILDUP  ]     -3,978.47   row 39 SAD 2150 x 2177: frames 1815.95 + glass 392.68 + additional 15.12 + cw 3978.47 + adder 900.00 = 7102.22, unit rate says 3123.75
+   [BUILDUP  ]     -4,098.75   row 40 DAD 2215 x 2177: frames 2895.07 + glass 363.97 + additional 15.12 + cw 4098.75 + adder 1500.00 = 8872.91, unit rate says 4774.16
+   [BUILDUP  ]     -3,978.47   row 41 DAD 2150 x 2177: frames 2043.02 + glass 352.88 + additional 15.12 + cw 3978.47 + adder 1500.00 = 7889.49, unit rate says 3911.02
+   [BUILDUP  ]     -3,978.47   row 42 SAD 2150 x 2177: frames 1815.95 + glass 392.88 + additional 15.12 + cw 3978.47 + adder 900.00 = 7102.42, unit rate says 3123.95
+   [BUILDUP  ]     -4,098.75   row 43 DAD 2215 x 2177: frames 2895.07 + glass 373.97 + additional 15.12 + cw 4098.75 + adder 1500.00 = 8882.91, unit rate says 4784.16
+   [BUILDUP  ]     -3,978.47   row 44 DAD 2150 x 2177: frames 2043.02 + glass 352.88 + additional 15.12 + cw 3978.47 + adder 1500.00 = 7889.49, unit rate says 3911.02
+   [BUILDUP  ]     -3,978.47   row 45 SAD 2150 x 2177: frames 1815.95 + glass 392.68 + additional 15.12 + cw 3978.47 + adder 900.00 = 7102.22, unit rate says 3123.75
+   [BUILDUP  ]     -8,556.93   row 46 SAD 4300 x 2177: frames 3072.28 + glass 784.20 + additional 15.12 + cw 7956.94 + adder 1500.00 = 13328.53, unit rate says 4771.60
+   [BUILDUP  ]     -2,405.59   row 47 SAD 1300 x 2177: frames 1038.60 + glass 232.40 + additional 15.12 + cw 2405.59 + adder 900.00 = 4591.70, unit rate says 2186.12
+   [BUILDUP  ]     -1,942.97   row 48 SAD 1050 x 2177: frames 863.67 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3880.18, unit rate says 1937.21
+   [BUILDUP  ]     -2,405.59   row 49 SAD 1300 x 2177: frames 1038.60 + glass 232.40 + additional 15.12 + cw 2405.59 + adder 900.00 = 4591.70, unit rate says 2186.12
+
+DO NOT SEND Pricing Document - Brandon Estate.xlsx   [internal]
+   client Elkins Construction | 12 rows | supplier BSW
+   [BUILDUP  ]     -1,990.87   row 9 SAD 1400 x 1673: frames 686.80 + glass 176.72 + cw 1990.87 + adder 900.00 = 3754.39, unit rate says 1763.52
+   [BUILDUP  ]     -6,454.03   row 10 SAD 4174 x 1650: frames 2065.41 + glass 533.68 + cw 5854.03 + adder 1500.00 = 9953.12, unit rate says 3499.09
+   [BUILDUP  ]    -10,460.43   row 11 SAD 7130 x 1627: frames 3428.61 + glass 903.32 + additional 1500.00 + cw 9860.43 + adder 1500.00 = 17192.36, unit rate says 6731.93
+   [BUILDUP  ]     -1,990.87   row 12 SAD 1400 x 1673: frames 687.96 + glass 176.72 + cw 1990.87 + adder 900.00 = 3755.55, unit rate says 1764.68
+   [BUILDUP  ]     -1,990.87   row 13 SAD 1400 x 1673: frames 687.96 + glass 176.72 + cw 1990.87 + adder 900.00 = 3755.55, unit rate says 1764.68
+   [BUILDUP  ]     -6,454.03   row 14 SAD 4174 x 1650: frames 2065.41 + glass 533.68 + cw 5854.03 + adder 1500.00 = 9953.12, unit rate says 3499.09
+   [BUILDUP  ]    -10,599.83   row 15 SAD 7130 x 1650: frames 3434.36 + glass 880.34 + additional 1500.00 + cw 9999.83 + adder 1500.00 = 17314.53, unit rate says 6714.70
+   [BUILDUP  ]     -1,990.87   row 16 SAD 1400 x 1673: frames 687.96 + glass 176.72 + cw 1990.87 + adder 900.00 = 3755.55, unit rate says 1764.68
+   [BUILDUP  ]     -2,133.07   row 17 SAD 1500 x 1673: frames 704.29 + glass 199.82 + cw 2133.08 + adder 900.00 = 3937.18, unit rate says 1804.11
+   [BUILDUP  ]     -6,454.04   row 18 SAD 4174 x 1650: frames 2065.41 + glass 533.70 + cw 5854.03 + adder 1500.00 = 9953.15, unit rate says 3499.11
+   [BUILDUP  ]    -15,541.30   row 19 SAD 7480 x 2350: frames 3948.33 + glass 1317.94 + additional 1500.00 + cw 14941.30 + adder 1500.00 = 23207.57, unit rate says 7666.27
+
+ET & S Construction - St Mary's Refurbishment Pricing - DO NOT SEND.xlsx   [internal]
+   client E T & S Construction | 38 rows | supplier BSW
+   [BUILDUP  ]       -425.00   row 14 ELAW 1740 x 3620: frames 1763.04 + additional 1000.00 + cw 0.00 + adder 1062.50 = 3825.54, unit rate says 3400.54
+   [BUILDUP  ]       -425.00   row 15 ELAW 2210  x3620: frames 2100.39 + additional 1000.00 + cw 0.00 + adder 1062.50 = 4162.89, unit rate says 3737.89
+   [SUPPLIER ]     29,654.80   frames total 90711.60 against 'BSW' buy 61056.80, ratio 1.486
+
+Fortis Vision - Unite-Favell House Pricing.xlsx   [NOT MARKED DO NOT SEND]
+   client Fortis Vision | 6 rows | supplier Aplus
+   [BUILDUP  ]     -1,000.00   row 9 DAD 5139 x 2400: frames 3026.41 + additional 600.00 + cw 0.00 + adder 2500.00 = 6126.41, unit rate says 5126.41
+   [BUILDUP  ]       -325.00   row 11 LAW 4875 x 1800: frames 2083.18 + cw 0.00 + adder 812.50 = 2895.68, unit rate says 2570.68
+   [BUILDUP  ]       -325.00   row 12 LAW 7450 x 2400: frames 6085.14 + additional 600.00 + cw 0.00 + adder 812.50 = 7497.64, unit rate says 7172.64
+   [SUPPLIER ]      4,180.41   frames total 17861.94 against 'Aplus' buy 13681.53, ratio 1.306
+
+Guildmore Planned Works - Princess Beatrice House Pricing - DO NOT SEND.xlsx   [internal]
+   client Guildmore | 46 rows | supplier Aplus
+   [BUILDUP  ]       -425.00   row 13 ELAW 2700 x 2540: frames 1847.50 + glass 274.80 + additional 1000.00 + cw 0.00 + adder 1062.50 = 4184.80, unit rate says 3759.80
+   [SUPPLIER ]    110,517.34   frames total 128017.08 against 'Aplus' buy 17499.74, ratio 7.315
+
+Highwood Group - Whitsbury Road Pricing - DO NOT SEND.xlsx   [internal]
+   client Highwood Group | 25 rows | supplier BSW
+   [BUILDUP  ]     -1,000.00   row 34 DAD 3048 x 2325: frames 4745.68 + cw 0.00 + adder 2500.00 = 7245.68, unit rate says 6245.68
+   [SUPPLIER ]     29,925.13   frames total 116145.22 against 'BSW' buy 86220.09, ratio 1.347
+
+Pearce Construction - Georgie's (formerly Rosebank) Pricing - DO NOT SEND.xlsx   [internal]
+   client Pearce Construction (Barnstaple) | 11 rows | supplier BSW
+   [SUPPLIER ]     29,552.24   frames total 50414.16 against 'BSW' buy 20861.92, ratio 2.417
+
+Pearce Construction - Greenfields Respite Barnstaple Pricing - DO NOT SEND.xlsx   [internal]
+   client Pearce Construction (Barnstaple) | 46 rows | supplier BSW
+   [BUILDUP  ]     -1,000.00   row 18 DAD 3538 x 2850: frames 4209.83 + additional 1000.00 + adder 2500.00 = 7709.83, unit rate says 6709.83
+   [BUILDUP  ]     -1,000.00   row 24 DAD 2740 x 2664: frames 2460.60 + adder 2500.00 = 4960.60, unit rate says 3960.60
+   [BUILDUP  ]       -225.00   row 57 LPVC 4989 x 1660: frames 1000.08 + additional 500.00 + adder 562.50 = 2062.58, unit rate says 1837.58
+   [SUPPLIER ]     37,460.90   frames total 65593.51 against 'BSW' buy 28132.61, ratio 2.332
+
+Pearce Construction - Woodland Vale Pricing - DO NOT SEND.xlsx   [internal]
+   client Pearce Construction (Barnstaple) | 4 rows | supplier BSW
+   [BUILDUP  ]     -1,606.50   row 9 SAD 900 x 2100: frames 1357.13 + cw 1606.50 + adder 900.00 = 3863.63, unit rate says 2257.13
+   [BUILDUP  ]     -1,606.50   row 10 SAD 900 x 2100: frames 1357.21 + cw 1606.50 + adder 900.00 = 3863.71, unit rate says 2257.21
+   [BUILDUP  ]     -3,213.00   row 11 DAD 1800 x 2100: frames 2479.13 + cw 3213.00 + adder 1500.00 = 7192.13, unit rate says 3979.13
+   [BUILDUP  ]     -1,606.50   row 12 SAD 900 x 2100: frames 1357.21 + cw 1606.50 + adder 900.00 = 3863.71, unit rate says 2257.21
+
+Reynolds Conservation - Oldswinford Primary School Pricing - DO NOT SEND.xlsx   [internal]
+   client Reynolds Conservation Ltd | 34 rows | supplier Aplus
+   [BUILDUP  ]     -2,041.67   row 9 LAW 1030 x 2332: frames 1003.70 + additional 210.00 + cw 2041.67 + adder 487.50 = 3742.87, unit rate says 1701.20
+   [BUILDUP  ]     -2,017.88   row 10 LAW 1018 x 2332: frames 1010.09 + additional 210.00 + cw 2017.88 + adder 487.50 = 3725.47, unit rate says 1707.59
+   [BUILDUP  ]     -2,017.88   row 11 LAW 1018 x 2332: frames 996.86 + additional 210.00 + cw 2017.88 + adder 487.50 = 3712.24, unit rate says 1694.36
+   [BUILDUP  ]     -2,017.88   row 12 LAW 1018 x 2332: frames 1010.09 + additional 210.00 + cw 2017.88 + adder 487.50 = 3725.47, unit rate says 1707.59
+   [BUILDUP  ]     -2,019.86   row 13 LAW 1019 x 2332: frames 997.44 + additional 210.00 + cw 2019.86 + adder 487.50 = 3714.80, unit rate says 1694.94
+   [BUILDUP  ]     -2,019.86   row 14 LAW 1019 x 2332: frames 1010.67 + additional 210.00 + cw 2019.86 + adder 487.50 = 3728.03, unit rate says 1708.17
+   [BUILDUP  ]     -2,019.86   row 15 LAW 1019 x 2332: frames 1202.76 + additional 210.00 + cw 2019.86 + adder 487.50 = 3920.12, unit rate says 1900.26
+   [BUILDUP  ]     -2,019.86   row 16 LAW 1019 x 2332: frames 1202.76 + additional 210.00 + cw 2019.86 + adder 487.50 = 3920.12, unit rate says 1900.26
+   [BUILDUP  ]     -2,019.86   row 17 LAW 1019 x 2332: frames 795.81 + additional 210.00 + cw 2019.86 + adder 487.50 = 3513.17, unit rate says 1493.31
+   [BUILDUP  ]     -2,019.86   row 18 LAW 1019 x 2332: frames 795.81 + additional 210.00 + cw 2019.86 + adder 487.50 = 3513.17, unit rate says 1493.31
+   [BUILDUP  ]     -2,019.86   row 19 LAW 1019 x 2332: frames 795.81 + additional 210.00 + cw 2019.86 + adder 487.50 = 3513.17, unit rate says 1493.31
+   [BUILDUP  ]     -2,019.86   row 20 LAW 1019 x 2332: frames 795.81 + additional 210.00 + cw 2019.86 + adder 487.50 = 3513.17, unit rate says 1493.31
+   [BUILDUP  ]     -2,019.86   row 21 LAW 1019 x 2332: frames 795.81 + additional 210.00 + cw 2019.86 + adder 487.50 = 3513.17, unit rate says 1493.31
+   [BUILDUP  ]     -2,019.86   row 22 LAW 1019 x 2332: frames 1202.76 + additional 210.00 + cw 2019.86 + adder 487.50 = 3920.12, unit rate says 1900.26
+   [BUILDUP  ]     -2,019.86   row 23 LAW 1019 x 2332: frames 1202.76 + additional 210.00 + cw 2019.86 + adder 487.50 = 3920.12, unit rate says 1900.26
+   [BUILDUP  ]     -2,019.86   row 24 LAW 1019 x 2332: frames 1010.67 + additional 210.00 + cw 2019.86 + adder 487.50 = 3728.03, unit rate says 1708.17
+   [BUILDUP  ]     -2,019.86   row 25 LAW 1019 x 2332: frames 997.44 + additional 210.00 + cw 2019.86 + adder 487.50 = 3714.80, unit rate says 1694.94
+   [BUILDUP  ]     -2,019.86   row 26 LAW 1019 x 2332: frames 1010.67 + additional 210.00 + cw 2019.86 + adder 487.50 = 3728.03, unit rate says 1708.17
+   [BUILDUP  ]     -2,019.86   row 27 LAW 1019 x 2332: frames 997.44 + additional 210.00 + cw 2019.86 + adder 487.50 = 3714.80, unit rate says 1694.94
+   [BUILDUP  ]     -2,019.86   row 28 LAW 1019 x 2332: frames 1010.67 + additional 210.00 + cw 2019.86 + adder 487.50 = 3728.03, unit rate says 1708.17
+   [BUILDUP  ]     -2,045.63   row 29 LAW 1032 x 2332: frames 1004.87 + additional 210.00 + cw 2045.63 + adder 487.50 = 3748.00, unit rate says 1702.37
+   [BUILDUP  ]     -1,977.05   row 30 LAW 3093 x 752: frames 983.09 + additional 210.00 + cw 1977.05 + adder 487.50 = 3657.64, unit rate says 1680.59
+   [BUILDUP  ]     -1,977.68   row 31 LAW 3094 x 752: frames 983.31 + additional 210.00 + cw 1977.68 + adder 487.50 = 3658.49, unit rate says 1680.81
+   [BUILDUP  ]     -1,977.68   row 32 LAW 3094 x 752: frames 983.31 + additional 210.00 + cw 1977.68 + adder 487.50 = 3658.49, unit rate says 1680.81
+   [BUILDUP  ]     -1,972.42   row 33 LAW 3094 x 750: frames 983.31 + additional 210.00 + cw 1972.42 + adder 487.50 = 3653.23, unit rate says 1680.81
+   [BUILDUP  ]     -1,972.57   row 34 LAW 3086 x 752: frames 981.62 + additional 210.00 + cw 1972.57 + adder 487.50 = 3651.69, unit rate says 1679.12
+   [BUILDUP  ]     -1,972.57   row 35 LAW 3086 x 752: frames 981.62 + additional 210.00 + cw 1972.57 + adder 487.50 = 3651.69, unit rate says 1679.12
+   [BUILDUP  ]     -1,971.93   row 36 LAW 3085 x 752: frames 981.48 + additional 210.00 + cw 1971.93 + adder 487.50 = 3650.91, unit rate says 1678.98
+   [BUILDUP  ]     -2,629.03   row 37 LAW 4113 x 752: frames 1370.69 + additional 210.00 + cw 2629.03 + adder 487.50 = 4697.22, unit rate says 2068.19
+   [BUILDUP  ]     -1,970.01   row 38 LAW 3082 x 752: frames 980.85 + additional 210.00 + cw 1970.01 + adder 487.50 = 3648.36, unit rate says 1678.35
+   [BUILDUP  ]     -1,970.01   row 39 LAW 3082 x 752: frames 980.85 + additional 210.00 + cw 1970.01 + adder 487.50 = 3648.36, unit rate says 1678.35
+   [BUILDUP  ]     -1,970.01   row 40 LAW 3082 x 752: frames 980.85 + additional 210.00 + cw 1970.01 + adder 487.50 = 3648.36, unit rate says 1678.35
+   [BUILDUP  ]     -1,970.01   row 41 LAW 3082 x 752: frames 980.85 + additional 210.00 + cw 1970.01 + adder 487.50 = 3648.36, unit rate says 1678.35
+   [BUILDUP  ]     -1,970.01   row 42 LAW 3082 x 752: frames 980.85 + additional 210.00 + cw 1970.01 + adder 487.50 = 3648.36, unit rate says 1678.35
+   [SUPPLIER ]     -4,135.55   frames total 34003.38 against 'Aplus' buy 38138.93, ratio 0.892 - consistent with a 10% discount taken twice
+
+Rooff Construction - St. Christopher's the Hall School Pricing - DO NOT SEND.xlsx   [internal]
+   client Rooff Construction | 8 rows | supplier BSW
+   [SUPPLIER ]      3,685.84   frames total 11103.41 against 'BSW' buy 7417.57, ratio 1.497
+
+SM5 Developments - Wexham Primary Pricing - DO NOT SEND.xlsx   [internal]
+   client SM5 Developments | 9 rows | supplier BSW
+   [SUPPLIER ]      4,682.58   frames total 12366.07 against 'BSW' buy 7683.49, ratio 1.609
+
+SMD - Brocks Hill Phase 2 Teaching Block Pricing.xlsx   [NOT MARKED DO NOT SEND]
+   client SMD | 7 rows | supplier BSW
+   [SUPPLIER ]     40,683.82   frames total 57778.34 against 'BSW' buy 17094.52, ratio 3.380
+
+Stepnell - BCC Filwood Broadway Pricing.xlsx   [NOT MARKED DO NOT SEND]
+   client Stepnell | 7 rows | supplier BSW
+   [BUILDUP  ]     -1,000.00   row 9 DAD 4930 x 3570: frames 6442.16 + additional 1000.00 + cw 0.00 + adder 2500.00 = 9942.16, unit rate says 8942.16
+   [BUILDUP  ]     -1,000.00   row 10 DAD 4930 x 3570: frames 6404.22 + additional 1000.00 + cw 0.00 + adder 2500.00 = 9904.22, unit rate says 8904.22
+   [BUILDUP  ]     -1,000.00   row 11 DAD 4930 x 3570: frames 6405.63 + additional 1000.00 + cw 0.00 + adder 2500.00 = 9905.63, unit rate says 8905.63
+   [BUILDUP  ]     -1,000.00   row 12 DAD 4930 x 3570: frames 6451.24 + additional 1000.00 + cw 0.00 + adder 2500.00 = 9951.24, unit rate says 8951.24
+   [BUILDUP  ]     -1,000.00   row 13 DAD 5550 x 2970: frames 6420.99 + additional 1000.00 + cw 0.00 + adder 2500.00 = 9920.99, unit rate says 8920.99
+   [BUILDUP  ]     -1,000.00   row 14 DAD 5550 x 2970: frames 6420.99 + additional 1000.00 + cw 0.00 + adder 2500.00 = 9920.99, unit rate says 8920.99
+   [BUILDUP  ]     -1,000.00   row 15 DAD 6315 x 3150: frames 7522.36 + additional 1000.00 + cw 0.00 + adder 2500.00 = 11022.36, unit rate says 10022.36
+
+TSL - Topek Southern - Trafalgar House Pricing - DO NOT SEND.xlsx   [internal]
+   client TSL - Topek Southern Ltd | 17 rows | supplier TruFrame
+   [BUILDUP  ]       -225.00   row 15 LPVC 3000 x 2400: frames 397.27 + glass 489.01 + additional 500.00 + cw 0.00 + adder 562.50 = 1948.78, unit rate says 1723.78
+
+Target Maintanance - Tenbury Close Pricing DO NOT SEND.xlsx   [internal]
+   client Target Maintenance | 1 rows | supplier Granada
+   [BUILDUP  ]     -1,304.84   row 9 MAW 1190 x 1290: frames 1332.89 + additional 200.00 + cw 1304.84 + adder 412.50 = 3250.23, unit rate says 1945.39
+
+Target Maintenance - Gordon Court Pricing REV 2.xlsx   [NOT MARKED DO NOT SEND]
+   client Target Maintenance | 1 rows | supplier not stated
+   [FOOT_LINE]        411.17   row 9  1800 x 2100: 3381.62 x 1 = 3381.62, document says 3792.79
+
+Zelltec - Wisley Golf Club Pricing - Copy.xlsx   [NOT MARKED DO NOT SEND]
+   client Zelltec Construction | 12 rows | supplier BSW
+   [SUPPLIER ]     16,866.55   frames total 48201.95 against 'BSW' buy 31335.40, ratio 1.538
+
+==============================================================================
+199 finding(s) shown across 65 document(s)
+  FOOT_LINE    1 finding(s) in  1 document(s)
+  FOOT_DOC     0 finding(s) in  0 document(s)
+  DISCOUNT     0 finding(s) in  0 document(s)
+  BUILDUP    182 finding(s) in 18 document(s)
+  SUPPLIER    16 finding(s) in 16 document(s)
