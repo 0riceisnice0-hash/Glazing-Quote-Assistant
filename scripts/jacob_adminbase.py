@@ -297,6 +297,287 @@ WORKED = {
         "state": "quoted - stalled, client offered a retender",
         "owner": "Adam",
     },
+    # ------------------------------------------- Churchdown and Aylesbury
+    # Six rows, GBP 3,393,528 ex VAT, and every one of them is a CIF bid that
+    # DID NOT GET FUNDED. Darren Trigg at GCS told Adam so on 29/07/2026 and
+    # Adam put it on the hub the same day (message 40, answering JAC-9). I
+    # wrote it into data/companies/glazing-consultancy-services.md and then
+    # left the rows alone - so on 30/07 Adam's own chase list still had Mobius
+    # Group and Southern Projects near the top of it, telling him to ring two
+    # contractors for "a final answer" on a job whose funding failed. The
+    # answer was already in the file. THAT is the failure this fixes: research
+    # that does not land on the row changes nothing.
+    #
+    # Churchdown went out to FIVE main contractors, so one funding decision
+    # kills five separate leads that share nothing but a postcode - GL3 2RB
+    # on all five, at two price points GBP 17,500 apart.
+    "7009": {
+        "next": "DO NOT chase Aylesbury High School. Darren Trigg at Glazing "
+                "Consultancy Services told Adam on 29/07/2026: 'both "
+                "Aylesbury High School and Churchdown School Academy were CIF "
+                "(condition improvement fund) bids and they were unsuccessful "
+                "in securing funding, please keep all information to hand "
+                "though as they are likely to resubmitted later this year.' "
+                "The action is a DIARY DATE, not a chase: late September "
+                "2026, before the autumn bid window, Adam or Jacob rings "
+                "Darren on 01280 308188 and asks to be the glazing number "
+                "inside the resubmission - on a CIF bid the price in the "
+                "submission is usually the price that gets used. Keep the "
+                "pricing to hand as he asked.",
+        "why": "Adam's hub message 40, 29/07/2026, carrying Darren Trigg's "
+               "own words in answer to JAC-9. "
+               "data/companies/glazing-consultancy-services.md.",
+        "note": "GCS is a glazing consultancy, not the payer and not the main "
+                "contractor - their whole function is putting people on "
+                "enquiry lists, which makes Darren worth more than this job. "
+                "He volunteered 'we will be sure to contact you when we are "
+                "working on any new projects'.",
+        "state": "blocked - CIF funding bid unsuccessful, resubmission likely",
+        "owner": "Jacob",
+        "blocked": "the CIF bid was unsuccessful - there is no project to "
+                   "chase until it is resubmitted and funded, and Darren "
+                   "Trigg has undertaken to come back to us",
+    },
+    "7098": {
+        "next": "DO NOT chase Churchdown School. Same CIF funding failure as "
+                "Aylesbury (Darren Trigg via Adam, 29/07/2026) and this is "
+                "the GCS copy of it. One diary date in late September covers "
+                "both, and it is the same call: ask to be the glazing number "
+                "in the resubmission.",
+        "why": "Adam's hub message 40, 29/07/2026 (JAC-9). "
+               "data/companies/glazing-consultancy-services.md.",
+        "note": "Five contractors hold a Fenster price for this one school - "
+                "GCS, Kemdoc, Mobius Group, Roof Estimating Services and "
+                "Southern Projects. The information is worth keeping for that "
+                "reason alone: whoever ends up building it, we are already in.",
+        "state": "blocked - CIF funding bid unsuccessful, resubmission likely",
+        "owner": "Jacob",
+        "blocked": "the CIF bid was unsuccessful - no project until it is "
+                   "resubmitted and funded",
+    },
+    "7139": {
+        "next": "DO NOT chase Mark Kemery at Kemdoc about Churchdown School. "
+                "The CIF funding bid behind it failed (Darren Trigg at GCS "
+                "via Adam, 29/07/2026) - Kemdoc were bidding the main "
+                "contract, so there is nothing for them to answer and asking "
+                "tells them we do not know. The whole scheme sits on one "
+                "diary date with Darren in late September.",
+        "why": "Adam's hub message 40, 29/07/2026 (JAC-9). "
+               "data/companies/glazing-consultancy-services.md.",
+        "note": "GBP 746,616.85 here and on Mobius Group; GBP 729,116.85 on "
+                "GCS, Roof Estimating Services and Southern Projects. Two "
+                "price points, GBP 17,500 apart, one package.",
+        "state": "blocked - CIF funding bid unsuccessful, resubmission likely",
+        "owner": "Jacob",
+        "blocked": "the CIF bid was unsuccessful - no project until it is "
+                   "resubmitted and funded",
+    },
+    "7159": {
+        "next": "DO NOT chase Chris Shaw at Mobius Group about Churchdown "
+                "School - this row was NEAR THE TOP of Adam's chase list on "
+                "30/07 at GBP 746,617 and the answer had been on file since "
+                "29/07. The CIF funding bid failed (Darren Trigg at GCS via "
+                "Adam). One diary date with Darren, late September 2026.",
+        "why": "Adam's hub message 40, 29/07/2026 (JAC-9). "
+               "data/companies/glazing-consultancy-services.md.",
+        "note": "The biggest single row this correction removes from the "
+                "chase list, and the reason the correction was worth a "
+                "session: a Commercial Director ringing a contractor about a "
+                "GBP 746k job that has no funding is worse than not ringing.",
+        "state": "blocked - CIF funding bid unsuccessful, resubmission likely",
+        "owner": "Jacob",
+        "blocked": "the CIF bid was unsuccessful - no project until it is "
+                   "resubmitted and funded",
+    },
+    "7267": {
+        "next": "DO NOT chase Roof Estimating Services about Churchdown "
+                "School Academy. CIF funding bid unsuccessful (Darren Trigg "
+                "at GCS via Adam, 29/07/2026). Diary date with Darren, late "
+                "September 2026.",
+        "why": "Adam's hub message 40, 29/07/2026 (JAC-9). "
+               "data/companies/glazing-consultancy-services.md.",
+        "note": "jobs@roofestimatingservices.com is a generic estimating "
+                "mailbox with no named person on the row - worth noting if "
+                "anyone does eventually need an answer out of them.",
+        "state": "blocked - CIF funding bid unsuccessful, resubmission likely",
+        "owner": "Jacob",
+        "blocked": "the CIF bid was unsuccessful - no project until it is "
+                   "resubmitted and funded",
+    },
+    "7268": {
+        "next": "DO NOT chase James at Southern Projects about Churchdown "
+                "School Academy - the other row that was high on Adam's chase "
+                "list on 30/07, at GBP 729,117. CIF funding bid unsuccessful "
+                "(Darren Trigg at GCS via Adam, 29/07/2026). Diary date with "
+                "Darren, late September 2026.",
+        "why": "Adam's hub message 40, 29/07/2026 (JAC-9). "
+               "data/companies/glazing-consultancy-services.md.",
+        "note": "Southern Projects are in Waterlooville and the school is in "
+                "Gloucester - a reminder that the postcode on these rows is "
+                "the SITE, not the contractor, so a 'region' read off "
+                "AdminBase is the job's region and not the client's.",
+        "state": "blocked - CIF funding bid unsuccessful, resubmission likely",
+        "owner": "Jacob",
+        "blocked": "the CIF bid was unsuccessful - no project until it is "
+                   "resubmitted and funded",
+    },
+    # ---------------------------------------------------- Alexander James
+    # SIX live-quoted rows, GBP 1,910,810 ex VAT, one client, three named
+    # contacts - the largest single-client exposure on this board and nobody
+    # had opened it. Two of the six already have an answer sitting in
+    # commercial@, put there by PAUL TAYLOR, who chased both himself: one is
+    # LOST and one is PREFERRED BIDDER with a callback we promised and which
+    # runs out tomorrow. data/companies/alexander-james.md, 30/07/2026.
+    "7285": {
+        "next": "DO NOT chase Brooklands - IT IS LOST and the client told us "
+                "so on 07/05/2026. Kieran Santry to Paul Taylor, commercial@: "
+                "'Unfortunately we didn't secure this project. Many thanks "
+                "for your quotation.' Alexander James did not win the main "
+                "contract, so there is no glazing package. ADAM'S DECISION: "
+                "this row wants marking lost in AdminBase - not lost on "
+                "price, lost because our client lost. Nothing here reflects "
+                "on our number and no lesson should be read into it.",
+        "why": "Researched 30/07/2026. Source: commercial@, thread 'Alexander "
+               "James - Brooklands College', Paul Taylor out 07/05/2026, "
+               "Kieran Santry's reply the same day. "
+               "data/companies/alexander-james.md.",
+        "note": "Paul opened that chase with 'I believe you were previously "
+                "speaking with my colleague Jayk' - so the handover of Jayk's "
+                "book to Paul has been happening quietly since at least May, "
+                "on a client nobody has counted. Kieran also answered inside "
+                "a day, twice. This is a responsive client, not a silent one.",
+        "state": "LOST 07/05/2026 - our client did not win the main contract",
+        "owner": "Adam",
+    },
+    "7388": {
+        "next": "RING KIERAN SANTRY THIS WEEK - 07512899774 or 0208 961 5555. "
+                "Tiverton Road, 17 flats, GBP 547,886 ex VAT and the largest "
+                "unworked row on this board. On 05/06/2026 he told Paul "
+                "Taylor: 'We are the preferred bidder but still waiting for "
+                "the council to give us a start date. Come back to me in 6-8 "
+                "weeks and we should know more.' Paul answered 'Perfect, I'll "
+                "be in touch then.' Six to eight weeks from 05/06 is 17/07 to "
+                "31/07/2026 - THE WINDOW CLOSES TOMORROW and the callback is "
+                "ours, not his. Ask three things: has the council issued a "
+                "start date, is the windows-and-doors package still ours to "
+                "price, and does the programme need our price refreshing. Do "
+                "NOT ask whether the project is still live - he has already "
+                "answered that.",
+        "why": "Researched 30/07/2026. Source: commercial@, thread 'Fenster "
+               "Glazing Quote Ref: Tiverton Road', Paul Taylor out 05/06/2026 "
+               "14:10, Kieran Santry's reply the same day, Paul's "
+               "acknowledgement the same day. data/companies/alexander-james.md.",
+        "note": "PREFERRED BIDDER is step two of the whole job done for us - "
+                "our client is in front on a council contract and we are "
+                "already priced. AdminBase gave this row NO follow-up date at "
+                "all, which is why it appeared on nothing: it was one of 80 "
+                "undated rows worth GBP 7.0m that the daily email dropped in "
+                "silence until 30/07. Site postcode N15 6RP is Haringey; I "
+                "could not find the scheme on the planning register from the "
+                "address alone, so which council contract this is remains "
+                "unconfirmed - Kieran's answer settles it in one sentence.",
+        "state": "PREFERRED BIDDER - our promised 6-8 week callback is due now",
+        "owner": "Paul Taylor",
+    },
+    "7391": {
+        "next": "ARCHWAY ROAD IS THE ONE NOBODY HAS EVER TOUCHED - GBP 467,662 "
+                "ex VAT, quoted 23/12/2025, 219 days, no chase from anyone and "
+                "no supplier quote behind it that I can find. Ring DAN on "
+                "07971 460997: is it still live, who has the main contract, "
+                "and where did our number land. He also holds Emmbrook School "
+                "and Darrick Wood, so cover all three in the one call - but "
+                "Darrick Wood is NOT a chase, it is a revision the client is "
+                "waiting on, so read that row before dialling. Then ask what "
+                "else is coming: this client has sent seven enquiries in a "
+                "year and we have won none of them.",
+        "why": "Researched 30/07/2026. Sources: adminbase.json leads 7391, "
+               "8221, 8368 (all dan@alexanderjamesltd.co.uk); commercial@ "
+               "searched for the domain - no chase to Dan exists in "
+               "commercial@, info@ or jacob@. "
+               "data/companies/alexander-james.md.",
+        "note": "The job name is recorded as 'Archway RoadArchway Road' - an "
+                "AdminBase double-paste, one job not two. Highest-value row "
+                "of the three and the oldest, and the only one of the six "
+                "with no supplier quote I can see behind it.",
+        "state": "quoted - never chased, and Dan holds three of the six",
+        "owner": "Adam",
+    },
+    "8221": {
+        "next": "Covered by the one call to Dan on 07971 460997 - do not ring "
+                "him three times. Emmbrook School, GBP 84,005 ex VAT. Our "
+                "price went to the client on 08/05/2026 THROUGH THE ESTIMATEONE "
+                "PORTAL (Mary, 29/07, from estimating@'s sent items) - so the "
+                "silence is 83 days from the send, not 93 from the CRM's lead "
+                "date, and any reply may be sitting in a portal nobody logs "
+                "into rather than in a mailbox. A Plus quoted us GBP 41,883 "
+                "for it on 29/04/2026 (QT50628) and Daniel Charlesworth is "
+                "still waiting on feedback, so one answer from Dan closes two "
+                "loops.",
+        "why": "Researched 30/07/2026. Sources: Mary's reading of estimating@ "
+               "sent items (bot message 9, 29/07); adminbase.json lead 8221; A "
+               "Plus Aluminium's quote list of 16/07/2026, forwarded to jacob@ "
+               "by Adam on 28/07 ('please provide an update for Dan' - that "
+               "Dan is Daniel Charlesworth at A Plus, a different Dan). "
+               "data/companies/alexander-james.md.",
+        "note": "Two people called Dan sit on this one job - Dan at Alexander "
+                "James who owes us an answer, and Dan at A Plus who is owed "
+                "one by us. Do not merge them. And this client runs enquiries "
+                "through portals (EstimateOne here, their own AJ Group portal "
+                "on Darrick Wood), which is the shape that hid a GBP 174,546 "
+                "E T & S tender for a fortnight: a portal client's traffic is "
+                "on our OUTBOUND only.",
+        "state": "quoted via a portal 08/05/2026 - 83 days, no reply",
+        "owner": "Adam",
+    },
+    "8368": {
+        "next": "DARRICK WOOD IS NOT SILENT AND IT MAY BE WAITING ON US. "
+                "Submitted through AJ Group's portal 04/06/2026; GLEB SALIEV "
+                "reviewed it and came back on 09/07: 'I have now completed my "
+                "review of your quotation and, unfortunately, the quantities "
+                "and dimensions included are incorrect and do not comply.' "
+                "ADAM replied on 10/07 that we would revise. A Plus were asked "
+                "on 17/07 and Dominic Palethorpe returned QT50911 Rev1 on "
+                "24/07. Nothing on my side of the wall shows the revised "
+                "quotation going back to the client. FIRST: Mary or Gintare "
+                "confirms whether it has left (asked 30/07). If it has not, "
+                "this is a GBP 255,082 package where the client has told us "
+                "our take-off is wrong and is waiting - and it is the fourth "
+                "job this week whose price may have stopped inside Fenster.",
+        "why": "Researched 30/07/2026. Sources: Mary's reading of estimating@ "
+               "and the AJ Group portal thread (bot message 9, 29/07); the "
+               "ledger's mail_received record of A Plus QT50911 Rev1, "
+               "24/07/2026 14:07; adminbase.json lead 8368. "
+               "data/companies/alexander-james.md.",
+        "note": "This is the one Alexander James row where the client is "
+                "engaged and the ball is ours, so it must not be lumped in "
+                "with the three that are simply silent. It also says something "
+                "about the quote rather than the relationship: our quantities "
+                "and dimensions were rejected as non-compliant on a GBP 255k "
+                "package. That is Mary's to weigh, not mine.",
+        "state": "client rejected our quantities 09/07 - revision may be ours",
+        "owner": "Adam",
+    },
+    "7282": {
+        "next": "Weymouth Court, GBP 238,288 ex VAT, quoted 05/12/2025 and "
+                "silent 237 days - the one Alexander James row belonging to "
+                "GLEB (gleb@alexanderjamesltd.co.uk). Add it to the call to "
+                "Kieran rather than ringing a third contact cold: same "
+                "company, same six-enquiry relationship, and the number on "
+                "this row (0298 9615555) is a mistyped 0208 961 5555. Site is "
+                "W1W 6DA, Fitzrovia.",
+        "why": "Researched 30/07/2026. Sources: adminbase.json lead 7282; "
+               "commercial@ and info@ searched on the domain - nothing with "
+               "Gleb on my side of the wall. data/companies/alexander-james.md.",
+        "note": "Six live rows across three contacts is how a GBP 1.9m client "
+                "stays invisible: no single person at Fenster was talking to "
+                "all of it. And Gleb is GLEB SALIEV, who is anything but a "
+                "stranger - he is the man who reviewed our Darrick Wood "
+                "quotation on 09/07/2026 and rejected the quantities. This ROW "
+                "has never been chased; this CONTACT is live. Do not read my "
+                "empty mailbox search as a quiet client.",
+        "state": "quoted - never chased, 237 days",
+        "owner": "Adam",
+    },
 }
 
 # Win rate by value, from 224 priced decided rows in the Opportunity Log.
