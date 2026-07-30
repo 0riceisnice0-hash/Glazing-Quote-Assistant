@@ -75,6 +75,33 @@ because it does not need a product code to check arithmetic). FOOT_LINE and FOOT
 archive with ONE exception - Target Maintenance Gordon Court REV 2, out by GBP 411.17, recorded as a
 catch for Adam. Every pricing document we have sent foots to its own TOTAL. That is worth knowing.
 
+AUDIT POSITION AFTER THE 30/07 SECOND RUN: 27 findings across 65 documents, down from 196.
+  FOOT_LINE 1 (Gordon Court REV 2, with Adam)   FOOT_DOC 0   DISCOUNT 0
+  BUILDUP  13 in 2 documents (was 182)   SUPPLIER 13 (was 18, and earlier 16 on a broken reader)
+The BUILDUP collapse is the CW working-column finding above. The SUPPLIER drop is two false-alarm
+classes: an ADDENDUM SUPPLIER IS NOT A FRAME SUPPLIER (Crestwood's block is BSW 27,329.60 / Teleflex
+14,223.25 / total 41,552.85 and its Frames total is 27,329.60, the BSW figure exactly - the "gap" was
+Teleflex, which is an addendum row, so the check now tries subsets of the block before reporting); and
+a SUPPLIER ROW HAS TO LOOK LIKE ONE (Zelltec lists three suppliers with no costs, so the block ran into
+the first priced row and read its Additional cell as the buy - ratios of 8.268 and 22.139).
+WHAT IS LEFT IS SIX NEAR-1.00 RATIOS THAT MEAN NOTHING (0.982, 0.992, 0.995, 1.011, 1.016, 1.049) AND
+SIX REAL QUESTIONS: Brandon Estate 4.094, Wisley 1.538, CB Refrigeration 1.291, Oldswinford 0.825, ASHE
+0.778, Trafalgar House 0.657. None is called an error; each needs its supplier quotes read.
+THE NEXT IMPROVEMENT TO THIS CHECK IS NOT A TOLERANCE. Grange Hill is a REAL catch at 1.8% while six
+findings sit nearer 1.00 and mean nothing, so percentage cannot separate them. What made Grange Hill
+real is that its gap is a WHOLE UNIT - seven windows priced where BSW quote eight, GBP 419.32 each.
+Test whether the gap is an integer multiple of some line's unit frames cost.
+
+TWO THINGS FOUND IN THE DOCUMENTS THAT ARE NOT ERRORS BUT SOMEBODY SHOULD KNOW:
+  THE TEMPLATE HAS NO STEEL DOOR CODE. CB Refrigeration and Zelltec Crownhill both buy Strongdoor steel
+  doors and code them SAD/DAD, the aluminium door codes. The estimator prices them correctly - GBP
+  881-1,474/m2 against an aluminium 475-668 - so the documents are right and the engine is 31-50% under
+  on every one of those lines. Measured across the archive, a heading containing 'steel' runs x1.677.
+  ASHE - CDC rows 9 and 10 use an adder of 525.00 where MAW's is 412.50, out by exactly +112.50 on both.
+  They are a 2810x2000 and a 3580x2000 coded MAW - 5.62 and 7.16 m2, which is not a medium window - and
+  their Frames work out at GBP 111 and 120/m2 against an archive median near 400. Mis-coded, not
+  mis-added, and it is an internal DO NOT SEND document, so it is a lab note and not one for Adam.
+
 BE SLOW TO CALL SOMETHING AN ERROR. The audit produced six false alarms before it produced a real one,
 every one of which would have cost Adam a morning: the template's code adder (513 "findings"), addendum
 rows the reader did not know about (Crestwood 17,779.06, Wisley 1,419.00, Feltham 8,920.00), a label with
