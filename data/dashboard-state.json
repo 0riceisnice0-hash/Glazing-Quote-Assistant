@@ -1298,6 +1298,13 @@
    "type": "priced line with no supplier cost behind it - cost exposure, not a client error",
    "value": "GBP 190.41 of unquoted buy, on a sell of GBP 1,202.91",
    "catch": "Row 13, 'L1 - Louvre', 700x400, qty 3, Frames GBP 63.47 each, appears in NO supplier quote. The document's supplier table is Aplus 13,681.53 + DuK 3,990.00 = 17,671.53; rows 9-12 total 13,681.53 EXACTLY (Aplus) and the 'Sliding door automation' row totals 3,990.00 EXACTLY (DuK), leaving the louvre's 3 x 63.47 = 190.41 with nothing behind it. The sell is built correctly by the template - 63.47 + 0.75 x the SAW code value 450 = 400.97, the unit rate to the penny - so the client price is not wrong. The question is whether the louvre is in the Aplus quote at all and whether 63.47 is a real trade price for a 700x400 louvre or a placeholder. Small money; recorded because it is the same defect class as Brocks Hill and the check now finds it automatically."
+  },
+  {
+   "date": "2026-07-30",
+   "job": "ASHE - L&D (CDC) and Zelltec - Wisley Golf Club - the same supplier cost cell in two unrelated jobs",
+   "type": "internal cost record wrong in at least one and probably both documents - not a client-facing arithmetic error",
+   "value": "GBP 31,335.40 stated; ASHE's BSW quote is GBP 5,234.68 and Wisley's is GBP 27,342.04",
+   "catch": "'Supplier used: BSW 31,335.40' appears TO THE PENNY in both 'DO NOT SEND - ASHE - CDC - Pricing Document.xlsx' and 'Zelltec - Wisley Golf Club Pricing - Copy.xlsx'. Different clients, different jobs, and it is the ONLY cross-client duplicate supplier figure in all 65 audited documents. A pricing document is made by saving the last one under a new name and that cell is typed by hand, so it is the cell most likely to be left behind. NEITHER DOCUMENT RECONCILES TO IT AND NEITHER JOB'S QUOTES SUPPORT IT: in ASHE's own supplier folder the BSW quote 'cdc luton and dunstable.pdf' has Grand Total Net GBP 5,234.68 - which is exactly the Frames figure of ASHE row 12, the DE-00-001 entrance door - while ASHE's Frames column totals about GBP 24,388. In Wisley's folder 'wisley golf club.pdf' has Grand Total Net GBP 27,342.04 with a second quote at GBP 19,020.75, against a Frames total of GBP 48,201.95. So the 31,335.40 belongs to neither. THIS CLOSES TWO OF THE BOARD'S SIX OPEN SUPPLIER QUESTIONS AS ONE CAUSE: Wisley's ratio of 1.538 and ASHE's of 0.778 were recorded as separate puzzles and are the same defect. Neither is an error in a price a client was given - both documents foot - but the internal cost and margin record for both jobs is wrong, and Wisley is not marked DO NOT SEND. Found by a new cross-document check, SUP_DUP, because no document-at-a-time audit can see it."
   }
  ],
  "register": {

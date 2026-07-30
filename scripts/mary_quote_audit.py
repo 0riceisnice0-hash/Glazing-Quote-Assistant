@@ -511,6 +511,40 @@ def audit(doc):
     return out
 
 
+def cross_document(docs):
+    """One check that cannot be done a document at a time: the SAME supplier cost
+    figure appearing in two unrelated jobs.
+
+    A pricing document is made by saving the last one under a new name, and the
+    'Supplier used:' cell is typed in by hand, so it is the cell most likely to be
+    left behind. Across 65 documents there is exactly ONE cross-client duplicate
+    and it is real: GBP 31,335.40 sits in ASHE - CDC and in Zelltec's Wisley Golf
+    Club, two unrelated jobs, and NEITHER document's Frames column reconciles to
+    it - Wisley at ratio 1.538 and ASHE at 0.778, which the board had recorded as
+    two separate open questions. They are one cause.
+
+    Same client and same job is NOT a finding: the two Brandon Estate revisions
+    share Vetroseal 679,820.32 and 4Ali 3,166,748.58 because they are re-prices of
+    one estate off the same supplier quotes, which is exactly right."""
+    out = []
+    seen = {}
+    for d in docs:
+        for label, val in (d.get("supplier_parts") or []):
+            seen.setdefault(round(val, 2), []).append((d, label))
+    for val, rows in sorted(seen.items()):
+        jobs = {(r[0].get("client"), r[0].get("job")) for r in rows}
+        if len(rows) > 1 and len(jobs) > 1:
+            for d, label in rows:
+                others = [r[0]["file"] for r in rows if r[0] is not d]
+                out.append((d, {
+                    "check": "SUP_DUP", "row": None, "code": "", "money": round(val, 2),
+                    "detail": "'%s' cost %.2f is the SAME FIGURE TO THE PENNY as in %s, a "
+                              "different job - one of them is a cell left behind by a save-as, "
+                              "and neither document's frames reconcile to it"
+                              % (label or "?", val, "; ".join(o[:52] for o in others))}))
+    return out
+
+
 def collect_docs():
     seen, docs = set(), []
     for q in reader.scan(cal.TENDERS):
@@ -537,10 +571,14 @@ def main():
     docs = [d for d in ([read_doc(args.doc)] if args.doc else collect_docs()) if d]
     print("audited %d sent pricing document(s)\n" % len(docs))
 
+    extra = {}
+    for d, x in cross_document(docs):
+        extra.setdefault(id(d), []).append(x)
+
     by_check = {}
     total_findings = 0
     for d in sorted(docs, key=lambda x: x["file"]):
-        f = audit(d)
+        f = audit(d) + extra.get(id(d), [])
         for x in f:
             by_check.setdefault(x["check"], []).append((d["file"], x))
         if args.check:
@@ -559,7 +597,7 @@ def main():
 
     print("=" * 78)
     print("%d finding(s) shown across %d document(s)" % (total_findings, len(docs)))
-    for c in ("FOOT_LINE", "FOOT_DOC", "DISCOUNT", "BUILDUP", "SUPPLIER"):
+    for c in ("FOOT_LINE", "FOOT_DOC", "DISCOUNT", "BUILDUP", "SUPPLIER", "SUP_DUP"):
         hits = by_check.get(c, [])
         print("  %-10s %3d finding(s) in %2d document(s)"
               % (c, len(hits), len(set(h[0] for h in hits))))
