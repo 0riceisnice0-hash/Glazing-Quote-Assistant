@@ -1,0 +1,40 @@
+486 lines dated, 0 document(s) with no readable date: 
+
+BY YEAR - ratio of the line's own supply rate to its code+band median
+YEAR          n   DOCS  MED RATIO MEAN RATIO
+2026        486     29      1.000      1.082
+
+PER JOB MEDIAN - so one big document cannot carry the trend
+   2026.25   0.902  Rooff Construction - St. Christopher's the Hall School Pri
+   2026.42   0.878  DO NOT SEND Pricing Document - Brandon Estate.xlsx
+   2026.42   0.905  DO NOT SEND - ASHE - CDC - Pricing Document.xlsx
+   2026.42   1.000  COMAR - DO NOT SEND Pricing Document - Brandon Estate - Co
+   2026.42   1.000  DO NOT SEND Elkins - Brandon Estate Pricing Document.xlsx
+   2026.42   1.228  Pearce Construction - Woodland Vale Pricing - DO NOT SEND.
+   2026.42   1.541  CB Refrigeration Workshop - Pricing Document - DO NOT SEND
+   2026.50   0.556  Fortis Vision - Unite-Favell House Pricing.xlsx
+   2026.50   0.808  Zelltec - Units 16 & 18 Crownhill Business Centre Pricing 
+   2026.50   0.869  Chigwell - Grange Hill Methodist Church Ext Pricing DO NOT
+   2026.50   0.894  Guildmore Planned Works - Princess Beatrice House Pricing 
+   2026.50   0.906  Pearce Construction - Greenfields Respite Barnstaple Prici
+   2026.50   0.906  TSL - Topek Southern - Trafalgar House Pricing - DO NOT SE
+   2026.50   0.934  Zelltec - Wisley Golf Club Pricing - Copy.xlsx
+   2026.50   0.946  Stepnell - BCC Filwood Broadway Pricing.xlsx
+   2026.50   0.947  Zelltec - Units 16 & 18 Crownhill Business Centre Pricing 
+   2026.50   1.006  ET & S Construction - St Mary's Refurbishment Pricing - DO
+   2026.50   1.011  Reynolds Conservation Ltd - Crestwood Park Primary School 
+   2026.50   1.030  Highwood Group - Whitsbury Road Pricing - DO NOT SEND.xlsx
+   2026.50   1.046  Reynolds Conservation - Oldswinford Primary School Pricing
+   2026.50   1.064  Ryebridge Construction - Luton Airport - Departure Gates 1
+   2026.50   1.067  SMD - Brocks Hill Phase 2 Teaching Block Pricing.xlsx
+   2026.50   1.068  Chigwell Group - Gordon Court Pricing DO NOT SEND.xlsx
+   2026.50   1.127  Chigwell Group - Leys Sports Pavilion Refurbishment Pricin
+   2026.50   1.147  The Church of Jesus Christ of Latter-day Saints - Hastings
+   2026.50   1.167  SM5 Developments - Wexham Primary Pricing - DO NOT SEND.xl
+   2026.50   1.942  Stewarts CC - Tradeteam Stretton Pricing - Copy.xlsx
+   2026.50   2.516  Target Maintanance - Tenbury Close Pricing DO NOT SEND.xls
+   2026.50   2.911  Pearce Construction - Georgie's (formerly Rosebank) Pricin
+
+LEAST SQUARES on the per-JOB medians
+  slope +1.0660 ratio per year   R^2 0.0139 over 29 jobs   span 0.2 years
+  over the archive's span that is +26.6%

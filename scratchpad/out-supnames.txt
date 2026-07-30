@@ -1,0 +1,60 @@
+26 documents with a supplier block
+
+DOCUMENT                                        NAM  FIG         BUY  FRAMES     F+G   WHOLE 
+DO NOT SEND Pricing Document - Brandon Estate.    2    1     362,678   4.094   5.171   5.448 GLASS
+      BSW / Vetroseal
+Zelltec - Wisley Golf Club Pricing - Copy.xlsx    1    1      31,335   1.538   1.538   1.538 
+      BSW
+TSL - Topek Southern - Trafalgar House Pricing    3    2      25,207   0.657   0.919   1.119 GLASS
+      TruFrame / Vetroseal / Ikon
+Reynolds Conservation Ltd - Crestwood Park Pri    2    4      41,553   0.658   0.658   0.658 
+      BSW / Teleflex
+CB Refrigeration Workshop - Pricing Document -    3    5      48,452   1.291   1.291   1.291 
+      BSW / BSW CW / Strongdoor
+DO NOT SEND - ASHE - CDC - Pricing Document.xl    1    2      31,335   0.778   0.778   0.885 
+      BSW
+COMAR - DO NOT SEND Pricing Document - Brandon    2    4   3,846,569   0.823   0.991   1.000 GLASS
+      4Ali / Vetroseal
+DO NOT SEND Elkins - Brandon Estate Pricing Do    2    4   3,846,569   0.823   0.991   1.006 GLASS
+      4Ali / Vetroseal
+Reynolds Conservation - Oldswinford Primary Sc    2    4      41,209   0.825   0.825   0.998 
+      Aplus / Teleflex
+Rooff Construction - St. Christopher's the Hal    2    4      12,109   0.917   0.974   0.974 
+      BSW / BSW
+SMD - Brocks Hill Phase 2 Teaching Block Prici    1    4      55,055   1.049   1.049   1.049 
+      BSW
+Chigwell - Grange Hill Methodist Church Ext Pr    1    4      22,831   0.982   0.982   1.113 
+      BSW
+Highwood Group - Whitsbury Road Pricing - DO N    2    3     114,308   1.016   1.016   1.157 
+      BSW / BSW
+Fortis Vision - Unite-Favell House Pricing.xls    2    4      17,672   1.011   1.011   1.113 
+      Aplus / DuK
+ET & S Construction - St Mary's Refurbishment     1    4      91,409   0.992   0.992   1.044 
+      BSW
+Guildmore Planned Works - Princess Beatrice Ho    1    4     128,685   0.995   0.999   1.015 
+      Aplus
+Pearce Construction - Georgie's (formerly Rose    3    5      50,563   0.997   0.997   1.000 
+      BSW / BSW / Mercury
+Chigwell Group - Leys Sports Pavilion Refurbis    1    5      15,082   1.000   1.000   1.099 
+      BSW
+Target Maintanance - Tenbury Close Pricing DO     1    2      10,663   1.000   1.000   1.150 
+      Granada
+Pearce Construction - Woodland Vale Pricing -     1    2      13,101   1.000   1.000   1.000 
+      BSW
+Stepnell - BCC Filwood Broadway Pricing.xlsx      1    2      46,068   1.000   1.000   1.152 
+      BSW
+SM5 Developments - Wexham Primary Pricing - DO    1    4      12,366   1.000   1.000   1.040 
+      BSW
+Pearce Construction - Greenfields Respite Barn    1    5      65,594   1.000   1.000   1.023 
+      BSW
+Ryebridge Construction - Luton Airport - Depar    1    2       6,945   1.000   1.000   1.175 
+      BSW
+Chigwell Group - Gordon Court Pricing DO NOT S    2    3     201,087   1.000   1.000   1.000 
+      BSW / Aluminium Fire System
+Stewarts CC - Tradeteam Stretton Pricing - Cop    1    2       1,541   1.000   1.000   1.000 
+      Aplus
+
+DOES 'THE BLOCK NAMES A GLASS MERCHANT' PICK THE RIGHT COMPARISON?
+                               n  |F-1| med    |F+G-1|  |WHOLE-1|
+block names glass              4      0.260      0.045      0.062
+block does not                22      0.006      0.005      0.074

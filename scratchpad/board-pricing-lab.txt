@@ -8,7 +8,30 @@ several times a night. It yields to real work only if a session is ALREADY runni
 arrives mid-lab waits for it. At night that is the intended trade. No lab session starts that cannot
 finish before 07:00, so it can never be holding the lock when the 07:45 update wants it.
 
-THE ENGINE'S CURRENT POSITION, for anyone quoting an accuracy number (30/07, THIRD run):
+THE ENGINE DID NOT MOVE ON 31/07 AND THAT IS THE HONEST HEADLINE. Four hypotheses tested leave-one-JOB-
+out, all four rejected, no engine change made: quantity (R^2 0.011), date (the archive is 0.2 years
+long), MIN_LEARNED_N (already at its optimum), coarser size bands (much worse). The night's work was all
+on the AUDIT side, where two of the four open supplier questions closed. Position below is unchanged.
+
+WHERE THE NEXT SESSION SHOULD START, in order, written 31/07:
+  1. BRANDON ESTATE 4.094, the last big open supplier question and GBP 1.12m of apparent gap on a
+     GBP 3.17m document. It is the EARLIER 11-line revision, block BSW + Vetroseal = 362,678.40 against
+     a Frames column of 1,484,932.13. The other two revisions of the same estate reconcile at 0.991 and
+     1.006, so this is one document out of step with its own siblings - compare the three line by line
+     before opening a supplier quote. Suspect a block figure that was never updated when the job grew.
+  2. CB REFRIGERATION 1.291. Block is BSW + BSW CW + Strongdoor. Strongdoor is the steel-door supplier
+     the template has no code for (see the heading negative), so the Frames column may be carrying
+     steel-door money that one of the three figures does not.
+  3. THE COUPLER CLASS IS NOW NAMED BUT NOT CHECKED. Oldswinford proves a frame supplier's quote can
+     carry priced items that are not windows and so have no Frames cell. Nothing in the audit reads
+     supplier PDFs. If a future session wants a real advance rather than another rate, that is it:
+     parse the quote, not just the block total.
+  4. THE ENGINE'S RESIDUAL IS PRODUCT IDENTITY AND EVERY CHEAP ANGLE ON IT IS NOW CLOSED - heading,
+     bands, quantity, date, threshold. What is left is per-job medians of 2.911 (Georgie's sliding
+     sash), 2.516 (Tenbury), 1.942 (Tradeteam) against 0.556 (Favell House). Do NOT open this without a
+     new IDEA; re-running the closed ones costs an hour each and the board says so in five places.
+
+THE ENGINE'S CURRENT POSITION, for anyone quoting an accuracy number (30/07, THIRD run; UNCHANGED 31/07):
   --loo  leave-one-JOB-out       mean abs 13.28%, median 7.92%, bias -2.01%, 15/29 within 10, 24/29 within 25
   --holdout --folds              register only 19.37%, with learned rates 13.20% mean of folds
   money-weighted, whole archive  human 16,036,021 v Mary 17,053,501 = +6.34%, mean abs by money 7.30%
