@@ -298,14 +298,37 @@ def audit(doc):
     #    first run of this audit did exactly that: 513 findings, all of them the
     #    adder, none of them errors. What is left after the adder is modelled is
     #    money in the unit rate that the document does not explain.
-    comps = [c for c in ("frames", "glass", "additional", "cw") if c in doc["cols"]]
+    #
+    #    CW IS NOT IN THE BUILD-UP OF A CODED UNIT LINE. It is a working column.
+    #    Including it left 156 of 508 lines with components EXCEEDING their own
+    #    unit rate, which the board had set aside as Brandon Estate being "not
+    #    per-unit money". It is not a Brandon property. The header reads
+    #    Frames | Glass | Additional | CW | CW LABOUR | CW SQM, and on every one
+    #    of those 156 lines - all 156, without exception - the CW cell equals
+    #    area x GBP 850.00, which is CW_SUPPLY_M2. It is the estimator asking
+    #    "what would this opening cost as curtain walling instead", parked in a
+    #    spare column. Oldswinford row 9 proves it on its face: Frames 1,003.70
+    #    + Additional 210.00 + LAW adder 487.50 = 1,701.20, the unit rate to the
+    #    penny, while the CW cell says 2,041.67 and CW SQM says 2.40.
+    #    Dropping it takes reconciliation from 352/508 to 495/508.
+    #    A GENUINE curtain-walling line is a different row: no product code, a
+    #    CW LABOUR figure filled in, and Frames equal to the CW money (CB
+    #    Refrigeration CWT-A, 17.69m2, 15,036.50 = 850 x 17.69 with labour
+    #    2,653.50 = 150 x 17.69). Those rows have no code, so BUILDUP skips them
+    #    anyway - which is why excluding CW here loses no coverage.
+    comps = [c for c in ("frames", "glass", "additional") if c in doc["cols"]]
     if comps:
         for r in doc["rows"]:
             parts = [r[c] for c in comps if r[c] is not None]
             if not parts or r["frames"] is None or not r["code"]:
                 continue
-            area = r["area"] if r["area"] else 0.0
-            adder = engine.CODE_VALUE.get(r["code"], 0) * engine.adder_factor(area)
+            #    0.75 FLAT, not engine.adder_factor(). The engine carries 1.25
+            #    above 6m2 as an admitted fudge for money it does not model
+            #    (30/07). This check asks what the DOCUMENT did, and the
+            #    document uses 0.75 in every band - measured over 508 lines.
+            #    Feeding an engine fudge into an arithmetic check invents
+            #    findings on exactly the largest, dearest lines.
+            adder = engine.CODE_VALUE.get(r["code"], 0) * engine.ADDER_FACTOR
             built = sum(parts) + adder
             gap = r["unit_rate"] - built
             if abs(gap) > max(PENCE, abs(r["unit_rate"]) * 1e-6):
