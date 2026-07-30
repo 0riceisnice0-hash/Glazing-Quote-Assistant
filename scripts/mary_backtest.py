@@ -161,6 +161,29 @@ def score_doc(doc, learned=None):
             "per_line": per_line}
 
 
+def doc_signature(doc):
+    """Identify a pricing document by what it PRICES, not by what it is called.
+
+    A job folder routinely holds the same quote several times over - 'X.xlsx',
+    'X (1).xlsx', 'X DO NOT SEND.xlsx' - and collect() used to return every one
+    of them, so the corpus counted Zelltec Crownhill three times. Filename
+    matching is the obvious fix and it is the wrong one: two of the '- Copy'
+    files in this archive (Wisley Golf Club, Tradeteam Stretton) are the ONLY
+    copy of their job, and dropping them on the name would have lost real
+    evidence. Same priced lines and same money is the test."""
+    return json.dumps([[l["code"], l["w"], l["h"], l["qty"], l["unit_rate"], l["frames"]]
+                       for l in doc["lines"]], sort_keys=True)
+
+
+def _copy_rank(name):
+    """Among identical copies, prefer the plainest filename for the report."""
+    n = name.lower()
+    return (1 if "do not send" in n else 0,
+            1 if "copy" in n else 0,
+            1 if re.search(r"\(\d+\)", n) else 0,
+            len(n))
+
+
 def collect(limit=None):
     docs = []
     for q in reader.scan(TENDERS):
@@ -170,9 +193,26 @@ def collect(limit=None):
         if d:
             d["client"], d["job"] = q["client"], q["job"]
             docs.append(d)
-            if limit and len(docs) >= limit:
-                break
-    return docs
+
+    # One job, one vote. Before this, the scan mean was weighted by how many
+    # copies of a file happened to sit in a folder. NOTE, measured 30/07: this
+    # does NOT move accuracy - three folds put it at 0.01/0.04/0.00 points, with
+    # one fold favouring each arm, because a median over 500 lines barely
+    # notices 8 of them counted twice over. It is a reporting fix, not a rate
+    # fix, and the next person should not expect the error to fall.
+    unique, seen = [], {}
+    for d in docs:
+        sig = doc_signature(d)
+        if sig in seen:
+            d["duplicate_of"] = seen[sig]["file"]
+            if _copy_rank(d["file"]) < _copy_rank(seen[sig]["file"]):
+                seen[sig]["file"], d["file"] = d["file"], seen[sig]["file"]
+            continue
+        seen[sig] = d
+        unique.append(d)
+        if limit and len(unique) >= limit:
+            break
+    return unique
 
 
 def learn(docs):
