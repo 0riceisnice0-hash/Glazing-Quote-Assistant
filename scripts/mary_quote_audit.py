@@ -147,6 +147,8 @@ def read_doc(path):
                     cols["additional"] = i
                 elif t == "cw":
                     cols["cw"] = i
+                elif t == "description":
+                    cols["desc"] = i
 
             # Everything below the priced lines and above TOTAL* is an addendum
             # row - INSTALLATION, EXTERNAL MASTIC, TELEFLEX - and every one of
@@ -207,6 +209,21 @@ def read_doc(path):
                     doc["extras"].append(entry)
                     if label.strip().lower() == "installation" and not entry["optional"]:
                         doc["installation"] = max(vals)
+                    continue
+                # NOT an addendum and not priced: it is a SECTION HEADING, and it
+                # is what makes the supplier check able to say WHERE a gap is.
+                # A document is organised in blocks under a heading naming the
+                # system - 'SMA Smart Wall Doors', then 'Sheerline Aluminium
+                # Windows' - and the 'Supplier used:' table above is one row per
+                # supplier. The two line up: Brocks Hill's Sheerline block totals
+                # 37,960.33 and its second supplier figure IS 37,960.33.
+                d = cols.get("desc")
+                head = str(cells[d]).strip() if d is not None and isinstance(cells[d], str) else ""
+                if head and not SIZE_RE.search(head) and sum(c.isalpha() for c in head) >= 4 \
+                        and not head.lower().startswith(
+                            ("client", "project", "site", "date", "description", "product",
+                             "total", "installation", "*", "optional")):
+                    doc["heading"] = head
                 continue
 
             # A PRICED row is one with a quantity and a rate. It does NOT need a
@@ -222,7 +239,7 @@ def read_doc(path):
             m = SIZE_RE.search(size)
             area = round(int(m.group(1)) / 1000.0 * int(m.group(2)) / 1000.0, 4) if m else None
             doc["rows"].append({
-                "row": rn, "code": code,
+                "row": rn, "code": code, "heading": doc.get("heading", ""),
                 "desc": str(cells[2] or "").strip()[:40],
                 "size": size, "area": area, "qty": qty, "unit_rate": unit_rate,
                 "line_total": _num(cells[cols["line_total"]]) if "line_total" in cols else None,
@@ -403,9 +420,91 @@ def audit(doc):
                 if abs(ratio - f) < 0.01:
                     note = " - consistent with %s" % label
                     break
+            # WHICH BLOCK IS THE GAP IN? A document-level gap says nothing about
+            # where to look; a block-level one names the row. The document is
+            # organised in blocks under a system heading and the 'Supplier used:'
+            # table is one row per supplier, and they line up: Brocks Hill's
+            # Sheerline block totals 37,960.33 against a second supplier figure of
+            # 37,960.33 EXACTLY, so the whole of its 2,723.49 gap is in the Smart
+            # Wall door block. Pair greedily, largest block first, and only report
+            # the localisation when the per-block residuals add back to the
+            # document gap - otherwise the pairing is a guess and says nothing.
+            blocks = {}
+            for r in doc["rows"]:
+                if r.get("frames") is not None:
+                    blocks.setdefault(r.get("heading") or "", []).append(r)
+            local = None
+            if len(blocks) > 1 and len(parts) > 1:
+                free = list(parts)
+                pairs = []
+                for head, rs in sorted(blocks.items(),
+                                       key=lambda kv: -sum(r["frames"] * r["qty"] for r in kv[1])):
+                    tot = sum(r["frames"] * r["qty"] for r in rs)
+                    best = None
+                    for mask in range(1, 1 << min(len(free), 6)):
+                        subset = [free[b] for b in range(min(len(free), 6)) if mask >> b & 1]
+                        d = abs(tot - sum(v for _, v in subset))
+                        if best is None or d < best[0]:
+                            best = (d, subset)
+                    if best is None:
+                        continue
+                    for s in best[1]:
+                        free.remove(s)
+                    pairs.append((head, rs, tot, sum(v for _, v in best[1]), best[1]))
+                if pairs and abs(sum(t - s for _, _, t, s, _ in pairs) - gap) <= 0.05:
+                    off = [p for p in pairs if abs(p[2] - p[3]) > 0.05]
+                    if len(off) == 1 and len(pairs) > 1:
+                        local = off[0]
+                        note += (" - LOCALISED: %d of %d blocks reconcile to the penny and the "
+                                 "whole gap is in '%s' (%s), which prices %.2f against %s %.2f"
+                                 % (len(pairs) - 1, len(pairs), local[0][:40],
+                                    ", ".join("row %s" % r["row"] for r in local[1][:6]),
+                                    local[2], "+".join(lb or "?" for lb, _ in local[4]),
+                                    local[3]))
+
+            # IS THE GAP A WHOLE UNIT? This is the test that separates a real
+            # catch from a rounding difference, and percentage cannot do it.
+            # Grange Hill is a REAL error at ratio 1.018 - seven windows priced
+            # where BSW quote eight, GBP 419.32 each - while six other findings
+            # sit nearer 1.00 than that and mean nothing. What made Grange Hill
+            # real is that its gap is an EXACT MULTIPLE of one line's unit frames
+            # cost, which is what a missed or doubled opening looks like. An
+            # arithmetic slip, a rounding, or a supplier revision does not land on
+            # a multiple of a unit price.
+            #
+            # THE MATCH HAS TO BE EXACT, to a penny a unit. GBP 1 is far too
+            # loose and lets a near-miss in: Princess Beatrice is 668.41 out
+            # against a 668.94 unit, which is 53p adrift and therefore NOT a
+            # whole unit, but a pound of slack reported it as one. A real missed
+            # opening is exact, because it is the same cell multiplied.
+            # Only k = 1..4, and never more than the line's own quantity + 1,
+            # because "the gap is 19 of these" is a coincidence hunt.
+            # Search the LOCALISED block's rows when there is one - the gap
+            # cannot be a unit from a block that already reconciles.
+            whole = []
+            for r in (local[1] if local else doc["rows"]):
+                if not r.get("frames"):
+                    continue
+                unit = r["frames"]
+                if unit < 50:
+                    continue
+                k = round(abs(gap) / unit)
+                if 1 <= k <= min(4, r["qty"] + 1) \
+                        and abs(abs(gap) - k * unit) <= max(0.02, k * 0.01):
+                    whole.append((k, unit, r))
+            if whole:
+                k, unit, r = min(whole, key=lambda w: w[0])
+                note += (" - AND THE GAP IS %d x GBP %.2f EXACTLY, the unit frames cost of row %s "
+                         "'%s' (qty %g): %s" % (
+                             k, unit, r["row"], (r.get("desc") or "")[:26], r["qty"],
+                             "the document prices %g of it where the supplier quotes %g"
+                             % (r["qty"], r["qty"] + k) if gap < 0 else
+                             "the document prices %g of it where the supplier quotes %g"
+                             % (r["qty"], r["qty"] - k)))
             out.append({
                 "check": "SUPPLIER", "row": None, "code": "",
                 "money": round(gap, 2),
+                "whole_unit": bool(whole),
                 "detail": "frames total %.2f against '%s' buy %.2f, ratio %.3f%s"
                           % (frames_sum, doc["supplier"] or "?", doc["supplier_cost"],
                              ratio, note)})
