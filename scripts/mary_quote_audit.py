@@ -110,8 +110,23 @@ def read_doc(path):
                     and doc["_sup_row"] <= rn <= doc["_sup_row"] + 6):
                 i = doc["_sup_col"]
                 money = [m for m in (_num(c) for c in cells[i + 1:]) if m and m > 1]
-                if money:
-                    doc["_sup_vals"].append((rn, max(money)))
+                # AND the row has to LOOK like a supplier row. The stop-at-first-
+                # empty-row rule is not enough on its own: Zelltec Crownhill
+                # lists three suppliers with NO costs against them, so the block
+                # never hits an empty row before the window runs out and the
+                # first priced row's Additional cell got read as the buy. Hence
+                # ratios of 8.268 and 22.139 on two Zelltec documents.
+                # A supplier row carries a NAME in the column straight after
+                # 'Supplier used:' (BSW, Aluminium Fire Systems, Teleflex); the
+                # block's total row leaves that cell empty and puts the figure
+                # further right. A PRICED row has a number there - that is its
+                # Additional column - so requiring a name-or-empty excludes it.
+                label = cells[i + 1] if len(cells) > i + 1 else None
+                looks_like = isinstance(label, str) and label.strip() != "" \
+                    or label is None or str(label).strip() == ""
+                if money and looks_like:
+                    doc["_sup_vals"].append(
+                        (rn, str(label).strip() if isinstance(label, str) else "", max(money)))
                 elif doc["_sup_vals"]:
                     doc["_sup_done"] = True
 
@@ -221,15 +236,20 @@ def read_doc(path):
         # ones above it, that is the block's own total and the rest are its
         # parts. Otherwise take the sum, which is the same answer when there is
         # only one supplier.
-        vals = [v for _, v in doc["_sup_vals"]]
+        vals = [v for _, _, v in doc["_sup_vals"]]
+        labels = [lb for _, lb, _ in doc["_sup_vals"]]
         if vals:
             parts, last = vals[:-1], vals[-1]
             if parts and abs(sum(parts) - last) <= 0.02:
                 doc["supplier_cost"] = last
                 doc["supplier_n"] = len(parts)
+                # Keep the PARTS, not just the total. Not every supplier in the
+                # block is a frame supplier - see the SUPPLIER check.
+                doc["supplier_parts"] = list(zip(labels[:-1], parts))
             else:
                 doc["supplier_cost"] = sum(vals)
                 doc["supplier_n"] = len(vals)
+                doc["supplier_parts"] = list(zip(labels, vals))
     finally:
         wb.close()
     return doc if doc["rows"] else None
@@ -342,8 +362,35 @@ def audit(doc):
                                  adder, built, r["unit_rate"])})
 
     # 4. The frames must reconcile to the supplier quote the document names.
+    #
+    #    NOT EVERY SUPPLIER IN THE BLOCK IS A FRAME SUPPLIER, and this was the
+    #    single biggest source of SUPPLIER noise. Crestwood Park heads its block
+    #    BSW 27,329.60 / Teleflex 14,223.25 / total 41,552.85, and its Frames
+    #    column totals 27,329.60 - the BSW figure EXACTLY. It was reported as
+    #    -14,223.25 out at ratio 0.658, and that gap is the Teleflex line to the
+    #    penny. Teleflex is not framing: it is a separate scope item that appears
+    #    as an ADDENDUM ROW below the priced lines, which is the same Teleflex
+    #    the footing checks already know about. Frames cannot contain it.
+    #    So before reporting a gap, try the SUBSETS of the block. If the frames
+    #    total matches any subset, the document reconciles and the suppliers left
+    #    out are addendum suppliers - report nothing and say which matched.
+    #    Only a frames total that matches NO subset is a real question.
     if doc["supplier_cost"] and any(r["frames"] is not None for r in doc["rows"]):
         frames_sum = sum(r["frames"] * r["qty"] for r in doc["rows"] if r["frames"] is not None)
+        parts = doc.get("supplier_parts") or []
+        if len(parts) > 1 and abs(frames_sum - doc["supplier_cost"]) > max(
+                1.0, doc["supplier_cost"] * SUPPLIER_TOL):
+            matched = None
+            for mask in range(1, 1 << min(len(parts), 8)):
+                subset = [parts[b] for b in range(min(len(parts), 8)) if mask >> b & 1]
+                tot = sum(v for _, v in subset)
+                if tot and abs(frames_sum - tot) <= max(1.0, tot * SUPPLIER_TOL):
+                    # Prefer the explanation that leaves fewest suppliers out.
+                    if matched is None or len(subset) > len(matched):
+                        matched = subset
+            if matched:
+                doc["supplier_subset"] = matched
+                doc["supplier_cost"] = sum(v for _, v in matched)
         gap = frames_sum - doc["supplier_cost"]
         if abs(gap) > max(1.0, doc["supplier_cost"] * SUPPLIER_TOL):
             ratio = frames_sum / doc["supplier_cost"]
