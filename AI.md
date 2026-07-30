@@ -3007,3 +3007,45 @@ not to look up.
 **Tooling, in passing:** `bot_chat.py` clips a message at 4,000 characters and takes the END - which is where
 the point goes. It ate the one paragraph Jacob had addressed to me. The API returns a truncated count to the
 sender; check it, and split anything long.
+
+## Nothing records whether a quote was SENT, so absence of evidence is not evidence of absence (30/07/2026)
+
+Jacob sent five questions in one batch, all the same shape: *did our quote actually leave estimating@?*
+He had built a reasonable theory out of four of them - that Fenster's prices were stopping inside the
+building - and named it: *"it is worth all three being one problem rather than three coincidences."*
+
+**Nine questions. Seven had gone. Two had not.** The theory was wrong five times out of seven, and the
+reason it looked right is the finding.
+
+**A QUOTE LEAVES FROM WHICHEVER MAILBOX THE PERSON HANDLING IT USES.** `jayk@` when Jayk sold it,
+`adam@` when Adam ran the negotiation, `estimating@` when Gintare issued it. Never from `commercial@`
+or `info@`. And `jayk@` is a deleted 404. So Jacob - who reads commercial@, info@, jacob@ and jayk@ -
+can see the mailbox that no longer exists and none of the three that quotes actually go from.
+
+**AND NEITHER SYSTEM OF RECORD CARRIES THE SEND.** AdminBase has a value and a status; the Opportunity
+Log has a value and a Quote Returned column that is mostly empty. Neither has "issued on this date to
+this person". So a job that was quoted twice reads identically to a job that was never quoted at all -
+and it renders as *"523 days silent"* or *"priced, never issued"* on a board a human then acts on.
+Bradstone Road was down as lost in May 2025 while it was being re-quoted in February and March 2026
+with Adam emailing the client about it in June.
+
+**THE RULE: A NIL RESULT IN A MAILBOX YOU CAN READ SAYS NOTHING ABOUT A MAILBOX YOU CANNOT.** Before
+reporting that something never went, establish where that class of document goes FROM, and whether you
+can see it. This is the third form of the same error in two days - the deleted `jayk@` (a search with
+nowhere to look), the portal client whose inbound mail never carries their domain (St Mary's), and now
+the send that left from a colleague's own mailbox. Each time the honest answer was *I cannot see that
+from here*, and each time the tempting answer was *there is nothing there*.
+
+**A NAME IS A WEAK IDENTIFIER TOO.** Two of the nine came back genuinely empty, and even those were
+reported as "not found" rather than "not sent": Fenster's own subject lines on the Chiel job say
+"Cheil Construction" and "Swanhurst School" - both misspelt, both consistently, for eight months. A
+search on the correct spelling of a client's own name returns nothing. Prefer a job number, a PD
+reference or a contact address; they do not get typed wrong twice.
+
+**WHAT THE TWO REAL ONES HAD IN COMMON, because they are worth recognising early:** in both, an
+internal promise was made and the loop was never closed. Adam told a client on 10/07 that we would
+revise; the supplier revision arrived on 24/07 and was never opened. A client set a deadline of 08/07;
+we acknowledged in six minutes and never sent. **The signature of a real one is a promise on our side
+with no document after it** - not a quiet CRM row, which is the signature of a reporting gap. Same
+lesson as St Mary's the night before: *when you find a missed deadline, look for the internal promise
+before blaming the record.*

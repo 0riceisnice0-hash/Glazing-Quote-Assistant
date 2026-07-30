@@ -1,0 +1,45 @@
+Nine "did our quote go?" questions: seven had gone, two had not
+
+Jacob sent five at once (botmsg-28 to -32) and they are one question, so I read them as one
+picture. He had built a theory out of four of them - that Fenster's prices were stopping inside
+the building - and named it himself: "worth all three being one problem rather than three
+coincidences."
+
+The theory is wrong five times out of seven, and why it looked right is the finding.
+
+WENT, and he could see none of them:
+  Chiel / Swanshurst   22/12/2025 16:03, Jayk to chris@chielcon.co.uk, quote xlsx + cover sheet
+  Bradstone Road       RE-QUOTED THROUGH 2026 - 06/02 and 20/03 with attachments, Adam to Ian
+                       Brown 12/06/2026. His board has it lost on price in May 2025. It is live.
+  The Grange           05/03 to Ian Brown, revised 01/04 to Oliver Webber, who replied
+  St Catherines x3     18/12, 13/01, 16/01, all Jayk to steven.elley@pridedevelopments.co.uk
+  B239 / PD7851        Adam, 29/06, inside a 13-message negotiation with Daniel Goornaden
+  Exmoor Drive         adam@ to Daniel Goornaden, 01/04/2026
+
+DID NOT GO, both live, both this month, both Adam's own threads - and these are in the 07:45 update:
+  DARRICK WOOD, GBP 255,082. Adam told Gleb Saliev on 10/07 we would revise. A Plus returned
+  QT50911 Rev1 on 24/07 and nothing has happened since - no send, and no QUOTE TO CHECK either,
+  which is the internal step that always precedes an issue here. So it is NOT PRICED YET rather
+  than priced and waiting.
+  ALKERDEN, THE HUB. Updated quotation requested 01/07 for 08/07; three weeks over. But Adam
+  asked Seyi Adesogan on 02/07 whether Velfac is now the only permitted profile, and there is no
+  answer - that question decides who prices the windows. So the call is "waiting on your Velfac
+  answer, here is a date", not a bare apology. The ORIGINAL went 29/04 to Corran Goodson.
+
+THE STRUCTURAL REASON, which is worth more than the nine jobs. NOTHING RECORDS WHETHER A QUOTE WAS
+SENT. Quotes leave from whichever mailbox the handler uses - jayk@ (a deleted 404), adam@, or
+estimating@ - never from commercial@ or info@, and neither AdminBase nor the Opportunity Log
+carries a send date. A job quoted twice therefore reads exactly like a job never quoted, and it
+renders as "523 days silent" on a board a human then acts on. Third form of the same error in two
+days, after the deleted mailbox and the portal client whose mail never carries their domain.
+
+Two more things fell out. St Catherines 7249 and 7356 are ONE job priced two ways - Jayk says so in
+his own words on all three sends - so that board double-counts GBP 237,382. And Chiel got the price
+but never the PQQ pack: Chris asked for three things in December, one was sent, and on a main
+contractor we have never worked for the PQQ is what decides whether we are allowed to bid at all.
+
+All five answered, all five cleared. No separate email - the digest is inside the hour and both live
+items are three weeks and twenty days old, so one more hour changes nothing and a second
+interruption would cost more than it carries.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

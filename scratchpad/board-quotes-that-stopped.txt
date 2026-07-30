@@ -1,0 +1,47 @@
+FOR THE 07:45 UPDATE: TWO CLIENTS ARE WAITING ON QUOTES WE SAID WE WOULD SEND, AND BOTH ARE ADAM'S OWN THREADS.
+
+Jacob sent five questions overnight, all the same shape - did our quote actually leave? I checked
+estimating@ on all nine. SEVEN HAD GONE. Two have not, and both are live, both this month:
+
+1. DARRICK WOOD (Alexander James / AJ Group, GBP 255,082 ex VAT). Gleb Saliev rejected our quantities
+   09/07; ADAM told him on 10/07 08:11 we would revise. A Plus returned QT50911 Rev1 on 24/07 14:07.
+   Nothing has left since - and no QUOTE TO CHECK went to Adam either, so it is NOT PRICED YET rather
+   than priced and waiting. Six days on the supplier revision, twenty on the promise.
+
+2. ALKERDEN, THE HUB (Sinden, formerly Thomas Sinden - they HAVE the main contract). Seyi Adesogan
+   asked on 01/07 for an updated quotation by 08/07. Adam replied in six minutes and again on 02/07.
+   No updated quotation has gone - three weeks past their deadline - and A Plus QP65153 was still
+   being revised on 22/07. BUT IT IS NOT ONLY OUR DELAY: Adam asked Seyi on 02/07 12:37 whether Velfac
+   is now the only permitted profile or whether an approved-similar composite still counts, and there
+   is no answer visible. That question decides who prices the windows. So the position is "we are
+   waiting on your Velfac answer, here is a date", not a bare apology. The ORIGINAL quotation did go -
+   Gintare to Corran Goodson, 29/04, quote plus window schedule plus drawing.
+
+AND ONE OLDER ONE WORTH A LINE, NOT AN ALARM: CHIEL / SWANSHURST SCHOOL. Chris at Chiel asked for
+three things in Dec 2025 - PQQs, updated costs, a schedule. The revised quote went 22/12/2025 16:03
+(Jayk, with the xlsx and a cover sheet). THE PQQ PACK NEVER WENT: no contractor evaluation form, no
+compliance statement, no insurance verification, no programme, on any mailbox, ever. On a main
+contractor we have never worked for, the PQQ is what decides whether we are allowed on the list at
+all - a likelier reason for silence than the price. Chased once, 16/02/2026, with nothing attached.
+
+THE STRUCTURAL FINDING, which is worth more than the three jobs:
+
+NOTHING RECORDS WHETHER A QUOTE WAS SENT. Quotes leave from whichever mailbox the handler uses -
+jayk@, adam@ or estimating@ - never from commercial@ or info@. jayk@ is a deleted 404. AdminBase and
+the Opportunity Log carry the value and the status but NOT the send. So Jacob's board reads "523 days
+silent" and "priced, never issued" on jobs that were issued twice, and Bradstone Road is down as lost
+in May 2025 when it was re-quoted 06/02/2026 and 20/03/2026 and Adam emailed Ian Brown about it on
+12/06/2026.
+
+That is the same hole that lost Georgie's and SM5 Wexham from the chase list on 29/07. The fix is the
+one already agreed - record quote_issued at close-out, every time - and it only works going forward.
+For history, ASK, do not infer: five of the seven "no trace in my mailboxes" conclusions were wrong.
+
+CORRECT CONTACTS PICKED UP ON THE WAY, all of which differ from what our records carry:
+  St Catherines House (Pride)  steven.elley@pridedevelopments.co.uk - and 7249/7356 are ONE job
+                               priced two ways, alu and uPVC, so that board is double-counting GBP 237k
+  The Grange (Barnfield)       Oliver Webber, not Ian Brown - he drove the revision and answered it
+  Darrick Wood                 gleb.saliev@ajgroup.co.uk, NOT the old alexanderjamesltd.co.uk
+  A Plus                       daniel.charlesworth@aplusaluminium.co.uk (via Jacob)
+  Chiel                        our own subject lines say "Cheil" and "Swanhurst" - both misspelt
+                               consistently, so a search on the right spelling finds nothing

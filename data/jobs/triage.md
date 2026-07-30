@@ -58,6 +58,27 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **30/07 - JACOB'S FIVE "DID IT GO?" QUESTIONS: SEVEN WENT, TWO DID NOT (botmsg-28 to -32, all
+  answered).** One batch, one shape - he had built a theory that Fenster's prices were stopping inside
+  the building, on Chiel, Alkerden, Bradstone and Darrick Wood. **It is wrong five times out of seven,
+  and the reason is structural: NOTHING RECORDS WHETHER A QUOTE WAS SENT.** Quotes leave from whichever
+  mailbox the handler uses - `jayk@` (a deleted 404), `adam@`, or `estimating@` - never from
+  commercial@/info@/jacob@, and neither AdminBase nor the Opportunity Log carries a send. So his board
+  reads "silent" and "never issued" on jobs issued twice. **WENT:** Chiel 22/12/2025 16:03 (Jayk, quote
+  + cover sheet); Bradstone Road **re-quoted through 2026** - 06/02 and 20/03, Adam to Ian Brown 12/06,
+  so it is NOT lost-in-May-2025; The Grange 05/03 to Ian Brown and revised 01/04 to **Oliver Webber**;
+  St Catherines House ×3 (18/12, 13/01, 16/01) all Jayk to **steven.elley@** - and Jayk's own words
+  prove 7249/7356 are **ONE job priced two ways**, so Jacob's board double-counts GBP 237,382; B239
+  PD7851 issued by Adam 29/06 inside a 13-message negotiation with Daniel Goornaden; Exmoor Drive via
+  adam@ 01/04. **NO TRACE:** Brandon Youth/Maddock Way and 130 Hainault Road - flagged to him as "not
+  found", not "never sent" (Spoone School; and our own subject lines misspell "Cheil"/"Swanhurst"
+  consistently). **DID NOT GO, both live, both in the 07:45 update:** Darrick Wood (GBP 255,082 - Adam
+  promised Gleb Saliev a revision 10/07, A Plus Rev1 landed 24/07, no QUOTE TO CHECK since 27/05, so
+  **not priced yet**) and Alkerden (updated quote due 08/07, three weeks over - but **Adam's own Velfac
+  question to Seyi of 02/07 is unanswered**, so it is "waiting on you, here is a date", not a bare
+  apology; the original DID go 29/04 to Corran Goodson). **ALSO:** Chiel got the price and never the
+  PQQ pack - three things asked for in Dec 2025, one sent, and the PQQ is what decides whether we are
+  allowed on a new main contractor's list at all.
 - **29/07 - THE PRICING LAB NOW RUNS ALL NIGHT (Zac, dashmsg-97).** *"Work on improving your pricing
   engine overnight, bypass the 1am to 3am window... look through old projects for work that we ourselfs
   have quoted, check they have no mistakes, tell us if they do. Then use your pricing engine and try and

@@ -55,6 +55,9 @@ settled) and your job file. Per-job history: `python scripts/mary_recall.py --jo
 - Who wrote it and whether they still work here (Harry Grover left ~Nov 2025; `jayk@` is a
   deleted mailbox, not an empty one; the supplier thread has its own subject, and the
   price a client asks you to confirm can be under cost): `AI.md` L2972.
+- Nothing records whether a quote was SENT - quotes leave from `jayk@`/`adam@`/`estimating@`
+  and no CRM carries the send, so a nil result in one mailbox proves nothing, and a client's
+  own name may be misspelt in our subject lines: `AI.md` L3011.
 - Self-checking quotes: `AI.md` L132.
 
 ## Working the job (process judgement)
