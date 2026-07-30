@@ -142,10 +142,26 @@ def read_doc(path):
                              if c is not None and str(c).strip() not in ("", "None")]
                     if after and isinstance(after[0], str):
                         doc["supplier"] = after[0].strip()
-            # Stop the block at the FIRST empty row. Without that it runs on
-            # into the priced rows, whose Glass/Additional/CW columns sit in the
-            # same place as the supplier figures, and every ratio collapsed to
-            # about 0.47 - the supplier total had silently doubled.
+            # THE BLOCK ENDS AT THE PRICED-ROW HEADER, and that is a fact about
+            # the template rather than a tolerance (31/07, fourth run). The two
+            # softer rules below - stop at the first empty row, and require the
+            # row to LOOK like a supplier row - both failed on the earlier
+            # Brandon Estate revision, which is where the 4.094 came from. That
+            # document NAMES BSW and Vetroseal and never types a cost against
+            # either, so the block never hits an empty row; and its first priced
+            # row has an EMPTY Additional cell, which is the one thing
+            # looks_like() relies on to recognise a priced row. The window then
+            # ran six rows past the names into row 9 and took 362,678.40 from
+            # column 15 - a spare working cell holding that row's own
+            # (frames + glass) x qty, 863.52 x 420 to the penny. GBP 1.12m of
+            # reported gap on a GBP 3.17m document, all of it manufactured.
+            # The header row carries 'Qty' and 'Unit Rate' and every supplier
+            # block in the archive sits above it, so nothing at or below it can
+            # be part of the buy. This subsumes the empty-row rule; both are
+            # kept, because a block that ends early should still end early.
+            if any(t in ("qty", "quantity") for t in texts) \
+                    and any(t.replace(" ", "") == "unitrate" for t in texts):
+                doc["_sup_done"] = True
             if (doc.get("_sup_row") and not doc.get("_sup_done")
                     and doc["_sup_row"] <= rn <= doc["_sup_row"] + 6):
                 i = doc["_sup_col"]
@@ -460,6 +476,28 @@ def audit(doc):
     #    reading works. Same principle as the subsets above, one level out:
     #    enumerate the readings, report only if every one of them fails, and
     #    quote the one that came closest.
+    # A BLOCK THAT NAMES SUPPLIERS AND STATES NO COST IS ITS OWN FINDING, and
+    # it is what is left of the Brandon Estate 4.094 once the reader stops
+    # inventing a figure for it (31/07, fourth run). The old reader could never
+    # report this, because whenever the block was blank it filled the gap from
+    # whatever number the window happened to reach. It is NOT an arithmetic
+    # error - nothing in the client's document is wrong and it foots - but it is
+    # a control gap, and on the largest job in the archive: with no buy recorded
+    # there is nothing to check the margin against, and SUPPLIER, SUP_DUP and
+    # the whole-unit test are all silently skipped for that document. Reported
+    # separately from SUPPLIER for exactly the reason the board keeps insisting
+    # on: a missing figure and a wrong figure are different findings.
+    if doc["supplier_names"] and not doc["supplier_cost"] \
+            and any(r["frames"] is not None for r in doc["rows"]):
+        frames_sum = sum(r["frames"] * r["qty"]
+                         for r in doc["rows"] if r["frames"] is not None)
+        out.append({"check": "SUP_BLANK", "money": frames_sum,
+                    "detail": ("the block names %s and states NO cost against any of them, "
+                               "so this document records no buy at all - the frames column "
+                               "totals %.2f and nothing in the document says what it cost. "
+                               "Not an arithmetic error; the margin on it cannot be checked"
+                               % (" + ".join(doc["supplier_names"]), frames_sum))})
+
     if doc["supplier_cost"] and any(r["frames"] is not None for r in doc["rows"]):
         glass_names = _supplies_glass(doc.get("supplier_names"))
         doc["glass_in_buy"] = glass_names
@@ -694,7 +732,8 @@ def main():
 
     print("=" * 78)
     print("%d finding(s) shown across %d document(s)" % (total_findings, len(docs)))
-    for c in ("FOOT_LINE", "FOOT_DOC", "DISCOUNT", "BUILDUP", "SUPPLIER", "SUP_DUP"):
+    for c in ("FOOT_LINE", "FOOT_DOC", "DISCOUNT", "BUILDUP", "SUPPLIER", "SUP_DUP",
+              "SUP_BLANK"):
         hits = by_check.get(c, [])
         print("  %-10s %3d finding(s) in %2d document(s)"
               % (c, len(hits), len(set(h[0] for h in hits))))

@@ -1,0 +1,43 @@
+Brandon Estate 4.094 is the reader reading a working cell, and the block ends at the header
+
+The last big open supplier question, GBP 1.12m of apparent gap on a GBP 3.17m
+document, and it decomposes to the penny. The earlier Brandon revision NAMES BSW
+and Vetroseal in its 'Supplier used:' block and types no cost against either. The
+block window then ran six rows past the names into row 9 and took 362,678.40 out
+of column 15 - a spare working cell holding that row's own (frames + glass) x qty:
+686.80 + 176.72 = 863.52, x 420 = 362,678.40 exactly. Its sibling revision carries
+the same working cell (470,076.60 = 1,119.23 x 420) and was never affected, because
+its block has real figures in it.
+
+BOTH GUARDS THAT SHOULD HAVE CAUGHT IT FAILED, AND FOR THE SAME REASON - they are
+tolerances on a shape rather than facts about the template. Stop-at-first-empty-row
+cannot fire on a block that is blank throughout. And looks_like() recognises a
+priced row by its Additional cell holding a number, which is exactly the cell row 9
+leaves empty. Replaced with the structural boundary: the priced-row header carries
+'Qty' and 'Unit Rate', every supplier block in the archive sits above it, so nothing
+at or below it can be part of the buy. Both older rules kept - a block that ends
+early should still end early.
+
+MEASURED BY RUNNING BOTH READERS OVER ALL 65 DOCUMENTS IN ONE PROCESS rather than
+by trusting the finding count, because the count moving by one does not prove which
+one moved. Exactly 1 of 65 documents changes and it is the one under investigation
+(362678.4 -> None). scratchpad/sup_blockdiff.py loads the old read_doc out of git
+HEAD alongside the new one; that is the cheap way to bound a reader change and is
+worth reusing.
+
+AND WHAT IS LEFT OF IT IS A REAL FINDING OF A NEW KIND: SUP_BLANK, a block that
+names suppliers and states no cost. Three documents - the earlier Brandon
+(1,484,932.13 of frames) and both Zelltec Crownhill UPVC revisions (13,521.20 and
+36,202.66, and these are the 8.268 / 22.139 the board had filed only as a reader
+false alarm). Not an arithmetic error, and nothing a client holds is wrong: it is a
+control gap. With no buy recorded there is nothing to check the margin against, and
+SUPPLIER, SUP_DUP and the whole-unit test all skip the document in silence. The old
+reader could never report this, because whenever the block was blank it filled the
+gap from whatever number the window reached.
+
+Audit position: 31 findings across 65 documents. SUPPLIER 13 -> 12, SUP_BLANK 3 new.
+ONE OPEN SUPPLIER QUESTION LEFT, CB Refrigeration 1.291. Adam's morning list is
+still Gordon Court REV 2 alone - no engine change, so the holdout is untouched at
+13.28%.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
