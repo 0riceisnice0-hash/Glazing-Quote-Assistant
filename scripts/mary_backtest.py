@@ -382,6 +382,24 @@ def learn_supplier_factors(docs, base):
     return out
 
 
+def job_key(doc):
+    """Which JOB a document belongs to, which is not the same as which document.
+
+    The corpus is 29 documents and 26 jobs. Brandon Estate is in it THREE times -
+    Elkins at GBP 7,196,696, a COMAR-priced variant at 6,184,746 and an earlier
+    11-line version at 3,998,687 - and Zelltec Crownhill twice. These are
+    revisions and re-prices of one estate, not separate evidence, and the 30/07
+    content dedup could not see them because their priced lines genuinely differ.
+
+    It matters twice over. Brandon Estate is 93 of the 508 mined lines, so one
+    estate sets 18% of the rates. And leaving out one DOCUMENT leaves the other
+    two revisions of the same job in the training set, with the same elevations
+    at the same unit rates - so the engine is shown the answer and the honest
+    number is not honest. Hold out the whole job."""
+    return re.sub(r"[^a-z0-9]", "", "%s|%s" % (str(doc.get("client") or "")[:18].lower(),
+                                               str(doc.get("job") or "")[:18].lower()))
+
+
 def leave_one_out(docs):
     """Score every document on rates mined from all the others.
 
@@ -397,19 +415,25 @@ def leave_one_out(docs):
     won one fold of three - on the folds alone it would have been dropped.
 
     Quote --folds for continuity with the earlier board entries. Decide here."""
+    groups = {}
+    for d in docs:
+        groups.setdefault(job_key(d), []).append(d)
     rows = []
-    for i, d in enumerate(docs):
-        rates = learn([x for j, x in enumerate(docs) if j != i])
-        s = score_doc(d, learned=rates)
-        if s:
-            rows.append(s)
+    for key, group in groups.items():
+        rates = learn([d for d in docs if job_key(d) != key])
+        for d in group:
+            s = score_doc(d, learned=rates)
+            if s:
+                s["job"] = key
+                rows.append(s)
     if not rows:
         print("nothing scored")
         return 1
     absol = [abs(s["err_pct"]) for s in rows]
     signed = [s["err_pct"] for s in rows]
-    print("leave-one-out over %d documents - each scored on rates from the other %d\n"
-          % (len(rows), len(rows) - 1))
+    print("leave-one-JOB-out: %d documents in %d jobs, each scored on rates mined from the\n"
+          "other jobs only - a revision of the same estate is not independent evidence\n"
+          % (len(rows), len(groups)))
     print("  mean abs %6.2f%%   median abs %6.2f%%   bias %+6.2f%%   within 10%%: %d/%d   "
           "within 25%%: %d/%d"
           % (statistics.fmean(absol), statistics.median(absol), statistics.fmean(signed),
@@ -417,6 +441,22 @@ def leave_one_out(docs):
              sum(1 for a in absol if a <= 25), len(absol)))
     print("  lines priced %d   skipped %d"
           % (sum(s["lines_priced"] for s in rows), sum(s["lines_skipped"] for s in rows)))
+
+    # And the same thing weighted by money, which is what "1 to 1" means to Zac -
+    # WITH ITS HEALTH WARNING, because it is not a second opinion. Brandon Estate
+    # is 89% of the archive's priced money across its three revisions, so a
+    # money-weighted archive figure is very nearly a report on one estate. Quote
+    # the per-document mean as the headline and this as the exposure.
+    H = sum(s["human_items"] for s in rows)
+    E = sum(s["engine_items"] for s in rows)
+    big = max(groups, key=lambda k: sum(s["human_items"] for s in rows if s["job"] == k))
+    bigshare = sum(s["human_items"] for s in rows if s["job"] == big) / H * 100.0
+    print("  money-weighted abs %5.2f%%   whole archive human %s v mary %s -> %+.2f%%"
+          % (sum(abs(s["engine_items"] - s["human_items"]) for s in rows) / H * 100.0,
+             "{:,.0f}".format(H), "{:,.0f}".format(E), (E - H) / H * 100.0))
+    print("  READ THAT WITH CARE: the largest job alone is %.0f%% of the priced money, so the"
+          % bigshare)
+    print("  money-weighted figure is mostly a report on it.")
     print("\nWORST DOCUMENTS - where the remaining error lives")
     print("  %-50s %8s %6s %12s %12s" % ("DOCUMENT", "OUT BY", "LINES", "HUMAN", "MARY"))
     for s in sorted(rows, key=lambda s: -abs(s["err_pct"]))[:10]:
