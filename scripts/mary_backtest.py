@@ -105,7 +105,23 @@ def parse_doc(path):
                          "total", "installation", "*", "optional")):
                 heading = desc
                 continue
-            if code not in engine.CODE_VALUE:
+            # A GENUINE CURTAIN-WALLING ROW HAS NO PRODUCT CODE AND IS NOT NOISE
+            # (31/07, fourth run). Until now every code-less row was dropped
+            # here, so the engine did not price curtain walling at all - and it
+            # is not a rounding error's worth of the archive: 8 rows across 6
+            # documents, GBP 129,657 of sell, and on CB Refrigeration one row is
+            # 36% of the document. The engine has HAD a CW convention all along
+            # (area x CW_SUPPLY_M2 supply, no code adder, labour in its own
+            # column) - nothing could ever reach it.
+            # The marker is the CW LABOUR cell at column 13. That is what tells
+            # a genuine CW row from an ordinary coded window row carrying a CW
+            # working figure, which the board established on 30/07: all 156 of
+            # those hold area x GBP 850 in a spare column and it is NOT money in
+            # the unit rate. A CW row is the other thing - no code, a CW LABOUR
+            # figure, and the unit rate IS the area money.
+            cw_labour = cells[13] if len(cells) > 13 and isinstance(cells[13], (int, float)) else None
+            is_cw = code not in engine.CODE_VALUE and bool(cw_labour)
+            if code not in engine.CODE_VALUE and not is_cw:
                 continue
             size = next((str(c) for c in cells if isinstance(c, str) and SIZE_RE.search(str(c))), "")
             m = SIZE_RE.search(size)
@@ -146,6 +162,7 @@ def parse_doc(path):
                 "glass": float(glass) if glass else None,
                 "additional": float(additional) if additional else None,
                 "area": round(w / 1000.0 * h / 1000.0, 4),
+                "cw": is_cw,
             })
     finally:
         wb.close()
@@ -162,6 +179,21 @@ def engine_price(line, supplier=None, system="", learned=None, factors=None):
     same way for the supplier corrections - they have to be re-mined inside the
     fold too, or the supplier effect of the job being scored is in its own
     correction."""
+    # CURTAIN WALLING IS PRICED BY AREA, NOT BY CODE, and it takes no learned
+    # rate and no code adder - so it is answered before any of the register
+    # machinery below and is UNAFFECTED BY THE FOLD. CW_SUPPLY_M2 is a constant
+    # calibrated off Greenfields on 22/07, and the reason it is trustworthy here
+    # is that it reproduces on rows it was NOT set from: of the 6 independent CW
+    # rows in the archive, 5 sit within 3p of area x GBP 850 - St Mary's Type AK
+    # 8,655.98, CB Refrigeration CWT-A 15,036.50, St Christopher's EW1 7,811.53
+    # and W2 3,898.91, Wisley CW1 19,975.00. The sixth is Georgie's, out by
+    # exactly GBP 2,000.02, and its description is 'CW01, D03, CW0...' - a door
+    # in with the curtain walling, which is scope and not a rate error.
+    if line.get("cw"):
+        return {"unit_rate": line["area"] * engine.CW_SUPPLY_M2,
+                "supply": line["area"] * engine.CW_SUPPLY_M2,
+                "rate_per_m2": engine.CW_SUPPLY_M2}
+
     key = "%s|%s" % (line["code"], engine.learned_band_of(line["area"]))
     rec = (learned or {}).get(key) if learned is not None else None
     if learned is None:
@@ -302,7 +334,18 @@ def supply_money(l):
     Better on 16 documents, worse on 11, within-10 up from 14 to 16. Three
     positional folds agree but only just (13.88 -> 13.68), which is why this was
     decided on leave-one-out: a 0.20-point win on three folds is the shape of
-    result that has already misled this board twice."""
+    result that has already misled this board twice.
+
+    A CURTAIN-WALLING ROW CONTRIBUTES NOTHING HERE and is excluded (31/07). It
+    carries no product code, so it would land in a bucket keyed '|band' that no
+    lookup can ever reach - harmless in learn(), but learn_supplier_factors()
+    reads the same buckets and a bogus one there would move a real supplier's
+    correction. And the Frames cell on a CW row is not reliably a buy at all:
+    CB Refrigeration's holds 15,036.50, which is the CW NOTIONAL of area x 850
+    to the penny, against a BSW quote of 15,994.08 for TWO units. Mining it
+    would teach the engine a figure the supplier never charged."""
+    if l.get("cw"):
+        return None
     if not l.get("frames"):
         return None
     return l["frames"] + (l.get("glass") or 0.0) + (l.get("additional") or 0.0)

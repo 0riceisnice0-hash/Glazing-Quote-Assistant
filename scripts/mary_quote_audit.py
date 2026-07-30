@@ -216,6 +216,12 @@ def read_doc(path):
                     cols["additional"] = i
                 elif t == "cw":
                     cols["cw"] = i
+                # CW LABOUR is what tells a GENUINE curtain-walling row from an
+                # ordinary window row carrying a CW working figure (31/07).
+                # Checked before 'cw' would swallow it - startswith, because the
+                # header is written 'CW LABOUR' with a trailing space in places.
+                elif t.startswith("cw labour"):
+                    cols["cw_labour"] = i
                 elif t == "description":
                     cols["desc"] = i
 
@@ -316,6 +322,7 @@ def read_doc(path):
                 "glass": _num(cells[cols["glass"]]) if "glass" in cols else None,
                 "additional": _num(cells[cols["additional"]]) if "additional" in cols else None,
                 "cw": _num(cells[cols["cw"]]) if "cw" in cols else None,
+                "cw_labour": _num(cells[cols["cw_labour"]]) if "cw_labour" in cols else None,
             })
         doc["cols"] = cols
         # Resolve the supplier block: if the last figure equals the sum of the

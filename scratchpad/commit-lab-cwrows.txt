@@ -1,0 +1,51 @@
+The engine could not price curtain walling at all, and it prices it to the penny
+
+READ THE DENOMINATOR BEFORE THE NUMBER. This is a COVERAGE gain, not an accuracy
+gain, and 12.28% against 13.28% is not the same measurement twice:
+
+    leave-one-JOB-out   BEFORE  13.28% mean abs, median 7.92%, bias -2.01%, 15/29 within 10, 508 lines
+                        AFTER   12.28% mean abs, median 6.86%, bias -1.83%, 17/29 within 10, 516 lines
+    --holdout --folds   BEFORE  13.20% mean of folds     AFTER  12.19%
+
+Not one of the 508 lines the engine already priced has moved. The learned rate
+table is BYTE-IDENTICAL either side of the change - 18 buckets, sha 41896b6a94ff44ee,
+checked by running HEAD's learn() and the new one over the same corpus in one
+process (scratchpad/rate_sha.py). Every document without a CW row scores exactly
+what it scored before: Oldswinford -22.7%, Trafalgar +21.1%, ASHE +28.2%, Tenbury
+-47.5%, Brandon +21.3%. The whole difference is eight rows that used to be invisible.
+
+WHAT THE BUG WAS. read_doc dropped every row whose code was not in CODE_VALUE, and
+a genuine curtain-walling row has no product code. So all 8 CW rows in the archive
+were discarded before pricing - GBP 111,127.95 of sell across 6 documents, and on
+CB Refrigeration a single row is 36% of the document. Meanwhile price_line has HAD
+a curtain_wall branch since the Greenfields calibration on 22/07. Nothing could
+ever reach it. The engine was not wrong about curtain walling; it had never been
+shown any.
+
+THE MARKER IS CW LABOUR, and it has to be something other than the CW column,
+because the board established on 30/07 that CW on a CODED row is a working column
+holding area x GBP 850 and NOT money in the unit rate - 156 lines of it. A genuine
+CW row is the other thing: no code, a CW LABOUR figure, and the unit rate IS the
+area money.
+
+AND THE 850 IS NOT CIRCULAR, which is the only reason this is worth keeping. It was
+calibrated off Greenfields, so those 2 rows prove nothing. It reproduces on rows it
+was never set from - of the 6 independent CW rows, 5 land within 3p of area x 850:
+St Mary's Type AK 8,655.98, CB Refrigeration CWT-A 15,036.50, St Christopher's EW1
+7,811.53 and W2 3,898.91, Wisley CW1 19,975.00. Per-row error over all 8: mean abs
+1.58%, median 0.00%, 7 of 8 inside 0.1%. The rule takes no learned rate and no code
+adder, so it is identical in every fold.
+
+THE ONE MISS IS SCOPE, NOT RATE. Georgie's is -12.66%, short by exactly GBP 2,000.02,
+and its description is 'CW01, D03, CW02' - a door in with the curtain walling. That
+is the same lesson as Oldswinford's coupler: bought scope with nowhere to sit.
+
+MINING IS GUARDED AND HAD TO BE. A CW row has no code, so it would land in a bucket
+keyed '|band' - unreachable by any lookup in learn(), but learn_supplier_factors()
+reads the same buckets and a bogus one would move a real supplier's correction.
+supply_money() now returns None for a CW row, which is the single place both callers
+pass through. There is a second reason: CB Refrigeration's CW Frames cell holds
+15,036.50, the CW notional to the penny, against a BSW quote of 15,994.08 for TWO
+units - mining it would teach the engine a figure no supplier ever charged.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
