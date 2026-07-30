@@ -1,27 +1,59 @@
-THE PRICING LAB NOW RUNS ALL NIGHT, AND IT TAKES THE SESSION LOCK - SO NIGHT MAIL WILL WAIT LONGER.
+THE PRICING LAB RUNS ALL NIGHT, AND IT TAKES THE SESSION LOCK - SO NIGHT MAIL WILL WAIT LONGER.
 
 Zac (dashmsg-97): improve the engine overnight, bypass the 1am-3am window, and audit old quotes we sent
-for mistakes. Window is now 22:00-07:00, with the task firing every 30 min from 22:00 and from 00:05.
+for mistakes. Window is 22:00-07:00, task firing every 30 min from 22:00 and from 00:05.
 
 WHAT THIS MEANS FOR EVERY OTHER CHAT: the lab holds the session lock for up to 115 minutes at a time,
 several times a night. It yields to real work only if a session is ALREADY running, so a work order that
-arrives mid-lab waits for it. At night that is the intended trade - the night budget is 1.5h / 6 sessions
-anyway - but do not read a slow night response as a broken bridge. NEW GUARD: no lab session starts that
-cannot finish before 07:00, so it can never be holding the lock when the 07:45 update wants it.
+arrives mid-lab waits for it. At night that is the intended trade. No lab session starts that cannot
+finish before 07:00, so it can never be holding the lock when the 07:45 update wants it.
 
-THE ENGINE'S CURRENT POSITION, for anyone quoting an accuracy number: mary_backtest --scan over 31
-documents gives mean signed -5.9%, mean absolute 12.3%, median 7.2%, 17/31 within 10%. Slightly LOW.
+THE ENGINE'S CURRENT POSITION, for anyone quoting an accuracy number (30/07):
+  --scan over 29 documents      mean signed -6.5%, mean absolute 13.6%, median 10.1%, 14/29 within 10%
+  --holdout --folds (honest)    register only 20.76%, with learned rates 13.88% mean of folds
 
-DO NOT CONFLATE THAT WITH data/calibration.json's +10.4% HIGH. They are different exercises. Calibration
-is Mary estimating a job from scratch against the sell Fenster issued. The backtest is the engine
-re-pricing the LINES of a document we already wrote. Both are honest; quoting one as the other is not.
+QUOTE THE 3-FOLD NUMBER, NEVER ONE FOLD. --holdout used to score fold 0 alone and fold 0 is the odd one
+out: the SAME engine scores 21.4% there and 9.9% and 10.4% on the other two. The folds are positional, so
+adding a single document to the archive reshuffles all three. That is why 29/07 quoted 14.5% and 30/07's
+first run showed 19.9% for an engine nobody had touched. It is not a regression. Use --folds.
 
-AND A DEFECT IN THE CORPUS ITSELF, now the lab's first job: collect() treats every copy of a pricing file
-as a separate job, including the ones ending in - Copy.xlsx. Zelltec Crownhill appears FOUR times, three
-of them identical. So the mean is weighted by how many copies of a file happen to sit in a folder - and
-so are the LEARNED RATES, which is the worse half. Any 1-to-1 claim measured before that is fixed is
-measured against a corpus that counts some jobs three times.
+DO NOT CONFLATE ANY OF THAT with data/calibration.json's +10.4% HIGH. Different exercises. Calibration is
+Mary estimating a job from scratch against the sell Fenster issued. The backtest is the engine re-pricing
+the LINES of a document we already wrote. Both honest; quoting one as the other is not.
 
-ONE RULE THE LAB IS NOW UNDER, worth knowing generally: an error in OUR quote and an error in the ENGINE
-are opposite findings. If a quote turns out to be wrong, it comes OUT of the calibration set. Never tune
-the engine to reproduce a defect.
+THE CORPUS DEFECT IS FIXED (30/07). collect() counted every copy of a file, so Zelltec Crownhill was in
+three times. Now deduplicated on content - same priced lines, same money, one vote. 31 -> 29 documents.
+TWO THINGS THE BOARD GOT WRONG ABOUT IT, both worth keeping:
+  - It said the LEARNED RATES were the worse half. They were not affected at all. Three folds, scored
+    jobs held identical: 21.40 -> 21.39, 9.26 -> 9.30, 10.39 -> 10.39. A median over 500 lines does not
+    notice 8 of them counted twice. It was a reporting fix, and the error went UP (12.3% -> 13.1%)
+    because two copies of a job the engine prices well had been flattering the mean.
+  - Matching on the filename would have been WRONG. The two '- Copy.xlsx' files it suspected, Wisley
+    Golf Club and Tradeteam Stretton, are the ONLY copy of their job.
+
+THE QUOTE AUDIT EXISTS NOW: scripts/mary_quote_audit.py, 65 documents (more than the backtest's 29,
+because it does not need a product code to check arithmetic). FOOT_LINE and FOOT_DOC are CLEAN across the
+archive with ONE exception - Target Maintenance Gordon Court REV 2, out by GBP 411.17, recorded as a
+catch for Adam. Every pricing document we have sent foots to its own TOTAL. That is worth knowing.
+
+BE SLOW TO CALL SOMETHING AN ERROR. The audit produced six false alarms before it produced a real one,
+every one of which would have cost Adam a morning: the template's code adder (513 "findings"), addendum
+rows the reader did not know about (Crestwood 17,779.06, Wisley 1,419.00, Feltham 8,920.00), a label with
+a comma in it (Coventry 39,349.26), 'OPTIONAL EXTRAS' not matching 'OPTIONAL' (all three Brandons), and a
+section heading with a stray 1 in the Qty column (ASHE, twice). AND ONE IT ALMOST REPORTED: Princess
+Beatrice looked short by exactly 2.500%, so the audit inferred an unwritten main contractor's discount -
+and the document has a '2.5% MCD Discount' row saying so, hidden by an over-strict filter. A gap landing
+on a round percentage is far more likely to be a row you failed to read. Look for the row first.
+
+ONE RULE THE LAB IS UNDER: an error in OUR quote and an error in the ENGINE are opposite findings. If a
+quote turns out to be wrong it comes OUT of the calibration set. Never tune the engine to reproduce a
+defect. Gordon Court REV 2 is excluded on that basis.
+
+AND A METHOD WARNING EARNED ON 30/07, which is the most transferable thing here. ADDER_FACTOR_LARGE=1.25
+was recorded on 29/07 as "the estimator takes the code value at 125% above 6m2, and has been all along",
+with an independent holdout half reproducing 1.250 to three figures as the evidence. Measured directly -
+adder = unit_rate minus ALL FOUR component columns, not just Frames - 26 of 28 large-unit lines sit on
+exactly 0.75 and none on 1.25. The 1.25 is the median GBP 1,000 of unmodelled extras charged to a median
+code value of 2,000. A SYSTEMATIC CONFOUND REPRODUCES IN EVERY SPLIT, so a holdout cannot see it: a
+holdout tests whether a number generalises, never whether it measures what its name says. The constant
+was KEPT because it still wins on unseen jobs (13.88 v 14.46), but as an admitted fudge, not a rule.
