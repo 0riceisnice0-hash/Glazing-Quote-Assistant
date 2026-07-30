@@ -68,6 +68,19 @@ without it, against 352/508 with it. A GENUINE curtain-walling row is different 
 CW LABOUR figure, Frames equal to the CW money (CB Refrigeration CWT-A, 17.69m2). The board previously
 had this filed as a Brandon Estate peculiarity; it is 156 lines across 9 documents.
 
+QUANTITY IS CLOSED, NEGATIVE (31/07). "A supplier prices a run of one differently from a run of sixty,
+and the engine has no term for it" is obviously true as commerce and is NOT in this archive's money.
+Measured as each line's own supply GBP/m2 over the median for its own code and band, so product and size
+are held constant by construction, 486 lines: qty 1 -> 1.035, 2 -> 0.991, 3-4 -> 0.984, 5-8 -> 0.957,
+9-16 -> 0.977, 17-40 -> 0.997, 41+ -> 1.000. Log-log fit slope -0.023, x0.984 per doubling, R^2 0.0109 -
+and per JOB median, so 58 identical Trafalgar lines cannot carry it, R^2 0.0034 over 29 jobs. A 3.5%
+effect at the extreme, against errors of 30-50%. scratchpad/qty_effect.py.
+THE TRAP IN IT, WHICH IS WHY IT LOOKED PROMISING: at qty 1 the MEAN ratio is 1.149 and the MEDIAN 1.035.
+The two worst documents in the archive are both single-unit one-line jobs (Tenbury Close -47.5%, ratio
+2.52; Tradeteam Stretton -38.3%), so "the engine cannot see one-offs" fits the worst list perfectly. It
+is the wrong way round: a handful of extreme lines happen to be singles, not the other way about, and
+245 lines at qty 1 sit on 1.035. Reading a worst-list for a shared attribute finds one every time.
+
 THE OPEN QUESTION ABOUT SIZE BANDS IS CLOSED, NEGATIVE - DO NOT SPEND THE HOUR AGAIN. "Small runs low,
 large runs high, so the band structure is wrong" does not survive the archive. Honest per-line error by
 area over all 508 lines is FLAT and not monotonic: +3.7 / -1.6 / +5.1 / +1.2 / +3.2 / (+30.4 on n=7) /
