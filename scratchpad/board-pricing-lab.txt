@@ -8,15 +8,46 @@ several times a night. It yields to real work only if a session is ALREADY runni
 arrives mid-lab waits for it. At night that is the intended trade. No lab session starts that cannot
 finish before 07:00, so it can never be holding the lock when the 07:45 update wants it.
 
-THE ENGINE'S CURRENT POSITION, for anyone quoting an accuracy number (30/07, second run):
-  --holdout --folds (honest)    register only 19.37%, with learned rates 13.51% mean of folds, bias -1.88%
-  leave-one-out over all 29     mean abs 13.24%, median abs 7.98%, bias -1.66%, 16/29 within 10%
+THE ENGINE'S CURRENT POSITION, for anyone quoting an accuracy number (30/07, THIRD run):
+  --loo  leave-one-JOB-out       mean abs 13.28%, median 7.92%, bias -2.01%, 15/29 within 10, 24/29 within 25
+  --holdout --folds              register only 19.37%, with learned rates 13.20% mean of folds
+  money-weighted, whole archive  human 16,036,021 v Mary 17,053,501 = +6.34%, mean abs by money 7.30%
 
-PREFER LEAVE-ONE-OUT TO THE THREE FOLDS WHEN DECIDING ANYTHING. Every document is scored on rates
-mined from the other 28, so no answer depends on where a file sits in the scan order, and it does not
-have fold 0's temperament. The build-up change below is worth 0.78 points leave-one-out and only 0.20
-on three folds, where it wins ONE fold of three - it would have been indistinguishable from noise on
-the three-fold number alone. Quote the folds for continuity with earlier entries; DECIDE on LOO.
+DECIDE ON `python scripts/mary_backtest.py --loo`. IT IS IN THE TOOL NOW - two sessions running had to
+rebuild leave-one-out in scratchpad before they could judge anything. It also prints the worst ten
+documents, which is the list the next line of enquiry comes off. The folds split the corpus by POSITION,
+so fold 0 is the odd one out and adding one document reshuffles all three; quote them for continuity
+with the older entries, decide on --loo.
+
+AND IT IS LEAVE-ONE-JOB-OUT, NOT LEAVE-ONE-DOCUMENT-OUT (30/07 third run). The corpus is 29 documents
+but 26 JOBS. Brandon Estate is in it THREE times - Elkins 7,196,696, a COMAR-priced variant 6,184,746,
+an earlier 11-line version 3,998,687 - and Zelltec Crownhill twice. Leaving out one DOCUMENT left the
+other revisions of the same estate in the training set at the same elevations and the same unit rates,
+so the engine was shown the answer: the earlier Brandon scores +11.5% that way and +21.3% honestly.
+Holding the job out costs 0.47 points on paper (13.11 -> 13.58 before tonight's change) and is the second
+time a reporting fix has made the number worse - the dedup did the same, 12.3 -> 13.1. The 30/07 content
+dedup could NOT have caught these and was right not to: it matches identical priced lines and these
+genuinely differ in system, scope and money.
+
+NEVER QUOTE THE MONEY FIGURE AND THE PER-DOCUMENT MEAN AS TWO OPINIONS ABOUT THE SAME THING. The three
+Brandon revisions are 89% OF THE PRICED MONEY IN THE ARCHIVE, so the money-weighted number is very
+nearly a report on one estate and its +6.34% is mostly Brandon's +5.7%, which on that quote is GBP 460k.
+The per-document mean is pulled the other way by three 1-2 line quotes that average 29.94% error and are
+0.2% of the money. Headline is the per-document mean; the money is the exposure. Both or neither.
+
+THE SUPPLIER CORRECTION WAS BEING MEASURED AND THROWN AWAY (30/07, third run). learn_supplier_factors()
+measures how dear each supplier runs with code and size held constant, and only find_rate() - the
+REGISTER path - ever read it. engine_price() returns as soon as it has a learned rate and all 508 lines
+have one, so the measurement reached nothing. Applying it: 13.58 -> 13.28 leave-one-job-out, 13.51 ->
+13.20 on folds. READ THE CAVEATS BEFORE BUILDING ON IT. The whole gain is TruFrame - 0.859 with
+Trafalgar House held out, 0.910 with Zelltec held out, two independent jobs agreeing they run 9-14%
+under - worth Trafalgar +29.7 -> +18.6 and Zelltec +17.2 -> +10.8 and +4.7 -> -1.3. The other three
+factors do nothing (4Ali 1.000, BSW 1.001, Aplus 1.006). It is WORSE ON 10 DOCUMENTS and better on 8,
+within-10 falls 16 -> 15, bias worsens, and every loss is Aplus, whose factor is 0.894 / 1.002 / 1.028
+depending on which job is held out. Gating on the per-job medians agreeing is the right fix, was tried,
+and scores 13.67 - WORSE THAN NOTHING - because TruFrame has only two jobs so holding either out leaves
+one and the gate drops the only factor that pays. RE-TEST THE GATE when a third TruFrame job or a fourth
+Aplus job arrives. The honest test of the change is whether the next TruFrame job comes in closer.
 
 THE ENGINE NOW READS THE WHOLE SUPPLY BUILD-UP (30/07). The learned rate was mined from the Frames
 column ALONE, but a document builds a unit rate as frames + glass + additional + 0.75 x code value.
@@ -92,11 +123,63 @@ findings sit nearer 1.00 and mean nothing, so percentage cannot separate them. W
 real is that its gap is a WHOLE UNIT - seven windows priced where BSW quote eight, GBP 419.32 each.
 Test whether the gap is an integer multiple of some line's unit frames cost.
 
+THE SUPPLIER CHECK NOW NAMES THE ROW, AND THAT IS WHAT MADE THE 30/07 THIRD RUN'S CATCHES (both done):
+  LOCALISE THE GAP TO A BLOCK. A document is organised in blocks under a system heading and the
+  'Supplier used:' table is one row per supplier, and they line up - Brocks Hill's Sheerline block is
+  37,960.33 against a second supplier figure of 37,960.33 EXACTLY, so the whole gap was in the Smart
+  Wall door block. Pair greedily, largest block first, and report only when the per-block residuals add
+  back to the document gap. read_doc was discarding heading rows; it keeps them now.
+  WHOLE UNIT, AND EXACT TO THE PENNY. GBP 1 of slack was too loose - Princess Beatrice is 668.41 out
+  against a 668.94 unit, 53p adrift, and a pound of tolerance called that a missed opening.
+  Four of the thirteen SUPPLIER findings now say something instead of quoting a ratio: Grange Hill (the
+  known catch, now naming row 13 'West Elevation W5 - W9', 5 priced where BSW quote 6), Brocks Hill,
+  Favell House, and St Mary's -697.58 localised to its Sheerline block but NOT a whole unit - a question.
+
+TWO CATCHES, BOTH COST EXPOSURE ON LIVE QUOTES AND NEITHER A CLIENT ERROR - the distinction matters:
+  BROCKS HILL PHASE 2, priced 28/07/2026. BSW quoted ONE of the two glazed entrance doors and the
+  document prices TWO. Row 10 'Door Type E.04', 1810x2110, qty 2, Frames 2,723.49 each. Bellview's quote
+  prices position 002 as "1 Pcs 1,810 x 2,110mm Double Pivoted Anti Fingertrap Doors 3,204.11", and
+  3,204.11 less its own "Discount 2: -15.00%" is 2,723.49 to the penny, with its Grand Total Net
+  17,094.52 matching our supplier cell exactly. OUR QUANTITY IS RIGHT - the client's BoQ lists EXD.E.04
+  items ED.0.10/14 as 2 nr - so the client is charged correctly and the document foots. What is short is
+  the BUY, by 2,723.49, and the BoQ's "E/O - POWER ASSISTED, 1 nr" against those two doors is both a
+  likely reason the second was left out and a reason it may not come back at the same money. THIRD
+  FINDING AGAINST THE SAME SUPPLIER QUOTE ON THIS JOB after solar control and obscure glazing on 29/07.
+  FAVELL HOUSE, priced 07/07/2026. Row 13 'L1 - Louvre', qty 3 at 63.47, is in NO supplier quote: Aplus
+  13,681.53 covers rows 9-12 exactly and DuK 3,990.00 the automation row, leaving 190.41 behind nothing.
+  Neither is an arithmetic error in a document a client holds, so ADAM'S MORNING LIST IS STILL GORDON
+  COURT REV 2 ALONE. Both are questions for whoever owns the buy.
+
 TWO THINGS FOUND IN THE DOCUMENTS THAT ARE NOT ERRORS BUT SOMEBODY SHOULD KNOW:
   THE TEMPLATE HAS NO STEEL DOOR CODE. CB Refrigeration and Zelltec Crownhill both buy Strongdoor steel
   doors and code them SAD/DAD, the aluminium door codes. The estimator prices them correctly - GBP
   881-1,474/m2 against an aluminium 475-668 - so the documents are right and the engine is 31-50% under
-  on every one of those lines. Measured across the archive, a heading containing 'steel' runs x1.677.
+  on every one of those lines. A code of its own would still be worth having if anyone edits the master
+  template. BUT THE x1.677 IS OFF THE BOARD AS AN ENGINE CHANGE - see the heading negative below.
+
+THE PRODUCT HEADING IS A REAL SIGNAL THAT DOES NOT GENERALISE - CLOSED NEGATIVE (30/07, third run).
+DO NOT SPEND THE HOUR AGAIN. parse_doc now carries the section heading onto all 507 of 508 priced lines,
+47 distinct headings, and it is the term the engine has never had: the code says only window-or-door and
+small-medium-large, so a Strongdoor steel security door and an aluminium one are both SAD. Measured on
+the whole archive the headings separate hard - sliding sash 3.228, fd30 2.302, internal steel 2.222,
+smart wall 1.492, technal 0.849, modeal coupled 0.596. EIGHT ARMS ALL LOSE, vocabulary fixed before any
+factor was read and factors re-mined per fold: best 13.29 and worst 15.86 against a 13.11 baseline.
+THE REASON IS THE WHOLE LESSON: the headings that separate hardest are each unique to ONE job, and the
+ones that repeat across jobs sit on 1.00 - door 1.000 (23 jobs), window 1.000 (22), sheerline 0.970 (11),
+sma 1.089 (12), comar 1.000, upvc 1.004, screen 1.000. A factor big enough to matter is that document's
+identity, not a fact about the product. STEEL IS THE CLEAN PROOF and scores 14.42 on its own: CB
+Refrigeration needs it (-32.6% without it) and Zelltec does NOT (+14.6% becomes +39.9%), and both buy
+Strongdoor steel doors on an aluminium code. Same word, different money, and a median over the two
+prices neither.
+
+AND THINNING THE REPEATED JOBS IS ALSO NEGATIVE. Mining one document per job costs 0.73 points (13.58 ->
+14.31) and costs it on unrelated work - Brocks Hill -8.0 -> -14.9, Oldswinford -16.9 -> -23.0. A COMAR
+re-price of the same elevations is a second real observation of what Fenster charges, not a duplicate.
+Capping any one job at 1/6 of a bucket is GENUINELY AMBIGUOUS and was rejected rather than argued in:
+mean abs 13.67 v 13.58 the wrong way, but median 6.98 v 7.98, within-10 17 v 16, bias -0.91 v -1.25 and
+whole-archive +5.36% v +6.38% all the right way, better on 14 documents and worse on 9. It trades one big
+loss (St Christopher's +13.8 -> +25.0 on 5 lines) for many small wins. If a future session wants it, it
+has to change the declared decision metric ON PURPOSE and say why.
   ASHE - CDC rows 9 and 10 use an adder of 525.00 where MAW's is 412.50, out by exactly +112.50 on both.
   They are a 2810x2000 and a 3580x2000 coded MAW - 5.62 and 7.16 m2, which is not a medium window - and
   their Frames work out at GBP 111 and 120/m2 against an archive median near 400. Mis-coded, not
