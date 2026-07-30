@@ -59,6 +59,19 @@ other panel on this dashboard. `bd.md` already says the register is a FLOOR
 and never a complete set - `absentFromCrm` is the first measurement of how
 deep the floor is.
 
+**CHEIL WAS NOT ONE OF THEM, AND IT TOOK A THIRD KIND OF JOIN TO SEE IT.**
+30/07: the log's "Cheil Construction" is **"Chiel Construction"** in AdminBase -
+lead 7384, Swanhurst School, GBP 52,483 ex VAT, chris@chielcon.co.uk, "Live -
+Quoted" and 218 days silent. Two letters transposed. Subset-of-identifying-words
+cannot see it (CHEIL is not a subset of {CHIEL}) and penny-exact value cannot
+either, because the CRM row is the December re-quote at a different figure. So
+`near_keys()` adds a typo pass: same letters in a different order, or a
+similarity of 0.9 or better, on the IDENTIFYING words only. A name match that
+loose has to be corroborated before it is believed, and this one is, twice over -
+the CRM job is "SWANHURST SCHOOL BROOK LANE BIRMINGHAM" and its contact is the
+Chris the log names. Rows carry `clientMatch: "near"` and `nearMatch.confirmedBy`
+so nobody has to take the spelling's word for it.
+
 WHERE THE FILE IS READ FROM
 ---------------------------
 A COPY, in `test-results/repricing/`. The originals live in the Commercial
@@ -73,6 +86,7 @@ its title. So the answer to "did anybody work this list after he left" is: one
 cell, in seven months.
 """
 import argparse
+import difflib
 import json
 import os
 import re
@@ -307,6 +321,49 @@ def main():
         return {w for w in norm(name).split()
                 if len(w) >= 4 and w not in GENERIC}
 
+    def near_keys(index, key):
+        """Keys that are the same company MISSPELT, not a different company.
+
+        The Barnfield/Sinden pass below joins on identifying words. It cannot
+        help when the word itself is typed wrong: the log's "Cheil
+        Construction" is filed in AdminBase as **"Chiel Construction"**, two
+        letters transposed, and {CHEIL} is not a subset of {CHIEL} in either
+        direction. Penny-exact value does not rescue it either - the CRM row is
+        the December re-quote, so the figures legitimately differ.
+
+        So: compare the identifying words as one string and accept either the
+        same letters in a different order (a transposition, which is what a
+        human typing a name does wrong) or a similarity of 0.9 and up. Names
+        with no identifying words at all - "GD Construction", "R1
+        Construction" - are excluded, because at that length everything looks
+        like everything.
+
+        This is deliberately the weakest of the three joins and it is the only
+        one whose hits are labelled `near` and asked to prove themselves.
+        bd.md's rule for a low-confidence match is one human confirmation; a
+        matching project title or contact does the same job and is on the row.
+        """
+        want_set = ident(key)
+        want = "".join(sorted(want_set))
+        if len(want) < 5:
+            return []
+        got = []
+        for k in index:
+            if k == key:
+                continue
+            other_set = ident(k)
+            other = "".join(sorted(other_set))
+            if len(other) < 5 or want == other:
+                continue
+            if want_set <= other_set or other_set <= want_set:
+                continue          # the subset pass already has these
+            same_letters = sorted(want) == sorted(other)
+            ratio = difflib.SequenceMatcher(None, want, other).ratio()
+            if same_letters or ratio >= 0.9:
+                got.append((k, "same letters, reordered" if same_letters
+                            else "%.0f%% similar" % (ratio * 100)))
+        return got
+
     def client_rows(index, key):
         """Every CRM/won row for this client, however the CRM spells it.
 
@@ -368,6 +425,15 @@ def main():
 
         cr = client_rows(crm_by, key)
         wn = client_rows(won_by, key)
+        # The typo pass, kept separate from the two joins above so a weak match
+        # can never be mistaken for a strong one further down.
+        near_crm = near_keys(crm_by, key)
+        near_won = near_keys(won_by, key)
+        near_rows = [x for k, _ in near_crm for x in crm_by[k]]
+        near_won_rows = [x for k, _ in near_won for x in won_by[k]]
+        strong = bool(cr or wn)
+        cr = cr + [x for x in near_rows if not any(x is y for y in cr)]
+        wn = wn + [x for x in near_won_rows if not any(x is y for y in wn)]
         # "In the CRM" now means found under ANY spelling of the name, which is
         # the only version of the question worth answering. The strict-key
         # answer is kept beside it because it is what every other panel on this
@@ -412,6 +478,44 @@ def main():
         crm_hit = [(x, b) for x, b in crm_hit if b]
         won_hit = [(x, looks_like(x, "site")) for x in wn]
         won_hit = [(x, b) for x, b in won_hit if b]
+
+        # A name matched on spelling alone is a guess. Corroborate it, or say
+        # out loud that it is unconfirmed.
+        #
+        # Cheil/Chiel needed all of this. The project title shares exactly ONE
+        # distinctive word - SWANHURST, because `tokens()` strips SCHOOL and
+        # LANE as street furniture - which is under the two-word bar
+        # `looks_like` sets, so the strong join would have left the row reading
+        # "nothing in the CRM for this project" while lead 7384 sat there. One
+        # RARE word plus a near-identical company name is not the Gresty Road
+        # problem; it is the Gresty Road lesson applied. And the CRM row's own
+        # contact settles it: the log says "Chris at Cheil has asked us for
+        # PQQ's" and the lead's email is chris@chielcon.co.uk.
+        near_info = []
+        for k, why in near_crm:
+            for x in crm_by[k]:
+                shared = sorted(pt & tokens(x.get("job") or ""))
+                local = ((x.get("email") or "").split("@")[0] or "").lower()
+                by = []
+                if shared:
+                    by.append("project shares %s" % ", ".join(shared))
+                if same_money(x):
+                    by.append("value matches to the penny")
+                if len(local) >= 4 and local in text.lower():
+                    by.append("the log names %s and the CRM contact is %s"
+                              % (local.capitalize(), x.get("email")))
+                near_info.append({
+                    "crmClient": (x.get("client") or "").strip(),
+                    "logClient": client.strip(),
+                    "why": why,
+                    "lead": x.get("lead"), "job": x.get("job"),
+                    "leadDate": x.get("leadDate"), "result": x.get("result"),
+                    "value": x.get("value"), "owner": x.get("owner"),
+                    "email": x.get("email"), "phone": x.get("phone"),
+                    "confirmedBy": by,
+                })
+                if len(by) >= 2 and not any(x is y for y, _ in crm_hit):
+                    crm_hit.append((x, "near-name: %s" % "; ".join(by)))
         # The same quote still open is NOT somebody acting on the row.
         same_quote = [x for x, b in crm_hit if b.startswith("value")]
         newer = [x for x in since
@@ -448,9 +552,14 @@ def main():
             # likely to secure this"; RG Carter's is titled (LOST) and its note
             # says the main contractor won it. Somebody has to read those two.
             "conflict": bool(lost and worth),
-            "clientMatch": ("exact" if strict else "alias") if cr or wn else "none",
+            "clientMatch": ("exact" if strict else "alias") if strong else (
+                "near" if cr or wn else "none"),
             "crmSpellings": sorted({(x.get("client") or "").strip() for x in cr}),
             "crmRows": len(cr),
+            # Only present when the ONLY thing linking log to CRM is a
+            # near-identical spelling. Every entry carries what corroborates it,
+            # and an empty `confirmedBy` means nobody should act on it yet.
+            "nearMatch": near_info or None,
             # Quotes raised for this CLIENT after Jayk sent the list, EXCLUDING
             # the same quote re-appearing. A client can be busy while this
             # particular job is untouched, and that difference is the whole
@@ -485,8 +594,19 @@ def main():
         row["rank"] = ([t for t, _, _ in TIERS].index(row["tier"])
                        if row["tier"] != "unclassified" else 9)
         out.append(row)
+        # A corroborated typo match means the client IS in the CRM, so it leaves
+        # `absentFromCrm`. An UNcorroborated one does not - a similar name on its
+        # own is not evidence, and quietly promoting it would make this file's
+        # own headline number soft.
+        corroborated = [n for n in near_info if len(n["confirmedBy"]) >= 2]
         c = clients.setdefault(key, {"client": client.strip(), "rows": 0,
-                                     "value": 0.0, "inCrm": exact,
+                                     "value": 0.0,
+                                     "inCrm": strong or bool(corroborated),
+                                     "matchedVia": "name" if strong else (
+                                         "spelling, corroborated"
+                                         if corroborated else None),
+                                     "crmSpelling": corroborated[0]["crmClient"]
+                                     if corroborated and not strong else None,
                                      "crmSince": len(since)})
         c["rows"] += 1
         c["value"] += row["value"] or 0
@@ -495,6 +615,9 @@ def main():
 
     absent = sorted([c for c in clients.values() if not c["inCrm"]],
                     key=lambda c: -c["value"])
+    typo = sorted([c for c in clients.values()
+                   if c["inCrm"] and c.get("crmSpelling")],
+                  key=lambda c: -c["value"])
     untouched = [r for r in out if not r["crmSince"] and not r["wonSince"]]
     secured = [r for r in out if r["tier"] == "secured"]
 
@@ -532,10 +655,24 @@ def main():
             "noCrmActivityValue": round(sum(r["value"] or 0 for r in untouched), 2),
             "clientsAbsentFromCrm": len(absent),
             "absentValue": round(sum(c["value"] for c in absent), 2),
+            "clientsFoundBySpelling": len(typo),
+            "foundBySpellingValue": round(sum(c["value"] for c in typo), 2),
             "byTier": {t: sum(1 for r in out if r["tier"] == t)
                        for t, _, _ in TIERS},
         },
         "absentFromCrm": absent,
+        "foundBySpelling": typo,
+        "foundBySpellingNote": "Clients this file reported as ABSENT from the "
+                               "AdminBase export on 30/07 and which are in "
+                               "fact there under a misspelling. Cheil "
+                               "Construction is 'Chiel Construction' - lead "
+                               "7384, Swanhurst School, chris@chielcon.co.uk, "
+                               "Live - Quoted and silent since 22/12/2025. Two "
+                               "transposed letters put GBP 48,815 of quoted "
+                               "work in the wrong column, and the row it hides "
+                               "is one where the CLIENT is waiting on US. Every "
+                               "entry here had to be corroborated by something "
+                               "other than the name before it moved.",
         "absentNote": "These clients hold quotes on this log and do NOT appear "
                       "in Adam's AdminBase export, which is the pipeline every "
                       "other panel on this board is built from. bd.md already "
@@ -566,6 +703,13 @@ def main():
     for a in absent:
         print("     %-30s %d rows  GBP %s" % (a["client"][:30], a["rows"],
                                               format(int(a["value"]), ",")))
+    if typo:
+        print("  %d client(s) that ARE in the CRM under a misspelling (GBP %s)" % (
+            c["clientsFoundBySpelling"], format(int(c["foundBySpellingValue"]), ",")))
+        for t in typo:
+            print("     %-24s -> %-24s GBP %s" % (
+                t["client"][:24], t["crmSpelling"][:24],
+                format(int(t["value"]), ",")))
     if c["conflicts"]:
         print("  %d rows say LOST and WORTH REQUOTING at the same time - read them"
               % c["conflicts"])

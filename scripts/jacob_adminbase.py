@@ -82,6 +82,47 @@ CONFIRMED = {
             "mistake. That is a legit tender and should be treated as such.'",
 }
 
+# Rows somebody has actually RESEARCHED, keyed on the lead number. The generated
+# next action below is a good default and it is still a default: it assumes the
+# client owes us an answer, because on 209 rows out of 209 that is all the CRM
+# can tell you.
+#
+# It is wrong whenever the client is waiting on US, and it is wrong in the
+# expensive direction - ringing a man to ask "what did you think of our price"
+# when what he asked for in December was a completed PQQ. Lead 7384 is that row,
+# and nothing in the CRM could have shown it: the fact lives in the repricing
+# log the departed BDM left behind, and the reason for the silence lives in
+# Birmingham's planning register.
+#
+# So a researched row can replace its own next action. `why` says where the
+# override came from, because an override with no source is just a different
+# guess.
+WORKED = {
+    "7384": {
+        "next": "DO NOT chase Chris Mitchell for an answer - Fenster owes HIM. "
+                "Jayk's repricing log, 19/12/2025: 'Chris at Cheil has asked "
+                "us for PQQ's to be completed and for updated costs + "
+                "schedule so now actually looking good.' The PQQ documents "
+                "reached us on 18/12/2025 and a revised quote is dated "
+                "22/12/2025; nothing in commercial@, info@ or jacob@ shows "
+                "any of it going back, and jayk@ is a 404. FIRST: Adam or "
+                "Mary confirms whether the PQQ pack and the revised costs "
+                "left estimating@ (JAC-19). Then one call to 02476 466 877 "
+                "delivering what he asked for - not asking how our price "
+                "looked.",
+        "why": "Researched 30/07/2026. Sources: repricing.json (Jayk's log, "
+               "19/12/2025), the Cheil Construction tender folder on the "
+               "Commercial drive, Companies House 04840215, Birmingham "
+               "planning 2025/01426/PA and 2025/06383/PA. "
+               "data/companies/chiel-construction.md.",
+        "note": "The 218 days of silence are explained and they are not "
+                "neglect on Chiel's side: condition 13 of the planning "
+                "consent - THE INTERNAL DESIGN AND LAYOUT OF THE SPORTS HALL "
+                "- was not approved until 26/02/2026. The glazing package "
+                "could not be settled while it was outstanding.",
+    },
+}
+
 # Win rate by value, from 224 priced decided rows in the Opportunity Log.
 #
 # READ THE EDGES. This is the 2025-26 BD funnel, not Fenster's win history
@@ -205,7 +246,7 @@ def state_for(result, days, has_value):
     return "quoted - chase due", "Adam"
 
 
-def next_for(state, client, job, value, days, matched):
+def next_for(state, client, job, value, days, matched, lead_no=None):
     """The next action on a chaseable row - JAC-14, answered by ADAM 29/07/2026.
 
     (It went on the record as Zac: the hub sign-in defaulted to him and Adam
@@ -227,6 +268,11 @@ def next_for(state, client, job, value, days, matched):
     all - a call that only asks "did we get it" spends a relationship and
     brings back one bit of information.
     """
+    # A researched row wins over the generated ask, and it wins even when the
+    # row is not in a "quoted" state - the whole point of the override is that
+    # somebody has read more than this file can see.
+    if lead_no and lead_no in WORKED:
+        return WORKED[lead_no]["next"]
     if not state.startswith("quoted"):
         return ""
     # A row that joins penny-exact to a verified send is already on the
@@ -341,7 +387,8 @@ def build():
             # JAC-14. Every chaseable row carries the ask; a human's edit on
             # the board still wins over it.
             "next": next_for(state, title_case(r.get("LEADNAME")), job, ex,
-                             days, matched),
+                             days, matched, clean(r.get("LEADNUMBER"))),
+            "worked": WORKED.get(clean(r.get("LEADNUMBER"))),
             "email": email,
             "phone": (clean(r.get("WORKTELEPHONE")) or clean(r.get("MOBILE"))
                       or clean(r.get("HOMETELEPHONE"))),

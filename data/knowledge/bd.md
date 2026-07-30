@@ -6,16 +6,14 @@ to fit it. **Cap: 130 lines.** Over it, the full account moves to `data/knowledg
 append-only, grep-able) and the one-line rule stays here with a pointer - Mary's INDEX.md over AI.md. New evidence
 teaches: add. Evidence contradicts: the line dies here, the WHY goes to bd-lessons. Files: `data/jacob/README.md`.
 
-> **OVER CAP: 230 against 130, and last night's note predicted this exact session.** It said "nobody
-> ever adds twenty-five lines, they add eleven twice" and promised not to pretend the next one would be
-> different. **It was not: I added 31 more on 30/07** (Jayk's repricing log, the dormant stale-quote
-> fix, the CRM-spelling and ODS-linebreak join rules). Every one is merged into an existing entry with
-> the full account in `bd-lessons.md`, and every one is load-bearing - which is precisely why the cap is
-> not holding. Track record: 155(actually 162) -> 175 -> 186 -> 207 -> 230.
-> **JAC-16 is open and this is now the largest piece of unpaid maintenance on my side** - Zac raises the
-> cap or authorises a session for a real compression pass, his choice, and it needs answering before I
-> add anything else. I have compressed this banner from 18 lines to 9 as the only cut I can make
-> unilaterally without deleting something a future session needs. The history is in `bd-lessons.md`.
+> **OVER CAP: 230 against 130.** Track record: 155(actually 162) -> 175 -> 186 -> 207 -> 230 -> **230**.
+> That last figure is the point. On 30/07 01:03 I had six new lines to add - the transposition join, the
+> planning-register-explains-silence rule, the corrected absent-from-CRM count - and I paid for every one
+> by genuinely tightening five existing entries (dormant/Conamar, the leaver's log, RSR/DRH1, the portal
+> zero, the bot-line clip) plus this banner from 9 lines to 8. Nothing was deleted; the full account of
+> each is in `bd-lessons.md`. **That is the third session running that has held the line by compression,
+> and there is not a fourth in it: JAC-16 needs answering.** Zac raises the cap or authorises a real
+> compression pass - his choice, and it is the largest piece of unpaid maintenance on my side.
 
 ## What Fenster HAS WON - `contracts-won.json`, the file that settles arguments
 
@@ -55,31 +53,33 @@ value on each. This is the win history; everything else is a funnel.**
 - **The tender-portal logins died with Jayk** (`jayk@` is a hard 404, never resettable). **A dead
   login stops us BIDDING, never LOOKING** - ProContract adverts are PUBLIC and hold sub-GBP 100k
   work in no national feed. Nobody looked for four months. `jacob_procontract.py`, JAC-11/12.
-- **A LEAVER'S LAST EMAIL CAN BE THE BEST SOURCE ON THE BOARD.** Jayk emailed a **repricing log** to
-  four mailboxes on 19/12/2025 - his own shortlist of what to go back to, with the CLIENT'S feedback on
-  each - then left. 62 rows, GBP 6.0m, in no file here until 30/07. **Five rows name a main contract OUR
-  CLIENT HAS WON** (R1 Gresty Rd; Thomas Sinden Hub Alkerden GBP 581k; RG Carter; Barnfield MSM; Elkins
-  Midfield) - **step two of the whole job, done by someone who no longer works here.** The two saved
-  versions differ by ONE cell in seven months, so nobody worked it. Everything in it is 223 days old and
-  the deadlines are 2025: it ranks and explains, it promotes nothing. `jacob_repricing.py`.
+- **A LEAVER'S LAST EMAIL CAN BE THE BEST SOURCE ON THE BOARD.** Jayk emailed a **repricing log** to four
+  mailboxes on 19/12/2025 - his shortlist of what to go back to, with the CLIENT'S feedback on each - then
+  left. 62 rows, GBP 6.0m, in no file here until 30/07; the two saved versions differ by ONE cell in seven
+  months, so nobody worked it. **Five rows name a main contract OUR CLIENT HAS WON** (R1 Gresty Rd; Sinden
+  Hub Alkerden GBP 581k; RG Carter; Barnfield MSM; Elkins Midfield) - **step two of the job, done by
+  someone who no longer works here.** Its `asked-of-us` tier is 7 rows and GBP 222,725 of **prices that
+  stopped INSIDE Fenster** - four say "issued to Adam", three "Ready to Go" (Cheil/Swanshurst is one).
+  All 223 days old with 2025 deadlines: it ranks and explains, promotes nothing. `jacob_repricing.py`.
 - A warm name beats a perfect-fit stranger: a relationship buys being asked to price.
-- **PLANNING APPLICATIONS ARE WHERE BARBOUR GETS IT** (Adam, hub-78). They harvest council registers,
-  then ring the applicant. Step one is free - PlanIt, all 485 GB councils, no key: **454 live large
-  applications in 30 days vs SEVENTEEN tender notices in 90 across CF+FTS.** `applicant_name` is
-  redacted to "See source" and THAT redaction is the product; the council's own portal has it (Idox
-  ~60% of England). Only source reaching a scheme before an enquiry list exists. `jacob_planit.py`.
+- **PLANNING APPLICATIONS ARE WHERE BARBOUR GETS IT** (Adam, hub-78): harvest council registers, ring
+  the applicant. Free via PlanIt, 485 councils, no key - **454 live large applications in 30 days vs
+  SEVENTEEN tender notices in 90 across CF+FTS.** `applicant_name` "See source" IS Barbour's product;
+  the council's own portal carries it (Idox ~60%; **NECSWS refuses an unknown user agent - send Chrome**).
+  Only source reaching a scheme before an enquiry list exists - **and the register also explains a
+  client's SILENCE. Chiel could not settle Swanshurst's glazing while condition 13, the sports hall's
+  internal layout, was undischarged (26/02/26): read the register before calling anyone quiet.** And
+  **search a site we have QUOTED by name whatever the app size** - a 30-day large-only pull missed a
+  live small scheme at that same school. `jacob_planit.py`.
 - **THE 59% NOBODY QUERIES.** 118 of 201 wins were existing customers; 3 ever came from a portal.
-  `jacob_dormant.py`: bought before, nothing quoted now, not on site now, silent. **And "nothing quoted
-  now" MUST mean recently: the old test was "appears in the CRM at all", and because JAC-14 means
-  nothing there ever closes on silence, that permanently exempted every customer ever priced - the
-  better the client, the surer they were hidden.** It hid **CONAMAR, 16 jobs, GBP 917,028, 32% of all
-  value ever won, ADAM'S OWN relationship on all sixteen** - on two quotes whose dates passed 400 days
-  ago. Now top of the list, with GBP 219,774 unanswered. `staleQuotes` carries those onto the row
-  because **"you have GBP 219,774 of our prices" beats "how have you been"**. `data/companies/conamar.md`. **RSR - 5 jobs,
-  GBP 197k, 330 days no work, nothing ever quoted in AdminBase, MK14 to our MK13.** Three of the
-  five are Amazon depots; Adam fixed their door himself 27/11/25 and they thanked him. Call him on
-  that, not on the silence: `data/companies/rsr.md`. Do-not-approach enforced in code (Hightown
-  ranked on run one).
+  `jacob_dormant.py`: bought before, nothing quoted now, not on site now, silent. **"Nothing quoted now"
+  MUST mean recently** - the old test was "appears in the CRM at all", and since JAC-14 closes nothing
+  on silence, that exempted every customer ever priced: the better the client, the surer they were
+  hidden. It hid **CONAMAR - 16 jobs, GBP 917,028, 32% of all value ever won, ADAM'S OWN relationship
+  on all sixteen** - on two quotes 400 days stale. `staleQuotes` puts those on the row, because
+  **"you have GBP 219,774 of our prices" beats "how have you been"**. **RSR: 5 jobs, GBP 197k, 330 days,
+  MK14 to our MK13, three of them Amazon depots Adam fixed a door on himself - call him on THAT.**
+  `conamar.md`, `rsr.md`. Do-not-approach enforced in code (Hightown ranked on run one).
 
 ## Classification rules that cost a day each to learn
 
@@ -90,13 +90,15 @@ value on each. This is the win history; everything else is a funnel.**
   Same trap via a PERSON'S name: "Thomas Sinden" matched **"Chester Thomas Developments"**, a live row
   on my own board. **Join company names on SUBSET, never overlap**, trading words stripped.
 - **THE CRM SPELLS A CLIENT DIFFERENTLY FROM EVERY OTHER SOURCE, AND AN EXACT MATCH IS NOT A COMPLETE
-  ONE.** Barnfield is filed as both "Barnfield" and "Barnfield Construction" - an exact hit short-
-  circuited the sweep and lost the other half. Worse: the log's "Thomas Sinden" is **"Sinden
-  Construction Ltd"** in AdminBase, so a **GBP 581k job the client HAS WON** read as absent from the
-  pipeline when it sits there as lead 5493 at GBP 484,472.63, Live-Quoted since 21/01/2025. I was one
-  step from telling Adam it was in no CRM row. **Union every spelling; then join on PENNY-EXACT VALUE**,
-  which alone distinguishes a re-quote from **the same quote still open** - 18 of 62 rows were the
-  latter. Tokens miss single-word projects ("Gresty Road" is one word after street furniture).
+  ONE.** Barnfield is both "Barnfield" and "Barnfield Construction" - an exact hit short-circuited the
+  sweep. The log's "Thomas Sinden" is **"Sinden Construction Ltd"**: a GBP 581k job the client HAS WON
+  read as absent when it sits there as lead 5493, Live-Quoted since 21/01/2025. **Union every spelling;
+  then join on PENNY-EXACT VALUE**, which alone tells a re-quote from **the same quote still open** (18
+  of 62). **A TRANSPOSITION DEFEATS BOTH**: "Cheil"/"Chiel" is no subset either way and the CRM row was
+  a re-quote at another figure, so **a GBP 52,483 lead where the CLIENT WAS WAITING ON US read as absent
+  from the CRM entirely.** Match same-letters-reordered or 0.9 similar, then corroborate on the CONTACT
+  or one RARE token - never on the name; **Companies House arbitrates which spelling is real** (Chiel,
+  04840215). Tokens miss single-word projects ("Gresty Road" is one word after street furniture).
 - **ODS LINE BREAKS ARE INVISIBLE TO `itertext()`** - Alt+Enter is `<text:line-break/>` inside ONE
   `<text:p>`, and flattening welds sentences: "no decision" + "Worth repricing" = "decisionWorth", no
   word boundary, no regex match. **Six of Elkins' seven rows read as NOT recommended when they were.**
@@ -121,12 +123,12 @@ value on each. This is the win history; everything else is a funnel.**
   fetch qualifies a contractor. Both tricks: `bd-lessons.md`, 29/07.
 - **Check `oldest/newest/truncated` before believing a count** - a 20-page fetch cap once turned 13-22 days into "180 days of mail".
 - **Once For All is Conquest renamed** (`jacob_intake.PORTALS`); else a portal CHASE reads as a fresh enquiry. **A date with no year reads as THIS year** - 90 of 209 AdminBase rows are 2025 quotes shown as "12 May".
-- **The register is a FLOOR, never a complete set** - Trafalgar House was live and chased with no
-  Mary chat at all; 9 managed rows against ~25 AdminBase quotes raised since 15/06 alone. **And so is
-  AdminBase: SIX clients on Jayk's repricing log are absent from Adam's export entirely - GBP 1,122,044
-  invisible to every panel here** (Clegg 777k, MCS, BC Workspace, Steele & Bray, Cheil, RG Carter). Not
-  an accusation - a quote outside the export window or under another trading name lands there too. But
-  **Cheil's row is an outstanding ask OF Fenster (PQQs + updated costs) from a client no page can see.**
+- **The register is a FLOOR, never a complete set** - Trafalgar House was live and chased with no Mary chat
+  at all; 9 managed rows against ~25 AdminBase quotes raised since 15/06 alone. **And so is AdminBase: FIVE
+  clients on Jayk's log are absent from Adam's export entirely - GBP 1,073,229 invisible to every panel
+  here** (Clegg 777k, MCS, BC Workspace, Steele & Bray, RG Carter); a quote outside the export window or
+  under another trading name lands there too, so it is no accusation. **Cheil was the sixth until 30/07,
+  and that one was MY spelling rather than their CRM - the transposition rule below.**
 - **"Not in the sends I have dated" means "not in the list that script searches"** - absence from a
   tool reads like never sent. **Count the chases before writing "call them"**; numbers are in the
   signature. `bd-lessons`.
@@ -142,31 +144,29 @@ value on each. This is the win history; everything else is a funnel.**
   spoken since"** - RSR's mailbox runs to 05/05/26. Do NOT join to `intake.json` to fix it: it
   covers 30 days, so absence would read as never-contacted. **Search the mailbox before ringing
   anyone dormant.** `bd-lessons.md`, `data/companies/rsr.md`.
-- **A JOB STRADDLES THE MAILBOX WALL AND EACH BOT CALLS ITS OWN HALF THE WHOLE STORY.** RSR/Amazon
-  DRH1: client end in estimating@ (dies 10/10/25), supplier end in commercial@ (to 31/10/25, glazier
-  offers a visit, nobody answers). Both right, answer still wrong - most of Fenster's work is
-  subcontracted, so it sits on BOTH sides. **Ask the other bot before calling a job dead.** GBP 750
-  +VAT quoted, Amazon signed it off, RSR chased US twice and cannot quote Amazon until we confirm:
-  **count who chased whom before writing "gone quiet".** Cause was a LEAVER - **HARRY GROVER HAS LEFT**
-  (Adam, 31/10/25), on four of RSR's five won jobs: any row he owns or promised on is STALE.
-  **`jayk@` is a hard 404 - "nothing in jayk@" means nowhere left to look, not nothing was there.**
+- **A JOB STRADDLES THE MAILBOX WALL AND EACH BOT CALLS ITS OWN HALF THE WHOLE STORY.** RSR/Amazon DRH1:
+  client end in estimating@ (dies 10/10/25), supplier end in commercial@ (to 31/10/25, nobody answers a
+  glazier's offer of a visit). Both right, answer still wrong - most work here is subcontracted, so it
+  sits on BOTH sides. **Ask the other bot before calling a job dead**, and **count who chased whom**: RSR
+  chased US twice on a GBP 750 job Amazon had signed off. Cause was a LEAVER - **HARRY GROVER HAS LEFT**
+  (Adam, 31/10/25), on four of RSR's five won jobs: any row he owns or promised on is STALE. **`jayk@` is
+  a hard 404 - "nothing in jayk@" means nowhere left to look, not nothing was there.**
 - **SEARCH THE DOMAIN - THEN DISTRUST A ZERO.** "Instant Glass" = 49 hits and reads like our Crawley
-  glazier; `instantglass.co.uk` = 3, one dead thread, never quoted. **But a PORTAL client's domain is
-  on our OUTBOUND ONLY** - E T & S's notices arrive subject-lined "<client> addendum:" / "new message:"
-  / "invites you to quote on:" and reach estimating@ only because **PAUL TAYLOR forwards them**, so
-  "ets-wales" = 0 read as "no traffic" on a GBP 174,546 tender we were told about twice and let lapse.
-  **Search the portal's PHRASING; ask who forwards it.** A colleague on it is the login Jayk's 404 hides.
+  glazier; `instantglass.co.uk` = 3, one dead thread, never quoted. **But a PORTAL client's domain is on
+  our OUTBOUND ONLY** - E T & S's notices arrive "<client> addendum:"/"new message:"/"invites you to quote
+  on:", reaching estimating@ only because **PAUL TAYLOR forwards them**: "ets-wales" = 0 read as "no
+  traffic" on a GBP 174,546 tender we were told about twice and let lapse. **Search the portal's PHRASING;
+  ask who forwards it** - a colleague on it is the login Jayk's 404 hides. **A zero in MY four mailboxes
+  is no zero at all** (Chiel: whole job in estimating@).
 - **AND THE SHARPER ONE: DO NOT READ A FAN-OUT THROUGH ONE MAILBOX.** I called DRH1's blocker "Instant
-  Glass are the only candidate". Harry went to **THREE** glaziers on 05/09; theirs was just the thread
-  that stayed in commercial@, **and the only one that failed**. Johnson & Sons priced the bonded corner
-  at **GBP 960+VAT on 13/10/25** in estimating@, to a spec ADAM set: **so the GBP 750 RSR keep asking us
-  to confirm is UNDER COST by GBP 210 before margin** (Mary, msg 25). Absence of a price in YOUR half is
-  not absence of a price - and fairer than neglect: the GBP 960 landed three days AFTER the ask.
-- **THE BOT LINE SILENTLY EATS THE END OF A LONG MESSAGE.** `/api/botchat` does `clip(body, 4000)`
-  and returns `{ok:true}` regardless - my 6,918-char RSR reply reached Mary cut mid-sentence in its
-  fourth section and only she noticed. **The END is where the point goes.** `bot_chat.py` now
-  REFUSES over 4,000 and shows what would be lost (`BODY_LIMIT`). The hub reply route clips at
-  8,000, which is a different number - do not assume one limit.
+  Glass are the only candidate". Harry went to **THREE** glaziers on 05/09; theirs was just the thread that
+  stayed in commercial@, **and the only one that failed**. Johnson & Sons priced the bonded corner at **GBP
+  960+VAT, 13/10/25** in estimating@ to a spec ADAM set - **so the GBP 750 RSR keep asking us to confirm is
+  UNDER COST** (Mary, msg 25). Absence of a price in YOUR half is not absence of a price.
+- **THE BOT LINE SILENTLY EATS THE END OF A LONG MESSAGE.** `/api/botchat` does `clip(body, 4000)` and
+  returns `{ok:true}` regardless - my 6,918-char RSR reply reached Mary cut mid-sentence and only she
+  noticed. **The END is where the point goes.** `bot_chat.py` now REFUSES over 4,000 (`BODY_LIMIT`); the
+  hub reply route clips at 8,000 - do not assume one limit.
 - **Read the Status field on any alert feed** - 15 of 30 Supply2Gov items over four days were award
   or prior-information notices, already gone. Four days held two live leads, not "27 a day".
 - **COVERAGE IS ENGLAND AND WALES, NATIONWIDE** (Adam, 29/07, closing JAC-10). Out: Scotland, NI,

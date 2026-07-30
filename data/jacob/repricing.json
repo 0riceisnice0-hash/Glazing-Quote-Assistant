@@ -11,10 +11,12 @@
   "clients": 27,
   "secured": 5,
   "conflicts": 2,
-  "noCrmActivitySince": 20,
-  "noCrmActivityValue": 2154491.94,
-  "clientsAbsentFromCrm": 6,
-  "absentValue": 1122044.09,
+  "noCrmActivitySince": 19,
+  "noCrmActivityValue": 2105677.14,
+  "clientsAbsentFromCrm": 5,
+  "absentValue": 1073229.29,
+  "clientsFoundBySpelling": 1,
+  "foundBySpellingValue": 48814.8,
   "byTier": {
    "secured": 5,
    "asked-of-us": 7,
@@ -29,6 +31,8 @@
    "rows": 1,
    "value": 777177.66,
    "inCrm": false,
+   "matchedVia": null,
+   "crmSpelling": null,
    "crmSince": 0
   },
   {
@@ -36,6 +40,8 @@
    "rows": 2,
    "value": 137160.38,
    "inCrm": false,
+   "matchedVia": null,
+   "crmSpelling": null,
    "crmSince": 0
   },
   {
@@ -43,6 +49,8 @@
    "rows": 3,
    "value": 82516.64,
    "inCrm": false,
+   "matchedVia": null,
+   "crmSpelling": null,
    "crmSince": 0
   },
   {
@@ -50,13 +58,8 @@
    "rows": 1,
    "value": 62602.65,
    "inCrm": false,
-   "crmSince": 0
-  },
-  {
-   "client": "Cheil Construction",
-   "rows": 1,
-   "value": 48814.8,
-   "inCrm": false,
+   "matchedVia": null,
+   "crmSpelling": null,
    "crmSince": 0
   },
   {
@@ -64,9 +67,23 @@
    "rows": 2,
    "value": 13771.96,
    "inCrm": false,
+   "matchedVia": null,
+   "crmSpelling": null,
    "crmSince": 0
   }
  ],
+ "foundBySpelling": [
+  {
+   "client": "Cheil Construction",
+   "rows": 1,
+   "value": 48814.8,
+   "inCrm": true,
+   "matchedVia": "spelling, corroborated",
+   "crmSpelling": "Chiel Construction",
+   "crmSince": 1
+  }
+ ],
+ "foundBySpellingNote": "Clients this file reported as ABSENT from the AdminBase export on 30/07 and which are in fact there under a misspelling. Cheil Construction is 'Chiel Construction' - lead 7384, Swanhurst School, chris@chielcon.co.uk, Live - Quoted and silent since 22/12/2025. Two transposed letters put GBP 48,815 of quoted work in the wrong column, and the row it hides is one where the CLIENT is waiting on US. Every entry here had to be corroborated by something other than the name before it moved.",
  "absentNote": "These clients hold quotes on this log and do NOT appear in Adam's AdminBase export, which is the pipeline every other panel on this board is built from. bd.md already says the register is a FLOOR and never a complete set. This is the first measurement of the gap - and it is not an accusation about the CRM, because a quote raised before the export window or under another trading name would land here too.",
  "rows": [
   {
@@ -98,6 +115,7 @@
     "Thomas Sinden"
    ],
    "crmRows": 2,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [
@@ -143,6 +161,7 @@
     "R1 Construction"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [
@@ -195,6 +214,7 @@
     "Barnfield Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [
@@ -246,6 +266,7 @@
     "Elkins Construction"
    ],
    "crmRows": 6,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 3,
    "crmThisProject": [],
@@ -281,6 +302,7 @@
    "clientMatch": "none",
    "crmSpellings": [],
    "crmRows": 0,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -317,6 +339,7 @@
     "Logan Construction"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [],
@@ -349,12 +372,42 @@
    "jaykSaysWorthIt": false,
    "saysLost": false,
    "conflict": false,
-   "clientMatch": "none",
-   "crmSpellings": [],
-   "crmRows": 0,
-   "crmSince": 0,
+   "clientMatch": "near",
+   "crmSpellings": [
+    "Chiel Construction"
+   ],
+   "crmRows": 1,
+   "nearMatch": [
+    {
+     "crmClient": "Chiel Construction",
+     "logClient": "Cheil Construction",
+     "why": "same letters, reordered",
+     "lead": "7384",
+     "job": "SWANHURST SCHOOL BROOK LANE BIRMINGHAM",
+     "leadDate": "2025-12-22",
+     "result": "Live - Quoted",
+     "value": 52483.33,
+     "owner": "Adam",
+     "email": "chris@chielcon.co.uk",
+     "phone": "02476 466 877",
+     "confirmedBy": [
+      "project shares SWANHURST",
+      "the log names Chris and the CRM contact is chris@chielcon.co.uk"
+     ]
+    }
+   ],
+   "crmSince": 1,
    "wonSince": 0,
-   "crmThisProject": [],
+   "crmThisProject": [
+    {
+     "lead": "7384",
+     "job": "SWANHURST SCHOOL BROOK LANE BIRMINGHAM",
+     "leadDate": "2025-12-22",
+     "result": "Live - Quoted",
+     "value": 52483.33,
+     "matchedOn": "near-name: project shares SWANHURST; the log names Chris and the CRM contact is chris@chielcon.co.uk"
+    }
+   ],
    "wonThisProject": [],
    "stillOpenInCrm": [],
    "verifyFirst": "Every fact on this row was written on or before 2025-12-19 and none of it has been re-checked. Confirm the job is still live before anyone rings out.",
@@ -389,6 +442,7 @@
     "Gd Construction"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [
@@ -438,6 +492,7 @@
     "Bradford Watts Ltd"
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 0,
    "crmThisProject": [
@@ -492,6 +547,7 @@
     "Bradford Watts Ltd"
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 0,
    "crmThisProject": [
@@ -538,6 +594,7 @@
     "Sdevs"
    ],
    "crmRows": 8,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 5,
    "crmThisProject": [],
@@ -575,6 +632,7 @@
     "Lindum Group"
    ],
    "crmRows": 3,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [
@@ -630,6 +688,7 @@
     "Bradford Watts Ltd"
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 0,
    "crmThisProject": [
@@ -680,6 +739,7 @@
    "clientMatch": "none",
    "crmSpellings": [],
    "crmRows": 0,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -718,6 +778,7 @@
     "Bradford Watts Ltd"
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 0,
    "crmThisProject": [
@@ -769,6 +830,7 @@
     "7formation"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [
@@ -819,6 +881,7 @@
    "clientMatch": "none",
    "crmSpellings": [],
    "crmRows": 0,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -853,6 +916,7 @@
    "clientMatch": "none",
    "crmSpellings": [],
    "crmRows": 0,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -891,6 +955,7 @@
     "Apex Quantity Surveying"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [
@@ -942,6 +1007,7 @@
     "Tgc Builders"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [
@@ -987,6 +1053,7 @@
     "Sdevs"
    ],
    "crmRows": 8,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 5,
    "crmThisProject": [],
@@ -1022,6 +1089,7 @@
    "clientMatch": "none",
    "crmSpellings": [],
    "crmRows": 0,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1057,6 +1125,7 @@
    "clientMatch": "none",
    "crmSpellings": [],
    "crmRows": 0,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1092,6 +1161,7 @@
    "clientMatch": "none",
    "crmSpellings": [],
    "crmRows": 0,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1130,6 +1200,7 @@
     "Borras Construction Ltd."
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 6,
    "crmThisProject": [
@@ -1183,6 +1254,7 @@
     "Borras Construction Ltd."
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 6,
    "crmThisProject": [
@@ -1235,6 +1307,7 @@
     "Barnfield Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [
@@ -1282,6 +1355,7 @@
     "Borras Construction Ltd."
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 6,
    "crmThisProject": [
@@ -1335,6 +1409,7 @@
     "Barnfield Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1373,6 +1448,7 @@
     "Borras Construction Ltd."
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 6,
    "crmThisProject": [
@@ -1424,6 +1500,7 @@
     "Lindum Group"
    ],
    "crmRows": 3,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [
@@ -1479,6 +1556,7 @@
     "Borras Construction Ltd."
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 6,
    "crmThisProject": [
@@ -1530,6 +1608,7 @@
     "Sdevs"
    ],
    "crmRows": 8,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 5,
    "crmThisProject": [],
@@ -1567,6 +1646,7 @@
     "Zelltec Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 2,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1605,6 +1685,7 @@
     "Borras Construction Ltd."
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 6,
    "crmThisProject": [
@@ -1658,6 +1739,7 @@
     "Barnfield Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1696,6 +1778,7 @@
     "Borras Construction Ltd."
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 5,
    "wonSince": 6,
    "crmThisProject": [
@@ -1748,6 +1831,7 @@
     "Thomas Sinden"
    ],
    "crmRows": 2,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1784,6 +1868,7 @@
     "Elkins Construction"
    ],
    "crmRows": 6,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 3,
    "crmThisProject": [],
@@ -1821,6 +1906,7 @@
     "Neil Douglas Block Management"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 4,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1857,6 +1943,7 @@
     "Hastoe Housing Association"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [
@@ -1908,6 +1995,7 @@
     "Key Property Solutions"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1944,6 +2032,7 @@
     "R1 Construction"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [],
@@ -1980,6 +2069,7 @@
     "Elkins Construction"
    ],
    "crmRows": 6,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 3,
    "crmThisProject": [],
@@ -2016,6 +2106,7 @@
     "Elkins Construction"
    ],
    "crmRows": 6,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 3,
    "crmThisProject": [],
@@ -2052,6 +2143,7 @@
     "Elkins Construction"
    ],
    "crmRows": 6,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 3,
    "crmThisProject": [],
@@ -2089,6 +2181,7 @@
     "Zelltec Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 2,
    "wonSince": 0,
    "crmThisProject": [],
@@ -2125,6 +2218,7 @@
     "Elkins Construction"
    ],
    "crmRows": 6,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 3,
    "crmThisProject": [],
@@ -2162,6 +2256,7 @@
     "Conamar Building Services Ltd."
    ],
    "crmRows": 3,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [
@@ -2213,6 +2308,7 @@
     "Re-gen (uk) Construction"
    ],
    "crmRows": 1,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [],
@@ -2250,6 +2346,7 @@
     "Zelltec Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 2,
    "wonSince": 0,
    "crmThisProject": [
@@ -2299,6 +2396,7 @@
    "clientMatch": "none",
    "crmSpellings": [],
    "crmRows": 0,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -2333,6 +2431,7 @@
    "clientMatch": "none",
    "crmSpellings": [],
    "crmRows": 0,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -2370,6 +2469,7 @@
     "Zelltec Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 2,
    "wonSince": 0,
    "crmThisProject": [],
@@ -2407,6 +2507,7 @@
     "Zelltec Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 2,
    "wonSince": 0,
    "crmThisProject": [],
@@ -2441,6 +2542,7 @@
     "Glazing Consultancy Services"
    ],
    "crmRows": 2,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [
@@ -2484,6 +2586,7 @@
     "Elkins Construction"
    ],
    "crmRows": 6,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 3,
    "crmThisProject": [],
@@ -2518,6 +2621,7 @@
     "Glazing Consultancy Services"
    ],
    "crmRows": 2,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -2553,6 +2657,7 @@
     "Bradford Watts Ltd"
    ],
    "crmRows": 12,
+   "nearMatch": null,
    "crmSince": 6,
    "wonSince": 0,
    "crmThisProject": [
@@ -2602,6 +2707,7 @@
     "Glazing Consultancy Services"
    ],
    "crmRows": 2,
+   "nearMatch": null,
    "crmSince": 0,
    "wonSince": 0,
    "crmThisProject": [],
@@ -2637,6 +2743,7 @@
     "Zelltec Construction"
    ],
    "crmRows": 5,
+   "nearMatch": null,
    "crmSince": 2,
    "wonSince": 0,
    "crmThisProject": [
@@ -2680,6 +2787,7 @@
     "Coulson"
    ],
    "crmRows": 2,
+   "nearMatch": null,
    "crmSince": 1,
    "wonSince": 0,
    "crmThisProject": [

@@ -667,3 +667,77 @@ quiet, so treating it as a chase would have been the third wrong frame in a row.
 silence was the ending - marked seen, nothing sent. Replied on the hub instead, since Zac is
 the one I told last night not to approve D-1. Deployed through `--deploy`, so the shared lock
 was taken; Functions bundle line is in the output.
+
+## 2026-07-30 - standing agenda: two transposed letters, and a planning register that explained the silence
+
+**Order:** the standing agenda, 01:03 - my own time, advance one or two things properly. I took the
+highest-value unworked item on the board: the seven `asked-of-us` rows on Jayk's repricing log, where
+a CLIENT asked FENSTER for something. One of the seven turned out to be the whole session.
+
+**Cheil Construction was never absent from the CRM. It is "CHIEL", and Companies House says Chiel is
+right** - 04840215, active since 2003, Coventry, accounts filed. Lead 7384, Swanshurst School new
+sports hall Birmingham, **GBP 52,483.33 ex VAT, "Live - Quoted" since 22/12/2025, Adam's row, taken
+by Jayk.** My "six clients absent from AdminBase, GBP 1,122,044" was wrong by one client and
+GBP 48,815 on two transposed letters. Corrected on the board to **five clients, GBP 1,073,229**.
+
+**Every join I already had failed on it, each for a different reason** - exact key (different
+string), subset-of-identifying-words (CHEIL is no subset of CHIEL either way), penny-exact value (the
+CRM row is the December re-quote at another figure), project tokens (`tokens()` strips SCHOOL and
+LANE, leaving ONE shared word under a two-word bar - the Gresty Road trap on a row where it mattered).
+`near_keys()` adds a typo pass: same letters reordered, or 0.9 similar, on the identifying words only,
+never below five characters. **It must corroborate on something that is not the name** - and this one
+does, twice: the rare token SWANHURST, and the log's "Chris at Cheil" against chris@chielcon.co.uk.
+Across 62 log rows and 127 CRM clients it fired **exactly once** and that once was right. One bug
+worth remembering: the first version compared two *strings* with `<=` instead of two sets, and
+'CHEIL' <= 'CHIEL' is True, so the single case the function existed for was silently skipped.
+
+**What the row actually is: the client is waiting on US, and has been since December.** Jayk,
+19/12/2025 - *"Chris at Cheil has asked us for PQQ's to be completed and for updated costs +
+schedule so now actually looking good. Gintare has reviewed an issued to Adam."* The PQQ paperwork
+ARRIVES in the tender folder on 18/12, a revised quote is dated 22/12, and the trail stops inside
+Fenster. Nothing on Chiel in commercial@, info@ or jacob@ at all; jayk@ is a 404. **So the board was
+telling whoever picked the row up to chase him for feedback on our price** - the most expensive
+sentence on the page. `WORKED` in `jacob_adminbase.py` now lets a researched row replace its own next
+action, keyed on lead number and carrying its sources, the same pattern `CONFIRMED` set for Brandon
+Estate.
+
+**And the Today page would have buried it anyway.** Six of 209 AdminBase rows reach Today, chosen by
+value; GBP 52,483 put this one thirteenth. **Research nobody can see is research nobody did**, so a
+`worked` row now bypasses the value ranking and lists at 126 - Adam's hub-74 completeness rule
+pointing the other way, since an override IS somebody touching the row.
+
+**The 218 days of silence were not Chiel going cold.** Birmingham's own register: sports hall consent
+11/07/2025 (2025/01426/PA), and **condition 13 - the internal design and layout of the sports hall -
+not discharged until 26/02/2026** (2025/06383/PA). The package could not be settled while it was
+open. **A discharge-of-conditions date can be the whole explanation for a client's silence, and it is
+free to look up.**
+
+**One live scheme found, with a clock on it.** **2026/02027/PA**, same school: a new single storey SEN
+teaching facility, undecided, **consultation closes 05/08/2026**, applicant Vonni Steer, agent Lucas
+Architects Ltd. No contractor named anywhere public - the enquiry list cannot exist yet - and small
+enough to sit in the band the funnel converts. It is invisible to `planning.json` (30-day window,
+large applications only), so I proposed watching any site we hold a live quote on by name whatever
+its size, and did not build it unasked. Two API notes: PlanIt's `search=` genuinely returns nothing
+for "Swanshurst" (control: 1,103 for "sports hall", so the tool works and the zero is real) - found
+it on `pcode=B13+0TW&krad=0.5`, so **search by SITE when you know where the job is**; and Birmingham's
+NECSWS portal refuses an unrecognised user agent, then lists the ones it accepts. Send Chrome and the
+applicant name is there. PlanIt had all three redacted to "See source".
+
+**No draft written, deliberately.** The opening line swings entirely on whether the PQQ pack went: a
+223-day-late delivery and an ordinary chase are two different emails, not two wordings of one. D-1
+died this morning for exactly that error and I was not going to make it twice in a session. It is in
+`not_drafted` with what unblocks it. **Asked Mary the one question only estimating@ can answer**
+(--wants-reply; nothing back within the session) and **raised JAC-19 for Adam** with four options
+including letting the sports hall go.
+
+**bd.md is still 230 lines** - six new lines paid for by genuinely tightening five entries
+(dormant/Conamar, the leaver's log, RSR/DRH1, the portal zero, the bot-line clip) and the banner from
+9 to 8. Nothing deleted; the full account is in `bd-lessons.md`. Third session running that has held
+the line by compression and **there is not a fourth in it - JAC-16 needs answering.** New file
+`data/companies/chiel-construction.md` (101 lines). Replied on the hub, deployed through `--deploy`
+so the shared lock was taken, and the Functions bundle line is in the output.
+
+**Also named on the hub, not raised as seven requests:** the log's `asked-of-us` tier is seven rows
+and GBP 222,725 of prices that stopped INSIDE Fenster - four end "issued to Adam"/"Adam to check",
+three read "Ready to Go", all 220-plus days old. That is not proof any of them failed to go; it is
+proof nothing on record says they went. Same open-loop shape as St Mary's Merthyr the day before.

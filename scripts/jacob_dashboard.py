@@ -1295,7 +1295,31 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
         base = 68 + min(int((r["value"] or 0) / 50000), 12)
         ab_acts.append((base, r))
     ab_acts.sort(key=lambda x: -x[0])
-    for base, r in ab_acts[:6]:
+    # A RESEARCHED ROW IS NOT SUBJECT TO THE VALUE RANKING, because the ranking
+    # is what this list does when it knows nothing about a row.
+    #
+    # Six of 209 reach Today and they are chosen by value, which is honest when
+    # every row carries the same three-part ask. It stops being honest the moment
+    # one of them carries a DIFFERENT ask that somebody worked out: Chiel/
+    # Swanshurst is GBP 52,483, which put it thirteenth by value and off the
+    # page - while its next action reads "do not chase him, we owe him a PQQ".
+    # Research that nobody can see is research nobody did. This is Adam's own
+    # completeness rule from hub-74 pointing the other way: a row a person has
+    # touched gets listed, and an override IS the touch.
+    worked = [(b, r) for b, r in ab_acts if r.get("worked")]
+    top = [(b, r) for b, r in ab_acts[:6] if not r.get("worked")]
+    for base, r in worked + top:
+        if r.get("worked"):
+            add(126, "ab:" + r["lead"], r["client"], r["client"],
+                "%s - %s quoted, %s silent" % (
+                    r["job"][:52], gbp(r["value"]),
+                    "%d days" % r["days"] if r["days"] is not None
+                    else "no date set"),
+                r.get("owner") or ADAM, r["next"], r["state"], "leads",
+                project=r["job"], deadline=r.get("nextAction"),
+                why="Researched - this row does NOT carry the standard chase. "
+                    + r["worked"].get("why", ""))
+            continue
         add(base, "ab:" + r["lead"], r["client"], r["client"],
             "%s - %s quoted, %s silent" % (r["job"][:52], gbp(r["value"]),
                                            "%d days" % r["days"] if r["days"]
