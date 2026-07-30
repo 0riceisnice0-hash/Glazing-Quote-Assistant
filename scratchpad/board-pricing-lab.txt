@@ -95,6 +95,32 @@ WHERE THE NEXT SESSION SHOULD START, in order, rewritten on the fourth run:
      THE TEMPLATE FOR WHAT A GOOD ONE LOOKS LIKE: not a new factor fitted to the residual, but a class of
      row the engine could not see at all, with a rule that was already in the code.
 
+A FIXED COST PER OPENING IN THE SUPPLY TERM IS CLOSED, NEGATIVE (fourth run). This is NOT the size-band
+question and was worth asking separately, because bands are a piecewise-constant approximation to a
+structure Georgie's shows directly: area 0.48 -> 1.24m2 is x2.58 while frames 915.51 -> 1213.92 is only
+x1.33. Cost barely moves while area more than doubles, which is a fixed cost per opening plus a variable
+cost per m2, and the honest model of that has an INTERCEPT - supply = a + b x area by least squares -
+where the engine has supply = area x median_rate, a line through the origin.
+Four arms, everything else held identical, the adder untouched, leave-one-JOB-out:
+    A  median rate through the origin (CURRENT)              13.06%   median  7.32%  bias -1.05%  18/29
+    B  least squares a + b x area, per code+band             15.03%   median 12.80%  bias +3.22%  13/29
+    C  least squares a + b x area, per code, pooled bands    13.74%   median  9.50%  bias +1.21%  15/29
+    D  B but only where the fit beats the median in training 13.80%   median  8.14%  bias -0.51%  17/29
+ALL THREE LOSE. Read the absolute figures with care: this harness omits the supplier correction and takes
+a different fallback path, so its arm A is 13.06 where the real engine is 12.28. The ARM-TO-ARM
+comparison is what it is for, and a 0.8-point harness offset cannot flip B's 2-point gap.
+  AND C IS THE INTERESTING FAILURE, because on the mean alone (0.68 behind, better on 16 documents and
+  worse on 13) it looks arguable. IT IS NOT, AND THE REASON IS WHERE THE LOSSES LAND. It fixes exactly
+  what the hypothesis predicts - Favell House +21.9 -> -9.2, ASHE +27.9 -> +9.1, Georgie's -27.3 -> -21.1,
+  Whitsbury -7.3 -> +0.6 - and then wrecks the money: Brandon earlier +26.5 -> +51.2, Brandon Elkins
+  +9.9 -> +30.4, Zelltec Crownhill +17.2 -> +30.0. The three Brandon revisions are 89% of the priced
+  money in the archive. An intercept fitted over a narrow area range EXTRAPOLATES, and Brandon is 2,200
+  units in a narrow range of sizes.
+  THE TRANSFERABLE PART: the intercept is REAL in Georgie's rows and still does not generalise, which is
+  the third time this board has met that shape - the product heading, the 1.25 adder, and now this. A
+  structure visible in one job's data is that job's identity until a second job agrees. scratchpad/
+  intercept.py.
+
 AND THE SIZE-BAND QUESTION IS STILL CLOSED - it is being re-asked in the standing instructions, so the
 next session will meet it again as if it were open. It is not. See the closed-negative entry below:
 honest per-line error by area over all 508 lines is FLAT (+3.7 / -1.6 / +5.1 / +1.2 / +3.2 / +0.9), and

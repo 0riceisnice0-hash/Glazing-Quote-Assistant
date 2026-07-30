@@ -1,0 +1,42 @@
+A fixed cost per opening is real in Georgie's and still does not generalise - negative
+
+Georgie's is the archive's worst product-identity residual at -27.3% and per-job
+median 2.911, and its Frames column says something specific: area 0.48 -> 1.24m2 is
+x2.58 while frames 915.51 -> 1213.92 is only x1.33. Cost barely moves while area more
+than doubles. The engine models supply = area x median_rate, a line through the
+origin, which cannot fit that shape at all.
+
+SO THIS WAS WORTH ASKING SEPARATELY FROM THE CLOSED SIZE-BAND QUESTION, and the board
+now says why: bands are a piecewise-constant approximation to exactly this structure,
+whereas an intercept models it directly and with fewer parameters. The board's own
+standing objection - "the template already charges a fixed cost per opening, the code
+adder" - does not cover it either, because the adder is a constant per code that sits
+OUTSIDE the supply term and cannot vary by bucket.
+
+Four arms, everything else held identical, the adder untouched, leave-one-JOB-out:
+    A  median rate through the origin (CURRENT)              13.06%  median  7.32%  18/29
+    B  least squares a + b x area, per code+band             15.03%  median 12.80%  13/29
+    C  least squares a + b x area, per code, pooled bands    13.74%  median  9.50%  15/29
+    D  B but only where the fit beats the median in training 13.80%  median  8.14%  17/29
+
+ALL THREE LOSE AND NOTHING IS CHANGED IN THE ENGINE. The absolute figures are quoted
+with their caveat: this harness omits the supplier correction and takes a different
+fallback path, so its arm A reads 13.06 where the real engine is 12.28. Arm-to-arm is
+what it is for, and a 0.8-point offset cannot flip B's 2-point gap.
+
+C IS THE INTERESTING FAILURE and the reason the decision was not made on the mean. At
+0.68 behind, better on 16 documents and worse on 13, it looks arguable. It is not,
+because of WHERE the losses land. It fixes precisely what the hypothesis predicts -
+Favell House +21.9 -> -9.2, ASHE +27.9 -> +9.1, Georgie's -27.3 -> -21.1, Whitsbury
+-7.3 -> +0.6 - and then wrecks the money: Brandon earlier +26.5 -> +51.2, Brandon
+Elkins +9.9 -> +30.4, Zelltec Crownhill +17.2 -> +30.0. The three Brandon revisions
+are 89% of the priced money in the archive. An intercept fitted over a narrow range of
+areas EXTRAPOLATES, and Brandon is 2,200 units of closely similar sizes.
+
+THE TRANSFERABLE PART, and the third time this board has met the shape: the intercept
+is REAL in Georgie's rows and still does not generalise. The product heading did this,
+the 1.25 adder did this, and now this. A structure visible in one job's data is that
+job's identity until a second job agrees - and there is exactly one sliding-sash job
+in the archive, so any correction fitted to it is overfitting by construction.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
