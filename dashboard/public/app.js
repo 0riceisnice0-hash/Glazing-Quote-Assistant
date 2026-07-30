@@ -2772,6 +2772,31 @@ const JACOB_RENDER = {
         </tr>`).join("")}
         </tbody></table></div>` : ""}
 
+      ${(c.sameSite || []).length ? `<div class="section"><div class="section-head">
+        <h3>One site, the same client quoted twice</h3>
+        <span class="page-sub">up to ${gbpShort(t.sameSiteAtRisk)} counted more than once -
+        and invisible to the panel above, which needs two different clients</span></div>
+        <div class="planned-note"><p>The multi-bidder check finds the same job priced for
+        different main contractors on the penny-exact figure. It cannot see a job the
+        <strong>same</strong> client asked us to price twice, because it requires two customer
+        keys and a job priced twice is priced at two different numbers. This panel is that blind
+        spot. <strong>Nothing here is merged or closed</strong> - two quotes at one address can
+        be two options for one job or two genuine packages, and the <em>product</em> column is
+        usually the tell: aluminium against uPVC at one address reads as a choice, aluminium
+        against secondary glazing reads as two packages. Somebody who knows the job settles it;
+        this list only makes sure the question gets asked.</p></div>
+        <table class="tbl"><thead><tr><th>Site</th><th>Rows</th><th>On the board</th><th>Counted twice, at most</th></tr></thead><tbody>
+        ${c.sameSite.map((s) => `<tr>
+          <td class="job-cell"><strong>${esc(s.job)}</strong><small>${esc(s.client)} &middot;
+            ${esc(s.postcode)} &middot; matched on ${s.shared.map(esc).join(", ")}</small></td>
+          <td>${s.rows.map((r) => `<small>${esc(r.lead)} &middot; ${gbp(r.value)} &middot;
+            ${esc(r.product || "product not stated")}${r.worked ? " &middot; researched" : ""}
+            &middot; ${esc(niceDate(r.leadDate))}</small>`).join("<br>")}</td>
+          <td class="money">${gbp(s.total)}</td>
+          <td class="money">${gbp(s.atRisk)}</td>
+        </tr>`).join("")}
+        </tbody></table></div>` : ""}
+
       ${(c.conflicts || []).length ? `<div class="section"><div class="section-head">
         <h3>Where the CRM and the sent items disagree</h3></div>
         <table class="tbl"><thead><tr><th>Job</th><th>AdminBase says</th><th>It actually is</th></tr></thead><tbody>

@@ -578,7 +578,196 @@ WORKED = {
         "state": "quoted - never chased, 237 days",
         "owner": "Adam",
     },
+    # ------------------------------------------------- Pride Developments
+    # TEN live-quoted rows, GBP 1,092,450 ex VAT, and every one of them was
+    # printing "chase for a final answer, N days silent" - up to 265 days -
+    # about a customer whose windows we are INSTALLING TODAY. Pride wrote to
+    # commercial@ on 21/07 and 22/07, Adam emailed their QS a price on 29/07,
+    # and their RAF Mildenhall frames land on site on 30/07/2026.
+    #
+    # THE SHARPENING THAT COST THIS SESSION: silence is a property of the
+    # RELATIONSHIP, not of the row. Ten rows can each be unanswered while the
+    # client is not silent at all, and "we have not heard from you" said to a
+    # man we spoke to yesterday costs the account. Check the client's last
+    # two-way contact, never just the row's date.
+    # data/companies/pride-developments.md, researched 30/07/2026.
+    "8558": {
+        "next": "DO NOT chase this until somebody says what it is. GBP 321,833 "
+                "is the biggest live Pride row and the site postcode on it is "
+                "NP44 3AA - PRIDE'S OWN registered office at Forgehammer "
+                "Industrial Estate. Nothing in commercial@, info@ or jacob@ "
+                "mentions B239 or PD7851 at all. FIRST: Mary confirms from "
+                "estimating@ whether it was issued and to which site (asked "
+                "30/07). Pride number their buildings this way - RAF "
+                "Mildenhall was 'B459' - so B239 is probably a building on an "
+                "estate or a base rather than their own unit, and the CRM has "
+                "the client address in the site field. Verify before anyone "
+                "rings about a third of a million pounds.",
+        "why": "Researched 30/07/2026. Sources: adminbase.json lead 8558; "
+               "commercial@/info@/jacob@ searched on 'B239', 'PD7851' and the "
+               "domain - the only hit is Adam's own CRM export. Companies "
+               "House 16138608. data/companies/pride-developments.md.",
+        "note": "Follow-up date 10/07/2026 came and went unworked. The row is "
+                "18 days past its own date, which is a real open loop - it is "
+                "the WORD 'silent' that is wrong, not the fact nobody has "
+                "acted.",
+        "state": "quoted - site unverified, with Mary",
+        "owner": "Adam",
+    },
+    "7249": {
+        "next": "DO NOT open with 'we have not heard from you'. GBP 295,882 "
+                "for St Catherines House, Plymouth, and there is a SECOND row "
+                "at the same address - lead 7356, GBP 237,382 in uPVC three "
+                "weeks later. Almost certainly two OPTIONS for one job, so "
+                "treat GBP 533,264 as one exposure of unknown size until Mary "
+                "answers (asked 30/07). And we have BUILT at that address "
+                "since: contract 3424, three aluminium vertical sliders, "
+                "GBP 6,138.85, fitted 09/07/2026 on PO1526 with Stephen Prime "
+                "as site contact. So the question is not 'is it still live' - "
+                "it is whether the big package is phased and still ahead of "
+                "us, or died and became three windows. Steven Elley "
+                "07852 616635 is the contact; Vincent Adurosakin is the QS who "
+                "raised the small job.",
+        "why": "Researched 30/07/2026. Sources: adminbase.json leads 7249 and "
+               "7356; contracts-won.json contract 3424; commercial@ thread "
+               "'Purchase Order: PO1526 - PD7758' (03/07 to 13/07/2026); info@ "
+               "Vincent Adurosakin 16/03/2026. "
+               "data/companies/pride-developments.md.",
+        "note": "Neither 2025 quote appears in Jayk's 19/12/2025 repricing "
+                "log, which covers 62 rows and 27 clients and was written "
+                "while both were freshly out. Absence of evidence only, but "
+                "it is the sort of absence that usually means he knew.",
+        "state": "quoted - possible duplicate of 7356, with Mary",
+        "owner": "Adam",
+    },
+    "7356": {
+        "next": "See lead 7249 - same site, same building, three weeks apart, "
+                "one priced in aluminium and this one in uPVC. Do not chase "
+                "them as two jobs and do not add GBP 533,264 up as two "
+                "exposures until Mary confirms which it is (asked 30/07). One "
+                "call to Pride covers both.",
+        "why": "Researched 30/07/2026. Sources as lead 7249. "
+               "data/companies/pride-developments.md.",
+        "note": "If these are options on one job then every per-client total "
+                "on this board is GBP 237,382 too high for Pride. A duplicate "
+                "job is not the same bug as a duplicate customer key - this "
+                "one is the same client, same site, two materials.",
+        "state": "quoted - possible duplicate of 7249, with Mary",
+        "owner": "Adam",
+    },
+    "7807": {
+        "next": "ANSWER THIS ONE FIRST. The contact on this GBP 82,823 row, "
+                "lyndon@pridedevelopments.co.uk, is LYNDON PORRETTA - a "
+                "DIRECTOR of Pride Developments Group Ltd, appointed "
+                "10/09/2025 (Companies House 16138608). A director enquiring "
+                "personally is the warmest name on this account and nothing on "
+                "this board knew it. Quoted 26/02/2026 and never chased. Ask "
+                "him what happened to 130 Hainault Road and what we were "
+                "beaten on at Plymouth - he is the one person at Pride who can "
+                "answer both.",
+        "why": "Researched 30/07/2026. Sources: adminbase.json lead 7807; "
+               "Companies House 16138608 officers list. "
+               "data/companies/pride-developments.md.",
+        "note": "This is the second time a director has been sitting on a row "
+                "as a first name and an email address. Resolve the contact "
+                "before deciding a row is cold.",
+        "state": "quoted - contact is a company director, never chased",
+        "owner": "Adam",
+    },
+    "8463": {
+        "next": "Severn Trent Water, Bridgend - GBP 59,987 with an EMPTY "
+                "result cell, so no page here can say whether it was ever "
+                "issued. A supplier price for this job exists and is in daily "
+                "use: BSW quote QT250834 for Severn Trent is the curve Mary "
+                "fitted the Redditch Library benchmark to. FIRST: Mary "
+                "confirms whether the quote went (asked 30/07). Do not chase a "
+                "client for feedback on a price we cannot prove we sent.",
+        "why": "Researched 30/07/2026. Sources: adminbase.json lead 8463 "
+               "(result blank); data/jobs/redditch-library.md citing BSW "
+               "QT250834; commercial@ searched on 'Severn Trent' - one "
+               "unrelated hit. data/companies/pride-developments.md.",
+        "note": "A blank result cell is not a state. It reads as 'nothing "
+                "known' and sorts as though nothing is at stake, on a row "
+                "carrying GBP 59,987.",
+        "state": "unknown - no result recorded, with Mary",
+        "owner": "Adam",
+    },
+    "7103": {
+        "next": "Exmoor Drive residential home, Bromsgrove - GBP 54,631, "
+                "Jayk's row, quoted 05/11/2025. Not silence: Pride are on our "
+                "site this week. One call to Wayne Edwards 07896 416240 covers "
+                "this and lead 7157 together, and the honest question is what "
+                "we were beaten on, not whether it is still live. Mary has "
+                "been asked whether the quote left estimating@ at all "
+                "(30/07).",
+        "why": "Researched 30/07/2026. Sources: adminbase.json lead 7103; "
+               "commercial@ holds nothing on Pride before 08/06/2026, so the "
+               "2025 enquiry trail is in estimating@ or in jayk@ (a hard 404). "
+               "data/companies/pride-developments.md.",
+        "note": "Taken by Jayk and absent from his own December repricing "
+                "shortlist.",
+        "state": "quoted - 2025, trail is not in my mailboxes",
+        "owner": "Adam",
+    },
+    "7157": {
+        "next": "Library and Brandon Youth, Maddock Way, Southwark - "
+                "GBP 53,209, Jayk's row, quoted 14/11/2025. Same call as lead "
+                "7103, same contact, same question. Do not describe it as "
+                "silence.",
+        "why": "Researched 30/07/2026. Sources as lead 7103. "
+               "data/companies/pride-developments.md.",
+        "note": "Southwark again - Mint Street and Bournemouth Road are the "
+                "same borough. Pride's London small works cluster there and "
+                "those we do win.",
+        "state": "quoted - 2025, trail is not in my mailboxes",
+        "owner": "Adam",
+    },
+    "8701": {
+        "next": "Probation Office, Usk House - GBP 2,867. NOT 35 days silent: "
+                "the lead is dated 21/07/2026, nine days ago, and the CRM's "
+                "follow-up date on it is 23/06/2026 - a MONTH BEFORE the "
+                "enquiry. The row is aged off the earlier of the two, so a "
+                "nine-day-old quote prints as five weeks of silence. Bundle it "
+                "into the next Pride call; there is nothing to chase yet.",
+        "why": "Researched 30/07/2026. Sources: adminbase.json lead 8701 "
+               "(leadDate 2026-07-21, nextAction 2026-06-23). "
+               "data/companies/pride-developments.md.",
+        "note": "Six rows on this export carry a follow-up date that PRECEDES "
+                "their lead date. Five are off by a day or two; this one is "
+                "off by 28 and it is the only one where the invented silence "
+                "is longer than the row's whole life.",
+        "state": "quoted 21/07/2026 - CRM date error, not a silence",
+        "owner": "Adam",
+    },
 }
+
+# The four small Pride rows share one instruction, so it is written once and
+# applied to all four rather than pasted four times: they are a single call,
+# and the thing that must not happen on it is the word "silent".
+for _lead, _job in (("8462", "Peckham Pulse Leisure Centre, GBP 18,490"),
+                    ("7976", "Mailbox Birmingham, GBP 16,755"),
+                    ("7797", "Mint Street, Southwark, GBP 4,763"),
+                    ("7482", "25 Bournemouth Road, Peckham, GBP 3,816")):
+    WORKED[_lead] = {
+        "next": f"{_job}. One of four small Pride rows that are ONE call, not "
+                "four chases - and the call cannot open with 'we have not "
+                "heard from you'. Pride emailed commercial@ on 21 and 22 July, "
+                "Adam priced their Redditch Library enquiry on 29 July, and "
+                "their RAF Mildenhall frames are being fitted on 30/07/2026. "
+                "This band is the one Fenster actually wins with them - all "
+                "four won contracts are under GBP 26k - so these are worth "
+                "more than their size. Ask Reza Shemshaki (Project Manager, "
+                "Small Works, 07773 292414) for a decision on all four at "
+                "once.",
+        "why": "Researched 30/07/2026. Sources: commercial@ Pride threads "
+               "03/07-29/07/2026; contracts-won.json (4 wins, GBP 59,999, all "
+               "under GBP 26k). data/companies/pride-developments.md.",
+        "note": "The CRM cannot see that these four belong to a live "
+                "relationship, because it holds one row per job and the "
+                "relationship is a property of the client.",
+        "state": "quoted - client is active, not silent",
+        "owner": "Adam",
+    }
 
 # Win rate by value, from 224 priced decided rows in the Opportunity Log.
 #
@@ -943,6 +1132,72 @@ def build():
             if n >= 2 and aw[:n] == bw[:n]:
                 a.setdefault("alsoPricedAt", []).append(b["value"])
 
+    # THE SAME BUG ONE FIELD ACROSS. The block above needs TWO different
+    # customer keys - `len({r["key"] for r in rs}) < 2: continue` - so a job
+    # the SAME client asked us to price twice can never appear on it. It is
+    # also matched on the penny-exact figure, and a job priced twice for one
+    # client is priced at two different numbers by definition. Invisible twice
+    # over.
+    #
+    # Found through Pride Developments: St Catherines House, 5 Notte Street,
+    # Plymouth is on this list twice, GBP 295,882 in aluminium and GBP 237,382
+    # in uPVC three weeks later, and the board was reporting GBP 533,264 of
+    # exposure at one address. It is worse for Stepnell, whose ENTIRE
+    # GBP 564,403 is three rows at one building.
+    #
+    # NOTHING IS MERGED AND NOTHING IS DROPPED. Two quotes at one address can
+    # legitimately be two phases or two packages, and deciding which on my own
+    # reading is exactly the mistake the register exists to avoid. The list is
+    # NAMED so a human can settle it - label, never hide.
+    same_site = []
+    by_site = defaultdict(list)
+    for r in rows:
+        pc = (r.get("postcode") or "").upper().replace(" ", "")
+        if r["value"] and r["value"] >= SCHEME_FLOOR and pc:
+            by_site[(r["key"], pc)].append(r)
+
+    # Generic words that put two different jobs at one postcode - a school and
+    # its sports hall share SCHOOL, ROAD and the town, and are two jobs.
+    SITE_GENERIC = {
+        "HOUSE", "SCHOOL", "ROAD", "STREET", "LANE", "WAY", "COURT", "CLOSE",
+        "AVENUE", "DRIVE", "LONDON", "THE", "AND", "WINDOWS", "DOORS",
+        "REPLACEMENT", "PHASE", "UNIT", "UNITS", "CENTRE", "CENTER", "PARK",
+        "HIGH", "NEW", "LIBRARY", "ESTATE", "BLOCK", "BUILDING", "BUILDINGS",
+        "SUPPLY", "INSTALL", "GLAZING",
+    }
+
+    def site_words(s):
+        return {w for w in words(s) if len(w) > 2 and w not in SITE_GENERIC}
+
+    for (_key, pc), rs in by_site.items():
+        if len(rs) < 2:
+            continue
+        # Same site only if the job strings agree on a word that is not
+        # furniture. A shared postcode alone is a neighbourhood, not a job.
+        shared = set.intersection(*[site_words(r["job"]) for r in rs])
+        if not shared:
+            continue
+        if len({r["value"] for r in rs}) < 2:
+            continue          # identical figures are the scheme case above
+        rs = sorted(rs, key=lambda r: -(r["value"] or 0))
+        same_site.append({
+            "client": rs[0]["client"],
+            "postcode": rs[0]["postcode"],
+            "job": max((r["job"] for r in rs), key=len),
+            "shared": sorted(shared),
+            "rows": [{"lead": r["lead"], "job": r["job"], "value": r["value"],
+                      "leadDate": r["leadDate"], "days": r["days"],
+                      "product": r["product"], "state": r["state"],
+                      "worked": bool(r["worked"])} for r in rs],
+            "count": len(rs),
+            "total": round(sum(r["value"] or 0 for r in rs), 2),
+            # What the board is counting ABOVE the largest single row, if the
+            # group turns out to be one job. A ceiling on the error, not a
+            # claim that the error is real.
+            "atRisk": round(sum(r["value"] or 0 for r in rs) - rs[0]["value"], 2),
+        })
+    same_site.sort(key=lambda s: -s["atRisk"])
+
     by_client = defaultdict(list)
     for r in rows:
         by_client[r["key"]].append(r)
@@ -1010,6 +1265,7 @@ def build():
         "due": due,
         "conflicts": conflicts,
         "schemes": schemes,
+        "sameSite": same_site,
         "totals": {
             "rows": len(rows),
             "clients": len(clients),
@@ -1040,6 +1296,9 @@ def build():
             "schemes": len(schemes),
             "schemeRows": sum(s["count"] for s in schemes),
             "doubleCounted": round(sum(s["counted"] for s in schemes), 2),
+            "sameSite": len(same_site),
+            "sameSiteRows": sum(s["count"] for s in same_site),
+            "sameSiteAtRisk": round(sum(s["atRisk"] for s in same_site), 2),
             # How much of the chase list is in the band Fenster actually
             # converts. This is the number that decides whether working down
             # the list by value is worth anyone's afternoon.
@@ -1073,6 +1332,11 @@ def main():
     print("  %d schemes priced for more than one bidder (%d rows) - GBP %s of "
           "the pipeline is the same job counted twice or more"
           % (t["schemes"], t["schemeRows"], format(int(t["doubleCounted"]), ",")))
+    print("  %d site(s) where the SAME client is quoted twice or more (%d rows)"
+          " - up to GBP %s counted more than once, and invisible to the line "
+          "above because that one needs two different clients"
+          % (t["sameSite"], t["sameSiteRows"],
+             format(int(t["sameSiteAtRisk"]), ",")))
     print("  %d outlier(s) held out of every total: GBP %s"
           % (t["outliers"], format(int(t["outlierValue"]), ",")))
     print("  %d rows with no email address" % t["noEmail"])
