@@ -267,11 +267,16 @@ def collect(pipe):
         src = SRC_CRM
         if r.get("outlier") and not r.get("confirmed"):
             src = SRC_CRM + " (and the value on it looks wrong - check before quoting it)"
+        # A researched row can carry its own reason not to ring - Cold Ash's
+        # planning application was refused in May, so there is nobody at the
+        # client end who can answer. It belongs in `blocked`, named, exactly
+        # like Brandon Estate; putting it in `due` would print "DO NOT chase"
+        # under the heading "Due or Overdue Today".
         build("ab:" + r["lead"], "adminbase", r.get("client"), r.get("job"),
               r.get("value"), None, r.get("state"), r.get("owner"),
               r.get("next"),
               (r.get("staleDate") or {}).get("issued") or r.get("nextAction"),
-              src)
+              src, (r.get("worked") or {}).get("blocked"))
 
     # Verified first, then longest overdue, then largest. Adam reads the top of
     # this on a phone; the rows a person has actually worked belong there.

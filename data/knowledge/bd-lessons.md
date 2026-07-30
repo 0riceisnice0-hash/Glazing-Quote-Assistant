@@ -1294,3 +1294,96 @@ Merthyr the day before. Named on the hub rather than raised as seven separate re
 
 `data/companies/chiel-construction.md`, `repricing.json` (`foundBySpelling`), `adminbase.json`
 (lead 7384 `worked`), `drafts.json` (`not_drafted`), JAC-19.
+
+---
+
+## 30/07/2026 (02:03, standing agenda) - the silence clock named the wrong party
+
+**The row.** AdminBase lead 5493, The Hub Alkerden, Sinden Construction, GBP 484,472.63 ex VAT -
+the largest unworked row on the board and the top `secured` row on Jayk's repricing log. It read
+**"Live - Quoted, 523 days silent"** and the next action my own code generated was *"chase Sinden
+for a final answer - is it still live or did it go elsewhere and to whom"*.
+
+**What was actually true.** Sinden secured the main contract in October 2025. On **01/07/2026**
+Seyi Adesogan, their Assistant Surveyor, emailed commercial@ - **my own mailbox** - asking for an
+updated quotation for the Aluminium Curtain Walling & External Doors package **by 08/07/2026**,
+with a provisional package order date of 08/10/2026 and site commencement 11/02/2027. He asked us
+to confirm receipt. Paul Taylor forwarded it to Adam, Steven and estimating@ the same afternoon,
+and again on 02/07 with an elevation drawing that had been missed. A Plus Aluminium's supplier
+quote QP65153 was still being revised on **22/07** with Gintare chasing doors ED10-ED12. Nothing
+in commercial@, info@ or jacob@ replied to Seyi.
+
+**So the call the board was recommending would have asked a client who had already told us they
+had won, given us the programme, and been waiting three weeks for our price, whether the job was
+still live.** The 523 days are an artefact: the lead date is the January 2025 enquiry and
+AdminBase has never re-dated it across two re-enquiries since (March 2026 and July 2026). This is
+the same family as the RFQ-OUT-IS-NOT-QUOTE-OUT slip, but the consequence is worse, because the
+direction of the open loop is inverted rather than the size of it. **Before believing a silence
+clock, search the mailbox for the client's name.** A number of days is a fact about a database
+field; who owes whom is a fact about the correspondence.
+
+**Not drafted, deliberately, and the reason is the same one as Chiel the day before.** If the
+quote has gone, the next email is an ordinary chase with a hard hook - their own order date. If it
+has not, it is an apology and a date. Those are two different emails, not two wordings of one, and
+estimating@ is not mine to read. Asked Mary (bot line, --wants-reply); raised **JAC-20** for Adam
+with three options including taking Sinden off my board entirely.
+
+**A loose end that predates all of it.** On 23/03/2026 Corran Goodson, their Senior Surveyor,
+asked commercial@ to confirm the security ratings for the external doorsets and the curtain
+walling. Paul replied the same day that we would get them over "asap". Nothing on my side of the
+wall shows them going. He opened that email **"Hi Harry"** - Harry Grover left Fenster on
+31/10/2025, five months earlier, and nobody had told the client.
+
+**And their spec moved.** On 30/03 Adam established with Corran that the WINDOWS had gone from
+aluminium to composite, and offered a composite quote; Corran said yes please; info@ went out to
+suppliers on 09/04 and Munster Joinery declined the same day. The July enquiry covers curtain
+walling and doors only. **Either the window package went elsewhere or it is still unplaced**, and
+one question on the same call settles it.
+
+### The client renamed, and that is not a CRM typo
+
+**Thomas Sinden Limited (CH 03308698) became Sinden Construction Limited on 22/06/2026**; Thomas
+Sinden (Holdings) Ltd 13028751 became Sinden Holdings Ltd the same day. Their own circular to Adam
+is in commercial@. No change of ownership, structure or contractual arrangements - branding only.
+So AdminBase carrying both "Thomas Sinden" and "Sinden Construction Ltd" is the relationship
+straddling a rename, not the spelling problem Chiel was. **Their email domain is still
+`thomas-sinden.co.uk` and they now also publish `info@sindenconstruction.co.uk`** - search both or
+half the history hides. Companies House arbitrates, as it did for Chiel.
+
+### OSG Cold Ash: "on hold" was a refusal, and PlanIt did not know
+
+Lead 7745, GBP 340,851.43. Emma O'Brien told estimating@ on **26/06/2026** that the project was
+*"on hold due to a planning issue"*; Adam replied on 27/06 that he would update our notes; the CRM
+row still said Live - Quoted with a chase due.
+
+West Berkshire's register says it harder. **25/01899/FULMAJ** - change of use of the former St
+Gabriel's Convent at Cold Ash to an educational facility, demolition of the convent, retreat
+building and chapel, a new two-storey teaching building with single storey sports hall and pitches
+for OneSchool Global, plus access works for St Finian's Catholic Primary. Validated 12/09/2025,
+target decision 07/11/2025, **REFUSED, decision issued 21 May 2026**. No appeal and no
+resubmission at that postcode as at 30/07/2026. A refused full application ordinarily carries a
+six-month appeal window, so late November is when it is worth looking again.
+
+**PlanIt had it as "Undecided / Awaiting decision".** Its record's `last_scraped` was
+**2025-09-20** - ten months old. The council's own Idox page (Chrome user agent, as Birmingham
+taught) carried the refusal in one fetch. **`app_state` is only as fresh as the scrape behind it,
+and the field that says so is on every record.** The cost of not checking it here would have been
+a chase call about a scheme that no longer exists, and the benefit of checking it is a dated watch
+instead of a dead row.
+
+### The fix underneath: improving a row made it disappear
+
+`jacob_adminbase.py` builds its chase list by filtering on three literal state strings -
+`quoted - chase due`, `quoted - a year silent`, `quoted - no date`. The moment the WORKED override
+wrote a truer state onto Alkerden - "re-enquired - our price is the late one" - **the row fell out
+of `due` and off the daily email entirely.** The most urgent row on the board, silently, as a
+direct result of researching it. A WORKED row now keeps its place in `due` whatever state it
+carries, WORKED can set `state`/`owner` as well as `next` (a half-override that says do-not-chase
+while the row still says chase-due is worse than none), and a `blocked` reason on the override
+routes the row into the daily email's `blockedNotChased` list - named, in the same place Brandon
+Estate sits, never dropped.
+
+**The general rule: whenever a row is researched, re-check that it still APPEARS.** Every filter
+in this codebase that matches on a literal state string has the same shape of bug in it.
+
+`data/companies/sinden-construction.md`, `adminbase.json` (leads 5493 and 7745 `worked`), JAC-20.

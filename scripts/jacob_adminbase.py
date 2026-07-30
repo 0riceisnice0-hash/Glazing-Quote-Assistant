@@ -121,6 +121,60 @@ WORKED = {
                 "- was not approved until 26/02/2026. The glazing package "
                 "could not be settled while it was outstanding.",
     },
+    "5493": {
+        "next": "DO NOT ask Sinden whether The Hub Alkerden is still live - "
+                "they told us on 01/07/2026 that they have secured it, and "
+                "asked US for an updated quotation for the Aluminium Curtain "
+                "Walling & External Doors package BY 08/07/2026. Seyi "
+                "Adesogan (07850 904372) asked us to confirm receipt; nothing "
+                "in commercial@, info@ or jacob@ replied, and A Plus were "
+                "still revising supplier quote QP65153 on 22/07. FIRST: Mary "
+                "or Gintare confirms whether the updated quote has gone "
+                "(asked 30/07, JAC-20). If it has, chase it against their own "
+                "clock - provisional package order 08/10/2026, site "
+                "11/02/2027. If it has not, it is an apology and a date, not "
+                "a chase. Ask on the same call what became of the composite "
+                "WINDOWS - their spec moved off aluminium in March and the "
+                "July enquiry covers only curtain walling and doors.",
+        "why": "Researched 30/07/2026. Sources: commercial@ (Corran Goodson "
+               "23/03 and 30/03/2026, Seyi Adesogan 01/07 and 02/07/2026, "
+               "Paul Taylor's forwards), info@ (composite supplier enquiries "
+               "09/04/2026), Mary's intake of A Plus QP65153 22/07/2026, "
+               "repricing.json (Jayk, 18/11/2025). "
+               "data/companies/sinden-construction.md.",
+        "note": "The 523 days are an artefact: the lead date is the January "
+                "2025 enquiry and AdminBase has never re-dated it across two "
+                "re-enquiries. The client is not silent - the open loop runs "
+                "the other way. Harry Grover, who took this lead, left on "
+                "31/10/2025 and Corran was still writing to him in March.",
+        "state": "re-enquired - our price is the late one",
+        "owner": "Adam",
+    },
+    "7745": {
+        "next": "DO NOT chase Cold Ash. Emma O'Brien told estimating@ on "
+                "26/06/2026 it was on hold, and West Berkshire's register "
+                "says worse: application 25/01899/FULMAJ was REFUSED, "
+                "decision issued 21/05/2026, with no appeal and no "
+                "resubmission recorded as at 30/07/2026. Nothing moves until "
+                "one of those appears. Re-check the register late November "
+                "2026, when the usual six-month appeal window would be out. "
+                "Adam replied to Emma on 27/06 saying he would update our "
+                "notes - this row is that update.",
+        "why": "Researched 30/07/2026. Sources: commercial@ (Emma O'Brien via "
+               "Gintare 26/06/2026, Adam's reply 27/06), West Berkshire "
+               "public access 25/01899/FULMAJ read from the council's own "
+               "page. data/companies/sinden-construction.md.",
+        "note": "PlanIt still had this application as Undecided/Awaiting "
+                "decision because its copy was last scraped on 20/09/2025. "
+                "The council's own page carried the refusal. Check "
+                "last_scraped before believing a planning state.",
+        "state": "blocked - planning refused 21/05/2026",
+        "owner": "Jacob",
+        # Read by jacob_daily_email: a blocked row is NAMED on the email
+        # rather than chased, the same treatment Brandon Estate gets.
+        "blocked": "planning refused 21/05/2026 - the client cannot answer "
+                   "until they appeal or resubmit",
+    },
 }
 
 # Win rate by value, from 224 priced decided rows in the Opportunity Log.
@@ -365,6 +419,16 @@ def build():
                 days = (today - issued).days
                 state, owner = state_for(result, days, bool(inc))
 
+        # A researched row may also have the wrong STATE, not just the wrong
+        # next action. Lead 7745 read "quoted - chase due, owner Adam" on a
+        # scheme whose planning application had been refused two months
+        # earlier - so the row told Adam to chase and then told him not to, in
+        # the same breath. If an override says what the row is, it says it in
+        # both fields or it is only half an override.
+        w = WORKED.get(clean(r.get("LEADNUMBER")))
+        if w and w.get("state"):
+            state, owner = w["state"], w.get("owner", owner)
+
         job = clean(r.get("OFFICEREF")) or clean(r.get("SITEADDRESS"))
         email = clean(r.get("EMAIL")).rstrip(">")
         # One row carries the postcode welded onto the address with no space.
@@ -502,9 +566,16 @@ def build():
         })
     clients.sort(key=lambda c: -c["value"])
 
+    # A WORKED row keeps its place here whatever state the override gave it.
+    # This list is filtered on three literal state strings, so the moment an
+    # override wrote a truer state onto a row - "re-enquired - our price is the
+    # late one" - the row fell out of the chase list and off the daily email
+    # entirely. Researching the most urgent row on the board is not a reason to
+    # hide it. Blocked ones are labelled by jacob_daily_email, not dropped.
     due = [r for r in rows
            if r["state"] in ("quoted - chase due", "quoted - a year silent",
-                             "quoted - no date")]
+                             "quoted - no date")
+           or r.get("worked")]
     due.sort(key=lambda r: -(r["value"] or 0))
     vals = sorted(r["value"] for r in rows if r["value"] and not r["outlier"])
 

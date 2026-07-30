@@ -1310,11 +1310,17 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
     top = [(b, r) for b, r in ab_acts[:6] if not r.get("worked")]
     for base, r in worked + top:
         if r.get("worked"):
+            # The headline is the ten seconds Adam gives the row, so it cannot
+            # keep saying "523 days silent" underneath a next action that says
+            # the client wrote to us last month. A researched row leads with
+            # what the research found - its state - and the day count only
+            # survives where the override left the state alone.
             add(126, "ab:" + r["lead"], r["client"], r["client"],
-                "%s - %s quoted, %s silent" % (
+                "%s - %s quoted, %s" % (
                     r["job"][:52], gbp(r["value"]),
-                    "%d days" % r["days"] if r["days"] is not None
-                    else "no date set"),
+                    r["state"] if r["worked"].get("state")
+                    else ("%d days silent" % r["days"] if r["days"] is not None
+                          else "no date set")),
                 r.get("owner") or ADAM, r["next"], r["state"], "leads",
                 project=r["job"], deadline=r.get("nextAction"),
                 why="Researched - this row does NOT carry the standard chase. "

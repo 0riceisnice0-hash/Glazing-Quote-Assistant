@@ -741,3 +741,67 @@ so the shared lock was taken, and the Functions bundle line is in the output.
 and GBP 222,725 of prices that stopped INSIDE Fenster - four end "issued to Adam"/"Adam to check",
 three read "Ready to Go", all 220-plus days old. That is not proof any of them failed to go; it is
 proof nothing on record says they went. Same open-loop shape as St Mary's Merthyr the day before.
+
+## 2026-07-30 02:03 - standing agenda: the silence clock was pointing at the wrong party
+
+**Order:** the standing agenda from Zac, 02:03. Nobody wrote to me - nothing pending on the hub or
+the bot line - so this was my own time. I took the largest unworked row on the board, the top
+`secured` row on Jayk's repricing log: **The Hub Alkerden, Thomas Sinden, GBP 484,472.63 ex VAT.**
+
+**My board had the client the wrong way round.** AdminBase lead 5493 read "Live - Quoted, 523 days
+silent" and generated the next action *"chase Sinden for a final answer - is it still live"*. On
+**01/07/2026 Seyi Adesogan emailed commercial@ - my own mailbox** - saying they have SECURED the
+main contract and asking us for an updated quotation for the Aluminium Curtain Walling & External
+Doors package **by 08/07/2026**, with a provisional package order of 08/10/2026 and site
+commencement 11/02/2027. He asked us to confirm receipt. Paul forwarded it to Adam, Steven and
+estimating@ that afternoon and again on 02/07 with the elevation that had been missed. A Plus were
+still revising supplier quote QP65153 on **22/07**, a fortnight past his deadline, with Gintare
+chasing doors ED10-ED12. Nothing in commercial@, info@ or jacob@ replied to Seyi. **The 523 days
+are an artefact - the lead date is January 2025's enquiry, never re-dated across two re-enquiries
+since.** Before believing a silence clock, search the mailbox for the client's name.
+
+**No draft, deliberately - the same call as Chiel yesterday.** If the quote has gone this is an
+ordinary chase with a hard hook, their own 08/10 order date. If it has not it is an apology and a
+date. Two different emails, and estimating@ is not mine to read. **Asked Mary** on the bot line
+(--wants-reply; nothing back within the session) and **raised JAC-20** for Adam with three options
+including taking Sinden off my board. Recorded in `drafts.json` under `not_drafted` with what
+unblocks it.
+
+**The second Sinden job was described as "on hold" and had actually been refused.** OSG Cold Ash,
+lead 7745, GBP 340,851. Emma O'Brien told estimating@ on 26/06 it was on hold on a planning issue
+and Adam said he would update our notes; the row still said chase due. West Berkshire's register:
+**25/01899/FULMAJ REFUSED, decision issued 21/05/2026**, no appeal, no resubmission today. The row
+is now blocked and named on the daily email where Brandon Estate sits, and the action is mine and
+dated - look again late November. **PlanIt had it as "Undecided" off a scrape from 20/09/2025, ten
+months stale.** `app_state` is only as fresh as `last_scraped`; the council's own page settled it
+in one fetch with a Chrome user agent.
+
+**Settled a spelling that has cost this board twice: the client RENAMED.** Thomas Sinden Limited
+(CH 03308698) became **Sinden Construction Limited on 22/06/2026** - their circular is in
+commercial@. Branding only. So the two AdminBase spellings are one company either side of a
+rename, not a Chiel-style typo, and their old domain is still live alongside the new one.
+
+**The fix underneath, which matters more than the client.** Writing a truer state onto a
+researched row made it **vanish**: the chase list is filtered on three literal state strings, so
+"re-enquired - our price is the late one" dropped the most urgent row on the board out of `due`
+and off the daily email, silently. A worked row now keeps its place whatever state it carries;
+`WORKED` can set `state`/`owner` as well as `next`; a `blocked` reason routes the row into the
+email's `blockedNotChased` list instead of printing "DO NOT chase" under "Due or Overdue Today";
+and the Today headline now leads with the researched state rather than still saying "523 days
+silent" above a next action that says the client wrote to us last month. **Whenever a row is
+researched, re-check that it still appears.**
+
+**bd.md is 245 lines against a cap of 130, and this session did not pay for its four new clauses.**
+Last session held 230 by real compression and said there was not a fourth in it; there was not. The
+banner now says so plainly. Full account of everything above in `bd-lessons.md`; **JAC-16 is
+overdue.** New file `data/companies/sinden-construction.md` (123 lines). Replied on the hub,
+deployed twice through `--deploy` so the shared lock was taken both times.
+
+**One loose end I could not close.** On 23/03/2026 Corran Goodson asked commercial@ for the
+security ratings on the external doorsets and the curtain walling and Paul told him "asap".
+Nothing on my side of the wall shows them going - it is in the same question to Mary. He opened
+that email **"Hi Harry"**: Harry Grover had left five months earlier and nobody had told the
+client. And their windows moved from aluminium to composite in March - we went out to suppliers on
+09/04, Munster declined, and the July enquiry covers curtain walling and doors only. **Either the
+window package went elsewhere or it is still unplaced**, and one question on the same call settles
+it.
