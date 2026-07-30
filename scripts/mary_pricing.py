@@ -199,18 +199,25 @@ def load_learned():
 
 
 class LearnedRate:
-    def __init__(self, key, rec):
-        self.rate = rec["median_per_m2"]
-        self.base = self.rate
+    def __init__(self, key, rec, factors=None):
+        self.base = rec["median_per_m2"]
         self.key = key
         self.rec = rec
-        self.factors = []
+        self.factors = list(factors or [])
+        self.rate = self.base
+        for f in self.factors:
+            self.rate *= f["factor"]
 
     @property
     def provenance(self):
-        return ("GBP%.2f/m2 - median of %d line(s) Fenster actually charged for %s "
-                "(range %.2f-%.2f), mined from sent pricing documents"
-                % (self.rate, self.rec["n"], self.key, self.rec["low"], self.rec["high"]))
+        s = ("GBP%.2f/m2 - median of %d line(s) Fenster actually charged for %s "
+             "(range %.2f-%.2f), mined from sent pricing documents"
+             % (self.base, self.rec["n"], self.key, self.rec["low"], self.rec["high"]))
+        for f in self.factors:
+            s += "; x%.3f %s [%s]" % (f["factor"], f["why"], f["source"])
+        if self.factors:
+            s += " -> GBP%.2f/m2" % self.rate
+        return s
 
 
 def derived_factors(hay):
@@ -237,12 +244,41 @@ def derived_factors(hay):
     return out
 
 
-def learned_rate(code, area_m2):
+def learned_rate(code, area_m2, supplier=None, system=""):
+    """The empirical rate for this code and band, corrected for the supplier.
+
+    THE SUPPLIER CORRECTION WAS BEING MEASURED AND THEN THROWN AWAY (30/07 run 3).
+    learn_supplier_factors() measures how dear each supplier runs against the
+    all-supplier rate for the same code and band, and writes it to
+    learned-rates.json - but it was only ever read by find_rate(), the REGISTER
+    path, and a learned rate is per code and band across ALL suppliers. Since
+    every one of the 508 archive lines has a learned rate, the measurement was
+    reaching nothing.
+
+    Leave-one-JOB-out, factors re-mined inside every fold:
+        learned rate alone                  13.58%  median 7.98%  bias -1.25%  16/29
+        learned rate x supplier factor      13.29%         7.92%        -2.00%  15/29
+
+    READ THAT HONESTLY, because it is a 0.29-point win and it is not clean.
+    THE WHOLE GAIN IS ONE SUPPLIER. TruFrame measures 0.859 with Trafalgar House
+    held out and 0.910 with Zelltec Crownhill held out - two independent jobs
+    agreeing that they run 9-14% below the archive - and it moves Trafalgar House
+    +29.7 -> +18.6 and the two Zelltec documents +17.2 -> +10.8 and +4.7 -> -1.3.
+    Everything else is noise or a loss: it is WORSE on 10 documents and better on
+    8, within-10 falls from 16 to 15, and bias worsens. The losses are all Aplus,
+    whose factor is 0.894, 1.002 or 1.028 depending on which job is held out -
+    that instability costs Oldswinford 5.8 points and Favell House 2.8.
+    It is in because mean absolute error on unseen jobs is this lab's decision
+    metric and it improved. The honest test is whether the next TruFrame job comes
+    in closer; if a future session has more Aplus work, gate on the per-job
+    medians agreeing. THAT GATE WAS TRIED AND CANNOT BE MEASURED YET: holding out
+    Trafalgar leaves TruFrame with one job, so any cross-job stability test drops
+    the only factor that pays (13.67% with it, worse than doing nothing)."""
     rates = load_learned()
     key = "%s|%s" % (code, learned_band_of(area_m2))
     rec = rates.get(key)
     if rec and rec.get("n", 0) >= MIN_LEARNED_N:
-        return LearnedRate(key, rec)
+        return LearnedRate(key, rec, derived_factors(system or supplier or ""))
     return None
 
 

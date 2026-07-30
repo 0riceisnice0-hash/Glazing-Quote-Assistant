@@ -152,19 +152,29 @@ def parse_doc(path):
     return doc if doc["lines"] else None
 
 
-def engine_price(line, supplier=None, system="", learned=None):
+def engine_price(line, supplier=None, system="", learned=None, factors=None):
     """What Mary's engine would have said for this row.
 
     Prefers a rate learned from what Fenster actually charged for this code and
     size band; falls back to the supplier-quote register when there is not
     enough of it. `learned` can be passed in for holdout testing so the rates
-    under test are never the ones mined from the same job."""
+    under test are never the ones mined from the same job, and `factors` the
+    same way for the supplier corrections - they have to be re-mined inside the
+    fold too, or the supplier effect of the job being scored is in its own
+    correction."""
     key = "%s|%s" % (line["code"], engine.learned_band_of(line["area"]))
     rec = (learned or {}).get(key) if learned is not None else None
     if learned is None:
-        r = engine.learned_rate(line["code"], line["area"])
+        r = engine.learned_rate(line["code"], line["area"], supplier, system)
     elif rec and rec.get("n", 0) >= engine.MIN_LEARNED_N:
-        r = engine.LearnedRate(key, rec)
+        fac = []
+        if factors:
+            key_s = _supplier_key(system or supplier or "")
+            f = factors.get(key_s)
+            if f and f.get("applied"):
+                fac = [{"factor": f["factor"], "why": f.get("why", ""),
+                        "source": f.get("source", "")}]
+        r = engine.LearnedRate(key, rec, fac)
     else:
         r = None
     if r is not None:
@@ -185,13 +195,13 @@ def engine_price(line, supplier=None, system="", learned=None):
     return {"unit_rate": supply + adder, "supply": supply, "rate_per_m2": r.rate}
 
 
-def score_doc(doc, learned=None):
+def score_doc(doc, learned=None, factors=None):
     got = missed = 0
     eng_total = 0.0
     human_total = 0.0
     per_line = []
     for l in doc["lines"]:
-        e = engine_price(l, doc.get("supplier"), learned=learned)
+        e = engine_price(l, doc.get("supplier"), learned=learned, factors=factors)
         if not e:
             missed += 1
             continue
@@ -420,9 +430,11 @@ def leave_one_out(docs):
         groups.setdefault(job_key(d), []).append(d)
     rows = []
     for key, group in groups.items():
-        rates = learn([d for d in docs if job_key(d) != key])
+        train = [d for d in docs if job_key(d) != key]
+        rates = learn(train)
+        facs = learn_supplier_factors(train, rates)
         for d in group:
-            s = score_doc(d, learned=rates)
+            s = score_doc(d, learned=rates, factors=facs)
             if s:
                 s["job"] = key
                 rows.append(s)
@@ -499,12 +511,14 @@ def main():
             train = [d for i, d in enumerate(docs) if i % 3 != f]
             test = [d for i, d in enumerate(docs) if i % 3 == f]
             rates = learn(train)
+            facs = learn_supplier_factors(train, rates)
             if len(folds) == 1:
                 print("holdout: learned from %d job(s), scored on %d it has never seen\n"
                       % (len(train), len(test)))
             for label, learned in (("register only (before)", {}),
                                    ("+ learned rates (after)", rates)):
-                scored = [s for s in (score_doc(d, learned=learned) for d in test) if s]
+                scored = [s for s in (score_doc(d, learned=learned, factors=facs) for d in test)
+                          if s]
                 absol = [abs(s["err_pct"]) for s in scored]
                 signed = [s["err_pct"] for s in scored]
                 if not absol:
