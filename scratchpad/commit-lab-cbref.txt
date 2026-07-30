@@ -1,0 +1,56 @@
+CB Refrigeration 1.291 is a notional booked as a cost - and that was the last open one
+
+The fourth and last of the open supplier questions, and like the other three it
+decomposes exactly rather than needing a tolerance. The block is three figures and
+two of them are the document's own rows to the penny:
+
+    rows  9-13  aluminium windows      4,430.28  =  BSW         4,430.28   EXACT
+    rows 16-21  steel doors           28,027.93  =  Strongdoor 28,027.93   EXACT
+    row  14     curtain walling       30,073.00  v  BSW CW     15,994.08   gap +14,078.92
+                document gap 62,531.21 - 48,452.29           =     +14,078.92
+
+So the whole gap is one curtain-walling row, and BSW's own quote says the row is
+right: Bellview 0000000371 prices 2 Pcs 2,900 x 6,100 Curtain Wall Elements at
+9,996.30, Net 19,992.60, 'Discount 2: -20.00%', Grand Total Net GBP 15,994.08. The
+quantity is right - the supplier quotes 2 and we price 2 - and the block figure is
+right. QT250448 is the aluminium quote and its five items are 977.77 / 477.57 /
+571.57 / 1,164.45 / 1,238.92, which is rows 9-13 in order.
+
+WHAT IS WRONG IS THE FRAMES CELL ON ROW 14. It holds 15,036.50, which is 17.69m2 x
+GBP 850 - the CW NOTIONAL, the same figure as the unit rate, copied across. The real
+cost is 15,994.08 / 2 = 7,997.04. THE CONFIRMATION IS NOT THE ARITHMETIC, IT IS THE
+OTHER SEVEN CW ROWS: on all of them Frames is a genuine lower figure sitting around
+half the sell (St Mary's 4,419.91 / 8,655.98, Wisley 12,260.79 / 19,975.00, median
+ratio 0.51). This row's ratio is exactly 1.000, which no other CW row shows - and
+7,997.04 would put it at 0.532, square in the middle of the seven.
+
+NOT AN ERROR IN ANYTHING A CLIENT HOLDS, so Adam's morning list is still Gordon
+Court REV 2 alone. The document foots, the quantity is right, and the client is
+charged correctly. It understates OUR OWN margin by 14,078.92 on this job - the row
+reads as zero margin on 30,073.00 of sell.
+
+AND IT DOES NOT COME OUT OF THE CALIBRATION SET, which is a more careful reading of
+the lab's own rule than excluding it would be. The rule is never to tune the engine
+to reproduce a defect. The defect here is in the COST cell, and the engine stopped
+reading CW rows' cost cells in the previous commit - supply_money() returns None for
+them, verified by the rate table being byte-identical. The SELL cell is correct
+(area x 850, matching six other rows), so scoring it is sound. Exclude the cell, not
+the document.
+
+TWO CHECK CHANGES, both cast as READINGS rather than replacements, per the rule this
+board earned on Frames+Glass - a document is wrong only when NO reading works:
+  A THIRD READING, frames EXCLUDING curtain walling. On a CW row the Frames cell is
+  not reliably a buy, so comparing it against a supplier block compares a notional
+  against a cost. Drop those rows and CB Refrigeration reconciles exactly on the
+  subset {BSW, Strongdoor} = 32,458.21. SUPPLIER 12 -> 11. It also gives Wisley a
+  better-characterised residual, 1.538 -> 1.147, whose cause is the already-recorded
+  duplicated 31,335.40 cell.
+  CW_COST, a new check: a CW row whose Frames cell equals area x CW_SUPPLY_M2 to the
+  penny is recording the notional. Exactly 1 of 8 rows in the archive.
+
+Audit position: 31 findings across 65 documents. FOOT_LINE 1, FOOT_DOC 0, DISCOUNT 0,
+BUILDUP 13, SUPPLIER 11, SUP_DUP 2, SUP_BLANK 3, CW_COST 1. ALL FOUR OPEN SUPPLIER
+QUESTIONS ARE NOW CLOSED - Trafalgar a glass merchant, Oldswinford a coupler,
+Brandon a reader artefact over a blank block, CB Refrigeration a notional as a cost.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

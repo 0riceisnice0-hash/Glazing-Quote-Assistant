@@ -98,6 +98,19 @@ def _supplies_glass(names):
     return [n for n in low if any(g in n for g in GLASS_SUPPLIERS)]
 
 
+def _is_cw_row(r):
+    """A GENUINE curtain-walling row, as against an ordinary coded window row
+    that happens to carry a CW working figure.
+
+    The board settled the distinction on 30/07: CW on a coded row is a spare
+    column holding area x GBP 850 - the estimator asking "what would this
+    opening cost as curtain walling instead" - and it is NOT money in the unit
+    rate, on all 156 lines that carry one. A genuine CW row has no product code,
+    a CW LABOUR figure, and its unit rate IS the area money. There are 8 in the
+    archive across 6 documents."""
+    return not r.get("code") and bool(r.get("cw_labour"))
+
+
 def _num(c):
     return float(c) if isinstance(c, (int, float)) and not isinstance(c, bool) else None
 
@@ -505,6 +518,37 @@ def audit(doc):
                                "Not an arithmetic error; the margin on it cannot be checked"
                                % (" + ".join(doc["supplier_names"]), frames_sum))})
 
+    # THE CW NOTIONAL RECORDED AS IF IT WERE A COST (31/07, fourth run).
+    # A genuine CW row's Frames cell should hold what the curtain walling was
+    # bought for. On 7 of the archive's 8 CW rows it does, and it sits around
+    # half the sell - St Mary's 4,419.91 against 8,655.98, Wisley 12,260.79
+    # against 19,975.00, median ratio 0.51 over the seven. CB Refrigeration's
+    # holds 15,036.50 against a sell of 15,036.50, a ratio of exactly 1.000
+    # which no other CW row in the archive shows, and 15,036.50 is 17.69 x 850 -
+    # the same notional as the unit rate, copied across.
+    # The real figure is on the quote: Bellview 0000000371 prices 2 Pcs at
+    # 9,996.30 less a 20% Discount 2 = GBP 15,994.08 net, i.e. 7,997.04 each -
+    # which would put this row at 0.532 of sell, square in the middle of the
+    # other seven. That is the confirmation, not the arithmetic.
+    # NOT an error in anything a client holds. The document foots, and the
+    # quantity is right - the supplier quotes 2 and we price 2. It understates
+    # our OWN margin, by 14,078.92 on this job.
+    for r in doc["rows"]:
+        if not _is_cw_row(r) or not r.get("frames") or not r.get("area"):
+            continue
+        notional = r["area"] * engine.CW_SUPPLY_M2
+        if abs(r["frames"] - notional) > PENCE:
+            continue
+        out.append({"check": "CW_COST", "money": r["frames"] * r["qty"],
+                    "detail": ("row %s %r: the Frames cell is %.2f, which is %.2fm2 x GBP %.0f "
+                               "- the CW NOTIONAL, not what the curtain walling was bought for, "
+                               "and it equals the unit rate exactly. On the archive's other 7 CW "
+                               "rows Frames is about half the sell. The buy is not recorded in "
+                               "this document, so the margin on %s of sell reads as zero"
+                               % (r["row"], r.get("desc") or "?", r["frames"], r["area"],
+                                  engine.CW_SUPPLY_M2,
+                                  "{:,.2f}".format(r["frames"] * r["qty"])))})
+
     if doc["supplier_cost"] and any(r["frames"] is not None for r in doc["rows"]):
         glass_names = _supplies_glass(doc.get("supplier_names"))
         doc["glass_in_buy"] = glass_names
@@ -514,6 +558,23 @@ def audit(doc):
             bases.append(("frames+glass",
                           sum((r["frames"] + (r["glass"] or 0.0)) * r["qty"]
                               for r in doc["rows"] if r["frames"] is not None)))
+        # A THIRD READING: FRAMES EXCLUDING CURTAIN WALLING (31/07, fourth run).
+        # This is what closes CB Refrigeration 1.291, the last open supplier
+        # question. On a genuine CW row the Frames cell is not reliably a buy -
+        # CB Refrigeration's CWT-A holds 15,036.50, which is 17.69m2 x GBP 850,
+        # the CW notional to the penny - so including it in a frames total that
+        # is about to be compared against a supplier block compares a notional
+        # against a cost. Drop those rows and the document reconciles EXACTLY:
+        # 4,430.28 + 28,027.93 = 32,458.21, which is the block subset
+        # {BSW, Strongdoor} to the penny, and the residual BSW CW figure is the
+        # curtain walling it was always going to be.
+        # Added as a READING rather than a replacement, for the reason 31/07
+        # already earned once on Frames+Glass: a document is not wrong because
+        # the first reading of its block failed, only when no reading works.
+        if any(_is_cw_row(r) for r in doc["rows"]):
+            bases.append(("frames excluding curtain walling",
+                          sum(r["frames"] * r["qty"] for r in doc["rows"]
+                              if r["frames"] is not None and not _is_cw_row(r))))
         full = doc["supplier_cost"]
         allparts = doc.get("supplier_parts") or []
 
@@ -740,7 +801,7 @@ def main():
     print("=" * 78)
     print("%d finding(s) shown across %d document(s)" % (total_findings, len(docs)))
     for c in ("FOOT_LINE", "FOOT_DOC", "DISCOUNT", "BUILDUP", "SUPPLIER", "SUP_DUP",
-              "SUP_BLANK"):
+              "SUP_BLANK", "CW_COST"):
         hits = by_check.get(c, [])
         print("  %-10s %3d finding(s) in %2d document(s)"
               % (c, len(hits), len(set(h[0] for h in hits))))
