@@ -109,6 +109,25 @@ QUOTE FOR THEM IN THE PACK - the only Ikon document is a product datasheet with 
 the finding is not GBP 8,633.85 of frames exposure; it is GBP 2,053.10 of panel cost carried in the
 block on nobody's quote. A question for whoever owns the buy, not an error in a client's document.
 
+OLDSWINFORD 0.825 IS CLOSED AND IT IS A COUPLER (31/07). The second of the four open supplier questions,
+and this one decomposes exactly - read the Aplus quote QT51271 and it is 38 priced items, not 34:
+    34 x 'DualFrame 75Si Casement'   34,003.38   = THE FRAMES COLUMN TO THE PENNY
+     4 x 'DualFrame 75Si Coupled'     4,135.61   = 550.03 + 595.48 + 685.55 + 2,304.55
+                                     ---------
+    Aplus's own stated total         38,138.93   (6p under the sum of its parts - their rounding)
+    Teleflex, separate scope          3,070.00
+    block total                      41,208.93   against a Frames column of 34,003.38, ratio 0.825
+AND 4,135.55 + 3,070.00 = 7,205.55, WHICH IS THE REPORTED GAP EXACTLY. A COUPLER IS BOUGHT MONEY WITH NO
+FRAMES CELL: it is the post between two window units, so it belongs to no single row and the estimator
+has nowhere to put it. Nothing is wrong. The subset logic cannot catch this one because the coupler
+money is INSIDE one supplier's figure rather than being a separate row of the block, so no subset of
+{Aplus, Teleflex} will ever equal the Frames column.
+  DO NOT REACH FOR THE ADDITIONAL COLUMN TO EXPLAIN IT. Oldswinford's Additional is a flat GBP 210.00 on
+  all 34 rows = 7,140.00, and frames + additional = 41,143.38 against a block of 41,208.93 - 0.16% out,
+  which is INSIDE the 0.5% tolerance and would have "reconciled". It is a coincidence: 7,140.00 is an
+  estimator's per-opening allowance and bears no relation to Teleflex's 3,070.00. Two numbers of similar
+  size agreeing to 0.16% is not evidence; the supplier quote is. Look for the row first, as ever.
+
 AND THE BAND STRUCTURE IS NOW TESTED IN THE COARSER DIRECTION TOO, AND (2.0, 5.0) STILL WINS (31/07).
 The earlier work tested FINER and alternative edges; nobody had tried fewer bands, and there was a
 reason to - the product code already encodes size (SAW/MAW/LAW is small/medium/large), so code|band
@@ -232,7 +251,8 @@ reconciles to it and NEITHER job's quotes support it: ASHE's BSW quote is 5,234.
 ASHE row 12's Frames, the DE-00-001 entrance door) against a Frames total near 24,388, and Wisley's is
 27,342.04 plus a second quote at 19,020.75 against a Frames total of 48,201.95. THAT CLOSES TWO OF THE
 SIX OPEN SUPPLIER QUESTIONS AS ONE CAUSE - Wisley 1.538 and ASHE 0.778 were filed as separate puzzles.
-FOUR ARE LEFT: Brandon Estate 4.094, CB Refrigeration 1.291, Oldswinford 0.825, Trafalgar House 0.657.
+FOUR WERE LEFT; TWO ARE LEFT AFTER 31/07: Brandon Estate 4.094 and CB Refrigeration 1.291. Oldswinford
+0.825 is a coupler and Trafalgar House 0.657 is a glass merchant in the block - both closed above.
 Same client and same job is deliberately not reported - the two Brandon revisions share Vetroseal
 679,820.32 and 4Ali 3,166,748.58 because they are re-prices of one estate off the same quotes.
 
