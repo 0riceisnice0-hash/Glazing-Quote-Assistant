@@ -68,6 +68,18 @@ without it, against 352/508 with it. A GENUINE curtain-walling row is different 
 CW LABOUR figure, Frames equal to the CW money (CB Refrigeration CWT-A, 17.69m2). The board previously
 had this filed as a Brandon Estate peculiarity; it is 156 lines across 9 documents.
 
+AND THE BAND STRUCTURE IS NOW TESTED IN THE COARSER DIRECTION TOO, AND (2.0, 5.0) STILL WINS (31/07).
+The earlier work tested FINER and alternative edges; nobody had tried fewer bands, and there was a
+reason to - the product code already encodes size (SAW/MAW/LAW is small/medium/large), so code|band
+bands a thing that is already banded, and the buckets look like it: MAW|<2m2 n=67 against MAW|2-5m2
+n=10, LAW|2-5m2 n=63 against LAW|<2m2 n=5. Leave-one-JOB-out, band structure alone varied:
+    none, one bucket per code 19.38%    (2.0,) 18.30%    (3.0,) 15.76%    (1.5,3,6) 15.66%
+    (1.5,4) 15.09%             (5.0,) 13.70%             (2.0,5.0) CURRENT 13.28%
+Coarser is much worse, so the band is doing real work the code does not do. (5.0,) is the only near
+rival and is better on 14 documents and worse on 12 - but its worst losses are large (Whitsbury -0.6 ->
+-13.1, St Christopher's +14.0 -> +21.2) and the mean is 0.42 points behind. LEAVE IT ALONE.
+scratchpad/band_struct.py.
+
 DATE IS CLOSED AND IT TOOK ONE TABLE (31/07). "The learned rate is the median of HISTORY, material
 prices move, and the engine has no time term" cannot be asked of this archive: ALL 29 DOCUMENTS ARE
 2026, dated 25/03/2026 to 29/07/2026, a span of 0.2 years. Every line is in one year bucket. The
