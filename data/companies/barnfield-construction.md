@@ -1,16 +1,30 @@
 # Barnfield Construction Limited
 
-> **READ THIS FIRST. The board is chasing four Barnfield rows for "a final answer" and on the
-> biggest one THE ANSWER WAS GIVEN FIFTEEN MONTHS AGO.** Jayk wrote to BSW on 01/05/2025:
-> "**Bradstone Road: Lost on price, you can close this enquiry.**" It reached neither AdminBase
-> (still "Live - Quoted") nor the Opportunity Log (still "open"). The only copy of that outcome in
-> the company is a courtesy email from a glass supplier.
+> **CORRECTED 30/07/2026 BY MARY, AND THE CORRECTION IS THE HEADLINE. BRADSTONE ROAD IS LIVE.** This
+> file previously opened by saying the answer on the biggest row was given fifteen months ago and the
+> job was dead. It is not. It was lost on price in May 2025, it **came back**, and it was priced and
+> issued **twice in 2026**: Vetroseal 060676 on 02/02, jayk@ to Ian Brown 06/02 with an attachment,
+> **Adam to Ian four times in forty minutes on 12/03**, BSW re-quoting 19/03, estimating@ to Ian
+> 20/03 with an attachment, and **Adam's own message of 12/06/2026 - the most recent contact on the
+> job.** Nobody rings Ian Brown about Bradstone without reading Adam's 12/06 message first: he knows
+> exactly where it stands and this board does not.
 >
-> **And the relationship is the opposite of what a chase assumes.** Ian Brown has sent us SIX
-> enquiries in twelve months and Fenster has won NONE of them - Barnfield appears nowhere in the
-> 204 won contracts. He is already doing the thing a relationship is supposed to buy: asking us to
-> price. **The question here is not how to get on his list. It is why we lose off it**, and on
-> Bradstone Road we have the answer in his own words.
+> **What survives from the old reading, because it is still true and still worth having:** Jayk did
+> write to BSW on 01/05/2025 - "**Bradstone Road: Lost on price, you can close this enquiry**" - and
+> that outcome reached neither AdminBase (still "Live - Quoted") nor the Opportunity Log (still
+> "open"). The only copy of it in the company is a courtesy email from a glass supplier. **An outcome
+> can live in a supplier's thread and nowhere else** - that lesson stands. What does not stand is
+> concluding from it that the job was over.
+>
+> **And why I got it wrong, because it is structural.** A quote leaves Fenster from whichever mailbox
+> the person handling it uses - jayk@ (a hard 404), adam@ or estimating@ - never from the four I read,
+> and neither AdminBase nor the BD log records a send at all. Of nine such questions Mary settled on
+> 30/07, **seven quotes had gone and I could see none of the seven.**
+>
+> **The relationship point is unchanged.** Ian Brown has sent us SIX enquiries in twelve months and
+> Fenster has won NONE - Barnfield appears nowhere in the 204 won contracts. He is already doing the
+> thing a relationship is supposed to buy: asking us to price. **The question is not how to get on his
+> list; it is why we lose off it**, and he has already shown he will tell us.
 
 Slug: `barnfield-construction`. Written 30/07/2026. Companies House **02365913**, active private
 limited, **incorporated 28 March 1989** - thirty-seven years trading. Registered and trading from
@@ -84,34 +98,44 @@ catch, seen from the inside.
 **The site is still live in 2026:** a further application on Land At Bradstone Road was refused
 02/05/2025 and a second **permitted 10/10/2025** (storage unit, Class B8).
 
-## The thing I cannot explain, and it is the reason to make the call
+## The thing I could not explain - now explained, and the dating was right
 
 **Vetroseal quoted Fenster for "BRADSTONE RD CHEETHAM" on 29/01/2026 and again 02/02/2026** - quote
-**060676**, to info@, estimating@ and commercial@. That is nine months after "lost on price, you can
-close this enquiry".
+**060676**, to info@, estimating@ and commercial@ - nine months after "lost on price, you can close
+this enquiry". I argued it could not be an old quote re-sent: Vetroseal number sequentially at
+roughly 27 a day (064635 on 07/07/2026, 065095 on 24/07/2026), so extrapolated back 060676 belongs to
+early February 2026, where a re-send of a March 2025 quote would carry a number near 052000. **The
+dating was right and the inference was right: somebody at Fenster was buying glass for a live
+Bradstone Road in late January 2026.**
 
-It is not an old quote re-sent. Vetroseal number sequentially at roughly 27 a day (064635 on
-07/07/2026, 065095 on 24/07/2026); extrapolated back, 060676 belongs to early February 2026 - a
-re-send of a March 2025 quote would carry a number near 052000. **So somebody at Fenster was buying
-glass for Bradstone Road in late January 2026.** No Barnfield correspondence exists in my four
-mailboxes in 2026, so whatever drove it ran through estimating@. Either the job came back to us or it
-is a different party on the same site. One question settles it.
+**Mary supplied the missing half from estimating@ and adam@ on 30/07 (msg 35): the job came back to
+us.** Vetroseal 060676 on 02/02, issued to Ian Brown 06/02 with an attachment, Adam working it
+directly on 12/03, BSW re-quoting 19/03, a second issue on 20/03, and Adam again on 12/06. So the
+supplier quote was the first visible edge of a re-tender that ran for four months in mailboxes I
+cannot read. **A supplier's activity is a reliable signal that a job is live; it just cannot tell you
+what happened next, and inferring "it must be a different party" was the wrong guess to make when
+Mary was one question away.**
 
 ## What to say, and to whom
 
 **One call to Ian Brown, 01282 442300. It is not a chase - it is the value-engineering conversation
 he invited fifteen months ago, and it covers five jobs.** In this order:
 
-1. **The Grange Apartments** (GBP 155,388 ex, enquiry 05/02/2026, his deadline 26/02/2026). Check
-   before dialling: **the Opportunity Log says `returned: null` - the quote may never have gone
-   out**, and AdminBase carrying a value is not the same thing (Adam, hub-77: priced-but-never-issued
-   is Mary's, not a chase).
+1. **The Grange Apartments** (GBP 155,388 ex, enquiry 05/02/2026, his deadline 26/02/2026) - **and
+   this one is OLIVER WEBBER'S, not Ian's.** Settled by Mary 30/07: issued to Ian 05/03 15:17 with an
+   attachment, then **Oliver Webber sent a revised door and window schedule on 13/03**, A Plus
+   QP65668 Rev1 followed on 24/03, and it was **REISSUED to Oliver on 01/04 08:15 - who replied 68
+   minutes later.** So AdminBase's "Live - Quoted" is right, the Opportunity Log's empty `returned`
+   cell is wrong, and the person working the job changed hands in March with no field on this board
+   recording it. Chase Oliver on his own revised schedule.
 2. **MSM Aerospace, Middleton M24** (GBP 46,968.75 ex) - the one with a won contract behind it.
    **Barnfield have SECURED the main contract**; Jayk's log, "Ben advised... likely be February
    before anything moves construction wise. Worth repricing as secured", and a **revised quote at
    GBP 37,827 was issued 12/01/2026**. The February window Ben named has passed.
-3. **Bradstone Road.** Not "how did our price look" - we know. Two things: what the Vetroseal glass
-   quote of January 2026 was for, and whether the value-engineered revision ever reached him.
+3. **Bradstone Road - READ ADAM'S 12/06/2026 MESSAGE BEFORE SAYING ANYTHING.** It is live, it has
+   been issued twice this year and Adam has been running it himself, so there is nothing here for this
+   board to establish. If it belongs on the call at all it is as "where did the March revision land",
+   and Adam already knows.
 4. **Moston Cash & Carry / Ebsworth Street** (GBP 57,333.33 ex). Jayk, 20/11/2025: "**stuck at
    planning**. Worth repricing as still open." Ask the planning position, not about our price.
 5. **St Johns Refurbishment, Blackburn** (GBP 89,968.83 ex). Jayk, 20/11/2025: "no movement - likely

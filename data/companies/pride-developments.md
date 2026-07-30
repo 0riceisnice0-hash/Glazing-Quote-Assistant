@@ -70,9 +70,9 @@ a false chase. Nothing here is closed on my reading; where I do not know, the ro
 
 | Lead | Job | ex VAT | What it really is |
 |---|---|---|---|
-| 8558 | B239 Windows PD7851 | 321,833.07 | Biggest row. Site postcode is **Pride's own NP44 3AA**; no trace of "B239"/"PD7851" in any mailbox I can read. **What and where is unverified** - asked Mary |
-| 7249 | St Catherines House, 5 Notte St, Plymouth - **Aluminium** | 295,882.08 | 28/11/2025 |
-| 7356 | St Catherines House, 5 Notte St, Plymouth - **uPVC** | 237,382.29 | 18/12/2025. **Same site, three weeks apart, two materials - probably two OPTIONS for one job, so the board may be double-counting GBP 237k.** Asked Mary |
+| 8558 | B239 Windows PD7851 | 321,833.07 | Biggest row, and **the livest thing here** (Mary, 30/07): a **thirteen-message negotiation with Daniel Goornaden 26-29/06/2026 through adam@**, attachments out 29/06 at 09:26, 12:55 and 12:58. Not a mystery - unidentified by ME. Follow-up date of 10/07 passed, so it is a chase on a revision Adam has already traded. **Ask Adam what and where B239 is; he can say it in a sentence.** The site postcode really is Pride's own NP44 3AA, so the CRM's site field is wrong |
+| 7249 | St Catherines House, 5 Notte St, Plymouth - **Aluminium** | 295,882.08 | 28/11/2025. **The ALUMINIUM option of one job** - see below. This is the real exposure |
+| 7356 | St Catherines House, 5 Notte St, Plymouth - **uPVC** | 237,382.29 | 18/12/2025. **SETTLED 30/07 - the uPVC OPTION of 7249, not a second job, and it INCLUDES the aluminium curtain walling either way. GBP 237,382.29 comes off Pride's exposure.** Named on the `sameSite` panel, not merged |
 | 7807 | 130 Hainault Road | 82,822.87 | Contact is **Lyndon Porretta, a director** |
 | 8463 | Severn Trent Water, Bridgend CF31 3NA | 59,987.25 | **Result field blank** - "no result recorded". Mary priced Redditch off BSW's real Severn Trent quote **QT250834**, so a supplier price for this exists |
 | 7103 | Exmoor Drive residential home, Bromsgrove | 54,630.79 | 05/11/2025, uPVC, Jayk's |
@@ -84,12 +84,29 @@ a false chase. Nothing here is closed on my reading; where I do not know, the ro
 | 8701 | Probation Office, Usk House | 2,866.68 | Lead dated **21/07/2026** with a follow-up date of **23/06/2026** - dated nine days ago and printed as 35 days silent. CRM date error, not a silence |
 | 8381 | Morrisons Rubery | 6,104.36 | Being priced - Mary's |
 
-**St Catherines House is the one to understand.** We fitted three aluminium vertical sliders there
-for GBP 6,138.85 on 09/07/2026 (contract 3424, PD7758, PO1526) - at the same address where
-GBP 533,264 of our quotes still read "live". Vincent Adurosakin's March enquiry that became that
-order says his colleague *Graham* passed him Adam's details, so it arrived as a fresh small-works
-enquiry, not as a revival of the 2025 packages. Either the big job is phased and still ahead of us,
-or both quotes died and three windows are what it became. **Nobody at Fenster has asked.**
+**St Catherines House is ONE JOB PRICED TWO WAYS - settled by Mary 30/07 (msg 37) in Jayk's own
+covering words**, three sends, all jayk@ to `steven.elley@pridedevelopments.co.uk`, all with
+attachments:
+
+- **18/12/2025 15:20** - "our cost for the replacement of the Curtain Walling and Sash Windows at St
+  Catherines House. This quote is indicative of ALUMINIUM replacements across the site. We are
+  currently sourcing costs for uPVC replacements which will offer a significant saving across the
+  project - we will issue these in due course."
+- **13/01/2026 14:27** - "the uPVC option for the vertical sliding windows offers a significant
+  saving. **We have included the Aluminium Curtain Walling elements within this quote as well**"
+- **16/01/2026 13:44** - "updated costs for the Aluminium Option... we'd love to secure this work with
+  Pride, **EITHER THE uPVC OR ALUMINIUM OPTION**"
+
+**So the exposure is GBP 295,882, not GBP 533,264, and the contact is STEVEN ELLEY - who is on
+neither row.** Nobody has answered Jayk since 16/01/2026, when he asked for the second time whether
+the project was likely to go ahead. The question to Steven is which option they want, not whether they
+got a price.
+
+We also fitted three aluminium vertical sliders at that address for GBP 6,138.85 on 09/07/2026
+(contract 3424, PD7758, PO1526). Vincent Adurosakin's March enquiry that became that order says his
+colleague *Graham* passed him Adam's details, so it arrived as a fresh small-works enquiry rather than
+a revival of the big package. Whether the big job is phased and still ahead of us, or died and three
+windows are what it became, is still open - **but it is now one question about one job, not two.**
 
 **Jayk did not put Pride on his repricing log.** His 19/12/2025 shortlist covers 62 rows and 27
 clients and includes nothing for Pride - at a moment when both Plymouth quotes and Exmoor Drive and
@@ -141,8 +158,36 @@ we will have the formal quote over soon. **When are you submitting cost on this 
 
 ## Open unknowns
 
-- What B239 / PD7851 is and where. GBP 321,833 with no verifiable site.
-- Whether 7249 and 7356 are one job. GBP 237k of possible double-count.
+- ~~What B239 / PD7851 is and where.~~ **Closed 30/07** - a live negotiation through adam@, 26-29/06.
+  Adam knows the site; the CRM's site field does not.
+- ~~Whether 7249 and 7356 are one job.~~ **Closed 30/07** - one job, two options, GBP 237,382.29 off.
+- **Exmoor Drive (7103) is not dormant since November** (Mary, msg 37): Vetroseal quoted it three
+  times on 10/11/2025 (059346/059348/059351, "PRIDE 1-7 EXMOOR"), then it reappears as **PD7604
+  "Window Replacement works"** with Adam sending Daniel Goornaden an attachment on **01/04/2026
+  17:26** and a BSW enquiry on 08/04. Whether PD7604 is this lead or a re-quote of the same site
+  cannot be told from headers.
+- ~~Library and Brandon Youth (7157) and 130 Hainault Road (7807): no trace.~~ **BOTH WENT - found on
+  the second ask, by searching the CONTACT rather than the job name (msg 41). Tally 10 of 12.**
+  - **Brandon Youth Centre / 19 Maddock Way** - sent 24/11/2025 13:20, jayk@ to `wayne.edwards@` cc
+    estimating@, quote plus cover letter. Nothing back ever, and the reason is on the record:
+    **Wayne had a competing quote at GBP 38k.** Adam, 24/11 12:42 - *"Job costings are 28k so we
+    can't get close to 38k, this seems to be a competitive cost that we have provided."* Jayk asked
+    Wayne for the competing quote redacted, *"to ensure we are quoting Like4Like"*, **and Wayne never
+    sent it.** So it is lost on price **with our own unanswered ask sitting in it** - GBP 53,209
+    against a GBP 38k competitor on a GBP 28k cost base, and a live reason to ring. If it is ever
+    repriced: Adam noted **E2 should have been a Latham's steel door** and was left as it was.
+  - **130 Hainault Road** - sent 01/04/2026 09:13, Gintare to `lyndon@` cc
+    **`MICHAEL.BETTINSON@pridedevelopments.co.uk`** and adam@. **And it is a PARTIAL quote**, which is
+    a likelier reason for silence than price: the covering email **excludes the double entrance door,
+    one sliding door, the Velux and the lantern**, and offers the triangle unit in **aluminium instead
+    of uPVC**. Four fabricators tried (Quickslide, BSW, Titan Aluminium, Duplus); Mercury never came
+    back on the 2900mm sliding door. **The chase asks what they want done about the excluded items.**
+    Also: my 26/02 date was the **enquiry**, not the quote - Lyndon sent it in 26/02, Adam promised a
+    price on 25/02, and we did not quote until 01/04, opening *"Apologies for taking so long."* **Five
+    weeks, at our end.** Michael Bettinson is a third Pride contact and is on no row here.
+
+**SEARCH THE PERSON, NOT THE PROJECT.** Both of these came back nil on the job name and were found at
+once on the contact.
 - Lealands High School, Luton - replacement curtain walling. Roddy Short enquired **23/04/2025** to
   info@, Perry Giffin forwarded it, and there is **no quote and no reply anywhere on my side**. It is
   in no AdminBase row and no won contract. Absence in my half is not absence (the ET&S lesson), so

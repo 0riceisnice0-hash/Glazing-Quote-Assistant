@@ -59,7 +59,14 @@
   "bot-23",
   "bot-25",
   "hub-87",
-  "bot-27"
+  "bot-27",
+  "bot-33",
+  "bot-34",
+  "bot-35",
+  "bot-36",
+  "bot-37",
+  "bot-39",
+  "bot-41"
  ],
  "runs": [
   {
@@ -165,18 +172,22 @@
   {
    "at": 1785382607.9187381,
    "seconds": 1963.1383185386658
+  },
+  {
+   "at": 1785385906.1479404,
+   "seconds": 1655.0294778347015
   }
  ],
  "fails": 0,
- "last_agenda": 1785384251.0931797,
+ "last_agenda": 1785391222.4880426,
  "last_kick": {
   "chat": "jacob",
   "title": "Business development",
-  "at": "2026-07-30T05:04:11",
+  "at": "2026-07-30T07:00:22",
   "orders": [
    "standing-agenda: zac - STANDING AGENDA from Zac (29/07): an empty inbox is not an empty day. Read data/knowledge/bd.md firs"
   ],
-  "session_id": "77206f72-7fdc-4765-9259-6bfeda98aeb2",
+  "session_id": "6813fb81-2fbd-420f-9fe0-c010c7e05a68",
   "prompt": "Read C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\JACOB-SESSION.md and follow it. Your work orders are the JSON files in C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\test-results\\jacob-inbox\\queue. Handle them, reply on the hub to anyone who wrote to you, then move each order into C:\\Users\\zacpl\\Desktop\\Glazing-Quote-Assistant\\test-results\\jacob-inbox\\processed and rebuild your board.\n\nYou and Mary work independently and may be running at the same time. Two rules that make that safe: git-commit ONLY the files you touched (never `git add -A`; if the index is locked, wait a few seconds and retry), and deploy the hub only through the deploy scripts - they take the shared deploy lock for you."
  }
 }

@@ -1833,3 +1833,323 @@ rewriting the over-cap banner from 21 lines to 9 - the last compression of that 
 appear on Today with their new text, "final answer on B239" returns zero, and the new panel renders
 with all six sites. The check that first said the panel was missing was my own bug: `innerText`
 returns the CSS-uppercased heading, `textContent` does not.
+
+## 30/07/2026 07:00 (standing agenda) - Re-Gen / Balham Hill: the biggest row on the board is two packages, and one of them was UNDER the number the client gave us
+
+**AdminBase lead 7796, Re-Gen (UK) Construction, Balham Hill Estate East and West SW12,
+GBP 833,609.31 ex VAT - the largest single row on this board, never researched, and the
+board's whole instruction on it was "153 days silent, chase for a final answer".** Every
+part of that turned out to be wrong. Not in the ledger; no company file; `mary_recall
+--grep "Re-gen"` and `--grep "Balham"` both returned zero, so neither bot had ever touched it.
+
+### The account
+
+- **15/05/2025** - Kyan Gulliver, Estimator, sends the pack. Spec of Works Rev E, 293 pages.
+  **23/05/2025** - quote out, **GBP 171,178**, priced in **Liniar** and at **1nr of each
+  window type** rather than the real quantities.
+- **29/01/2026 15:24, commercial@, "URGENT ATTENTION: Re-Gen - Balham Hill"** - Jayk, after a
+  phone call with **Liam Ryan**: *"They have won the above-named project... our Curtain
+  Walling cost is cheaper than the competing firm. Our Windows are expensive compared to the
+  competing firm. They would like us to reprice this job and get the quote down as far as
+  possible so that we can secure it. The competing costs are as follows: Windows @ 500k /
+  Curtain Walling @ 150k... Our original quote was incorrect as we quote for 1nr of each type
+  of window. There are 850 windows in total. The project is due to kick off on March 23rd. It
+  may come down to us being awarded the Curtain Walling and the Competitor awarded the Windows
+  based solely on price. We have quoted for Liniar but they want a VEKA or ReHau system... The
+  programme calls for the install of 50 windows a week."*
+- **02-24/02/2026** - repriced. A Plus QP65670 (23/02), Titan Trade Windows, Vetroseal 060809,
+  SS Q092044. **Quote REV 1 dated 02/02, files finalised 24/02 13:39, AdminBase lead raised
+  25/02 at GBP 833,609.31.**
+- **Nothing since 24/02/2026.** No client reply in commercial@, info@ or jacob@; no further
+  file in the tender folder; nothing in the 30-day intake. 156 days.
+
+### ONE CRM ROW WAS TWO PACKAGES, AND THE BOARD CHASED THE SUM
+
+REV 1 has two sheets and they add to the AdminBase figure **to the penny**:
+
+| | Ours | Liam's target | Delta |
+|---|---|---|---|
+| Curtain walling | **142,760.00** | 150,000 | **-7,240 (-4.8%)** |
+| uPVC windows, **852** nr | **690,849.31** | 500,000 | **+190,849.31 (+38.2%)** |
+| | 833,609.31 | 650,000 | +183,609.31 |
+
+So the largest "exposure" on the board is not one prospect at all. **GBP 142,760 of it came
+in UNDER the number the client himself set, on a split he told us in writing was likely -
+and nobody has spoken to him since.** The other GBP 690,849 went out 38% above a target we
+had been handed three weeks earlier. Chasing the sum asks the client to answer a question he
+already answered, about a number he never had to consider as one thing. (852 is the count in
+REV 1 - Jayk's "850" was the phone version. The optional EPDM and mastic lines, GBP 63,065
+across both sheets, sit outside those totals.)
+
+### THE APPROVED-MANUFACTURER CLAUSE WAS IN THE PACK ON DAY ONE
+
+The employer is **Wandsworth Borough Council**, Housing Department; ref **C6445**. Contract
+administrator **HJP - Hughes Jay & Panter Ltd**, chartered surveyors, Sutton, 020 8661 2228,
+mail@hjpsurveyors.com, ref MM/MJ/5421. Form: **JCT 2016 Housing Intermediate Works
+(Amended)**. The main contract is *External and Communal Decorations including Roof and
+Window Renewals*, which is why nothing about it appears on Contracts Finder under "Balham
+Hill" - **search the WORKS TITLE, not the package you want.**
+
+**Appendix J, page 214 of 293 of the documents we received on 15/05/2025**, is Wandsworth's
+own *Replacement Window & Door Performance Specification Rev D, Sept 2020*. Clause 2.6: *"The
+replacement windows are to be selected from the following manufacturers"* - **Rehau, VEKA,
+Kommerling (profine), Schueco, Deceuninck.** Liniar is not on it. We priced Liniar, and heard
+about it **eight months later, on the phone, from the client.** "Liniar is unapproved" was
+never Liam's preference; it was a clause in our own tender pack.
+
+**READ THE PERFORMANCE SPEC BEFORE THE SCHEDULE OF WORKS. An off-list profile voids the bid
+before the price is read, and the pack always says which list.**
+
+### AND OUR CLIENT WINNING IS NOT STEP TWO WHEN THE EMPLOYER VETS THE SUBCONTRACTOR
+
+Clause 2.1 of the same spec: *"Evidence of their current status as licensed fabricators and
+installers shall be submitted by all companies at the time of tendering, and any company not
+considered by the Council to be appropriately registered shall not have their tender
+considered."* Plus PAS 24:2016, BS 7412 Kitemark, BS EN ISO 9001:2015, Secured by Design.
+
+That is the mechanism behind this client's other job. BD log, Barham Park, 21/11/2025:
+**"Re-Gen secured this but the client has chosen their own window contractor - Liam suggests
+a brown envelope has been handed over."** Re-Gen won the main contract there too and it made
+no difference to us. So the standing line that five repricing rows *"name a main contract OUR
+CLIENT HAS WON - step two of the whole job, already done"* needs its edge: **on a council or
+HA job under a JCT with a performance spec, step two is the EMPLOYER'S surveyor, not our
+client.**
+
+### A KICK-OFF DATE IN OUR OWN MAILBOX BEATS ANY SILENCE COUNTER
+
+Kick-off was **23/03/2026 - 129 days ago.** At the programmed 50 windows a week, 852 windows
+is seventeen weeks, so a job running to time finished its window package around **20/07/2026,
+ten days before the board printed "is it still live".** Every other silence lesson here has
+been about the clock naming the wrong party; this one is simpler - **the client told us when
+the work would start and how fast it would go, and that arithmetic answers the question the
+chase was going to ask.** Look for a programme before counting days.
+
+### The route nobody has taken
+
+**HJP Surveyors write Wandsworth's window specification and administer the contracts, and
+Fenster has never contacted them.** One hit for "hjp" across all four of my mailboxes and it
+is our own copy of their spec. They are a contract administrator with a housing decs practice
+across South London: getting Fenster's licensed-fabricator evidence in front of the Council
+under clause 2.1, on one of the five approved profiles, is a route onto a stream of work
+rather than one lead. **The CA or surveyor who writes the spec is a better target than the
+contractor who has to obey it** - and it needs Adam's decision, because it is a new
+relationship, not a chase.
+
+### Two false positives worth writing down
+
+- **REGEN London (`regen-london.com`, Faaris Merali, Snap Fitness gyms) is not Re-Gen (UK)
+  Construction.** They wrote to commercial@ on 28/07/2026 about a louvre replacement in SE11.
+  A grep on "re-gen" over the intake merges them; all five recent hits were theirs.
+- A "Wandsworth" search turned up a **Window Cad Enquiry** Paul Taylor chased on 07/01/2026 -
+  *"a replacement glass unit at The Town Hall Wandsworth High St"*, which is the exact address
+  of the Housing Department in this spec. It is **not** a Council contact: it came through
+  WindowCAD to an iCloud private-relay address, one unit, a domestic job. **The right address
+  on the wrong scale is still the wrong lead.**
+
+### Open, and not mine
+
+REV 1 names **Titan Trade Windows** as the supplier and nothing in the pack or in commercial@
+says which of the five approved profiles that is. If REV 1 is also off-list then the reprice
+was void before it was read - Gintare's and Mary's question, not mine. And **whether REV 1
+ever left estimating@** on 24-25/02 is unproven in my four mailboxes; asked Mary 30/07. The
+difference between a chase and an apology turns on it, for the fifth job this month.
+
+### Changed
+
+`jacob_adminbase.py` - one `worked` override on 7796 (state, owner Adam, next action, why,
+note). `data/companies/re-gen-uk-construction.md` (new). `bd.md` +11. Row verified still on
+Today after the state string changed - the twice-burned rule.
+
+## 30/07/2026 07:30 - Mary answered nine "did it go" questions: seven had gone, and my board was calling a live job lost
+
+Msgs 33-37, all `wants_reply=0`, all answering questions I had raised across the previous sessions.
+The batch is one lesson with five instances, and it is the most expensive reading error on this side
+of the wall.
+
+**A quote leaves Fenster from whichever mailbox the PERSON HANDLING IT uses - `jayk@` (a hard 404),
+`adam@` or `estimating@` - and never from commercial@, info@ or jacob@. Neither AdminBase nor the
+Opportunity Log records a send at all.** So "nothing in my four mailboxes" carries no information
+about whether a quote was issued. Across the nine questions **seven quotes had gone and I could see
+none of the seven.** Mary's own framing: ask, do not infer - which is what I did, so the batch is
+confirmation rather than correction. The rule is now in `bd.md`.
+
+### What each one changed on the board
+
+- **Bradstone Road, 5625, GBP 218,917 - THE ONE THAT MATTERED.** My row said "lost on price
+  01/05/2025, DO NOT chase Ian Brown", on Adam's chase list, in Adam's email. It is **live**: it came
+  back after the May 2025 loss and was priced and issued twice in 2026 - Vetroseal 060676 on 02/02,
+  jayk@ to Ian Brown 06/02 with an attachment, Adam to Ian four times in forty minutes on 12/03, BSW
+  re-quoting 19/03, estimating@ to Ian 20/03 with an attachment, and **Adam's own message of 12/06,
+  the most recent contact on the job.** Row now says live, and says nobody rings Ian about Bradstone
+  without reading Adam's 12/06 first. The May 2025 loss was still real and still recorded nowhere but
+  a reply to a glass supplier - that lesson survives; the "dead" conclusion does not.
+- **The Grange Apartments, 7665.** Issued twice - 05/03 to Ian Brown, then **reissued 01/04 to Oliver
+  Webber, who replied 90 minutes later.** AdminBase's "Live - Quoted" was right and the BD log's empty
+  Quote Returned cell was wrong. **The chase is Oliver Webber's; the CRM carries the client's original
+  contact and no field records that the job changed hands.**
+- **St Catherines House, 7249 and 7356.** Settled: **one job priced two ways**, in Jayk's own covering
+  words on three sends - aluminium 18/12, uPVC 13/01 ("we have included the Aluminium Curtain Walling
+  elements within this quote as well"), then 16/01 "either the uPVC or aluminium option". So **GBP
+  237,382.29 comes off Pride's exposure** - named on the `sameSite` panel, not merged. Contact is
+  Steven Elley, who is on neither row.
+- **B239 / PD7851, 8558, GBP 321,833.** My row said "do not chase until somebody says what this is".
+  It was a **thirteen-message negotiation with Daniel Goornaden, 26-29/06, through adam@, three
+  attachments out on 29/06 alone.** Not a mystery - unidentified BY ME. **Adam is a cheaper source
+  than a search and I did not ask him.**
+- **Chiel/Swanshurst, 7384.** The quote went 22/12/2025 from jayk@. **Only one of the three things
+  Chris asked for went** - no Contractor Evaluation Form, no Compliance Statement, no Insurance
+  Verification, no programme, and **the PQQ is what decides whether Fenster is allowed on his tender
+  list at all.** He was chased once, 16/02, with nothing attached: "any movement on this project". So
+  the opening is the pack he asked for seven months ago, which is a reason to ring rather than a
+  nudge. **PARTIAL DELIVERY LOOKS EXACTLY LIKE DELIVERY IN A CRM.**
+- **The Hub Alkerden, 5493.** No updated quote has gone (three weeks past their 08/07 deadline) - but
+  **Seyi was answered by Adam in six minutes on 01/07, and Adam asked Seyi a live Velfac
+  specification question on 02/07 that has never been answered.** So it is not an apology: it is "we
+  have been waiting on your Velfac answer since 2 July, here is when you will have the quotation."
+  **Do not draft the apology before checking who is actually waiting on whom.**
+- **Darrick Wood, 8368.** The one I had right, and worse than I had it: no send, **and no internal
+  "quote to check" to Adam either** - the step that always precedes an issue here - so A Plus's
+  revision has sat unopened since 24/07 and the job is **not yet re-priced**. Apology and a date.
+- **Library and Brandon Youth (7157) and 130 Hainault Road (7807): NO TRACE, which is "not found",
+  not "never sent".** A nil result on a job NAME is weak evidence where our own files misspell things
+  - this same batch has Chiel filed as "Cheil" and Swanshurst as "Swanhurst", both wrong and both
+  consistent, and Spoone School went out under another name entirely. Sent Mary the enquiry contacts
+  to search on instead; neither row carries a PD number.
+
+### Two contact corrections, one of which caught a second row
+
+**Gleb Saliev is `gleb.saliev@ajgroup.co.uk`** - the 2025 traffic used `alexanderjamesltd.co.uk`, so
+searching the old domain loses everything from 2026. **That flushed out a row Mary was not writing
+about:** Tiverton Road, GBP 547,886, the largest Alexander James row here, carries
+`kieran@alexanderjamesltd.co.uk` - the same dead domain, on the one row where the callback is OURS to
+make and the promised window closes 31/07. Row now says ring, do not email, address unconfirmed,
+phones good. **A contact correction on one row is a search to run across every row sharing the
+domain.**
+
+### Changed
+
+`jacob_adminbase.py` - eleven `worked` overrides rewritten (5625, 7665, 7249, 7356, 8558, 5493, 7384,
+8368, 7157, 7807, 7388). `bd.md` +13. Verified every one of them still renders on the live
+`/api/jacob` after the state strings changed.
+
+## 30/07/2026 07:24 - Mary corrected the Balham Hill account inside the same session, and every fact was already inside Fenster
+
+Msg 39, `wants_reply=0`, arriving two hours after I posted the Re-Gen account to the hub. It falsifies
+four things I had written and confirms one. **Both statements it killed were in what I had already
+sent Adam**, so the hub carries a correction.
+
+### What was wrong
+
+1. **"Nobody has spoken to him since February" - false. ADAM CHASED ON 12/03/2026 12:19**, adam@ to
+   Danny Hartland cc Liam: *"check in on the status of this job... Jayk as left the company so I will
+   be taking on his role... let me know how Balham Hill is shaping up and whether you have any new
+   tenders... my mobile is 07939452711."* **No reply in 140 days.** They have had his name, role and
+   mobile since March and not used them. So the call is Adam's **second** chase, following up his own
+   unanswered email - a different opening entirely, and a stronger one. **CHECK FOR YOUR OWN SIDE'S
+   CHASE BEFORE CALLING ANYTHING A FIRST APPROACH.**
+2. **"REV 1 may have been non-compliant" - false, and it was the opposite.** Ashley Walton at Titan
+   confirmed in writing on 24/02 14:24: *"the quotation we provided was in the REHAU TOTAL 70 62MM
+   OUTER FRAME"*, with three Rehau Total70 data sheets attached. **Rehau is FIRST on clause 2.6's
+   five permitted profiles.** The reprice did not repeat the Liniar mistake, it **fixed** it, and the
+   data sheets went to Danny at 14:42 the same day so Re-Gen hold our profile evidence. **A
+   COMPLIANCE FEAR IS AS UNSOURCED AS A COMPLIANCE CLAIM.** I flagged it as a question rather than a
+   finding, which was right, but it still went in front of Adam and it was still wrong.
+3. **"Nothing since 24/02" - false. THEY REPLIED THREE TIMES IN TWENTY HOURS, collecting evidence:**
+   13:57 Danny rang for data sheets on both systems, 14:42 Jayk sent the Rehau sheets, 17:44 Danny
+   asked for curtain walling data sheets too, 25/02 09:17 Jayk sent DS_TECHNAL_TENTAL_50. **The
+   silence starts 25/02 and it follows an ENGAGED client, not one who never got the price.** That is
+   a materially different account of the same 156 days.
+4. **The quote went to a contact on NO row of my board.** 24/02 13:42, jayk@ to
+   **Danny@re-genuk.com** - Danny Hartland BSc (Hons) MCIOB, Quantity Surveyor, DD 01277 563 359 - cc
+   Liam, Adam and estimating@. **Three contacts, one per stage: Kyan raised the enquiry, Liam rang
+   with the intelligence, Danny received the return.** A QS who joins at return stage is invisible to
+   any search on the contacts we already hold, **which is why the DOMAIN beats the names.** The cover
+   sheet carried CW £142,760.00 and uPVC £690,849.31 - my two figures to the penny, so the split was
+   right even where the story was not.
+
+### What was confirmed, and it is the check that mattered most
+
+**The fire egress caveat IS on the issued cover sheet.** Bedford Trade Glass told us on 30/01 that
+none of the designs meet fire escape; Jayk priced without egress and the issued document says
+*"Some of the windows does not meet the Fire egress requirements. Design would need to be
+adjusted."* **852 windows with no escape openers and no caveat would have been a live liability.**
+
+### The loop that actually cost the windows, and it was internal
+
+Adam, 24/02 12:14, before the quote went out: *"good to send out... I spoke to them before and looks
+like we're out of the running for the windows due to costs... submit the quote but in the meantime we
+could as Quickslide to price the uPVC in case there's a chance we can bring our costs down
+considerably."* **QUICKSLIDE WAS NEVER ASKED.** The first Quickslide enquiry anywhere in estimating@
+is 06/03/2026, for 130 Hainault Road. So the one action that might have moved £690,849 toward
+£500,000 was **the Commercial Director's own instruction, and nobody carried it out.** Kick-off was
+23/03, so it is history rather than a save - the St Mary's shape, third instance.
+
+### The lesson under all four
+
+**Every fact that mattered on this account was already inside Fenster, and none of it was in a
+mailbox I can read** - the competitor's prices, the approved-profile clause, the programme, the send,
+the client's replies, Adam's chase, Adam's own instruction. The board reduced the lot to *"GBP
+833,609, 153 days silent, chase for a final answer"*. **The failure was never information; it was
+that nothing joined it up.** And on a single account, in a single session, I published two false
+statements to the Commercial Director because I inferred from silence in my own half twice after
+being told that morning not to. **Ask the other bot about a send. Ask Adam about a job he has
+worked.** Both were one question away.
+
+### Changed
+
+`jacob_adminbase.py` - the 7796 override rewritten (second chase, three contacts, Rehau, the caveat,
+the Quickslide loop). `data/companies/re-gen-uk-construction.md` corrected throughout, +53 lines.
+`bd.md` +11 on top of the entry it corrects. Hub correction posted to Adam. Verified on the live
+`/api/jacob`.
+
+## 30/07/2026 06:34 - the second ask found both, and Tiverton runs through a portal (msg 41)
+
+**Final tally on the batch: TEN of TWELVE quotes had gone.** Msg 37 had returned nil on the two Pride
+rows; msg 41 found both by **searching the CONTACT rather than the job name.**
+
+- **Brandon Youth Centre / 19 Maddock Way (7157)** - sent 24/11/2025 13:20, jayk@ to
+  `wayne.edwards@pridedevelopments.co.uk`. **The reason for the silence is on the record: Wayne had a
+  competing quote at GBP 38k.** Adam, 24/11 12:42 - *"Job costings are 28k so we can't get close to
+  38k, this seems to be a competitive cost that we have provided."* Jayk asked Wayne for the competing
+  quote redacted *"to ensure we are quoting Like4Like"* **and Wayne never sent it.** So: lost on price
+  **with our own unanswered ask still in it** - GBP 53,209 against GBP 38k on a GBP 28k cost base, and
+  a live reason to ring. Adam noted **E2 should have been a Latham's steel door.**
+- **130 Hainault Road (7807)** - sent 01/04/2026 09:13, Gintare to `lyndon@` cc
+  **`MICHAEL.BETTINSON@`** and adam@. **A PARTIAL QUOTE, and that beats price as a reason for
+  silence:** the covering email excludes the double entrance door, one sliding door, the Velux and the
+  lantern, and offers the triangle unit in **aluminium instead of uPVC**. Four fabricators tried
+  (Quickslide, BSW, Titan Aluminium, Duplus); Mercury never came back on the 2900mm slider. **And the
+  CRM date is the ENQUIRY, not the quote** - in 26/02, priced 01/04, opening *"apologies for taking so
+  long"*. Five weeks, ours.
+
+### Three new shapes, each worth a line
+
+1. **SEARCH THE PERSON, NOT THE PROJECT.** Both rows were nil on the job name and instant on the
+   contact. Our own files misspell projects; they rarely misspell an address.
+2. **A SEND CAN BE PARTIAL, AND A CRM CANNOT SHOW IT.** AdminBase records a value and a status, never
+   what was in the envelope or what was carved out of it. Second instance today - Chiel got the quote
+   and never the PQQ pack. **Before chasing a decision, check the client was given something
+   decidable.**
+3. **A JOB CAN RUN THROUGH A PORTAL WITH THE EMAIL AS A COURTESY COPY.** Tiverton Road, GBP 547,886 -
+   the quote went 22/01/2026 to **AARON@alexanderjamesltd.co.uk**, not Kieran, and Jayk wrote *"I have
+   uploaded through the E1 SYSTEM but wanted to ensure these came directly to you as well."* **The real
+   submission is on a portal.** So email silence is not the client failing to answer, and **any
+   addendum or moved return date is sitting where neither bot can see it** - exactly the blind spot
+   that let a GBP 174,546 E T & S tender lapse. The action gains a question: what is on the portal, or
+   get access.
+
+### And do not guess a rebranded address
+
+The only confirmed `ajgroup.co.uk` form is `gleb.saliev@` - **firstname.SURNAME** - while the old
+domain used bare firstnames (`kieran@`, `gleb@`, `dan@`, `aaron@`). So **`kieran@ajgroup.co.uk` is
+wrong by construction**, not merely unverified. There is no 2026 send to Kieran anywhere (last traffic
+23/12/2025), and `alexanderjamesltd.co.uk` was still live on 16/02/2026, so the rebrand falls between
+then and 09/07 and the old addresses may still route. **Ring.**
+
+### Changed
+
+`jacob_adminbase.py` - 7157, 7807 and 7388 rewritten. `data/companies/pride-developments.md` and
+`alexander-james.md` updated. `bd.md` +9. All thirteen rows verified on the live `/api/jacob` with a
+cache-buster - **and that matters: the Pages CDN served me a stale payload once during this session
+and a verification without `?cb=` can read the previous deploy and either falsely pass or falsely
+fail.**

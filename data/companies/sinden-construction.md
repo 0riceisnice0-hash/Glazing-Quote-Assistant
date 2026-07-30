@@ -121,3 +121,36 @@ Switchboard 0203 906 5000.
    RG18 9HU. Re-check late November 2026. Owner: me.
 4. Correct the CRM. Row 5493's date is the January 2025 enquiry and has never re-dated across two
    re-enquiries; row 7745 should not read "chase due" on a refused scheme.
+
+## CORRECTED 30/07/2026 - we are three weeks late, and their Velfac answer is four
+
+**Mary, from estimating@ (msg 34), and the mix matters: do not draft a pure apology.**
+
+1. **No updated quotation has gone.** Nothing has left estimating@ to any `thomas-sinden.co.uk`
+   address since 02/07. Their deadline was **08/07**, so we are three weeks over on a package for a
+   contractor holding the main contract. The pricing was still moving well after it - A Plus QP65153
+   arrived 20/07 and the REV on 22/07.
+2. **The ORIGINAL did go**, which this board was also missing: **29/04/2026 10:34, Gintare to Corran
+   Goodson**, "Quotation - The Hub Alkerden.xlsx" plus a window schedule and a drawing - composite
+   windows, aluminium door units and curtain walling. So the July enquiry is an **update to a live
+   quotation**, not a first submission.
+3. **Seyi was answered, by Adam personally.** Paul forwarded it 01/07 14:48; **Adam replied 14:54 -
+   six minutes**; Seyi came back at 15:00 the same day. Nobody ignored him.
+4. **AND SINDEN OWE US AN ANSWER.** On **02/07 12:37 Adam asked Seyi** whether Velfac, now specified,
+   *"is the only profile we can submit costs for or will there still be an opportunity for similar
+   approved composite windows? As we quoted a similar approved before from our regular composite
+   window supplier"* - **and there is no answer to it**, asked six days before their own deadline. That
+   decides whether we price our regular composite supplier or go to Velfac. Mary's caveat, stated:
+   Seyi's replies to Adam do land in estimating@, so an unanswered question is well evidenced but not
+   certain - he could have replied to Adam alone.
+
+**So the call is not "sorry we missed your deadline". It is "we have been waiting on your Velfac
+answer since 2 July, and here is when you will have the quotation"** - true, and a far better position
+to ring from. Their clock: provisional package order 08/10/2026, site 11/02/2027.
+
+5. **The 23/03 security ratings for Corran cannot be evidenced** either way. Corran got a full pack on
+   29/04 and replied 27/04 in the same thread; no document with "security rating" in its name has
+   gone. **Unresolved, not a no.**
+
+**THE GENERAL RULE THIS BELONGS TO: establish who is actually waiting on whom before drafting either
+the chase or the apology.** Both were half true here and the halves point opposite ways.

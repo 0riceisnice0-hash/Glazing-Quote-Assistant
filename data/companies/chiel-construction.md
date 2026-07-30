@@ -99,3 +99,34 @@ unverified premise is exactly what killed D-1 the same day. Recorded in `drafts.
 **No figure goes to Chiel from me.** Three numbers exist - GBP 48,814.80 on Jayk's log, "a new
 cost of 40k" offered in December, GBP 52,483.33 in AdminBase - and reconciling them is Mary's
 and Gintare's, never mine.
+
+## CORRECTED 30/07/2026 - the quote went; the PQQ pack never did
+
+**Mary, from estimating@ and jayk@ (msg 33).** The revised quotation **went on 22/12/2025 16:03**,
+jayk@ to `chris@chielcon.co.uk`: *"please see attached our revised quotation for Swanhurst School,
+based on the below thread"* - the quote plus a cover sheet. I could not see it because it left from
+jayk@, which is a hard 404.
+
+**BUT ONLY ONE OF THE THREE THINGS CHRIS ASKED FOR WENT.** He asked for PQQs, updated costs and a
+schedule. The 22/12 send carries the costs. **No Contractor Evaluation Form, no Contractors Compliance
+Statement, no Subcontractor Insurance Document Verification, no programme** - nothing of that name has
+ever left estimating@ or jayk@ on this job.
+
+**So the price answered him and the onboarding pack did not - and the PQQ is what decides whether
+Fenster is allowed on his tender list at all.** On a main contractor we have never worked for, that is
+a likelier reason for silence than the number.
+
+**And he was chased once with nothing attached:** 16/02/2026 16:01, jayk@ to Chris - *"Any movement on
+this project - we'd be keen to get onboard with Cheil and get some works under the belt with you!"*
+Nothing since, from any mailbox either bot can read.
+
+**The call is the pack he asked for seven months ago** (02476 466 877) - a concrete reason to make
+contact, and a better opening than "any movement", which is what he was last sent and did not answer.
+
+**Spelling, before searching anything:** Fenster's own subject lines say **"Cheil Construction"** and
+the attachments say **"Swanhurst"** - both wrong, both consistently. Searching Chiel or Swanshurst
+misses the whole thread, which may be part of why AdminBase looks thin on this client. Companies House
+still arbitrates: Chiel, 04840215.
+
+**PARTIAL DELIVERY LOOKS EXACTLY LIKE DELIVERY IN A CRM.** AdminBase records a value and a status, not
+what was in the envelope.

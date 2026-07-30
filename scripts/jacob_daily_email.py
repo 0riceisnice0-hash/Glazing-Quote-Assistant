@@ -366,8 +366,15 @@ def collect(pipe):
         # An outlier nobody has confirmed is a row whose VALUE is doubted, not
         # one whose existence is. Adam confirmed Brandon Estate; anything else
         # in that state is still a real lead and now goes in labelled.
+        #
+        # But do not doubt a value somebody has since checked. Balham Hill's
+        # GBP 833,609 reconciles to the penny against the two sheets of Quote
+        # REV 1, so printing "the value looks wrong" above a next action that
+        # breaks that figure into its two packages contradicts itself in Adam's
+        # own inbox. A worked row's value has been read; the flag stays on for
+        # the medians, which is all it was for.
         src = SRC_CRM
-        if r.get("outlier") and not r.get("confirmed"):
+        if r.get("outlier") and not r.get("confirmed") and not r.get("worked"):
             src = SRC_CRM + " (and the value on it looks wrong - check before quoting it)"
         # A researched row can carry its own reason not to ring - Cold Ash's
         # planning application was refused in May, so there is nobody at the

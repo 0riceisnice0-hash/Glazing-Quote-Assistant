@@ -1282,7 +1282,21 @@ def build_actions(threads, warm, known, book, tenders=None, handover=None,
         # of its size. Adam confirmed Brandon Estate on 29/07 - "that is a
         # legit tender and should be treated as such" - so a confirmed row
         # belongs on this list like any other.
-        if (r.get("outlier") and not r.get("confirmed")) or not r.get("value"):
+        #
+        # AND A RESEARCHED ROW CLEARS THIS GATE TOO, which is the same argument
+        # as the `worked` exemption from the value ranking twenty lines below:
+        # the outlier flag is what this board does when NOBODY HAS LOOKED at a
+        # huge row, and an override IS somebody looking. Found 30/07 by checking
+        # my own work landed - the twice-burned rule, third instance in three
+        # days and the first where it ate the research itself. Balham Hill was
+        # the last unconfirmed outlier: GBP 833,609, researched to the penny
+        # against Wandsworth's own spec and Quote REV 1's two sheets, on the
+        # chase list and in Adam's email, and on this page nowhere at all. The
+        # flag still keeps it out of every TOTAL and MEDIAN, which is the only
+        # thing it was ever for.
+        if not r.get("value"):
+            continue
+        if r.get("outlier") and not r.get("confirmed") and not r.get("worked"):
             continue
         if (r["client"].lower() in drafted_clients
                 or r.get("key") in drafted_domains

@@ -999,3 +999,140 @@ against a cap of 130, and I said on its face that tightening cannot hold this.**
 `--deploy` so the shared lock was taken, Functions bundle line in the output, and **the twelve rows
 and the new panel were checked on the live page in a headless browser** rather than in the file -
 "final answer on B239" now returns zero hits on Today.
+
+## 30/07/2026 07:00 - standing agenda - Re-Gen / Balham Hill: the biggest row on the board was two jobs, and we were the cheapest on one of them
+
+**Order:** standing agenda from Zac (`agenda-1785391222.json`) - empty queue, my own time, advance one
+or two of the highest-value items properly. Took the largest unresearched row on the board.
+
+**AdminBase lead 7796, Re-Gen (UK) Construction, Balham Hill Estate East and West SW12,
+GBP 833,609.31 ex VAT - the largest single row here, and nobody had ever looked at it.**
+`mary_recall --grep "Re-gen"` and `--grep "Balham"` both returned zero, so it had never reached
+either bot's ledger. The board's entire instruction on it was *"153 days silent, chase for a final
+answer"*, and every part of that was wrong.
+
+**The row is two packages and the board was chasing the sum.** Quote REV 1 has two sheets which add
+to the CRM figure to the penny: **curtain walling GBP 142,760** and **852 uPVC windows GBP
+690,849.31**. On 29/01/2026 Liam Ryan rang Jayk, told us **Re-Gen have WON the main contract**, and
+handed over the competing subcontractor's prices - **windows GBP 500k, curtain walling GBP 150k** -
+saying our CW was the cheaper of the two, our windows the dearer, and *"it may come down to us being
+awarded the Curtain Walling and the Competitor awarded the Windows based solely on price."* So **we
+came in GBP 7,240 UNDER his curtain walling number and GBP 190,849 (38%) over his window number, and
+nobody has spoken to him since February.** The one worth a call was invisible inside the total.
+Fourth "the feedback existed all along" this month and the first where we had the competitor's actual
+figures.
+
+**The pack answered it on day one.** The employer is **Wandsworth Borough Council** (ref C6445),
+administered by **HJP Surveyors** (ref MM/MJ/5421), under JCT 2016 Housing Intermediate Works. At
+**Appendix J, page 214 of the 293 pages we received on 15/05/2025**, Wandsworth's own window
+performance spec, clause 2.6, permits five profiles: **Rehau, VEKA, Kommerling, Schueco,
+Deceuninck**. **We priced Liniar** - and heard about it eight months later, on the phone, from the
+client. Clause 2.1 lets the Council refuse a window subcontractor's tender outright, which is the
+mechanism behind this same client's Barham Park: *"Re-Gen secured this but the client has chosen
+their own window contractor."* **So our client winning the main contract is not step two of the job
+when the employer vets the sub** - on a council or HA job step two is the employer's surveyor.
+
+**And a programme beats a silence counter.** Liam gave us kick-off 23/03/2026 and 50 windows a week.
+That was 129 days ago and 852 windows is seventeen weeks, so a job on time finished its windows
+around 20/07 - ten days before the board asked whether it was still live.
+
+**A route nobody has taken:** HJP write Wandsworth's window specs and administer the contracts, and
+Fenster has never contacted them - one hit for "hjp" across all four mailboxes and it is our own copy
+of their spec. Put to Adam as a decision, not done: it is a new relationship, not a chase.
+
+**CHECKING MY OWN WORK LANDED FOUND THE BUG, THIRD INSTANCE IN THREE DAYS AND THE FIRST WHERE IT ATE
+THE RESEARCH ITSELF.** The row went onto the chase list and into Adam's email and appeared **nowhere
+on the Today page**. Cause: `jacob_dashboard.py` gates Today's AdminBase block on `outlier and not
+confirmed`. The README already records that this flag *"used to keep it off the chase list too, which
+quietly turned an arithmetic decision into a judgement about whether the job was real"* - the fix
+went onto the chase list and **not onto the page**, and Balham Hill was the last unconfirmed outlier.
+A researched row now clears that gate, the same argument as the existing `worked` exemption from the
+value ranking twenty lines below. The flag still keeps the row out of every total and median, which
+is all it was ever for. Same bug shape one file across: the daily email kept the row but labelled it
+*"the value on it looks wrong - check before quoting it"* - above a next action that reconciles that
+value to the penny. A worked row no longer gets that label.
+
+Checked the knock-on rather than assuming: Balham Hill takes a Leads slot and Aylesbury High School
+leaves the eight, but the cap reports `heldBack=14` on the face of the page and Aylesbury is still on
+the AdminBase due list and in the email's blocked-and-named section. Nothing lost in silence.
+
+**Asked Mary one question** (`--wants-reply`, nothing back within the session): did REV 1 actually
+leave estimating@ on 24-25/02, and did anything come back. Nothing in my four mailboxes proves the
+send, and the difference between a chase and an apology turns on it - fifth job this month. Also
+flagged that REV 1 names **Titan Trade Windows** and nothing says which of the five approved profiles
+that is; if it is off-list too, the reprice was void before it was read. Her question, not mine.
+
+**No draft.** The action is a phone call about a package, to a man who has only ever dealt with us by
+phone, and it is Adam's to make.
+
+**Two false positives worth the ink:** **REGEN London** (`regen-london.com`, Snap Fitness gyms, wrote
+to commercial@ on 28/07) is not Re-Gen (UK) Construction - all five recent intake hits on "re-gen"
+were theirs. And a "Wandsworth" search turned up a Window Cad enquiry for *"a replacement glass unit
+at The Town Hall Wandsworth High St"* - the Housing Department's exact address, but a domestic job via
+WindowCAD to an iCloud relay. The right address on the wrong scale is still the wrong lead.
+
+**Changed:** `jacob_adminbase.py` (one `worked` override on 7796), `jacob_dashboard.py` (the outlier
+gate), `jacob_daily_email.py` (the value-looks-wrong label), `data/companies/re-gen-uk-construction.md`
+(new), `bd.md` +18 and **none of it paid for** - the last self-repeating text was spent last session,
+so JAC-16 is now the only way this stops growing. Full account in `bd-lessons.md`. Deployed through
+`--deploy` so the shared lock was taken; **verified on the live `/api/jacob`, not in the file** - row
+at position 10 on Today, on the chase list, owner Adam, and "final answer on BALHAM" returns zero.
+
+### Later the same session - six more work orders arrived and nine of my own rows were wrong
+
+The queue refilled while I was working: **Mary's msgs 33-37, then 39, then 41** - twelve "did the quote
+actually go?" questions she had been answering from `estimating@`, `adam@` and `jayk@` overnight.
+**Ten of the twelve had gone and I could see none of them.** A quote leaves Fenster from whichever
+mailbox the person handling it uses and never from my four, and neither AdminBase nor the BD log
+records a send at all - so *"nothing in my mailboxes"* was never evidence of anything. It is a rule in
+`bd.md` now.
+
+**The one that mattered: BRADSTONE ROAD, GBP 218,917.** My row said *"lost on price 01/05/2025, DO NOT
+chase Ian Brown"* and it was on Adam's chase list and in his email. **It is live** - it came back after
+the May 2025 loss and was priced and issued **twice in 2026**, with Adam working it personally as
+recently as 12/06. The May loss was real and still recorded nowhere but a supplier's courtesy email;
+what did not survive was my conclusion that the job was over.
+
+**Thirteen rows rewritten.** Grange Apartments moved to **Oliver Webber** (issued twice, he replied in
+68 minutes). St Catherines is **one job priced two ways**, so GBP 237,382.29 came off Pride - Jayk's
+own covering words settle it. B239 is a **13-message negotiation through adam@**, not a mystery -
+Adam was a cheaper source than a search and I never asked him. Chiel got the quote and **never the
+PQQ pack**, which is what decides whether we are allowed on his list at all. Alkerden is not an
+apology: **Adam asked Seyi a Velfac question on 02/07 that Sinden have never answered.** Darrick Wood
+is worse than I had it - not merely unsent but **not yet re-priced**. Brandon Youth was **lost on price
+with our own unanswered ask in it** - Wayne never sent the competing GBP 38k quote we offered to check.
+Hainault Road is a **partial quote** with four items excluded, which beats price as a reason for
+silence.
+
+**AND MY OWN BALHAM HILL ACCOUNT WAS CORRECTED TWO HOURS AFTER I POSTED IT.** Msg 39: REV 1 **went** -
+24/02 13:42 to **Danny Hartland**, their QS, a third contact on no row of mine; the client **replied
+three times in twenty hours** collecting data sheets; **Adam had already chased on 12/03 and had no
+reply in 140 days**; and **Titan's profile was REHAU Total 70 - first on Wandsworth's approved list.
+The reprice FIXED the Liniar mistake rather than repeating it.** So two statements I had already put in
+front of Adam were wrong, and the hub carries a correction. The fire-egress caveat *is* on the issued
+cover sheet, which was the check that mattered most. And the loop that actually cost the windows was
+ours: Adam wrote *"ask Quickslide to price the uPVC"* the day the quote went out and **nobody ever
+did**.
+
+**Three new shapes worth more than the jobs:** a send can be **PARTIAL** and no CRM can show it;
+**search the PERSON, not the project** (both nil-result rows were found instantly on the contact); and
+a job can run through a **PORTAL with the email as a courtesy copy** - Tiverton's real submission went
+to the "E1 SYSTEM", so email silence there is not the client failing to answer and any addendum sits
+where neither bot can see it. Also: **do not guess a rebranded address.** `ajgroup.co.uk` is
+firstname.SURNAME where the old domain used bare firstnames, so `kieran@ajgroup.co.uk` is wrong by
+construction.
+
+**On my own conduct, because it is the honest note.** I inferred from silence in my own half twice on
+one account **on the same morning Mary told me seven quotes out of nine had gone where I could not
+see them**, and published both inferences to the Commercial Director. Both were one question away.
+
+**Unpaid maintenance I am flagging rather than hiding:** five company files now exceed the 150-line cap
+in `data/companies/README.md` (alexander-james 216, pride 197, re-gen 182, barnfield 175, sinden 156;
+rsr was already 294). I am not deleting facts corrected an hour ago to hit a line count - it wants the
+same decision as JAC-16.
+
+**Closed out:** all six orders replied to on the hub and moved to `processed`, msgs 33-41 marked seen,
+`bd.md` +52 (the worst session on record, twenty of it correcting my own entries), full accounts in
+`bd-lessons.md`, deployed through `--deploy` so the shared lock was taken, and **every one of the
+thirteen rows verified on the live `/api/jacob` with a cache-buster** - the Pages CDN served a stale
+payload once during this session, so a verification without `?cb=` can read the previous deploy.

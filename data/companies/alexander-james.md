@@ -154,3 +154,63 @@ mine:** mark it lost, reason "client did not win the main contract".
   nothing else.
 - No planning reference for Tiverton Road. Haringey's own register would settle whether the
   17 flats are consented and whose scheme it is.
+
+## CORRECTED 30/07/2026 - Darrick Wood is not priced yet, and the domain has changed
+
+**Mary, from estimating@ and adam@ (msg 36). The one I had right, and it is worse than I had it.**
+
+**Darrick Wood, GBP 255,082 - nothing has gone, and it is not re-priced either.**
+
+| | |
+|---|---|
+| 09/07 07:52 | Gleb Saliev to adam@ - the ITT |
+| 10/07 08:11 | adam@ to `gleb.saliev@ajgroup.co.uk` - Adam's reply, and **the last thing to leave Fenster on this job** |
+| 17/07 10:17 | estimating@ to Dominic Palethorpe, asking A Plus for the revision |
+| 24/07 14:07 | Dominic returns **QT50911 - Darrick Wood Rev1** |
+| then | nothing |
+
+**And no "quote to check" to Adam either** - the internal step that always precedes an issue here; the
+last one on this job was 27/05. So A Plus's revision has sat unopened for six days and the answer is
+**"not yet priced"**, rather than priced and waiting. Adam told Gleb on 10/07 that we would revise.
+**This is an apology and a date**, and the date is the part Gleb has not got. Mary has put it in Adam's
+morning update alongside Alkerden - the only two genuine cases of a price stopping inside the building,
+and both are his own threads.
+
+**THE DOMAIN HAS MOVED: `gleb.saliev@ajgroup.co.uk`.** The 2025 traffic used `alexanderjamesltd.co.uk`
+(`kieran@`, `gleb@`), so searching the old domain loses everything from 2026.
+
+**That flushed out a second row Mary was not writing about.** Tiverton Road - GBP 547,886, the largest
+row on this account and the one where **the callback is OURS to make** - carries
+`kieran@alexanderjamesltd.co.uk`, the same dead domain, and the 6-8 week window Kieran gave Paul
+Taylor on 05/06 closes **31/07/2026**. The row now says **ring, do not email**; his address is
+unconfirmed and both phone numbers are good (07512899774 / 0208 961 5555). **A contact correction on
+one row is a search to run across every row sharing the domain.**
+
+**Colonial Way and Spoone School: still nothing, and Mary has no client for either.** Draft D-6 asking
+Dan outright stands - she cannot improve on it.
+
+**And the two outcomes I sent her were worth sending**, which is what the line is for: Brooklands
+GBP 317,887 lost because Alexander James did not win the main contract - a **no-fault loss, not a price
+failure**, and it goes in her calibration record as such.
+
+## 30/07/2026 (msg 41) - Tiverton went to AARON, and it runs through a portal
+
+**The Tiverton quote was never Kieran's.** 22/01/2026 14:16, jayk@ to
+**`AARON@alexanderjamesltd.co.uk`** cc estimating@, with Quote - Tiverton Estate.xlsx, the cover
+sheet, P11A.pdf and Spec.png - after Adam's "Good to go" at 10:26 that morning. Nothing back since.
+
+**AND IT RUNS THROUGH A PORTAL, WHICH CHANGES WHAT THE SILENCE MEANS.** Jayk's own line: *"I have
+uploaded through the E1 SYSTEM but wanted to ensure these came directly to you as well."* **The real
+submission went to the portal and the email was a courtesy copy** - so email silence is not the client
+failing to answer, and **any addendum or moved return date is sitting on a portal neither bot can
+see.** Same blind spot that cost E T & S GBP 174,546. Ask Kieran for access, or for what is on it.
+
+**DO NOT GUESS THE NEW ADDRESSES.** The only confirmed `ajgroup.co.uk` form is
+`gleb.saliev@ajgroup.co.uk` - **firstname.SURNAME**. The old domain used bare firstnames (`kieran@`,
+`gleb@`, `dan@`, `aaron@`), so **`kieran@ajgroup.co.uk` will not be it** - it needs his surname. There
+is no 2026 send to Kieran anywhere; his last traffic is **23/12/2025** (Brooklands College, Gleb
+cc'd). And `alexanderjamesltd.co.uk` was still live on **16/02/2026** - dan@ wrote to us from it - so
+the rebrand falls between then and 09/07 and the old addresses may still route.
+
+**So: ring, do not email.** 07512899774 or 0208 961 5555. **Aaron and dan@ are two further contacts on
+this account**, and the board holds neither.

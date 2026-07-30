@@ -98,18 +98,101 @@ CONFIRMED = {
 # override came from, because an override with no source is just a different
 # guess.
 WORKED = {
+    # ------------------------------------------------ Re-Gen / Balham Hill
+    # The largest row on this board, and it is TWO packages welded into one
+    # number - one of which came in UNDER the target the client set and was
+    # never chased, and one of which went out 38% OVER it.
+    # data/companies/re-gen-uk-construction.md, researched 30/07/2026.
+    "7796": {
+        "next": "DO NOT chase Re-Gen for a final answer on GBP 833,609 - that "
+                "figure is two packages and only one of them is worth a call. "
+                "Quote REV 1 splits CURTAIN WALLING GBP 142,760 and 852 uPVC "
+                "WINDOWS GBP 690,849.31. On 29/01/2026 Liam Ryan told Jayk the "
+                "competing subcontractor was at windows GBP 500k / CW GBP "
+                "150k, that our CW was the cheaper of the two, and that 'it "
+                "may come down to us being awarded the Curtain Walling and the "
+                "Competitor awarded the Windows based solely on price'. WE "
+                "CAME IN GBP 7,240 UNDER HIS CW NUMBER AND GBP 190,849 (38%) "
+                "OVER HIS WINDOW NUMBER. ADAM RINGS LIAM RYAN, 01277 598998 / "
+                "liam.ryan@re-genuk.com, ABOUT THE CURTAIN WALLING ONLY: did "
+                "the split happen, is that package let, and if not when. AND "
+                "IT IS A SECOND CHASE, NOT AN OPENING (Mary, msg 39): ADAM "
+                "ALREADY WROTE TO THEM ON 12/03/2026 12:19 - to Danny "
+                "Hartland cc Liam - saying Jayk had left, that he was taking "
+                "the role on, asking how Balham Hill was shaping up and "
+                "whether they had new tenders, and giving his mobile "
+                "07939452711. NO REPLY IN 140 DAYS. They have had his name, "
+                "role and mobile since March and not used them, so open on "
+                "that rather than on the job. The windows are not a chase - we "
+                "were asked to beat GBP 500k and did not. THREE CONTACTS, and "
+                "the board holds one: Kyan Gulliver raised the enquiry, LIAM "
+                "RYAN rang with the competitor's numbers, and DANNY HARTLAND "
+                "BSc (Hons) MCIOB, their QS, DD 01277 563 359, is who the "
+                "quote actually went to and who replied - he is in no field "
+                "here.",
+        "why": "Researched 30/07/2026. Sources: commercial@ (Jayk, Adam, "
+               "Gintare, 29/01/2026 thread 'URGENT ATTENTION: Re-Gen - Balham "
+               "Hill'), the Balham Hill tender folder on the Commercial drive "
+               "including Quote REV 1 and Wandsworth's spec C6445 / HJP ref "
+               "MM/MJ/5421, the Opportunity Log 2025 rows 332-335, Companies "
+               "House 08534898. CORRECTED the same day by Mary from "
+               "estimating@ - msg 39: the send, Danny Hartland, the client's "
+               "three replies, Adam's 12/03 chase, the Rehau confirmation and "
+               "the Quickslide loop. data/companies/re-gen-uk-construction.md.",
+        "note": "THE PACK ANSWERED THIS ON DAY ONE. The employer is "
+                "Wandsworth Borough Council, administered by HJP Surveyors, "
+                "and Wandsworth's own Replacement Window & Door Performance "
+                "Specification sat at Appendix J, page 214 of 293, of the "
+                "documents we received on 15/05/2025. Clause 2.6 permits five "
+                "profiles - Rehau, VEKA, Kommerling, Schueco, Deceuninck. The "
+                "ORIGINAL priced LINIAR and we heard about it eight months "
+                "later on the phone from the client. BUT THE REPRICE FIXED IT "
+                "AND NOBODY RECORDED THAT (Mary, msg 39): Titan quoted REHAU "
+                "TOTAL 70, in writing from Ashley Walton on 24/02 14:24, and "
+                "Rehau is FIRST on clause 2.6 - the data sheets went to Danny "
+                "at 14:42 the same day, so Re-Gen hold our profile evidence. "
+                "REV 1 was ON-LIST. What is still missing is clause 2.1, "
+                "which is a different animal - licensed-fabricator evidence "
+                "submitted to the COUNCIL, and Titan is the Rehau fabricator, "
+                "not us. Nothing has ever gone to Wandsworth or HJP. A missing "
+                "submission, not a wrong spec, and it strengthens the HJP "
+                "action rather than weakening it. THE FIRE EGRESS CAVEAT IS "
+                "ON THE ISSUED COVER SHEET - Bedford Trade Glass warned on "
+                "30/01 that none of the designs meet fire escape and the "
+                "cover sheet says so; 852 windows with no escape openers and "
+                "no caveat would have been a live liability. AND THE KICK-OFF "
+                "HAS PASSED: 23/03/2026, 129 days ago, on a programme of 50 "
+                "windows a week, so 852 windows finished around 20/07/2026 if "
+                "it ran to time. Silence is not the fact here - it starts "
+                "25/02, after three exchanges in twenty hours in which the "
+                "client was collecting our data sheets.",
+        "state": "two packages, one number - CW under target, 2nd chase due",
+        "owner": "Adam",
+    },
     "7384": {
         "next": "DO NOT chase Chris Mitchell for an answer - Fenster owes HIM. "
                 "Jayk's repricing log, 19/12/2025: 'Chris at Cheil has asked "
                 "us for PQQ's to be completed and for updated costs + "
-                "schedule so now actually looking good.' The PQQ documents "
-                "reached us on 18/12/2025 and a revised quote is dated "
-                "22/12/2025; nothing in commercial@, info@ or jacob@ shows "
-                "any of it going back, and jayk@ is a 404. FIRST: Adam or "
-                "Mary confirms whether the PQQ pack and the revised costs "
-                "left estimating@ (JAC-19). Then one call to 02476 466 877 "
-                "delivering what he asked for - not asking how our price "
-                "looked.",
+                "schedule so now actually looking good.' ANSWERED 30/07 (Mary, "
+                "msg 33), AND ONLY ONE OF THE THREE THINGS HE ASKED FOR EVER "
+                "WENT. The QUOTE went: 22/12/2025 16:03, jayk@ to "
+                "chris@chielcon.co.uk, 'please see attached our revised "
+                "quotation for Swanhurst School', with the quote and a cover "
+                "sheet. THE PQQ PACK NEVER DID - no Contractor Evaluation "
+                "Form, no Contractors Compliance Statement, no Subcontractor "
+                "Insurance Document Verification, no programme; nothing of that "
+                "name has ever left estimating@ or jayk@ on this job. AND HE "
+                "WAS CHASED ONCE WITH NOTHING ATTACHED: 16/02/2026 16:01, "
+                "jayk@ to Chris, 'Any movement on this project - we'd be keen "
+                "to get onboard with Cheil', and nothing since from any mailbox "
+                "either bot can read. So the price answered him and the "
+                "ONBOARDING pack did not - and the PQQ is what decides whether "
+                "Fenster is allowed on his tender list at all. On a main "
+                "contractor we have never worked for that is a likelier reason "
+                "for silence than the number. THE CALL IS THE PQQ PACK HE "
+                "ASKED FOR SEVEN MONTHS AGO, 02476 466 877 - a concrete reason "
+                "to make contact, and a better opening than 'any movement', "
+                "which is what he was last sent and did not answer.",
         "why": "Researched 30/07/2026. Sources: repricing.json (Jayk's log, "
                "19/12/2025), the Cheil Construction tender folder on the "
                "Commercial drive, Companies House 04840215, Birmingham "
@@ -119,23 +202,45 @@ WORKED = {
                 "neglect on Chiel's side: condition 13 of the planning "
                 "consent - THE INTERNAL DESIGN AND LAYOUT OF THE SPORTS HALL "
                 "- was not approved until 26/02/2026. The glazing package "
-                "could not be settled while it was outstanding.",
+                "could not be settled while it was outstanding. NOTE THE "
+                "SPELLING BEFORE SEARCHING ANYTHING: Fenster's own subject "
+                "lines say 'Cheil Construction' and the attachments say "
+                "'Swanhurst' - both wrong, both consistently - so a search on "
+                "Chiel or Swanshurst misses the whole thread, which may be "
+                "part of why AdminBase looks thin on this client.",
+        "state": "quoted 22/12/2025 - the PQQ pack he asked for never went",
+        "owner": "Adam",
     },
     "5493": {
         "next": "DO NOT ask Sinden whether The Hub Alkerden is still live - "
                 "they told us on 01/07/2026 that they have secured it, and "
                 "asked US for an updated quotation for the Aluminium Curtain "
                 "Walling & External Doors package BY 08/07/2026. Seyi "
-                "Adesogan (07850 904372) asked us to confirm receipt; nothing "
-                "in commercial@, info@ or jacob@ replied, and A Plus were "
-                "still revising supplier quote QP65153 on 22/07. FIRST: Mary "
-                "or Gintare confirms whether the updated quote has gone "
-                "(asked 30/07, JAC-20). If it has, chase it against their own "
-                "clock - provisional package order 08/10/2026, site "
-                "11/02/2027. If it has not, it is an apology and a date, not "
-                "a chase. Ask on the same call what became of the composite "
-                "WINDOWS - their spec moved off aluminium in March and the "
-                "July enquiry covers only curtain walling and doors.",
+                "Adesogan (07850 904372) asked us to confirm receipt; A Plus "
+                "were still revising supplier quote QP65153 on 22/07. "
+                "ANSWERED 30/07 (Mary, msg 34) AND IT IS NOT A PURE APOLOGY - "
+                "DO NOT DRAFT ONE. (a) No updated quotation has gone: nothing "
+                "has left estimating@ to any thomas-sinden.co.uk address since "
+                "02/07, so we are three weeks past their 08/07 deadline. (b) "
+                "But SEYI WAS ANSWERED, by Adam personally, six minutes after "
+                "Paul forwarded it on 01/07, and Seyi replied at 15:00 the "
+                "same day - nobody ignored him. (c) AND SINDEN OWE US AN "
+                "ANSWER: on 02/07 12:37 ADAM ASKED SEYI whether Velfac, now "
+                "specified, is the only profile we can submit costs for or "
+                "whether a similar approved composite still qualifies - and "
+                "there is no reply to it, six days before their own deadline. "
+                "That decides whether we price our regular composite supplier "
+                "or have to go to Velfac. So the call is 'we have been waiting "
+                "on your Velfac answer since 2 July, here is when you will "
+                "have the quotation' - true, and a far better position to ring "
+                "from. Mary's caveat: Seyi's replies to Adam do land in "
+                "estimating@, so the unanswered question is well evidenced but "
+                "not certain - he could have replied to Adam alone. Their "
+                "clock: provisional package order 08/10/2026, site 11/02/2027. "
+                "Also for the record the ORIGINAL did go - Gintare to Corran "
+                "Goodson 29/04/2026 10:34 with the quotation, a window "
+                "schedule and a drawing - so this is an update to a live "
+                "quotation, not a first submission.",
         "why": "Researched 30/07/2026. Sources: commercial@ (Corran Goodson "
                "23/03 and 30/03/2026, Seyi Adesogan 01/07 and 02/07/2026, "
                "Paul Taylor's forwards), info@ (composite supplier enquiries "
@@ -147,7 +252,7 @@ WORKED = {
                 "re-enquiries. The client is not silent - the open loop runs "
                 "the other way. Harry Grover, who took this lead, left on "
                 "31/10/2025 and Corran was still writing to him in March.",
-        "state": "re-enquired - our price is the late one",
+        "state": "our quote is 3 weeks late - and their Velfac answer is 4",
         "owner": "Adam",
     },
     "7745": {
@@ -181,58 +286,72 @@ WORKED = {
     # exposure here, and 0 wins from 6 enquiries.
     # data/companies/barnfield-construction.md, researched 30/07/2026.
     "5625": {
-        "next": "DO NOT chase Ian Brown for an answer on Bradstone Road - the "
-                "answer was given on 01/05/2025 and we recorded it nowhere. "
-                "Jayk to BSW, commercial@: 'Bradstone Road: LOST ON PRICE, you "
-                "can close this enquiry.' ADAM'S DECISION, not mine: this row "
-                "wants marking lost in AdminBase, and closing GBP 218,917 on "
-                "my reading of one email is not my call. Two facts to weigh "
-                "first. (1) We priced ~GBP 378k against three cheaper quotes "
-                "at 275/255/249k, Ian invited us to value engineer, and the "
-                "revision Harry circulated internally on 27/03/2025 sits at "
-                "GBP 218,917 - THIRTY THOUSAND UNDER the cheapest quote we "
-                "knew of. There is no send of it to Ian in commercial@, info@ "
-                "or jacob@. (2) Vetroseal quoted us for BRADSTONE RD CHEETHAM "
-                "on 29/01 and 02/02/2026, quote 060676, nine months after "
-                "'lost' - and the number sequence dates it to 2026, so it is "
-                "not an old quote re-sent. Mary has been asked what left "
-                "estimating@ (30/07). Ian Brown 01282 442300 is worth a call "
-                "on the other four jobs regardless.",
-        "why": "Researched 30/07/2026. Sources: commercial@ (Ian Brown "
-               "19/02/2025, Jayk 04/03 and 11/03/2025, Harry Grover "
-               "27/03/2025, Jayk to Jack Pollard at BSW 01/05/2025, Vetroseal "
-               "29/01 and 02/02/2026), repricing.json, outcomes.json, "
-               "Companies House 02365913, Manchester planning 115485/FO/2017 "
-               "and its condition discharges. "
+        "next": "BRADSTONE ROAD IS LIVE, AND I HAD IT DEAD - CORRECTED BY MARY "
+                "30/07/2026 (msg 35). It was lost on price in May 2025, then it "
+                "CAME BACK and was priced and issued TWICE in 2026, and Adam "
+                "has been working it personally: Vetroseal 060676 on "
+                "02/02/2026; jayk@ to Ian.Brown@barnfieldconstruction.co.uk "
+                "06/02 13:36 WITH an attachment; Adam to Ian Brown four times "
+                "in forty minutes on 12/03; BSW re-quoting for us 19/03; "
+                "estimating@ to Ian Brown 20/03 11:39 WITH an attachment, a "
+                "second issue; and ADAM'S OWN MESSAGE OF 12/06/2026 14:52, "
+                "which is the most recent contact on the job. So this is a "
+                "live chase and nothing wants marking lost. NOBODY RINGS IAN "
+                "BROWN ABOUT BRADSTONE WITHOUT READING ADAM'S 12/06 MESSAGE "
+                "FIRST - he knows where it stands and the board does not. The "
+                "497-day silence and the 'lost' reading are both withdrawn.",
+        "why": "Researched 30/07/2026 and CORRECTED the same day by Mary from "
+               "estimating@ and adam@, which I cannot read - msg 35. My "
+               "sources: commercial@ (Ian Brown 19/02/2025, Jayk 04/03 and "
+               "11/03/2025, Harry Grover 27/03/2025, Jayk to Jack Pollard at "
+               "BSW 01/05/2025, Vetroseal 29/01 and 02/02/2026), "
+               "repricing.json, outcomes.json, Companies House 02365913, "
+               "Manchester planning 115485/FO/2017. "
                "data/companies/barnfield-construction.md.",
-        "note": "The 497 days are not silence - they are an outcome nobody "
-                "filed. Neither AdminBase nor the Opportunity Log records the "
-                "loss; the only copy in the company is a reply to a glass "
-                "supplier's courtesy email. The scheme itself is real and "
-                "live: 3 x three-storey buildings, 19 units, permitted 2017, "
-                "last planning condition discharged 11/02/2025 - eight days "
-                "before Ian sent the enquiry.",
-        "state": "lost on price 01/05/2025 - never recorded, Adam to confirm",
+        "note": "WHY I GOT THIS WRONG, because it is structural and it will "
+                "recur: quotes leave Fenster from whichever mailbox the person "
+                "handling the job uses - jayk@ (a hard 404), adam@ or "
+                "estimating@ - and NEVER from commercial@, info@ or jacob@, "
+                "and neither AdminBase nor the BD log records a send at all. "
+                "Across nine such questions on 30/07 SEVEN quotes had gone and "
+                "I could see none of the seven. 'Nothing in my four mailboxes' "
+                "carries no information about whether a quote was issued. ASK "
+                "MARY; NEVER INFER. The May 2025 loss was real - Jayk to BSW, "
+                "'Bradstone Road: LOST ON PRICE, you can close this enquiry' - "
+                "and it still reached neither AdminBase nor the BD log, which "
+                "is the lesson worth keeping: an outcome can live in a "
+                "supplier's courtesy email and nowhere else.",
+        "state": "LIVE - re-priced and issued twice in 2026, Adam working it",
         "owner": "Adam",
     },
     "7665": {
-        "next": "Establish whether our price actually went out BEFORE anyone "
-                "chases The Grange Apartments. AdminBase says 'Live - Quoted' "
-                "at GBP 155,388 ex VAT; the Opportunity Log has the same job "
-                "with 'Quote Returned' EMPTY against Ian Brown's deadline of "
-                "26/02/2026, and carrying a value in the CRM is not evidence "
-                "of a send (Adam, hub-77: priced but never issued is Mary's, "
-                "not a chase). Mary asked 30/07. If it went, this is the "
-                "freshest Barnfield job and the natural reason to ring Ian "
-                "Brown on 01282 442300 about all five.",
-        "why": "Researched 30/07/2026. Sources: outcomes.json openThisYear "
-               "(returned: null, chased: false), adminbase.json lead 7665. "
-               "data/companies/barnfield-construction.md.",
-        "note": "Caveat stated rather than hidden: the Opportunity Log's 2026 "
-                "sheet is much thinner than 2025, so an empty cell there is "
-                "weak evidence on its own. It is enough to check before "
-                "ringing, not enough to conclude the quote never went.",
-        "state": "quoted - or possibly never issued, unresolved",
+        "next": "IT WENT, TWICE, AND THE CHASE IS OLIVER WEBBER'S - NOT IAN "
+                "BROWN'S. Mary, 30/07/2026 (msg 35), from estimating@: quote "
+                "to Adam to check 05/03 14:28, cleared 14:45, issued to "
+                "ian.brown@barnfieldconstruction.co.uk 05/03 15:17 WITH an "
+                "attachment; Oliver Webber then sent a revised door and window "
+                "schedule on 13/03; A Plus QP65668 Rev1 on 24/03; a second "
+                "check to Adam 24/03 15:09, cleared 31/03 15:25; REISSUED to "
+                "Oliver.Webber@barnfieldconstruction.co.uk 01/04 08:15 WITH an "
+                "attachment, and OLIVER REPLIED 01/04 09:23. So AdminBase's "
+                "'Live - Quoted' is right and the Opportunity Log's empty "
+                "Quote Returned cell is wrong. Chase Oliver Webber, who drove "
+                "the revision and answered it, on the revised schedule he sent "
+                "us - and it is the natural opening for Ian Brown on the other "
+                "four, given Barnfield are 0-for-6 and the feedback we have "
+                "says price.",
+        "why": "Researched 30/07/2026; the send trail supplied by Mary the same "
+               "day from estimating@, which I cannot read - msg 35. My "
+               "sources: outcomes.json openThisYear (returned: null, chased: "
+               "false, which was the misleading half), adminbase.json lead "
+               "7665. data/companies/barnfield-construction.md.",
+        "note": "An empty 'Quote Returned' cell in the BD log meant nothing "
+                "here - the 2026 sheet is much thinner than 2025 and this job "
+                "was issued twice while that cell stayed blank. And the CRM "
+                "carries the client's ORIGINAL contact: the person who is "
+                "actually working the job moved from Ian Brown to Oliver "
+                "Webber in March and no field on this board records that.",
+        "state": "quoted - issued twice, Oliver Webber replied 01/04",
         "owner": "Adam",
     },
     "6781": {
@@ -450,7 +569,7 @@ WORKED = {
         "owner": "Adam",
     },
     "7388": {
-        "next": "RING KIERAN SANTRY THIS WEEK - 07512899774 or 0208 961 5555. "
+        "next": "RING KIERAN SANTRY TODAY - 07512899774 or 0208 961 5555. "
                 "Tiverton Road, 17 flats, GBP 547,886 ex VAT and the largest "
                 "unworked row on this board. On 05/06/2026 he told Paul "
                 "Taylor: 'We are the preferred bidder but still waiting for "
@@ -462,7 +581,27 @@ WORKED = {
                 "start date, is the windows-and-doors package still ours to "
                 "price, and does the programme need our price refreshing. Do "
                 "NOT ask whether the project is still live - he has already "
-                "answered that.",
+                "answered that. AND TIVERTON RUNS THROUGH A PORTAL, WHICH "
+                "CHANGES WHAT THE SILENCE MEANS (Mary, msg 41). The quote went "
+                "22/01/2026 14:16, jayk@ to AARON@alexanderjamesltd.co.uk cc "
+                "estimating@ - NOT to Kieran - with the quote, cover sheet, "
+                "P11A.pdf and Spec.png, after Adam's 'Good to go' at 10:26 that "
+                "morning. Jayk's own line: 'I have uploaded through the E1 "
+                "SYSTEM but wanted to ensure these came directly to you as "
+                "well.' SO THE REAL SUBMISSION WENT TO A PORTAL AND THE EMAIL "
+                "WAS A COURTESY COPY - email silence is not the client failing "
+                "to answer, and any addendum or moved return date is sitting on "
+                "a portal neither bot can see. Same blind spot as E T & S. ASK "
+                "KIERAN FOR PORTAL ACCESS OR FOR WHAT IS ON IT. RING, DO NOT "
+                "EMAIL, AND DO NOT GUESS THE ADDRESS: the only confirmed "
+                "ajgroup.co.uk form is gleb.saliev@ - firstname.SURNAME - while "
+                "the old domain used bare firstnames (kieran@, gleb@, dan@, "
+                "aaron@), so kieran@ajgroup.co.uk will NOT be it. There is no "
+                "2026 send to Kieran anywhere; his last traffic is 23/12/2025. "
+                "alexanderjamesltd.co.uk was still live on 16/02/2026, so the "
+                "rebrand falls between then and 09/07 and the old addresses may "
+                "still route. Both phone numbers are good. AARON and dan@ are "
+                "two further contacts on this account.",
         "why": "Researched 30/07/2026. Source: commercial@, thread 'Fenster "
                "Glazing Quote Ref: Tiverton Road', Paul Taylor out 05/06/2026 "
                "14:10, Kieran Santry's reply the same day, Paul's "
@@ -553,8 +692,18 @@ WORKED = {
                 "with the three that are simply silent. It also says something "
                 "about the quote rather than the relationship: our quantities "
                 "and dimensions were rejected as non-compliant on a GBP 255k "
-                "package. That is Mary's to weigh, not mine.",
-        "state": "client rejected our quantities 09/07 - revision may be ours",
+                "package. That is Mary's to weigh, not mine. CONFIRMED 30/07 "
+                "(Mary, msg 36), and it is worse than 'may be ours': nothing "
+                "has left Fenster since Adam's own reply of 10/07 08:11, and "
+                "there has been NO 'quote to check' to Adam either - the "
+                "internal step that always precedes an issue here, last done "
+                "27/05. So A Plus's revision has sat unopened since 24/07 and "
+                "the job is NOT YET RE-PRICED, not priced and unsent. This is "
+                "an apology and a date, and the date is the part Gleb has not "
+                "got. ALSO: GLEB IS NOW gleb.saliev@ajgroup.co.uk - the 2025 "
+                "traffic used alexanderjamesltd.co.uk (kieran@, gleb@), so "
+                "searching the old domain loses everything from 2026.",
+        "state": "quantities rejected 09/07 - and not yet re-priced, ours",
         "owner": "Adam",
     },
     "7282": {
@@ -592,26 +741,31 @@ WORKED = {
     # two-way contact, never just the row's date.
     # data/companies/pride-developments.md, researched 30/07/2026.
     "8558": {
-        "next": "DO NOT chase this until somebody says what it is. GBP 321,833 "
-                "is the biggest live Pride row and the site postcode on it is "
-                "NP44 3AA - PRIDE'S OWN registered office at Forgehammer "
-                "Industrial Estate. Nothing in commercial@, info@ or jacob@ "
-                "mentions B239 or PD7851 at all. FIRST: Mary confirms from "
-                "estimating@ whether it was issued and to which site (asked "
-                "30/07). Pride number their buildings this way - RAF "
-                "Mildenhall was 'B459' - so B239 is probably a building on an "
-                "estate or a base rather than their own unit, and the CRM has "
-                "the client address in the site field. Verify before anyone "
-                "rings about a third of a million pounds.",
-        "why": "Researched 30/07/2026. Sources: adminbase.json lead 8558; "
-               "commercial@/info@/jacob@ searched on 'B239', 'PD7851' and the "
-               "domain - the only hit is Adam's own CRM export. Companies "
-               "House 16138608. data/companies/pride-developments.md.",
-        "note": "Follow-up date 10/07/2026 came and went unworked. The row is "
-                "18 days past its own date, which is a real open loop - it is "
-                "the WORD 'silent' that is wrong, not the fact nobody has "
-                "acted.",
-        "state": "quoted - site unverified, with Mary",
+        "next": "NOT A MYSTERY AND NOT SILENT - IT IS THE LIVEST ROW ON PRIDE. "
+                "Mary, 30/07/2026 (msg 37): B239 / PD7851 was a THIRTEEN-MESSAGE "
+                "NEGOTIATION with Daniel Goornaden between 26 and 29/06/2026, "
+                "all through adam@, with attachments going out on 29/06 at "
+                "09:26, 12:55 and 12:58 - Adam was trading revisions with him "
+                "inside one working day. So the ask is not 'what is this'. ADAM "
+                "ALREADY KNOWS WHAT AND WHERE B239 IS and can say it in a "
+                "sentence; ask him, not the postcode field. The open loop is "
+                "real - the follow-up date of 10/07 passed and nothing has gone "
+                "since 29/06 - so it is a live chase on a revision he has "
+                "already seen, with Daniel Goornaden, at GBP 321,833.",
+        "why": "Researched 30/07/2026 and corrected the same day by Mary from "
+               "estimating@ and adam@, neither of which I can read - msg 37. My "
+               "sources: adminbase.json lead 8558; commercial@/info@/jacob@ "
+               "searched on 'B239', 'PD7851' and the domain, whose only hit is "
+               "Adam's own CRM export. Companies House 16138608. "
+               "data/companies/pride-developments.md.",
+        "note": "MY 'VERIFY THIS BEFORE ANYONE RINGS' WAS A ZERO IN THE WRONG "
+                "MAILBOXES, not an unknown job. The site postcode really is "
+                "Pride's own registered office, so the CRM's site field is "
+                "wrong - but the job was never unidentified, only unidentified "
+                "BY ME. Pride do number buildings this way (RAF Mildenhall was "
+                "'B459'). Adam is a cheaper source than a search, and I did not "
+                "ask him.",
+        "state": "quoted - 13-message negotiation 26-29/06, chase due",
         "owner": "Adam",
     },
     "7249": {
@@ -627,32 +781,52 @@ WORKED = {
                 "it is whether the big package is phased and still ahead of "
                 "us, or died and became three windows. Steven Elley "
                 "07852 616635 is the contact; Vincent Adurosakin is the QS who "
-                "raised the small job.",
-        "why": "Researched 30/07/2026. Sources: adminbase.json leads 7249 and "
-               "7356; contracts-won.json contract 3424; commercial@ thread "
-               "'Purchase Order: PO1526 - PD7758' (03/07 to 13/07/2026); info@ "
-               "Vincent Adurosakin 16/03/2026. "
-               "data/companies/pride-developments.md.",
-        "note": "Neither 2025 quote appears in Jayk's 19/12/2025 repricing "
-                "log, which covers 62 rows and 27 clients and was written "
-                "while both were freshly out. Absence of evidence only, but "
-                "it is the sort of absence that usually means he knew.",
-        "state": "quoted - possible duplicate of 7356, with Mary",
+                "raised the small job. SETTLED 30/07 - see the note: it is ONE "
+                "job priced two ways, this is the ALUMINIUM option, and the "
+                "uPVC option carries the same aluminium curtain walling inside "
+                "it. So the exposure here is GBP 295,882, not GBP 533,264, and "
+                "one call to Steven Elley covers both rows. Nobody has "
+                "answered Jayk since 16/01/2026, when he asked for the second "
+                "time whether the project was likely to go ahead.",
+        "why": "Researched 30/07/2026 and SETTLED the same day by Mary from "
+               "estimating@ - msg 37, quoting Jayk's own covering words on all "
+               "three sends. My sources: adminbase.json leads 7249 and 7356; "
+               "contracts-won.json contract 3424; commercial@ thread 'Purchase "
+               "Order: PO1526 - PD7758' (03/07 to 13/07/2026); info@ Vincent "
+               "Adurosakin 16/03/2026. data/companies/pride-developments.md.",
+        "note": "Jayk's own words, 18/12/2025: this quote 'is indicative of "
+                "ALUMINIUM replacements across the site. We are currently "
+                "sourcing costs for uPVC replacements which will offer a "
+                "significant saving'. Then 13/01/2026: 'the uPVC option... We "
+                "have included the Aluminium Curtain Walling elements within "
+                "this quote as well'. Then 16/01: 'we'd love to secure this "
+                "work with Pride, EITHER THE uPVC OR ALUMINIUM OPTION'. One "
+                "scheme, one alternative, three sends - and neither quote "
+                "appears in his 19/12/2025 repricing log, which he wrote while "
+                "the first was freshly out.",
+        "state": "quoted - the ALUMINIUM option of one job, not a second job",
         "owner": "Adam",
     },
     "7356": {
-        "next": "See lead 7249 - same site, same building, three weeks apart, "
-                "one priced in aluminium and this one in uPVC. Do not chase "
-                "them as two jobs and do not add GBP 533,264 up as two "
-                "exposures until Mary confirms which it is (asked 30/07). One "
-                "call to Pride covers both.",
-        "why": "Researched 30/07/2026. Sources as lead 7249. "
+        "next": "SETTLED, AND THIS GBP 237,382 IS NOT A SECOND EXPOSURE. Mary "
+                "confirmed from estimating@ on 30/07 (msg 37), in Jayk's own "
+                "covering words, that this is the uPVC OPTION of lead 7249's "
+                "job - same site, same scheme, three weeks apart, and it "
+                "INCLUDES the aluminium curtain walling either way. Pride's "
+                "St Catherines exposure is GBP 295,882, not GBP 533,264. Do "
+                "not chase this as a job of its own; one call to Steven Elley "
+                "on 07852 616635 covers both rows, and the question is which "
+                "option they want rather than whether they got a price.",
+        "why": "Researched 30/07/2026, settled the same day by Mary from "
+               "estimating@ - msg 37. Sources otherwise as lead 7249. "
                "data/companies/pride-developments.md.",
-        "note": "If these are options on one job then every per-client total "
-                "on this board is GBP 237,382 too high for Pride. A duplicate "
-                "job is not the same bug as a duplicate customer key - this "
-                "one is the same client, same site, two materials.",
-        "state": "quoted - possible duplicate of 7249, with Mary",
+        "note": "Every per-client total on this board was GBP 237,382 too high "
+                "for Pride, and it is NAMED rather than merged - the "
+                "`sameSite` panel exists for exactly this and the `product` "
+                "column was the tell. A duplicate JOB is not the same bug as a "
+                "duplicate customer key: same client, same site, two "
+                "materials, one decision.",
+        "state": "quoted - the uPVC OPTION of lead 7249, not a second job",
         "owner": "Adam",
     },
     "7807": {
@@ -664,14 +838,29 @@ WORKED = {
                 "this board knew it. Quoted 26/02/2026 and never chased. Ask "
                 "him what happened to 130 Hainault Road and what we were "
                 "beaten on at Plymouth - he is the one person at Pride who can "
-                "answer both.",
+                "answer both. IT WENT, AND IT WENT PARTIAL - which is the "
+                "likelier reason for silence than price (Mary, msg 41). Sent "
+                "01/04/2026 09:13, Gintare to lyndon@ cc "
+                "MICHAEL.BETTINSON@pridedevelopments.co.uk and adam@, "
+                "'Quotation - 130 Hainault Road.xlsx'. THE COVERING EMAIL "
+                "EXCLUDES the double entrance door, one sliding door, the Velux "
+                "and the lantern, and offers the triangle unit in ALUMINIUM "
+                "instead of uPVC. Four fabricators were tried (Quickslide, BSW, "
+                "Titan Aluminium, Duplus) and Mercury never came back on the "
+                "2900mm sliding door. SO THE CHASE ASKS WHAT THEY WANT DONE "
+                "ABOUT THE EXCLUDED ITEMS, not whether they have decided. "
+                "MICHAEL BETTINSON is the second name on that email and is on "
+                "no row here. And the CRM date is the ENQUIRY, not the quote: "
+                "Lyndon sent it in on 26/02, Adam promised a quote on 25/02, "
+                "and we did not price it until 01/04 - Gintare opened with "
+                "'Apologies for taking so long.' Five weeks, at our end.",
         "why": "Researched 30/07/2026. Sources: adminbase.json lead 7807; "
-               "Companies House 16138608 officers list. "
-               "data/companies/pride-developments.md.",
+               "Companies House 16138608 officers list; Mary's nil result in "
+               "estimating@ (msg 37). data/companies/pride-developments.md.",
         "note": "This is the second time a director has been sitting on a row "
                 "as a first name and an email address. Resolve the contact "
                 "before deciding a row is cold.",
-        "state": "quoted - contact is a company director, never chased",
+        "state": "PARTIAL quote 01/04 - four items excluded, never chased",
         "owner": "Adam",
     },
     "8463": {
@@ -710,16 +899,36 @@ WORKED = {
         "owner": "Adam",
     },
     "7157": {
-        "next": "Library and Brandon Youth, Maddock Way, Southwark - "
-                "GBP 53,209, Jayk's row, quoted 14/11/2025. Same call as lead "
-                "7103, same contact, same question. Do not describe it as "
-                "silence.",
-        "why": "Researched 30/07/2026. Sources as lead 7103. "
+        "next": "IT WENT, AND WE ARE OWED AN ANSWER RATHER THAN CHASING ONE. "
+                "Found on the second ask (Mary, msg 41): SENT 24/11/2025 13:20, "
+                "jayk@ to wayne.edwards@pridedevelopments.co.uk cc estimating@, "
+                "with 'Quote - Brandon Youth Centre.xlsx' and a cover letter. "
+                "Nothing back, ever - and the reason is on the record. WAYNE "
+                "HAD A COMPETING QUOTE AT GBP 38k. Adam, 24/11 12:42: 'Job "
+                "costings are 28k so we can't get close to 38k, this seems to "
+                "be a competitive cost that we have provided.' Jayk then asked "
+                "Wayne to send the competing quote over with sensitive "
+                "information redacted 'to ensure we are quoting Like4Like' - "
+                "AND WAYNE NEVER SENT IT. So this is lost on price with OUR OWN "
+                "UNANSWERED ASK sitting in it: GBP 53,209 of ours against a "
+                "GBP 38k competitor on a GBP 28k cost base. Ring Wayne for that "
+                "comparison - it is a live question, not a mystery. One for the "
+                "file if it is ever repriced: Adam noted E2 should have been a "
+                "Latham's steel door and was left as it was.",
+        "why": "Researched 30/07/2026; the send and the price feedback supplied "
+               "the same day by Mary from estimating@ and adam@ - msg 41, after "
+               "msg 37 had returned a nil result on the job NAME. "
                "data/companies/pride-developments.md.",
-        "note": "Southwark again - Mint Street and Bournemouth Road are the "
-                "same borough. Pride's London small works cluster there and "
-                "those we do win.",
-        "state": "quoted - 2025, trail is not in my mailboxes",
+        "note": "TWO ASKS, TWO ANSWERS, AND THE FIRST ONE WAS A NIL RESULT. Mary "
+                "searched 'Library and Brandon Youth' and 'Maddock Way' and "
+                "found nothing; searching on the CONTACT found it at once. A nil "
+                "result on a job NAME proves nothing here - Spoone School went "
+                "out under another name and this same batch had Chiel filed as "
+                "'Cheil' and Swanshurst as 'Swanhurst'. SEARCH THE PERSON, NOT "
+                "THE PROJECT. Southwark again - Mint Street and Bournemouth Road "
+                "are the same borough, and Pride's London small works cluster "
+                "there.",
+        "state": "lost on price 11/2025 - and Wayne never sent the comparison",
         "owner": "Adam",
     },
     "8701": {
