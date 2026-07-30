@@ -58,6 +58,49 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **30/07 - MHA NUNEATON: A SUPPLIER QUOTE FOR A JOB THAT EXISTS NOWHERE I CAN SEE (Vetroseal 065209,
+  06:27).** 8 units 620x2020, 4T-18-6.8 lami/tgh softcoat, GBP 558.64 net. **Every figure checks** -
+  unit area, line total, energy surcharge, VAT, gross. But there is **no MHA Nuneaton enquiry anywhere
+  in estimating@ and no folder in the archive** (`1. Tender Documents\MHA` holds Charnwood only), so
+  the RFQ was placed from adam@ or commercial@ and estimating cannot check the glass against a scope.
+  MHA = Methodist Homes, Adam's own relationship: Welland Place won (PO Feb 2026), Charnwood quoted
+  22/05. Not an error and not blocking - a line in the 07:45 update. **No new chat**: no scope, no
+  deadline, no documents, so a chat would be an empty row. If a second piece of MHA Nuneaton traffic
+  arrives, open it then. **Their portal is WAX (wax-live.com)** and James Gadsby's written rule is that
+  direct quotes are auto-rejected - but he waived it himself for Charnwood on 26/05, and Adam has
+  navigated both, so it is NOT news to him.
+- **30/07 - AND THE RATE CORRECTS THE REGISTER, WHICH IS THE REAL VALUE.** Vetroseal quoted
+  **GBP 52.51/m2 goods (GBP 55.76 all in)** for lami/tgh softcoat - matching quote 059828's GBP 52.50
+  and **HALF the GBP 110.00/m2 they charged on Stoke Park (064542, 01/07)** for a description that
+  reads the same. 2mm of extra laminate cannot double it, and the dear quote was the bigger order. So
+  the rate is **bimodal, not high**, and MARY-HANDOVER's GBP 87/m2 median sits between two clusters and
+  describes neither. **The standing "CN Glass are half Vetroseal" note is now misleading** - true of
+  Stoke Park's 8.8 make-up only; on the 6.8 make-up CN are GBP 55.00 and Vetroseal GBP 55.76, level.
+  **Stoke Park checked and CLEAN:** its glass went to CN Glass 27/07, GBP 6,185.09 / 124 units /
+  106.9 m2 at GBP 55-60/m2 - competitive, nothing to raise, and it is a live project anyway.
+- **30/07 - THE LAST TWO "NOT FOUND" ROWS BOTH WENT, AND TIVERTON RUNS THROUGH A PORTAL (botmsg-40,
+  an FYI answered because he asked one line on Kieran and the answer was bigger).** Tally on "did our
+  quote go?" is now **10 of 12**. **Brandon Youth Centre / 19 Maddock Way (7157) - sent 24/11/2025
+  13:20**, jayk@ to wayne.edwards@pridedevelopments.co.uk, quote xlsx + cover letter. Not neglect:
+  Wayne held a competing quote at GBP 38k against our GBP 53,209 on a GBP 28k cost base (Adam, 24/11:
+  "we can't get close to 38k, this seems to be a competitive cost"), and **Jayk's ask to see the rival
+  quote redacted was never answered** - so it is lost-on-price with our own open question in it. Adam
+  also noted E2 should have been a Latham's steel door, left as-is: the saving if it is ever repriced.
+  **130 Hainault Road (7807) - sent 01/04/2026 09:13**, Gintare to lyndon@pridedevelopments.co.uk cc
+  **michael.bettinson@** and adam@. Jacob's 26/02 is the ENQUIRY date, not the quote - five weeks, and
+  Gintare's own opening is "Apologies for taking so long". **It is a PARTIAL quote** - excludes the
+  double entrance door, 1 sliding door, Velux and lantern, triangle unit offered in ALUMINIUM not uPVC,
+  after Quickslide/BSW/Titan Aluminium/Duplus were tried and Mercury never answered on the 2900mm
+  slider. A chase asks about the exclusions, not the price. **KIERAN: no 2026 send exists anywhere**
+  (last contact 23/12/2025, Brooklands College), so his address is unconfirmable - but **the Tiverton
+  quote was never his: 22/01/2026 14:16 jayk@ to aaron@alexanderjamesltd.co.uk**, four attachments,
+  after Adam's "Good to go" at 10:26. **AND TIVERTON IS A PORTAL JOB** - Jayk: "I have uploaded through
+  the E1 SYSTEM but wanted to ensure these came directly to you as well." Email silence there is not
+  the client failing to answer, and addenda sit where neither bot can see them. **Do not guess the
+  ajgroup addresses**: the one confirmed is `gleb.saliev@` - firstname.SURNAME, where the old domain
+  used bare firstnames, and alexanderjamesltd.co.uk was still live 16/02/2026 (dan@ wrote from it).
+  No `quote_issued` events - all three are rows already on his board. No email to Adam: three sends
+  aged 4 to 8 months, two of which he authorised himself, and nothing changes what he does today.
 - **30/07 - BALHAM HILL: IT WENT, THEY REPLIED, ADAM ALREADY CHASED, AND THE COMPLIANCE FEAR WAS
   BACKWARDS (botmsg-38, answered).** Jacob had nothing after 24/02 in four mailboxes and asked whether
   REV 1 reached Kyan Gulliver or Liam Ryan. **It reached neither - it went to a THIRD contact nobody
@@ -91,9 +134,10 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   St Catherines House ×3 (18/12, 13/01, 16/01) all Jayk to **steven.elley@** - and Jayk's own words
   prove 7249/7356 are **ONE job priced two ways**, so Jacob's board double-counts GBP 237,382; B239
   PD7851 issued by Adam 29/06 inside a 13-message negotiation with Daniel Goornaden; Exmoor Drive via
-  adam@ 01/04. **NO TRACE:** Brandon Youth/Maddock Way and 130 Hainault Road - flagged to him as "not
-  found", not "never sent" (Spoone School; and our own subject lines misspell "Cheil"/"Swanhurst"
-  consistently). **DID NOT GO, both live, both in the 07:45 update:** Darrick Wood (GBP 255,082 - Adam
+  adam@ 01/04. **"NO TRACE" ON Brandon Youth/Maddock Way AND 130 Hainault Road - BOTH SINCE FOUND, both
+  sent; see the 30/07 Pride entry above.** Flagging them "not found" rather than "never sent" was the
+  only thing that kept them honest (Spoone School; and our own subject lines misspell
+  "Cheil"/"Swanhurst" consistently). **DID NOT GO, both live, both in the 07:45 update:** Darrick Wood (GBP 255,082 - Adam
   promised Gleb Saliev a revision 10/07, A Plus Rev1 landed 24/07, no QUOTE TO CHECK since 27/05, so
   **not priced yet**) and Alkerden (updated quote due 08/07, three weeks over - but **Adam's own Velfac
   question to Seyi of 02/07 is unanswered**, so it is "waiting on you, here is a date", not a bare
@@ -119,39 +163,16 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   same job more than once** - Zelltec Crownhill appears four times, three identical - because `collect()`
   treats every copy of a pricing file, "- Copy.xlsx" included, as another job. That weights both the mean
   AND the learned rates by how many copies happen to sit in a folder.
-- **29/07 - RSR DRH1, THE REST OF IT (botmsg-24). MY "BLOCKER" WAS WRONG AND THE GBP 750 IS UNDER
-  COST.** Jacob checked his half: commercial@ carries the Instant Glass subcontract thread to 31/10/2025
-  and **jayk@ is a hard 404** (deleted, unrecoverable - so a forward into it is never a clean negative),
-  and **Harry Grover left Fenster** - Adam, 31/10/2025: *"Harry has now left Fenster so I am picking this
-  up."* His message arrived clipped at bot_chat's 4,000-character limit, which ate the paragraph aimed at
-  me, so I recovered it from estimating@ instead of making him resend. **What it holds: Harry went out to
-  THREE glaziers on 05/09, not one.** Maple Windows never replied; **Johnson & Sons (Paul Johnson,
-  Director) priced it at GBP 425 + VAT on 08/09**, Adam corrected the article to a **corner - two units
-  bonded, 556 x 556 x 876** - the same day, and Johnson **revised to GBP 960 + VAT on 13/10 10:09**. So
-  the "who fits one window 130 miles away" blocker was answered nine months ago; Instant Glass, the
-  thread Jacob could see, took eight weeks and three chases and never priced it. **THE REAL FINDING IS
-  PRICING: GBP 750 + VAT was built on the single 556 x 876 pane, the buy for the actual corner is GBP 960
-  + VAT, so confirming the price RSR are asking us to confirm sells at a loss of at least GBP 210.**
-  Nobody confirms GBP 750; it needs re-quoting off the GBP 960. It also explains the silence better than
-  neglect - Harry put the question to Adam on 10/10 08:25 and the GBP 960 did not land until 13/10, then
-  he left. **Not emailed:** Adam set the corner spec himself and received the GBP 960, so none of it is
-  news to him, and it is a GBP 750 job at 23:30 - it goes in the 07:45 update with both numbers and RSR
-  still waiting. Jacob told; board note carries the Harry/jayk@/4,000-char facts.
-- **29/07 - RSR ARE NOT DORMANT; WE WENT QUIET ON THEM (botmsg-22, answered).** Jacob asked whether
-  anything had ever been priced for RSR (RS Response Ltd, MK14 6LY, co. 3347263) outside AdminBase - he
-  had them as his top dormant client, 5 won jobs / GBP 197,044, and was setting up a cold call. Answer:
-  **one window at Amazon DRH1, Crawley, priced at GBP 750 + VAT, and they have been waiting on us since
-  09/10/2025.** estimating@ holds 18 messages 05/06-10/10/2025: priced 05/06 (Vetroseal 055834 same day),
-  Harri Birt asked 05/09 whether it still stood, Harry promised an answer "by tomorrow morning" on 08/09
-  and sent none, Harri came back 09/10 with **Amazon's sign-off** and cannot issue her own quotation to
-  Amazon until we confirm, Harry put it to Adam 10/10 08:25, Adam asked why it was subbed out, Harry
-  answered 09:05 - "the distance and the fact that it's a strange corner glass unit" - and the thread
-  ends. **The blocker is not the price, it is who fits one window 130 miles from Alston Drive**; local
-  firms had already failed to quote. Archive: 4 RSR jobs carry order paperwork, RSR-IPS and 602 Seventh
-  Street were quoted with none, Windmill Estate is a 2023 package. **NOT EMAILED** - Harry's last line
-  invited Adam to reply from his own inbox, which I cannot read, so "nobody answered them" is not yet
-  safe to assert. Jacob is checking commercial@ and jayk@ (`--wants-reply`); it goes in the 07:45 update
-  once he answers. Board note posted, including the **RRR Group / RSR name collision**.
+- **29/07 - RSR DRH1 (Amazon, Crawley): THE GBP 750 IS UNDER COST AND STILL UNCONFIRMED (botmsg-22
+  and -24, both answered; full account in `data/jobs/triage-archive-2026-07.md`).** RSR are not dormant -
+  Harri Birt has been waiting on us since 09/10/2025 with Amazon's sign-off, unable to issue her own
+  quotation until we confirm. **GBP 750 + VAT was priced off a single 556 x 876 pane; the article is a
+  bonded CORNER (556 x 556 x 876) and Johnson & Sons' buy for it is GBP 960 + VAT, so confirming GBP 750
+  sells at a loss of at least GBP 210.** Nobody confirms it; it needs re-quoting off the GBP 960. The
+  "who fits one window 130 miles away" blocker was answered nine months ago - Johnson & Sons priced it.
+  Not emailed: Adam set the corner spec himself and received the GBP 960, so none of it is news to him.
+  Durable facts from it: **jayk@ is a hard 404**, so a forward into it is never a clean negative; Harry
+  Grover left Fenster 31/10/2025; bot_chat clips at 4,000 characters; RRR Group / RSR name collision.
 - **29/07 - TWO OF THE LAST THREE ISSUED QUOTES NEVER REACHED JACOB. BACKFILLED (botmsg-21).** His FYI
   said Adam had put the three priced-but-unissued jobs with me (hub-77) and they were off his chase list
   "until Mary says they have been sent to client". Nothing in it needed a reply; what it was worth was
@@ -207,8 +228,6 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   went to four fabricators, not the day the quote went out. Award pending; Chris Conlon 18/07 "no
   update, I am not hopeful about our position". Adam has the chase line open himself (11/07, 20/07),
   so do not add a third voice.
-- **29/07 - Won-values mining is now a standing background task here.** Batched when quiet, answered on
-  the hub, never emailed to Adam. It is Zac's work.
 - **29/07 - Do not mute a live project.** Muting needs a registry job, and `_muted()`'s carve-out routes
   trusted / dashboard / botchat / `@fensterglazing.com` senders to the JOB KEY - so muting a job with no
   chat OPENS one. Tested against the live registry. The mute only works where a chat already exists.
@@ -224,8 +243,6 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 - **29/07 - Do not build a marketing filter on body footers.** Tender portals put "unsubscribe / manage
   preferences" on invitations and reply chains propagate them: that test hits 42 of 152 work orders and
   39 are live tender traffic. Bulk mail is 4 in 152 - too rare to justify a mechanism.
-- **27/07 - Registry hygiene.** `save_registry()` merges rather than overwrites and the bridge re-reads
-  each pass; held across session boundaries since 27/07 18:05. The end-of-turn orphan check was retired.
 
 ## What Adam said
 
