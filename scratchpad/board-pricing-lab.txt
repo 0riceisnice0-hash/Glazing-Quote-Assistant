@@ -135,7 +135,19 @@ THE SUPPLIER CHECK NOW NAMES THE ROW, AND THAT IS WHAT MADE THE 30/07 THIRD RUN'
   known catch, now naming row 13 'West Elevation W5 - W9', 5 priced where BSW quote 6), Brocks Hill,
   Favell House, and St Mary's -697.58 localised to its Sheerline block but NOT a whole unit - a question.
 
-TWO CATCHES, BOTH COST EXPOSURE ON LIVE QUOTES AND NEITHER A CLIENT ERROR - the distinction matters:
+AND A CHECK THAT CANNOT BE DONE A DOCUMENT AT A TIME: SUP_DUP, the same supplier cost figure in two
+different jobs. A pricing document is made by saving the last one under a new name and 'Supplier used:'
+is typed by hand, so it is the cell most likely to be left behind. Exactly ONE cross-client duplicate in
+65 documents and it is real - GBP 31,335.40 in ASHE - CDC and in Zelltec's Wisley Golf Club. NEITHER
+reconciles to it and NEITHER job's quotes support it: ASHE's BSW quote is 5,234.68 (which is exactly
+ASHE row 12's Frames, the DE-00-001 entrance door) against a Frames total near 24,388, and Wisley's is
+27,342.04 plus a second quote at 19,020.75 against a Frames total of 48,201.95. THAT CLOSES TWO OF THE
+SIX OPEN SUPPLIER QUESTIONS AS ONE CAUSE - Wisley 1.538 and ASHE 0.778 were filed as separate puzzles.
+FOUR ARE LEFT: Brandon Estate 4.094, CB Refrigeration 1.291, Oldswinford 0.825, Trafalgar House 0.657.
+Same client and same job is deliberately not reported - the two Brandon revisions share Vetroseal
+679,820.32 and 4Ali 3,166,748.58 because they are re-prices of one estate off the same quotes.
+
+THREE CATCHES, ALL COST EXPOSURE AND NONE A CLIENT ERROR - the distinction matters:
   BROCKS HILL PHASE 2, priced 28/07/2026. BSW quoted ONE of the two glazed entrance doors and the
   document prices TWO. Row 10 'Door Type E.04', 1810x2110, qty 2, Frames 2,723.49 each. Bellview's quote
   prices position 002 as "1 Pcs 1,810 x 2,110mm Double Pivoted Anti Fingertrap Doors 3,204.11", and
@@ -147,8 +159,14 @@ TWO CATCHES, BOTH COST EXPOSURE ON LIVE QUOTES AND NEITHER A CLIENT ERROR - the 
   FINDING AGAINST THE SAME SUPPLIER QUOTE ON THIS JOB after solar control and obscure glazing on 29/07.
   FAVELL HOUSE, priced 07/07/2026. Row 13 'L1 - Louvre', qty 3 at 63.47, is in NO supplier quote: Aplus
   13,681.53 covers rows 9-12 exactly and DuK 3,990.00 the automation row, leaving 190.41 behind nothing.
-  Neither is an arithmetic error in a document a client holds, so ADAM'S MORNING LIST IS STILL GORDON
-  COURT REV 2 ALONE. Both are questions for whoever owns the buy.
+  ASHE / WISLEY, the duplicated supplier cell above.
+  None is an arithmetic error in a document a client holds, so ADAM'S MORNING LIST IS STILL GORDON COURT
+  REV 2 ALONE. All three are questions for whoever owns the buy.
+  THE PATTERN ACROSS ALL THREE IS THE SAME AND IS WORTH MORE THAN ANY OF THEM: the 'Supplier used' cell
+  is trusted and it is the least reliable figure in the document. It is typed by hand, it is copied
+  between jobs, and it goes out of date the moment a supplier quote is revised - while every arithmetic
+  check on the client-facing side of these documents passes. If anything here is worth a template change
+  it is making that cell a sum of named quote references rather than a number somebody types.
 
 TWO THINGS FOUND IN THE DOCUMENTS THAT ARE NOT ERRORS BUT SOMEBODY SHOULD KNOW:
   THE TEMPLATE HAS NO STEEL DOOR CODE. CB Refrigeration and Zelltec Crownhill both buy Strongdoor steel
