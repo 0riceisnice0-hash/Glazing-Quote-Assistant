@@ -1,0 +1,35 @@
+Lab board: curtain walling was invisible to the engine, and all four supplier questions are closed
+
+Records the fourth run at the top of the board rather than leaving the next session
+to infer it. The engine moved 13.28% -> 12.28% leave-one-JOB-out, and the board says
+in the same breath that this is COVERAGE and not accuracy - 508 lines to 516, not the
+same measurement, quote them as a pair or not at all. The rate table is byte-identical
+either side, so nothing the engine already priced has changed.
+
+The audit half closed the last two open supplier questions, so all four are now done:
+Brandon Estate 4.094 was the reader taking a spare working cell out of the first
+priced row because the block names two suppliers and states no cost, and CB
+Refrigeration 1.291 was the curtain-walling notional booked as a cost, with the other
+two block figures matching its own rows to the penny.
+
+Three things on the board that are method rather than result, and are the parts worth
+carrying forward:
+  EXCLUDE THE CELL, NOT THE DOCUMENT. CB Refrigeration has a defect and STAYS in the
+  calibration set, because the defect is in the cost cell the engine no longer reads
+  while the sell cell is correct. Blanket exclusion would have thrown away a good
+  document and 11 good lines.
+  BOTH GUARDS THAT MISSED BRANDON WERE TOLERANCES ON A SHAPE rather than facts about
+  the template. The replacement is structural - the block ends at the priced-row
+  header - and that is the general lesson.
+  THE CW RESULT IS THE TEMPLATE FOR A GOOD ENGINE IDEA: not a new factor fitted to the
+  residual, but a whole class of row the engine could not see, priced by a rule that
+  was already in the code.
+
+Next four items rewritten off this run's own findings, with Georgie's promoted to
+first because it now has two separately-named causes (a GBP 2,000.02 door inside a
+curtain-walling row, and sliding sash at twice the LAW median). And two warnings the
+next session will need: the lab's entry dates run a day ahead of reality, so git
+commit order is the sequence to trust; and the size-band question is CLOSED but is
+still being re-asked by the standing instructions, which has already cost an hour.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

@@ -8,28 +8,98 @@ several times a night. It yields to real work only if a session is ALREADY runni
 arrives mid-lab waits for it. At night that is the intended trade. No lab session starts that cannot
 finish before 07:00, so it can never be holding the lock when the 07:45 update wants it.
 
-THE ENGINE DID NOT MOVE ON 31/07 AND THAT IS THE HONEST HEADLINE. Four hypotheses tested leave-one-JOB-
-out, all four rejected, no engine change made: quantity (R^2 0.011), date (the archive is 0.2 years
-long), MIN_LEARNED_N (already at its optimum), coarser size bands (much worse). The night's work was all
-on the AUDIT side, where two of the four open supplier questions closed. Position below is unchanged.
+THE ENGINE MOVED ON THE FOURTH RUN AND THE REASON IS COVERAGE, NOT ACCURACY. It could not price curtain
+walling at all - read_doc dropped every code-less row, and a genuine CW row has no product code, so all 8
+in the archive went in the bin before pricing. Meanwhile price_line has had a curtain_wall branch since
+the Greenfields calibration on 22/07 and nothing could ever reach it.
+    leave-one-JOB-out   BEFORE  13.28% mean abs, median 7.92%, bias -2.01%, 15/29 within 10, 508 lines
+                        AFTER   12.28% mean abs, median 6.86%, bias -1.83%, 17/29 within 10, 516 lines
+    --holdout --folds   BEFORE  13.20%   AFTER  12.19%
+QUOTE THOSE AS A PAIR OR NOT AT ALL - THE DENOMINATOR CHANGED AND THEY ARE NOT THE SAME MEASUREMENT.
+Not one of the 508 lines already priced moved. The learned rate table is BYTE-IDENTICAL either side, 18
+buckets, sha 41896b6a94ff44ee, checked by running HEAD's learn() and the new one over the same corpus in
+one process (scratchpad/rate_sha.py - that trick is worth reusing for any reader change). Every document
+without a CW row scores what it always scored: Oldswinford -22.7%, Trafalgar +21.1%, ASHE +28.2%.
+  THE MARKER IS THE CW LABOUR CELL, and it has to be something other than the CW column, because CW on a
+  CODED row is a working column holding area x GBP 850 and NOT money in the unit rate - 156 lines of it,
+  established 30/07. A genuine CW row is the other thing: no code, a CW LABOUR figure, and the unit rate
+  IS the area money. 8 rows, 6 documents, GBP 111,127.95 of sell; on CB Refrigeration one row is 36% of
+  the document.
+  AND THE 850 IS NOT CIRCULAR, which is the only reason it was kept. It was calibrated off Greenfields,
+  so those 2 rows prove nothing - it reproduces on 5 of the 6 rows it was never set from, all within 3p:
+  St Mary's Type AK 8,655.98, CB Refrigeration CWT-A 15,036.50, St Christopher's EW1 7,811.53 and W2
+  3,898.91, Wisley CW1 19,975.00. Per-row over all 8: mean abs 1.58%, median 0.00%, 7 of 8 inside 0.1%.
+  It takes no learned rate and no code adder, so it is identical in every fold.
+  THE ONE MISS IS SCOPE, NOT RATE: Georgie's -12.66%, short by exactly GBP 2,000.02, description
+  'CW01, D03, CW02' - a door in with the curtain walling. Same class as Oldswinford's coupler.
+  MINING IS GUARDED, and it had to be: a CW row would key a bucket '|band', unreachable in learn() but
+  learn_supplier_factors() reads the same buckets and a bogus one would move a real supplier's factor.
 
-WHERE THE NEXT SESSION SHOULD START, in order, written 31/07:
-  1. BRANDON ESTATE 4.094, the last big open supplier question and GBP 1.12m of apparent gap on a
-     GBP 3.17m document. It is the EARLIER 11-line revision, block BSW + Vetroseal = 362,678.40 against
-     a Frames column of 1,484,932.13. The other two revisions of the same estate reconcile at 0.991 and
-     1.006, so this is one document out of step with its own siblings - compare the three line by line
-     before opening a supplier quote. Suspect a block figure that was never updated when the job grew.
-  2. CB REFRIGERATION 1.291. Block is BSW + BSW CW + Strongdoor. Strongdoor is the steel-door supplier
-     the template has no code for (see the heading negative), so the Frames column may be carrying
-     steel-door money that one of the three figures does not.
-  3. THE COUPLER CLASS IS NOW NAMED BUT NOT CHECKED. Oldswinford proves a frame supplier's quote can
-     carry priced items that are not windows and so have no Frames cell. Nothing in the audit reads
-     supplier PDFs. If a future session wants a real advance rather than another rate, that is it:
-     parse the quote, not just the block total.
-  4. THE ENGINE'S RESIDUAL IS PRODUCT IDENTITY AND EVERY CHEAP ANGLE ON IT IS NOW CLOSED - heading,
-     bands, quantity, date, threshold. What is left is per-job medians of 2.911 (Georgie's sliding
-     sash), 2.516 (Tenbury), 1.942 (Tradeteam) against 0.556 (Favell House). Do NOT open this without a
-     new IDEA; re-running the closed ones costs an hour each and the board says so in five places.
+ALL FOUR OPEN SUPPLIER QUESTIONS ARE NOW CLOSED. Trafalgar a glass merchant (31/07), Oldswinford a
+coupler (31/07), and on the fourth run:
+  BRANDON ESTATE 4.094 WAS THE READER READING A WORKING CELL. The earlier revision NAMES BSW and
+  Vetroseal and types NO cost against either, so the block window ran six rows past the names into the
+  first priced row and took 362,678.40 out of column 15 - that row's own (frames + glass) x qty, 686.80 +
+  176.72 = 863.52 x 420, to the penny. Its sibling carries the same working cell (470,076.60) and was
+  never affected because its block has real figures. GBP 1.12m of reported gap, all manufactured.
+  BOTH GUARDS FAILED FOR THE SAME REASON - they are tolerances on a shape, not facts about the template.
+  Stop-at-first-empty-row cannot fire on a block that is blank throughout, and looks_like() recognises a
+  priced row by its Additional cell holding a number, which is the one cell that row leaves empty. The
+  block now ENDS AT THE PRICED-ROW HEADER (the row carrying 'Qty' and 'Unit Rate'); every supplier block
+  in the archive sits above it. Exactly 1 of 65 documents changes.
+  CB REFRIGERATION 1.291 IS A NOTIONAL BOOKED AS A COST. Two of its three block figures are its own rows
+  to the penny - BSW 4,430.28 = rows 9-13 (quote QT250448, five items in order) and Strongdoor 28,027.93
+  = rows 16-21 - so the whole gap is one curtain-walling row. Row 14's Frames cell holds 15,036.50, which
+  is 17.69m2 x 850, the CW notional, equal to its own unit rate. The real cost is on the quote: Bellview
+  0000000371, '2 Pcs' at 9,996.30, less 'Discount 2: -20.00%', GRAND TOTAL NET 15,994.08 = 7,997.04 each.
+  THE CONFIRMATION IS THE OTHER SEVEN CW ROWS, not the arithmetic: on all of them Frames is a genuine
+  lower figure at about half the sell (median ratio 0.51), this one is exactly 1.000 which no other shows,
+  and 7,997.04 would put it at 0.532 - the middle of the seven.
+
+AND CB REFRIGERATION STAYS IN THE CALIBRATION SET. That is a more careful reading of the lab's own rule
+than excluding it, and the distinction is worth keeping: the rule is never to tune the engine to
+reproduce a defect, the defect here is in the COST cell, and the engine no longer reads CW rows' cost
+cells at all. The SELL cell is correct at area x 850 and matches six other rows. EXCLUDE THE CELL, NOT
+THE DOCUMENT - a document with one bad cell is not a bad document.
+
+NEITHER NEW FINDING IS A CLIENT-FACING ERROR, so ADAM'S MORNING LIST IS STILL GORDON COURT REV 2 ALONE.
+Both documents foot, both quantities are right, both are cost-record findings. Recorded in the hub's
+catches (78 now).
+
+THE LAB'S ENTRY DATES RUN A DAY AHEAD OF REALITY - flagged so the next session does not trip on it. The
+previous calibration entry is dated 2026-07-31 and its board commit landed Thu 30 Jul 2026 05:59 +0100;
+the system date for this run is 2026-07-30, and its entry says so. GIT COMMIT ORDER IS THE RELIABLE
+SEQUENCE, not these dates. Prose below still says 31/07 where the older entries did.
+
+WHERE THE NEXT SESSION SHOULD START, in order, rewritten on the fourth run:
+  1. GEORGIE'S IS NOW THE BEST-DEFINED JOB ON THE LIST at -27.3% and per-job median 2.911, and it has TWO
+     separate causes already half-named. Its CW row is short by exactly GBP 2,000.02 because 'CW01, D03,
+     CW02' puts a door in with the curtain walling - that is a SCOPE decomposition, the same shape as
+     Oldswinford's coupler, and GBP 2,000 is a suspiciously round number to find in a supplier quote.
+     Its other 10 lines are aluminium SLIDING SASH at ~GBP 1,000/m2 against an LAW archive median of 491.
+     Read the supplier quote and split the two apart before touching a rate.
+  2. PARSE THE SUPPLIER PDFs - still the biggest structural advance available, and now three-for-three
+     on paying off. Oldswinford's coupler, Brocks Hill's missing door and CB Refrigeration's 20% Discount
+     2 all came out of reading a quote rather than a block total, and the Bellview/BSW layout is
+     consistent enough to parse (Position / Quantity / Description / Price / Total, then Net Total,
+     Discount 2, Grand Total Net). CB Refrigeration alone had TWO quotes reconciling to two block rows
+     to the penny. Nothing in the audit reads these automatically yet.
+  3. SUP_BLANK IS THREE DOCUMENTS AND ONE OF THEM IS THE BIGGEST JOB IN THE ARCHIVE. A block that names
+     suppliers and records no cost cannot be margin-checked at all, and SUPPLIER, SUP_DUP and the
+     whole-unit test all skip it in silence. Worth asking whoever owns the buy for the Brandon figure -
+     GBP 1,484,932.13 of frames with nothing behind it.
+  4. THE ENGINE'S RESIDUAL IS PRODUCT IDENTITY AND EVERY CHEAP ANGLE ON IT IS CLOSED - heading, bands,
+     quantity, date, threshold. What is left is per-job medians of 2.911 (Georgie's sliding sash), 2.516
+     (Tenbury), 1.942 (Tradeteam) against 0.556 (Favell House). Do NOT open this without a new IDEA;
+     re-running the closed ones costs an hour each and the board says so in five places. THE CW RESULT IS
+     THE TEMPLATE FOR WHAT A GOOD ONE LOOKS LIKE: not a new factor fitted to the residual, but a class of
+     row the engine could not see at all, with a rule that was already in the code.
+
+AND THE SIZE-BAND QUESTION IS STILL CLOSED - it is being re-asked in the standing instructions, so the
+next session will meet it again as if it were open. It is not. See the closed-negative entry below:
+honest per-line error by area over all 508 lines is FLAT (+3.7 / -1.6 / +5.1 / +1.2 / +3.2 / +0.9), and
+St Mary's own spread was a product-MIX effect. An hour each, five times over, is what re-opening the
+closed list has already cost.
 
 THE ENGINE'S CURRENT POSITION, for anyone quoting an accuracy number (30/07, THIRD run; UNCHANGED 31/07):
   --loo  leave-one-JOB-out       mean abs 13.28%, median 7.92%, bias -2.01%, 15/29 within 10, 24/29 within 25
