@@ -346,6 +346,50 @@ def learn_supplier_factors(docs, base):
     return out
 
 
+def leave_one_out(docs):
+    """Score every document on rates mined from all the others.
+
+    THIS IS THE NUMBER TO DECIDE ON, and until now it only existed as a
+    scratchpad experiment, so two sessions running have had to re-derive it
+    before they could judge a change. --holdout --folds splits the corpus by
+    POSITION in the scan order, so fold 0 is the odd one out (21.4% where the
+    same engine does 9.9% and 10.4%) and adding one document to the archive
+    reshuffles all three. Leave-one-out has no such handle: every document is a
+    test document, scored on rates it contributed nothing to, and the answer
+    cannot depend on where a file sits in a directory listing. The 30/07
+    build-up change was worth 0.78 points here and 0.20 on three folds, where it
+    won one fold of three - on the folds alone it would have been dropped.
+
+    Quote --folds for continuity with the earlier board entries. Decide here."""
+    rows = []
+    for i, d in enumerate(docs):
+        rates = learn([x for j, x in enumerate(docs) if j != i])
+        s = score_doc(d, learned=rates)
+        if s:
+            rows.append(s)
+    if not rows:
+        print("nothing scored")
+        return 1
+    absol = [abs(s["err_pct"]) for s in rows]
+    signed = [s["err_pct"] for s in rows]
+    print("leave-one-out over %d documents - each scored on rates from the other %d\n"
+          % (len(rows), len(rows) - 1))
+    print("  mean abs %6.2f%%   median abs %6.2f%%   bias %+6.2f%%   within 10%%: %d/%d   "
+          "within 25%%: %d/%d"
+          % (statistics.fmean(absol), statistics.median(absol), statistics.fmean(signed),
+             sum(1 for a in absol if a <= 10), len(absol),
+             sum(1 for a in absol if a <= 25), len(absol)))
+    print("  lines priced %d   skipped %d"
+          % (sum(s["lines_priced"] for s in rows), sum(s["lines_skipped"] for s in rows)))
+    print("\nWORST DOCUMENTS - where the remaining error lives")
+    print("  %-50s %8s %6s %12s %12s" % ("DOCUMENT", "OUT BY", "LINES", "HUMAN", "MARY"))
+    for s in sorted(rows, key=lambda s: -abs(s["err_pct"]))[:10]:
+        print("  %-50s %+7.1f%% %6d %12s %12s"
+              % (s["file"][:50], s["err_pct"], s["lines_priced"],
+                 "{:,.0f}".format(s["human_items"]), "{:,.0f}".format(s["engine_items"])))
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("doc", nargs="?")
@@ -355,8 +399,14 @@ def main():
                     help="honest test: learn on some jobs, score on the others")
     ap.add_argument("--folds", action="store_true",
                     help="score all three folds and report the mean - the honest number")
+    ap.add_argument("--loo", action="store_true",
+                    help="leave-one-out: every document scored on rates mined from all the "
+                         "others. Decide on this, not on the folds")
     ap.add_argument("--limit", type=int)
     args = ap.parse_args()
+
+    if args.loo:
+        return leave_one_out(collect(args.limit))
 
     if args.holdout:
         docs = collect(args.limit)
