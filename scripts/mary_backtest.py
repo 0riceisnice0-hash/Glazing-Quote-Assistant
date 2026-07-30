@@ -88,6 +88,18 @@ def parse_doc(path):
             unit_rate = cells[7] if isinstance(cells[7], (int, float)) else None
             frames = cells[9] if isinstance(cells[9], (int, float)) else None
             glass = cells[10] if isinstance(cells[10], (int, float)) else None
+            # Column 11. The reader ignored it, which is why the engine had no
+            # term for it - see supply_money() below. Verified 30/07: all 29
+            # scored documents carry 'Additional' at exactly column 11, and
+            # qty/unit rate/frames/glass are all where these fixed indices
+            # assume. Some ARCHIVE copies are shifted (Gordon Court's
+            # client-facing copy puts Qty at 4 and Unit Rate at 6; Roxbourne
+            # puts Frames at 7), but those carry a reference like 'LW_1' in
+            # column 1 instead of a product code, so every row is dropped and
+            # they never enter the corpus. Column 12 is deliberately NOT read:
+            # it is CW, and on a coded unit line that is a working column
+            # holding area x GBP 850, not money in the unit rate.
+            additional = cells[11] if isinstance(cells[11], (int, float)) else None
             if not unit_rate:
                 continue
             doc["lines"].append({
@@ -96,6 +108,7 @@ def parse_doc(path):
                 "unit_rate": float(unit_rate),
                 "frames": float(frames) if frames else None,
                 "glass": float(glass) if glass else None,
+                "additional": float(additional) if additional else None,
                 "area": round(w / 1000.0 * h / 1000.0, 4),
             })
     finally:
@@ -215,19 +228,54 @@ def collect(limit=None):
     return unique
 
 
+def supply_money(l):
+    """The WHOLE supply money in a line, not just its Frames cell.
+
+    The document builds a unit rate as
+        frames + glass + additional + 0.75 x code_value
+    and that reconciles on 495 of 508 priced lines (30/07, once the CW working
+    column is excluded). The engine models
+        area x learned_rate + adder x code_value
+    so if learned_rate is mined from Frames ALONE, then Glass and Additional are
+    money the engine has no term for anywhere - 20.4% of supply above 6m2 and
+    9.3% at 2-3m2. ADDER_FACTOR_LARGE = 1.25 was a patch over the largest part of
+    it, and 30/07 identified it as exactly that: the median GBP 1,000 of extras
+    on a large unit charged to a median code value of 2,000.
+
+    Mining the whole build-up instead makes the engine's arithmetic the same
+    arithmetic as the document's, and lets the adder go back to a flat 0.75.
+    THIS IS NOT the fix rejected on 30/07 - that one added a flat learned extras
+    SUM on large units only and scored 14.73. This puts the extras into the
+    per-m2 rate itself, per code and per band, so it varies with size and
+    product the way the money actually does.
+
+    Measured leave-one-out over all 29 documents, every job scored on rates
+    mined from the other 28:
+        frames only,       1.25 large   mean abs 14.02%  median 10.05%  bias -4.91%
+        whole build-up,    0.75 flat    mean abs 13.24%  median  7.98%  bias -1.66%
+    Better on 16 documents, worse on 11, within-10 up from 14 to 16. Three
+    positional folds agree but only just (13.88 -> 13.68), which is why this was
+    decided on leave-one-out: a 0.20-point win on three folds is the shape of
+    result that has already misled this board twice."""
+    if not l.get("frames"):
+        return None
+    return l["frames"] + (l.get("glass") or 0.0) + (l.get("additional") or 0.0)
+
+
 def learn(docs):
     """Empirical GBP/m2 from what Fenster actually charged, by code and band.
 
-    The Frames column is the estimator's own supply money. Grouped by product
-    code and size band it is a far better rate than a median of supplier
-    quotes, because it already contains every judgement they applied."""
+    Grouped by product code and size band this is a far better rate than a
+    median of supplier quotes, because it already contains every judgement the
+    estimator applied."""
     buckets = {}
     for d in docs:
         for l in d["lines"]:
-            if not l["frames"] or l["area"] <= 0:
+            money = supply_money(l)
+            if not money or l["area"] <= 0:
                 continue
             key = "%s|%s" % (l["code"], engine.learned_band_of(l["area"]))
-            buckets.setdefault(key, []).append(l["frames"] / l["area"])
+            buckets.setdefault(key, []).append(money / l["area"])
     out = {}
     for key, vals in sorted(buckets.items()):
         if len(vals) < 3:
@@ -265,14 +313,18 @@ def learn_supplier_factors(docs, base):
         if not supplier:
             continue
         for l in d["lines"]:
-            if not l["frames"] or l["area"] <= 0:
+            # Same money basis as learn(), or the ratio compares a whole
+            # build-up against a Frames-only median and every supplier looks
+            # cheap by however much Glass and Additional they happen to carry.
+            money = supply_money(l)
+            if not money or l["area"] <= 0:
                 continue
             key = "%s|%s" % (l["code"], engine.learned_band_of(l["area"]))
             b = base.get(key)
             if not b or not b["median_per_m2"]:
                 continue
             ratios.setdefault(_supplier_key(supplier), []).append(
-                (l["frames"] / l["area"]) / b["median_per_m2"])
+                (money / l["area"]) / b["median_per_m2"])
     out = {}
     for supplier, vals in sorted(ratios.items()):
         if len(vals) < MIN_SUPPLIER_LINES:

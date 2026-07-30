@@ -47,7 +47,35 @@ CODE_VALUE = {
     "LPVC": 450, "SUPD": 1000, "DUPD": 1500,
 }
 ADDER_FACTOR = 0.75
-# ...and 1.25 above 6 m2. KEEP THE CONSTANT, BUT NOT THE STORY THAT CAME WITH IT.
+# AND 0.75 ABOVE 6 m2 TOO, AS OF 30/07. The fudge is retired, because the money
+# it was standing in for is now measured and modelled where it belongs.
+#
+# The document builds a unit rate as frames + glass + additional + 0.75 x code
+# value, and that reconciles on 495 of 508 priced lines once the CW working
+# column is left out of it. The engine's learned rate was mined from the Frames
+# column ALONE, so Glass and Additional - 20.4% of supply above 6m2, 9.3% at
+# 2-3m2 - were money it had no term for anywhere, and ADDER_FACTOR_LARGE was
+# absorbing the largest part of that on the largest units. The 30/07 note below
+# had already worked out that this was what the constant contained; what was
+# missing was a way to model the extras instead, and mining the whole build-up
+# is it. mary_backtest.supply_money() is the change.
+#
+# Leave-one-out over all 29 documents, each scored on rates mined from the other
+# 28 - and leave-one-out precisely because a small win on three positional folds
+# has misled this board twice:
+#     frames only,    1.25 large    mean abs 14.02%  median 10.05%  bias -4.91%
+#     whole build-up, 0.75 flat     mean abs 13.24%  median  7.98%  bias -1.66%
+# Better on 16 documents, worse on 11, within-10 up from 14 to 16. Keeping 1.25
+# ON TOP of the whole build-up double-counts the extras and is the worst arm of
+# the four at 14.88%, which is itself good evidence the two were the same money.
+#
+# LARGE_UNIT_M2 and adder_factor() are kept rather than deleted: the flat 0.75 is
+# now a measurement over 508 lines in every band, and a future session that
+# wants to argue for a size-dependent adder should have to change a number here
+# and show it on unseen jobs, not re-derive the whole idea.
+#
+# WHAT THE RETIRED CONSTANT WAS, kept because the reasoning is the transferable
+# part and a later session should not have to rediscover it:
 #
 # It was recorded on 29/07 as "the estimator takes the code value at 125% once a
 # unit passes 6 m2, and has been doing it by hand all along", the commercial
@@ -80,7 +108,7 @@ ADDER_FACTOR = 0.75
 # extras are scope items that vary, not a constant, and 1.25 also happens to
 # correct a general under-pricing bias. Do not spend the hour re-testing it.
 LARGE_UNIT_M2 = 6.0
-ADDER_FACTOR_LARGE = 1.25
+ADDER_FACTOR_LARGE = 0.75
 
 
 def adder_factor(area_m2):
@@ -152,7 +180,11 @@ def load_register():
 
 
 def load_learned():
-    """Rates mined from the Frames column of quotes Fenster actually sent.
+    """Rates mined from the supply build-up of quotes Fenster actually sent.
+
+    Frames + Glass + Additional, which is the whole of the supply money in a
+    unit rate - NOT the Frames column alone, which is what these were until
+    30/07 and which left the engine blind to Glass and Additional entirely.
 
     Strictly better evidence than a supplier-quote median: it is what we really
     charged, and it already contains every judgement the estimator applied.

@@ -3,45 +3,45 @@
  "source_docs": 29,
  "rates": {
   "DAD|2-5m2": {
-   "median_per_m2": 600.38,
+   "median_per_m2": 668.31,
    "n": 55,
    "low": 323.06,
    "high": 1641.53
   },
   "DAD|>5m2": {
-   "median_per_m2": 366.29,
+   "median_per_m2": 447.32,
    "n": 28,
-   "low": 135.63,
-   "high": 669.67
+   "low": 294.03,
+   "high": 953.09
   },
   "ELAW|2-5m2": {
    "median_per_m2": 275.35,
    "n": 15,
    "low": 230.27,
-   "high": 406.3
+   "high": 475.14
   },
   "ELAW|>5m2": {
-   "median_per_m2": 342.99,
+   "median_per_m2": 429.84,
    "n": 18,
-   "low": 239.55,
-   "high": 538.67
+   "low": 383.23,
+   "high": 699.91
   },
   "LAW|2-5m2": {
-   "median_per_m2": 417.86,
+   "median_per_m2": 491.06,
    "n": 63,
    "low": 212.09,
-   "high": 577.87
+   "high": 594.52
   },
   "LAW|<2m2": {
-   "median_per_m2": 950.48,
+   "median_per_m2": 955.67,
    "n": 5,
    "low": 260.12,
-   "high": 975.82
+   "high": 981.01
   },
   "LPVC|2-5m2": {
-   "median_per_m2": 196.68,
+   "median_per_m2": 198.8,
    "n": 32,
-   "low": 61.42,
+   "low": 103.21,
    "high": 406.08
   },
   "MAW|2-5m2": {
@@ -53,38 +53,38 @@
   "MAW|<2m2": {
    "median_per_m2": 396.92,
    "n": 67,
-   "low": 218.9,
-   "high": 1926.17
+   "low": 278.96,
+   "high": 1939.76
   },
   "MPVC|2-5m2": {
    "median_per_m2": 196.8,
    "n": 4,
    "low": 183.85,
-   "high": 253.8
+   "high": 375.41
   },
   "MPVC|<2m2": {
-   "median_per_m2": 204.84,
+   "median_per_m2": 221.66,
    "n": 34,
-   "low": 69.83,
-   "high": 332.05
+   "low": 108.8,
+   "high": 378.39
   },
   "SAD|2-5m2": {
-   "median_per_m2": 387.97,
+   "median_per_m2": 475.1,
    "n": 39,
-   "low": 280.65,
+   "low": 360.27,
    "high": 1360.08
   },
   "SAD|<2m2": {
-   "median_per_m2": 555.67,
+   "median_per_m2": 584.89,
    "n": 30,
-   "low": 218.9,
+   "low": 328.01,
    "high": 1474.51
   },
   "SAD|>5m2": {
-   "median_per_m2": 341.97,
+   "median_per_m2": 429.84,
    "n": 19,
-   "low": 224.62,
-   "high": 412.6
+   "low": 377.39,
+   "high": 502.73
   },
   "SAW|<2m2": {
    "median_per_m2": 498.05,
@@ -93,16 +93,16 @@
    "high": 842.01
   },
   "SPVC|<2m2": {
-   "median_per_m2": 253.33,
+   "median_per_m2": 268.03,
    "n": 18,
    "low": 166.19,
    "high": 316.75
   },
   "SUPD|2-5m2": {
-   "median_per_m2": 235.42,
+   "median_per_m2": 308.82,
    "n": 8,
    "low": 218.24,
-   "high": 265.65
+   "high": 374.49
   },
   "SUPD|<2m2": {
    "median_per_m2": 214.37,
@@ -113,33 +113,32 @@
  },
  "supplier_factors": {
   "4ali": {
-   "factor": 0.992,
+   "factor": 1.0,
    "applied": true,
    "n": 82,
    "why": "median of 82 priced lines against the all-supplier rate for the same code and size band",
    "source": "derived from sent pricing documents"
   },
   "aplus": {
-   "factor": 1.0,
+   "factor": 1.006,
    "applied": true,
    "n": 84,
    "why": "median of 84 priced lines against the all-supplier rate for the same code and size band",
    "source": "derived from sent pricing documents"
   },
   "bsw": {
-   "factor": 1.034,
+   "factor": 1.001,
    "applied": true,
    "n": 297,
    "why": "median of 297 priced lines against the all-supplier rate for the same code and size band",
    "source": "derived from sent pricing documents"
   },
   "truframe": {
-   "factor": 0.485,
-   "applied": false,
+   "factor": 0.86,
+   "applied": true,
    "n": 26,
    "why": "median of 26 priced lines against the all-supplier rate for the same code and size band",
-   "source": "derived from sent pricing documents",
-   "held_back": "outside the plausible 0.65-1.55 band - looks like a mis-parse or a job priced on a different basis, so it is recorded but NOT applied"
+   "source": "derived from sent pricing documents"
   }
  }
 }
