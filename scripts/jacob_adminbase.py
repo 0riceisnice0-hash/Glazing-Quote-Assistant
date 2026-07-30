@@ -175,6 +175,128 @@ WORKED = {
         "blocked": "planning refused 21/05/2026 - the client cannot answer "
                    "until they appeal or resubmit",
     },
+    # ---------------------------------------------------------- Barnfield
+    # Five leads, one company, THREE customer keys - so nothing on this board
+    # has ever added them up. GBP 568,576 ex VAT, the largest single-client
+    # exposure here, and 0 wins from 6 enquiries.
+    # data/companies/barnfield-construction.md, researched 30/07/2026.
+    "5625": {
+        "next": "DO NOT chase Ian Brown for an answer on Bradstone Road - the "
+                "answer was given on 01/05/2025 and we recorded it nowhere. "
+                "Jayk to BSW, commercial@: 'Bradstone Road: LOST ON PRICE, you "
+                "can close this enquiry.' ADAM'S DECISION, not mine: this row "
+                "wants marking lost in AdminBase, and closing GBP 218,917 on "
+                "my reading of one email is not my call. Two facts to weigh "
+                "first. (1) We priced ~GBP 378k against three cheaper quotes "
+                "at 275/255/249k, Ian invited us to value engineer, and the "
+                "revision Harry circulated internally on 27/03/2025 sits at "
+                "GBP 218,917 - THIRTY THOUSAND UNDER the cheapest quote we "
+                "knew of. There is no send of it to Ian in commercial@, info@ "
+                "or jacob@. (2) Vetroseal quoted us for BRADSTONE RD CHEETHAM "
+                "on 29/01 and 02/02/2026, quote 060676, nine months after "
+                "'lost' - and the number sequence dates it to 2026, so it is "
+                "not an old quote re-sent. Mary has been asked what left "
+                "estimating@ (30/07). Ian Brown 01282 442300 is worth a call "
+                "on the other four jobs regardless.",
+        "why": "Researched 30/07/2026. Sources: commercial@ (Ian Brown "
+               "19/02/2025, Jayk 04/03 and 11/03/2025, Harry Grover "
+               "27/03/2025, Jayk to Jack Pollard at BSW 01/05/2025, Vetroseal "
+               "29/01 and 02/02/2026), repricing.json, outcomes.json, "
+               "Companies House 02365913, Manchester planning 115485/FO/2017 "
+               "and its condition discharges. "
+               "data/companies/barnfield-construction.md.",
+        "note": "The 497 days are not silence - they are an outcome nobody "
+                "filed. Neither AdminBase nor the Opportunity Log records the "
+                "loss; the only copy in the company is a reply to a glass "
+                "supplier's courtesy email. The scheme itself is real and "
+                "live: 3 x three-storey buildings, 19 units, permitted 2017, "
+                "last planning condition discharged 11/02/2025 - eight days "
+                "before Ian sent the enquiry.",
+        "state": "lost on price 01/05/2025 - never recorded, Adam to confirm",
+        "owner": "Adam",
+    },
+    "7665": {
+        "next": "Establish whether our price actually went out BEFORE anyone "
+                "chases The Grange Apartments. AdminBase says 'Live - Quoted' "
+                "at GBP 155,388 ex VAT; the Opportunity Log has the same job "
+                "with 'Quote Returned' EMPTY against Ian Brown's deadline of "
+                "26/02/2026, and carrying a value in the CRM is not evidence "
+                "of a send (Adam, hub-77: priced but never issued is Mary's, "
+                "not a chase). Mary asked 30/07. If it went, this is the "
+                "freshest Barnfield job and the natural reason to ring Ian "
+                "Brown on 01282 442300 about all five.",
+        "why": "Researched 30/07/2026. Sources: outcomes.json openThisYear "
+               "(returned: null, chased: false), adminbase.json lead 7665. "
+               "data/companies/barnfield-construction.md.",
+        "note": "Caveat stated rather than hidden: the Opportunity Log's 2026 "
+                "sheet is much thinner than 2025, so an empty cell there is "
+                "weak evidence on its own. It is enough to check before "
+                "ringing, not enough to conclude the quote never went.",
+        "state": "quoted - or possibly never issued, unresolved",
+        "owner": "Adam",
+    },
+    "6781": {
+        "next": "Chase MSM Aerospace on the strength of a contract our client "
+                "has WON - this is the strongest of the five Barnfield rows "
+                "and it is not on Today at all, because AdminBase never gave "
+                "it a next-action date. Jayk's log: 'Ben advised that it will "
+                "likely be February before anything moves construction wise "
+                "on this one. Worth repricing as secured', and a revised "
+                "quote at GBP 37,827 was issued 12/01/2026 against the "
+                "original GBP 46,968.75. February 2026 has been and gone. "
+                "FIRST resolve who to ring: this lead is filed under "
+                "hargreavescontracting.com (nkitchin@, 01204 365300) while "
+                "its postcode BB9 5SP is Barnfield's own head office and "
+                "Jayk's log calls it Barnfield's job. Establish whether "
+                "Hargreaves is the contracting party, a group company or a "
+                "CRM error before addressing anyone.",
+        "why": "Researched 30/07/2026. Sources: repricing.json (Jayk, "
+               "10/11/2025 and 12/01/2026), adminbase.json lead 6781, "
+               "outcomes.json. data/companies/barnfield-construction.md.",
+        "note": "'Secured' means Barnfield hold the main contract - step two "
+                "of the whole job, already done, by a man who left. The "
+                "enquiry list for the glazing is being drawn up or has been.",
+        "state": "quoted - client has SECURED the main contract",
+        "owner": "Adam",
+    },
+    "5991": {
+        "next": "Do not ask Barnfield how our price looked on the Moston Cash "
+                "& Carry - ask where the planning is. Jayk, 20/11/2025: "
+                "'stuck at planning. Worth repricing as still open.' The "
+                "GBP 68,800 on his log is the VAT-INCLUSIVE figure of this "
+                "same lead (ex GBP 57,333.33) - penny exact, so it is one "
+                "quote still open, not a re-quote. Covered by the one call to "
+                "Ian Brown, 01282 442300.",
+        "why": "Researched 30/07/2026. Sources: repricing.json (Jayk, "
+               "19/05/2025 price submitted 29/05, chased 20/11/2025), "
+               "adminbase.json lead 5991. "
+               "data/companies/barnfield-construction.md.",
+        "note": "Every fact here was written on or before 20/11/2025 and none "
+                "of it has been re-checked with the client.",
+        "state": "quoted - stuck at planning as at 20/11/2025",
+        "owner": "Adam",
+    },
+    "6157": {
+        "next": "Ask Barnfield for the RETENDER on St Johns, Blackburn - they "
+                "offered it. Jayk, 20/11/2025: 'no movement - likely "
+                "planning', and on the same row 'We have an opportunity to "
+                "retender this anyway.' Quote no figure back at him: the log "
+                "says GBP 58,343.68 and AdminBase says GBP 89,968.83 ex VAT "
+                "on the same enquiry date of 19/06/2025, so one is a revision "
+                "and I cannot tell which is current - that is Mary's to "
+                "settle. Covered by the one call to Ian Brown, 01282 442300.",
+        "why": "Researched 30/07/2026. Sources: repricing.json (Jayk, "
+               "19/06/2025, chased 20/11/2025), adminbase.json lead 6157. "
+               "data/companies/barnfield-construction.md.",
+        "note": "NOT the 'St Johns' Jayk reported lost to BSW - that list is "
+                "dated 30/04/2025 and this enquiry did not arrive until "
+                "19/06/2025. Generic name, seven weeks apart, two different "
+                "jobs; bd.md's single-word-name rule caught this one in the "
+                "act. Barnfield's own group includes Barnfield Blackburn Ltd "
+                "(11407219), so confirm the contracting entity.",
+        "state": "quoted - stalled, client offered a retender",
+        "owner": "Adam",
+    },
 }
 
 # Win rate by value, from 224 priced decided rows in the Opportunity Log.
