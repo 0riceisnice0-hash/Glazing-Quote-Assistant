@@ -68,6 +68,29 @@ without it, against 352/508 with it. A GENUINE curtain-walling row is different 
 CW LABOUR figure, Frames equal to the CW money (CB Refrigeration CWT-A, 17.69m2). The board previously
 had this filed as a Brandon Estate peculiarity; it is 156 lines across 9 documents.
 
+DATE IS CLOSED AND IT TOOK ONE TABLE (31/07). "The learned rate is the median of HISTORY, material
+prices move, and the engine has no time term" cannot be asked of this archive: ALL 29 DOCUMENTS ARE
+2026, dated 25/03/2026 to 29/07/2026, a span of 0.2 years. Every line is in one year bucket. The
+per-job least squares reports +1.066 ratio per year at R^2 0.0139, which is a slope fitted through four
+months of scatter and means nothing. DO NOT re-open until the archive has a second year in it - and note
+that this is also the reason the learned rates need no inflation adjustment to be used today: they were
+all set within the last four months. scratchpad/date_trend.py.
+  THE TABLE IS WORTH KEEPING FOR SOMETHING ELSE. Ranked per-job median ratio to the code+band rate:
+  Georgie's 2.911, Tenbury Close 2.516, Tradeteam Stretton 1.942, CB Refrigeration 1.541, Woodland Vale
+  1.228, Wexham 1.167 ... Favell House 0.556, Brandon earlier 0.878, ASHE 0.905. THAT is the residual
+  error, and it is a PRODUCT IDENTITY spread, not a time one - which is the same wall the heading
+  experiment hit. Georgie's at 2.911 is aluminium SLIDING SASH at ~GBP 1,000/m2 against an LAW archive
+  median of 491, and its LAW|<2m2 bucket is n=5 across the whole corpus.
+
+MIN_LEARNED_N = 6 WAS NEVER TESTED AND IS ALREADY AT THE OPTIMUM (31/07). Below 6 a code+band bucket is
+called anecdote and the line drops through to the supplier-quote register, which scores 19.37% against
+the learned rates' 13.20%, so it looked like a threshold worth lowering. Leave-one-JOB-out, threshold
+alone varied, everything else held:
+    3 -> 13.91%    4 -> 13.91%    5 -> 13.51%    6 -> 13.28%    8 -> 13.29%    10 -> 13.48%
+A clean minimum at the value already in the file, and lowering it is the WORSE half - a bucket of three
+lines is genuinely anecdote and the register beats it. Only 58 of 508 lines fall through at 6, so the
+register path is not where the remaining error lives either. scratchpad/min_n.py.
+
 QUANTITY IS CLOSED, NEGATIVE (31/07). "A supplier prices a run of one differently from a run of sixty,
 and the engine has no term for it" is obviously true as commerce and is NOT in this archive's money.
 Measured as each line's own supply GBP/m2 over the median for its own code and band, so product and size
