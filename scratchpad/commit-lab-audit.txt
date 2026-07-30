@@ -1,0 +1,52 @@
+Audited 65 sent pricing documents: they foot, except Gordon Court REV 2
+
+Zac's first ask (dashmsg-97): check the work we have quoted ourselves for
+mistakes. New tool, scripts/mary_quote_audit.py - deliberately not the engine's
+job. The backtest asks "would Mary have said this number", where a disagreement
+usually means the engine is wrong. This asks a question with no opinion in it:
+does the document agree with itself and with the supplier quote behind it?
+
+THE ONE ERROR. Target Maintenance - Gordon Court Pricing REV 2.xlsx, 24/07/2026,
+the SO_14045 door repair at St John's Terrace Road, Redhill - NOT Chigwell's
+Gordon Court, which is a different job with the same name. Row 9, quantity 1:
+the Unit Rate cell says 3,381.62 and the Total cell says 3,792.79. At a quantity
+of one those must be the same number. They differ by GBP 411.17, and TOTAL*
+4,192.79 is built on the higher one. Both cells are hard-typed - the template's
+Total = Unit Rate x Qty formula has been overwritten - so the document cannot
+self-correct. Whichever figure was intended, the document contradicts itself on
+its face, and it is ~10% of a 4,192.79 quote. Not marked DO NOT SEND. FOR ADAM.
+
+EVERYTHING ELSE FOOTS. 65 documents, and FOOT_DOC and FOOT_LINE are otherwise
+clean: no other line fails to multiply out, and no document fails to reach its
+own TOTAL. That is a genuinely good result and it is worth stating plainly.
+
+IT TOOK SIX FALSE ALARMS TO GET THERE, and each one is now a comment in the
+code, because every one of them would have cost Adam a morning:
+  - 513 "findings" that were the template's own code adder, on every line in
+    the archive. The adder is not written in any column.
+  - Crestwood Park 17,779.06 and Wisley 1,419.00 out: addendum rows (TELEFLEX,
+    EXTERNAL MASTIC) the reader did not know existed. Both foot to the penny.
+  - Feltham 8,920.00 out: same TELEFLEX line, written 'Teleflex ' in mixed case.
+  - Coventry Rev 2 39,349.26 out: two addenda rejected for containing a comma
+    and a slash, one of them 92 characters long.
+  - All three Brandon Estate documents out by exactly their mastic + EDPM,
+    because the block is headed OPTIONAL EXTRAS and the test was == "optional".
+  - ASHE - CDC 1.00 out, twice: a section heading reading 'Doors' with a stray
+    1 in the Qty column, read as a GBP 1.00 addendum.
+
+AND ONE I ALMOST REPORTED. Princess Beatrice House looked short by 7,160.12,
+which is 2.500% of the sum of its parts to the penny - so the audit inferred an
+unwritten main contractor's discount. It is written down: there is a row saying
+'2.5% MCD Discount  -7160.12' that an over-strict label filter had hidden. A gap
+that lands on a suspiciously round percentage is far more likely to be a row you
+failed to read than a discount somebody failed to write. Look for the row first.
+The check stays in, firing on nothing, with that lesson attached.
+
+BUILDUP (182) and SUPPLIER (16) are NOT reported as errors and should not be
+read as such - they encode assumptions about how a rate was assembled rather
+than pure arithmetic, and separating real findings from template variation there
+is the next session's job. Filwood already shows what is in them: seven lines
+over 6m2 built on the 0.75 adder rather than 1.25, which is engine evidence, not
+a mistake.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

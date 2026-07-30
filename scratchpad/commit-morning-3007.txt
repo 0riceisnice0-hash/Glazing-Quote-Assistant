@@ -1,0 +1,46 @@
+Two tenders close today and neither is issued - and the Grange Hill quote Chigwell holds names another firm as its author
+
+Morning update sent to adam+marketing with the cleaned Grange Hill pack
+attached (5 files). Estimating Log cross-checked against estimating@ and
+mary@ over the last 30 hours.
+
+The position:
+
+- FILWOOD and VESUVIUS both close TODAY 30/07 and neither has been issued.
+  Both are waiting on a decision, not on work - REQ-10 (install line
+  GBP 3,500 vs GBP 18,446.32 at our own CW labour rate, and firm-price or
+  Contractor's Provisional Sum) and REQ-8 (nobody has priced the 60-minute
+  fire door package; the AFS letter is written and unsent). Vesuvius holds
+  no supplier quote at all.
+- BROCKS HILL closes tomorrow with nothing ever sent to Martin Moore, and a
+  proposal still promising triple glazing BSW confirmed on 22/07 it cannot
+  make in Smart Wall.
+- GRANGE HILL ISSUED 29/07 17:07 UK, GBP 39,006.77. The workbook Chigwell
+  now holds names dan.parker@agsurveying.co.uk as its author and the
+  proposal PDF names Nicholas Baker - REQ-27, third job running. Cleaned
+  five-file pack built and verified at outputs/grange-hill-reissue/, total
+  unchanged; Adam decides whether it reissues to Luke. Root cause is NOT the
+  repo template we scrubbed on 29/07 - Gintare builds from her own copy, so
+  the infected one is the one clients receive. One human fix, once.
+  Scope gap found after issue: the glazed section above the chapel folding
+  doors is excluded by nothing.
+- SM5 WEXHAM ISSUED 29/07 12:30 UK, GBP 20,563.57 - the three days of "not
+  submitted" are over on Adam's 12:19 instruction. Covering email still
+  reads "our quotation for xxx"; GBP 143.01 of restrictors unfunded.
+- REDDITCH issue-ready at GBP 94,926.76 while Leonard White still holds
+  Adam's dead GBP 89k.
+- MANOR LODGE DROPPED on Adam's 29/07 10:59 instruction - projects, not
+  estimating. All three handover rows marked.
+
+Estimating Log discrepancies reported: both of today's deadlines carry no
+controller (Vesuvius also a blank status), Redditch's log-number cell reads
+"to log", MHA Nuneaton is on no row at all though a Vetroseal quote 065209
+arrived 07:27 today, 10 South Street Bridport is unlogged, and four rows
+contradict reality (Grange Hill 8740, SM5 8637, Crestwood 8682 for the third
+morning, John North Hall 8751). Plus SSIP expired on Hill's supply base.
+
+New durable rule in AI.md: Graph stamps are UTC, the UK is BST in July, and
+Adam reads UK time - the two job files above recorded 16:07 and 12:22 off raw
+Z stamps and were an hour light. Write UK times with the suffix.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

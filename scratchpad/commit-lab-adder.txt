@@ -1,0 +1,49 @@
+The 1.25 large-unit adder is a fudge, not the estimator's rule - it stays, the story goes
+
+Measured the adder a second way and it does not say what last night's entry says
+it says. The 29/07 derivation used (unit_rate - frames) / CODE_VALUE. That is
+not the adder: the learned rate is mined from the Frames column alone, so
+unit_rate - frames also contains Glass, Additional and CW. The new audit reader
+pulls all four component columns, which makes the adder itself measurable as
+unit_rate - (frames + glass + additional + cw).
+
+Measured that way over 508 lines: the factor is 0.750 in EVERY band, including
+above 6m2. On the 28 large-unit lines outside the Brandon Estate documents, 26
+sit on exactly 0.75 and NONE on 1.25. Brandon is excluded on a property of the
+line, not by name - there frames+glass+additional+cw exceeds the unit rate, so
+those columns are not per-unit money and the factor comes out at -3.6 to -5.8.
+
+WHERE 1.25 CAME FROM. The median of glass+additional+cw on a large unit is
+GBP 1,000.00 and the median large unit is a DAD, code value 2,000. Charge that
+money to the code value and you get 0.75 + 1000/2000 = 1.25, exactly. That is
+also why re-deriving it on an independent half returned "1.250 exactly" and read
+as strong evidence: a systematic confound reproduces in every split. A holdout
+tests whether a number generalises, never whether it measures what its name
+says. Only measuring the same quantity a second way could catch this.
+
+THE CONSTANT IS KEPT. It earns its place on jobs it has not seen - three folds,
+constant line set, rates re-mined per fold: mean abs 13.88 at 1.25 against 14.46
+at 0.75, winning two folds of three. So it is now documented as an admitted
+fudge for money the engine does not model, and the claim that the estimator does
+it by hand is withdrawn. The curve is flat from 1.00 to 1.40 (14.04/13.94/13.88/
+14.16), so the 1.25 is not a precise quantity either.
+
+THE PRINCIPLED FIX IS WORSE, and is recorded so nobody spends the hour again.
+Adder back to 0.75 plus a flat extras term above 6m2, learned per fold - and
+learned correctly, at GBP 1,000/600/1,000, once lines whose components do not
+reconcile are dropped - scores 14.73, worse than both arms. The extras are scope
+items that vary, not a constant, and the 1.25 is also absorbing a general
+under-pricing bias rather than a size effect (bias -10.71/-0.27/-9.03 at 0.75
+against -7.80/+1.62/-6.91 at 1.25).
+
+AND --holdout NOW RUNS ALL THREE FOLDS (--folds). It scored fold 0 alone, and
+fold 0 is not representative: the same engine scores 21.4% there and 9.9% and
+10.4% on the others. The folds are positional, so adding one document to the
+archive reshuffles all three - which is why 29/07 quoted 14.5% and tonight's
+first run showed 19.9% for the same engine. That is not a regression and nobody
+should chase it. A one-fold number has now misled two sessions running.
+
+3-fold: register only 20.76%, with learned rates 13.88%, identical line counts
+and zero skips in both arms.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

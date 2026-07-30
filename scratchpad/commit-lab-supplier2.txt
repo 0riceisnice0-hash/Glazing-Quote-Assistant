@@ -1,0 +1,53 @@
+An addendum supplier is not a frame supplier - SUPPLIER noise down from 18 to 13
+
+Second half of the board's triage job. Two false-alarm classes, both of which
+would have sent Adam looking for money that is exactly where it should be.
+
+CRESTWOOD PARK, reported -14,223.25 at ratio 0.658. Its block reads BSW
+27,329.60 / Teleflex 14,223.25 / total 41,552.85, and its Frames column totals
+27,329.60 - the BSW figure EXACTLY. The reported gap IS the Teleflex line to the
+penny. Teleflex is not framing; it is a separate scope item that appears as an
+ADDENDUM ROW below the priced lines, and it is the same Teleflex the footing
+checks already know about by name (it was on the original false-alarm list for
+Crestwood and Feltham). Frames cannot contain it, so comparing the frames total
+against a block total that includes it is asking the wrong question.
+  The check now tries the SUBSETS of the block before reporting anything. If the
+frames total matches any subset, the document reconciles and the suppliers left
+out are addendum suppliers - it reports nothing. Only a frames total matching NO
+subset is a real question. Preferring the largest matching subset means a
+genuine multi-supplier reconciliation like Gordon Court's BSW + Aluminium Fire
+Systems is still tested against both, not explained away by one.
+
+ZELLTEC CROWNHILL UPVC, reported at ratios of 8.268 and 22.139 - numbers that
+cannot mean anything and should never have been printed. That document lists
+three suppliers, Tru Frame / Strongdor / BSW, with NO cost against any of them.
+So the block never met the empty row that was supposed to stop it, the six-row
+window ran on into the first priced line, and its Additional cell was read as the
+buy. Stopping at the first empty row was necessary but not sufficient: a row now
+also has to LOOK like a supplier row, meaning a NAME in the column straight after
+'Supplier used:'. The block's total row leaves that cell empty; a priced row has
+a number in it, because that is its Additional column. Requiring name-or-empty
+excludes the priced row and both Zelltec findings disappear.
+
+WHAT SURVIVES, AND THE TWO CHECKS THAT MATTER ARE UNTOUCHED. FOOT_LINE is still
+exactly one finding in 65 documents - Gordon Court REV 2's GBP 411.17, already
+with Adam - and Grange Hill still comes out at -419.32 / ratio 0.982, which is
+the hand-verified missing unit from 29/07 and the thing that earns this check its
+place. SUPPLIER is 18 findings down to 13, of which six are inside 5% of 1.00
+(0.982, 0.992, 0.995, 1.011, 1.016, 1.049) and the real questions are the large
+ones: Brandon Estate 4.094, Wisley 1.538, CB Refrigeration 1.291, Oldswinford
+0.825, ASHE 0.778, Trafalgar House 0.657. None of those is called an error - each
+needs its supplier quotes read, and that is the next session's.
+
+NEXT IMPROVEMENT FOR THIS CHECK, recorded rather than done: percentage is the
+wrong discriminator. Grange Hill is a REAL catch at 1.8% while six findings sit
+nearer 1.00 than that and mean nothing. What made Grange Hill real is that its
+gap equals a WHOLE UNIT on a line - seven windows priced where BSW quote eight,
+at GBP 419.32 each. Testing whether the gap is an integer multiple of some line's
+unit frames cost would separate a missing unit from rounding, which a tolerance
+band cannot do in either direction.
+
+Audit totals: 65 documents, 27 findings - FOOT_LINE 1, FOOT_DOC 0, DISCOUNT 0,
+BUILDUP 13 in 2 documents, SUPPLIER 13.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

@@ -1,0 +1,15 @@
+**Correction to my Balham Hill post above. Two things I told you are wrong, and one of them is that you had already chased it.**
+
+Mary read the estimating@ side an hour after I posted. The money is unchanged - CW £142,760 against their £150,000, windows £690,849 against their £500,000 - but the story around it is not.
+
+**1. You chased it on 12/03, and I said nobody had.** adam@ to Danny Hartland cc Liam: *"check in on the status of this job... Jayk as left the company so I will be taking on his role... let me know how Balham Hill is shaping up and whether you have any new tenders... my mobile is 07939452711."* **No reply in 140 days.** So the Liam call is your **second** chase, not an opening - and the better opening is that unanswered email, because they have had your name, role and mobile since March and not used them.
+
+**2. REV 1 was NOT a compliance risk - it was the fix.** I flagged that Titan's profile might be off Wandsworth's approved list. It is on it: Ashley Walton at Titan confirmed in writing on 24/02 that the quote was **REHAU Total 70**, and Rehau is *first* on the five permitted profiles. The data sheets went to Danny the same afternoon, so Re-Gen hold our evidence. **The reprice corrected the Liniar mistake rather than repeating it.** Please disregard that part of my post - I raised it as a question, but it should not have gone in front of you at all when Mary was one message away.
+
+**3. The quote went to a third contact and they replied three times.** It went 24/02 13:42 to **Danny Hartland**, their QS (DD 01277 563 359) - who is on no row on my board. He came back within twenty hours asking for data sheets on the windows and then on the curtain walling. So the silence starts 25/02 and it follows an *engaged* client, which is a better position than the one I described.
+
+**What is still exactly as posted:** we were £7,240 under their curtain walling number, they told us in writing the award might split on price alone, and nobody has had an answer since. The curtain walling call stands - Liam Ryan, 01277 598998.
+
+**And one thing for the record rather than for tonight.** On 24/02, before the quote went out, you wrote: *"looks like we're out of the running for the windows due to costs... submit the quote but in the meantime we could as Quickslide to price the uPVC in case there's a chance we can bring our costs down considerably."* **Quickslide was never asked** - the first Quickslide enquiry anywhere is 06/03, for Hainault Road. Kick-off was 23/03 so it is history, not a save. I raise it only because it is the third time this month that the thing which would have moved a job was written down inside Fenster and never done, and that pattern is worth more than the job was.
+
+Corrected on the board and in `data/companies/re-gen-uk-construction.md`. My own lesson: I inferred from silence in my own mailboxes twice on one account, on the same morning Mary told me seven quotes out of nine had gone where I could not see them.

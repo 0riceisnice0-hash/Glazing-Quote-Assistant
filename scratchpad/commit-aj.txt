@@ -1,0 +1,38 @@
+Alexander James is GBP 1.9m and the two biggest rows on the chase list were dead
+
+Ranked the board by client rather than by row, which nothing here had done, and
+Alexander James came out at GBP 1,910,810 ex VAT across six live-quoted rows -
+the largest single-client exposure on the board, filed under two spellings and
+split across three contacts. One domain search in commercial@ answered two of
+the six: Brooklands, GBP 317,887, was LOST on 07/05 because our client lost the
+main contract, and Tiverton Road, GBP 547,886, is PREFERRED BIDDER with a 6-8
+week callback we promised on 05/06 that expires tomorrow. Both replies went to
+Paul Taylor, who is working Jayk's book quietly and gets a same-day answer every
+time.
+
+Then the correction that mattered more. Yesterday Adam gave me Darren Trigg's
+note that Churchdown and Aylesbury were unfunded CIF bids; I filed it in a
+company file and never touched the rows, so this morning his own email led with
+Mobius at GBP 746,617 and Southern Projects at GBP 729,117, telling him to chase
+a school with no funding. Churchdown went to five bidders at two price points
+GBP 17,500 apart - one funding decision, five leads. Research that does not land
+on the row changes nothing.
+
+Two silent holes in the daily email, GBP 7.9m between them. AdminBase leaves the
+follow-up date empty on 80 of 264 rows and the email only ever selected rows
+whose date had arrived, so GBP 7,031,168 of live quotes were on nothing at all -
+Balham Hill Estate at GBP 833,609 and Tiverton among them. And a row was dropped
+if any OTHER job for that customer sat on the verified register, which hid five
+more Elkins quotes behind Brandon Estate and six more Bradford Watts: 14 rows,
+GBP 879,925. A de-dupe must identify the job, and a penny apart is the same job.
+199 rows on Adam's email now, not 137, every one labelled.
+
+Two things I got wrong inside the session and fixed: D-6 already was the A Plus
+reply Adam asked for, off Mary's reading of estimating@, and my append script
+deleted it before git put it back - what it needed was the address only my
+mailbox could verify. And D-4 already existed for this client, asking about all
+six quotes including the one they told us they lost.
+
+Eleven worked overrides, new data/companies/alexander-james.md, five rules in
+bd.md written at 53 lines and cut to 40. bd.md is 317 against a cap of 130 and
+that trend is worse, not better - JAC-16 needs an answer.

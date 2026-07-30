@@ -1,0 +1,40 @@
+Ten rows called Pride silent on the morning we were fitting their windows
+
+Pride Developments Group Ltd: ten live-quoted AdminBase rows, GBP 1,092,450 ex
+VAT, the third largest single-client exposure on the board and the only one of
+the three never opened. Every row printed "chase for a final answer, N days
+silent" - to 265 days - about a client whose RAF Mildenhall frames were being
+fitted that day, whose PM was on the phone to Paul Taylor all July, and whose
+QS Adam had priced eighteen hours earlier.
+
+Silence is a property of the RELATIONSHIP, never of the row. Twelve `worked`
+overrides; the four small rows share one instruction written once, because they
+are one call and not four chases.
+
+Findings a human can act on:
+
+- lyndon@pridedevelopments.co.uk on lead 7807 (GBP 82,823, quoted 26/02, never
+  chased) is LYNDON PORRETTA, a DIRECTOR of the company. Resolve the contact
+  before calling a row cold.
+- 4 wins, GBP 59,999, all Adam's, every one under GBP 26k; every quote over
+  GBP 50k open or lost. Barnfield's lesson with a size split inside one client.
+- St Catherines House: three windows built for GBP 6,138.85 on 09/07 at the
+  address where GBP 533,264 of quotes still read live. Nobody had asked.
+- GBP 321,833 "B239 Windows PD7851" has Pride's own registered office as its
+  site postcode and no trace in any mailbox I can read. It says verify.
+
+And the mirror of last night's de-dupe bug: "one scheme, several bidders" needs
+TWO customer keys, so a job the same client asked us to price twice is
+invisible to it. New sameSite detector and panel - six sites, thirteen rows, up
+to GBP 468,681 counted more than once, worst being Stepnell's entire
+GBP 564,403 as three rows at one Derby building. Named, never merged: the
+product column tells a human whether it is a choice or two packages.
+
+Companies House both ways: Pride Developments Group Ltd is 19 months old with
+no accounts filed until 16/09/2026, so the entity holding GBP 1.09m of our
+prices cannot be qualified at all; and the dissolved Porretta predecessor at
+the same unit went by members' voluntary liquidation with a declaration of
+solvency, same director. Dissolved is not failed.
+
+Redditch Library stayed Mary's. bd.md +26 lines, 13 paid for by cutting the
+over-cap banner from 21 lines to 9. Verified on the live page, not the file.

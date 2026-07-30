@@ -1,0 +1,57 @@
+Nobody wrote to me overnight, so this was my own time under the standing agenda. I took the
+largest unworked row on the board - The Hub Alkerden, Sinden Construction, GBP 484,473 ex VAT -
+and it turned out my board had the client the wrong way round.
+
+**Sinden are not silent. We are the late ones, and their order date is 08/10/2026.**
+
+On 01/07/2026 Seyi Adesogan emailed commercial@: they have SECURED the main contract, and would
+like an updated quotation for the Aluminium Curtain Walling & External Doors package **by
+08/07/2026**. Provisional package order 08/10; site 11/02/2027. He asked us to confirm receipt.
+Paul forwarded it to Adam, Steven and estimating@ that afternoon, and again on 02/07 with the
+elevation drawing that had been missed. Nothing in commercial@, info@ or jacob@ replied to him,
+and A Plus were still revising supplier quote QP65153 on 22/07 - a fortnight past his deadline.
+
+I am not concluding we missed it. Estimating@ is not mine to read and absence from my half is not
+absence - that is the Chiel rule from yesterday and it applies to me here. **Asked Mary; raised
+JAC-20 for Adam.** I have not drafted anything, deliberately: if the quote has gone this is an
+ordinary chase with a hard hook, and if it has not it is an apology and a date. Two different
+emails, and picking the wrong one in front of a client who has waited three weeks is worse than
+waiting a day for the answer.
+
+**What my board was telling whoever picked the row up.** Lead 5493: "Live - Quoted, 523 days
+silent", next action *"chase Sinden for a final answer - is it still live or did it go
+elsewhere"*. The 523 days are an artefact - the lead date is the January 2025 enquiry and
+AdminBase has never re-dated it across two re-enquiries since. Ringing to ask whether the job is
+still live would have asked a client who told us they secured it, gave us the programme, and is
+waiting on our price. Corrected, with sources on the row.
+
+**And the second Sinden job is not "on hold" - it was refused.** OSG Cold Ash, lead 7745,
+GBP 340,851. Emma O'Brien told estimating@ on 26/06 the project was "on hold due to a planning
+issue" and Adam replied that he would update our notes. West Berkshire's own register says it
+harder: application 25/01899/FULMAJ - the convent site at Cold Ash, new teaching building and
+sports hall for OneSchool Global - was **REFUSED, decision issued 21/05/2026**, with no appeal and
+no resubmission recorded today. So the row now reads blocked rather than chase due, it is named on
+the daily email in the same place Brandon Estate sits, and the action is mine and dated: look
+again in late November, when the usual six-month appeal window would be out.
+
+**Worth knowing: PlanIt had that application as "Undecided - awaiting decision".** Its copy was
+last scraped on 20/09/2025, ten months ago. The council's own page carried the refusal. A planning
+state is only as fresh as the scrape behind it, and there is a `last_scraped` field that says so.
+
+**Also settled, and it explains a spelling that has bothered this board twice:** Thomas Sinden
+Limited became **Sinden Construction Limited on 22/06/2026** (CH 03308698 - their own circular is
+in commercial@). Name only, no change of ownership or contracts. So the two spellings in AdminBase
+are one company either side of a rename, not a CRM typo. Their domain is still thomas-sinden.co.uk
+but they now publish info@sindenconstruction.co.uk - both need searching or half the history hides.
+
+**One loose end I could not close.** On 23/03 Corran Goodson asked for the security ratings on the
+external doorsets and the curtain walling and we told him "asap". Nothing on my side shows them
+going. It may well have gone from estimating@ - it is in the same question to Mary.
+
+New file: `data/companies/sinden-construction.md`. Board rebuilt and deployed.
+
+**A fix underneath all this that matters more than the client.** Writing a truer state onto a
+researched row - "re-enquired, our price is the late one" - made it **vanish** from the chase list
+and off the daily email, because that list is filtered on three literal state strings. Researching
+the most urgent row on the board is not a reason to hide it. A worked row now keeps its place
+whatever state it is given, and a blocked one is labelled rather than dropped.

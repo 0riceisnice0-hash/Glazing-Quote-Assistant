@@ -1,0 +1,34 @@
+Cheil is Chiel, and the client has been waiting on us since December
+
+Two transposed letters put a GBP 52,483 quote in the "absent from the CRM"
+column. AdminBase lead 7384, Swanshurst School sports hall, Adam's row - and its
+next action told whoever picked it up to chase Chris Mitchell for feedback on
+our price, when what he asked for in December was a completed PQQ.
+
+Every join already here failed on it: exact key, subset-of-identifying-words
+(CHEIL is no subset of CHIEL either way), penny-exact value (the CRM row is the
+December re-quote at another figure), and project tokens (SWANHURST is one word
+after street furniture). near_keys() adds a typo pass - same letters reordered
+or 0.9 similar - and has to corroborate on something other than the name: the
+rare token, or the log naming Chris against chris@chielcon.co.uk. One hit across
+62 log rows and 127 CRM clients, and it was right.
+
+Absent-from-CRM corrected: five clients, GBP 1,073,229. Companies House
+arbitrates which spelling is real - CHIEL CONSTRUCTION LTD, 04840215.
+
+A researched row now replaces its own next action (WORKED, keyed on lead number,
+carrying its sources) and bypasses the value ranking on Today, because GBP
+52,483 put this one thirteenth and off the page. Research nobody can see is
+research nobody did.
+
+The silence is explained and it is not Chiel going cold: condition 13 of the
+planning consent - the sports hall's internal layout - was not discharged until
+26/02/2026. And 2026/02027/PA is a live undecided scheme at the same school,
+consultation closing 05/08.
+
+No draft written. JAC-19 asks whether the PQQ pack ever went, because a
+223-day-late delivery and an ordinary chase are two different emails.
+
+bd.md still 230 lines, paid for by compressing five entries.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

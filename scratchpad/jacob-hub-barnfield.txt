@@ -1,0 +1,101 @@
+BARNFIELD CONSTRUCTION: GBP 568,576 OF OUR QUOTES, SIX ENQUIRIES, NOTHING EVER WON - AND THE
+BIGGEST ROW WAS LOST FIFTEEN MONTHS AGO IN AN EMAIL NOBODY FILED.
+
+Adam - one decision for you at the bottom. The short version first.
+
+I spent this session on one company instead of many rows. Barnfield came top because they have five
+live-quoted leads on my board and I could not see it: the CRM files them under THREE different
+customer keys - "barnfieldconstruction.co.uk" (3), the literal string "BARNFIELD CONSTRUCTION" (1),
+and "hargreavescontracting.com" (1). So the concentration panel has been reporting a three-row
+client, a one-row client and a one-row client. Added up it is GBP 568,576 ex VAT, which is more
+open exposure than any other client on the board.
+
+WHAT THEY ARE. Barnfield Construction Limited, Companies House 02365913, active, trading since
+1989, 8 Kenyon Road, Nelson BB9 5SP. Accounts filed to December 2025, nothing distressed. Our
+contact on all six enquiries is Ian Brown, Senior Estimator, 01282 442300.
+
+THE RECORD, AND IT IS THE POINT. 0 won, 1 lost, 5 open. Barnfield appear NOWHERE in the 204 won
+contracts - Fenster has never won a job from them. Ian Brown is already doing the one thing a
+relationship is supposed to buy: he keeps asking us to price. Six times in twelve months. So the
+BD question here is not how to get on his list. It is why we lose off it.
+
+AND FOR ONCE WE HAVE THE ANSWER IN WRITING. Jayk, 11/03/2025, after Bradstone Road: "Ian mentioned
+we have given a detailed breakdown. Another quote came in at a similar 378k. There were three
+cheaper quotes: 275/255/249k. Ian is happy for us to value engineer our quote and he will be giving
+us further opportunities!" We were joint-top of five, GBP 129k above the cheapest. He kept his
+promise - four more enquiries followed.
+
+=== THE THING THAT MATTERS MOST, AND IT IS A RECORD-KEEPING FAILURE, NOT A SALES ONE ===
+
+Top of your chase list this morning, third row: Barnfield, Bradstone Rd, GBP 218,917, "497 days
+silent, chase for a final answer".
+
+The final answer was given on 1 May 2025. Jayk, to Jack Pollard at BSW: "BRADSTONE ROAD: LOST ON
+PRICE, YOU CAN CLOSE THIS ENQUIRY."
+
+It reached nothing. AdminBase still says Live - Quoted. The Opportunity Log still says open. The
+only copy of that outcome anywhere in the company is a reply to a glass supplier's courtesy email
+asking how his quotes had got on. That same email settles fourteen other jobs in two lines each -
+Meadow Lane, Newton Aycliffe, Sittingbourne Rugby and Wetmore Road all "lost", Liberty Care delayed
+by a transfer to Care UK, Feathers Charity's contact having left. None of those reached a record
+either; they are just not on my board to be got wrong.
+
+TWO THINGS ABOUT THAT LOSS DO NOT ADD UP, AND I HAVE ASKED MARY RATHER THAN GUESSED.
+
+First, we value engineered exactly as Ian invited. Harry Grover circulated the revision internally
+on 27/03/2025 - "Hi both", to Jayk and you, BSW buy at GBP 147,294.62+VAT. The figure now on the
+CRM row is GBP 218,917, which is thirty thousand pounds BELOW the cheapest quote we knew about.
+A revision that undercuts the field by GBP 30k does not then lose on price. There is no send of it
+to Ian Brown in commercial@, info@ or jacob@, and jayk@ is a hard 404. If it never left estimating@
+then this is the third job this month where our own price stopped inside the building, after Chiel
+and Alkerden, and the three want treating as one problem.
+
+Second, Vetroseal quoted us for "BRADSTONE RD CHEETHAM" on 29/01/2026 and again on 02/02/2026 -
+nine months after "close this enquiry". It is not an old quote re-sent: Vetroseal number
+sequentially at about 27 a day, so 060676 belongs to early 2026, not 2025. Somebody was buying
+glass for that site in January. Manchester permitted a further application on the land on
+10/10/2025, so the site is certainly live. Either the job came back to us or it is a different
+party on the same site.
+
+I also verified the scheme is real and found why the enquiry arrived when it did. Bradstone Road is
+Manchester permission 115485/FO/2017 - "3 x three-storey buildings to form 19 Cash and Carry units"
+- against Ian's enquiry for "3 Blocks of Shell Only 19 three Storey Commercial Units". The join is
+hard: PlanIt names the agent as Whitebox Architecture and Ian's enquiry attached "WhiteBox
+Elevations Blocks A, B & C". Its planning conditions were refused over and over from 2022 until the
+last one, drainage, was discharged on 11 February 2025. Ian sent the enquiry eight days later.
+Conditions cleared, procurement started - which is the argument for reading planning registers,
+seen from the inside for once.
+
+=== A BUG THIS TURNED UP THAT WAS COSTING YOU MORE THAN BARNFIELD ===
+
+MSM Aerospace is the strongest of the five Barnfield rows - BARNFIELD HAVE SECURED THE MAIN
+CONTRACT, and we have a revised price at GBP 37,827 issued 12/01/2026 against a February start that
+has been and gone. It was on nothing. Not your email, not Today.
+
+The reason: the daily email dropped any row where AdminBase had set no follow-up date, and
+AdminBase leaves that field empty on 80 of 264 rows. Researching a row and writing a next action
+onto it did not save it. Fixed - a row somebody has worked is now due, dated today, and labelled
+"no CRM date - dated today because this row has been researched" so it is not passing itself off as
+your date or the CRM's.
+
+That fix also put back CHIEL CONSTRUCTION, SWANSHURST SCHOOL, GBP 52,483 - last session's whole
+finding, the one where the client was waiting on US. It had been absent from your email since the
+day I researched it and I did not notice. Same shape as the state-string filter I fixed yesterday:
+improving a row deleted it. Twice in two days, so it goes in bd.md as a rule rather than a bugfix.
+Your email is 137 rows this morning, not 135.
+
+=== WHAT I NEED FROM YOU, AND IT IS ONE DECISION ===
+
+BRADSTONE ROAD, GBP 218,917: DO YOU WANT IT MARKED LOST? I have not closed it. JAC-14 says nothing
+closes on silence, and this is not silence - it is a recorded outcome. But closing GBP 218,917 on my
+reading of one email to a supplier is not my call, and you own the backlog. The row currently reads
+"lost on price 01/05/2025 - never recorded, Adam to confirm" and it stays on Today until you say.
+
+Everything else here is a call, not a decision, and it is one call: Ian Brown, 01282 442300, covers
+all five jobs. It is not a chase - it is the value-engineering conversation he invited fifteen
+months ago. The order, why, and the traps to avoid on each are in
+data/companies/barnfield-construction.md. Two of the five need Mary's answer before anyone dials,
+because the Grange Apartments quote may never have gone out - AdminBase has a value against it, the
+Opportunity Log has Quote Returned empty, and hub-77 makes that yours-and-hers, not a chase.
+
+Nothing has been drafted and nothing has been sent.

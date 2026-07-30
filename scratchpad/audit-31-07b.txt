@@ -1,0 +1,89 @@
+audited 65 sent pricing document(s)
+
+CB Refrigeration Workshop - Pricing Document - DO NOT SEND.xlsx   [internal]
+   client Knights Construction | 11 rows | supplier BSW
+   [SUPPLIER ]     14,078.92   frames total 62531.21 against the block's BSW + BSW CW + Strongdoor buy 48452.29, ratio 1.291
+
+COMAR - DO NOT SEND Pricing Document - Brandon Estate - Copy.xlsx   [internal]
+   client Elkins Construction | 42 rows | supplier 4Ali
+   [BUILDUP  ]       -644.31   row 13 DAD 4200 x 2200: frames 3356.11 + glass 762.04 + additional 15.12 + adder 1500.00 = 5633.27, unit rate says 4988.96
+   [BUILDUP  ]        235.00   row 14 ELAW 2800 x 2200: frames 2061.41 + glass 527.04 + additional 15.12 + adder 637.50 = 3241.07, unit rate says 3476.07
+   [BUILDUP  ]        374.14   row 15 MAW 700 x 2200: frames 337.11 + glass 152.90 + additional 15.12 + adder 412.50 = 917.63, unit rate says 1291.77
+   [BUILDUP  ]        -30.95   row 16 LAW 1400 x 1650: frames 935.38 + glass 183.85 + additional 15.12 + adder 487.50 = 1621.85, unit rate says 1590.90
+   [BUILDUP  ]        -23.51   row 17 LAW 1560 x 1650: frames 968.41 + glass 207.36 + additional 15.12 + adder 487.50 = 1678.39, unit rate says 1654.88
+   [BUILDUP  ]       -344.79   row 18 ELAW 4174 x 1650: frames 2840.92 + glass 552.15 + additional 15.12 + adder 637.50 = 4045.69, unit rate says 3700.90
+   [BUILDUP  ]       -390.32   row 19 DAD 7130 x 1650: frames 4617.41 + glass 942.47 + additional 15.12 + adder 1500.00 = 7075.00, unit rate says 6684.68
+   [BUILDUP  ]        824.74   row 20 MAW 950 x 1650: frames 783.97 + glass 117.73 + additional 15.12 + adder 412.50 = 1329.32, unit rate says 2154.06
+   [BUILDUP  ]       -644.31   row 21 DAD 4200 x 2200: frames 3356.11 + glass 762.04 + additional 15.12 + adder 1500.00 = 5633.27, unit rate says 4988.96
+   [BUILDUP  ]        235.00   row 22 ELAW 2800 x 2200: frames 2106.54 + glass 527.04 + additional 15.12 + adder 637.50 = 3286.20, unit rate says 3521.20
+   [BUILDUP  ]        374.14   row 23 MAW 700 x 2200: frames 337.11 + glass 152.90 + additional 15.12 + adder 412.50 = 917.63, unit rate says 1291.77
+   [SUPPLIER ]    -34,292.51   frames+glass total 3812276.39 against the block's 4Ali + Vetroseal buy 3846568.90, ratio 0.991
+
+Chigwell - Grange Hill Methodist Church Ext Pricing DO NOT SEND.xlsx   [internal]
+   client Chigwell (London) PLC | 11 rows | supplier BSW
+   [SUPPLIER ]       -419.32   frames total 22411.77 against 'BSW' buy 22831.09, ratio 0.982 - LOCALISED: 1 of 2 blocks reconcile to the penny and the whole gap is in 'Sheerline Aluminium Windows' (row 9, row 10, row 11, row 12, row 13, row 14), which prices 9057.69 against BSW 9477.01 - AND THE GAP IS 1 x GBP 419.32 EXACTLY, the unit frames cost of row 13 'West Elevation W5 - W9' (qty 5): the document prices 5 of it where the supplier quotes 6
+
+DO NOT SEND - ASHE - CDC - Pricing Document.xlsx   [internal]
+   client ASHE | 10 rows | supplier BSW
+   [BUILDUP  ]        112.50   row 9 MAW 2810 x 2000: frames 625.70 + adder 412.50 = 1038.20, unit rate says 1150.70
+   [BUILDUP  ]        112.50   row 10 MAW 3580 x 2000: frames 856.36 + adder 412.50 = 1268.86, unit rate says 1381.36
+   [SUPPLIER ]     -6,946.92   frames total 24388.48 against 'BSW' buy 31335.40, ratio 0.778
+   [SUP_DUP  ]     31,335.40   'BSW' cost 31335.40 is the SAME FIGURE TO THE PENNY as in Zelltec - Wisley Golf Club Pricing - Copy.xlsx, a different job - one of them is a cell left behind by a save-as, and neither document's frames reconcile to it
+
+DO NOT SEND Elkins - Brandon Estate Pricing Document.xlsx   [internal]
+   client Elkins Construction | 42 rows | supplier 4Ali
+   [SUPPLIER ]    -34,292.51   frames+glass total 3812276.39 against the block's 4Ali + Vetroseal buy 3846568.90, ratio 0.991
+
+DO NOT SEND Pricing Document - Brandon Estate.xlsx   [internal]
+   client Elkins Construction | 12 rows | supplier BSW
+   [SUPPLIER ]  1,512,758.55   frames+glass total 1875436.95 against the block's BSW + Vetroseal buy 362678.40, ratio 5.171
+
+ET & S Construction - St Mary's Refurbishment Pricing - DO NOT SEND.xlsx   [internal]
+   client E T & S Construction | 38 rows | supplier BSW
+   [SUPPLIER ]       -697.58   frames total 90711.60 against 'BSW' buy 91409.18, ratio 0.992 - LOCALISED: 1 of 2 blocks reconcile to the penny and the whole gap is in 'Sheerline Aluminium Windows' (row 9, row 10, row 11, row 12, row 13, row 14), which prices 60359.22 against BSW 61056.80
+
+Fortis Vision - Unite-Favell House Pricing.xlsx   [NOT MARKED DO NOT SEND]
+   client Fortis Vision | 6 rows | supplier Aplus
+   [SUPPLIER ]        190.41   frames total 17861.94 against the block's Aplus + DuK buy 17671.53, ratio 1.011 - AND THE GAP IS 3 x GBP 63.47 EXACTLY, the unit frames cost of row 13 'L1 - Louvre' (qty 3): the document prices 3 of it where the supplier quotes 0
+
+Guildmore Planned Works - Princess Beatrice House Pricing - DO NOT SEND.xlsx   [internal]
+   client Guildmore | 46 rows | supplier Aplus
+   [SUPPLIER ]       -668.41   frames total 128017.08 against 'Aplus' buy 128685.49, ratio 0.995
+
+Highwood Group - Whitsbury Road Pricing - DO NOT SEND.xlsx   [internal]
+   client Highwood Group | 25 rows | supplier BSW
+   [SUPPLIER ]      1,837.11   frames total 116145.22 against 'BSW' buy 114308.11, ratio 1.016
+
+Reynolds Conservation - Oldswinford Primary School Pricing - DO NOT SEND.xlsx   [internal]
+   client Reynolds Conservation Ltd | 34 rows | supplier Aplus
+   [SUPPLIER ]     -7,205.55   frames total 34003.38 against the block's Aplus + Teleflex buy 41208.93, ratio 0.825
+
+Rooff Construction - St. Christopher's the Hall School Pricing - DO NOT SEND.xlsx   [internal]
+   client Rooff Construction | 8 rows | supplier BSW
+   [SUPPLIER ]     -1,006.08   frames total 11103.41 against 'BSW' buy 12109.49, ratio 0.917
+
+SMD - Brocks Hill Phase 2 Teaching Block Pricing.xlsx   [NOT MARKED DO NOT SEND]
+   client SMD | 7 rows | supplier BSW
+   [SUPPLIER ]      2,723.49   frames total 57778.34 against 'BSW' buy 55054.85, ratio 1.049 - LOCALISED: 1 of 2 blocks reconcile to the penny and the whole gap is in 'SMA Smart Wall Doors' (row 9, row 10, row 11), which prices 19818.01 against BSW 17094.52 - AND THE GAP IS 1 x GBP 2723.49 EXACTLY, the unit frames cost of row 10 'Door Type E.04' (qty 2): the document prices 2 of it where the supplier quotes 1
+
+TSL - Topek Southern - Trafalgar House Pricing - DO NOT SEND.xlsx   [internal]
+   client TSL - Topek Southern Ltd | 17 rows | supplier TruFrame
+   [SUPPLIER ]     -2,053.10   frames+glass total 23153.46 against the block's TruFrame + Vetroseal + Ikon buy 25206.56, ratio 0.919
+
+Target Maintenance - Gordon Court Pricing REV 2.xlsx   [NOT MARKED DO NOT SEND]
+   client Target Maintenance | 1 rows | supplier not stated
+   [FOOT_LINE]        411.17   row 9  1800 x 2100: 3381.62 x 1 = 3381.62, document says 3792.79
+
+Zelltec - Wisley Golf Club Pricing - Copy.xlsx   [NOT MARKED DO NOT SEND]
+   client Zelltec Construction | 12 rows | supplier BSW
+   [SUPPLIER ]     16,866.55   frames total 48201.95 against 'BSW' buy 31335.40, ratio 1.538
+   [SUP_DUP  ]     31,335.40   'BSW' cost 31335.40 is the SAME FIGURE TO THE PENNY as in DO NOT SEND - ASHE - CDC - Pricing Document.xlsx, a different job - one of them is a cell left behind by a save-as, and neither document's frames reconcile to it
+
+==============================================================================
+31 finding(s) shown across 65 document(s)
+  FOOT_LINE    1 finding(s) in  1 document(s)
+  FOOT_DOC     0 finding(s) in  0 document(s)
+  DISCOUNT     0 finding(s) in  0 document(s)
+  BUILDUP     13 finding(s) in  2 document(s)
+  SUPPLIER    15 finding(s) in 15 document(s)
+  SUP_DUP      2 finding(s) in  2 document(s)

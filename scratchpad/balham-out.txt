@@ -1,0 +1,338 @@
+﻿
+== search "re-genuk" : 63 ==
+2026-03-12T12:19:42Z | adam@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-25T09:17:40Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T17:44:26Z | Danny@re-genuk.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T14:42:43Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T13:42:46Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T07:34:52Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-21T15:26:15Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=True | FW: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-01-29T16:23:34Z | jayk@fensterglazing.com -> adam@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | RE: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:21:44Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:20:47Z | adam@fensterglazing.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:20:09Z | estimating@fensterglazing.com -> jayk@fensterglazing.com,adam@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:17:43Z | jayk@fensterglazing.com -> adam@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | RE: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:59:51Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:48:42Z | estimating@fensterglazing.com -> adam@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:45:49Z | adam@fensterglazing.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:24:36Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,adam@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=True | URGENT ATTENTION: Re-Gen - Balham Hill
+2025-09-30T08:51:20Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen UK - 59 Cordwell Road - Fenster Glazing
+2025-09-30T08:50:27Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen UK - 59 Cordwell Road - Fenster Glazing
+2025-09-30T07:56:05Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | FW: Re-Gen UK - 59 Cordwell Road - Fenster Glazing
+2025-08-08T10:12:45Z | adam@fensterglazing.com -> jayk@fensterglazing.com | cc estimating@fensterglazing.com | att=False | Re: Re-Gen - Barham Park - Fenster Glazing
+2025-08-06T10:14:57Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=False | RE: Re-Gen - Barham Park - Fenster Glazing
+2025-07-30T10:40:17Z | Kyan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | RE: Re-Gen UK - London Road
+2025-07-30T09:38:14Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re: Re-Gen UK - London Road
+2025-07-30T09:18:07Z | Kyan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | RE: Re-Gen UK - London Road
+2025-07-29T12:37:41Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen UK - London Road
+2025-07-28T14:27:42Z | estimating@fensterglazing.com -> paul@fensterglazing.com | cc  | att=True | Fw: Re-Gen (UK) - London Road uPVC - Fenster Glazing
+2025-07-28T12:32:56Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=True | Re-Gen (UK) - London Road uPVC - Fenster Glazing
+2025-07-24T12:52:51Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-24T12:11:01Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc adam@fensterglazing.com | att=False | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-24T12:06:54Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=False | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:39:54Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:26:27Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=True | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:22:19Z | liam.ryan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:18:46Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T13:47:19Z | liam.ryan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-17T10:44:06Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen - Barnham Park - Fenster Glazing
+2025-07-14T12:14:20Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=True | Re-Gen (UK) - Barham Park uPVC - Fenster Opportunity
+2025-06-17T12:05:58Z | jayk@fensterglazing.com -> Kyan@re-genuk.com,estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-06-17T10:46:39Z | Kyan@re-genuk.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-06-17T09:20:27Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,Kyan@re-genuk.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-23T07:25:38Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-22T16:09:26Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-21T14:47:52Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:47:11Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:39:30Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:25:29Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:17:35Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:14:34Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-15T09:43:18Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-15T09:41:02Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=True | Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2024-07-15T11:32:25Z | estimating@fensterglazing.com -> Jodie@re-genuk.com | cc  | att=True | New Glazing Subcontractor
+2023-09-29T07:57:02Z | estimating@fensterglazing.com -> Louie@re-genuk.com | cc adam@fensterglazing.com | att=False | RE: Follow up Enquiry
+2023-09-28T17:33:17Z | Louie@re-genuk.com -> estimating@fensterglazing.com | cc  | att=False | RE: Follow up Enquiry
+2023-09-20T10:26:44Z | estimating@fensterglazing.com -> Louie@re-genuk.com | cc  | att=True | RE: Follow up Enquiry
+2023-09-20T10:17:43Z | Louie@re-genuk.com -> estimating@fensterglazing.com | cc shorders@re-genuk.com | att=False | RE: Follow up Enquiry
+2023-09-18T10:50:35Z | estimating@fensterglazing.com -> shorders@re-genuk.com | cc  | att=True | FW: Follow up Enquiry
+2023-09-18T10:49:58Z | Jodie@re-genuk.com -> estimating@fensterglazing.com | cc  | att=False | Automatic reply: Follow up Enquiry
+2023-09-18T10:49:35Z | estimating@fensterglazing.com -> Jodie@re-genuk.com | cc  | att=True | Follow up Enquiry
+2023-07-24T11:49:40Z | estimating@fensterglazing.com -> Jodie@re-genuk.com | cc shorders@re-genuk.com,adam@fensterglazing.com | att=False | RE: New Glazing Sub-Contractor
+2023-07-24T11:41:10Z | Jodie@re-genuk.com -> estimating@fensterglazing.com | cc shorders@re-genuk.com,adam@fensterglazing.com | att=False | RE: New Glazing Sub-Contractor
+2023-07-24T11:27:04Z | estimating@fensterglazing.com -> Jodie@re-genuk.com | cc shorders@re-genuk.com,adam@fensterglazing.com | att=True | RE: New Glazing Sub-Contractor
+2023-07-24T11:15:16Z | Jodie@re-genuk.com -> estimating@fensterglazing.com | cc shorders@re-genuk.com,adam@fensterglazing.com | att=False | RE: New Glazing Sub-Contractor
+2023-07-24T11:03:19Z | estimating@fensterglazing.com -> sales@re-genuk.com | cc adam@fensterglazing.com | att=True | New Glazing Sub-Contractor
+
+== search "re-genuk.com" : 63 ==
+2026-03-12T12:19:42Z | adam@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-25T09:17:40Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T17:44:26Z | Danny@re-genuk.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T14:42:43Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T13:42:46Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T07:34:52Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-21T15:26:15Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=True | FW: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-01-29T16:23:34Z | jayk@fensterglazing.com -> adam@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | RE: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:21:44Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:20:47Z | adam@fensterglazing.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:20:09Z | estimating@fensterglazing.com -> jayk@fensterglazing.com,adam@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:17:43Z | jayk@fensterglazing.com -> adam@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | RE: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:59:51Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:48:42Z | estimating@fensterglazing.com -> adam@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:45:49Z | adam@fensterglazing.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:24:36Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,adam@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=True | URGENT ATTENTION: Re-Gen - Balham Hill
+2025-09-30T08:51:20Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen UK - 59 Cordwell Road - Fenster Glazing
+2025-09-30T08:50:27Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen UK - 59 Cordwell Road - Fenster Glazing
+2025-09-30T07:56:05Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | FW: Re-Gen UK - 59 Cordwell Road - Fenster Glazing
+2025-08-08T10:12:45Z | adam@fensterglazing.com -> jayk@fensterglazing.com | cc estimating@fensterglazing.com | att=False | Re: Re-Gen - Barham Park - Fenster Glazing
+2025-08-06T10:14:57Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=False | RE: Re-Gen - Barham Park - Fenster Glazing
+2025-07-30T10:40:17Z | Kyan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | RE: Re-Gen UK - London Road
+2025-07-30T09:38:14Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re: Re-Gen UK - London Road
+2025-07-30T09:18:07Z | Kyan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | RE: Re-Gen UK - London Road
+2025-07-29T12:37:41Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen UK - London Road
+2025-07-28T14:27:42Z | estimating@fensterglazing.com -> paul@fensterglazing.com | cc  | att=True | Fw: Re-Gen (UK) - London Road uPVC - Fenster Glazing
+2025-07-28T12:32:56Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=True | Re-Gen (UK) - London Road uPVC - Fenster Glazing
+2025-07-24T12:52:51Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-24T12:11:01Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc adam@fensterglazing.com | att=False | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-24T12:06:54Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=False | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:39:54Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:26:27Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=True | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:22:19Z | liam.ryan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:18:46Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T13:47:19Z | liam.ryan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-17T10:44:06Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen - Barnham Park - Fenster Glazing
+2025-07-14T12:14:20Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=True | Re-Gen (UK) - Barham Park uPVC - Fenster Opportunity
+2025-06-17T12:05:58Z | jayk@fensterglazing.com -> Kyan@re-genuk.com,estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-06-17T10:46:39Z | Kyan@re-genuk.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-06-17T09:20:27Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,Kyan@re-genuk.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-23T07:25:38Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-22T16:09:26Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-21T14:47:52Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:47:11Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:39:30Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:25:29Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:17:35Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:14:34Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-15T09:43:18Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-15T09:41:02Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=True | Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2024-07-15T11:32:25Z | estimating@fensterglazing.com -> Jodie@re-genuk.com | cc  | att=True | New Glazing Subcontractor
+2023-09-29T07:57:02Z | estimating@fensterglazing.com -> Louie@re-genuk.com | cc adam@fensterglazing.com | att=False | RE: Follow up Enquiry
+2023-09-28T17:33:17Z | Louie@re-genuk.com -> estimating@fensterglazing.com | cc  | att=False | RE: Follow up Enquiry
+2023-09-20T10:26:44Z | estimating@fensterglazing.com -> Louie@re-genuk.com | cc  | att=True | RE: Follow up Enquiry
+2023-09-20T10:17:43Z | Louie@re-genuk.com -> estimating@fensterglazing.com | cc shorders@re-genuk.com | att=False | RE: Follow up Enquiry
+2023-09-18T10:50:35Z | estimating@fensterglazing.com -> shorders@re-genuk.com | cc  | att=True | FW: Follow up Enquiry
+2023-09-18T10:49:58Z | Jodie@re-genuk.com -> estimating@fensterglazing.com | cc  | att=False | Automatic reply: Follow up Enquiry
+2023-09-18T10:49:35Z | estimating@fensterglazing.com -> Jodie@re-genuk.com | cc  | att=True | Follow up Enquiry
+2023-07-24T11:49:40Z | estimating@fensterglazing.com -> Jodie@re-genuk.com | cc shorders@re-genuk.com,adam@fensterglazing.com | att=False | RE: New Glazing Sub-Contractor
+2023-07-24T11:41:10Z | Jodie@re-genuk.com -> estimating@fensterglazing.com | cc shorders@re-genuk.com,adam@fensterglazing.com | att=False | RE: New Glazing Sub-Contractor
+2023-07-24T11:27:04Z | estimating@fensterglazing.com -> Jodie@re-genuk.com | cc shorders@re-genuk.com,adam@fensterglazing.com | att=True | RE: New Glazing Sub-Contractor
+2023-07-24T11:15:16Z | Jodie@re-genuk.com -> estimating@fensterglazing.com | cc shorders@re-genuk.com,adam@fensterglazing.com | att=False | RE: New Glazing Sub-Contractor
+2023-07-24T11:03:19Z | estimating@fensterglazing.com -> sales@re-genuk.com | cc adam@fensterglazing.com | att=True | New Glazing Sub-Contractor
+
+== search "Balham" : 100 ==
+2026-06-26T14:30:13Z | estimating@fensterglazing.com -> adam@fensterglazing.com | cc steven@fensterglazing.com,paul@fensterglazing.com | att=True | Re: Estimating Handover 
+2026-03-12T12:19:42Z | adam@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-25T09:17:40Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-25T09:10:06Z | jayk@fensterglazing.com -> daniel.charlesworth@aplusaluminium.co.uk,estimating@fensterglazing.com | cc adam@fensterglazing.com | att=True | Data Sheet Request
+2026-02-24T17:44:26Z | Danny@re-genuk.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T15:30:00Z | estimating@fensterglazing.com -> ashley.walton@titantradewindows.co.uk | cc jayk@fensterglazing.com | att=False | RE: Q092044 - RE: Fenster Glazing  - Balham
+2026-02-24T14:42:43Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T14:24:01Z | ashley.walton@titantradewindows.co.uk -> estimating@fensterglazing.com | cc jayk@fensterglazing.com | att=True | RE: Q092044 - RE: Fenster Glazing  - Balham
+2026-02-24T14:24:01Z | ashley.walton@titantradewindows.co.uk -> estimating@fensterglazing.com | cc jayk@fensterglazing.com | att=True | RE: Q092044 - RE: Fenster Glazing  - Balham
+2026-02-24T14:06:24Z | estimating@fensterglazing.com -> ashley.walton@titantradewindows.co.uk | cc jayk@fensterglazing.com | att=False | Re: Q092044 - RE: Fenster Glazing  - Balham
+2026-02-24T14:05:27Z | estimating@fensterglazing.com -> jayk@fensterglazing.com,adam@fensterglazing.com | cc  | att=False | Re: URGENT Re-Gen - Balham Hill
+2026-02-24T13:57:53Z | jayk@fensterglazing.com -> adam@fensterglazing.com,estimating@fensterglazing.com | cc  | att=False | URGENT Re-Gen - Balham Hill
+2026-02-24T13:42:46Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T13:21:39Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: QUOTE TO CHECK Re: Fenster Glazing  - Balham
+2026-02-24T12:14:59Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc  | att=False | Re: QUOTE TO CHECK Re: Fenster Glazing  - Balham
+2026-02-24T07:34:52Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-23T09:39:22Z | asims@aplusaluminium.co.uk -> estimating@fensterglazing.com | cc  | att=True | QP65670 - Balham
+2026-02-21T15:26:15Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=True | FW: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-10T16:36:32Z | estimating@fensterglazing.com -> adam@fensterglazing.com | cc jayk@fensterglazing.com | att=True | Gee Handover
+2026-02-10T11:33:15Z | estimating@fensterglazing.com -> adam@fensterglazing.com | cc jayk@fensterglazing.com | att=True | QUOTE TO CHECK Re: Fenster Glazing  - Balham
+2026-02-10T11:12:26Z | sales@roegreen.com -> estimating@fensterglazing.com | cc  | att=True | Re: Fenster Glazing - Balham
+2026-02-10T10:26:43Z | estimating@fensterglazing.com -> Jamie@4ali.co.uk | cc  | att=False | Re: Fenster glazing - Balham
+2026-02-10T10:25:30Z | Jamie@4ali.co.uk -> estimating@fensterglazing.com | cc  | att=False | RE: Fenster glazing - Balham
+2026-02-10T08:33:48Z | ashley.walton@titantradewindows.co.uk -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc  | att=True | Q092044 - RE: Fenster Glazing  - Balham
+2026-02-09T16:31:43Z | estimating@fensterglazing.com -> estimating@aplusaluminium.co.uk | cc  | att=True | Fenster Glazing - Balham
+2026-02-09T16:29:51Z | estimating@fensterglazing.com -> Jamie@4ali.co.uk | cc  | att=True | Fenster glazing - Balham
+2026-02-09T16:27:15Z | estimating@fensterglazing.com -> ashley.walton@titantradewindows.co.uk,jayk@fensterglazing.com | cc  | att=True | Re: Fenster Glazing  - Balham
+2026-02-06T14:49:42Z | sales@roegreen.com -> estimating@fensterglazing.com | cc  | att=True | Re: Fenster Glazing - Balham
+2026-02-06T10:50:35Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc  | att=True | Re: Fenster Glazing  - Balham
+2026-02-05T15:46:06Z | estimating@fensterglazing.com -> sales@roegreen.com | cc  | att=True | Re: Fenster Glazing - Balham
+2026-02-05T14:43:36Z | sales@roegreen.com -> estimating@fensterglazing.com | cc  | att=False | Re: Fenster Glazing - Balham
+2026-02-04T07:01:36Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=True | Outstanding quote checks
+2026-02-03T10:57:35Z | estimating@fensterglazing.com -> sales@roegreen.com | cc  | att=False | Re: Fenster Glazing - Balham
+2026-02-03T10:51:23Z | sales@roegreen.com -> estimating@fensterglazing.com | cc  | att=False | Re: Fenster Glazing - Balham
+2026-02-02T16:30:05Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc adam@fensterglazing.com | att=True | Re: Fenster Glazing  - Balham
+2026-02-02T16:10:09Z | DanielStutz@vetroseal.co.uk -> info@fensterglazing.com,estimating@fensterglazing.com,Commercial@fensterglazing.com | cc  | att=True | Vetroseal Ltd Quote: 060809 (BALHAM-HILL)
+2026-02-02T16:01:00Z | estimating@fensterglazing.com -> DanielStutz@vetroseal.co.uk | cc  | att=True | Fenster Glazing - Balham Hill 
+2026-01-31T13:46:44Z | sales@roegreen.com -> estimating@fensterglazing.com | cc  | att=False | Re: Fenster Glazing - Balham
+2026-01-30T14:35:26Z | ashley.walton@titantradewindows.co.uk -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc  | att=True | RE: Fenster Glazing  - Balham
+2026-01-30T14:11:17Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,ashley.walton@titantradewindows.co.uk | cc  | att=False | RE: Fenster Glazing  - Balham
+2026-01-30T13:36:14Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Fw: Fenster Glazing  - Balham
+2026-01-30T13:26:43Z | ashley.walton@titantradewindows.co.uk -> estimating@fensterglazing.com | cc  | att=False | RE: Fenster Glazing  - Balham
+2026-01-30T12:08:08Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc adam@fensterglazing.com | att=False | Re: Fenster Glazing  - Balham
+2026-01-30T12:07:16Z | estimating@fensterglazing.com -> bedfordtradeglass@gmail.com | cc  | att=False | Re: Fenster Glazing  - Balham
+2026-01-30T11:50:50Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=False | RE: Fenster Glazing  - Balham
+2026-01-30T10:40:34Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc adam@fensterglazing.com | att=False | Fw: Fenster Glazing  - Balham
+2026-01-30T10:23:05Z | bedfordtradeglass@gmail.com -> estimating@fensterglazing.com | cc  | att=False | Re: Fenster Glazing  - Balham
+2026-01-30T10:11:44Z | estimating@fensterglazing.com -> bedfordtradeglass@gmail.com | cc  | att=False | Re: Fenster Glazing  - Balham
+2026-01-30T08:44:03Z | bedfordtradeglass@gmail.com -> estimating@fensterglazing.com | cc  | att=False | Re: Fenster Glazing  - Balham
+2026-01-29T16:23:34Z | jayk@fensterglazing.com -> adam@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | RE: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:21:44Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:21:27Z | estimating@fensterglazing.com ->  | cc  | att=True | Fenster Glazing  - Balham
+2026-01-29T16:20:47Z | adam@fensterglazing.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:20:09Z | estimating@fensterglazing.com -> jayk@fensterglazing.com,adam@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:17:43Z | jayk@fensterglazing.com -> adam@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | RE: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:59:51Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:48:42Z | estimating@fensterglazing.com -> adam@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:45:49Z | adam@fensterglazing.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:24:36Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,adam@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=True | URGENT ATTENTION: Re-Gen - Balham Hill
+2025-12-08T10:58:53Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,guy@4ali.co.uk,adam@4ali.co.uk,Jamie@4ali.co.uk | cc  | att=True | RE: Feedback - 4Alu
+2025-12-01T10:13:37Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=True | Fw: Feedback - 4Alu
+2025-11-28T11:56:08Z | guy@4ali.co.uk -> estimating@fensterglazing.com | cc adam@4ali.co.uk,Jamie@4ali.co.uk | att=True | Feedback
+2025-09-12T13:11:05Z | jayk@fensterglazing.com -> jpalethorpe@stillwatergroup.co.uk,estimating@fensterglazing.com | cc daniel.charlesworth@aplusaluminium.co.uk,Dominic.Palethorpe@aplusaluminium.co.uk,estimating@fensterglazing.com | att=True | RE: Feedback - APlus Aluminium
+2025-09-09T11:02:53Z | jpalethorpe@stillwatergroup.co.uk -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc daniel.charlesworth@aplusaluminium.co.uk,Dominic.Palethorpe@aplusaluminium.co.uk | att=True | RE: Feedback - APlus Aluminium
+2025-08-18T10:17:09Z | jayk@fensterglazing.com -> adam@fensterglazing.com,nick@fensterglazing.com,estimating@fensterglazing.com,paul@fensterglazing.com | cc  | att=True | RE: Pricing, Bidding, Winning
+2025-08-12T08:54:45Z | jayk@fensterglazing.com -> daniel.charlesworth@aplusaluminium.co.uk,estimating@fensterglazing.com | cc adam@fensterglazing.com | att=False | RE: Quote Catch Up
+2025-08-04T14:11:04Z | daniel.charlesworth@aplusaluminium.co.uk -> adam@fensterglazing.com,jayk@fensterglazing.com,estimating@fensterglazing.com | cc  | att=False | Re: Quote Catch Up
+2025-08-04T14:01:48Z | adam@fensterglazing.com -> daniel.charlesworth@aplusaluminium.co.uk,jayk@fensterglazing.com,estimating@fensterglazing.com | cc  | att=False | Re: Quote Catch Up
+2025-06-17T14:07:26Z | daniel.charlesworth@aplusaluminium.co.uk -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc adam@fensterglazing.com | att=False | RE: Quote Catch Up
+2025-06-17T14:03:30Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,daniel.charlesworth@aplusaluminium.co.uk | cc  | att=False | RE: Quote Catch Up
+2025-06-17T14:02:43Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | Hickford - Singleborough
+2025-06-17T13:49:45Z | estimating@fensterglazing.com -> jayk@fensterglazing.com,daniel.charlesworth@aplusaluminium.co.uk,adam@fensterglazing.com | cc  | att=False | Re: Quote Catch Up
+2025-06-17T13:39:42Z | jayk@fensterglazing.com -> daniel.charlesworth@aplusaluminium.co.uk,estimating@fensterglazing.com,adam@fensterglazing.com | cc  | att=False | RE: Quote Catch Up
+2025-06-17T12:05:58Z | jayk@fensterglazing.com -> Kyan@re-genuk.com,estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-06-17T10:46:39Z | Kyan@re-genuk.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-06-17T09:51:06Z | daniel.charlesworth@aplusaluminium.co.uk -> jayk@fensterglazing.com,estimating@fensterglazing.com,adam@fensterglazing.com | cc  | att=True | RE: Quote Catch Up
+2025-06-17T09:30:46Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,daniel.charlesworth@aplusaluminium.co.uk,adam@fensterglazing.com | cc  | att=False | RE: Quote Catch Up
+2025-06-17T09:20:27Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,Kyan@re-genuk.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-06-17T08:16:53Z | estimating@fensterglazing.com -> daniel.charlesworth@aplusaluminium.co.uk,adam@fensterglazing.com | cc jayk@fensterglazing.com | att=False | Re: Quote Catch Up
+2025-06-17T07:54:46Z | daniel.charlesworth@aplusaluminium.co.uk -> adam@fensterglazing.com,estimating@fensterglazing.com | cc  | att=False | Quote Catch Up
+2025-06-10T14:14:46Z | estimating@fensterglazing.com -> Estimations@bsws.co.uk,tb@bsws.co.uk | cc  | att=False | Re: ReGen UK - Balham Hill - BSW QT230079
+2025-06-10T14:08:25Z | Estimations@bsws.co.uk -> estimating@fensterglazing.com,tb@bsws.co.uk | cc  | att=True | RE: ReGen UK - Balham Hill - BSW QT230079
+2025-06-02T09:43:36Z | Jamie@4ali.co.uk -> estimating@fensterglazing.com | cc  | att=True | Q7714 - Balham Hill
+2025-05-30T14:10:38Z | estimating@aplusaluminium.co.uk -> estimating@fensterglazing.com | cc  | att=True | QP65299 - Balham Hill
+2025-05-23T07:44:41Z | sales@cityshopfronts.co.uk -> estimating@fensterglazing.com | cc  | att=True | RE: Re-Gen (UK) - Balham Hill - CityAli
+2025-05-23T07:25:38Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-22T16:09:26Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-22T16:02:08Z | estimating@fensterglazing.com -> estimating@aplusaluminium.co.uk | cc  | att=True | Re-Gen (UK) - Balham Hill - APlus
+2025-05-22T16:00:26Z | estimating@fensterglazing.com -> Jamie@4ali.co.uk | cc  | att=True | Re-Gen (UK) - Balham Hill - 4Ali
+2025-05-22T15:58:16Z | estimating@fensterglazing.com -> sales@cityshopfronts.co.uk | cc  | att=False | Re: Re-Gen (UK) - Balham Hill - CityAli
+2025-05-22T15:46:07Z | adam@fensterglazing.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com | att=False | Re: QUOTE CHECK: Re-Gen UK - Balham Hill
+2025-05-22T15:29:50Z | estimating@fensterglazing.com -> adam@fensterglazing.com | cc jayk@fensterglazing.com | att=True | QUOTE CHECK: Re-Gen UK - Balham Hill
+2025-05-22T15:23:19Z | estimating@fensterglazing.com -> sales@cityshopfronts.co.uk | cc  | att=False | Re: Re-Gen (UK) - Balham Hill - CityAli
+2025-05-22T15:04:17Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Due back today (if possible)
+2025-05-22T15:03:00Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Due back today (if possible)
+2025-05-22T15:02:25Z | sales@cityshopfronts.co.uk -> estimating@fensterglazing.com | cc  | att=True | RE: Re-Gen (UK) - Balham Hill - CityAli
+2025-05-22T14:55:40Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Due back today (if possible)
+2025-05-22T14:01:07Z | sales@cityshopfronts.co.uk -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill - CityAli
+2025-05-22T13:30:53Z | estimating@fensterglazing.com -> sales@cityshopfronts.co.uk | cc  | att=False | Re: Re-Gen (UK) - Balham Hill - CityAli
+2025-05-22T11:39:18Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Due back today (if possible)
+
+== search "Kyan" : 32 ==
+2026-03-12T12:19:42Z | adam@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-25T09:17:40Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T17:44:26Z | Danny@re-genuk.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T14:42:43Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T13:42:46Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T07:34:52Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-21T15:26:15Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=True | FW: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-09-30T08:51:20Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen UK - 59 Cordwell Road - Fenster Glazing
+2025-09-30T08:50:27Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen UK - 59 Cordwell Road - Fenster Glazing
+2025-09-30T07:56:05Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | FW: Re-Gen UK - 59 Cordwell Road - Fenster Glazing
+2025-07-30T10:40:17Z | Kyan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | RE: Re-Gen UK - London Road
+2025-07-30T09:38:14Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re: Re-Gen UK - London Road
+2025-07-30T09:18:07Z | Kyan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | RE: Re-Gen UK - London Road
+2025-07-29T12:37:41Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen UK - London Road
+2025-07-28T14:27:42Z | estimating@fensterglazing.com -> paul@fensterglazing.com | cc  | att=True | Fw: Re-Gen (UK) - London Road uPVC - Fenster Glazing
+2025-07-28T12:32:56Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=True | Re-Gen (UK) - London Road uPVC - Fenster Glazing
+2025-06-17T12:05:58Z | jayk@fensterglazing.com -> Kyan@re-genuk.com,estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-06-17T10:46:39Z | Kyan@re-genuk.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-06-17T09:20:27Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,Kyan@re-genuk.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-23T07:25:38Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-22T16:09:26Z | estimating@fensterglazing.com -> Kyan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2025-05-22T15:04:17Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Due back today (if possible)
+2025-05-22T15:03:00Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Due back today (if possible)
+2025-05-22T14:55:40Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Due back today (if possible)
+2025-05-21T14:47:52Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:47:11Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:39:30Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:25:29Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:17:35Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-21T14:14:34Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-15T09:43:18Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc  | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+2025-05-15T09:41:02Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=True | Re-Gen (UK) - Balham Hill Windows - Fenster Opportunity
+
+== search "Liam Ryan" : 28 ==
+2026-03-12T12:19:42Z | adam@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com | att=False | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-25T09:17:40Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T17:44:26Z | Danny@re-genuk.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | Re: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T14:42:43Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T13:42:46Z | jayk@fensterglazing.com -> Danny@re-genuk.com,estimating@fensterglazing.com | cc liam.ryan@re-genuk.com,adam@fensterglazing.com | att=True | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-24T07:34:52Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=False | RE: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-02-21T15:26:15Z | jayk@fensterglazing.com -> adam@fensterglazing.com | cc estimating@fensterglazing.com | att=True | FW: Re-Gen (UK) - Balham Hill Windows - Fenster Glazing
+2026-01-29T16:23:34Z | jayk@fensterglazing.com -> adam@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | RE: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:21:44Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:20:47Z | adam@fensterglazing.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:20:09Z | estimating@fensterglazing.com -> jayk@fensterglazing.com,adam@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T16:17:43Z | jayk@fensterglazing.com -> adam@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | RE: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:59:51Z | adam@fensterglazing.com -> estimating@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:48:42Z | estimating@fensterglazing.com -> adam@fensterglazing.com,jayk@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:45:49Z | adam@fensterglazing.com -> jayk@fensterglazing.com,estimating@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=False | Re: URGENT ATTENTION: Re-Gen - Balham Hill
+2026-01-29T15:24:36Z | jayk@fensterglazing.com -> estimating@fensterglazing.com,adam@fensterglazing.com | cc nick@fensterglazing.com,Commercial@fensterglazing.com | att=True | URGENT ATTENTION: Re-Gen - Balham Hill
+2025-08-08T10:12:45Z | adam@fensterglazing.com -> jayk@fensterglazing.com | cc estimating@fensterglazing.com | att=False | Re: Re-Gen - Barham Park - Fenster Glazing
+2025-08-06T10:14:57Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=False | RE: Re-Gen - Barham Park - Fenster Glazing
+2025-07-24T12:52:51Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-24T12:11:01Z | estimating@fensterglazing.com -> jayk@fensterglazing.com | cc adam@fensterglazing.com | att=False | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-24T12:06:54Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=False | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:39:54Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:26:27Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc adam@fensterglazing.com | att=True | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:22:19Z | liam.ryan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T14:18:46Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=False | Re: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-18T13:47:19Z | liam.ryan@re-genuk.com -> estimating@fensterglazing.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | RE: Re-Gen - Barnham Park - Fenster Glazing
+2025-07-17T10:44:06Z | estimating@fensterglazing.com -> liam.ryan@re-genuk.com | cc jayk@fensterglazing.com,adam@fensterglazing.com | att=True | Re-Gen - Barnham Park - Fenster Glazing
+2025-07-14T12:14:20Z | jayk@fensterglazing.com -> estimating@fensterglazing.com | cc  | att=True | Re-Gen (UK) - Barham Park uPVC - Fenster Opportunity
+python : Traceback (most recent call last):
+At line:1 char:302
++ ... tch {} } }; python scratchpad\balham_search.py > scratchpad\balham-ou ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\scratchpad\balham_search.py", line 38, in <module>
+    st, res = g.graph(tok, "GET", path)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\scratchpad\..\scripts\mary_graph.py", line 67, in graph
+    with urllib.request.urlopen(req, timeout=120) as r:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 215, in urlopen
+    return opener.open(url, data, timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 515, in open
+    response = self._open(req, data)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 532, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 492, in _call_chain
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1392, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\urllib\request.py", line 1344, in do_open
+    h.request(req.get_method(), req.selector, req.data, headers,
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1338, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1349, in _send_request
+    self.putrequest(method, url, **skips)
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1183, in putrequest
+    self._validate_path(url)
+  File "C:\Users\zacpl\AppData\Local\Programs\Python\Python312\Lib\http\client.py", line 1283, in _validate_path
+    raise InvalidURL(f"URL can't contain control characters. {url!r} "
+http.client.InvalidURL: URL can't contain control characters. '/v1.0/users/estimating@fensterglazing.com/messages?$filt
+er=receivedDateTime%20ge%202026-01-25T00%3A00%3A00Z%20and%20receivedDateTime%20lt%202026-04-15T00%3A00%3A00Z&$top=999&$
+select=id,subject,from,toRecipients,ccRecipients,receivedDateTime,hasAttachments,bodyPreview&$orderby=receivedDateTime 
+desc' (found at least ' ')

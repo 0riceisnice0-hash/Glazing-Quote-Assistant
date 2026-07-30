@@ -21,3 +21,7 @@
 {"at": "2026-07-29T23:20:45", "chat": "triage", "seconds": 398, "delta_bytes": 249683, "est_tokens": 62420, "size_after_mb": 1.11}
 {"at": "2026-07-29T23:30:29", "chat": "triage", "seconds": 308, "delta_bytes": 172850, "est_tokens": 43212, "size_after_mb": 1.28}
 {"at": "2026-07-30T00:43:41", "chat": "triage", "seconds": 686, "delta_bytes": 319493, "est_tokens": 79873, "size_after_mb": 1.58}
+{"at": "2026-07-30T00:50:02", "chat": "st-marys", "seconds": 375, "delta_bytes": 213306, "est_tokens": 53326, "size_after_mb": 0.99}
+{"at": "2026-07-30T07:10:47", "chat": "triage", "seconds": 622, "delta_bytes": 348411, "est_tokens": 87102, "size_after_mb": 1.91}
+{"at": "2026-07-30T07:25:47", "chat": "triage", "seconds": 573, "delta_bytes": 741588, "est_tokens": 185397, "size_after_mb": 0.71}
+{"at": "2026-07-30T07:43:47", "chat": "triage", "seconds": 920, "delta_bytes": 1141458, "est_tokens": 285364, "size_after_mb": 1.8}

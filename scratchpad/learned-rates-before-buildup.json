@@ -1,0 +1,145 @@
+{
+ "note": "Empirical GBP/m2 from the Frames column of quotes Fenster actually sent - what we really charge, not a median of supplier quotes. supplier_factors are derived, and supersede the hand-written constants in mary_pricing.CALIBRATION.",
+ "source_docs": 29,
+ "rates": {
+  "DAD|2-5m2": {
+   "median_per_m2": 600.38,
+   "n": 55,
+   "low": 323.06,
+   "high": 1641.53
+  },
+  "DAD|>5m2": {
+   "median_per_m2": 366.29,
+   "n": 28,
+   "low": 135.63,
+   "high": 669.67
+  },
+  "ELAW|2-5m2": {
+   "median_per_m2": 275.35,
+   "n": 15,
+   "low": 230.27,
+   "high": 406.3
+  },
+  "ELAW|>5m2": {
+   "median_per_m2": 342.99,
+   "n": 18,
+   "low": 239.55,
+   "high": 538.67
+  },
+  "LAW|2-5m2": {
+   "median_per_m2": 417.86,
+   "n": 63,
+   "low": 212.09,
+   "high": 577.87
+  },
+  "LAW|<2m2": {
+   "median_per_m2": 950.48,
+   "n": 5,
+   "low": 260.12,
+   "high": 975.82
+  },
+  "LPVC|2-5m2": {
+   "median_per_m2": 196.68,
+   "n": 32,
+   "low": 61.42,
+   "high": 406.08
+  },
+  "MAW|2-5m2": {
+   "median_per_m2": 308.99,
+   "n": 10,
+   "low": 232.04,
+   "high": 347.74
+  },
+  "MAW|<2m2": {
+   "median_per_m2": 396.92,
+   "n": 67,
+   "low": 218.9,
+   "high": 1926.17
+  },
+  "MPVC|2-5m2": {
+   "median_per_m2": 196.8,
+   "n": 4,
+   "low": 183.85,
+   "high": 253.8
+  },
+  "MPVC|<2m2": {
+   "median_per_m2": 204.84,
+   "n": 34,
+   "low": 69.83,
+   "high": 332.05
+  },
+  "SAD|2-5m2": {
+   "median_per_m2": 387.97,
+   "n": 39,
+   "low": 280.65,
+   "high": 1360.08
+  },
+  "SAD|<2m2": {
+   "median_per_m2": 555.67,
+   "n": 30,
+   "low": 218.9,
+   "high": 1474.51
+  },
+  "SAD|>5m2": {
+   "median_per_m2": 341.97,
+   "n": 19,
+   "low": 224.62,
+   "high": 412.6
+  },
+  "SAW|<2m2": {
+   "median_per_m2": 498.05,
+   "n": 50,
+   "low": 226.68,
+   "high": 842.01
+  },
+  "SPVC|<2m2": {
+   "median_per_m2": 253.33,
+   "n": 18,
+   "low": 166.19,
+   "high": 316.75
+  },
+  "SUPD|2-5m2": {
+   "median_per_m2": 235.42,
+   "n": 8,
+   "low": 218.24,
+   "high": 265.65
+  },
+  "SUPD|<2m2": {
+   "median_per_m2": 214.37,
+   "n": 4,
+   "low": 214.37,
+   "high": 214.37
+  }
+ },
+ "supplier_factors": {
+  "4ali": {
+   "factor": 0.992,
+   "applied": true,
+   "n": 82,
+   "why": "median of 82 priced lines against the all-supplier rate for the same code and size band",
+   "source": "derived from sent pricing documents"
+  },
+  "aplus": {
+   "factor": 1.0,
+   "applied": true,
+   "n": 84,
+   "why": "median of 84 priced lines against the all-supplier rate for the same code and size band",
+   "source": "derived from sent pricing documents"
+  },
+  "bsw": {
+   "factor": 1.034,
+   "applied": true,
+   "n": 297,
+   "why": "median of 297 priced lines against the all-supplier rate for the same code and size band",
+   "source": "derived from sent pricing documents"
+  },
+  "truframe": {
+   "factor": 0.485,
+   "applied": false,
+   "n": 26,
+   "why": "median of 26 priced lines against the all-supplier rate for the same code and size band",
+   "source": "derived from sent pricing documents",
+   "held_back": "outside the plausible 0.65-1.55 band - looks like a mis-parse or a job priced on a different basis, so it is recorded but NOT applied"
+  }
+ }
+}

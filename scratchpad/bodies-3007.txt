@@ -1,0 +1,379 @@
+
+
+====================================================================================================
+ADAM-ERRORLOG-2901 | 2026-07-29T00:11:09Z | Estimating Error Log
+====================================================================================================
+Hi Mary, 
+
+ I need you to do something for me. I don’t want this to appear on any communication logs or on the dashboard. This is just an email between me and you, and not to show or be recorded anywhere else. 
+
+ I need you to search through the last 6 months of estimating emails, and put together a list of errors made by our estimator. I need to know when she’s been called out for attention to detail, missing spec, not hitting deadlines and anything else that’s been sent to her as an error or lack of attention/negligence. Also, please do due diligence and check for errors on your own, especially that were between her and clients/suppliers that I or any other internal email may not have seen. 
+
+ Remember, this is between me and you and not to be logged anywhere else. Please reply by email. 
+
+ Kind Regards, 
+
+ Adam Butcher | Fenster Glazing I 
+ 01908 429200 | www.fensterglazing.com 
+ 97-98 Alston Drive, Bradwell Abbey, MK13 9HF
+
+====================================================================================================
+ADAM-REDDITCH-1130 | 2026-07-29T10:30:16Z | Re: Redditch Library - pricing document built at GBP 89,218.65, undercuts Joedan by 1.62%, and the strip-out line is an allowance you need to set
+====================================================================================================
+Hi Mary,
+
+ URGENT
+
+ Please can you reassess this since you've recently had a pricing update, to see if any changes. We are keen to submit your costs, as a first test of a Mary only quote.
+
+ We are cautious because Joedan are a manufacturer so may be more competitive. That being said, we've nothing to lose sending out a cheaper quote.
+
+ Gintare is getting this priced from suppliers, but we do not have time to wait given the 6 day lag on this, so that will be used to sense check retroactively. 
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Mary Grace <mary@fensterglazing.com>
+ Sent: 28 July 2026 9:26 PM
+ To: Adam <adam@fensterglazing.com>
+ Subject: Redditch Library - pricing document built at GBP 89,218.65, undercuts Joedan by 1.62%, and the strip-out line is an allowance you need to set 
+
+ Adam,
+ Redditch Library. The pricing document and the proposal are both built and attached. Nothing has
+gone to Pride.
+ THE NUMBER
+ TENDER SUM GBP 89,218.65, gross of 2.5% Main Contractor's Discount, excluding VAT.
+ That undercuts Joedan by GBP 1,468.52, which is 1.62% on the number printed in the pack. Their
+GBP 90,687.17 is also gross of 2.5% MCD, so the two figures are now stated on exactly the same
+basis and can be put side by side. Net to Pride, ours is GBP 86,988.18 against their GBP 88,419.99.
+ MATCHING JOEDAN'S INCLUSIONS IS WHAT MOVED THE PRICE, AND IT IS NOT FREE
+ You asked for the same inclusions and exclusions as Joedan. I have taken their lists verbatim from
+pages 151 to 153 of the pack - 11 inclusions, 25 exclusions - with one deliberate difference, the
+warranty, which I come to below.
+ Four of their inclusions were not in the benchmark I sent you at 19:56, and three of them cost money:
+ Removal of the existing windows and doors. Their clause 12 includes it. So this settles the
+strip-out question by the back door - if we match their inclusions, strip-out is in our price.
+ Perimeter sealing at the time of installation, their clause 15. GBP 1,571.45 at 314.29 linear
+metres. Our house documents have always offered mastic as an OPTIONAL extra, and page 70 clause
+11 of this pack REQUIRES it. That is the Princess Beatrice mistake exactly - offering as an
+option work we are obliged to do, and inviting the QS to strike it. It is now inside the sum and
+I have removed the OPTIONAL block from the face of the document so nobody can strike it.
+ 45mm cellular uPVC cloaking profile to the internal perimeter, their clause 13. NO RATE EXISTS
+for this anywhere in our data. It is carried as included scope with the sealing line and priced
+at nothing. It needs to come back on a supplier quote - roughly 314 linear metres of trim.
+ Trickle vents, their clause 4, which we already had.
+ THE STRIP-OUT LINE IS AN ALLOWANCE AND YOU NEED TO LOOK AT IT
+ GBP 3,000 net. GBP 69.77 per opening, 43 openings, metal frames, occupied library.
+ I want to be plain that this is not a rate. There is no strip-out rate in Fenster's records - I
+searched 362 archive workbooks for one last night and the promising hits turned out to be item
+reference numbers in unpriced schedules. GBP 3,000 is a figure I have put in so that the client's
+own blank on page 70 can be filled and so that we match Joedan's scope. It is the only number in
+the document that is not evidence-backed, and it is yours to move.
+ Here is the trade-off, because the undercut and the strip-out allowance come out of the same pot:
+ strip-out allowance tender sum undercut on Joedan
+GBP 2,000 88,193.02 GBP 2,494.15 (2.75%) GBP 46.51 an opening
+GBP 3,000 (as built) 89,218.65 GBP 1,468.52 (1.62%) GBP 69.77 an opening
+GBP 4,000 90,244.29 GBP 442.88 (0.49%) GBP 93.02 an opening
+GBP 4,432 90,687.17 nil - we match them GBP 103.07 an opening
+ Every pound we add to strip-out is a pound off the undercut. You have taken 43 metal windows out
+of a building and I have not, so the per-opening column is the one to read.
+ WHAT THE PRICE RESTS ON, AND WHY THE RFQ MATTERS TONIGHT
+ The frames are on the BSW Severn Trent curve from last night - their quote to us for Pride's own
+job, 15/06, R-squared 0.9934 - converted to a second-supplier position using the measured factors
+BSW +5.7% against Aplus -1.6%. That conversion is worth GBP 3,936.12 of frame buy, and it is the
+whole reason we can undercut them at all. Priced on BSW's own rates instead, with the sealing line
+in and NO strip-out at all, we come out at GBP 90,178.77 gross - GBP 508 under Joedan with nothing
+whatever left to strip 43 openings. In other words, on the supplier we actually have a quote from,
+we cannot do this.
+ So the undercut currently depends on a supplier we have not asked. The RFQ is written, it is
+price-free, and it has been sitting with you since 21:00. If it goes to Aplus or 4Ali as well as
+BSW, we find out whether this number is real. If we issue first and BSW's rates are what comes
+back, we are about GBP 3,900 underwater on our own document.
+ THE TEN YEAR WARRANTY
+ Done, and in three places: the executive summary, the inclusions list, and the terms on the back
+page which already carry it. Joedan offer twelve months on the same building (their clause 21), so
+it is the one line where I have deliberately NOT matched them, and the proposal says so in as many
+words - &quot;in place of the twelve month product warranty customary in this sector.&quot;
+ Worth knowing what it costs us: no supplier will back ten years. Whoever we buy from
+
+====================================================================================================
+BSW-GRANGEHILL-1148 | 2026-07-29T10:48:23Z | RE: Fenster Glazing - Grange Hill Methodist Church Ext
+====================================================================================================
+Good afternoon, 
+
+please see attached, 
+
+please note I have priced elevations west and south only as the east elevation is not mentioned within the spec. 
+
+door have been priced with gearing as described, please note these would not include internal thumb turns as these are unnecessary the external access handle is a lockable handle the internal panic bar will always operate the gearing for emergencies even when the external handle is locked. 
+
+I have not included the internal bifold as there is no drawing of this. We do not supply this product with a level or recessed , and it cannot support toplights. 
+
+I have rescaled the south elevation as take off provided was incorrect. 
+
+ From: Estimating <estimating@fensterglazing.com> 
+ Sent: 24 July 2026 16:29
+ To: Estimations <Estimations@bsws.co.uk>
+ Subject: Fenster Glazing - Grange Hill Methodist Church Ext 
+
+ Hello, 
+
+ Could you please prepare a quote for Aluminium windows and doors. 
+
+ Short deadline - coudl you please issue it Monday, Tuesday the latest. 
+
+ Colour - White 
+ Solar control - ‘Optitherm S1 with solar control coating glass, Arctic blue’ for the outer pane and Pilkington ‘Optitherm’ S1 plus for the inner pane. 
+ Glazed entrance screen to the new entrance building as shown. 
+ Windows and doors to south and west elevations only. 
+ External doors to include low level / disabled access thresholds. 
+ Fire escape doors to include push bar / panic escape hardware. 
+
+ West Elevation 
+ The windows and door to west elevation is to be full storey height and the threshold of the door is to be level with the finished floor level and external surface. The door is to be 1.2m wide and to have three locking points, top, middle and bottom. The centre key / locking position is to operate a Briton 1438 fire escape push pad with Briton 1413 access locking knob or similar approved. The door stile must be of a suitable size to accommodate the fire escape push pad and access knob. The locks are to be euro style cylinders all three locks are to be keyed alike. ‘Yale Platinum 3-star euro with thumbturn’. The upper windows are to extend up to the pitched roof / ceiling. 
+ The door is to provide disabled access in accordance with building regulations documents ‘M’ & ‘K’. Include either door edge safety sensor or location sensor. 
+
+ South Elevation 
+ The windows to south elevation is to be full storey height up to the underside pitch of the roof. The threshold of the door is to be level with the finished floor level and external surface. There are to be two doors each 1.2m wide. The height of these are to finish at the height of the steel beam (Approx. 2.3m). The right-hand door (when facing the building) is to be secured by top and bottom with gate bolt (Smith & Locke 450mm gate bolt or similar approved). The right-hand door (when viewing the building) is to have three locking points, top, middle and bottom. The centre key / locking position is to operate a Briton 1438 fire escape push pad with Briton 1413 access locking knob or similar approved. The door stile must be of a suitable size to accommodate the fire escape push pad and access knob. The locks are to be euro style cylinders all three locks are to be keyed alike. ‘Yale Platinum 3-star euro with thumb-turn’. 
+
+ Folding doors in Chapel 
+ Supply and install aluminium folding doors and fixed windows above, these are to be dark brown power coated, include polyamide thermal breaks and comply with current building regulations and U values. The glazing is to be in double glazed units with Pilkington ‘Optitherm’ S1 plus glass. Bronze tinted. 
+ The doors are to span the full width of the chapel (Approx. 5.8m) and be able to fold back onto the side walls. The top rail is to be installed just below the height of the timber roof trusses to allow the doors to close trusses as they open. Any bottom rail is to be recessed into the floor to provide a level floor surface. 
+ Supply and install a upper glazed section / windows. These are to extend up from folding doors to the underside of the pitched ceiling / roof. The frames are to match the fenestration of the doors. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+====================================================================================================
+ADAM-BROCKSHILL-1319 | 2026-07-29T12:19:24Z | Re: Tender Enquiry - SMDT0173 Brocks Hill Phase 2 Teaching Block
+====================================================================================================
+Hi Gintare,
+
+ I have noticed there's extra doors on the schedule than on their own BoQ. Did you query this with the client?
+ There's no triple glazing on the smart wall, but spec shows triple throughout. We need to clarify this with the client if we cannot do triple glazing. Did this get queried with them at all?
+ Have we allowed for solar control glass where required?
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Estimating <estimating@fensterglazing.com>
+ Sent: 27 July 2026 3:43 PM
+ To: Adam <adam@fensterglazing.com>
+ Subject: Re: Tender Enquiry - SMDT0173 Brocks Hill Phase 2 Teaching Block 
+
+ Hey, 
+
+ One more quote for checking, please. 
+
+ Deadline - Friday 31 st July. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Commercial <Commercial@fensterglazing.com>
+ Sent: 14 July 2026 15:14
+ To: Adam <adam@fensterglazing.com>
+ Cc: Estimating <estimating@fensterglazing.com>
+ Subject: Fw: Tender Enquiry - SMDT0173 Brocks Hill Phase 2 Teaching Block 
+
+ New one in, looks legit 
+
+ Kind Regards, 
+
+ Paul Taylor | Project Manager    
+ 01908 429200 | www.fensterglazing.com 
+ 97-98 Alston Drive, Bradwell Abbey, MK13 9HF 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error. 
+
+ From: Martin Moore <martin.moore@smd-ltd.com>
+ Sent: 14 July 2026 15:09
+ To: Commercial <Commercial@fensterglazing.com>
+ Subject: FW: Tender Enquiry - SMDT0173 Brocks Hill Phase 2 Teaching Block 
+
+ Dear Sirs 
+
+ RE: Tender Enquiry – Brocks Hill Teaching Block, Oadby, Leicestershire, LE2 5WP. 
+
+ We are currently tendering for above project and invite you to submit a quotation for the external windows & doors in accordance with the documents available within the link below. 
+
+ Tender Documents – Click Here 
+
+ Should you have any questions or require additional information please do not hesitate to get in contact . 
+
+ Your quotation together with the enclosed documents should be returned by no later than Friday 31st July 2026 
+
+ Please acknowledge receipt of this enquiry and confirm if you will be providing a quotation at your earliest opportunity. 
+
+ The contract details include : 
+ · Form of Contract: JCT Design and Build Contract (DB), 2024 Edition 
+
+ · Scheme: Provision of new teaching building together with associated external works 
+
+ · Site Commencement: 24/08/2026 
+
+ · Completion – 12/03/2027 
+
+ · Please consider the following in your tender: 
+ VE opportunities within your tender Please highlight any lead in times Please allow for a 2.5% MCD 
+
+ Kind regards 
+
+ Martin Moore ​ ​ ​ ​ 
+
+ Senior Quantity Surveyor 
+
+ martin.moore@smd-ltd.com 
+
+ 07564 581082 
+
+ Spacemaker Developments Ltd
+
+====================================================================================================
+GINTARE-GRANGEHILL-ISSUED-1707 | 2026-07-29T16:07:20Z | Re: Chigwell (London) PLC invites you to quote on: Grange Hill Methodist Church Ext - Windows and Doors
+====================================================================================================
+Hi Luke,
+ Hope you’re well.
+ Please find attached our quotation for Grange Hill Methodist Church.
+ As the windows did not have individual references, we have marked up the drawings to show the references used within our quotation.
+ We trust that everything is as per specification. However, if you have any questions, please don’t hesitate to contact us.
+ We look forward to hearing from you.
+ Many thanks,
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Luke Baker <luke.baker@chigwellgroupplc.co.uk>
+ Sent: 29 July 2026 09:22
+ To: Adam <adam@fensterglazing.com>
+ Cc: Estimating <estimating@fensterglazing.com>; Paul <paul@fensterglazing.com>
+ Subject: RE: Chigwell (London) PLC invites you to quote on: Grange Hill Methodist Church Ext - Windows and Doors 
+
+ Hi Adam 
+
+ Are you able to provide the costs today? 
+
+ Many Thanks 
+
+ Luke Baker 
+ Senior Quantity Surveyor 
+
+ E : luke.baker@chigwellgroupplc.co.uk 
+ T: 02085004100 
+ M : 07547184089 
+ W: www.chigwellgroup.co.uk 
+
+ Aaron House Unit 8 Hainault Business Park,Forest Road, Hainault, Essex IG6 3JP 
+
+ Email disclaimer: The information in this email is confidential and may be legally privileged. It is intended solely for the addressee. 
+
+ Access to this e-mail by anyone else is unauthorised. If you are not the intended recipient, any disclosure, copying, distribution or an action taken or omitted to be taken in reliance on it, is prohibited and may be unlawful. This Email head cannot be used as any legal instruction or form part of a contact. 
+
+ From: Adam <adam@fensterglazing.com> 
+ Sent: 28 July 2026 15:01
+ To: Luke Baker <luke.baker@chigwellgroupplc.co.uk>
+ Cc: Estimating <estimating@fensterglazing.com>; Paul <paul@fensterglazing.com>
+ Subject: Re: Chigwell (London) PLC invites you to quote on: Grange Hill Methodist Church Ext - Windows and Doors 
+
+ Hi Luke, 
+
+ Hope you're well. 
+
+ As we received this on 24th, and had the weekend, we're still awaiting costs back from suppliers for materials. 
+
+ Is there any chance of any extension on this one please? Will have it ready this week and are keeping the pressure on to get material costs back asap. 
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error. 
+
+ From: Luke Baker (Chigwell (London) PLC) < Tenders@onceforallmarketplace.com >
+ Sent: 24 July 2026 08:08
+ To: Paul < paul@fensterglazing.com >
+ Subject: Chigwell (London) PLC invites you to quote on: Grange Hill Methodist Church Ext - Windows and Doors 
+
+ You have been invited to tender! 
+
+ Chigwell (London) PLC send out their enquiry invitations through Tender Management, and you have been invited to submit a quotation: 
+
+ Grange Hill Methodist Church Ext - WD001 - Windows and Doors 
+
+ From 
+ luke.baker@chigwellgroupplc.co.uk 
+
+ Location 
+ Burrow Rd, Chigwell IG7 4HQ, UK 
+
+ Return Date 
+ 27 July 2026 
+
+ Description 
+ Click view enquiry to access work package description 
+
+ View enquiry 
+
+ Best Regards,   
+ Once For All Team 
+
+ This email is sent on behalf of the inviting organisation and on their express request. We understand that you are happy to receive these emails; otherwise, to unsubscribe please send an email to luke.baker@chigwellgroupplc.co.uk . 
+ By sending this email, we collect personal data such as first name, last name, job title, email and phone number, for the purpose of managing your invitation. If you want to know how we process your personal data, please see our privacy notice . 
+ If you want to know how Chigwell (London) PLC processes your personal data, please go to their website or request a copy via email. 
+
+ © 2026 Once For All Limited 
+ PO BOX 6441, Basingstoke, Hampshire, RG21 7FN - Registered in England No: 11188766 
+
+ ITT5umi9
+
+====================================================================================================
+VETROSEAL-065209 | 2026-07-30T06:27:43Z | Vetroseal Ltd Quote: 065209 (MHANUNEATON)
+====================================================================================================
+Please find attached a copy of your Quote: 
+ 065209 (MHANUNEATON). 
+ If you are unable to open the attachment, you can download the Adobe Reader from http://www.adobe.com

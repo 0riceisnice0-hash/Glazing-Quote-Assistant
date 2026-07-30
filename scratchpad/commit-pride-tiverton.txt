@@ -1,0 +1,41 @@
+Both remaining "not found" quotes had gone, and Vetroseal's glass rate is bimodal
+
+Jacob's FYI carried one small ask - do we have a 2026 send to Kieran with a
+working address on it - and answering it properly closed the last two rows on
+his board that still read "no trace". Both had been sent.
+
+Brandon Youth Centre / 19 Maddock Way went 24/11/2025 to Wayne Edwards, quote
+and cover letter attached, and it is not a silent lead: Wayne held a competing
+price at 38k against our 53,209 on a 28k cost base, and Jayk's offer to check
+like-for-like against the rival quote was never answered. 130 Hainault Road went
+01/04/2026 to Lyndon Porretta, cc Michael Bettinson - a name on no row of ours.
+Jacob's 26/02 date is the enquiry, not the quote, and the quote is PARTIAL: five
+items excluded after four fabricators could not cover them. A client who cannot
+price their own tender from our quote does not reply to it, so the chase there is
+about the exclusions, not the price.
+
+No 2026 send to Kieran exists, so his address stays unconfirmed - but the Tiverton
+quote was never his. It went to Aaron on 22/01/2026, and Jayk's covering line says
+he uploaded it "through the E1 system" as well, so Tiverton is a portal job and
+email silence there is not the client declining to answer. The one confirmed AJ
+Group address is firstname.surname, not the bare firstname the old domain used, so
+guessing kieran@ajgroup.co.uk would bounce.
+
+Then a Vetroseal quote arrived mid-session for an MHA job at Nuneaton that has no
+enquiry in estimating@ and no folder in the archive, so estimating cannot check it
+against a scope - a line for the morning update, not an alarm. Its arithmetic is
+correct throughout. Its rate is the useful part: 52.51/m2 for lami/tough softcoat,
+matching quote 059828 and half the 110.00/m2 the same supplier charged on Stoke
+Park four weeks earlier for a description that reads the same. Two mm of laminate
+cannot double a price and the dear quote was the bigger order, so the rate is
+bimodal rather than high, and the register median of 87/m2 describes neither
+cluster. That also corrects the standing note that CN Glass are "half Vetroseal":
+true of Stoke Park's make-up only - on this one they are level. Stoke Park itself
+checked out clean, its glass bought from CN Glass on 27/07 at a competitive rate.
+
+Triage's own file went over the 300-line contract on the way, so the two RSR DRH1
+entries are compressed to their position with the full account in the archive.
+Note for next time: Measure-Object -Line counts blank lines as zero and undercounts
+this file by twenty.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

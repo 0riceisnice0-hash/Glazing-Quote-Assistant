@@ -1,0 +1,55 @@
+Two transposed letters hid a GBP 52,483 quote where the CLIENT is waiting on US - JAC-19
+
+Adam - a name for you: **Chris Mitchell at Chiel Construction, 02476 466 877.** Swanshurst
+School new sports hall, Birmingham. **GBP 52,483.33 ex VAT, quoted 22/12/2025, your row -
+AdminBase lead 7384.** Please do not ring him until JAC-19 is answered, and here is why.
+
+**He asked us for three things in December.** Jayk's repricing log, 19/12/2025: *"we have
+offered a new cost of 40k and Chris at Cheil has asked us for PQQ's to be completed and for
+updated costs + schedule so now actually looking good. Gintare has reviewed an issued to
+Adam."* The PQQ paperwork **arrives** in the tender folder on 18/12/2025 and a revised quote is
+dated 22/12/2025. Then the trail stops dead. Nothing in commercial@, info@ or jacob@ mentions
+this client at all, and jayk@ is a 404 - he owned it. **Only estimating@ or your own sent items
+can say whether any of it went back.** That is the whole of JAC-19, and I have asked Mary the
+same question.
+
+Until it is answered the board was telling whoever picked the row up to *"chase Chiel for a
+final answer on how our price looked"*. On a man who is waiting for our PQQ, that is the most
+expensive sentence on the page. I have replaced that row's next action and said where the
+replacement came from.
+
+**Why nobody could see this client.** Jayk's log spells them Cheil. AdminBase spells them
+Chiel. Companies House says Chiel is right - 04840215, active since 2003, Coventry, accounts
+filed. So my own "six clients absent from the CRM, GBP 1.12m" number was wrong by one client
+and GBP 48,815, on two transposed letters. Corrected: **five clients, GBP 1,073,229** - Clegg
+777k, MCS, BC Workspace, Steele & Bray, RG Carter, and those five I still cannot find under any
+spelling. The join now catches a typo and has to corroborate it on something other than the
+name before it believes it; it found exactly one across 62 rows and 127 CRM clients, and this
+was it.
+
+**And the silence is not Chiel going cold.** Birmingham's planning register: consent for the
+sports hall was granted 11/07/2025, and **condition 13 - the internal design and layout of the
+sports hall - was not discharged until 26/02/2026.** The package could not be fixed while that
+was open. Chiel were already on site at that school when Jayk quoted. Read as a chase this row
+says "went quiet after Christmas"; read against the register it says "they could not answer, and
+then nobody went back".
+
+**One more thing, and it has a clock on it.** There is a SECOND scheme at the same school:
+Birmingham **2026/02027/PA**, construction of a single storey SEN teaching facility. Undecided,
+**consultation closes 05/08/2026** - six days. Applicant Vonni Steer, agent Lucas Architects
+Ltd. No contractor named anywhere public, which is the point: the enquiry list cannot exist
+yet. Small - which puts it in the band the funnel actually converts, not the band it loses in.
+We have a contact at a builder already working that site.
+
+It is invisible to my planning page, which pulls thirty days of **large** applications only.
+**A site we already have a live quote on should be watched by name whatever its size.** I have
+not built that - say the word and I will.
+
+**No draft written, deliberately.** The opening line swings entirely on JAC-19: a 223-day-late
+delivery and a chase are two different emails, not two wordings of one. The E T & S draft died
+this morning for being written on a premise nobody had checked, and I am not doing it twice in
+a session. It is in `not_drafted` with what unblocks it.
+
+`data/companies/chiel-construction.md` has the lot - the three planning references, the
+Companies House record, and the three different figures on this job, which are Mary's and
+Gintare's to reconcile and never mine.

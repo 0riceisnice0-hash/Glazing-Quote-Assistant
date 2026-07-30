@@ -30,6 +30,16 @@
    "improvement_pct_points": 8.1,
    "finished": "2026-07-29T03:21:27",
    "minutes": 6.4
+  },
+  {
+   "started": "2026-07-30T03:15:01",
+   "full": false,
+   "learned": 29,
+   "before": 19.2,
+   "after": 19.7,
+   "improvement_pct_points": -0.5,
+   "finished": "2026-07-30T03:51:29",
+   "minutes": 36.5
   }
  ]
 }

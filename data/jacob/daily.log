@@ -28,3 +28,38 @@
 [2026-07-29 12:49:30]    ✨ Deployment complete! Take a peek over at https://96e75a5b.mary-dashboard.pages.dev
 [2026-07-29 12:49:30] OK rebuild board
 [2026-07-29 12:49:30] done - intake ok, board ok
+[2026-07-30 06:20:01] ==========================================================
+[2026-07-30 06:20:01] Jacob daily run
+[2026-07-30 06:20:01] START mailbox intake
+[2026-07-30 06:23:25]    93 companies, 47 signals
+[2026-07-30 06:23:25]    classified: correspondence 242, supplier 192, noise 46, possible-enquiry 20, enquiry 16, quote-out 8, portal 2, decision 1
+[2026-07-30 06:23:25]    -> C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\data\jacob\intake.json
+[2026-07-30 06:23:25] OK mailbox intake
+[2026-07-30 06:23:25] START contracts finder
+[2026-07-30 06:34:04] OK contracts finder
+[2026-07-30 06:34:04] START procontract
+[2026-07-30 06:34:49]      [1 d] DN820023 - Windows, Doors & Sealed Units (Bournemouth Christchurch and Poole Council) closes 31/07/2026 14:00
+[2026-07-30 06:34:49]      [6 d] DN817372 - Windows Supply & Fit (Be One Homes) closes 05/08/2026 12:00
+[2026-07-30 06:34:49]      [29 d] DN822404 - Replacement Windows at 10-11 Cross Street,  Ryde, Isle of Wi (Isle of Wight Council) closes 28/08/2026 14:00
+[2026-07-30 06:34:49] OK procontract
+[2026-07-30 06:34:49] START won contracts
+[2026-07-30 06:34:49]      over GBP 200k      2 job(s)  GBP    1,111,248
+[2026-07-30 06:34:49]      top client: CONAMAR BUILDING SERVICES LTD. - 16 jobs, GBP 917,028
+[2026-07-30 06:34:49]      lead sources: Existing Customer 100, Jayk 51, Google 22, Existing Commercial 18, (blank) 5
+[2026-07-30 06:34:49] OK won contracts
+[2026-07-30 06:34:49] START dormant customers
+[2026-07-30 06:34:49]    
+[2026-07-30 06:34:49]    excluded: {'live quote already out': 4, 'under the value floor': 42, 'still recent': 5, 'work in progress': 18, 'on a do-not-approach instruction': 1}
+[2026-07-30 06:34:49]    -> C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\data\jacob\dormant.json
+[2026-07-30 06:34:49] OK dormant customers
+[2026-07-30 06:34:49] START rebuild board
+[2026-07-30 06:35:19]    ? Uploading Functions bundle
+[2026-07-30 06:35:19]    ? Deploying...
+[2026-07-30 06:35:19]    ? Deployment complete! Take a peek over at https://e2ec3b95.mary-dashboard.pages.dev
+[2026-07-30 06:35:19] OK rebuild board
+[2026-07-30 06:35:19] START daily chase email
+[2026-07-30 06:35:20]    
+[2026-07-30 06:35:20]    ------------------------------------------------------------
+[2026-07-30 06:35:20]    200 due or overdue (190 unverified), 1 tomorrow, 10 blocked and named.
+[2026-07-30 06:35:20] OK daily chase email
+[2026-07-30 06:35:20] done - intake ok, board ok

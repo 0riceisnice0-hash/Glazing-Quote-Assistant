@@ -1,0 +1,25 @@
+Sinden are not silent - they asked us for a price by 08/07 and we may be the late ones
+
+The largest unworked row on the board, The Hub Alkerden at GBP 484,473, read
+"Live - Quoted, 523 days silent" and told whoever picked it up to ring Sinden
+and ask whether the job was still live. Sinden secured the main contract, and
+on 01/07/2026 Seyi Adesogan emailed commercial@ asking US for an updated
+quotation by 08/07, with a package order date of 08/10/2026. A Plus were still
+revising the supplier quote on 22/07. The 523 days are the January 2025
+enquiry, never re-dated across two re-enquiries since.
+
+Whether our quote has gone is estimating@'s answer, not mine - asked of Mary,
+JAC-20 raised for Adam, and nothing drafted, because the chase and the apology
+are different emails.
+
+The second Sinden job was not "on hold" either: West Berkshire refused
+25/01899/FULMAJ on 21/05/2026, so Cold Ash is blocked and dated rather than
+chased. PlanIt had it as Undecided off a scrape ten months old.
+
+And the fix underneath: writing a truer state onto a researched row made it
+vanish, because the chase list is filtered on three literal state strings. A
+worked row now keeps its place whatever state it carries, a blocked one is
+named on the daily email instead of being told not to chase itself, and the
+Today headline leads with what the research found.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

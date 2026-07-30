@@ -1,0 +1,60 @@
+Where the rest of the error is - and two structural fixes for it that fail
+
+After the build-up change, leave-one-out leaves six documents above 29% and
+between them they are 7.3 of the 13.24-point mean. Read line by line they give
+three candidate causes, and two of them are now tested and dead.
+
+WHAT THE WORST JOBS ACTUALLY LOOK LIKE:
+  CB Refrigeration -32.6%. The windows are fine (-5% to +18%). The DOORS need
+  GBP 881-1,474/m2 against learned SAD 475 and DAD 668. The heading rows above
+  them say 'External Steel Door' and 'Internal Steel door' - Strongdoor steel
+  security doors carrying aluminium door codes, because the template has no
+  steel code. Priced correctly by the estimator; invisible to the engine.
+  Trafalgar House +26.9%. 58 identical 1.92m2 MPVC windows at GBP 108.8/m2
+  against a learned 221.66.
+  Georgie's -31.0%. Windows needing GBP 955-1,940/m2, its own median 1,025
+  against an archive 400. The doors on the same job are within 2.4%.
+  Tradeteam Stretton -38.3%, one line, a 'Tilt & Turn Aluminium' MAW at GBP
+  771/m2 against 396.92.
+
+HYPOTHESIS 1 - REPETITION BUYS A DISCOUNT. Rejected outright. Ratio of a line's
+own supply rate to its code+band median is 1.035 at quantity 1 and 1.000 at 41+.
+Log-log slope -0.0232 with R^2 0.0109 - one percent of the variance - and x0.908
+across the entire range from 1 to 64 units. Per job, slope -0.0193, R^2 0.0034.
+Tenbury Close is quantity 8 at ratio 2.52: high quantity AND dear, the wrong way
+round. Whatever makes Trafalgar cheap, it is not the 58.
+
+HYPOTHESIS 2 - LEARN A PRODUCT FACTOR FROM THE SECTION HEADING. The signal is
+real and it does not generalise. Headings extracted and carried down onto the
+lines below them (found on 485 of 486): 'steel' x1.677 over 9 lines in 3 jobs,
+'aluminium sliding sash windows' x3.23, 'fd30 external & communal doors' x2.30,
+'internal steel door' x2.22. Learned per fold from a vocabulary fixed IN ADVANCE
+- picking keywords by result is how you overfit 29 documents - with guards of >=6
+lines, >=2 distinct jobs and a plausibility band, it scores 15.03% against the
+13.11% baseline. Worse on 10 documents, better on 7, within-10 down 16 to 14.
+Restricted to groups that are a minority of their own band: 14.28%. Steel alone:
+14.28%. Nothing was committed to the engine - this was measured offline first.
+
+WHY IT FAILS, WHICH IS THE PART TO KEEP. A factor measured as line-rate divided
+by band-median cannot be applied where that product DOMINATES the band, because
+the median already contains those lines: the ratio is 1.00 by construction and
+every wobble around it is noise you then amplify. It is visible in which
+keywords survived the evidence guards - the broad ones, sitting at no signal,
+sheerline x0.970 on 130 lines, comar x1.000 on 82, sma x1.089 on 52 - while the
+ones that genuinely separate were too thin to qualify (sliding sash 4 lines,
+fd30 3). Applying near-1.00 factors to already-correct lines did the damage:
+Zelltec Crownhill +14.6% -> +39.9%, Filwood +5.8% -> +19.0%. The honest version
+is a finer rate bucket, code|band|product-group, and 508 lines will not feed it -
+the same wall that stopped finer size bands on 29/07.
+
+The bias moved the RIGHT way while the error got worse (-1.88% -> -0.71%), so the
+headings do carry information. There is just not enough of it: with 9 steel lines
+in 3 jobs, a fold that drops one of those jobs re-mines a different factor.
+
+AND THE HEADINGS CONFIRMED TWO HAND-TYPED CONSTANTS, which is worth having by
+itself. 'SMA Smart Wall Aluminium Doors & Screens' measures x1.45 over 11 lines
+against CALIBRATION's typed-in 1.45; 'Liniar uPVC Windows & Doors' measures x0.90
+over 24 lines against its typed-in 0.90. Both were read by hand off the
+Greenfields comparison on 22/07. They are right.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

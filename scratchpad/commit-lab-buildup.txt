@@ -1,0 +1,60 @@
+The engine could not see Glass or Additional, and that is what the 1.25 was
+
+The CW commit made this measurable. The document builds a unit rate as
+frames + glass + additional + 0.75 x code_value, and that reconciles on 495 of
+508 priced lines. The engine models area x learned_rate + adder x code_value,
+and learned_rate was mined from the FRAMES COLUMN ALONE - so Glass and
+Additional were money it had no term for anywhere. 20.4% of supply above 6m2.
+9.3% at 2-3m2.
+
+That is what ADDER_FACTOR_LARGE = 1.25 was standing in for. The 30/07 entry had
+already worked out the arithmetic - the median GBP 1,000 of extras on a large
+unit, charged to a median code value of 2,000, is 0.75 + 1000/2000 = 1.25 exactly
+- but there was no way to model the extras instead of patching over them. Mining
+the whole build-up per code and per band is that way, and the adder goes back to
+a flat 0.75 in every band, which is what 508 lines say the documents actually do.
+
+THE FUDGE AND THE MISSING TERM WERE THE SAME MONEY. The proof is that keeping
+both is the worst of the four arms, because it charges the extras twice:
+  whole build-up, 0.75 flat     13.24%   <- adopted
+  frames only,    1.25 large    14.02%   <- the engine as it stood
+  frames only,    0.75 flat     14.46%
+  whole build-up, 1.25 large    14.88%   <- worst
+
+DECIDED ON LEAVE-ONE-OUT, NOT THREE FOLDS, and that mattered. On three
+positional folds this is 13.88 -> 13.68, winning ONE fold of three, which is
+precisely the shape of result that has misled this board twice already. Leave-
+one-out scores all 29 documents on rates mined from the other 28, so nothing
+depends on where a file sits in the scan order:
+  mean abs 14.02% -> 13.24%    median abs 10.05% -> 7.98%
+  bias    -4.91% -> -1.66%     within 10%: 14/29 -> 16/29
+  better on 16 documents, worse on 11, level on 2
+The engine's own --holdout --folds agrees: 13.88% -> 13.51%, bias -4.36% ->
+-1.88%, with line counts identical at [97, 231, 180] and zero skips in both
+arms, so nothing was bought by dropping hard lines.
+
+EVERY LEARNED RATE MOVED UP, by 0% to +31% (SUPD|2-5m2 +31.2%, SAD|>5m2 +25.7%,
+ELAW|>5m2 +25.3%, DAD|>5m2 +22.1%, SAD|2-5m2 +22.5%, LAW|2-5m2 +17.5%). That is
+the whole story of the bias: the engine was under-pricing because it could not
+see part of its own supply money.
+
+AND IT REPAIRED A SUPPLIER FACTOR THAT HAD BEEN REJECTED AS IMPLAUSIBLE. TruFrame
+measured x0.485 on the Frames-only basis - outside the plausible 0.65-1.55 band,
+so it was recorded and held back unapplied, which was the right call. On the
+whole build-up it is x0.860 and now applies. TruFrame documents put an unusual
+share of their money in Additional rather than Frames: Trafalgar House prices
+LPVC frames at GBP 55/m2 against unit rates near GBP 1,700. So "TruFrame is half
+price" was an artefact of which column the money sat in, not a discount. All four
+suppliers now sit within 0.6% of 1.00 except TruFrame - the estimator's supply
+per m2 is consistent across suppliers once the whole build-up is read, which is
+itself evidence the new basis measures the right thing.
+
+LARGE_UNIT_M2 and adder_factor() are kept rather than deleted, with the retired
+constant's reasoning kept in the comment. The flat 0.75 is now a measurement over
+508 lines in every band, and a future session wanting a size-dependent adder
+should have to change a number and show it on unseen jobs.
+
+Column 12 is deliberately still not read by the backtest: that is CW, and on a
+coded unit line it is a working column, not money.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

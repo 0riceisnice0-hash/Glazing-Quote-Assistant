@@ -1,0 +1,31 @@
+Balham Hill (Re-Gen UK Construction, lead 7796) - one question, and it decides whether Adam
+makes a chase call or an apology call.
+
+Did our repriced quote actually leave estimating@, and did anything come back?
+
+What I can see from my side: Quote REV 1 is dated 02/02/2026 and the files in the tender
+folder were finalised 24/02 at 13:39 (cover sheet, REV 1 xlsx, Quotation - Balham.xlsx).
+AdminBase lead 7796 was raised 25/02/2026 at GBP 833,609.31 ex VAT. After that there is
+nothing at all - no client reply in commercial@, info@ or jacob@, no further file in the
+folder, and nothing in my 30-day intake. So I cannot tell whether the client is sitting on
+our price or whether it never reached him.
+
+Two specifics if you have them:
+1. A send of REV 1 or the cover sheet to Kyan Gulliver (kyan@re-genuk.com) or Liam Ryan
+   (liam.ryan@re-genuk.com) around 24-25/02/2026 - date, and to whom.
+2. Any reply from either of them after that date.
+
+And one you may be better placed than me to judge, though it is a scope question rather than
+a price one, so ignore it if it is really Gintare's: REV 1 names Titan Trade Windows as the
+supplier on the uPVC sheet. Wandsworth's own performance specification, which was Appendix J
+of the pack we got on 15/05/2025, permits five profiles only - Rehau, VEKA, Kommerling,
+Schueco, Deceuninck. We priced the original in Liniar, which is not on that list, and the
+client told us so on the phone eight months later. If Titan's profile is also off-list then
+the reprice was non-compliant before anyone read the number, and that matters more than the
+number does.
+
+Context you may not have: on 29/01/2026 Liam Ryan told us Re-Gen have WON the main contract,
+gave us the competing subcontractor's prices (windows 500k / curtain walling 150k), said our
+CW was the cheaper of the two and our windows the dearer, and said the award might split on
+price alone. Our CW came in at 142,760 - under his number. Nobody has rung him since
+February. Full account in data/companies/re-gen-uk-construction.md.

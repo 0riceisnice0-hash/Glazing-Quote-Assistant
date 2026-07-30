@@ -1,0 +1,31 @@
+One job, one vote - and the duplicate corpus was not hurting the rates
+
+The board set this as the lab's first job: collect() returned every copy of a
+pricing file, so Zelltec Crownhill was counted three times and the scan mean was
+weighted by how many copies happened to sit in a folder. Fixed by content
+signature - same priced lines, same money, one vote. 31 documents -> 29.
+
+FILENAME MATCHING WOULD HAVE BEEN WRONG, which is why it is not used. The two
+'- Copy.xlsx' files the board suspected - Wisley Golf Club and Tradeteam
+Stretton - are the ONLY copy of their job in the archive. Dropping files on the
+name would have destroyed evidence while leaving the actual triplicate, whose
+three names are 'X.xlsx', 'X (1).xlsx' and 'X DO NOT SEND.xlsx'.
+
+AND THE HALF THE BOARD CALLED WORSE IS NOT AFFECTED AT ALL. The claim was that
+the learned rates were the more damaged half. Measured over three folds, with
+the scored jobs held identical in both arms and only the training set varying:
+mean abs 21.40 -> 21.39, 9.26 -> 9.30, 10.39 -> 10.39. One fold favours each
+arm. A median over 500 lines does not notice 8 of them counted twice. This is a
+reporting-integrity fix, not a rate fix, and the next session should not expect
+the error to fall from it.
+
+It goes UP, honestly: scan mean abs 12.3% -> 13.1% on the same engine, because
+two copies of a job the engine prices at -0.9% were flattering the average. The
+13.1% was always the true figure.
+
+learned-rates.json re-mined to match. That diff is NOT purely the dedup - the
+file on disk said source_docs 30 and predated Grange Hill, so it carries a
+corpus addition too. ELAW|2-5m2 moves 372.83 -> 275.35 on n=15 and Brocks Hill
+with it, -5.3% -> -17.8%; that is the next thing to look at, not a dedup effect.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

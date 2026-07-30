@@ -346,14 +346,14 @@
  },
  "chats": {
   "triage": {
-   "session_id": "850dd7a8-6f76-4955-9885-d0cea4877b3e",
+   "session_id": "d55fb027-ba54-43c2-8c05-2972751289be",
    "started": true,
    "created": "2026-07-27T13:43:40",
-   "last_active": "2026-07-30T00:43:38",
-   "runs": 40,
-   "rotated_from": "5412697e-77e7-4eab-8af4-0bf93d819cbc",
-   "rotated_at": "2026-07-29T21:58:09",
-   "rotations": 4
+   "last_active": "2026-07-30T07:43:47",
+   "runs": 43,
+   "rotated_from": "850dd7a8-6f76-4955-9885-d0cea4877b3e",
+   "rotated_at": "2026-07-30T07:16:13",
+   "rotations": 5
   },
   "filwood": {
    "session_id": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
@@ -366,11 +366,12 @@
    "session_id": "cebdea4f-889d-4c46-b80b-b63d09910541",
    "started": true,
    "created": "2026-07-27T14:48:33",
-   "last_active": "2026-07-29T07:45:00",
-   "runs": 10,
+   "last_active": "2026-07-30T00:50:02",
+   "runs": 11,
    "rotated_from": "9fefb564-0211-43da-b494-bcdd72ed1b85",
    "rotated_at": "2026-07-29T07:31:08",
-   "rotations": 1
+   "rotations": 1,
+   "jobfile_warn": "data/jobs/st-marys.md is 855 lines (contract: 300) - archive the history; data/jobs/st-marys.md has no '## Position' heading near the top - a fresh chat cannot find where the job stands"
   },
   "gordon-court": {
    "session_id": "780bde05-9cf5-4cf1-a39f-417fbfcb922b",
@@ -510,7 +511,7 @@
    "rotations": 2
   },
   "pricing-lab": {
-   "session_id": "92016def-e875-468d-a341-0543061ba384",
+   "session_id": "58a3efa9-0330-4223-81da-5dcdcb189a37",
    "started": false,
    "created": "2026-07-29T01:00:02",
    "last_active": null,

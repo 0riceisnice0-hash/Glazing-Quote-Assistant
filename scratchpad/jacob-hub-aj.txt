@@ -1,0 +1,72 @@
+Two things this morning: your chase list was telling you to ring five dead jobs, and the
+biggest live one on the board was invisible. Both are fixed. One of them needs a call this
+week and one needs a decision from you.
+
+RING KIERAN SANTRY AT ALEXANDER JAMES THIS WEEK - 07512899774. TIVERTON ROAD, GBP 547,886.
+
+He told Paul Taylor on 5 June: "We are the preferred bidder but still waiting for the
+council to give us a start date. Come back to me in 6-8 weeks and we should know more."
+Paul said "Perfect, I'll be in touch then." Six to eight weeks from 5 June runs out
+TOMORROW, and the callback is ours, not his. Preferred bidder means our client is in front
+on a council job and we are already priced on the windows and doors for 17 flats.
+
+That row had NO follow-up date in AdminBase, so it has never appeared on your email, on
+Today, or on anything else. It is the largest unworked row on the board.
+
+ALEXANDER JAMES IS YOUR BIGGEST CLIENT EXPOSURE - GBP 1,910,810 ACROSS SIX QUOTES.
+
+Bigger than Barnfield. Three contacts, two spellings in the CRM, and until today no file.
+Two of the six were already answered, in commercial@, where nobody had looked:
+
+  BROOKLANDS, GBP 317,887 - LOST. Kieran to Paul, 7 May: "Unfortunately we didn't secure
+  this project." Our client lost the main contract; nothing to do with our price. YOUR
+  CALL: this wants marking lost in AdminBase.
+
+  DARRICK WOOD, GBP 255,082 - not silent. Gleb Saliev rejected our quantities and
+  dimensions on 9 July, you said we would revise on 10 July, A Plus returned Rev1 on
+  24 July. Nothing I can see shows the revised quote going back to them. Mary is checking.
+  If it has not gone, that is the fourth job this month whose price stopped inside Fenster.
+
+The other three - Archway Road GBP 467,662, Weymouth Court GBP 238,288, Emmbrook School
+GBP 84,005 - have never been chased by anyone. Draft D-4 covers those three; it used to
+cover all six and would have asked them for news on the job they told us they lost.
+Rewritten. Full picture in data/companies/alexander-james.md.
+
+FIVE ROWS I TOLD YOU TO CHASE YESTERDAY THAT YOU MUST NOT.
+
+Churchdown School went out to FIVE main contractors and Aylesbury High School to one, and
+you gave me the answer on all six yesterday - Darren Trigg's note that both were CIF bids
+that did not get funded. I put it in a file and never put it on the rows, so this morning
+your own chase list had Mobius Group at GBP 746,617 and Southern Projects at GBP 729,117
+near the top of it, telling you to ring for a final answer. All six now read do-not-chase
+with the reason, and they show in the "cannot answer yet" line instead. The real action is a
+diary date in late September, before the autumn CIF window, to be the glazing number inside
+the resubmission rather than to be asked after it.
+
+YOUR EMAIL IS LONGER TODAY - 199 ROWS INSTEAD OF 137 - AND THAT IS THE SECOND FIX.
+
+Two silent holes, both mine:
+
+  AdminBase leaves the follow-up date EMPTY on 80 of its 264 rows, and my email only ever
+  selected rows whose date had arrived. So 80 live quotes worth GBP 7,031,168 were on
+  nothing at all - Balham Hill Estate at GBP 833,609 and Tiverton at GBP 547,886 among
+  them. They are now listed as due today, labelled "AdminBase set NO follow-up date on this
+  row at all" so nobody thinks a person chose the date.
+
+  And a row was dropped if ANY other job for that customer was already on the verified
+  register - which hid five more Elkins quotes behind Brandon Estate, six more Bradford
+  Watts, Reynolds at Oldswinford and one Chester Thomas door: 14 rows, GBP 879,925.
+
+Your hub-76 rule is that these stay visible until a person reviews, closes or reschedules
+them, so I have listed them rather than asking first. IF 199 ROWS IS TOO MANY, SAY SO AND I
+WILL SPLIT IT - the ones a person has worked at the top and the undated tail as a weekly
+list. That is your call and reversing it costs me a line.
+
+ALSO WAITING ON YOU: D-6, the A Plus feedback you asked me for on 28 July. It was already
+drafted and it was addressed to the wrong mailbox - dan@aplusw.co.uk, flagged unverified
+because Dan's mail was in a mailbox Mary cannot read. You forwarded that very thread to me,
+so it is now correct: daniel.charlesworth@aplusaluminium.co.uk. I have added Cold Ash, which
+he can close - the planning behind it was refused on 21 May. He has now asked twice, 30
+March for fifteen quotes and 16 July for twelve, and has had three answers.
+
+Nothing here is a price and nothing has been sent.

@@ -1,0 +1,39 @@
+Lab board: the audit is at 27 findings from 196, and two template gaps recorded
+
+Board update only, no code. Brings the lab's stated position in line with
+tonight's five commits so the next session and any other chat quoting an accuracy
+or audit number starts from the right one.
+
+  engine     --holdout --folds  13.51% mean of folds, bias -1.88% (was 13.88 / -4.36)
+             leave-one-out      13.24% mean abs, median 7.98%, 16/29 within 10%
+  audit      27 findings across 65 documents, down from 196
+             FOOT_LINE 1 - Gordon Court REV 2, GBP 411.17, with Adam
+             FOOT_DOC 0   DISCOUNT 0   BUILDUP 13 in 2 docs   SUPPLIER 13
+
+And it records the instruction to PREFER LEAVE-ONE-OUT WHEN DECIDING ANYTHING.
+Tonight's engine change is worth 0.78 points leave-one-out and 0.20 on three
+folds, where it wins one fold of three - on the three-fold number alone it would
+have been indistinguishable from noise and would probably have been dropped.
+Quote the folds for continuity with the earlier entries; decide on LOO.
+
+TWO THINGS IN THE DOCUMENTS THAT ARE NOT ERRORS BUT THAT SOMEBODY SHOULD KNOW:
+
+  THE TEMPLATE HAS NO STEEL DOOR CODE. CB Refrigeration and Zelltec Crownhill
+  both buy Strongdoor steel doors and code them SAD or DAD, the aluminium door
+  codes, because there is nothing else to use. The estimator prices them
+  correctly at GBP 881-1,474/m2 against an aluminium 475-668, so the DOCUMENTS
+  ARE RIGHT and it is the ENGINE that is 31-50% under on every one of those
+  lines. Across the archive a heading containing 'steel' runs x1.677. Worth a
+  code of its own if anyone is ever editing the master template.
+
+  ASHE - CDC rows 9 and 10 build on an adder of 525.00 where MAW's is 412.50 -
+  out by exactly +112.50 on both, the same figure despite different sizes, so it
+  is a code adder and not an area effect. Both rows are coded MAW at 5.62 and
+  7.16 m2, which is not a medium window, and their Frames come out at GBP 111 and
+  120/m2 against an archive median near 400. Mis-coded rather than mis-added. It
+  is an internal DO NOT SEND document, so this is a lab note, not one for Adam.
+
+Neither is a quote sitting with a client that is wrong, which is the only thing
+that goes to Adam in the morning. That list is still Gordon Court REV 2 alone.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

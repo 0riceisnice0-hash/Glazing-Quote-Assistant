@@ -1,8 +1,8 @@
 {
- "updated": "2026-07-29T14:48:55Z",
+ "updated": "2026-07-30T06:23:25Z",
  "window_days": 30,
  "per_mailbox": {
-  "commercial@fensterglazing.com": 1334,
+  "commercial@fensterglazing.com": 1302,
   "jacob@fensterglazing.com": 7,
   "jayk@fensterglazing.com": "HTTP 404"
  },
@@ -14,10 +14,10 @@
  ],
  "coverage": {
   "commercial@fensterglazing.com": {
-   "messages": 1334,
+   "messages": 1302,
    "truncated": false,
-   "oldest": "2026-06-29",
-   "newest": "2026-07-29"
+   "oldest": "2026-06-30",
+   "newest": "2026-07-30"
   },
   "jacob@fensterglazing.com": {
    "messages": 7,
@@ -27,22 +27,95 @@
   }
  },
  "truncated": [],
- "covered_from": "2026-06-29",
+ "covered_from": "2026-06-30",
  "counts": {
-  "correspondence": 248,
-  "supplier": 197,
+  "noise": 46,
+  "correspondence": 242,
   "possible-enquiry": 20,
-  "noise": 45,
-  "enquiry": 17,
+  "supplier": 192,
+  "enquiry": 16,
   "quote-out": 8,
   "portal": 2,
-  "decision": 2
+  "decision": 1
  },
  "companies": [
   {
+   "domain": "archerbuild.co.uk",
+   "messages": 8,
+   "first": "2026-07-02",
+   "last": "2026-07-30",
+   "contacts": [
+    {
+     "address": "alex.russman@archerbuild.co.uk",
+     "name": "Alex Russman"
+    },
+    {
+     "address": "tom.harvey@archerbuild.co.uk",
+     "name": "Tom Harvey"
+    },
+    {
+     "address": "kevin.morris@archerbuild.co.uk",
+     "name": "Kevin Morris"
+    }
+   ],
+   "kinds": {
+    "correspondence": 8
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-30",
+     "subject": "P25009 - FEN - 024",
+     "preview": "Hi Adam & team, Further to recent discussions, we write to formalise our mutual agreement that Fenster Glazing will not continue with this project. Accordingly, the attached PO is hereby rescinded. Th",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-09",
+     "subject": "Re: 3287-41-Door manufacturer",
+     "preview": "Guys, The mullion is set back behind the wind post by 20mm. Assuming this is going to make our door frame wider on this side to prevent the door closer clashing with it? Kind regards, Tom Harvey Proje",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-09",
+     "subject": "RE: 3287-41-Door manufacturer",
+     "preview": "Hi Steve, Thanks for this. Do you have details of any projects you used this system on or similar you can send over? Kind regards, Kevin Morris Design Manager M 07985 259237 E Kevin.Morris@archerbuild",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "RE: 3287-41-Door manufacturer",
+     "preview": "Just a quick one \u2013 have you used a Jansen system or another steel system to achieve the right frame widths or similar needed for this project? Just a question raised by F&P. Kind regards, Kevin Morris",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-08",
+     "subject": "RE: 3287-41-Door manufacturer",
+     "preview": "Thanks for this, will come back shortly ref meeting. Kind regards, Kevin Morris Design Manager M 07985 259237 E Kevin.Morris@archerbuild.co.uk 55 Bartholomew Close London EC1A 7BF www.archerbuild.co.u",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "RE: 3287-41-Door manufacturer",
+     "preview": "Hi Steven, I have sent the video to Adam via Whatsapp. @Adam please can you send on to Steven as per my message. Please can you also advise availability for a Teams meeting with Archer and F&P tomorro",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ],
+   "weSent": 13,
+   "weSentLast": "2026-07-10",
+   "weSentSubject": "Re: F&P Gallery Doors \u2013 Proposed Options / Recommended Route",
+   "weSentFrom": "commercial"
+  },
+  {
    "domain": "vetroseal.co.uk",
-   "messages": 61,
-   "first": "2026-06-29",
+   "messages": 59,
+   "first": "2026-06-30",
    "last": "2026-07-29",
    "contacts": [
     {
@@ -59,7 +132,7 @@
     }
    ],
    "kinds": {
-    "supplier": 61
+    "supplier": 59
    },
    "relationship": "supplier",
    "isFreemail": false,
@@ -107,15 +180,15 @@
      "mailbox": "commercial"
     }
    ],
-   "weSent": 13,
+   "weSent": 14,
    "weSentLast": "2026-07-29",
-   "weSentSubject": "Re: Fenster Glazing Quote Request - Touchwood Shopping Centre",
+   "weSentSubject": "Fenster Glazing Quote Request - MHA Nuneaton",
    "weSentFrom": "commercial"
   },
   {
    "domain": "bsws.co.uk",
-   "messages": 29,
-   "first": "2026-06-29",
+   "messages": 27,
+   "first": "2026-07-03",
    "last": "2026-07-29",
    "contacts": [
     {
@@ -140,7 +213,7 @@
     }
    ],
    "kinds": {
-    "supplier": 29
+    "supplier": 27
    },
    "relationship": "supplier",
    "isFreemail": false,
@@ -188,15 +261,15 @@
      "mailbox": "commercial"
     }
    ],
-   "weSent": 28,
+   "weSent": 27,
    "weSentLast": "2026-07-29",
    "weSentSubject": "Re: Midfield - Double Entrance Door - Quote ",
    "weSentFrom": "commercial"
   },
   {
    "domain": "borrasconstruction.co.uk",
-   "messages": 21,
-   "first": "2026-06-29",
+   "messages": 19,
+   "first": "2026-07-01",
    "last": "2026-07-29",
    "contacts": [
     {
@@ -214,17 +287,13 @@
     {
      "address": "dsmith@borrasconstruction.co.uk",
      "name": "Darrell Smith"
-    },
-    {
-     "address": "tedwards@borrasconstruction.co.uk",
-     "name": "Tommy Edwards"
     }
    ],
    "kinds": {
     "correspondence": 16,
     "possible-enquiry": 1,
     "quote-out": 1,
-    "enquiry": 3
+    "enquiry": 1
    },
    "relationship": "quoted",
    "isFreemail": false,
@@ -272,15 +341,15 @@
      "mailbox": "commercial"
     }
    ],
-   "weSent": 30,
-   "weSentLast": "2026-07-28",
-   "weSentSubject": "Re: 5933 - Raglan Roofing Project  Hall windows",
+   "weSent": 34,
+   "weSentLast": "2026-07-29",
+   "weSentSubject": "Re: 3195 Manor Lodge School, Rectory Lane, Ridge Hill, Radlett, Hertfordshire, WD7 9BG - External Door Order",
    "weSentFrom": "commercial"
   },
   {
    "domain": "strongdor.com",
-   "messages": 18,
-   "first": "2026-06-29",
+   "messages": 17,
+   "first": "2026-07-15",
    "last": "2026-07-29",
    "contacts": [
     {
@@ -317,7 +386,7 @@
     }
    ],
    "kinds": {
-    "supplier": 18
+    "supplier": 17
    },
    "relationship": "supplier",
    "isFreemail": false,
@@ -365,9 +434,74 @@
      "mailbox": "commercial"
     }
    ],
-   "weSent": 20,
+   "weSent": 19,
    "weSentLast": "2026-07-29",
    "weSentSubject": "Re: SQ216850 : Luton & Dunstable Hospital",
+   "weSentFrom": "commercial"
+  },
+  {
+   "domain": "ot-consultancy.co.uk",
+   "messages": 14,
+   "first": "2026-07-10",
+   "last": "2026-07-29",
+   "contacts": [
+    {
+     "address": "patrick@ot-consultancy.co.uk",
+     "name": "Patrick O Donoghue"
+    }
+   ],
+   "kinds": {
+    "correspondence": 14
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-29",
+     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
+     "preview": "Thanks Steve I\u2019ve sent to the Architect for approval. Cheers Patrick Patrick O Donoghue, Managing Director \u2502 O+T Consultancy, M: 07594668229. This message and any attachments are private and confident",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
+     "preview": "Hi Steve, Kalvin said the structural opening is 3240mm high x 1975mm wide. Some pictures attached, the new door needs to match the existing door with the red box around it below. Cheers Patrick Patric",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
+     "preview": "Hi Steve, @Kalvin Morath-Gibbs is on site and taking some measurements as we speak. Cheers Patrick Patrick O Donoghue, Managing Director \u2502 O+T Consultancy, M: 07594668229. This message and any attachm",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
+     "preview": "Hi Steve, Please can you stop this order, it was only the windows that were approved. The door needs to be as per the Stage 05 Architectural schedule attached, please can you update your drawing and s",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Midfield Primary School - Window/Door Approval",
+     "preview": "Thanks Cheers Patrick Patrick O Donoghue, Managing Director \u2502 O+T Consultancy, M: 07594668229. This message and any attachments are private and confidential. If you have received this message in error",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Midfield Primary School - Window/Door Approval",
+     "preview": "Hi Steve, Thanks, so what\u2019s the weight including the frame? I need to full product weight. Cheers Patrick Patrick O Donoghue, Managing Director \u2502 O+T Consultancy, M: 07594668229. This message and any ",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ],
+   "weSent": 6,
+   "weSentLast": "2026-07-28",
+   "weSentSubject": "Re: EXTERNAL: Secured Project - Midfield Primary School",
    "weSentFrom": "commercial"
   },
   {
@@ -441,6 +575,73 @@
    "weSent": 10,
    "weSentLast": "2026-07-29",
    "weSentSubject": "Re: Flat 22 Austin House - Glass - Quote ",
+   "weSentFrom": "commercial"
+  },
+  {
+   "domain": "slatedrow.com",
+   "messages": 11,
+   "first": "2026-07-03",
+   "last": "2026-07-29",
+   "contacts": [
+    {
+     "address": "tommy.callaghan@slatedrow.com",
+     "name": "Tommy Callaghan"
+    }
+   ],
+   "kinds": {
+    "possible-enquiry": 3,
+    "correspondence": 6,
+    "quote-out": 2
+   },
+   "relationship": "quoted",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-29",
+     "subject": "Re: Slated Row - Kents Hill Quote",
+     "preview": "Hi Paul, That\u2019s good to hear and I\u2019m glad you\u2019re all good! Yes no worries, thank you for the update. I currently have the automatic system to be removed on the (03/08/2026) so if this isn\u2019t possible j",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-29",
+     "subject": "Re: Slated Row - Kents Hill Quote",
+     "preview": "Good morning, I hope you're having a nice week. Do you have an update on getting the doors for Kents Hill booked in? On Thu, 16 Jul 2026 at 11:49, Tommy Callaghan <tommy.callaghan@slatedrow.com> wrote",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Window and door frame PO",
+     "preview": "Hi Paul, That would be great to get that sorted in the summer as we have also discussed getting all external and internal doors replaced to match what the front blue ones will be. Being 21 single door",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-22",
+     "subject": "Re: Window and door frame PO",
+     "preview": "Hi Paul, Absolutely no problem thank you for everything you have sorted for us this summer holidays. The access control is booked to be removed on both doors at Old wolverton on the 3rd August. I also",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "PO-Reception doors",
+     "preview": "Hi mate, please find attached PO for the new reception doors Slated Row School, Old Wolverton Road, Wolverton, Milton Keynes, Buckinghamshire, MK12 5NJ ________________________________ This email and ",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-16",
+     "subject": "Re: Slated Row - Kents Hill Quote",
+     "preview": "Hi Paul, The break ends on the 01/09/2026. could i ask that the second set of doors are still in the grey but for the handles to match the blue on the front doors for Old Wolverton. Thanks mate Kind r",
+     "kind": "possible-enquiry",
+     "mailbox": "commercial"
+    }
+   ],
+   "weSent": 9,
+   "weSentLast": "2026-07-29",
+   "weSentSubject": "Re: Slated Row - Kents Hill Quote",
    "weSentFrom": "commercial"
   },
   {
@@ -518,70 +719,147 @@
    "weSentFrom": "commercial"
   },
   {
-   "domain": "slatedrow.com",
+   "domain": "tm-gb.co.uk",
    "messages": 10,
-   "first": "2026-07-03",
+   "first": "2026-07-07",
    "last": "2026-07-29",
    "contacts": [
     {
-     "address": "tommy.callaghan@slatedrow.com",
-     "name": "Tommy Callaghan"
+     "address": "customersupport@tm-gb.co.uk",
+     "name": "Target Maintenance"
+    },
+    {
+     "address": "trinity@tm-gb.co.uk",
+     "name": "Target Maintenance"
+    },
+    {
+     "address": "rmg@tm-gb.co.uk",
+     "name": "Target Maintenance"
     }
    ],
    "kinds": {
-    "possible-enquiry": 2,
-    "correspondence": 6,
-    "quote-out": 2
+    "enquiry": 2,
+    "correspondence": 8
    },
-   "relationship": "quoted",
+   "relationship": "unknown",
    "isFreemail": false,
    "subjects": [
     {
      "date": "2026-07-29",
-     "subject": "Re: Slated Row - Kents Hill Quote",
-     "preview": "Good morning, I hope you're having a nice week. Do you have an update on getting the doors for Kents Hill booked in? On Thu, 16 Jul 2026 at 11:49, Tommy Callaghan <tommy.callaghan@slatedrow.com> wrote",
-     "kind": "possible-enquiry",
+     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+     "preview": "Hi Paul. I hope you are well. I\u2019m assuming access was granted today for the final survey? If you could let us know what the next steps are that would be greatly appreciated. Thanks, Kind regards, Aime",
+     "kind": "enquiry",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-22",
-     "subject": "Re: Window and door frame PO",
-     "preview": "Hi Paul, That would be great to get that sorted in the summer as we have also discussed getting all external and internal doors replaced to match what the front blue ones will be. Being 21 single door",
+     "date": "2026-07-24",
+     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+     "preview": "Amazing! Thank you! The client has said \u201cplease ask the contractor to report to reception in the first instance and we will then provide access to the property\u201d Have a wonderful weekend! Kind regards,",
      "kind": "correspondence",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-22",
-     "subject": "Re: Window and door frame PO",
-     "preview": "Hi Paul, Absolutely no problem thank you for everything you have sorted for us this summer holidays. The access control is booked to be removed on both doors at Old wolverton on the 3rd August. I also",
+     "date": "2026-07-24",
+     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+     "preview": "Hi Paul, That would be great, I have let the client know so they should let the staff on site know who will be able to grant you access. Thanks, Kind regards, Aimee Martin| Customer Support Coordinato",
      "kind": "correspondence",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-17",
-     "subject": "PO-Reception doors",
-     "preview": "Hi mate, please find attached PO for the new reception doors Slated Row School, Old Wolverton Road, Wolverton, Milton Keynes, Buckinghamshire, MK12 5NJ ________________________________ This email and ",
+     "date": "2026-07-24",
+     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+     "preview": "Hi Paul, I hope you are well. Please let me know your next availability and I will ensure access is granted. Thanks, Kind regards, Aimee Martin| Customer Support Coordinator Main Office: 01525 308099 ",
+     "kind": "enquiry",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "Re: Window frame replacement - \u00a0Glebe Farm MK17 8HF",
+     "preview": "Good afternoon Paul, I hope you're doing well. Did you have an update on this please? Thank you. Kind regards, Anna Frost | Customer Service Coordinator anna.frost@tm-gb.co.uk Main Office: 01525 30809",
      "kind": "correspondence",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-16",
-     "subject": "Re: Slated Row - Kents Hill Quote",
-     "preview": "Hi Paul, The break ends on the 01/09/2026. could i ask that the second set of doors are still in the grey but for the handles to match the blue on the front doors for Old Wolverton. Thanks mate Kind r",
-     "kind": "possible-enquiry",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-16",
-     "subject": "Re: Slated Row - Kents Hill Quote",
-     "preview": "Good morning, I can confirm we definitely want to go ahead with both of these quotes Second set Old Wolverton Main doors Kents Hill These have been agreed. I am just awaiting a PO, as soon as i receiv",
-     "kind": "quote-out",
+     "date": "2026-07-14",
+     "subject": "Re: Window frame replacement - \u00a0Glebe Farm MK17 8HF",
+     "preview": "Afternoon Paul, The weekend was lovely thank you, hope yours was too! That's great thank you, I look forward to receiving the quote. Thank you. Kind regards, Anna Frost | Customer Service Coordinator ",
+     "kind": "correspondence",
      "mailbox": "commercial"
     }
    ],
-   "weSent": 9,
+   "weSent": 10,
    "weSentLast": "2026-07-29",
-   "weSentSubject": "Re: Slated Row - Kents Hill Quote",
+   "weSentSubject": "Re: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+   "weSentFrom": "commercial"
+  },
+  {
+   "domain": "mha.org.uk",
+   "messages": 9,
+   "first": "2026-07-17",
+   "last": "2026-07-29",
+   "contacts": [
+    {
+     "address": "samantha.linscott@mha.org.uk",
+     "name": "Samantha Linscott"
+    },
+    {
+     "address": "matt.gardner@mha.org.uk",
+     "name": "Matt Gardner"
+    }
+   ],
+   "kinds": {
+    "correspondence": 8,
+    "enquiry": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-29",
+     "subject": "RE: MHA West Court Banbury",
+     "preview": "That\u2019s great thanks Samantha Linscott Housing Manager 07484 535 616 mha.org.uk Retirement Living - Midlands This email has been produced by a secure system accredited by NHS Digital to DCB1596 standar",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-29",
+     "subject": "MHA West Court Banbury",
+     "preview": "Hi Thanks for letting me know you will cover my scheme in Banbury too. Couple of issues we need your help with 1 \u2013 we have a top floor property where the Velux-like window has blown and needs replacem",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-24",
+     "subject": "Banbury?",
+     "preview": "Hi Thanks for your help at my other sites. Just wondered if you would come to my site in Banbury . for repairs and blown panes etc. Thanks Sam Samantha Linscott Housing Manager 07484 535 616 mha.org.u",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
+     "preview": "Yes no problem Samantha Linscott Housing Manager 07484 535 616 mha.org.uk Retirement Living - Midlands This email has been produced by a secure system accredited by NHS Digital to DCB1596 standard. Th",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-23",
+     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
+     "preview": "Yes that\u2019s fine Access only until 3.30 pm Thanks Sam Samantha Linscott Housing Manager 07484 535 616 mha.org.uk Retirement Living - Midlands This email has been produced by a secure system accredited ",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
+     "preview": "Thank you Samantha Linscott Housing Manager 07484 535 616 mha.org.uk Retirement Living - Midlands This email has been produced by a secure system accredited by NHS Digital to DCB1596 standard. This al",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ],
+   "weSent": 18,
+   "weSentLast": "2026-07-29",
+   "weSentSubject": "Re: MHA West Court Banbury ",
    "weSentFrom": "commercial"
   },
   {
@@ -647,79 +925,74 @@
      "mailbox": "commercial"
     }
    ],
-   "weSent": 26,
+   "weSent": 31,
    "weSentLast": "2026-07-29",
    "weSentSubject": "Re: Touchwood glass quote ",
    "weSentFrom": "commercial"
   },
   {
-   "domain": "mha.org.uk",
-   "messages": 8,
-   "first": "2026-07-17",
+   "domain": "aluminiumfiresystems.com",
+   "messages": 6,
+   "first": "2026-07-27",
    "last": "2026-07-29",
    "contacts": [
     {
-     "address": "samantha.linscott@mha.org.uk",
-     "name": "Samantha Linscott"
-    },
-    {
-     "address": "matt.gardner@mha.org.uk",
-     "name": "Matt Gardner"
+     "address": "julian@aluminiumfiresystems.com",
+     "name": "Julian Ward"
     }
    ],
    "kinds": {
-    "correspondence": 7,
-    "enquiry": 1
+    "supplier": 6
    },
-   "relationship": "unknown",
+   "relationship": "supplier",
    "isFreemail": false,
    "subjects": [
     {
      "date": "2026-07-29",
-     "subject": "MHA West Court Banbury",
-     "preview": "Hi Thanks for letting me know you will cover my scheme in Banbury too. Couple of issues we need your help with 1 \u2013 we have a top floor property where the Velux-like window has blown and needs replacem",
-     "kind": "correspondence",
+     "subject": "RE: Q7666 - Fenster - Manor Lodge",
+     "preview": "Hi Steve, Yes mate that\u2019s correct. Kind Regards Julian Ward Estimator julian@aluminiumfiresystems.com 0121 277 4870 340 Summer Lane, B19 3QL aluminiumfiresystems.com From: Steven Freezer <steven@fenst",
+     "kind": "supplier",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-24",
-     "subject": "Banbury?",
-     "preview": "Hi Thanks for your help at my other sites. Just wondered if you would come to my site in Banbury . for repairs and blown panes etc. Thanks Sam Samantha Linscott Housing Manager 07484 535 616 mha.org.u",
-     "kind": "correspondence",
+     "date": "2026-07-29",
+     "subject": "RE: Q7666 - Fenster - Manor Lodge",
+     "preview": "Hi Steve, We would need to include for our electric strike. Kind Regards Julian Ward Estimator julian@aluminiumfiresystems.com 0121 277 4870 340 Summer Lane, B19 3QL aluminiumfiresystems.com From: Com",
+     "kind": "supplier",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-23",
-     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
-     "preview": "Yes no problem Samantha Linscott Housing Manager 07484 535 616 mha.org.uk Retirement Living - Midlands This email has been produced by a secure system accredited by NHS Digital to DCB1596 standard. Th",
-     "kind": "correspondence",
+     "date": "2026-07-29",
+     "subject": "RE: Q7666 - Fenster - Manor Lodge",
+     "preview": "Good morning Steve, Hope you are well. Please see the attached revised quotation. Kind Regards Julian Ward Estimator julian@aluminiumfiresystems.com 0121 277 4870 340 Summer Lane, B19 3QL aluminiumfir",
+     "kind": "supplier",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-23",
-     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
-     "preview": "Yes that\u2019s fine Access only until 3.30 pm Thanks Sam Samantha Linscott Housing Manager 07484 535 616 mha.org.uk Retirement Living - Midlands This email has been produced by a secure system accredited ",
-     "kind": "correspondence",
+     "date": "2026-07-28",
+     "subject": "RE: Q7666 - Fenster - Manor Lodge",
+     "preview": "Hi Steve, Hope you are well. Please see the attached revised quotation, please note that, unfortunately, we do not supply maglocks. However, an electric strike is included in the quotation for the acc",
+     "kind": "supplier",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-21",
-     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
-     "preview": "Thank you Samantha Linscott Housing Manager 07484 535 616 mha.org.uk Retirement Living - Midlands This email has been produced by a secure system accredited by NHS Digital to DCB1596 standard. This al",
-     "kind": "correspondence",
+     "date": "2026-07-28",
+     "subject": "RE: Q7666 - Fenster - Manor Lodge",
+     "preview": "Hi Steven, Unfortunately, we wouldn't be able to include a push bar, as the 900mm door width is too narrow to accommodate one. We also do not offer a panic pad, as it is not part of our supplier's pro",
+     "kind": "supplier",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-20",
-     "subject": "RE: Cracked roof pane in conservatory Aldersgate",
-     "preview": "That\u2019s fine thank you see you Thursday Completely understand Samantha Linscott Housing Manager 07484 535 616 mha.org.uk Retirement Living - Midlands This email has been produced by a secure system acc",
-     "kind": "correspondence",
+     "date": "2026-07-27",
+     "subject": "RE: Q7666 - Fenster - Manor Lodge",
+     "preview": "Hi Steven, Hope you're well. Unfortunately, we wouldn't be able to include a push bar, as the 900mm door width is too narrow to accommodate one. The only way we would be able to accommodate a push bar",
+     "kind": "supplier",
      "mailbox": "commercial"
     }
    ],
-   "weSent": 16,
-   "weSentLast": "2026-07-24",
-   "weSentSubject": "Re: Banbury?",
+   "weSent": 7,
+   "weSentLast": "2026-07-29",
+   "weSentSubject": "Re: Q7666 - Fenster - Manor Lodge",
    "weSentFrom": "commercial"
   },
   {
@@ -792,61 +1065,111 @@
    "weSentFrom": "commercial"
   },
   {
-   "domain": "aluminiumfiresystems.com",
+   "domain": "ashegroup.co.uk",
    "messages": 5,
-   "first": "2026-07-27",
+   "first": "2026-07-07",
    "last": "2026-07-29",
    "contacts": [
     {
-     "address": "julian@aluminiumfiresystems.com",
-     "name": "Julian Ward"
+     "address": "darren.owen@ashegroup.co.uk",
+     "name": "Darren Owen"
+    },
+    {
+     "address": "ben.walker@ashegroup.co.uk",
+     "name": "Ben Walker"
     }
    ],
    "kinds": {
-    "supplier": 5
+    "supplier": 1,
+    "correspondence": 4
    },
    "relationship": "supplier",
    "isFreemail": false,
    "subjects": [
     {
      "date": "2026-07-29",
-     "subject": "RE: Q7666 - Fenster - Manor Lodge",
-     "preview": "Hi Steve, We would need to include for our electric strike. Kind Regards Julian Ward Estimator julian@aluminiumfiresystems.com 0121 277 4870 340 Summer Lane, B19 3QL aluminiumfiresystems.com From: Com",
-     "kind": "supplier",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-29",
-     "subject": "RE: Q7666 - Fenster - Manor Lodge",
-     "preview": "Good morning Steve, Hope you are well. Please see the attached revised quotation. Kind Regards Julian Ward Estimator julian@aluminiumfiresystems.com 0121 277 4870 340 Summer Lane, B19 3QL aluminiumfir",
+     "subject": "RE: SP644 - Luton & Dunstable Hospital NEW CDC Secondary Glazing",
+     "preview": "Hi Steve If you can advise E/O for rockwool core. I believe I have all required information on other items, when returning E/O can you please advise on below points for me to make decision on package.",
      "kind": "supplier",
      "mailbox": "commercial"
     },
     {
      "date": "2026-07-28",
-     "subject": "RE: Q7666 - Fenster - Manor Lodge",
-     "preview": "Hi Steve, Hope you are well. Please see the attached revised quotation, please note that, unfortunately, we do not supply maglocks. However, an electric strike is included in the quotation for the acc",
-     "kind": "supplier",
+     "subject": "RE: SP644 - Luton & Dunstable Hospital NEW CDC Secondary Glazing",
+     "preview": "Hi Steve Did you manage to look at the sliding door? Regarding the steel doors do Latham offer the option of insulating the cores to improve U Value? Thanks Darren Darren Owen \u200b\u200b\u200b\u200b Procurement Manager",
+     "kind": "correspondence",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-28",
-     "subject": "RE: Q7666 - Fenster - Manor Lodge",
-     "preview": "Hi Steven, Unfortunately, we wouldn't be able to include a push bar, as the 900mm door width is too narrow to accommodate one. We also do not offer a panic pad, as it is not part of our supplier's pro",
-     "kind": "supplier",
+     "date": "2026-07-17",
+     "subject": "FW: 19550 Gadsby Street, Bedford - Updated Stage 3 Preliminary Drawings",
+     "preview": "Hi Adam Please see attached window references and schedules for your survey to reference. Many thanks Ben Ben Walker MCIOB \u200b\u200b\u200b\u200b Contracts Manager 07816 237348 www.ashegroup.co.uk Disclaimer: This e-ma",
+     "kind": "correspondence",
      "mailbox": "commercial"
     },
     {
-     "date": "2026-07-27",
-     "subject": "RE: Q7666 - Fenster - Manor Lodge",
-     "preview": "Hi Steven, Hope you're well. Unfortunately, we wouldn't be able to include a push bar, as the 900mm door width is too narrow to accommodate one. The only way we would be able to accommodate a push bar",
-     "kind": "supplier",
+     "date": "2026-07-09",
+     "subject": "RE: Gadsby Street Bedford",
+     "preview": "Hi Paul 21st would be great. @Colin Webb will be on site that day, could you please forward RAMS in due course. Regards Ben Ben Walker MCIOB \u200b\u200b\u200b\u200b Contracts Manager 07816 237348 www.ashegroup.co.uk Dis",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-07",
+     "subject": "RE: Gadsby Street Bedford",
+     "preview": "Hi Paul Do you have anything the week after, just so it gives me more time to remove the shutters? Thanks Ben Ben Walker MCIOB \u200b\u200b\u200b\u200b Contracts Manager 07816 237348 www.ashegroup.co.uk Disclaimer: This ",
+     "kind": "correspondence",
      "mailbox": "commercial"
     }
    ],
-   "weSent": 7,
+   "weSent": 10,
    "weSentLast": "2026-07-29",
-   "weSentSubject": "Re: Q7666 - Fenster - Manor Lodge",
+   "weSentSubject": "Re: SP644 - Luton & Dunstable Hospital NEW CDC Secondary Glazing ",
+   "weSentFrom": "commercial"
+  },
+  {
+   "domain": "uniassist.co.uk",
+   "messages": 3,
+   "first": "2026-07-20",
+   "last": "2026-07-29",
+   "contacts": [
+    {
+     "address": "markwilliams@uniassist.co.uk",
+     "name": "Mark Williams"
+    }
+   ],
+   "kinds": {
+    "quote-out": 1,
+    "correspondence": 2
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-29",
+     "subject": "RE: Commercial Aluminium Glazing Condition Survey Quotation",
+     "preview": "Hi Paul, Many thanks for the quotation, appreciated. Please can you leave this with me and I will have an internal discussion with the team. I will be back in contact asap with a decision either way, ",
+     "kind": "quote-out",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-28",
+     "subject": "RE: Commercial Aluminium Glazing Condition Survey Quotation",
+     "preview": "Hi Paul, No problem at all As long as we have a full report that highlights all my request apart from the plans then this should be fine. If you could send over the costs that would be appreciated Man",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-20",
+     "subject": "RE: Commercial Aluminium Glazing Condition Survey Quotation",
+     "preview": "Hi Paul, Many thanks for getting back to us. The survey is required for the whole building of which I think is around 50 windows or so. We attended site to carry out some repairs on the windows but fo",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ],
+   "weSent": 4,
+   "weSentLast": "2026-07-29",
+   "weSentSubject": "Re: Commercial Aluminium Glazing Condition Survey Quotation",
    "weSentFrom": "commercial"
   },
   {
@@ -914,6 +1237,32 @@
      "date": "2026-07-24",
      "subject": "RE: Follow-Up",
      "preview": "Hi, I am still waiting for your response. Can I send you quick details Best Regards, VA Team From: Brenda joan Sent: 29 June 2026 5:01 PM To: Brenda joan <Brendajoanwebit@outlook.in> Subject: Schedule",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ]
+  },
+  {
+   "domain": "protonmail.com",
+   "messages": 1,
+   "first": "2026-07-29",
+   "last": "2026-07-29",
+   "contacts": [
+    {
+     "address": "wnwnbridport@protonmail.com",
+     "name": "WNWN Bridport - Zero Waste Shop"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "individual",
+   "isFreemail": true,
+   "subjects": [
+    {
+     "date": "2026-07-29",
+     "subject": "Re: New Commercial Enquiry from Lydia Wilson",
+     "preview": "Hi Adam Thank you. I don\u2019t have measurements as not in the lease yet, just making arrangements ready. I would like an approximate quote please both for double door option, replacement like for like an",
      "kind": "correspondence",
      "mailbox": "commercial"
     }
@@ -1042,71 +1391,6 @@
    "weSentFrom": "commercial"
   },
   {
-   "domain": "ot-consultancy.co.uk",
-   "messages": 13,
-   "first": "2026-07-10",
-   "last": "2026-07-28",
-   "contacts": [
-    {
-     "address": "patrick@ot-consultancy.co.uk",
-     "name": "Patrick O Donoghue"
-    }
-   ],
-   "kinds": {
-    "correspondence": 13
-   },
-   "relationship": "unknown",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-07-28",
-     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
-     "preview": "Hi Steve, Kalvin said the structural opening is 3240mm high x 1975mm wide. Some pictures attached, the new door needs to match the existing door with the red box around it below. Cheers Patrick Patric",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-28",
-     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
-     "preview": "Hi Steve, @Kalvin Morath-Gibbs is on site and taking some measurements as we speak. Cheers Patrick Patrick O Donoghue, Managing Director \u2502 O+T Consultancy, M: 07594668229. This message and any attachm",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-28",
-     "subject": "RE: EXTERNAL: Secured Project - Midfield Primary School",
-     "preview": "Hi Steve, Please can you stop this order, it was only the windows that were approved. The door needs to be as per the Stage 05 Architectural schedule attached, please can you update your drawing and s",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-20",
-     "subject": "RE: Midfield Primary School - Window/Door Approval",
-     "preview": "Thanks Cheers Patrick Patrick O Donoghue, Managing Director \u2502 O+T Consultancy, M: 07594668229. This message and any attachments are private and confidential. If you have received this message in error",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-20",
-     "subject": "RE: Midfield Primary School - Window/Door Approval",
-     "preview": "Hi Steve, Thanks, so what\u2019s the weight including the frame? I need to full product weight. Cheers Patrick Patrick O Donoghue, Managing Director \u2502 O+T Consultancy, M: 07594668229. This message and any ",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-20",
-     "subject": "RE: Midfield Primary School - Window/Door Approval",
-     "preview": "Hi Steve, What\u2019s the weight of the window units being provided for Midfield? Cheers Patrick Patrick O Donoghue, Managing Director \u2502 O+T Consultancy, M: 07594668229. This message and any attachments ar",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    }
-   ],
-   "weSent": 6,
-   "weSentLast": "2026-07-28",
-   "weSentSubject": "Re: EXTERNAL: Secured Project - Midfield Primary School",
-   "weSentFrom": "commercial"
-  },
-  {
    "domain": "outlook.com",
    "messages": 10,
    "first": "2026-07-02",
@@ -1172,7 +1456,7 @@
      "mailbox": "commercial"
     }
    ],
-   "weSent": 12,
+   "weSent": 11,
    "weSentLast": "2026-07-28",
    "weSentSubject": "Re: Fenster Glazing Delivery Address",
    "weSentFrom": "commercial"
@@ -1315,79 +1599,6 @@
      "mailbox": "commercial"
     }
    ]
-  },
-  {
-   "domain": "ashegroup.co.uk",
-   "messages": 6,
-   "first": "2026-06-29",
-   "last": "2026-07-28",
-   "contacts": [
-    {
-     "address": "darren.owen@ashegroup.co.uk",
-     "name": "Darren Owen"
-    },
-    {
-     "address": "ben.walker@ashegroup.co.uk",
-     "name": "Ben Walker"
-    },
-    {
-     "address": "richard.clay@ashegroup.co.uk",
-     "name": "Richard Clay"
-    }
-   ],
-   "kinds": {
-    "correspondence": 6
-   },
-   "relationship": "quoted",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-07-28",
-     "subject": "RE: SP644 - Luton & Dunstable Hospital NEW CDC Secondary Glazing",
-     "preview": "Hi Steve Did you manage to look at the sliding door? Regarding the steel doors do Latham offer the option of insulating the cores to improve U Value? Thanks Darren Darren Owen \u200b\u200b\u200b\u200b Procurement Manager",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-17",
-     "subject": "FW: 19550 Gadsby Street, Bedford - Updated Stage 3 Preliminary Drawings",
-     "preview": "Hi Adam Please see attached window references and schedules for your survey to reference. Many thanks Ben Ben Walker MCIOB \u200b\u200b\u200b\u200b Contracts Manager 07816 237348 www.ashegroup.co.uk Disclaimer: This e-ma",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-09",
-     "subject": "RE: Gadsby Street Bedford",
-     "preview": "Hi Paul 21st would be great. @Colin Webb will be on site that day, could you please forward RAMS in due course. Regards Ben Ben Walker MCIOB \u200b\u200b\u200b\u200b Contracts Manager 07816 237348 www.ashegroup.co.uk Dis",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-07",
-     "subject": "RE: Gadsby Street Bedford",
-     "preview": "Hi Paul Do you have anything the week after, just so it gives me more time to remove the shutters? Thanks Ben Ben Walker MCIOB \u200b\u200b\u200b\u200b Contracts Manager 07816 237348 www.ashegroup.co.uk Disclaimer: This ",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "RE: Gadsby Street Bedford",
-     "preview": "Hi Adam, We don\u2019t issue order numbers, but I can confirm our acceptance of your \u00a3250 fee for the window survey, as per your email dated 26/06/26. Trust you can agree dates with Ben, who can also forwa",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "RE: Gadsby Street Bedford",
-     "preview": "Hi Adam Many thanks for this, we would like to proceed @Richard Clay could you please forward an order. If you could please advise on suitable dates to carry out this survey. Many thanks Ben Ben Walke",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    }
-   ],
-   "weSent": 10,
-   "weSentLast": "2026-07-29",
-   "weSentSubject": "Re: SP644 - Luton & Dunstable Hospital NEW CDC Secondary Glazing ",
-   "weSentFrom": "commercial"
   },
   {
    "domain": "met-fab.co.uk",
@@ -1545,43 +1756,6 @@
    "weSentFrom": "commercial"
   },
   {
-   "domain": "uniassist.co.uk",
-   "messages": 2,
-   "first": "2026-07-20",
-   "last": "2026-07-28",
-   "contacts": [
-    {
-     "address": "markwilliams@uniassist.co.uk",
-     "name": "Mark Williams"
-    }
-   ],
-   "kinds": {
-    "correspondence": 2
-   },
-   "relationship": "unknown",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-07-28",
-     "subject": "RE: Commercial Aluminium Glazing Condition Survey Quotation",
-     "preview": "Hi Paul, No problem at all As long as we have a full report that highlights all my request apart from the plans then this should be fine. If you could send over the costs that would be appreciated Man",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-20",
-     "subject": "RE: Commercial Aluminium Glazing Condition Survey Quotation",
-     "preview": "Hi Paul, Many thanks for getting back to us. The survey is required for the whole building of which I think is around 50 windows or so. We attended site to carry out some repairs on the windows but fo",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    }
-   ],
-   "weSent": 3,
-   "weSentLast": "2026-07-28",
-   "weSentSubject": "Re: Commercial Aluminium Glazing Condition Survey Quotation",
-   "weSentFrom": "commercial"
-  },
-  {
    "domain": "fortisvision.com",
    "messages": 2,
    "first": "2026-07-16",
@@ -1694,7 +1868,7 @@
      "mailbox": "commercial"
     }
    ],
-   "weSent": 44,
+   "weSent": 43,
    "weSentLast": "2026-07-24",
    "weSentSubject": "Re: Stoke Park School - Signed Frame Order ",
    "weSentFrom": "commercial"
@@ -1874,83 +2048,9 @@
      "mailbox": "commercial"
     }
    ],
-   "weSent": 1,
-   "weSentLast": "2026-07-24",
-   "weSentSubject": "22-24 Powell Road O&M request",
-   "weSentFrom": "commercial"
-  },
-  {
-   "domain": "tm-gb.co.uk",
-   "messages": 9,
-   "first": "2026-07-07",
-   "last": "2026-07-24",
-   "contacts": [
-    {
-     "address": "customersupport@tm-gb.co.uk",
-     "name": "Target Maintenance"
-    },
-    {
-     "address": "trinity@tm-gb.co.uk",
-     "name": "Target Maintenance"
-    },
-    {
-     "address": "rmg@tm-gb.co.uk",
-     "name": "Target Maintenance"
-    }
-   ],
-   "kinds": {
-    "correspondence": 8,
-    "enquiry": 1
-   },
-   "relationship": "unknown",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-07-24",
-     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
-     "preview": "Amazing! Thank you! The client has said \u201cplease ask the contractor to report to reception in the first instance and we will then provide access to the property\u201d Have a wonderful weekend! Kind regards,",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-24",
-     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
-     "preview": "Hi Paul, That would be great, I have let the client know so they should let the staff on site know who will be able to grant you access. Thanks, Kind regards, Aimee Martin| Customer Support Coordinato",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-24",
-     "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
-     "preview": "Hi Paul, I hope you are well. Please let me know your next availability and I will ensure access is granted. Thanks, Kind regards, Aimee Martin| Customer Support Coordinator Main Office: 01525 308099 ",
-     "kind": "enquiry",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-23",
-     "subject": "Re: Window frame replacement - \u00a0Glebe Farm MK17 8HF",
-     "preview": "Good afternoon Paul, I hope you're doing well. Did you have an update on this please? Thank you. Kind regards, Anna Frost | Customer Service Coordinator anna.frost@tm-gb.co.uk Main Office: 01525 30809",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-14",
-     "subject": "Re: Window frame replacement - \u00a0Glebe Farm MK17 8HF",
-     "preview": "Afternoon Paul, The weekend was lovely thank you, hope yours was too! That's great thank you, I look forward to receiving the quote. Thank you. Kind regards, Anna Frost | Customer Service Coordinator ",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-14",
-     "subject": "RE: King's Cross Road, London WC1X 9NH",
-     "preview": "Hi Paul, No problem, I will speak with my client and come back to you. Thank you. Kind regards, Rebecca Hendry | Coordinator Main Office: 01525 308099 Out of Hours: 0800 069 9909 Email: info@tm-gb.co.",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    }
-   ],
-   "weSent": 9,
-   "weSentLast": "2026-07-24",
-   "weSentSubject": "Re: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+   "weSent": 3,
+   "weSentLast": "2026-07-29",
+   "weSentSubject": "Re: 22-24 Powell Road O&M request",
    "weSentFrom": "commercial"
   },
   {
@@ -2608,72 +2708,6 @@
    "weSentFrom": "commercial"
   },
   {
-   "domain": "stewarts.cc",
-   "messages": 6,
-   "first": "2026-06-29",
-   "last": "2026-07-21",
-   "contacts": [
-    {
-     "address": "david@stewarts.cc",
-     "name": "David Pevalin"
-    }
-   ],
-   "kinds": {
-    "correspondence": 5,
-    "supplier": 1
-   },
-   "relationship": "won",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-07-21",
-     "subject": "RE: Milton Keynes Digital Centre A new P4 task - #00164657 has been assigned to you.",
-     "preview": "HI Adam, The cost has been approved for the replacement, please can you proceed with the order, thanks. We are pleased to inform you that your quote has been accepted. Please arrange a date for the co",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-21",
-     "subject": "RE: Milton Keynes Digital Centre A new P4 task - #00164657 has been assigned to you.",
-     "preview": "Hi Paul, This window is proving to be a pain, keep me informed of the lead time for this, I\u2019d hope with this being the supplier\u2019s fault that they will action the replacement quickly. Thanks for sendin",
-     "kind": "supplier",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-17",
-     "subject": "RE: DHL Express Cambridge - Shattered Window",
-     "preview": "Thanks Paul Kind regards, David Pevalin David Pevalin Maintenance Manager Unit 3, Carrera Court, Sheffield, S25 2RG Telephone: 01709 288 296 ext 1003 Mobile: 07963 403 725 Email: David@stewarts.cc Web",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-01",
-     "subject": "RE: DHL Express Cambridge - Shattered Window",
-     "preview": "Hi Paul, Usually I would say that\u2019s fine but site are pressuring me to get this done resolved quickly, could we keep it on for Friday. Kind regards, David Pevalin David Pevalin Maintenance Manager Uni",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "RE: DHL Express Cambridge - Shattered Window",
-     "preview": "HI Paul, This will be fine, I\u2019ll inform site of your visit, your contact on the day will be Kerry Quinton or James Keys Kidd, if you ask for them at reception they will come down to you, thanks. Kind ",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "RE: DHL Express Cambridge - Shattered Window",
-     "preview": "Hi Adam, The cost has been approved for the repair, please see PO below. We are pleased to inform you that your quote has been accepted. Please arrange a date for the commencement of the work and prov",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    }
-   ],
-   "weSent": 9,
-   "weSentLast": "2026-07-20",
-   "weSentSubject": "Re: Milton Keynes Digital Centre A new P4 task - #00164657 has been assigned to you.                                    ",
-   "weSentFrom": "commercial"
-  },
-  {
    "domain": "harrispartnership.com",
    "messages": 5,
    "first": "2026-07-17",
@@ -2726,6 +2760,58 @@
      "mailbox": "commercial"
     }
    ]
+  },
+  {
+   "domain": "stewarts.cc",
+   "messages": 4,
+   "first": "2026-07-01",
+   "last": "2026-07-21",
+   "contacts": [
+    {
+     "address": "david@stewarts.cc",
+     "name": "David Pevalin"
+    }
+   ],
+   "kinds": {
+    "correspondence": 3,
+    "supplier": 1
+   },
+   "relationship": "won",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Milton Keynes Digital Centre A new P4 task - #00164657 has been assigned to you.",
+     "preview": "HI Adam, The cost has been approved for the replacement, please can you proceed with the order, thanks. We are pleased to inform you that your quote has been accepted. Please arrange a date for the co",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-21",
+     "subject": "RE: Milton Keynes Digital Centre A new P4 task - #00164657 has been assigned to you.",
+     "preview": "Hi Paul, This window is proving to be a pain, keep me informed of the lead time for this, I\u2019d hope with this being the supplier\u2019s fault that they will action the replacement quickly. Thanks for sendin",
+     "kind": "supplier",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-17",
+     "subject": "RE: DHL Express Cambridge - Shattered Window",
+     "preview": "Thanks Paul Kind regards, David Pevalin David Pevalin Maintenance Manager Unit 3, Carrera Court, Sheffield, S25 2RG Telephone: 01709 288 296 ext 1003 Mobile: 07963 403 725 Email: David@stewarts.cc Web",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    },
+    {
+     "date": "2026-07-01",
+     "subject": "RE: DHL Express Cambridge - Shattered Window",
+     "preview": "Hi Paul, Usually I would say that\u2019s fine but site are pressuring me to get this done resolved quickly, could we keep it on for Friday. Kind regards, David Pevalin David Pevalin Maintenance Manager Uni",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ],
+   "weSent": 7,
+   "weSentLast": "2026-07-20",
+   "weSentSubject": "Re: Milton Keynes Digital Centre A new P4 task - #00164657 has been assigned to you.                                    ",
+   "weSentFrom": "commercial"
   },
   {
    "domain": "guildmore.com",
@@ -3266,43 +3352,6 @@
    "weSentFrom": "commercial"
   },
   {
-   "domain": "kailashmanor.co.uk",
-   "messages": 2,
-   "first": "2026-06-29",
-   "last": "2026-07-17",
-   "contacts": [
-    {
-     "address": "maintenance@kailashmanor.co.uk",
-     "name": "Kailash Maintenance"
-    }
-   ],
-   "kinds": {
-    "correspondence": 2
-   },
-   "relationship": "unknown",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-07-17",
-     "subject": "RE: Fenster Glazing - Window Issues",
-     "preview": "Hi Paul Thank you so much for your update!!! Kind regards, \u200b\u200b\u200b\u200b Parth Parth Parekh | Kailash Maintenance M: 07442 309 750 | T: 020 4538 7333 Kailash Manor, Royston Grove, Hatch End, Pinner, Middlesex,",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "RE: Fenster Glazing - Window Issues",
-     "preview": "Hi Paul Thank you so much for your update Kind regards, \u200b\u200b\u200b\u200b Parth Parth Parekh | Kailash Maintenance M: 07442 309 750 | T: 020 4538 7333 Kailash Manor, Royston Grove, Hatch End, Pinner, Middlesex, HA",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    }
-   ],
-   "weSent": 4,
-   "weSentLast": "2026-07-17",
-   "weSentSubject": "Re: Fenster Glazing - Window Issues",
-   "weSentFrom": "commercial"
-  },
-  {
    "domain": "stepnell.co.uk",
    "messages": 1,
    "first": "2026-07-17",
@@ -3330,6 +3379,36 @@
    "weSent": 2,
    "weSentLast": "2026-07-17",
    "weSentSubject": "Re: BCC, 4-16 Filwood Broadway, BS4 1JN",
+   "weSentFrom": "commercial"
+  },
+  {
+   "domain": "kailashmanor.co.uk",
+   "messages": 1,
+   "first": "2026-07-17",
+   "last": "2026-07-17",
+   "contacts": [
+    {
+     "address": "maintenance@kailashmanor.co.uk",
+     "name": "Kailash Maintenance"
+    }
+   ],
+   "kinds": {
+    "correspondence": 1
+   },
+   "relationship": "unknown",
+   "isFreemail": false,
+   "subjects": [
+    {
+     "date": "2026-07-17",
+     "subject": "RE: Fenster Glazing - Window Issues",
+     "preview": "Hi Paul Thank you so much for your update!!! Kind regards, \u200b\u200b\u200b\u200b Parth Parth Parekh | Kailash Maintenance M: 07442 309 750 | T: 020 4538 7333 Kailash Manor, Royston Grove, Hatch End, Pinner, Middlesex,",
+     "kind": "correspondence",
+     "mailbox": "commercial"
+    }
+   ],
+   "weSent": 3,
+   "weSentLast": "2026-07-17",
+   "weSentSubject": "Re: Fenster Glazing - Window Issues",
    "weSentFrom": "commercial"
   },
   {
@@ -3434,11 +3513,7 @@
      "kind": "correspondence",
      "mailbox": "commercial"
     }
-   ],
-   "weSent": 2,
-   "weSentLast": "2026-06-29",
-   "weSentSubject": "Fenster Glazing Quote Request - Home Bargains",
-   "weSentFrom": "commercial"
+   ]
   },
   {
    "domain": "cauldwellproperty.co.uk",
@@ -3498,8 +3573,8 @@
   },
   {
    "domain": "sdevs.co.uk",
-   "messages": 6,
-   "first": "2026-06-29",
+   "messages": 3,
+   "first": "2026-07-13",
    "last": "2026-07-15",
    "contacts": [
     {
@@ -3509,8 +3584,7 @@
    ],
    "kinds": {
     "enquiry": 2,
-    "correspondence": 3,
-    "quote-out": 1
+    "correspondence": 1
    },
    "relationship": "won",
    "isFreemail": false,
@@ -3535,30 +3609,9 @@
      "preview": "Hi Adam, Hope you're well. Yes no probs, I'll pass the message onto the guys on site. Best, Brad Hepburn MCIOB Consultant M: 07376 227417 T: 0204 553 9902 W: www.sdevs.co.uk __________________________",
      "kind": "correspondence",
      "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "Re: SDevs - 41 Kings Street - Fenster Glazing",
-     "preview": "Hi Adam, All approved, please proceed. As usual, we're under the kosh a bit with this one. Please do let us know you earliest available install date. I really appreciate your efforts on this one, Brad",
-     "kind": "quote-out",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "Re: Lakenheath - Glass",
-     "preview": "Hi Paul, Hope you're well. That's good for us, let me know if any trouble with access, we have lads on site. Best, Brad Hepburn MCIOB Consultant M: 07376 227417 T: 0204 553 9902 W: www.sdevs.co.uk ___",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "Re: SDevs - 41 Kings Street - Fenster Glazing",
-     "preview": "Morning Adam, Hope you had a great weekend. You're a gentleman for sorting that, I'll forward on to the client for approval and come back to you asap. Best, Brad Hepburn MCIOB Consultant M: 07376 2274",
-     "kind": "correspondence",
-     "mailbox": "commercial"
     }
    ],
-   "weSent": 5,
+   "weSent": 3,
    "weSentLast": "2026-07-14",
    "weSentSubject": "Re: 13 Summerhill way, CR4 2NL request for survey and quote.",
    "weSentFrom": "commercial"
@@ -3869,75 +3922,6 @@
    "weSentFrom": "commercial"
   },
   {
-   "domain": "archerbuild.co.uk",
-   "messages": 8,
-   "first": "2026-06-29",
-   "last": "2026-07-09",
-   "contacts": [
-    {
-     "address": "tom.harvey@archerbuild.co.uk",
-     "name": "Tom Harvey"
-    },
-    {
-     "address": "kevin.morris@archerbuild.co.uk",
-     "name": "Kevin Morris"
-    }
-   ],
-   "kinds": {
-    "correspondence": 8
-   },
-   "relationship": "quoted",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-07-09",
-     "subject": "Re: 3287-41-Door manufacturer",
-     "preview": "Guys, The mullion is set back behind the wind post by 20mm. Assuming this is going to make our door frame wider on this side to prevent the door closer clashing with it? Kind regards, Tom Harvey Proje",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-09",
-     "subject": "RE: 3287-41-Door manufacturer",
-     "preview": "Hi Steve, Thanks for this. Do you have details of any projects you used this system on or similar you can send over? Kind regards, Kevin Morris Design Manager M 07985 259237 E Kevin.Morris@archerbuild",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-08",
-     "subject": "RE: 3287-41-Door manufacturer",
-     "preview": "Just a quick one \u2013 have you used a Jansen system or another steel system to achieve the right frame widths or similar needed for this project? Just a question raised by F&P. Kind regards, Kevin Morris",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-08",
-     "subject": "RE: 3287-41-Door manufacturer",
-     "preview": "Thanks for this, will come back shortly ref meeting. Kind regards, Kevin Morris Design Manager M 07985 259237 E Kevin.Morris@archerbuild.co.uk 55 Bartholomew Close London EC1A 7BF www.archerbuild.co.u",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-07",
-     "subject": "RE: 3287-41-Door manufacturer",
-     "preview": "Hi Steven, I have sent the video to Adam via Whatsapp. @Adam please can you send on to Steven as per my message. Please can you also advise availability for a Teams meeting with Archer and F&P tomorro",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-07-06",
-     "subject": "RE: 3287-41-Door manufacturer",
-     "preview": "Hi Steven & Adam, I have sent you the O&M\u2019s for the existing doors via Procore transmittal. Please can you review the details and see if you can source the same product. As explained this is extremely",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    }
-   ],
-   "weSent": 16,
-   "weSentLast": "2026-07-10",
-   "weSentSubject": "Re: F&P Gallery Doors \u2013 Proposed Options / Recommended Route",
-   "weSentFrom": "commercial"
-  },
-  {
    "domain": "wearehomesforstudents.com",
    "messages": 2,
    "first": "2026-07-06",
@@ -4185,23 +4169,18 @@
   },
   {
    "domain": "thomas-sinden.co.uk",
-   "messages": 3,
-   "first": "2026-06-29",
+   "messages": 2,
+   "first": "2026-07-01",
    "last": "2026-07-02",
    "contacts": [
     {
      "address": "seyi.adesogan@thomas-sinden.co.uk",
      "name": "Seyi Adesogan"
-    },
-    {
-     "address": "emma.o'brien@thomas-sinden.co.uk",
-     "name": "Emma O'Brien"
     }
    ],
    "kinds": {
     "possible-enquiry": 1,
-    "enquiry": 1,
-    "correspondence": 1
+    "enquiry": 1
    },
    "relationship": "quoted",
    "isFreemail": false,
@@ -4218,13 +4197,6 @@
      "subject": "Enquiry - Alkerden, The Hub - Aluminium Curtain Walling & External Doors",
      "preview": "Good afternoon, We have secured the above project which is due to commence on site in October 2026 and would be pleased to receive an updated quotation for the Aluminium Curtain Walling & External Doo",
      "kind": "enquiry",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "Re: OSG Cold Ash - Invitation To Tender for Windows & Doors-Aluminium works",
-     "preview": "Many thanks Adam. I hope to be in touch again soon. Best wishes Emma O\u2019Brien Estimating Assistant 137-145 Church Road | Harold Wood | Romford | Essex | RM3 0SH D: 02039065000 : E:emma.obrien@thomas-si",
-     "kind": "correspondence",
      "mailbox": "commercial"
     }
    ]
@@ -4324,8 +4296,8 @@
   },
   {
    "domain": "contechconservatories.co.uk",
-   "messages": 2,
-   "first": "2026-06-29",
+   "messages": 1,
+   "first": "2026-07-01",
    "last": "2026-07-01",
    "contacts": [
     {
@@ -4334,7 +4306,7 @@
     }
    ],
    "kinds": {
-    "possible-enquiry": 2
+    "possible-enquiry": 1
    },
    "relationship": "unknown",
    "isFreemail": false,
@@ -4343,13 +4315,6 @@
      "date": "2026-07-01",
      "subject": "RE: King-St Quote",
      "preview": "Hi Adam, Due to the mixup I already did this one very cheap sorry. The best I can possibly do on this is \u00a32860.11 plus vat, I know it\u2019s not much of a reduction but hopefully it helps out. Thanks Tom W",
-     "kind": "possible-enquiry",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "RE: King-St Quote",
-     "preview": "Apologies Adam. We manufacture the lanterns and conservatory roofs so have full control over quotes / manufacturing but we have to buy the motorised rooflights in. The company we normally get them fro",
      "kind": "possible-enquiry",
      "mailbox": "commercial"
     }
@@ -4406,103 +4371,43 @@
      "mailbox": "commercial"
     }
    ]
-  },
-  {
-   "domain": "wharfsidesupplies.com",
-   "messages": 2,
-   "first": "2026-06-29",
-   "last": "2026-06-29",
-   "contacts": [
-    {
-     "address": "jess@wharfsidesupplies.com",
-     "name": "Jess Maddock"
-    }
-   ],
-   "kinds": {
-    "supplier": 2
-   },
-   "relationship": "supplier",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-06-29",
-     "subject": "Re: Fenster Glazing - TLC",
-     "preview": "I couldn't tell you timing, sorry. They just kinda turn up at any time. I've tried to ask the supplier but they don't know either. I'll update you but they're definitely coming tomorrow. Kind regards,",
-     "kind": "supplier",
-     "mailbox": "commercial"
-    },
-    {
-     "date": "2026-06-29",
-     "subject": "Re: Fenster Glazing - TLC",
-     "preview": "Hiya, Unfortunately, not yet. I think at this stage they'll deliver tomorrow now. I'll let you know when they arrive. Kind regards, ________________________________ From: Commercial <Commercial@fenste",
-     "kind": "supplier",
-     "mailbox": "commercial"
-    }
-   ],
-   "weSent": 2,
-   "weSentLast": "2026-06-29",
-   "weSentSubject": "Re: Fenster Glazing - TLC ",
-   "weSentFrom": "commercial"
-  },
-  {
-   "domain": "precisionglassltd.co.uk",
-   "messages": 1,
-   "first": "2026-06-29",
-   "last": "2026-06-29",
-   "contacts": [
-    {
-     "address": "enquiries@precisionglassltd.co.uk",
-     "name": "Enquiries @ Precision Glass Ltd"
-    }
-   ],
-   "kinds": {
-    "correspondence": 1
-   },
-   "relationship": "unknown",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-06-29",
-     "subject": "RE: Harlow CM20 2UA",
-     "preview": "Hi Adam, Thank you for sending this over. This may be quite a tricky one to take on as we would need to scaffold from the floor as it is side fixed, making it expensive and not likely to be a feasible",
-     "kind": "correspondence",
-     "mailbox": "commercial"
-    }
-   ]
-  },
-  {
-   "domain": "neildouglas.co.uk",
-   "messages": 1,
-   "first": "2026-06-29",
-   "last": "2026-06-29",
-   "contacts": [
-    {
-     "address": "anton.antonov@neildouglas.co.uk",
-     "name": "Anton Antonov"
-    }
-   ],
-   "kinds": {
-    "decision": 1
-   },
-   "relationship": "quoted",
-   "isFreemail": false,
-   "subjects": [
-    {
-     "date": "2026-06-29",
-     "subject": "RE: Fenster Glazing - Outstanding Quotes",
-     "preview": "Hi Paul & Adam, I hope you are well. Apologies for not getting back to you sooner. Please see some updates below: * Alsford Wharf: windows project was awarded to an alternative contractor. * Riverside",
-     "kind": "decision",
-     "mailbox": "commercial"
-    }
-   ],
-   "weSent": 2,
-   "weSentLast": "2026-07-24",
-   "weSentSubject": "Re: Fenster Glazing - Outstanding Quotes",
-   "weSentFrom": "commercial"
   }
  ],
- "signal_count": 49,
+ "signal_count": 47,
  "signals": [
+  {
+   "date": "2026-07-29",
+   "kind": "possible-enquiry",
+   "company": "slatedrow.com",
+   "contact": "tommy.callaghan@slatedrow.com",
+   "name": "Tommy Callaghan",
+   "subject": "Re: Slated Row - Kents Hill Quote",
+   "preview": "Hi Paul, That\u2019s good to hear and I\u2019m glad you\u2019re all good! Yes no worries, thank you for the update. I currently have the automatic system to be removed on the (03/08/2026) so if this isn\u2019t possible just let me know and I\u2019ll cancel. Thanks ",
+   "mailbox": "commercial",
+   "relationship": "quoted"
+  },
+  {
+   "date": "2026-07-29",
+   "kind": "enquiry",
+   "company": "tm-gb.co.uk",
+   "contact": "customersupport@tm-gb.co.uk",
+   "name": "Target Maintenance",
+   "subject": "RE: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+   "preview": "Hi Paul. I hope you are well. I\u2019m assuming access was granted today for the final survey? If you could let us know what the next steps are that would be greatly appreciated. Thanks, Kind regards, Aimee Martin| Customer Support Coordinator",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
+  {
+   "date": "2026-07-29",
+   "kind": "quote-out",
+   "company": "uniassist.co.uk",
+   "contact": "markwilliams@uniassist.co.uk",
+   "name": "Mark Williams",
+   "subject": "RE: Commercial Aluminium Glazing Condition Survey Quotation",
+   "preview": "Hi Paul, Many thanks for the quotation, appreciated. Please can you leave this with me and I will have an internal discussion with the team. I will be back in contact asap with a decision either way, hope this helps. Regards, Mark Willi",
+   "mailbox": "commercial",
+   "relationship": "unknown"
+  },
   {
    "date": "2026-07-29",
    "kind": "possible-enquiry",
@@ -4986,64 +4891,108 @@
    "preview": "Hi Steve, I hope you are well. Apologies for the delay. The client has now come back to me and is happy with everything, so please proceed with fabrication. I have noted the measurements and am happy to sign them off; however, responsibilit",
    "mailbox": "commercial",
    "relationship": "won"
-  },
-  {
-   "date": "2026-06-29",
-   "kind": "possible-enquiry",
-   "company": "contechconservatories.co.uk",
-   "contact": "tom@contechconservatories.co.uk",
-   "name": "Tom Warren",
-   "subject": "RE: King-St Quote",
-   "preview": "Apologies Adam. We manufacture the lanterns and conservatory roofs so have full control over quotes / manufacturing but we have to buy the motorised rooflights in. The company we normally get them from has recently been bought out by a larg",
-   "mailbox": "commercial",
-   "relationship": "unknown"
-  },
-  {
-   "date": "2026-06-29",
-   "kind": "quote-out",
-   "company": "sdevs.co.uk",
-   "contact": "brad@sdevs.co.uk",
-   "name": "Brad",
-   "subject": "Re: SDevs - 41 Kings Street - Fenster Glazing",
-   "preview": "Hi Adam, All approved, please proceed. As usual, we're under the kosh a bit with this one. Please do let us know you earliest available install date. I really appreciate your efforts on this one, Brad Hepburn MCIOB Consultant M: 07",
-   "mailbox": "commercial",
-   "relationship": "won"
-  },
-  {
-   "date": "2026-06-29",
-   "kind": "enquiry",
-   "company": "borrasconstruction.co.uk",
-   "contact": "ghayes@borrasconstruction.co.uk",
-   "name": "Grant Hayes",
-   "subject": "Re: 5933 - Raglan Roofing Project, Wellington Rd, Enfield EN1 2NS - Window enquiry",
-   "preview": "Hello Tommy I will if i can \u200b\u200b\u200b\u200b Grant Hayes Site Manager t: m: 07811 997495 w: www.borrasconstruction.co.uk 1 Salar House, Campfield Road, St Albans, Hertfordshire AL1 5HT ________________________________ From: Tommy Edwards <tedwards@",
-   "mailbox": "commercial",
-   "relationship": "quoted"
-  },
-  {
-   "date": "2026-06-29",
-   "kind": "enquiry",
-   "company": "borrasconstruction.co.uk",
-   "contact": "tedwards@borrasconstruction.co.uk",
-   "name": "Tommy Edwards",
-   "subject": "RE: 5933 - Raglan Roofing Project, Wellington Rd, Enfield EN1 2NS - Window enquiry",
-   "preview": "@Grant Hayes \u2013 Is this something you can get tomorrow ? \u200b\u200b\u200b\u200b Tommy Edwards TechCIOB Assistant Surveyor t: 01727 850633 m: 07583 022907 w: www.borrasconstruction.co.uk 1 Salar House, Campfield Road, St Albans, Hertfordshire AL1 5HT From:",
-   "mailbox": "commercial",
-   "relationship": "quoted"
-  },
-  {
-   "date": "2026-06-29",
-   "kind": "decision",
-   "company": "neildouglas.co.uk",
-   "contact": "anton.antonov@neildouglas.co.uk",
-   "name": "Anton Antonov",
-   "subject": "RE: Fenster Glazing - Outstanding Quotes",
-   "preview": "Hi Paul & Adam, I hope you are well. Apologies for not getting back to you sooner. Please see some updates below: * Alsford Wharf: windows project was awarded to an alternative contractor. * Riverside Close: Windows replacement works were i",
-   "mailbox": "commercial",
-   "relationship": "quoted"
   }
  ],
  "sentTo": [
+  {
+   "domain": "kind-build.com",
+   "messages": 3,
+   "last": "2026-07-29",
+   "lastSubject": "Re: 22-24 Powell Road O&M request",
+   "fromMailbox": "commercial",
+   "addresses": [
+    "david.george@kind-build.com",
+    "ciaran.monahan@kind-build.com"
+   ]
+  },
+  {
+   "domain": "mha.org.uk",
+   "messages": 18,
+   "last": "2026-07-29",
+   "lastSubject": "Re: MHA West Court Banbury ",
+   "fromMailbox": "commercial",
+   "addresses": [
+    "samantha.linscott@mha.org.uk",
+    "matt.gardner@mha.org.uk",
+    "rachel.smith@mha.org.uk"
+   ]
+  },
+  {
+   "domain": "borrasconstruction.co.uk",
+   "messages": 34,
+   "last": "2026-07-29",
+   "lastSubject": "Re: 3195 Manor Lodge School, Rectory Lane, Ridge Hill, Radlett, Hertfordshire, WD7 9BG - External Door Order",
+   "fromMailbox": "commercial",
+   "addresses": [
+    "mbateman@borrasconstruction.co.uk",
+    "sbristow@borrasconstruction.co.uk",
+    "bbeckwith@borrasconstruction.co.uk",
+    "tedwards@borrasconstruction.co.uk",
+    "ghayes@borrasconstruction.co.uk",
+    "mrelf@borrasconstruction.co.uk"
+   ]
+  },
+  {
+   "domain": "uniassist.co.uk",
+   "messages": 4,
+   "last": "2026-07-29",
+   "lastSubject": "Re: Commercial Aluminium Glazing Condition Survey Quotation",
+   "fromMailbox": "commercial",
+   "addresses": [
+    "markwilliams@uniassist.co.uk"
+   ]
+  },
+  {
+   "domain": "tm-gb.co.uk",
+   "messages": 10,
+   "last": "2026-07-29",
+   "lastSubject": "Re: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
+   "fromMailbox": "commercial",
+   "addresses": [
+    "customersupport@tm-gb.co.uk",
+    "trinity@tm-gb.co.uk",
+    "rmg@tm-gb.co.uk"
+   ]
+  },
+  {
+   "domain": "vetroseal.co.uk",
+   "messages": 14,
+   "last": "2026-07-29",
+   "lastSubject": "Fenster Glazing Quote Request - MHA Nuneaton",
+   "fromMailbox": "commercial",
+   "addresses": [
+    "danielstutz@vetroseal.co.uk"
+   ]
+  },
+  {
+   "domain": "excelhoardings.com",
+   "messages": 31,
+   "last": "2026-07-29",
+   "lastSubject": "Re: Touchwood glass quote ",
+   "fromMailbox": "commercial",
+   "addresses": [
+    "gareth@excelhoardings.com",
+    "jason@excelhoardings.com",
+    "richard@excelhoardings.com",
+    "harriet@excelhoardings.com",
+    "lynne@excelhoardings.com"
+   ]
+  },
+  {
+   "domain": "strongdor.com",
+   "messages": 19,
+   "last": "2026-07-29",
+   "lastSubject": "Re: SQ216850 : Luton & Dunstable Hospital",
+   "fromMailbox": "commercial",
+   "addresses": [
+    "george.hayward@strongdor.com",
+    "sam.walling-mcloughlin@strongdor.com",
+    "sales.south@strongdor.com",
+    "cameron.stoneley@strongdor.com",
+    "sales@strongdor.com",
+    "emma.carter@strongdor.com"
+   ]
+  },
   {
    "domain": "artprojectsltd.com",
    "messages": 1,
@@ -5056,7 +5005,7 @@
   },
   {
    "domain": "bsws.co.uk",
-   "messages": 28,
+   "messages": 27,
    "last": "2026-07-29",
    "lastSubject": "Re: Midfield - Double Entrance Door - Quote ",
    "fromMailbox": "commercial",
@@ -5090,20 +5039,6 @@
     "martingregory@cnglass.co.uk",
     "orders@cnglass.co.uk",
     "tonys@cnglass.co.uk"
-   ]
-  },
-  {
-   "domain": "excelhoardings.com",
-   "messages": 26,
-   "last": "2026-07-29",
-   "lastSubject": "Re: Touchwood glass quote ",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "gareth@excelhoardings.com",
-    "jason@excelhoardings.com",
-    "richard@excelhoardings.com",
-    "harriet@excelhoardings.com",
-    "lynne@excelhoardings.com"
    ]
   },
   {
@@ -5147,21 +5082,6 @@
    ]
   },
   {
-   "domain": "strongdor.com",
-   "messages": 20,
-   "last": "2026-07-29",
-   "lastSubject": "Re: SQ216850 : Luton & Dunstable Hospital",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "george.hayward@strongdor.com",
-    "sam.walling-mcloughlin@strongdor.com",
-    "sales.south@strongdor.com",
-    "cameron.stoneley@strongdor.com",
-    "sales@strongdor.com",
-    "emma.carter@strongdor.com"
-   ]
-  },
-  {
    "domain": "ashegroup.co.uk",
    "messages": 10,
    "last": "2026-07-29",
@@ -5172,16 +5092,6 @@
     "colin.webb@ashegroup.co.uk",
     "ben.walker@ashegroup.co.uk",
     "richard.clay@ashegroup.co.uk"
-   ]
-  },
-  {
-   "domain": "vetroseal.co.uk",
-   "messages": 13,
-   "last": "2026-07-29",
-   "lastSubject": "Re: Fenster Glazing Quote Request - Touchwood Shopping Centre",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "danielstutz@vetroseal.co.uk"
    ]
   },
   {
@@ -5197,16 +5107,6 @@
     "l.diggines@dentonhope.com",
     "t.mcdowell@dentonhope.com",
     "i.glithero@dentonhope.com"
-   ]
-  },
-  {
-   "domain": "uniassist.co.uk",
-   "messages": 3,
-   "last": "2026-07-28",
-   "lastSubject": "Re: Commercial Aluminium Glazing Condition Survey Quotation",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "markwilliams@uniassist.co.uk"
    ]
   },
   {
@@ -5269,31 +5169,15 @@
    ]
   },
   {
-   "domain": "borrasconstruction.co.uk",
-   "messages": 30,
-   "last": "2026-07-28",
-   "lastSubject": "Re: 5933 - Raglan Roofing Project  Hall windows",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "ghayes@borrasconstruction.co.uk",
-    "tedwards@borrasconstruction.co.uk",
-    "mrelf@borrasconstruction.co.uk",
-    "sbristow@borrasconstruction.co.uk",
-    "awake@borrasconstruction.co.uk",
-    "mbateman@borrasconstruction.co.uk"
-   ]
-  },
-  {
    "domain": "outlook.com",
-   "messages": 12,
+   "messages": 11,
    "last": "2026-07-28",
    "lastSubject": "Re: Fenster Glazing Delivery Address",
    "fromMailbox": "commercial",
    "addresses": [
     "sbmglazing@outlook.com",
     "msafinance@outlook.com",
-    "gough2998@outlook.com",
-    "sadiqjaffer@outlook.com"
+    "gough2998@outlook.com"
    ]
   },
   {
@@ -5329,28 +5213,6 @@
    ]
   },
   {
-   "domain": "tm-gb.co.uk",
-   "messages": 9,
-   "last": "2026-07-24",
-   "lastSubject": "Re: Quote Request - Door Repair - All Saints View, Sapphire Place, LU5 5LP (GR/103037)",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "customersupport@tm-gb.co.uk",
-    "trinity@tm-gb.co.uk",
-    "rmg@tm-gb.co.uk"
-   ]
-  },
-  {
-   "domain": "kind-build.com",
-   "messages": 1,
-   "last": "2026-07-24",
-   "lastSubject": "22-24 Powell Road O&M request",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "ciaran.monahan@kind-build.com"
-   ]
-  },
-  {
    "domain": "aspectwindowfilms.co.uk",
    "messages": 6,
    "last": "2026-07-24",
@@ -5363,7 +5225,7 @@
   },
   {
    "domain": "aplusaluminium.co.uk",
-   "messages": 44,
+   "messages": 43,
    "last": "2026-07-24",
    "lastSubject": "Re: Stoke Park School - Signed Frame Order ",
    "fromMailbox": "commercial",
@@ -5373,18 +5235,6 @@
     "estimating@aplusaluminium.co.uk",
     "asims@aplusaluminium.co.uk",
     "dominic.palethorpe@aplusaluminium.co.uk"
-   ]
-  },
-  {
-   "domain": "mha.org.uk",
-   "messages": 16,
-   "last": "2026-07-24",
-   "lastSubject": "Re: Banbury?",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "samantha.linscott@mha.org.uk",
-    "matt.gardner@mha.org.uk",
-    "rachel.smith@mha.org.uk"
    ]
   },
   {
@@ -5400,7 +5250,7 @@
   },
   {
    "domain": "neildouglas.co.uk",
-   "messages": 2,
+   "messages": 1,
    "last": "2026-07-24",
    "lastSubject": "Re: Fenster Glazing - Outstanding Quotes",
    "fromMailbox": "commercial",
@@ -5572,7 +5422,7 @@
   },
   {
    "domain": "stewarts.cc",
-   "messages": 9,
+   "messages": 7,
    "last": "2026-07-20",
    "lastSubject": "Re: Milton Keynes Digital Centre A new P4 task - #00164657 has been assigned to you.                                    ",
    "fromMailbox": "commercial",
@@ -5613,7 +5463,7 @@
   },
   {
    "domain": "kailashmanor.co.uk",
-   "messages": 4,
+   "messages": 3,
    "last": "2026-07-17",
    "lastSubject": "Re: Fenster Glazing - Window Issues",
    "fromMailbox": "commercial",
@@ -5714,7 +5564,7 @@
   },
   {
    "domain": "sdevs.co.uk",
-   "messages": 5,
+   "messages": 3,
    "last": "2026-07-14",
    "lastSubject": "Re: 13 Summerhill way, CR4 2NL request for survey and quote.",
    "fromMailbox": "commercial",
@@ -5766,7 +5616,7 @@
   },
   {
    "domain": "archerbuild.co.uk",
-   "messages": 16,
+   "messages": 13,
    "last": "2026-07-10",
    "lastSubject": "Re: F&P Gallery Doors \u2013 Proposed Options / Recommended Route",
    "fromMailbox": "commercial",
@@ -5881,41 +5731,10 @@
    "addresses": [
     "karen.stone@culina.co.uk"
    ]
-  },
-  {
-   "domain": "wharfsidesupplies.com",
-   "messages": 2,
-   "last": "2026-06-29",
-   "lastSubject": "Re: Fenster Glazing - TLC ",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "jess@wharfsidesupplies.com"
-   ]
-  },
-  {
-   "domain": "cavendish-hardware.co.uk",
-   "messages": 1,
-   "last": "2026-06-29",
-   "lastSubject": "Re: Fenster Glazing - Constant Force Springs Quote",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "sales@cavendish-hardware.co.uk"
-   ]
-  },
-  {
-   "domain": "robust-uk.com",
-   "messages": 2,
-   "last": "2026-06-29",
-   "lastSubject": "Fenster Glazing Quote Request - Home Bargains",
-   "fromMailbox": "commercial",
-   "addresses": [
-    "anthony.adams@robust-uk.com",
-    "mark.carter@robust-uk.com"
-   ]
   }
  ],
  "sentPerMailbox": {
-  "commercial@fensterglazing.com": 401,
+  "commercial@fensterglazing.com": 393,
   "jacob@fensterglazing.com": 0,
   "jayk@fensterglazing.com": "HTTP 404"
  }

@@ -1,0 +1,3124 @@
+SHEETS: ['Estimating Log', 'Sheet2', 'Sheet1', 'Sheet3', 'Priority Customer', 'Price comparison', 'Scaffolding ']
+
+=== Estimating Log: 349 rows x 13 cols ===
+HEADER(row 1): ['', 'Log no.', 'Client/Prospect', 'Project name', 'Link - Master', 'Date of Enquiry', 'Deadline', 'Days till deadline', 'Product', 'Controler', 'Notes', 'Issued for checking', 'W/L']
+
+-- row 2 --
+   Client/Prospect        RG Carter
+   Project name           Addenbrookes Ambulance Station
+   Date of Enquiry        30/10/2025
+   Deadline               07/11/2025
+   Controler              Jayk/Adam
+   Issued for checking    Quote issued 04/11/2025
+
+-- row 3 --
+   Client/Prospect        Glazing Consultancy Services
+   Project name           Aylesbury Highschool
+   Link - Master          Aylesbury High School
+   Date of Enquiry        20/10/2025
+   Deadline               07/11/2025
+   Controler              Gintare
+   Issued for checking    BSW Glazed price used
+
+-- row 4 --
+   Project name           33 Keats way
+   Link - Master          33 Keats Wat SG40DP
+   Date of Enquiry        06/11/2025
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    New build
+
+-- row 5 --
+   Client/Prospect        Elkins Construction
+   Project name           Thurrock CC, Lyndhurst Road
+   Link - Master          Thurrock
+   Date of Enquiry        30/10/2025
+   Deadline               11/11/2025
+   Controler              Gintare
+   Issued for checking    Sent for checking to ADAM
+
+-- row 6 --
+   Client/Prospect        Hightown Housing
+   Project name           Faraday Court Franklin Avenue
+   Link - Master          Faraday Court Franklin Avenue
+   Date of Enquiry        30/10/2025
+   Deadline               11/11/2025
+   Controler              Jayk
+   W/L                    Lost
+
+-- row 7 --
+   Client/Prospect        T&B Contractors
+   Project name           70 Royal Hill
+   Link - Master          70 Royal Hill
+   Date of Enquiry        30/10/2025
+   Deadline               12/11/2025
+   Controler              Jayk
+   Issued for checking    Declined
+   W/L                    Declined
+
+-- row 8 --
+   Client/Prospect        Nene Financial
+   Project name           88 High Street
+   Link - Master          88 High Street
+   Date of Enquiry        03/10/2025
+   Deadline               ASAP
+   Controler              Adam
+
+-- row 9 --
+   Client/Prospect        John Martin Hoyes
+   Project name           Staunton Ind. Estate
+   Link - Master          Unit 7 Staunton
+   Date of Enquiry        10/10/2025
+   Deadline               ASAP
+   Controler              Paul
+   Issued for checking    With Paul to complete ASAP
+
+-- row 10 --
+   Client/Prospect        ICM Ltd
+   Project name           Paddock Wood
+   Link - Master          Paddock Wood
+   Date of Enquiry        04/11/2025
+   Deadline               ASAP
+   Controler              Jayk
+   Issued for checking    With Adam for checking
+
+-- row 11 --
+   Client/Prospect        Pride Developments
+   Project name           1-7 Exmoor Drive
+   Link - Master          1-7 Exmoor Drive
+   Date of Enquiry        05/11/2025
+   Deadline               ASAP
+   Controler              Jayk
+   Issued for checking    Prices required ASAP
+
+-- row 12 --
+   Client/Prospect        7Formation
+   Project name           Lewsey Community Centre
+   Link - Master          Lewsey Community Centre
+   Date of Enquiry        31/10/2025
+   Deadline               14/11/2025
+   Controler              Gintare
+   Notes                  UPVc
+   Issued for checking    Adidtional door sent for quoting - waiting
+
+-- row 13 --
+   Client/Prospect        Zelltec
+   Project name           Units 3 & 5 Cumberland Avenue
+   Link - Master          Units 3 & 5 Cumberland Avenue
+   Date of Enquiry        27/10/2025
+   Deadline               14/11/2025
+   Controler              Gintare
+   Notes                  Alu
+   Issued for checking    With ADAM for checking
+
+-- row 14 --
+   Client/Prospect        Stoic Roofing
+   Project name           CMK Louvre
+   Link - Master          CMK Louvre
+   Date of Enquiry        12/11/2025
+   Deadline               18/11/2025
+   Controler              Gintare
+
+-- row 15 --
+   Client/Prospect        HouseUP
+   Project name           49 Birchanger Road
+   Link - Master          Birchanger Road
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    With Adam
+
+-- row 16 --
+   Client/Prospect        Cheil Construction
+   Project name           Swanshurst School Brook Ln,
+   Link - Master          Swanshurst School
+   Date of Enquiry        13/11/2025
+   Deadline               ASAP
+   Controler              Gintare
+   Notes                  Alu, CW/Smart wall
+
+-- row 17 --
+   Client/Prospect        Pride Developments
+   Project name           Brandon Youth Centre
+   Link - Master          Brandon Youth Centre
+   Date of Enquiry        04/11/2025
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    ADAM TO CHECK
+
+-- row 18 --
+   Client/Prospect        BC Workspace
+   Project name           Windsor office
+   Link - Master          Windsor Office
+   Date of Enquiry        31/10/2025
+   Deadline               21/11/2025
+   Controler              Gintare
+   Notes                  Alu
+   Issued for checking    0.7 U-value? Waiting
+
+-- row 19 --
+   Client/Prospect        Bradford Watts
+   Project name           552 Fairlie Road
+   Link - Master          552 Fairlie Road
+   Date of Enquiry        30/10/2025
+   Deadline               28/11/2025
+   Controler              Gintare
+   Issued for checking    Chased up 24/11
+
+-- row 20 --
+   Client/Prospect        Mobius Group
+   Project name           Churchdown School Academy
+   Link - Master          Churchdown School Academy
+   Date of Enquiry        14/11/2025
+   Deadline               24/11/2025
+   Controler              Gintare
+   Notes                  Alu, FR units 30min
+   Issued for checking    Requote - remove render
+
+-- row 21 --
+   Client/Prospect        Glazing Consultancy Services
+   Project name           Churchdown School Academy
+   Link - Master          Churchdown School Academy
+   Date of Enquiry        04/11/2025
+   Deadline               26/11/2025
+   Controler              Gintare
+   Notes                  Alu, FR units 30min
+
+-- row 22 --
+   Client/Prospect        Kemdoc Ltd
+   Project name           Churchdown School Academy
+   Link - Master          Churchdown School
+   Date of Enquiry        12/11/2025
+   Deadline               26/11/2025
+   Controler              Gintare
+   Notes                  Alu, FR units 30min
+
+-- row 23 --
+   Client/Prospect        Storm Building
+   Project name           Monks Orchard
+   Link - Master          Monks Orchard
+   Deadline               25/11/2025
+   Controler              Gintare
+   Issued for checking    Crystal Window Film - sent. Restrictors?
+
+-- row 24 --
+   Client/Prospect        Pauley Construction
+   Project name           Springside Pasture 2
+   Link - Master          Springside Pasture 2
+   Date of Enquiry        17/11/2025
+   Deadline               26/11/2025
+   Product                Requote
+   Controler              Gintare
+   Notes                  Alu
+   Issued for checking    Adam to check
+
+-- row 25 --
+   Client/Prospect        Elkins Construction
+   Project name           Vigerons Way
+   Link - Master          Vigerons Way
+   Date of Enquiry        10/11/2025
+   Deadline               26/11/2025
+   Controler              Gintare
+   Notes                  Composit windows
+   Issued for checking    Waiting on install cost
+   W/L                    Lost
+
+-- row 26 --
+   Client/Prospect        Higgins Partnership
+   Project name           Cripps Lodge
+   Link - Master          Cripps Lodge
+   Date of Enquiry        23/10/2025
+   Deadline               27/11/2025
+   Controler              Gintare
+   Notes                  UPVc
+   Issued for checking    Declined
+   W/L                    Declined
+
+-- row 27 --
+   Client/Prospect        Logan Construction
+   Project name           Queen Victoria Hospital NHS
+   Link - Master          Queen Victoria
+   Date of Enquiry        12/11/2025
+   Deadline               27/11/2025
+   Controler              Gintare
+   Notes                  Alu/Louvre/CW
+   Issued for checking    with Adam
+
+-- row 28 --
+   Client/Prospect        Hookway
+   Project name           Blackbrook Primary School
+   Link - Master          Blackbrook Primary School
+   Date of Enquiry        13/11/2025
+   Deadline               03/12/2025
+   Controler              Gintare
+   Notes                  Alu + Louver
+   Issued for checking    Add 5%.  Teleflex - sent
+
+-- row 29 --
+   Client/Prospect        Hightown Housing
+   Project name           24 Jellicoe House
+   Link - Master          24 Jellicoe House
+   Date of Enquiry        11/11/2025
+   Deadline               TBC
+   Controler              Gintare
+   W/L                    Lost
+
+-- row 30 --
+   Client/Prospect        Massco Construction Ltd
+   Project name           Acreland Farmhouse
+   Link - Master          Acreland Farmhouse
+   Date of Enquiry        17/11/2025
+   Deadline               ASAP
+   Controler              Gintare
+   Notes                  BSW + Secondary Glazing
+   Issued for checking    arch door left, code for secondary glazing
+
+-- row 31 --
+   Client/Prospect        OpenArch
+   Project name           The Grange
+   Link - Master          The Grange
+   Date of Enquiry        17/11/2025
+   Controler              Jayk
+
+-- row 32 --
+   Client/Prospect        Porthaven Care
+   Project name           Lavender Oaks
+   Link - Master          Lavender Oaks
+   Date of Enquiry        24/11/2025
+   Deadline               ASAP
+   Controler              Adam
+
+-- row 33 --
+   Client/Prospect        MSN Partnership
+   Project name           Frome College Windows
+   Date of Enquiry        24/11/2025
+   Deadline               ASAP
+   Controler              Jayk
+
+-- row 34 --
+   Client/Prospect        Said Business School
+   Project name           Integral Blinds
+   Link - Master          Integral Blinds
+   Date of Enquiry        28/11/2025
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 35 --
+   Client/Prospect        Zelltec
+   Project name           Unit F Acorn
+   Link - Master          Unit F Acorn
+   Date of Enquiry        19/11/2025
+   Deadline               03/12/2025
+   Controler              Gintare
+   Notes                  Refurb + 1x Fire exit door
+   Issued for checking    Sent to ADAM
+
+-- row 36 --
+   Client/Prospect        Stepnell
+   Project name           St James House
+   Link - Master          St James House
+   Date of Enquiry        20/11/2025
+   Deadline               05/12/2025
+   Controler              Gintare
+   Notes                  Seciondary Glazing
+   Issued for checking    Sent to ADAM
+
+-- row 37 --
+   Client/Prospect        Stepnell
+   Project name           St James House
+   Date of Enquiry        20/11/2025
+   Deadline               05/12/2025
+   Controler              Gintare
+   Notes                  Alu
+   Issued for checking    Sent to ADAM
+
+-- row 38 --
+   Client/Prospect        Bradford Watts
+   Project name           Unit S6 West Cross
+   Link - Master          Unit S6 West Cross
+   Date of Enquiry        28/11/2025
+   Deadline               05/12/2025
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 39 --
+   Client/Prospect        Colonial Construction
+   Project name           Victoria Road
+   Link - Master          Victoria Road
+   Date of Enquiry        01/12/2025
+   Deadline               05/12/2025
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 40 --
+   Client/Prospect        SDevs
+   Project name           16a Groveside
+   Link - Master          16a Groveside
+   Date of Enquiry        05/12/2025
+   Deadline               19/12/2024
+   Controler              Gintare
+   Notes                  ALU + UPVC
+   Issued for checking    Sent to ADAM
+
+-- row 41 --
+   Client/Prospect        Elkins Construction
+   Project name           Vigerons Way
+   Link - Master          Vigerons Way
+   Deadline               ASAP
+   Controler              Gintare
+   Notes                  Alu cost
+   Issued for checking    Sent to ADAM
+
+-- row 42 --
+   Client/Prospect        MSN Partnership
+   Project name           Frome College
+   Link - Master          Frome College Windows
+   Product                Requote
+   Controler              Jayk
+   Notes                  Ali units
+   Issued for checking    Extra over needed
+
+-- row 43 --
+   Client/Prospect        FM Solutions
+   Project name           MetalWorks Pneumatic
+   Date of Enquiry        09/12/2025
+   Controler              Paul
+
+-- row 44 --
+   Project name           The Storey Building
+   Deadline               ASAP
+   Issued for checking    Granada
+   W/L                    Lost
+
+-- row 45 --
+   Client/Prospect        Storm Building
+   Project name           Lister Hospital
+   Link - Master          Lister Hospital Window Film
+   Date of Enquiry        26/11/2025
+   Deadline               08/12/2025
+   Controler              Gintare
+   Notes                  Window Film
+   Issued for checking    Sent to ADAM
+
+-- row 46 --
+   Client/Prospect        Clarks (St Albans)
+   Project name           38 Honey Lane
+   Link - Master          38 Honey Lane NEW
+   Date of Enquiry        26/11/2025
+   Deadline               12/12/2025
+   Product                16/12/2025
+   Controler              Gintare
+   Notes                  UPVc
+   Issued for checking    Sent to ADAM
+
+-- row 47 --
+   Client/Prospect        Fortis Vision
+   Project name           Cambrian Point Amenity
+   Link - Master          Cambrian Point Amenity
+   Date of Enquiry        18/11/2025
+   Deadline               ASAP
+   Product                05/12/2025
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 48 --
+   Client/Prospect        Cadman Group
+   Project name           Myark Car Showroom
+   Link - Master          Myark Car Showroom
+   Deadline               08/12/2025
+   Product                12/12/2025
+   Controler              Gintare
+   Issued for checking    Sent to ADAM = Steel door
+
+-- row 49 --
+   Client/Prospect        Frankum Associates
+   Project name           223 Southwark
+   Link - Master          223 Southwark
+   Date of Enquiry        01/12/2025
+   Deadline               12/12/2025
+   Controler              Gintare
+   Issued for checking    Waiting on Steel
+
+-- row 50 --
+   Client/Prospect        Pride Developments
+   Project name           St Catherines
+   Link - Master          St Catherines
+   Date of Enquiry        03/12/2025
+   Deadline               17/12/2025
+   Controler              Gintare
+   Notes                  Upvc sash + Au sash
+   Issued for checking    Sent to ADAM
+
+-- row 51 --
+   Client/Prospect        Alexander James
+   Project name           Weymouth Court
+   Link - Master          Weymouth
+   Date of Enquiry        05/12/2025
+   Deadline               17/12/2025
+   Controler              Gintare
+   Notes                  Composite
+   Issued for checking    Sent to ADAM
+
+-- row 52 --
+   Client/Prospect        Alexander James
+   Project name           Brooklands College
+   Link - Master          Brooklands College
+   Date of Enquiry        05/12/2025
+   Deadline               17/12/2025
+   Controler              Gintare
+   Notes                  COMAR Alu
+
+-- row 53 --
+   Client/Prospect        Cheil Construction
+   Project name           Swanshurst School Brook Ln,
+   Link - Master          Swanshurst School
+   Date of Enquiry        13/11/2025
+   Deadline               ASAP
+   Controler              Gintare
+   Notes                  Alu, CW/Smart wall
+   Issued for checking    Sent to ADAM
+
+-- row 54 --
+   Client/Prospect        Elkins Construction
+   Project name           Stanley Arms Pub
+   Link - Master          Stanley Arms Pubs
+   Date of Enquiry        15/12/2025
+   Deadline               07/01/2026
+   Controler              Gintare
+   Notes                  Alu
+   Issued for checking    Sent to ADAM
+
+-- row 55 --
+   Client/Prospect        Elkins Construction
+   Project name           Stanley Arms Pub
+   Link - Master          Stanley Arms Pubs
+   Date of Enquiry        15/12/2025
+   Deadline               07/01/2026
+   Controler              Gintare
+   Notes                  Timber
+   Issued for checking    Sent to ADAM
+
+-- row 56 --
+   Client/Prospect        DLA Architects
+   Project name           5 The Grey
+   Link - Master          5 The Grey
+   Date of Enquiry        17/12/2025
+   Deadline               12/01/2026
+   Controler              Gintare
+   Notes                  Aluminium flush sash
+   Issued for checking    Sent to ADAM
+
+-- row 57 --
+   Client/Prospect        MCR Property Group
+   Project name           Dallas Road
+   Link - Master          Dallas Road
+   Date of Enquiry        25/11/2025
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+   Notes                  Alu
+
+-- row 58 --
+   Client/Prospect        SDevs
+   Project name           14 Twyford Road
+   Date of Enquiry        19/12/2025
+   Deadline               ASAP
+   Controler              Jayk
+
+-- row 59 --
+   Client/Prospect        Elkins Construction
+   Project name           Whitechapel Fire Station
+   Link - Master          Whitechapel Fire Station
+   Date of Enquiry        22/12/2025
+   Deadline               16/01/2026
+   Controler              Gintare
+   Notes                  Steel
+   Issued for checking    Lathams
+   W/L                    Withdrawn
+
+-- row 60 --
+   Client/Prospect        Zelltec
+   Project name           Unit A Daventry
+   Link - Master          Unit A Daventry
+   Date of Enquiry        23/12/2025
+   Deadline               ASAP
+   Product                Alternative
+   Controler              Gintare
+   Notes                  UPVC
+   Issued for checking    Sent to ADAM
+
+-- row 61 --
+   Client/Prospect        Alexander James
+   Project name           Tiverton Estate
+   Link - Master          Tiverton Estate
+   Date of Enquiry        23/12/2025
+   Deadline               09/01/2026
+   Controler              Gintare
+   Notes                  AluClad + CW + Alu
+   Issued for checking    out instead of in. Add note
+
+-- row 62 --
+   Client/Prospect        Elkins Construction
+   Project name           Finchley Fire Station
+   Link - Master          Finchley Fire Station
+   Date of Enquiry        23/12/2025
+   Deadline               16/01/2026
+   Controler              Gintare
+   Notes                  ALU + Rooflights
+   Issued for checking    Sent to ADAM - check with ADAM
+   W/L                    Withdrawn
+
+-- row 63 --
+   Client/Prospect        Pearce Construction
+   Project name           Greenfields
+   Link - Master          Greenfields
+   Date of Enquiry        23/12/2025
+   Deadline               14/01/2026
+   Controler              Gintare
+   Notes                  UPVC
+   Issued for checking    Sent to ADAM
+
+-- row 64 --
+   Client/Prospect        Alexander James
+   Project name           Archway Road
+   Link - Master          Archway Road
+   Date of Enquiry        23/12/2025
+   Deadline               16/01/2026
+   Product                TBC
+   Controler              Gintare
+   Notes                  AluClad
+   Issued for checking    No sizes, Types
+
+-- row 65 --
+   Client/Prospect        Neil Douglas
+   Project name           Kaybridge Close
+   Link - Master          Kaybridge Close
+   Date of Enquiry        05/01/2026
+   Deadline               06/02/2026
+   Controler              Jayk
+
+-- row 66 --
+   Client/Prospect        Borras Construction
+   Project name           John Shelton Community Primary School
+   Link - Master          John Shelton Primary
+   Date of Enquiry        05/01/2026
+   Deadline               14/01/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 67 --
+   Client/Prospect        ICM Ltd
+   Project name           Club 3000 Leith
+   Link - Master          Club 3000 Leith
+   Date of Enquiry        05/01/2026
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 68 --
+   Client/Prospect        Reach CM
+   Project name           Luton Mosque
+   Link - Master          Luton Mosque
+   Date of Enquiry        06/01/2026
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 69 --
+   Client/Prospect        Stewarts CC
+   Project name           DHL Mars Derby
+   Link - Master          DHL Mars Derby
+   Date of Enquiry        06/01/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Jayk
+
+-- row 70 --
+   Client/Prospect        Ermine
+   Project name           Haseldine Meadows and Lockley Crescent
+   Link - Master          Haseldine Meadows and Lockley Crescent
+   Date of Enquiry        06/01/2026
+   Deadline               23/01/2026
+   Controler              Gintare
+   Notes                  UPVC/Composit
+   Issued for checking    Sent to ADAM
+
+-- row 71 --
+   Client/Prospect        SDevs
+   Project name           5 Nursery Road
+   Link - Master          5 Nursery Road
+   Date of Enquiry        06/01/2026
+   Deadline               ASAP
+   Controler              Jayk
+
+-- row 72 --
+   Client/Prospect        Pride Developments
+   Project name           St Catherines
+   Link - Master          St Catherines
+   Date of Enquiry        03/12/2025
+   Deadline               17/12/2025
+   Controler              Gintare
+   Notes                  Upvc sash
+   Issued for checking    Sent to ADAM
+
+-- row 73 --
+   Client/Prospect        Barnfield
+   Project name           St Johns
+   Link - Master          St Johns
+   Date of Enquiry        08/01/2026
+   Deadline               15/01/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 74 --
+   Client/Prospect        Thomas Sinden
+   Project name           GunWharf Offices
+   Link - Master          Gunwharf Office
+   Date of Enquiry        09/01/2026
+   Deadline               28/01/2026
+   Controler              Gintare
+   Notes                  Alu
+   Issued for checking    Sent to ADAM/ Sent To MERCURY
+   W/L                    LOST
+
+-- row 75 --
+   Client/Prospect        Steele & Bray
+   Project name           Ecton Brook
+   Link - Master          Ecton Brook
+   Date of Enquiry        12/01/2026
+   Deadline               23/01/2026
+   Controler              Gintare
+   Notes                  uPVC
+   Issued for checking    Sent to ADAM
+
+-- row 76 --
+   Client/Prospect        Pride Developments
+   Project name           St Catherines
+   Link - Master          St Catherines
+   Date of Enquiry        03/12/2025
+   Deadline               17/12/2025
+   Controler              Gintare
+   Notes                  Alu sliders
+   Issued for checking    Test quote - Mercury
+
+-- row 77 --
+   Client/Prospect        Gillman Group
+   Project name           Unit 6 Warehosue
+   Link - Master          Unit 6 Warehouse
+   Date of Enquiry        12/01/2026
+   Deadline               ASAP
+   Controler              Paul
+   Notes                  alu door
+   Issued for checking    BSW sent door without panel
+
+-- row 78 --
+   Client/Prospect        Pride Developments
+   Project name           25 Bournemouth Road
+   Link - Master          25 Bournemouth Road
+   Date of Enquiry        13/01/2026
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 79 --
+   Client/Prospect        Maxwell Facilities
+   Project name           St Mary Magdelene
+   Link - Master          St Mary Magdelene
+   Date of Enquiry        13/01/2026
+   Deadline               28/01/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 80 --
+   Client/Prospect        Lindum Group
+   Project name           Elvington Medical Fire Glass
+   Link - Master          Elvington Medical Practice Fire Glass
+   Date of Enquiry        16/01/2026
+   Deadline               30/01/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 81 --
+   Client/Prospect        Lindum Group
+   Project name           Elvington Medical Ali Doors
+   Link - Master          Elvington Medical Practice Ali Doors
+   Date of Enquiry        16/01/2026
+   Deadline               30/01/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 82 --
+   Client/Prospect        Lindum Group
+   Project name           Elvington Medical uPVC
+   Link - Master          Elvington Medical Practice uPVC
+   Date of Enquiry        16/01/2026
+   Deadline               30/01/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 83 --
+   Client/Prospect        Hightown Housing
+   Project name           25 Meadow Avenue
+   Date of Enquiry        19/01/2026
+   Deadline               03/02/2026
+   Controler              Adam
+
+-- row 84 --
+   Client/Prospect        Hightown Housing
+   Project name           15 Frank Young Court
+   Link - Master          15 Frank Young Court
+   Date of Enquiry        19/01/2026
+   Deadline               03/02/2026
+   Product                Site Survey
+   Controler              Gintare
+   Notes                  26/01 - Site survey
+
+-- row 85 --
+   Client/Prospect        Elkins Construction
+   Project name           The Brooks
+   Date of Enquiry        19/01/2026
+   Deadline               19/01/2026
+   Controler              Gintare
+
+-- row 86 --
+   Client/Prospect        Stepnell
+   Project name           St James House
+   Link - Master          St James House
+   Date of Enquiry        20/01/2026
+   Deadline               04/02/2026
+   Product                Requote
+   Controler              Gintare
+   Notes                  Internal door
+
+-- row 87 --
+   Client/Prospect        Maxwell Facilities
+   Project name           St Thomas Aquinas
+   Link - Master          St Thomas Aquinas
+   Date of Enquiry        20/01/2026
+   Deadline               06/02/2026
+   Product                Site Survey
+   Controler              Gintare
+   Notes                  23/01 - Site survey
+   Issued for checking    16-17k split into 3 units Sent To Adam
+
+-- row 88 --
+   Client/Prospect        Neil Douglas
+   Project name           Riverside Close
+   Link - Master          Riverside Close
+   Date of Enquiry        21/01/2026
+   Deadline               17/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 89 --
+   Client/Prospect        SDevs
+   Project name           Ennismore Gardens
+   Link - Master          Ennismore Garden
+   Date of Enquiry        21/01/2026
+   Deadline               23/01/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 90 --
+   Client/Prospect        MSN Partnership
+   Project name           St Marks School
+   Link - Master          St Marks
+   Date of Enquiry        22/01/2026
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 91 --
+   Client/Prospect        Borras Construction
+   Project name           Newport Pagnell Library
+   Link - Master          Newport Pagnell Library
+   Date of Enquiry        22/01/2026
+   Deadline               04/02/2026
+   Product                More info coming
+   Controler              Gintare
+   Notes                  Alu/uPVC
+   Issued for checking    TruFrame - still waiting for a quote
+
+-- row 92 --
+   Client/Prospect        SOL services
+   Date of Enquiry        27/01/2026
+   Deadline               10/02/2026
+   Controler              Gintare
+   Notes                  Alu/uPVC
+   Issued for checking    Sent to ADAM Aplus
+
+-- row 93 --
+   Client/Prospect        Fireact
+   Project name           Buckingham University
+   Link - Master          Buckingham University
+   Date of Enquiry        23/01/2026
+   Deadline               ASAP
+   Product                Site survey
+   Controler              Adam
+   Notes                  28/01 - Site survey
+
+-- row 94 --
+   Client/Prospect        Barnfield
+   Project name           Bradstone Rd Cheetham Hill
+   Link - Master          Bradstone Road
+   Date of Enquiry        23/01/2026
+   Deadline               30/01/2026
+   Product                Requote
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 95 --
+   Client/Prospect        Hightown Housing
+   Project name           21 Millway Furlong
+   Date of Enquiry        19/01/2026
+   Deadline               03/02/2026
+   Controler              Adam
+
+-- row 96 --
+   Client/Prospect        Gullett & Sons
+   Project name           Nora Grace Hall
+   Link - Master          Nora Grace Hall
+   Date of Enquiry        23/01/2026
+   Deadline               06/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 97 --
+   Client/Prospect        Gardiner & Theobald
+   Project name           UAL Window
+   Link - Master          University of Arts London
+   Date of Enquiry        27/01/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+   W/L                    Declined
+
+-- row 98 --
+   Client/Prospect        Borras Construction
+   Project name           Ashtree School
+   Link - Master          Ashtree School
+   Date of Enquiry        27/01/2026
+   Deadline               02/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 99 --
+   Client/Prospect        Stewarts CC
+   Project name           Inside Track DHL
+   Link - Master          DHL Inside Track
+   Date of Enquiry        29/01/2026
+   Deadline               ASAP
+   Product                Site Survey
+   Controler              Gintare
+   Notes                  30/01 - Site survey
+   Issued for checking    Sent to Adam
+
+-- row 100 --
+   Client/Prospect        Re-Gen
+   Project name           Balham
+   Link - Master          Balham Hill
+   Date of Enquiry        29/01/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+   Issued for checking    Sent to Adam
+
+-- row 101 --
+   Client/Prospect        Highwood Group
+   Project name           Wimborne Barchester
+   Link - Master          Wimborne Barchester
+   Date of Enquiry        30/01/2026
+   Deadline               27/02/2026
+   Controler              Gintare
+   Notes                  uPVC/Alu
+   Issued for checking    Sent to Adam
+
+-- row 102 --
+   Client/Prospect        SDevs
+   Project name           14 Twyford Road
+   Link - Master          14 Twyford Road
+   Deadline               ASAP
+   Product                Requote
+   Controler              Gintare
+   Issued for checking    Check by ADAM
+
+-- row 103 --
+   Client/Prospect        SDevs
+   Project name           17 Rosebery Avenue
+   Date of Enquiry        30/01/2026
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 104 --
+   Client/Prospect        RJS Ventol
+   Project name           Faraday Wing Flat
+   Link - Master          Faraday Wing Flat
+   Date of Enquiry        02/02/2026
+   Deadline               06/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 105 --
+   Client/Prospect        BC Workspace
+   Project name           Unit 14 Stanstead DC
+   Link - Master          Unit 14 Stanstead DC
+   Date of Enquiry        03/02/2026
+   Deadline               10/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 106 --
+   Client/Prospect        Krypton
+   Project name           Estcourt Arms Watford
+   Link - Master          Estcourt Arms Watford
+   Date of Enquiry        03/02/2026
+   Product                Site survey - 4/2
+   Controler              Adam
+   Issued for checking    Sizes needed/Adam might have site visit
+
+-- row 107 --
+   Client/Prospect        Target Maintenance
+   Project name           Pine Court
+   Link - Master          Pine Court
+   Date of Enquiry        03/02/2026
+   Deadline               06/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 108 --
+   Client/Prospect        Target Maintenance
+   Project name           23 Regent Place
+   Link - Master          23 Regent Place
+   Date of Enquiry        02/02/2026
+   Deadline               ASAP
+   Controler              Adam
+   Issued for checking    990 x 1850 Glass spec?
+
+-- row 109 --
+   Client/Prospect        KPS Ltd
+   Project name           David Lloyd Wirral Waters
+   Link - Master          David Lloyd Wirral Waters
+   Date of Enquiry        03/02/2026
+   Deadline               20/02/2026
+   Controler              Gintare
+   Notes                  CW + Alu door
+   Issued for checking    Sent to ADAM
+
+-- row 110 --
+   Client/Prospect        Neil Douglas
+   Project name           Earleswood Court
+   Link - Master          Earleswood Court
+   Date of Enquiry        05/02/2026
+   Deadline               02/03/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 111 --
+   Client/Prospect        Bradford Watts
+   Project name           Unit 3 Alliance Road
+   Link - Master          Unit 3 Alliance Road
+   Date of Enquiry        05/02/2026
+   Deadline               26/02/2026
+   Product                Site survey - 10/02
+   Controler              Gintare
+   Notes                  Alu
+
+-- row 112 --
+   Client/Prospect        Bradford Watts
+   Project name           9 Colonial Way
+   Link - Master          9 Colonial Way
+   Date of Enquiry        05/02/2026
+   Deadline               23/02/2026
+   Product                Site survey - 10/02
+   Controler              Adam
+   Issued for checking    Sent to ADAM
+
+-- row 113 --
+   Client/Prospect        TLC Care
+   Project name           Cherry Hinton
+   Link - Master          Cherry Hinton
+   Date of Enquiry        05/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Paul
+   Issued for checking    Awaiting details
+
+-- row 114 --
+   Client/Prospect        Burge Hughes Walsh
+   Project name           6 Allerton Road
+   Link - Master          Unit 6 Allerton Road
+   Date of Enquiry        05/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                service engineer
+   Controler              Paul
+
+-- row 115 --
+   Client/Prospect        Spandrel Interiors
+   Project name           Kent House
+   Link - Master          Kent House
+   Date of Enquiry        05/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+   Notes                  Alu windows
+
+-- row 116 --
+   Client/Prospect        Barnfield Construction
+   Project name           The Grange Apartments
+   Link - Master          The Grange Apartments
+   Date of Enquiry        05/02/2026
+   Deadline               26/02/2026
+   Controler              Gintare
+   Notes                  pdate quontities, and add door
+   Issued for checking    Sent to ADAM
+
+-- row 117 --
+   Client/Prospect        Fortis Vision
+   Project name           Blue Lagoon
+   Link - Master          Blue Lagoon
+   Date of Enquiry        06/02/2026
+   Deadline               16/02/2026
+   Controler              Adam
+   Issued for checking    Aplus/BDC/Mercury - sent
+
+-- row 118 --
+   Client/Prospect        Rase Steels
+   Project name           Whisby Road
+   Link - Master          Whisby Road
+   Date of Enquiry        06/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 119 --
+   Client/Prospect        Krypton
+   Project name           GSK Ware
+   Link - Master          GSK Ware
+   Date of Enquiry        06/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+
+-- row 120 --
+   Client/Prospect        Sdevs
+   Project name           Stanley Arms Pub
+   Link - Master          Stanley Arms Pub
+   Date of Enquiry        09/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                UPVC option
+   Controler              Gintare
+   Notes                  uPVC
+   Issued for checking    Add upvc options as per customer email.
+
+-- row 121 --
+   Client/Prospect        Storm Building
+   Project name           Maudsley Hospital
+   Link - Master          Maudsley Hospital
+   Date of Enquiry        10/02/2026
+   Deadline               23/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 122 --
+   Client/Prospect        Pexhurst Services
+   Project name           Unit 4 Berry Hill
+   Link - Master          Unit 4 Berry Hill
+   Date of Enquiry        16/02/2026
+   Deadline               27/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+   W/L                    Lost
+
+-- row 123 --
+   Client/Prospect        Elkins Construction
+   Project name           Mountbatten House
+   Link - Master          Mountbatten House
+   Date of Enquiry        16/02/2026
+   Deadline               22/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+   W/L                    Lost
+
+-- row 124 --
+   Client/Prospect        Thomas Sinden
+   Project name           Cold Ash
+   Link - Master          Cold Ash
+   Date of Enquiry        17/02/2026
+   Deadline               06/03/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 125 --
+   Client/Prospect        PTP Architects
+   Project name           Kenton Entrance
+   Link - Master          Kenton
+   Date of Enquiry        17/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                Alu entrance door
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 126 --
+   Client/Prospect        Sol Services
+   Project name           1 Springfield Lyons
+   Link - Master          1 Springfield Lyons
+   Date of Enquiry        17/02/2026
+   Deadline               26/02/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 127 --
+   Client/Prospect        Elkins Construction
+   Project name           Blenheim Court
+   Link - Master          Blenheim Court
+   Date of Enquiry        17/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                Partitioning Glass
+   Controler              Gintare
+   Issued for checking    Update the size
+
+-- row 128 --
+   Client/Prospect        Kingsley Healthcare
+   Project name           Timperley
+   Link - Master          Timperley
+   Date of Enquiry        17/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+
+-- row 129 --
+   Client/Prospect        Nevilles Special Projects
+   Project name           Sponne School
+   Link - Master          Sponne School
+   Date of Enquiry        17/02/2026
+   Deadline               19/03/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 130 --
+   Client/Prospect        7Formation
+   Project name           Flannels and Everlast Gym Birmingham
+   Link - Master          Flannels and Everlast
+   Date of Enquiry        17/02/2026
+   Deadline               25/02/2026
+   Controler              Gintare
+   Issued for checking    Sizes missing, TBC - ADAM
+
+-- row 131 --
+   Client/Prospect        Borras Construction
+   Project name           Wimbledon Guild Refurbishment
+   Link - Master          Wimbledon Guild
+   Date of Enquiry        12/02/2026
+   Product                UPVC
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 132 --
+   Client/Prospect        Harris Calnan
+   Project name           20 Addison Ave
+   Link - Master          20 Addison Ave
+   Date of Enquiry        23/02/2026
+   Deadline               27/02/2026
+   Product                Alu Heritage
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 133 --
+   Client/Prospect        Lindum Group
+   Project name           Howden Fire Station
+   Link - Master          Howden Fire Station External
+   Date of Enquiry        23/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                Requote
+   Controler              Gintare
+   Notes                  Aplus - Technal. 12/03 followed up
+   Issued for checking    Sent to ADAM
+
+-- row 134 --
+   Client/Prospect        Pride Developments
+   Project name           Mint Street - Southwark
+   Link - Master          Mint Street
+   Date of Enquiry        23/02/2026
+   Deadline               06/03/2026
+   Controler              Adam
+   Issued for checking    Adam sent window to mercury for quote
+
+-- row 135 --
+   Client/Prospect        Etec Group
+   Project name           Meridian Primary School,
+   Link - Master          Meridian Primary School
+   Date of Enquiry        23/02/2026
+   Deadline               09/03/2026
+   Product                Alu
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+   W/L                    LOST
+
+-- row 136 --
+   Client/Prospect        Hickford Construction
+   Project name           Fair Winter Farm Singleborough
+   Link - Master          Fair Winter Farm
+   Date of Enquiry        23/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+   Issued for checking    Aplsu quote cheeper - update
+
+-- row 137 --
+   Client/Prospect        Neil Douglas
+   Project name           Tithe Court, SL3 8AS
+   Link - Master          Tithe Court
+   Date of Enquiry        24/02/2026
+   Deadline               17/03/2026
+   Product                More info needed
+   Controler              Adam
+
+-- row 138 --
+   Client/Prospect        Pearce Construction
+   Project name           NDDH Barnstaple Modular windows
+   Link - Master          NDDH Barnstaple Modular windows
+   Date of Enquiry        03/03/2026
+   Deadline               23/03/2026
+   Product                Alu
+   Controler              Gintare
+   Notes                  2 quotes to be provided, one for just the stuff on the BQ page (the document with the red writing) and one for everything
+   Issued for checking    Sent to ADAM
+
+-- row 139 --
+   Client/Prospect        Skanska UK
+   Project name           NG Linxon Bulls Lodge
+   Link - Master          NG Linxon Bulls Lodge
+   Date of Enquiry        03/03/2026
+   Deadline               13/03/2026
+   Product                Alu/ Steel door/louver
+   Issued for checking    Sent to ADAM
+
+-- row 140 --
+   Client/Prospect        Pride Developments
+   Project name           130 Hainault Road
+   Link - Master          130 Hainault Road
+   Date of Enquiry        25/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                upvs sash/doors
+   Controler              Gintare
+   Notes                  Quick slide/BSW doors etc + Aplus/Mercury
+   Issued for checking    Sent to ADAM
+
+-- row 141 --
+   Client/Prospect        Fortis Vision
+   Project name           Leazes Parade
+   Link - Master          Leazes Parade
+   Date of Enquiry        04/03/2026
+   Deadline               18/03/2026
+   Product                upvc sash
+   Controler              Gintare
+   Issued for checking    Sent to ADAM.
+
+-- row 142 --
+   Log no.                7766
+   Client/Prospect        Furnell transport
+   Project name           Enterprise House
+   Link - Master          Enterprise House
+   Date of Enquiry        18/02/2026
+   Deadline               02/04/2026
+   Controler              Adam
+   Issued for checking    Sent to ADAM.
+
+-- row 143 --
+   Client/Prospect        MHA
+   Project name           Welland Place
+   Link - Master          MHA\Welland Place
+   Date of Enquiry        05/03/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                Alu
+   Controler              Gintare
+   Notes                  Window replacement
+   Issued for checking    Sent to ADAM
+
+-- row 144 --
+   Client/Prospect        Fortis Vision
+   Project name           Arrad House - Liverpool
+   Link - Master          Arrad House
+   Date of Enquiry        06/03/2026
+   Deadline               19/03/2026
+   Product                CW + Internal screens
+   Controler              Gintare
+   Notes                  BSW/Aplus + Duration
+   Issued for checking    Sent to ADAM
+
+-- row 145 --
+   Client/Prospect        Borras Construction
+   Project name           Wimbledon Guild Refurbishment
+   Link - Master          Wimbledon Guild
+   Date of Enquiry        10/03/2026
+   Product                Requote
+   Controler              Gintare
+   Notes                  TBC, have not requoted from 3 o 2
+   Issued for checking    Sent to ADAM
+
+-- row 146 --
+   Client/Prospect        Farrans
+   Project name           Steppingely
+   Link - Master          Farrans
+   Date of Enquiry        10/03/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Adam
+
+-- row 147 --
+   Client/Prospect        KPS Ltd
+   Project name           NHSPS Heaton Road Surgery
+   Link - Master          NHSPS Heaton Road Surgery
+   Date of Enquiry        05/05/2026
+   Deadline               16/03/2026
+   Product                Requote
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 148 --
+   Client/Prospect        St Albans School
+   Project name           St Albans School Rev1
+   Link - Master          St Albans School
+   Date of Enquiry        27/02/2026
+   Deadline               11/03/2026
+   Controler              Adam
+   Notes                  CW
+
+-- row 149 --
+   Client/Prospect        Elkins Construction
+   Project name           Eltham
+   Link - Master          Eltham LC
+   Date of Enquiry        10/03/2026
+   Deadline               11/03/2026
+   Controler              Adam
+   Notes                  Alu
+   Issued for checking    Done by Adam
+
+-- row 150 --
+   Client/Prospect        Target Maintenance
+   Project name           Teleflex Window System
+   Link - Master          Teleflex Window System
+   Date of Enquiry        04/03/2026
+   Deadline               06/03/2026
+   Product                Teleflex
+   Controler              Adam
+
+-- row 151 --
+   Client/Prospect        Elkins Construction
+   Project name           Susan Road
+   Link - Master          Susan Road
+   Date of Enquiry        09/03/2026
+   Deadline               16/03/2026
+   Product                AluClad
+   Controler              Gintare
+   Notes                  Norrsken
+   Issued for checking    Sent to ADAM
+   W/L                    Lost
+
+-- row 152 --
+   Client/Prospect        Sdevs
+   Project name           Burwood Lodge
+   Link - Master          Burwood Lodge
+   Date of Enquiry        08/01/2028
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Issued for checking    TBC
+
+-- row 153 --
+   Log no.                7933
+   Client/Prospect        Bunny Hall Group
+   Project name           North Leeds
+   Link - Master          North Leeds
+   Date of Enquiry        04/03/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+   Issued for checking    BSW to quote - asked ADAM
+
+-- row 154 --
+   Client/Prospect        Krypton
+   Project name           Three Shires
+   Link - Master          Three Shires
+   Date of Enquiry        12/03/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                RAL 8016
+   Controler              Gintare
+   Notes                  BSW - Out of Hours work
+   Issued for checking    Sent to ADAM
+
+-- row 155 --
+   Client/Prospect        Higgs Construction
+   Project name           Mallard Place
+   Link - Master          Mallard Place
+   Date of Enquiry        12/03/2026
+   Deadline               30/03/2026
+   Controler              Gintare
+   Notes                  Norsken
+
+-- row 156 --
+   Client/Prospect        Barnfield
+   Project name           Bradstone Rd
+   Link - Master          Bradstone Road
+   Date of Enquiry        12/03/2026
+   Deadline               19/03/2026
+   Product                Requote
+   Controler              Gintare
+   Notes                  UPVC R7016
+   Issued for checking    Sent to ADAM
+
+-- row 157 --
+   Client/Prospect        SOL services
+   Project name           Oxford Brookes Bookshop
+   Link - Master          Oxford Brookes Bookshop
+   Date of Enquiry        12/03/2026
+   Deadline               25/03/2026
+   Controler              Gintare
+   Notes                  Aplus or BSW
+   Issued for checking    Sent to ADAM - ready to send
+
+-- row 158 --
+   Client/Prospect        Skanska UK
+   Project name           Eastern Green Link 3
+   Link - Master          Eastern Green Link 3
+   Date of Enquiry        12/03/2026
+   Deadline               18/03/2026
+   Controler              Gintare
+   Notes                  BSW - Comercial alu panel doors 50+8
+   Issued for checking    Sent to ADAM
+
+-- row 159 --
+   Client/Prospect        Prince Build
+   Project name           Stiles Meadow
+   Link - Master          Stiles Meadow
+   Date of Enquiry        13/03/2026
+   Deadline               23/03/2026
+   Product                Site Survey
+   Controler              Adam
+   Issued for checking    19/03 Site survey
+
+-- row 160 --
+   Client/Prospect        Borras Construction
+   Project name           The Queens Orchard
+   Link - Master          The Queens Orchard
+   Date of Enquiry        16/03/2026
+   Deadline               23/03/2026
+   Controler              Gintare
+   Notes                  Strongdoor + WindowCAD
+   Issued for checking    Sent to ADAM
+   W/L                    LOST
+
+-- row 161 --
+   Client/Prospect        Pride Developments
+   Project name           Catherine's House Plymouth
+   Link - Master          Catherine's House, Plymouth 2026
+   Date of Enquiry        16/03/2026
+   Deadline               17/03/2026
+   Controler              Adam
+
+-- row 162 --
+   Client/Prospect        Etec Group
+   Project name           Bangabandhu School & Cubitt School
+   Date of Enquiry        17/03/2026
+   Deadline               31/03/2026
+   Controler              Gintare
+   Notes                  Composite/Idealcombi
+   Issued for checking    TBC if quoting - sent to adam
+
+-- row 163 --
+   Client/Prospect        Target Maintenance
+   Project name           Gander Drive SO/11726
+   Controler              Adam
+
+-- row 164 --
+   Client/Prospect        Target Maintenance
+   Project name           Flat 2, 38 Hawley Drive SO/10960
+   Controler              Adam
+
+-- row 165 --
+   Log no.                7976
+   Client/Prospect        Pride Developments
+   Project name           Mailbox Birmingham
+   Link - Master          Mailbox Birmingham
+   Date of Enquiry        16/03/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                Panel door
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 166 --
+   Client/Prospect        Lynch Brothers Homes
+   Project name           Oxford University Press
+   Link - Master          Oxford University Press
+   Date of Enquiry        17/03/2026
+   Deadline               25/03/2026
+   Product                Secondary glazing
+   Controler              Gintare
+   Notes                  Ral 6012
+   Issued for checking    Sent to ADAM
+
+-- row 167 --
+   Client/Prospect        Fortis Vision
+   Project name           Grange Townhouse
+   Link - Master          Grange Townhouse
+   Date of Enquiry        14/03/2026
+   Deadline               23/03/2026
+   Product                BSW ALU+uPVC
+   Controler              Gintare
+   Notes                  Please allow for electric strike
+   Issued for checking    Sent to ADAM
+
+-- row 168 --
+   Client/Prospect        Elkins Construction
+   Project name           MHS Homes Provision of Planned Works Lot 2
+   Link - Master          MHS Homes
+   Date of Enquiry        18/03/2026
+   Deadline               02/04/2026
+   Days till deadline     -118
+   Controler              Gintare
+   Notes                  1000 x 1000
+   Issued for checking    Sent to ADAM
+
+-- row 169 --
+   Client/Prospect        FM Solutions
+   Project name           Phoenix House
+   Controler              Paul
+
+-- row 170 --
+   Client/Prospect        Wynbrook
+   Project name           Broadnook - Care Home
+   Link - Master          Broadnook - Care Home
+   Date of Enquiry        19/03/2026
+   Deadline               31/03/2026
+   Controler              Gintare
+   Notes                  BSW/  Titan ExD01, 23
+   Issued for checking    Sent to ADAM
+
+-- row 171 --
+   Client/Prospect        Stewarts CC
+   Project name           DHL Digital Centre
+   Date of Enquiry        20/03/2026
+   Deadline               23/03/2026
+   Controler              Paul
+
+-- row 172 --
+   Client/Prospect        Elkins Construction
+   Project name           Burma Way, Chatham
+   Link - Master          Burma Way
+   Date of Enquiry        20/03/2026
+   Deadline               30/03/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 173 --
+   Client/Prospect        Elkins Construction
+   Project name           Phoenix Place
+   Link - Master          Phoenix Place
+   Date of Enquiry        20/03/2026
+   Deadline               01/04/2026
+   Product                Window CAD
+   Controler              Gintare
+   Notes                  Sent to BSW due to errors
+   Issued for checking    Sent to ADAM
+
+-- row 174 --
+   Client/Prospect        msnpartnership
+   Project name           Pyrland School
+   Date of Enquiry        23/03/2026
+   Deadline               01/04/2026
+   Controler              Adam
+   Notes                  waiting on updated colour from BSW
+
+-- row 175 --
+   Client/Prospect        Etec Group
+   Project name           Brighton Longhill School
+   Link - Master          BHCC Longhill Curtain Walling
+   Date of Enquiry        23/03/2026
+   Deadline               01/04/2026
+   Product                Aplus
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+   W/L                    Lost
+
+-- row 176 --
+   Client/Prospect        MPP
+   Project name           The Ferns
+   Link - Master          The Ferns
+   Date of Enquiry        24/03/2026
+   Product                Window CAD
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 177 --
+   Log no.                8054
+   Client/Prospect        NevilleSpecialProjects
+   Project name           Newport Pagnell Baptist Church
+   Link - Master          Newport Pagnell Baptist Church
+   Date of Enquiry        24/03/2026
+   Deadline               08/04/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 178 --
+   Log no.                8090
+   Client/Prospect        Gray & Sons Builders ltd
+   Project name           Newport Pagnell Baptist Church
+   Link - Master          Newport Pagnell Baptist Church
+   Date of Enquiry        01/04/2026
+   Deadline               17/04/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 179 --
+   Client/Prospect        Bradford Watts
+   Project name           Galleywall Trading Estate
+   Link - Master          Galleywall Trading Estate
+   Date of Enquiry        26/02/2026
+   Deadline               25/03/2026
+   Controler              Gintare
+
+-- row 180 --
+   Client/Prospect        Puratos
+   Project name           Fringford Mill Innovation Centre
+   Link - Master          Puratos
+   Date of Enquiry        20/03/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Adam
+   Notes                  BSW
+   Issued for checking    Sent to ADAM
+
+-- row 181 --
+   Client/Prospect        Fortis Vision
+   Project name           London Road- Refuse Store Doors
+   Link - Master          London Road
+   Date of Enquiry        26/03/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 182 --
+   Client/Prospect        Nevilles Special Projects
+   Project name           Sponne School
+   Link - Master          Sponne School
+   Date of Enquiry        17/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+   Notes                  QUESTIONS
+   Issued for checking    Sent to ADAM
+
+-- row 183 --
+   Client/Prospect        Krypton
+   Project name           The Swan
+   Link - Master          The Swan
+   Date of Enquiry        26/03/2026
+   Product                Site visit 31/03 - TBC
+   Controler              Adam
+
+-- row 184 --
+   Client/Prospect        Elkins Construction
+   Project name           E544 Baden Powell School
+   Link - Master          E544
+   Date of Enquiry        26/03/2026
+   Deadline               06/04/2026
+   Product                Composite - TBC
+   Controler              Gintare
+   Notes                  types 7 & 13, 14 not composite due to spec
+
+-- row 185 --
+   Log no.                8033
+   Client/Prospect        Neil Douglas
+   Project name           Slated Row
+   Link - Master          Slated Row
+   Controler              Adam
+   Notes                  Sent to BSW
+   Issued for checking    Sent to ADAM
+
+-- row 186 --
+   Client/Prospect        Thomas Sinden
+   Project name           Woodlands School 2026
+   Link - Master          Woodlands School 2026
+   Date of Enquiry        30/03/2026
+   Deadline               15/04/2026
+
+-- row 187 --
+   Log no.                to log
+   Client/Prospect        Storm Building
+   Project name           Chase Farm
+   Date of Enquiry        24/03/2026
+   Deadline               14/04/2026
+   Product                Rationel - TBC
+   Notes                  TBC
+
+-- row 188 --
+   Client/Prospect        Bradford Watts
+   Project name           9 Colonial Way
+   Link - Master          9 Colonial Way
+   Date of Enquiry        05/02/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                To confirm U-value
+   Controler              Adam
+   Notes                  followed up 10/04
+
+-- row 189 --
+   Client/Prospect        Astwood Construction Limited
+   Project name           Moreton road
+   Link - Master          Moreton road
+   Date of Enquiry        30/03/2026
+   Deadline               TBC
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 190 --
+   Client/Prospect        Heyland & Spratt Ltd
+   Project name           Day School
+   Link - Master          Day School
+   Date of Enquiry        30/03/2026
+   Deadline               10/04/2026
+   Controler              Gintare
+   Notes                  Glass for chaped door
+   Issued for checking    Sent to ADAM
+
+-- row 191 --
+   Client/Prospect        Massco Construction Ltd
+   Project name           Acreland Farmhouse
+   Link - Master          Acreland Farmhouse
+   Date of Enquiry        17/11/2025
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                Requote
+   Controler              Gintare
+   Notes                  BSW + Secondary Glazing. Sizes requested
+   Issued for checking    Sent to ADAM
+
+-- row 192 --
+   Log no.                8089
+   Client/Prospect        Life Build Solutions
+   Project name           Arlesey Road
+   Link - Master          Arlesey Road
+   Date of Enquiry        01/04/2026
+   Deadline               26/04/2026
+   Controler              Gintare
+   Notes                  Waiting on Frotn door
+   Issued for checking    Sent to ADAM
+
+-- row 193 --
+   Client/Prospect        Pride developments
+   Project name           Exmoor Drive Care home
+   Link - Master          Exmoor Drive
+   Date of Enquiry        01/04/2026
+   Controler              Gintare
+   Notes                  No elevatiosn to price off - TBC
+
+-- row 194 --
+   Client/Prospect        Krypton
+   Project name           25a Hatton Garden
+   Date of Enquiry        30/03/2026
+   Deadline               01/02/2026
+   Controler              Adam
+
+-- row 195 --
+   Log no.                8097
+   Client/Prospect        Target Maintenance
+   Project name           112 Braemar Avenue So/11381
+   Link - Master          112 Braemar Avenue So11381
+   Date of Enquiry        02/04/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 196 --
+   Log no.                5493
+   Client/Prospect        Thomas Sinden
+   Project name           The Hub Alkerden
+   Date of Enquiry        07/04/2026
+   Deadline               21/04/2026
+   Product                via link
+   Controler              Gintare
+   Notes                  Composite
+
+-- row 197 --
+   Client/Prospect        Krypton
+   Project name           5 White Horse Street
+   Link - Master          5 White Horse Street
+   Controler              Adam
+
+-- row 198 --
+   Client/Prospect        DTP Property
+   Project name           49 High St Windows
+   Link - Master          DT SUB 2 Limited
+   Controler              Adam
+
+-- row 199 --
+   Log no.                8142
+   Client/Prospect        Elkins Construction
+   Project name           Glebe School
+   Link - Master          Glebe School
+   Date of Enquiry        14/04/2026
+   Deadline               17/04/2026
+   Notes                  FILL in BoQ
+   Issued for checking    Sent to ADAM
+
+-- row 200 --
+   Client/Prospect        First Facilities Management
+   Project name           Mercedes Bedford
+   Product                Site Survey
+   Controler              Paul
+
+-- row 201 --
+   Client/Prospect        Pride developments
+   Project name           Wychbold WCES
+
+-- row 202 --
+   Log no.                8143
+   Client/Prospect        Harrabin
+   Project name           Hereward College
+   Link - Master          Hereward College
+   Date of Enquiry        14/04/2026
+   Issued for checking    Sent to ADAM
+
+-- row 203 --
+   Log no.                8144
+   Client/Prospect        Elkins Construction
+   Project name           Castlecombe Housing Development
+   Link - Master          Castlecombe
+   Date of Enquiry        15/04/2026
+   Deadline               24/04/2026
+   Product                Composit
+   Controler              Gintare
+   Notes                  add ed01 & ed02
+   Issued for checking    Sent to ADAM
+
+-- row 204 --
+   Log no.                8151
+   Client/Prospect        Bradford Watts
+   Project name           Units 1-4 Isis
+   Link - Master          Units 1-4 IsisTrading Estate
+   Date of Enquiry        15/04/2026
+   Deadline               23/04/2026
+   Product                Window CAD
+   Controler              Gintare
+   Notes                  BSW
+   Issued for checking    Sent to ADAM
+
+-- row 205 --
+   Log no.                8154
+   Client/Prospect        Bradford Watts
+   Project name           90-00 & 76 London Industrial Estate
+   Link - Master          90-00 & 76 London Industrial Estate
+   Date of Enquiry        15/04/2026
+   Deadline               21/04/2026
+   Product                Window CAD
+   Controler              Gintare
+   Notes                  BDC/ Latham
+   Issued for checking    Sent to ADAM
+
+-- row 206 --
+   Log no.                8155
+   Client/Prospect        Bradford Watts
+   Project name           Unit 1 Eleanor Trade Centre
+   Link - Master          Unit 1 Eleanor Trade Centre
+   Date of Enquiry        15/04/2026
+   Deadline               21/04/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 207 --
+   Log no.                8157
+   Client/Prospect        Bradford Watts
+   Project name           Unit 1 Horizon Point
+   Link - Master          Unit 1 Horizon Point
+   Date of Enquiry        15/04/2026
+   Deadline               29/04/2026
+   Product                Site survey
+   Controler              Paul
+   Notes                  TBC - repairs only?
+   W/L                    not quoted
+
+-- row 208 --
+   Log no.                8156
+   Client/Prospect        Bradford Watts
+   Project name           221 Dover Road
+   Link - Master          221 Dover Road
+   Date of Enquiry        15/04/2026
+   Deadline               22/04/2026
+   Controler              Gintare
+   Notes                  BSW = Fire excit door
+
+-- row 209 --
+   Log no.                8170
+   Client/Prospect        Alcema
+   Project name           Alfreton
+   Link - Master          Alfreton
+   Date of Enquiry        16/04/2026
+   Deadline               24/04/2026
+   Product                Steel
+   Controler              Gintare
+   Notes                  From Jayk
+
+-- row 210 --
+   Log no.                8173
+   Client/Prospect        Target Maintenance
+   Project name           84 Camden Road
+   Link - Master          84 Camden Road
+   Date of Enquiry        17/04/2026
+   Deadline               24/04/2026
+   Product                Alu
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 211 --
+   Log no.                8200
+   Client/Prospect        Fortis Vision
+   Project name           Favell House Refurbishment
+   Link - Master          Favell House
+   Date of Enquiry        17/04/2026
+   Deadline               15/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 212 --
+   Log no.                8204
+   Client/Prospect        rrr-group
+   Project name           TOWCESTER VALE LOCAL CENTRE
+   Link - Master          Towcester Vale Local Centre
+   Date of Enquiry        21/04/2026
+   Deadline               15/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 213 --
+   Log no.                8221
+   Client/Prospect        Alexander James Contracts
+   Project name           Emmbrook School
+   Link - Master          Emmbrook school
+   Date of Enquiry        27/04/2026
+   Deadline               11/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 214 --
+   Client/Prospect        Aspire Federation
+   Project name           Slated Row 5
+   Controler              Gintare
+
+-- row 215 --
+   Log no.                8234
+   Client/Prospect        Borras Construction
+   Project name           5921 Latymer Road Surgery
+   Link - Master          5921 Latymer Road Surgery
+   Date of Enquiry        30/04/2026
+   Deadline               11/05/2026
+   Controler              Gintare
+
+-- row 216 --
+   Log no.                8236
+   Client/Prospect        D2 FM
+   Project name           Burger King
+   Link - Master          Burger King
+   Date of Enquiry        30/04/2026
+   Deadline               05/05/2026
+   Controler              Gintare
+   W/L                    Lost
+
+-- row 217 --
+   Log no.                8238
+   Client/Prospect        Ashe Building Beter
+   Project name           Luton & Dunstable Hospital
+   Link - Master          L&D (CDC)
+   Product                Site visit
+   Controler              Adam
+   Issued for checking    Sent to ADAM
+
+-- row 218 --
+   Log no.                8271
+   Client/Prospect        Target Maintenance
+   Project name           Aster Way 51-61
+   Link - Master          Aster Way 51-61
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 219 --
+   Client/Prospect        Francis Construction
+   Project name           University of Reading
+   Link - Master          Uni of Reading
+   Date of Enquiry        05/05/2026
+   Deadline               05/05/2026
+   Controler              Gintare
+
+-- row 220 --
+   Log no.                8272
+   Client/Prospect        Gray & Sons Builders ltd
+   Project name           Sharnbrook Grain Storage PH3
+   Link - Master          Sharnbrook Grain Storage PH3
+   Date of Enquiry        05/05/2026
+   Deadline               15/05/2026
+   Issued for checking    Sent to ADAM
+
+-- row 221 --
+   Log no.                8274
+   Client/Prospect        Logan Construction
+   Project name           The Royal Marsden Hospital
+   Link - Master          The Royal Marsden Hospital
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 222 --
+   Log no.                8277
+   Client/Prospect        Harrabin
+   Project name           University of Warwick
+   Link - Master          Harrabin\University of Warwick
+   Date of Enquiry        07/05/2026
+   Deadline               04/06/2026
+   Product                Review with Adam
+   Controler              Gintare
+   Notes                  Window CAD uPVC make up design
+   Issued for checking    Sent to ADAM
+
+-- row 223 --
+   Log no.                8151
+   Client/Prospect        Bradford Watts
+   Project name           Units 1-4 Isis
+   Link - Master          Units 1-4 IsisTrading Estate
+   Date of Enquiry        15/04/2026
+   Deadline               23/04/2026
+   Days till deadline     Requote
+   Product                Window CAD
+   Controler              Gintare
+   Notes                  BSW
+
+-- row 224 --
+   Client/Prospect        Bradford Watts
+   Project name           9 Colonial Way
+   Link - Master          9 Colonial Way
+   Date of Enquiry        05/02/2026
+   Deadline               23/02/2026
+   Days till deadline     Requote
+   Product                Site survey - 10/02
+   Controler              Adam
+
+-- row 225 --
+   Log no.                8309
+   Client/Prospect        Barry Wildsmith
+   Project name           Tythe Barn
+   Link - Master          Tythe Barn
+   Date of Enquiry        08/05/2026
+   Deadline               15/05/2026
+   Notes                  Heritage Black
+   Issued for checking    Sent to NICK
+
+-- row 226 --
+   Client/Prospect        Denton Hope
+   Project name           Roseford Court
+   Link - Master          Roseford Court
+   Date of Enquiry        08/05/2026
+   Controler              Paul
+   Issued for checking    Sent to ADAM
+
+-- row 227 --
+   Client/Prospect        Sanctuary Group
+   Project name           Windrush Close Witney
+   Date of Enquiry        08/05/2026
+   Deadline               04/06/2026
+   Controler              Gintare
+   Notes                  TBC - Adam to book a site visit
+   W/L                    Declined
+
+-- row 228 --
+   Log no.                8310
+   Client/Prospect        sjpcontracts
+   Project name           Perfect Octave - Sawtry
+   Link - Master          Perfect Octave - Sawtry
+   Date of Enquiry        11/05/2026
+   Deadline               22/05/2026
+   Controler              Gintare
+   Notes                  Waiting on Builder - follow up by 19
+   Issued for checking    Sent to ADAM
+
+-- row 229 --
+   Log no.                8322
+   Client/Prospect        r1-construction
+   Project name           ENQ1328 - New Passes & Permits Building - Site 4
+   Link - Master          New Passes & Permits Building - Site 4
+   Date of Enquiry        11/05/2026
+   Deadline               21/05/2026
+   Controler              Gintare
+   Notes                  Kawneer/Novastruct could not quote
+
+-- row 230 --
+   Log no.                8323
+   Client/Prospect        KPS Ltd
+   Project name           Victoria Retail Park
+   Link - Master          Victoria Retail Park
+   Date of Enquiry        12/05/2026
+   Deadline               25/05/2026
+   Product                Follow up
+   Controler              Gintare
+
+-- row 231 --
+   Log no.                8324
+   Client/Prospect        Elkins Construction
+   Project name           Brandon Estate EWI Remediation works
+   Link - Master          Brandon Estate EWI Remediation works
+   Date of Enquiry        13/05/2026
+   Deadline               01/06/2026
+   Controler              Gintare
+   Notes                  glass quote
+   Issued for checking    Sent to ADAM
+
+-- row 232 --
+   Client/Prospect        Etec Group
+   Project name           TFL Finchley Road
+   Link - Master          TFL Finchley Road
+   Date of Enquiry        13/05/2026
+   Deadline               26/05/2026
+   Controler              Gintare
+   Notes                  TBC - refurb only? Sent to Adam
+
+-- row 233 --
+   Log no.                8313
+   Client/Prospect        Fortis Vision
+   Project name           CLV Cranborne House
+   Link - Master          CLV Cranborne House
+   Date of Enquiry        13/05/2026
+   Deadline               14/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 234 --
+   Log no.                8314
+   Client/Prospect        Jaques
+   Project name           Lower Newton
+   Link - Master          Alu Sliders & CW
+   Date of Enquiry        13/05/2026
+   Deadline               22/05/2026
+   Controler              Gintare
+   Notes                  Declined?
+
+-- row 235 --
+   Client/Prospect        Neil Douglas
+   Project name           Earleswood Court
+   Link - Master          Earleswood Court
+   Date of Enquiry        05/02/2026
+   Deadline               02/03/2026
+   Product                Requote
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 236 --
+   Log no.                8315
+   Client/Prospect        Avondale Care Home
+   Project name           Avondale Care Home
+   Date of Enquiry        13/05/2026
+   Deadline               22/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 237 --
+   Log no.                8343
+   Client/Prospect        Target Maintenance
+   Project name           Patio Door - SN3 1FP
+   Link - Master          Patio Door - SN3 1FP
+   Date of Enquiry        14/05/2026
+   Deadline               22/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 238 --
+   Log no.                8344
+   Client/Prospect        Etec Group
+   Project name           Echelon Community Housing Framework
+   Link - Master          Echelon Community Housing Framework
+   Date of Enquiry        14/05/2026
+   Deadline               29/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 239 --
+   Client/Prospect        Richard Armstrong
+   Project name           Your New Door
+   Link - Master          Richard Armstrong
+   Date of Enquiry        15/05/2026
+   Deadline               22/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 240 --
+   Log no.                8325
+   Client/Prospect        Sdevs
+   Project name           Lakenheath Glass
+   Link - Master          Lakenheath Glass
+   Date of Enquiry        15/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 241 --
+   Log no.                8349
+   Client/Prospect        Target Maintenance
+   Project name           Greenacre Gardens
+   Link - Master          Greenacre Gardens
+   Date of Enquiry        15/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 242 --
+   Log no.                8368
+   Client/Prospect        Alexander James Contracts
+   Project name           Darrick Wood
+   Link - Master          Darrick Wood
+   Date of Enquiry        18/05/2026
+   Deadline               29/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 243 --
+   Log no.                8337
+   Client/Prospect        MHA
+   Project name           Charnwood House
+   Link - Master          Charwood
+   Date of Enquiry        18/05/2026
+   Deadline               22/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 244 --
+   Log no.                8336
+   Client/Prospect        Total projects
+   Project name           Silverstone business park
+   Link - Master          Silverstone business park
+   Date of Enquiry        18/05/2026
+   Deadline               20/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 245 --
+   Client/Prospect        Pride Developments
+   Project name           St Catherines
+   Link - Master          St Catherines
+   Controler              Paul
+   Notes                  Mercury
+
+-- row 246 --
+   Client/Prospect        Elkins Construction
+   Project name           Eltham
+   Link - Master          Eltham LC
+   Date of Enquiry        10/03/2026
+   Deadline               11/03/2026
+   Controler              Gintare
+   Notes                  Sourcing steel windows
+   Issued for checking    Sent to ADAM
+
+-- row 247 --
+   Log no.                8381
+   Client/Prospect        Pride developments
+   Project name           Morrisons Rubery Birmingham
+   Link - Master          Morrisons Rubery Birmingham
+   Date of Enquiry        21/05/2026
+   Deadline               28/05/2026
+   Controler              Gintare
+
+-- row 248 --
+   Log no.                8221
+   Client/Prospect        Alexander James Contracts
+   Project name           Emmbrook School
+   Link - Master          Emmbrook school
+   Date of Enquiry        27/04/2026
+   Deadline               11/05/2026
+   Controler              Gintare
+   Notes                  Updated info - no changes
+
+-- row 249 --
+   Log no.                8382
+   Client/Prospect        Pride developments
+   Project name           RAF Mildenhall
+   Link - Master          RAF Mildenhall
+   Date of Enquiry        21/05/2026
+   Deadline               01/06/2026
+   Product                Pivot windows
+   Controler              Gintare
+   Notes                  Chased up 8/6/2026
+   Issued for checking    Sent to ADAM
+
+-- row 250 --
+   Client/Prospect        SPC CARPENTRY LTD
+   Project name           39 San Remo Rd Aspley Guise
+   Date of Enquiry        22/05/2026
+   Deadline               29/05/2026
+   Controler              Gintare
+   Issued for checking    Sent to Perry
+
+-- row 251 --
+   Client/Prospect        Axis CLC Group Limited
+   Project name           Efficiency East Midlands
+   Link - Master          Efficiency East Midlands
+   Date of Enquiry        26/05/2026
+   Deadline               10/06/2026
+   Controler              Gintare
+   Notes                  More info requited - ADAM TBC
+   Issued for checking    Sent to ADAM
+
+-- row 252 --
+   Client/Prospect        Etec Group
+   Project name           Chiltern Grove
+   Date of Enquiry        26/05/2026
+   Deadline               08/06/2026
+   Controler              Gintare
+   Notes                  TBC - Adam to review
+
+-- row 253 --
+   Log no.                8391
+   Client/Prospect        Borras Construction
+   Project name           Coventry - Stoke Park School
+   Link - Master          Coventry - Stoke Park School
+   Date of Enquiry        28/05/2026
+   Deadline               01/06/2026
+   Controler              Gintare
+   Notes                  followed up 01/06
+   Issued for checking    Sent to ADAM
+
+-- row 254 --
+   Log no.                8409
+   Client/Prospect        Knights construction
+   Project name           CB Refrigeration Workshop
+   Link - Master          CB Refrigeration Workshop
+   Date of Enquiry        28/05/2026
+   Deadline               05/06/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 255 --
+   Log no.                8421
+   Client/Prospect        Lindum
+   Project name           Kettering Police Station
+   Link - Master          Kettering Police Station
+   Date of Enquiry        01/06/2026
+   Deadline               15/06/2026
+   Product                Window Film
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 256 --
+   Log no.                8441
+   Client/Prospect        Pexhurst Services
+   Project name           Prologis Marton Gate
+   Link - Master          Prologis Marston Gate
+   Date of Enquiry        05/06/2026
+   Deadline               25/06/2026
+   Controler              Gintare
+   Notes                  TBC - not enough info for quote. Paul - Not going to quote for this one
+
+-- row 257 --
+   Log no.                8277
+   Client/Prospect        Harrabin
+   Project name           University of Warwick
+   Link - Master          Harrabin\University of Warwick
+   Date of Enquiry        07/05/2026
+   Deadline               04/06/2026
+   Product                Review with Adam
+   Controler              Gintare
+   Notes                  Requested for full T&T quotes
+   Issued for checking    Sent to ADAM
+
+-- row 258 --
+   Log no.                requote
+   Client/Prospect        Francis Construction
+   Project name           University of Reading
+   Link - Master          Uni of Reading
+   Controler              Adam
+   Notes                  Composite - Russell Timber Technology. Alu -REV 3 - ready, proposal tbc
+   W/L                    Lost
+
+-- row 259 --
+   Log no.                8458
+   Client/Prospect        McCarthy & Associates
+   Project name           Abingdon & Witney College
+   Link - Master          Abingdon & Witney College
+   Date of Enquiry        08/06/2026
+   Deadline               19/06/2026
+   Controler              Gintare
+   Notes                  suncool glass tbc
+   Issued for checking    Sent to ADAM
+
+-- row 260 --
+   Log no.                8462
+   Client/Prospect        Pride Developments
+   Project name           Peckham Pulse Leisure Centre
+   Link - Master          Peckham Pulse Leisure Centre
+   Date of Enquiry        09/06/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 261 --
+   Log no.                8463
+   Client/Prospect        Pride Developments
+   Project name           Severn Trent
+   Link - Master          Seven Trent
+   Date of Enquiry        10/06/2026
+   Deadline               18/06/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 262 --
+   Log no.                8475
+   Client/Prospect        Church of Latter Day Saints
+   Project name           Coventry Meetinghouse
+   Link - Master          Church of Jesus Christ of Latter-day Saints
+   Date of Enquiry        11/06/2026
+   Deadline               18/06/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 263 --
+   Log no.                8477
+   Client/Prospect        Feltham
+   Project name           Educational and sports hall building
+   Link - Master          Educational and sports hall building
+   Date of Enquiry        11/06/2026
+   Deadline               18/06/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 264 --
+   Log no.                requote
+   Client/Prospect        Fortis Vision
+   Project name           Favell House Refurbishment
+   Link - Master          Favell House
+   Date of Enquiry        12/06/2026
+   Controler              Gintare/Steven
+   Notes                  Waiting for Aplus reprice
+   Issued for checking    Sent to ADAM
+
+-- row 265 --
+   Log no.                requote
+   Client/Prospect        Bradford Watts
+   Project name           90-00 & 76 London Industrial Estate
+   Link - Master          90-00 & 76 London Industrial Estate
+   Date of Enquiry        15/06/2026
+   Deadline               17/06/2026
+   Product                Window CAD
+   Controler              Gintare
+   Notes                  BDC/ Latham
+   Issued for checking    Sent to ADAM
+
+-- row 266 --
+   Log no.                8492
+   Client/Prospect        Target Maintenance
+   Project name           Gordon Court Door
+   Link - Master          Gordon Court
+   Date of Enquiry        15/06/2026
+   Controler              Gintare
+   Notes                  no sizes provided. Minimal info
+   Issued for checking    Sent to ADAM
+
+-- row 267 --
+   Log no.                8501
+   Client/Prospect        Target Maintenance
+   Project name           7 Cavell Drive
+   Link - Master          7 Cavell Drive
+   Date of Enquiry        16/06/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 268 --
+   Log no.                8519
+   Client/Prospect        Stainforth Construction LLP
+   Project name           Home Bargains
+   Link - Master          Home Bargains
+   Date of Enquiry        16/06/2026
+   Deadline               30/06/2026
+   Controler              Gintare
+   Notes                  FR30 - not required. BSW + Acasolutions
+
+-- row 269 --
+   Log no.                8500
+   Client/Prospect        Borras Construction
+   Project name           St Augustine's CE School
+   Link - Master          St Augustines
+   Date of Enquiry        16/06/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Controler              Gintare
+   Notes                  louver door quoted as glazed, tbc
+   Issued for checking    Sent to ADAM
+
+-- row 270 --
+   Client/Prospect        Elkins Construction
+   Project name           Flat 9, 3 Vaughan Road
+   Date of Enquiry        17/06/2026
+   Controler              Gintare
+   Notes                  Adam has requested for sizes - TBC
+
+-- row 271 --
+   Log no.                7376
+   Client/Prospect        r1-construction
+   Project name           Gresty Road
+   Link - Master          Gresty Road
+   Date of Enquiry        16/06/2026
+   Product                Requote
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 272 --
+   Log no.                8517
+   Client/Prospect        Borras Construction
+   Project name           Raglan Roofing Project
+   Link - Master          Raglan School
+   Date of Enquiry        18/06/2026
+   Controler              Gintare
+   Notes                  Aplus+SMA quotes sent to Adam
+   Issued for checking    Sent to ADAM
+   W/L                    won
+
+-- row 273 --
+   Log no.                8504
+   Client/Prospect        The Church of Jesus Christ of Latter-day Saints
+   Project name           Hastings External Doors Replacement
+   Link - Master          Hastings
+   Date of Enquiry        18/06/2026
+   Deadline               10/07/2026
+   Product                RAL 8017
+   Controler              Adam
+   Notes                  Quote ready, need to prepare docs
+   Issued for checking    Sent to ADAM
+
+-- row 274 --
+   Log no.                8510
+   Client/Prospect        Rooff Construction
+   Project name           St. Christopher's the Hall School
+   Link - Master          St. Christopher's the Hall School
+   Date of Enquiry        19/06/2026
+   Deadline               24/06/2026
+   Product                Smarts
+   Controler              Gintare
+   Notes                  Adding additional frames to the quote.  Emailed Ben to let him know. Needs price back on Monday 29th
+   Issued for checking    Sent to ADAM
+
+-- row 275 --
+   Project name           Avebury
+   Date of Enquiry        18/04/2026
+   Controler              Adam
+
+-- row 276 --
+   Log no.                8526
+   Client/Prospect        Pearce Construction
+   Project name           Woodland Vale
+   Link - Master          Woodland Vale
+   Date of Enquiry        18/06/2026
+   Deadline               28/06/2026
+   Controler              Gintare
+   Notes                  confirmed to quote for 900 x 2100 & 1800 x 2100
+   Issued for checking    Sent to ADAM
+
+-- row 277 --
+   Log no.                8540
+   Client/Prospect        Highwood Group
+   Project name           Whitsbury Road - Care Home
+   Link - Master          Whitsbury Road
+   Date of Enquiry        19/06/2026
+   Deadline               10/07/2026
+   Controler              Gintare
+   Notes                  Quote ready, need to prepare docs
+
+-- row 278 --
+   Log no.                8531
+   Client/Prospect        Etec Group
+   Project name           Willesden Junction Depot
+   Link - Master          Willesden Junction Depot
+   Date of Enquiry        19/06/2023
+   Deadline               03/07/2026
+   Controler              Gintare
+   Notes                  Quote ready, need to prepare docs
+
+-- row 279 --
+   Client/Prospect        Elkins Construction
+   Project name           Midfield Primary School
+   Date of Enquiry        19/06/2026
+   Deadline               22/06/2026
+   Product                requote
+   Controler              Gintare
+   Notes                  Teleflex + true frame requote
+
+-- row 280 --
+   Client/Prospect        MPS Contracts
+   Project name           Holiday In
+   Link - Master          Holiday Inn - Milton Keynes
+   Date of Enquiry        19/06/2026
+   Controler              Adam
+
+-- row 281 --
+   Log no.                8535
+   Client/Prospect        Bradford Watts
+   Project name           Unit A4 West Cross
+   Link - Master          Unit A4 West Cross
+   Date of Enquiry        19/06/2026
+   Deadline               06/07/2026
+   Product                Site survey?
+   Controler              Gintare
+   Notes                  More info needed. Asked Adam for site survey
+
+-- row 282 --
+   Log no.                8536
+   Client/Prospect        Target Maintenance
+   Project name           Tenbury Close
+   Link - Master          Tenbury Close
+   Date of Enquiry        22/06/2026
+   Controler              Gintare
+   Notes                  Duration & Granada
+   Issued for checking    Sent to ADAM
+
+-- row 283 --
+   Log no.                8537
+   Client/Prospect        Stewarts CC
+   Project name           DHL Express Cambridge
+   Date of Enquiry        22/06/2026
+   Controler              Paul
+
+-- row 284 --
+   Log no.                8539
+   Client/Prospect        Zelltec
+   Project name           Wisley Golf Club
+   Link - Master          Wisley Golf Club
+   Date of Enquiry        22/06/2026
+   Deadline               16/07/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 285 --
+   Log no.                8542
+   Client/Prospect        Zelltec
+   Project name           Units 16 & 18 Crownhill Business Centre
+   Link - Master          Units 16 & 18 Crownhill Business Centre
+   Date of Enquiry        22/06/2026
+   Deadline               15/07/2026
+   Product                Site survery required
+   Controler              Gintare
+   Notes                  uPVC + Steel
+
+-- row 286 --
+   Log no.                8543
+   Client/Prospect        Target Maintenance
+   Project name           Providence House
+   Link - Master          Providence House
+   Date of Enquiry        22/06/2026
+   Deadline               ASAP
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 287 --
+   Log no.                8545
+   Client/Prospect        Chigwell Group
+   Project name           Gordon Court
+   Link - Master          Gordon Court
+   Date of Enquiry        24/06/2026
+   Deadline               09/07/2026
+   Product                Upvc + Ali
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 288 --
+   Log no.                8552
+   Client/Prospect        Ermine
+   Project name           Ninn Lane
+   Link - Master          Ninn Lane
+   Date of Enquiry        24/06/2026
+   Deadline               09/07/2026
+   Controler              Gintare
+   Notes                  Sent To Aplus + BSW
+   Issued for checking    Sent to ADAM
+   W/L                    Not Proceeding
+
+-- row 289 --
+   Log no.                8553
+   Client/Prospect        Reynolds Conservation Ltd
+   Project name           Oldswinford Primary School
+   Link - Master          Oldswinford Primary School
+   Date of Enquiry        24/06/2026
+   Deadline               07/07/2026
+   Controler              Gintare
+   Notes                  Sent To Aplus + BSW
+   Issued for checking    Sent to ADAM
+
+-- row 290 --
+   Log no.                8204
+   Client/Prospect        rrr-group
+   Project name           TOWCESTER VALE LOCAL CENTRE
+   Link - Master          Towcester Vale Local Centre
+   Deadline               ASAP
+   Product                Requote
+   Controler              Adam/Paul
+   Notes                  Add sainsburys unit
+
+-- row 291 --
+   Log no.                8558
+   Client/Prospect        Pride developments
+   Project name           B239 Windows PD7851
+   Link - Master          B239 Windows PD7851
+   Date of Enquiry        25/06/2026
+   Controler              Gintare
+   Notes                  Sent to Mercury
+
+-- row 292 --
+   Log no.                8548
+   Client/Prospect        Ashe Building Beter
+   Project name           Gadsby Street Bedford
+   Link - Master          Gadsby Street Bedford
+   Date of Enquiry        24/06/2026
+   Product                Site survey 14th
+   Controler              Gintare
+   W/L                    WON
+
+-- row 293 --
+   Log no.                5493
+   Client/Prospect        Thomas Sinden
+   Project name           The Hub Alkerden
+   Link - Master          The Hub Alkerden
+   Date of Enquiry        07/04/2026
+   Deadline               08/07/2026
+   Product                via link
+   Controler              Gintare
+   Notes                  Sinden have won this and want us to provide a re-quote
+
+-- row 294 --
+   Log no.                8678
+   Client/Prospect        Krypton
+   Project name           O2 Stratford
+   Date of Enquiry        01/07/2026
+   Product                Upvc Windows
+   Controler              Adam
+   Notes                  Adam has sent quote via window cad
+
+-- row 295 --
+   Log no.                8620
+   Client/Prospect        Chester Thomas Developments
+   Project name           3 Berry Close, Earls Barton
+   Link - Master          3 Berry Close, Earls Barton
+   Date of Enquiry        30/06/2026
+   Deadline               10/07/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 296 --
+   Log no.                8623
+   Client/Prospect        Chester Thomas Developments
+   Project name           50 Main Rd, Earls Barton
+   Link - Master          50 Main Rd, Earls Barton
+   Date of Enquiry        30/06/2026
+   Deadline               10/07/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 297 --
+   Log no.                8625
+   Client/Prospect        Chester Thomas Developments
+   Project name           The arched front door
+   Link - Master          The arched front door
+   Date of Enquiry        30/06/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 298 --
+   Log no.                8632
+   Client/Prospect        Borras Construction
+   Project name           Manor Lodge School
+   Link - Master          Manor Lodge School
+   Date of Enquiry        30/06/2026
+   Deadline               03/07/2026
+   Controler              Adam
+
+-- row 299 --
+   Log no.                8633
+   Client/Prospect        Prince Build
+   Project name           55 Woodland Road
+   Link - Master          55 Woodland Road
+   Date of Enquiry        01/07/2026
+   Deadline               10/07/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 300 --
+   Log no.                8635
+   Client/Prospect        Harrabin
+   Project name           Lyttleton Road
+   Link - Master          Lyttleton Road
+   Date of Enquiry        01/07/2026
+   Deadline               13/07/2026
+   Controler              Adam
+
+-- row 301 --
+   Client/Prospect        Capital Services
+   Project name           Flat 22 Austin House
+   W/L                    WON
+
+-- row 302 --
+   Log no.                8637
+   Client/Prospect        SM5 Developments
+   Project name           Wexham Primary
+   Link - Master          Wexham Primary
+   Date of Enquiry        03/07/2026
+   Deadline               14/07/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 303 --
+   Log no.                8638
+   Client/Prospect        Krypton
+   Project name           Waitrose @ Storrington
+   Link - Master          Waitrose @ Storrington
+   Date of Enquiry        03/07/2026
+   Controler              Gintare
+   Notes                  FR30min, asked to change
+   Issued for checking    Sent to ADAM
+
+-- row 304 --
+   Log no.                8639
+   Client/Prospect        Sdevs
+   Project name           13 Summerhill way
+   Link - Master          13 Summerhill way
+   Date of Enquiry        03/07/2026
+   Deadline               13/07/2026
+   Product                WindowCad
+   Controler              Gintare
+
+-- row 305 --
+   Log no.                8631
+   Client/Prospect        Coulson
+   Project name           University of Cambridge - Madingley
+   Link - Master          University of Cambridge - Madingley
+   Date of Enquiry        02/07/2026
+   Deadline               14/07/2026
+   Product                WindowCad
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 306 --
+   Log no.                8642
+   Client/Prospect        Chigwell Group
+   Project name           Leys Sports Pavilion Refurbishment
+   Link - Master          Leys Sports Pavilion
+   Date of Enquiry        06/07/2026
+   Deadline               19/07/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 307 --
+   Log no.                8663
+   Client/Prospect        Guildmore Planned Works Ltd
+   Project name           Princess Beatrice House
+   Link - Master          Princess Beatrice House
+   Date of Enquiry        06/07/2026
+   Deadline               17/07/2026
+   Controler              Gintare
+   Notes                  tender to include 2.5% main contractor discount
+   Issued for checking    Sent to ADAM
+
+-- row 308 --
+   Client/Prospect        Kori
+   Project name           Station Road, Hampton
+   Date of Enquiry        07/07/2026
+   Deadline               TBC
+   Controler              Gintare
+   Notes                  TBC reg upvc option
+
+-- row 309 --
+   Log no.                8660
+   Client/Prospect        Ryebridge Construction
+   Project name           Luton Airport - Departure Gates 1 & 2
+   Link - Master          Luton Airport - Departure Gates 1 & 2
+   Date of Enquiry        07/07/2026
+   Deadline               14/07/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 310 --
+   Log no.                8679
+   Client/Prospect        ET & S Construction
+   Project name           St Mary's Refurbishment
+   Link - Master          St Mary's Refurbishment
+   Date of Enquiry        08/07/2026
+   Deadline               17/07/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 311 --
+   Client/Prospect        Bell Building Projects Ltd
+   Project name           Handley Court, Hempstead
+   Link - Master          Handley Court, Hempstead
+   Date of Enquiry        08/07/2026
+   Deadline               14/07/2026
+   Product                CW?
+   Controler              Gintare
+   Notes                  Decline
+
+-- row 312 --
+   Log no.                7390
+   Client/Prospect        PEARCE CONSTRUCTION
+   Project name           Greenfields Respite Barnstaple
+   Link - Master          Greenfields
+   Date of Enquiry        09/07/2026
+   Deadline               17/07/2026
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 313 --
+   Log no.                8368
+   Client/Prospect        Alexander James Contracts
+   Project name           Darrick Wood
+   Link - Master          Darrick Wood
+   Date of Enquiry        09/07/2026
+   Deadline               ASAP
+   Days till deadline     ASAP
+   Product                re-quote
+   Controler              Gintare
+   Issued for checking    Sent to ADAM
+
+-- row 314 --
+   Log no.                8681
+   Client/Prospect        Slated Row
+   Project name           Kents Hill Quote
+   Controler              Adam
+
+-- row 315 --
+   Log no.                8204
+   Client/Prospect        rrr-group
+   Project name           TOWCESTER VALE LOCAL CENTRE
+   Link - Master          Towcester Vale Local Centre
+   Deadline               ASAP
+   Product                Requote
+   Controler              Adam/Paul
+   Notes                  Prepare docs
+   Issued for checking    Sent to ADAM
+
+-- row 316 --
+   Log no.                8682
+   Client/Prospect        Reynolds Conservation Ltd
+   Project name           Crestwood Park Primary School
+   Link - Master          Crestwood Park Primary School
+   Date of Enquiry        14/07/2026
+   Deadline               20/07/2026
+   Notes                  Waiting on Teleflex
+   Issued for checking    Sent to ADAM
+
+-- row 317 --
+   Log no.                8686
+   Client/Prospect        Stewarts CC
+   Project name           Tradeteam Stretton
+   Link - Master          Tradeteam Stretton
+   Issued for checking    Sent to ADAM
+
+-- row 318 --
+   Log no.                8697
+   Client/Prospect        Topek Southern Ltd
+   Project name           Trafalgar House
+   Link - Master          Trafalgar House
+   Date of Enquiry        14/07/2026
+   Controler              Paul
+   Issued for checking    Sent to ADAM
+
+-- row 319 --
+   Log no.                8716
+   Client/Prospect        SMD
+   Project name           Brocks Hill Phase 2 Teaching Block
+   Link - Master          Brocks Hill Phase 2
+   Date of Enquiry        14/07/2026
+   Deadline               31/07/2026
+   Days till deadline     2
+   Notes                  Manifestations
+   Issued for checking    Sent to ADAM
+
+-- row 320 --
+   Client/Prospect        Bradford Watts
+   Project name           Unit 1 Eleanor Trade Centre
+   Link - Master          Unit 1 Eleanor Trade Centre
+   Date of Enquiry        15/07/2026
+   Issued for checking    Sent to ADAM
+
+-- row 321 --
+   Log no.                8724
+   Client/Prospect        Stepnell
+   Project name           BCC Filwood Broadway
+   Link - Master          BCC Filwood Broadway
+   Date of Enquiry        17/07/2026
+   Deadline               30/07/2026
+   Days till deadline     1
+   Notes                  Manifestations
+   Issued for checking    Sent to ADAM
+
+-- row 322 --
+   Log no.                8741
+   Client/Prospect        Pearce Construction
+   Project name           Georgie's (formerly Rosebank)
+   Link - Master          Georgies\1. Estimating
+   Date of Enquiry        21/07/2026
+   Deadline               28/07/2026
+   Notes                  BSW+Mercury
+   Issued for checking    Sent to ADAM
+
+-- row 323 --
+   Log no.                8701
+   Client/Prospect        Pride Developments
+   Project name           Usk House
+   Date of Enquiry        23/06/2026
+   Deadline               23/06/2026
+   Controler              Adam
+
+-- row 324 --
+   Log no.                8742
+   Client/Prospect        Stainforth Construction
+   Project name           Air Separation Unit, Vesuvius Way
+   Link - Master          Worksop
+   Date of Enquiry        22/07/2026
+   Deadline               30/07/2026
+   Days till deadline     1
+
+-- row 325 --
+   Log no.                8740
+   Client/Prospect        Chigwell
+   Project name           Grange Hill Methodist Church Ext
+   Link - Master          Grange Hill Methodist Church
+   Date of Enquiry        24/07/2026
+   Deadline               28/07/2026
+   Days till deadline     -1
+   Issued for checking    Sent to ADAM
+
+-- row 326 --
+   Log no.                8749
+   Client/Prospect        rrr-group
+   Project name           Riverside Quote
+   Link - Master          Riverside
+   Notes                  AOV For Adam from Aplus
+
+-- row 327 --
+   Log no.                8750
+   Client/Prospect        Ermine
+   Project name           Lower Range Road Development
+   Link - Master          Lower Range Development
+   Date of Enquiry        27/07/2026
+   Deadline               07/08/2026
+   Days till deadline     9
+
+-- row 328 --
+   Log no.                8751
+   Client/Prospect        Neil Douglas
+   Project name           John North Hall
+   Link - Master          John North Hall
+   Date of Enquiry        27/07/2026
+   Deadline               21/08/2026
+   Days till deadline     23
+
+-- row 329 --
+   Log no.                to log
+   Client/Prospect        Pride Developments
+   Project name           Redditch Library
+   Link - Master          Redditch Library
+   Deadline               ASAP
+   Days till deadline     ASAP

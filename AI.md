@@ -3049,3 +3049,27 @@ we acknowledged in six minutes and never sent. **The signature of a real one is 
 with no document after it** - not a quiet CRM row, which is the signature of a reporting gap. Same
 lesson as St Mary's the night before: *when you find a missed deadline, look for the internal promise
 before blaming the record.*
+
+---
+
+## GRAPH TIMESTAMPS ARE UTC AND ADAM READS UK TIME - ADD THE HOUR (30/07/2026)
+
+Microsoft Graph returns `receivedDateTime` / `sentDateTime` as UTC with a trailing `Z`. **Between late
+March and late October the UK is on BST, so UK time is UTC + 1.** Adam's standing decision of 28/07 is
+that everything he reads carries UK time. Those two facts have to be applied together and on 29/07 they
+were not: `data/jobs/grange-hill.md` records the Chigwell quotation as "ISSUED 29/07/2026 16:07" and
+`data/jobs/sm5-wexham.md` records SM5 Wexham as "12:22", both taken straight off the Z stamp. The
+quotation actually left at **17:07 UK**. Every downstream document inherited the error, and the same
+`11:14` appears in three files for an Adam email that went at **12:14 UK**.
+
+**THE RULE: a `...Z` stamp is not a UK time. Convert it before you write it down, and say which you
+mean.** The cheap habit is to write UK times with the suffix - "17:07 UK" - so the next session can tell
+a converted stamp from a raw one. This is the same failure the redditch-library file already recorded
+against `poller.log` (BST) versus work-order `received` stamps (UTC), which made a ninety-second-old send
+look forty-five minutes old; it is now a documented error in the opposite direction, so treat it as a
+class, not an incident.
+
+**And do not "correct" a colleague's minute in an email to Adam on the strength of one source.** Two
+stamps that disagree by eight minutes mean you have two different events, or one bad read - not licence
+to publish a third figure. Drop the minute and give him the number and the fact, which is what he acts
+on. Minute precision is worth exactly nothing to a Commercial Director and costs a retraction if wrong.

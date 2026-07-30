@@ -1,0 +1,58 @@
+The CW column is a working column, and 169 of 182 BUILDUP findings were it
+
+The board left this as the next session's job: 182 BUILDUP findings, unseparated,
+"real findings from template variation". They are template variation, and the
+cause is one column read one way too many.
+
+WHAT IT IS. The priced-row headers are Frames | Glass | Additional | CW | CW
+LABOUR | CW SQM. BUILDUP summed the first four and added the code adder. That
+left 156 of 508 lines with components EXCEEDING their own unit rate, which is
+impossible for a per-unit build-up, and the board had set the case aside as
+Brandon Estate being "not per-unit money". It is not a Brandon property and it
+is not a mis-parse. On every one of those 156 lines - all 156, no exceptions -
+the CW cell equals area x GBP 850.00, which is the engine's own CW_SUPPLY_M2.
+Median CW/area over them is GBP 850.00 exactly. The cell is the estimator asking
+"what would this opening cost as curtain walling instead", parked in a spare
+column, and it is not money in the unit rate.
+
+Oldswinford row 9 proves it on its face. Frames 1,003.70 + Additional 210.00 +
+LAW adder (650 x 75%) 487.50 = 1,701.20, which is the unit rate to the penny -
+while the CW cell says 2,041.67 and the CW SQM cell says 2.40. 2,041.67 / 2.402
+is 850.00.
+
+A GENUINE curtain-walling row is a different animal and is not lost by this. It
+carries no product code, it has a CW LABOUR figure filled in, and its Frames
+equals its CW money: CB Refrigeration CWT-A, 2900 x 6100, 17.69 m2, CW 15,036.50
+= 850 x 17.69 with CW LABOUR 2,653.50 = 150 x 17.69. Those rows have no code, so
+BUILDUP skipped them already.
+
+AND THE CHECK WAS FEEDING ITSELF AN ENGINE FUDGE. It used engine.adder_factor(),
+which returns 1.25 above 6m2. That constant is an admitted patch for money the
+engine does not model (30/07), not something any document does - the documents
+use 0.75 in every band, measured over 508 lines. An arithmetic check must ask
+what the DOCUMENT did, so it now uses ADDER_FACTOR flat. Feeding a fudge into a
+footing check invents findings on precisely the largest and dearest lines.
+
+RESULT. Reconciliation goes from 352/508 lines to 495/508. BUILDUP goes from 182
+findings across the archive to 13, in two documents, and both are real questions
+rather than noise:
+  - ASHE - CDC rows 9 and 10, both out by EXACTLY +112.50. A 2810x2000 and a
+    3580x2000 both coded MAW - 5.62 and 7.16 m2, which is not a medium window -
+    and the adder actually used is 525.00 against MAW's 412.50, the same figure
+    on both despite the different sizes, so it is a code adder and not an area
+    effect. Their Frames work out at GBP 111/m2 and GBP 120/m2 against an
+    archive median near 400. Those two lines look mis-coded, not mis-added.
+  - COMAR Brandon Estate, 11 rows, gaps from -644.31 to +824.74 with no pattern
+    and 'additional 15.12' constant down the column. The other two Brandon
+    documents now reconcile completely; only the COMAR variant does not. Not yet
+    called an error - it is internal and DO NOT SEND, and it needs the COMAR
+    pricing behind it read first.
+
+FOOT_LINE, FOOT_DOC and DISCOUNT are untouched: still exactly one finding in the
+archive, Gordon Court REV 2's GBP 411.17, already with Adam.
+
+The engine is deliberately not touched by this commit - holdout is 13.88% mean of
+folds before and after, identical line counts. The Glass and Additional money
+this exposes is the engine's next job.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

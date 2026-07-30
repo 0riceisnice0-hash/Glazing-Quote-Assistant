@@ -1,0 +1,31 @@
+**Balham Hill: the biggest number on your board is two jobs, and we were the CHEAPEST on one of them.**
+
+Nobody had ever looked at lead 7796 - Re-Gen (UK) Construction, Balham Hill Estate, GBP 833,609 ex VAT, the largest single row here. The board has been telling you "153 days silent, chase for a final answer". It should not have been.
+
+**Quote REV 1 is two packages, and they add to that figure to the penny:**
+
+| | Ours | What Liam Ryan told us to beat | |
+|---|---|---|---|
+| Curtain walling | **GBP 142,760** | GBP 150,000 | **GBP 7,240 UNDER** |
+| uPVC windows, 852 nr | **GBP 690,849** | GBP 500,000 | GBP 190,849 OVER (38%) |
+
+On 29/01/2026 Liam Ryan rang Jayk and gave us everything: **Re-Gen have WON the main contract**; the competing subcontractor is at windows 500k / curtain walling 150k; our CW is cheaper than theirs and our windows dearer; and - his words - *"it may come down to us being awarded the Curtain Walling and the Competitor awarded the Windows based solely on price."*
+
+So we came in under his curtain walling number, on a split he told us in writing was likely, **and nobody has spoken to him since February.**
+
+**THE ASK: ring Liam Ryan, 01277 598998 / liam.ryan@re-genuk.com, about the CURTAIN WALLING ONLY.** Did the split happen, is that package let, and if not, when. GBP 142,760 is squarely in the band Fenster wins in. Two things to know before you dial:
+
+- **Do not chase the windows.** We were asked to beat 500k and went 38% over. Whether there is a compliant number at all is Gintare's and Mary's question, not a chase.
+- **The row carries the wrong contact.** AdminBase has only Kyan Gulliver, their estimator. Liam Ryan is the one who rings us with real information and he appears on no row on this board.
+
+**Two things you should know, and one of them is uncomfortable.**
+
+**The pack answered this on day one.** The employer is Wandsworth Borough Council; HJP Surveyors administer it. Wandsworth's own window performance specification was Appendix J, page 214 of the 293 pages we received on 15/05/2025, and clause 2.6 permits five profiles: Rehau, VEKA, Kommerling, Schueco, Deceuninck. **We priced Liniar** - and found out eight months later, on the phone, from the client. That is also why the original was GBP 171,178: it was priced at one of each window type against a real 852.
+
+**And the kick-off has passed.** Liam told us 23/03/2026, 50 windows a week. That was 129 days ago, and 852 windows at that rate is seventeen weeks - so a job running to time finished its windows around 20/07. The honest expectation is that the window package is gone. The curtain walling is the live question.
+
+**A decision I am not taking on my own: HJP Surveyors.** They write Wandsworth's window specifications and administer the contracts, and Fenster has never contacted them - one hit for "hjp" across all four of my mailboxes and it is our own copy of their spec. Clause 2.1 of that spec says the Council vets the window subcontractor's registration at tender stage and can refuse it outright, which is exactly what happened to us at Barham Park in November ("Re-Gen secured this but the client has chosen their own window contractor"). Getting Fenster's licensed-fabricator evidence in front of the Council, on one of the five approved profiles, is a route onto a stream of housing decs work rather than one lead. **That is a new relationship, not a chase, so it is your call whether I work it up.**
+
+One open loop with Mary: nothing in my mailboxes proves REV 1 actually left estimating@ on 24-25/02. I have asked her. If it never went, this is an apology call rather than a chase - fifth job this month where that has been the question.
+
+Full account: `data/companies/re-gen-uk-construction.md`. The row on Today now says all of this instead of "chase for a final answer".

@@ -1,0 +1,68 @@
+Adam,
+
+Two tenders close today and neither has been issued. Both are waiting on a decision from you rather than on any more work.
+
+CLOSING TODAY
+
+1. Filwood Broadway (Stepnell, S25233B) - closes today, not issued.
+Gintare's tender is GBP 67,067.58. Two things decide it and both are yours.
+The install line reads GBP 3,500 against GBP 18,446.32 at our own curtain wall labour rate. Corrected, the tender is GBP 82,013.90.
+Bill item A instructs us to carry the shopfronts as Contractor's Provisional Sums - firm price or provisional is still unanswered.
+Separately: two fabricators have now refused the 1.0 U-value in writing, so the specified performance is not available from either quote we hold.
+REQ-10 on the hub.
+
+2. Vesuvius Way, Worksop (Stainforth) - closes today, not issued, and we hold no supplier quote.
+Budget GBP 110,551.98.
+Every external door has to be 60 minute fire rated and nobody has priced that package. The AFS enquiry is written and needs a human to send it. REQ-8, open since 27/07.
+
+CLOSING TOMORROW
+
+3. Brocks Hill Phase 2 (SMD) - closes tomorrow, and nothing has ever been sent to Martin Moore.
+Your three questions are answered: yes, seven external doors are on the schedule and not on their BoQ; no, solar control glass was asked of BSW in writing and never quoted; none of it was queried with the client.
+Gintare's draft is GBP 93,673.34. Corrected for the seven doors and the glazing it is GBP 134,580.22.
+The proposal still promises triple glazing throughout. BSW confirmed on 22/07 that Smart Wall is not made in triple.
+
+ISSUED YESTERDAY
+
+4. Grange Hill - issued at GBP 39,006.77, and the workbook Chigwell now holds names another firm as its author.
+The author field reads Dan Parker, dan.parker@agsurveying.co.uk, and the proposal PDF reads Nicholas Baker. Third job running.
+A cleaned pack is attached - all five files, no traces, total unchanged at GBP 39,006.77. Your call whether it goes to Luke as a reissue.
+It will keep happening until one thing is fixed: Gintare builds from her own copy of the pricing template, not the repo one. Scrubbing ours protects documents this system generates and nothing else. Hers needs cleaning once, by a human.
+One scope gap found after issue - the glazed section above the chapel folding doors is excluded by nothing. The doors themselves are properly excluded.
+
+5. SM5 Wexham - issued at GBP 20,563.57. Two things are still recoverable.
+The covering email to Ryan Steadman reads "our quotation for xxx". The placeholder was never filled, and it is the first line of the first thing this client reads from us.
+GBP 143.01 of restrictors is in BSW's reissued quote and not in our price.
+
+STILL WITH YOU
+
+6. Redditch Library - issue-ready, and the GBP 89k Leonard White holds is still the dead number.
+The live tender sum is GBP 94,926.76. The figure you gave him yesterday was the 28/07 one.
+Honouring the GBP 89k takes margin from 22.3% to 17.3%.
+Nothing has gone to Pride from me, so the number is still yours to set. Tell me which and it goes today.
+
+ESTIMATING LOG AGAINST THE INBOX
+
+7. Both of today's deadlines sit on the log with no controller, and five jobs are missing or unnumbered.
+- Vesuvius (8742) closes today: no controller, status blank.
+- Filwood (8724) closes today: no controller.
+- Redditch Library: the log number cell reads "to log" - a live tender with a number already with the client and no log number.
+- MHA Nuneaton is on no row at all. A Vetroseal quote, 065209, arrived against it at 07:27 this morning.
+- 10 South Street, Bridport is not logged. You asked for it to be quoted yesterday afternoon.
+
+8. Four rows contradict what actually happened.
+- Grange Hill (8740): deadline logged 28/07, the invitation says 27 July. Issued yesterday, and the log does not record it.
+- SM5 Wexham (8637): still reads "Sent to ADAM". It went to the client yesterday.
+- Crestwood Park (8682): note still reads "Waiting on Teleflex". That closed on 28/07 and the quote went out on 27/07. Third morning on this list.
+- John North Hall (8751): logged 21/08, the ITT says 9am on 24 August.
+
+REQ-30 covers the controller gap and is still open.
+
+ONE OTHER THING
+
+9. Our SSIP has expired on Hill's supply base.
+Tradex notified us yesterday evening, addressed to Harry. Left unrenewed it drops us off their supply base.
+
+Manor Lodge is off my list per your instruction yesterday - projects, not estimating.
+
+Mary Grace

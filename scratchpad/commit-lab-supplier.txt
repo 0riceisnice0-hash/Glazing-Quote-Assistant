@@ -1,0 +1,32 @@
+The supplier header is a table, not a figure - and the check then rediscovers Grange Hill
+
+SUPPLIER reconciles the Frames column against the buy the document names. It was
+reading only the first row of the header and calling everything else a
+discrepancy, so its ratios ran from 0.778 to 14.115 and none of them meant
+anything. 'Supplier used:' actually heads a small table - a row per supplier and
+a total under it. Gordon Court reads BSW 182,787.76 / Aluminium Fire Systems
+18,298.94 / 201,086.70, and its Frames column totals 201,086.70 EXACTLY. The
+18,298.94 the check was reporting was simply the second supplier.
+
+Two things had to be right. Read the whole block and prefer its own total row
+where the parts sum to it; and STOP AT THE FIRST EMPTY ROW, because the supplier
+figures sit in the same columns as the priced rows' Glass/Additional/CW money -
+without the stop the block ran on into the schedule, every buy roughly doubled
+and every ratio collapsed to about 0.47. That intermediate state looked like a
+finding on every job, which is the most dangerous shape a bug can take.
+
+THE CHECK NOW REDISCOVERS A KNOWN CATCH, WHICH IS THE REAL TEST OF IT. Grange
+Hill comes out at -419.32, ratio 0.982. That is to the penny the discrepancy
+found by hand on 29/07 and already recorded: Gintare's pack prices seven
+1200x1183 windows where BSW quote eight, and one unit is GBP 419.32. An
+independent mechanical route to a human-verified error is what earns a check its
+place.
+
+Ratios now sit on 1.0 where they should: Grange Hill 0.982, St Mary's 0.992,
+Princess Beatrice 0.995, Fortis Vision 1.011, Highwood 1.016, Brocks Hill 1.049.
+The remaining outliers are real questions and not parser noise - Crestwood 0.658,
+ASHE 0.778, Oldswinford 0.825, CB Refrigeration 1.291, and the BSW Brandon
+document at 4.094. They are NOT reported as errors yet; each needs its supplier
+quotes read before anyone says the document is wrong.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

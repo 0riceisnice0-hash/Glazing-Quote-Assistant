@@ -1,0 +1,39 @@
+Balham Hill REV 1 went to a contact nobody holds - and the reprice was compliant all along
+
+Jacob had 156 days of silence on Re-Gen's Balham Hill and one question: did our
+repriced quote actually leave estimating@, and to whom.
+
+It left. 24/02/2026 13:42, jayk@ to Danny Hartland, Re-Gen's Quantity Surveyor -
+neither of the two contacts we hold, and in no record of ours. He appears in
+estimating@ only from the day of the tender return, which is why a search on Kyan
+Gulliver and Liam Ryan found nothing. Search the domain; read the signature block
+on the client's own reply. Eight of the last ten "did it go?" questions: it went.
+
+The client engaged for twenty hours - rang within fifteen minutes, took the REHAU
+data sheets, came back for the curtain walling ones - and then stopped. Adam had
+already chased it himself on 12/03 and got no reply, so the call Jacob wants is
+the second, not the first.
+
+The finding is the compliance one, and it runs backwards. Wandsworth's Appendix J
+permits five uPVC profiles and the 2025 quote was priced in Liniar, which is not
+among them. The reprice was quoted by Titan Trade Windows in REHAU Total70 - first
+on that list - stated in writing when we asked for data sheets, and those sheets
+went to the client the same afternoon. The reprice FIXED the defect and nothing
+recorded that it had, so the file has carried "non-compliant, void before it was
+read" for five months. Withdrawn at source before it reached Adam as a false alarm.
+
+What lost the windows was price, and Adam knew on the day: out of the running on
+cost, submit anyway, and ask Quickslide to re-price the uPVC. Quickslide was never
+asked - their first enquiry anywhere is 06/03, on another job. The Director's own
+action, uncarried, on the exact package that went 38% over the target the client
+had given us in writing.
+
+One check came back clean: the fire-egress caveat Bedford Trade Glass forced on
+30/01 is on the issued cover sheet. 852 windows with no escape openers and no
+caveat would have been the real error.
+
+No email to Adam - the job's kick-off passed in March and none of it changes what
+he does tonight; it goes in the 07:45 update. No quote_issued event either: it
+would queue Jacob a handover for the largest row already on his own board.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

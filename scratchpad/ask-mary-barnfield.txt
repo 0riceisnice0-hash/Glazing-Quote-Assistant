@@ -1,0 +1,50 @@
+Mary - three questions about Barnfield Construction, and they all reduce to "did it leave
+estimating@". Nothing here needs a price from you, only a send date.
+
+Barnfield are the largest single-client exposure on my board - GBP 568,576 ex VAT across five
+live-quoted AdminBase leads - and Fenster has won nothing from them in six enquiries. Their
+estimator Ian Brown keeps asking us to price, so the access is not the problem.
+
+1. BRADSTONE ROAD, Cheetham Hill, Manchester M8 8WA (Barnfield, AdminBase lead 5625,
+   GBP 218,917.29 ex VAT). Ian Brown told Jayk on 11/03/2025 we were joint-top of five quotes at
+   about GBP 378k, with three cheaper at 275/255/249k, and that he was happy for us to value
+   engineer. Harry Grover circulated a revised quote internally on 27/03/2025 - "Hi both", to Jayk
+   and Adam, BSW buy at GBP 147,294.62+VAT. The figure now on the CRM row is GBP 218,917, which is
+   about GBP 30k BELOW the cheapest quote we knew about. Then on 01/05/2025 Jayk told BSW
+   "Bradstone Road: lost on price, you can close this enquiry."
+
+   A revision that undercut the field by GBP 30k, and then lost on price, does not add up. There is
+   no send of it to Ian Brown anywhere in commercial@, info@ or jacob@, and jayk@ is a hard 404.
+   DID THAT REVISED QUOTE GO OUT FROM estimating@, and on what date? If it never went, that is the
+   third job this month where our own price stopped inside the building - Chiel and Alkerden being
+   the other two - and it is worth all three being one problem rather than three coincidences.
+
+2. SAME SITE, ELEVEN MONTHS LATER. Vetroseal sent us quote 060676 "BRADSTONE RD CHEETHAM" on
+   29/01/2026 and again on 02/02/2026, to info@, estimating@ and commercial@. It is not an old
+   quote re-sent - Vetroseal number sequentially at roughly 27 a day (064635 on 07/07/2026, 065095
+   on 24/07/2026), so 060676 belongs to early 2026; a re-send of a March 2025 quote would be
+   numbered around 052000. So somebody was buying glass for Bradstone Road in late January 2026,
+   and there is no Barnfield correspondence at all in my four mailboxes in 2026.
+
+   WAS BRADSTONE ROAD BEING PRICED AGAIN IN JANUARY 2026, and for whom? The site is certainly live:
+   Manchester permitted a further application on the land on 10/10/2025. If the job came back to us
+   after we lost it, my board is wrong to have it down as dead and Adam should hear that today.
+
+3. THE GRANGE APARTMENTS (Barnfield, lead 7665, GBP 155,388.14 ex VAT, Wirral CH48 4EE). AdminBase
+   has this "Live - Quoted" with a value against Ian Brown's deadline of 26/02/2026. The Opportunity
+   Log has the same job with Quote Returned EMPTY and never chased. Adam's rule on hub-77 is that
+   priced-but-never-issued is yours, not a chase - so before anyone rings Ian about it, DID THAT
+   QUOTE GO OUT? I have put the row on Today saying exactly that rather than guessing either way.
+
+Two things from my side you may want regardless of the above. Barnfield's subcontract terms are
+tighter than most: 2.5% main contractor's discount to be built into the figures, 5% retention,
+payment 45 days from month end, and payment applications by POST only - they state they will not
+accept emailed copies. And Jayk's repricing log mixes VAT bases on the same page: Moston Cash &
+Carry is logged at the inclusive figure, MSM Aerospace at the exclusive one, both penny-exact to
+AdminBase. Anything reconciled against that log needs checking a row at a time.
+
+Their St Johns Refurbishment in Blackburn is the odd one out - your log figure GBP 58,343.68
+against AdminBase GBP 89,968.83 ex VAT on the same enquiry date of 19/06/2025. One is a revision of
+the other and I cannot tell which is current, so I have told nobody to quote either number.
+
+Full write-up in data/companies/barnfield-construction.md.

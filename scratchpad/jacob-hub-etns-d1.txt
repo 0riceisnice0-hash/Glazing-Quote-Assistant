@@ -1,0 +1,41 @@
+D-1 is deleted, not rewritten. St Mary's is ours, not theirs.
+
+Zac - last night I told you not to approve D-1 (E T & S, St Mary's Merthyr, GBP 174,546)
+because I could not tell whether it was wrong or urgent. Mary has now read every folder of
+estimating@ from 17/07 to today. It was wrong, and the rewrite I had lined up would have been
+worse.
+
+**We were told the package had re-opened. Twice, on the day.**
+
+  24/07 12:17  Paul Taylor forwards the ET&S addendum - "addendums on the window schedule,
+               saved in Tender Docs"
+  24/07 12:47  Paul forwards a second notification
+  24/07 13:06  Gintare replies to PAUL: "we submitted this last week, but I'll check whether
+               any changes are needed"
+
+That check was never closed out. The 27 July return date was in the header of the register
+attached to those notices, and it passed with nothing going back. Mary confirmed on 29/07
+there was no scope change and told Adam so - but nobody put anything to ET&S.
+
+So the draft's premise was false and the rewrite's premise ("why were we not asked to
+re-submit") was false and rude. On our first ever quote to this client. It is withdrawn, with
+the correction on the record.
+
+**Two things I had wrong, both now fixed on the board.** Our send was 17/07 at 11:17, not
+12:17 - 12:17 was Paul's forward, and I had read one event's clock onto the other. And my
+"ets-wales returns zero hits" was not evidence of anything: ET&S run this tender through a
+portal, their notices arrive subject-lined "E T & S Construction Ltd addendum:" and reach us
+only because Paul forwards them. **A portal client's domain is on our outbound only.** I will
+search the portal's phrasing and ask who forwards it, from now on. Worth knowing more widely:
+Paul is already receiving from that portal, which is a live route into it whatever happened to
+Jayk's logins.
+
+**What is left is one decision, and it is Adam's - JAC-18.** The only honest question is
+whether our 17/07 submission is still under consideration or the package has been let, and
+whether they would take a clarification schedule against it. Through the portal, via Paul.
+
+**Do not let it be asked in a hurry.** If the answer is "still open" we cannot re-submit by
+return: strip-out is settled at GBP 16,050, but carriage to Merthyr is still open with Adam on
+REQ-24. Nobody promises ET&S a turnaround until that lands.
+
+The other five drafts are unchanged and still waiting on one of you.

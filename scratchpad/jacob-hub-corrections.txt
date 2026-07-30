@@ -1,0 +1,25 @@
+**Mary answered nine "did the quote go?" questions this morning. Seven had gone, and one of them was on your chase list marked DO NOT CHASE.**
+
+I was wrong on Bradstone Road and it is the one to read first.
+
+**BRADSTONE ROAD, GBP 218,917 - LIVE, not lost.** My row said "lost on price 01/05/2025, do not chase Ian Brown". It was lost in May 2025, it **came back**, and it was priced and issued **twice this year**: Vetroseal 02/02, out to Ian 06/02, **you to Ian four times in forty minutes on 12/03**, BSW re-quoting 19/03, a second issue 20/03, and **your own message of 12/06** - the most recent contact on the job. Nobody rings Ian about Bradstone without reading your 12/06 first. You know where it stands; the board did not.
+
+**Why I got it wrong, because it will recur.** A quote leaves Fenster from whichever mailbox the person handling it uses - jayk@ (a hard 404), yours, or estimating@ - and never from the four I can read, and neither AdminBase nor the BD log records a send at all. So "nothing in my mailboxes" was never evidence of anything. Seven out of nine. It is a rule in my notes now: ask Mary, never infer.
+
+**The other eight, all now on the board:**
+
+| | |
+|---|---|
+| **Grange Apartments** 155,388 | Issued twice - and **the chase is OLIVER WEBBER'S**, not Ian's. He sent the revised schedule 13/03, we reissued to him 01/04, he replied 68 minutes later |
+| **St Catherines House** | **One job priced two ways**, in Jayk's own words - aluminium then uPVC, and the uPVC includes the curtain walling either way. **GBP 237,382 comes off Pride's exposure.** Contact is Steven Elley, who was on neither row |
+| **B239 / PD7851** 321,833 | Not a mystery - a **thirteen-message negotiation with Daniel Goornaden 26-29/06 through your mailbox**. You can tell me what and where B239 is in a sentence; I should have asked you rather than searched. Follow-up date of 10/07 has passed, so it is a live chase |
+| **Chiel / Swanshurst** 52,483 | The quote went 22/12. **The PQQ pack never did** - no evaluation form, no compliance statement, no insurance verification, no programme. That is what decides whether we are allowed on his tender list at all, and it is a better reason to ring than "any movement", which is what he was last sent and did not answer |
+| **The Hub Alkerden** 484,473 | Not an apology. Our update is three weeks late - **but you asked Seyi a Velfac specification question on 02/07 and he has never answered it.** The call is "we have been waiting on you since 2 July, here is when you get the quotation" |
+| **Darrick Wood** 255,082 | Worse than I had it: nothing has gone **and it is not re-priced** - no quote-to-check since 27/05, and A Plus's revision has sat since 24/07. Apology and a date |
+| **Maddock Way** 53,209 **and 130 Hainault Rd** 82,823 | No trace in estimating@ - but "not found", not "never sent". Our own files misspell things (Cheil, Swanhurst), so a search on a site name proves little. **Neither row has a PD number and that is what would settle it** - worth asking Pride |
+
+**One thing that needs you today, and it is not on that list.** Mary corrected a contact - Alexander James have moved to **ajgroup.co.uk**. That means `kieran@alexanderjamesltd.co.uk` on the **Tiverton Road** row is probably dead too - and Tiverton is GBP 547,886, the callback is **ours** to make, and the 6-8 week window Kieran gave Paul on 05/06 **closes tomorrow**. The row now says ring, do not email: 07512899774 or 0208 961 5555. That is the most time-critical item on your page.
+
+**And a board bug that had eaten my own work.** Balham Hill (the Re-Gen post above) went onto your chase list and into your email and appeared **nowhere on the Today page** - the page gates big rows on an "outlier, unconfirmed" flag, which was fixed for the chase list months ago and never for the page. A researched row now clears it. The flag still keeps the row out of the averages, which is all it was for. Third time in three days that improving a row has hidden it, so I am now checking the live page rather than the file every time.
+
+Nothing here needs a decision from you except the Tiverton call. Full accounts in `data/companies/` - barnfield, pride, chiel, sinden and alexander-james all corrected.

@@ -1,0 +1,46 @@
+The size-band question is closed and the answer is no - the adder already does it
+
+A clean negative, recorded so the next session does not spend the hour. The
+question carried in was: St Mary's whole-job error was +4.4% but its register
+bands were -35.5% (<1.5m2), -1.2%, +37.5% and +35.2% (>6m2), so small runs low
+and large runs high and the bands cancel - and if that is real across jobs then
+the band structure is wrong and fixing it beats any number of individual rates.
+
+It is not real. Measured two independent ways:
+
+  HONEST PER-LINE ERROR BY AREA, all 508 lines, three folds, every line scored
+  on rates mined from other jobs: 0-1m2 +3.7%, 1-1.5 -1.6%, 1.5-2 +5.1%, 2-3
+  +1.2%, 3-5 +3.2%, 5-6 +30.4% (n=7), 6+ +0.9%. Flat, and not monotonic. By the
+  engine's own learned bands: <2m2 +3.0%, 2-5m2 +2.1%, >5m2 +3.8% - uniform to
+  within 1.7 points.
+
+  ST MARY'S NO LONGER SHOWS THE SPREAD: -14.2 / +0.2 / -6.3 / +4.0, whole job
+  -3.7%. The whole-job sign has flipped since 29/07 too, so the engine has moved
+  underneath the figure - but the claim that mattered is simply not there.
+
+WHY NOT, WHICH IS THE PART WORTH KEEPING. Within a single product code the
+estimator's raw GBP/m2 really does fall steeply with area - MAW runs 1,149 / 410
+/ 385 / 309 across the buckets, SAD 954 / 556 / 378, LAW 950 / 420 / 337. That is
+why the hypothesis was plausible. But a declining GBP/m2 is the signature of a
+fixed cost per opening plus a variable cost per m2, and the template already
+charges a fixed cost per opening: the code adder, 0.75 x code value, identical
+whatever the size. On a small SAW that adder is GBP 337.50 against about GBP 322
+of supply, so more than half the unit rate is already a flat per-unit charge. The
+bands only ever had to carry the residual variable part and three of them do it.
+The engine already has the structure the question was asking for. It is in the
+adder, not the bands.
+
+AND AN AGGREGATE BAND ERROR IS A MIX EFFECT. St Mary's "<1.5m2 band" was 41 lines
+of one product and its "3-6m2 band" was 3 lines of another, so the two bands were
+really two products and the spread was measuring product mix. Re-measure any
+per-job band pattern across the whole archive before treating it as structural.
+
+ONE REAL RESIDUAL, NOTED NOT FIXED. The 5-6m2 bucket is +30.4%, the worst in the
+archive, on 7 lines - four of them the Zelltec Crownhill DADs at 5.24m2. They sit
+inside the >5m2 learned band, which wants about GBP 362/m2 at 5-6m2 and more
+above 6m2. Seven lines will not support a band of their own with MIN_LEARNED_N at
+6, and splitting bands finer was already tested on 29/07 and was worse.
+
+No engine change in this commit. Board and calibration record only.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
