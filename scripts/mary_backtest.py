@@ -301,27 +301,60 @@ def main():
     ap.add_argument("--learn", action="store_true")
     ap.add_argument("--holdout", action="store_true",
                     help="honest test: learn on some jobs, score on the others")
+    ap.add_argument("--folds", action="store_true",
+                    help="score all three folds and report the mean - the honest number")
     ap.add_argument("--limit", type=int)
     args = ap.parse_args()
 
     if args.holdout:
         docs = collect(args.limit)
-        # Alternate rather than shuffle, so the split is reproducible.
-        train = [d for i, d in enumerate(docs) if i % 3 != 0]
-        test = [d for i, d in enumerate(docs) if i % 3 == 0]
-        rates = learn(train)
-        print("holdout: learned from %d job(s), scored on %d it has never seen\n"
-              % (len(train), len(test)))
-        for label, learned in (("register only (before)", {}), ("+ learned rates (after)", rates)):
-            scored = [s for s in (score_doc(d, learned=learned) for d in test) if s]
-            absol = [abs(s["err_pct"]) for s in scored]
-            signed = [s["err_pct"] for s in scored]
-            if not absol:
-                print("  %-26s no scoreable jobs" % label)
-                continue
-            print("  %-26s mean abs %5.1f%%   median abs %5.1f%%   bias %+5.1f%%   within 25%%: %d/%d"
-                  % (label, statistics.fmean(absol), statistics.median(absol),
-                     statistics.fmean(signed), sum(1 for a in absol if a <= 25), len(absol)))
+        # ALL THREE FOLDS, not one. --holdout used to score fold 0 alone, and
+        # fold 0 is not representative: measured 30/07 the same engine scores
+        # 21.4% on it and 9.9% / 10.4% on the other two. Worse, the folds are
+        # positional, so adding a single document to the archive reshuffles all
+        # three - which is why the 14.5% quoted on 29/07 and the 19.9% seen on
+        # 30/07 are the same engine, not a regression. A one-fold number has
+        # now misled two sessions running; quote the mean of folds.
+        folds = range(3) if args.folds else [0]
+        rows = {}
+        for f in folds:
+            train = [d for i, d in enumerate(docs) if i % 3 != f]
+            test = [d for i, d in enumerate(docs) if i % 3 == f]
+            rates = learn(train)
+            if len(folds) == 1:
+                print("holdout: learned from %d job(s), scored on %d it has never seen\n"
+                      % (len(train), len(test)))
+            for label, learned in (("register only (before)", {}),
+                                   ("+ learned rates (after)", rates)):
+                scored = [s for s in (score_doc(d, learned=learned) for d in test) if s]
+                absol = [abs(s["err_pct"]) for s in scored]
+                signed = [s["err_pct"] for s in scored]
+                if not absol:
+                    continue
+                rows.setdefault(label, []).append(
+                    (statistics.fmean(absol), statistics.median(absol),
+                     statistics.fmean(signed), sum(1 for a in absol if a <= 25), len(absol),
+                     sum(s["lines_priced"] for s in scored),
+                     sum(s["lines_skipped"] for s in scored)))
+                if len(folds) > 1:
+                    continue
+                print("  %-26s mean abs %5.1f%%   median abs %5.1f%%   bias %+5.1f%%   "
+                      "within 25%%: %d/%d"
+                      % (label, absol and statistics.fmean(absol), statistics.median(absol),
+                         statistics.fmean(signed), sum(1 for a in absol if a <= 25), len(absol)))
+        if len(folds) > 1:
+            print("3-fold holdout over %d documents\n" % len(docs))
+            for label, rs in rows.items():
+                per = "  ".join("f%d %5.1f%%" % (i, r[0]) for i, r in enumerate(rs))
+                print("  %-26s %s   MEAN OF FOLDS %5.2f%%   median %5.2f%%   bias %+5.2f%%"
+                      % (label, per, statistics.fmean([r[0] for r in rs]),
+                         statistics.fmean([r[1] for r in rs]),
+                         statistics.fmean([r[2] for r in rs])))
+            # A change that improves the score by dropping the hard lines is not
+            # an improvement. 29/07 lost an hour to exactly that.
+            for label, rs in rows.items():
+                print("  %-26s lines %s  skipped %s"
+                      % (label, [r[5] for r in rs], [r[6] for r in rs]))
         return 0
 
     if args.doc:

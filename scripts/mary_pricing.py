@@ -47,14 +47,38 @@ CODE_VALUE = {
     "LPVC": 450, "SUPD": 1000, "DUPD": 1500,
 }
 ADDER_FACTOR = 0.75
-# ...but not on large units. Measured across 30 sent quotes: below 6m2 the extra
-# money over Frames is the code value x 75% almost exactly (median x1.00 against
-# the template adder, n=453). Above 6m2 it is the code value x 125% (median
-# x1.250, n=60, across 9 different jobs, and x1.67 against the 75% adder whether
-# or not the three Brandon Estate documents are included). The commercial reason
-# is that a unit over 6m2 is a coupled screen rather than a single leaf - extra
-# mullions, transoms, sealing and glass that the per-unit code value was never
-# sized for. This is the estimator's own rule, read back off what they charged.
+# ...and 1.25 above 6 m2. KEEP THE CONSTANT, BUT NOT THE STORY THAT CAME WITH IT.
+#
+# It was recorded on 29/07 as "the estimator takes the code value at 125% once a
+# unit passes 6 m2, and has been doing it by hand all along", the commercial
+# reason being that a big unit is a coupled screen rather than a single leaf.
+# That is not true, and the 30/07 lab session measured it directly rather than
+# by inference. The 29/07 figure came from (unit_rate - frames) / code_value,
+# which is not the adder: it is the adder PLUS Glass PLUS Additional PLUS CW,
+# because the engine's learned rate is mined from the Frames column alone and
+# has no term for the other three. Reading all four component columns instead
+# gives the adder itself, and on lines over 6 m2 - excluding the three Brandon
+# Estate documents, whose components exceed their own unit rate and so cannot
+# be per-unit money - 26 of 28 lines sit on EXACTLY 0.75, and none on 1.25.
+#
+# 1.25 is what you get by charging the un-modelled extras to the code value:
+# the median of glass+additional+cw on a large unit is GBP 1,000, the median
+# large unit is a DAD with a code value of 2,000, and 0.75 + 1000/2000 = 1.25
+# exactly. That is also why re-deriving it on an independent half reproduced
+# "1.250 exactly" and looked like strong evidence - a systematic confound
+# reproduces in every split, which is the one thing a holdout cannot catch.
+#
+# So it stays, as an admitted fudge for money the engine does not model, and
+# NOT as the estimator's rule - it earns its place on unseen jobs and that is
+# the only reason it is here. Three folds, constant line set, learned rates
+# re-mined per fold: mean abs 13.88 at 1.25 against 14.46 at 0.75, winning two
+# folds of three, and the curve is flat between 1.00 and 1.40 (14.04/13.94/
+# 13.88/14.16), so do not read the 1.25 as a precise quantity.
+# THE PRINCIPLED FIX WAS TRIED AND IS WORSE: modelling the extras as a flat
+# learned sum on large units (correctly learned at GBP 1,000/600/1,000 per
+# fold) with the adder left at 0.75 scores 14.73 - worse than both arms. The
+# extras are scope items that vary, not a constant, and 1.25 also happens to
+# correct a general under-pricing bias. Do not spend the hour re-testing it.
 LARGE_UNIT_M2 = 6.0
 ADDER_FACTOR_LARGE = 1.25
 
