@@ -55,6 +55,7 @@ def parse_doc(path):
         if not sheets:
             return None
         ws = sheets[0]
+        heading = ""
         for row in ws.iter_rows(values_only=True):
             cells = list(row) + [None] * (14 - len(row))
             texts = [str(c).strip().lower() if isinstance(c, str) else "" for c in cells]
@@ -77,6 +78,33 @@ def parse_doc(path):
                 continue
 
             code = str(cells[1]).strip().upper() if isinstance(cells[1], str) else ""
+
+            # THE SECTION HEADING, which is where the product actually is.
+            # A pricing document is organised in blocks under a heading that
+            # names the system and the product - 'Sheerline Aluminium Casement
+            # Windows', 'External Steel Door', 'Liniar uPVC Windows & Doors' -
+            # and the product CODE beneath it only says window-or-door and
+            # small-medium-large. So the code cannot tell a Strongdoor steel
+            # security door from an aluminium one; both are SAD, and the money
+            # is 1.7x apart. This is the term the engine has never had.
+            # A heading is words in the description column with no unit rate
+            # and no size in it. The qty test is deliberately NOT used: two
+            # ASHE section headings carry a stray 1 in the Qty column, which
+            # has already cost the audit a false alarm twice.
+            desc = str(cells[2]).strip() if isinstance(cells[2], str) else ""
+            # Tested BEFORE the code check, and it has to be: ASHE's 'Doors'
+            # heading carries DAD in the code column and a stray 1 in Qty, so a
+            # code-first reader skips it, loses the heading and carries
+            # 'Secondary Glazing' down onto seven entrance doors. Neither a code
+            # nor a quantity disqualifies a heading. No unit rate and no size in
+            # the description does the work.
+            if desc and cells[7] is None and not SIZE_RE.search(desc) \
+                    and sum(c.isalpha() for c in desc) >= 4 \
+                    and not desc.lower().startswith(
+                        ("client", "project", "site", "date", "description", "product",
+                         "total", "installation", "*", "optional")):
+                heading = desc
+                continue
             if code not in engine.CODE_VALUE:
                 continue
             size = next((str(c) for c in cells if isinstance(c, str) and SIZE_RE.search(str(c))), "")
@@ -104,6 +132,14 @@ def parse_doc(path):
                 continue
             doc["lines"].append({
                 "code": code, "ref": str(cells[2] or "").strip()[:24],
+                # Heading first, then the row's own description. Both carry the
+                # product: a block of windows is named in the heading above it,
+                # but a one-line document has no heading and puts the product in
+                # the row itself - Tenbury Close is a single 'Aluminium
+                # horizontal sliding' MAW, Tradeteam Stretton a single 'Tilt &
+                # Turn Aluminium' MAW, and each is out by 38-48%.
+                "heading": heading,
+                "text": ("%s %s" % (heading, desc)).strip().lower(),
                 "w": w, "h": h, "qty": float(qty or 1),
                 "unit_rate": float(unit_rate),
                 "frames": float(frames) if frames else None,
