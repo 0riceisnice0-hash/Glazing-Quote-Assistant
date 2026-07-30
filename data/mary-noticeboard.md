@@ -5,35 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-30 00:42 - triage
-THE PRICING LAB NOW RUNS ALL NIGHT, AND IT TAKES THE SESSION LOCK - SO NIGHT MAIL WILL WAIT LONGER.
-
-Zac (dashmsg-97): improve the engine overnight, bypass the 1am-3am window, and audit old quotes we sent
-for mistakes. Window is now 22:00-07:00, with the task firing every 30 min from 22:00 and from 00:05.
-
-WHAT THIS MEANS FOR EVERY OTHER CHAT: the lab holds the session lock for up to 115 minutes at a time,
-several times a night. It yields to real work only if a session is ALREADY running, so a work order that
-arrives mid-lab waits for it. At night that is the intended trade - the night budget is 1.5h / 6 sessions
-anyway - but do not read a slow night response as a broken bridge. NEW GUARD: no lab session starts that
-cannot finish before 07:00, so it can never be holding the lock when the 07:45 update wants it.
-
-THE ENGINE'S CURRENT POSITION, for anyone quoting an accuracy number: mary_backtest --scan over 31
-documents gives mean signed -5.9%, mean absolute 12.3%, median 7.2%, 17/31 within 10%. Slightly LOW.
-
-DO NOT CONFLATE THAT WITH data/calibration.json's +10.4% HIGH. They are different exercises. Calibration
-is Mary estimating a job from scratch against the sell Fenster issued. The backtest is the engine
-re-pricing the LINES of a document we already wrote. Both are honest; quoting one as the other is not.
-
-AND A DEFECT IN THE CORPUS ITSELF, now the lab's first job: collect() treats every copy of a pricing file
-as a separate job, including the ones ending in - Copy.xlsx. Zelltec Crownhill appears FOUR times, three
-of them identical. So the mean is weighted by how many copies of a file happen to sit in a folder - and
-so are the LEARNED RATES, which is the worse half. Any 1-to-1 claim measured before that is fixed is
-measured against a corpus that counts some jobs three times.
-
-ONE RULE THE LAB IS NOW UNDER, worth knowing generally: an error in OUR quote and an error in the ENGINE
-are opposite findings. If a quote turns out to be wrong, it comes OUT of the calibration set. Never tune
-the engine to reproduce a defect.
-
 ### 2026-07-30 00:49 - st-marys
 A PORTAL CLIENT'S INBOUND MAIL DOES NOT CARRY THEIR DOMAIN. SEARCHING FOR IT PROVES NOTHING.
 
@@ -104,3 +75,29 @@ CORRECT CONTACTS PICKED UP ON THE WAY, all of which differ from what our records
   A Plus                       daniel.charlesworth@aplusaluminium.co.uk (via Jacob)
   Chiel                        our own subject lines say "Cheil" and "Swanhurst" - both misspelt
                                consistently, so a search on the right spelling finds nothing
+
+### 2026-07-30 07:24 - triage
+"NO TRACE OF OUR QUOTE" IS OFTEN THE WRONG CONTACT, NOT A MISSING SEND. Tally is now 8 of 10.
+
+Jacob could see nothing on Balham Hill after 24/02 and asked whether REV 1 ever reached Kyan Gulliver
+or Liam Ryan, the two Re-Gen contacts we hold. It reached NEITHER. It went to DANNY HARTLAND, Re-Gen's
+Quantity Surveyor, who appears in estimating@ only from the day of the return and is in no record of
+ours. A QS or commercial manager who joins at tender-return stage is invisible to a search on the
+contact list, so SEARCH THE DOMAIN, and read the signature block on the client's own reply - that is
+where the real recipient is named. Same family as the E T & S portal blind spot and Spoone School.
+
+AND A SUPPLIER FACT WORTH HOLDING: TITAN TRADE WINDOWS FABRICATE REHAU TOTAL 70 (62mm outer frame).
+Their quotation does not say so anywhere - Ashley Walton stated it only when asked for data sheets.
+Where a client's spec names permitted profiles (Wandsworth's list is Rehau, VEKA, Kommerling,
+Schueco, Deceuninck), GET THE FABRICATOR TO NAME THE SYSTEM IN WRITING BEFORE PRICING. On Balham
+that question was the difference between a compliant reprice and a void one - and it turned out
+compliant, which is the opposite of what the file said. Liniar (the 2025 error) is not on that list;
+TruFrame quote Liniar, so the same trap is live on any Wandsworth or HJP-administered job.
+
+Two lessons behind it, both general:
+- A DEFECT THAT WAS SILENTLY FIXED STILL READS AS A DEFECT. Nothing recorded that the reprice had
+  moved off the unapproved profile, so the file carried "non-compliant" for five months.
+- WHEN A DIRECTOR'S OWN ACTION IS THE ONE THAT DID NOT HAPPEN, IT IS STILL AN OPEN LOOP. Adam asked
+  for Quickslide to re-price the Balham uPVC on 24/02; the first Quickslide enquiry anywhere is 06/03
+  on another job. Look for the internal promise before blaming the document - it went unfound here on
+  the exact package that went 38% over the target the client had given us in writing.

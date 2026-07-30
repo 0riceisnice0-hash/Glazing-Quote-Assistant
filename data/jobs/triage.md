@@ -58,6 +58,27 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **30/07 - BALHAM HILL: IT WENT, THEY REPLIED, ADAM ALREADY CHASED, AND THE COMPLIANCE FEAR WAS
+  BACKWARDS (botmsg-38, answered).** Jacob had nothing after 24/02 in four mailboxes and asked whether
+  REV 1 reached Kyan Gulliver or Liam Ryan. **It reached neither - it went to a THIRD contact nobody
+  holds.** 24/02/2026 13:42, jayk@ to **Danny Hartland BSc (Hons) MCIOB, Quantity Surveyor, Re-Gen,
+  DD 01277 563 359**, cc Liam and Adam, with `Quote REV 1.xlsx` + `Cover Sheet.pdf`; the cover sheet
+  carries CW GBP 142,760.00 / uPVC GBP 690,849.31, matching AdminBase 7796 to the penny. **The client
+  engaged**: Danny rang within 15 min, took REHAU data sheets at 14:42, asked at 17:44 for the CW ones
+  too, got Technal Tental 50 on 25/02 - then nothing, ever. **Adam chased it himself 12/03/2026 12:19**
+  (Danny, cc Liam - "Jayk as left the company... my mobile is 07939452711"), unanswered 140 days, so a
+  call to Liam is the SECOND chase not the first. **COMPLIANCE REVERSED, and this is the finding: Titan
+  quoted REHAU TOTAL 70 62mm** - Ashley Walton in writing 24/02 14:24, three Total70 data sheets - and
+  REHAU is first on Wandsworth Appendix J cl.2.6's five. The reprice FIXED the Liniar defect and nobody
+  recorded it; Jacob's "void before it was read" is withdrawn at source before it could reach Adam as a
+  false alarm. Residual is cl.2.1 licensed-fabricator evidence to the COUNCIL, never submitted - a
+  missing submission, not a wrong spec. **What lost it was price and Adam knew on the day** (24/02
+  12:14: "out of the running for the windows due to costs... we could as Quickslide to price the uPVC")
+  - and **Quickslide was never asked**: the first Quickslide enquiry in estimating@ is 06/03 on 130
+  Hainault Road. The Director's own action, uncarried, on the exact package that went 38% over target -
+  St Mary's shape again. Kick-off was 23/03 so it is history: 07:45 update, not an email. **Checked and
+  clean:** the fire-egress caveat Bedford Trade Glass forced on 30/01 IS on the issued cover sheet.
+  **No `quote_issued` event** - it would queue Jacob a handover for a job already on his board.
 - **30/07 - JACOB'S FIVE "DID IT GO?" QUESTIONS: SEVEN WENT, TWO DID NOT (botmsg-28 to -32, all
   answered).** One batch, one shape - he had built a theory that Fenster's prices were stopping inside
   the building, on Chiel, Alkerden, Bradstone and Darrick Wood. **It is wrong five times out of seven,
