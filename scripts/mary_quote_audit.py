@@ -75,7 +75,8 @@ def read_doc(path):
         return None
     doc = {"file": os.path.basename(path), "path": path, "rows": [], "installation": None,
            "total": None, "supplier": None, "supplier_cost": None, "cols": {}, "total_row": None,
-           "extras": [], "optional_from": None}
+           "extras": [], "optional_from": None, "_sup_vals": [], "_sup_row": None,
+           "_sup_col": 0, "supplier_n": 0, "_sup_done": False}
     try:
         sheets = [w for w in wb.worksheets
                   if w.title.strip().lower().startswith("pricing document")]
@@ -87,15 +88,32 @@ def read_doc(path):
             cells = list(row) + [None] * (20 - len(row))
             texts = [_txt(c) for c in cells]
 
+            # 'Supplier used:' heads a small TABLE, not a single figure - one
+            # row per supplier and a total underneath. Gordon Court reads
+            # BSW 182,787.76 / Aluminium Fire Systems 18,298.94 / 201,086.70,
+            # and its Frames column totals 201,086.70 exactly. Reading only the
+            # first row made that perfect reconciliation look 18,298.94 out -
+            # the residual was simply the second supplier.
             for i, t in enumerate(texts):
                 if t.startswith("supplier used"):
+                    doc["_sup_col"] = i
+                    doc["_sup_row"] = rn
                     after = [c for c in cells[i + 1:]
                              if c is not None and str(c).strip() not in ("", "None")]
                     if after and isinstance(after[0], str):
                         doc["supplier"] = after[0].strip()
-                    money = [m for m in (_num(c) for c in cells[i + 1:]) if m and m > 1]
-                    if money:
-                        doc["supplier_cost"] = max(money)
+            # Stop the block at the FIRST empty row. Without that it runs on
+            # into the priced rows, whose Glass/Additional/CW columns sit in the
+            # same place as the supplier figures, and every ratio collapsed to
+            # about 0.47 - the supplier total had silently doubled.
+            if (doc.get("_sup_row") and not doc.get("_sup_done")
+                    and doc["_sup_row"] <= rn <= doc["_sup_row"] + 6):
+                i = doc["_sup_col"]
+                money = [m for m in (_num(c) for c in cells[i + 1:]) if m and m > 1]
+                if money:
+                    doc["_sup_vals"].append((rn, max(money)))
+                elif doc["_sup_vals"]:
+                    doc["_sup_done"] = True
 
             # Header rows: Qty / Unit Rate / Total on one, components below.
             for i, t in enumerate(texts):
@@ -199,6 +217,19 @@ def read_doc(path):
                 "cw": _num(cells[cols["cw"]]) if "cw" in cols else None,
             })
         doc["cols"] = cols
+        # Resolve the supplier block: if the last figure equals the sum of the
+        # ones above it, that is the block's own total and the rest are its
+        # parts. Otherwise take the sum, which is the same answer when there is
+        # only one supplier.
+        vals = [v for _, v in doc["_sup_vals"]]
+        if vals:
+            parts, last = vals[:-1], vals[-1]
+            if parts and abs(sum(parts) - last) <= 0.02:
+                doc["supplier_cost"] = last
+                doc["supplier_n"] = len(parts)
+            else:
+                doc["supplier_cost"] = sum(vals)
+                doc["supplier_n"] = len(vals)
     finally:
         wb.close()
     return doc if doc["rows"] else None

@@ -7,7 +7,7 @@ CB Refrigeration Workshop - Pricing Document - DO NOT SEND.xlsx   [internal]
    [BUILDUP  ]     -1,224.00   row 11 MAW 1200 x 1200: frames 571.57 + cw 1224.00 + adder 412.50 = 2208.07, unit rate says 984.07
    [BUILDUP  ]     -2,448.00   row 12 LAW 1800 x 1600: frames 1164.45 + cw 2448.00 + adder 487.50 = 4099.95, unit rate says 1651.95
    [BUILDUP  ]     -2,720.00   row 13 ELAW 2000 x 1600: frames 1238.92 + cw 2720.00 + adder 637.50 = 4596.42, unit rate says 1876.42
-   [SUPPLIER ]     58,100.93   frames total 62531.21 against 'BSW' buy 4430.28, ratio 14.115
+   [SUPPLIER ]     14,078.92   frames total 62531.21 against 'BSW' buy 48452.29, ratio 1.291
 
 COMAR - DO NOT SEND Pricing Document - Brandon Estate - Copy.xlsx   [internal]
    client Elkins Construction | 42 rows | supplier 4Ali
@@ -52,6 +52,7 @@ COMAR - DO NOT SEND Pricing Document - Brandon Estate - Copy.xlsx   [internal]
    [BUILDUP  ]     -2,405.59   row 47 LAW 1300 x 2177: frames 1038.60 + glass 232.40 + additional 15.12 + cw 2405.59 + adder 487.50 = 4179.20, unit rate says 1773.62
    [BUILDUP  ]     -1,942.97   row 48 SAD 1050 x 2177: frames 863.67 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3880.18, unit rate says 1937.21
    [BUILDUP  ]     -2,405.59   row 49 LAW 1300 x 2177: frames 1038.60 + glass 232.40 + additional 15.12 + cw 2405.59 + adder 487.50 = 4179.20, unit rate says 1773.62
+   [SUPPLIER ]   -679,819.78   frames total 3166749.12 against '4Ali' buy 3846568.90, ratio 0.823
 
 Chigwell - Grange Hill Methodist Church Ext Pricing DO NOT SEND.xlsx   [internal]
    client Chigwell (London) PLC | 11 rows | supplier BSW
@@ -59,7 +60,7 @@ Chigwell - Grange Hill Methodist Church Ext Pricing DO NOT SEND.xlsx   [internal
    [BUILDUP  ]       -425.00   row 16 ELAW 2900 x 2400: frames 1667.30 + additional 1000.00 + cw 0.00 + adder 1062.50 = 3729.80, unit rate says 3304.80
    [BUILDUP  ]     -1,000.00   row 19 DAD 4588 x 2100: frames 4438.61 + cw 0.00 + adder 2500.00 = 6938.61, unit rate says 5938.61
    [BUILDUP  ]     -1,000.00   row 20 DAD 5900 x 2300: frames 6154.82 + additional 1000.00 + cw 0.00 + adder 2500.00 = 9654.82, unit rate says 8654.82
-   [SUPPLIER ]     12,934.76   frames total 22411.77 against 'BSW' buy 9477.01, ratio 2.365
+   [SUPPLIER ]       -419.32   frames total 22411.77 against 'BSW' buy 22831.09, ratio 0.982
 
 Chigwell Group - Gordon Court Pricing DO NOT SEND.xlsx   [internal]
    client Chigwell (London) PLC | 43 rows | supplier BSW
@@ -75,13 +76,11 @@ Chigwell Group - Gordon Court Pricing DO NOT SEND.xlsx   [internal]
    [BUILDUP  ]     -2,669.30   row 22 LPVC 1810 x 1735: frames 522.70 + cw 2669.30 + adder 337.50 = 3529.50, unit rate says 860.20
    [BUILDUP  ]     -2,322.65   row 23 LPVC 1996 x 1369: frames 649.24 + cw 2322.65 + adder 337.50 = 3309.39, unit rate says 986.74
    [BUILDUP  ]     -1,000.00   row 45 DAD 3713 x 2128: frames 3732.64 + adder 2500.00 = 6232.64, unit rate says 5232.64
-   [SUPPLIER ]     18,298.94   frames total 201086.70 against 'BSW' buy 182787.76, ratio 1.100
 
 Chigwell Group - Leys Sports Pavilion Refurbishment Pricing - DO NOT SEND.xlsx   [internal]
    client Chigwell (London) PLC | 10 rows | supplier BSW
    [BUILDUP  ]       -425.00   row 16 ELAW 2595 x 2390: frames 3340.84 + additional 1000.00 + cw 0.00 + adder 1062.50 = 5403.34, unit rate says 4978.34
    [BUILDUP  ]     -1,000.00   row 19 DAD 2560 x 2360: frames 2945.91 + cw 0.00 + adder 2500.00 = 5445.91, unit rate says 4445.91
-   [SUPPLIER ]     11,453.75   frames total 15081.05 against 'BSW' buy 3627.30, ratio 4.158
 
 DO NOT SEND - ASHE - CDC - Pricing Document.xlsx   [internal]
    client ASHE | 10 rows | supplier BSW
@@ -139,6 +138,7 @@ DO NOT SEND Elkins - Brandon Estate Pricing Document.xlsx   [internal]
    [BUILDUP  ]     -2,405.59   row 47 SAD 1300 x 2177: frames 1038.60 + glass 232.40 + additional 15.12 + cw 2405.59 + adder 900.00 = 4591.70, unit rate says 2186.12
    [BUILDUP  ]     -1,942.97   row 48 SAD 1050 x 2177: frames 863.67 + glass 158.42 + additional 15.12 + cw 1942.97 + adder 900.00 = 3880.18, unit rate says 1937.21
    [BUILDUP  ]     -2,405.59   row 49 SAD 1300 x 2177: frames 1038.60 + glass 232.40 + additional 15.12 + cw 2405.59 + adder 900.00 = 4591.70, unit rate says 2186.12
+   [SUPPLIER ]   -679,819.78   frames total 3166749.12 against '4Ali' buy 3846568.90, ratio 0.823
 
 DO NOT SEND Pricing Document - Brandon Estate.xlsx   [internal]
    client Elkins Construction | 12 rows | supplier BSW
@@ -153,40 +153,36 @@ DO NOT SEND Pricing Document - Brandon Estate.xlsx   [internal]
    [BUILDUP  ]     -2,133.07   row 17 SAD 1500 x 1673: frames 704.29 + glass 199.82 + cw 2133.08 + adder 900.00 = 3937.18, unit rate says 1804.11
    [BUILDUP  ]     -6,454.04   row 18 SAD 4174 x 1650: frames 2065.41 + glass 533.70 + cw 5854.03 + adder 1500.00 = 9953.15, unit rate says 3499.11
    [BUILDUP  ]    -15,541.30   row 19 SAD 7480 x 2350: frames 3948.33 + glass 1317.94 + additional 1500.00 + cw 14941.30 + adder 1500.00 = 23207.57, unit rate says 7666.27
+   [SUPPLIER ]  1,122,253.73   frames total 1484932.13 against 'BSW' buy 362678.40, ratio 4.094
 
 ET & S Construction - St Mary's Refurbishment Pricing - DO NOT SEND.xlsx   [internal]
    client E T & S Construction | 38 rows | supplier BSW
    [BUILDUP  ]       -425.00   row 14 ELAW 1740 x 3620: frames 1763.04 + additional 1000.00 + cw 0.00 + adder 1062.50 = 3825.54, unit rate says 3400.54
    [BUILDUP  ]       -425.00   row 15 ELAW 2210  x3620: frames 2100.39 + additional 1000.00 + cw 0.00 + adder 1062.50 = 4162.89, unit rate says 3737.89
-   [SUPPLIER ]     29,654.80   frames total 90711.60 against 'BSW' buy 61056.80, ratio 1.486
+   [SUPPLIER ]       -697.58   frames total 90711.60 against 'BSW' buy 91409.18, ratio 0.992
 
 Fortis Vision - Unite-Favell House Pricing.xlsx   [NOT MARKED DO NOT SEND]
    client Fortis Vision | 6 rows | supplier Aplus
    [BUILDUP  ]     -1,000.00   row 9 DAD 5139 x 2400: frames 3026.41 + additional 600.00 + cw 0.00 + adder 2500.00 = 6126.41, unit rate says 5126.41
    [BUILDUP  ]       -325.00   row 11 LAW 4875 x 1800: frames 2083.18 + cw 0.00 + adder 812.50 = 2895.68, unit rate says 2570.68
    [BUILDUP  ]       -325.00   row 12 LAW 7450 x 2400: frames 6085.14 + additional 600.00 + cw 0.00 + adder 812.50 = 7497.64, unit rate says 7172.64
-   [SUPPLIER ]      4,180.41   frames total 17861.94 against 'Aplus' buy 13681.53, ratio 1.306
+   [SUPPLIER ]        190.41   frames total 17861.94 against 'Aplus' buy 17671.53, ratio 1.011
 
 Guildmore Planned Works - Princess Beatrice House Pricing - DO NOT SEND.xlsx   [internal]
    client Guildmore | 46 rows | supplier Aplus
    [BUILDUP  ]       -425.00   row 13 ELAW 2700 x 2540: frames 1847.50 + glass 274.80 + additional 1000.00 + cw 0.00 + adder 1062.50 = 4184.80, unit rate says 3759.80
-   [SUPPLIER ]    110,517.34   frames total 128017.08 against 'Aplus' buy 17499.74, ratio 7.315
+   [SUPPLIER ]       -668.41   frames total 128017.08 against 'Aplus' buy 128685.49, ratio 0.995
 
 Highwood Group - Whitsbury Road Pricing - DO NOT SEND.xlsx   [internal]
    client Highwood Group | 25 rows | supplier BSW
    [BUILDUP  ]     -1,000.00   row 34 DAD 3048 x 2325: frames 4745.68 + cw 0.00 + adder 2500.00 = 7245.68, unit rate says 6245.68
-   [SUPPLIER ]     29,925.13   frames total 116145.22 against 'BSW' buy 86220.09, ratio 1.347
-
-Pearce Construction - Georgie's (formerly Rosebank) Pricing - DO NOT SEND.xlsx   [internal]
-   client Pearce Construction (Barnstaple) | 11 rows | supplier BSW
-   [SUPPLIER ]     29,552.24   frames total 50414.16 against 'BSW' buy 20861.92, ratio 2.417
+   [SUPPLIER ]      1,837.11   frames total 116145.22 against 'BSW' buy 114308.11, ratio 1.016
 
 Pearce Construction - Greenfields Respite Barnstaple Pricing - DO NOT SEND.xlsx   [internal]
    client Pearce Construction (Barnstaple) | 46 rows | supplier BSW
    [BUILDUP  ]     -1,000.00   row 18 DAD 3538 x 2850: frames 4209.83 + additional 1000.00 + adder 2500.00 = 7709.83, unit rate says 6709.83
    [BUILDUP  ]     -1,000.00   row 24 DAD 2740 x 2664: frames 2460.60 + adder 2500.00 = 4960.60, unit rate says 3960.60
    [BUILDUP  ]       -225.00   row 57 LPVC 4989 x 1660: frames 1000.08 + additional 500.00 + adder 562.50 = 2062.58, unit rate says 1837.58
-   [SUPPLIER ]     37,460.90   frames total 65593.51 against 'BSW' buy 28132.61, ratio 2.332
 
 Pearce Construction - Woodland Vale Pricing - DO NOT SEND.xlsx   [internal]
    client Pearce Construction (Barnstaple) | 4 rows | supplier BSW
@@ -231,19 +227,19 @@ Reynolds Conservation - Oldswinford Primary School Pricing - DO NOT SEND.xlsx   
    [BUILDUP  ]     -1,970.01   row 40 LAW 3082 x 752: frames 980.85 + additional 210.00 + cw 1970.01 + adder 487.50 = 3648.36, unit rate says 1678.35
    [BUILDUP  ]     -1,970.01   row 41 LAW 3082 x 752: frames 980.85 + additional 210.00 + cw 1970.01 + adder 487.50 = 3648.36, unit rate says 1678.35
    [BUILDUP  ]     -1,970.01   row 42 LAW 3082 x 752: frames 980.85 + additional 210.00 + cw 1970.01 + adder 487.50 = 3648.36, unit rate says 1678.35
-   [SUPPLIER ]     -4,135.55   frames total 34003.38 against 'Aplus' buy 38138.93, ratio 0.892 - consistent with a 10% discount taken twice
+   [SUPPLIER ]     -7,205.55   frames total 34003.38 against 'Aplus' buy 41208.93, ratio 0.825
+
+Reynolds Conservation Ltd - Crestwood Park Primary School Pricing - DO NO SEND.xlsx   [NOT MARKED DO NOT SEND]
+   client Reynolds Conservation Ltd | 46 rows | supplier BSW
+   [SUPPLIER ]    -14,223.25   frames total 27329.60 against 'BSW' buy 41552.85, ratio 0.658
 
 Rooff Construction - St. Christopher's the Hall School Pricing - DO NOT SEND.xlsx   [internal]
    client Rooff Construction | 8 rows | supplier BSW
-   [SUPPLIER ]      3,685.84   frames total 11103.41 against 'BSW' buy 7417.57, ratio 1.497
-
-SM5 Developments - Wexham Primary Pricing - DO NOT SEND.xlsx   [internal]
-   client SM5 Developments | 9 rows | supplier BSW
-   [SUPPLIER ]      4,682.58   frames total 12366.07 against 'BSW' buy 7683.49, ratio 1.609
+   [SUPPLIER ]     -1,006.08   frames total 11103.41 against 'BSW' buy 12109.49, ratio 0.917
 
 SMD - Brocks Hill Phase 2 Teaching Block Pricing.xlsx   [NOT MARKED DO NOT SEND]
    client SMD | 7 rows | supplier BSW
-   [SUPPLIER ]     40,683.82   frames total 57778.34 against 'BSW' buy 17094.52, ratio 3.380
+   [SUPPLIER ]      2,723.49   frames total 57778.34 against 'BSW' buy 55054.85, ratio 1.049
 
 Stepnell - BCC Filwood Broadway Pricing.xlsx   [NOT MARKED DO NOT SEND]
    client Stepnell | 7 rows | supplier BSW
@@ -258,6 +254,7 @@ Stepnell - BCC Filwood Broadway Pricing.xlsx   [NOT MARKED DO NOT SEND]
 TSL - Topek Southern - Trafalgar House Pricing - DO NOT SEND.xlsx   [internal]
    client TSL - Topek Southern Ltd | 17 rows | supplier TruFrame
    [BUILDUP  ]       -225.00   row 15 LPVC 3000 x 2400: frames 397.27 + glass 489.01 + additional 500.00 + cw 0.00 + adder 562.50 = 1948.78, unit rate says 1723.78
+   [SUPPLIER ]     -8,633.85   frames total 16572.71 against 'TruFrame' buy 25206.56, ratio 0.657
 
 Target Maintanance - Tenbury Close Pricing DO NOT SEND.xlsx   [internal]
    client Target Maintenance | 1 rows | supplier Granada
@@ -267,14 +264,22 @@ Target Maintenance - Gordon Court Pricing REV 2.xlsx   [NOT MARKED DO NOT SEND]
    client Target Maintenance | 1 rows | supplier not stated
    [FOOT_LINE]        411.17   row 9  1800 x 2100: 3381.62 x 1 = 3381.62, document says 3792.79
 
+Zelltec - Units 16 & 18 Crownhill Business Centre Pricing UPVC (1).xlsx   [NOT MARKED DO NOT SEND]
+   client Zelltec Construction | 8 rows | supplier Tru Frame
+   [SUPPLIER ]     11,885.92   frames total 13521.20 against 'Tru Frame' buy 1635.28, ratio 8.268
+
+Zelltec - Units 16 & 18 Crownhill Business Centre Pricing UPVC - Copy.xlsx   [NOT MARKED DO NOT SEND]
+   client Zelltec Construction | 8 rows | supplier Tru Frame
+   [SUPPLIER ]     34,567.38   frames total 36202.66 against 'Tru Frame' buy 1635.28, ratio 22.139
+
 Zelltec - Wisley Golf Club Pricing - Copy.xlsx   [NOT MARKED DO NOT SEND]
    client Zelltec Construction | 12 rows | supplier BSW
    [SUPPLIER ]     16,866.55   frames total 48201.95 against 'BSW' buy 31335.40, ratio 1.538
 
 ==============================================================================
-199 finding(s) shown across 65 document(s)
+201 finding(s) shown across 65 document(s)
   FOOT_LINE    1 finding(s) in  1 document(s)
   FOOT_DOC     0 finding(s) in  0 document(s)
   DISCOUNT     0 finding(s) in  0 document(s)
   BUILDUP    182 finding(s) in 18 document(s)
-  SUPPLIER    16 finding(s) in 16 document(s)
+  SUPPLIER    18 finding(s) in 18 document(s)
