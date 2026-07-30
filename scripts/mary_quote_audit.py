@@ -57,6 +57,46 @@ PENCE = 0.02
 # carries carriage, small extras and part-quantities.
 SUPPLIER_TOL = 0.005
 
+# Labels that appear in the 'Supplier used:' column but are not suppliers: the
+# priced-row column headers sit inside the block's six-row window and one of
+# them lands in the cell straight after 'Supplier used:'.
+_NOT_A_SUPPLIER = ("frames", "glass", "additional", "cw", "cw labour", "cw sqm",
+                   "unit rate", "total", "qty", "unit", "description", "size",
+                   "product codes")
+
+# A GLASS MERCHANT IN THE BLOCK MEANS THE GLASS COLUMN IS IN THE BUY (31/07).
+# The supply build-up of a priced row is frames + glass + additional, and the
+# 'Supplier used:' block is a list of who supplied what. Where the list is a
+# frame supplier alone, the figure it totals is the Frames column and the check
+# reconciles perfectly - 22 documents, median |ratio - 1| of 0.006. Where it
+# also names a GLASS merchant, the figure covers Frames AND Glass, and checking
+# it against Frames alone manufactures a gap of a quarter of the buy:
+#
+#     Trafalgar House   TruFrame / Vetroseal / Ikon    0.657 -> 0.919
+#     Brandon, COMAR    4Ali / Vetroseal               0.823 -> 0.991
+#     Brandon, Elkins   4Ali / Vetroseal               0.823 -> 1.006
+#     Brandon, earlier  BSW / Vetroseal                4.094 -> 5.171  (still open)
+#
+# Median |ratio - 1| over those four: 0.260 against Frames, 0.045 against
+# Frames+Glass. And the rule discriminates BOTH ways - on the 22 documents with
+# no glass merchant, adding the Glass column would move a median 0.006 out to
+# 0.074, so this is not "always use the whole build-up". It is: reconcile
+# against the columns the NAMED suppliers actually supply.
+#
+# A NAMED LIST, NOT A KEYWORD MATCH, and deliberately so. 'glass' and 'glaz'
+# appear in Fenster Glazing's own name and in half the client names in this
+# archive, so a substring test would put the Glass column into every buy in the
+# corpus. Extend this list when a new glass merchant appears in a block; the
+# cost of a name missing from it is a false alarm of exactly the kind this
+# check already exists to kill.
+GLASS_SUPPLIERS = ("vetroseal", "tufwell", "romag", "pilkington", "saint gobain",
+                   "saint-gobain", "guardian glass", "cantifix")
+
+
+def _supplies_glass(names):
+    low = [str(n).lower() for n in (names or [])]
+    return [n for n in low if any(g in n for g in GLASS_SUPPLIERS)]
+
 
 def _num(c):
     return float(c) if isinstance(c, (int, float)) and not isinstance(c, bool) else None
@@ -76,7 +116,7 @@ def read_doc(path):
     doc = {"file": os.path.basename(path), "path": path, "rows": [], "installation": None,
            "total": None, "supplier": None, "supplier_cost": None, "cols": {}, "total_row": None,
            "extras": [], "optional_from": None, "_sup_vals": [], "_sup_row": None,
-           "_sup_col": 0, "supplier_n": 0, "_sup_done": False}
+           "_sup_col": 0, "supplier_n": 0, "_sup_done": False, "supplier_names": []}
     try:
         sheets = [w for w in wb.worksheets
                   if w.title.strip().lower().startswith("pricing document")]
@@ -122,6 +162,19 @@ def read_doc(path):
                 # further right. A PRICED row has a number there - that is its
                 # Additional column - so requiring a name-or-empty excludes it.
                 label = cells[i + 1] if len(cells) > i + 1 else None
+                # RECORD THE NAME EVEN WHERE IT CARRIES NO FIGURE. A block can
+                # name several suppliers and total them ONCE underneath -
+                # Trafalgar House is TruFrame / Vetroseal / Ikon and then a
+                # single 25,206.56 - and until now those three names were
+                # dropped on the floor, because a row with no money and nothing
+                # yet collected falls through both branches below. The names are
+                # what say WHICH supply columns the figure covers. Column
+                # headers sit inside the six-row window and one of them lands in
+                # this very cell, so they are excluded by name.
+                if isinstance(label, str) and label.strip() \
+                        and label.strip().lower() not in _NOT_A_SUPPLIER \
+                        and label.strip() not in doc["supplier_names"]:
+                    doc["supplier_names"].append(label.strip())
                 looks_like = isinstance(label, str) and label.strip() != "" \
                     or label is None or str(label).strip() == ""
                 if money and looks_like:
@@ -392,23 +445,64 @@ def audit(doc):
     #    total matches any subset, the document reconciles and the suppliers left
     #    out are addendum suppliers - report nothing and say which matched.
     #    Only a frames total that matches NO subset is a real question.
+    #
+    #    AND THE BUY COVERS WHATEVER THE NAMED SUPPLIERS SUPPLY. If a glass
+    #    merchant is in the block then Glass is in the figure, so the thing to
+    #    reconcile is Frames + Glass. See GLASS_SUPPLIERS above for the evidence
+    #    and for why this is a named list rather than a keyword match.
+    #
+    #    SO THERE ARE NOW TWO READINGS OF THE SAME BLOCK, AND THE CHECK OWES THE
+    #    DOCUMENT BOTH. Trying Frames+Glass INSTEAD OF Frames, rather than as
+    #    well as, took the finding count UP from 13 to 15: the two big Brandon
+    #    revisions reconciled on a SUBSET of their block under Frames alone and
+    #    stopped doing so under Frames+Glass. A document is not wrong because
+    #    the first reading of its supplier block failed - it is wrong when NO
+    #    reading works. Same principle as the subsets above, one level out:
+    #    enumerate the readings, report only if every one of them fails, and
+    #    quote the one that came closest.
     if doc["supplier_cost"] and any(r["frames"] is not None for r in doc["rows"]):
-        frames_sum = sum(r["frames"] * r["qty"] for r in doc["rows"] if r["frames"] is not None)
-        parts = doc.get("supplier_parts") or []
-        if len(parts) > 1 and abs(frames_sum - doc["supplier_cost"]) > max(
-                1.0, doc["supplier_cost"] * SUPPLIER_TOL):
-            matched = None
-            for mask in range(1, 1 << min(len(parts), 8)):
-                subset = [parts[b] for b in range(min(len(parts), 8)) if mask >> b & 1]
-                tot = sum(v for _, v in subset)
-                if tot and abs(frames_sum - tot) <= max(1.0, tot * SUPPLIER_TOL):
-                    # Prefer the explanation that leaves fewest suppliers out.
-                    if matched is None or len(subset) > len(matched):
-                        matched = subset
-            if matched:
-                doc["supplier_subset"] = matched
-                doc["supplier_cost"] = sum(v for _, v in matched)
-        gap = frames_sum - doc["supplier_cost"]
+        glass_names = _supplies_glass(doc.get("supplier_names"))
+        doc["glass_in_buy"] = glass_names
+        bases = [("frames", sum(r["frames"] * r["qty"]
+                                for r in doc["rows"] if r["frames"] is not None))]
+        if glass_names:
+            bases.append(("frames+glass",
+                          sum((r["frames"] + (r["glass"] or 0.0)) * r["qty"]
+                              for r in doc["rows"] if r["frames"] is not None)))
+        full = doc["supplier_cost"]
+        allparts = doc.get("supplier_parts") or []
+
+        def _reconciles(total):
+            """Does this supply total match the block, or any subset of it?"""
+            if abs(total - full) <= max(1.0, full * SUPPLIER_TOL):
+                return full, None
+            best = None
+            for mask in range(1, 1 << min(len(allparts), 8)):
+                sub = [allparts[b] for b in range(min(len(allparts), 8)) if mask >> b & 1]
+                tot = sum(v for _, v in sub)
+                if tot and abs(total - tot) <= max(1.0, tot * SUPPLIER_TOL):
+                    if best is None or len(sub) > len(best[1]):
+                        best = (tot, sub)
+            return best if best else (None, None)
+
+        chosen = None
+        for label, total in bases:
+            cost, sub = _reconciles(total)
+            if cost is not None:
+                chosen = (label, total, cost, sub, True)
+                break
+        if chosen is None:
+            # Nothing reconciles. Quote the reading that came closest to 1.00,
+            # because that is the one a human should argue with.
+            label, total = min(bases, key=lambda b: abs(b[1] / full - 1.0) if full else 0)
+            chosen = (label, total, full, None, False)
+        base_label, frames_sum, doc["supplier_cost"], sub, ok = chosen
+        if sub:
+            doc["supplier_subset"] = sub
+        # _reconciles() has already tried every subset of the block against every
+        # reading, so `ok` is the whole answer and there is no second pass here.
+        parts = allparts        # the block-localisation below still wants them
+        gap = 0.0 if ok else frames_sum - doc["supplier_cost"]
         if abs(gap) > max(1.0, doc["supplier_cost"] * SUPPLIER_TOL):
             ratio = frames_sum / doc["supplier_cost"]
             note = ""
@@ -505,9 +599,12 @@ def audit(doc):
                 "check": "SUPPLIER", "row": None, "code": "",
                 "money": round(gap, 2),
                 "whole_unit": bool(whole),
-                "detail": "frames total %.2f against '%s' buy %.2f, ratio %.3f%s"
-                          % (frames_sum, doc["supplier"] or "?", doc["supplier_cost"],
-                             ratio, note)})
+                "detail": "%s total %.2f against %s buy %.2f, ratio %.3f%s"
+                          % (base_label, frames_sum,
+                             ("the block's %s" % " + ".join(doc["supplier_names"]))
+                             if len(doc.get("supplier_names") or []) > 1
+                             else "'%s'" % (doc["supplier"] or "?"),
+                             doc["supplier_cost"], ratio, note)})
     return out
 
 

@@ -68,6 +68,47 @@ without it, against 352/508 with it. A GENUINE curtain-walling row is different 
 CW LABOUR figure, Frames equal to the CW money (CB Refrigeration CWT-A, 17.69m2). The board previously
 had this filed as a Brandon Estate peculiarity; it is 156 lines across 9 documents.
 
+A GLASS MERCHANT IN THE SUPPLIER BLOCK MEANS THE GLASS COLUMN IS IN THE BUY (31/07). This is the
+biggest audit finding of the night and it closes the oldest of the four open supplier questions.
+A priced row builds as frames + glass + additional, and the 'Supplier used:' block is a list of WHO
+SUPPLIED WHAT - so the figure it totals covers whichever of those columns the named suppliers supply.
+The check only ever compared it against Frames. Where the block is a frame supplier alone that is
+right, and it is right very precisely: 22 documents, median |ratio - 1| of 0.006. Where the block also
+names a GLASS merchant it manufactures a gap of a quarter of the buy:
+    Trafalgar House   TruFrame / Vetroseal / Ikon    0.657 -> 0.919
+    Brandon, COMAR    4Ali / Vetroseal               0.823 -> 0.991
+    Brandon, Elkins   4Ali / Vetroseal               0.823 -> 1.006
+    Brandon, earlier  BSW / Vetroseal                4.094 -> 5.171   (STILL OPEN, see below)
+Median |ratio - 1| over the four: 0.260 against Frames, 0.045 against Frames+Glass. AND IT
+DISCRIMINATES BOTH WAYS, which is what makes it a rule and not a fudge - on the 22 documents with no
+glass merchant, adding Glass moves a median 0.006 out to 0.074. It is NOT "always use the whole
+build-up". It is: reconcile against the columns the NAMED suppliers actually supply.
+  A NAMED LIST, NOT A KEYWORD MATCH. 'glass' and 'glaz' are in Fenster Glazing's own name and in half
+  the client names in this archive, so a substring test would put Glass into every buy in the corpus.
+  GLASS_SUPPLIERS in mary_quote_audit.py is the list; extend it when a new merchant appears.
+  AND THE BLOCK'S NAMES WERE BEING THROWN AWAY. A block can name several suppliers and total them ONCE
+  underneath - Trafalgar is TruFrame / Vetroseal / Ikon and then a single 25,206.56 - and a name with
+  no figure beside it fell through both branches of the reader. It is the names that say which columns
+  the figure covers, so they are now kept as doc['supplier_names']. Watch the column headers: they sit
+  inside the block's six-row window and 'Additional' lands in the very cell the names come from.
+  THE MISTAKE MADE AND CORRECTED ON THE WAY, which is the transferable part: trying Frames+Glass
+  INSTEAD OF Frames took the finding count UP, 13 to 15, because the two big Brandon revisions had been
+  reconciling on a SUBSET of their block under Frames alone and stopped under Frames+Glass. A document
+  is not wrong because the FIRST reading of its block failed - it is wrong when NO reading works. The
+  check now enumerates the readings, tries every subset of the block against each, and reports only if
+  all of them fail, quoting whichever came closest to 1.00.
+
+TRAFALGAR HOUSE 0.657 IS CLOSED AS A FALSE ALARM, AND WHAT IS LEFT OF IT IS A DIFFERENT QUESTION.
+The block is TruFrame / Vetroseal / Ikon under ONE figure of 25,206.56, and the check was calling the
+whole of it TruFrame's. Frames + Glass is 23,153.46, so 0.919. The Frames column is literally the
+TruFrame nett per-unit prices - quote 10213105 prices item 1-5 at 134.08 and the five 1200x1600 MPVC
+rows carry 134.08; Resi Door 494.39 against the SUPD rows; 352.48, 245.06, 259.47, 525.06 all match -
+and that quote says '*** PRICED AS QUANTITY ONE OF EACH FRAME TYPE ***', which the estimator scaled by
+the real quantities, correctly. THE RESIDUAL 2,053.10 IS IKON'S COMPOSITE PANELS AND THERE IS NO PRICED
+QUOTE FOR THEM IN THE PACK - the only Ikon document is a product datasheet with no figures on it. So
+the finding is not GBP 8,633.85 of frames exposure; it is GBP 2,053.10 of panel cost carried in the
+block on nobody's quote. A question for whoever owns the buy, not an error in a client's document.
+
 AND THE BAND STRUCTURE IS NOW TESTED IN THE COARSER DIRECTION TOO, AND (2.0, 5.0) STILL WINS (31/07).
 The earlier work tested FINER and alternative edges; nobody had tried fewer bands, and there was a
 reason to - the product code already encodes size (SAW/MAW/LAW is small/medium/large), so code|band
