@@ -1,0 +1,35 @@
+The COMAR re-price kept the Elkins component cells - and dropping them changes nothing
+
+Closes the last BUILDUP class. All 11 remaining findings are in the COMAR Brandon
+variant and the cause is exact: 11 of 11 non-footing rows have frames and glass
+IDENTICAL TO THE PENNY to a row of the Elkins revision, while the COMAR variant's own
+product codes were changed (every Elkins row is SAD; COMAR recodes them DAD, ELAW, MAW
+and LAW) and so were its unit rates. The implied adders come out between 292.71 and
+1,237.24 against code adders of 412.50 to 1,500.00, so those unit rates were never
+built by the template's frames + glass + additional + adder formula at all. The
+component cells are stale - left behind from the revision the file was saved from,
+which is the same failure mode as the hand-typed 'Supplier used' cell and now the
+second place it has shown up.
+
+NOT AN ARITHMETIC ERROR. The document foots, TOTAL* is right, and it is an internal
+DO NOT SEND working. Adam's morning list is still Gordon Court REV 2 alone. The other
+2 of the 13 BUILDUP findings are the ASHE mis-coding already on the board.
+
+AND THE ENGINE CONSEQUENCE IS A CLEAN NEGATIVE, which is worth recording precisely
+because the argument for it is sound. supply_money() mines those very cells, so on 13
+of 516 lines the engine learns one revision's supply money against another revision's
+unit rate - a defect, and the lab's rule says never to learn from one. Measured
+leave-one-JOB-out with mining filtered on whether the build-up foots to within GBP 1:
+    A  mine every line (CURRENT)      12.28%   median 6.86%   bias -1.83%   17/29
+    B  exclude non-footing lines      12.32%   median 7.23%   bias -1.89%   18/29
+Better on 7 documents, worse on 9. Mean and median both move the wrong way and only
+within-10 improves; the declared decision metric is the mean, and it was not changed
+to rescue the result.
+
+THE LESSON IS THE ONE THE DEDUP ALREADY TAUGHT, now confirmed from the other
+direction: a median over 500 lines does not notice 13 of them. The corpus is robust to
+a handful of bad rows, so there is no accuracy to be won by hunting them. Hunt them
+because they are findings about our own documents - which is the other half of this
+window's job, and the half where this one counts.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

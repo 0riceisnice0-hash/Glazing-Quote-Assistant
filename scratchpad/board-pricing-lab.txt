@@ -95,6 +95,27 @@ WHERE THE NEXT SESSION SHOULD START, in order, rewritten on the fourth run:
      THE TEMPLATE FOR WHAT A GOOD ONE LOOKS LIKE: not a new factor fitted to the residual, but a class of
      row the engine could not see at all, with a rule that was already in the code.
 
+THE LAST 11 BUILDUP FINDINGS ARE A RE-PRICE ARTEFACT AND THE CLASS IS NOW EXPLAINED (fourth run). All 11
+are in the COMAR Brandon variant, and the cause is exact: THE COMAR RE-PRICE CARRIES THE ELKINS
+REVISION'S COMPONENT CELLS VERBATIM. 11 of 11 non-footing rows have frames and glass identical to an
+Elkins row to the penny, while its own product codes were changed (every Elkins row is SAD; COMAR recodes
+them DAD / ELAW / MAW / LAW) and so were its unit rates. The implied adders land between 292.71 and
+1,237.24 against code adders of 412.50 to 1,500.00, so those unit rates were never built by the template's
+frames + glass + additional + adder at all - the component cells are simply stale, left over from the
+previous revision. NOT AN ARITHMETIC ERROR: the document foots, TOTAL* is right, and it is an internal
+DO NOT SEND working. The other 2 of the 13 are the known ASHE mis-coding.
+  AND EXCLUDING THOSE LINES FROM MINING IS NEGATIVE, which is worth knowing because the reasoning for
+  doing it is sound. supply_money() mines exactly those cells, so for 13 of 516 lines the engine learns
+  one revision's supply money against another revision's unit rate - a defect by the lab's own rule.
+  Measured leave-one-JOB-out, mining filtered on whether the build-up foots to within GBP 1:
+      A  mine every line (CURRENT)      12.28%   median 6.86%   bias -1.83%   17/29 within 10
+      B  exclude non-footing lines      12.32%   median 7.23%   bias -1.89%   18/29 within 10
+  Better on 7 documents, worse on 9. Mean and median both move the wrong way; only within-10 improves,
+  and the declared decision metric is the mean, so this is a REJECT and the metric was not changed to
+  rescue it. THE REAL LESSON IS THE SAME ONE THE DEDUP TAUGHT: a median over 500 lines does not notice 13
+  of them, so the corpus is robust to a handful of bad rows and there is no point hunting them for
+  accuracy. Hunt them because they are findings. scratchpad/stale_comp.py, scratchpad/comar_buildup.py.
+
 A FIXED COST PER OPENING IN THE SUPPLY TERM IS CLOSED, NEGATIVE (fourth run). This is NOT the size-band
 question and was worth asking separately, because bands are a piecewise-constant approximation to a
 structure Georgie's shows directly: area 0.48 -> 1.24m2 is x2.58 while frames 915.51 -> 1213.92 is only
