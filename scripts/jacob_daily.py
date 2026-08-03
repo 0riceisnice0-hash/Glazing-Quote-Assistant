@@ -104,6 +104,13 @@ def main():
     #     chase today with no conversation between them.
     run("crm sync", ["scripts/crm_sync.py"])
 
+    # 5c. Instructions that arrived by email. Adam, 03/08: "I should just be
+    #     able to email Jacob and say, I just had this call with Jordan about
+    #     this job, set the next action date for this. Boom." Trusted senders
+    #     move state; everyone else can only add a note. It never guesses - an
+    #     unreadable date is flagged for a human rather than invented.
+    run("crm email", ["scripts/crm_email.py", "--queue"])
+
     # 6. Rebuild the board from whatever succeeded.
     board = ["scripts/jacob_dashboard.py"] + (["--deploy"] if args.deploy else [])
     ok_board = run("rebuild board", board, required=True)
