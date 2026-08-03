@@ -14,11 +14,12 @@ const $$ = (s) => [...document.querySelectorAll(s)];
 
 let DATA = null;
 let MESSAGES = [];
-let page = "home";
+let page = "today";
 let commsTab = "sent";
-/* BOT decides which board is on screen: "team", or a bot's key. Mary's data
-   lives in DATA, Jacob's in JACOB, and neither reads the other. */
-let BOT = "team";
+/* BOT decides which board is on screen: "work" (the five sections a job can
+   be in), "team", or a bot's key. The hub OPENS ON THE WORK, not on a bot -
+   the first question is "what needs doing", not "what has Mary been up to". */
+let BOT = "work";
 let JACOB = null;
 
 /* Anything a human has typed but not yet sent. render() throws the whole page
@@ -170,7 +171,20 @@ function bridgeStatus(s) {
 function renderSidebar() {
   const host = $("#bot-cards");
   if (!host) return;
-  host.innerHTML = Object.values(BOTS).filter((b) => !b.hidden).map((b) => {
+  /* THE WORK SITS ABOVE THE STAFF, and it is not a card. A card says "here is
+     somebody, go and see what they have"; these are the five places a job can
+     be, and a job is in exactly one of them. The bots underneath are who is
+     doing it, which is a different question and a smaller one. */
+  const work = BOTS.work;
+  const workNav = `<div class="nav-group">The work</div>
+    ${work.pages.map((p) => {
+      const on = BOT === "work" && page === p.key;
+      return `<button class="nav-item${on ? " active" : ""}" data-work="${p.key}" type="button">
+        ${ICONS[p.icon || p.key] || ""}${p.label}</button>`;
+    }).join("")}
+    <div class="nav-group">The staff</div>`;
+
+  host.innerHTML = workNav + Object.values(BOTS).filter((b) => !b.hidden && !b.isWork).map((b) => {
     const s = b.status ? b.status() : null;
     const n = b.needsYou ? b.needsYou() : 0;
     return `<button class="nav-mary nav-bot" data-bot="${b.key}" type="button">
@@ -3254,6 +3268,11 @@ let CRM = { today: null, leads: [], companies: [], delivery: null };
 const crmLead = (key) => CRM.leads.find((l) => l.key === key);
 const crmCo = (key) => CRM.companies.find((c) => c.key === key);
 /* Our own stages in the words a person would use out loud. */
+/* The handover is at quote_sent: everything before it is estimating's,
+   everything after is business development's. Kept in step with STAGES in
+   scripts/crm.py - if one moves, move both. */
+const MARY_STAGES = ["new", "acknowledged", "materials_out", "awaiting_costs",
+                     "quote_ready", "pre_quote_call"];
 const STAGE_LABEL = {
   new: "New", acknowledged: "Acknowledged", materials_out: "Out to suppliers",
   awaiting_costs: "Awaiting costs", quote_ready: "Quote to check",
@@ -3348,47 +3367,128 @@ async function crmPanelLead(key) {
   `);
 }
 
-const CRM_PAGES = [
-  { key: "today", label: "Today", group: "Work", icon: "chaselist",
-    sub: () => `${CRM.today?.counts?.due || 0} to call today, ${CRM.today?.counts?.overdue || 0} behind` },
-  { key: "leads", label: "Leads", group: "Work", icon: "leads",
-    sub: () => `${CRM.leads.length} jobs we are quoting for` },
-  { key: "companies", label: "Companies", group: "Work", icon: "companies",
-    sub: () => `${CRM.companies.length} on the books` },
-  { key: "delivery", label: "Delivery", group: "Won work", icon: "register",
+/* THE NAV IS THE BUSINESS, NOT THE STAFF (03/08/2026).
+   It used to be a card per bot, so one job appeared in three places - Mary's
+   pipeline, Jacob's leads, the CRM's leads - and you had to know which bot to
+   ask before you could find anything. Adding a CRM card made a fourth. Zac,
+   03/08: "this is horrible... you should have the crm in the same section as
+   the bots... re think the entire UX."
+
+   So the sections below are the work: a job lives in exactly ONE of them. The
+   bots do not disappear - they become a name on the row saying who did this
+   and what they are waiting on, plus a card underneath for talking to them and
+   seeing how they are doing. Their own boards stay under those cards, because
+   catches, calibration and award feeds are real and are about the BOT rather
+   than about a job.
+
+   Money is deliberately inside Contracts rather than its own section: it is
+   empty until Adam answers D2-D4, and an empty nav item teaches people to
+   ignore a nav item. */
+const WORK_PAGES = [
+  { key: "today", label: "Today", icon: "home",
+    sub: () => "What needs a person today - nothing else" },
+  { key: "leads", label: "Leads", icon: "leads",
+    sub: () => `${CRM.leads.filter((l) => !l.outcome).length} jobs we are quoting for` },
+  { key: "contracts", label: "Contracts", icon: "register",
     sub: () => `${CRM.delivery?.counts?.late || 0} late, ${CRM.delivery?.counts?.due || 0} due today` },
+  { key: "companies", label: "Companies", icon: "companies",
+    sub: () => `${CRM.companies.length} on the books` },
 ];
 
+/* Who is waiting on a human, across every bot, as one list. This is the
+   question the hub exists to answer and it used to take three tabs. */
+function needsAHuman() {
+  const out = [];
+  for (const r of (typeof awaitingReqs === "function" ? awaitingReqs() : [])) {
+    out.push({ who: "Mary", title: r.title, why: r.why || r.needs || "", page: "requests", bot: "mary" });
+  }
+  for (const r of (typeof openJacobReqs === "function" ? openJacobReqs() : [])) {
+    out.push({ who: "Jacob", title: r.title, why: r.why || r.needs || "", page: "decisions", bot: "jacob" });
+  }
+  return out;
+}
+
 const CRM_RENDER = {
-  /* Adam's daily call list. Three bands, not one - see the API route for why
-     a single "everything due" list came out at 179 rows and was useless. */
+  /* THE FRONT PAGE, and it answers one question: what does a person have to do
+     today? Strictly that - no bot activity, no "what happened overnight". The
+     moment it lists things nobody has to act on it stops being a to-do list
+     and becomes another board to skim. */
   today() {
     const t = CRM.today;
-    if (!t) return `<div class="empty"><strong>The CRM is not answering.</strong></div>`;
-    const band = (title, rows, note, empty) => `
-      <h3>${title}</h3>${note ? `<p class="page-sub">${note}</p>` : ""}
-      ${crmRows(rows, empty)}`;
+    const needs = needsAHuman();
+    const del = CRM.delivery;
+    const calls = t?.due || [];
+    const soon = t?.upcoming || [];
+    const onsite = [...(del?.late || []), ...(del?.due || [])];
+    const nothing = !needs.length && !calls.length && !onsite.length;
+
+    const head = (label, n, tone) => `<h3>${label}${
+      n ? ` <span class="chip ${tone || "navy"}">${n}</span>` : ""}</h3>`;
+
     return `
-      <p class="page-sub">Live from the CRM - not a snapshot. Anything Adam moves by
-        email is here as soon as the CRM has it.</p>
-      ${band("Call these today", t.due || [], "", "Nothing lands today.")}
-      ${band("Coming this week", t.upcoming || [], "", "Nothing due in the next seven days.")}
-      ${band(`Behind (${t.counts.overdue})`, t.overdue || [],
-        "The biggest twenty by value. Work them down - do not try to read all "
-        + t.counts.overdue + ".", "Nothing overdue.")}`;
+      ${nothing ? `<div class="empty"><strong>Nothing needs you today.</strong>
+        <p>Everything with a date on it is ahead of us. ${t?.counts?.overdue
+          ? `There are ${t.counts.overdue} jobs behind - they are on <a data-go="leads">Leads</a>.`
+          : ""}</p></div>` : ""}
+
+      ${needs.length ? `${head("Needs you", needs.length, "danger")}
+        <p class="page-sub">A bot has stopped and cannot go on until somebody decides.</p>
+        <div class="acts">${needs.map((n) => `
+          <div class="act danger" data-bot-go="${esc(n.bot)}:${esc(n.page)}">
+            <div class="act-main">
+              <div class="act-top"><strong>${esc(n.title)}</strong>
+                <span class="act-co">${esc(n.who)} is blocked</span></div>
+              <div class="act-what">${esc((n.why || "").slice(0, 200))}</div>
+            </div>
+            <div class="act-side"><small>answer &rarr;</small></div>
+          </div>`).join("")}</div>` : ""}
+
+      ${calls.length ? `${head("Calls", calls.length, "warn")}
+        ${crmRows(calls, "")}` : ""}
+
+      ${onsite.length ? `${head("On site", onsite.length, del?.counts?.late ? "danger" : "warn")}
+        <p class="page-sub">Ordering and bookings that have reached their date.</p>
+        <div class="acts">${onsite.map((r) => `
+          <div class="act ${r.due < del.date ? "danger" : "warn"}">
+            <div class="act-main">
+              <div class="act-top"><strong>${esc(r.label)}</strong>
+                <span class="act-co">${esc(r.job)}</span>${whenChip(r.due)}</div>
+              <div class="act-what">${esc(r.detail || "")}</div>
+            </div>
+            <div class="act-side"><small>Joseph</small></div>
+          </div>`).join("")}</div>` : ""}
+
+      ${soon.length ? `<h3>Coming this week</h3>${crmRows(soon, "")}` : ""}
+
+      ${t?.counts?.overdue ? `<p class="page-sub" style="margin-top:1.5rem">
+        ${t.counts.overdue} jobs are past their chase date and are not listed here -
+        a backlog is not a to-do list. They are on <a data-go="leads">Leads</a>,
+        biggest first.</p>` : ""}`;
   },
 
+  /* Every job we are quoting for, in one list, ordered by what is most
+     overdue. Split by WHO HAS IT rather than by stage: the only thing a
+     person wants to know here is whether it is sitting with estimating or
+     out with the client, and that is exactly where the Mary/Jacob handover
+     falls. */
   leads() {
     const live = CRM.leads.filter((l) => !l.outcome);
     const done = CRM.leads.filter((l) => l.outcome);
+    const byDate = (a, b) => (a.next_action_date || "9999").localeCompare(b.next_action_date || "9999");
+    const pricing = live.filter((l) => MARY_STAGES.includes(l.stage)).sort(byDate);
+    const chasing = live.filter((l) => !MARY_STAGES.includes(l.stage)).sort(byDate);
     const val = live.reduce((s, l) => s + (l.value || 0), 0);
     return `
       <div class="stats">
         <div class="stat"><b>${live.length}</b><span>live</span></div>
         <div class="stat"><b>${gbpShort(val)}</b><span>quoted, ex VAT</span></div>
+        <div class="stat"><b>${chasing.length}</b><span>out with a client</span></div>
         <div class="stat"><b>${done.length}</b><span>closed</span></div>
       </div>
-      <h3>Live</h3>${crmRows(live, "Nothing live.")}
+      <h3>With estimating <span class="chip navy">Mary</span></h3>
+      ${crmRows(pricing, "Nothing waiting to be priced.")}
+      <h3>Out with the client <span class="chip navy">Jacob</span></h3>
+      ${crmRows(chasing, "Nothing out.")}
       ${done.length ? `<h3>Closed</h3>${crmRows(done, "")}` : ""}`;
   },
 
@@ -3418,8 +3518,12 @@ const CRM_RENDER = {
 
   /* Paul and Steve's page. Task first, job second - they work a day, not a
      portfolio - and every row says what to order, not only that it is due,
-     which is the thing Adam said the AdminBase board never did. */
-  delivery() {
+     which is the thing Adam said the AdminBase board never did.
+
+     Money lives at the bottom of this page rather than in a section of its
+     own, because it is the last two steps of the same checklist and because
+     it is empty until Adam rules on D2-D4. */
+  contracts() {
     const d = CRM.delivery;
     if (!d) return `<div class="empty"><strong>The CRM is not answering.</strong></div>`;
     const rows = (list, empty) => list.length ? `<div class="acts">${list.map((r) => `
@@ -3439,7 +3543,13 @@ const CRM_RENDER = {
       </div>
       <h3>Late</h3>${rows(d.late || [], "Nothing is late.")}
       <h3>Today</h3>${rows(d.due || [], "Nothing due today.")}
-      <h3>Coming up</h3>${rows(d.coming || [], "Nothing in the next fortnight.")}`;
+      <h3>Coming up</h3>${rows(d.coming || [], "Nothing in the next fortnight.")}
+      <h3>Money</h3>
+      <div class="planned-note"><p><strong>Invoicing and chasing are not built yet,
+        and it is not a coding problem.</strong> Three things have to come from Adam
+        first: the six chase stages and their day counts, whether these are payment
+        applications or final invoices, and where the invoice figure comes from when
+        there are variations. The tables are in the CRM waiting for the answers.</p></div>`;
   },
 };
 
@@ -3464,15 +3574,16 @@ const BOTS = {
       hint: () => STATUS?.state === "working" ? "she is mid-job - this queues behind it" : "picked up within seconds",
     },
   },
-  /* Not a bot - the record all three of them write to. It sits in the same
-     registry because the hub is registry-driven and a card in the sidebar is
-     exactly what it is: another board to open. No status, no chat, nothing to
-     ask it. */
-  crm: {
-    key: "crm", name: "The CRM", role: "Leads, companies, delivery", initials: "CR", accent: "crm",
-    pages: CRM_PAGES, render: CRM_RENDER,
-    status: null, needsYou: null, badges: () => ({}),
-    updatedLine: () => "Live - read straight from the record, not a snapshot",
+  /* THE WORK. Not a bot and not a card - this is the top of the nav, and it is
+     what the hub opens on. Everything in it is one record shared by all three
+     bots, read live from /api/crm/* rather than from a board file, which is
+     what makes "Adam moves a date by email and it is on the page" true. */
+  work: {
+    key: "work", name: "The work", role: "", initials: "", accent: "",
+    pages: WORK_PAGES, render: CRM_RENDER,
+    isWork: true,
+    status: null, badges: () => ({}),
+    needsYou: () => 0,
   },
   jacob: {
     key: "jacob", name: "Jacob Wright", role: "Business development", initials: "JW", accent: "jw",
@@ -3534,7 +3645,10 @@ function render() {
   // Group headings break an 11-item list into something scannable. Only
   // emitted when the group changes, so ungrouped pages still render flat.
   let lastGroup = null;
-  $("#nav-items").innerHTML = pages.map((p) => {
+  // The work's own sections are already listed at the top of the sidebar by
+  // renderSidebar - listing them again here would put the same four buttons
+  // on screen twice.
+  $("#nav-items").innerHTML = bot.isWork ? "" : pages.map((p) => {
     const head = p.group && p.group !== lastGroup
       ? `<div class="nav-group">${esc((lastGroup = p.group))}</div>` : "";
     return `${head}<button class="nav-item${p.key === page ? " active" : ""}" data-nav="${p.key}">${ICONS[p.icon || p.key] || ""}${p.label}
@@ -3649,7 +3763,18 @@ if (!ME) askWho(false);
 
 document.addEventListener("click", async (e) => {
   // Anything chosen inside the drawer has served its purpose - get out of the way.
-  if (e.target.closest("#nav [data-nav], #nav [data-bot]")) setNav(false);
+  if (e.target.closest("#nav [data-nav], #nav [data-bot], #nav [data-work]")) setNav(false);
+  // A work section: Today, Leads, Contracts, Companies. These sit above the
+  // staff cards and are where a job actually lives.
+  const wk = e.target.closest("[data-work]");
+  if (wk) {
+    BOT = "work";
+    page = wk.dataset.work;
+    searchTerm = "";
+    closePanel();
+    render();
+    return;
+  }
   // Swap the whole board between the Team view and a bot's board.
   const bot = e.target.closest("[data-bot]");
   if (bot) {
