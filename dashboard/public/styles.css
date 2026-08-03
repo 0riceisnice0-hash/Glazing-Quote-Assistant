@@ -493,6 +493,15 @@ button, input, select, textarea { font-family: inherit; }
 .btn-quiet:hover { background: var(--paper); }
 .crm-msg { font-size: var(--t-12); color: var(--muted); }
 
+/* The record arguing with itself, said at the top of it rather than buried. */
+.crm-flags { border: 1px solid var(--red); border-left-width: 3px; background: var(--red-50);
+  border-radius: var(--r-sm); padding: 11px 14px; margin: 0 0 16px; }
+.crm-flags p { margin: 0 0 6px; font-size: var(--t-13); color: var(--ink); line-height: 1.5; }
+.crm-flags p:last-child { margin-bottom: 0; }
+.crm-flags strong { color: var(--red); }
+/* A row can carry a flag beside its date without the date jumping a line. */
+.crm-tbl td.nowrap .chip { margin-left: 6px; }
+
 .crm-steps { list-style: none; padding: 0; margin: 0; }
 .crm-steps li { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 4px 12px;
   padding: 9px 0; border-bottom: 1px solid var(--line); font-size: var(--t-13); }

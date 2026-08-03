@@ -3328,6 +3328,7 @@ const CRM_FILTERS = {
     quiet: (l) => !l.outcome && isQuiet(l),
     pricing: (l) => !l.outcome && MARY_STAGES.includes(l.stage),
     undated: (l) => !l.outcome && leadAge(l) === null,
+    flagged: (l) => !l.outcome && flagged(l),
     closed: (l) => !!l.outcome,
   },
   co: {
@@ -3347,6 +3348,43 @@ const CRM_FILTERS = {
 function crmHasLive(key) {
   return CRM.leads.some((l) => !l.outcome && l.company_key === key);
 }
+
+/* WHERE THE RECORD ARGUES WITH ITSELF.
+   The chase DATE was seeded from AdminBase's next-action column; the chase
+   TEXT is Jacob's own reading of the mailboxes. Nothing ever checked the two
+   agree, and on 14 leads holding GBP 3.0m they do not - The Hub Alkerden reads
+   503 days overdue while its own note says Sinden asked us for an updated
+   quotation in July 2026 and explicitly says DO NOT ask them if it is live.
+
+   These are FLAGGED, not corrected. A regex over prose is decent evidence that
+   two fields disagree and poor evidence about which one is right, and silently
+   rewriting a commercial date on that basis is how a CRM starts lying
+   confidently. A human or the Overseer decides; this just refuses to let it
+   hide. */
+const DATE_IN_TEXT = /\b(\d{1,2})\/(\d{1,2})\/(20\d{2})\b/g;
+const DO_NOT_CHASE = /\bdo not (ask|chase|contact|approach)\b/i;
+
+function leadFlags(l) {
+  const out = [];
+  const txt = l.next_action || "";
+  if (DO_NOT_CHASE.test(txt)) out.push({ k: "hold", label: "Do not chase",
+    why: "This lead's own note says not to approach them." });
+  const nad = l.next_action_date;
+  if (nad && txt) {
+    let newest = null, m;
+    DATE_IN_TEXT.lastIndex = 0;
+    while ((m = DATE_IN_TEXT.exec(txt))) {
+      const d = `${m[3]}-${String(+m[2]).padStart(2, "0")}-${String(+m[1]).padStart(2, "0")}`;
+      if (!newest || d > newest) newest = d;
+    }
+    if (newest && newest > nad) {
+      out.push({ k: "stale", label: "Date looks wrong",
+        why: `The chase date is ${nad}, but the note refers to ${newest}. The date came from AdminBase and the note from the mailboxes; they were never reconciled.` });
+    }
+  }
+  return out;
+}
+const flagged = (l) => leadFlags(l).length > 0;
 
 /* Sort keys that are not columns on the row itself. */
 const CRM_SORTVAL = {
@@ -3419,18 +3457,23 @@ function whenChip(d) {
     abs === 0 ? "due today" : late ? `${t} late` : `in ${t}`}</span>`;
 }
 
+/* The same row shape the record lists use, so a job looks identical wherever
+   it appears. Today used to build its own and came out at 226px a row against
+   64 on Leads - the same data, twice as tall, on the page most likely to be
+   read in a hurry. */
 function crmRows(list, empty) {
   if (!list.length) return `<div class="empty"><strong>${empty}</strong></div>`;
-  return `<table class="tbl"><thead><tr>
+  return `<table class="tbl crm-tbl"><thead><tr>
       <th>Job</th><th>Client</th><th>Stage</th><th class="num">Value</th>
-      <th>Next</th><th>When</th></tr></thead><tbody>
+      <th>Next action</th><th>Due</th></tr></thead><tbody>
     ${list.map((l) => `<tr data-crm="${esc(l.key)}">
-      <td><strong>${esc(l.title || l.key)}</strong></td>
-      <td>${esc((crmCo(l.company_key) || {}).name || l.company_key)}</td>
+      <td class="crm-title"><span><strong>${esc(l.title || l.key)}</strong></span></td>
+      <td class="crm-title"><span>${esc((crmCo(l.company_key) || {}).name || l.company_key)}</span></td>
       <td><span class="chip ${stageTone(l.stage)}">${esc(STAGE_LABEL[l.stage] || l.stage)}</span></td>
       <td class="num">${l.value ? gbp(l.value) : "-"}</td>
-      <td>${esc((l.next_action || "").slice(0, 90)) || "<em>nothing set</em>"}</td>
-      <td>${whenChip(l.next_action_date || l.award_due)}</td>
+      <td class="crm-next"><span>${esc((l.next_action || "").slice(0, 160)) || "<em>nothing set</em>"}</span></td>
+      <td class="nowrap">${whenChip(l.next_action_date || l.award_due)}
+        ${leadFlags(l).map((f) => `<span class="chip danger" title="${esc(f.why)}">${esc(f.label)}</span>`).join("")}</td>
     </tr>`).join("")}</tbody></table>`;
 }
 
@@ -3457,6 +3500,71 @@ function crmField(id, label, value, opts) {
   }
   return `<label class="crm-f"><span>${esc(label)}</span>
     <input id="${id}" value="${esc(value || "")}"></label>`;
+}
+
+/* A company record: who they are, what they have paid, every job we have
+   quoted them, and the people we deal with. */
+async function crmPanelCompany(key) {
+  openPanel(`<h2>Loading...</h2>`);
+  let d;
+  try { d = await api("crm/company/" + encodeURIComponent(key)); }
+  catch { toast("Could not load that company"); closePanel(); return; }
+  if (!d || d.error) { toast("No such company"); closePanel(); return; }
+  const C = d.company;
+  const leads = (d.leads || []);
+  const live = leads.filter((l) => !l.outcome);
+  openPanel(`
+    <h2>${esc(C.name)}</h2>
+    <p class="sub">${esc(C.relationship)}${C.postcode ? " &middot; " + esc(C.postcode) : ""}</p>
+    <div class="stats">
+      <div class="stat"><b>${C.lifetime_value ? gbpShort(C.lifetime_value) : "-"}</b><span>they have paid us</span></div>
+      <div class="stat"><b>${live.length}</b><span>live quotes</span></div>
+      <div class="stat"><b>${gbpShort(money(live).total)}</b><span>out with them</span></div>
+    </div>
+    <div class="panel-sec"><h4>Edit</h4>
+      <div class="crm-form">
+        ${crmField("cy-name", "Name", C.name)}
+        ${crmField("cy-rel", "Relationship", C.relationship,
+          [["won", "has bought"], ["quoted", "quoted only"], ["known", "known"],
+           ["cold", "cold"], ["unknown", "unknown"]])}
+        ${crmField("cy-terms", "Payment terms", C.payment_terms)}
+        ${crmField("cy-pc", "Postcode", C.postcode)}
+      </div>
+      <div class="crm-actions">
+        <button id="cy-save" class="btn-primary" type="button">Save</button>
+        <span id="cy-msg" class="crm-msg"></span>
+      </div>
+    </div>
+    <div class="panel-sec"><h4>Who we deal with</h4>
+      ${(d.contacts || []).length ? `<ul class="unk">${d.contacts.map((c) => {
+        const named = (c.name || "").trim();
+        return `<li>${esc(named || c.email)}${c.role ? " - " + esc(c.role) : ""}
+          ${named && c.email ? `<br><small>${esc(c.email)}</small>` : ""}
+          ${c.phone ? `<br><small>${esc(c.phone)}</small>` : ""}</li>`;
+      }).join("")}</ul>` : `<p class="page-sub">No contacts on record.</p>`}
+    </div>
+    <div class="panel-sec"><h4>Their jobs <span class="chip navy">${leads.length}</span></h4>
+      ${leads.length ? `<table class="tbl crm-tbl"><thead><tr>
+          <th>Job</th><th class="num">Value</th><th>Stage</th></tr></thead><tbody>
+        ${leads.map((l) => `<tr data-crm="${esc(l.key)}">
+          <td class="crm-title"><span>${esc(l.title || l.key)}</span></td>
+          <td class="num">${l.value ? gbp(l.value) : "-"}</td>
+          <td><span class="chip ${stageTone(l.stage)}">${esc(STAGE_LABEL[l.stage] || l.stage)}</span></td>
+        </tr>`).join("")}</tbody></table>`
+        : `<p class="page-sub">Nothing quoted to them yet.</p>`}
+    </div>`);
+  $("#cy-save")?.addEventListener("click", async () => {
+    const el = $("#cy-msg");
+    el.textContent = "Saving...";
+    try {
+      const fields = { name: $("#cy-name").value.trim(), relationship: $("#cy-rel").value,
+                       payment_terms: $("#cy-terms").value.trim(), postcode: $("#cy-pc").value.trim() };
+      await crmSave("company", key, fields, "edited on the hub");
+      Object.assign(crmCo(key) || {}, fields);
+      el.textContent = "Saved";
+      render();
+    } catch { el.textContent = "Could not save"; }
+  });
 }
 
 /* A won job: the twelve steps, tickable, and the site date everything counts
@@ -3525,9 +3633,12 @@ async function crmPanelLead(key) {
   if (!d || d.error) { toast("No such job"); closePanel(); return; }
   const L = d.lead, C = d.company || {};
   const sec = (title, body) => body ? `<div class="panel-sec"><h4>${title}</h4>${body}</div>` : "";
+  const flags = leadFlags(L);
   openPanel(`
     <h2>${esc(L.title || L.key)}</h2>
     <p class="sub">${esc(C.name || L.company_key)}${L.site ? " &middot; " + esc(L.site) : ""}</p>
+    ${flags.length ? `<div class="crm-flags">${flags.map((f) =>
+      `<p><strong>${esc(f.label)}.</strong> ${esc(f.why)}</p>`).join("")}</div>` : ""}
     <div class="panel-sec"><h4>Edit</h4>
       <div class="crm-form">
         ${crmField("cl-stage", "Stage", L.stage,
@@ -3746,13 +3857,15 @@ const CRM_RENDER = {
       quiet: CRM.leads.filter((l) => !l.outcome && isQuiet(l)).length,
       pricing: CRM.leads.filter((l) => !l.outcome && MARY_STAGES.includes(l.stage)).length,
       undated: CRM.leads.filter((l) => !l.outcome && leadAge(l) === null).length,
+      flagged: CRM.leads.filter((l) => !l.outcome && flagged(l)).length,
       closed: CRM.leads.filter((l) => l.outcome).length,
     };
     return `
       ${crmTabs("lead", [
         ["all", "All", counts.all], ["live", "Live", counts.live],
         ["quiet", "Gone quiet", counts.quiet], ["pricing", "With estimating", counts.pricing],
-        ["undated", "No date", counts.undated], ["closed", "Closed", counts.closed],
+        ["undated", "No date", counts.undated],
+        ["flagged", "Needs checking", counts.flagged], ["closed", "Closed", counts.closed],
       ], CRMV.leadFilter)}
       ${crmCount(rows.length, CRM.leads.length, "job")}
       <table class="tbl crm-tbl">
@@ -3772,7 +3885,8 @@ const CRM_RENDER = {
           <td class="num">${l.value ? gbp(l.value) : "-"}</td>
           <td class="crm-next"><span>${esc((l.next_action || "").slice(0, 160)) || "<em>none set</em>"}</span></td>
           <td class="nowrap">${l.next_action_date
-              ? `${esc(l.next_action_date)} ${whenChip(l.next_action_date)}` : "-"}</td>
+              ? `${esc(l.next_action_date)} ${whenChip(l.next_action_date)}` : "-"}
+            ${leadFlags(l).map((f) => `<span class="chip danger" title="${esc(f.why)}">${esc(f.label)}</span>`).join("")}</td>
         </tr>`).join("")}</tbody>
       </table>
       ${rows.length ? "" : `<div class="empty"><strong>Nothing matches.</strong></div>`}`;
@@ -4163,15 +4277,13 @@ document.addEventListener("click", async (e) => {
   // A CRM row: open the whole job - company, contacts, quote, notes, history.
   const cr = e.target.closest("[data-crm]");
   if (cr) { crmPanelLead(cr.dataset.crm); return; }
-  // A company row filters Leads to that company's work, which is what anybody
-  // wants next from a company.
+  // A company opens the COMPANY. It used to jump to Leads with the company
+  // name typed into the search box, which was wrong twice over: a CRM should
+  // open the record you clicked, and applyFilter() never matched CRM rows
+  // anyway, so the search did nothing and you landed on an unfiltered list
+  // wondering what you were looking at.
   const cc = e.target.closest("[data-crmco]");
-  if (cc) {
-    searchTerm = (crmCo(cc.dataset.crmco) || {}).name || "";
-    const box = $("#search"); if (box) box.value = searchTerm;
-    CRMV.leadFilter = "all";
-    BOT = "work"; page = "leads"; closePanel(); render(); return;
-  }
+  if (cc) { crmPanelCompany(cc.dataset.crmco); return; }
   const cn = e.target.closest("[data-crmcon]");
   if (cn) { crmPanelContract(cn.dataset.crmcon); return; }
   // A queued work order: open the full text - the row only has room to clamp.
