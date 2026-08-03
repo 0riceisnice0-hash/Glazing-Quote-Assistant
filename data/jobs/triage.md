@@ -58,6 +58,28 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **30/07 - STEPNELL ST JAMES HOUSE: NO QUOTE WENT BACK AGAINST THE 19/01 ITT, AND THAT IS CORRECT
+  (botmsg-42, answered).** Jacob's board had three rows as "quoted, 250-301 days silent, chase for a
+  final answer" and asked before correcting it in front of Adam. The 19/01/2026 ITT (bid ref SC0078B,
+  trade L_SC Aluminium Doors & Windows, return 04/02) **contained no work for us**: internal doors plus
+  one window "redub" line. Gintare said so 21/01 with the Trade Bill and Door Schedule as evidence,
+  Jayk put it to Luke Walsh in writing 23/01 ("can't find anything referring to windows - are we
+  missing elements?"), and **Luke confirmed 26/01: "I have a bill item for windows 'to follow'. The
+  client is still assessing the best route for the windows you quoted for the front elevation."**
+  So the deadline was ANSWERED by a scope query, not missed - and **the direction is reversed: Stepnell
+  owe us a bill item, 185 days old today.** Board corrections: last contact is 26/01/2026 so the
+  silence is ~185 days not 250-301, and **SC0078B returns ZERO hits in estimating@** - a bid ref can
+  live only in the folder copy, so searching one never proves whether we responded.
+- **30/07 - AND FILWOOD HAS NOT GONE, BUT ADAM ALREADY KNOWS - SO NO EMAIL.** Jacob asked whether a
+  live Stepnell email was going out today that St James House could ride on. It is not: RFQ 23/07, BSW
+  back 24/07, **QUOTE TO CHECK to Adam 27/07 13:17 and sitting with him since**, A Plus QT51510 28/07,
+  nothing after. The extension to 30/07 came from Paul Taylor, 17/07 14:06. **`mary_send --check` plus
+  the send log settled it: the 07:54 morning update LEADS with "Filwood Broadway (Stepnell, S25233B) -
+  closes today, not issued"** and carries the GBP 67,067.58, the GBP 3,500 install line against
+  GBP 18,446.32 at our own CW labour rate (corrected GBP 82,013.90), Bill item A's provisional-sums
+  question and both U-value refusals; REQ-10 is open. A second email 40 minutes later would have been
+  the exact "send, then send again" noise the rules exist to stop. **Checking what already went is what
+  turned an urgent-looking finding into no action.**
 - **30/07 - MHA NUNEATON: A SUPPLIER QUOTE FOR A JOB THAT EXISTS NOWHERE I CAN SEE (Vetroseal 065209,
   06:27).** 8 units 620x2020, 4T-18-6.8 lami/tgh softcoat, GBP 558.64 net. **Every figure checks** -
   unit area, line total, energy surcharge, VAT, gross. But there is **no MHA Nuneaton enquiry anywhere
@@ -163,87 +185,6 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   same job more than once** - Zelltec Crownhill appears four times, three identical - because `collect()`
   treats every copy of a pricing file, "- Copy.xlsx" included, as another job. That weights both the mean
   AND the learned rates by how many copies happen to sit in a folder.
-- **29/07 - RSR DRH1 (Amazon, Crawley): THE GBP 750 IS UNDER COST AND STILL UNCONFIRMED (botmsg-22
-  and -24, both answered; full account in `data/jobs/triage-archive-2026-07.md`).** RSR are not dormant -
-  Harri Birt has been waiting on us since 09/10/2025 with Amazon's sign-off, unable to issue her own
-  quotation until we confirm. **GBP 750 + VAT was priced off a single 556 x 876 pane; the article is a
-  bonded CORNER (556 x 556 x 876) and Johnson & Sons' buy for it is GBP 960 + VAT, so confirming GBP 750
-  sells at a loss of at least GBP 210.** Nobody confirms it; it needs re-quoting off the GBP 960. The
-  "who fits one window 130 miles away" blocker was answered nine months ago - Johnson & Sons priced it.
-  Not emailed: Adam set the corner spec himself and received the GBP 960, so none of it is news to him.
-  Durable facts from it: **jayk@ is a hard 404**, so a forward into it is never a clean negative; Harry
-  Grover left Fenster 31/10/2025; bot_chat clips at 4,000 characters; RRR Group / RSR name collision.
-- **29/07 - TWO OF THE LAST THREE ISSUED QUOTES NEVER REACHED JACOB. BACKFILLED (botmsg-21).** His FYI
-  said Adam had put the three priced-but-unissued jobs with me (hub-77) and they were off his chase list
-  "until Mary says they have been sent to client". Nothing in it needed a reply; what it was worth was
-  the check it prompted. Three quotes left the building in two days and only **one** produced a
-  `quote_issued` ledger event (Grange Hill). **Georgie's** (GBP 89,229.61 to Pearce, 28/07 14:01) and
-  **SM5 Wexham** (GBP 20,563.57 to SM5 Developments, 29/07 12:22) had none - confirmed from the other
-  side, his `bridge-state.json` "seen" list has only ever held two handover keys. So both sat issued and
-  unchased, invisible to the one bot whose job is chasing them. Backfilled `issued:georgies:2026-07-28`
-  and `issued:sm5-wexham:2026-07-29` with the contact and the decision position in each summary. **The
-  failure mode is that a forgotten structural handover looks exactly like a job with nothing to chase** -
-  no bounce, no unanswered question, nothing that fails. No botchat: the ledger event IS the handover,
-  which is the whole point of the 29/07 rule. Board note posted.
-- **29/07 - JACOB'S UPTIME: FOUR GATES, NOT ONE (Zac, dashmsg-95 - "he's hit some kind of hard limit,
-  can you increase it").** It was his own bridge, not an API limit: `DAILY_BUDGET_HOURS` 4.0, spent by
-  20:14, then "HELD BACK" every two minutes for 1h50m into `bridge.log` and nowhere else - with three
-  of ADAM'S instructions unworked since 19:21, one of them "spend the night working on this if you
-  have to, I want a full list in the morning". `fails` was 0 and the 19:50 session exited clean, which
-  is how you tell our limit from theirs. Raised to 12.0 - **the budget is a runaway backstop, not a
-  work schedule** - but the number alone would have changed nothing tonight: the standing agenda also
-  had a **07:00-21:00 curfew** (it was 22:00, so he would have gone silent till 07:00 whatever the
-  budget said), a **4-hour cadence** (~25 min of work per 240), and a **leftover yield to Mary's
-  session lock** that you removed from `dispatch()` on 29/07 but not from `maybe_self_agenda`. All
-  four fixed. **The value is read at import** - editing the file did nothing until the JacobBridge
-  scheduled task was restarted (pid 12160 -> 5724, still parented to Task Scheduler so it survives a
-  session). A held-back bridge now publishes that to the hub's Queue tab. Residual risk named to Zac:
-  his 12 plus my 8 on one account, with Filwood and Vesuvius closing 30/07.
-- **29/07 - A BLANK DEADLINE IS NOW A LABELLED 7-DAY DEFAULT (Adam, dashmsg-93).** He saw "NaN days
-  left" on the Bridport card I had just added with an empty deadline. Fixed at the root, not on the
-  card: `daysUntil` returns null instead of NaN, `niceDate` prints "not set", and
-  `mary_dashboard.apply_default_deadlines` fills any blank with today+7, writes it back to the state
-  file and sets `deadline_is_default`. The chip reads "N days (DEFAULT, not client-set)" and stays
-  amber. **`deadline_basis` had never been rendered on the hub at all** - every caution written into
-  it since was invisible; it now shows on the job panel. Setting a real date = overwrite `deadline`
-  AND drop the flag. Bridport and Redditch Library both carry a default of 05/08/2026.
-- **29/07 - NEW JOB OPENED: `south-street-bridport`.** Adam forwarded a website enquiry at 15:44 with a
-  direct instruction - quote 10 South Street, Bridport (Waste Not Want Not Bridport Ltd) in Smart Wall
-  with a Shopline option, white, laminated, drawings if possible, 8m x 2.5m with 1m/600mm returns.
-  Chat opened, briefed, hub card and handover row added. **The brief carries the two scope items Adam
-  did not name and the client did**: combining the two doors into a double-door entrance, and a rear
-  door to be replaced with a glazed one. Triage's job here was to classify and hand on, not to price.
-- **29/07 - THE POLLER WAS QUEUEING DRAFTS. Fixed in `mary_poller.py` (skips `isDraft`).**
-  `whole_mailbox=True` spans Drafts, so Outlook autosaves arrived as work orders: four today. The
-  unroutable "Fenster Glazing " one was Gintare's Lower Range RFQ caught 13 minutes before she sent
-  it; work order `20260729T1307` was Grange Hill's real 13:10 pack minus all three attachments and
-  minus the "QUOTE TO CHECK" prefix, which is why that chat built a rival return. A draft shares its
-  sent copy's `internetMessageId`, so queueing it also SUPPRESSED the finished email - four keys
-  freed from `data/mary-state.json`. A work order that feels empty or has no attachments where you
-  expected some: check the sent copy before acting.
-- **29/07 - Brandon Estate (Elkins) answered for Jacob, botmsg-18. It is HIS.** Original package
-  GBP 3,998,686.95 (Sheerline) issued 01/06 to Trevor Copeman; REV 2 GBP 7,196,695.63 issued 15/06 to
-  Chris Conlon after Comar's schedule turned 1,325 windows into 2,202 frames with doors. `quote_issued`
-  recorded. AdminBase lead 8324 has the VALUE right and dates it 15/05 - that is the day the BCC'd RFQ
-  went to four fabricators, not the day the quote went out. Award pending; Chris Conlon 18/07 "no
-  update, I am not hopeful about our position". Adam has the chase line open himself (11/07, 20/07),
-  so do not add a third voice.
-- **29/07 - Do not mute a live project.** Muting needs a registry job, and `_muted()`'s carve-out routes
-  trusted / dashboard / botchat / `@fensterglazing.com` senders to the JOB KEY - so muting a job with no
-  chat OPENS one. Tested against the live registry. The mute only works where a chat already exists.
-- **29/07 - Aggregator alerts are not portal notices** and have their own rule in MARY-EMAIL-SESSION s2.
-  Read the `Status:` field first: `ContractAwardNotice`/`PriorInformationNotice` are already awarded.
-  Across four Supply2Gov alerts, 15 of 30 unique items were these. Live items are BD leads.
-- **29/07 - The Supply2Gov subscription question is NOT settled, and my own sceptical note is only half
-  the evidence.** I recorded at 10:05 that four alerts produced two live on-package mainland leads and
-  that the upgrade case was weak. Jacob then swept 353 tender-stage releases across Contracts Finder and
-  Find a Tender over 21 days and found **neither Ryde nor Corby** - so both are genuinely outside the
-  free feeds, which cuts the other way. Do not re-derive either half alone. If it reaches Adam, the
-  honest framing carries both.
-- **29/07 - Do not build a marketing filter on body footers.** Tender portals put "unsubscribe / manage
-  preferences" on invitations and reply chains propagate them: that test hits 42 of 152 work orders and
-  39 are live tender traffic. Bulk mail is 4 in 152 - too rare to justify a mechanism.
-
 ## What Adam said
 
 - **Manor Lodge / live projects (28/07 15:50, restated 29/07 10:59 after I breached it):** *"Manor Lodge
@@ -293,3 +234,9 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   Botchat is now ONLY for questions needing an answer (`--wants-reply`) and collision warnings.
 - **Before emailing Adam:** apply `data/knowledge/adam.md` and run
   `python scripts\mary_send.py --check --subject "..."`.
+
+---
+
+## History
+
+69 lines of working detail moved to `data/jobs/triage-archive-2026-07.md` on 2026-08-03 to bring this file inside the seed contract. Nothing was dropped. Go there when this file leaves a specific gap - and if it does, fix this file so the next chat is not missing it too.

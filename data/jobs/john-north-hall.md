@@ -19,6 +19,17 @@
 
 ---
 
+## Position
+
+**Nothing has been issued and nothing should be.** Checks stand at 3 FAIL, 2 ASK
+(`data/job-checks/john-north-hall.json`). The job cannot be priced until it is
+surveyed - there are no dimensions - and the survey wants to happen in the first
+week of August to clear a **9am Monday 24 August** deadline. Adam owes the whole
+of REQ-32: the decision to bid, the survey booked with Jordan Jones, PL cover and
+waste carrier licence, and the hourly/daywork rates, which become contract terms.
+Full detail and the ordered next actions are under "Position, and who owes what"
+below.
+
 ## Scope
 
 Replace **all 5 external communal block entrance door sets** at Vaughan House. New SMA Smart-Wall aluminium doorsets, **brown**.

@@ -47,8 +47,10 @@ MAX_LINES = 300
 # Anything in this family satisfies that. A file that states its position by
 # leading with the issued number ("## ISSUED 29/07 - GBP 20,563.57") satisfies
 # it too, which is why the issued/quoted forms are here.
+# The `> ` prefix is there because a heading inside a callout is still a
+# heading - st-marys leads with its whole position in a blockquote.
 POSITION_HEADINGS = re.compile(
-    r"^#{1,3}\s*(?:\d+[.)]\s*)?(?:"
+    r"^>?\s*#{1,3}\s*(?:\d+[.)]\s*)?(?:"
     r"position"
     r"|current position"
     r"|where (?:it|this|we|the job|this job)\b.*stand"

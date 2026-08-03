@@ -13,6 +13,20 @@ Chat key `vesuvius`. Job file opened 28/07/2026. Update whenever the position mo
 > path, it will stop resolving.** Mined data (`job-history.json`, `supplier-rates.json`)
 > left alone.
 
+## Position
+
+**Benchmarked at GBP 110,666.70 ex VAT, not supplier-backed, and not issued.**
+The return date was 30/07. The one thing blocking a real price is **REQ-8, the
+60-minute fire-rated door package**: the specification requires all external
+doors at 60 min, some of those doors sit inside curtain walling, and nothing in
+`estimating@` answers the question. Adam recorded on 28/07 that Gintare and Steve
+are on it - which says who, not what was decided, and whatever they concluded is
+not written down anywhere Mary can see.
+
+**Expect this to run high.** Calibration is +10.4% mean bias over five points and
+the >6 m2 band ran +35.2% on St Mary's; this job is 79% curtain walling, which is
+the band that over-prices. Say so on the face of anything issued.
+
 ## The job
 
 | | |
