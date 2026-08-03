@@ -33,6 +33,12 @@ import uuid
 from datetime import datetime, timezone
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import jacob_router as router          # noqa: E402 - needs the path above
+import mary_cost as cost               # noqa: E402
+import mary_jobfile as jobfile         # noqa: E402
+import mary_budget as budget           # noqa: E402
+
 INBOX = os.path.join(REPO, "test-results", "jacob-inbox")
 QUEUE = os.path.join(INBOX, "queue")
 DONE = os.path.join(INBOX, "processed")
@@ -62,6 +68,14 @@ CLAUDE = os.path.join(os.path.expanduser("~"), ".local", "bin", "claude.exe")
 # pythonw hides the bridge itself, but a console-subsystem child such as
 # claude.exe can still create a window unless Windows is told not to make one.
 NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+
+# Same cost architecture as Mary's, and for the same reason - his sessions were
+# not measured at all until now. Rotate a chat when the context it would carry
+# gets expensive; a relationship needs less room than a live tender, so this
+# sits below Mary's 150k.
+ROTATE_CONTEXT = int(os.environ.get("JACOB_ROTATE_CONTEXT", "120000"))
+SESSION_WARN_TOKENS = int(os.environ.get("JACOB_SESSION_WARN", "15000000"))
+SESSION_KILL_TOKENS = int(os.environ.get("JACOB_SESSION_KILL", "40000000"))
 
 
 def log(msg):
@@ -319,6 +333,168 @@ def maybe_self_agenda(state):
 _worker = [None]
 
 
+def read_orders():
+    """Every queued work order, oldest first, with its filename attached."""
+    out = []
+    for name in sorted(os.listdir(QUEUE)):
+        if not name.endswith(".json"):
+            continue
+        path = os.path.join(QUEUE, name)
+        rec = load(path, None)
+        if rec is None:
+            log("UNREADABLE work order %s" % name)
+            continue
+        rec["_file"] = name
+        rec["_path"] = path
+        out.append(rec)
+    return out
+
+
+def group_by_company(orders, reg):
+    """Route every order, then group by chat, oldest group first."""
+    groups = {}
+    for o in orders:
+        key, why = router.route(o, reg)
+        o["_route_why"] = why
+        groups.setdefault(key, []).append(o)
+    return sorted(groups.items(), key=lambda kv: kv[1][0].get("created", ""))
+
+
+def rotate_if_heavy(reg, key, rec):
+    """Retire a chat carrying too much context, gated on the company file.
+
+    Same two rules as Mary's bridge. Rotating into an out-of-contract file does
+    not save tokens, it moves them - so a heavy chat with a bad file does not
+    rotate, it is told to fix the file first.
+    """
+    ctx = cost.context_size(rec["session_id"])
+    if ctx < ROTATE_CONTEXT:
+        return False
+    problems = jobfile.check_company(key) if key != router.DESK else []
+    if problems:
+        rec["file_warn"] = "; ".join(problems)
+        router.save_registry(reg)
+        log("  [%s] due to rotate at %s context tokens but its company file is out "
+            "of contract - not rotating. %s"
+            % (key, "{:,}".format(ctx), rec["file_warn"]))
+        return False
+    old = rec["session_id"]
+    rec["session_id"] = str(uuid.uuid4())
+    rec["started"] = False
+    rec["rotated_from"] = old
+    rec["rotated_at"] = datetime.now().isoformat(timespec="seconds")
+    rec["rotations"] = rec.get("rotations", 0) + 1
+    router.save_registry(reg)
+    log("  [%s] chat retired carrying %s context tokens - starting fresh from "
+        "data/companies/%s.md" % (key, "{:,}".format(ctx), key))
+    return True
+
+
+def build_prompt(key, title, orders, first_run, reg):
+    """What wakes one of his chats. Lean on resume, seeded on a fresh start."""
+    lines = []
+    if key == router.DESK:
+        if first_run:
+            lines.append(
+                "You are Jacob Wright, Fenster Glazing's business development manager. This "
+                "conversation is your permanent DESK chat - the front desk. It is resumed for "
+                "anything that does not belong to a company chat, so treat it as your running "
+                "log of what is arriving.\n\n"
+                "One-off setup, do it now: read JACOB-SESSION.md (your manual), then "
+                "data/knowledge/bd.md (what you know about how Fenster wins work). "
+                "data/jacob/README.md tells you where each of your data files comes from and "
+                "what it cannot tell you.")
+        else:
+            lines.append(
+                "New work for your desk. This chat already holds your running history - use it. "
+                "Do NOT re-read your manual or bd.md unless something specific is missing; that "
+                "is what this conversation is for.")
+        lines.append(
+            "\nIf any of this belongs to ONE company you deal with, do not work it here. Open "
+            "or name that company's chat instead:\n"
+            "  python scripts\\jacob_router.py --add-company <key> --name \"...\" "
+            "--domains <domain> --match \"...\"\n"
+            "then set the route on the work order and leave it in the queue - the bridge will "
+            "wake that chat with it. A company chat REMEMBERS; the desk does not.")
+    else:
+        comp = reg["companies"].get(key, {})
+        if first_run:
+            lines.append(
+                "You are Jacob Wright, Fenster Glazing's business development manager. This "
+                "conversation is the PERMANENT chat for ONE company: %s. It will be resumed "
+                "for every future piece of work on this relationship, so what you learn here "
+                "you keep.\n\n"
+                "One-off setup, do it now: read JACOB-SESSION.md, then "
+                "data/companies/%s.md - that file is the distilled position on this "
+                "relationship. For recent history run: python scripts\\mary_recall.py "
+                "--grep \"%s\" --days 30. Do NOT read bd.md end to end unless the company "
+                "file leaves a specific gap, and if it does, fix the company file so the next "
+                "chat is not missing it too."
+                % (title, key, comp.get("name", title)))
+        else:
+            lines.append(
+                "New work on %s. This chat already holds this relationship's history - use it. "
+                "Do NOT re-read your manual or the company file unless something specific is "
+                "missing; that is what this conversation is for." % title)
+
+    lines.append("\nWORK ORDERS (full JSON in test-results\\jacob-inbox\\queue\\):")
+    for o in orders[:12]:
+        lines.append("  - %s: %s - %s"
+                     % (o.get("kind", "?"), o.get("author") or o.get("sender") or "?",
+                        (o.get("subject") or o.get("body") or "")[:140].replace("\n", " ")))
+        lines.append("    routed here because: %s" % o.get("_route_why", "?"))
+    if len(orders) > 12:
+        lines.append("  ... and %d more in the queue behind these." % (len(orders) - 12))
+
+    rec = reg["chats"].get(key) or {}
+    warn = rec.get("file_warn")
+    if warn:
+        lines.append(
+            "\nCOMPANY FILE CONTRACT - fix this FIRST, before the work orders: %s. Keep "
+            "data/companies/%s.md under %d lines with a '## Position' heading up top. The next "
+            "chat for this company is seeded from that file alone; every line of bloat is a tax "
+            "on it, and while it is broken this chat cannot rotate."
+            % (warn, key, jobfile.COMPANY_MAX_LINES))
+
+    # Cost only. He has no send path, so Mary's email and request evidence is
+    # not his to answer for.
+    note = budget.prompt_note("jacob:" + key, sends=False)
+    if note:
+        lines.append(note)
+
+    lines.append(
+        "\nYou and Mary work independently and may be running at the same time. Two rules that "
+        "make that safe: git-commit ONLY the files you touched (never `git add -A`; if the index "
+        "is locked, wait a few seconds and retry), and deploy the hub only through the deploy "
+        "scripts - they take the shared deploy lock for you.\n"
+        "Close out as always: reply on the hub to anyone who wrote to you, move each handled "
+        "order into %s, update data/companies/%s.md if the position moved, and rebuild your "
+        "board." % (DONE, key))
+    return "\n".join(lines)
+
+
+def watch_session(proc, key, session_id, since, stop):
+    """Kill a session that is looping. Runs beside the work, never in its way."""
+    warned = False
+    while not stop.wait(60):
+        try:
+            spent = cost.session_cost(session_id, since)["context"]
+        except Exception:
+            continue
+        if spent >= SESSION_KILL_TOKENS:
+            log("  [%s] RUNAWAY - %s context tokens in one session. Killing it."
+                % (key, "{:,}".format(spent)))
+            try:
+                proc.kill()
+            except Exception:
+                pass
+            return
+        if spent >= SESSION_WARN_TOKENS and not warned:
+            warned = True
+            log("  [%s] session has spent %s context tokens - watching"
+                % (key, "{:,}".format(spent)))
+
+
 def dispatch(cfg, state):
     orders = sorted(f for f in os.listdir(QUEUE) if f.endswith(".json"))
     if not orders:
@@ -369,23 +545,42 @@ def dispatch(cfg, state):
         log("claude CLI not found at %s - cannot start a session" % CLAUDE)
         return False
 
+    # ONE CHAT PER COMPANY, RESUMED - the whole point of P2. He used to mint a
+    # fresh uuid4 here on every dispatch, so all 218 of his runs started cold
+    # and re-derived the relationship from files. The conversation IS the
+    # memory now, exactly as it is for Mary's jobs.
+    #
+    # Routing happens BEFORE the lock is taken: a work order that vanishes
+    # between the listdir above and this read would otherwise leave the lock
+    # file behind and stop him working until somebody deleted it by hand.
+    reg = router.load_registry()
+    router.chat(reg, router.DESK)
+    groups = group_by_company(read_orders(), reg)
+    if not groups:
+        return False
+    key, group = groups[0]
+
     with open(LOCK, "w") as fh:
         fh.write(str(os.getpid()))
     started = time.time()
-    # His own session identity. Without --session-id the transcript was an
-    # anonymous file in the folder BOTH bots write to, and the live feed
-    # tailed "the newest one" - which, whenever Mary was also working, was
-    # hers. Jacob's Live tab showed Mary's steps (Zac spotted it, 29/07).
-    session_id = str(uuid.uuid4())
-    log("dispatch -> %d order(s) (session %s)" % (len(orders), session_id[:8]))
-    # What kicked this session off - order summaries plus the actual prompt.
-    heads = []
-    for f in orders[:12]:
-        w = load(os.path.join(QUEUE, f), {})
-        heads.append("%s: %s - %s" % (w.get("kind", "?"),
-                                      w.get("author") or w.get("sender") or "?",
-                                      (w.get("subject") or w.get("body") or "")[:100]))
-    state["last_kick"] = {"chat": "jacob", "title": "Business development",
+    rec = router.chat(reg, key)
+    title = router.company_title(reg, key)
+    router.save_registry(reg)
+
+    rotated = rotate_if_heavy(reg, key, rec)
+    first_run = rotated or (not rec.get("started")
+                            and not os.path.exists(cost.transcript(rec["session_id"])))
+    session_id = rec["session_id"]
+    prompt = build_prompt(key, title, group, first_run, reg)
+
+    log("dispatch -> [%s] %s : %d order(s), %s (session %s)"
+        % (key, title, len(group), "NEW chat" if first_run else "resuming chat",
+           session_id[:8]))
+    heads = ["%s: %s - %s" % (w.get("kind", "?"),
+                              w.get("author") or w.get("sender") or "?",
+                              (w.get("subject") or w.get("body") or "")[:100])
+             for w in group[:12]]
+    state["last_kick"] = {"chat": key, "title": title,
                           "at": datetime.now().isoformat(timespec="seconds"),
                           "orders": heads, "session_id": session_id}
 
@@ -430,17 +625,14 @@ def dispatch(cfg, state):
 
     threading.Thread(target=publish_feed, daemon=True).start()
 
-    prompt = ("Read %s and follow it. Your work orders are the JSON files in %s. "
-              "Handle them, reply on the hub to anyone who wrote to you, then move "
-              "each order into %s and rebuild your board."
-              % (PROMPT, QUEUE, DONE))
-    prompt += ("\n\nYou and Mary work independently and may be running at the same time. "
-               "Two rules that make that safe: git-commit ONLY the files you touched "
-               "(never `git add -A`; if the index is locked, wait a few seconds and "
-               "retry), and deploy the hub only through the deploy scripts - they take "
-               "the shared deploy lock for you.")
     state["last_kick"]["prompt"] = prompt[:8000]
     publish_queue(cfg, state)
+    # Where this run starts in the transcript. A resumed chat appends to the
+    # same file, so the cost of THIS run is the usage recorded after this
+    # moment - and transcript timestamps are UTC, so this must be too.
+    started_utc = datetime.utcnow().isoformat()
+    stop_watch = threading.Event()
+
     def run_session():
         try:
             # Same launch as mary_bridge.py, approved by Zac 28/07. An
@@ -450,19 +642,50 @@ def dispatch(cfg, state):
             # and sits elsewhere: no send path in any script, an Exchange
             # transport rule rejecting external mail from jacob@, and a read
             # scope of four mailboxes enforced by access policy.
-            p = subprocess.run(
-                [CLAUDE, "-p", prompt, "--dangerously-skip-permissions",
-                 "--session-id", session_id],
-                cwd=REPO, capture_output=True, encoding="utf-8",
-                errors="replace", timeout=3600, creationflags=NO_WINDOW)
+            #
+            # --session-id creates, --resume continues. That one line is the
+            # difference between a bot with a memory and 218 cold starts.
+            cmd = [CLAUDE, "-p", prompt, "--dangerously-skip-permissions"]
+            cmd += (["--session-id", session_id] if first_run
+                    else ["--resume", session_id])
+            proc = subprocess.Popen(
+                cmd, cwd=REPO, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                text=True, encoding="utf-8", errors="replace",
+                creationflags=NO_WINDOW)
+            threading.Thread(target=watch_session,
+                             args=(proc, key, session_id, started_utc, stop_watch),
+                             daemon=True).start()
+            try:
+                out, err = proc.communicate(timeout=3600)
+            except subprocess.TimeoutExpired:
+                proc.kill()
+                proc.communicate()
+                raise
             took = time.time() - started
             state.setdefault("runs", []).append({"at": time.time(), "seconds": took})
-            log("session exit %s after %ds" % (p.returncode, took))
+            log("  [%s] session exit %s after %ds" % (key, proc.returncode, took))
             with open(os.path.join(INBOX, "last-session.txt"), "w", encoding="utf-8") as fh:
-                fh.write((p.stdout or "")[-4000:] + "\n--- stderr ---\n"
-                         + (p.stderr or "")[-2000:])
+                fh.write((out or "")[-4000:] + "\n--- stderr ---\n" + (err or "")[-2000:])
+            if proc.returncode == 0:
+                rec["started"] = True
+                rec["runs"] = rec.get("runs", 0) + 1
+                rec["last_active"] = datetime.now().isoformat(timespec="seconds")
+                # The company-file contract, checked while the work is fresh. A
+                # failure is not fatal - it becomes the first line of this
+                # chat's next prompt, and blocks rotation until it is fixed.
+                problems = jobfile.check_company(key) if key != router.DESK else []
+                if problems:
+                    rec["file_warn"] = "; ".join(problems)
+                    log("  [%s] company file out of contract: %s" % (key, rec["file_warn"]))
+                else:
+                    rec.pop("file_warn", None)
+                router.save_registry(reg)
+            else:
+                if first_run:
+                    rec["started"] = False
+                    router.save_registry(reg)
             # A session that dies in seconds is a usage limit or a broken CLI.
-            if p.returncode != 0 and took < FAST_FAIL_SECONDS:
+            if proc.returncode != 0 and took < FAST_FAIL_SECONDS:
                 state["fails"] = state.get("fails", 0) + 1
                 wait = FAST_FAIL_BACKOFF[min(state["fails"] - 1,
                                              len(FAST_FAIL_BACKOFF) - 1)]
@@ -482,7 +705,15 @@ def dispatch(cfg, state):
             log("session failed: %s - backing off %ds"
                 % (str(e)[:150], wait))
         finally:
+            stop_watch.set()
             stop_feed.set()
+            # What it really cost, read back out of the transcript. His
+            # sessions were not measured at all before this.
+            try:
+                budget.log_tokens("jacob:" + key, session_id,
+                                  time.time() - started, started_utc)
+            except Exception:
+                pass
             try:
                 os.remove(LOCK)
             except OSError:

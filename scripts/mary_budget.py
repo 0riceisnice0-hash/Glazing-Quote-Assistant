@@ -358,8 +358,14 @@ def landed(days=7):
         return 0, 0, 0
 
 
-def prompt_note(chat=None):
-    """A line for the kick prompt so a chat can see what it is adding to."""
+def prompt_note(chat=None, sends=True):
+    """A line for the kick prompt so a chat can see what it is adding to.
+
+    `sends=False` for Jacob. He has no send path at all, and the email and
+    request-backlog evidence below is read from Mary's send log and Mary's
+    request board - showing him her send-to-reply ratio would be telling a bot
+    off for somebody else's emails. Cost is shared; attention is not.
+    """
     parts = []
     label, start, hour_cap, session_cap = window()
     tok, per = tokens_spent(start)
@@ -379,6 +385,9 @@ def prompt_note(chat=None):
             "lifted the curfew for tonight specifically. Nobody is reading email, nobody can "
             "answer a request, and no supplier will reply before morning. Do the thing that "
             "was worth staying up for, and stop.")
+    if not sends:
+        return "".join(parts)
+
     sends, replies, answered = landed()
     if sends:
         parts.append(

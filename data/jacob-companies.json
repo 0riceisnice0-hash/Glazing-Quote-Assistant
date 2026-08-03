@@ -1,0 +1,219 @@
+{
+ "companies": {
+  "alexander-james": {
+   "name": "Alexander James",
+   "domains": [],
+   "match": [
+    "alexander",
+    "alexander james"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "barnfield-construction": {
+   "name": "Barnfield Construction Limited",
+   "domains": [],
+   "match": [
+    "barnfield",
+    "barnfield construction"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "chiel-construction": {
+   "name": "Chiel Construction Ltd (chielcon.co.uk)",
+   "domains": [],
+   "match": [
+    "chiel",
+    "chiel construction"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "chigwell-london-plc": {
+   "name": "Chigwell (London) PLC",
+   "domains": [],
+   "match": [
+    "chigwell",
+    "chigwell london",
+    "chigwell london plc"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "conamar": {
+   "name": "Conamar Building Services Ltd",
+   "domains": [],
+   "match": [
+    "conamar"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "ets-construction": {
+   "name": "E T & S Construction Ltd (ets-wales.com)",
+   "domains": [],
+   "match": [
+    "ets",
+    "ets construction"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "glazing-consultancy-services": {
+   "name": "Glazing Consultancy Services (GCS)",
+   "domains": [],
+   "match": [
+    "glazing",
+    "glazing consultancy services"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "pearce-construction-barnstaple": {
+   "name": "Pearce Construction (Barnstaple) Ltd",
+   "domains": [],
+   "match": [
+    "pearce",
+    "pearce barnstaple",
+    "pearce construction barnstaple"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "pride-developments": {
+   "name": "Pride Developments Group Ltd",
+   "domains": [],
+   "match": [
+    "pride developments"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "re-gen-uk-construction": {
+   "name": "Re-Gen (UK) Construction Limited",
+   "domains": [],
+   "match": [
+    "re gen",
+    "re gen uk construction"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "rsr": {
+   "name": "RSR - R S Response Ltd",
+   "domains": [],
+   "match": [
+    "rsr"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "sinden-construction": {
+   "name": "Sinden Construction Limited (until 22/06/2026: Thomas Sinden Limited)",
+   "domains": [],
+   "match": [
+    "sinden",
+    "sinden construction"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  },
+  "stepnell": {
+   "name": "Stepnell Ltd",
+   "domains": [],
+   "match": [
+    "stepnell"
+   ],
+   "opened": "2026-08-03T14:51:23"
+  }
+ },
+ "chats": {
+  "alexander-james": {
+   "session_id": "9a7015c7-7833-4de1-bb47-bf3a27df81ed",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "barnfield-construction": {
+   "session_id": "47cba3f3-0aae-4a7b-a3e8-f5c0156e1bae",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "chiel-construction": {
+   "session_id": "d9ff107d-aff6-4bd6-84d8-235e909980f0",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "chigwell-london-plc": {
+   "session_id": "fc34ce0a-2747-4f18-8062-cc9dc7db8f98",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "conamar": {
+   "session_id": "378c35d7-62d5-4329-8901-6dbacc6c6a7c",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "ets-construction": {
+   "session_id": "78d21b7a-0181-459c-9ec2-ba0bdb51b347",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "glazing-consultancy-services": {
+   "session_id": "9faa313c-5ef8-42b3-a689-9e2a27643483",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "pearce-construction-barnstaple": {
+   "session_id": "ba9d78a8-ffec-4775-a3fd-902125e83a23",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "pride-developments": {
+   "session_id": "11acbdfa-1c90-4587-a5f1-22c13ed2ba27",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "re-gen-uk-construction": {
+   "session_id": "603c336d-734a-421d-84b0-1bd819a47132",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "rsr": {
+   "session_id": "a6009bb9-49ab-4beb-92e0-d2492d3c41c4",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "sinden-construction": {
+   "session_id": "9cd3a1fa-b3b4-4196-a92a-c600e69065ab",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "stepnell": {
+   "session_id": "9c9eba11-f2df-47ce-8d0b-d0ea5a86cd28",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "desk": {
+   "session_id": "57d37b8e-d543-4dd8-90ee-0e57d45bbb51",
+   "started": false,
+   "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  }
+ }
+}

@@ -120,6 +120,36 @@ KNOWLEDGE = {
 }
 
 
+# Jacob's unit of memory is the company, not the job, and a relationship needs
+# less room than a live tender - 150 lines against Mary's 300. Same contract
+# otherwise: state the position near the top, and let history go to the archive.
+COMPANY_DIR = os.path.join(REPO, "data", "companies")
+COMPANY_MAX_LINES = 150
+
+
+def company_path(key):
+    return os.path.join(COMPANY_DIR, "%s.md" % key)
+
+
+def check_company(key):
+    """The company-file contract, same shape as check(). Empty list = compliant."""
+    p = company_path(key)
+    if not os.path.exists(p):
+        return ["data/companies/%s.md does not exist - create it to the contract "
+                "before working this company" % key]
+    problems = []
+    with open(p, encoding="utf-8", errors="replace") as fh:
+        lines = fh.read().splitlines()
+    if len(lines) > COMPANY_MAX_LINES:
+        problems.append("data/companies/%s.md is %d lines (contract: %d) - archive "
+                        "the history" % (key, len(lines), COMPANY_MAX_LINES))
+    if not POSITION_HEADINGS.search("\n".join(lines[:40])):
+        problems.append("data/companies/%s.md does not state where the relationship "
+                        "stands in the first 40 lines. Add a heading such as "
+                        "'## Position' or '## Where it stands'" % key)
+    return problems
+
+
 def check_knowledge():
     """Always-loaded knowledge files over their own cap. Same shape as check()."""
     problems = []
