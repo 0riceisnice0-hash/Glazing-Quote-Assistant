@@ -304,9 +304,167 @@ export async function onRequest(context) {
       return json(results);
     }
 
+    /* ---------------- the CRM, read side (public) ----------------
+       One record of the commercial world, shared by all three bots. Reads are
+       public for the same reason the boards are - the hub renders them and the
+       login gate is off per Zac. Writes are behind the key below. */
+    if (botKey === "crm" && GET) {
+      if (action === "companies") {
+        const { results } = await db.prepare(
+          "SELECT * FROM crm_company ORDER BY last_contact DESC, name").all();
+        return json(results);
+      }
+      if (action === "leads") {
+        const stage = new URL(request.url).searchParams.get("stage");
+        const q = stage
+          ? db.prepare("SELECT * FROM crm_lead WHERE stage = ? ORDER BY next_action_date, deadline").bind(stage)
+          : db.prepare("SELECT * FROM crm_lead ORDER BY next_action_date, deadline");
+        const { results } = await q.all();
+        return json(results);
+      }
+      /* The daily call list - "these are the people you are chasing today"
+         (Adam, 03/08). Anything due on or before today, soonest first. */
+      if (action === "today") {
+        const today = now().slice(0, 10);
+        const { results } = await db.prepare(
+          "SELECT * FROM crm_lead WHERE outcome = '' AND (" +
+          "  (next_action_date != '' AND next_action_date <= ?) OR " +
+          "  (award_due != '' AND award_due <= ?)) " +
+          "ORDER BY next_action_date, award_due").bind(today, today).all();
+        return json(results);
+      }
+      /* Everything about one thing, in one call - the meeting's requirement
+         that you click a job and see the company, the respondents, the notes,
+         the dates and the quote that went out, rather than four screens. */
+      if (action.startsWith("lead/")) {
+        const key = action.slice(5);
+        const lead = await db.prepare("SELECT * FROM crm_lead WHERE key = ?").bind(key).first();
+        if (!lead) return json({ error: "No such lead" }, 404);
+        const [company, quotes, notes, tasks, events] = await Promise.all([
+          db.prepare("SELECT * FROM crm_company WHERE key = ?").bind(lead.company_key).first(),
+          db.prepare("SELECT * FROM crm_quote WHERE lead_key = ? ORDER BY revision").bind(key).all(),
+          db.prepare("SELECT * FROM crm_note WHERE entity_type='lead' AND entity_key=? ORDER BY id DESC LIMIT 100").bind(key).all(),
+          db.prepare("SELECT * FROM crm_task WHERE entity_type='lead' AND entity_key=? ORDER BY due").bind(key).all(),
+          db.prepare("SELECT * FROM crm_event WHERE entity_type='lead' AND entity_key=? ORDER BY id DESC LIMIT 50").bind(key).all(),
+        ]);
+        const contacts = company
+          ? (await db.prepare("SELECT * FROM crm_contact WHERE company_key = ?").bind(company.key).all()).results
+          : [];
+        return json({
+          lead, company, contacts,
+          quotes: quotes.results, notes: notes.results,
+          tasks: tasks.results, events: events.results,
+        });
+      }
+      if (action.startsWith("company/")) {
+        const key = action.slice(8);
+        const company = await db.prepare("SELECT * FROM crm_company WHERE key = ?").bind(key).first();
+        if (!company) return json({ error: "No such company" }, 404);
+        const [contacts, leads, notes] = await Promise.all([
+          db.prepare("SELECT * FROM crm_contact WHERE company_key = ?").bind(key).all(),
+          db.prepare("SELECT * FROM crm_lead WHERE company_key = ? ORDER BY created DESC").bind(key).all(),
+          db.prepare("SELECT * FROM crm_note WHERE entity_type='company' AND entity_key=? ORDER BY id DESC LIMIT 100").bind(key).all(),
+        ]);
+        return json({ company, contacts: contacts.results, leads: leads.results, notes: notes.results });
+      }
+    }
+
     /* ---------------- bot-only routes below this gate ---------------- */
     if (!env.MARY_API_KEY || request.headers.get("x-mary-key") !== env.MARY_API_KEY) {
       return json({ error: "Not found" }, 404);
+    }
+
+    /* ---------------- the CRM, write side (keyed) ----------------
+       Deliberately one generic upsert per table rather than a verb per
+       transition. The bots decide what a stage change means; the API's job is
+       to record it, and to make sure nothing changes without saying who did it
+       and why. Every write lands an crm_event row - that is the audit trail
+       the meeting asked for, and it is not optional. */
+    if (botKey === "crm" && POST) {
+      const b = await request.json().catch(() => ({}));
+      const who = clip(b.author || b.by, 24) || "bot";
+      const stamp = now();
+
+      const TABLES = {
+        company: { table: "crm_company", id: "key" },
+        contact: { table: "crm_contact", id: "id" },
+        lead: { table: "crm_lead", id: "key" },
+        quote: { table: "crm_quote", id: "id" },
+        contract: { table: "crm_contract", id: "key" },
+        invoice: { table: "crm_invoice", id: "id" },
+      };
+
+      if (action === "upsert") {
+        const spec = TABLES[String(b.type || "")];
+        if (!spec) return json({ error: "Unknown type" }, 400);
+        const fields = b.fields && typeof b.fields === "object" ? b.fields : {};
+        const id = clip(b.key, 120);
+        if (!id) return json({ error: "key is required" }, 400);
+
+        const before = await db.prepare(
+          `SELECT * FROM ${spec.table} WHERE ${spec.id} = ?`).bind(id).first();
+
+        const cols = Object.keys(fields).filter((c) => /^[a-z_]+$/.test(c));
+        if (!before) {
+          const all = [spec.id, ...cols, "created", "updated", "updated_by"];
+          const vals = [id, ...cols.map((c) => fields[c]), stamp, stamp, who];
+          await db.prepare(
+            `INSERT INTO ${spec.table} (${all.join(",")}) VALUES (${all.map(() => "?").join(",")})`
+          ).bind(...vals).run();
+        } else if (cols.length) {
+          await db.prepare(
+            `UPDATE ${spec.table} SET ${cols.map((c) => `${c}=?`).join(",")}, updated=?, updated_by=? ` +
+            `WHERE ${spec.id}=?`
+          ).bind(...cols.map((c) => fields[c]), stamp, who, id).run();
+        }
+
+        /* What actually changed, field by field. A row that says "updated by
+           jacob" and nothing else is not an audit trail. */
+        for (const c of cols) {
+          const was = before ? String(before[c] ?? "") : "";
+          const val = String(fields[c] ?? "");
+          if (was === val) continue;
+          await db.prepare(
+            "INSERT INTO crm_event (entity_type, entity_key, field, was, now, why, author, created) " +
+            "VALUES (?,?,?,?,?,?,?,?)"
+          ).bind(String(b.type), id, c, clip(was, 400), clip(val, 400),
+                 clip(b.why, 400), who, stamp).run();
+        }
+        return json({ ok: true, key: id, created: !before });
+      }
+
+      if (action === "note") {
+        const body = clip(b.body, 8000).trim();
+        if (!body) return json({ error: "Empty note" }, 400);
+        await db.prepare(
+          "INSERT INTO crm_note (entity_type, entity_key, body, source, source_ref, author, created) " +
+          "VALUES (?,?,?,?,?,?,?)"
+        ).bind(clip(b.entity_type, 24), clip(b.entity_key, 120), body,
+               clip(b.source, 24) || "bot", clip(b.source_ref, 200), who, stamp).run();
+        return json({ ok: true });
+      }
+
+      if (action === "task") {
+        const step = clip(b.step, 60);
+        if (!step) return json({ error: "step is required" }, 400);
+        const existing = await db.prepare(
+          "SELECT id FROM crm_task WHERE entity_type=? AND entity_key=? AND step=?"
+        ).bind(clip(b.entity_type, 24), clip(b.entity_key, 120), step).first();
+        if (existing) {
+          await db.prepare(
+            "UPDATE crm_task SET label=?, due=?, done_at=?, done_by=?, detail=?, updated=?, updated_by=? WHERE id=?"
+          ).bind(clip(b.label, 200), clip(b.due, 32), clip(b.done_at, 32),
+                 clip(b.done_by, 24), clip(b.detail, 2000), stamp, who, existing.id).run();
+        } else {
+          await db.prepare(
+            "INSERT INTO crm_task (entity_type, entity_key, step, label, due, done_at, done_by, detail, created, updated, updated_by) " +
+            "VALUES (?,?,?,?,?,?,?,?,?,?,?)"
+          ).bind(clip(b.entity_type, 24), clip(b.entity_key, 120), step,
+                 clip(b.label, 200), clip(b.due, 32), clip(b.done_at, 32),
+                 clip(b.done_by, 24), clip(b.detail, 2000), stamp, stamp, who).run();
+        }
+        return json({ ok: true });
+      }
     }
 
     // Ten messages per sender per hour, enforced HERE rather than in a prompt.

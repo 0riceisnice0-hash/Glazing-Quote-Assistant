@@ -20,3 +20,6 @@ scratchpad/gc-zip/
 dashboard/functions/_data/jacob-data.js
 dashboard/.wrangler/
 .env.jacob
+
+# local wrangler secrets for pages dev - never the real key
+dashboard/.dev.vars

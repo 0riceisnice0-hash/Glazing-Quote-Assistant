@@ -2,9 +2,13 @@
   "version": "0.0.1",
   "configurations": [
     {
+      "//": "MUST run from inside dashboard/. wrangler resolves the functions directory against the WORKING directory, not the assets path - so `pages dev dashboard/public` from the repo root serves the site with no API and every /api/* route returns the SPA's HTML. Same trap as the deploy one in DEV-HANDOVER.md.",
       "name": "mary-hub",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["wrangler", "pages", "dev", "dashboard/public", "--port", "8788", "--local"],
+      "runtimeExecutable": "cmd",
+      "runtimeArgs": [
+        "/c",
+        "cd dashboard && npx wrangler pages dev public --port 8788 --d1 DB=mary-dashboard-db --persist-to=.wrangler/state"
+      ],
       "port": 8788
     }
   ]
