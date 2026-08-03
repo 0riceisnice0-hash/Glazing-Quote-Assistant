@@ -42,6 +42,12 @@ LOCK = os.path.join(INBOX, "session.lock")
 PROMPT = os.path.join(REPO, "JACOB-SESSION.md")
 
 POLL_SECONDS = 120
+# A failed Claude launch must not turn the poll interval into a retry interval.
+# This happened when the Claude allowance ran out on 30/07/2026: the queue
+# remained non-empty and the bridge opened a failing console process every two
+# minutes. Back off progressively, matching Mary's bridge.
+FAST_FAIL_SECONDS = 60
+FAST_FAIL_BACKOFF = [120, 300, 900, 1800]
 # 3 -> 4 -> 12 on 29/07. The budget is a RUNAWAY BACKSTOP, not a work schedule,
 # and at 4.0 it had become the schedule: he spent it by 20:14 and then logged
 # "HELD BACK" every two minutes for the rest of the evening with three of
@@ -53,6 +59,9 @@ POLL_SECONDS = 120
 DAILY_BUDGET_HOURS = float(os.environ.get("JACOB_DAY_HOURS", "12.0"))
 MARY_LOCK = os.path.join(REPO, "test-results", "mary-inbox", "session.lock")
 CLAUDE = os.path.join(os.path.expanduser("~"), ".local", "bin", "claude.exe")
+# pythonw hides the bridge itself, but a console-subsystem child such as
+# claude.exe can still create a window unless Windows is told not to make one.
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
 
 def log(msg):
@@ -226,6 +235,18 @@ def publish_queue(cfg, state):
         _qsig[0] = sig
 
 
+def night_ok():
+    """May a session start right now? One curfew, defined in mary_budget."""
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import mary_budget
+        if not mary_budget.is_night():
+            return True
+        return mary_budget.night_allowed()[0]
+    except Exception:
+        return True      # never let a missing import stop him working by day
+
+
 def budget_spent(state):
     """Hours spent THIS WINDOW (07:00 to 07:00), not a rolling 24h.
 
@@ -275,11 +296,15 @@ def maybe_self_agenda(state):
     # Mary held her lock was skipped - and she is an eight-hour bot.
     if orders or (_worker[0] and _worker[0].is_alive()):
         return
-    # No night curfew. It used to be 07:00-21:00, which meant the one thing
-    # Adam explicitly asked for on 29/07 - "spend the night working on this if
-    # you have to... I want a full list in the morning" (hub-78) - was the one
-    # thing the bridge structurally could not do. Raising the budget alone
-    # would not have touched it: at 21:00 he stopped whatever the number said.
+    # The old 07:00-21:00 curfew came off on 29/07 because it made Adam's own
+    # "spend the night on this if you have to" (hub-78) structurally
+    # impossible. It is back on 03/08 for a different reason, and with a
+    # different shape: the curfew is now shared, it covers real work orders as
+    # well as the agenda, and Adam can lift it for a night with
+    # --allow-tonight. What is NOT coming back is self-generated agenda work at
+    # 03:00 - that was 57% of the bill and nobody asked for it.
+    if not night_ok():
+        return
     if budget_spent(state) >= DAILY_BUDGET_HOURS * AGENDA_BUDGET_HEADROOM:
         return
     if time.time() - state.get("last_agenda", 0) < AGENDA_EVERY:
@@ -303,6 +328,22 @@ def dispatch(cfg, state):
     # a message that arrives mid-session still gets queued for the next one.
     if _worker[0] and _worker[0].is_alive():
         return False
+
+    backoff_until = state.get("backoff_until", 0)
+    if time.time() < backoff_until:
+        return False
+
+    # The overnight curfew, shared with Mary so there is one switch, not two.
+    # 57% of all bot spend was falling between 22:00 and 07:00 and his standing
+    # agenda ran hourly right through it. Intake carries on; only the sessions
+    # stop, so 07:00 starts with an accurate queue.
+    if not night_ok():
+        if not state.get("_curfew_logged"):
+            state["_curfew_logged"] = True
+            log("HELD until 07:00 - overnight running is off. %d order(s) waiting."
+                % len(orders))
+        return False
+    state.pop("_curfew_logged", None)
 
     # No yield to Mary any more (Zac, 29/07: "mary and jacob should be free
     # to work, ignoring what the other one is currently doing"). The yield
@@ -413,7 +454,7 @@ def dispatch(cfg, state):
                 [CLAUDE, "-p", prompt, "--dangerously-skip-permissions",
                  "--session-id", session_id],
                 cwd=REPO, capture_output=True, encoding="utf-8",
-                errors="replace", timeout=3600)
+                errors="replace", timeout=3600, creationflags=NO_WINDOW)
             took = time.time() - started
             state.setdefault("runs", []).append({"at": time.time(), "seconds": took})
             log("session exit %s after %ds" % (p.returncode, took))
@@ -421,15 +462,25 @@ def dispatch(cfg, state):
                 fh.write((p.stdout or "")[-4000:] + "\n--- stderr ---\n"
                          + (p.stderr or "")[-2000:])
             # A session that dies in seconds is a usage limit or a broken CLI.
-            if p.returncode != 0 and took < 60:
+            if p.returncode != 0 and took < FAST_FAIL_SECONDS:
                 state["fails"] = state.get("fails", 0) + 1
-                log("fast failure #%d" % state["fails"])
+                wait = FAST_FAIL_BACKOFF[min(state["fails"] - 1,
+                                             len(FAST_FAIL_BACKOFF) - 1)]
+                state["backoff_until"] = time.time() + wait
+                log("fast failure #%d - backing off %ds"
+                    % (state["fails"], wait))
             else:
                 state["fails"] = 0
+                state.pop("backoff_until", None)
         except subprocess.TimeoutExpired:
             log("session timed out after an hour")
         except Exception as e:
-            log("session failed: %s" % str(e)[:150])
+            state["fails"] = state.get("fails", 0) + 1
+            wait = FAST_FAIL_BACKOFF[min(state["fails"] - 1,
+                                         len(FAST_FAIL_BACKOFF) - 1)]
+            state["backoff_until"] = time.time() + wait
+            log("session failed: %s - backing off %ds"
+                % (str(e)[:150], wait))
         finally:
             stop_feed.set()
             try:

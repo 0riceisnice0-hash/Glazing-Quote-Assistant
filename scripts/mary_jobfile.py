@@ -34,6 +34,30 @@ JOBS_DIR = os.path.join(REPO, "data", "jobs")
 
 MAX_LINES = 300
 
+# THE CONTRACT TESTS THE INTENT, NOT ONE LITERAL STRING (03/08/2026).
+#
+# It used to require the exact heading `## Position`, and six chats "failed"
+# while doing exactly the right thing - they had independently written
+# `## Where it stands`, `## Where this stands`, `## Current position`,
+# `## 1. Where this job actually stands`. That is the same section in better
+# English, and a checker that fails it teaches the wrong lesson: rename your
+# heading rather than know where the job stands.
+#
+# What a fresh seed actually needs is a statement of position near the top.
+# Anything in this family satisfies that. A file that states its position by
+# leading with the issued number ("## ISSUED 29/07 - GBP 20,563.57") satisfies
+# it too, which is why the issued/quoted forms are here.
+POSITION_HEADINGS = re.compile(
+    r"^#{1,3}\s*(?:\d+[.)]\s*)?(?:"
+    r"position"
+    r"|current position"
+    r"|where (?:it|this|we|the job|this job)\b.*stand"
+    r"|status"
+    r"|issued\b"
+    r"|quote issued\b"
+    r"|closed\b"
+    r")", re.I | re.M)
+
 TEMPLATE = """# {title}
 
 ## Position
@@ -75,10 +99,41 @@ def check(key):
     if len(lines) > MAX_LINES:
         problems.append("data/jobs/%s.md is %d lines (contract: %d) - archive the history"
                         % (key, len(lines), MAX_LINES))
-    head = "\n".join(lines[:40]).lower()
-    if "## position" not in head:
-        problems.append("data/jobs/%s.md has no '## Position' heading near the top - "
-                        "a fresh chat cannot find where the job stands" % key)
+    head = "\n".join(lines[:40])
+    if not POSITION_HEADINGS.search(head):
+        problems.append("data/jobs/%s.md does not state its position in the first 40 lines - "
+                        "a fresh chat cannot find where the job stands. Add a heading such as "
+                        "'## Position' or '## Where it stands'" % key)
+    return problems
+
+
+# The distillates that are loaded on EVERY session, with the cap each one sets
+# for itself. These are not archives - the archive each overflows into is
+# deliberately unlimited (bd-lessons.md), because "the cap is on the LOADING,
+# never on the knowing" (Zac, 29/07). Nothing here is ever deleted to fit;
+# it moves.
+KNOWLEDGE = {
+    "data/knowledge/adam.md": 120,
+    "data/knowledge/bd.md": 130,
+}
+
+
+def check_knowledge():
+    """Always-loaded knowledge files over their own cap. Same shape as check()."""
+    problems = []
+    for rel, cap in sorted(KNOWLEDGE.items()):
+        p = os.path.join(REPO, rel.replace("/", os.sep))
+        if not os.path.exists(p):
+            problems.append("%s is missing" % rel)
+            continue
+        with open(p, encoding="utf-8", errors="replace") as fh:
+            n = len(fh.read().splitlines())
+        if n > cap:
+            problems.append(
+                "%s is %d lines against its own %d-line cap - it is loaded by every "
+                "session, so this is a tax on all of them. Move the long accounts to "
+                "its overflow file and leave one-line rules with pointers."
+                % (rel, n, cap))
     return problems
 
 
@@ -109,8 +164,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--check")
     ap.add_argument("--check-all", action="store_true")
+    ap.add_argument("--check-knowledge", action="store_true")
     ap.add_argument("--archive")
     a = ap.parse_args()
+    if a.check_knowledge:
+        problems = check_knowledge()
+        for x in problems:
+            print("PROBLEM:", x)
+        if not problems:
+            print("ok - every always-loaded knowledge file is within its cap")
+        return 1 if problems else 0
     if a.check:
         problems = check(a.check)
         for x in problems:
@@ -128,6 +191,9 @@ def main():
             status = "ok " if not problems else "FAIL"
             print("%s %-24s %s" % (status, key, "; ".join(problems)))
             bad += bool(problems)
+        for x in check_knowledge():
+            print("FAIL %-24s %s" % ("(knowledge)", x))
+            bad += 1
         print("\n%d file(s) out of contract" % bad)
         return 1 if bad else 0
     if a.archive:

@@ -35,6 +35,7 @@ import mary_router as router
 import mary_note as note
 import mary_activity as activity
 import mary_budget as budget
+import mary_cost as cost
 import mary_jobfile as jobfile
 import mary_ledger as ledger
 
@@ -65,11 +66,17 @@ MAX_HANDOFF_RUNS = 3
 # Unrouted items waiting before triage reads the queue as a batch instead of
 # the router guessing one at a time.
 BATCH_TRIAGE_AT = 3
+# How many queued items the batch prompt may name. The prompt used to list the
+# lot, so a backlog made every retry more expensive than the one before it.
+MAX_QUEUE_IN_PROMPT = 12
 SESSION_TIMEOUT = 90 * 60
 # A session that dies in under a minute did not do any work - that is a usage
 # limit or a broken CLI, and retrying instantly would just hammer the API.
 FAST_FAIL_SECONDS = 60
 BACKOFF = [60, 300, 900, 1800]
+# The bridge runs under pythonw, but claude.exe is a console application and
+# can still flash a terminal for each retry without this Windows creation flag.
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
 
 def log(msg):
@@ -87,18 +94,27 @@ def session_exists(session_id):
     return os.path.exists(os.path.join(proj, "%s.jsonl" % session_id))
 
 
-# A resumed chat re-reads its whole conversation. riverside reached 3,694 turns
-# and 27.7 MB, gordon-court 4,098 - so every one of those 95 sessions started by
-# loading a small library. That, not the wall-clock hours, is where the tokens
-# went. Past these limits a chat is retired and a fresh one seeded from its job
-# file, which is exactly what data/jobs/<key>.md has been maintained for.
-MAX_TRANSCRIPT_MB = 8
-MAX_TRANSCRIPT_TURNS = 600
+# A resumed chat re-reads its whole conversation, and THAT is the bill.
+#
+# This used to trigger on file size (8 MB) and line count (600), which were
+# standing in for context because context was not being measured. They were bad
+# proxies: gordon-court sailed past 8 MB and reached 17.6, because the check
+# only ran at dispatch and one session's growth is unbounded.
+#
+# Now it triggers on the real thing - the context the next turn would carry.
+# Measured 03/08, live chats were sitting at 200-420k per turn and costing
+# 6-10M per run. Rotating at 150k roughly halves that, and rotation is cheap
+# BECAUSE the seed is bounded: data/jobs/<key>.md is capped at 300 lines, so a
+# fresh chat starts from a page, not a novel. Rotate often, seed lean.
+ROTATE_CONTEXT = int(os.environ.get("MARY_ROTATE_CONTEXT", "150000"))
+# Runaway breakers for a single session, not budgets. A normal run is 6-10M.
+SESSION_WARN_TOKENS = int(os.environ.get("MARY_SESSION_WARN", "20000000"))
+SESSION_KILL_TOKENS = int(os.environ.get("MARY_SESSION_KILL", "60000000"))
 
 
 def transcript_size(session_id):
-    path = os.path.join(os.path.expanduser("~"), ".claude", "projects",
-                        "C--Users-zacpl-Desktop-Glazing-Quote-Assistant", "%s.jsonl" % session_id)
+    """File size and line count. Kept for logging only - rotation uses context."""
+    path = cost.transcript(session_id)
     if not os.path.exists(path):
         return 0.0, 0
     mb = os.path.getsize(path) / 1048576.0
@@ -106,11 +122,34 @@ def transcript_size(session_id):
         return mb, sum(1 for _ in fh)
 
 
-def rotate_if_bloated(reg, key, rec):
-    """Retire an overgrown chat and start a clean one from the job file."""
-    mb, turns = transcript_size(rec["session_id"])
-    if mb < MAX_TRANSCRIPT_MB and turns < MAX_TRANSCRIPT_TURNS:
+def rotate_if_heavy(reg, key, rec):
+    """Retire a chat carrying too much context; seed a clean one from the job file."""
+    ctx = cost.context_size(rec["session_id"])
+    # 0 means there is no transcript yet - a chat that has never run cannot be
+    # overweight, and rotating it here would burn a fresh UUID every dispatch.
+    if ctx < ROTATE_CONTEXT:
         return False
+
+    # ROTATION IS ONLY A SAVING IF THE SEED IS SMALL. This is the trap the last
+    # attempt fell into (AGENT-AUDIT Phase 1): gordon-court's chat was retired
+    # and its "distilled" job file had grown to 265 KB, so every fresh seed
+    # re-read the novel anyway. Rotating into an out-of-contract file does not
+    # save tokens, it moves them - and it loses the conversation as well.
+    #
+    # So the file is the gate. A heavy chat with a bad job file does not
+    # rotate; it is told to fix the file first (build_prompt puts that warning
+    # at the very top), and it rotates on the next dispatch once the file is
+    # good. The chat repairs its own memory because only it knows the position.
+    problems = jobfile.check(key)
+    if problems:
+        rec["jobfile_warn"] = "; ".join(problems)
+        router.save_registry(reg)
+        log("  [%s] carrying %s context tokens and DUE to rotate, but its job file "
+            "is out of contract - not rotating. %s"
+            % (key, "{:,}".format(ctx), rec["jobfile_warn"]))
+        return False
+
+    mb, turns = transcript_size(rec["session_id"])
     old = rec["session_id"]
     rec["session_id"] = str(__import__("uuid").uuid4())
     rec["started"] = False
@@ -118,9 +157,45 @@ def rotate_if_bloated(reg, key, rec):
     rec["rotated_at"] = dt.datetime.now().isoformat(timespec="seconds")
     rec["rotations"] = rec.get("rotations", 0) + 1
     router.save_registry(reg)
-    log("  [%s] chat retired at %.1f MB / %d turns - starting fresh from data/jobs/%s.md"
-        % (key, mb, turns, key))
+    log("  [%s] chat retired carrying %s context tokens (%.1f MB / %d turns) - "
+        "starting fresh from data/jobs/%s.md" % (key, "{:,}".format(ctx), mb, turns, key))
     return True
+
+
+def watch_session(proc, key, session_id, since, stop):
+    """Kill a session that is looping. Runs beside the work, never in its way.
+
+    One session grew a transcript by 7 MB in 39 minutes on 29/07 and nothing
+    noticed until the day was gone. A normal run costs 6-10M context tokens;
+    these thresholds are multiples of that, so tripping one means something is
+    circling rather than working.
+    """
+    warned = False
+    while not stop.wait(60):
+        try:
+            spent = cost.session_cost(session_id, since)["context"]
+        except Exception:
+            continue
+        if spent >= SESSION_KILL_TOKENS:
+            log("  [%s] RUNAWAY - %s context tokens in one session. Killing it."
+                % (key, "{:,}".format(spent)))
+            try:
+                proc.kill()
+            except Exception:
+                pass
+            try:
+                note.post_board(
+                    "Session on %s was killed after spending %s context tokens in one "
+                    "run - that is a loop, not work. Check data/mary-usage.jsonl and the "
+                    "transcript before restarting it." % (key, "{:,}".format(spent)),
+                    author="bridge")
+            except Exception:
+                pass
+            return
+        if spent >= SESSION_WARN_TOKENS and not warned:
+            warned = True
+            log("  [%s] session has spent %s context tokens - watching"
+                % (key, "{:,}".format(spent)))
 
 
 def load_bridge_state():
@@ -348,6 +423,14 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
 
     if key == router.TRIAGE and len(orders) >= BATCH_TRIAGE_AT:
         pending = read_orders()
+        # THE PROMPT MUST NOT GROW WITH THE BACKLOG. This listed the whole
+        # queue, so while sessions were failing on 30/07 the queue climbed, the
+        # prompt climbed with it (28,695 -> 34,360 bytes over the retries) and
+        # every retry paid more than the last for the same failure. Show enough
+        # to see the shape of the batch and say what is behind it.
+        waiting = len(pending)
+        overflow = max(0, waiting - MAX_QUEUE_IN_PROMPT)
+        pending = pending[:MAX_QUEUE_IN_PROMPT]
         lines.append(
             "\nTHIS IS A BATCH. %d work order(s) are waiting in total. Read them as one picture "
             "before you act on any of them - several may be the same thread, the same tender under "
@@ -359,9 +442,15 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
             "json.dump(d,io.open(p,'w',encoding='utf-8'),indent=1,ensure_ascii=False)\"\n"
             "The bridge will then wake that chat with it. Keys: "
             "`python scripts\\mary_router.py --list`. Handle noise and genuinely new jobs yourself.\n"
-            "THE WHOLE QUEUE:" % len(pending))
+            "%s:" % (waiting, "THE WHOLE QUEUE" if not overflow
+                     else "THE OLDEST %d, of %d waiting" % (MAX_QUEUE_IN_PROMPT, waiting)))
         for o in pending:
             lines.append("  - %s" % describe(o))
+        if overflow:
+            lines.append(
+                "  ... and %d more behind these. Clear what is here and the rest come round "
+                "on the next pass - the queue is durable, so work the batch in front of you "
+                "rather than trying to hold all of it at once." % overflow)
 
     bot = [o for o in orders if o.get("mailbox") == "botchat"]
     if bot:
@@ -435,7 +524,7 @@ def dispatch(key, orders, reg, bst, dry_run=False):
     router.save_registry(reg)
     title = router.job_title(reg, key)
     handoffs = note.pending_handoffs(key)
-    rotated = rotate_if_bloated(reg, key, rec)
+    rotated = rotate_if_heavy(reg, key, rec)
     # Create only if the conversation genuinely is not there yet; otherwise
     # resume, even if a previous attempt died before it could do any work.
     first_run = rotated or (not rec.get("started") and not session_exists(rec["session_id"]))
@@ -479,19 +568,28 @@ def dispatch(key, orders, reg, bst, dry_run=False):
     log("dispatch -> [%s] %s : %d order(s), %s"
         % (key, title, len(orders), "NEW chat" if first_run else "resuming chat"))
     started = time.time()
-    # What the transcript weighs going in - the growth is the session's cost.
-    size_before = transcript_size(rec["session_id"])[0]
+    # Where this run starts in the transcript. A resumed chat appends to the
+    # same file, so the cost of THIS run is the usage recorded after this
+    # moment. Transcript timestamps are UTC with a Z, so this must be UTC too -
+    # local time here would silently count an hour of the previous run in
+    # summer.
+    started_utc = dt.datetime.utcnow().isoformat()
     ok = False
     fast_fail = False
+    stop_watch = threading.Event()
     try:
         proc = subprocess.Popen(cmd, cwd=REPO, stdin=subprocess.PIPE,
                                 stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-                                text=True, env=env, encoding="utf-8", errors="replace")
+                                text=True, env=env, encoding="utf-8", errors="replace",
+                                creationflags=NO_WINDOW)
         # The lock names the SESSION, so if this bridge is killed the next one
         # can tell whether the work is still going rather than waiting out a
         # two-hour timeout.
         with open(LOCK, "w") as fh:
             fh.write(str(proc.pid))
+        threading.Thread(target=watch_session,
+                         args=(proc, key, rec["session_id"], started_utc, stop_watch),
+                         daemon=True).start()
         try:
             stdout, stderr = proc.communicate(input=prompt, timeout=SESSION_TIMEOUT)
         except subprocess.TimeoutExpired:
@@ -553,13 +651,13 @@ def dispatch(key, orders, reg, bst, dry_run=False):
         write_status("backoff", key, len(orders), "launch failed - retrying in %ds" % wait,
                      title=title)
     finally:
-        # Token accounting (Phase 4): every outcome - clean, timeout, launch
-        # failure - records what it actually cost. bytes/4 is coarse but it
-        # ranks and trends correctly, which is what a budget needs.
+        stop_watch.set()
+        # Token accounting: every outcome - clean, timeout, launch failure -
+        # records what it actually cost, read back out of the transcript rather
+        # than guessed from file growth. See scripts/mary_cost.py.
         try:
-            mb_after = transcript_size(rec["session_id"])[0]
-            budget.log_tokens(key, time.time() - started,
-                              (mb_after - size_before) * 1048576.0, mb_after)
+            budget.log_tokens(key, rec["session_id"], time.time() - started,
+                              started_utc)
         except Exception:
             pass
         if os.path.exists(LOCK):

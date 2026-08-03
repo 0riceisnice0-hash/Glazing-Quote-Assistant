@@ -45,6 +45,32 @@ STATE = os.path.join(REPO, "data", "dashboard-state.json")
 # enough to be worth an unattended loop.
 NIGHT_FROM, NIGHT_TO = 22, 7
 
+# OVERNIGHT IS OFF (Zac, 03/08: "do we really need it to run overnight unless
+# directly called to by Adam if he's working late one day?"). Measured the same
+# day: 57.3% of ALL bot spend fell between 22:00 and 07:00, and the single
+# busiest hour of the week was 06:00 - work nobody asked for, done while nobody
+# was awake to read it. This is the cheapest saving available and it costs
+# nothing real, because the queue is durable and 07:00 is soon enough.
+#
+# To let them work a late evening, create the file below; it names its own
+# expiry so an override cannot be left on by accident.
+#   python scripts/mary_budget.py --allow-tonight
+NIGHT_OK_FILE = os.path.join(REPO, "data", "night-allowed.json")
+
+
+def night_allowed(now=None):
+    """(allowed, why). An override expires on its own; nobody has to remember."""
+    now = now or dt.datetime.now()
+    try:
+        with open(NIGHT_OK_FILE, encoding="utf-8") as fh:
+            rec = json.load(fh)
+    except (IOError, ValueError):
+        return False, ""
+    until = rec.get("until") or ""
+    if until and now.isoformat(timespec="seconds") < until:
+        return True, "overnight allowed until %s by %s" % (until[11:16], rec.get("by", "?"))
+    return False, ""
+
 # Session-hours allowed within one window. Night is deliberately small: enough
 # for a couple of genuine pieces of work, nowhere near enough for a runaway.
 NIGHT_HOURS = float(os.environ.get("MARY_NIGHT_HOURS", "1.5"))
@@ -140,22 +166,49 @@ def spent(since):
 SEND_LOG = os.path.join(REPO, "data", "mary-send-log.jsonl")
 
 # ---------------------------------------------------------------- tokens
-# Phase 4 (AGENT-AUDIT.md): hours and session counts were only ever PROXIES
-# for cost, kept because tokens were invisible. The bridge now measures what a
-# session actually grew the transcript by, so the spend is real. The caps stay
-# as circuit breakers - trip one and something is LOOPING, which is a bug to
-# find, not a budget to raise.
+# REWRITTEN 03/08/2026. This used to record transcript GROWTH (delta_bytes/4)
+# and call it the cost. The cost of a permanent per-job chat is the context it
+# RE-READS every turn, which is a different number by about 30x - see
+# scripts/mary_cost.py for the measurement and the requestId dedupe trap. The
+# allowance ran out on 30/07 with this meter reporting single-digit millions
+# against a 12M cap, so nothing ever fired.
+#
+# The numbers below are CIRCUIT BREAKERS, not budgets (MASTER-PLAN §0: make
+# them think, do not cap them). Spending discipline comes from each session
+# being cheap - rotation on context, the night curfew, lean seeds - not from a
+# quota that stops work on a deadline. Tripping one of these means something is
+# LOOPING, and the answer is to find the loop.
+#
+# Sizing: a normal bot day measured 365M context tokens and the target ceiling
+# is ~118M/day (5% of the weekly allowance). 250M is comfortably above the
+# target and far below the 776M day that killed the plan.
 TOKENS_LOG = os.path.join(REPO, "data", "mary-usage.jsonl")
-DAY_TOKENS = int(os.environ.get("MARY_DAY_TOKENS", "12000000"))     # ~2-3x a normal day
-NIGHT_TOKENS = int(os.environ.get("MARY_NIGHT_TOKENS", "2000000"))
+DAY_TOKENS = int(os.environ.get("MARY_DAY_TOKENS", "250000000"))
+NIGHT_TOKENS = int(os.environ.get("MARY_NIGHT_TOKENS", "25000000"))
+# What we are actually aiming at, shown to her as evidence rather than enforced.
+DAY_TARGET = int(os.environ.get("MARY_DAY_TARGET", "118000000"))
 
 
-def log_tokens(chat, seconds, delta_bytes, size_after_mb):
-    """One line per session: what it cost. Called by the bridge; never fatal."""
+def log_tokens(chat, session_id, seconds, since):
+    """One line per session: what it really cost. Never fatal.
+
+    `since` bounds this run of a resumed chat - the transcript is appended to,
+    so without it we would re-count the whole conversation every time.
+    """
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import mary_cost
+        c = mary_cost.session_cost(session_id, since)
+        now_ctx = mary_cost.context_size(session_id)
+    except Exception:
+        return
     rec = {"at": dt.datetime.now().isoformat(timespec="seconds"), "chat": chat,
-           "seconds": int(seconds), "delta_bytes": int(delta_bytes),
-           "est_tokens": int(max(0, delta_bytes) // 4),
-           "size_after_mb": round(size_after_mb, 2)}
+           "session": session_id, "seconds": int(seconds),
+           "context_tokens": c["context"], "output_tokens": c["output"],
+           "calls": c["calls"], "per_call": c["per_call"],
+           # What the NEXT turn of this chat will carry. This is the number
+           # rotation keys on, and the one worth watching climb.
+           "context_now": now_ctx}
     try:
         os.makedirs(os.path.dirname(TOKENS_LOG), exist_ok=True)
         with open(TOKENS_LOG, "a", encoding="utf-8") as fh:
@@ -165,7 +218,13 @@ def log_tokens(chat, seconds, delta_bytes, size_after_mb):
 
 
 def tokens_spent(since):
-    """(total est tokens, {chat: est tokens}) since a datetime."""
+    """(total context tokens, {chat: context tokens}) since a datetime.
+
+    Rows written before 03/08 carry `est_tokens`, which measured transcript
+    growth and is ~30x too small. They are IGNORED rather than mixed in - a
+    budget half-built from a broken meter is worse than one with a short
+    history, and the windows here are same-day anyway.
+    """
     cutoff = since.isoformat(timespec="seconds")
     total, per = 0, {}
     try:
@@ -175,10 +234,13 @@ def tokens_spent(since):
                     d = json.loads(line)
                 except Exception:
                     continue
-                if (d.get("at") or "") >= cutoff:
-                    t = int(d.get("est_tokens") or 0)
-                    total += t
-                    per[d.get("chat", "?")] = per.get(d.get("chat", "?"), 0) + t
+                if (d.get("at") or "") < cutoff:
+                    continue
+                if "context_tokens" not in d:
+                    continue
+                t = int(d.get("context_tokens") or 0)
+                total += t
+                per[d.get("chat", "?")] = per.get(d.get("chat", "?"), 0) + t
     except Exception:
         pass
     return total, per
@@ -227,6 +289,14 @@ def check(chat=None):
     label, start, hour_cap, session_cap = window()
     hours, runs = spent(start)
     since = start.strftime("%H:%M")
+    # The curfew comes first: it is not a budget that can be spent down, it is
+    # a decision that this work waits for morning.
+    if label == "night":
+        ok, why = night_allowed()
+        if not ok:
+            return False, ("Overnight running is off. Work stays queued and goes out at "
+                           "%02d:00. If tonight is genuinely different, run "
+                           "scripts\\mary_budget.py --allow-tonight." % NIGHT_TO)
     if hours >= hour_cap:
         return False, ("%s budget spent: %.1f of %.1f session-hours since %s. Work stays queued "
                        "and goes out %s." % (label, hours, hour_cap, since,
@@ -249,6 +319,45 @@ def check(chat=None):
     return True, ""
 
 
+def landed(days=7):
+    """(sends, replies, requests_answered) in the last N days - did they land?
+
+    Zac, 03/08: "if they sent a bunch of emails - first of all, why? And why
+    did they then need to send more?" She cannot answer that without seeing
+    whether the last ones landed, so this puts it in front of her. It is
+    evidence, not a limit: there is no number of emails that is too many if
+    each one moves the job, and no number small enough to make activity worth
+    sending.
+
+    COUNT ONLY WHAT IS ACTUALLY A REPLY TO HER. The obvious version of this -
+    "any message from Adam" - reads 162 against 54 sends and concludes the
+    interruptions are working. They are not: 35 of those are him replying on
+    Gintare's quote threads in estimating@, and most hub messages are him
+    giving an instruction, not answering one of her emails. The only
+    unambiguous signal is mail he addressed to mary@, which is 18 against 54 -
+    the same one-in-three the audit found by hand. A flattering measure here
+    would have told her to keep going, which is the whole problem.
+    """
+    try:
+        import mary_ledger
+        cutoff = (dt.datetime.now() - dt.timedelta(days=days)).isoformat(timespec="seconds")
+        sends = replies = answered = 0
+        for e in mary_ledger.iter_events():
+            if str(e.get("ts") or "") < cutoff:
+                continue
+            kind = e.get("kind")
+            if kind == "email_sent":
+                sends += 1
+            elif kind == "request_answered":
+                answered += 1
+            elif (kind == "mail_received" and e.get("actor") in ("adam", "zac")
+                  and "mary@" in str(e.get("summary") or "")):
+                replies += 1
+        return sends, replies, answered
+    except Exception:
+        return 0, 0, 0
+
+
 def prompt_note(chat=None):
     """A line for the kick prompt so a chat can see what it is adding to."""
     parts = []
@@ -256,20 +365,34 @@ def prompt_note(chat=None):
     tok, per = tokens_spent(start)
     if tok:
         mine = per.get(chat, 0) if chat else 0
-        tok_cap = NIGHT_TOKENS if label == "night" else DAY_TOKENS
         parts.append(
-            "\nTOKEN COST this %s window: ~%s of %s estimated%s. Cost follows context: a lean job "
-            "file and a focused turn are what keep this number small."
-            % (label, "{:,}".format(tok), "{:,}".format(tok_cap),
-               (", of which this chat ~%s" % "{:,}".format(mine)) if mine else ""))
+            "\nTOKEN COST this %s window: %s against a target of %s for the whole day "
+            "(hard breaker at %s)%s. This is measured, not guessed. Cost is CONTEXT x TURNS: "
+            "the length of what you are carrying, times how many times you speak. A lean job "
+            "file, a focused turn, and not re-reading what you already know are the whole game."
+            % (label, "{:,}".format(tok), "{:,}".format(DAY_TARGET),
+               "{:,}".format(NIGHT_TOKENS if label == "night" else DAY_TOKENS),
+               (", of which this chat %s" % "{:,}".format(mine)) if mine else ""))
     if label == "night":
-        hours, runs = spent(start)
         parts.append(
-            "\nIT IS THE MIDDLE OF THE NIGHT and you are on a reduced budget: %.1f of %.1f "
-            "session-hours and %d of %d sessions are gone since %s. Nobody is reading email, "
-            "nobody can answer a request, and no supplier will reply before morning. Do what "
-            "this work order actually needs and stop. Anything that can wait until 07:00 should."
-            % (hours, hour_cap, runs, session_cap, start.strftime("%H:%M")))
+            "\nIT IS THE MIDDLE OF THE NIGHT and overnight running is normally off - somebody "
+            "lifted the curfew for tonight specifically. Nobody is reading email, nobody can "
+            "answer a request, and no supplier will reply before morning. Do the thing that "
+            "was worth staying up for, and stop.")
+    sends, replies, answered = landed()
+    if sends:
+        parts.append(
+            "\nDID THE LAST ONES LAND? %d email(s) went in the last 7 days and Adam wrote "
+            "back to mary@ %d time(s)%s. %s"
+            % (sends, replies,
+               (", and answered %d request(s) on the hub" % answered) if answered else "",
+               "He is engaging with these - keep going." if replies >= sends * 0.5 else
+               "So most of them earned nothing back. Work out why the last one did not "
+               "before you write another, because it will probably go the same way. The "
+               "only question that matters: does he DO something different, or believe "
+               "something different about where the job stands, because you told him? An "
+               "error or a moved number always earns it. Progress and activity do not."))
+
     sent, subjects = emails_today()
     if sent:
         jobs = sorted({s.split(" - ")[0].split(" (")[0][:24] for s in subjects})
@@ -296,10 +419,33 @@ def prompt_note(chat=None):
     return "".join(parts)
 
 
+def allow_tonight(hours=None, by="zac"):
+    """Lift the curfew for one night. Expires by itself."""
+    now = dt.datetime.now()
+    # Default: until 07:00, whether that is tonight's or tomorrow's.
+    until = now.replace(hour=NIGHT_TO, minute=0, second=0, microsecond=0)
+    if until <= now:
+        until += dt.timedelta(days=1)
+    if hours:
+        until = now + dt.timedelta(hours=hours)
+    rec = {"until": until.isoformat(timespec="seconds"), "by": by,
+           "set_at": now.isoformat(timespec="seconds")}
+    with open(NIGHT_OK_FILE, "w", encoding="utf-8") as fh:
+        json.dump(rec, fh, indent=1)
+    return rec
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--chat")
+    ap.add_argument("--allow-tonight", action="store_true",
+                    help="lift the overnight curfew until 07:00")
+    ap.add_argument("--hours", type=float, help="with --allow-tonight: for this long instead")
     args = ap.parse_args()
+    if args.allow_tonight:
+        rec = allow_tonight(args.hours)
+        print("overnight running allowed until %s" % rec["until"])
+        return 0
     label, start, hour_cap, session_cap = window()
     per = usage(start)
     hours, runs = spent(start)
