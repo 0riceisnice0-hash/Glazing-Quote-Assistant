@@ -3312,6 +3312,85 @@ function crmDays(d) {
      most useful thing in the database. */
 const QUIET_DAYS = 90;
 
+/* Which tab is showing and how it is sorted. Held outside render() because
+   render() throws the page away and rebuilds it on every background refresh -
+   the same reason drafts and the caret are held. */
+const CRMV = {
+  leadFilter: "live", leadSort: { col: "next_action_date", dir: 1 },
+  coFilter: "customers", coSort: { col: "lifetime_value", dir: -1 },
+  conFilter: "live", conSort: { col: "site_date", dir: 1 },
+};
+
+const CRM_FILTERS = {
+  lead: {
+    all: () => true,
+    live: (l) => !l.outcome && isLive(l),
+    quiet: (l) => !l.outcome && isQuiet(l),
+    pricing: (l) => !l.outcome && MARY_STAGES.includes(l.stage),
+    undated: (l) => !l.outcome && leadAge(l) === null,
+    closed: (l) => !!l.outcome,
+  },
+  co: {
+    all: () => true,
+    customers: (c) => c.relationship === "won",
+    dormant: (c) => c.relationship === "won" && !crmHasLive(c.key),
+    active: (c) => crmHasLive(c.key),
+    never: (c) => c.relationship !== "won",
+  },
+  con: {
+    all: () => true,
+    live: (c) => c.status === "live",
+    complete: (c) => c.status !== "live",
+  },
+};
+
+function crmHasLive(key) {
+  return CRM.leads.some((l) => !l.outcome && l.company_key === key);
+}
+
+/* Sort keys that are not columns on the row itself. */
+const CRM_SORTVAL = {
+  company: (r) => ((crmCo(r.company_key) || {}).name || r.company_key || "").toLowerCase(),
+  openval: (r) => money(CRM.leads.filter((l) => !l.outcome && l.company_key === r.key)).total,
+};
+
+function crmFilterSort(list, filterKey, sort) {
+  const family = list === CRM.companies ? "co" : list === CRM.contracts ? "con" : "lead";
+  const test = CRM_FILTERS[family][filterKey] || (() => true);
+  const out = list.filter(test);
+  const get = (r) => {
+    const v = CRM_SORTVAL[sort.col] ? CRM_SORTVAL[sort.col](r) : r[sort.col];
+    return v === null || v === undefined || v === "" ? null : v;
+  };
+  out.sort((a, b) => {
+    const x = get(a), y = get(b);
+    /* Blanks always sink, whichever way the column is pointing - a row with no
+       date is not "earliest", it is unset, and floating them to the top of an
+       ascending sort buries everything real. */
+    if (x === null && y === null) return 0;
+    if (x === null) return 1;
+    if (y === null) return -1;
+    if (typeof x === "number" && typeof y === "number") return (x - y) * sort.dir;
+    return String(x).localeCompare(String(y)) * sort.dir;
+  });
+  return out;
+}
+
+const crmTabs = (fam, tabs, current) => `<div class="crm-tabs">${tabs.map(([k, label, n]) =>
+  `<button class="crm-tab${k === current ? " on" : ""}" data-crmtab="${fam}:${k}" type="button">
+    ${esc(label)}<span>${n}</span></button>`).join("")}</div>`;
+
+const crmTh = (fam, col, label, num) => {
+  const s = CRMV[fam + "Sort"];
+  const on = s.col === col;
+  return `<th class="${num ? "num " : ""}sortable${on ? " sorted" : ""}"
+    data-crmsort="${fam}:${col}">${esc(label)}${on ? (s.dir === 1 ? " &uarr;" : " &darr;") : ""}</th>`;
+};
+
+const crmCount = (n, total, one, many) =>
+  `<p class="crm-count">${n} ${n === 1 ? one : (many || one + "s")}${
+    n < total ? ` of ${total}` : ""}</p>`;
+
 function leadAge(l) {
   return crmDays(l.next_action_date);
 }
@@ -3355,6 +3434,86 @@ function crmRows(list, empty) {
     </tr>`).join("")}</tbody></table>`;
 }
 
+/* A record you can CHANGE, which is the whole difference between a CRM and a
+   report. Save writes through /api/crm/edit, which whitelists the columns a
+   person may touch and logs every one to crm_event, so a human moving a chase
+   date is as traceable as a bot doing it. */
+async function crmSave(type, key, fields, why) {
+  const r = await api("crm/edit", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ type, key, fields, why, author: who() }),
+  });
+  if (!r || r.error) throw new Error((r && r.error) || "save failed");
+  return r;
+}
+
+function crmField(id, label, value, opts) {
+  if (opts) {
+    return `<label class="crm-f"><span>${esc(label)}</span>
+      <select id="${id}">${opts.map((o) =>
+        `<option value="${esc(o[0])}"${o[0] === (value || "") ? " selected" : ""}>${esc(o[1])}</option>`
+      ).join("")}</select></label>`;
+  }
+  return `<label class="crm-f"><span>${esc(label)}</span>
+    <input id="${id}" value="${esc(value || "")}"></label>`;
+}
+
+/* A won job: the twelve steps, tickable, and the site date everything counts
+   backwards from. Setting that date is the single edit that turns the whole
+   contracts page on. */
+async function crmPanelContract(key) {
+  openPanel(`<h2>Loading...</h2>`);
+  let d;
+  try { d = await api("crm/contract/" + encodeURIComponent(key)); }
+  catch { toast("Could not load that contract"); closePanel(); return; }
+  if (!d || d.error) { toast("No such contract"); closePanel(); return; }
+  const C = d.contract, co = d.company || {};
+  const tasks = (d.tasks || []);
+  openPanel(`
+    <h2>${esc(C.title || C.key)}</h2>
+    <p class="sub">${esc(co.name || C.company_key)}</p>
+    <div class="panel-sec"><h4>Edit</h4>
+      <div class="crm-form">
+        ${crmField("cc-site", "On site", C.site_date)}
+        ${crmField("cc-value", "Value, ex VAT", C.value || "")}
+        ${crmField("cc-po", "PO reference", C.po_ref)}
+        ${crmField("cc-status", "Status", C.status,
+          [["live", "live"], ["complete", "complete"], ["invoiced", "invoiced"], ["paid", "paid"]])}
+      </div>
+      <div class="crm-actions">
+        <button id="cc-save" class="btn-primary" type="button">Save</button>
+        <span id="cc-msg" class="crm-msg">${C.site_date ? ""
+          : "No site date - the twelve steps have no dates until one is set."}</span>
+      </div>
+    </div>
+    <div class="panel-sec"><h4>The twelve steps</h4>
+      ${tasks.length ? `<ul class="crm-steps">${tasks.map((t) => `
+        <li class="${t.done_at ? "done" : ""}">
+          <strong>${esc(t.label)}</strong>
+          <span>${t.done_at ? `done ${esc(t.done_at)}` : (t.due ? esc(t.due) : "no date")}</span>
+          ${t.detail ? `<small>${esc(t.detail)}</small>` : ""}
+        </li>`).join("")}</ul>`
+      : `<p class="page-sub">No steps yet. They are laid out from the site date.</p>`}
+    </div>`);
+  $("#cc-save")?.addEventListener("click", async () => {
+    const el = $("#cc-msg");
+    el.textContent = "Saving...";
+    try {
+      await crmSave("contract", key, {
+        site_date: $("#cc-site").value.trim(),
+        value: parseFloat($("#cc-value").value) || null,
+        po_ref: $("#cc-po").value.trim(),
+        status: $("#cc-status").value,
+      }, "edited on the hub");
+      el.textContent = "Saved";
+      const row = (CRM.contracts || []).find((c) => c.key === key);
+      if (row) row.site_date = $("#cc-site").value.trim();
+      render();
+    } catch { el.textContent = "Could not save"; }
+  });
+}
+
 /* One job, everything against it - the meeting's "I should just be able to
    click into the job and see all that sort of stuff as well". Fetched on open
    rather than held, because the joined view is big and mostly unread. */
@@ -3369,16 +3528,31 @@ async function crmPanelLead(key) {
   openPanel(`
     <h2>${esc(L.title || L.key)}</h2>
     <p class="sub">${esc(C.name || L.company_key)}${L.site ? " &middot; " + esc(L.site) : ""}</p>
-    <div class="panel-sec"><h4>Where it stands</h4>
-      <p><span class="chip ${stageTone(L.stage)}">${esc(STAGE_LABEL[L.stage] || L.stage)}</span>
-         ${L.value ? `<strong>${gbp(L.value)}</strong> ex VAT` : ""}
-         ${L.outcome ? `<span class="chip">${esc(L.outcome)}</span>` : ""}</p>
-      <p class="page-sub">Owner <strong>${esc(L.owner || "-")}</strong>.
-        ${L.next_action ? esc(L.next_action) : "No next action set."}
-        ${L.next_action_date ? whenChip(L.next_action_date) : ""}</p>
-      ${L.deadline ? `<p class="page-sub">Our return date ${esc(L.deadline)}.</p>` : ""}
-      ${L.award_due ? `<p class="page-sub">They hear ${esc(L.award_due)} ${whenChip(L.award_due)}
-        - that is the day to ring.</p>` : ""}</div>
+    <div class="panel-sec"><h4>Edit</h4>
+      <div class="crm-form">
+        ${crmField("cl-stage", "Stage", L.stage,
+          Object.entries(STAGE_LABEL).map(([k, v]) => [k, v]))}
+        ${crmField("cl-outcome", "Outcome", L.outcome,
+          [["", "still open"], ["won", "won"], ["lost", "lost"], ["no-decision", "no decision"]])}
+        ${crmField("cl-value", "Value, ex VAT", L.value || "")}
+        ${crmField("cl-date", "Next action date", L.next_action_date)}
+        ${crmField("cl-deadline", "Our return date", L.deadline)}
+        ${crmField("cl-award", "They hear on", L.award_due)}
+      </div>
+      <label class="crm-f"><span>Next action</span>
+        <textarea id="cl-next" rows="2">${esc(L.next_action || "")}</textarea></label>
+      <div class="crm-actions">
+        <button id="cl-save" class="btn-primary" type="button">Save</button>
+        <button data-quick="7" class="btn-quiet" type="button">Chase in 1 week</button>
+        <button data-quick="30" class="btn-quiet" type="button">Chase in 1 month</button>
+        <span id="cl-msg" class="crm-msg"></span>
+      </div>
+    </div>
+
+    <div class="panel-sec"><h4>Add a note</h4>
+      <textarea id="cl-note" rows="2" placeholder="What was said, and by whom"></textarea>
+      <div class="crm-actions"><button id="cl-note-save" class="btn-quiet" type="button">Add note</button></div>
+    </div>
     ${sec("Who we deal with", (d.contacts || []).length ? `<ul class="unk">${d.contacts.map((c) => {
       /* Most seeded contacts are an address and nothing else, so falling back
          to the email for the name printed it twice. Name the person when we
@@ -3403,6 +3577,48 @@ async function crmPanelLead(key) {
         <strong>${esc(e.field)}</strong> ${e.was ? esc(e.was) + " &rarr; " : "set to "}${esc(e.now)}
         ${e.why ? `<br><small>${esc(e.why)}</small>` : ""}</p>`).join("")}</div>` : "")}
   `);
+
+  const msg = (t) => { const el = $("#cl-msg"); if (el) el.textContent = t; };
+  const collect = () => ({
+    stage: $("#cl-stage").value,
+    outcome: $("#cl-outcome").value,
+    value: parseFloat($("#cl-value").value) || null,
+    next_action_date: $("#cl-date").value.trim(),
+    deadline: $("#cl-deadline").value.trim(),
+    award_due: $("#cl-award").value.trim(),
+    next_action: $("#cl-next").value.trim(),
+  });
+  const push = async (fields, note) => {
+    msg("Saving...");
+    try {
+      await crmSave("lead", key, fields, note || "edited on the hub");
+      // Patch the row in memory so the table behind the panel agrees with what
+      // was just saved, without refetching 272 leads to change one of them.
+      const row = crmLead(key);
+      if (row) Object.assign(row, fields);
+      msg("Saved");
+      render();
+    } catch (e) { msg("Could not save"); toast("Could not save that change"); }
+  };
+
+  $("#cl-save")?.addEventListener("click", () => push(collect()));
+  $$("#panel [data-quick]").forEach((b) => b.addEventListener("click", () => {
+    const d2 = new Date(Date.now() + (+b.dataset.quick) * 864e5).toISOString().slice(0, 10);
+    $("#cl-date").value = d2;
+    push(Object.assign(collect(), { next_action_date: d2 }), "chase date set on the hub");
+  }));
+  $("#cl-note-save")?.addEventListener("click", async () => {
+    const body = $("#cl-note").value.trim();
+    if (!body) return;
+    try {
+      await api("crm/note", { method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ entity_type: "lead", entity_key: key, body, author: who() }) });
+      $("#cl-note").value = "";
+      toast("Note added");
+      crmPanelLead(key);
+    } catch { toast("Could not add that note"); }
+  });
 }
 
 /* THE NAV IS THE BUSINESS, NOT THE STAFF (03/08/2026).
@@ -3517,133 +3733,96 @@ const CRM_RENDER = {
      person wants to know here is whether it is sitting with estimating or
      out with the client, and that is exactly where the Mary/Jacob handover
      falls. */
-  /* GROUPED BY WHAT YOU WOULD DO ABOUT IT, not by stage. Stage puts 210 of the
-     272 in one bucket called "quoted", which tells nobody anything. The useful
-     split is whether anyone is still talking, whether it has gone quiet, or
-     whether it is still with estimating - a chase, a decision, and nothing,
-     respectively. */
+  /* ---------------------------------------------------------------- LEADS
+     A RECORD LIST, not an essay about one. Filter, sort, open, change. The
+     version before this grouped everything into five commentaried sections
+     and had nothing you could click or edit, which is a report, not a CRM. */
   leads() {
-    const all = CRM.leads.filter((l) => !l.outcome);
-    const byDate = (a, b) => (a.next_action_date || "9999").localeCompare(b.next_action_date || "9999");
-    const byValue = (a, b) => (b.value || 0) - (a.value || 0);
-
-    const pricing = all.filter((l) => MARY_STAGES.includes(l.stage)).sort(byDate);
-    const out = all.filter((l) => !MARY_STAGES.includes(l.stage));
-    const live = out.filter(isLive).sort(byDate);
-    const slipping = out.filter(isSlipping).sort(byValue);
-    const quiet = out.filter(isQuiet).sort(byValue);
-    const undated = out.filter((l) => leadAge(l) === null).sort(byValue);
-    const m = money(all);
-
+    const rows = crmFilterSort(CRM.leads, CRMV.leadFilter, CRMV.leadSort);
+    const counts = {
+      all: CRM.leads.length,
+      live: CRM.leads.filter((l) => !l.outcome && isLive(l)).length,
+      quiet: CRM.leads.filter((l) => !l.outcome && isQuiet(l)).length,
+      pricing: CRM.leads.filter((l) => !l.outcome && MARY_STAGES.includes(l.stage)).length,
+      undated: CRM.leads.filter((l) => !l.outcome && leadAge(l) === null).length,
+      closed: CRM.leads.filter((l) => l.outcome).length,
+    };
     return `
-      <div class="stats">
-        <div class="stat"><b>${live.length}</b><span>live conversations</span></div>
-        <div class="stat"><b>${quiet.length}</b><span>gone quiet</span></div>
-        <div class="stat"><b>${pricing.length}</b><span>with estimating</span></div>
-        <div class="stat"><b>${gbpShort(m.median)}</b><span>median quote</span></div>
-      </div>
-
-      <h3>Live <span class="chip warn">${live.length}</span></h3>
-      <p class="page-sub">Due, or chased within the last month. This is the part
-        that is actually moving.</p>
-      ${crmRows(live, "Nothing has been chased recently.")}
-
-      <h3>With estimating <span class="chip navy">${pricing.length}</span></h3>
-      <p class="page-sub">Not quoted yet, so there is nothing to chase. Mary has these.</p>
-      ${crmRows(pricing, "Nothing waiting to be priced.")}
-
-      <h3>Slipping <span class="chip warn">${slipping.length}</span></h3>
-      <p class="page-sub">One to three months past their chase date. Still worth a
-        call; left alone they join the group below.</p>
-      ${crmRows(slipping, "Nothing slipping.")}
-
-      <h3>Gone quiet <span class="chip danger">${quiet.length}</span></h3>
-      <p class="page-sub"><strong>These need a decision, not a task.</strong> Over
-        three months silent, and Adam's standing rule is that nothing closes on
-        silence (JAC-14) - so they sit here until somebody says chase it or kill
-        it. Biggest first: the top twenty are ${gbpShort(money(quiet.slice(0, 20)).total)}
-        of ${gbpShort(money(quiet).total)}.</p>
-      ${crmRows(quiet.slice(0, 20), "Nothing has gone quiet.")}
-      ${quiet.length > 20 ? `<p class="page-sub">${quiet.length - 20} more, all under
-        ${gbpShort(quiet[19].value || 0)}. Work the list down rather than reading it.</p>` : ""}
-
-      ${undated.length ? `<h3>No date set <span class="chip navy">${undated.length}</span></h3>
-        <p class="page-sub">Quoted, but nobody has said when to look again.</p>
-        ${crmRows(undated.slice(0, 20), "")}` : ""}`;
+      ${crmTabs("lead", [
+        ["all", "All", counts.all], ["live", "Live", counts.live],
+        ["quiet", "Gone quiet", counts.quiet], ["pricing", "With estimating", counts.pricing],
+        ["undated", "No date", counts.undated], ["closed", "Closed", counts.closed],
+      ], CRMV.leadFilter)}
+      ${crmCount(rows.length, CRM.leads.length, "job")}
+      <table class="tbl crm-tbl">
+        <thead><tr>
+          ${crmTh("lead", "title", "Job")}
+          ${crmTh("lead", "company", "Client")}
+          ${crmTh("lead", "stage", "Stage")}
+          ${crmTh("lead", "value", "Value", true)}
+          ${crmTh("lead", "next_action", "Next action")}
+          ${crmTh("lead", "next_action_date", "Due")}
+        </tr></thead>
+        <tbody>${rows.map((l) => `<tr data-crm="${esc(l.key)}">
+          <td><strong>${esc(l.title || l.key)}</strong></td>
+          <td>${esc((crmCo(l.company_key) || {}).name || l.company_key)}</td>
+          <td><span class="chip ${stageTone(l.stage)}">${esc(STAGE_LABEL[l.stage] || l.stage)}</span>
+              ${l.outcome ? `<span class="chip ${l.outcome === "won" ? "ok" : "danger"}">${esc(l.outcome)}</span>` : ""}</td>
+          <td class="num">${l.value ? gbp(l.value) : "-"}</td>
+          <td class="crm-next">${esc((l.next_action || "").slice(0, 120)) || "<em>none set</em>"}</td>
+          <td class="nowrap">${l.next_action_date
+              ? `${esc(l.next_action_date)} ${whenChip(l.next_action_date)}` : "-"}</td>
+        </tr>`).join("")}</tbody>
+      </table>
+      ${rows.length ? "" : `<div class="empty"><strong>Nothing matches.</strong></div>`}`;
   },
 
+  /* ------------------------------------------------------------ COMPANIES */
   companies() {
-    const live = CRM.leads.filter((l) => !l.outcome);
-    const openOn = (key) => live.filter((l) => l.company_key === key);
-    const withLead = new Set(live.map((l) => l.company_key));
-    const bought = CRM.companies.filter((c) => c.relationship === "won")
-      .sort((a, b) => (b.lifetime_value || 0) - (a.lifetime_value || 0));
-    /* THE MOST USEFUL SPLIT IN THE DATABASE. 80 companies have actually paid
-       Fenster; 54 of them have nothing live right now. Against 59% of all wins
-       coming from an existing customer, those 54 are a better call list than
-       any lead page - and nothing in the hub has ever shown them. */
-    const dormant = bought.filter((c) => !withLead.has(c.key));
-    const active = bought.filter((c) => withLead.has(c.key));
-    const never = CRM.companies.filter((c) => c.relationship !== "won" && withLead.has(c.key));
-    const lifetime = bought.reduce((s, c) => s + (c.lifetime_value || 0), 0);
-
-    const tbl = (list, cols) => `<table class="tbl"><thead><tr>
-        <th>Company</th><th class="num">${cols}</th><th class="num">Live quotes</th>
-        <th>Last contact</th></tr></thead><tbody>
-      ${list.map((c) => {
-        const q = openOn(c.key);
-        return `<tr data-crmco="${esc(c.key)}">
-          <td><strong>${esc(c.name)}</strong></td>
-          <td class="num">${c.lifetime_value ? gbp(c.lifetime_value) : "-"}</td>
-          <td class="num">${q.length ? `${q.length} &middot; ${gbpShort(money(q).total)}` : "-"}</td>
-          <td>${esc((c.last_contact || "").slice(0, 10)) || "<em>not seen in the mailboxes</em>"}</td>
-        </tr>`;
-      }).join("")}</tbody></table>`;
-
+    const rows = crmFilterSort(CRM.companies, CRMV.coFilter, CRMV.coSort);
+    const liveLeads = CRM.leads.filter((l) => !l.outcome);
+    const withLead = new Set(liveLeads.map((l) => l.company_key));
+    const bought = CRM.companies.filter((c) => c.relationship === "won");
     return `
-      <div class="stats">
-        <div class="stat"><b>${bought.length}</b><span>have bought</span></div>
-        <div class="stat"><b>${gbpShort(lifetime)}</b><span>they have paid us</span></div>
-        <div class="stat"><b>${dormant.length}</b><span>bought, nothing live</span></div>
-        <div class="stat"><b>${never.length}</b><span>quoting, never bought</span></div>
-      </div>
-
-      <h3>Bought before, nothing live now <span class="chip warn">${dormant.length}</span></h3>
-      <p class="page-sub"><strong>The best call list in the business, and it is not
-        the obvious one.</strong> These ${dormant.length} have paid
-        ${gbpShort(money(dormant.map((c) => ({ value: c.lifetime_value }))).total)}
-        between them - small accounts, not the big names. That is the point: 59% of
-        everything Fenster has won came from a customer it already had, the median
-        win is under GBP 2,000, and the win rate is 38% under GBP 10k against 0%
-        over GBP 50k. Small repeat customers are the shape of the business. Nothing
-        is on the go with any of these.</p>
-      ${tbl(dormant, "Lifetime")}
-
-      <h3>Customers with something live <span class="chip ok">${active.length}</span></h3>
-      <p class="page-sub">They have bought before and they are quoting again. The
-        likeliest wins on the board.</p>
-      ${tbl(active, "Lifetime")}
-
-      <h3>Quoting, never bought <span class="chip navy">${never.length}</span></h3>
-      <p class="page-sub">${never.length} companies hold live quotes and have never
-        bought anything. Worth knowing before anyone spends a day on one.</p>
-      ${tbl(never.slice(0, 25), "Lifetime")}
-      ${never.length > 25 ? `<p class="page-sub">Showing 25 of ${never.length} - use the
-        filter box to find a name.</p>` : ""}`;
+      ${crmTabs("co", [
+        ["all", "All", CRM.companies.length],
+        ["customers", "Customers", bought.length],
+        ["dormant", "Bought, nothing live", bought.filter((c) => !withLead.has(c.key)).length],
+        ["active", "Quoting now", CRM.companies.filter((c) => withLead.has(c.key)).length],
+        ["never", "Never bought", CRM.companies.filter((c) => c.relationship !== "won").length],
+      ], CRMV.coFilter)}
+      ${crmCount(rows.length, CRM.companies.length, "company", "companies")}
+      <table class="tbl crm-tbl">
+        <thead><tr>
+          ${crmTh("co", "name", "Company")}
+          ${crmTh("co", "relationship", "Relationship")}
+          ${crmTh("co", "lifetime_value", "Paid us", true)}
+          ${crmTh("co", "openval", "Live quotes", true)}
+          ${crmTh("co", "last_contact", "Last contact")}
+        </tr></thead>
+        <tbody>${rows.map((c) => {
+          const q = liveLeads.filter((l) => l.company_key === c.key);
+          return `<tr data-crmco="${esc(c.key)}">
+            <td><strong>${esc(c.name)}</strong></td>
+            <td><span class="chip ${c.relationship === "won" ? "ok" : "navy"}">${esc(c.relationship)}</span></td>
+            <td class="num">${c.lifetime_value ? gbp(c.lifetime_value) : "-"}</td>
+            <td class="num">${q.length ? `${q.length} &middot; ${gbpShort(money(q).total)}` : "-"}</td>
+            <td class="nowrap">${esc((c.last_contact || "").slice(0, 10)) || "-"}</td>
+          </tr>`;
+        }).join("")}</tbody>
+      </table>
+      ${rows.length ? "" : `<div class="empty"><strong>Nothing matches.</strong></div>`}`;
   },
 
-  /* Paul and Steve's page. Task first, job second - they work a day, not a
-     portfolio - and every row says what to order, not only that it is due,
-     which is the thing Adam said the AdminBase board never did.
-
-     Money lives at the bottom of this page rather than in a section of its
-     own, because it is the last two steps of the same checklist and because
-     it is empty until Adam rules on D2-D4. */
+  /* ------------------------------------------------------------ CONTRACTS */
   contracts() {
     const d = CRM.delivery;
-    if (!d) return `<div class="empty"><strong>The CRM is not answering.</strong></div>`;
-    const rows = (list, empty) => list.length ? `<div class="acts">${list.map((r, i) => `
-      <div class="act ${r.due < d.date ? "danger" : "navy"}">
+    const cons = CRM.contracts || [];
+    const liveCons = cons.filter((c) => c.status === "live");
+    const schedulable = liveCons.filter((c) => c.site_date);
+    const rows = crmFilterSort(cons, CRMV.conFilter, CRMV.conSort);
+    const task = (r, i) => `
+      <div class="act ${r.due < (d ? d.date : "") ? "danger" : "warn"}" data-crmcon="${esc(r.entity_key)}">
         <div class="act-no">${i + 1}</div>
         <div class="act-main">
           <div class="act-top"><strong>${esc(r.label)}</strong>
@@ -3651,41 +3830,38 @@ const CRM_RENDER = {
           <div class="act-what">${esc(r.detail || "")}</div>
         </div>
         <div class="act-side"><small>on site ${esc(r.site_date || "-")}</small></div>
-      </div>`).join("")}</div>` : `<div class="empty"><strong>${empty}</strong></div>`;
-    /* The gap that decides whether this page can work at all. Every deadline
-       here is counted BACKWARDS from the site date, and 29 live contracts came
-       out of Adam's export with no site date on any of them - the export
-       records when finished work was fitted, not when future work is due. So
-       the schedule is empty and will stay empty until somebody enters one. */
-    const cons = CRM.contracts || [];
-    const liveCons = cons.filter((c) => c.status === "live");
-    const schedulable = liveCons.filter((c) => c.site_date);
+      </div>`;
+    const due = [...((d && d.late) || []), ...((d && d.due) || [])];
     return `
-      <div class="stats">
-        <div class="stat"><b>${liveCons.length}</b><span>live contracts</span></div>
-        <div class="stat"><b>${schedulable.length}</b><span>have a site date</span></div>
-        <div class="stat"><b>${d.counts.late}</b><span>tasks late</span></div>
-        <div class="stat"><b>${d.counts.due}</b><span>due today</span></div>
-      </div>
-
-      ${liveCons.length && !schedulable.length ? `<div class="planned-note">
-        <p><strong>${liveCons.length} won jobs, and not one has a site date - so
-        nothing can be scheduled.</strong> Every step on this page is counted
-        backwards from the day we go on site, and Adam's export records when
-        finished work was <em>fitted</em>, not when live work is <em>due</em>.
-        Put a site date on a contract and its twelve steps lay themselves out
-        with dates against them. That is the one thing standing between this
-        page and being useful.</p></div>` : ""}
-
-      <h3>Late</h3>${rows(d.late || [], "Nothing is late.")}
-      <h3>Today</h3>${rows(d.due || [], "Nothing due today.")}
-      <h3>Coming up</h3>${rows(d.coming || [], "Nothing in the next fortnight.")}
-      <h3>Money</h3>
-      <div class="planned-note"><p><strong>Invoicing and chasing are not built yet,
-        and it is not a coding problem.</strong> Three things have to come from Adam
-        first: the six chase stages and their day counts, whether these are payment
-        applications or final invoices, and where the invoice figure comes from when
-        there are variations. The tables are in the CRM waiting for the answers.</p></div>`;
+      ${due.length ? `<h3>Due now <span class="chip danger">${due.length}</span></h3>
+        <div class="acts">${due.map(task).join("")}</div>` : ""}
+      ${liveCons.length && !schedulable.length ? `<div class="planned-note"><p>
+        <strong>${liveCons.length} live contracts and none has a site date, so nothing
+        can be scheduled.</strong> Every step counts backwards from the day we go on
+        site. Open a contract and set one.</p></div>` : ""}
+      ${crmTabs("con", [
+        ["live", "Live", liveCons.length],
+        ["all", "All", cons.length],
+        ["complete", "Complete", cons.filter((c) => c.status !== "live").length],
+      ], CRMV.conFilter)}
+      ${crmCount(rows.length, cons.length, "contract")}
+      <table class="tbl crm-tbl">
+        <thead><tr>
+          ${crmTh("con", "title", "Job")}
+          ${crmTh("con", "company", "Client")}
+          ${crmTh("con", "value", "Value", true)}
+          ${crmTh("con", "site_date", "On site")}
+          ${crmTh("con", "status", "Status")}
+        </tr></thead>
+        <tbody>${rows.map((c) => `<tr data-crmcon="${esc(c.key)}">
+          <td><strong>${esc(c.title || c.key)}</strong></td>
+          <td>${esc((crmCo(c.company_key) || {}).name || c.company_key)}</td>
+          <td class="num">${c.value ? gbp(c.value) : "-"}</td>
+          <td class="nowrap">${c.site_date ? `${esc(c.site_date)} ${whenChip(c.site_date)}`
+            : `<em>not set</em>`}</td>
+          <td><span class="chip ${c.status === "live" ? "ok" : "navy"}">${esc(c.status)}</span></td>
+        </tr>`).join("")}</tbody>
+      </table>`;
   },
 };
 
@@ -3966,17 +4142,37 @@ document.addEventListener("click", async (e) => {
       .forEach((o) => o.classList.toggle("sel", o === pick));
     return;
   }
+  // Switching the tab on a record list.
+  const tab = e.target.closest("[data-crmtab]");
+  if (tab) {
+    const [fam, key] = tab.dataset.crmtab.split(":");
+    CRMV[fam + "Filter"] = key;
+    render();
+    return;
+  }
+  // Sorting one. Clicking the column you are already on flips it.
+  const th = e.target.closest("[data-crmsort]");
+  if (th) {
+    const [fam, col] = th.dataset.crmsort.split(":");
+    const s = CRMV[fam + "Sort"];
+    if (s.col === col) s.dir = -s.dir; else { s.col = col; s.dir = 1; }
+    render();
+    return;
+  }
   // A CRM row: open the whole job - company, contacts, quote, notes, history.
   const cr = e.target.closest("[data-crm]");
   if (cr) { crmPanelLead(cr.dataset.crm); return; }
-  // A company row jumps to its jobs rather than opening a panel of its own -
-  // what a person wants next from a company is nearly always its work.
+  // A company row filters Leads to that company's work, which is what anybody
+  // wants next from a company.
   const cc = e.target.closest("[data-crmco]");
   if (cc) {
     searchTerm = (crmCo(cc.dataset.crmco) || {}).name || "";
     const box = $("#search"); if (box) box.value = searchTerm;
-    page = "leads"; render(); return;
+    CRMV.leadFilter = "all";
+    BOT = "work"; page = "leads"; closePanel(); render(); return;
   }
+  const cn = e.target.closest("[data-crmcon]");
+  if (cn) { crmPanelContract(cn.dataset.crmcon); return; }
   // A queued work order: open the full text - the row only has room to clamp.
   const qi = e.target.closest("[data-qitem]");
   if (qi) {

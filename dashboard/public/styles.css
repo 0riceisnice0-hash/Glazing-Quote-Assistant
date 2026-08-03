@@ -418,6 +418,50 @@ button, input, select, textarea { font-family: inherit; }
 /* The action row on Today. Reads name, then what happened, then what to do,
    then whose name is on it, because that is the order it gets asked in. */
 .acts { display: grid; gap: 10px; }
+/* ---------------- the CRM record lists ----------------
+   A record list, not a report: a tab bar to narrow it, sortable columns, and
+   rows that open something you can change. */
+.crm-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
+.crm-tab { display: inline-flex; align-items: center; gap: 7px; padding: 7px 13px;
+  border: 1px solid var(--line); background: var(--card); border-radius: 999px;
+  font: inherit; font-size: var(--t-13); color: var(--body); cursor: pointer; }
+.crm-tab span { font-size: var(--t-11); color: var(--muted); }
+.crm-tab:hover { border-color: var(--line-strong); }
+.crm-tab.on { background: var(--navy); border-color: var(--navy); color: #fff; }
+.crm-tab.on span { color: rgba(255,255,255,.7); }
+.crm-count { font-size: var(--t-12); color: var(--muted); margin: 0 0 8px; }
+
+.crm-tbl tbody tr { cursor: pointer; }
+.crm-tbl th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+.crm-tbl th.sortable:hover { color: var(--navy); }
+.crm-tbl th.sorted { color: var(--navy); }
+.crm-tbl td.nowrap { white-space: nowrap; }
+/* The next-action column carries whole sentences. Left unbounded it is the
+   reason the table needed a horizontal scrollbar at all. */
+.crm-tbl td.crm-next { max-width: 320px; overflow: hidden; text-overflow: ellipsis;
+  white-space: nowrap; color: var(--muted); font-size: var(--t-12); }
+
+.crm-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+.crm-f { display: block; margin-bottom: 10px; }
+.crm-f span { display: block; font-size: var(--t-11); color: var(--muted); margin-bottom: 4px; }
+.crm-f input, .crm-f select, .crm-f textarea, .panel-sec textarea { width: 100%; padding: 8px 10px;
+  border: 1px solid var(--line); border-radius: var(--r); background: var(--card);
+  font: inherit; font-size: var(--t-13); color: var(--ink); }
+.crm-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 10px; }
+.btn-primary { padding: 8px 16px; border: 0; border-radius: var(--r); background: var(--green);
+  color: #fff; font: inherit; font-size: var(--t-13); font-weight: 600; cursor: pointer; }
+.btn-quiet { padding: 8px 14px; border: 1px solid var(--line); border-radius: var(--r);
+  background: var(--card); font: inherit; font-size: var(--t-13); color: var(--body); cursor: pointer; }
+.btn-quiet:hover { border-color: var(--line-strong); }
+.crm-msg { font-size: var(--t-12); color: var(--muted); }
+
+.crm-steps { list-style: none; padding: 0; margin: 0; }
+.crm-steps li { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 4px 12px;
+  padding: 9px 0; border-bottom: 1px solid var(--line); font-size: var(--t-13); }
+.crm-steps li span { font-size: var(--t-12); color: var(--muted); white-space: nowrap; }
+.crm-steps li small { grid-column: 1 / -1; font-size: var(--t-12); color: var(--muted); }
+.crm-steps li.done strong { text-decoration: line-through; color: var(--muted); }
+
 /* render() wraps every bare `table.tbl` in one of these so a wide table
    scrolls inside itself instead of widening the page. That JS shipped; this
    rule never did, so the wrapper has been inert and Jacob's Today table has

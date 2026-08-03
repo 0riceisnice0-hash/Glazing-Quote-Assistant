@@ -436,6 +436,62 @@ export async function onRequest(context) {
       }
     }
 
+    /* ---------------- the CRM, edited by a human ----------------
+       Public, like the pipeline overlay and the outcomes buttons already are:
+       a person on the hub can change a record without holding a bot key. The
+       editable columns are a whitelist - a human moving a chase date must not
+       be able to rewrite a company key or a lead's identity - and every change
+       still writes a crm_event, so who-changed-what stays answerable whether a
+       bot or a person did it. */
+    if (botKey === "crm" && POST && action === "edit") {
+      const b = await request.json().catch(() => ({}));
+      const EDITABLE = {
+        lead: ["stage", "owner", "value", "next_action", "next_action_date",
+               "outcome", "deadline", "award_due", "title", "site"],
+        company: ["name", "relationship", "payment_terms", "postcode"],
+        contract: ["title", "site_date", "value", "po_ref", "status"],
+      };
+      const table = { lead: "crm_lead", company: "crm_company", contract: "crm_contract" }[b.type];
+      const allowed = EDITABLE[b.type];
+      if (!table) return json({ error: "Unknown type" }, 400);
+      const id = clip(b.key, 120);
+      if (!id) return json({ error: "key is required" }, 400);
+      const who = person(b.author);
+      const stamp = now();
+      const fields = b.fields && typeof b.fields === "object" ? b.fields : {};
+      const cols = Object.keys(fields).filter((c) => allowed.includes(c));
+      if (!cols.length) return json({ error: "Nothing editable in that" }, 400);
+
+      const before = await db.prepare(`SELECT * FROM ${table} WHERE key = ?`).bind(id).first();
+      if (!before) return json({ error: "No such record" }, 404);
+      await db.prepare(
+        `UPDATE ${table} SET ${cols.map((c) => `${c}=?`).join(",")}, updated=?, updated_by=? WHERE key=?`
+      ).bind(...cols.map((c) => fields[c]), stamp, who, id).run();
+      for (const c of cols) {
+        const was = String(before[c] ?? ""), val = String(fields[c] ?? "");
+        if (was === val) continue;
+        await db.prepare(
+          "INSERT INTO crm_event (entity_type, entity_key, field, was, now, why, author, created) " +
+          "VALUES (?,?,?,?,?,?,?,?)"
+        ).bind(String(b.type), id, c, clip(was, 400), clip(val, 400),
+               clip(b.why, 400) || "edited on the hub", who, stamp).run();
+      }
+      return json({ ok: true });
+    }
+
+    /* A note from a person, same table the bots write to. */
+    if (botKey === "crm" && POST && action === "note") {
+      const b = await request.json().catch(() => ({}));
+      const body = clip(b.body, 8000).trim();
+      if (!body) return json({ error: "Empty note" }, 400);
+      await db.prepare(
+        "INSERT INTO crm_note (entity_type, entity_key, body, source, source_ref, author, created) " +
+        "VALUES (?,?,?,?,?,?,?)"
+      ).bind(clip(b.entity_type, 24), clip(b.entity_key, 120), body,
+             "hub", "", person(b.author), now()).run();
+      return json({ ok: true });
+    }
+
     /* ---------------- bot-only routes below this gate ---------------- */
     if (!env.MARY_API_KEY || request.headers.get("x-mary-key") !== env.MARY_API_KEY) {
       return json({ error: "Not found" }, 404);
