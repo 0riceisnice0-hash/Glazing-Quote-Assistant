@@ -314,6 +314,11 @@ export async function onRequest(context) {
           "SELECT * FROM crm_company ORDER BY last_contact DESC, name").all();
         return json(results);
       }
+      if (action === "contracts") {
+        const { results } = await db.prepare(
+          "SELECT * FROM crm_contract ORDER BY site_date").all();
+        return json(results);
+      }
       if (action === "leads") {
         const stage = new URL(request.url).searchParams.get("stage");
         const q = stage
@@ -381,6 +386,43 @@ export async function onRequest(context) {
           tasks: tasks.results, events: events.results,
         });
       }
+      /* One won job and its twelve steps - Joseph's equivalent of lead/<key>,
+         and what the delivery board renders for Paul and Steve. */
+      if (action.startsWith("contract/")) {
+        const key = action.slice(9);
+        const contract = await db.prepare(
+          "SELECT * FROM crm_contract WHERE key = ?").bind(key).first();
+        if (!contract) return json({ error: "No such contract" }, 404);
+        const [company, tasks, notes, invoices] = await Promise.all([
+          db.prepare("SELECT * FROM crm_company WHERE key = ?").bind(contract.company_key).first(),
+          db.prepare("SELECT * FROM crm_task WHERE entity_type='contract' AND entity_key=? ORDER BY due").bind(key).all(),
+          db.prepare("SELECT * FROM crm_note WHERE entity_type='contract' AND entity_key=? ORDER BY id DESC LIMIT 100").bind(key).all(),
+          db.prepare("SELECT * FROM crm_invoice WHERE contract_key=? ORDER BY issued_at").bind(key).all(),
+        ]);
+        return json({ contract, company, tasks: tasks.results,
+                      notes: notes.results, invoices: invoices.results });
+      }
+
+      /* THE DELIVERY BOARD. Paul and Steve open one page and know their day
+         (Zac, 03/08) - so this is every task due or late across every live
+         contract, soonest first, with the job it belongs to attached. It is
+         deliberately task-first rather than job-first: they work a day, not a
+         portfolio. */
+      if (action === "delivery") {
+        const today = now().slice(0, 10);
+        const soon = new Date(Date.now() + 14 * 864e5).toISOString().slice(0, 10);
+        const { results } = await db.prepare(
+          "SELECT t.*, c.title AS job, c.site_date, c.company_key " +
+          "FROM crm_task t JOIN crm_contract c ON c.key = t.entity_key " +
+          "WHERE t.entity_type='contract' AND t.done_at='' AND c.status='live' " +
+          "AND t.due != '' AND t.due <= ? ORDER BY t.due").bind(soon).all();
+        const late = results.filter((r) => r.due < today);
+        const due = results.filter((r) => r.due === today);
+        const coming = results.filter((r) => r.due > today);
+        return json({ date: today, late, due, coming,
+                      counts: { late: late.length, due: due.length, coming: coming.length } });
+      }
+
       if (action.startsWith("company/")) {
         const key = action.slice(8);
         const company = await db.prepare("SELECT * FROM crm_company WHERE key = ?").bind(key).first();

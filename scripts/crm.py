@@ -180,6 +180,16 @@ def company_detail(key):
     return _call("/api/crm/company/" + urllib.parse.quote(key))
 
 
+def contract_detail(key):
+    """One won job: the contract, its twelve steps, notes and invoices."""
+    return _call("/api/crm/contract/" + urllib.parse.quote(key))
+
+
+def delivery():
+    """Paul and Steve's day - every task due or late across live contracts."""
+    return _call("/api/crm/delivery") or {}
+
+
 # ------------------------------------------------------------------ CLI
 def _row(l):
     return "  %-26s %-22s %-16s %10s  %s" % (
