@@ -3549,9 +3549,14 @@ async function crmPanelLead(key) {
       </div>
     </div>
 
-    <div class="panel-sec"><h4>Add a note</h4>
+    <div class="panel-sec"><h4>Notes</h4>
       <textarea id="cl-note" rows="2" placeholder="What was said, and by whom"></textarea>
       <div class="crm-actions"><button id="cl-note-save" class="btn-quiet" type="button">Add note</button></div>
+      ${(d.notes || []).length ? `<div class="rt crm-notes">${d.notes.slice(0, 20).map((n) =>
+        `<p><small>${esc(n.created.slice(0, 16).replace("T", " "))} &middot;
+          ${esc(n.author)} &middot; ${esc(n.source)}</small><br>${esc(n.body.slice(0, 600))}</p>`
+        ).join("")}</div>`
+        : `<p class="page-sub">Nothing recorded against this job yet.</p>`}
     </div>
     ${sec("Who we deal with", (d.contacts || []).length ? `<ul class="unk">${d.contacts.map((c) => {
       /* Most seeded contacts are an address and nothing else, so falling back
@@ -3567,10 +3572,6 @@ async function crmPanelLead(key) {
       ${d.quotes.map((q) => `<tr><td>${q.revision}</td><td class="num">${q.value ? gbp(q.value) : "-"}</td>
         <td>${esc(q.status)}</td><td>${esc(q.issued_at || "-")}</td></tr>`).join("")}
       </tbody></table>` : "")}
-    ${sec("Notes", (d.notes || []).length ? `<div class="rt">${d.notes.slice(0, 20).map((n) =>
-      `<p><small>${esc(n.created.slice(0, 16).replace("T", " "))} &middot;
-        ${esc(n.author)} &middot; ${esc(n.source)}</small><br>${esc(n.body.slice(0, 600))}</p>`
-      ).join("")}</div>` : `<p class="page-sub">Nothing recorded against this job yet.</p>`)}
     ${sec("What changed, and who changed it", (d.events || []).length ? `<div class="rt">
       ${d.events.slice(0, 20).map((e) => `<p><small>${esc(e.created.slice(0, 16).replace("T", " "))}
         &middot; ${esc(e.author)}</small><br>
@@ -3764,12 +3765,12 @@ const CRM_RENDER = {
           ${crmTh("lead", "next_action_date", "Due")}
         </tr></thead>
         <tbody>${rows.map((l) => `<tr data-crm="${esc(l.key)}">
-          <td><strong>${esc(l.title || l.key)}</strong></td>
-          <td>${esc((crmCo(l.company_key) || {}).name || l.company_key)}</td>
+          <td class="crm-title"><span><strong>${esc(l.title || l.key)}</strong></span></td>
+          <td class="crm-title"><span>${esc((crmCo(l.company_key) || {}).name || l.company_key)}</span></td>
           <td><span class="chip ${stageTone(l.stage)}">${esc(STAGE_LABEL[l.stage] || l.stage)}</span>
               ${l.outcome ? `<span class="chip ${l.outcome === "won" ? "ok" : "danger"}">${esc(l.outcome)}</span>` : ""}</td>
           <td class="num">${l.value ? gbp(l.value) : "-"}</td>
-          <td class="crm-next">${esc((l.next_action || "").slice(0, 120)) || "<em>none set</em>"}</td>
+          <td class="crm-next"><span>${esc((l.next_action || "").slice(0, 160)) || "<em>none set</em>"}</span></td>
           <td class="nowrap">${l.next_action_date
               ? `${esc(l.next_action_date)} ${whenChip(l.next_action_date)}` : "-"}</td>
         </tr>`).join("")}</tbody>
@@ -3803,7 +3804,7 @@ const CRM_RENDER = {
         <tbody>${rows.map((c) => {
           const q = liveLeads.filter((l) => l.company_key === c.key);
           return `<tr data-crmco="${esc(c.key)}">
-            <td><strong>${esc(c.name)}</strong></td>
+            <td class="crm-title"><span><strong>${esc(c.name)}</strong></span></td>
             <td><span class="chip ${c.relationship === "won" ? "ok" : "navy"}">${esc(c.relationship)}</span></td>
             <td class="num">${c.lifetime_value ? gbp(c.lifetime_value) : "-"}</td>
             <td class="num">${q.length ? `${q.length} &middot; ${gbpShort(money(q).total)}` : "-"}</td>
@@ -3854,8 +3855,8 @@ const CRM_RENDER = {
           ${crmTh("con", "status", "Status")}
         </tr></thead>
         <tbody>${rows.map((c) => `<tr data-crmcon="${esc(c.key)}">
-          <td><strong>${esc(c.title || c.key)}</strong></td>
-          <td>${esc((crmCo(c.company_key) || {}).name || c.company_key)}</td>
+          <td class="crm-title"><span><strong>${esc(c.title || c.key)}</strong></span></td>
+          <td class="crm-title"><span>${esc((crmCo(c.company_key) || {}).name || c.company_key)}</span></td>
           <td class="num">${c.value ? gbp(c.value) : "-"}</td>
           <td class="nowrap">${c.site_date ? `${esc(c.site_date)} ${whenChip(c.site_date)}`
             : `<em>not set</em>`}</td>
