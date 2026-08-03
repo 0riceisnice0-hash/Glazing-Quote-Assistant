@@ -418,6 +418,19 @@ button, input, select, textarea { font-family: inherit; }
 /* The action row on Today. Reads name, then what happened, then what to do,
    then whose name is on it, because that is the order it gets asked in. */
 .acts { display: grid; gap: 10px; }
+/* render() wraps every bare `table.tbl` in one of these so a wide table
+   scrolls inside itself instead of widening the page. That JS shipped; this
+   rule never did, so the wrapper has been inert and Jacob's Today table has
+   been pushing the whole document 300px sideways - which is felt on every
+   OTHER screen too, as the sideways wobble the JS comment set out to prevent.
+   `min-width: 0` is the half people forget: a grid or flex child will not
+   shrink below its content without it, and the overflow never engages. */
+.tbl-wrap { overflow-x: auto; max-width: 100%; min-width: 0; }
+
+/* A card with no .act-no used to drop its whole body into the 34px number
+   column and render one word per line. The number is optional now: the three
+   column track only exists when there is something to put in it. */
+.act:not(:has(.act-no)) { grid-template-columns: minmax(0, 1fr) auto; }
 .act { display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; gap: 14px; align-items: start;
   background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--green);
   border-radius: var(--r-lg); padding: 15px 18px; cursor: pointer; transition: border-color .13s, box-shadow .13s; }

@@ -3433,8 +3433,9 @@ const CRM_RENDER = {
 
       ${needs.length ? `${head("Needs you", needs.length, "danger")}
         <p class="page-sub">A bot has stopped and cannot go on until somebody decides.</p>
-        <div class="acts">${needs.map((n) => `
+        <div class="acts">${needs.map((n, i) => `
           <div class="act danger" data-bot-go="${esc(n.bot)}:${esc(n.page)}">
+            <div class="act-no">${i + 1}</div>
             <div class="act-main">
               <div class="act-top"><strong>${esc(n.title)}</strong>
                 <span class="act-co">${esc(n.who)} is blocked</span></div>
@@ -3448,8 +3449,9 @@ const CRM_RENDER = {
 
       ${onsite.length ? `${head("On site", onsite.length, del?.counts?.late ? "danger" : "warn")}
         <p class="page-sub">Ordering and bookings that have reached their date.</p>
-        <div class="acts">${onsite.map((r) => `
+        <div class="acts">${onsite.map((r, i) => `
           <div class="act ${r.due < del.date ? "danger" : "warn"}">
+            <div class="act-no">${i + 1}</div>
             <div class="act-main">
               <div class="act-top"><strong>${esc(r.label)}</strong>
                 <span class="act-co">${esc(r.job)}</span>${whenChip(r.due)}</div>
@@ -3526,8 +3528,9 @@ const CRM_RENDER = {
   contracts() {
     const d = CRM.delivery;
     if (!d) return `<div class="empty"><strong>The CRM is not answering.</strong></div>`;
-    const rows = (list, empty) => list.length ? `<div class="acts">${list.map((r) => `
+    const rows = (list, empty) => list.length ? `<div class="acts">${list.map((r, i) => `
       <div class="act ${r.due < d.date ? "danger" : "navy"}">
+        <div class="act-no">${i + 1}</div>
         <div class="act-main">
           <div class="act-top"><strong>${esc(r.label)}</strong>
             <span class="act-co">${esc(r.job)}</span>${whenChip(r.due)}</div>
