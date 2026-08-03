@@ -73,6 +73,9 @@ button, input, select, textarea { font-family: inherit; }
 .nav-bot:not(.active) .live-when { display: none; }
 .avatar.jw { background: #3f6f8f; }
 .avatar.team { background: var(--navy-600); }
+/* The CRM is the record rather than a person, so it gets the brand green
+   instead of one of the bots' portrait colours. */
+.avatar.crm { background: var(--green-600, #2eac66); }
 .dot.build { background: #7ea79d; animation: none; }
 
 /* "N things are waiting on a human" - visible on a bot's card even when its

@@ -3238,6 +3238,211 @@ function jacobStatus() {
   return { text: "Live", tone: "", title: "" };
 }
 
+/* ---------------- THE CRM ----------------
+   One record of the commercial world, shared by all three bots and read
+   straight from /api/crm/* rather than from a deployed board file. That is
+   the difference between this and the pages above: Mary's and Jacob's boards
+   are snapshots their generators build, so they are only as fresh as the last
+   deploy. This is live - a chase date Adam moves by email is on this page the
+   moment the CRM has it.
+
+   Two audiences, deliberately separated (Zac, 03/08): admin is Adam and Zac,
+   and the Delivery page is what Paul and Steve get - their day, nothing else
+   to learn. */
+let CRM = { today: null, leads: [], companies: [], delivery: null };
+
+const crmLead = (key) => CRM.leads.find((l) => l.key === key);
+const crmCo = (key) => CRM.companies.find((c) => c.key === key);
+/* Our own stages in the words a person would use out loud. */
+const STAGE_LABEL = {
+  new: "New", acknowledged: "Acknowledged", materials_out: "Out to suppliers",
+  awaiting_costs: "Awaiting costs", quote_ready: "Quote to check",
+  pre_quote_call: "Pre-quote call", quote_sent: "Quoted",
+  follow_up: "Chasing", final_follow_up: "Final chase", closed: "Closed",
+};
+/* The stylesheet defines ok / warn / danger / navy and nothing else - inventing
+   a tone name here just renders an unstyled chip. */
+const stageTone = (s) => (s === "closed" ? "navy"
+  : ["quote_sent", "follow_up", "final_follow_up"].includes(s) ? "warn" : "ok");
+
+function crmDays(d) {
+  if (!d) return null;
+  return Math.round((new Date(d) - new Date(new Date().toISOString().slice(0, 10))) / 864e5);
+}
+
+/* A date with its lateness said in words. "2026-06-22" tells you nothing at a
+   glance; "6 weeks late" is the whole point of the row. */
+function whenChip(d) {
+  const n = crmDays(d);
+  if (n === null) return "";
+  const late = n < 0;
+  const abs = Math.abs(n);
+  const t = abs === 0 ? "today" : abs < 14 ? `${abs} day${abs === 1 ? "" : "s"}`
+    : abs < 90 ? `${Math.round(abs / 7)} weeks` : `${Math.round(abs / 30)} months`;
+  return `<span class="chip ${late ? "danger" : n === 0 ? "warn" : "navy"}">${
+    abs === 0 ? "due today" : late ? `${t} late` : `in ${t}`}</span>`;
+}
+
+function crmRows(list, empty) {
+  if (!list.length) return `<div class="empty"><strong>${empty}</strong></div>`;
+  return `<table class="tbl"><thead><tr>
+      <th>Job</th><th>Client</th><th>Stage</th><th class="num">Value</th>
+      <th>Next</th><th>When</th></tr></thead><tbody>
+    ${list.map((l) => `<tr data-crm="${esc(l.key)}">
+      <td><strong>${esc(l.title || l.key)}</strong></td>
+      <td>${esc((crmCo(l.company_key) || {}).name || l.company_key)}</td>
+      <td><span class="chip ${stageTone(l.stage)}">${esc(STAGE_LABEL[l.stage] || l.stage)}</span></td>
+      <td class="num">${l.value ? gbp(l.value) : "-"}</td>
+      <td>${esc((l.next_action || "").slice(0, 90)) || "<em>nothing set</em>"}</td>
+      <td>${whenChip(l.next_action_date || l.award_due)}</td>
+    </tr>`).join("")}</tbody></table>`;
+}
+
+/* One job, everything against it - the meeting's "I should just be able to
+   click into the job and see all that sort of stuff as well". Fetched on open
+   rather than held, because the joined view is big and mostly unread. */
+async function crmPanelLead(key) {
+  openPanel(`<h2>Loading...</h2>`);
+  let d;
+  try { d = await api("crm/lead/" + encodeURIComponent(key)); }
+  catch { toast("Could not load that job"); closePanel(); return; }
+  if (!d || d.error) { toast("No such job"); closePanel(); return; }
+  const L = d.lead, C = d.company || {};
+  const sec = (title, body) => body ? `<div class="panel-sec"><h4>${title}</h4>${body}</div>` : "";
+  openPanel(`
+    <h2>${esc(L.title || L.key)}</h2>
+    <p class="sub">${esc(C.name || L.company_key)}${L.site ? " &middot; " + esc(L.site) : ""}</p>
+    <div class="panel-sec"><h4>Where it stands</h4>
+      <p><span class="chip ${stageTone(L.stage)}">${esc(STAGE_LABEL[L.stage] || L.stage)}</span>
+         ${L.value ? `<strong>${gbp(L.value)}</strong> ex VAT` : ""}
+         ${L.outcome ? `<span class="chip">${esc(L.outcome)}</span>` : ""}</p>
+      <p class="page-sub">Owner <strong>${esc(L.owner || "-")}</strong>.
+        ${L.next_action ? esc(L.next_action) : "No next action set."}
+        ${L.next_action_date ? whenChip(L.next_action_date) : ""}</p>
+      ${L.deadline ? `<p class="page-sub">Our return date ${esc(L.deadline)}.</p>` : ""}
+      ${L.award_due ? `<p class="page-sub">They hear ${esc(L.award_due)} ${whenChip(L.award_due)}
+        - that is the day to ring.</p>` : ""}</div>
+    ${sec("Who we deal with", (d.contacts || []).length ? `<ul class="unk">${d.contacts.map((c) => {
+      /* Most seeded contacts are an address and nothing else, so falling back
+         to the email for the name printed it twice. Name the person when we
+         know them; otherwise the address IS the identity. */
+      const named = (c.name || "").trim();
+      return `<li>${esc(named || c.email)}${c.role ? " - " + esc(c.role) : ""}
+        ${named && c.email ? `<br><small>${esc(c.email)}</small>` : ""}
+        ${c.phone ? `<br><small>${esc(c.phone)}</small>` : ""}</li>`;
+    }).join("")}</ul>` : "")}
+    ${sec("The quote that went out", (d.quotes || []).length ? `<table class="tbl"><thead><tr>
+        <th>Rev</th><th class="num">Value</th><th>Status</th><th>Issued</th></tr></thead><tbody>
+      ${d.quotes.map((q) => `<tr><td>${q.revision}</td><td class="num">${q.value ? gbp(q.value) : "-"}</td>
+        <td>${esc(q.status)}</td><td>${esc(q.issued_at || "-")}</td></tr>`).join("")}
+      </tbody></table>` : "")}
+    ${sec("Notes", (d.notes || []).length ? `<div class="rt">${d.notes.slice(0, 20).map((n) =>
+      `<p><small>${esc(n.created.slice(0, 16).replace("T", " "))} &middot;
+        ${esc(n.author)} &middot; ${esc(n.source)}</small><br>${esc(n.body.slice(0, 600))}</p>`
+      ).join("")}</div>` : `<p class="page-sub">Nothing recorded against this job yet.</p>`)}
+    ${sec("What changed, and who changed it", (d.events || []).length ? `<div class="rt">
+      ${d.events.slice(0, 20).map((e) => `<p><small>${esc(e.created.slice(0, 16).replace("T", " "))}
+        &middot; ${esc(e.author)}</small><br>
+        <strong>${esc(e.field)}</strong> ${e.was ? esc(e.was) + " &rarr; " : "set to "}${esc(e.now)}
+        ${e.why ? `<br><small>${esc(e.why)}</small>` : ""}</p>`).join("")}</div>` : "")}
+  `);
+}
+
+const CRM_PAGES = [
+  { key: "today", label: "Today", group: "Work", icon: "chaselist",
+    sub: () => `${CRM.today?.counts?.due || 0} to call today, ${CRM.today?.counts?.overdue || 0} behind` },
+  { key: "leads", label: "Leads", group: "Work", icon: "leads",
+    sub: () => `${CRM.leads.length} jobs we are quoting for` },
+  { key: "companies", label: "Companies", group: "Work", icon: "companies",
+    sub: () => `${CRM.companies.length} on the books` },
+  { key: "delivery", label: "Delivery", group: "Won work", icon: "register",
+    sub: () => `${CRM.delivery?.counts?.late || 0} late, ${CRM.delivery?.counts?.due || 0} due today` },
+];
+
+const CRM_RENDER = {
+  /* Adam's daily call list. Three bands, not one - see the API route for why
+     a single "everything due" list came out at 179 rows and was useless. */
+  today() {
+    const t = CRM.today;
+    if (!t) return `<div class="empty"><strong>The CRM is not answering.</strong></div>`;
+    const band = (title, rows, note, empty) => `
+      <h3>${title}</h3>${note ? `<p class="page-sub">${note}</p>` : ""}
+      ${crmRows(rows, empty)}`;
+    return `
+      <p class="page-sub">Live from the CRM - not a snapshot. Anything Adam moves by
+        email is here as soon as the CRM has it.</p>
+      ${band("Call these today", t.due || [], "", "Nothing lands today.")}
+      ${band("Coming this week", t.upcoming || [], "", "Nothing due in the next seven days.")}
+      ${band(`Behind (${t.counts.overdue})`, t.overdue || [],
+        "The biggest twenty by value. Work them down - do not try to read all "
+        + t.counts.overdue + ".", "Nothing overdue.")}`;
+  },
+
+  leads() {
+    const live = CRM.leads.filter((l) => !l.outcome);
+    const done = CRM.leads.filter((l) => l.outcome);
+    const val = live.reduce((s, l) => s + (l.value || 0), 0);
+    return `
+      <div class="stats">
+        <div class="stat"><b>${live.length}</b><span>live</span></div>
+        <div class="stat"><b>${gbpShort(val)}</b><span>quoted, ex VAT</span></div>
+        <div class="stat"><b>${done.length}</b><span>closed</span></div>
+      </div>
+      <h3>Live</h3>${crmRows(live, "Nothing live.")}
+      ${done.length ? `<h3>Closed</h3>${crmRows(done, "")}` : ""}`;
+  },
+
+  companies() {
+    const rows = [...CRM.companies].sort((a, b) => (b.lifetime_value || 0) - (a.lifetime_value || 0));
+    const won = rows.filter((c) => c.relationship === "won");
+    return `
+      <div class="stats">
+        <div class="stat"><b>${rows.length}</b><span>companies</span></div>
+        <div class="stat"><b>${won.length}</b><span>have bought</span></div>
+        <div class="stat"><b>${gbpShort(won.reduce((s, c) => s + (c.lifetime_value || 0), 0))}</b>
+          <span>lifetime</span></div>
+      </div>
+      <p class="page-sub">59% of everything Fenster has won came from an existing
+        customer. This list, sorted by what they have actually paid, is that 59%.</p>
+      <table class="tbl"><thead><tr><th>Company</th><th>Relationship</th>
+        <th class="num">Lifetime</th><th class="num">Jobs</th><th>Last contact</th></tr></thead><tbody>
+      ${rows.map((c) => {
+        const n = CRM.leads.filter((l) => l.company_key === c.key).length;
+        return `<tr data-crmco="${esc(c.key)}"><td><strong>${esc(c.name)}</strong></td>
+          <td><span class="chip ${c.relationship === "won" ? "ok" : "navy"}">${esc(c.relationship)}</span></td>
+          <td class="num">${c.lifetime_value ? gbp(c.lifetime_value) : "-"}</td>
+          <td class="num">${n || "-"}</td>
+          <td>${esc((c.last_contact || "").slice(0, 10) || "-")}</td></tr>`;
+      }).join("")}</tbody></table>`;
+  },
+
+  /* Paul and Steve's page. Task first, job second - they work a day, not a
+     portfolio - and every row says what to order, not only that it is due,
+     which is the thing Adam said the AdminBase board never did. */
+  delivery() {
+    const d = CRM.delivery;
+    if (!d) return `<div class="empty"><strong>The CRM is not answering.</strong></div>`;
+    const rows = (list, empty) => list.length ? `<div class="acts">${list.map((r) => `
+      <div class="act ${r.due < d.date ? "danger" : "navy"}">
+        <div class="act-main">
+          <div class="act-top"><strong>${esc(r.label)}</strong>
+            <span class="act-co">${esc(r.job)}</span>${whenChip(r.due)}</div>
+          <div class="act-what">${esc(r.detail || "")}</div>
+        </div>
+        <div class="act-side"><small>on site ${esc(r.site_date || "-")}</small></div>
+      </div>`).join("")}</div>` : `<div class="empty"><strong>${empty}</strong></div>`;
+    return `
+      <div class="stats">
+        <div class="stat"><b>${d.counts.late}</b><span>late</span></div>
+        <div class="stat"><b>${d.counts.due}</b><span>today</span></div>
+        <div class="stat"><b>${d.counts.coming}</b><span>next fortnight</span></div>
+      </div>
+      <h3>Late</h3>${rows(d.late || [], "Nothing is late.")}
+      <h3>Today</h3>${rows(d.due || [], "Nothing due today.")}
+      <h3>Coming up</h3>${rows(d.coming || [], "Nothing in the next fortnight.")}`;
+  },
+};
+
 const BOTS = {
   team: {
     key: "team", name: "Fenster team", role: "The whole picture", initials: "FG", accent: "team",
@@ -3258,6 +3463,16 @@ const BOTS = {
       empty: "Say hello - Mary replies right here.",
       hint: () => STATUS?.state === "working" ? "she is mid-job - this queues behind it" : "picked up within seconds",
     },
+  },
+  /* Not a bot - the record all three of them write to. It sits in the same
+     registry because the hub is registry-driven and a card in the sidebar is
+     exactly what it is: another board to open. No status, no chat, nothing to
+     ask it. */
+  crm: {
+    key: "crm", name: "The CRM", role: "Leads, companies, delivery", initials: "CR", accent: "crm",
+    pages: CRM_PAGES, render: CRM_RENDER,
+    status: null, needsYou: null, badges: () => ({}),
+    updatedLine: () => "Live - read straight from the record, not a snapshot",
   },
   jacob: {
     key: "jacob", name: "Jacob Wright", role: "Business development", initials: "JW", accent: "jw",
@@ -3490,6 +3705,17 @@ document.addEventListener("click", async (e) => {
       .forEach((o) => o.classList.toggle("sel", o === pick));
     return;
   }
+  // A CRM row: open the whole job - company, contacts, quote, notes, history.
+  const cr = e.target.closest("[data-crm]");
+  if (cr) { crmPanelLead(cr.dataset.crm); return; }
+  // A company row jumps to its jobs rather than opening a panel of its own -
+  // what a person wants next from a company is nearly always its work.
+  const cc = e.target.closest("[data-crmco]");
+  if (cc) {
+    searchTerm = (crmCo(cc.dataset.crmco) || {}).name || "";
+    const box = $("#search"); if (box) box.value = searchTerm;
+    page = "leads"; render(); return;
+  }
   // A queued work order: open the full text - the row only has room to clamp.
   const qi = e.target.closest("[data-qitem]");
   if (qi) {
@@ -3650,6 +3876,16 @@ $("#search").addEventListener("input", (e) => {
     // A bot whose board data is missing loses its card but takes nothing
     // else down - the registry entry stays so its data can still be read.
     if (!JACOB) BOTS.jacob.hidden = true;
+
+    // The CRM. Four independent calls so one slow table cannot hold the hub
+    // up, and every one falls back to empty rather than taking the page down.
+    const [cToday, cLeads, cCos, cDel] = await Promise.all([
+      api("crm/today").catch(() => null),
+      api("crm/leads").catch(() => []),
+      api("crm/companies").catch(() => []),
+      api("crm/delivery").catch(() => null),
+    ]);
+    CRM = { today: cToday, leads: cLeads || [], companies: cCos || [], delivery: cDel };
 
     msgSig = signature(MESSAGES);
     render();
