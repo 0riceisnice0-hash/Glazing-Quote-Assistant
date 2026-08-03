@@ -35,6 +35,7 @@ from datetime import datetime, timezone
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import jacob_router as router          # noqa: E402 - needs the path above
+import crm                             # noqa: E402
 import mary_cost as cost               # noqa: E402
 import mary_jobfile as jobfile         # noqa: E402
 import mary_budget as budget           # noqa: E402
@@ -461,6 +462,18 @@ def build_prompt(key, title, orders, first_run, reg):
     note = budget.prompt_note("jacob:" + key, sends=False)
     if note:
         lines.append(note)
+
+    lines.append(
+        "\nTHE CRM IS THE RECORD. Before you ask anyone anything, look:\n"
+        "  python scripts\\crm.py --today            the calls due, and the backlog by value\n"
+        "  python scripts\\crm.py --company %s\n"
+        "  python scripts\\crm.py --lead <key>       one job: quotes, notes, dates, history\n"
+        "Write back what you learn - a chase with no record is a chase somebody repeats:\n"
+        "  python -c \"import sys;sys.path.insert(0,'scripts');import crm;"
+        "crm.lead('<key>','jacob',why='...',next_action='...',next_action_date='YYYY-MM-DD')\"\n"
+        "  ...and crm.note('lead','<key>','what they said','jacob',source='call')\n"
+        "Stages %s are yours. Everything before quote_sent is Mary's - do not move those."
+        % (key, ", ".join(crm.JACOB_STAGES)))
 
     lines.append(
         "\nYou and Mary work independently and may be running at the same time. Two rules that "

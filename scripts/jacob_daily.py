@@ -98,6 +98,12 @@ def main():
     #    has won came from an existing customer against 3 from a tender portal.
     run("dormant customers", ["scripts/jacob_dormant.py"])
 
+    # 5b. Push everything into the CRM. Deterministic and idempotent, so it can
+    #     run every morning; this is what makes the record current without
+    #     anybody re-keying a lead. The quote Mary issued yesterday becomes his
+    #     chase today with no conversation between them.
+    run("crm sync", ["scripts/crm_sync.py"])
+
     # 6. Rebuild the board from whatever succeeded.
     board = ["scripts/jacob_dashboard.py"] + (["--deploy"] if args.deploy else [])
     ok_board = run("rebuild board", board, required=True)

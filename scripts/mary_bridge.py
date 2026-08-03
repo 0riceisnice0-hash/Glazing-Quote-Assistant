@@ -506,6 +506,17 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
             % (warn, key, jobfile.MAX_LINES, key))
 
     lines.append(
+        "\nTHE CRM IS THE RECORD, and it is shared with Jacob. Look before you rebuild anything:\n"
+        "  python scripts\\crm.py --lead %s        this job: quotes, notes, dates, history\n"
+        "At close-out, put the position back - the stage, and the quote if one moved:\n"
+        "  python -c \"import sys;sys.path.insert(0,'scripts');import crm;"
+        "crm.lead('%s','mary',why='...',stage='quote_ready',value=12345.67)\"\n"
+        "Stages new, acknowledged, materials_out, awaiting_costs, quote_ready, pre_quote_call "
+        "are YOURS. When a quote is ISSUED, record it in the ledger as you already do - the "
+        "sync turns that into Jacob's chase on its own. Do NOT message him about it; the "
+        "handover is structural, not a conversation." % (key, key))
+
+    lines.append(
         "\nBefore ANY email to Adam that is not a direct reply: apply data/knowledge/adam.md (how he reads, "
         "what is settled) and run python scripts\\mary_send.py --check --subject \"...\" first - it shows what "
         "already went today and whether the topic is settled.\n"
@@ -689,6 +700,15 @@ def dispatch(key, orders, reg, bst, dry_run=False):
         ledger.backfill(verbose=False, network=False)
     except Exception as e:
         log("  ledger refresh failed (harmless): %s" % e)
+    # And push what the ledger now knows into the CRM - the quote she just
+    # issued becomes Jacob's chase without either of them spending a turn on
+    # the handover. Deterministic, idempotent, and it must never be able to
+    # fail a session that has already done its work.
+    try:
+        import crm_sync
+        crm_sync.main_quiet()
+    except Exception as e:
+        log("  CRM sync failed (harmless, next session retries): %s" % str(e)[:160])
     return ok
 
 

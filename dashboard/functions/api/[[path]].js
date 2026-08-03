@@ -323,15 +323,40 @@ export async function onRequest(context) {
         return json(results);
       }
       /* The daily call list - "these are the people you are chasing today"
-         (Adam, 03/08). Anything due on or before today, soonest first. */
+         (Adam, 03/08).
+         THREE LISTS, NOT ONE. The first build returned everything due on or
+         before today and that was 179 rows, because most AdminBase next-action
+         dates are months past. A list of 179 is the AdminBase board with every
+         box red - the exact thing Adam said nobody looks at. So:
+           due     - a date that lands today, or an award date reached: do these
+           overdue - the backlog, worst first BY VALUE, capped
+           soon    - the next few days, so nothing arrives as a surprise
+         The counts are returned whole, so nothing is hidden - only unranked. */
       if (action === "today") {
         const today = now().slice(0, 10);
+        const soon = new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10);
         const { results } = await db.prepare(
-          "SELECT * FROM crm_lead WHERE outcome = '' AND (" +
-          "  (next_action_date != '' AND next_action_date <= ?) OR " +
-          "  (award_due != '' AND award_due <= ?)) " +
-          "ORDER BY next_action_date, award_due").bind(today, today).all();
-        return json(results);
+          "SELECT * FROM crm_lead WHERE outcome = '' AND " +
+          "((next_action_date != '' AND next_action_date <= ?) OR " +
+          " (award_due != '' AND award_due <= ?))").bind(soon, soon).all();
+        const due = [], overdue = [], upcoming = [];
+        for (const l of results) {
+          const na = l.next_action_date || "", aw = l.award_due || "";
+          if ((aw && aw <= today) || na === today) due.push(l);
+          else if (na && na < today) overdue.push(l);
+          else upcoming.push(l);
+        }
+        const byValue = (a, b) => (b.value || 0) - (a.value || 0);
+        due.sort(byValue);
+        overdue.sort(byValue);
+        upcoming.sort((a, b) => (a.next_action_date || a.award_due || "")
+          .localeCompare(b.next_action_date || b.award_due || ""));
+        return json({
+          date: today,
+          due, upcoming,
+          overdue: overdue.slice(0, 20),
+          counts: { due: due.length, overdue: overdue.length, upcoming: upcoming.length },
+        });
       }
       /* Everything about one thing, in one call - the meeting's requirement
          that you click a job and see the company, the respondents, the notes,
@@ -406,6 +431,22 @@ export async function onRequest(context) {
 
         const cols = Object.keys(fields).filter((c) => /^[a-z_]+$/.test(c));
         if (!before) {
+          /* NOT NULL columns filled only on INSERT. This has to happen here
+             and not in the client: the client does not know whether the row
+             exists, so defaulting there turned every partial UPDATE into a
+             destructive one - the Mary-to-Jacob handover, which sets only
+             stage and owner, was overwriting company_key with "unknown". */
+          const REQUIRED = {
+            company: { name: (k) => k.replace(/-/g, " ") },
+            lead: { title: (k) => k.replace(/-/g, " "), company_key: () => "unknown" },
+            contract: { title: (k) => k.replace(/-/g, " "), company_key: () => "unknown" },
+            quote: { lead_key: (k) => k.split(":")[0] },
+            contact: { company_key: (k) => k.split(":")[0] },
+            invoice: { contract_key: (k) => k.split(":")[0] },
+          }[String(b.type)] || {};
+          for (const [col, make] of Object.entries(REQUIRED)) {
+            if (!fields[col]) { fields[col] = make(id); if (!cols.includes(col)) cols.push(col); }
+          }
           const all = [spec.id, ...cols, "created", "updated", "updated_by"];
           const vals = [id, ...cols.map((c) => fields[c]), stamp, stamp, who];
           await db.prepare(

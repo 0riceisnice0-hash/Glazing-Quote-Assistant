@@ -104,6 +104,12 @@ def upsert(kind, key, author, why="", **fields):
                   "fields": clean})
 
 
+# NOT NULL columns are filled by the API, and only when it is INSERTING - it is
+# the only side that knows whether the row exists. Doing it here instead turned
+# every partial update into a destructive one: the handover sets stage and owner
+# and nothing else, and it was silently overwriting company_key with "unknown".
+
+
 def company(key, author, why="", **fields):
     return upsert("company", key, author, why, **fields)
 
@@ -155,8 +161,14 @@ def leads(stage=None):
 
 
 def today():
-    """The daily call list. Anything whose next action or award date has come."""
-    return _call("/api/crm/today") or []
+    """The daily call list, in three parts - see the API route for why.
+
+    {date, due[], overdue[], upcoming[], counts{}}. `due` is what genuinely
+    lands today; `overdue` is the backlog worst-first by value and capped,
+    because 179 rows of "everything is late" is the AdminBase board nobody
+    looks at.
+    """
+    return _call("/api/crm/today") or {}
 
 
 def lead_detail(key):
@@ -185,7 +197,13 @@ def main():
     ap.add_argument("--companies", action="store_true")
     ap.add_argument("--lead")
     ap.add_argument("--company")
+    ap.add_argument("--local", action="store_true",
+                    help="talk to wrangler pages dev on :8788 instead of the live hub")
     a = ap.parse_args()
+    if a.local:
+        global _env
+        _env = lambda: {"DASHBOARD_URL": "http://127.0.0.1:8788",
+                        "MARY_API_KEY": "local-test-key-not-a-secret"}
 
     if a.lead:
         d = lead_detail(a.lead)
@@ -230,9 +248,25 @@ def main():
                                              c["relationship"], c.get("last_contact") or ""))
         return 0
 
-    rows = today() if a.today else leads(a.stage)
     if a.today:
-        print("TODAY - %d to chase" % len(rows))
+        t = today()
+        c = t.get("counts", {})
+        print("TODAY, %s" % t.get("date", ""))
+        print("\nDUE (%d) - these are the calls" % c.get("due", 0))
+        for l in t.get("due", []):
+            print(_row(l))
+        if not t.get("due"):
+            print("  nothing lands today")
+        print("\nCOMING IN THE NEXT WEEK (%d)" % c.get("upcoming", 0))
+        for l in t.get("upcoming", [])[:10]:
+            print(_row(l))
+        print("\nBACKLOG (%d overdue, biggest 20) - work these down, do not read them all"
+              % c.get("overdue", 0))
+        for l in t.get("overdue", []):
+            print(_row(l))
+        return 0
+
+    rows = leads(a.stage)
     for l in rows:
         print(_row(l))
     if not rows:
