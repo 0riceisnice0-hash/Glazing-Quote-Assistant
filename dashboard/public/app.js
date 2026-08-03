@@ -3263,7 +3263,7 @@ function jacobStatus() {
    Two audiences, deliberately separated (Zac, 03/08): admin is Adam and Zac,
    and the Delivery page is what Paul and Steve get - their day, nothing else
    to learn. */
-let CRM = { today: null, leads: [], companies: [], delivery: null };
+let CRM = { today: null, leads: [], companies: [], contracts: [], delivery: null };
 
 const crmLead = (key) => CRM.leads.find((l) => l.key === key);
 const crmCo = (key) => CRM.companies.find((c) => c.key === key);
@@ -3287,6 +3287,44 @@ const stageTone = (s) => (s === "closed" ? "navy"
 function crmDays(d) {
   if (!d) return null;
   return Math.round((new Date(d) - new Date(new Date().toISOString().slice(0, 10))) / 864e5);
+}
+
+/* WHAT THE DATA ACTUALLY LOOKS LIKE, measured 03/08/2026, because the pages
+   below are shaped by it rather than by what a CRM usually shows:
+
+     272 live leads. 184 carry a date and 173 OF THOSE ARE LATE - 112 of them
+     by more than three months. Five are in the future. So this is not a
+     pipeline with a bit of slippage, it is eleven live conversations and a
+     graveyard, and a page that lists them together buries the eleven.
+
+     Nothing has a deadline or an award date. Zero of each. Any view built on
+     "closing this week" would render empty forever.
+
+     Every lead is owned by "jacob", so owner is not a filter, it is a constant.
+
+     26 leads hold GBP 17.7m of the GBP 25.9m, and one of them is GBP 7.2m.
+     A headline total is that one job plus noise; the median is GBP 21,837.
+
+     80 companies have actually bought, GBP 2.8m between them, and the top ten
+     are 86% of it. FIFTY-FOUR of those eighty have nothing live right now,
+     while 147 live quotes sit with companies that have never bought anything.
+     Against a 59% of wins coming from existing customers, that is the single
+     most useful thing in the database. */
+const QUIET_DAYS = 90;
+
+function leadAge(l) {
+  return crmDays(l.next_action_date);
+}
+const isLive = (l) => { const n = leadAge(l); return n !== null && n >= -28; };
+const isQuiet = (l) => { const n = leadAge(l); return n !== null && n < -QUIET_DAYS; };
+const isSlipping = (l) => { const n = leadAge(l); return n !== null && n < -28 && n >= -QUIET_DAYS; };
+
+/* A total dominated by one GBP 7.2m row is not a summary of anything. */
+function money(list) {
+  const v = list.map((l) => l.value || 0).filter(Boolean).sort((a, b) => a - b);
+  if (!v.length) return { n: 0, total: 0, median: 0, top: 0 };
+  return { n: v.length, total: v.reduce((s, x) => s + x, 0),
+           median: v[Math.floor(v.length / 2)], top: v[v.length - 1] };
 }
 
 /* A date with its lateness said in words. "2026-06-22" tells you nothing at a
@@ -3432,8 +3470,11 @@ const CRM_RENDER = {
           : ""}</p></div>` : ""}
 
       ${needs.length ? `${head("Needs you", needs.length, "danger")}
-        <p class="page-sub">A bot has stopped and cannot go on until somebody decides.</p>
-        <div class="acts">${needs.map((n, i) => `
+        <p class="page-sub">A bot has stopped and cannot go on until somebody decides.${
+          needs.length > 6 ? ` Six of ${needs.length} here - the rest are on each
+          bot's own page, because a front page listing twenty decisions is a
+          backlog wearing a to-do list's clothes.` : ""}</p>
+        <div class="acts">${needs.slice(0, 6).map((n, i) => `
           <div class="act danger" data-bot-go="${esc(n.bot)}:${esc(n.page)}">
             <div class="act-no">${i + 1}</div>
             <div class="act-main">
@@ -3442,7 +3483,10 @@ const CRM_RENDER = {
               <div class="act-what">${esc((n.why || "").slice(0, 200))}</div>
             </div>
             <div class="act-side"><small>answer &rarr;</small></div>
-          </div>`).join("")}</div>` : ""}
+          </div>`).join("")}</div>
+        ${needs.length > 6 ? `<p class="page-sub">${needs.length - 6} more:
+          <a data-bot-go="mary:requests">Mary</a> &middot;
+          <a data-bot-go="jacob:decisions">Jacob</a></p>` : ""}` : ""}
 
       ${calls.length ? `${head("Calls", calls.length, "warn")}
         ${crmRows(calls, "")}` : ""}
@@ -3473,49 +3517,119 @@ const CRM_RENDER = {
      person wants to know here is whether it is sitting with estimating or
      out with the client, and that is exactly where the Mary/Jacob handover
      falls. */
+  /* GROUPED BY WHAT YOU WOULD DO ABOUT IT, not by stage. Stage puts 210 of the
+     272 in one bucket called "quoted", which tells nobody anything. The useful
+     split is whether anyone is still talking, whether it has gone quiet, or
+     whether it is still with estimating - a chase, a decision, and nothing,
+     respectively. */
   leads() {
-    const live = CRM.leads.filter((l) => !l.outcome);
-    const done = CRM.leads.filter((l) => l.outcome);
+    const all = CRM.leads.filter((l) => !l.outcome);
     const byDate = (a, b) => (a.next_action_date || "9999").localeCompare(b.next_action_date || "9999");
-    const pricing = live.filter((l) => MARY_STAGES.includes(l.stage)).sort(byDate);
-    const chasing = live.filter((l) => !MARY_STAGES.includes(l.stage)).sort(byDate);
-    const val = live.reduce((s, l) => s + (l.value || 0), 0);
+    const byValue = (a, b) => (b.value || 0) - (a.value || 0);
+
+    const pricing = all.filter((l) => MARY_STAGES.includes(l.stage)).sort(byDate);
+    const out = all.filter((l) => !MARY_STAGES.includes(l.stage));
+    const live = out.filter(isLive).sort(byDate);
+    const slipping = out.filter(isSlipping).sort(byValue);
+    const quiet = out.filter(isQuiet).sort(byValue);
+    const undated = out.filter((l) => leadAge(l) === null).sort(byValue);
+    const m = money(all);
+
     return `
       <div class="stats">
-        <div class="stat"><b>${live.length}</b><span>live</span></div>
-        <div class="stat"><b>${gbpShort(val)}</b><span>quoted, ex VAT</span></div>
-        <div class="stat"><b>${chasing.length}</b><span>out with a client</span></div>
-        <div class="stat"><b>${done.length}</b><span>closed</span></div>
+        <div class="stat"><b>${live.length}</b><span>live conversations</span></div>
+        <div class="stat"><b>${quiet.length}</b><span>gone quiet</span></div>
+        <div class="stat"><b>${pricing.length}</b><span>with estimating</span></div>
+        <div class="stat"><b>${gbpShort(m.median)}</b><span>median quote</span></div>
       </div>
-      <h3>With estimating <span class="chip navy">Mary</span></h3>
+
+      <h3>Live <span class="chip warn">${live.length}</span></h3>
+      <p class="page-sub">Due, or chased within the last month. This is the part
+        that is actually moving.</p>
+      ${crmRows(live, "Nothing has been chased recently.")}
+
+      <h3>With estimating <span class="chip navy">${pricing.length}</span></h3>
+      <p class="page-sub">Not quoted yet, so there is nothing to chase. Mary has these.</p>
       ${crmRows(pricing, "Nothing waiting to be priced.")}
-      <h3>Out with the client <span class="chip navy">Jacob</span></h3>
-      ${crmRows(chasing, "Nothing out.")}
-      ${done.length ? `<h3>Closed</h3>${crmRows(done, "")}` : ""}`;
+
+      <h3>Slipping <span class="chip warn">${slipping.length}</span></h3>
+      <p class="page-sub">One to three months past their chase date. Still worth a
+        call; left alone they join the group below.</p>
+      ${crmRows(slipping, "Nothing slipping.")}
+
+      <h3>Gone quiet <span class="chip danger">${quiet.length}</span></h3>
+      <p class="page-sub"><strong>These need a decision, not a task.</strong> Over
+        three months silent, and Adam's standing rule is that nothing closes on
+        silence (JAC-14) - so they sit here until somebody says chase it or kill
+        it. Biggest first: the top twenty are ${gbpShort(money(quiet.slice(0, 20)).total)}
+        of ${gbpShort(money(quiet).total)}.</p>
+      ${crmRows(quiet.slice(0, 20), "Nothing has gone quiet.")}
+      ${quiet.length > 20 ? `<p class="page-sub">${quiet.length - 20} more, all under
+        ${gbpShort(quiet[19].value || 0)}. Work the list down rather than reading it.</p>` : ""}
+
+      ${undated.length ? `<h3>No date set <span class="chip navy">${undated.length}</span></h3>
+        <p class="page-sub">Quoted, but nobody has said when to look again.</p>
+        ${crmRows(undated.slice(0, 20), "")}` : ""}`;
   },
 
   companies() {
-    const rows = [...CRM.companies].sort((a, b) => (b.lifetime_value || 0) - (a.lifetime_value || 0));
-    const won = rows.filter((c) => c.relationship === "won");
+    const live = CRM.leads.filter((l) => !l.outcome);
+    const openOn = (key) => live.filter((l) => l.company_key === key);
+    const withLead = new Set(live.map((l) => l.company_key));
+    const bought = CRM.companies.filter((c) => c.relationship === "won")
+      .sort((a, b) => (b.lifetime_value || 0) - (a.lifetime_value || 0));
+    /* THE MOST USEFUL SPLIT IN THE DATABASE. 80 companies have actually paid
+       Fenster; 54 of them have nothing live right now. Against 59% of all wins
+       coming from an existing customer, those 54 are a better call list than
+       any lead page - and nothing in the hub has ever shown them. */
+    const dormant = bought.filter((c) => !withLead.has(c.key));
+    const active = bought.filter((c) => withLead.has(c.key));
+    const never = CRM.companies.filter((c) => c.relationship !== "won" && withLead.has(c.key));
+    const lifetime = bought.reduce((s, c) => s + (c.lifetime_value || 0), 0);
+
+    const tbl = (list, cols) => `<table class="tbl"><thead><tr>
+        <th>Company</th><th class="num">${cols}</th><th class="num">Live quotes</th>
+        <th>Last contact</th></tr></thead><tbody>
+      ${list.map((c) => {
+        const q = openOn(c.key);
+        return `<tr data-crmco="${esc(c.key)}">
+          <td><strong>${esc(c.name)}</strong></td>
+          <td class="num">${c.lifetime_value ? gbp(c.lifetime_value) : "-"}</td>
+          <td class="num">${q.length ? `${q.length} &middot; ${gbpShort(money(q).total)}` : "-"}</td>
+          <td>${esc((c.last_contact || "").slice(0, 10)) || "<em>not seen in the mailboxes</em>"}</td>
+        </tr>`;
+      }).join("")}</tbody></table>`;
+
     return `
       <div class="stats">
-        <div class="stat"><b>${rows.length}</b><span>companies</span></div>
-        <div class="stat"><b>${won.length}</b><span>have bought</span></div>
-        <div class="stat"><b>${gbpShort(won.reduce((s, c) => s + (c.lifetime_value || 0), 0))}</b>
-          <span>lifetime</span></div>
+        <div class="stat"><b>${bought.length}</b><span>have bought</span></div>
+        <div class="stat"><b>${gbpShort(lifetime)}</b><span>they have paid us</span></div>
+        <div class="stat"><b>${dormant.length}</b><span>bought, nothing live</span></div>
+        <div class="stat"><b>${never.length}</b><span>quoting, never bought</span></div>
       </div>
-      <p class="page-sub">59% of everything Fenster has won came from an existing
-        customer. This list, sorted by what they have actually paid, is that 59%.</p>
-      <table class="tbl"><thead><tr><th>Company</th><th>Relationship</th>
-        <th class="num">Lifetime</th><th class="num">Jobs</th><th>Last contact</th></tr></thead><tbody>
-      ${rows.map((c) => {
-        const n = CRM.leads.filter((l) => l.company_key === c.key).length;
-        return `<tr data-crmco="${esc(c.key)}"><td><strong>${esc(c.name)}</strong></td>
-          <td><span class="chip ${c.relationship === "won" ? "ok" : "navy"}">${esc(c.relationship)}</span></td>
-          <td class="num">${c.lifetime_value ? gbp(c.lifetime_value) : "-"}</td>
-          <td class="num">${n || "-"}</td>
-          <td>${esc((c.last_contact || "").slice(0, 10) || "-")}</td></tr>`;
-      }).join("")}</tbody></table>`;
+
+      <h3>Bought before, nothing live now <span class="chip warn">${dormant.length}</span></h3>
+      <p class="page-sub"><strong>The best call list in the business, and it is not
+        the obvious one.</strong> These ${dormant.length} have paid
+        ${gbpShort(money(dormant.map((c) => ({ value: c.lifetime_value }))).total)}
+        between them - small accounts, not the big names. That is the point: 59% of
+        everything Fenster has won came from a customer it already had, the median
+        win is under GBP 2,000, and the win rate is 38% under GBP 10k against 0%
+        over GBP 50k. Small repeat customers are the shape of the business. Nothing
+        is on the go with any of these.</p>
+      ${tbl(dormant, "Lifetime")}
+
+      <h3>Customers with something live <span class="chip ok">${active.length}</span></h3>
+      <p class="page-sub">They have bought before and they are quoting again. The
+        likeliest wins on the board.</p>
+      ${tbl(active, "Lifetime")}
+
+      <h3>Quoting, never bought <span class="chip navy">${never.length}</span></h3>
+      <p class="page-sub">${never.length} companies hold live quotes and have never
+        bought anything. Worth knowing before anyone spends a day on one.</p>
+      ${tbl(never.slice(0, 25), "Lifetime")}
+      ${never.length > 25 ? `<p class="page-sub">Showing 25 of ${never.length} - use the
+        filter box to find a name.</p>` : ""}`;
   },
 
   /* Paul and Steve's page. Task first, job second - they work a day, not a
@@ -3538,12 +3652,31 @@ const CRM_RENDER = {
         </div>
         <div class="act-side"><small>on site ${esc(r.site_date || "-")}</small></div>
       </div>`).join("")}</div>` : `<div class="empty"><strong>${empty}</strong></div>`;
+    /* The gap that decides whether this page can work at all. Every deadline
+       here is counted BACKWARDS from the site date, and 29 live contracts came
+       out of Adam's export with no site date on any of them - the export
+       records when finished work was fitted, not when future work is due. So
+       the schedule is empty and will stay empty until somebody enters one. */
+    const cons = CRM.contracts || [];
+    const liveCons = cons.filter((c) => c.status === "live");
+    const schedulable = liveCons.filter((c) => c.site_date);
     return `
       <div class="stats">
-        <div class="stat"><b>${d.counts.late}</b><span>late</span></div>
-        <div class="stat"><b>${d.counts.due}</b><span>today</span></div>
-        <div class="stat"><b>${d.counts.coming}</b><span>next fortnight</span></div>
+        <div class="stat"><b>${liveCons.length}</b><span>live contracts</span></div>
+        <div class="stat"><b>${schedulable.length}</b><span>have a site date</span></div>
+        <div class="stat"><b>${d.counts.late}</b><span>tasks late</span></div>
+        <div class="stat"><b>${d.counts.due}</b><span>due today</span></div>
       </div>
+
+      ${liveCons.length && !schedulable.length ? `<div class="planned-note">
+        <p><strong>${liveCons.length} won jobs, and not one has a site date - so
+        nothing can be scheduled.</strong> Every step on this page is counted
+        backwards from the day we go on site, and Adam's export records when
+        finished work was <em>fitted</em>, not when live work is <em>due</em>.
+        Put a site date on a contract and its twelve steps lay themselves out
+        with dates against them. That is the one thing standing between this
+        page and being useful.</p></div>` : ""}
+
       <h3>Late</h3>${rows(d.late || [], "Nothing is late.")}
       <h3>Today</h3>${rows(d.due || [], "Nothing due today.")}
       <h3>Coming up</h3>${rows(d.coming || [], "Nothing in the next fortnight.")}
@@ -4007,13 +4140,15 @@ $("#search").addEventListener("input", (e) => {
 
     // The CRM. Four independent calls so one slow table cannot hold the hub
     // up, and every one falls back to empty rather than taking the page down.
-    const [cToday, cLeads, cCos, cDel] = await Promise.all([
+    const [cToday, cLeads, cCos, cCons, cDel] = await Promise.all([
       api("crm/today").catch(() => null),
       api("crm/leads").catch(() => []),
       api("crm/companies").catch(() => []),
+      api("crm/contracts").catch(() => []),
       api("crm/delivery").catch(() => null),
     ]);
-    CRM = { today: cToday, leads: cLeads || [], companies: cCos || [], delivery: cDel };
+    CRM = { today: cToday, leads: cLeads || [], companies: cCos || [],
+            contracts: cCons || [], delivery: cDel };
 
     msgSig = signature(MESSAGES);
     render();
