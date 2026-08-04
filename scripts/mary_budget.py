@@ -422,6 +422,27 @@ def ready_to_dispatch(ages, urgent=0, wait=None, most=None):
 # the difference between a 6.3M run and a 1.5M one.
 ONE_SITTING = os.environ.get("BOT_ONE_SITTING", "1") != "0"
 
+# WHEN A CHAT IS TOO HEAVY TO CARRY ON WITH. 75,000, down from 150,000 on
+# 04/08, and in one place because it had already drifted three ways - Mary
+# 150k, Jacob 120k, Joseph 120k, preflight hardcoding 150k twice.
+#
+# Measured across 842 real calls that day: the median call was carrying 81,377
+# tokens and the mean 100,687. The whole bill is context x turns, so the size
+# of what a chat drags behind it IS the cost. Sorting every call by what it
+# carried:
+#
+#     calls over 150,000 :  133 calls, 34% of the day's spend
+#     calls over 100,000 :  322 calls, 61%
+#     calls over  75,000 :  496 calls, 78%
+#
+# Retiring at 75,000 rather than 150,000 takes roughly a third off. Rotating
+# more often is close to free: a fresh chat is seeded from a bounded file for
+# about 9,500 tokens, where resuming an old one costs ~129,000 a call, every
+# call. The saving is not a trade against memory either - what a bot knows
+# lives in data/jobs and data/companies, not in the conversation. The chat is
+# only where the thinking happened, and the file is what it was for.
+ROTATE_CONTEXT = int(os.environ.get("BOT_ROTATE_CONTEXT", "75000"))
+
 
 def should_retire(started, context_now, rotate_at):
     """(retire, why). Retire a finished chat, or an overweight one.

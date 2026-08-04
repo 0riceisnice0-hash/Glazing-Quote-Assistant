@@ -99,7 +99,7 @@ try:
         if not sid or not os.path.exists(_cost.transcript(sid)):
             continue
         real = _cost.context_size(sid)
-        if real < 150000:
+        if real < _budget.ROTATE_CONTEXT:
             continue
         heavy += 1
         # ASK THE REAL DECISION, do not re-implement it. The first version of
@@ -109,14 +109,14 @@ try:
         # then cries wolf. What actually matters is one question: is this chat
         # heavy AND going to be resumed anyway? So it runs the same two gates
         # dispatch runs.
-        retire, _why = _budget.should_retire(rec.get("started"), real, 150000)
+        retire, _why = _budget.should_retire(rec.get("started"), real, _budget.ROTATE_CONTEXT)
         if not retire:
             stuck.append((k, real, "rotation says no"))
         elif _jf.check(k):
             stuck.append((k, real, "job file out of contract"))
     stuck.sort(key=lambda r: -r[1])
     check("no chat resumes overweight", OK if not stuck else WARN,
-          "%d chat(s) over 150k, all of them will rotate on next dispatch" % heavy
+          "%d chat(s) over the rotate line, all of them will rotate on next dispatch" % heavy
           if not stuck else
           "%d heavy chat(s) will be RESUMED not retired: %s"
           % (len(stuck), ", ".join("%s %s (%s)" % (k, "{:,}".format(v), r)

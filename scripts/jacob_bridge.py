@@ -73,9 +73,10 @@ NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
 # Same cost architecture as Mary's, and for the same reason - his sessions were
 # not measured at all until now. Rotate a chat when the context it would carry
-# gets expensive; a relationship needs less room than a live tender, so this
-# sits below Mary's 150k.
-ROTATE_CONTEXT = int(os.environ.get("JACOB_ROTATE_CONTEXT", "120000"))
+# gets expensive. The figure is shared now (mary_budget.ROTATE_CONTEXT) because
+# it had drifted three ways - 150k here, 120k for him and Joseph, and preflight
+# hardcoding its own.
+ROTATE_CONTEXT = int(os.environ.get("JACOB_ROTATE_CONTEXT", str(budget.ROTATE_CONTEXT)))
 SESSION_WARN_TOKENS = int(os.environ.get("JACOB_SESSION_WARN", "15000000"))
 SESSION_KILL_TOKENS = int(os.environ.get("JACOB_SESSION_KILL", "40000000"))
 
@@ -526,12 +527,14 @@ def build_prompt(key, title, orders, first_run, reg):
         "standing in it.\n"
         "Raise a decision ONLY for what a human alone can answer - a price, a date, "
         "what a client meant, whether we bid. Never for something you could have built.\n"
-        "The limits, and they are narrow on purpose: change your own scripts and shared "
-        "ones you have read end to end; commit only the files you touched; leave the "
-        "spending and curfew rules in mary_budget.py alone unless you are asked. If a "
-        "fix looks like more than an hour, or would change how another bot works, say so "
-        "and ask first - that is a real decision. Anything smaller, just do it and say "
-        "what you did.")
+        "SIZE IS NOT A REASON TO STOP. Zac, 04/08: 'ai bots have no concept of how long "
+        "it takes to make something - today we have achieved what you would assume would "
+        "take a week.' Do not weigh a job in hours and talk yourself out of it. If it "
+        "needs building, build it.\n"
+        "What DOES stop you is blast radius, not size: ask first if the change would "
+        "alter how another bot behaves, or touch the spending and curfew rules in "
+        "mary_budget.py. Otherwise - commit only the files you touched, run the thing "
+        "before you commit it, and say plainly what you changed and why.")
 
     # YOUR OWN TOOLS, so you never spend a turn asking them what they do.
     # Measured 04/08: 21 of Jacob's 295 shell calls were `--help`, and TEN of

@@ -125,7 +125,7 @@ def session_exists(session_id):
 # 6-10M per run. Rotating at 150k roughly halves that, and rotation is cheap
 # BECAUSE the seed is bounded: data/jobs/<key>.md is capped at 300 lines, so a
 # fresh chat starts from a page, not a novel. Rotate often, seed lean.
-ROTATE_CONTEXT = int(os.environ.get("MARY_ROTATE_CONTEXT", "150000"))
+ROTATE_CONTEXT = int(os.environ.get("MARY_ROTATE_CONTEXT", str(budget.ROTATE_CONTEXT)))
 # Runaway breakers for a single session, not budgets. A normal run is 6-10M.
 SESSION_WARN_TOKENS = int(os.environ.get("MARY_SESSION_WARN", "20000000"))
 SESSION_KILL_TOKENS = int(os.environ.get("MARY_SESSION_KILL", "60000000"))

@@ -451,3 +451,49 @@ and they are not up for relaxation as a convenience:
 And the rule underneath all of it, unchanged from `BOTS.md`: **check it, do not
 assume it.** Every wrong number in the audit came from something that looked
 right.
+
+---
+
+## What actually happened on 04/08/2026
+
+All three bridges live from 11:22 and supervised. Sessions ran clean - every one exit 0,
+160s to 1501s, none of the 6-13 second usage-limit failures that stopped everything on
+30/07.
+
+**Cost, and it is the open problem.** 84.8M tokens in the first two and a quarter hours -
+72% of the 118M daily target, 10.3% of the week. The chat rotation threshold came down from
+150,000 to 75,000 in response (`mary_budget.ROTATE_CONTEXT`, now one shared value; it had
+drifted to 150k/120k/120k). Worth roughly a third on the measured distribution. Whether that
+is enough is not yet known.
+
+**What was found and fixed, in order of what it cost:**
+
+1. **A killed chat reports zero context**, so it is resumed instead of retired. 10.3M in 26
+   calls before one-sitting caught it. `context_size()` now takes the last non-zero reading.
+2. **The front desk queued envelopes with the letter left behind** - work orders built from
+   Graph's list view, so `from` was a dict (crashing Mary's router for eight minutes) and
+   there was no body and no attachments. 71 orders repaired, 219 attachment files recovered.
+   `test/test_workorder_shape.py` now guards it and preflight treats a failure as a blocker.
+3. **Four scheduled tasks ran overnight outside the curfew.** The curfew lives in the bridge
+   loop; Task Scheduler entries never pass through it. Pricing Lab: 14.4M in one night, no
+   completed run, no job file so it can never rotate. All four disabled and excluded from
+   `-Mode Resume`.
+4. **Joseph had no Windows task at all** - a bridge, a manual, ten queued orders and nothing
+   to run him. Created and registered.
+5. **Resume would have restored the superseded mail poller**, double-queueing every message
+   and bypassing batching. Now on an explicit superseded list.
+
+**Two behaviour changes, Jacob first:**
+
+- **He owns the repo.** If the tool is missing he builds it rather than raising a decision.
+  Size is not a reason to stop; blast radius is.
+- **He writes to be read.** Under 800 characters to a person, detail in the file.
+
+**Still open:**
+
+- The memory-file caps block rotation, and enforcing them costs ~200x the breach. Length
+  should be advice, not a gate. Company files also have no archive convention, unlike jobs.
+- 7 of 9 blocked chats fail on a missing `## Position` heading, 3 of those on a regex that
+  demands the word first in the line - `## The position` fails.
+- No bot can hand work to another bot or return it to the front desk. This is what JAC-23
+  was really about.

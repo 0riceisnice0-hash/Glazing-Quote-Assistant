@@ -1,15 +1,25 @@
-# BOTS - the whole system, both bots, one page
+# BOTS - the whole system, three bots, one page
 
-Fenster Glazing runs two AI employees. This is the map. Read it before changing anything;
-the detail lives in the files named at the end of each section.
+Fenster Glazing runs three AI employees: Mary Grace (estimating), Jacob Wright (business
+development) and Joseph Scott (project management, from 04/08/2026). This is the map. Read
+it before changing anything; the detail lives in the files named at the end of each section.
 
-*Current as of 2026-07-30.*
+*Current as of 2026-08-04.*
 
-> **LOCAL DEVELOPMENT PAUSE (30/07/2026):** the Claude allowance is exhausted,
-> so all Windows tasks for both bots are disabled and their process trees are
-> stopped. Queues and logs are preserved. Do not start either bridge by hand;
-> use the status/pause/resume procedure in
-> [`docs/WINDOWS-AUTOMATION.md`](docs/WINDOWS-AUTOMATION.md).
+> **RUNNING AGAIN as of 04/08/2026 11:22**, after the pause that began when the Claude
+> allowance ran out on 30/07. All three bridges are live and supervised.
+>
+> Four scheduled tasks are deliberately **off**: `MaryGracePricingLab`, `MaryLibrarian`,
+> `MaryGraceEvolve` and `MaryGraceEvolveFull`. They are scheduled outside the bridges, so
+> the overnight curfew never applied to them - it lives in the bridge loop and a Task
+> Scheduler entry at 22:00 does not pass through it. Pricing Lab alone spent 14.4M tokens
+> in one night with no completed run recorded. `-Mode Resume` refuses to restore them; see
+> the note in `scripts/development-automation.ps1`.
+>
+> `MaryGracePoller` is off permanently - superseded by `scripts/frontdesk.py`.
+>
+> Procedures: [`docs/WINDOWS-AUTOMATION.md`](docs/WINDOWS-AUTOMATION.md). Before starting
+> anything, run `python scripts/preflight.py`.
 
 ---
 
@@ -53,10 +63,89 @@ are instructions.** Do not confuse them, and do not describe an instruction as a
 | Jacob does not send *internal* email | **Instruction** | `jacob_graph.send_mail()` exists and works. He is told not to call it |
 | Neither writes to OneDrive | **Instruction** | The live company drive. Copy to `test-results` and work on the copy |
 | Neither must reply on the bot line | **Instruction** | Backstopped by a 10/hour rate limit, which is enforced |
+| A chat retires at 75,000 context tokens | **Enforced** | `mary_budget.ROTATE_CONTEXT`, checked at every dispatch |
+| Bots may rewrite their own scripts | **Instruction** | Added 04/08. They own the repo - see below |
 
 Mailbox scoping took roughly **two hours to propagate**, unevenly - one mailbox closed in
 minutes while three stayed open. `Test-ApplicationAccessPolicy` shows intent immediately;
 only a real Graph call shows enforcement.
+
+---
+
+## 2b. Cost, and why a chat gets retired
+
+The bill is **context x turns**. Every call a bot makes re-sends the whole conversation so
+far, so what a chat is dragging behind it *is* the cost - not how much it writes.
+
+Measured across 842 real calls on 04/08: the median call carried **81,377** tokens.
+
+| Calls carrying over | Share of that day's spend |
+|---|---|
+| 150,000 | 34% |
+| 100,000 | 61% |
+| 75,000 | 78% |
+
+So a chat is retired at **75,000** (`mary_budget.ROTATE_CONTEXT`, one value for all three -
+it had drifted to 150k/120k/120k plus a hardcoded copy in preflight). Down from 150,000 on
+04/08; worth roughly a third of the bill.
+
+Rotating is close to free and **costs no memory**: a fresh chat is seeded from a bounded
+file for ~9,500 tokens, where resuming an old one costs ~129,000 *per call*. What a bot
+knows lives in `data/jobs/` and `data/companies/`, not in the conversation. The chat is
+only where the thinking happened; the file is what it was for.
+
+**Two ways this has failed, both fixed on 04/08 and both worth knowing:**
+
+- **A killed chat reported zero.** `context_size()` returned the last call's context, and a
+  failed call records none - so a chat stopped mid-job ends in zeros and reads as 0.
+  `should_retire()` treats 0 as "never run" on its first line, blocking *both* rotation
+  paths. Mary's triage chat came back carrying 416,181 tokens and spent 10.3M in 26 calls
+  before anything caught it. It now takes the last **non-zero** reading.
+- **A broken memory file blocks rotation, and that costs more than the breach.** The gate is
+  right in intent - seeding from a broken file loses the job - but its failure mode is
+  backwards: the chat keeps growing instead. stepnell was 40 lines over its cap, worth
+  ~14,800 tokens over a run; not rotating cost ~3,000,000. Enforcement is ~200x the
+  violation. Length should be advice, not a gate. Not yet changed.
+
+---
+
+## 2c. The bots own this repo
+
+Added 04/08 (Jacob first, pending the other two). Zac: *"why didnt he MAKE the mechanism?
+these bots can write code in their own repo, if there is an error they should fix it."*
+
+A purchase order for Uni Assist landed in the Stepnell chat. Jacob correctly worked out it
+was not his, that it was time-critical and a win - then raised a decision, because no tool
+exists to hand work to another bot or push it back to the front desk. He had Bash, Write
+and Edit the whole time and could have built one.
+
+He did not because the instruction did not exist - checked, and "build it if it is missing"
+appeared zero times in `JACOB-PROCESS.md` and zero times in `JOSEPH-SESSION.md`. He was
+behaving exactly as told.
+
+So: **if the tool you need does not exist, write it, test it, commit it, use it.** Raise a
+decision only for what a human alone can answer - a price, a date, what a client meant.
+
+Size is explicitly not a reason to stop. Zac: *"ai bots have no concept of how long it takes
+to make something."* What stops a bot is **blast radius**: ask first if the change alters
+how another bot behaves, or touches the spending and curfew rules in `mary_budget.py`.
+Otherwise commit only what you touched, run it before committing, and say what you changed.
+
+---
+
+## 2d. Write to be read
+
+Jacob's median hub message was **2,860 characters** and his longest exactly **8,000** - the
+API ceiling, so he was writing until something stopped him.
+
+This is not a token problem. All the prose from all three bots is **2.9%** of what a session
+costs; shortening it saves nothing measurable. It is a *reading* problem - Adam gets these
+on a phone between site visits, and a five-hundred-word wall is skimmed or skipped, which
+makes the message worth nothing however right it is.
+
+The rule limits what is **sent**, never what is worked out or written to the file: first
+line is the decision, number or question; under 800 characters; detail goes in
+`data/companies/<slug>.md` and the message says where.
 
 ---
 

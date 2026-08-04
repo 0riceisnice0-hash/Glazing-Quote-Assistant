@@ -61,7 +61,7 @@ DAILY_BUDGET_HOURS = float(os.environ.get("JOSEPH_DAY_HOURS", "6.0"))
 CLAUDE = os.path.join(os.path.expanduser("~"), ".local", "bin", "claude.exe")
 NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
-ROTATE_CONTEXT = int(os.environ.get("JOSEPH_ROTATE_CONTEXT", "120000"))
+ROTATE_CONTEXT = int(os.environ.get("JOSEPH_ROTATE_CONTEXT", str(budget.ROTATE_CONTEXT)))
 SESSION_WARN_TOKENS = int(os.environ.get("JOSEPH_SESSION_WARN", "15000000"))
 SESSION_KILL_TOKENS = int(os.environ.get("JOSEPH_SESSION_KILL", "40000000"))
 CONTRACT_MAX_LINES = 200
