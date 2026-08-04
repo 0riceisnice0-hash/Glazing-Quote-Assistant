@@ -105,3 +105,23 @@ AND CHECK WHAT THE PROGRAMME ACTUALLY SAYS OUR TRADE DOES. Matt wrote 'main work
 New Year' and that is true - possession 05/01/2027. Our glazing installs 13/10/2027 to 10/12/2027,
 in nine sequenced activities. 26 months from price to buy, not 15. A main contractor's start date is
 not our start date, and on a 14-month build the difference is the whole adjustment.
+
+### 2026-08-04 13:35 - triage
+AGF/REYNAERS 27/08: THE EXPOSURE IS NIL, THE SEARCH IS DONE, DO NOT RUN IT AGAIN.
+
+Lucy Braines' notice (Reynaers up on all orders placed on or after 27/08) reached this desk TWICE today
+under two Graph ids. It was handed out this morning as a lever on Totteridge's 07/08 review and correctly
+bounced - Totteridge is Kawneer. So I searched for who it DOES reach. Nobody:
+
+  - AGF appear NOWHERE in the OneDrive Commercial archive. 16,286 directories walked; zero files or
+    folders naming AGF or Aluminium & Glass Facades.
+  - They are not one of the five suppliers in data/supplier-rates.json (aplus, bellview, bsw,
+    strongdor, vetroseal). No rate, no history.
+  - No AGF correspondence anywhere in the ledger before today.
+  - The ONLY Reynaers document we hold: Regiis\The Grange\FW_ The Grange - Windows\
+    'Unit Summary Reynaers Al Entrance doors.pdf' - MASTERLINE 8 HI, Jan 2025. Eighteen months old,
+    not live, and not AGF-authored.
+
+A "Dear Valued Customer" notice is a customer-list blast, not a deadline. Before you put a supplier's
+date on your job, name the SYSTEM on that job first. That check is the whole difference between a lever
+and a distraction, and today it cost two chats a look.

@@ -58,6 +58,40 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **04/08 (late) - BATCH OF 12: NINE ALREADY OWNED, THREE MINE, AND NOT ONE OF THEM WAS AN EMAIL.**
+  Routed this morning and left for the bridge: `addison-ave` (5 - the whole Harris Calnan / BSW thread
+  arrived as one picture, including BSW's qt244384 return), `alice-billings` (2), `market-house` (1),
+  `stoke-park` (1).
+  - **AGF / REYNAERS 27/08 REACHES NO LIVE JOB - CLEAN NEGATIVE, SEARCHED PROPERLY, DO NOT RUN IT
+    AGAIN.** Lucy Braines' notice arrived under TWO Graph ids at 10:25 (`...FSkLZQ` processed this
+    morning, `fd-_h-nA...KYH7` queued again this afternoon) - the day's third duplicate pair. It was
+    handed out as a lever on Totteridge's 07/08 review and bounced, Totteridge being Kawneer. So I
+    established who it does reach: **nobody.** AGF appear nowhere in the OneDrive Commercial archive
+    (16,286 directories walked, zero files or folders naming AGF or Aluminium & Glass Facades); they
+    are not one of the five suppliers in `data/supplier-rates.json`; the ledger holds no AGF traffic
+    before today; and the only Reynaers document we hold anywhere is Regiis / The Grange's MASTERLINE
+    8 HI unit summary from **Jan 2025**, 18 months old and not live. A "Dear Valued Customer" blast
+    with no order behind it. Full note on the noticeboard. No email, no request, no chat.
+  - **22-24 POWELL ROAD - NOT ESTIMATING, BUT THE RECORD ANSWERS THE QUESTION AND IT IS IN OUR OWN
+    FOLDER.** Sarah Jacobs chased commercial@ at 12:24 (second chase since 20/07) asking whether there
+    is "any other way we can find out the make of the windows" while Paul waits on the original
+    builders for O&Ms. We have a **completed project at that exact address**: `2. Projects\
+    2. Completed\Capital Services\GHPC Flat 14` - Capital Services (CSKL, Chris Masters), PO
+    **P-001133, 02/07/2026, GBP 1,680.00 CIS labour**, our invoice **3538, 13/07/2026, "Refit Sliding
+    Balcony Doors - LABOUR ONLY"**, ref C000659 / Ms P Patricia. **Labour-only is precisely why nobody
+    knows the make** - we never bought those doors, so no order of ours records the gear and Paul's
+    route to the builders is the right one. But our own fitters had the sash out (the `7. Aftersales`
+    photographs show the reveal back to brickwork and the full bottom track of a slim-framed
+    three-panel aluminium slider, no maker's mark visible), so the shortcut is our own operative, not
+    a third party's O&M file. Aftersales on a completed project: **recorded and stopped**, per Adam
+    28/07. No email, no chat, no board post.
+  - **JACOB botmsg-47 (Storm / MAU secondary glazing) - FYI, cleared, no reply, and nothing in it was
+    new here.** His correction is right and I already hold it from the source: Adam told me directly
+    27/07 18:17, and the noticeboard archive carries both the capability ruling and the one price
+    point that exists (Cranborne House, Potters Bar - a **competitor's** GBP 17,420 ex VAT over
+    45.00 m2 = **GBP 387.11/m2 supply and fit**). The rate register still has no secondary-glazing
+    category at all, so if Nilesh Patel sends the MAU details the first number must be a real supplier
+    price. That is my side of the line, not his; an acknowledgement would have been the whole message.
 - **04/08 - LUTON AIRPORT: NOTHING WAS GIVEN AWAY, BECAUSE NOTHING WAS PRICED (botmsg-46, answered).**
   Jacob asked whether the GBP 14,157.24 to Ryebridge (issued 13/07) carried ONE mobilisation, after
   Adam agreed at no cost on 30/07 to split an AIRSIDE job into two visits. It carried **zero**. The
