@@ -102,6 +102,20 @@ try:
 except Exception as e:
     check("bot parity", WARN, str(e)[:80])
 
+# A malformed work order is a BLOCKER, not a warning. One shape mismatch on
+# 04/08 stalled Mary's bridge outright and had the other two working from a
+# 255-character preview of emails whose attachments were never downloaded.
+try:
+    r = subprocess.run([sys.executable, os.path.join(REPO, "test", "test_workorder_shape.py")],
+                       capture_output=True, encoding="utf-8", errors="replace", timeout=120)
+    first = (r.stdout or "").strip().splitlines()
+    check("every queued order is readable",
+          OK if r.returncode == 0 else FAIL,
+          first[2] if r.returncode == 0 and len(first) > 2
+          else "run test/test_workorder_shape.py")
+except Exception as e:
+    check("work order shape", WARN, str(e)[:80])
+
 # ------------------------------------------------------------ automation
 try:
     r = subprocess.run(["powershell", "-ExecutionPolicy", "Bypass", "-File",

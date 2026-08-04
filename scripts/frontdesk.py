@@ -227,17 +227,78 @@ def classify(batch, dry_run=False):
         return {}
 
 
-def write_order(bot, msg, verdict, why):
+def write_order(bot, msg, verdict, why, toks=None):
+    """Write a work order in the SAME SHAPE the poller writes.
+
+    This is the whole contract with the bots and it was broken for a day. The
+    sweep lists messages cheaply - subject, sender, a 255-character preview -
+    because that is all the classifier needs and fetching bodies for mail we
+    are about to bin would be the expensive mistake. But `dict(msg)` then wrote
+    that cheap list-view record straight into the queue, so a work order had:
+
+      - `from` as Graph's nested dict rather than an address string, which is
+        what mary_router does .lower() on. Her bridge threw 'dict' object has
+        no attribute 'lower' every ten seconds and dispatched nothing.
+      - no `body` at all, only bodyPreview. Jacob and Joseph read work orders
+        for tender emails and saw the first 255 characters.
+      - no attachments. 24 of 71 queued orders were for messages carrying
+        drawings and schedules that were never downloaded.
+
+    So the cheap read stays cheap, and the moment an item becomes somebody's
+    work it is fetched in full. Noise is still never fetched, which is where
+    the saving actually was.
+    """
     q = QUEUES.get(bot) or QUEUES["mary"]
     os.makedirs(q, exist_ok=True)
     key = re.sub(r"[^\w.-]", "_", str(msg.get("id"))[-40:])
-    rec = dict(msg)
-    rec.pop("_mailbox", None)
-    rec["mailbox"] = msg.get("_mailbox", "")
-    rec["kind"] = "email"
-    rec["triage"] = {"verdict": verdict, "why": why, "bot": bot,
-                     "model": MODEL, "by": "frontdesk"}
-    path = os.path.join(q, "fd-%s.json" % key)
+    base = "fd-%s" % key
+    mailbox = msg.get("_mailbox", "")
+    mid = msg.get("id")
+    frm = ((msg.get("from") or {}).get("emailAddress") or {}).get("address", "") \
+        if isinstance(msg.get("from"), dict) else str(msg.get("from") or "")
+
+    body_txt, to, cc, saved = "", [], [], []
+    token = (toks or {}).get(msg.get("_reader"))
+    if token:
+        try:
+            full = mg.get_message_body(token, mailbox, mid)
+            body_txt = mg.html_to_text((full.get("body") or {}).get("content", ""))
+            to = [r.get("emailAddress", {}).get("address", "")
+                  for r in (full.get("toRecipients") or [])]
+            cc = [r.get("emailAddress", {}).get("address", "")
+                  for r in (full.get("ccRecipients") or [])]
+        except Exception as e:
+            log("  body fetch failed for %s: %s" % (str(mid)[-12:], str(e)[:70]))
+        if msg.get("hasAttachments"):
+            try:
+                saved = mg.download_attachments(token, mailbox, mid,
+                                                os.path.join(q, base + "-att"))
+            except Exception as e:
+                log("  attachments failed for %s: %s" % (str(mid)[-12:], str(e)[:70]))
+    if not to:
+        to = [r.get("emailAddress", {}).get("address", "")
+              for r in (msg.get("toRecipients") or [])]
+    if not cc:
+        cc = [r.get("emailAddress", {}).get("address", "")
+              for r in (msg.get("ccRecipients") or [])]
+
+    rec = {
+        "mailbox": mailbox, "id": mid,
+        "internet_message_id": msg.get("internetMessageId", ""),
+        "from": frm, "subject": msg.get("subject", ""),
+        "received": msg.get("receivedDateTime", ""),
+        "to": to, "cc": cc,
+        "trusted_sender": frm in mg.TRUSTED_SENDERS,
+        "attachments": saved,
+        # The preview is kept when the full body could not be fetched, so the
+        # order says SOMETHING rather than arriving empty and unexplained.
+        "body": (body_txt or msg.get("bodyPreview") or "")[:20000],
+        "body_complete": bool(body_txt),
+        "kind": "email",
+        "triage": {"verdict": verdict, "why": why, "bot": bot,
+                   "model": MODEL, "by": "frontdesk"},
+    }
+    path = os.path.join(q, base + ".json")
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(rec, fh, indent=1, ensure_ascii=False)
     return path
@@ -294,6 +355,9 @@ def sweep(toks, state):
             if m.get("id") in state["seen"]:
                 continue
             m["_mailbox"] = box
+            # Which reader opened it, so the item can be fetched in full later
+            # without working out the mapping a second time.
+            m["_reader"] = which
             fresh.append(m)
     fresh.sort(key=lambda m: m.get("receivedDateTime") or m.get("received") or "")
     return fresh
@@ -340,7 +404,7 @@ def main():
             if verdict == "noise":
                 bin_it(msg, why)
             else:
-                write_order(bot, msg, verdict, why)
+                write_order(bot, msg, verdict, why, toks)
             # The decision itself, as a row. Written for every call including
             # the ones that get binned - "what did you throw away" is the
             # question this page exists to answer.

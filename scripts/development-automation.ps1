@@ -17,6 +17,7 @@ $stateFile = Join-Path $stateDirectory "automation-pause.json"
 $taskNames = @(
     "JacobBridge",
     "JacobDaily",
+    "JosephBridge",
     "MaryGraceBridge",
     "MaryGraceEvolve",
     "MaryGraceEvolveFull",
@@ -25,7 +26,19 @@ $taskNames = @(
     "MaryGracePricingLab",
     "MaryLibrarian"
 )
-$bridgeTaskNames = @("JacobBridge", "MaryGraceBridge")
+$bridgeTaskNames = @("JacobBridge", "JosephBridge", "MaryGraceBridge")
+
+# SUPERSEDED, AND RESUME MUST NOT TURN THEM BACK ON. Resume restores whatever
+# was enabled before the pause, which is right for a pause but wrong for a task
+# the system has since replaced.
+#
+# MaryGracePoller runs mary_poller.py, the mail path the front desk replaced on
+# 04/08. It reads estimating@ and mary@ with no triage, queues everything to
+# Mary whoever it belongs to, and launches sessions outside the batching and
+# one-sitting rules. Running it beside scripts/frontdesk.py would double-queue
+# every message and undo the cost work. Its own docstring already says the
+# bridge supersedes it.
+$supersededTaskNames = @("MaryGracePoller")
 
 function Get-TaskRecord {
     param([string]$Name)
@@ -186,6 +199,13 @@ if (-not $resumeState.active) {
 
 foreach ($record in $resumeState.tasks) {
     if ($record.Exists -and $record.Enabled) {
+        # A superseded task was enabled before the pause and must still not come
+        # back - see $supersededTaskNames. Restoring it would be faithful to the
+        # snapshot and wrong for the system.
+        if ($supersededTaskNames -contains $record.Name) {
+            Write-Output "Leaving $($record.Name) disabled - superseded, see the note in this script."
+            continue
+        }
         $task = Get-ScheduledTask -TaskName $record.Name `
             -ErrorAction SilentlyContinue
         if ($null -ne $task) {
