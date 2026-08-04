@@ -89,15 +89,11 @@ check("first run will be big", OK if total < 60 else WARN,
 try:
     import mary_router as router
     import mary_cost as _cost
-    def _last_any(sid):
-        """What the OLD reader returned - the last value, zeros included."""
-        last = 0
-        for _t, c, _o in _cost.iter_calls(_cost.transcript(sid)):
-            last = c
-        return last
+    import mary_budget as _budget
+    import mary_jobfile as _jf
 
     reg = router.load_registry()
-    armed, heavy = [], 0
+    stuck, heavy = [], 0
     for k, rec in (reg.get("chats") or {}).items():
         sid = rec.get("session_id")
         if not sid or not os.path.exists(_cost.transcript(sid)):
@@ -106,18 +102,25 @@ try:
         if real < 150000:
             continue
         heavy += 1
-        # Heavy is FINE - the chat retires on its next dispatch. The fault is
-        # heavy while REPORTING light, because then nothing retires it and it
-        # gets resumed at full weight. Warning about all thirteen heavy chats
-        # would bury the one that matters.
-        if _last_any(sid) < 150000:
-            armed.append((k, real))
-    armed.sort(key=lambda kv: -kv[1])
-    check("no chat resumes overweight", OK if not armed else WARN,
-          "%d chat(s) over 150k, all reporting honestly - they rotate on next dispatch" % heavy
-          if not armed else
-          "%d chat(s) report light but are heavy and will NOT rotate: %s"
-          % (len(armed), ", ".join("%s %s" % (k, "{:,}".format(v)) for k, v in armed[:3])))
+        # ASK THE REAL DECISION, do not re-implement it. The first version of
+        # this compared the old context reader against the new one, which
+        # detected the specific bug but would flag every interrupted chat for
+        # ever once the bug was fixed - a check that outlives its fault and
+        # then cries wolf. What actually matters is one question: is this chat
+        # heavy AND going to be resumed anyway? So it runs the same two gates
+        # dispatch runs.
+        retire, _why = _budget.should_retire(rec.get("started"), real, 150000)
+        if not retire:
+            stuck.append((k, real, "rotation says no"))
+        elif _jf.check(k):
+            stuck.append((k, real, "job file out of contract"))
+    stuck.sort(key=lambda r: -r[1])
+    check("no chat resumes overweight", OK if not stuck else WARN,
+          "%d chat(s) over 150k, all of them will rotate on next dispatch" % heavy
+          if not stuck else
+          "%d heavy chat(s) will be RESUMED not retired: %s"
+          % (len(stuck), ", ".join("%s %s (%s)" % (k, "{:,}".format(v), r)
+                                   for k, v, r in stuck[:3])))
 except Exception as e:
     check("heavy chats", WARN, str(e)[:80])
 
