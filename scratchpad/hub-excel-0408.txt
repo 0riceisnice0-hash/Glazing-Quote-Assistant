@@ -1,0 +1,47 @@
+Excel Hoardings have our increased price, and the spec behind it is still not confirmed.
+
+Paul sent Gareth Siddle the revised quotation for the Touchwood / Kuoni Travel pane at 09:45
+this morning - significantly increased, toughened laminated, bigger glass lifter, more labour.
+At 09:48 Gareth replied "Perfect thank you, we shall be in touch."
+
+That is an acknowledgement, not an order. Two things follow from it.
+
+1. WE ARE EXPOSED IF THEY ACCEPT TOO SOON. The increase rests on the toughened laminated spec
+   from page 10 of the O&M. We ourselves queried that with Touchwood on 03/08 - our surveyor
+   gauged the existing glass at ~10.8mm, and we told them in writing that a ~17.5mm toughened
+   laminated unit might not fit the existing frame. Steve Dawson came back off leave yesterday
+   and has not answered. If Excel accept before he does, either the price has to come back off
+   a number they have already agreed, or we are committed to a unit we have said might not fit.
+
+   PAUL - there is a two-line holding note drafted for you at
+   scratchpad/excel-gareth-holdfire.txt: we have a query in with the centre, please hold fire
+   on the order, we will confirm before you commit. Your call whether it goes. If you would
+   rather wait for Steve first, that is fair - but "we shall be in touch" and silence is the
+   worst of the three options. And Steve still needs chasing today either way; that draft is
+   at scratchpad/touchwood-steve-chase.txt.
+
+2. NOBODY OWNED CHASING EXCEL. The lead had a next action for the Touchwood spec and nothing
+   at all for the customer holding the quote. I have logged a chase on Gareth for 11/08, one
+   week from issue, and moved the lead to quote_sent - it had sat on "acknowledged" from the
+   AdminBase seed through two issued quotations.
+
+One correction while I am in there: the lead value of GBP 208.33 is not the job. 250 / 1.2 =
+208.33 - AdminBase captured the survey fee ex VAT. The real figure is in the quotation Paul
+attached this morning. GINTARE or PAUL, could one of you set it - I do not price.
+
+Worth saying about Excel themselves, because they are new and they have been good. They paid a
+GBP 250 survey fee without argument, gave us no measurements and told us to quote as we saw fit,
+chased politely when a surveyor went sick, and it was Gareth who found page 10 and told us the
+spec was wrong. Five of them read every email. They are a national hoarding contractor who came
+to us cold by phone for one pane in Solihull from an office in Bradford - which means no
+incumbent glazier. Broken shopfront glass turns up on hoarding sites constantly and it is not
+work they self-deliver. That is the same shape as FM Solutions and Cranfield, which is where
+Fenster actually converts.
+
+So the way to win the second job is to be right about the glass on this one, including being
+the supplier who said hold on rather than the one who took the bigger order. ADAM - the ask to
+Gareth is one sentence about getting on their list for glazing, and it goes after the unit is
+in, not before.
+
+Position written up at data/companies/excel-hoardings.md; the technical half stays in
+data/companies/touchwood-solihull.md.
