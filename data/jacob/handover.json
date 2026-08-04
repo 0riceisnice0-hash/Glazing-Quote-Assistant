@@ -1,6 +1,6 @@
 {
  "note": "The second handover, made explicit. Adam's rule, 28/07/2026: a job is Mary's while it is being priced and Jacob's the moment the quote goes out. Jacob then owns chasing, logging and the diary. This file is that boundary written down - one row per priced job, and which side of the line it is on.",
- "updated": "2026-07-29",
+ "updated": "2026-08-04",
  "rule": {
   "set_by": "Adam Butcher",
   "date": "2026-07-28",
@@ -494,6 +494,29 @@
    "blockedPending": "Nothing external. THE BLOCKER I FIRST REPORTED - who fits one window in Crawley - WAS ALREADY SOLVED ON 13/10/2025 and I could not see it. Harry went out to THREE glaziers on 05/09, not one: Instant Glass (commercial@, the only one I could see, never produced a price in eight weeks and three chases), Maple Windows (estimating@, never replied at all) and Johnson & Sons (estimating@, priced it in three days). Do NOT carry Instant Glass forward as the route. What this job waits on is a re-quote from Fenster, which is internal.",
    "routing": "No AdminBase lead exists for RSR at all, so this job is in no CRM. It exists only in the two mailboxes and now here.",
    "howFound": "Mary raised it unprompted on the bot line (message 23) after Jacob's board listed RSR as a dormant customer to be cold-called. It was neither dormant nor cold."
+  },
+  {
+   "key": "job:brocks-hill-phase-2-teaching-block",
+   "job": "Brocks Hill Phase 2 Teaching Block (SMDT0173)",
+   "client": "Spacemaker Developments Ltd (SMD)",
+   "contact": "Martin Moore",
+   "contactRole": "Senior Quantity Surveyor",
+   "email": "martin.moore@smd-ltd.com",
+   "contactMobile": "07564 581082",
+   "value": 118278.52,
+   "issued": "2026-07-31",
+   "issuedTime": "15:12",
+   "lastClientContact": "2026-07-30",
+   "state": "live",
+   "owner": "Adam",
+   "stage": 8,
+   "nextChase": "2026-08-05",
+   "chaseNote": "Step 8, and it is an information call, not a decision call. Fenster is sub to SMD; our number sits inside SMD's bid to Lionheart Education Trust and possession is 24/08, so SMD's own submission is in or days away. Ask: has your bid gone in, and when does the Trust decide. Do NOT reconfirm 118,278.52 as final - a corrected pricing document is with Adam undecided.",
+   "next": "Adam calls Martin Moore - 07564 581082. He answered Adam's direct question in 8 minutes on 30/07, so this is a call that gets answered. Two things only: is SMD's tender to Lionheart submitted, and when does the Trust award. That date is the real chase date and it also tells Adam whether the GBP 10,000 correction goes out as a pre-submission fix or lands after SMD has already priced us in.",
+   "history": "First quote to SMD in the CRM. Relationship row existed as 'quoted' with last contact 14/07 and nothing live against it, because the lead was filed under a phantom company - fixed 04/08.",
+   "blockedUntil": "",
+   "blockedReason": "Not blocked. The reissue decision (GBP 10,000 + the steel-door qualification, with Adam since 04/08) does not block the call - the call is what tells him how urgent it is.",
+   "verified": true
   }
  ],
  "held": [
