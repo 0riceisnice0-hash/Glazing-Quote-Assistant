@@ -83,3 +83,27 @@ the identical 8.8L-16-4T. That was true of that quote only. On the 6.8 make-up C
 GBP 55.00/m2 and Vetroseal are GBP 55.76/m2 all in - level. CN are not structurally cheaper; that
 one Vetroseal quote was structurally dear. Stoke Park's glass went to CN Glass on 27/07 at
 GBP 6,185.09 for 124 units / 106.9 m2, so that buy was competitive and needs nothing.
+
+### 2026-07-30 08:11 - triage
+"NO QUOTE WENT BACK" CAN BE THE RIGHT ANSWER TO A TENDER. LOOK FOR THE OUTBOUND SCOPE QUERY FIRST.
+
+Stepnell issued a formal ITT for St James House Derby on 19/01/2026, bid ref SC0078B, trade "L_SC
+Aluminium Doors & Windows", return by 04/02. Nothing went back, and nothing should have: the bill was
+INTERNAL doors plus a single window "redub" line, and our external window work was not in it. Gintare
+read it on 21/01 and said so, Jayk put it to Luke Walsh in writing on 23/01 with both documents
+attached, and on 26/01 Luke confirmed - "I have a bill item for windows 'to follow'. The client is
+still assessing the best route for the windows you quoted for the front elevation."
+
+SO THE DEADLINE WAS ANSWERED, NOT MISSED, and the ball is the client's. Before recording a lapsed
+return date, check whether we asked whether there was anything to price - a scope query answered by
+the client is a complete response to an ITT. Counting ITTs against quotes returned marks that as a
+miss. This is the mirror of the St Mary's rule: there, look for the INTERNAL promise before blaming
+the document; here, look for the OUTBOUND QUERY before recording a lapse.
+
+AND THE CONVERSE, WHICH IS THE LIVE ITEM: when a client says a bill item is "to follow", that is a
+commitment WE are owed, and nothing in our systems ages it. Luke's promise is 185 days old today and
+sat on the board as us being silent. If a client tells you something is to follow, put a date on it.
+
+ONE SEARCH TRAP: SC0078B RETURNS ZERO HITS ACROSS ALL OF estimating@. A bid reference printed on an
+ITT can live only in the folder copy of the document, so searching the ref will never tell you
+whether we responded - and a nil result reads exactly like a missed tender. Search the SITE NAME.

@@ -7,7 +7,14 @@ Read order for a new dev chat: **`BOTS.md` (both bots, one page) -> this file ->
 `MARY-JOB-SESSION.md` is what Mary's per-job chats run on and `MARY-EMAIL-SESSION.md` holds the triage
 rules; read both before changing how Mary behaves.
 
-Last updated: 2026-07-29 (Jacob running autonomously; **BOTS.md** is the whole-system view).
+Last updated: 2026-07-30 (local bot automation paused after the Claude
+allowance was exhausted; **BOTS.md** is the whole-system view).
+
+> **Before starting either bot:** run
+> `powershell -ExecutionPolicy Bypass -File scripts\development-automation.ps1
+> -Mode Status`. The reversible Windows task pause, the 30/07 terminal-popup
+> incident, and the exact resume procedure are documented in
+> [`docs/WINDOWS-AUTOMATION.md`](docs/WINDOWS-AUTOMATION.md).
 
 ---
 

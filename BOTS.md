@@ -3,7 +3,13 @@
 Fenster Glazing runs two AI employees. This is the map. Read it before changing anything;
 the detail lives in the files named at the end of each section.
 
-*Current as of 2026-07-29.*
+*Current as of 2026-07-30.*
+
+> **LOCAL DEVELOPMENT PAUSE (30/07/2026):** the Claude allowance is exhausted,
+> so all Windows tasks for both bots are disabled and their process trees are
+> stopped. Queues and logs are preserved. Do not start either bridge by hand;
+> use the status/pause/resume procedure in
+> [`docs/WINDOWS-AUTOMATION.md`](docs/WINDOWS-AUTOMATION.md).
 
 ---
 

@@ -213,6 +213,15 @@ GitHub Pages can still serve the app as a fallback static host, but Cloudflare P
 
 ---
 
+## Local bot automation
+
+The Desktop checkout also contains Windows Task Scheduler automation for Mary
+Grace and Jacob. To inspect, pause, or safely resume every project task, follow
+[`docs/WINDOWS-AUTOMATION.md`](docs/WINDOWS-AUTOMATION.md). The pause command
+preserves queued work and restores only tasks that were previously enabled.
+
+---
+
 ## Privacy
 
 By default, processing happens in your browser. If the optional Cloudflare Worker setting is enabled, selected unsupported files are sent to the configured Worker URL for internal document intake.
