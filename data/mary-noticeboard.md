@@ -5,35 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-30 07:40 - triage
-VETROSEAL'S RATE FOR LAMI/TOUGH SOFTCOAT IS BIMODAL, NOT HIGH. NEVER PRICE THIS MAKE-UP OFF A MEDIAN.
-
-New quote in this morning - Vetroseal 065209, 30/07/2026, ref MHA/NUNEATON: 8 units 620 x 2020,
-4T-18-6.8 Lami Extra Clear / Tgh Black Multitech G, 1.2 softcoat, argon. GBP 526.08 goods over
-10.019 m2 = GBP 52.51/m2, plus energy surcharge GBP 32.56 (250.48 kg @ GBP 0.13) = GBP 55.76/m2
-ALL IN. Every figure on it checks: unit area, line total, surcharge, VAT and gross all correct.
-
-Set that against what we already hold for the SAME product family:
-  Vetroseal 059828        lami/tgh softcoat            GBP 52.50/m2
-  Vetroseal 065209 (new)  4T-18-6.8 lami/tgh softcoat  GBP 52.51/m2  (+3.25 energy)
-  Vetroseal 064542        8.8L-16-4T same description   GBP 110.00/m2 (+4.15 energy)
-
-Two quotes at GBP 52.50 and one at GBP 110.00 for a description that reads the same. The 8.8mm
-laminate is 2mm thicker than the 6.8mm - worth perhaps GBP 10/m2, nowhere near double - and the
-GBP 110 quote was the BIGGER order (105 m2 against 10 m2), so volume does not explain it either.
-
-WHAT TO DO WITH THAT: the register medians (MARY-HANDOVER lists lami/tough softcoat at GBP 87/m2)
-sit between two clusters and describe neither. ALWAYS GET A LIVE QUOTE for this make-up, and if a
-Vetroseal number lands near GBP 110/m2, ask them why before building it into a price - their own
-rate three weeks either side of it was half that.
-
-AND CORRECT THE STANDING CN GLASS COMPARISON, which is now misleading. The note that CN Glass are
-"roughly half Vetroseal" came from Stoke Park, where CN's GBP 60/m2 beat Vetroseal's GBP 110/m2 on
-the identical 8.8L-16-4T. That was true of that quote only. On the 6.8 make-up CN Glass are
-GBP 55.00/m2 and Vetroseal are GBP 55.76/m2 all in - level. CN are not structurally cheaper; that
-one Vetroseal quote was structurally dear. Stoke Park's glass went to CN Glass on 27/07 at
-GBP 6,185.09 for 124 units / 106.9 m2, so that buy was competitive and needs nothing.
-
 ### 2026-07-30 08:11 - triage
 "NO QUOTE WENT BACK" CAN BE THE RIGHT ANSWER TO A TENDER. LOOK FOR THE OUTBOUND SCOPE QUERY FIRST.
 
@@ -117,3 +88,11 @@ TWO THINGS THE BATCH JOINED UP, which neither work order showed on its own:
   board-up in Bedford MK40 plus a survey and replacement price, and AE came back asking "do you have a
   rough width and height of the glass?" Vetroseal have now priced one pane 3145 x 2103 delivered to
   MK40 2QA. That answers AE's question - nobody needs to re-measure.
+
+### 2026-08-04 11:56 - triage
+STOKE PARK: ADAM HAS AMENDED THE CN GLASS ORDER TODAY - SPEC A IS 28.8mm OVERALL, SO AN 18mm SPACER, NOT 16mm.
+Adam to orders@cnglass.co.uk, 04/08 11:45 UK: 'We need to amend the order please. Spec A is meant to be 28.8mm overall thickness so requires an 18mm spacer.' The order Steve placed on 28/07 was built on Martin Gregory's 27/07 line '55 m = 4mm / 6.8' against a 16mm spacer (6.8-16-4 = 26.8mm). So Spec A is 6.8-18-4, and the 27/07 buy - 124 units, 106.9 m2, GBP 6,185.09 - is being changed after the fact.
+TWO THINGS THAT FOLLOW.
+1. THE AMENDMENT IS CC'd TO MARTIN GREGORY, WHO RESIGNED ON 03/08. It went to orders@ as well so it will be seen, but the man who gave the rate and who said on 27/07 that 'spacer bar doesnt differ the price' has gone. Nobody at CN Glass has confirmed IN WRITING that an 18mm spacer holds the GBP 55/m2. Get that confirmed by whoever picked the account up before the amended order is accepted - it is exactly the verbal-rate exposure already on this board.
+2. IT MAKES SENSE OF THE VETROSEAL QUOTE. 065209 (30/07, MHA/NUNEATON) is '4T-18-6.8' - the same 28.8mm build-up with the 18mm spacer, at GBP 52.51/m2 goods. That is the corrected Spec A, priced by the other supplier, and it is level with CN Glass. So the make-up is right and both prices agree; it is the spacer on the ORDER that was wrong, not the rate.
+GENERAL: 6.8 + 16 + 4 = 26.8, not 28.8. When a spec states an OVERALL thickness, add the panes and the spacer before ordering - the RFQ that went out on 27/07 asked for a 16mm spacer against a 28.8mm requirement and no one caught it until the glass was on order.

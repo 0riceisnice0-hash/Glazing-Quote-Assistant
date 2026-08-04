@@ -377,18 +377,31 @@
    ],
    "senders": [],
    "opened": "2026-08-04T11:40:45"
+  },
+  "market-house": {
+   "name": "Market House, Maidenhead - windows/curtain walling (DP Designs)",
+   "client": "DP Designs",
+   "match": [
+    "market house",
+    "maidenhead",
+    "dp designs",
+    "rob charlton",
+    "revolving door"
+   ],
+   "senders": [],
+   "opened": "2026-08-04T11:55:45"
   }
  },
  "chats": {
   "triage": {
-   "session_id": "d55fb027-ba54-43c2-8c05-2972751289be",
-   "started": true,
+   "session_id": "6f45c2c9-b66b-4bfe-b626-4540533952ca",
+   "started": false,
    "created": "2026-07-27T13:43:40",
-   "last_active": "2026-07-30T07:43:47",
-   "runs": 43,
-   "rotated_from": "850dd7a8-6f76-4955-9885-d0cea4877b3e",
-   "rotated_at": "2026-07-30T07:16:13",
-   "rotations": 5
+   "last_active": "2026-08-04T11:46:46",
+   "runs": 44,
+   "rotated_from": "d55fb027-ba54-43c2-8c05-2972751289be",
+   "rotated_at": "2026-08-04T11:47:14",
+   "rotations": 6
   },
   "filwood": {
    "session_id": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
@@ -584,6 +597,13 @@
    "session_id": "2a82664b-72c6-4065-a561-286075d7a2e1",
    "started": false,
    "created": "2026-08-04T11:40:45",
+   "last_active": null,
+   "runs": 0
+  },
+  "market-house": {
+   "session_id": "dea58dfd-7903-4c60-a2ad-5bab0b37b45c",
+   "started": false,
+   "created": "2026-08-04T11:55:45",
    "last_active": null,
    "runs": 0
   }

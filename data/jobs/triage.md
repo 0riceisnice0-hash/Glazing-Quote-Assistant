@@ -58,6 +58,27 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **04/08 (pm) - BATCH OF 42: 38 ALREADY OWNED, 4 MINE, ONE NEW CHAT. One direct reply to Adam on a
+  private thread, deliberately not recorded here or anywhere else.**
+  - **MARKET HOUSE, MAIDENHEAD (DP Designs) - NEW CHAT `market-house`, AND NOTHING HAS GONE BACK AT
+    ALL.** Rob Charlton's ITT arrived at info@ 31/07 09:00, return **07/08**, start 29/03/2027, docs
+    behind a link in the PDF, saved under DP Designs. He asked us to "confirm receipt and your
+    intention to tender" - **estimating@ holds no outbound to dpdesigns.co.uk of any kind**, so three
+    days out we have neither acknowledged nor declined. It is stalled on an INTERNAL question:
+    Gintare asked Steven and Adam on 03/08 09:23 whether A Plus or BSW suits a **Schuco-or-similar**
+    spec, and **who could supply the REVOLVING DOOR**. Neither has answered. Partial answer already in
+    estimating@: **record UK** (recorduk.co.uk, Charlie Webb, Regional Sales Team Manager South) quote
+    revolving doors, automatic pedestrian doors, speed gates and turnstiles, and Harry Grover had a
+    live enquiry with them in 2025 (Q2412-171, Radcliffe School) - so there IS a route, it is not a
+    gap. Not emailed: Adam already holds Gintare's question from yesterday. **Morning update 05/08.**
+  - **UNI ASSIST / WALTER TULL HOUSE, NORTHAMPTON - CLOSED, NO ACTION.** Adam asked commercial@ at
+    09:13 UK "Did we go back to these guys?" and **Paul answered in the same minute**: quoted and
+    awaiting a decision. The record backs him - Paul quoted **GBP 1,080 + VAT** for a ~50-window
+    condition survey on 28/07 16:24, **50% off the survey fee if the remedial works follow**, and Mark
+    Williams replied 29/07 15:13 that he is discussing it internally. Not estimating work and not open.
+  - **STOKE PARK -> `stoke-park`**: Adam amended the CN Glass order today (Spec A is 28.8mm overall,
+    so an **18mm** spacer, not the 16mm the 27/07 order was placed on). Full note on the noticeboard,
+    including that the amendment is cc'd to Martin Gregory, who resigned on 03/08.
 - **04/08 - A BATCH OF 78, WORKED AS ONE PICTURE: 37 ROUTED, 37 CLEARED, THREE NEW CHATS OPENED.**
   Routed to their owners: brocks-hill (15 - the SMDT0173 run where Adam asked Martin Moore about the
   7 excluded doors and got "include for the additional doors"), filwood (5 - Adam's 11:55 fixes, and
