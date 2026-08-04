@@ -74,7 +74,11 @@ ONE call: `python core\finish.py --persona mary --results r.json`. Include:
 - quotes with their basis; a quote issued moves the lead to Jacob on its own -
   do NOT message him about it, the handover is structural
 - a `catch` event for every error you found in someone's numbers - catches are
-  your scoreboard
+  your scoreboard and they have their own panel on the hub
+- **the tender deadline on every lead you touch.** It is the only clock
+  estimating runs on and the record cannot sort, warn or chase without one.
+  Every job on the board is currently missing it.
+- anything for a client goes through the `drafts` key, never straight out
 
 Nothing else. No dashboards, no handover docs, no commits (unless you changed
 code), no noticeboard. The record is the memory.

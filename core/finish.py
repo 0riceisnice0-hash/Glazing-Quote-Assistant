@@ -22,6 +22,9 @@ r.json, every key optional:
   "steps_done":  [{"contract_key": "vesuvius", "n": 5, "why": "BSW confirmed"}],
   "decisions":   [{"question": "firm price or provisional?", "context": "...",
                    "entity": "lead:filwood"}],
+  "drafts":      [{"to": "adam.warner@stepnell.co.uk", "subject": "Filwood - chase",
+                   "body": "the whole email, ready to send",
+                   "entity": "lead:filwood"}],
   "messages":    [{"body": "reply to the human, first line = the answer"}],
   "events":      [{"kind": "catch", "entity": "lead:filwood",
                    "body": "supplier price excludes trickle vents"}]
@@ -90,6 +93,13 @@ def apply(persona, r):
         step("decision raised",
              lambda d=d, a=etype, b=ekey: record.decision(
                  persona, d["question"], d.get("context", ""), a, b))
+    for d in r.get("drafts", []):
+        etype, ekey = ((d.get("entity") or ":").split(":", 1) + [""])[:2]
+        step("draft for %s" % (d.get("to") or "?"),
+             lambda d=d, a=etype, b=ekey: record.call("/api/draft", {
+                 "author": persona, "kind": d.get("kind", "email"),
+                 "to": d.get("to", ""), "subject": d.get("subject", ""),
+                 "body": d["body"], "entity_type": a, "entity_key": b}))
     for m in r.get("messages", []):
         step("message posted",
              lambda m=m: record.message(persona, persona, m["body"][:8000],

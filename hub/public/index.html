@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="light dark">
 <title>Glasshouse — Fenster Glazing</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 3 13v16h26V13z' fill='none' stroke='%232eac66' stroke-width='2.5' stroke-linejoin='round'/%3E%3Cpath d='M16 3v26M3 13h26' stroke='%232eac66' stroke-width='1.5'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 <div id="shell">
@@ -18,34 +18,52 @@
       </svg>
       <div class="brand-name">Glasshouse<span>Fenster Glazing</span></div>
     </div>
-    <div class="nav" role="tablist">
+
+    <div class="nav">
       <button data-view="today" class="active"><span class="ic">☀</span>Today</button>
-      <button data-view="pipeline"><span class="ic">⛁</span>Pipeline</button>
-      <button data-view="companies"><span class="ic">⌂</span>Companies</button>
-      <button data-view="contracts"><span class="ic">✓</span>Contracts</button>
-      <button data-view="team"><span class="ic">◉</span>Team</button>
+    </div>
+
+    <div class="nav-label">The desks</div>
+    <div class="nav" id="nav-desks">
+      <button data-view="mary"><span class="dot mary">M</span>Mary<span class="badge" data-badge="mary"></span></button>
+      <button data-view="jacob"><span class="dot jacob">J</span>Jacob<span class="badge" data-badge="jacob"></span></button>
+      <button data-view="joseph"><span class="dot joseph">J</span>Joseph<span class="badge" data-badge="joseph"></span></button>
+    </div>
+
+    <div class="nav-label">The record</div>
+    <div class="nav">
       <button data-view="activity"><span class="ic">≡</span>Activity</button>
       <button data-view="cost"><span class="ic">◔</span>Cost</button>
     </div>
+
     <div class="rail-foot">
       <button id="theme-toggle" title="Light / dark">◐</button>
       <span id="clock"></span>
     </div>
   </nav>
 
-  <main id="main">
-    <div id="view" class="view-wrap"></div>
-  </main>
+  <main id="main"><div id="view" class="view-wrap"></div></main>
 </div>
 
 <aside id="drawer" hidden>
-  <div id="drawer-card" class="glass">
-    <button id="drawer-close">×</button>
+  <div id="drawer-card">
+    <button id="drawer-close" title="Close">×</button>
     <div id="drawer-body"></div>
   </div>
 </aside>
 
+<aside id="thread" hidden>
+  <div id="thread-card">
+    <header id="thread-head"></header>
+    <div id="thread-body"></div>
+    <div id="thread-composer">
+      <textarea id="thread-input" placeholder="Write a message…" rows="1"></textarea>
+      <button class="btn" id="thread-send">Send</button>
+    </div>
+  </div>
+</aside>
+
 <div id="toast" hidden></div>
-<script src="app.js?v=3"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

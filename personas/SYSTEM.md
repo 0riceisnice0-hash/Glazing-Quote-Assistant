@@ -29,6 +29,28 @@ MARY / JACOB / JOSEPH - a charter each, not a codebase    personas/*.md
 FINISH - one call writes everything back and closes out   core/finish.py
 ```
 
+## The hub, and what each page is for
+
+One page per DESK, because every question a human asks here is about a
+person's job. Entity-type tabs (a Companies list, a Contracts list) answer
+nobody's question and are gone.
+
+| Page | The question it answers |
+|---|---|
+| Today | What are the three of them doing, and what is waiting on me |
+| Mary | What is being priced, what is late, what has she caught, what does she need |
+| Jacob | Who do I ring today, what is out for decision, what has he drafted, did we win |
+| Joseph | Which contracts are live, what step is late, what money is owed |
+| Activity | The ledger, filtered to signal |
+| Cost | The meter, against the daily target |
+
+**Drafts are how a bot with no send path gets work done.** Jacob and Joseph
+cannot email; Mary can only reach Adam. Everything else outbound is written
+through finish's `drafts` key, appears on the hub as a card, and a human hits
+Copy / I have sent it / Discard. That answer comes back to the author as a
+task - which is the only way any of them learns whether a recommendation was
+any good.
+
 **Nothing is ever resumed.** A session is born from a card (a query over the
 record), does bounded work, writes back through finish, and dies. If a fact is
 worth keeping it goes in the record; if it is not in the record, the next

@@ -397,6 +397,167 @@ async function handle(request, env, path, url) {
     return J({ ok: true });
   }
 
+  // ------------------------------------------------ drafts
+  // A bot writes one; a human sends it and says so. Until somebody acts, it
+  // sits in front of them - which is the whole point.
+  if (method === "POST" && seg[0] === "draft" && !seg[1]) {
+    needBot();
+    const r = await db.prepare(
+      `INSERT INTO draft (author, kind, to_whom, subject, body, entity_type, entity_key)
+       VALUES (?,?,?,?,?,?,?)`
+    ).bind(body.author, body.kind || "email", body.to || "", body.subject || "",
+      String(body.body || "").slice(0, 12000), body.entity_type || "",
+      body.entity_key || "").run();
+    await addEvent(db, { author: body.author, entity_type: body.entity_type,
+      entity_key: body.entity_key, kind: "draft",
+      body: `drafted for ${body.to || "someone"}: ${(body.subject || "").slice(0, 120)}` });
+    return J({ ok: true, id: r.meta.last_row_id });
+  }
+  if (method === "POST" && seg[0] === "draft" && seg[1] === "status") {
+    needTeam();
+    await db.prepare(
+      `UPDATE draft SET status = ?, acted_at = datetime('now'), acted_by = ? WHERE id = ?`
+    ).bind(body.status, body.by || "team", body.id).run();
+    const d = await db.prepare("SELECT * FROM draft WHERE id = ?").bind(body.id).first();
+    if (d) {
+      await addEvent(db, { author: body.by || "team", entity_type: d.entity_type,
+        entity_key: d.entity_key, kind: "draft_" + body.status,
+        body: `${body.status}: ${(d.subject || d.body).slice(0, 120)}` });
+      // The author learns what happened to its recommendation.
+      await db.prepare(
+        `INSERT INTO task (assignee, entity_type, entity_key, kind, title, body,
+          priority, created_by) VALUES (?,?,?,'hub',?,?,4,?)`
+      ).bind(d.author, d.entity_type, d.entity_key,
+        `Draft ${body.status}: ${(d.subject || "").slice(0, 90)}`,
+        `${body.by || "team"} marked your draft ${body.status}.` +
+        (body.note ? " Note: " + body.note : ""), body.by || "team").run();
+    }
+    return J({ ok: true });
+  }
+  if (method === "GET" && seg[0] === "drafts") {
+    const q = url.searchParams;
+    const rows = await db.prepare(
+      `SELECT * FROM draft WHERE status = ?1 AND (?2 = '' OR author = ?2)
+       ORDER BY id DESC LIMIT 50`
+    ).bind(q.get("status") || "waiting", q.get("author") || "").all();
+    return J(rows.results);
+  }
+
+  // ------------------------------------------------ THE DESK
+  // One call returns everything a persona's page needs. A page that takes six
+  // round trips is a page that renders in pieces.
+  if (method === "GET" && seg[0] === "desk" && seg[1]) {
+    const who = seg[1];
+    if (!PERSONAS.includes(who)) return J({ error: "no such desk" }, 404);
+    const today = new Date().toISOString().slice(0, 10);
+    const week = new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10);
+
+    const [tasks, decisions, drafts, messages, events, session, costRow, status] =
+      await Promise.all([
+        db.prepare(`SELECT * FROM task WHERE assignee = ? AND status IN ('open','working')
+                    ORDER BY priority, id`).bind(who).all(),
+        db.prepare(`SELECT * FROM decision WHERE raised_by = ?
+                    ORDER BY status = 'open' DESC, id DESC LIMIT 20`).bind(who).all(),
+        db.prepare(`SELECT * FROM draft WHERE author = ? AND status = 'waiting'
+                    ORDER BY id DESC`).bind(who).all(),
+        db.prepare(`SELECT * FROM message WHERE persona = ? ORDER BY id DESC LIMIT 60`)
+          .bind(who).all(),
+        db.prepare(`SELECT * FROM event WHERE author = ? ORDER BY id DESC LIMIT 40`)
+          .bind(who).all(),
+        db.prepare(`SELECT * FROM usage WHERE persona = ? ORDER BY id DESC LIMIT 1`)
+          .bind(who).first(),
+        db.prepare(`SELECT SUM(context_tokens) c, COUNT(*) n FROM usage
+                    WHERE persona = ? AND ts >= ?`).bind(who, today + " 00:00:00").first(),
+        db.prepare(`SELECT value FROM setting WHERE key = ?`).bind("status:" + who).first(),
+      ]);
+
+    const out = {
+      persona: who,
+      status: JSON.parse((status || {}).value || "{}"),
+      tasks: tasks.results, decisions: decisions.results, drafts: drafts.results,
+      messages: messages.results, events: events.results,
+      last_session: session || null, cost_today: costRow || {},
+    };
+
+    if (who === "mary") {
+      // Her board is the estimating half of the pipeline, plus the two things
+      // a human has to act on: quotes to check, and errors she has caught.
+      const [board, ready, catches] = await Promise.all([
+        db.prepare(`SELECT l.*, c.name company_name FROM lead l
+                    LEFT JOIN company c ON c.key = l.company_key
+                    WHERE l.stage IN ('new','acknowledged','materials_out',
+                      'awaiting_costs','quote_ready','pre_quote_call')
+                    ORDER BY (l.deadline IS NULL OR l.deadline = ''), l.deadline,
+                      l.updated DESC`).all(),
+        db.prepare(`SELECT q.*, l.title, l.company_key FROM quote q
+                    JOIN lead l ON l.key = q.lead_key
+                    WHERE q.status IN ('draft','checked') AND l.stage != 'closed'
+                    ORDER BY q.id DESC LIMIT 20`).all(),
+        db.prepare(`SELECT * FROM event WHERE kind = 'catch' ORDER BY id DESC LIMIT 15`).all(),
+      ]);
+      out.board = board.results;
+      out.ready_to_check = ready.results;
+      out.catches = catches.results;
+      out.no_deadline = board.results.filter((l) => !l.deadline).length;
+    }
+
+    if (who === "jacob") {
+      const [calls, outFor, companies, scoreboard, quiet] = await Promise.all([
+        db.prepare(`SELECT l.*, c.name company_name FROM lead l
+                    LEFT JOIN company c ON c.key = l.company_key
+                    WHERE l.stage != 'closed' AND COALESCE(l.next_action_date,'') != ''
+                      AND l.next_action_date <= ? ORDER BY l.next_action_date`)
+          .bind(today).all(),
+        db.prepare(`SELECT l.*, c.name company_name,
+                      (SELECT MAX(issued_at) FROM quote WHERE lead_key = l.key
+                        AND status = 'issued') issued_at
+                    FROM lead l LEFT JOIN company c ON c.key = l.company_key
+                    WHERE l.stage IN ('quote_sent','follow_up','final_follow_up')
+                    ORDER BY COALESCE(l.value,0) DESC`).all(),
+        db.prepare(`SELECT key, name, relationship, lifetime_value,
+                      (SELECT COUNT(*) FROM lead WHERE company_key = company.key
+                        AND stage != 'closed') open_leads
+                    FROM company ORDER BY COALESCE(lifetime_value,0) DESC`).all(),
+        db.prepare(`SELECT outcome, COUNT(*) n, CAST(SUM(COALESCE(value,0)) AS INT) v
+                    FROM lead WHERE stage = 'closed' AND COALESCE(outcome,'') != ''
+                    GROUP BY outcome`).all(),
+        db.prepare(`SELECT l.*, c.name company_name FROM lead l
+                    LEFT JOIN company c ON c.key = l.company_key
+                    WHERE l.stage != 'closed' AND COALESCE(l.next_action_date,'') = ''
+                      AND l.stage IN ('quote_sent','follow_up','final_follow_up')`).all(),
+      ]);
+      out.calls_today = calls.results;
+      out.out_for_decision = outFor.results;
+      out.companies = companies.results;
+      out.scoreboard = scoreboard.results;
+      out.no_chase_date = quiet.results;
+    }
+
+    if (who === "joseph") {
+      const [contracts, steps, invoices] = await Promise.all([
+        db.prepare(`SELECT ct.*, c.name company_name,
+                      (SELECT COUNT(*) FROM step WHERE contract_key = ct.key) steps_total,
+                      (SELECT COUNT(*) FROM step WHERE contract_key = ct.key
+                        AND done_at IS NULL) steps_open
+                    FROM contract ct LEFT JOIN company c ON c.key = ct.company_key
+                    ORDER BY ct.status = 'live' DESC,
+                      (ct.site_date IS NULL OR ct.site_date = ''), ct.site_date`).all(),
+        db.prepare(`SELECT s.*, ct.title contract_title FROM step s
+                    JOIN contract ct ON ct.key = s.contract_key
+                    WHERE s.done_at IS NULL AND ct.status = 'live'
+                    ORDER BY (s.due IS NULL OR s.due = ''), s.due LIMIT 30`).all(),
+        db.prepare(`SELECT i.*, ct.title contract_title FROM invoice i
+                    JOIN contract ct ON ct.key = i.contract_key
+                    ORDER BY i.status = 'paid', i.due`).all(),
+      ]);
+      out.contracts = contracts.results;
+      out.steps_due = steps.results;
+      out.invoices = invoices.results;
+      out.week = week;
+    }
+    return J(out);
+  }
+
   // ------------------------------------------------ reads
   if (method === "GET" && seg[0] === "card") {
     const card = seg[1] === "lead" ? await leadCard(db, seg[2])

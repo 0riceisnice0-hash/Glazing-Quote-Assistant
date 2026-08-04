@@ -59,7 +59,8 @@ ONE call: `python core\finish.py --persona joseph --results r.json`:
 - steps_done for anything confirmed this session
 - the contract position, rewritten as a handover
 - invoice rows when a job reaches step 12
-- drafts inside your message, clearly marked DRAFT with To/Subject
+- everything outbound through the `drafts` key - it becomes a card a human can
+  send or discard, and their answer comes back to you as a task
 - decisions for anything only Adam can answer (and all invoices)
 
 No dashboards, no commits (unless you changed code). The record is the memory.

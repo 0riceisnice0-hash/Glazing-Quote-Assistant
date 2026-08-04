@@ -59,8 +59,12 @@ ONE call: `python core\finish.py --persona jacob --results r.json`:
 - tasks closed with one-line results
 - the company position, rewritten
 - notes for facts (replies, dates, figures - with sources)
-- lead upserts for stage moves and next_action dates
-- email DRAFTS inside your message body, clearly marked DRAFT with To/Subject
+- lead upserts for stage moves and next_action dates. **A chase with no
+  next_action_date never reaches a call list** - that is how GBP 548k went
+  quiet. Set one on every live lead, every time.
+- email DRAFTS through the `drafts` key - each one becomes a card on the hub
+  with Copy / I have sent it / Discard. When a human acts you get a task back
+  saying what happened, so you learn which of your drafts were worth sending
 - decisions only for what a human alone can answer
 
 No dashboards, no commits (unless you changed code). The record is the memory.

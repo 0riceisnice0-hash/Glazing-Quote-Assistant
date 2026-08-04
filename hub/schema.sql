@@ -202,3 +202,22 @@ CREATE TABLE IF NOT EXISTS setting (
   key   TEXT PRIMARY KEY,
   value TEXT NOT NULL DEFAULT ''
 );
+
+-- Drafts: the output of a bot that has no send path. A human sends it and says
+-- so, and the answer goes back to the author as a task - the only way any of
+-- them learns whether a recommendation was worth making.
+CREATE TABLE IF NOT EXISTS draft (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  ts          TEXT NOT NULL DEFAULT (datetime('now')),
+  author      TEXT NOT NULL,
+  kind        TEXT NOT NULL DEFAULT 'email',
+  to_whom     TEXT DEFAULT '',
+  subject     TEXT DEFAULT '',
+  body        TEXT NOT NULL,
+  entity_type TEXT DEFAULT '',
+  entity_key  TEXT DEFAULT '',
+  status      TEXT NOT NULL DEFAULT 'waiting',   -- waiting|sent|discarded
+  acted_at    TEXT,
+  acted_by    TEXT
+);
+CREATE INDEX IF NOT EXISTS idx_draft_status ON draft(status, id);
