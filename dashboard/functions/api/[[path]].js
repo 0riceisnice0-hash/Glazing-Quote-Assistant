@@ -34,6 +34,16 @@ const CHANNELS = {
     requests: "jacob_requests", pipeline: "jacob_pipeline",
     statusKey: "jacob", activityKey: "jacob_activity",
   },
+  /* Joseph Scott, project management. His board is not a generated data file
+     like the other two - his half of the world is the CRM tables, which the
+     hub already serves live from /api/crm/*. So `board` is null and his pages
+     read the CRM; everything else follows the convention. */
+  joseph: {
+    board: null,
+    messages: "joseph_messages", seen: "seen_by_joseph",
+    requests: "joseph_requests", pipeline: "joseph_pipeline",
+    statusKey: "joseph", activityKey: "joseph_activity",
+  },
 };
 
 /* The spellings the routes had before they were generic. Live bridges poll
@@ -74,7 +84,14 @@ export async function onRequest(context) {
 
   try {
     /* ---------------- public: per-bot channels ---------------- */
-    if (ch && action === "board") return json(ch.board);
+    /* A bot with no generated board file is not an error - Joseph's world is
+       the CRM tables, served live from /api/crm/*. Say so rather than 404ing,
+       so a future bot that reads the record instead of a snapshot is a
+       registry entry and nothing else. */
+    if (ch && action === "board") {
+      return ch.board ? json(ch.board)
+        : json({ board: "crm", note: "This bot reads the CRM directly - see /api/crm/*" });
+    }
 
     if (ch && action === "messages" && GET) {
       const { results } = await db.prepare(

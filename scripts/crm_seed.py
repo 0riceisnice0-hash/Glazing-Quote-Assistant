@@ -207,15 +207,30 @@ def main():
 
     # ---- contracts we have actually won ----
     for c in (won.get("contracts") or []):
-        title = c.get("contract") or ""
-        if not title:
+        ref = str(c.get("contract") or "")
+        if not ref:
             continue
+        # THE TITLE IS THE SITE, NOT THE REFERENCE NUMBER. The first pass used
+        # AdminBase's `contract` column, which is a serial - so Joseph's board
+        # read "3557", "3475", "3476" and told nobody anything. The export
+        # carries a `site` on all 29 live rows and that is what a person calls
+        # the job: "Stoke Park School Expansion, Dane Road Coventry".
+        title = (c.get("site") or "").strip() or ref
         ckey = company_key_for(c.get("client"), known)
-        write("contract", slug("%s %s" % (c.get("client", ""), title))[:60],
+        # THE KEY IS BUILT FROM THE REFERENCE, NEVER THE TITLE. A title can be
+        # corrected; a key cannot, because it is the identity. Keying on the
+        # title once already cost 28 duplicate contracts on a single re-seed -
+        # the row did not update, it forked.
+        write("contract", slug("%s %s" % (c.get("client", ""), ref))[:60],
               company_key=ckey, title=title,
               value=c.get("balance") if isinstance(c.get("balance"), (int, float)) else None,
-              site_date=c.get("fitted") or "",
-              status="complete" if not c.get("inProgress") else "live")
+              po_ref=ref,
+              # `fitted` is when finished work WAS fitted, so it is a site date
+              # only for completed jobs. A live job's site date is not in this
+              # export at all and has to be entered - which is what the
+              # contracts board says on its face.
+              site_date=(c.get("fitted") or "") if not c.get("inProgress") else "",
+              status="live" if c.get("inProgress") else "complete")
         counts["contract"] += 1
 
     print("\n%s: %s" % ("would write" if a.dry_run else "written",

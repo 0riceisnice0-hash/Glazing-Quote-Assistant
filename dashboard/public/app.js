@@ -337,6 +337,7 @@ const openReqs = () => (DATA.requests || []).filter((r) => r.status === "open");
 const awaitingReqs = () => openReqs().filter((r) => !SENT_ANSWERS[r.id]);
 const unseenMsgs = () => MESSAGES.filter((m) => m.author !== "mary" && !m.seen_by_mary).length;
 const unseenJacobMsgs = () => JMSGS.filter((m) => m.author !== "jacob" && !m.seen_by_jacob).length;
+const unseenJosephMsgs = () => JOMSGS.filter((m) => m.author !== "joseph" && !m.seen_by_joseph).length;
 
 /* ---------------- live feed ----------------
    One feed, two boards: Mary's Live tab and Jacob's render identical event
@@ -887,6 +888,11 @@ const JACOB_PAGES = [
    rest of his section working rather than blanking the page. */
 let JMSGS = [];
 let JREQS = [];
+/* Joseph's channels. Same shape as Jacob's - the third bot is registry entries
+   and these four lines, which is the whole point of the 29/07 restructure. */
+let JOMSGS = [];
+let JOREQS = [];
+let JOSTATUS = null;
 let BOTCHAT = [];
 let JACTIVITY = null;
 /* His bridge can report a status line the same way Mary's does; until it
@@ -906,6 +912,19 @@ let JPIPE = {};
    the page exactly where you left it; only a deliberate tab change resets it. */
 let LAST_VIEW = { page: null, bot: null };
 const openJacobReqs = () => JREQS.filter((r) => r.status !== "answered");
+const openJosephReqs = () => JOREQS.filter((r) => r.status !== "answered");
+
+async function sendToJoseph(body, context = "") {
+  if (!requireMe("A message to Joseph")) return;
+  const res = await api("joseph/messages", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ author: who(), body, context }),
+  });
+  JOMSGS = await api("joseph/messages").catch(() => JOMSGS);
+  if (cutOff(res)) return;
+  toast("Sent - Joseph picks this up on his next pass");
+}
 
 async function sendToJacob(body, context = "") {
   if (!requireMe("A message to Jacob")) return;
@@ -3243,6 +3262,13 @@ const TEAM_RENDER = {
    Everything the shell needs to know about a board, in one place. The
    sidebar, nav, routing, polling, badges and chat all read from here;
    adding a bot is adding an entry, not editing the shell. */
+function josephStatus() {
+  if (JOSTATUS && JOSTATUS.state && JOSTATUS.state !== "unknown") return bridgeStatus(JOSTATUS);
+  /* No bridge has ever run for him yet, and saying "Live" when nothing is
+     listening would be the same lie the pause-verification told. */
+  return { text: "Not started", tone: "", title: "His bridge has not been run yet" };
+}
+
 function jacobStatus() {
   if (JSTATUS && JSTATUS.state && JSTATUS.state !== "unknown") return bridgeStatus(JSTATUS);
   // His bridge does not report a status line yet - infer from the live feed:
@@ -4012,6 +4038,39 @@ const BOTS = {
     status: null, badges: () => ({}),
     needsYou: () => 0,
   },
+  /* Joseph Scott, project management. His board IS the Contracts page under
+     The work - he has no generated data file of his own, because the CRM is
+     already the record for won jobs. So his card carries the two things that
+     are his alone: talking to him, and the decisions he cannot make. */
+  joseph: {
+    key: "joseph", name: "Joseph Scott", role: "Project management", initials: "JS", accent: "js",
+    pages: [
+      { key: "decisions", label: "Joseph needs you", group: "Talk",
+        sub: () => `${openJosephReqs().length} decision${openJosephReqs().length === 1 ? "" : "s"} he cannot make alone` },
+      { key: "jomessages", label: "Messages", group: "Talk", layout: "chat",
+        sub: () => "Two-way line - he picks this up on his next pass" },
+    ],
+    render: {
+      decisions() {
+        const open = openJosephReqs();
+        return `${open.length ? "" : `<div class="empty"><strong>Nothing is waiting on you.</strong>
+          <p>His work is on <a data-go="contracts">Contracts</a>.</p></div>`}
+          ${open.map((r) => `<div class="req"><h3>${esc(r.title)}</h3>
+            <p>${esc(r.why || "")}</p></div>`).join("")}`;
+      },
+      jomessages() { return chatPage(BOTS.joseph); },
+    },
+    status: () => josephStatus(),
+    needsYou: () => openJosephReqs().length + unseenJosephMsgs(),
+    badges: () => ({ decisions: openJosephReqs().length, jomessages: unseenJosephMsgs() }),
+    send: sendToJoseph,
+    chat: {
+      msgs: () => JOMSGS, seen: "seen_by_joseph", draft: "joseph-msg",
+      placeholder: "Message Joseph - a site date, a delivery that has moved, who is fitting what...",
+      empty: "Tell him something about a won job and he picks it up on his next pass.",
+      hint: () => "picked up on his next pass",
+    },
+  },
   jacob: {
     key: "jacob", name: "Jacob Wright", role: "Business development", initials: "JW", accent: "jw",
     pages: JACOB_PAGES, render: JACOB_RENDER,
@@ -4458,6 +4517,12 @@ $("#search").addEventListener("input", (e) => {
     ]);
     CRM = { today: cToday, leads: cLeads || [], companies: cCos || [],
             contracts: cCons || [], delivery: cDel };
+
+    [JOMSGS, JOREQS, JOSTATUS] = await Promise.all([
+      api("joseph/messages").catch(() => []),
+      api("joseph/requests").catch(() => []),
+      api("joseph/status").catch(() => null),
+    ]);
 
     msgSig = signature(MESSAGES);
     render();

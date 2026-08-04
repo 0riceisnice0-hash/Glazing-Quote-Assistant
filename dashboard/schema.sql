@@ -293,3 +293,52 @@ CREATE INDEX IF NOT EXISTS idx_crm_contact_company ON crm_contact(company_key);
 CREATE INDEX IF NOT EXISTS idx_crm_note_entity ON crm_note(entity_type, entity_key);
 CREATE INDEX IF NOT EXISTS idx_crm_task_entity ON crm_task(entity_type, entity_key);
 CREATE INDEX IF NOT EXISTS idx_crm_task_due ON crm_task(due);
+
+-- ===================================================================
+-- Joseph Scott. Project management: won work, from the purchase order to
+-- the final payment. Third bot, same three tables as Jacob under his own
+-- prefix - the convention the file already documents.
+--
+-- His half of the business is crm_contract / crm_task / crm_invoice. These
+-- two are only the human channels: talking to him, and the decisions he
+-- cannot make alone.
+-- ===================================================================
+
+CREATE TABLE IF NOT EXISTS joseph_messages (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  created TEXT NOT NULL,
+  author TEXT NOT NULL,             -- zac | adam | team | joseph
+  body TEXT NOT NULL,
+  context TEXT DEFAULT '',
+  in_reply_to INTEGER,
+  seen_by_joseph INTEGER DEFAULT 0
+);
+
+CREATE TABLE IF NOT EXISTS joseph_requests (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  created TEXT NOT NULL,
+  ref TEXT NOT NULL UNIQUE,         -- JOS-1, JOS-2...
+  title TEXT NOT NULL,
+  why TEXT DEFAULT '',
+  needs TEXT DEFAULT '',
+  options TEXT DEFAULT '[]',
+  status TEXT DEFAULT 'open',
+  answer TEXT DEFAULT '',
+  answered_by TEXT DEFAULT '',
+  answered_at TEXT
+);
+
+-- The human override on his derived state, same shape and same reason as
+-- jacob_pipeline: he derives a state for every contract from the evidence,
+-- and this is where a person disagrees with him and wins.
+CREATE TABLE IF NOT EXISTS joseph_pipeline (
+  key TEXT PRIMARY KEY,
+  label TEXT DEFAULT '',
+  state TEXT DEFAULT '',
+  owner TEXT DEFAULT '',
+  next_action TEXT DEFAULT '',
+  next_date TEXT DEFAULT '',
+  note TEXT DEFAULT '',
+  updated TEXT NOT NULL,
+  updated_by TEXT DEFAULT 'team'
+);
