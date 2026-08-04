@@ -37,8 +37,13 @@ DAY_CONTEXT_BREAKER = int(os.environ.get("GLASSHOUSE_DAY_BREAKER", 150_000_000))
 SESSION_KILL_TOKENS = int(os.environ.get("GLASSHOUSE_SESSION_KILL", 20_000_000))
 SESSION_MAX_TURNS = int(os.environ.get("GLASSHOUSE_MAX_TURNS", 30))
 SESSION_TIMEOUT = 45 * 60
-CURFEW = (21, 7)            # no worker sessions 21:00-07:00 ...
-NIGHT_FLAG = os.path.join(DATA, "night-allowed.json")  # ...unless lifted for tonight
+
+# THE WORKING DAY, 08:00-18:00 (Zac, 04/08). Outside it the bots are off - with
+# one exception, and it is the whole point of the exception: a message on the
+# dashboard, or an email from Adam, still gets worked. Somebody deliberately
+# asking for something at 19:00 is not the runaway this guard exists to stop.
+WORK_HOURS = (8, 18)
+NIGHT_FLAG = os.path.join(DATA, "night-allowed.json")  # lifts it for one night
 
 DAY_TARGET = 118_000_000    # 5% of the weekly allowance - the design constraint
 

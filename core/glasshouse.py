@@ -23,9 +23,10 @@ import record
 
 
 def main():
-    print("GLASSHOUSE up %s - intake every %ds, dispatch poll %ds, curfew %02d:00-%02d:00"
-          % (dt.datetime.now().isoformat(timespec="seconds"), config.INTAKE_EVERY,
-             config.DISPATCH_POLL, config.CURFEW[0], config.CURFEW[1]))
+    print("GLASSHOUSE up %s - working day %02d:00-%02d:00 (outside it, only a "
+          "dashboard message or an email from Adam gets worked), intake every %ds"
+          % (dt.datetime.now().isoformat(timespec="seconds"),
+             config.WORK_HOURS[0], config.WORK_HOURS[1], config.INTAKE_EVERY))
     try:
         record.event("glasshouse", "heartbeat", "engine started")
     except Exception as e:

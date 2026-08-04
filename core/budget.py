@@ -80,22 +80,36 @@ def day_breaker_tripped():
     return spent_today() >= config.DAY_CONTEXT_BREAKER
 
 
-def in_curfew(now=None):
-    """21:00-07:00, unless somebody lifted it for tonight specifically."""
+def off_hours(now=None):
+    """True outside the working day. See config.WORK_HOURS.
+
+    Off hours does NOT mean nothing runs - it means only what a human asked
+    for runs. `dispatch` filters the queue rather than sleeping through it.
+    """
     now = now or dt.datetime.now()
-    start, end = config.CURFEW
-    night = now.hour >= start or now.hour < end
-    if not night:
+    start, end = config.WORK_HOURS
+    if start <= now.hour < end:
         return False
     try:
         with open(config.NIGHT_FLAG, encoding="utf-8") as fh:
             flag = json.load(fh)
-        tonight = (now - dt.timedelta(hours=end)).date().isoformat()
+        tonight = (now - dt.timedelta(hours=start)).date().isoformat()
         if flag.get("date") == tonight:
-            return False
+            return False          # somebody lifted it for this evening
     except (IOError, ValueError):
         pass
     return True
+
+
+def asked_for_by_a_human(task):
+    """The one thing worth waking up for: a dashboard message, or Adam."""
+    if task.get("kind") == "hub":
+        return True
+    try:
+        payload = json.loads(task.get("payload_json") or "{}")
+    except ValueError:
+        return False
+    return bool(payload.get("trusted_sender"))
 
 
 def cost_note(persona):

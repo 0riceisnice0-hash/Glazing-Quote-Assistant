@@ -30,6 +30,7 @@ import record
 
 NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 LOCK = os.path.join(config.DATA, "glasshouse-session.lock")
+_quiet = [-1]   # so "holding N until morning" is logged on change, not every poll
 
 
 def log(msg):
@@ -206,11 +207,21 @@ def pass_once(dry_run=False):
         log("DAY BREAKER tripped (%s context today) - no more sessions today"
             % "{:,}".format(budget.spent_today()))
         return 0
-    if budget.in_curfew():
-        return 0
     tasks = record.tasks(status_="open")
     if not tasks:
         return 0
+    # Outside the working day, work only what a human actually asked for.
+    if budget.off_hours():
+        held = len(tasks)
+        tasks = [t for t in tasks if budget.asked_for_by_a_human(t)]
+        if not tasks:
+            if _quiet[0] != held:
+                _quiet[0] = held
+                log("outside %02d:00-%02d:00 - holding %d task(s) until morning"
+                    % (config.WORK_HOURS[0], config.WORK_HOURS[1], held))
+            return 0
+        log("outside hours, but %d task(s) came from a person - working those"
+            % len(tasks))
     ran = 0
     for (persona, entity), group in group_tasks(tasks):
         if not ready(group):
