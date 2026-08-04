@@ -169,7 +169,7 @@ function wireActions(reload) {
 }
 
 /* ---------------------------------------------------------------- routing */
-const VIEWS = { today: vToday, mary: vDesk, jacob: vDesk, joseph: vDesk,
+const VIEWS = { today: vToday, live: vLive, mary: vDesk, jacob: vDesk, joseph: vDesk,
   delivery: vDelivery, activity: vActivity, cost: vCost };
 let current = "today";
 
@@ -538,9 +538,82 @@ function wireCompanies(d) {
   $("#co-q").oninput = (e) => render(e.target.value.toLowerCase().trim());
 }
 
+/* ---------------------------------------------------------------- LIVE
+   What the bots are doing RIGHT NOW - their thinking, every tool call, every
+   result - streamed out of the session transcripts as they are written.
+   Zac: "i want to see everything going on as if it was a claude session in
+   the desktop app." */
+let liveTimer = null, liveSince = 0, liveWho = "";
+const LIVE_EVERY = 2500;
+
+async function vLive() {
+  liveSince = 0; liveWho = "";
+  view.innerHTML = `
+  <h1>Live</h1>
+  <div class="sub">Every session as it happens — thinking, tool calls and results,
+    straight from the transcript. Updates on its own.</div>
+  <div class="filter-bar" id="live-chips">
+    ${["", "mary", "jacob", "joseph"].map((w) =>
+      `<button class="chip ${w === "" ? "on" : ""}" data-who="${w}">${w || "everyone"}</button>`).join("")}
+    <label class="live-follow"><input type="checkbox" id="live-follow" checked> follow</label>
+    <span class="live-dot" id="live-dot"></span>
+  </div>
+  <div class="glass stream" id="stream"><div class="empty">Waiting for a session…</div></div>`;
+
+  $$("#live-chips .chip").forEach((c) => c.onclick = () => {
+    liveWho = c.dataset.who; liveSince = 0;
+    $$("#live-chips .chip").forEach((x) => x.classList.toggle("on", x === c));
+    $("#stream").innerHTML = "";
+    tick();
+  });
+  clearInterval(liveTimer);
+  liveTimer = setInterval(() => { if (current === "live") tick(); else clearInterval(liveTimer); },
+    LIVE_EVERY);
+  tick();
+}
+
+function traceRow(r) {
+  const time = (r.ts || "").slice(11, 19);
+  const who = `<span class="who ${esc(r.persona)}">${esc(r.persona)}</span>`;
+  if (r.kind === "start" || r.kind === "end")
+    return `<div class="tr mark ${r.kind}"><span class="tt">${time}</span>${who}
+      <span class="tb">${r.kind === "start" ? "▶ started" : "■ "}${esc(r.body)}${
+        r.entity_key ? " · " + esc(r.entity_key) : ""}</span></div>`;
+  if (r.kind === "thinking")
+    return `<div class="tr think"><span class="tt">${time}</span>${who}
+      <span class="tb">${esc(r.body)}</span></div>`;
+  if (r.kind === "tool")
+    return `<div class="tr tool"><span class="tt">${time}</span>${who}
+      <span class="tname">${esc(r.tool)}</span><span class="tb mono">${esc(r.body)}</span></div>`;
+  if (r.kind === "result")
+    return `<div class="tr res"><span class="tt">${time}</span>${who}
+      <span class="tb mono">${esc(r.body)}</span></div>`;
+  return `<div class="tr say"><span class="tt">${time}</span>${who}
+    <span class="tb">${esc(r.body)}</span></div>`;
+}
+
+async function tick() {
+  let rows;
+  try { rows = await api(`/trace?since=${liveSince}&persona=${liveWho}`); }
+  catch { return; }
+  const dot = $("#live-dot");
+  if (!rows.length) { if (dot) dot.classList.remove("on"); return; }
+  liveSince = Math.max(...rows.map((r) => r.id));
+  const box = $("#stream");
+  if (!box) return;
+  if ($(".empty", box)) box.innerHTML = "";
+  const nearBottom = box.scrollHeight - box.scrollTop - box.clientHeight < 120;
+  box.insertAdjacentHTML("beforeend", rows.map(traceRow).join(""));
+  while (box.children.length > 400) box.removeChild(box.firstChild);
+  if (dot) { dot.classList.add("on"); setTimeout(() => dot.classList.remove("on"), 1200); }
+  const follow = $("#live-follow");
+  if (follow && follow.checked && nearBottom) box.scrollTop = box.scrollHeight;
+}
+
 /* ---------------------------------------------------------------- ACTIVITY */
+let feedTimer = null;
 async function vActivity() {
-  const evs = await api("/feed?limit=250");
+  let evs = await api("/feed?limit=250");
   let who = "all", showMail = false;
   view.innerHTML = `
   <h1>Activity</h1>
@@ -573,6 +646,15 @@ async function vActivity() {
     $("#chip-mail").classList.toggle("on", showMail); render(); };
   $("#q").oninput = render;
   render();
+  // Keeps itself current, without losing your filter or your scroll position.
+  clearInterval(feedTimer);
+  feedTimer = setInterval(async () => {
+    if (current !== "activity") return clearInterval(feedTimer);
+    try {
+      const fresh = await api("/feed?limit=250");
+      if (fresh.length && (!evs.length || fresh[0].id !== evs[0].id)) { evs = fresh; render(); }
+    } catch { /* leave what is on screen */ }
+  }, 8000);
 }
 
 /* ---------------------------------------------------------------- COST */

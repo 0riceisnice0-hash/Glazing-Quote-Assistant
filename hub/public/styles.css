@@ -251,6 +251,35 @@ input:focus,textarea:focus{border-color:var(--accent)}
 .score div b{display:block;font-size:22px;font-weight:650;font-variant-numeric:tabular-nums}
 .score div span{font-size:12px;color:var(--ink-3)}
 
+/* ------------------------------------------------- live stream */
+.stream{max-height:calc(100vh - 230px);overflow-y:auto;padding:10px 0;
+        font-size:13px;line-height:1.5}
+.tr{display:flex;gap:10px;padding:3px 16px;align-items:baseline}
+.tr .tt{flex:none;color:var(--ink-3);font-size:11px;font-variant-numeric:tabular-nums;
+        opacity:.8}
+.tr .who{flex:none;font-size:10.5px;font-weight:700;text-transform:uppercase;
+         letter-spacing:.5px;width:52px}
+.tr .who.mary{color:var(--accent-ink)}
+.tr .who.jacob{color:var(--blue)}
+.tr .who.joseph{color:var(--violet)}
+.tr .tb{flex:1 1 auto;min-width:0;overflow-wrap:anywhere;white-space:pre-wrap}
+.tr .tb.mono{font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:12px}
+.tr.think .tb{color:var(--ink-3);font-style:italic}
+.tr.say .tb{color:var(--ink)}
+.tr.tool{background:color-mix(in srgb,var(--blue) 6%,transparent);
+         padding-top:5px;padding-bottom:5px;border-radius:8px;margin:2px 8px}
+.tr.tool .tname{flex:none;font-size:10.5px;font-weight:700;color:var(--blue);
+                background:color-mix(in srgb,var(--blue) 14%,transparent);
+                padding:1px 7px;border-radius:6px}
+.tr.res .tb{color:var(--ink-3);font-size:11.5px}
+.tr.mark{margin:10px 8px;padding:7px 12px;border-radius:9px;font-weight:600;
+         background:color-mix(in srgb,var(--accent) 11%,transparent)}
+.tr.mark.end{background:var(--sunk);color:var(--ink-2)}
+.live-follow{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ink-2)}
+.live-dot{width:9px;height:9px;border-radius:50%;background:var(--line);
+          transition:background .3s}
+.live-dot.on{background:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+
 /* activity feed */
 .feed{display:flex;flex-direction:column}
 .ev{display:flex;gap:12px;padding:8px 14px;font-size:13.5px;border-radius:10px;

@@ -27,6 +27,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import budget
 import config
 import record
+import trace
 
 NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 LOCK = os.path.join(config.DATA, "glasshouse-session.lock")
@@ -166,6 +167,10 @@ def run_group(persona, entity, tasks, dry_run=False):
             errors="replace", creationflags=NO_WINDOW)
         threading.Thread(target=watch, args=(proc, session_id, started_utc, stop),
                          daemon=True).start()
+        # And a second watcher that carries the session's thinking and tool
+        # calls to the hub while it works, so a human can actually see it.
+        threading.Thread(target=trace.follow,
+                         args=(session_id, persona, entity, stop), daemon=True).start()
         try:
             stdout, stderr = proc.communicate(input=prompt,
                                               timeout=config.SESSION_TIMEOUT)
@@ -196,6 +201,10 @@ def run_group(persona, entity, tasks, dry_run=False):
         log("  %s exit %s after %ds - %s calls, %s context"
             % (persona, "ok" if ok else "FAIL", took, cost["calls"],
                "{:,}".format(cost["context"])))
+        trace.post("end", persona, session_id, entity, "",
+                   "session %s after %ds - %d calls, %s context tokens"
+                   % ("finished" if ok else "FAILED", took, cost["calls"],
+                      "{:,}".format(cost["context"])))
     if not ok:
         # Tasks a dead session claimed go back in the queue.
         record.call("/api/task/release", {"assignee": persona})

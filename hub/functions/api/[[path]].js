@@ -512,6 +512,39 @@ async function handle(request, env, path, url) {
     for (const e of body.events || []) await addEvent(db, e);
     return J({ ok: true, n: (body.events || []).length });
   }
+  // The live session stream. Written in batches while a bot is working.
+  if (method === "POST" && seg[0] === "trace") {
+    needBot();
+    const rows = (body.rows || []).slice(0, 60);
+    for (const r of rows) {
+      await db.prepare(
+        `INSERT INTO trace (persona, session_id, entity_key, kind, tool, body)
+         VALUES (?,?,?,?,?,?)`
+      ).bind(r.persona || "?", r.session_id || "", r.entity_key || "",
+        r.kind || "say", r.tool || "", String(r.body || "").slice(0, 4000)).run();
+    }
+    // Keep it a live view, not an archive - the ledger is the archive.
+    await db.prepare(
+      `DELETE FROM trace WHERE id < (SELECT MAX(id) - 4000 FROM trace)`).run();
+    return J({ ok: true, n: rows.length });
+  }
+  if (method === "GET" && seg[0] === "trace") {
+    const q = url.searchParams;
+    const since = Number(q.get("since") || 0);
+    const who = q.get("persona") || "";
+    if (since > 0) {
+      const rows = await db.prepare(
+        `SELECT * FROM trace WHERE id > ?1 AND (?2 = '' OR persona = ?2)
+         ORDER BY id LIMIT 300`).bind(since, who).all();
+      return J(rows.results);
+    }
+    // First load: the tail, not the head - you want what just happened.
+    const rows = await db.prepare(
+      `SELECT * FROM trace WHERE (?1 = '' OR persona = ?1)
+       ORDER BY id DESC LIMIT 120`).bind(who).all();
+    return J(rows.results.reverse());
+  }
+
   if (method === "POST" && seg[0] === "usage") {
     needBot();
     await db.prepare(
