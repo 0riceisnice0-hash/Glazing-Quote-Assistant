@@ -914,53 +914,68 @@ async function vDelivery() {
   const admin = ME.role === "admin";
   const t = today();
 
+  // A step reads as a line. The inputs only appear when you ask for them, so
+  // the page is a checklist you scan, not a wall of empty boxes.
   const stepLine = (job, s) => {
     const done = !!s.done_at;
     const late = !done && s.due && s.due < t;
     const dueSoon = !done && s.due === t;
     return `<div class="jstep ${done ? "is-done" : ""} ${late ? "is-late" : ""}"
       data-job="${esc(job.key)}" data-n="${s.n}">
-      <button class="tick" title="${done ? "Un-tick" : "Mark done"}">${done ? "✓" : ""}</button>
-      <div class="jstep-main">
-        <div class="jstep-top">
-          <span class="jstep-label">${s.n}. ${esc(s.label)}</span>
-          ${done ? `<span class="jstep-by">done ${esc((s.done_at || "").slice(0, 10))}${
-              s.done_by ? " by " + esc(s.done_by) : ""}</span>`
-            : `<span class="jstep-due ${late ? "late" : dueSoon ? "soon" : ""}">
-                ${late ? "LATE" : dueSoon ? "TODAY" : "due"}
-                <input type="date" class="d-due" value="${esc(s.due || "")}"></span>`}
-        </div>
-        <input type="text" class="d-detail" placeholder="what exactly? sizes, spec, supplier…"
-          value="${esc(s.detail || "")}">
+      <div class="jstep-row">
+        <button class="tick" title="${done ? "Un-tick" : "Mark done"}">${done ? "✓" : ""}</button>
+        <span class="jstep-label">${s.n}. ${esc(s.label)}</span>
+        ${done
+          ? `<span class="jstep-by">done ${esc((s.done_at || "").slice(0, 10))}${
+              s.done_by ? " · " + esc(s.done_by) : ""}</span>`
+          : `<span class="jstep-due ${late ? "late" : dueSoon ? "soon" : ""}">${
+              s.due ? (late ? "LATE " : dueSoon ? "TODAY " : "due ") + esc(s.due) : "no date"}</span>`}
+        <button class="edit" title="Edit this step">✎</button>
+      </div>
+      ${s.detail ? `<div class="jstep-spec">${esc(s.detail)}</div>` : ""}
+      <div class="jstep-edit" hidden>
+        <label>Due<input type="date" class="d-due" value="${esc(s.due || "")}"></label>
+        <label class="wide">What exactly
+          <input type="text" class="d-detail" placeholder="sizes, spec, supplier…"
+            value="${esc(s.detail || "")}"></label>
       </div>
     </div>`;
   };
 
+  // The list. Closed by default - you open the job you are working on.
   const jobCard = (job) => `
     <section class="glass job" data-job="${esc(job.key)}">
-      <header class="job-head">
-        <div style="min-width:0;flex:1 1 240px">
-          <h3 class="job-title">${esc(job.title)}</h3>
-          <div class="job-sub">${esc(job.company_name || job.company_key)}${
-            job.value ? " · " + gbp(job.value) : ""}${job.po_ref ? " · PO " + esc(job.po_ref) : ""}</div>
+      <button class="job-head" aria-expanded="false">
+        <span class="chev">›</span>
+        <span class="job-id">
+          <span class="job-title">${esc(job.title)}</span>
+          <span class="job-sub">${esc(job.company_name || job.company_key)}${
+            job.value ? " · " + gbp(job.value) : ""}</span>
+        </span>
+        <span class="job-meta">
+          ${job.late ? `<span class="pill red">${job.late} late</span>` : ""}
+          <span class="pill">${job.done}/${job.total} done</span>
+          <span class="job-when">${job.site_date ? "on site " + esc(job.site_date) : "no site date"}</span>
+        </span>
+      </button>
+      <div class="job-body" hidden>
+        <div class="job-bar">
+          <label class="job-site">On site
+            <input type="date" class="d-site" value="${esc(job.site_date || "")}"></label>
+          <div class="job-prog">
+            <div class="progress"><i style="width:${job.total ? Math.round(100 * job.done / job.total) : 0}%"></i></div>
+            <span>${job.done} of ${job.total} done${job.po_ref ? " · PO " + esc(job.po_ref) : ""}</span>
+          </div>
         </div>
-        <div class="job-site">
-          <label>On site</label>
-          <input type="date" class="d-site" value="${esc(job.site_date || "")}">
-        </div>
-        <div class="job-prog">
-          <div class="progress"><i style="width:${job.total ? Math.round(100 * job.done / job.total) : 0}%"></i></div>
-          <span>${job.done} of ${job.total} done${job.late ? ` · <b class="late">${job.late} late</b>` : ""}</span>
-        </div>
-      </header>
-      <div class="jsteps">${job.steps.map((s) => stepLine(job, s)).join("")
-        || `<div class="empty">No checklist on this job yet.</div>`}</div>
-      <div class="job-notes">
-        ${job.notes.slice(0, 3).map((n) => `<div class="jnote"><b>${esc(n.author)}</b>
-          <span>${rel(n.ts)}</span>${esc(n.body)}</div>`).join("")}
-        <div class="jnote-add">
-          <input type="text" class="d-note" placeholder="Add a note — what happened, what changed…">
-          <button class="btn small">Save note</button>
+        <div class="jsteps">${job.steps.map((s) => stepLine(job, s)).join("")
+          || `<div class="empty">No checklist on this job yet.</div>`}</div>
+        <div class="job-notes">
+          ${job.notes.slice(0, 3).map((n) => `<div class="jnote"><b>${esc(n.author)}</b>
+            <span>${rel(n.ts)}</span>${esc(n.body)}</div>`).join("")}
+          <div class="jnote-add">
+            <input type="text" class="d-note" placeholder="Add a note — what happened, what changed…">
+            <button class="btn small">Save note</button>
+          </div>
         </div>
       </div>
     </section>`;
@@ -996,6 +1011,16 @@ async function vDelivery() {
   };
   $$(".job").forEach((el) => {
     const key = el.dataset.job;
+    const head = $(".job-head", el), bodyEl = $(".job-body", el);
+    head.onclick = () => {
+      const open = !bodyEl.hidden;
+      bodyEl.hidden = open;
+      el.classList.toggle("open", !open);
+      head.setAttribute("aria-expanded", String(!open));
+      if (!open) openJobs.add(key); else openJobs.delete(key);
+    };
+    if (openJobs.has(key)) head.click();   // survive a re-render after saving
+
     $(".d-site", el).onchange = (e) =>
       save("/jobsite", { key, site_date: e.target.value }, "Site date saved");
     const noteBtn = $(".jnote-add .btn", el), noteInput = $(".d-note", el);
@@ -1016,14 +1041,24 @@ async function vDelivery() {
         done ? "Un-ticked" : "Ticked");
       vDelivery();
     };
+    $(".edit", el).onclick = () => {
+      const box = $(".jstep-edit", el);
+      box.hidden = !box.hidden;
+      el.classList.toggle("editing", !box.hidden);
+      if (!box.hidden) { const f = $("input", box); if (f) f.focus(); }
+    };
     const due = $(".d-due", el);
     if (due) due.onchange = (e) =>
       save("/step/set", { contract_key, n, due: e.target.value }, "Date saved");
     const det = $(".d-detail", el);
-    if (det) det.onchange = (e) =>
-      save("/step/set", { contract_key, n, detail: e.target.value }, "Saved");
+    if (det) det.onchange = async (e) => {
+      await save("/step/set", { contract_key, n, detail: e.target.value }, "Saved");
+      vDelivery();
+    };
   });
 }
+// Which jobs the user had open, so saving something does not close them all.
+const openJobs = new Set();
 
 /* ---------------------------------------------------------------- boot */
 async function boot() {
@@ -1062,9 +1097,9 @@ function toggleTheme() {
   document.documentElement.dataset.theme = cur;
   localStorage.theme = cur;
 };
-if (localStorage.theme) document.documentElement.dataset.theme = localStorage.theme;
-else if (matchMedia("(prefers-color-scheme: dark)").matches)
-  document.documentElement.dataset.theme = "dark";
+// Light unless somebody pressed the toggle. The browser's own dark-mode
+// setting is deliberately ignored - it was turning Paul's job sheets dark.
+if (localStorage.theme === "dark") document.documentElement.dataset.theme = "dark";
 setInterval(() => {
   const c = $("#clock");
   if (c) c.textContent = new Date().toLocaleTimeString("en-GB",
