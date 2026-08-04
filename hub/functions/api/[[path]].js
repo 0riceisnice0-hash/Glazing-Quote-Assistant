@@ -255,9 +255,53 @@ async function handle(request, env, path, url) {
   // day and can tick its own steps; it never sees pricing, decisions, drafts,
   // the bots' conversations or the cost meter.
   needAnyUser();
-  const DELIVERY_OK = new Set(["delivery", "card", "step", "me"]);
+  const DELIVERY_OK = new Set(["delivery", "card", "step", "me", "jobsite", "jobnote"]);
   if (role === "delivery" && !DELIVERY_OK.has(seg[0]))
     throw { status: 403, msg: "not your side of the hub" };
+
+  // ---- what the people on site can change about their own jobs.
+  // Steve, on the first read-only version: "how do i edit it?" A board the
+  // people doing the work cannot correct is the AdminBase failure exactly.
+  if (method === "POST" && seg[0] === "step" && seg[1] === "set") {
+    const by = isBot ? (body.by || "bot") : meName;
+    const fields = [], vals = [];
+    if (body.due !== undefined) { fields.push("due = ?"); vals.push(body.due || null); }
+    if (body.detail !== undefined) { fields.push("detail = ?"); vals.push(body.detail || ""); }
+    if (!fields.length) return J({ ok: true });
+    await db.prepare(`UPDATE step SET ${fields.join(",")} WHERE contract_key = ? AND n = ?`)
+      .bind(...vals, body.contract_key, body.n).run();
+    await addEvent(db, { author: by, entity_type: "contract", entity_key: body.contract_key,
+      kind: "step_set", body: `step ${body.n}: ` +
+        (body.due !== undefined ? `due ${body.due || "cleared"} ` : "") +
+        (body.detail !== undefined ? `spec updated` : "") });
+    return J({ ok: true });
+  }
+  if (method === "POST" && seg[0] === "step" && seg[1] === "undone") {
+    const by = isBot ? (body.by || "bot") : meName;
+    await db.prepare(
+      `UPDATE step SET done_at = NULL, done_by = NULL WHERE contract_key = ? AND n = ?`
+    ).bind(body.contract_key, body.n).run();
+    await addEvent(db, { author: by, entity_type: "contract", entity_key: body.contract_key,
+      kind: "step_undone", body: `step ${body.n} un-ticked` });
+    return J({ ok: true });
+  }
+  // The site date is the clock every other deadline hangs off, so the people
+  // who know it are the ones who can set it.
+  if (method === "POST" && seg[0] === "jobsite") {
+    const by = isBot ? (body.by || "bot") : meName;
+    await db.prepare(
+      `UPDATE contract SET site_date = ?, updated = datetime('now'), updated_by = ?
+       WHERE key = ?`).bind(body.site_date || null, by, body.key).run();
+    await addEvent(db, { author: by, entity_type: "contract", entity_key: body.key,
+      kind: "site_date", body: `site date set to ${body.site_date || "(cleared)"}` });
+    return J({ ok: true });
+  }
+  if (method === "POST" && seg[0] === "jobnote") {
+    const by = isBot ? (body.by || "bot") : meName;
+    await addEvent(db, { author: by, entity_type: "contract", entity_key: body.key,
+      kind: "note", body: String(body.body || "").slice(0, 2000) });
+    return J({ ok: true });
+  }
 
   // ------------------------------------------------ DELIVERY: Paul and Steve
   // "These are your daily tasks. This glass needs to be ordered by this date.
@@ -280,14 +324,43 @@ async function handle(request, env, path, url) {
          WHERE ct.status = 'live'
          ORDER BY (ct.site_date IS NULL OR ct.site_date = ''), ct.site_date`).all(),
     ]);
+    // Organised by JOB, because that is how the people on site think. Steve,
+    // looking at the step-first version: "what the fuck is this?" - he was
+    // shown four identical "book installation" cards and no job.
     const all = steps.results;
+    const notes = await db.prepare(
+      `SELECT entity_key, ts, author, body FROM event
+       WHERE entity_type = 'contract' AND kind = 'note'
+       ORDER BY id DESC LIMIT 60`).all();
+    const allSteps = await db.prepare(
+      `SELECT s.* FROM step s JOIN contract ct ON ct.key = s.contract_key
+       WHERE ct.status = 'live' ORDER BY s.contract_key, s.n`).all();
+    const byJob = {};
+    for (const s of allSteps.results) (byJob[s.contract_key] ||= []).push(s);
+    const noteBy = {};
+    for (const n of notes.results) (noteBy[n.entity_key] ||= []).push(n);
+
+    const jobs = contracts.results.map((c) => {
+      const steps = byJob[c.key] || [];
+      const open = steps.filter((s) => !s.done_at);
+      const late = open.filter((s) => s.due && s.due < today);
+      const next = open.find((s) => s.due) || open[0] || null;
+      return { ...c, steps, notes: noteBy[c.key] || [],
+        done: steps.length - open.length, total: steps.length,
+        late: late.length, next };
+    });
+    // Most urgent job first: anything late, then nearest site date.
+    jobs.sort((a, b) => (b.late > 0) - (a.late > 0) ||
+      ((a.site_date || "9999") < (b.site_date || "9999") ? -1 : 1));
+
     return J({
-      date: today,
-      late: all.filter((s) => s.due && s.due < today),
-      todays: all.filter((s) => s.due === today),
-      week: all.filter((s) => s.due && s.due > today && s.due <= week),
-      undated: all.filter((s) => !s.due),
-      contracts: contracts.results,
+      date: today, jobs,
+      counts: {
+        late: all.filter((s) => s.due && s.due < today).length,
+        today: all.filter((s) => s.due === today).length,
+        week: all.filter((s) => s.due && s.due > today && s.due <= week).length,
+        open: all.length,
+      },
       site_this_week: contracts.results.filter(
         (c) => c.site_date && c.site_date >= today && c.site_date <= week),
     });

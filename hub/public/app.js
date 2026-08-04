@@ -903,63 +903,125 @@ function renderSetup(name, display, msg = "") {
   $("#li-code").focus();
 }
 
-/* ---------------------------------------------------------------- delivery */
+/* ---------------------------------------------------------------- delivery
+   ONE CARD PER JOB, and every field on it is editable by the person doing the
+   work. The first version listed steps across all jobs, so Steve saw four
+   identical "book installation" boxes and asked "what the fuck is this?", then
+   "how do i edit it?". Both were fair: he thinks in jobs, and a board the
+   fitters cannot correct is exactly how AdminBase died. */
 async function vDelivery() {
   const d = await api("/delivery");
-  const stepRow = (s, late) => `<div class="glass job-step" data-step="${s.contract_key}|${s.n}">
-    <div class="card-head">
-      <div style="min-width:0">
-        <div class="js-what">${esc(s.label)}</div>
-        <div class="js-where">${esc(s.contract_title)}${s.company_name ? " · " + esc(s.company_name) : ""}</div>
-      </div>
-      <span class="pill ${late ? "red" : s.due ? "amber" : ""}">${
-        s.due ? (late ? "LATE — was due " + esc(s.due) : "due " + esc(s.due)) : "no date set"}</span>
-    </div>
-    ${s.detail ? `<div class="js-spec">${esc(s.detail)}</div>`
-      : `<div class="js-spec none">No spec recorded for this one yet.</div>`}
-    <div class="js-foot">
-      ${s.site_date ? `<span>on site ${esc(s.site_date)}</span>` : `<span>site date not set</span>`}
-      <button class="btn small">Mark done</button>
-    </div>
-  </div>`;
-  const block = (title, list, hint, late) => `
-    <h2>${title} <span class="count">${list.length}</span>${hint ? `<span class="hint">${hint}</span>` : ""}</h2>
-    <div class="grid cols-2">${list.map((s) => stepRow(s, late)).join("")
-      || `<div class="glass card empty">Nothing here.</div>`}</div>`;
-
   const admin = ME.role === "admin";
-  view.innerHTML = `
-  <h1>${admin ? "Site" : "Your day"}</h1>
-  <div class="sub">${new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}
-    — ${admin ? "exactly what Paul and Steve see when they sign in. Their hub is this page and nothing else."
-      : esc(ME.display) + ". Everything below is a job that needs doing; tick it when it is done."}</div>
-  ${admin && !d.contracts.length ? `<div class="glass card empty">No live contracts, so this
-    page is empty for them too. It fills up as won jobs land.</div>` : ""}
-  ${admin && d.undated.length && !d.late.length && !d.todays.length && !d.week.length
-    ? `<div class="glass card" style="margin-bottom:14px;border-color:var(--amber)">
-      <b>Right now every job here is undated, so nothing sorts to the top.</b>
-      <div class="sub" style="margin:4px 0 0">This page is driven entirely by dates: a step needs a
-      due date, and a due date needs the contract's site date plus the lead time for that step.
-      Neither is recorded yet. That is the one thing standing between this and the board Adam
-      wanted.</div></div>` : ""}
-  ${d.late.length ? block("Late — do these first", d.late, "these were due before today", true) : ""}
-  ${block("Today", d.todays, "")}
-  ${block("This week", d.week, "")}
-  ${d.site_this_week.length ? `<h2>On site this week</h2><div class="glass">${
-    d.site_this_week.map((c) => `<div class="row"><span class="t">${esc(c.title)}</span>
-      <span class="m">${esc(c.company_name || "")}</span>
-      <span class="v">${esc(c.site_date)}</span></div>`).join("")}</div>` : ""}
-  ${d.undated.length ? `<h2>No date set <span class="count">${d.undated.length}</span>
-    <span class="hint">still to do, but nobody has said when</span></h2>
-    <div class="grid cols-2">${d.undated.map((s) => stepRow(s, false)).join("")}</div>` : ""}`;
+  const t = today();
 
-  $$("[data-step]").forEach((el) => {
-    $(".btn", el).onclick = async () => {
-      const [ck, n] = el.dataset.step.split("|");
-      await post("/step/done", { contract_key: ck, n: +n });
-      toast("Ticked — thanks");
+  const stepLine = (job, s) => {
+    const done = !!s.done_at;
+    const late = !done && s.due && s.due < t;
+    const dueSoon = !done && s.due === t;
+    return `<div class="jstep ${done ? "is-done" : ""} ${late ? "is-late" : ""}"
+      data-job="${esc(job.key)}" data-n="${s.n}">
+      <button class="tick" title="${done ? "Un-tick" : "Mark done"}">${done ? "✓" : ""}</button>
+      <div class="jstep-main">
+        <div class="jstep-top">
+          <span class="jstep-label">${s.n}. ${esc(s.label)}</span>
+          ${done ? `<span class="jstep-by">done ${esc((s.done_at || "").slice(0, 10))}${
+              s.done_by ? " by " + esc(s.done_by) : ""}</span>`
+            : `<span class="jstep-due ${late ? "late" : dueSoon ? "soon" : ""}">
+                ${late ? "LATE" : dueSoon ? "TODAY" : "due"}
+                <input type="date" class="d-due" value="${esc(s.due || "")}"></span>`}
+        </div>
+        <input type="text" class="d-detail" placeholder="what exactly? sizes, spec, supplier…"
+          value="${esc(s.detail || "")}">
+      </div>
+    </div>`;
+  };
+
+  const jobCard = (job) => `
+    <section class="glass job" data-job="${esc(job.key)}">
+      <header class="job-head">
+        <div style="min-width:0;flex:1 1 240px">
+          <h3 class="job-title">${esc(job.title)}</h3>
+          <div class="job-sub">${esc(job.company_name || job.company_key)}${
+            job.value ? " · " + gbp(job.value) : ""}${job.po_ref ? " · PO " + esc(job.po_ref) : ""}</div>
+        </div>
+        <div class="job-site">
+          <label>On site</label>
+          <input type="date" class="d-site" value="${esc(job.site_date || "")}">
+        </div>
+        <div class="job-prog">
+          <div class="progress"><i style="width:${job.total ? Math.round(100 * job.done / job.total) : 0}%"></i></div>
+          <span>${job.done} of ${job.total} done${job.late ? ` · <b class="late">${job.late} late</b>` : ""}</span>
+        </div>
+      </header>
+      <div class="jsteps">${job.steps.map((s) => stepLine(job, s)).join("")
+        || `<div class="empty">No checklist on this job yet.</div>`}</div>
+      <div class="job-notes">
+        ${job.notes.slice(0, 3).map((n) => `<div class="jnote"><b>${esc(n.author)}</b>
+          <span>${rel(n.ts)}</span>${esc(n.body)}</div>`).join("")}
+        <div class="jnote-add">
+          <input type="text" class="d-note" placeholder="Add a note — what happened, what changed…">
+          <button class="btn small">Save note</button>
+        </div>
+      </div>
+    </section>`;
+
+  const c = d.counts || {};
+  view.innerHTML = `
+  <h1>${admin ? "Site" : "Your jobs"}</h1>
+  <div class="sub">${new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}
+    — ${admin ? "exactly what Paul and Steve see. Everything here is editable by them."
+      : esc(ME.display) + ". One card per job. Tick things off, set the dates, write down what happened."}</div>
+
+  <div class="grid cols-4" style="margin-bottom:18px">
+    <div class="glass stat ${c.late ? "bad" : "good"}"><div class="n">${c.late || 0}</div><div class="l">late</div></div>
+    <div class="glass stat ${c.today ? "warn" : ""}"><div class="n">${c.today || 0}</div><div class="l">due today</div></div>
+    <div class="glass stat"><div class="n">${c.week || 0}</div><div class="l">due this week</div></div>
+    <div class="glass stat"><div class="n">${(d.jobs || []).length}</div><div class="l">live jobs</div></div>
+  </div>
+
+  ${!c.late && !c.today && !c.week && (d.jobs || []).length ? `
+    <div class="glass card" style="margin-bottom:16px;border-color:var(--amber)">
+      <b>Nothing has a date yet, so nothing can be late or due.</b>
+      <div class="sub" style="margin:4px 0 0">Set <b>On site</b> on a job and put dates against its
+      steps and this page starts telling you what to do and when. Anyone here can set them.</div>
+    </div>` : ""}
+
+  ${(d.jobs || []).map(jobCard).join("")
+    || `<div class="glass card empty">No live jobs. One starts when a purchase order lands.</div>`}`;
+
+  // --- everything below is the editing. Save on change, no Save button to forget.
+  const save = async (path, payload, msg) => {
+    try { await post(path, payload); if (msg) toast(msg); }
+    catch { /* post() has already said so */ }
+  };
+  $$(".job").forEach((el) => {
+    const key = el.dataset.job;
+    $(".d-site", el).onchange = (e) =>
+      save("/jobsite", { key, site_date: e.target.value }, "Site date saved");
+    const noteBtn = $(".jnote-add .btn", el), noteInput = $(".d-note", el);
+    const addNote = async () => {
+      const body = noteInput.value.trim();
+      if (!body) return;
+      await save("/jobnote", { key, body }, "Note saved");
       vDelivery();
     };
+    noteBtn.onclick = addNote;
+    noteInput.onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); addNote(); } };
+  });
+  $$(".jstep").forEach((el) => {
+    const contract_key = el.dataset.job, n = +el.dataset.n;
+    $(".tick", el).onclick = async () => {
+      const done = el.classList.contains("is-done");
+      await save(done ? "/step/undone" : "/step/done", { contract_key, n },
+        done ? "Un-ticked" : "Ticked");
+      vDelivery();
+    };
+    const due = $(".d-due", el);
+    if (due) due.onchange = (e) =>
+      save("/step/set", { contract_key, n, due: e.target.value }, "Date saved");
+    const det = $(".d-detail", el);
+    if (det) det.onchange = (e) =>
+      save("/step/set", { contract_key, n, detail: e.target.value }, "Saved");
   });
 }
 
