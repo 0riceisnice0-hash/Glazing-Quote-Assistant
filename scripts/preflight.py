@@ -78,6 +78,49 @@ for bot in ("mary", "jacob", "joseph"):
 check("first run will be big", OK if total < 60 else WARN,
       "%d work orders across three queues - they batch, but watch the first hour" % total)
 
+# ------------------------------------------------------------ heavy chats
+# A chat that was interrupted ends its transcript in failed retries, which
+# record no usage. Reading the LAST context therefore returned 0 for exactly
+# the chats most likely to be overweight, and should_retire() treats 0 as
+# "never run" on its first line - so it blocked BOTH rotation paths. Mary's
+# triage chat came back on 04/08 carrying 416,181 tokens and spent 10,294,879
+# in 26 calls before one-sitting caught it. This is the check that would have
+# said so beforehand.
+try:
+    import mary_router as router
+    import mary_cost as _cost
+    def _last_any(sid):
+        """What the OLD reader returned - the last value, zeros included."""
+        last = 0
+        for _t, c, _o in _cost.iter_calls(_cost.transcript(sid)):
+            last = c
+        return last
+
+    reg = router.load_registry()
+    armed, heavy = [], 0
+    for k, rec in (reg.get("chats") or {}).items():
+        sid = rec.get("session_id")
+        if not sid or not os.path.exists(_cost.transcript(sid)):
+            continue
+        real = _cost.context_size(sid)
+        if real < 150000:
+            continue
+        heavy += 1
+        # Heavy is FINE - the chat retires on its next dispatch. The fault is
+        # heavy while REPORTING light, because then nothing retires it and it
+        # gets resumed at full weight. Warning about all thirteen heavy chats
+        # would bury the one that matters.
+        if _last_any(sid) < 150000:
+            armed.append((k, real))
+    armed.sort(key=lambda kv: -kv[1])
+    check("no chat resumes overweight", OK if not armed else WARN,
+          "%d chat(s) over 150k, all reporting honestly - they rotate on next dispatch" % heavy
+          if not armed else
+          "%d chat(s) report light but are heavy and will NOT rotate: %s"
+          % (len(armed), ", ".join("%s %s" % (k, "{:,}".format(v)) for k, v in armed[:3])))
+except Exception as e:
+    check("heavy chats", WARN, str(e)[:80])
+
 # ------------------------------------------------------------ the settings
 try:
     import mary_budget as b
