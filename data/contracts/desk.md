@@ -89,13 +89,43 @@ access problem.
   the job is *not* in progress.
 - **There is no live AdminBase feed.** Adam, 28/07: *"a live feed will
   follow."* Until it does the 29/07 CSV is the whole record.
-- **No main contractor has ever sent us one.** Across all 99 triaged messages
-  in all three inboxes, exactly two sentences carry install-date language, and
-  both run the other way: Rubery, us to Lyndon 03/08, *"be in touch with an
-  installation date"*; Manor Lodge, Borras to us 04/08, *"kindly provide a
-  delivery and installation date."* **On this work the client asks us.**
+- **No main contractor has sent us one on these four jobs.** Rubery, us to
+  Lyndon 03/08, *"be in touch with an installation date"*; Manor Lodge, Borras
+  to us 04/08, *"kindly provide a delivery and installation date."* **On this
+  work the client asks us.**
 
 So the date does not exist because nobody has set it. That is JOE-5.
+
+**Corrected 04/08, Zac's hub message 6.** I had written that no main contractor
+had *ever* sent us one. That was true of the 99 messages the frontdesk had
+routed and false of the mailbox, and I had not searched the mailbox. I can:
+`python scripts/jacob_mail.py --search "<term>" --mailbox all`, which is Graph
+KQL over commercial@, info@ and jacob@ (jayk@ 404s) and is not limited to what
+was routed to me.
+
+**Where a commercial site date lives when it exists.** It is never in a field
+and is never called a site date. Rubery's whole history is in commercial@:
+fitters booked for Mon 15 Dec (01/12), Pride postpone and the BSW delivery moves
+to 12 Jan (02/12), fitters re-booked under the subject line *"Rubery Library -
+12th January 2026"* (03/12), Matteo Bertin of Pride 22/12 *"a start date will be
+issued - three weeks from the 7/1/26 - being provisional start date 28/1/26"*,
+changed again to Mon 26th (08/01), Pride ask for RAMs *"starting on 26/1/26"*
+(20/01). Three searchable places: **the fitter booking email** (date often in
+the subject), **the delivery-date argument with the supplier**, and **the
+contractor's pre-start / start-date email**. Pride's own rule is start date =
+pre-start meeting + three weeks - a measured lead time, not an assumed one.
+
+**info@ already does this properly and commercial does not.** 32 emails titled
+*"Fenster Glazing - Your Installation Confirmation"*, each carrying `Location:`
+and `Date:` on one line, sent by Kerry Lince, confirmed by reply. That is a
+machine-readable future install date arriving by email; every one is domestic.
+If commercial sent the same email, `crm_contract_watch` could set the site date
+and tick step 10 with no data entry at all. Worth putting to Adam.
+
+**Graph `$search` is relevance-ranked, not a filter.** commercial@ returns 200
+messages for `"Installation Confirmation"` and not one contains the phrase. Any
+count off a raw search is meaningless - filter subject and preview yourself
+before counting. Every number above is post-filter.
 
 **The hole that is real, and is mine.** The frontdesk routes on subject matter,
 not on whether the job is won, so a won job's technical traffic goes to Mary:
