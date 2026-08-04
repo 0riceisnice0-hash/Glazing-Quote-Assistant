@@ -8,6 +8,11 @@ lead export.
 `anton.antonov@neildouglas.co.uk` / `projects@neildouglas.co.uk` / 01296 429055 (option 1).
 Portland House, Westfield Road, Pitstone, Leighton Buzzard, LU7 9GU. Company no. 7283365.
 
+**Jordan Jones** MTPI, Project Manager. `jordan.jones@neildouglas.co.uk`, same switchboard.
+Added 04/08/2026 - he issued the John North Hall ITT. **This is a two-contact account**, and
+he runs his own tenders. Anton's blocks are the existing five quotes; Jordan's is Vaughan
+House. Do not assume a conversation with one reaches the other.
+
 Fenster side: **Paul Taylor**, Project Manager, runs the correspondence from commercial@;
 Adam handles design.
 
@@ -48,7 +53,7 @@ stage of consultation the block is at.
 | Riverside Close | 20,752 | Windows lost to another contractor. Doors deferred to 2027, Anton reverts next year |
 | Kaybridge Close | 20,838 | Unknown - and only because we never asked. See below |
 | Alsford Wharf | - | **Lost**, awarded to an alternative contractor (Anton, 29/06). No CRM row exists for it |
-| John North Hall, Vaughan House | not priced | Separate ITT, 5 communal entrance doors, with Mary |
+| John North Hall, Vaughan House | not priced | **Live ITT, closes 9am 24/08/2026.** With Mary. See below |
 
 All of the above except Earleswood came from **one email, Anton's 29/06 status update.**
 Four outcomes arrived in a single message and none of them reached the CRM until today.
@@ -77,8 +82,47 @@ Installation requires linking to the existing door entrance latch release.
 3. **Final survey**, which Anton asked us to book "as soon as practically possible" given
    6-8 week lead times from order.
 
+## John North Hall, Vaughan House - the live ITT (added 04/08/2026)
+
+Jordan Jones invited us on 27/07 on behalf of **John North Hall (High Wycombe) Management
+Company Limited**. Replace **x5 external communal block entrance door sets** at 1-6, 7-16,
+17-23, 24-31 and 32-39 Vaughan House, John North Close, High Wycombe HP11 1FF. Spec is
+**Smart Architectural Aluminium, SMA Smart-Wall, brown** to match the existing frames.
+Existing door intercoms to be disconnected, in scope. New keys to their office before the
+start. **Tender 9am Mon 24/08/2026; works intended Oct/Nov 2026; price valid 90 days**
+because this is Section 20 again - the third block on this account on the same statutory
+track.
+
+**The failure here is ours and it is a new kind.** On Anton's blocks silence is process. On
+this one, Jordan asked a direct question on 27/07 - *is this something you will be able to
+quote for* - and offered to meet on site, and **eight days later nothing had left any Fenster
+mailbox to him.** The entire trail is info@ to estimating@ to Adam to Mary. So the account
+now has two distinct failure modes on record: an outcome arriving by email that nobody
+carries to the CRM (Anton, 29/06), and **an invitation arriving by email that nobody
+answers.** Both are internal. Neither is the client.
+
+**Price it from a site visit, not from photographs.** The pack carries no door sizes. ITT
+1.4.1 says the tenderer should visit before tendering; 3.1.2 bars claims for extras for
+anything a visit would reasonably have revealed. Pricing off the photos means carrying all
+five openings' measurement risk on a fixed price held open 90 days. Jordan offered the walk
+round for free.
+
+**The tender is not just a number,** and the non-price boxes are not estimating's: itemised
+pricing carried to a collection summary, a separate hourly trade rates sheet that becomes
+contractual and prices all variations, names/addresses/trades of every subcontractor,
+estimated duration, proposed commencement, installation and manufacturer warranties, public
+liability insurance, signed Form of Tender Acceptance.
+
+**Unresolved:** nothing in Fenster's record shows we have ever quoted a Smart system. If the
+fabricators do not offer it, the equivalent-approved question has to reach Jordan with time
+for him to answer, not in the final week.
+
 ## Next action
 
+- **John North Hall, by 06/08** - send the reply to Jordan (draft:
+  `scratchpad/nd-jordan-reply.txt`): confirm we are bidding, book the site visit, ask the
+  Smart-or-equivalent and intercom questions. Adam names who attends. Everything else on
+  that tender waits on the visit.
 - **Now** - get the design confirmation. Everything else waits on it and lead times are
   already the constraint.
 - **Send the pre-procurement checklist** Anton asked for, or say plainly that we will build
