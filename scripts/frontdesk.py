@@ -78,11 +78,20 @@ QUEUES = {
 # The front desk holds both and each mailbox says which one opens it. Nothing
 # about the scoping changes - this reads exactly what the two apps were already
 # allowed to read, and jayk@ stays out because it is a hard 404.
+#
+# info@ IS NOT ON THIS LIST AND MUST NOT BE ADDED. Zac, 04/08: "make sure it
+# doesnt read info@ because thats residential work, not commercial." All three
+# bots are commercial - Mary prices commercial tenders, Jacob chases commercial
+# leads, Joseph delivers commercial contracts. Feeding them the residential
+# inbox gives them work that is not theirs and nobody to hand it to.
+#
+# The first live sweep did read it, before that was known: of 25 items from
+# info@, 15 were marketing and the other 10 were residential enquiries that
+# would have become work orders for the wrong bots. Both were removed.
 MAILBOXES = [
     (mg.ESTIMATING, "mary"),
     (mg.MARY, "mary"),
     ("commercial@fensterglazing.com", "mary"),
-    ("info@fensterglazing.com", "mary"),
     ("jacob@fensterglazing.com", "jacob"),
 ]
 
