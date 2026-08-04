@@ -220,9 +220,8 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   only thing that kept them honest (Spoone School; and our own subject lines misspell
   "Cheil"/"Swanhurst" consistently). **DID NOT GO, both live, both in the 07:45 update:** Darrick Wood (GBP 255,082 - Adam
   promised Gleb Saliev a revision 10/07, A Plus Rev1 landed 24/07, no QUOTE TO CHECK since 27/05, so
-  **not priced yet**) and Alkerden (updated quote due 08/07, three weeks over - but **Adam's own Velfac
-  question to Seyi of 02/07 is unanswered**, so it is "waiting on you, here is a date", not a bare
-  apology; the original DID go 29/04 to Corran Goodson). **ALSO:** Chiel got the price and never the
+  **not priced yet**) and Alkerden (now its own chat - the original DID go 29/04 to Corran Goodson).
+  **ALSO:** Chiel got the price and never the
   PQQ pack - three things asked for in Dec 2025, one sent, and the PQQ is what decides whether we are
   allowed on a new main contractor's list at all.
 - **29/07 - THE PRICING LAB NOW RUNS ALL NIGHT (Zac, dashmsg-97).** *"Work on improving your pricing
