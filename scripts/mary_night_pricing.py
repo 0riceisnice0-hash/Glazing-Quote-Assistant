@@ -63,6 +63,7 @@ HARD_STOP_MINUTES = 115  # no single session runs longer than this
 NIGHT_HOURS = float(os.environ.get("MARY_LAB_NIGHT_HOURS", "6.0"))
 # Never start something that cannot finish before the morning run.
 MIN_MINUTES_WORTH_STARTING = 20
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 
 PROMPT = """You are Mary Grace, in the PRICING LAB - a chat that exists for one job only:
 making the pricing engine's numbers match what Fenster actually charges.
@@ -228,7 +229,8 @@ def main():
     try:
         proc = subprocess.Popen(cmd, cwd=REPO, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
                                 stderr=subprocess.PIPE, text=True, env=env,
-                                encoding="utf-8", errors="replace")
+                                encoding="utf-8", errors="replace",
+                                creationflags=NO_WINDOW)
         with open(mp.LOCK, "w") as fh:
             fh.write(str(proc.pid))
         try:

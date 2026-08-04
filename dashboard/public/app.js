@@ -4045,12 +4045,49 @@ const BOTS = {
   joseph: {
     key: "joseph", name: "Joseph Scott", role: "Project management", initials: "JS", accent: "js",
     pages: [
+      { key: "delivery", label: "Delivery", group: "Work", icon: "register",
+        sub: () => "How the won work is running" },
       { key: "decisions", label: "Joseph needs you", group: "Talk",
         sub: () => `${openJosephReqs().length} decision${openJosephReqs().length === 1 ? "" : "s"} he cannot make alone` },
       { key: "jomessages", label: "Messages", group: "Talk", layout: "chat",
         sub: () => "Two-way line - he picks this up on his next pass" },
     ],
     render: {
+      /* A WORKING DEFAULT, AND HE IS EXPECTED TO REPLACE IT. The brief is in
+         JOSEPH-HUB-DEV.md: build the page you would want open while you do the
+         job. This exists so nothing waits on him, not because it is right. */
+      delivery() {
+        const cons = (CRM.contracts || []).filter((c) => c.status === "live");
+        const dated = cons.filter((c) => c.site_date);
+        const d = CRM.delivery || { counts: { late: 0, due: 0, coming: 0 } };
+        const soon = [...dated].sort((a, b) => (a.site_date || "").localeCompare(b.site_date || ""));
+        return `
+          <div class="stats">
+            <div class="stat"><b>${cons.length}</b><span>live jobs</span></div>
+            <div class="stat"><b>${dated.length}</b><span>schedulable</span></div>
+            <div class="stat"><b>${d.counts.late}</b><span>steps late</span></div>
+            <div class="stat"><b>${d.counts.due}</b><span>due today</span></div>
+          </div>
+          ${cons.length && !dated.length ? `<div class="planned-note"><p>
+            <strong>${cons.length} won jobs and not one has a site date, so nothing can
+            be scheduled.</strong> Every step counts backwards from the day we go on
+            site. Open a job on <a data-go="contracts">Contracts</a> and set one - that
+            is the single edit that turns this page on.</p></div>` : ""}
+          <h3>Going on site next</h3>
+          ${soon.length ? `<table class="tbl crm-tbl"><thead><tr>
+              <th>Job</th><th>Client</th><th>On site</th></tr></thead><tbody>
+            ${soon.slice(0, 15).map((c) => `<tr data-crmcon="${esc(c.key)}">
+              <td class="crm-title"><span>${esc(c.title || c.key)}</span></td>
+              <td class="crm-title"><span>${esc((crmCo(c.company_key) || {}).name || c.company_key)}</span></td>
+              <td class="nowrap">${esc(c.site_date)} ${whenChip(c.site_date)}</td>
+            </tr>`).join("")}</tbody></table>`
+            : `<div class="empty"><strong>Nothing is scheduled.</strong>
+                <p>No live job has a site date yet.</p></div>`}
+          <div class="planned-note"><p>This page is a placeholder Joseph is meant to
+            replace - the brief is in <code>JOSEPH-HUB-DEV.md</code>. His jobs
+            themselves live on <a data-go="contracts">Contracts</a>, with Leads and
+            Companies, because a won job is the company's record and not his.</p></div>`;
+      },
       decisions() {
         const open = openJosephReqs();
         return `${open.length ? "" : `<div class="empty"><strong>Nothing is waiting on you.</strong>

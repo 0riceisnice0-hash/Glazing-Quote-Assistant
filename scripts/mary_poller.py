@@ -36,6 +36,7 @@ PROCESSED_DIR = os.path.join(REPO, "test-results", "mary-inbox", "processed")
 LOCK = os.path.join(REPO, "test-results", "mary-inbox", "session.lock")
 LOG = os.path.join(REPO, "test-results", "mary-inbox", "poller.log")
 CLAUDE_CMD = os.environ.get("MARY_CLAUDE_CMD", r"C:\Users\zacpl\.local\bin\claude.exe")
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 KICK = ("You are Mary Grace, Fenster Glazing's estimating AI. New email has been queued for you. "
         "Read MARY-EMAIL-SESSION.md in the repo root and follow it exactly.")
 
@@ -381,7 +382,8 @@ def main():
         log("launching Claude session for %d queued email(s)" % len(pending))
         try:
             r = subprocess.run([CLAUDE_CMD, "-p", KICK, "--dangerously-skip-permissions"],
-                               cwd=REPO, capture_output=True, text=True, timeout=90 * 60, shell=True)
+                               cwd=REPO, capture_output=True, text=True, timeout=90 * 60,
+                               shell=True, creationflags=NO_WINDOW)
             log("session exit %s" % r.returncode)
             if r.stdout:
                 with open(os.path.join(os.path.dirname(LOG), "last-session-output.txt"), "w", encoding="utf-8") as fh:

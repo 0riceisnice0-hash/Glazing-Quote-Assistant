@@ -409,6 +409,36 @@ def ready_to_dispatch(ages, urgent=0, wait=None, most=None):
 # Each of those round-trips costs a full context re-send for a line of output.
 # Ten one-liners cost ten times what one script costs, and produce the same
 # answer.
+# ONE SITTING PER CHAT, for all three. Zac, 04/08: "I would just use one chat
+# until that task is done, then update docs and start a new one."
+#
+# It lives here rather than in one bridge because it drifted immediately when
+# it did not: Mary had it, Jacob and Joseph did not, and nothing said so until
+# the three were checked side by side.
+#
+# Why it is worth more than it first looked. A run is a median 37 calls and
+# every call resends the whole context, so the seed is not paid once - it is
+# paid 37 times. A resumed chat carries ~170k a call; a fresh one ~40k. That is
+# the difference between a 6.3M run and a 1.5M one.
+ONE_SITTING = os.environ.get("BOT_ONE_SITTING", "1") != "0"
+
+
+def should_retire(started, context_now, rotate_at):
+    """(retire, why). Retire a finished chat, or an overweight one.
+
+    The CALLER still has to check its memory file first - retiring a chat whose
+    file is out of contract seeds the next one from a broken file and loses the
+    job. That gate is what makes this safe rather than reckless.
+    """
+    if context_now <= 0:
+        return False, ""                     # never run; nothing to retire
+    if ONE_SITTING and started:
+        return True, "finished its sitting"
+    if context_now >= rotate_at:
+        return True, "carrying %s context tokens" % "{:,}".format(context_now)
+    return False, ""
+
+
 WORK_STYLE = """
 HOW TO WORK, AND IT IS A COST DECISION NOT A STYLE ONE. Every tool call resends
 this whole conversation, so a run costs (number of calls) x (its size). Runs

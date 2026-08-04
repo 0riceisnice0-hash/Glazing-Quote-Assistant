@@ -948,6 +948,100 @@ WORKED = {
         "state": "quoted 21/07/2026 - CRM date error, not a silence",
         "owner": "Adam",
     },
+    # ------------------------------------- Stepnell / St James House, Derby
+    # Three rows, GBP 564,403, all reading "chase for a final answer, 250-301
+    # days silent". They are TWO jobs, one of which is a single quote with two
+    # mutually exclusive OPTIONS, both figures are 20% low, and the client
+    # came back to us in January with a fresh ITT nobody logged.
+    # data/companies/stepnell.md, researched 30/07/2026.
+    "7197": {
+        "next": "DO NOT chase Stepnell for a final answer on GBP 382,092 - the "
+                "figure is wrong and so is the silence. THE FIGURE: our cover "
+                "letter of 05/12/2025 reads sub-total GBP 458,509.81, VAT GBP "
+                "91,701.96, total GBP 550,211.77, so 458,509.81 is the EX-VAT "
+                "price. AdminBase holds it in the INC-VAT field and the board "
+                "divides it back to GBP 382,091.51, a number in no document. "
+                "This is a two-row slip and not a broken rule - the inc-VAT "
+                "rule was re-tested against eleven independently verified "
+                "sends and held on all eleven. THE SILENCE: LUKE WALSH SENT US "
+                "A FRESH FORMAL ITT ON 19 JANUARY 2026 - Stepnell form STP10, "
+                "bid ref SC0078B, trade 'L_SC Aluminium Doors & Windows', "
+                "bundling the Phase 1 pack of 17.12.25 with the Level 2 / "
+                "Phase 2 pack of 09.01.26, quotation due back BY EMAIL BY 04 "
+                "FEB 2026. The job had changed shape: 'to refurbish level 1, "
+                "2, 3 to enable a new school provision within the building', "
+                "main contract programme 02/03/2026 to 29/05/2026 - an end "
+                "date that passed two months ago. No client quote exists in "
+                "the folder after 05/12/2025 and no lead was raised for the "
+                "January ITT. WHETHER ANYTHING WENT BACK IS MARY'S TO ANSWER, "
+                "NOT MINE TO INFER - asked on the bot line 30/07. AND IT IS A "
+                "SECOND CHASE: Paul Taylor wrote to Luke on 15/06/2026 asking "
+                "for feedback and for other projects, and has had nothing in "
+                "45 days, so 'did you get our quote' is a question that has "
+                "already failed. ASK INSTEAD: did the school fit-out go ahead, "
+                "who did the aluminium, and what would our December price have "
+                "needed to be. Do not re-offer the old figures - validity was "
+                "30 days and every supplier quote behind them (Vetroseal "
+                "058630/059869, A Plus QP65576, BSW 3525, 4Ali Q8177) is from "
+                "November/December 2025. Reviving this is a re-price.",
+        "why": "Researched 30/07/2026. Sources: the St James House tender "
+               "folder on the Commercial drive - Cover Letter 05.12.2025, "
+               "Quotation - St James House.xlsx and the ADAM REVISED copy, "
+               "and ITT Letter-STP10 dated 19/01/2026; commercial@ (Paul "
+               "Taylor to luke.walsh@stepnell.co.uk, 15/06/2026, no reply); "
+               "Companies House 00402934. data/companies/stepnell.md.",
+        "note": "THE OPTIONS ARE A CHOICE AND THIS BOARD ADDS THEM UP. Lead "
+                "7198 is not a second job - it is Option 2 of this same "
+                "05/12/2025 cover letter, and its sheet prices the SAME window "
+                "Types 2, 3, 6, 7, 8, 9, 10, 11 in the same quantities, noting "
+                "'Type 1, 4, 5 excluded - no secondary glazing as these are "
+                "doors'. Replace the windows, or keep them and secondary-glaze "
+                "them. Maximum exposure at this address is GBP 458,510 OR GBP "
+                "212,647, never the GBP 564,403 the board reports.",
+        "state": "one quote, two options - 20% understated, and they re-invited us 19/01/26",
+        "owner": "Adam",
+    },
+    "7198": {
+        "next": "NOT A SEPARATE JOB. This is Option 2 - Secondary Glazing of "
+                "the single quote at lead 7197, same cover letter of "
+                "05/12/2025, and it prices the same window types in the same "
+                "quantities as the aluminium option. Stepnell choose one or "
+                "the other. The figure is also 20% low for the same reason: we "
+                "quoted GBP 212,647.11 ex VAT (GBP 255,176.53 inc) and the "
+                "board shows GBP 177,205.92. Chase it with 7197 or not at all "
+                "- one call covers both, and the live question is what "
+                "happened to their 19/01/2026 ITT SC0078B.",
+        "why": "Researched 30/07/2026. Same sources as lead 7197 - the "
+               "Cover Letter 05.12.2025 and the Secondary Glazing sheet of "
+               "Quotation - St James House.xlsx. data/companies/stepnell.md.",
+        "note": "Counting this row and 7197 separately overstates Stepnell by "
+                "GBP 212,647 while the VAT slip understates them by GBP "
+                "111,859 - two errors in opposite directions on one client.",
+        "state": "Option 2 of lead 7197, not a second job",
+        "owner": "Adam",
+    },
+    "6874": {
+        "next": "The one genuinely separate Stepnell row, and the one in the "
+                "band Fenster actually wins: GBP 5,105.71 ex VAT quoted "
+                "08/10/2025 for one external door 1009 x 2717, easing and "
+                "adjusting the window in room 104, and removing 3 windows for "
+                "hoist access. Under GBP 10k converts at 38%. Its value is "
+                "correct - inc GBP 6,126.85 is a true inc-VAT figure, unlike "
+                "7197/7198. Same site and same contact as those two, so it "
+                "goes on the same call rather than getting its own; but say "
+                "the number, because a small job we can start is a better "
+                "opening than a GBP 458k one they have gone quiet on.",
+        "why": "Researched 30/07/2026. Source: 'Stepnell - St James House - "
+               "Fenster Glazing Quote with Amendments.xlsx' dated 08/10/2025 "
+               "in the St James House tender folder, total GBP 5,105.71, and "
+               "the 29/09/2025 enquiry sheet. data/companies/stepnell.md.",
+        "note": "Verifying this row is what proved the other two are the "
+                "exception: 6,126.85 / 1.2 = 5,105.71 to the penny against the "
+                "quote sheet, so the inc-VAT rule is sound and only leads 7197 "
+                "and 7198 were entered ex-VAT.",
+        "state": "quoted GBP 5,106 - small works, best band, 296 days",
+        "owner": "Adam",
+    },
 }
 
 # The four small Pride rows share one instruction, so it is written once and

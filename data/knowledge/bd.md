@@ -128,211 +128,45 @@ value on each. This is the win history; everything else is a funnel.**
   MK14 to our MK13, three of them Amazon depots Adam fixed a door on himself - call him on THAT.**
   `conamar.md`, `rsr.md`. Do-not-approach enforced in code (Hightown ranked on run one).
 
-## Classification rules that cost a day each to learn
+## Classification rules - the index
 
-- **Filter on what a contract IS (CPV families), never on words** - keywords returned window
-  *cleaning*, STI *screening*, "the front door to maternity services". **Direction comes from the
-  first sentence, not the subject** (our own RFQs are not demand). **Single-word names throw ~20%
-  false positives** ("Atlas" = a window cleaner); the `possible` tier needs one human confirmation.
-  Same trap via a PERSON'S name: "Thomas Sinden" matched **"Chester Thomas Developments"**, a live row
-  on my own board. **Join company names on SUBSET, never overlap**, trading words stripped.
-- **THE CRM SPELLS A CLIENT DIFFERENTLY FROM EVERY OTHER SOURCE, AND AN EXACT MATCH IS NOT A COMPLETE
-  ONE.** Barnfield is both "Barnfield" and "Barnfield Construction" - an exact hit short-circuited the
-  sweep. The log's "Thomas Sinden" is **"Sinden Construction Ltd"**: a GBP 581k job the client HAS WON
-  read as absent when it sits there as lead 5493, Live-Quoted since 21/01/2025. **Union every spelling;
-  then join on PENNY-EXACT VALUE**, which alone tells a re-quote from **the same quote still open** (18
-  of 62). **A TRANSPOSITION DEFEATS BOTH**: "Cheil"/"Chiel" is no subset either way and the CRM row was
-  a re-quote at another figure, so **a GBP 52,483 lead where the CLIENT WAS WAITING ON US read as absent
-  from the CRM entirely.** Match same-letters-reordered or 0.9 similar, then corroborate on the CONTACT
-  or one RARE token - never on the name; **Companies House arbitrates which spelling is real** (Chiel,
-  04840215). Tokens miss single-word projects ("Gresty Road" is one word after street furniture).
-  **AND IT IS THE CUSTOMER KEY, NOT JUST THE SPELLING, THAT SPLITS A CLIENT - SO EVERY PER-CLIENT
-  TOTAL ON THIS BOARD IS A FLOOR.** Barnfield's five live leads sit under THREE keys - the domain,
-  the literal string "BARNFIELD CONSTRUCTION", and **`hargreavescontracting.com`** - so the
-  concentration panel reported a 3-row client and two 1-row clients instead of **GBP 568,576 ex VAT,
-  the largest single-client exposure on the board.** Aggregate on the resolved company, never the key.
-- **ODS LINE BREAKS ARE INVISIBLE TO `itertext()`** - Alt+Enter is `<text:line-break/>` inside ONE
-  `<text:p>`, and flattening welds sentences: "no decision" + "Worth repricing" = "decisionWorth", no
-  word boundary, no regex match. **Six of Elkins' seven rows read as NOT recommended when they were.**
-- **A relationship does not put glazing in the job** (Zac, 29/07). Warm/known leads
-  must pass the same work-type screen as cold: no scaffolding, cleaning, highways,
-  kitchen-and-bathroom, lifts, surveys - whoever won them. `NO_GLAZING` in
-  `jacob_dashboard.py`. Roofing stays IN (Raglan roofing carried a Fenster
-  rooflight order). Before recommending any call, ask: where is the glass?
-- **A BUYER'S CPV IS NOT THE WORK.** Of 21 notices whose TITLE is unmistakably glazing, Adam's list
-  caught 10; six misses carry only **45000000 "Construction work"** and adding it would import every
-  highway scheme. So a PRODUCT word adjacent to a WORK word **in the TITLE** is promoted to `direct`
-  whatever the CPV says: 10/21 -> 18/21. Adjacency traps now excluded - **"door entry"/"intercom" is
-  access control, "cubicle tracking" is a curtain rail.** Codes absent from his list are PROPOSED,
-  never added (**his list is his**): 44221220, 45343000, 45420000/45421000, 50000000. `bd-lessons`.
-- **`app_type` is planning's CPV**: `Conditions`/`Amendment` describe paperwork, not buildings. And
-  PlanIt's `parent_name` is one step up a tree, not a country (Adur -> Adur and Worthing -> West
-  Sussex -> England) - reading it as one dropped all 454 rows. **A feed returning nothing looks
-  exactly like a quiet market**, the most expensive bug shape on this board.
-- **Contracts Finder's OCDS `/Search` SILENTLY IGNORES `keyword`** - reads as "not found" when you
-  never searched. Use `POST /api/rest/2/search_notices/json`. **Companies House needs no key via the
-  public site** (send Chrome); full accounts are iXBRL, so one fetch qualifies a contractor - and it
-  also says when one CANNOT be qualified: Pride Developments Group Ltd, holding GBP 1.09m of our
-  prices, was incorporated 16/12/24 on GBP 100 and has filed NO accounts (first due 16/09/26).
-  **Read the wind-up TYPE on any dissolved namesake before it becomes a credit story** - Pride's
-  predecessor at the same unit went by MEMBERS' VOLUNTARY liquidation with a filed declaration of
-  SOLVENCY, same director. Dissolved is not failed. `bd-lessons.md`, 29-30/07.
-- **Check `oldest/newest/truncated` before believing a count** - a 20-page fetch cap once turned 13-22 days into "180 days of mail".
-- **Once For All is Conquest renamed** (`jacob_intake.PORTALS`); else a portal CHASE reads as a fresh enquiry. **A date with no year reads as THIS year** - 90 of 209 AdminBase rows are 2025 quotes shown as "12 May".
-- **The register is a FLOOR, never a complete set** - Trafalgar House was live and chased with no Mary chat
-  at all; 9 managed rows against ~25 AdminBase quotes raised since 15/06 alone. **And so is AdminBase: FIVE
-  clients on Jayk's log are absent from Adam's export entirely - GBP 1,073,229 invisible to every panel
-  here** (Clegg 777k, MCS, BC Workspace, Steele & Bray, RG Carter); a quote outside the export window or
-  under another trading name lands there too, so it is no accusation. **Cheil was the sixth until 30/07,
-  and that one was MY spelling rather than their CRM - the transposition rule below.**
-- **"Not in the sends I have dated" means "not in the list that script searches"** - absence from a
-  tool reads like never sent. **Count the chases before writing "call them"**; numbers are in the
-  signature. `bd-lessons`.
-- **Join AdminBase to your own TENDER BOARD, not just to the mailbox** - on postcode SECTOR
-  plus title. **A client's public deadline sets the chase date; a fortnight rule invents
-  one.** Leys Park, 29/07: `bd-lessons.md`.
-- **AdminBase re-dates nothing on a re-quote**; rows joining penny-exact to a NEWER verified send
-  are aged from the send. **And the lead date can be the wrong EVENT, not a typo: RFQ OUT IS NOT
-  QUOTE OUT** (Brandon 8324; seven such). Expect the slip, do not patch one row. Mary, 29/07.
-  **SO "N DAYS SILENT" CAN NAME THE WRONG PARTY - READ THE MAILBOX BEFORE BELIEVING THE CLOCK.**
-  Alkerden 5493 read "523 days silent, chase them for a final answer" on a client who had SECURED
-  the job and asked US on 01/07/26 for a price by 08/07; supplier quotes were still moving on
-  22/07. The date is January 2025's enquiry, never re-dated across two re-enquiries since.
-  **AND SILENCE IS A PROPERTY OF THE RELATIONSHIP, NEVER OF THE ROW: SEARCH THE CLIENT, NOT THE
-  JOB.** Pride Developments printed "chase for a final answer, N days silent" on TEN rows, to 265
-  days, GBP 1,092,450 - while their PM wrote to commercial@ on 21 and 22/07, Adam priced their new
-  enquiry on 29/07 and their frames were fitted on 30/07. Every row was unanswered and the client
-  was never silent. A CRM holds one row per job; the relationship is the client's. Also **a
-  follow-up date can PRECEDE the lead date** (6 rows; 8701 by 28 days, so a nine-day-old quote read
-  as five weeks quiet) - ageing off the earlier of two dates invents the silence outright.
-  **And resolve the CONTACT before calling a row cold**: `lyndon@` on a GBP 82,823 row is Lyndon
-  Porretta, a DIRECTOR (CH 16138608). The board stores a first name and never asks whose it is.
-  **The chase and the apology are different emails - establish which before drafting either**
-  (JAC-20). And **a client can RENAME**: Thomas Sinden Ltd became Sinden Construction Ltd on
-  22/06/26, CH 03308698, so two CRM spellings are one company either side of a rename, not a
-  typo - **the old domain stays live, so search both.** `data/companies/sinden-construction.md`.
-  Same family, 29/07 late: **`dormant.json` aged silence off the ORDER date, ignoring `fitted` on
-  the same row** - RSR's Bletchley was ordered 15/10/24 and fitted 02/09/25, so eleven months on
-  site read as silence (378d -> 330d; every row moved). And **"no work since" is not "nobody has
-  spoken since"** - RSR's mailbox runs to 05/05/26. Do NOT join to `intake.json` to fix it: it
-  covers 30 days, so absence would read as never-contacted. **Search the mailbox before ringing
-  anyone dormant.** `bd-lessons.md`, `data/companies/rsr.md`.
-- **A JOB STRADDLES THE MAILBOX WALL AND EACH BOT CALLS ITS OWN HALF THE WHOLE STORY.** RSR/Amazon DRH1:
-  client end in estimating@ (dies 10/10/25), supplier end in commercial@ (to 31/10/25, nobody answers a
-  glazier's offer of a visit). Both right, answer still wrong - most work here is subcontracted, so it
-  sits on BOTH sides. **Ask the other bot before calling a job dead**, and **count who chased whom**: RSR
-  chased US twice on a GBP 750 job Amazon had signed off. Cause was a LEAVER - **HARRY GROVER HAS LEFT**
-  (Adam, 31/10/25), on four of RSR's five won jobs: any row he owns or promised on is STALE. **`jayk@` is
-  a hard 404 - "nothing in jayk@" means nowhere left to look, not nothing was there.**
-- **SEARCH THE DOMAIN - THEN DISTRUST A ZERO.** "Instant Glass" = 49 hits and reads like our Crawley
-  glazier; `instantglass.co.uk` = 3, one dead thread, never quoted. **But a PORTAL client's domain is on
-  our OUTBOUND ONLY** - E T & S's notices arrive "<client> addendum:"/"new message:"/"invites you to quote
-  on:", reaching estimating@ only because **PAUL TAYLOR forwards them**: "ets-wales" = 0 read as "no
-  traffic" on a GBP 174,546 tender we were told about twice and let lapse. **Search the portal's PHRASING;
-  ask who forwards it** - a colleague on it is the login Jayk's 404 hides. **A zero in MY four mailboxes
-  is no zero at all** (Chiel: whole job in estimating@).
-- **AND THE SHARPER ONE: DO NOT READ A FAN-OUT THROUGH ONE MAILBOX.** I called DRH1's blocker "Instant
-  Glass are the only candidate". Harry went to **THREE** glaziers on 05/09; theirs was just the thread that
-  stayed in commercial@, **and the only one that failed**. Johnson & Sons priced the bonded corner at **GBP
-  960+VAT, 13/10/25** in estimating@ to a spec ADAM set - **so the GBP 750 RSR keep asking us to confirm is
-  UNDER COST** (Mary, msg 25). Absence of a price in YOUR half is not absence of a price.
-- **"NOTHING IN MY FOUR MAILBOXES" IS NOT EVIDENCE A QUOTE DID NOT GO - SEVEN TIMES OUT OF NINE IT
-  HAD.** A quote leaves from whichever mailbox the person HANDLING it uses - `jayk@` (a hard 404),
-  `adam@` or `estimating@` - **never** from commercial@, info@ or jacob@, and neither AdminBase nor
-  the BD log records a send at all. Mary settled nine such questions on 30/07: **seven had gone and I
-  could see none of the seven.** ASK HER; NEVER INFER. The costliest was **Bradstone Road**, which I
-  had dead and "lost on price 01/05/2025" on Adam's own chase list - it came back, was priced and
-  **issued twice in 2026**, and Adam worked it personally on 12/06. Also: **only PART of what a
-  client asked for may have gone** - Chiel got the quote on 22/12 and never the PQQ pack, which is
-  what decides whether we are allowed on the tender list at all; **the contact moves** (Grange
-  Apartments is Oliver Webber's now, not Ian Brown's; Gleb is `@ajgroup.co.uk`, not
-  `@alexanderjamesltd.co.uk`); and **a nil result on a job NAME is weak** where our own files
-  misspell the client ("Cheil"/"Swanhurst", both wrong and both consistent) - search a PD number or a
-  contact instead - **SEARCH THE PERSON, NOT THE PROJECT: two Pride rows came back nil on the job name
-  and were found at once on the contact. Final tally TEN of TWELVE had gone.** Three more shapes from
-  the same batch: **a send can be PARTIAL** - 130 Hainault Road excluded four items and offered
-  aluminium for uPVC, which beats price as a reason for silence; **the CRM date can be the ENQUIRY,
-  not the quote** (26/02 in, priced 01/04, "apologies for taking so long"); and **a job can run
-  through a PORTAL with the email as a courtesy copy** - Tiverton went via the "E1 SYSTEM", so email
-  silence is not the client failing to answer and any addendum sits where neither bot can see it (the
-  E T & S blind spot again). **Do not guess a rebranded address**: ajgroup.co.uk is firstname.SURNAME
-  where the old domain used bare firstnames, so `kieran@ajgroup.co.uk` is wrong by construction.
-  `mary_recall --kind botchat`, msgs 33-41.
-- **THE BOT LINE SILENTLY EATS THE END OF A LONG MESSAGE.** `/api/botchat` does `clip(body, 4000)` and
-  returns `{ok:true}` regardless - my 6,918-char RSR reply reached Mary cut mid-sentence and only she
-  noticed. **The END is where the point goes.** `bot_chat.py` now REFUSES over 4,000 (`BODY_LIMIT`); the
-  hub reply route clips at 8,000 - do not assume one limit.
-- **Read the Status field on any alert feed** - 15 of 30 Supply2Gov items over four days were award
-  or prior-information notices, already gone. Four days held two live leads, not "27 a day".
-- **COVERAGE IS ENGLAND AND WALES, NATIONWIDE** (Adam, 29/07, closing JAC-10). Out: Scotland, NI,
-  Crown Dependencies. The PQQ's 78 postcode areas were a MARKETING CLAIM enforced as a rule, which
-  parked Wales while a GBP 174,546 quote was live in Merthyr. Distance is a note, never a filter.
-- **"ISSUED" is a fact about a SEND, never about the document.** Grange Hill, 29/07: six
-  corrections still open on the client's copy, drawings at 13 windows against 12 priced. **Diff
-  what went against what was checked**; check the SUPPLIER expiry too. `expires`, `bd-lessons`.
-- **A UI DEFAULT IS AN AUTHOR.** The hub's sign-in select opened on Zac, so ADAM's instructions
-  filed as Zac's - hub 57/60/61/62 at least, and JAC-14 with them (Adam, hub-66, 29/07; now a
-  blocking per-device ask). Treat "Zac" on a HUB message as unverified unless its body says relay.
-- **A board nobody can EDIT is a report**; "not user friendly" can mean BROKEN (the panel
-  opened 3 of 7 key types). Check a quiet feature works before redesigning it, and mark a
-  DERIVED date: a human's promise outranks a 524-day-stale CRM row. 29/07, `bd-lessons.md`.
-  **AND A LIST FILTERED ON LITERAL STATE STRINGS DELETES ANYTHING YOU IMPROVE** - writing a truer
-  state onto Alkerden dropped the most urgent row on the board off the chase list and out of the
-  daily email in silence. Whenever a row is researched, re-check it still APPEARS. 30/07.
-  **THE SAME TRAP ONE FIELD ACROSS, AND IT HAD ALREADY EATEN MY OWN BEST WORK: THE EMAIL DROPPED
-  ANY ROW WITH NO CRM FOLLOW-UP DATE**, and AdminBase leaves that field empty on **80 of 264** rows -
-  so research saved nothing, only a date did. It hid Barnfield's MSM Aerospace, where **our client
-  has WON the main contract** and a revised price is out, and it had been hiding **Chiel/Swanshurst,
-  GBP 52,483 - the previous session's entire finding - since the day I researched it.** A worked row
-  is now due, dated today, LABELLED "dated today because this row has been researched" so it borrows
-  nobody's credibility. **Twice in two days: improving a row deleted it. Check the row is still on
-  the page, not just that the file changed.**
-- **ONE CAUSE UNDER ALL OF THE ABOVE: EVERY LIST HERE IS A FILTER, AND A FILTER'S MISSES ARE INVISIBLE
-  BY CONSTRUCTION. Ask not "is this list right" but "what CANNOT appear on it".** Five instances, one
-  function, GBP 7.9m: a state string; **a MISSING CRM follow-up date - 80 of 264 rows, GBP 7,031,168,
-  on nothing**, including the two largest unworked rows here (now due today, labelled "the CRM never
-  set a date"; hub-76 keeps a row visible until a PERSON reviews it and an empty field is not a
-  review); **sharing a CUSTOMER with a job already on the register - 14 rows, GBP 879,925**, so a
-  de-dupe must identify the JOB (same client AND money to within 2p, or two non-generic job words);
-  being **a penny apart** where an inc-VAT figure was divided back down - penny-exact stays exact
-  for telling a re-quote from a live quote, a different question about the same number; and **the
-  MIRROR of the customer de-dupe, which is the sixth instance: the multi-bidder check needs TWO
-  customer keys, so one client quoted twice for one SITE is invisible to it** - and it joins on the
-  penny-exact figure, which two quotes for one job never share. 6 sites, 13 rows, **up to
-  GBP 468,681 counted twice**, worst being Stepnell's ENTIRE GBP 564,403 as three rows at one Derby
-  building. NAMED, never merged: aluminium against uPVC at one address reads as a choice, aluminium
-  against secondary glazing as two packages, and the `product` column is the tell a human settles it
-  on. **When a bug is a habit of thought, fix every instance in the function, not the one you
-  tripped over - and look for its mirror.**
-- **RESEARCH THAT DOES NOT LAND ON THE ROW CHANGES NOTHING - A COMPANY FILE IS NOT A BOARD.** I filed
-  Adam's answer that Churchdown and Aylesbury were **unfunded CIF bids**, and next morning his chase
-  list still led with **Mobius GBP 746,617 and Southern Projects GBP 729,117, "chase for a final
-  answer"**. **Churchdown went to FIVE bidders** at two price points GBP 17,500 apart, so one funding
-  decision kills five leads sharing only a site postcode; six `worked` overrides now name them
-  blocked, and the ask is late September, to be the number INSIDE the resubmission.
-- **A PROMISE WE MADE IS A CHASE DATE THE BOARD CAN COMPUTE, AND IT IS THE BEST ONE ON HERE.**
-  Alexander James - **six rows, GBP 1,910,810 ex VAT, the largest single-client exposure here**, two
-  spellings, three contacts, no file, no chase - and two were answered in commercial@ all along:
-  Brooklands **LOST 07/05** (our client lost the main contract, not our price) and Tiverton Road GBP
-  547,886, **"preferred bidder... come back to me in 6-8 weeks"** = 17/07-31/07, expiring while the
-  row sat undated and invisible. Leys Park had a client's public deadline setting the date; this is
-  that rule inwards. Both replies went to **PAUL TAYLOR** - "you were previously speaking with my
-  colleague Jayk" - same-day answer twice: **Jayk's book is being worked quietly by a PM nobody
-  counted, so search commercial@ for a COLLEAGUE'S name before calling a client silent.**
-- **READ YOUR OWN OUTPUT BEFORE PRODUCING IT AGAIN, AND CORRECT THE OTHER BOT RATHER THAN REPLACE
-  HER.** `drafts.json` D-6 was already the A Plus reply Adam asked me for, off Mary's reading of
-  estimating@; my append script filtered on the id it was about to use and **deleted hers** (no unique
-  constraint in a hand-appended list; `git checkout HEAD --` restored it). What it needed was the one
-  thing only my mailbox holds - an address flagged "not verified by me, Dan's mail is in a mailbox I
-  cannot read" when Adam had forwarded that mail into jacob@. **The unverified field in the other
-  bot's work is where your mailbox is worth most.** Same client: I had Darrick Wood as "65 days
-  silent" when **Gleb Saliev rejected our quantities on 09/07 and the revision may still be inside
-  Fenster** - fourth such job this month. Portals again (EstimateOne, AJ Group's own).
-- **A BULK IMPORT IS ONE FACT, NOT 59 - BUT COUNTING IT IS NOT MINE TO DECIDE.** Folding the untouched
-  CRM tail off Today was right on 28/07 (59 identical rows pushed the four real quotes off the screen)
-  and was OVERRULED on 29/07 by the man who owns the backlog. **Label, never hide.** See the standing
-  decisions below and `bd-lessons.md`.
+The rules below each cost a day to learn and the evidence for every one is
+in `data/knowledge/bd-lessons.md` under this same heading. **Read that file
+when you are classifying, matching a company name, or trusting a feed** -
+not before. The rule alone will not stop you re-making the mistake; the
+account of how it was made will.
 
+- Filter on what a contract IS (CPV families), never on words
+- THE CRM SPELLS A CLIENT DIFFERENTLY FROM EVERY OTHER SOURCE, AND AN EXACT MATCH IS NOT A COMP...
+- ODS LINE BREAKS ARE INVISIBLE TO `itertext()`
+- A relationship does not put glazing in the job
+- A BUYER'S CPV IS NOT THE WORK
+- `app_type` is planning's CPV
+- Contracts Finder's OCDS `/Search` SILENTLY IGNORES `keyword`
+- Check `oldest/newest/truncated` before believing a count
+- Once For All is Conquest renamed
+- The register is a FLOOR, never a complete set
+- "Not in the sends I have dated" means "not in the list that script searches"
+- Join AdminBase to your own TENDER BOARD, not just to the mailbox
+- AdminBase re-dates nothing on a re-quote
+- A JOB STRADDLES THE MAILBOX WALL AND EACH BOT CALLS ITS OWN HALF THE WHOLE STORY
+- SEARCH THE DOMAIN - THEN DISTRUST A ZERO
+- AND THE SHARPER ONE: DO NOT READ A FAN-OUT THROUGH ONE MAILBOX
+- "NOTHING IN MY FOUR MAILBOXES" IS NOT EVIDENCE A QUOTE DID NOT GO - SEVEN TIMES OUT OF NINE I...
+- THE BOT LINE SILENTLY EATS THE END OF A LONG MESSAGE
+- Read the Status field on any alert feed
+- COVERAGE IS ENGLAND AND WALES, NATIONWIDE
+- "ISSUED" is a fact about a SEND, never about the document
+- A UI DEFAULT IS AN AUTHOR
+- A board nobody can EDIT is a report
+- ONE CAUSE UNDER ALL OF THE ABOVE: EVERY LIST HERE IS A FILTER, AND A FILTER'S MISSES ARE INVI...
+- RESEARCH THAT DOES NOT LAND ON THE ROW CHANGES NOTHING - A COMPANY FILE IS NOT A BOARD
+- A PROMISE WE MADE IS A CHASE DATE THE BOARD CAN COMPUTE, AND IT IS THE BEST ONE ON HERE
+- READ YOUR OWN OUTPUT BEFORE PRODUCING IT AGAIN, AND CORRECT THE OTHER BOT RATHER THAN REPLACE...
+- A BULK IMPORT IS ONE FACT, NOT 59 - BUT COUNTING IT IS NOT MINE TO DECIDE
+
+If one of these ever looks wrong on a real row, the account in `bd-lessons`
+says what it was built from - check that before overriding it.
 ## Standing decisions (Adam/Zac - do not re-open; full list `mary_recall --settled`)
 
 - **Commercial team: Adam (director), Gintare (estimating), Paul Taylor (PM), Steve Freezer

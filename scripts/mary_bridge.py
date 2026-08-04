@@ -164,8 +164,8 @@ def rotate_if_due(reg, key, rec):
     ctx = cost.context_size(rec["session_id"])
     # 0 means there is no transcript yet - a chat that has never run cannot be
     # overweight, and rotating it here would burn a fresh UUID every dispatch.
-    done = ONE_SITTING and rec.get("started") and ctx > 0
-    if ctx < ROTATE_CONTEXT and not done:
+    retire, why = budget.should_retire(rec.get("started"), ctx, ROTATE_CONTEXT)
+    if not retire:
         return False
 
     # ROTATION IS ONLY A SAVING IF THE SEED IS SMALL. This is the trap the last
@@ -195,10 +195,8 @@ def rotate_if_due(reg, key, rec):
     rec["rotated_at"] = dt.datetime.now().isoformat(timespec="seconds")
     rec["rotations"] = rec.get("rotations", 0) + 1
     router.save_registry(reg)
-    log("  [%s] chat retired %s (%s context tokens) - starting fresh from "
-        "data/jobs/%s.md"
-        % (key, "after finishing its batch" if ctx < ROTATE_CONTEXT else "as overweight",
-           "{:,}".format(ctx), key))
+    log("  [%s] chat retired (%s) - starting fresh from data/jobs/%s.md"
+        % (key, why, key))
     return True
 
 

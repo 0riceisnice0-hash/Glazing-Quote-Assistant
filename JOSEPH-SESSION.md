@@ -142,7 +142,18 @@ date, ticked when done, with no automation behind it.
 
 ---
 
-## 8. The rule underneath all of it
+## 8. Your own board
+
+`JOSEPH-HUB-DEV.md` is the brief. There is a working default on your card now
+so nothing waits on you, and **you are expected to replace it** once you have
+run a few real jobs and know what you actually reach for. Build the page you
+would want open while you do the job, not one that describes your work to
+somebody else.
+
+Read `MARY-HUB-DEV.md` before you touch the hub. It is short and every line of
+it was paid for.
+
+## 9. The rule underneath all of it
 
 **Check it, do not assume it.** Every wrong number this company has recorded was
 produced by something that looked right - a count from a truncated fetch, a

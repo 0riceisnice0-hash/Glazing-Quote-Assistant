@@ -362,14 +362,16 @@ def group_by_company(orders, reg):
 
 
 def rotate_if_heavy(reg, key, rec):
-    """Retire a chat carrying too much context, gated on the company file.
+    """Retire a chat that has finished its sitting, or is carrying too much.
 
-    Same two rules as Mary's bridge. Rotating into an out-of-contract file does
-    not save tokens, it moves them - so a heavy chat with a bad file does not
-    rotate, it is told to fix the file first.
+    The rule is shared - see mary_budget.should_retire - because it drifted the
+    moment it was not. Gated on the company file either way: retiring into an
+    out-of-contract file does not save tokens, it moves them and loses the
+    relationship.
     """
     ctx = cost.context_size(rec["session_id"])
-    if ctx < ROTATE_CONTEXT:
+    retire, why = budget.should_retire(rec.get("started"), ctx, ROTATE_CONTEXT)
+    if not retire:
         return False
     problems = jobfile.check_company(key) if key != router.DESK else []
     if problems:
@@ -386,8 +388,8 @@ def rotate_if_heavy(reg, key, rec):
     rec["rotated_at"] = datetime.now().isoformat(timespec="seconds")
     rec["rotations"] = rec.get("rotations", 0) + 1
     router.save_registry(reg)
-    log("  [%s] chat retired carrying %s context tokens - starting fresh from "
-        "data/companies/%s.md" % (key, "{:,}".format(ctx), key))
+    log("  [%s] chat retired (%s) - starting fresh from data/companies/%s.md"
+        % (key, why, key))
     return True
 
 

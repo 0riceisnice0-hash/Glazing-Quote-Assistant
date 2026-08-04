@@ -244,7 +244,8 @@ def group_by_contract(orders, cons):
 
 def rotate_if_heavy(reg, key, rec):
     ctx = cost.context_size(rec["session_id"])
-    if ctx < ROTATE_CONTEXT:
+    retire, why = budget.should_retire(rec.get("started"), ctx, ROTATE_CONTEXT)
+    if not retire:
         return False
     problems = check_contract_file(key) if key != router.DESK else []
     if problems:
@@ -260,8 +261,8 @@ def rotate_if_heavy(reg, key, rec):
     rec["rotated_from"] = old
     rec["rotations"] = rec.get("rotations", 0) + 1
     router.save_registry(reg)
-    log("  [%s] chat retired carrying %s context tokens - starting fresh from "
-        "data/contracts/%s.md" % (key, "{:,}".format(ctx), key))
+    log("  [%s] chat retired (%s) - starting fresh from data/contracts/%s.md"
+        % (key, why, key))
     return True
 
 
