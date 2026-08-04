@@ -188,6 +188,28 @@ input:focus,textarea:focus{border-color:var(--accent)}
 .composer{display:flex;gap:8px}
 .composer textarea{resize:none;height:60px}
 
+/* desk cards on Today, and the deep cards on Team */
+.desk{cursor:pointer}
+.doing{
+  margin:4px 0 8px;padding:7px 11px;border-radius:10px;font-size:13px;font-weight:550;
+  background:color-mix(in srgb,var(--accent) 13%,transparent);color:var(--accent-ink);
+}
+.desk-meta{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;
+           color:var(--ink-3);margin:2px 0 8px;flex-wrap:wrap}
+.lately{display:flex;flex-direction:column;gap:2px}
+.ev.tight{padding:4px 0;font-size:12.5px}
+.ev.tight .ts{width:62px;flex:none}
+.empty.tightpad{padding:6px 0}
+.lastmsg{margin-top:8px;font-size:12.5px;color:var(--ink-2);border-top:1px solid var(--line);
+         padding-top:8px}
+
+/* filter chips */
+.chip{
+  padding:5px 13px;border-radius:99px;border:1px solid var(--line);font-size:12.5px;
+  font-weight:550;color:var(--ink-2);
+}
+.chip.on{background:var(--accent);border-color:transparent;color:#fff}
+
 /* activity */
 .feed{display:flex;flex-direction:column}
 .ev{display:flex;gap:12px;padding:8px 14px;font-size:13.5px;border-radius:10px}
@@ -199,8 +221,8 @@ input:focus,textarea:focus{border-color:var(--accent)}
 .filter-bar input{max-width:280px}
 
 /* cost */
-.bars{display:flex;gap:6px;align-items:flex-end;height:150px;padding:14px}
-.bar{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;cursor:default}
+.bars{display:flex;gap:10px;align-items:flex-end;height:150px;padding:14px 18px}
+.bar{flex:0 1 52px;display:flex;flex-direction:column;justify-content:flex-end;gap:1px;cursor:default}
 .bar i{display:block;border-radius:3px 3px 0 0}
 .bar .d{font-size:10px;color:var(--ink-3);text-align:center;margin-top:4px}
 .bar i.mary{background:#1f9d5b}.bar i.jacob{background:#2470a8}.bar i.joseph{background:#8a5fbf}

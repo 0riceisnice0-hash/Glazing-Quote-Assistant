@@ -425,6 +425,14 @@ async function handle(request, env, path, url) {
 
   if (method === "GET" && seg[0] === "overview") {
     const today = new Date().toISOString().slice(0, 10);
+    const [deskEvents, lastSessions, workingTasks] = await Promise.all([
+      db.prepare(`SELECT author, ts, kind, entity_key, body FROM event
+                  WHERE author IN ('mary','jacob','joseph')
+                  ORDER BY id DESC LIMIT 30`).all(),
+      db.prepare(`SELECT * FROM usage WHERE id IN
+                  (SELECT MAX(id) FROM usage GROUP BY persona)`).all(),
+      db.prepare(`SELECT assignee, title FROM task WHERE status = 'working'`).all(),
+    ]);
     const [decisions, tasks, leads, contracts, messages, statuses, cost] = await Promise.all([
       db.prepare(`SELECT * FROM decision WHERE status = 'open' ORDER BY id DESC`).all(),
       db.prepare(`SELECT assignee, status, COUNT(*) n FROM task
@@ -439,11 +447,14 @@ async function handle(request, env, path, url) {
     ]);
     return J({
       decisions: decisions.results, task_counts: tasks.results,
-      pipeline: leads.results, live_contracts: messages ? contracts.n : 0,
+      pipeline: leads.results, live_contracts: contracts ? contracts.n : 0,
       messages: messages.results,
       statuses: Object.fromEntries(statuses.results.map((s) =>
         [s.key.slice(7), JSON.parse(s.value || "{}")])),
       cost_today: cost || {},
+      desk_events: deskEvents.results,
+      last_sessions: lastSessions.results,
+      working: workingTasks.results,
     });
   }
 

@@ -1,20 +1,31 @@
 /* GLASSHOUSE — the app. Vanilla JS, no build step.
    Reads are open; every write that steers a bot asks for the team PIN once
-   and keeps it locally — that is the sender check, kept because it worked. */
+   and keeps it locally — the sender check.
+
+   Redesigned 04/08 after Zac's review: every tab answers one question.
+     Today      what are my three bots doing, and what do they need from me
+     Pipeline   what is being priced, what is out for decision (a worklist,
+                not a nine-column wall)
+     Companies  who we are working with now; history stays behind a search
+     Contracts  the won jobs and their twelve steps
+     Team       each bot in depth: doing, done lately, conversation
+     Activity   the ledger, filtered to signal
+     Cost       the meter */
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const view = $("#view");
 
-const STAGES = ["new", "acknowledged", "materials_out", "awaiting_costs", "quote_ready",
-  "pre_quote_call", "quote_sent", "follow_up", "final_follow_up"];
 const STAGE_LABEL = {
   new: "New", acknowledged: "Acknowledged", materials_out: "Materials out",
   awaiting_costs: "Awaiting costs", quote_ready: "Quote ready",
   pre_quote_call: "Pre-quote call", quote_sent: "Quote sent",
   follow_up: "Follow-up", final_follow_up: "Final follow-up", closed: "Closed",
 };
+const MARY_STAGES = ["new", "acknowledged", "materials_out", "awaiting_costs",
+  "quote_ready", "pre_quote_call"];
 const PERSONAS = { mary: "Estimating", jacob: "Business development", joseph: "Project management" };
+const NAMES = { mary: "Mary Grace", jacob: "Jacob Wright", joseph: "Joseph Scott" };
 
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -49,7 +60,7 @@ async function post(path, body) {
 }
 function askPin() {
   return new Promise((res, rej) => {
-    const pin = prompt("Team PIN (this is the sender check — it proves the instruction comes from you):");
+    const pin = prompt("Team PIN (the sender check — proof the instruction comes from you):");
     if (!pin) return rej(new Error("no pin"));
     localStorage.pin = pin.trim();
     res(localStorage.pin);
@@ -84,51 +95,87 @@ async function show(name) {
   }
 }
 
+/* shared row for a lead */
+function leadRow(l, dateField) {
+  const d = l[dateField] || l.next_action_date || l.deadline || "";
+  const late = d && d < today();
+  return `<div class="row" data-lead="${esc(l.key)}">
+    <span class="t">${esc(l.title)}</span>
+    <span class="m">${esc(l.company_name || l.company_key || "")}</span>
+    <span class="pill blue">${esc(STAGE_LABEL[l.stage] || l.stage)}</span>
+    <span class="m" style="${late ? "color:var(--red);font-weight:600" : ""}">${esc(d)}</span>
+    <span class="v">${gbp(l.value)}</span>
+  </div>`;
+}
+const wireLeads = (root = document) =>
+  $$("[data-lead]", root).forEach((r) => r.onclick = () => openLead(r.dataset.lead));
+
 /* ------------------------------------------------ today */
+function deskCard(p, ov) {
+  const st = (ov.statuses || {})[p] || {};
+  const n = (ov.task_counts || []).filter((r) => r.assignee === p).reduce((a, r) => a + r.n, 0);
+  const working = (ov.working || []).filter((w) => w.assignee === p);
+  const events = (ov.desk_events || []).filter((e) => e.author === p).slice(0, 3);
+  const sess = (ov.last_sessions || []).find((s) => s.persona === p);
+  const stateCls = st.state === "working" ? "green" : st.state === "idle" ? "blue" : "";
+  return `<div class="glass persona desk" data-goto="team">
+    <header><div class="avatar ${p}">${p[0].toUpperCase()}</div>
+      <div><div class="name">${NAMES[p]}</div>
+      <div class="role">${PERSONAS[p]}</div></div>
+      <span class="state pill ${stateCls}">${st.state || "offline"}</span></header>
+    ${working.length ? `<div class="doing">now: ${esc(working[0].title.slice(0, 90))}</div>` : ""}
+    <div class="desk-meta">
+      <span><b>${n}</b> open task${n === 1 ? "" : "s"}</span>
+      <span>${sess ? `last session ${rel(sess.ts)} · ${fmtTok(sess.context_tokens)} · ${sess.calls} calls` : "no sessions yet"}</span>
+    </div>
+    ${events.length ? `<div class="lately">${events.map((e) => `
+      <div class="ev tight"><span class="ts">${rel(e.ts)}</span>
+      <span class="b">${esc(e.kind)}${e.entity_key ? " · " + esc(e.entity_key) : ""} — ${esc(e.body.slice(0, 85))}</span></div>`).join("")}</div>`
+      : `<div class="empty tightpad">Nothing done yet today.</div>`}
+  </div>`;
+}
+
 async function vToday() {
   const [ov, td] = await Promise.all([api("/overview"), api("/today")]);
   const open = ov.decisions || [];
   const cost = ov.cost_today || {};
   const taskN = (ov.task_counts || []).reduce((a, r) => a + r.n, 0);
-  const pipeVal = (ov.pipeline || []).reduce((a, r) => a + (r.v || 0), 0);
 
   view.innerHTML = `
   <h1>Today</h1>
   <div class="sub">${new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })} — the whole company under one roof of glass.</div>
 
-  <div class="grid cols-4">
-    <div class="glass stat ${open.length ? "warn" : "good"}"><div class="n">${open.length}</div><div class="l">need a human</div></div>
-    <div class="glass stat"><div class="n">${taskN}</div><div class="l">tasks in the queue</div></div>
-    <div class="glass stat"><div class="n">${gbp(pipeVal) || "£0"}</div><div class="l">open pipeline ex VAT</div></div>
-    <div class="glass stat"><div class="n">${fmtTok(cost.c || 0)}</div><div class="l">context tokens today (${cost.n || 0} sessions)</div></div>
-  </div>
+  <div class="grid cols-3" style="align-items:start">${Object.keys(PERSONAS).map((p) => deskCard(p, ov)).join("")}</div>
 
   ${open.length ? `<h2>Needs a human — answer in place</h2><div class="grid">${open.map(dDecision).join("")}</div>` : ""}
 
-  <h2>Calls due today</h2>
-  <div class="glass">${rows(td.due, "Nothing lands today.")}</div>
+  <h2>Messages</h2>
+  <div class="glass">${(ov.messages || []).slice(0, 8).map((m) => `
+    <div class="row" data-goto="team"><span class="m">${rel(m.ts)}</span>
+    <span class="t"><b>${esc(m.author)}</b> → ${esc(m.persona)}: ${esc(m.body.slice(0, 110))}</span></div>`).join("")
+    || `<div class="empty">No conversation yet — type to a desk on the Team page.</div>`}
+  </div>
 
-  ${td.overdue?.length ? `<h2>Overdue — worst first, work these down</h2><div class="glass">${rows(td.overdue)}</div>` : ""}
+  <div class="grid cols-4" style="margin-top:22px">
+    <div class="glass stat ${open.length ? "warn" : "good"}"><div class="n">${open.length}</div><div class="l">need a human</div></div>
+    <div class="glass stat"><div class="n">${taskN}</div><div class="l">tasks in the queue</div></div>
+    <div class="glass stat"><div class="n">${(td.due || []).length + (td.overdue || []).length}</div><div class="l">calls due or overdue</div></div>
+    <div class="glass stat"><div class="n">${fmtTok(cost.c || 0)}</div><div class="l">context today (${cost.n || 0} sessions)</div></div>
+  </div>
+
+  <h2>Calls due today</h2>
+  <div class="glass">${(td.due || []).map((l) => leadRow(l)).join("") || `<div class="empty">Nothing lands today.</div>`}</div>
+
+  ${td.overdue?.length ? `<h2>Overdue — worst first</h2><div class="glass">
+    ${td.overdue.slice(0, 8).map((l) => leadRow(l)).join("")}
+    ${td.overdue.length > 8 ? `<div class="empty">…and ${td.overdue.length - 8} more on the Pipeline page.</div>` : ""}</div>` : ""}
 
   <h2>Deadlines this week</h2>
-  <div class="glass">${rows(td.deadlines, "No tender deadlines inside seven days.", "deadline")}</div>
-
-  <h2>The desks</h2>
-  <div class="grid cols-3">${Object.keys(PERSONAS).map((p) => {
-    const st = (ov.statuses || {})[p] || {};
-    const n = (ov.task_counts || []).filter((r) => r.assignee === p).reduce((a, r) => a + r.n, 0);
-    return `<div class="glass card persona-mini" style="cursor:pointer" onclick="show('team')">
-      <header style="display:flex;gap:10px;align-items:center">
-        <div class="avatar ${p}">${p[0].toUpperCase()}</div>
-        <div><div class="name">${p[0].toUpperCase() + p.slice(1)}</div>
-        <div class="role">${PERSONAS[p]}</div></div>
-        <span class="pill ${st.state === "working" ? "green" : ""}" style="margin-left:auto">${st.state || "offline"}</span>
-      </header>
-      <div class="sub" style="margin:8px 0 0">${n} open task${n === 1 ? "" : "s"}${st.detail ? " — " + esc(st.detail) : ""}</div>
-    </div>`; }).join("")}
-  </div>`;
+  <div class="glass">${(td.deadlines || []).map((l) => leadRow(l, "deadline")).join("")
+    || `<div class="empty">No tender deadlines inside seven days.</div>`}</div>`;
   wireDecisions();
-  wireRows();
+  wireLeads();
+  $$("[data-goto]").forEach((el) => el.onclick = () => show(el.dataset.goto));
 }
 
 function dDecision(d) {
@@ -154,85 +201,81 @@ function wireDecisions() {
   });
 }
 
-function rows(list, empty = "Nothing.", dateField = "next_action_date") {
-  if (!list || !list.length) return `<div class="empty">${empty}</div>`;
-  return list.map((l) => {
-    const late = l[dateField] && l[dateField] < today();
-    return `<div class="row" data-lead="${esc(l.key)}">
-      <span class="t">${esc(l.title)}</span>
-      <span class="m">${esc(STAGE_LABEL[l.stage] || l.stage)}</span>
-      <span class="m ${late ? "late" : ""}" style="${late ? "color:var(--red)" : ""}">${esc(l[dateField] || "")}</span>
-      <span class="v">${gbp(l.value)}</span>
-    </div>`;
-  }).join("");
-}
-function wireRows() { $$("[data-lead]").forEach((r) => r.onclick = () => openLead(r.dataset.lead)); }
-
-/* ------------------------------------------------ pipeline */
+/* ------------------------------------------------ pipeline: two lanes */
 async function vPipeline() {
   const p = await api("/pipeline");
-  const byStage = {};
-  (p.open || []).forEach((l) => (byStage[l.stage] ||= []).push(l));
+  const open = p.open || [];
+  const mary = open.filter((l) => MARY_STAGES.includes(l.stage))
+    .sort((a, b) => (a.deadline || a.next_action_date || "9") <
+                    (b.deadline || b.next_action_date || "9") ? -1 : 1);
+  const jacob = open.filter((l) => !MARY_STAGES.includes(l.stage))
+    .sort((a, b) => (a.next_action_date || "9") < (b.next_action_date || "9") ? -1 : 1);
+  const lane = (title, list, sub) => `
+    <h2>${title} — ${list.length} · ${gbp(list.reduce((a, l) => a + (l.value || 0), 0))}</h2>
+    <div class="sub" style="margin-bottom:8px">${sub}</div>
+    <div class="glass">${list.map((l) => leadRow(l)).join("")
+      || `<div class="empty">Nothing here.</div>`}</div>`;
   view.innerHTML = `
   <h1>Pipeline</h1>
-  <div class="sub">Every open lead, Mary's half then Jacob's. Click a card for the record. Values ex VAT.</div>
-  <div class="board">${STAGES.map((s) => {
-    const ls = byStage[s] || [];
-    const sum = ls.reduce((a, l) => a + (l.value || 0), 0);
-    return `<div class="col glass"><h3>${STAGE_LABEL[s]}<span class="sum">${ls.length ? gbp(sum) : ""}</span></h3>
-      ${ls.map(leadCard).join("") || `<div class="empty" style="padding:8px 14px">—</div>`}
-    </div>`; }).join("")}
-  </div>
+  <div class="sub">Two desks, one flow: Mary prices it, Adam sends it, Jacob chases it. Click any row for the record. Values ex VAT.</div>
+  ${lane("Being priced — Mary", mary, "Sorted by tender deadline. Red means late.")}
+  ${lane("Out for decision — Jacob", jacob, "Sorted by next chase date. Red means the chase is overdue.")}
   <h2>Recently closed</h2>
-  <div class="glass">${(p.closed || []).map((l) => `
+  <div class="glass">${(p.closed || []).slice(0, 10).map((l) => `
     <div class="row" data-lead="${esc(l.key)}">
       <span class="t">${esc(l.title)}</span>
       <span class="pill ${l.outcome === "won" ? "green" : l.outcome === "lost" ? "red" : ""}">${esc(l.outcome || "closed")}</span>
-      <span class="v">${gbp(l.value)}</span>
-    </div>`).join("") || `<div class="empty">Nothing closed yet.</div>`}
+      <span class="v">${gbp(l.value)}</span></div>`).join("") || `<div class="empty">Nothing closed yet.</div>`}
   </div>`;
-  $$(".lead-card").forEach((c) => c.onclick = () => openLead(c.dataset.lead));
-  wireRows();
-}
-function leadCard(l) {
-  const late = l.deadline && l.deadline < today() && l.stage !== "quote_sent";
-  return `<div class="lead-card" data-lead="${esc(l.key)}">
-    <div class="t">${esc(l.title)}</div>
-    <div class="c">${esc(l.company_name || l.company_key)}</div>
-    <div class="foot"><span class="val">${gbp(l.value)}</span>
-    <span class="due ${late ? "late" : ""}">${esc(l.deadline || l.next_action_date || "")}</span></div>
-  </div>`;
+  wireLeads();
 }
 
 /* ------------------------------------------------ companies */
 async function vCompanies() {
   const cs = await api("/companies");
+  const active = cs.filter((c) => c.open_leads > 0 || (c.position || "") !== "");
+  const rest = cs.filter((c) => !active.includes(c));
   view.innerHTML = `
   <h1>Companies</h1>
-  <div class="sub">${cs.length} on record. Lifetime values ex VAT.</div>
-  <div class="filter-bar"><input type="text" id="co-filter" placeholder="Filter…"></div>
-  <div class="glass" id="co-list">${cs.map(coRow).join("") || `<div class="empty">None yet.</div>`}</div>`;
+  <div class="sub">${active.length} in play, ${rest.length} in the history books. Lifetime values ex VAT.</div>
+  <div class="grid cols-3">${active.map((c) => `
+    <div class="glass card co-card" data-co="${esc(c.key)}">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:baseline">
+        <b>${esc(c.name)}</b>
+        <span class="pill ${c.relationship === "won" ? "green" : c.relationship === "quoted" ? "blue" : ""}">${esc(c.relationship)}</span></div>
+      <div class="sub" style="margin:6px 0 0">
+        ${c.open_leads ? c.open_leads + " open lead" + (c.open_leads === 1 ? "" : "s") : "nothing open"}
+        ${c.lifetime_value ? " · has paid us " + gbp(c.lifetime_value) : ""}</div>
+    </div>`).join("") || `<div class="glass card empty">Nobody in play yet.</div>`}
+  </div>
+  <h2>The history books — ${rest.length} companies with decided outcomes</h2>
+  <div class="filter-bar"><input type="text" id="co-filter"
+    placeholder="Search the history (type to look someone up)…"></div>
+  <div class="glass" id="co-rest"><div class="empty">Type above to search, or
+    <a href="#" id="co-all">show all ${rest.length}</a>.</div></div>`;
   const wire = () => $$("[data-co]").forEach((r) => r.onclick = () => openCompany(r.dataset.co));
   wire();
+  const coRow = (c) => `<div class="row" data-co="${esc(c.key)}">
+    <span class="t">${esc(c.name)}</span>
+    <span class="pill ${c.relationship === "won" ? "green" : ""}">${esc(c.relationship)}</span>
+    <span class="v">${gbp(c.lifetime_value)}</span></div>`;
+  const renderRest = (list) => { $("#co-rest").innerHTML =
+    list.map(coRow).join("") || `<div class="empty">No match.</div>`; wire(); };
   $("#co-filter").oninput = (e) => {
-    const q = e.target.value.toLowerCase();
-    $("#co-list").innerHTML = cs.filter((c) => (c.name + c.key).toLowerCase().includes(q)).map(coRow).join("")
-      || `<div class="empty">No match.</div>`;
-    wire();
+    const q = e.target.value.toLowerCase().trim();
+    if (!q) { $("#co-rest").innerHTML = `<div class="empty">Type above to search, or <a href="#" id="co-all">show all ${rest.length}</a>.</div>`; wireAll(); return; }
+    renderRest(rest.filter((c) => (c.name + " " + c.key).toLowerCase().includes(q)));
   };
+  const wireAll = () => { const a = $("#co-all"); if (a) a.onclick = (e) => { e.preventDefault(); renderRest(rest); }; };
+  wireAll();
 }
-const coRow = (c) => `<div class="row" data-co="${esc(c.key)}">
-  <span class="t">${esc(c.name)}</span>
-  <span class="pill ${c.relationship === "won" ? "green" : c.relationship === "quoted" ? "blue" : ""}">${esc(c.relationship)}</span>
-  <span class="m">${c.open_leads ? c.open_leads + " open" : ""}</span>
-  <span class="v">${gbp(c.lifetime_value)}</span></div>`;
 
 /* ------------------------------------------------ contracts */
 async function vContracts() {
   const cs = await api("/contracts");
   view.innerHTML = `
   <h1>Contracts</h1>
-  <div class="sub">Won jobs, purchase order to final payment — Joseph's world.</div>
+  <div class="sub">Won jobs, purchase order to final payment — Joseph's world. A new PO starts a new card.</div>
   <div class="grid cols-2">${cs.map((c) => {
     const doneN = (c.steps_total || 0) - (c.steps_open || 0);
     const pc = c.steps_total ? Math.round(100 * doneN / c.steps_total) : 0;
@@ -243,34 +286,50 @@ async function vContracts() {
       <div class="sub" style="margin:4px 0 0">${esc(c.company_name || c.company_key)}
         · ${gbp(c.value)} · site ${esc(c.site_date || "tbc")}</div>
       <div class="progress"><i style="width:${pc}%"></i></div>
-      <div class="sub" style="margin-top:6px">${doneN}/${c.steps_total || 0} steps done</div>
-    </div>`; }).join("") || `<div class="glass card empty">No contracts on record yet — the next PO starts one.</div>`}
+      <div class="sub" style="margin-top:6px">${c.steps_total
+        ? doneN + "/" + c.steps_total + " steps done"
+        : "steps not seeded yet — Joseph's first job on this contract"}</div>
+    </div>`; }).join("") || `<div class="glass card empty">No live contracts on the record.
+      When a purchase order lands, Joseph opens the card and the twelve steps start.</div>`}
   </div>`;
   $$("[data-ct]").forEach((c) => c.onclick = () => openContract(c.dataset.ct));
 }
 
-/* ------------------------------------------------ team */
+/* ------------------------------------------------ team: each bot in depth */
 async function vTeam() {
   const [ov, msgs] = await Promise.all([api("/overview"), api("/messages")]);
   view.innerHTML = `
   <h1>The team</h1>
-  <div class="sub">Three desks. Type to one and it lands in their queue as a trusted instruction — the PIN is the proof it is you.</div>
+  <div class="sub">Three desks in depth. Type to one and it lands in their queue as a trusted instruction — the PIN is the proof it is you.</div>
   <div class="grid cols-3" style="align-items:start">${Object.keys(PERSONAS).map((p) => {
     const st = (ov.statuses || {})[p] || {};
-    const thread = (msgs || []).filter((m) => m.persona === p).slice(0, 20).reverse();
+    const working = (ov.working || []).filter((w) => w.assignee === p);
+    const events = (ov.desk_events || []).filter((e) => e.author === p).slice(0, 6);
+    const sess = (ov.last_sessions || []).find((s) => s.persona === p);
+    const thread = (msgs || []).filter((m) => m.persona === p).slice(0, 14).reverse();
+    const n = (ov.task_counts || []).filter((r) => r.assignee === p).reduce((a, r) => a + r.n, 0);
     return `<div class="glass persona" data-p="${p}">
       <header><div class="avatar ${p}">${p[0].toUpperCase()}</div>
-        <div><div class="name">${p[0].toUpperCase() + p.slice(1)} ${p === "mary" ? "Grace" : p === "jacob" ? "Wright" : "Scott"}</div>
+        <div><div class="name">${NAMES[p]}</div>
         <div class="role">${PERSONAS[p]}</div></div>
-        <span class="state pill ${st.state === "working" ? "green" : ""}">${st.state || "offline"}</span></header>
+        <span class="state pill ${st.state === "working" ? "green" : st.state === "idle" ? "blue" : ""}">${st.state || "offline"}</span></header>
+      ${working.length ? `<div class="doing">now: ${esc(working[0].title.slice(0, 90))}</div>` : ""}
+      <div class="desk-meta"><span><b>${n}</b> open</span>
+        <span>${sess ? `last session ${rel(sess.ts)} · ${fmtTok(sess.context_tokens)}` : "no sessions yet"}</span></div>
+      <h2 style="margin:14px 0 6px">Lately</h2>
+      <div class="lately">${events.map((e) => `
+        <div class="ev tight"><span class="ts">${rel(e.ts)}</span>
+        <span class="b">${esc(e.kind)}${e.entity_key ? " · " + esc(e.entity_key) : ""} — ${esc(e.body.slice(0, 90))}</span></div>`).join("")
+        || `<div class="empty tightpad">Quiet so far.</div>`}</div>
+      <h2 style="margin:14px 0 6px">Conversation</h2>
       <div class="thread">${thread.map((m) => `
         <div class="msg ${m.author === p ? "bot" : "human"}"><div class="who">${esc(m.author)} · ${rel(m.ts)}</div>${esc(m.body)}</div>`).join("")
         || `<div class="empty">No conversation yet.</div>`}</div>
-      <div class="composer"><textarea placeholder="Message ${p[0].toUpperCase() + p.slice(1)}…"></textarea>
+      <div class="composer"><textarea placeholder="Message ${NAMES[p].split(" ")[0]}…"></textarea>
       <button class="btn">Send</button></div>
     </div>`; }).join("")}
   </div>`;
-  $$(".persona").forEach((el) => {
+  $$(".persona[data-p]").forEach((el) => {
     $(".btn", el).onclick = async () => {
       const body = $("textarea", el).value.trim();
       if (!body) return;
@@ -283,23 +342,40 @@ async function vTeam() {
 
 /* ------------------------------------------------ activity */
 async function vActivity() {
-  const evs = await api("/feed?limit=150");
+  const evs = await api("/feed?limit=200");
+  let who = "all", showMail = false;
   view.innerHTML = `
   <h1>Activity</h1>
-  <div class="sub">The event stream — every fact, by every author, newest first.</div>
-  <div class="filter-bar"><input type="text" id="ev-filter" placeholder="Filter (author, kind, text)…"></div>
+  <div class="sub">The ledger — every fact, by every author, newest first.</div>
+  <div class="filter-bar" id="ev-chips">
+    ${["all", "mary", "jacob", "joseph", "intake"].map((w) =>
+      `<button class="chip ${w === "all" ? "on" : ""}" data-who="${w}">${w}</button>`).join("")}
+    <button class="chip" id="chip-mail">routine mail</button>
+    <input type="text" id="ev-filter" placeholder="Search…">
+  </div>
   <div class="glass feed" id="ev-list"></div>`;
-  const render = (q = "") => {
-    const list = evs.filter((e) => !q ||
-      (e.author + " " + e.kind + " " + e.entity_key + " " + e.body).toLowerCase().includes(q));
+  const render = () => {
+    const q = ($("#ev-filter").value || "").toLowerCase();
+    const list = evs.filter((e) =>
+      (who === "all" || e.author === who) &&
+      (showMail || (e.kind !== "mail_fyi" && e.kind !== "mail_clerical")) &&
+      (!q || (e.author + " " + e.kind + " " + e.entity_key + " " + e.body).toLowerCase().includes(q)))
+      .slice(0, 60);
     $("#ev-list").innerHTML = list.map((e) => `
       <div class="ev"><span class="ts">${esc(e.ts.slice(5, 16))}</span>
       <span class="k"><span class="pill ${e.kind === "catch" ? "amber" : e.kind.startsWith("mail") ? "blue" : ""}">${esc(e.kind)}</span></span>
       <span class="b"><b>${esc(e.author)}</b>${e.entity_key ? " · " + esc(e.entity_key) : ""} — ${esc(e.body)}</span></div>`).join("")
-      || `<div class="empty">Nothing yet.</div>`;
+      || `<div class="empty">Nothing matches.</div>`;
   };
+  $$("#ev-chips .chip[data-who]").forEach((c) => c.onclick = () => {
+    who = c.dataset.who;
+    $$("#ev-chips .chip[data-who]").forEach((x) => x.classList.toggle("on", x === c));
+    render();
+  });
+  $("#chip-mail").onclick = () => { showMail = !showMail;
+    $("#chip-mail").classList.toggle("on", showMail); render(); };
+  $("#ev-filter").oninput = render;
   render();
-  $("#ev-filter").oninput = (e) => render(e.target.value.toLowerCase());
 }
 
 /* ------------------------------------------------ cost */
@@ -310,29 +386,48 @@ async function vCost() {
   const days = Object.keys(byDay).sort();
   const max = Math.max(1, ...days.map((d) => Object.values(byDay[d]).reduce((a, r) => a + r.context, 0)));
   const TARGET = 118e6;
+  const tRows = byDay[today()] || {};
+  const tTot = Object.values(tRows).reduce((a, r) => a + r.context, 0);
+  let showAll = false;
   view.innerHTML = `
   <h1>Cost</h1>
-  <div class="sub">Context tokens per day — the real meter, deduped per call. Target: ${fmtTok(TARGET)}/day for the whole system.</div>
+  <div class="sub">Context tokens — the real meter, deduped per call. Target ${fmtTok(TARGET)}/day for the whole system.</div>
+  <div class="grid cols-4">
+    <div class="glass stat ${tTot > TARGET ? "bad" : "good"}"><div class="n">${fmtTok(tTot)}</div><div class="l">today, all desks ${tTot > TARGET ? "— over target" : ""}</div></div>
+    ${["mary", "jacob", "joseph"].map((p) => `<div class="glass stat">
+      <div class="n">${fmtTok((tRows[p] || {}).context || 0)}</div>
+      <div class="l">${p} (${(tRows[p] || {}).sessions || 0} sessions)</div></div>`).join("")}
+  </div>
+  <h2>By day</h2>
   <div class="glass">
     <div class="bars">${days.map((d) => {
       const rs = byDay[d];
       const tot = Object.values(rs).reduce((a, r) => a + r.context, 0);
       return `<div class="bar" title="${d}: ${fmtTok(tot)}">
         ${["joseph", "jacob", "mary"].map((p) => rs[p] ?
-          `<i class="${p}" style="height:${Math.round(120 * rs[p].context / max)}px"></i>` : "").join("")}
+          `<i class="${p}" style="height:${Math.max(2, Math.round(110 * rs[p].context / max))}px"></i>` : "").join("")}
         <span class="d">${d.slice(5)}${tot > TARGET ? " ⚠" : ""}</span></div>`; }).join("")
       || `<div class="empty">No sessions metered yet.</div>`}</div>
     <div class="legend"><span><i style="background:#1f9d5b"></i>Mary</span>
     <span><i style="background:#2470a8"></i>Jacob</span>
-    <span><i style="background:#8a5fbf"></i>Joseph</span></div>
+    <span><i style="background:#8a5fbf"></i>Joseph</span>
+    <span style="margin-left:auto">the ⚠ marks a day over target</span></div>
   </div>
   <h2>Recent sessions</h2>
-  <div class="glass" style="overflow-x:auto"><table>
+  <div class="glass" style="overflow-x:auto"><table id="sess">
     <tr><th>when</th><th>persona</th><th>entity</th><th>model</th><th>calls</th><th>context</th><th>secs</th></tr>
-    ${(c.recent || []).map((r) => `<tr><td>${esc(r.ts.slice(5, 16))}</td><td>${esc(r.persona)}</td>
-      <td>${esc(r.entity_key)}</td><td>${esc((r.model || "").replace("claude-", ""))}</td>
-      <td>${r.calls}</td><td>${fmtTok(r.context_tokens)}</td><td>${r.seconds}</td></tr>`).join("")}
-  </table></div>`;
+  </table>
+  <div class="empty"><a href="#" id="sess-more">show all ${(c.recent || []).length}</a></div></div>`;
+  const renderSess = () => {
+    $("#sess").innerHTML = `<tr><th>when</th><th>persona</th><th>entity</th><th>model</th><th>calls</th><th>context</th><th>secs</th></tr>` +
+      (c.recent || []).slice(0, showAll ? 999 : 12).map((r) => `<tr><td>${esc(r.ts.slice(5, 16))}</td>
+      <td>${esc(r.persona)}</td><td>${esc(r.entity_key)}</td>
+      <td>${esc((r.model || "").replace("claude-", ""))}</td>
+      <td>${r.calls}</td><td>${fmtTok(r.context_tokens)}</td><td>${r.seconds}</td></tr>`).join("");
+  };
+  renderSess();
+  $("#sess-more").onclick = (e) => { e.preventDefault(); showAll = !showAll; renderSess();
+    $("#sess-more").textContent = showAll ? "show fewer" : "show all " + (c.recent || []).length; };
 }
 
 /* ------------------------------------------------ drawers */
@@ -369,7 +464,7 @@ async function openLead(key) {
     ${(c.contacts || []).length ? `<h2>Contacts</h2>` + c.contacts.map((ct) =>
       `<div class="row"><span class="t">${esc(ct.name || "?")}</span><span class="m">${esc(ct.email || "")}</span></div>`).join("") : ""}
     <h2>Recent</h2>
-    ${(c.recent_events || []).map((e) => `<div class="ev"><span class="ts">${esc(e.ts.slice(5, 16))}</span>
+    ${(c.recent_events || []).slice(0, 12).map((e) => `<div class="ev"><span class="ts">${esc(e.ts.slice(5, 16))}</span>
       <span class="b"><b>${esc(e.author)}</b> ${esc(e.kind)} — ${esc(e.body)}</span></div>`).join("") || `<div class="empty">Quiet.</div>`}
   `);
   const outcome = (o) => async () => {
@@ -398,10 +493,10 @@ async function openCompany(key) {
       `<div class="row"><span class="t">${esc(ct.name || "?")}</span><span class="m">${esc(ct.email || "")}</span>
        <span class="m">${esc(ct.role || "")}</span></div>`).join("") : ""}
     <h2>Recent</h2>
-    ${(c.recent_events || []).map((e) => `<div class="ev"><span class="ts">${esc(e.ts.slice(5, 16))}</span>
+    ${(c.recent_events || []).slice(0, 12).map((e) => `<div class="ev"><span class="ts">${esc(e.ts.slice(5, 16))}</span>
       <span class="b"><b>${esc(e.author)}</b> ${esc(e.kind)} — ${esc(e.body)}</span></div>`).join("") || `<div class="empty">Quiet.</div>`}
   `);
-  $$("#drawer-body [data-lead]").forEach((r) => r.onclick = () => openLead(r.dataset.lead));
+  wireLeads($("#drawer-body"));
 }
 
 async function openContract(key) {
@@ -417,14 +512,14 @@ async function openContract(key) {
       <span class="t" style="${s.done_at ? "text-decoration:line-through;opacity:.55" : ""}">${s.n}. ${esc(s.label)}</span>
       <span class="m">${esc(s.detail || "")}</span>
       <span class="m">${s.done_at ? "done " + esc(s.done_at.slice(0, 10)) : "due " + esc(s.due || "tbc")}</span>
-    </div>`).join("") || `<div class="empty">No steps seeded yet.</div>`}
+    </div>`).join("") || `<div class="empty">No steps seeded yet — Joseph's first job on this contract.</div>`}
     ${(c.invoices || []).length ? `<h2>Invoices</h2>` + c.invoices.map((i) =>
       `<div class="row"><span class="t">${esc(i.ref || "draft")}</span>
        <span class="pill ${i.status === "paid" ? "green" : i.status === "overdue" ? "red" : ""}">${esc(i.status)}</span>
        <span class="v">${gbp(i.value)}</span></div>`).join("") : ""}
     ${ct.position ? `<h2>Position</h2><div class="position">${esc(ct.position)}</div>` : ""}
     <h2>Recent</h2>
-    ${(c.recent_events || []).map((e) => `<div class="ev"><span class="ts">${esc(e.ts.slice(5, 16))}</span>
+    ${(c.recent_events || []).slice(0, 12).map((e) => `<div class="ev"><span class="ts">${esc(e.ts.slice(5, 16))}</span>
       <span class="b"><b>${esc(e.author)}</b> ${esc(e.kind)} — ${esc(e.body)}</span></div>`).join("") || `<div class="empty">Quiet.</div>`}
   `);
 }
