@@ -484,12 +484,41 @@ async function handle(request, env, path, url) {
     return J({ ok: true });
   }
 
+  // A crashed worker's tasks go back in the queue - but NOT for ever. A task
+  // that kills its session twice will kill it a third time, and each attempt
+  // costs a full session for nothing. After MAX_ATTEMPTS it is put down and a
+  // human is asked why.
   if (method === "POST" && seg[0] === "task" && seg[1] === "release") {
-    needBot(); // a crashed worker's tasks go back in the queue
-    await db.prepare(
-      `UPDATE task SET status = 'open' WHERE status = 'working' AND assignee = ?`
-    ).bind(body.assignee).run();
-    return J({ ok: true });
+    needBot();
+    const MAX_ATTEMPTS = 2;
+    const stuck = await db.prepare(
+      `SELECT * FROM task WHERE status = 'working' AND assignee = ?`
+    ).bind(body.assignee).all();
+    for (const t of stuck.results) {
+      const n = (t.attempts || 0) + 1;
+      if (n >= MAX_ATTEMPTS) {
+        await db.prepare(
+          `UPDATE task SET status = 'dropped', attempts = ?, done_at = datetime('now'),
+           done_by = 'system', result = ? WHERE id = ?`
+        ).bind(n, `abandoned after ${n} failed sessions (${body.why || "session died"})`,
+          t.id).run();
+        await db.prepare(
+          `INSERT INTO decision (raised_by, entity_type, entity_key, question, context)
+           VALUES (?,?,?,?,?)`
+        ).bind(body.assignee, t.entity_type || "", t.entity_key || "",
+          `This task keeps killing my session: ${t.title.slice(0, 120)}`,
+          `Tried ${n} times and the session died each time (${body.why || "no reason recorded"}). ` +
+          `It is now parked rather than retried - each attempt costs a whole session. ` +
+          `Probably too big to do in one go, or it needs something I cannot get to.`).run();
+        await addEvent(db, { author: "system", entity_type: t.entity_type,
+          entity_key: t.entity_key, kind: "task_abandoned",
+          body: `${t.title.slice(0, 140)} - parked after ${n} failed sessions` });
+      } else {
+        await db.prepare(`UPDATE task SET status = 'open', attempts = ? WHERE id = ?`)
+          .bind(n, t.id).run();
+      }
+    }
+    return J({ ok: true, released: stuck.results.length });
   }
 
   if (method === "GET" && seg[0] === "tasks") {

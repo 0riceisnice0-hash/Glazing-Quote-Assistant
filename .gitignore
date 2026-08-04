@@ -27,3 +27,5 @@ dashboard/.dev.vars
 attic/dashboard/.wrangler/
 attic/dashboard/.dev.vars
 .wrangler/
+data/mail/
+data/glasshouse-usage.jsonl

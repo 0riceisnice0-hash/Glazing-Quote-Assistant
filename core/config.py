@@ -35,7 +35,12 @@ DISPATCH_POLL = 15          # seconds between queue checks
 # replaced by evidence in the seed and by these three walls.
 DAY_CONTEXT_BREAKER = int(os.environ.get("GLASSHOUSE_DAY_BREAKER", 150_000_000))
 SESSION_KILL_TOKENS = int(os.environ.get("GLASSHOUSE_SESSION_KILL", 20_000_000))
-SESSION_MAX_TURNS = int(os.environ.get("GLASSHOUSE_MAX_TURNS", 30))
+# Tool calls per session. 30 was too few for real work: Mary's first live run
+# hit it at 411 seconds and 2.7M tokens, and because the limit kills the
+# session before it can call finish, EVERY ONE OF THOSE TOKENS WAS LOST. The
+# number matters less than the fact that a session must close out before it
+# arrives - which is why the prompt now states the budget outright.
+SESSION_MAX_TURNS = int(os.environ.get("GLASSHOUSE_MAX_TURNS", 70))
 SESSION_TIMEOUT = 45 * 60
 
 # THE WORKING DAY, 08:00-18:00 (Zac, 04/08). Outside it the bots are off - with

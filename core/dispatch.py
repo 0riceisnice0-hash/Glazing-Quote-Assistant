@@ -103,8 +103,22 @@ def build_prompt(persona, entity, tasks):
                          + "\n".join("  " + a for a in p["attachments"]))
     lines.append(budget.cost_note(persona))
     lines.append("""
+===== YOUR BUDGET THIS SESSION =====
+You have **%d tool calls**, and the session is killed the moment you reach it.
+A session killed before it calls finish loses EVERYTHING it did - the first
+live run spent 2.7 million tokens and saved not one fact, because it was still
+working when the limit arrived.
+
+So: do an amount of work that fits, and CLOSE OUT WITH CALLS TO SPARE. If the
+job is bigger than the budget, do the most valuable slice, write what you
+learned, and say in your finish note what is left - it comes back as a fresh
+task with a fresh budget. Stopping early with the work saved always beats
+being cut off mid-flight.
+
 ===== HOW TO FINISH =====
-Work the tasks, then close out with ONE call - this is the only ritual:
+Work the tasks, then close out with ONE call - this is the only ritual:"""
+        % config.SESSION_MAX_TURNS)
+    lines.append("""
 
   python core\\finish.py --persona %s --results r.json
 
@@ -206,9 +220,23 @@ def run_group(persona, entity, tasks, dry_run=False):
                    % ("finished" if ok else "FAILED", took, cost["calls"],
                       "{:,}".format(cost["context"])))
     if not ok:
-        # Tasks a dead session claimed go back in the queue.
-        record.call("/api/task/release", {"assignee": persona})
+        # Tasks a dead session claimed go back in the queue - twice at most.
+        # The reason travels with them so the decision a human eventually sees
+        # says "reached max turns", not "it broke".
+        why = "reached the %d-call limit" % config.SESSION_MAX_TURNS \
+            if "max turns" in (out or "").lower() else "session exited badly"
+        record.call("/api/task/release", {"assignee": persona, "why": why})
     return ok
+
+
+def clear_stale_status():
+    """On start-up nobody is working. A status left saying 'working' by a
+    killed engine is a lie the hub then shows all day."""
+    for p in config.PERSONAS:
+        try:
+            record.status(p, "idle", "")
+        except Exception:
+            pass
 
 
 def pass_once(dry_run=False):
