@@ -85,14 +85,16 @@ Director - the decision maker, and the one who can actually pick up a phone), Gi
 
 ## 4. Talking to Mary
 
-You have a direct line: `python scripts/bot_chat.py`. Every call takes `--as jacob`; the recipient
-follows from that, so there is no `--to`.
+You have a direct line: `python scripts/bot_chat.py`. Every call takes `--as jacob`, and
+**since a third bot exists you must also name the recipient with `--to`** - without it the
+API returns `400 Say who it is for - more than one possible recipient`. (This file used to
+say the recipient followed from `--as` and there was no `--to`. That stopped being true.)
 
 ```bash
-python scripts/bot_chat.py --as jacob --pending                      # what she has sent you
-python scripts/bot_chat.py --as jacob --body-file note.txt --subject "Lindum"
-python scripts/bot_chat.py --as jacob --body-file q.txt --wants-reply
-python scripts/bot_chat.py --as jacob --seen 12 13                   # clear them when done
+python scripts/bot_chat.py --as jacob --pending                              # what she has sent you
+python scripts/bot_chat.py --as jacob --to mary --body-file note.txt --subject "Lindum"
+python scripts/bot_chat.py --as jacob --to mary --body-file q.txt --wants-reply
+python scripts/bot_chat.py --as jacob --seen 12 13                           # clear them when done
 ```
 
 **How it should go.** You are working. You hit something you cannot answer but Mary can -
