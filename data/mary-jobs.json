@@ -390,6 +390,21 @@
    ],
    "senders": [],
    "opened": "2026-08-04T11:55:45"
+  },
+  "alkerden": {
+   "name": "Alkerden The Hub - CW & external doors (Thomas Sinden)",
+   "client": "Thomas Sinden",
+   "match": [
+    "alkerden",
+    "the hub",
+    "seyi",
+    "adesogan",
+    "thomas-sinden",
+    "15808",
+    "qp65153"
+   ],
+   "senders": [],
+   "opened": "2026-08-04T12:00:43"
   }
  },
  "chats": {
@@ -604,6 +619,13 @@
    "session_id": "dea58dfd-7903-4c60-a2ad-5bab0b37b45c",
    "started": false,
    "created": "2026-08-04T11:55:45",
+   "last_active": null,
+   "runs": 0
+  },
+  "alkerden": {
+   "session_id": "b7332263-3c02-45b7-9b6d-63e15ecfe3a1",
+   "started": false,
+   "created": "2026-08-04T12:00:43",
    "last_active": null,
    "runs": 0
   }

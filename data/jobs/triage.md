@@ -76,6 +76,19 @@ CONTRACTOR is not our date either (Redditch, 26/06).
     awaiting a decision. The record backs him - Paul quoted **GBP 1,080 + VAT** for a ~50-window
     condition survey on 28/07 16:24, **50% off the survey fee if the remedial works follow**, and Mark
     Williams replied 29/07 15:13 that he is discussing it internally. Not estimating work and not open.
+  - **ALKERDEN, THE HUB - NEW CHAT `alkerden`, AND IT IS 27 DAYS PAST A DATE ADAM GAVE THE CLIENT
+    (botmsg-44, answered).** Jacob asked whether the updated Sinden quotation had gone since 30/07.
+    It has not - **nothing has left us to any Sinden address since 02/07 12:37**, and Adam's own
+    written commitment to Seyi Adesogan on 01/07 was to *"resubmit our costs to you ahead of 8th
+    July"*. The customer has SECURED the project, so this is a live job wanting a price. All traffic
+    since is supplier-side (West Coast 07/07, A Plus QP65153 20/07 and REV 22/07, Vetroseal 20/07).
+    **The cost base is not complete** - the A Plus revision omits ED11/ED12 as Sunray Doors and drops
+    all louvres from the thermal calc - **and Adam's 02/07 Velfac question to Seyi has no answer in
+    estimating@**, which is why the resubmission has no agreed basis. Chat opened, hub card and
+    handover row added, and it LEADS the 05/08 morning update. No second email tonight: the date
+    slipped a month ago, so the interruption value of saying so at 13:00 rather than 07:45 is nil.
+    **Two domains, one relationship:** Alkerden is thomas-sinden.co.uk, Alice Billings is
+    sindenconstruction.co.uk.
   - **STOKE PARK -> `stoke-park`**: Adam amended the CN Glass order today (Spec A is 28.8mm overall,
     so an **18mm** spacer, not the 16mm the 27/07 order was placed on). Full note on the noticeboard,
     including that the amendment is cc'd to Martin Gregory, who resigned on 03/08.
