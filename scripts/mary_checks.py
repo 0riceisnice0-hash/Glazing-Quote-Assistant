@@ -2201,8 +2201,106 @@ def check_rfq_answered(m):
                   "all %d RFQ item(s) answered by the supplier" % len(items), "Brocks Hill")
 
 
+def check_uplift_applied(m):
+    """Brocks Hill Phase 2, 04/08/2026. Five Strongdor steel doors were issued to
+    SMD at GBP 2,728.81 each, which is Strongdor's GBP 2,637.01 per door-set plus
+    the GBP 459.00 delivery split five ways - to the penny. The house uplift, code
+    value x 75%, was never applied. GBP 7,500 of margin left the building inside a
+    document that looked perfect, and the matching installation labour (5 x DAD
+    500) was missing too, for GBP 10,000 in total.
+
+    WHY THE TWO RULES EITHER SIDE OF THIS ONE BOTH MISS IT.
+    `check_net_pricing` reconciles the total, and the total was internally
+    consistent - 2,728.81 x 5 = 13,644.05, correct arithmetic on a wrong rate.
+    `check_supplier_covers_quantity` compares the line against the supplier quote,
+    and the line MATCHED the supplier quote exactly. That match is the symptom.
+    Every other quantity- or total-based check reads a row sold at cost as clean,
+    because at cost is where the two documents agree.
+
+    So the question has to be asked a third way: SELL MINUS SUPPLY, ROW BY ROW,
+    AGAINST THE CODE TABLE. On Brocks Hill that took one pass over nine rows -
+    eight landed on their adder to the penny (SAD 900, DAD 1500, ELAW 637.50,
+    LAW 487.50) and one came out at 91.80. It needs no re-pricing and no supplier
+    document, only the workbook that is about to be issued.
+
+    THE TELL, worth knowing because it is where to look first: a late line dropped
+    in under deadline pressure. The steel cost landed at 14:41 on 31/07 and the
+    tender went to the client at 15:12. The placeholder it replaced - GBP 2,000,
+    described in writing as "plus our markup" - had no uplift in it either, so the
+    error was in the row from the moment the row existed and survived a check by
+    the Commercial Director because the number moved and looked new.
+
+    'priced_rows': [{ref, code, qty, supply_each, sell_each, additional_each}]
+    `additional_each` is anything legitimately in the sell that is not the uplift -
+    a delivery share, a carriage recharge. State it; do not fold it into supply,
+    because folding it in is exactly how this row read as correct."""
+    rows = m.get("priced_rows")
+    if rows is None:
+        return result("the house uplift is on every row", UNKNOWN,
+                      "State every priced row against its code: 'priced_rows': [{ref, code, qty, "
+                      "supply_each, sell_each, additional_each}]. A row sold at supply cost "
+                      "reconciles against its own total AND against the supplier quote, so nothing "
+                      "else in this file can see it.",
+                      "Brocks Hill Phase 2",
+                      remedy="Open the pricing workbook and read sell minus supply on each row "
+                             "against the code table. It is one pass and needs no re-pricing.")
+    if not rows:
+        return result("the house uplift is on every row", NA,
+                      "no priced rows on this job", "Brocks Hill Phase 2")
+    try:
+        import mary_pricing as _p
+        code_value = _p.CODE_VALUE
+    except Exception as exc:
+        return result("the house uplift is on every row", UNKNOWN,
+                      "the code table could not be read from mary_pricing (%s: %s), so no row "
+                      "could be checked - and 'not checked' is not 'correct'"
+                      % (type(exc).__name__, exc),
+                      "Brocks Hill Phase 2")
+    short, unknown = [], []
+    for r in rows:
+        ref = r.get("ref", "?")
+        code = str(r.get("code", "")).strip().upper()
+        if code not in code_value:
+            unknown.append("%s (code %r is not in the code table)" % (ref, r.get("code")))
+            continue
+        try:
+            supply = float(r["supply_each"])
+            sell = float(r["sell_each"])
+            extra = float(r.get("additional_each") or 0)
+        except (TypeError, ValueError, KeyError):
+            unknown.append("%s (supply_each %r / sell_each %r is not a number)"
+                           % (ref, r.get("supply_each"), r.get("sell_each")))
+            continue
+        due = round(code_value[code] * 0.75, 2)
+        got = round(sell - supply - extra, 2)
+        if abs(got - due) <= 0.01:
+            continue
+        try:
+            qty = int(r.get("qty") or 1)
+        except (TypeError, ValueError):
+            qty = 1
+        short.append("%s (%s): uplift is GBP %s, code %s is worth GBP %s - GBP %s x %d = "
+                     "GBP %s adrift"
+                     % (ref, code, format(got, ",.2f"), code, format(due, ",.2f"),
+                        format(due - got, ",.2f"), qty, format((due - got) * qty, ",.2f")))
+    if short:
+        return result("the house uplift is on every row", FAIL,
+                      "Rows priced at or near supply cost: %s." % "; ".join(short),
+                      "Brocks Hill Phase 2",
+                      remedy="Apply the code adder, and check the installation line recomputes "
+                             "from the labour codes WITH those rows in it - a row that lost its "
+                             "uplift usually lost its labour too.")
+    if unknown:
+        return result("the house uplift is on every row", UNKNOWN,
+                      "Rows that could not be checked: %s." % ", ".join(unknown),
+                      "Brocks Hill Phase 2")
+    return result("the house uplift is on every row", PASS,
+                  "%d priced row(s) carry their code adder" % len(rows),
+                  "Brocks Hill Phase 2")
+
+
 RULES = [
-    check_rfq_answered,
+    check_rfq_answered, check_uplift_applied,
     check_our_qualifications_survive_signature,
     check_priced_scope_is_not_excluded, check_bought_in_lump_has_a_quantity_basis,
     check_system_coupling, check_panic_hardware, check_glass_ownership, check_quantities,
@@ -2235,6 +2333,7 @@ def blank_manifest(job):
         "finishes": None,
         "u_value": None,
         "supplier_coverage": None,
+        "priced_rows": None,
         "rfq_items": None,
         "price_commitment": None,
         "delivery_terms": None,
@@ -3245,6 +3344,66 @@ def selftest_screen_variants():
     return ok
 
 
+def selftest_uplift_variants():
+    """Brocks Hill Phase 2, 04/08/2026. The founding row is the fifth one below -
+    a steel doorset sold at Strongdor's cost plus the delivery share and nothing
+    else. Replay the real workbook: eight rows correct to the penny, one adrift by
+    exactly GBP 1,500 a door.
+
+    The other arms are the ways this rule could be wrong in the dangerous
+    direction - reading a bad row as clean. A delivery share folded into the sell
+    must NOT excuse a missing uplift (that is the founding case itself); a code
+    the table does not know must ASK rather than pass; and an unparseable number
+    must ASK rather than crash the run, which is the fault riverside found in the
+    delivery rule on 28/07."""
+    real = {"priced_rows": [
+        {"ref": "E.02 door", "code": "SAD", "qty": 1, "supply_each": 2589.1085, "sell_each": 3489.1085},
+        {"ref": "E.04 door", "code": "DAD", "qty": 2, "supply_each": 2878.661, "sell_each": 4378.661},
+        {"ref": "E.01/E.03 window-door", "code": "SAD", "qty": 4, "supply_each": 3137.9195, "sell_each": 4037.9195},
+        {"ref": "E.03 louvred door", "code": "DAD", "qty": 2, "supply_each": 2940.5155, "sell_each": 4440.5155},
+        {"ref": "E.01 steel door", "code": "DAD", "qty": 5, "supply_each": 2637.01,
+         "sell_each": 2728.81, "additional_each": 91.80},
+        {"ref": "E.02 window", "code": "ELAW", "qty": 23, "supply_each": 1362.57, "sell_each": 2000.07},
+        {"ref": "E.04 window", "code": "ELAW", "qty": 4, "supply_each": 1098.90, "sell_each": 1736.40},
+        {"ref": "E.05 window", "code": "LAW", "qty": 2, "supply_each": 620.49, "sell_each": 1107.99},
+        {"ref": "E.06 window", "code": "ELAW", "qty": 1, "supply_each": 984.64, "sell_each": 1622.14},
+    ]}
+    fixed = {"priced_rows": [dict(r, sell_each=4228.81) if r["ref"] == "E.01 steel door" else r
+                             for r in real["priced_rows"]]}
+    # the delivery share moved into the sell instead of being declared - the row
+    # still has no uplift and must still fail
+    hidden = {"priced_rows": [{"ref": "E.01 steel door", "code": "DAD", "qty": 5,
+                               "supply_each": 2637.01, "sell_each": 2728.81}]}
+    badcode = {"priced_rows": [{"ref": "mystery", "code": "ZZZ", "qty": 1,
+                                "supply_each": 100.0, "sell_each": 200.0}]}
+    badnum = {"priced_rows": [{"ref": "typo", "code": "DAD", "qty": 1,
+                               "supply_each": "2,637.01", "sell_each": 4137.01}]}
+    a = check_uplift_applied(real)
+    b = check_uplift_applied(fixed)
+    c = check_uplift_applied(hidden)
+    d = check_uplift_applied(badcode)
+    e = check_uplift_applied(badnum)
+    f = check_uplift_applied({})
+    g = check_uplift_applied({"priced_rows": []})
+    checks = [
+        ("the issued Brocks Hill workbook FAILs", a["status"] == FAIL),
+        ("it names the steel door row", "E.01 steel door" in a["detail"]),
+        ("it quantifies the hole at 7,500", "7,500.00 adrift" in a["detail"]),
+        ("it does NOT accuse the eight correct rows", "E.02 window" not in a["detail"]),
+        ("applying the 1,500 clears it", b["status"] == PASS),
+        ("a delivery share folded into the sell still FAILs", c["status"] == FAIL),
+        ("an unknown code ASKs, never passes", d["status"] == UNKNOWN),
+        ("an unparseable number ASKs rather than crashing", e["status"] == UNKNOWN),
+        ("an unfilled manifest ASKs", f["status"] == UNKNOWN),
+        ("a job with no priced rows is N/A", g["status"] == NA),
+    ]
+    bad = [n for n, got in checks if not got]
+    print("  %-22s %d/%d uplift variants behave as intended%s"
+          % ("uplift", len(checks) - len(bad), len(checks),
+             "" if not bad else "  MISSED: " + "; ".join(bad)))
+    return not bad
+
+
 def selftest_one_crash_costs_one_rule():
     """A rule that raises must lose itself, not the rest of the run.
 
@@ -3345,6 +3504,8 @@ def selftest():
     if not selftest_fabricator_variants():
         ok = False
     if not selftest_screen_variants():
+        ok = False
+    if not selftest_uplift_variants():
         ok = False
     if not selftest_one_crash_costs_one_rule():
         ok = False

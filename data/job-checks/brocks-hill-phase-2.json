@@ -1,398 +1,464 @@
 {
- "job": "Brocks Hill Phase 2 Teaching Block (Spacemaker Developments / SMDT0173)",
- "created": "2026-07-27",
- "_source": "Checked against architect's Window Schedule 23409-S2E-04-00-D-A-32 XX P04 (30/01/26), Door Schedule ...-31 XX P06 (30/01/26), Employer's Requirements 003 s.7.5, SMD Building Works Pricing Schedule, supplier quotes BSW QT253232 and Bellview 0000000503 (both 22/07/2026), against Gintare's outgoing pricing xlsx + proposal docx dated 28/07/2026.",
- "coupled_runs": [
-  {
-   "name": "Classroom door/window elements ED.0.02+W.0.01, ED.0.03+W.0.06, ED.0.11+W.0.10, ED.0.12+W.0.13 (4no 1800x2110)",
-   "elements": [
+  "job": "Brocks Hill Phase 2 Teaching Block (Spacemaker Developments / SMDT0173)",
+  "created": "2026-07-27",
+  "_source": "Checked against architect's Window Schedule 23409-S2E-04-00-D-A-32 XX P04 (30/01/26), Door Schedule ...-31 XX P06 (30/01/26), Employer's Requirements 003 s.7.5, SMD Building Works Pricing Schedule, supplier quotes BSW QT253232 and Bellview 0000000503 (both 22/07/2026), against Gintare's outgoing pricing xlsx + proposal docx dated 28/07/2026. | 04/08/2026: rebuilt against the document ACTUALLY ISSUED to SMD 31/07/2026 15:12 (GBP 118,278.52).",
+  "coupled_runs": [
     {
-     "ref": "ED.0.02/03/11/12 door leaf (1200 wide)",
-     "system": "SMA Smart Wall"
+      "name": "Classroom door/window elements ED.0.02+W.0.01, ED.0.03+W.0.06, ED.0.11+W.0.10, ED.0.12+W.0.13 (4no 1800x2110)",
+      "elements": [
+        {
+          "ref": "ED.0.02/03/11/12 door leaf (1200 wide)",
+          "system": "SMA Smart Wall"
+        },
+        {
+          "ref": "W.0.01/06/10/13 fixed field (600 wide)",
+          "system": "SMA Smart Wall"
+        }
+      ]
     },
     {
-     "ref": "W.0.01/06/10/13 fixed field (600 wide)",
-     "system": "SMA Smart Wall"
+      "name": "Standalone Sheerline windows W.0.02-05, W.0.07-09, W.0.11-12, W.1.01-21 - no window sits in a coupled run with a door",
+      "elements": [
+        {
+          "ref": "W.x.xx Type E.02/E.04/E.05/E.06",
+          "system": "Sheerline Prestige"
+        }
+      ]
     }
-   ]
-  },
-  {
-   "name": "Standalone Sheerline windows W.0.02-05, W.0.07-09, W.0.11-12, W.1.01-21 - no window sits in a coupled run with a door",
-   "elements": [
+  ],
+  "doors": [
     {
-     "ref": "W.x.xx Type E.02/E.04/E.05/E.06",
-     "system": "Sheerline Prestige"
+      "ref": "ED.0.02 Classroom 03 (Type E.02, in 1800 element)",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.03 Classroom 02 (Type E.02, in 1800 element)",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.11 Library (Type E.02, in 1800 element)",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.12 Classroom 01 (Type E.02, in 1800 element)",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.13 Student Toilets GF (Type E.02, 1010 standalone)",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.04 Hall (Type E.01 steel sports hall escape door) [Strongdor SQ218594 31/07: 3pt touchbar panic bolt + 2pt panic latch + escape signage]",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.06 Hall (Type E.01 steel sports hall escape door) [Strongdor SQ218594 31/07: 3pt touchbar panic bolt + 2pt panic latch + escape signage]",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.07 Hall (Type E.01 steel sports hall escape door) [Strongdor SQ218594 31/07: 3pt touchbar panic bolt + 2pt panic latch + escape signage]",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.08 Servery (Type E.01 steel sports hall escape door) [Strongdor SQ218594 31/07: 3pt touchbar panic bolt + 2pt panic latch + escape signage]",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.09 Equipment Store (Type E.01 steel sports hall escape door) [Strongdor SQ218594 31/07: 3pt touchbar panic bolt + 2pt panic latch + escape signage]",
+      "fire_exit": true,
+      "panic_hardware_priced": true
+    },
+    {
+      "ref": "ED.0.10 Circulation main entrance (Type E.04)",
+      "fire_exit": false,
+      "panic_hardware_priced": false
+    },
+    {
+      "ref": "ED.0.14 Circulation (Type E.04)",
+      "fire_exit": false,
+      "panic_hardware_priced": false
+    },
+    {
+      "ref": "ED.0.01 Plant Room (Type E.03 louvred)",
+      "fire_exit": false,
+      "panic_hardware_priced": false
+    },
+    {
+      "ref": "ED.0.05 Plant Room (Type E.03 louvred)",
+      "fire_exit": false,
+      "panic_hardware_priced": false
     }
-   ]
-  }
- ],
- "doors": [
-  {
-   "ref": "ED.0.02 Classroom 03 (Type E.02, in 1800 element)",
-   "fire_exit": true,
-   "panic_hardware_priced": true
-  },
-  {
-   "ref": "ED.0.03 Classroom 02 (Type E.02, in 1800 element)",
-   "fire_exit": true,
-   "panic_hardware_priced": true
-  },
-  {
-   "ref": "ED.0.11 Library (Type E.02, in 1800 element)",
-   "fire_exit": true,
-   "panic_hardware_priced": true
-  },
-  {
-   "ref": "ED.0.12 Classroom 01 (Type E.02, in 1800 element)",
-   "fire_exit": true,
-   "panic_hardware_priced": true
-  },
-  {
-   "ref": "ED.0.13 Student Toilets GF (Type E.02, 1010 standalone)",
-   "fire_exit": true,
-   "panic_hardware_priced": true
-  },
-  {
-   "ref": "ED.0.04 Hall (Type E.01 steel sports hall escape door)",
-   "fire_exit": true,
-   "panic_hardware_priced": false
-  },
-  {
-   "ref": "ED.0.06 Hall (Type E.01 steel sports hall escape door)",
-   "fire_exit": true,
-   "panic_hardware_priced": false
-  },
-  {
-   "ref": "ED.0.07 Hall (Type E.01 steel sports hall escape door)",
-   "fire_exit": true,
-   "panic_hardware_priced": false
-  },
-  {
-   "ref": "ED.0.08 Servery (Type E.01 steel sports hall escape door)",
-   "fire_exit": true,
-   "panic_hardware_priced": false
-  },
-  {
-   "ref": "ED.0.09 Equipment Store (Type E.01 steel sports hall escape door)",
-   "fire_exit": true,
-   "panic_hardware_priced": false
-  },
-  {
-   "ref": "ED.0.10 Circulation main entrance (Type E.04)",
-   "fire_exit": false,
-   "panic_hardware_priced": false
-  },
-  {
-   "ref": "ED.0.14 Circulation (Type E.04)",
-   "fire_exit": false,
-   "panic_hardware_priced": false
-  },
-  {
-   "ref": "ED.0.01 Plant Room (Type E.03 louvred)",
-   "fire_exit": false,
-   "panic_hardware_priced": false
-  },
-  {
-   "ref": "ED.0.05 Plant Room (Type E.03 louvred)",
-   "fire_exit": false,
-   "panic_hardware_priced": false
-  }
- ],
- "frame_supply": "glazed",
- "glass_order": null,
- "quantities": [
-  {
-   "ref": "Window Type E.02 1800x2100",
-   "bill_qty": 23,
-   "drawing_qty": 23
-  },
-  {
-   "ref": "Window Type E.04 1800x2400 (Hall high level)",
-   "bill_qty": 4,
-   "drawing_qty": 4
-  },
-  {
-   "ref": "Window Type E.05 1000x2100",
-   "bill_qty": 2,
-   "drawing_qty": 3
-  },
-  {
-   "ref": "Window Type E.06 1800x2100",
-   "bill_qty": 1,
-   "drawing_qty": 1
-  },
-  {
-   "ref": "Window Type E.01 600x2100 (fixed field in door element)",
-   "bill_qty": 4,
-   "drawing_qty": 4
-  },
-  {
-   "ref": "Door Type E.02 1010x2100 (ED.0.13)",
-   "bill_qty": 1,
-   "drawing_qty": 1
-  },
-  {
-   "ref": "Door Type E.02 1200x2100 (ED.0.02/03/11/12, in 1800 elements)",
-   "bill_qty": 4,
-   "drawing_qty": 4
-  },
-  {
-   "ref": "Door Type E.04 1810x2110 (ED.0.10/14)",
-   "bill_qty": 2,
-   "drawing_qty": 2
-  },
-  {
-   "ref": "Door Type E.01 1810x2110 steel sports hall escape (ED.0.04/06/07/08/09)",
-   "bill_qty": 0,
-   "drawing_qty": 5
-  },
-  {
-   "ref": "Door Type E.03 1810x2110 alu louvred plant room (ED.0.01/05)",
-   "bill_qty": 0,
-   "drawing_qty": 2
-  }
- ],
- "spec_items": [
-  {
-   "ref": "Window Types E.02/E.04/E.05/E.06 - Sheerline Prestige, BSW QT253232",
-   "treatment": "priced"
-  },
-  {
-   "ref": "Door Types E.02/E.04 + E.01 window fields - SMA Smart Wall, Bellview 0000000503",
-   "treatment": "priced"
-  },
-  {
-   "ref": "Installation (labour codes)",
-   "treatment": "priced"
-  },
-  {
-   "ref": "Door Type E.01 - 5no steel sports hall escape doors, Strongdor Sportsdor or similar (door schedule P06)",
-   "treatment": "MISSING - neither priced nor excluded"
-  },
-  {
-   "ref": "Door Type E.03 - 2no aluminium louvred plant room doors (door schedule P06)",
-   "treatment": "MISSING - neither priced nor excluded"
-  },
-  {
-   "ref": "Window Type E.05 3rd unit W.1.20 (window schedule lists 3, quote covers 2)",
-   "treatment": "MISSING - neither priced nor excluded"
-  },
-  {
-   "ref": "Solar control glass - window schedule marks every external window 'Solar Control Glazing'; ER 7.5.17",
-   "treatment": "MISSING - BSW quoted 'Clr' clear"
-  },
-  {
-   "ref": "Trickle vents min 4000mm2 to head of every window - ER 7.5.12",
-   "treatment": "MISSING - not on QT253232"
-  },
-  {
-   "ref": "Restricted opening hinges to 100mm + push-button release BS 6375-2 - ER 7.5.9",
-   "treatment": "MISSING - not on QT253232"
-  },
-  {
-   "ref": "Lockable espagnolette handles + 3no keys per openable window - ER 7.5.10",
-   "treatment": "MISSING - not on QT253232"
-  },
-  {
-   "ref": "Remotely operated mechanical openers to openable windows above 2.0m - ER 7.5.11",
-   "treatment": "MISSING - not on QT253232"
-  },
-  {
-   "ref": "Triple glazing to external DOORS - ER 7.5.1 and door schedule general note",
-   "treatment": "MISSING - Bellview quoted double 6.8 Lami / 4mm Tuff"
-  },
-  {
-   "ref": "Power-assisted opening to main entrance ED.0.10 - door schedule Type E.04 note",
-   "treatment": "MISSING - auto header profile quoted, no operator"
-  },
-  {
-   "ref": "Manifestations to E.01/E.02/E.05/E.06 windows and E.04 doors",
-   "treatment": "MISSING - neither priced nor excluded"
-  },
-  {
-   "ref": "Obscure glazing to toilets - W.1.19 and ED.0.13",
-   "treatment": "MISSING - both quoted clear"
-  },
-  {
-   "ref": "Door closers with built-in hold-back / 90deg hold open - ER 7.5.5 and 7.5.7",
-   "treatment": "MISSING - Bellview quoted NHO (Non Hold Open) closers throughout"
-  },
-  {
-   "ref": "Security certification PAS 24:2007 / WCL 1 / LPS 1175 Issue 7 SR2, PAS 23-1:1999, SBD ironmongery, windows BS 7950 / WCL 4 - door schedule general spec",
-   "treatment": "MISSING - no certification referenced on either quote"
-  },
-  {
-   "ref": "External mastic to all openings - door schedule 'all openings to be sealed with non setting mastic all round'",
-   "treatment": "MISSING - specified but offered as an OPTIONAL extra"
-  },
-  {
-   "ref": "EPDM gaskets and weatherseals to BS 4255 - ER 7.5.1",
-   "treatment": "MISSING - specified but offered as an OPTIONAL extra"
-  },
-  {
-   "ref": "Aluminium flashings and perimeter trims - ER 7.5.8",
-   "treatment": "MISSING - neither priced nor excluded"
-  },
-  {
-   "ref": "Low mobility Part M threshold seals to all external doors - ER 7.5.6",
-   "treatment": "MISSING - neither priced nor excluded"
-  },
-  {
-   "ref": "Delivery - both supplier quotes are ex works",
-   "treatment": "MISSING - no delivery line in the pricing document"
-  },
-  {
-   "ref": "2.5% MCD expressly requested in the enquiry",
-   "treatment": "MISSING - not applied"
-  },
-  {
-   "ref": "Rooflights R.2.01-07 - ER 7.6.6 places these with the roofing manufacturer",
-   "treatment": "MISSING - correctly outside scope but not excluded in writing"
-  },
-  {
-   "ref": "Internal timber screens S.0.01-04 / S.1.01-04 (8no)",
-   "treatment": "MISSING - outside scope but not excluded in writing"
-  },
-  {
-   "ref": "Internal doors ID.x.xx (timber)",
-   "treatment": "MISSING - outside scope but not excluded in writing"
-  }
- ],
- "supplier_quotes": [
-  {
-   "supplier": "BSW Window Solutions",
-   "ref": "QT253232",
-   "date": "2026-07-22",
-   "used_net": true
-  },
-  {
-   "supplier": "Bellview Products",
-   "ref": "0000000503",
-   "date": "2026-07-22",
-   "used_net": true
-  }
- ],
- "full_height_screens": [],
- "systems_specified": [
-  {
-   "system": "Sheerline Prestige (Window Types E.02/E.04/E.05/E.06)",
-   "fabricator": "BSW Window Solutions - QT253232"
-  },
-  {
-   "system": "SMA Smart Wall Pocket (Door Types E.02/E.04 + E.01 window fields)",
-   "fabricator": "Bellview Products - 0000000503"
-  },
-  {
-   "system": "Steel sports hall doorset, Strongdor Sportsdor or similar approved (Door Type E.01, 5no)",
-   "fabricator": null
-  },
-  {
-   "system": "Aluminium louvred doorset (Door Type E.03, 2no)",
-   "fabricator": null
-  }
- ],
- "finishes": [
-  {
-   "ref": "Window Types E.02/E.04/E.05/E.06 (BSW QT253232)",
-   "specified_internal": "RAL 7016",
-   "specified_external": "RAL 7016",
-   "quoted_internal": null,
-   "quoted_external": "RAL 7016M Anthracite Grey"
-  },
-  {
-   "ref": "Door Types E.02/E.04 (Bellview 0000000503)",
-   "specified_internal": "RAL 7016",
-   "specified_external": "RAL 7016",
-   "quoted_internal": null,
-   "quoted_external": "Anthracite Grey"
-  }
- ],
- "supplier_coverage": [
-  {
-   "ref": "Door Type E.02 1010x2110",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "Bellview 0000000503 pos 001"
-  },
-  {
-   "ref": "Door Type E.04 1810x2110",
-   "qty_sold": 2,
-   "qty_quoted": 1,
-   "supplier_ref": "Bellview 0000000503 pos 002"
-  },
-  {
-   "ref": "Door/Window Type E.01, E.03 1800x2110",
-   "qty_sold": 4,
-   "qty_quoted": 4,
-   "supplier_ref": "Bellview 0000000503 pos 003+004"
-  },
-  {
-   "ref": "Window Type E.02 1800x2100",
-   "qty_sold": 23,
-   "qty_quoted": 23,
-   "supplier_ref": "BSW QT253232 e.02"
-  },
-  {
-   "ref": "Window Type E.04 1800x2400",
-   "qty_sold": 4,
-   "qty_quoted": 4,
-   "supplier_ref": "BSW QT253232 e.04"
-  },
-  {
-   "ref": "Window Type E.05 1000x2100",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT253232 e.05"
-  },
-  {
-   "ref": "Window Type E.06 1800x2100",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT253232 e.06"
-  }
- ],
- "u_value": {
-  "required": 1.1,
-  "basis": "whole installation",
-  "note": "Door schedule general spec: 'Minimum U value for all areas of external glazing to be 1.1 W/m2K (area-weighted average)'. ER 5.4.1 separately tabulates per-element maxima (Window 1.1, Doors 1.2, Rooflight 2.2). Ambiguity raised as an RFI; no element rejected on U-value.",
-  "rejected_elements": []
- },
- "rfq_items": [
-  {
-   "item": "RAL 7016 Anthracite",
-   "requested": true,
-   "quoted_response": "BSW 7016M Anthracite Grey - M (external face only)"
-  },
-  {
-   "item": "Triple glazing throughout",
-   "requested": true,
-   "quoted_response": "windows triple glazed; doors NOT AVAILABLE in triple - BSW 22/07 15:39"
-  },
-  {
-   "item": "Windows U-value 1.1 W/m2K",
-   "requested": true,
-   "quoted_response": null
-  },
-  {
-   "item": "Doors U-value 1.2 W/m2K",
-   "requested": true,
-   "quoted_response": "Bellview state Ug 1.0"
-  },
-  {
-   "item": "Solar control glazing",
-   "requested": true,
-   "quoted_response": null
-  },
-  {
-   "item": "Obscure glazing where required",
-   "requested": true,
-   "quoted_response": null
-  },
-  {
-   "item": "Panic escape gear for Door E.02",
-   "requested": true,
-   "quoted_response": "ACIM453 concealed panic bar quoted on all five E.02 positions"
-  }
- ],
- "_rfq_source": "Gintare Vanagaite to Estimations@bsws.co.uk, 22/07/2026 10:38, subject 'Fenster Glazing - Brocks Hill Phase 2 Teaching Block'. Also states: 'Please use the BoQ for quantities and required units, as not all units from window & door schedule required.'"
+  ],
+  "frame_supply": "glazed",
+  "glass_order": null,
+  "quantities": [
+    {
+      "ref": "Window Type E.02 1800x2100",
+      "bill_qty": 23,
+      "drawing_qty": 23
+    },
+    {
+      "ref": "Window Type E.04 1800x2400 (Hall high level)",
+      "bill_qty": 4,
+      "drawing_qty": 4
+    },
+    {
+      "ref": "Window Type E.05 1000x2100",
+      "bill_qty": 2,
+      "drawing_qty": 3
+    },
+    {
+      "ref": "Window Type E.06 1800x2100",
+      "bill_qty": 1,
+      "drawing_qty": 1
+    },
+    {
+      "ref": "Window Type E.01 600x2100 (fixed field in door element)",
+      "bill_qty": 4,
+      "drawing_qty": 4
+    },
+    {
+      "ref": "Door Type E.02 1010x2100 (ED.0.13)",
+      "bill_qty": 1,
+      "drawing_qty": 1
+    },
+    {
+      "ref": "Door Type E.02 1200x2100 (ED.0.02/03/11/12, in 1800 elements)",
+      "bill_qty": 4,
+      "drawing_qty": 4
+    },
+    {
+      "ref": "Door Type E.04 1810x2110 (ED.0.10/14)",
+      "bill_qty": 2,
+      "drawing_qty": 2
+    },
+    {
+      "ref": "Door Type E.01 1810x2110 steel sports hall escape (ED.0.04/06/07/08/09) [bill said 0; SMD instructed inclusion in writing 30/07 11:14]",
+      "bill_qty": 5,
+      "drawing_qty": 5
+    },
+    {
+      "ref": "Door Type E.03 1810x2110 alu louvred plant room (ED.0.01/05) [bill said 0; SMD instructed inclusion in writing 30/07 11:14]",
+      "bill_qty": 2,
+      "drawing_qty": 2
+    }
+  ],
+  "spec_items": [
+    {
+      "ref": "Window Types E.02/E.04/E.05/E.06 - Sheerline Prestige, BSW QT253232",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Door Types E.02/E.04 + E.01 window fields - SMA Smart Wall, Bellview 0000000503",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Installation (labour codes)",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Door Type E.01 - 5no steel sports hall escape doors, Strongdor Sportsdor or similar (door schedule P06) [Strongdor SQ218594, in the issued document at GBP 2,728.81 sell ea - SOLID, no vision panel, U-value NPD, deviation NOT yet qualified to SMD]",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Door Type E.03 - 2no aluminium louvred plant room doors (door schedule P06) [BSW, in the issued document at GBP 4,440.52 sell ea]",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Window Type E.05 3rd unit W.1.20 (window schedule lists 3, quote covers 2)",
+      "treatment": "MISSING - neither priced nor excluded"
+    },
+    {
+      "ref": "Solar control glass - window schedule marks every external window 'Solar Control Glazing'; ER 7.5.17",
+      "treatment": "MISSING - BSW quoted 'Clr' clear"
+    },
+    {
+      "ref": "Trickle vents min 4000mm2 to head of every window - ER 7.5.12",
+      "treatment": "MISSING - not on QT253232"
+    },
+    {
+      "ref": "Restricted opening hinges to 100mm + push-button release BS 6375-2 - ER 7.5.9",
+      "treatment": "MISSING - not on QT253232"
+    },
+    {
+      "ref": "Lockable espagnolette handles + 3no keys per openable window - ER 7.5.10",
+      "treatment": "MISSING - not on QT253232"
+    },
+    {
+      "ref": "Remotely operated mechanical openers to openable windows above 2.0m - ER 7.5.11",
+      "treatment": "MISSING - not on QT253232"
+    },
+    {
+      "ref": "Triple glazing to external DOORS - ER 7.5.1 and door schedule general note",
+      "treatment": "MISSING - Bellview quoted double 6.8 Lami / 4mm Tuff"
+    },
+    {
+      "ref": "Power-assisted opening to main entrance ED.0.10 - door schedule Type E.04 note",
+      "treatment": "MISSING - auto header profile quoted, no operator"
+    },
+    {
+      "ref": "Manifestations to E.01/E.02/E.05/E.06 windows and E.04 doors",
+      "treatment": "MISSING - neither priced nor excluded"
+    },
+    {
+      "ref": "Obscure glazing to toilets - W.1.19 and ED.0.13",
+      "treatment": "MISSING - both quoted clear"
+    },
+    {
+      "ref": "Door closers with built-in hold-back / 90deg hold open - ER 7.5.5 and 7.5.7",
+      "treatment": "MISSING - Bellview quoted NHO (Non Hold Open) closers throughout"
+    },
+    {
+      "ref": "Security certification PAS 24:2007 / WCL 1 / LPS 1175 Issue 7 SR2, PAS 23-1:1999, SBD ironmongery, windows BS 7950 / WCL 4 - door schedule general spec",
+      "treatment": "MISSING - no certification referenced on either quote"
+    },
+    {
+      "ref": "External mastic to all openings - door schedule 'all openings to be sealed with non setting mastic all round'",
+      "treatment": "MISSING - specified but offered as an OPTIONAL extra"
+    },
+    {
+      "ref": "EPDM gaskets and weatherseals to BS 4255 - ER 7.5.1",
+      "treatment": "MISSING - specified but offered as an OPTIONAL extra"
+    },
+    {
+      "ref": "Aluminium flashings and perimeter trims - ER 7.5.8",
+      "treatment": "MISSING - neither priced nor excluded"
+    },
+    {
+      "ref": "Low mobility Part M threshold seals to all external doors - ER 7.5.6",
+      "treatment": "MISSING - neither priced nor excluded"
+    },
+    {
+      "ref": "Delivery - both supplier quotes are ex works",
+      "treatment": "MISSING - no delivery line in the pricing document"
+    },
+    {
+      "ref": "2.5% MCD expressly requested in the enquiry",
+      "treatment": "MISSING - not applied"
+    },
+    {
+      "ref": "Rooflights R.2.01-07 - ER 7.6.6 places these with the roofing manufacturer",
+      "treatment": "MISSING - correctly outside scope but not excluded in writing"
+    },
+    {
+      "ref": "Internal timber screens S.0.01-04 / S.1.01-04 (8no)",
+      "treatment": "MISSING - outside scope but not excluded in writing"
+    },
+    {
+      "ref": "Internal doors ID.x.xx (timber)",
+      "treatment": "MISSING - outside scope but not excluded in writing"
+    }
+  ],
+  "supplier_quotes": [
+    {
+      "supplier": "BSW Window Solutions",
+      "ref": "QT253232",
+      "date": "2026-07-22",
+      "used_net": true
+    },
+    {
+      "supplier": "Bellview Products",
+      "ref": "0000000503",
+      "date": "2026-07-22",
+      "used_net": true
+    }
+  ],
+  "full_height_screens": [],
+  "systems_specified": [
+    {
+      "system": "Sheerline Prestige (Window Types E.02/E.04/E.05/E.06)",
+      "fabricator": "BSW Window Solutions - QT253232"
+    },
+    {
+      "system": "SMA Smart Wall Pocket (Door Types E.02/E.04 + E.01 window fields)",
+      "fabricator": "Bellview Products - 0000000503"
+    },
+    {
+      "system": "Steel sports hall doorset, Strongdor Sportsdor or similar approved (Door Type E.01, 5no)",
+      "fabricator": "Strongdor Ltd - SQ218594 31/07/2026, 5no Steeldor double external 1810x2110 RAL7016, GBP 2,637.01 ea + GBP 459.00 delivery"
+    },
+    {
+      "system": "Aluminium louvred doorset (Door Type E.03, 2no)",
+      "fabricator": "BSW Window Solutions - louvre added to enquiry 30/07 12:38, priced in the issued document at GBP 2,940.52 supply ea"
+    }
+  ],
+  "finishes": [
+    {
+      "ref": "Window Types E.02/E.04/E.05/E.06 (BSW QT253232)",
+      "specified_internal": "RAL 7016",
+      "specified_external": "RAL 7016",
+      "quoted_internal": null,
+      "quoted_external": "RAL 7016M Anthracite Grey"
+    },
+    {
+      "ref": "Door Types E.02/E.04 (Bellview 0000000503)",
+      "specified_internal": "RAL 7016",
+      "specified_external": "RAL 7016",
+      "quoted_internal": null,
+      "quoted_external": "Anthracite Grey"
+    }
+  ],
+  "supplier_coverage": [
+    {
+      "ref": "Door Type E.02 1010x2110",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "Bellview 0000000503 pos 001"
+    },
+    {
+      "ref": "Door Type E.04 1810x2110",
+      "qty_sold": 2,
+      "qty_quoted": 1,
+      "supplier_ref": "Bellview 0000000503 pos 002"
+    },
+    {
+      "ref": "Door/Window Type E.01, E.03 1800x2110",
+      "qty_sold": 4,
+      "qty_quoted": 4,
+      "supplier_ref": "Bellview 0000000503 pos 003+004"
+    },
+    {
+      "ref": "Window Type E.02 1800x2100",
+      "qty_sold": 23,
+      "qty_quoted": 23,
+      "supplier_ref": "BSW QT253232 e.02"
+    },
+    {
+      "ref": "Window Type E.04 1800x2400",
+      "qty_sold": 4,
+      "qty_quoted": 4,
+      "supplier_ref": "BSW QT253232 e.04"
+    },
+    {
+      "ref": "Window Type E.05 1000x2100",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT253232 e.05"
+    },
+    {
+      "ref": "Window Type E.06 1800x2100",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT253232 e.06"
+    }
+  ],
+  "u_value": {
+    "required": 1.1,
+    "basis": "whole installation",
+    "note": "Door schedule general spec: 'Minimum U value for all areas of external glazing to be 1.1 W/m2K (area-weighted average)'. ER 5.4.1 separately tabulates per-element maxima (Window 1.1, Doors 1.2, Rooflight 2.2). Ambiguity raised as an RFI; no element rejected on U-value.",
+    "rejected_elements": []
+  },
+  "rfq_items": [
+    {
+      "item": "RAL 7016 Anthracite",
+      "requested": true,
+      "quoted_response": "BSW 7016M Anthracite Grey - M (external face only)"
+    },
+    {
+      "item": "Triple glazing throughout",
+      "requested": true,
+      "quoted_response": "windows triple glazed; doors NOT AVAILABLE in triple - BSW 22/07 15:39"
+    },
+    {
+      "item": "Windows U-value 1.1 W/m2K",
+      "requested": true,
+      "quoted_response": null
+    },
+    {
+      "item": "Doors U-value 1.2 W/m2K",
+      "requested": true,
+      "quoted_response": "Bellview state Ug 1.0"
+    },
+    {
+      "item": "Solar control glazing",
+      "requested": true,
+      "quoted_response": null
+    },
+    {
+      "item": "Obscure glazing where required",
+      "requested": true,
+      "quoted_response": null
+    },
+    {
+      "item": "Panic escape gear for Door E.02",
+      "requested": true,
+      "quoted_response": "ACIM453 concealed panic bar quoted on all five E.02 positions"
+    }
+  ],
+  "_rfq_source": "Gintare Vanagaite to Estimations@bsws.co.uk, 22/07/2026 10:38, subject 'Fenster Glazing - Brocks Hill Phase 2 Teaching Block'. Also states: 'Please use the BoQ for quantities and required units, as not all units from window & door schedule required.'",
+  "priced_rows": [
+    {
+      "ref": "Door Type E.02 1010x2110",
+      "code": "SAD",
+      "qty": 1,
+      "supply_each": 2589.1085,
+      "sell_each": 3489.1085
+    },
+    {
+      "ref": "Door Type E.04 1810x2110",
+      "code": "DAD",
+      "qty": 2,
+      "supply_each": 2878.661,
+      "sell_each": 4378.661
+    },
+    {
+      "ref": "(Door) Window Type E.01, E.03 1800x2110",
+      "code": "SAD",
+      "qty": 4,
+      "supply_each": 3137.9195,
+      "sell_each": 4037.9195
+    },
+    {
+      "ref": "Door Type E.03 louvred 1810x2110",
+      "code": "DAD",
+      "qty": 2,
+      "supply_each": 2940.5155,
+      "sell_each": 4440.5155
+    },
+    {
+      "ref": "Door Type E.01 STEEL 1810x2110 (Strongdor)",
+      "code": "DAD",
+      "qty": 5,
+      "supply_each": 2637.01,
+      "sell_each": 2728.81,
+      "additional_each": 91.8
+    },
+    {
+      "ref": "Window Type E.02 1800x2100",
+      "code": "ELAW",
+      "qty": 23,
+      "supply_each": 1362.57,
+      "sell_each": 2000.07
+    },
+    {
+      "ref": "Window Type E.04 1800x2400",
+      "code": "ELAW",
+      "qty": 4,
+      "supply_each": 1098.9,
+      "sell_each": 1736.4
+    },
+    {
+      "ref": "Window Type E.05 1000x2100",
+      "code": "LAW",
+      "qty": 2,
+      "supply_each": 620.49,
+      "sell_each": 1107.99
+    },
+    {
+      "ref": "Window Type E.06 1800x2100",
+      "code": "ELAW",
+      "qty": 1,
+      "supply_each": 984.64,
+      "sell_each": 1622.14
+    }
+  ]
 }

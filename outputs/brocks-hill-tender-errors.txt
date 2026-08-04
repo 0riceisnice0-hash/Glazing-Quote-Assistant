@@ -1,0 +1,43 @@
+Two errors in the tender Gintare sent Martin Moore on Friday 31/07 at 15:12 UK. Both
+are still fixable. SMD have had it four days.
+
+1. THE FIVE STEEL DOORS WENT IN AT COST - GBP 10,000 MISSING
+
+- Strongdor SQ218594: GBP 2,637.01 per door + GBP 459.00 delivery = GBP 13,644.06 net to us.
+- We sold them at GBP 2,728.81 each = GBP 13,644.05. That is our cost plus the delivery
+  split five ways, to the penny. No uplift at all.
+- The row is coded DAD. Every other row in the workbook carries its adder exactly -
+  SAD 900, DAD 1500, ELAW 637.50, LAW 487.50. Row 14 is the only one that does not.
+- Installation is GBP 10,570. That figure is exactly the labour codes for the schedule
+  WITHOUT the five steel doors in it. With them it is GBP 13,070.
+
+  Frames  5 x 1,500 = 7,500
+  Install 5 x   500 = 2,500
+  Missing           = GBP 10,000.00 ex VAT
+
+  Sent: GBP 118,278.52.  Should be: GBP 128,278.52.
+
+2. THE FIVE STEEL DOORS ARE NOT GLAZED, AND THE PROPOSAL DOES NOT SAY SO
+
+- Our own RFQ asked Strongdor for triple glazed, solar control glazing, doors U 1.2.
+- Strongdor answered: the Sportsdor range "would not allow for glazing on this door
+  since this requires rebound panels". Their drawing states Vision/Louvre Panel: None,
+  and U Value: NPD.
+- Lathams confirmed Monday 03/08: "we cant offer a triple glazed door or a door set
+  reaching a U value with glazing." So this is the market, not a Strongdor limitation.
+- The proposal qualifies only the SMA aluminium doors as double glazed. It says nothing
+  about the steel doors, and the specification box reads U 1.1 / g 0.34 with no carve-out.
+- Strongdor's drawing showing None and NPD is attached to Martin's copy, so the
+  contradiction is already in his hands.
+
+THREE SMALLER ONES ON THE SAME DOCUMENT
+
+- Mastic 1,675.20 and EPDM 4,044.10 are still marked OPTIONAL. Your Princess Beatrice
+  ruling on 28/07 was that they go into the sum.
+- The 2.5% MCD the enquiry asks for is not in the document anywhere. If SMD take it off
+  the bottom, that is a further GBP 2,957.
+- The 9th SMA door still has no supplier quote behind it. The supplier cost recorded on
+  the sheet, 23,900.48, covers 8 of the 9 units sold. Same catch as 30/07.
+
+Do you want a corrected pricing document plus a written qualification on the steel doors
+to go to Martin, or leave it as sent?

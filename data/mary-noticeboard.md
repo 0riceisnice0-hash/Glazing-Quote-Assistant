@@ -5,58 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-07-30 08:11 - triage
-"NO QUOTE WENT BACK" CAN BE THE RIGHT ANSWER TO A TENDER. LOOK FOR THE OUTBOUND SCOPE QUERY FIRST.
-
-Stepnell issued a formal ITT for St James House Derby on 19/01/2026, bid ref SC0078B, trade "L_SC
-Aluminium Doors & Windows", return by 04/02. Nothing went back, and nothing should have: the bill was
-INTERNAL doors plus a single window "redub" line, and our external window work was not in it. Gintare
-read it on 21/01 and said so, Jayk put it to Luke Walsh in writing on 23/01 with both documents
-attached, and on 26/01 Luke confirmed - "I have a bill item for windows 'to follow'. The client is
-still assessing the best route for the windows you quoted for the front elevation."
-
-SO THE DEADLINE WAS ANSWERED, NOT MISSED, and the ball is the client's. Before recording a lapsed
-return date, check whether we asked whether there was anything to price - a scope query answered by
-the client is a complete response to an ITT. Counting ITTs against quotes returned marks that as a
-miss. This is the mirror of the St Mary's rule: there, look for the INTERNAL promise before blaming
-the document; here, look for the OUTBOUND QUERY before recording a lapse.
-
-AND THE CONVERSE, WHICH IS THE LIVE ITEM: when a client says a bill item is "to follow", that is a
-commitment WE are owed, and nothing in our systems ages it. Luke's promise is 185 days old today and
-sat on the board as us being silent. If a client tells you something is to follow, put a date on it.
-
-ONE SEARCH TRAP: SC0078B RETURNS ZERO HITS ACROSS ALL OF estimating@. A bid reference printed on an
-ITT can live only in the folder copy of the document, so searching the ref will never tell you
-whether we responded - and a nil result reads exactly like a missed tender. Search the SITE NAME.
-
-### 2026-08-04 11:42 - triage
-TWO SUPPLIER CHANGES THAT PUT A DATE ON LIVE WORK. BOTH LANDED 03-04/08.
-
-1. MARTIN GREGORY HAS RESIGNED FROM CN GLASS - and he is the man behind the only CN Glass rate we
-hold. Scott at CN Glass wrote 03/08: Martin "has resigned from his role and will no longer be
-representing the company from this moment onwards"; the account is supported by the wider team.
-
-WHY THAT IS NOT ROUTINE. The CN Glass GBP 55-60/m2 was never a quotation document. It was a rate
-Steve Freezer wrote into his own outgoing email on 01/07 and Martin confirmed with "Pls see below as
-discussed" - verbal, confirmed by return, and the job file says to say so every time it is quoted.
-STOKE PARK'S GLASS ORDER WAS PLACED AGAINST THOSE RATES ON 27/07: 124 units, 106.9 m2, GBP 6,185.09,
-frames landing 03/08. The person who agreed the price has now left, and what we hold is his email,
-not a priced quotation. Anyone relying on a CN Glass number should get it re-confirmed in writing by
-whoever has picked the account up, BEFORE the next order, and should not assume the rate survives the
-handover. And the general rule this proves: A VERBAL RATE IS ONLY AS DURABLE AS THE PERSON WHO GAVE
-IT - get it on a quotation document while the relationship is warm.
-
-2. AGF: REYNAERS PRICES RISE ON ALL ORDERS PLACED ON OR AFTER 27 AUGUST 2026. Lucy Braines, 04/08 -
-further cost increases received from their supplier on Reynaers aluminium products, revised pricing
-from that date, and she will make contact about current projects.
-
-WHAT TO DO WITH IT: that is a hard commercial date, not a newsletter. Any live quote carrying Reynaers
-either goes to order before 27/08 or gets re-priced, and any quote we ISSUE now with 30-day validity
-straddles the increase - so if the client orders on day 25 we are exposed. On anything Reynaers-based
-that is still open, either qualify the validity against 27/08 in writing or get the order placed. It
-lands directly on TOTTERIDGE, where Borras have asked for a cost review by 07/08 against a New Year
-start, and where a year-old supplier position is exactly what is being re-confirmed.
-
 ### 2026-08-04 11:44 - triage
 A VETROSEAL DELIVERY CHARGE IS BILLED AS A GLASS LINE WITH A FAKE 0.300 m2 - IT CORRUPTS MINED RATES.
 
@@ -96,3 +44,46 @@ TWO THINGS THAT FOLLOW.
 1. THE AMENDMENT IS CC'd TO MARTIN GREGORY, WHO RESIGNED ON 03/08. It went to orders@ as well so it will be seen, but the man who gave the rate and who said on 27/07 that 'spacer bar doesnt differ the price' has gone. Nobody at CN Glass has confirmed IN WRITING that an 18mm spacer holds the GBP 55/m2. Get that confirmed by whoever picked the account up before the amended order is accepted - it is exactly the verbal-rate exposure already on this board.
 2. IT MAKES SENSE OF THE VETROSEAL QUOTE. 065209 (30/07, MHA/NUNEATON) is '4T-18-6.8' - the same 28.8mm build-up with the 18mm spacer, at GBP 52.51/m2 goods. That is the corrected Spec A, priced by the other supplier, and it is level with CN Glass. So the make-up is right and both prices agree; it is the spacer on the ORDER that was wrong, not the rate.
 GENERAL: 6.8 + 16 + 4 = 26.8, not 28.8. When a spec states an OVERALL thickness, add the panes and the spacer before ordering - the RFQ that went out on 27/07 asked for a 16mm spacer against a 28.8mm requirement and no one caught it until the glass was on order.
+
+### 2026-08-04 12:12 - brocks-hill
+A SUPPLIER COST CAN BE PASTED STRAIGHT INTO THE SELL COLUMN AND THE TOTAL STILL LOOKS RIGHT.
+
+Brocks Hill went to SMD on 31/07 at GBP 118,278.52. Five Strongdor steel doors in it are sold at
+GBP 2,728.81 each - which is Strongdor's GBP 2,637.01 per door-set plus the GBP 459.00 delivery split
+five ways, to the penny. Zero uplift. The row is coded DAD and every other row in the same workbook
+carries its adder exactly (SAD 900, DAD 1500, ELAW 637.50, LAW 487.50). Installation of GBP 10,570
+recomputes exactly from the labour codes for the schedule WITH THE FIVE DOORS LEFT OUT - so they took
+no labour either. Missing: 5 x 1500 frames + 5 x 500 install = GBP 10,000.00 ex VAT.
+
+WHY NOTHING CAUGHT IT. Reconciling the total does not catch it - the total is internally consistent.
+Comparing against the supplier quote does not catch it - it MATCHES the supplier quote, which is the
+symptom, not the proof of correctness. THE CHECK THAT WORKS: take sell minus supply on every row and
+read it against the code table. Nine rows, eight correct to the penny, one at 91.80 (the delivery
+share). One pass, no re-pricing. Do this on any priced workbook before it leaves - it is the same
+family as Brocks Hill's earlier catch where a rate applied twice made a total reconcile.
+
+THE TELL: a late line, dropped in under deadline pressure. The steel cost landed at 14:41 on 31/07
+and the tender went at 15:12. The placeholder it replaced (GBP 2,000, described in writing as "plus
+our markup") had no uplift in it either.
+
+NOBODY MAKES A GLAZED STEEL ESCAPE DOOR WITH A DECLARED U-VALUE. TWO SUPPLIERS, INDEPENDENTLY.
+
+Strongdor, 31/07: "Not sure what is meant by Triple glazed or solar controlled glazing, since this is
+marked as being from our Sportsdor range which would not allow for glazing on this door since this
+requires rebound panels." Their drawing: Vision/Louvre Panel NONE, and Fire Rated / Acoustic / U Value
+/ Security Rated all NPD.
+Lathams, 03/08: "we cant offer a triple glazed door or a door set reaching a U value with glazing."
+
+So when a door schedule asks for a steel escape door that is triple glazed, solar control AND hits a
+door U-value, that product does not exist - the panic touchbar needs rebound panels where the glass
+would go. DO NOT SPEND THE TENDER PERIOD RINGING ROUND FOR IT. Price the solid door and QUALIFY THE
+DEVIATION IN WRITING ON THE FACE OF THE PROPOSAL, at the same time as the price. On Brocks Hill the
+proposal qualified only the aluminium doors and said nothing about the steel ones, while the
+specification box read U 1.1 / g 0.34 across the board - and Strongdor's own drawing showing NONE and
+NPD was attached to the client's copy, so the contradiction went out in the same email.
+
+NEW SUPPLIER RATE - STRONGDOR (Carnforth), quote SQ218594, 31/07/2026, 30-day validity:
+  Steeldor, double external, 1810 x 2110 structural, RAL 7016 both faces, single rebate 110mm frame,
+  mineral board core, Grade 316 hinges, 3-point touchbar panic bolt + 2-point panic latch + rebound
+  panels + escape signage:  GBP 2,637.01 per door-set, qty 5.  Delivery GBP 459.00 to MK13. Kerbside
+  only, forklift is ours. Fire rating NPD - so it is NOT a substitute where an FD rating is specified.

@@ -1,84 +1,150 @@
 {
- "job": "Brocks Hill Phase 2 - fixture. Bellview covered 1no Door Type E.04 where the tender sold 2; and Gintare's 22/07 RFQ asked BSW for solar control, obscure glazing and window U-values, all three of which came back unmentioned.",
- "supplier_coverage": [
-  {
-   "ref": "Door Type E.02 1010x2110",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "Bellview 0000000503 pos 001"
-  },
-  {
-   "ref": "Door Type E.04 1810x2110",
-   "qty_sold": 2,
-   "qty_quoted": 1,
-   "supplier_ref": "Bellview 0000000503 pos 002"
-  },
-  {
-   "ref": "Door/Window Type E.01, E.03 1800x2110",
-   "qty_sold": 4,
-   "qty_quoted": 4,
-   "supplier_ref": "Bellview 0000000503 pos 003+004"
-  },
-  {
-   "ref": "Window Type E.02 1800x2100",
-   "qty_sold": 23,
-   "qty_quoted": 23,
-   "supplier_ref": "BSW QT253232 e.02"
-  },
-  {
-   "ref": "Window Type E.04 1800x2400",
-   "qty_sold": 4,
-   "qty_quoted": 4,
-   "supplier_ref": "BSW QT253232 e.04"
-  },
-  {
-   "ref": "Window Type E.05 1000x2100",
-   "qty_sold": 2,
-   "qty_quoted": 2,
-   "supplier_ref": "BSW QT253232 e.05"
-  },
-  {
-   "ref": "Window Type E.06 1800x2100",
-   "qty_sold": 1,
-   "qty_quoted": 1,
-   "supplier_ref": "BSW QT253232 e.06"
-  }
- ],
- "rfq_items": [
-  {
-   "item": "RAL 7016 Anthracite",
-   "requested": true,
-   "quoted_response": "7016M Anthracite Grey - M"
-  },
-  {
-   "item": "Triple glazing throughout",
-   "requested": true,
-   "quoted_response": "windows triple; doors NOT AVAILABLE in triple (BSW 22/07 15:39)"
-  },
-  {
-   "item": "Windows U-value 1.1 W/m2K",
-   "requested": true,
-   "quoted_response": null
-  },
-  {
-   "item": "Doors U-value 1.2 W/m2K",
-   "requested": true,
-   "quoted_response": "Ug 1.0 stated by Bellview"
-  },
-  {
-   "item": "Solar control glazing",
-   "requested": true,
-   "quoted_response": null
-  },
-  {
-   "item": "Obscure glazing where required",
-   "requested": true,
-   "quoted_response": null
-  },
-  {
-   "item": "Panic escape gear for Door E.02",
-   "requested": true,
-   "quoted_response": "ACIM453 concealed panic bar on all E.02 positions"
-  }
- ]
+  "job": "Brocks Hill Phase 2 - fixture. Bellview covered 1no Door Type E.04 where the tender sold 2; and Gintare's 22/07 RFQ asked BSW for solar control, obscure glazing and window U-values, all three of which came back unmentioned.",
+  "supplier_coverage": [
+    {
+      "ref": "Door Type E.02 1010x2110",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "Bellview 0000000503 pos 001"
+    },
+    {
+      "ref": "Door Type E.04 1810x2110",
+      "qty_sold": 2,
+      "qty_quoted": 1,
+      "supplier_ref": "Bellview 0000000503 pos 002"
+    },
+    {
+      "ref": "Door/Window Type E.01, E.03 1800x2110",
+      "qty_sold": 4,
+      "qty_quoted": 4,
+      "supplier_ref": "Bellview 0000000503 pos 003+004"
+    },
+    {
+      "ref": "Window Type E.02 1800x2100",
+      "qty_sold": 23,
+      "qty_quoted": 23,
+      "supplier_ref": "BSW QT253232 e.02"
+    },
+    {
+      "ref": "Window Type E.04 1800x2400",
+      "qty_sold": 4,
+      "qty_quoted": 4,
+      "supplier_ref": "BSW QT253232 e.04"
+    },
+    {
+      "ref": "Window Type E.05 1000x2100",
+      "qty_sold": 2,
+      "qty_quoted": 2,
+      "supplier_ref": "BSW QT253232 e.05"
+    },
+    {
+      "ref": "Window Type E.06 1800x2100",
+      "qty_sold": 1,
+      "qty_quoted": 1,
+      "supplier_ref": "BSW QT253232 e.06"
+    }
+  ],
+  "rfq_items": [
+    {
+      "item": "RAL 7016 Anthracite",
+      "requested": true,
+      "quoted_response": "7016M Anthracite Grey - M"
+    },
+    {
+      "item": "Triple glazing throughout",
+      "requested": true,
+      "quoted_response": "windows triple; doors NOT AVAILABLE in triple (BSW 22/07 15:39)"
+    },
+    {
+      "item": "Windows U-value 1.1 W/m2K",
+      "requested": true,
+      "quoted_response": null
+    },
+    {
+      "item": "Doors U-value 1.2 W/m2K",
+      "requested": true,
+      "quoted_response": "Ug 1.0 stated by Bellview"
+    },
+    {
+      "item": "Solar control glazing",
+      "requested": true,
+      "quoted_response": null
+    },
+    {
+      "item": "Obscure glazing where required",
+      "requested": true,
+      "quoted_response": null
+    },
+    {
+      "item": "Panic escape gear for Door E.02",
+      "requested": true,
+      "quoted_response": "ACIM453 concealed panic bar on all E.02 positions"
+    }
+  ],
+  "priced_rows": [
+    {
+      "ref": "Door Type E.02 1010x2110",
+      "code": "SAD",
+      "qty": 1,
+      "supply_each": 2589.1085,
+      "sell_each": 3489.1085
+    },
+    {
+      "ref": "Door Type E.04 1810x2110",
+      "code": "DAD",
+      "qty": 2,
+      "supply_each": 2878.661,
+      "sell_each": 4378.661
+    },
+    {
+      "ref": "(Door) Window Type E.01, E.03 1800x2110",
+      "code": "SAD",
+      "qty": 4,
+      "supply_each": 3137.9195,
+      "sell_each": 4037.9195
+    },
+    {
+      "ref": "Door Type E.03 louvred 1810x2110",
+      "code": "DAD",
+      "qty": 2,
+      "supply_each": 2940.5155,
+      "sell_each": 4440.5155
+    },
+    {
+      "ref": "Door Type E.01 STEEL 1810x2110 (Strongdor)",
+      "code": "DAD",
+      "qty": 5,
+      "supply_each": 2637.01,
+      "sell_each": 2728.81,
+      "additional_each": 91.8
+    },
+    {
+      "ref": "Window Type E.02 1800x2100",
+      "code": "ELAW",
+      "qty": 23,
+      "supply_each": 1362.57,
+      "sell_each": 2000.07
+    },
+    {
+      "ref": "Window Type E.04 1800x2400",
+      "code": "ELAW",
+      "qty": 4,
+      "supply_each": 1098.9,
+      "sell_each": 1736.4
+    },
+    {
+      "ref": "Window Type E.05 1000x2100",
+      "code": "LAW",
+      "qty": 2,
+      "supply_each": 620.49,
+      "sell_each": 1107.99
+    },
+    {
+      "ref": "Window Type E.06 1800x2100",
+      "code": "ELAW",
+      "qty": 1,
+      "supply_each": 984.64,
+      "sell_each": 1622.14
+    }
+  ]
 }
