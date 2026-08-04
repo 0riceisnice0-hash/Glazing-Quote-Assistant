@@ -841,3 +841,72 @@ body:has(#page[data-layout="chat"]) .page-sub { display: none; }
   padding-top: 11px; border-top: 1px solid var(--line); }
 .fd-nums span { font-size: var(--t-12); color: var(--muted); }
 .fd-nums strong { color: var(--ink); font-size: var(--t-14); }
+
+/* ---------------- JOSEPH'S BOARD ----------------
+   The twelve steps, as a grid across the portfolio and as a checklist per job.
+   Two rules from MARY-HUB-DEV.md are load-bearing in here: the radius tokens
+   are --r-sm/md/lg and there is no --r, and nothing dark sits on a dark
+   surface, because styles.css sets strong and headings to --ink. */
+
+/* The grid. Twelve narrow columns and a job column that has to survive them,
+   so the step cells are fixed and the job cell takes what is left. */
+.jo-grid th.jo-h { text-align: center; padding: 10px 4px; white-space: nowrap;
+  font-size: 9px; letter-spacing: .04em; width: 46px; }
+.jo-grid th.jo-h span { display: block; font-size: var(--t-12); font-weight: 700;
+  color: var(--navy); letter-spacing: 0; }
+.jo-grid td.jo-c { padding: 10px 4px; text-align: center; }
+.jo-grid td.job-cell { min-width: 190px; }
+
+.jo-tick { display: inline-grid; place-items: center; width: 22px; height: 22px;
+  border-radius: var(--r-sm); font-size: var(--t-12); font-weight: 700;
+  border: 1px solid var(--line); background: var(--paper); color: var(--muted); }
+.jo-tick.done { background: var(--green-50); border-color: var(--green-50); color: var(--green-600); }
+.jo-tick.late { background: var(--red-50); border-color: var(--red-50); color: var(--red); }
+.jo-tick.open { background: var(--navy-100); border-color: var(--navy-100); color: var(--navy); }
+/* Undated is a dashed outline and NOT a green tick or a grey blank that reads
+   like one - the whole point is that it looks unfinished, because it is. */
+.jo-tick.undated { border-style: dashed; border-color: var(--line-strong); background: transparent; }
+
+.jo-key { display: flex; flex-wrap: wrap; gap: 18px; margin: 12px 0 26px;
+  font-size: var(--t-12); color: var(--muted); }
+.jo-key span { display: flex; align-items: center; gap: 7px; }
+.jo-key i { font-style: normal; }
+.jo-key strong { color: var(--ink); }
+
+/* One job in full. */
+.jo-card { background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--r-lg); padding: 18px 20px; margin-bottom: 18px; }
+.jo-card-head { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-start;
+  justify-content: space-between; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.jo-card-head h4 { margin: 0; font-size: var(--t-15); color: var(--ink); cursor: pointer; }
+.jo-card-head h4:hover { color: var(--green-600); }
+.jo-card-head small { color: var(--muted); font-size: var(--t-12); }
+.jo-card-meta { display: flex; flex-wrap: wrap; gap: 7px; }
+
+.jo-steps { display: grid; gap: 2px; margin-top: 6px; }
+.jo-step { display: grid; grid-template-columns: 22px 1fr auto; gap: 12px;
+  align-items: start; padding: 11px 4px; border-bottom: 1px solid var(--line); }
+.jo-step:last-child { border-bottom: 0; }
+.jo-step-body strong { display: block; font-size: var(--t-13); color: var(--ink); }
+.jo-step.done .jo-step-body strong { color: var(--body); font-weight: 500; }
+.jo-step-body small { display: block; font-size: var(--t-12); color: var(--muted); margin-top: 3px; }
+.jo-step-body p { margin: 6px 0 0; font-size: var(--t-12); color: var(--body); line-height: 1.55; }
+.jo-step-when { white-space: nowrap; }
+.jo-note { margin-top: 14px; padding-top: 13px; border-top: 1px solid var(--line); }
+.jo-note strong { display: block; font-size: var(--t-11); letter-spacing: .1em;
+  text-transform: uppercase; color: var(--muted); }
+.jo-note p { margin: 6px 0 0; font-size: var(--t-13); color: var(--body); line-height: 1.6; }
+
+/* A risk is a claim and the move that answers it, and the move is the half
+   people skip - so it gets the body colour and full width, not a caption. */
+.jo-risks { display: grid; gap: 12px; margin-bottom: 26px; }
+.jo-risk { background: var(--card); border: 1px solid var(--line);
+  border-left: 3px solid var(--amber); border-radius: var(--r-md); padding: 15px 18px; }
+.jo-risk.danger { border-left-color: var(--red); }
+.jo-risk[data-crmcon], .jo-risk[data-go] { cursor: pointer; }
+.jo-risk[data-crmcon]:hover, .jo-risk[data-go]:hover { box-shadow: var(--sh-1); }
+.jo-risk-top { display: flex; gap: 12px; align-items: baseline;
+  justify-content: space-between; flex-wrap: wrap; }
+.jo-risk-top strong { font-size: var(--t-14); color: var(--ink); }
+.jo-risk-job { font-size: var(--t-12); color: var(--muted); margin-top: 4px; }
+.jo-risk p { margin: 9px 0 0; font-size: var(--t-13); color: var(--body); line-height: 1.6; }

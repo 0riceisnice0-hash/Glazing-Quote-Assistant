@@ -457,6 +457,71 @@ export async function onRequest(context) {
                       counts: { late: late.length, due: due.length, coming: coming.length } });
       }
 
+      /* THE PROGRAMME - Joseph's own shape, and it exists because neither
+         route above can answer his question in one call. `contracts` is job
+         rows with no steps on them. `delivery` is dated tasks, and every task
+         on his jobs is undated, because not one of them has a site date and
+         every date on the twelve steps is counted back from that. A page built
+         on those two says "nothing is late" about a job that has bought its
+         frames against a programme nobody has written down.
+
+         The filter is the load-bearing part. 33 contracts are `live`; 29 of
+         them are rows seeded from the AdminBase export with no PO, no steps
+         and nobody running them. Calling those 33 jobs in progress is exactly
+         the "57 live contracts" mistake JOSEPH-HUB-DEV.md warns about - so
+         they come back as a count and a reason rather than as work. A job is
+         being run when it has a PO recorded against it or a step ticked. */
+      if (action === "programme") {
+        const [cons, tasks, cos] = await Promise.all([
+          db.prepare("SELECT * FROM crm_contract WHERE status='live'").all(),
+          db.prepare("SELECT * FROM crm_task WHERE entity_type='contract'").all(),
+          db.prepare("SELECT key, name FROM crm_company").all(),
+        ]);
+        const byKey = {};
+        for (const t of tasks.results) {
+          if (!byKey[t.entity_key]) byKey[t.entity_key] = [];
+          byKey[t.entity_key].push(t);
+        }
+        const names = {};
+        for (const c of cos.results) names[c.key] = c.name;
+        const live = cons.results;
+        const mine = live.filter(
+          (c) => String(c.po_ref || "").trim() !== "" || (byKey[c.key] || []).length);
+        const keys = mine.map((c) => c.key);
+        let notes = [], invoices = [];
+        if (keys.length) {
+          const ph = keys.map(() => "?").join(",");
+          const [n, i] = await Promise.all([
+            db.prepare("SELECT * FROM crm_note WHERE entity_type='contract' AND entity_key IN (" +
+                       ph + ") ORDER BY id DESC").bind(...keys).all(),
+            db.prepare("SELECT * FROM crm_invoice WHERE contract_key IN (" +
+                       ph + ") ORDER BY issued_at").bind(...keys).all(),
+          ]);
+          notes = n.results; invoices = i.results;
+        }
+        const jobs = mine.map((c) => Object.assign({}, c, {
+          company: names[c.company_key] || c.company_key,
+          tasks: byKey[c.key] || [],
+          notes: notes.filter((n) => n.entity_key === c.key).slice(0, 6),
+          invoices: invoices.filter((v) => v.contract_key === c.key),
+        }));
+        const idle = live.filter((c) => keys.indexOf(c.key) === -1);
+        return json({
+          date: now().slice(0, 10),
+          jobs,
+          /* Both halves of the split, so the page never has to say a number
+             without saying what it excluded to get there. */
+          summary: {
+            live: live.length,
+            managed: jobs.length,
+            dated: jobs.filter((c) => c.site_date).length,
+            value: jobs.reduce((s, c) => s + (c.value || 0), 0),
+            idle: idle.length,
+            idle_value: idle.reduce((s, c) => s + (c.value || 0), 0),
+          },
+        });
+      }
+
       if (action.startsWith("company/")) {
         const key = action.slice(8);
         const company = await db.prepare("SELECT * FROM crm_company WHERE key = ?").bind(key).first();

@@ -945,6 +945,10 @@ let JOSTATUS = null;
 let FD = null;
 /* What Joseph has changed in the CRM, from the crm_event audit trail. */
 let JOEVENTS = [];
+/* Joseph's programme - the won jobs he is actually running, each with its
+   twelve steps, read live from /api/crm/programme. Null until the first fetch,
+   and the board says "not known" rather than "nothing to do" while it is. */
+let JOPROG = null;
 let BOTCHAT = [];
 let JACTIVITY = null;
 /* His bridge can report a status line the same way Mary's does; until it
@@ -3321,6 +3325,203 @@ function josephStatus() {
   return { text: "Not started", tone: "off", title: "His bridge has not been run yet" };
 }
 
+/* ================= JOSEPH'S BOARD =================
+   Built to the brief in JOSEPH-HUB-DEV.md. The page I want open while I am
+   doing the job, not one that describes the job to somebody else, and it has
+   to answer one question in the time it takes to look at it: what is going to
+   go wrong, and what do I do about it today?
+
+   It is deliberately not a second Contracts page. Contracts is the company's
+   record of a won job and all three of us read it. What is mine is the
+   PROGRAMME - twelve steps, the lead time each one assumes, and the arithmetic
+   between them. That arithmetic is the only thing in this system that can say
+   a date will be missed before the week it is missed in.
+
+   Everything here is derived from two numbers per step: is it done, and how
+   many weeks before the site date it is meant to happen. There is no third
+   source. If a claim on this board cannot be traced back to those, it is not
+   on it. */
+
+/* The twelve steps in order, mirroring STEPS in scripts/crm_contract.py, which
+   is where they are authoritative. The number is WEEKS BEFORE THE SITE DATE;
+   the last two are negative because they happen after we come off site.
+
+   THESE LEAD TIMES ARE ASSUMPTIONS. They come from the shape of the trade, not
+   from anything Fenster has measured, because nobody has recorded it yet. So
+   every figure this board derives from them is labelled an estimate where it
+   is shown - not in a footnote. When a real job proves one wrong, it gets
+   changed here and in the Python together. */
+const JO_STEPS = [
+  ["sign_off_po",       "Sign off the purchase order",         "PO",      12],
+  ["book_installation", "Provisionally book the installation", "Book in", 11],
+  ["submit_designs",    "Submit designs",                      "Designs", 10],
+  ["book_survey",       "Book the survey",                     "Survey",   9],
+  ["order_frames",      "Order the frames",                    "Frames",   8],
+  ["order_glass",       "Order the glass",                     "Glass",    7],
+  ["send_rams",         "Send RAMs",                           "RAMs",     5],
+  ["arrange_labour",    "Arrange labour",                      "Labour",   4],
+  ["order_consumables", "Order consumables",                   "Consum",   3],
+  ["confirm_booking",   "Confirm the installation booking",    "Confirm",  2],
+  ["send_om",           "Send the O&M manual",                 "O&M",     -1],
+  ["invoice",           "Invoice",                             "Invoice",  -2],
+];
+/* The three steps that spend money with a supplier, and the two that decide
+   what the money buys. An order placed before its drawings are closed is not
+   an order, it is a deposit on a re-order. */
+const JO_BUYS = ["order_frames", "order_glass", "order_consumables"];
+const JO_DRAWS = ["submit_designs", "book_survey"];
+/* Said as the thing that has not happened yet, because "ordered before submit
+   designs" is not a sentence and this page is read in a hurry. */
+const JO_OPEN_SAID = {
+  submit_designs: "the designs are signed off",
+  book_survey: "the survey is booked",
+};
+const joCap = (s) => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
+
+const joJobs = () => (JOPROG && JOPROG.jobs) || [];
+const joToday = () => (JOPROG && JOPROG.date) || new Date().toISOString().slice(0, 10);
+
+function joWeeksOn(iso, weeks) {
+  const d = new Date(iso + "T00:00:00Z");
+  d.setUTCDate(d.getUTCDate() + Math.round(weeks * 7));
+  return d.toISOString().slice(0, 10);
+}
+const joWeeksBetween = (a, b) =>
+  Math.round((Date.parse(b + "T00:00:00Z") - Date.parse(a + "T00:00:00Z")) / (7 * 864e5));
+const joSpell = (w) => `${w} week${w === 1 ? "" : "s"}`;
+const joDaysOld = (iso) => Math.floor((Date.now() - Date.parse(iso)) / 864e5);
+/* "0 days open" is a bad way of saying "asked this morning" - the number is
+   right and reads as though the clock is broken. */
+const joAge = (iso) => {
+  const n = joDaysOld(iso);
+  return n <= 0 ? "raised today" : n === 1 ? "1 day open" : `${n} days open`;
+};
+
+/* One job, read the way I read it.
+
+   The number this whole board exists for is `earliest`. Every step is counted
+   back from the site date, so the longest lead time still outstanding IS the
+   soonest we could be on site. On a job with a date it tells me whether the
+   date survives; on a job without one it is the only honest thing to put in
+   that column, and it is a great deal more use than a blank. */
+function joRead(job) {
+  const today = joToday();
+  const by = {};
+  (job.tasks || []).forEach((t) => { by[t.step] = t; });
+  const steps = JO_STEPS.map(([key, label, short, weeks], i) => {
+    const t = by[key] || null;
+    const done = !!(t && t.done_at);
+    const due = (t && t.due) || "";
+    return {
+      n: i + 1, key, label, short, weeks, task: t, done, due,
+      /* Four states, and the fourth one matters: `undated` is not `on time`.
+         A step with no due date cannot be late, and reading that as healthy is
+         the single easiest way to lose a programme. */
+      state: done ? "done" : due && due < today ? "late" : due ? "open" : "undated",
+    };
+  });
+  const undone = steps.filter((s) => !s.done);
+  const lead = undone.reduce((m, s) => Math.max(m, s.weeks), 0);
+  const bought = steps.filter((s) => s.done && JO_BUYS.indexOf(s.key) !== -1);
+  /* Bought off drawings that are not closed: a shorter-lead order is done
+     while a longer-lead design step it depends on is not. */
+  const openDraw = steps.filter((s) => !s.done && JO_DRAWS.indexOf(s.key) !== -1);
+  const early = openDraw.length ? bought : [];
+  return {
+    steps, undone, bought, early, openDraw,
+    done: steps.filter((s) => s.done),
+    late: steps.filter((s) => s.state === "late"),
+    lead, earliest: joWeeksOn(today, lead),
+    next: undone[0] || null,
+  };
+}
+
+/* What is going to go wrong on this job, worst first, each with the move that
+   answers it. Nothing in here is a guess - every line names the two facts it
+   was built from. */
+function joRisks(job) {
+  const r = joRead(job);
+  const out = [];
+  const money = job.value ? gbp(job.value) : "an unpriced figure";
+  const bought = r.bought.map((b) => b.label.replace(/^Order the /, "")).join(" and ");
+
+  if (!job.site_date && r.bought.length) {
+    out.push({ tone: "danger", job,
+      what: joCap(`${bought} ordered, and there is still no site date`),
+      act: `${joCap(money)} is being bought against a programme nobody has written down. The order is real; the date it is for does not exist. A target month is enough to lay the twelve steps out - that is what JOE-3 asks for.` });
+  } else if (!job.site_date) {
+    out.push({ tone: "warn", job,
+      what: "No site date, so not one of the twelve steps has a due date",
+      act: `Nothing on this job can be called late or on time until a date exists. On today's outstanding work the soonest it could go on site is ${r.earliest} - ${joSpell(r.lead)} - and that is an estimate off assumed lead times.` });
+  }
+  if (r.early.length) {
+    out.push({ tone: "danger", job,
+      what: joCap(`${bought} ordered before ${r.openDraw.map((s) => JO_OPEN_SAID[s.key] || s.label.toLowerCase()).join(" and ")}`),
+      act: "If the submission comes back changed that is a re-order and a fresh lead time, not an amendment. Worth confirming which revision the order was cut from before it is made." });
+  }
+  if (job.site_date && r.earliest > job.site_date) {
+    const over = joWeeksBetween(job.site_date, r.earliest);
+    out.push({ tone: "danger", job,
+      what: `${job.site_date} cannot be hit on today's lead times`,
+      act: `${joSpell(r.lead)} of work is still outstanding, which puts the soonest start at ${r.earliest} - ${joSpell(over)} past the date. Say it now, not in ${joSpell(over)}. Estimate, off assumed lead times.` });
+  }
+  r.late.forEach((s) => out.push({ tone: "danger", job,
+    what: `${s.label} was due ${s.due}`,
+    act: `Every step behind it counts back from the same site date, so this does not stay one step late on its own.` }));
+  return out;
+}
+
+const joAllRisks = () => joJobs().flatMap(joRisks)
+  .sort((a, b) => (a.tone === b.tone ? 0 : a.tone === "danger" ? -1 : 1));
+
+/* A job in one line, used on three pages, so it is one shape everywhere. */
+function joJobLine(job) {
+  const r = joRead(job);
+  return `<tr data-crmcon="${esc(job.key)}">
+    <td class="job-cell"><strong>${esc(job.title || job.key)}</strong>
+      <small>${esc(job.company || job.company_key)}</small></td>
+    <td class="num">${job.value ? gbp(job.value) : '<span class="dim">not on the board</span>'}</td>
+    <td class="num">${r.done.length}/12</td>
+    <td>${job.site_date
+      ? `${esc(job.site_date)} ${whenChip(job.site_date)}`
+      : `<span class="chip warn">no date</span>`}</td>
+    <td class="num">${esc(r.earliest)}<br><small class="dim">est, ${joSpell(r.lead)} outstanding</small></td>
+    <td class="crm-title"><span>${r.next ? esc(r.next.label) : "Everything is ticked"}</span></td>
+  </tr>`;
+}
+
+const JO_JOB_HEAD = `<thead><tr><th>Job</th><th>Value</th><th>Steps</th>
+  <th>On site</th><th>Soonest possible</th><th>Next step</th></tr></thead>`;
+
+/* The grid. Twelve columns, one row a job - the whole portfolio in one look,
+   which is the thing no other page in the hub can give me. */
+function joGrid() {
+  const jobs = joJobs();
+  if (!jobs.length) return "";
+  return `<div class="tbl-wrap"><table class="tbl jo-grid">
+    <thead><tr><th>Job</th>
+      ${JO_STEPS.map(([, label, short], i) =>
+        `<th class="jo-h" title="${esc(label)}"><span>${i + 1}</span>${esc(short)}</th>`).join("")}
+    </tr></thead><tbody>
+    ${jobs.map((j) => {
+      const r = joRead(j);
+      return `<tr data-crmcon="${esc(j.key)}">
+        <td class="job-cell"><strong>${esc(j.title || j.key)}</strong>
+          <small>${esc(j.company || j.company_key)}</small></td>
+        ${r.steps.map((s) => `<td class="jo-c"><span class="jo-tick ${s.state}"
+          title="${esc(s.label)}${s.done ? ` - done ${s.task.done_at}` : s.due ? ` - due ${s.due}` : " - no due date, because there is no site date"}"
+          >${s.done ? "&#10003;" : s.state === "late" ? "!" : s.state === "open" ? "&middot;" : ""}</span></td>`).join("")}
+      </tr>`;
+    }).join("")}
+    </tbody></table></div>
+    <div class="jo-key">
+      <span><i class="jo-tick done">&#10003;</i> done, with the evidence under it</span>
+      <span><i class="jo-tick late">!</i> past its due date</span>
+      <span><i class="jo-tick open">&middot;</i> dated, not yet done</span>
+      <span><i class="jo-tick undated"></i> <strong>no due date</strong> - not "on time", undated</span>
+    </div>`;
+}
+
 function jacobStatus() {
   if (JSTATUS && JSTATUS.state && JSTATUS.state !== "unknown") return bridgeStatus(JSTATUS);
   // His bridge reports a status line now, so this only runs before he has ever
@@ -4294,55 +4495,296 @@ const BOTS = {
   joseph: {
     key: "joseph", name: "Joseph Scott", role: "Project management", initials: "JS", accent: "js",
     pages: [
-      { key: "delivery", label: "Delivery", group: "Work", icon: "register",
-        sub: () => "How the won work is running" },
+      { key: "delivery", label: "Today", group: "Work", icon: "home",
+        sub: () => {
+          const n = joAllRisks().filter((r) => r.tone === "danger").length;
+          return n ? `${n} thing${n === 1 ? "" : "s"} going wrong right now`
+                   : "What is going to go wrong, and what I do about it";
+        } },
+      { key: "josteps", label: "The twelve steps", group: "Work", icon: "register",
+        sub: () => {
+          const j = joJobs();
+          if (!j.length) return "The checklist, job by job, with the evidence";
+          const d = j.reduce((s, x) => s + joRead(x).done.length, 0);
+          return `${d} of ${j.length * 12} ticked, and what each tick was inferred from`;
+        } },
+      { key: "jowaiting", label: "Waiting on", group: "Work", icon: "chasing",
+        sub: () => `${openJosephReqs().length + joJobs().filter((j) => !j.site_date).length} things are not moving, and none of them move on their own` },
+      { key: "jomoney", label: "Money", group: "Work", icon: "outcomes",
+        sub: () => "Won, delivered, invoiced - and the three questions blocking the last one" },
+      { key: "joactivity", label: "What I changed", group: "Record", icon: "catches",
+        sub: () => `${(JOEVENTS || []).length} record change${(JOEVENTS || []).length === 1 ? "" : "s"}, each with what it was inferred from` },
       { key: "decisions", label: "Joseph needs you", group: "Talk",
         sub: () => `${openJosephReqs().length} decision${openJosephReqs().length === 1 ? "" : "s"} he cannot make alone` },
       { key: "jomessages", label: "Messages", group: "Talk", layout: "chat",
         sub: () => "Two-way line - he picks this up on his next pass" },
     ],
     render: {
-      /* A WORKING DEFAULT, AND HE IS EXPECTED TO REPLACE IT. The brief is in
-         JOSEPH-HUB-DEV.md: build the page you would want open while you do the
-         job. This exists so nothing waits on him, not because it is right. */
+      /* TODAY. One question: what is going to go wrong, and what do I do about
+         it. Risks first, because they are the only part of this page that
+         changes what I do in the next hour; the portfolio underneath is
+         context for them, not the point. */
       delivery() {
-        const cons = (CRM.contracts || []).filter((c) => c.status === "live");
-        const dated = cons.filter((c) => c.site_date);
-        const d = CRM.delivery || { counts: { late: 0, due: 0, coming: 0 } };
-        const soon = [...dated].sort((a, b) => (a.site_date || "").localeCompare(b.site_date || ""));
+        if (!JOPROG) {
+          return `<div class="empty"><strong>The programme has not loaded.</strong>
+            <p>Every figure on this page comes from <code>/api/crm/programme</code> and
+            that call has not come back. This is "not known", which is a different
+            thing from "nothing to do" - do not read it as a quiet day.</p></div>`;
+        }
+        const s = JOPROG.summary;
+        const jobs = joJobs();
+        const risks = joAllRisks();
+        const danger = risks.filter((r) => r.tone === "danger");
+        /* Jobs that have bought something against a date that does not exist.
+           The figure is the honest half of this and the count is the other:
+           a job whose value the board does not carry adds nothing to the total
+           and is still exposure, so the tile says how many are missing from
+           it rather than quietly understating. */
+        const buying = jobs.filter((j) => !j.site_date && joRead(j).bought.length);
+        const exposed = buying.reduce((t, j) => t + (j.value || 0), 0);
+        const unpriced = buying.filter((j) => !j.value).length;
+        const reqs = openJosephReqs();
         return `
           <div class="stats">
-            <div class="stat" data-go="contracts"><div class="n">${cons.length}</div>
-              <div class="l">Live jobs</div></div>
-            <div class="stat"><div class="n">${dated.length}</div>
-              <div class="l">Have a site date, so can be scheduled</div></div>
-            <div class="stat"><div class="n">${d.counts.late}</div>
-              <div class="l">Steps late</div></div>
-            <div class="stat"><div class="n">${d.counts.due}</div>
-              <div class="l">Due today</div></div>
+            <div class="stat"><div class="n">${jobs.length}</div>
+              <div class="l">Jobs I am running${s.idle ? `. ${s.idle} more rows read live and nobody is running them` : ""}</div></div>
+            <div class="stat ${s.dated ? "" : "red"}"><div class="n">${s.dated}/${jobs.length}</div>
+              <div class="l">Have a site date. The rest cannot be scheduled at all</div></div>
+            <div class="stat ${buying.length ? "red" : ""}"><div class="n">${exposed ? gbp(exposed) : buying.length ? "?" : "0"}</div>
+              <div class="l">${buying.length
+                ? `Already ordered on ${buying.length} job${buying.length === 1 ? "" : "s"} with no site date${unpriced ? `, and ${unpriced} of those carries no figure - so the real number is higher` : ""}`
+                : "Nothing is on order against a job without a date"}</div></div>
+            <div class="stat ${reqs.length ? "amber" : "green"}" data-go="decisions">
+              <div class="n">${reqs.length}</div>
+              <div class="l">Decisions I cannot make alone</div></div>
           </div>
-          ${cons.length && !dated.length ? `<div class="planned-note"><p>
-            <strong>${cons.length} won jobs and not one has a site date, so nothing can
-            be scheduled.</strong> Every step counts backwards from the day we go on
-            site. Open a job on <a data-go="contracts">Contracts</a> and set one - that
-            is the single edit that turns this page on.</p></div>` : ""}
-          <h3>Going on site next</h3>
-          ${soon.length ? `<table class="tbl crm-tbl"><thead><tr>
-              <th>Job</th><th>Client</th><th>On site</th></tr></thead><tbody>
-            ${soon.slice(0, 15).map((c) => `<tr data-crmcon="${esc(c.key)}">
-              <td class="crm-title"><span>${esc(c.title || c.key)}</span></td>
-              <td class="crm-title"><span>${esc((crmCo(c.company_key) || {}).name || c.company_key)}</span></td>
-              <td class="nowrap">${esc(c.site_date)} ${whenChip(c.site_date)}</td>
-            </tr>`).join("")}</tbody></table>`
-            : `<div class="empty"><strong>Nothing is scheduled.</strong>
-                <p>No live job has a site date yet.</p></div>`}
-          <h3>What he has been doing</h3>
-          ${josephActivity()}
-          <div class="planned-note"><p>His jobs themselves live on
-            <a data-go="contracts">Contracts</a>, with Leads and Companies, because a
-            won job is the company's record and not his. This page is a working
-            default he is briefed to replace - see <code>JOSEPH-HUB-DEV.md</code>.</p></div>`;
+
+          <h3>What is going to go wrong</h3>
+          ${risks.length ? `<div class="jo-risks">${risks.map((r) => `
+            <div class="jo-risk ${r.tone}" data-crmcon="${esc(r.job.key)}">
+              <div class="jo-risk-top"><strong>${esc(r.what)}</strong>
+                <span class="chip ${r.tone === "danger" ? "danger" : "warn"}">${
+                  r.tone === "danger" ? "act on it today" : "hold"}</span></div>
+              <div class="jo-risk-job">${esc(r.job.title || r.job.key)} &middot; ${esc(r.job.company || r.job.company_key)}</div>
+              <p>${esc(r.act)}</p>
+            </div>`).join("")}</div>`
+          : `<div class="empty"><strong>Nothing I can derive is going wrong.</strong>
+              <p>That is a weaker statement than it looks. ${
+                s.dated === jobs.length
+                  ? "Every job has a site date, so the twelve steps are dated and this really is the picture."
+                  : `${jobs.length - s.dated} of ${jobs.length} jobs have no site date, so their steps carry no due dates and nothing on them can register as late. I am not seeing a clean board, I am seeing an undated one.`}</p></div>`}
+
+          <h3>Every job I am running</h3>
+          ${jobs.length ? `<div class="tbl-wrap"><table class="tbl">${JO_JOB_HEAD}
+            <tbody>${jobs.slice().sort((a, b) =>
+              (a.site_date || "9999").localeCompare(b.site_date || "9999") ||
+              (b.value || 0) - (a.value || 0)).map(joJobLine).join("")}</tbody></table></div>
+            <div class="planned-note"><p><strong>"Soonest possible" is arithmetic, not a
+              promise.</strong> Every step is counted back from the site date, so the
+              longest lead time still outstanding is the earliest we could be on site.
+              The lead times behind it are assumptions from the shape of the trade -
+              see <code>scripts/crm_contract.py</code> - and the first real job that
+              disproves one is how they stop being assumptions.</p></div>`
+          : `<div class="empty"><strong>I am not running any job.</strong>
+              <p>${s.live} contracts are marked live, but none of them has a purchase
+              order recorded or a single step ticked, so none is a job in progress.
+              A job becomes mine at the PO.</p></div>`}
+
+          ${s.idle ? `<div class="planned-note"><p><strong>${s.live} contracts read as
+            live and I am running ${jobs.length} of them.</strong> The other ${s.idle}
+            (${gbp(s.idle_value)}) are rows seeded from the AdminBase export with no PO
+            recorded, no steps and nobody managing them. They are on this page as a
+            count and not as work, because calling them work in progress would put a
+            number on the board that does not mean what it says. If one of them is
+            actually live, it needs a PO on it and I will pick it up.</p></div>` : ""}`;
       },
+
+      /* THE CHECKLIST. Zac, 04/08: "like a check list vibe". The grid first
+         because the portfolio in one look is the thing no other page gives me,
+         then every job in full with what each tick was inferred from - because
+         §4 of the manual is that a wrong tick has to be understandable rather
+         than silently corrected, and that only works if the evidence is on the
+         same line as the tick. */
+      josteps() {
+        const jobs = joJobs();
+        if (!JOPROG) return `<div class="empty"><strong>The programme has not loaded.</strong>
+          <p>This is "not known", not "nothing to do".</p></div>`;
+        if (!jobs.length) return `<div class="empty"><strong>No job has a checklist yet.</strong>
+          <p>The twelve steps are laid out when a contract is opened with a site date.
+          Nothing here is running.</p></div>`;
+        const undated = jobs.filter((j) => !j.site_date).length;
+        return `
+          ${undated ? `<div class="planned-note"><p><strong>${undated} of ${jobs.length}
+            jobs have no site date, so their steps carry no due dates.</strong> On those
+            rows an empty box means undated, not on time - nothing can be late against a
+            date that does not exist. That is why the fourth key below is spelled
+            out.</p></div>` : ""}
+          ${joGrid()}
+          ${jobs.map((j) => {
+            const r = joRead(j);
+            return `<div class="jo-card">
+              <div class="jo-card-head">
+                <div><h4 data-crmcon="${esc(j.key)}">${esc(j.title || j.key)}</h4>
+                  <small>${esc(j.company || j.company_key)}${j.po_ref ? ` &middot; ${esc(j.po_ref)}` : ""}</small></div>
+                <div class="jo-card-meta">
+                  <span class="chip ${r.done.length === 12 ? "ok" : "navy"}">${r.done.length}/12 done</span>
+                  ${j.site_date ? `<span class="chip ok">on site ${esc(j.site_date)}</span>`
+                                : `<span class="chip warn">no site date</span>`}
+                  ${j.value ? `<span class="chip navy">${gbp(j.value)}</span>` : ""}
+                </div>
+              </div>
+              <div class="jo-steps">${r.steps.map((st) => `
+                <div class="jo-step ${st.state}">
+                  <span class="jo-tick ${st.state}">${st.done ? "&#10003;"
+                    : st.state === "late" ? "!" : st.state === "open" ? "&middot;" : st.n}</span>
+                  <div class="jo-step-body">
+                    <strong>${st.n}. ${esc(st.label)}</strong>
+                    ${st.done
+                      ? `<small>Done ${esc(st.task.done_at)}${st.task.done_by ? ` &middot; on the word of ${esc(st.task.done_by)}` : " &middot; no source recorded, which is a gap"}</small>`
+                      : st.due ? `<small>Due ${esc(st.due)}</small>`
+                      : `<small class="dim">No due date - this job has no site date to count back from. Normally ${joSpell(Math.abs(st.weeks))} ${st.weeks < 0 ? "after" : "before"} we go on site.</small>`}
+                    ${st.task && st.task.detail ? `<p>${esc(st.task.detail)}</p>` : ""}
+                  </div>
+                  <span class="jo-step-when">${st.done ? "" : st.due ? whenChip(st.due) : ""}</span>
+                </div>`).join("")}</div>
+              ${j.notes && j.notes.length ? `<div class="jo-note">
+                <strong>Latest note</strong><p>${esc(j.notes[0].body)}</p></div>` : ""}
+            </div>`;
+          }).join("")}`;
+      },
+
+      /* WAITING ON. The steps do not move on their own and neither do the
+         questions - this is one list of everything stalled, oldest first,
+         because age is the only thing that turns a question into a problem. */
+      jowaiting() {
+        const reqs = openJosephReqs().slice()
+          .sort((a, b) => Date.parse(a.created) - Date.parse(b.created));
+        const jobs = joJobs();
+        const stalled = jobs.filter((j) => !j.site_date);
+        if (!reqs.length && !stalled.length && !jobs.length) {
+          return `<div class="empty"><strong>Nothing is stalled, and nothing is running.</strong>
+            <p>No job is on my board, so there is nothing to be waiting on.</p></div>`;
+        }
+        return `
+          <div class="stats">
+            <div class="stat ${reqs.length ? "amber" : "green"}"><div class="n">${reqs.length}</div>
+              <div class="l">Questions on a human${reqs.length ? `, oldest ${joAge(reqs[0].created)}` : ""}</div></div>
+            <div class="stat ${stalled.length ? "red" : "green"}"><div class="n">${stalled.length}</div>
+              <div class="l">Jobs held up for want of a site date</div></div>
+            <div class="stat"><div class="n">${gbp(stalled.reduce((t, j) => t + (j.value || 0), 0))}</div>
+              <div class="l">Value sitting behind those${stalled.filter((j) => !j.value).length
+                ? `, and ${stalled.filter((j) => !j.value).length} of them carries no figure so it is not in this` : ""}</div></div>
+          </div>
+
+          <h3>On a human</h3>
+          ${reqs.length ? `<div class="jo-risks">${reqs.map((q) => `
+            <div class="jo-risk warn" data-go="decisions">
+              <div class="jo-risk-top"><strong>${esc(q.ref)} &middot; ${esc(q.title)}</strong>
+                <span class="chip ${joDaysOld(q.created) >= 2 ? "danger" : "warn"}">${joAge(q.created)}</span></div>
+              <p>${esc(q.needs || q.why || "")}</p>
+            </div>`).join("")}</div>`
+          : `<div class="empty"><strong>Nothing is waiting on a human.</strong>
+              <p>Everything I cannot decide alone has been answered.</p></div>`}
+
+          <h3>On a date</h3>
+          ${stalled.length ? `<div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>Job</th><th>Value</th><th>Already committed</th>
+              <th>Soonest possible</th></tr></thead><tbody>
+            ${stalled.map((j) => { const r = joRead(j); return `<tr data-crmcon="${esc(j.key)}">
+              <td class="job-cell"><strong>${esc(j.title || j.key)}</strong>
+                <small>${esc(j.company || j.company_key)}</small></td>
+              <td class="num">${j.value ? gbp(j.value) : '<span class="dim">not on the board</span>'}</td>
+              <td class="crm-title"><span>${r.bought.length
+                ? `<strong>${esc(r.bought.map((b) => b.label.replace(/^Order the /, "")).join(", "))}</strong> already on order`
+                : `<span class="dim">nothing ordered yet, so nothing is sitting</span>`}</span></td>
+              <td class="num">${esc(r.earliest)}<br><small class="dim">est, ${joSpell(r.lead)}</small></td>
+            </tr>`; }).join("")}</tbody></table></div>
+            <div class="planned-note"><p>Every date on the twelve steps is counted back
+              from the day we go on site, so a job without one has no dates at all. That
+              is the honest state and not a useful one, which is what
+              <a data-go="decisions">JOE-3</a> is for. A target month is enough.</p></div>`
+          : `<div class="empty"><strong>Every job has a site date.</strong>
+              <p>So every one of them has dated steps and the board can tell you what is
+              late. Nothing is waiting on a date.</p></div>`}`;
+      },
+
+      /* MONEY. Half of this page is a hole and it says so. The chase ladder,
+         applications-versus-invoices and where the figure comes from when there
+         are variations are D2, D3 and D4 - Adam's to answer. Nothing here
+         invents a ladder to fill the space; §7 of the manual is explicit. */
+      jomoney() {
+        const jobs = joJobs();
+        const s = (JOPROG && JOPROG.summary) || { value: 0, live: 0, idle: 0, idle_value: 0 };
+        const invoiced = jobs.flatMap((j) => j.invoices || []);
+        const priced = jobs.filter((j) => j.value);
+        return `
+          <div class="stats">
+            <div class="stat"><div class="n">${gbp(s.value)}</div>
+              <div class="l">Won and not yet delivered, across ${jobs.length} job${jobs.length === 1 ? "" : "s"}</div></div>
+            <div class="stat ${priced.length < jobs.length ? "amber" : ""}">
+              <div class="n">${priced.length}/${jobs.length}</div>
+              <div class="l">Carry a value. A job without one cannot be invoiced from here</div></div>
+            <div class="stat"><div class="n">${invoiced.length}</div>
+              <div class="l">Invoices raised against a live job</div></div>
+          </div>
+
+          ${!invoiced.length ? `<div class="planned-note"><p><strong>No invoice is
+            recorded against any live job, and that is expected rather than a gap.</strong>
+            Invoicing is step 12 and not one of these jobs has been on site yet - there
+            is nothing to invoice. Read this tile as "nothing has reached the end", not
+            as "we are not billing".</p></div>` : ""}
+
+          <h3>Where the money is</h3>
+          ${jobs.length ? `<div class="tbl-wrap"><table class="tbl">
+            <thead><tr><th>Job</th><th>Value</th><th>Steps</th><th>Invoice due</th></tr></thead>
+            <tbody>${jobs.slice().sort((a, b) => (b.value || 0) - (a.value || 0)).map((j) => {
+              const r = joRead(j);
+              const inv = r.steps[11];
+              return `<tr data-crmcon="${esc(j.key)}">
+                <td class="job-cell"><strong>${esc(j.title || j.key)}</strong>
+                  <small>${esc(j.company || j.company_key)}</small></td>
+                <td class="num">${j.value ? gbp(j.value) : '<span class="dim">Mary has the figure, not the board</span>'}</td>
+                <td class="num">${r.done.length}/12</td>
+                <td>${inv.done ? `<span class="chip ok">raised ${esc(inv.task.done_at)}</span>`
+                  : inv.due ? `${esc(inv.due)} ${whenChip(inv.due)}`
+                  : `<span class="chip warn">no date</span> <small class="dim">two weeks after a site date that is not set</small>`}</td>
+              </tr>`;
+            }).join("")}</tbody></table></div>`
+          : `<div class="empty"><strong>No live job carries a figure yet.</strong></div>`}
+
+          <h3>What is blocking the money half</h3>
+          <div class="jo-risks">
+            <div class="jo-risk warn"><div class="jo-risk-top"><strong>D2 &middot; The chase ladder</strong>
+              <span class="chip warn">Adam's call</span></div>
+              <p>Six chase stages and their day counts. Day 7, 35 and 75 are known and 75
+              is formal escalation; the other three are not written down. Until they are,
+              a late payment gets chased when somebody remembers, and I am not going to
+              invent a ladder to make this page look finished.</p></div>
+            <div class="jo-risk warn"><div class="jo-risk-top"><strong>D3 &middot; Applications or final invoices</strong>
+              <span class="chip warn">Adam's call</span></div>
+              <p>Commercial work runs a different cycle for each, and step 12 means a
+              different thing depending on the answer. Right now it is one step, due on a
+              date, ticked when done, with no automation behind it.</p></div>
+            <div class="jo-risk warn"><div class="jo-risk-top"><strong>D4 &middot; Where the figure comes from</strong>
+              <span class="chip warn">Adam's call</span></div>
+              <p>When there are variations: the quote, the PO, or a measured final
+              account? I do not price and will not be deciding this one. Until it is
+              answered the value column above is the contract figure and nothing
+              more.</p></div>
+          </div>
+          <div class="planned-note"><p>When D2, D3 and D4 are answered they slot in here -
+            a chase state per invoice and a ladder behind it. The page is built with the
+            space for them and deliberately without a guess at what goes in
+            it.</p></div>`;
+      },
+
+      joactivity() {
+        return `<div class="planned-note"><p>Every tick records what it was inferred
+          from, so a wrong one can be understood rather than quietly corrected. This is
+          that trail.</p></div>
+          ${josephActivity()}`;
+      },
+
       decisions() {
         const open = openJosephReqs();
         const answered = JOREQS.filter((r) => r.status === "answered");
@@ -4822,11 +5264,14 @@ $("#search").addEventListener("input", (e) => {
     CRM = { today: cToday, leads: cLeads || [], companies: cCos || [],
             contracts: cCons || [], delivery: cDel };
 
-    [JOMSGS, JOREQS, JOSTATUS, FD] = await Promise.all([
+    [JOMSGS, JOREQS, JOSTATUS, FD, JOPROG] = await Promise.all([
       api("joseph/messages").catch(() => []),
       api("joseph/requests").catch(() => []),
       api("joseph/status").catch(() => null),
       api("frontdesk").catch(() => null),
+      /* Stays null on failure, deliberately. Joseph's board reads null as "not
+         known" and says so; an empty object would render as a clean day. */
+      api("crm/programme").catch(() => null),
     ]);
     JOEVENTS = await api("crm/events?author=joseph&limit=40").catch(() => []);
 
@@ -4867,7 +5312,16 @@ $("#search").addEventListener("input", (e) => {
            on every beat for the sidebar, so this is the cheapest place a
            round trip could be removed - and it keeps the three cards
            consistent with each other, which separate calls did not. */
-        const [fresh, all, jmsgs, chat, reqs, mq, jq, fd] = await Promise.all([
+        /* Joseph's two channels are on this beat as well now. They were not,
+           which meant a reply written to him on the hub left his sidebar badge
+           reading the count from page load until somebody reloaded - the badge
+           was lying about the board you were not looking at, which is the one
+           thing this beat exists to prevent. His programme is only refetched
+           while one of his work pages is open, because it is the expensive
+           call here and nothing off those pages reads it. */
+        const joWork = BOT === "joseph" &&
+          ["delivery", "josteps", "jowaiting", "jomoney"].includes(page);
+        const [fresh, all, jmsgs, chat, reqs, mq, jq, fd, jomsgs, joreqs, joprog] = await Promise.all([
           api("messages").catch(() => MESSAGES),
           api("bots").catch(() => null),
           api("jacob/messages").catch(() => JMSGS),
@@ -4876,7 +5330,17 @@ $("#search").addEventListener("input", (e) => {
           api("mary/queue").catch(() => MQUEUE),
           api("jacob/queue").catch(() => JQUEUE),
           page === "frontdesk" ? api("frontdesk").catch(() => FD) : Promise.resolve(FD),
+          api("joseph/messages").catch(() => JOMSGS),
+          api("joseph/requests").catch(() => JOREQS),
+          joWork ? api("crm/programme").catch(() => JOPROG) : Promise.resolve(JOPROG),
         ]);
+        const josig = [JOMSGS.length, JOREQS.length, JOMSGS[0]?.id,
+                       openJosephReqs().length].join(":");
+        JOMSGS = jomsgs; JOREQS = joreqs;
+        const progChanged = JSON.stringify(joprog) !== JSON.stringify(JOPROG);
+        JOPROG = joprog;
+        const josephChanged = josig !== [JOMSGS.length, JOREQS.length, JOMSGS[0]?.id,
+                                         openJosephReqs().length].join(":");
         const queueChanged = (mq?.updated !== MQUEUE?.updated) || (jq?.updated !== JQUEUE?.updated);
         MQUEUE = mq; JQUEUE = jq;
         if (queueChanged && ["queue", "jqueue", "live", "jlive"].includes(page)) render();
@@ -4894,10 +5358,12 @@ $("#search").addEventListener("input", (e) => {
         const jacobChanged = jsig !== jacobSig;
         if (maryChanged) { MESSAGES = fresh; msgSig = sig; }
         if (jacobChanged) { JMSGS = jmsgs; BOTCHAT = chat; JREQS = reqs; jacobSig = jsig; }
-        if (statusChanged || maryChanged || jacobChanged) renderSidebar();
+        if (statusChanged || maryChanged || jacobChanged || josephChanged) renderSidebar();
         const watching =
           (BOT === "mary" && maryChanged && ["messages", "overview"].includes(page)) ||
           (BOT === "jacob" && jacobChanged && ["jmessages", "decisions", "overview"].includes(page)) ||
+          (BOT === "joseph" && josephChanged && ["jomessages", "decisions"].includes(page)) ||
+          (BOT === "joseph" && progChanged && joWork) ||
           (BOT === "team" && (maryChanged || jacobChanged) && ["home", "botchat"].includes(page));
         if (watching) render();
       } catch {}

@@ -14,7 +14,7 @@ Two clients waiting on dates I cannot invent. Four questions on the board.
 | Contract | Client | Value | State |
 |---|---|---|---|
 | `pride-rubery-library-remedial` | Pride Developments | split, figure on Mary's quote | Frames ordered 03/08, unacknowledged. Client waiting on an install date |
-| `stoke-park-school` | Borras | GBP 105,000 | Frames and glass ordered. Technal submission live. No site date |
+| `stoke-park-school` | Borras | GBP 105,000 | PO signed (3475, 11/06). Frames and glass ordered. Technal submission live. No site date |
 | `manor-lodge-school` | Borras | GBP 3,931.85 | PO signed. Borras want delivery + install dates, 04/08 |
 | `towcester-vale-local-centre` | RRR Group | GBP 170,000 | Design stage, waiting on DWGs from A Plus. GBP 98,493.94 outstanding |
 
@@ -43,6 +43,35 @@ cannot close what I cannot identify. On JOE-4.
 
 ---
 
+## My board on the hub - built 04/08, and what it is for
+
+Seven tabs under Joseph. Today (what is going wrong, worst first, with the move
+that answers it), The twelve steps (the grid across all jobs, then each job in
+full with the evidence under every tick), Waiting on, Money, What I changed,
+plus decisions and messages. Code is `BOTS.joseph` in `dashboard/public/app.js`,
+styles at the end of `styles.css`, and one new route.
+
+**`/api/crm/programme`** is mine and exists because the two routes that were
+there would both have lied. `crm/contracts` is job rows with no steps;
+`crm/delivery` is dated tasks, and every task on my four jobs is undated
+because none has a site date. A board built on those says "nothing is late"
+about a job buying frames against a programme nobody has written. The route
+also splits *managed* from *live*: 33 contracts read live, 29 of them are
+seeded AdminBase export rows with no PO and nobody running them. A job is mine
+when it has a PO recorded or a step ticked.
+
+**The number the board is built around is "soonest possible".** Every step
+counts back from the site date, so the longest lead time still outstanding is
+the earliest we could be on site. On a dated job it says whether the date
+survives; on an undated one it is the only honest thing to put in the column.
+It is arithmetic off the assumed lead times in `crm_contract.py` and it is
+labelled an estimate everywhere it appears.
+
+It found something in its first ten minutes: Stoke Park read 12 weeks
+outstanding against Manor Lodge and Towcester's 11, because step 1 was unticked
+on a job whose PO I had already recorded. Ticked 04/08 on AdminBase 3475 dated
+11/06/2026 - the same evidence I had used on 3564 and 3557.
+
 ## Things learned this session, so they are not re-learned
 
 - **The routing reason "no contract named" meant no contract existed.** All
@@ -60,6 +89,15 @@ cannot close what I cannot identify. On JOE-4.
   steps can still be written individually with `done_at` and no `due`.
 - **RRR Group have two jobs with bottom-hung AOV free-area questions** -
   Towcester Vale and Riverside House. Different jobs. Noted on both.
+- **My two channels were not on the hub's 10-second refresh.** Mary's and
+  Jacob's were; mine were not, so a reply written to me on the hub left the
+  badge on my card frozen until somebody reloaded the page. Added, along with
+  the programme fetch, which only refires while one of my work pages is open.
+- **Cloudflare 403s the default `Python-urllib` user agent.** Any hand-written
+  call to the hub API needs `user-agent` set, the way `joseph_bridge.env()`
+  does. A 403 here is the agent; the key gate returns 404.
+- **`.env` files are read `utf-8-sig`.** Plain utf-8 leaves a BOM on the first
+  key name and the lookup silently misses. Use `joseph_bridge.env()`.
 
 ## Standing, from the manual
 
