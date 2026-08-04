@@ -58,6 +58,31 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **04/08 - A BATCH OF 78, WORKED AS ONE PICTURE: 37 ROUTED, 37 CLEARED, THREE NEW CHATS OPENED.**
+  Routed to their owners: brocks-hill (15 - the SMDT0173 run where Adam asked Martin Moore about the
+  7 excluded doors and got "include for the additional doors"), filwood (5 - Adam's 11:55 fixes, and
+  it ISSUED 12:28 with Adam Warner acknowledging at 12:35), redditch-library (3), john-north-hall (2),
+  vesuvius (1). **NEW CHATS:** `totteridge` (Borras T0689 - cost review due **FRIDAY 07/08**, no design
+  change, programme only; **we also quoted the same scheme for CONAMAR**, so a Borras-only search finds
+  half the evidence; the cost basis is County Architectural Aluminium and their quote is not itemised
+  per unit), `addison-ave` (Harris Calnan - a **product substitution against an already-approved Fabco
+  product**, so the detail drawing, installed photos and thermal evidence ARE the job; Gintare's "are
+  we doing the internal doors?" is unanswered and decides scope), `alice-billings` (Sinden via the
+  **eque2 portal, PIN 4296 - a FOURTH portal client**; Gintare's BoQ-vs-schedules question is open and
+  is the Stepnell trap exactly; same contractor as Alkerden, where we already owe a quote).
+- **04/08 - TWO SUPPLIER CHANGES THAT PUT A DATE ON LIVE WORK.** **Martin Gregory has RESIGNED from CN
+  Glass** - and he is the man who agreed the GBP 60/m2 verbal rate that Stoke Park's 27/07 glass order
+  (124 units, GBP 6,185.09) was placed against, on an email rather than a quotation document. **A
+  verbal rate is only as durable as the person who gave it.** And **AGF: Reynaers rises on all orders
+  placed on or after 27/08** - a hard date that lands straight on Totteridge's 07/08 review.
+- **04/08 - AND A RATE-MINING DEFECT WORTH MORE THAN THE THREE QUOTES.** Vetroseal bill a DELIVERY
+  CHARGE as a glass line carrying a **fake 0.300 m2** (065311, MK40): divide goods by total area and
+  the rate reads GBP 86.62/m2 against a true GBP 82.99/m2, **4.4% high, silently**. Exclude charge
+  lines when mining. New lines: 10.8mm lami GBP 82.99/m2, 6.8mm lami GBP 34.65/m2. Also **MHA Nuneaton
+  is being priced TWO WAYS** - the same 8 units as a DGU (GBP 526.08) and as single 6.8 laminate
+  (GBP 347.20) - still with no enquiry in estimating@ and no folder. And **ELEVATION/BEDFORD is Paul's
+  MK40 emergency board-up**: Vetroseal's 3145 x 2103 answers the size question AE Glaziers asked on
+  03/08, so nobody needs to re-measure.
 - **30/07 - STEPNELL ST JAMES HOUSE: NO QUOTE WENT BACK AGAINST THE 19/01 ITT, AND THAT IS CORRECT
   (botmsg-42, answered).** Jacob's board had three rows as "quoted, 250-301 days silent, chase for a
   final answer" and asked before correcting it in front of Adam. The 19/01/2026 ITT (bid ref SC0078B,

@@ -342,6 +342,41 @@
    ],
    "senders": [],
    "opened": "2026-07-29T16:46:52"
+  },
+  "totteridge": {
+   "name": "The Totteridge Academy - new sixth form block (Borras T0689)",
+   "client": "Borras Construction",
+   "match": [
+    "totteridge",
+    "t0689",
+    "conamar"
+   ],
+   "senders": [],
+   "opened": "2026-08-04T11:40:44"
+  },
+  "addison-ave": {
+   "name": "20 Addison Avenue W11 - Crittall style doors and windows",
+   "client": "Harris Calnan",
+   "match": [
+    "addison ave",
+    "addison avenue",
+    "w11 4ql",
+    "harriscalnan",
+    "crittall"
+   ],
+   "senders": [],
+   "opened": "2026-08-04T11:40:45"
+  },
+  "alice-billings": {
+   "name": "Alice Billings House Phase 2, Stratford E15",
+   "client": "Sinden Construction",
+   "match": [
+    "alice billings",
+    "billings house",
+    "west ham lane"
+   ],
+   "senders": [],
+   "opened": "2026-08-04T11:40:45"
   }
  },
  "chats": {
@@ -528,6 +563,27 @@
    "session_id": "961da8eb-86b8-411f-b5c8-f91085ff38e7",
    "started": false,
    "created": "2026-07-29T16:46:52",
+   "last_active": null,
+   "runs": 0
+  },
+  "totteridge": {
+   "session_id": "18226ad0-3298-4886-ba6a-51c3af5bb6f0",
+   "started": false,
+   "created": "2026-08-04T11:40:44",
+   "last_active": null,
+   "runs": 0
+  },
+  "addison-ave": {
+   "session_id": "161f5c80-bd02-46ef-977c-d3c96dde6c8b",
+   "started": false,
+   "created": "2026-08-04T11:40:45",
+   "last_active": null,
+   "runs": 0
+  },
+  "alice-billings": {
+   "session_id": "2a82664b-72c6-4065-a561-286075d7a2e1",
+   "started": false,
+   "created": "2026-08-04T11:40:45",
    "last_active": null,
    "runs": 0
   }
