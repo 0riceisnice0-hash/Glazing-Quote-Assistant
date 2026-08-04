@@ -502,6 +502,37 @@ def build_prompt(key, title, orders, first_run, reg):
     # So the limit is on the MESSAGE, never on the thinking or the file behind
     # it. Do the full work, write it down where it belongs, and send the part a
     # person has to act on.
+    # YOU OWN THIS REPO. Zac, 04/08, on JAC-23: "he WAS failing to think. why
+    # didn't he MAKE the mechanism??????????? these bots can write code in
+    # their own repo, if there is an error they should fix it."
+    #
+    # He is right and the cause is here, not in Jacob. A work order for Uni
+    # Assist landed in the Stepnell chat. Jacob worked out correctly that it
+    # was not his, that it was time-critical and that it was a win - and then
+    # raised a decision, because no tool exists to hand work to another bot or
+    # push it back to the front desk. Only the front desk writes into a queue.
+    #
+    # He had Bash, Write and Edit the whole time. He could have written that
+    # tool in ten minutes and used it. He did not, because nothing in his
+    # prompt or his manual ever said the repo was his to change - checked, and
+    # the phrase appears zero times in JACOB-PROCESS.md and zero times in
+    # JOSEPH-SESSION.md. He was behaving exactly as instructed. So instruct
+    # differently.
+    lines.append(
+        "\nYOU OWN THIS REPO, NOT JUST THE WORK IN IT. If the tool you need does not "
+        "exist, WRITE IT - do not raise a decision asking somebody else to. Build it, "
+        "test it on the real case in front of you, commit it, then use it, in this same "
+        "session. A missing mechanism is a bug in your workshop and you are the one "
+        "standing in it.\n"
+        "Raise a decision ONLY for what a human alone can answer - a price, a date, "
+        "what a client meant, whether we bid. Never for something you could have built.\n"
+        "The limits, and they are narrow on purpose: change your own scripts and shared "
+        "ones you have read end to end; commit only the files you touched; leave the "
+        "spending and curfew rules in mary_budget.py alone unless you are asked. If a "
+        "fix looks like more than an hour, or would change how another bot works, say so "
+        "and ask first - that is a real decision. Anything smaller, just do it and say "
+        "what you did.")
+
     # YOUR OWN TOOLS, so you never spend a turn asking them what they do.
     # Measured 04/08: 21 of Jacob's 295 shell calls were `--help`, and TEN of
     # those were jacob_reply - the tool he uses in literally every session. A
