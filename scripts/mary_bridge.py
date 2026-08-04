@@ -555,6 +555,7 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
     backlog = budget.prompt_note(key)
     if backlog:
         lines.append(backlog)
+    lines.append(budget.WORK_STYLE)
 
     # The contract check from the LAST session, delivered where it cannot be
     # missed. The bridge cannot stop a session mid-close-out; what it can do is

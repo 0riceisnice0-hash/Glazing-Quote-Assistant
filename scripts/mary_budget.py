@@ -400,6 +400,28 @@ def ready_to_dispatch(ages, urgent=0, wait=None, most=None):
         len(ages), int(oldest / 60), int(wait / 60))
 
 
+# THE LAST BIG LEVER, measured 04/08. A run is a median 37 calls, and EVERY
+# call re-sends the whole context - so the cost of a run is calls x context,
+# and with a lean seed the calls are now the bigger half.
+#
+# Of 3,146 tool calls across 90 bot runs, Bash was 3,146 of them - about 35 per
+# run. Most were one-liners: an ls, then a cat, then a grep, then a python -c.
+# Each of those round-trips costs a full context re-send for a line of output.
+# Ten one-liners cost ten times what one script costs, and produce the same
+# answer.
+WORK_STYLE = """
+HOW TO WORK, AND IT IS A COST DECISION NOT A STYLE ONE. Every tool call resends
+this whole conversation, so a run costs (number of calls) x (its size). Runs
+here average 35 shell calls and most are one-liners.
+  - Do shell work in ONE script, not ten commands. If you need to look at four
+    files, write one script that reads all four and prints what you need.
+  - Read a file once. If you have read it this session, you already have it.
+  - Do not explore. `mary_recall`, `crm.py` and the job file answer most
+    questions without opening anything.
+  - Say what you found and move on. A summary of a thing you just printed is
+    another call for nothing."""
+
+
 def prompt_note(chat=None, sends=True):
     """A line for the kick prompt so a chat can see what it is adding to.
 

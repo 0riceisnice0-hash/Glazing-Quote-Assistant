@@ -462,6 +462,7 @@ def build_prompt(key, title, orders, first_run, reg):
     note = budget.prompt_note("jacob:" + key, sends=False)
     if note:
         lines.append(note)
+    lines.append(budget.WORK_STYLE)
 
     lines.append(
         "\nTHE CRM IS THE RECORD. Before you ask anyone anything, look:\n"
