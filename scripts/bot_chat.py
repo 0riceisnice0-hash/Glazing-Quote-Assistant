@@ -87,6 +87,10 @@ def main():
     ap.add_argument("--in-reply-to", type=int)
     ap.add_argument("--wants-reply", action="store_true",
                     help="only when you genuinely need an answer; default is FYI")
+    # There is a third bot now, so the recipient no longer follows from the sender and
+    # the API refuses to guess (04/08/2026). Say who it is for.
+    ap.add_argument("--to", dest="recipient", default="",
+                    help="who it is for - required once more than one other bot exists")
     ap.add_argument("--seen", type=int, nargs="*", default=[])
     args = ap.parse_args()
 
@@ -137,7 +141,8 @@ def main():
             % (len(body), BODY_LIMIT, len(lost), len(lost), lost[:200].replace("\n", " ")))
 
     st, res = call("%s/api/botchat" % base, key, "POST", {
-        "sender": args.sender, "subject": args.subject, "body": body,
+        "sender": args.sender, "recipient": args.recipient,
+        "subject": args.subject, "body": body,
         "in_reply_to": args.in_reply_to, "wants_reply": bool(args.wants_reply)})
     if st == 429:
         print("RATE LIMITED - %s has sent %s messages this hour (limit %s). "

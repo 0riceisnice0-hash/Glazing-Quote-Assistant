@@ -14,8 +14,10 @@ spelling variant:** Thomas Sinden Limited, **CH 03308698**, renamed to **Sinden 
 Limited** on 22/06/2026 (their circular to Adam, in commercial@, 22/06 13:40). Thomas Sinden
 (Holdings) Ltd 13028751 became Sinden Holdings Ltd the same day. No change of ownership,
 structure or contractual arrangements - branding only. AdminBase carries **both** spellings
-because the relationship straddles the change. **The email domain is still `thomas-sinden.co.uk`
-but they now publish `info@sindenconstruction.co.uk` - search both, or half the history hides.**
+because the relationship straddles the change. **Both email domains are live. Everything up to
+July 2026 came from `thomas-sinden.co.uk`; from 03/08/2026 they are sending from
+`sindenconstruction.co.uk` (Emma O'Brien's Alice Billings enquiry, same person, new address).
+Search both, or half the history hides.**
 
 ## Position
 
@@ -26,7 +28,10 @@ delivered job: **300 Silbury Boulevard, Milton Keynes, GBP 21,699.02, contract 0
 funnel has never recorded a win or a loss against them, and the one thing Fenster has actually
 delivered for them is absent from it.
 
-**Two live rows, and both were described wrongly on my board until today.**
+**Three live threads as of 04/08/2026** - the two CRM rows below, plus a new invitation to tender
+for **Alice Billings House Phase 2** received 03/08/2026 (its own section further down). They are
+inviting us to price a third job while we are four weeks late on the second, which is the single
+most useful thing to know about this relationship right now.
 
 | Lead | Job | Ex VAT | CRM says | What is actually true |
 |---|---|---|---|---|
@@ -94,20 +99,53 @@ A refused full application ordinarily carries a six-month appeal window, which w
 **PlanIt had this as "Undecided / Awaiting decision"** - because its record was last scraped
 20/09/2025, ten months stale. The council's own page is the only one that was right.
 
+## Alice Billings House Phase 2 - new ITT 03/08/2026, and it is a PORTAL job
+
+2-12 West Ham Lane, Stratford, London E15 4SF. **Phase 2 Main Works**, our package **Windows &
+Doors - Aluminium**. Emma O'Brien to estimating@ 03/08/2026 10:59, cc Gary Johnson (the estimator,
+0203 906 5000). **Closing date 17/08/2026. They asked us to say within 3 working days - by
+06/08/2026 - whether we intend to return a quotation.**
+
+- **THE EMAIL IS NOT THE SUBMISSION.** It goes through the eque2 subcontract portal,
+  `evaluateonline.eque2.com/Enquiries/Enquiry/List/58eee4aaf5cb448294f2bb48f35fe294`, PIN **4296**.
+  Nobody here has confirmed who holds a login. While a portal job is running, neither Mary nor I
+  can see addenda, revised drawings, questions or a moved return date - so "quoted" and "silent"
+  are both unverifiable from email alone. **JAC-21 raised 04/08/2026** for who owns portal logins;
+  fourth portal client in a month.
+- **Open scope question, and it decides the whole number:** Gintare asked Emma on 03/08 14:49
+  whether to price the units **listed in the BoQ only** or **per the window and door schedules**.
+  Unanswered as of 04/08. This is the Stepnell St James House trap exactly - there the aluminium
+  trade bill and the door schedule described different work and the bill held nothing for us, and
+  the client's own written answer was what settled it. **Do not price on an assumption; ask again
+  in writing if it goes quiet. A scope query put to the client is itself a complete response to
+  an ITT.**
+- Intent-to-bid reply drafted for a human to send:
+  `scratchpad/draft-sinden-alice-billings-intent.txt`. It confirms we are bidding, repeats the
+  scope question, and asks Emma to copy portal addenda to estimating@ as well.
+- Pricing is Gintare's. Nothing quoted, nothing committed.
+
 ## Contacts
 
 | Who | Role | Reach | On |
 |---|---|---|---|
 | Seyi Adesogan | Assistant Surveyor | seyi.adesogan@thomas-sinden.co.uk, 07850 904372 | **Alkerden, now** |
 | Corran Goodson MCIOB | Senior Surveyor | corran.goodson@thomas-sinden.co.uk, 07484 582 924 | Alkerden, secured it |
-| Emma O'Brien | Estimating Administrator | emma.obrien@thomas-sinden.co.uk | Cold Ash, and the 2025 tender |
+| Emma O'Brien | Estimating Administrator | Emma.OBrien@sindenconstruction.co.uk (was emma.obrien@thomas-sinden.co.uk) | **Alice Billings, now**; Cold Ash, and the 2025 tender |
+| Gary Johnson | Estimator | Gary.Johnson@sindenconstruction.co.uk, 0203 906 5000 | **Alice Billings technical queries**; cc'd on the 2025 tender |
 | Adam Foskett | on CRM lead 5493 | Adam.Foskett@thomas-sinden.co.uk, 07849 802 933 | historic |
-| Gary Johnson | - | Gary.Johnson@thomas-sinden.co.uk | cc'd on the 2025 tender |
 
 Switchboard 0203 906 5000.
 
 ## Next actions
 
+0. **DUE 06/08/2026 - send the Alice Billings intent-to-bid.** Draft is written
+   (`scratchpad/draft-sinden-alice-billings-intent.txt`); it needs a human to send it from
+   estimating@. Saying yes costs nothing and not answering is how we come off the list.
+   Owner: Gintare or Adam.
+0b. **One call clears all three threads.** Corran Goodson 07484 582 924 or Seyi Adesogan
+   07850 904372: we have been waiting on the Velfac answer since 02/07, here is when the Alkerden
+   quotation lands, yes we are bidding Alice Billings, and can Gintare have the BoQ-or-schedules
+   answer. Posted to the hub 04/08/2026. Owner: Adam.
 1. **Blocked, and it is the only one that matters: has our updated Alkerden quotation gone, and
    did anyone confirm receipt to Seyi?** Asked of Mary 30/07/2026; JAC-20 raised for Adam. If it
    has gone, this is an ordinary chase with a hard hook - their order date is 08/10/2026. If it
