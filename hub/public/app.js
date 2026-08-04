@@ -415,6 +415,20 @@ function jacobBody(d) {
     <div class="sub" style="margin:4px 0 0">Without one it will never appear on a call list — this is
     exactly how £548k went quiet before. Worth telling Jacob to set them.</div></div>` : ""}
 
+  <h2>Client award dates <span class="count">${(d.award_dates || []).length}</span>
+    <span class="hint">when OUR client hears whether THEY won — red means ring them</span></h2>
+  <div class="glass">${(d.award_dates || []).map((l) => {
+    const due = l.award_due <= today();
+    return `<div class="row click" data-lead="${esc(l.key)}">
+      <span class="t">${esc(l.title)}</span>
+      <span class="m">${esc(l.company_name || l.company_key || "")}</span>
+      <span class="pill ${due ? "red" : ""}">${due ? "call them" : "hears " + esc(l.award_due)}</span>
+      <span class="v">${gbp(l.value)}</span></div>`; }).join("")
+    || `<div class="empty">No award dates recorded. Adam asks for this on the pre-quote
+        call — "when are you making a decision" — and it is what turns a chase into a
+        timed call rather than a guess.</div>`}
+  </div>
+
   <h2>Scoreboard <span class="hint">the outcome data the business never used to keep</span></h2>
   <div class="glass score">
     <div><b style="color:var(--accent-ink)">${won.n}</b><span>won · ${gbp(won.v)}</span></div>
@@ -458,6 +472,16 @@ function josephBody(d) {
     </div>`; }).join("") || `<div class="glass card empty">No contracts on the record.</div>`}
   </div>
 
+  ${steps.length && !steps.some((s) => s.due) ? `<div class="glass card"
+    style="margin:0 0 12px;border-color:var(--amber)">
+    <b>No step has a deadline, because nobody has recorded the lead times.</b>
+    <div class="sub" style="margin:4px 0 0">Every step works backwards from the site
+    date — but how many days before installation the frames and glass must be ordered
+    is a Fenster fact only Adam or Paul knows, and inventing it would put made-up dates
+    in front of the fitters. Say the numbers once, they go in
+    <code>core/contract_template.py</code>, and every contract gets its dates.
+    ${cts.some((c) => !c.site_date) ? " Site dates are missing too." : ""}</div></div>` : ""}
+
   <h2>Next steps due <span class="count">${steps.length}</span>
     <span class="hint">every deadline works backwards from the site date</span></h2>
   <div class="glass">${steps.map((s) => {
@@ -469,15 +493,24 @@ function josephBody(d) {
     </div>`; }).join("") || `<div class="empty">Nothing outstanding — or no checklists seeded yet.</div>`}
   </div>
 
-  <h2>Money <span class="count">${inv.length} invoice${inv.length === 1 ? "" : "s"}${owed ? " · " + gbp(owed) + " outstanding" : ""}</span></h2>
-  <div class="glass">${inv.map((i) => `
-    <div class="row click" data-ct="${esc(i.contract_key)}">
+  <h2>Money <span class="count">${inv.length} invoice${inv.length === 1 ? "" : "s"}${owed ? " · " + gbp(owed) + " outstanding" : ""}</span>
+    <span class="hint">chase ladder: day 7 reminder, day 35 why-unpaid, day 75 escalation</span></h2>
+  <div class="glass">${inv.map((i) => {
+    const late = i.status !== "paid" && i.due ? dayn(i.due) : null;
+    const rung = late === null || late < 0 ? null
+      : late >= 75 ? { t: `${late}d overdue — ESCALATION, Adam decides`, c: "red" }
+      : late >= 35 ? { t: `${late}d overdue — why has this not been paid`, c: "red" }
+      : late >= 7 ? { t: `${late}d overdue — reminder due`, c: "amber" }
+      : { t: `${late}d overdue`, c: "amber" };
+    return `<div class="row click" data-ct="${esc(i.contract_key)}">
       <span class="t">${esc(i.ref || "(unreferenced)")}</span>
       <span class="m">${esc(i.contract_title || "")}</span>
-      <span class="pill ${i.status === "paid" ? "green" : i.status === "overdue" ? "red" : "amber"}">${esc(i.status)}</span>
-      <span class="m">${i.due ? "due " + esc(i.due) : ""}</span>
-      <span class="v">${gbp(i.value)}</span></div>`).join("")
-    || `<div class="empty">No invoices raised. The twelfth step raises the first one.</div>`}
+      <span class="pill ${i.status === "paid" ? "green" : rung ? rung.c : ""}">${i.status === "paid" ? "paid" : rung ? rung.t : esc(i.status)}</span>
+      <span class="m">${i.due ? "due " + esc(i.due) : "no due date"}</span>
+      <span class="v">${gbp(i.value)}</span></div>`; }).join("")
+    || `<div class="empty">No invoices raised. Step twelve raises the first one — the job
+        date passes, Joseph knows it is done, and it comes here as "invoice to check"
+        before anything goes to a client.</div>`}
   </div>`;
 }
 

@@ -531,6 +531,14 @@ async function handle(request, env, path, url) {
       out.companies = companies.results;
       out.scoreboard = scoreboard.results;
       out.no_chase_date = quiet.results;
+      // "This is when our client is finding out if THEY have won the work.
+      //  This will go red when it's time for us to call." - Adam, 03/08
+      const award = await db.prepare(
+        `SELECT l.*, c.name company_name FROM lead l
+         LEFT JOIN company c ON c.key = l.company_key
+         WHERE l.stage != 'closed' AND COALESCE(l.award_due,'') != ''
+         ORDER BY l.award_due`).all();
+      out.award_dates = award.results;
     }
 
     if (who === "joseph") {
