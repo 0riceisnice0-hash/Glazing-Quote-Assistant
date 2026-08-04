@@ -346,8 +346,16 @@ notes = [
                     'Adam ruled 17/07/2026 that the template maths is the price.'),
     ('Labour', 'Adam\'s labour codes: SAW/MAW 160, SAD 250, DAD 500. Curtain wall at GBP150/m2.'),
     ('Not included', 'Mastic, EPDM, structural calculations, SAS curtain wall design, temporary works, scaffold/MEWP, '
-                     'fire-stopping, cladding flashings/pressings (shown as Kingspan/Euroclad scope), roller shutter, '
+                     'fire-stopping, CLADDING flashings/pressings (shown as Kingspan/Euroclad scope), roller shutter, '
                      'internal joinery doors (Howdens), reception screens, and the Building 03 package.'),
+    ('Window flashings - NOT excluded, NOT priced',
+     'Cill, jamb and head flashings to all 13 windows are OURS, not Kingspan/Euroclad. Steve Freezer '
+     '(Technical Advisor) ruled it 28/07/2026 14:53 and directed the enquiry to Nick at MetFab; Gintare sent '
+     'it 28/07 16:55 and chased 04/08 08:24 with no return. 63.81 linear metres of pressed aluminium at 13 '
+     'windows, and this workbook carries GBP 0.00 for it - there is no line to be wrong. Fenster hold NO '
+     'MetFab rate anywhere (the placed Stoke Park panel order carries a blank cost/m2 and a GBP 0.00 line), '
+     'so it cannot be benchmarked either. TBC until MetFab return. Until then it is an ALLOWANCE or an '
+     'EXCLUSION on the issued document - and the exclusion above says "cladding", which does not cover it.'),
     ('Confidence', 'BUDGET. No supplier quote, a specified system Fenster has no live rate for, three quantity conflicts '
                    'in the tender documents and one item with no drawing. Do not issue as a fixed price.'),
 ]

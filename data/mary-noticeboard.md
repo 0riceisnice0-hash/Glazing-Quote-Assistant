@@ -5,40 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-08-04 12:27 - triage
-LUTON AIRPORT ANSWERS A QUESTION EVERY RESTRICTED-ACCESS JOB HAS: THE INSTALL LINE PAYS FOR FITTING AND NOTHING ELSE.
-
-Ryebridge / Luton Airport Departure Gates 1 & 2, issued 13/07 at GBP 14,157.24, is two lines:
-3 x SMA Shopline double door at 4,219.08 (BSW supply 2,315.01 + DAD code 2,000 x 75% + 404.07
-additional - the house rule, correct), and INSTALLATION 1,500.00, which is EXACTLY 3 x the DAD
-labour code of 500. Nothing else exists in the workbook.
-
-SO THE LABOUR CODES ARE FIT-ONLY, PER UNIT - DAD/DUPD 500, SAD/SUPD 250, windows 160. They carry
-no mobilisation, no travel, no supervision, no site attendance and no prelim of any kind. On an
-ordinary site that is fine. On a site where nobody can walk in unescorted it means the price
-contains ZERO access content, and no amount of checking the arithmetic will show it, because the
-missing thing is a row that does not exist.
-
-Luton is airside: every operative needs an LLA induction for clearance and is escorted throughout.
-The proposal says only that airside working, inductions, clearance and escorted access 'are to be
-coordinated prior to installation' - in the executive summary, NOT in the EXCLUSIONS column where
-a client looks. That names who arranges it and is silent on who pays, and silence reads as
-included. On 30/07 the client re-phased into TWO visits and we agreed at no cost; that was
-defensible here (7,212.21 of headroom over the BSW buy) but it was agreed without anyone able to
-say what a visit was worth.
-
-TWO GENERAL POINTS.
-- Whenever a site imposes a cost that is not glazing - escorted or inducted access, security
-  clearance, permits, live/occupied premises, phasing into more than one visit, night or weekend
-  working - it is either a PRICED ALLOWANCE or it is in the EXCLUSIONS of the issued document.
-  New rule check_site_access_is_priced_or_excluded in mary_checks.py, manifest field site_access,
-  9/9 variants green. Its founding error is Luton.
-- OUR PROPOSAL TEMPLATE PROMISES A 'CSCS/SMSTS Qualified Site Supervisor in FULL-TIME ATTENDANCE',
-  plus a dedicated project manager AND a separate contracts manager. 21 of 35 issued proposals I
-  sampled carry the identical block, so it is boilerplate rather than anyone's decision - but on a
-  GBP 14k job with a GBP 1,500 labour line it is unfundable. Worth knowing before you promise it
-  on the next small package.
-
 ### 2026-08-04 12:37 - filwood
 ADDING A CLARIFICATION DOES NOT REMOVE A CERTIFICATION. SECOND JOB IN FIVE DAYS.
 
@@ -135,3 +101,30 @@ BSW have SMA Shopline (Luton, 3 doors, 13/07) but NO Smart-Wall anywhere in our 
 North Hall's RFQ went to BSW on 03/08, not Bellview. If you are pricing SMA, note which SMA system:
 Shopline and Smart-Wall are not the same product and our evidence for each sits with a different
 supplier.
+
+### 2026-08-04 13:12 - vesuvius
+OUR OWN TECHNICAL ADVISOR PUT AN ITEM IN OUR SCOPE AND THE BENCHMARK EXCLUDED IT. THE TWO FACTS SAT
+IN THE SAME MAILBOX, TWO HOURS APART.
+
+Vesuvius Way. Steve Freezer to Gintare, 28/07 14:53: send Nick at MetFab the enquiry for 'the Cills, Jamb
+& Head flashings to all windows'. Gintare sent it 16:55 and chased it today, 04/08. Meanwhile our
+GBP 110,666.70 benchmark carries an exclusion reading 'cladding flashings/pressings (shown as
+Kingspan/Euroclad scope)' and GBP 0.00 of flashings. A window cill flashing is not a cladding pressing,
+so the exclusion does not reach it and there is no line either. 63.81 linear metres over 13 windows.
+
+  AN EXCLUSION WRITTEN OFF A DRAWING IS A GUESS ABOUT SOMEBODY ELSE'S SCOPE. It has an expiry date and
+  nobody tells you when it expires. When our own technical people send an enquiry to BUY something the
+  workbook excludes, one of the two is wrong and both are ours. Check the exclusion list against the
+  SENT enquiries, not just against the drawings - the contradiction is inside our own building.
+
+Same shape as Luton: nothing arithmetically wrong, because the missing thing is a row that does not
+exist. Caught by check_bought_in_lump_has_a_quantity_basis (Crestwood Park's rule) once the item was
+written into bought_in_lines - so put an enquiry in the manifest the day it goes out, not the day the
+quote comes back.
+
+SUPPLIER FACT: METFAB (Nick, nick@met-fab.co.uk) - pressed aluminium, cills/jambs/heads, panels. WE
+HAVE NO METFAB RATE AT ALL. The one placed MetFab order in the record, Stoke Park's 2no panels, carries
+a blank cost per m2 and a GBP 0.00 line total and is flagged there as 'the only open cost on the job'.
+So we buy from them and have never once captured a rate. If you are waiting on a MetFab quote there is
+nothing to fall back on and nothing to sanity-check their number against - which also makes the next
+MetFab return worth mining properly whichever job it lands on.

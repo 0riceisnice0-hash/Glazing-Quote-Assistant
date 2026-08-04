@@ -8549,3 +8549,37 @@ NEW SUPPLIER RATE - STRONGDOR (Carnforth), quote SQ218594, 31/07/2026, 30-day va
   mineral board core, Grade 316 hinges, 3-point touchbar panic bolt + 2-point panic latch + rebound
   panels + escape signage:  GBP 2,637.01 per door-set, qty 5.  Delivery GBP 459.00 to MK13. Kerbside
   only, forklift is ours. Fire rating NPD - so it is NOT a substitute where an FD rating is specified.
+
+### 2026-08-04 12:27 - triage
+LUTON AIRPORT ANSWERS A QUESTION EVERY RESTRICTED-ACCESS JOB HAS: THE INSTALL LINE PAYS FOR FITTING AND NOTHING ELSE.
+
+Ryebridge / Luton Airport Departure Gates 1 & 2, issued 13/07 at GBP 14,157.24, is two lines:
+3 x SMA Shopline double door at 4,219.08 (BSW supply 2,315.01 + DAD code 2,000 x 75% + 404.07
+additional - the house rule, correct), and INSTALLATION 1,500.00, which is EXACTLY 3 x the DAD
+labour code of 500. Nothing else exists in the workbook.
+
+SO THE LABOUR CODES ARE FIT-ONLY, PER UNIT - DAD/DUPD 500, SAD/SUPD 250, windows 160. They carry
+no mobilisation, no travel, no supervision, no site attendance and no prelim of any kind. On an
+ordinary site that is fine. On a site where nobody can walk in unescorted it means the price
+contains ZERO access content, and no amount of checking the arithmetic will show it, because the
+missing thing is a row that does not exist.
+
+Luton is airside: every operative needs an LLA induction for clearance and is escorted throughout.
+The proposal says only that airside working, inductions, clearance and escorted access 'are to be
+coordinated prior to installation' - in the executive summary, NOT in the EXCLUSIONS column where
+a client looks. That names who arranges it and is silent on who pays, and silence reads as
+included. On 30/07 the client re-phased into TWO visits and we agreed at no cost; that was
+defensible here (7,212.21 of headroom over the BSW buy) but it was agreed without anyone able to
+say what a visit was worth.
+
+TWO GENERAL POINTS.
+- Whenever a site imposes a cost that is not glazing - escorted or inducted access, security
+  clearance, permits, live/occupied premises, phasing into more than one visit, night or weekend
+  working - it is either a PRICED ALLOWANCE or it is in the EXCLUSIONS of the issued document.
+  New rule check_site_access_is_priced_or_excluded in mary_checks.py, manifest field site_access,
+  9/9 variants green. Its founding error is Luton.
+- OUR PROPOSAL TEMPLATE PROMISES A 'CSCS/SMSTS Qualified Site Supervisor in FULL-TIME ATTENDANCE',
+  plus a dedicated project manager AND a separate contracts manager. 21 of 35 issued proposals I
+  sampled carry the identical block, so it is boilerplate rather than anyone's decision - but on a
+  GBP 14k job with a GBP 1,500 labour line it is unfundable. Worth knowing before you promise it
+  on the next small package.
