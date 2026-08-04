@@ -58,6 +58,32 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **04/08 - LUTON AIRPORT: NOTHING WAS GIVEN AWAY, BECAUSE NOTHING WAS PRICED (botmsg-46, answered).**
+  Jacob asked whether the GBP 14,157.24 to Ryebridge (issued 13/07) carried ONE mobilisation, after
+  Adam agreed at no cost on 30/07 to split an AIRSIDE job into two visits. It carried **zero**. The
+  workbook is two lines: 3 x SMA Shopline double door at 4,219.08 (BSW 2,315.01 + DAD 2,000 x 75% +
+  404.07 - the house rule, correct) and INSTALLATION 1,500.00, which is exactly 3 x the DAD labour
+  code of 500. **The labour codes are fit-only per unit and contain no mobilisation, supervision or
+  site attendance at all**, so there was no allowance to spend twice. The real exposure is the
+  wording: the proposal puts airside working, LLA inductions, clearance and escorted access in the
+  executive summary as things "to be coordinated", NOT in the EXCLUSIONS column - naming who
+  arranges it and staying silent on who pays. Defensible here (7,212.21 of headroom over the BSW
+  buy) and **I did not reopen it with Adam**; Jacob has it and will judge whether to. What must not
+  happen is the same sentence on the next package off the LLA framework. **New check rule**
+  `check_site_access_is_priced_or_excluded`, founding error Luton, 9/9 variants green. Also found:
+  **21 of 35 issued proposals promise a "CSCS/SMSTS Qualified Site Supervisor in full-time
+  attendance" plus a dedicated PM and a separate contracts manager** - template boilerplate, and
+  unfundable against a GBP 1,500 labour line.
+- **04/08 - THE REST OF THE BATCH OF 28 WAS ALREADY OWNED.** 25 of 28 carry a route from this
+  morning's pass (totteridge 5, filwood 5, addison-ave 5, redditch-library 3, john-north-hall 2,
+  alice-billings 2, vesuvius 1, market-house 1, stoke-park 1) and were left in place for the bridge
+  to deliver - the queue only unblocks once the unrouted items clear, which they now have. botmsg-44
+  was answered earlier today and only needed clearing. The Avebury glazed-in-sashes note (Adam to
+  Robin at BSW, 04/08 11:16, asking for glazed-in casements against Robin's 27/07 screw-on 12/22mm
+  rebate adaptor) is commercial@ traffic on a live project: recorded, no reply, no chat. **One
+  duplicate to watch:** BSW's 04/08 08:10 "RE: Fenster Glazing - Redditch Library" is in the queue
+  TWICE under two Graph ids, once with qt253829.pdf and once without - redditch-library will see the
+  same email as two work orders.
 - **04/08 (pm) - BATCH OF 42: 38 ALREADY OWNED, 4 MINE, ONE NEW CHAT. One direct reply to Adam on a
   private thread, deliberately not recorded here or anywhere else.**
   - **MARKET HOUSE, MAIDENHEAD (DP Designs) - NEW CHAT `market-house`, AND NOTHING HAS GONE BACK AT
@@ -159,71 +185,6 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   Stoke Park's 8.8 make-up only; on the 6.8 make-up CN are GBP 55.00 and Vetroseal GBP 55.76, level.
   **Stoke Park checked and CLEAN:** its glass went to CN Glass 27/07, GBP 6,185.09 / 124 units /
   106.9 m2 at GBP 55-60/m2 - competitive, nothing to raise, and it is a live project anyway.
-- **30/07 - THE LAST TWO "NOT FOUND" ROWS BOTH WENT, AND TIVERTON RUNS THROUGH A PORTAL (botmsg-40,
-  an FYI answered because he asked one line on Kieran and the answer was bigger).** Tally on "did our
-  quote go?" is now **10 of 12**. **Brandon Youth Centre / 19 Maddock Way (7157) - sent 24/11/2025
-  13:20**, jayk@ to wayne.edwards@pridedevelopments.co.uk, quote xlsx + cover letter. Not neglect:
-  Wayne held a competing quote at GBP 38k against our GBP 53,209 on a GBP 28k cost base (Adam, 24/11:
-  "we can't get close to 38k, this seems to be a competitive cost"), and **Jayk's ask to see the rival
-  quote redacted was never answered** - so it is lost-on-price with our own open question in it. Adam
-  also noted E2 should have been a Latham's steel door, left as-is: the saving if it is ever repriced.
-  **130 Hainault Road (7807) - sent 01/04/2026 09:13**, Gintare to lyndon@pridedevelopments.co.uk cc
-  **michael.bettinson@** and adam@. Jacob's 26/02 is the ENQUIRY date, not the quote - five weeks, and
-  Gintare's own opening is "Apologies for taking so long". **It is a PARTIAL quote** - excludes the
-  double entrance door, 1 sliding door, Velux and lantern, triangle unit offered in ALUMINIUM not uPVC,
-  after Quickslide/BSW/Titan Aluminium/Duplus were tried and Mercury never answered on the 2900mm
-  slider. A chase asks about the exclusions, not the price. **KIERAN: no 2026 send exists anywhere**
-  (last contact 23/12/2025, Brooklands College), so his address is unconfirmable - but **the Tiverton
-  quote was never his: 22/01/2026 14:16 jayk@ to aaron@alexanderjamesltd.co.uk**, four attachments,
-  after Adam's "Good to go" at 10:26. **AND TIVERTON IS A PORTAL JOB** - Jayk: "I have uploaded through
-  the E1 SYSTEM but wanted to ensure these came directly to you as well." Email silence there is not
-  the client failing to answer, and addenda sit where neither bot can see them. **Do not guess the
-  ajgroup addresses**: the one confirmed is `gleb.saliev@` - firstname.SURNAME, where the old domain
-  used bare firstnames, and alexanderjamesltd.co.uk was still live 16/02/2026 (dan@ wrote from it).
-  No `quote_issued` events - all three are rows already on his board. No email to Adam: three sends
-  aged 4 to 8 months, two of which he authorised himself, and nothing changes what he does today.
-- **30/07 - BALHAM HILL: IT WENT, THEY REPLIED, ADAM ALREADY CHASED, AND THE COMPLIANCE FEAR WAS
-  BACKWARDS (botmsg-38, answered).** Jacob had nothing after 24/02 in four mailboxes and asked whether
-  REV 1 reached Kyan Gulliver or Liam Ryan. **It reached neither - it went to a THIRD contact nobody
-  holds.** 24/02/2026 13:42, jayk@ to **Danny Hartland BSc (Hons) MCIOB, Quantity Surveyor, Re-Gen,
-  DD 01277 563 359**, cc Liam and Adam, with `Quote REV 1.xlsx` + `Cover Sheet.pdf`; the cover sheet
-  carries CW GBP 142,760.00 / uPVC GBP 690,849.31, matching AdminBase 7796 to the penny. **The client
-  engaged**: Danny rang within 15 min, took REHAU data sheets at 14:42, asked at 17:44 for the CW ones
-  too, got Technal Tental 50 on 25/02 - then nothing, ever. **Adam chased it himself 12/03/2026 12:19**
-  (Danny, cc Liam - "Jayk as left the company... my mobile is 07939452711"), unanswered 140 days, so a
-  call to Liam is the SECOND chase not the first. **COMPLIANCE REVERSED, and this is the finding: Titan
-  quoted REHAU TOTAL 70 62mm** - Ashley Walton in writing 24/02 14:24, three Total70 data sheets - and
-  REHAU is first on Wandsworth Appendix J cl.2.6's five. The reprice FIXED the Liniar defect and nobody
-  recorded it; Jacob's "void before it was read" is withdrawn at source before it could reach Adam as a
-  false alarm. Residual is cl.2.1 licensed-fabricator evidence to the COUNCIL, never submitted - a
-  missing submission, not a wrong spec. **What lost it was price and Adam knew on the day** (24/02
-  12:14: "out of the running for the windows due to costs... we could as Quickslide to price the uPVC")
-  - and **Quickslide was never asked**: the first Quickslide enquiry in estimating@ is 06/03 on 130
-  Hainault Road. The Director's own action, uncarried, on the exact package that went 38% over target -
-  St Mary's shape again. Kick-off was 23/03 so it is history: 07:45 update, not an email. **Checked and
-  clean:** the fire-egress caveat Bedford Trade Glass forced on 30/01 IS on the issued cover sheet.
-  **No `quote_issued` event** - it would queue Jacob a handover for a job already on his board.
-- **30/07 - JACOB'S FIVE "DID IT GO?" QUESTIONS: SEVEN WENT, TWO DID NOT (botmsg-28 to -32, all
-  answered).** One batch, one shape - he had built a theory that Fenster's prices were stopping inside
-  the building, on Chiel, Alkerden, Bradstone and Darrick Wood. **It is wrong five times out of seven,
-  and the reason is structural: NOTHING RECORDS WHETHER A QUOTE WAS SENT.** Quotes leave from whichever
-  mailbox the handler uses - `jayk@` (a deleted 404), `adam@`, or `estimating@` - never from
-  commercial@/info@/jacob@, and neither AdminBase nor the Opportunity Log carries a send. So his board
-  reads "silent" and "never issued" on jobs issued twice. **WENT:** Chiel 22/12/2025 16:03 (Jayk, quote
-  + cover sheet); Bradstone Road **re-quoted through 2026** - 06/02 and 20/03, Adam to Ian Brown 12/06,
-  so it is NOT lost-in-May-2025; The Grange 05/03 to Ian Brown and revised 01/04 to **Oliver Webber**;
-  St Catherines House ×3 (18/12, 13/01, 16/01) all Jayk to **steven.elley@** - and Jayk's own words
-  prove 7249/7356 are **ONE job priced two ways**, so Jacob's board double-counts GBP 237,382; B239
-  PD7851 issued by Adam 29/06 inside a 13-message negotiation with Daniel Goornaden; Exmoor Drive via
-  adam@ 01/04. **"NO TRACE" ON Brandon Youth/Maddock Way AND 130 Hainault Road - BOTH SINCE FOUND, both
-  sent; see the 30/07 Pride entry above.** Flagging them "not found" rather than "never sent" was the
-  only thing that kept them honest (Spoone School; and our own subject lines misspell
-  "Cheil"/"Swanhurst" consistently). **DID NOT GO, both live, both in the 07:45 update:** Darrick Wood (GBP 255,082 - Adam
-  promised Gleb Saliev a revision 10/07, A Plus Rev1 landed 24/07, no QUOTE TO CHECK since 27/05, so
-  **not priced yet**) and Alkerden (now its own chat - the original DID go 29/04 to Corran Goodson).
-  **ALSO:** Chiel got the price and never the
-  PQQ pack - three things asked for in Dec 2025, one sent, and the PQQ is what decides whether we are
-  allowed on a new main contractor's list at all.
 - **29/07 - THE PRICING LAB NOW RUNS ALL NIGHT (Zac, dashmsg-97).** *"Work on improving your pricing
   engine overnight, bypass the 1am to 3am window... look through old projects for work that we ourselfs
   have quoted, check they have no mistakes, tell us if they do. Then use your pricing engine and try and
@@ -297,4 +258,4 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## History
 
-69 lines of working detail moved to `data/jobs/triage-archive-2026-07.md` on 2026-08-03 to bring this file inside the seed contract. Nothing was dropped. Go there when this file leaves a specific gap - and if it does, fix this file so the next chat is not missing it too.
+69 lines moved to `data/jobs/triage-archive-2026-07.md` on 2026-08-03 and a further 65 on 2026-08-04 (Jacob's 30/07 "did our quote go?" answers) to bring this file inside the seed contract. Nothing was dropped. Go there when this file leaves a specific gap - and if it does, fix this file so the next chat is not missing it too.

@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-30",
+ "updated": "2026-08-04",
  "jobs": [
   {
    "job": "Alkerden, The Hub - curtain walling & external doors",
@@ -798,6 +798,13 @@
   }
  ],
  "catches": [
+  {
+   "date": "2026-08-04",
+   "job": "All jobs (found on Luton Airport - Ryebridge)",
+   "catch": "The installation line pays for fitting and nothing else. Luton Airport Departure Gates 1 & 2 was issued 13/07 at GBP 14,157.24 - 3 doors at 4,219.08 plus INSTALLATION 1,500.00, which is exactly 3 x the DAD labour code of 500. The labour codes are fit-only per unit: no mobilisation, travel, supervision or site attendance. The site is AIRSIDE, where every operative needs an LLA induction and is escorted throughout, and the proposal puts inductions, clearance and escorted access in the executive summary as things 'to be coordinated' rather than in the EXCLUSIONS column - which names who arranges it and is silent on who pays. On 30/07 the works were re-phased into two visits and agreed at no cost. Nothing was given away, because nothing was priced; the fix is that any non-glazing site cost is either a priced allowance or an exclusion. New rule check_site_access_is_priced_or_excluded.",
+   "type": "site access unpriced",
+   "value": "GBP 1,500 labour on an escorted airside site"
+  },
   {
    "date": "2026-07-29",
    "job": "All jobs (found on Filwood)",

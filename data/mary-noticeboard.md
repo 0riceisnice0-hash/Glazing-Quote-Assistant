@@ -5,38 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-08-04 11:44 - triage
-A VETROSEAL DELIVERY CHARGE IS BILLED AS A GLASS LINE WITH A FAKE 0.300 m2 - IT CORRUPTS MINED RATES.
-
-Quote 065311 (ELEVATION/BEDFORD, 04/08) has two lines: one pane of 10.8mm laminated, 3145 x 2103,
-6.614 m2 at GBP 548.89, and a second line "MK40-2QA DELIVERY CHARGE", qty 1, GBP 50.00 - carrying a
-UNIT AREA OF 0.300 m2. There is no glass in it.
-
-Divide goods by total area and you get GBP 598.89 / 6.914 = GBP 86.62/m2. The real rate is
-GBP 548.89 / 6.614 = GBP 82.99/m2. That is a 4.4% overstatement, silently, on every quote that
-carries a delivery line. Any rate mined from Vetroseal must EXCLUDE lines whose description is a
-charge rather than a make-up. Same family as their 0.30 m2 minimum-area billing already recorded.
-
-THREE NEW REGISTER LINES, all arithmetic checked and correct:
-  Vetroseal 065311  10.8mm laminated, single      GBP 82.99/m2 goods (+50.00 delivery to MK40)
-  Vetroseal 065222  6.8mm laminated, single       GBP 34.65/m2 goods (+GBP 1.95/m2 energy)
-  Vetroseal 065209  4T-18-6.8 lami/tgh softcoat   GBP 52.51/m2 goods (+GBP 3.25/m2 energy)
-
-AND A WEIGHING INCONSISTENCY, immaterial in money but it breaks a check: on 065209 and 065222 the
-surcharge weight is GLASS ONLY (25.0 and 15.0 kg/m2 - the laminate interlayer excluded); on 065311 it
-is the FULL 10.8mm including interlayer (27.0 kg/m2). So you cannot verify a Vetroseal weight from
-the make-up alone, and a weight that looks wrong is not evidence of an error.
-
-TWO THINGS THE BATCH JOINED UP, which neither work order showed on its own:
-- MHA NUNEATON IS BEING PRICED TWO WAYS. 065209 and 065222 are the SAME 8 units at 620 x 2020 on the
-  same day - one as a 28.8mm double-glazed unit (GBP 526.08) and one as single 6.8 laminate
-  (GBP 347.20). Someone is comparing DGU against single glass, GBP 179 apart on goods. Still no
-  enquiry for it anywhere in estimating@ and no folder in the archive.
-- ELEVATION/BEDFORD IS PAUL'S MK40 EMERGENCY. Paul Taylor asked AE Glaziers on 03/08 for an emergency
-  board-up in Bedford MK40 plus a survey and replacement price, and AE came back asking "do you have a
-  rough width and height of the glass?" Vetroseal have now priced one pane 3145 x 2103 delivered to
-  MK40 2QA. That answers AE's question - nobody needs to re-measure.
-
 ### 2026-08-04 11:56 - triage
 STOKE PARK: ADAM HAS AMENDED THE CN GLASS ORDER TODAY - SPEC A IS 28.8mm OVERALL, SO AN 18mm SPACER, NOT 16mm.
 Adam to orders@cnglass.co.uk, 04/08 11:45 UK: 'We need to amend the order please. Spec A is meant to be 28.8mm overall thickness so requires an 18mm spacer.' The order Steve placed on 28/07 was built on Martin Gregory's 27/07 line '55 m = 4mm / 6.8' against a 16mm spacer (6.8-16-4 = 26.8mm). So Spec A is 6.8-18-4, and the 27/07 buy - 124 units, 106.9 m2, GBP 6,185.09 - is being changed after the fact.
@@ -87,3 +55,37 @@ NEW SUPPLIER RATE - STRONGDOR (Carnforth), quote SQ218594, 31/07/2026, 30-day va
   mineral board core, Grade 316 hinges, 3-point touchbar panic bolt + 2-point panic latch + rebound
   panels + escape signage:  GBP 2,637.01 per door-set, qty 5.  Delivery GBP 459.00 to MK13. Kerbside
   only, forklift is ours. Fire rating NPD - so it is NOT a substitute where an FD rating is specified.
+
+### 2026-08-04 12:27 - triage
+LUTON AIRPORT ANSWERS A QUESTION EVERY RESTRICTED-ACCESS JOB HAS: THE INSTALL LINE PAYS FOR FITTING AND NOTHING ELSE.
+
+Ryebridge / Luton Airport Departure Gates 1 & 2, issued 13/07 at GBP 14,157.24, is two lines:
+3 x SMA Shopline double door at 4,219.08 (BSW supply 2,315.01 + DAD code 2,000 x 75% + 404.07
+additional - the house rule, correct), and INSTALLATION 1,500.00, which is EXACTLY 3 x the DAD
+labour code of 500. Nothing else exists in the workbook.
+
+SO THE LABOUR CODES ARE FIT-ONLY, PER UNIT - DAD/DUPD 500, SAD/SUPD 250, windows 160. They carry
+no mobilisation, no travel, no supervision, no site attendance and no prelim of any kind. On an
+ordinary site that is fine. On a site where nobody can walk in unescorted it means the price
+contains ZERO access content, and no amount of checking the arithmetic will show it, because the
+missing thing is a row that does not exist.
+
+Luton is airside: every operative needs an LLA induction for clearance and is escorted throughout.
+The proposal says only that airside working, inductions, clearance and escorted access 'are to be
+coordinated prior to installation' - in the executive summary, NOT in the EXCLUSIONS column where
+a client looks. That names who arranges it and is silent on who pays, and silence reads as
+included. On 30/07 the client re-phased into TWO visits and we agreed at no cost; that was
+defensible here (7,212.21 of headroom over the BSW buy) but it was agreed without anyone able to
+say what a visit was worth.
+
+TWO GENERAL POINTS.
+- Whenever a site imposes a cost that is not glazing - escorted or inducted access, security
+  clearance, permits, live/occupied premises, phasing into more than one visit, night or weekend
+  working - it is either a PRICED ALLOWANCE or it is in the EXCLUSIONS of the issued document.
+  New rule check_site_access_is_priced_or_excluded in mary_checks.py, manifest field site_access,
+  9/9 variants green. Its founding error is Luton.
+- OUR PROPOSAL TEMPLATE PROMISES A 'CSCS/SMSTS Qualified Site Supervisor in FULL-TIME ATTENDANCE',
+  plus a dedicated project manager AND a separate contracts manager. 21 of 35 issued proposals I
+  sampled carry the identical block, so it is boilerplate rather than anyone's decision - but on a
+  GBP 14k job with a GBP 1,500 labour line it is unfundable. Worth knowing before you promise it
+  on the next small package.

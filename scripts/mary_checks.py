@@ -2299,8 +2299,105 @@ def check_uplift_applied(m):
                   "Brocks Hill Phase 2")
 
 
+def check_site_access_is_priced_or_excluded(m):
+    """Luton Airport Departure Gates 1 & 2 (Ryebridge), issued 13/07/2026 at
+    GBP 14,157.24. The site is AIRSIDE: every installer and supervisor needs an
+    LLA induction for clearance and is escorted for the whole time they are
+    landside of nothing and airside of everything. The priced document is two
+    lines - 3 doors at 4,219.08, and INSTALLATION 1,500.00, which is exactly
+    3 x the DAD labour code of 500. That 500 is the per-door-set FIT rate. It
+    carries no mobilisation, no travel, no supervision and no site attendance.
+
+    So the price contained ZERO airside content, and the proposal never said so.
+    Page 3 reads "Airside working requirements, LLA inductions, security
+    clearance and escorted access are to be coordinated prior to installation" -
+    which names who arranges it and is silent on who pays, and sits in the
+    narrative rather than in the EXCLUSIONS column where a client looks. On
+    30/07 the client re-phased the works into TWO visits to keep the gates open
+    and we agreed at no cost inside half an hour, which was the right
+    relationship call on a job with 7,212.21 of headroom over the BSW buy - but
+    it was made without anyone being able to say what a visit was worth, because
+    nothing in the workbook answered that.
+
+    WHY NO OTHER RULE SEES IT. Every check in this file reads the rows that ARE
+    priced. This one is about a row that does not exist. The workbook reconciles
+    perfectly, the uplift is on the line, the supplier quote covers the units -
+    and the site is one where nobody can walk in unescorted.
+
+    THE HABIT: whenever the site imposes a cost that is not glazing - escorted
+    or inducted access, security clearance, permits, a live/occupied building,
+    phasing into more than one visit, night or weekend working - it is either a
+    PRICED ALLOWANCE or it is in the EXCLUSIONS of the issued document. Silence
+    is neither, and silence reads to the client as included.
+
+    'site_access': {'constraints': [...], 'allowance_gbp': n, 'excluded': [...],
+                    'visits': n}
+    `excluded` holds only constraints named in the issued document's exclusions -
+    a sentence in the executive summary is not an exclusion, which is the whole
+    lesson."""
+    sa = m.get("site_access")
+    if sa is None:
+        return result("site access is priced or excluded", UNKNOWN,
+                      "State it: 'site_access': {'constraints': [...], 'allowance_gbp': n, "
+                      "'excluded': [...], 'visits': n}. Constraints are the things about THIS "
+                      "site that cost money and are not glazing - escorted or inducted access, "
+                      "security clearance, permits, live/occupied premises, phased visits, "
+                      "night or weekend working. An unrestricted site is an empty list, not a "
+                      "blank.",
+                      "Luton Airport Departure Gates 1 & 2",
+                      remedy="Read the enquiry and the proposal for what the site demands, then "
+                             "read the workbook for the line that pays for it.")
+    if not isinstance(sa, dict):
+        return result("site access is priced or excluded", UNKNOWN,
+                      "'site_access' should be an object, not %r" % type(sa).__name__,
+                      "Luton Airport Departure Gates 1 & 2")
+    constraints = [str(c).strip() for c in (sa.get("constraints") or []) if str(c).strip()]
+    if not constraints:
+        return result("site access is priced or excluded", NA,
+                      "no access constraints stated on this site",
+                      "Luton Airport Departure Gates 1 & 2")
+    try:
+        allowance = float(sa.get("allowance_gbp") or 0)
+    except (TypeError, ValueError):
+        return result("site access is priced or excluded", UNKNOWN,
+                      "'allowance_gbp' is %r, which is not a number - and 'not checked' is not "
+                      "'covered'" % sa.get("allowance_gbp"),
+                      "Luton Airport Departure Gates 1 & 2")
+    try:
+        visits = int(sa.get("visits") or 1)
+    except (TypeError, ValueError):
+        visits = 1
+    excluded = [str(e).strip().lower() for e in (sa.get("excluded") or []) if str(e).strip()]
+
+    def is_excluded(c):
+        c = c.lower()
+        return any(e in c or c in e for e in excluded)
+
+    naked = [c for c in constraints if not is_excluded(c)]
+    if naked and allowance <= 0:
+        detail = ("The site costs money in ways the price does not: %s. There is no allowance "
+                  "in the workbook and none of it is in the issued exclusions."
+                  % "; ".join(naked))
+        if visits > 1:
+            detail += (" And the programme is %d separate visits, so every one of them recurs "
+                       "%d times." % (visits, visits))
+        return result("site access is priced or excluded", FAIL, detail,
+                      "Luton Airport Departure Gates 1 & 2",
+                      remedy="Either put a mobilisation/attendance line in the workbook, or name "
+                             "these in the EXCLUSIONS of the proposal. A sentence in the summary "
+                             "saying they will be 'coordinated' is neither.")
+    if naked:
+        return result("site access is priced or excluded", PASS,
+                      "GBP %s allowed against %d access constraint(s) over %d visit(s)"
+                      % (format(allowance, ",.2f"), len(constraints), visits),
+                      "Luton Airport Departure Gates 1 & 2")
+    return result("site access is priced or excluded", PASS,
+                  "%d access constraint(s), all named in the issued exclusions" % len(constraints),
+                  "Luton Airport Departure Gates 1 & 2")
+
+
 RULES = [
-    check_rfq_answered, check_uplift_applied,
+    check_rfq_answered, check_uplift_applied, check_site_access_is_priced_or_excluded,
     check_our_qualifications_survive_signature,
     check_priced_scope_is_not_excluded, check_bought_in_lump_has_a_quantity_basis,
     check_system_coupling, check_panic_hardware, check_glass_ownership, check_quantities,
@@ -2334,6 +2431,7 @@ def blank_manifest(job):
         "u_value": None,
         "supplier_coverage": None,
         "priced_rows": None,
+        "site_access": None,
         "rfq_items": None,
         "price_commitment": None,
         "delivery_terms": None,
@@ -3404,6 +3502,45 @@ def selftest_uplift_variants():
     return not bad
 
 
+def selftest_site_access_variants():
+    """Luton Airport as issued, and the three ways out of it."""
+    real = {"site_access": {
+        "constraints": ["LLA induction and security clearance for every operative",
+                        "escorted airside access for the duration of the works"],
+        "allowance_gbp": 0, "excluded": [], "visits": 2}}
+    priced = dict(real); priced["site_access"] = dict(real["site_access"], allowance_gbp=1800.0)
+    qualified = dict(real); qualified["site_access"] = dict(
+        real["site_access"], excluded=["LLA induction and security clearance for every operative",
+                                       "escorted airside access for the duration of the works"])
+    coordinated = dict(real); coordinated["site_access"] = dict(
+        real["site_access"], excluded=["airside working to be coordinated prior to installation"])
+    open_site = {"site_access": {"constraints": []}}
+    a = check_site_access_is_priced_or_excluded(real)
+    b = check_site_access_is_priced_or_excluded(priced)
+    c = check_site_access_is_priced_or_excluded(qualified)
+    d = check_site_access_is_priced_or_excluded(coordinated)
+    e = check_site_access_is_priced_or_excluded(open_site)
+    f = check_site_access_is_priced_or_excluded({})
+    g = check_site_access_is_priced_or_excluded({"site_access": {
+        "constraints": ["escorted airside access"], "allowance_gbp": "1,800"}})
+    checks = [
+        ("Luton as issued FAILs", a["status"] == FAIL),
+        ("it names the escorted access", "escorted airside access" in a["detail"]),
+        ("it says the constraint recurs on both visits", "2 separate visits" in a["detail"]),
+        ("an allowance clears it", b["status"] == PASS),
+        ("naming them in the exclusions clears it", c["status"] == PASS),
+        ("a 'to be coordinated' sentence does NOT clear it", d["status"] == FAIL),
+        ("an unrestricted site is N/A", e["status"] == NA),
+        ("an unfilled manifest ASKs", f["status"] == UNKNOWN),
+        ("an unparseable allowance ASKs rather than passing", g["status"] == UNKNOWN),
+    ]
+    bad = [n for n, got in checks if not got]
+    print("  %-22s %d/%d site-access variants behave as intended%s"
+          % ("site access", len(checks) - len(bad), len(checks),
+             "" if not bad else "  MISSED: " + "; ".join(bad)))
+    return not bad
+
+
 def selftest_one_crash_costs_one_rule():
     """A rule that raises must lose itself, not the rest of the run.
 
@@ -3506,6 +3643,8 @@ def selftest():
     if not selftest_screen_variants():
         ok = False
     if not selftest_uplift_variants():
+        ok = False
+    if not selftest_site_access_variants():
         ok = False
     if not selftest_one_crash_costs_one_rule():
         ok = False

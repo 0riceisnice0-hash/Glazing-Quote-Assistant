@@ -1203,3 +1203,72 @@ Moved out of `data/jobs/triage.md` to bring it inside the 300-line seed contract
   preferences" on invitations and reply chains propagate them: that test hits 42 of 152 work orders and
   39 are live tender traffic. Bulk mail is 4 in 152 - too rare to justify a mechanism.
 
+
+
+## Moved out of the live file on 2026-08-04 (Jacob's "did our quote go?" answers, 30/07)
+
+- **30/07 - THE LAST TWO "NOT FOUND" ROWS BOTH WENT, AND TIVERTON RUNS THROUGH A PORTAL (botmsg-40,
+  an FYI answered because he asked one line on Kieran and the answer was bigger).** Tally on "did our
+  quote go?" is now **10 of 12**. **Brandon Youth Centre / 19 Maddock Way (7157) - sent 24/11/2025
+  13:20**, jayk@ to wayne.edwards@pridedevelopments.co.uk, quote xlsx + cover letter. Not neglect:
+  Wayne held a competing quote at GBP 38k against our GBP 53,209 on a GBP 28k cost base (Adam, 24/11:
+  "we can't get close to 38k, this seems to be a competitive cost"), and **Jayk's ask to see the rival
+  quote redacted was never answered** - so it is lost-on-price with our own open question in it. Adam
+  also noted E2 should have been a Latham's steel door, left as-is: the saving if it is ever repriced.
+  **130 Hainault Road (7807) - sent 01/04/2026 09:13**, Gintare to lyndon@pridedevelopments.co.uk cc
+  **michael.bettinson@** and adam@. Jacob's 26/02 is the ENQUIRY date, not the quote - five weeks, and
+  Gintare's own opening is "Apologies for taking so long". **It is a PARTIAL quote** - excludes the
+  double entrance door, 1 sliding door, Velux and lantern, triangle unit offered in ALUMINIUM not uPVC,
+  after Quickslide/BSW/Titan Aluminium/Duplus were tried and Mercury never answered on the 2900mm
+  slider. A chase asks about the exclusions, not the price. **KIERAN: no 2026 send exists anywhere**
+  (last contact 23/12/2025, Brooklands College), so his address is unconfirmable - but **the Tiverton
+  quote was never his: 22/01/2026 14:16 jayk@ to aaron@alexanderjamesltd.co.uk**, four attachments,
+  after Adam's "Good to go" at 10:26. **AND TIVERTON IS A PORTAL JOB** - Jayk: "I have uploaded through
+  the E1 SYSTEM but wanted to ensure these came directly to you as well." Email silence there is not
+  the client failing to answer, and addenda sit where neither bot can see them. **Do not guess the
+  ajgroup addresses**: the one confirmed is `gleb.saliev@` - firstname.SURNAME, where the old domain
+  used bare firstnames, and alexanderjamesltd.co.uk was still live 16/02/2026 (dan@ wrote from it).
+  No `quote_issued` events - all three are rows already on his board. No email to Adam: three sends
+  aged 4 to 8 months, two of which he authorised himself, and nothing changes what he does today.
+- **30/07 - BALHAM HILL: IT WENT, THEY REPLIED, ADAM ALREADY CHASED, AND THE COMPLIANCE FEAR WAS
+  BACKWARDS (botmsg-38, answered).** Jacob had nothing after 24/02 in four mailboxes and asked whether
+  REV 1 reached Kyan Gulliver or Liam Ryan. **It reached neither - it went to a THIRD contact nobody
+  holds.** 24/02/2026 13:42, jayk@ to **Danny Hartland BSc (Hons) MCIOB, Quantity Surveyor, Re-Gen,
+  DD 01277 563 359**, cc Liam and Adam, with `Quote REV 1.xlsx` + `Cover Sheet.pdf`; the cover sheet
+  carries CW GBP 142,760.00 / uPVC GBP 690,849.31, matching AdminBase 7796 to the penny. **The client
+  engaged**: Danny rang within 15 min, took REHAU data sheets at 14:42, asked at 17:44 for the CW ones
+  too, got Technal Tental 50 on 25/02 - then nothing, ever. **Adam chased it himself 12/03/2026 12:19**
+  (Danny, cc Liam - "Jayk as left the company... my mobile is 07939452711"), unanswered 140 days, so a
+  call to Liam is the SECOND chase not the first. **COMPLIANCE REVERSED, and this is the finding: Titan
+  quoted REHAU TOTAL 70 62mm** - Ashley Walton in writing 24/02 14:24, three Total70 data sheets - and
+  REHAU is first on Wandsworth Appendix J cl.2.6's five. The reprice FIXED the Liniar defect and nobody
+  recorded it; Jacob's "void before it was read" is withdrawn at source before it could reach Adam as a
+  false alarm. Residual is cl.2.1 licensed-fabricator evidence to the COUNCIL, never submitted - a
+  missing submission, not a wrong spec. **What lost it was price and Adam knew on the day** (24/02
+  12:14: "out of the running for the windows due to costs... we could as Quickslide to price the uPVC")
+  - and **Quickslide was never asked**: the first Quickslide enquiry in estimating@ is 06/03 on 130
+  Hainault Road. The Director's own action, uncarried, on the exact package that went 38% over target -
+  St Mary's shape again. Kick-off was 23/03 so it is history: 07:45 update, not an email. **Checked and
+  clean:** the fire-egress caveat Bedford Trade Glass forced on 30/01 IS on the issued cover sheet.
+  **No `quote_issued` event** - it would queue Jacob a handover for a job already on his board.
+- **30/07 - JACOB'S FIVE "DID IT GO?" QUESTIONS: SEVEN WENT, TWO DID NOT (botmsg-28 to -32, all
+  answered).** One batch, one shape - he had built a theory that Fenster's prices were stopping inside
+  the building, on Chiel, Alkerden, Bradstone and Darrick Wood. **It is wrong five times out of seven,
+  and the reason is structural: NOTHING RECORDS WHETHER A QUOTE WAS SENT.** Quotes leave from whichever
+  mailbox the handler uses - `jayk@` (a deleted 404), `adam@`, or `estimating@` - never from
+  commercial@/info@/jacob@, and neither AdminBase nor the Opportunity Log carries a send. So his board
+  reads "silent" and "never issued" on jobs issued twice. **WENT:** Chiel 22/12/2025 16:03 (Jayk, quote
+  + cover sheet); Bradstone Road **re-quoted through 2026** - 06/02 and 20/03, Adam to Ian Brown 12/06,
+  so it is NOT lost-in-May-2025; The Grange 05/03 to Ian Brown and revised 01/04 to **Oliver Webber**;
+  St Catherines House ×3 (18/12, 13/01, 16/01) all Jayk to **steven.elley@** - and Jayk's own words
+  prove 7249/7356 are **ONE job priced two ways**, so Jacob's board double-counts GBP 237,382; B239
+  PD7851 issued by Adam 29/06 inside a 13-message negotiation with Daniel Goornaden; Exmoor Drive via
+  adam@ 01/04. **"NO TRACE" ON Brandon Youth/Maddock Way AND 130 Hainault Road - BOTH SINCE FOUND, both
+  sent; see the 30/07 Pride entry above.** Flagging them "not found" rather than "never sent" was the
+  only thing that kept them honest (Spoone School; and our own subject lines misspell
+  "Cheil"/"Swanhurst" consistently). **DID NOT GO, both live, both in the 07:45 update:** Darrick Wood (GBP 255,082 - Adam
+  promised Gleb Saliev a revision 10/07, A Plus Rev1 landed 24/07, no QUOTE TO CHECK since 27/05, so
+  **not priced yet**) and Alkerden (now its own chat - the original DID go 29/04 to Corran Goodson).
+  **ALSO:** Chiel got the price and never the
+  PQQ pack - three things asked for in Dec 2025, one sent, and the PQQ is what decides whether we are
+  allowed on a new main contractor's list at all.
