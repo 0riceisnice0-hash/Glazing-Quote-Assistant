@@ -213,9 +213,14 @@ th{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--ink-3
 td{padding:8px 14px;border-top:1px solid var(--line);font-variant-numeric:tabular-nums}
 
 /* ------------------------------------------------- drawer */
+/* The [hidden] rule is load-bearing: an author display beats the UA's
+   [hidden]{display:none}, so without it the invisible overlay sits over the
+   whole app and eats every click. Found by Zac's actual mouse, 04/08. */
 #drawer{position:fixed;inset:0;background:rgba(10,20,24,.35);z-index:50;
         display:flex;justify-content:flex-end;
         backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+#drawer[hidden]{display:none}
+#toast[hidden]{display:none}
 #drawer-card{width:min(560px,94vw);height:100%;overflow-y:auto;border-radius:0;
              border-right:0;padding:26px 28px;position:relative}
 #drawer-close{position:absolute;top:14px;right:18px;font-size:26px;color:var(--ink-3)}
