@@ -1,0 +1,62 @@
+Adam,
+
+The Totteridge costings you asked for on 30/07, and the one thing that blocks Friday.
+
+1. I NEED YOUR 07/10/2025 QUOTATION ATTACHMENT. Our sell figure for this job is not in any
+Fenster system. No AdminBase lead under Borras or Conamar - I checked all 12 Borras rows
+(16/06/25 to 18/06/26) and all 3 Conamar; there is a clean gap between 22/07/25 and 23/01/26.
+No OneDrive folder. Not in any of the 41 work-order attachments. You issued it to Matt at 16:10
+and to Daniel King at Conamar at 16:13 on 07/10/25. Your sent items are the only copy, and Matt
+has asked us to review a number we cannot see.
+
+2. THERE ARE ONLY TWO SUPPLIER QUOTES AND THE ONE WE USED HAS NO SCHEDULE.
+
+  - County Architectural Aluminium 141, 18/09/25: GBP 183,800 less 2.5% MCD = GBP 179,205,
+    supply, delivery AND installation. No unit count, no area, no positions anywhere in four
+    pages. Gintare was right on both counts.
+  - Windglass Q10486: GBP 230,544 SUPPLY ONLY. 15 positions, 77 units, 445.53 m2, itemised,
+    sums exactly to the total.
+
+Windglass is GBP 51,339 (+28.6%) above CAA and does not include the installation. But it arrived
+08/10/25 at 08:59 - seventeen hours AFTER you had issued to both Borras and Conamar. It was never
+in the price. A third supplier, HAG, was asked 18/09 and never replied to anyone.
+
+3. THEY ARE NOT THE SAME PRODUCT, AND THE CHEAP ONE IS THE ONE WE USED.
+
+  - CAA glass: 6mm clear laminated / 16mm argon / 6mm clear toughened. No solar coating. No heat
+    soak. No U-value stated anywhere. RAL not named.
+  - Windglass: Super Neutral 70/35 solar control, 10.8mm laminated heat-soaked, weighted U 1.4,
+    RAL 8024.
+
+That is roughly 445 m2 of glazing on a sixth form teaching block. We do not hold the September 25
+spec, so I cannot yet say whether CAA's uncoated glass meets it. Same shape as Filwood and Brocks
+Hill, one step further upstream - this time the performance was missing from the supplier document
+the price was built on.
+
+4. THE PROGRAMME IS NOT THE NEW YEAR, IT IS Q4 2027. Matt is right that main works start in
+January - possession is 05/01/27. Our package installs 13/10/2027 to 10/12/2027, nine sequenced
+activities floor by floor behind a moving scaffold. Materials bought mid-2027. That is about 26
+months from the price to the buy, not 15. Borras have not won it either: their own programme has
+planning approval 13/11/26 and contractor appointment 16/11/26.
+
+5. AND ONE ADJUSTMENT HEAD THAT IS NOT INFLATION. Windglass price "one site visit" and reserve
+the right to charge where work "becomes separately phased". The programme is nine visits. That is
+a specific, evidenced reason to tell Matt yes, there is a necessary adjustment.
+
+The AGF Reynaers increase on orders placed after 27/08 does not touch this one - both quotes are
+Kawneer.
+
+WHAT I NEED FROM YOU:
+
+  a. The 07/10/25 quote attachment.
+  b. Do we get Gintare to re-quote CAA and Windglass now? Both expired around ten months ago, and
+     they should be priced to a Q4 2027 install, not a January one. CAA to give a position
+     schedule this time.
+  c. Do we ask Matt for the September 25 tender documents, and confirm brise soleil is outside our
+     package? Windglass exclude it in terms and it sits on Borras's programme as its own trade.
+
+Everything is in data/jobs/totteridge.md. Checks manifest run: 6 failures, all tracing to the same
+root - the document our price came from states no quantities, no U-value, no colour and no solar
+spec.
+
+Mary

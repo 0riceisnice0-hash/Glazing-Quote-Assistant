@@ -5,78 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-08-04 12:37 - filwood
-ADDING A CLARIFICATION DOES NOT REMOVE A CERTIFICATION. SECOND JOB IN FIVE DAYS.
-
-Filwood went to Stepnell on 30/07. Adam had written that morning: "we aren't hitting the
-g-value required for the glazing. We certainly aren't hitting the u-value either... Ensure
-all clarifications are accurate regarding u-value." The clarification paragraph was duly
-added and it reads correctly. THE SPECIFICATION BOX ON THE SAME PAGE WAS NOT TOUCHED and
-still states Ug 1.0, g 0.5-0.6, Rw >=32 dB as our offer. BSW's own quote puts positions
-006/007 at Ug 1.1, names no coating on any of the seven, and puts the acoustic make-up on
-the two ED-05s while the ED-06 that needs Rw 32 gets plain 6.8/4 glass.
-
-Brocks Hill on 31/07 was the identical shape - proposal qualified the aluminium doors,
-spec box read U 1.1 / g 0.34 across the board including the steel ones. So this is a
-pattern, not an accident: OUR PROPOSAL HAS TWO PLACES THAT STATE PERFORMANCE, a prose
-clarification and a boxed specification, and people edit the prose. The client reads the
-box. When a value is qualified, CHANGE THE BOX - to the supplier's actual figure, or to
-"see clarifications". Check both every time.
-
-STRIPPING THE WORKING COLUMNS IS ONLY HALF OF MAKING A WORKBOOK SAFE TO ISSUE.
-
-Filwood's .xlsx went to Stepnell with the working columns properly removed - our BSW cost
-was NOT in it, that half was caught - and with dan.parker@agsurveying.co.uk still the
-document author plus external links to C:\Users\LiamO'Donnell and C:\Users\Parke through
-an Outlook INetCache path. Those live in docProps/core.xml and xl/externalLinks/, survive
-any amount of cell editing, and show on right-click > Properties without the file being
-opened. Fourth job running.
-
-The job file had already said "a PDF is safe and the .xlsx is not" and the .xlsx was
-attached anyway. If a workbook must go as .xlsx, strip docProps AND externalLinks; if it
-does not have to, send the PDF.
-
-### 2026-08-04 12:53 - redditch-library
-A CURVE FITTED TO ONE SUPPLIER QUOTE INHERITS THAT QUOTE'S COLOUR AND GLASS - AND THAT MATTERS MORE THAN
-ITS R2. MY REDDITCH BENCHMARK WAS 27% HIGH AND THE FIT WAS 0.9934.
-
-BSW QT253829 landed on Redditch Library this morning: GBP 43,739.72 for 49 Sheerline Prestige frames.
-I had predicted GBP 56,993.38, from rate = 721.47 x area^-0.4093 fitted to BSW's own Severn Trent quote
-for the same client six weeks earlier. Scope-matched, that is +27.4%.
-
-The R2 measured how well six points fitted a power law. It said nothing about whether those six points
-were the same PRODUCT. Severn Trent was 3005 Wine Red metallic with a 6.8 laminated outer; Redditch came
-back stock Hipca White. I wrote the colour down as a caveat on 28/07 and let the number stand as the
-basis of a GBP 94,926.76 tender anyway.
-
-  SO WHEN YOU QUOTE A FITTED RATE, STATE THE FINISH AND THE GLASS MAKE-UP OF THE QUOTE IT CAME FROM,
-  NEXT TO THE R2. A colour difference is a scope difference, not a footnote. A superb fit to the wrong
-  product is worse than a rough fit to the right one, because it reads as precision.
-
-Direction of the band error was right - Redditch is 62% weighted into 3-6 m2, where the register was
-already known to run +37.5% high. The finish compounded it. Calibration entry 21.
-
-AND THE PRACTICAL HALF: OUR BENCHMARKS RUN HIGH, SO A JOB YOU HAVE WRITTEN OFF AS UNWINNABLE MAY NOT BE.
-Redditch was GBP 4,240 above the competitor on benchmark frames and is now within about GBP 1,160 of him
-on real ones. If you have told Adam a job cannot be won on price, and the number behind it is a benchmark
-rather than a quotation, that conclusion is worth exactly as much as the benchmark is.
-
-SEPARATELY, AND IT IS THE THIRD TIME THIS WEEK: A SUPPLIER DROPPED ONE UNIT AND OUR SELL DOCUMENT COPIED
-IT THROUGH.
-
-BSW's line reads Location: "w35,36" at Qty: 1. Two references, one frame. Every other multi-reference
-line on the same quotation is right - w1,w2 = 2, w22,23 = 2, w16-18 = 3, w24-28 = 5 - so there is nothing
-systematic to notice, just one line among twenty-nine. It went straight into the sell document as qty 1.
-
-  THE CHECK IS check_supplier_covers_quantity AND IT FIRES ON THIS - fill supplier_coverage with
-  {ref, qty_sold, qty_quoted} for EVERY reference, including the ones you are confident about, because
-  the wrong one looks exactly like the right ones. BSW's own footer says they "will not be held
-  responsible for any items missing from quotes", so the catching is ours by their terms as well as ours.
-
-Brocks Hill's 12:12 note said reconciling the total does not catch a bad row. This is the same thing one
-step earlier: reconciling the total does not catch a MISSING row either. Neither document was ever wrong
-with itself.
-
 ### 2026-08-04 13:03 - john-north-hall
 A COMPANY FILE BUILT FROM CORRESPONDENCE RECORDS WHAT WAS SAID, NOT WHAT WE BOUGHT - AND IT NEARLY
 ASKED A CLIENT FOR PERMISSION TO SUBSTITUTE THEIR OWN SPECIFICATION.
@@ -128,3 +56,52 @@ a blank cost per m2 and a GBP 0.00 line total and is flagged there as 'the only 
 So we buy from them and have never once captured a rate. If you are waiting on a MetFab quote there is
 nothing to fall back on and nothing to sanity-check their number against - which also makes the next
 MetFab return worth mining properly whichever job it lands on.
+
+### 2026-08-04 13:26 - totteridge
+A QUOTE THAT WAS NEVER LOGGED IS A QUOTE NOBODY CAN REVIEW - AND WE ISSUED THIS ONE TO TWO MAIN CONTRACTORS THREE MINUTES APART.
+
+Totteridge Academy. Borras asked on 30/07 for a cost review by Friday 07/08. Fenster's own sell
+figure is in NO Fenster system: no AdminBase lead under Borras (12 rows, 16/06/25-18/06/26, clean
+gap 22/07/25 to 23/01/26) or Conamar (3 rows), no OneDrive folder, not in any of the 41 work-order
+attachments. Adam issued it to Borras T0689 at 16:10 and Conamar T8850 at 16:13 on 07/10/25. His
+sent items are the only copy. BEFORE YOU REPORT A JOB AS UNPRICED OR A NUMBER AS MISSING, CHECK
+ADMINBASE *AND* ONEDRIVE *AND* THE ATTACHMENTS - and if all three are empty, the number exists only
+in a person's mailbox and that is the ask. Also: data/companies/conamar.md's 'GBP 219,774 unanswered'
+understates the account by this quote.
+
+TIMESTAMP THE SUPPLIER QUOTE AGAINST THE DAY WE ISSUED. Two quotes exist here: County Architectural
+Aluminium 141 (18/09/25, GBP 183,800 less 2.5% MCD = 179,205, supply+delivery+INSTALL, NO schedule
+of any kind) and Windglass Q10486 (GBP 230,544 SUPPLY ONLY, 15 positions, 77 units, 445.53 m2,
+itemised). Windglass is +GBP 51,339 (+28.6%) and excludes the install - but it landed 08/10/25
+08:59, SEVENTEEN HOURS AFTER we issued. It was never in the price. A quote in the folder is not a
+quote in the number; check the clock.
+
+AND THE FILWOOD PATTERN, ONE STEP UPSTREAM. The two quotes are not the same product and the cheap
+one is the one we used. CAA: 6mm clear lami / 16 argon / 6mm clear tgh, NO solar coating, NO heat
+soak, NO U-value stated in four pages, RAL not named. Windglass: Super Neutral 70/35, 10.8mm lami
+heat-soaked, weighted U 1.4, RAL 8024. ~445 m2 on a school teaching block. At Filwood the
+performance went missing from OUR document; here it was never in the SUPPLIER document the price was
+built on. When a supplier quote states no U-value and no coating, that is not a quiet 'standard' -
+it is a cheaper product, and it is why they are cheaper.
+
+SUPPLIER FACTS WORTH KEEPING - WE HAD NO KAWNEER RATE AT ALL UNTIL TODAY.
+  WINDGLASS WINDOWS (Gary Baxter MD; jodie@windglass.co.uk, 020 8540 8848) - Kawneer AA100 CW /
+  AA190TB doors / AA720 windows, SUPPLY ONLY. GBP 517.46/m2 over 445.53 m2, Sept-2025 money, RAL
+  8024, solar-control heat-soaked glass. Punched AA720 windows run GBP 347-426/m2; CW screens
+  GBP 516-926/m2. Terms bite: 'one site visit' only, and they reserve the right to charge where work
+  'becomes separately phased'.
+  COUNTY ARCHITECTURAL ALUMINIUM (Hayden Ashby, info@caaltd.co.uk) - same three Kawneer systems,
+  supply AND install, GBP 402.23/m2 IF the area matches, which cannot be verified because they quote
+  no quantities. PC sums sit OUTSIDE their total: auto door opener GBP 5,000 EACH, cranage GBP 3,000,
+  push-bar pack GBP 750, kick plates GBP 135 ea, teleflex GBP 200 ea. They will not provide
+  performance bonds and they exclude fire stopping.
+  HAG (info@hag.co.uk) - asked 18/09/25, never replied to anyone. No rate.
+
+CORRECTION FOR EVERY CHAT: THE AGF/REYNAERS 27/08 DATE DOES NOT REACH TOTTERIDGE. It was handed to
+this job as the lever on the 07/08 deadline. Both quotes here are KAWNEER. Check the system before
+you apply a supplier's price notice to a job.
+
+AND CHECK WHAT THE PROGRAMME ACTUALLY SAYS OUR TRADE DOES. Matt wrote 'main works commence in the
+New Year' and that is true - possession 05/01/2027. Our glazing installs 13/10/2027 to 10/12/2027,
+in nine sequenced activities. 26 months from price to buy, not 15. A main contractor's start date is
+not our start date, and on a 14-month build the difference is the whole adjustment.

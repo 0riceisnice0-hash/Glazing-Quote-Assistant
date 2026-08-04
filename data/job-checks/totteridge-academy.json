@@ -1,0 +1,270 @@
+{
+  "job": "The Totteridge Academy, new sixth form block, Barnet Lane N20 8AZ - Borras Construction T0689 (and Conamar T8850, same scheme, same day)",
+  "created": "2026-08-04",
+  "_state": "PRICE-VALIDITY REVIEW, NOT A RE-TAKE-OFF. Matt Thorne asked on 30/07/2026 for a cost review by FRI 07/08/2026; he confirmed 30/07 09:12 there are NO design changes, only programme dates. NOTHING IS BEING ISSUED THIS TURN. The critical fact this run records: FENSTER'S OWN SELL FIGURE IS NOT HELD ANYWHERE. Adam issued it to Borras 07/10/2025 16:10 and to Conamar 07/10/2025 16:13; there is no AdminBase lead for Totteridge under either client (all 12 Borras rows June 2025-June 2026 and all 3 Conamar rows checked), nothing in OneDrive, and the sell document is not among the 41 attachments on the five work orders. Only Adam's sent items hold it.",
+  "coupled_runs": [],
+  "doors": [
+    {
+      "ref": "GF doors DX01 to DX04 - named on the Borras Jan-2027 tender programme, install 07/12/2027 to 10/12/2027. Kawneer AA190TB in both supplier quotes.",
+      "fire_exit": null,
+      "panic_hardware_priced": false
+    },
+    {
+      "ref": "FR (fire rated) doors - Windglass Q10486 states in terms 'we have not included for brise Soliel or FR Doors'. County Architectural Aluminium quote 141 is SILENT on fire rating throughout. Whether the scheme contains any fire-rated external doorset is not established from anything in our possession.",
+      "fire_exit": null,
+      "panic_hardware_priced": false
+    }
+  ],
+  "frame_supply": "glazed",
+  "glass_order": [],
+  "quantities": [
+    {
+      "ref": "Whole package - Windglass Q10486 schedule totals 77 units / 445.53 m2 across 15 positions. County Architectural Aluminium quote 141, which IS the basis of the number sitting with Borras, contains NO schedule of quantities at all - no unit count, no area, no position list.",
+      "bill_qty": 77,
+      "drawing_qty": 0
+    },
+    {
+      "ref": "Windglass Pos 04, stated 'CW0-04 to CW0-12, CW0-14 to CW0-20' at Qty 16 - the two ranges inclusive are exactly 16 references, so the qty matches the description. BUT four of those references (CW0-05, CW0-06, CW0-11, CW0-19) are ALSO priced as their own positions 05, 06, 07 and 08 at much larger sizes. Either Pos 04 should be Qty 12, or the range wording is wrong.",
+      "bill_qty": 16,
+      "drawing_qty": 12
+    }
+  ],
+  "spec_items": [
+    {
+      "ref": "Curtain walling - Kawneer AA100 zone-drained stick system. Both suppliers offer the same system.",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Windows - Kawneer AA720 thermally broken casements. Both suppliers offer the same system.",
+      "treatment": "priced"
+    },
+    {
+      "ref": "Doors - Kawneer AA190TB thermally broken. Both suppliers offer the same system. Windglass state all doors fabricated to Kawneer PAS24 testing; CAA do not mention PAS24 at all.",
+      "treatment": "priced"
+    },
+    {
+      "ref": "SOLAR CONTROL GLASS - Windglass GL101 (positions 01-10) is 8mm toughened Super Neutral 70/35 / 16mm cavity / 10.8mm laminated HEAT SOAKED, and GL100 (positions 11-15) is 6mm toughened SG Superneutral 70/35 / 16mm / 6.8mm laminated clear heat soaked. CAA quote the SAME SCHEME as 28mm: 6mm clear laminated / 16mm black warm edge argon / 6mm clear toughened - NO SOLAR CONTROL COATING NAMED, NO HEAT SOAKING. Roughly 445 m2 of glazing on a school teaching block.",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "U-VALUE - Windglass state a weighted U-value of 1.4 W/m2K has been achieved, and separately that 'No U values or barrier loads calculated' unless stated. CAA quote 141 states NO U-value anywhere in four pages. The Borras specification requirement is not in our possession - the September 2025 tender documents are not attached to any of the five work orders.",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "BRISE SOLEIL - excluded in terms by Windglass; not mentioned by CAA. The Borras programme carries two separate install activities, 'Install Brise Soleils to screen CW1' (03/12/2027-09/12/2027) and 'Install Brise Soleils to windows 06, 16 & 26' (10/12/2027-16/12/2027), and lists 'Brise Soleils' as its own trade contractor line separate from 'Windows and Doors - External'.",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "LOUVRES - Windglass state 'horizontally shaded areas are louvres' and price them within the curtain wall positions. The Borras programme lists a separate 'Louvre Specialist' trade line and describes the window install as 'some with integrated Louvres'.",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "Glazed spandrel panels - Windglass 'diagonal are glazed spandrel panels', priced within the CW positions. CAA silent.",
+      "treatment": "priced"
+    },
+    {
+      "ref": "CAA PC SUMS carried outside the GBP 183,800: Cranage GBP 3,000; kick plates GBP 135 each; automatic door opener GBP 5,000 EACH; fire escape push bar hardware pack GBP 750; teleflex GBP 200 each. None of these are quantified, so none of them are in the headline.",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "Siderise cladding and removal/disposal - omitted by CAA in terms.",
+      "treatment": "excluded"
+    },
+    {
+      "ref": "Manifestation - CAA include manifestation on CW screen glass. Windglass exclude manifestations unless stated. The Borras programme has 'Manifestations to glass' as its own trade line, 13/01/2028-12/02/2028.",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "Trickle vents - Windglass exclude in terms ('No tricklevents... unless stated in quote'). CAA silent.",
+      "treatment": "unresolved"
+    },
+    {
+      "ref": "Glazed balustrades to bridge and canopy - separate 'Glazed Balustrading' trade line on the Borras programme, 11/10/2027-22/10/2027. Neither supplier quote touches it and it is not in the T0689 enquiry title (curtain walling, windows and external doors).",
+      "treatment": "excluded"
+    }
+  ],
+  "supplier_quotes": [
+    {
+      "supplier": "County Architectural Aluminium Ltd (Hayden Ashby, info@caaltd.co.uk)",
+      "ref": "Quotation 141 dated 18/09/2025",
+      "amount": 183800.0,
+      "scope": "SUPPLY, DELIVERY AND INSTALLATION. GBP 183,800 subject to a 2.5% MCD = GBP 179,205.00 net, exclusive of VAT. Kawneer AA720 / AA190TB / AA100. NO schedule of quantities anywhere in the document.",
+      "valid_until": "18/10/2025 - 'valid for a period 30 days from the above date of submission'. EXPIRED 291 days ago.",
+      "used_in_our_price": true
+    },
+    {
+      "supplier": "Windglass Windows Ltd (Gary Baxter MD; Jodie, jodie@windglass.co.uk)",
+      "ref": "Quote Q10486, job 1298, dated 08/10/2025, received 08/10/2026 08:59 UK",
+      "amount": 230544.0,
+      "scope": "SUPPLY ONLY AND DELIVERY TO SITE - installation by others. Kawneer AA100 CW with AA190TB doors and AA720 windows. 15 positions, 77 units, 445.53 m2, fully itemised, positions sum exactly to the stated total.",
+      "valid_until": "07/11/2025 - 'Prices are fixed for 30 days from date of quotation'. EXPIRED 270 days ago.",
+      "used_in_our_price": false
+    },
+    {
+      "supplier": "HAG (info@hag.co.uk)",
+      "ref": "none - Adam sent 'Totteridge Quote' to them 18/09/2025 11:40",
+      "amount": null,
+      "scope": "NEVER RETURNED. There is no inbound message from hag.co.uk anywhere in the mailbox record. Three enquiries went out, two came back, one was used.",
+      "valid_until": null,
+      "used_in_our_price": false
+    }
+  ],
+  "full_height_screens": [
+    {"ref": "CW0-03, 2700 x 10500 - three storey screen (Windglass Pos 03, GBP 15,672)", "priced_as": "curtain walling"},
+    {"ref": "CW0-11, 2700 x 10000 - three storey screen (Windglass Pos 07, GBP 21,881)", "priced_as": "curtain walling"},
+    {"ref": "CW1-01, 4300 x 6900 - two storey screen incl 2no AA720 windows (Windglass Pos 09, GBP 16,769)", "priced_as": "curtain walling"},
+    {"ref": "CW01A & CW01B, 6517 x 3275 (Windglass Pos 01, GBP 15,387)", "priced_as": "curtain walling"},
+    {"ref": "CW0-05 3890 x 3333 and CW0-06 4179 x 3333 incl faceted mullions (Windglass Pos 05/06, GBP 19,071)", "priced_as": "curtain walling"},
+    {"ref": "CW0-19 3800 x 3475 (Windglass Pos 08, GBP 10,576)", "priced_as": "curtain walling"},
+    {"ref": "CW1-02 4300 x 2250 (Windglass Pos 10, GBP 4,994)", "priced_as": "curtain walling"},
+    {"ref": "CW0-02 2250 x 2700 (Windglass Pos 02, GBP 5,623)", "priced_as": "curtain walling"}
+  ],
+  "systems_specified": [
+    {"system": "Kawneer AA100 / AA100 HI zone drained curtain walling", "fabricator": "County Architectural Aluminium (supply+install) and Windglass Windows (supply only). Both are Kawneer. NEITHER IS REYNAERS - the AGF notice of 04/08/2026 of a Reynaers increase on all orders placed on or after 27/08/2026 does not reach this job."},
+    {"system": "Kawneer AA720 thermally broken casement windows", "fabricator": "County Architectural Aluminium and Windglass Windows"},
+    {"system": "Kawneer AA190TB thermally broken doors", "fabricator": "County Architectural Aluminium and Windglass Windows"}
+  ],
+  "finishes": [
+    {
+      "ref": "All aluminium curtain walling, windows and doors",
+      "specified_internal": "not in our possession - the September 2025 Borras tender documents are not attached to any work order",
+      "specified_external": "not in our possession",
+      "quoted_internal": "Windglass: 'All profiles powdercoated Ral 8024' (copper brown). CAA: 'Single standard RAL matt powder coated colour', Interpon D, RAL NOT NAMED.",
+      "quoted_external": "Windglass RAL 8024; CAA an unnamed single standard RAL."
+    }
+  ],
+  "u_value": {
+    "required": null,
+    "basis": "NOT IN OUR POSSESSION. The Borras T0689 September 2025 tender documents are not among the 41 attachments on the five work orders and there is no Totteridge folder in OneDrive. Windglass offer a weighted 1.4 W/m2K; CAA state no U-value at all in four pages. Nobody has compared either against a requirement.",
+    "rejected_elements": []
+  },
+  "supplier_coverage": [
+    {"ref": "Pos 01 CW01A & CW01B 6517x3275", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Q10486 Pos 01 qty 1 = GBP 15,387. CAA 141 (the quote our price is built on) states NO quantity for this or any other position."},
+    {"ref": "Pos 02 CW0-02 2250x2700", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Pos 02 qty 1 = GBP 5,623. CAA: no quantity stated."},
+    {"ref": "Pos 03 CW0-03 2700x10500", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Pos 03 qty 1 = GBP 15,672. CAA: no quantity stated."},
+    {"ref": "Pos 04 CW0-04 to CW0-12 and CW0-14 to CW0-20, 900x3000", "qty_sold": 12, "qty_quoted": 16, "supplier_ref": "Windglass Pos 04 qty 16 = GBP 28,445 (GBP 1,777.81 each). The stated ranges are 16 references inclusive, but CW0-05, CW0-06, CW0-11 and CW0-19 within them are ALSO priced as Pos 05, 06, 07 and 08. If those four are removed the range is 12 units and Pos 04 is GBP 21,333.75 - a GBP 7,111.25 difference. Unresolvable from the document; needs the elevations."},
+    {"ref": "Pos 05 CW0-05 3890x3333", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Pos 05 qty 1 = GBP 9,386, and CW0-05 also sits inside Pos 04's stated range. CAA: no quantity stated."},
+    {"ref": "Pos 06 CW0-06 4179x3333 incl faceted mullions", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Pos 06 qty 1 = GBP 9,685, and CW0-06 also sits inside Pos 04's stated range. CAA: no quantity stated."},
+    {"ref": "Pos 07 CW0-11 2700x10000", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Pos 07 qty 1 = GBP 21,881, and CW0-11 also sits inside Pos 04's stated range. CAA: no quantity stated."},
+    {"ref": "Pos 08 CW0-19 3800x3475", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Pos 08 qty 1 = GBP 10,576, and CW0-19 also sits inside Pos 04's stated range. CAA: no quantity stated."},
+    {"ref": "Pos 09 CW1-01 4300x6900 incl Pos 09.21 and 09.23 AA720 windows", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Pos 09 qty 1 = GBP 16,769, the two windows shown as 'Included into Pos 09'. CAA: no quantity stated."},
+    {"ref": "Pos 10 CW1-02 4300x2250", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Pos 10 qty 1 = GBP 4,994. CAA: no quantity stated."},
+    {"ref": "Pos 011 W01 1810x2250", "qty_sold": 24, "qty_quoted": 0, "supplier_ref": "Windglass Pos 011 qty 24 = GBP 33,932 (GBP 1,413.83 each). CAA: no quantity stated."},
+    {"ref": "Pos 012 W02a 2710x2250", "qty_sold": 8, "qty_quoted": 0, "supplier_ref": "Windglass Pos 012 qty 8 = GBP 19,717 (GBP 2,464.62 each). CAA: no quantity stated."},
+    {"ref": "Pos 013 W02b 2710x2250", "qty_sold": 13, "qty_quoted": 0, "supplier_ref": "Windglass Pos 013 qty 13 = GBP 32,017 (GBP 2,462.85 each). CAA: no quantity stated."},
+    {"ref": "Pos 014 W03/W05 910x2250", "qty_sold": 6, "qty_quoted": 0, "supplier_ref": "Windglass Pos 014 qty 6 = GBP 5,234 (GBP 872.33 each). CAA: no quantity stated."},
+    {"ref": "Pos 015 W06 910x2250", "qty_sold": 1, "qty_quoted": 0, "supplier_ref": "Windglass Pos 015 qty 1 = GBP 1,226. CAA: no quantity stated."},
+    {"ref": "GF doors DX01 to DX04 (named on the Borras programme)", "qty_sold": 4, "qty_quoted": 0, "supplier_ref": "NOT IDENTIFIABLE as a separate line in either supplier quote. Windglass price doors only where they sit inside a curtain wall position; CAA quote AA190TB doors with no count."},
+    {"ref": "Brise soleil to screen CW1 and to windows 06, 16 and 26", "qty_sold": 0, "qty_quoted": 0, "supplier_ref": "EXCLUDED IN TERMS by Windglass; not mentioned by CAA. On the Borras programme as two install activities in December 2027 and as its own trade contractor line."}
+  ],
+  "priced_rows": [],
+  "site_access": {
+    "provided_by": "Borras. The tender programme carries 'Install scaffold boards, polythene and protective fan above GF window installations' (11/10/2027-29/10/2027), 'Board out a scaffold lift to allow for 1st floor window installations' (20/10/2027-02/11/2027) and the same again for the FF (28/10/2027-08/11/2027), with progressive perimeter scaffold strip 08/11/2027-24/12/2027.",
+    "our_allowance": "Both suppliers exclude access. CAA: 'no allowance for access, including scaffolding and mobile towers. All access is to be provided by others.' Windglass: 'All protective hoardings, scaffolding, working platforms, mechanical hoisting, vertical access will be provided to us free of charge.' The programme appears to support both exclusions - but no hoist is named on the programme and Windglass require 'hoist and operator to be provided by General Contractor'."
+  },
+  "rfq_items": [],
+  "price_commitment": {
+    "source": "Matthew Thorne, Borras Construction, 30/07/2026 08:26 UK: 'We would be grateful if you review your costs and advise us of any necessary cost adjustment based on the revised programme dates... not later than FRIDAY 7th AUGUST 2026 or sooner if possible.' The underlying commitment is Adam's quotation of 07/10/2025 16:10, whose value and terms are NOT IN OUR POSSESSION.",
+    "our_price_open_until": null
+  },
+  "delivery_terms": [
+    {
+      "item": "Windglass - SUPPLY ONLY, delivered to site. 'Our price includes for offloading our vehicles and taking to a point of hoisting (hoist and operator to be provided by General Contractor) and receiving from the point of hoisting.' Installation is NOT theirs.",
+      "included": false
+    },
+    {
+      "item": "CAA - supply, delivery AND installation. 'We have included for unloading using your facilities. All hoists and lift equipment to be provided by others for our use.'",
+      "included": true
+    }
+  ],
+  "incorporated_terms": [
+    {
+      "document": "Windglass Q10486 conditions",
+      "clause": "'This quotation is based upon optimised usage of stock materials. Should sizes or quantities alter or BECOME SEPARATELY PHASED extra costs will be incurred which we reserve the right to be paid for.' And: 'Our price assumes ONE SITE VISIT with unimpeded continuity during day time hours & one visit for checking sizes prior to installation.'",
+      "effect": "The Borras programme installs this package in NINE separately sequenced activities across nine weeks, floor by floor behind a progressively boarded and progressively stripped scaffold, 13/10/2027 to 16/12/2027. That is not one visit and it is separately phased. Under Windglass's own terms the phasing is a chargeable extra independent of any inflation."
+    },
+    {
+      "document": "Windglass Q10486 conditions",
+      "clause": "'Our quotation is based upon a standard JCT form of sub-contract. Our liability will be limited to a maximum of 10% of our sub-contract value.' 'Where our terms & conditions clash with the customer's terms & conditions ours prevail.' 'Forced majeure is a provision and a rigid contract condition of this submission.' 'Security of glass stillages remain responsibility of the contractor & if stolen from site are charged at GBP 750.00 each.'",
+      "effect": "Liability capped at 10% of GBP 230,544 = GBP 23,054. Not back-to-back with anything Borras is likely to require."
+    },
+    {
+      "document": "CAA quotation 141 qualifications",
+      "clause": "'Performance Bonds - It is our company policy not to provide performance bonds and we have therefore not included for this as part of our submission.' 'Our acceptance of any order/contract is subject to agreeable contract terms and conditions and/or favourable credit references.' 'Fire Stopping - We have not made an allowance for fire stopping at floor slab, party walls or through the cavities.'",
+      "effect": "No bond available from the installer on a school project running to Feb 2028. Fire stopping at slab edge on a three-storey curtain wall is excluded by the supplier and is not obviously anybody else's on the programme."
+    }
+  ],
+  "qualification_regime": {
+    "document": "Borras Construction enquiry T0689, 16/09/2025 - 'Enquiry for Aluminium curtain walling, windows and external doors'",
+    "clause": "NOT HELD. The September 2025 enquiry documents and drawings are not attached to any of the five work orders and there is no Totteridge folder in OneDrive. We do not hold the specification we quoted against.",
+    "qualifications_permitted": null,
+    "we_must_sign": null
+  },
+  "priced_lines": [],
+  "bought_in_lines": [
+    {
+      "ref": "Entire aluminium package - curtain walling, windows and external doors",
+      "amount": 179205.0,
+      "supplier_ref": "County Architectural Aluminium Ltd quotation 141, 18/09/2025. GBP 183,800 less 2.5% MCD.",
+      "supplier_qty": null,
+      "supplier_qty_basis": "NONE. The CAA quotation states no unit count, no area and no position schedule. It lists three Kawneer systems and a glass make-up and then gives one lump sum.",
+      "spec_required_qty": 77,
+      "spec_qty_basis": "77 units / 445.53 m2 - taken from Windglass Q10486's itemised schedule, which is the ONLY quantified description of this scheme in Fenster's possession. It is a different supplier's interpretation of the same enquiry, not a Fenster take-off and not a client schedule.",
+      "note": "GBP 179,205 net over 445.53 m2 is GBP 402.23/m2 INCLUDING installation. Windglass quote GBP 230,544 over the same 445.53 m2 = GBP 517.46/m2 SUPPLY ONLY. Windglass supply-only is GBP 51,339 (+28.6%) above CAA supply-and-install. Fenster hold no Kawneer rate of any kind in data/learned-rates.json to sanity-check either against."
+    }
+  ],
+  "issued_documents": [],
+  "exposures": [
+    {
+      "item": "FENSTER'S OWN SELL FIGURE FOR THIS JOB IS NOT RECORDED ANYWHERE IN FENSTER'S SYSTEMS. Adam issued it to Borras 07/10/2025 16:10 and to Conamar 07/10/2025 16:13. AdminBase holds 12 Borras leads (16/06/2025 to 18/06/2026) and 3 Conamar leads; none is Totteridge, and there is a clean gap between 22/07/2025 and 23/01/2026 in the Borras rows. No OneDrive folder. Not among the 41 work-order attachments. Borras have asked us to review a number we cannot see.",
+      "lands_on": "Fenster",
+      "our_recourse": "Adam's sent items of 07/10/2025 17:11 UK to mthorne@borrasconstruction.co.uk are the only copy. Nothing can be answered to Matt until that attachment is produced."
+    },
+    {
+      "item": "THE NUMBER WITH BORRAS RESTS ON ONE SUPPLIER QUOTE, AND IT IS THE UN-ITEMISED ONE. The only other quote we ever received - Windglass Q10486, the fully itemised one - is timestamped 08/10/2025 08:59, SEVENTEEN HOURS AFTER Adam issued to both main contractors. It cannot have been in the price. Windglass supply-only is GBP 51,339 above CAA supply-and-install.",
+      "lands_on": "Fenster",
+      "our_recourse": "none - both quotes are expired and neither is a commitment to anything now."
+    },
+    {
+      "item": "THE TWO QUOTES ARE NOT THE SAME PRODUCT AND THE CHEAPER ONE IS THE ONE WE USED. CAA offer 6mm clear laminated / 16mm argon / 6mm clear toughened with NO solar control coating and NO heat soaking, and state no U-value in four pages. Windglass offer Super Neutral 70/35 solar control with 10.8mm laminated heat-soaked outer and state a weighted 1.4 W/m2K. Approximately 445 m2 of glazing on a sixth form teaching block. This is the Filwood and Brocks Hill pattern one step upstream: the performance was never stated in the document the price came from, so nobody noticed the offer might not carry it.",
+      "lands_on": "Fenster",
+      "our_recourse": "The Borras specification is not in our possession, so we cannot yet say which of the two meets it. Request the September 2025 tender documents from Matt with the review."
+    },
+    {
+      "item": "THE PROGRAMME DOES NOT MEAN WHAT THE COVERING EMAIL IMPLIES. Matt wrote that main works commence in the New Year, and they do - possession 05/01/2027. But this package installs 13/10/2027 to 10/12/2027 (brise soleil to 16/12/2027), in nine sequenced activities: GF curved screens 13/10, GF punched windows 15/10, FF punched windows/screens 26/10, three-storey screen CW11 12/11, SF punched windows/screens 16/11, two-storey screen CW1 24/11, three-storey screen CW03 29/11, windows 06/16/26 02/12, GF doors DX01-DX04 07/12. Materials are bought mid-2027. The gap between the price and the buy is about 26 months, not 15.",
+      "lands_on": "Fenster",
+      "our_recourse": "Any adjustment advised to Borras must run to the Q4 2027 install window, and must say so on its face."
+    },
+    {
+      "item": "THE PHASING IS ITSELF A COST EVENT UNDER THE SUPPLIER'S OWN TERMS. Windglass price 'one site visit' and reserve the right to charge where work 'becomes separately phased'. The programme is nine visits behind a moving scaffold. CAA are silent on visit count, which is not the same as having allowed for nine.",
+      "lands_on": "Fenster",
+      "our_recourse": "raise it as a specific, evidenced adjustment head rather than a general inflation uplift."
+    },
+    {
+      "item": "BORRAS DO NOT HAVE THE JOB YET. The programme's own first two lines are Planning Approval finishing 13/11/2026 and Contractor appointment 16/11/2026. Matt's email says planning is 'likely to be approved in October'. The programme is the document; the email is a week or six out from it. If planning slips again the whole sequence moves and this review is spent.",
+      "lands_on": "Fenster",
+      "our_recourse": "state the validity period of whatever we advise, tied to a date."
+    },
+    {
+      "item": "THE SAME SCHEME WAS QUOTED TO TWO MAIN CONTRACTORS THREE MINUTES APART off the same single CAA cost - Borras T0689 at 16:10 and Conamar T8850 'UL Totteridge Academy - Windows' at 16:13 on 07/10/2025. Neither was logged. Whatever we now tell Matt is also, in substance, our position to Conamar, and data/companies/conamar.md's 'GBP 219,774 of our quotes unanswered' understates the account by the value of this one.",
+      "lands_on": "Fenster",
+      "our_recourse": "none needed today, but the two must not be answered differently."
+    },
+    {
+      "item": "A THIRD SUPPLIER WAS ASKED AND NEVER REPLIED. Adam sent 'Totteridge Quote' to info@hag.co.uk on 18/09/2025 11:40. There is no inbound message from hag.co.uk anywhere in the record. Three out, two back, one used - and the one used was the one with no schedule.",
+      "lands_on": "Fenster",
+      "our_recourse": "none - a year on, this is a note about how the original pricing was resourced, not a live gap."
+    },
+    {
+      "item": "WINDGLASS POS 04 CANNOT BE READ TWO WAYS AT ONCE. 'CW0-04 to CW0-12, CW0-14 to CW0-20' is exactly 16 references and the stated qty is 16 - but CW0-05, CW0-06, CW0-11 and CW0-19 are each ALSO a priced position of their own at a far larger size. Either Pos 04 is 12 units (GBP 21,333.75) or the ranges are wrong. GBP 7,111.25 turns on it.",
+      "lands_on": "Fenster",
+      "our_recourse": "resolve against the elevations before Windglass is used as a basis for anything. Not live today, because this quote was never used."
+    },
+    {
+      "item": "THE REYNAERS LEVER DOES NOT APPLY HERE. AGF gave notice on 04/08/2026 of a Reynaers increase on all orders placed on or after 27/08/2026, and that date was flagged into this job on handover. Both quotes on Totteridge are KAWNEER, from CAA and Windglass. AGF are not on this job and 27/08 is not a deadline for it.",
+      "lands_on": "nobody",
+      "our_recourse": "correction recorded so nobody chases AGF for Totteridge."
+    }
+  ],
+  "own_domains": ["fensterglazing.com"]
+}

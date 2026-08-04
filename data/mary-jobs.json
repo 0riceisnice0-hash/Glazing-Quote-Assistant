@@ -560,10 +560,10 @@
   },
   "vesuvius": {
    "session_id": "87bfc7cf-2c60-412f-b671-e49d9bf2346d",
-   "started": false,
+   "started": true,
    "created": "2026-07-28T18:29:05",
-   "last_active": "2026-07-29T07:31:06",
-   "runs": 2,
+   "last_active": "2026-08-04T13:14:10",
+   "runs": 3,
    "rotated_from": "9c5ca9d8-20c5-4a07-885b-37043eda3414",
    "rotated_at": "2026-08-04T13:05:56",
    "rotations": 1

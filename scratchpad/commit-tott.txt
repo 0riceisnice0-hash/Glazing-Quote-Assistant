@@ -1,0 +1,30 @@
+Totteridge: Borras asked us to review a number that exists in no Fenster system
+
+Borras want a cost review by Fri 07/08 on the sixth form block (T0689). Our own
+sell figure is not recorded anywhere: no AdminBase lead under Borras (12 rows,
+16/06/25-18/06/26) or Conamar (3 rows), no OneDrive folder, not in any of the 41
+work-order attachments. Adam issued it to Borras 07/10/25 16:10 and to Conamar
+(T8850, same scheme) 16:13. His sent items are the only copy.
+
+The cost basis is County Architectural Aluminium 141, GBP 183,800 less 2.5% MCD
+= GBP 179,205 supply+delivery+install, with no schedule of quantities of any
+kind. The only itemised quote - Windglass Q10486, GBP 230,544 SUPPLY ONLY, 77
+units, 445.53 m2 - arrived 08/10/25 08:59, seventeen hours after we had issued,
+and was never in the price. It is +GBP 51,339 (+28.6%) and excludes the install.
+
+They are not the same product. CAA quote no solar coating, no heat soak, no
+U-value and no RAL; Windglass quote Super Neutral 70/35, 10.8mm laminated
+heat-soaked, weighted U 1.4, RAL 8024 - over ~445 m2 on a school teaching block.
+The Filwood pattern, one step upstream: the performance was missing from the
+supplier document the price came from.
+
+And the programme is not the New Year. Possession is 05/01/2027 but our package
+installs 13/10/2027-10/12/2027 in nine sequenced activities, so it is ~26 months
+from price to buy. Windglass's "one site visit" and "separately phased" terms are
+an adjustment head that is not inflation. AGF's Reynaers 27/08 date does not
+apply here - both quotes are Kawneer.
+
+Job file created, checks manifest run (6 failed, all tracing to the un-itemised
+basis), noticeboard posted, emailed Adam with the three decisions.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>
