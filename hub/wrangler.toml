@@ -1,0 +1,8 @@
+name = "glasshouse"
+compatibility_date = "2026-08-01"
+pages_build_output_dir = "public"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "glasshouse-db"
+database_id = "df7064ef-f849-4720-b825-2192ec50ca74"

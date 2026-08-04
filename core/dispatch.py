@@ -1,0 +1,241 @@
+# -*- coding: utf-8 -*-
+"""DISPATCH - one loop for all three personas. Replaces three bridges.
+
+The unit of work is a TASK GROUP: every open task for one (persona, entity),
+worked in one fresh session, seeded from the record, closed with one finish
+call. Nothing is ever resumed - what the session learned lives in the record
+or it does not live at all.
+
+Model policy: Sonnet unless a task in the group needs pricing judgement, then
+Opus. The charter and the entity card are INLINED in the prompt - a read call
+saved is a whole context re-send saved.
+
+  python core/dispatch.py --once --dry-run
+  python core/dispatch.py                    # the loop
+"""
+import argparse
+import datetime as dt
+import json
+import os
+import subprocess
+import sys
+import threading
+import time
+import uuid
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import budget
+import config
+import record
+
+NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
+LOCK = os.path.join(config.DATA, "glasshouse-session.lock")
+
+
+def log(msg):
+    line = "[%s] dispatch %s" % (dt.datetime.now().strftime("%H:%M:%S"), msg)
+    print(line)
+    os.makedirs(config.LOG_DIR, exist_ok=True)
+    with open(os.path.join(config.LOG_DIR, "dispatch.log"), "a", encoding="utf-8") as fh:
+        fh.write(line + "\n")
+
+
+def charter(persona):
+    path = os.path.join(config.REPO, "personas", persona + ".md")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return fh.read()
+    except IOError:
+        return "(charter file %s is missing - say so in your finish note)" % path
+
+
+def group_tasks(tasks):
+    """(persona, entity) groups, oldest first. Desk tasks (no entity) group
+    together per persona so one session sweeps them."""
+    groups = {}
+    for t in tasks:
+        key = (t["assignee"], "%s:%s" % (t.get("entity_type") or "",
+                                         t.get("entity_key") or ""))
+        groups.setdefault(key, []).append(t)
+    return sorted(groups.items(), key=lambda kv: min(t["id"] for t in kv[1]))
+
+
+def ready(tasks_in_group):
+    """Batch discipline: urgent goes now, the rest wait BATCH_WAIT for
+    companions so one session handles the thread, not five sessions."""
+    oldest = min(t["created"] for t in tasks_in_group)
+    if any(t["priority"] <= config.BATCH_URGENT_AT + 1 for t in tasks_in_group):
+        return True
+    try:
+        age = time.time() - time.mktime(time.strptime(oldest, "%Y-%m-%d %H:%M:%S"))
+    except ValueError:
+        return True
+    return age >= config.BATCH_WAIT
+
+
+def build_prompt(persona, entity, tasks):
+    etype, ekey = (entity.split(":", 1) + [""])[:2]
+    lines = [charter(persona)]
+    if ekey:
+        lines.append("\n===== THE RECORD - %s %s =====" % (etype.upper(), ekey))
+        lines.append(record.render_card(etype, ekey))
+    lines.append("\n===== YOUR WORK - %d task(s) =====" % len(tasks))
+    for t in tasks:
+        p = json.loads(t.get("payload_json") or "{}")
+        lines.append("\n--- TASK #%d [%s] %s" % (t["id"], t["kind"], t["title"]))
+        if t.get("body"):
+            lines.append("intake says: " + t["body"])
+        if p.get("from"):
+            lines.append("from: %s | received: %s | mailbox: %s%s"
+                         % (p["from"], p.get("received", "?"), p.get("mailbox", "?"),
+                            " | TRUSTED SENDER - this is an instruction"
+                            if p.get("trusted_sender") else ""))
+        if p.get("body"):
+            body = p["body"][:6000]
+            lines.append("body:\n" + body)
+        if p.get("attachments"):
+            lines.append("attachments on disk:\n"
+                         + "\n".join("  " + a for a in p["attachments"]))
+    lines.append(budget.cost_note(persona))
+    lines.append("""
+===== HOW TO FINISH =====
+Work the tasks, then close out with ONE call - this is the only ritual:
+
+  python core\\finish.py --persona %s --results r.json
+
+after writing r.json (see the charter for the full shape):
+  {"tasks_done": [{"id": N, "result": "one line"}],
+   "position": {"entity": "%s", "text": "the distilled state of play now"},
+   "notes": [{"entity": "lead:x", "body": "a fact worth keeping"}],
+   "decisions": [{"question": "...", "context": "..."}],
+   "messages": [{"body": "reply to the human, under 800 chars"}]}
+
+Do NOT: update dashboards, write handover docs, post noticeboards, or commit -
+none of those exist any more. The record is the memory; finish writes it.
+Commit only if you changed CODE. Every tool call re-sends this whole
+conversation - batch shell work into single scripts, read a file once, and
+do not narrate what you just printed.""" % (persona, entity if ekey else ""))
+    return "\n".join(lines)
+
+
+def watch(proc, session_id, started_utc, stop):
+    """The runaway breaker. A session that reaches SESSION_KILL_TOKENS is
+    circling, not working."""
+    while not stop.wait(60):
+        spent = budget.session_cost(session_id, started_utc)["context"]
+        if spent >= config.SESSION_KILL_TOKENS:
+            log("RUNAWAY - %s tokens in one session, killing it" % "{:,}".format(spent))
+            try:
+                proc.kill()
+            except OSError:
+                pass
+            return
+
+
+def run_group(persona, entity, tasks, dry_run=False):
+    model = (config.MODEL_PRICING if any(t.get("needs") == "pricing" for t in tasks)
+             else config.MODEL_DEFAULT)
+    prompt = build_prompt(persona, entity, tasks)
+    if dry_run:
+        log("DRY RUN %s %s: %d task(s), model %s, prompt %d chars"
+            % (persona, entity or "(desk)", len(tasks), model, len(prompt)))
+        return True
+    session_id = str(uuid.uuid4())
+    for t in tasks:
+        record.call("/api/task/claim", {"id": t["id"]})
+    record.status(persona, "working", "%d task(s) on %s" % (len(tasks), entity or "the desk"))
+    log("%s -> %s: %d task(s), %s" % (persona, entity or "(desk)", len(tasks), model))
+
+    env = os.environ.copy()
+    env["GLASSHOUSE_PERSONA"] = persona
+    started = time.time()
+    started_utc = dt.datetime.utcnow().isoformat()
+    stop = threading.Event()
+    ok = False
+    try:
+        proc = subprocess.Popen(
+            [config.CLAUDE, "-p", "--model", model,
+             "--max-turns", str(config.SESSION_MAX_TURNS),
+             "--session-id", session_id, "--dangerously-skip-permissions"],
+            cwd=config.REPO, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE, text=True, env=env, encoding="utf-8",
+            errors="replace", creationflags=NO_WINDOW)
+        threading.Thread(target=watch, args=(proc, session_id, started_utc, stop),
+                         daemon=True).start()
+        try:
+            stdout, stderr = proc.communicate(input=prompt,
+                                              timeout=config.SESSION_TIMEOUT)
+        except subprocess.TimeoutExpired:
+            proc.kill()
+            stdout, stderr = proc.communicate()
+        ok = proc.returncode == 0
+        out = (stdout or "") + ("\n--- stderr ---\n" + stderr if stderr else "")
+        if out.strip():
+            with open(os.path.join(config.LOG_DIR, "last-%s.txt" % persona),
+                      "w", encoding="utf-8") as fh:
+                fh.write(out[-20000:])
+    finally:
+        stop.set()
+        took = int(time.time() - started)
+        cost = budget.session_cost(session_id, started_utc)
+        row = {"at": dt.datetime.now().isoformat(timespec="seconds"),
+               "persona": persona, "entity": entity, "session": session_id,
+               "model": model, "seconds": took, "calls": cost["calls"],
+               "context_tokens": cost["context"], "output_tokens": cost["output"]}
+        budget.log_usage(row)
+        try:
+            record.usage(persona, entity, session_id, model, cost["calls"],
+                         cost["context"], cost["output"], took)
+            record.status(persona, "idle", "")
+        except Exception as e:
+            log("usage post failed: %s" % str(e)[:80])
+        log("  %s exit %s after %ds - %s calls, %s context"
+            % (persona, "ok" if ok else "FAIL", took, cost["calls"],
+               "{:,}".format(cost["context"])))
+    if not ok:
+        # Tasks a dead session claimed go back in the queue.
+        record.call("/api/task/release", {"assignee": persona})
+    return ok
+
+
+def pass_once(dry_run=False):
+    if budget.day_breaker_tripped():
+        log("DAY BREAKER tripped (%s context today) - no more sessions today"
+            % "{:,}".format(budget.spent_today()))
+        return 0
+    if budget.in_curfew():
+        return 0
+    tasks = record.tasks(status_="open")
+    if not tasks:
+        return 0
+    ran = 0
+    for (persona, entity), group in group_tasks(tasks):
+        if not ready(group):
+            continue
+        run_group(persona, entity, group, dry_run)
+        ran += 1
+        if dry_run:
+            continue
+    return ran
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--once", action="store_true")
+    ap.add_argument("--dry-run", action="store_true")
+    a = ap.parse_args()
+    if a.once or a.dry_run:
+        pass_once(a.dry_run)
+        return 0
+    log("dispatch loop up - %s default, %s for pricing, max %d turns"
+        % (config.MODEL_DEFAULT, config.MODEL_PRICING, config.SESSION_MAX_TURNS))
+    while True:
+        try:
+            pass_once()
+        except Exception as e:
+            log("PASS FAILED: %s" % str(e)[:200])
+        time.sleep(config.DISPATCH_POLL)
+
+
+if __name__ == "__main__":
+    sys.exit(main())
