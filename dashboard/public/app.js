@@ -943,6 +943,8 @@ let JOSTATUS = null;
    from the API means it has genuinely never run, which the page says out loud
    rather than showing four zeroes. */
 let FD = null;
+/* What Joseph has changed in the CRM, from the crm_event audit trail. */
+let JOEVENTS = [];
 let BOTCHAT = [];
 let JACTIVITY = null;
 /* His bridge can report a status line the same way Mary's does; until it
@@ -2992,38 +2994,8 @@ const JACOB_RENDER = {
   jqueue() { return queuePage(JQUEUE); },
 
   decisions() {
-    const open = openJacobReqs();
-    const answered = JREQS.filter((r) => r.status === "answered");
-    /* The same card Mary's requests use, deliberately - a decision is a
-       decision whichever bot raised it, and two designs for one concept is
-       how the hub got chaotic in the first place. Buttons first and the
-       essay folded; an option SELECTS (Answer sends), because a button that
-       posts on first touch turns a mis-click into an instruction. */
-    const card = (r) => {
-      const opts = JSON.parse(r.options || "[]");
-      return `<article class="req" data-req="${esc(r.ref)}">
-        <div class="req-top"><div><h3>${esc(r.title)}</h3>
-          <div class="meta">${esc(r.ref)} &middot; raised ${esc(ukShortDay(r.created))} &middot; he carries on with everything this does not block</div></div>
-        <span class="chip warn">waiting</span></div>
-        <div class="req-answer">
-          ${opts.length ? `<div class="req-options">${opts.map((o) => `<button class="opt">${esc(o)}</button>`).join("")}</div>` : ""}
-          <div class="req-compose"><textarea data-draft="jreq-${esc(r.ref)}" placeholder="Your answer (or pick an option above and add the reason - he acts on the why)..."></textarea>
-          <button class="btn" data-jreqsend="${esc(r.ref)}">Answer</button></div>
-        </div>
-        ${reqDetail("What he needs from you", r.needs, 400)}
-        ${reqDetail("Why he is blocked", r.why, 0)}
-      </article>`;
-    };
-    return `
-      ${open.length ? `<div class="req-grid">${open.map(card).join("")}</div>` : ""}
-
-      ${answered.length ? `<div class="section" style="margin-top:26px"><div class="section-head"><h3>Resolved</h3></div>
-        <div class="req-grid">${answered.map((r) => `<article class="req resolved">
-          <div class="req-top"><div><h3>${esc(r.title)}</h3>
-            <div class="meta">${esc(r.ref)} &middot; answered ${esc(ukShortDay(r.answered_at))} by ${esc(r.answered_by || "team")}</div></div>
-          <span class="chip ok">resolved</span></div>
-          <div class="answered"><h5>The answer</h5>${fmt(r.answer || "")}</div>
-        </article>`).join("")}</div></div>` : ""}
+    return decisionsSection("jacob", openJacobReqs(),
+                            JREQS.filter((r) => r.status === "answered")) + `
 
       <div class="section"><div class="section-head"><h3>Standing decisions</h3></div>
         <div class="planned-note">These are not blocking him day to day, but they decide
@@ -3312,6 +3284,36 @@ const TEAM_RENDER = {
    Everything the shell needs to know about a board, in one place. The
    sidebar, nav, routing, polling, badges and chat all read from here;
    adding a bot is adding an entry, not editing the shell. */
+/* "what is it even doing" - Zac, 04/08. Fair question: his page showed four
+   zeroes and a note saying it was a placeholder, which answers nothing. Every
+   CRM write lands a crm_event with an author, so this is what he has actually
+   changed, straight off the audit trail. If it is empty it says which of the
+   two reasons that is, because "no events" and "never ran" are different
+   things and only one of them is a problem. */
+function josephActivity() {
+  const s = JOSTATUS || {};
+  const now = `<div class="planned-note"><p><strong>Right now:</strong>
+    ${esc(bridgeStatus(s).text)}${s.thought ? ` - ${esc(s.thought)}` : ""}</p></div>`;
+  const ev = JOEVENTS || [];
+  if (!ev.length) {
+    return now + `<div class="empty">
+      <strong>${s.updated ? "He has not changed anything in the CRM yet."
+                          : "He has never run."}</strong>
+      <p>${s.updated ? "He has run, but every pass so far ended without a record-level change - that is normal on a day with no site dates set."
+                     : "Nothing has started his bridge, so there is nothing to show."}</p></div>`;
+  }
+  return now + `<div class="tbl-wrap"><table class="tbl crm-tbl">
+    <thead><tr><th>When</th><th>Job</th><th>Changed</th><th>Why</th></tr></thead>
+    <tbody>${ev.slice(0, 25).map((e) => `<tr>
+      <td class="nowrap dim">${esc(fdWhen(e.created))}</td>
+      <td class="crm-title"><span>${esc(e.entity_key || "")}</span></td>
+      <td class="crm-title"><span><strong>${esc(e.field || "")}</strong>
+        ${e.was ? `<small class="dim">was ${esc(String(e.was).slice(0, 60))}</small>` : ""}
+        ${e.now ? `<small class="dim">now ${esc(String(e.now).slice(0, 60))}</small>` : ""}</span></td>
+      <td class="crm-title"><span class="dim">${esc(e.why || "-")}</span></td>
+    </tr>`).join("")}</tbody></table></div>`;
+}
+
 function josephStatus() {
   if (JOSTATUS && JOSTATUS.state && JOSTATUS.state !== "unknown") return bridgeStatus(JOSTATUS);
   /* No bridge has ever run for him yet, and saying "Live" when nothing is
@@ -3496,6 +3498,46 @@ function crmFilterSort(list, filterKey, sort) {
   return out;
 }
 
+/* ---------------- a decision, whoever raised it ----------------
+   Jacob's card carried the note "a decision is a decision whichever bot
+   raised it, and two designs for one concept is how the hub got chaotic in
+   the first place" - and then Joseph got a third design anyway: a title, the
+   reason, and nothing to answer with. Zac, 04/08: "joseph needs the same
+   format as the others with messages and the needs you bit. cos you cant
+   reply to it."
+
+   So it is one component now and both call it. Buttons first with the essay
+   folded; an option SELECTS rather than sends, because a button that posts on
+   first touch turns a mis-click into an instruction. */
+function decisionCard(bot, r) {
+  let opts = [];
+  try { opts = JSON.parse(r.options || "[]"); } catch { opts = []; }
+  return `<article class="req" data-req="${esc(r.ref)}">
+    <div class="req-top"><div><h3>${esc(r.title)}</h3>
+      <div class="meta">${esc(r.ref)} &middot; raised ${esc(ukShortDay(r.created))} &middot; he carries on with everything this does not block</div></div>
+    <span class="chip warn">waiting</span></div>
+    <div class="req-answer">
+      ${opts.length ? `<div class="req-options">${opts.map((o) => `<button class="opt">${esc(o)}</button>`).join("")}</div>` : ""}
+      <div class="req-compose"><textarea data-draft="${bot}req-${esc(r.ref)}" placeholder="Your answer (or pick an option above and add the reason - he acts on the why)..."></textarea>
+      <button class="btn" data-reqsend="${bot}:${esc(r.ref)}">Answer</button></div>
+    </div>
+    ${reqDetail("What he needs from you", r.needs, 400)}
+    ${reqDetail("Why he is blocked", r.why, 0)}
+  </article>`;
+}
+
+function decisionsSection(bot, open, answered) {
+  return `
+    ${open.length ? `<div class="req-grid">${open.map((r) => decisionCard(bot, r)).join("")}</div>` : ""}
+    ${answered.length ? `<div class="section" style="margin-top:26px"><div class="section-head"><h3>Resolved</h3></div>
+      <div class="req-grid">${answered.map((r) => `<article class="req resolved">
+        <div class="req-top"><div><h3>${esc(r.title)}</h3>
+          <div class="meta">${esc(r.ref)} &middot; answered ${esc(ukShortDay(r.answered_at))} by ${esc(r.answered_by || "team")}</div></div>
+        <span class="chip ok">resolved</span></div>
+        <div class="answered"><h5>The answer</h5>${fmt(r.answer || "")}</div>
+      </article>`).join("")}</div></div>` : ""}`;
+}
+
 const crmTabs = (fam, tabs, current) => `<div class="crm-tabs">${tabs.map(([k, label, n]) =>
   `<button class="crm-tab${k === current ? " on" : ""}" data-crmtab="${fam}:${k}" type="button">
     ${esc(label)}<span>${n}</span></button>`).join("")}</div>`;
@@ -3599,9 +3641,12 @@ async function crmPanelCompany(key) {
     <h2>${esc(C.name)}</h2>
     <p class="sub">${esc(C.relationship)}${C.postcode ? " &middot; " + esc(C.postcode) : ""}</p>
     <div class="stats">
-      <div class="stat"><b>${C.lifetime_value ? gbpShort(C.lifetime_value) : "-"}</b><span>they have paid us</span></div>
-      <div class="stat"><b>${live.length}</b><span>live quotes</span></div>
-      <div class="stat"><b>${gbpShort(money(live).total)}</b><span>out with them</span></div>
+      <div class="stat"><div class="n">${C.lifetime_value ? gbpShort(C.lifetime_value) : "-"}</div>
+        <div class="l">They have paid us</div></div>
+      <div class="stat"><div class="n">${live.length}</div>
+        <div class="l">Live quotes</div></div>
+      <div class="stat"><div class="n">${gbpShort(money(live).total)}</div>
+        <div class="l">Out with them</div></div>
     </div>
     <div class="panel-sec"><h4>Edit</h4>
       <div class="crm-form">
@@ -4267,10 +4312,14 @@ const BOTS = {
         const soon = [...dated].sort((a, b) => (a.site_date || "").localeCompare(b.site_date || ""));
         return `
           <div class="stats">
-            <div class="stat"><b>${cons.length}</b><span>live jobs</span></div>
-            <div class="stat"><b>${dated.length}</b><span>schedulable</span></div>
-            <div class="stat"><b>${d.counts.late}</b><span>steps late</span></div>
-            <div class="stat"><b>${d.counts.due}</b><span>due today</span></div>
+            <div class="stat" data-go="contracts"><div class="n">${cons.length}</div>
+              <div class="l">Live jobs</div></div>
+            <div class="stat"><div class="n">${dated.length}</div>
+              <div class="l">Have a site date, so can be scheduled</div></div>
+            <div class="stat"><div class="n">${d.counts.late}</div>
+              <div class="l">Steps late</div></div>
+            <div class="stat"><div class="n">${d.counts.due}</div>
+              <div class="l">Due today</div></div>
           </div>
           ${cons.length && !dated.length ? `<div class="planned-note"><p>
             <strong>${cons.length} won jobs and not one has a site date, so nothing can
@@ -4287,17 +4336,23 @@ const BOTS = {
             </tr>`).join("")}</tbody></table>`
             : `<div class="empty"><strong>Nothing is scheduled.</strong>
                 <p>No live job has a site date yet.</p></div>`}
-          <div class="planned-note"><p>This page is a placeholder Joseph is meant to
-            replace - the brief is in <code>JOSEPH-HUB-DEV.md</code>. His jobs
-            themselves live on <a data-go="contracts">Contracts</a>, with Leads and
-            Companies, because a won job is the company's record and not his.</p></div>`;
+          <h3>What he has been doing</h3>
+          ${josephActivity()}
+          <div class="planned-note"><p>His jobs themselves live on
+            <a data-go="contracts">Contracts</a>, with Leads and Companies, because a
+            won job is the company's record and not his. This page is a working
+            default he is briefed to replace - see <code>JOSEPH-HUB-DEV.md</code>.</p></div>`;
       },
       decisions() {
         const open = openJosephReqs();
-        return `${open.length ? "" : `<div class="empty"><strong>Nothing is waiting on you.</strong>
-          <p>His work is on <a data-go="contracts">Contracts</a>.</p></div>`}
-          ${open.map((r) => `<div class="req"><h3>${esc(r.title)}</h3>
-            <p>${esc(r.why || "")}</p></div>`).join("")}`;
+        const answered = JOREQS.filter((r) => r.status === "answered");
+        if (!open.length && !answered.length) {
+          return `<div class="empty"><strong>Nothing is waiting on you.</strong>
+            <p>When he cannot decide something alone it appears here with the
+            options and a box to answer in, and he picks your answer up on his
+            next pass. His work itself is on <a data-go="contracts">Contracts</a>.</p></div>`;
+        }
+        return decisionsSection("joseph", open, answered);
       },
       jomessages() { return chatPage(BOTS.joseph); },
     },
@@ -4598,10 +4653,13 @@ document.addEventListener("click", async (e) => {
   if (jrow) { crmPanel(jrow.dataset.jkey); return; }
   // Answering one of Jacob's open questions: the chosen option (if any) plus
   // whatever was typed - the same composition Mary's Answer button makes.
-  const jrs = e.target.closest("[data-jreqsend]");
+  /* Answering a decision, for whichever bot raised it. One handler, because
+     Joseph's page had no send path at all - his cards were read-only, so a
+     decision he was blocked on could be looked at and not answered. */
+  const jrs = e.target.closest("[data-reqsend]");
   if (jrs) {
-    const ref = jrs.dataset.jreqsend;
-    const ta = document.querySelector(`[data-draft="jreq-${ref}"]`);
+    const [bot, ref] = jrs.dataset.reqsend.split(":");
+    const ta = document.querySelector(`[data-draft="${bot}req-${ref}"]`);
     const chosen = jrs.closest(".req")?.querySelector(".opt.sel")?.textContent.trim() || "";
     const extra = (ta?.value || "").trim();
     const answer = [chosen && `Decision: ${chosen}`, extra].filter(Boolean).join("\n\n");
@@ -4609,16 +4667,21 @@ document.addEventListener("click", async (e) => {
     if (!requireMe("An answer to a decision")) return;
     jrs.disabled = true;
     try {
-      await api("jacob/requests", {
+      await api(`${bot}/requests`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ ref, answer, author: who() }),
       });
-      delete DRAFTS[`jreq-${ref}`];
+      delete DRAFTS[`${bot}req-${ref}`];
       delete DRAFTS[`opt:${ref}`];
-      JREQS = await api("jacob/requests").catch(() => JREQS);
-      JMSGS = await api("jacob/messages").catch(() => JMSGS);
-      toast(`Answered ${ref} - Jacob picks it up on his next pass`);
+      if (bot === "jacob") {
+        JREQS = await api("jacob/requests").catch(() => JREQS);
+        JMSGS = await api("jacob/messages").catch(() => JMSGS);
+      } else {
+        JOREQS = await api("joseph/requests").catch(() => JOREQS);
+        JOMSGS = await api("joseph/messages").catch(() => JOMSGS);
+      }
+      toast(`Answered ${ref} - ${BOTS[bot]?.name?.split(" ")[0] || bot} picks it up on his next pass`);
       render();
     } catch { toast("Could not save that"); jrs.disabled = false; }
     return;
@@ -4765,6 +4828,7 @@ $("#search").addEventListener("input", (e) => {
       api("joseph/status").catch(() => null),
       api("frontdesk").catch(() => null),
     ]);
+    JOEVENTS = await api("crm/events?author=joseph&limit=40").catch(() => []);
 
     msgSig = signature(MESSAGES);
     render();

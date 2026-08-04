@@ -336,6 +336,23 @@ export async function onRequest(context) {
           "SELECT * FROM crm_contract ORDER BY site_date").all();
         return json(results);
       }
+      /* WHAT A BOT HAS ACTUALLY CHANGED. Every CRM write already lands a
+         crm_event carrying who did it and why - the audit trail the meeting
+         asked for - but nothing read it back except one record at a time. So
+         "what is Joseph even doing" had no answer on the hub even though the
+         database knew. `?author=joseph` is that answer. */
+      if (action === "events") {
+        const p = new URL(request.url).searchParams;
+        const author = p.get("author");
+        const limit = Math.min(parseInt(p.get("limit") || "40", 10) || 40, 200);
+        const { results } = author
+          ? await db.prepare(
+              "SELECT * FROM crm_event WHERE author = ? ORDER BY id DESC LIMIT ?")
+              .bind(author, limit).all()
+          : await db.prepare(
+              "SELECT * FROM crm_event ORDER BY id DESC LIMIT ?").bind(limit).all();
+        return json(results);
+      }
       if (action === "leads") {
         const stage = new URL(request.url).searchParams.get("stage");
         const q = stage
