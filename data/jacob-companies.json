@@ -109,9 +109,15 @@
   },
   "stepnell": {
    "name": "Stepnell Ltd",
-   "domains": [],
+   "domains": [
+    "stepnell.co.uk"
+   ],
    "match": [
-    "stepnell"
+    "stepnell",
+    "filwood",
+    "adam warner",
+    "luke walsh",
+    "st james house"
    ],
    "opened": "2026-08-03T14:51:23"
   },
@@ -131,7 +137,9 @@
     "ryebridgeconstruction.com"
    ],
    "match": [
-    "ryebridge"
+    "ryebridge",
+    "luton airport",
+    "departure gates"
    ],
    "opened": "2026-08-04T11:38:39"
   },
@@ -172,6 +180,32 @@
     "neil douglas"
    ],
    "opened": "2026-08-04T11:38:42"
+  },
+  "spacemaker-developments": {
+   "name": "Spacemaker Developments",
+   "domains": [],
+   "match": [
+    "spacemaker",
+    "brocks hill",
+    "brocks-hill",
+    "martin moore"
+   ],
+   "opened": "2026-08-04T12:45:38"
+  },
+  "elevation-estate-agents": {
+   "name": "Elevation Estate Agents / Elevation Lettings",
+   "domains": [
+    "elevationestateagents.com",
+    "elevationlettings.com"
+   ],
+   "match": [
+    "compass elevation",
+    "elevation estate agents",
+    "elevation lettings",
+    "stefanie schulz",
+    "bev winch"
+   ],
+   "opened": "2026-08-04T12:45:38"
   }
  },
  "chats": {
@@ -255,64 +289,86 @@
   },
   "sinden-construction": {
    "session_id": "9cd3a1fa-b3b4-4196-a92a-c600e69065ab",
-   "started": false,
+   "started": true,
    "created": "2026-08-03T14:51:23",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T12:43:11",
+   "runs": 2
   },
   "stepnell": {
    "session_id": "9c9eba11-f2df-47ce-8d0b-d0ea5a86cd28",
-   "started": false,
+   "started": true,
    "created": "2026-08-03T14:51:23",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T12:38:54",
+   "runs": 1
   },
   "desk": {
-   "session_id": "57d37b8e-d543-4dd8-90ee-0e57d45bbb51",
+   "session_id": "2fbdc7f2-2333-4a16-bb6a-aa770f015068",
    "started": false,
    "created": "2026-08-03T14:51:23",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T11:44:20",
+   "runs": 1,
+   "rotated_from": "57d37b8e-d543-4dd8-90ee-0e57d45bbb51",
+   "rotated_at": "2026-08-04T12:43:35",
+   "rotations": 1
   },
   "prince-build": {
    "session_id": "1a00a60d-0704-408c-8a59-5b0663f58d21",
-   "started": false,
+   "started": true,
    "created": "2026-08-04T11:38:37",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T12:03:17",
+   "runs": 1,
+   "file_warn": "data/companies/prince-build.md does not state where the relationship stands in the first 40 lines. Add a heading such as '## Position' or '## Where it stands'"
   },
   "ryebridge-construction": {
    "session_id": "dab28eda-e2b7-4aea-abcd-c0c1e0024642",
-   "started": false,
+   "started": true,
    "created": "2026-08-04T11:38:39",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T12:16:30",
+   "runs": 1,
+   "file_warn": "data/companies/ryebridge-construction.md does not state where the relationship stands in the first 40 lines. Add a heading such as '## Position' or '## Where it stands'"
   },
   "excel-hoardings": {
    "session_id": "190145ed-44af-4055-b29a-92f31e768963",
-   "started": false,
+   "started": true,
    "created": "2026-08-04T11:38:39",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T12:09:58",
+   "runs": 1,
+   "file_warn": "data/companies/excel-hoardings.md does not state where the relationship stands in the first 40 lines. Add a heading such as '## Position' or '## Where it stands'"
   },
   "touchwood-solihull": {
    "session_id": "deb74d71-3871-4a70-a8af-12b3c4ee3d3c",
-   "started": false,
+   "started": true,
    "created": "2026-08-04T11:38:41",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T11:57:47",
+   "runs": 1
   },
   "storm-building": {
    "session_id": "dca6fdac-ce7e-495f-a77b-c55fb2fe7969",
-   "started": false,
+   "started": true,
    "created": "2026-08-04T11:38:41",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T12:22:42",
+   "runs": 1,
+   "file_warn": "data/companies/storm-building.md does not state where the relationship stands in the first 40 lines. Add a heading such as '## Position' or '## Where it stands'"
   },
   "neil-douglas-block-management": {
    "session_id": "d8272296-7f3a-4a28-8c98-082a7701916e",
-   "started": false,
+   "started": true,
    "created": "2026-08-04T11:38:42",
+   "last_active": "2026-08-04T12:28:47",
+   "runs": 1,
+   "file_warn": "data/companies/neil-douglas-block-management.md does not state where the relationship stands in the first 40 lines. Add a heading such as '## Position' or '## Where it stands'"
+  },
+  "spacemaker-developments": {
+   "session_id": "457c94d4-2e06-4ee7-a3e0-de9e78e948ee",
+   "started": false,
+   "created": "2026-08-04T12:45:38",
+   "last_active": null,
+   "runs": 0
+  },
+  "elevation-estate-agents": {
+   "session_id": "9fe3b993-9b05-4e65-ac8b-054970052e7a",
+   "started": false,
+   "created": "2026-08-04T12:45:38",
    "last_active": null,
    "runs": 0
   }

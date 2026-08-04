@@ -65,3 +65,25 @@ signature is not evidence of anything. Route on the **sending domain** first.
 **Two different companies can share one site name.** "Touchwood" is both Touchwood Solihull (the
 shopping centre, steve.dawson@touchwoodsolihull.co.uk, a Kuoni shopfront glass query) and a job
 Fenster quoted **Excel Hoardings** for. Different counterparties, different chats, one word.
+
+**A COMPANY'S MATCH TERMS MUST CARRY ITS JOB NAMES, NOT JUST ITS NAME - BECAUSE A HANDOVER NAMES
+THE JOB AND NEVER THE CLIENT.** Second queue, 04/08: four orders, all four single-company, and
+three routed here as "weak match" or "no company matched" while the right chat existed and was
+already live. Stepnell's entry held one term, `stepnell`; Ryebridge's held `ryebridge`. So a
+quote handover keyed `job: "filwood"` scored 1 - the client's name appeared only in the body
+prose - and a Mary briefing on Luton Airport scored 1 the same way. The router weights
+`subject`/`job` at 3 and `body` at 1 precisely so that job names carry the routing, and nobody
+had put any job names in. Fixed on both: `filwood`, `st james house`, `luke walsh`, `adam warner`
+and the `stepnell.co.uk` domain; `luton airport`, `departure gates`. **When a chat is opened,
+seed it with the job names and the contacts, not the company name - the company name is the term
+least likely to appear in the field that scores.**
+
+**And `add_company` OVERWRITES the whole entry** - name, domains, match, opened. It is for new
+keys only. Adding a term to a chat that already exists means merging into
+`data/jacob-companies.json`, or you silently wipe the terms someone else earned.
+
+Chats opened 04/08 second queue: **`spacemaker-developments`** (Brocks Hill Phase 2, Martin
+Moore - no domain known yet, add it when they write) and **`elevation-estate-agents`** (Compass
+Elevation Bedford; Stefanie Schulz `elevationestateagents.com`, Bev Winch `elevationlettings.com`
+- two domains, one counterparty). **Never match on bare "elevation"**: it is a glazing word
+before it is a company, and that is the "Atlas" rule arriving from a new direction.
