@@ -2,20 +2,25 @@
 
 Chat key `filwood`. Backup for this chat's own memory. Update whenever the position moves.
 
-Last updated: 2026-07-28 (Aplus QT51510 checked; job put into mary_checks; 18 findings).
+Last updated: 2026-08-04 (the issued documents audited; four errors found and emailed to Adam).
 
 ---
 
 ## Position
 
-**Gintare's tender of 27/07 stands at GBP 67,067.58 ex VAT, supplier-backed by
-Bellview (BSW) quote 0000000507.** Mary's own 17/07 benchmark of GBP 84,810.59
-was never sent - that date passed. The live commercial question is the install
-line: corrected to house curtain-walling labour it lands at GBP 82,013.90, within
-GBP 2,797 of the independent benchmark, which is the number to defend. BSW's
-quote is valid to about **23/08/2026**. See section 3 for the full basis,
-section 5 for what must be fixed before anything goes out, and section 6 for the
-open RFIs.
+**ISSUED. GBP 85,767.58 ex VAT went to Stepnell on 30/07 at 12:28 UK**, to
+adam.warner@stepnell.co.uk, cc Adam Butcher, from estimating@. Three attachments:
+proposal PDF, pricing .xlsx, screen & door drawings. Adam Warner acknowledged it
+at 12:35 ("I will review it and get back to you") and **has said nothing since -
+five days as of 04/08.** Supplier-backed by Bellview (BSW) 0000000507, valid to
+about **23/08/2026** - that is now the live clock.
+
+The install line question is closed: Adam ruled GBP 7,500 on 30/07 (not the 3,500
+drafted, not the 18,446 Mary recommended). The firm-price-vs-provisional-sum
+question was never answered and the tender went out as a firm lump sum.
+
+**Four errors are in the documents the client holds** - section 5. Emailed to Adam
+04/08; his decision on whether to reissue a revision is the open item.
 
 ## 1. The job
 
@@ -128,16 +133,44 @@ threshold is genuinely unknown); both suppliers' incorporated terms, which we ha
 warranty back-to-back - **we offer the client 10 years and hold no stated warranty period from either
 supplier.**
 
-## 5. Fix before it goes out
+## 5. What actually went out on 30/07, and the four errors in it (audited 04/08)
 
-- Proposal is addressed **FAO: Trevor Copeman**. The ITT says Adam Warner.
-- Proposal dated 27/07, pricing document dated 28/07.
-- Proposal carries live Word LINK fields to `C:\Users\fenst\Downloads\Pricing Doc Template.xlsx`.
-- **Workbook has no hidden columns** - J-P hold BSW's cost per screen and K3/L3/M3 read "Supplier used:
-  BSW 46067.59". Print area C1:I27 is clean, so a **PDF is safe and the .xlsx is not**.
-- `O16` shows `#VALUE!`. Row 14's working-column formulas were not filled down (silent zero if the code
-  were ever switched to CW).
-- ED-06 size typed **6315 x 3150**, bill says **3105**. Inflates EPDM by GBP 7.11 and mastic by GBP 0.45.
+Adam's instruction to Gintare, 30/07 11:55: *"we aren't hitting the g-value required for the glazing.
+We certainly aren't hitting the u-value either but 1.0 is ambitious. Can you make sure we clarify the
+u-value... Ensure all clarifications are accurate regarding u-value and the fact we are quoting a
+'similar approved' profile instead of Aluprof. Add GBP 3200 in the additional as opposed to GBP 1000.
+Make labour GBP 7500. Total should be around GBP 85k."*
+
+**Fixed before issue:** FAO now reads Adam Warner; "similar approved" SMA-not-Aluprof qualification is
+in the executive summary AND the clarifications; BSW's "glazing only / non-rebated" caveat is carried
+verbatim; the working columns J-P were removed, so **our BSW cost did NOT reach the client**.
+
+**Not fixed - all four are in the client's copy:**
+
+1. **The specification box still certifies what Adam said we do not meet.** Proposal p3 states as our
+   offer: `Ug 1.0 W/m2K` / `g-value 0.5-0.6` / `Acoustic Rw >=32 dB to ED-06`. The clarification prose
+   was edited; the box was not. Against BSW 0000000507 line by line: **positions 006/007 (the two
+   ED-05s) are quoted at Ug=1.1**, not 1.0; **no coating is named on any of the seven and no g-value is
+   stated anywhere**; and **position 005 IS the ED-06** (6250x3100, electric strike) with plain
+   6.8 lami / 4mm toughened, while the heavier **8.8 lami / 6mm toughened (SG)** sits on 006/007 - the
+   ED-05s, which have no acoustic requirement. **The one screen needing Rw>=32 has the lighter glass.**
+   The proposal's glazing line "6.8mm laminated / 4mm toughened" is also wrong for two of seven.
+2. **The .xlsx carries `dan.parker@agsurveying.co.uk`** in docProps/core.xml plus external links to
+   `C:\Users\LiamO'Donnell` and `C:\Users\Parke` via an Outlook INetCache path. Fourth job running, and
+   the one we had flagged in advance. Stripping the working columns is only half the job - these live
+   outside the cells.
+3. **GBP 700 under Adam's instruction.** Every screen carries GBP 4,600 over BSW net where 1,500 DAD +
+   3,200 additional = 4,700. The additional went in at 3,100. Adam's figure: 86,467.59. Issued: 85,767.58.
+4. **Every schedule line names the wrong screen.** Four rows labelled ED-06 are the four ED-04s; two
+   rows labelled "ED-04 4930x3570" are the ED-05s; the one row labelled "ED-05 5550x2970" is the ED-06.
+   One ED-06 exists; the document shows four. Money right, description wrong. A stray "6315 x 3150"
+   also floats above the table (and 3150 is itself wrong - the bill says 3105).
+
+Sizes shown are the **bill nominals**; BSW are making 4850/4800/6250 wide. Unchanged exposure.
+
+Reconciliation that proves all of it: sell minus (1500+3100) per row equals BSW net x 0.85 to the penny
+on all seven - 001 6442.16 / 002 6404.22 / 003 6405.65 / 004 6451.24 / 005 7522.36 / 006 6420.99 /
+007 6420.99, summing to the 46,067.59 Grand Total Net. Plus install 7,500 = 85,767.58.
 
 ## 6. Open RFIs
 
@@ -184,71 +217,50 @@ reach 1.0 in a shopfront, that is an RFI to RCKa through Stepnell - not a silent
 
 ## 7a. Aluprof - answered 29/07 (Adam asked on REQ-10)
 
-**Aluprof's approved-fabricator list is behind a trade login** (`strefa.aluprof.com`), so no third party
-can name one reliably. Two real routes:
+Fabricator routes if this reopens: **Aluminium Fire Systems** already fabricate Aluprof (their Q7585 for
+Gordon Court is Aluprof MB-78EI, Certifire) - Chris Wall, chris@aluminiumfiresystems.com, 0121 277 4870;
+unresolved whether they do the shopfront/CW ranges as well as the fire-door system. And **Aluprof UK
+direct, living@aluprof.com, 0161 941 4005** - printed in Stepnell's own trade bill header, so it came
+with the tender. The approved-fabricator list itself is behind a trade login (`strefa.aluprof.com`).
 
-1. **Aluminium Fire Systems already fabricate Aluprof.** Their own quote to us - **Q7585, Gordon
-   Court** - is *Aluprof MB-78EI, Certifire accredited*. Live account, quoted Fenster twice this month.
-   **Chris Wall, chris@aluminiumfiresystems.com, 0121 277 4870** (also Julian Ward julian@, Charlie
-   Skipp charlie@). **Unknown to resolve:** MB-78EI is the fire-door system - ask whether they fabricate
-   the shopfront and curtain-wall ranges too.
-2. **Aluprof UK direct - `living@aluprof.com`, 0161 941 4005**, Unit 5 Altrincham Business Park, Stuart
-   Road, Altrincham WA14 5GJ. **That email is printed in Stepnell's own trade bill item header**, so it
-   came with the tender. One call gets approved names near Bristol *and* the U-value answer.
-
-**The U-value question is now settled in Aluprof's favour: MB-SR50N HI is Uf 0.85-0.94 W/m2K**
-(manufacturer's own product data). Uf is the frame figure, not whole-element Ucw, so it is not proof the
-finished screen hits 1.0 - but it puts the specified system in a completely different thermal class from
-Technal STII at 1.8/1.9. **So the 1.0 target is achievable in the specified system.** That converts
-findings 17-18 from "our suppliers missed it" to **"we quoted the wrong class of system"**, and it is
-very likely why RCKa named Aluprof and issued the drawings to Aluprof directly.
-
-Honest about the clock: **nobody prices 123 m2 of shopfront overnight.** This gets the fabricator names
-and the compliance answer for a qualification - not a third price before the return.
+**The U-value finding that matters: MB-SR50N HI is Uf 0.85-0.94 W/m2K** (Aluprof's own data) against
+Technal STII's 1.8/1.9. Uf is frame-only, not whole-element Ucw, so not proof the screen reaches 1.0 -
+but **1.0 IS achievable in the specified system**, which makes this "we quoted the wrong class of
+system", not "our suppliers missed it". Very likely why RCKa named Aluprof and issued to them directly.
 
 ## 7b. The dan.parker trace is a company-wide defect, not a Filwood one (29/07)
 
-Adam asked for this in writing because he did not follow the earlier flag. Emailed 29/07.
-
-**`MASTER PRICING DOC 10.07.2026.xlsx` itself carries
-`<dc:creator>Dan Parker;dan.parker@agsurveying.co.uk</dc:creator>` in `docProps/core.xml`.** Every
-pricing document cloned from the master inherits it. Scan of the tender archive: **1,151 of 1,668 .xlsx
-files carry his name**, including issued ones. A client sees it by right-clicking the file and opening
-Properties - the spreadsheet never has to be opened. **Fix the master once and every future job is
-clean.**
-
-The **external links** are the separate, job-specific half: Filwood's workbook links to
-`C:\Users\LiamO'Donnell` and `C:\Users\Parke` through an Outlook `INetCache` path, from wherever the
-numbers were pulled in. Those get stripped per job.
-
-Check any file in one line:
+**`MASTER PRICING DOC 10.07.2026.xlsx` itself carries `<dc:creator>Dan Parker;
+dan.parker@agsurveying.co.uk</dc:creator>`**, so every document cloned from the master inherits it -
+**1,151 of 1,668 .xlsx in the tender archive**, including issued ones. Visible on right-click >
+Properties without the file being opened. Fix the master once and every future job is clean. The
+**external links** to `C:\Users\LiamO'Donnell` / `C:\Users\Parke` are the separate per-job half. Both
+reached Stepnell on 30/07 - section 5, error 2. Check any file:
 `python -c "import zipfile,sys;print(zipfile.ZipFile(sys.argv[1]).read('docProps/core.xml').decode('utf8','ignore'))" "<file.xlsx>"`
 
 ## 8. Status
 
-**Checked 27/07, rechecked 28/07 against the second quote, Adam's 28/07 instruction answered 29/07.**
-Nothing has been sent to Stepnell.
+**ISSUED 30/07. Audited 04/08 against the actual attachments - four errors in the client's copy
+(section 5), emailed to Adam 04/08.** No new dashboard request: 15 were already open, and this is an
+error report, not a decision Adam has to hunt for.
 
-**Deadline THURSDAY 30/07 - TOMORROW.** Two decisions still open on REQ-10, and only two:
+`quote_issued` recorded in the ledger 04/08 (`issued:filwood:2026-07-30`) - five days late, so **Jacob's
+chase only starts now**. CRM: stage `quote_sent`, value 85,767.58, owner jacob. Its contact field still
+reads luke.walsh@stepnell.co.uk and the CRM schema has no writable contact column - **the tender contact
+is adam.warner@stepnell.co.uk**; whoever chases must not use the stored one.
 
-1. **The install line** - GBP 3,500 as drafted, against GBP 18,446.32 at our own CW labour rate.
-2. **Firm price, or Contractor's Provisional Sum** as bill item A instructs.
+**The one open item is Adam's:** reissue a corrected pricing document and proposal as a revision, or
+leave it until Adam Warner comes back. He acknowledged on 30/07 and has been silent since.
 
-Answered and closed out of the request: the Aluprof fabricator question (7a) and the dan.parker
-question (7b). The panel-price question stands but is not decidable before the return and is not worth
-holding the tender for - the break-even is GBP 252.15/m2 whenever a price appears.
+Still true and still unanswered: `mary_checks` on this job is **10 FAILED, 7 ASK** - the exclusions do
+not appear on the priced document at all, neither supplier's incorporated terms have ever been read, and
+we offer a 10-year warranty against no stated supplier period. The panel-price question (Aplus
+break-even GBP 252.15/m2) never mattered before the return and does not now.
 
-Deliberately **no new request raised** - 15 were already open and unanswered, and REQ-10 was already the
-Filwood decision. Adam's own words this week: "don't be afraid to challenge things", but "this word
-count is insane". Decisions on the request, proof in this file.
-
-Before anything is attached to anything: strip the third-party traces out of the pricing workbook, and
-issue a sell-only copy with the working columns removed. Re-run
-`python scripts\mary_checks.py data/job-checks/filwood.json` after.
-
-**Hub note 29/07:** `mary_dashboard.py --deploy` fails on the npx/miniflare EBUSY lock that vesuvius
-reported at 06:26 - concurrent deploys from other chats. Two attempts. `dashboard-state.json` is correct
-and committed, and the dashboard reply to Adam posted fine (200). The next chat to deploy publishes it.
+**If a revision is authorised:** strip `docProps/core.xml` and `xl/externalLinks/` on a COPY - never the
+issued file, which is the record of what Stepnell received - fix the spec box to BSW's actual figures,
+relabel the seven schedule lines, put the additional to GBP 3,200, and re-run
+`python scripts\mary_checks.py data/job-checks/filwood.json` before it leaves.
 
 ---
 

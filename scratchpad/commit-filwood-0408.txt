@@ -1,0 +1,32 @@
+The Filwood quote certifies three performance figures BSW's own quote contradicts
+
+The tender went to Stepnell on 30/07 at GBP 85,767.58 and was acknowledged the same
+day. Audited the actual attachments today. Four errors are in the copy the client
+holds.
+
+Adam had instructed that morning: "we aren't hitting the g-value required for the
+glazing. We certainly aren't hitting the u-value either... Ensure all clarifications
+are accurate regarding u-value." The clarification paragraph was added and it reads
+correctly. The specification box on the same page was not touched and still states
+Ug 1.0 / g 0.5-0.6 / Rw >=32 dB to ED-06 as our offer. Against BSW 0000000507 line by
+line: positions 006/007 are quoted at Ug 1.1, no coating is named on any of the seven
+and no g-value is stated anywhere, and the acoustic 8.8/6 make-up sits on the two
+ED-05s while position 005 - which IS the ED-06, the one screen that must reach Rw 32 -
+gets plain 6.8/4. Brocks Hill on 31/07 was the identical shape. Our proposal states
+performance in two places and people edit the prose one; the client reads the box.
+
+The .xlsx reached Stepnell with dan.parker@agsurveying.co.uk as its author and external
+links to two other people's Outlook cache paths. The working columns had been correctly
+stripped, so our BSW cost did not leak - which is the point: that was half the fix, and
+the traces live outside the cells.
+
+It is also GBP 700 under Adam's own instruction (the additional went in at 3,100, not
+3,200, on all seven screens), and every line of the schedule names the wrong screen -
+four rows labelled ED-06 where one ED-06 exists.
+
+Emailed to Adam as four bullets. No new request raised; 15 are already open.
+
+quote_issued recorded in the ledger five days after the fact, which is when Jacob's
+chase actually starts. CRM to quote_sent at 85,767.58 - its contact field still reads
+luke.walsh and the schema has no writable contact column, so the job file now carries
+the warning that the tender contact is adam.warner@stepnell.co.uk.

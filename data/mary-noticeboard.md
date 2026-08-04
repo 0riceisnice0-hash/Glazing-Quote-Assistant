@@ -5,14 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-08-04 11:56 - triage
-STOKE PARK: ADAM HAS AMENDED THE CN GLASS ORDER TODAY - SPEC A IS 28.8mm OVERALL, SO AN 18mm SPACER, NOT 16mm.
-Adam to orders@cnglass.co.uk, 04/08 11:45 UK: 'We need to amend the order please. Spec A is meant to be 28.8mm overall thickness so requires an 18mm spacer.' The order Steve placed on 28/07 was built on Martin Gregory's 27/07 line '55 m = 4mm / 6.8' against a 16mm spacer (6.8-16-4 = 26.8mm). So Spec A is 6.8-18-4, and the 27/07 buy - 124 units, 106.9 m2, GBP 6,185.09 - is being changed after the fact.
-TWO THINGS THAT FOLLOW.
-1. THE AMENDMENT IS CC'd TO MARTIN GREGORY, WHO RESIGNED ON 03/08. It went to orders@ as well so it will be seen, but the man who gave the rate and who said on 27/07 that 'spacer bar doesnt differ the price' has gone. Nobody at CN Glass has confirmed IN WRITING that an 18mm spacer holds the GBP 55/m2. Get that confirmed by whoever picked the account up before the amended order is accepted - it is exactly the verbal-rate exposure already on this board.
-2. IT MAKES SENSE OF THE VETROSEAL QUOTE. 065209 (30/07, MHA/NUNEATON) is '4T-18-6.8' - the same 28.8mm build-up with the 18mm spacer, at GBP 52.51/m2 goods. That is the corrected Spec A, priced by the other supplier, and it is level with CN Glass. So the make-up is right and both prices agree; it is the spacer on the ORDER that was wrong, not the rate.
-GENERAL: 6.8 + 16 + 4 = 26.8, not 28.8. When a spec states an OVERALL thickness, add the panes and the spacer before ordering - the RFQ that went out on 27/07 asked for a 16mm spacer against a 28.8mm requirement and no one caught it until the glass was on order.
-
 ### 2026-08-04 12:12 - brocks-hill
 A SUPPLIER COST CAN BE PASTED STRAIGHT INTO THE SELL COLUMN AND THE TOTAL STILL LOOKS RIGHT.
 
@@ -89,3 +81,34 @@ TWO GENERAL POINTS.
   sampled carry the identical block, so it is boilerplate rather than anyone's decision - but on a
   GBP 14k job with a GBP 1,500 labour line it is unfundable. Worth knowing before you promise it
   on the next small package.
+
+### 2026-08-04 12:37 - filwood
+ADDING A CLARIFICATION DOES NOT REMOVE A CERTIFICATION. SECOND JOB IN FIVE DAYS.
+
+Filwood went to Stepnell on 30/07. Adam had written that morning: "we aren't hitting the
+g-value required for the glazing. We certainly aren't hitting the u-value either... Ensure
+all clarifications are accurate regarding u-value." The clarification paragraph was duly
+added and it reads correctly. THE SPECIFICATION BOX ON THE SAME PAGE WAS NOT TOUCHED and
+still states Ug 1.0, g 0.5-0.6, Rw >=32 dB as our offer. BSW's own quote puts positions
+006/007 at Ug 1.1, names no coating on any of the seven, and puts the acoustic make-up on
+the two ED-05s while the ED-06 that needs Rw 32 gets plain 6.8/4 glass.
+
+Brocks Hill on 31/07 was the identical shape - proposal qualified the aluminium doors,
+spec box read U 1.1 / g 0.34 across the board including the steel ones. So this is a
+pattern, not an accident: OUR PROPOSAL HAS TWO PLACES THAT STATE PERFORMANCE, a prose
+clarification and a boxed specification, and people edit the prose. The client reads the
+box. When a value is qualified, CHANGE THE BOX - to the supplier's actual figure, or to
+"see clarifications". Check both every time.
+
+STRIPPING THE WORKING COLUMNS IS ONLY HALF OF MAKING A WORKBOOK SAFE TO ISSUE.
+
+Filwood's .xlsx went to Stepnell with the working columns properly removed - our BSW cost
+was NOT in it, that half was caught - and with dan.parker@agsurveying.co.uk still the
+document author plus external links to C:\Users\LiamO'Donnell and C:\Users\Parke through
+an Outlook INetCache path. Those live in docProps/core.xml and xl/externalLinks/, survive
+any amount of cell editing, and show on right-click > Properties without the file being
+opened. Fourth job running.
+
+The job file had already said "a PDF is safe and the .xlsx is not" and the .xlsx was
+attached anyway. If a workbook must go as .xlsx, strip docProps AND externalLinks; if it
+does not have to, send the PDF.

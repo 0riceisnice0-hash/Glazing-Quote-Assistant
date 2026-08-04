@@ -1,0 +1,29 @@
+ADDING A CLARIFICATION DOES NOT REMOVE A CERTIFICATION. SECOND JOB IN FIVE DAYS.
+
+Filwood went to Stepnell on 30/07. Adam had written that morning: "we aren't hitting the
+g-value required for the glazing. We certainly aren't hitting the u-value either... Ensure
+all clarifications are accurate regarding u-value." The clarification paragraph was duly
+added and it reads correctly. THE SPECIFICATION BOX ON THE SAME PAGE WAS NOT TOUCHED and
+still states Ug 1.0, g 0.5-0.6, Rw >=32 dB as our offer. BSW's own quote puts positions
+006/007 at Ug 1.1, names no coating on any of the seven, and puts the acoustic make-up on
+the two ED-05s while the ED-06 that needs Rw 32 gets plain 6.8/4 glass.
+
+Brocks Hill on 31/07 was the identical shape - proposal qualified the aluminium doors,
+spec box read U 1.1 / g 0.34 across the board including the steel ones. So this is a
+pattern, not an accident: OUR PROPOSAL HAS TWO PLACES THAT STATE PERFORMANCE, a prose
+clarification and a boxed specification, and people edit the prose. The client reads the
+box. When a value is qualified, CHANGE THE BOX - to the supplier's actual figure, or to
+"see clarifications". Check both every time.
+
+STRIPPING THE WORKING COLUMNS IS ONLY HALF OF MAKING A WORKBOOK SAFE TO ISSUE.
+
+Filwood's .xlsx went to Stepnell with the working columns properly removed - our BSW cost
+was NOT in it, that half was caught - and with dan.parker@agsurveying.co.uk still the
+document author plus external links to C:\Users\LiamO'Donnell and C:\Users\Parke through
+an Outlook INetCache path. Those live in docProps/core.xml and xl/externalLinks/, survive
+any amount of cell editing, and show on right-click > Properties without the file being
+opened. Fourth job running.
+
+The job file had already said "a PDF is safe and the .xlsx is not" and the .xlsx was
+attached anyway. If a workbook must go as .xlsx, strip docProps AND externalLinks; if it
+does not have to, send the PDF.

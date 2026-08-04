@@ -1,0 +1,57 @@
+Adam,
+
+The Filwood quote went to Adam Warner at Stepnell on 30/07 at 13:28 UK, GBP 85,767.58.
+He acknowledged it and has not come back since, so all four of these are still
+correctable. Four errors, worst first.
+
+1. THE SPEC BOX STILL CERTIFIES WHAT YOU SAID WE ARE NOT HITTING.
+
+You wrote "we aren't hitting the g-value... we certainly aren't hitting the u-value
+either" and asked for accurate clarifications. The clarification paragraph was added
+and it reads correctly. The specification box on the same page was not touched. It
+still states, as our offer: Ug 1.0 W/m2K, g-value 0.5-0.6, Acoustic Rw >=32 dB to ED-06.
+
+Against BSW quote 0000000507, position by position:
+ - Positions 006 and 007, the two ED-05s, are quoted by BSW at Ug = 1.1. Their words,
+   their quote. Two of the seven screens are not 1.0 and never were.
+ - No coating is named on any of the seven and BSW state no g-value anywhere. They
+   have never answered that question.
+ - Position 005 IS the ED-06 (6250 x 3100, electric strike). Its glazing is plain
+   6.8 lami / 4mm toughened. The heavier 8.8 lami / 6mm toughened (SG) make-up sits on
+   006 and 007 - the two ED-05s, which carry no acoustic requirement at all. The one
+   screen that has to reach Rw >=32 dB has the lighter glass.
+ - The proposal's glazing line reads "6.8mm laminated / 4mm toughened" for the whole
+   package. Two of the seven are 8.8 / 6mm.
+
+This is Brocks Hill last week: the narrative qualifies, the spec box certifies, and the
+client reads the box.
+
+2. THE XLSX WENT OUT WITH ANOTHER FIRM'S DETAILS IN IT.
+
+Stepnell hold the spreadsheet. It carries dan.parker@agsurveying.co.uk as the document
+author and external links to C:\Users\LiamO'Donnell and C:\Users\Parke through an
+Outlook cache path. Visible on right-click > Properties without opening the file.
+
+The working columns WERE stripped - our BSW cost is not in there, so that half was
+caught. Fourth job running for the author trace, and this is the first one we knew
+about before it went.
+
+3. IT IS GBP 700 UNDER YOUR INSTRUCTION.
+
+You asked for GBP 3,200 in the additional instead of GBP 1,000. Every one of the seven
+screens carries GBP 4,600 over the BSW net where your instruction gives GBP 4,700
+(1,500 DAD + 3,200) - so the additional went in at 3,100. Your figure is GBP 86,467.59.
+The quote says GBP 85,767.58.
+
+4. EVERY LINE IN THE SCHEDULE NAMES THE WRONG SCREEN.
+
+Reconciled to BSW line by line: the four rows the document calls ED-06 are the four
+ED-04s; the two rows it calls "ED-04, 4930 x 3570" are the two ED-05s; the single row
+it calls "ED-05, 5550 x 2970" is the ED-06. There is one ED-06 on this job and the
+document shows four. The money is right - the description of what it buys is not.
+
+Do you want the pricing document and proposal corrected and reissued to Adam Warner as
+a revision, or left until he comes back? I have not raised a request for this - 15 are
+already open.
+
+Mary
