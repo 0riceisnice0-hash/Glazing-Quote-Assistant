@@ -487,6 +487,46 @@ def build_prompt(key, title, orders, first_run, reg):
         "Close out as always: reply on the hub to anyone who wrote to you, move each handled "
         "order into %s, update data/companies/%s.md if the position moved, and rebuild your "
         "board." % (DONE, key))
+
+    # HOW TO WRITE TO ADAM. Zac, 04/08: "the AI's are not consise, they waffle
+    # so much." Measured the same day: Jacob's median hub message is 2,864
+    # characters and his longest is exactly 8,000 - the API ceiling - so he is
+    # writing until something stops him.
+    #
+    # This is not a token problem. All the prose from all three bots is 2.9% of
+    # what a session costs, so shortening it saves nothing measurable. It is a
+    # READ problem: Adam gets these on a phone between site visits, and a
+    # five-hundred-word wall is one he will skim or skip, which makes the whole
+    # message worth nothing however right it is.
+    #
+    # So the limit is on the MESSAGE, never on the thinking or the file behind
+    # it. Do the full work, write it down where it belongs, and send the part a
+    # person has to act on.
+    # YOUR OWN TOOLS, so you never spend a turn asking them what they do.
+    # Measured 04/08: 21 of Jacob's 295 shell calls were `--help`, and TEN of
+    # those were jacob_reply - the tool he uses in literally every session. A
+    # --help costs a whole context re-send to be told something that fits in
+    # four lines, so the four lines live here.
+    lines.append(
+        "\nYOUR TOOLS - the flags, so you never need --help:\n"
+        "  jacob_reply.py --pending | --reply-to <id> --body-file <f> [--context <c>]\n"
+        "                 --mark-seen <ids> | --ask <REF> --title <t> --why <w> "
+        "--needs <n> --option <o>  (repeat --option)\n"
+        "  bot_chat.py --as jacob --pending | --to mary --body-file <f> --subject <s> "
+        "[--wants-reply]\n"
+        "  crm.py --lead <key> | --company <key>   crm_contract.py --plan <date> | --open <key>\n"
+        "  mary_recall.py --grep <term> [--days N]   jacob_daily.py --deploy\n"
+        "Bodies go in a file under scratchpad/ and are passed with --body-file, never inline.")
+
+    lines.append(
+        "\nWRITING TO ADAM OR ZAC. First line = the decision, the number, or the question. "
+        "Then at most a short paragraph of why. Aim under 800 characters and never pad to "
+        "fill: if you can say it in two lines, send two lines. He reads these on a phone "
+        "between site visits, so a long message is a skimmed one. The detail belongs in "
+        "data/companies/<slug>.md or on your board - say which, and he will look if he "
+        "wants it. Never send a table or a list of more than five rows on the hub. "
+        "This limits what you SEND, not what you work out - the file behind it should be "
+        "as thorough as the job deserves.")
     return "\n".join(lines)
 
 
