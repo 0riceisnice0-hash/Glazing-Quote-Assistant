@@ -114,6 +114,64 @@
     "stepnell"
    ],
    "opened": "2026-08-03T14:51:23"
+  },
+  "prince-build": {
+   "name": "Prince Build Ltd",
+   "domains": [
+    "princebuild.co.uk"
+   ],
+   "match": [
+    "prince build"
+   ],
+   "opened": "2026-08-04T11:38:37"
+  },
+  "ryebridge-construction": {
+   "name": "Ryebridge Construction Ltd",
+   "domains": [
+    "ryebridgeconstruction.com"
+   ],
+   "match": [
+    "ryebridge"
+   ],
+   "opened": "2026-08-04T11:38:39"
+  },
+  "excel-hoardings": {
+   "name": "Excel Hoardings Ltd",
+   "domains": [
+    "excelhoardings.com"
+   ],
+   "match": [
+    "excel hoardings"
+   ],
+   "opened": "2026-08-04T11:38:39"
+  },
+  "touchwood-solihull": {
+   "name": "Touchwood Solihull (shopping centre)",
+   "domains": [
+    "touchwoodsolihull.co.uk"
+   ],
+   "match": [
+    "touchwood"
+   ],
+   "opened": "2026-08-04T11:38:41"
+  },
+  "storm-building": {
+   "name": "Storm Building Limited",
+   "domains": [],
+   "match": [
+    "storm building"
+   ],
+   "opened": "2026-08-04T11:38:41"
+  },
+  "neil-douglas-block-management": {
+   "name": "Neil Douglas Block Management",
+   "domains": [
+    "neildouglas.co.uk"
+   ],
+   "match": [
+    "neil douglas"
+   ],
+   "opened": "2026-08-04T11:38:42"
   }
  },
  "chats": {
@@ -161,10 +219,11 @@
   },
   "glazing-consultancy-services": {
    "session_id": "9faa313c-5ef8-42b3-a689-9e2a27643483",
-   "started": false,
+   "started": true,
    "created": "2026-08-03T14:51:23",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T11:29:36",
+   "runs": 1,
+   "file_warn": "data/companies/glazing-consultancy-services.md does not state where the relationship stands in the first 40 lines. Add a heading such as '## Position' or '## Where it stands'"
   },
   "pearce-construction-barnstaple": {
    "session_id": "ba9d78a8-ffec-4775-a3fd-902125e83a23",
@@ -212,6 +271,48 @@
    "session_id": "57d37b8e-d543-4dd8-90ee-0e57d45bbb51",
    "started": false,
    "created": "2026-08-03T14:51:23",
+   "last_active": null,
+   "runs": 0
+  },
+  "prince-build": {
+   "session_id": "1a00a60d-0704-408c-8a59-5b0663f58d21",
+   "started": false,
+   "created": "2026-08-04T11:38:37",
+   "last_active": null,
+   "runs": 0
+  },
+  "ryebridge-construction": {
+   "session_id": "dab28eda-e2b7-4aea-abcd-c0c1e0024642",
+   "started": false,
+   "created": "2026-08-04T11:38:39",
+   "last_active": null,
+   "runs": 0
+  },
+  "excel-hoardings": {
+   "session_id": "190145ed-44af-4055-b29a-92f31e768963",
+   "started": false,
+   "created": "2026-08-04T11:38:39",
+   "last_active": null,
+   "runs": 0
+  },
+  "touchwood-solihull": {
+   "session_id": "deb74d71-3871-4a70-a8af-12b3c4ee3d3c",
+   "started": false,
+   "created": "2026-08-04T11:38:41",
+   "last_active": null,
+   "runs": 0
+  },
+  "storm-building": {
+   "session_id": "dca6fdac-ce7e-495f-a77b-c55fb2fe7969",
+   "started": false,
+   "created": "2026-08-04T11:38:41",
+   "last_active": null,
+   "runs": 0
+  },
+  "neil-douglas-block-management": {
+   "session_id": "d8272296-7f3a-4a28-8c98-082a7701916e",
+   "started": false,
+   "created": "2026-08-04T11:38:42",
    "last_active": null,
    "runs": 0
   }
