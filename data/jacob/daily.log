@@ -63,3 +63,28 @@
 [2026-07-30 06:35:20]    200 due or overdue (190 unverified), 1 tomorrow, 10 blocked and named.
 [2026-07-30 06:35:20] OK daily chase email
 [2026-07-30 06:35:20] done - intake ok, board ok
+[2026-08-04 12:30:51] ==========================================================
+[2026-08-04 12:30:51] Jacob daily run
+[2026-08-04 12:30:51] START mailbox intake
+[2026-08-04 12:33:32]    95 companies, 48 signals
+[2026-08-04 12:33:32]    classified: correspondence 260, supplier 196, noise 52, possible-enquiry 21, enquiry 15, quote-out 8, portal 3, decision 1
+[2026-08-04 12:33:32]    -> C:\Users\zacpl\Desktop\Glazing-Quote-Assistant\data\jacob\intake.json
+[2026-08-04 12:33:32] OK mailbox intake
+[2026-08-04 12:33:32] START contracts finder
+[2026-08-04 12:45:31] OK contracts finder
+[2026-08-04 12:45:31] START procontract
+[2026-08-04 12:45:31] FAILED procontract (exit 3221225794) 
+[2026-08-04 12:45:31] START won contracts
+[2026-08-04 12:45:32] FAILED won contracts (exit 3221225794) 
+[2026-08-04 12:45:32] START dormant customers
+[2026-08-04 12:45:33] FAILED dormant customers (exit 3221225794) 
+[2026-08-04 12:45:33] START crm sync
+[2026-08-04 12:45:34] FAILED crm sync (exit 3221225794) 
+[2026-08-04 12:45:34] START crm email
+[2026-08-04 12:45:34] FAILED crm email (exit 3221225794) 
+[2026-08-04 12:45:34] START rebuild board
+[2026-08-04 12:45:35] FAILED rebuild board (exit 3221225794) 
+[2026-08-04 12:45:35] that step was required - stopping
+[2026-08-04 12:45:35] START daily chase email
+[2026-08-04 12:45:36] FAILED daily chase email (exit 3221225794) 
+[2026-08-04 12:45:36] done - intake ok, board FAILED

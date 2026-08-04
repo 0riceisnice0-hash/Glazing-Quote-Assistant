@@ -1,13 +1,13 @@
 {
  "chats": {
   "desk": {
-   "session_id": "df5c8c93-f3af-45d4-b8bd-20d8cc61d612",
+   "session_id": "3cfd3e33-60c4-46c6-97c0-193bd049ce39",
    "started": true,
    "created": "2026-08-04T11:22:44",
-   "last_active": "2026-08-04T12:17:17",
-   "runs": 2,
-   "rotated_from": "421f3e25-d476-4c3e-aacf-36f6b254526d",
-   "rotations": 1
+   "last_active": "2026-08-04T13:44:05",
+   "runs": 4,
+   "rotated_from": "fb1927eb-9d36-4590-8607-fe2bf5f029f0",
+   "rotations": 3
   }
  }
 }

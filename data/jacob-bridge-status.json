@@ -1,9 +1,9 @@
 {
  "state": "working",
- "chat": "spacemaker-developments",
- "title": "Spacemaker Developments",
- "queue_depth": 3,
+ "chat": "desk",
+ "title": "The desk",
+ "queue_depth": 1,
  "detail": "working - new items queue behind this",
- "thought": "Only the Brocks Hill order routes here. Now the CRM position and job record in one pass.",
- "updated": "2026-08-04T12:56:37"
+ "thought": "The merge protects a whole company from being lost, but not the fields inside one: out.update(reg[section]) swaps in the caller's entire stale entry. The bridge loaded the registry at launch, the Stepnell chat added terms at 13:05, the bridge wrote back at 13:29 \u2014 and the terms went. That's the conf",
+ "updated": "2026-08-04T13:43:57"
 }

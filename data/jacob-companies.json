@@ -247,9 +247,8 @@
    "session_id": "9faa313c-5ef8-42b3-a689-9e2a27643483",
    "started": true,
    "created": "2026-08-03T14:51:23",
-   "last_active": "2026-08-04T11:29:36",
-   "runs": 1,
-   "file_warn": "data/companies/glazing-consultancy-services.md does not state where the relationship stands in the first 40 lines. Add a heading such as '## Position' or '## Where it stands'"
+   "last_active": "2026-08-04T13:27:06",
+   "runs": 2
   },
   "pearce-construction-barnstaple": {
    "session_id": "ba9d78a8-ffec-4775-a3fd-902125e83a23",
@@ -287,21 +286,25 @@
    "runs": 2
   },
   "stepnell": {
-   "session_id": "9c9eba11-f2df-47ce-8d0b-d0ea5a86cd28",
+   "session_id": "6b713608-24d1-476c-8698-10538736f48e",
    "started": true,
    "created": "2026-08-03T14:51:23",
-   "last_active": "2026-08-04T12:38:54",
-   "runs": 1
+   "last_active": "2026-08-04T13:13:31",
+   "runs": 2,
+   "rotated_from": "9c9eba11-f2df-47ce-8d0b-d0ea5a86cd28",
+   "rotated_at": "2026-08-04T13:05:39",
+   "rotations": 1,
+   "file_warn": "data/companies/stepnell.md is 190 lines (contract: 150) - archive the history"
   },
   "desk": {
-   "session_id": "2fbdc7f2-2333-4a16-bb6a-aa770f015068",
-   "started": true,
+   "session_id": "274840af-bdc2-4596-b65d-3b17b0f02012",
+   "started": false,
    "created": "2026-08-03T14:51:23",
    "last_active": "2026-08-04T12:47:56",
    "runs": 2,
-   "rotated_from": "57d37b8e-d543-4dd8-90ee-0e57d45bbb51",
-   "rotated_at": "2026-08-04T12:43:35",
-   "rotations": 1
+   "rotated_from": "2fbdc7f2-2333-4a16-bb6a-aa770f015068",
+   "rotated_at": "2026-08-04T13:29:55",
+   "rotations": 2
   },
   "prince-build": {
    "session_id": "1a00a60d-0704-408c-8a59-5b0663f58d21",
@@ -315,9 +318,8 @@
    "session_id": "dab28eda-e2b7-4aea-abcd-c0c1e0024642",
    "started": true,
    "created": "2026-08-04T11:38:39",
-   "last_active": "2026-08-04T12:16:30",
-   "runs": 1,
-   "file_warn": "data/companies/ryebridge-construction.md does not state where the relationship stands in the first 40 lines. Add a heading such as '## Position' or '## Where it stands'"
+   "last_active": "2026-08-04T13:04:18",
+   "runs": 2
   },
   "excel-hoardings": {
    "session_id": "190145ed-44af-4055-b29a-92f31e768963",
@@ -352,10 +354,10 @@
   },
   "spacemaker-developments": {
    "session_id": "457c94d4-2e06-4ee7-a3e0-de9e78e948ee",
-   "started": false,
+   "started": true,
    "created": "2026-08-04T12:45:38",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T13:01:18",
+   "runs": 1
   },
   "elevation-estate-agents": {
    "session_id": "9fe3b993-9b05-4e65-ac8b-054970052e7a",

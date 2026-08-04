@@ -35,6 +35,9 @@ CRM lead `elevation-estate-agents-compass-bedford`. **GBP 3,298.22 ex VAT.**
 - **04/08 11:37** **Stefanie Schulz** (Executive Assistant,
   `Stefanie@elevationestateagents.com`) replies: *"Before we make a decision, could you
   please let me know the earliest date you would be able to replace it?"*
+- **04/08 13:23** Paul asks Vetroseal the lead time. **13:34 Dan Stutz answers:** *"I'm
+  not 100% sure how long this would take because it would be delivered direct to site by
+  Pilkingtons, but I'd hazard a guess that it would take about 7-10 days maybe?"*
 
 **Read that carefully. The date is the decision, and we are the ones holding it up.**
 Also note the buyer moved - Bev in Lettings asked, Stefanie in the Estate Agents side
@@ -42,27 +45,35 @@ is now deciding. An EA asking for a date is usually asking for whoever signs.
 
 ## The two things wrong right now
 
-1. **Nobody has the lead time.** It is on no document we hold - not our quotation, not
-   Vetroseal's. It is one phone call to Daniel Stutz on 01234 854555 and it is the only
-   thing between us and an answer.
+1. **We still have no DATE - we have a guess.** "7-10 days maybe" is the technical
+   manager hedging, it runs from ORDER and not from today, and it is not something to
+   repeat to a client as a commitment. What Stefanie asked for is a date. Get Vetroseal
+   to confirm one in writing when the order goes on, not a lead time.
 2. **The board-up was never instructed.** A 3.1m x 2.1m pane has been smashed in an
    occupied high-street office since Sunday. Bev asked for a make-safe in her first
    sentence; we replied about the replacement and left it hanging. Whatever happens on
    the order, that question deserves a straight answer today.
 
-## The ambiguity worth one question
+## The ambiguity - ANSWERED 04/08
 
 Vetroseal's document is headed **QUOTATION** but carries **"Order No 065311"** and
-**"Order Date 03/08/2026"**. Either their template reuses those field labels on quotes,
-or the glass went on order Monday. It changes the answer materially: if it is on order
-the clock is already running and the earliest date is sooner than anyone thinks; if it
-is only a quote then nothing is moving and nothing will until we say so. Ask, do not
-assume.
+**"Order Date 03/08/2026"**. **It is a quote. Nothing is on order.** Every verb in Dan
+Stutz's 13:34 reply is conditional - "how long this *would* take", "it *would be*
+delivered" - and a technical manager whose glass went on order on Monday would have a
+delivery date, not a guess. So that is their template reusing the field labels. The
+clock is not running and will not start until we place it.
 
 ## Supply and figures
 
-- **Vetroseal Ltd**, 1 Postley Road, Kempston, Bedford MK42 7BU - **15 minutes from
-  site**, which is a genuine advantage on a reactive job. Daniel Stutz, 01234 854555.
+- **Vetroseal are not making this unit. Pilkington are, and they deliver DIRECT TO
+  SITE** (Stutz, 04/08). Two consequences. Kempston being 15 minutes away is worth
+  nothing here, because the glass never goes through Kempston. And the GBP 50.00
+  delivery line buys a drop Fenster does not control, onto a high-street pavement, of a
+  178.58 kg pane - while our price carries a GBP 850 lifting machine and four men for
+  one day. **The delivery slot and our install day are the same booking.** Worth asking
+  on order whether it can come to us instead.
+- **Vetroseal Ltd**, 1 Postley Road, Kempston, Bedford MK42 7BU. Daniel Stutz,
+  01234 854555.
 - Quote **065311**, 04/08: 3145 x 2103 **10.8mm laminated**, 6.614 m2, **178.58 kg**.
   Glass 548.89 + delivery 50.00 + energy surcharge 23.21 = **GBP 622.10 net**.
   Terms 30 days end of month.

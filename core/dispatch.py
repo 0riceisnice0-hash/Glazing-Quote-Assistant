@@ -54,9 +54,9 @@ def group_tasks(tasks):
     together per persona so one session sweeps them."""
     groups = {}
     for t in tasks:
-        key = (t["assignee"], "%s:%s" % (t.get("entity_type") or "",
-                                         t.get("entity_key") or ""))
-        groups.setdefault(key, []).append(t)
+        ent = ("%s:%s" % (t["entity_type"], t["entity_key"])
+               if t.get("entity_type") and t.get("entity_key") else "")
+        groups.setdefault((t["assignee"], ent), []).append(t)
     return sorted(groups.items(), key=lambda kv: min(t["id"] for t in kv[1]))
 
 
@@ -67,7 +67,10 @@ def ready(tasks_in_group):
     if any(t["priority"] <= config.BATCH_URGENT_AT + 1 for t in tasks_in_group):
         return True
     try:
-        age = time.time() - time.mktime(time.strptime(oldest, "%Y-%m-%d %H:%M:%S"))
+        # D1's datetime('now') is UTC - parse it as UTC or, in summer, every
+        # task is born looking an hour old and the batch window never holds.
+        import calendar
+        age = time.time() - calendar.timegm(time.strptime(oldest, "%Y-%m-%d %H:%M:%S"))
     except ValueError:
         return True
     return age >= config.BATCH_WAIT
@@ -149,7 +152,7 @@ def run_group(persona, entity, tasks, dry_run=False):
     env = os.environ.copy()
     env["GLASSHOUSE_PERSONA"] = persona
     started = time.time()
-    started_utc = dt.datetime.utcnow().isoformat()
+    started_utc = dt.datetime.now(dt.timezone.utc).replace(tzinfo=None).isoformat()
     stop = threading.Event()
     ok = False
     try:

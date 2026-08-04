@@ -58,6 +58,11 @@ CONTRACTOR is not our date either (Redditch, 26/06).
 
 ## Decisions
 
+- **04/08 - VETROSEAL ANSWERED THE ELEVATION LEAD TIME, AND THE ANSWER SAYS PILKINGTON MAKE IT AND
+  DELIVER DIRECT TO SITE.** Dan Stutz to Paul 13:34: "7-10 days maybe" - every verb conditional, so
+  **nothing is on order** and the "Order No 065311 / Order Date 03/08" on their PDF is their template,
+  not an order. Kempston being 15 min from site is worth nothing on a unit that never goes through
+  Kempston, and their GBP 50 delivery buys a drop we do not control. CRM + company file updated; no email.
 - **04/08 (late) - BATCH OF 12: NINE ALREADY OWNED, THREE MINE, AND NOT ONE OF THEM WAS AN EMAIL.**
   Routed this morning and left for the bridge: `addison-ave` (5 - the whole Harris Calnan / BSW thread
   arrived as one picture, including BSW's qt244384 return), `alice-billings` (2), `market-house` (1),
@@ -173,10 +178,8 @@ CONTRACTOR is not our date either (Redditch, 26/06).
   CHARGE as a glass line carrying a **fake 0.300 m2** (065311, MK40): divide goods by total area and
   the rate reads GBP 86.62/m2 against a true GBP 82.99/m2, **4.4% high, silently**. Exclude charge
   lines when mining. New lines: 10.8mm lami GBP 82.99/m2, 6.8mm lami GBP 34.65/m2. Also **MHA Nuneaton
-  is being priced TWO WAYS** - the same 8 units as a DGU (GBP 526.08) and as single 6.8 laminate
-  (GBP 347.20) - still with no enquiry in estimating@ and no folder. And **ELEVATION/BEDFORD is Paul's
-  MK40 emergency board-up**: Vetroseal's 3145 x 2103 answers the size question AE Glaziers asked on
-  03/08, so nobody needs to re-measure.
+  is priced TWO WAYS** - 8 units as a DGU (GBP 526.08) and as single 6.8 laminate (GBP 347.20), no
+  enquiry in estimating@ and no folder. ELEVATION/BEDFORD: 3145 x 2103 answered AE Glaziers' size question.
 - **30/07 - STEPNELL ST JAMES HOUSE: NO QUOTE WENT BACK AGAINST THE 19/01 ITT, AND THAT IS CORRECT
   (botmsg-42, answered).** Jacob's board had three rows as "quoted, 250-301 days silent, chase for a
   final answer" and asked before correcting it in front of Adam. The 19/01/2026 ITT (bid ref SC0078B,

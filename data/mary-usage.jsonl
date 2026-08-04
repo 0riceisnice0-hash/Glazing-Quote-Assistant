@@ -27,3 +27,5 @@
 {"at": "2026-08-04T13:27:06", "chat": "jacob:glazing-consultancy-services", "session": "9faa313c-5ef8-42b3-a689-9e2a27643483", "seconds": 318, "context_tokens": 961400, "output_tokens": 16110, "calls": 8, "per_call": 120175, "context_now": 131016}
 {"at": "2026-08-04T13:27:48", "chat": "joseph:desk", "session": "fb1927eb-9d36-4590-8607-fe2bf5f029f0", "seconds": 327, "context_tokens": 1446790, "output_tokens": 19162, "calls": 27, "per_call": 53584, "context_now": 70934}
 {"at": "2026-08-04T13:28:01", "chat": "totteridge", "session": "18226ad0-3298-4886-ba6a-51c3af5bb6f0", "seconds": 805, "context_tokens": 4584063, "output_tokens": 54410, "calls": 35, "per_call": 130973, "context_now": 188693}
+{"at": "2026-08-04T13:37:40", "chat": "triage", "session": "e8a05246-017d-42a2-aa77-4732ae788379", "seconds": 495, "context_tokens": 3254001, "output_tokens": 25634, "calls": 32, "per_call": 101687, "context_now": 141957}
+{"at": "2026-08-04T13:44:05", "chat": "joseph:desk", "session": "3cfd3e33-60c4-46c6-97c0-193bd049ce39", "seconds": 582, "context_tokens": 2498102, "output_tokens": 22181, "calls": 40, "per_call": 62452, "context_now": 96831}
