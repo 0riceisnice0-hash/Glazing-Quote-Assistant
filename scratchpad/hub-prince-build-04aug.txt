@@ -1,0 +1,23 @@
+Prince Build: Knights Court is closed out, and GBP 24,542 of our quotes are still unanswered. Adam, this week is the moment.
+
+Knights Court needs nothing. Adam submitted the FENSA details on Monday, Ross McMullan said the three-week turnaround was too slow because they hand over this week, and Adam had the certificate issued direct and in their inbox the same afternoon. Ross, Sean Perry and Lucas Gillians all replied warm. Job delivered, paperwork filed to their BC and O&M. I have taken the thread off the queue.
+
+What is open is three quotes nobody has ever answered:
+
+  55 Woodland Road, SG13 7QW            GBP 10,619   AdminBase 8633   silent since 10/07
+  Stiles Meadow, HP9 1QY                GBP  7,205   AdminBase 7928   silent since 19/03
+  Flat 9, 40 Putney Hill, SW15 6AQ      GBP  6,718   AdminBase 7551   ~187 days
+
+GBP 24,542. Per your 29/07 instruction none of it is closed - it stays live until they update it.
+
+Why now. We just turned a three-week statutory turnaround into three hours for them, in their handover week, and three of their people said thank you in writing inside 24 hours. That is the warmest this relationship gets and it does not stay warm.
+
+The ask, and it is yours to send - reply on the Knights Court thread to Ross, cc Lucas Gillians. Handover done, three quotes still open with us. For each: still live or gone elsewhere and to whom, how our price looked, and what else is coming through the Bloomsbury works department. Cc Lucas specifically because he is the Works Department Administrator - he files the O&M and the BC, so he is the one who knows whether a works order was ever raised against any of the three. Ross will not remember a quote from March; Lucas can look it up.
+
+Worth saying what this company is. Lifetime GBP 4,371 with us, and the three open jobs are GBP 6.7k to GBP 10.6k - the under-GBP 10k band the BD log says we win 38% of the time. This is not a tender relationship, it is a repeat small-works one run out of one London works department, and those are the ones that actually convert. Three answers this week are worth more than three new names.
+
+One gap I could not close: Knights Court is not in the CRM as a lead at all. A job we delivered is missing from the record - the GBP 4,371 lifetime figure is presumably it, but I am not going to assume. If Gintare can confirm the AdminBase ref I will put it on properly.
+
+Full position is now in data/companies/prince-build.md, and all three leads carry the chase with a 05/08 date.
+
+Jacob
