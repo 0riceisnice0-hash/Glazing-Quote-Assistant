@@ -140,8 +140,37 @@ function cutOff(res) {
 
 /* The live pill on a bot's sidebar card: what its bridge is doing this
    second. Returns {text, tone, title} so the card renderer stays generic. */
+/* A bridge that is running says so every sixty seconds. So a "working" status
+   nobody has touched for a quarter of an hour is not a working bot - it is the
+   last thing a dead bridge said, and the hub has no other way to tell.
+
+   Mary's card read "Working on Triage" from 30/07 to 04/08 because her bridge
+   was killed mid-session and the row it left behind was the newest thing in
+   the table. Nothing was wrong with the data; the page just had no notion that
+   a fact can go out of date. Five days is a long time to be told a lie by a
+   status light. */
+const STATUS_STALE_MS = 15 * 60 * 1000;
+
+function statusAge(s) {
+  if (!s || !s.updated) return Infinity;
+  const t = new Date(s.updated).getTime();
+  return isNaN(t) ? Infinity : Date.now() - t;
+}
+
 function bridgeStatus(s) {
   s = s || {};
+  const age = statusAge(s);
+  if (["working", "batching"].includes(s.state) && age > STATUS_STALE_MS) {
+    const short = String(s.title || "").split(" (")[0].split(",")[0].trim();
+    const when = age > 86400000 ? `${Math.floor(age / 86400000)}d`
+               : `${Math.max(1, Math.round(age / 3600000))}h`;
+    return {
+      text: short ? `Stopped mid-job - ${short}` : "Stopped mid-job",
+      tone: "stalled",
+      thought: String(s.thought || "").trim(),
+      title: `Last said anything ${when} ago. The bridge is not running.`,
+    };
+  }
   let text = "Live", tone = "";
   if (s.state === "working") {
     // Job names get long ("Air Separation Unit, Vesuvius Way Worksop") - trim to
@@ -162,7 +191,12 @@ function bridgeStatus(s) {
     text = `${s.queue_depth} queued`;
     tone = "busy";
   }
-  return { text, tone, title: [s.title, s.detail].filter(Boolean).join(" - ") };
+  /* The line under the header. Zac, 04/08: "the sub text is the last message/
+     thought it had." The state alone does not tell you whether a bot is moving
+     - "Working on St Mary's" reads the same at two minutes and at forty. The
+     last thing it actually said is what distinguishes them. */
+  return { text, tone, thought: String(s.thought || "").trim(),
+           title: [s.title, s.detail].filter(Boolean).join(" - ") };
 }
 
 /* The whole left-hand column of bot cards, generated from the registry.
@@ -191,8 +225,10 @@ function renderSidebar() {
       <div class="avatar ${b.accent || ""}">${b.initials}</div>
       <div>
         <strong>${b.name}${n ? `<span class="card-badge" title="Waiting on a human">${n}</span>` : ""}</strong>
-        <span class="role">${b.role}</span>
         ${s ? `<span class="live"><i class="dot ${s.tone}"></i> <span class="bot-state" title="${esc(s.title)}">${esc(s.text)}</span></span>` : ""}
+        ${s && s.thought
+            ? `<span class="bot-thought" title="${esc(s.thought)}"><span>${esc(s.thought)}</span></span>`
+            : `<span class="role">${esc(b.role)}</span>`}
         ${b.updatedLine ? `<span class="live-when">${esc(b.updatedLine() || "")}</span>` : ""}
       </div>
     </button>`;
@@ -800,6 +836,9 @@ const ICONS = {
   chasing: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg>',
   companies: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3.5"/><path d="M2 20a7 7 0 0 1 14 0"/><path d="M17 8.5a3 3 0 0 1 0 5"/><path d="M19.5 20a5.5 5.5 0 0 0-3-4.9"/></svg>',
   home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 10 9-7 9 7"/><path d="M5 8.5V21h14V8.5"/><path d="M10 21v-6h4v6"/></svg>',
+  /* The front desk: a sorting tray. Post comes in at the top and leaves down
+     one of three routes, which is exactly what the page shows. */
+  frontdesk: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13h5l1.5 2.5h5L16 13h5"/><path d="M4.7 5.4 3 13v5a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-5l-1.7-7.6a1.5 1.5 0 0 0-1.5-1.1H6.2a1.5 1.5 0 0 0-1.5 1.1Z"/></svg>',
 };
 /* Pages that share an icon point at it with `icon:` on their nav entry -
    the SVGs above exist once each. */
@@ -893,6 +932,10 @@ let JREQS = [];
 let JOMSGS = [];
 let JOREQS = [];
 let JOSTATUS = null;
+/* Every call the front desk has made. Null until the first fetch; `never:true`
+   from the API means it has genuinely never run, which the page says out loud
+   rather than showing four zeroes. */
+let FD = null;
 let BOTCHAT = [];
 let JACTIVITY = null;
 /* His bridge can report a status line the same way Mary's does; until it
@@ -3271,11 +3314,16 @@ function josephStatus() {
 
 function jacobStatus() {
   if (JSTATUS && JSTATUS.state && JSTATUS.state !== "unknown") return bridgeStatus(JSTATUS);
-  // His bridge does not report a status line yet - infer from the live feed:
-  // steps inside the last ten minutes mean a session is running now.
+  // His bridge reports a status line now, so this only runs before he has ever
+  // started. Fall back to the live feed: steps inside the last ten minutes
+  // mean a session is running.
   const age = JACTIVITY?.updated ? Date.now() - new Date(JACTIVITY.updated).getTime() : Infinity;
   if (age < 600000) return { text: "Working", tone: "busy", title: JACTIVITY?.title || "" };
-  return { text: "Live", tone: "", title: "" };
+  /* NOT "Live". Nothing here is evidence a bridge is running - it is the
+     absence of evidence, which is the state the pause leaves behind and the
+     one a person most needs told. */
+  return { text: "Not running", tone: "",
+           title: "No status and no recent activity - his bridge is not up" };
 }
 
 /* ---------------- THE CRM ----------------
@@ -3345,6 +3393,7 @@ const CRMV = {
   leadFilter: "live", leadSort: { col: "next_action_date", dir: 1 },
   coFilter: "customers", coSort: { col: "lifetime_value", dir: -1 },
   conFilter: "live", conSort: { col: "site_date", dir: 1 },
+  fdFilter: "all",
 };
 
 const CRM_FILTERS = {
@@ -3785,6 +3834,14 @@ const WORK_PAGES = [
     sub: () => `${CRM.delivery?.counts?.late || 0} late, ${CRM.delivery?.counts?.due || 0} due today` },
   { key: "companies", label: "Companies", icon: "companies",
     sub: () => `${CRM.companies.length} on the books` },
+  /* The front desk. It belongs under The work rather than on a bot card
+     because it is not one bot's - it is the thing that decides whose the work
+     is, and the question it answers ("what came in and where did it go") is
+     about all three at once. */
+  { key: "frontdesk", label: "Front desk", icon: "frontdesk",
+    sub: () => FD?.totals
+      ? `${FD.totals.seen} judged, ${FD.totals.noise} binned`
+      : "has not run yet" },
 ];
 
 /* Who is waiting on a human, across every bot, as one list. This is the
@@ -4004,7 +4061,140 @@ const CRM_RENDER = {
         </tr>`).join("")}</tbody>
       </table>`;
   },
+
+  /* THE FRONT DESK. Zac, 04/08: "so we can see everything, what everyone is
+     working on etc. how many tasks have been assigned to each bot. how much
+     spam. everything the front desk sees i want to see."
+
+     Three questions in that, in this order: who is doing what right now, what
+     has been handed to whom, and what came through the door. The last one is
+     the whole stream including the binned mail - the point of showing what was
+     thrown away is that a wrong call is only findable if it is on a page. */
+  frontdesk() {
+    if (!FD || FD.never || !FD.totals) {
+      return `<div class="empty"><strong>The front desk has not run yet</strong>
+        It is the cheap sorter that reads the mailboxes and decides whose each
+        message is. Nothing has been through it, so there is nothing to show -
+        which is not the same as "no mail came in".
+        <p class="page-sub" style="margin-top:10px">Runs as part of the bot
+        automation. Residential mail to info@ is deliberately not read.</p></div>`;
+    }
+    const t = FD.totals, today = FD.today || {};
+    const stream = (FD.stream || []).slice().reverse();
+    const F = {
+      all: () => true,
+      work: (r) => r.verdict === "work",
+      fyi: (r) => r.verdict === "fyi",
+      noise: (r) => r.verdict === "noise",
+      mary: (r) => r.bot === "mary",
+      jacob: (r) => r.bot === "jacob",
+      joseph: (r) => r.bot === "joseph",
+    };
+    const rows = stream.filter(F[CRMV.fdFilter] || F.all);
+    const pct = t.seen ? Math.round((t.noise / t.seen) * 100) : 0;
+
+    /* What each bot is doing, and what it has been handed. The two belong
+       together: "Jacob has 23 queued" means one thing if he is working and
+       another if he has not started. */
+    const staff = ["mary", "jacob", "joseph"].map((k) => {
+      const b = BOTS[k];
+      const s = b && b.status ? b.status() : null;
+      const got = t.bots[k] || { work: 0, fyi: 0, total: 0 };
+      const q = { mary: MQUEUE, jacob: JQUEUE }[k];
+      const queued = q && Array.isArray(q.items) ? q.items.length : null;
+      return `<div class="fd-bot">
+        <div class="fd-bot-h">
+          <div class="avatar ${b?.accent || ""}">${b?.initials || "?"}</div>
+          <div>
+            <strong>${esc(b?.name || k)}</strong>
+            <span class="fd-state"><i class="dot ${s?.tone || ""}"></i>${esc(s?.text || "Not started")}</span>
+          </div>
+        </div>
+        <p class="fd-thought">${s?.thought ? esc(s.thought)
+          : `<em class="dim">Nothing said yet - the last thing it says appears here.</em>`}</p>
+        <div class="fd-nums">
+          <span><strong>${got.work}</strong> to work</span>
+          <span><strong>${got.fyi}</strong> to read</span>
+          ${queued === null ? "" : `<span><strong>${queued}</strong> in the queue</span>`}
+        </div>
+      </div>`;
+    }).join("");
+
+    return `
+      <p class="page-sub" style="margin:0 0 16px">One cheap pass over the
+      mailboxes that decides whose each message is, so no bot has to wake up to
+      find out. Every call it has made is here, including the ones it binned.</p>
+
+      <div class="stats">
+        <div class="stat"><strong>${t.seen}</strong><span>judged</span></div>
+        <div class="stat"><strong>${t.work}</strong><span>became work</span></div>
+        <div class="stat"><strong>${t.fyi}</strong><span>to read only</span></div>
+        <div class="stat"><strong>${t.noise}</strong><span>binned as spam (${pct}%)</span></div>
+      </div>
+      ${today.seen ? `<p class="crm-count">${today.seen} of them in the last 24 hours -
+        ${today.work} work, ${today.noise} binned.</p>`
+        : `<p class="crm-count">Nothing in the last 24 hours.</p>`}
+
+      <h3 class="fd-h">Who is on what</h3>
+      <div class="fd-bots">${staff}</div>
+
+      ${t.worst?.length ? `<h3 class="fd-h">Where the spam comes from</h3>
+        <p class="dim" style="margin:-4px 0 10px">Anything here worth a standing rule goes in
+        <code>data/knowledge/noise.md</code> - then the classifier stops being asked about it at all.</p>
+        <table class="tbl crm-tbl"><thead><tr><th>Sender</th><th class="num">Binned</th></tr></thead>
+        <tbody>${t.worst.map(([addr, n]) => `<tr>
+          <td class="crm-title"><span>${esc(addr)}</span></td>
+          <td class="num">${n}</td></tr>`).join("")}</tbody></table>` : ""}
+
+      <h3 class="fd-h">Everything it has seen</h3>
+      ${crmTabs("fd", [
+        ["all", "All", t.seen],
+        ["work", "Work", t.work],
+        ["fyi", "Read only", t.fyi],
+        ["noise", "Binned", t.noise],
+        ["mary", "Mary", (t.bots.mary || {}).total || 0],
+        ["jacob", "Jacob", (t.bots.jacob || {}).total || 0],
+        ["joseph", "Joseph", (t.bots.joseph || {}).total || 0],
+      ], CRMV.fdFilter)}
+      ${crmCount(rows.length, stream.length, "message")}
+      ${rows.length ? `<div class="tbl-wrap"><table class="tbl crm-tbl">
+        <thead><tr>
+          <th>When</th><th>From</th><th>Subject</th>
+          <th>Went to</th><th>Call</th><th>Because</th>
+        </tr></thead>
+        <tbody>${rows.map((r) => `<tr>
+          <td class="nowrap dim">${esc(fdWhen(r.ts))}</td>
+          <td class="crm-title"><span>${esc(r.from || "-")}</span>
+            ${r.mailbox ? `<small class="dim">to ${esc(r.mailbox.split("@")[0])}</small>` : ""}</td>
+          <td class="crm-title"><span>${esc(r.subject || "(no subject)")}</span></td>
+          <td class="nowrap">${r.verdict === "noise" ? `<span class="dim">nobody</span>`
+            : esc(BOTS[r.bot]?.name?.split(" ")[0] || r.bot)}</td>
+          <td><span class="chip ${r.verdict === "noise" ? "warn"
+            : r.verdict === "fyi" ? "navy" : "ok"}">${esc(r.verdict)}</span></td>
+          <td class="crm-title"><span class="dim">${esc(r.why || "-")}</span></td>
+        </tr>`).join("")}</tbody></table></div>`
+        : `<div class="empty">Nothing under this filter.</div>`}
+
+      <p class="dim" style="margin-top:14px">The archive is
+      <code>data/frontdesk-ledger.jsonl</code> on the bot machine; this is the
+      last ${FD.stream?.length || 0}. Counts start from when the ledger was
+      built and exclude 25 info@ messages removed on 03/08 - that mailbox is
+      residential and is no longer read.</p>`;
+  },
 };
+
+/* "14:32 today" beats a full timestamp on a feed you read top-down, but a
+   date has to appear the moment it is not today or the rows silently merge. */
+function fdWhen(ts) {
+  if (!ts) return "-";
+  const d = new Date(ts);
+  if (isNaN(d)) return String(ts).slice(0, 16).replace("T", " ");
+  const today = new Date();
+  const sameDay = d.toDateString() === today.toDateString();
+  const hm = d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
+  return sameDay ? hm
+    : `${d.toLocaleDateString("en-GB", { day: "numeric", month: "short" })} ${hm}`;
+}
 
 const BOTS = {
   team: {
@@ -4555,10 +4745,11 @@ $("#search").addEventListener("input", (e) => {
     CRM = { today: cToday, leads: cLeads || [], companies: cCos || [],
             contracts: cCons || [], delivery: cDel };
 
-    [JOMSGS, JOREQS, JOSTATUS] = await Promise.all([
+    [JOMSGS, JOREQS, JOSTATUS, FD] = await Promise.all([
       api("joseph/messages").catch(() => []),
       api("joseph/requests").catch(() => []),
       api("joseph/status").catch(() => null),
+      api("frontdesk").catch(() => null),
     ]);
 
     msgSig = signature(MESSAGES);
@@ -4594,20 +4785,29 @@ $("#search").addEventListener("input", (e) => {
                     JREQS.filter((r) => r.status !== "answered").length].join(":");
     setInterval(async () => {
       try {
-        const [fresh, status, jmsgs, chat, reqs, mq, jq] = await Promise.all([
+        /* All three statuses in one request rather than three. They are read
+           on every beat for the sidebar, so this is the cheapest place a
+           round trip could be removed - and it keeps the three cards
+           consistent with each other, which separate calls did not. */
+        const [fresh, all, jmsgs, chat, reqs, mq, jq, fd] = await Promise.all([
           api("messages").catch(() => MESSAGES),
-          api("status").catch(() => STATUS),
+          api("bots").catch(() => null),
           api("jacob/messages").catch(() => JMSGS),
           api("botchat").catch(() => BOTCHAT),
           api("jacob/requests").catch(() => JREQS),
           api("mary/queue").catch(() => MQUEUE),
           api("jacob/queue").catch(() => JQUEUE),
+          page === "frontdesk" ? api("frontdesk").catch(() => FD) : Promise.resolve(FD),
         ]);
         const queueChanged = (mq?.updated !== MQUEUE?.updated) || (jq?.updated !== JQUEUE?.updated);
         MQUEUE = mq; JQUEUE = jq;
         if (queueChanged && ["queue", "jqueue", "live", "jlive"].includes(page)) render();
-        const statusChanged = JSON.stringify(status) !== JSON.stringify(STATUS);
-        STATUS = status;
+        const statusChanged = JSON.stringify(all) !== JSON.stringify(
+          { mary: STATUS, jacob: JSTATUS, joseph: JOSTATUS });
+        if (all) { STATUS = all.mary; JSTATUS = all.jacob; JOSTATUS = all.joseph; }
+        const fdChanged = fd?.updated !== FD?.updated;
+        FD = fd;
+        if (fdChanged && page === "frontdesk") render();
         const sig = signature(fresh);
         const jsig = [jmsgs.length, chat.length, reqs.length,
                       jmsgs[0]?.id, chat[0]?.id,

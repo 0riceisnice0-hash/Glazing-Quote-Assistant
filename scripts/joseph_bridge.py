@@ -35,6 +35,7 @@ import uuid
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import joseph_router as router   # noqa: E402
+import bot_status                # noqa: E402
 import crm                       # noqa: E402
 import crm_contract              # noqa: E402
 import mary_cost as cost         # noqa: E402
@@ -266,9 +267,19 @@ def rotate_if_heavy(reg, key, rec):
     return True
 
 
-def watch_session(proc, key, session_id, since, stop):
+def watch_session(proc, key, session_id, since, stop, cfg=None, title="", depth=0):
+    """Kill a runaway, and tell the hub what he is doing while he does it.
+
+    The only thing ticking during a session, so it is where the status comes
+    from. Joseph reported none at all before this."""
     warned = False
     while not stop.wait(60):
+        try:
+            bot_status.write("joseph", "working", chat_key=key, depth=depth,
+                             detail="working - new items queue behind this",
+                             title=title, session_id=session_id, env=cfg or {})
+        except Exception:
+            pass
         try:
             spent = cost.session_cost(session_id, since)["context"]
         except Exception:
@@ -432,7 +443,8 @@ def dispatch(cfg, state, cons):
                                     encoding="utf-8", errors="replace",
                                     creationflags=NO_WINDOW)
             threading.Thread(target=watch_session,
-                             args=(proc, key, session_id, started_utc, stop_watch),
+                             args=(proc, key, session_id, started_utc, stop_watch,
+                                   cfg, title, len(orders)),
                              daemon=True).start()
             out, err = proc.communicate(timeout=3600)
             took = time.time() - started
@@ -470,6 +482,14 @@ def dispatch(cfg, state, cons):
             log("session failed: %s - backing off %ds" % (str(e)[:150], wait))
         finally:
             stop_watch.set()
+            # Back to idle carrying his last thought - otherwise the card holds
+            # "Working on ..." until the next session, which is a lie of omission.
+            try:
+                bot_status.write("joseph", "idle", depth=0,
+                                 detail="finished - nothing queued",
+                                 session_id=session_id, env=cfg)
+            except Exception:
+                pass
             try:
                 budget.log_tokens("joseph:" + key, session_id, time.time() - started, started_utc)
             except Exception:

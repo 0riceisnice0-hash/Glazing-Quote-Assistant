@@ -509,9 +509,54 @@ export async function onRequest(context) {
       return json({ ok: true });
     }
 
+    /* Every call the front desk has made - the counts and a rolling window of
+       the decisions themselves. Zac, 04/08: "everything the front desk sees i
+       want to see." Public like the rest of the read side. It is one stored
+       blob rather than a table because it is a feed, not a record: the file on
+       the bot's disk is the archive and this is the part worth looking at. */
+    if (botKey === "frontdesk" && GET) {
+      try {
+        const row = await db.prepare("SELECT v, updated FROM state WHERE k = ?")
+          .bind("frontdesk").first();
+        if (!row) return json({ totals: null, stream: [], never: true });
+        return json({ ...JSON.parse(row.v), updated: row.updated });
+      } catch {
+        return json({ totals: null, stream: [], never: true });
+      }
+    }
+
+    /* What all three are doing at once, for the header line on each card and
+       for the front desk page. One request instead of three. */
+    if (botKey === "bots" && GET) {
+      const out = {};
+      for (const [k, c] of Object.entries(CHANNELS)) {
+        try {
+          const row = await db.prepare("SELECT v, updated FROM state WHERE k = ?")
+            .bind(c.statusKey).first();
+          out[k] = row ? { ...JSON.parse(row.v), updated: row.updated }
+                       : { state: "unknown" };
+        } catch {
+          out[k] = { state: "unknown" };
+        }
+      }
+      return json(out);
+    }
+
     /* ---------------- bot-only routes below this gate ---------------- */
     if (!env.MARY_API_KEY || request.headers.get("x-mary-key") !== env.MARY_API_KEY) {
       return json({ error: "Not found" }, 404);
+    }
+
+    /* The front desk publishing its sweep. 300k because the stream carries a
+       subject and a reason per row and truncating it would silently drop the
+       oldest decisions, which are the ones you go looking for. */
+    if (botKey === "frontdesk" && POST) {
+      const b = await request.json().catch(() => ({}));
+      await db.prepare(
+        "INSERT INTO state (k, v, updated) VALUES (?, ?, ?) " +
+        "ON CONFLICT(k) DO UPDATE SET v = excluded.v, updated = excluded.updated")
+        .bind("frontdesk", JSON.stringify(b).slice(0, 300000), now()).run();
+      return json({ ok: true });
     }
 
     /* ---------------- the CRM, write side (keyed) ----------------

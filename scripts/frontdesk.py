@@ -51,6 +51,7 @@ import subprocess
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import frontdesk_ledger as ledger
 import mary_graph as mg
 import mary_poller as mp
 
@@ -340,10 +341,15 @@ def main():
                 bin_it(msg, why)
             else:
                 write_order(bot, msg, verdict, why)
+            # The decision itself, as a row. Written for every call including
+            # the ones that get binned - "what did you throw away" is the
+            # question this page exists to answer.
+            ledger.add(msg.get("_mailbox", ""), msg, bot, verdict, why, MODEL)
             state["seen"].append(msg.get("id"))
 
     if not a.dry_run:
         save_state(state)
+        ledger.push(mg.load_env())
     log("done - %s" % (", ".join("%d %s" % (v, k) for k, v in sorted(counts.items())) or "nothing"))
     return 0
 

@@ -35,6 +35,7 @@ from datetime import datetime, timezone
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import jacob_router as router          # noqa: E402 - needs the path above
+import bot_status                      # noqa: E402
 import crm                             # noqa: E402
 import mary_cost as cost               # noqa: E402
 import mary_jobfile as jobfile         # noqa: E402
@@ -489,10 +490,23 @@ def build_prompt(key, title, orders, first_run, reg):
     return "\n".join(lines)
 
 
-def watch_session(proc, key, session_id, since, stop):
-    """Kill a session that is looping. Runs beside the work, never in its way."""
+def watch_session(proc, key, session_id, since, stop, cfg=None, title="", depth=0):
+    """Kill a session that is looping. Runs beside the work, never in its way.
+
+    It is also the only thing ticking while a session runs, so it is where the
+    hub gets told what Jacob is doing. He reported no status at all before
+    this - his card sat on "Live" through a forty-minute session.
+    """
     warned = False
     while not stop.wait(60):
+        # Publish first: a session that is about to be killed for looping is
+        # exactly the one somebody wants to see the last thought of.
+        try:
+            bot_status.write("jacob", "working", chat_key=key, depth=depth,
+                             detail="working - new items queue behind this",
+                             title=title, session_id=session_id, env=cfg or {})
+        except Exception:
+            pass
         try:
             spent = cost.session_cost(session_id, since)["context"]
         except Exception:
@@ -689,7 +703,8 @@ def dispatch(cfg, state):
                 text=True, encoding="utf-8", errors="replace",
                 creationflags=NO_WINDOW)
             threading.Thread(target=watch_session,
-                             args=(proc, key, session_id, started_utc, stop_watch),
+                             args=(proc, key, session_id, started_utc, stop_watch,
+                                   cfg, title, len(orders)),
                              daemon=True).start()
             try:
                 out, err = proc.communicate(timeout=3600)
@@ -743,6 +758,15 @@ def dispatch(cfg, state):
         finally:
             stop_watch.set()
             stop_feed.set()
+            # Back to idle, carrying the last thing he said. Without this the
+            # card keeps "Working on ..." until the next session starts, which
+            # is the same lie the old status told by never changing at all.
+            try:
+                bot_status.write("jacob", "idle", depth=0,
+                                 detail="finished - nothing queued",
+                                 session_id=session_id, env=cfg)
+            except Exception:
+                pass
             # What it really cost, read back out of the transcript. His
             # sessions were not measured at all before this.
             try:

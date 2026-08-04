@@ -34,6 +34,7 @@ import mary_poller as mp
 import mary_router as router
 import mary_note as note
 import mary_activity as activity
+import bot_status
 import mary_budget as budget
 import mary_cost as cost
 import mary_jobfile as jobfile
@@ -260,29 +261,16 @@ _current = [(None, "")]
 _blocked = [None]
 
 
-def write_status(state, chat_key=None, depth=0, detail="", title=""):
+def write_status(state, chat_key=None, depth=0, detail="", title="", session_id=None):
     """Record what Mary is doing, locally and on the hub.
 
-    The hub only needs to hear about it when it CHANGES, so the site can say
-    "working on Grange Hill" or "3 queued" without us writing to D1 on a
-    two-second loop."""
-    payload = {
-        "state": state,                       # idle | working | backoff
-        "chat": chat_key,
-        "title": title or (chat_key or ""),
-        "queue_depth": depth,
-        "detail": detail,
-        "updated": dt.datetime.now().isoformat(timespec="seconds"),
-    }
-    try:
-        with open(STATUS, "w", encoding="utf-8") as fh:
-            json.dump(payload, fh, indent=1)
-    except Exception:
-        pass
-
-    fingerprint = (state, chat_key, depth, detail)
-    _push_state(fingerprint, payload, "/api/mary/status", _pushed)
-    return payload
+    The body of this moved to bot_status so Jacob and Joseph get the same
+    thing - they had no status at all, so their cards showed no life whatever
+    they were doing. The signature stays because six call sites use it.
+    """
+    return bot_status.write("mary", state, chat_key=chat_key, depth=depth,
+                            detail=detail, title=title,
+                            session_id=session_id, env=ENV)
 
 
 def _push_state(fingerprint, payload, route, cache):
@@ -819,7 +807,12 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
     # live so you can watch your message queue up behind it.
     if _worker[0] and _worker[0].is_alive():
         key, title = _current[0]
-        write_status("working", key, len(read_orders()), "working - new items queue behind this", title=title)
+        # The session id is what turns "Working on Grange Hill" into "Working
+        # on Grange Hill / still waiting on the door schedule" - the thought is
+        # read from the transcript this session is writing right now.
+        sid = (reg["chats"].get(key) or {}).get("session_id")
+        write_status("working", key, len(read_orders()), "working - new items queue behind this",
+                     title=title, session_id=sid)
         push_queue(read_orders(), reg)
         # Publish what she is doing, tailed from the session transcript. Cheap,
         # and it fails silently rather than ever disturbing the session.
@@ -836,7 +829,11 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
     # one dashboard state. The lockfile is also how we coexist with the old
     # 15-minute poller and the morning-update task.
     if mp.session_running():
-        write_status("working", None, len(read_orders()), "a session is already running")
+        # Somebody else's session (an orphan, or the morning update). Its
+        # thought is still worth showing - the card going quiet while she is
+        # visibly working is the thing this whole line exists to prevent.
+        write_status("working", None, len(read_orders()), "a session is already running",
+                     session_id=activity.newest_session())
         # Somebody else's session - an orphan from a restart, or the morning
         # update. Still publish it, or the Live tab goes blank precisely when
         # Mary is visibly working.

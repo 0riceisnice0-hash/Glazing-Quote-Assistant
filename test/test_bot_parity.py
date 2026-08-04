@@ -31,6 +31,10 @@ CHECKS = [
     ("CRM in the prompt", r"crm\.py|crm_contract|THE CRM"),
     ("no-window launch", r"creationflags=NO_WINDOW"),
     ("single-instance pidfile", r"PIDFILE|bridge\.pid"),
+    # Jacob and Joseph reported no status whatever they were doing, so their
+    # cards read "Live" through a forty-minute session. The shared writer is
+    # the fix; this is what stops it being un-fixed one bridge at a time.
+    ("says what it is working on", r"bot_status\.write"),
 ]
 
 print("%-28s %-8s %-8s %-8s" % ("", "MARY", "JACOB", "JOSEPH"))
