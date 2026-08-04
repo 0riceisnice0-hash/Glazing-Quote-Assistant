@@ -521,10 +521,24 @@ def build_prompt(key, title, orders, handoffs, first_run, reg):
                " --wants-reply (only if you need something back)",
                " ".join(str(o.get("botchat_message_id")) for o in bot)))
 
+    # The front door has already read these and said which are worth answering.
+    # Splitting them here is what stops an acknowledgement being treated like a
+    # question - and it is why the batch can be big without being expensive.
+    work = [o for o in orders if (o.get("triage") or {}).get("verdict") != "fyi"]
+    fyi = [o for o in orders if (o.get("triage") or {}).get("verdict") == "fyi"]
+
     lines.append("\nWORK ORDERS (full JSON in test-results\\mary-inbox\\queue\\):")
-    for o in orders:
+    for o in work:
         lines.append("  - %s" % describe(o))
         lines.append("    routed here because: %s" % o.get("_route_why", "?"))
+    if fyi:
+        lines.append(
+            "\nFOR INFORMATION - %d item(s) the front door read and judged need no "
+            "answer (acknowledgements, our own sent mail, threads we are copied on). "
+            "Read them, let them change what you know, and do NOT reply to them "
+            "unless one is actually a question:" % len(fyi))
+        for o in fyi:
+            lines.append("  - %s  [%s]" % (describe(o), (o.get("triage") or {}).get("why", "")))
 
     if handoffs:
         lines.append("\nHANDOFFS from Mary's other chats - read these before you start:")
@@ -854,6 +868,26 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
     if not go:
         write_status("batching", None, len(orders), why)
         return TICK
+
+    # THE CHEAP FRONT DOOR, and it runs on the batch just before the expensive
+    # part. Zac, 04/08: "this needs little to no brainpower" - so it does not
+    # get an Opus session. A Haiku pass over the whole batch costs about 160k
+    # tokens and takes the portal digests out entirely, while marking the
+    # acknowledgements as things to read rather than answer.
+    #
+    # It never blocks: if the classifier fails, everything stays queued exactly
+    # as it was and the session sees the lot. The worst case is what we had.
+    try:
+        subprocess.run([sys.executable, os.path.join(REPO, "scripts", "mary_triage.py")],
+                       cwd=REPO, capture_output=True, timeout=300,
+                       encoding="utf-8", errors="replace", creationflags=NO_WINDOW)
+        orders = drop_muted(read_orders(), reg)
+        if not orders:
+            write_status("idle", None, 0, "the batch was all noise - nothing to work")
+            return TICK
+        groups = group_by_chat(orders, reg)
+    except Exception as e:
+        log("triage pass failed (harmless, the session sees everything): %s" % str(e)[:120])
 
     # THE BACKSTOP, and it assumes the line above has a hole in it. Budgets are
     # scoped to the window they belong to - a night's overspend must not block
