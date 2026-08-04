@@ -104,10 +104,28 @@ def context_size(session_id):
 
     This is the number rotation should key on. File size was standing in for
     it and was a poor proxy: gordon-court passed 8 MB and kept going to 17.6.
+
+    THE LAST NON-ZERO ONE, and the distinction is not pedantry - it cost
+    10,294,879 tokens on 04/08.
+
+    A call that fails records no usage, so it lands in the transcript as a
+    zero. Reading the LAST value therefore returns 0 for any chat that was
+    interrupted, because what a kill leaves behind is a run of failed retries.
+    Mary's triage chat was stopped mid-job on 30/07 and its transcript ends
+    with six such zeros. When the bots restarted on 04/08 the rotation check
+    asked how big it was, got 0, and rotate_if_due reads 0 as "no transcript
+    yet - a chat that has never run cannot be overweight". So a chat carrying
+    416,181 tokens was resumed instead of retired, and spent 10.3M in 26 calls
+    at ~396k each before the one-sitting rule caught it.
+
+    A zero is the absence of a measurement, not a measurement of zero. The
+    last real reading is what the next turn will actually carry, because a
+    failed call adds nothing to the conversation.
     """
     last = 0
     for _ts, c, _o in iter_calls(transcript(session_id)):
-        last = c
+        if c:
+            last = c
     return last
 
 
