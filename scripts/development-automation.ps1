@@ -40,6 +40,30 @@ $bridgeTaskNames = @("JacobBridge", "JosephBridge", "MaryGraceBridge")
 # bridge supersedes it.
 $supersededTaskNames = @("MaryGracePoller")
 
+# OFF UNTIL SOMEBODY IS WATCHING. Zac, 04/08: "bin them off. we can do
+# improvements under supervision."
+#
+# These four are scheduled OUTSIDE the bridges, so the overnight curfew never
+# applied to them - it lives in the bridge loop, and a Task Scheduler entry at
+# 22:00 does not go through it. "Overnight running is off by default" was true
+# of the bots and false of these, which is the worst kind of half-true.
+#
+# MaryGracePricingLab is the evidence: 14,376,597 tokens on 30/07 in one night,
+# from a chat with no job file - so it can never rotate and resumes its 214,244
+# context every run - and runs=0, meaning it has never recorded a completed
+# one. Twelve per cent of a day's target, overnight, for nothing recorded.
+#
+# Re-enabling is deliberate and one command each:
+#   Enable-ScheduledTask -TaskName MaryLibrarian
+# Before that, the honest fix is to make these three call night_allowed() the
+# way the bridges do, so the curfew is a rule and not a switch.
+$offPendingSupervisionNames = @(
+    "MaryGracePricingLab",
+    "MaryLibrarian",
+    "MaryGraceEvolve",
+    "MaryGraceEvolveFull"
+)
+
 function Get-TaskRecord {
     param([string]$Name)
 
@@ -204,6 +228,10 @@ foreach ($record in $resumeState.tasks) {
         # snapshot and wrong for the system.
         if ($supersededTaskNames -contains $record.Name) {
             Write-Output "Leaving $($record.Name) disabled - superseded, see the note in this script."
+            continue
+        }
+        if ($offPendingSupervisionNames -contains $record.Name) {
+            Write-Output "Leaving $($record.Name) disabled - runs outside the curfew, off until supervised."
             continue
         }
         $task = Get-ScheduledTask -TaskName $record.Name `
