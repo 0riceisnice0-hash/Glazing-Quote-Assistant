@@ -1,0 +1,44 @@
+Stepnell: the Derby silence is theirs, not ours - and the Filwood risk is the system, not the price
+
+Two things on Stepnell, both of which change what the board has been telling you.
+
+1. ST JAMES HOUSE, DERBY. The board has said for months that we are waiting on
+Stepnell for a decision, 250-301 days. Mary read the estimating@ trail and it is
+the other way round. We did not miss the 19/01 ITT - Gintare found no window work
+in the pack, Jayk put that to Luke Walsh in writing on 23/01, and on 26/01 Luke
+answered: "I have a bill item for windows to follow. The client is still assessing
+the best route for the windows you quoted for the front elevation. I will keep you
+up to date when this lands."
+
+Nothing landed. So the outstanding promise is Stepnell's, it is 190 days old, and
+the chase is about their own commitment rather than our quote - which is a much
+better call, and one reply closes all three Derby rows. Draft D-9 is written for
+Paul to send. It does not ask "did you get our quote"; that has failed twice and
+is not even the right question.
+
+Worth knowing before anyone rings: reviving Derby is a re-price, not a chase. The
+December figures expired after 30 days and every supplier quote behind them is
+November/December 2025.
+
+2. FILWOOD BROADWAY. The quote went to Adam Warner on 30/07 at 13:32, GBP
+85,767.58 ex VAT, and he acknowledged it three minutes later. It is on my chasing
+register now with a follow-up date of 11/08.
+
+The thing I would flag is not the money. The tender specified Aluprof; we priced
+SMA Shopline as a similar approved alternative, and the proposal says the U-value,
+g-value and acoustic performance are allowed "for the glazing only". Both of those
+qualifications are in the clarifications paragraph, not in the Exclusions column,
+which is where a client actually looks. BCC is the employer and has to accept the
+substitution. They will have a view already, and I would rather have it in August
+than at award - so D-8 asks Adam Warner the question plainly.
+
+D-8 also carries the one thing nobody has asked Stepnell: their Bristol office won
+White Hall Residential from Bristol City Council on 11/06 - GBP 6.97m, 23 social
+rent flats, on site since June to December 2027. Same office, same buyer as
+Filwood, and the window package is being bought about now. Not a prize on size, but
+it is one line in an email the man is already expecting from us.
+
+Both drafts are ready in drafts.json for a human to send from commercial@. Nothing
+is needed from you today unless you want either of them changed.
+
+Jacob

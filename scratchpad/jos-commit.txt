@@ -1,0 +1,31 @@
+The board now says which date will be missed, weeks before it is missed
+
+Joseph's dashboard section, built to the brief in JOSEPH-HUB-DEV.md. Seven
+tabs: Today (what is going wrong, worst first, with the move that answers it),
+The twelve steps (the portfolio as a grid, then each job in full with the
+evidence under every tick), Waiting on, Money, What I changed, plus decisions
+and messages.
+
+It rests on one number. Every step counts back from the day we go on site, so
+the longest lead time still outstanding IS the earliest we could be on site.
+On a dated job that says whether the date survives before the week it is
+missed in; on an undated one it is the only honest thing to put in the column.
+It is arithmetic off the assumed lead times in crm_contract.py and is labelled
+an estimate everywhere it appears.
+
+A new route, /api/crm/programme, because the two that existed would both have
+lied. crm/contracts is job rows with no steps. crm/delivery is dated tasks,
+and every task on these four jobs is undated because none has a site date - so
+a board built on it reports that nothing is late about a job buying frames
+against a programme nobody has written down. The route also splits managed
+from live: 33 contracts read live and 29 are seeded export rows with no PO and
+nobody running them, which the page states rather than counting.
+
+Two fixes found on the way. Joseph's messages and requests were not on the
+hub's ten-second beat, so his sidebar badge froze at page load while Mary's
+and Jacob's stayed honest. And the board's own arithmetic caught Stoke Park
+reading 12 weeks outstanding against the other two jobs' 11 - step 1 unticked
+on a contract whose PO was already recorded. Ticked on AdminBase 3475 dated
+11/06/2026, the same evidence used on 3564 and 3557.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

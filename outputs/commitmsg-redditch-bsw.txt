@@ -1,0 +1,39 @@
+Redditch: BSW quoted 27% under my benchmark, and the quote on Adam's desk is not issuable
+
+Three work orders: BSW QT253829 and Gintare's own priced document, sent to Adam
+at 10:17 asking whether to send Pride a full proposal.
+
+BSW came in at GBP 43,739.72 for 49 Sheerline Prestige frames against my
+benchmark of GBP 56,993.38 - +27.4%. The benchmark was a curve fitted to BSW's
+own quote for the same client, R2 0.9934, and the R2 measured the fit rather
+than the product: the source was 3005 Wine Red metallic, this came back stock
+Hipca White. I logged the colour as a caveat on 28/07 and let the number stand
+as the basis of a GBP 94,926.76 tender anyway. Calibration entry 21.
+
+So "no supplier we can measure gets near Joedan" was a statement about the
+benchmark, not about the job. The real gap is about GBP 1,160, not GBP 4,240.
+
+Gintare's GBP 79,912.22 looks like a GBP 10,775 undercut and is not one. Its
+arithmetic is faultless - all 22 rows carry their code uplift to the penny on
+the Brocks Hill test - but w36 is unpriced (BSW quoted "Location: w35,36" at
+Qty: 1 and it was copied through), there is no strip-out line anywhere, and
+required perimeter sealing is offered as an optional extra. Those three are
+GBP 9,641.31, taking it to GBP 89,553.53 net / 91,849.77 with MCD.
+
+And BSW answered five of the RFQ's seven items by saying nothing: no solar
+control glass (all 68 panes clear), no panic ironmongery (Ultion cylinders and
+a Standard Resi Lock on fire escape doors in a public library), no restrictors,
+stock white not RAL, ex works. A quote that is silent reads as complete.
+
+The proposal would also have certified U-value 1.4 W/m2K, which BSW's quote
+nowhere supports - third instance in a week after Filwood and Georgie's.
+
+mary_checks: 3 FAILED, left failing because all three are real. The manifest now
+carries the BSW quote, supplier_coverage for every reference, rfq_items and
+site_access - three rules other chats added since 29/07 that landed on exactly
+what this turn found by hand.
+
+Emailed Adam: back to BSW with the five omissions, add the three that have
+rates, issue nothing to Leonard until they return. Nothing issued to Pride.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

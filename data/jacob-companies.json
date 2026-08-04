@@ -109,15 +109,9 @@
   },
   "stepnell": {
    "name": "Stepnell Ltd",
-   "domains": [
-    "stepnell.co.uk"
-   ],
+   "domains": [],
    "match": [
-    "stepnell",
-    "filwood",
-    "adam warner",
-    "luke walsh",
-    "st james house"
+    "stepnell"
    ],
    "opened": "2026-08-03T14:51:23"
   },
@@ -137,9 +131,7 @@
     "ryebridgeconstruction.com"
    ],
    "match": [
-    "ryebridge",
-    "luton airport",
-    "departure gates"
+    "ryebridge"
    ],
    "opened": "2026-08-04T11:38:39"
   },
@@ -303,10 +295,10 @@
   },
   "desk": {
    "session_id": "2fbdc7f2-2333-4a16-bb6a-aa770f015068",
-   "started": false,
+   "started": true,
    "created": "2026-08-03T14:51:23",
-   "last_active": "2026-08-04T11:44:20",
-   "runs": 1,
+   "last_active": "2026-08-04T12:47:56",
+   "runs": 2,
    "rotated_from": "57d37b8e-d543-4dd8-90ee-0e57d45bbb51",
    "rotated_at": "2026-08-04T12:43:35",
    "rotations": 1
@@ -367,10 +359,11 @@
   },
   "elevation-estate-agents": {
    "session_id": "9fe3b993-9b05-4e65-ac8b-054970052e7a",
-   "started": false,
+   "started": true,
    "created": "2026-08-04T12:45:38",
-   "last_active": null,
-   "runs": 0
+   "last_active": "2026-08-04T12:54:46",
+   "runs": 1,
+   "file_warn": "data/companies/elevation-estate-agents.md does not state where the relationship stands in the first 40 lines. Add a heading such as '## Position' or '## Where it stands'"
   }
  }
 }

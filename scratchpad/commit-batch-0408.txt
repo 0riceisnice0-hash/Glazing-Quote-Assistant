@@ -1,0 +1,37 @@
+A queue of 78 read as one picture: three new jobs, and a supplier who left with our rate
+
+The front desk had backed up to 78 work orders spanning eleven days. Most of it
+was one of five conversations arriving a message at a time, so the useful move
+was to read the whole thing before touching any of it.
+
+Thirty-seven went to the chats that own them - fifteen on Brocks Hill, where
+Adam's question about the seven excluded doors got "include for the additional
+doors" back from Martin Moore; five on Filwood, which turns out to have gone out
+at 12:28 on the 30th with Stepnell acknowledging seven minutes later. Thirty-seven
+more were settled history or noise. Forty-one remain and come round next pass.
+
+Three were genuinely new and now have chats. Totteridge Academy wants a cost
+review by Friday, and the trap there is that we quoted the same scheme for Conamar
+as well, so searching Borras alone finds half of it. Addison Avenue is not really
+a pricing job - Harris Calnan already have client approval for a competitor's
+product, and the detail drawing, the installed photographs and the thermal figures
+are what decide whether our price is read at all. Alice Billings runs through the
+eque2 portal, the fourth portal client this month, and Gintare has already asked
+the question that decides the quantities and not been answered.
+
+Two supplier changes matter more than any of it. Martin Gregory has resigned from
+CN Glass - and he is the man who agreed the sixty pounds a square metre that Stoke
+Park's glass order was placed against on the 27th, on an email rather than a
+quotation. A verbal rate is only as durable as the person who gave it. And AGF
+have put a date on Reynaers: anything ordered on or after 27 August is repriced,
+which lands directly on the Totteridge review.
+
+The rate work turned up a defect worth more than the three quotes it came from.
+Vetroseal bill a delivery charge as a glass line carrying a fake 0.300 square
+metres. Divide goods by total area, as any miner would, and the rate reads 4.4%
+high with nothing visibly wrong. Charge lines have to come out before mining.
+
+No email to Adam. Nothing here is an error or a moved number, the two things that
+earn the interruption; the deadlines belong to the chats that now hold them.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

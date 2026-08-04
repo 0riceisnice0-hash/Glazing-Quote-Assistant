@@ -409,21 +409,24 @@
  },
  "chats": {
   "triage": {
-   "session_id": "6f45c2c9-b66b-4bfe-b626-4540533952ca",
-   "started": false,
+   "session_id": "45841d30-48ee-416a-91e5-4a91e83ba124",
+   "started": true,
    "created": "2026-07-27T13:43:40",
-   "last_active": "2026-08-04T11:46:46",
-   "runs": 44,
-   "rotated_from": "d55fb027-ba54-43c2-8c05-2972751289be",
-   "rotated_at": "2026-08-04T11:47:14",
-   "rotations": 6
+   "last_active": "2026-08-04T12:30:39",
+   "runs": 46,
+   "rotated_from": "6f45c2c9-b66b-4bfe-b626-4540533952ca",
+   "rotated_at": "2026-08-04T12:19:18",
+   "rotations": 7
   },
   "filwood": {
-   "session_id": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
+   "session_id": "5a4bb8fd-9278-40c3-a534-fb9916b70b64",
    "started": true,
    "created": "2026-07-27T14:10:04",
-   "last_active": "2026-07-29T08:01:32",
-   "runs": 3
+   "last_active": "2026-08-04T12:42:20",
+   "runs": 4,
+   "rotated_from": "a0961090-a878-4bd4-a59c-7fb21e6c5b45",
+   "rotated_at": "2026-08-04T12:31:44",
+   "rotations": 1
   },
   "st-marys": {
    "session_id": "cebdea4f-889d-4c46-b80b-b63d09910541",
@@ -464,11 +467,14 @@
    "rotations": 1
   },
   "brocks-hill": {
-   "session_id": "45734632-a617-4b15-87fb-0a6fa8e4cfd1",
+   "session_id": "5a683ed2-2ed1-4094-9aef-9f0ab6aeb308",
    "started": true,
    "created": "2026-07-27T16:14:24",
-   "last_active": "2026-07-29T14:54:53",
-   "runs": 4
+   "last_active": "2026-08-04T12:18:43",
+   "runs": 5,
+   "rotated_from": "45734632-a617-4b15-87fb-0a6fa8e4cfd1",
+   "rotated_at": "2026-08-04T12:03:12",
+   "rotations": 1
   },
   "riverside": {
    "session_id": "87c81798-b54f-423c-8eb0-1f82024ebfbd",

@@ -1,0 +1,101 @@
+Adam,
+
+Gintare's quote is with you at GBP 79,912.22 and she has asked whether to send a full
+proposal. Not yet. Three things missing from it have rates; five more are missing from BSW's
+quote and have none.
+
+The good news first, and it is real.
+
+
+BSW CAME IN AT GBP 43,739.72 AND MY BENCHMARK WAS 30% HIGH
+
+I had BSW frames at GBP 56,993.38. They have quoted GBP 43,739.72 - GBP 13,253.66 less. That
+is my error, not a keen price: the Severn Trent curve I built it from was 3005 Wine Red
+metallic and this quote is stock white. I flagged that caveat on 28/07; it turns out to be
+worth most of the gap.
+
+It matters because my GBP 94,926.76 was built on a frame price that does not exist. On BSW's
+real one this job is winnable.
+
+
+WHAT IS MISSING AND HAS A RATE - GBP 9,641.31
+
+  W36 - BSW quoted Qty: 1 against "w35,36"                       1,481.86
+  its installation                                                 160.00
+  strip out, 43 nr x 150 - your 28/07 ruling, and Joedan cl.12     6,450.00
+  perimeter sealing - pack p70 cl.11 REQUIRES it, and it sits
+    on the document as an OPTIONAL extra                          1,549.45
+                                                                 ---------
+                                                                  9,641.31
+
+  79,912.22 + 9,641.31 = GBP 89,553.53, or GBP 91,849.77 with your 2.5% MCD.
+
+Against Joedan's GBP 90,687.17 on the same basis that is GBP 1,163 ABOVE him - not the
+GBP 10,775 below that GBP 79,912.22 looks like.
+
+W36 IS BSW'S DROP AND IT WENT STRAIGHT THROUGH. Every other multi-reference line on their
+quote carries the right count (w1,w2 = 2, w22,23 = 2, w16-18 = 3, w24-28 = 5). One line is
+wrong and it is the only one. Their own footer says they "will not be held responsible for
+any items missing from quotes", so it is ours to catch.
+
+
+WHAT BSW HAVE NOT PRICED AT ALL - all five were asked for in writing, all push the price up
+
+1. SOLAR CONTROL GLASS. The RFQ asked for "outer pane 4mm bronze anti sun". All 68 panes are
+   6.8 Lam / 18 / 4mm CLEAR. Not one instance of anti-sun, bronze, solar or tint in twelve
+   pages. The tender requires it; I carry GBP 1,814.51 for the premium.
+2. THE DOOR IRONMONGERY. The RFQ asked for Axim 8800 concealed closers, PR7100 exit panic
+   devices, flush bolts to slave leaves and anti-finger-trap stiles on doors 32/34/37/41. BSW
+   have quoted Ultion key cylinders, Prolinea lever handles and a Standard Resi Lock - a
+   domestic front door - on fire escape doors in a public library. Zero instances of "panic"
+   in the quote. Georgie's, again.
+3. WINDOW RESTRICTORS, 100mm. Asked for. Not one unit has them; 17 units open.
+4. COLOUR. All 29 items are stock 9910HG Hipca White. The RFQ says "standard RAL colour (not
+   confirmed)". A RAL finish is an uplift.
+5. DELIVERY. Their terms are ex works.
+
+Also worth knowing before anyone reads the elevations: BSW note "some transoms have been
+added due to sash size limits". They have put extra transoms across several units, and they
+have quoted refs 16/17/18 as flat 2250 x 2304 rectangles when the drawing shows them raked to
+the stair soffit. Both are live RFIs and neither is settled.
+
+
+THE PROPOSAL SHOULD NOT GO AS DRAFTED, SEPARATELY FROM THE PRICE
+
+- IT CERTIFIES U-VALUE 1.4 W/m2K. BSW's quote states no whole-window U-value anywhere.
+  "EcoPlus 1.0" is a centre-pane Ug, not a Uw. Filwood this morning and Georgie's last week
+  were the same shape: a performance figure on the face of our document that the supplier's
+  own quote does not support.
+- The glazing box reads "6.8mm laminated / 4mm toughened" - accurate to BSW, and silent on
+  the solar control the tender asks for. If the glass stays clear that has to be a stated
+  deviation, not a gap.
+- "External mastic is charged as an optional extra" - third job running.
+- STRIP OUT APPEARS NOWHERE, not in inclusions and not in exclusions, while "Waste Removal -
+  generally excluded" does. On 43 metal-framed openings that reads badly whichever way a QS
+  takes it.
+- Working hours are stated as 07:30-16:30. The tender says 08:30-17:30 in the prelims and
+  08:30-18:00 in the Schedule of Works, it is an occupied public library, and windows cannot
+  be left out over a shift.
+- It promises a full-time CSCS/SMSTS site supervisor, a dedicated project manager AND a
+  separate contracts manager. Installation is GBP 8,410 and recomputes to GBP 7,420 of
+  fit-only labour, so there is GBP 990 standing behind all of that.
+- THE TEN YEAR WARRANTY IS ONLY IN THE BACK-PAGE T&Cs. Joedan give twelve months. On a 70/30
+  price/quality award it belongs in the summary and the inclusions - it is the one place we
+  beat him, and we are not going to beat him on price.
+
+AND DO NOT SEND THE .XLSX. It still carries the working columns - "Supplier used: BSW
+43,739.72" in K3/M3 and our frame cost per line in J and P. Anyone who opens it and scrolls
+right reads our buy and our 38.8% margin. Both files also carry Nicholas Baker as author,
+dan.parker@agsurveying.co.uk, and links into two other people's Outlook caches. That is
+REQ-27 and I am not re-raising it - scripts\clean_issued_pack.py strips all of it and these
+files were never run through it.
+
+
+WHAT I WOULD DO
+
+1. Back to BSW today with the five omissions. Their quote is dated 04/08 and holds thirty days.
+2. Add W36, strip out and sealing now - they have rates and they are not in dispute.
+3. Issue nothing to Leonard until BSW's gaps come back. Every one of them is upward, and he
+   has been holding "around 89k" since 29/07.
+
+Mary Grace

@@ -1,0 +1,30 @@
+A VETROSEAL DELIVERY CHARGE IS BILLED AS A GLASS LINE WITH A FAKE 0.300 m2 - IT CORRUPTS MINED RATES.
+
+Quote 065311 (ELEVATION/BEDFORD, 04/08) has two lines: one pane of 10.8mm laminated, 3145 x 2103,
+6.614 m2 at GBP 548.89, and a second line "MK40-2QA DELIVERY CHARGE", qty 1, GBP 50.00 - carrying a
+UNIT AREA OF 0.300 m2. There is no glass in it.
+
+Divide goods by total area and you get GBP 598.89 / 6.914 = GBP 86.62/m2. The real rate is
+GBP 548.89 / 6.614 = GBP 82.99/m2. That is a 4.4% overstatement, silently, on every quote that
+carries a delivery line. Any rate mined from Vetroseal must EXCLUDE lines whose description is a
+charge rather than a make-up. Same family as their 0.30 m2 minimum-area billing already recorded.
+
+THREE NEW REGISTER LINES, all arithmetic checked and correct:
+  Vetroseal 065311  10.8mm laminated, single      GBP 82.99/m2 goods (+50.00 delivery to MK40)
+  Vetroseal 065222  6.8mm laminated, single       GBP 34.65/m2 goods (+GBP 1.95/m2 energy)
+  Vetroseal 065209  4T-18-6.8 lami/tgh softcoat   GBP 52.51/m2 goods (+GBP 3.25/m2 energy)
+
+AND A WEIGHING INCONSISTENCY, immaterial in money but it breaks a check: on 065209 and 065222 the
+surcharge weight is GLASS ONLY (25.0 and 15.0 kg/m2 - the laminate interlayer excluded); on 065311 it
+is the FULL 10.8mm including interlayer (27.0 kg/m2). So you cannot verify a Vetroseal weight from
+the make-up alone, and a weight that looks wrong is not evidence of an error.
+
+TWO THINGS THE BATCH JOINED UP, which neither work order showed on its own:
+- MHA NUNEATON IS BEING PRICED TWO WAYS. 065209 and 065222 are the SAME 8 units at 620 x 2020 on the
+  same day - one as a 28.8mm double-glazed unit (GBP 526.08) and one as single 6.8 laminate
+  (GBP 347.20). Someone is comparing DGU against single glass, GBP 179 apart on goods. Still no
+  enquiry for it anywhere in estimating@ and no folder in the archive.
+- ELEVATION/BEDFORD IS PAUL'S MK40 EMERGENCY. Paul Taylor asked AE Glaziers on 03/08 for an emergency
+  board-up in Bedford MK40 plus a survey and replacement price, and AE came back asking "do you have a
+  rough width and height of the glass?" Vetroseal have now priced one pane 3145 x 2103 delivered to
+  MK40 2QA. That answers AE's question - nobody needs to re-measure.

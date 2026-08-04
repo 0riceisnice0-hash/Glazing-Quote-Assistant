@@ -1,0 +1,10 @@
+﻿import re,sys
+sys.stdout.reconfigure(encoding="utf-8")
+src=open("scripts/mary_checks.py",encoding="utf-8").read()
+i=src.find("def check_free_delivery_threshold")
+j=src.find("def check_priced_document_view_is_intact")
+print(src[i:j])
+print("#"*70)
+k=src.find("CHECKS = [")
+if k<0: k=src.find("CHECKS=[")
+print(src[k:k+1800])

@@ -1,0 +1,61 @@
+NEIL DOUGLAS - we have won Earleswood Court, and one unanswered question is holding it up.
+
+Anton Antonov issued the Works Order on 30/07 for Earleswood Court, GBP 14,003 ex VAT: 3x 020S
+front entrance door sets, 2x 050S rear. It is Fenster's first formal project with Neil Douglas,
+and Anton's own words were "hopefully more to follow".
+
+What is actually blocking it - Adam is already on this, so it is the record, not a nudge:
+
+1. The half-glazed door design. Adam asked Anton on 03/08 to confirm glass top / midrail / solid
+   panel bottom, because it differs from the 020S/050S photos Anton sent on 31/07. Anton is out of
+   office and Adam chased projects@neildouglas.co.uk this morning. Lead times are 6-8 weeks from
+   order, so this is the critical path.
+2. Anton asked US a question on 30/07 that nobody has answered: do we have a checklist of colours,
+   glass type and ironmongery that we run through before the procurement order is placed? If one
+   exists it should go over today. If not, it is worth building once - he is asking to be managed
+   well, and being managed well is what buys the next job off a block manager.
+3. The final survey, which he asked us to book "as soon as practically possible".
+
+FOUR OTHER OUTCOMES THAT NEVER REACHED THE CRM. Anton answered all of them in one email on 29/06,
+and the board still had them this morning as silent chases:
+
+ - Alsford Wharf - LOST, awarded to an alternative contractor. There is no CRM row for it at all.
+ - Riverside Close, GBP 20,752 - windows lost to another contractor, doors deferred to 2027 and
+   Anton reverts next year. The board wanted this chased at "188 days silent".
+ - Tithe Court, GBP 14,103 - the client was RECOMMENDED TO PROCEED WITH FENSTER, then paused for a
+   different urgent project. That is not a price problem. Board said "426 days silent".
+ - Earleswood was never silent either. It was inside a 20-day Section 20 leaseholder consultation,
+   which is exactly why these rows sit for months. On this account elapsed days mean process, not
+   disinterest, and a generic chase on any of the four would have been wrong.
+
+Kaybridge Close, GBP 20,838, is the one real unknown - and that is our fault, not the client's. It
+was left off our own 15/06 list of outstanding quotes, so Anton has never been asked about it. He
+answered every job we put to him and none that we didn't. One line on the next call.
+
+All five rows are corrected in the CRM with real next actions and dates. Company file written:
+data/companies/neil-douglas-block-management.md.
+
+SHARNBROOK GRAIN STORAGE - Gray & Sons, GBP 110,334 - not silent either. We chased on 30/07 and
+Paul Green came back the same day: "We still await a post tender meeting to be arranged with the
+client for this one." They are still bidding, our price sits inside their tender, and there is
+nothing to do until that meeting happens. Next contact 21/08, and it should pick up Newport
+Pagnell Baptist Church, GBP 91,457, in the same call rather than as a second chase.
+
+TWO THINGS I NEED.
+
+Adam - the "474 new opportunity(s)" forward from 28/07 has no readable content on my side. The body
+is just your signature and there is no attachment on the message, so I cannot tell which portal it
+is or what the 474 are. Can you forward the digest itself, or name the portal and I will go at the
+source? Worth saying plainly first: three contracts in Fenster's history have come from a tender
+portal, against roughly three quarters from an existing relationship or from Jayk. So 474 rows is a
+large haystack, and if I work it I would rather mine it for contractor names to get onto enquiry
+lists than for the jobs themselves.
+
+Zac - this chat is the permanent one for Glazing Consultancy Services and it is routed on
+subject~glazing. That matches "Fenster Glazing", our own name, so it catches company-wide mail: all
+four work orders today were false positives and not one mentioned GCS. It is the single-word
+false-positive rule landing on our own router. Suggest matching glazingconsultancyservices, or
+Darren's address, instead.
+
+GCS itself has not moved. Nothing from Darren, both rows still DO NOT CHASE, and the next action is
+still the call in late September, before the autumn CIF bid window opens.

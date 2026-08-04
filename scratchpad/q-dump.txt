@@ -1,0 +1,1852 @@
+==========================================================================================
+20260730T0726-qOowAAAA.json
+mailbox=estimating@fensterglazing.com trusted=False route=totteridge recv=2026-07-30T07:26:36Z
+from=mthorne@borrasconstruction.co.uk to=['adam@fensterglazing.com'] cc=['estimating@fensterglazing.com']
+subj=RE: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation
+att=['image001.png', 'image002.png', 'image003.png', 'image004.png', 'image005.png', 'image006.png', 'image007.png', 'image008.png', 'image010.jpg', 'image011.png', 'image012.png', 'image014.jpg', 'image015.jpg', 'image016.jpg', '179fb0e4-cc8e-44fc-8db5-3bfb1b7b1aa9.png', 'image417452.jpg', 'image539575.png', 'image983903.png', 'image618134.jpg', 'Jan Tender Programme - Tottteridge Academy.pdf']
+--- body len 5359
+Good morning Adam, 
+
+ Thank you for your quotation for the Totteridge Academy from last year. 
+
+ We have now been told that the planning permission is likely to be approved in October, and this means that the main works will commence on site in the New Year (as per our attached revised programme). 
+
+ We would be grateful if you review your costs and advise us of any necessary cost adjustment based on the revised programme dates. 
+
+ It would be appreciated if you can respond back to us not later than: FRIDAY 7 th AUGUST 2026 or sooner if possible . 
+
+ Many thanks, 
+ Regards, 
+ Matt 
+
+ ​ ​ ​ ​ 
+ Matthew Thorne 
+
+ Senior Estimator 
+
+ t: 
+ 01727 850633 
+
+ m: 
+ 07812 573822 
+
+ w: www.borrasconstruction.co.uk 
+
+ 1 Salar House, Campfield Road, St Albans, Hertfordshire AL1 5HT 
+
+ From: Adam <adam@fensterglazing.com> 
+ Sent: 07 October 2025 17:11
+ To: Matthew Thorne <mthorne@borrasconstruction.co.uk>
+ Cc: Harry <estimating@fensterglazing.com>
+ Subject: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Hi Matt, 
+
+ Please see our estimate attached. 
+
+ Any queries please let me know. 
+
+ We have included for supply and installation as per your required specification. 
+
+ Kind Regards, 
+
+ Adam Butcher | Commercial Director     
+ 01908 429200 | www.fensterglazing.com 
+ 97-98 Alston Drive, Bradwell Abbey, MK13 9HF 
+
+ Follow us on socials… 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error. 
+
+ From: Matthew Thorne < mthorne@borrasconstruction.co.uk >
+ Sent: 16 September 2025 4:25 PM
+ To: Adam < adam@fensterglazing.com >
+ Cc: Harry < estimating@fensterglazing.com >
+ Subject: RE: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) 
+
+ Thanks Adam 
+
+ ​ ​ ​ ​ 
+
+ Matthew Thorne 
+
+ Senior Estimator 
+
+ t: 
+
+ 01727 850633 
+
+ m: 
+
+ 07812 573822 
+
+ w: www.borrasconstruction.co.uk 
+
+ 1 Salar House, Campfield Road, St Albans, Hertfordshire AL1 5HT 
+
+ From: Adam < adam@fensterglazing.com > 
+ Sent: 16 September 2025 16:24
+ To: Matthew Thorne < mthorne@borrasconstruction.co.uk >
+ Cc: Harry < estimating@fensterglazing.com >
+ Subject: Re: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) 
+
+ Hi Matt, 
+
+ Thanks for sending this over, we'll get to work on this one for you and let you know if we have any queries. 
+
+ Kind Regards, 
+
+ Adam Butcher | Commercial Director     
+ 01908 429200 | www.fensterglazing.c
+==========================================================================================
+20260730T0905-qOpQAAAA.json
+mailbox=estimating@fensterglazing.com trusted=True route=totteridge recv=2026-07-30T09:05:22Z
+from=adam@fensterglazing.com to=['mthorne@borrasconstruction.co.uk'] cc=['estimating@fensterglazing.com']
+subj=Re: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation
+att=[]
+--- body len 6524
+Hi Matt,
+
+ Thanks for getting in touch, we'll take a look into this one and get back to you.
+
+ Can you confirm the drawings we received in September last year are the latest revisions?
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Matthew Thorne <mthorne@borrasconstruction.co.uk>
+ Sent: 30 July 2026 8:26 AM
+ To: Adam <adam@fensterglazing.com>
+ Cc: Estimating <estimating@fensterglazing.com>
+ Subject: RE: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Good morning Adam, 
+
+ Thank you for your quotation for the Totteridge Academy from last year. 
+
+ We have now been told that the planning permission is likely to be approved in October, and this means that the main works will commence on site in the New Year (as per our attached revised programme). 
+
+ We would be grateful if you review your costs and advise us of any necessary cost adjustment based on the revised programme dates. 
+
+ It would be appreciated if you can respond back to us not later than: FRIDAY 7 th AUGUST 2026 or sooner if possible . 
+
+ Many thanks, 
+ Regards, 
+ Matt 
+
+ ​ ​ ​ ​ 
+ Matthew Thorne 
+
+ Senior Estimator 
+
+ t: 
+ 01727 850633 
+
+ m: 
+ 07812 573822 
+
+ w: www.borrasconstruction.co.uk 
+
+ 1 Salar House, Campfield Road, St Albans, Hertfordshire AL1 5HT 
+
+ From: Adam <adam@fensterglazing.com> 
+ Sent: 07 October 2025 17:11
+ To: Matthew Thorne <mthorne@borrasconstruction.co.uk>
+ Cc: Harry <estimating@fensterglazing.com>
+ Subject: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Hi Matt, 
+
+ Please see our estimate attached. 
+
+ Any queries please let me know. 
+
+ We have included for supply and installation as per your required specification. 
+
+ Kind Regards, 
+
+ Adam Butcher | Commercial Director     
+ 01908 429200 | www.fensterglazing.com 
+ 97-98 Alston Drive, Bradwell Abbey, MK13 9HF 
+
+ Follow us on socials… 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents,
+==========================================================================================
+20260730T0912-qOpgAAAA.json
+mailbox=estimating@fensterglazing.com trusted=False route=totteridge recv=2026-07-30T09:12:24Z
+from=mthorne@borrasconstruction.co.uk to=['adam@fensterglazing.com'] cc=['estimating@fensterglazing.com']
+subj=RE: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation
+att=[]
+--- body len 7171
+Thanks Adam, 
+
+ Yes there are no design changes, only the programme dates. 
+
+ Regards, 
+ Matt 
+
+ ​ ​ ​ ​ 
+ Matthew Thorne 
+
+ Senior Estimator 
+
+ t: 
+ 01727 850633 
+
+ m: 
+ 07812 573822 
+
+ w: www.borrasconstruction.co.uk 
+
+ 1 Salar House, Campfield Road, St Albans, Hertfordshire AL1 5HT 
+
+ From: Adam <adam@fensterglazing.com> 
+ Sent: 30 July 2026 10:04
+ To: Matthew Thorne <mthorne@borrasconstruction.co.uk>
+ Cc: Estimating <estimating@fensterglazing.com>
+ Subject: Re: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Hi Matt, 
+
+ Thanks for getting in touch, we'll take a look into this one and get back to you. 
+
+ Can you confirm the drawings we received in September last year are the latest revisions? 
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error. 
+
+ From: Matthew Thorne < mthorne@borrasconstruction.co.uk >
+ Sent: 30 July 2026 8:26 AM
+ To: Adam < adam@fensterglazing.com >
+ Cc: Estimating < estimating@fensterglazing.com >
+ Subject: RE: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Good morning Adam, 
+
+ Thank you for your quotation for the Totteridge Academy from last year. 
+
+ We have now been told that the planning permission is likely to be approved in October, and this means that the main works will commence on site in the New Year (as per our attached revised programme). 
+
+ We would be grateful if you review your costs and advise us of any necessary cost adjustment based on the revised programme dates. 
+
+ It would be appreciated if you can respond back to us not later than: FRIDAY 7 th AUGUST 2026 or sooner if possible . 
+
+ Many thanks, 
+ Regards, 
+ Matt 
+
+ ​ ​ ​ ​ 
+
+ Matthew Thorne 
+
+ Senior Estimator 
+
+ t: 
+
+ 01727 850633 
+
+ m: 
+
+ 07812 573822 
+
+ w: www.borrasconstruction.co.uk 
+
+ 1 Salar House, Campfield Road, St Albans, Hertfordshire AL1 5HT 
+
+ From: Adam < adam@fensterglazing.com > 
+ Sent: 07 October 2025 17:11
+ To: Matthew Thorne < mthorne@borrasconstruction.co.uk >
+ Cc: Harry < estimating@fensterglazing.com >
+ Subject: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Hi Matt, 
+
+ Please see our estimate attached. 
+
+ Any queries please let 
+==========================================================================================
+20260730T0939-qOpwAAAA.json
+mailbox=estimating@fensterglazing.com trusted=True route=totteridge recv=2026-07-30T09:39:46Z
+from=adam@fensterglazing.com to=['estimating@fensterglazing.com'] cc=[]
+subj=Re: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation
+att=[]
+--- body len 6601
+Hey, are you able to gather the job costings through your emails for this one please and send them to me for review?
+
+ Also worth checking with suppliers if they are still valid. I can't find a lot in the onedrive (FYI we also quoted this same job for Conamar).
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Matthew Thorne <mthorne@borrasconstruction.co.uk>
+ Sent: 30 July 2026 8:26 AM
+ To: Adam <adam@fensterglazing.com>
+ Cc: Estimating <estimating@fensterglazing.com>
+ Subject: RE: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Good morning Adam, 
+
+ Thank you for your quotation for the Totteridge Academy from last year. 
+
+ We have now been told that the planning permission is likely to be approved in October, and this means that the main works will commence on site in the New Year (as per our attached revised programme). 
+
+ We would be grateful if you review your costs and advise us of any necessary cost adjustment based on the revised programme dates. 
+
+ It would be appreciated if you can respond back to us not later than: FRIDAY 7 th AUGUST 2026 or sooner if possible . 
+
+ Many thanks, 
+ Regards, 
+ Matt 
+
+ ​ ​ ​ ​ 
+ Matthew Thorne 
+
+ Senior Estimator 
+
+ t: 
+ 01727 850633 
+
+ m: 
+ 07812 573822 
+
+ w: www.borrasconstruction.co.uk 
+
+ 1 Salar House, Campfield Road, St Albans, Hertfordshire AL1 5HT 
+
+ From: Adam <adam@fensterglazing.com> 
+ Sent: 07 October 2025 17:11
+ To: Matthew Thorne <mthorne@borrasconstruction.co.uk>
+ Cc: Harry <estimating@fensterglazing.com>
+ Subject: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Hi Matt, 
+
+ Please see our estimate attached. 
+
+ Any queries please let me know. 
+
+ We have included for supply and installation as per your required specification. 
+
+ Kind Regards, 
+
+ Adam Butcher | Commercial Director     
+ 01908 429200 | www.fensterglazing.com 
+ 97-98 Alston Drive, Bradwell Abbey, MK13 9HF 
+
+ Follow us on socials… 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recip
+==========================================================================================
+20260730T0951-rncwAAAA.json
+mailbox=estimating@fensterglazing.com trusted=False route=totteridge recv=2026-07-30T09:51:17Z
+from=estimating@fensterglazing.com to=['adam@fensterglazing.com'] cc=[]
+subj=Re: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation
+att=['image001.png', 'image002.png', 'image003.png', 'image004.png', 'image005.png', 'image006.png', 'image007.png', 'image008.png', 'image010.jpg', 'image011.png', 'image012.png', 'image014.jpg', 'image015.jpg', 'image016.jpg', '179fb0e4-cc8e-44fc-8db5-3bfb1b7b1aa9.png', 'image417452.jpg', 'image539575.png', 'image983903.png', 'image618134.jpg', 'Quotation Totteridge.pdf', 'Totteridge Academy Fenster 18.09.2025.pdf']
+--- body len 8001
+Hi Adam,
+ I was looking through the inbox, as, like you said, there isn't much in the folder.
+ I've only found two quotes in the emails; please see them attached.
+ I believe the cost was based on a quote from County Architectural Aluminium. However, their quote isn't very informative, and it doesn't have each unit priced separately.
+ It might be worth checking your inbox as well, as it looks like you requested quotes from suppliers. It's possible that some of them replied directly to you only.
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Adam <adam@fensterglazing.com>
+ Sent: 30 July 2026 10:39
+ To: Estimating <estimating@fensterglazing.com>
+ Subject: Re: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Hey, are you able to gather the job costings through your emails for this one please and send them to me for review?
+
+ Also worth checking with suppliers if they are still valid. I can't find a lot in the onedrive (FYI we also quoted this same job for Conamar).
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Matthew Thorne <mthorne@borrasconstruction.co.uk>
+ Sent: 30 July 2026 8:26 AM
+ To: Adam <adam@fensterglazing.com>
+ Cc: Estimating <estimating@fensterglazing.com>
+ Subject: RE: T0689 - The Totteridge Academy: New sixth form block (Enquiry for Aluminium curtain walling, windows and external doors) - Fenster Glazing Ltd - Quotation 
+
+ Good morning Adam, 
+
+ Thank you for your quotation for the Totteridge Academy from last year. 
+
+ We have now been told that the planning permission is likely to be approved in October, and this means that the main works will commence on site in the New Year (as per our attached revised programme). 
+
+ We would be grateful if you review your costs and advise
+==========================================================================================
+20260730T1021-rndAAAAA.json
+mailbox=estimating@fensterglazing.com trusted=False route=filwood recv=2026-07-30T10:21:20Z
+from=estimating@fensterglazing.com to=['adam@fensterglazing.com'] cc=[]
+subj=Re: QUOTE TO CHECK Re: BCC, 4-16 Filwood Broadway, BS4 1JN
+att=[]
+--- body len 4256
+Hey, 
+
+ Have you had a chance to check this one? It needs to go out today. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Estimating <estimating@fensterglazing.com>
+ Sent: 27 July 2026 14:17
+ To: Adam <adam@fensterglazing.com>
+ Subject: QUOTE TO CHECK Re: BCC, 4-16 Filwood Broadway, BS4 1JN 
+
+ Hi Adam, 
+
+ Please find attached quote for checking. 
+
+ This is for ground floor screens & doors only. 
+
+ The units a very large so I priced is 'DAD' and added an extra £1000 to each. Might be worth adding extra to the installation as well? 
+
+ Deadline – Thursday, 30 July. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Commercial <Commercial@fensterglazing.com>
+ Sent: 17 July 2026 13:51
+ To: Estimating <estimating@fensterglazing.com>
+ Cc: Adam <adam@fensterglazing.com>
+ Subject: Fw: BCC, 4-16 Filwood Broadway, BS4 1JN 
+
+ Helloooo,
+
+ New enquiry, I have saved in Tender Docs under Stepnell - BCC Filing Braodway
+
+ Kind Regards, 
+
+ Paul Taylor | Project Manager    
+ 01908 429200 | www.fensterglazing.com 
+ 97-98 Alston Drive, Bradwell Abbey, MK13 9HF 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error. 
+
+ From: Stepnell Ltd <stepnellltd@conquestenquiries.com>
+ Sent: 17 July 2026 12:10
+ To: Commercial <Commercial@fensterglazing.com>
+ Subject: BCC, 4-16 Filwood Broadway, BS4 1JN 
+
+ Stepnell Ltd 
+
+ This enquiry was sent to you by ConQuest . 
+
+ Invitation To Tender 
+ BCC, 4-16 Filwood Broadway 
+ L_S
+==========================================================================================
+20260730T1155-qOrwAAAA.json
+mailbox=estimating@fensterglazing.com trusted=True route=filwood recv=2026-07-30T11:55:38Z
+from=adam@fensterglazing.com to=['estimating@fensterglazing.com'] cc=[]
+subj=Re: QUOTE TO CHECK Re: BCC, 4-16 Filwood Broadway, BS4 1JN
+att=[]
+--- body len 5623
+Hey,
+
+ Looking at this we aren't hitting the g-value required for the glazing. We certainly aren't hitting the u-value either but 1.0 is ambitious.
+
+ Can you make sure we clarify the u-value please. 
+
+ To cover the glass and to ensure we have enough mark up please can you do the below before sending out:
+
+ Ensure all clarifications are accurate regarding u-value and the fact we are quoting a 'similar approved' profile instead of Aluprof
+ Add £3200 in the additional as opposed to £1000
+ Make labour £7500
+
+ Total should be around £85k. 
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Estimating <estimating@fensterglazing.com>
+ Sent: 30 July 2026 11:21 AM
+ To: Adam <adam@fensterglazing.com>
+ Subject: Re: QUOTE TO CHECK Re: BCC, 4-16 Filwood Broadway, BS4 1JN 
+
+ Hey, 
+
+ Have you had a chance to check this one? It needs to go out today. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Estimating <estimating@fensterglazing.com>
+ Sent: 27 July 2026 14:17
+ To: Adam <adam@fensterglazing.com>
+ Subject: QUOTE TO CHECK Re: BCC, 4-16 Filwood Broadway, BS4 1JN 
+
+ Hi Adam, 
+
+ Please find attached quote for checking. 
+
+ This is for ground floor screens & doors only. 
+
+ The units a very large so I priced is 'DAD' and added an extra £1000 to each. Might be worth adding extra to the installation as well? 
+
+ Deadline – Thursday, 30 July. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based
+==========================================================================================
+20260730T1200-rndwAAAA.json
+mailbox=estimating@fensterglazing.com trusted=False route=filwood recv=2026-07-30T12:00:13Z
+from=estimating@fensterglazing.com to=['adam@fensterglazing.com'] cc=[]
+subj=Re: QUOTE TO CHECK Re: BCC, 4-16 Filwood Broadway, BS4 1JN
+att=[]
+--- body len 6779
+Hi, 
+
+ I will update it as per your notes and send it out. 
+
+ Please see the note from BSW: we have met the u- and g- and acoustic value for glazing only, as these area commercial thermally broken shopfront products they are non rebated.
+
+I have used flat aluminium panels everywhere glass was not indicated. 
+
+ I will include it in the proposal as well.
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Adam <adam@fensterglazing.com>
+ Sent: 30 July 2026 12:55
+ To: Estimating <estimating@fensterglazing.com>
+ Subject: Re: QUOTE TO CHECK Re: BCC, 4-16 Filwood Broadway, BS4 1JN 
+
+ Hey,
+
+ Looking at this we aren't hitting the g-value required for the glazing. We certainly aren't hitting the u-value either but 1.0 is ambitious.
+
+ Can you make sure we clarify the u-value please. 
+
+ To cover the glass and to ensure we have enough mark up please can you do the below before sending out:
+
+ Ensure all clarifications are accurate regarding u-value and the fact we are quoting a 'similar approved' profile instead of Aluprof
+ Add £3200 in the additional as opposed to £1000
+ Make labour £7500
+
+ Total should be around £85k. 
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Estimating <estimating@fensterglazing.com>
+ Sent: 30 July 2026 11:21 AM
+ To: Adam <adam@fensterglazing.com>
+ Subject: Re: QUOTE TO CHECK Re: BCC, 4-16 Filwood Broadway, BS4 1JN 
+
+ Hey, 
+
+ Have you had a chance to check this one? It needs to go out today. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you 
+==========================================================================================
+20260730T1228-rneAAAAA.json
+mailbox=estimating@fensterglazing.com trusted=False route=filwood recv=2026-07-30T12:28:40Z
+from=estimating@fensterglazing.com to=['adam.warner@stepnell.co.uk'] cc=['adam@fensterglazing.com']
+subj=Re: BCC, 4-16 Filwood Broadway, BS4 1JN
+att=['Screen & Door Drawings.pdf', 'Stepnell - BCC Filwood Broadway Pricing.xlsx', 'Stepnell - BCC Filwood Broadway Proposal.pdf']
+--- body len 2430
+Hi Adam, 
+
+ Hope you’re well. 
+
+ Please find attached our quotation for BCC, 4-16 Filwood Broadway, BS4 1JN. 
+
+ We trust that everything is as per specification, however if you have any questions, please don’t hesitate to contact us. 
+
+ Looking forward to hearing from you. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Stepnell Ltd <stepnellltd@conquestenquiries.com>
+ Sent: 17 July 2026 12:10
+ To: Commercial <Commercial@fensterglazing.com>
+ Subject: BCC, 4-16 Filwood Broadway, BS4 1JN 
+
+ Stepnell Ltd 
+
+ This enquiry was sent to you by ConQuest . 
+
+ Invitation To Tender 
+ BCC, 4-16 Filwood Broadway 
+ L_SC Shop Front Systems 
+ Click Here For Details 
+
+ From
+
+ Adam Warner
+
+ Telephone
+
+ 07482 812 707
+
+ Reply To
+
+ adam.warner@stepnell.co.uk
+
+ Return Date
+
+ 20 July 2026
+
+ Location
+
+ 4-16 Filwood Broadway, Bristol, BS4 1JN
+
+ Client
+
+ Bristol City Council (BCC)
+
+ Notes
+
+ Dear Sir/Madam, Bristol City Council is seeking to appoint a Contractor for the Aluprof Shopfront Systems of 4-16 Filwood Broadway redevelopement. The project includes the construction of 18 residential units and 3 ground-floor flexible commercial units, along with associated landscaping a communal garden, bin and cycle stores, and other related works. We invite you to support us on this tender and look forward to receiving your quotation in accordance with the Employer's Requirements. Please submit your quotation by July 30th 2026. Should you have any queries, please direct them to adam.warner@stepnell.co.uk and sam.ignatov@stepnell.co.uk. Kind regards, Adam.
+
+ Do not delete this email. You will need it each time you want to access this enquiry. 
+
+ This link is intended for you and your immediate colleagues only. It must not be shared or reposted on the internet. 
+
+ This enquiry was sent to you by ConQuest . For information about Terms & Conditions click here .
+==========================================================================================
+20260730T1235-R6xPyAAA.json
+mailbox=estimating@fensterglazing.com trusted=False route=filwood recv=2026-07-30T12:35:48Z
+from=adam.warner@stepnell.co.uk to=['estimating@fensterglazing.com'] cc=['adam@fensterglazing.com']
+subj=Re: BCC, 4-16 Filwood Broadway, BS4 1JN
+att=[]
+--- body len 4200
+Hi Gintare,
+
+Thank you for sending over your quotation for Filwood Broadway. I will review it and get back to you if I have any questions.
+
+Kind regards,
+Adam
+
+ Adam Warner 
+ Senior Estimator 
+ M: 07482 812 707 
+
+ Stepnell House
+Suite 3
+Tollgate
+Chandler’s Ford Eastleigh Hampshire SO53 3LU United Kingdom
+
+ 02382 351 900 | stepnell.co.uk | Instagram | Linked In | Youtube 
+
+ Company registered at Lawford Road, Rugby, Warwickshire, CV21 2UU | Company number 00402934 
+ Confidentiality Notice : This communication and any attachments are intended solely for the addressee(s) and may contain information that is confidential, legally privileged, or commercially sensitive. If you are not the intended recipient, please notify the sender immediately, delete this message from your system, and do not copy, distribute, or take any action based on its contents. 
+
+ On Thu, 30 Jul 2026 at 13:32, Estimating < estimating@fensterglazing.com > wrote:
+
+ Hi Adam, 
+
+ Hope you’re well. 
+
+ Please find attached our quotation for BCC, 4-16 Filwood Broadway, BS4 1JN. 
+
+ We trust that everything is as per specification, however if you have any questions, please don’t hesitate to contact us. 
+
+ Looking forward to hearing from you. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Stepnell Ltd < stepnellltd@conquestenquiries.com >
+ Sent: 17 July 2026 12:10
+ To: Commercial < Commercial@fensterglazing.com >
+ Subject: BCC, 4-16 Filwood Broadway, BS4 1JN 
+
+ Stepnell Ltd 
+
+ This enquiry was sent to you by ConQuest . 
+
+ Invitation To Tender 
+ BCC, 4-16 Filwood Broadway 
+ L_SC Shop Front Systems 
+ Click Here For Details 
+
+ From
+
+ Adam Warner
+
+ Telephone
+
+ 07482 812 707
+
+ Reply To
+
+ adam.warner@stepnell.co.uk 
+
+ Return Date
+
+ 20 July 2026
+
+ Location
+
+ 4-16 Filwood Broadway, Bristol, BS4 1JN
+
+ Client
+
+ Bristol City Council (BCC)
+
+ Notes
+
+ Dear Sir/Madam, Bristol City Council is seeking to appoint a Contractor for the Aluprof Shopfront Systems of 4-16 Filwood Broadway redevelopement. The project includes the construction of 18 residential units and 3 ground-floor flexible commercial units, along with associated landscaping a communal garden, bin and cycle stores, and other related works. We invite you to support us on this tender and look forward to receiving your quotation in accordance with the Employer's Requirements. Please submit your quotation by July 30th 2026. Should you have any queries, please direct them to adam.w
+==========================================================================================
+botmsg-44.json
+mailbox=botchat trusted=False route=None recv=2026-08-04T10:49:20.390Z
+from=jacob to=['mary'] cc=[]
+subj=Sinden - Alkerden quote status + Alice Billings scope
+att=[]
+--- body len 889
+Sinden Construction - two questions, both estimating@, both decide what a call to them says.
+
+They have sent a third enquiry: Alice Billings House Phase 2, Stratford E15, Windows & Doors
+aluminium, eque2 portal, closing 17/08, intent-to-bid wanted by Thursday 06/08. I have drafted
+the intent reply for a human to send.
+
+1. Has the ALKERDEN updated quotation gone since we last spoke on 30/07? You established then
+   that nothing had left estimating@ to Sinden since 02/07. If it has now gone, Adam's call is a
+   chase with a hook. If it has not, it is four weeks over and the call opens differently.
+2. Has Emma answered Gintare's 03/08 14:49 scope question - BoQ-listed units only, or per the
+   window and door schedules? And has anything come back from Seyi on the 02/07 Velfac question?
+
+That is all I need. If the answer is "nothing has changed", say that and I will not ask again.
+==========================================================================================
+botmsg-46.json
+mailbox=botchat trusted=False route=None recv=2026-08-04T11:15:27.209Z
+from=jacob to=['mary'] cc=[]
+subj=Luton Airport - was 14,157 priced on one mobilisation? Airside, second visit
+att=[]
+--- body len 1351
+Luton Airport Departure Gates 1 & 2 (Ryebridge, GBP 14,157.24, issued 13/07) - one question,
+and it is about a commitment that has already gone to the client.
+
+On 30/07 Noel Cremin told us LLA have revised access: half the waiting area and one departure
+exit must stay operational throughout, so it is now 2 pairs of doors replaced and a return
+visit a week or so later for the third. Adam answered inside half an hour: "No cost
+implications, we're happy to make two visits to site as it's local to us."
+
+That is in writing to the client now. What I cannot tell, and you can:
+
+  Was the 14,157.24 built on ONE mobilisation, and where does the LLA induction and escort
+  time sit in the labour line - once, or per visit?
+
+The reason I am asking rather than leaving it: this is airside. Every installer and
+supervisor needs an LLA induction for clearance and is escorted for the duration. A second
+visit is a second escorted airside mobilisation, not a second van journey - "local to us"
+covers the travel and none of the rest. If the take-off carried one visit's worth of
+induction and escort, we have given something away we cannot politely take back once an
+order lands.
+
+If it is absorbed, say so and I will stop - nothing needed beyond that. If it is not, Adam
+should know the number now rather than at order stage, and I will put it to him.
+
+Jacob
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADEomc4QAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=addison-ave recv=2026-07-31T14:36:08Z
+from=ben@harriscalnan.co.uk to=['estimating@fensterglazing.com'] cc=['adam@fensterglazing.com']
+subj=RE: Crittall Style Doors & Window - 20 Addison Ave, W11 4QL
+att=['image002.png', 'image003.png', 'image004.png', 'image005.png', 'image006.png', 'image007.png', 'image008.png', 'image009.png', 'image010.png', 'image011.png', 'Quotation - 20 Addison Ave.xlsx', '340_52_73-External-Door-Schedule-Rev.-.pdf', '340_52_74-Window-Schedule-Rev.-.pdf']
+--- body len 4623
+Hi Adam & Gintare, 
+
+ I hope you are both well. 
+
+ We are on site now and works are progressing. Looking to get something locked in on these Crittall style doors & windows. 
+
+ I noticed on the previous quote from March that you didn’t quote the internal door, DG09. Was there a reason for that, or just missed? 
+
+ I’ve attached the window and external door schedule which have now been issued for construction. Note the comments regarding trickle vents – can you address those, please? 
+
+ The internal door schedule is coming soon, and I will furnish you with that once I have it. My understanding is that there will be an additional Crittall style door on there, as well as DG09. 
+
+ Can you provide an updated quote for the external doors and window for now, and we can add the internal doors on thereafter. Please also confirm your current lead time, as it would be good to understand that now. 
+
+ Finally, it would be good to have a representative image of your product. Are you able to send something over for that, please? 
+
+ Thanks, and look forward to hearing from you. 
+
+ Kind regards 
+
+ Ben Stimpson | Harris Calnan 
+ HCCC Ltd, One Oaks Court, Warwick Road, Borehamwood, Herts, WD6 1GS 
+ 020 8968 8877 | www.harriscalnan.co.uk | @harriscalnan 
+
+ See our ‘Selected Works’ brochure here 
+
+ From: Estimating <estimating@fensterglazing.com> 
+ Sent: 03 March 2026 11:08
+ To: Ben Stimpson <ben@harriscalnan.co.uk>
+ Cc: Adam <adam@fensterglazing.com>
+ Subject: Re: Crittall Style Doors & Window - 20 Addison Ave, W11 4QL 
+
+ Hi Ben, 
+
+ Hope you’re well, 
+
+ Please find attached our quotation for 20 Addison Ave project, accompanied by our Cover Letter. 
+
+ We trust that everything as per specification, however if you have any questions, please don’t hesitate to contact either myself or Adam – cc’ed in. 
+
+ Looking forward to hearing from you. 
+
+ Gintare Vanagaite | Commercial Estimator 
+ 01908 429200 | www.fensterglazing.com 
+ 97-98 Alston Drive, Bradwell Abbey, MK13 9HF 
+
+ Follow us on socials… 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error. 
+
+ From: Adam < adam@fensterglazing.com >
+ Sent: 20 February 2026 16:22
+ To: ben@harriscalnan.co.uk < ben@harriscalnan.co.uk >
+ Cc: Estimating < estimating@fensterglazing.com >; Jayk < jayk@fensterglazing.com >
+ Subject: Re: Crittall Style Doors & Window - 20 Addison Ave, W11 4QL 
+
+ Hi Ben, 
+
+ Thanks for getting in touch, I have passed this over to your estimating team who will get a quote put together. We'll let you know if you have any queries. 
+
+ Kind Regards, 
+
+ Adam Butcher | Commercial Direct
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFJpJWwAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=john-north-hall recv=2026-08-03T09:33:28Z
+from=estimating@fensterglazing.com to=['estimations@bsws.co.uk'] cc=[]
+subj=Fenster Glazing - John North Hall
+att=[]
+--- body len 1259
+Hi, 
+
+ Could you please provide a quote for 5x Aluminium Doors as per the attached and below. 
+
+ Specification below:
+ Manufacture: Smart Architectural Aluminium
+ SMA Smart-Wall
+ Pivoted doors with anti-finger trap hinge
+ Commercial-grade concealed overhead closer
+ Low Mobility threshold
+ Brown fixed pad handles, internal and external
+ Material - Aluminium Polyamide
+ Glazing type - Toughened, laminate argon-gas-filled glazed units.
+ Colour - Brown (similar colour to existing door sets and surrounding window frames)
+ Lock cylinders with a thumb turner on the inside.
+ Opening leaf is to open outwards.
+ Provide new keys, quantity of 129. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFJpg7AAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=market-house recv=2026-08-03T09:23:02Z
+from=estimating@fensterglazing.com to=['steven@fensterglazing.com', 'adam@fensterglazing.com'] cc=[]
+subj=Re: Invitation to Tender — Windows/Curtain Walling — Market House, Maidenhead
+att=[]
+--- body len 3646
+Good morning both,
+ Could you please have a quick look at this job?
+ Schüco or similar is specified, would APlus or BSW be more suitable for this enquiry?
+ There is also a revolving door included. Do we have any potential suppliers for this? 
+ DP Designs - Market House 
+ Thanks, 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Commercial <Commercial@fensterglazing.com>
+ Sent: 31 July 2026 10:01
+ To: Estimating <estimating@fensterglazing.com>
+ Cc: Adam <adam@fensterglazing.com>
+ Subject: Fw: Invitation to Tender — Windows/Curtain Walling — Market House, Maidenhead 
+
+ Hi G,
+
+ Happy Friday!!
+
+ Got a really nice tender come in here, I have saved Tender Docs under DP Designs. Deadline 07 th August.
+
+ Kind Regards, 
+
+ Paul Taylor 
+ Project Manager 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Fenster Glazing <info@fensterglazing.com>
+ Sent: 31 July 2026 09:01
+ To: Commercial <Commercial@fensterglazing.com>; Adam <adam@fensterglazing.com>
+ Subject: Fw: Invitation to Tender — Windows/Curtain Walling — Market House, Maidenhead 
+
+ Kerry Lince 
+ Administrator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Rob Charlton <rob.charlton@dpdesigns.co.uk>
+ Sent: 31 July 2026 9:00 AM
+ To: Fenster Glazing <info@fensterglazing.com>
+ Subject: Invitation to Tender — Windows/Curtain Walling — Market House, Maidenhead 
+
+ Dear Sir/Madam,
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFJpg7QAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=john-north-hall recv=2026-08-03T10:05:24Z
+from=estimating@fensterglazing.com to=['adam@fensterglazing.com'] cc=['Commercial@fensterglazing.com']
+subj=Re: John North Hall (1-39 Vaughan House ) - Replacement of external communal block entrance door sets - ITT
+att=[]
+--- body len 6040
+Hi Adam,
+ Please see below new enquiry.
+ It’s for 5nr aluminium communal entrance door sets at Vaughan House, John North Close, High Wycombe.
+ No sizes have been provided. The ITT notes that the tenderer should visit site prior to submitting a price and is responsible for becoming fully acquainted with the extent of the works, with no claims for extras for items that could reasonably have been foreseen from a site visit.
+ Would you prefer us to arrange a site survey before pricing, or should we allow assumed sizes from the photos for budget purposes only?
+ Thanks, 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Fenster Glazing <info@fensterglazing.com>
+ Sent: 27 July 2026 16:56
+ To: Estimating <estimating@fensterglazing.com>
+ Subject: Fw: John North Hall (1-39 Vaughan House ) - Replacement of external communal block entrance door sets - ITT 
+
+ Hi,
+
+ Please see below enquiry
+
+ Perry Giffin 
+ Office Manager 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Jordan Jones <jordan.jones@neildouglas.co.uk>
+ Sent: 27 July 2026 4:53 PM
+ To: Fenster Glazing <info@fensterglazing.com>
+ Subject: John North Hall (1-39 Vaughan House ) - Replacement of external communal block entrance door sets - ITT 
+
+ Good afternoon, 
+
+ I would like to formally invite you on behalf of our client, John North Hall (High Wycombe) Management Company Limited to submit a tender for the replacement of all external communal block entrance door sets for blocks within 1-39 Vaughan House, John North Close, High Wycombe, HP11 1FF (x5 blocks). If it's something that is of interest and you are able to facilitate the works, please submit your tender by no later than 9am Monday 24th August 2026. Should you have any questions concerning the schedule of works or the tendering process, please send these via email to jordan.jones@neildouglas.co.uk . 
+
+ Our intention is to have these works start in O
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFJpg8AAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=alice-billings recv=2026-08-03T14:49:24Z
+from=estimating@fensterglazing.com to=['Emma.OBrien@sindenconstruction.co.uk'] cc=[]
+subj=Re: Alice Billings House - Phase 2 - Main Works - Invitation To Tender for Windows & Doors-Aluminium works
+att=[]
+--- body len 3159
+Hi Emma,
+ Many thanks for sending the enquiry.
+ I have reviewed the information and just wanted to clarify the intended scope.
+ Could you please confirm whether we should price the units as listed within the BoQ only, or whether we should price as per the window and door schedules?
+ Many thanks,
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Emma O'Brien <Emma.OBrien@sindenconstruction.co.uk>
+ Sent: 03 August 2026 11:59
+ To: Estimating <estimating@fensterglazing.com>
+ Cc: Emma.OBrien@sindenconstruction.co.uk <Emma.OBrien@sindenconstruction.co.uk>; Gary.Johnson@sindenconstruction.co.uk <Gary.Johnson@sindenconstruction.co.uk>
+ Subject: Alice Billings House - Phase 2 - Main Works - Invitation To Tender for Windows & Doors-Aluminium works 
+
+ F.A.O: Fenster Glazing & Locks Ltd 
+
+ Alice Billings House - Phase 2 - Main Works, 2-12 West Ham Lane, Stratford, London, E15 4SF 
+
+ We are tendering for the above contract and would be pleased to receive a quotation for the Windows & Doors-Aluminium package, strictly in accordance with the attached subcontract enquiry letter. 
+
+ To access the subcontract portal and submit your tender, please log into the following URL: 
+
+ https://evaluateonline.eque2.com/Enquiries/Enquiry/List/58eee4aaf5cb448294f2bb48f35fe294 
+
+ PIN: 4296 
+
+ The closing date for submissions is 17 August 2026 . 
+
+ If you have any queries relating to accessing the documents or the return date, please contact me. If you have any technical queries, please contact the estimator - 
+
+ Estimator: 
+ Email: gary.johnson@sindenconstruction.co.uk 
+ Tel: 0203 906 5000 
+
+ Please advise us within 3 working days whether you intend to return a quotation. 
+
+ Kind regards, 
+ Emma O’Brien 
+ Estimating Administrator 
+
+ 137-145 Church Road | Harold Wood | Romford | Essex | RM3 0SH 
+ D: 0203 906 5000 : E: emma.obrien@sindenconstruction.co.uk 
+
+ Sinden Construction Limited | Registered in England No 03308698 | 137-145 Church Road, Harold Wood, RM3 0SH 
+ The information in this email and any attachments is confidential. If you are not the intended recipient or have received this message in error, you must not copy, distribute, or use its contents. Please notify the sender immediately and delete it from your system. We take reasonable precautions to ensure this email is free from viruses but cannot accept responsibility for any loss or damage arising from its use or that of any attachments. 
+ Project emai
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFSkLYgAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=redditch-library recv=2026-08-04T08:10:40Z
+from=Estimations@bsws.co.uk to=['estimating@fensterglazing.com'] cc=[]
+subj=RE: Fenster Glazing - Redditch Library
+att=[]
+--- body len 255
+Good Morning,
+
+please see attached,
+
+please note some transoms have been added due to sash size limits
+
+From: Estimating <estimating@fensterglazing.com>
+Sent: 31 July 2026 12:00
+To: Estimations <Estimations@bsws.co.uk>
+Subject: Re: Fenster Glazin
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFSkLZAAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=addison-ave recv=2026-08-04T09:57:48Z
+from=ben@harriscalnan.co.uk to=['estimating@fensterglazing.com'] cc=['adam@fensterglazing.com']
+subj=RE: Crittall Style Doors & Window - 20 Addison Ave, W11 4QL
+att=['image001.png', 'image002.png', 'image003.png', 'image004.png', 'image005.png', 'image006.png', 'image007.png', 'image008.png', 'image009.png', 'image010.png', '340_52_70-Basement-Door-Schedule-Rev.-.pdf', '340_52_71-Ground-Floor-Door-Schedule-Rev.-.pdf']
+--- body len 5734
+Hi Adam & Gintare, 
+
+ I’m following up on my email below. 
+
+ Please find attached internal door schedules. We need to add in costs for DB07 and DG09. 
+
+ Speaking to the architect, they have approval from the client for the Fabco product but they may be interested in your product. To gain approval for this, I’ll need the following from you, when issuing your updated quote: 
+
+ Threshold & frame sizes – ideally a detail drawing showing your standard sections. Images of the installed product. Confirmation of equivalent thermal performance Proposed ironmongery (Fabco use Frank Allart as standard). 
+ Given the lead times, I’d appreciate if you can come back to me on this ASAP. 
+
+ Kind regards 
+
+ Ben Stimpson | Harris Calnan 
+ HCCC Ltd, One Oaks Court, Warwick Road, Borehamwood, Herts, WD6 1GS 
+ 020 8968 8877 | www.harriscalnan.co.uk | @harriscalnan 
+
+ See our ‘Selected Works’ brochure here 
+
+ From: Ben Stimpson 
+ Sent: 31 July 2026 15:36
+ To: 'Estimating' <estimating@fensterglazing.com>
+ Cc: Adam <adam@fensterglazing.com>
+ Subject: RE: Crittall Style Doors & Window - 20 Addison Ave, W11 4QL 
+
+ Hi Adam & Gintare, 
+
+ I hope you are both well. 
+
+ We are on site now and works are progressing. Looking to get something locked in on these Crittall style doors & windows. 
+
+ I noticed on the previous quote from March that you didn’t quote the internal door, DG09. Was there a reason for that, or just missed? 
+
+ I’ve attached the window and external door schedule which have now been issued for construction. Note the comments regarding trickle vents – can you address those, please? 
+
+ The internal door schedule is coming soon, and I will furnish you with that once I have it. My understanding is that there will be an additional Crittall style door on there, as well as DG09. 
+
+ Can you provide an updated quote for the external doors and window for now, and we can add the internal doors on thereafter. Please also confirm your current lead time, as it would be good to understand that now. 
+
+ Finally, it would be good to have a representative image of your product. Are you able to send something over for that, please? 
+
+ Thanks, and look forward to hearing from you. 
+
+ Kind regards 
+
+ Ben Stimpson | Harris Calnan 
+ HCCC Ltd, One Oaks Court, Warwick Road, Borehamwood, Herts, WD6 1GS 
+ 020 8968 8877 | www.harriscalnan.co.uk | @harriscalnan 
+
+ See our ‘Selected Works’ brochure here 
+
+ From: Estimating < estimating@fensterglazing.com > 
+ Sent: 03 March 2026 11:08
+ To: Ben Stimpson < ben@harriscalnan.co.uk >
+ Cc: Adam < adam@fensterglazing.com >
+ Subject: Re: Crittall Style Doors & Window - 20 Addison Ave, W11 4QL 
+
+ Hi Ben, 
+
+ Hope you’re well, 
+
+ Please find attached our quotation for 20 Addison Ave project, accompanied by our Cover Letter. 
+
+ We trust that everything as per specification, however if you have any questions, please don’t hesitate to contact either myself or Adam – cc’ed in. 
+
+ Looking forward to hearing from you. 
+
+ Gintare Vanagaite | Commercial Estimator
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFSkLZgAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=addison-ave recv=2026-08-04T10:51:30Z
+from=Estimations@bsws.co.uk to=['estimating@fensterglazing.com'] cc=[]
+subj=RE: Fenster Glazing - 20 Addison Ave
+att=['image001.png', 'image002.png', 'image003.png', 'image004.png', 'image005.png', 'image006.png', 'image007.png', 'image008.png', 'qt244384.pdf']
+--- body len 2370
+Good afternoon, 
+
+please see attached 
+
+ From: Estimating <estimating@fensterglazing.com> 
+ Sent: 04 August 2026 11:29
+ To: Estimations <Estimations@bsws.co.uk>
+ Subject: Re: Fenster Glazing - 20 Addison Ave 
+
+ Hi, 
+
+ Hope you're well, 
+
+ You have prepared this quote for us quite some time ago. 
+
+ Could you please update the quote as per the attached drawings. 
+
+ DG10, DG11 
+ DB14, DB15 
+ WB02 
+
+ Many thanks, 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error. 
+
+ From: Estimations < Estimations@bsws.co.uk >
+ Sent: 27 February 2026 13:43
+ To: Estimating < estimating@fensterglazing.com >
+ Subject: RE: Fenster Glazing - 20 Addison Ave 
+
+ Good afternoon, 
+
+please see attached, 
+
+please note due to max door height restrictions have had to redesign these openings. 
+
+ From: Estimating < estimating@fensterglazing.com > 
+ Sent: 26 February 2026 16:32
+ Subject: Fenster Glazing - 20 Addison Ave 
+
+ Hello, 
+
+ Could you please provide a cost for Heritage Aluminium Crittall style products, as per list below and the attached. 
+
+ ? External door schedule attached. Doors DG10 / DG11 / DB14 & DB15. 
+ ? Window schedule attached. Window WB02 
+
+ Many thanks, 
+
+ Gintare Vanagaite | Commercial Estimator 
+ 01908 429200 | www.fensterglazing.com 
+ 97-98 Alston Drive, Bradwell Abbey, MK13 9HF 
+
+ Follow us on socials… 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFSlOHAAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=vesuvius recv=2026-08-04T08:24:06Z
+from=estimating@fensterglazing.com to=['nick@met-fab.co.uk'] cc=[]
+subj=Re: Fenster Glazing - Air Separation Unit, Vesuvius Way
+att=[]
+--- body len 1884
+Hi Nick, 
+
+ Hope you're well, 
+
+ When can we expect the quote back please? 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Estimating <estimating@fensterglazing.com>
+ Sent: Tuesday, July 28, 2026 16:55
+ To: nick@met-fab.co.uk <nick@met-fab.co.uk>
+ Subject: Fenster Glazing - Air Separation Unit, Vesuvius Way 
+
+ Hi Nick, 
+
+ Hope you're well, 
+
+ Could you please provide a quote for aluminium flashings for all windows as per the details attached. 
+ Cill, jambs and head flashings required. 
+
+ Please let me know if you will need more info. 
+
+ Unfortunately, we have a very short deadline for this, could you please return your quote ASAP. our deadline is Thursday 30 th July. 
+
+ Many thanks,
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFSlOHQAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=redditch-library recv=2026-08-04T10:17:09Z
+from=estimating@fensterglazing.com to=['adam@fensterglazing.com'] cc=[]
+subj=QUOTE TO CHECK Re: Tender for Redditch Library - Remove and replace windows
+att=['image001.png', 'image002.png', 'Pride Developments - Redditch Library Pricing.xlsx', 'Pride Developments - Redditch Library Pricing.docx']
+--- body len 3052
+HI Adam, 
+
+ Please find attached quote for Redditch Library. 
+
+ I understand you have already issued the cost to them, but let me know if you would like to send out a full proposal. 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Adam <adam@fensterglazing.com>
+ Sent: 29 July 2026 12:14
+ To: leonard.white@pridedevelopments.co.uk <leonard.white@pridedevelopments.co.uk>
+ Cc: Estimating <estimating@fensterglazing.com>; Commercial <Commercial@fensterglazing.com>
+ Subject: Re: Tender for Redditch Library - Remove and replace windows 
+
+ Hi Leonard,
+
+ Thank you for your enquiry.
+
+ We are working on putting this together and sending over a full package for you.
+
+ Currently sitting around £89k +vat with the same inclusions/exclusions as the other subcontractor's quote details.
+
+ Let me know how that sounds compared with other quotes received, and we will have the formal quote over soon. 
+
+ When are you submitting cost on this one?
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Leonard White <leonard.white@pridedevelopments.co.uk>
+ Sent: 22 July 2026 2:51 PM
+ To: Fenster Glazing <info@fensterglazing.com>
+ Subject: Tender for Redditch Library - Remove and replace windows
+
+ F.A.O : Mr Paul Taylor
+
+ We invite you to tender for the attached project, for the removal and reinstatement of windows, attached is the tender pack detailing works, spec, and window elevations, please scroll to page 147 Appendix 2.
+
+ Please acknowledge your willing to tender by return and submit your tender back asap, your help would be greatly appreciated.
+
+ Please contact me should you require any further information.
+
+ Kind regards
+
+ Leonard White 
+ Senior Quantity Surveyor 
+
+ T: +44 (0)1633 744134 
+ M: +44 (0)7852 616802 
+ leonard.white@pridedevelopments.co.uk 
+ www.pridedevelopments.co.uk 
+ Pride Developments Group Ltd.
+8 Forgeham
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFSlOHgAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=addison-ave recv=2026-08-04T10:28:50Z
+from=estimating@fensterglazing.com to=['Estimations@bsws.co.uk'] cc=[]
+subj=Re: Fenster Glazing - 20 Addison Ave
+att=['image001.png', 'image002.png', 'image003.png', 'image004.png', 'image005.png', 'image006.png', 'image007.png', 'image008.png', '340_52_73-External-Door-Schedule-Rev.-.pdf', '340_52_74-Window-Schedule-Rev.-.pdf', 'qt244384.pdf']
+--- body len 2149
+Hi, 
+
+ Hope you're well, 
+
+ You have prepared this quote for us quite some time ago. 
+
+ Could you please update the quote as per the attached drawings. 
+
+ DG10, DG11
+ DB14, DB15
+ WB02
+
+ Many thanks, 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Estimations <Estimations@bsws.co.uk>
+ Sent: 27 February 2026 13:43
+ To: Estimating <estimating@fensterglazing.com>
+ Subject: RE: Fenster Glazing - 20 Addison Ave 
+
+ Good afternoon, 
+
+please see attached, 
+
+please note due to max door height restrictions have had to redesign these openings. 
+
+ From: Estimating <estimating@fensterglazing.com> 
+ Sent: 26 February 2026 16:32
+ Subject: Fenster Glazing - 20 Addison Ave 
+
+ Hello, 
+
+ Could you please provide a cost for Heritage Aluminium Crittall style products, as per list below and the attached. 
+
+ ? External door schedule attached. Doors DG10 / DG11 / DB14 & DB15. 
+ ? Window schedule attached. Window WB02 
+
+ Many thanks, 
+
+ Gintare Vanagaite | Commercial Estimator 
+ 01908 429200 | www.fensterglazing.com 
+ 97-98 Alston Drive, Bradwell Abbey, MK13 9HF 
+
+ Follow us on socials… 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+==========================================================================================
+fd-AAAAhluLUXfJ_k67xvnuVxOrgQADFSlOHwAAAA__.json
+mailbox=estimating@fensterglazing.com trusted=False route=addison-ave recv=2026-08-04T10:33:53Z
+from=estimating@fensterglazing.com to=['adam@fensterglazing.com'] cc=[]
+subj=Re: Crittall Style Doors & Window - 20 Addison Ave, W11 4QL
+att=[]
+--- body len 6716
+Hi Adam, 
+
+ I've asked BSW to update their quote for the external doors. 
+ But what about internal doors, are we doing those? 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Ben Stimpson <ben@harriscalnan.co.uk>
+ Sent: Tuesday, August 04, 2026 10:57
+ To: Estimating <estimating@fensterglazing.com>
+ Cc: Adam <adam@fensterglazing.com>
+ Subject: RE: Crittall Style Doors & Window - 20 Addison Ave, W11 4QL 
+
+ Hi Adam & Gintare, 
+
+ I’m following up on my email below. 
+
+ Please find attached internal door schedules. We need to add in costs for DB07 and DG09. 
+
+ Speaking to the architect, they have approval from the client for the Fabco product but they may be interested in your product. To gain approval for this, I’ll need the following from you, when issuing your updated quote: 
+
+ Threshold & frame sizes – ideally a detail drawing showing your standard sections. Images of the installed product. Confirmation of equivalent thermal performance Proposed ironmongery (Fabco use Frank Allart as standard). 
+ Given the lead times, I’d appreciate if you can come back to me on this ASAP. 
+
+ Kind regards 
+
+ Ben Stimpson | Harris Calnan 
+ HCCC Ltd, One Oaks Court, Warwick Road, Borehamwood, Herts, WD6 1GS 
+ 020 8968 8877 | www.harriscalnan.co.uk | @harriscalnan 
+
+ See our ‘Selected Works’ brochure here 
+
+ From: Ben Stimpson
+ Sent: 31 July 2026 15:36
+ To: 'Estimating' <estimating@fensterglazing.com>
+ Cc: Adam <adam@fensterglazing.com>
+ Subject: RE: Crittall Style Doors & Window - 20 Addison Ave, W11 4QL 
+
+ Hi Adam & Gintare, 
+
+ I hope you are both well. 
+
+ We are on site now and works are progressing. Looking to get something locked in on these Crittall style doors & windows. 
+
+ I noticed on the previous quote from March that you didn’t quote the internal door, DG09. Was there a reason for that, or just missed? 
+
+ I’ve attached the window and external door schedule which have now been issued for construction. Note the comments regarding trickle vents – can you address those, please? 
+
+ The internal door schedule is coming soon, and I will furnish you with that once I have it. My understanding is that there will be an additional Crittall style door on there, as well as DG09. 
+
+ Can you provide an updated quote for the external doors and window for now, and we can add the internal doors on thereafter. Please also confirm your current lead time, as it would be good to understand that now. 
+
+ Finally, it 
+==========================================================================================
+fd-AAEMAABWSZ5GYOc3R6KTDIF_XFJiAAGgoITfAAA_.json
+mailbox=commercial@fensterglazing.com trusted=True route=stoke-park recv=2026-08-04T10:45:15Z
+from=adam@fensterglazing.com to=['steven@fensterglazing.com', 'orders@cnglass.co.uk'] cc=['Commercial@fensterglazing.com', 'martingregory@cnglass.co.uk']
+subj=Re: Stoke Park School - Coventry 
+att=[]
+--- body len 6321
+Good morning,
+
+ We need to amend the order please. 
+
+ Spec A is meant to be 28.8mm overall thickness so requires an 18mm spacer. 
+
+ Kind regards, 
+
+ Adam Butcher 
+ Commercial Director 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Steven Freezer <steven@fensterglazing.com>
+ Sent: 28 July 2026 5:00 PM
+ To: Orders <orders@cnglass.co.uk>
+ Cc: Commercial <Commercial@fensterglazing.com>; Martin Gregory <martingregory@cnglass.co.uk>; Paul <paul@fensterglazing.com>; Adam <adam@fensterglazing.com>
+ Subject: Re: Stoke Park School - Coventry 
+
+ Hi 
+
+ Can we order the attached glass schedule, please 
+
+ Delivery TBC as just checking offload/storage availability on site 
+
+ Steve Freezer 
+ Technical Advisor 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Martin Gregory <martingregory@cnglass.co.uk>
+ Sent: 27 July 2026 13:49
+ To: Steven Freezer <steven@fensterglazing.com>
+ Subject: Re: Stoke Park School - Coventry 
+
+ Absolutely correct mate spacer bar doesnt differ the price.
+
+ £55 m = 4mm / 6.8
+
+ Thank you,
+
+ Kind regards, 
+
+ Martin Gregory 
+ Sales Executive 
+
+ CN Glass Ltd
+martingregory@cnglass.co.uk 
+Tel: 01295 263364 Mob: 07939 824860 
+
+ Sealed Unit Manufacturers – Glass Tougheners - Full Glazing Service 
+
+ CN Glass, Norton House, Beaumont Road, Banbury, Oxfordshire, OX16 1SD. Registered in England 03881017. 
+ Tel: 01295 263364 FAX: 01295 263570 
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. 
+ Any views or opinions expressed are solely those of the author and do not necessarily represent those of CN Glass Ltd. 
+ If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error 
+
+ From: Steven Freezer <steven@fensterglazing.com>
+ Sent: 27 July 2026 
+==========================================================================================
+fd-AAEMAABWSZ5GYOc3R6KTDIF_XFJiAAGgoITgAAA_.json
+mailbox=commercial@fensterglazing.com trusted=False route=None recv=2026-08-04T11:16:32Z
+from=Commercial@fensterglazing.com to=['robin@bsws.co.uk'] cc=['Commercial@fensterglazing.com']
+subj=Re: Avebury - Glazed In Sashes 
+att=[]
+--- body len 2958
+Hi mate,
+
+ Can you do the glazed in casements for this, that we received on the below job?
+
+ Kind Regards, 
+
+ Adam Butcher
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+
+ From: Robin MacDonnell <robin@bsws.co.uk>
+ Sent: 27 July 2026 08:56
+ To: Commercial <Commercial@fensterglazing.com>
+ Subject: RE: Avebury - Glazed In Sashes 
+
+ Good morning, 
+
+please see attached, 
+
+we can supply a screw on 12 or 22mm rebate adaptor 
+
+ Kind Regards
+
+ ​ ​ ​ ​ 
+ Robin MacDonnell 
+
+ Commercial Processor 
+
+ Telephone: 
+ 01733 459955 
+
+ Email: 
+ robin@bsws.co.uk 
+
+ BSW Window Solutions is the trading style of Bellview Products Ltd Registered in England & Wales Reg no. 07763995
+
+ This e-mail (including any attachments) is confidential and intended solely for the use of the addressee. If you have received this e-mail in error please notify the sender immediately, delete the e-mail from your system and destroy all hard copies. Any unauthorised dissemination, distribution or copying is prohibited. Although we have taken steps to ensure that this e-mail (and any attached files) are free from virus, it is your responsibility to carry out your own virus checks before opening any attachment. We cannot accept any liability for loss or damage sustained as a result of software viruses. E-mails and communications sent by or to persons in our firm may be viewed and monitored by persons other than the named addressee.
+
+ From: Commercial <Commercial@fensterglazing.com> 
+ Sent: 24 July 2026 15:01
+ To: Robin MacDonnell <robin@bsws.co.uk>
+ Subject: Avebury - Glazed In Sashes 
+
+ Hi Robin 
+
+ We are looking to replace the glazing in the fixed lights of several of these frames. 
+
+ We would require 3 x top hung opening vents with oddlegs to all perimeters (preferably, 24mm oddleg, bout could fit a 28mm at a push) 
+
+ Steve Freezer 
+ Technical Advisor 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error.
+==========================================================================================
+fd-KXJUAACGW4tRd8n6TrvG_e5XE6uBAAMVKXY8AAA_.json
+mailbox=estimating@fensterglazing.com trusted=False route=alice-billings recv=2026-08-03T10:59:40Z
+from=Emma.OBrien@sindenconstruction.co.uk to=['estimating@fensterglazing.com'] cc=['Emma.OBrien@sindenconstruction.co.uk', 'Gary.Johnson@sindenconstruction.co.uk']
+subj=Alice Billings House - Phase 2 - Main Works - Invitation To Tender for Windows & Doors-Aluminium works
+att=[]
+--- body len 1834
+F.A.O: Fenster Glazing & Locks Ltd 
+
+ Alice Billings House - Phase 2 - Main Works, 2-12 West Ham Lane, Stratford, London, E15 4SF 
+
+ We are tendering for the above contract and would be pleased to receive a quotation for the Windows & Doors-Aluminium package, strictly in accordance with the attached subcontract enquiry letter. 
+
+ To access the subcontract portal and submit your tender, please log into the following URL: 
+
+ https://evaluateonline.eque2.com/Enquiries/Enquiry/List/58eee4aaf5cb448294f2bb48f35fe294 
+
+ PIN: 4296 
+
+ The closing date for submissions is 17 August 2026 . 
+
+ If you have any queries relating to accessing the documents or the return date, please contact me. If you have any technical queries, please contact the estimator - 
+
+ Estimator: 
+ Email: gary.johnson@sindenconstruction.co.uk 
+ Tel: 0203 906 5000 
+
+ Please advise us within 3 working days whether you intend to return a quotation. 
+
+ Kind regards, 
+ Emma O’Brien 
+ Estimating Administrator 
+
+ 137-145 Church Road | Harold Wood | Romford | Essex | RM3 0SH 
+ D: 0203 906 5000 : E: emma.obrien@sindenconstruction.co.uk 
+
+ Sinden Construction Limited | Registered in England No 03308698 | 137-145 Church Road, Harold Wood, RM3 0SH 
+ The information in this email and any attachments is confidential. If you are not the intended recipient or have received this message in error, you must not copy, distribute, or use its contents. Please notify the sender immediately and delete it from your system. We take reasonable precautions to ensure this email is free from viruses but cannot accept responsibility for any loss or damage arising from its use or that of any attachments. 
+ Project email addresses may not be monitored. Please ensure all emails are also sent to the relevant contact’s personal email address or to info@sindenconstruction.co.uk .
+==========================================================================================
+fd-PmgeAACGW4tRd8n6TrvG_e5XE6uBAAMVKWfbAAA_.json
+mailbox=estimating@fensterglazing.com trusted=False route=redditch-library recv=2026-08-04T08:10:40Z
+from=Estimations@bsws.co.uk to=['estimating@fensterglazing.com'] cc=[]
+subj=RE: Fenster Glazing - Redditch Library
+att=['qt253829.pdf']
+--- body len 3853
+Good Morning, 
+
+please see attached, 
+
+please note some transoms have been added due to sash size limits 
+
+ From: Estimating <estimating@fensterglazing.com> 
+ Sent: 31 July 2026 12:00
+ To: Estimations <Estimations@bsws.co.uk>
+ Subject: Re: Fenster Glazing - Redditch Library 
+
+ HI, 
+
+ Please find attached. 
+
+ Please use it for the design only. The product, spec and etc is off. 
+
+ There are some elevation drawings at the end of the attached doc, however they aren't very accurate. 
+
+ Many thanks and please let me know if any issues, I can always go back to the customer and ask some questions. 
+
+ Aluminium windows and doors 
+ Thermally broken alu 
+ Window restrictor - 100mm 
+ Trickle vents 
+ Doors 32,34,37,41 are priced with the following ironmongery: 
+ • Anti-finger trap stiles 
+ • 100mm bottom rail 
+ • 100mm midrail 
+ • Axim 8800 concealed non hold open transom closer 
+ • PR7100 Exit Panic Device without external access, no external hardware 
+ • Flush bolts to head and threshold of slave leaf to all double doors 
+ • Mill finished low threshold 
+
+ Colour - standard RAL colour (not confirmed at the moment) 
+ U-value - 1.4 
+
+ Glass - Inner pane – 4mm clear soft coat low ‘e’ toughened • Outer pane - 4mm bronze anti sun toughened 
+
+ Gintare Vanagaite 
+ Estimator 
+ 01908 429200 
+ 97-98 Alston Drive 
+ Bradwell Abbey, MK13 9HF 
+
+ www.fensterglazing.com 
+
+ This email and any attachments to it may be confidential and are intended solely for the use of the individual to whom it is addressed. Any views or opinions expressed are solely those of the author and do not necessarily represent those of Fenster Glazing & Locks Ltd. If you are not the intended recipient of this email, you must neither take any action based upon its contents, nor copy or show it to anyone. Please contact the sender if you believe you have received this email in error. 
+
+ From: Estimations < Estimations@bsws.co.uk >
+ Sent: 31 July 2026 10:16
+ To: Estimating < estimating@fensterglazing.com >
+ Subject: RE: Fenster Glazing - Redditch Library 
+
+ Hi 
+
+ Can you please draw this one up for us to quote accurately for you. Also to save a back and forth 
+
+ The schedule provided contradicts the openings on elevation. There will be a lot of assumptions 
+
+ Once returned we will work on it straight away 
+
+ From: Estimating < estimating@fensterglazing.com > 
+ Sent: 29 July 2026 11:30
+ To: Estimations < Estimations@bsws.co.uk >
+ Subject: Fenster Glazing - Redditch Library 
+
+ Hello, 
+
+ Could you please prepare an Aluminium quote as per the attached. 
+
+ Aluminium windows and doors 
+ Thermally broken alu 
+ Window restrictor - 100mm 
+ Trickle vents 
+ Doors 32,34,37,41 are priced with the following ironmongery: 
+ • Anti-finger trap stiles 
+ • 100mm bottom rail 
+ • 100mm midrail 
+ • Axim 8800 concealed non hold open transom closer 
+ • PR7100 Exit Panic Device without external access, no external hardware 
+ • Flush bolts to head and threshold of slave leaf to all double doors 
+ • Mill finished low threshold 
+
+

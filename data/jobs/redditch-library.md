@@ -5,11 +5,21 @@ Chat opened 2026-07-28 by triage. History before 29/07 12:20 is in
 
 ## Position
 
-**A NUMBER IS WITH THE CLIENT AND IT IS THE WRONG ONE.** Adam emailed Leonard White at 11:14 on 29/07:
-*"Currently sitting around GBP 89k +vat with the same inclusions/exclusions as the other subcontractor's
-quote details."* That is the **28/07** figure (GBP 89,218.65). The live tender sum is **GBP 94,926.76** -
-**GBP 5,708.11 / 6.4% higher**. Flagged to Adam 12:26. **Nothing has gone to Pride from me**; Leonard holds
-only Adam's indication, so it is still correctable.
+**BSW HAVE QUOTED AND MY BENCHMARK WAS 27% HIGH, SO THIS JOB IS WINNABLE AFTER ALL.** BSW QT253829,
+04/08, **GBP 43,739.72** for 49 Sheerline Prestige frames against my benchmark GBP 56,993.38. The
+GBP 94,926.76 tender sum was built on a frame price that does not exist.
+
+**BUT THE QUOTE ON ADAM'S DESK IS NOT ISSUABLE.** Gintare sent him a pricing document and proposal at
+**GBP 79,912.22** on 04/08 10:17, asking whether to send a full proposal to Pride. It omits **GBP 9,641.31**
+of scope that has rates (w36, strip-out, required perimeter sealing), and BSW have not priced **five things
+the RFQ asked for in writing** (solar control glass, restrictors, the door panic ironmongery, RAL colour,
+delivery) - all upward. Corrected floor **GBP 89,553.53 net / GBP 91,849.77 with the 2.5% MCD**, i.e. about
+**GBP 1,160 ABOVE Joedan**, not the GBP 10,775 below that GBP 79,912.22 looks like.
+`mary_checks`: **3 FAILED - do not issue.** Answered to Adam 04/08 12:5x.
+
+**LEONARD WHITE STILL HOLDS "around GBP 89k +vat"** from Adam's 29/07 11:14 email - the superseded 28/07
+figure, flagged to Adam the same day. Coincidentally close to the corrected net above; do not mistake that
+for confirmation. **Nothing has gone to Pride from estimating.**
 
 - **Project** Redditch Library, 15 Market Place, Redditch B98 8AR. Flat roof refurb AND external window/door
   replacement; **windows and doors only are ours**. Occupied public library throughout.
@@ -39,18 +49,28 @@ gross = net / 0.975 - this is how Joedan state theirs and the two must stay comp
 | net | 92,553.59 |
 | **TENDER SUM (net / 0.975)** | **94,926.76** |
 
-**THE FRAME SUPPLY IS A BENCHMARK. NO SUPPLIER HAS QUOTED THIS JOB.** It is a curve fitted to BSW's real
-Severn Trent quote (QT250834, `rate = 721.47 x area^-0.4093`, R2 0.9934) moved to a second-supplier
-position by measured factors. Everything else is house rates or the client's own schedule.
+**THE FRAME SUPPLY IS NOW SUPPLIER-BACKED.** BSW **QT253829, 04/08/2026, GBP 43,739.72 net ex VAT**,
+Sheerline Prestige, **thirty-day validity to 03/09**, **ex works**. 49 frames over 41 references (refs 19
+and 20 split into 6 and 3 coupled frames). The old benchmark - a curve fitted to BSW's Severn Trent quote,
+`rate = 721.47 x area^-0.4093`, R2 0.9934 - **predicted GBP 56,993.38 and was +27.4% out** (calibration 21).
+**The R2 measured the fit, not the product:** Severn Trent was 3005 Wine Red metallic, this is stock Hipca
+White. I logged that as a caveat on 28/07 and let the number stand anyway.
 
-**WE ARE ABOVE JOEDAN AND NO SUPPLIER WE CAN MEASURE CHANGES THAT** (Joedan gross GBP 90,687.17):
+**THE COMPETITIVE PICTURE HAS CHANGED** (Joedan gross GBP 90,687.17 / net 88,419.99):
 
-| supplier | frame buy | tender sum | vs Joedan |
-|---|---|---|---|
-| BSW +5.7% (n=272) - **the only one asked** | 56,993.38 | 97,563.42 | +6,876 |
-| Aplus -1.6% (n=83) - **what the price assumes** | 54,422.66 | **94,926.76** | **+4,240** |
-| 4Ali -1.5% (n=82) | 54,641.44 | 95,151.18 | +4,464 |
-| TruFrame | - | - | **N/A - uPVC, not aluminium** |
+| | GBP |
+|---|---|
+| Gintare's document as it stands | 79,912.22 |
+| + w36 and its installation | 1,641.86 |
+| + strip out, 43 nr x 150 | 6,450.00 |
+| + perimeter sealing, from OPTIONAL into the price | 1,549.45 |
+| **corrected net** | **89,553.53** |
+| **with 2.5% MCD, gross** | **91,849.77** |
+| vs Joedan gross | **+1,162.60** |
+| (+ solar-control premium 1,814.51 if carried at my rate) | 93,710.81 / +3,023.64 |
+
+**Five BSW omissions are still unpriced and all push up.** My own GBP 94,926.76 stands as the last
+complete number but is built on the dead benchmark frames - superseded in substance, not yet rebuilt.
 
 **A MANUFACTURER CANNOT BE UNDERCUT, AND IT IS ARITHMETIC.** EL75mm Squareline and AC100 Commercial are
 Joedan's OWN products - they buy no frame from anybody. Our frame buy is GBP 54,423 against GBP 20,625 of
@@ -93,14 +113,16 @@ quality**. The JCT form is not in the pack and no sub-contract has come from Pri
 
 ## Open RFIs and questions
 
-**With Adam** (all live; nothing new raised - 15 requests already open board-wide):
-1. **The GBP 89k with Leonard** - correct it now on the strip-out, or absorb it and hold. Recommended correcting.
-2. **Send the RFQ to Aplus, 4Ali and SBM.** It has gone to **BSW alone, the dearest**, whose quote will land
-   above our own number and read as *"Redditch is not winnable"* when it says *"we asked the wrong supplier"*.
-3. **CDP and its PI** - Fenster or Pride.
-4. **The missing prelims block** - stated, not added; his commercial call.
-5. **Two house T&C clauses** - the 30-day validity and the **50% deposit** our terms demand, which no main
+**With Adam** (all live; nothing new raised - 14 requests already open board-wide):
+1. **BACK TO BSW WITH THE FIVE OMISSIONS** - solar glass, restrictors, door ironmongery, RAL, delivery.
+   Their quote holds thirty days from 04/08. Nothing should be issued to Pride until these come back.
+2. **Add w36, strip-out and sealing** - they have rates and are not in dispute.
+3. **The GBP 89k with Leonard** - still outstanding from 29/07.
+4. **CDP and its PI** - Fenster or Pride.
+5. **The missing prelims block** - stated, not added; his commercial call.
+6. **Two house T&C clauses** - the 30-day validity and the **50% deposit** our terms demand, which no main
    contractor pays under JCT. Fix at the template once, not on this tender (the Gordon Court mistake).
+7. Whether to also put the corrected schedule to **Aplus, 4Ali or SBM** now that BSW have set a real floor.
 
 **Ten RFIs for Pride to pass to Gleeds**, on the workbook's RFIs sheet. The seven that matter:
 - **RFI-03 THE SPEC COUPLES A THERMALLY BROKEN WINDOW TO A NON-THERMAL DOOR AT REFS 32 AND 34 AND IT CANNOT
@@ -185,6 +207,57 @@ built. That the specified systems are unbuyable by us stays in `exposures`.
   to give away); and Fenster has **two pricing routes that do not agree**, the MASTER PRICING DOC's per-unit
   labour codes and whatever produced the Rubery quote, which carries labour as one GBP 1,620 ancillary line.
 - **Adam is to make Mary full-time estimator** - *"search all old jobs, don't stop learning."*
+
+## 04/08 - what BSW quoted, and what Gintare's document does with it
+
+**BSW QT253829 IS NOT THE SPECIFICATION THAT WAS ASKED FOR.** Gintare's RFQ of 29/07 listed seven things.
+Five did not come back, and the quote is silent rather than refusing - so it reads as complete:
+
+1. **Solar control glass.** RFQ asked for *"outer pane 4mm bronze anti sun"*. **All 68 panes are
+   `6.8 Lam/18/4mm Clr Tuff EcoPlus 1.0`** - clear. Zero instances of anti-sun, bronze, solar or tint in
+   twelve pages. The tender requires solar control; my benchmark carried GBP 1,814.51 for the premium.
+2. **Door ironmongery for refs 32/34/37/41.** RFQ asked for Axim 8800 concealed closers, **PR7100 exit
+   panic devices**, flush bolts to slave leaves, anti-finger-trap stiles. BSW quoted **Ultion key
+   cylinders, Prolinea lever handles, Standard Resi Lock** - a domestic front door - on **fire escape
+   doors in an occupied public library**. Zero instances of "panic". Georgie's REQ-12 again.
+3. **Window restrictors, 100mm.** Asked for; **not one unit has them**, and 17 units open.
+4. **Colour.** All 29 items **9910HG Hipca White** (stock). RFQ said *"standard RAL colour"*.
+5. **Delivery.** Footer: *"All estimates are ex works, additional delivery charges may apply."*
+
+**AND ONE UNIT IS MISSING.** Their line reads `Location: w35,36` at **Qty: 1**. Every other multi-reference
+line is right (w1,w2 = 2; w22,23 = 2; w16-18 = 3; w24-28 = 5), so there is nothing systematic to spot.
+`check_supplier_covers_quantity` fires on it now that `supplier_coverage` is filled. Their footer disclaims
+it: *"will not be held responsible for any items missing from quotes"* - and prints **"Bellview"**, not BSW.
+
+**Also from BSW, both bearing on live RFIs:** *"some transoms have been added due to sash size limits"* -
+extra transoms across several units, a visible elevational change; and **refs 16/17/18 quoted as flat
+2250 x 2304 rectangles** when RFI-01 says they are raked to the stair soffit. Neither is settled.
+
+**GINTARE'S DOCUMENT: THE ARITHMETIC IS RIGHT AND THE SCOPE IS NOT.** Checked row by row on the Brocks Hill
+test (sell minus supply against the code value at 75%): **all 22 rows carry their uplift to the penny**,
+42 units, sell 71,502.22 on BSW supply 43,739.72 = **38.8% margin**. Installation GBP 8,410 against
+GBP 7,420 of fit-only labour from the codes, so **GBP 990 residual - strip-out is not funded**. What is
+wrong is what is absent: **w36 (copied through from BSW), no strip-out line anywhere, and perimeter sealing
+offered as an OPTIONAL extra** when pack p70 cl.11 requires it and Joedan cl.15 include it - third job.
+
+**THE PROPOSAL SHOULD NOT GO AS DRAFTED, SEPARATELY FROM THE PRICE:**
+
+- **It certifies U-value 1.4 W/m2K.** BSW state no whole-window Uw anywhere; *"EcoPlus 1.0"* is a
+  **centre-pane Ug**. Filwood and Georgie's the same week - a performance figure on the face of our
+  document that the supplier's own quote does not support.
+- The glazing box reads *"6.8mm laminated / 4mm toughened"* - true to BSW, silent on the solar control.
+- **Strip out appears nowhere**, not in inclusions and not in exclusions, while *"Waste Removal -
+  generally excluded"* does.
+- **Working hours stated 07:30-16:30**, against the tender's 08:30-17:30 (prelims) and 08:30-18:00
+  (Schedule of Works), in an occupied library where windows cannot be left out over a shift.
+- Promises a **full-time CSCS/SMSTS supervisor, a dedicated PM and a separate contracts manager** with
+  GBP 990 behind them - the 04/08 Luton board note, live.
+- **The ten year warranty is only in the back-page T&Cs.** Against Joedan's twelve months on a 70/30
+  award it belongs in the summary and the inclusions.
+- **The .xlsx still carries the working columns** - `Supplier used: BSW 43,739.72` in K3/M3, frame cost in
+  J and P. **Do not send it.** Both files also carry author *Nicholas Baker*,
+  *dan.parker@agsurveying.co.uk* and links into two other people's Outlook caches - REQ-27, not re-raised;
+  `scripts\clean_issued_pack.py` strips all of it and neither file was run through it.
 
 ## Traps on this job specifically
 

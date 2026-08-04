@@ -1,0 +1,26 @@
+Desk, second queue of 04/08. Four orders in, all four about one company each, all four routed
+to that company's chat. Nothing here needs deciding except one thing, and it is time-sensitive.
+
+A CUSTOMER IS WAITING ON A DATE AND ONLY A HUMAN HAS IT.
+Stefanie Schulz (Elevation, Bedford) replied at 11:37 this morning to the Compass Elevation
+quote Paul sent at 10:35: "Before we make a decision, could you please let me know the earliest
+date you would be able to replace it?" That is a buying question, answered the same morning,
+and the answer is a lead time on the unit - Paul's or ops, not mine and not Mary's. She also
+has the GBP 750+vat board-up sitting as an option in the meantime. Elevation had no chat, so I
+have opened one, but a chat cannot produce a glass lead time.
+
+The other three, for the record: Brocks Hill Phase 2 (GBP 118,278.52, Spacemaker) to a new
+Spacemaker chat; Filwood Broadway (GBP 85,767.58) to Stepnell's; Mary's Luton Airport finding
+to Ryebridge's - it needs no answer from anyone, it needs remembering against the next LLA
+package off that framework.
+
+One thing to check on Filwood, flagged to the Stepnell chat: the CRM has it issued 04/08 with
+the first chase on 11/08, and Mary's handover says it left 30/07 at 12:28 and was acknowledged
+the same day. If 30/07 is right, that chase is due now, not next week.
+
+And the reason three of those four landed on the desk at all: the router had each company's
+NAME as its only match term, and a quote handover names the JOB - "filwood", "brocks-hill" -
+and never the client. Stepnell and Ryebridge both had live chats and both scored too low to
+reach them. Seeded both with their job names, contacts and domain; wrote the rule down.
+
+Jacob

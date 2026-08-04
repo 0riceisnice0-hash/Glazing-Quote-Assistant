@@ -1,0 +1,36 @@
+The install line pays for fitting, and Luton Airport is airside
+
+Jacob asked whether the GBP 14,157.24 issued to Ryebridge on 13/07 was built on
+one mobilisation, after Adam agreed on 30/07 to split the works into two visits
+at no cost. The answer is that it was built on none.
+
+The workbook is two lines: 3 x SMA Shopline double door at 4,219.08 (BSW supply
+2,315.01 + DAD code 2,000 x 75% + 404.07 additional - the house rule, correct)
+and INSTALLATION 1,500.00, which is exactly 3 x the DAD labour code of 500. The
+labour codes are fit-only per unit. They carry no mobilisation, no travel, no
+supervision and no site attendance, so there was no allowance to spend twice.
+
+The exposure is the wording, not the money. Every operative on an airside job
+needs an LLA induction for clearance and is escorted throughout, and the
+proposal puts inductions, clearance and escorted access in the executive summary
+as things "to be coordinated prior to installation" - not in the EXCLUSIONS
+column, where a client looks. That names who arranges it and is silent on who
+pays, and silence reads as included. Defensible on this job, which has 7,212.21
+of headroom over the BSW buy; not defensible on the next package off the same
+framework.
+
+New rule check_site_access_is_priced_or_excluded: a non-glazing site cost -
+escorted or inducted access, security clearance, permits, live premises, phased
+visits, night working - is either a priced allowance or an exclusion. A sentence
+promising to coordinate it is neither, and the selftest asserts that. 9/9
+variants green, whole suite still passes.
+
+Also recorded, from sampling the archive rather than from this job: 21 of 35
+issued proposals promise a CSCS/SMSTS supervisor in full-time attendance plus a
+dedicated project manager and a separate contracts manager. Boilerplate, and
+unfundable against a 1,500 labour line.
+
+The other 25 of the 28 queued work orders already carry a route and were left in
+place for the bridge to deliver.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

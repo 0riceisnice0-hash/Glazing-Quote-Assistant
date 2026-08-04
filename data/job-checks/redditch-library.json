@@ -75,9 +75,10 @@
  ],
  "frame_supply": [
   {
-   "supplier": null,
-   "ref": null,
-   "basis": "NO SUPPLIER QUOTE EXISTS FOR THIS JOB. The Commercial archive holds one file under 'Pride Developments/Redditch Library' and it is the tender pack itself. Every rate in the take-off is a benchmark from data/supplier-rates.json or data/learned-rates.json and is labelled as such on the face of the document."
+   "supplier": "BSW Window Solutions",
+   "ref": "QT253829",
+   "basis": "BSW QT253829, 04/08/2026, GBP 43,739.72 net ex VAT, Sheerline Prestige, 30-day validity, ex works. 49 frames across 41 references (refs 19 and 20 split into 6 and 3 coupled frames). REPLACES the Severn Trent fitted-curve benchmark, which was GBP 56,993.38 and 30.3% HIGH.",
+   "glazed": "glazed"
   }
  ],
  "glass_order": [],
@@ -392,7 +393,15 @@
    "treatment": "excluded"
   }
  ],
- "supplier_quotes": [],
+ "supplier_quotes": [
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT253829",
+   "date": "2026-08-04",
+   "used_net": true,
+   "note": "Quote footer: \"Net Price Includes Discounts\". GBP 43,739.72 is the net figure and is what is carried."
+  }
+ ],
  "full_height_screens": [],
  "_full_height_screens_note": "Empty after checking the three candidates on the elevations, not by default. Ref 19 (17000x900) and ref 20 (7000x1100) are the two big ones, and both are high-level ribbons - 900mm and 1100mm tall - so they are window bands in a wall, not floor-to-ceiling screens, and the Greenfields curtain-walling convention does not reach them. Refs 16, 17 and 18 are the stair glazing at 2250x2304 and they are the closest call: stair screens are exactly what Greenfields was about. Rendered Elevation A at 200dpi to settle it - each is a discrete glazed band with solid wall above the head and below the cill, not glazing from floor to soffit. Priced as MAW windows. If they were treated as curtain walling instead, GBP850+150/m2 over 15.55 m2 gives GBP 15,552 against the GBP 8,509 carried here, so this judgement is worth about GBP 7,000 and is the single line most worth a second opinion.",
  "systems_specified": [
@@ -446,13 +455,156 @@
   "rejected_elements": [],
   "note": "Gleeds 3.5.3 cl.7 says 'area weighted u-value' for the windows and 'area weighted average u-value' for the doors, so both are package averages and Adam's ruling of 24/07 applies - not a per-element limit. Ref 19 at 15.3 m2 is 11% of the package area on its own and dominates the window weighting. Nothing is rejected: no element has been failed against an average, which is the SM5 Wexham error this rule exists to stop. The 1.2 on the panels is the one genuinely per-element figure and it is a panel make-up, not a frame. Worth recording that the doors point the opposite way from every recent job - 3.0 W/m2K is a non-thermal door, and SMA Smart Wall at 1.8 beats it comfortably."
  },
- "supplier_coverage": [],
+ "supplier_coverage": [
+  {
+   "ref": "1,2",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "3-8",
+   "qty_sold": 6,
+   "qty_quoted": 6,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "9-14",
+   "qty_sold": 6,
+   "qty_quoted": 6,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "15",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "16-18",
+   "qty_sold": 3,
+   "qty_quoted": 3,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "19",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "20",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "21",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "22,23",
+   "qty_sold": 2,
+   "qty_quoted": 2,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "24-28",
+   "qty_sold": 5,
+   "qty_quoted": 5,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "29-31",
+   "qty_sold": 3,
+   "qty_quoted": 3,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "32.1",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "32.2",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "33",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "34.1",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "34.2",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "35,36",
+   "qty_sold": 2,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "37",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "38",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "39",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "40",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  },
+  {
+   "ref": "41",
+   "qty_sold": 1,
+   "qty_quoted": 1,
+   "supplier_ref": "BSW QT253829"
+  }
+ ],
  "price_commitment": {
   "our_validity": "Not yet issued. When it is: the Form of Tender holds the TENDERED SUM open for 10 WEEKS from the submission date, and the JCT Minor Works preliminaries at p23 separately require the tender to be kept open 'for not less than 3 months'. Two different periods in one pack - the longer governs unless Gleeds say otherwise (RFI-08).",
   "supplier_valid_until": null,
-  "note": "No supplier quote is held, so there is nothing to compare against yet - but this is the John North Hall gap in advance and it is worse here. Any BSW or Bellview quote runs 30 days. Committing for 10-13 weeks against a 30-day buy leaves 5-10 weeks uncovered. Do not send an RFQ until Pride confirm when they actually submit, or the 30 days will burn before the tender is even in."
+  "note": "No supplier quote is held, so there is nothing to compare against yet - but this is the John North Hall gap in advance and it is worse here. Any BSW or Bellview quote runs 30 days. Committing for 10-13 weeks against a 30-day buy leaves 5-10 weeks uncovered. Do not send an RFQ until Pride confirm when they actually submit, or the 30 days will burn before the tender is even in. | BSW QT253829 holds THIRTY DAYS from 04/08/2026, expiring 03/09/2026. The Form of Tender holds our tendered sum open 10 WEEKS and the prelims say not less than 3 months, so the supplier price expires 5-10 weeks before our own commitment does. Nothing issued to Pride yet, so our_price_open_until has no date.",
+  "our_price_open_until": null
  },
- "delivery_terms": [],
+ "delivery_terms": [
+  {
+   "supplier": "BSW Window Solutions",
+   "ref": "QT253829",
+   "order_value": 43739.72,
+   "free_delivery_threshold": null,
+   "charge_basis": "Ex works, no threshold published on the quotation - carriage to Redditch is unpriced and unexcluded.",
+   "delivery_priced": false
+  }
+ ],
  "incorporated_terms": [],
  "_incorporated_terms_note": "Empty because this rule is about SUPPLIER quotes incorporating terms by reference, and no supplier quote exists on this job - nothing has been bought and no RFQ has gone out. Two related facts that belong on the record but are not this rule's: (1) Joedan's Standard Terms are printed in full at pack p154, so for once a terms document referenced in a quotation is actually held - though Joedan are the competitor, not our supplier. (2) The head contract is a JCT Minor Works with Contractor's Design Portion between WCC and Pride, and the FORM ITSELF IS NOT IN THE PACK - only the contract particulars at p20-22 (10 weeks to completion, GBP 1,000 per week liquidated damages, 5% retention, six-month rectification, GBP 5m public liability, GBP 5m CDP professional indemnity, 'No Amendments' to sections 3-7). Our exposure is whatever Pride pass down in a sub-contract nobody has sent us. That is recorded in 'exposures'. When an RFQ does go to BSW or Bellview, this field must be filled from their quotations.",
  "qualification_regime": {
@@ -570,10 +722,243 @@
   {
    "item": "THE RETURN DATE IN THE PACK EXPIRED A MONTH AGO AND IS NOT OURS. Gleeds' invitation says 12 noon Friday 26 June 2026. That is Gleeds' date to the main contractors. Fenster has no stated date at all - Leonard White asked on 22/07 to acknowledge and 'submit your tender back asap' and gave none. The pack also allows the tendering contractor ONE site visit only, arranged through Gleeds, with all sub-contractors in attendance.",
    "our_recourse": "Not promoted to a deadline anywhere - that error has been made three times in a week (SM5 Wexham, St Mary's, Grange Hill) and the rule is to take the date from the invitation, the document register or the estimating log and never from our own file dates. Adam has been asked to get Pride's real date from Leonard. The single-visit rule matters to us: 3.5.3 requires a measured survey of every opening before ordering and forbids relying on Gleeds' dimensions, so if Pride's one tender visit has gone, our survey has to be a post-award condition."
+  },
+  {
+   "item": "BSW QT253829 DOES NOT PRICE FIVE THINGS THE RFQ ASKED FOR IN WRITING - solar control glass (all 68 panes clear), window restrictors (none, on 17 opening units), the door ironmongery for refs 32/34/37/41 (Ultion cylinders, Prolinea lever handles and a Standard Resi Lock quoted instead of Axim closers and PR7100 panic devices, on fire escape doors in a public library), RAL colour (stock white quoted) and delivery (ex works). All five push the price up and none has a rate.",
+   "our_recourse": "NOTHING BACKS US. The quotation is 30-day from 04/08/2026 and must be re-priced by BSW before anything is issued to Pride."
   }
  ],
  "own_domains": [
   "fensterglazing.com"
  ],
- "_systems_specified_note": "REWRITTEN 29/07 after the vesuvius chat widened check_fabricator_can_make_it. This field previously listed the TENDER's two systems - EL75mm Squareline and AC100 Commercial - with the fabricator recorded as 'Joedan Manufacturing (UK) Ltd - their own system, not available to Fenster'. That is a statement that NOBODY CAN MAKE WHAT WE ARE SELLING, and it was passing a check that exists to catch precisely that, because the old rule only tested whether the field was non-empty. The widened rule is right and the failure was real. The field now records what FENSTER IS ACTUALLY QUOTING - a thermally broken 75mm system tendered as the Contractor's Designed Portion alternative that Gleeds 3.5.3 cl.3 expressly permits - because the check asks whether the thing we are selling can be built, not whether the thing the client wrote down can be. That the specified systems are the competitor's own and cannot be bought by us remains recorded, with its CDP and PI consequences, in 'exposures'."
+ "_systems_specified_note": "REWRITTEN 29/07 after the vesuvius chat widened check_fabricator_can_make_it. This field previously listed the TENDER's two systems - EL75mm Squareline and AC100 Commercial - with the fabricator recorded as 'Joedan Manufacturing (UK) Ltd - their own system, not available to Fenster'. That is a statement that NOBODY CAN MAKE WHAT WE ARE SELLING, and it was passing a check that exists to catch precisely that, because the old rule only tested whether the field was non-empty. The widened rule is right and the failure was real. The field now records what FENSTER IS ACTUALLY QUOTING - a thermally broken 75mm system tendered as the Contractor's Designed Portion alternative that Gleeds 3.5.3 cl.3 expressly permits - because the check asks whether the thing we are selling can be built, not whether the thing the client wrote down can be. That the specified systems are the competitor's own and cannot be bought by us remains recorded, with its CDP and PI consequences, in 'exposures'.",
+ "rfq_items": [
+  {
+   "item": "Thermally broken aluminium windows and doors",
+   "requested": true,
+   "quoted_response": "Sheerline Prestige, thermally broken 75mm - quoted"
+  },
+  {
+   "item": "Window restrictor - 100mm",
+   "requested": true,
+   "quoted_response": null
+  },
+  {
+   "item": "Trickle vents",
+   "requested": true,
+   "quoted_response": "4000 External Linkvent (Set) on 16 of 49 units only - the 17 opening units and w32.1/w33/w34.1/w35; nothing on the fixed lights"
+  },
+  {
+   "item": "Door ironmongery to 32/34/37/41: anti-finger-trap stiles, 100mm bottom rail, 100mm midrail, Axim 8800 concealed non-hold-open transom closer, PR7100 exit panic device, flush bolts to slave leaf, mill-finished low threshold",
+   "requested": true,
+   "quoted_response": null
+  },
+  {
+   "item": "Colour - standard RAL (not confirmed at the time of the RFQ)",
+   "requested": true,
+   "quoted_response": "9910HG Hipca White on all 29 items - stock white, not a RAL"
+  },
+  {
+   "item": "U-value 1.4 W/m2K",
+   "requested": true,
+   "quoted_response": null
+  },
+  {
+   "item": "Glass - inner 4mm clear soft coat low-e toughened, OUTER 4mm BRONZE ANTI SUN toughened",
+   "requested": true,
+   "quoted_response": "6.8 Lam/18/4mm Clr Tuff EcoPlus 1.0 on all 68 panes - clear, no solar control anywhere in 12 pages"
+  }
+ ],
+ "site_access": {
+  "constraints": [
+   "Occupied public library trading throughout",
+   "Working hours 08:30-17:30 (prelims) / 08:30-18:00 (Schedule of Works) - the draft proposal states 07:30-16:30, which contradicts both",
+   "Windows may not be left out over a shift",
+   "Elevation A fronts a public highway",
+   "FORS Gold required for vehicles",
+   "ONE tender site visit only, through Gleeds, all sub-contractors present"
+  ],
+  "allowance_gbp": 0,
+  "excluded": [],
+  "visits": 1
+ },
+ "priced_rows": [
+  {
+   "ref": "W1, W2",
+   "code": "LAW",
+   "qty": 2,
+   "supply_each": 989.08,
+   "sell_each": 1476.58,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W3 - W8",
+   "code": "ELAW",
+   "qty": 6,
+   "supply_each": 1426.11,
+   "sell_each": 2063.61,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W9 - W14",
+   "code": "LAW",
+   "qty": 6,
+   "supply_each": 1298.2,
+   "sell_each": 1785.7,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W15",
+   "code": "MAW",
+   "qty": 1,
+   "supply_each": 571.08,
+   "sell_each": 983.58,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W16 - W18",
+   "code": "ELAW",
+   "qty": 3,
+   "supply_each": 1489.69,
+   "sell_each": 2127.19,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W19",
+   "code": "LAW",
+   "qty": 1,
+   "supply_each": 4336.7,
+   "sell_each": 8074.2,
+   "additional_each": 3250.0
+  },
+  {
+   "ref": "W20",
+   "code": "LAW",
+   "qty": 1,
+   "supply_each": 2019.66,
+   "sell_each": 3807.16,
+   "additional_each": 1300.0
+  },
+  {
+   "ref": "W21",
+   "code": "MAW",
+   "qty": 1,
+   "supply_each": 562.94,
+   "sell_each": 975.44,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W22, W23",
+   "code": "MAW",
+   "qty": 2,
+   "supply_each": 390.8,
+   "sell_each": 803.3,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W24 - W28",
+   "code": "SAW",
+   "qty": 5,
+   "supply_each": 303.22,
+   "sell_each": 640.72,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W29 - W31",
+   "code": "SAW",
+   "qty": 3,
+   "supply_each": 166.68,
+   "sell_each": 504.18,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W32.1",
+   "code": "LAW",
+   "qty": 1,
+   "supply_each": 1008.16,
+   "sell_each": 1495.66,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W32.2",
+   "code": "SAD",
+   "qty": 1,
+   "supply_each": 890.63,
+   "sell_each": 1790.63,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W33",
+   "code": "LAW",
+   "qty": 1,
+   "supply_each": 994.36,
+   "sell_each": 1481.86,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W34.1",
+   "code": "ELAW",
+   "qty": 1,
+   "supply_each": 1213.56,
+   "sell_each": 1851.06,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W34.2",
+   "code": "SAD",
+   "qty": 1,
+   "supply_each": 781.98,
+   "sell_each": 1681.98,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W35, W36",
+   "code": "LAW",
+   "qty": 1,
+   "supply_each": 994.36,
+   "sell_each": 1481.86,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W37",
+   "code": "SAD",
+   "qty": 1,
+   "supply_each": 902.72,
+   "sell_each": 1802.72,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W38",
+   "code": "ELAW",
+   "qty": 1,
+   "supply_each": 1268.48,
+   "sell_each": 1905.98,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W39",
+   "code": "SAD",
+   "qty": 1,
+   "supply_each": 902.72,
+   "sell_each": 1802.72,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W40",
+   "code": "MAW",
+   "qty": 1,
+   "supply_each": 373.82,
+   "sell_each": 786.32,
+   "additional_each": 0.0
+  },
+  {
+   "ref": "W41",
+   "code": "DAD",
+   "qty": 1,
+   "supply_each": 1327.72,
+   "sell_each": 2827.72,
+   "additional_each": 0.0
+  }
+ ],
+ "_priced_rows_note": "Gintare Vanagaite's pricing document of 04/08/2026, NOT Mary's. Checked row by row against the code table this turn (the Brocks Hill test: sell minus supply against the code value at 75%): all 22 rows carry their uplift to the penny. The faults in that document are of SCOPE, not arithmetic - W36 unpriced, no strip-out line, perimeter sealing offered as an optional extra, and every BSW omission passed through into the sell."
 }

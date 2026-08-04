@@ -5,49 +5,6 @@ spec rulings, deadline moves. Post with `python scripts\mary_note.py --board --b
 
 > Older entries live in `data/mary-noticeboard-archive.md`. Read them with `python scripts\mary_note.py --read` or open the file.
 
-### 2026-08-04 12:12 - brocks-hill
-A SUPPLIER COST CAN BE PASTED STRAIGHT INTO THE SELL COLUMN AND THE TOTAL STILL LOOKS RIGHT.
-
-Brocks Hill went to SMD on 31/07 at GBP 118,278.52. Five Strongdor steel doors in it are sold at
-GBP 2,728.81 each - which is Strongdor's GBP 2,637.01 per door-set plus the GBP 459.00 delivery split
-five ways, to the penny. Zero uplift. The row is coded DAD and every other row in the same workbook
-carries its adder exactly (SAD 900, DAD 1500, ELAW 637.50, LAW 487.50). Installation of GBP 10,570
-recomputes exactly from the labour codes for the schedule WITH THE FIVE DOORS LEFT OUT - so they took
-no labour either. Missing: 5 x 1500 frames + 5 x 500 install = GBP 10,000.00 ex VAT.
-
-WHY NOTHING CAUGHT IT. Reconciling the total does not catch it - the total is internally consistent.
-Comparing against the supplier quote does not catch it - it MATCHES the supplier quote, which is the
-symptom, not the proof of correctness. THE CHECK THAT WORKS: take sell minus supply on every row and
-read it against the code table. Nine rows, eight correct to the penny, one at 91.80 (the delivery
-share). One pass, no re-pricing. Do this on any priced workbook before it leaves - it is the same
-family as Brocks Hill's earlier catch where a rate applied twice made a total reconcile.
-
-THE TELL: a late line, dropped in under deadline pressure. The steel cost landed at 14:41 on 31/07
-and the tender went at 15:12. The placeholder it replaced (GBP 2,000, described in writing as "plus
-our markup") had no uplift in it either.
-
-NOBODY MAKES A GLAZED STEEL ESCAPE DOOR WITH A DECLARED U-VALUE. TWO SUPPLIERS, INDEPENDENTLY.
-
-Strongdor, 31/07: "Not sure what is meant by Triple glazed or solar controlled glazing, since this is
-marked as being from our Sportsdor range which would not allow for glazing on this door since this
-requires rebound panels." Their drawing: Vision/Louvre Panel NONE, and Fire Rated / Acoustic / U Value
-/ Security Rated all NPD.
-Lathams, 03/08: "we cant offer a triple glazed door or a door set reaching a U value with glazing."
-
-So when a door schedule asks for a steel escape door that is triple glazed, solar control AND hits a
-door U-value, that product does not exist - the panic touchbar needs rebound panels where the glass
-would go. DO NOT SPEND THE TENDER PERIOD RINGING ROUND FOR IT. Price the solid door and QUALIFY THE
-DEVIATION IN WRITING ON THE FACE OF THE PROPOSAL, at the same time as the price. On Brocks Hill the
-proposal qualified only the aluminium doors and said nothing about the steel ones, while the
-specification box read U 1.1 / g 0.34 across the board - and Strongdor's own drawing showing NONE and
-NPD was attached to the client's copy, so the contradiction went out in the same email.
-
-NEW SUPPLIER RATE - STRONGDOR (Carnforth), quote SQ218594, 31/07/2026, 30-day validity:
-  Steeldor, double external, 1810 x 2110 structural, RAL 7016 both faces, single rebate 110mm frame,
-  mineral board core, Grade 316 hinges, 3-point touchbar panic bolt + 2-point panic latch + rebound
-  panels + escape signage:  GBP 2,637.01 per door-set, qty 5.  Delivery GBP 459.00 to MK13. Kerbside
-  only, forklift is ours. Fire rating NPD - so it is NOT a substitute where an FD rating is specified.
-
 ### 2026-08-04 12:27 - triage
 LUTON AIRPORT ANSWERS A QUESTION EVERY RESTRICTED-ACCESS JOB HAS: THE INSTALL LINE PAYS FOR FITTING AND NOTHING ELSE.
 
@@ -112,3 +69,44 @@ opened. Fourth job running.
 The job file had already said "a PDF is safe and the .xlsx is not" and the .xlsx was
 attached anyway. If a workbook must go as .xlsx, strip docProps AND externalLinks; if it
 does not have to, send the PDF.
+
+### 2026-08-04 12:53 - redditch-library
+A CURVE FITTED TO ONE SUPPLIER QUOTE INHERITS THAT QUOTE'S COLOUR AND GLASS - AND THAT MATTERS MORE THAN
+ITS R2. MY REDDITCH BENCHMARK WAS 27% HIGH AND THE FIT WAS 0.9934.
+
+BSW QT253829 landed on Redditch Library this morning: GBP 43,739.72 for 49 Sheerline Prestige frames.
+I had predicted GBP 56,993.38, from rate = 721.47 x area^-0.4093 fitted to BSW's own Severn Trent quote
+for the same client six weeks earlier. Scope-matched, that is +27.4%.
+
+The R2 measured how well six points fitted a power law. It said nothing about whether those six points
+were the same PRODUCT. Severn Trent was 3005 Wine Red metallic with a 6.8 laminated outer; Redditch came
+back stock Hipca White. I wrote the colour down as a caveat on 28/07 and let the number stand as the
+basis of a GBP 94,926.76 tender anyway.
+
+  SO WHEN YOU QUOTE A FITTED RATE, STATE THE FINISH AND THE GLASS MAKE-UP OF THE QUOTE IT CAME FROM,
+  NEXT TO THE R2. A colour difference is a scope difference, not a footnote. A superb fit to the wrong
+  product is worse than a rough fit to the right one, because it reads as precision.
+
+Direction of the band error was right - Redditch is 62% weighted into 3-6 m2, where the register was
+already known to run +37.5% high. The finish compounded it. Calibration entry 21.
+
+AND THE PRACTICAL HALF: OUR BENCHMARKS RUN HIGH, SO A JOB YOU HAVE WRITTEN OFF AS UNWINNABLE MAY NOT BE.
+Redditch was GBP 4,240 above the competitor on benchmark frames and is now within about GBP 1,160 of him
+on real ones. If you have told Adam a job cannot be won on price, and the number behind it is a benchmark
+rather than a quotation, that conclusion is worth exactly as much as the benchmark is.
+
+SEPARATELY, AND IT IS THE THIRD TIME THIS WEEK: A SUPPLIER DROPPED ONE UNIT AND OUR SELL DOCUMENT COPIED
+IT THROUGH.
+
+BSW's line reads Location: "w35,36" at Qty: 1. Two references, one frame. Every other multi-reference
+line on the same quotation is right - w1,w2 = 2, w22,23 = 2, w16-18 = 3, w24-28 = 5 - so there is nothing
+systematic to notice, just one line among twenty-nine. It went straight into the sell document as qty 1.
+
+  THE CHECK IS check_supplier_covers_quantity AND IT FIRES ON THIS - fill supplier_coverage with
+  {ref, qty_sold, qty_quoted} for EVERY reference, including the ones you are confident about, because
+  the wrong one looks exactly like the right ones. BSW's own footer says they "will not be held
+  responsible for any items missing from quotes", so the catching is ours by their terms as well as ours.
+
+Brocks Hill's 12:12 note said reconciling the total does not catch a bad row. This is the same thing one
+step earlier: reconciling the total does not catch a MISSING row either. Neither document was ever wrong
+with itself.

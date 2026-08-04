@@ -1,0 +1,31 @@
+
+
+########## 3. Client Quote\Ryebridge Construction - Luton Airport - Departure Gates 1 & 2 Pricing.xlsx exists=True
+--- sheet Pricing Document  dims B2:V20
+  3 |  |  | Client: Ryebridge Construction
+  4 |  |  | Project Reference: Luton Airport - Departure Gates 1 & 2
+  5 |  |  | Site Address: Airport Way, Luton LU2 9LY
+  6 |  |  | Date: 13/07/2026
+  7 |  |  | Description |  | Size | Qty | Unit | Unit Rate | Total
+  8 |  |  | SMA Shopline Double Aluminium Door
+  9 |  |  | Aluminium Double Door |  | 1900 x 2012 | 3 | nr | 4219.08 | 12657.24
+ 11 |  |  |  |  |  |  | INSTALLATION |  | 1500
+ 13 |  |  |  |  |  |  | TOTAL* |  | 14157.24
+ 15 |  |  | * Total value excluding VAT.
+ 16 |  |  | ** This pricing document should be read in conjunction with the Terms and Conditions.
+
+
+########## 3. Client Quote\SS\Ryebridge Construction - Luton Airport - Departure Gates 1 & 2 Pricing - DO NOT.xlsx exists=True
+--- sheet Pricing Document  dims B2:V20
+  3 |  |  | Client: Ryebridge Construction |  |  |  |  |  |  |  | Supplier used: | BSW | 6945.03
+  4 |  |  | Project Reference: Luton Airport - Departure Gates 1 & 2
+  5 |  |  | Site Address: Airport Way, Luton LU2 9LY
+  6 |  |  | Date: 13/07/2026
+  7 |  |  | Description |  | Size | Qty | Unit | Unit Rate | Total
+  8 |  | PRODUCT CODES | SMA Shopline Double Aluminium Door |  |  |  |  |  |  | Frames | Glass | Additional | CW | CW LABOUR | CW SQM
+  9 |  | DAD | Aluminium Double Door |  | 1900 x 2012 | 3 | nr | 4219.08 | 12657.24 | 2315.01 |  | 404.07 | 0 | 0 | 3.8228 | 6945.030000000001
+ 10 |  |  |  |  |  |  |  |  |  |  |  |  | 0 | 0 | #VALUE! | 0
+ 11 |  |  |  |  |  |  | INSTALLATION |  | 1500
+ 13 |  |  |  |  |  |  | TOTAL* |  | 14157.24
+ 15 |  |  | * Total value excluding VAT.
+ 16 |  |  | ** This pricing document should be read in conjunction with the Terms and Conditions.

@@ -1,0 +1,18 @@
+Excel Hoardings hold a price we raised on a spec we ourselves have queried
+
+Quotation 2 went to Gareth Siddle at 09:45 on 04/08 - significantly increased,
+toughened laminated, bigger lifter, more labour. He acknowledged it at 09:48
+with "we shall be in touch". That is not an order, and the spec it is priced on
+is still unconfirmed: we told Touchwood in writing on 03/08 that our surveyor
+gauges the existing glass at ~10.8mm and that a ~17.5mm toughened laminated unit
+might not fit the frame. Steve Dawson is back off leave and has not answered.
+
+So the two threads have not been reconciled, and the customer is the one holding
+the consequence. New buyer-side company file, a holding note drafted for Paul to
+send Gareth, and the lead moved to quote_sent - it had sat on the AdminBase seed
+stage "acknowledged" through two issued quotations, with a next action covering
+the Touchwood spec and nothing at all covering the customer sitting on the quote.
+Chase on Gareth logged for 11/08. Flagged that the lead value of 208.33 is the
+survey fee de-VAT'd (250 / 1.2), not the job.
+
+Co-Authored-By: Claude Opus 5 (1M context) <noreply@anthropic.com>

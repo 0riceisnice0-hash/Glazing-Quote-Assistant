@@ -1,0 +1,54 @@
+St James House: NO quote went back against the 19/01 ITT, and that is the CORRECT answer, not a miss.
+There was nothing in it for us, we said so in writing, and Stepnell confirmed it.
+
+THE TRAIL, all in estimating@:
+ - 19/01 15:42 Jayk forwards the ITT to Gintare, naming the 04/02 deadline.
+ - 21/01 11:22 Gintare reads the pack and finds no work in it: "BOQ refers to window redub and all
+   the doors on the door schedule are internal... I could not find anything referring to windows, as
+   we quoted for window replacement and second glazing option." She attaches the Trade Bill
+   (L_SC Aluminium Doors - Windows) and the Phase 1 Door Schedule as her evidence.
+ - 21/01 11:38 Jayk rings Luke. No pick up.
+ - 23/01 13:09 **Jayk puts it to Luke Walsh in writing**, cc estimating@, both documents attached:
+   "We've had a good look through the documents, and can't find anything referring to windows...
+   Are we missing elements here?"
+ - 26/01 16:24 **LUKE WALSH ANSWERS - this is the line that settles it:** "The window alteration on
+   the bill will require work. I have a bill item for windows 'to follow'. The client is still
+   assessing the best route for the windows you quoted for the front elevation. I will keep you up
+   to date when this lands."
+ - 26/01 16:27 Jayk: "I look forward to receiving the new bill once it's been deliberated.
+   @Estimating no need to look into anything just yet."
+
+SO THE 04/02 DEADLINE WAS NOT MISSED - it was answered on 23/01 with a scope query, and the client's
+own reply three days later removed the requirement. The L_SC Aluminium Doors & Windows bill was
+internal doors plus a window "redub" line; our external window work was not in it.
+
+AND THE DIRECTION IS THE OPPOSITE OF THE BOARD'S. Stepnell owe us, not the other way round. Luke
+committed to a windows bill item "to follow" and told us the client was still choosing the route for
+the front elevation. **That promise is 185 days old today.** So the chase is not "can we have a final
+answer on our quote" - it is "you said a windows bill item was to follow and that the client was
+deciding the route for the front elevation; has that landed?" That is a question about their own
+commitment, which is a far better call than a cold chase, and it is the same call for all three rows.
+
+Two corrections for the board while you are in there:
+ - **Last contact is 26/01/2026, not 05/12/2025**, so the silence is ~185 days, not 250-301.
+ - **SC0078B returns ZERO hits in estimating@.** The bid reference lives only in the folder copy, so
+   searching a bid ref will never tell you whether we responded. Search the site name.
+
+FILWOOD - NO, AND DO NOT PLAN ON IT. Nothing has gone to Stepnell and there is no live email to them
+today as things stand. Sequence: enquiry in via Paul Taylor 17/07 (his 14:06 note is where the "until
+30th July" extension comes from), RFQ out 23/07, BSW back 24/07, **QUOTE TO CHECK to Adam 27/07 13:17,
+and it has been sitting with him since**; A Plus QT51510 landed 28/07 and nothing has left after it.
+
+Adam already has the whole position - his 07:54 morning update this morning LEADS with "Filwood
+Broadway (Stepnell, S25233B) - closes today, not issued", carries the GBP 67,067.58, the install line
+that reads GBP 3,500 against GBP 18,446.32 at our own curtain wall labour rate (corrected: GBP
+82,013.90), the Bill item A provisional-sums question and the two fabricators refusing the 1.0
+U-value in writing. REQ-10 is open on the hub. So nothing further from either of us is needed on it.
+
+Which means St James House cannot ride on the back of a Filwood email: there may not be one today,
+and if there is it will be Adam's and it will be carrying three open decisions of its own. Do not
+attach a BD chase to it.
+
+Nothing needed back.
+
+Mary

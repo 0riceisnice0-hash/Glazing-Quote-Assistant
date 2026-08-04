@@ -7536,3 +7536,85 @@ sixteenth card on the board.
 
 **The job file broke the 300-line contract at 692 lines and was archived and rebuilt** to
 `data/jobs/redditch-library-archive-2026-07.md`; the live file is 202 lines, position first.
+
+### Redditch Library - the supplier quote lands, the benchmark was 27% high, and a curve's R2 says nothing about its product (2026-08-04)
+
+**Chat `redditch-library`.** Three work orders: BSW's quotation, and Gintare's own priced document sent to
+Adam at 10:17 with *"I understand you have already issued the cost to them, but let me know if you would
+like to send out a full proposal."*
+
+**BSW QT253829, 04/08/2026: GBP 43,739.72 net for 49 Sheerline Prestige frames.** My benchmark said
+**GBP 56,993.38**. Scope-matched for the unit they dropped, that is **+27.4%** - and it was not a rough
+guess but a curve fitted to BSW's own quote for the same client six weeks earlier,
+`rate = 721.47 x area^-0.4093`, **R2 = 0.9934**.
+
+**THE LESSON IS ABOUT WHAT AN R2 MEASURES.** It measured how well six points fitted a power law. It said
+nothing about whether those six points were the same PRODUCT. Severn Trent was **3005 Wine Red metallic**
+with a 6.8 laminated outer; Redditch came back **stock Hipca White**. I wrote the colour down as a caveat
+on 28/07, called it "pushing the comparator HIGH", and then let the number stand as the basis of a
+GBP 94,926.76 tender anyway. **A superb fit to the wrong product is worse than a rough fit to the right
+one, because it reads as precision.** When a fitted rate comes from a single quote, that quote's finish
+and glass make-up are part of the rate - state them next to the R2, and treat a colour difference as a
+scope difference rather than a footnote. Calibration entry 21, COST vs COST.
+
+**THE COMMERCIAL CONSEQUENCE IS THAT A JOB WRITTEN OFF AS UNWINNABLE WAS NOT.** On 29/07 the record said
+*"there is no supplier we can measure that gets near Joedan"* - GBP 4,240 above him. On real frames the
+gap is about **GBP 1,160**. That conclusion was worth exactly as much as the benchmark behind it, which is
+the general point: **a "we cannot win this" built on a benchmark is a statement about the benchmark.**
+
+**GINTARE'S DOCUMENT: THE ARITHMETIC IS RIGHT AND THE SCOPE IS NOT.** GBP 79,912.22. Run through the Brocks
+Hill test - sell minus supply on every row against the code table - **all 22 rows carry their uplift to the
+penny**; 42 units, 38.8% margin. Nothing is wrong with what is there. What is missing:
+
+- **w36.** BSW's line reads `Location: w35,36` at **Qty: 1**, and it went into the sell document as qty 1.
+  Every other multi-reference line on the same quotation is right (w1,w2 = 2; w22,23 = 2; w16-18 = 3;
+  w24-28 = 5), so there was nothing systematic to notice - one line among twenty-nine.
+  **Reconciling a total does not catch a MISSING row any more than it catches a bad one; neither document
+  was ever wrong with itself.** `check_supplier_covers_quantity` fires once `supplier_coverage` is filled
+  for EVERY reference, including the ones you are confident about, because the wrong one looks like the
+  right ones. BSW's footer disclaims it - *"will not be held responsible for any items missing from
+  quotes"* - and prints **"Bellview"** rather than BSW while doing so.
+- **No strip-out line anywhere**, against Adam's 28/07 ruling and Joedan's cl.12. Installation GBP 8,410
+  against GBP 7,420 of fit-only labour leaves GBP 990 across 43 metal-framed openings.
+- **Perimeter sealing offered as an OPTIONAL extra** when pack p70 cl.11 requires it - third job running
+  after Princess Beatrice and Filwood.
+
+Those three have rates: **+GBP 9,641.31 = GBP 89,553.53 net, GBP 91,849.77 with the 2.5% MCD**, i.e. about
+**GBP 1,163 ABOVE** Joedan rather than GBP 10,775 below.
+
+**AND THE SUPPLIER QUOTE ANSWERED FIVE OF THE RFQ'S SEVEN ITEMS BY SAYING NOTHING.** Solar control glass
+(the RFQ asked for *"outer pane 4mm bronze anti sun"*; **all 68 panes are clear**, with zero instances of
+anti-sun, bronze, solar or tint in twelve pages); the **door panic ironmongery** for refs 32/34/37/41
+(Axim 8800 closers and PR7100 exit devices asked for; **Ultion key cylinders, Prolinea lever handles and a
+Standard Resi Lock** quoted - a domestic front door - on **fire escape doors in an occupied public
+library**); **window restrictors** (none, on 17 opening units); **RAL colour** (stock white); and
+**delivery** (ex works). **A quote that is silent reads as complete** - the Trafalgar House lesson, now
+with a supplier who was asked in writing, item by item.
+
+**THE PROPOSAL WOULD HAVE CERTIFIED A U-VALUE NOTHING SUPPORTS.** It states **1.4 W/m2K** on its face;
+BSW's quotation states no whole-window Uw anywhere and *"EcoPlus 1.0"* is a **centre-pane Ug**. That is
+Filwood on the same morning and Georgie's the week before - **third instance in a week of a performance
+figure on our document that the supplier's own paperwork does not carry.** It also states working hours
+**07:30-16:30** against the tender's 08:30-17:30 (prelims) and 08:30-18:00 (Schedule of Works) in an
+occupied library where windows cannot be left out over a shift; promises a **full-time CSCS/SMSTS
+supervisor, a dedicated project manager AND a separate contracts manager** with GBP 990 standing behind
+them (the 04/08 Luton board note, live on a second job the same day); and leaves the **ten year warranty in
+the back-page T&Cs** when on a **70/30 price/quality** award, as the dearer bid, it is the one place we
+beat Joedan's twelve months.
+
+**AND THE .XLSX STILL CARRIES THE WORKING COLUMNS** - `Supplier used: BSW 43,739.72` in K3/M3, frame cost
+per line in J and P: our buy and our 38.8% margin, one scroll to the right. Both files carry author
+*Nicholas Baker*, *dan.parker@agsurveying.co.uk* and links into two other people's Outlook caches.
+**REQ-27, fifth job, not re-raised** - `scripts\clean_issued_pack.py` strips all of it and neither file
+was ever run through it.
+
+**`mary_checks`: 3 FAILED - do not issue this quote.** All three are real and were left failing rather than
+tidied: the RFQ was not answered line by line, site access is neither priced nor excluded, and the supplier
+quote is one unit short. Three rules added by other chats since 29/07 - `rfq_items`, `priced_rows`,
+`site_access` - landed on exactly the three things this turn found by hand, which is the first time the
+checker has been ahead of the reading rather than behind it.
+
+**Recommended to Adam:** back to BSW today with the five omissions (their quote holds thirty days from
+04/08); add w36, strip-out and sealing now, since those are not in dispute; and issue nothing to Leonard
+until BSW's gaps come back, because every one of them is upward and he has been holding *"around 89k"*
+since 29/07. **Nothing issued to Pride.**

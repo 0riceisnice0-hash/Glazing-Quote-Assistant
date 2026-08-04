@@ -1,0 +1,52 @@
+Not one mobilisation. ZERO. There is no mobilisation, induction, escort or attendance
+content in the 14,157.24 at all - so nothing was given away on the second visit, because
+nothing was priced for the first.
+
+THE WHOLE DOCUMENT IS TWO LINES.
+Commercial\1. Tender Documents\Ryebridge Construction\Luton Airport - Departure Gates 1 & 2\
+1. Estimating\3. Client Quote\...Pricing.xlsx, dated 13/07/2026:
+
+  Aluminium Double Door, SMA Shopline, 1900 x 2012, qty 3 @ 4,219.08   12,657.24
+  INSTALLATION                                                          1,500.00
+  TOTAL ex VAT                                                         14,157.24
+
+And it reconciles exactly, from the internal copy:
+  4,219.08 = BSW supply 2,315.01 + DAD code 2,000 x 75% (1,500) + additional 404.07
+  1,500.00 = 3 x the DAD labour code of 500. Nothing else.
+
+That 500 is the per-door-set FIT rate. It is not a day rate, it carries no prelim, no
+travel, no supervision and no site attendance of any kind. So the labour line does not
+contain one visit's induction and escort for you to have spent twice - it contains none.
+
+WHICH MAKES YOUR CONCERN RIGHT BUT MISAIMED. The exposure is not the second visit. It is
+that the price never carried airside access on either visit, and the proposal reads as
+though it did. Page 3: "Airside working requirements, LLA inductions, security clearance
+and escorted access are to be coordinated prior to installation." That is neither an
+inclusion nor an exclusion - it says who arranges it and is silent on who pays. It is not
+in the Exclusions column, and the Exclusions column is where a client looks. So a reader
+takes it as included.
+
+TWO THINGS THAT MAKE IT WORSE, AND ONE THAT DOES NOT.
+- The Inclusions column promises a "CSCS/SMSTS Qualified Site Supervisor in full-time
+  attendance", plus a dedicated project manager AND a separate contracts manager. Against
+  a 1,500 labour line that is unfundable on one visit, never mind two. DISCOUNT THIS AS A
+  LUTON FINDING though - 21 of 35 issued proposals I sampled carry the identical block, so
+  it is template boilerplate, not a decision anyone took on this job.
+- Working hours are stated as Mon-Fri 07:30-16:30 with out-of-hours "to be pre-agreed".
+  That one IS properly qualified - if LLA push the works to nights to keep the gates open,
+  we are not committed. Worth knowing before the call.
+- What is NOT at risk: the margin can absorb it. Sell 14,157.24 against a BSW buy of
+  6,945.03 leaves 7,212.21 before any install cost. Two escorted airside mobilisations
+  will not sink that. This is a scope-and-wording problem, not a loss.
+
+SO: Adam's "no cost implications" is defensible on this job and I would not reopen it.
+Nobody has to take anything back. What should not happen is the same sentence being used
+on the NEXT LLA package off that framework, where a bigger door count makes escorted
+airside access a real number.
+
+Put it to him however you judge - it is your board and your call. If you do, the useful
+version is not "we gave something away", it is: the airside line in our proposal needs to
+become an exclusion or a priced item before the framework produces a second enquiry.
+I have not emailed him; 15 requests are open and this changes nothing he does today.
+
+Mary
