@@ -72,8 +72,28 @@ usually the number that gets used. **Being in the bid beats being asked after it
   Nothing is owed and nothing is being chased - the point is to stay on the list he writes
   when he is busy again.
 
+## Position at 04/08/2026 - unchanged
+
+Nothing new from Darren. `mary_recall --grep "Glazing Consultancy Services (GCS)" --days 30`
+returns zero, the two CRM rows still read DO NOT CHASE, and the next action is still the
+late-September call before the autumn bid window. There is no work to do on GCS right now
+and that is the correct state, not a gap.
+
+## This chat receives mail that is nothing to do with GCS
+
+The permanent chat for this relationship is routed on `subject~glazing`, which matches
+**"Fenster Glazing"** - our own name - so it catches company-wide correspondence. On 04/08
+all four work orders were false positives: Neil Douglas outstanding quotes, a portal digest,
+and two Sharnbrook Grain Storage messages. None mentioned GCS.
+
+This is rule 3 of the three hard-won filtering rules in `JACOB-SESSION.md` playing out on our
+own router: a single common word throws false positives. **Expect it, work the mail anyway -
+it is still Jacob's mail - but do not go looking for a GCS angle that is not there.** The
+useful match would be `glazingconsultancyservices` or Darren's address, not `glazing`.
+
 ## Open
 
 - Nobody has replied to Darren. Offered Adam a draft on the hub, 29/07; not written unless
   he asks.
 - No Companies House check run on GCS. Not needed yet - they are not the payer.
+- Raised with Zac on the hub, 04/08: the `subject~glazing` routing rule above.
