@@ -1,112 +1,100 @@
 # Ryebridge Construction Ltd
 
-**State: quoted, live dialogue.** One quote out, £14,157.24 ex VAT, awaiting the airport's
-decision. Not gone quiet - they came back to us on 30/07 to re-phase the works.
+Voyager House, 142 Prospect Way, Luton, Bedfordshire, LU2 9QH
+ryebridgeconstruction.com · AdminBase ref 8660
 
-Ryebridge Head Office, Voyager House, 142 Prospect Way, Luton, Bedfordshire, LU2 9QH
-Domain: ryebridgeconstruction.com · AdminBase ref 8660
+## Position
 
----
+**Quoted, live, and warmer than the board looked.** One quote out — £14,157.24 ex VAT for
+3 aluminium double exit doors at London Luton Airport, issued 13/07/2026. Not silent: on
+30/07 they came back to **re-phase** the works (client needs half the waiting area and one
+departure exit open throughout, so two pairs of doors now and a return visit for the third).
+Adam absorbed the change at no cost the same day. A client working out how to let us in is
+not a client still deciding.
 
-## The thing that matters most about them
+**The prize is not this job.** Ryebridge are a *main framework contractor for London Luton
+Airport* — a standing tap of small repeat door and window packages, which is the shape
+Fenster converts. Nobody has yet asked what else is on that framework.
 
-**They are a main framework contractor for London Luton Airport.** Noel's own words,
-07/07/2026: *"We are a main framework contractor for London Luton Airport and have been
-asked to replace 3 double exit doors to the terminal."*
-
-That is not one job, it is a tap. A standing airport framework generates small, repeat,
-aluminium door and window packages - which is the shape of client Fenster actually
-converts (compare FM Solutions 10-2, Cranfield 7-0). The £14,157 in front of us is the
-sample, not the prize.
-
-**Nobody has asked them the framework question yet.** Adam has twice asked Noel
-generically - *"if you have any other projects for windows, doors or curtain wall then
-please do send them over"* (22/07 and again 30/07). Both times: no answer. A generic ask
-to a busy project manager is a nil return. The specific version is the one to put.
+**Next action: Adam rings Noel by 07/08** — not to chase the quote. Two things to get, and
+one to fix. See below.
 
 ---
 
 ## People
 
-| Name | Role | Contact | Notes |
-|---|---|---|---|
-| **Noel Cremin** | Project Manager | ncremin@ryebridgeconstruction.com · 07801 695398 | Our contact throughout. Runs the job. Replies fast and straight - answered Adam's 22/07 chase inside 90 minutes. |
-| **Mason Pender** | *unknown - find out* | mpender@ryebridgeconstruction.com · 07763 547642 | Cc'd on every single Ryebridge email in the thread. We have his mobile on file and no idea who he is. If he is commercial/estimating he is the one who draws up enquiry lists, which makes him worth more to us than Noel. |
+| Name | Role | Contact |
+|---|---|---|
+| **Noel Cremin** | Project Manager — our contact throughout, runs the job, replies fast and straight | ncremin@ryebridgeconstruction.com · 07801 695398 |
+| **Mason Pender** | **Unknown — find out.** Cc'd on every email they've sent us; we hold his mobile and no role. If he's commercial and Noel runs jobs, he draws the enquiry lists and is the more valuable name | mpender@ryebridgeconstruction.com · 07763 547642 |
 
-Ours on it: Adam Butcher (owns the relationship, direct 07939 452711), Gintare (priced it),
-estimating@ cc'd throughout.
+Ours: Adam Butcher (owns it, direct 07939 452711), Gintare (priced it), estimating@ cc'd.
 
----
+## The job: Luton Airport — Departure Gates 1 & 2
 
-## The job: London Luton Airport - Departure Gates 1 & 2
+3nr double exit doors, timber out / aluminium in, anthracite grey RAL 7016, approx
+1900w × 2012h. Open out, built-in closers, push plates with hook-to-hold-back. Atec remove
+and reinstall access control, Honeywell costs carried in our price, fire alarm reconnected.
 
-3nr double exit doors to the terminal, timber out / aluminium in, anthracite grey
-(RAL 7016), approx 1900w x 2012h. Open out, built-in closers, push plates with hook to
-hold back. Access control removed and reinstalled by **Atec**, with Honeywell costs to be
-carried in our price; all access control and fire alarm provisions reconnected.
-
-**It is airside.** Every installer and supervisor needs an LLA induction for security
-clearance and is **escorted** for the duration of the works. That is the fact that makes
-this job different from a £14k door swap anywhere else, and it is the fact behind the open
-question below.
-
-**£14,157.24 ex VAT**, issued by Gintare 13/07/2026 14:58.
+**It is airside** — every installer and supervisor needs an LLA induction for security
+clearance and is escorted throughout. That fact drives the pricing position below.
 
 ### Chronology
 
 | Date | What |
 |---|---|
-| 07/07 16:20 | Noel emails info@ cold. 3 doors, spec as above, quote by **midday Tue 14/07** - *"LLA never give much time for quoting"*. |
-| 11/07 14:02 | Adam acknowledges, commits to the 14th. Passes to Gintare. |
-| 13/07 | Gintare's quote to Adam to check; Adam moves mastic and EPDM into 'Additional' and strips the optional cells. |
-| 13/07 14:58 | Quote issued to Noel - £14,157.24 ex VAT. A day early. |
-| 22/07 14:02 | Adam calls (no answer), then emails: feedback on cost and spec, is this secured work for Ryebridge, when is the decision. **Three questions.** |
-| 22/07 15:27 | Noel: *"We are still awaiting the airports decision. They are notoriously slow."* Answers one of the three. Still unknown: how our price landed, and whether Ryebridge have the work. |
-| 22/07 15:30 | Adam: fine, I'll come back early September. Generic ask for other projects. |
-| **30/07 11:33** | **Noel: the client has revised access requirements.** Half the waiting area and one departure exit must stay operational at all times. For us: **replace 2 pairs of doors, return a week or so later for the third.** Asks for cost implications. |
-| 30/07 12:01 | Adam, in 28 minutes: *"No cost implications, we're happy to make two visits to site as it's local to us."* Generic ask for other projects again. |
+| 07/07 | Noel emails info@ cold. Quote wanted by midday 14/07 — *"LLA never give much time for quoting"*. |
+| 11/07 | Adam acknowledges, commits to the 14th. |
+| 13/07 | Quote issued — £14,157.24 ex VAT. A day early. |
+| 22/07 | Adam calls (no answer), emails three questions: how did the price land, is this secured work for Ryebridge, when is the decision. Noel answers one: *"still awaiting the airports decision. They are notoriously slow."* Adam says he'll return early September. |
+| **30/07** | **Noel: client revised access.** Two pairs of doors, return visit a week later for the third. Asks cost implications. Adam, 28 minutes later: *"No cost implications, we're happy to make two visits as it's local to us."* |
+| 04/08 | Mary breaks the price down (below). Nothing to reopen. |
 
----
+## The pricing position — settled 04/08, do not reopen
 
-## The read
+**The whole quote is two lines:** 3 × £4,219.08 door supply (£12,657.24) + £1,500
+installation. That's it. The £1,500 is 3 × the £500 DAD per-door-set FIT rate — not a day
+rate, and it carries **no prelim, no travel, no supervision, no site attendance**.
 
-**A client who re-phases a job around keeping their terminal open is planning to build it.**
-That 30/07 email is the best signal in this file. LLA are not sitting on a price, they are
-working out how to let us in - which is a much later stage of thinking than "still
-deciding". The lead was carrying a chase-for-a-decision action dated 14/07 and describing
-silence; that was wrong by the time it was written, and it is fixed now.
+So there is **zero** mobilisation, induction or escort content in the price. Adam gave
+nothing away on the second visit, because nothing was priced for the first. My original
+concern was right to ask and aimed at the wrong thing.
 
-**We just did them a free favour and have not banked it.** Absorbing a programme change at
-no cost, same day, is exactly how a subcontractor gets remembered. The moment to convert
-goodwill into being asked to price is while it is fresh - not in September.
+**Margin absorbs it and this is not a loss:** sell £14,157.24 against a BSW buy of
+£6,945.03 leaves £7,212.21 before install. Two escorted airside mobilisations don't sink
+that. Adam's answer is defensible on this job.
 
-**Open question, and it is a real one:** the quote was built for a single mobilisation.
-A second visit here is a second *escorted airside* mobilisation - inductions, clearance,
-escort time - not just a second journey up the road. "Local to us" answers the travel and
-nothing else. Adam has told the client in writing there is no cost implication, so if the
-take-off assumed one visit we have given something away that we cannot politely take back.
-Asked Mary 04/08 whether the £14,157.24 carries one mobilisation or two and where induction
-and escort time sit in the labour line. **Not a criticism of the answer** - it was the right
-relationship call on a £14k job - but somebody should know the number before an order lands.
+**What IS exposed is the wording, and it will bite on the next one.** Page 3 of the
+proposal says airside requirements, LLA inductions, security clearance and escorted access
+*"are to be coordinated prior to installation"* — that says who arranges it and is silent
+on who pays, and it is **not in the Exclusions column**. Exclusions is where a client
+looks, so a reader takes it as included. On a 3-door job the margin hides it. On a bigger
+package off the same framework, escorted airside access is a real number.
 
----
+Two footnotes: the Inclusions block promises a full-time CSCS/SMSTS supervisor plus a
+project manager plus a contracts manager — unfundable against £1,500, but it is **template
+boilerplate** (21 of 35 proposals sampled carry it), so not a Luton decision and not
+Ryebridge's to answer for. And working hours are properly qualified — Mon–Fri 07:30–16:30,
+out-of-hours to be pre-agreed — so **if LLA push the works to nights to keep the gates
+open, we are not committed.** Useful to know before the call.
 
 ## Next actions
 
-1. **Adam rings Noel this week (by 07/08)** - not about the quote. Frame: we have taken the
-   two-visit re-phasing at no cost; what else is coming through the LLA framework in the
-   next six months, and who puts the enquiry list together? Establish **who Mason Pender
-   is** while he is on the phone.
-2. **Early September** - Adam's own commitment - chase the LLA decision if nothing has
-   landed. He said he would; the record should hold him to it.
-3. Answer the mobilisation question when Mary comes back, and if the second visit is not
-   in the price, tell Adam before an order arrives, not after.
+1. **Adam rings Noel by 07/08.** Not a chase — we've just absorbed his re-phasing for free,
+   same day, and that is the currency. Ask: *what else is coming through the LLA framework
+   over the next six months, and who puts the enquiry list together?* Establish **who Mason
+   Pender is** while he's on the phone.
+2. **Before the framework produces a second enquiry**, the airside line in our proposal
+   template becomes either an exclusion or a priced item. Cheap to fix now, expensive on a
+   20-door package.
+3. **Early September** — Adam's own commitment — chase the LLA decision if nothing lands.
+4. If LLA ask for night or out-of-hours working, that is a re-price, not a favour.
 
 ## Standing notes
 
-- They came to **info@** cold on 07/07. Source recorded as AdminBase (ref 8660) - the
-  relationship pre-dates this thread somewhere; worth a look if we ever need history.
-- LLA timescales are short on quoting and long on deciding. Noel warns about it himself.
-  Do not read airport silence as a loss.
+- Came to **info@** cold on 07/07; source recorded as AdminBase 8660, so the relationship
+  pre-dates this thread somewhere.
+- LLA are short on quoting time and long on deciding. Noel warns about it himself — do not
+  read airport silence as a loss.
 - Atec (access control) and Honeywell are on this job alongside us. Other trades on an
   airport framework are lead sources in their own right.
