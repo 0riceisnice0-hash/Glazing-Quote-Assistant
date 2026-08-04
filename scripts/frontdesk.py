@@ -72,9 +72,19 @@ QUEUES = {
     "jacob": os.path.join(REPO, "test-results", "jacob-inbox", "queue"),
     "joseph": os.path.join(REPO, "test-results", "joseph-inbox", "queue"),
 }
-# All four are inside Mary-Reader's `bot-scope` group already.
-MAILBOXES = [mg.ESTIMATING, mg.MARY,
-             "commercial@fensterglazing.com", "info@fensterglazing.com"]
+# TWO SETS OF CREDENTIALS, BECAUSE NEITHER REACHES EVERYTHING. Mary-Reader is
+# scoped to `bot-scope` (estimating@, mary@, commercial@, info@) and
+# Jacob-Reader to `jacob-scope`, which is the only one that can open jacob@.
+# The front desk holds both and each mailbox says which one opens it. Nothing
+# about the scoping changes - this reads exactly what the two apps were already
+# allowed to read, and jayk@ stays out because it is a hard 404.
+MAILBOXES = [
+    (mg.ESTIMATING, "mary"),
+    (mg.MARY, "mary"),
+    ("commercial@fensterglazing.com", "mary"),
+    ("info@fensterglazing.com", "mary"),
+    ("jacob@fensterglazing.com", "jacob"),
+]
 
 
 def log(msg):
@@ -235,16 +245,39 @@ def bin_it(msg, why):
         json.dump(rec, fh, indent=1, ensure_ascii=False)
 
 
-def sweep(token, state, dry_run=False):
-    """Everything new across the four shared mailboxes, oldest first."""
+def tokens():
+    """Both readers. A missing one costs its mailboxes, never the whole sweep."""
+    out = {}
+    try:
+        out["mary"] = mg.get_token(mg.load_env(), "READER")
+    except Exception as e:
+        log("no Mary-Reader token (%s) - her four mailboxes are dark" % str(e)[:70])
+    try:
+        import jacob_graph as jg
+        out["jacob"] = jg.get_token(jg.load_env(), "READER")
+    except Exception as e:
+        log("no Jacob-Reader token (%s) - jacob@ is dark" % str(e)[:70])
+    return out
+
+
+def sweep(toks, state):
+    """Everything new across every mailbox we can open, oldest first."""
     fresh = []
-    for box in MAILBOXES:
+    for box, which in MAILBOXES:
+        token = toks.get(which)
+        if not token:
+            continue
         try:
             msgs = mg.list_messages(token, box, top=25,
                                     whole_mailbox=(box == mg.ESTIMATING))
         except Exception as e:
+            # A 401 on ONE reader must not kill the other's mailboxes - that
+            # is the swallowed-exception trap from 27/07 in reverse. Drop this
+            # reader's token so the next pass refetches it, and carry on.
             if "401" in str(e) or "InvalidAuthenticationToken" in str(e):
-                raise
+                log("AUTH FAILED on %s (%s reader) - dropping that token" % (box, which))
+                toks.pop(which, None)
+                continue
             log("LIST FAILED %s: %s" % (box, str(e)[:90]))
             continue
         for m in msgs:
@@ -262,15 +295,19 @@ def main():
     ap.add_argument("--once", action="store_true", default=True)
     a = ap.parse_args()
 
-    env = mg.load_env()
-    token = mg.get_token(env, "READER")
+    toks = tokens()
+    if not toks:
+        log("no readers available - nothing can be swept")
+        return 1
     state = load_state()
 
-    fresh = sweep(token, state, a.dry_run)
+    fresh = sweep(toks, state)
+    open_boxes = [b for b, w in MAILBOXES if w in toks]
     if not fresh:
-        log("nothing new across %d mailbox(es)" % len(MAILBOXES))
+        log("nothing new across %d mailbox(es)" % len(open_boxes))
         return 0
-    log("%d new message(s) across %d mailbox(es)" % (len(fresh), len(MAILBOXES)))
+    log("%d new message(s) across %d mailbox(es): %s"
+        % (len(fresh), len(open_boxes), ", ".join(b.split("@")[0] for b in open_boxes)))
 
     counts = {}
     for i in range(0, len(fresh), BATCH):

@@ -790,25 +790,30 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
         mp.poll_botchat(env, state)
         state["_last_botchat"] = now
     if force_mail or now - state.get("_last_mail", 0) >= MAIL_EVERY:
-        # Renew BEFORE it lapses. Waiting for a failure to trigger the refresh
-        # is what killed intake for 17 hours on 27/07: poll_mail swallowed the
-        # 401 per mailbox, so the except below never fired and the bridge kept
-        # polling with a token that had expired at 16:56.
-        if token[0] and now - state.get("_token_at", 0) >= TOKEN_MAX_AGE:
-            token[0] = None
-        if token[0]:
-            try:
-                mp.poll_mail(token[0], state)
-            except Exception as e:
-                log("MAIL POLL FAILED: %s" % e)
-                token[0] = None      # token probably expired - fetch a new one
-        else:
-            try:
-                token[0] = mg.get_token(env, "READER")
-                state["_token_at"] = now
-                log("Graph token refreshed")
-            except Exception as e:
-                log("TOKEN REFRESH FAILED: %s" % e)
+        # MAIL COMES THROUGH THE FRONT DESK NOW, not through here.
+        #
+        # This used to be `mp.poll_mail(...)`: Mary read estimating@ and mary@
+        # herself, and everything landed in her queue whether it was hers or
+        # not. scripts/frontdesk.py reads all five mailboxes with both readers,
+        # sorts them on Haiku for a few thousand tokens, and writes each item
+        # into the queue of whichever bot it actually belongs to - so a
+        # purchase order reaches Joseph without passing through an estimating
+        # session first.
+        #
+        # It runs from this loop because this is the always-on process, not
+        # because it is hers. It writes to three queues and reads none.
+        # `poll_mail` stays in mary_poller for backfills and as the way back if
+        # this ever needs turning off.
+        try:
+            p = subprocess.run(
+                [sys.executable, os.path.join(REPO, "scripts", "frontdesk.py")],
+                cwd=REPO, capture_output=True, timeout=600,
+                encoding="utf-8", errors="replace", creationflags=NO_WINDOW)
+            for line in (p.stdout or "").strip().splitlines()[-3:]:
+                if line.strip():
+                    log(line.strip())
+        except Exception as e:
+            log("FRONT DESK FAILED: %s" % str(e)[:150])
         state["_last_mail"] = now
 
     # Our own session is running in a worker thread - keep the depth on the hub
