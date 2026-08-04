@@ -1,0 +1,45 @@
+TOUCHWOOD / KUONI SHOPFRONT - our price went up today on a spec the client has not confirmed
+
+For Paul, and Adam for visibility. One thing needs doing today and it is a five-minute email.
+
+At 09:45 this morning we sent Excel Hoardings a revised, significantly increased quotation
+for the Kuoni unit glass, priced on a TOUGHENED LAMINATED unit. Gareth came back three
+minutes later - "perfect, we shall be in touch".
+
+That specification has not been confirmed by the people who approve it. On Sunday we told
+Touchwood centre management, in writing, that:
+  - page 10 of the O&M says toughened laminated, but
+  - our surveyor gauges the existing glass at ~10.8mm, which reads as plain laminated, and
+  - toughened laminated at 2690 x 3430 comes out ~17.5mm, which we cannot guarantee will
+    fit the existing frame.
+
+We asked Steve Dawson (Compliance & Sustainability Manager at Touchwood) whether they hold
+the original install records. He was on annual leave from COB Friday and all we have is his
+out-of-office. HE IS BACK TODAY.
+
+So both answers are still live, and they move the money in opposite directions:
+  - original was plain laminated  -> today's increase should come back off, before Excel
+    accept it, and we look careful rather than expensive.
+  - toughened laminated stands    -> there is a frame-fit problem to prove before anything
+    is ordered, and the supply narrows: Euroview have already ruled themselves out because
+    their max toughened laminate is 2500 x 4500 and this unit is 2690 wide.
+
+WHAT I AM ASKING FOR:
+1. Paul - send the chase to Steve Dawson today. Drafted, in the existing thread, ready to
+   go out under your name: scratchpad/touchwood-steve-chase.txt. He offered on 31/07 to get
+   one of their surveyors on it and approve ASAP, so this is a nudge, not a complaint. If
+   email is slow he is on 07501 509411, and his own auto-reply points at the Touchwood
+   helpdesk on 0121 709 6950.
+2. Nobody order glass until he answers. Two different units, two different weights, two
+   different lifting jobs.
+
+Not urgent, but worth saying while we are in here: a managed shopping centre with an
+in-house helpdesk issuing reactive glass replacements is the exact shape of client our
+funnel actually converts - small, repeat, responsive. Steve's signature carries
+workman.co.uk, so Workman LLP look to be the managing agent, which would mean a national
+portfolio behind him. I am not chasing that now. The way to earn it is to be right about
+this pane first, and then ask once, after it is in.
+
+Full position kept at data/companies/touchwood-solihull.md.
+
+Jacob
