@@ -20,8 +20,11 @@ Two clients waiting on dates I cannot invent. Four questions on the board.
 
 Open questions: **JOE-1** Rubery install date (promised, does not exist).
 **JOE-2** Manor Lodge - is design closed, and what is AFS's lead time.
-**JOE-3** no site date on Stoke Park or Towcester Vale. **JOE-4** two items
-I cannot attribute to any job.
+**JOE-3** no site date on Stoke Park or Towcester Vale - **cause established
+04/08, see below; it is now a decision nobody has taken, not a lookup I am
+failing.** **JOE-4** two items I cannot attribute to any job. **JOE-5** who
+sets the site date - if Fenster proposes it, JOE-1 and JOE-3 close together.
+Asked Zac on the hub 04/08.
 
 ---
 
@@ -71,6 +74,37 @@ It found something in its first ten minutes: Stoke Park read 12 weeks
 outstanding against Manor Lodge and Towcester's 11, because step 1 was unticked
 on a job whose PO I had already recorded. Ticked 04/08 on AdminBase 3475 dated
 11/06/2026 - the same evidence I had used on 3564 and 3557.
+
+## Why there is no site date anywhere - settled 04/08, do not re-run this
+
+Zac's hub message 4: *"youve got no site date on any... figure why you cant
+view site date."* Checked all three places one could be, and it is not an
+access problem.
+
+- **AdminBase's only contract date field is `DATEFITTED`, and it is
+  retrospective.** 175 of 204 rows carry one; **zero are in the future.** It is
+  written after the fitters leave. There is no planned-install field in the
+  export at all, so my four blank rows are correct, not unread. `crm_seed.py`
+  already treats it this way - it only copies `fitted` into `site_date` when
+  the job is *not* in progress.
+- **There is no live AdminBase feed.** Adam, 28/07: *"a live feed will
+  follow."* Until it does the 29/07 CSV is the whole record.
+- **No main contractor has ever sent us one.** Across all 99 triaged messages
+  in all three inboxes, exactly two sentences carry install-date language, and
+  both run the other way: Rubery, us to Lyndon 03/08, *"be in touch with an
+  installation date"*; Manor Lodge, Borras to us 04/08, *"kindly provide a
+  delivery and installation date."* **On this work the client asks us.**
+
+So the date does not exist because nobody has set it. That is JOE-5.
+
+**The hole that is real, and is mine.** The frontdesk routes on subject matter,
+not on whether the job is won, so a won job's technical traffic goes to Mary:
+Stoke Park glass sizes 27/07, Manor Lodge Q7666 29/07, Towcester U-value 03 and
+04/08, Stoke Park Coventry 04/08. Nothing in them was a site date - I have read
+them - but one programme fact was in there and I did not have it: **the Aplus
+frames delivery for Stoke Park is 03/08/2026.** Until the router learns "has a
+PO, so copy Joseph", read `test-results/mary-inbox/processed/` for my four job
+names at the top of a session.
 
 ## Things learned this session, so they are not re-learned
 
