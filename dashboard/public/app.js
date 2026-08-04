@@ -160,13 +160,20 @@ function statusAge(s) {
 function bridgeStatus(s) {
   s = s || {};
   const age = statusAge(s);
-  if (["working", "batching"].includes(s.state) && age > STATUS_STALE_MS) {
+  /* STALE IS STALE WHATEVER IT SAID. A bridge that is up reports every sixty
+     seconds, so a status nobody has touched for fifteen minutes means the
+     bridge is down - and that is just as true of an "idle" row as a "working"
+     one. Checking only working/batching left a bot that went idle five days
+     ago showing a green "Live", which is the same lie in a nicer font. */
+  if (s.state && s.state !== "unknown" && age > STATUS_STALE_MS) {
     const short = String(s.title || "").split(" (")[0].split(",")[0].trim();
     const when = age > 86400000 ? `${Math.floor(age / 86400000)}d`
                : `${Math.max(1, Math.round(age / 3600000))}h`;
+    const midJob = ["working", "batching"].includes(s.state);
     return {
-      text: short ? `Stopped mid-job - ${short}` : "Stopped mid-job",
-      tone: "stalled",
+      text: midJob ? (short ? `Stopped mid-job - ${short}` : "Stopped mid-job")
+                   : "Not running",
+      tone: midJob ? "stalled" : "off",
       thought: String(s.thought || "").trim(),
       title: `Last said anything ${when} ago. The bridge is not running.`,
     };
@@ -3309,7 +3316,7 @@ function josephStatus() {
   if (JOSTATUS && JOSTATUS.state && JOSTATUS.state !== "unknown") return bridgeStatus(JOSTATUS);
   /* No bridge has ever run for him yet, and saying "Live" when nothing is
      listening would be the same lie the pause-verification told. */
-  return { text: "Not started", tone: "", title: "His bridge has not been run yet" };
+  return { text: "Not started", tone: "off", title: "His bridge has not been run yet" };
 }
 
 function jacobStatus() {
@@ -3322,7 +3329,7 @@ function jacobStatus() {
   /* NOT "Live". Nothing here is evidence a bridge is running - it is the
      absence of evidence, which is the state the pause leaves behind and the
      one a person most needs told. */
-  return { text: "Not running", tone: "",
+  return { text: "Not running", tone: "off",
            title: "No status and no recent activity - his bridge is not up" };
 }
 
@@ -4125,11 +4132,18 @@ const CRM_RENDER = {
       mailboxes that decides whose each message is, so no bot has to wake up to
       find out. Every call it has made is here, including the ones it binned.</p>
 
+      <!-- The card is a pointer with a hover lift, so it has to do something
+           when you click it. Each one filters the stream below to exactly what
+           it counted, through the tab handler that already exists. -->
       <div class="stats">
-        <div class="stat"><strong>${t.seen}</strong><span>judged</span></div>
-        <div class="stat"><strong>${t.work}</strong><span>became work</span></div>
-        <div class="stat"><strong>${t.fyi}</strong><span>to read only</span></div>
-        <div class="stat"><strong>${t.noise}</strong><span>binned as spam (${pct}%)</span></div>
+        <div class="stat" data-crmtab="fd:all"><div class="n">${t.seen}</div>
+          <div class="l">Messages judged</div></div>
+        <div class="stat green" data-crmtab="fd:work"><div class="n">${t.work}</div>
+          <div class="l">Became somebody's work</div></div>
+        <div class="stat" data-crmtab="fd:fyi"><div class="n">${t.fyi}</div>
+          <div class="l">To read, nothing to do</div></div>
+        <div class="stat" data-crmtab="fd:noise"><div class="n">${t.noise}</div>
+          <div class="l">Binned as spam - ${pct}% of everything</div></div>
       </div>
       ${today.seen ? `<p class="crm-count">${today.seen} of them in the last 24 hours -
         ${today.work} work, ${today.noise} binned.</p>`
