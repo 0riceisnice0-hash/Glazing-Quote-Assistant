@@ -53,14 +53,47 @@ issued `Pricing.xlsx`. Mary's 30/07 note that nothing had gone to Stepnell was t
 wrote it and was overtaken that afternoon - if a Stepnell job looks quiet, check the
 documents before you believe it.
 
+**Times in this file are LOCAL; the ledger is UTC.** Issued 13:32 here is the 12:28-12:35 pair
+in `mary_recall`. Both are right - do not "correct" one to the other. What WAS wrong is the
+date: the CRM carried this as issued 04/08, which was the day the handover was processed, not
+the day the quote left. Fixed 04/08; the first chase had been diaried a week late.
+
 **The risk here is the system, not the price.** The tender specified **Aluprof**; we priced
 **SMA Shopline** as a "similar approved alternative", and the proposal says the Ug 1.0,
 g-value and acoustic requirements "have been allowed for the glazing only" - glazing
 performance, not whole-system. That sits in the **clarifications prose, not the EXCLUSIONS
 column**, which is where a client's eye goes. Two fabricators refused the 1.0 U-value in
 writing (Mary, REQ-10). BCC is the employer and has to accept the substitution, so the
-answer already exists on their side. Get it in August, not at award. **Draft D-8**, Paul
-Taylor to Adam Warner, hold until **11/08**.
+answer already exists on their side. Get it in August, not at award. **Draft D-8** is now **BLOCKED**, and the reason is below, not the calendar.
+
+### FOUR ERRORS IN THE DOCUMENT STEPNELL IS HOLDING - found 04/08, with Adam (JAC-22)
+
+Mary read the *issued* file on 04/08 and emailed Adam at 12:36. Not the working file - the one
+Adam Warner has had since 30/07:
+
+1. **The schedule names the wrong screen on every line.** Four rows labelled ED-06; this job has
+   **one** ED-06. The two labelled "ED-04 4930x3570" are the ED-05s. This is the one a reader
+   finds without looking for it, and Adam Warner is a senior estimator.
+2. **The spec box certifies performance BSW have declined in writing.** It states Ug 1.0,
+   g 0.5-0.6 and Rw>=32 dB to ED-06 as our offer, flat. BSW's own quote puts positions 006/007
+   at Ug 1.1 and names no coating on any of the seven screens.
+3. **Issued at 85,767.58 against Adam's written instruction of 86,467.59** - the additional went
+   in at 3,100 where 1,500 DAD + 3,200 gives 4,700. GBP 700 of margin. Adam's call, not mine.
+4. **The .xlsx still carries `dan.parker@agsurveying.co.uk`** as author plus external links to
+   other firms' user paths. The working columns were stripped so the BSW cost did not leak, but
+   the traces live outside the cells and survived. Fourth job running.
+
+**Why this is a BD problem and not just an estimating one.** Our whole play here is to ask BCC,
+through Stepnell, to accept SMA in place of the specified Aluprof. That ask rests on Stepnell
+trusting our paperwork. If Adam Warner finds the schedule fault first, we are asking a man to
+accept a system substitution on a document he has just caught out - and we will not get it.
+**Whichever way Adam Butcher goes, Stepnell hear it from us.** Recommendation on JAC-22: reissue
+corrected, hold the price, keep the GBP 700 as a separate later conversation - a price rise five
+days after issue is the surest way to lose a job we are well placed on.
+
+**D-8 also cannot go as drafted.** Its body tells Adam Warner the thermal, solar and acoustic
+figures are glazing-only. Our own spec box says otherwise. Rewrite it against whichever document
+Stepnell ends up holding; the White Hall paragraph is unaffected and still good.
 
 ## St James House, Derby - the direction is the opposite of what the board said
 
@@ -138,7 +171,20 @@ having. D-9 asks for it. **Ask, do not guess.**
 | When | Who | What |
 |---|---|---|
 | **06/08** | Paul Taylor | **D-9** to Luke Walsh - the windows bill item he promised is 190 days overdue; did the client pick a route for the front elevation. Not "did you get our quote": that framing has failed twice and is factually wrong. |
-| **11/08** | Paul Taylor | **D-8** to Adam Warner - will BCC accept SMA in place of the specified Aluprof, and who is buying the White Hall window package. |
+| **NOW** | Adam Butcher | **JAC-22** - reissue Filwood corrected, or not. Everything below waits on this. |
+| **11/08 earliest, NOT before JAC-22 is answered** | Paul Taylor | **D-8** to Adam Warner - will BCC accept SMA in place of the specified Aluprof, and who is buying the White Hall window package. Needs rewriting first, see above. |
 
 Both are in `data/jacob/drafts.json`, both blocked on JAC-1, both to be sent by a human from
 commercial@ under their own name.
+
+## CRM state, corrected 04/08
+
+- Filwood ran as **two leads** - `filwood` and `stepnell-bcc-filwood-broadway` - showing Stepnell
+  GBP 171,536 of pipeline for one GBP 85,767.58 quote. The duplicate is **closed**; `filwood` is
+  the live one, because that is the key Mary's ledger writes against and where handovers land.
+  There is no merge in `crm.py`; context was copied to notes before closing.
+- The board shows **luke.walsh@** against Filwood. That is the company-level contact defaulting
+  in, not a typo. Filwood is **Adam Warner**. Do not copy Luke on anything Filwood.
+- St James House value corrected **177,205.92 -> 212,647.11** - the AdminBase inc/ex-VAT slip
+  described above, now fixed on the row rather than only written down here. Carrying Option 2;
+  Option 1 is 458,509.81 and Stepnell pick one.

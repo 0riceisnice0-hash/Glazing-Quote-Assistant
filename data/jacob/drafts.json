@@ -166,7 +166,7 @@
    "to_caveat": "Adam Warner is the Bristol / Chandler's Ford senior estimator and Filwood is HIS. Do not copy Luke Walsh - Luke is Nottingham and St James House, a different office and a different conversation. AdminBase has luke.walsh@ stored against the Filwood row (8724); that is the CRM defaulting to the client's stored contact and it is wrong. Mobile 07482 812 707.",
    "cc": "",
    "send_as": "Paul Taylor",
-   "not_before": "2026-08-11",
+   "not_before": "2026-08-11 EARLIEST, AND NOT UNTIL THE REISSUE CALL IS MADE.",
    "subject": "RE: BCC, 4-16 Filwood Broadway, BS4 1JN",
    "body": "Adam,\n\nThanks for confirming receipt of our quotation on 30 July. Two things while it is with you.\n\nThe first is the one worth raising early. The tender information specified Aluprof, and we have priced SMA commercial thermally broken shopfront as a similar approved alternative. It is stated in the clarifications on our proposal, but I would rather flag it than have it found later. The thermal, solar and acoustic figures we have allowed are glazing performance. If BCC want the specified system, or want whole-system figures, tell me now and we will deal with it while there is still time rather than at award.\n\nThe second is separate. I saw you were appointed on White Hall Residential for Bristol City Council back in June. Congratulations - and who is buying the window and door package on it, and roughly when? We would like to be on the list. If it is not you, point me at whoever it is and I will not trouble you with it again.\n\n",
    "evidence": "Quote issued 30/07/2026 13:32 estimating@ -> adam.warner@stepnell.co.uk; his acknowledgement 30/07 13:35 (message AAMk...R6xPyAAA). Issued documents: 'Stepnell - BCC Filwood Broadway Pricing.xlsx' and 'Stepnell - BCC Filwood Broadway Proposal.pdf', both dated 30/07/2026, in Commercial\\1. Tender Documents\\Stepnell\\BCC Filwood Broadway\\1. Estimating\\3. Client Quote\\. The Aluprof-to-SMA substitution and the glazing-only performance wording are quoted verbatim from that proposal's DESCRIPTION & CLARIFICATIONS block. White Hall: Contracts Finder BRISTOLCC001-DN795589-02376229, awarded 11/06/2026, GBP 6,965,999.97, 12/06/2026 to 17/12/2027, 23 social-rent apartments.",
@@ -174,9 +174,10 @@
    "value_source": "The issued Pricing.xlsx dated 30/07/2026: subtotal GBP 85,767.58 ex VAT, plus optional external mastic GBP 605.05 and EPDM GBP 3,081.49. Gintare's number, not mine.",
    "must_not_say": "No prices, no rates, no re-quoting - the figure is in the document he already holds and it is Gintare's. Do not raise St James House here: different office, different contact, and Mary's point stands that a BD chase must not ride on a live commercial thread. Do not congratulate him on White Hall as though we expect a favour for it - ask the procurement question plainly.",
    "status": "ready",
-   "blocked_on": "JAC-1 - a human sends this. Hold until 11/08/2026 to give him eight working days with the quote.",
+   "blocked_on": "Adam Butcher decision on whether Filwood is reissued corrected (four errors found 04/08).",
    "purpose": "Surface the Aluprof-to-SMA substitution while it can still be fixed, and get onto the White Hall enquiry list before it is drawn up.",
-   "approval": "Paul Taylor to read, change and send from commercial@ under his own name."
+   "approval": "Paul Taylor to read, change and send from commercial@ under his own name.",
+   "caveat_added_04_08": "DO NOT SEND AS DRAFTED. This body tells Adam Warner that the thermal, solar and acoustic figures we allowed are GLAZING performance. The document he is actually holding contradicts that: its spec box states Ug 1.0, g 0.5-0.6 and Rw>=32 dB to ED-06 as our offer, flat, and BSW own quote positions 006/007 at Ug 1.1 with no coating named on any of the seven screens. So as written we would be putting a qualification in an email that our own proposal does not carry, to a senior estimator holding the proposal. Rewrite this paragraph against whichever document Stepnell ends up holding, and if Filwood is reissued the Aluprof point belongs in the covering note, not here. The White Hall paragraph is unaffected and still good."
   },
   {
    "id": "D-9",
