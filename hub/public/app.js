@@ -170,7 +170,7 @@ function wireActions(reload) {
 
 /* ---------------------------------------------------------------- routing */
 const VIEWS = { today: vToday, mary: vDesk, jacob: vDesk, joseph: vDesk,
-  activity: vActivity, cost: vCost };
+  delivery: vDelivery, activity: vActivity, cost: vCost };
 let current = "today";
 
 async function show(name) {
@@ -797,58 +797,110 @@ async function refreshBadges(ov, decisions, drafts) {
   } catch { /* badges are decoration; never break the page for them */ }
 }
 
-/* ---------------------------------------------------------------- login */
-function renderLogin(mode = "login", msg = "") {
+/* ---------------------------------------------------------------- login
+   ONE form, two steps. You type your name, the hub works out whether you
+   still need to set a password, and shows you the right fields. The first
+   version made you find "first time" in small print at the bottom - which
+   was the ONLY usable route, since nobody had a password yet. */
+const shell = (inner) => {
   document.body.classList.add("signed-out");
   $("#shell").innerHTML = `
-  <div class="signin">
-    <div class="glass card signin-card">
-      <div class="brand" style="padding-bottom:18px">
-        <svg viewBox="0 0 32 32" class="brand-mark"><path d="M16 3 3 13v16h26V13z"
-          fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
-          <path d="M16 3v26M3 13h26" stroke="currentColor" stroke-width="1.5"/></svg>
-        <div class="brand-name">Glasshouse<span>Fenster Glazing</span></div>
-      </div>
-      ${msg ? `<div class="signin-msg">${esc(msg)}</div>` : ""}
-      <label>Name</label><input type="text" id="li-name" autocomplete="username">
-      ${mode === "setup" ? `
-        <label>Setup code <span class="hint2">the one-off code you were given</span></label>
-        <input type="text" id="li-code" inputmode="numeric">
-        <label>Choose a password <span class="hint2">8 characters or more</span></label>
-        <input type="password" id="li-pass" autocomplete="new-password">`
-      : `<label>Password</label><input type="password" id="li-pass" autocomplete="current-password">`}
-      <button class="btn" id="li-go" style="width:100%;margin-top:14px">
-        ${mode === "setup" ? "Set my password" : "Sign in"}</button>
-      <div class="signin-alt">${mode === "setup"
-        ? `<a href="#" id="li-swap">I already have a password</a>`
-        : `<a href="#" id="li-swap">First time — I have a setup code</a>`}</div>
-    </div>
-  </div>`;
-  $("#li-swap").onclick = (e) => { e.preventDefault();
-    renderLogin(mode === "setup" ? "login" : "setup"); };
+  <div class="signin"><div class="glass card signin-card">
+    <div class="brand" style="padding-bottom:16px">
+      <svg viewBox="0 0 32 32" class="brand-mark"><path d="M16 3 3 13v16h26V13z"
+        fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+        <path d="M16 3v26M3 13h26" stroke="currentColor" stroke-width="1.5"/></svg>
+      <div class="brand-name">Glasshouse<span>Fenster Glazing</span></div>
+    </div>${inner}
+  </div></div>`;
+};
+const enterFires = (ids, fn) => ids.forEach((id) => {
+  const el = $("#" + id);
+  if (el) el.onkeydown = (e) => { if (e.key === "Enter") { e.preventDefault(); fn(); } };
+});
+const signedIn = (d) => {
+  localStorage.gh_token = d.token;
+  ME = { name: d.name, display: d.display, role: d.role };
+  boot();
+};
+
+function renderLogin(msg = "", prefill = "") {
+  shell(`
+    ${msg ? `<div class="signin-msg">${esc(msg)}</div>` : ""}
+    <label for="li-name">Your name</label>
+    <input type="text" id="li-name" autocomplete="username" autocapitalize="none"
+      spellcheck="false" placeholder="e.g. paul" value="${esc(prefill)}">
+    <button class="btn" id="li-go" style="width:100%;margin-top:16px">Continue</button>
+    <div class="signin-alt">First time here? Type your name and we will ask for
+      the setup code you were given.</div>`);
   const go = async () => {
     const name = $("#li-name").value.trim().toLowerCase();
-    const password = $("#li-pass").value;
+    if (!name) return;
+    $("#li-go").textContent = "…";
     try {
-      const r = await fetch("/api/" + (mode === "setup" ? "setup" : "login"), {
-        method: "POST", headers: { "content-type": "application/json" },
-        body: JSON.stringify(mode === "setup"
-          ? { name, code: $("#li-code").value.trim(), password }
-          : { name, password }),
-      });
+      const r = await fetch("/api/start", { method: "POST",
+        headers: { "content-type": "application/json" }, body: JSON.stringify({ name }) });
       const d = await r.json();
-      if (!r.ok) return renderLogin(mode, d.error || "That did not work");
-      localStorage.gh_token = d.token;
-      ME = { name: d.name, display: d.display, role: d.role };
-      boot();
-    } catch { renderLogin(mode, "Could not reach the hub"); }
+      (d.mode === "setup" ? renderSetup : renderPassword)(name, d.display || name);
+    } catch { renderLogin("Could not reach the hub", name); }
   };
   $("#li-go").onclick = go;
-  ["li-name", "li-pass", "li-code"].forEach((id) => {
-    const el = $("#" + id);
-    if (el) el.onkeydown = (e) => e.key === "Enter" && go();
-  });
+  enterFires(["li-name"], go);
   $("#li-name").focus();
+}
+
+function renderPassword(name, display, msg = "") {
+  shell(`
+    ${msg ? `<div class="signin-msg">${esc(msg)}</div>` : ""}
+    <div class="signin-who">Signing in as <b>${esc(display)}</b>
+      <a href="#" id="li-back">not you?</a></div>
+    <label for="li-pass">Password</label>
+    <input type="password" id="li-pass" autocomplete="current-password">
+    <button class="btn" id="li-go" style="width:100%;margin-top:16px">Sign in</button>`);
+  const go = async () => {
+    try {
+      const r = await fetch("/api/login", { method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ name, password: $("#li-pass").value }) });
+      const d = await r.json();
+      if (!r.ok) return renderPassword(name, display, d.error || "That did not work");
+      signedIn(d);
+    } catch { renderPassword(name, display, "Could not reach the hub"); }
+  };
+  $("#li-go").onclick = go;
+  $("#li-back").onclick = (e) => { e.preventDefault(); renderLogin(); };
+  enterFires(["li-pass"], go);
+  $("#li-pass").focus();
+}
+
+function renderSetup(name, display, msg = "") {
+  shell(`
+    ${msg ? `<div class="signin-msg">${esc(msg)}</div>` : ""}
+    <div class="signin-who">Welcome, <b>${esc(display)}</b>
+      <a href="#" id="li-back">not you?</a></div>
+    <div class="signin-note">You have not set a password yet. Enter the one-off
+      setup code you were given, then choose a password only you know.</div>
+    <label for="li-code">Setup code</label>
+    <input type="text" id="li-code" inputmode="numeric" autocomplete="one-time-code"
+      placeholder="6 digits">
+    <label for="li-pass">Choose a password <span class="hint2">8 characters or more</span></label>
+    <input type="password" id="li-pass" autocomplete="new-password">
+    <button class="btn" id="li-go" style="width:100%;margin-top:16px">Set my password</button>`);
+  const go = async () => {
+    try {
+      const r = await fetch("/api/setup", { method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ name, code: $("#li-code").value.trim(),
+          password: $("#li-pass").value }) });
+      const d = await r.json();
+      if (!r.ok) return renderSetup(name, display, d.error || "That did not work");
+      signedIn(d);
+    } catch { renderSetup(name, display, "Could not reach the hub"); }
+  };
+  $("#li-go").onclick = go;
+  $("#li-back").onclick = (e) => { e.preventDefault(); renderLogin(); };
+  enterFires(["li-code", "li-pass"], go);
+  $("#li-code").focus();
 }
 
 /* ---------------------------------------------------------------- delivery */
@@ -875,10 +927,21 @@ async function vDelivery() {
     <div class="grid cols-2">${list.map((s) => stepRow(s, late)).join("")
       || `<div class="glass card empty">Nothing here.</div>`}</div>`;
 
+  const admin = ME.role === "admin";
   view.innerHTML = `
-  <h1>Your day</h1>
+  <h1>${admin ? "Site" : "Your day"}</h1>
   <div class="sub">${new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}
-    — ${ME.display}. Everything below is a job that needs doing; tick it when it is done.</div>
+    — ${admin ? "exactly what Paul and Steve see when they sign in. Their hub is this page and nothing else."
+      : esc(ME.display) + ". Everything below is a job that needs doing; tick it when it is done."}</div>
+  ${admin && !d.contracts.length ? `<div class="glass card empty">No live contracts, so this
+    page is empty for them too. It fills up as won jobs land.</div>` : ""}
+  ${admin && d.undated.length && !d.late.length && !d.todays.length && !d.week.length
+    ? `<div class="glass card" style="margin-bottom:14px;border-color:var(--amber)">
+      <b>Right now every job here is undated, so nothing sorts to the top.</b>
+      <div class="sub" style="margin:4px 0 0">This page is driven entirely by dates: a step needs a
+      due date, and a due date needs the contract's site date plus the lead time for that step.
+      Neither is recorded yet. That is the one thing standing between this and the board Adam
+      wanted.</div></div>` : ""}
   ${d.late.length ? block("Late — do these first", d.late, "these were due before today", true) : ""}
   ${block("Today", d.todays, "")}
   ${block("This week", d.week, "")}

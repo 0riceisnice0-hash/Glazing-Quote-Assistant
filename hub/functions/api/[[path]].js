@@ -175,6 +175,18 @@ async function handle(request, env, path, url) {
   };
 
   // ------------------------------------------------ sign in / accounts
+  // Step one of signing in: say who you are, and the server says whether you
+  // still need to set a password. An unknown name is answered exactly like a
+  // known one that already has a password, so this cannot be used to find out
+  // who works here.
+  if (method === "POST" && seg[0] === "start") {
+    const u = await db.prepare(
+      "SELECT display, pass_hash FROM user WHERE name = ? AND active = 1"
+    ).bind(String(body.name || "").toLowerCase().trim()).first();
+    return J({ mode: u && !u.pass_hash ? "setup" : "password",
+      display: (u && u.display) || "" });
+  }
+
   if (method === "POST" && seg[0] === "login") {
     const u = await db.prepare(
       "SELECT * FROM user WHERE name = ? AND active = 1"

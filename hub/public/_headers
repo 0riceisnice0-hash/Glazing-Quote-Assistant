@@ -1,0 +1,13 @@
+# The page shell must never be served from cache. Twice now a browser has held
+# an old index.html pointing at an old app.js - once it kept a dead login page,
+# once it kept a stale script - and both looked like the app was broken.
+# The assets are versioned in the URL (?v=N), so they can cache hard.
+/
+  Cache-Control: no-cache, must-revalidate
+/index.html
+  Cache-Control: no-cache, must-revalidate
+
+/*.js
+  Cache-Control: public, max-age=31536000
+/*.css
+  Cache-Control: public, max-age=31536000
