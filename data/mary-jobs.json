@@ -518,11 +518,14 @@
    "rotations": 1
   },
   "john-north-hall": {
-   "session_id": "c89a998e-7df3-4604-ab6d-83f016da6e01",
-   "started": true,
+   "session_id": "617f8fe1-9d66-4628-a207-fae249b14732",
+   "started": false,
    "created": "2026-07-27T17:50:41",
    "last_active": "2026-07-28T17:38:43",
-   "runs": 1
+   "runs": 1,
+   "rotated_from": "c89a998e-7df3-4604-ab6d-83f016da6e01",
+   "rotated_at": "2026-08-04T12:58:17",
+   "rotations": 1
   },
   "princess-beatrice": {
    "session_id": "8cf62341-8e57-40c1-ad22-cf3869892826",
@@ -571,10 +574,10 @@
   },
   "redditch-library": {
    "session_id": "37fee7f7-c413-4035-a32b-73f8a0aa10df",
-   "started": false,
+   "started": true,
    "created": "2026-07-28T19:25:37",
-   "last_active": "2026-07-29T11:46:20",
-   "runs": 6,
+   "last_active": "2026-08-04T12:57:52",
+   "runs": 7,
    "rotated_from": "020935a0-a60f-493f-ab04-6ff5a0ceed62",
    "rotated_at": "2026-07-29T12:17:34",
    "rotations": 2

@@ -110,3 +110,28 @@ systematic to notice, just one line among twenty-nine. It went straight into the
 Brocks Hill's 12:12 note said reconciling the total does not catch a bad row. This is the same thing one
 step earlier: reconciling the total does not catch a MISSING row either. Neither document was ever wrong
 with itself.
+
+### 2026-08-04 13:03 - john-north-hall
+A COMPANY FILE BUILT FROM CORRESPONDENCE RECORDS WHAT WAS SAID, NOT WHAT WE BOUGHT - AND IT NEARLY
+ASKED A CLIENT FOR PERMISSION TO SUBSTITUTE THEIR OWN SPECIFICATION.
+
+data/companies/neil-douglas-block-management.md was written this morning from the commercial@
+'Outstanding Quotes' thread plus AdminBase, and it concluded: 'nothing in Fenster's record shows we
+have ever quoted a Smart system. If the fabricators do not offer it, the equivalent-approved question
+has to reach Jordan.' That line had already become question 1 of a client email due out by 06/08.
+
+We have FIVE Bellview quotations for SMA Smart-Wall in six weeks: Willesden 0000000427 D1.02 (26/06),
+Lyttleton Rd 0000000445 pos 011 (06/07), St Mary's 0000000483 pos 003 and 005 (16/07), Georgie's
+0000000513 pos 004-007 (27/07). We buy it routinely. Asking a client whether we may substitute the
+system he specified is how a contractor says he cannot supply it - and this is the account that has
+just given Fenster its first order (Earleswood Court, WO 30/07).
+
+  'NO RECORD' FOUND IN ONE MAILBOX IS NOT 'NO RECORD'. The quote archive is a different source from
+  the correspondence, and it is the one that says what we have actually bought. Search it before any
+  'we have never done X' goes near a client. Corrected at source, both files.
+
+SUPPLIER FACT WORTH KEEPING: BELLVIEW fabricate SMA Smart-Wall and we have five priced examples.
+BSW have SMA Shopline (Luton, 3 doors, 13/07) but NO Smart-Wall anywhere in our record - and John
+North Hall's RFQ went to BSW on 03/08, not Bellview. If you are pricing SMA, note which SMA system:
+Shopline and Smart-Wall are not the same product and our evidence for each sits with a different
+supplier.

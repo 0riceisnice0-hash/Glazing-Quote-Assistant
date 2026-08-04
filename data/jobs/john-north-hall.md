@@ -21,12 +21,35 @@
 
 ## Position
 
-**Nothing has been issued and nothing should be.** Checks stand at 3 FAIL, 2 ASK
-(`data/job-checks/john-north-hall.json`). The job cannot be priced until it is
-surveyed - there are no dimensions - and the survey wants to happen in the first
-week of August to clear a **9am Monday 24 August** deadline. Adam owes the whole
-of REQ-32: the decision to bid, the survey booked with Jordan Jones, PL cover and
-waste carrier licence, and the hourly/daywork rates, which become contract terms.
+**Nothing has been issued to the client and nothing should be.** Checks stand at
+3 FAIL, 2 ASK (`data/job-checks/john-north-hall.json`). The job cannot be priced
+until it is surveyed - there are no dimensions - and the survey wants to happen in
+the first week of August to clear a **9am Monday 24 August** deadline. Adam owes the
+whole of REQ-32: the decision to bid, the survey booked with Jordan Jones, PL cover
+and waste carrier licence, and the hourly/daywork rates, which become contract terms.
+
+**As at 04/08, 20 days out, nothing has yet reached Jordan Jones** - he asked a
+direct question on 27/07 (*"is this something you will be able to quote for"*) and
+offered a site walk. The revised reply is drafted and ready at
+`scratchpad/nd-jordan-reply.txt`; it needs a name and a date from Adam, nothing more.
+
+**Two things did happen on 03/08 and neither came through this chat:**
+
+1. **09:33 - Gintare sent an RFQ to BSW** (`estimations@bsws.co.uk`), ITT spec
+   verbatim, 5 doors, 129 keys. **BSW not Bellview, no sizes, no price hold, no
+   electric release.** It cannot come back as a usable price - there is nothing to
+   quote against - so treat it as an early notice to the supplier, not a live
+   enquiry, and expect the return to say *"I have assumed"*. The real RFQ follows
+   the survey and must carry the sizes, the electric release and a **written hold to
+   30/11/2026**. Not worth correcting today: the re-send is unavoidable anyway.
+2. **10:05 - Gintare asked Adam** survey-first or assumed-sizes-for-budget. That is
+   REQ-32's own question arriving a second time from a human, 32 minutes *after* the
+   enquiry had already gone. Adam has not answered either.
+
+**Supplier note:** every anchor in *The number* below is **Bellview's**. The enquiry
+has gone to **BSW**, so when a figure comes back it is not comparable to the
+benchmark line-for-line - the Redditch lesson (04/08 noticeboard) applies exactly.
+
 Full detail and the ordered next actions are under "Position, and who owes what"
 below.
 
@@ -165,7 +188,7 @@ It costs money, not just tidiness: keys are **five differs**, and anyone cutting
 
 **Mary's next actions, once the survey lands:**
 
-1. RFQ to Bellview with **the measured sizes and a door-by-door hardware note in the enquiry itself** — the Georgie's lesson, applied before the mistake rather than after: an enquiry without a schedule comes back *"I have assumed"*. Ask for the electric release and the 90-day hold in the same email.
+1. **Re-issue the RFQ** with **the measured sizes and a door-by-door hardware note in the enquiry itself** — the Georgie's lesson, applied before the mistake rather than after: an enquiry without a schedule comes back *"I have assumed"*. Ask for the electric release and a **written hold to 30/11/2026** in the same email. **Send it to Bellview as well as BSW** — Bellview have priced SMA Smart-Wall for us five times in six weeks and every anchor below is theirs; BSW have the 03/08 enquiry but no Smart-Wall history in our record.
 2. Price strip-out, disposal, making good, keys, prelims and contingency as real lines, not exclusions.
 3. Get the door-entry subcontractor named and quoted.
 4. Fill the client's four blanks at 2.4 (duration, operatives, commencement, and **two separate** warranty lines).
@@ -179,4 +202,7 @@ It costs money, not just tidiness: keys are **five differs**, and anyone cutting
 
 - **27/07 16:53** — ITT received at `info@` from Jordan Jones. Triage opened this chat.
 - **28/07 09:20** — Adam forwarded to Mary: *"price this all up"*. Two work orders, same content.
+- **03/08 09:33** — Gintare RFQ'd **BSW** (`estimations@bsws.co.uk`): ITT spec verbatim, 5 doors, 129 keys, **no sizes, no price hold, no electric release**. Read here 04/08.
+- **03/08 10:05** — Gintare to Adam (cc commercial@): survey first, or assumed sizes for budget? Unanswered. Asked 32 minutes *after* the RFQ went.
+- **04/08** — Corrected `data/companies/neil-douglas-block-management.md` at source: it recorded that we had "never quoted a Smart system" (we have, five Bellview quotes in six weeks) and repeated the ITT's wrong block ranges. Revised `scratchpad/nd-jordan-reply.txt` — removed the equivalent-approved question, sharpened the intercom one, added colour, block numbering and Part L. **Still nothing to Jordan Jones; no price, no RFQ from this chat.**
 - **28/07** — ITT read end to end (23pp), estate plan and all six images read, SMA profile read. Established: no dimensions exist; the Form of Tender voids our exclusions; the intercom spec is self-contradictory; the block labels are wrong and the key count proves it. Benchmark £24k–£26k for the doorsets alone, supplier-anchored, size assumed. New check rule shipped with fixture and 22-variant suite. **No price issued, no RFQ sent, nothing to the client.**

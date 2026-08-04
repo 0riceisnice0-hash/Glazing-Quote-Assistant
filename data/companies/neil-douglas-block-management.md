@@ -85,8 +85,11 @@ Installation requires linking to the existing door entrance latch release.
 ## John North Hall, Vaughan House - the live ITT (added 04/08/2026)
 
 Jordan Jones invited us on 27/07 on behalf of **John North Hall (High Wycombe) Management
-Company Limited**. Replace **x5 external communal block entrance door sets** at 1-6, 7-16,
-17-23, 24-31 and 32-39 Vaughan House, John North Close, High Wycombe HP11 1FF. Spec is
+Company Limited**. Replace **x5 external communal block entrance door sets** at Vaughan
+House, John North Close, High Wycombe HP11 1FF. The ITT gives the blocks as 1-6, 7-16,
+17-23, 24-31, 32-39; **they are 1-6, 7-15, 16-23, 24-31, 32-39** - the nameplates in the
+client's own photographs, the estate plan and their own 129-key count all agree, and the
+ITT prose is wrong in two places. Flat 16 is on the third entrance. Spec is
 **Smart Architectural Aluminium, SMA Smart-Wall, brown** to match the existing frames.
 Existing door intercoms to be disconnected, in scope. New keys to their office before the
 start. **Tender 9am Mon 24/08/2026; works intended Oct/Nov 2026; price valid 90 days**
@@ -113,16 +116,30 @@ contractual and prices all variations, names/addresses/trades of every subcontra
 estimated duration, proposed commencement, installation and manufacturer warranties, public
 liability insurance, signed Form of Tender Acceptance.
 
-**Unresolved:** nothing in Fenster's record shows we have ever quoted a Smart system. If the
-fabricators do not offer it, the equivalent-approved question has to reach Jordan with time
-for him to answer, not in the final week.
+**SETTLED 04/08 - and it was wrong, so do not ask Jordan the equivalent-approved question.**
+This section previously read "nothing in Fenster's record shows we have ever quoted a Smart
+system." Fenster's record shows five Bellview quotations for SMA Smart-Wall in six weeks:
+Willesden `0000000427` D1.02 (26/06), Lyttleton Rd `0000000445` pos 011 (06/07), St Mary's
+`0000000483` pos 003 and 005 (16/07), Georgie's `0000000513` pos 004-007 (27/07). It is a
+system we buy routinely. Asking a client for permission to substitute it is how a contractor
+says he cannot supply it, and this account has just given us our first order. The line came
+from reading the commercial@ thread rather than the quote archive - **"no record" written
+from one mailbox is not "no record".**
+
+**An RFQ has already gone out, 03/08 09:33** - Gintare to `estimations@bsws.co.uk`, spec
+copied verbatim from the ITT, 5no doors, the 129 keys included. **BSW, not Bellview, and
+with no sizes in it**, because there are none to give. It cannot return a usable price and
+the real enquiry follows the survey. Three things must be in that one: the measured sizes,
+the electric release, and a written price hold to 30/11/2026 - our tender is committed 90
+days to ~22/11 and a supplier quote runs 30.
 
 ## Next action
 
-- **John North Hall, by 06/08** - send the reply to Jordan (draft:
-  `scratchpad/nd-jordan-reply.txt`): confirm we are bidding, book the site visit, ask the
-  Smart-or-equivalent and intercom questions. Adam names who attends. Everything else on
-  that tender waits on the visit.
+- **John North Hall, by 06/08** - send the reply to Jordan. The draft
+  `scratchpad/nd-jordan-reply.txt` was **revised 04/08**: confirm we are bidding, book the
+  site visit, and ask about colour (no RAL, and their example photo is grey), the intercom
+  contradiction, the block numbering, and Part L. The Smart-or-equivalent question has been
+  **removed** - see above. Adam names who attends. Everything else waits on the visit.
 - **Now** - get the design confirmation. Everything else waits on it and lead times are
   already the constraint.
 - **Send the pre-procurement checklist** Anton asked for, or say plainly that we will build

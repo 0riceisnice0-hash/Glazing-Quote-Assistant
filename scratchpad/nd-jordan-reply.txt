@@ -2,6 +2,12 @@ DRAFT - for Adam or Paul to send from commercial@ under their own name.
 To: jordan.jones@neildouglas.co.uk
 Subject: RE: John North Hall (1-39 Vaughan House ) - Replacement of external communal block entrance door sets - ITT
 
+REVISED 04/08/2026 by the John North Hall job chat. What changed and why is at the
+bottom of this file - read that before you send. One of the two original questions
+would have cost us.
+
+---
+
 Hi Jordan,
 
 Thank you for the invitation, and apologies for the slow reply.
@@ -11,21 +17,86 @@ Yes - this is of interest to us and we intend to submit a tender by 9am on Monda
 
 We would like to take you up on the offer of a site meeting before we price. The
 schedule of works does not carry door sizes, and we would much rather measure the
-openings than work from the photographs. [INSERT DATE / TIME] would suit us, but we
-can work around your diary. We will collect the contractor parking permit from your
-office when we come.
+five openings than work from the photographs. [INSERT DATE / TIME] would suit us,
+but we can work around your diary. We will collect the contractor parking permit
+from your office when we come.
 
-Two questions in the meantime, so we are not asking them the week the tender is due:
+The SMA Smart-Wall system you have specified is one we price and buy regularly, so
+there is no difficulty there.
 
-1. The specification names Smart Architectural Aluminium (SMA Smart-Wall), in brown
-   to match the existing frames. Is Smart a fixed requirement of the client, or would
-   an equivalent approved aluminium system be considered?
+Four things we would rather raise now than in the week the tender is due:
 
-2. The tender asks for the existing door intercoms to be disconnected. Is a new
-   access control or door entry system being installed by others that the new door
-   sets need to accommodate, or are the entrances to be left without intercom?
+1. COLOUR. The schedule asks for brown to match the existing frames, but gives no
+   RAL or BS number, and a powder coat batch cannot be ordered against "similar to
+   existing". We can take a reading on site if that is easiest. Related - the
+   photograph enclosed as the example of the new door is an anthracite grey door,
+   which reads against the brown specified in the text. Could you confirm which is
+   intended?
+
+2. THE INTERCOMS. The schedule asks for the existing intercoms to be disconnected
+   from the old doorsets, reconnected to the new, and proven working on completion.
+   The hardware listed for the new doors is a mechanical cylinder with a thumbturn
+   inside, and nothing else - no electric release, keep, power transfer or door
+   loop. As specified the panel would still call the flat, but nothing would release
+   the door. So either an electric release is intended and needs adding to the
+   specification, or the panels are to be call-and-speak only. We need to know
+   which, because clause 2.1.4 asks us to name our subcontractors with the tender
+   and this element is a door-entry specialist's.
+
+3. THE BLOCK NUMBERING. The particulars give the blocks as 1-6, 7-16, 17-23, 24-31
+   and 32-39. The nameplates in your own photographs read 1-6, 7-15, 16-23, 24-31
+   and 32-39 - flat 16 sits on the third entrance, not the second - and the estate
+   plan agrees. Your key count settles it: at 3 per flat plus 3 per doorset, 38
+   dwellings gives exactly the 129 keys you have asked for, where 39 would give 132.
+   It matters to us because the keys are five differs, and against the ranges as
+   written we would cut the wrong quantity per cylinder. Could you confirm the
+   entrance-by-entrance split so we key them correctly?
+
+4. THERMAL PERFORMANCE, and this one is worth settling before the Section 20
+   consultation rather than after. The particulars set no U-value. SMA's own
+   published figure for a Smart-Wall door is 1.8 W/m2K, which is above the limiting
+   standard Approved Document L applies to a replacement door in an existing
+   building. We are content to tender the system you have specified, but if Building
+   Control take a view on it later it becomes a variation on a price your
+   leaseholders will already have been consulted on.
 
 We are already working with Anton Antonov on Earleswood Court, so you should find us
 on your system.
 
 Kind regards,
+
+
+---------------------------------------------------------------------------
+WHAT CHANGED, 04/08/2026, AND WHY
+
+REMOVED - "Is Smart a fixed requirement of the client, or would an equivalent
+approved aluminium system be considered?"
+
+That question came from the company file's line that "nothing in Fenster's record
+shows we have ever quoted a Smart system." That line is wrong, and it is now
+corrected at source. We have had SMA Smart-Wall quoted by Bellview four times in
+the last six weeks:
+
+  Willesden       0000000427 D1.02     26/06/26  door + fixed field
+  Lyttleton Road  0000000445 pos 011   06/07/26  1600x2100 door + fixed field
+  St Mary's       0000000483 pos 003   16/07/26  955x2410 pivoted anti-fingertrap
+  St Mary's       0000000483 pos 005   16/07/26  929x2370 pivoted anti-fingertrap
+  Georgie's       0000000513 pos 004-007 27/07/26 950x2089 single leaf
+
+Asking a client whether we may substitute their specified system is how a
+contractor says he cannot supply it. On an account where we have just won our
+first order and are being watched, that is an expensive sentence for nothing.
+
+SHARPENED - the intercom question. The original asked whether a new access control
+system was coming from others. The real finding is that the ITT contradicts itself:
+it requires the intercom PROVEN WORKING on completion while specifying mechanical
+ironmongery only. That is the question that has to be answered before we can price
+the element or name the subcontractor 2.1.4 requires with the tender.
+
+ADDED - colour (no RAL, and their own example photograph is grey), the block
+numbering with the key count that proves it, and the Part L conflict inside their
+own specification.
+
+STILL FOR ADAM, and it is REQ-32: who attends the site visit, and when. Everything
+else on this tender waits on that visit - there are no dimensions anywhere in the
+23 pages.
