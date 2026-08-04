@@ -24,3 +24,6 @@ dashboard/.wrangler/
 # local wrangler secrets for pages dev - never the real key
 dashboard/.dev.vars
 .env.glasshouse
+attic/dashboard/.wrangler/
+attic/dashboard/.dev.vars
+.wrangler/
