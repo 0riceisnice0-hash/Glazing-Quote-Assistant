@@ -12,7 +12,10 @@
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-const view = $("#view");
+// Re-queried whenever the shell is rebuilt (sign in, sign out). Held as a
+// const it went stale the moment login replaced the shell, and every page
+// rendered into a node that was no longer on the document.
+let view = $("#view");
 
 const PEOPLE = {
   mary:   { name: "Mary Grace",   role: "Estimating",          job: "Prices tenders, audits quotes, catches errors" },
@@ -901,6 +904,7 @@ async function vDelivery() {
 async function boot() {
   document.body.classList.remove("signed-out");
   $("#shell").innerHTML = SHELL_HTML;
+  view = $("#view");
   const isAdmin = ME.role === "admin";
   if (!isAdmin) {
     // Delivery sees one page. No desks, no decisions, no cost.
