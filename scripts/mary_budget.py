@@ -358,6 +358,48 @@ def landed(days=7):
         return 0, 0, 0
 
 
+# ------------------------------------------------------------- batching
+# THE SINGLE BIGGEST SAVING IN THE SYSTEM, and it lives here because it is a
+# spending decision, not a routing one.
+#
+# The bridges used to dispatch the moment anything arrived. Measured 04/08 over
+# the four days Mary ran: 1,868 dispatches for 249 work orders. A run costs a
+# median 7.2M context tokens whether it handles one email or ten, because the
+# cost is the turns, not the trigger - so handling them one at a time is paying
+# ten times for the same sitting.
+#
+# Zac, 04/08, on how he did this by hand: "I would just use one chat until that
+# task is done, then update docs and start a new one."
+BATCH_WAIT = int(os.environ.get("BOT_BATCH_WAIT", "900"))       # 15 minutes
+BATCH_MAX = int(os.environ.get("BOT_BATCH_MAX", "8"))
+BATCH_URGENT_WAIT = int(os.environ.get("BOT_BATCH_URGENT", "60"))
+
+
+def ready_to_dispatch(ages, urgent=0, wait=None, most=None):
+    """(go, why). `ages` is seconds each queued item has waited.
+
+    Three ways to go, and the first is what stops batching becoming rudeness:
+      - somebody is waiting. A hub message is a person looking at the screen;
+        they wait a minute, not fifteen.
+      - the batch is big enough to be worth a sitting.
+      - the oldest thing has waited long enough. Nothing is stuck behind a
+        quiet queue, ever.
+    """
+    if not ages:
+        return False, "nothing queued"
+    wait = BATCH_WAIT if wait is None else wait
+    most = BATCH_MAX if most is None else most
+    oldest = max(ages)
+    if urgent and oldest >= BATCH_URGENT_WAIT:
+        return True, "somebody is waiting (%d item(s), %ds old)" % (urgent, int(oldest))
+    if len(ages) >= most:
+        return True, "%d work orders queued" % len(ages)
+    if oldest >= wait:
+        return True, "oldest has waited %d min" % int(oldest / 60)
+    return False, "batching - %d item(s), oldest %dm of %dm" % (
+        len(ages), int(oldest / 60), int(wait / 60))
+
+
 def prompt_note(chat=None, sends=True):
     """A line for the kick prompt so a chat can see what it is adding to.
 

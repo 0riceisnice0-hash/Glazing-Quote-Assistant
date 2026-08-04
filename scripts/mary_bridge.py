@@ -48,6 +48,24 @@ BRIDGE_STATE = os.path.join(REPO, "data", "mary-bridge-state.json")
 STATUS = os.path.join(REPO, "data", "mary-bridge-status.json")
 PIDFILE = os.path.join(REPO, "test-results", "mary-inbox", "bridge.pid")
 
+# WORK IS BATCHED. THIS IS THE SINGLE BIGGEST SAVING IN THE SYSTEM.
+#
+# The bridge used to dispatch the moment anything arrived. Measured 04/08 over
+# the four days it ran: 1,868 dispatches for 249 work orders - 36 wake-ups per
+# piece of work on the worst day, and still only 3.6 orders per run on the
+# best. A run costs a median 7.2M context tokens whether it handles one email
+# or ten, because the cost is the turns, not the trigger.
+#
+# Zac, 04/08, on how he did this by hand: "I would just use one chat until that
+# task is done, then update docs and start a new one." That is the model. Let
+# work pile up for a few minutes, then do all of it in one sitting.
+#
+# Nothing waits longer than BATCH_WAIT, and anything Adam sends from the hub
+# skips the queue entirely - see ready_to_dispatch(). A batch that waits for a
+# quiet moment is efficient; one that makes somebody wait for an answer is not.
+BATCH_WAIT = int(os.environ.get("MARY_BATCH_WAIT", str(budget.BATCH_WAIT)))
+BATCH_MAX = int(os.environ.get("MARY_BATCH_MAX", str(budget.BATCH_MAX)))
+
 DASH_EVERY = 5           # seconds - our own endpoint, free
 ACTIVITY_EVERY = 6       # seconds - how often the live feed refreshes on the hub
 MAIL_EVERY = 120         # seconds - Microsoft Graph
@@ -122,12 +140,32 @@ def transcript_size(session_id):
         return mb, sum(1 for _ in fh)
 
 
-def rotate_if_heavy(reg, key, rec):
-    """Retire a chat carrying too much context; seed a clean one from the job file."""
+# ONE SITTING PER CHAT (Zac, 04/08): "I would just use one chat until that task
+# is done, then update docs and start a new one."
+#
+# So a chat that finished its batch cleanly is DONE. The next batch gets a
+# fresh one, seeded from the job file - which is bounded at 300 lines and is
+# the thing the last chat was required to leave correct.
+#
+# This was not safe in July, when the only alternative to a permanent chat was
+# re-reading ~10,000 lines of handover docs. It is safe now because the job
+# file, the ledger and the CRM exist, and a seed costs about 9.5k tokens
+# against the 129k median it costs to resume.
+#
+# The gate below is what makes it safe rather than reckless: a chat whose job
+# file is out of contract does NOT retire, because seeding the next one from a
+# broken file loses the job. Set MARY_ONE_SITTING=0 to go back to permanent
+# chats.
+ONE_SITTING = os.environ.get("MARY_ONE_SITTING", "1") != "0"
+
+
+def rotate_if_due(reg, key, rec):
+    """Retire a chat that is finished or overweight; seed a clean one."""
     ctx = cost.context_size(rec["session_id"])
     # 0 means there is no transcript yet - a chat that has never run cannot be
     # overweight, and rotating it here would burn a fresh UUID every dispatch.
-    if ctx < ROTATE_CONTEXT:
+    done = ONE_SITTING and rec.get("started") and ctx > 0
+    if ctx < ROTATE_CONTEXT and not done:
         return False
 
     # ROTATION IS ONLY A SAVING IF THE SEED IS SMALL. This is the trap the last
@@ -144,8 +182,8 @@ def rotate_if_heavy(reg, key, rec):
     if problems:
         rec["jobfile_warn"] = "; ".join(problems)
         router.save_registry(reg)
-        log("  [%s] carrying %s context tokens and DUE to rotate, but its job file "
-            "is out of contract - not rotating. %s"
+        log("  [%s] due to retire (%s context tokens) but its job file is out of "
+            "contract - keeping the chat so the job is not lost. %s"
             % (key, "{:,}".format(ctx), rec["jobfile_warn"]))
         return False
 
@@ -157,8 +195,10 @@ def rotate_if_heavy(reg, key, rec):
     rec["rotated_at"] = dt.datetime.now().isoformat(timespec="seconds")
     rec["rotations"] = rec.get("rotations", 0) + 1
     router.save_registry(reg)
-    log("  [%s] chat retired carrying %s context tokens (%.1f MB / %d turns) - "
-        "starting fresh from data/jobs/%s.md" % (key, "{:,}".format(ctx), mb, turns, key))
+    log("  [%s] chat retired %s (%s context tokens) - starting fresh from "
+        "data/jobs/%s.md"
+        % (key, "after finishing its batch" if ctx < ROTATE_CONTEXT else "as overweight",
+           "{:,}".format(ctx), key))
     return True
 
 
@@ -357,6 +397,16 @@ def drop_muted(orders, reg):
     return keep
 
 
+def ready_to_dispatch(orders):
+    """Should this batch run now? The rule lives in mary_budget - it is a
+    spending decision, and all three bridges make the same one."""
+    now = time.time()
+    ages = [now - o["_mtime"] for o in orders]
+    urgent = sum(1 for o in orders
+                 if o.get("mailbox") == "dashboard" or o.get("trusted_sender"))
+    return budget.ready_to_dispatch(ages, urgent, BATCH_WAIT, BATCH_MAX)
+
+
 def group_by_chat(orders, reg):
     """Route every order, then return groups keyed by chat, oldest group first."""
     groups = {}
@@ -535,7 +585,7 @@ def dispatch(key, orders, reg, bst, dry_run=False):
     router.save_registry(reg)
     title = router.job_title(reg, key)
     handoffs = note.pending_handoffs(key)
-    rotated = rotate_if_heavy(reg, key, rec)
+    rotated = rotate_if_due(reg, key, rec)
     # Create only if the conversation genuinely is not there yet; otherwise
     # resume, even if a previous attempt died before it could do any work.
     first_run = rotated or (not rec.get("started") and not session_exists(rec["session_id"]))
@@ -795,6 +845,15 @@ def one_pass(env, token, state, bst, reg, force_mail=False, dry_run=False):
         push_queue([], reg)
         return TICK
     push_queue(orders, reg)
+
+    # LET THE WORK PILE UP. A run costs the same whether it handles one email
+    # or ten, so handling them one at a time is paying ten times for the same
+    # sitting. Intake keeps running while this waits - the hub shows the queue
+    # filling, and the reason it has not gone yet.
+    go, why = ready_to_dispatch(orders)
+    if not go:
+        write_status("batching", None, len(orders), why)
+        return TICK
 
     # THE BACKSTOP, and it assumes the line above has a hole in it. Budgets are
     # scoped to the window they belong to - a night's overspend must not block

@@ -522,6 +522,26 @@ def dispatch(cfg, state):
     if time.time() < backoff_until:
         return False
 
+    # LET THE WORK PILE UP - the shared rule, see mary_budget.ready_to_dispatch.
+    # A run costs the same whether it handles one message or eight.
+    now = time.time()
+    ages, urgent = [], 0
+    for f in orders:
+        try:
+            ages.append(now - os.path.getmtime(os.path.join(QUEUE, f)))
+        except OSError:
+            ages.append(0)
+        w = load(os.path.join(QUEUE, f), {})
+        if w.get("trusted") or w.get("kind") == "hub-message":
+            urgent += 1
+    go, why = budget.ready_to_dispatch(ages, urgent)
+    if not go:
+        if state.get("_batch_why") != why:
+            state["_batch_why"] = why
+            log("BATCHING: %s" % why)
+        return False
+    state.pop("_batch_why", None)
+
     # The overnight curfew, shared with Mary so there is one switch, not two.
     # 57% of all bot spend was falling between 22:00 and 07:00 and his standing
     # agenda ran hourly right through it. Intake carries on; only the sessions

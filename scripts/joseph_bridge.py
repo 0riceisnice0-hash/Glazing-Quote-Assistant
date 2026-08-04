@@ -363,6 +363,22 @@ def dispatch(cfg, state, cons):
         return False
     if time.time() < state.get("backoff_until", 0):
         return False
+    now = time.time()
+    ages = []
+    for o in orders:
+        try:
+            ages.append(now - os.path.getmtime(os.path.join(QUEUE, o["_file"])))
+        except OSError:
+            ages.append(0)
+    urgent = sum(1 for o in orders if o.get("trusted") or o.get("kind") == "hub-message")
+    go, why = budget.ready_to_dispatch(ages, urgent)
+    if not go:
+        if state.get("_batch_why") != why:
+            state["_batch_why"] = why
+            log("BATCHING: %s" % why)
+        return False
+    state.pop("_batch_why", None)
+
     if not night_ok():
         if not state.get("_curfew_logged"):
             state["_curfew_logged"] = True
