@@ -8,6 +8,9 @@
 //
 // Values are ex VAT everywhere. Every write lands an event with an author.
 
+import { hashPassword, randomSalt, randomCode, same, mintToken, readToken }
+  from "../_auth.js";
+
 const J = (data, status = 200) =>
   new Response(JSON.stringify(data), {
     status,
@@ -151,15 +154,159 @@ async function handle(request, env, path, url) {
   const method = request.method;
   const seg = path.split("/").filter(Boolean); // after /api/
   const botKey = request.headers.get("x-glasshouse-key");
-  const teamPin = request.headers.get("x-team-pin");
   const isBot = env.GLASSHOUSE_KEY && botKey === env.GLASSHOUSE_KEY;
-  const isTeam = env.TEAM_PIN && teamPin === env.TEAM_PIN;
   const body = method === "POST" ? await request.json().catch(() => ({})) : {};
+  const secret = env.SESSION_SECRET || env.GLASSHOUSE_KEY || "unset";
+
+  // Who is asking? A bot with the shared key, or a person with a session.
+  const session = isBot ? null
+    : await readToken(secret, (request.headers.get("authorization") || "")
+        .replace(/^Bearer\s+/i, ""));
+  const role = isBot ? "bot" : (session && session.role) || null;
+  const meName = isBot ? "bot" : (session && session.name) || null;
 
   const needBot = () => { if (!isBot) throw { status: 403, msg: "bot key required" }; };
+  // An admin session or a bot may steer the bots. Delivery may not.
   const needTeam = () => {
-    if (!isTeam && !isBot) throw { status: 403, msg: "PIN required" };
+    if (!isBot && role !== "admin") throw { status: 401, msg: "sign in as an admin" };
   };
+  const needAnyUser = () => {
+    if (!isBot && !role) throw { status: 401, msg: "sign in" };
+  };
+
+  // ------------------------------------------------ sign in / accounts
+  if (method === "POST" && seg[0] === "login") {
+    const u = await db.prepare(
+      "SELECT * FROM user WHERE name = ? AND active = 1"
+    ).bind(String(body.name || "").toLowerCase().trim()).first();
+    // A missing account and a wrong password answer identically, so the form
+    // cannot be used to find out who works here.
+    if (!u || !u.pass_hash) return J({ error: "wrong name or password" }, 401);
+    const h = await hashPassword(String(body.password || ""), u.pass_salt);
+    if (!same(h, u.pass_hash)) return J({ error: "wrong name or password" }, 401);
+    await db.prepare("UPDATE user SET last_login = datetime('now') WHERE id = ?")
+      .bind(u.id).run();
+    return J({ token: await mintToken(secret, { name: u.name, role: u.role, display: u.display }),
+      name: u.name, display: u.display, role: u.role });
+  }
+
+  // First time in: the person enters the one-time code and chooses a password.
+  // The server never receives a password anyone else has seen.
+  if (method === "POST" && seg[0] === "setup") {
+    const u = await db.prepare(
+      "SELECT * FROM user WHERE name = ? AND active = 1"
+    ).bind(String(body.name || "").toLowerCase().trim()).first();
+    if (!u || !u.setup_code || !same(u.setup_code, String(body.code || "")))
+      return J({ error: "that setup code is not right" }, 401);
+    const pw = String(body.password || "");
+    if (pw.length < 8) return J({ error: "choose at least 8 characters" }, 400);
+    const salt = randomSalt();
+    await db.prepare(
+      "UPDATE user SET pass_hash = ?, pass_salt = ?, setup_code = '' WHERE id = ?"
+    ).bind(await hashPassword(pw, salt), salt, u.id).run();
+    await addEvent(db, { author: u.name, kind: "account",
+      body: `${u.display} set their password and can now sign in` });
+    return J({ token: await mintToken(secret, { name: u.name, role: u.role, display: u.display }),
+      name: u.name, display: u.display, role: u.role });
+  }
+
+  if (method === "GET" && seg[0] === "me") {
+    if (!role) return J({ error: "not signed in" }, 401);
+    return J({ name: meName, role, display: (session && session.display) || "bot" });
+  }
+
+  if (method === "POST" && seg[0] === "users" && seg[1] === "add") {
+    needTeam();
+    const code = randomCode();
+    const name = String(body.name || "").toLowerCase().trim();
+    if (!name) return J({ error: "a login name is required" }, 400);
+    await db.prepare(
+      `INSERT INTO user (name, display, role, setup_code) VALUES (?,?,?,?)
+       ON CONFLICT(name) DO UPDATE SET display = excluded.display,
+         role = excluded.role, setup_code = excluded.setup_code, active = 1`
+    ).bind(name, body.display || name, body.role === "admin" ? "admin" : "delivery", code).run();
+    // The code is returned ONCE, to the admin who created the account, to hand
+    // over however they like. It is not emailed and not stored in plain sight.
+    return J({ ok: true, name, setup_code: code });
+  }
+
+  if (method === "GET" && seg[0] === "users") {
+    needTeam();
+    const rows = await db.prepare(
+      `SELECT id, name, display, role, active, created, last_login,
+        (pass_hash != '') AS ready FROM user ORDER BY role, name`).all();
+    return J(rows.results);
+  }
+
+  // ------------------------------------------------ THE GATE
+  // Past this line you are a bot, an admin, or delivery. Delivery sees its own
+  // day and can tick its own steps; it never sees pricing, decisions, drafts,
+  // the bots' conversations or the cost meter.
+  needAnyUser();
+  const DELIVERY_OK = new Set(["delivery", "card", "step", "me"]);
+  if (role === "delivery" && !DELIVERY_OK.has(seg[0]))
+    throw { status: 403, msg: "not your side of the hub" };
+
+  // ------------------------------------------------ DELIVERY: Paul and Steve
+  // "These are your daily tasks. This glass needs to be ordered by this date.
+  //  These are your deadlines." - Adam, 03/08. Deadlines at the top, the spec
+  //  attached, and nothing to think about.
+  if (method === "GET" && seg[0] === "delivery") {
+    const today = new Date().toISOString().slice(0, 10);
+    const week = new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10);
+    const [steps, contracts] = await Promise.all([
+      db.prepare(
+        `SELECT s.*, ct.title contract_title, ct.site_date, ct.key contract_key,
+           c.name company_name
+         FROM step s JOIN contract ct ON ct.key = s.contract_key
+         LEFT JOIN company c ON c.key = ct.company_key
+         WHERE s.done_at IS NULL AND ct.status = 'live'
+         ORDER BY (s.due IS NULL OR s.due = ''), s.due, s.n`).all(),
+      db.prepare(
+        `SELECT ct.*, c.name company_name FROM contract ct
+         LEFT JOIN company c ON c.key = ct.company_key
+         WHERE ct.status = 'live'
+         ORDER BY (ct.site_date IS NULL OR ct.site_date = ''), ct.site_date`).all(),
+    ]);
+    const all = steps.results;
+    return J({
+      date: today,
+      late: all.filter((s) => s.due && s.due < today),
+      todays: all.filter((s) => s.due === today),
+      week: all.filter((s) => s.due && s.due > today && s.due <= week),
+      undated: all.filter((s) => !s.due),
+      contracts: contracts.results,
+      site_this_week: contracts.results.filter(
+        (c) => c.site_date && c.site_date >= today && c.site_date <= week),
+    });
+  }
+
+  // ------------------------------------------------ RFQs: who owes us a price
+  if (method === "POST" && seg[0] === "rfq") {
+    needTeam();
+    if (seg[1] === "received") {
+      await db.prepare(
+        `UPDATE rfq SET received_at = COALESCE(?, datetime('now')), value = ?, notes = ?
+         WHERE id = ?`
+      ).bind(body.received_at || null, body.value ?? null, body.notes || "", body.id).run();
+    } else {
+      await db.prepare(
+        `INSERT INTO rfq (lead_key, supplier, scope, sent_at, value, notes)
+         VALUES (?,?,?,?,?,?)
+         ON CONFLICT(lead_key, supplier) DO UPDATE SET
+           scope = COALESCE(NULLIF(excluded.scope,''), scope),
+           sent_at = COALESCE(excluded.sent_at, sent_at)`
+      ).bind(body.lead_key, body.supplier, body.scope || "",
+        body.sent_at || new Date().toISOString().slice(0, 10), null, "").run();
+    }
+    return J({ ok: true });
+  }
+  if (method === "GET" && seg[0] === "rfqs") {
+    const rows = await db.prepare(
+      `SELECT r.*, l.title lead_title FROM rfq r JOIN lead l ON l.key = r.lead_key
+       WHERE l.stage != 'closed' ORDER BY r.received_at IS NOT NULL, r.sent_at`).all();
+    return J(rows.results);
+  }
 
   // ------------------------------------------------ writes: the record
   if (method === "POST" && seg[0] === "upsert") {
@@ -308,13 +455,16 @@ async function handle(request, env, path, url) {
 
   // ------------------------------------------------ steps & invoices
   if (method === "POST" && seg[0] === "step") {
-    needBot();
+    // Ticking a step is the one write a fitter can make, and it is signed with
+    // their name - "who said the glass was ordered" has an answer now.
+    if (seg[1] !== "done") needBot();
     if (seg[1] === "done") {
+      const by = isBot ? (body.by || "bot") : meName;
       await db.prepare(
         `UPDATE step SET done_at = datetime('now'), done_by = ?
          WHERE contract_key = ? AND n = ? AND done_at IS NULL`
-      ).bind(body.by || "bot", body.contract_key, body.n).run();
-      await addEvent(db, { author: body.by || "bot", entity_type: "contract",
+      ).bind(by, body.contract_key, body.n).run();
+      await addEvent(db, { author: by, entity_type: "contract",
         entity_key: body.contract_key, kind: "step_done",
         body: `step ${body.n} done${body.why ? ": " + body.why : ""}` });
     } else {
@@ -328,13 +478,74 @@ async function handle(request, env, path, url) {
     }
     return J({ ok: true });
   }
-  if (method === "POST" && seg[0] === "invoice") {
+  // Money is never autonomous. An invoice is RAISED as a draft, a human checks
+  // it, and only then does it go anywhere. Adam: "invoices to check ... is this
+  // correct, basically, yes."
+  if (method === "POST" && seg[0] === "invoice" && !seg[1]) {
     needBot();
+    const ct = await db.prepare("SELECT * FROM contract WHERE key = ?")
+      .bind(body.contract_key).first();
+    const co = ct ? await db.prepare("SELECT * FROM company WHERE key = ?")
+      .bind(ct.company_key).first() : null;
+    // Due date from the client's own terms, learned per company. "Immediate"
+    // gets 30 days in practice - Adam, 03/08.
+    let due = body.due || null;
+    if (!due) {
+      const terms = String((co && co.payment_terms) || "").toLowerCase();
+      const m = terms.match(/(\d+)/);
+      const days = m ? parseInt(m[1], 10) : 30;
+      const base = new Date();
+      let d = new Date(base.getTime() + days * 864e5);
+      if (terms.includes("end of month")) d = new Date(d.getFullYear(), d.getMonth() + 1, 0);
+      due = d.toISOString().slice(0, 10);
+    }
+    const r = await db.prepare(
+      `INSERT INTO invoice (contract_key, ref, value, due, status) VALUES (?,?,?,?,'draft')`
+    ).bind(body.contract_key, body.ref || "", body.value ?? (ct ? ct.value : null), due).run();
+    await addEvent(db, { author: body.author || "joseph", entity_type: "contract",
+      entity_key: body.contract_key, kind: "invoice_raised",
+      body: `invoice raised for checking: ${body.value ?? (ct && ct.value)} due ${due}` });
     await db.prepare(
-      `INSERT INTO invoice (contract_key, ref, value, due, status) VALUES (?,?,?,?,?)`
-    ).bind(body.contract_key, body.ref || "", body.value ?? null,
-      body.due ?? null, body.status || "draft").run();
+      `INSERT INTO decision (raised_by, entity_type, entity_key, question, context)
+       VALUES (?,?,?,?,?)`
+    ).bind(body.author || "joseph", "contract", body.contract_key,
+      `Invoice to check: ${ct ? ct.title : body.contract_key}`,
+      `${body.value ?? (ct && ct.value) ?? "?"} ex VAT, due ${due}` +
+      (co && co.payment_terms ? ` on ${co.payment_terms} terms` : " on default 30-day terms") +
+      `. ${body.basis || "Figure taken from the contract value - confirm it against the final account before this goes."}`).run();
+    return J({ ok: true, id: r.meta.last_row_id, due });
+  }
+  if (method === "POST" && seg[0] === "invoice" && seg[1] === "status") {
+    needTeam();
+    await db.prepare("UPDATE invoice SET status = ?, paid_at = ? WHERE id = ?")
+      .bind(body.status, body.status === "paid" ? new Date().toISOString().slice(0, 10) : null,
+        body.id).run();
+    const inv = await db.prepare("SELECT * FROM invoice WHERE id = ?").bind(body.id).first();
+    if (inv) await addEvent(db, { author: meName || "team", entity_type: "contract",
+      entity_key: inv.contract_key, kind: "invoice_" + body.status,
+      body: `invoice ${inv.ref || inv.id} marked ${body.status}` });
     return J({ ok: true });
+  }
+
+  // A new enquiry becomes a lead. Jacob's job - "we effectively need Jacob to
+  // be logging it as a lead himself" - and a button for a human until he runs.
+  if (method === "POST" && seg[0] === "lead" && seg[1] === "log") {
+    needTeam();
+    const key = String(body.key || "").toLowerCase().replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "").slice(0, 60);
+    if (!key) return J({ error: "a key is required" }, 400);
+    await upsert(db, "lead", key, {
+      title: body.title || key, company_key: body.company_key || "unknown",
+      stage: "new", owner: "mary", value: body.value ?? null,
+      deadline: body.deadline || null, next_action: body.next_action || null,
+      next_action_date: body.next_action_date || null,
+    }, meName || "team", body.why || "logged as a lead from an enquiry");
+    if (body.task_id) {
+      await db.prepare(
+        `UPDATE task SET entity_type = 'lead', entity_key = ? WHERE id = ?`
+      ).bind(key, body.task_id).run();
+    }
+    return J({ ok: true, key });
   }
 
   // ------------------------------------------------ decisions & messages

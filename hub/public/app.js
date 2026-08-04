@@ -43,36 +43,36 @@ const rel = (ts) => {
   return Math.round(d / 86400) + "d ago";
 };
 
+/* ---------------------------------------------------------------- session */
+let ME = null;   // {name, display, role}
+const authHeaders = () => localStorage.gh_token
+  ? { authorization: "Bearer " + localStorage.gh_token } : {};
+
 async function api(path) {
-  const r = await fetch("/api" + path);
+  const r = await fetch("/api" + path, { headers: authHeaders() });
+  if (r.status === 401) { signOut(); throw new Error("signed out"); }
   if (!r.ok) throw new Error((await r.json().catch(() => ({}))).error || r.status);
   return r.json();
 }
 async function post(path, body) {
-  const pin = localStorage.pin || await askPin();
   const r = await fetch("/api" + path, {
     method: "POST",
-    headers: { "content-type": "application/json", "x-team-pin": pin },
+    headers: { "content-type": "application/json", ...authHeaders() },
     body: JSON.stringify(body),
   });
-  if (r.status === 403) { delete localStorage.pin; toast("Wrong PIN"); throw new Error("pin"); }
-  if (!r.ok) { toast("That did not save"); throw new Error(r.status); }
+  if (r.status === 401) { signOut(); throw new Error("signed out"); }
+  if (!r.ok) {
+    const e = (await r.json().catch(() => ({}))).error;
+    toast(e || "That did not save");
+    throw new Error(e || r.status);
+  }
   return r.json();
 }
-function askPin() {
-  return new Promise((res, rej) => {
-    const pin = prompt("Team PIN — the sender check, proof the instruction is from you:");
-    if (!pin) return rej(new Error("no pin"));
-    localStorage.pin = pin.trim();
-    res(localStorage.pin);
-  });
-}
-function whoAmI() {
-  if (!localStorage.who) {
-    const w = (prompt("Who is this? (zac / adam)") || "").trim().toLowerCase();
-    if (w === "zac" || w === "adam") localStorage.who = w;
-  }
-  return localStorage.who || "team";
+const whoAmI = () => (ME && ME.name) || "team";
+function signOut() {
+  delete localStorage.gh_token;
+  ME = null;
+  renderLogin();
 }
 let toastTimer;
 function toast(msg) {
@@ -794,8 +794,141 @@ async function refreshBadges(ov, decisions, drafts) {
   } catch { /* badges are decoration; never break the page for them */ }
 }
 
-$$("#rail .nav button").forEach((b) => (b.onclick = () => show(b.dataset.view)));
-$("#theme-toggle").onclick = () => {
+/* ---------------------------------------------------------------- login */
+function renderLogin(mode = "login", msg = "") {
+  document.body.classList.add("signed-out");
+  $("#shell").innerHTML = `
+  <div class="signin">
+    <div class="glass card signin-card">
+      <div class="brand" style="padding-bottom:18px">
+        <svg viewBox="0 0 32 32" class="brand-mark"><path d="M16 3 3 13v16h26V13z"
+          fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M16 3v26M3 13h26" stroke="currentColor" stroke-width="1.5"/></svg>
+        <div class="brand-name">Glasshouse<span>Fenster Glazing</span></div>
+      </div>
+      ${msg ? `<div class="signin-msg">${esc(msg)}</div>` : ""}
+      <label>Name</label><input type="text" id="li-name" autocomplete="username">
+      ${mode === "setup" ? `
+        <label>Setup code <span class="hint2">the one-off code you were given</span></label>
+        <input type="text" id="li-code" inputmode="numeric">
+        <label>Choose a password <span class="hint2">8 characters or more</span></label>
+        <input type="password" id="li-pass" autocomplete="new-password">`
+      : `<label>Password</label><input type="password" id="li-pass" autocomplete="current-password">`}
+      <button class="btn" id="li-go" style="width:100%;margin-top:14px">
+        ${mode === "setup" ? "Set my password" : "Sign in"}</button>
+      <div class="signin-alt">${mode === "setup"
+        ? `<a href="#" id="li-swap">I already have a password</a>`
+        : `<a href="#" id="li-swap">First time — I have a setup code</a>`}</div>
+    </div>
+  </div>`;
+  $("#li-swap").onclick = (e) => { e.preventDefault();
+    renderLogin(mode === "setup" ? "login" : "setup"); };
+  const go = async () => {
+    const name = $("#li-name").value.trim().toLowerCase();
+    const password = $("#li-pass").value;
+    try {
+      const r = await fetch("/api/" + (mode === "setup" ? "setup" : "login"), {
+        method: "POST", headers: { "content-type": "application/json" },
+        body: JSON.stringify(mode === "setup"
+          ? { name, code: $("#li-code").value.trim(), password }
+          : { name, password }),
+      });
+      const d = await r.json();
+      if (!r.ok) return renderLogin(mode, d.error || "That did not work");
+      localStorage.gh_token = d.token;
+      ME = { name: d.name, display: d.display, role: d.role };
+      boot();
+    } catch { renderLogin(mode, "Could not reach the hub"); }
+  };
+  $("#li-go").onclick = go;
+  ["li-name", "li-pass", "li-code"].forEach((id) => {
+    const el = $("#" + id);
+    if (el) el.onkeydown = (e) => e.key === "Enter" && go();
+  });
+  $("#li-name").focus();
+}
+
+/* ---------------------------------------------------------------- delivery */
+async function vDelivery() {
+  const d = await api("/delivery");
+  const stepRow = (s, late) => `<div class="glass job-step" data-step="${s.contract_key}|${s.n}">
+    <div class="card-head">
+      <div style="min-width:0">
+        <div class="js-what">${esc(s.label)}</div>
+        <div class="js-where">${esc(s.contract_title)}${s.company_name ? " · " + esc(s.company_name) : ""}</div>
+      </div>
+      <span class="pill ${late ? "red" : s.due ? "amber" : ""}">${
+        s.due ? (late ? "LATE — was due " + esc(s.due) : "due " + esc(s.due)) : "no date set"}</span>
+    </div>
+    ${s.detail ? `<div class="js-spec">${esc(s.detail)}</div>`
+      : `<div class="js-spec none">No spec recorded for this one yet.</div>`}
+    <div class="js-foot">
+      ${s.site_date ? `<span>on site ${esc(s.site_date)}</span>` : `<span>site date not set</span>`}
+      <button class="btn small">Mark done</button>
+    </div>
+  </div>`;
+  const block = (title, list, hint, late) => `
+    <h2>${title} <span class="count">${list.length}</span>${hint ? `<span class="hint">${hint}</span>` : ""}</h2>
+    <div class="grid cols-2">${list.map((s) => stepRow(s, late)).join("")
+      || `<div class="glass card empty">Nothing here.</div>`}</div>`;
+
+  view.innerHTML = `
+  <h1>Your day</h1>
+  <div class="sub">${new Date().toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}
+    — ${ME.display}. Everything below is a job that needs doing; tick it when it is done.</div>
+  ${d.late.length ? block("Late — do these first", d.late, "these were due before today", true) : ""}
+  ${block("Today", d.todays, "")}
+  ${block("This week", d.week, "")}
+  ${d.site_this_week.length ? `<h2>On site this week</h2><div class="glass">${
+    d.site_this_week.map((c) => `<div class="row"><span class="t">${esc(c.title)}</span>
+      <span class="m">${esc(c.company_name || "")}</span>
+      <span class="v">${esc(c.site_date)}</span></div>`).join("")}</div>` : ""}
+  ${d.undated.length ? `<h2>No date set <span class="count">${d.undated.length}</span>
+    <span class="hint">still to do, but nobody has said when</span></h2>
+    <div class="grid cols-2">${d.undated.map((s) => stepRow(s, false)).join("")}</div>` : ""}`;
+
+  $$("[data-step]").forEach((el) => {
+    $(".btn", el).onclick = async () => {
+      const [ck, n] = el.dataset.step.split("|");
+      await post("/step/done", { contract_key: ck, n: +n });
+      toast("Ticked — thanks");
+      vDelivery();
+    };
+  });
+}
+
+/* ---------------------------------------------------------------- boot */
+async function boot() {
+  document.body.classList.remove("signed-out");
+  $("#shell").innerHTML = SHELL_HTML;
+  const isAdmin = ME.role === "admin";
+  if (!isAdmin) {
+    // Delivery sees one page. No desks, no decisions, no cost.
+    $("#rail").innerHTML = `
+      <div class="brand"><svg viewBox="0 0 32 32" class="brand-mark">
+        <path d="M16 3 3 13v16h26V13z" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linejoin="round"/><path d="M16 3v26M3 13h26" stroke="currentColor"
+          stroke-width="1.5"/></svg>
+        <div class="brand-name">Glasshouse<span>${esc(ME.display)}</span></div></div>
+      <div class="nav"><button class="active"><span class="ic">✓</span>Your day</button></div>
+      <div class="rail-foot"><button id="sign-out" class="btn small ghost">Sign out</button></div>`;
+    $("#sign-out").onclick = signOut;
+    await vDelivery();
+    return;
+  }
+  wireChrome();
+  await show("today");
+  refreshBadges();
+}
+
+let SHELL_HTML = "";
+function wireChrome() {
+  $$("#rail .nav button").forEach((b) => (b.onclick = () => show(b.dataset.view)));
+  const so = $("#sign-out");
+  if (so) so.onclick = signOut;
+  $("#theme-toggle").onclick = toggleTheme;
+}
+function toggleTheme() {
   const cur = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
   document.documentElement.dataset.theme = cur;
   localStorage.theme = cur;
@@ -803,9 +936,21 @@ $("#theme-toggle").onclick = () => {
 if (localStorage.theme) document.documentElement.dataset.theme = localStorage.theme;
 else if (matchMedia("(prefers-color-scheme: dark)").matches)
   document.documentElement.dataset.theme = "dark";
-setInterval(() => ($("#clock").textContent =
-  new Date().toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" })), 1000);
-setInterval(() => { if (current === "today") vToday().catch(() => {}); }, 60000);
+setInterval(() => {
+  const c = $("#clock");
+  if (c) c.textContent = new Date().toLocaleTimeString("en-GB",
+    { hour: "2-digit", minute: "2-digit" });
+}, 1000);
+setInterval(() => { if (ME && ME.role === "admin" && current === "today")
+  vToday().catch(() => {}); }, 60000);
 
-show("today");
-refreshBadges();
+/* Keep the signed-in shell so it can be restored after a sign-out, then
+   decide which hub this person gets. */
+SHELL_HTML = $("#shell").innerHTML;
+(async () => {
+  if (!localStorage.gh_token) return renderLogin();
+  try {
+    ME = await api("/me");
+    await boot();
+  } catch { renderLogin(); }
+})();
