@@ -21,14 +21,20 @@ r.json, every key optional:
   "contacts":    [{"company_key": "stepnell", "name": "...", "email": "..."}],
   "steps_done":  [{"contract_key": "vesuvius", "n": 5, "why": "BSW confirmed"}],
   "decisions":   [{"question": "firm price or provisional?", "context": "...",
-                   "entity": "lead:filwood"}],
-  "drafts":      [{"to": "adam.warner@stepnell.co.uk", "subject": "Filwood - chase",
-                   "body": "the whole email, ready to send",
-                   "entity": "lead:filwood"}],
+                   "entity": "lead:filwood", "source": "fenster"}],
   "messages":    [{"body": "reply to the human, first line = the answer"}],
   "events":      [{"kind": "catch", "entity": "lead:filwood",
                    "body": "supplier price excludes trickle vents"}]
 }
+
+EVERY NEED CARRIES A `source`, and it is the first thing the reader looks at:
+  "fenster"  - somebody HERE holds the answer. A price, a margin, a date we
+               committed to, what Adam meant by an instruction.
+  "supplier" - somebody OUTSIDE holds it. A lead time, a delivery date, a spec
+               query, which job an order belongs to.
+Get it right. Twenty-three needs were sitting in front of a human on 05/08 and
+seven were really questions for a supplier - things no one at Fenster could
+answer, put in the way of the person who could answer the other sixteen.
 
 Positions are the distilled memory - the next session's whole inheritance.
 Write them like a handover to a colleague: the state, the numbers, who owes
@@ -90,16 +96,11 @@ def apply(persona, r):
                  "by": persona, "why": s.get("why", "")}))
     for d in r.get("decisions", []):
         etype, ekey = ((d.get("entity") or ":").split(":", 1) + [""])[:2]
-        step("decision raised",
-             lambda d=d, a=etype, b=ekey: record.decision(
-                 persona, d["question"], d.get("context", ""), a, b))
-    for d in r.get("drafts", []):
-        etype, ekey = ((d.get("entity") or ":").split(":", 1) + [""])[:2]
-        step("draft for %s" % (d.get("to") or "?"),
-             lambda d=d, a=etype, b=ekey: record.call("/api/draft", {
-                 "author": persona, "kind": d.get("kind", "email"),
-                 "to": d.get("to", ""), "subject": d.get("subject", ""),
-                 "body": d["body"], "entity_type": a, "entity_key": b}))
+        step("need raised (%s)" % (d.get("source") or "fenster"),
+             lambda d=d, a=etype, b=ekey: record.call("/api/decision", {
+                 "raised_by": persona, "question": d["question"],
+                 "context": d.get("context", ""), "entity_type": a,
+                 "entity_key": b, "source": d.get("source", "fenster")}))
     for m in r.get("messages", []):
         step("message posted",
              lambda m=m: record.message(persona, persona, m["body"][:8000],

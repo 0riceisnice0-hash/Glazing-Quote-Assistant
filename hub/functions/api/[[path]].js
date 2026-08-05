@@ -252,7 +252,7 @@ async function handle(request, env, path, url) {
 
   // ------------------------------------------------ THE GATE
   // Past this line you are a bot, an admin, or delivery. Delivery sees its own
-  // day and can tick its own steps; it never sees pricing, decisions, drafts,
+  // day and can tick its own steps; it never sees pricing, decisions,
   // the bots' conversations or the cost meter.
   needAnyUser();
   const DELIVERY_OK = new Set(["delivery", "card", "step", "me", "jobsite", "jobnote"]);
@@ -729,12 +729,39 @@ async function handle(request, env, path, url) {
   // ------------------------------------------------ decisions & messages
   if (method === "POST" && seg[0] === "decision" && !seg[1]) {
     needBot();
+    const q = String(body.question || "").trim();
+    if (!q) return J({ error: "a question is required" }, 400);
+    // DO NOT ASK THE SAME THING TWICE. Two desks working one job raised the
+    // identical Market House question word-for-word, and a desk returning to a
+    // job across sessions has no memory of what it already asked. Anything
+    // close enough to an OPEN question on the same job is folded into it.
+    const norm = (s) => s.toLowerCase().replace(/[^a-z0-9 ]/g, " ")
+      .replace(/\s+/g, " ").trim();
+    const key = norm(q);
+    const existing = await db.prepare(
+      `SELECT id, question, raised_by FROM decision
+       WHERE status = 'open' AND COALESCE(entity_key,'') = ?`
+    ).bind(body.entity_key || "").all();
+    for (const e of existing.results) {
+      const other = norm(e.question);
+      const a = new Set(key.split(" ").filter((w) => w.length > 3));
+      const b = new Set(other.split(" ").filter((w) => w.length > 3));
+      const shared = [...a].filter((w) => b.has(w)).length;
+      const overlap = shared / Math.max(1, Math.min(a.size, b.size));
+      if (other.slice(0, 60) === key.slice(0, 60) || overlap >= 0.75) {
+        await addEvent(db, { author: body.raised_by, entity_type: body.entity_type,
+          entity_key: body.entity_key, kind: "duplicate_question",
+          body: `already open as #${e.id} (${e.raised_by}) - not asked twice` });
+        return J({ ok: true, id: e.id, duplicate_of: e.id });
+      }
+    }
+    const src = body.source === "supplier" ? "supplier" : "fenster";
     const r = await db.prepare(
-      `INSERT INTO decision (raised_by, entity_type, entity_key, question, context)
-       VALUES (?,?,?,?,?)`
+      `INSERT INTO decision (raised_by, entity_type, entity_key, question, context, source)
+       VALUES (?,?,?,?,?,?)`
     ).bind(body.raised_by, body.entity_type || "", body.entity_key || "",
-      body.question, body.context || "").run();
-    return J({ ok: true, id: r.meta.last_row_id });
+      q, body.context || "", src).run();
+    return J({ ok: true, id: r.meta.last_row_id, source: src });
   }
   if (method === "POST" && seg[0] === "decision" && seg[1] === "answer") {
     needTeam();
@@ -786,51 +813,8 @@ async function handle(request, env, path, url) {
     return J({ ok: true });
   }
 
-  // ------------------------------------------------ drafts
-  // A bot writes one; a human sends it and says so. Until somebody acts, it
-  // sits in front of them - which is the whole point.
-  if (method === "POST" && seg[0] === "draft" && !seg[1]) {
-    needBot();
-    const r = await db.prepare(
-      `INSERT INTO draft (author, kind, to_whom, subject, body, entity_type, entity_key)
-       VALUES (?,?,?,?,?,?,?)`
-    ).bind(body.author, body.kind || "email", body.to || "", body.subject || "",
-      String(body.body || "").slice(0, 12000), body.entity_type || "",
-      body.entity_key || "").run();
-    await addEvent(db, { author: body.author, entity_type: body.entity_type,
-      entity_key: body.entity_key, kind: "draft",
-      body: `drafted for ${body.to || "someone"}: ${(body.subject || "").slice(0, 120)}` });
-    return J({ ok: true, id: r.meta.last_row_id });
-  }
-  if (method === "POST" && seg[0] === "draft" && seg[1] === "status") {
-    needTeam();
-    await db.prepare(
-      `UPDATE draft SET status = ?, acted_at = datetime('now'), acted_by = ? WHERE id = ?`
-    ).bind(body.status, body.by || "team", body.id).run();
-    const d = await db.prepare("SELECT * FROM draft WHERE id = ?").bind(body.id).first();
-    if (d) {
-      await addEvent(db, { author: body.by || "team", entity_type: d.entity_type,
-        entity_key: d.entity_key, kind: "draft_" + body.status,
-        body: `${body.status}: ${(d.subject || d.body).slice(0, 120)}` });
-      // The author learns what happened to its recommendation.
-      await db.prepare(
-        `INSERT INTO task (assignee, entity_type, entity_key, kind, title, body,
-          priority, created_by) VALUES (?,?,?,'hub',?,?,4,?)`
-      ).bind(d.author, d.entity_type, d.entity_key,
-        `Draft ${body.status}: ${(d.subject || "").slice(0, 90)}`,
-        `${body.by || "team"} marked your draft ${body.status}.` +
-        (body.note ? " Note: " + body.note : ""), body.by || "team").run();
-    }
-    return J({ ok: true });
-  }
-  if (method === "GET" && seg[0] === "drafts") {
-    const q = url.searchParams;
-    const rows = await db.prepare(
-      `SELECT * FROM draft WHERE status = ?1 AND (?2 = '' OR author = ?2)
-       ORDER BY id DESC LIMIT 50`
-    ).bind(q.get("status") || "waiting", q.get("author") || "").all();
-    return J(rows.results);
-  }
+  // (Drafts removed 05/08. The bots write no outbound of any kind; when they
+  // need something they raise a NEED that says who holds the answer.)
 
   // ------------------------------------------------ THE DESK
   // One call returns everything a persona's page needs. A page that takes six
@@ -841,14 +825,12 @@ async function handle(request, env, path, url) {
     const today = new Date().toISOString().slice(0, 10);
     const week = new Date(Date.now() + 7 * 864e5).toISOString().slice(0, 10);
 
-    const [tasks, decisions, drafts, messages, events, session, costRow, status] =
+    const [tasks, decisions, messages, events, session, costRow, status] =
       await Promise.all([
         db.prepare(`SELECT * FROM task WHERE assignee = ? AND status IN ('open','working')
                     ORDER BY priority, id`).bind(who).all(),
         db.prepare(`SELECT * FROM decision WHERE raised_by = ?
                     ORDER BY status = 'open' DESC, id DESC LIMIT 20`).bind(who).all(),
-        db.prepare(`SELECT * FROM draft WHERE author = ? AND status = 'waiting'
-                    ORDER BY id DESC`).bind(who).all(),
         db.prepare(`SELECT * FROM message WHERE persona = ? ORDER BY id DESC LIMIT 60`)
           .bind(who).all(),
         db.prepare(`SELECT * FROM event WHERE author = ? ORDER BY id DESC LIMIT 40`)
@@ -863,7 +845,7 @@ async function handle(request, env, path, url) {
     const out = {
       persona: who,
       status: JSON.parse((status || {}).value || "{}"),
-      tasks: tasks.results, decisions: decisions.results, drafts: drafts.results,
+      tasks: tasks.results, decisions: decisions.results,
       messages: messages.results, events: events.results,
       last_session: session || null, cost_today: costRow || {},
     };

@@ -153,28 +153,18 @@ const wire = (root = document) => {
   });
 };
 
-/* decisions and drafts are the two things a human MUST act on */
+/* A NEED is the one thing a human must act on. It says who holds the answer,
+   because "do I decide this, or do I go and ask someone" is the first
+   question the reader has. */
 function decisionCard(d) {
   return `<div class="glass item decision" data-id="${d.id}">
     <div class="q">${esc(d.question)}</div>
     ${d.context ? `<div class="ctx prose">${md(d.context)}</div>` : ""}
-    <div class="who">${esc(d.raised_by)} asked · ${rel(d.ts)}${d.entity_key ? " · " + esc(d.entity_key) : ""}</div>
+    <div class="who">${esc(d.raised_by)} asked · ${rel(d.ts)}${d.entity_key ? " · " + esc(d.entity_key) : ""}
+      · <span class="pill ${d.source === "supplier" ? "amber" : "blue"}">${
+        d.source === "supplier" ? "ask the supplier" : "we know this"}</span></div>
     <div class="acts"><input type="text" placeholder="Your answer — it goes straight into ${esc(d.raised_by)}'s queue">
       <button class="btn small">Answer</button></div>
-  </div>`;
-}
-function draftCard(dr) {
-  return `<div class="glass item draft" data-id="${dr.id}">
-    <div class="card-head"><div class="q">${esc(dr.subject || "(no subject)")}</div>
-      <span class="pill violet">${esc(dr.kind)}</span></div>
-    <div class="draft-to">to <b>${esc(dr.to_whom || "—")}</b> · written by ${esc(dr.author)} ${rel(dr.ts)}
-      ${dr.entity_key ? " · " + esc(dr.entity_key) : ""}</div>
-    <div class="draft-body">${esc(dr.body)}</div>
-    <div class="acts">
-      <button class="btn small" data-act="copy">Copy</button>
-      <button class="btn small" data-act="sent">I have sent it</button>
-      <button class="btn small ghost" data-act="discarded">Discard</button>
-    </div>
   </div>`;
 }
 function wireActions(reload) {
@@ -187,21 +177,6 @@ function wireActions(reload) {
     };
     $(".btn", el).onclick = send;
     $("input", el).onkeydown = (e) => e.key === "Enter" && send();
-  });
-  $$(".draft").forEach((el) => {
-    $$("[data-act]", el).forEach((b) => b.onclick = async () => {
-      const act = b.dataset.act;
-      if (act === "copy") {
-        const body = $(".draft-body", el).textContent;
-        navigator.clipboard.writeText(body).then(() => toast("Copied"),
-          () => toast("Could not copy — select it manually"));
-        return;
-      }
-      const note = act === "sent" ? "" : (prompt("Why not? (optional — it teaches them)") || "");
-      await post("/draft/status", { id: +el.dataset.id, status: act, by: whoAmI(), note });
-      toast(act === "sent" ? "Marked sent — they will learn what happened" : "Discarded");
-      reload();
-    });
   });
 }
 
@@ -224,9 +199,10 @@ async function show(name) {
 async function vToday() {
   const ov = await api("/overview");
   const decisions = ov.decisions || [];
-  const drafts = await api("/drafts?status=waiting");
   const cost = ov.cost_today || {};
-  const needs = decisions.length + drafts.length;
+  const fromUs = decisions.filter((d) => d.source !== "supplier");
+  const fromThem = decisions.filter((d) => d.source === "supplier");
+  const needs = decisions.length;
 
   const deskCard = (p) => {
     const st = (ov.statuses || {})[p] || {};
@@ -235,7 +211,6 @@ async function vToday() {
     const evs = (ov.desk_events || []).filter((e) => e.author === p).slice(0, 3);
     const sess = (ov.last_sessions || []).find((s) => s.persona === p);
     const myDec = decisions.filter((d) => d.raised_by === p).length;
-    const myDraft = drafts.filter((d) => d.author === p).length;
     return `<div class="glass desk-card" data-goto="${p}">
       <div class="card-head">
         <div style="display:flex;gap:11px;align-items:center;min-width:0">
@@ -249,7 +224,6 @@ async function vToday() {
       <div class="needs-strip">
         <span class="pill">${n} in queue</span>
         ${myDec ? `<span class="pill amber">${myDec} question${myDec > 1 ? "s" : ""} for you</span>` : ""}
-        ${myDraft ? `<span class="pill violet">${myDraft} draft${myDraft > 1 ? "s" : ""} to send</span>` : ""}
       </div>
       <div class="lately">${evs.map((e) => `<div class="ev tight">
         <span class="ts">${rel(e.ts)}</span>
@@ -269,9 +243,13 @@ async function vToday() {
 
   <div class="grid cols-3" style="align-items:start">${Object.keys(PEOPLE).map(deskCard).join("")}</div>
 
-  ${needs ? `<h2>Needs you <span class="count">${needs}</span>
-      <span class="hint">answers go straight back into their queue</span></h2>
-    <div class="grid">${decisions.map(decisionCard).join("")}${drafts.map(draftCard).join("")}</div>` : ""}
+  ${fromUs.length ? `<h2>We hold the answer <span class="count">${fromUs.length}</span>
+      <span class="hint">a price, a date, what an instruction meant</span></h2>
+    <div class="grid">${fromUs.map(decisionCard).join("")}</div>` : ""}
+
+  ${fromThem.length ? `<h2>Somebody outside holds the answer <span class="count">${fromThem.length}</span>
+      <span class="hint">a lead time, a delivery, a spec - somebody has to ask them</span></h2>
+    <div class="grid">${fromThem.map(decisionCard).join("")}</div>` : ""}
 
   <h2>Messages <span class="hint">click to open the conversation</span></h2>
   <div class="glass">${msgs.map((m) => `
@@ -292,7 +270,7 @@ async function vToday() {
     <div class="glass stat"><div class="n">${(ov.pipeline || []).reduce((a, r) => a + r.n, 0)}</div><div class="l">live jobs on the record</div></div>
   </div>`;
   wire(); wireActions(vToday);
-  refreshBadges(ov, decisions, drafts);
+  refreshBadges(ov, decisions);
 }
 
 /* ---------------------------------------------------------------- A DESK */
@@ -309,7 +287,6 @@ function deskHeader(d) {
     </div>
     <div class="desk-stats">
       <div><b>${(d.tasks || []).length}</b>in queue</div>
-      <div><b>${(d.drafts || []).length}</b>drafts waiting</div>
       <div><b>${(d.decisions || []).filter((x) => x.status === "open").length}</b>questions</div>
       <div><b>${fmtTok(c.c || 0)}</b>context today</div>
       <div><b>${s ? rel(s.ts) : "—"}</b>last session${s ? ` · ${fmtTok(s.context_tokens)}` : ""}</div>
@@ -344,10 +321,16 @@ const latelySection = (d) => `
 
 function needsSection(d, extra = "") {
   const open = (d.decisions || []).filter((x) => x.status === "open");
-  const n = open.length + (d.drafts || []).length;
+  const us = open.filter((x) => x.source !== "supplier");
+  const them = open.filter((x) => x.source === "supplier");
+  const n = open.length;
   if (!n && !extra) return "";
   return `<h2>Needs you <span class="count">${n}</span></h2>
-    ${extra}<div class="grid">${open.map(decisionCard).join("")}${(d.drafts || []).map(draftCard).join("")}</div>`;
+    ${extra}
+    ${us.length ? `<div class="sub">We hold these answers</div>
+      <div class="grid">${us.map(decisionCard).join("")}</div>` : ""}
+    ${them.length ? `<div class="sub" style="margin-top:12px">Somebody outside holds these</div>
+      <div class="grid">${them.map(decisionCard).join("")}</div>` : ""}`;
 }
 
 async function vDesk(p) {
@@ -902,14 +885,12 @@ $("#thread-input").addEventListener("keydown", (e) => {
 });
 
 /* ---------------------------------------------------------------- chrome */
-async function refreshBadges(ov, decisions, drafts) {
+async function refreshBadges(ov, decisions) {
   try {
     ov = ov || await api("/overview");
     decisions = decisions || ov.decisions || [];
-    drafts = drafts || await api("/drafts?status=waiting");
     Object.keys(PEOPLE).forEach((p) => {
-      const n = decisions.filter((d) => d.raised_by === p).length +
-                drafts.filter((d) => d.author === p).length;
+      const n = decisions.filter((d) => d.raised_by === p).length;
       const el = $(`[data-badge="${p}"]`);
       if (el) { el.textContent = n || ""; el.classList.toggle("on", !!n); }
     });
