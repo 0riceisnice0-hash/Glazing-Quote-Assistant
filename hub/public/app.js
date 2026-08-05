@@ -73,6 +73,11 @@ const gbp = (v) => v == null || v === "" ? "" :
 const fmtTok = (n) => !n ? "0" : n >= 1e6 ? (n / 1e6).toFixed(1) + "M"
   : n >= 1e3 ? Math.round(n / 1e3) + "k" : String(n);
 const today = () => new Date().toISOString().slice(0, 10);
+// The record stores UTC. Showing that raw tells someone in August that a job
+// finishes an hour before it does - the exact trap written into Mary's own
+// charter, made here in her hub.
+const hhmm = (iso) => new Date(iso).toLocaleTimeString("en-GB",
+  { hour: "2-digit", minute: "2-digit" });
 const dayn = (d) => d ? Math.floor((Date.now() - new Date(d + (d.length < 11 ? "T12:00:00Z" : "")).getTime()) / 864e5) : null;
 const rel = (ts) => {
   if (!ts) return "";
@@ -328,7 +333,7 @@ async function vToday() {
                : "no sessions yet"}</div>
       ${PROJECT_BTN[p] ? (proj
         ? `<button class="btn small ghost proj-stop" data-p="${p}">
-             ${esc(PROJECT_BTN[p].label)} · until ${esc(proj.until.slice(11, 16))} — stop</button>`
+             ${esc(PROJECT_BTN[p].label)} · until ${hhmm(proj.until)} — stop</button>`
         : `<button class="btn small proj-go" data-p="${p}">${esc(PROJECT_BTN[p].label)}</button>`) : ""}
     </div>`;
   };
