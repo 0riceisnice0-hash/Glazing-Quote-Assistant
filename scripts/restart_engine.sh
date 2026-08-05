@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
-# Restart the Glasshouse engine WITHOUT killing a session that is mid-flight.
+# Swap the engine over without killing a session mid-flight.
 #
-# Killing a working session is not free: it dies before it can call finish, and
-# everything it worked out is lost (2.7M tokens, 04/08). So wait for the
-# current one to close out, then swap the engine over.
+# Killing a working session is not free: it dies before it can call finish and
+# everything it worked out is lost (2.7M tokens, 04/08). But simply "waiting
+# for a gap" waits for ever - with three desks and a full queue the engine
+# starts a new session seconds after each one ends.
+#
+# So: PAUSE it (finish what is running, start nothing new), let it drain,
+# then swap. Only the OLD engine reads the pause file; the new one clears it.
 set -u
 cd "$(dirname "$0")/.." || exit 1
-LOG=test-results/glasshouse/dispatch.log
-DEADLINE=$(( $(date +%s) + 3600 ))
+PAUSE=data/PAUSED
+DEADLINE=$(( $(date +%s) + 3000 ))
 
 alive() {
   powershell -NoProfile -Command \
@@ -15,27 +19,26 @@ alive() {
     2>/dev/null | tr -d '\r\n '
 }
 
-echo "[$(date +%H:%M:%S)] waiting for in-flight sessions to close out..."
-while [ "$(alive)" != "0" ] && [ "$(date +%s)" -lt "$DEADLINE" ]; do sleep 10; done
+echo "[$(date +%H:%M:%S)] pausing - running sessions will finish, no new ones start"
+: > "$PAUSE"
 
-# The loop can also end because a NEW session started between two polls, which
-# is not the same thing as timing out. Say which actually happened.
+while [ "$(alive)" != "0" ] && [ "$(date +%s)" -lt "$DEADLINE" ]; do
+  echo "[$(date +%H:%M:%S)] draining - $(alive) session(s) still working"
+  sleep 15
+done
+
 if [ "$(alive)" != "0" ]; then
-  if [ "$(date +%s)" -ge "$DEADLINE" ]; then
-    echo "[$(date +%H:%M:%S)] gave up after an hour - a session is still running"
-    exit 1
-  fi
-  echo "[$(date +%H:%M:%S)] a fresh session started while waiting - going ahead anyway;"
-  echo "                    the new engine kills orphans and hands their work back on start."
+  echo "[$(date +%H:%M:%S)] gave up after 50 minutes; leaving the old engine alone"
+  rm -f "$PAUSE"
+  exit 1
 fi
 
-echo "[$(date +%H:%M:%S)] all sessions closed. Last line:"
-tail -1 "$LOG"
-
+echo "[$(date +%H:%M:%S)] drained. Swapping the engine over."
 powershell -NoProfile -Command \
   "Get-CimInstance Win32_Process -Filter \"Name='python.exe'\" | Where-Object {\$_.CommandLine -like '*glasshouse.py*'} | ForEach-Object { Stop-Process -Id \$_.ProcessId -Force }"
-sleep 4
+sleep 3
+rm -f "$PAUSE"
 nohup python -u core/glasshouse.py > test-results/glasshouse/engine.out 2>&1 &
 sleep 12
 cat test-results/glasshouse/engine.out
-echo "[$(date +%H:%M:%S)] RESTARTED - all three desks can now run at once"
+echo "[$(date +%H:%M:%S)] RESTARTED"

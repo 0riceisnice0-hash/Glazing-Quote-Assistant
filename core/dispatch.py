@@ -35,6 +35,8 @@ _quiet = [-1]   # so "holding N until morning" is logged on change, not every po
 _running = {}      # persona -> the thread running its session, if any
 _entity_lock = {}  # persona -> (entity, thread) so two desks cannot share a job
 _said = {}         # entity -> who we last reported holding it, to avoid log spam
+_paused = [False]
+PAUSE = os.path.join(config.DATA, "PAUSED")   # touch this file to drain the engine
 
 
 def log(msg):
@@ -286,6 +288,19 @@ def pass_once(dry_run=False):
         log("DAY BREAKER tripped (%s context today) - no more sessions today"
             % "{:,}".format(budget.spent_today()))
         return 0
+    # PAUSED: finish what is running, start nothing new. This is how the engine
+    # is swapped over without killing a session mid-flight - with three desks
+    # and a full queue there is otherwise never a moment when nobody is working,
+    # so "wait for a gap" waits for ever.
+    if os.path.exists(PAUSE):
+        if not _paused[0]:
+            _paused[0] = True
+            log("PAUSED - letting the running sessions finish, starting nothing new")
+        return 0
+    if _paused[0]:
+        _paused[0] = False
+        log("resumed")
+
     tasks = record.tasks(status_="open")
     if not tasks:
         return 0
