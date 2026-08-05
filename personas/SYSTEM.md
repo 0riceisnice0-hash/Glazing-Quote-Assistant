@@ -41,15 +41,34 @@ nobody's question and are gone.
 | Mary | What is being priced, what is late, what has she caught, what does she need |
 | Jacob | Who do I ring today, what is out for decision, what has he drafted, did we win |
 | Joseph | Which contracts are live, what step is late, what money is owed |
+| Live | A session as it happens — thinking, every tool call, every result |
+| Site | Paul and Steve's job sheets, editable by them |
 | Activity | The ledger, filtered to signal |
 | Cost | The meter, against the daily target |
 
-**Drafts are how a bot with no send path gets work done.** Jacob and Joseph
-cannot email; Mary can only reach Adam. Everything else outbound is written
-through finish's `drafts` key, appears on the hub as a card, and a human hits
-Copy / I have sent it / Discard. That answer comes back to the author as a
-task - which is the only way any of them learns whether a recommendation was
-any good.
+Two roles sign in: **admin** (Zac, Adam) sees all of the above; **delivery**
+(Paul, Steve) sees only Site. Enforced server-side — a delivery session gets
+403 on every other route.
+
+## The tools each desk has
+
+    python core\mail.py --search "Vetroseal"     every folder, every mailbox
+    python core\rates.py --lookup "aluminium door"   benchmark before pricing
+    python core\rates.py --score <lead> --mine <x> --actual <y>
+    python core\record.py card lead <key>        what a seed sees
+    python core\finish.py --persona <p> --results r.json
+
+**Standing work** fills an idle desk at 09:00, 13:00 and 16:00. A **project**
+(a button on Today) gives a desk an hour of directed work, handed back with a
+20-minute cooldown so it does not re-read what it just did.
+
+**NOTHING GOES OUT.** No bot writes to anyone outside Fenster, not even as a
+draft for a human to send (Zac, 05/08 — the drafting feature produced 32 unsent
+emails in a morning, several duplicated and two contradicting each other to the
+same client). When a bot needs something it cannot find, it raises a NEED
+carrying `source`: **fenster** if somebody here holds the answer, **supplier**
+if somebody outside does. Mary alone may email adam@/marketing@ via
+`core\send.py`, and that is the only outbound path in the system.
 
 **Nothing is ever resumed.** A session is born from a card (a query over the
 record), does bounded work, writes back through finish, and dies. If a fact is
@@ -69,8 +88,14 @@ the inheritance - write them like a handover to a colleague.
 ## The three breakers (physics, not judgement - core/config.py)
 
 - Day breaker: 150M context tokens across all personas, then nothing runs
-- Session kill: 20M context in one session means circling, killed at once
-- Curfew 21:00-07:00 unless lifted for one night (data/night-allowed.json)
+- Session kill: 20M context in one session means circling, killed at once; and
+  each session dies at **70 tool calls OR 45 minutes** (80 for project work) -
+  two clocks, both fatal, and a session killed before `finish` loses everything
+  it did. The prompt states both budgets outright for that reason.
+- The working day is **08:00-18:00** (Zac, 04/08). Outside it nothing runs
+  except a message posted on the hub or an email from Adam - someone
+  deliberately asking at 19:00 is not the runaway this guard exists to stop.
+  `data/night-allowed.json` lifts it for one night.
 
 Target: the whole system inside ~118M context tokens a day (5% of the weekly
 allowance). Cost is context x turns - the seed inlines the charter and card so

@@ -29,3 +29,9 @@ attic/dashboard/.dev.vars
 .wrangler/
 data/mail/
 data/glasshouse-usage.jsonl
+
+# finish payloads written by sessions in the repo root, transient
+r.json
+r[0-9]*.json
+r_*.json
+r-*.json
