@@ -101,10 +101,16 @@ this project comes back to you until the clock runs out."""),
     "leads": ("Find leads", """PROJECT WORK - go and find business. This is the half
 of your job that never arrives as an email.
 
-1. WHAT WE CAN ACTUALLY WIN. Check the record before chasing anything:
-   decided outcomes say the win rate is 38% under GBP 10k and 0% over GBP 50k
-   on the recent funnel. A big shiny tender we will not win is worth less than
-   a small one we will.
+1. WHAT WE CAN ACTUALLY WIN - AND WE WIN BIG WORK. Fenster has won many jobs
+   over GBP 50k; the largest is GBP 630k. Seven companies on the record have
+   paid us more than GBP 50,000 (CONAMAR GBP 917k, Fortis Vision GBP 670k,
+   Borras GBP 261k). Do NOT filter out large tenders.
+   Any "win rate" you may have seen that says otherwise came from the
+   Opportunity Log or the AdminBase export - both are funnels of OPEN and LOST
+   work. All 264 AdminBase rows read "Live - Quoted"; not one is marked won.
+   A dataset with no wins in it cannot tell you the win rate. The real
+   evidence is `lifetime_value` on the company record and the completed-jobs
+   folders in OneDrive under `2. Projects\\2. Completed`.
 2. SOURCE. Work `data/jacob/` - the Opportunity Log, the recovered contact
    book, public award and tender notices. Filter tender notices on CPV codes,
    never on the word "window": keyword matching has returned window CLEANING
@@ -120,6 +126,33 @@ of your job that never arrives as an email.
 
 Never approach anyone we are mid-tender with - check the record first. You
 write no emails; anything that needs sending becomes a need with the detail."""),
+
+    "delivery": ("Get the board ready", """PROJECT WORK - make the delivery board
+worth opening. Right now Paul and Steve see a list of jobs with no dates on
+any of them, so it cannot tell them a single thing about their day. Steve's
+verdict on the first version was "what the fuck is this?" and he was right.
+
+1. SITE DATES. Not one of the live contracts has one, and every other deadline
+   hangs off it. SEARCH THE MAIL PROPERLY before you raise a need for one:
+   `python core\\mail.py --search "<job name>"`, then the client's name, then
+   the order reference. Programme dates usually arrive in an order
+   acknowledgement or a site email, not in anything labelled "site date".
+   Only raise a need if it genuinely is not there - and say where you looked.
+2. WHAT TO ORDER. Most steps have no `detail`. "Order glass" is half a task;
+   Adam's whole complaint about the old system was that it never said WHICH
+   glass. Take the spec off the order confirmations and quotes you can find -
+   sizes, makeup, finish, supplier - and put it on the step. Write it for
+   somebody standing on site with a phone.
+3. WON JOBS THAT ARE ON NOBODY'S BOARD. You found two this morning by reading
+   the mail. A won job nobody is running is the worst thing this system can
+   have. Look for purchase orders, order acknowledgements and "please proceed"
+   in the last two months and check each one against the contracts on record.
+4. MONEY. Any job whose site date has passed with no invoice raised. Payment
+   terms belong on the company record - learn them from the client's own
+   emails and put them there.
+
+Do not invent a date. A made-up date on that board is worse than an empty one,
+because somebody will plan a day around it."""),
 }
 
 

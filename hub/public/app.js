@@ -291,8 +291,11 @@ async function show(name) {
 }
 
 /* ---------------------------------------------------------------- TODAY */
-const PROJECT_BTN = { mary: { kind: "pricing", label: "Work on pricing engine" },
-                      jacob: { kind: "leads", label: "Find leads" } };
+const PROJECT_BTN = {
+  mary:   { kind: "pricing",  label: "Work on pricing engine", doing: "the pricing engine" },
+  jacob:  { kind: "leads",    label: "Find leads",             doing: "finding leads" },
+  joseph: { kind: "delivery", label: "Get the board ready",    doing: "getting the board ready" },
+};
 async function vToday() {
   const ov = await api("/overview");
   const projects = await api("/projects").catch(() => ({}));
@@ -332,8 +335,11 @@ async function vToday() {
         ${sess ? `last session ${rel(sess.ts)} · ${fmtTok(sess.context_tokens)} · ${sess.calls} calls`
                : "no sessions yet"}</div>
       ${PROJECT_BTN[p] ? (proj
-        ? `<button class="btn small ghost proj-stop" data-p="${p}">
-             ${esc(PROJECT_BTN[p].label)} · until ${hhmm(proj.until)} — stop</button>`
+        ? `<div class="proj-live">
+             <span class="dot-live"></span>
+             <span>Working on ${esc(PROJECT_BTN[p].doing)} until ${hhmm(proj.until)}</span>
+             <button class="proj-stop" data-p="${p}">stop</button>
+           </div>`
         : `<button class="btn small proj-go" data-p="${p}">${esc(PROJECT_BTN[p].label)}</button>`) : ""}
     </div>`;
   };
