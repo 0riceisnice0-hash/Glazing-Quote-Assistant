@@ -334,6 +334,26 @@ td:nth-child(3){font-variant-numeric:normal}
   white-space:pre-wrap;overflow-wrap:anywhere;font-size:13.5px;background:var(--sunk);
   border:1px solid var(--line);border-radius:12px;padding:13px 15px;margin:8px 0;
 }
+/* Rendered Markdown. pre-wrap must go, or the newlines BETWEEN the block tags
+   become blank lines of their own on top of the margins. */
+.prose{white-space:normal;line-height:1.55}
+.prose p{margin:0 0 9px}
+.prose p:last-child{margin-bottom:0}
+.prose .md-h{
+  font-size:13px;font-weight:700;letter-spacing:.2px;text-transform:none;
+  color:var(--ink);margin:14px 0 6px;display:block;
+}
+.prose .md-h:first-child{margin-top:0}
+.prose strong{font-weight:680;color:var(--ink)}
+.prose em{font-style:italic}
+.prose code{
+  font-family:"Cascadia Mono",Consolas,ui-monospace,monospace;font-size:12px;
+  background:var(--pane-solid);border:1px solid var(--line);border-radius:5px;
+  padding:1px 5px;overflow-wrap:anywhere;
+}
+.prose ul,.prose ol{margin:0 0 9px;padding-left:20px}
+.prose li{margin:2px 0}
+.prose > *:last-child{margin-bottom:0}
 
 /* ------------------------------------------------- thread (messaging) */
 #thread-card{

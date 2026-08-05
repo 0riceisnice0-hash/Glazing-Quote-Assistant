@@ -31,6 +31,43 @@ const STAGE_LABEL = {
 
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) =>
   ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+/* The bots write Markdown - headings, **bold**, lists - and it was being shown
+   as literal asterisks and hashes. This renders the small subset they actually
+   use. It ESCAPES FIRST and only then adds tags, so nothing in a supplier's
+   email can inject markup: by the time any of these patterns are matched,
+   every < > & " in the source is already inert. */
+function md(src) {
+  const t = esc(src).replace(/\r\n/g, "\n")
+    .replace(/`([^`\n]+)`/g, "<code>$1</code>")
+    .replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/(^|[\s(])\*([^*\n]+)\*(?=[\s.,;:)]|$)/g, "$1<em>$2</em>")
+    .replace(/(^|[\s(])_([^_\n]+)_(?=[\s.,;:)]|$)/g, "$1<em>$2</em>");
+  const out = [];
+  let para = [], list = null;
+  const flushP = () => { if (para.length) { out.push("<p>" + para.join(" ") + "</p>"); para = []; } };
+  const flushL = () => { if (list) { out.push("<" + list.tag + ">" + list.items.join("") +
+    "</" + list.tag + ">"); list = null; } };
+  for (const line of t.split("\n")) {
+    const h = line.match(/^(#{1,4})\s+(.*)$/);
+    const ul = line.match(/^\s*[-*+]\s+(.*)$/);
+    const ol = line.match(/^\s*\d+[.)]\s+(.*)$/);
+    if (h) { flushP(); flushL(); out.push("<h4 class='md-h'>" + h[2] + "</h4>"); continue; }
+    if (ul || ol) {
+      flushP();
+      const tag = ul ? "ul" : "ol";
+      if (!list || list.tag !== tag) { flushL(); list = { tag, items: [] }; }
+      list.items.push("<li>" + (ul ? ul[1] : ol[1]) + "</li>");
+      continue;
+    }
+    flushL();
+    // A blank line ends the paragraph; otherwise the bots' hard-wrapped lines
+    // are joined back into one, instead of becoming a paragraph each.
+    if (!line.trim()) flushP(); else para.push(line.trim());
+  }
+  flushP(); flushL();
+  return out.join("");
+}
 const gbp = (v) => v == null || v === "" ? "" :
   "£" + Number(v).toLocaleString("en-GB", { maximumFractionDigits: 0 });
 const fmtTok = (n) => !n ? "0" : n >= 1e6 ? (n / 1e6).toFixed(1) + "M"
@@ -120,7 +157,7 @@ const wire = (root = document) => {
 function decisionCard(d) {
   return `<div class="glass item decision" data-id="${d.id}">
     <div class="q">${esc(d.question)}</div>
-    ${d.context ? `<div class="ctx">${esc(d.context)}</div>` : ""}
+    ${d.context ? `<div class="ctx prose">${md(d.context)}</div>` : ""}
     <div class="who">${esc(d.raised_by)} asked · ${rel(d.ts)}${d.entity_key ? " · " + esc(d.entity_key) : ""}</div>
     <div class="acts"><input type="text" placeholder="Your answer — it goes straight into ${esc(d.raised_by)}'s queue">
       <button class="btn small">Answer</button></div>
@@ -744,7 +781,7 @@ async function openLead(key) {
       `<div class="row"><span class="t">rev ${q.revision} — ${esc(q.status)}</span>
        <span class="m">${esc(q.issued_at || "")}</span><span class="v">${gbp(q.value)}</span></div>`).join("") : ""}
     ${l.position ? `<h2>Position <span class="hint">what the last session knew</span></h2>
-      <div class="position">${esc(l.position)}</div>` : ""}
+      <div class="position prose">${md(l.position)}</div>` : ""}
     ${(c.contacts || []).length ? `<h2>Contacts</h2>` + c.contacts.map((x) =>
       `<div class="row"><span class="t">${esc(x.name || "—")}</span>
        <span class="m">${esc(x.email || "")}</span></div>`).join("") : ""}
@@ -770,7 +807,7 @@ async function openCompany(key) {
     <div class="sub"><span class="pill ${co.relationship === "won" ? "green" : ""}">${esc(co.relationship)}</span>
       ${co.lifetime_value ? " · has paid us " + gbp(co.lifetime_value) : ""}
       ${co.payment_terms ? " · terms: " + esc(co.payment_terms) : ""}</div>
-    ${co.position ? `<h2>Position</h2><div class="position">${esc(co.position)}</div>` : ""}
+    ${co.position ? `<h2>Position</h2><div class="position prose">${md(co.position)}</div>` : ""}
     ${(c.leads || []).length ? `<h2>Jobs</h2>` + c.leads.map((l) =>
       `<div class="row click" data-lead="${esc(l.key)}"><span class="t">${esc(l.title)}</span>
        <span class="m">${esc(STAGE_LABEL[l.stage] || l.stage)}</span>
@@ -810,7 +847,7 @@ async function openContract(key) {
       `<div class="row"><span class="t">${esc(i.ref || "draft")}</span>
        <span class="pill ${i.status === "paid" ? "green" : "amber"}">${esc(i.status)}</span>
        <span class="v">${gbp(i.value)}</span></div>`).join("") : ""}
-    ${ct.position ? `<h2>Position</h2><div class="position">${esc(ct.position)}</div>` : ""}
+    ${ct.position ? `<h2>Position</h2><div class="position prose">${md(ct.position)}</div>` : ""}
     <h2>Recent</h2>
     <div class="feed">${(c.recent_events || []).slice(0, 12).map((e) => `
       <div class="ev"><span class="ts">${esc(e.ts.slice(5, 16))}</span>
