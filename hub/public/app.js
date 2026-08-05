@@ -523,6 +523,19 @@ function jacobBody(d) {
   return `
   ${needsSection(d)}
 
+  <h2>Leads found <span class="count">${(d.new_leads || []).length}</span>
+    <span class="hint">logged and not yet priced — the front of the funnel</span></h2>
+  <div class="glass">${(d.new_leads || []).map((l) => `
+    <div class="row click" data-lead="${esc(l.key)}">
+      <span class="t">${esc(l.title)}</span>
+      <span class="m">${esc(l.company_name || l.company_key || "")}</span>
+      <span class="pill ${l.stage === "new" ? "" : "blue"}">${esc(STAGE_LABEL[l.stage] || l.stage)}</span>
+      <span class="m">${rel(l.created)}</span>
+      <span class="v">${gbp(l.value)}</span></div>`).join("")
+    || `<div class="empty">No new leads on the record. Press "Find leads" on Today
+        and he will go looking.</div>`}
+  </div>
+
   <h2>Today's calls <span class="count">${calls.length}</span>
     <span class="hint">these are the people to ring today</span></h2>
   <div class="glass">${calls.map((l) => `

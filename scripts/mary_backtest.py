@@ -55,8 +55,11 @@ def parse_doc(path):
         if not sheets:
             return None
         ws = sheets[0]
+        # Read once into memory: a read-only worksheet cannot be iterated twice,
+        # and the client-facing pass below needs the same rows.
+        rows = [list(r) for r in ws.iter_rows(values_only=True)]
         heading = ""
-        for row in ws.iter_rows(values_only=True):
+        for row in rows:
             cells = list(row) + [None] * (14 - len(row))
             texts = [str(c).strip().lower() if isinstance(c, str) else "" for c in cells]
             nums = [c if isinstance(c, (int, float)) else None for c in cells]
@@ -164,9 +167,183 @@ def parse_doc(path):
                 "area": round(w / 1000.0 * h / 1000.0, 4),
                 "cw": is_cw,
             })
+        # THE CLIENT-FACING COPY, which the fixed column indices above cannot
+        # read at all. Two thirds of the trustworthy sent quotes are this shape:
+        # Description / Size / Qty / Unit Rate / Total, no product code column
+        # and no Frames-Glass-Additional breakdown, with the columns wherever
+        # that document happened to put them. Every row fell out at the
+        # `code not in engine.CODE_VALUE` test, so 49 of 79 quotes never
+        # reached the corpus and the engine was being tuned on 30.
+        #
+        # They cannot contribute a BUY rate - there is no Frames figure to mine
+        # - and they do not: supply_money() returns None without one, so learn()
+        # and the supplier factors skip these lines untouched. What they can do
+        # is SCORE: a real total Fenster sent a client, against what the engine
+        # would have said.
+        if not doc["lines"]:
+            cf = _parse_client_facing(rows)
+            if cf:
+                doc["lines"] = cf
+                doc["client_facing"] = True
     finally:
         wb.close()
     return doc if doc["lines"] else None
+
+
+def _find_header(rows):
+    """Where this document put its columns. A client-facing copy is laid out to
+    be read by a customer, not by us, so the positions move between documents
+    and only the header row knows them."""
+    for cells in rows:
+        low = [str(c).strip().lower() if isinstance(c, str) else "" for c in cells]
+        if "description" not in low:
+            continue
+        if not any(x in low for x in ("qty", "quantity")):
+            continue
+        idx = {}
+        for i, t in enumerate(low):
+            if t == "description" and "desc" not in idx:
+                idx["desc"] = i
+            elif t in ("qty", "quantity") and "qty" not in idx:
+                idx["qty"] = i
+            elif t in ("unit rate", "rate", "unit price") and "rate" not in idx:
+                idx["rate"] = i
+            elif t == "total" and "total" not in idx:
+                idx["total"] = i
+            elif t.startswith("size") and "size" not in idx:
+                idx["size"] = i
+        return idx
+    return None
+
+
+def _client_facing_code(heading, desc, area, width_mm):
+    """The product code from the words, because this copy has no code column.
+
+    Returns None for anything the register cannot price by code - curtain
+    walling, secondary glazing and steel all take a different path, and
+    guessing a code for them would be worse than leaving the line out.
+
+    Window-vs-door has to be decided off the ROW first, not the heading: a
+    'Sheerline Aluminium Windows & Doors' or 'uPVC Windows and Doors' heading
+    is the template's own product name and contains the substring 'door' on
+    every window row underneath it too - measured 05/08, this alone put four
+    client-facing documents 60-150% out (Redditch Library, Severn Trent,
+    Willseden Junction, Trafalgar House all coded window rows as DAD/SAD).
+    Fenster's own ref numbering ('W1', 'D0.01', 'DG-01') is the fallback when
+    the row text is silent, and is safer than the heading because it is
+    written per item, not per section."""
+    hay_head = heading.lower()
+    hay_desc = desc.lower()
+    if any(k in hay_head or k in hay_desc
+           for k in ("curtain wall", "cw0", "secondary glazing", "steel")):
+        return None
+    upvc = "upvc" in hay_head or "upvc" in hay_desc or " pvc" in hay_desc
+    is_window = "window" in hay_desc
+    is_door = "door" in hay_desc
+    if not is_window and not is_door:
+        head_window, head_door = "window" in hay_head, "door" in hay_head
+        if head_window and not head_door:
+            is_window = True
+        elif head_door and not head_window:
+            is_door = True
+        else:
+            m = re.match(r"\s*([A-Za-z]+)", desc)
+            prefix = m.group(1).upper() if m else ""
+            if prefix.startswith("W"):
+                is_window = True
+            elif prefix.startswith("D"):
+                is_door = True
+    if is_door and not is_window:
+        double = width_mm >= 1550
+        if upvc:
+            return "DUPD" if double else "SUPD"
+        return "DAD" if double else "SAD"
+    if is_window and not is_door:
+        if upvc:
+            return "LPVC" if area >= 3 else ("MPVC" if area >= 1.5 else "SPVC")
+        return "LAW" if area >= 3 else ("MAW" if area >= 1.5 else "SAW")
+    # Both or neither - the row said nothing usable and the ref carried no
+    # W/D prefix either. Guessing here is exactly the mistake this fixes.
+    return None
+
+
+def _parse_client_facing(rows):
+    """Priced lines out of a client-facing pricing document."""
+    idx = _find_header(rows)
+    if not idx or "desc" not in idx or "qty" not in idx:
+        return []
+    lines, heading, started = [], "", False
+    for cells in rows:
+        n = len(cells)
+
+        def get(k):
+            i = idx.get(k)
+            return cells[i] if i is not None and i < n else None
+
+        desc = get("desc")
+        descs = str(desc).strip() if isinstance(desc, str) else ""
+        if not descs:
+            continue
+        if descs.lower() == "description":
+            started = True
+            continue
+        if not started:
+            continue
+        if descs.lower().startswith(("*", "optional", "total", "installation",
+                                     "client", "project", "site", "date")):
+            continue
+        qty = get("qty")
+        size_cell = get("size")
+        size_text = str(size_cell) if isinstance(size_cell, (str, int, float)) else ""
+        m = SIZE_RE.search(size_text) or SIZE_RE.search(descs)
+        if not m:
+            # No size and no quantity is a section heading - and the heading is
+            # where the product is named, so it has to be carried down.
+            if not isinstance(qty, (int, float)) and sum(c.isalpha() for c in descs) >= 4:
+                heading = descs
+            continue
+        if not isinstance(qty, (int, float)) or qty <= 0:
+            continue
+        w, h = int(m.group(1)), int(m.group(2))
+        area = round(w / 1000.0 * h / 1000.0, 4)
+        if area <= 0:
+            continue
+        rate, total = get("rate"), get("total")
+        unit_rate = rate if isinstance(rate, (int, float)) and rate else None
+        if unit_rate is None and isinstance(total, (int, float)) and total:
+            unit_rate = total / qty          # some copies show only the line total
+        if not unit_rate:
+            continue
+        code = _client_facing_code(heading, descs, area, w)
+        if not code:
+            continue
+        lines.append({
+            "code": code, "ref": descs[:24], "heading": heading,
+            "text": ("%s %s" % (heading, descs)).strip().lower(),
+            "w": w, "h": h, "qty": float(qty), "unit_rate": float(unit_rate),
+            # No breakdown exists in this shape. Left as None on purpose so
+            # supply_money() refuses them and no buy rate is ever mined from a
+            # sell price.
+            "frames": None, "glass": None, "additional": None,
+            "area": area, "cw": False,
+        })
+    return lines
+
+
+def _learn_code(l):
+    """The bucket a line's rate is mined into and looked up from.
+
+    A sliding window prices 3-4x an ordinary casement of the same code and
+    band - measured 05/08 on Tenbury Close and Georgie's Rosebank, two
+    independent jobs, both consistently GBP1,200-2,800/m2 against a normal
+    MAW/SAW/LAW median of GBP300-500/m2 for the same size band. The archive
+    does not even code sliding windows consistently - the same 855x1455 unit
+    is LAW in Georgie's own master document and something else in its sibling
+    copy - so the code itself is not a reliable signal for this product, only
+    the word 'sliding' in the description is."""
+    if l["code"] not in ("SAD", "DAD", "SUPD", "DUPD") and "slid" in (l.get("text") or ""):
+        return "SLIDE"
+    return l["code"]
 
 
 def engine_price(line, supplier=None, system="", learned=None, factors=None):
@@ -194,10 +371,10 @@ def engine_price(line, supplier=None, system="", learned=None, factors=None):
                 "supply": line["area"] * engine.CW_SUPPLY_M2,
                 "rate_per_m2": engine.CW_SUPPLY_M2}
 
-    key = "%s|%s" % (line["code"], engine.learned_band_of(line["area"]))
+    key = "%s|%s" % (_learn_code(line), engine.learned_band_of(line["area"]))
     rec = (learned or {}).get(key) if learned is not None else None
     if learned is None:
-        r = engine.learned_rate(line["code"], line["area"], supplier, system)
+        r = engine.learned_rate(_learn_code(line), line["area"], supplier, system)
     elif rec and rec.get("n", 0) >= engine.MIN_LEARNED_N:
         fac = []
         if factors:
@@ -363,7 +540,7 @@ def learn(docs):
             money = supply_money(l)
             if not money or l["area"] <= 0:
                 continue
-            key = "%s|%s" % (l["code"], engine.learned_band_of(l["area"]))
+            key = "%s|%s" % (_learn_code(l), engine.learned_band_of(l["area"]))
             buckets.setdefault(key, []).append(money / l["area"])
     out = {}
     for key, vals in sorted(buckets.items()):
@@ -408,7 +585,7 @@ def learn_supplier_factors(docs, base):
             money = supply_money(l)
             if not money or l["area"] <= 0:
                 continue
-            key = "%s|%s" % (l["code"], engine.learned_band_of(l["area"]))
+            key = "%s|%s" % (_learn_code(l), engine.learned_band_of(l["area"]))
             b = base.get(key)
             if not b or not b["median_per_m2"]:
                 continue

@@ -956,6 +956,15 @@ async function handle(request, env, path, url) {
                     WHERE l.stage != 'closed' AND COALESCE(l.next_action_date,'') = ''
                       AND l.stage IN ('quote_sent','follow_up','final_follow_up')`).all(),
       ]);
+      // LEADS HE HAS FOUND. A brand-new lead has no chase date and is not out
+      // for decision, so it appeared on NO page at all - his own sourcing was
+      // invisible to him and to everyone else.
+      const fresh = await db.prepare(
+        `SELECT l.*, c.name company_name FROM lead l
+         LEFT JOIN company c ON c.key = l.company_key
+         WHERE l.stage IN ('new','acknowledged')
+         ORDER BY l.created DESC LIMIT 40`).all();
+      out.new_leads = fresh.results;
       out.calls_today = calls.results;
       out.out_for_decision = outFor.results;
       out.companies = companies.results;
