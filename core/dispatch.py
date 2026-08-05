@@ -241,14 +241,42 @@ def run_group(persona, entity, tasks, dry_run=False):
     return ok
 
 
-def clear_stale_status():
-    """On start-up nobody is working. A status left saying 'working' by a
-    killed engine is a lie the hub then shows all day."""
-    for p in config.PERSONAS:
-        try:
+def reset_on_start():
+    """Nothing survives an engine restart, so stop pretending it does.
+
+    Killing the engine does NOT kill the sessions it launched - Windows leaves
+    them running, parentless. Restarting then produced exactly the mess it
+    sounds like: an orphan still working Jacob's task while the fresh engine,
+    which had never heard of it, handed the same task to a second session.
+    Two sessions, one job, double the spend, conflicting writes.
+
+    So on start-up: kill anything left over, hand its work back, and tell the
+    hub nobody is working.
+    """
+    try:
+        out = subprocess.run(
+            ["powershell", "-NoProfile", "-Command",
+             "Get-CimInstance Win32_Process -Filter \"Name='claude.exe'\" | "
+             "Where-Object {$_.CommandLine -like '*--max-turns*'} | ForEach-Object { "
+             "$p = Get-CimInstance Win32_Process -Filter \"ProcessId=$($_.ParentProcessId)\" "
+             "-ErrorAction SilentlyContinue; "
+             "if (-not $p) { Stop-Process -Id $_.ProcessId -Force; $_.ProcessId } }"],
+            capture_output=True, text=True, timeout=60,
+            creationflags=NO_WINDOW).stdout.strip()
+        if out:
+            log("killed %d orphaned session(s) from a previous engine: %s"
+                % (len(out.split()), " ".join(out.split())))
+    except Exception as e:
+        log("could not check for orphaned sessions: %s" % str(e)[:100])
+
+    # Work claimed by a session that no longer exists goes back in the queue.
+    # No attempt is counted - being killed by a restart is not the task's fault.
+    try:
+        for p in config.PERSONAS:
+            record.call("/api/task/unclaim", {"assignee": p})
             record.status(p, "idle", "")
-        except Exception:
-            pass
+    except Exception as e:
+        log("could not reset claimed work: %s" % str(e)[:100])
 
 
 def pass_once(dry_run=False):

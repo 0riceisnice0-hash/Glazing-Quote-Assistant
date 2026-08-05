@@ -44,6 +44,8 @@ def main():
     except Exception as e:
         print("WARNING: record unreachable at start (%s)" % str(e)[:100], flush=True)
 
+    dispatch.reset_on_start()
+
     stop = threading.Event()
     threading.Thread(target=intake_loop, args=(stop,), daemon=True).start()
     try:

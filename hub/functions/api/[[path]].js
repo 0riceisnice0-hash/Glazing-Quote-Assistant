@@ -462,6 +462,17 @@ async function handle(request, env, path, url) {
     return J({ ok: true, id: r.meta.last_row_id });
   }
 
+  // Hand back work claimed by a session that no longer exists (engine restart).
+  // Unlike /release this counts no attempt against the task - being killed by
+  // a restart is not the task's fault.
+  if (method === "POST" && seg[0] === "task" && seg[1] === "unclaim") {
+    needBot();
+    const r = await db.prepare(
+      `UPDATE task SET status = 'open' WHERE status = 'working' AND assignee = ?`
+    ).bind(body.assignee).run();
+    return J({ ok: true, returned: r.meta.changes });
+  }
+
   if (method === "POST" && seg[0] === "task" && seg[1] === "claim") {
     needBot();
     await db.prepare(

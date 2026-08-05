@@ -18,9 +18,15 @@ alive() {
 echo "[$(date +%H:%M:%S)] waiting for in-flight sessions to close out..."
 while [ "$(alive)" != "0" ] && [ "$(date +%s)" -lt "$DEADLINE" ]; do sleep 10; done
 
+# The loop can also end because a NEW session started between two polls, which
+# is not the same thing as timing out. Say which actually happened.
 if [ "$(alive)" != "0" ]; then
-  echo "[$(date +%H:%M:%S)] a session is STILL running after an hour - not touching it"
-  exit 1
+  if [ "$(date +%s)" -ge "$DEADLINE" ]; then
+    echo "[$(date +%H:%M:%S)] gave up after an hour - a session is still running"
+    exit 1
+  fi
+  echo "[$(date +%H:%M:%S)] a fresh session started while waiting - going ahead anyway;"
+  echo "                    the new engine kills orphans and hands their work back on start."
 fi
 
 echo "[$(date +%H:%M:%S)] all sessions closed. Last line:"
