@@ -509,9 +509,24 @@ async function handle(request, env, path, url) {
     ).bind(body.status || "done", body.by || "bot",
       String(body.result || "").slice(0, 500), body.id).run();
     const t = await db.prepare("SELECT * FROM task WHERE id = ?").bind(body.id).first();
-    if (t) await addEvent(db, { author: body.by || "bot", entity_type: t.entity_type,
-      entity_key: t.entity_key, kind: "task_done",
-      body: `${t.title}: ${body.result || "done"}`, ref: "task:" + body.id });
+    if (t) {
+      await addEvent(db, { author: body.by || "bot", entity_type: t.entity_type,
+        entity_key: t.entity_key, kind: "task_done",
+        body: `${t.title}: ${body.result || "done"}`, ref: "task:" + body.id });
+      // IF IT CAME FROM A MESSAGE, IT GETS ANSWERED IN THAT MESSAGE. Zac asked
+      // Mary to work on the pricing engine; she did it properly and wrote the
+      // findings into the task result - where he never saw them, because the
+      // thread stayed silent and it looked like she had ignored him. An answer
+      // filed somewhere the asker does not look is not an answer.
+      let payload = {};
+      try { payload = JSON.parse(t.payload_json || "{}"); } catch { payload = {}; }
+      if (payload.message_id && body.result) {
+        await db.prepare(
+          `INSERT INTO message (author, persona, body, reply_to) VALUES (?,?,?,?)`
+        ).bind(t.assignee, t.assignee, String(body.result).slice(0, 8000),
+          payload.message_id).run();
+      }
+    }
     return J({ ok: true });
   }
 
@@ -621,6 +636,41 @@ async function handle(request, env, path, url) {
       .bind(body.sender || "", body.subject || "", body.why || "").run();
     return J({ ok: true });
   }
+  // A PROJECT: standing work with a clock on it. "Go and do this until 12:30."
+  // One session rarely finishes something like tuning a pricing engine, so
+  // while the project is live and the desk is empty the agenda hands it back.
+  if (method === "POST" && seg[0] === "project") {
+    needTeam();
+    const mins = Number(body.minutes ?? 60);
+    if (!mins) {                                   // 0 = stop it
+      await db.prepare("DELETE FROM setting WHERE key = ?")
+        .bind("project:" + body.persona).run();
+      await addEvent(db, { author: meName || "team", kind: "project",
+        body: `${body.persona}: standing project stopped` });
+      return J({ ok: true, stopped: true });
+    }
+    const until = new Date(Date.now() + mins * 60000).toISOString();
+    await db.prepare(
+      `INSERT INTO setting (key, value) VALUES (?1, ?2)
+       ON CONFLICT(key) DO UPDATE SET value = ?2`
+    ).bind("project:" + body.persona,
+      JSON.stringify({ label: body.label, kind: body.kind, until,
+        by: meName || "team" })).run();
+    await addEvent(db, { author: meName || "team", kind: "project",
+      body: `${body.persona}: "${body.label}" until ${until.slice(11, 16)}` });
+    return J({ ok: true, until });
+  }
+  if (method === "GET" && seg[0] === "projects") {
+    const rows = await db.prepare(
+      "SELECT key, value FROM setting WHERE key LIKE 'project:%'").all();
+    const out = {};
+    for (const r of rows.results) {
+      const v = JSON.parse(r.value || "{}");
+      if (v.until && v.until > new Date().toISOString()) out[r.key.slice(8)] = v;
+    }
+    return J(out);
+  }
+
   if (method === "POST" && seg[0] === "status") {
     needBot();
     await db.prepare(

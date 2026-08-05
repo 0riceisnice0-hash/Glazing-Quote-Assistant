@@ -39,6 +39,10 @@ def intake_loop(stop):
             dispatch.log("INTAKE FAILED: %s" % str(e)[:200])
         try:
             if not budget.off_hours():
+                # A project someone started from the hub comes first - it has a
+                # clock on it and they asked for it explicitly.
+                for started in agenda.projects(agenda_state):
+                    dispatch.log("project work handed back - %s" % started)
                 briefed = agenda.run(agenda_state)
                 if briefed:
                     dispatch.log("standing work given to %s (their queue was empty)"

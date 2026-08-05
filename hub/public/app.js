@@ -286,8 +286,11 @@ async function show(name) {
 }
 
 /* ---------------------------------------------------------------- TODAY */
+const PROJECT_BTN = { mary: { kind: "pricing", label: "Work on pricing engine" },
+                      jacob: { kind: "leads", label: "Find leads" } };
 async function vToday() {
   const ov = await api("/overview");
+  const projects = await api("/projects").catch(() => ({}));
   const decisions = ov.decisions || [];
   const cost = ov.cost_today || {};
   const fromUs = decisions.filter((d) => d.source !== "supplier");
@@ -301,6 +304,7 @@ async function vToday() {
     const evs = (ov.desk_events || []).filter((e) => e.author === p).slice(0, 3);
     const sess = (ov.last_sessions || []).find((s) => s.persona === p);
     const myDec = decisions.filter((d) => d.raised_by === p).length;
+    const proj = projects[p];
     return `<div class="glass desk-card" data-goto="${p}">
       <div class="card-head">
         <div style="display:flex;gap:11px;align-items:center;min-width:0">
@@ -322,6 +326,10 @@ async function vToday() {
       <div style="font-size:11.5px;color:var(--ink-3);border-top:1px solid var(--line);padding-top:8px">
         ${sess ? `last session ${rel(sess.ts)} · ${fmtTok(sess.context_tokens)} · ${sess.calls} calls`
                : "no sessions yet"}</div>
+      ${PROJECT_BTN[p] ? (proj
+        ? `<button class="btn small ghost proj-stop" data-p="${p}">
+             ${esc(PROJECT_BTN[p].label)} · until ${esc(proj.until.slice(11, 16))} — stop</button>`
+        : `<button class="btn small proj-go" data-p="${p}">${esc(PROJECT_BTN[p].label)}</button>`) : ""}
     </div>`;
   };
 
@@ -354,6 +362,18 @@ async function vToday() {
     <div class="glass stat"><div class="n">${(ov.pipeline || []).reduce((a, r) => a + r.n, 0)}</div><div class="l">live jobs on the record</div></div>
   </div>`;
   wire();
+  $$(".proj-go").forEach((b) => b.onclick = async (e) => {
+    e.stopPropagation();
+    const p = b.dataset.p, cfg = PROJECT_BTN[p];
+    await post("/project", { persona: p, kind: cfg.kind, label: cfg.label, minutes: 60 });
+    toast(`${cfg.label} — ${p} will keep at it for an hour`);
+    vToday();
+  });
+  $$(".proj-stop").forEach((b) => b.onclick = async (e) => {
+    e.stopPropagation();
+    await post("/project", { persona: b.dataset.p, minutes: 0 });
+    toast("Stopped"); vToday();
+  });
   wireNeeds(decisions, vToday);
   refreshBadges(ov, decisions);
 }
@@ -410,8 +430,9 @@ function needsSection(d, extra = "") {
   const them = open.filter((x) => x.source === "supplier");
   const n = open.length;
   if (!n && !extra) return "";
-  return `<h2>Needs you <span class="count">${n}</span></h2>
-    ${extra}${needTiles(open, "desk")}`;
+  // No heading here - needTiles writes its own, and two "NEEDS YOU" stacked on
+  // top of each other is what the desk page was showing.
+  return `${extra}${needTiles(open, "desk")}`;
 }
 
 async function vDesk(p) {

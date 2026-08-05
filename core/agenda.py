@@ -75,6 +75,79 @@ def due_now(state, now=None):
     return None if state.get("last") == stamp else stamp
 
 
+PROJECTS = {
+    "pricing": ("Work on the pricing engine", """PROJECT WORK - keep at this until it is measurably better.
+
+The goal, in Zac's words: get your pricing as close to 1:1 with what Fenster
+actually sends out. Not a benchmark, not a guess - the real quotes.
+
+1. MEASURE FIRST so you can tell whether anything you do helps.
+   `python scripts\\mary_backtest.py --loo` gives mean absolute error, median
+   and bias, leave-one-job-out. Write the numbers down before you touch
+   anything, then again after.
+2. GROW THE CORPUS. You found 79 trustworthy sent quotes but only 30 reach the
+   backtest. Work out why the other 49 are dropped and fix the reader if that
+   is what it takes - you own this repo, so change the code, test it, commit it.
+3. GO AFTER THE OUTLIERS. Take the worst-scoring jobs one at a time, find the
+   real quote in the mail (`python core\\mail.py --search "<job>"`) and work out
+   WHY the engine disagreed. A single wrong rule usually explains several.
+4. RECORD IT. `python core\\rates.py --score <lead> --mine <x> --actual <y>` for
+   anything you verify against a real figure.
+
+Close out with the before-and-after numbers in your finish message. If you run
+low on calls, stop, save what you learned, and say what you would do next -
+this project comes back to you until the clock runs out."""),
+
+    "leads": ("Find leads", """PROJECT WORK - go and find business. This is the half
+of your job that never arrives as an email.
+
+1. WHAT WE CAN ACTUALLY WIN. Check the record before chasing anything:
+   decided outcomes say the win rate is 38% under GBP 10k and 0% over GBP 50k
+   on the recent funnel. A big shiny tender we will not win is worth less than
+   a small one we will.
+2. SOURCE. Work `data/jacob/` - the Opportunity Log, the recovered contact
+   book, public award and tender notices. Filter tender notices on CPV codes,
+   never on the word "window": keyword matching has returned window CLEANING
+   and a metaphor about a maternity door before now.
+3. QUALIFY EACH ONE against what we do: commercial glazing, the postcode areas
+   in our own PQQ, a value band we win in. Say why it is winnable, or drop it
+   and say why not.
+4. LOG WHAT SURVIVES as a company and a lead on the record, with a position
+   saying who they are and who answers. Set a next_action_date on every one -
+   a lead with no next date disappears.
+5. WARM BEFORE COLD. Companies who have paid us before are the best source we
+   have, and 150 of 170 have no position written. Start there.
+
+Never approach anyone we are mid-tender with - check the record first. You
+write no emails; anything that needs sending becomes a need with the detail."""),
+}
+
+
+def projects(state):
+    """Standing projects with a clock: hand one back whenever the desk is idle."""
+    started = []
+    try:
+        live = record.call("/api/projects") or {}
+    except Exception:
+        return started
+    for persona, p in live.items():
+        try:
+            if record.tasks(persona, "open") or record.tasks(persona, "working"):
+                continue                      # busy; the project waits
+        except Exception:
+            continue
+        label, brief = PROJECTS.get(p.get("kind"), (p.get("label", "Project"), ""))
+        if not brief:
+            continue
+        try:
+            record.task_create(assignee=persona, title=label, body=brief,
+                               kind="project", priority=6, created_by="project")
+            started.append("%s: %s" % (persona, label))
+        except Exception:
+            pass
+    return started
+
+
 def run(state):
     """Give a standing brief to any desk with nothing to do. Returns a list of
     the personas briefed."""
