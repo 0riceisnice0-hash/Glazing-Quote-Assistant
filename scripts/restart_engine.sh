@@ -11,6 +11,18 @@
 set -u
 cd "$(dirname "$0")/.." || exit 1
 PAUSE=data/PAUSED
+LOCK=data/RESTARTING
+
+# ONE RESTART AT A TIME. Two of these ran concurrently on 05/08 and each
+# started its own engine, so the machine ended up with two dispatchers both
+# claiming work and both spending. The lock is checked and taken atomically -
+# mkdir either succeeds or it does not.
+if ! mkdir "$LOCK" 2>/dev/null; then
+  echo "[$(date +%H:%M:%S)] another restart is already running - doing nothing"
+  exit 0
+fi
+cleanup() { rmdir "$LOCK" 2>/dev/null || true; }
+trap cleanup EXIT
 DEADLINE=$(( $(date +%s) + 3000 ))
 
 alive() {
