@@ -32,6 +32,7 @@ import trace
 NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 LOCK = os.path.join(config.DATA, "glasshouse-session.lock")
 _quiet = [-1]   # so "holding N until morning" is logged on change, not every poll
+_running = {}   # persona -> the thread running its session, if any
 
 
 def log(msg):
@@ -103,6 +104,18 @@ def build_prompt(persona, entity, tasks):
                          + "\n".join("  " + a for a in p["attachments"]))
     lines.append(budget.cost_note(persona))
     lines.append("""
+===== YOU ARE NOT ALONE IN HERE =====
+The other two desks may be working at this same moment, in this same folder.
+  - Commit ONLY the files you touched. Never `git add -A`, never `git add .`.
+    If git says the index is locked, wait a few seconds and try once more -
+    that is another desk committing, not an error.
+  - Someone else may be writing to the same job. The record takes partial
+    updates, so send only the fields you actually changed; sending a whole
+    object back blanks what they just wrote.
+  - Do not wait for them and do not message them about ordinary work. Handover
+    is structural: an issued quote becomes Jacob's chase on its own.""")
+
+    lines.append("""
 ===== YOUR BUDGET THIS SESSION =====
 You have **%d tool calls**, and the session is killed the moment you reach it.
 A session killed before it calls finish loses EVERYTHING it did - the first
@@ -160,8 +173,7 @@ def run_group(persona, entity, tasks, dry_run=False):
             % (persona, entity or "(desk)", len(tasks), model, len(prompt)))
         return True
     session_id = str(uuid.uuid4())
-    for t in tasks:
-        record.call("/api/task/claim", {"id": t["id"]})
+    # (tasks are claimed by pass_once before this thread starts)
     record.status(persona, "working", "%d task(s) on %s" % (len(tasks), entity or "the desk"))
     log("%s -> %s: %d task(s), %s" % (persona, entity or "(desk)", len(tasks), model))
 
@@ -259,14 +271,36 @@ def pass_once(dry_run=False):
             return 0
         log("outside hours, but %d task(s) came from a person - working those"
             % len(tasks))
+    # THREE DESKS, THREE PEOPLE, ALL WORKING AT ONCE. One session per persona
+    # at a time - a person does one job at a time - but Mary pricing a tender
+    # must never have to wait for Joseph to finish chasing a delivery. They
+    # were sequential and the wall clock was the sum of all three.
     ran = 0
     for (persona, entity), group in group_tasks(tasks):
         if not ready(group):
             continue
-        run_group(persona, entity, group, dry_run)
-        ran += 1
+        busy = _running.get(persona)
+        if busy and busy.is_alive():
+            continue                      # this desk already has a session
         if dry_run:
+            run_group(persona, entity, group, dry_run)
+            ran += 1
             continue
+        # Claim BEFORE the thread starts. Claiming inside it leaves a window
+        # where the next pass, 15 seconds later, sees the same tasks as open
+        # and hands them out twice.
+        for t in group:
+            record.call("/api/task/claim", {"id": t["id"]})
+        th = threading.Thread(target=run_group, args=(persona, entity, group),
+                              daemon=True)
+        _running[persona] = th
+        th.start()
+        ran += 1
+        # Re-check between launches: three sessions starting at once against a
+        # nearly-spent budget is exactly how a breaker gets overshot.
+        if budget.day_breaker_tripped():
+            log("DAY BREAKER tripped mid-pass - launching nothing further today")
+            break
     return ran
 
 
