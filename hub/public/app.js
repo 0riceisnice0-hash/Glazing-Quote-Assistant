@@ -153,31 +153,121 @@ const wire = (root = document) => {
   });
 };
 
-/* A NEED is the one thing a human must act on. It says who holds the answer,
-   because "do I decide this, or do I go and ask someone" is the first
-   question the reader has. */
-function decisionCard(d) {
-  return `<div class="glass item decision" data-id="${d.id}">
-    <div class="q">${esc(d.question)}</div>
-    ${d.context ? `<div class="ctx prose">${md(d.context)}</div>` : ""}
-    <div class="who">${esc(d.raised_by)} asked · ${rel(d.ts)}${d.entity_key ? " · " + esc(d.entity_key) : ""}
-      · <span class="pill ${d.source === "supplier" ? "amber" : "blue"}">${
-        d.source === "supplier" ? "ask the supplier" : "we know this"}</span></div>
-    <div class="acts"><input type="text" placeholder="Your answer — it goes straight into ${esc(d.raised_by)}'s queue">
-      <button class="btn small">Answer</button></div>
+/* A NEED is the one thing a human must act on.
+
+   Two buttons, then a list, then the detail. It used to render every question
+   AND its full context inline - twenty-four of those is a wall nobody reads,
+   which is the opposite of the point. Now the counts are on a button, the
+   button opens one-line rows, and a row opens the whole thing in the drawer
+   where there is room for it. */
+let NEEDS = [];          // whatever the current page loaded
+let needOpen = null;     // "fenster" | "supplier" | null
+
+function needTiles(list, where) {
+  const us = list.filter((d) => d.source !== "supplier");
+  const them = list.filter((d) => d.source === "supplier");
+  if (!list.length) return "";
+  const tile = (kind, n, title, sub) => `
+    <button class="glass need-tile ${needOpen === kind ? "open" : ""} ${kind}"
+            data-need="${kind}" ${n ? "" : "disabled"}>
+      <span class="n">${n}</span>
+      <span class="t">${title}</span>
+      <span class="s">${sub}</span>
+      <span class="chev">${needOpen === kind ? "▾" : "›"}</span>
+    </button>`;
+  return `
+  <h2>Needs you <span class="count">${list.length}</span></h2>
+  <div class="grid cols-2 need-tiles">
+    ${tile("fenster", us.length, "We hold the answer",
+           "a price, a date, what an instruction meant")}
+    ${tile("supplier", them.length, "Somebody outside holds it",
+           "a lead time, a delivery, a spec")}
+  </div>
+  <div class="glass need-list" id="need-list" ${needOpen ? "" : "hidden"}></div>`;
+}
+
+function needRow(d) {
+  return `<div class="row click" data-open-need="${d.id}">
+    <span class="t">${esc(d.question)}</span>
+    <span class="m">${esc(d.entity_key || "-")}</span>
+    <span class="m">${esc(d.raised_by)}</span>
+    <span class="m">${rel(d.ts)}</span>
   </div>`;
 }
-function wireActions(reload) {
-  $$(".decision").forEach((el) => {
-    const send = async () => {
-      const v = $("input", el).value.trim();
-      if (!v) return;
-      await post("/decision/answer", { id: +el.dataset.id, answer: v, by: whoAmI() });
-      toast("Answered — it is in their queue"); reload();
-    };
-    $(".btn", el).onclick = send;
-    $("input", el).onkeydown = (e) => e.key === "Enter" && send();
+
+function paintNeedList() {
+  const box = $("#need-list");
+  if (!box) return;
+  box.hidden = !needOpen;
+  if (!needOpen) return;
+  const rows = NEEDS.filter((d) => (needOpen === "supplier")
+    ? d.source === "supplier" : d.source !== "supplier");
+  box.innerHTML = rows.map(needRow).join("") || `<div class="empty">Nothing here.</div>`;
+  $$("[data-open-need]", box).forEach((r) =>
+    r.onclick = () => openNeed(+r.dataset.openNeed));
+}
+
+function wireNeeds(list, reload) {
+  NEEDS = list;
+  needReload = reload;
+  $$("[data-need]").forEach((b) => b.onclick = () => {
+    needOpen = needOpen === b.dataset.need ? null : b.dataset.need;
+    $$("[data-need]").forEach((x) => {
+      x.classList.toggle("open", x.dataset.need === needOpen);
+      $(".chev", x).textContent = x.dataset.need === needOpen ? "▾" : "›";
+    });
+    paintNeedList();
   });
+  paintNeedList();
+}
+
+let needReload = () => {};
+
+/* The whole thing, with room to read it. */
+function openNeed(id) {
+  const d = NEEDS.find((x) => x.id === id);
+  if (!d) return;
+  const supplier = d.source === "supplier";
+  openDrawer(`
+    <h1>${esc(d.question)}</h1>
+    <div class="sub">
+      <span class="pill ${supplier ? "amber" : "blue"}">${supplier ? "ask the supplier" : "we hold the answer"}</span>
+      · raised by ${esc(d.raised_by)} ${rel(d.ts)}
+      ${d.entity_key ? `· <a href="#" id="need-job">${esc(d.entity_key)}</a>` : ""}
+    </div>
+    ${d.context ? `<h2>The detail</h2><div class="position prose">${md(d.context)}</div>` : ""}
+    <h2>${supplier ? "What you found out" : "Your answer"}</h2>
+    <div class="sub" style="margin-bottom:8px">${supplier
+      ? "Somebody has to ask them. Put what they said here and it goes back to "
+        + esc(d.raised_by) + " as a task."
+      : "It goes straight into " + esc(d.raised_by) + "'s queue as a task."}</div>
+    <textarea id="need-answer" rows="4" placeholder="${supplier
+      ? "e.g. AFS confirmed 3 weeks from Rev C sign-off"
+      : "e.g. reissue it, and tell Stepnell why"}"></textarea>
+    <div style="display:flex;gap:8px;margin-top:10px">
+      <button class="btn" id="need-send">Answer</button>
+      <button class="btn ghost" id="need-cancel">Close</button>
+    </div>`);
+  const job = $("#need-job");
+  if (job) job.onclick = (e) => {
+    e.preventDefault();
+    (d.entity_type === "contract" ? openContract : d.entity_type === "company"
+      ? openCompany : openLead)(d.entity_key);
+  };
+  $("#need-cancel").onclick = () => ($("#drawer").hidden = true);
+  const send = async () => {
+    const v = $("#need-answer").value.trim();
+    if (!v) return;
+    await post("/decision/answer", { id: d.id, answer: v, by: whoAmI() });
+    toast("Answered - it is in their queue");
+    $("#drawer").hidden = true;
+    needReload();
+  };
+  $("#need-send").onclick = send;
+  $("#need-answer").onkeydown = (e) => {
+    if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) send();
+  };
+  $("#need-answer").focus();
 }
 
 /* ---------------------------------------------------------------- routing */
@@ -243,13 +333,7 @@ async function vToday() {
 
   <div class="grid cols-3" style="align-items:start">${Object.keys(PEOPLE).map(deskCard).join("")}</div>
 
-  ${fromUs.length ? `<h2>We hold the answer <span class="count">${fromUs.length}</span>
-      <span class="hint">a price, a date, what an instruction meant</span></h2>
-    <div class="grid">${fromUs.map(decisionCard).join("")}</div>` : ""}
-
-  ${fromThem.length ? `<h2>Somebody outside holds the answer <span class="count">${fromThem.length}</span>
-      <span class="hint">a lead time, a delivery, a spec - somebody has to ask them</span></h2>
-    <div class="grid">${fromThem.map(decisionCard).join("")}</div>` : ""}
+  ${needTiles(decisions, "today")}
 
   <h2>Messages <span class="hint">click to open the conversation</span></h2>
   <div class="glass">${msgs.map((m) => `
@@ -269,7 +353,8 @@ async function vToday() {
     <div class="glass stat"><div class="n">${fmtTok(cost.c || 0)}</div><div class="l">context today · ${cost.n || 0} sessions</div></div>
     <div class="glass stat"><div class="n">${(ov.pipeline || []).reduce((a, r) => a + r.n, 0)}</div><div class="l">live jobs on the record</div></div>
   </div>`;
-  wire(); wireActions(vToday);
+  wire();
+  wireNeeds(decisions, vToday);
   refreshBadges(ov, decisions);
 }
 
@@ -326,11 +411,7 @@ function needsSection(d, extra = "") {
   const n = open.length;
   if (!n && !extra) return "";
   return `<h2>Needs you <span class="count">${n}</span></h2>
-    ${extra}
-    ${us.length ? `<div class="sub">We hold these answers</div>
-      <div class="grid">${us.map(decisionCard).join("")}</div>` : ""}
-    ${them.length ? `<div class="sub" style="margin-top:12px">Somebody outside holds these</div>
-      <div class="grid">${them.map(decisionCard).join("")}</div>` : ""}`;
+    ${extra}${needTiles(open, "desk")}`;
 }
 
 async function vDesk(p) {
@@ -344,7 +425,7 @@ async function vDesk(p) {
     ${queueSection(d)}
     ${latelySection(d)}`;
   wire();
-  wireActions(() => vDesk(p));
+  wireNeeds((d.decisions || []).filter((x) => x.status === "open"), () => vDesk(p));
   if (p === "jacob") wireCompanies(d);
 }
 
