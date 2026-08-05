@@ -520,11 +520,20 @@ async function handle(request, env, path, url) {
       // filed somewhere the asker does not look is not an answer.
       let payload = {};
       try { payload = JSON.parse(t.payload_json || "{}"); } catch { payload = {}; }
-      if (payload.message_id && body.result) {
+      // WORK A HUMAN ASKED FOR GETS REPORTED WHERE THEY ASKED. A reply to a hub
+      // message, obviously - but also a PROJECT or standing-agenda task, which
+      // nobody asked for in a thread yet somebody pressed a button for and will
+      // want the findings from. Routine mail tasks are excluded on purpose:
+      // reporting every one would bury the few that matter.
+      const REPORTED = ["hub", "project", "agenda"];
+      if (body.result && (payload.message_id || REPORTED.includes(t.kind))) {
+        const prefix = t.kind === "project" ? `[${t.title}] `
+          : t.kind === "agenda" ? "[standing work] " : "";
         await db.prepare(
           `INSERT INTO message (author, persona, body, reply_to) VALUES (?,?,?,?)`
-        ).bind(t.assignee, t.assignee, String(body.result).slice(0, 8000),
-          payload.message_id).run();
+        ).bind(t.assignee, t.assignee,
+          (prefix + String(body.result)).slice(0, 8000),
+          payload.message_id ?? null).run();
       }
     }
     return J({ ok: true });
