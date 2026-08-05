@@ -14,6 +14,7 @@ session does not know it.
 import argparse
 import json
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -21,20 +22,43 @@ import urllib.request
 import config
 
 
+RETRIES = 4
+BACKOFF = (1, 3, 8)     # seconds between attempts
+
+
 def call(path, payload=None, timeout=30):
+    """One request to the record, and it does not give up on the first blip.
+
+    The record is the ONLY memory - a write that fails is work that never
+    happened. On 05/08 the machine's DNS dropped for 45 seconds mid-morning;
+    the dispatch loop shrugged and retried, but a bot calling finish in that
+    window would have lost everything it had just worked out.
+
+    Network faults and 5xx are retried with backoff. A 4xx is not: the request
+    itself is wrong and sending it again just wastes time.
+    """
     base, key = config.hub()
-    req = urllib.request.Request(
-        base + path, method="POST" if payload is not None else "GET",
-        data=json.dumps(payload).encode("utf-8") if payload is not None else None)
-    req.add_header("x-glasshouse-key", key)
-    req.add_header("content-type", "application/json")
-    req.add_header("user-agent", "Glasshouse/1.0")  # CF bot protection 403s without one
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read().decode("utf-8") or "null")
-    except urllib.error.HTTPError as e:
-        raise RuntimeError("record %s -> HTTP %s %s"
-                           % (path, e.code, e.read().decode("utf-8", "replace")[:300]))
+    last = None
+    for attempt in range(RETRIES):
+        req = urllib.request.Request(
+            base + path, method="POST" if payload is not None else "GET",
+            data=json.dumps(payload).encode("utf-8") if payload is not None else None)
+        req.add_header("x-glasshouse-key", key)
+        req.add_header("content-type", "application/json")
+        req.add_header("user-agent", "Glasshouse/1.0")  # CF 403s a request with no UA
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode("utf-8") or "null")
+        except urllib.error.HTTPError as e:
+            body = e.read().decode("utf-8", "replace")[:300]
+            if e.code < 500:
+                raise RuntimeError("record %s -> HTTP %s %s" % (path, e.code, body))
+            last = RuntimeError("record %s -> HTTP %s %s" % (path, e.code, body))
+        except Exception as e:                     # URLError, DNS, timeout, reset
+            last = RuntimeError("record %s -> %s" % (path, str(e)[:200]))
+        if attempt < RETRIES - 1:
+            time.sleep(BACKOFF[min(attempt, len(BACKOFF) - 1)])
+    raise last
 
 
 # ---------------------------------------------------------------- writes
