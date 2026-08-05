@@ -1,6 +1,6 @@
 {
  "note": "Empirical GBP/m2 from the Frames column of quotes Fenster actually sent - what we really charge, not a median of supplier quotes. supplier_factors are derived, and supersede the hand-written constants in mary_pricing.CALIBRATION.",
- "source_docs": 67,
+ "source_docs": 69,
  "rates": {
   "DAD|2-5m2": {
    "median_per_m2": 678.99,

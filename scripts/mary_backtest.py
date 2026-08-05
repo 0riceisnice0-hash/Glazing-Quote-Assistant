@@ -235,8 +235,26 @@ def _client_facing_code(heading, desc, area, width_mm):
     written per item, not per section."""
     hay_head = heading.lower()
     hay_desc = desc.lower()
-    if any(k in hay_head or k in hay_desc
-           for k in ("curtain wall", "cw0", "secondary glazing", "steel")):
+    # A row ref of 'D1, D4' or 'D5, D6, D7, D8' under a 'Smart Aluminium
+    # Curtain Walling & Doors' heading is a DOOR, not curtain walling - the
+    # heading names the whole section, same trap as the window/door mixing
+    # above. Georgie's rows 19-20 were swept into is_cw by the heading text
+    # alone and priced at area x CW_SUPPLY_M2, -22% and -44% out. A ref that
+    # starts with a bare 'D' + digit and carries no CW/CWT prefix of its own
+    # is a door regardless of what the heading above it says.
+    # This escape is CURTAIN WALL ONLY. 'secondary glazing' and 'steel' stay
+    # an absolute bail with no ref exception: CB Refrigeration and Zelltec's
+    # 'Strongdor Steel Doors' rows are refs D05/D08/D09/D16 and Type F/G -
+    # the same shape as a genuine aluminium door ref - and steel is priced
+    # 1.7x apart from the SAD/DAD aluminium rate this would otherwise use
+    # (see parse_doc's CODE_VALUE note). Recovering those as SAD/DAD is not a
+    # win, it is the exact ambiguity the code comment above already flags as
+    # unsolved.
+    ref_is_door = bool(re.match(r"^\s*d\d", desc, re.I)) and not _CW_REF_RE.match(desc)
+    if any(k in hay_head or k in hay_desc for k in ("secondary glazing", "steel")):
+        return None
+    if not ref_is_door and any(k in hay_head or k in hay_desc
+           for k in ("curtain wall", "cw0")):
         return None
     upvc = "upvc" in hay_head or "upvc" in hay_desc or " pvc" in hay_desc
     is_window = "window" in hay_desc
@@ -330,7 +348,10 @@ def _parse_client_facing(rows):
         # check that only excluded it left a 17.69 m2 unit being coded as an
         # ordinary LAW window - the single biggest line in the document, priced
         # off a bucket that has never seen anything a tenth of that size.
-        is_cw = bool(_CW_REF_RE.match(descs)) or "curtain wall" in heading.lower()
+        # Same door-ref escape as _client_facing_code - the heading names the
+        # section ('Curtain Walling & Doors'), not every row in it.
+        ref_is_door = bool(re.match(r"^\s*d\d", descs, re.I)) and not _CW_REF_RE.match(descs)
+        is_cw = bool(_CW_REF_RE.match(descs)) or ("curtain wall" in heading.lower() and not ref_is_door)
         code = "" if is_cw else _client_facing_code(heading, descs, area, w)
         if not is_cw and not code:
             continue
