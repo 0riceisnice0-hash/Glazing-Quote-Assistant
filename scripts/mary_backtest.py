@@ -39,6 +39,7 @@ LEARNED = os.path.join(REPO, "data", "learned-rates.json")
 TENDERS = cal.TENDERS
 
 SIZE_RE = re.compile(r"(\d{3,5})\s*[xX*]\s*(\d{3,5})")
+_CW_REF_RE = re.compile(r"^\s*cwt?[\s\-]?[a-z0-9]", re.I)
 
 
 def parse_doc(path):
@@ -314,8 +315,17 @@ def _parse_client_facing(rows):
             unit_rate = total / qty          # some copies show only the line total
         if not unit_rate:
             continue
-        code = _client_facing_code(heading, descs, area, w)
-        if not code:
+        # A ref of 'CWT-A' or 'CW01' is curtain walling priced by area, same as
+        # the master format - CB Refrigeration's CWT-A reproduces area x GBP850
+        # to the penny (15,036.50 at 17.69 m2). Missing this dropped the row
+        # entirely before (_client_facing_code's own 'curtain wall'/'cw0' text
+        # filter never matches an abbreviated ref), and worse, a version of this
+        # check that only excluded it left a 17.69 m2 unit being coded as an
+        # ordinary LAW window - the single biggest line in the document, priced
+        # off a bucket that has never seen anything a tenth of that size.
+        is_cw = bool(_CW_REF_RE.match(descs)) or "curtain wall" in heading.lower()
+        code = "" if is_cw else _client_facing_code(heading, descs, area, w)
+        if not is_cw and not code:
             continue
         lines.append({
             "code": code, "ref": descs[:24], "heading": heading,
@@ -325,7 +335,7 @@ def _parse_client_facing(rows):
             # supply_money() refuses them and no buy rate is ever mined from a
             # sell price.
             "frames": None, "glass": None, "additional": None,
-            "area": area, "cw": False,
+            "area": area, "cw": is_cw,
         })
     return lines
 
