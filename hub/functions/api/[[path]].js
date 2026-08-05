@@ -648,7 +648,11 @@ async function handle(request, env, path, url) {
   // A PROJECT: standing work with a clock on it. "Go and do this until 12:30."
   // One session rarely finishes something like tuning a pricing engine, so
   // while the project is live and the desk is empty the agenda hands it back.
-  if (method === "POST" && seg[0] === "project") {
+  // `!seg[1]` is load-bearing: without it this route also swallowed
+  // /api/project/handed, which then RE-CREATED the project with default
+  // arguments - wiping its label and kind, so the desk silently stopped being
+  // given any project work at all.
+  if (method === "POST" && seg[0] === "project" && !seg[1]) {
     needTeam();
     const mins = Number(body.minutes ?? 60);
     if (!mins) {                                   // 0 = stop it
@@ -668,6 +672,22 @@ async function handle(request, env, path, url) {
     await addEvent(db, { author: meName || "team", kind: "project",
       body: `${body.persona}: "${body.label}" until ${until.slice(11, 16)}` });
     return J({ ok: true, until });
+  }
+  // Handing a project back is recorded ON THE PROJECT, not in the engine's
+  // memory. It was in memory, and every restart wiped it - so the cooldown
+  // reset six times in one morning and Jacob was sent back over his own work
+  // 18 minutes after finishing it.
+  if (method === "POST" && seg[0] === "project" && seg[1] === "handed") {
+    needBot();
+    const key = "project:" + body.persona;
+    const row = await db.prepare("SELECT value FROM setting WHERE key = ?")
+      .bind(key).first();
+    if (!row) return J({ ok: true, gone: true });
+    const v = JSON.parse(row.value || "{}");
+    v.last_handed = new Date().toISOString();
+    await db.prepare("UPDATE setting SET value = ? WHERE key = ?")
+      .bind(JSON.stringify(v), key).run();
+    return J({ ok: true, last_handed: v.last_handed });
   }
   if (method === "GET" && seg[0] === "projects") {
     const rows = await db.prepare(

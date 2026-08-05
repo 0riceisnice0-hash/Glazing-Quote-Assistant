@@ -174,23 +174,35 @@ def projects(state):
         live = record.call("/api/projects") or {}
     except Exception:
         return started
-    last = state.setdefault("project_last", {})
-    now = time.time()
+    now = dt.datetime.now(dt.timezone.utc)
     for persona, p in live.items():
-        if now - last.get(persona, 0) < PROJECT_COOLDOWN:
-            continue
+        # The clock lives ON THE PROJECT, in the record - not in this process.
+        # In memory it reset on every engine restart, and there were six of
+        # those in one morning.
+        lh = p.get("last_handed")
+        if lh:
+            try:
+                since = (now - dt.datetime.fromisoformat(
+                    lh.replace("Z", "+00:00"))).total_seconds()
+                if since < PROJECT_COOLDOWN:
+                    continue
+            except ValueError:
+                pass
         try:
             if record.tasks(persona, "open") or record.tasks(persona, "working"):
                 continue                      # busy; the project waits
         except Exception:
             continue
-        last[persona] = now
         label, brief = PROJECTS.get(p.get("kind"), (p.get("label", "Project"), ""))
         if not brief:
             continue
         try:
             record.task_create(assignee=persona, title=label, body=brief,
                                kind="project", priority=6, created_by="project")
+            # Stamp it on the project immediately, so the cooldown survives a
+            # restart - and so a second engine, if one ever races us again,
+            # sees the handover has already happened.
+            record.call("/api/project/handed", {"persona": persona})
             started.append("%s: %s" % (persona, label))
         except Exception:
             pass
