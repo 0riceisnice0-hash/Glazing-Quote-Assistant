@@ -100,6 +100,27 @@ def list_messages(tok, mailbox, top=25, whole_mailbox=False):
     return res.get("value", [])
 
 
+def search_messages(tok, mailbox, query, top=25):
+    """Search a whole mailbox, every folder, sent items included.
+
+    There was no search at all until 05/08 - only "the newest 25" - so a bot
+    that needed a supplier's quote from March had to write its own scraper
+    first. Mary did exactly that and pulled 1,200 messages to find some tender
+    deadlines. This is that job, done once, for everyone.
+
+    Graph refuses $orderby alongside $search, so results come back by
+    relevance rather than date; sort them yourself if order matters.
+    """
+    q = urllib.parse.quote('"%s"' % query.replace('"', ""))
+    st, res = call(tok, "GET",
+                   "/users/%s/messages?$search=%s&$top=%d"
+                   "&$select=id,internetMessageId,subject,from,toRecipients,"
+                   "receivedDateTime,hasAttachments,bodyPreview" % (mailbox, q, top))
+    if st != 200:
+        raise RuntimeError("search %s: %s %s" % (mailbox, st, res))
+    return res.get("value", [])
+
+
 def get_body(tok, mailbox, msg_id):
     st, res = call(tok, "GET", "/users/%s/messages/%s?$select=subject,from,toRecipients,"
                    "ccRecipients,receivedDateTime,body,hasAttachments"

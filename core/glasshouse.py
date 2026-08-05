@@ -17,6 +17,8 @@ import threading
 import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import agenda
+import budget
 import config
 import dispatch
 import intake
@@ -24,12 +26,25 @@ import record
 
 
 def intake_loop(stop):
-    """The door. Cheap, and on its own thread so it cannot block the desks."""
+    """The door. Cheap, and on its own thread so it cannot block the desks.
+
+    It also carries the standing agenda, which is cheap for the same reason:
+    it only ever looks at whether a queue is empty.
+    """
+    agenda_state = {}
     while not stop.is_set():
         try:
             intake.run_once()
         except Exception as e:
             dispatch.log("INTAKE FAILED: %s" % str(e)[:200])
+        try:
+            if not budget.off_hours():
+                briefed = agenda.run(agenda_state)
+                if briefed:
+                    dispatch.log("standing work given to %s (their queue was empty)"
+                                 % ", ".join(briefed))
+        except Exception as e:
+            dispatch.log("AGENDA FAILED: %s" % str(e)[:200])
         stop.wait(config.INTAKE_EVERY)
 
 

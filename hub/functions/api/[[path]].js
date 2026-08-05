@@ -451,15 +451,35 @@ async function handle(request, env, path, url) {
   // ------------------------------------------------ tasks (the work queue)
   if (method === "POST" && seg[0] === "task" && !seg[1]) {
     needBot();
+    let assignee = body.assignee;
+    // THE RECORD DECIDES WHO OWNS A JOB, not the classifier's guess about the
+    // email. Adam's rule: quoting is Mary and Jacob, WON is Joseph. On 05/08
+    // Joseph was handed Market House - a lead still out for pricing - and
+    // spent a session drafting supplier enquiries that were Mary's to write.
+    if (body.entity_type === "lead" && body.entity_key) {
+      const l = await db.prepare("SELECT owner FROM lead WHERE key = ?")
+        .bind(body.entity_key).first();
+      if (l && l.owner && l.owner !== assignee) {
+        await addEvent(db, { author: "system", entity_type: "lead",
+          entity_key: body.entity_key, kind: "reassigned",
+          body: `task sent to ${assignee}, but this lead is ${l.owner}'s - handed over` });
+        assignee = l.owner;
+      }
+    } else if (body.entity_type === "contract" && assignee !== "joseph") {
+      await addEvent(db, { author: "system", entity_type: "contract",
+        entity_key: body.entity_key, kind: "reassigned",
+        body: `task sent to ${assignee}, but a won contract is Joseph's - handed over` });
+      assignee = "joseph";
+    }
     const r = await db.prepare(
       `INSERT INTO task (assignee, entity_type, entity_key, kind, title, body,
         payload_json, needs, priority, created_by)
        VALUES (?,?,?,?,?,?,?,?,?,?)`
-    ).bind(body.assignee, body.entity_type || "", body.entity_key || "",
+    ).bind(assignee, body.entity_type || "", body.entity_key || "",
       body.kind || "email", body.title || "(untitled)", body.body || "",
       JSON.stringify(body.payload || {}), body.needs || "",
       body.priority || 5, body.created_by || "intake").run();
-    return J({ ok: true, id: r.meta.last_row_id });
+    return J({ ok: true, id: r.meta.last_row_id, assignee });
   }
 
   // Hand back work claimed by a session that no longer exists (engine restart).

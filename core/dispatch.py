@@ -32,7 +32,9 @@ import trace
 NO_WINDOW = getattr(subprocess, "CREATE_NO_WINDOW", 0)
 LOCK = os.path.join(config.DATA, "glasshouse-session.lock")
 _quiet = [-1]   # so "holding N until morning" is logged on change, not every poll
-_running = {}   # persona -> the thread running its session, if any
+_running = {}      # persona -> the thread running its session, if any
+_entity_lock = {}  # persona -> (entity, thread) so two desks cannot share a job
+_said = {}         # entity -> who we last reported holding it, to avoid log spam
 
 
 def log(msg):
@@ -310,6 +312,18 @@ def pass_once(dry_run=False):
         busy = _running.get(persona)
         if busy and busy.is_alive():
             continue                      # this desk already has a session
+        # AND nobody else may be inside the same job. Mary and Joseph both
+        # worked Market House at once on 05/08 and produced word-for-word
+        # identical drafts to the same two suppliers, plus the same decision
+        # twice. Per-persona locking is not enough; the job needs a lock too.
+        if entity and any(e == entity and t.is_alive()
+                          for p, (e, t) in _entity_lock.items() if p != persona):
+            holder = next(p for p, (e, t) in _entity_lock.items()
+                          if e == entity and t.is_alive() and p != persona)
+            if _said.get(entity) != holder:
+                _said[entity] = holder
+                log("holding %s off %s - %s is already in it" % (persona, entity, holder))
+            continue
         if dry_run:
             run_group(persona, entity, group, dry_run)
             ran += 1
@@ -322,6 +336,8 @@ def pass_once(dry_run=False):
         th = threading.Thread(target=run_group, args=(persona, entity, group),
                               daemon=True)
         _running[persona] = th
+        if entity:
+            _entity_lock[persona] = (entity, th)
         th.start()
         ran += 1
         # Re-check between launches: three sessions starting at once against a
