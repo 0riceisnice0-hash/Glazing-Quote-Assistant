@@ -13,6 +13,7 @@ work for itself around the clock and burned a night doing it.
 """
 import datetime as dt
 import os
+import time
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -156,19 +157,34 @@ because somebody will plan a day around it."""),
 }
 
 
+PROJECT_COOLDOWN = 20 * 60   # seconds between handing the same project back
+
+
 def projects(state):
-    """Standing projects with a clock: hand one back whenever the desk is idle."""
+    """Standing projects with a clock: hand one back whenever the desk is idle.
+
+    With a COOLDOWN, because the first version handed the work back the moment
+    a session ended. Jacob got "Find leads" three times in an hour and his own
+    second report said 11 of the 12 dormant clients "already had company+lead+
+    position from an earlier session" - he was re-reading his own work at a
+    million tokens a go. A project is an hour of effort, not a treadmill.
+    """
     started = []
     try:
         live = record.call("/api/projects") or {}
     except Exception:
         return started
+    last = state.setdefault("project_last", {})
+    now = time.time()
     for persona, p in live.items():
+        if now - last.get(persona, 0) < PROJECT_COOLDOWN:
+            continue
         try:
             if record.tasks(persona, "open") or record.tasks(persona, "working"):
                 continue                      # busy; the project waits
         except Exception:
             continue
+        last[persona] = now
         label, brief = PROJECTS.get(p.get("kind"), (p.get("label", "Project"), ""))
         if not brief:
             continue
