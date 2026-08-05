@@ -54,6 +54,17 @@ def looks_sent(filename, client):
 
 
 def is_untrustworthy(filename, client=""):
+    # TRIED 05/08 chasing the ASHE-CDC outlier: blanket-excluding every "DO NOT
+    # SEND" filename on the theory that a rejected draft is not evidence of
+    # what Fenster charged. Measured leave-one-out over the full corpus before
+    # touching this function and it was NOT an improvement - it dropped the
+    # corpus from 67 documents to 44 (many jobs have no other parseable copy)
+    # and mean abs error went from 12.33% to 19.24%. A "DO NOT SEND" draft is
+    # usually close to what was actually sent (ASHE's own copy was 4% off its
+    # REV 2) and losing a third of the archive to exclude a handful of bad
+    # ones is the wrong trade. Left unfiltered on purpose - do not re-add this
+    # without re-measuring, and if you do, exclude it only where a better copy
+    # of the SAME job survives, not unconditionally.
     low = str(filename or "").lower()
     if looks_sent(filename, client):
         return ""

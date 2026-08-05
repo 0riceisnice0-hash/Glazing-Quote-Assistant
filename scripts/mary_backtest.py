@@ -298,9 +298,16 @@ def _parse_client_facing(rows):
         size_text = str(size_cell) if isinstance(size_cell, (str, int, float)) else ""
         m = SIZE_RE.search(size_text) or SIZE_RE.search(descs)
         if not m:
-            # No size and no quantity is a section heading - and the heading is
-            # where the product is named, so it has to be carried down.
-            if not isinstance(qty, (int, float)) and sum(c.isalpha() for c in descs) >= 4:
+            # No size and no money is a section heading - and the heading is
+            # where the product is named, so it has to be carried down. The qty
+            # cell is deliberately NOT tested: ASHE's 'Doors' heading carries a
+            # stray 1 in Qty (same landmine the fixed-column parser above
+            # already documents), and gating on it silently dropped the
+            # heading, which then made six entrance doors inherit 'Secondary
+            # Glazing' from the block above and read as an unpriceable product.
+            rate, total = get("rate"), get("total")
+            no_money = not isinstance(rate, (int, float)) and not isinstance(total, (int, float))
+            if no_money and sum(c.isalpha() for c in descs) >= 4:
                 heading = descs
             continue
         if not isinstance(qty, (int, float)) or qty <= 0:
