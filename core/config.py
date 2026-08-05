@@ -41,7 +41,14 @@ SESSION_KILL_TOKENS = int(os.environ.get("GLASSHOUSE_SESSION_KILL", 20_000_000))
 # number matters less than the fact that a session must close out before it
 # arrives - which is why the prompt now states the budget outright.
 SESSION_MAX_TURNS = int(os.environ.get("GLASSHOUSE_MAX_TURNS", 70))
+# Wall clock, and it is a second budget entirely separate from the turn count.
+# Mary was killed at exactly 2,700s on the pricing project having used only 62
+# of her 70 calls: she was pacing the thing she had been told about and had no
+# idea the clock existed. 6.8M tokens died with her because a killed session
+# never reaches finish. Project work gets longer, because measuring a pricing
+# engine means backtest runs that take minutes each.
 SESSION_TIMEOUT = 45 * 60
+PROJECT_TIMEOUT = 80 * 60
 
 # THE WORKING DAY, 08:00-18:00 (Zac, 04/08). Outside it the bots are off - with
 # one exception, and it is the whole point of the exception: a message on the

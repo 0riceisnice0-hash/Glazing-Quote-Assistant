@@ -83,7 +83,7 @@ def ready(tasks_in_group):
     return age >= config.BATCH_WAIT
 
 
-def build_prompt(persona, entity, tasks):
+def build_prompt(persona, entity, tasks, budget_secs=None):
     etype, ekey = (entity.split(":", 1) + [""])[:2]
     lines = [charter(persona)]
     if ekey:
@@ -121,10 +121,18 @@ The other two desks may be working at this same moment, in this same folder.
 
     lines.append("""
 ===== YOUR BUDGET THIS SESSION =====
-You have **%d tool calls**, and the session is killed the moment you reach it.
-A session killed before it calls finish loses EVERYTHING it did - the first
-live run spent 2.7 million tokens and saved not one fact, because it was still
-working when the limit arrived.
+TWO limits, and BOTH of them kill the session outright:
+  * **%d tool calls**
+  * **%d minutes of wall clock**
+
+A session killed before it calls finish loses EVERYTHING it did. Both have now
+happened for real: one run hit the call limit and lost 2.7M tokens, and one hit
+the CLOCK at 62 of 70 calls and lost 6.8M - that one was pacing its calls
+carefully and did not know the clock existed.
+
+Watch the clock, not just the calls. A backtest, a full mailbox search or a
+big spreadsheet read is MINUTES each, so a dozen of those is the whole session
+however few calls it looks like.
 
 So: do an amount of work that fits, and CLOSE OUT WITH CALLS TO SPARE. If the
 job is bigger than the budget, do the most valuable slice, write what you
@@ -134,7 +142,8 @@ being cut off mid-flight.
 
 ===== HOW TO FINISH =====
 Work the tasks, then close out with ONE call - this is the only ritual:"""
-        % config.SESSION_MAX_TURNS)
+        % (config.SESSION_MAX_TURNS,
+           int((budget_secs or config.SESSION_TIMEOUT) / 60)))
     lines.append("""
 
   python core\\finish.py --persona %s --results r.json
@@ -171,7 +180,10 @@ def watch(proc, session_id, started_utc, stop):
 def run_group(persona, entity, tasks, dry_run=False):
     model = (config.MODEL_PRICING if any(t.get("needs") == "pricing" for t in tasks)
              else config.MODEL_DEFAULT)
-    prompt = build_prompt(persona, entity, tasks)
+    # Project work runs longer: a pricing backtest is minutes per run.
+    budget_secs = (config.PROJECT_TIMEOUT if any(t.get("kind") == "project" for t in tasks)
+                   else config.SESSION_TIMEOUT)
+    prompt = build_prompt(persona, entity, tasks, budget_secs)
     if dry_run:
         log("DRY RUN %s %s: %d task(s), model %s, prompt %d chars"
             % (persona, entity or "(desk)", len(tasks), model, len(prompt)))
@@ -202,8 +214,7 @@ def run_group(persona, entity, tasks, dry_run=False):
         threading.Thread(target=trace.follow,
                          args=(session_id, persona, entity, stop), daemon=True).start()
         try:
-            stdout, stderr = proc.communicate(input=prompt,
-                                              timeout=config.SESSION_TIMEOUT)
+            stdout, stderr = proc.communicate(input=prompt, timeout=budget_secs)
         except subprocess.TimeoutExpired:
             proc.kill()
             stdout, stderr = proc.communicate()
